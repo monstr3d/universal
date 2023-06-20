@@ -686,7 +686,7 @@ In the Chapter \ref{stab_chap} it is proven that some properties of noncommutati
 %\paragraph*{}
 %In the Chapter \ref{stab_chap} we prove that if *-homomorphism $A \hookto \widetilde{A}$ of $C^*$-algebras is a "noncommutative covering" then both natural *-homomorphisms  $A \otimes \mathbb{M}_n\left(\C \right)  \hookto \widetilde{A} \otimes \mathbb{M}_n\left(\C \right)$ and $A \otimes \K\left(\ell^2\left( \N \right)\right)  \hookto \widetilde{A}\otimes \K\left(\ell^2\left( \N \right)\right)$ are "noncommutative coverings".
 
-\paragraph*{} The Chapter \ref{hurewicz_chap} is devoted to the generalization of the Hurewicz homomorphism from the fundamental group to $K$-homology.
+\paragraph*{} The Chapter \ref{h_chap} is devoted to the generalization of the Hurewicz homomorphism from the fundamental group to $K$-homology.
 
 \paragraph*{} The Chapter \ref{ctr_chap} is devoted to noncommutative coverings of $C^*$-algebras with Hausdorff spectrum. It is proven that the theory of noncommutative coverings of $C^*$-algebras with Hausdorff spectrum contains all ingredients of right row of the Table \ref{add_mapping_table}. 
 
@@ -4233,13 +4233,40 @@ $$
 Taking into account that $K\left( \overline{A}\right)$ is dense in $\overline{A}$ and $\varphi_\la\left(b_\la\right)\in \widehat A$ and  we conclude that $\phi\left(\widehat A \right) \overline A$ and $\overline A\phi\left(\widehat A \right) $ are dense in $\overline A$, similarly one can prove that  $\overline A\phi\left(\widehat A \right) $ is dense in $\overline A$.
 \end{proof}
 \begin{corollary}\label{bt_lim_a_cor}
-	In the above situation if $\varphi: A \hookto \overline{A}$ is natural inclusion then
+	In the above situation if $\varphi: A \hookto M\left( \overline{A}\right)$ is the natural inclusion and
 	$\overline{\A}= K\left( \overline{A}\right)$ then  both $\varphi\left( A \right) \overline A$ and $\overline A\varphi\left( A \right) $ are dense in $\overline A$.
 \end{corollary}
 \begin{proof}
 From the Corollary \ref{quasi_mult_cor} it follows that $\pi_\la\left( A\right)A_\la$ is dense in $A_\la$  for any $\la \in \La$. If follows that
 $A\bigcup_{\la\in \La} A_\la$ is dense in $\bigcup_{\la\in \La} A_\la$ where the natural inclusion $A \subset A_\la$ is implied. Since $\bigcup_{\la\in \La} A_\la$ is dense in $\widehat{A}$ the set $\varphi\left(  A \right)  \widehat{A}$ is dense in $ \widehat{A}$. From the Corollary \ref{bt_lim_cor} it follows that  both $\varphi\left( A \right) \overline A$ is dense in $\overline A$. Similarly one can prove that   $\overline A\varphi\left( A \right) $ is dense in $\overline A$ 
 \end{proof}
+\begin{corollary}\label{bt_mult_a_cor}
+	In the situation of the Corollary \ref{bt_lim_a_cor} the natural inclusion $\varphi:\widehat A \hookto M\left( \overline{A}\right)$
+	can be naturally extended to an inclusion
+\be\label{bt_mult_a_eqn}
+M\left(\varphi\right): M\left(\widehat  A\right) \hookto M\left( \overline{A}\right).
+\ee
+\end{corollary}
+\begin{proof}
+If $\widehat a \in  M\left(\widehat  A\right)$ and  $\left\{u_\a\right\}_{\a \in \mathscr A}\in \widehat A$ be an approximate of $\widehat A$ then one should prove that a net $\left\{\varphi\left(u_\a \widehat a\right) \right\}$ and/or a net $\left\{\varphi\left( \widehat a u_\a\right) \right\}$ are/is convergent with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}). In this case we define
+$$
+M\left(\varphi \left(\widehat a\right) \right)\bydef \bt\text{-}\lim_{\a\in\mathscr A} \varphi\left( \widehat a u_\a\right)= \bt\text{-}\lim_{\a\in\mathscr A} \varphi\left( u_a\widehat a \right).
+$$
+If $\overline a \in \overline A$ and $\eps > 0$ then from the Corollary \ref{bt_lim_a_cor} it follows that there are  $\widehat a' \in \widehat A$ and $\overline{a}' \in $ such that
+$$
+\left\|  \overline a - \varphi\left(\widehat{a}'\right)\overline a' \right\| < \frac{\eps}{2}.
+$$
+On the other hand there is $\a_0 \in \overline A$ such that 
+$$
+\forall \a \in \overline A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|<\frac{\eps}{2\left\| \overline{a}' \right\|}.
+$$
+Using the triangle identity one has
+\bean
+\forall \a \in \overline A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|\left(   \varphi \left( u_\a  \widehat a\right) -\varphi\left( u_{\a_0}   \widehat a \right)\right)  \overline a \right\| < \left\|  \overline a - \varphi\left(\widehat{a}'\right)\overline a' \right\|+\\+\left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|\left\| \overline{a}' \right\|< \eps
+\eean
+i.e. a net $\left\lbrace \varphi \left( u_\a  \widehat a\right)\overline a\right\rbrace$ is $C^*$-norm convergent. Similarly one can prove that a net $\left\lbrace \overline a\varphi \left( u_\a  \widehat a\right)\right\rbrace$ $C^*$-norm convergent, so a net $\left\{\varphi\left(u_\a \widehat a\right) \right\}$ is convergent with respect to the strict topology of $M\left( \overline{A}\right)$.
+\end{proof}
+
 
  \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
  If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) then we say that   a triple
@@ -4758,7 +4785,7 @@ which is a skeleton of \eqref{oa_cat_eqn}.
 	\label{inf_cov_oa_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B \right)
 	\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} \widetilde m_\la\left( 	A_\la\right)\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
 	\eea
-	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersens_ideal_defn}) and $\widetilde m_\la$ are given by \eqref{a_toola_eqn}.
+	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersens_ideal_defn}) and $\widetilde m_\la$ is given by \eqref{inj_to_ml_eqn}.
 \end{definition}
 \begin{remark}\label{inf_cov_oa_sub_rem}
 The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
@@ -13216,95 +13243,52 @@ where $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is an {associated w
 \begin{proof}
 From the Theorem \ref{blowing_functor_ff_thm}  it follows that the  functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}). The category \ref{blowing_top_eqn} is skeletal (cf. Definition \ref{skeletal_defn}), so the category $\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)$ is also skeletal.
 \end{proof}
-
-\begin{empt}\label{blowing_rep_empt}
-
-	If $\widehat A \bydef C^*$-$\varinjlim_{\la\in \La} A_0\left(\sY_\la\right)$ is a  $C^*$-{inductive limit} in the sense of the Definition \ref{inductive_lim_non_defn} and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX$ is an inverse limit $\varprojlim \sX_\la$ (cf. Definition \ref{inv_lim_defn}) where $\sX_\la$ is a spectrum of $A_0\left(\sY_\la\right)$. 	Let both $\widehat{p}: \widehat \sX \to \sX$ and   $\widehat p_\la: \widehat \sX \to \sX_\la$ are natural surjective maps. If a noncommutative finite covering  $\left(A, \sY_\la, G\left(\left. \sY_\la\right| \sY\right), A_0\left(q_\la\right)\right)$ is  reduced (cf. Definition \ref{fin_red_defn}) for all $\la \in \La$ then from the Lemma \ref{inverse_lim_h_lem} 
-one has
-following isomorphisms
-$$
-\forall \widehat x \in \widehat \sX\quad 	\H_{ \widehat x}\cong \H_{\widehat p\left( \widehat x\right) }\cong \H_{\widehat p_\la\left( \widehat x\right) }
-	$$
-	where $\H_{ \widehat x}$ is a space of an irreducible  representation $\rep_{  \widehat{x }}: \widehat A \to B\left(\H_{\widehat{x}}\right)$. So for any $\la \in \La$ and $\widehat x \in \widehat \sX$ there is the natural isomorphism
-	\be\label{blowing_phil_eqn} 
-	\phi_{\la}^{\widehat x} : B\left( \H_{\widehat p_\la\left( \widehat x\right) }\right)\xrightarrow{\approx} B\left(  \H_{ \widehat x } \right) 
-	\ee
-\end{empt}
-\begin{lemma}\label{blowing_rep_lem}
-Consider the situation of  \ref{blowing_rep_empt}. Let $\widetilde \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, $\overline q : \overline \sY \to \sY$ is a natural covering, and $A_0\left( \overline \sY\right)$ is a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then for all $\widehat x \in \widehat \sX$ there is a natural irreducible representation 
-\bean
-\rho_{\widehat x} : A_0\left( \overline \sY\right) \to B\left( \H_{ \widehat x}\right) 
-\eean
-\end{lemma}
-\begin{proof}
-If $K\left( A_0\left( \overline \sY\right) \right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) of $A_0\left( \overline \sY\right)$ then from n$^{\text{o}}$ 3 of the Exercise \ref{blowing_a0_exer} it turns out that 
-$$
-\overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \Rightarrow \quad \supp \overline{   a}\quad \text{is compact}.
-$$
-If $ \overline p_\la : \overline{\sY}\to \sY_\la$ is a natural covering then 
-from the Lemma \ref{top_comp_la_lem} it follows that there is $\la_{\supp \overline{   a}}\in \La$ such that $\supp \overline{  a}$ is mapped homeomorphically onto $\sU_\la \bydef \overline p_\la \left(\overline{   \sU} \right)$ for all $\la \ge   \la_{\supp \overline{   a}}$. We define
-\be
-\rho_{\widehat x}\left( \overline{   a}\right) \bydef \phi_{\la_{\supp \overline{   a}}}\circ \rep_{\overline p_{\la_{\supp \overline{   a}}}\left(\widehat x \right) }\left( \desc_{\overline p_{\la_{\supp \overline{   a}}}}\left( \overline{   a} \right)\right)  
-\ee
-where $\phi^{\widehat x}_{\la_{\supp \overline{   a}}}$ is given by \eqref{blowing_phil_eqn}  and $\desc_{\overline p_{\la_{\supp \overline{   a}}}}$ is a ${\overline p_{\la_{\supp \overline{   a}}}}$-descent (cf. Definition \ref{blowing_lift_desc_defn}). We leave to the reader proof of that $\rho_{\widehat x}$ is a *-homomorphism from  $K\left( A_0\left( \overline \sY\right) \right)$ to $B\left( \H_{ \widehat x}\right)$. Since  $K\left( A_0\left( \overline \sY\right) \right)$ is dense in $A_0\left( \overline \sY\right)$ so $\rho_{\widehat x}$ can be extended up to a *-homomorphism $\rho_{\widehat x}: A_0\left( \overline \sY\right) \to B\left( \H_{ \widehat x}\right)$. We leave to the reader the proof of that $\rho_{\widehat x}$ is an irreducible representation.
-\end{proof}
-\begin{remark}\label{blowing_atomic_rem}If $\pi_a: \widehat A \hookto B\left(\widehat \H_a \right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then $\widehat \H_a$ is a norm completion of an algebraic direct sum $\bigoplus_{\widehat x \in \widehat \sX} \H_{\widehat x}$. From the Lemma \ref{blowing_rep_lem} it follows that there is a natural representation 
-\be\label{blowing_atomic_eqn}
-\pi_A :  A_0\left( \overline \sY\right)\hookto B\left(\widehat \H_a \right).
-\ee
-We leave to the reader a proof of that the representation $\pi_A$ is faithful.
-\end{remark}
-
-
-
-\begin{lemma}\label{blowing_cov_inc_strong_lem}
-	Consider the situation of the Remark \ref{blowing_atomic_rem}. Let $ q: \overline \sY \to \sY$ be a natural covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset  evenly {covered} by $q$. Assume that $\overline{\mathcal U}\subset \overline{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\overline \sV$ of $\overline\sU$ is compact. If $\overline a \in A_0\left( \overline{\sY}\right)$ is such that $\supp  \overline a \subset \overline \sU$ (cf. Definition \ref{blowing_supp_defn})
-	then the series 	
-	\be\nonumber
-	\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) } \pi_A \left( g\overline{a}\right) 
-	\ee 
-	is convergent with respect to the strong  topology of $B\left(\widehat \H_a \right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\pi_A\left( \lift_q\circ \desc_q \left(\overline a \right)\right) $ where both $\lift_q$ and $\desc_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_lift_desc_defn}.
-\end{lemma}
-\begin{proof}
-	The space $\widehat \H_a$ is a norm completion of an algebraic direct sum $\bigoplus_{\widehat x \in \widehat \sX} \H_{\widehat x}$, so from the Lemma \ref{direct_sum_strong_lim_lem} one needs check that for all $\xi \in \H_{ \widehat x}$ a series 
-	\be\label{blowing_rx_eqn}
-	\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) }\rep_{\widehat x} \left( g\overline{a} \right) \xi
-\ee
-	is norm convergent. If $g \in G\left(\left.\overline\sY~\right|\sY\right)$ and $\overline p_g \bydef \chi_{g \overline \sU}$ is a characteristic function of $g \overline \sU$ (cf. Definition \ref{top_char_f_defn}) then $\overline p_g$ is a projector. From 
-	$$
-	g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad g' \overline{   \mathcal U}\cap g'' \overline{   \mathcal U}= \emptyset
-	$$ 
-	it follows that
+ \begin{lemma}\label{blowing_inf_pre_lem}
+	Following conditions hold.
+	\begin{enumerate}
+		\item[(i)] If $\widehat A \bydef C^*$-$\lim_{\la \in \La} A_0\left( \sY_\la\right)$ is a $C^*$-inductive limit in the sense of the Definition \ref{inductive_lim_non_defn} then there is a natural inclusion
 		$$
-	g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad \overline p_{g'}\perp \overline p_{g''}.
-	$$ 
-	For any $g \in  G\left(\left.\overline\sY~\right|\sY\right)$ there is a projector $p_g \bydef \rep_{\widehat x} \left(\overline p_g \right)\in B\left(\H_{ \widehat x} \right) $ such that
+		\phi:	\widehat A \hookto M\left( A_0\left(\overline \sY \right)\right). 
+		$$
+		\item[(ii)] If   $K\left( A_0\left(\overline \sY \right)\right) $ is a Pedersen's ideal of $A_0\left(\overline \sY \right)$ then for all $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ one has
+		$$
+		\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right) 
+		$$
+		where $\bt\text{-}\lim$ means the limit with respect to the strict topology of  $M\left( A_0\left(\overline \sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_{\overline q_\la}: K\left( A_0\left(\overline \sY \right)\right) \to K\left( A_0\left(\sY_\la \right)\right)$ means the {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn} and Corollary \ref{blowing_cov_inc_strict_cor}).
+		\item[(iii)]	If $\widehat{G}\bydef \varprojlim_{\la\in \La} G\left(\sY_\la | \sY\right) \cong G\left(\left.\overline\sY \right|\sY\right)$ then for all $g \in G\left(\left.\overline\sY \right|\sY\right)$, $~\widehat a \in \widehat A$  and $\overline a\in A_0\left(\overline \sY \right)$ one has
+		\be\label{blowing_inf_pre_eqn}
+		\begin{split}
+			g \left(\phi\left(\widehat a \right)\overline a  \right) =  \phi\left(g\widehat a \right)\left(g \overline a  \right),\\
+			g \left(\overline a \phi\left(\widehat a \right) \right) =  \left(g \overline a  \right)\phi\left(g\widehat a \right).
+		\end{split}
+		\ee
+		
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(i) From the Corollary \ref{blowing_ca_m_cor}  it follows that for all $\la\in\La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right)\hookto  M\left( A_0\left(\overline \sY \right)\right) $. On the other hand a union $\bigcup_{\la\in \La}A_0\left( \sY_\la\right)$ is dense in $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La}A_0\left( \sY_\la\right)$ so one can obtain an inclusion $\widehat A  \hookto  M\left( A_0\left(\overline \sY \right)\right)$.\\
+	(ii) Using the Corollary \ref{blowing_cov_inc_strict_cor} this fact can be proven similarly to the proof of the Lemma \ref{bt_lim_lem}.\\
+	(iii) If $\overline a \in K \left(A_0\left(\overline \sY \right)\right)$ then from (ii) if this lemma it follows that $
+	\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right)$. On the other hand from $\desc^c_{\overline q_\la}\left(\overline a \right)\in A_0\left(\sY_\la\right)\subset \widehat A$ it follows that
+	$$
+	\forall g \in 	\widehat{G}\quad \forall \widehat a \in \widehat A \quad g\left( \desc^c_{\overline q_\la}\left(\overline a \right) \widehat a \right)  =  \desc^c_{\overline q_\la}\left(g\overline a \right)\left(g \widehat a \right).
+	$$
+	So one has
 	\bean
-		g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad  p_{g'}\perp  p_{g''},\\
-		\rep_{\widehat x}\left(g \overline a \right) = p_g	\rep_{\widehat x}\left(g \overline a \right) = 	\rep_{\widehat x}\left(g \overline a \right)p_g = p_g	\rep_{\widehat x}\left(g \overline a \right)p_g. 
-	\eean 
-	From $\sum_{	g \in G\left(\left.\overline\sY~\right|\sY\right) }\left\| p_g \xi\right\|^2 \le \left\|  \xi\right\|^2$ it follows that for any $\eps > 0$ there is a finite subset
-	 $G_0 \subset G\left(\left.\overline\sY~\right|\sY\right)$ such that
-\bean
-G_0 \subset G' \subset G\left(\left.\overline\sY~\right|\sY\right) \quad \text{AND} \quad G'\quad \text{is finite}  \quad \Rightarrow \quad
-\left\| \sum_{	g \in G'} p_g\xi- \sum_{	g \in G_0} p_g\xi\right\|	< \frac{\eps }{\left\| \overline{ a}\right\|},\\
-\left\| \sum_{g \in G' }\rep_{\widehat x} \left( g\overline{a} \right) \xi- \sum_{g \in G_0 }\rep_{\widehat x} \left( g\overline{a} \right) \xi\right\|	= \left\| \sum_{g \in G' }\rep_{\widehat x} \left( g\overline{a} \right)p_g \xi- \sum_{g \in G_0 }\rep_{\widehat x} \left( g\overline{a} \right) p_g\xi\right\|< \eps.
-\eean
-The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm convergent. The proof of the equality
-	$\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) } \pi_A \left( g\overline{a}\right)= \pi_A\left( \lift_q\circ \desc_q \left(\overline a \right)\right)$ is left to the reader. 
+	g \left(\overline a \phi\left(\widehat a \right) \right)= g\left( \bt\text{-}\lim_{\la\in \La}\desc^c_{\overline q_\la}\left(\overline a \right)\widehat a\right) = \bt\text{-}\lim_{\la\in \La}\desc^c_{\overline q_\la}\left(g \overline a \right)\phi\left( g \widehat a\right) = \left(g \overline a  \right)\phi\left(g\widehat a \right).
+	\eean
+	Similarly one can prove   that $g \left(\phi\left(\widehat a \right)\overline a  \right) =  \phi\left(g\widehat a \right)\left(g \overline a  \right)$. The ideal $K \left(A_0\left(\overline \sY \right)\right)$ is dense in $A_0\left(\overline \sY \right)$ so the equations \eqref{blowing_inf_pre_eqn} are true for all $\overline{a}\in A_0\left(\overline \sY \right)$.
+\end{proof}
+\begin{lemma}\label{blowing_weak_inf_cov_lem}
+	In the above situation the $C^*$-algebra $A_0\left(\overline \sY \right)$ is subordinated to $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{subord_defn}), so the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a weak {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
+\end{lemma}
+\begin{proof}
+	One needs check (a)-(c) of the Definition \ref{subord_defn}.\\
+	(a) Follows from (i) of the Lemma \ref{blowing_inf_pre_lem}.\\
+	(b) Follows from (iii) of the Lemma \ref{blowing_inf_pre_lem}.\\
+	(c) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.
 \end{proof}
 
-\begin{corollary}\label{blowing_cov_inc_strong_cor}
-		Consider the situation of the Remark \ref{blowing_atomic_rem}. If $K\left( A_0\left( \overline{\sY}\right)\right)$ is a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{pedersens_ideal_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
-	then the series 	
-	\be\nonumber
-	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } \pi_A\left(  g\widetilde{a}\right) 
-	\ee 
-	is convergent with respect  the strong topology of $B\left(\widehat \H_a\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the sum of the series equals to $\pi_A\left( \lift_q\circ \desc^c_q \left(\widetilde a \right)\right)$ where both $\lift_q$ and $\desc^c_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_cdesc_defn}.
-\end{corollary}
-\begin{proof}
-	This Corollary follows from the Lemma \ref{blowing_cov_inc_strong_lem} and n$^\text{0}$ 3 of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
-\end{proof}
 !!!  EQUIVARIANT ACTION !!!
 \begin{definition}\label{blowing_semi_defn}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
@@ -13688,51 +13672,7 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
 \paragraph{}
  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reduced (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$. % and let $\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.
  
- \begin{lemma}\label{blowing_inf_pre_lem}
- Following conditions hold.
- \begin{enumerate}
- 	\item[(i)] If $\widehat A \bydef C^*$-$\lim_{\la \in \La} A_0\left( \sY_\la\right)$ is a $C^*$-inductive limit in the sense of the Definition \ref{inductive_lim_non_defn} then there is a natural inclusion
- 	$$
- \phi:	\widehat A \hookto M\left( A_0\left(\overline \sY \right)\right). 
- 	$$
- 	\item[(ii)] If   $K\left( A_0\left(\overline \sY \right)\right) $ is a Pedersen's ideal of $A_0\left(\overline \sY \right)$ then for all $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ one has
- 	$$
- 	\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right) 
- 	$$
- 	where $\bt\text{-}\lim$ means the limit with respect to the strict topology of  $M\left( A_0\left(\overline \sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_{\overline q_\la}: K\left( A_0\left(\overline \sY \right)\right) \to K\left( A_0\left(\sY_\la \right)\right)$ means the {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn} and Corollary \ref{blowing_cov_inc_strict_cor}).
- \item[(iii)]	If $\widehat{G}\bydef \varprojlim_{\la\in \La} G\left(\sY_\la | \sY\right) \cong G\left(\left.\overline\sY \right|\sY\right)$ then for all $g \in G\left(\left.\overline\sY \right|\sY\right)$, $~\widehat a \in \widehat A$  and $\overline a\in A_0\left(\overline \sY \right)$ one has
- \be\label{blowing_inf_pre_eqn}
- \begin{split}
-  g \left(\phi\left(\widehat a \right)\overline a  \right) =  \phi\left(g\widehat a \right)\left(g \overline a  \right),\\
-g \left(\overline a \phi\left(\widehat a \right) \right) =  \left(g \overline a  \right)\phi\left(g\widehat a \right).
- \end{split}
- \ee
- 	
-  \end{enumerate}
- \end{lemma}
-  \begin{proof}
- (i) From the Corollary \ref{blowing_ca_m_cor}  it follows that for all $\la\in\La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right)\hookto  M\left( A_0\left(\overline \sY \right)\right) $. On the other hand a union $\bigcup_{\la\in \La}A_0\left( \sY_\la\right)$ is dense in $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La}A_0\left( \sY_\la\right)$ so one can obtain an inclusion $\widehat A  \hookto  M\left( A_0\left(\overline \sY \right)\right)$.\\
- (ii) Using the Corollary \ref{blowing_cov_inc_strict_cor} this fact can be proven similarly to the proof of the Lemma \ref{bt_lim_lem}.\\
- (iii) If $\overline a \in K \left(A_0\left(\overline \sY \right)\right)$ then from (ii) if this lemma it follows that $
- 	\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right)$. On the other hand from $\desc^c_{\overline q_\la}\left(\overline a \right)\in A_0\left(\sY_\la\right)\subset \widehat A$ it follows that
- 	$$
- \forall g \in 	\widehat{G}\quad \forall \widehat a \in \widehat A \quad g\left( \desc^c_{\overline q_\la}\left(\overline a \right) \widehat a \right)  =  \desc^c_{\overline q_\la}\left(g\overline a \right)\left(g \widehat a \right).
- 	$$
- 	So one has
- 	\bean
- 	g \left(\overline a \phi\left(\widehat a \right) \right)= g\left( \bt\text{-}\lim_{\la\in \La}\desc^c_{\overline q_\la}\left(\overline a \right)\widehat a\right) = \bt\text{-}\lim_{\la\in \La}\desc^c_{\overline q_\la}\left(g \overline a \right)\phi\left( g \widehat a\right) = \left(g \overline a  \right)\phi\left(g\widehat a \right).
- 	\eean
- 	Similarly one can prove   that $g \left(\phi\left(\widehat a \right)\overline a  \right) =  \phi\left(g\widehat a \right)\left(g \overline a  \right)$. The ideal $K \left(A_0\left(\overline \sY \right)\right)$ is dense in $A_0\left(\overline \sY \right)$ so the equations \eqref{blowing_inf_pre_eqn} are true for all $\overline{a}\in A_0\left(\overline \sY \right)$.
- \end{proof}
-\begin{lemma}\label{blowing_weak_inf_cov_lem}
-	In the above situation the $C^*$-algebra $A_0\left(\overline \sY \right)$ is subordinated to $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{subord_defn}), so the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a weak {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
-\end{lemma}
-\begin{proof}
-One needs check (a)-(c) of the Definition \ref{subord_defn}.\\
-(a) Follows from (i) of the Lemma \ref{blowing_inf_pre_lem}.\\
-(b) Follows from (iii) of the Lemma \ref{blowing_inf_pre_lem}.\\
-(c) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.
-\end{proof}
+
 \begin{definition}\label{blowing_good_defn}
 	Consider the situation of the Lemma \ref{blowing_weak_inf_cov_lem}. If the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a  {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) then we say that  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-\textit{good}.
 \end{definition}
@@ -15557,7 +15497,7 @@ The details of the proof are left to the reader.
 
 \section{Infinite coverings}\label{ctr_case_sec}
 \subsection{Coverings of $C^*$-algebras}
-!!! CONTINUE !!!
+
 \subsubsection{Coverings of general  $C^*$-algebras  with Hausdorff spectrum}
 \paragraph*{}
 Let $A$ be a $C^*$-algebra with Hausdorff, connected, locally connected spectrum $\sX$, and let  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If
@@ -15569,451 +15509,29 @@ pointed  topological finite covering category then from the Lemma \ref{blowing_b
 \be\label{ctr_base_point_eqn}
 \mathfrak{S}_{A }^{\mathrm{pt}} = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
 \ee
-Definition \ref{alg_fin_cat_defn}). If $\pi_a : C^*$-$\varinjlim_{\la \in \La}A_0\left( \mathcal{X}_\la\right) \to B\left(\widehat \H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) and  $\overline A$ is the  disconnected algebraical infinite noncommutative covering of $ \mathfrak{S}_{A }^{\mathrm{pt}}$ (cf. Definition \ref{disconnected_inf_defn}) then there is the natural inclusion $\overline A \subset B\left(\widehat \H_a\right)$. On the other hand from the equation \eqref{blowing_atomic_eqn}  it follows that there is an injective *-homomorphism 
-\be\label{ctr_atomic_eqn}
-\pi_A:A_0\left(\overline \sX \right) \hookto B\left(\widehat \H_a\right)
+(cf. Definition \ref{alg_fin_cat_defn}). From the Lemma \ref{blowing_weak_inf_cov_lem} it follows that a triple $$\left(A, A_0\left(\overline \sX \right),  G\left(\left. \overline{\sX} ~\right| \sX\right)\right)$$ is a weak {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\left( A, \overline A, G\left(\left.\overline A \right|A\right)\right) $ is a disconnected algebraical infinite noncommutative covering of $ \mathfrak{S}_{A }^{\mathrm{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) then there is an injective *-homomorphism
+\be\label{ctr_ax_a_eqn}
+A_0\left(\overline \sX \right)\hookto \overline A,
 \ee
-where $\overline \sX$ is the topological disconnected inverse limit of  $\mathfrak{S}_{\left( \sX, x_0  \right) }$ (cf. Definition \ref{top_topological_inv_lim_defn}). From the Theorem \ref{blowing_inc_thm} it follows that 
-\be\label{ctr_c0_inc_eqn}
-\pi_A\left( 	A_0\left( \overline{\sX}\right)\right) \subset  \overline{A}.
-\ee
-\begin{exercise}
-Prove that the given by the equation \eqref{ctr_atomic_eqn} inclusion is equivalent to an atomic representation of $A_0\left(\overline \sX \right)$ (cf. Definition \ref{atomic_repr_defn}).
-\end{exercise}
 \subsubsection{Coverings of continuous trace $C^*$-algebras}
 
 \paragraph*{}
-Any continuous trace $C^*$-algebra is a $C^*$-algebra with Hausdorff spectrum, so the equation  \ref{ctr_c0_inc_eqn} is relevant to  infinite noncommutative covering of continuous trace $C^*$-algebras. However this equation does not provide a full information  about  infinite noncommutative coverings. In case of continuous trace $C^*$-algebras one can obtain the full information.
-
-\paragraph{Families of operator spaces}
-If $\sX$ is a  compact Hausdorff space, and 
-$X_{C\left(\sX\right)}$ is a full  $C^*$-Hilbert $C\left(\sX\right)$-module, then similarly to \eqref{top_cx_eqn} and \eqref{top_cx_norm_eqn} for any $x \in \sX$ one can define a normed $\C$-space $C_x$. If $\H_x$ is the norm completion of $C_x$ then there is a family $\left\{\H_x \right\}_{x \in \sX}$ such that  $X_{C\left(\sX\right)}$ is a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}).  Let us define the $\C$-valued product on $\H_x$ given by \eqref{polarization_hilb_equality_eqn}, thus $\H_x$ becomes a Hilbert space for each $x \in \sX$. On the other hand the space  $X_{C\left(\sX\right)}$ is norm closed, so from the Corollary \ref{top_cl_cc_iso_cor} one has the $C\left(\sX \right)$-isomorphism
-\be\label{top_c0_hilb_iso_eqn}
-X_{C\left(\sX\right)} = C\left(\sX, \left\{\H_x \right\},   X_{C\left(\sX\right)}  \right).
-\ee
-If $D^*\left(\sX \right)$  is the $C^*$-algebra of complex-valued bounded (discontinuous) maps $\sX \to \C$. The $D^*\left( \sX\right)$-module of bounded families $\left\{\xi_x \in \H_x\right\}$ is a full $C^*$-Hilbert $D^*\left(\sX\right)$-module with given by
-\be\label{top_disc_ext_eqn}
-\left\langle \left\{\xi_x \right\},  \left\{\eta_x \right\} \right\rangle_{D^*\left(\sX\right)}\bydef \left( x \mapsto \left(\xi_x,\eta_x \right)_{\H_x} \right) 
-\ee
-scalar product. 
-\begin{definition}\label{top_disc_ext_defn}
-	The described above $C^*$-Hilbert $D^*\left(\sX\right)$-module is said to be the \textit{discontinuous extension} of $X_{C\left(\sX\right)}$. We denote it by $X_{D^*\left(\sX\right)}$.
-\end{definition}	
-\begin{remark}\label{top_disc_ext_rem}
-	There is the natural inclusion $X_{C\left(\sX\right)}\subset X_{D^*\left(\sX\right)}$.
-\end{remark}
-\begin{remark}
-	Any bounded family
-	\be\label{ctr_fam_eqn}
-	\overline a \bydef \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}
-	\ee
-	yields a bounded operator in $B\left(\widehat \H_a \right)$  where $\widehat\H_a$ is the norm completion of the algebraic direct sum $\bigoplus_{ \overline x \in \overline \sX}\H_x$. If $X_{D^*\left(\sX\right)}$ is the  {discontinuous extension} of $X_{C_0\left(\sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}) and $\overline\xi\bydef\left\{\overline \xi_{\overline x}\right\}\in X_{D^*\left(\sX\right)}$ then
-	\be\label{ctr_afam_eqn}
-	\overline a\overline \xi\bydef\left\{\overline a_{\overline x} \overline \xi_{\overline x}\right\}\in  X_{D^*\left(\sX\right)}
-	\ee
-\end{remark}
-\begin{lemma}\label{top_comp_fam_lem}
-	Consider the situation of the Definition \ref{top_disc_ext_defn}.
-	If $\left\{\K\left( \H_{ x} \right) \right\}_{ x \in \sX}$ is a family of compact operators then  $\K\left( X_{C\left(\sX\right)}\right) $  is a   {continuity structure for} $\sX$ and the $\left\{\K\left( \H_{ x} \right) \right\}_{x \in \sX}$, such that $$\K\left( X_{C\left(\sX\right)}\right)  \cong C\left(\sX, \left\{\K\left( \H_{ x} \right) \right\} , \K\left( X_{C\left(\sX\right)}\right)  \right).$$ 
-\end{lemma}
-\begin{proof}
-	Similarly to \eqref{top_vp_map} for any $ x \in  \sX$ there is the $\C$-linear  map
-	$$
-	\phi_{  x}: X_{C\left(\sX\right)} \to \H_{ x}.
-	$$
-	such that $\phi_{  x}\left( X_{C\left(\sX\right)} \right)$ is dense in $\H_{ x}$.
-	Let us check (a), (b) of the Definition \ref{op_fields_defn}.\\
-	\begin{enumerate}
-		\item [(a)]  If $\xi, \eta \in  X_{C\left(\sX\right)}$ and $\xi\left\rangle \right\langle \eta$  is an elementary operator then one has
-		$$
-		\text{norm}_{\xi\left\rangle \right\langle \eta}= \text{norm}_\xi ~\text{norm}_\eta\in C\left(\sX \right).
-		$$ Since $\K\left( X_{C\left(\sX\right)}\right)$  is norm closure of the algebraic $\C$-linear span of elementary operators $\text{norm}_{a} \in C\left(\sX \right)$ for any $a \in \K\left( X_{C\left(\sX\right)}\right)$.
-		\item[(b)]  If $a \in \K\left(\H_x \right)$ then for any $\eps > 0$ there is the finite-rank operator 
-		$$
-		a' = \sum_{j=1}^n \a_j\left\rangle \right\langle \bt_j \quad \a_j, \bt_j \in \H_{ x} 
-		$$
-		such that
-		$$
-		\left\|a -a'\right\| < \frac{\eps}{2}
-		$$
-		Otherwise $\phi_{  x}\left( C_b\left(\sX,  \left\{ \H_{ x} \right\},  X_{C\left(\sX\right)}\right)\right) $ is dense in $\H_{ x}$ so for any $j = 1,..., n$ there are $\xi_j, \eta_j \in X_{C\left(\sX\right)}$ such that
-		$$
-		\left\|\a_j\left\rangle \right\langle \bt_j -\phi_{  x}\left( \xi_j\right) \left\rangle \right\langle \phi_{  x}\left( \eta_j\right)\right\| < \frac{\eps}{2n}
-		$$
-		it turns out
-		$$
-		\left\|a -\phi_{  x}\left( \xi_j\right) \left\rangle \right\langle \phi_{  x}\left( \eta_j\right)\right\|< \eps.
-		$$
-	\end{enumerate}
-	From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the following isomorphism
-	$$
-	\K\left( X_{C\left(\sX\right)}\right)  \cong C\left(\sX, \left\{\K\left( \H_{ x} \right) \right\} , \K\left( X_{C\left(\sX\right)}\right)  \right).
-	$$
-\end{proof}
-
-
-
-\paragraph{Operator spaces and coverings} 
-\begin{lemma}\label{top_h_mod_lift_lem}
-	Let $X_{C\left( {\sX}\right)}$ be a Hilbert $C\left(\sX \right)$-module. 
-	If $p: \widetilde{\sX} \to \sX$ is a covering then $C_b\left( \lift_p\left[\sX, \left\{\H_x\right\}, X_{C\left( {\sX}\right)} \right]\right)$ is a Hilbert $C_b\left( \widetilde{\sX}\right)$-module.
-\end{lemma}
-\begin{proof}
-	From the Definition  \ref{top_cont_lift_defn} and the Lemma \ref{top_norm_c0cc_lem} it turns out the $\text{norm}_{\widetilde{\xi}} =\left( \widetilde{x} \mapsto\left\|\widetilde{\xi}_{\widetilde{x}} \right\| \right) \in  C_b\left( \widetilde{\sX}\right)$ for all $\widetilde{\xi} \in C_b\left( \lift_p\left[\sX, \left\{\H_x\right\}, X_{C\left( {\sX}\right)} \right]\right)$.
-	For any $\widetilde{\xi}, \widetilde{\eta} \in C_b\left( \lift_p\left[\sX, \left\{\H_x\right\}, X_{C\left( {\sX}\right)} \right]\right)$ from \eqref{polarization_equality_eqn} it turns out
-	\bean
-	\left\langle \xi_x , \eta_x \right\rangle=\frac{1}{4}\sum_{k = 0}^3i^k\left\langle \xi_x + i^k\eta_x, \xi_x + i^k\eta_x \right\rangle
-	\Rightarrow \left(x \mapsto \left\langle \xi_x , \eta_x \right\rangle \right)  \in C_b\left(\widetilde{\sX} \right). 
-	\eean
-	The proof of other required by the Definition \ref{hilbert_module_defn} of the Hilbert  $C_b\left( \widetilde{\sX}\right)$-module  $C_b\left( \lift_p\left[\sX, \left\{\H_x\right\}, X_{C\left( {\sX}\right)} \right]\right)$ is left to the reader.
-\end{proof}
-
-\begin{empt}\label{top_compact_lift_empt}
-	Let $X_{C\left( {\sX}\right)}$ be a full Hilbert $C\left(\sX \right)$-module (cf. Definition \ref{full_hilb_defn}) and let $\K\left(X_{C\left( {\sX}\right)} \right)$ be a $C^*$-algebra of compact operators. If 	$
-	\left\{\H_x \right\}_{x \in \sX}$
-	is the completion of the given by  \eqref{top_cx_eqn} and \eqref{top_cx_norm_eqn} normed space, then there is a family $\left\{\K\left( \H_{ x} \right) \right\}_{ x \in \sX}$ is a family of compact operators such that  $\K\left( X_{C\left(\sX\right)}\right) $  is a   {continuity structure for} $\sX$ and the $\left\{\K\left( \H_{ x} \right) \right\}$.
-	
-\end{empt}
-\begin{lemma}\label{top_compact_lift_lem}
-	Consider the situation \ref{top_compact_lift_empt}, 
-	If	$X_{C_b\left( {\sX}\right)} \stackrel{\mathrm{def}}{=}C_b\left( \lift_p\left[\sX, \left\{\H_x\right\}, X_{C\left( {\sX}\right)} \right]\right)$ is a Hilbert $C_b\left( \widetilde{\sX}\right)$-module given by the Lemma \ref{top_h_mod_lift_lem} then there is the natural isomorphism
-	\be
-	\label{top_compact_lift_eqn}
-	\K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right) \cong C_b\left( \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right) \right]\right).  
-	\ee
-\end{lemma}
-
-\begin{proof}
-	If $a \in  \K\left(X_{C\left( {\sX}\right)}  \right)$ then there is the $C^*$-norm convergent series
-	$$
-	a = \sum_{j=1}^\infty \xi_j\left\rangle \right\langle \eta_j \quad \xi_j, \eta_j \in X_{C\left( {\sX}\right)}.
-	$$
-	From \eqref{top_lift_bounded_eqn} it turns out that the series 
-	$$
-	\sum_{j=1}^\infty \lift_p\left( \xi_j\right) \left\rangle \right\langle \lift_p\left( \eta_j\right)
-	$$
-	is norm convergent, hence $\lift_p\left(a \right) \in \K\left(X_{C_b\left( \widetilde{\sX}\right)} \right)$. So one has the natural inclusion $\lift_p\left[ \K\left(X_{C\left(\widetilde{ {\sX}}\right)} \right)  \right] \subset \K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)$.
-	Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$  neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$ is a homeomorphism. Let  $\widetilde{f}_{\widetilde{x}_0}\in C_c\left(\widetilde{\sX} \right)$ be a  \ref{top_stump_defn} there is $\widetilde{f}_{\widetilde{x}_0}\in C_c\left(\widetilde{\sX} \right)$ be  an $\widetilde{x}_0$-stump (cf. Definition \ref{top_stump_defn}) such that $\supp \widetilde{x}_0\subset\widetilde\sU$   and let $\widetilde{\sV}\subset\widetilde{\sX}$ be an open subset such that  $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde{\sV} \right)=\{ 1\}$. Let $x_0 = p\left(\widetilde{x}_0 \right)$ and let $f_{x_0} = \desc_p\left(\widetilde{f}_{\widetilde{x}_0} \right)$. If $\widetilde{a} \in \K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)$ and $\widetilde{a}_f =\widetilde{f}_{\widetilde{x}_0}\widetilde{a}$ then $\widetilde{a}\left(\widetilde{x} \right)= \widetilde{a}_f\left(\widetilde{x} \right)$ for all $\widetilde{x}\in   \widetilde{\sV}$. Otherwise if $a = \desc_p\left(\widetilde{a}_f \right)$ then $\widetilde{a}_f\left(\widetilde{x} \right)= \lift_p\left(a \right) \left(\widetilde{x} \right)$ for all $\widetilde{x}\in   \widetilde{\sV}$, hence $\widetilde{a}\left(\widetilde{x} \right)= \lift_p\left(a \right) \left(\widetilde{x} \right)$ for each $\widetilde{x}\in   \widetilde{\sV}$. From the Definition \ref{op_cont_fields_defn} it turns out that $\widetilde{a}$ is continuous and taking into account $ \left\|\widetilde{a} \right\|< \infty$ one has $\widetilde{a}\in \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)  \right]$, i.e.
-	$$
-	\K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)\subset C_b\left( \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)  \right]\right) .
-	$$
-\end{proof}
-\begin{corollary}\label{top_compact_lift_cor}
-	Consider the situation \ref{top_compact_lift_empt}. Suppose that $p$ is a finite-fold covering. If
-	\be
-	\label{top_compact_lift_fin_eqn}
-	\lift_p :  \K\left(X_{C\left( {\sX}\right)} \right)  \hookto  \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)\right] 
-	\ee
-	is given by the Lemma \ref{top_compact_lift_lem} then one has
-	\be
-	\lift_p\left(\K\left(X_{C\left( {\sX}\right)} \right)\right) \subset C\left( \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)\right]\right)  
-	\ee
-	
-\end{corollary}
-\begin{proof}
-	Follows from the Lemma \ref{top_compact_c0_lem}.
-\end{proof}
-
-
-
-
-
-
-
-
-
-\paragraph{Some operator systems}
-
-Let us consider a {pointed topological finite covering category} $$\mathfrak{S}_{\left( \sX, x_0\right)}= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$$
-(cf. Definition \ref{top_pointed_cat_defn}) with compact $\sX$.
-Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  topological disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn}), and denote by $\overline{p}:\left(\overline{   \mathcal X}, \overline{x}_0 \right)\to \left({   \mathcal X}, {x}_0 \right)$ and $\overline{p}_\la:\left(\overline{   \mathcal X}, \overline{x}_0 \right)\to \left({   \mathcal X}_\la, {x}^\la_0 \right)$ the natural coverings. If $X_{C\left(\sX \right) }$ be a finitely or countably generated Hilbert $C\left(\sX \right)$ module, and $A \bydef \K\left(X_{C\left(\sX \right) } \right)$ then $A$ is a continuous trace $C^*$-algebra, and $\sX$ is its spectrum. There is the given by \eqref{ctr_base_point_eqn} natural  pointed algebraical  finite covering category  
-\bean
-\mathfrak{S}_{A }^{\mathrm{pt}} = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg} 
-\eean
-(cf. Definition \ref{pointed_defn}).
-\begin{exercise}
-	Prove following statements:
-	\begin{enumerate}
-		\item	
-		For each $\la\in\La$ there is the natural isomorphism $A_0\left( \mathcal{X}_\la\right)\cong \K\left( X_{C\left(\sX_\la\right) }\right)$ where $X_{C\left(\sX_\la\right)} \bydef\lift_{p_\la}\left[X_{C\left(\sX\right)}\right]$.
-		\item $A_0\left(  \overline\sX \right) = C_0\left( \lift_{\overline p}\left[ \K\left( X_{C\left(\sX\right) } \right)\right] \right)= \K\left( X_{C_0\left(\overline \sX\right)}\right)$ \\where $X_{C_0\left(\overline\sX\right)} \bydef C_0\left( \lift_{\overline p}\left[X_{C\left(\sX\right)}\right]\right)$. 
-	\end{enumerate}
-\end{exercise}
-\begin{empt}\label{ctr_coh_empt}
-	If $\widehat \K \bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C\left(\sX_\la\right)}\right)$ is the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn} and $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the  \eqref{blowing_atomic_eqn} it turns out that there is an inclusion
-	$$
-	\pi_A:A_0\left(\overline \sX \right) \hookto B\left(\widehat \H_a\right).
-	$$
-	If  $\overline A$ is the  disconnected algebraical infinite noncommutative covering of $ \mathfrak{S}_{A }^{\mathrm{pt}}$ (cf. Definition \ref{disconnected_inf_defn}) then there is the natural inclusion $\overline A \subset B\left(\widehat \H_a\right)$, such that $A_0\left(\overline \sX \right)\subset \overline A$ (cf. equation \eqref{ctr_c0_inc_eqn}).
-	If    $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
-	\left.  \sX_\la~ \right|\sX\right)$ is the inverse limit of groups
-	then similarly to the Lemma \ref{equiv_lem} one construct the equivariant action $\widehat G\times \widehat \H_a \to \widehat \H_a$ which naturally induces the action
-	\be\label{top_equivb_eqn}
-	\widehat G\times B\left( \widehat \H_a \right) \to \widehat B\left( \widehat \H_a \right).
-	\ee
-	From the Lemma \ref{blowing_rep_lem} it turns out that
-	$$
-	\widehat \H_a \cong \bigoplus_{ \overline x \in \overline \sX}\H_{ \overline x}
-	$$
-	where $\H_{ \overline x}$ is a space of an irreducible representation $\rep_{  \overline{x }}	: A_0\left(\overline \sX \right)\to B\left(\H_{ \overline x}\right)$.
-\end{empt}
-\begin{definition}\label{top_coh_defn} 
-	Consider the described in \ref{ctr_coh_empt} 	situation, and let \\  $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
-	\left.  \sX_\la~ \right|\sX\right)$ be the projective limit of groups and \\ $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right)$. 
-	An element $\overline a = \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}\in B\left(\H_a\right)$ is \textit{coherent}  if for any $\la_0 \in \La$, $\xi_{\la_0} \in X_{\la_0}$
-	and  $\eps > 0$ 
-	following conditions hold:
-	\begin{enumerate}
-		\item[(a)] 		If $f_\eps: \R \to \R$ is a continuous function given by \eqref{f_eps_eqn} then
-		there are $ f_\la, f^\eps_\la, h_\la, \in C\left(\sX_{\la}\right)_+$ such that
-		\be\label{top_spec_a_eps_eqn}
-		\begin{split}
-			\sum_{g\in G_\la } \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)\right\rangle_{D^*\left(\overline \sX \right) }    = f_\la,\\
-			\sum_{g\in G_\la } f_\eps\left( \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right) g\overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right) \right\rangle_{D^*\left(\overline \sX \right) }\right)     = f^\eps_\la,\\
-			\sum_{g\in G_\la } \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right) \right\rangle^2_{D^*\left(\overline \sX \right) }    = h_\la. 
-		\end{split}
-		\ee
-		where sums of the above series mean the point-wise convergence, and the equations \eqref{top_disc_ext_eqn}, \eqref{ctr_afam_eqn} are used.		
-		\item[(b)] For all $\eps > 0$ there is $\mu \in \La$ such that $\mu \ge \la_0$ and
-		\be\label{top_special_set_eqn}
-		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|f_\la^2 - h_\la\right\| < \eps
-		\ee
-		where $a_\la, b_\la \in C\left(\sX_{\la}\right)$ are given by \eqref{top_spec_a_eps_eqn}.
-		\item[(c)] There is $a\in \K\left(X_{C\left( \sX\right) } \right)$ such that one has
-		\be\label{ctr_as_eqn}
-		\sum_{	g \in \widehat G}\overline a = \pi\left(a \right). 
-		\ee 
-	\end{enumerate}
-	
-\end{definition}
-
-
-\begin{remark}\label{top_oa_fam_rem}
-	Similarly to the Lemma \ref{spec_strong_lim_lem} one can proof that there is the  strong limit $\overline a = \lim \widehat{\pi}_a\left(a_\la \right)$ in $B\left(\H_a \right)$. It follows that $\overline a$ corresponds to the family
-	\be\label{top_oa_fam_eqn}
-	\left\{\overline a_{\overline x}\in \K\left( \H_{\overline x}\right) \right\}_{\overline x\in \overline\sX}.
-	\ee
-\end{remark}
-
-\begin{lemma}\label{top_z_lem}
-	Consider the situation of the (cf. Definition \ref{top_coh_defn}) with the   a coherent element $\overline a \in B\left(\widehat \H_a \right)$. Let $\la_0\in \La$ and $\xi\in X_{C\left( \sX_{\la_0}\right) }$. Let $\overline p_{\la_0}: \overline\sX \to \sX_{\la_0}$ be the natural covering, and $\overline\xi\bydef\lift_{ \overline{p}_{\la_0}}\left(\xi \right)\in X_{C_b\left( \overline\sX\right) }$  corresponds to a family $\left\{\overline\xi_{\overline x}\right\}_{\overline x \in \overline\sX}$. If $\overline f : \overline\sX \to \R$ is given by
-	\bean
-	\overline x \mapsto \left( \overline\xi_{\overline x}, \rep_{\overline x}\left( \overline a\right), \overline\xi_{\overline x} \right) 
-	\eean
-	then $\overline f\in C_0\left( \overline\sX\right)$.  
-\end{lemma}
-\begin{proof}
-	If $f_\la\in C\left(\sX_{\la}\right)$ is given by the equation \eqref{top_spec_a_eps_eqn} and $\overline f_\la \bydef \lift_{ \overline{p}_{\la}}\left(f_\la \right)\in C_b\left(\overline \sX\right)$ then $\overline f= \lim_\la \overline f_\la$ is a point-wise limit. From the Definition \ref{top_coh_defn}  it follows that $\overline f$ satisfies to the Theorem \ref{comm_main_f_thm}, hence $\overline f \in C\left(\overline \sX\right)$.
-\end{proof}
-
-\begin{empt}\label{ctr_comp_empt}
-	Let $\sX$ be a compact space, such that a $C^*$-algebra $C\left(\sX\right)$ is {module}-{infinite} (cf. Definition \ref{hm_MI_defn}), i.e.  any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}). For example if $C\left( \sX\right) $ is divisible infinite (cf. Definition \ref{hm_di_empt}) then  from the  
-	Theorem \ref{hm_di_mi_thm} it turns out that $C\left(\sX\right)$ is module infinite. Let $X_{C\left(\sX \right) }$ be a finitely or countably generated Hilbert $C\left(\sX\right)$-module. 
-	Let us consider a {pointed topological finite covering category} $$\mathfrak{S}_{\left( \sX, x_0\right)}= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$$ (cf. Definition \ref{top_pointed_cat_defn}), such that for every $\la\in \La$ one has
-	$$
-	\sX_\la \cong \bigsqcup_{g \in G\left(\left.\sX_\la\right| \sX\right)}\sX.
-	$$
-	If $\overline{   \mathcal X }$ is the disconnected inverse limit of $\mathfrak{S}_{\left( \sX, x_0\right)}$ then
-	\be\label{ctr_sq_eqn}
-	\overline\sX \cong \bigsqcup_{g \in G\left(\left.\overline\sX\right| \sX\right)}\sX.
-	\ee
-	If $X_{C_b\left( \overline\sX\right) }\bydef C_b\left( \lift_{ \overline{p}}\left[X_{C\left[\sX\right]}\right]\right)$ then one has
-	\bean
-	X_{C_b\left( \overline\sX\right) }\cong \prod_{g \in G\left(\left.\overline\sX\right| \sX\right)} X_{C\left(\sX\right)},\\
-	\K\left(	X_{C_b\left( \overline\sX\right) } \right) \cong \prod_{g\in G\left(\left.\overline\sX\right| \sX\right)}\K\left(X_{C\left(\sX\right)}\right).
-	\eean 
-	If $\overline a \in B\left(\H_a \right)$ is coherent (cf. Definition \ref{top_coh_defn}) then $\overline a$ corresponds to a family $\left\{\overline a_{\overline x}\in B\left( \H_{\overline x}\right) \right\}_{\overline x \in \overline \sX}$. If $a \bydef \sum_{	g \in G\left( \left. \overline\sX\right| \sX\right) }\overline a$ then $a$ corresponds to an element of  $\K\left( X_{C\left(\sX\right)}\right)$. It follows that $a$ corresponds to a family $\left\{a_x \in \K\left( \H_x\right) \right\}_{x \in \sX}$. From $\overline a_{\overline{x}}\le a_{\overline{p}\left(\overline{x}\right)}$ if follows that $\overline a_{\overline x}\in \K\left( \H_{\overline x}\right)$.  If turns out that $\overline a\in \K\left(X_{D^*}\left(\overline \sX \right)  \right)$ where $X_{D^*\left(\overline \sX\right)}$ is the \textit{discontinuous extension} of  $X_{C_b\left(\overline \sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}).
-\end{empt}
-
-
-
-\begin{lemma}\label{ctr_comp_lem}
-	Consider the situation  \ref{ctr_comp_empt}. If $\overline a \in B\left(\H_a \right)$ is coherent then
-	\be\label{ctr_comp_eqn}
-	\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in 	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\bydef C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C\left(\sX\right)}\right) \right] \right)
-	\ee 
-	where an inclusion $\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\subset \K\left(X_{D^*\left(\overline{\sX} \right) }  \right)$ is implied.
-\end{lemma}
-\begin{proof}
-	If $\overline \sX'\subset \overline\sX$ is any connected component of $\overline{\sX}$ then from \eqref{ctr_sq_eqn} it turns out that  there is the natural homeomorphism $\overline \sX'\cong \sX$ and natural isomorphisms $X_{C\left(\sX\right)}\cong X_{C\left(\overline \sX'\right)}$, $~\K\left( X_{C\left(\sX\right)}\right) \cong\K\left(  X_{C\left(\overline \sX'\right)}\right)$.
-	From the Lemma \ref{top_z_lem} it turns out  that for all $\xi \in X_{C\left(\overline \sX'\right)}$ one has
-	\be\label{ctr_inf3_eqn}
-	\left\langle \xi, \overline a \xi\right\rangle_{D^*\left(\overline \sX' \right) }\in C\left( \overline \sX'\right). 
-	\ee
-	If $a \bydef \sum_{g \in \widehat G } g \overline a$ then
-	\be\label{ctr_inf1_eqn}
-	\overline a \le a
-	\ee
-	\be\label{ctr_inf2_eqn}
-	a \in \K\left( X_{C\left(\sX \right) }\right).
-	\ee
-	The system of equations \eqref{ctr_inf1_eqn},  \eqref{ctr_inf2_eqn},  \eqref{ctr_inf3_eqn} can be regarded as a specialization of  \eqref{compact_inf1_eqn}, \eqref{compact_inf2_eqn}, \eqref{compact_inf3_eqn} respectively. On the other hand from  the condition  of \ref{ctr_comp_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
-	\be\label{ctr_comp'_eqn}
-	\left.\overline a\right|_{	X_{C\left(\overline \sX'\right)}}\in 	\K\left(	X_{C\left(\overline \sX'\right)} \right).
-	\ee
-	The proof of an implication \eqref{ctr_comp'_eqn} $\Rightarrow$ \eqref{ctr_comp_eqn} is left to the reader.
-\end{proof}
-
+Any continuous trace $C^*$-algebra is a $C^*$-algebra with Hausdorff spectrum, so the equation  \ref{ctr_ax_a_eqn} is relevant to  infinite noncommutative covering of continuous trace $C^*$-algebras. However this equation does not provide a full information  about  infinite noncommutative coverings. In case of continuous trace $C^*$-algebras one can obtain the full information. 
 \begin{empt}
-	If $X_{C\left( {\sX}\right)}$	is a full countably generated $C^*$-Hilbert $C\left( {\sX}\right)$-module  from the Theorem \ref{kasparov_stab_thm} one has the isomorphism of $C\left(\sX \right)$-Hilbert modules.
-	\bean
-	X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right) \right)  \cong \ell^2\left( C\left(\sX \right) \right)
-	\eean
-	Any $b \in \K\left( X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right) \right)\right)$ can be represented by a matrix
-	\bean
-	\begin{pmatrix}
-		b_{11}&b_{12}\\
-		b_{21}&b_{22}
-	\end{pmatrix}\\ b_{11}\in \K\left(  X_{C\left(\sX \right)}\right) ,\quad b_{12}\in \K\left( \ell^2\left( C\left(\sX \right) \right),  X_{C\left(\sX \right)}\right),\\
-	b_{21}\in \K\left(X_{C\left(\sX \right)}, \ell^2\left( C\left(\sX \right) \right)\right),\quad \quad b_{22}\in \K\left( \ell^2\left( C\left(\sX \right) \right)\right).
-	\eean
-	The above representation yields an injective *-homomorphism
-	\be\label{ctr_toell_eqn}
-	\begin{split}
-		\phi_X: \K\left(  X_{C\left(\sX \right)}\right)\hookto \K\left( X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right)\ \right)\right) \cong \K\left(  \ell^2\left( C\left(\sX \right)\ \right)\right),\\
-		a \mapsto \begin{pmatrix}
-			a&0\\
-			0&0
-		\end{pmatrix}
-	\end{split}
-	\ee
-	
+Let $A$
+be a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$. Let $x_0\in \sX$ and let $\sU'$ be an open  neighborhood of $x_0$ evenly covered by $\overline p: \overline\sX \to \sX$ (cf. Definition \ref{top_covering_defn}). Let $\sU''$ be an open neighborhood of $x$ such that $A|_{\sU''}\cong C_0\left(\sX\right)\otimes \K$ (cf. the equation \eqref{open_ideal_eqn} and the Proposition \ref{ctr_bundle_prop}). Let $\sU_{x}$ be an open connected neighborhood of $x$ such that $\sU_x \subset \sU'\cap \sU''$. There is a (cf. Definition \ref{top_stump_defn}). Thus one has a family $\left\{\sU_x\right\}_{x \in }$
 \end{empt}
-\begin{lem}\label{top_coh_compact_lem}
-	In the situation of the Lemma \ref{ctr_comp_lem} one has
-	\be\label{top_coh_compact_eqn}
-	\mathrm{norm}_{\overline a } \in C_0\left(\overline \sX \right). 
+\paragraph{!!!}
+\begin{corollary}\label{bt_mult_a_cor!}
+	In the situation of the Corollary \ref{bt_lim_a_cor} the natural inclusion $\varphi:\widehat A \hookto M\left( \overline{A}\right)$
+	can be naturally extended to an inclusion
+	\be\label{bt_mult_a_eqn!}
+	M\left(\varphi\right): M\left(\widehat  A\right) \hookto M\left( \overline{A}\right).
 	\ee
-\end{lem}
-\begin{proof}
-	Using an inclusion \eqref{ctr_toell_eqn}  the $C^*$-algebras  $\K\left(  X_{C\left(\sX \right)}\right), ~\K\left(  X_{C\left(\sX_\la \right)}\right)$ and $\K\left(  X_{C_b\left(\sX \right)}\right)$ can be replaced with $\K\left( \ell^2\left(C\left(\sX \right)\right)\right),~ ~\ell^2\left(C\left(\sX \right)\right)$ and $\K\left( \ell^2\left(C_b\left(\overline \sX \right)\right)\right) $ respectively.	From the Remark \ref{c_misch_rem} it follows that $\overline{a}$ is compact in sense of Mischenko, hence for any $\eps > 0$ from the Lemma 
-	\ref{c_misch_a_lem}  it turns out that there is $N \in \N$ such that
-	\be\label{top_p_l_p_eqn}
-	n\ge N \quad \Rightarrow\quad \left\|\overline{p}_n \overline{a}~ \overline{p}_n - \overline{a}\right\| < \eps
-	\ee
-	where $\overline{p}_n\in \K\left( \ell^2\left( C_b\left( \overline{\sX}\right) \right)\right) $ is the projector onto $\oplus_{j=1}^n C_b\left( \overline{\sX}\right)  \subset \ell^2\left(C_b\left( \overline{\sX}\right) \right)$. 
-	One has $\overline{p}_n\overline{a}\overline{p}_n\in \K\left(\ell^2\left( C_b\left({\overline\sX}\right) \right) \right)$. 
-	If  $\overline{e}_1,..., \overline{e}_n \in 	\ell^2\left( C_b\left(\overline \sX\right) \right)$ are such that
-	$$
-	\overline{e}_j = \left(...~, \underbrace{ 1_{C_b\left(	\overline\sX\right)}}_{j^{\text{th}}-\text{place}}, ..., 0  \right) 
-	$$
-	then since the trace of the positive operator equals or exceeds its norm 	one has
-	\be\label{top_xip_eqn}
-	\begin{split}
-		\left\|\rep_{ \widetilde{x}} \left(\overline{p}_n \overline{a}\overline{p}_n\right) \right\|  \le \sum_{j=1}^n \left\langle \overline{e}_j \overline{a}, \overline{e}_j \right\rangle_{C_b\left(\overline{\sX}\right) }  \left( \widetilde{x}\right) \quad \forall  \widetilde{x}\in  \widetilde{\sX}.
-	\end{split}
-	\ee
-	
-	From the Lemma \ref{top_z_lem} it turns out $\left\langle \overline{e}_j \overline{a}, \overline{e}_j \right\rangle_{C_b\left(\overline{\sX}\right) } \in C_0\left(\overline{\sX} \right)$ so 
-	\be
-	\overline{f}_n =  \sum_{j=1}^n \left\langle \overline{e}_j \overline{a}, \overline{e}_j \right\rangle_{C_b\left(\overline{\sX}\right) } \in C_0\left(\overline{\sX} \right)_+.
-	\ee 
-	Otherwise from $\overline{p}_n\overline{a}\overline{p}_n \in \K\left(\ell^2\left( C_b\left(\overline{\sX} \right)\right)  \right)$ it turns out 
-	$$
-	\text{norm}_{\overline{p}_n\overline{a}\overline{p}_n}\bydef\left( \overline{x}\mapsto  \left\|\rep_{ \widetilde{x}} \left( \overline{p}_n\overline{a}\overline{p}_n\right) \right\|  \right) \in C_b\left(\overline{\sX} \right)_+,
-	$$
-	and taking into account  $\overline{f}_n \in C_0\left(\overline{\sX} \right)_+$, $\text{norm}_{\overline{p}_n\overline{a}\overline{p}_n} \le \overline{f}_n$ one has
-	$$
-	\text{norm}_{\overline{p}_n\overline{a}\overline{p}_n} \in C_0\left(\overline{\sX} \right). 
-	$$
-	From \eqref{top_p_l_p_eqn} it follows that there are $C^*$-norm limits ${\overline{a}}= \lim_{n \to \infty }{\overline{p}_n\overline{a}\overline{p}_n}$ and   $\text{norm}_{\overline{a}}= \lim_{n \to \infty }\text{norm}_{\overline{p}_n\overline{a}\overline{p}_n}$, so 
-	$$
-	\text{norm}_{\overline{a}}\in C_0\left(\overline \sX \right). 	
-	$$
-	because $C_0\left(\overline\sX \right)$ is $C^*$-norm closed.
-\end{proof}
+\end{corollary}
 
-\begin{lemma}\label{top_coh_lem} 
-	Let $\widehat \K\bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C\left(\sX_\la\right)}\right)$ be an inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn}, and let $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). Let   $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
-	\left.  \sX_\la~ \right|\sX\right)$ be the projective limit of groups and let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right)$. Let $\K\left(X_{C\left(\sX_\la\right)}\right)$ be given by \eqref{unital_notation_eqn}. 
-	If  $\overline a \in B\left( \widehat\H_a\right)$ is such that for any $\la_0 \in \La$, $\eps > 0$ and  $z \in \K\left(X_{C\left(\sX_{\la_0}\right)}\right)^{\sim}$
-	it satisfies to the following conditions:	
-	\begin{enumerate}
-		\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by \eqref{f_eps_eqn}.
-		then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in \K\left(X_{C\left(\sX_\la\right)}\right)$ such that
-		\be\label{top_o_spec_a_eps_eqn}
-		\begin{split}
-			\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
-			\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
-			\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \pi\left(b_\la \right) 
-		\end{split}
-		\ee
-		where sums of the above series mean the strong convergence in  $B\left( \widehat\H_a\right)$ and the action  $G_\la\times B\left( \widehat\H_a\right)\to B\left( \widehat\H_a\right)$ is given by \eqref{equivb_eqn}.
-		\item[(b)] There is $\mu \in \La$ such that $\mu \ge \la_0$ and
-		\be\label{top_o_special_set_eqn}
-		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps
-		\ee
-		where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
-	\end{enumerate}	
-	then $\overline a$ is coherent (cf. Definition \ref{top_coh_defn}).
-\end{lemma}
-\begin{proof}
-	Suppose  $\la_0 \in \La$. If $\xi_{\la_0} \in X_{\la_0}$ is an arbitrary element then $z'\bydef \xi_{\la_0}\left\rangle \right\langle \xi_{\la_0}\in \K\left(X_{C_0\left(\sX_{\la_0}\right)}\right)$ is such that $\text{norm}_{z'}= \text{norm}^2_{ \xi_{\la_0}}$, i.e. $z'$ is a multiple of $\text{norm}_{ \xi_{\la_0}}$ (cf. Definition \ref{top_multiple_a_defn}).
-	From the Lemma \ref{top_multiple_a_lem} it follows that there is $z \bydef \mathfrak{div}\left( z',\text{norm}_{ \xi_{\la_0}}\right)\in \K\left(X_{C_0\left(\sX_{\la_0}\right)}\right)$ (cf. equation \ref{top_multiple_ad_eqn}). For all  $x \in \sX_{\la_0}$ the dimension of $\rep_x\left(z'\right)$ does not exceed 1, hence $\rep_x\left(z\right)$ also does not exceed 1. Let us check that $\overline a$ satisfies to conditions (a) - (c) of the Definition \ref{top_coh_defn}.
-	\begin{enumerate}
-		\item [(a)] From \eqref{top_o_spec_a_eps_eqn} it follows that there are $ f_\la, f^\eps_\la, h_\la, \in C_0\left(\sX_{\la}\right)_+$ such that
-		\be\label{top_oxt_spec_a_eps_eqn}
-		\begin{split}
-			\sum_{g\in G_\la }\tr\left( \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)  \right)  = f_\la ,\\
-			\sum_{g\in G_\la }f_\eps\left(\tr\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right) \right)    = f^\eps_\la,\\
-			\sum_{g\in G_\la }\tr\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = h_\la
-		\end{split}
-		\ee
-		where $\tr\left( \overline b\right)$ means the map $\overline x \mapsto \rep_{\overline x}\left( \overline b\right)$. On the other hand from our construction it follows that 
-		\be\label{top_ox_spec_a_eps_eqn}
-		\begin{split}
-			\tr\left( \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)  \right)  =  \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)\right\rangle_{D^*\left(\overline \sX \right)} ,\\
-			f_\eps\left(\tr\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right) \right)    =\\
-			= f_\eps\left( \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)\right\rangle_{D^*\left(\overline \sX \right)}\right) ,\\
-			\tr\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)\right\rangle^2_{D^*\left(\overline \sX \right)}
-		\end{split}
-		\ee
-		From the equations \eqref{top_oxt_spec_a_eps_eqn} and \eqref{top_ox_spec_a_eps_eqn} it turns out that
-		\bean
-		\begin{split}
-			\sum_{g\in G_\la } \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)\right\rangle_{D^*\left(\overline \sX \right) }    = f_\la,\\
-			\sum_{g\in G_\la } f_\eps\left( \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right) g\overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right) \right\rangle_{D^*\left(\overline \sX \right) }\right)     = f^\eps_\la,\\
-			\sum_{g\in G_\la } \left\langle \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right)g \overline a, \lift_{ \overline{p}_{\la_0}}\left( \xi_{\la_0}\right) \right\rangle^2_{D^*\left(\overline \sX \right) }    = h_\la. 
-		\end{split}
-		\eean
-		\item[(b)] From the equation \eqref{top_o_special_set_eqn} it turns out that
-		\bean
-		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|f_\la^2 - h_\la\right\| = \left\|a_\la^2 - b_\la\right\|< \eps.
-		\eean
-		\item[(c)] If we suppose that $\la_0= \la_{\text{min}}$ and $z = 1_{A_{\text{min}}^{\sim}}$ then from
-		\eqref{top_o_spec_a_eps_eqn} there is $a\in \K\left(X_{C_0\left( \sX\right) }\right) $ such that 
-		\bean
-		\sum_{	g \in \widehat G}\overline a = \pi\left(a \right), 
-		\eean
-		where the sum of the series implies  the strong topology (cf. Definition \ref{strong_topology_defn} of $B\left( \H_a\right)$ (cf. \eqref{ctr_as_eqn}).
-	\end{enumerate}
-	
-	
-	From the Lemma \ref{top_coh_lem} it turns out that $\overline a$ is coherent (cf. Definition \ref{top_coh_defn}). From the Lemma \ref{ctr_comp_lem} it follows that 
-	\bean
-	\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in 	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\bydef C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right).
-	\eean 
-	From the Lemma \ref{top_coh_compact_lem} it turns out that $\text{norm}_a \in C_0\left(\overline\sX \right)$.
-\end{proof}
-\begin{empt}\label{ctr_bas_empt}
-	Let  $A$ be a continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). 	Since $\sX$ is locally connected for any $x \in \sX$ there is an evenly covered by $\widetilde p$ (cf. Definition \ref{top_covering_defn}) connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. One can construct a family $\left\{\sU_{{\a}\subset \sX\in \mathscr A}\right\}$ of open connected subsets such that
-	\begin{enumerate}
-		\item [(i)] $\cup~\sU_{{\a}}= \sX$.
-		\item [(ii)] If $\sV_{   \a}$ is the closure of $\sU_{{\a}}$ then $\exists x \in \sX \quad \sV_{   \a}\subset \sU_x$.
-	\end{enumerate}
-	The set $\sV_{   \a}$ is compact because it is a closed subset of $\sV_x$.
-	Besides conditions   (i) and (ii) which are always satisfied we suppose that for all $\a \in \mathscr A$ following conditions hold:
-	\begin{enumerate}
-		\item [(iii)] For all $\a \in \mathscr A$ any finitely generated projective Hilbert $C\left(\sV_{   \a}\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}).
-		\item[(iv)] The $\left.A\right|^{\sV_\a}$-$C(\sV_\a)$-imprimitivity bimodule $\left.A\right|^{\sV_\a}\left.p\right|^{\sV_\a}\cong X_{C\left(\sV_{   \a}\right)}$ is countably generated over $C(\sV_\a)$.
-	\end{enumerate}
-\end{empt}
-\begin{remark}\label{ctr_bas_rem}
-	If the space $\sX$ is second-countable then from the Theorem \ref{comm_sep_thm} it follows that the $C^*$-algebra $C\left(\sV_{   \a}\right)$ is separable. From the Theorems \ref{hm_di_mi_thm} and \ref{hm_sep_di_thm} it follows that for all $\a \in \mathscr A$ any finitely generated projective Hilbert $C\left(\sV_{   \a}\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e.
-	$$
-	\sX \text{ is second-countable } \Rightarrow \text{ condition (iii) holds}.
-	$$
-\end{remark}
+\paragraph{!!!}
+!!! CONTINUE !!!
 \paragraph{Main result}
 \begin{lemma}\label{ctr_disc_lem}
 Consider  the situation \ref{ctr_bas_empt}.  If $\overline A$ is a  disconnected algebraical infinite noncommutative covering (cf. Definition \ref{disconnected_inf_defn}) of the given by \eqref{ctr_base_point_eqn} pointed algebraical  finite covering category $\mathfrak{S}_A$ (cf. Definition \ref{pointed_defn}) then there is a natural *-isomorphism $\overline A \cong A_0\left(\overline\sX\right)$.
@@ -16183,97 +15701,7 @@ From the Lemma \ref{ctr_disc_lem} it follows that a  pointed algebraical finite 
 		(cf. Definition \ref{induced_repr_inf_defn}).
 	\end{enumerate}
 \end{exercise}
- \subsection{Coverings of semilocally 1-connected $C^*$-algebras}
- \paragraph*{}
-Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) with connected, locally connected separable spectrum $\sX$, and let  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If
-\be\label{ctr_top_1c_eqn}
-\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La}
-\ee
-is a given by the Lemma \ref{top_associded_lem}
-pointed  topological finite covering category then from the Lemma \ref{blowing_base_point_lem} it turns out that there is the natural  pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
-\be\label{ctr_base_point+1c_eqn}
-\mathfrak{S}_{A }^{\mathrm{pt}} = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
-\ee
-From the the Example \ref{blowing_hausdorff_exm} and the Lemma \ref{blowing_one_c_lem} if follows that   $A$ is {semilocally 1-connected with respect to } 	$\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{semilocally_1_connected_r_defn}). 	Let $\overline \sX$ be a  {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline \sX \to \sX$ be a natural covering. 
-Let $\widehat A\bydef C^*$-$\varinjlim_{\la\in\La} A_0\left(\sX_\la\right)$ be a $C^*$-inductive limit in the sense of the   Definition\ref{inductive_lim_non_defn}. If $\widehat\pi_a: \widehat A\hookto B\left( \widehat \H_a\right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then there is a given by \eqref{blowing_atomic_eqn} faithful representation $\pi_A: A_0\left(\overline \sX\right)\hookto B\left(\widehat \H_a \right)$ where  $A_0\left(\overline \sX\right)$ is the $\overline p$-lift of $A$ (cf. Definition \ref{top_lift_a_f_defn} and/or Definition \ref{blowing_lift_a_f_defn}). If $\left(A, \overline A, \overline G\right)$ is a {disconnected inverse semilocally 1-connected limit} of $\mathfrak{S}^{\text{pt}}_A$ (cf. Definition \ref{semi_disconnected_defn})  then from the Exercise \ref{semi_repr_exer} one has a faithful representation $\rho: \overline A \hookto B\left(\widehat \H_a \right)$. From the Theorem \ref{blowing_one_c_thm} it follows that there is a natural inclusion
-\bean
-\pi_A\left(A_0\left(\overline \sX\right)\right)\subset \rho\left(\overline A\right).
-\eean
-If $\left\{B_\la\subset  A_0\left( \sX_\la\right) \subset \right\}_{\la \in \La}$  is a family of hereditary subalgebras which satisfy  to conditions (a) and (b) of the Definition \ref{semilocally_1_connected_r_defn} and $\left\{b_\la\in K\left( B_\la\right) \right\}_{\la \in \La}$ satisfies to (a)-(c) of \ref{inf_cov_empt} then from $g B_\la \cap B_\la = \{0\}$ for all nontrivial  $g \in G\left(\left.\sX_\la\right| \sX\right)$ it follows that
-\be\label{ctr_ort_eqn}
-\left( g b_\la\right) b_\la = 0 \quad\text{for all nontrivial}  \quad g \in G\left(\left.\sX_\la\right| \sX\right). 
-\ee
-If $z \in A_+$ is a positive  Abelian element (cf. Definition \ref{abelian_element_defn}) then from the equation \eqref{ctr_ort_eqn} and the condition (c) of \ref{inf_cov_empt} follows that for all $\mu, \nu \in \La$ such that $\mu \le \nu$ one has
-\be\label{ctr_0c_a_eqn}
-\begin{split}
-\pi^\mu_\nu\left(b_\mu \pi_\mu\left(z^2 \right) b_\mu\right)  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} g\left(  b_\nu \pi_\nu \left( z^2\right) b_\nu\right) ,\\
-\pi^\mu_\nu\left(b_\mu \pi_\mu\left(z^2 \right) b_\mu\right)^2  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} g\left(  b_\nu \pi_\nu \left( z^2\right) b_\nu\right)^2 ,\\
-f_\eps\left( \pi^\mu_\nu\left(b_\mu \pi_\mu\left(z^2 \right) b_\mu\right)\right)   = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} gf_\eps\left(  b_\nu \pi_\nu \left( z^2\right) b_\nu\right)^2 
-\end{split}
-\ee 
-where $f_\eps$ is given by the equation \eqref{f_eps_eqn}
-For any $\la\in \La$ an element  $b_\la \pi_\la \left( z^2\right) b_\la$ is Abelian so if
-\bean
-f_\la : \sX_{\la} \to \R,\\
-x \mapsto \tr\rep_{x}\left(b_\la \pi_\la\left(z^2 \right) b_\la \right) 
-\eean
-where $\tr$ means the trace of operator then $f_\la \in C_0\left(\sX_\la\right)$ (cf. equation \ref{ctr_hat_eqn}). From the equation \eqref{ctr_0c_a_eqn} it follows that
-\be\label{ctr_0c_f_eqn}
-\begin{split}
-f_\mu  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} gf_\nu,\\
-f^2_\mu  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} gf^2_\nu,\\
-f_{\eps}\left( f_\mu\right)   = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} f_\eps\left(  gf_\nu\right) ,\\
-\end{split}
-\ee 
-If $\overline{p}_\la : \overline \sX\to \sX_\la$ then from \eqref{ctr_0c_f_eqn} and the Theorem \ref{comm_main_f_thm} it follows that if $\lift_{\overline{p}_\la}$ is the $\overline{p}_\la$-lift (cf. Definition \ref{top_lift_defn} then one has
-$$
-\overline f  \bydef \lim_{\la \in \La}\lift_{\overline{p}_\la}\left(f_\la \right) \in C_0\left(\overline \sX\right)
-$$
-where $\lim$ means a point-wise limit. So from this fact it follows that
-$$
-s\text{-}\lim_{\la \in \La}\widehat \pi_a\left( b_\la z^2b_\la \right) \in \pi_A\left(A_0\left(\overline{   \mathcal X} \right)  \right) 
-$$
-where $s\text{-}\lim$ means the limit with respect to the strong topology of $B\left(\widehat \H_a \right)$. This fact is caused by following circumstances:
-\begin{itemize}
-	\item $\dim \rep_{\overline{   x}}\left( s\text{-}\lim_{\la \in \La}\widehat \pi_a\left( b_\la \pi_\la\left( z^2\right) b_\la \right)\right) \le 1 \quad \forall \overline{x}\in \overline{   \mathcal X}$,
-	\item 	 $\lim_{\la \in \La}\lift_{\overline{p}_\la}\left(x \mapsto \tr\left(\rep_{  \overline{x }}\left( \pi_a\left( b_\la z^2b_\la \right)\right)\right)   \right) \in C_0\left(\overline \sX\right)$
-\end{itemize}
- 
-From $b_\la \pi_\la\left(z \right) =  \left( \pi_\la\left(z \right) b_\la\right)^*$ it follows that
-\bean
-\forall x \in \sX_\la \quad \tr \left( \rep_x\left(b_\la \pi_\la \left(z\right)^2 b_\la \right) \right) = \left\| \rep_x\left(b_\la \pi_\la \left(z\right)^2 b_\la \right)\right\| =\\ =\left\| \rep_x\left(b_\la \pi_\la \left(z\right)\right)\right\|  \left\| \rep_x\left(\pi_\la \left(z\right) b_\la \right)\right\| =\left\| \rep_x\left(\pi_\la \left(z\right) b_\la \right)\right\|\left\| \rep_x\left(b_\la \pi_\la \left(z\right)\right)\right\|=\\=\left\| \rep_x\left(\pi_\la \left(z\right)b^2_\la \pi_\la \left(z\right)\right)\right\|=\tr\left(  \rep_x\left(\pi_\la \left(z\right)b^2_\la \pi_\la \left(z\right)\right)\right), 
-\eean
-So one has
-$$
-\lim_{\la \in \La}\lift_{\overline{p}_\la}\left(x \mapsto \tr\left(\rep_{  \overline{x }}\left( \pi_a\left(\pi_\la\left(z \right)  b^2_\la \pi_\la\left( z\right)  \right)\right)\right)   \right) \in C_0\left(\overline \sX\right)
-$$
-From this circumstance and taking into account a following equation
-$$
-\dim \rep_{\overline{   x}}\left( s\text{-}\lim_{\la \in \La}\widehat \pi_a\left(  \pi_\la\left( z\right) b^2_\la  \pi_\la\left( z\right)\right) \right) \le 1 \quad \forall \overline{x}\in \overline{   \mathcal X}
-$$
-we conclude that there is an Abelian element $\overline b_z \in A_0\left(\overline \sX\right)$ such that
-$$
-\pi_A\left(\overline b_z \right) = s\text{-}\lim_{\la \in \La}\widehat \pi_a\left(  \pi_\la\left( z\right) b^2_\la  \pi_\la\left( z\right)\right).
-$$
-\begin{exercise}
-Consider the above situation and suppose that the spectrum of $A$ is second countable. 
-\begin{enumerate}
-	\item Similarly to the Lemma \ref{ctr_disc_lem} prove that there is $\overline b \in A_0\left( \overline \sY\right)$ such that
-	$$
-	s\text{-}\lim_{\la \in \La}\widehat \pi_a\left(   b^2_\la  \right)= \pi_A\left(\overline b^2 \right) 
-	$$
-	where $s\text{-}\lim$ means the limit with respect to the strong topology of $B\left(\widehat \H_a\right)$ (cf. Definition \ref{strong_topology_defn}).
-\item Prove that a triple $\left(A,  A_0\left( \overline \sX\right), G\left(\left. \overline \sX\right| \sX\right) \right)$  is a {disconnected inverse semilocally 1-connected limit} of $\mathfrak{S}^{\text{pt}}_A$ (cf. Definition \ref{semi_disconnected_defn}).
-\item Prove that $\mathfrak{S}^{\text{pt}}_A$ is semilocally good (cf. Definition \ref{good_r_defn}).
-\item Prove that  if $\widetilde \sX \subset \overline{\sX}$ is a connected component of $\overline{\sX}$ (cf. Definition \ref{top_connected_component_defn}) then a triple $\left(A,  A_0\left(\widetilde  \sY\right), G\left(\left. \widetilde \sY\right| \sY\right) \right)$ is a {semilocally 1-connected covering} of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{good_r_defn}).
-
-	
-\end{enumerate}
-
-\end{exercise}
-
-
-\subsection{Coverings of operator spaces}
+ \subsection{Coverings of operator spaces}
 \paragraph*{} Here we consider the generalization of the Theorem  \ref{ctr_main_thm}.
 \begin{empt}\label{ctr_op_main_empt}
 	Let $\left(X, Y\right)$ be a  {sub-unital subspace} having continuous trace (cf. Definition \ref{ctr_oa_defn}) and let $A \bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$.
@@ -24063,6 +23491,14 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
 	\end{itemize}
 \end{lemma}
+
+\begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
+%Proposition 5.59. 
+Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
+is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
+trivial bundle $\left( X, \pi,\sX\right) $ with fibre $K(\H)$ and structure group $\Aut \left( K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(X \right)$ (cf. equation \eqref{top_ub_eqn}).
+%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+\end{proposition}
 
 %\begin{theorem}\label{oa_1_thm}\cite{pedersen:ca_aut}
 	%6.8.7. Theorem. 
