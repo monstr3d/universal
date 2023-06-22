@@ -1514,7 +1514,8 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
-\end{definition}\begin{remark}
+\end{definition}
+\begin{remark}
 Any noncommutative finite-fold  pre-covering is a noncommutative finite-fold quasi-covering.
 \end{remark}
 \begin{remark}
@@ -1533,7 +1534,7 @@ If $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \rig
 	\be\label{proper_subgroup_finh_eqn}
 \left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
 \ee
-a {noncommutative finite-fold  pre-covering}.
+a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}).
 \end{lemma}
 \begin{proof}	
 	From the Definition \ref{fin_pre_defn} it follows that
@@ -3901,7 +3902,7 @@ g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left
  	\be\label{a_la_eqn}
  	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
- 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strong topology sum  of the infinite series.
+ 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology sum  of the infinite series.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
@@ -4347,7 +4348,12 @@ $$
  there is a natural inclusion $\overline{\A}\subset 	\mathscr B\left(\widehat A\right)$ where $\mathscr B\left(A\right)$ is the enveloping Borel *-algebra of $\widehat A$ (cf. Definition \ref{borel_env_defn})
 \end{empt}
 \begin{lemma}\label{atomic_faithful_lem}
-Consider the above situation. If $\pi_a : \widehat A \hookto B\left(\widehat \H_a\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{ext_repr_eqn} representation 
+	If 
+	 	$
+	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
+$
+is a weak  {disconnected  infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
+and $\pi_a : \widehat A \hookto B\left(\widehat \H_a\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{ext_repr_eqn} representation 
 \be\label{atomic_faithful_eqn}
 ext\left(\pi_a \right): \overline{A} \to B\left(\widehat \H_a\right)
 \ee
@@ -10395,7 +10401,7 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	Let $\tau: C_c\left(\sX \right)\to \C$ be a positive functional given by the Theorem \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$  such that
 	\be\label{top_meafunc_eqn}
-	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
+	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_c\left(\sX \right).
 	\ee
 Suppose that $\mu\left( \sU\right) > 0$ for any  nonempty open set $\sU\subset\sX$, or equivalently 
 $$
@@ -10424,6 +10430,11 @@ Let $\overline{\mathcal X}$ be to be the {disconnected inverse limit} of $\mathf
 		\overline a \mapsto \int_{\overline\sX}  \overline a_\la~ d \overline \mu
 	\eean
 	where $\overline \mu \bydef  \lift_{\overline p}\mu$ is the $\overline p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}). 
+	One has
+		\be\label{top_ot_eqn}
+	\overline\tau\left(\overline a \right)= \tau_\la\left(\desc_{\overline p_\la}\left( \overline  a\right)\right)\quad\la\ge \la_{\supp \overline  a}
+	\ee
+	
 	Let us define the $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \overline\sX\right) \times C_c\left(\overline  \sX\right) \to\C$.
 	The product is given by
 	\bean
@@ -10735,7 +10746,7 @@ one has  a pointed algebraical  finite covering category
 	\mathfrak{S}_b\bydef\left\{ \left( B ,  B_{\la} , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}= \\ =\left\{ \left(C_0\left(M \right)  ,  C_0\left( M_{\la}\right)  , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}.
 \end{split}
 \ee
-If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural given by \eqref{top_pi_mu_eqn} equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$. From the Theorem \ref{comm_main_mu_thm} it turns out  that the given by \eqref{top_bl_cat_eqn} pointed algebraical  finite covering category is $\pi_\tau$-good  (cf. Definition \ref{good_defn}) and if $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  $\pi_\tau$-infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_b$ (cf. Definition \ref{infinite_noncommutative_covering_defn} and Theorem \ref{comm_main_mu_thm}). If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
+If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural given by \eqref{top_pi_mu_eqn} equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$. If $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_b$ (cf. Definition \ref{infinite_noncommutative_covering_defn}. If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
 \be
 \begin{split}
 	\widetilde \H \cong L^2\left( \widetilde M, \widetilde\mu\bydef \overline\mu|_{\widetilde M}\right) ,\\
@@ -11189,7 +11200,7 @@ This product yields the structure of pre-Hilbert space on $\Ga_c\left(\widetilde
 \be\label{comm_bundlei_repr_eqn}
 C_0\left(\widetilde \sX\right) \to B\left( L^2\left(\widetilde  \sX, \widetilde E, \widetilde \mu\right)\right). 
 \ee
-From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C_0\left( \sX\right) , C_0\left( \widetilde \sX\right) G\left(\left.\widetilde \sX   ~\right| \sX\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde \sX\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
+Thee is an  induced by $\left(\rho, \left(C_0\left( \sX\right) , C_0\left( \widetilde \sX\right) G\left(\left.\widetilde \sX   ~\right| \sX\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde \sX\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
 $$
 K\left( C_0\left( \widetilde \sX\right)\right)\otimes_{C_0\left( {\sX}\right)} L^2\left(  \sX, E\right)
 $$
@@ -11678,7 +11689,7 @@ a \mapsto fa.
 	If $A$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}) and $C_0\left(\sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up then an open subset $\sU \subset \sY$ is connected if and only if a given by \eqref{blowing_sue3_eqn}  hereditary $C^*$-subalgebra $_\sU A_\sU\subset A$ is  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}. 
 \end{lemma}
 \begin{proof}
-	If $_\sU A_\sU$ is not connected then one has $_\sU A_\sU= A_1 \oplus A_2$. It follows that !!! $M\left(_\sU A_\sU\right) = M\left( A_1\right)\oplus M\left(A_2\right)$. From the inclusion $C_0\left(\sU\right)\hookto M\left( _\sU A_\sU\right)$ it follows that
+	If $_\sU A_\sU$ is not connected then one has $_\sU A_\sU= A_1 \oplus A_2$. It follows that  $M\left(_\sU A_\sU\right) = M\left( A_1\right)\oplus M\left(A_2\right)$. From the inclusion $C_0\left(\sU\right)\hookto M\left( _\sU A_\sU\right)$ it follows that
 	$C_0\left(\sU \right)= M\left( A_1\right)\cap C_0\left(\sU \right)\oplus M\left( A_2\right)\cap C_0\left(\sU \right)$. Since $C_0\left(\sU \right)$ is a connected $C^*$-algebra one has  $M\left( A_1\right)\cap C_0\left(\sU \right)= \{0\}$ or $M\left( A_2\right)\cap C_0\left(\sU \right)=\{0\}$.  Suppose that $M\left( A_1\right)\cap C_0\left(\sU \right)=  C_0\left(\sU \right)$. Any $a \in~ _\sU A_\sU$ can be uniquely represented by $a = a_1 + a_2$ where $a_1 \in A_1$ and $a_2 \in A_2$. 	  	If  $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sY\right)}$  is a given by \ref{top_u_net_empt} net then $u_\la a_2 = 0$ for all $\la\in\Xi\left( \sY\right)$. On the other hand from \eqref{blowing_strict_eqn} it follows that
 	$$
 a = \lim_{\la\in\Xi\left( \sU\right)}u_\la a = \lim_{\la\in\Xi\left( \sU\right)}u_\la a_1 + 0 = a_1,	
@@ -12067,7 +12078,7 @@ $$
 \section{Hausdorff blowing-up and noncommutative  coverings}
 
 \paragraph{}
-Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering then from the Lemma \ref{comm_allows_lem}  it follows that there is a $C_0\left( \sY\right)$-valued sesquilinear product
+Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering then from the Theorem \ref{top_main_thm} and the Definition \ref{subord_defn}  it follows that there is a $C_0\left( \sY\right)$-valued sesquilinear product
 \be
 \begin{split}
 \left\langle \cdot, \cdot \right\rangle_{C_0\left(\sY \right)} : C_c\left(\widetilde\sY \right) \times  C_c\left(\widetilde\sY \right)\to C_0\left(\sY \right) ,\\
@@ -13095,7 +13106,7 @@ There are following inclusions
 _{q^{-1}\left( \sU\right)} 	A_0\left(\widetilde  \sY \right)_{q^{-1}\left( \sU\right)} \otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU\subset 	A_0\left(\widetilde  \sY \right) \otimes_A \widetilde A,\\
 _{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}\otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU\subset  _{q^{-1}\left( \sU\right)} 	A_0\left(\widetilde  \sY \right)_{q^{-1}\left( \sU\right)} \otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU.
 \eean
-If  $\widehat A\bydef C^*$-$\varinjlim A_0\left( \sY_\la\right)$ is a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_non_defn}) and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{blowing_rep_lem} it follows that  for all $\widehat x \in \widehat\sX$ there is an irreducible representation $\rho_{\widehat x}: A_0\left(\overline \sY \right)\to B\left(\H_{\widehat x} \right)$ where  $\H_{\widehat x}$ is a space of the irreducible representation $\rep_{\widehat x}: \widehat A \to B\left(\H_{\widehat x} \right)$. 
+If  $\widehat A\bydef C^*$-$\varinjlim A_0\left( \sY_\la\right)$ is a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_non_defn}) and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{atomic_faithful_lem} it follows that  for all $\widehat x \in \widehat\sX$ there is an irreducible representation $\rho_{\widehat x}: A_0\left(\overline \sY \right)\to B\left(\H_{\widehat x} \right)$ where  $\H_{\widehat x}$ is a space of the irreducible representation $\rep_{\widehat x}: \widehat A \to B\left(\H_{\widehat x} \right)$. 
  Let $p: \widetilde \sX \to \sX$ be a given by the Proposition \ref{spectrum_cov_prop} continuous map from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$. From the Lemma \ref{inverse_lim_sp_lem} it follows that there is a surjective map $\widehat p: \widehat \sX\to \sX$. Let
 $$
 \widetilde \sX \times_\sX \widehat \sX \bydef \left\{\left.\left(\widetilde x, \widehat x \right) \in \widetilde \sX \times \widehat \sX \right| p\left(\widetilde x\right)= \widehat p\left(\widehat x\right) \right\},
@@ -13598,7 +13609,7 @@ From the Example \ref{blowing_disintegrable_exm} it turns out that $C\left( \sY^
 	\eean
 \end{lemma}
 \begin{proof}
-	If $C_0\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) \to M\left( \widetilde A\right)$ is a given by \eqref{blowing_inc_eqn} Hausdorff blowing  then  there is a transitive finite-fold covering  $\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$. If $\widetilde I\bydef\left[\widetilde A, \widetilde A\right]$ is the  is commutator of $\widetilde A$ then $G\widetilde I = \widetilde I$ and 
+	If $C_0\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) \to M\left( \widetilde A\right)$ is a given by \eqref{blowing_weak_inf_cov_eqn} Hausdorff blowing  then  there is a transitive finite-fold covering  $\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$. If $\widetilde I\bydef\left[\widetilde A, \widetilde A\right]$ is the  is commutator of $\widetilde A$ then $G\widetilde I = \widetilde I$ and 
 \be\label{ho_gr_pii_eqn}
 	\pi\left( I\right) \subset \widetilde I.
 \ee	
@@ -13747,13 +13758,21 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	g_\K \widetilde{b}_\K = \left( 1_{A^\sim }  \otimes \mathfrak{e}_{1,j}\right)  g_\K\widetilde{c}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right)
 	$$
 	Conversely any element of $g \in G$ uniquely defines the element $g_\K \in G_\K$. Moreover from $A = \widetilde{A}^G$ it turns out ${A}\otimes \K = \left( \widetilde{A}\otimes \K\right)^{G_\K}$.\\
-	(ii) !!! PrOVE !!!
+	(ii) One needs check that a quadruple 	$\left(A\otimes\K, \widetilde{A}^H\otimes\K, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H\otimes \Id_\K \right)$ satisfies to the conditions of the Definition \ref{fin_pre_defn}.
+	\begin{enumerate}
+		\item [(a)] Follows from
+	$$
+\left\{ \left.g \in \Aut\left(\widetilde{A}^H\ox \K \right)~\right|\forall a \in A\ox\K\quad ga = a\right\}\cong \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in A\quad ga = a\right\}.	
+	$$	
+		
+		\item[(b)]
+		Follows from
+		$$
+	\left( \widetilde{A}^H\ox \K\right)^{G\left(\left.\widetilde A~\right|A \right)/H} 	= A\otimes \K.
+		$$
+	\end{enumerate}
+	
 \end{proof}
-\begin{remark}
-	The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an operator $\mathfrak{e}_{1,1}$. Choice of another rank-one projector can give another  $C^*$-algebra which should not be isomorphic to $\widetilde A$  (cf. Example \ref{nt_stable_exm} below).
-\end{remark}
-
-
 \begin{lemma}\label{stable_fin_cov_comp_lem}
  If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} with unitization then  
 		$$
@@ -14309,7 +14328,7 @@ Suppose that both  $\left[ f\right]\in  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\
 \end{proof}
 Let $\varphi:\sX \to U(1)$ be a continuous map
 $\sX \to U(1)$ such that $\varphi|_{S^1 }=\a$.
-The map 	$\varphi: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ is given by \eqref{h_n_root} then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$.  From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) which is an $\left(u, n \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
+The map 	$\varphi: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ is given by \eqref{h_n_root} then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$. % From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) which is an $\left(u, n \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
 \section{Stable Hurewicz homomorphism}
 
 If $A$ is a connected $C^*$-algebra then one has
@@ -15253,7 +15272,7 @@ pointed  topological finite covering category then from the Lemma \ref{blowing_b
 \be\label{ctr_ax_a_eqn}
 \pi_{\overline A}:A_0\left(\overline \sX \right)\hookto \overline A,
 \ee
-If $\pi_a: \widehat A \hookto B\left(\widehat\H_a \right)$ is an atomic representation  then there is a faithful representation given by the equation \eqref{atomic_faithful_eqn}, i.e.
+If $\pi_a: \widehat A\bydef C^*$-$\varinjlim A_0\left( \sX_\la\right) \hookto B\left(\widehat\H_a \right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then there is a faithful representation given by the equation \eqref{atomic_faithful_eqn}, i.e.
 \be\label{ctr_atomic_eqn}
 ext\left(\pi_a \right): \overline{A} \hookto B\left(\widehat \H_a\right)
 \ee
@@ -15395,7 +15414,7 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 	$$	\left(A, A_0\left(\widetilde \sX \right), 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)
 	$$  allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
 \end{exercise}
-!!! CONTINUE !!!
+
 \begin{empt}\label{ctr_mu_empt}
 	Denote by  
 	\bean
@@ -15534,7 +15553,8 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 	\widetilde b \in C_0\left(\lift_{\widetilde p}
 	\left[X\right]\right) \quad \supp\widetilde b \subset \widetilde\sU.
 	\ee
-	There is the net $\left\{\desc_{\widetilde p_\la}\left( \widetilde b\right)\in X_\la \right\}_{\la \in \La} \subset \widehat A$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that
+	There is the net $\left\{\desc_{\widetilde p_\la}\left( \widetilde b\right)\in X_\la \right\}_{\la \in \La} \subset \widehat A$. % From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that
+	One has
 	$$
 	\widetilde b = \lim_{\la \in \La }\pi_a\left(\desc_{\widetilde p_\la}\left( \widetilde b\right) \right) 
 	$$
@@ -15843,7 +15863,9 @@ the following mapping.
 Let $\sX$ be a connected, locally connected, second-countable, locally compact, Hausdorff topological space and let $\left\{\H_x\right\}_{x \in \sX}$ be a family of infinite dimensional Hilbert spaces. Let  $\sF$ be a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}). If 
 \be\label{vf_x_eqn}
 X_{C_0\left(\sX\right)}  \bydef C_0\left(\sX, \left\{\H_x\right\}, \sF\right)
-\ee (cf. Definition \ref{top_cc_c0_defn}). Similarly to \eqref{top_c0_hilb_iso_eqn} prove that $X_{C_0\left(\sX\right)}$ is a $C^*$-Hilbert $C_0\left(\sX\right)$-module. Find a sub-ubital operator space $\left(X_{C_0\left(\sX\right)}, Y\right)$ (cf. Definition \ref{op_su_space_defn})
+\ee (cf. Definition \ref{top_cc_c0_defn}).
+% Similarly to \eqref{top_c0_hilb_iso_eqn}
+ Prove that $X_{C_0\left(\sX\right)}$ is a $C^*$-Hilbert $C_0\left(\sX\right)$-module. Find a sub-ubital operator space $\left(X_{C_0\left(\sX\right)}, Y\right)$ (cf. Definition \ref{op_su_space_defn})
 such that following conditions hold:
 \begin{enumerate}
 	\item There is the natural the 1-1 correspondence  between transitive finite-fold coverings of $\sX$  and noncommutative finite-fold coverings of $\left( X_{C_0\left(\sX\right)}, Y\right) $.
@@ -15874,7 +15896,7 @@ such that following conditions hold:
 	where
 	\begin{itemize}
 		\item The isomorphism  $\varphi_{K_1\left(C_0\left(\sX\right)\right) }: K_1\left(C_0\left(\sX\right) \right) \cong K_1\left( A\right) $ comes from the Theorems \ref{ctr_k_thm} and \ref{uct_thm}. 
-		\item The homomorphism $h_{K_1}	:\pi_1\left(\sX, y_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\to K_1\left(\sX \right)$ is given by the equation \eqref{hurewicz_hk1_eqn}.
+		\item The homomorphism $h_{K_1}	:\pi_1\left(\sX, y_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\to K_1\left(\sX \right)$ is given by the equation \eqref{h_hk1_eqn}.
 		\item The isomorphism $$\pi_\K: \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left( A\right)\right]\cong \pi_1\left( C_0\left(\sX\right)\right)/\left[\pi_1\left(C_0\left(\sX\right)\right), \pi_1\left( C_0\left(\sX\right)\right)\right]$$ follows from the Corollary \ref{ctr_fg_cor}
 	\end{itemize}
 	
@@ -16461,7 +16483,7 @@ be a  pointed  topological finite covering category given by the Lemma \ref{top_
 	This lemma is a specialization of  \ref{blowing_base_point_lem} one.
 \end{proof}
 \begin{thm}\label{foli_inc_thm}
-	Consider the situation of the Lemma \ref{foli_base_point_lem}, and let $\left( C_r\left( M, \F\right) \overline A,  G\left(\left.\overline A\right|C_r\left( M, \F\right)\right)\right) $ be the disconnected infinite noncommutative covering 	(cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) of the given by 
+	Consider the situation of the Lemma \ref{foli_base_point_lem}, and let $$\left( C_r\left( M, \F\right), \overline A,  G\left(\left.\overline A\right|C_r\left( M, \F\right)\right)\right) $$ be the disconnected infinite noncommutative covering 	(cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) of the given by 
 \eqref{foli_base_point_eqn} pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}). Suppose that for any $\la\in \La$ a finite-fold noncommutative covering is reducible (cf. Definition \ref{fin_red_defn}).
  If $\overline M$ topological disconnected inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by \eqref{foli_top_eqn} pointed topological finite covering category
 $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_pointed_cat_defn})  and 
@@ -16474,14 +16496,21 @@ where $\overline q:\overline M \to M$ is the natural covering,  $\left(\overline
 \begin{proof}
 This Theorem follows from the Remark \ref{blowing_weak_inf_cov_rem}.
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{empt}\label{foli_atomic_empt}
-The Theorem \ref{foli_inc_thm} uses a given by \eqref{foli_atomic_l_eqn}   !!! \ref{atomic_faithful_lem} !!!! inclusion $C^*_r\left(\overline M, \overline \sF\right)\hookto B\left( \widehat \H_a\right)$. Here we give an explicit description of it.  If $\widehat A\bydef C^*$-$\varinjlim C^*_r\left( M_\la,  \sF_\la\right)$ is  a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_non_defn}) of $\left\{ C^*_r\left( M_\la,  \sF_\la\right)\right\}$ and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem}  it follows that $\widehat \sX$ is an inverse limit   $\varprojlim \sX_\la$ (cf. Definition \ref{top_inv_lim_defn}) where $\sX_\la$ is a spectrum of $C^*_r\left( M_\la,  \sF_\la\right)$. From the Theorem \ref{foli_irred_hol_thm} it turns out  that any $x_\la \in \sX_\la$  corresponds to a leaf   $L_\la$ of $\left( M_\la,  \sF_\la\right)$ which has no holonomy. The given by the Proposition \ref{spectrum_cov_prop} map $\sX_\mu \to \sX_\nu$ can be regarded  as $L_\mu \mapsto L_\nu \bydef q^\mu_\nu\left(L_\mu \right)$. Any element of $\widehat \sX$ can be represented by a family $\left\{L_\la \right\}_{\la \in \La}$ of leaves such that
+	From the Lemma \ref{blowing_weak_inf_cov_lem} it follows that 
+	$$\left( C_r\left( M, \F\right),C^*_r\left(\overline M, \overline \sF\right),  G\left(\left.\overline M\right|M\right)\right)  $$ is a  weak disconnected infinite noncommutative covering 	(cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) of the given by 
+	\eqref{foli_base_point_eqn} pointed algebraical  finite covering category.
+  If $\widehat A\bydef C^*$-$\varinjlim C^*_r\left( M_\la,  \sF_\la\right)$ is  a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_non_defn}) and $\pi_a:\widehat A \hookto B\left(\widehat \H_a\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Lemma \ref{atomic_faithful_lem} it follows that there is a faithful representation
+\be\label{foli_ext_eqn}
+ext\left( \pi_a\right) : C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a\right).   
+\ee
+ If $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem}  it follows that $\widehat \sX$ is an inverse limit   $\varprojlim \sX_\la$ (cf. Definition \ref{top_inv_lim_defn}) where $\sX_\la$ is a spectrum of $C^*_r\left( M_\la,  \sF_\la\right)$. From the Theorem \ref{foli_irred_hol_thm} it turns out  that any $x_\la \in \sX_\la$  corresponds to a leaf   $L_\la$ of $\left( M_\la,  \sF_\la\right)$ which has no holonomy. The given by the Proposition \ref{spectrum_cov_prop} map $\sX_\mu \to \sX_\nu$ can be regarded  as $L_\mu \mapsto L_\nu \bydef q^\mu_\nu\left(L_\mu \right)$. Any element of $\widehat \sX$ can be represented by a family $\left\{L_\la \right\}_{\la \in \La}$ of leaves such that
 $$
 \forall \mu, \nu \in \La \quad  \mu\ge \nu\quad \Rightarrow \quad L_\nu = q^\mu_\nu\left(L_\mu \right).
 $$
 This family uniquely defines a leaf $\overline L$ of $\left(\overline M, \overline \sF\right)$ such that $\forall \la \in \La \quad \overline p_\la \left(\overline L \right) = L_\la$ where $\overline p_\la: \overline M \to M_\la$ is a natural covering. 
-The leaf  $\overline L$ has no holonomy, so it  corresponds to an irreducible representation of $C^*_r\left(\overline M, \overline \sF\right)$. We leave to the reader a proof of that the inclusion \eqref{foli_atomic_l_eqn}   !!! \ref{atomic_faithful_lem} !!!! is equivalent to the atomic representation of $C^*_r\left(\overline M, \overline \sF\right)$.
+The leaf  $\overline L$ has no holonomy, so it  corresponds to an irreducible representation of $C^*_r\left(\overline M, \overline \sF\right)$. We leave to the reader a proof of that the representation \eqref{foli_ext_eqn}    is equivalent to the atomic representation of $C^*_r\left(\overline M, \overline \sF\right)$.
 \end{empt}
 
 
@@ -16611,7 +16640,8 @@ is surjective, so one has
  \eean
  If $\mathcal W'$ is the maximal open subset of $\mathcal W$ end $\ga \in  \mathcal W'$ then $s|_{\mathcal W'}$ is a representative of $s|_\ga$. On the other hand the restriction  $s|_{\mathcal W'}$ uniquely depends on $s|_{\mathcal W}\in \mathscr C^*_r\left(M,\sF\right) \left(\mathcal W \right)$. In result any $s_\ga$ can be represented by a homeomorphism \\$\left(0,1\right)^{2\dim \sF}\times \left[0, 1\right]^{\codim\sF}\cong \mathcal W \subset \G\left(M,\sF\right)$ and an element\\ $a \in C\left(\sY\right) \otimes \K\left(L^2\left( \left(0, 1\right)^{\dim\sF} \right)\right)$.
  \begin{exercise}\label{foli_tI_exer}
- Similarly to the equation  \eqref{top_c0_hilb_iso_eqn} construct a Hilbert $C\left(\sY\right)$-module $X_{C\left(\sY\right)}$ such that
+% Similarly to the equation  \eqref{top_c0_hilb_iso_eqn}
+Construct a Hilbert $C\left(\sY\right)$-module $X_{C\left(\sY\right)}$ such that
  \be\label{foli_tI_hm_eqn}
  C\left(\sY\right) \otimes \K\left(L^2\left( \left(0, 1\right)^{\dim\sF} \right)\right)\cong \K\left(X_{C\left(\sY\right)}\right)
  \ee
@@ -16747,60 +16777,9 @@ c \ge a_\nu,\\
 \begin{exercise}
 	Suppose that a foliation groupoid $\G\left(M,\sF\right)$ is Hausdorff. Prove that the groupoid $\G\left(\overline M, \overline \sF\right)$ is also Hausdorff.
 \end{exercise}
-\begin{lemma}\label{foli_s_v_lem}
-	Suppose that a foliation groupoid $\G\left(M,\sF\right)$ is Hausdorff.
-	Let $C^*_b\left(\overline M,\overline \sF\right)\subset B\left( \bigoplus_{L \in \overline M/\overline\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ be a space of affiliated operators to $C^*_r\left(\overline M,\overline \sF\right)$ operators (cf. Definition \ref{foli_affil_defn}). Prove that if
-	If  $ \overline a  \in B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}) then $\overline a\in C^*_b\left(M,\sF\right)$
-\end{lemma}
-\begin{proof}
-	One needs proof that for all $\overline \ga \in \G\left(\overline M,\overline \sF\right)$ there is an open neighborhood $\overline \sV_{\overline\ga}$ and $\overline b \in C^*_r\left(\overline M,\overline \sF\right)$ such that 
-	$$
-		P_{\overline \sV_{\overline \ga}} \pi_a\left(\overline b \right) Q_{\overline \sV_{\overline \ga}}= P_{\overline \sV_{\overline \ga}} \overline a Q_{\overline \sV_{\overline \ga}}.
-		$$
-		Denote by
-		\be\label{foli_w_eqn}
-\overline{   \mathcal W}_{\overline\ga}\bydef \begin{cases}
-\text{The given by equation \eqref{foli_sv_eqn} set } \sV & s\left(\overline \ga\right)=  r\left(\overline \ga\right)\\
-\text{The given by equation \eqref{foli_svb_eqn} set } \sV_b & s\left(\overline \ga\right)\neq  r\left(\overline \ga\right)
-\end{cases}	
-		\ee
-Since the natural map $\overline M \to M$ is a covering one can select $\overline{   \mathcal W}_{\overline\ga}$ such that $g \overline{   \mathcal W}_{\overline\ga}\cap \overline{   \mathcal W}_{\overline\ga}= \emptyset$. From the equation \ref{foli_w_eqn} one can deduce $\overline{   \mathcal W}_{\overline\ga}= \overline{   \mathcal W}_{\overline\ga}^{-1}$, it turns out that 	$P_{\overline{   \mathcal W}_{\overline \ga}} = 	Q_{\overline{   \mathcal W}_{\overline \ga}}$. If 
-$$
-X_{C\left( \overline \sY\right) } \bydef \begin{cases}
-X_{C\left( \overline \sY\right) } \text{ (cf. Exercise \ref{foli_tI_exer})} & s\left(\overline \ga\right)=  r\left(\overline \ga\right)\\
- X_{C\left(\sY_s\right)}\oplus X_{C\left(\sY_r\right)} \text{ (cf. Exercise \ref{foli_tII_exer})}& s\left(\overline \ga\right)\neq  r\left(\overline \ga\right)
-\end{cases}	
-$$
-then from equations \eqref{foli_t1_eqn} and \eqref{foli_cb_k_eqn} it follows that 
-$$
- \mathscr C^*_r\left(\overline M,\overline\sF\right) \left(\overline{   \mathcal W}_{\overline \ga}\right)\cong \K\left(X_{C\left(\overline{   \mathcal W}_{\overline \ga}\right)}\right).
-$$
-For each $\la \in \La$ let $a_\la \in C^*_r\left(M_\la, \sF_\la \right)_+$ be such that
-	\be\label{foli_spec_a_eqn}
-	\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\overline{M}~\right|~M_\la \right)\right) } g\overline a  = \widehat\pi\left(a_\la \right). 
-	\ee	
-	Let $\mathcal W = \overline{q}\left(\overline{\mathcal W} \right) \in \G\left( M, \sF\right)$ and  $\mathcal W_\la = \overline{q}_\la\left(\overline{\mathcal W} \right) \in \G \left( M_\la, \sF_\la\right)$ where $\overline{q}: \G\left(\overline{M}, \overline{\sF}\right)\to \G\left({M}, {\sF}\right)$ and  $\overline{q}_\la: \G\left(\overline{M}, \overline{\sF}\right)\to\G\left({M}_\la, {\sF}_\la\right)$ are natural coverings. Denote by $\overline{\sV} = \overline{q}^{-1} \left(\mathcal W\right)= \sqcup_{\overline{g} \in G \left(\left.\overline{M}~\right| M\right)} g\overline{\mathcal W}$ and $\sV_\la = q_\la^{-1}\left(\mathcal W\right) $ where $q_\la : \G \left( M_\la, \sF\right) \to \G \left( M, \sF_\la\right)$ is the natural covering.  
-	Let $\overline{\sY} \subset \overline{M}$ be the transversal to $\sV$ considered in the section \ref{foli_cases_sec}, let $\sY = \overline{p}\left(\overline{\sY} \right) \subset M$ and $\sY_\la = \overline{p}_\la\left(\overline{\sY} \right) \subset M$. Denote by $\overline{\sY}' = \overline{p}^{-1} \left(\sY\right)=\sqcup_{\overline{g} \in G \left(\left.\overline{M}~\right|M\right)} g\overline{\sY}$ and $\sY'_\la = p_\la^{-1}\left(\sY\right)$. Any $a_\la$ defines an element of $\mathscr C^*_r\left(M_\la, \sF_\la \right)\left( \sV_\la\right)$. From the results of the section  \ref{foli_cases_sec} for all $\la \in \La$ there is the isomorphism
-	$$
-	\mathscr C^*_r\left(M_\la, \sF_\la \right)\left( \sV_\la\right)\cong \K\left(X_{C_b\left( \sY'_\la\right)} \right) 
-	$$
-	it turns out that one has the  *-isomorphism
-	\be
-	\phi_\la :	C^*_r\left( M_\la, \sF_\la\right) \to \K\left(X_{C\left( \sY_\la\right)} \right) 
-	\ee
-	Let $\widehat \K \bydef C^*$-$\varinjlim_{\la\in\La} \K\left(X_{C\left( \sY_\la\right)} \right)$ be the $C^*$-inductive limit, and let $\pi^\K_a:\widehat \K \to B\left(\H^\K_a \right)$ be the atomic representation.  The family $\left\{	\phi_\la\left( a_\la\right)\in \widehat \K \right\}$ is decreasing, hence from the Lemma \ref{increasing_convergent_w_lem} it follows that there is the limit $\overline a^\K=\lim \phi_\la\left( a_\la\right)\in B\left(\H^\K_a \right)$ with respect to the strong topology of $B\left(\H^\K_a \right)$.
-	The element $\overline a$ is special, so it satisfies to conditions (a) and (b) of the Definition \ref{special_element_defn}.  It turns out that the element  $\overline a^\K$ satisfies to conditions (a) and (b) of the Definition \ref{top_coh_defn}. From the Lemmas  \ref{ctr_comp_lem}, \ref{top_coh_lem} and  \ref{top_coh_compact_lem} it follows that 
-	\be\label{foli_sva_eqn}
-	\overline a^\K\in   \K\left(X_{C_0\left(\overline{\sY}'\right)}\right),
-	\ee 
-	and taking into account the Section \ref{foli_cases_sec} there is $\overline b \in C^*_r\left(\overline M,\overline \sF\right)$ such that 
-	$$
-	P_{\overline \sV_{\overline \ga}} \pi_a\left(\overline b \right) Q_{\overline \sV_{\overline \ga}}= P_{\overline \sV_{\overline \ga}} \overline a Q_{\overline \sV_{\overline \ga}}.
-	$$
-\end{proof}
 
 \begin{lemma}\label{foli_sheaf_lem}
-	If $ \overline a  \in \overline A\subset B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}) then $\overline a \in   \pi_A\left( C^*_r\left(\overline M, \overline \sF\right)\right) $ where $\pi_A: C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a \right)$ is an atomic representation of  $C^*_r\left(\overline M, \overline \sF\right)$ (cf. \ref{foli_atomic_empt} and the equation \eqref{foli_atomic_l_eqn}   !!! \ref{atomic_faithful_lem} !!!!).
+	If $ \overline a  \in K\left( \overline A\right) $ is a positive  element of Pedersen's ideal then $\overline a \in   \pi_A\left( C^*_r\left(\overline M, \overline \sF\right)\right) $ %where $\pi_A: C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a \right)$ is an atomic representation of  $C^*_r\left(\overline M, \overline \sF\right)$ (cf. \ref{foli_atomic_empt} and the equation \eqref{foli_atomic_l_eqn}    \ref{atomic_faithful_lem} ).
 \end{lemma}.
 \begin{proof}
 From the Definition \ref{foli_affil_defn} it follows that
@@ -16827,7 +16806,7 @@ and $\overline b \bydef a_\bt +\phi\left(a_\ga-a_\bt \right)$ then
 \eean
 From the above equations it follows that the set $\mathscr A$ is directed (cf. Definition \ref{directed_set_defn}) and 
 the family $\left\{a_\a\right\}_{\a\in \mathscr  A}$ is a net (cf. Definition \ref{top_net_defn}).
-Let $a \in C^*_r\left( M,\sF\right)$ is given by the equation \eqref{spec_a_sum_eqn}; that is
+Let $a \in C^*_r\left( M,\sF\right)$ is given by the equation \eqref{subord_ga_eqn}; that is
 \be\label{foli_sum_eqn}
 a \bydef \sum_{	g \in G\left( \left. \overline M\right| M\right) }g \overline a.
 \ee
@@ -16889,7 +16868,6 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 		\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde\sF\right) , G\left(\left.\widetilde M\right|M\right)\right)
 		$$ 
 		is an inverse noncommutative limit of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
-		\item[(iii)] a $C^*$-algebra $C^*_r\left(\widetilde M, \widetilde\sF\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!). 
 	\end{enumerate}
 	\end{theorem}
 \begin{proof}
@@ -16939,7 +16917,8 @@ where $\widetilde C^*_r\left(\G^{N_\la}_{N_\la}\right) \otimes \K \cong C^*_r\le
 \be\label{foli_n2_eqn}
 C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right) \otimes \K\cong C^*_r\left(\widetilde M, \widetilde \sF\right)
 \ee
-From the Remark \ref{stab_inf_rem} and equations \eqref{foli_n1_eqn}, \eqref{foli_n2_eqn} it turns out that the infinite noncommutative covering equals to $C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$.
+From the % Remark \ref{stab_inf_rem} and 
+equations \eqref{foli_n1_eqn}, \eqref{foli_n2_eqn} it turns out that the infinite noncommutative covering equals to $C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$.
 \end{proof}
 
 \begin{cor}\label{foli_n_cat_fg_cor}
@@ -17060,15 +17039,15 @@ Consider the above situation and prove following statements.
 	\item  For all $n \in \N$ there are $\left(U, n\right)$ and $\left(V, n\right)$ {covering} (cf. Definition \ref{hurewicz_u_n_defn}) of $C\left(\T^2_{\th}\right)\otimes \K$ 
 	\item All these coverings are reduced (cf. \ref{fin_red_defn}).
 	\item All these coverings are coverings  with unitization (cf. \ref{fin_unitization_defn}).
-	\item The construction \ref{hurewicz_free_ass_sec} yields isomorphism 
-	\be\label{foli_nt_hur_eqn}
-	\pi_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)\right) \cong 	K_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)  \right) 
-	\ee
+%	\item The construction \ref{hurewicz_free_ass_sec} yields isomorphism 
+%	\be\label{foli_nt_hur_eqn}
+%	\pi_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)\right) \cong 	K_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)  \right) 
+%	\ee
 \end{enumerate}
 \end{exercise}
-\begin{remark}
-The equation \eqref{foli_nt_hur_eqn} is a specialization of Hurewicz homomorphism (cf. Definition \ref{hurewicz_defn}).
-\end{remark}
+%\begin{remark}
+%The equation \eqref{foli_nt_hur_eqn} is a specialization of Hurewicz homomorphism (cf. Definition \ref{hurewicz_defn}).
+%\end{remark}
 
 \chapter{Coverings of  noncommutative tori}\label{nt_chap} 
 \section{Basic constructions}
@@ -25518,7 +25497,7 @@ In particular is $\sigma$ is trivial then one has a *-algebra
 
 which is a specialization of \eqref{groupoid_*_c_eqn}
 	
-\begin{empt}  !!! DEFINE NORM !!!
+\begin{empt} % !!! DEFINE NORM !!!
 Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
 \be\label{groupoid_*__defn}
 \begin{split}
@@ -25622,227 +25601,7 @@ open subset.
 		is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 	\end{definition}
 	
-\section{Universal properties of groupoid $C^*$-algebras}
-\paragraph{}
-
-Let \(\sX\)
-and~\(\sY\)
-be locally compact, Hausdorff spaces and let \(f\colon \sX\to \sY\)
-be a continuous map with a continuous family~\(\lambda\)
-of measures~\(\lambda_y\)
-along the fibres~\(f^{-1}(y)\)
-of~\(f\)
-(such families are called \emph{\(f\)-systems} in
-\cite{Renault:Representations}*{Section~1}).  Thus
-each~\(\lambda_y\)
-is a positive Radon measure on~\(\sX\)
-with \(\supp(\lambda_y)\subseteq f^{-1}(y)\).
-The continuity of~\(\lambda\)
-means that the integration map
-\[
-\lambda\colon C_c(\sX) \to C_c(\sY),\qquad
-\lambda(\varphi)(y) = \int_X \varphi(x)\dd\lambda_y(x),
-\]
-takes values in~\(C_c(\sY)\).
-
-\begin{definition}
-	\label{def:corr_from_measures}
-	We equip
-	\(C_c(\sX)\) with the \(C_0(\sX)\)-\(C_0(\sY)\)-bimodule
-	structure
-	\[
-	(\varphi_1\cdot \varphi_2\cdot \varphi_3)(x) \defeq
-	\varphi_1(x)\varphi_2(x)\varphi_3(f(x))
-	\]
-	for \(\varphi_1\in C_0(\sX)\),
-	\(\varphi_2\in C_c(\sX)\),
-	\(\varphi_3\in C_0(\sY)\)
-	and with the \(C_0(\sY)\)-valued
-	inner product
-	$\bracket{\xi}{\eta} \defeq \lambda \bigl(\overline{\xi}\cdot
-	\eta\bigr)$, that is,
-	\bean
-	\braket{\xi}{\eta}(y)
-	\defeq \int_{f^{-1}(y)} \overline{\xi(x)}\cdot \eta(x)
-	\dd\lambda_y(x).
-	\eean
-	Then \(C_c(\sX)\)
-	is a pre-Hilbert \(C_0(\sY)\)-module
-	with a nondegenerate representation of~\(C_0(\sX)\)
-	by adjointable operators.  Some nonzero \(\xi\in C_c(\sX)\)
-	might have \(\braket{\xi}{\xi}=0\)
-	unless we assume~\(\lambda_y\)
-	to have full support.  Let \(\Lt^2(X,f,\lambda)\)
-	be the Hausdorff completion of~\(C_c(\sX)\)
-	for this inner product, which is a $C^*$-correspondence
-	from~\(C_0(\sX)\)
-	to~\(C_0(\sY)\).
-	In diagrams, we often briefly denote this $C^*$-correspondence
-	as
-	\[
-	C_0(\sX) \xrightarrow[\lambda]{f} C_0(\sY).
-	\]
-\end{definition}
-
-
-
-\begin{definition}
-	Let \(f\colon \sX\to \sY\) (``forward'') be a continuous map with a
-	continuous family of measures~\(\lambda\) and let \(b\colon X\to Z\)
-	(``backward'') be a continuous map.  We define a
-	\(C_0(\sZ)\)-module structure on~\(C_c(\sX)\) by \((\varphi\cdot
-	\psi)(x) \defeq \varphi(b(x))\cdot \psi(x)\) for
-	\(\varphi\in C_0(\sZ)\), \(\psi_c(\sX)\).  This extends to a
-	representation of~\(C_0(\sZ)\) on the Hilbert
-	\(C_0(\sY)\)\-module \(\Lt^2(X,f,\lambda)\), turning it into
-	a $C^*$-correspondence from~\(C_0(\sZ)\)
-	to~\(C_0(\sY)\).  We denote it by \(b^*\Lt^2(X,f,\lambda)\).
-	We call a pair of maps \(Z \xleftarrow{b} X
-	\xrightarrow{f} Y\) with a continuous family of measures~\(\lambda\)
-	along~\(f\) a \emph{topological correspondence} from~\(Z\)
-	to~\(\sY\).
-\end{definition}
-
-In particular, the \(C_0(\sX)\)-\(C_0(\sY)\)-correspondence
-\(\Lt^2(X,f,\lambda)\) built in
-Definition~\ref{def:corr_from_measures} from a continuous family of
-measures~\(\lambda\) along a continuous map \(f\colon X\to Y\) is
-associated to the topological correspondence
-\[
-\sX\xleftarrow{\Id_\sX} \sX \xrightarrow[\lambda]{f} \sY.
-\]
-
-Topological correspondences are a mild generalization of the
-topological quivers introduced by Muhly and
-Tomforde~\cite{Muhly-Tomforde:Quivers}: a topological quiver is a
-topological correspondence with the same source and target space.
-Basic results about topological quivers such as
-\cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} have obvious
-generalisations to topological correspondences.  We also get the
-notion of a topological correspondence if we specialize the
-topological correspondences between locally compact, Hausdorff
-groupoids introduced in~\cite{Holkar:Thesis} to locally compact
-spaces.  % (see Section~\ref{sec:correspondences}).
-
-Topological correspondences may be composed by a fibre product
-construction, and this composition and the interior tensor product of
-$C^*$-correspondences
-are compatible up to a canonical isomorphism, see
-\cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} or~\cite{Holkar:Thesis}.
-We give more details.  Let \(\sX\),
-\(\sY\)
-and~\(Z\)
-be locally compact spaces.  Let \((V,b_V,f_V,\lambda)\)
-and \((W,b_W,f_W,\mu)\)
-be topological correspondences from~\(\sX\)
-to~\(\sY\)
-and from~\(\sY\)
-to~\(Z\),
-respectively.  Their composite topological correspondence is
-the fibre product
-\[
-V\times_{f_V,Y,b_W}W\defeq \{(v,w)\in V\times W: f_V(v)=b_W(w)\}
-\]
-with the maps \(b\defeq b_V\circ \mathrm{pr}_1\)
-and \(f\defeq f_W\circ\mathrm{pr}_2\),
-respectively, where~\(\mathrm{pr}_i\)
-is the projection from \(V\times_{f_V,Y,b_W}W\)
-to the \(i\)th
-factor; the family of measures \(\lambda\times\mu\)
-on \(V\times_{f_V,Y,b_W}W\) is defined by
-\[
-\int_{V\times_{f_V,Y,b_W}W} \varphi \dd(\lambda\times\mu)_z
-\defeq \int_{f_W^{-1}(z)}\int_{f_V^{-1}(b_W(w))}
-\varphi(v,w) \dd\lambda_{b_W(w)}(v) \dd\mu_z(w)
-\]
-for \(\varphi\in C_c(V\times_{f_V,Y,b_W}W)\) and \(z\in Z\).
-
-\begin{proposition}
-	\label{prop:functoriality-of-corr}
-	The canonical map
-	\[
-	\gamma\colon C_c(V)\odot C_c(W)\to C_c(V\times_{f_V,Y,b_W}W),
-	\qquad
-	\gamma(\varphi\otimes \psi)(v,w)\defeq \varphi(v)\psi(w),
-	\]
-	extends to an isomorphism
-	\[
-	b_V^* \Lt^2(V,f_V,\lambda)\otimes_{C_0(\sY)}
-	b_W^* \Lt^2(W,f_W,\mu) \cong
-	b^* \Lt^2(V\times_{f_V,Y,b_W}W,f,\lambda\times\mu)
-	\]
-	of $C^*$--correspondences from \(C_0(\sX)\) to \(C_0(\sZ)\).
-\end{proposition}
-
-\begin{proof}
-	A direct computation shows that~\(\gamma\)
-	is a bimodule map.  To see that~\(\gamma\)
-	preserves the inner products, take
-	\(\varphi_1,\varphi_2\in C_c(V)\)
-	and \(\psi_1,\psi_2\in C_c(W)\).  Then
-	\begin{align*}
-		\braket{\varphi_1\otimes\psi_1}{\varphi_2\otimes\psi_2}(z)
-		&= \braket{\psi_1}{\braket{\varphi_1}{\varphi_2}\cdot\psi_2}(z)
-		\\&= \int_{f_W^{-1}(z)}\int_{f_V^{-1}(b_W(w))}
-		\overline{\psi_1(w)}\overline{\varphi_1(v)}
-		\varphi_2(v)\psi_2(w)\dd\lambda_{b_W(w)}(v)\dd\mu_z(w)
-		\\&=\braket{\gamma(\varphi_1\otimes\psi_1)}
-		{\gamma(\varphi_2\otimes\psi_2)}(z).
-	\end{align*}
-	Thus~\(\gamma\)
-	is an isometric bimodule map.  The subspace of \(C_c(V\times W)\)
-	spanned by functions of the form \((v,w)\mapsto \varphi(v)\psi(w)\)
-	is dense in the inductive limit topology.  Hence restrictions of
-	such functions to \(V\times_{f_V,Y,b_W}W\)
-	are linearly dense in \(C_c(V\times_{f_V,Y,b_W}W)\),
-	which is dense in
-	\(\Lt^2(V\times_{f_V,Y,b_W}W,f,\lambda\times\mu)\).
-	Thus~\(\gamma\) is surjective.
-\end{proof}
-
-An \emph{isomorphism} between two topological correspondences
-\[
-\sX\xleftarrow{b_i} \sZ_i\xrightarrow[\lambda_i]{f_i} \sY,\qquad
-i=1,2,
-\]
-is a homeomorphism \(\Phi\colon \sZ_1\cong \sZ_2\) that
-satisfies \(f_2\circ\Phi=f_1\), \(b_2\circ\Phi=b_1\) with a
-continuous function \(\delta\colon\sZ_2 \to \R_{>0}\) such that
-\(\lambda_2 = \delta\cdot \Phi_*(\lambda_1)\), that is,
-\(\lambda_{2,y} = \delta\cdot \Phi_*(\lambda_1)_y\) for all \(y\in
-Y\).  We call~\(\delta\) an \emph{equivalence} from
-\(\Phi_*(\lambda_1)\) to \(\lambda_2\).  The restriction
-of~\(\delta\) to a fibre \(f_2^{-1}(y)\subseteq\sZ_2\) is a
-Radon--Nikodym derivative for the measures \(\lambda_{2,y}\)
-and~\(\Phi_*(\lambda_1)_y\).  This is unique up to equality
-almost everywhere.  Therefore, if \(\lambda_1\) and~\(\lambda_2\)
-have full support and a function~\(\delta\) as above exists, then
-it is unique.  An isomorphism as above induces a unitary
-\(C_0(\sX)\)-\(C_0(\sY)\)-bimodule isomorphism
-\[
-\Phi_*\colon C_c(\sZ_1)\to C_c(\sZ_2),\qquad
-\Phi_*(g)(z) \defeq
-g\circ \Phi^{-1}(z)\, \delta(z)^{-1/2}.
-\]
-It extends to an isomorphism of $C^*$--correspondences
-\[
-\Phi_*\colon b_1^* \Lt^2(\sY,f_1,\lambda_1)\cong
-b_2^* \Lt^2(\sY,f_2,\lambda_2).
-\]
-
-\begin{remark}
-	We may weaken the continuity assumptions on \(\Phi^{\pm1}\)
-	and~\(\delta\).  For instance, if~\(\sY\) is just a point, then it
-	suffices to assume~\(\Phi^{\pm1}\) to be measurable.  Then we
-	take~\(\delta\) to be the Radon--Nikodym derivative as above,
-	which is automatically measurable.  In general, we need
-	\(\Phi^{\pm1}\) and~\(\delta\) to be measurable in the fibre
-	directions and continuous along the base~\(\sY\).  We do not try
-	to make this precise here because we shall only use continuous
-	isomorphisms as defined above.
-\end{remark}
-	
-	\section{Groupoids and $C^*$-algebras}
+\section{Groupoids and $C^*$-algebras}
 \paragraph*{}
 Here I follow to \cite{brown:proper_groupoids}.
 \begin{subsection}{$C_0\left(\sX\right)$-algebras}
@@ -27797,6 +27556,70 @@ The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative 
  \nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^1_D
  \ee
  (cf. Lemma \ref{flat_lem}). This construction is a noncommutative version of a geometrical canonical connection explained in the Appendix \ref{geom_flat_subsec}. The mapping between algebra and geometry is presented in the Table \ref{geo_alg_table}.
+ 
+  	\chapter{Commutative Wilson Lines}\label{comm_prot}
+ \section{Basic construction}
+ \begin{empt}{\it Standard description of Wilson lines} \cite{green_schwarz_witten:superstring}. Here the physical notation is used.
+ 	Let $M$ be a compact Riemann manifold, and let $A$ be a locally pure gauge field, i.e. $A$ can be locally represented by following way
+ 	\begin{equation}\label{pure_gauge}
+ 		A_i = \partial_i U \cdot U^{-1}
+ 	\end{equation}
+ 	where $U$ is the gauge transformation. Whether \eqref{pure_gauge} is also true globally is another story. Condition \eqref{pure_gauge} is equivalent to that the field stength equals to zero \cite{green_schwarz_witten:superstring}.
+ 	If the manifold is not simply connected, $\pi_1(M) \neq \{e\}$ then there is a more general possibility that appears in electrodynamics as the Bohm-Aharonov effect. Let $\gamma$ be a noncontractible loop in $M$, beginning and ending at the same point $x$. Then "Wilson line"
+ 	\begin{equation}\label{gauge_transformation}
+ 		U_{\gamma} = P \ \mathrm{exp} \oint\limits_{\gamma} A \cdot dx
+ 	\end{equation}
+ 	is gauge invariant, and if $U_{\gamma}\neq 1$ it cannot be set to one by gauge transformation, $U_{\gamma}$ depends only on $[\gamma] \in \pi_1(M)$. If $G$ is the gauge transformation group then is a group homomorphism
+ 	\begin{equation}\label{from_fund_to_gauge}
+ 		\varphi: \pi_1(M)\to G,
+ 	\end{equation}
+ 	\begin{equation*}
+ 		[\gamma] \mapsto U_{\gamma}.
+ 	\end{equation*}
+ \end{empt}
+ \begin{empt}\label{alter_prot} {\it Alternative description of Wilson lines}.
+ 	In this construction I follow to \cite{green_schwarz_witten:superstring} 16.4.1. Let $\widetilde{M}$ be a simply connected manifold, and let $F$ be a discrete symmetry group which acts freely. Let $M = \widetilde{M}/F$. An ordinary field $\psi(x)$ is equivalent to a field on $\widetilde{M}$ that obeys
+ 	\begin{equation}\label{invariant_simple}
+ 		\psi(fx)=\psi(x); \ \forall f \in F.
+ 	\end{equation}
+ 	Then we can generalize \eqref{invariant_simple} as follows. There is a natural isomorphism $\pi_1(M) \approx F$, and from \eqref{from_fund_to_gauge} it follows that there is a natural homomorphism
+ 	\begin{equation}\label{from_trans_to_field}
+ 		F\to G,
+ 	\end{equation}
+ 	\begin{equation*}
+ 		f \mapsto U_f.
+ 	\end{equation*}
+ 	Now we require that $\psi$ obey not \eqref{invariant_simple} but
+ 	\begin{equation}\label{invariant_twist}
+ 		\psi(fx)=U_f\psi(x); \ \forall f \in F.
+ 	\end{equation}
+ 	This operation enables us replace guage field \eqref{gauge_transformation} by "twist" in boundary conditions \eqref{invariant_twist}. The gauge field $A$ which obeys \eqref{gauge_transformation} (resp. field $\psi$) is replaced with the trivial gauge field (resp. field $\psi'$ which obey \eqref{gauge_transformation}). Field $\psi'$ is given by
+ 	\begin{equation*}
+ 		\psi'(y) = \left(P \ \mathrm{exp} \int\limits_{\omega} A' \cdot dx\right) \psi(\pi(y))
+ 	\end{equation*}
+ 	where
+ 	\begin{itemize}
+ 		\item $\pi: \widetilde{M} \to M$ is a covering projection.
+ 		\item $\omega : [0,1] \to \widetilde{M}$ is such that $\omega(0) = y_0$ is a fixed point, $\omega(1)=y$.
+ 		\item $A'$ is a lift of $A$ by $\pi$.
+ 	\end{itemize}
+ 	This construction is similar to passive/active approach to physical transformations. Change of a gauge field is similar to a passive transformation of a coordinat system, a change of field is similar to an active transformation of point's position. Both transformations describe the same physical phenomenon.
+ \end{empt}
+ 
+ \begin{empt}{\it Replacement of closed paths by covering projections}.
+ 	Construction from \cite{green_schwarz_witten:superstring} can be generalized such that the universal covering is replaced by a covering  $\pi:\widetilde{M} \to M$ such that the image of the composition
+ 	\begin{equation*}
+ 		\pi_1(\widetilde{M})\xrightarrow{\pi_1(\pi)} \pi_1(M) \xrightarrow{\varphi} G
+ 	\end{equation*}
+ 	coincides with image of $\varphi$. In this case homomorphism \eqref{from_fund_to_gauge} can be replaced with
+ 	\begin{equation}\label{from_trans_to_gauge}
+ 		G(\widetilde{M}|M) \to G
+ 	\end{equation}
+ 	where $G(\widetilde{M}|M)$ is a group of covering transformations \cite{spanier:at}.
+ \end{empt}
+ 
+ 
+ 
  
  \chapter*{Acknowledgment}
 
