@@ -4061,7 +4061,7 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	\be\label{infinite_noncommutative_covering_eqn}
  	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
  	\ee
- 	 is said to be the  \textit{weak infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. 
+ 	 is said to be a  \textit{weak infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. 
  	We will use the following notation 
  	\begin{equation}\label{inf_lim_not_eqn}
  		\begin{split}
@@ -17735,6 +17735,1039 @@ which is a specialization of \eqref{conn_triple_eqn}, i.e. $\nabla$ is a connect
 	Prove that  $$\left( \Coo\left(\mathbb{T}_{\widetilde\Th}^n \right),  L^2\left(\left(\mathbb{T}_{\widetilde\Th}^n \right), \widetilde\tau\right), \widetilde D\right)$$ is the $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$-lift of $\left( \Coo\left(\mathbb{T}_\Th^n \right),  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right), D\right)$ (cf. Definition \ref{spectral_triple_fin_lift_defn}).
 \end{exercise}
 
+\section{Infinite coverings}\label{nt_inf_sec}
+%{} %Let us consider a sequence
+%\begin{equation}\label{nt_long_seq_eqn}
+%\mathfrak{S}_{C\left( \T^n_\Th\right) } =\left\{ C\left( \T^n_\Th\right)  =C\left( \T^n_{\Th_0}\right) \xrightarrow{\pi^1}  ... \xrightarrow{\pi^j} C\left( \T^n_{\Th_j}\right) \xrightarrow{\pi^{j+1}} ...\right\}.
+%\end{equation}
+%of finite coverings of noncommutative tori.
+%The sequence \eqref{nt_long_seq_eqn} satisfies to the Definition  \ref{alg_fin_cat_defn}, i.e. $\mathfrak{S}_{C\left( \T^n_\Th\right) } \in \mathfrak{FinAlg}$.
+%\begin{defn}\label{nt_mp_prel_lim}
+\begin{lemma}
+	If $C\left(\mathbb{T}^n_{\Theta}\right)$ is a noncommutative torus then the family 
+	\be\label{nt_cov_cat_eqn}
+	\mathfrak{S}_{C\left(\mathbb{T}^n_{\Theta}\right)}= \left\{\left( C\left(\mathbb{T}^n_{\Theta}\right), C\left(\mathbb{T}^n_{\Theta_\la}\right), \Z^n/\Ga_\la, \pi_\la\right) \right\}_{\la\in\La}
+	\ee
+	of all  given by the Theorem \ref{nt_fin_thm} noncommutative  finite-fold coverings is  {algebraical  finite covering category}, i.e.  $\mathfrak{S}_{C\left(\mathbb{T}^n_{\Theta}\right)} \in \mathfrak{FinAlg}$ (cf. Definition \ref{alg_fin_cat_defn}).
+\end{lemma}
+\begin{proof}
+	From (ii) of the Corollary \ref{nt_cofinal_cor} it follows that $\La$ is directed.
+\end{proof}
+\begin{empt}
+	Any given by the Theorem given by the Theorem \ref{nt_fin_thm} noncommutative  finite-fold covering uniquely defines a topological covering $\widetilde \T^n \to \T^n$ of the ordinary tori. The Corollary \ref{nt_cofinal_cor} gives an infinite simply ordered sequence of coverings
+	\be\label{nt_tori_eqn}
+	\T^n \leftarrow \T^n_1   ... \leftarrow \T^n_j \leftarrow ...
+	\ee
+	Clearly $\R^n$ is the {topological inverse limit} of the sequence \eqref{nt_tori_eqn}. The choice of base the point $\widetilde x \in \R^n$ naturally gives the base point $x_j \in \T^n_j$ for every $j \in \N$ since  the sequence cofinal one has a base point $x_\la \in \T^n_\la$ where $ \T^n_\la$ is the torus which corresponds to $C\left(\mathbb{T}^n_{\Theta}\right) \hookto  C\left(\mathbb{T}^n_{\Theta_\la}\right)\in \mathfrak{S}_{C\left(\mathbb{T}^n_{\Theta}\right)}$. If $\mu \ge \nu$ then there is the unique pointed map $\left(\T^n_\mu, x_\mu \right) \to \left(\T^n_\nu, x_\nu \right)$ which uniquely defines the injective *-homomorphism $\pi^{\nu}_\mu: C\left(\mathbb{T}^n_{\Theta_\nu}\right)\hookto C\left(\mathbb{T}^n_{\Theta_\mu}\right)$. In result one has a {pointed algebraical  finite covering category}
+	\be\label{nt_p_cat_eqn}
+	\mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)} \bydef \left(\left\{\pi_\la: C\left(\mathbb{T}^n_{\Theta}\right) \hookto C\left(\mathbb{T}^n_{\Theta_\la}\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\right\}_{\substack{\mu, \nu \in \La\\ \mu > \nu}}\right)
+	\ee
+	(cf. Definition \ref{pointed_defn}).
+	Similarly to the Remark \ref{nt_diag_rem} denote by
+	Let $\Th \stackrel{\text{def}}{=} J \th$ where $\th \in \R \setminus \Q$ and
+	$$
+	J \stackrel{\text{def}}{=} \begin{pmatrix} 0 & 1_N \\ -1_N & 0 \end{pmatrix}.
+	$$
+	Denote by $N \bydef \frac{n}{2}$ and $C\left( \T^{2N}_\th\right) \stackrel{\text{def}}{=} C\left( \T^{2N}_\Th\right)$.
+	Consider the given by the Corollary  \ref{nt_cofinal_cor} cofinal subcategory of $\mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}$, i.e.
+	\be\label{nt_cofinal_eqn}
+	\begin{split}
+		\mathfrak{S}_{C\left(\T^{n}_{{\Th}} \right)}^\N
+		=\left( \left\{ \left( C\left(\T^{2N}_{{\th}} \right), C\left(\T^{2N}_{\th/m_j^2} \right), \Z^n_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: C\left(\T^{2N}_{\th/m_j^2} \right)\hookto C\left(\T^{2N}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}.
+	\end{split} 
+	\ee
+	
+\end{empt}
+
+\subsection{Equivariant representation}\label{nt_inf_ind_repr_constr_sec}
+
+\paragraph*{}
+
+
+According to \ref{nt_m_planes_empt}
+the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
+\begin{rem}\label{nt_c_k_eqn}
+	If $ \left\{c_k \in \C\right\}_{k \in \N^0} $ is such that $\sum_{k = 0}^\infty \left|c_k\right| < \infty$ then from $\left\| \exp\left(ik\cdot\right)\right\|_{\mathrm{op}}=1$ it turns out  $\left\|\sum_{k = 0}^\infty c_k\exp\left(ik\cdot\right)\right\|_{\mathrm{op}}< \sum_{k = 0}^\infty \left|c_k\right| < \infty$, i.e. $\sum_{k = 0}^\infty c_k\exp\left(ik\cdot\right) \in C_b\left(\R^{2N}_\th \right)$. 
+\end{rem}
+\begin{empt}\label{mp_nt_op_empt}
+	The equation \eqref{mp_wave_prod_eqn} is similar to  the equation \eqref{nt_unitary_product_eqn} which defines $C\left(\mathbb{T}^{2N}_{\theta}\right)$. From this fact and from the Remark \ref{nt_c_k_eqn} it follows that there is an injective *-homomorphism
+	$\Coo\left(\mathbb{T}^{2N}_{\theta}\right) \hookto C_b\left(\R_\th^{2N} \right);~	U_k \mapsto \exp\left(2\pi ik\cdot\right)$. An algebra $\Coo\left(\mathbb{T}^{2N}_{\theta}\right)$ is dense in $C\left(\mathbb{T}^{2N}_{\theta}\right)$ so there is an injective *-homomorphism
+	$C\left(\mathbb{T}^{2N}_{\theta}\right) \hookto C_b\left(\R_\th^{2N} \right)$. The faithful representation $C_b\left(\mathbb{R}^{2N}_{\theta}\right)\to B\left(L^2\left( \R^{2N}\right) \right)$
+	gives a representation $\pi: C\left(\mathbb{T}^{2N}_{\theta}\right) \to B\left(L^2\left( \R^{2N}\right) \right)$
+	\begin{equation}\label{nt_l2r_eqn}
+		\begin{split}
+			\pi: C\left(\mathbb{T}^{2N}_{\theta}\right) \to B\left(L^2\left( \R^{2N}\right) \right), \\
+			U_k \mapsto \exp\left(2\pi ik\cdot\right)
+		\end{split}
+	\end{equation}
+	where $U_k\in C\left(\mathbb{T}^n_{\Theta}\right)$ is given by the Definition \ref{nt_uni_defn}.
+	The space  $\SS\left(\R^{2N} \right)$ is a dense subspace of $ L^2\left(\R^{2N} \right)$.
+\end{empt} 
+
+\begin{empt}\label{nt_repr_not_empt}
+	
+	Denote by $\left\{U^{\theta/m_j}_{k}\in U\left( C\left(\T^{2N}_{\th/m_{j}}\right)\right) \right\}_{k \in \Z^{2N}}$ the basis of $C\left(\T^{2N}_{\th/m_{j}}\right)$. Similarly to \eqref{nt_l2r_eqn} there is the representation $\pi_j: C\left(\T^{2N}_{\th/m_{j}}\right) \to B\left(L^2\left( \R^{2N}\right)  \right)$ given by
+	$$
+	\pi_j\left(U^{\theta/m_j}_{k} \right) = \exp\left(2\pi i\frac{k}{m_j}~\cdot\right).
+	$$
+	If 
+	$\pi_\la: C\left(\mathbb{T}^n_{\Theta}\right) \hookto C\left(\mathbb{T}^n_{\Theta_\la}\right) \in \mathfrak{S}^{\text{pt}}
+	$ (cf. \eqref{nt_p_cat_eqn}) then since the given by \eqref{nt_cofinal_eqn} is cofinal in $\mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}$ there is $j$ in $N$ such that  $\mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}$ that the contains the morphism
+	$C\left(\mathbb{T}^n_{\Theta_\la}\right) \hookto C\left(\T^{2N}_{\th/m_{j}}\right)$.
+	If $\widehat{C\left(\mathbb{T}^{2N}_{\th}\right) }\bydef C^*$-$\varinjlim_{\la \in \La}C\left(\mathbb{T}^{2N}_{\Theta_\la}\right)$ then from the following diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			C\left(\mathbb{T}^n_{\Theta_\la}\right) 	&   & C\left(\T^{2N}_{\th/m_{j}}\right) \\
+			& B\left(L^2\left(\R^{2N}\right)\right) &  \\};
+		\path[-stealth]
+		(m-1-1) edge node [left] {} (m-1-3)
+		(m-1-1) edge node [right] {$~\pi_\la$} (m-2-2)
+		(m-1-3) edge node [above] {$\pi_{j}$}  (m-2-2);
+	\end{tikzpicture}
+	\newline
+	yields a faithful representation
+	\be\label{nt_inf_repr_eqn}
+	\widehat{\pi}:\widehat{C\left(\mathbb{T}^{2N}_{\Th}\right) } \to  B\left(L^2\left(\R^{2N}\right)\right).
+	\ee 
+	There is the action of $\Z^{2N} \times \R^{2N} \to \R^{2N}$ given by
+	$$
+	\left(k, x \right) \mapsto k + x.
+	$$
+	The action naturally induces the action of $\Z^{2N}$ on both $L^2\left(\R^{2N}\right)$ and $B\left(L^2\left(\R^{2N}\right)\right)$. Otherwise the action of $\Z^{2N}$ on  $B\left(L^2\left(\R^{2N}\right)\right)$ induces the action  of $\Z^{2N}$ on $\widehat{C\left(\mathbb{T}^{2N}_{\th}\right) }$. There is the following commutative diagram
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\Z^{2N}	&   & G\left(\widehat{C\left(\T^{2N}_\th\right)}~|~ C\left(\mathbb{T}^{2N}_{\th}\right)\right) \\
+			& G_j \bydef G\left(C\left(\T^{2N}_{\th/m_{j}}\right)~|~ C\left(\mathbb{T}^{2N}_{\th}\right)\right) \approx \Z^{2N}_{m_j}  &  \\};
+		%\draw[dashed,->] (m-1-1) -- (m-1-3);
+		\path[-stealth]
+		(m-1-1) edge node [left] {} (m-1-3)
+		(m-1-1) edge node [right] {} (m-2-2)
+		(m-1-3) edge node [above] {}  (m-2-2);
+		
+	\end{tikzpicture}
+	\newline
+	So one has the following diagram
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\Z^{n}	&   & G\left(\widehat{C\left(\T^{n}_\Th\right)}~|~ C\left(\mathbb{T}^{n}_{\Th}\right)\right) \\
+			&G_\la\bydef G\left(C\left(\T^{n}_{\Th_\la}\right)~|~  C\left(\mathbb{T}^{n}_{\Th}\right)\right) \approx \Z^{n}/\Ga_\la  &  \\};
+		%\draw[dashed,->] (m-1-1) -- (m-1-3);
+		\path[-stealth]
+		(m-1-1) edge node [left] {} (m-1-3)
+		(m-1-1) edge node [right] {} (m-2-2)
+		(m-1-3) edge node [above] {}  (m-2-2);
+		
+	\end{tikzpicture}
+	\newline	 
+	%where $\phi_j$, $\varphi_j$ a group epimorphisms and the dashed arrow means the arrow to the inverse limit.
+	If $\widehat G \bydef \varprojlim_{\la \in \La} G_\la$ then from the above diagram it follows that there is the natural homomorphism $\Z^{2N} \hookto \widehat{G}$, and 
+	$\Z^{2N}$ is a normal subgroup.   Let  $J \subset \widehat{G}$  be a set of representatives of $\widehat{G}/\Z^{2N}$, and suppose that $0_{\widehat{G}} \in J$. 
+	Any $g \in \widehat{G}$ can be uniquely represented as $g = g_J + g_\Z$ where  $g \in J$, $g_\Z \in \Z^{2N}$.  For any $g_1, g_2 \in \widehat{G}$ denote by $\Phi_J\left(g_1, g_2 \right) \in J$, $\Phi_\Z\left(g_1, g_2 \right) \in \Z^{2N}$, such that
+	$$
+	g_1 + g_2 = \Phi_J\left(g_1, g_2 \right) + \Phi_\Z\left(g_1, g_2 \right).
+	$$
+	Let us define an action of $\widehat{G}$ on  $\bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ given by
+	\be\label{nt_h_act_eqn}
+	g_1  \left(0,..., \underbrace{ \xi}_{g_2^{\text{th}}-\text{place}},...,0,... \right) = \left(0,..., \underbrace{\Phi_\Z\left(g_1, g_2 \right)  \xi}_{\Phi_J\left(g_1 + g_2 \right) ^{\text{th}}-\text{place}},..., 0, ... \right).
+	\ee
+	Let $X \subset \bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ be given by
+	$$
+	X = \left\{ \eta  \in \bigoplus_{g \in J}L^2\left(\R^{2N}\right)~|~   \eta=\left(0,..., \underbrace{ \xi}_{0_{\widehat{G}}^{\text{th}}-\text{place}},...,0,... \right) \right\}.
+	$$
+	Taking into account that $X \approx L^2\left(\R^{2N}\right)$, we will write $L^2\left(\R^{2N}\right) \subset \bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ instead of $X \subset\bigoplus_{g \in J}L^2\left(\R^{2N}\right)$.
+	This inclusion and the action of $\widehat{G}$ on $\bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ enable us write $\bigoplus_{g \in J}gL^2\left(\R^{2N}\right)$ instead of $\bigoplus_{g \in J}L^2\left(\R^{2N}\right)$. If $\widehat{\pi}^\oplus: \widehat{C\left(\mathbb{T}^{2N}_{\th}\right) } \to B\left( \bigoplus_{g \in J}gL^2\left(\R^{2N}\right)\right)   $ is given by
+	\be\label{nt_equiv_eqn}
+	\widehat{\pi}^\oplus\left( a\right)\left(g\xi \right) =  g\left( \widehat{\pi}\left(g^{-1}a \right) \xi\right); ~ \forall a \in  \widehat{C\left(\mathbb{T}^{2N}_{\th}\right) }, ~ \forall g \in J,~ \forall \xi \in L^2\left(\R^{2N} \right). 
+	\ee
+\end{empt}
+\subsection{Inverse noncommutative limit}\label{nt_inv_lim_sec}
+\paragraph{}
+Below we use the '$\times$' symbol for the Moyal plane product using  the described in \ref{mp_scaling_empt} scaling construction.
+\begin{lem}\label{mp_ab_delta_lem}
+	Let $a, b \in \SS\left(\R^{2N} \right)$. For any $\Delta \in \R^{2N}$ let $a_\Delta \in  \SS\left(\R^{2N} \right) $ be such that 
+	\be\label{nt_a_delta_eqn}	
+	a_\Delta\left(x \right)\stackrel{\mathrm{def}}{=} a\left(x + \Delta  \right).
+	\ee For any $m, n \in \N$ there is a constant $A^{a,b}_{m, n}$ such that
+	\be\label{mp_ab_delta_eqn}
+	\begin{split}
+		\left|  a_\Delta \diamond b \left( x\right) \right|< \frac{A^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n } \quad \forall x \in \R^{2N}\\
+	\end{split}
+	\ee
+	where $\diamond$ means the given by \eqref{nt_diamond_eqn} twisted convolution.
+\end{lem}
+\begin{proof}
+	
+	From the definition of Schwartz functions it follows that for any $f \in \sS\left( \mathbb{R}^{2N} \right)$ and any $l\in \mathbb{N}$ there is $C^f_l>0$ such that
+	\begin{equation}\label{nt_c_f_m_eqn}
+		\left|f \left(u\right)\right|<\frac{C^f_l}{\left( 1 + \left\|u\right\|\right)^l }.
+	\end{equation}
+	Denote by $\Psi\left(x\right)\stackrel{\mathrm{def}}{=}\left| \sF\left( a_\Delta \times b\right) \left( x\right) \right|$
+	From \eqref{mp_fourier_eqn} it follows that
+	\bean
+	\Psi\left(x, \Delta\right)=	 a_\Delta \diamond b\left(x \right)  =    	\int_{\R^{2N}}a_\Delta\left(x-t \right) b\left(t\right)e^{  i x \cdot J t }~dt =\\= \int_{\R^{2N}}a\left(x+\Delta -t \right) b\left(t\right)e^{  i x \cdot J t }~dt.
+	\eean
+	Consider two special cases:
+	\begin{enumerate}
+		\item[(i)] $\left\| x\right\| \le  \frac{\left\| \Delta\right\| }{2}$,
+		\item[(ii)]	$\left\| x\right\| >  \frac{\left\| \Delta\right\| }{2}$.	
+	\end{enumerate}	
+	(i)		From \eqref{nt_c_f_m_eqn} it turns out
+	\begin{equation}\label{mp_xi_1_eqn}
+		\begin{split}
+			\left| \Psi\left(x, \Delta \right)\right|  \le ~ \int \left|a\left(x+\Delta -t \right) b\left(t\right)e^{  i x \cdot J t } \right|dt \le\\
+			\le
+			\int_{\mathbb{R}^{2N}}\frac{C^{a}_{M}}{\left(1 + \left\|t - \Delta - x\right\|  \right)^{M}}~\frac{C^{b}_{2M}}{\left(1 + \left\|t\right\|  \right)^{2M}} dt =\\= \int_{\mathbb{R}^{2N}}\frac{C^{a}_{M}}{\left(1 + \left\|t - \Delta - x\right\|  \right)^{M}\left(1 + \left\|t\right\|  \right)^{M} }~\frac{C^{b}_{2M}}{\left(1 + \left\|t\right\|  \right)^{M}} dt  \le
+			\\
+			\le \sup_{x \in \mathbb{R}^{2N}, ~\left\| x\right\|\le \frac{\left\| \Delta\right\|}{2 },~s\in \mathbb{R}^{2N}}~ \frac{C^{a}_{M}C^{b}_{2M}}{\left(1 + \left\|s - \Delta - x\right\|  \right)^{M} \left(1 + \left\|s\right\|  \right)^{M}}
+			\times \\ \times \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\|  \right)^{M}} dt.
+		\end{split}
+	\end{equation}
+	If $x,y \in \mathbb{R}^{2N}$  then from the triangle inequality it follows that $\left\|x + y\right\|>  \left\|y\right\| - \left\|x\right\|$, hence 
+	$$
+	\left(1 + \left\|x\right\| \right)^M \left(1 + \left\|x+ y\right\| \right)^M \ge \left(1 + \left\|x\right\| \right)^M \left(1 +  \max\left(0, \left\|y\right\| - \left\|x\right\| \right)\right)^M.
+	$$
+	If $ \left\|x\right\| \le \frac{\left\|y\right\|}{2}$ then $\left\|y\right\| - \left\|x\right\| \ge \frac{\left\|y\right\|}{2}$ and 
+	\begin{equation}\label{nt_triangle_eqn}
+		\left(1 + \left\|x\right\| \right)^M \left(1 + \left\|x+ y\right\| \right)^M > \left( \frac{\left\|y\right\|}{2}\right)^M. 
+	\end{equation}
+	Clearly if $ \left\|x\right\| > \frac{\left\|y\right\|}{2}$ then condition \eqref{nt_triangle_eqn} also holds, hence\eqref{nt_triangle_eqn} is always true.
+	It turns out from $\left\|-x-\Delta\right\|> \frac{\left\|\Delta\right\|}{2} $ and \eqref{nt_triangle_eqn} that
+	$$
+	\mathrm{inf}_{x \in \mathbb{R}^{2N}, ~\left\| x\right\|\le \frac{\left\| \Delta\right\|}{2 },~s\in \mathbb{R}^{2N}} \left(1 + \left\|s - \Delta - x\right\|  \right)^{M} \left(1 + \left\|s\right\|  \right)^{M} >\left\|\frac{\Delta}{4}\right\|^M,
+	$$
+	hence from \eqref{mp_xi_1_eqn} it turns out
+	\be\nonumber
+	\left| \Psi\left(x , \Delta\right)\right| \le \frac{4^MC^{a}_{M}C^{b}_{2M}}{\left\|\Delta\right\|^M} \times  \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\| \right)^{M}} dt = \frac{C'}{\left\|\Delta\right\|^M}
+	\ee
+	where
+	\be\label{nt_c'_eqn}
+	C' = 4^MC^{a}_{M}C^{b}_{2M}  \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\| \right)^{M}}.
+	\ee
+	Otherwise from
+	$$
+	\left(1 + \left\|s - \Delta - x\right\|  \right)^{M} \left(1 + \left\|s\right\|  \right)^{M} > 1
+	$$
+	it follows that $
+	\Psi\left(x , \Delta\right) \le C'$ and taking into account \eqref{nt_c'_eqn} one has
+	$$
+	\left| 	\Psi\left(x , \Delta\right)\right| \le \frac{2C'}{\left( 1 + \left\|\Delta\right\|\right) ^M}
+	$$
+	If $M = 2M'$ then from $\left\| x\right\|  \le \frac{\Delta}{2}$ it follows that
+	\be\label{nt_c''_eqn}
+	\left| \Psi\left(x , \Delta\right)\right| \le \frac{2C'2^{M'}}{\left( 1 + \left\|\Delta\right\|\right) ^{M'} \left( 1 + \left\|x\right\|\right)^{M'} }.
+	\ee
+	If $M$ is such that $M > 2n$ and $M > 2m$ then from \eqref{nt_c''_eqn} it follows that 
+	\be\label{nt_c'''_eqn}
+	\Psi\left(x , \Delta\right)\le \frac{4C'2^{M'}}{\left( 1 + \left\|\Delta\right\|\right)^m  \left( 1 + \left\|x\right\|\right)^n }.
+	\ee
+	(ii)
+	If $\left( \cdot, \cdot \right)_{L^2\left(\R^{2N} \right) }$ is the given by \eqref{fourier_scalar_product_eqn} scalar product then from \eqref{mp_inv_eqn} it turns out
+	\begin{equation*}
+		\begin{split}
+			\left| \Psi\left(x , \Delta\right) \right|\le\left|\int a\left( t - \Delta - x \right)  b\left(t \right)e^{i x \cdot J t}  dt\right|=\\
+			=\left|\left(    a\left( \bullet- \Delta-x\right) ,~ b\left(\bullet\right)e^{i x\cdot J\bullet}   \right)_{L^2\left(\R^{2N} \right) }  \right|=\\
+			=\left|\left(  \mathcal{F}\left(  a\left( \bullet- \Delta-x\right)\right) ,~ \mathcal{F}\left( b\left(\bullet\right)e^{i x\cdot J\bullet} \right)  \right)_{L^2\left(\R^{2N} \right) }  \right|=\\=
+			\left|\int_{\mathbb{R}^{2N}} 
+			\mathcal{F}\left( a\right)\left( \bullet - \Delta -x\right)\left(u\right)\mathcal{F}\left(b\left(\bullet\right)e^{i x\cdot J\bullet} \right)\left(u\right)  du \right|\le\\
+			\le \int_{\mathbb{R}^{2N}}\left| e^{-i\left(-\Delta - x\right) \cdot u}\mathcal{F}\left( a\right)\left( u\right) \mathcal{F}\left(b\right)\left(u+J x\right)\right| du \le \\
+			\le \int_{\mathbb{R}^{2N}}\frac{C^{\mathcal{F}\left( a\right)}_{3M}}{\left(1 + \left\|u\right\|  \right)^{3M}}\frac{C^{\mathcal{F}\left(b\right)}_{2M}}{\left(1 + \left\|u-J x\right\|  \right)^{2M}} du \le \\
+			\le \sup_{x \in \mathbb{R}^{2N}, ~\left\| x\right\|> \frac{\left\| \Delta\right\|}{2 },~ s \in \mathbb{R}^{2N}}~ \frac{C^{\mathcal{F}\left( a\right)}_{3M}}{\left(1 + \left\|s\right\|  \right)^{M}}
+			\frac{C^{\mathcal{F}\left(b\right)}_{2M}}{\left(1 + \left\|s-J x\right\|  \right)^{M}} \times \\ \times    
+			\frac{1}{\left(1 + \left\|u-J  x\right\|  \right)^{M}\left(1 + \left\|u\right\|  \right)^{M}}\int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|u\right\|  \right)^{M}} du.
+		\end{split}
+	\end{equation*}
+	From \eqref{nt_triangle_eqn} it follows that
+	\begin{equation*}
+		\begin{split}
+			\left(1 + \left\|u\right\|  \right)^{M}\left(1 + \left\|u-J x\right\|  \right)^{M} > \left\|J x\right\|^M, 
+			\\
+			\inf_{x \in \mathbb{R}^{2N}, ~\left\| x\right\|> \frac{\left\| \Delta\right\|}{2 },~ s \in \mathbb{R}^{2N}}~ \left(1 + \left\|s\right\|  \right)^{M}\left(1 + \left\|s-J x\right\|  \right)^{M} > \left\|\frac{J\Delta}{4}\right\|^M,\\
+		\end{split}
+	\end{equation*}
+	and taking into account 	$\left(1 + \left\|u\right\|  \right)^{M}\left(1 + \left\|u-J x\right\|  \right)^{M}  \ge 1$, $\left(1 + \left\|s\right\|  \right)^{M}\left(1 + \left\|s-J x\right\|  \right)^{M}  > 1$ one has
+	\begin{equation*}
+		\begin{split}
+			\left| \Psi\left(x , \Delta\right)   \right|
+			\le  \frac{C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}}{\left\|\frac{\Delta}{4}\right\|^M \left\|J x\right\|^M} \int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du,\\
+			\left| \Psi\left(x , \Delta\right)   \right|
+			\le  C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}\int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du
+		\end{split}
+	\end{equation*}
+	If  $M > 2N + m$ then the integral $I=\int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du$ is convergent and from 
+	\be\label{mp_psi_big_eqn}
+	\begin{split}
+		\left| \Psi\left(x , \Delta\right)   \right|
+		\le  \frac{4C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}I}{\left\|\left(1+ \frac{\Delta}{4}\right\|\right)^M \left( 1+\left\|J x\right\|\right)^M},\\
+	\end{split}	
+	\ee
+	From \eqref{nt_simpectic_theta_eqn} and $\th = 2$ one has
+	$
+	\left\|J z\right\|= \left\|2 z\right\|; ~ \forall z \in \R^{2N}
+	$  and taking into account \eqref{mp_psi_big_eqn} there is $C_1 > 0$ such that
+	\be\label{mp_psi_two_eqn}
+	\begin{split}
+		\left| \Psi\left(x , \Delta\right)   \right|
+		\le  \frac{C_1}{\left\|\left(1+ \Delta\right\|\right)^M \left( 1+\left\| x\right\|\right)^M},\\
+	\end{split}	
+	\ee
+	If $M \ge m$ and $M \ge n$ then from \eqref{mp_psi_two_eqn} it turns out 
+	\be\label{mp_psip_two_eqn}
+	\begin{split}
+		\left| \Psi\left(x , \Delta\right)   \right|
+		\le  \frac{2C_1}{\left\|\left(1+ \Delta\right\|\right)^m \left( 1+\left\| x\right\|\right)^n},\\
+	\end{split}	
+	\ee
+	If $A^{a,b}_{m,n} \in \R$ is such that $A^{a,b}_{m,n} \ge 4C'2^{M'}$ and $A^{a,b}_{m,n} \ge 2C_1$
+	then from \eqref{nt_c'''_eqn} and \eqref{mp_psip_two_eqn} it follows that  $A^{a,b}_{m,n}$ satisfies to \eqref{mp_ab_delta_eqn}.
+\end{proof}
+\begin{corollary}\label{mp_ab_deltad_cor}
+	Let $a, b \in \SS\left(\R^{2N} \right)$. For any $\Delta \in \R^{2N}$ let $a_\Delta \in  \SS\left(\R^{2N} \right) $ be such that $a_\Delta\left(x \right)\stackrel{\mathrm{def}}{=} a\left(x + \Delta  \right)$. For any $m, n \in \N$ there is a constant $C^{a,b}_{m, n}$ such that
+	\be\label{mp_ab_deltad_eqn}
+	\begin{split}
+		\left|\left(  a_\Delta \diamond b\right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+		\left|\left(  b\diamond a_\Delta \right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+		\left|\left(  a_\Delta \times b\right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+		\left|\left(  b\times a_\Delta \right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\	
+		\left|\mathcal F \left(  a_\Delta \diamond b\right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+		\left|\mathcal F\left(  b\diamond a_\Delta \right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+		\left|\mathcal F\left(  a_\Delta \times b\right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+		\left|\mathcal F\left(  b\times a_\Delta \right)  \left( x\right) \right|< \frac{C^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n }.\\
+	\end{split}
+	\ee
+	where $\sF$ means the Fourier transformation.
+\end{corollary}
+\begin{proof}
+	From the Lemma \ref{mp_ab_deltad_eqn} it follows that is a constant $A^{a,b}_{m, n}$ such that
+	$$
+	\left|\left(  a_\Delta \diamond b\right)  \left( x\right) \right|< \frac{A^{a,b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n }.
+	$$
+	
+	Clearly  $\left| b \diamond a_\Delta   \left( x\right) \right|=\left|\left( b \diamond a_\Delta \right)^*  \left( x\right) \right|= $ and taking into account  \eqref{nt_prod_*_eqn} one has
+	\be\label{mp_*_eqn}
+	\left| b \diamond a_\Delta   \left( x\right) \right|= \left|\left( b \diamond a_\Delta \right)^*  \left( x\right) \right|= \left|\left(  a^*_\Delta \diamond b^*\right)  \left( x\right) \right|< \frac{A^{b^*,a^*}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n }
+	\ee
+	From \eqref{nt_prodf_duality} it follows that
+	$$
+	a_\Delta \times b = a_\Delta \diamond \widetilde F b,
+	$$
+	hence from the Lemma \ref{mp_ab_deltad_eqn} it follows that
+	$$
+	\left|  a_\Delta \times b  \left( x\right) \right| < \frac{A^{a,\widetilde F b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n }
+	$$
+	Similarly to \eqref{mp_*_eqn} one has
+	$$
+	\left| b \times a_\Delta   \left( x\right) \right| < \frac{A^{\left( \widetilde F b\right)^*, a^* }_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n }
+	$$
+	Applying \eqref{nt_prod_duality_eqn} one has
+	\bean
+	\left|\mathcal F \left(  a_\Delta \diamond b\right)  \left( x\right) \right|< \frac{A^{\mathcal F a, ~\mathcal F\widetilde F b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+	\left|\mathcal F\left(  b\diamond a_\Delta \right)  \left( x\right) \right|< \frac{A^{\sF\left( \widetilde F b\right)^*, \sF a^*}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+	\left|\mathcal F\left(  a_\Delta \times b\right)  \left( x\right) \right|< \frac{A^{\mathcal F a,\mathcal F b}_{m,n}}{\left( 1+\left\|\Delta \right\|\right)^m \left( 1+\left\|x \right\|\right)^n },\\
+	\left|\mathcal F\left(  b\times a_\Delta \right)  \left( x\right) \right|< .
+	\eean
+	If $C^{a, b}_{m,n} \in \R$ is such that
+	\bean
+	C^{a, b}_{m,n} > A^{a,~ b}_{m,n}, \quad C^{a, b}_{m,n} > A^{b^*, ~a^*}_{m,n}, \quad C^{a, b}_{m,n} > A^{a, ~\widetilde F b}_{m,n}, \quad C^{a, b}_{m,n} > A^{\left( \widetilde F b\right)^*, ~a^* }_{m,n},\\
+	C^{a, b}_{m,n} > A^{\sF a,~ \sF  b}_{m,n}, \quad C^{a, b}_{m,n} > A^{\sF b^*, ~\sF a^*}_{m,n}, \quad C^{a, b}_{m,n} > A^{\sF a, ~\sF \widetilde F b}_{m,n}, \quad C^{a, b}_{m,n} > A^{\left( \sF \widetilde F b\right)^*, ~\sF a^* }_{m,n}
+	\eean
+	then from the above construction it follows that $C^{a, b}_{m,n}$ satisfies to the equations \eqref{mp_ab_deltad_eqn}.
+\end{proof}
+
+\begin{corollary}\label{mp_ab_delta_cor}
+	Let $a, b \in \SS\left(\R^{2N} \right)$. For any $\Delta \in \R^{2N}$ let $a_\Delta \in  \SS\left(\R^{2N} \right) $ be such that $a_\Delta\left(x \right)= a\left(x + \Delta  \right)$. For any $m \in \N$ there is a constant $C^{a,b}_m$ such that for any $x, \Delta \in \R^{2N}$ following conditions hold
+	\be\label{mp_ab_delta_cor_eqn}
+	\left\| a_\Delta \times b\right\|_2 < \frac{C^{a,b}_m}{\left( 1+\left\|\Delta \right\|\right)^m  }
+	\ee
+	where $\left\| \cdot\right\|_2$ is given by \eqref{nt_l2_norm_eqn}.
+\end{corollary}
+\begin{proof}
+	Follows from the equation \ref{mp_ab_deltad_eqn}.
+\end{proof}
+
+\begin{lemma}\label{nt_w*_top_lem}
+	If $\overline a \in S\left(\R^{2N}\right)$ then for all $j\in \N$ the following conditions hold:
+	\begin{enumerate}
+		\item [(i)] The series 	
+		\be\label{nt_w*_top_eqn}
+		\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
+		\ee
+		is convergent with respect to the weak*-topology (cf. Definition \ref{w*_topology_defn}) of the dual space $S'\left(\R^{2N}\right)$ of $ S\left(\R^{2N}\right)$. Moreover $a_j$ is represented by infinitely differentiable map $\R^{2N}\to \C$, i.e. $a_j\in \Coo\left(\R^{2N} \right)$.
+		\item[(ii)] One has 
+		\be\label{mp_fourier_torusa_eqn}
+		a_j = \sum_{k \in Z^{2N}} c_k \exp\left(2\pi i \frac{k}{m_j} ~\cdot \right)
+		\ee
+		where $\left\{c_k \in \C\right\}_{k \in \Z^{2N}}$ are rapidly decreasing coefficients given by
+		\begin{equation}\label{mp_fourier_torus_eqn}
+			c_k = \frac{1}{m_j^{2N} } \int_{\R^{2N}} \overline{a}\left(x \right)  \exp\left(2\pi i \frac{k}{m_j}\cdot x\right) dx = \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
+		\end{equation}
+		\item[(iii)] For any $j$ the equation \eqref{nt_w*_top_eqn} yields the $\C$-linear surjective map
+		\be\label{nt_ss_nt_map_eqn}
+		\varphi_j:	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right) 
+		\ee
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	Let $I \bydef \left[0, m_j \right]^{2N}\subset \R^{2N}$ be a cube.
+	If $R \bydef \sqrt{2N} m_j$  then $\left\|x \right\| < R$  for all $x\in I$, hence from \eqref{nt_ineqr_eqn} it follows that
+	$$
+	\left| \left( g \overline a\right) \left( x\right) \right|= \left|  \overline a\left( x+ g\right) \right|< \frac{C^{m,R}_f}{\left(1 + \left\|g \right\|^{m}\right) }\quad\forall x\in I.
+	$$
+	For all $m > 2N$ the series $\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\frac{C^{m,R}_f}{\left(1 + \left\|g \right\|^{m}\right) }$ is convergent. If 
+	$$C \bydef \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\frac{C^{m,R}_f}{\left(1 + \left\|g \right\|^{m}\right) }$$ then for any subset $G\subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ and $x \in I$ one has 
+	\be
+	\left| \sum_{g \in G } \left( g \overline a\right) \left( x\right)\right| < C.
+	\ee
+	Moreover the series 
+	$$
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left. \left( g \overline a\right)\right|_{I}
+	$$
+	is uniformly convergent, so the sum of the above series is continuous. If $D^{\beta} = \frac{\partial}{\partial x_1^{\bt_1}}~...~\frac{\partial}{\partial x_n^{\bt_n}}$ then from the equation \eqref{mp_sr_eqn} it turns out that $D^{\beta}\overline a \in \SS\left(\R^{2N}\right)$, so the sum of the series
+	$$
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left. \left( g  D^\bt\overline a\right)\right|_{I}
+	$$
+	is also continuous. If $\eps > 0$ and $a \in \SS\left(\R^{2N}\right)$ then there is a compact set $\sV \subset \R^{2N}$ such that $\left|a\left( x\right)  \right|< \frac{\eps}{2C}$ for all $\R^{2N}\setminus\sV$. There is a finite subset $G_0 \subset\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ such that $\sV\subset \bigcup_{g\in G_0}gI$. Denote by $C_a\bydef \sup_{x \in \R^{2N}}\left|a \left( x\right)\right|$. Otherwise there is a finite set $G_I\subset\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ such that
+	$$
+	G_I\subset G \subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)\quad \Rightarrow\quad \left\| \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left. \left( g \overline a\right)\right|_{I}- \sum_{g \in G }\left. \left( g \overline a\right)\right|_{I} \right\|< \frac{\eps}{2C_a} 
+	$$
+	For any $g' \in G_0$ one has
+	\bean
+	gG_I\subset G \subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)\quad \Rightarrow\\
+	\Rightarrow\quad\left\| \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left. \left( g \overline a\right)\right|_{g'I}- \sum_{g \in g'G_I }\left. \left( g \overline a\right)\right|_{g'I} \right\|< \frac{\eps}{2C_a} 
+	\eean
+	If $\overline G \bydef \bigcup_{g'\in G_0} g'G_I$ then from above construction it follows that
+	$$
+	\overline G \subset G \subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)\quad \Rightarrow\quad \left| \left\langle \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) } g \overline a, a\right\rangle- \left\langle \sum_{g \in \overline G} g \overline a, a\right\rangle \right|< \eps, 
+	$$ 
+	i.e. the series \ref{nt_w*_top_eqn} is convergent with respect to the weak*-topology. The sum of series is periodic and since the sums $\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left.  g \overline a\right|_{I}$ and $\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left. \left( g \overline D^\bt a\right)\right|_{I}$ are continuous $a_j$ is represented by infinitely differentiable map $\R^{2N}\to \C$.\\
+	(ii) Follows from
+	\bean 
+	c_k = \frac{1}{m_j^{2N} }\int_I \exp\left(2\pi i \frac{k}{m_j} ~x \right)\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\left( g \overline a\right)\left( x\right) dx  =\\
+	= \frac{1}{m_j^{2N} }\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\int_{gI}\exp\left(2\pi i \frac{k}{m_j} ~x \right) \overline a\left(x\right)dx=\\= \frac{1}{m_j^{2N} }\int_{\R^{2N}}\exp\left(2\pi i \frac{k}{m_j} ~x \right)\overline a\left(x\right)dx= \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
+	\eean
+	(iii) Since given by \eqref{mp_fourier_torus_eqn} coefficients a rapidly decreasing one has	$a_j\in \Coo\left(\T^{2N}_{\th/m^2_j} \right)$, i.e. one has a $\C$-linear  map
+	$$
+	\varphi_j : 	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right).
+	$$
+	Let us prove that $\varphi$ is a surjective map. Suppose that
+	$$
+	a'_j = \sum_{k \in Z^{2N}} c_k \exp\left(2\pi i \frac{k}{m_j} ~\cdot \right)
+	$$ 
+	If $\phi$ is a map $\R^{2N}\to \R$ such that
+	\be
+	\begin{split}
+		\phi \in \SS\left(\R^{2N}\right),\\
+		\phi \left(\R^{2N}\right) = \left[0,1\right],\\
+		\supp  \phi  \subset \left\{x \in \R^{2N}\left|\left\|x\right\|< \frac{1}{2m_j}\right.\right\}.	
+	\end{split}
+	\ee
+	and
+	$$
+	\widetilde b'(x) \bydef \sum_{k\in \Z^{2N}} c'_k \phi\left(x - k \right) 	
+	$$
+	then  $b'\left( k\right)= c'_k$ for all $k\in \Z^{2N}$. Moreover $\widetilde b'\in \SS\left( \R^{2N}\right)$ because $\set{c_k}$ are rapidly decreasing. If $\widetilde a'= \sF \widetilde b'$ then $\widetilde a'\in \SS\left( \R^{2N}\right)$. From  the equation \eqref{mp_fourier_torus_eqn} it follows that
+	$$
+	a'_j = \varphi_j\left( a'\right),
+	$$
+	i.e. the map $\varphi$ is surjective.
+\end{proof}
+
+\begin{remark}\label{nt_w*_top_rem}
+	From (iii) of the Lemma \ref{nt_w*_top_lem} it follows that there is a $\C$-linear surjective  map
+	\be\label{nt_w*_top_psi_eqn}
+	\begin{split}
+		\Psi : S\left(\R^{2N} _\th\right) \to \Coo\left(\T^{2N}_{\th}\right)\\
+		\widetilde a \mapsto \sum_{g \in \Z^{2N}} g \widetilde{a}.
+	\end{split}
+	\ee
+\end{remark}
+
+
+\begin{lemma}\label{nt_w*_lem}
+	If $\overline a \in S\left(\R^{2N} _\th\right)$ is an element which correspond to positive element of $C_b\left( \R^{2N}_\th\right)\subset B\left( L^2\left(\R^{2N}_\th \right) \right)$ (cf. Definition \ref{nt_r_2_N_repr_defn}) then for all $j\in \N$ there is $a_j\in\Coo\left(\T^{2N}_{\th/2m_j}\right)$ such that the series
+	$$
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
+	$$
+	is strongly convergent in $B\left( L^2\left(\R^{2N}_\th \right)\right)$. Moreover the sum of the above series in sense of the strong topology coincides with the sum with respect to the weak*-topology of the dual space $\sS'\left(\R^{2N}\right)$ (cf. Definition \ref{w*_topology_defn}).
+\end{lemma}
+\begin{proof}
+	From the Lemma \ref{nt_w*_top_lem} it follows that there the series
+	\be\label{nt_sp_eqn}
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j\in S'\left(\R^{2N}\right)
+	\ee
+	is convergent with respect to the weak*-topology (cf. Definition \ref{w*_topology_defn}). Since $a_j$ is a smooth $m_j$ - periodic function it can be regarded as the element of $\Coo\left(\T^{2N}_{\th/2m_j}\right)$.	
+	On the other hand from \ref{mp_nt_op_empt} it follows that $a_j \in C_b\left( \R^{2N}_\th\right)\subset  B\left( L^2\left(\R^{2N}_\th \right) \right)$. 
+	From \eqref{mp_star_ext_eqn} for any $x \in \SS\left(\R^{2N}_\th\right)$ and $g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ one has
+	\bean
+	\left(x, \left( g \overline a\right)  x\right)_{L^2\left(\R^{2N}_\th \right) }= \left(\left( g \overline a\right)  x,  x\right)_{L^2\left(\R^{2N}_\th \right) }= \left(\left( g \overline a\right)\star_\th  x,  x\right)_{L^2\left(\R^{2N}_\th \right) }=\\
+	= \left\langle \left( \left( g \overline a\right)\star_\th  x\right)^* ,x \right\rangle= \left\langle x^*\star_{\th} \left( g \overline a\right) ,x \right\rangle=
+	\left\langle g \overline a,x\star_{\th} x^* \right\rangle
+	\eean
+	where $\left(\cdot , \cdot \right)_{L^2\left(\R^{2N}_\th \right) }$ is the  scalar product of the Hilbert space and $\left\langle\cdot ,\cdot \right\rangle$ means the natural pairing  $\SS'\left(\R^{2N}_\th\right)\times \SS\left(\R^{2N}_\th\right)\to \C$. Since $g \overline a$ is a positive operator of $B\left( L^2\left(\R^{2N}_\th \right) \right)$ all summands of the series
+	$$
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) } \left(x, g \overline a x\right)_{L^2\left(\R^{2N}_\th \right) }= \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left\langle g \overline a,x\star_{\th} x^* \right\rangle
+	$$ 
+	are positive. Otherwise  the series \eqref{nt_sp_eqn} is convergent with respect to the weak*-topology, so one has
+	\be\label{ctr_axx_eqn}
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left\langle g \overline a,x\star_{\th} x^* \right\rangle=\left\langle a_j,x\star_{\th} x^* \right\rangle
+	\ee
+	From the positivity of summands it follows that
+	$$
+	\sum_{g \in G } \left(x, g \overline a x\right)_{L^2\left(\R^{2N}_\th \right) }\le \left(x, a_j x\right)_{L^2\left(\R^{2N}_\th \right)}
+	$$
+	for any finite $G \subset  \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$. Otherwise $\SS\left(\R^{2N}_\th\right)$ is dense subset of $L^2\left(\R^{2N}_\th\right)$ with respect to the Hilbert norm of $L^2\left(\R^{2N}_\th\right)$, so one has
+	$$
+	\sum_{g \in G' } \left(\xi, g \overline a \xi\right)_{L^2\left(\R^{2N}_\th \right) }\le \left(\xi, a_j \xi\right)_{L^2\left(\R^{2N}_\th \right)}
+	$$
+	for all $\xi\in L^2\left(\R^{2N}_\th \right)$, hence
+	$$
+	\sum_{g \in G' }  g \overline a \le a_j.
+	$$
+	So from the Lemma \ref{increasing_convergent_w_lem} it follows that the series $\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) } g \overline a$ is strongly convergent in $B\left( L^2\left(\R^{2N}_\th \right)\right)$. Moreover since $\sS\left( \R^{2N}\right)$ is dense in  $L^2\left( \R^{2N}\right)$ and taking into account the equation \eqref{ctr_axx_eqn} one has
+	$$
+	\forall\xi \in L^2\left( \R^{2N}\right)\quad \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) } \left(\xi, g \overline a \xi\right)_{L^2\left(\R^{2N}_\th \right) }= \left(\xi, a_j \xi\right)_{L^2\left(\R^{2N}_\th \right)},
+	$$
+	it turns out that
+	$$
+	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
+	$$
+	where the sum of the series means the strong convergence in $B\left( L^2\left(\R^{2N}_\th \right)\right)$. 
+\end{proof}
+\begin{lemma}\label{nt_xm_lem}
+	For any $n\in \N$ and $m > n+1$ the series
+	\be\label{nt_intc_sum}
+	\sum_{x \in \Z^n\setminus \{0\}} \frac{1}{ \left\|{x}\right\|^m  }
+	\ee
+	is convergent.	
+\end{lemma}
+\begin{proof}
+	For any $k \in \N$ denote by
+	\bea\label{nt_dk_eqn}
+	\Delta_k \bydef \left\{\left.\left(x_1,..., x_n \right) \in \Z^n\setminus \{0\}\right| -k \le x_j \le k\quad \forall j=1,..., n\right\},\\
+	\label{nt_drk_eqn}
+	\Delta^\R_k \bydef \left\{\left.\left(x_1,..., x_n \right) \in \R^n\setminus \{0\}\right| -k \le x_j \le k\quad \forall j=1,..., n\right\}
+	\eea
+	One has $\left|\Delta_k \right|= \left( 2k+1\right)^n-1$ where $\left|\Delta_k \right|$ means the cardinal number of $\Delta_k$. One has 
+	$$
+	\left| \Delta_k\setminus\Delta_{k-1}\right| = \left| \Delta_k\right| -\left| \Delta_{k-1}\right|= (n-1) \left( 2k+1\right)^{n-1}+ p\left(k \right) 
+	$$
+	where $p$ is a polynomial of $p$ of degree $n-2$. From the limit
+	$$
+	\lim_{k\to\infty} \frac{p(k)}{\left( 2k+1\right)^{n-1}}= 0
+	$$
+	it follows it follows that there is $k_0\in \N$ such that 
+	$$
+	k\ge k_0\Rightarrow \frac{\left| p(k)\right| }{\left( 2k+1\right)^{n-1}}< 1.
+	$$ 
+	so one has $\left| \Delta_k\setminus\Delta_{k-1}\right| \le n\left( 2k+1\right)^{n-1}$. On the other hand $\left\|{x}\right\|^m\ge k^m$ for all  $x \in \Delta_k\setminus\Delta_{k-1}$, so one has
+	\be\label{mt_ee_eqn}
+	k \ge k_0\Rightarrow	\sum_{x \in \Delta_k\setminus\Delta_{k-1}} \frac{1}{ \left\|{x}\right\|^m  }\le \frac {n\left( 2k+1\right)^{n-1}}{k^m}
+	\ee
+	From 
+	$$
+	\lim_{k \to \infty} \frac {n\left( 2k+1\right)^{n-1}}{k^{n-1}}= n 2^{n-1}
+	$$
+	it follows that there is $C> 0$ such that 
+	$$
+	k\ge k_0\Rightarrow\frac {n\left( 2k+1\right)^{n-1}}{k^{n-1}} < C,
+	$$
+	taking into account the equation \eqref{mt_ee_eqn} one has
+	$$
+	k \ge k_0\Rightarrow	\sum_{x \in \Delta_k\setminus\Delta_{k-1}} \frac{1}{ \left\|{x}\right\|^m  }\le \frac {C}{k^{m  -n + 1}}
+	$$
+	If $m-n+1\ge 2$, i.e. $m > n + 1$ then the series
+	$$
+	\sum_{k = k_0}^\infty \frac {C}{k^{m  -n + 1}}
+	$$
+	is convergent, so the series
+	$$
+	\sum_{k = k_0}^\infty \sum_{x \in \Delta_k\setminus\Delta_{k-1}}\frac{1}{ \left\|{x}\right\|^m  }
+	$$
+	is also convergent.
+	From 
+	\bean
+	\sum_{x \in \Z^n\setminus \{0\}} \frac{1}{ \left\|{x}\right\|^m  }= 	\sum_{x \in \Delta_{k_0}\setminus \{0\}} \frac{1}{ \left\|{x}\right\|^m  }+ \sum_{k = k_0}^\infty \sum_{x \in \Delta_k\setminus\Delta_{k-1}}\frac{1}{ \left\|{x}\right\|^m  }
+	\eean 
+	it follows that the series \eqref{nt_intc_sum} is convergent.
+\end{proof}
+\begin{lemma}\label{nt_cmn_lem}
+	If $m > n +1 $ then there is $C^{m,n} > 0$ such that for any $k \in \N$ one has
+	\be\label{nt_int_sum}
+	\frac{1}{k^n}	\sum_{x \in \Z^n} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} < C^{m,n}
+	\ee
+\end{lemma}
+\begin{proof}
+	If  $\Delta_k \subset \R^n$ is given by the equation \eqref{nt_dk_eqn} then one has
+	\be\label{nt_ee1_eqn}
+	\begin{split}
+		\sum_{x \in \Z^n} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} = 	\sum_{\substack{x \in \Z^n\\ kx \in \Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m}+ \sum_{\substack{x \in \R^n\\ kx \in \Z^n\setminus\Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m}\le\\
+		(4k + 1)^n + \sum_{\substack{x \in \R^n\\ kx \in \Z^n\setminus\Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m}
+	\end{split}
+	\ee
+	If $\Delta^\R_1$ is given by the equation \eqref{nt_drk_eqn} then one has
+	\be\label{nt_xy_eqn}
+	y \in \Delta^\R_1, \quad x \in \R^n\setminus\Delta_2 \Rightarrow 1 + \left\|z + x \right\| \ge \sqrt{n} + 1  + \left\| y \right\|.
+	\ee
+	Using inequality \eqref{nt_xy_eqn}, similarly to the proof of the Lemma \ref{nt_xm_lem} one can show that if
+	$$
+	s_y\bydef 	\sum_{z \in \Z^n\setminus\Delta_2} \frac{1}{\left(1+  \left\|z + y \right\|  \right)^m}
+	$$
+	then there is $C> 0$ such that
+	$$
+	\forall  y \in \Delta^\R_2\quad s_y < C.
+	$$
+	On the other hand one has
+	\be\label{nt_ee2_eqn}
+	\sum_{\substack{x \in \R^n\\ kx \in \Z^n\setminus\Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} \le \sum_{\substack{y \in \R^n\\ ky \in \Delta_1}}s_y \le \left( 2k+1\right)^n s_y\le \left( 2k+1\right)^nC  
+	\ee
+	From the equations \eqref{nt_ee1_eqn}, \eqref{nt_ee2_eqn} it follows that there is $C^{m,n}$ which satisfies to the condition \eqref{nt_int_sum}
+\end{proof}
+
+\begin{corollary}\label{nt_cmn_cor}
+	Let  $m > 2N$ and  $\widetilde{a} \in \SS\left( \R^{2N}_\th\right)$ is such that $$\left\| \sF \widetilde{a}\left(x \right)  \right\| < \frac{1}{\left(1 + \left\|x\right\|  \right)^m}
+	$$
+	For any $j \in \N$ following condition holds
+	$$
+	a_j = \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) } \widetilde{a} \quad \Rightarrow \left\| a_j \right\| < C^{m,n}
+	$$
+	where $C^{m,n}$ is given by the Lemma \ref{nt_cmn_lem}.
+\end{corollary}
+\begin{proof}
+	From  \eqref{mp_fourier_torusa_eqn} and \eqref{mp_fourier_torus_eqn} it follows that
+	$$
+	\left\| a_j \right\| <  \frac{1}{m_j^{2N} } \sum_{k \in \Z^{2N}}\left\|\mathcal{F}\widetilde{a}\left( \frac{k}{m_j}\right) \right\| 
+	$$
+	and taking into account the Lemma  \ref{nt_cmn_lem} one has
+	$$
+	\left\| a_j \right\| < C^{m,n}
+	$$
+\end{proof}
+\begin{corollary}
+	If $m > n$ then 
+	\be\label{nt_int_cor_sum}
+	s = 	\sum_{x \in \Z^n \setminus 0} \frac{1}{\left\|x\right\|^m} < \infty
+	\ee
+\end{corollary}
+\begin{proof}
+	Follows from the Lemma \ref{nt_cmn_lem} and the implication 
+	$$
+	\left\|x\right\| > 1 \Rightarrow	\frac{1}{\left\|x\right\|^m} < \frac{2^m}{\left(1 + \left\|x\right\|  \right)^m}
+	$$
+\end{proof}
+
+
+
+
+
+Denote by $\H^\oplus\bydef\bigoplus_{g \in J}gL^2\left(\R^{2N}\right)$ and let $\widehat{\pi}^\oplus: \widehat{C\left(\mathbb{T}^{2N}_{\th}\right) }  \hookto B\left( \H^\oplus\right)$ be given by \eqref{nt_equiv_eqn} representation.
+If $\widetilde{a} \in \SS\left( \R^{2N}_\th\right)$ then from the Lemma \ref{spec_strong_lim_lem} it turns out
+$\widetilde a \in \pi^\oplus\left( \widehat{C\left( \T^{2N}_\th\right) }\right) ''$. Since $\widehat{\pi}^\oplus$ is a faithful representation of $\widehat{C\left( \T^{2N}_\th\right) }$, one has  an injective homomorphism  $\SS\left( \R^{2N}_\th\right) \hookto \widehat{\pi}^\oplus\left( \widehat{C\left( \T^{2N}_\th\right) }\right) ''$ of involutive algebras. 
+For any $\widetilde{a} \in \SS\left( \R^{2N}_\th\right)$ following condition holds
+$$
+\sum_{g \in \ker\left(\widehat{G} \to G_j\right)}g\widehat{\pi}^\oplus\left(\widetilde{a} \right) = \sum_{g' \in J}g'\left( \sum_{ g''\in \ker\left(\Z^{2N} \to G_j\right)}  g''\widehat{\pi}^\oplus\left(\widetilde{a} \right)\right)= \sum_{g \in J}gP. 
+$$
+where 
+$$
+P = \sum_{ g\in \ker\left(\Z^{2N} \to G_j\right)}  g\widehat{\pi}\left(\widetilde{a} \right).
+$$
+
+
+If $J \subset \widehat{G}$ is a set of  representatives of $\widehat{G}/\Z^{2N}$ and $g',g'' \in J$ are such that $g' \neq g''$ then operators $g'P$, $g''P$ act on mutually orthogonal Hilbert subspaces $g'L^2\left( 
+R^{2N}\right)$, $g''L^2\left( 
+R^{2N}\right)$ of the direct sum $\bigoplus_{g \in J} gL^2\left( 
+R^{2N}\right)$, and 
+taking into account $\left\|P\right\|=\left\|gP\right\|$  one has
+\begin{equation}\label{nt_norm_equ_eqn}
+	\left\|\sum_{g \in \ker\left(\widehat{G} \to G_j\right)}\widehat{\pi}^\oplus\left( \widetilde{a} \right)\right\|= \left\|\sum_{g \in J}gP\right\|=\left\|P\right\|=\left\|\sum_{g \in \ker\left(\Z^{2N} \to G_j\right)}\widehat{\pi}\left( \widetilde{a} \right)\right\|.
+\end{equation}
+
+
+\begin{lem}\label{nt_w_spec_p_lem} 
+	If $\overline{a}$ in $ \sS\left(\mathbb{R}^{2N}_\th \right) $ is positive then following conditions hold:
+	\begin{enumerate}	
+		\item[(i)]
+		For any $j \in \mathbb{N}^0$ the following  series 
+		\begin{equation*}
+			\begin{split}
+				a_j = \sum_{g \in \ker\left( \widehat{G} \to  G_j\right) )} g \overline{a},\\
+				b_j = \sum_{g \in \ker\left( \widehat{G} \to  G_j\right) } g  \overline{a}^2
+			\end{split}
+		\end{equation*}
+		are strongly convergent and the sums lie in   $\Coo\left( \T^{2N}_{\th/m_j^2}\right) $, i.e. $a_j, b_j \in \Coo\left( \T^{2N}_{\th/m_j^2}\right) $; 
+		\item[(ii)] For any $\eps > 0$ there is $N \in \N$ such that for any $j \ge N$ the following condition holds
+		\begin{equation*}
+			\begin{split}
+				\left\| a_j^2 - b_j\right\| < \eps.
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+	
+	
+\end{lem}
+\begin{proof}
+	(i) Follows from the Lemma \ref{nt_w*_lem}.
+	\newline
+	(ii)
+	Denote by $J_j = \ker\left( \Z^{2N} \to G_j\right)= m_j\Z^{2N}$. If
+	\begin{equation*}
+		\begin{split}
+			a_j =  \sum_{g \in J_j  }g \overline{a},\\ b_j =  \sum_{g \in J_j  }  g \overline{a}^2
+		\end{split}
+	\end{equation*}
+	then 
+	\begin{equation}\label{nt_an_bn_eqn}
+		a^2_j - b_j = \sum_{g \in J_j  }g\overline{a} ~ \left(  \sum_{g' \in J_j  \backslash \{g\} }g'' \overline{a}\right) .
+	\end{equation}
+	From \eqref{nt_a_delta_eqn}  it follows that $g \overline{a}= \overline{a}_{g }$ where  $\overline{a}_{g}\left(x \right)  = \overline{a}\left( x +g\right)$ for any $x \in \R^{2N}$ and $g \in \Z^{2N}$. Hence the equation \eqref{nt_an_bn_eqn} is equivalent to
+	\begin{equation*}
+		\begin{split}
+			a^2_j - b_j = \sum_{g \in J_j  }\overline{a}_{g }  \sum_{g' \in J_j  \backslash \{g\} } \overline{a}_{g' } = \sum_{g \in \mathbb{Z}^{2N}  }\overline{a}_{m_jg }  \sum_{g' \in \mathbb{Z}^{2N}  \backslash \{g\} } \overline{a}_{m_jg' }=
+			\\
+			=\sum_{g' \in J_j}  g'\left( \overline{a}  \sum_{g \in \mathbb{Z}^{2N}  \backslash \{0\} } \overline{a}_{m_jg } \right). 
+		\end{split}
+	\end{equation*}
+	Let $m > 1$ and $M = 2N+1 + m$.
+	From the Corollary \ref{mp_ab_deltad_cor} it follows that there is $C \in \mathbb{R}$ such that
+	$$
+	\left\|\sum_{g \in J_j }g\left( aa_\Delta\right) \right\| < \frac{C}{\left\| \Delta\right\|^M}.
+	$$
+	From the triangle inequality it follows that
+	\begin{equation*}
+		\begin{split}	\left\|a^2_j - b_j\right\|=\left\|\sum_{g \in J_j }g\left( \overline{a}  \sum_{g' \in \mathbb{Z}^{2N}  \backslash \{0\} } \overline{a}_{m_jg' } \right)\right\| \le
+			\\
+			\le \sum_{g' \in \mathbb{Z}^{2N}  \backslash \{0\} } \left\|\sum_{g \in J_j }g\left( \overline{a}  ~ \overline{a}_{m_jg' } \right)\right\|   \le \sum_{g \in \mathbb{Z}^{2N}  \backslash \{0\} } \frac{C}{\left\| m_jg' \right\|^M }.
+		\end{split}
+	\end{equation*}
+	
+	From  $M> 2N$ it turns out that the series
+	$$
+	C' = \sum_{g' \in \mathbb{Z}^{2N}  \backslash \{0\} }  \frac{C}{\left\| g' \right\|^M }
+	$$
+	is convergent and 
+	$$
+	\sum_{g \in \mathbb{Z}^{2N}  \backslash \{0\} } \frac{C}{\left\| m_jg \right\|^M } = \frac{C'}{m_j^M }.
+	$$
+	If $\varepsilon > 0$ is a small number and $N\in \mathbb{N}$ is such $m_N > \sqrt[M]{\frac{C'}{\varepsilon}}$ then from above equations it follows that for any $j \ge N$ the following condition holds
+	$$
+	\left\|a^2_j - b_j\right\| < \eps.
+	$$
+	
+	
+\end{proof}
+
+
+
+
+
+
+\begin{empt}
+	If $\left\{f_{nm}\right\}_{n,n \in \N^0}$ are elements, which satisfy to the Lemma \ref{mp_osc_lem} then $L\left( \R^2\right)$ if the Hilbert space generated by orthogonal elements  $\left\{f_{nm}\right\}_{n,m \in \N^0}$. Denote by
+	\be
+	\begin{split}
+		L^2\left( \R^2\right)_\parallel \bydef \bigoplus_{n \in \N^0}\C f_{nn}\subset L\left( \R^2\right),\\
+		L^2\left(\R^{2N}\right)_\parallel \bydef \underbrace{L^2\left( \R^2\right)_\parallel\bigotimes\dots\bigotimes L^2\left( \R^2\right)_\parallel}_{N-\mathrm{times}} \subset L\left( \R^{2N}\right)
+	\end{split}
+	\ee
+	where $\bigoplus$ and $\bigotimes$ mean the Hilbert direct sum and the Hilbert tensor product respectively. From the Proposition \ref{mp_fmn_prop} it follows that any $a \in C_b\left(\R^{2}_\th \right)$ can be  represented by the matrix $\left\{a_{mn}\in \C\right\}$ such that
+	\bean
+	a = \sum_{m,n = 0}^\infty a_{mn} f_{mn},\\
+	\sup_{\substack{ \xi \in L^2\left(\R^{2}\right)  \\ \left\| \xi\right\|=1 }} \left\|a \xi\right\|< \infty.
+	\eean
+	Otherwise any $b \in B \left( L^2\left( \R^2\right)_\parallel\right)$ can represented by the matrix $\left\{b_{mn}\in \C\right\}$ such that
+	\bean
+	b = \sum_{m,n = 0}^\infty b_{mn} f_{mn},\\
+	\sup_{\substack{ \xi \in L^2\left(\R^{2}\right)_\parallel  \\ \left\| \xi\right\|=1 }} \left\|b \xi\right\|< \infty.
+	\eean
+	From $L^2\left( \R^2\right)_\parallel\subset L^2\left( \R^2\right)$ it follows that $C_b\left(\R^{2}_\th \right) \subset B\left( L^2\left( \R^2\right)_\parallel\right)$. Similarly there is the basis of $L^2\left(\R^{2N}\right)$ which contains all elements $f_{j_1k_1}\otimes ...\otimes f_{j_Nk_N}$ and $a \in C_b\left(\R^{2N}_\th \right)$ can be represented by
+	\be\label{nt_op_eqn}
+	a = \sum_{j_1k_1...j_Nk_N} a_{j_1k_1...j_Nk_N} f_{j_1k_1}\otimes ...\otimes f_{j_Nk_N}
+	\ee
+	Otherwise there is  the basis of $L^2\left(\R^{2N}\right)_\parallel$ which contains all elements $f_{j_1j_1}\otimes ...\otimes f_{j_Nj_N}$ and the given by \eqref{nt_op_eqn} operator can be regarded as an element of $B\left( L^2\left( \R^{2N}\right)_\parallel\right)$, i.e. $C_b\left(\R^{2N}_\th \right)\in B\left( L^2\left( \R^{2N}\right)_\parallel\right)$. Let us enumerate the basis of $ L^2\left( \R^{2N}\right)_\parallel$ i.e.
+	\be\label{nt_par_bas_eqn}
+	\left\{\xi_j \right\}_{j \in \N} = \left\{f_{j_1j_1}\otimes ...\otimes f_{j_Nj_N}\right\}.
+	\ee
+	Any $a \in B\left( L^2\left( \R^{2N}\right)_\parallel\right)$ can be represented by the following way
+	\be\label{nt_par_bas_m_eqn}
+	a = \sum_{j,k = 0}^\infty a_{jk }\xi_j\left\rangle \right\langle \xi_k.
+	\ee
+	
+	
+\end{empt}
+
+\begin{lem}\label{nt_w_spec_lem}
+	Let  us consider  a dense inclusion
+	$$
+	\underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \subset \SS\left(\R^{2N}_\th\right)
+	$$
+	of algebraic tensor product which follows from  \eqref{mp_tensor_prod}.
+	If $\overline{a} \in \SS\left(\R^{2N}_\th\right) $ is a positive such that
+	\begin{itemize}
+		\item 	$$
+		\overline{a} = \sum_{\substack{j=0\\k=0}}^{M_1} c^1_{jk}f_{jk}\otimes \dots \otimes \sum_{\substack{j=0\\k=0}}^{M_N} c^N_{jk}f_{jk}
+		$$
+		where $c^l_{jk} \in \C$ and $f_{jk}$ are given by the Lemma \ref{lm:osc-basis},
+		\item For any $l = 1,\dots, N$ the sum
+		$
+		\sum_{\substack{j=0\\k=0}}^{M_l} c^l_{jk}f_{jk}
+		$
+		is a rank-one operator in $B\left( L^2\left( \R^{2}\right)_\parallel\right) $.
+	\end{itemize}
+	then $\overline{a}$ is $\pi^\oplus$-special  (cf. Definition \ref{special_element_defn}). 
+\end{lem}
+\begin{proof}
+	Clearly $\overline{a}$ is a rank-one operator in $B\left( L^2\left( \R^{2N}\right)_\parallel\right) $.	Let $j_0 \in \N$, $\eps > 0$ and  $z \in  C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$. 	Denote by $G_j\bydef \ker\left(  \widehat G\to  \Z^{2N}_{m_j}\right)$.
+	One needs check conditions (a)  and (b) of the Definition \ref{special_element_defn}.\\ 
+	(a)  From the Lemma \ref{nt_w*_lem} if follows that for any $j \in \N$ there is $a'_j \in C\left( \T^{2N}_{\th/m_j^2}\right)$ such that
+	\be\label{nt_w_spec_eqn}
+	\sum_{g\in G_j } g \overline a   = \pi^\oplus\left(a_j \right) 
+	\ee
+	where the sum of the series implies the strong convergence in $B\left(\H^\oplus\right)$. It follows that the series
+	\be\label{nt_s1_eqn}
+	\sum_{g\in G_j } \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right)   = \pi^\oplus\left(z\right)^*\pi^\oplus\left(a'_j \right) \pi^\oplus\left(z\right)\in C\left( \T^{2N}_{\th/m_j^2}\right).
+	\ee
+	is strongly convergent.
+	If $g\in G_j$ then $e_g \bydef\pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right)$ is a positive rank-one operator. Also $\left( \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right)\right)^2$ and $f_\eps\left( \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right)\right)$ are rank one operator, so since  $z$ is $G_j$ invariant (for all $j\ge j_0$) one has
+	\be\label{nt_s2_eqn}
+	\begin{split}
+		k = \frac{\left\|\left( \pi^\oplus\left(z\right)^*\overline a \pi^\oplus\left( z\right)\right)^2 \right\| }{\left\|  \pi^\oplus\left(z\right)^*\overline a \pi^\oplus\left( z\right)\right\|}\Rightarrow\\ \Rightarrow \left( \pi^\oplus\left(z\right)^*\left(  g\overline a\right)  \pi^\oplus\left( z\right)\right)^2= k \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right),\\
+		k_\eps = \frac{\left\|f_\eps\left( \pi^\oplus\left(z\right)^*\overline a \pi^\oplus\left( z\right)\right) \right\| }{\left\|  \pi^\oplus\left(z\right)^*\overline a \pi^\oplus\left( z\right)\right\|}\Rightarrow\\ \Rightarrow f_\eps\left( \pi^\oplus\left(z\right)^*\left(  g\overline a\right)  \pi^\oplus\left( z\right)\right)= k_\eps \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right).
+	\end{split}
+	\ee 	
+	From the equations \eqref{nt_s1_eqn} and \eqref{nt_s2_eqn} it turns out that both series
+	\be\label{nt_s3_eqn}
+	\begin{split}
+		\sum_{g\in G_j } \left( \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right)\right)^2    = \sum_{g\in G_j } k \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right) =\\ =k\pi^\oplus\left(z^*a_jz\right)\in C\left( \T^{2N}_{\th/m_j^2}\right),\\
+		\sum_{g\in G_j } f_\eps\left( \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right)\right)    = \sum_{g\in G_j } k_\eps \pi^\oplus\left(z\right)^*\left(  g\overline a\right) \pi^\oplus\left( z\right) =\\ =k_\eps\pi^\oplus\left(z^*a_jz\right)\in C\left( \T^{2N}_{\th/m_j^2}\right)
+	\end{split}
+	\ee
+	are strongly convergent. The equations \eqref{nt_s1_eqn} and \eqref{nt_s3_eqn} are specializations of the equations \eqref{spec_a_eps_eqn}.\\	
+	(b)  Select $\eps > 0$, $j_0 \in \N$ and
+	for every $z \in C\left( \T^{2N}_{\th/m_j^2}\right)$. Let  $a_{j_0} \in C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ is given by \eqref{nt_w_spec_eqn} and denote by $C \bydef \left\|a_{j_0} \right\|$. There is $\delta > 0$ such that $\delta^2 + 2C\delta < \eps/ 2$. Since $\Coo\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ is dense in $C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ there is $y \in \Coo\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ such that $\left\| y - z\right\| < \delta$. From $y^*\overline a y \in \SS\left(\R^{2N}_\th\right)$ and the Lemma \ref{nt_w_spec_p_lem} it follows that there is $k > j_0$ such that
+	
+	\bean
+	\forall m, n \in \N \quad	n \ge m \ge k  \Rightarrow  \left\|\left(y^* a_m y\right)^2  - \sum_{g \in \Z^{2N}_{m_n/m_m}} g\left( y^* a_n y\right)^2\right\| < \frac{\eps}{2}.
+	\eean
+	and taking into account $\left\| y - z\right\| < \delta$ one has
+	where $a_\la \in A_\la$ is such that
+	\bean
+	\forall m, n \in \N \quad	n \ge m \ge k  \Rightarrow  \left\|\left(z^* a_m z\right)^2  - \sum_{g \in \Z^{2N}_{m_n/m_m}} g\left( z^* a_n z\right)^2\right\| < \eps.
+	\eean	
+\end{proof}
+\begin{corollary}\label{nt_norm_compl}
+	If $\overline{A}_{\widehat{\pi}^\oplus}$ is the disconnected inverse noncommutative limit of $\mathfrak{S}_\th$ with respect to $\widehat{\pi}^\oplus$ and $\overline{A}$ is the $C^*$-norm completion of the algebraic direct sum $\bigoplus_{g \in J} g	C_0\left( \R^{2N}_\th\right)$ then 
+	$$
+	\overline{A}_{\widehat{\pi}^\oplus}\subset \overline{A}
+	$$
+\end{corollary}
+\begin{proof}
+	From the Lemma \ref{nt_w_spec_lem} it turns out that $\overline{A}_{\widehat{\pi}^\oplus}$ contains all elements 
+	\be\label{mp_fjkel_eqn}
+	\overline{a}=	f_{j_1k_1}\otimes \dots \otimes f_{j_Nk_N} \in 	\underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \subset \SS\left(\R^{2N}_\th\right)\subset C_0\left(\R^{2N}_\th\right)
+	\ee
+	where $f_{j_lk_l}$ ($l = 1,\dots, N$) are  given by the Lemma \ref{lm:osc-basis}. However the $\C$-linear span of given by \eqref{mp_fjkel_eqn} elements is dense in  $C_0\left( \R^{2N}_\th\right)$, hence  $C_0\left( \R^{2N}_\th\right) \subset \overline{A}_{\widehat{\pi}^\oplus}$. From the equation \eqref{g_a_eqn} it turns out
+	$$
+	\overline{A}_{\widehat{\pi}^\oplus}\subset \overline{A}
+	$$
+\end{proof}
+
+
+
+\begin{empt}\label{nt_tr_cl_empt}
+	Denote by
+	$$
+	\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)\bydef\left\{\left.a \in B\left( L^2\left( \R^{2N}\right)_\parallel\right)\right|\exists m \in \N \quad a =\sum_{j, k = 0}^m a_{kj}\xi_j\left\rangle \right\langle \xi_k\right\}.
+	$$
+	where the basis $\left\{\xi_j \right\}$ is given by \eqref{nt_par_bas_eqn}. 
+	Any element of $B\left( L^2\left( \R^{2N}\right)_\parallel\right)_{\mathrm{fin}}$ corresponds to a finite $\C$-linear combination of elements $f_{j_1j_1}\otimes ...\otimes f_{j_Nj_N}$ it turns out that there is the natural inclusion
+	$$
+	\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)\subset \SS\left(\R^{2N}_\th\right).
+	$$
+	The $C^*$-norm completion of $\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)$ equals to $\K\left( L^2\left( \R^{2N}\right)_\parallel\right)$ and taking into account \eqref{mp_matr_norm} one concludes that $\SS\left(\R^{2N}_\th\right) \subset \K\left( L^2\left( \R^{2N}\right)_\parallel\right)$. Since $C_0\left(\R^{2N}_\th\right)$ is the $C^*$-norm closure of $\SS\left(\R^{2N}_\th\right)$ one has
+	\be\label{nt_c0_k_eqn}
+	C_0\left(\R^{2N}_\th\right)\cong \K\left( L^2\left( \R^{2N}\right)_\parallel\right)
+	\ee
+	Note then $\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)$ is a dense subspace of $B\left( L^2\left( \R^{2N}\right)_\parallel\right)$ with respect to the strong topology.
+	From \eqref{nt_dmn_eqn} it follows that
+	\bean
+	\int_{\R^{2N}}f_{j_1k_1}\otimes \dots \otimes f_{j_Nk_N} = \delta_{j_1k_1}\cdot ...\cdot \delta_{j_Nk_N},
+	\eean
+	Hence if $\overline a \in\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)$ corresponds to $f_{\overline a} \in \SS\left(\R^{2N}_\th\right)$ then one has
+	\be\label{nt_N_int_eqn}
+	\int_{\R^{2N}} f_{\overline a} ~dx = \tr\left(\overline a\right). 
+	\ee
+	Otherwise if $a \in C\left( \T^{2N}_{\th}\right)$ is such that
+	$$
+	\sum_{g \in \widehat{G}} g \overline a =  \widehat{\pi}^\oplus\left( a\right) 
+	$$
+	then from \eqref{fourier_from_r_to_z_eqn} it follows that
+	\be\label{nt_trace_eqn}
+	\tau\left( a\right) = \int_{\R^{2N}} f_{\overline a} ~dx = \tr\left(a \right)
+	\ee
+	where $\tau$ is the given by \eqref{nt_state_eqn} functional.
+	If  $\overline a \in B\left( \bigoplus_{g \in J}gL^2\left(\R^{2N}\right)\right)$ is a special element and $a_j \in C\left( \T^{2N}_{\th/m_j^2}\right)$ is such that
+	$$
+	\sum_{g \in \ker\left( \widehat G\to \Z^{2N}_{m_j} \right) } g \overline a = \widehat{\pi}^\oplus\left( a_j\right) 
+	$$ 
+	then $a_j$ corresponds to a family $\left\{\widehat{\pi}^\oplus\left.\left( a_j\right)\right|_{gL^2\left(\R^{2N}\right)} \right\}_{g \in J}$. For any $g \in J$ the sequence $\left\{\widehat{\pi}^\oplus\left.\left( a_j\right)\right|_{gL^2\left(\R^{2N}\right)} \right\}_{j \in \N}$ is decreasing, so $\overline a$ corresponds to the family $\left\{\overline a_g \right\}_{g \in J}$ where $\overline a_g$ equals to the strong limit $\overline a_g =\lim_{j \to \infty}\widehat{\pi}^\oplus\left.\left( a_j\right)\right|_{gL^2\left(\R^{2N}\right)}$. 
+	
+\end{empt}
+\begin{lemma}\label{nt_tr_spec_lem}
+	Let $\phi: C_0\left(\R^{2N}_\th\right) \to B\left( L^2\left(\R^{2N}\right)\right)$ the natural inclusion.
+	Suppose that $\overline a \in B\left( \bigoplus_{g \in J}gL^2\left(\R^{2N}\right)\right)$ is a special element. If $\overline a$ corresponds to a family $\left\{\overline a_g \right\}_{g \in J}$ then for any $g \in J$ the positive operator $\overline a_g\in g\varphi\left( C_0\left(\R^{2N}_\th\right)\right)$.
+\end{lemma}
+\begin{proof}
+	
+	Let $a \in C\left( \T^{2N}_{\th}\right)$ is such that
+	$$
+	\sum_{g\in \widehat G }g \overline a = \widehat{\pi}^\oplus\left(a\right)
+	$$
+	Let ${\mathrm{Fin}}\bydef \bigoplus_{g \in J} \mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)$ be the algebraic direct sum, denote by
+	$$
+	\left\{\overline a_\a\right\}_{\a \in \mathscr A}= \left\{\left.\overline b \in \mathrm{Fin}\right|\overline b\le \overline a \right\}_{\a \in \mathscr A}.
+	$$
+	Let us define the order on $\mathscr A$ such that $\al \ge \bt \Leftrightarrow a_\a \ge a_\bt$ for all $\a, \bt \in \mathscr A$.
+	Any $\overline a_\a$ corresponds to the family $\left\{\overline a^g_\a\right\}_{g\in J}$, and $\overline a$ corresponds to the family $\left\{\overline a_g\right\}_{g\in J}$ such that there is the strong limit $\overline a_g= \lim_{\a \in \mathscr A}\overline a^g_\a$. If $a^g_\a \in  C\left( \T^{2N}_{\th}\right)$ is such that
+	$$
+	\sum_{g'\in \widehat G }g' \overline a^g_\a = \widehat{\pi}^\oplus\left( a^g_\a\right)
+	$$
+	then from $\overline a^g_\a\le \overline a$ it follows that $a^g_\a < a$ and $\tau\left(a^g_\a\right) \le \tau\left(a\right)$ where $\tau$ is the given by \eqref{nt_state_eqn} functional. Since $\left\{\overline a^g_\a\right\}_{\a \in \mathscr A}$ is increasing $\left\{\tau\left(a^g_\a\right)\right\}_{\a \in \mathscr A}$ is also increasing, it follows that there is the limit $\tau_a= \lim_{\a \in \mathscr A} \tau\left(a^g_\a\right)< \infty$. 
+	Taking into account \eqref{nt_trace_eqn} one has the following limit
+	$$
+	\tau_a= \lim_{\a \in \mathscr A} \tr\left(\overline a^g_\a\right)
+	$$
+	If $\left\{\xi_j \right\}_{j \in \N}\subset L^2\left( \R^{2N}\right)_\parallel$ is the given by  \eqref{nt_par_bas_eqn} topological  basis of $g L^2\left( \R^{2N}\right)_\parallel$ then one has
+	$$
+	c_{m\a}=\sum_{j = 1}^m \left(\xi_j, \overline a^g_\a, \xi_j \right)_{ L^2\left(\R^{2N} \right)_\parallel} \le \tau_a
+	$$
+	and since $\left\{\overline a^g_\a\right\}$ is weakly convergent 
+	$$
+	\lim_{\a \in \mathscr A }\sum_{j = 1}^m \left(\xi_j, \overline a^g_\a, \xi_j \right)_{ L^2\left(\R^{2N} \right)_\parallel} = \sum_{j = 1}^m \left(\xi_j, \overline a^g, \xi_j \right)_{ g L^2\left(\R^{2N} \right)_\parallel}
+	$$
+	and from the Theorem \ref{it_lim_thm} it follows that
+	$$
+	\lim_{m\to \infty} \sum_{k = 1}^m \left(\xi_k, \overline a^g, \xi_k \right)_{ L^2\left(\R^{2N} \right)_\parallel}= \lim_{m\to \infty }\lim_{\a\in \mathscr A }c_{m\a} =\sum_{j = 1}^\infty \left(\xi_j, \overline a^g, \xi_j \right)_{ L^2\left(\R^{2N} \right)_\parallel} = \tau_a.
+	$$
+	Otherwise for all positive trace class operator $\overline b \in B\left(L^2\left(\R^{2N} \right)_\parallel \right)$ one has
+	$$
+	\tr\left( \overline b\right)= \sum_{j = 1}^\infty \left(\xi_j, \overline b, \xi_j \right)_{ L^2\left(\R^{2N} \right)} < \infty.
+	$$
+	it follows that
+	$$
+	\tr\left( \overline a^g\right)  = \tau_a < \infty,
+	$$
+	and since $\overline a^g$ is positive it is trace-class. On the other hand any trace-class operator is compact it turns out that  $ \overline a^g \in g \K\left( g L^2\left(\R^{2N} \right)_\parallel\right)$, hence from  \eqref{nt_c0_k_eqn} it follows that $\overline a_g\in g\varphi\left( C_0\left(\R^{2N}_\th\right)\right)$.
+\end{proof}
+\begin{lemma}\label{nt_spec_c0_lem}
+	If 	  $\overline a \in B\left( \bigoplus_{g \in J}gL^2\left(\R^{2N}\right)\right)$ is a special element, then it lies in the $C^*$-norm completion of the algebraic direct sum $\bigoplus_{g \in J} g	C_0\left( \R^{2N}_\th\right)$ 
+\end{lemma}
+\begin{proof}
+	
+	If $a \in C\left( \T^{2N}_{\th}\right)$ is such that
+	$$
+	\sum_{g\in \widehat G }g \overline a = \widehat{\pi}^\oplus\left(a\right)
+	$$ then from the proof of the Lemma\ref{nt_tr_spec_lem} it follows that
+	$$
+	\tau\left(a \right) = \sum_{g \in \widehat G} \tr\left( \overline a^g\right) 
+	$$
+	It follows that for any $\eps > 0$ there is a finite subset $ \widehat G_0$ such that
+	$$
+	\left|\tau\left(a \right) - \sum_{g \in \widehat G_0}\tr\left( \overline a^g\right)  \right|< \eps. 
+	$$
+	it follows that
+	$$
+	\left\| \overline a - \sum_{g \in \widehat G_0} \overline a^g \right\|< \eps.
+	$$
+	On the other hand from the Lemma \ref{nt_tr_spec_lem} it turns out that $\sum_{g \in \widehat G_0} \overline a^g$ lies on the algebraic direct sum $\bigoplus_{g \in J} g	C_0\left( \R^{2N}_\th\right)$
+\end{proof}
+
+\begin{lemma}\label{nt_l2_spec_lem}
+	If $\overline{A}_{\widehat{\pi}^\oplus}$  be the disconnected inverse noncommutative limit of $\mathfrak{S}_\th$ then $\overline{A}_{\widehat{\pi}^\oplus}$ is isomorphic to the $C^*$-algebra $\overline{A}$ which is the $C^*$-norm completion of the direct sum $\bigoplus_{g \in J} g	C_0\left( \R^{2N}_\th\right)$ 
+\end{lemma}
+\begin{proof}
+	From the Corollary \ref{nt_norm_compl} it turns out $\overline{A} \subset \overline{A}_{\widehat{\pi}^\oplus}$.
+	Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special element lies in $\overline  A$, so one has $\overline{A}_{\widehat{\pi}^\oplus}\subset\overline{A}$. 
+\end{proof}
+
+%\begin{proof}
+%	From \eqref{nt_state_integ_eqn} it follows that
+%	\begin{equation}\tag{*}
+	%	\tau\left(b_n \right) = \frac{1}{\left(2\pi m_j \right)^{2N}}  \int_{\mathcal X_n} b_n dx_n   < \infty
+	%	\end{equation}
+%	where $dx_n$ is associated with Lebesgue measure on $\R^{2N}$ and a homeomorphism $\mathcal X_n \approx \R^{2N}/2\pi m_j\Z^{2N}$. 
+%	From \eqref{nt_tracial_prop} and (*) it follows that
+%	\begin{equation*}
+	%	\begin{split}
+		%	\left( \left\| \widetilde{a}\right\|_2\right)^2 =\left\| \widetilde{a}\widetilde{a}^*\right\|_2=\left\| \widetilde{a}\widetilde{a}\right\|_2 = \int_{\R^{2N}}\widetilde{a}\left(x \right) \widetilde{a}\left( x\right) ~ dx=\\= \int_{\R^{2N}}\left( \widetilde{a}\star_\th\widetilde{a} \right)\left(x \right)  dx  
+		%	=\frac{1}{\left(2\pi m_j \right)^{2N}}  \int_{\mathcal X_n} b_n~ dx_n =\tau\left(b_n \right) < \infty 
+		%	\end{split}
+	%	\end{equation*}
+
+
+%	whence $\left\| \widetilde{a}\right\|_2 <  \infty$, therefore $\widetilde{a}\in L^2\left(\R^{2N}_\th \right)$. 
+%\end{proof}
+
+\begin{empt}\label{nt_c_0}
+	Let $\overline{A}_{\widehat{\pi}^\oplus}$ be the disconnected inverse noncommutative limit of $\mathfrak{S}_\th$ with respect to $\widehat{\pi}^\oplus$ of $\mathfrak{S}_\th$. From the Corollary \ref{nt_norm_compl} it follows that
+	$$
+	C_0\left( \R^{2N}_\th\right) \subset \overline{A}_{\widehat{\pi}^\oplus} \bigcap B\left(L^2\left( R^{2N}\right)  \right).
+	$$
+	
+	From the Lemma \ref{nt_spec_c0_lem} it follows that	$$
+	\overline{A}_{\widehat{\pi}^\oplus} \bigcap B\left(L^2\left( R^{2N}\right)  \right) \subset C_0\left( \R^{2N}_\th\right).
+	$$
+	In result we have
+	\begin{equation}\label{nt_c_0_eqn}
+		\overline{A}_{\widehat{\pi}^\oplus} \bigcap B\left(L^2\left( R^{2N}\right)  \right) = C_0\left( \R^{2N}_\th\right).
+	\end{equation}
+	Similarly for any $g \in J$ on has
+	$$
+	\overline{A}_{\widehat{\pi}^\oplus} \bigcap B\left(gL^2\left( R^{2N}\right)  \right) = gC_0\left( \R^{2N}_\th\right).
+	$$	
+	The algebra $ C_0\left( \R^{2N}_\th\right)$ is irreducible. Clearly $ C_0\left( \R^{2N}_\th\right) \subset \overline{A}_{\widehat{\pi}^\oplus}$ is a maximal irreducible subalgebra.
+\end{empt}
+
+
+\begin{thm}\label{nt_inf_cov_thm} Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] The the pointed algebraical  finite covering category $\mathfrak{S}_\th$ is $\widehat{\pi}^\oplus$ is good  (cf. Definition \ref{good_defn}),
+		\item[(ii)] 
+		\begin{equation*}	\begin{split}
+				\varprojlim_{\widehat{\pi}^\oplus} \downarrow \mathfrak{S}_\th = C_0\left(\R^{2N}_\th\right); \\
+				G\left(\varprojlim_{\widehat{\pi}^\oplus} \downarrow \mathfrak{S}_\th~|~ C\left(\mathbb{T}^{2N}_\th \right)\right)  = \Z^{2N},
+			\end{split}
+		\end{equation*}
+		\item[(iii)] The triple $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$ is a  $\widehat{\pi}^\oplus$-infinite noncommutative covering of $\mathfrak{S}_\th$.
+	\end{enumerate}
+	
+	
+\end{thm}
+
+
+\begin{proof} (i)
+	There is the natural inclusion $\overline{A}_{\widehat{\pi}^\oplus} \hookto \prod_{g \in J} B\left(g L^2\left(\R^{2N}\right)\right)$ where $\prod$ means the Cartesian product of algebras. This inclusion induces the decomposition
+	$$
+	\overline{A}_{\widehat{\pi}^\oplus} \hookto  \prod_{g \in J}\left( 	\overline{A}_{\widehat{\pi}^\oplus}\bigcap B\left(g L^2\left(\R^{2N}\right)\right) \right). 
+	$$
+	From \eqref{nt_c_0_eqn} it turns out $\overline{A}_{\widehat{\pi}^\oplus}\bigcap B\left(g L^2\left(\R^{2N}\right)\right) = gC_0\left( \R^{2N}_\th\right)$, hence there is the inclusion
+	$$
+	\overline{A}_{\widehat{\pi}^\oplus} \hookto  \prod_{g \in J}	 gC_0\left( \R^{2N}_\th\right).
+	$$
+	From the above equation it follows that $C_0\left( \R^{2N}_\th\right)\subset \overline{A}_{\widehat{\pi}^\oplus                                                    }$ is a maximal irreducible subalgebra.
+	One needs check conditions (a)-(c) of the Definition \ref{good_defn}).
+	\begin{enumerate}
+		\item[(a)] Clearly the map $\widehat{C\left(\T^{2N}_\th \right)} \to M\left(C_0\left( \R^{2N}_\th\right) \right)$ is injective,
+		\item[(b)] 	The proof is left to the reader.
+		\item [(c)] The homomorphism $\Z^{2N} \to \Z^{2N}/\Ga_\la$ is surjective,.
+	\end{enumerate}
+	(ii) and (iii) follow from the proof of (i).
+\end{proof}
+
+
 \chapter{Isospectral deformations and their coverings}\label{isospectral_chap}
 \section{Finite-fold coverings}\label{isosectral_fin_cov}
 \subsection{Basic construction}
@@ -25600,6 +26633,228 @@ open subset.
 		$$
 		is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 	\end{definition}
+	
+	\section{Universal properties of groupoid $C^*$-algebras}
+	\paragraph{}
+	
+	Let \(\sX\)
+	and~\(\sY\)
+	be locally compact, Hausdorff spaces and let \(f\colon \sX\to \sY\)
+	be a continuous map with a continuous family~\(\lambda\)
+	of measures~\(\lambda_y\)
+	along the fibres~\(f^{-1}(y)\)
+	of~\(f\)
+	(such families are called \emph{\(f\)-systems} in
+	\cite{Renault:Representations}*{Section~1}).  Thus
+	each~\(\lambda_y\)
+	is a positive Radon measure on~\(\sX\)
+	with \(\supp(\lambda_y)\subseteq f^{-1}(y)\).
+	The continuity of~\(\lambda\)
+	means that the integration map
+	\[
+	\lambda\colon C_c(\sX) \to C_c(\sY),\qquad
+	\lambda(\varphi)(y) = \int_X \varphi(x)\dd\lambda_y(x),
+	\]
+	takes values in~\(C_c(\sY)\).
+	
+	\begin{definition}
+		\label{def:corr_from_measures}
+		We equip
+		\(C_c(\sX)\) with the \(C_0(\sX)\)-\(C_0(\sY)\)-bimodule
+		structure
+		\[
+		(\varphi_1\cdot \varphi_2\cdot \varphi_3)(x) \defeq
+		\varphi_1(x)\varphi_2(x)\varphi_3(f(x))
+		\]
+		for \(\varphi_1\in C_0(\sX)\),
+		\(\varphi_2\in C_c(\sX)\),
+		\(\varphi_3\in C_0(\sY)\)
+		and with the \(C_0(\sY)\)-valued
+		inner product
+		$\bracket{\xi}{\eta} \defeq \lambda \bigl(\overline{\xi}\cdot
+		\eta\bigr)$, that is,
+		\bean
+		\braket{\xi}{\eta}(y)
+		\defeq \int_{f^{-1}(y)} \overline{\xi(x)}\cdot \eta(x)
+		\dd\lambda_y(x).
+		\eean
+		Then \(C_c(\sX)\)
+		is a pre-Hilbert \(C_0(\sY)\)-module
+		with a nondegenerate representation of~\(C_0(\sX)\)
+		by adjointable operators.  Some nonzero \(\xi\in C_c(\sX)\)
+		might have \(\braket{\xi}{\xi}=0\)
+		unless we assume~\(\lambda_y\)
+		to have full support.  Let \(\Lt^2(X,f,\lambda)\)
+		be the Hausdorff completion of~\(C_c(\sX)\)
+		for this inner product, which is a $C^*$-correspondence
+		from~\(C_0(\sX)\)
+		to~\(C_0(\sY)\).
+		In diagrams, we often briefly denote this $C^*$-correspondence
+		as
+		\[
+		C_0(\sX) \xrightarrow[\lambda]{f} C_0(\sY).
+		\]
+	\end{definition}
+	
+	
+	
+	\begin{definition}
+		Let \(f\colon \sX\to \sY\) (``forward'') be a continuous map with a
+		continuous family of measures~\(\lambda\) and let \(b\colon X\to Z\)
+		(``backward'') be a continuous map.  We define a
+		\(C_0(\sZ)\)-module structure on~\(C_c(\sX)\) by \((\varphi\cdot
+		\psi)(x) \defeq \varphi(b(x))\cdot \psi(x)\) for
+		\(\varphi\in C_0(\sZ)\), \(\psi_c(\sX)\).  This extends to a
+		representation of~\(C_0(\sZ)\) on the Hilbert
+		\(C_0(\sY)\)\-module \(\Lt^2(X,f,\lambda)\), turning it into
+		a $C^*$-correspondence from~\(C_0(\sZ)\)
+		to~\(C_0(\sY)\).  We denote it by \(b^*\Lt^2(X,f,\lambda)\).
+		We call a pair of maps \(Z \xleftarrow{b} X
+		\xrightarrow{f} Y\) with a continuous family of measures~\(\lambda\)
+		along~\(f\) a \emph{topological correspondence} from~\(Z\)
+		to~\(\sY\).
+	\end{definition}
+	
+	In particular, the \(C_0(\sX)\)-\(C_0(\sY)\)-correspondence
+	\(\Lt^2(X,f,\lambda)\) built in
+	Definition~\ref{def:corr_from_measures} from a continuous family of
+	measures~\(\lambda\) along a continuous map \(f\colon X\to Y\) is
+	associated to the topological correspondence
+	\[
+	\sX\xleftarrow{\Id_\sX} \sX \xrightarrow[\lambda]{f} \sY.
+	\]
+	
+	Topological correspondences are a mild generalization of the
+	topological quivers introduced by Muhly and
+	Tomforde~\cite{Muhly-Tomforde:Quivers}: a topological quiver is a
+	topological correspondence with the same source and target space.
+	Basic results about topological quivers such as
+	\cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} have obvious
+	generalisations to topological correspondences.  We also get the
+	notion of a topological correspondence if we specialize the
+	topological correspondences between locally compact, Hausdorff
+	groupoids introduced in~\cite{Holkar:Thesis} to locally compact
+	spaces.  % (see Section~\ref{sec:correspondences}).
+	
+	Topological correspondences may be composed by a fibre product
+	construction, and this composition and the interior tensor product of
+	$C^*$-correspondences
+	are compatible up to a canonical isomorphism, see
+	\cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} or~\cite{Holkar:Thesis}.
+	We give more details.  Let \(\sX\),
+	\(\sY\)
+	and~\(Z\)
+	be locally compact spaces.  Let \((V,b_V,f_V,\lambda)\)
+	and \((W,b_W,f_W,\mu)\)
+	be topological correspondences from~\(\sX\)
+	to~\(\sY\)
+	and from~\(\sY\)
+	to~\(Z\),
+	respectively.  Their composite topological correspondence is
+	the fibre product
+	\[
+	V\times_{f_V,Y,b_W}W\defeq \{(v,w)\in V\times W: f_V(v)=b_W(w)\}
+	\]
+	with the maps \(b\defeq b_V\circ \mathrm{pr}_1\)
+	and \(f\defeq f_W\circ\mathrm{pr}_2\),
+	respectively, where~\(\mathrm{pr}_i\)
+	is the projection from \(V\times_{f_V,Y,b_W}W\)
+	to the \(i\)th
+	factor; the family of measures \(\lambda\times\mu\)
+	on \(V\times_{f_V,Y,b_W}W\) is defined by
+	\[
+	\int_{V\times_{f_V,Y,b_W}W} \varphi \dd(\lambda\times\mu)_z
+	\defeq \int_{f_W^{-1}(z)}\int_{f_V^{-1}(b_W(w))}
+	\varphi(v,w) \dd\lambda_{b_W(w)}(v) \dd\mu_z(w)
+	\]
+	for \(\varphi\in C_c(V\times_{f_V,Y,b_W}W)\) and \(z\in Z\).
+	
+	\begin{proposition}
+		\label{prop:functoriality-of-corr}
+		The canonical map
+		\[
+		\gamma\colon C_c(V)\odot C_c(W)\to C_c(V\times_{f_V,Y,b_W}W),
+		\qquad
+		\gamma(\varphi\otimes \psi)(v,w)\defeq \varphi(v)\psi(w),
+		\]
+		extends to an isomorphism
+		\[
+		b_V^* \Lt^2(V,f_V,\lambda)\otimes_{C_0(\sY)}
+		b_W^* \Lt^2(W,f_W,\mu) \cong
+		b^* \Lt^2(V\times_{f_V,Y,b_W}W,f,\lambda\times\mu)
+		\]
+		of $C^*$--correspondences from \(C_0(\sX)\) to \(C_0(\sZ)\).
+	\end{proposition}
+	
+	\begin{proof}
+		A direct computation shows that~\(\gamma\)
+		is a bimodule map.  To see that~\(\gamma\)
+		preserves the inner products, take
+		\(\varphi_1,\varphi_2\in C_c(V)\)
+		and \(\psi_1,\psi_2\in C_c(W)\).  Then
+		\begin{align*}
+			\braket{\varphi_1\otimes\psi_1}{\varphi_2\otimes\psi_2}(z)
+			&= \braket{\psi_1}{\braket{\varphi_1}{\varphi_2}\cdot\psi_2}(z)
+			\\&= \int_{f_W^{-1}(z)}\int_{f_V^{-1}(b_W(w))}
+			\overline{\psi_1(w)}\overline{\varphi_1(v)}
+			\varphi_2(v)\psi_2(w)\dd\lambda_{b_W(w)}(v)\dd\mu_z(w)
+			\\&=\braket{\gamma(\varphi_1\otimes\psi_1)}
+			{\gamma(\varphi_2\otimes\psi_2)}(z).
+		\end{align*}
+		Thus~\(\gamma\)
+		is an isometric bimodule map.  The subspace of \(C_c(V\times W)\)
+		spanned by functions of the form \((v,w)\mapsto \varphi(v)\psi(w)\)
+		is dense in the inductive limit topology.  Hence restrictions of
+		such functions to \(V\times_{f_V,Y,b_W}W\)
+		are linearly dense in \(C_c(V\times_{f_V,Y,b_W}W)\),
+		which is dense in
+		\(\Lt^2(V\times_{f_V,Y,b_W}W,f,\lambda\times\mu)\).
+		Thus~\(\gamma\) is surjective.
+	\end{proof}
+	
+	An \emph{isomorphism} between two topological correspondences
+	\[
+	\sX\xleftarrow{b_i} \sZ_i\xrightarrow[\lambda_i]{f_i} \sY,\qquad
+	i=1,2,
+	\]
+	is a homeomorphism \(\Phi\colon \sZ_1\cong \sZ_2\) that
+	satisfies \(f_2\circ\Phi=f_1\), \(b_2\circ\Phi=b_1\) with a
+	continuous function \(\delta\colon\sZ_2 \to \R_{>0}\) such that
+	\(\lambda_2 = \delta\cdot \Phi_*(\lambda_1)\), that is,
+	\(\lambda_{2,y} = \delta\cdot \Phi_*(\lambda_1)_y\) for all \(y\in
+	Y\).  We call~\(\delta\) an \emph{equivalence} from
+	\(\Phi_*(\lambda_1)\) to \(\lambda_2\).  The restriction
+	of~\(\delta\) to a fibre \(f_2^{-1}(y)\subseteq\sZ_2\) is a
+	Radon--Nikodym derivative for the measures \(\lambda_{2,y}\)
+	and~\(\Phi_*(\lambda_1)_y\).  This is unique up to equality
+	almost everywhere.  Therefore, if \(\lambda_1\) and~\(\lambda_2\)
+	have full support and a function~\(\delta\) as above exists, then
+	it is unique.  An isomorphism as above induces a unitary
+	\(C_0(\sX)\)-\(C_0(\sY)\)-bimodule isomorphism
+	\[
+	\Phi_*\colon C_c(\sZ_1)\to C_c(\sZ_2),\qquad
+	\Phi_*(g)(z) \defeq
+	g\circ \Phi^{-1}(z)\, \delta(z)^{-1/2}.
+	\]
+	It extends to an isomorphism of $C^*$--correspondences
+	\[
+	\Phi_*\colon b_1^* \Lt^2(\sY,f_1,\lambda_1)\cong
+	b_2^* \Lt^2(\sY,f_2,\lambda_2).
+	\]
+	
+	\begin{remark}
+		We may weaken the continuity assumptions on \(\Phi^{\pm1}\)
+		and~\(\delta\).  For instance, if~\(\sY\) is just a point, then it
+		suffices to assume~\(\Phi^{\pm1}\) to be measurable.  Then we
+		take~\(\delta\) to be the Radon--Nikodym derivative as above,
+		which is automatically measurable.  In general, we need
+		\(\Phi^{\pm1}\) and~\(\delta\) to be measurable in the fibre
+		directions and continuous along the base~\(\sY\).  We do not try
+		to make this precise here because we shall only use continuous
+		isomorphisms as defined above.
+	\end{remark}
+	
+	
 	
 \section{Groupoids and $C^*$-algebras}
 \paragraph*{}
