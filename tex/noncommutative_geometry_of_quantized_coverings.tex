@@ -26446,13 +26446,13 @@ Suppose that $\mathscr C$ is some category. A map $p$ from a set $A$ onto a set 
 each fiber $p^{-1} ( u )$ is an object of  $\mathscr C$ will be called a  $\mathscr C$-\textit{bundle} map and $A$ will be called  $\mathscr C$-bundle.  Let $A$ be
 a  $\mathscr C$ - bundle with the bundle map $p: A \to A_0$. Write $A_u \bydef p^{-1} ( u )$.
 $$
- \text{Iso}(A) = \left\{\text{isomorphisms}\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
+ \text{Iso}(A) = \left\{\text{isomorphisms }\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
  $$	
 	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v ¡#v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
 	\end{definition}
 \begin{definition}
 	Let $\G$ be a groupoid. A $\G$-bundle $(A,L)$ is a $\mathscr C$ - bundle $A$ together
-	with a homomorphism $L : G \to \text{ I s o} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  s the category of Abelian groups, one speaks of a
+	with a homomorphism $L : G \to \text{Iso} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  is the category of Abelian groups, one speaks of a
 	$\G$-\textit{module bundle}.
 \end{definition}
 \begin{empt}
@@ -26478,7 +26478,7 @@ f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}
  is a cochain complex.\end{empt}	
 \begin{definition}
 The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
-the group of $n$-coboundaries w i l l be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
+the group of $n$-coboundaries will be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
 $Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
 \end{definition}
 
@@ -26507,10 +26507,58 @@ consists of measures $\left\{\la^u | u \in G^0\right\}$ on G such that
 	\item [(c)]  (left invariance) for any $x\in \G$ and any $f \in  C_c(\G )$, $\int  f ( x y ) d\la^{s(x)}(y) =
 \int f(y)d\la^{r(x)}(y)$.
 
-\end{enumerate}
 
-|\section{Groupoid $C^*$-algebras}
+\end{enumerate}
 	\end{definition}
+\begin{definition}\cite{renault:gropoid_ca}
+Let $\G$  be a topological groupoid  If  $E$ is a subset o f the unit space $\G^0$, $[E]$ will denote its  saturation : $[E] \bydef  $r $s^{-1}\circ d\left(E \right)$. If $E = \left[E\right]$ we say that $E$ is \textit{invariant} (or \textit{invariant under} $\G$ i f there is any ambiguity). We will always assume
+that the range map $r: \G\to \G^0$ is open. A locally compact groupoids with
+a left Haar system have this property. Then, the saturation of an open subset of $\G^0$
+is open.
+\end{definition}
+\begin{definition}\cite{renault:gropoid_ca}
+	Let $\G$  be a topological groupoid  If  $E$ is a subset o f the unit space $\G^0$, $[E]$ will denote its  saturation : $[E] \bydef  r\circ s^{-1}\left(E \right)$. If $E = \left[E\right]$ we say that $E$ is \textit{invariant} (or \textit{invariant under} $\G$ i f there is any ambiguity). We will always assume
+	that the range map $r: \G\to \G^0$ is open. A locally compact groupoids with
+	a left Haar system have this property. Then, the saturation of an open subset of $\G^0$
+	is open.
+\end{definition}
+\begin{definition}\cite{renault:gropoid_ca}
+%4.1. D e f i n i t i o n : 
+Let $\G$ be a topological groupoid with open range map.
+\begin{enumerate}
+	\item[(i)] $\G$ is \textit{minimal} if the only open
+	 invariant subsets of $\G^0$ are the empty $\emptyset$.
+	 \item[(ii)] $\G$ is \textit{irreducible} if every non-empty invariant open subset of $\G^0$ is dense.
+\end{enumerate}
+\end{definition}
+\begin{definition}\cite{renault:gropoid_ca}
+	%4.1. D e f i n i t i o n : 
+	Let $\G$ be a topological groupoid with open range map.
+	\begin{enumerate}
+		\item[(i)] $\G$ is \textit{minimal} if the only open
+		invariant subsets of $\G^0$ are the empty $\emptyset$.
+		\item[(ii)] $\G$ is \textit{irreducible} if every non-empty invariant open subset of $\G^0$ is dense.
+	\end{enumerate}
+\end{definition}
+\begin{definition}\cite{renault:gropoid_ca}
+%4.3. D e f i n i t i o n : 
+Let $\G$ be a topological groupoid, $A$ a topological group and $c$ an
+element of $Z^1\left(\G, A\right)$.
+\begin{enumerate}
+	\item [(i)]  The \text{range} $R(c)$  of $c$ is a closure of $c\left(\G\right)$.
+	\item[(ii)] The \textit{asymptotic rang}e $R_\infty\left(c \right)$  of $c$ is given by $\cap R\left(c_U \right)$ , where the intersection is
+	taken over all non-empty open subsets $U$ of $G^0$ and $c_U$ denotes the restriction of $c$ to
+	$\G|_U$. Moreover, let $u$ be a unit  of $\G$.
+	\item[(iii)] The \textit{range} $R^u\left( c\right)$  of $c$ at $u$ is a closure of $c(\G^u)$.
+	\item[(iv)]
+ The \textit{asymptotic range} $R^u_\infty$ of $c$ at $u$ is $\cap R^u\left(c_U\right)$ , where the intersec tion
+	is taken over a base of neighborhoods of $u$.
+\end{enumerate}
+\end{definition}
+
+
+\section{Groupoid $C^*$-algebras}
+
 	Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
 \be\label{groupoid_*_c_eqn}
 \begin{split}
