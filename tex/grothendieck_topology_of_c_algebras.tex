@@ -1,0 +1,1197 @@
+\documentclass[10]{article}
+%\documentclass[11pt]{book}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
+\usepackage{graphicx}
+\usepackage[toc,page]{appendix}
+\usepackage{nicefrac}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+\usepackage{amssymb, euscript}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+
+%\usepackage{mathtools}
+
+\usetikzlibrary{matrix}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,cite}
+\usepackage{graphicx}
+
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+
+
+\usepackage[sc]{mathpazo}
+\usepackage{environ}
+
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+
+%\usepackage[usenames]{color}
+
+
+
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{1.8 <-> pzcmi8t}{}
+\DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+% the command for it is \mathpzc
+
+\textwidth=140mm
+
+
+% % % % % % % % % % % % % % % % % % % %
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{prdf}[prop]{Proposition and Definition}
+\newtheorem{lem}[prop]{Lemma}%[section]
+\newtheorem{cor}[prop]{Corollary}%[section]
+\newtheorem{thm}[prop]{Theorem}%[section]
+\newtheorem{theorem}[prop]{Theorem}
+\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{proposition}[prop]{Proposition}
+\newtheorem{corollary}[prop]{Corollary}
+\newtheorem{statement}[prop]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}%[section]
+\newtheorem{cordefn}[prop]{Corollary and Definition}%[section]
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{exm}[prop]{Example}%[section]
+\newtheorem{rem}[prop]{Remark}%[section]
+\newtheorem{prob}[prop]{Problem}
+\newtheorem{conj}{Conjecture}       %% Hypothesis 1
+\newtheorem{cond}{Condition}        %% Condition 1
+%\newtheorem{axiom}[thm]{Axiom}           %% Axiom 1 modified
+\newtheorem{fact}[prop]{Fact}
+\newtheorem{ques}{Question}         %% Question 1
+\newtheorem{answ}{Answer}           %% Answer 1
+\newtheorem{notn}{Notation}        %% Notations are not numbered
+
+\theoremstyle{definition}
+\newtheorem{notation}[prop]{Notation}
+\newtheorem{definition}[prop]{Definition}
+\newtheorem{example}[prop]{Example}
+\newtheorem{exercise}[prop]{Exercise}
+\newtheorem{conclusion}[prop]{Conclusion}
+\newtheorem{conjecture}[prop]{Conjecture}
+\newtheorem{criterion}[prop]{Criterion}
+\newtheorem{summary}[prop]{Summary}
+\newtheorem{axiom}[prop]{Axiom}
+\newtheorem{problem}[prop]{Problem}
+%\theoremstyle{remark}
+\newtheorem{remark}[prop]{Remark}
+
+\numberwithin{equation}{section}
+\newtheorem*{claim}{Claim}
+\DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
+\newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
+
+
+%\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+		\right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\Ga}{\Gamma}  
+\newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
+\newcommand{\Coo}{C^\infty}                  %% smooth functions
+% % % % % % % % % % % % % % % % % % % %
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle\int$}
+\setbox\ncintdbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.125em \box2\relax\hfil}}\box0\kern.1em}
+\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+\setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
+
+\newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
+		{\copy\ncinttbox}{\copy\ncinttbox}%
+		{\copy\ncinttbox}}\nolimits}  %% NC integral
+
+%%% Repeated relations:
+\newcommand{\xyx}{\times\cdots\times}      %% repeated product
+\newcommand{\opyop}{\oplus\cdots\oplus}    %% repeated direct sum
+\newcommand{\oxyox}{\otimes\cdots\otimes}  %% repeated tensor product
+\newcommand{\wyw}{\wedge\cdots\wedge}      %% repeated exterior product
+\newcommand{\subysub}{\subset\hdots\subset}      %% repeated subset
+\newcommand{\supysup}{\supset\hdots\supset}      %% repeated supset
+\newcommand{\rep}{\mathfrak{rep}}
+\newcommand{\lift}{\mathfrak{lift}}
+\newcommand{\desc}{\mathfrak{desc}}
+%%% Roman letters:
+\newcommand{\id}{\mathrm{id}}                %% identity map
+\newcommand{\Id}{\mathrm{Id}}                %% identity map
+\newcommand{\pt}{\mathrm{pt}}                %% a point
+\newcommand{\const}{\mathrm{const}}          %% a constant
+\newcommand{\codim}{\mathrm{codim}}          %% codimension
+\newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
+\renewcommand{\d}{\mathrm{d}}       %% commutative differential
+\newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
+\newcommand{\proj}{\mathrm{proj}}                %% a projection
+
+
+
+\newcommand*{\Mult}{\mathcal M}% multiplier algebra
+
+\newcommand{\A}{\mathcal{A}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
+\newcommand{\units}{G^{(0)}}
+\newcommand{\haars}{\{\lambda^{u}\}_{u\in\units}}
+\newcommand{\shaars}{\{\lambda_{u}\}_{u\in\units}}
+\newcommand{\haarsv}[2]{\{\lambda^{#2}_{#1}\}_{#2\in\unitsv{#1}}}
+\newcommand{\haarv}[2]{\lambda^{#2}_{#1}}
+
+\renewcommand{\a}{\alpha}                    %% short for  \alphapha
+\DeclareMathOperator{\ad}{ad}                %% infml adjoint repn
+\newcommand{\as}{\quad\mbox{as}\enspace}     %% `as' with spacing
+\newcommand{\Aun}{\widetilde{\mathcal{A}}}   %% unital algebra
+\newcommand{\B}{\mathcal{B}}                 %% space of distributions
+\newcommand{\E}{\mathcal{E}}                 %% space of distributions
+\renewcommand{\b}{\beta}                     %% short for \beta
+\newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
+\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
+\newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\CC}{\mathcal{C}}                %% space of distributions
+\newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
+\DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
+\newcommand{\F}{\mathcal{F}}                 %% space of test functions
+\newcommand{\G}{\mathcal{G}}                 %% 
+\newcommand{\D}{\mathcal{D}}                 %% Moyal L^2-filtration
+\renewcommand{\H}{\mathcal{H}}               %% Hilbert space
+\newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
+\newcommand{\hh}{\mathcal{H}}                %% Hilbert space
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+\newcommand{\Ht}{{\widetilde{\mathcal{H}}}}  %% Hilbert space of forms
+\newcommand{\I}{\mathcal{I}}                 %% tracelike functions
+\DeclareMathOperator{\Junk}{Junk}            %% the junk DGA ideal
+\newcommand{\K}{\mathcal{K}}                 %% compact operators
+\newcommand{\ket}[1]{|#1\rangle}             %% ket vector
+\newcommand{\ketbra}[2]{|#1\rangle\langle#2|} %% rank one operator
+\renewcommand{\L}{\mathcal{L}}               %% operator algebra
+\newcommand{\La}{\Lambda}                    %% short for \Lambda
+\newcommand{\la}{\lambda}                    %% short for \lambda
+\newcommand{\lf}{L_f^\theta}                 %% left mult operator
+\newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
+\newcommand{\mm}{\mathcal{M}^\theta}
+%\newcommand{{{\star_{\theta}}}{{\mathchoice{\mathbin{\;|\;ar_{_\theta}}}
+			%            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
+			%            {{\;|\;ar_\theta}}{{\;|\;ar_\theta}}}}    %% product
+	\newcommand{\N}{\mathbb{N}}                  %% nonnegative integers
+	\newcommand{\NN}{\mathcal{N}}                %% a Moyal algebra
+	\newcommand{\nb}{\nabla}                     %% gradient
+	\newcommand{\Oh}{\mathcal{O}}                %% comm multiplier alg
+	\newcommand{\om}{\omega}                     %% short for \omega
+	\newcommand{\opp}{{\mathrm{op}}}             %% opposite algebra
+	\newcommand{\ox}{\otimes}                    %% tensor product
+	\newcommand{\eps}{\varepsilon}                    %% tensor product
+	\newcommand{\otimesyox}{\otimes\cdots\otimes}    %% repeated tensor product
+	\newcommand{\pa}{\partial}                   %% short for \partial
+	\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}%% partial derivative
+	\newcommand{\piso}[1]{\lfloor#1\rfloor}      %% integer part
+	\newcommand{\PsiDO}{\Psi~\mathrm{DO}}         %% pseudodiffl operators
+	\newcommand{\Q}{\mathbb{Q}}                  %% rational numbers
+	\newcommand{\R}{\mathbb{R}}                  %% real numbers
+	\newcommand{\rdl}{R_\Dslash(\lambda)}        %% resolvent
+	\newcommand{\roundbraket}[2]{(#1\mathbin|#2)} %% (w|z)
+	\newcommand{\row}[3]{{#1}_{#2},\dots,{#1}_{#3}} %% list: a_1,...,a_n
+	\newcommand{\sepword}[1]{\quad\mbox{#1}\quad} %% well-spaced words
+	\newcommand{\set}[1]{\{\,#1\,\}}             %% set notation
+	\newcommand{\Sf}{\mathbb{S}}                 %% sphere
+	\newcommand{\uhor}[1]{\Omega^1_{hor}#1}
+	\newcommand{\sco}[1]{{\sp{(#1)}}}
+	\newcommand{\sw}[1]{{\sb{(#1)}}}
+	\DeclareMathOperator{\spec}{sp}              %% spectrum
+	\renewcommand{\SS}{\mathcal{S}}              %% Schwartz space
+	\newcommand{\sss}{\mathcal{S}}               %% Schwartz space
+	\DeclareMathOperator{\supp}{\mathfrak{supp}}            %% support
+	\newcommand{\T}{\mathbb{T}}                  %% circle as a group
+	\renewcommand{\th}{\theta}                   %% short for \theta
+	\newcommand{\thalf}{\tfrac{1}{2}}            %% small* fraction 1/2
+	\newcommand{\tihalf}{\tfrac{i}{2}}           %% small* fraction i/2
+	\newcommand{\tpi}{{\tilde\pi}}               %% extended representation
+	\DeclareMathOperator{\Tr}{Tr}                %% trace of operator
+	\DeclareMathOperator{\tr}{tr}                %% trace of matrix
+	\newcommand{\del}{\partial}                  %% short for  \partial
+	\DeclareMathOperator{\tsum}{{\textstyle\sum}} %% small sum in display
+	\newcommand{\V}{\mathcal{V}}                 %% test function space
+	\newcommand{\vac}{\ket{0}}                   %% vacuum ket vector
+	\newcommand{\vf}{\varphi}                    %% scalar field
+	\newcommand{\w}{\wedge}                      %% exterior product
+	\DeclareMathOperator{\wres}{wres}            %% density of Wresidue
+	\newcommand{\x}{\times}                      %% cross
+	\newcommand{\Z}{\mathbb{Z}}                  %% integers
+	\newcommand{\7}{\dagger}                     %% short for + symbol
+	\newcommand{\8}{\bullet}                     %% anonymous degree
+	\renewcommand{\.}{\cdot}                     %% anonymous variable
+	\renewcommand{\:}{\colon}                    %% colon in  f: A -> B
+	
+	%\newcommand{\sA}{\mathscr{A}}       %%
+	\newcommand{\sA}{\mathcal{A}} 
+	\newcommand{\sB}{\mathcal{B}}       %%
+	\newcommand{\sC}{\mathcal{C}}       %%
+	\newcommand{\sD}{\mathcal{D}}       %%
+	\newcommand{\sE}{\mathcal{E}}       %%
+	\newcommand{\sF}{\mathcal{F}}       %%
+	\newcommand{\sG}{\mathcal{G}}       %%
+	\newcommand{\sH}{\mathcal{H}}       %%
+	\newcommand{\sI}{\mathcal{I}}       %%
+	\newcommand{\sJ}{\mathcal{J}}       %%
+	\newcommand{\sK}{\mathcal{K}}       %%
+	\newcommand{\sL}{\mathcal{L}}       %%
+	\newcommand{\sM}{\mathcal{M}}       %%
+	\newcommand{\sN}{\mathcal{N}}       %%
+	\newcommand{\sO}{\mathcal{O}}       %%
+	\newcommand{\sP}{\mathcal{P}}       %%
+	\newcommand{\sQ}{\mathcal{Q}}       %%
+	\newcommand{\sR}{\mathcal{R}}       %%
+	\newcommand{\sS}{\mathcal{S}}       %%
+	\newcommand{\sT}{\mathcal{T}}       %%
+	\newcommand{\sU}{\mathcal{U}}       %%
+	\newcommand{\sV}{\mathcal{V}}       %%
+	\newcommand{\sX}{\mathcal{X}}       %%
+	\newcommand{\sY}{\mathcal{Y}}       %%
+	\newcommand{\sZ}{\mathcal{Z}}       %%
+	
+	\newcommand{\Om}{\Omega}       %%
+	
+	
+	\DeclareMathOperator{\ptr}{ptr}     %% Poisson trace
+	\DeclareMathOperator{\Trw}{Tr_\omega} %% Dixmier trace
+	\DeclareMathOperator{\vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Area}{Area}   %% area of a surface
+	\DeclareMathOperator{\Wres}{Wres}   %% (Wodzicki) residue
+	
+	\newcommand{\dd}[1]{\frac{\partial}{\partial#1}}   %% partial derivation
+	\newcommand{\ddt}[1]{\frac{d}{d#1}}                %% derivative
+	\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
+	\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
+	
+	\newcommand{\bA}{\mathbb{A}}       %%
+	\newcommand{\bB}{\mathbb{B}}       %%
+	\newcommand{\bC}{\mathbb{C}}       %%
+	\newcommand{\bCP}{\mathbb{C}P}     %%
+	\newcommand{\bD}{\mathbb{D}}       %%
+	\newcommand{\bE}{\mathbb{E}}       %%
+	\newcommand{\bF}{\mathbb{F}}       %%
+	\newcommand{\bG}{\mathbb{G}}       %%
+	\newcommand{\bH}{\mathbb{H}}       %%
+	\newcommand{\bHP}{\mathbb{H}P}     %%
+	\newcommand{\bI}{\mathbb{I}}       %%
+	\newcommand{\bJ}{\mathbb{J}}       %%
+	\newcommand{\bK}{\mathbb{K}}       %%
+	\newcommand{\bL}{\mathbb{L}}       %%
+	\newcommand{\bM}{\mathbb{M}}       %%
+	\newcommand{\bN}{\mathbb{N}}       %%
+	\newcommand{\bO}{\mathbb{O}}       %%
+	\newcommand{\bOP}{\mathbb{O}P}     %%
+	\newcommand{\bP}{\mathbb{P}}       %%
+	\newcommand{\bQ}{\mathbb{Q}}       %%
+	\newcommand{\bR}{\mathbb{R}}       %%
+	\newcommand{\bRP}{\mathbb{R}P}     %%
+	\newcommand{\bS}{\mathbb{S}}       %%
+	\newcommand{\bT}{\mathbb{T}}       %%
+	\newcommand{\bU}{\mathbb{U}}       %%
+	\newcommand{\bV}{\mathbb{V}}       %%
+	\newcommand{\bX}{\mathbb{X}}       %%
+	\newcommand{\bY}{\mathbb{Y}}       %%
+	\newcommand{\bZ}{\mathbb{Z}}       %%
+	
+	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
+	
+	
+	\newcommand{\al}{\alpha}          %% short for  \alpha
+	\newcommand{\bt}{\beta}           %% short for  \beta
+	\newcommand{\Dl}{\Delta}          %% short for  \Delta
+	\newcommand{\dl}{\delta}          %% short for  \delta
+	\newcommand{\ga}{\gamma}          %% short for  \gamma
+	\newcommand{\ka}{\kappa}          %% short for  \kappa
+	\newcommand{\sg}{\sigma}          %% short for  \sigma
+	\newcommand{\Sg}{\Sigma}          %% short for  \Sigma
+	\newcommand{\Th}{\Theta}          %% short for  \Theta
+	\renewcommand{\th}{\theta}        %% short for  \theta
+	\newcommand{\vth}{\vartheta}      %% short for  \vartheta
+	\newcommand{\ze}{\zeta}           %% short for  \zeta
+	
+	\DeclareMathOperator{\ord}{ord}     %% order of a PsiDO
+	\DeclareMathOperator{\rank}{rank}   %% rank of a vector bundle
+	\DeclareMathOperator{\sign}{sign}   %%
+	\DeclareMathOperator{\sgn}{sgn}   %%
+	\DeclareMathOperator{\chr}{char}   %%
+	\DeclareMathOperator{\ev}{ev}       %% evaluation
+	
+	
+	\newcommand{\Op}{\mathbf{Op}}
+	\newcommand{\As}{\mathbf{As}}
+	\newcommand{\Com}{\mathbf{Com}}
+	\newcommand{\LLie}{\mathbf{Lie}}
+	\newcommand{\Leib}{\mathbf{Leib}}
+	\newcommand{\Zinb}{\mathbf{Zinb}}
+	\newcommand{\Poiss}{\mathbf{Poiss}}
+	
+	\newcommand{\gX}{\mathfrak{X}}      %% vector fields
+	\newcommand{\sol}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gm}{\mathfrak{m}}      %% maximal ideal
+	
+	
+	\DeclareMathOperator{\Res}{Res}
+	\DeclareMathOperator{\NCRes}{NCRes}
+	\DeclareMathOperator{\Ind}{Ind}
+	%% co/homology theories
+	\DeclareMathOperator{\rH}{H}        %% any co/homology
+	\DeclareMathOperator{\rC}{C}        %%  any co/chains
+	\DeclareMathOperator{\rZ}{Z}        %% cycles
+	\DeclareMathOperator{\rB}{B}        %% boundaries
+	\DeclareMathOperator{\rF}{F}        %% filtration
+	\DeclareMathOperator{\Gr}{gr}        %% associated graded object
+	\DeclareMathOperator{\rHc}{H_{\mathrm{c}}}   %% co/homology with compact support
+	\DeclareMathOperator{\drH}{H_{\mathrm{dR}}}  %% de Rham co/homology
+	\DeclareMathOperator{\cechH}{\check{H}}    %% Cech co/homology
+	\DeclareMathOperator{\rK}{K}        %% K-groups
+	\DeclareMathOperator{\rKO}{KO}        %% real K-groups
+	\DeclareMathOperator{\rKU}{KU}        %% unitary K-groups
+	\DeclareMathOperator{\rKSp}{KSp}        %% symplectic K-groups
+	\DeclareMathOperator{\rR}{R}        %% representation ring
+	\DeclareMathOperator{\rI}{I}        %% augmentation ideal
+	\DeclareMathOperator{\HH}{HH}       %% Hochschild co/homology
+	\DeclareMathOperator{\HC}{HC}       %% cyclic co/homology
+	\DeclareMathOperator{\HP}{HP}       %% periodic cyclic co/homology
+	\DeclareMathOperator{\HN}{HN}       %% negative cyclic co/homology
+	\DeclareMathOperator{\HL}{HL}       %% Leibniz co/homology
+	\DeclareMathOperator{\KK}{KK}       %% KK-theory
+	\DeclareMathOperator{\KKK}{\mathbf{KK}}       %% KK-theory as a category
+	\DeclareMathOperator{\Ell}{Ell}       %% Abstract elliptic operators
+	\DeclareMathOperator{\cd}{cd}       %% cohomological dimension
+	\DeclareMathOperator{\spn}{span}       %% span
+	\DeclareMathOperator{\linspan}{span} %% linear span (can't use \span)
+	\newcommand{\blank}{-}   
+	
+	
+	
+	\newcommand{\twobytwo}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+	\newcommand{\CGq}[6]{C_q\!\begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+	%% q-Clebsch--Gordan coefficients
+	\newcommand{\cz}{{\bullet}}         %% anonymous degree
+	\newcommand{\nic}{{\vphantom{\dagger}}} %% invisible dagger
+	\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
+	\newcommand{\downto}{\downarrow}    %% right hand limit
+	\newcommand{\isom}{\cong}          %% isomorphism
+	\newcommand{\lt}{\triangleright}    %% a left action
+	\newcommand{\otto}{\leftrightarrow} %% bijection
+	\newcommand{\rt}{\triangleleft}     %% a right action
+	\newcommand{\semi}{\rtimes}         %% crossed product
+	\newcommand{\tensor}{\otimes}       %% tensor product
+	\newcommand{\cotensor}{\square}       %% cotensor product
+	\newcommand{\trans}{\pitchfork}     %% transverse
+	\newcommand{\ul}{\underline}        %% for sheaves
+	\newcommand{\upto}{\uparrow}        %% left hand limit
+	\renewcommand{\:}{\colon}           %% colon in  f: A -> B
+	\newcommand{\blt}{\ast}
+	\newcommand{\Co}{C_{\bullet}}
+	\newcommand{\cCo}{C^{\bullet}}
+	\newcommand{\nbs}{\nabla^S}         %% spin connection
+	\newcommand{\up}{{\mathord{\uparrow}}} %% `up' spinors
+	\newcommand{\dn}{{\mathord{\downarrow}}} %% `down' spinors
+	\newcommand{\updn}{{\mathord{\updownarrow}}} %% up or down
+	
+	%%% Bilinear enclosures:
+	
+	\newcommand{\bbraket}[2]{\langle\!\langle#1\stroke#2\rangle\!\rangle}
+	%% <<w|z>>
+	\newcommand{\bracket}[2]{\langle#1,\, #2\rangle} %% <w,z>
+	\newcommand{\scalar}[2]{\langle#1,\,#2\rangle} %% <w,z>
+	\newcommand{\poiss}[2]{\{#1,\,#2\}} %% {w,z}
+	\newcommand{\dst}[2]{\langle#1,#2\rangle} %% distributions <u,\phi>
+	\newcommand{\pairing}[2]{(#1\stroke #2)} %% right-linear pairing
+	\def\<#1|#2>{\langle#1\stroke#2\rangle} %% \braket (Dirac notation)
+	\def\?#1|#2?{\{#1\stroke#2\}}        %% left-linear pairing
+	
+	%%% Accent-like macros:
+	
+	\renewcommand{\Bar}[1]{\overline{#1}} %% closure operator
+	\renewcommand{\Hat}[1]{\widehat{#1}}  %% short for \widehat
+	\renewcommand{\Tilde}[1]{\widetilde{#1}} %% short for \widetilde
+	
+	
+	\DeclareMathOperator{\bCl}{\bC l}   %% complex Clifford algebra
+	
+	%%% Small fractions in displays:
+	
+	\newcommand{\ihalf}{\tfrac{i}{2}}   %% small fraction  i/2
+	\newcommand{\quarter}{\tfrac{1}{4}} %% small fraction  1/4
+	\newcommand{\shalf}{{\scriptstyle\frac{1}{2}}}  %% tiny fraction  1/2
+	\newcommand{\third}{\tfrac{1}{3}}   %% small fraction  1/3
+	\newcommand{\ssesq}{{\scriptstyle\frac{3}{2}}} %% tiny fraction  3/2
+	\newcommand{\sesq}{{\mathchoice{\tsesq}{\tsesq}{\ssesq}{\ssesq}}} %% 3/2
+	\newcommand{\tsesq}{\tfrac{3}{2}}   %% small fraction  3/2
+	
+	
+	%\newcommand\eqdef{\overset{\mathclap{\normalfont\mbox{def}}}{=}}
+	\newcommand\eqdef{\overset{\mathrm{def}}{=}}
+	
+	
+	%+++++++++++++++++++++++++++++++++++
+	
+	\newcommand{\word}[1]{\quad\text{#1}\enspace} %% well-spaced words
+	\newcommand{\words}[1]{\quad\text{#1}\quad} %% better-spaced words
+	\newcommand{\su}[1]{{\sp{[#1]}}}
+	
+	\def\<#1,#2>{\langle#1,#2\rangle}            %% bilinear pairing
+	\def\ee_#1{e_{{\scriptscriptstyle#1}}}       %% basis projector
+	\def\wick:#1:{\mathopen:#1\mathclose:}       %% Wick-ordered operator
+	
+	\newcommand{\opname}[1]{\mathop{\mathrm{#1}}\nolimits}
+	
+	\newcommand{\hideqed}{\renewcommand{\qed}{}} %% to suppress `\qed'
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% 2. Some internal machinery
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+	\setbox0=\hbox{$-$}
+	\setbox2=\hbox{$\displaystyle\int$}
+	\setbox\ncintdbox=\hbox{\rlap{\hbox
+			to \wd2{\box2\relax\hfil}}\box0\kern.1em}
+	\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+	\setbox2=\hbox{$\textstyle\int$}
+	\setbox\ncinttbox=\hbox{\rlap{\hbox
+			to \wd2{\hskip-.05em\box2\relax\hfil}}\box0\kern.1em}
+	
+	\newcommand{\disp}{\displaystyle} %% short for  \displaystyle
+	
+	%\newcommand{\hideqed}{\renewcommand{\qed}{}} %% no `\qed' at end-proof
+	
+	\newcommand{\stroke}{\mathbin|}   %% (for `\bbraket' and such)
+	\newcommand{\tribar}{|\mkern-2mu|\mkern-2mu|} %% norm bars: |||
+	
+	%%% Enclose one argument with delimiters:
+	
+	\newcommand{\bra}[1]{\langle{#1}\rvert} %% bra vector <w|
+	\newcommand{\kett}[1]{\lvert#1\rangle\!\rangle} %% ket 2-vector |y>>
+	\newcommand{\snorm}[1]{\mathopen{\tribar}{#1}%
+		\mathclose{\tribar}}                 %% norm |||x|||
+	
+	
+	\newcommand{\End}{\mathrm{End}}       %%
+	\newcommand{\Ext}{\mathrm{Ext}}       %%
+	\newcommand{\Hom}{\mathrm{Hom}}       %%
+	\newcommand{\Mrt}{\mathrm{Mrt}}       %%
+	\newcommand{\grad}{\mathrm{grad}}       %%
+	\newcommand{\Spin}{\mathrm{Spin}}       %%
+	\newcommand{\Ad}{\mathrm{Ad}}       %%
+	\newcommand{\Pic}{\mathrm{Pic}}       %%
+	\newcommand{\Aut}{\mathrm{Aut}}       %%
+	\newcommand{\Inn}{\mathrm{Inn}}       %%
+	\newcommand{\Out}{\mathrm{Out}}       %%
+	\newcommand{\Homeo}{\mathrm{Homeo}}       %%
+	\newcommand{\Diff}{\mathrm{Diff}}       %%
+	\newcommand{\im}{\mathrm{im}}       %%
+	
+	
+	\newcommand{\SO}{\mathrm{SO}}       %%
+	\newcommand{\SU}{SU}       %%
+	\newcommand{\gso}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gero}{\mathfrak{o}}    %% orthogonal Lie algebra
+	\newcommand{\gspin}{\mathfrak{spin}} %% spin Lie algebra
+	\newcommand{\gu}{\mathfrak{u}}      %% unitary Lie algebra
+	\newcommand{\gsu}{\mathfrak{su}}    %% special unitary Lie algebra
+	\newcommand{\gsl}{\mathfrak{sl}}    %% special linear Lie algebra
+	\newcommand{\gsp}{\mathfrak{sp}}    %% symplectic linear Lie algebra
+	
+	%\newcommand{\bes}{\begin{equation}\begin{split}}
+			%\newcommand{\ees}{\end{split}\end{equation}}
+	%\NewEnviron{split.enviro}{%
+		%	\begin{equation}\begin{split}
+				%	\BODY
+				%	\end{split}\end{equation}
+		%$}
+	\newenvironment{splitequation}{\begin{equation}\begin{split}}{\end{split}\end{equation}}
+	
+	%Begin equation split: Begin equation split = bes
+	\newcommand{\bs}{\begin{split}}
+		\newcommand{\es}{\end{split}}
+	\newcommand{\be}{\begin{equation}}
+		\renewcommand{\ee}{\end{equation}}
+	\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	\newcommand{\bean}{\begin{eqnarray*}}
+		\newcommand{\eean}{\end{eqnarray*}}
+	\newcommand{\brray}{\begin{array}}
+		\newcommand{\erray}{\end{array}}
+	\newenvironment{equations}
+	{\begin{equation}
+			\begin{split}}
+			{\end{split}
+	\end{equation}}
+	\newcommand{\Hsquare}{%
+		\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
+	}
+	
+	\title{Grothendieck topology of  $C^*$-algebras}
+	
+	\author
+	{\textbf{Petr R. Ivankov*}\\
+		e-mail: * monster.ivankov@gmail.com \\
+	}
+	
+	\begin{document}
+
+\maketitle  %\setlength{\parindent}{0pt}
+\pagestyle{plain}
+
+
+%\vspace{1 in}
+
+
+%\noindent
+
+\begin{abstract}
+For any topological space there is a sheaf cohomology. A Grothendieck topology  is a generalization  of the  classical topology such that  it also possesses a sheaf cohomology. On the other hand any noncommutative $C^*$-algebra is a generalization of a locally compact Hausdorff space. Here we define a Grothendieck topology of  $C^*$-algebras which is a generalization of the topology of the spectra of commutative $C^*$-algebras. This construction yields a noncommutative generalization of the sheaf cohomology of topological spaces.
+\end{abstract}
+
+
+%\end{abstract}
+
+\section{General theory}
+\paragraph*{}
+If $A$ is a  $C^*$-algebra $A$ the one has
+\be\label{four_decompositon_eqn}
+\forall a \in A\quad \exists a_1, a_2, a_3, a_4 \in A_+\quad a=a_1 - a_2 + ia_3 - ia_4
+\ee
+where $a_1, a_2, a_3, a_4$ are positive.
+\begin{empt}\label{hered_repr_p_empt}
+	If $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn})then there is a $C^*$-algebra $A''$ such that:
+	\begin{itemize}
+		\item $A''$ is isomorphic to the bicommutant $\rho\left( A\right)''$ in $B\left(\H\right)$ (cf. Definition \ref{commutant_defn}) of $A$,
+		\item there is the natural inclusion $A \subset A''$,
+		\item one has a natural extension 
+		\be\label{rho_ext_eqn}
+		\rho'': A'' \hookto B\left(\H\right)
+		\ee
+		of the representation $\rho$.
+	\end{itemize}
+	Let $B$ be a hereditary subalgebra $A$ (cf. Definition \ref{hered_defn}), and let  $\left\{u_\la \right\}_{\la \in \La} \subset  B_+$ be an  approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}).
+	One has
+	\be\label{hered_uau_eqn}
+	\begin{split}
+	\bt\text{-}\lim_\la u_\la = 1_{ M\left( B\right) },\\
+		B = \left\{ a \in A \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}.
+	\end{split}
+	\ee
+	From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{\rho\left( u_\la\right)  \right\}$  is convergent  with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure of $\rho(A)$ (cf. Definition \ref{strong_topology_defn}). Form the Theorem \ref{von_Neumann_thm} it follows that $p\in \rho\left(A \right)''= \rho''\left(A'' \right)$, i.e.
+	\be\label{hered_repr_abc_eqn}
+	\exists  p'' \in A''\quad p = \rho''\left(p'' \right).
+	\ee
+	From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From \eqref{hered_uau_eqn} it turns out that 
+	\be\label{hered_pap_eqn}
+	B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}=  \left\{ a \in A | p'' a p'' = a\right\}
+	\ee
+	and  there is a natural representation
+	\be\label{hered_rep_eqn}
+	B \hookto B\left(p \H \right) 
+	\ee
+\end{empt}
+\begin{remark}\label{hered_dense_rem}
+	If $\left\{u_\la \right\}_{\la \in \La} \subset \rho\left(B \right)$ then from $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ it follows that $p\H$ is a norm completion of $\rho\left(B\right)\H$.
+\end{remark}
+\begin{lemma}\label{hered_full_lem} 
+	In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  faithful.
+\end{lemma}
+\begin{proof}
+	For any $a \in B$ there is $\xi \in \H$ such that $\rho\left(a\right)\xi \neq 0$. From  \eqref{hered_rep_eqn} it follows that $\rho\left( a\right) \xi = p \rho\left( a\right) p\xi \neq 0$. On the other hand $p\xi \in p\H$.
+\end{proof}
+
+\begin{lemma}\label{hered_nondegenerate_lem} 
+	In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
+\end{lemma}
+\begin{proof}
+	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From the equation \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$, it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
+	\bean
+	\left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
+	\eean
+	However $ u_{\la_0} a^*a u_{\la_0}\in B$.
+\end{proof}
+\begin{corollary}\label{hered_representation_cor}
+	Let $A$ be a $C^*$-algebra and let $\rho: A\hookto B\left( \H\right)$ be a faithful, nondegenerate representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
+	then 
+	$$
+	B = \left\{a \in A| p \rho\left( a\right)p = \rho\left(a \right) \right\}
+	$$ 
+	and there is a faithful, nondegenerate representation
+	$$
+	B \hookto B\left(p \H \right). 
+	$$
+\end{corollary}
+\begin{lemma}\label{hered_repr_p_lem}
+	In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{hered_rep_eqn} representation $ B \hookto B\left(p \H \right)$ is atomic.
+\end{lemma}
+\begin{proof}
+	One can prove this lemma by usage of the proof of the Lemma 
+	\ref{hered_repr_lem}.
+\end{proof}
+
+\begin{empt}\label{grothendieck_ca_empt}
+	Let $A$ be a $C^*$-algebra. We define a category $\mathbf{Hered}/A$ such that
+	\begin{itemize}
+		\item $\mathbf{Hered}/A$-objects are hereditary $C^*$- subalgebras of $A$.
+		\item $\mathbf{Hered}/A$-morphism  from $B' \hookto A$ to $B'' \hookto A$ is an inclusion $B'\subset B''$ such that a following diagram 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				B'  &  & B''\\ 
+				& A &\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {} (m-1-3)
+			(m-1-1) edge node [above]  {} (m-2-2)
+			(m-1-3) edge node [right]  {} (m-2-2);
+		\end{tikzpicture}
+		\\
+		is commutative.
+	\end{itemize}
+	For any two $\mathbf{Hered}/A$-objects $B', B''$ we define their \textit{fibre product} (cf. Definition \ref{pullback_defn}) by the following way
+	$$
+	B'\times_A B'' \bydef B'\cap B''.
+	$$
+	For any $\mathbf{Hered}/A$-object a distinguished set of families of maps $\left\{B_\iota \hookto B\right\}_{\iota\in I}$, called a \textit{covering} of $B$ if $B$ is a generated by the union $\cup B_\iota$ hereditary $C^*$-subalgebra of $A$.
+\end{empt}
+
+\begin{exercise}\label{grothendieck_ca_exer}
+	Using the Corollary \ref{hered_representation_cor}	prove that a described above system of coverings satisfy to  the Definition \ref{site_defn}, so one has a natural Grothendieck topology.
+\end{exercise}
+
+\begin{definition}\label{grothendieck_ca_defn}
+	The given by the Exercise \ref{grothendieck_ca_exer} topology  is said to be \textit{Grothendieck} $A$-\textit{topology}.
+\end{definition}
+
+\begin{exercise}
+	For any locally compact Hausdorff space $\sX$ a Grothendieck $C_0\left(\sX\right)$-topology  is naturally isomorphic to a classical topology of $\sX$.
+\end{exercise}
+
+\begin{notation}
+	Here the notation of the Appendix \ref{grothendieck_cohomology_section} is used.
+	Let $A$ be  a $C^*$-algebra, and $X$ is the {Grothendieck} $A$-{topology} (cf. Definition \ref{grothendieck_ca_defn}). If $\F$ is a sheaf of Abelian groups on $X$ then we use the following notation
+	\be\label{a_shef_coh_not_eqn}
+	\forall n\ge 0\quad H^n\left(A,\mathscr F \right) \bydef H^n\left(X, \mathscr F \right). 
+	\ee	
+	If  $F$ is an Abelian group and $\mathscr F$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
+	\be\label{a_const_shef_coh_eqn}
+	\forall n\ge 0\quad H^n\left(A, F \right) \bydef H^n\left(X, \mathscr F \right). 
+	\ee
+\end{notation}
+
+
+\section{Continuous trace $C^*$-algebras}
+\paragraph{}
+
+If $A$ is a continuous trace $C^*$-algebras then the spectrum $\sX$ of is a Hausdorff space. Any ideal of $A$ corresponds to an open set $\sU$ we denote this ideal by $A|_{\sU}$. We define a presheaf $\mathscr{P}^{\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
+\bean
+\mathscr{P}^{\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
+\rho_{\sU \sV}: \mathscr{P}^{\text{comm}}\left(\sU\right)\to  \mathscr{P}^{\text{comm}}\left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
+\eean
+Let $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ be 	\'espace etal\'e of a presheaf $\mathscr{P}^{\text{comm}}\left(\sU\right)$ (cf. Exercise \ref{sheaf_etale_exer}). The space  $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ is a union of all stalks of the presheaf $\mathscr{P}^{\text{comm}}$ for any commutative $C^*$-subalgebra $C \subset A$ denote by
+\be\label{ctr_top_eqn}
+\sU_C \bydef \left\{ \left. x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right) \right| C \quad \text{ is representative of}\quad  x\right\}	
+\ee
+\begin{exercise}\label{ctr_open_exer}
+	Prove that the set of  given by \eqref{ctr_top_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$.
+\end{exercise}
+For any hereditary subalgebra $B\subset A$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Exercise \ref{ctr_open_exer} it follows that a union
+$$
+\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)_B\bigcup_{C \in  \text{Com}\left(B\right)} \sU_C 
+$$
+is an open subset of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$. Conversely if $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$ is an open subset then for all $x \in \mathscr U$ there is a commutative subalgebra $C \subset A$ such that if $y \in  \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$ is represented by $C$ then $y\in \mathscr U$. A generated by such commutative subalgebras hereditary subalgebra $B_{\mathscr U}$ 
+ \begin{lemma}\label{ctr_dini_lem}
+	Let $A$ be a  $C^*$-\textit{algebra}  having a compact Hausdorff spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
+	\begin{itemize}
+		\item 
+		\be\label{ctr_sup_eqn}
+		\forall \mu, \nu \in \La \quad \mu \ge\nu\quad \Rightarrow \quad  a_\mu\ge a_\nu.	
+		\ee
+		\item  There is $a\in A$ such that for all $x \in \sX$ there is the following limit
+		$$
+		\lim_{\la\in\La}\rep_x\left( a_\la\right) = \rep_x\left( a\right).
+		$$
+	\end{itemize}
+	Then there is the $C^*$-norm limit $	\lim_{\la\in\La}a_\la = a$.
+	
+\end{lemma}
+\begin{proof}
+	Put $b_\la\bydef a-a_\la\in A$. We have to prove that $b_\la \to 0$ with respect to the $C^*$-norm topology.
+	Let $\eps> 0$ be given. From (b) of the Lemma \ref{ctr_rep_eq_lem} it turns out that for all $\la\in \La$ the map
+	$$
+	x\mapsto \left\|  \rep_x\left(b_\la\right)\right\|
+	$$
+	is continuous, so the set 
+	$$
+	\sX_\la \bydef \left\{x \in \sX \left|\left\|  \rep_x\left(b_\la\right)\right\|\le\eps \right. \right\}
+	$$
+	is closed. Moreover $\sX_\la$ is compact because it is a subset of a compact space $\sX$. From \eqref{ctr_sup_eqn} it follows that 
+	$$
+	\forall \mu, \nu \in \La \quad \mu \ge\nu\quad \Rightarrow \quad  \sX_\mu \supset  \sX_\nu.	
+	$$
+	Fix $x\in \sX$. Since $\rep_x\left(b_\la\right) \to 0$
+	we see that $x\notin \sX_\la$ if $\la$ is sufficiently large. Thus $x \notin \bigcap \sX_\la$. In other words, 
+	$\bigcap   \sX_\la$ is empty. Hence $\sX_{\la_0}$ is empty for some $\la_0\in\La$ %(Theorem 2.36). 
+	It follows that  $0\le \left\|  \rep_x\left(b_\la\right)\right\| < \eps$ for all $x \in \sX$  and for all $\la\ge \la_0$. This proves the theorem.
+\end{proof}
+
+
+
+\begin{appendices}
+	
+
+\section{Grothendieck topology and sheaves}
+
+\subsection{Sites}\label{appendix_etale_sec}
+\begin{definition}\label{pullback_defn}\cite{milne:lec}
+	For $X$ an object of a category $\mathscr C$, $\mathscr C/X$ denotes the category whose objects are the morphisms $U\to X$ in $\mathscr C$
+	and whose arrows are the commutative diagrams 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			U  &  & U'\\ 
+			& X &\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {} (m-1-3)
+		(m-1-1) edge node [above]  {} (m-2-2)
+		(m-1-3) edge node [right]  {} (m-2-2);
+	\end{tikzpicture}
+	\\
+	A morphism $U \to U'$ making this diagram commute is also referred to as an $X$-morphism. The \textit{fibre product}  $U_1\times_X U_2$ of morphisms $\varphi_1: U_1\to X$,  $\varphi_2: U_2\to X$ in $\mathscr C$ is their product in the category $\mathscr C$. Thus, there is a commutative diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			U_1\times_X U_2 & U_2\\ 
+			U_1 & X\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {} (m-1-2)
+		(m-2-1) edge node [above]  {$\varphi_1$} (m-2-2)
+		(m-1-1) edge node [right]  {} (m-2-1)
+		(m-1-2) edge node [right] {$\varphi_2$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	having the obvious universal property. 
+	
+\end{definition}
+\begin{definition}\label{site_defn}\cite{milne:lec}
+	A category $\mathscr C$  
+	together with, for each object $U$ of $\mathscr C$, a distinguished set of families of maps $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
+	satisfying the following axioms: 
+	\begin{enumerate}
+		\item[(a)] for any covering $\left\{U_\iota \to U\right\}_{\iota\in I}$ and any morphism $U \to V$ in $\mathscr C$, the fibre products 
+		$U_\iota\times_U V$ exist, and $\left\{U_\iota\times_U V \to V\right\}_{\iota\in I}$ is a covering of $V$; 
+		\item[(b)] if $\left\{U_\iota \to U \right\}_{\iota\in I}$ is a covering of $U$, and if for each $\iota \in I$, $\left\{V_{\iota j} \to U_\iota  \right\}_{j \in I_\iota}$	is a 
+		covering of $U_\iota$, then the family $\left\{V_{\iota j }\to U\right\}_{\iota j}$ is a covering of $U$; 
+		\item[(c)] for any $U$ in $\mathscr C$, the family $\left\{U\xrightarrow{\Id}U \right\}$ consisting of a single map is a covering of $U$. 
+	\end{enumerate}
+	The system of coverings is then called a \textit{(Grothendieck) topology}, and $\mathscr C$  together with 
+	the topology is called a \textit{site}. If $\mathbf T$  
+	is a site, then $\mathrm{Cat}\left( \mathbf T\right)$  denotes the underlying category. 
+	
+\end{definition}
+
+\begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
+	A \textit{presheaf of sets} on a site $\mathbf T$ 
+	is a contravariant functor $\sF$ from $\mathrm{Cat}\left( \mathbf T\right)$ to the category of sets. Thus,  $\sF\left(U \right) $
+	to each object $F$ in $\mathrm{Cat}\left( \mathbf T\right)$ 
+	attaches a set $\sF\left(U \right)$ , and to each morphism $\phi: U \to V$
+	in $\mathrm{Cat}\left( \mathbf T\right)$, a map $\sF\left(\varphi\right):\sF\left(V \right)\to \sF\left(U \right)$. Note that the notion of a presheaf on T 
+	does not depend on the 
+	coverings. We sometimes denote $\sF\left(\varphi\right)$ by $a \mapsto a|_U$.
+	
+\end{definition}
+Similarly, a presheaf of (Abelian) groups or rings on $\mathbf T$ is a contravariant functor from
+$\mathrm{Cat}\left( \mathbf T\right)$ to the category of (Abelian) groups or rings.
+\begin{definition}\label{etale_sheaf_defn}\cite{milne:lec}
+	A \textit{sheaf} on $\mathbf T$ 
+	is a presheaf $\sF$ 
+	that satisfies the sheaf condition: 
+	\be\label{etale_sheaf_eqn}
+	\sF \left(U\right) \to \prod_{\iota \in I} \sF \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \sF \left(U_\iota \times_U U_j\right)
+	\ee
+	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\sF$ 
+	is a sheaf if the map 
+	$$
+	f \mapsto \left\{f_{U_\iota }\right\}:\sF \left(\sU\right) \to \prod_{\iota \in I} \sF \left(U_\iota \right)
+	$$
+	identifies $\sF\left( U\right)$ with the subset of the product consisting of families $\left\{f_\iota\right\}$such that 
+	$$
+	f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
+	$$
+	for all $\iota, j \in I$. 
+	When $\mathbf T$ 
+	is the site arising from a topological space, these definitions coincide with the 
+	usual definitions. 
+	
+\end{definition}
+
+There are categories $\mathbf{PreSh}\left(\mathbf T \right)\to \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheave. Moreover there is a forgetful functor  functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+
+\begin{statement}\label{site_sheaf_stmt}\cite{johnstone:topos}
+	There is an adjoint $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$ to the given by the forgetful functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T  \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+\end{statement}	
+\begin{defn}\label{site_sheaf_ass_defn}\cite{johnstone:topos}
+	The given by the Statement  \ref{site_sheaf_stmt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
+\end{defn}
+\begin{statement}\label{site_enough_stmt}\cite{johnstone:topos}
+	%8.13$
+	If $\mathbf T$ is site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
+\end{statement}
+\begin{definition}\label{grothendiek_topos_defn}\cite{johnstone:topos}
+	A category $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
+\end{definition}
+
+
+\begin{definition}\label{geom_mor_defn}\cite{johnstone:topos}
+	Let $\mathscr E$, $\mathscr F$ be toposes a \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr E\xrightarrow{f_*}\mathscr F$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
+\end{definition}
+\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
+	For any set $A$ there is a \textit{constant presheaf} $\mathscr A$ such that $\mathscr A\left( U\right) = A$ and $\rho^\sU_\sV = \Id_A$ for all $V\subset U$.
+\end{definition}
+
+\subsection{Cohomology. Definition and basic properties}\label{grothendieck_cohomology_section}
+\paragraph{}
+Here I follow to \cite{milne:lec}. The functor
+\bean
+\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
+\mathscr F \mapsto \mathscr F\left(X \right) 
+\eean
+of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution
+$$
+0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
+$$
+and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+\be\label{complex_eqn}
+\Ga\left(X,\ \mathscr I^0  \right) \to \Ga\left(X, \mathscr I^1  \right) \to \Ga\left(X, \mathscr I^2  \right) \to ... 
+\ee
+This is no longer exact (in general).
+ 
+\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
+	%			Theorem 1.1 A. 
+	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
+	$F: \mathfrak A \to  \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
+	Then 
+	\begin{enumerate}
+		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
+		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+		of the choices of injective resolutions made.
+		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
+		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
+		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+		obtain a long exact sequence 
+		$$
+		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
+		$$
+		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
+				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
+			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
+			(m-1-1) edge node [right]  {} (m-2-1)
+			(m-1-2) edge node [right] {} (m-2-2);
+		\end{tikzpicture}
+		\\
+		\	
+		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
+		
+	\end{enumerate}
+\end{theorem}
+The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $r^{\text{th}}$ cohomology
+group  $H^r\left(X,\ \mathscr I^0  \right)$.
+The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
+\begin{enumerate}
+	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\cong \Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
+	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
+	\item [(c)]  short exact sequence of sheaves
+	$0\to \mathscr F' \to \mathscr F \to \mathscr F'' \to 0$	gives rise to a long exact sequence
+	$$
+	0 \to H^0\left(X, \mathscr F'  \right) \to\left(X, \mathscr F  \right) \to H^0\left(X, \mathscr F''  \right) \to H^1\left(X,\ \mathscr F'  \right) \to ...
+	$$
+	and the association of the long exact sequence with the short exact sequence is functional.
+\end{enumerate}
+Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
+by the properties (a), (b) and (c).
+
+
+\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
+	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geom_mor_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
+	\begin{enumerate}
+		\item [(i)] If $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q$ which is functorial in $f$ and natural in $A$.
+		\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^q\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left( B , \mathscr F \right)$ which is natural in $B$.
+	\end{enumerate}
+\end{proposition}
+\begin{notation}
+	If  $A$ is an Abelian group and $\mathscr A$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
+	\be\label{const_shef_coh_eqn}
+	\forall n\ge 0\quad H^n\left(X, A \right) \bydef H^n\left(X, \mathscr A \right). 
+	\ee
+\end{notation}
+\section{Presheaves and sheaves}
+
+\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
+	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
+	\begin{itemize}
+		\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
+		\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
+		subject to conditions
+		\begin{itemize}
+			\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
+			\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
+			\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
+		\end{itemize}
+	\end{itemize}
+\end{definition}
+
+\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
+	A \textit{presheaf} $\mathscr F$ on  
+	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
+	\begin{itemize}
+		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
+		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+	\end{itemize}
+	(Note condition (3) implies that $s$ is unique.)
+\end{definition}
+%\begin{definition}
+%	A presheaf \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+%\end{definition}
+\begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
+	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
+\end{definition}
+
+\begin{definition}\cite{hartshorne:ag}
+	If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
+	of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
+	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\mathscr F\left( \sU\right)   & \mathscr G\left( \sU\right)\\
+			\mathscr F\left( \sV\right)    & \mathscr G\left( \sV\right)\\
+		};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$\rho_{\sU\sV}$} (m-1-2)
+		(m-1-1) edge node [right] {$\varphi_\sU$} (m-2-1)
+		(m-1-2) edge node [right] {$\varphi_\sV$} (m-2-2)
+		(m-2-1) edge node [above] {$\rho'_{\sU\sV}$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	is commutative, where $\rho_{\sU\sV}$ and $\rho'_{\sU\sV}$ are the restriction maps in $\mathscr F$  and $\mathscr G$. If $\mathscr F$  and $\mathscr G$ are sheaves on $\sX$, we use the same definition for a morphism 
+	of sheaves. An isomorphism is a morphism  which has a two-sided inverse. 
+\end{definition}
+
+\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
+	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
+\end{prdf}
+
+\begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
+	%1.13. 
+	\textit{
+		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
+	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
+		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
+	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$. We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
+	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
+	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
+	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
+	make $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ into a topological space by giving it the strongest topology such that 
+	all the maps $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ for all $\sU$ and all $s\in \mathscr F\left(\sU \right)$ , are continuous. Now 	show that the sheaf $\mathscr F^+$ associated to $\mathscr F$ can be described as follows: for any 
+	open set $\sU\subset \mathscr F$, $\mathscr F\left(\sU \right)$ is the set of continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. In 
+	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
+	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
+	
+\end{exercise}
+\begin{exercise}
+	Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corresponds to a continuous map $\phi:\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G \right)$ such that
+	\begin{itemize}
+		\item $p_{\mathscr G}= p_{\mathscr F} \circ \phi$ where both $p_{\mathscr G}: \mathrm{Sp\acute{e}}\left(\mathscr G\mathscr F \right)\to \sX$ are natural projections.
+		\item For all $x \in \sX$ a restriction $\phi|_{\mathscr F_x}: \mathscr F_x \to \mathscr G_x$ is a homomorphism of Abelian groups, rings, modules, etc.
+	\end{itemize}
+\end{exercise}
+
+\begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
+	%1.17
+	If $f : \sX \to \sY$ is a continuous map then a pair  of functors $f_*$ and $f^*$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
+\end{remark}
+\section{$C^*$-algebras}
+\begin{definition}\label{top_net_defn}\cite{engelking:general_topology}
+	A \textit{net in topological space} $\mathcal{ X}$ is an arbitrary function from a non-empty directed set $\La$  to the space $\mathcal{ X}$. Nets will be denoted by $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$. 
+\end{definition}
+	\begin{definition}\label{hered_defn}\cite{pedersen:ca_aut}
+	A cone $M$ in the positive part of $C^*$-algebra $A$ is said to be \textit{hereditary} if $0 \le x \le y$, $y \in M$ implies $x \in M$ for each $x \in A$. A *-subalgebra $B$ of $A$ is \textit{hereditary} if $B_+$ is hereditary in $A_+$.
+\end{definition}
+\begin{lemma}\label{hered_lem}\cite{murphy}
+	Let $B$ be a $C^*$-subalgebra of $C^*$-algebra $A$. Then $B$ is hereditary in $A$ if and only if $bab' \in B$ for all $b, b' \in B$ and $a \in A$.
+\end{lemma}
+\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
+	Let $A$ be a $C^*$-algebra.
+	\begin{enumerate}
+		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left ideals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
+		$$
+		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
+		$$
+		is the unique closed left ideal of $A$ corresponding to $B$.
+	\end{enumerate}
+\end{lemma}
+
+
+\begin{remark}\cite{murphy}
+	Obviously, $0$ and
+	$A$ are hereditary $C^*$-subalgebras of $A$, and any intersection of hereditary
+	$C^*$-subalgebras is one also. 
+	
+\end{remark}
+\begin{definition}\label{hered_gen_defn}\cite{murphy}
+	The hereditary $C^*$-subalgebra \textit{generated} by a
+	subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing $S$.
+\end{definition}
+
+	\begin{defn}\label{strict_topology_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra.  The {\it strict topology} on the multiplier algebra $M(A)$ is the topology generated by seminorms 
+	\be\label{strict_topology_norm_eqn}
+	\vertiii{x}_a\bydef \|ax\| + \|xa\|,\quad a\in A.
+	\ee
+	If $\La$ is a directed set and $\left\{a_\la\in M\left( A\right) \right\}_{\la\in \La}$ is a net the we denote by $\bt\text{-}\lim_{\la\in\La }a_\la$ the limit of $\left\{a_\la \right\}$ with respect to the strict topology.
+	If $x \in M(A)$  and a sequence of partial sums $\sum_{i=1}^{n}a_i$ ($n = 1,2, ...$), ($a_i \in A$) tends to $x$ in the strict topology then we shall write
+	\begin{equation}\label{strict_topology_eqn}
+		x = \bt\text{-}\lim\sum_{i=1}^{\infty}a_i.
+	\end{equation}
+\end{defn}
+
+	\begin{defn}
+	\label{strong_topology_defn}\cite{pedersen:ca_aut} Let $\H$ be a Hilbert space. The {\it strong} topology on $B\left(\H\right)$ is the locally convex vector space topology associated with the family of seminorms of the form $x \mapsto \|x\xi\|$, $x \in B(\H)$, $\xi \in \H$.
+\end{defn}
+	\begin{defn}\label{approximate_unit_defn} \cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra. A net $\left\{u_\la \right\}_{\la \in \La}$ in $A_+$ with $\left\|u_\la \right\| \le 1$ for all $\la \in \La$ is called an \textit{approximate unit} for $A$ if $\la < \mu$ implies $u_\la < u_\mu$ and if $\lim \left\|x- xu_\la \right\| = 0$ for each $x$ in $A$. Then, of course, $\lim \left\|x- u_\la x \right\| = 0$ as well.
+\end{defn}
+\begin{theorem}\label{left_ideal_thm}\cite{murphy}
+	%3.1.2. Theorem.
+	If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
+	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
+	$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
+\end{theorem}
+
+\begin{thm}\label{approximate_unit_thm} \cite{pedersen:ca_aut}
+	Each $C^*$-algebra contains an \textit{approximate unit}.
+\end{thm}
+\begin{defn}\label{commutant_defn}
+	%2.2.1. 
+	For each subset $M$ of $B(\H)$ let $M'$ denote the \textit{commutant} of $M$, i.e. 
+	\bean
+	M'\bydef \left\{b \in B\left(\sH\right)|\forall a \in M \quad ab = ba \right\}
+	\eean
+	The $C^*$-algebra 
+	\bean
+	M''\bydef (M')'
+	\eean
+	is said to be a \textit{bicommutant} of $M$.
+\end{defn}
+	\begin{lemma}\label{increasing_convergent_w_lem}\cite{pedersen:ca_aut} Let $\Lambda$ be an increasing in the partial ordering.  Let $\left\{x_\lambda \right\}_{\la \in \La}$ be an increasing of self-adjoint operators in $B\left(\H\right)$, i.e. $\la \le \mu$ implies $x_\la \le x_\mu$. If $\left\|x_\la\right\| \le \ga$ for some $\ga \in \mathbb{R}$ and all $\la$ then $\left\{x_\lambda \right\}$ is strongly convergent to a self-adjoint element $x \in B\left(\H\right)$ with $\left\|x_\la\right\| \le \ga$.
+\end{lemma}
+	\begin{thm}\label{von_Neumann_thm}\cite{pedersen:ca_aut}
+	Let $M$ be a $C^*$-subalgebra of $B(\H)$, containing the identity operator. The following conditions are equivalent:
+	\begin{itemize}
+		\item $M=M''$ where $M''$ is the bicommutant of $M$;
+		\item $M$ is weakly closed;
+		\item $M$ is strongly closed.
+	\end{itemize}
+\end{thm}
+
+\begin{definition}\label{faithful_repr_defn}\cite{murphy}
+	A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if the *-homomorphism $\rho$ is injective.
+\end{definition}
+
+\begin{definition}\label{nondegenerate_repr_defn}\cite{matro:hcm}
+	A representation $\rho : A\to B\left( \H\right)$ is called \textit{nondegenerate} if for any $\xi \in \H$  there exists an element $a \in A$ such that $\rho\left(a \right)\xi \neq 0$. 
+\end{definition}
+\
+	\begin{definition}\label{atomic_repr_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra with the spectrum $\hat A$. We choose for any $t \in \hat A$ a pure state $\phi_t$ and  associated representation $\pi_t: A \to B\left(\H_t\right)$.
+	The representation 
+	\be
+	\pi_a = \bigoplus_{t \in \hat A} \pi_t \quad \text{on the closure } \H_a \text{ of an algebraic direct sum}\quad  \bigoplus_{t \in \hat A} \H_t
+	\ee
+	is called the (reduced) \textit{atomic representation} of $A$. Any two atomic representations are unitary equivalent and any atomic representation of $A$ is faithful and nondegenerate  (cf.  Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \cite{pedersen:ca_aut}).
+\end{definition}
+\begin{lemma}\label{hered_repr_lem}\cite{pedersen:ca_aut}
+	%4.1.5. LEMMA. 
+	Let $B$ be a hereditary $C^*$-subalgebra of $A$. For each irreducible 
+	representation $\pi: A \to B\left( \H\right)$  such that $B \not\subset\ker\pi$ the map $\pi|_B: B \to \pi\left(B \right)\H$  is an irreducible 
+	representation of $B$. 
+	
+\end{lemma}	
+	
+	\end{appendices}
+			
+\section*{Acknowledgment}
+
+
+\paragraph*{}
+ I am grateful to my grandfather Petr who forested my mind and my grandson Petr who  watched my work.
+ 
+
+ 
+ \begin{thebibliography}{10}
+ 	
+
+
+%\bibitem{godement:sheaf} Roger Godement, \textit{Topologie AlgŽbrique et ThŽorie des Faisceaux}. ActualitŽs Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
+
+%\bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
+
+
+%\bibitem{milne:etale}J.S. Milne. {\it \'Etale cohomology.} Princeton Univ. Press.  1980.
+\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
+
+\bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
+
+\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
+Translations of Mathematical Monographs, vol. 226, 2005.
+
+\bibitem{milne:lec} J.S. Milne \textit{Lectures on \'Etale Cohomology}. Version 2.21 March 22, 2013.
+
+\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
+
+
+
+\bibitem{johnstone:topos}P.T. Johnstone. Topos Theory, L. M. S. Monographs no. 10, Academic Press 1977.
+
+\bibitem{pedersen:ca_aut}Gert Kj¾rgŒrd Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+
+\bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
+
+
+
+
+
+\end{thebibliography}
+
+
+
+
+ \end{document}
+
+
