@@ -26450,7 +26450,7 @@ $$
  $$	
 	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v ¡#v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
 	\end{definition}
-\begin{definition}\cite{renault:gropoid_ca}
+\begin{definition}\label{groupoid_g_module_defn}\cite{renault:gropoid_ca}
 	Let $\G$ be a groupoid. A $\G$-bundle $(A,L)$ is a $\mathscr C$ - bundle $A$ together
 	with a homomorphism $L : G \to \text{Iso} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  is the category of Abelian groups, one speaks of a
 	$\G$-\textit{module bundle}.
@@ -26460,7 +26460,7 @@ Given a $\G$-module bundle $( A , L )$, one can form the following cochain compl
 us first define $G^n$ for any $n\in\N$ The sets $\H^0$ , $G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
 j = 1 . . . . . n - l$ , $\quad x_j$ is composable with its left neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
 \begin{enumerate}
-	\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = r(x_0)$ and
+	\item[(i)] $p\circ f(x_0 , . . . , x_{n-1}) = r(x_0)$ and
 	\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
 \end{enumerate}
 The set $C^n\left(\G, A\right)$ of $n$-cochains is an Abelian group under point-wise addition. The
@@ -26472,7 +26472,7 @@ sequence
  \bean
  \delta^0f(x)\bydef L(x)\quad  f\circ s(x) - f \circ r ( x ),\\
 \delta^n(f(x_0 ,..., x_n) = L ( x_0 ) f ( x_1,..., x_n) +\\+ \sum_{j=1}^n (-1)^j
-f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
+f ( x_0 ,..., x_{j-1},x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
 \eean
 
  is a cochain complex.\end{empt}	
@@ -26574,15 +26574,17 @@ onto an open subset of $G^0$.
 
 \begin{empt}
 %2.14. 
-!!!! CONTINUOUS !!!
-In the topological s e t t i n g , we make the f o l l o w i n g adjustments to the cohomology
-theory given in the f i r s t section (see [79] p.24).
-(a) In 1.11, we require t h a t A be a l o c a l l y compact group bundle and we require
-that f o r any continuous section u ~ a u of p : A-~ A O, the function x ~ L(X)ad(x)
-should be continuous.
-(b) We give to Gn the topology induced from the product topology on Gx...xG
-n-times and consider continuous cochains only. I t w i l l be i m p l i c i t that Zn(G,A),
-Bn(G,A) and Hn(G,A) r e f e r to the continuous cohomology.
+In the topological setting , we make the following adjustments to the cohomology
+theory.% given in the f i r s t section (see [79] p.24).
+\begin{enumerate}
+	\item [(a)] In  the Definition \ref{groupoid_g_module_defn}, we require that  $A$ be a locally compact group bundle and we require
+	that for any continuous section $u\mapsto a_u$ of $p : A \to A_0$, the function $x \mapsto L(x)a_{s(x)}$
+	should be continuous.
+\item[(b)] We give to $G^n$ the topology induced from the product topology on $G \times ...\times G$ 
+	$n$-times and consider continuous cochains only. It will be implicit  that $Z^n\left(\G, A \right)$ ,
+	$B^n\left(\G, A \right)$ and $H^n\left(\G, A \right)$ refer to the continuous cohomology.
+\end{enumerate}
+
 \end{empt}
 
 
@@ -29235,6 +29237,10 @@ Phys. {\bf
 \bibitem{jensen_thomsen:kk}Jensen, K. K. and Thomsen, K. \textit{Elements of KK-theory.} (Mathematics: Theory and Applications,
 Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 1991.
 
+\bibitem{johnstone:topos}P.T. Johnstone. \textit{Topos Theory}, L. M. S. Monographs no. 10, Academic Press 1977.
+
+
+
 %\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
 
 \bibitem{landi:nm_nt} {G. Landi}, {F. Lizzi} and {R.J. Szabo}. \textit{From Large $N$ Matrices to the  Noncommutative Torus}.  DSM--QM462 DSF--40/99 NBI--HE--99--48 hep--th/9912130 December 1999.
@@ -29590,8 +29596,6 @@ Oxford, England, 1993.
 %Theory and (Non-Commutative) Differential Geometry, ETH-TH/96-45
 %1996.
 
-
-\bibitem{johnstone:topos}P.T. Johnstone. Topos Theory, L. M. S. Monographs no. 10, Academic Press 1977.
 
 
 %\bibitem{reconstr}
