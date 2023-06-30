@@ -701,11 +701,13 @@ If $A$ is a continuous trace $C^*$-algebras then the spectrum $\sX$ of is a Haus
 $$
 \left.A\right|_\sU \bydef \left\{\left.a\in A~\right| \forall x \in \sX \setminus\sU\quad \rho_x\left( a\right)=0 \right\}
 $$
-where $\rho_x: A \to B\left(\H_x\right)$ is an irreducible representation which corresponds to $x$. We define a presheaf $\mathscr{P}^{\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
+where $\rho_x: A \to B\left(\H_x\right)$ is an irreducible representation which corresponds to $x$. We define a presheaf $\mathscr{P}^{'\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
 \bean
-\mathscr{P}^{\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
-\rho_{\sU \sV}: \mathscr{P}^{\text{comm}}\left(\sU\right)\to  \mathscr{P}^{\text{comm}}\left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
+\mathscr{P}^{'\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
+\rho_{\sU \sV}: \mathscr{P}^{'\text{comm}}\left(\sU\right)\to  \mathscr{P}^{'\text{comm}}\left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
 \eean
+
+Let $\mathscr{P}^{\text{comm}}\bydef \mathfrak{Ass} \left(\mathscr{P}^{'\text{comm}} \right)  $ be an associated sheaf (cf. Definition \ref{site_sheaf_ass_defn}).
 Let $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ be 	\'espace etal\'e  (cf. Exercise \ref{sheaf_etale_exer}). of the presheaf $\mathscr{P}^{\text{comm}}\left(\sU\right)$. 
 The space  $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ is a union of all stalks of the presheaf $\mathscr{P}^{\text{comm}}$. There is a surjective continuous map $p_\sX: \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\to \sX$ (cf. Exercise \ref{sheaf_etale_exer}). If $A_0\bydef \{0\}\subset A$ is a trivial commutative subalgebra then it defines a section $s^0  \in \mathscr{P}^{\text{comm}}\left(\sX\right)$. Let
 \bean
@@ -717,7 +719,7 @@ where $s^0_x$ is a stalk of $s^0$ at $x$ (cf. Definition \ref{stalk_defn}). For 
 \mathscr U_C \bydef \left\{ \left. y \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)' \right| C \quad \text{ is representative of}\quad  y\right\}	
 \ee
 \begin{exercise}\label{ctr_open_exer}
-	Prove that the set of  given by \eqref{ctr_top_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'$.
+	Prove that a family of the given by \eqref{ctr_top_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'$.
 \end{exercise}
 For any hereditary subalgebra $B\subset A$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Exercise \ref{ctr_open_exer} it follows that a union
 $$
@@ -820,17 +822,17 @@ H^r\left( j^{-1}\right)\circ H^r\left( q^{-1}\right)= \Id_{H^r\left( \sX, \sF\ri
 
 If  $A$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ then from the Proposition \ref{ctr_bundle_prop}
 it follows that  there is a locally
-trivial bundle $\left( \F, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F$ as a set equals to a union 
+trivial bundle $\pi: \F\to \sX$ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F$ as a set equals to a union 
 $$
 \F = \bigcup_{x\in\sX}\K\left(\H_x \right) 
 $$
 where $\H_x$ is a space of an irreducible representation $\rho_x: A \to B\left(\H_x\right)$ which corresponds to $x \in \sX$. If
 $$
-\E  \bydef \bigcup_{x\in\sX} \left\{e \in \K\left(\H_x \right)| ~ e\quad \text{is a rank-one projector} \right\}
+\E  \bydef \bigcup_{x\in\sX} \left\{e \in \K\left(\H_x \right)| ~ e\quad\text{is a rank-one projector}\right\}
 $$
-the one has a subbundle $\left( \E, \pi|_{\E},\sX\right)$, 
+then one has a locally trivial subbundle $\pi|_\E \E\to  \sX$, 
 and a fiber of the bundle equals to $\C P^\infty$. If $s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'_x$ is represented by a commutative $C^*$-subalgebra $C\subset A$ then one has a one-dimensional 
-subspace $\rho_c\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\left(\H_x \right)$ a rank one projector onto $\rho_c\left(C \right) \H_x$ then one has a surjective map
+subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\left(\H_x \right)$ a rank one projector onto $\rho_c\left(C \right) \H_x$ then one has a surjective map
 \bean
 \begin{split}
 \psi : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\to \E,\\
@@ -847,6 +849,19 @@ One can prove that the map $\psi$ is continuous.
 \begin{proof}
 Follows from the existence of the continuous surjective  map $\psi : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\to \E$ Remark \ref{geometric_morphism_rem} and (i) of the Proposition \ref{spectral_sequence_prop}.
 \end{proof}
+There is a sheaf $\mathscr F$ of local sections of a the bundle $\F$. Let $\mathscr G'$ be a presheaf given by
+$$
+\mathscr G' \left(\sU \right) \bydef \left\{s \in  \mathscr F\left( \sU\right) | \exists a \in A \quad \forall x \in \sU \quad \rep_x\left( s\right) \quad\text{is a rank-one projector or zero}  \right\}
+$$
+and let Let $\mathscr{G}\bydef \mathfrak{Ass} \left(\mathscr{G'} \right)  $ be an associated sheaf (cf. Definition \ref{site_sheaf_ass_defn})be an associated sheaf.
+\begin{lem}
+There is a natural isomorphism of $\mathscr{G} \cong \mathscr  P^{\text{comm}}$ of sheaves
+\end{lem}
+\begin{proof}
+	!!!
+\end{proof}
+
+
 
 \begin{appendices}
 	
@@ -905,29 +920,29 @@ Follows from the existence of the continuous surjective  map $\psi : \mathrm{Sp\
 
 \begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
 	A \textit{presheaf of sets} on a site $\mathbf T$ 
-	is a contravariant functor $\sF$ from $\mathrm{Cat}\left( \mathbf T\right)$ to the category of sets. Thus,  $\sF\left(U \right) $
+	is a contravariant functor $\mathscr F$ from $\mathrm{Cat}\left( \mathbf T\right)$ to the category of sets. Thus,  $\mathscr F\left(U \right) $
 	to each object $F$ in $\mathrm{Cat}\left( \mathbf T\right)$ 
-	attaches a set $\sF\left(U \right)$ , and to each morphism $\phi: U \to V$
-	in $\mathrm{Cat}\left( \mathbf T\right)$, a map $\sF\left(\varphi\right):\sF\left(V \right)\to \sF\left(U \right)$. Note that the notion of a presheaf on T 
+	attaches a set $\mathscr F\left(U \right)$ , and to each morphism $\phi: U \to V$
+	in $\mathrm{Cat}\left( \mathbf T\right)$, a map $\mathscr F\left(\varphi\right):\mathscr F\left(V \right)\to \mathscr F\left(U \right)$. Note that the notion of a presheaf on T 
 	does not depend on the 
-	coverings. We sometimes denote $\sF\left(\varphi\right)$ by $a \mapsto a|_U$.
+	coverings. We sometimes denote $\mathscr F\left(\varphi\right)$ by $a \mapsto a|_U$.
 	
 \end{definition}
 Similarly, a presheaf of (Abelian) groups or rings on $\mathbf T$ is a contravariant functor from
 $\mathrm{Cat}\left( \mathbf T\right)$ to the category of (Abelian) groups or rings.
 \begin{definition}\label{etale_sheaf_defn}\cite{milne:lec}
 	A \textit{sheaf} on $\mathbf T$ 
-	is a presheaf $\sF$ 
-	that satisfies the sheaf condition: 
+	is a presheaf $\mathscr F$ 
+	that satisfies the sheaf condition, that is a sequence 
 	\be\label{etale_sheaf_eqn}
-	\sF \left(U\right) \to \prod_{\iota \in I} \sF \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \sF \left(U_\iota \times_U U_j\right)
+	\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \times_U U_j\right)
 	\ee
-	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\sF$ 
+	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
 	is a sheaf if the map 
 	$$
-	f \mapsto \left\{f_{U_\iota }\right\}:\sF \left(U\right) \to \prod_{\iota \in I} \sF \left(U_\iota \right)
+	f \mapsto \left\{f_{U_\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
 	$$
-	identifies $\sF\left( U\right)$ with the subset of the product consisting of families $\left\{f_\iota\right\}$such that 
+	identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f_\iota\right\}$such that 
 	$$
 	f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
 	$$
@@ -975,7 +990,7 @@ $$
 $$
 and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
 \be\label{complex_eqn}
-\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{d_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{d_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
+0 \xrightarrow{\dl_0}\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\dl_1} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\dl_2} \Ga\left(X, \mathscr I^2  \right) \to ... 
 \ee
 This is no longer exact (in general).
  
@@ -1016,7 +1031,7 @@ This is no longer exact (in general).
 \end{theorem}
 The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $r^{\text{th}}$ cohomology
 group  $$
-H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \F \right)= \ker~ d_r / \im~ d_{r-1} 
+H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \mathscr F \right)= \ker~ \dl_{r+1} / \im~ \dl_r
 $$
 (cf. equation \ref{complex_eqn})
 The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
@@ -1123,13 +1138,13 @@ by the properties (a), (b) and (c).
 	
 \begin{exercise}
 \end{exercise}\label{sheaf_etale_open_exer}
-Let $s \in \F\left(\sU\right)$ be a section. Prove following statements.
+Let $s \in \mathscr F\left(\sU\right)$ be a section. Prove following statements.
 \begin{enumerate}
 	\item The set 
 	\be\label{sheaf_u_s_eqn}
 \mathscr U_s\bydef \left\{s_x\right\}_{x \in \sU}
 	\ee
-is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ of the presheaf $\F$.
+is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ of the presheaf $\mathscr F$.
 	\item The family  of all given by the equation \eqref{sheaf_u_s_eqn} sets $\mathscr U_s$ is basis of the topology of  $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$.
 	\item The natural continuous map $\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to\sX$ is open.
 	\end{enumerate}
@@ -1308,7 +1323,7 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 	%Proposition 5.59. 
 	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
 	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
-	trivial bundle $\left( \F, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. 
+	trivial bundle $\left( \mathscr F, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \mathscr F \right)$. 
 	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
 \end{proposition}
 
