@@ -917,6 +917,9 @@ There is a natural isomorphism of $\mathscr{G} \cong \mathscr  P^{\text{comm}}$ 
 	is a site, then $\mathrm{Cat}\left( \mathbf T\right)$  denotes the underlying category. 
 	
 \end{definition}
+\begin{example}\label{top_gro_exm}
+	If $\sX$ is a topological space then one has a category of open subsets and inclusions. If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \to \sU\right\}_{\iota\in I}$, is a covering of $\sU$ (cf. Definition \ref{site_defn}) if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is Grothendieck topology.
+\end{example}
 
 \begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
 	A \textit{presheaf of sets} on a site $\mathbf T$ 
@@ -977,7 +980,7 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left
 	For any set $A$ there is a \textit{constant presheaf} $\mathscr A$ such that $\mathscr A\left( U\right) = A$ and $\rho^\sU_\sV = \Id_A$ for all $V\subset U$.
 \end{definition}
 
-\subsection{Cohomology}\label{grothendieck_cohomology_section}
+\subsection{Cohomology of sheaves}\label{grothendieck_cohomology_section}
 \paragraph{}
 Here I follow to \cite{milne:lec}. The functor
 \bean
@@ -1062,6 +1065,69 @@ by the properties (a), (b) and (c).
 	\forall n\ge 0\quad H^n\left(X, A \right) \bydef H^n\left(X, \mathscr A \right). 
 	\ee
 \end{notation}
+
+\subsection{\v{C}ech cohomology}
+\paragraph{} Here I follow to \cite{milne:lec}. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
+$$
+C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
+$$
+For $s \in C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
+$$
+d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},..., \iota_{r + 1}} \right)  
+$$
+where $\mathrm{res}_j$ is the restriction map corresponding to the projection map
+$$
+U_{\iota_0,..., \iota_{r + 1}}\mapsto U_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}
+$$
+As in the classical case, one verifies by a straightforward calculation that
+$$
+C^\bullet\left( \mathscr U, \mathscr P\right) \bydef C^0\left( \mathscr U, \mathscr P\right) \to C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} C^r\left( \mathscr U, \mathscr P\right)\to ...
+$$
+is a complex. Define
+$$
+\check{H}^r\left( \mathscr U, \mathscr P\right) \bydef H^r\left(C^\bullet\left( \mathscr U, \mathscr P\right)   \right). 
+$$
+It is called the $r^{\text{th}}$ \textit{\v{C}ech cohomology group} of $\mathscr P$ relative to the covering $\mathscr U$.
+Note that
+$$
+\check{H}^r\left( \mathscr U, \mathscr P\right)= \ker\left(\prod \mathscr P_\iota \rightrightarrows \prod \mathscr P_{\iota,j} \right) 
+$$
+Therefore, for a sheaf $\mathscr F$ one has
+$$
+\check{H}^0\left( \mathscr U, \mathscr F\right)=\Ga\left( \mathscr U, \mathscr F\right).
+$$
+A second covering $\mathscr V \bydef \left\{V_j\to X \right\}_{j \in J}$ of $X$ is called a \textit{refinement} of $\mathscr U$ if there is a
+map $\tau : J\to I$ such that $V_j \to X$ factors through $U_{\tau_j}\to X$ for all $j \in J$ . The choice of
+a $\tau$ and $X$-morphisms $\varphi_{j}: V_j \to U_{\tau_j}$ for each $j$ determines a map of complexes
+\bean
+\tau^\bullet: C^\bullet\left( \mathscr U, \mathscr P\right)\to C^\bullet\left( \mathscr V, \mathscr P\right),\\
+\left( \tau^r s_{j_0,..., j_{r}} \right) \bydef s_{\tau j_0,..., \tau j_{r}}.
+\eean
+As in the classical case, one verifies that the map on cohomology groups
+$$
+\rho \left(\mathscr U, \mathscr V \right): \check{H}^r\left( \mathscr U, \mathscr P\right)\to \check{H}^r \left( \mathscr V, \mathscr P\right)
+$$
+is independent of all choices. We may pass to the limit over all coverings, and so obtain limits
+\be\label{chech_eqn}
+\check{H}^r\left(X, \mathscr P\right)\bydef \varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, \mathscr P\right).
+\ee
+
+\begin{defn}\label{chech_defn}\cite{bryl:loop,milne:lec}
+	The  \textit{\v{C}ech cohomology groups} are given by equation \eqref{chech_eqn}
+\end{defn}
+These groups  have the following properties:
+\begin{enumerate}
+	\item [(a)] $\check{H}^0\left(X, \mathscr F\right)= \Ga\left( X, \mathscr F\right)$ for any sheaf $\mathscr F$ on $X$;
+	\item[(b)] $\check{H}^0\left(X, \mathscr I\right)$, $r > 0$, for all injective sheaves $\mathscr I$.
+\end{enumerate}
+\begin{empt}
+	For any Abelian group $A$ one can define a constant presheaf $\mathscr P$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
+	We use a following notation
+	\be\label{etale_hom_a_eqn}
+	\check{H}^r\left(X,  A\right)\bydef \check{H}^r\left(X, \mathscr P\right).
+	\ee
+\end{empt}
+
 \section{Presheaves and sheaves}
 
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
@@ -1158,15 +1224,95 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 	%1.17
 	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{-1}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
 \end{remark}
+
+\begin{empt}
+	!!! MAP !!!
+Let us suppress the coefficient Abelian group $A$. For each topological space $\sX$ we obtain the Cech system . %This is an inverse system in the homotopy category dexed by the set of open covers U? of X? which is partially ordered by U≤V?≤? if V? refines U?. The term XU?? is the geometric realization of the nerve N(U)?(?) of U?, and the bonding map pVU:XV?XU???:????? is the (uniquely determined) homotopy class of any "refinement map" rVU:N(V)?N(U)???:?(?)??(?) which chooses for V?V??? a member rVU(V)?U???(?)?? such that V?rVU(V)?????(?). Usually one restricts to normal covers (these have a subordinated partition of unity), but this only a technical point.Application of Hn?? produces a direct system Hn(C(X))??(?(?)) of abelian groups whose direct limit is defined to be the n?-th Cech cohomology group of X?.Each map f:X?Y?:??? induces a map of index sets f#:U(Y)?U(X)?#:?(?)??(?) and a map of inverse systems f––:C(X)?C(Y)?_:?(?)??(?). The latter induces Hn(f––):Hn(C(Y))?Hn(C(X))??(?_):??(?(?))???(?(?)). The direct limit functor gives you an induced map on the Cech cohomology groups.
+
+\end{empt}
+
+\begin{empt}\cite{bryl:loop}
+\v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
+$$
+\check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right)
+$$
+		Here $\mathscr F$ and $\mathscr G$ are sheaves of Abelian groups on $\sX$, and the \textit{tensor product}- \textit{sheaf}
+	 $\mathscr F\otimes \mathscr G$ is the sheaf associated to the presheaf $\sU \mapsto \mathscr F(\sU)\otimes \mathscr G(\sU)$. The 
+		stalk (cf. Definition \ref{stalk_defn}) at $x$ of $\mathscr F\otimes \mathscr G$ is $\mathscr F_x\otimes \mathscr G_x$ The cup-product will be defined from a 
+		morphism of complexes. We first need the notion of tensor product $A^\bullet \otimes  B^\bullet$
+		of two complexes; this is the total complex of the double complex $A^\bullet \otimes  B^\bullet$. 
+		So the degree $n$-term of$A^\bullet \otimes  B^\bullet$* is $\oplus A^p\otimes B^{n-p}$. The differential in $A^\bullet \otimes  B^\bullet$.  
+		is 
+		$$
+	d \left(a \otimes b\right)	\bydef \left(da\right)\otimes b + \left(-1\right)^p a \otimes db
+		$$
+		
+	for $a\in A^p$, $b \in B^q$. We have the obvious 
+		tensor product 
+	$$
+\otimes :H^p\left(A^\bullet\right)\otimes H^q\left(B^\bullet\right)\to H^q\left(B^\bullet\right).	
+	$$	
+	We now return to the sheaves $\mathscr F$ and $\mathscr G$ of Abelian groups on $\sX$. We 
+		have the complexes $C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $C^\bullet\left(\mathscr U,  \mathscr G\right)$  The interesting part is the 
+		construction of a morphism of complexes 
+	$$
+\phi: C^\bullet\left(\mathscr U,  \mathscr F\right)\otimes C^\bullet\left(\mathscr U,  \mathscr G\right)\mapsto C^\bullet\left(\mathscr U,  \mathscr , \mathscr G\right)
+	$$
+		For $\a \in C^\bullet\left(\mathscr U,  \mathscr F\right)$ and $\bt \in C^\bullet\left(\mathscr U,  \mathscr G\right)$, we put 
+	$$
+	\phi:\left( \a \otimes \bt \right)_{\iota_0,..., \iota_{p + q}} \bydef \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
+	$$
+			One checks easily that $\phi$ is indeed a morphism of complexes. The induced map on cohomology gives the cup-product on \v{C}ech 
+			cohomology. For $\a$ degree $p$ \v{C}ech cocycle with coefficients in $\mathscr F$ and $\bt$
+			degree $q$ \v{C}ech cocycle with coefficients in $\mathscr G$, we have 
+			$$
+		\left(\a \smile\bt \right)_{\iota_0,..., \iota_{p + q}}\bydef  \a_{\iota_0,...,\iota_p}\otimes  \bt_{\iota_{p},..., \iota_{p+q}}.
+		$$
+			The cup-product has the following properties. 
+		\end{empt}
+		\begin{proposition}\cite{bryl:loop}
+		%	1.3.7. Proposition. 
+		\begin{enumerate}
+			\item[(i)] The cup-product is associative, i.e., for $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, $\ga \in \check{H}^r\left(\mathscr U,  \mathscr H\right)$
+	 we have 
+	 $$
+\a \smile \left( \bt \smile \ga\right) 	= \left( \a \smile \bt\right) \smile \ga. 
+	 $$
+	 	\item[(ii)]	 The \textit{cup}-\textit{product} is \textit{graded}-\textit{commutative}. If $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, we have 
+$$
+\a \smile \bt =\left( -1\right)^p  \bt \smile \a.
+$$			
+			
+		\end{enumerate}
+			
+	\end{proposition}
+		
 \section{$C^*$-algebras}
 \paragraph*{}  A notion of $C^*$-algebra is explained in \cite{murphy, pedersen:ca_aut, rae:ctr_morita}.
 \begin{definition}\label{top_net_defn}\cite{engelking:general_topology}
 	A \textit{net in topological space} $\mathcal{ X}$ is an arbitrary function from a non-empty directed set $\La$  to the space $\mathcal{ X}$. Nets will be denoted by $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$. 
 \end{definition}
+
+\begin{lemma}\cite{hartshorne:ag}
+	!!!!
+	Let $\sX$ be a topological space, and U an open covering. Then 
+	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
+	$$
+	\check{H}^r\left( \right) \to H^r\left( \right) 
+	$$
+\end{lemma}
+\begin{corollary}
+	CHECH
+\end{corollary}
+
+
+
 \subsection{Representations of $C^*$-algebras}
 \begin{definition}\label{faithful_repr_defn}\cite{murphy}
 	A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if the *-homomorphism $\rho$ is injective.
 \end{definition}
+
+
 
 \begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
@@ -1347,8 +1493,8 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 %\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
 %\bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
-
-
+\bibitem{bryl:loop}Jean-Luc Brylinski.\textit{Loop Spaces, Characteristic Classes and Geometric Quantization}.
+\bibitem{eust} Samuel Eilenberg, Norman E. Steenrod \textit{Foundations of Algebraic Topology}. Published by Princeton University Press 1952.
 %\bibitem{milne:etale}J.S. Milne. {\it \'Etale cohomology.} Princeton Univ. Press.  1980.
 \bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
 
