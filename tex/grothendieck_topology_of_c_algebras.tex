@@ -868,7 +868,7 @@ There is a natural isomorphism of $\mathscr{G} \cong \mathscr  P^{\text{comm}}$ 
 
 \section{Grothendieck topology and sheaves}
 
-\subsection{Sites}\label{appendix_etale_sec}
+\subsection{Sites and sheaves}\label{appendix_etale_sec}
 \begin{definition}\label{pullback_defn}\cite{milne:lec}
 	For $X$ an object of a category $\mathscr C$, $\mathscr C/X$ denotes the category whose objects are the morphisms $U\to X$ in $\mathscr C$
 	and whose arrows are the commutative diagrams 
@@ -918,7 +918,11 @@ There is a natural isomorphism of $\mathscr{G} \cong \mathscr  P^{\text{comm}}$ 
 	
 \end{definition}
 \begin{example}\label{top_gro_exm}
-	If $\sX$ is a topological space then one has a category of open subsets and inclusions. If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \to \sU\right\}_{\iota\in I}$, is a covering of $\sU$ (cf. Definition \ref{site_defn}) if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is Grothendieck topology.
+	If $\sX$ is a topological space then one has a category of open subsets and inclusions. If $\sU_1, \sU_2 \subset \sX$ are open set then one can define a fibre product (cf. Definition \ref{pullback_defn}) by the following way
+	$$
+\sU_1\times_\sX \sU_2 \bydef \sU_1 \cap \sU_2.	
+	$$
+	If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \to \sU\right\}_{\iota\in I}$, is a covering of $\sU$ (cf. Definition \ref{site_defn}) if and only if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is Grothendieck topology.
 \end{example}
 
 \begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
@@ -980,7 +984,7 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left
 	For any set $A$ there is a \textit{constant presheaf} $\mathscr A$ such that $\mathscr A\left( U\right) = A$ and $\rho^\sU_\sV = \Id_A$ for all $V\subset U$.
 \end{definition}
 
-\subsection{Cohomology of sheaves}\label{grothendieck_cohomology_section}
+\subsection{Cohomology of sheaves}\label{sheaf_cohomology_sec}\label{grothendieck_cohomology_section}
 \paragraph{}
 Here I follow to \cite{milne:lec}. The functor
 \bean
@@ -1033,9 +1037,10 @@ This is no longer exact (in general).
 	\end{enumerate}
 \end{theorem}
 The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $r^{\text{th}}$ cohomology
-group  $$
+group  
+\be\label{etale_coh_eqn}
 H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \mathscr F \right)= \ker~ \dl_{r+1} / \im~ \dl_r
-$$
+\ee
 (cf. equation \ref{complex_eqn})
 The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 \begin{enumerate}
@@ -1066,27 +1071,31 @@ by the properties (a), (b) and (c).
 	\ee
 \end{notation}
 
-\subsection{\v{C}ech cohomology}
+\subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
 \paragraph{} Here I follow to \cite{milne:lec}. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
-$$
+\be\label{cech_eqn}
 C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
-$$
+\ee
 For $s \in C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
 $$
 d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},..., \iota_{r + 1}} \right)  
 $$
-where $\mathrm{res}_j$ is the restriction map corresponding to the projection map
+$\mathrm{res}_j$ is the restriction map corresponding to the projection map
 $$
 U_{\iota_0,..., \iota_{r + 1}}\mapsto U_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}
 $$
+In the above construction one has
+\be\label{cech_s_eqn}
+s_{\iota_0,..., \iota_p}\in U_{\iota_0}\times_X...\times_XU_{\iota_r}
+\ee
 As in the classical case, one verifies by a straightforward calculation that
 $$
 C^\bullet\left( \mathscr U, \mathscr P\right) \bydef C^0\left( \mathscr U, \mathscr P\right) \to C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} C^r\left( \mathscr U, \mathscr P\right)\to ...
 $$
 is a complex. Define
-$$
+\be\label{cech_coh_eqn}
 \check{H}^r\left( \mathscr U, \mathscr P\right) \bydef H^r\left(C^\bullet\left( \mathscr U, \mathscr P\right)   \right). 
-$$
+\ee
 It is called the $r^{\text{th}}$ \textit{\v{C}ech cohomology group} of $\mathscr P$ relative to the covering $\mathscr U$.
 Note that
 $$
@@ -1128,7 +1137,9 @@ These groups  have the following properties:
 	\ee
 \end{empt}
 
+
 \section{Presheaves and sheaves}
+\subsection{General theory}
 
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
 	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
@@ -1153,6 +1164,11 @@ These groups  have the following properties:
 	\end{itemize}
 	(Note condition (3) implies that $s$ is unique.)
 \end{definition}
+
+
+\begin{remark}
+From the Example \ref{top_gro_exm} it follows that the Definitions \ref{presheaf_defn} and  \ref{sheaf_defn} a specializations of  \ref{etale_presheaf_defn} and  \ref{etale_sheaf_defn} ones.
+\end{remark}
 %\begin{definition}
 %	A presheaf \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
 %\end{definition}
@@ -1217,24 +1233,68 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 \end{exercise}
 
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{*}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
 
 \begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
 	%1.17
-	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{-1}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
+	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
 \end{remark}
-
+\subsection{Cohomology}
+\paragraph{}
+From the Example \ref{top_gro_exm} it follows that both Definitions \ref{presheaf_defn} and \ref{sheaf_defn} are specializations of  \ref{etale_presheaf_defn} and \ref{etale_sheaf_defn} ones. So for any topological space $\sX$ there are theories of cohomology explained in sections \ref{sheaf_cohomology_sec} and \ref{presheaf_cohomology_sec}
+\begin{lemma}\cite{hartshorne:ag}
+	Let $\sX$ be a topological space, and $\mathscr U$ an open covering of $\sX$. Then for any sheaf $\mathscr U$ on $\sX$ and
+	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
+	$$
+	\check{H}^r\left(\mathscr U, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right) 
+	$$
+	where both $\check{H}^r$ and $H^r$ are given by the equations \eqref{cech_coh_eqn} and \eqref{etale_coh_eqn} respectively.
+\end{lemma}
+\begin{remark}
+From the above lemma and the equation  \ref{chech_eqn} for each $r\ge 0$ one has a homomorphism
+$$
+\check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right) 
+$$
+\end{remark}
 \begin{empt}
-	!!! MAP !!!
-Let us suppress the coefficient Abelian group $A$. For each topological space $\sX$ we obtain the Cech system . %This is an inverse system in the homotopy category dexed by the set of open covers U? of X? which is partially ordered by U≤V?≤? if V? refines U?. The term XU?? is the geometric realization of the nerve N(U)?(?) of U?, and the bonding map pVU:XV?XU???:????? is the (uniquely determined) homotopy class of any "refinement map" rVU:N(V)?N(U)???:?(?)??(?) which chooses for V?V??? a member rVU(V)?U???(?)?? such that V?rVU(V)?????(?). Usually one restricts to normal covers (these have a subordinated partition of unity), but this only a technical point.Application of Hn?? produces a direct system Hn(C(X))??(?(?)) of abelian groups whose direct limit is defined to be the n?-th Cech cohomology group of X?.Each map f:X?Y?:??? induces a map of index sets f#:U(Y)?U(X)?#:?(?)??(?) and a map of inverse systems f––:C(X)?C(Y)?_:?(?)??(?). The latter induces Hn(f––):Hn(C(Y))?Hn(C(X))??(?_):??(?(?))???(?(?)). The direct limit functor gives you an induced map on the Cech cohomology groups.
+If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sX$ (cf. Definition \ref{site_defn} and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sY$. Let $A$ be a Abelian group, and let $\mathscr P_\sX$, $\mathscr P_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
+\be\label{top_cech_eqn}
+C^r\left( \mathscr U, \mathscr P_\sX\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P_\sX\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\cap...\cap \sU_{\iota_r}. 
+\ee
+is a specialization of \eqref{cech_eqn} one (cf. Example \ref{top_gro_exm}. For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
+$$
+\mathscr P_\sX\left(\sU_{\iota_0,.... \iota_r} \right)\cong \mathscr P_\sY\left(f^{-1}\left( \sU_{\iota_0,.... \iota_r} \right)\right) \cong A.
+$$
+Above isomorphisms yield an isomorphism
+$$
+C^r\left( f^{-1}\left( \mathscr U\right) , \mathscr P_\sY\right)\cong C^r\left( \mathscr U, \mathscr P_\sX\right).
+$$
+From these isomorphisms  one can obtain a natural homomorphism
+$$
+\check{H}^r\left(f\right):\check{H}^r\left(\sY, \mathscr P_\sY \right)\to \check{H}^r\left(\sX, \mathscr P_\sX \right)\quad r \ge 0.
+$$
+The details of the construction of the homomorphism $\check{H}^r\left(f\right)$  are explained in \cite{eust}. Using the Notation \ref{constant_presheaf_defn} one has
+\be\label{cech_hom_eqn}
+\begin{split}
+\check{H}^r\left(f\right):\check{H}^r\left(\sY, A \right)\to \check{H}^r\left(\sX, A \right)\quad r \ge 0,\\
+\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, A \right)\to \check{H}^\bullet\left(\sX, A \right)
+\end{split}
+\ee
 
 \end{empt}
+
+
+
+
+
+
+
 
 \begin{empt}\cite{bryl:loop}
 \v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
 $$
-\check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right)
+\check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right).
 $$
 		Here $\mathscr F$ and $\mathscr G$ are sheaves of Abelian groups on $\sX$, and the \textit{tensor product}- \textit{sheaf}
 	 $\mathscr F\otimes \mathscr G$ is the sheaf associated to the presheaf $\sU \mapsto \mathscr F(\sU)\otimes \mathscr G(\sU)$. The 
@@ -1286,6 +1346,12 @@ $$
 		\end{enumerate}
 			
 	\end{proposition}
+	\begin{empt}
+		Let $\sX$ be a topological space. If $A$ be an Abelian group then there is, a corresponding constant presheaf  $\mathscr P$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. The  corresponding to a tensor product $A \otimes_Z A \to  A$ constant presheaf is $\mathscr P\otimes \mathscr P$. If is a homomorphism $A \otimes_Z A \to  A$ then there is the natural homomorphism $\mathscr P\otimes \mathscr P\to \mathscr P$ of sheaves which induces a homomorphism
+		$$
+		h!!!
+		$$
+	\end{empt}
 		
 \section{$C^*$-algebras}
 \paragraph*{}  A notion of $C^*$-algebra is explained in \cite{murphy, pedersen:ca_aut, rae:ctr_morita}.
@@ -1293,17 +1359,7 @@ $$
 	A \textit{net in topological space} $\mathcal{ X}$ is an arbitrary function from a non-empty directed set $\La$  to the space $\mathcal{ X}$. Nets will be denoted by $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$. 
 \end{definition}
 
-\begin{lemma}\cite{hartshorne:ag}
-	!!!!
-	Let $\sX$ be a topological space, and U an open covering. Then 
-	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
-	$$
-	\check{H}^r\left( \right) \to H^r\left( \right) 
-	$$
-\end{lemma}
-\begin{corollary}
-	CHECH
-\end{corollary}
+
 
 
 
