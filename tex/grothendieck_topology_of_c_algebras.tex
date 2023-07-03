@@ -698,168 +698,258 @@ where $a_1, a_2, a_3, a_4$ are positive.
 \paragraph{}
 
 If $A$ is a continuous trace $C^*$-algebras then the spectrum $\sX$ of is a Hausdorff space. Any ideal of $A$ corresponds to an open set $\sU\subset\sX$ we denote this ideal by 
-$$
-\left.A\right|_\sU \bydef \left\{\left.a\in A~\right| \forall x \in \sX \setminus\sU\quad \rho_x\left( a\right)=0 \right\}
-$$
-where $\rho_x: A \to B\left(\H_x\right)$ is an irreducible representation which corresponds to $x$. We define a presheaf $\mathscr{P}^{'\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
-\bean
-\mathscr{P}^{'\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
-\rho_{\sU \sV}: \mathscr{P}^{'\text{comm}}\left(\sU\right)\to  \mathscr{P}^{'\text{comm}}\left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
-\eean
-
-Let $\mathscr{P}^{\text{comm}}\bydef \mathfrak{Ass} \left(\mathscr{P}^{'\text{comm}} \right)  $ be an associated sheaf (cf. Definition \ref{site_sheaf_ass_defn}).
-Let $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ be 	\'espace etal\'e  (cf. Exercise \ref{sheaf_etale_exer}). of the presheaf $\mathscr{P}^{\text{comm}}\left(\sU\right)$. 
-The space  $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ is a union of all stalks of the presheaf $\mathscr{P}^{\text{comm}}$. There is a surjective continuous map $p_\sX: \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\to \sX$ (cf. Exercise \ref{sheaf_etale_exer}). If $A_0\bydef \{0\}\subset A$ is a trivial commutative subalgebra then it defines a section $s^0  \in \mathscr{P}^{\text{comm}}\left(\sX\right)$. Let
-\bean
-\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)_0 \bydef \bigcup_{x \in \sX} s^0_x,\\
-\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)' \bydef \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\setminus \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)_0
-\eean  
-where $s^0_x$ is a stalk of $s^0$ at $x$ (cf. Definition \ref{stalk_defn}). For any commutative $C^*$-subalgebra $C \subset A$ denote by
-\be\label{ctr_top_eqn}
-\mathscr U_C \bydef \left\{ \left. y \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)' \right| C \quad \text{ is representative of}\quad  y\right\}	
+\be\label{open_id_eqn}
+\left.A\right|_\sU \bydef \left\{\left.a\in A~\right| \forall x \in \sX \setminus\sU\quad \pi_x\left( a\right)=0 \right\}
 \ee
-\begin{exercise}\label{ctr_open_exer}
-	Prove that a family of the given by \eqref{ctr_top_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'$.
-\end{exercise}
-For any hereditary subalgebra $B\subset A$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Exercise \ref{ctr_open_exer} it follows that a union
-$$
-\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B\bigcup_{C \in  \text{Com}\left(B\right)} \mathscr U_C 
-$$
-is an open subset of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'$. Conversely if $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'$ is an open subset then for all $y \in \mathscr U$ there is a  commutative subalgebra $C \subset A$ such that if a section $s^C \in \mathscr P^{\text{comm}}\left(\sX \right)$ corresponds to $C$ then one has
+where $\pi_x: A \to B\left(\H_x\right)$ is an irreducible representation which corresponds to $x$. 
+If $A = CT\left(\sX, \dl \right)$ (cf. Notation \ref{ct_not})  then we define a presheaf $\mathscr{P}'^\dl $ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
 \bean
-y = s^C_{p_\sX\left(y \right) },\\
-\forall x \in \sX \quad s^C_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)' \quad \Rightarrow \quad  s^C_x\in \mathscr U.
+\mathscr{P}'^\dl\left( \sU\right) \bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
+\rho_{\sU \sV}: \mathscr{P}'^\dl \left(\sU\right)\to  \mathscr{P}'^\dl \left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
+\eean
+Let $\mathscr{P}^\dl \bydef \mathfrak{Ass} \left(\mathscr{P}'^\dl  \right)  $ be an associated sheaf (cf. Definition \ref{site_sheaf_ass_defn}).
+Let $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)$ be an	\'espace etal\'e  (cf. Exercise \ref{sheaf_etale_exer}) of the sheaf $\mathscr{P}^\dl \left(\sU\right)$. 
+The space  $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)$ is a union of all stalks of the sheaf $\mathscr{P}^\dl $. There is a surjective continuous map $p_\dl: \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)\to \sX$ (cf. Exercise \ref{sheaf_etale_exer}).
+Let 
+
+\bean
+\mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)' \bydef \left\{\left. s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl\right) \right| \pi_x\left(s_x \right)   \neq \{0\} \right\}
 \eean  
+ For any commutative $C^*$-subalgebra $C \subset A$ denote by
+\be\label{ctr_top_eqn}
+\mathscr U_C \bydef \left\{ \left. y \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)' \right| C \quad \text{ is representative of}\quad  y\right\}.	
+\ee
+We say that $\mathscr U_C$ is \textit{represented} by $C$.
+There is a surjective continuous  map
+\be\label{p_d_eqn}
+p_\dl: \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)' \to \sX.
+\ee
+\begin{lem}\label{ctr_open_lem}
+	 a family of the given by \eqref{ctr_top_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$.
+\end{lem}
+
+
+\begin{proof}
+If $y$ in $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$ then there is an open subset $\sV \subset \sX$ and a section $s \in \mathscr P'^\dl \left( \sV\right)$  such that $y = s_x$. The section $s$ corresponds to a commutative $C^*$-subalgebra  $C \subset CT\left( \sX, \dl\right)$ From then Lemma \ref{ctr_rep_eq_lem} one can deduce that there is an open subset $\mathcal W$ such that $\rep_x\left( C\right)\neq \{0\}$ for all $x \in \mathcal W$, so one has
+$$
+x \in \mathcal W \quad \Rightarrow \quad s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'
+$$
+If $\sU\subset \mathcal W$ then a set
+$$
+\mathscr U_\sU \bydef \bigcup_{x \in \sU} s_x\subset \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'
+$$
+is open (cf. n$^\text{o}$ 1 of the Exercise \ref{sheaf_etale_open_exer}) and represented 
+by a commutative $C^*$ algebra.
+$$
+C_{\sU}\bydef C \cap  CT\left( \sX, \dl\right)|_\sU
+$$
+where $ CT\left( \sX, \dl\right)|_\sU$ is given by \eqref{open_id_eqn}.
+The family of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \A}$ of $p_\dl\left(y \right)$ yields a basis $\left\{\mathscr U_{\sU_\a}\right\}_{\a \in \A}$ of neighborhoods of $y$ (cf. n$^\text{o}$ 2 of the Exercise \ref{sheaf_etale_open_exer}). On the other hand $\mathscr U_{\sU_\a}$ is represented by a commutative $C^*$-algebra. So there is a represented by commutative $C^*$-algebras basis of neighborhoods of $y$. 
+\end{proof}
+For any hereditary subalgebra $B\subset CT\left(\sX, \dl \right)$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Lemma  \ref{ctr_open_lem} it follows that a union
+$$
+\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B\bydef \bigcup_{C \in  \text{Com}\left(B\right)} \mathscr U_C 
+$$
+is an open subset of $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$. Conversely if $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$ is an open subset then for all $y \in \mathscr U$ there is a  commutative subalgebra $C \subset A$ such that:
+\begin{itemize}
+	\item $\mathscr U_C \subset \mathscr U$,
+	\item $y$ is represented by $C$.
+\end{itemize}
 A generated by such commutative subalgebras hereditary subalgebra of $A$ we denote by $A_{\mathscr U}$.
+
  \begin{lemma}\label{ctr_grothendieck_lem}
-	If $A$ is a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) then for any hereditary $C^*$-subalgebra $B\subset A$ one has
+	If $A= CT\left(\sX, \dl \right)$ is a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) then for any hereditary $C^*$-subalgebra $B\subset A$ one has
 	$$
-		B = A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}.
+		B = A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}.
 		$$
 \end{lemma} 
 \begin{proof}
-	From the Proposition \ref{ctr_hered_prop} it follows that both $C^*$-algebras $B$ and $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}$ have continuous trace. Otherwise  $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}$ is generated by subalgebras of $B$ so one has	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}\subset B$. Moreover   $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}$ is a hereditary subalgebra of $B$. 	
+	From the Proposition \ref{ctr_hered_prop} it follows that both $C^*$-algebras $B$ and $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ has continuous trace. Otherwise  $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is generated by subalgebras of $B$ so one has	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\subset B$. Moreover   $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is a hereditary subalgebra of $B$. 	
 	If $\pi_a: B \hookto  B\left( \H_a\right) $ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{hered_representation_cor} it follows that there is a projector $p \in B\left( \H_a\right)$ such that
 	$$
-	A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B} = \left\{a \in B| p \pi_a\left( a\right)p = \pi_a\left(a \right) \right\}.
+	A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B} = \left\{a \in B| p \pi_a\left( a\right)p = \pi_a\left(a \right) \right\}.
 	$$
-	If $B \neq A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}$ then  $ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}\subsetneqq B$, so one has 	$p < 1_{B\left( \H_a\right) }$.  There is $x\in \sX$ and which satisfies to following conditions:
+	If $B \neq A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'_B}$ then  $ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\subsetneqq B$, so one has 	$p < 1_{B\left( \H_a\right) }$.  There is $x\in \sX$ and which satisfies to following conditions:
 	\begin{itemize}
 		\item if $\rep_x: B \to B\left(\H_x\right)$ is a representation which corresponds to $x$ then
 		$$
-		\rep_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B} \right) = \left\{\rep_x \left(a\right)\in \rep_x\left( B\right) | \rep_x \left(a\right)= p_x\rep_x \left(a\right)p_x\right\}
+		\rep_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'_B} \right) = \left\{\rep_x \left(a\right)\in \rep_x\left( B\right) | \rep_x \left(a\right)= p_x\rep_x \left(a\right)p_x\right\}
 		$$
 		where $p_x \in B\left(\H_x \right)$ is projector;
 		\item 	$p_x < 1_{B\left(\H_x \right) }$.
 	\end{itemize}
-	From the above conditions it follows that there is a rank-one projector $e \in 	\rep_x\left( B\right)\setminus  \rep_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}\right)$.  There is an Abelian element $a \in B$ such that $\rep_x\left(a\right)= e$ and there is generated by $a$ hereditary commutative subalgebra $B^a \subset B$. For any open neighborhood $\sU$ of $x$ one has
+	From the above conditions it follows that there is a rank-one projector $e \in 	\rep_x\left( B\right)\setminus  \rep_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\right)$.  From the Definition  \ref{continuous_trace_c_alt_defn} it follow that there is positive element $a \in B$ such that $\pi_x\left(a\right)= e$ and there is generated by $a$ hereditary commutative subalgebra $B^a \subset B$. For any open neighborhood $\sU$ of $x$ one has
 	$$
-	B^a \cap A|_{\sU}\not\subset A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}
+	B^a \cap A|_{\sU}\not\subset A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}
 	$$
-	so if $B^a_x\in \mathscr P^{\text{comm}}_x$ is a represented by $B^a$ stalk at $x$ then one has
+	so if $B^a_x\in \mathscr  P^\dl_x$ is a represented by $B^a$ stalk at $x$ then one has
 	\bean
-	B^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B,\\
-	B^a_x \notin \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)_{ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}}.
+	B^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B,\\
+	B^a_x \notin \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_{ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}}.
 	\eean 
-	However from $	B^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B$ it turns out that there is a representative $B'$ of $B^a_x$ such that $B' \in A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}$, so $B^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)_{ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}}$. From this contradiction it follows that
+	However from $	B^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B$ it turns out that there is a representative $B'$ of $B^a_x$ such that $B' \in A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$, so $B^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_{ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}}$. From this contradiction it follows that
 	$$
-	B = A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)'_B}.
+	B = A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}.
 	$$
 \end{proof} 
-\begin{corollary}
+\begin{corollary}\label{ctr_top_cor}
 		If $A$ is a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) then the {Grothendieck} $A$-{topology} (cf. Definition \ref{grothendieck_ca_defn}) corresponds   the	space $\mathrm{Sp\acute{e}}\left(\mathscr P^{\mathrm{comm}} \right)'$.
 \end{corollary}
 \begin{proof}
-From the Lemma \ref{ctr_grothendieck_lem} it follows that there is a natural one to one correspondence between hereditary subalgebras of $A$ and open subsets of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$.
+From the Lemma \ref{ctr_grothendieck_lem} it follows that there is a natural one to one correspondence between hereditary subalgebras of $A$ and open subsets of $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'$.
 \end{proof}
-There is the natural continuous surjective map 
-\be\label{blowing_etale_p_eqn}
-q_\sX\bydef p_\sX|_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'}: \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)' \to \sX.
-\ee
-(cf. Exercise \ref{sheaf_etale_exer}). Suppose that there is a commutative subalgebra $C \subset A$ such that $\rho\left(C \right) \neq \{0\}$ for any irreducible representation $\rho : A \to B\left(\H_\rho\right)$.
+From the Proposition \ref{ctr_d_prop} it follows that
+$CT\left(\sX, 0 \right) \cong C_0\left(\sX, \K \right)$. So there is a positive $a \in  C_0\left(\sX, \K \right)_+$ such that $\rank \pi_x \left(a\right)= 1$ 
+for all $x \in \sX$. A generated by $a$ hereditary subalgebra $A^a$ (cf. Definition \ref{hered_gen_defn}) is commutative, so it defines a global section $s^a\in \mathscr{P}^0 \left(\sX\right)$, such that $s^a_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'$ for all $x \in \sX$.
 There is a continuous map
 \be
 \begin{split}
-	j : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)';\\
-	x \mapsto C_x
+	j : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr P^0l  \right)';\\
+	x \mapsto s^a_x
 \end{split}
 \ee 
 where $C_x$ is a represented by $C$ stalk at $x$ (cf. Definition \ref{stalk_defn}). Clearly one has
 \be\label{blowing_p_j_eqn}
-q_\sX \circ j = \Id_{\sX}.
+p_0 \circ j = \Id_{\sX}.
 \ee
-Both categories $\mathbf{Sh}\left(\sX\right)$ and $\mathbf{Sh}\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\right)$ of sheaves on $\sX$ and $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'$ respectively are Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). From the Remark \ref{geometric_morphism_rem} the maps $p'_\sX$ and $j$ induce geometric morphisms
-\bean
-\mathbf{Sh}\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\right)\to \mathbf{Sh}\left(\sX\right),\\
-\mathbf{Sh}\left(\sX\right)\to \mathbf{Sh}\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\right).
-\eean
-Let $F$ be an Abelian group, and let $\sF'$ be a corresponding to $F$ constant presheaf on $\sX$ (cf. Definition \ref{constant_presheaf_defn}). Let $\sF$ be a sheaf associated with $\F'$ (cf. Definitions \ref{site_sheaf_ass_defn} and \ref{sheaf_prdf}). If $q^{-1} \sF$ is an inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then $q^{-1} \sF\left( \sV \right)\cong F$ for any connected open set $\sV \subset (\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'$. It follows that $q^{-1} \sF$ is an associated to a constant sheaf on $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'$ which corresponds to $F$. From \eqref{blowing_p_j_eqn} it follows that there is an isomorphism $j^{-1}q^{-1} \sF\cong \F$. From (i) of the Proposition \ref{spectral_sequence_prop} for any $r\ge 0$ one has homomorphisms.
-\bean
-H^r\left( \sX, \sF\right) \xrightarrow{H^r\left( q^{-1}\right) } H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)', q^{-1}\F  \right);\\
-H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)', q^{-1}\F  \right) \xrightarrow{H^r\left( j^{-1}\right) } H^r\left( \sX, \sF\right).
-\eean
-From \eqref{blowing_p_j_eqn} it follows that
-\be\label{blowing__p_j_c_eqn}
-H^r\left( j^{-1}\right)\circ H^r\left( q^{-1}\right)= \Id_{H^r\left( \sX, \sF\right)}.
-\ee
+where $p^0$ is given by \eqref{p_d_eqn}.
 
-
-\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) and let $F$ be an Abelian group. If there is a commutative subalgebra $C \subset A$ such that $\rho\left(C \right) \neq \{0\}$ for any irreducible representation $\rho : A \to B\left(\H_\rho\right)$ then for all $r \ge 0$ there is an isomorphism
-		$$
-		H^r\left(A, F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r
-		$$
-		where  $X^p$ is an Abelian group and the notations \eqref{a_const_shef_coh_eqn}, \eqref{const_shef_coh_eqn} are  used.
-\end{theorem} 
+\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) and let $F$ be an Abelian group. For all $r \ge 0$ there are isomorphisms
+\bean
+	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r,\\
+	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
+\eean
+	where  $X^r$, $\check{X}^r$ are Abelian group and the notations \eqref{a_const_shef_coh_eqn}, \eqref{const_shef_coh_eqn} are  used.
+\end{theorem}
 \begin{proof}
- From the above construction it turns out that  that $p^{-1} \sF$ is an associated to a constant sheaf on $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'$ which corresponds to $F$. If $$X^r \bydef \ker \left(   H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)', p^{-1}\F  \right) \xrightarrow{H^r\left( j^{-1}\right) } H^r\left( \sX, \sF\right)\right) $$ then from the equation \eqref{blowing__p_j_c_eqn} it turns out that
-	$$
-	H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)', F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r.
-	$$
-	
-	
+From the equation \eqref{hom_f_eqn} it follows that for all $r> 0$ there are following homomorphisms:
+\bean
+H^r\left( j\right) 	: H^r\left(CT\left( \sX,0\right), F \right)\to H^r\left(\sX, F \right),\\
+H^r\left(p^0\right) 	: H^r\left(\sX, F \right)\to H^r\left(CT\left( \sX,0\right), F\right).
+\eean 
+From the equation \eqref{blowing_p_j_eqn} it turns out that
+$$
+H^r\left( j\right)\circ H^r\left( p^0\right)= \Id_{ H^r\left(\sX, F \right)}
+$$
+If $X^r \bydef \ker H^r\left( j\right)$ then from the above equations it follows that $	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r$. Similarly an application of the equation \eqref{cech_hom_eqn}  yields the following
+$$
+	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r.
+$$
+
 \end{proof}
-
-
-If  $A$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ then from the Proposition \ref{ctr_bundle_prop}
+If  $A = CT\left( \sX,0\right)$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ then from the Proposition \ref{ctr_bundle_prop}
 it follows that  there is a locally
-trivial bundle $\pi: \F\to \sX$ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F$ as a set equals to a union 
+trivial bundle $\pi_\dl: \F_\dl\to \sX$ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F_\dl$ as a set equals to a union 
 $$
-\F = \bigcup_{x\in\sX}\K\left(\H_x \right) 
+\F_\dl = \bigcup_{x\in\sX}\K\left(\H_x \right) 
 $$
-where $\H_x$ is a space of an irreducible representation $\rho_x: A \to B\left(\H_x\right)$ which corresponds to $x \in \sX$. If
+where $\H_x$ is a space of an irreducible representation $\pi_x: A \to B\left(\H_x\right)$ which corresponds to $x \in \sX$. If
 $$
-\E  \bydef \bigcup_{x\in\sX} \left\{e \in \K\left(\H_x \right)| ~ e\quad\text{is a rank-one projector}\right\}
+\E^\dl  \bydef \bigcup_{x\in\sX} \left\{e \in \K\left(\H_x \right)| ~ e\quad\text{is a rank-one projector}\right\}
 $$
-then one has a locally trivial subbundle $\pi|_\E \E\to  \sX$, 
-and a fiber of the bundle equals to $\C P^\infty$. If $s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'_x$ is represented by a commutative $C^*$-subalgebra $C\subset A$ then one has a one-dimensional 
-subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\left(\H_x \right)$ a rank one projector onto $\rho_c\left(C \right) \H_x$ then one has a surjective map
+then one has a locally trivial subbundle $\pi_\dl|_{\E^\dl} \E^\dl\to  \sX$, 
+and a fiber of the bundle equals to $\C P^\infty$. If $s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'_x$ is represented by a commutative $C^*$-subalgebra $C\subset A$ then one has a one-dimensional 
+subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\left(\H_x \right)$ a rank one projector onto $\pi_x\left(C \right) \H_x$ then one has a surjective map
 \bean
 \begin{split}
-\psi : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\to \E,\\
+\psi_\dl : \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'\to \E^\dl,\\
 s_x \mapsto p_x.
 \end{split}
 \eean
-One can prove that the map $\psi$ is continuous.
-\begin{theorem}	If  $A$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$  then for all $r \ge 0$ there is a natural homomorphism
-	$$
-	H^r\left(\E, F \right)	\to H^r\left(A, F  \right)
-	$$
-	where  the notations \eqref{a_const_shef_coh_eqn} and \eqref{const_shef_coh_eqn} are  used.
-\end{theorem} 
-\begin{proof}
-Follows from the existence of the continuous surjective  map $\psi : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)'\to \E$ Remark \ref{geometric_morphism_rem} and (i) of the Proposition \ref{spectral_sequence_prop}.
-\end{proof}
-There is a sheaf $\mathscr F$ of local sections of a the bundle $\F$. Let $\mathscr G'$ be a presheaf given by
+One can prove that the map $\psi$ is continuous. From the equations \eqref{hom_f_eqn} and \eqref{cech_hom_eqn} for all $r \ge 0$ and an Abelian group $F$ there are homomorphisms
+\bean
+H_r\left(\psi_\dl \right) :	H^r\left(\E^\dl, F \right)	\to	{H}^r\left(CT\left( \sX,\dl\right), F \right),\\
+\check{H}_r\left(\psi_\dl \right) :	\check{H}^r\left(\E^\dl, F \right)	\to	\check{H}^r\left(CT\left( \sX,\dl\right), F \right).
+\eean
+\begin{empt}
+ If $\sU$ is an open subset then there is an equivalence relation $\sim_\sU$ on $\Ga_0\left( \sX, \sF_\dl\right)$ such that 
 $$
-\mathscr G' \left(\sU \right) \bydef \left\{s \in  \mathscr F\left( \sU\right) | \exists a \in A \quad \forall x \in \sU \quad \rep_x\left( s\right) \quad\text{is a rank-one projector or zero}  \right\}
+\forall s', s'' \in \Ga_0\left( \sX, \sF^\dl\right)\quad s'\sim_\sU s''\quad \Leftrightarrow \quad \forall x \in \sU\quad\pi_x\left( s'\right)=\pi_x\left( s''\right)  
 $$
-and let Let $\mathscr{G}\bydef \mathfrak{Ass} \left(\mathscr{G'} \right)  $ be an associated sheaf (cf. Definition \ref{site_sheaf_ass_defn})be an associated sheaf.
-\begin{lem}
-There is a natural isomorphism of $\mathscr{G} \cong \mathscr  P^{\text{comm}}$ of sheaves
-\end{lem}
+where $\pi_x: CT\left(\sX, \dl \right)\to B\left( \H\right)$ is a corresponding  to $x$ representation. Clearly a map 
+$$
+\sU \mapsto \Ga_0\left( \sX, \sF_\dl\right)/\sim_\sU
+$$
+is a presheaf, denote by $\mathscr F^\delta$ the associated sheaf (cf. Definitions \ref{site_sheaf_ass_defn} and \ref{sheaf_prdf}).
+From the isomorphism \eqref{bundle_prod_iso} one has an isomorphism
+\be\label{big_iso_eqn}
+\mathscr F^\delta\otimes \mathscr F^\rho \cong \mathscr F^{\dl+\rho}
+\ee
+of sheaves. Consider a sheaf $\mathscr G^\delta$ associated with a presheaf
+$$
+\sU \mapsto \left\{s \in \mathscr F^\delta\left(\sU \right) | \forall x \in \sU\quad  \pi_x\left(s \right)\in \K\quad \text {is a rank-one projector} \right\} 
+$$
+From \eqref{big_iso_eqn} one can deduce an isomorphism of sheaves
+\be\label{litle_iso_eqn}
+\mathscr G^\delta\times_\sX \mathscr G^\rho \cong \mathscr G^{\dl+\rho}
+\ee
+From the above equation it follows that there is a continuous map
+$$
+\psi : \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right) \to \mathrm{Sp\acute{e}}\left(\mathscr G^\delta \right) \times \mathrm{Sp\acute{e}}\left(\mathscr G^\rho \right),
+$$
+and taking into account \eqref{cech_hom_eqn}, \eqref{kunnet_eqn} one has a homomorphism.
+\be\label{hh_p_eqn}
+\bigoplus_{p + q = m}\check{H}^q\left(\mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right),\Z\right) \otimes_\Z \check{H}^p\left(\mathrm{Sp\acute{e}}\left(\mathscr G^\rho  \right),\Z\right)\to \check{H}^m\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta+\rho}  \right),\Z\right) 
+\ee
+where $\times$ means a product of topological space.
+\end{empt}
+
+\begin{theorem} If $CT\left( \sX, \delta\right)$ is given by the Notation \ref{ct_not} $C^*$-algebra then for all $m \ge 0$ one has a following homomorphism
+\bea
+\bigoplus_{p + q = m}\check{H}^q\left(CT\left( \sX, \delta\right) , \Z \right) \otimes_\Z \check{H}^q\left(CT\left( \sX, \rho\right) , \Z \right) \to \check{H}^m\left(CT\left( \sX, {\delta + \rho}\right) , \Z \right).
+\eea
+
+\end{theorem}
 \begin{proof}
-	!!!
+Firstly construct a map $\phi: \mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right)\to \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$. Any $y \in \mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right)$ can be represented by an open set $\sU\subset\sX$ and an element $a \in CT\left( \sX, \delta\right)$ such that
+$$
+\forall x \in \sU\quad  \pi_x\left(s \right)\in \K\quad \text {is a rank-one projector}
+$$
+If $A^a$ is a generated by $a$ hereditary subalgebra then $C \bydef A^a \cap CT\left( \sX, \delta\right)|_\sU$ is a commutative $C^*$-algebra. The map $\phi$ we define by the following way
+$$
+y \mapsto C_x 
+$$
+where $C_x \in \mathscr P^\delta_x$ is a stalk represented by $C$.
+
+Secondly we define a map $\psi: \mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\to \mathrm{Sp\acute{e}}\left(\mathscr G^\dl \right)$. Any $z\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'$ can be represented by a commutative $C^*$-subalgebra $C \subset CT\left( \sX, \delta\right)$ such that $\pi_{p_\dl\left(z \right) }\left(C  \right) \neq \{0\}$. There is a positive element $a \in C_+$ such that $\pi_{p_\dl\left(z \right) }\left(C  \right) \neq 0$. We leave to the reader a prove of following statement: there is $f \in C_0\left(\sX\right)_+$ and an open neighborhood of $p_\dl\left(z \right)$ such that for all $x\in \sX$ an operator $\pi_x\left(fa \right)$ is a rank-one projector. The element $fa$ represents a section $r \in \mathscr G^\delta\left( \sU\right)$.  The map $\psi$ we define by the following way
+$$
+z\mapsto r_x.
+$$
+
+We leave to the reader a proof of following statements:
+\begin{itemize}
+	\item both maps $\phi$ and $\psi$ are continuous,
+	\item  the maps are mutually inverse.
+\end{itemize}
+So there is a homeomorphism $\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\to \mathrm{Sp\acute{e}}\left(\mathscr G^\dl \right)$. This theorem follows from the Corollary \ref{ctr_top_cor} and the equation \eqref{hh_p_eqn}.
+
 \end{proof}
+\section{Resume}
+\paragraph*{}
+The Grothendieck topology can give integer theories od cohomology. For example there are 
+the described in  \cite{milne:lec}  \'etale cohomology. Here we have an integer cohomology of $C^*$-algebras.
+
+This theory provides  following analogues between the cohomology and  the $K$-theory of continuous trace $C^*$-algebras.
+\begin{itemize}
+	\item The equations 
+\bean
+H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r,\\
+\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
+\eean	
+
+	are analogical to the $K$-theoretic equation
+	$$
+K_*\left( CT\left(\sX, 0 \right)\right)\cong K^*\left( \sX\right),	
+	$$
+	\item The equation 
+	$$
+	\bigoplus_{p + q = m}\check{H}^q\left(CT\left( \sX, \delta\right) , \Z \right) \otimes_\Z \check{H}^q\left(CT\left( \sX, \rho\right) , \Z \right) \to \check{H}^m\left(CT\left( \sX, {\delta + \rho}\right) , \Z \right)
+	$$
+is analogical to the following equation	
+$$
+K_*\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_*\left( CT\left(\sX, \rho \right)\right) \to K_*\left( CT\left(\sX, \dl + \rho\right)\right).	
+	$$
+\end{itemize}
 
 
 
@@ -981,7 +1071,11 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left
 	Let $\mathscr E$, $\mathscr F$ be toposes a \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr E\xrightarrow{f_*}\mathscr F$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
 \end{definition}
 \begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
-	For any set $A$ there is a \textit{constant presheaf} $\mathscr A$ such that $\mathscr A\left( U\right) = A$ and $\rho^\sU_\sV = \Id_A$ for all $V\subset U$.
+	For any set $A$ there is a \textit{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) = A$ and $\rho^\sU_\sV = \Id_A$ for all $V\subset U$. If $X$ is the terminal object of $\mathrm{Cat}\left( \mathbf T\right)$ (cf. Definition \ref{site_defn})
+	then we use a following notation
+	\be\label{constant_presheaf_eqn}
+	A_X \bydef \mathscr P.
+	\ee
 \end{definition}
 
 \subsection{Cohomology of sheaves}\label{sheaf_cohomology_sec}\label{grothendieck_cohomology_section}
@@ -1064,11 +1158,12 @@ by the properties (a), (b) and (c).
 		\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^q\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left( B , \mathscr F \right)$ which is natural in $B$.
 	\end{enumerate}
 \end{proposition}
-\begin{notation}
-	If  $A$ is an Abelian group and $\mathscr A$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
+\begin{notation}\label{const_shef_coh_not}
+	If  $A$ is an Abelian group and $A_X$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
 	\be\label{const_shef_coh_eqn}
-	\forall n\ge 0\quad H^n\left(X, A \right) \bydef H^n\left(X, \mathscr A \right). 
+	\forall n\ge 0\quad H^n\left(X, A \right) \bydef H^n\left(X, \mathfrak{Ass} \left( A_X\right)  \right). 
 	\ee
+	where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}).
 \end{notation}
 
 \subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
@@ -1130,10 +1225,10 @@ These groups  have the following properties:
 	\item[(b)] $\check{H}^0\left(X, \mathscr I\right)$, $r > 0$, for all injective sheaves $\mathscr I$.
 \end{enumerate}
 \begin{empt}
-	For any Abelian group $A$ one can define a constant presheaf $\mathscr P$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
+	For any Abelian group $A$ one can define a constant presheaf $A_\sX$ of Abelian groups (cf. Definition \ref{constant_presheaf_defn}). 
 	We use a following notation
 	\be\label{etale_hom_a_eqn}
-	\check{H}^r\left(X,  A\right)\bydef \check{H}^r\left(X, \mathscr P\right).
+	\check{H}^r\left(X,  A\right)\bydef \check{H}^r\left(X, A_\sX\right).
 	\ee
 \end{empt}
 
@@ -1218,8 +1313,8 @@ From the Example \ref{top_gro_exm} it follows that the Definitions \ref{presheaf
 	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
 	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
 	
-\begin{exercise}
-\end{exercise}\label{sheaf_etale_open_exer}
+\begin{exercise}\label{sheaf_etale_open_exer}
+\end{exercise}
 Let $s \in \mathscr F\left(\sU\right)$ be a section. Prove following statements.
 \begin{enumerate}
 	\item The set 
@@ -1254,8 +1349,15 @@ From the Example \ref{top_gro_exm} it follows that both Definitions \ref{preshea
 \begin{remark}
 From the above lemma and the equation  \ref{chech_eqn} for each $r\ge 0$ one has a homomorphism
 $$
-\check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right) 
+\check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right).
 $$
+\end{remark}
+\begin{remark}
+If $f: \sX \to \sY$ is a continuous map and $A$ is an Abelian group then from the Remark \ref{geometric_morphism_rem} and  the Proposition \ref{spectral_sequence_prop} for any $r> 0$ there is a natural homomorphism
+\be\label{hom_f_eqn}
+H^r\left(f \right) : H^r\left(\sY, A \right) \to H^r\left(\sX, A \right)
+\ee
+where the notation \eqref{const_shef_coh_not} is used.
 \end{remark}
 \begin{empt}
 If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sX$ (cf. Definition \ref{site_defn} and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sY$. Let $A$ be a Abelian group, and let $\mathscr P_\sX$, $\mathscr P_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
@@ -1278,7 +1380,7 @@ The details of the construction of the homomorphism $\check{H}^r\left(f\right)$ 
 \be\label{cech_hom_eqn}
 \begin{split}
 \check{H}^r\left(f\right):\check{H}^r\left(\sY, A \right)\to \check{H}^r\left(\sX, A \right)\quad r \ge 0,\\
-\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, A \right)\to \check{H}^\bullet\left(\sX, A \right)
+\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, A \right)\to \check{H}^\bullet\left(\sX, A \right).
 \end{split}
 \ee
 
@@ -1291,7 +1393,7 @@ The details of the construction of the homomorphism $\check{H}^r\left(f\right)$ 
 
 
 
-\begin{empt}\cite{bryl:loop}
+\begin{empt}\label{tens_prop_c_empt}\cite{bryl:loop}
 \v{C}ech cohomology has the advantage of allowing an easy and explicit construction of a \textit{cup}-\textit{product}
 $$
 \check{H}^p\left(\mathscr U,  \mathscr F\right) \otimes \check{H}^q\left(\mathscr U,  \mathscr G\right)\to \check{H}^p\left(\mathscr U,  \mathscr F\otimes \mathscr G\right).
@@ -1301,7 +1403,7 @@ $$
 		stalk (cf. Definition \ref{stalk_defn}) at $x$ of $\mathscr F\otimes \mathscr G$ is $\mathscr F_x\otimes \mathscr G_x$ The cup-product will be defined from a 
 		morphism of complexes. We first need the notion of tensor product $A^\bullet \otimes  B^\bullet$
 		of two complexes; this is the total complex of the double complex $A^\bullet \otimes  B^\bullet$. 
-		So the degree $n$-term of$A^\bullet \otimes  B^\bullet$* is $\oplus A^p\otimes B^{n-p}$. The differential in $A^\bullet \otimes  B^\bullet$.  
+		So the degree $n$-term of$A^\bullet \otimes  B^\bullet$ is $\oplus A^p\otimes B^{n-p}$. The differential in $A^\bullet \otimes  B^\bullet$.  
 		is 
 		$$
 	d \left(a \otimes b\right)	\bydef \left(da\right)\otimes b + \left(-1\right)^p a \otimes db
@@ -1347,10 +1449,53 @@ $$
 			
 	\end{proposition}
 	\begin{empt}
-		Let $\sX$ be a topological space. If $A$ be an Abelian group then there is, a corresponding constant presheaf  $\mathscr P$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. The  corresponding to a tensor product $A \otimes_Z A \to  A$ constant presheaf is $\mathscr P\otimes \mathscr P$. If is a homomorphism $A \otimes_Z A \to  A$ then there is the natural homomorphism $\mathscr P\otimes \mathscr P\to \mathscr P$ of sheaves which induces a homomorphism
+		Let $\sX$ be a topological space. If $A$ be an Abelian group then there is, a corresponding constant presheaf  $\mathscr P$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. A  presheaf $\mathscr P\otimes \mathscr P$ on $\sX$ is a constant presheaf of a group $A \otimes_Z A$.  A homomorphism $A \otimes_Z A \to  A$ naturally yields a homomorphism $\mathscr P\otimes \mathscr P\to \mathscr P$ of sheaves which induces a homomorphism
 		$$
-		h!!!
+\phi: \check{H}^\bullet\left(\sX, \mathscr P\otimes \mathscr P \right)\to \check{H}^\bullet\left(\sX, \mathscr P \right).
 		$$
+		Using the cup product and homomorphism $\phi$ one has a map
+	$$
+	\check{H}^\bullet\left(\sX, \mathscr P \right)\otimes \check{H}^\bullet\left(\sX, \mathscr P \right) \to \check{H}^\bullet\left(\sX, \mathscr P \right).
+	$$
+	So we have proved the following.	
+	\end{empt}
+	
+	\begin{lem}
+		Let $\sX$ be a topological space. If $A$ is an Abelian group then any homomorphism $A \otimes_Z A \to  A$ yields a product
+		\bean
+		\smile: \check{H}^\bullet\left(\sX, A \right)\otimes \check{H}^\bullet\left(\sX,A \right) \to \check{H}^\bullet\left(\sX,A \right)
+		\eean
+		where the Notation \eqref{etale_hom_a_eqn} is used. So $\check{H}^\bullet\left(\sX, A \right)$ is an associative and graded-commutative ring.
+	\end{lem}
+	
+	\begin{exercise}
+	Let  $A$ be an Abelian group with a homomorphism $A \otimes_Z A \to  A$. Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, A \right)\to \check{H}^\bullet\left(\sX, A \right)$ is a homomorphism of rings.
+	\end{exercise}
+	\begin{theorem}\label{homol_tens_prod}\cite{dimca:sheaves}
+		%Theorem 2.2.6 
+		(K\"{u}nneth Formula). Let $A$ be a principal ideal domain 
+		and let $X^\bullet, Y^\bullet$ be two complexes 
+		such that $X^\bullet$ is torsion free. Then there are natural exact sequences for any 
+		integer $m \in \Z$ 
+		\bean
+		0\hookto\bigoplus_{p + q = m} H^q\left( X^\bullet\right)\otimes_A H^p\left( Y^\bullet\right)\hookto  H^m\left(X^\bullet \otimes_A Y^\bullet  \right) \to\\\to \bigoplus_{p + q = m-1} Tor_A\left( H^q\left( X^\bullet\right)\otimes H^p\left( Y^\bullet\right)\right) \to 0
+		\eean
+		
+	\end{theorem}
+	\begin{empt}
+If both $\sX$ and $\sY$ are topological; spaces and both $\mathscr{U}$, and $\mathscr{V}$ are coverings of $\sX$ and $\sY$ (cf. Definition \ref{site_defn}) then there is a natural covering $\mathscr{U}\times\mathscr{V}$ of $\sX \times \sY$.  If $\Z_\sX$ and $\Z_\sY$ are constant presheaves given by the equation \eqref{constant_presheaf_eqn} then one has
+$$
+C^\bullet \left(\mathscr{U}\times\mathscr{V}, \Z_{\sX\times\sY} \right) = C^\bullet \left(\mathscr{U}, \Z_{\sX} \right)\otimes_\Z C^\bullet \left(\mathscr{V}, \Z_{\sY} \right)
+$$
+where complexes are given by \eqref{cech_eqn} and a tensor product of complexes is explained in \ref{tens_prop_c_empt}. From the Theorem \ref{homol_tens_prod} one has an injective homomorphism
+$$
+\bigoplus_{p + q = m}\check{H}^q\left(\mathscr{U}, \Z_{\sX} \right)\otimes \check{H}^p\left( \mathscr{V}, \Z_{\sY} \right)\hookto  \check{H}^m\left((\mathscr{U}\times\mathscr{V}, \Z_{\sX\times\sY} \right).
+$$
+Using the equation \ref{chech_eqn} one has a following injective homomorphism
+\be\label{kunnet_eqn}
+\bigoplus_{p + q = m}\check{H}^q\left(\sX, \Z \right)\otimes \check{H}^p\left(\sY, \Z \right)\hookto  \check{H}^m\left(\sX\times\sY, \Z \right)
+\ee
+where the notation \eqref{etale_hom_a_eqn} is used.
 	\end{empt}
 		
 \section{$C^*$-algebras}
@@ -1358,7 +1503,6 @@ $$
 \begin{definition}\label{top_net_defn}\cite{engelking:general_topology}
 	A \textit{net in topological space} $\mathcal{ X}$ is an arbitrary function from a non-empty directed set $\La$  to the space $\mathcal{ X}$. Nets will be denoted by $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$. 
 \end{definition}
-
 
 
 
@@ -1514,6 +1658,14 @@ $$
 	A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
 	spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighborhood $\sU$ of $x_0$ and $a\in A$ such that $\rho_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$, where $\rho_{ x}: A \to B\left(\H_x\right)$ is a corresponding to $x$ irreducible representation.
 \end{definition}
+
+\begin{lemma}\label{ctr_rep_eq_lem}\cite{rae:ctr_morita}
+	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$ and for all $x \in \sX$ $\pi_x : A \to B\left(\H_x \right)$ is a corresponding  to $x$ irreducible representation.
+	\begin{itemize}
+		\item [(a)] If $a, b \in A$ and $\pi_x\left(a \right)=  \pi_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
+		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\pi_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
+	\end{itemize}
+\end{lemma}
 \begin{prop}\label{ctr_hered_prop}\cite{pedersen:ca_aut}
 	% 6.2.10. PROPOSITION. 
 	Each hereditary $C^*$-subalgebra and each quotient of a 
@@ -1521,24 +1673,67 @@ $$
 	continuous trace. 
 \end{prop}
 
-\begin{proposition}\label{ctr_bundle_prop}\cite{rae:ctr_morita}
-	%Proposition 5.59. 
-	Let $\H$ be a separable infinite-dimensional Hilbert space. If $A$
-	is a stable separable continuous-trace $C^*$-algebra with spectrum $\sX$, there is a locally
-	trivial bundle $\left( \mathscr F, \pi,\sX\right) $ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \mathscr F \right)$. 
-	%  and ?(A) is the Dixmier-Douady class ?(X) ofthe bundle discussed on page 109. Indeed, the assignment A 7? X induces a bijec-tion between the C0(T)-isomorphism classes of such algebras and the isomorphismclasses of such bundles.
+\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
+	%Proposition 9.3. 
+	Let $\H$ be a Hilbert space, and let $\K \bydef \K\left(\H \right)$  be the algebra of
+	compact operators on H. Then every irreducible *-representation of $\K$ is unitary
+	equivalent to the standard representation of $\K$ on $\sH$, and every $*$-automorphism
+	of $\K$ is given by conjugation by a unitary operator on $\H$. The *-automorphism
+	group of $K$ can be identified with the topological group $PU\bydef U/\T$ the
+	projective unitary group of $\H$, with the quotient topology from the strong operator
+	topology on $U\left(\H\right)$.
 \end{proposition}
 
 
+\begin{proposition}\label{ctr_bundle_prop}\cite{cuntz_meyer_ros:bivariant}
+	%Proposition 5.59. 
+%Theorem 9.9 
+(Dixmier–Douady). 
+Any stable separable algebra A of continuous
+trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
+$\Ga_0\left( \sX, \sF\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
+over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
+such bundles are in natural bijection with the \v{C}ech cohomology group $\check{H}^3\left(\sX, \Z \right)$.
+The 3-cohomology class $\dl\left( A\right)$  attached to (the stabilization of) a continuous-trace
+algebra A is called its Dixmier–Douady class.
+\end{proposition}
+\begin{proof}
+Principal $PU$-bundles over $\sU$ are thus classified by
+$\left[\sX, BPU\right] = \left[\sX, K\left( \Z, 3\right) \right] = H^3\left(\sX, \Z \right)$. 
+The details of the proof are presented in \cite{cuntz_meyer_ros:bivariant}.
+\end{proof}
 
-	
+\begin{proposition}\label{ctr_d_prop}\cite{cuntz_meyer_ros:bivariant}
+%Proposition 9.11 (P. Green [51,96,104]). 
+Let $\sX$ be a second-countable locally compact
+Hausdorff space, and let $A$ and $B$ be stable algebras of continuous trace over $\sX$.
+Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
+$A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
+\end{proposition}
+\begin{notation}\label{ct_not}
+	If $\sX$ is a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
+	continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX \right)$. 
+\end{notation}
+From the Proposition \ref{ctr_d_prop} it follows that
+\be\label{bundle_prod_iso}
+CT\left(\sX, \dl \right)\times_\sX CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
+\ee
+\begin{proposition}\label{ctr_cup_prop}\cite{cuntz_meyer_ros:bivariant}
+%Proposition 9.17.
+
+There are natural homomorphisms
+\bea
+K_*\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_*\left( CT\left(\sX, \rho \right)\right) \to K_*\left( CT\left(\sX, \dl + \rho\right)\right),\\
+K_*\left( CT\left(\sX, 0 \right)\right)\cong K^*\left( \sX\right). 
+\eea
+\end{proposition}
 	\end{appendices}
 			
-\section*{Acknowledgment}
+%\section*{Acknowledgment}
 
 
-\paragraph*{}
- I am grateful to my grandfather Petr who forested my mind and my grandson Petr who  watched my work.
+%\paragraph*{}
+% I am grateful to my grandfather Petr who forested my mind and my grandson Petr who  watched my work.
  
 
  
@@ -1549,9 +1744,12 @@ $$
 %\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
 %\bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
-\bibitem{bryl:loop}Jean-Luc Brylinski.\textit{Loop Spaces, Characteristic Classes and Geometric Quantization}.
+\bibitem{bryl:loop}Jean-Luc Brylinski. \textit{Loop Spaces, Characteristic Classes and Geometric Quantization}.
+\bibitem{cuntz_meyer_ros:bivariant} Joachim Cuntz, Ralf Meyer, Jonathan M. Rosenberg.
+\textit{Topological and Bivariant K-Theory}. (Oberwolfach Seminars, 36, Band 36) 2010.
 \bibitem{eust} Samuel Eilenberg, Norman E. Steenrod \textit{Foundations of Algebraic Topology}. Published by Princeton University Press 1952.
-%\bibitem{milne:etale}J.S. Milne. {\it \'Etale cohomology.} Princeton Univ. Press.  1980.
+\bibitem{dimca:sheaves} Alexandru Dimca. \textit{Sheaves in Topology} Springer Science \& Business Media, Mar 12, 2004. 
+
 \bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
 
 \bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
