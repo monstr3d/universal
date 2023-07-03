@@ -702,7 +702,7 @@ If $A$ is a continuous trace $C^*$-algebras then the spectrum $\sX$ of is a Haus
 \left.A\right|_\sU \bydef \left\{\left.a\in A~\right| \forall x \in \sX \setminus\sU\quad \pi_x\left( a\right)=0 \right\}
 \ee
 where $\pi_x: A \to B\left(\H_x\right)$ is an irreducible representation which corresponds to $x$. 
-If $A = CT\left(\sX, \dl \right)$ (cf. Notation \ref{ct_not})  then we define a presheaf $\mathscr{P}'^\dl $ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
+If $A = CT\left(\sX, \dl \right)$ (cf. Notation \ref{ctr_not})  then we define a presheaf $\mathscr{P}'^\dl $ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
 \bean
 \mathscr{P}'^\dl\left( \sU\right) \bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
 \rho_{\sU \sV}: \mathscr{P}'^\dl \left(\sU\right)\to  \mathscr{P}'^\dl \left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
@@ -813,30 +813,31 @@ where $C_x$ is a represented by $C$ stalk at $x$ (cf. Definition \ref{stalk_defn
 p_0 \circ j = \Id_{\sX}.
 \ee
 where $p^0$ is given by \eqref{p_d_eqn}.
-
 \begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) and let $F$ be an Abelian group. For all $r \ge 0$ there are isomorphisms
-\bean
+	\bean
 	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r,\\
 	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
-\eean
+	\eean
 	where  $X^r$, $\check{X}^r$ are Abelian group and the notations \eqref{a_const_shef_coh_eqn}, \eqref{const_shef_coh_eqn} are  used.
 \end{theorem}
 \begin{proof}
-From the equation \eqref{hom_f_eqn} it follows that for all $r> 0$ there are following homomorphisms:
-\bean
-H^r\left( j\right) 	: H^r\left(CT\left( \sX,0\right), F \right)\to H^r\left(\sX, F \right),\\
-H^r\left(p^0\right) 	: H^r\left(\sX, F \right)\to H^r\left(CT\left( \sX,0\right), F\right).
-\eean 
-From the equation \eqref{blowing_p_j_eqn} it turns out that
-$$
-H^r\left( j\right)\circ H^r\left( p^0\right)= \Id_{ H^r\left(\sX, F \right)}
-$$
-If $X^r \bydef \ker H^r\left( j\right)$ then from the above equations it follows that $	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r$. Similarly an application of the equation \eqref{cech_hom_eqn}  yields the following
-$$
+	From the equation \eqref{hom_f_eqn} it follows that for all $r> 0$ there are following homomorphisms:
+	\bean
+	H^r\left( j\right) 	: H^r\left(CT\left( \sX,0\right), F \right)\to H^r\left(\sX, F \right),\\
+	H^r\left(p^0\right) 	: H^r\left(\sX, F \right)\to H^r\left(CT\left( \sX,0\right), F\right).
+	\eean 
+	From the equation \eqref{blowing_p_j_eqn} it turns out that
+	$$
+	H^r\left( j\right)\circ H^r\left( p^0\right)= \Id_{ H^r\left(\sX, F \right)}
+	$$
+	If $X^r \bydef \ker H^r\left( j\right)$ then from the above equations it follows that $	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r$. Similarly an application of the equation \eqref{cech_hom_eqn}  yields the following
+	$$
 	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r.
-$$
-
+	$$
+	
 \end{proof}
+
+
 If  $A = CT\left( \sX,0\right)$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ then from the Proposition \ref{ctr_bundle_prop}
 it follows that  there is a locally
 trivial bundle $\pi_\dl: \F_\dl\to \sX$ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F_\dl$ as a set equals to a union 
@@ -883,22 +884,43 @@ From \eqref{big_iso_eqn} one can deduce an isomorphism of sheaves
 \be\label{litle_iso_eqn}
 \mathscr G^\delta\times_\sX \mathscr G^\rho \cong \mathscr G^{\dl+\rho}
 \ee
-From the above equation it follows that there is a continuous map
-$$
-\psi : \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right) \to \mathrm{Sp\acute{e}}\left(\mathscr G^\delta \right) \times \mathrm{Sp\acute{e}}\left(\mathscr G^\rho \right),
-$$
-and taking into account \eqref{cech_hom_eqn}, \eqref{kunnet_eqn} one has a homomorphism.
-\be\label{hh_p_eqn}
-\bigoplus_{p + q = m}\check{H}^q\left(\mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right),\Z\right) \otimes_\Z \check{H}^p\left(\mathrm{Sp\acute{e}}\left(\mathscr G^\rho  \right),\Z\right)\to \check{H}^m\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta+\rho}  \right),\Z\right) 
+From the above equation it follows that there are continuous maps
+\bean 
+\mathrm{pr}_1: \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right),\\
+\mathrm{pr}_2: \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right),\\
+\mathrm{pr}_1^\sX : \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right)\to \sX,\\
+\mathrm{pr}_2^\sX : \mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right)\to \sX
+\eean
+such that $\mathrm{pr}_1^\sX \circ \mathrm{pr}_1=\mathrm{pr}_2^\sX \circ \mathrm{pr}_2$.
+If $F$ is an Abelian group with a linear map $F\ox_\Z F \to F$ then ane can define pa pairing
+\be\label{cross_eqn}
+\begin{split}
+\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right) \times  \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{ \rho} \right) , F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\dl+ \rho} \right) , F \right).\\
+(\a, \bt) \mapsto \check{H}^\bullet\left( \mathrm{pr}_1\right) \left( \a\right) \smile \check{H}^\bullet\left( \mathrm{pr}_2\right) \left( \bt\right)
+\end{split}
 \ee
-where $\times$ means a product of topological space.
+where $\smile$ is a cup product (cf. \ref{tens_prop_c_empt}). Both maps \bean
+\check{H}^\bullet\left( \mathrm{pr}^\sX_1\right): \check{H}^\bullet\left(\sX, F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right),\\
+\check{H}^\bullet\left( \mathrm{pr}^\sX_2\right): \check{H}^\bullet\left(\sX, F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right) , F\right)
+\eean 
+are homomorphisms of rings. so both $\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right)$ and $  \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{ \rho} \right) , F \right)$ are $\check{H}^\bullet\left(\sX, F \right)$- bimodules. From $\mathrm{pr}_1^\sX \circ \mathrm{pr}_1=\mathrm{pr}_2^\sX \circ \mathrm{pr}_2$ and the Proposition \ref{cup_ass_prop} it follows that
+\be\label{cross_r_eqn}
+\begin{split}
+\check{H}^\bullet\left( \mathrm{pr}_1\right) \left( \a\right)\smile \check{H}^\bullet\left( \mathrm{pr}_2\right)\left(  \check{H}^\bullet\left(\mathrm{pr}^\sX_2\right) \left( \ga\right)\smile   \bt\right)=\\=
+\check{H}^\bullet\left( \mathrm{pr}_1\right) \left( \a\smile \check{H}^\bullet\left(\mathrm{pr}^\sX_1\right) \left( \ga\right)\right)\smile \check{H}^\bullet\left( \mathrm{pr}_2\right)\left(     \bt\right)\end{split}
+\ee
+where $\a \in \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\dl } \right), F\right) $, $\bt \in \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right), F\right) $ and $\ga\in \check{H}^\bullet(\sX, F)$ From \eqref{cross_r_eqn} it follows that the pairing \eqref{cross_eqn} yields a homomorphism
+\be\label{hh_p_eqn}
+\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right) , F\right) \otimes_{\check{H}^\bullet\left(\sX, F \right)} \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{ \rho} \right) , F \right) \to \check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\mathscr G^{\dl+ \rho} \right) , F \right)
+\ee
+of $\check{H}^\bullet\left(\sX, F \right)$- bimodules
 \end{empt}
 
-\begin{theorem} If $CT\left( \sX, \delta\right)$ is given by the Notation \ref{ct_not} $C^*$-algebra then for all $m \ge 0$ one has a following homomorphism
+\begin{theorem} If $CT\left( \sX, \delta\right)$ is given by the Notation \ref{ctr_not} $C^*$-algebra then  one has a following homomorphism
 \bea
-\bigoplus_{p + q = m}\check{H}^q\left(CT\left( \sX, \delta\right) , \Z \right) \otimes_\Z \check{H}^q\left(CT\left( \sX, \rho\right) , \Z \right) \to \check{H}^m\left(CT\left( \sX, {\delta + \rho}\right) , \Z \right).
+\check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, Z\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right)
 \eea
-
+of $\check{H}^\bullet\left(\sX, F \right)$- bimodules.
 \end{theorem}
 \begin{proof}
 Firstly construct a map $\phi: \mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right)\to \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$. Any $y \in \mathrm{Sp\acute{e}}\left(\mathscr G^\delta  \right)$ can be represented by an open set $\sU\subset\sX$ and an element $a \in CT\left( \sX, \delta\right)$ such that
@@ -943,8 +965,7 @@ K_*\left( CT\left(\sX, 0 \right)\right)\cong K^*\left( \sX\right),
 	$$
 	\item The equation 
 	$$
-	\bigoplus_{p + q = m}\check{H}^q\left(CT\left( \sX, \delta\right) , \Z \right) \otimes_\Z \check{H}^q\left(CT\left( \sX, \rho\right) , \Z \right) \to \check{H}^m\left(CT\left( \sX, {\delta + \rho}\right) , \Z \right)
-	$$
+\check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, Z\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right)	$$
 is analogical to the following equation	
 $$
 K_*\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_*\left( CT\left(\sX, \rho \right)\right) \to K_*\left( CT\left(\sX, \dl + \rho\right)\right).	
@@ -1432,7 +1453,7 @@ $$
 		$$
 			The cup-product has the following properties. 
 		\end{empt}
-		\begin{proposition}\cite{bryl:loop}
+		\begin{proposition}\label{cup_ass_prop}\cite{bryl:loop} Following conditions hold.
 		%	1.3.7. Proposition. 
 		\begin{enumerate}
 			\item[(i)] The cup-product is associative, i.e., for $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, $\ga \in \check{H}^r\left(\mathscr U,  \mathscr H\right)$
@@ -1710,7 +1731,7 @@ Hausdorff space, and let $A$ and $B$ be stable algebras of continuous trace over
 Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
 $A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
 \end{proposition}
-\begin{notation}\label{ct_not}
+\begin{notation}\label{ctr_not}
 	If $\sX$ is a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
 	continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX \right)$. 
 \end{notation}
