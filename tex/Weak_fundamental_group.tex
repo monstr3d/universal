@@ -1,334 +1,933 @@
-\documentclass{beamer}
-\usepackage{amsmath,amssymb,amsthm,slashed, euscript}
+\documentclass[10]{article}
+%\documentclass[11pt]{book}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
+\usepackage{graphicx}
+\usepackage[toc,page]{appendix}
+\usepackage{nicefrac}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+\usepackage{amssymb, euscript}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+
+%\usepackage{mathtools}
+
+\usetikzlibrary{matrix}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,cite}
+\usepackage{graphicx}
+
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+
+
+\usepackage[sc]{mathpazo}
+\usepackage{environ}
+
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+
+%\usepackage[usenames]{color}
 
 
 
-\textwidth=110mm
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{1.8 <-> pzcmi8t}{}
+\DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+% the command for it is \mathpzc
+
+\textwidth=140mm
 
 
-\title{Weak fundamental group}
-\institute
-{
-Algebras in analysis
-}
-
-\author{Petr R. Ivankov  }
-
-
-
+% % % % % % % % % % % % % % % % % % % %
 \theoremstyle{plain}
-\newtheorem{defn}{Definition}
-\newtheorem{rem}{Remark}
-\newtheorem{exm}{Example}
-\newtheorem*{claim}{Claim}
-\newtheorem{prop}{Proposition}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{prdf}[prop]{Proposition and Definition}
+\newtheorem{lem}[prop]{Lemma}%[section]
+\newtheorem{cor}[prop]{Corollary}%[section]
+\newtheorem{thm}[prop]{Theorem}%[section]
+\newtheorem{theorem}[prop]{Theorem}
+\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{proposition}[prop]{Proposition}
+\newtheorem{corollary}[prop]{Corollary}
+\newtheorem{statement}[prop]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}%[section]
+\newtheorem{cordefn}[prop]{Corollary and Definition}%[section]
 \newtheorem{empt}[prop]{}%[section]
-\newtheorem{lem}{Lemma}%[section]
-\newtheorem{thm}{Theorem}%[section]
+\newtheorem{exm}[prop]{Example}%[section]
+\newtheorem{rem}[prop]{Remark}%[section]
+\newtheorem{prob}[prop]{Problem}
+\newtheorem{conj}{Conjecture}       %% Hypothesis 1
+\newtheorem{cond}{Condition}        %% Condition 1
+%\newtheorem{axiom}[thm]{Axiom}           %% Axiom 1 modified
+\newtheorem{fact}[prop]{Fact}
+\newtheorem{ques}{Question}         %% Question 1
+\newtheorem{answ}{Answer}           %% Answer 1
+\newtheorem{notn}{Notation}        %% Notations are not numbered
+
+\theoremstyle{definition}
+\newtheorem{notation}[prop]{Notation}
+\newtheorem{definition}[prop]{Definition}
+\newtheorem{example}[prop]{Example}
+\newtheorem{exercise}[prop]{Exercise}
+\newtheorem{conclusion}[prop]{Conclusion}
+\newtheorem{conjecture}[prop]{Conjecture}
+\newtheorem{criterion}[prop]{Criterion}
+\newtheorem{summary}[prop]{Summary}
+\newtheorem{axiom}[prop]{Axiom}
+\newtheorem{problem}[prop]{Problem}
+%\theoremstyle{remark}
+\newtheorem{remark}[prop]{Remark}
+
+\numberwithin{equation}{section}
+\newtheorem*{claim}{Claim}
+\DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
+\newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
 
 
-
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\be}{\begin{equation}}
-\newcommand{\ee}{\end{equation}}
-\newcommand{\Ga}{\Gamma}
-\newcommand{\B}{\mathcal{B}}
-\newcommand{\Cc}{\mathcal{C}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\D}{\mathcal{D}}
-\newcommand{\G}{\mathcal{G}}
-\newcommand{\Hc}{\mathcal{H}}
-\newcommand{\Lc}{\mathcal{L}}
-\newcommand{\Pc}{\mathcal{P}}
-\newcommand{\Sc}{\mathcal{S}}
-\newcommand{\U}{\mathcal{U}}
-\newcommand{\rar}{\rightarrow}
-\newcommand{\Ef}{\mathbb{E}}
-\newcommand{\desc}{\mathfrak{desc}}
+%\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+		\right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\Ga}{\Gamma}  
+\newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
+\newcommand{\Coo}{C^\infty}                  %% smooth functions
+% % % % % % % % % % % % % % % % % % % %
 
 
-%Uppercase Gothic characters
-\newcommand{\gtA}{\mathfrak{A}}
-\newcommand{\gtB}{\mathfrak{B}}
-\newcommand{\gtM}{\mathfrak{M}}
-\newcommand{\gtN}{\mathfrak{N}}
-\newcommand{\gtP}{\mathfrak{P}}
-\newcommand{\gtS}{\mathfrak{S}}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
 
-%Lowercase Gothic characters
-\newcommand{\gtf}{\mathfrak{f}}
-\newcommand{\gtg}{\mathfrak{g}}
+\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle\int$}
+\setbox\ncintdbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.125em \box2\relax\hfil}}\box0\kern.1em}
+\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+\setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
 
-%Bold Characters
-\newcommand{\Cb}{\mathbb{C}}
-\newcommand{\Nb}{\mathbb{N}}
-\newcommand{\Rb}{\mathbb{R}}
-\newcommand{\Zb}{\mathbb{Z}}
+\newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
+		{\copy\ncinttbox}{\copy\ncinttbox}%
+		{\copy\ncinttbox}}\nolimits}  %% NC integral
 
-%Uppercase Greek characters
-\newcommand{\Gm}{\Gamma}
-\newcommand{\Te}{\Theta}
-\newcommand{\Om}{\Omega}
-\newcommand{\s}{ }
-
-%Lowercase Greek characters
-\newcommand{\al}{\alpha}
-\newcommand{\gm}{\gamma}
-\newcommand{\dl}{\delta}
-\newcommand{\sg}{\sigma}
-\newcommand{\ph}{\varphi}
-\newcommand{\te}{\theta}
-\newcommand{\ze}{\zeta}
+%%% Repeated relations:
+\newcommand{\xyx}{\times\cdots\times}      %% repeated product
+\newcommand{\opyop}{\oplus\cdots\oplus}    %% repeated direct sum
+\newcommand{\oxyox}{\otimes\cdots\otimes}  %% repeated tensor product
+\newcommand{\wyw}{\wedge\cdots\wedge}      %% repeated exterior product
+\newcommand{\subysub}{\subset\hdots\subset}      %% repeated subset
+\newcommand{\supysup}{\supset\hdots\supset}      %% repeated supset
+\newcommand{\rep}{\mathfrak{rep}}
 \newcommand{\lift}{\mathfrak{lift}}
+\newcommand{\desc}{\mathfrak{desc}}
+%%% Roman letters:
+\newcommand{\id}{\mathrm{id}}                %% identity map
+\newcommand{\Id}{\mathrm{Id}}                %% identity map
+\newcommand{\pt}{\mathrm{pt}}                %% a point
+\newcommand{\const}{\mathrm{const}}          %% a constant
+\newcommand{\codim}{\mathrm{codim}}          %% codimension
+\newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
+\renewcommand{\d}{\mathrm{d}}       %% commutative differential
+\newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
+\newcommand{\proj}{\mathrm{proj}}                %% a projection
 
-\newcommand{\Id}{\mathrm{Id}}
-\newcommand{\Aut}{\mathrm{Aut}}
-\newcommand{\Coo}{{\mathrm{C}}^\infty}
-\newcommand{\alg}{\mathrm{alg}}
-\newcommand{\diag}{\mathrm{diag}}
-\newcommand{\spinc}{\textbf{$spin^c$}}
-\newcommand{\Hom}{\mathrm{Hom}}
-\newcommand{\supp}{\mathrm{supp}}
-\newcommand{\Ccl}{\mathbf{C}l}
-\newcommand{\xto}{\xrightarrow}
 
-\newcommand{\lto}{\longrightarrow}
-\newcommand{\ox}{\otimes}
-\newcommand{\nb}{\nabla}
-\newcommand{\sS}{\mathcal{S}}
-\newcommand{\Dn}{D\!\!\!\!/}
-%\newcommand{\ij}{{i,j}}
-\newcommand{\aC}{\ensuremath{\underline{\Cb}} }
-\newcommand{\scp}[2]{\left\langle{#1},{#2}\right\rangle}
-\newcommand{\op}[1]{J{#1}J^\dag}
-\newcommand{\sA}{\mathcal{A}} 
-\newcommand{\sB}{\mathcal{B}}       %%
-\newcommand{\sC}{\mathcal{C}}       %%
-\newcommand{\sD}{\mathcal{D}}       %%
-\newcommand{\sE}{\mathcal{E}}       %%
-\newcommand{\sF}{\mathcal{F}}       %%
-\newcommand{\sG}{\mathcal{G}}       %%
-\newcommand{\sH}{\mathcal{H}}       %%
-\newcommand{\sI}{\mathcal{I}}       %%
-\newcommand{\sJ}{\mathcal{J}}       %%
-\newcommand{\sK}{\mathcal{K}}       %%
-\newcommand{\sL}{\mathcal{L}}       %%
-\newcommand{\sM}{\mathcal{M}}       %%
-\newcommand{\sN}{\mathcal{N}}       %%
-\newcommand{\sO}{\mathcal{O}}       %%
-\newcommand{\sP}{\mathcal{P}}       %%
-\newcommand{\sQ}{\mathcal{Q}}       %%
-\newcommand{\sR}{\mathcal{R}}       %%
-\newcommand{\sT}{\mathcal{T}}       %%
-\newcommand{\sU}{\mathcal{U}}       %%
-\newcommand{\sV}{\mathcal{V}}       %%
-\newcommand{\sX}{\mathcal{X}}       %%
-\newcommand{\sY}{\mathcal{Y}}       %%
-\newcommand{\sZ}{\mathcal{Z}}       %%
-\newcommand{\N}{\mathbb{N}}                  %% 
 
-\renewcommand{\a}{\alpha}     
-\newcommand{\la}{\lambda}     
-\newcommand{\La}{\Lambda}
-\newcommand{\bt}{\beta}           %% short for  \beta
- 
-    
-\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}  
+\newcommand*{\Mult}{\mathcal M}% multiplier algebra
+
+\newcommand{\A}{\mathcal{A}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
+\newcommand{\units}{G^{(0)}}
+\newcommand{\haars}{\{\lambda^{u}\}_{u\in\units}}
+\newcommand{\shaars}{\{\lambda_{u}\}_{u\in\units}}
+\newcommand{\haarsv}[2]{\{\lambda^{#2}_{#1}\}_{#2\in\unitsv{#1}}}
+\newcommand{\haarv}[2]{\lambda^{#2}_{#1}}
+
+\renewcommand{\a}{\alpha}                    %% short for  \alphapha
+\DeclareMathOperator{\ad}{ad}                %% infml adjoint repn
+\newcommand{\as}{\quad\mbox{as}\enspace}     %% `as' with spacing
+\newcommand{\Aun}{\widetilde{\mathcal{A}}}   %% unital algebra
+\newcommand{\B}{\mathcal{B}}                 %% space of distributions
+\newcommand{\E}{\mathcal{E}}                 %% space of distributions
+\renewcommand{\b}{\beta}                     %% short for \beta
+\newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
+\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
+\newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\CC}{\mathcal{C}}                %% space of distributions
+\newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
+\DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
+\newcommand{\F}{\mathcal{F}}                 %% space of test functions
+\newcommand{\G}{\mathcal{G}}                 %% 
+\newcommand{\D}{\mathcal{D}}                 %% Moyal L^2-filtration
+\renewcommand{\H}{\mathcal{H}}               %% Hilbert space
+\newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
+\newcommand{\hh}{\mathcal{H}}                %% Hilbert space
 \newcommand{\hookto}{\hookrightarrow}        %% abbreviation
-  
-\begin{document}
-%\titlepage
-\begin{frame}
-  \titlepage
-\end{frame}
-\begin{frame}
-\begin{definition}\label{top_weakly_semi1_defn}\alert{Petr Ivankov.}
-		An open connected subset $\sU\subset \sX$ of a topological space is said to be \alert{semilocally proper} it is evenly covered by any covering $p:\widetilde{\sX}\to\sX$, i.e. $p^{-1}\left(\sU \right)$ is a disjoint union of homeomorphic to $\sU$ sets. 
-A space $\sX$ is said to be \alert{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighborhood.
-\end{definition} 
-\begin{example}
-	Any connected, path connected, locally path connected, semilocally 1-connected   space is weakly semilocally 1-connected.
-\end{example}
-
-\end{frame}
-
-\begin{frame}
-	\begin{definition}\label{top_weak_path_defn}\alert{Petr Ivankov.}
-		Let $\sX$ be a topological space.	A \alert{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \alert{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for all $j = 1,..., n$.
-	\end{definition}
-		There is an involution * on the set of paths such that
-\be\label{top_path_inv_eqn}
-\left(\sU_{1},...,\sU_{n}\right)^*\bydef \left(\sU_{n},...,\sU_{1}\right).
-\ee
-\begin{definition}\label{top_path_comp_defn}\alert{Petr Ivankov.}
-	If both $\mathfrak p'=\left(\sU'_{1},...,\sU'_{k}\right)$ and $\mathfrak p''=\left(\sU''_{1},...,\sU_{l}''\right)$ are paths such that $\sU'_{k} \cap \sU''_{1}\neq\emptyset$ then we say that a pair $\left( \mathfrak p', \mathfrak p''\right)$ is \alert{composable}, and the path $\mathfrak p=\left(\sU'_{1},...,\sU'_{k},\sU''_{_1},...,\sU_{l}'' \right)$  is said to be the \alert{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
-\be\label{top_path_comp_eqn}
-\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
-\ee
-\end{definition}
+\newcommand{\Ht}{{\widetilde{\mathcal{H}}}}  %% Hilbert space of forms
+\newcommand{\I}{\mathcal{I}}                 %% tracelike functions
+\DeclareMathOperator{\Junk}{Junk}            %% the junk DGA ideal
+\newcommand{\K}{\mathcal{K}}                 %% compact operators
+\newcommand{\ket}[1]{|#1\rangle}             %% ket vector
+\newcommand{\ketbra}[2]{|#1\rangle\langle#2|} %% rank one operator
+\renewcommand{\L}{\mathcal{L}}               %% operator algebra
+\newcommand{\La}{\Lambda}                    %% short for \Lambda
+\newcommand{\la}{\lambda}                    %% short for \lambda
+\newcommand{\lf}{L_f^\theta}                 %% left mult operator
+\newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
+\newcommand{\mm}{\mathcal{M}^\theta}
+%\newcommand{{{\star_{\theta}}}{{\mathchoice{\mathbin{\;|\;ar_{_\theta}}}
+			%            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
+			%            {{\;|\;ar_\theta}}{{\;|\;ar_\theta}}}}    %% product
+	\newcommand{\N}{\mathbb{N}}                  %% nonnegative integers
+	\newcommand{\NN}{\mathcal{N}}                %% a Moyal algebra
+	\newcommand{\nb}{\nabla}                     %% gradient
+	\newcommand{\Oh}{\mathcal{O}}                %% comm multiplier alg
+	\newcommand{\om}{\omega}                     %% short for \omega
+	\newcommand{\opp}{{\mathrm{op}}}             %% opposite algebra
+	\newcommand{\ox}{\otimes}                    %% tensor product
+	\newcommand{\eps}{\varepsilon}                    %% tensor product
+	\newcommand{\otimesyox}{\otimes\cdots\otimes}    %% repeated tensor product
+	\newcommand{\pa}{\partial}                   %% short for \partial
+	\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}%% partial derivative
+	\newcommand{\piso}[1]{\lfloor#1\rfloor}      %% integer part
+	\newcommand{\PsiDO}{\Psi~\mathrm{DO}}         %% pseudodiffl operators
+	\newcommand{\Q}{\mathbb{Q}}                  %% rational numbers
+	\newcommand{\R}{\mathbb{R}}                  %% real numbers
+	\newcommand{\rdl}{R_\Dslash(\lambda)}        %% resolvent
+	\newcommand{\roundbraket}[2]{(#1\mathbin|#2)} %% (w|z)
+	\newcommand{\row}[3]{{#1}_{#2},\dots,{#1}_{#3}} %% list: a_1,...,a_n
+	\newcommand{\sepword}[1]{\quad\mbox{#1}\quad} %% well-spaced words
+	\newcommand{\set}[1]{\{\,#1\,\}}             %% set notation
+	\newcommand{\Sf}{\mathbb{S}}                 %% sphere
+	\newcommand{\uhor}[1]{\Omega^1_{hor}#1}
+	\newcommand{\sco}[1]{{\sp{(#1)}}}
+	\newcommand{\sw}[1]{{\sb{(#1)}}}
+	\DeclareMathOperator{\spec}{sp}              %% spectrum
+	\renewcommand{\SS}{\mathcal{S}}              %% Schwartz space
+	\newcommand{\sss}{\mathcal{S}}               %% Schwartz space
+	\DeclareMathOperator{\supp}{\mathfrak{supp}}            %% support
+	\newcommand{\T}{\mathbb{T}}                  %% circle as a group
+	\renewcommand{\th}{\theta}                   %% short for \theta
+	\newcommand{\thalf}{\tfrac{1}{2}}            %% small* fraction 1/2
+	\newcommand{\tihalf}{\tfrac{i}{2}}           %% small* fraction i/2
+	\newcommand{\tpi}{{\tilde\pi}}               %% extended representation
+	\DeclareMathOperator{\Tr}{Tr}                %% trace of operator
+	\DeclareMathOperator{\tr}{tr}                %% trace of matrix
+	\newcommand{\del}{\partial}                  %% short for  \partial
+	\DeclareMathOperator{\tsum}{{\textstyle\sum}} %% small sum in display
+	\newcommand{\V}{\mathcal{V}}                 %% test function space
+	\newcommand{\vac}{\ket{0}}                   %% vacuum ket vector
+	\newcommand{\vf}{\varphi}                    %% scalar field
+	\newcommand{\w}{\wedge}                      %% exterior product
+	\DeclareMathOperator{\wres}{wres}            %% density of Wresidue
+	\newcommand{\x}{\times}                      %% cross
+	\newcommand{\Z}{\mathbb{Z}}                  %% integers
+	\newcommand{\7}{\dagger}                     %% short for + symbol
+	\newcommand{\8}{\bullet}                     %% anonymous degree
+	\renewcommand{\.}{\cdot}                     %% anonymous variable
+	\renewcommand{\:}{\colon}                    %% colon in  f: A -> B
 	
-\end{frame}
-\begin{frame} \alert{Petr Ivankov.}
+	%\newcommand{\sA}{\mathscr{A}}       %%
+	\newcommand{\sA}{\mathcal{A}} 
+	\newcommand{\sB}{\mathcal{B}}       %%
+	\newcommand{\sC}{\mathcal{C}}       %%
+	\newcommand{\sD}{\mathcal{D}}       %%
+	\newcommand{\sE}{\mathcal{E}}       %%
+	\newcommand{\sF}{\mathcal{F}}       %%
+	\newcommand{\sG}{\mathcal{G}}       %%
+	\newcommand{\sH}{\mathcal{H}}       %%
+	\newcommand{\sI}{\mathcal{I}}       %%
+	\newcommand{\sJ}{\mathcal{J}}       %%
+	\newcommand{\sK}{\mathcal{K}}       %%
+	\newcommand{\sL}{\mathcal{L}}       %%
+	\newcommand{\sM}{\mathcal{M}}       %%
+	\newcommand{\sN}{\mathcal{N}}       %%
+	\newcommand{\sO}{\mathcal{O}}       %%
+	\newcommand{\sP}{\mathcal{P}}       %%
+	\newcommand{\sQ}{\mathcal{Q}}       %%
+	\newcommand{\sR}{\mathcal{R}}       %%
+	\newcommand{\sS}{\mathcal{S}}       %%
+	\newcommand{\sT}{\mathcal{T}}       %%
+	\newcommand{\sU}{\mathcal{U}}       %%
+	\newcommand{\sV}{\mathcal{V}}       %%
+	\newcommand{\sX}{\mathcal{X}}       %%
+	\newcommand{\sY}{\mathcal{Y}}       %%
+	\newcommand{\sZ}{\mathcal{Z}}       %%
 	
-		The composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
-	\be\label{top_path_ass_eqn}
-	\left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
-	\ee 
-	If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef \left(\widetilde\sU_1, ..., \widetilde\sU_n\right)$ is weak path on $\widetilde\sX$ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \widetilde\sU_n\right) \right)$ is a weak path on $\sX$.
-		\begin{definition}\label{top_path_desc_defn}
-		In the above situation we say that $\mathfrak p$ is a $p$-\alert{descent} of $\widetilde{\mathfrak p}$. We write
-		\be\label{top_path_desc_eqn}
-		\mathfrak p\bydef \desc_p\left( \widetilde{\mathfrak p}\right). 
+	\newcommand{\Om}{\Omega}       %%
+	
+	
+	\DeclareMathOperator{\ptr}{ptr}     %% Poisson trace
+	\DeclareMathOperator{\Trw}{Tr_\omega} %% Dixmier trace
+	\DeclareMathOperator{\vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Area}{Area}   %% area of a surface
+	\DeclareMathOperator{\Wres}{Wres}   %% (Wodzicki) residue
+	
+	\newcommand{\dd}[1]{\frac{\partial}{\partial#1}}   %% partial derivation
+	\newcommand{\ddt}[1]{\frac{d}{d#1}}                %% derivative
+	\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
+	\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
+	
+	\newcommand{\bA}{\mathbb{A}}       %%
+	\newcommand{\bB}{\mathbb{B}}       %%
+	\newcommand{\bC}{\mathbb{C}}       %%
+	\newcommand{\bCP}{\mathbb{C}P}     %%
+	\newcommand{\bD}{\mathbb{D}}       %%
+	\newcommand{\bE}{\mathbb{E}}       %%
+	\newcommand{\bF}{\mathbb{F}}       %%
+	\newcommand{\bG}{\mathbb{G}}       %%
+	\newcommand{\bH}{\mathbb{H}}       %%
+	\newcommand{\bHP}{\mathbb{H}P}     %%
+	\newcommand{\bI}{\mathbb{I}}       %%
+	\newcommand{\bJ}{\mathbb{J}}       %%
+	\newcommand{\bK}{\mathbb{K}}       %%
+	\newcommand{\bL}{\mathbb{L}}       %%
+	\newcommand{\bM}{\mathbb{M}}       %%
+	\newcommand{\bN}{\mathbb{N}}       %%
+	\newcommand{\bO}{\mathbb{O}}       %%
+	\newcommand{\bOP}{\mathbb{O}P}     %%
+	\newcommand{\bP}{\mathbb{P}}       %%
+	\newcommand{\bQ}{\mathbb{Q}}       %%
+	\newcommand{\bR}{\mathbb{R}}       %%
+	\newcommand{\bRP}{\mathbb{R}P}     %%
+	\newcommand{\bS}{\mathbb{S}}       %%
+	\newcommand{\bT}{\mathbb{T}}       %%
+	\newcommand{\bU}{\mathbb{U}}       %%
+	\newcommand{\bV}{\mathbb{V}}       %%
+	\newcommand{\bX}{\mathbb{X}}       %%
+	\newcommand{\bY}{\mathbb{Y}}       %%
+	\newcommand{\bZ}{\mathbb{Z}}       %%
+	
+	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
+	
+	
+	\newcommand{\al}{\alpha}          %% short for  \alpha
+	\newcommand{\bt}{\beta}           %% short for  \beta
+	\newcommand{\Dl}{\Delta}          %% short for  \Delta
+	\newcommand{\dl}{\delta}          %% short for  \delta
+	\newcommand{\ga}{\gamma}          %% short for  \gamma
+	\newcommand{\ka}{\kappa}          %% short for  \kappa
+	\newcommand{\sg}{\sigma}          %% short for  \sigma
+	\newcommand{\Sg}{\Sigma}          %% short for  \Sigma
+	\newcommand{\Th}{\Theta}          %% short for  \Theta
+	\renewcommand{\th}{\theta}        %% short for  \theta
+	\newcommand{\vth}{\vartheta}      %% short for  \vartheta
+	\newcommand{\ze}{\zeta}           %% short for  \zeta
+	
+	\DeclareMathOperator{\ord}{ord}     %% order of a PsiDO
+	\DeclareMathOperator{\rank}{rank}   %% rank of a vector bundle
+	\DeclareMathOperator{\sign}{sign}   %%
+	\DeclareMathOperator{\sgn}{sgn}   %%
+	\DeclareMathOperator{\chr}{char}   %%
+	\DeclareMathOperator{\ev}{ev}       %% evaluation
+	
+	
+	\newcommand{\Op}{\mathbf{Op}}
+	\newcommand{\As}{\mathbf{As}}
+	\newcommand{\Com}{\mathbf{Com}}
+	\newcommand{\LLie}{\mathbf{Lie}}
+	\newcommand{\Leib}{\mathbf{Leib}}
+	\newcommand{\Zinb}{\mathbf{Zinb}}
+	\newcommand{\Poiss}{\mathbf{Poiss}}
+	
+	\newcommand{\gX}{\mathfrak{X}}      %% vector fields
+	\newcommand{\sol}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gm}{\mathfrak{m}}      %% maximal ideal
+	
+	
+	\DeclareMathOperator{\Res}{Res}
+	\DeclareMathOperator{\NCRes}{NCRes}
+	\DeclareMathOperator{\Ind}{Ind}
+	%% co/homology theories
+	\DeclareMathOperator{\rH}{H}        %% any co/homology
+	\DeclareMathOperator{\rC}{C}        %%  any co/chains
+	\DeclareMathOperator{\rZ}{Z}        %% cycles
+	\DeclareMathOperator{\rB}{B}        %% boundaries
+	\DeclareMathOperator{\rF}{F}        %% filtration
+	\DeclareMathOperator{\Gr}{gr}        %% associated graded object
+	\DeclareMathOperator{\rHc}{H_{\mathrm{c}}}   %% co/homology with compact support
+	\DeclareMathOperator{\drH}{H_{\mathrm{dR}}}  %% de Rham co/homology
+	\DeclareMathOperator{\cechH}{\check{H}}    %% Cech co/homology
+	\DeclareMathOperator{\rK}{K}        %% K-groups
+	\DeclareMathOperator{\rKO}{KO}        %% real K-groups
+	\DeclareMathOperator{\rKU}{KU}        %% unitary K-groups
+	\DeclareMathOperator{\rKSp}{KSp}        %% symplectic K-groups
+	\DeclareMathOperator{\rR}{R}        %% representation ring
+	\DeclareMathOperator{\rI}{I}        %% augmentation ideal
+	\DeclareMathOperator{\HH}{HH}       %% Hochschild co/homology
+	\DeclareMathOperator{\HC}{HC}       %% cyclic co/homology
+	\DeclareMathOperator{\HP}{HP}       %% periodic cyclic co/homology
+	\DeclareMathOperator{\HN}{HN}       %% negative cyclic co/homology
+	\DeclareMathOperator{\HL}{HL}       %% Leibniz co/homology
+	\DeclareMathOperator{\KK}{KK}       %% KK-theory
+	\DeclareMathOperator{\KKK}{\mathbf{KK}}       %% KK-theory as a category
+	\DeclareMathOperator{\Ell}{Ell}       %% Abstract elliptic operators
+	\DeclareMathOperator{\cd}{cd}       %% cohomological dimension
+	\DeclareMathOperator{\spn}{span}       %% span
+	\DeclareMathOperator{\linspan}{span} %% linear span (can't use \span)
+	\newcommand{\blank}{-}   
+	
+	
+	
+	\newcommand{\twobytwo}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+	\newcommand{\CGq}[6]{C_q\!\begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+	%% q-Clebsch--Gordan coefficients
+	\newcommand{\cz}{{\bullet}}         %% anonymous degree
+	\newcommand{\nic}{{\vphantom{\dagger}}} %% invisible dagger
+	\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
+	\newcommand{\downto}{\downarrow}    %% right hand limit
+	\newcommand{\isom}{\cong}          %% isomorphism
+	\newcommand{\lt}{\triangleright}    %% a left action
+	\newcommand{\otto}{\leftrightarrow} %% bijection
+	\newcommand{\rt}{\triangleleft}     %% a right action
+	\newcommand{\semi}{\rtimes}         %% crossed product
+	\newcommand{\tensor}{\otimes}       %% tensor product
+	\newcommand{\cotensor}{\square}       %% cotensor product
+	\newcommand{\trans}{\pitchfork}     %% transverse
+	\newcommand{\ul}{\underline}        %% for sheaves
+	\newcommand{\upto}{\uparrow}        %% left hand limit
+	\renewcommand{\:}{\colon}           %% colon in  f: A -> B
+	\newcommand{\blt}{\ast}
+	\newcommand{\Co}{C_{\bullet}}
+	\newcommand{\cCo}{C^{\bullet}}
+	\newcommand{\nbs}{\nabla^S}         %% spin connection
+	\newcommand{\up}{{\mathord{\uparrow}}} %% `up' spinors
+	\newcommand{\dn}{{\mathord{\downarrow}}} %% `down' spinors
+	\newcommand{\updn}{{\mathord{\updownarrow}}} %% up or down
+	
+	%%% Bilinear enclosures:
+	
+	\newcommand{\bbraket}[2]{\langle\!\langle#1\stroke#2\rangle\!\rangle}
+	%% <<w|z>>
+	\newcommand{\bracket}[2]{\langle#1,\, #2\rangle} %% <w,z>
+	\newcommand{\scalar}[2]{\langle#1,\,#2\rangle} %% <w,z>
+	\newcommand{\poiss}[2]{\{#1,\,#2\}} %% {w,z}
+	\newcommand{\dst}[2]{\langle#1,#2\rangle} %% distributions <u,\phi>
+	\newcommand{\pairing}[2]{(#1\stroke #2)} %% right-linear pairing
+	\def\<#1|#2>{\langle#1\stroke#2\rangle} %% \braket (Dirac notation)
+	\def\?#1|#2?{\{#1\stroke#2\}}        %% left-linear pairing
+	
+	%%% Accent-like macros:
+	
+	\renewcommand{\Bar}[1]{\overline{#1}} %% closure operator
+	\renewcommand{\Hat}[1]{\widehat{#1}}  %% short for \widehat
+	\renewcommand{\Tilde}[1]{\widetilde{#1}} %% short for \widetilde
+	
+	
+	\DeclareMathOperator{\bCl}{\bC l}   %% complex Clifford algebra
+	
+	%%% Small fractions in displays:
+	
+	\newcommand{\ihalf}{\tfrac{i}{2}}   %% small fraction  i/2
+	\newcommand{\quarter}{\tfrac{1}{4}} %% small fraction  1/4
+	\newcommand{\shalf}{{\scriptstyle\frac{1}{2}}}  %% tiny fraction  1/2
+	\newcommand{\third}{\tfrac{1}{3}}   %% small fraction  1/3
+	\newcommand{\ssesq}{{\scriptstyle\frac{3}{2}}} %% tiny fraction  3/2
+	\newcommand{\sesq}{{\mathchoice{\tsesq}{\tsesq}{\ssesq}{\ssesq}}} %% 3/2
+	\newcommand{\tsesq}{\tfrac{3}{2}}   %% small fraction  3/2
+	
+	
+	%\newcommand\eqdef{\overset{\mathclap{\normalfont\mbox{def}}}{=}}
+	\newcommand\eqdef{\overset{\mathrm{def}}{=}}
+	
+	
+	%+++++++++++++++++++++++++++++++++++
+	
+	\newcommand{\word}[1]{\quad\text{#1}\enspace} %% well-spaced words
+	\newcommand{\words}[1]{\quad\text{#1}\quad} %% better-spaced words
+	\newcommand{\su}[1]{{\sp{[#1]}}}
+	
+	\def\<#1,#2>{\langle#1,#2\rangle}            %% bilinear pairing
+	\def\ee_#1{e_{{\scriptscriptstyle#1}}}       %% basis projector
+	\def\wick:#1:{\mathopen:#1\mathclose:}       %% Wick-ordered operator
+	
+	\newcommand{\opname}[1]{\mathop{\mathrm{#1}}\nolimits}
+	
+	\newcommand{\hideqed}{\renewcommand{\qed}{}} %% to suppress `\qed'
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% 2. Some internal machinery
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+	\setbox0=\hbox{$-$}
+	\setbox2=\hbox{$\displaystyle\int$}
+	\setbox\ncintdbox=\hbox{\rlap{\hbox
+			to \wd2{\box2\relax\hfil}}\box0\kern.1em}
+	\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+	\setbox2=\hbox{$\textstyle\int$}
+	\setbox\ncinttbox=\hbox{\rlap{\hbox
+			to \wd2{\hskip-.05em\box2\relax\hfil}}\box0\kern.1em}
+	
+	\newcommand{\disp}{\displaystyle} %% short for  \displaystyle
+	
+	%\newcommand{\hideqed}{\renewcommand{\qed}{}} %% no `\qed' at end-proof
+	
+	\newcommand{\stroke}{\mathbin|}   %% (for `\bbraket' and such)
+	\newcommand{\tribar}{|\mkern-2mu|\mkern-2mu|} %% norm bars: |||
+	
+	%%% Enclose one argument with delimiters:
+	
+	\newcommand{\bra}[1]{\langle{#1}\rvert} %% bra vector <w|
+	\newcommand{\kett}[1]{\lvert#1\rangle\!\rangle} %% ket 2-vector |y>>
+	\newcommand{\snorm}[1]{\mathopen{\tribar}{#1}%
+		\mathclose{\tribar}}                 %% norm |||x|||
+	
+	
+	\newcommand{\End}{\mathrm{End}}       %%
+	\newcommand{\Ext}{\mathrm{Ext}}       %%
+	\newcommand{\Hom}{\mathrm{Hom}}       %%
+	\newcommand{\Mrt}{\mathrm{Mrt}}       %%
+	\newcommand{\grad}{\mathrm{grad}}       %%
+	\newcommand{\Spin}{\mathrm{Spin}}       %%
+	\newcommand{\Ad}{\mathrm{Ad}}       %%
+	\newcommand{\Pic}{\mathrm{Pic}}       %%
+	\newcommand{\Aut}{\mathrm{Aut}}       %%
+	\newcommand{\Inn}{\mathrm{Inn}}       %%
+	\newcommand{\Out}{\mathrm{Out}}       %%
+	\newcommand{\Homeo}{\mathrm{Homeo}}       %%
+	\newcommand{\Diff}{\mathrm{Diff}}       %%
+	\newcommand{\im}{\mathrm{im}}       %%
+	
+	
+	\newcommand{\SO}{\mathrm{SO}}       %%
+	\newcommand{\SU}{SU}       %%
+	\newcommand{\gso}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gero}{\mathfrak{o}}    %% orthogonal Lie algebra
+	\newcommand{\gspin}{\mathfrak{spin}} %% spin Lie algebra
+	\newcommand{\gu}{\mathfrak{u}}      %% unitary Lie algebra
+	\newcommand{\gsu}{\mathfrak{su}}    %% special unitary Lie algebra
+	\newcommand{\gsl}{\mathfrak{sl}}    %% special linear Lie algebra
+	\newcommand{\gsp}{\mathfrak{sp}}    %% symplectic linear Lie algebra
+	
+	%\newcommand{\bes}{\begin{equation}\begin{split}}
+			%\newcommand{\ees}{\end{split}\end{equation}}
+	%\NewEnviron{split.enviro}{%
+		%	\begin{equation}\begin{split}
+				%	\BODY
+				%	\end{split}\end{equation}
+		%$}
+	\newenvironment{splitequation}{\begin{equation}\begin{split}}{\end{split}\end{equation}}
+	
+	%Begin equation split: Begin equation split = bes
+	\newcommand{\bs}{\begin{split}}
+		\newcommand{\es}{\end{split}}
+	\newcommand{\be}{\begin{equation}}
+		\renewcommand{\ee}{\end{equation}}
+	\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	\newcommand{\bean}{\begin{eqnarray*}}
+		\newcommand{\eean}{\end{eqnarray*}}
+	\newcommand{\brray}{\begin{array}}
+		\newcommand{\erray}{\end{array}}
+	\newenvironment{equations}
+	{\begin{equation}
+			\begin{split}}
+			{\end{split}
+	\end{equation}}
+	\newcommand{\Hsquare}{%
+		\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
+	}
+	
+	\title{Weak fundamental group}
+	
+	\author
+	{\textbf{Petr R. Ivankov*}\\
+		e-mail: * monster.ivankov@gmail.com \\
+	}
+	
+	\begin{document}
+		
+		\maketitle  %\setlength{\parindent}{0pt}
+		\pagestyle{plain}
+		
+		
+		%\vspace{1 in}
+		
+		
+		%\noindent
+		
+		\begin{abstract}
+ The classical notion.
+		\end{abstract}
+		
+		
+		%\end{abstract}
+		
+		\section{General theory}
+		\paragraph{}
+		The notion of the fundamental group  is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied for more general connected spaces.
+		\begin{definition}\label{top_weakly_simply_connected_defn} 
+			A connected space $\sX$ is said to be \textit{weakly simply connected} if for any covering $p: \widetilde \sX\to \sX$ the space $\sX$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn})
+		\end{definition}
+		\begin{remark}
+			Any connected, path connected, simply connected  space is weakly simply connected.
+		\end{remark}
+		\begin{remark}
+			The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_fin_thm} below).
+		\end{remark}
+		
+		\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
+			An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} it is evenly covered by any covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
+			A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighborhood.
+		\end{defn} 
+		\begin{remark}
+			Any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
+		\end{remark}
+		\begin{definition}\label{top_weak_path_defn}
+			Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \textit{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for all $j = 1,..., n$.
+		\end{definition}
+		\begin{empt}\label{top_path_inv_empt}
+			There is an involution * on the set of paths such that
+			\be\label{top_path_inv_eqn}
+			\left(\sU_{1},...,\sU_{n}\right)^*\bydef \left(\sU_{n},...,\sU_{1}\right).
+			\ee
+		\end{empt}
+		\begin{definition}\label{top_path_comp_defn}
+			If both $\mathfrak p'=\left(\sU'_{1},...,\sU'_{k}\right)$ and $\mathfrak p''=\left(\sU''_{1},...,\sU_{l}''\right)$ are paths such that $\sU'_{k} \cap \sU''_{1}\neq\emptyset$ then we say that a pair $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable}, and the path $\mathfrak p=\left(\sU'_{1},...,\sU'_{k},\sU''_{_1},...,\sU_{l}'' \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
+			\be\label{top_path_comp_eqn}
+			\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
+			\ee
+		\end{definition}
+		\begin{remark}\label{top_path_ass_rem}
+			The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
+			\be\label{top_path_ass_eqn}
+			\left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
+			\ee 
+		\end{remark}
+		
+		%\begin{rem}
+		%	There is groupoid of paths with composition and inversion given by the equations \eqref{top_path_comp_eqn} and \eqref{top_path_inv_eqn} respectively.
+		%\end{rem}
+		If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef \left(\widetilde\sU_1, ..., \widetilde\sU_n\right)$ is weak path on $\widetilde\sX$ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \widetilde\sU_n\right) \right)$ is a weak path on $\sX$.
+		\begin{defn}\label{top_path_desc_defn}
+			In the above situation we say that $\mathfrak p$ is a $p$-\textit{descent} of $\widetilde{\mathfrak p}$. We write
+			\be\label{top_path_desc_eqn}
+			\mathfrak p\bydef \desc_p\left( \widetilde{\mathfrak p}\right). 
+			\ee
+		\end{defn}
+		\begin{definition}\label{top_gen_path_defn}
+			Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
+			Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n-1$.
+		\end{definition}
+		
+		
+		
+		\begin{lemma}\label{top_gen_path_lem}
+			Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
+		\end{lemma}
+		
+		\begin{proof}
+			Denote by
+			\bean
+			\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a'' \right.\right\},\\
+			\mathscr A'\bydef \left\{\left.\a \in \mathscr A\right| \sU_{\a} \in\mathfrak{A}_{\a'} \right\}.
+			\eean
+			If $\mathscr A'=\mathscr A$ then this lemma is proven. If not then  and 
+			$$
+			\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)\neq \emptyset,
+			$$
+			then there is  $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
+			\bean
+			\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)= \emptyset.
+			\eean
+			Both unions $\bigcup_{\bt \in\mathscr A'}\sU_{\bt}$ and  $\bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}$ of open sets are open, so one has a disjoint union
+			$$
+			\sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
+			$$
+			i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.  
+		\end{proof}
+		
+		\begin{corollary}\label{top_connected_union_cor}
+			If $\sX$ is a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
+			\begin{itemize}
+				\item 
+				$$
+				\sX = \bigcup_{\la\in \La}\sU_\la,
+				$$
+				\item a closure of $\sU_\la$ is compact for each $\la\in \La$,
+				\item
+				\be\label{top_lmit_eqn}
+				\forall \mu, \nu \in \La  \quad \sU_\mu \cap \sU_\nu \neq \emptyset,
+				\ee
+				\item
+				\be\label{top_lmord_eqn}
+				\forall \mu, \nu \in \La \quad \mu \le \nu\quad\Leftrightarrow \quad \sU_\mu \subset \sU_\nu.
+				\ee
+			\end{itemize}
+		\end{corollary}
+		\begin{proof}
+			Consider a situation of the Lemma \ref{top_gen_path_lem}. Select $\a_0 \in \mathscr A$. For any $\a\in \mathscr A$ we select a path $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a_0}$ and $\sU_{\a_n}=\sU_{\a}$ (cf Lemma \ref{top_gen_path_lem}). For all $\a \in \mathscr A$ a closure of a finite union $\sV_{\a}\bydef \bigcup \sU_{\a_j}$ is compact because a closure of $\sU_{\a_j}$ is compact for every $j = 1,..., n$. From $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j=1,...,n-1$ it turns out that $\sV_{\a}$ is connected, and taking into account $\bigcup_{\a\in \mathscr A}\sU_\a = \sX$ one has 
+			\bean
+			\forall \a\in \mathscr A \quad  \sU_\a\subset \sV_\a\quad \Rightarrow\quad \bigcup_{\a\in \mathscr A}\sU_\a\subset \bigcup_{\a\in \mathscr A}\sV_\a \quad \Rightarrow\quad\bigcup_{\a\in \mathscr A}\sV_\a= \sX.
+			\eean 
+			If $\left\{\sU_\la\right\}_{\la \in \La}$ is a family of all finite unions  $$\sU_\la\bydef \bigcup_{j=1}^n \sV_{\a_j}$$ then from $\sU_{\a_0} \subset \sV_{\a}$ it follows that $\sU_\la$ is connected for all $\la \in \La$ and the condition \ref{top_lmit_eqn} holds.
+			The condition \eqref{top_lmord_eqn} follows from $\sU_\a \subset \sU_\la$ for all $\la\in \La$.
+			A union of two finite unions is also finite union so one has
+			$$
+			\forall \mu, \nu \in \La\quad \exists \la \in \La\quad \sU_\mu \cup \sU_\nu = \sU_\la.
+			$$
+			So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.	
+		\end{proof}
+		
+		\begin{defn}\label{top_closed_path_defn}
+			If $\left(\sX, x_0\right)$ is a pointed space then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.  The  $x_0$-{path} is said to be \textit{closed} if $x_0\in\sU_n$
+		\end{defn}
+		\begin{rem}
+			Any pair of closed path is composable.
+		\end{rem}
+		\begin{exercise}\label{top_path_lift_exer}
+			Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering, and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
+			be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
+			Prove that there is an unique  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$.
+		\end{exercise}
+		
+		\begin{definition}\label{top_path_lift_defn}
+			The given by the Exercise  \ref{top_path_lift_exer} path $\widetilde{\mathfrak p}$ is said to be the $p$-\textit{lift} of $\mathfrak p$. We write
+			\be\label{top_path_lift_eqn}
+			\lift_p~\mathfrak p\bydef\widetilde{\mathfrak p}.
+			\ee 
+		\end{definition}
+		\begin{definition}\label{top_contactible_path_defn}
+			Let 
+			$\left(\sX, x_0\right)$ be  a pointed space such that  $\sX$ is a connected, locally connected and weakly semilocally 1-connected space.  A closed  semilocally 1-connected path $x_0$-path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ a $p$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
+		\end{definition}
+		
+		\begin{exercise}\label{top_path_inv_exer} 
+			Prove that 	if $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compositions $\mathfrak p^* \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible.
+		\end{exercise}
+		\begin{definition}
+			We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
+		\end{definition}
+		
+		
+		From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
+		\begin{definition}\label{top_weak_fundamental_group_defn}
+			If
+			$\left(\sX, x_0\right)$ is  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space
+			then the described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
+		\end{definition}
+		
+		\begin{exercise}\label{top_fundamental_group_mor_exer}
+			Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$. Prove a generalization of the Theorem \ref{top_fundamental_group_mor_thm}.
+		\end{exercise}
+		\begin{exercise}
+			Let $\sX$ be a connected, locally path-connected  and  semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) Hausdorff space. Prove that there is a natural isomorphism
+			\be
+			\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
+			\ee
+			between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
+		\end{exercise}
+		Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space. 
+		For any $x \in \sX$ denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that $$
+		\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
+		$$
+		There is an equivalence relation $\sim_{\left( x_0, x\right)}$ on $\mathfrak{Paths} \left( x_0, x\right)$ such that
+		$$
+		\mathfrak p_1, \mathfrak p_2 \in  \mathfrak{Paths} \left( x_0, x\right)~~ \mathfrak p_1\sim_{\left( x_0, x\right)} \mathfrak p_2 ~~\Leftrightarrow ~~ \mathfrak p^*_1\circ  \mathfrak p_2 \text{ is contractible (cf. Definition \ref{top_contactible_path_defn})}.
+		$$
+		A class of equivalence of $\mathfrak p \in \mathfrak{Paths} \left( x_0, x\right)$ will be denoted by $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$
+		Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$ There is a natural map 
+		\be
+		\begin{split}
+			\widetilde p: \widetilde \sX\to \sX,\\
+			\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\mapsto x.
+		\end{split}
 		\ee
+		For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right)$ we define a set 
+		\be\label{top_u_path_eqn}
+		\widetilde \sU_{\mathfrak p} \bydef \left\{\left.  \left( x',  \left[\mathfrak p\right]_{\left( x_0, x'\right)}\right)\in \widetilde{\sX} \right|x' \in \sU_n\right\}.
+		\ee
+		\begin{lemma}\label{top_uni_top_lem}
+			If $\sX$ is a connected,  weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}) space then a family of sets given by the equation \eqref{top_u_path_eqn} a {basis} for a topology on $\widetilde\sX$. 
+		\end{lemma}
+		\begin{proof}
+			One needs check conditions (a) and (b) of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From 
+			\eqref{top_u_path_eqn} it turns out that
+			\be\label{top_up_path_eqn}
+			\left[\mathfrak p'\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}= \left[\mathfrak p''\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}
+			\ee
+			From the Definition \ref{top_weakly_semi1_defn} it turns out that there is a weakly 1-connected neighborhood $\sU$ of $p\left(\widetilde x \right)$ which is a subset of $\sU'_{n'}\cap \sU''_{n''}$. If ${\mathfrak p}\bydef \left( \sU'_1, ..., \sU'_{n'}, \sU\right)$ then from \eqref{top_up_path_eqn} one has
+			\be\label{top_upp_path_eqn}
+			\left[\mathfrak p\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}=\left[\mathfrak p'\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}= \left[\mathfrak p''\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}.
+			\ee
+			From \eqref{top_upp_path_eqn} it follows that $\widetilde x \in \widetilde \sU_{\mathfrak p}$ and  $\widetilde\sU_{\mathfrak p}\subset \widetilde\sU_{\mathfrak p'}\cap \widetilde\sU_{\mathfrak p''}$.
+		\end{proof}
+		\begin{lemma}
+			If we consider the given by the Lemma \ref{top_uni_top_lem} topology on $\widetilde \sX$ then the map $p: \widetilde \sX \to \sX$ is a covering.
+		\end{lemma}
+		\begin{proof}
+			For any  $x \in \sX$  there is an open weakly 1-connected neighborhood $\sU$.  If $\widetilde x \in p^{-1}\left(x\right)$ then $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$. If $\mathfrak p= \left( \sU_1, ..., \sU_{n}\right)$ and $\mathfrak p'= \left( \sU_1, ..., \sU_{n}, \sU\right)$ and $\widetilde \sU_{\mathfrak p'}$ is given by  \eqref{top_u_path_eqn} then $p\left( \widetilde \sU_{\mathfrak p'}\right)= \sU$ and $\widetilde \sU_{\mathfrak p'}$ is mapped homeomorphically onto $\sU$. So for all $\widetilde x \in p^{-1}\left(x\right)$ one can find an open neighborhood $\widetilde \sU_{\widetilde x}$ which is is mapped homeomorphically onto $\sU$, i.e. $\sU$ is evenly covered by $p$.
+		\end{proof}
+		Let $p': \widetilde \sX'\to \sX$ is a covering then we define a map $\widetilde p': \widetilde \sX \to \widetilde \sX'$ by a following way. For any $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ we define a unique $p'$-lift  $\left( \widetilde\sU'_1, ..., \widetilde\sU'_{n}\right)$ of $\mathfrak p = \left( \sU_1, ..., \sU_{n}\right)$. There is a unique $\widetilde x' \in \widetilde \sX'$ such that $\left\{\widetilde x'\right\}= p^{-1}\left( x\right) \cap \widetilde\sU'_{n}$. So one can define a map 
+		\be\label{top_from_uni_defn}
+		\begin{split}
+			\widetilde p': \widetilde \sX \to \widetilde \sX',\\
+			\widetilde x \mapsto  \widetilde x'.
+		\end{split}
+		\ee
+		\begin{exercise}\label{top_uni_cov_exer}
+			Prove that the given by \eqref{top_from_uni_defn} map is a covering.
+		\end{exercise}
+		From the Exercise \ref{top_uni_cov_exer} it follows that $\widetilde \sX$ is a universal covering space of $\sX$ (cf. Definition \ref{top_universal_covering_defn}).
+		So one has the following Theorem.
+		\begin{theorem}\label{top_simply_con_cov_thm}If $\sX$ is a connected, locally connected, weakly semilocally 1-connected space then there is an universal covering space for $\sX$.
+		\end{theorem}
+		
+		\begin{remark}
+			The Theorem \ref{top_simply_con_cov_thm} is a generalization of the Lemma \ref{top_simply_con_cov_lem}.
+		\end{remark}
+		\begin{exercise}\label{top_weak_covering_iso_exer}
+			Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ is an universal covering. Prove that there is a following natural isomorphism
+			$$
+			\pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
+			$$
+			where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}). 
+			
+		\end{exercise}
+		\section{Example}
+		\begin{lemma}\label{top_lex_square_lem}
+			The ordered square $I^2_o$ (cf. \ref{top_lex_square_empt}) is weakly simply connected (cf. Definition \ref{top_weakly_simply_connected_defn}).
+		\end{lemma}
+		
+		\begin{proof}
+			It is known that the space $I^2_o$ is locally connected. 
+			Let $p: \widetilde \sX \to I^2_o$ be a covering. 
+			For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
+			From the Lemma \ref{top_gen_path_lem} it follows that there is a $\left\{\sU_x\right\}_{x \in \sX}$-path $\left( \sU_1, ..., \sU_{n}\right)$ 
+			(cf. Definition \ref{top_gen_path_defn})  from $\left(0,0\right)$ to $\left(1,1\right)$. 
+			If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected (cf. \cite{counter_topology}). 
+			However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. Let $\widetilde x_0$ be such that $p\left(\widetilde x_0 \right) = \left(0,0\right)$. Let $\widetilde \sU_1$ be a connected component of $p^{-1}\left( \sU_1\right)$ such that $\widetilde x_0\in \widetilde \sU_1$. There is a homeomorphism $\phi_1 : \sU_1\xrightarrow{\cong}  \widetilde \sU_1$. If $x_1 \in \sU_1\cap \sU_2$ the there is a unique $\widetilde x_1 \in \widetilde \sU_1$ such that $p\left(\widetilde x_1 \right)= x_1$.  Let $\widetilde \sU_2$ be a connected component of $p^{-1}\left( \sU_2\right)$ such that $\widetilde x_1\in \widetilde \sU_2$. There is a homeomorphism $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ and $\widetilde \sU_1\cap \widetilde \sU_2\neq \emptyset$. Having homeomorphisms $\sU_1\xrightarrow{\cong}  \widetilde \sU_1$ and  $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ one has a homeomorphism $\phi_2:\sU_1\cup \sU_2 \xrightarrow{\cong}  \widetilde \sU_1\cup \widetilde \sU_2$. Continuing we obtain a continuous map 
+			$$
+			\phi^0_n: \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX
+			$$
+			such that $p \circ \phi^0_n = \Id_{I^2_o}$.
+			If $\widetilde \sX_0 \bydef \phi^0_n\left(  I^2_o\right)$ then a restriction $p|_{\widetilde \sX_0} : \widetilde \sX_0 \to I^2_o$ is a homeomorphism. If $\widetilde x_1$ is such that $\widetilde x_1\neq \widetilde x_0$ and  $p\left(\widetilde x_1 \right)= (0,0)$ then one can find a subspace  $\widetilde \sX_1 \subset \widetilde \sX$ such that $\widetilde x_1\in \widetilde \sX_1$ and a restriction $p|_{\widetilde \sX_1} : \widetilde \sX_1 \to I^2_o$ is homeomorphism. For any $x \in I^2_o$ the number of points of $p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right)$ equals to one or two. The set $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2 \right.\right\}$ is open, so the the set $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}$ is closed. If 
+			$$
+			x' \bydef \inf \left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}
+			$$ 
+			then $\left|p^{-1}\left(x' \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1$ because the set\\ $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}$ is closed. Let $\widetilde x'\in \widetilde \sX_0\cup \widetilde \sX_1$ be the unique point  such that $p\left( \widetilde x' \right) = x'$, and let $\sU'$ be a open connected set  evenly covered by $p$, and let $\widetilde \sU'$ be a connected component of $p^{-1}\left(\sU'\right)$ such that $\widetilde x'\in \widetilde \sU'$. There is $x'' \in \sU'$ such that $x'' < x'$ and $$\left|p^{-1}\left(x'' \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2.$$ From the above equation it follows that $\sU'$ is not evenly covered by $p$. From this contradiction one has $\left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2$ for all $x\in I^2_0$. It turns out that  $\widetilde \sX_0\cap \widetilde \sX_1= \emptyset$.  If a union $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then $\widetilde \sX_0$ is open but not closed or $\widetilde \sX_1$ is open but not closed. If $\widetilde \sX_0$ is open but not closed and the  $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then there is a convergent  net $\left\{\widetilde x_\a\right\}\subset \widetilde \sX_0$ such that $\lim \widetilde x_\a\in \widetilde \sX_1$. However from $\widetilde x_\a = \phi^0_n \circ p\left(\widetilde x_\a \right)$ it turns out that $\lim \widetilde x_\a= \phi^0_n\left(  \lim p\left( \widetilde x_\a\right) \right) \in \widetilde \sX_0$. If follows that $\widetilde \sX_0\cup \widetilde \sX_1=\widetilde \sX_0\sqcup \widetilde \sX_1$. By the similar way one can proof that $p^{-1}\left( I^2_o\right)$ is a disjoint union of homeomorphic to $I^2_o$ sets, i.e. $I^2_o$ is evenly covered by $p$.
+		\end{proof}
+		
+		\begin{exercise}\label{top_lex_square_exer}
+			Let  $I^2_o$ be ordered square (cf. \ref{top_lex_square_empt}). Denote by $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sX \bydef I^2_o/\sim_\sX$ where $x_0 \sim_\sX x_1$.
+			\begin{enumerate}
+				\item Prove that $\sX$ is a connected, locally connected, compact, Hausdorff space, but $\sX$ is not path connected (cf. \cite{counter_topology}).
+				\item Similarly to the proof of the Lemma \ref{top_lex_square_lem} prove that the space $\sX$ is weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}).
+			\end{enumerate}
+		\end{exercise}
+		\begin{exercise}\label{top_lex_square1_exer}
+			Let us use the notation of the Exercise \ref{top_lex_square_exer}. Let $\sX_j$ be a homeomorphic to $I^2_o$ space for any $j\in \Z$. Let $x^j_0 , x^j_1 \in \sX_j$ be points which correspond to $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sim_{\widetilde \sX}$ be an equivalence relation on $\bigsqcup_{j\in \Z} \sX_j$ such that
+			$$
+			\forall j \in \Z \quad x^j_1 \sim_{\widetilde \sX}  x^{j+1}_0.
+			$$
+			Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
+			\begin{enumerate}
+				\item Prove that $\widetilde\sX$ is a connected, locally connected, locally compact, Hausdorff space, but $\widetilde\sX$ is not path connected (cf. \cite{counter_topology}).
+				\item Similarly to the proof of the Lemma \ref{top_lex_square_lem} prove that the space $\widetilde\sX$ is weakly simply connected (cf. Definition \ref{top_weakly_simply_connected_defn}).
+			\end{enumerate}
+		\end{exercise}
+		
+		\begin{exercise}\label{top_lex_square2_exer}
+			Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}.   for any $n \in \Z$ define a homeomorphism  $\varphi_n^\sqcup$ of $\sqcup\sX_j$ which homeomorphically  maps $\sX_j$ onto $\sX_{j + n}$. Prove following statements:
+			\begin{enumerate}
+				\item for any $n\in \Z$ the homeomorphism $\varphi_n^\sqcup$ induces a homeomorphism $\varphi_n$ of $\widetilde \sX$,
+				\item a family of $\left\{\varphi_n\right\}$ induces an action $\Z\times \widetilde \sX \to \widetilde{\sX}$ such that $\Z$ is a properly discontinuous group of homeomorphisms (cf. Definition \ref{top_properly_disc_defn}),
+				\item there is a natural isomorphism $\sX = \widetilde\sX /\Z$.
+			\end{enumerate}
+		\end{exercise}
+		\begin{example}
+			Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}. From the Theorem \ref{top_cov_fact_thm} it follows that there is a covering $p: \widetilde\sX\to \sX$. Since $\widetilde\sX$ is simply 1-connected the coveting is universal. If  $n \in \Z$ and $\widetilde x_n \bydef x^n_0 / \sim_{\widetilde \sX}\in \widetilde \sX$ then $p\left(\widetilde x_n \right) = x_0 \bydef p\left(\widetilde x_0 \right)$ for all $n \in \Z$. One can regard $p$ as a pointed covering $\left(\widetilde\sX, \widetilde x_0 \right)\to  \left(\sX, x_0 \right)$. If $\mathfrak p = \left( \sU_1, ..., \sU_k\right)$ is a semilocally 1-connected closed $x_0$-path on $\sX$ and  $\widetilde{\mathfrak p} = \left( \widetilde\sU_1, ..., \widetilde\sU_k\right)$ is its $p$-lift, then there is a unique $n \in \Z$ such that $\widetilde x_n \in \widetilde\sU_k$. One can proof that  the map
+			$$
+			\mathfrak	p\mapsto n
+			$$
+			yields a homomorphism $h: \pi^{\text{w}}_1\left(\sX \right)  \to \Z$. Since the covering $p$ is universal a path $\mathfrak p$ is contractible if and only  $\lift_p \mathfrak p$ is contractible, i.e. $h\left(e \right) = 0$ where $e$ is a unity of $\pi^{\text{w}}_1\left(\sX \right)$. So the map $h$ is injective. 	From the Lemma \ref{top_gen_path_lem} it follows that for all $k \in \Z$ there is a path
+			$\widetilde {\mathfrak p} = \left(\widetilde \sU_1, ..., \widetilde\sU_k\right)$ such that
+			\begin{itemize}
+				\item $\widetilde x_0\in \widetilde \sU_1, \quad \widetilde x_n \subset \widetilde \sU_k$, 
+				\item the set $\widetilde \sU_j$ is weakly 1-connected.
+			\end{itemize}
+			If $\mathfrak p = \desc_p \widetilde {\mathfrak p}$ is a $p$ descent  of $\widetilde {\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}) then  the path $\mathfrak p$ is closed and
+			$h\left(\left[\mathfrak p\right]\right)= n$. So the homomorphism $h$ is surjective. In result one has an isomorphism $\pi^{\text{w}}_1\left(\sX \right)\cong\Z$. However the explained in the Remark \ref{top_homotopy_group_rem} fundamental group $\pi_1\left(\sX \right)$ is trivial since $\sX$ is not path connected.
+		\end{example}
+		
+	\begin{appendices}
+	\section{Topology}
+	\begin{defn}\label{top_semi1_defn}\cite{spanier:at}
+	A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
+\end{defn} 
+
+	\begin{defn}\label{top_covering_transformations_group_defn}\cite{spanier:at}
+		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right)$ this group.
+	\end{defn}
+	
+	\begin{definition}\label{top_properly_disc_defn}\cite{spanier:at}
+		A group $G$ of homeomorphisms of a topological space $\sY$ is said to be  
+		\textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly 
+			discontinuous} if for $y \in \sY$ there is an open neighborhood $\sU$ of $y$ in $\sY$ such 
+		that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ acts \textit{ without fixed points} 
+		if the only element of $G$ having fixed points is the identity element. The 
+		following are clear. 
+		A properly discontinuous group of homeomorphisms is discontinuous 
+		and acts without fixed points. 
 	\end{definition}
 	
-	\end{frame}
-
-\begin{frame}
-
-
-\begin{definition}\label{top_gen_path_defn}\alert{Petr Ivankov.}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathcal A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathcal A$. A weak path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n-1$.
-\end{definition}
-\begin{lemma}\label{top_gen_path_lem}	\alert{P. Ivankov}.
-	Consider the situation of the above Definition. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
-\end{lemma}
-
-\end{frame}
-\begin{frame}
-	\begin{defn}\label{top_closed_path_defn}	\alert{P. Ivankov}.
-		If $\left(\sX, x_0\right)$ is a pointed space then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\alert{path} if $x_0\in\sU_1$.  An  $x_0$-{path} is said to be \alert{closed} if $x_0\in\sU_n$.
-	\end{defn}
-Any pair of closed path is composable.
-\begin{lemma}\alert{P. Ivankov}.
-	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering, and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathcal A}$ 
-be a family of connected all open subsets of $\sX$ evenly covered by $p$. Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. There is an unique  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$.
-\end{lemma}	
-\begin{definition}\label{top_path_lift_defn}\alert{P. Ivankov}.
-	The given by the above path $\widetilde{\mathfrak p}$ is said to be the $p$-\alert{lift} of $\mathfrak p$. We write
-	\be\label{top_path_lift_eqn}
-	\lift_p~\mathfrak p\bydef\widetilde{\mathfrak p}.
-	\ee 
-\end{definition}
-\end{frame}
-\begin{frame}
-\begin{definition}\label{top_contactible_path_defn}\alert{P. Ivankov}
-	Let 
-	$\left(\sX, x_0\right)$ be  a pointed space such that  $\sX$ is a connected, locally connected and weakly semilocally 1-connected space.  A closed  semilocally 1-connected path $x_0$-path $\left(\sU_1, ..., \sU_n\right)$ is said to be \alert{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ a $p$-{lift} of $\mathfrak p$ is closed.
-\end{definition}
-If $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compositions $\mathfrak p^* \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible.
-\end{frame}
-
-\begin{frame}
-\begin{definition}\alert{P. Ivankov}.
-	We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
-\end{definition}
-From our construction it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
-\begin{definition}\label{top_weak_fundamental_group_defn}\alert{P. Ivankov}.
-	If
-	$\left(\sX, x_0\right)$ is  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space
-	then the described above group is said to be a \alert{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
-\end{definition}
-
-\end{frame}
-\begin{frame}
-	\begin{lemma}\alert{P. Ivankov}.
-\label{top_fundamental_group_mor_exer}
-	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space. The $p$-descent yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$. 
-\end{lemma}
-\begin{lemma}\alert{P. Ivankov}.
-	If $\sX$ be a connected, locally path-connected  and  semilocally 1-connected  space. then there is a natural isomorphism
-\be
-\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
-\ee
-between the weak fundamental group, and the classical one.
-
-\end{lemma}
-\end{frame}
-\begin{frame}
-Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space. 
-For any $x \in \sX$ denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that $$
-\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
-$$
-There is an equivalence relation $\sim_{\left( x_0, x\right)}$ on $\mathfrak{Paths} \left( x_0, x\right)$ such that
-$$
-\mathfrak p_1, \mathfrak p_2 \in  \mathfrak{Paths} \left( x_0, x\right)~~ \mathfrak p_1\sim_{\left( x_0, x\right)} \mathfrak p_2 ~~\Leftrightarrow ~~ \mathfrak p^*_1\circ  \mathfrak p_2 \text{ is contractible (cf. Definition \ref{top_contactible_path_defn})}.
-$$
-A class of equivalence of $\mathfrak p \in \mathfrak{Paths} \left( x_0, x\right)$ will be denoted by $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$
-Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$ There is a natural map 
-\be
-\begin{split}
-	\widetilde p: \widetilde \sX\to \sX,\\
-	\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\mapsto x.
-\end{split}
-\ee
-\end{frame}
-\begin{frame}
-For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right)$ we define a set 
-\be\label{top_u_path_eqn}
-\widetilde \sU_{\mathfrak p} \bydef \left\{\left.  \left( x',  \left[\mathfrak p\right]_{\left( x_0, x'\right)}\right)\in \widetilde{\sX} \right|x' \in \sU_n\right\}.
-\ee
-\begin{thm}\label{top_uni_top_lem}
-	If $\sX$ is a connected,  weakly semilocally 1-connected then one has:
-	\begin{itemize}
-		\item a family of sets given by the equation \eqref{top_u_path_eqn} a {basis} for a topology on $\widetilde\sX$ such that,
-		\item the natural map  	$\widetilde p: \widetilde \sX\to \sX$ is an universal covering. 
-	\end{itemize}
-\end{thm}
-\begin{lemma}\label{top_weak_covering_iso_exer}
-	Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ be an universal covering. There is a following natural isomorphism
-	$$
-	\pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
-	$$
-	where  $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations. 
+	\begin{definition}\label{top_path_connected_defn}\cite{munkres:topology}
+		%Definition. 
+		Given points $x$ and $y$ of the space $\sX$, a \textit{path} in $\sX$ from $x$ to $y$ is a continuous map $f: \left[a, b\right]\to \sX$ of some closed interval in the real line into $\sX$, such
+		that $f(a) = x$ and $f(b) = y$. A space $\sX$ is said to be \textit{path connected} if every pair of
+		points of $\sX$ can be joined by a path in $\sX$.
+	\end{definition}
 	
-\end{lemma}
-
-
-\end{frame}
-\begin{frame}
-		Let $I^2_o = \left[0,1\right]^2$ be a unit square. We order $I^2_o$ lexicographically, i.e.
-	$$
-	\forall (x, y),(u, w) \in \left[0,1\right]^2 = I^2_o \quad (x, y)< (u, w)  = \begin{cases}
-		y < w & x = u\\
-		x < u & \text{otherwise}
-	\end{cases}
-	$$
-	and place the order topology on $I^2_o$. It is known that $I^2_o$ is connected but it is not path connected.
-	The space $I^2_o$ is said to be the \alert{the ordered square}.
-	Let $\sim$ is an equivalence relation on  $I^2_o$ such that $\left(0, 0 \right)\sim \left(1, 1 \right)$ and denote by $\sX \bydef I^2_o/\sim$.
-	\begin{lemma}
-	If $x_0 \bydef \left(0, 0 \right)/\sim$ then there ia an isomorphism  $	\pi^{\text{w}}_1\left(\sX, x_0\right)\cong\mathbb{Z}$.
-	\end{lemma}
-\end{frame}
-\begin{frame}
-The weak fundamental group can be defined algebraically. There is a notion of noncommutative fundamental group (cf. https://arxiv.org/abs/1904.13130), such that there is a family $\mathfrak F$ of $C^*$-algebras such that for any $A\in \mathfrak F$ there is a fundamental group $\pi_1\left(A \right)$. 
-\begin{theorem}\alert{Petr Ivankov}
-If a topological space $X$ is connected, locally connected and weakly semilocally 1-connected then $C_0\left(X \right) \in \mathfrak F$ and there is a natural isomorphism $\pi_1\left( C_0\left(X \right)\right)  \cong \pi^{\text{w}}_1\left(\sX, x_0\right)$.
+		\begin{defn}\label{top_covering_defn}\cite{spanier:at}
+		Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be {\it evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a {\it covering projection} if each point $x \in \mathcal{X}$ has an open neighborhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
+			\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
+	\end{defn}
+	
+\begin{theorem}\label{top_fundamental_group_mor_thm}\cite{spanier:at}
+%2 theoeem 
+Let $p: \widetilde{\sX}\to \sX$ a fibration with unique path lifting. Let $\sX$ be path connected and let $x_0\in \sX$. Then  there is  a monomorphism $\psi$ of $G\left( \left.\widetilde{\sX} \right|\sX\right) $ to 
+the quotient group $N\left(\pi_1\left( p\right) \left( \pi_1\left(\widetilde\sX,\widetilde x_0 \right)\right)\right)   /\pi_1\left(\widetilde\sX,\widetilde x_0 \right)$ where $N\left(\pi_1\left( p\right) \left( \pi_1\left(\widetilde\sX,\widetilde x_0 \right)\right)\right)$ is a maximal among subgroups $G\subset \pi_1\left(\sX, x_0 \right)$ such that $\pi_1\left(\widetilde\sX,\widetilde x_0 \right)$ is a normal subgroup of $G$.	If $\sX$ is also locally path connected, 
+$\psi$ is an isomorphism. 
 \end{theorem}
-\end{frame}
-\end{document}
 
+	
+	\end{appendices}	
+		
+		
+		
+		\begin{thebibliography}{10}
+			
+			
+\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
+\bibitem{spanier:at}
+E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
 
+\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\bibitem{counter_topology}	Lynn Arthur Steen,
+J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
+1970.
+			
+			
+			
+		\end{thebibliography}
+		
+		
+		
+		
+	\end{document}
+	
+	
