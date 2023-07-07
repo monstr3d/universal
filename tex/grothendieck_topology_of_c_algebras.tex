@@ -624,9 +624,10 @@ we conclude that $b$ lies in the $C^*$-norm closure of $\sum_\iota \left( L\left
 	\\
 	(b) If a family $\left\{B_\iota\subset B\right\}_{\iota\in I}$ is a covering of $B$ and for all $\iota$ a family $\left\{C_{\iota j}\subset B_\iota \right\}_{j\in J_\iota}$ is a covering of $B_\iota$ then  one has:
 	\begin{itemize}
-		\item If we use the equation \eqref{left_ideal_eqn}  then the left ideal $L\left( B\right)$ is the $C^*$-norm closure of an algebraic sum  $\sum_\iota L\left( B_\iota \right)$ 
+		\item The given by the equation \eqref{left_ideal_eqn}  closed left ideal $L\left( B\right)$ is the $C^*$-norm closure of an algebraic sum  $\sum_\iota L\left( B_\iota \right)$ 
 		\item for all $\iota\in I$ the left ideal  $L\left( B_\iota \right)$ is  the $C^*$-norm closure of an algebraic sum  $\sum_{j\in J_\iota} L\left( C_{\iota j} \right)$.
 	\end{itemize}
+	From $\sum_\iota L\left( B_\iota \right)\subset L\left(B \right)$ and $\sum_j L\left( C_{\iota_j} \right)\subset L\left(B_\iota \right)$ for any $\iota \in I$ it follows that $\sum_{\iota j} L\left( C_{\iota_j} \right)\subset L\left(B \right)$. However the ideal $\subset L\left(B \right)$ is $C^*$-norm closed so a $C^*$-norm closure of $\sum_{\iota j} L\left( C_{\iota_j} \right)$ is a subset of $ L\left(B \right)$. 
 	For all $b \in L\left( B\right)$ and  $\eps > 0$	there is a sum $\sum_{k = 1}^n b_{k}$ such that
 	\bean
 	\forall k\in \{1,..., n\}\quad \exists \iota_k\in I \quad b_k \in L\left( B_{\iota_k}\right) ,\\
@@ -712,7 +713,7 @@ where $a_1, a_2, a_3, a_4$ are positive.
 	In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
 \end{lemma}
 \begin{proof}
-	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From the equation \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. If  $\left\{u_\la \right\}_{\la \in \La} \subset  B_+$ is an  approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) then one   has a norm limit $\lim_{\la \in \La}u_\la \xi = \xi$, it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
+	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From the equation \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. If  $\left\{u_\la \right\}_{\la \in \La} \subset  B_+$ is an  approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) then from $p=s$-$\lim u_\la$ one   has a norm limit $\lim_{\la \in \La}u_\la \xi = \xi$, it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
 	\bean
 	\left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
 	\eean
@@ -720,7 +721,7 @@ where $a_1, a_2, a_3, a_4$ are positive.
 \end{proof}
 A combination of the above results yields the following.
 \begin{corollary}\label{hered_representation_cor}
-	Let $A$ be a $C^*$-algebra and let $\rho: A\hookto B\left( \H\right)$ be a faithful, nondegenerate representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
+	Let $A$ be a $C^*$-algebra, and let $\rho: A\hookto B\left( \H\right)$ be a faithful, nondegenerate representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
 	then 
 	$$
 	B = \left\{a \in A| p \rho\left( a\right)p = \rho\left(a \right) \right\}
@@ -743,12 +744,12 @@ A combination of the above results yields the following.
 \section{Grothendieck topology of continuous trace $C^*$-algebras}
 \paragraph{}
 
-If $A$  is a $C^*$-algebra with Hausdorff locally compact spectrum  $\sX$ then any ideal of $A$ corresponds to an open set $\sU\subset\sX$ we denote this ideal by 
+If $A$  is a $C^*$-algebra with a Hausdorff, locally compact spectrum  $\sX$ then any ideal of $A$ corresponds to an open set $\sU\subset\sX$ we denote this ideal by 
 \be\label{open_id_eqn}
 \left.A\right|_\sU \bydef \left\{\left.a\in A~\right| \forall x \in \sX \setminus\sU\quad \pi_x\left( a\right)=0 \right\}
 \ee
 where $\pi_x: A \to B\left(\H_x\right)$ is an irreducible representation which corresponds to $x$. 
-If $A = CT\left(\sX, \dl \right)$ (cf. Notation \ref{ctr_not})  then we define a presheaf $\mathscr{P}'^\dl $ on $\sX$ (cf. Definition \ref{presheaf_defn}) such that for a pair  $\sU\subset\sV$ of open subsets of $\sX$ one has
+If $A = CT\left(\sX, \dl \right)$ (cf. Notation \ref{ctr_not})  then we define a presheaf $\mathscr{P}'^\dl $ on $\sX$ (cf. Definition \ref{presheaf_defn}) such that for any pair  $\sU\subset\sV$ of open subsets of $\sX$ one has
 \bean
 \mathscr{P}'^\dl\left( \sU\right) \bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
 \rho_{\sU \sV}: \mathscr{P}'^\dl \left(\sU\right)\to  \mathscr{P}'^\dl \left(\sV\right), \quad C \mapsto C \cap A|_{\sV}.
@@ -796,7 +797,7 @@ For any hereditary subalgebra $B\subset CT\left(\sX, \dl \right)$ denote by $\te
 $$
 \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B\bydef \bigcup_{C \in  \text{Com}\left(B\right)} \mathscr U_C 
 $$
-is an open subset of $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$. Conversely if $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$ is an open subset then for all $y \in \mathscr U$ there is a  commutative subalgebra $C \subset A$ such that:
+is an open subset of $\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$. Conversely if $\mathscr U\subset \mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'$ is an open subset then from the Lemma \ref{ctr_open_lem} it turns out that for all $y \in \mathscr U$ there is a  commutative subalgebra $C \subset A$ such that:
 \begin{itemize}
 	\item $\mathscr U_C \subset \mathscr U$,
 	\item $y$ is represented by $C$.
@@ -810,7 +811,7 @@ A generated by such commutative subalgebras hereditary subalgebra of $A$ we deno
 		$$
 \end{lemma} 
 \begin{proof}
-A $C^*$-algebra 	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is generated by subalgebras of $B$ so one has an inclusion	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\subset B$, i.e.    $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is a hereditary subalgebra of $B$.
+A $C^*$-algebra 	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is generated by subalgebras of $B$ so one has an inclusion	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\subset B$.
 	From the Proposition \ref{ctr_hered_prop} it follows that both $C^*$-algebras $B$ and $A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ have continuous trace. Otherwise  
 	If $\pi_a: B \hookto  B\left( \H_a\right) $ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{hered_representation_cor} it follows that there is a projector $p \in B\left( \H_a\right)$ such that
 	$$
@@ -818,14 +819,14 @@ A $C^*$-algebra 	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is gen
 	$$
 	If $B \neq A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'_B}$ then  $ A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\subsetneqq B$, so one has 	$p < 1_{B\left( \H_a\right) }$.  There is $x\in \sX$ and which satisfies to following conditions:
 	\begin{itemize}
-		\item if $\pi_x: B \to B\left(\H_x\right)$ is a representation which corresponds to $x\in \sX_B$ (cf. Remark \ref{ctr_spe_rem}) then
+		\item if $\pi_x: B \to B\left(\H_x\right)$ is a representation which corresponds to $x$ (cf. Remark \ref{ctr_spe_rem}) then
 		$$
 		\pi_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)'_B} \right) = \left\{\pi_x \left(a\right)\in \pi_x\left( B\right) | \pi_x \left(a\right)= p_x\pi_x \left(a\right)p_x\right\}
 		$$
 		where $p_x \in B\left(\H_x \right)$ is projector;
 		\item 	$p_x < 1_{B\left(\H_x \right) }$.
 	\end{itemize}
-	From the above conditions it follows that there is a rank-one projector $e \in 	\pi_x\left( B\right)\setminus  \pi_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\right)$.  From the Definition  \ref{continuous_trace_c_alt_defn} it follow that there is positive element $a \in B$ such that $\pi_x\left(a\right)= e$ and there is generated by $a$ hereditary commutative subalgebra $B^a \subset B$. For any open neighborhood $\sU$ of $x$ one has
+	From the above conditions it follows that there is a rank-one projector $e \in 	\pi_x\left( B\right)\setminus  \pi_x\left(A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}\right)$.  From the Definition  \ref{continuous_trace_c_alt_defn} it turns out that there is positive element $a \in B$ such that $\pi_x\left(a\right)= e$ and there is generated by $a$ hereditary commutative subalgebra $B^a \subset B$. For any open neighborhood $\sU$ of $x$ one has
 	$$
 	B^a \cap A|_{\sU}\not\subset A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}
 	$$
@@ -842,7 +843,6 @@ A $C^*$-algebra 	$A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}$ is gen
 	B = A_{\mathrm{Sp\acute{e}}\left(\mathscr P^\dl \right)_B}.
 	$$
 \end{proof} 
-!!! CONTINUE !!!
 \begin{corollary}\label{ctr_top_cor}
 If  $\mathbf{T}_{CT\left(\sX, \dl \right)}$ is an arising from $CT\left(\sX, \dl \right)$ site (cf. Definition \ref{grothendieck_ca_defn}) then there is a natural equivalence
 $$
@@ -876,17 +876,17 @@ There is a continuous map
 	x \mapsto s^a_x
 \end{split}
 \ee 
-where $C_x$ is a represented by $C$ stalk at $x$ (cf. Definition \ref{stalk_defn}). Clearly one has
+where $s^a_x$ is a represented by $s^a$ stalk at $x$ (cf. Definition \ref{stalk_defn}). Clearly one has
 \be\label{blowing_p_j_eqn}
 p_0 \circ j = \Id_{\sX}.
 \ee
 where $p_0$ is given by \eqref{p_d_eqn}.
-\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) and let $F$ be an Abelian group. For all $r \ge 0$ there are isomorphisms
+\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}), and let $F$ be an Abelian group. For all $r \ge 0$ there are isomorphisms
 	\bean
 	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r,\\
 	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
 	\eean
-	where  $X^r$, $\check{X}^r$ are Abelian group and the Notation  \eqref{const_shef_coh_eqn} is  used.
+	where both  $X^r$, $\check{X}^r$ are Abelian group and the Notation  \eqref{const_shef_coh_eqn} is  used.
 \end{theorem}
 \begin{proof}
 	From the equation \eqref{hom_f_eqn} it follows that for all $r> 0$ there are following homomorphisms:
@@ -917,7 +917,7 @@ $$
 $$
 and a topology of $\E^\dl$ is induced by the natural inclusion $\E^\dl\subset \F^\dl$ 
 then one has a locally trivial subbundle $\pi_\dl|_{\E^\dl} \E^\dl\to  \sX$, 
-and with fibre $\C P^\infty$ and structure group $\Aut \left( \K(\H)\right)$. If $s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'_x$ is represented by a commutative $C^*$-subalgebra $C\subset A$ then one has a one-dimensional 
+ with fibre $\C P^\infty$ and structure group $\Aut \left( \K(\H)\right)$. If $s_x \in \mathrm{Sp\acute{e}}\left(\mathscr P^\dl  \right)'_x$ is represented by a commutative $C^*$-subalgebra $C\subset A$ then one has a one-dimensional 
 subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\left(\H_x \right)$ a rank one projector onto $\pi_x\left(C \right) \H_x$ then one has a surjective map
 \bean
 \begin{split}
@@ -925,7 +925,7 @@ subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\l
 s_x \mapsto p_x.
 \end{split}
 \eean
-One can prove that the map $\psi_\dl$ is continuous. From the equations \eqref{hom_f_eqn}, \eqref{cech_hom_eqn} and the Remark the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there are homomorphisms
+One can prove that the map $\psi_\dl$ is continuous. From the equations \eqref{hom_f_eqn}, \eqref{cech_hom_eqn} and the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there are homomorphisms
 \bean
 H_r\left(\psi_\dl \right) :	H^r\left(\E^\dl, F \right)	\to	{H}^r\left(CT\left( \sX,\dl\right), F \right),\\
 \check{H}_r\left(\psi_\dl \right) :	\check{H}^r\left(\E^\dl, F \right)	\to	\check{H}^r\left(CT\left( \sX,\dl\right), F \right).
@@ -950,9 +950,9 @@ $$
 $$
 From \eqref{big_iso_eqn} one can deduce an isomorphism of sheaves
 \be\label{litle_iso_eqn}
-\mathscr G^\delta\times_\sX \mathscr G^\rho \cong \mathscr G^{\dl+\rho}
+\mathscr G^\delta\times_\sX \mathscr G^\rho \cong \mathscr G^{\dl+\rho}.
 \ee
-From the above equation it follows that there are continuous maps
+From the above equation it follows that there are continuous maps:
 \bean 
 \mathrm{pr}_1: \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta } \right),\\
 \mathrm{pr}_2: \mathrm{Sp\acute{e}}\left(\mathscr G^{\delta + \rho} \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G^{\rho } \right),\\
@@ -986,7 +986,7 @@ of $\check{H}^\bullet\left(\sX, F \right)$- bimodules.
 
 \begin{theorem} If $CT\left( \sX, \delta\right)$ is given by the Notation \ref{ctr_not} $C^*$-algebra then  one has a following homomorphism
 \bea
-\check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, Z\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right)
+\check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, F\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right)
 \eea
 of $\check{H}^\bullet\left(\sX, F \right)$- bimodules.
 \end{theorem}
@@ -1111,7 +1111,7 @@ In the situation of the Example \ref{top_gro_exm} one has a site $\mathbf T_{\sX
 	A \textit{presheaf of sets} on a site $\mathbf T$ 
 	is a contravariant functor $\mathscr F$ from $\mathrm{Cat}\left( \mathbf T\right)$ to the category of sets. Thus,  $\mathscr F$
 	to each object $U$ in $\mathrm{Cat}\left( \mathbf T\right)$ 
-	attaches a set $\mathscr F\left(U \right)$ , and to each morphism $\phi: U \to V$
+	attaches a set $\mathscr F\left(U \right)$ , and to each morphism $\varphi: U \to V$
 	in $\mathrm{Cat}\left( \mathbf T\right)$, a map $\mathscr F\left(\varphi\right):\mathscr F\left(V \right)\to \mathscr F\left(U \right)$. Note that the notion of a presheaf on $\mathbf T$ 
 	does not depend on the 
 	coverings. We sometimes denote $\mathscr F\left(\varphi\right)$ by $a \mapsto a|_U$.
@@ -1129,7 +1129,7 @@ $\mathrm{Cat}\left( \mathbf T\right)$ to the category of (Abelian) groups or rin
 	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
 	is a sheaf if the map 
 	$$
-	f \mapsto \left\{f_{U_\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
+	f \mapsto \left\{f_{\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
 	$$
 	identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f_\iota\right\}$such that 
 	$$
@@ -1138,7 +1138,7 @@ $\mathrm{Cat}\left( \mathbf T\right)$ to the category of (Abelian) groups or rin
 	for all $\iota, j \in I$. 
 	When $\mathbf T$ 
 	is the site arising from a topological space then these definitions coincide with the 
-topological definitions. 
+topological ones. 
 	
 \end{definition}
 
@@ -1261,6 +1261,7 @@ by the properties (a), (b) and (c).
 	\ee
 	where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}).
 \end{notation}
+
 
 \subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
 \paragraph{} Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
@@ -1412,6 +1413,11 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 	%1.17
 	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
 \end{remark}
+\begin{remark}\label{dir_image_rem}
+	Let $f : \sX \to \sY$ be a continuous map, and let $F$ be a set. If both $F_\sX$ and $F_\sY$ are constant presheaves  (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$ then one has $\mathfrak{Ass}\left( F_\sX\right)  = f_*\mathfrak{Ass}\left( F_\sY\right)$ where 
+	$\mathfrak{Ass}$  means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}) and 	
+	$f_*\mathfrak{Ass}\left( F_\sY\right) $ means the direct image (cf. Definition \ref{geom_mor_defn})
+\end{remark}
 \subsection{Cohomology}
 \paragraph{}
 The described below theories are specializations of described in sections \ref{sheaf_cohomology_sec} and \ref{presheaf_cohomology_sec} ones (cf. Example \ref{top_gro_exm}).
@@ -1430,11 +1436,11 @@ $$
 $$
 \end{remark}
 \begin{remark}
-If $f: \sX \to \sY$ is a continuous map and $F$ is an Abelian group then from the Remark \ref{geometric_morphism_rem} and  the Proposition \ref{spectral_sequence_prop} for any $r> 0$ there is a natural homomorphism
+If $f: \sX \to \sY$ is a continuous map and $F$ is an Abelian group then from the Remarks \ref{geometric_morphism_rem}, \ref{dir_image_rem} and  the Proposition \ref{spectral_sequence_prop} for any $r> 0$ there is a natural homomorphism
 \be\label{hom_f_eqn}
 H^r\left(f \right) : H^r\left(\sY, F \right) \to H^r\left(\sX, F \right)
 \ee
-where the notation \eqref{const_shef_coh_not} is used.
+where the Notation \eqref{const_shef_coh_not} is used.
 \end{remark}
 \begin{empt}
 If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sX$ (cf. Definition \ref{site_defn} and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sY$. Let $F$ be a Abelian group, and let $\mathscr P_\sX$, $\mathscr P_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
