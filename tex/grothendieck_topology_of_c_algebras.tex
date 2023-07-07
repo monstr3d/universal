@@ -863,7 +863,11 @@ there are natural equivalences of categories of presheaves and sheaves
 			\mathbf{Ab}\left(\mathbf{T}_{CT\left(\sX, \dl \right)} \right) \cong 	\mathbf{Ab}\left(\mathbf{T}_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\dl} \right)'} \right)
 		\end{split}
 	\eean
-	where the notation of the Appendix \ref{appendix_etale_sec} is used.
+	where the notation of the Appendix \ref{appendix_etale_sec} is used. For any group $F$ and any $r > 0$ one has  natural homomorphisms
+\bean
+H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,\dl\right), F \right),\\
+\check H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,\dl\right), F \right)
+\eean
 \end{rem}
 
 From the Proposition \ref{ctr_d_prop} it follows that
@@ -881,29 +885,23 @@ where $s^a_x$ is a represented by $s^a$ stalk at $x$ (cf. Definition \ref{stalk_
 p_0 \circ j = \Id_{\sX}.
 \ee
 where $p_0$ is given by \eqref{p_d_eqn}.
-\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}), and let $F$ be an Abelian group. For all $r \ge 0$ there are isomorphisms
+\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}), and let $F$ be an Abelian group. For all $r \ge 0$ there is a natural isomorphisms
 	\bean
-	H^r\left(CT\left( \sX,0\right), F \right)	\cong H^r\left(\sX, F  \right)	\oplus X^r,\\
-	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
+	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus {X}^r
 	\eean
-	where both  $X^r$, $\check{X}^r$ are Abelian group and the Notation  \eqref{const_shef_coh_eqn} is  used.
+	where  $X^r$ is an Abelian group and the Notation  \eqref{const_shef_coh_eqn} is  used.
 \end{theorem}
 \begin{proof}
-	From the equation \eqref{hom_f_eqn} it follows that for all $r> 0$ there are following homomorphisms:
+	From the equation \eqref{cech_hom_eqn} it follows that for all $r> 0$ there are following homomorphisms:
 	\bean
-	H^r\left( j\right) 	: H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F \right)\to H^r\left(\sX, F \right),\\
-	H^r\left(p^0\right) 	: H^r\left(\sX, F \right)\to H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F\right).
+	\check{H}^r\left( j\right) 	: \check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F \right)\to \check{H}^r\left(\sX, F \right),\\
+	\check{H}^r\left(p^0\right) 	: \check{H}^r\left(\sX, F \right)\to \check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F\right).
 	\eean 
 	From the equation \eqref{blowing_p_j_eqn} it turns out that
 	$$
-	H^r\left( j\right)\circ H^r\left( p^0\right)= \Id_{ H^r\left(\sX, F \right)}
+	\check{H}^r\left( j\right)\circ \check{H}^r\left( p^0\right)= \Id_{ \check{H}^r\left(\sX, F \right)}
 	$$
-	If $X^r \bydef \ker H^r\left( j\right)$ then from the above equations it follows that $	H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)'\right) 	\cong H^r\left(\sX, F  \right)	\oplus X^r$. Otherwise from the Remark \ref{equiv_rem} it follows that $$H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,0\right), F \right).$$
-	Similarly an application of the equation \eqref{cech_hom_eqn}  yields the following isomorphism
-	$$
-	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r.
-	$$
-	
+	If $X^r \bydef \ker \check{H}^r\left( j\right)$ then from the above equations it follows that $	\check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)'\right) 	\cong \check{H}^r\left(\sX, F  \right)	\oplus X^r$. Otherwise from the Remark \ref{equiv_rem} it follows that $$\check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,0\right), F \right).$$
 \end{proof}
 If  $A = CT\left( \sX,\dl\right)$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ then from the Proposition \ref{ctr_bundle_prop}
 it follows that  there is a locally
@@ -925,9 +923,8 @@ subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\l
 s_x \mapsto p_x.
 \end{split}
 \eean
-One can prove that the map $\psi_\dl$ is continuous. From the equations \eqref{hom_f_eqn}, \eqref{cech_hom_eqn} and the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there are homomorphisms
+One can prove that the map $\psi_\dl$ is continuous. From the equation  \eqref{cech_hom_eqn} and the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there is a natural homomorphism
 \bean
-H_r\left(\psi_\dl \right) :	H^r\left(\E^\dl, F \right)	\to	{H}^r\left(CT\left( \sX,\dl\right), F \right),\\
 \check{H}_r\left(\psi_\dl \right) :	\check{H}^r\left(\E^\dl, F \right)	\to	\check{H}^r\left(CT\left( \sX,\dl\right), F \right).
 \eean
 \begin{empt}
@@ -1063,7 +1060,7 @@ K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\lef
 		(m-1-3) edge node [right]  {} (m-2-2);
 	\end{tikzpicture}
 	\\
-	A morphism $U \to U'$ making this diagram commute is also referred to as an $X$-morphism. The \textit{fibre product}  $U_1\times_X U_2$ of morphisms $\varphi_1: U_1\to X$,  $\varphi_2: U_2\to X$ in $\mathscr C$ is their product in the category $\mathscr C$. Thus, there is a commutative diagram 
+	A morphism $U \to U'$ making this diagram commute is also referred to as an $X$-morphism. The \textit{fibre product}  $U_1\times_X U_2$ of morphisms $\varphi_1: U_1\to X$,  $\varphi_2: U_2\to X$ in $\mathscr C$ is their product in the category $\mathscr C/X$. Thus, there is a commutative diagram 
 	\newline
 	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -1081,8 +1078,7 @@ K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\lef
 	
 \end{definition}
 \begin{definition}\label{site_defn}\cite{milne:lec}
-	A category $\mathscr C$  
-	together with, for each object $U$ of $\mathscr C$, a distinguished set of families of maps $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
+	Let  $\mathscr C$  be a category. Suppose that  for each object $U$ of $\mathscr C$ there are  distinguished sets of families of morphisms $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
 	satisfying the following axioms: 
 	\begin{enumerate}
 		\item[(a)] for any covering $\left\{U_\iota \to U\right\}_{\iota\in I}$ and any morphism $U \to V$ in $\mathscr C$, the fibre products 
@@ -1093,7 +1089,7 @@ K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\lef
 	\end{enumerate}
 	The system of coverings is then called a \textit{Grothendieck topology}, and $\mathscr C$  together with 
 	the topology is called a \textit{site}. If $\mathbf T$  
-	is a site, then $\mathrm{Cat}\left( \mathbf T\right)$  denotes the underlying category. 
+	is a site, then $\mathrm{Cat}\left( \mathbf T\right)\bydef \mathscr C$  denotes the underlying category. 
 	
 \end{definition}
 \begin{example}\label{top_gro_exm}
@@ -1131,7 +1127,7 @@ $\mathrm{Cat}\left( \mathbf T\right)$ to the category of (Abelian) groups or rin
 	$$
 	f \mapsto \left\{f_{\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
 	$$
-	identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f_\iota\right\}$such that 
+	identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f_\iota\right\}$ such that 
 	$$
 	f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
 	$$
@@ -1141,11 +1137,12 @@ $\mathrm{Cat}\left( \mathbf T\right)$ to the category of (Abelian) groups or rin
 topological ones. 
 	
 \end{definition}
-
-There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheaves. Moreover there is a forgetful functor  functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+\begin{definition}\label{forget_sheaf_defn}
+There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheaves. Moreover there is a \textit{forgetful functor} $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+\end{definition}
 
 \begin{statement}\label{site_sheaf_stmt}\cite{johnstone:topos}
-	There is an adjoint $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$ to the given by the forgetful functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T  \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+	There is an adjoint $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$ to the  forgetful functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T  \right)\to \mathbf{PreSh}\left(\mathbf T \right)$ (cf. Definition \ref{forget_sheaf_defn}).
 \end{statement}	
 \begin{defn}\label{site_sheaf_ass_defn}\cite{johnstone:topos}
 	The given by the Statement  \ref{site_sheaf_stmt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
@@ -1164,9 +1161,6 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left
 \end{definition}
 
 
-\begin{definition}\label{geom_mor_defn}\cite{johnstone:topos}
-	If both $\mathscr E$, $\mathscr F$ are toposes then \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr E\xrightarrow{f_*}\mathscr F$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
-\end{definition}
 \begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
 If $X$ is an object of $\mathrm{Cat}\left( \mathbf T\right)$ (cf. Definition \ref{site_defn} then for any set $F$ there is a \textit{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) \bydef F$ and $\mathscr P\left( f\right) \bydef \Id_F$ for all $\mathrm{Cat}\left( \mathbf T\right)/X$-morphism $f: U\to V$.
 We use a following notation
@@ -1190,70 +1184,12 @@ and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
 \be\label{complex_eqn}
 0 \xrightarrow{\dl_0}\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\dl_1} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\dl_2} \Ga\left(X, \mathscr I^2  \right) \to ... 
 \ee
-This is no longer exact (in general).
- 
-\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
-	%			Theorem 1.1 A. 
-	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
-	$F: \mathfrak A \to  \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
-	Then 
-	\begin{enumerate}
-		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
-		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
-		of the choices of injective resolutions made.
-		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
-		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
-		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
-		obtain a long exact sequence 
-		$$
-		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
-		$$
-		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
-				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
-			\path[-stealth]
-			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
-			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
-			(m-1-1) edge node [right]  {} (m-2-1)
-			(m-1-2) edge node [right] {} (m-2-2);
-		\end{tikzpicture}
-		\\
-		\	
-		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
-		
-	\end{enumerate}
-\end{theorem}
-The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $r^{\text{th}}$ cohomology
-group  
+ The $r^{\text{th}}$ cohomology
+group is given by 
 \be\label{etale_coh_eqn}
 H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \mathscr F \right)= \ker~ \dl_{r+1} / \im~ \dl_r.
 \ee
-The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
-\begin{enumerate}
-	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\cong \Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
-	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
-	\item [(c)]  short exact sequence of sheaves
-	$0\to \mathscr F' \to \mathscr F \to \mathscr F'' \to 0$	gives rise to a long exact sequence
-	$$
-	0 \to H^0\left(X, \mathscr F'  \right) \to H^0\left(X, \mathscr F  \right) \to H^0\left(X, \mathscr F''  \right) \to H^1\left(X,\ \mathscr F'  \right) \to ...
-	$$
-	and the association of the long exact sequence with the short exact sequence is functional.
-\end{enumerate}
-Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
-by the properties (a), (b) and (c).
-
-
-\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
-	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geom_mor_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
-	\begin{enumerate}
-		\item [(i)] If $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q$ which is functorial in $f$ and natural in $A$.
-		\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^q\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left( B , \mathscr F \right)$ which is natural in $B$.
-	\end{enumerate}
-\end{proposition}
+It is proven in \cite{johnstone:topos, milne:lec}  that these groups do not depend on the injective resolution.
 \begin{notation}\label{const_shef_coh_not}
 	If  $F$ is an Abelian group and $F_X$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
 	\be\label{const_shef_coh_eqn}
@@ -1409,14 +1345,14 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{*}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
 
-\begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
+%\begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
 	%1.17
-	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
-\end{remark}
+%	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sX\right)\to \mathbf{Sh}\left(\sY\right)$ between categories of sheaves. 
+%\end{remark}
 \begin{remark}\label{dir_image_rem}
 	Let $f : \sX \to \sY$ be a continuous map, and let $F$ be a set. If both $F_\sX$ and $F_\sY$ are constant presheaves  (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$ then one has $\mathfrak{Ass}\left( F_\sX\right)  = f_*\mathfrak{Ass}\left( F_\sY\right)$ where 
 	$\mathfrak{Ass}$  means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}) and 	
-	$f_*\mathfrak{Ass}\left( F_\sY\right) $ means the direct image (cf. Definition \ref{geom_mor_defn})
+	$f_*\mathfrak{Ass}\left( F_\sY\right) $ means the direct image (cf. Definition \ref{sheaf_inv_im_defn})
 \end{remark}
 \subsection{Cohomology}
 \paragraph{}
@@ -1435,13 +1371,7 @@ $$
 \check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right).
 $$
 \end{remark}
-\begin{remark}
-If $f: \sX \to \sY$ is a continuous map and $F$ is an Abelian group then from the Remarks \ref{geometric_morphism_rem}, \ref{dir_image_rem} and  the Proposition \ref{spectral_sequence_prop} for any $r> 0$ there is a natural homomorphism
-\be\label{hom_f_eqn}
-H^r\left(f \right) : H^r\left(\sY, F \right) \to H^r\left(\sX, F \right)
-\ee
-where the Notation \eqref{const_shef_coh_not} is used.
-\end{remark}
+
 \begin{empt}
 If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sX$ (cf. Definition \ref{site_defn} and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sY$. Let $F$ be a Abelian group, and let $\mathscr P_\sX$, $\mathscr P_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
 \be\label{top_cech_eqn}
