@@ -850,11 +850,13 @@ there are natural equivalences of categories of presheaves and sheaves
 			\mathbf{Ab}\left(\mathbf{T}_{CT\left(\sX, \dl \right)} \right) \cong 	\mathbf{Ab}\left(\mathbf{T}_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\dl} \right)'} \right)
 		\end{split}
 	\eean
-	where the notation of the Appendix \ref{appendix_etale_sec} is used. For any group $F$ and any $r > 0$ one has  natural homomorphisms
+	where the notation of the Appendix \ref{appendix_etale_sec} is used. For any group $F$ and any $r > 0$ one has  natural isomorphisms
 \bean
-H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,\dl\right), F \right),\\
-\check H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,\dl\right), F \right)
+H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,\dl\right), F \right)
 \eean
+\be\label{chech_hom_eqn}
+\check H^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^\delta  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,\dl\right), F \right).
+\ee
 \end{rem}
 
 From the Proposition \ref{ctr_d_prop} it follows that
@@ -872,24 +874,27 @@ where $s^a_x$ is a represented by $s^a$ stalk at $x$ (cf. Definition \ref{stalk_
 p_0 \circ j = \Id_{\sX}.
 \ee
 where $p_0$ is given by \eqref{p_d_eqn}.
-\begin{theorem}\label{blowing_grothendiek_thm} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}), and let $F$ be an Abelian group. For all $r \ge 0$ there is a natural isomorphisms
+\begin{lemma}\label{blowing_grothendiek_lem} 	Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}), and let $F$ be an Abelian group. For all $r \ge 0$ there are isomorphisms
 	\bean
-	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus {X}^r
+	\check{H}^r\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r
 	\eean
-	where  $X^r$ is an Abelian group and the Notation  \eqref{const_shef_coh_eqn} is  used.
-\end{theorem}
+	where both  $X^r$, $\check{X}^r$ are Abelian group and the Notation  \eqref{const_shef_coh_eqn} is  used.
+\end{lemma}
 \begin{proof}
-	From the equation \eqref{cech_hom_eqn} it follows that for all $r> 0$ there are following homomorphisms:
+From $p_0\circ j = \Id_\sX$ it follows that $j^*p_0^* \mathfrak{Ass}\left(  F_\sX\right)= F_\sX$, and $j^r\circ p_0^r = \Id_{H^r\left(\sX, \mathfrak{Ass}\left(  F_\sX\right) \right)}$. 
+	From the equations  \eqref{blowing_p_j_eqn} and \eqref{cech_hom_eqn} and equation  it follows that for all $r> 0$ there are following homomorphisms:
 	\bean
-	\check{H}^r\left( j\right) 	: \check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F \right)\to \check{H}^r\left(\sX, F \right),\\
-	\check{H}^r\left(p_0\right) 	: \check{H}^r\left(\sX, F \right)\to \check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F\right).
-	\eean
+	\check{H}^r\left( j\right) 	: 	\check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F \right)\to \check{H}^r\left(\sX, F \right),\\
+	\check{H}^r\left(p_0\right) 	:\check{H}^r\left(\sX, F \right)\to \check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F\right).
+	\eean 
 	From the equations \eqref{blowing_p_j_eqn} and \eqref{cech_hom_comp_eqn} it turns out that
 	$$
-	\check{H}^r\left( j\right)\circ \check{H}^r\left( p_0\right)= \Id_{ \check{H}^r\left(\sX, F \right)}.
+	\check{H}^r\left( j\right)\circ \check{H}^r\left( p^0\right)= \Id_{ \check{H}^r\left(\sX, F \right)}.
 	$$
-	If $X^r \bydef \ker \check{H}^r\left( j\right)$ then from the above equations it follows that $	\check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)'\right) 	\cong \check{H}^r\left(\sX, F  \right)	\oplus X^r$. Otherwise from the Remark \ref{equiv_rem} it follows that $$\check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)'\right)\cong \check{H}^r\left(CT\left( \sX,0\right), F \right).$$
+So if $\check{X}^r \bydef \ker \check{H}^r\left( j\right)$ then $\check{H}^r\left(\mathrm{Sp\acute{e}}\left(\mathscr P^0  \right)', F \right)\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r$. Now this Lemma follows from the isomorphism \eqref{chech_hom_eqn}.
+	
 \end{proof}
+
 If  $A = CT\left( \sX,\dl\right)$ is a  stable separable  continuous trace $C^*$-algebra with spectrum $\sX$ then from the Proposition \ref{ctr_bundle_prop}
 it follows that  there is a locally
 trivial bundle $\pi_\dl: \F^\dl\to \sX$ with fibre $\K(\H)$ and structure group $\Aut \left( \K(\H)\right)$ such that $A$ is $C_0\left( \sX\right)$ -isomorphic to the space of sections $\Ga_0\left(\sX, \F \right)$. The space $\F^\dl$ as a set equals to a union 
@@ -910,7 +915,7 @@ subspace $\rho_x\left(C \right) \H_x \subset \H_x$. If we denote by $p_x\in \K\l
 s_x \mapsto p_x.
 \end{split}
 \eean
-One can prove that the map $\psi_\dl$ is continuous. From the equation  \eqref{cech_hom_eqn} and the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there is a natural homomorphism
+One can prove that the map $\psi_\dl$ is continuous. From the equation  \eqref{cech_hom_eqn} and the Remark \ref{equiv_rem} it turns out that for all $r \ge 0$ and an Abelian group $F$ there are  natural homomorphisms
 \bean
 \check{H}_r\left(\psi_\dl \right) :	\check{H}^r\left(\E^\dl, F \right)	\to	\check{H}^r\left(CT\left( \sX,\dl\right), F \right).
 \eean
@@ -923,7 +928,7 @@ where $\pi_x: CT\left(\sX, \dl \right)\to B\left( \H_x\right)$ is a correspondin
 $$
 \sU \mapsto \Ga_0\left( \sX, \sF_\dl\right)/\sim_\sU
 $$
-is a presheaf, denote by $\mathscr F^\delta$ the associated sheaf (cf. Definitions \ref{site_sheaf_ass_defn} and \ref{sheaf_prdf}).
+is a presheaf of $*$-algebras, denote by $\mathscr F^\delta$ the associated sheaf (cf. Definitions \ref{site_sheaf_ass_defn} and \ref{sheaf_prdf}).
 From the isomorphism \eqref{bundle_prod_iso} one has an isomorphism
 \be\label{big_iso_eqn}
 \mathscr F^\delta\otimes \mathscr F^\rho \cong \mathscr F^{\dl+\rho}
@@ -1005,19 +1010,19 @@ a described in  \cite{milne:lec}  \'etale cohomology of algebraic varieties. Her
 
 This theory provides  following analogues between the cohomology and  the $K$-theory of continuous trace $C^*$-algebras.
 \begin{itemize}
-	\item The equation 
-\bean
-\check{H}^\bullet\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^\bullet\left(\sX, F  \right)	\oplus \check{X}^r
-\eean	
-
-is analogical to the $K$-theoretic one
+\item The equation
+	\bean
+%	H^\bullet\left(CT\left( \sX,0\right), F \right)	\cong H^\bullet\left(\sX, F  \right)	\oplus X^r,\\
+	\check{H}^\bullet\left(CT\left( \sX,0\right), F \right)	\cong \check{H}^\bullet\left(\sX, F  \right)	\oplus \check{X}^r
+	\eean	
+	is analogical to the $K$-theoretic one
 	$$
 K_\bullet\left( CT\left(\sX, 0 \right)\right)\cong K^\bullet\left( \sX\right).
 	$$
 	\item The equation 
 	$$
 \check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, Z\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right)	$$
-is analogical to the following equation	
+is analogical to the following one	
 $$
 K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right).	
 	$$
@@ -1137,16 +1142,23 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left
 	%8.13$
 	If $\mathbf T$ is site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
 \end{statement}
-\begin{empt}
-	The notion of \textit{topos} is explained in \cite{johnstone:topos}. Any topos is a category. If $\mathbf T$ is a site then a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets is a topos.
-\end{empt}
+%\begin{empt}
+%	The notion of \textit{topos} is explained in \cite{johnstone:topos}. Any topos is a category. If $\mathbf T$ is a site then a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets is a topos.
+%\end{empt}
 
 
-\begin{definition}\label{grothendiek_topos_defn}\cite{johnstone:topos}
-	A topos $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
-\end{definition}
+%\begin{definition}\label{grothendiek_topos_defn}\cite{johnstone:topos}
+%	A topos $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
+%\end{definition}
 
-
+%\begin{rem}\label{geom_mor_defn}\cite{johnstone:topos}
+	% 1.16 
+%	If both $\mathscr E$, $\mathscr F$ are toposes then \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr F\xrightarrow{f_*}\mathscr E$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ (called the \textit{direct} and \textit{inverse images}) such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
+%\end{rem}
+%\begin{rem}\label{geom_mor_g_rem}\cite{johnstone:topos}
+% 1.16 Grothendieck
+%If both $\mathscr E$, $\mathscr F$ are Grothendieck toposes and  $\mathscr F\xrightarrow{f}\mathscr E$ is {geometric morphism} then direct image $f^*$ is left exact. 
+%\end{rem}
 \begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
 If $X$ is an object of $\mathrm{Cat}\left( \mathbf T\right)$ (cf. Definition \ref{site_defn} then for any set $F$ there is a \textit{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) \bydef F$ and $\mathscr P\left( f\right) \bydef \Id_F$ for all $\mathrm{Cat}\left( \mathbf T\right)/X$-morphism $f: U\to V$.
 We use a following notation
@@ -1155,7 +1167,8 @@ We use a following notation
 	\ee
 \end{definition}
 
-\subsection{Cohomology of sheaves}\label{sheaf_cohomology_sec}\label{grothendieck_cohomology_section}
+
+\subsection{Cohomology of sheaves}\label{grothendieck_cohomology_section}
 \paragraph{}
 Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. The functor
 \bean
@@ -1168,21 +1181,35 @@ $$
 $$
 and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
 \be\label{complex_eqn}
-0 \xrightarrow{\dl_0}\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\dl_1} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\dl_2} \Ga\left(X, \mathscr I^2  \right) \to ... 
+0 \hookto\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\dl_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\dl_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
 \ee
- The $r^{\text{th}}$ cohomology
-group is given by 
+This is no longer exact (in general). The complex \eqref{complex_eqn}   define the $r^{\text{th}}$ \textit{cohomology
+group}  
 \be\label{etale_coh_eqn}
-H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \mathscr F \right)= \ker~ \dl_{r+1} / \im~ \dl_r.
+H^r\left(X,\ \mathscr F \right)\cong\begin{cases}
+	\ker \dl^0 & r = 0\\
+ \ker~ \dl_{r} / \im~ \dl_{r - 1}  & r > 0
+\end{cases}.
 \ee
-It is proven in \cite{johnstone:topos, milne:lec}  that these groups do not depend on the injective resolution.
+this group does not depend on choice of injective resolution up to isomorphism.
+
+%\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
+	%8.17 
+%	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geom_mor_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
+%	\begin{enumerate}
+%		\item [(i)] If $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q$ which is functorial in $f$ and natural in $A$.
+%		\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left(\mathscr F, B \right)$ which is natural in $B$.
+%	\end{enumerate}
+%\end{proposition}
 \begin{notation}\label{const_shef_coh_not}
 	If  $F$ is an Abelian group and $F_X$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
 	\be\label{const_shef_coh_eqn}
-	\forall r\ge 0\quad H^r\left(X, F \right) \bydef H^r\left(X, \mathfrak{Ass} \left( F_X\right)  \right) 
+	\forall r\ge 0\quad H^r\left(X, F \right) \bydef H^r\left(X, \mathfrak{Ass} \left( F_X\right)  \right).
 	\ee
 	where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}).
 \end{notation}
+
+
 
 
 \subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
@@ -1327,67 +1354,70 @@ is open subset  of the \'espace etal\'e  of $\mathrm{Sp\acute{e}}\left(\mathscr 
 	\end{enumerate}
 \end{exercise}
 
-\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{*}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
-\end{definition}
+%\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
+%	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{*}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+%\end{definition}
 
 %\begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
 	%1.17
 %	If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sX\right)\to \mathbf{Sh}\left(\sY\right)$ between categories of sheaves. 
 %\end{remark}
-\begin{remark}\label{dir_image_rem}
-	Let $f : \sX \to \sY$ be a continuous map, and let $F$ be a set. If both $F_\sX$ and $F_\sY$ are constant presheaves  (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$ then one has $\mathfrak{Ass}\left( F_\sX\right)  = f_*\mathfrak{Ass}\left( F_\sY\right)$ where 
-	$\mathfrak{Ass}$  means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}) and 	
-	$f_*\mathfrak{Ass}\left( F_\sY\right) $ means the direct image (cf. Definition \ref{sheaf_inv_im_defn})
-\end{remark}
+%\begin{exercise}\label{dir_image_exer}
+%	Let $f : \sX \to \sY$ be an injective continuous map, and let $F$ be a set. If both $F_\sX$ and $F_\sY$ are constant presheaves  (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$ then there is a natural isomorphism of sheaves
+%	\bean\label{dir_image_eqn}
+%	\mathfrak{Ass}\left( F_\sX\right)  = f^*\mathfrak{Ass}\left( F_\sY\right)
+%	\eean
+%	 where 
+%	$\mathfrak{Ass}$  means the associated sheaf functor (cf. Definition \ref{site_sheaf_ass_defn}) and 	
+%	$f^*$ means the inverse image (cf. Definition \ref{sheaf_inv_im_defn})
+%\end{exercise}
 \subsection{Cohomology}
 \paragraph{}
-The described below theories are specializations of described in sections \ref{sheaf_cohomology_sec} and \ref{presheaf_cohomology_sec} ones (cf. Example \ref{top_gro_exm}).
-\begin{lemma}\cite{hartshorne:ag}
-	Let $\sX$ be a topological space, and $\mathscr U$ an open covering of $\sX$. Then for any sheaf $\mathscr U$ on $\sX$ and
-	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
+The described below theories are specializations of described in sections \ref{grothendieck_cohomology_section} and \ref{presheaf_cohomology_sec} ones (cf. Example \ref{top_gro_exm}).
+%\begin{lemma}\cite{hartshorne:ag}
+%	Let $\sX$ be a topological space, and $\mathscr U$ an open covering of $\sX$. Then for any sheaf $\mathscr U$ on $\sX$ and	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
+%	$$
+%	\check{H}^r\left(\mathscr U, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right) 
+%	$$
+%	where both $\check{H}^r$ and $H^r$ are given by the equations \eqref{cech_coh_eqn} and \eqref{etale_coh_eqn} respectively.
+%\end{lemma}
+%\begin{remark}
+%From the above lemma and the equation  \ref{chech_eqn} for each $r\ge 0$ one has a homomorphism
+%$$
+%\check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right).
+%$$
+%\end{remark}
+\begin{empt}
+	If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sX$ (cf. Definition \ref{site_defn} and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sY$. Let $F$ be a Abelian group, and let $\mathscr P_\sX$, $\mathscr P_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
+	\be\label{top_cech_eqn}
+	C^r\left( \mathscr U, \mathscr P_\sX\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P_\sX\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\cap...\cap \sU_{\iota_r}. 
+	\ee
+	is a specialization of \eqref{cech_eqn} one (cf. Example \ref{top_gro_exm}. For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
 	$$
-	\check{H}^r\left(\mathscr U, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right) 
+	\mathscr P_\sX\left(\sU_{\iota_0,.... \iota_r} \right)\cong \mathscr P_\sY\left(f^{-1}\left( \sU_{\iota_0,.... \iota_r} \right)\right) \cong F.
 	$$
-	where both $\check{H}^r$ and $H^r$ are given by the equations \eqref{cech_coh_eqn} and \eqref{etale_coh_eqn} respectively.
-\end{lemma}
-\begin{remark}
-From the above lemma and the equation  \ref{chech_eqn} for each $r\ge 0$ one has a homomorphism
-$$
-\check{H}^r\left(\sX, \mathscr F \right) \to H^r\left( \sX, \mathscr F\right).
-$$
-\end{remark}
-
-\begin{empt}\label{chech_hom_empt}
-If $f: \sX\to\sY$ is a continuous map  $\mathscr U = \left\{\sU_\iota\right\}_{\iota} \in I$ is a covering of $\sX$ (cf. Definition \ref{site_defn} and Example \ref{top_gro_exm}) then a family $f^{-1}\left(\mathscr U \right) \bydef \left\{f^{-1}\left( \sU_\iota\right) \right\}_{\iota} \in I$ is a covering of $\sY$. Let $F$ be a Abelian group, and let $\mathscr P_\sX$, $\mathscr P_\sY$ be a corresponding constant presheaves (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$.  Following equation
-\be\label{top_cech_eqn}
-C^r\left( \mathscr U, \mathscr P_\sX\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P_\sX\left(\sU_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad \sU_{\iota_0,.... \iota_r} \bydef \sU_{\iota_0}\cap...\cap \sU_{\iota_r}. 
-\ee
-is a specialization of \eqref{cech_eqn} one (cf. Example \ref{top_gro_exm}. For any $\left(\iota_0,.... \iota_r\right) \in I^{r+1}$ one has an isomorphism
-$$
-\mathscr P_\sX\left(\sU_{\iota_0,.... \iota_r} \right)\cong \mathscr P_\sY\left(f^{-1}\left( \sU_{\iota_0,.... \iota_r} \right)\right) \cong F.
-$$
-Above isomorphisms yield an isomorphism
-$$
-C^r\left( f^{-1}\left( \mathscr U\right) , \mathscr P_\sY\right)\cong C^r\left( \mathscr U, \mathscr P_\sX\right).
-$$
-From these isomorphisms  one can obtain a natural homomorphism
-$$
-\check{H}^r\left(f\right):\check{H}^r\left(\sY, \mathscr P_\sY \right)\to \check{H}^r\left(\sX, \mathscr P_\sX \right)\quad r \ge 0.
-$$
-The details of the construction of the homomorphism $\check{H}^r\left(f\right)$  are explained in \cite{eust}. Using the Notation \ref{constant_presheaf_defn} one has
-\be\label{cech_hom_eqn}
-\begin{split}
-\check{H}^r\left(f\right):\check{H}^r\left(\sY, F \right)\to \check{H}^r\left(\sX, F \right)\quad r \ge 0,\\
-\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right).
-\end{split}
-\ee
-If both $\sX \xrightarrow{f}\sY$ and $\sY \xrightarrow{g}\sZ$ are continuous maps then from this construction one has
-\be\label{cech_hom_comp_eqn}
-\begin{split}
-	\check{H}^\bullet\left(g\circ f\right)= \check{H}^\bullet\left( f\right)\circ \check{H}^\bullet\left(g\right):\check{H}^\bullet\left(\sZ, F \right)\to \check{H}^\bullet\left(\sX, F \right)
-\end{split}
-\ee
+	Above isomorphisms yield an isomorphism
+	$$
+	C^r\left( f^{-1}\left( \mathscr U\right) , \mathscr P_\sY\right)\cong C^r\left( \mathscr U, \mathscr P_\sX\right).
+	$$
+	From these isomorphisms  one can obtain a natural homomorphism
+	$$
+	\check{H}^r\left(f\right):\check{H}^r\left(\sY, \mathscr P_\sY \right)\to \check{H}^r\left(\sX, \mathscr P_\sX \right)\quad r \ge 0.
+	$$
+	The details of the construction of the homomorphism $\check{H}^r\left(f\right)$  are explained in \cite{eust}. Using the Notation \ref{constant_presheaf_defn} one has
+	\be\label{cech_hom_eqn}
+	\begin{split}
+		\check{H}^r\left(f\right):\check{H}^r\left(\sY, F \right)\to \check{H}^r\left(\sX, F \right)\quad r \ge 0,\\
+		\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right).
+	\end{split}
+	\ee
+	If both $\sX \xrightarrow{f}\sY$ and $\sY \xrightarrow{g}\sZ$ are continuous maps then from this construction one has
+	\be\label{cech_hom_comp_eqn}
+	\begin{split}
+		\check{H}^\bullet\left(g\circ f\right)= \check{H}^\bullet\left( f\right)\circ \check{H}^\bullet\left(g\right):\check{H}^\bullet\left(\sZ, F \right)\to \check{H}^\bullet\left(\sX, F \right)
+	\end{split}
+	\ee
+	
 \end{empt}
 
 \begin{empt}\label{tens_prop_c_empt}\cite{bryl:loop}
@@ -1491,10 +1521,20 @@ $$
 	A representation $\rho : A\to B\left( \H\right)$ is called \textit{nondegenerate} if for any $\xi \in \H$  there exists an element $a \in A$ such that $\rho\left(a \right)\xi \neq 0$. 
 \end{definition}
 
+\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
+	Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
+	\begin{enumerate}
+		\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
+		\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
+		\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
+		\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
+		\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
+		\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
+	\end{enumerate} 
+\end{theorem}
 \begin{definition}\label{irred_defn}\cite{pedersen:ca_aut}
-	A a nonzero representation  $\pi: A \to B\left(\H \right)$ of $C^*$-algebra $A$ said to be \textit{irreducible} if there are no non-trivial $A$-subspaces for $\pi$.
+	Let $A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The representation is said to be \textit{irreducible} if it satisfies to the Theorem \ref{irred_thm}.
 \end{definition}
-
 
 
 
@@ -1695,6 +1735,8 @@ K_\bullet\left( CT\left(\sX, 0 \right)\right)\cong K^\bullet\left( \sX\right).
 %\bibitem{dimca:sheaves} Alexandru Dimca. \textit{Sheaves in Topology} Springer Science \& Business Media, Mar 12, 2004. 
 
 \bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
+
+%\bibitem{gelfand_manin} Sergei I. Gelfand, Yuri I. Manin. \textit{Methods of Homological Algebra},  Springer Monographs in Mathematics (SMM), 1996.
 
 \bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
 
