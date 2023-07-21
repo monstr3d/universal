@@ -869,10 +869,7 @@ Note that
 C|_{\supp C} = C,\\
 \supp C \cap \sV =\supp C|_\sV
 \eea 
-Let $\Om_\sX$ be {sheaf of stalks of open sets} (cf. Appendix \ref{open_sheaf_empt}). Let  $\mathrm{Sp\acute{e}}\left(\Om_\sX \right)$ be the	\'espace etal\'e  (cf. Exercise \ref{sheaf_etale_exer}) of the sheaf $\Om_\sX$. The empty set $\emptyset$ yields a global  section $s^\emptyset \in \Om_\sX\left(\sX \right)$, this section gives an open subset $\mathrm{Sp\acute{e}}\left(\Om_\sX  \right)_\emptyset \subset \mathrm{Sp\acute{e}}\left(\Om_\sX \right)$. Denote by 
-\be
-\mathfrak X\left(\sX \right)  \bydef  \mathrm{Sp\acute{e}}\left(\Om_\sX  \right)\setminus\mathrm{Sp\acute{e}}\left(\Om_\sX \right)_\emptyset.
-\ee
+Let $\Om_\sX$ be {sheaf of stalks of open sets} (cf. Appendix \ref{open_sheaf_empt}). Let  $\mathrm{Sp\acute{e}}\left(\Om_\sX \right)$ be the	\'espace etal\'e  (cf. Exercise \ref{sheaf_etale_exer})
 If  $\mathscr{P}^{ A}$ is a   given by \eqref{comm_alg_sheaf}  presheaf then there  is a surjective morphism of sheaves (cf. Definition \ref{sheaf_morphism_defn})
 \bean
 \psi : \mathfrak{Ass}\left( \mathscr{P}^A\right)  \to \Om_\sX;\\
@@ -883,11 +880,11 @@ $$
 P'_A:\mathrm{Sp\acute{e}}\left(\mathscr P^A  \right) \to \mathrm{Sp\acute{e}}\left(\Om_\sX  \right).
 $$
 \begin{exercise}
-Prove that if $\mathscr X^A$ is given by the Lemma \ref{grot_com_lem}  Grothendieck $A$-space. (cf. Definition \ref{grothendieck_ca_t_defn}) then $P'_A$ maps $\mathscr X^A$ onto $\mathfrak X\left(\sX \right)$. Moreover the natural surjective maps
+Prove that if $\mathscr X^A$ is given by the Lemma \ref{grot_com_lem}  Grothendieck $A$-space. (cf. Definition \ref{grothendieck_ca_t_defn}) then $P'_A$ maps $\mathscr X^A$ onto $\mathrm{Sp\acute{e}}\left(\Om_\sX \right)$. Moreover the natural surjective maps
 \bea\label{pa_eqn}
-P_A: \mathscr X^A\to \mathfrak X\left(\sX \right),\\
+P_A: \mathscr X^A\to \mathrm{Sp\acute{e}}\left(\Om_\sX \right),\\
 \label{px_eqn}
-P_\sX :  \mathfrak X\left(\sX \right)\to \sX
+P_\sX :  \mathrm{Sp\acute{e}}\left(\Om_\sX \right)\to \sX
 \eea
 are a local homeomorphisms.
 
@@ -914,14 +911,14 @@ C' \in  \mathfrak{Supp}\left( A'\right)_{\sV}, \quad C' \in  \mathfrak{Supp}\lef
 \begin{theorem}\label{local_prod_thm}
 	If  $A$ is a {local product} of $A'$ and $A''$ then there is a homeomorphism
 $$
-\phi: \mathfrak{Grot}\left(A' \right)\times_{\mathfrak X\left(\sX \right)}\mathfrak{Grot}\left(A'' \right)\cong \mathfrak{Grot}\left(A \right).
+\phi: \mathfrak{Grot}\left(A' \right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Grot}\left(A'' \right)\cong \mathfrak{Grot}\left(A \right).
 $$
 \end{theorem}
 \begin{proof}
 	Any element of 
-$\mathfrak{Grot}\left(A' \right)\times_{\mathfrak X\left(\sX \right)}\mathfrak{Grot}\left(A'' \right)=\mathscr X^{A'} \times_{\mathfrak X\left(\sX \right)}	 \mathscr X^{A''}$ corresponds to a pair $C'_x \in  \mathscr X^{A'}$, $~C''_x \in  \mathscr X^{A''}$ such that $P_{A'}\left( C'_x\right)= P_{A''}\left( C''_x\right)$ (cf. Equation \eqref{pa_eqn}). Suppose that both $C'_x$ and $C''_x$ are represented by  hereditary commutative $C^*$-algebras $C' \in \mathscr C^{A'}$ and $C'' \in \mathscr C^{A''}$ such that $\supp C' = \supp C''= \sU$. From the Definition \ref{local_prod_defn} it follows that there is a family $\left\{\sV_\iota\right\}_{\iota\in I}$ such  that $\sU = \cup_{\iota \in I}\sV_\iota$ and for all $\iota \in I$ there is a  given by \eqref{local_prod_eqn} bijective map $\varphi_{\sV_\iota} :		\mathfrak{Supp}\left( A'\right)_{\sV_\iota}	\times \mathfrak{Supp}\left( A''\right)_{\sV_\iota}\cong \mathfrak{Supp}\left( A\right)_{\sV_\iota}$ If $C_\iota \bydef \varphi_{\sV_\iota}\left(C'|_{\sV_\iota}, C''|_{\sV_\iota} \right)$ then $C_\iota$ yields a section $s_\iota \in \mathscr P^A\left(\sV_\iota \right)$. From the condition \eqref{inter_c_eqn} it follows that for all $\iota', \iota'' \in I\times I$ one has  $s_{\iota'}|_{\sV_{\iota''}}=s_{\iota''}|_{\sV_{\iota'}}$. From the sheaf condition (cf. equation \ref{etale_sheaf_eqn}) it follows that there is a section $s \in \mathfrak{Ass}\left( \mathscr P^A \right)\left(\sU \right)$ such that $s|_{\sV_\iota}= s_\iota$ for all $\iota\in I$. If $C = \mathfrak{C}(s)\in \mathscr C^A$ is given by the equation \eqref{cs_eqn} then $\supp C = \sU$. We define $\phi\left( C'_x, C''_x\right) \bydef C_x$.
+$\mathfrak{Grot}\left(A' \right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Grot}\left(A'' \right)=\mathscr X^{A'} \times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}	 \mathscr X^{A''}$ corresponds to a pair $C'_x \in  \mathscr X^{A'}$, $~C''_x \in  \mathscr X^{A''}$ such that $P_{A'}\left( C'_x\right)= P_{A''}\left( C''_x\right)$ (cf. Equation \eqref{pa_eqn}). Suppose that both $C'_x$ and $C''_x$ are represented by  hereditary commutative $C^*$-algebras $C' \in \mathscr C^{A'}$ and $C'' \in \mathscr C^{A''}$ such that $\supp C' = \supp C''= \sU$. From the Definition \ref{local_prod_defn} it follows that there is a family $\left\{\sV_\iota\right\}_{\iota\in I}$ such  that $\sU = \cup_{\iota \in I}\sV_\iota$ and for all $\iota \in I$ there is a  given by \eqref{local_prod_eqn} bijective map $\varphi_{\sV_\iota} :		\mathfrak{Supp}\left( A'\right)_{\sV_\iota}	\times \mathfrak{Supp}\left( A''\right)_{\sV_\iota}\cong \mathfrak{Supp}\left( A\right)_{\sV_\iota}$ If $C_\iota \bydef \varphi_{\sV_\iota}\left(C'|_{\sV_\iota}, C''|_{\sV_\iota} \right)$ then $C_\iota$ yields a section $s_\iota \in \mathscr P^A\left(\sV_\iota \right)$. From the condition \eqref{inter_c_eqn} it follows that for all $\iota', \iota'' \in I\times I$ one has  $s_{\iota'}|_{\sV_{\iota''}}=s_{\iota''}|_{\sV_{\iota'}}$. From the sheaf condition (cf. equation \ref{etale_sheaf_eqn}) it follows that there is a section $s \in \mathfrak{Ass}\left( \mathscr P^A \right)\left(\sU \right)$ such that $s|_{\sV_\iota}= s_\iota$ for all $\iota\in I$. If $C = \mathfrak{C}(s)\in \mathscr C^A$ is given by the equation \eqref{cs_eqn} then $\supp C = \sU$. We define $\phi\left( C'_x, C''_x\right) \bydef C_x$.
 
-Suppose that $C_x \in\mathfrak{Grot}\left(A \right)= \mathscr X^{A}$ is represented by $C\in \mathscr C^A$ and $\sU = \supp C$. Similarly to the above part of this prove one can define pairs $\left(C'_\iota, C''_\iota  \right)  \bydef \varphi^{-1} \left(C|_{\sV_{\iota}} \right)$. Then similarly to the above construction one has a pair $C' \in \mathscr C^{A'}$ and $C'' \in \mathscr C^{A''}$ such that $\supp C' = \supp C'' = \sU$. A pair $\left(C'_x, C''_x\right)$ yields an element of $\mathscr X^{A'} \times_{\mathfrak X\left(\sX \right)}	 \mathscr X^{A''}$. We define
+Suppose that $C_x \in\mathfrak{Grot}\left(A \right)= \mathscr X^{A}$ is represented by $C\in \mathscr C^A$ and $\sU = \supp C$. Similarly to the above part of this prove one can define pairs $\left(C'_\iota, C''_\iota  \right)  \bydef \varphi^{-1} \left(C|_{\sV_{\iota}} \right)$. Then similarly to the above construction one has a pair $C' \in \mathscr C^{A'}$ and $C'' \in \mathscr C^{A''}$ such that $\supp C' = \supp C'' = \sU$. A pair $\left(C'_x, C''_x\right)$ yields an element of $\mathscr X^{A'} \times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}	 \mathscr X^{A''}$. We define
 $$
 \phi^{-1}\left(C_x \right) \bydef \left(C'_x, C''_x \right). 
 $$
@@ -930,9 +927,9 @@ $$
 If $F$ is an Abelian group such that $F\ox_\Z F \cong F$ then from the Theorem \ref{local_prod_thm}, the Lemma \ref{gr_ring_lem} and the Exercise \ref{ring_homo_exer} one can obtain following homomorphisms
 	\bean
 	\check{H}^\bullet\left( A', F\right) \ox_{\check{H}^\bullet\left( \sX,F\right) } 	\check{H}^\bullet\left( A'', F\right)\to 	\check{H}^\bullet\left( A, F\right),\\
-		\check{H}^\bullet\left( A', F\right) \ox_{\check{H}^\bullet\left( \mathfrak X\left(\sX \right),F\right) } 	\check{H}^\bullet\left( A''\right)\to 	\check{H}^\bullet\left( A, F\right)
+		\check{H}^\bullet\left( A', F\right) \ox_{\check{H}^\bullet\left( \mathrm{Sp\acute{e}}\left(\Om_\sX \right),F\right) } 	\check{H}^\bullet\left( A''\right)\to 	\check{H}^\bullet\left( A, F\right)
 		\eean 
-		of $\check{H}^\bullet\left( \sX, F \right)$ and $\check{H}^\bullet\left( \mathfrak X\left(\sX \right), F\right)$ bimodules respectively. 
+		of $\check{H}^\bullet\left( \sX, F \right)$ and $\check{H}^\bullet\left( \mathrm{Sp\acute{e}}\left(\Om_\sX \right), F\right)$ bimodules respectively. 
 \end{remark}
 
 
@@ -1004,13 +1001,13 @@ If $\dl, \rho \in \check{H}^3\left(\sX \right)$  then $CT\left(\sX, \dl + \rho \
 \end{proof}
 From the Lemma \ref{ctr_local_prod_thm} and the Theorem \ref{local_prod_thm}  one can obtain a homeomorphism
 \bea\label{space_homeo_eqn}
-\mathfrak{Grot}\left(CT\left(\sX, \dl \right)\right)\times_{\mathfrak X\left(\sX \right)}\mathfrak{Grot}\left(CT\left(\sX, \rho \right)\right) \cong \mathfrak{Grot}\left(CT\left(\sX, \dl + \rho\right)\right).
+\mathfrak{Grot}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Grot}\left(CT\left(\sX, \rho \right)\right) \cong \mathfrak{Grot}\left(CT\left(\sX, \dl + \rho\right)\right).
 \eea
 If $F$ is an Abelian group such that $F\ox_\Z F \cong F$  then there are following maps
 \bea\label{hom1_homeo_eqn}
 	\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left( \sX,F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right),\\
 	\label{hom2_homeo_eqn}
-	\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left(\mathfrak X\left(\sX \right),F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right)
+	\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\Om_\sX \right),F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right)
 \eea
 (cf. Remark \ref{local_prod_rem}).
 
@@ -1091,7 +1088,7 @@ If $F$ is an Abelian group such that $F\ox_\Z F \cong F$  then there are followi
 	\item 
 	The given by \eqref{space_homeo_eqn} equation
 	$$
-\mathfrak{Grot}\left(CT\left(\sX, \dl \right)\right)\times_{\mathfrak X\left(\sX \right)}\mathfrak{Grot}\left(CT\left(\sX, \rho \right)\right) \cong \mathfrak{Grot}\left(CT\left(\sX, \dl + \rho\right)\right)
+\mathfrak{Grot}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Grot}\left(CT\left(\sX, \rho \right)\right) \cong \mathfrak{Grot}\left(CT\left(\sX, \dl + \rho\right)\right)
 	$$
 	is analogical to
 	$$
@@ -1111,7 +1108,7 @@ K_\bullet\left( CT\left(\sX, 0 \right)\right)\cong K^\bullet\left( \sX\right)
 	\item The given by \eqref{hom1_homeo_eqn} and \eqref{hom2_homeo_eqn} equations
 \bean
 \check{H}^\bullet\left(CT\left( \sX, \delta\right) , F \right) \otimes_{\check{H}^\bullet\left( \sX, F\right)  }\check{H}^\bullet\left(CT\left( \sX, \rho\right) , F \right) \to \check{H}^\bullet\left(CT\left( \sX, {\delta + \rho}\right) , F \right),\\
-\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left(\mathfrak X\left(\sX \right),F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right)
+\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\Om_\sX \right),F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right)
 \eean
 are analogical to the following $K$-theoretic one
 $$
