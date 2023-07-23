@@ -559,7 +559,7 @@
 %\noindent
 
 \begin{abstract}
-For any topological space there is a sheaf cohomology. A Grothendieck topology  is a generalization  of the  classical topology such that  it also possesses a sheaf cohomology. On the other hand any noncommutative $C^*$-algebra is a generalization of a locally compact Hausdorff space. Here we define a Grothendieck topology arising from  $C^*$-algebras which is a generalization of the topology of the spectra of commutative $C^*$-algebras. This construction yields a noncommutative generalization of the sheaf cohomology of topological spaces.  If $A$ is a $C^*$-algebra of type $I_0$ then its Grothendieck topology can be represented by a topological space. It is proven that  there is an analogy between the cohomology of  continuous-trace $C^*$-algebras and Dixmier-Douady theory. Moreover the Grothendieck topology provides an analog Dixmier-Douady theory for $C^*$-algebras of foliations.
+For any topological space there is a sheaf cohomology. A Grothendieck topology  is a generalization  of the  classical topology such that  it also possesses a sheaf cohomology. On the other hand any noncommutative $C^*$-algebra is a generalization of a locally compact Hausdorff space. Here we define a Grothendieck topology arising from  $C^*$-algebras which is a generalization of the topology of the spectra of commutative $C^*$-algebras. This construction yields a noncommutative generalization of the sheaf cohomology of topological spaces.  If $A$ is a $C^*$-algebra of type $I_0$ then its Grothendieck topology can be represented by a topological space. There is an analogy between the Dixmier-Douady theory  of continuous-trace $C^*$-algebras and Grothendieck topology of $C^*$-algebras of type $I_0$.
 \end{abstract}
 
 
@@ -899,8 +899,9 @@ p_A: \mathscr X^A \to \sX.
 \ee
 \end{exercise}
 
-	
-
+\subsection{Dixmier-Douady theory}	
+\paragraph{}
+Here an analog of the Dixmier-Douady theory of $C^*$-algebras having continuous trace is discussed.
 \begin{definition}\label{local_prod_defn}
 	Let $A, A', A''$ be   $C^*$-algebras of type $I_0$ (cf. Definition \ref{type_i0_defn}). If $C_0\left( \sX\right) \hookto M\left(A \right)$, $~C_0\left( \sX\right) \hookto M\left(A' \right)$, $~C_0\left( \sX\right) \hookto M\left(A'' \right)$ are Hausdorff blowing-ups (cf. Definition \ref{blowing_up_defn}) then
  we say that $A$ is an $\sX$-\textit{product} of $A'$ and $A''$ if for any open set $\sU \subset \sX$  there is a bijective map
@@ -912,9 +913,9 @@ p_A: \mathscr X^A \to \sX.
 
 \begin{theorem}\label{local_prod_thm}
 	If  $A$ is an $\sX$-{product} of $A'$ and $A''$ then there is a homeomorphism
-$$
+\be\label{local_prodg_eqn}
 \phi: \mathfrak{Grot}\left(A' \right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Grot}\left(A'' \right)\cong \mathfrak{Grot}\left(A \right).
-$$
+\ee
 \end{theorem}
 \begin{proof}
 	Any element of 
@@ -923,13 +924,31 @@ $\mathfrak{Grot}\left(A' \right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right
 
 Suppose that $C_x \in\mathfrak{Grot}\left(A \right)= \mathscr X^{A}$ is represented by $C\in \mathscr C^A$ and $\sU = \supp C$. If $\varphi_\sU\left(C'_\iota, C''_\iota  \right)= C$ then $\supp C' = \supp C'' = \sU$. A pair $\left(C'_x, C''_x\right)$ yields an element of $\mathscr X^{A'} \times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}	 \mathscr X^{A''}$. It turns out that the map $\phi$ is a bijection.
 \end{proof}
+\begin{remark}
+	The given by \eqref{local_prodg_eqn} equation
+	\bean
+	\phi: \mathfrak{Grot}\left(A' \right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Grot}\left(A'' \right)\cong \mathfrak{Grot}\left(A \right).
+	\eean
+	can be regarded as a generalization of the following formula
+		\bean
+	\varphi_{\dl \rho}	:CT\left(\sX, \dl \right)\times_\sX CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
+	\eean
+	of the Dixmier-Douady theory (cf. equation \ref{bundle_prod_iso}).
+	
+\end{remark}
+
 \begin{remark}\label{local_prod_rem}
 If $F$ is an Abelian group such that $F\ox_\Z F \cong F$ then from the Theorem \ref{local_prod_thm}, the Lemma \ref{gr_ring_lem} and the Exercise \ref{ring_homo_exer} one can obtain following homomorphisms
 	\bean
 	\check{H}^\bullet\left( A', F\right) \ox_{\check{H}^\bullet\left( \sX,F\right) } 	\check{H}^\bullet\left( A'', F\right)\to 	\check{H}^\bullet\left( A, F\right),\\
 		\check{H}^\bullet\left( A', F\right) \ox_{\check{H}^\bullet\left( \mathrm{Sp\acute{e}}\left(\Om_\sX \right),F\right) } 	\check{H}^\bullet\left( A''\right)\to 	\check{H}^\bullet\left( A, F\right)
 		\eean 
-		of $\check{H}^\bullet\left( \sX, F \right)$ and $\check{H}^\bullet\left( \mathrm{Sp\acute{e}}\left(\Om_\sX \right), F\right)$ bimodules respectively. 
+		of $\check{H}^\bullet\left( \sX, F \right)$ and $\check{H}^\bullet\left( \mathrm{Sp\acute{e}}\left(\Om_\sX \right), F\right)$ bimodules respectively. These homomorphisms can be regarded as analogs of the following formula
+			\bean
+	K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right)
+			\eean
+	of the Dixmier-Douady theory (cf. equation \ref{ka_eqn})	
+		
 \end{remark}
 
 
