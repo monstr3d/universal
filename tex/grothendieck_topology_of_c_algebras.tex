@@ -1147,13 +1147,25 @@ Any $\sigma$-{twisted reduced} $C^*$-{algebra of the foliated space} $\left(M,\s
 \begin{empt}
 	For any $\a\in $ there is $C_0\left( \sZ_\a\right)$ Hilbert module $L^2\left( \mathcal N_\a\right)  \otimes C_0\left( \sZ_\a\right)$ where  $\sU_\a= \mathcal N_\a\times \sZ_\a$. Any $a \in  C^*_r\left( \sU_\a, \sF|_{\sU_\a }\right)$ yields a $C_0\left(\sZ\right)$-linear map $L^2\left( \mathcal N_\a\right)  \otimes C_0\left( \sZ_\a\right)\to L^2\left( \mathcal N_\a\right)  \otimes C_0\left( \sZ_\a\right)$. If $\a'\in \mathscr A$ is such that $\sU_{\a,\a'} \bydef \sU_\a \cap  \sU_{\a'}= \mathcal N_{\a,\a'} \times \sZ_{\a,\a'}\neq\emptyset$ then operator $a$ yields an operator $L^2\left( \mathcal N_\a\right)  \otimes C_0\left( \sZ_\a\right)\to L^2\left( \mathcal N_{\a, \a'}\right)  \otimes C_0\left( \sZ_{\a, \a'}\right)$. 
 	Let $a_n *  ... * a_1\in   C^*_r\left(M,\sF\right)$ be a monomial such that for any $j = 1,... n$ there is $\a_j \in \mathscr A$ such that $\a_j \in C^*_r\left( \sU_{\a_j}, \sF|_{\sU_{\a_j} }\right)$ and the product * is given by \eqref{foli_prod_eqn}. An operator $a_1$ yields an operator $b_1: L^2\left( \mathcal N_{\a_1}\right)  \otimes C_0\left( \sZ_{\a_1}\right)\to L^2\left( \mathcal N_{\a_1, \a_2}\right)  \otimes C_0\left( \sZ_{\a_1, \a_2}\right)$. For any $j = 2,..., n-1$ an operator $a_j$ yields an operator $b_j: L^2\left( \mathcal N_{\a_{j-1}, \a_{j}}\right)  \otimes C_0\left( \sZ_{\a_{j-1}, \a_{j}}\right)\to L^2\left( \mathcal N_{\a_j, \a_{j+1}}\right)  \otimes C_0\left( \sZ_{\a_j, \a_{j+1}}\right)$. An operator $a_n$ yields an operator $b_n: L^2\left( \mathcal N_{\a_{n-1}, \a_{n}}\right)  \otimes C_0\left( \sZ_{\a_{n-1}, \a_{n}}\right)\to L^2\left( \mathcal N_{\a_n}\right)  \otimes C_0\left( \sZ_{\a_n}\right)$. One can prove that
-	$$
+\be\label{star_eqn}
 	a_n *  ... * a_1 = b_n \cdot  ... \cdot b_1
+\ee
+	where the right part means the product of operators. If $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ then for any $\a\in \mathscr A$ there is an inclusion
+	$\phi_\a: \K\left( L^2\left( \mathcal N_{\a}\right)\right) \otimes C_0\left(\sZ_\a \right) \hookto C^*_r\left(M, \F, \sigma \right)$ which does not unique. If $\a', \a'' \in \mathscr A$ are such that $\sU_{\a'}\cap \sU_{a''} \neq \emptyset$ then there are inclusions 
+	\bean
+	\varphi_{\a'\a''} : \K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)\hookto \K\left( L^2\left( \mathcal N_{\a'}\right)\right) \otimes C_0\left(\sZ_{\a'} \right),\\
+		\varphi_{\a''\a'} : \K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)\hookto \K\left( L^2\left( \mathcal N_{\a''}\right)\right) \otimes C_0\left(\sZ_{\a''} \right)
+	\eean
+	Moreover there is a *-automorphism  $\overline \Phi^\sigma_{\a'\a''}$ of $\K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)$ such that
 	$$
-	where the right part means the product of operators. If $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ then for any pair $\a', \a'' \in \mathscr A$ such that $\sU_{\a'}\cap \sU_{\a''}\neq \emptyset$ there is an automorphism $\Phi^\sigma_{\a',\a''}$ of the Hilbert module $ L^2\left( \mathcal N_{\a', \a''} \right)  \otimes C_0\left( \sZ_{\a', \a''}\right)$. If we consider a given by \eqref{foli_a_prod_eqn} twisted product $*_\sigma$ then one has
+	\phi_{a'}\circ \varphi_{\a'\a''} = 	\phi_{a''}\circ \varphi_{\a''\a'} \circ \overline\Phi^\sigma_{\a'\a''}
 	$$
-	a_n *_\sigma  ... *_\sigma a_1 = b_n \cdot \Phi^\sigma_{\a_n,\a_{n-1}}\cdot b_{n-1} \cdot  ...\cdot b_2\cdot  \Phi^\sigma_{\a_2,\a_1}\cdot b_1
+	If we consider a given by \eqref{foli_a_prod_eqn} twisted product $*_\sigma$ then similarly to the equation \eqref{star_eqn} one has
 	$$
+	a_n *_\sigma  ... *_\sigma a_1 = b_n \cdot \overline\Phi^\sigma_{\a_n,\a_{n-1}}\cdot b_{n-1} \cdot  ...\cdot b_2\cdot  \overline\Phi^\sigma_{\a_2,\a_1}\cdot b_1
+	$$
+	There is an automorphism $\Phi^\sigma_{\a'\a''}$ of the $a$
+!!!	
 	If $\a', \a'', \a''' \in \mathscr A$ are such that $\sU_{\a',\a'',\a''} \bydef \sU_{\a'} \cap  \sU_{\a''}\cap  \sU_{\a'''}= \mathcal N_{\a',\a'',\a''} \times \sZ_{\a',\a'',\a''}\neq\emptyset$ then one can define a "composition" $\Psi^\sigma_{\a',\a'', \a''}\bydef \Phi^\sigma_{\a',\a''}\circ \Phi^\sigma_{\a'',\a'''}\circ \Phi^\sigma_{\a''',\a'}$ which and automorphism of the Hilbert module $ L^2\left( \mathcal N_{\a', \a'', \a'''} \right)  \otimes C_0\left( \sZ_{\a', \a'', \a'''}\right)$. The product is consistent   if and only if $\Psi^\sigma_{\a',\a'', \a''}$ corresponds to the identical  automorphism of $C^*$-algebra $\K\left( L^2\left( \mathcal N_{\a', \a'', \a'''} \right)  \otimes C_0\left( \sZ_{\a', \a'', \a'''}\right)\right)  \cong \K\left( \mathcal N_{\a', \a'', \a'''} \right)  \otimes C_0\left( \sZ_{\a', \a'', \a'''}\right)$.  This condition holds if and only if $\Psi^\sigma_{\a',\a'', \a''}$ corresponds to a continuous map $U^\sigma_{\a',\a'', \a''}: \sZ_{\a',\a'', \a''}\to \T$. The family $\left\{U^\sigma_{\a',\a'', \a''}\right\}$ defines a cocycle $\sigma$.
 	For any pair $\a'\a''$ there is are inclusions $\varphi^\sigma_{\a'\a''}:\K\left( L^2\left( \mathcal N_{\a', \a''}\right) \right)  \otimes C_0\left( \sZ_{\a',\a''}\right)\hookto \K\left( L^2\left( \mathcal N_{\a'}\right)\right)   \otimes C_0\left( \sZ_{\a'}\right)$ and $\psi^\sigma_{\a'\a''}:\K\left( L^2\left( \mathcal N_{\a', \a''}\right) \right)  \otimes C_0\left( \sZ_{\a',\a''}\right)\hookto \K\left( L^2\left( \mathcal N_{\a''}\right)\right)   \otimes C_0\left( \sZ_{\a''}\right)$.
 	Let us consider the set of generators and relations $\left(G_\sigma, R_\sigma\right)$ (cf. Appendix \ref{gen_rel_empt}) such that
