@@ -663,7 +663,7 @@ The given by the Lemma \ref{grothendieck_ca_lem} Grothendieck topology  is said 
 	Let $A$ be a $C^*$-algebra. If  there is a topological space $\mathfrak{Grot}\left(A \right) $ such that a site $\mathbf{T}_{A}$ 	
 	arising from $A$ (cf. Definition \ref{grothendieck_ca_defn}) is equivalent to a site $\mathbf{T}_{\mathfrak{Grot}\left(A \right)}$ arising from $\mathfrak{Grot}\left(A \right)$ (cf. Definition \ref{top_gro_definition}) then we say that $ \mathfrak{Grot}\left(A \right)$ is the \textit{Grothendieck} $A$-\textit{space}.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{c_0_x_rem}
 	For any locally compact Hausdorff space $\sX$ there is a one to one correspondence between open subsets of $\sX$ and hereditary subalgebras of $C_0\left(\sX\right)$, So an arising from $\sX$ site $\mathbf{T}_\sX$  is naturally equivalent to a site arising from $C_0\left( \sX\right)$ (cf. Definition \ref{grothendieck_ca_defn}), i.e. $\sX$ is the {Grothendieck} $C_0\left(\sX\right)$-{space}.
 \end{remark}
 \begin{remark}
@@ -744,8 +744,8 @@ are identity transformations $1_\pi$ and $1_\eta$  on $\pi$ and $\phi$ respectiv
 \\
 (ii)  We prove that $\pi$ has the covering lifting property (cf. Appendix \ref{site_morphism_sec}).	Let $\widetilde{B}$ is an object of $\mathbf{Hered}/\widetilde A$, i.e. $\widetilde{B}$ is a hereditary subalgebra of $\widetilde A$. If a family  $\left\{B_\iota \subset A\right\}_{\iota\in I}$ is covering of $B \bydef \pi\left( \widetilde{B}\right) $ then from the Lemma \ref{grothendieck_ca_lem} it follows that a family $\left\{\widetilde B_\iota \bydef \phi\left( B_\iota\right)\cap \widetilde{B} \right\}_{\iota\in I}$ is a covering of $\widetilde{B}$. One can prove that $\pi\left( \widetilde B_\iota\right) = B_\iota$.
 \end{proof}
-\begin{remark}
-	If $\varphi: A \hookto M\left(\widetilde A\right)$ is a {hereditary extension} (cf. Definition \ref{hereditary_extension_defn}) then from the Lemma \ref{satis_lem} and the Remark \ref{cite_f_rem}  one has a geometric morphism $\mathbf{Sh} \left(\mathbf{Hered}/\widetilde A, K\right) \xrightarrow{f}\mathbf{Sh} \left(\mathbf{Hered}/ A, J\right) $.
+\begin{remark}\label{geom_rem}
+	If $\varphi: A \hookto M\left(\widetilde A\right)$ is a {hereditary extension} (cf. Definition \ref{hereditary_extension_defn}) then from the Lemma \ref{satis_lem} and the Remark \ref{cite_f_rem}  one has a geometric morphism $\mathbf{Sh} \left(\mathbf{T}_{\widetilde{A}}\right) \xrightarrow{f}\mathbf{Sh} \left(\mathbf{T}_{{A}}\right)$.
 \end{remark}
 
 \section{Grothendieck topology of $C^*$-algebras of type $I_0$}
@@ -768,6 +768,14 @@ The "blowing-up" word is inspired by following reasons.
 	\item Sometimes there is  the natural partially defined  surjective  map from  Hausdorff blowing-up to the spectrum.
 	\item  In the algebraic geometry   "blowing-up" means  excluding of singular points  (cf. \cite{hartshorne:ag}).
 \end{itemize}
+\begin{remark}
+	From the Remarks  \ref{c_0_x_rem} and \ref{geom_rem}  if turns out that there is a geometric morphism  $\mathbf{Sh} \left(\mathbf{T}_{{A}}\right) \xrightarrow{f}\mathbf{Sh} \left(\mathbf{T}_\sX\right)$ (cf. Definition \ref{geometric_morphism_defn}). If $F$ is an Abelian group then from the  Proposition \ref{spectral_sequence_prop} for any $r\ge 0$ there is a homomorphism
+	\be\label{hom_to_x_eqn}
+	H^r\left(\sX, F \right) \xrightarrow{} H^r \left(A, f^*\mathfrak{Ass} \left( F_A\right)\right).
+	\ee
+\end{remark}
+
+
 
 \begin{notation}
 If $C_0\left( \sX\right) \hookto M\left(A \right)$ is {Hausdorff blowing-up of } $A$ and $\sU \subset \sX$ is open subset then denote by
@@ -1005,13 +1013,13 @@ If $F$ is an Abelian group such that $F\ox_\Z F \cong F$ then  the equation \eqr
 where the notation \eqref{const_shef_coh_eqn} and \eqref{etale_hom_a_eqn} are  used. If there is an isomorphism $F\otimes_\Z F \cong F$ then \eqref{blowing_grothendieck_shc_eqn} is a homomorphism of rings.
 \end{lemma}
 \begin{proof}
-If $p_A:\mathscr X^A\to\sX$ is a given by \eqref{loical_hom_eqn} natural local homeomorphism, and both $F_\sX$ and $F_{\mathscr X^A}$ are constant presheaves arising from $F$ then from the Proposition  \ref{spectral_sequence_prop} if follows that for all $r\ge 0$ there is a homomorphism
+If $p_A:\mathscr X^A\to\sX$ is a given by \eqref{loical_hom_eqn} natural local homeomorphism, and both $F_\sX$ and $F_{\mathscr X^A}$ are constant presheaves arising from $F$ then from the Proposition  \ref{spectral_sequence_prop} and/or the equation \eqref{hom_to_x_eqn} if follows that for all $r\ge 0$ there is a homomorphism
 	\bean\label{x_seqc_eqn}
 	\begin{split}
 		{H}^r\left(\sX, \mathfrak{Ass}\left( F_\sX\right)  \right)\xrightarrow{H^r\left(p_A \right) } {H}^r\left(\mathscr X^A, p^*_A\mathfrak{Ass}\left( F_\sX\right) \right) 
 			\end{split}
 	\eean
-		where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{associated_sheaf_defn}), and $p^*_A$ is an inverse image (cf. Definitions \ref{geom_mor_defn} and \ref{sheaf_inv_im_defn}).
+		where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{associated_sheaf_defn}), and $p^*_A$ is an inverse image (cf. Definitions \ref{geometric_morphism_defn} and \ref{sheaf_inv_im_defn}).
 	 Otherwise the map $p$ is a local homeomorphism (cf. Exercise \ref{sheaf_etale_open_exer}), it follows that 
 \bean\label{x_seqcu_eqn}
 	p^*_A\mathfrak{Ass}\left( F_\sX\right)\cong 	\mathfrak{Ass}\left( F_{\mathscr X^A}\right)
@@ -1495,7 +1503,7 @@ are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F
 		A topos $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
 	\end{definition}
 	
-	\begin{definition}\label{geom_mor_defn}\cite{johnstone:topos}
+	\begin{definition}\label{geometric_morphism_defn}\cite{johnstone:topos}
 		% 1.16 
 		If both $\mathscr E$, $\mathscr F$ are toposes then \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr F\xrightarrow{f_*}\mathscr E$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ (called the \textit{direct} and \textit{inverse images}) such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
 	\end{definition}
@@ -1541,7 +1549,7 @@ are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F
 	
 	\begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
 		%8.17 
-		Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geom_mor_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
+		Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geometric_morphism_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
 		%	\begin{enumerate}		\item [(i)] 
 			if $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q$ which is functorial in $f$ and natural in $A$.
 			%	\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^p\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left(\mathscr F, B \right)$ which is natural in $B$.
@@ -1730,7 +1738,7 @@ It is proven that an adjoint pair $ \mathscr C\substack{\xrightarrow{\phi}\\ \xl
 	
 	\begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
 		%1.17
-		If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sX\right)\to \mathbf{Sh}\left(\sY\right)$ between categories of sheaves. 
+		If $f : \sX \to \sY$ is a continuous map then a given by the Definition \ref{sheaf_inv_im_defn} pair  of functors $f_*$ and $f^{*}$ rise a geometric morphism (cf. Definition \ref{geometric_morphism_defn}) $\mathbf{Sh}\left(\sX\right)\to \mathbf{Sh}\left(\sY\right)$ between categories of sheaves. 
 	\end{remark}
 	\begin{exercise}\label{dir_image_exer}
 		Let $f : \sX \to \sY$ be a continuous map, and let $F$ be a set. Prove that if  	both $F_\sX$ and $F_\sY$ are constant presheaves  (cf. Definition \ref{constant_presheaf_defn}) on $\sX$ and $\sY$ 
