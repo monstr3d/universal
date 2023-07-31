@@ -1420,8 +1420,8 @@ are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F
 		having the obvious universal property. 
 		
 	\end{definition}
-	\begin{definition}\label{site_defn}\cite{milne:lec}
-		Let  $\mathscr C$  be a category. Suppose that  for each object $U$ of $\mathscr C$ there are  distinguished sets of families of morphisms $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
+	\begin{definition}\label{site_defn}\cite{johnstone:topos,milne:lec}
+		Let  $\mathscr C$  be a category with pullbacks. Suppose that  for each object $U$ of $\mathscr C$ there are  distinguished sets of families of morphisms $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
 		satisfying the following axioms: 
 		\begin{enumerate}
 			\item[(a)] for any covering $\left\{U_\iota \to U\right\}_{\iota\in I}$ and any morphism $U \to V$ in $\mathscr C$, the fibre products 
@@ -1430,10 +1430,7 @@ are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F
 			covering of $U_\iota$, then the family $\left\{V_{\iota j }\to U\right\}_{\iota j}$ is a covering of $U$; 
 			\item[(c)] for any $U$ in $\mathscr C$, the family $\left\{U\xrightarrow{\Id}U \right\}$ consisting of a single map is a covering of $U$. 
 		\end{enumerate}
-		The system of coverings is then called a \textit{Grothendieck topology}, and $\mathscr C$  together with 
-		the topology is called a \textit{site}. If $\mathbf T$  
-		is a site, then $\mathrm{Cat}\left( \mathbf T\right)\bydef \mathscr C$  denotes the underlying category. 
-		
+		The system of coverings is then called a \textit{Grothendieck pretopology}.
 	\end{definition}
 	\begin{example}\label{top_gro_exm}
 		If $\sX$ is a topological space then one has a category of open subsets and their inclusions. If both $\sU_1, \sU_2 \subset \sX$ are open subsets then one can define a fibre product (cf. Definition \ref{pullback_defn}) by the following way
@@ -1480,6 +1477,29 @@ are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F
 		topological ones. 
 		
 	\end{definition}
+	\begin{empt}\cite{johnstone:topos}
+	Two different Grothendieck pretopologies can give the same sheaves. To remove this we consider those families which are "saturated" in the sense that $\left(V \xrightarrow{\a}U\right) \in R$ implies $\left(W\xrightarrow{\a\bt}U\right)\in \R$ for any $W \xrightarrow{\bt} V$. Such a family is called a \textit{sieve}.
+	\end{empt}
+	\begin{defn}\label{grotendieck_topolgy_defn}
+		Let $\mathscr C$ be a small category. A \textit{Grothendieck topology} on $\mathscr C$ is defined by specifying, for each object $U$ of $\mathscr C$ a set $J\left(U\right)$ of {sieves} called \textit{covering sieves} of the topology such that
+		\begin{enumerate}
+			\item [(a)] For any $U$, the maximal sieve $\left\{\a | \text{codomain}(a)= U\right\}$ is in $J\left(U \right)$.
+			\item[(b)] if $R \in J\left( U\right)$ and $V\xrightarrow{f} U$ is a morphism of $\mathscr C$ then the sieve
+			$$
+			f^*\left( R\right) \bydef \left\{W\xrightarrow{a}V| f\a \in R \right\}
+			$$
+			is in $J\left(V\right)$.
+			\item[(c)] If $R \in J\left(U \right)$ is sieve on $U$ such that for each $V\xrightarrow{f}U$ in $R$ we have $f*\left( S\right)\in J\left( V\right)$, then $S\in J\left( U\right)$    
+			
+		\end{enumerate}
+A category $\mathscr C$  together with 
+		the topology is called a \textit{site}. If $\mathbf T$  
+		is a site, then $\mathrm{Cat}\left( \mathbf T\right)\bydef \mathscr C$  denotes the underlying category. 
+		
+\end{defn}
+\begin{rem}\cite{johnstone:topos}
+If we are given a pretopology $P$ on  $\mathscr C$, we can replace it be a topology having same sheaves, by defining a sieve to be $J$-covering if and only if it contains $P$-covering family.
+\end{rem}
 	\begin{definition}\label{forget_sheaf_defn}
 		There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheaves. Moreover there is a \textit{forgetful functor} $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
 	\end{definition}
