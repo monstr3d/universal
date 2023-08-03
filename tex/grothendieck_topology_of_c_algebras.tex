@@ -572,7 +572,9 @@
 %\noindent
 
 \begin{abstract}
-For any topological space there is a sheaf cohomology. A Grothendieck topology  is a generalization  of the  classical topology such that  it also possesses a sheaf cohomology. On the other hand any noncommutative $C^*$-algebra is a generalization of a locally compact Hausdorff space. Here we define a Grothendieck topology arising from  $C^*$-algebras which is a generalization of the topology of the spectra of commutative $C^*$-algebras. This construction yields a noncommutative generalization of the sheaf cohomology of topological spaces.  If $A$ is a $C^*$-algebra of type $I_0$ then its Grothendieck topology can be represented by a topological space. There is an analogy between the Dixmier-Douady theory  of continuous-trace $C^*$-algebras and Grothendieck topology of $C^*$-algebras of type $I_0$. In particular there is an analog of  the Dixmier-Douady theory for $C^*$-algebras of foliations.
+For any topological space there is a sheaf cohomology. A Grothendieck topology  is a generalization  of the  classical topology such that  it also possesses a sheaf cohomology. On the other hand any noncommutative $C^*$-algebra is a generalization of a locally compact Hausdorff space. Here we define a Grothendieck topology arising from  $C^*$-algebras which is a generalization of the topology of the spectra of commutative $C^*$-algebras. This construction yields a noncommutative generalization of the sheaf cohomology of topological spaces.  If $A$ is a $C^*$-algebra of type $I_0$ then its Grothendieck topology can be represented by a topological space. There is an analogy between the Dixmier-Douady theory  of continuous-trace $C^*$-algebras and Grothendieck topology of $C^*$-algebras of type $I_0$. In particular there is an analog of  the Dixmier-Douady theory for $C^*$-algebras of foliations. It is proven that the corresponding to the Grothendieck topology equals to the Bohr topos for any $C^*$-algebra of type $I_0$. However it is not true in general.
+
+
 \end{abstract}
 
 
@@ -673,16 +675,24 @@ From the Theorem \ref{hered_cov_defn} it follows that there is a locale of frame
 \eean
 \end{remark}
 
+
 \begin{empt}\label{grothendieck_ca_empt}
-From the Remark \ref{pretopology_to_topology_rem} it follows that the given by the Lemma Grothendieck pretopology can be replaced by the natural Grothendieck topology $J_A$ (cf Definition \ref{grotendieck_topolgy_defn}).
+From the Remark \ref{pretopology_to_topology_rem} it follows that the given by the Lemma \ref{grothendieck_ca_lem} Grothendieck pretopology can be replaced by the natural Grothendieck topology $J_A$ (cf Definition \ref{grotendieck_topolgy_defn}).
 \end{empt}
 
 \begin{definition}\label{grothendieck_ca_defn}
 The explained in  \ref{grothendieck_ca_empt} Grothendieck topology $J_A$  is said to be an  $A$-\textit{topology}. A corresponding  site (cf. Definition \ref{grotendieck_topolgy_defn}) $\mathbf{T}_A\bydef \left(\mathbf{Hered}/A, J_A\right)$ is said to be \textit{arising} from $A$ (cf. Definition \ref{top_gro_definition}). A Grothendieck topos $\mathscr{E}_A\bydef \mathbf{Sh}\left(\mathbf{T}_A \right)$ is said to be $A$-\textit{topos}.
 \end{definition}
-\begin{remark}\label{localic_topos_rem}
-	From the Theorem \ref{locale_thm} it follows that the $A$-{topos} is localic.
-\end{remark}
+\begin{definition}\label{a_locale_defn}
+	From the Theorem \ref{locale_thm} it follows that the $A$-{topos} $\mathscr{E}_A$ is localic. It corresponds to a locale $\mathfrak{Grot}\left(A \right)$, we say that  $\mathfrak{Grot}\left(A \right)$ is the \textit{Grothendieck} $A$-\textit{locale}, so one 
+has
+\be\label{a_locale_eqn}
+\mathscr{E}_A = \mathbf{Sh}\left(\mathfrak{Grot}\left(A \right) \right). 
+\ee	
+	
+	  \end{definition}
+
+
 \begin{definition}\label{grothendieck_ca_t_defn}
 	Let $A$ be a $C^*$-algebra. If  there is a topological space $\mathfrak{Grot}\left(A \right) $ such that a site $\mathbf{T}_{A}\bydef \left(\mathbf{Hered}/A, J_A\right)$ 	
 	arising from $A$ (cf. Definition \ref{grothendieck_ca_defn}) is equivalent to a site $\mathbf{T}_{\mathfrak{Grot}\left(A \right)}$ arising from $\mathfrak{Grot}\left(A \right)$ (cf. Definition \ref{top_gro_definition}) then we say that $ \mathfrak{Grot}\left(A \right)$ is the \textit{Grothendieck} $A$-\textit{space}.  In this case the  $A$-{topos} $\mathscr{E}_A\bydef \mathbf{Sh}\left(\mathbf{T}_A \right)\cong \mathbf{Sh}\left( \mathfrak{Grot}\left(A \right)\right)$ is spatial (cf. Appendix \ref{spatial_toposes_sec}).
@@ -760,6 +770,9 @@ $$
 $$
 The Theorem \ref{locale_thm} yields a morphism of toposes $\mathscr E_{\widetilde A}\to \mathscr E_{A}$.
 \end{proof}
+\section{Grothendieck topology of $C^*$-algebras with Hausdorff spectrum}
+
+
 \section{Grothendieck topology of $C^*$-algebras of type $I_0$}
 \subsection{Grothendieck spaces}
 \paragraph{}
@@ -1377,6 +1390,8 @@ $$
 \begin{remark}
 The above lemma is an analog of the equation \eqref{bundle_prod_iso} of the Dixmier-Duoady theory.
 \end{remark}
+
+\section{Comparison with the Bohr topos}
 
 \begin{appendices}
 \section{Category theory}
@@ -2544,38 +2559,25 @@ Any spatial topos  correspond to a Boolean algebra. Every  Grothendieck topology
 topos theory, so as to construct new foundations for quantum logic
 and quantum spaces.	Bohr toposes provide the topos-theoretical notion of a space which
 intrinsically carries the intuitionistic logical structure of a Heyting algebra (cf. Remark \ref{spatial_toposes_rem}).
-\begin{proposition}
-	\label{prop:contextfunctor}
-	There is a functor $\mathcal C : \mathbf{Cstar} \to \mathbf{Poset}$, from the category of $C^*$-algebras and partially ordered sets defined
-	on objects as
-	\[
-	\mathcal C\left(A \right) = \{C \subseteq A | C \in \mathbf{cCstar} \},
-	\]
-	ordered by inclusion.
-	On a morphism $f:A \to B$ of $\mathbf{Cstar}$,	it acts as $\mathcal{C}(f) : \mathcal C\left( A\right)  \to	\mathcal{C}(B)$ by the direct image $C \mapsto f(C)$.
-\end{proposition}
-The collection of
-functors  $\mathcal C(A) \to \mathscr S$ forms a topos
-$\mathcal T({A})=\mathscr S^{\mathcal C(A)}$. This is the \emph{topos associated
-	to $A$}. 
-entities internal to $\mathcal T({A})$. The subobject classifier ${\Omega}$ in
-$\mathcal T({A})$ has already been given in \ref{cosieves}.
+Here I follow to \cite{joost:borification}. For any $C^*$-algebra 
+one can consider the partially ordered set $\mathcal C(A)$  of commutative
+subalgebras of $A$, ordered by inclusion. The assignment of this partially ordered to
+a $C^*$-algebra induces a functor $\mathcal C$ from the category of $C^*$-algebras to the category of partially ordered sets, since one has for any
+homomorphism $A \xrightarrow{h}B$ a functor $
+\mathcal C(A)\xrightarrow{\mathcal C}  \mathcal C(B)$
+			\newline
+\begin{tikzcd}
+C \arrow[d] \arrow[r, mapsto]
+	& h(C) \arrow[d]\\
+	B\arrow[r, mapsto]	&h (B)
+\end{tikzcd}
+\\
+\\
+A partially ordered set yields a locale $L(A)$.
+\begin{definition}
+	The \textit{Bohr topos} of $C^*$-algebra $A$ is a localic topos $\mathbf{Sh}\left( L(A)\right)$. This topos is spatial.
+\end{definition}
 
-Recall that a geometric morphism $f:\mathcal{S} \to \mathcal{T}$ between
-topoi is a pair of adjoint functors, consisting of a direct image
-part $f_*:\mathcal{S}\to\mathcal{T}$ and an inverse image part $f^*:\mathcal{T}
-\to \mathcal{S}$, of which $f^*$ is required to preserve finite limits.
-Denote the category of elementary topoi and geometric
-morphisms  by $\mathbf{Topos}$.	
-\begin{proposition}
-	\label{prop:asstopos}
-	There is a functor $\mathcal T : \mathbf{Cstar} \to \mathbf{Topos}$, defined
-	on objects by $\mathcal T({A})=\mathscr S^{\mathcal C(A)}$, the
-	category of functors from $\mathcal C(A)$ to the ambient topos.
-\end{proposition}
-\begin{remark}
-	content...
-\end{remark}	
 \end{appendices}
 
 
@@ -2623,6 +2625,10 @@ Translations of Mathematical Monographs, vol. 226, 2005.
 
 \bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 
+
+\bibitem{joost:borification}. Joost Nuiten. \textit{Bohrification of local nets of observables}. arXiv:1109.1397, 2011.
+
+
 \bibitem{pedersen:ca_aut}Gert Kjærgård Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
 
 \bibitem{phillips:inv_lim_app}
@@ -2639,7 +2645,6 @@ pp 127-186, Print publication year: 1989.
 
 \bibitem{spanier:at}
 E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
-
 
 
 
