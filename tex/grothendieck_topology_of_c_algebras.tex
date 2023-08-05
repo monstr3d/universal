@@ -1728,14 +1728,30 @@ Let  $\mathcal E \bydef \mathbf{Sh}\left( \sX\right)$,  $\sX$ is a topological s
 \begin{remark}\label{spatial_toposes_rem}\cite{johnstone:topos}
 Any spatial topos  correspond to a Boolean algebra. Every  Grothendieck topology yields more general Heyting algebra (also known as pseudo-Boolean algebra). Heyting algebras serve as the algebraic models of propositional intuitionistic logic in the same way Boolean algebras model propositional classical logic.
 \end{remark}
+%\begin{definition}
+%A subset / of a join-semilattice A is said to be an ideal if (i) / is a sub-join-semilattice of A; i.e. 0 e /, and a el,b e I imply avb el; and (ii) / is a lower set; i.e. a e / and fc<a imply b el. \end{definition}
+%To determine the surjective part of a lattice homomorphism f:A-+B, we thus have to look at the inverse images of other elements of ? besides 0. In particular, we may consider {a e A \f(a)= 1}, which clearly satisfies axioms dual to those defining an ideal; we call such a subset of A a filter. 
+%\begin{proposition}
+%Let / be an ideal of a lattice A. The following conditions are equivalent: (i) The complement of / in A is a filter, (ii) 1 £/, and (??b e/) implies either a el or b el. (iii) / is the kernel of a lattice homomorphism f:A-*2, where 2 denotes the two-element lattice {0, 1}. 
+%\end{proposition}
+
+%\begin{definition}
+%An ideal satisfying the equivalent conditions of the Proposition is 
+%called a prime ideal; its complement (which of course satisfies conditions 
+%dual to those of (ii)) is called a prime filter. 
+
+%\end{definition}
+%1.3 Given a locale, can we find a space which 'best approximates' it? Since a point of a space X is the same thing as a continuous map 1 -*X, where 1 is the one-point space, it seems reasonable to define a point of a locale A to be a continuous map Q(l) = 2->/4, i.e. a frame homomorphism p : A-+2. By I 2.2, such a map is completely determined by its kernel p~l@) or its dual kernel p~l(l), which are respectively a prime ideal and a prime filter of A. But since p preserves arbitrary joins, it is clear that p"'@) must be a principal ideal, since we have p( V(p~'@))) = 0 and so p~l(O) = i(V(p~'@))). (Equivalently, p^) must be a completely prime filter, i.e. one satisfying VS ?/?'(I)È Cs e S)(s ?/??? Thus points of A correspond bijectively to prime elements of A, i.e. elements generating prime principal ideals. We write pt(/4) for the set of points of A. Now let ae A. Define ?(?) to be the set of points p : A-+2 such that p(a)= 1 (or equivalently the set of prime elements x£ A with x 
+%? is a frame homomorphism ,4->P(pt(,4)); in particular its image is a topology on pt(A). 
+
 \begin{definition}\label{locale_point_defn}
-	A \textit{point} of a locale $A$ is a frame homomorphism $A \to \left\{\mathbf{true}, \mathbf{false}\right\}$.
+	A \textit{point} of a locale $A$ is a frame homomorphism $A \to \left\{0, 1\right\}$.
 \end{definition}
 \begin{lemma}\label{topos_point_lem}
-Let $p: A \to \left\{\mathbf{true}, \mathbf{false}\right\}$ be a point and $X = p^{-1}\left(\left\lbrace \mathbf{true}\right\rbrace \right)$.  there is no nontrivial decomposition $X = X'\vee X''$ such that $X'\wedge X'' =  \mathbf{false}$.
+Let $p: A \to \left\{0,1\right\}$ be a point and $X = p^{-1}\left(\left\lbrace 1\right\rbrace \right)$.  there is no nontrivial decomposition $X = X'\vee X''$ such that $X'\wedge X'' =  0$.
 \end{lemma}
 \begin{proof}
-	 If $p\left(X' \right) =\mathbf{false}$ or $p\left(X'' \right) =\mathbf{false}$ then $p\left(X \right)=  p\left(X' \right) \vee p\left(X'' \right)=\left\{\mathbf{true}, \mathbf{false}\right\}$. It follows that  $p\left(X' \right)=  p\left(X'' \right) =\mathbf{true}$ and $p\left(X' \right)\wedge  p\left(X'' \right)= \mathbf{true}$. On the $p\left(X' \right)\wedge  p\left(X'' \right) = p\left(X'\wedge  X'' \right)= p\left( \mathbf{false}\right) = \mathbf{false}$.
+	 If $p\left(X' \right) =0$ or $p\left(X'' \right) =0$ then $p\left(X \right)=  p\left(X' \right) \vee p\left(X'' \right)=\left\{0, 1\right\}$, so $X = X'\vee X'' \neq  p^{-1}\left(1 \right)$. It follows that  $p\left(X' \right)=  p\left(X'' \right) =1$ and $p\left(X' \right)\wedge  p\left(X'' \right)= 1$. On the other hand $p\left(X' \right)\wedge  p\left(X'' \right) = p\left(X'\wedge  X'' \right)= p\left(0\right) = 0$.
 \end{proof}
 \begin{empt}\label{locale_to_space_empt}
 	Let $X$ be a locale, and let $\mathbf{Sh}\left(X \right)$ be a localic topos. 
@@ -2720,6 +2736,9 @@ A partially ordered set yields a locale $L(A)$.
 
 
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
+
+\bibitem{caramello:topos_dual}Olivia Caramello. 
+\textit{A topos-theoretic approach to Stone-type dualities}. arXiv:1103.3493, 2011.
 
 \bibitem{cuntz_meyer_ros:bivariant} Joachim Cuntz, Ralf Meyer, Jonathan M. Rosenberg.
 \textit{Topological and Bivariant K-Theory}. (Oberwolfach Seminars, 36, Band 36) 2010.
