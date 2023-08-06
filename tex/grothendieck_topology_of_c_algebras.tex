@@ -773,16 +773,30 @@ The Theorem \ref{locale_thm} yields a morphism of toposes $\mathscr E_{\widetild
 \section{Topoi of commutative von Neumann algebras}
 \paragraph*{}
 Let $\sX$ be a topological space, end let $\mu$ be a nondegenerate positive Radon measure on $\sX$ such that $\mu\left( \sX\right)= 1$.
-Let $\H \bydef L^2\left(\sX, \mu \right)$ be a Hilbert space of square $\mu$-integrable functions, an let   $C_0\left(\sX\right)\hookto B\left( \H\right)$ be a natural representation. If $A \bydef C_0\left(\sX\right)''$ is the bicommutant in $B\left( \H\right)$ then $A$ is a commutative von Neumann $C^*$ algebra (cf. Theorem \ref{von_Neumann_thm}). There is an isomorphism between a locale of  hereditary $C^*$-algebras of $B \subset A$ and a locale $L_\H$ of some  subspaces of $\H$ such that
-$$
-B \mapsto  B \H \subset \H.
-$$
-On the other hand the locale $L_\H$ is a measure locale. A point $x \in \sX$ is a $\mu$-\textit{atom}, i.e. $\mu\left(\left\{x\right\} \right)> 0$ then there is a nontrivial subspace $\H_x \subset \H$ and a point (cf. Definition \ref{locale_point_defn}) $L_\H\mapsto f:\left\{\mathbf{true}, \mathbf{false}\right\}$ such that $\H_x\mapsto \mathbf{true}$ and 
-$$
-\forall \H' \in L_\H \quad \H'\perp \H_x \quad \Rightarrow \quad \H'\mapsto \mathbf{false}.
-$$ 
-If $L_\H$ has no atoms then for any $\H' \in \H$ there are nontrivial $\H'_1, \H'_2 \in L_\H$ such that $\H'_1 \perp \H'_2 \Leftrightarrow \H'_1 \wedge \H'_2 = \mathbf{false}$ and $ \H'_1 \oplus \H'_2= \H \Leftrightarrow \H'_1 \vee \H'_2 = \H'$. From the Lemma \ref{topos_point_lem} it follows that the locale of hereditary subalgebras of $A$ has no points.
+Let $\H \bydef L^2\left(\sX, \mu \right)$ be a Hilbert space of square $\mu$-integrable functions, an let   $C_0\left(\sX\right)\hookto B\left( \H\right)$ be a natural representation. If $A \bydef C_0\left(\sX\right)''$ is the bicommutant in $B\left( \H\right)$ then $A$ is a commutative von Neumann $C^*$ algebra (cf. Theorem \ref{von_Neumann_thm}).
 
+
+ There is an isomorphism between the   {Grothendieck}  $A$-{locale} $\mathfrak{Locale}\left(A \right)$ (cf. Definition \ref{a_locale_defn}) and the locale $\mathfrak{L}_\H$ of subspaces of $\H$ giben by $B\H$ where $B$ is a hereditary of $A$.
+The locale $\mathfrak{L}_\H$ is a measure locale (cf. \cite{pavlov_duality}). A point $x \in \sX$ is said to be a $\mu$-\textit{atom} if  $\mu\left(\left\{x\right\} \right)> 0$ then there is a nontrivial subspace $\H_x \subset \H$. Let us define 
+$$
+\H_x^\perp \bydef \bigoplus_{\substack{\H'\subset \mathfrak{L}_\H\\\H_x \not\subset \H' }}\H'.
+$$
+Let up prove that $\H_x^\perp$ is properly prime (cf. equations \eqref{prime_eqn} and \eqref{pprime_eqn}). If both $\H_1, \H_2 \in \mathfrak{L}_\H$ are such that $\H_1\cap  \H_2= \H_x^\perp$ then $\H_x^\perp\subset \H_1$. If $\H_1 \neq \H_x^\perp$ then $\H_1 = \H$, so $\H_x^\perp = \H_1\cap  \H_2= \H\cap \H_2= \H_2$ so $\H_x^\perp$ satisfies to \eqref{prime_eqn}. From $\H_x \not \subset \H_x^\perp$ it follows that $\H_x^\perp\neq \H$ i.e. $\H_x^\perp$ satisfies to \eqref{pprime_eqn}.
+
+Suppose that $\mathfrak{L}_\H$ has no atoms and $\H' \in \mathfrak{L}_\H$ satisfies to conditions  \eqref{prime_eqn} and \eqref{pprime_eqn}, From \eqref{pprime_eqn} it follows that a space 
+$$
+\H^\perp \bydef \bigoplus_{\substack{\H''\subset \mathfrak{L}_\H\\\H''\cap \H' = \{0\} }}\H''
+$$
+is not trivial. There are nontrivial subspaces $\H^\perp_1, \H^\perp_2\subset \H^\perp$ such that $\H^\perp_1\cap \H^\perp_2 =\{0\}$ and $\H^\perp_1\oplus \H^\perp_2= \H^\perp$. If $\H_1 = \H' \oplus \H^\perp_1$ and $\H_2 = \H' \oplus \H^\perp_2$ then
+\bean
+\H_1 \cap \H_2 = \H';\\
+\H_1 \neq \H', \quad \H_2 \neq \H'.
+\eean 
+The above equations contradict with \eqref{prime_eqn}, so if $\mathfrak{L}_\H$ has no atoms then it has no points. In result one has.
+\begin{itemize}
+	\item Any $\mu$-atom corresponds to a point of {Grothendieck}  $A$-{locale} $\mathfrak{Locale}\left(A \right)$.
+	\item If there is no $\mu$-atoms then there is no points of $\mathfrak{Locale}\left(A \right)$.
+\end{itemize}
 \begin{remark}
 From this section it follows that $A$-locale $\mathfrak{Locale}\left(A \right)$ is a measure locale (cf. \cite{pavlov_duality}). Moreover Grothendieck topos yields the described in \cite{pavlov_duality} Gelfand-type duality  between commutative von Neumann algebra and measure locales. On the other hand from the Remark \ref{c_0_x_rem} it follows that this theory yields a Gelfand duality between locally compact Hausdorff spaces and commutative $C^*$-algebras.
 \end{remark}
@@ -1469,12 +1483,12 @@ The above lemma is an analog of the equation \eqref{bundle_prod_iso} of the Dixm
 \begin{defn}\label{sets_cat_defn}\cite{johnstone:topos}
 There is the \textit{category  of sets and functions} $\mathscr{S}$. We use the therm \textit{small category} for a category those morphisms form a set. If $\mathscr C$ is a small category, we write $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ for the category of \textit{presheaves}, i.e. contravariant functors from $\mathscr{C}$ to $\mathscr{S}$; among the objects of $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$, we have the \textit{representable} functors $h_U$, where $U$ is an object of $\mathscr C$, defined by $h_U\left( V\right) \bydef \Hom_{\mathscr{C}}\left( V, U\right)$; we shall also write $h^U$ for the covariant representable  functor $\Hom_{\mathscr{C}}\left( U, -\right)$.
 \end{defn}
-%\begin{lemma}\label{repr_func_lem}\cite{johnstone:topos}
-%For objects $U$, $X$ of $\mathscr{C}$ and $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ respectively there is a bijection (natural in both variables) between morphisms $h_U \to X$ in $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ and elements of the set $X\left(U \right)$. 
-%\end{lemma}
-%\begin{lemma}\label{to_set_lem}\cite{johnstone:topos}
-%	Any object of $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ can be expressed as a colimit of a diagram whose vertices are representable functors.
-%\end{lemma}
+\begin{lemma}\label{repr_func_lem}\cite{johnstone:topos}
+For objects $U$, $X$ of $\mathscr{C}$ and $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ respectively there is a bijection (natural in both variables) between morphisms $h_U \to X$ in $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ and elements of the set $X\left(U \right)$. 
+\end{lemma}
+\begin{lemma}\label{to_set_lem}\cite{johnstone:topos}
+	Any object of $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ can be expressed as a colimit of a diagram whose vertices are representable functors.
+\end{lemma}
 
 \subsection{Adjoint functors}\label{adjoint_functor_sec}
 \paragraph{}
@@ -1659,17 +1673,20 @@ If $\mathscr E$ is  a {Grothendieck topos} and $\mathscr S$ is a category of set
 		\ee
 	\end{definition}
 	\subsection{Localic topoi}
-	A \textit{frame} is partially  ordered set with all joins and all finite meets which satisfies the infinite distributive law:
-	$$
-	x \wedge \left( \bigvee_\iota y_\iota \right) = \bigvee_\iota\left(x\wedge   y_\iota \right) 
-	$$
-	A frame homomorphism 
-	is a function which preserves finite meets and arbitrary joins. Frames and frame homomorphisms form a category $\mathbf{Frm}$.
-	\begin{definition}\label{locale_defn}
+	\begin{definition}\label{frame_defn}\cite{topos:intro}
+A \textit{frame} is partially  ordered set with all joins and all finite meets which satisfies the infinite distributive law:
+$$
+x \wedge \left( \bigvee_\iota y_\iota \right) = \bigvee_\iota\left(x\wedge   y_\iota \right) 
+$$
+A \textit{frame homomorphism} 
+is a function which preserves finite meets and arbitrary joins. Frames and frame homomorphisms form a category $\mathbf{Frm}$.
+	\end{definition}
+		\begin{definition}\label{locale_defn}\cite{topos:intro}
 		The category $\mathbf{ Locale}$ of \textit{locales} is the opposite of the category of frames
 		$$
 		\mathbf{ Locale} \bydef \mathbf{Frm}^\text{op}.
 		$$
+		If $X$ is  a locale $X$  denote by $\mathcal O\left( X\right)$ the corresponding  frame.
 	\end{definition}
 	The definition  of sheaves on a topological space depends
 	only on the lattice of open sets of that space, and so extends at once to
@@ -1680,10 +1697,10 @@ If $\mathscr E$ is  a {Grothendieck topos} and $\mathscr S$ is a category of set
 	\ee
 	The equation \eqref{localic_site} yields a Grothendieck pretopology, so one obtains a Grothendieck topology. In result we obtain a site and a Grothendieck topos.
 	
-\begin{definition}
+\begin{definition}\label{localic_topos_defn}\cite{topos:intro}
 	A Grothendieck topos obtained from a locale is said to be \textit{localic}.
 \end{definition}
-	\begin{theorem}\label{locale_thm}
+	\begin{theorem}\label{locale_thm}\cite{topos:intro}
 		For a Grothendieck $\mathscr E$ the following are equivalent:
 		\begin{enumerate}
 			\item [(i)] $\mathscr E$ is localic,
@@ -1693,7 +1710,7 @@ If $\mathscr E$ is  a {Grothendieck topos} and $\mathscr S$ is a category of set
 	\end{theorem}
 	
 
-\begin{proposition}\label{locale_funct_prop}
+\begin{proposition}\label{locale_funct_prop}\cite{topos:intro}
 %Proposition 2. 
 The natural  functor $X \mapsto \mathbf{ Sh}(X)$ from locales to topoi induces
 for any two locales $X$ and $Y$ an equivalence of categories
@@ -1706,28 +1723,63 @@ of locales and localic toposes.
 %\begin{definition}
 %A partially ordered set is \textit{complete} if and only if every subset of $P$ has an 1. u. b. (a "sup" or a join) and a g.1.b. (an "inf" or a meet); actually it suffices to require the existence of all 1.u.b.s. Thus $P$ is complete as a poset if and only if  $P$ as a category has all limits and all colimits.
 %\end{definition}	
-\subsection{Alexandrov topology}\label{alex_top}\cite{johnstone:stone_spaces}.
-Let $X$ be a partially ordered set. We define the \textit{Alexandrov topology} $\Upsilon(X, \le)$ (or simply 
-$\Upsilon(X)$, if the partial order is obvious) to be the collection of all \textit{upper sets}
-in $X$ (i.e. sets $U$ such that $x \in  U$ and $x \le y$ imply $y \in U$); this is clearly a 
-topology, since it is closed under arbitrary unions and intersections. % And we define the \textit{upper interval topology} $\Phi(X, \le)$ (sometimes called the weak topology) to be the smallest topology for which all sets of the form $\downarrow\left(  x\right) $ are closed, i.e. the topology based by sets of the form 
-%$$
-%X\setminus  \left( \downarrow\left(  x_1\right)\cup ... \cup \downarrow\left(  x_n\right)\right) 
-%$$
-\subsection{Spatial topoi}\label{spatial_toposes_sec}
+\subsection{Spatial locales}\label{spatial_toposes_sec}
 \paragraph*{}	
 Any topological space $\sX$ yields a Grothendieck topology, so 	a Grothendieck topology is a generalization of the classical topology. A topos is \textit{spatial} if it corresponds to a classical topology.
-\begin{definition}\label{topos_point_defn}
-Let $\mathscr S$ be a category of sets and functions, and let $\mathscr E \xrightarrow{\ga} \mathscr S$ be an $\mathcal S$-topos (cf. Definition \ref{relative_topos_defn}). By a \text{point} of $\mathcal E$ we mean a Geometric morphism $\mathcal S \xrightarrow{p} \mathcal E$ over $\mathscr S$. If $K$ is a class of points, we say that $K$ is \textit{sufficient} if the family of functors $\left\{\left.p^*\right| p\in K\right\}$ is conservative, i.e. if any $X \xrightarrow{f} Y$ in $\mathcal E$ such that $p^*\left(f \right)$ is iso for all $K$ is necessary iso. We say that $\mathcal E$ \text{has enough points} if the class of all points of $\mathcal E$ is sufficient.
+%\begin{definition}\label{topos_point_defn}\cite{johnstone:topos}
+%Let $\mathscr S$ be a category of sets and functions, and let $\mathscr E \xrightarrow{\ga} \mathscr S$ be an $\mathscr S$-topos (cf. Definition \ref{relative_topos_defn}). By a \text{point} of $\mathscr E$ we mean a Geometric morphism $\mathscr S \xrightarrow{p} \mathcal E$ over $\mathscr S$. If $K$ is a class of points, we say that $K$ is \textit{sufficient} if the family of functors $\left\{\left.p^*\right| p\in K\right\}$ is conservative, i.e. if any $X \xrightarrow{f} Y$ in $\mathscr E$ such that $p^*\left(f \right)$ is iso for all $K$ is necessary iso. We say that $\mathscr E$ \text{has enough points} if the class of all points of $\mathscr E$ is sufficient.
+%\end{definition}
+%\begin{example}\label{top_points_exm}\cite{johnstone:topos}
+%Let  $\mathcal E \bydef \mathbf{Sh}\left( \sX\right)$,  $\sX$ is a topological space. Then any point $x$ of $\sX$ corresponds to a continuous map ${x} \xrightarrow{x}\sX$. Moreover, the set of points which arise in this way is sufficient.
+%\end{example}
+
+
+\begin{definition}\label{locale_point_defn}\cite{topos:intro}
+A	\textit{point} $p: 1\to X$ of a locale $X$ is the same thing
+	as a frame morphism to the initial frame
+	\be\label{locale_point_eqn}
+	p^{-1}:\mathcal{O}\left( X \right) \to \left\{0, 1\right\}.
+	\ee
 \end{definition}
-\begin{example}\label{top_points_exm}\cite{johnstone:topos}
-Let  $\mathcal E \bydef \mathbf{Sh}\left( \sX\right)$,  $\sX$ is a topological space. Then any point $x$ of $\sX$ corresponds to a continuous map ${x} \xrightarrow{x}\sX$. Moreover, the set of points which arise in this way is sufficient.
-\end{example}
+	The map $p^{-1}$ can be conveniently presented in terms of its \textit{kernel} $K \bydef =
+\left\{U \left.| p^{-1} \left( U \right)  = 0\right.\right\}$, a subset of $X$ with the following properties
+\be\label{k_p_eqn}
+\begin{split}
+1 \notin K,\\
+U \wedge V \in K\quad  \Leftrightarrow \quad U \in K \text{ or } V \in K,\\
+\bigvee V_\iota \in K \quad  \Leftrightarrow \quad \forall \iota \quad V_\iota \in K
+\end{split}
+\ee\label{p_p_eqn}
+If
+\be
+ P \bydef  \bigvee K \bydef \left( \bigvee_{U\in K} U\right) \in \mathcal O\left( X\right) 
+ \ee
+ then
+ \bea\label{prime_eqn}
+U\wedge V = P  \quad  \Leftrightarrow \quad U = P \text{ or } V = P,\\
+\label{pprime_eqn}
+1 \neq P
+ \eea
+ A satisfying to \eqref{prime_eqn} element $P\in \mathcal O\left(X \right)$ is said to be \textit{prime}, if it also satisfies to  \eqref{pprime_eqn} then we say that $P$ is. \textit{properly prime}.
+\begin{lemma}\label{point_lem}\cite{topos:intro}
+The points of a locale $X$ may be described in any of the
+following three equivalent ways:
+\begin{enumerate}
+	\item[(a)] as maps of locales $p: 1 \to X$; i.e., as frame morphisms
+		$p^{-1}:\mathcal{O}\left( X \right) \to \left\{0, 1\right\}$;
+	\item[(b)] as subsets $K \subset \mathcal{O}\left( X \right)$ satisfying the three conditions of \eqref{k_p_eqn};
+	\item[(c)] as proper prime elements $P \in  \mathcal{O}\left( X \right)$); i.e., as elements $P\in \mathcal{O}\left( X \right)$ satisfying \eqref{prime_eqn} and \eqref{pprime_eqn}.
+\end{enumerate}
+\end{lemma}
+
+%\begin{remark}
+%If a topos is localic then the any point of the topos corresponds to a point of locale.
+%\end{remark}
 
 
-\begin{remark}\label{spatial_toposes_rem}\cite{johnstone:topos}
-Any spatial topos  correspond to a Boolean algebra. Every  Grothendieck topology yields more general Heyting algebra (also known as pseudo-Boolean algebra). Heyting algebras serve as the algebraic models of propositional intuitionistic logic in the same way Boolean algebras model propositional classical logic.
-\end{remark}
+%\begin{remark}\label{spatial_toposes_rem}\cite{johnstone:topos}
+%Any spatial topos  correspond to a Boolean algebra. Every  Grothendieck topology yields more general Heyting algebra (also known as pseudo-Boolean algebra). Heyting algebras serve as the algebraic models of propositional intuitionistic logic in the same way Boolean algebras model propositional classical logic.
+%\end{remark}
 %\begin{definition}
 %A subset / of a join-semilattice A is said to be an ideal if (i) / is a sub-join-semilattice of A; i.e. 0 e /, and a el,b e I imply avb el; and (ii) / is a lower set; i.e. a e / and fc<a imply b el. \end{definition}
 %To determine the surjective part of a lattice homomorphism f:A-+B, we thus have to look at the inverse images of other elements of ? besides 0. In particular, we may consider {a e A \f(a)= 1}, which clearly satisfies axioms dual to those defining an ideal; we call such a subset of A a filter. 
@@ -1744,28 +1796,25 @@ Any spatial topos  correspond to a Boolean algebra. Every  Grothendieck topology
 %1.3 Given a locale, can we find a space which 'best approximates' it? Since a point of a space X is the same thing as a continuous map 1 -*X, where 1 is the one-point space, it seems reasonable to define a point of a locale A to be a continuous map Q(l) = 2->/4, i.e. a frame homomorphism p : A-+2. By I 2.2, such a map is completely determined by its kernel p~l@) or its dual kernel p~l(l), which are respectively a prime ideal and a prime filter of A. But since p preserves arbitrary joins, it is clear that p"'@) must be a principal ideal, since we have p( V(p~'@))) = 0 and so p~l(O) = i(V(p~'@))). (Equivalently, p^) must be a completely prime filter, i.e. one satisfying VS ?/?'(I)È Cs e S)(s ?/??? Thus points of A correspond bijectively to prime elements of A, i.e. elements generating prime principal ideals. We write pt(/4) for the set of points of A. Now let ae A. Define ?(?) to be the set of points p : A-+2 such that p(a)= 1 (or equivalently the set of prime elements x£ A with x 
 %? is a frame homomorphism ,4->P(pt(,4)); in particular its image is a topology on pt(A). 
 
-\begin{definition}\label{locale_point_defn}
-	A \textit{point} of a locale $A$ is a frame homomorphism $A \to \left\{0, 1\right\}$.
+
+\begin{definition}\label{sober_defn}\cite{topos:intro}
+A topological space $\sX$ is said to be \textit{sober} if and only is for any
+open subset $\sU\subset \sX$ such that
+\begin{enumerate}
+	\item[(a)] $\sU \neq \sX$,
+	\item[(b)] $\sV \cap \mathcal W \subset \sU \Rightarrow \sV \subset \sU$ or $\mathcal W\subset \sU$ (all open $\sV , \mathcal W\subset \sU$,
+\end{enumerate}
+there is a unique point $x \in \sX$ with   $\sU = \sX \setminus \overline{\{x\}}$ where  $\overline{\{x\}}$ is the  closure of the one-point set $\{x\}$.
 \end{definition}
-\begin{lemma}\label{topos_point_lem}
-Let $p: A \to \left\{0,1\right\}$ be a point and $X = p^{-1}\left(\left\lbrace 1\right\rbrace \right)$.  there is no nontrivial decomposition $X = X'\vee X''$ such that $X'\wedge X'' =  0$.
-\end{lemma}
-\begin{proof}
-	 If $p\left(X' \right) =0$ or $p\left(X'' \right) =0$ then $p\left(X \right)=  p\left(X' \right) \vee p\left(X'' \right)=\left\{0, 1\right\}$, so $X = X'\vee X'' \neq  p^{-1}\left(1 \right)$. It follows that  $p\left(X' \right)=  p\left(X'' \right) =1$ and $p\left(X' \right)\wedge  p\left(X'' \right)= 1$. On the other hand $p\left(X' \right)\wedge  p\left(X'' \right) = p\left(X'\wedge  X'' \right)= p\left(0\right) = 0$.
-\end{proof}
-\begin{empt}\label{locale_to_space_empt}
-	Let $X$ be a locale, and let $\mathbf{Sh}\left(X \right)$ be a localic topos. 
-	 It is proven in \cite{topos:intro} that If $\mathrm{pt}\left( X\right) $ is a set of points then there is the natural topology on $\mathrm{pt}\left( X\right)$. Moreover there is a functor
-	 \be\label{locale_to_space_eqn}
-	 X \mapsto \mathrm{pt}\left( X\right)
-	 \ee
-	 from the category of locales to the category of spaces. If a set of points is sufficient then there is an isomorphism of toposes
-	 \be\label{locale_to_space_iso_eqn}
-	 \mathbf{Sh}\left( X\right) \cong  \mathbf{Sh}\left( \mathrm{pt}\left( X\right)\right).
-	 \ee
-\end{empt}
-
-
+\subsection{Alexandrov topology}\label{alex_top}\cite{johnstone:stone_spaces}.
+Let $X$ be a partially ordered set. We define the \textit{Alexandrov topology} $\Upsilon(X, \le)$ (or simply 
+$\Upsilon(X)$, if the partial order is obvious) to be the collection of all \textit{upper sets}
+in $X$ (i.e. sets $U$ such that $x \in  U$ and $x \le y$ imply $y \in U$); this is clearly a 
+topology, since it is closed under arbitrary unions and intersections. % And we define the \textit{upper interval topology} $\Phi(X, \le)$ (sometimes called the weak topology) to be the smallest topology for which all sets of the form $\downarrow\left(  x\right) $ are closed, i.e. the topology based by sets of the form 
+%$$
+%X\setminus  \left( \downarrow\left(  x_1\right)\cup ... \cup \downarrow\left(  x_n\right)\right) 
+%$$
+\
 	\subsection{Cohomology of sheaves}\label{grothendieck_cohomology_section}
 	\paragraph{}
 	Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. The functor
@@ -2774,7 +2823,7 @@ Translations of Mathematical Monographs, vol. 226, 2005.
 \bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 
 
-\bibitem{joost:borification}. Joost Nuiten. \textit{Bohrification of local nets of observables}. arXiv:1109.1397, 2011.
+\bibitem{joost:borification} Joost Nuiten. \textit{Bohrification of local nets of observables}. arXiv:1109.1397, 2011.
 
 
 \bibitem{pavlov_duality} Dmitri Pavlov. \textit{Gelfand-type duality for commutative von Neumann algebras}. arXiv:2005.05284, 2021.
