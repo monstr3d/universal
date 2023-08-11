@@ -817,117 +817,6 @@ $$
 or equivalently $f_!\left(\widetilde B \right)\wedge  B\subset 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right) $.  A conjunction of both inclusions $f_!\left( \widetilde B \wedge  f^{-1} {B}\right)  \subset f_!\left(\widetilde B\right)  \wedge B$ and $f_!\left(\widetilde B \right)\wedge  B\subset 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right)$ is equivalent to the condition \eqref{frame_a_moprhism_eqn}.
 \end{proof}
 
-\section{Generalized Dixmier-Douady duality}
-
-\paragraph*{}
-Here we consider an analog of the described in the Appendix \ref{dd_dual_sec} duality.
-\begin{empt}\label{dd_dual_empt}
-	Let $A, A', A'', \widetilde{A}$ be $C^*$-algebras, and let
-	\bean
-	M\left(A \right) \xhookrightarrow{\phi} M\left(A' \right),\\
-	M\left(A \right) \xhookrightarrow{\psi} M\left(A'' \right),\\
-	M\left(A' \right) \xhookrightarrow{\widetilde \phi} M\left(\widetilde A \right),\\
-	M\left(A'' \right) \xhookrightarrow{\widetilde \psi} M\left(\widetilde A \right),\\
-	\eean 
-	be injective *-homomorphisms. Suppose following conditions hold:
-	\begin{enumerate}
-		\item [(a)] The restrictions $\phi|_A$, $~h_A$, $~\widetilde \phi|_{A'}$, $~\widetilde h|_{A''}$ hereditary full (cf. Definition \ref{hereditary_full_defn}
-		\item[(b)] 
-		\bea\label{dd_dual_empt_1_eqn}
-		\widetilde \phi\circ \phi = \widetilde \psi\circ \psi,\\
-		\label{dd_dual_empt_2_eqn}
-		\forall	a ' \in A' \quad \forall	a '' \in A'' \quad \widetilde \phi\left(a'\right)\widetilde \psi\left(a''\right)\in \widetilde A
-		\eea	
-		From the above situation one has an $A$-$A$ bimodule homomorphism
-		\be\label{dd_dual_empt_eqn}
-		\begin{split}
-		\varphi: A'\ox_A A'' \to \widetilde A,\\
-			a' \otimes a'' \mapsto \widetilde \phi\left(a'\right)\widetilde \psi\left(a''\right).
-		\end{split}
-		\ee
-		where $ A'\ox_A A''$ is an algebraic tensor product.
-	\end{enumerate}
-\end{empt}
-
-\begin{definition}\label{dd_dual_defn}
-	We say that the situation \ref{dd_dual_empt} is a \textit{generalized Dixmier-Douady duality} the homomorphism \ref{dd_dual_empt_eqn} is injective and $\varphi\left(  A'\ox_A A''\right)$ is dense in $\widetilde{A}$.
-\end{definition}
-
-\begin{empt}
-	If we consider the situation of the Definition \ref{dd_dual_defn} then from the Lemma  \ref{locale_open_lem} one has open maps 
-\bean
-f : \mathfrak{Locale}\left( A'\right) \to \mathfrak{Locale}\left( A\right),\\
-g : \mathfrak{Locale}\left( A''\right) \to \mathfrak{Locale}\left( A\right),\\
-\widetilde f : \mathfrak{Locale}\left(\widetilde A\right) \to \mathfrak{Locale}\left( A'\right),\\
-\widetilde g : \mathfrak{Locale}\left( \widetilde A\right) \to \mathfrak{Locale}\left( A''\right),\\
-\eean	
-of locales. For any $\widetilde B \in \mathfrak{Locale}\left( \widetilde A\right) $ one has $f_! \circ \widetilde f_! \left(\widetilde B \right)= g_! \circ \widetilde g_! \left(\widetilde B \right)$, i.e. $\widetilde B$ yields an element of $\left(\widetilde f_! \left(\widetilde B \right), \widetilde g_! \left(\widetilde B \right) \right) 
-\in \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right)$ where $\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)$ means a set theoretic pullback, i.e.
-			\newline
-\begin{tikzcd}
-\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right) \arrow[d] \arrow[r]
-	& \mathfrak{Locale}\left( A'\right)\arrow[d, "f_!"]\\
-\mathfrak{Locale}\left( A''\right)\arrow[r, "g_!"]	&\mathfrak{Locale}\left( A\right)
-\end{tikzcd}
-\\
-\\
-So one has a set theoretic map 
-\bean
-\Phi: \mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
-\widetilde B \mapsto\left(\widetilde f_! \left(\widetilde B \right), \widetilde g_! \left(\widetilde B \right)\right) 
-\eean
-Let us define a map
-\bean
-\Psi: \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)\to \mathfrak{Locale}\left( \widetilde A\right),\\
-\left(B', B''\right) \mapsto \bydef f^{-1}\left(B' \right) \wedge g^{-1}\left(B'' \right).
-\eean
-From \eqref{hered_open_eqn} it follows that
-\bean
-\widetilde f_!\left(\widetilde  g^{-1} {B''} \wedge \widetilde  f^{-1} {B'}\right)  = \widetilde f_!\left(g^{-1} {B''}\right)  \wedge B',\\
-%\widetilde g_!\left( \widetilde  f^{-1} {B'} \wedge \widetilde   g^{-1} {B''}\right)  = \widetilde  g_!\left(\widetilde  f^{-1} {B'}\right)  \wedge B'',\\
-%f_!\left( B'\right)= g_!\left(B'' \right) = f_!\circ  \widetilde f_!\left(B' \right)
-\eean
-From
-\bean
-\widetilde f_!\left(g^{-1} {B''}\right)=  f^{-1} \left( g_!\circ \widetilde g_!\left(g^{-1} {B''}\right)\right) = f^{-1} \left( f_!\circ \widetilde f_!\left(f^{-1} {B'}\right)\right)= B'
-\eean
-it follows that $\widetilde f_!\left(\widetilde  f^{-1} {B'} \wedge \widetilde  g^{-1} {B''}\right)= B'$. 
-Similarly one has $\widetilde g_!\left(\widetilde  f^{-1} {B'} \wedge \widetilde  g^{-1} {B''}\right)= B''$
-The maps
-\bean
-\mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
-\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)\to \mathfrak{Locale}\left( \widetilde A\right)
-\eean
-are mutually inverse so one has a set theoretic bijection
-\be\label{duality_locale_map_eqn}
-\mathfrak{Locale}\left( \widetilde A\right)\cong \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right).
-\ee
-\end{empt}
-\begin{remark}\label{local_prod_rem}
-	If $R$ is a ring then  the equation \eqref{local_prodg_eqn} the  Lemma \ref{gr_ring_lem} and the Exercise \ref{ring_homo_exer} one can obtain following homomorphism
-	\bean
-\check{H}^\bullet\left(\mathfrak{Locale}\left( 'A\right), R\right) \ox_{\check{H}^\bullet\left(  \mathfrak{Locale}\left( A\right),R\right) } 	\check{H}^\bullet\left( \mathfrak{Locale}\left( A''\right), R\right)\to \check{H}^\bullet\left(  \mathfrak{Locale}\left(\widetilde A\right), R\right)
-\eean 
-The above equation is isomorphic to the following one
-	
-	\be\label{dix_do_co_eqn}
-		\check{H}^\bullet\left( A', R\right) \ox_{\check{H}^\bullet\left( A,R\right) } 	\check{H}^\bullet\left( A', R\right)\to \check{H}^\bullet\left( \widetilde A, R\right)
-	\ee 
- These homomorphisms can be regarded as analogs of the following formula
-	\bean
-	K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right)
-	\eean
-	of the Dixmier-Douady theory (cf. equation \eqref{ka_eqn})	
-	
-\end{remark}
-
-
-
-
-
-
-\
-
 \section{Locales of commutative von Neumann algebras}
 \paragraph*{}
 Let $\sX$ be a topological space, end let $\mu$ be a nondegenerate positive Radon measure on $\sX$ such that $\mu\left( \sX\right)= 1$.
@@ -1017,28 +906,40 @@ of locales.
 \section{Locales for   $C^*$-algebras with Hausdorff spectrum}
 
 \paragraph{}
-Let $A$ be a $C^*$-algebra with the Hausdorff spectrum $\sX$. Consider a pair $\left(\pi_x, e_x\right)$ where $\pi_x : A \to B\left(\H_x \right)$ is a corresponding to $x \in \sX$ irreducible representation and $e_x \in B\left(\H_x \right)$ is a rank-one projector. 
+Let $A$ be a $C^*$-algebra with the Hausdorff spectrum $\sX$. Consider a pair $\left(\pi_x, e_x\right)$ where $\pi_x : A \to B\left(\H_x \right)$ is a corresponding to $x \in \sX$ irreducible representation and $e_x \in B\left(\H_x \right)$ is a rank-one projector, i. e. $e_x = \xi\left\rangle \right\langle\xi$. 
 \begin{lemma}\label{haus_point_lem} For any pair $\left(\pi_x, e_x\right)$ given by
 	\be\label{haus_point_map_eqn}
 	\begin{split}
 		p_{\left(\pi_x, e_x\right)}:	\mathfrak{Frame}\left(A \right)\to \left\{0, 1\right\},\\
 		B \mapsto \begin{cases}
-			\pi_x\left(B\right)  \perp e_x & 0\\
-			e_x \in 	\pi_x\left(B\right) & 1
+			\pi_x\left(B\right)\H_x  \perp e_x \H_x & 0\\
+		\pi_x\left(B\right)\H_x \not\perp e_x \H_x & 1
 		\end{cases}.\end{split}
 	\ee
 	map is a point of  the hereditary $A$-frame	$\mathfrak{Frame}\left(A \right)$  (cf. Definition \ref{locale_point_defn})
 \end{lemma}
 \begin{proof}
+If $\left\{B_\iota \right\}_{\iota \in I}\bydef p^{-1}_{\left(\pi_x, e_x\right)}\left(0 \right)$ then  then from the Lemma \ref{point_lem} it follows that one needs proof that the given by \eqref{p_p_eqn} hereditary subalgebra $B_{\left(\pi_x, e_x\right)} \bydef \bigvee_{\iota \in I} B_\iota$ satisfies to the conditions  \eqref{prime_eqn} and \eqref{pprime_eqn}. 
+	 If left ideals $L\left( B_{\left(\pi_x, e_x\right)}\right)$ and  $L\left( B_\iota\right)$ are given by \eqref{left_ideal_eqn} then 
+	$L\left( B_{\left(\pi_x, e_x\right)}\right)$ 
+	is the the $C^*$-norm closure of an algebraic sum $\sum_{\iota\in I}L\left(B_\iota \right)$. 
+From 
+	$$
+	\inf_{a \in \sum_{\iota\in I}L\left(B_\iota \right)} \left\|b - a\right\| \ge 1 \quad \Rightarrow \quad \inf_{b \in B_{\left(\pi_x, e_x\right)}} \left\|b - a\right\| \ge 1 \quad \Rightarrow\quad B_{\left(\pi_x, e_x\right)} \neq A,
+	$$
+	i.e. $B_{\left(\pi_x, e_x\right)}$ satisfies to \eqref{pprime_eqn}. If $B\notin p^{-1}_{\left(\pi_x, e_x\right)}\left(0\right)$ then there is $b \in B$ such that $\pi_x\left(b\right)\H_x \not\perp e_x$. Moreover there is a rank-one projector $y\in \xi\left\rangle \right\langle\xi$
 	
-	From the Lemma \ref{point_lem} it follows that one needs proof that the given by \eqref{p_p_eqn} hereditary subalgebra $B_{\left[C, \I\right]}$ satisfies to the conditions  \eqref{prime_eqn} and \eqref{pprime_eqn}. 
-	If $\left\{B_\iota \right\}_{\iota \in I}\bydef p^{-1}\left(0 \right)$ then $B_{\left[C, \I\right]} = \bigvee_{\iota \in I} B_\iota$. If left ideals $L\left( B_{\left[C, \I\right]}\right)$ and  $L\left( B_\iota\right)$ are given by \eqref{left_ideal_eqn} then 
-	$L\left( B_{\left[C, \I\right]}\right)$ 
-	is the the $C^*$-norm closure of an algebraic sum $\sum_{\iota\in I}L\left(B_\iota \right)$. If $f: C \to A/\I$ is a natural surjective map and  $c \in C$ is such that $\left\|f(c)\right\|> 0$ and 
-	$$
-	\inf_{b \in \sum_{\iota\in I}L\left(B_\iota \right)} \left\|b - c\right\| \ge \left\|f(c)\right\| \quad \Rightarrow \quad \inf_{b \in B_{\left[C, \I\right]}} \left\|b - c\right\| \ge \left\|f(c)\right\| \quad \Rightarrow B_{\left[C, \I\right]} \neq A
-	$$
-	i.e. $B_{\left[C, \I\right]}$ satisfies to \eqref{pprime_eqn}. Moreover $B_{\left[C, \I\right]}$ is a maximal among hereditary $C^*$-subalgebras $B$ such that
+	
+	 or  equivalently $\left(\pi_x\left(b \right) , e_x \right)_{\H_x} \neq 0$ where $\left(\pi_x\left(b \right) , e_x \right)_{\H_x}$ is a scalar product on $\H_x$.
+	
+	There is $y\in \pi_x\left(B_{\left(\pi_x, e_x\right)}\right)$ such that $\pi_x \left(b \right) + y = e_x$. So there is $b' \in B_{\left(\pi_x, e_x\right)}$ such that $\pi_x\left(b' \right) = y$ and $\pi_x\left(b' + b\right) = e_x$. If $a \in A$ is any element such that $\left(\pi_x\left(a \right) , e_x \right)_{\H_x} = k$ 
+	
+	
+	then there if $a'\in B_{\left(\pi_x, e_x\right)}$
+	
+	
+	
+	Moreover $B_{\left[C, \I\right]}$ is a maximal among hereditary $C^*$-subalgebras $B$ such that
 	$
 	B \cap C \subset \I
 	$.
@@ -1071,48 +972,6 @@ Here we consider stable separable continuous trace  $C^*$-algebras $CT\left(\sX,
 	If $x \not\in \sU$ is such that $\pi_{x}\left(C \right) \neq \{0\}$ then from the Definition \ref{continuous_trace_c_alt_defn} it follows that there there is an open neighborhood $\sU'$ of $x$ such that there is $a_{\sU'} \in C|_{\sU'}$ and $ C|_{\sU'}$ is generated by $a_{\sU'}$. In this case 
 	$C|_{\sU \cup \sU'}$ is generated by an Abelian element  $a = a_\sU + a_{\sU'}$.  Using the Zorn's lemma \ref{zorn_thm} we conclude that if  $\sV$ is  the maximal open subset such that there is $a_\sV\in C$ which generates  $C|_\sV$  then $\sV = \sX$.
 \end{proof}
-\subsection{Dixmier-Douady product}
-\begin{lemma}\label{ctr_local_prod_lem}
-	If $\dl, \rho \in \check{H}^3\left(\sX, \Z \right)$  then $CT\left(\sX, \dl + \rho \right)$ is the Dixmier-Douady product of $CT\left(\sX, \dl \right)$ and $CT\left(\sX, \rho \right)$ (cf. Definition \ref{local_prod_defn}).
-\end{lemma}
-\begin{proof}
-	One should find a homeomorphism $\phi: \mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)} \mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\to \mathfrak{Space}\left(CT\left(\sX, \dl +\rho\right)\right)$.
-	Any element of $\mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)} \mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)$ can be represented 
-	by $s^\dl \in \mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)$ and $s^\rho \in \mathfrak{Space}\left(CT\left(\sX, \rho \right)\right)$ such that $P_{CT\left(\sX, \dl \right)}\left( s^\dl\right) = P_{CT\left(\sX, \rho \right)}\left( s^\rho\right)$ where the notation \eqref{P_A_eqn} is used. If $x \bydef p_{CT\left(\sX, \dl \right)}\left(s^\dl \right)= p_{CT\left(\sX, \rho \right)}\left(s^\rho \right)\in \sX$  (cf. equation \eqref{loical_hom_eqn}) then there are commutative hereditary subalgebras $C^\dl \subset {CT\left(\sX, \dl \right)}$ and $C^\rho \subset {CT\left(\sX, \rho \right)}$
-	such that
-	\begin{itemize}
-		\item $s^\dl = C^\dl_x$ and $s^\rho = C^\rho_x$,
-		\item both $\supp C^\dl$ and $\supp C^\rho$ are representatives of $$P_{CT\left(\sX, \dl \right)}\left( s^\dl\right) = P_{CT\left(\sX, \rho \right)}\left( s^\rho\right)\in \mathrm{Sp\acute{e}}\left(\Om_\sX \right).$$
-	\end{itemize}
-	If $\sU \bydef  \supp C^\dl \cap \supp C^\rho$ then both $s^\dl$ and $s^\rho$ can be represented by $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$  respectively (cf. the equation \eqref{c_res_eqn} and the Lemma \ref{section_lem}).
-	For the Lemma \ref{gen_lem} it follows that there are Abelian elements $a^\dl \in  {CT\left(\sX, \dl \right)}$ and $a^\rho \in {CT\left(\sX, \rho \right)}$ such that both $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$ (cf. a generated by $\left\{a^\dl\right\}$ and $\left\{a^\rho\right\}$ hereditary $C^*$-algebras (cf. Definition \ref{hered_generated_defn}). If $\varphi_{\dl\rho}$ is given by the equation \eqref{bundle_prod_iso}	then an element
-	$$
-	a \bydef \varphi_{\dl\rho}\left(a^\dl, a^\rho \right)\in CT\left(\sX, \dl + \rho \right)
-	$$
-	is Abelian. If $C$ is a generated by $\left\{a\right\}$  hereditary $C^*$-algebra then we define
-	$$
-	\phi \left(s^\dl, s^\rho \right) 	\bydef C_x\in \mathfrak{Space}\left(CT\left(\sX, \dl + \rho \right)\right).
-	$$
-	We leave to the reader a proof of following statements.
-	\begin{itemize}
-		\item $\phi \left(s^\dl, s^\rho \right)$ is uniquely depends on both $s^\dl$ and $s^\rho$, i.e. it  does not depend on a choice of $C^\dl$ and $C^\rho$ etc.
-		\item The map  $\phi: \mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)} \mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\cong \mathscr X^{CT\left(\sX, \dl +\rho\right)}$ is a homeomorphism.
-	\end{itemize}
-	
-\end{proof}
-From the Lemma \ref{ctr_local_prod_lem}   one can obtain a homeomorphism
-\bean%\label{space_homeo_eqn}
-\mathfrak{Space}\left(CT\left(\sX, \dl \right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_\sX \right)}\mathfrak{Space}\left(CT\left(\sX, \rho \right)\right) \cong \mathfrak{Space}\left(CT\left(\sX, \dl + \rho\right)\right).
-\eean
-If $F$ is an Abelian group such that $F\ox_\Z F \cong F$  then there are following maps
-\bean%\label{hom1_homeo_eqn}
-\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left( \sX,F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right),\\
-\label{hom2_homeo_eqn}
-\check{H}^\bullet\left( CT\left(\sX, \dl \right), F\right) \ox_{\check{H}^\bullet\left(\mathrm{Sp\acute{e}}\left(\Om_\sX \right),F\right) } 	\check{H}^\bullet\left( CT\left(\sX, \rho \right), F\right)\to 	\check{H}^\bullet\left( CT\left(\sX, \dl + \rho \right), F\right)
-\eean
-(cf. Remark \ref{local_prod_rem}). These homeomorphism and  maps are analogs of the Dixmier-Douady theory (cf. the equations  \eqref{bundle_prod_iso} and \eqref{ka_eqn}).
-
-
 \subsection{Cohomology}
 \paragraph{}
 From the Proposition \ref{ctr_d_prop} it follows that
@@ -1172,6 +1031,109 @@ $CT\left(\sX, 0 \right) \cong C_0\left(\sX, \K \right)$. So there is a positive 
 	$$
 	So if $\check{X}^r \bydef \ker \check{H}^r\left( s\right)$ then $\check{H}^r\left(\mathfrak{Space}\left(CT\left(\sX, 0 \right)\right), F \right)\cong \check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r$. Now the equation $\check{H}^r\left(\sX, F  \right)	\oplus \check{X}^r$ follows from the isomorphism \eqref{chech_hom_eqn}.
 \end{proof}
+\section{Generalized Dixmier-Douady duality}
+
+\paragraph*{}
+Here we consider an analog of the described in the Appendix \ref{dd_dual_sec} duality.
+\begin{empt}\label{dd_dual_empt}
+	Let $A, A', A'', \widetilde{A}$ be $C^*$-algebras, and let
+	\bean
+	M\left(A \right) \xhookrightarrow{\phi} M\left(A' \right),\\
+	M\left(A \right) \xhookrightarrow{\psi} M\left(A'' \right),\\
+	M\left(A' \right) \xhookrightarrow{\widetilde \phi} M\left(\widetilde A \right),\\
+	M\left(A'' \right) \xhookrightarrow{\widetilde \psi} M\left(\widetilde A \right),\\
+	\eean 
+	be injective *-homomorphisms. Suppose following conditions hold:
+	\begin{enumerate}
+		\item [(a)] The restrictions $\phi|_A$, $~h_A$, $~\widetilde \phi|_{A'}$, $~\widetilde h|_{A''}$ hereditary full (cf. Definition \ref{hereditary_full_defn}
+		\item[(b)] 
+		\bea\label{dd_dual_empt_1_eqn}
+		\widetilde \phi\circ \phi = \widetilde \psi\circ \psi,\\
+		\label{dd_dual_empt_2_eqn}
+		\forall	a ' \in A' \quad \forall	a '' \in A'' \quad \widetilde \phi\left(a'\right)\widetilde \psi\left(a''\right)\in \widetilde A
+		\eea	
+		From the above situation one has an $A$-$A$ bimodule homomorphism
+		\be\label{dd_dual_empt_eqn}
+		\begin{split}
+			\varphi: A'\ox_A A'' \to \widetilde A,\\
+			a' \otimes a'' \mapsto \widetilde \phi\left(a'\right)\widetilde \psi\left(a''\right).
+		\end{split}
+		\ee
+		where $ A'\ox_A A''$ is an algebraic tensor product.
+	\end{enumerate}
+\end{empt}
+
+\begin{definition}\label{dd_dual_defn}
+	We say that the situation \ref{dd_dual_empt} is a \textit{generalized Dixmier-Douady duality} the homomorphism \ref{dd_dual_empt_eqn} is injective and $\varphi\left(  A'\ox_A A''\right)$ is dense in $\widetilde{A}$.
+\end{definition}
+
+\begin{empt}
+	If we consider the situation of the Definition \ref{dd_dual_defn} then from the Lemma  \ref{locale_open_lem} one has open maps 
+	\bean
+	f : \mathfrak{Locale}\left( A'\right) \to \mathfrak{Locale}\left( A\right),\\
+	g : \mathfrak{Locale}\left( A''\right) \to \mathfrak{Locale}\left( A\right),\\
+	\widetilde f : \mathfrak{Locale}\left(\widetilde A\right) \to \mathfrak{Locale}\left( A'\right),\\
+	\widetilde g : \mathfrak{Locale}\left( \widetilde A\right) \to \mathfrak{Locale}\left( A''\right),\\
+	\eean	
+	of locales. For any $\widetilde B \in \mathfrak{Locale}\left( \widetilde A\right) $ one has $f_! \circ \widetilde f_! \left(\widetilde B \right)= g_! \circ \widetilde g_! \left(\widetilde B \right)$, i.e. $\widetilde B$ yields an element of $\left(\widetilde f_! \left(\widetilde B \right), \widetilde g_! \left(\widetilde B \right) \right) 
+	\in \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right)$ where $\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)$ means a set theoretic pullback, i.e.
+	\newline
+	\begin{tikzcd}
+		\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right) \arrow[d] \arrow[r]
+		& \mathfrak{Locale}\left( A'\right)\arrow[d, "f_!"]\\
+		\mathfrak{Locale}\left( A''\right)\arrow[r, "g_!"]	&\mathfrak{Locale}\left( A\right)
+	\end{tikzcd}
+	\\
+	\\
+	So one has a set theoretic map 
+	\bean
+	\Phi: \mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
+	\widetilde B \mapsto\left(\widetilde f_! \left(\widetilde B \right), \widetilde g_! \left(\widetilde B \right)\right) 
+	\eean
+	Let us define a map
+	\bean
+	\Psi: \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)\to \mathfrak{Locale}\left( \widetilde A\right),\\
+	\left(B', B''\right) \mapsto \bydef f^{-1}\left(B' \right) \wedge g^{-1}\left(B'' \right).
+	\eean
+	From \eqref{hered_open_eqn} it follows that
+	\bean
+	\widetilde f_!\left(\widetilde  g^{-1} {B''} \wedge \widetilde  f^{-1} {B'}\right)  = \widetilde f_!\left(g^{-1} {B''}\right)  \wedge B',\\
+	%\widetilde g_!\left( \widetilde  f^{-1} {B'} \wedge \widetilde   g^{-1} {B''}\right)  = \widetilde  g_!\left(\widetilde  f^{-1} {B'}\right)  \wedge B'',\\
+	%f_!\left( B'\right)= g_!\left(B'' \right) = f_!\circ  \widetilde f_!\left(B' \right)
+	\eean
+	From
+	\bean
+	\widetilde f_!\left(g^{-1} {B''}\right)=  f^{-1} \left( g_!\circ \widetilde g_!\left(g^{-1} {B''}\right)\right) = f^{-1} \left( f_!\circ \widetilde f_!\left(f^{-1} {B'}\right)\right)= B'
+	\eean
+	it follows that $\widetilde f_!\left(\widetilde  f^{-1} {B'} \wedge \widetilde  g^{-1} {B''}\right)= B'$. 
+	Similarly one has $\widetilde g_!\left(\widetilde  f^{-1} {B'} \wedge \widetilde  g^{-1} {B''}\right)= B''$
+	The maps
+	\bean
+	\mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
+	\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)\to \mathfrak{Locale}\left( \widetilde A\right)
+	\eean
+	are mutually inverse so one has a set theoretic bijection
+	\be\label{duality_locale_map_eqn}
+	\mathfrak{Locale}\left( \widetilde A\right)\cong \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right).
+	\ee
+\end{empt}
+\begin{remark}\label{local_prod_rem}
+	If $R$ is a ring then  the equation \eqref{local_prodg_eqn} the  Lemma \ref{gr_ring_lem} and the Exercise \ref{ring_homo_exer} one can obtain following homomorphism
+	\bean
+	\check{H}^\bullet\left(\mathfrak{Locale}\left( 'A\right), R\right) \ox_{\check{H}^\bullet\left(  \mathfrak{Locale}\left( A\right),R\right) } 	\check{H}^\bullet\left( \mathfrak{Locale}\left( A''\right), R\right)\to \check{H}^\bullet\left(  \mathfrak{Locale}\left(\widetilde A\right), R\right)
+	\eean 
+	The above equation is isomorphic to the following one
+	
+	\be\label{dix_do_co_eqn}
+	\check{H}^\bullet\left( A', R\right) \ox_{\check{H}^\bullet\left( A,R\right) } 	\check{H}^\bullet\left( A', R\right)\to \check{H}^\bullet\left( \widetilde A, R\right)
+	\ee 
+	These homomorphisms can be regarded as analogs of the following formula
+	\bean
+	K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right)
+	\eean
+	of the Dixmier-Douady theory (cf. equation \eqref{ka_eqn})	
+	
+\end{remark}
 
 
 \section{Locales of $C^*$-algebras of type $I_0$}
