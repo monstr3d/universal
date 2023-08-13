@@ -778,8 +778,27 @@ f: \mathfrak{Locale}\left( \widetilde A\right)\to\mathfrak{Locale}\left( A\right
 $$
 
 \end{proof}
-The Theorem \ref{locale_thm} yields a geometric  morphism of toposes $\mathfrak{Topos}\left( \widetilde A\right)\to\mathfrak{Topos}\left( A\right)$.
 
+\begin{remark}
+The Theorem \ref{locale_thm} yields a geometric  morphism of toposes $$\mathfrak{Topos}\left( \widetilde A\right)\xrightarrow{\mathfrak{Topos}\left(\varphi \right) }\mathfrak{Topos}\left( A\right).$$ From the Proposition \ref{spectral_sequence_prop} it follows that for any Abelian group $F$ and any $q\ge 0$ one has a homomorphism
+\bean
+H^q\left(\mathfrak{Topos}\left(A \right), F_A \right) \xrightarrow{H^q\left(\mathfrak{Topos}\left(\varphi \right) \right) } H^q \left(\mathfrak{Topos}\left(\widetilde A \right), \mathfrak{Topos}\left(\varphi \right)^*F_A\right),
+\eean
+or using the notation \ref{} one has a homomorphism
+\be\label{topos_hom_hom_eqn}
+H^q\left(A, F_A \right) \xrightarrow{} H^q \left(\widetilde A , \mathfrak{Topos}\left(\varphi \right)^*F_A\right)
+\ee
+From the Remark \ref{} one has a homomorphism of CECH !!!
+\be\label{topos_hom_chech_hom_eqn}
+\check{H}^q\left(A, F \right) \xrightarrow{\check{H}^q\left(\varphi \right) } \check{H}^q \left(\widetilde A , F\right)
+\ee
+If $R$ is a ring then there is a homomorphism of rings  !!! REMARK !!!
+\be\label{topos_hom_chech_hom_r_eqn}
+\check{H}^\bullet\left(A, R \right) \xrightarrow{\check{H}^\bullet\left(\varphi \right) } \check{H}^\bullet \left(\widetilde A , R\right)
+\ee
+
+\end{remark}
+!!! EXAMPLES !!!
 \begin{lemma}\label{locale_open_lem}
 	Any hereditary full injective *-homomorphism $f: A \hookto \widetilde A$ yields an open map of locales  (cf. Definition \ref{open_locale_mor_defn}).
 \end{lemma}
@@ -2235,37 +2254,6 @@ For any locale X, the following are equivalent:
 		\check{H}^r\left(X, F\right)\bydef \check{H}^r\left(X, F_X\right).
 		\ee
 	\end{empt}
-\subsection{Cup products}	
-
-\paragraph{!!!}
-\begin{defn}\label{grotendieck_topolgy_defn!}\cite{johnstone:topos}
-	Let $\mathscr C$ be a small category. A \textit{Grothendieck topology} on $\mathscr C$ is defined by specifying, for each object $U$ of $\mathscr C$ a set $J\left(U\right)$ of {sieves} called \textit{covering sieves} of the topology such that
-	\begin{enumerate}
-		\item [(a)] For any $U$, the maximal sieve $\left\{\a | \text{codomain}(a)= U\right\}$ is in $J\left(U \right)$.
-		\item[(b)] if $R \in J\left( U\right)$ and $V\xrightarrow{f} U$ is a morphism of $\mathscr C$ then the sieve
-		$$
-		f^*\left( R\right) \bydef \left\{W\xrightarrow{a}V| f\a \in R \right\}
-		$$
-		is in $J\left(V\right)$.
-		\item[(c)] If $R \in J\left(U \right)$ is sieve on $U$ such that for each $V\xrightarrow{f}U$ in $R$ we have $f^*\left( S\right)\in J\left( V\right)$, then $S\in J\left( U\right)$.    
-		
-	\end{enumerate}
-	A category $\mathscr C$  together with 
-	the Grothendieck  topology is called a \textit{site} $\mathbf T\bydef \left( \mathscr C, J\right)$. Then $\mathrm{Cat}\left( \mathbf T\right)\bydef \mathscr C$ denotes the underlying category. 
-	
-\end{defn}
-\paragraph{!!!}
-
-
-
-	\begin{corollary}\label{cup_products_cor}
-%Corollary 3.7.
- Cup products can be defined for the category of sheaves of modules on
-any site $\left( \mathscr C, J\right)$. They are natural maps Hp(U; A)
-Hq(U; B)!Hp+q(U; A
-B) satisfying
-the conclusions of Theorems 3:1 and 3:2 and are associative and (skew) commutative	
-\end{corollary}
 	
 	\section{Topological presheaves and sheaves}
 	\subsection{General theory}
@@ -2520,13 +2508,10 @@ the conclusions of Theorems 3:1 and 3:2 and are associative and (skew) commutati
 		
 	\end{proposition}
 	\begin{empt}
-		Let $\sX$ be a topological space. If $F$ be an Abelian group then there is, a corresponding constant presheaf  $F_\sX$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. A  presheaf $F_\sX\otimes F_\sX$ on $\sX$ is a constant presheaf of a group $F\otimes_Z F$.  An isomorphism $A \otimes_\Z A \cong  A$ naturally yields an isomorphism $F_\sX\otimes F_\sX\cong  F_\sX$ of sheaves which induces an isomorphism
-		$$
-		\phi: \check{H}^\bullet\left(\sX, F_\sX\otimes F_\sX \right)\cong \check{H}^\bullet\left(\sX, F_\sX \right).
-		$$
+		Let $\sX$ be a topological space. If $R$ be an ring then there is, a corresponding constant presheaf  $R_\sX$ (cf. Definition \ref{constant_presheaf_defn}) on $\sX$. 
 		Using the cup product and homomorphism $\phi$ one has a map
 		$$
-		\check{H}^\bullet\left(\sX, F_\sX \right)\otimes \check{H}^\bullet\left(\sX, F_\sX \right) \to \check{H}^\bullet\left(\sX, F_\sX \right).
+		\check{H}^\bullet\left(\sX, R_\sX \right)\otimes \check{H}^\bullet\left(\sX, R_\sX \right) \to \check{H}^\bullet\left(\sX, R_\sX \right).
 		$$
 		So we have proved the following.	
 	\end{empt}
@@ -2540,11 +2525,11 @@ the conclusions of Theorems 3:1 and 3:2 and are associative and (skew) commutati
 	\end{lem}
 	
 	\begin{exercise}\label{ring_homo_exer}
-		Let  $F$ be an Abelian group with a homomorphism $F \otimes_\Z F \cong F$. Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
+Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
 	\end{exercise}
 	
-	\begin{remark}
-	In \cite{milne:lec} and \cite{swan:cup} CUP PRODUCT.
+	\begin{remark}\label{ring_homo_rem}
+	In \cite{milne:lec,swan:cup} it is explained that the Lemma \ref{gr_ring_lem} and the Exercise  can by applied to any Grothendieck topology.
 	\end{remark}
 	
 	\section{$C^*$-algebras}
