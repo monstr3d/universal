@@ -1213,7 +1213,12 @@ where $\smile$ is a cup product (cf. the equation \eqref{cup_prod_eqn} and the R
 \end{definition}
 
 \begin{empt}
-Let $A,~ A', ~A''$ be $C^*$-algebras with inclusions $A \subset M\left( A'\right)$ and   $A \subset M\left( A''\right)$. If $\pi': A' \to B\left(\H'\right)$ and $\pi'': A'' \to B\left(\H''\right)$ are faithful representations then there is a the natural injective map 
+Let $A,~ A', ~A''$ be $C^*$-algebras with inclusions $A \subset M\left( A'\right)$ and   $A \subset M\left( A''\right)$. If both $\pi': A' \to B\left(\H'\right)$ and  $\pi'': A'' \to B\left(\H''\right)$ are faithful nondegenerate representations then from the Definition \ref{multiplier_el_defn} it follows that there are actions $A \times \H' \to \H'$ and $A \times \H'' \to \H''$. There is a right action
+\bean
+\H' \times A \to \H',\\
+\left(\xi', a\right)\mapsto a\xi
+\eean
+and  the natural injective map 
 \be\label{di_defn_eqn}
 \begin{split}
 d: A'\otimes_A A'' \to B\left(\H'\ox_{A} \H'' \right)\\
@@ -1245,7 +1250,7 @@ yield homomorphisms
 	A'' \xhookrightarrow{\widetilde \psi} \mathbf{RC}\left(\widetilde A \right),\\
 \end{split}
 \ee
-so one has all homomorphisms described by the equations \eqref{dd_bimodule_eqn}. We leave to the reader that these homomorphisms satisfy to conditions \eqref{bimod_gen_eqn}-\eqref{bim_eqn}. From the equation \eqref{di_defn_eqn} it follows that is injective.  On the other hand from $P\left(  A'\ox_A A''\right)= d\left(A'\ox_A A'' \right)$ it follows that $P\left(  A'\ox_A A''\right)$ is dense in $\widetilde A$.
+so one has all homomorphisms described by the equations \eqref{dd_bimodule_eqn}. We leave to the reader the proof of that these homomorphisms satisfy to conditions \eqref{bimod_gen_eqn}-\eqref{bim_eqn}. From the equation \eqref{di_defn_eqn} it follows that $P$ is injective.  On the other hand from $P\left(  A'\ox_A A''\right)= d\left(A'\ox_A A'' \right)$ it follows that $P\left(  A'\ox_A A''\right)$ is dense in $\widetilde A$.
 \end{proof}
 
 \subsection{Dixmier-Douady theory for continuous trace $C^*$-algebras}
@@ -1346,203 +1351,93 @@ where $P$ and $\Psi$ are given by the equations \eqref{ctr_P_eqn} and \eqref{ctr
 	\eean
 \end{remark}
 
-
 \subsection{Dixmier-Douady theory for $C^*$-algebras of foliations}
-\begin{empt}
-	Let $\mathbb{F}^n \bydef \left[0, 1\right]^n$ be a rectangular neighborhood (cf, Definition \ref{foli_rect_defn}). An element $1_{\mathbb{F}^n}$ represents an element $\xi_1 \in L^2\left(\mathbb{F}^n \right)$. There is an orthogonal (topological) basis $\left\{\xi_j\right\}_{j\in \N}\subset L^2\left(\mathbb{F}^n \right)$.  Any bijective map $f: \N \times \N \to \N$ such that $f\left(1, 1\right)= 1$ yields an isomorphism 
-	\bean
-	\Phi_1 :  L^2\left(\mathbb{F}^n \right)\otimes L^2\left(\mathbb{F}^n \right)\cong L^2\left(\mathbb{F}^n \right),\\
-	\xi_j \otimes \xi_k \mapsto \xi_{f\left(j, k \right) }
-	\eean
-	For any $N\in \N$ the cube $\mathbb{F}^n$ can be represented as a union of cubes, i.e.  $\mathbb{F}^n = \cup^{N^n}_{m = 1} \mathbb{F}^n_{N,m}$. It follows that  $L^2\left( \mathbb{F}^n\right)  = \oplus^{N^n}_{m = 1} L^2\left(  \mathbb{F}^n_{N,m}\right)$.  For any $N\in \N$ and $m = 1,..., N^k$ there is a basis $\left\{\xi^{N,m}_j\right\}_{j\in \N}\subset L^2\left(\mathbb{F}^n_{N,m} \right)$. The family $\left\{\xi^{N,m}_j\right\}_{j\in \N, m = 1,..., N^k}$ is a basis of $L^2\left(\mathbb{F}^n \right)$. So one can define an isomorphism 
-	\bean
-	\Phi_N : L^2\left(\mathbb{F}^n \right)\otimes L^2\left(\mathbb{F}^n \right)\cong L^2\left(\mathbb{F}^n \right),\\
-	\xi^{N,m}_j \otimes \xi^{N,m}_k \mapsto \xi^{N,m}_{f\left(j, k \right) }
-	\eean. 
-\end{empt} 
-\begin{lemma}
-	For any $\xi, \eta  \in L^2\left(\mathbb{F}^n \right)$ the sequence $\Psi_N\left( \xi\otimes  \eta\right)$ is convergent.
-\end{lemma}
-\begin{proof}
-	From our construction it follows that if $N \ge N_1$ and $N \ge N_2$ then 
-	$$
-	\forall N' \ge N 	\quad \Phi_{N'}\left(\xi_1^{N_1,m_1}, \xi_1^{N_2,m_2}\right)= 	\Phi_{N}\left(\xi_1^{N_1,m_1}, \xi_1^{N_2,m_2}\right)
-	$$
-	i.e. the sequence is convergent if both $\xi$ and $\eta$ are step functions.
-	On the other hand the linear span of the family $\left\{\xi_1^{N,m}\right\}$ of step functions  is dense in  $L^2\left(\mathbb{F}^n \right)$.
-\end{proof}
-We define an isomorphism
-\be\label{phi_eqn}
-\begin{split}
-	\Phi :  L^2\left(\mathbb{F}^n \right)\otimes_\C L^2\left(\mathbb{F}^n \right)\cong  L^2\left(\mathbb{F}^n \right),\\
-	\xi \otimes \eta \mapsto \lim_{N \to \infty } \Phi_N\left(\xi, \eta \right) 
-\end{split}
-\ee
-If $\sU \subset \mathbb{F}^n$ is an open subset and $L^2\left(\mathbb{F}^n \right)_\sU$ is the norm completion of $C_0\left(\sU\right)L^2\left(\mathbb{F}^n \right)$ then the isomorphism \eqref{psi_eqn} induces the isomorphism
-\be\label{psi_u_eqn}
-\begin{split}
-	\Phi_\sU :  L^2\left(\mathbb{F}^n \right)_\sU\otimes_\C  L^2\left(\mathbb{F}^n \right)_\sU\cong L^2\left(\mathbb{F}^n \right)_\sU.
-\end{split}
-\ee
-There is the natural representation $C_0\left(\mathbb{F}^n \right) \times  L^2\left(\mathbb{F}^n \right)\to  L^2\left(\mathbb{F}^n \right)$ which induces an inclusion $C_0\left( \mathbb{F}^n\right) \hookto M\left( \K\left( L^2\left(\mathbb{F}^n \right) \right) \right)$ and for all opens subset $\sU\subset\sX$ there is a hereditary  subalgebra $_\sU \K\left( L^2\left(\mathbb{F}^n \right) \right)_\sU \subset \K\left( L^2\left(\mathbb{F}^n \right)\right)$. The isomorphism \eqref{phi_eqn} induces the isomorphism
-\be\label{psi_eqn}
-\begin{split}
-	\Psi :  \K\left( L^2\left(\mathbb{F}^n \right)\right) \otimes_\C  \K\left( L^2\left(\mathbb{F}^n \right)\right)\cong  \K\left( L^2\left(\mathbb{F}^n \right)\right),\\
-	\Psi\left( 	a \otimes b\right) \left( \Phi \left(\xi \ox \eta  \right) \right)    \bydef \Phi\left( a\xi \otimes b\eta\right) 
-\end{split}
-\ee
-From \eqref{psi_u_eqn} it follows that the isomorphism has the natural restriction 
-\be\label{phi_u_eqn}
-\begin{split}
-	\Psi_\sU: ~ _\sU \K\left( L^2\left(\mathbb{F}^n \right) \right)_\sU\otimes_\C ~ _\sU \K\left( L^2\left(\mathbb{F}^n \right) \right)_\sU\cong ~ _\sU \K\left( L^2\left(\mathbb{F}^n \right) \right)_\sU
-\end{split}
-\ee
-where $_\sU\K\left( L^2\left(\mathbb{F}^n \right) \right)_\sU\subset \K\left( L^2\left(\mathbb{F}^n \right)\right) $ is a generated by $C_0\left( \sU\right) \K\left( L^2\left(\mathbb{F}^n \right)\right)  C_0\left( \sU\right)$ hereditary $C^*$-subalgebra.
 
-
-If $\left(M, \F\right)$ is a foliated manifold (cf. Definition \ref{foli_manifold_defn}) then there is a foliation groupoid $\G\left(M, \sF\right)$ (cf. Definitions \ref{foli_graph_defn} and the Theorem \ref{foli_graph_thm}). The equation \eqref{foli_prod_eqn} is a specialization of the \eqref{groupoid_*_c_eqn} one where a trivial cocycle $\sigma^0 \in H^2\left(\G\left(M, \sF\right), \T \right)$ is implied (cf. Appendix \ref{cycle_empt}). So there for any 2-cocycle $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ one has a \textit{twisted product} given by
+\paragraph*{}
+If $\left(M, \F\right)$ is a foliated manifold (cf. Definition \ref{foli_manifold_defn}) then there is a foliation groupoid $\G\left(M, \sF\right)$ (cf. Definitions \ref{foli_graph_defn} and the Theorem \ref{foli_graph_thm}). The equation \eqref{foli_prod_eqn} is a specialization of the \eqref{groupoid_*_c_eqn} one where a trivial cocycle $\sigma^0 \in H^2\left(\G\left(M, \sF\right), \T \right)$ is implied (cf. Appendix \ref{cycle_empt}). So there for any 2-cocycle $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ one has a \textit{twisted product} and an involution given by
 \be\label{foli_a_prod_eqn}
+\begin{split}
 \left( f *_\sigma g\right)  (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
-f(\gamma_1) \, g(\gamma_2) \, \sigma\left(\ga_1, \ga_2 \right) 
+f(\gamma_1) \, g(\gamma_2) \, \sigma\left(\ga_1, \ga_2 \right),\\ 
+	f^* ( \ga ) \bydef \overline{f ( \ga^{ -1})}~\overline{\sigma\left(\ga, \ga^{-1} \right)}
+\end{split}
 \ee
-where $f, g \in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). The product \eqref{foli_a_prod_eqn} and the involution \ref{groupoid_inv_c_eqn} yields a *-algebra, we denote it by  $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
+where $f, g \in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). Similarly to \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} the equations  \eqref{foli_a_prod_eqn} yield a *-algebra, we denote it by  $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
 \begin{remark}\label{foli_irred_hol_rem}
-Similarly to  \ref{foli_irred_hol_empt} one can prove that in fact the set of all irreducible representations is a set of leaves of $\left(M, \sF\right)$ which have no holonomy. The Hilbert space of the representation which corresponds to a leaf $L$ is $L^2\left( L\right)$. 
+	Similarly to  \ref{foli_irred_hol_empt} one can prove that in fact the set of all irreducible representations is a set of leaves of $\left(M, \sF\right)$ which have no holonomy. The Hilbert space of the representation which corresponds to a leaf $\L$ is $L^2\left( \L\right)$. 
 \end{remark}
-
 \begin{definition}\label{foli_s_red_defn}
 	The completion of 	$\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm \eqref{groupoid_norm_eqn} is said to be the $\sigma$-\textit{twisted reduced} $C^*$-\textit{algebra of the foliated space} $\left(M,\sF\right)$. We denote it by $C^*_r\left(M,\sF, \sigma\right)$. 
 \end{definition}
-\begin{remark}
-	The Definition \ref{foli_s_red_defn} is a generalization of the \ref{foli_red_defn} one.
-\end{remark}
-If  $\left\{\sU_\a \right\}_{\a \in \mathscr A}$  is  a {foliated atlas} (cf. Definition \ref{foli_manifold_defn}) then for any $\a\in \mathscr A$ one has a foliated space $\left( \sU_\a, \sF|_{\sU_\a}\right)$. Similarly to the Proposition \ref{foli_res_inc_prop} one has a $C^*$-subalgebra $C^*_r\left( \sU_\a, \sF|_{\sU_\a}, \sigma|_{\G\left(\sU_\a, \sF|_{\sU_\a} \right) }\right)\subset C^*_r\left(M,\sF, \sigma\right)$. The space $\sU_\a$ is homotopically trivial, so the restriction $\sigma|_{\G\left(\sU_\a, \sF|_{\sU_\a} \right) }$ represents a trivial element of $H^2\left(\G\left(\sU_\a, \sF|_{\sU_\a} \right), \T \right)$. From the Proposition \ref{cohom_groupoid_prop} it turns out that there is an isomorphism $C^*_r\left( \sU_\a, \sF|_{\sU_\a}, \sigma|_{\G\left(\sU_\a, \sF|_{\sU_\a} \right) }\right)\cong C^*_r\left( \sU_\a, \sF|_{\sU_\a }\right)$ which is not natural because it depends on the restriction $\sigma|_{\G\left(\sU_\a, \sF|_{\sU_\a}\right) }$. So for any $\a\in \mathscr A$ there is an inclusion $\overline \phi^\sigma_\a: C^*_r\left( \sU_\a, \sF|_{\sU_\a }\right)\hookto  C^*_r\left( \sX, \sF, \sigma\right)$. Similarly to the Corollary \ref{foli_cov_alg_cor} one can prove that $C^*_r\left(M,\sF, \sigma\right)$ is generated by a union 
-$$
-\bigcup_{\a\in \mathscr A}\overline\phi^\sigma_\a\left( C^*_r\left( \sU_\a, \sF|_{\sU_\a }\right) \right)  
-$$
-On the other had from the Proposition \ref{foli_tens_comp_prop} it follows that
-$$
-\overline\phi^\sigma_\a\left(  C^*_r\left( \sU_\a, \sF|_{\sU_\a }\right)\right) \cong  C^*_r\left( \sU_\a, \sF|_{\sU_\a }\right) \cong \K\left( L^2\left( \mathcal N_\a\right) \right) \otimes C_0\left(\mathcal Z_\a\right).
-$$
-where $\sU_\a= \mathcal N_\a\times \sZ_\a$.
-The spectrum of $\K\left( L^2\left( \mathcal N_\a\right) \right) \otimes C_0\left(\mathcal Z_\a\right)$ is $\mathcal Z_\a$ 
-\begin{empt}
-	For any $\a\in $ there is $C_0\left( \sZ_\a\right)$ Hilbert module $L^2\left( \mathcal N_\a\right)  \otimes C_0\left( \sZ_\a\right)$ where  $\sU_\a= \mathcal N_\a\times \sZ_\a$. If $\a'\in \mathscr A$ is such that $\sU_{\a,\a'} \bydef \sU_\a \cap  \sU_{\a'}= \mathcal N_{\a,\a'} \times \sZ_{\a,\a'}\neq\emptyset$ then there is a natural inclusion
-	\be\label{foli_hm_inc_eqm}
-	L^2\left( \mathcal N_{\a, \a'}\right)  \otimes C_0\left( \sZ_{\a, \a'}\right)	\hookto L^2\left( \mathcal N_\a\right)  \otimes C_0\left( \sZ_\a\right)
-	\ee
-	If $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ then for any $\a\in \mathscr A$ there is a *-isomorphism 
-	\bea\label{phi_si_eqn}
-	\phi^\sigma _\a: \K\left( L^2\left( \mathcal N_{\a}\right)\right) \otimes C_0\left(\sZ_\a \right) \cong  C^*_r\left(\sU_\a, \F|_{\sU_\a}, \sigma \right)
-	\eea
-	which is not unique. If $\a', \a'' \in \mathscr A$ are such that $\sU_{\a'}\cap \sU_{a''} \neq \emptyset$ then there are inclusions 
-	\bean
-	\varphi_{\a'\a''} : \K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)\hookto \K\left( L^2\left( \mathcal N_{\a'}\right)\right) \otimes C_0\left(\sZ_{\a'} \right),\\
-	\varphi_{\a''\a'} : \K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)\hookto \K\left( L^2\left( \mathcal N_{\a''}\right)\right) \otimes C_0\left(\sZ_{\a''} \right)
-	\eean
-	which are induced by the inclusion \eqref{foli_hm_inc_eqm}.
-	Moreover there is a *-automorphism  $\overline \Phi^\sigma_{\a'\a''}$ of $\K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)$ such that
-	$$
-	\phi_{a'}^\sigma\circ \varphi_{\a'\a''} = 	\phi_{a''}^\sigma\circ \varphi_{\a''\a'} \circ \overline\Phi^\sigma_{\a'\a''}
-	$$
-	There is an automorphism $\Phi^\sigma_{\a'\a''}$ of the $C^*$-Hilbert  $C_0\left(\sZ_{a'\a''}\right) $-module $ L^2\left( \mathcal N_{\a', \a''}\right) \otimes C_0\left(\sZ_{a'\a''}\right) $ such that for all $a \in \K\left(  L^2\left( \mathcal N_{\a', \a''}\right)\right)  \otimes C_0\left(\sZ_{a'\a''}\right)$ one has
-	$$
-	\forall \xi \in L^2\left( \mathcal N_{\a', \a''}\right) \otimes C_0\left(\sZ_{a'\a''}\right)\quad  \overline \Phi^\sigma_{\a'\a''}\left(a \right) \xi = \Phi^\sigma_{\a'\a''}\left( a \left( \Phi^\sigma_{\a'\a''}\right)^{-1} \xi\right) .
-	$$
-	If $\a', \a'', \a''' \in \mathscr A$ are such that $\sU_{\a',\a'',\a''} \bydef \sU_{\a'} \cap  \sU_{\a''}\cap  \sU_{\a'''}= \mathcal N_{\a',\a'',\a''} \times \sZ_{\a',\a'',\a''}\neq\emptyset$ then one can define a "composition" $\Psi^\sigma_{\a',\a'', \a''}\bydef \Phi^\sigma_{\a',\a''}\circ \Phi^\sigma_{\a'',\a'''}\circ \Phi^\sigma_{\a''',\a'}$ which and automorphism of the Hilbert module $ L^2\left( \mathcal N_{\a', \a'', \a'''} \right)  \otimes C_0\left( \sZ_{\a', \a'', \a'''}\right)$. The product is consistent   if and only if $\Psi^\sigma_{\a',\a'', \a''}$ corresponds to the identical  automorphism of $C^*$-algebra $\K\left( L^2\left( \mathcal N_{\a', \a'', \a'''} \right)  \otimes C_0\left( \sZ_{\a', \a'', \a'''}\right)\right)$.  This condition holds if and only if $\Psi^\sigma_{\a',\a'', \a''}$ corresponds to a continuous map $U^\sigma_{\a',\a'', \a''}: \sZ_{\a',\a'', \a''}\to \T$. The family $\left\{U^\sigma_{\a',\a'', \a''}\right\}$ defines the cocycle $\sigma$.
-	Let us consider a set of generators and relations $\left(G_\sigma, \overline\phi^\sigma_\a\right)$ (cf. Appendix \ref{gen_rel_empt}) such that
-	\begin{itemize}
-		\item $G_\sigma \bydef \bigsqcup_{\a \in \mathscr A} \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)  $,
-		\item  for all $\a \in \mathscr A$ the set $R_\sigma$ contains all relations of $L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)$,
-		\item for any pair $\a', \a'' \in \mathscr A$ such that $\sU_{\a'}\cap \sU_{\a''}\neq \emptyset$ and  for any $a \in \K\left( L^2\left( \mathcal N_{\a', \a''}\right) \right)  \otimes C_0\left( \sZ_{\a',\a''}\right)$ the set $R_\sigma$ contains a relation
-		$$
-		\forall a \in \K\left( L^2\left( \mathcal N_{\a', \a''}\right)\right) \otimes C_0\left(\sZ_{a'\a''} \right)\quad		\phi^\sigma_{\a',\a''}\left(a \right) = \phi^\sigma_{\a'',\a'}\left(\overline\Phi^\sigma_{\a'\a''}\left(a \right)  \right).
-		$$
-		where  $\phi^\sigma_{\a',\a''}\left(a \right)\in \K\left(  L^2\left( \mathcal N_{\a'}\right)\right)  \otimes C_0\left(\sZ_{\a'}\right)$ and $\phi^\sigma_{\a'',\a'}\left(\overline\Phi^\sigma_{\a'\a''}\left(a \right)  \right)\in \K\left(  L^2\left( \mathcal N_{\a''}\right)\right)  \otimes C_0\left(\sZ_{\a''}\right)$.
-	\end{itemize}
-	
-\end{empt}
-
-\begin{exercise}\label{ca_exer}
-	Prove that	there is the natural isomorphism
-		\be\label{ca__exer_eqn}
-		C^*_r\left(M,\sF, \sigma\right) \cong C^*\left(G_\sigma, R_\sigma \right). 
-		\ee
-\end{exercise}
-\begin{remark}\label{ca_rem}
-From the Proposition \ref{cohom_groupoid_prop} and the Exercise \ref{ca_exer} it follows that $C^*\left(G_\sigma, R_\sigma \right)$ up to $*$-isomorphism depends on the class $[\sigma]\in H^2\left( \G\left(M,\sF, \sigma\right) \right)$ of the cycle $\sigma$. 
-\end{remark}
-
-
+!!! !!!
+If $\pi_a: C^*_r\left(M,\sF, \sigma\right)\hookto B\left(\H_a \right) $ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then $C^*_r\left(M,\sF, \sigma\right)$ is the completion of $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm $a \mapsto \left\|\pi_a\left(a \right)  \right\|$.
 From  the Statement \ref{gropoid_mult_lem} there is an inclusion
 $$
-\Coo_c\left( M\right)\hookto M\left( C^*_r\left(M,\sF, \sigma\right)\right). 
+C_0\left( M\right)\hookto M\left( C^*_r\left(M,\sF, \sigma\right)\right). 
 $$
-Let both $\delta, \rho \in  H^2\left(\G\left(M, \sF\right), \T \right)$  be cocycles. Consider a set   of generators and relations $\left(G, R\right)$ (cf. Appendix \ref{gen_rel_empt}) such that
-\begin{itemize}
-	\item  $G \bydef \bigsqcup_{\a \in \mathscr A} \left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right)\otimes_{C_0\left( \sZ_{\a}\right) } \left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right)$
-	\item  for all $\a \in \mathscr A$ the set $R$ contains all relations of $\left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right)\otimes_{C_0\left( \sZ_{\a}\right) } \left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right)$,
-	\item for any pair $\a \in \mathscr A$ such that $\sU_{\a'}\cap \sU_{\a''}\neq \emptyset$ and  for any $\a^\dl, ~\a^\rho \in \K\left( L^2\left( \mathcal N_{\a', \a''}\right) \right)  \otimes C_0\left( \sZ_{\a',\a''}\right)$ the set $R$ contains a relation
-	$$
-	\phi^\dl_{\a',\a''}\left(a^\dl \right)  \otimes 	\phi^\rho_{\a',\a''}\left(a^\rho \right) 	= \phi^\dl_{\a'',\a'}\left(\overline\Phi^\dl_{\a'\a''}\left( a^\dl\right)  \right)  \otimes 	\phi^\rho_{\a'',\a'}\left(\overline\Phi^\rho_{\a'\a''}\left( a^\rho\right) \right)
-	$$
-\end{itemize}
-
-\begin{lemma}\label{tensor_lem}
-	The {universal $C^*$-algebra $C^*\left(G, R \right)$ on the generators $G$ and relations $R$} (cf. Appendix \ref{gen_rel_empt}) is isomorphic to $C^*_r\left(M,\sF, \delta + \rho\right)$.
+If both $\dl, \rho \in H^2\left(\G\left(M, \sF\right), \T \right)$ are cocycles, and both $\pi^\dl_a: C^*_r\left(M,\sF, \dl\right)\hookto B\left(\H^\dl_a \right)$, $~\pi^\rho_a: C^*_r\left(M,\sF, \rho\right)\hookto B\left(\H^\rho_a \right)$  are atomic representations then one can consider a specialization of the given by \eqref{di_defn_eqn} map.
+\be\nonumber
+\begin{split}
+	d: C^*_r\left(M,\sF, \dl\right)\otimes_{C_0\left( M\right) }C^*_r\left(M,\sF, \rho\right) \to B\left(\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a \right),\\
+	a^\dl \otimes a^\rho \mapsto \pi^\dl_a\left(a^\dl\right)\otimes \pi^\rho_a\left(a^\rho\right).
+\end{split}
+\ee
+If $\mathfrak{Leasves}\left(M, \F \right)$ is a set of leaves of $\left(M, \sF \right)$ then both $\H^\dl_a$ and $\H^\rho_a$ are naturally isomorphic to the norm completion $\H_a$ of an algebraic direct sum 
+\be\label{foli_h_eqn}
+\bigoplus_{\L\in \mathfrak{Leasves}\left(M, \F \right)}L^2\left(\L\right).
+\ee  
+\begin{lemma}
+There is the natural isomorphism $\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a \cong \H_a$.
 \end{lemma}
 \begin{proof}
-	For any pair ${\a', ~\a'' \in \mathscr A}$ there is an  isomorphism  
-	\be\label{tensor_iso_eqn}
-	\begin{split}
-\phi_\a	\left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right)\otimes_{C_0\left( \sZ_{\a}\right) } \left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right)\cong\\\cong  \left( \K\left( L^2\left( \mathcal N_{\a}\right)  \otimes C_0\left( \sZ_{\a}\right)\right)\right).
-	\end{split}
-	\ee
-	 Both  $\Psi^\delta_{\a',\a'', \a''}$ and $\Psi^\rho_{\a',\a'', \a''}$ correspond to  continuous maps $U^\dl_{\a',\a'', \a''}: \sZ_{\a',\a'', \a''}\to \T$ and $U^\rho_{\a',\a'', \a''}: \sZ_{\a',\a'', \a''}\to \T$. The product $\Psi^\delta_{\a',\a'', \a''}\times_{\sU_{\a', \a'', \a''}}\Psi^\rho_{\a',\a'', \a''}$ correspond to  continuous maps $U^\dl_{\a',\a'', \a''}\times U^\rho_{\a',\a'', \a''}:  \sZ_{\a',\a'', \a''}\to \T$ where $\times$ means the point-wise product of complex-valued functions. From $U^\dl_{\a',\a'', \a''}\times U^\rho_{\a',\a'', \a''}:  \sZ_{\a',\a'', \a''}= U^{\dl+\rho}_{\a',\a'', \a''}$ and n$^{\text{o}}$ 1 of the Exercise \ref{ca_exer} it turns out that  $C^*\left(G, R \right)\cong C^*_r\left(M,\sF, \delta + \rho\right)$.
+From the equation \ref{foli_h_eqn} it follows that $\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a$ isomorphic to the norm completion of an algebraic direct sum 
+\be\nonumber
+\bigoplus_{\L\in \mathfrak{Leasves}\left(M, \F \right)}L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right).
+\ee
+so  one needs proof that   $L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right) \cong  L^2\left(\L\right)$. If $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ is a foliated atlas associated to $\F$ (cf. Definition \ref{foli_manifold_defn}) then $L^2\left(\L\right)$ and $L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)$ are the norm completion of  algebraic sums
+\be\label{foli_sums_eqn}
+\begin{split}
+\sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right), \\
+\sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right).
+\end{split}
+\ee
+On the other had $C_0\left( \sU_\a\right)L^2\left(\L\right)$ is the completion of $C_0\left( \sU_\a\right)C_0\left(\L\right)$ with respect to the norm of the Hilbert space  $C_0\left( \sU_\a\right)L^2\left(\L\right)$. Similarly $C_0\left(\sU_\a \right) L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)$ is the norm completion of $C_0\left( \sU_\a\right)C_0\left(\L\right)\ox_{C_0\left( \sU_\a\right) }C_0\left( \sU_\a\right)C_0\left(\L\right)$. From $$
+C_0\left( \sU_\a\right)C_0\left(\L\right)\ox_{C_0\left( \sU_\a\right) }C_0\left( \sU_\a\right)C_0\left(\L\right)\cong C_0\left( \sU_\a\right)C_0\left(\L\right)$$  it follows that
+$$
+C_0\left( \sU_\a\right)L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)\cong C_0\left( \sU_\a\right)L^2\left(\L\right).
+$$
+and taking into account \eqref{foli_sums_eqn} one has
+\be\label{foli_comp_eqn}
+\sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)= \sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right).
+\ee
+Norm completions of left and right parts of \eqref{foli_comp_eqn} yield the required isomorphism 
+$$L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right) \cong  L^2\left(\L\right).$$
 \end{proof}
+For any leaf $\L$ the natural map 
+$$
+d_\L : L^2\left(\L\right) \times  L^2\left(\L\right)\to L^2\left(\L\right) \ox_{C_0\left( M\right)}  L^2\left(\L\right)\cong L^2\left(\L\right)
+$$
+can be described by the following way. If $\xi, \eta \in L^2\left(\L\right)$ then there are nets $\left\{u_\la\right\}_{\la \in\la }\subset \Coo_c\left(\L \right)$  and $\left\{v_\la\right\}_{\la \in\la }\subset \Coo_c\left(\L \right)$ such that
+\bean
+\xi = \lim_{\la\in \La} u_\la,\\
+\eta = \lim_{\la\in \La} v_\la
+\eean
+where the limits imply  the topology of $L^2\left(\L\right)$. Since  $u_\la v_\la \in \Coo_c\left(\L \right)$ the map $d_\L$ is given by
+$$
+\left(\xi, \eta\right)\mapsto \lim_{\la\in \La}u_\la v_\la  \in L^2\left(\L \right).
+$$
+If  $a^\dl\in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$, and $a^\rho\in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then for any leaf $\L$ there are $a^\dl_\L \in C_c\left(\L\times \L \right)$ and  $a^\rho_\L \in C_c\left(\L\times \L \right)$ such that for any $u \in \Coo_c\left(\L\right)$ one has
+\bean
+a^\dl u\left( x\right)  = \int a^\dl \left(x, y\right) \dl\left(x, y \right)  u\left(x \right) ~dx,\\
+a^\rho u\left( x\right)  = \int a^\rho \left(x, y\right) \rho\left(x, y \right)  u\left(x \right) ~dx
+\eean
 
-\begin{lemma}\label{foli_local_prod_thm}
-	!!! CORRECT
-	If $\dl, \rho \in \check{H}^2\left(\G, \T \right)$  then $C^*_r\left(M,\sF, \delta + \rho\right)$ is the $M$-product of $C^*_r\left(M,\sF, \delta\right)$ and $C^*_r\left(M,\sF,\rho\right)$ (cf. Definition \ref{local_prod_defn}).
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{local_prod_defn} and the Theorem \ref{grot_type_I_thm} it follows that one should find a homeomorphism $\phi: \mathscr X^{C^*_r\left(M,\sF, \delta \right)}\times_{\mathrm{Sp\acute{e}}\left(\Om_M \right)} \mathscr X^{C^*_r\left(M,\sF,  \rho\right)}\to \mathfrak{Space}\left(C^*_r\left(M,\sF, \delta + \rho\right)\right)$.
-	Any element of $\mathfrak{Space}\left(C^*_r\left(M,\sF, \delta + \rho\right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_M \right)}  {\mathscr X^{C^*_r\left(M,\sF,  \rho\right)}}$ can be represented 
-	by $s^\dl \in \mathfrak{Space}\left(C^*_r\left(M,\sF, \delta\right)\right)$ and $s^\rho \in \mathscr X^{C^*_r\left(M,\sF,  \rho\right)}$ such that $P_{C^*_r\left(M,\sF, \delta\right)}\left( s^\dl\right) = P_{C^*_r\left(M,\sF, \rho\right)}\left( s^\rho\right)$ where the notation \eqref{pa_eqn} is used. If $x \bydef p_{C^*_r\left(M,\sF, \dl\right)}\left(s^\dl \right)= p_{C^*_r\left(M,\sF, \rho\right)}\left(s^\rho \right)$  (cf. equation \eqref{loical_hom_eqn}) then there are commutative hereditary subalgebras $C^\dl \subset C^*_r\left(M,\sF, \dl\right)$ and $C^\rho \subset C^*_r\left(M,\sF, \rho\right)$
-	such that
-	\begin{itemize}
-		\item $s^\dl = C^\dl_x$ and $s^\rho = C^\rho_x$,
-		\item both $\supp C^\dl$ and $\supp C^\rho$ are representatives of $P_{C^*_r\left(M,\sF, \rho\right)}\left( s^\dl\right) = P_{C^*_r\left(M,\sF, \rho\right)}\left( s^\rho\right)$.
-	\end{itemize}
-	If $\sU \bydef  \supp C^\dl \cap \supp C^\rho$ then both $s^\dl$ and $s^\rho$ can be represented by $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$  respectively  (cf. the equation \eqref{c_res_eqn} and the Lemma \ref{section_lem}). From the Lemma \ref{section_lem} it follows that  both $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$ can be represented by sections $S^\dl \in \mathscr P^{C^*_r\left(M,\sF, \dl\right)}\left(\sU \right)$ and  $S^\rho \in \mathscr P^{C^*_r\left(M,\sF, \rho\right)}\left(\sU \right)$. If $\left\{\sU_\a \right\}_{\a \in \mathscr A}$  is   a {foliated atlas} (cf. Definition \ref{foli_manifold_defn}) of $\left(\sU, \F|_\sU\right)$, then both $S^\dl$ and $S^\rho$ uniquely depend on the families  $\left\{\left.S^\dl\right|_{\sU_a}\right\}_{\a \in \mathscr A}$ and $\left\{\left.S^\rho\right|_{\sU_a}\right\}_{\a \in \mathscr A}$ respectively. On the other hand there are isomorphisms 
-	\bean
-\phi^\dl _\a: \K\left( L^2\left( \mathcal N_{\a}\right)\right) \otimes C_0\left(\sZ_\a \right)\cong 	C^*_r\left(\sU, \F|_\sU, \dl\right) ,\\
-\phi^\rho _\a: \K\left( L^2\left( \mathcal N_{\a}\right)\right) \otimes C_0\left(\sZ_\a \right)\cong		C^*_r\left(\sU, \F|_\sU, \rho \right).
-	\eean
-	(cf.  the equation \eqref{phi_si_eqn}).
-	For the Lemma \ref{gen_lem} it follows that there are Abelian elements $a^\dl \in  	C^*_r\left(\sU, \F|_\sU, \dl\right)$ and $a^\rho \in 	C^*_r\left(\sU, \F|_\sU, \rho\right)$ such that both $\left.C^\dl\right|_\sU$ and $\left.C^\rho\right|_\sU$ are generated by $\left\{a^\dl\right\}$ and $\left\{a^\rho\right\}$ hereditary $C^*$-algebras (cf. Definition \ref{hered_generated_defn}). Otherwise the tensor product	$a^\dl \otimes a^\rho$ is an Abelian element of  
-$$
-\left( \K\left(  L^2\left( \mathcal N_\a\right)\right)   \otimes C_0\left( \sZ_\a\right)\right) \otimes_\C \left( \K\left(  L^2\left( \mathcal N_\a\right)\right)   \otimes C_0\left( \sZ_\a\right)\right) 
-$$
-One the other hand from the lemma \ref{tensor_lem} it follows that $a^\dl \otimes a^\rho$ can be regarded as an Abelian element  $a_\a \in~ _{\sU_\a} C^*_r\left(M,\sF, \dl + \rho\right)_{\sU_\a}$.  A set $\{a_\a\}$ generates a commutative hereditary $C^*$-algebra $C_\a \subset ~_{\sU_\a} C^*_r\left(M,\sF, \dl + \rho\right)_{\sU_\a}$ and the Lemma \ref{section_lem} yields a section $S_\a \in \mathscr P^{C^*_r\left(M,\sF, \dl + \rho\right)}\left(\sU_\a \right)$. We leave to the reader a proof of that $S_{\a'}|_{\sU_\a''}=S_{\a''}|_{\sU_\a'}$ is result on has $S\in \mathscr P^{C^*_r\left(M,\sF, \dl + \rho\right)}\left(\sU_\a \right)$. We set
-$$
-\phi\left( s^\dl, s^\rho\right) \bydef S_x.
-$$
-	We leave to the reader a proof of following statements.
-\begin{itemize}
-	\item A stalk $\phi \left(s^\dl, s^\rho \right)$  uniquely depends on both $s^\dl$ and $s^\rho$, i.e. it  does not depend on a choice of $C^\dl$ and $C^\rho$ etc.
-	\item The map  $\phi: \mathfrak{Space}\left(C^*_r\left(M,\sF, \dl\right)\right)\times_{\mathrm{Sp\acute{e}}\left(\Om_M \right)} \mathfrak{Space}\left(C^*_r\left(M,\sF, \rho\right)\right)\cong \mathfrak{Space}\left(C^*_r\left(M,\sF, \dl+\rho\right)\right)$ is a homeomorphism.
-\end{itemize}
-
-	
-	
-\end{proof}
-\begin{remark}
-The above lemma is an analog of the equation \eqref{bundle_prod_iso} of the Dixmier-Duoady theory.
-\end{remark}
 \section{Gelfand locales versus Bohr locales}
 \subsection{Locales of $C^*$-algebras of type $I_0$}
 \paragraph{} Let $A$ be a $C^*$-algebras of type $I_0$. Any element of the Gelfand $A$ locale $\mathfrak{Locale}\left( A\right) $ corresponds to a hereditary $C^*$-subalgebra $B \subset A$. However from the Definition \ref{type_i0_defn} that $B$ is a hereditary subalgebra generated by a union of its hereditary commutative subalgebras. On the other hand any family of commutative $C^*$-algebras yields an element of the Bohr locale. So the Gelfand $A$-locale $\mathfrak{Locale}(A)$ is isomorphic to Bohr one $\mathfrak{BohrLocale}(A)$.
+
+
+
 \subsection{Locales of Cuntz algebras}
 \paragraph{}If $\mathcal O_n$ is an explained in the Appendix \ref{cuntz_alg_sec} Cuntz algebra then any commutative subalgebra of $\mathcal O_n$ is given by
 $$
@@ -2347,13 +2242,20 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 		For each $C^*$-algebra $A$ there is the natural isomorphism from the center of $M\left( A\right)$ onto the class of bounded continuous  functions on $\check{A}$. 
 	\end{thm}
 	
-%	\begin{definition}\label{atomic_repr_defn}\cite{pedersen:ca_aut}
-%		Let $A$ be a $C^*$-algebra with the spectrum $\hat A$. We choose for any $t \in \hat A$ a pure state $\phi_t$ and  associated representation $\pi_t: A \to B\left(\H_t\right)$.		The representation 
-%		\be
-%		\pi_a = \bigoplus_{t \in \hat A} \pi_t \quad \text{on the closure } \H_a \text{ of an algebraic direct sum}\quad  \bigoplus_{t \in \hat A} \H_t
-%		\ee
-%		is called the (reduced) \textit{atomic representation} of $A$. Any two atomic representations are unitary equivalent and any atomic representation of $A$ is faithful and nondegenerate  %(cf.  Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \cite{pedersen:ca_aut}).
-%	\end{definition}
+	\begin{definition}\label{atomic_repr_defn}\cite{pedersen:ca_aut}
+		Let $A$ be a $C^*$-algebra with the spectrum $\hat A$. We choose for any $t \in \hat A$ a pure state $\phi_t$ and  associated representation $\pi_t: A \to B\left(\H_t\right)$.		The representation 
+		\be
+		\pi_a = \bigoplus_{t \in \hat A} \pi_t \quad \text{on the closure } \H_a \text{ of an algebraic direct sum}\quad  \bigoplus_{t \in \hat A} \H_t
+	\ee
+		is called the (reduced) \textit{atomic representation} of $A$. Any two atomic representations are unitary equivalent and any atomic representation of $A$ is faithful and nondegenerate  %(cf.  Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \cite{pedersen:ca_aut}).
+	\end{definition}
+	\begin{definition}\label{multiplier_el_defn}\cite{matro:hcm}
+	Let $\rho: A\hookto B\left( \H\right)$ be a faithful {nondegenerate}  representation, so we assume $A \subset B\left( \H\right)$. An operator $x \in B\left(\H\right)$ is called (two-sided) \textit{multiplier} if 
+	\be\label{multiplier_el_eqn}
+	xa \in A, \quad ax\in A
+	\ee
+	for each $a\in A$. Denote by $M\left(A\right)$ the set of all multipliers. It is easy to see that $M\left(A\right)$ is an involutive unital algebra.
+\end{definition}
 
 	\begin{definition}\label{lrm_defn}\cite{matro:hcm}
 		Let $A\to B\left(\H \right)$ be a faithful nondegenerate representation. An operator $x\in  B\left(\H \right)$ is said to be a \textit{left multiplier} of $A$ if
