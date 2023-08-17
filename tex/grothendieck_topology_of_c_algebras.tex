@@ -1241,7 +1241,8 @@ a' \otimes a'' \mapsto \pi'\left(a'\right)\otimes \pi''\left(a''\right).
 \ee
 \end{empt}
 \begin{lemma}\label{dd_hh_lem}
-Let  $\widetilde A\subset B\left(\H'\ox_{A} \H'' \right)$ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)$. If $\widetilde A$ is a $C^*$-subalgebra and the inclusion $\widetilde A\subset B\left(\H'\ox_{A} \H'' \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
+Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A \to \H''$, and let
+$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
 \end{lemma}
 \begin{proof}
 Using inclusions  $A \subset M\left( A'\right)$ and   $A \subset M\left( A''\right)$ one can find homomorphisms 
@@ -1280,8 +1281,18 @@ The above equation is equivalent to the following one
 \be\label{ctr_dd_eqn}
 \Phi_{\dl \rho}:CT\left(\sX, \dl \right)\otimes_{C_0\left(\sX \right) } CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
 \ee
-For any $x \in \sX$ denote by $\pi^\dl: CT\left(\sX, \dl \right)\to \left( \H^\dl_x\right)$ and  $\pi^\rho: CT\left(\sX, \rho \right)\to \left( \H^\dl_x\right)$ 
+If for any $x \in \sX$ the *-homomorphisms  $\pi_x^\dl: CT\left(\sX, \dl \right)\to \left( \H^\dl_x\right)$ and  $\pi_x^\rho: CT\left(\sX, \rho \right)\to \left( \H^\dl_x\right)$ are corresponding to $x$ irreducible representations and $\pi_a^\dl: CT\left(\sX, \dl \right)\to \left( \H^\dl_a\right)$ and $\pi_a^\rho: CT\left(\sX, \rho \right)\to \left( \H^\rho_a\right)$ are atomic representations (cf. Definition \ref{atomic_repr_defn}) then both $\H^\dl_a$ and $\H^\rho_a$ are completions of algebraic direct sums $\bigoplus_{x \in \sX}\H^\dl_x$ and $\bigoplus_{x \in \sX}\H^\dl_x$. The user can proof that the norm completion of $\H^\dl_a\ox_{C_0\left(\sX\right)}\H^\rho_a$ is a norm completion of an algebraic direct sum
+	$$
+\bigoplus_{x \in \sX}\H^\dl_x\ox_{\C}\H^\rho_x.	
+	$$
+	If $a^\dl \in CT\left(\sX, \dl \right)$ and $a^\rho \in CT\left(\sX, \rho \right)$  then $\pi^\dl_a\left( a^\dl\right) \otimes \pi^\rho_a\left( a^\rho\right)$ corresponds to a family
+\be
+	\left\{\pi^\dl_x\left( a^\dl\right) \otimes \pi^\rho_x\left( a^\rho\right)\right\}_{x \in \sX}.
+\ee
+From the proof of the Proposition \ref{ctr_d_prop} it follows that the family corresponds to an element of $\widetilde a \in CT\left(\sX, \dl + \rho\right)$. If $\widetilde \H_x$ is the completion of  $\H^\dl_x\ox_{\C}\H^\rho_x$ then there is the natural irreducible representation $\widetilde \pi_x: \in CT\left(\sX, \dl + \rho\right)\to B\left(\widetilde \H_x\right)$. 
 
+
+Taking into account that for any $x \in \sX$ a natural representation $\widetilde A \to B\left(\ \right)$  
 
 
 \begin{empt}\label{dd_ctr_empt}
@@ -2466,16 +2477,10 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 	\end{rem}
 	
 		\subsection{ Dixmier-Douady duality}\label{dd_dual_sec}
-	\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
+%	\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
 		%Proposition 9.3. 
-		Let $\H$ be a Hilbert space, and let $\K \bydef \K\left(\H \right)$  be the algebra of
-		compact operators on $\H$. Then every irreducible *-representation of $\K$ is unitary
-		equivalent to the standard representation of $\K$ on $\sH$, and every $*$-automorphism
-		of $\K$ is given by conjugation by a unitary operator on $\H$. The *-automorphism
-		group of $\K$ can be identified with the topological group $PU\bydef U/\T$ the
-		projective unitary group of $\H$, with the quotient topology from the strong operator
-		topology on $U\left(\H\right)$.
-	\end{proposition}
+%		Let $\H$ be a Hilbert space, and let $\K \bydef \K\left(\H \right)$  be the algebra of		compact operators on $\H$. Then every irreducible *-representation of $\K$ is unitary		equivalent to the standard representation of $\K$ on $\sH$, and every $*$-automorphism		of $\K$ is given by conjugation by a unitary operator on $\H$. The *-automorphism		group of $\K$ can be identified with the topological group $PU\bydef U/\T$ the		projective unitary group of $\H$, with the quotient topology from the strong operator		topology on $U\left(\H\right)$.
+%	\end{proposition}
 	
 	\begin{proposition}\label{ctr_bundle_prop}\cite{cuntz_meyer_ros:bivariant}
 		%Proposition 5.59. 
@@ -2483,7 +2488,7 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 		(Dixmier–Douady). 
 		Any stable separable algebra A of continuous
 		trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
-		$\Ga_0\left( \sX, \sF\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
+		$\Ga_0\left( \sX, \A\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
 		over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
 		such bundles are in natural bijection with the \v{C}ech cohomology group $\check{H}^3\left(\sX, \Z \right)$.
 		The 3-cohomology class $\dl\left( A\right)$  attached to (the stabilization of) a continuous-trace
@@ -2502,6 +2507,12 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 		Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
 		$A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
 	\end{proposition}
+	\begin{proof}
+		Here a fragment of the proof is presented.
+From the proposition it follows that that if $A =\Ga_0\left( \sX, \A\right)$ and $B = \Ga_0\left( \sX, \B\right)$, where $\A$ and B are locally trivial bundles of $C^*$-algebras over $\sX$ with fibres isomorphic	to $\K$ then $A\times_\sX B = \Ga_0\left( \sX, \A\otimes B\right)$ where $\A\otimes \B$, where  is the locally trivial bundle with
+	fibre $\A_x\widehat \otimes \B_x$ over $x\in \sX$.  It is proven in \ref{ctr_d_prop} that $\dl \left(A \otimes_\sX B \right)= \dl  \left(A  \right)+\left(B \right)$.
+	
+		\end{proof}
 	\begin{notation}\label{ctr_not}
 		If $\sX$ is a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
 		continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$. From the Proposition \ref{ctr_d_prop} it follows that
