@@ -1090,7 +1090,7 @@ A'' \xhookrightarrow{\widetilde \psi} \mathbf{RC}\left(\widetilde A \right),\\
 A \xhookrightarrow{\widetilde \varphi} M\left(\widetilde A \right)
 	\end{split}
 	\ee
-	be injective  hereditary full (cf. Definition \ref{hereditary_full_defn} homomorphisms of $\C$-algebras. If $\widetilde A \to B\left( \widetilde \H\right)$ ia a full faithful representation then left and right multipliers can be replaced with left and right multipliers respectively (cf. Proposition \ref{lrc_lem}). Suppose that following conditions hold.
+	be injective  hereditary full (cf. Definition \ref{hereditary_full_defn} homomorphisms of $\C$-algebras. Suppose that following conditions hold.
 		\bea\label{bimod_gen_eqn}
 		\forall a' \in A' \quad \forall	a'' \in A'' \quad \forall \widetilde{a} \in \widetilde{A}\quad\left( \widetilde \phi \left(a' \right) \widetilde a \right) \psi\left( a''\right) = \phi \left(a'\right)  \left( \widetilde a  \psi\left( a''\right)\right) ,\\
 		\label{bimod_genl_eqn}
@@ -1100,25 +1100,39 @@ A \xhookrightarrow{\widetilde \varphi} M\left(\widetilde A \right)
 			\label{bim_eqn}
 				\forall a' \in A' \quad \forall	a'' \in A''\quad \widetilde \phi \left(a' \right)\widetilde \psi \left(a' \right)\in \widetilde A
 		\eea
+		 If $\widetilde \pi:\widetilde A \to B\left( \widetilde \H\right)$ is a  faithful nondegenerate representation then left and right multipliers can be replaced with left and right multipliers respectively (cf. Proposition \ref{lrc_lem}), i.e. there are homomorphisms
+		 \bean
+		 \pi': A' \hookto B\left( \widetilde{ \H}\right),\\
+		 \pi'': A'' \hookto B\left( \widetilde{ \H}\right) 
+		 \eean
+		 such that
+		 \bean
+\forall a' \in A'\quad \forall \widetilde a \in  \widetilde A \quad \widetilde \pi\left( \widetilde \phi\left(a' \right)\widetilde a \right)= \pi'\left( a' \right) \widetilde \pi \left( \widetilde a\right) .\\
+ \forall a'' \in A''\quad \forall \widetilde a \in  \widetilde A \quad  \widetilde \pi\left( \widetilde a \widetilde \psi\left(a'' \right) \right)= \widetilde \pi \left( \widetilde a\right) \pi''\left( a'' \right) 	 
+		 \eean
  If we define a pairing
 \be\label{dd_pair_eqn}
 \begin{split}
-p: A' \times A''\to \widetilde A,\\
-\left(a', a'' \right)\mapsto \widetilde \phi \left(a' \right)  \widetilde \psi \left(a'' \right)
+d: A' \times A''\to B\left( \widetilde \H\right) ,\\
+\left(a', a'' \right)\mapsto \widetilde \pi' \left(a' \right)  \widetilde \pi'' \left(a'' \right)
 \end{split}
 \ee
 then from the bimodule condition \eqref{bimod_gen_eqn} it follows that
 \bean
-p\left(a'\varphi\left(a \right) , a'' \right)= p\left(a', \varphi\left(a \right) a'' \right)
+d\left(a'\varphi\left(a \right) , a'' \right)= d\left(a', \varphi\left(a \right) a'' \right)
 \eean
 so one has a map
-\be\label{dd_tensor_eqn}
-P: A' \otimes_A A'' \to \widetilde A.
-\ee
+\bean
+P: A' \otimes_A A'' \to B\left( \widetilde \H\right),\\
+a'\otimes  a'' \mapsto \pi'\left( a'\right) \pi''\left( a''\right) 
+\eean
 \end{empt}
 
 \begin{definition}\label{dd_dual_defn}
-	We say that the situation \ref{dd_dual_empt} is a \textit{generalized Dixmier-Douady duality} the homomorphism \ref{dd_tensor_eqn} is injective and $P\left(  A'\ox_A A''\right)$ is dense in $\widetilde{A}$.
+	We say that the situation \ref{dd_dual_empt} is a \textit{generalized Dixmier-Douady duality} if a following condition holds
+	\bea\label{dd_in_eqn}
+P\left(  A' \otimes_A A''\right)\quad \text{is a dense subspace of } \quad \widetilde \pi\left( \widetilde A\right).	
+	\eea
 \end{definition}
 
 \begin{empt}
@@ -1212,7 +1226,7 @@ where $\smile$ is a cup product (cf. the equation \eqref{cup_prod_eqn} and the R
 	
 \end{definition}
 
-\begin{empt}
+\begin{empt}\label{dd_hh_empt}
 Let $A,~ A', ~A''$ be $C^*$-algebras with inclusions $A \subset M\left( A'\right)$ and   $A \subset M\left( A''\right)$. If both $\pi': A' \to B\left(\H'\right)$ and  $\pi'': A'' \to B\left(\H''\right)$ are faithful nondegenerate representations then from the Definition \ref{multiplier_el_defn} it follows that there are actions $A \times \H' \to \H'$ and $A \times \H'' \to \H''$. There is a right action
 \bean
 \H' \times A \to \H',\\
@@ -1221,13 +1235,13 @@ Let $A,~ A', ~A''$ be $C^*$-algebras with inclusions $A \subset M\left( A'\right
 and  the natural injective map 
 \be\label{di_defn_eqn}
 \begin{split}
-d: A'\otimes_A A'' \to B\left(\H'\ox_{A} \H'' \right)\\
+P: A'\otimes_A A'' \to B\left(\H'\ox_{A} \H'' \right)\\
 a' \otimes a'' \mapsto \pi'\left(a'\right)\otimes \pi''\left(a''\right).
 \end{split}
 \ee
 \end{empt}
-\begin{lemma}
-Let  $\widetilde A\subset B\left(\H'\ox_{A} \H'' \right)$ be the $C^*$-norm closure of $d\left(A'\otimes_A A'' \right)$. If $\widetilde A$ is a $C^*$-subalgebra then the natural the homomorphism $P: A' \otimes_A A'' \to \widetilde A$ of $A$-$A$ bimodules   is a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
+\begin{lemma}\label{dd_hh_lem}
+Let  $\widetilde A\subset B\left(\H'\ox_{A} \H'' \right)$ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)$. If $\widetilde A$ is a $C^*$-subalgebra and the inclusion $\widetilde A\subset B\left(\H'\ox_{A} \H'' \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
 \end{lemma}
 \begin{proof}
 Using inclusions  $A \subset M\left( A'\right)$ and   $A \subset M\left( A''\right)$ one can find homomorphisms 
@@ -1250,7 +1264,7 @@ yield homomorphisms
 	A'' \xhookrightarrow{\widetilde \psi} \mathbf{RC}\left(\widetilde A \right),\\
 \end{split}
 \ee
-so one has all homomorphisms described by the equations \eqref{dd_bimodule_eqn}. We leave to the reader the proof of that these homomorphisms satisfy to conditions \eqref{bimod_gen_eqn}-\eqref{bim_eqn}. From the equation \eqref{di_defn_eqn} it follows that $P$ is injective.  On the other hand from $P\left(  A'\ox_A A''\right)= d\left(A'\ox_A A'' \right)$ it follows that $P\left(  A'\ox_A A''\right)$ is dense in $\widetilde A$.
+so one has all homomorphisms described by the equations \eqref{dd_bimodule_eqn}. We leave to the reader the proof of that these homomorphisms satisfy to conditions \eqref{bimod_gen_eqn}-\eqref{bim_eqn}.   On the other hand $P\left(  A'\ox_A A''\right)$ is dense in $\widetilde A$.
 \end{proof}
 
 \subsection{Dixmier-Douady theory for continuous trace $C^*$-algebras}
@@ -1266,6 +1280,10 @@ The above equation is equivalent to the following one
 \be\label{ctr_dd_eqn}
 \Phi_{\dl \rho}:CT\left(\sX, \dl \right)\otimes_{C_0\left(\sX \right) } CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
 \ee
+For any $x \in \sX$ denote by $\pi^\dl: CT\left(\sX, \dl \right)\to \left( \H^\dl_x\right)$ and  $\pi^\rho: CT\left(\sX, \rho \right)\to \left( \H^\dl_x\right)$ 
+
+
+
 \begin{empt}\label{dd_ctr_empt}
 Similarly to the equations \eqref{dd_bimodule_eqn} define injective homomorphisms
 	\be\nonumber
