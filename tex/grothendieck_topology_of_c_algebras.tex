@@ -1129,10 +1129,15 @@ a'\otimes  a'' \mapsto \pi'\left( a'\right) \pi''\left( a''\right)
 \end{empt}
 
 \begin{definition}\label{dd_dual_defn}
-	We say that the situation \ref{dd_dual_empt} is a \textit{generalized Dixmier-Douady duality} if a following condition holds
+Consider the situation \ref{dd_dual_empt}. If 
 	\bea\label{dd_in_eqn}
 P\left(  A' \otimes_A A''\right)\quad \text{is a dense subspace of } \quad \widetilde \pi\left( \widetilde A\right).	
-	\eea
+\eea
+then a natural map  
+	\bea\label{dd_dd_eqn}
+	d:  A' \otimes_A A'' \hookto \widetilde A 
+\eea
+is a \textit{(generalized) Dixmier-Douady duality}.
 \end{definition}
 
 \begin{empt}
@@ -1241,8 +1246,8 @@ a' \otimes a'' \mapsto \pi'\left(a'\right)\otimes \pi''\left(a''\right).
 \ee
 \end{empt}
 \begin{lemma}\label{dd_hh_lem}
-Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A \to \H''$, and let
-$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
+Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A  \H''$, and let
+$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {Dixmier-Douady duality} $d: A'\otimes_A A''\to \widetilde A$  (cf. Definition \ref{dd_dual_defn}).
 \end{lemma}
 \begin{proof}
 Using inclusions  $A \subset M\left( A'\right)$ and   $A \subset M\left( A''\right)$ one can find homomorphisms 
@@ -1323,11 +1328,15 @@ If $b' \in CT\left(\sX, \dl \right)$, $~b'' \in C_0\left(\sX\right)$ and $\widet
 The above equation is a specialization of \eqref{bimod_gen_eqn}. We leave the reader the proof of the specializations of \eqref{bimod_genl_eqn} and \eqref{bimod_genr_eqn}.
 
 \end{empt}
+\begin{lemma}\label{dd_hh_lem}
+	Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A  \H''$, and let
+	$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {Dixmier-Douady duality} $d: A'\otimes_A A''\to \widetilde A$  (cf. Definition \ref{dd_dual_defn}).
+\end{lemma}
 \begin{lemma}\label{dd_ctr_lem}
-The situation \ref{dd_ctr_empt} is a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
+The situation \ref{dd_ctr_empt} there is a {generalized Dixmier-Douady duality} (cf. Definition \ref{dd_dual_defn}).
 \end{lemma}
 \begin{proof}
-If $\left\{\widetilde{u}_\la\right\}\subset CT\left(\sX,\dl + \rho \right)$ is an approximate unit then
+!!! If $\left\{\widetilde{u}_\la\right\}\subset CT\left(\sX,\dl + \rho \right)$ is an approximate unit then
 $$
 \forall a' \in CT\left(\sX, \dl \right) \quad \forall a'' \in CT\left(\sX, \rho \right)\quad \lim_{\la\in \La}\widetilde \phi \left(a' \right)\widetilde u_\la \widetilde \psi \left(a'' \right)= \Phi_{\dl \rho}\left( a', a''\right).
 $$
@@ -1384,30 +1393,72 @@ where $P$ and $\Psi$ are given by the equations \eqref{ctr_P_eqn} and \eqref{ctr
 
 \paragraph*{}
 If $\left(M, \F\right)$ is a foliated manifold (cf. Definition \ref{foli_manifold_defn}) then there is a foliation groupoid $\G\left(M, \sF\right)$ (cf. Definitions \ref{foli_graph_defn} and the Theorem \ref{foli_graph_thm}). The equation \eqref{foli_prod_eqn} is a specialization of the \eqref{groupoid_*_c_eqn} one where a trivial cocycle $\sigma^0 \in H^2\left(\G\left(M, \sF\right), \T \right)$ is implied (cf. Appendix \ref{cycle_empt}). So there for any 2-cocycle $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ one has a \textit{twisted product} and an involution given by
-\be\label{foli_a_prod_eqn}
-\begin{split}
+\bea\label{foli_a_prod_eqn}
 \left( f *_\sigma g\right)  (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
 f(\gamma_1) \, g(\gamma_2) \, \sigma\left(\ga_1, \ga_2 \right),\\ 
+\label{foli_a_inv_eqn}
 	f^* ( \ga ) \bydef \overline{f ( \ga^{ -1})}~\overline{\sigma\left(\ga, \ga^{-1} \right)}
-\end{split}
-\ee
-where $f, g \in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). Similarly to \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} the equations  \eqref{foli_a_prod_eqn} yield a *-algebra, we denote it by  $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
+\eea
+where $f, g \in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). Similarly to \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} the equations  \eqref{foli_a_prod_eqn}, \eqref{foli_a_inv_eqn} yield a *-algebra, we denote it by  $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
 \begin{remark}\label{foli_irred_hol_rem}
 	Similarly to  \ref{foli_irred_hol_empt} one can prove that in fact the set of all irreducible representations is a set of leaves of $\left(M, \sF\right)$ which have no holonomy. The Hilbert space of the representation which corresponds to a leaf $\L$ is $L^2\left( \L\right)$. 
 \end{remark}
 \begin{definition}\label{foli_s_red_defn}
 	The completion of 	$\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm \eqref{groupoid_norm_eqn} is said to be the $\sigma$-\textit{twisted reduced} $C^*$-\textit{algebra of the foliated space} $\left(M,\sF\right)$. We denote it by $C^*_r\left(M,\sF, \sigma\right)$. 
 \end{definition}
-!!! !!!
+Henceforth we suppose that any leaf $\L$ of $\F$ is simply connected.
+If we select a measure $\mu_\L$ on $\L$ then the equation \eqref{foli_a_prod_eqn} corresponds to the following one
+\be\label{foli_l_m_eqn}
+\left( f_\L *_\sigma g_\L\right)  (x, y) \bydef \int
+f_\L(x, z) \, g_\L(z, y) \, \sigma_\L\left(x, y, z \right)\d \mu^{z}_\L
+\ee
+where $f_\L\in C_c^\infty\left(\L^2 \right) $,  $~g_\L\in C_c^\infty\left(\L^2 \right)$ and $\sigma_\L: \L^3 \to \T$ correspond to $f$, $g$ and $\sigma$. The multiplication \eqref{foli_l_m_eqn} corresponds to the action
+\be\label{foli_act_egn}
+\begin{split}
+\bullet_{\sigma} :C_c^\infty\left(\L^2 \right)\times C_c^\infty\left(\L \right)\to C_c^\infty\left(\L \right),\\
+\left(f_\L \bullet_{\sigma} u_\L \right) \left(x \right)\bydef \int
+f_\L(x, y) \, u_\L(y) \, \sigma_\L\left(x, y, y \right)\d \mu^{y}_\L.
+\end{split}
+\ee
+The space $C_c^\infty\left(\L \right)$ is dense in $L^2\left(\L \right)= C_c^\infty\left(\L, \mu_\L \right)$, so the action \eqref{foli_act_egn} can be uniquely extended up to
+\be\label{foli_act_l2_egn}
+\begin{split}
+	\bullet_{\sigma} :C_c^\infty\left(\L^2 \right)\times L^2\left(\L \right)\to L^2\left(\L \right).
+\end{split}
+\ee
+There is an alternative description of the action \eqref{foli_act_l2_egn}. An element $u \in L^2\left(\L \right)$ is a \textit{step function} if following conditions hold:
+\begin{enumerate}
+	\item [(a)] There is a finite family $\left\{\sU_\a\right\}_{\a \in \mathscr{A}}$ of open sunsets of $\L$ with $\a' \neq a'' \Rightarrow \sU_{   \a'}\cap \sU_{   \a''}= \emptyset$ such that $\bigcup_{\a \in \mathscr{A}}\sU_\a$ is dense in $\L$.
+	\item[(b)] 
+	\be\label{foli_step}
+	u = \sum_{\a \in \mathscr{A}} c_\a \chi_{\sU_\a}
+	\ee
+	where $c_\a \in \C$ and
+\bean
+\chi_{\sU_\a}: \L \to \left\{\{0\}, \{1\}\right\},\\
+x \mapsto\begin{cases}
+	1 & x \in \sU_\a\\ 
+	0 & x \in \L \setminus \sU_\a.
+\end{cases}
+\eean
+\end{enumerate}
+If $\mathfrak{Step}(\L)$ is a space of step functions then $f_\L \in \Coo_c\left(\L \right)$ yields a map 
+\be\label{foli_sum_eqn}
+\begin{split}
+\mathfrak{Step}(\L) \to \mathfrak{Step}(\L),\\
+\sum_{\a \in \mathscr{A}} c_\a \chi_{\sU_\a} \mapsto \sum_{\a', \a'' \in \mathscr{A}} c_{\a'}f_\L\left(x_{a''}, x_{\a'}\right) \chi_{\sU_{\a''}};\quad x_{\a'}\in \sU_{\a'}, \quad x_{\a''}\in \sU_{\a''}.
+\end{split}
+\ee
+The above map is not uniquely defined since it depends on choice of points $x_{\a'}\in \sU_{\a'}, ~ x_{\a''}\in \sU_{\a''}$. However  any family $\left\{\sU_\a\right\}_{\a \in \mathscr{A}}$ can by refined. Using refinements and the limit one obtains the uniquely defined map.
 If $\pi_a: C^*_r\left(M,\sF, \sigma\right)\hookto B\left(\H_a \right) $ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then $C^*_r\left(M,\sF, \sigma\right)$ is the completion of $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm $a \mapsto \left\|\pi_a\left(a \right)  \right\|$.
 From  the Statement \ref{gropoid_mult_lem} there is an inclusion
 $$
 C_0\left( M\right)\hookto M\left( C^*_r\left(M,\sF, \sigma\right)\right). 
 $$
-If both $\dl, \rho \in H^2\left(\G\left(M, \sF\right), \T \right)$ are cocycles, and both $\pi^\dl_a: C^*_r\left(M,\sF, \dl\right)\hookto B\left(\H^\dl_a \right)$, $~\pi^\rho_a: C^*_r\left(M,\sF, \rho\right)\hookto B\left(\H^\rho_a \right)$  are atomic representations then one can consider a specialization of the given by \eqref{di_defn_eqn} map.
-\be\nonumber
+If both $\dl, \rho \in H^2\left(\G\left(M, \sF\right), \T \right)$ are cocycles, and both $\pi^\dl_a: C^*_r\left(M,\sF, \dl\right)\hookto B\left(\H^\dl_a \right)$, $~\pi^\rho_a: C^*_r\left(M,\sF, \rho\right)\hookto B\left(\H^\rho_a \right)$  are atomic representations then one can consider a specialization of the given by \eqref{di_defn_eqn} map
+\be\label{foli_dl_eqn}
 \begin{split}
-	d: C^*_r\left(M,\sF, \dl\right)\otimes_{C_0\left( M\right) }C^*_r\left(M,\sF, \rho\right) \to B\left(\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a \right),\\
+	P: C^*_r\left(M,\sF, \dl\right)\otimes_{C_0\left( M\right) }C^*_r\left(M,\sF, \rho\right) \to B\left(\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a \right),\\
 	a^\dl \otimes a^\rho \mapsto \pi^\dl_a\left(a^\dl\right)\otimes \pi^\rho_a\left(a^\rho\right).
 \end{split}
 \ee
@@ -1443,9 +1494,9 @@ Norm completions of left and right parts of \eqref{foli_comp_eqn} yield the requ
 $$L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right) \cong  L^2\left(\L\right).$$
 \end{proof}
 For any leaf $\L$ the natural map 
-$$
-d_\L : L^2\left(\L\right) \times  L^2\left(\L\right)\to L^2\left(\L\right) \ox_{C_0\left( M\right)}  L^2\left(\L\right)\cong L^2\left(\L\right)
-$$
+\be\label{foli_dll_eqn}
+P_\L : L^2\left(\L\right) \ox_{C_0\left( M\right)}  L^2\left(\L\right)\cong L^2\left(\L\right)
+\ee
 can be described by the following way. If $\xi, \eta \in L^2\left(\L\right)$ then there are nets $\left\{u_\la\right\}_{\la \in\la }\subset \Coo_c\left(\L \right)$  and $\left\{v_\la\right\}_{\la \in\la }\subset \Coo_c\left(\L \right)$ such that
 \bean
 \xi = \lim_{\la\in \La} u_\la,\\
@@ -1457,10 +1508,21 @@ $$
 $$
 If  $a^\dl\in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$, and $a^\rho\in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then for any leaf $\L$ there are $a^\dl_\L \in C_c\left(\L\times \L \right)$ and  $a^\rho_\L \in C_c\left(\L\times \L \right)$ such that for any $u \in \Coo_c\left(\L\right)$ one has
 \bean
-a^\dl u\left( x\right)  = \int a^\dl \left(x, y\right) \dl\left(x, y \right)  u\left(x \right) ~dx,\\
-a^\rho u\left( x\right)  = \int a^\rho \left(x, y\right) \rho\left(x, y \right)  u\left(x \right) ~dx
+a^\dl_\L \bullet_\dl u\left( x\right)  = \int a^\dl \left(x, y\right) \dl\left(x, y, y \right)  u\left(y \right) ~\d\mu^y,\\
+a^\rho_\L \bullet_\rho u\left( x\right)  = \int a^\rho \left(x, y\right) \rho\left(x, y, y \right)  u\left(y \right) ~\d\mu^y
 \eean
-
+From the equation \eqref{foli_sum_eqn} one can deduce that
+\be
+\begin{split}
+P_L\left(a^\dl_\L \bullet_\dl u\otimes a^\rho_\L \bullet_\rho u \right)(x) = \int a^\dl_\L \left(x, y\right) \dl\left(x, y, y \right)_\L a^\rho_\L \left(x, y\right) \rho_\L\left(x, y, y \right)u(u) ~\d\mu^y=\\
+=  \int \left( a^\dl_\L \left(x, y\right) a^\rho_\L \left(x, y\right)\right)  \left(\dl + \rho \right)_\L \left(x, y, y \right)u(u) ~\d\mu^y=\left( a^{\dl + \rho}\right) \bullet_{\dl + \rho}u\\
+\text{where} \quad  a^{\dl + \rho}(x, y)= a^{\dl}(x, y) a^{ \rho}(x, y)\quad \forall x, y \in \L.
+\end{split}
+\ee
+\begin{lemma}\label{dd_hh_lem}
+	Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A  \H''$, and let
+	$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {Dixmier-Douady duality} $d: A'\otimes_A A''\to \widetilde A$  (cf. Definition \ref{dd_dual_defn}).
+\end{lemma}
 \section{Gelfand locales versus Bohr locales}
 \subsection{Locales of $C^*$-algebras of type $I_0$}
 \paragraph{} Let $A$ be a $C^*$-algebras of type $I_0$. Any element of the Gelfand $A$ locale $\mathfrak{Locale}\left( A\right) $ corresponds to a hereditary $C^*$-subalgebra $B \subset A$. However from the Definition \ref{type_i0_defn} that $B$ is a hereditary subalgebra generated by a union of its hereditary commutative subalgebras. On the other hand any family of commutative $C^*$-algebras yields an element of the Bohr locale. So the Gelfand $A$-locale $\mathfrak{Locale}(A)$ is isomorphic to Bohr one $\mathfrak{BohrLocale}(A)$.
