@@ -1328,7 +1328,7 @@ If $b' \in CT\left(\sX, \dl \right)$, $~b'' \in C_0\left(\sX\right)$ and $\widet
 The above equation is a specialization of \eqref{bimod_gen_eqn}. We leave the reader the proof of the specializations of \eqref{bimod_genl_eqn} and \eqref{bimod_genr_eqn}.
 
 \end{empt}
-\begin{lemma}\label{dd_hh_lem}
+\begin{lemma}\label{dd_hh_lem!}
 	Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A  \H''$, and let
 	$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {Dixmier-Douady duality} $d: A'\otimes_A A''\to \widetilde A$  (cf. Definition \ref{dd_dual_defn}).
 \end{lemma}
@@ -1399,12 +1399,12 @@ f(\gamma_1) \, g(\gamma_2) \, \sigma\left(\ga_1, \ga_2 \right),\\
 \label{foli_a_inv_eqn}
 	f^* ( \ga ) \bydef \overline{f ( \ga^{ -1})}~\overline{\sigma\left(\ga, \ga^{-1} \right)}
 \eea
-where $f, g \in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). Similarly to \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} the equations  \eqref{foli_a_prod_eqn}, \eqref{foli_a_inv_eqn} yield a *-algebra, we denote it by  $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
+where $f, g \in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). Similarly to \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} the equations  \eqref{foli_a_prod_eqn}, \eqref{foli_a_inv_eqn} yield a *-algebra, we denote it by  $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
 \begin{remark}\label{foli_irred_hol_rem}
 	Similarly to  \ref{foli_irred_hol_empt} one can prove that in fact the set of all irreducible representations is a set of leaves of $\left(M, \sF\right)$ which have no holonomy. The Hilbert space of the representation which corresponds to a leaf $\L$ is $L^2\left( \L\right)$. 
 \end{remark}
 \begin{definition}\label{foli_s_red_defn}
-	The completion of 	$\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm \eqref{groupoid_norm_eqn} is said to be the $\sigma$-\textit{twisted reduced} $C^*$-\textit{algebra of the foliated space} $\left(M,\sF\right)$. We denote it by $C^*_r\left(M,\sF, \sigma\right)$. 
+	The completion of 	$\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm \eqref{groupoid_norm_eqn} is said to be the $\sigma$-\textit{twisted reduced} $C^*$-\textit{algebra of the foliated space} $\left(M,\sF\right)$. We denote it by $C^*_r\left(M,\sF, \sigma\right)$. 
 \end{definition}
 Henceforth we suppose that any leaf $\L$ of $\F$ is simply connected.
 If we select a measure $\mu_\L$ on $\L$ then the equation \eqref{foli_a_prod_eqn} corresponds to the following one
@@ -1450,7 +1450,7 @@ If $\mathfrak{Step}(\L)$ is a space of step functions then $f_\L \in \Coo_c\left
 \end{split}
 \ee
 The above map is not uniquely defined since it depends on choice of points $x_{\a'}\in \sU_{\a'}, ~ x_{\a''}\in \sU_{\a''}$. However  any family $\left\{\sU_\a\right\}_{\a \in \mathscr{A}}$ can by refined. Using refinements and the limit one obtains the uniquely defined map.
-If $\pi_a: C^*_r\left(M,\sF, \sigma\right)\hookto B\left(\H_a \right) $ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then $C^*_r\left(M,\sF, \sigma\right)$ is the completion of $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm $a \mapsto \left\|\pi_a\left(a \right)  \right\|$.
+If $\pi_a: C^*_r\left(M,\sF, \sigma\right)\hookto B\left(\H_a \right) $ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then $C^*_r\left(M,\sF, \sigma\right)$ is the completion of $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm $a \mapsto \left\|\pi_a\left(a \right)  \right\|$.
 From  the Statement \ref{gropoid_mult_lem} there is an inclusion
 $$
 C_0\left( M\right)\hookto M\left( C^*_r\left(M,\sF, \sigma\right)\right). 
@@ -1506,23 +1506,42 @@ where the limits imply  the topology of $L^2\left(\L\right)$. Since  $u_\la v_\l
 $$
 \left(\xi, \eta\right)\mapsto \lim_{\la\in \La}u_\la v_\la  \in L^2\left(\L \right).
 $$
-If  $a^\dl\in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$, and $a^\rho\in \Ga_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then for any leaf $\L$ there are $a^\dl_\L \in C_c\left(\L\times \L \right)$ and  $a^\rho_\L \in C_c\left(\L\times \L \right)$ such that for any $u \in \Coo_c\left(\L\right)$ one has
+If  $a^\dl\in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$, and $a^\rho\in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then for any leaf $\L$ there are $a^\dl_\L \in C_c\left(\L\times \L \right)$ and  $a^\rho_\L \in C_c\left(\L\times \L \right)$ such that for any $u \in \Coo_c\left(\L\right)$ one has
 \bean
 a^\dl_\L \bullet_\dl u\left( x\right)  = \int a^\dl \left(x, y\right) \dl\left(x, y, y \right)  u\left(y \right) ~\d\mu^y,\\
 a^\rho_\L \bullet_\rho u\left( x\right)  = \int a^\rho \left(x, y\right) \rho\left(x, y, y \right)  u\left(y \right) ~\d\mu^y
 \eean
 From the equation \eqref{foli_sum_eqn} one can deduce that
-\be
+\be\label{foli_m_m_eqn}
 \begin{split}
 P_L\left(a^\dl_\L \bullet_\dl u\otimes a^\rho_\L \bullet_\rho u \right)(x) = \int a^\dl_\L \left(x, y\right) \dl\left(x, y, y \right)_\L a^\rho_\L \left(x, y\right) \rho_\L\left(x, y, y \right)u(u) ~\d\mu^y=\\
 =  \int \left( a^\dl_\L \left(x, y\right) a^\rho_\L \left(x, y\right)\right)  \left(\dl + \rho \right)_\L \left(x, y, y \right)u(u) ~\d\mu^y=\left( a^{\dl + \rho}\right) \bullet_{\dl + \rho}u\\
 \text{where} \quad  a^{\dl + \rho}(x, y)= a^{\dl}(x, y) a^{ \rho}(x, y)\quad \forall x, y \in \L.
 \end{split}
 \ee
-\begin{lemma}\label{dd_hh_lem}
-	Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A  \H''$, and let
-	$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the situation \ref{dd_hh_empt} yields a {Dixmier-Douady duality} $d: A'\otimes_A A''\to \widetilde A$  (cf. Definition \ref{dd_dual_defn}).
+If any leaf of $\F$ is simply connected then the space $\G\left( \G\left(M, \F \right) \right)$ is Hausdorff and there is a $\C$-linear isomorphism $\Coo\left( \G\left(M, \F \right) \right)\cong  \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. So three is a commutative multiplication
+\be\label{foli_comm_eqn}
+*_{\mathrm{comm}} : \Coo\left( \G\left(M, \F \right) \right)\times \Coo\left( \G\left(M, \F \right) \right) \to \Coo\left( \G\left(M, \F \right) \right)
+\ee
+\begin{lemma}
+	One has a {Dixmier-Douady duality} $$d: C^*_r\left(M,\sF, \dl\right)\otimes_{C_0\left( M\right) }C^*_r\left(M,\sF, \rho\right)\to C^*_r\left(M,\sF, \dl + \rho\right).$$
 \end{lemma}
+\begin{proof}
+	If $a^\dl \in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$ and $a^\rho \in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then from \eqref{foli_m_m_eqn} it follows that
+	$$
+\pi^\dl_a\left(a^\dl \right)\otimes \pi^\rho_a\left(a^\rho \right)= \pi^{\dl + \rho}\left( a^\dl*_{\mathrm{comm}}a^\rho\right) 
+	$$
+	where $*_{\mathrm{comm}}$ is given by \eqref{foli_comm_eqn} and $a^\dl*_{\mathrm{comm}}a^\rho$ is regarded as an element of \\$\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl +\rho \right)$. Since both $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)\subset C^*_r\left( M. \F. \dl\right)$ and \\ $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)\subset C^*_r\left( M. \F. \rho\right)$ are dense subspaces one has
+	$$
+\forall a^\dl \in C^*_r\left( M, \F. \dl\right)\quad  \forall a^\rho \in C^*_r\left( M, \F. \rho\right)\quad  \pi^\dl_a\left(a^\dl \right)\otimes \pi^\rho_a\left(a^\rho \right)\in  \pi^{\dl + \rho}\left( C^*_r\left( M, \F. \dl+\rho\right)\right). 
+$$
+Since the map \eqref{foli_comm_eqn} is surjective and $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl+\rho \right)\subset C^*_r\left( M. \F. \dl + \rho\right)$ is a dense subspace the set
+$$
+\pi^\dl_a\left( C^*_r\left( M, \F, \dl\right) \right)\otimes_{C_0\left(M \right) } \pi^\rho_a\left( C^*_r\left( M, \F, \rho\right) \right)\subset B\left(\H^\dl_a \ox_{C_0\left(M \right)} \H^\rho_a \right) \subset B\left(\H^{\rho + \dl} \right) 
+$$
+is dense in $\pi_a^{\dl + \rho}\left( C^*_r\left( M, \F, \dl+\rho\right)\right)$. On the other hand the representation 	$\pi_a^{\dl + \rho}: C^*_r\left( M, \F. \dl+\rho\right)\hookto B\left(\widetilde \H_a \right)$ is atomic (cf. Definition \ref{atomic_repr_defn})  so it is faithful and nondegenerate. Taking into account the Lemma \ref{dd_hh_lem} one has a required Dixmier-Douady duality.
+\end{proof}
+
 \section{Gelfand locales versus Bohr locales}
 \subsection{Locales of $C^*$-algebras of type $I_0$}
 \paragraph{} Let $A$ be a $C^*$-algebras of type $I_0$. Any element of the Gelfand $A$ locale $\mathfrak{Locale}\left( A\right) $ corresponds to a hereditary $C^*$-subalgebra $B \subset A$. However from the Definition \ref{type_i0_defn} that $B$ is a hereditary subalgebra generated by a union of its hereditary commutative subalgebras. On the other hand any family of commutative $C^*$-algebras yields an element of the Bohr locale. So the Gelfand $A$-locale $\mathfrak{Locale}(A)$ is isomorphic to Bohr one $\mathfrak{BohrLocale}(A)$.
@@ -2806,18 +2825,18 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 	
 	\subsection{Operator algebras of foliations}\label{foli_alg_subsec}
 	\paragraph*{}
-	Here I follow to \cite{candel:foliII}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allows us to identify \\$\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
-	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its  resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then there is a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$  it follows that there is the inclusion
+	Here I follow to \cite{candel:foliII}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allows us to identify \\$\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
+	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its  resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga^\infty_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then there is a well defined homomorphism $\Ga^\infty_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga^\infty_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga^\infty_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$  it follows that there is the inclusion
 	\be\label{foli_incc_eqn}
-	\Ga_c\left(\mathcal W, \A \right) \hookto \Ga_c\left(\mathcal U, \A \right).
+	\Ga^\infty_c\left(\mathcal W, \A \right) \hookto \Ga^\infty_c\left(\mathcal U, \A \right).
 	\ee
 	Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_M^{1/2}$ is trivial on $M$, and we
 	could choose once and for all  a trivialisation $\nu$ turning
-	elements of $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ into functions.
+	elements of $\Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ into functions.
 	Let us
 	however stress that the usage of half densities makes all the
 	construction completely canonical.
-	For $f,g \in \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$, the convolution
+	For $f,g \in \Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$, the convolution
 	product $f * g$ is defined by the equality
 	\be\label{foli_prod_eqn}
 	(f * g) (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
@@ -2835,7 +2854,7 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 	$v_x \in \wedge^k \, \mathcal{F}_x$, $v_y \in \wedge^k \, \mathcal{F}_y$ then $f^*
 	(\gamma)$ evaluated on $v_x , v_y$ is equal to
 	$\overline{f(\gamma^{-1})}$ evaluated on $v_y , v_x$. We thus get a
-	$*$-algebra $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$. 
+	$*$-algebra $\Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$. 
 	where $\xi$ is a square integrable half density on $\mathcal G_x$. 
 	For each leaf $L$ of
 	$\left(M, \mathcal{F}\right)$ one has a natural representation of this $*$-algebra on the
@@ -2854,21 +2873,21 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 	(G_y)$ which transforms the representation $\rho_x$ in $\rho_y$.
 	\begin{lemma}
 		%	Lemma 1.4.1. \\
-		If $f_1 \in \Ga_c\left(\sU_{   \a_1},\Om^{1/2} \right)$ and $f_2 \in \Ga_c\left(\sU_{   \a_2},\Om^{1/2} \right)$ then their convolution is a well-defined element $f_1*f_2 \in \Ga_c\left(\sU_{   \a_1}\cdot\sU_{   \a_2},\Om^{1/2} \right)$
+		If $f_1 \in \Ga^\infty_c\left(\sU_{   \a_1},\Om^{1/2} \right)$ and $f_2 \in \Ga^\infty_c\left(\sU_{   \a_2},\Om^{1/2} \right)$ then their convolution is a well-defined element $f_1*f_2 \in \Ga^\infty_c\left(\sU_{   \a_1}\cdot\sU_{   \a_2},\Om^{1/2} \right)$
 	\end{lemma}
 	%page 24.
-	%Let $\Ga_c\left( \G,\Om^{1/2}\right)$  be the space of compactly supported smooth sections of $\Om^{1/2}$ over $\G$; its elements are the compactly supported half-densities on G. When G is not Hausdorff, the meaning of c (G,D1/2) is that which was described in Section 1.2. This space will now be given the structure of an algebra with involution. This structure is first described when G is Hausdorff, and the details will then be given when G is arbitrary.
+	%Let $\Ga^\infty_c\left( \G,\Om^{1/2}\right)$  be the space of compactly supported smooth sections of $\Om^{1/2}$ over $\G$; its elements are the compactly supported half-densities on G. When G is not Hausdorff, the meaning of c (G,D1/2) is that which was described in Section 1.2. This space will now be given the structure of an algebra with involution. This structure is first described when G is Hausdorff, and the details will then be given when G is arbitrary.
 	
 	\begin{proposition}\label{foli_repr_prop}
 		%Proposition 1.4.5. \\
-		If $\sV \subset \G$ is a foliated chart for the graph of $\left(M, \sF\right)$ and $f \in \Ga_c\left(\sV, \Om^{1/2}\right)$ , then $\rho_x\left( f\right)$, given by \eqref{foli_repr_eqn}, is a bounded integral operator on $L^2\left(\G_x \right)$.
+		If $\sV \subset \G$ is a foliated chart for the graph of $\left(M, \sF\right)$ and $f \in \Ga^\infty_c\left(\sV, \Om^{1/2}\right)$ , then $\rho_x\left( f\right)$, given by \eqref{foli_repr_eqn}, is a bounded integral operator on $L^2\left(\G_x \right)$.
 	\end{proposition}
 	\begin{empt}
 		The space of compactly supported half-densities on $\G$ is taken as given by the exact sequence 
 		\be\label{foli_ga_p_eqn}
-		\bigoplus_{\a_0\a_1}\Ga_c\left(\sU_{   \a_0\a_1}, \Om^{1/2} \right) \to \bigoplus_{\a_0}\Ga_c\left(\sU_{   \a_0},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga_c\left(\G,\Om^{1/2}\right) 
+		\bigoplus_{\a_0\a_1}\Ga^\infty_c\left(\sU_{   \a_0\a_1}, \Om^{1/2} \right) \to \bigoplus_{\a_0}\Ga^\infty_c\left(\sU_{   \a_0},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga^\infty_c\left(\G,\Om^{1/2}\right) 
 		\ee
-		associated to a regular cover for $\left((M, \sF)\right)$ as above. The first step for defining a convolution is to do it at the level of $\bigoplus_{\a_0}\Ga_c\left(\sU_{   \a_0}\Om^{1/2} \right)$, as the following lemma indicates. 
+		associated to a regular cover for $\left((M, \sF)\right)$ as above. The first step for defining a convolution is to do it at the level of $\bigoplus_{\a_0}\Ga^\infty_c\left(\sU_{   \a_0}\Om^{1/2} \right)$, as the following lemma indicates. 
 	\end{empt}
 	
 	
@@ -2876,7 +2895,7 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 	
 	\begin{defn}\label{foli_red_defn}\cite{candel:foliII}
 		% 	Definition 1.4.7.\\
-		The \textit{reduced} $C^*$-algebra of the foliated space $\left(M,\sF\right)$ is the completion of $\Ga_c\left( \G,\Om^{1/2}\right)$ with respect to the pseudonorm \be\label{foli_pseudo_norm_eqn}
+		The \textit{reduced} $C^*$-algebra of the foliated space $\left(M,\sF\right)$ is the completion of $\Ga^\infty_c\left( \G,\Om^{1/2}\right)$ with respect to the pseudonorm \be\label{foli_pseudo_norm_eqn}
 		\left\|f \right\| =\sup_{x \in M}\left\|  \rho_x\left(f\right)\right\|
 		\ee where $\rho_x$ is given by  \eqref{foli_repr_eqn}.
 		This $C^*$-algebra is denoted by $C^*_r\left(M,\sF\right)$.
@@ -2885,7 +2904,7 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 		%	page 29-30.
 		Let $\left(M,\sF\right)$ be an arbitrary foliated space and let $\sU\subset  M$ be an open subset.  Then $\left(\sU,\sF|_\sU\right)$ is a foliated space and the inclusion  $\sU\hookto  M$ induces a homomorphism of groupoids $\G\left(\sU \right)\hookto \G$ , hence a mapping
 		\be\label{foli_inc_gc_eqn}
-		j_\sU : \Ga_c\left(  \G\left(\sU \right) ,\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( M\right) ,\Om^{1/2}\right)
+		j_\sU : \Ga^\infty_c\left(  \G\left(\sU \right) ,\Om^{1/2}\right)  \hookto \Ga^\infty_c\left( \G\left( M\right) ,\Om^{1/2}\right)
 		\ee
 		that is an injective homomorphism of involutive algebras. 
 		%	It is proven in \cite{candel:foliII,connes:foli_survey} that any restriction of foliation induces an injective *-homomorphism 
@@ -2899,7 +2918,7 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 	
 	\begin{cor}\label{foli_cov_alg_cor}\cite{candel:foliII}
 		%	Corollary 1.4.8.
-		Let $M$ be a foliated space and let $\mathfrak{A}$ be a regular cover by foliated charts. Then the algebra generated by the convolution algebras $\Ga_c\left( \G\left(\sU \right), \Om^{1/2}\right)$, $~\sU\in\mathfrak{A}$ is dense in  $C^*_r\left(M,\sF\right)$.
+		Let $M$ be a foliated space and let $\mathfrak{A}$ be a regular cover by foliated charts. Then the algebra generated by the convolution algebras $\Ga^\infty_c\left( \G\left(\sU \right), \Om^{1/2}\right)$, $~\sU\in\mathfrak{A}$ is dense in  $C^*_r\left(M,\sF\right)$.
 	\end{cor}
 	\begin{prop}\label{foli_res_inc_prop}\cite{candel:foliII} %	Proposition 1.5.5. 
 		Let $\sU$ be an open subset of the foliated space $M$. Then the inclusion $\sU \hookto M$ induces an isometry of $C^*_r\left(\sU,\sF|_\sU\right)$  into $C^*_r\left(M,\sF\right)$.
