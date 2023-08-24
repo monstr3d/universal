@@ -949,7 +949,7 @@ The reader can proof that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\
 	\ee
 	From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From \eqref{hered_uau_eqn} it turns out that 
 	\be\label{hered_pap_eqn}
-	B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}=  \left\{ a \in A | p'' a p'' = a\right\}
+	\forall a \in B \quad  p\rho\left( a\right)p= \rho \left( a\right), \quad p'' a p'' = a,
 	\ee
 	and  there is a natural representation
 	\be\label{hered_rep_eqn}
@@ -990,6 +990,78 @@ The reader can proof that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\
 	One can prove this lemma by usage of the proof of the Lemma 
 	\ref{hered_repr_lem}.
 \end{proof}
+\begin{empt}\label{top_hered_empt}
+	Let $B\subset C_0\left(\sX \right)$ be a hereditary $C^*$-subalgebra (cf, Definition \ref{hered_defn}),  and let $\left\{u_\la\right\}_{\la \in \La}$ be an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}). A set
+	\be\label{top_hered_eqn}
+	\sU \bydef \bigcup_{\la\in\La}\left\{x \in \sX | u_\la\left(x \right) > 0\right\}
+	\ee
+	is an open subset of $\sX$ because it is a union of open sets.
+\end{empt}
+\begin{lemma}\label{top_hered_lem}
+	In the situation \ref{top_hered_empt} one has $B = C_0\left(\sU \right)$.
+\end{lemma}
+\begin{proof}
+	If $B \not\subset C_0\left(\sU \right)$ then there is $a \in B \setminus C_0\left(\sU \right)$, such that one has $x \in \sX \setminus \sU$ with $a\left( x \right)\neq 0$. It follows that  
+	$$
+	\lim_{\la\in \La} \left\| a - u_\la a u_\la\right\| \ge \left| a\left( x \right)\right| > 0
+	$$
+	so there is a contradiction with \eqref{hered_uau_eqn}. Thus $B \subset C_0\left(\sU \right)$.
+	
+	If  $a \in C_0\left(\sU \right)$ and $\eps > 0$ then there is a compact subset $\sY \subset \sU$ such that
+	$$
+	\forall x \in \sU \setminus\sY \quad \left| a\left(x\right)\right| < \eps 
+	$$
+	(cf. Definition \ref{c_c_def_2}). If $x \in \sU$ then there is $\la'_x \in \La$ such that $u_\la\left( x\right) > 0$. Moreover there is an open neighborhood $\sU_x$ of $x$ such that
+	$$
+	\dl_x \bydef \inf_{x' \in \sU_x} u_{\la'_x}\left( x'\right) > 0.
+	$$
+	From \eqref{hered_uau_eqn} it follows that there is $\la_x\in \La$ such that
+	$$
+	\left\| u_{\la'_x} - u_{\la_x}u_{\la'_x}u_{\la_x}\right\| 	< \frac{\eps \dl_x}{\left\|a \right\| }.
+	$$
+	From the above construction it turns out that 
+	$$
+	\forall x' \in \sU_x \quad \left| u_{\la_x} a\left(x\right)u_{\la_x}\right|< \eps.
+	$$
+	The set $\sY$ is compact so from $\sY \subset \cup_{x \in \sY} \sU_{x}$ it follows that there is a finite subset $\left\{x_1, ..., x_n\right\}\subset \sY$ such that 
+	$$
+	\sY \subset \bigcup_{j = 1}^n \sU_{x_j}
+	$$
+	If $\la\in \La$ is such that $\la \ge \la_{x_j}$ for any $j = 1,...,n$ then $\left| u_{\la}(x) a\left(x\right)u_{\la}(x)\right|< \eps$ for any $x \in \sX$, or equivalently $\left\| u_{\la} a\left(x\right)u_{\la}\right\|< \eps$. It turns out that 	
+$\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 $ and the comparison  it with \eqref{hered_uau_eqn} yields $a\in B$ and $C_0\left(\sX\right)\subset B$.
+\end{proof}
+
+\begin{exercise}\label{top_u_net_exer}
+	Let $\sX$ be a locally compact, Hausdorff space.\\ Denote by $\Xi\left( \sX\right)\bydef \left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ a net of all positive continuous maps such that 
+	\bean
+	\forall	\la \in \Xi\left( \sX\right)\quad u_\la\left(\sX\right)\subset \left[0,1\right],\\
+	\forall	\mu, \nu \in \Xi\left( \sX\right)\quad	\mu \le \nu \quad \Leftrightarrow\quad u_\mu \le u_\nu.
+	\eean
+	Prove that the net $\Xi\left( \sX\right)$ is an approximate unit of $C_0\left( \sX\right)$. 
+\end{exercise}
+\
+
+
+\begin{definition}\label{top_char_f_defn}
+	If $\sX$ is a set and $\sU \subset \sX$  then a map 
+	\be\label{top_char_f_eqn}
+	\begin{split}
+		\chi_\sU : \sX \to \R,\\
+		x \mapsto	\begin{cases}
+			1 & x \in \sU\\
+			0 & x \in \sX\setminus \sU
+		\end{cases}
+	\end{split}
+	\ee
+	is said to be a \textit{characteristic function} of $\sU$.
+\end{definition}
+
+
+\begin{empt}\label{top_u_net_rep_empt}
+	Let $\sX$ be a locally compact, Hausdorff space, and let $\rho: C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation, and let $C_0\left(\sX\right)''\subset  B\left(\H \right)$ be a bicommutant (cf. There is an inclusion $C_0\left(\sX\right)\subset C_0\left(\sX\right)''$ such that the representation $\rho$ can be extended up to $\rho'': C_0\left(\sX\right)''\hookto B\left(\sH\right)$. If $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}) then one can suppose that $\chi_\sU\in C_0\left(\sX\right)''$.
+	Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in the Exercise \ref{top_u_net_exer} net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho''\left(\chi_\sU \right)$. 
+\end{empt}
+
 
 \section{Miscellany}
 
@@ -1038,6 +1110,7 @@ The algebra of compact operators is given by
 	\end{split}
 	\ee
 \end{remark}
+
 \begin{definition}\label{elementary_defn}
 	Let us consider an algebra of finite or infinite matrices given by  \eqref{comp_matr_eqn}. For every $j, k \in \N$ a matrix given by \eqref{comp_matr_eqn} is said to be $j,k$-\textit{elementary} if 
 	$$
@@ -1222,33 +1295,6 @@ If $A$ is a $C^*$-algebra then one has
 	\forall a \in A\quad \exists a_1, a_2, a_3, a_4 \in A_+\quad a=a_1 - a_2 + ia_3 - ia_4.
 \ee
 \end{empt}
-\begin{empt}\label{top_u_net_empt}
-	Let $\sX$ be a locally compact, Hausdorff space.\\ Denote by $\Xi\left( \sX\right)\bydef \left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ a net of all positive continuous maps such that 
-	\bean
-\forall	\la \in \Xi\left( \sX\right)\quad u_\la\left(\sX\right)\subset \left[0,1\right],\\
-\forall	\mu, \nu \in \Xi\left( \sX\right)\quad	\mu \le \nu \quad \Leftrightarrow\quad u_\mu \le u_\nu.
-\eean
-	\end{empt}
-
-
-\begin{definition}\label{top_char_f_defn}
-	If $\sX$ is a set and $\sU \subset \sX$  then a map 
-	\be\label{top_char_f_eqn}
-	\begin{split}
-	\chi_\sU : \sX \to \R,\\
-x \mapsto	\begin{cases}
-	1 & x \in \sU\\
-	0 & x \in \sX\setminus \sU
-\end{cases}
-	\end{split}
-	\ee
-	is said to be a \textit{characteristic function} of $\sU$.
-\end{definition}
-\begin{empt}\label{top_u_net_rep_empt}
-	Let $\sX$ be a locally compact, Hausdorff space, and let $\rho: C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation, and let $C_0\left(\sX\right)''\subset  B\left(\H \right)$ be a bicommutant (cf. There is an inclusion $C_0\left(\sX\right)\subset C_0\left(\sX\right)''$ such that the representation $\rho$ can be extended up to $\rho'': C_0\left(\sX\right)''\hookto B\left(\sH\right)$. If $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}) then one can suppose that $\chi_\sU\in C_0\left(\sX\right)''$.
-	Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in \ref{top_u_net_empt}  net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho''\left(\chi_\sU \right)$. 
-\end{empt}
-
 
 \begin{lemma}\label{pedersen_eps_lem}
 Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
@@ -5503,6 +5549,7 @@ where $\mathscr A$ is a finite set.
 	such that $f_j$ is smooth for all $j = 1, ..., n$.
 \end{remark}
 
+
 \begin{definition}\label{top_covering_sum_subordinated_defn}
 	Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
@@ -8726,8 +8773,9 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn
 $C_0\left( \widetilde \sX\right)$ (cf. Proposition \ref{hered_spectrum_prop}) is $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}).
 \end{lemma}
 \begin{proof}
+	!!! CHANGE PROOF !!!
 If $ \widetilde \sU\bydef p^{-1}\left(  \sU \right)$ then $G\widetilde \sU= \widetilde \sU$.
-	If $\rho: C_0\left( \sX \right)\hookto B\left( \H\right)$ is a faithful nondegenerate  representation then the    explained in \ref{top_u_net_empt}    net $\left\{u_\a\right\}_{\a \in \Xi\left( \sU\right)}\subset B\left(\sH \right)$ satisfies to the described in \ref{hered_repr_p_empt} conditions. 
+	If $\rho: C_0\left( \sX \right)\hookto B\left( \H\right)$ is a faithful nondegenerate  representation then the    explained in the Exercise \ref{top_u_net_exer}    net $\left\{u_\a\right\}_{\a \in \Xi\left( \sU\right)}\subset B\left(\sH \right)$ satisfies to the described in \ref{hered_repr_p_empt} conditions. 
 	It follows that 
 	\bean
 	C_0\left(\sU\right) = \left\{ a \in C_0\left(\sX\right) \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}\\
@@ -11572,7 +11620,7 @@ From \eqref{blowing_su_eqn} it follows that
 \ee
 \end{empt}
 \begin{empt}\label{blowing_strict_empt} 
-	Suppose that $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sX\right)}$ where $\Xi\left( \sX\right)$ is given by \ref{top_u_net_empt} net and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
+	Suppose that $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sX\right)}$ where $\Xi\left( \sX\right)$ is given by \ref{top_u_net_exer} !!! EXERCISE !!! net and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
 	\bean
 	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le \\\le \left\|a - f'a'f''\right\|+ \left\|u_\la \left( a - f'a'f''\right)  \right\|+\left\|f'a'f'' - u_\la f'a'f''\right\| < \eps.
 	\eean
@@ -11608,7 +11656,7 @@ Consider the situation of  \ref{blowing_strict_empt} and suppose than both repre
 	$$
 \end{lemma}
 \begin{proof}
-	If  $f\in C_b\left(\sY\right)$ and $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sU\right)}$ where $\Xi\left( \sX\right)$ is given by \ref{top_u_net_empt} net, then from $fu_\la \in C_0\left(\sU\right)$ it turns out that $fu_\la a \in _\sU A_\sU$ for all $\la\in\La$. From
+	If  $f\in C_b\left(\sY\right)$ and $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sU\right)}$ where $\Xi\left( \sX\right)$ is given by \ref{top_u_net_exer} !!! EXERCISE !!! net, then from $fu_\la \in C_0\left(\sU\right)$ it turns out that $fu_\la a \in _\sU A_\sU$ for all $\la\in\La$. From
 	$\left\| fu_\la a\right\| \le \left\| f\right\|\left\|a\right\|$ it follows that a net $\left\{fu_\la a  \right\}_{\la\in\La}\subset ~_\sU A_\sU$ is $C^*$-norm convergent. So one has a pairing
 	\bean
 	C_b\left(\sU\right)\times~ _\sU A_\sU\to~ _\sU A_\sU,\\
@@ -11628,7 +11676,7 @@ a \mapsto fa.
 \end{lemma}
 \begin{proof}
 	If $_\sU A_\sU$ is not connected then one has $_\sU A_\sU= A_1 \oplus A_2$. It follows that  $M\left(_\sU A_\sU\right) = M\left( A_1\right)\oplus M\left(A_2\right)$. From the inclusion $C_0\left(\sU\right)\hookto M\left( _\sU A_\sU\right)$ it follows that
-	$C_0\left(\sU \right)= M\left( A_1\right)\cap C_0\left(\sU \right)\oplus M\left( A_2\right)\cap C_0\left(\sU \right)$. Since $C_0\left(\sU \right)$ is a connected $C^*$-algebra one has  $M\left( A_1\right)\cap C_0\left(\sU \right)= \{0\}$ or $M\left( A_2\right)\cap C_0\left(\sU \right)=\{0\}$.  Suppose that $M\left( A_1\right)\cap C_0\left(\sU \right)=  C_0\left(\sU \right)$. Any $a \in~ _\sU A_\sU$ can be uniquely represented by $a = a_1 + a_2$ where $a_1 \in A_1$ and $a_2 \in A_2$. 	  	If  $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sY\right)}$  is a given by \ref{top_u_net_empt} net then $u_\la a_2 = 0$ for all $\la\in\Xi\left( \sY\right)$. On the other hand from \eqref{blowing_strict_eqn} it follows that
+	$C_0\left(\sU \right)= M\left( A_1\right)\cap C_0\left(\sU \right)\oplus M\left( A_2\right)\cap C_0\left(\sU \right)$. Since $C_0\left(\sU \right)$ is a connected $C^*$-algebra one has  $M\left( A_1\right)\cap C_0\left(\sU \right)= \{0\}$ or $M\left( A_2\right)\cap C_0\left(\sU \right)=\{0\}$.  Suppose that $M\left( A_1\right)\cap C_0\left(\sU \right)=  C_0\left(\sU \right)$. Any $a \in~ _\sU A_\sU$ can be uniquely represented by $a = a_1 + a_2$ where $a_1 \in A_1$ and $a_2 \in A_2$. 	  	If  $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sY\right)}$  is a given by \ref{top_u_net_exer} !!! EXERCISE !!! net then $u_\la a_2 = 0$ for all $\la\in\Xi\left( \sY\right)$. On the other hand from \eqref{blowing_strict_eqn} it follows that
 	$$
 a = \lim_{\la\in\Xi\left( \sU\right)}u_\la a = \lim_{\la\in\Xi\left( \sU\right)}u_\la a_1 + 0 = a_1,	
 	$$
@@ -12599,7 +12647,7 @@ G\times \widetilde \sY\to \widetilde \sY.
 %$$
 %\left\|\sum_{j = 1}^n \pi\left(  a_j\right)  \widetilde f_j  - \widetilde b   \right\|\le \frac{\eps}{2}.
 %$$
-%If   $\left\{u_\la\right\}_{\la \in \Xi\left(\sU\right)}$ is a given by \ref{top_u_net_empt} net then there is $\la_\eps \in \Xi\left(\sU\right)$ such that
+%If   $\left\{u_\la\right\}_{\la \in \Xi\left(\sU\right)}$ is a given by \ref{top_u_net_exer} !!! EXERCISE !!! net then there is $\la_\eps \in \Xi\left(\sU\right)$ such that
 %$$
 %\la \ge \la_\eps \quad \Rightarrow \quad \left\| \pi\left(u_\la \right) \widetilde b\pi\left(u_\la \right)^2 - \widetilde b   \right\|\le \frac{\eps}{2}.
 %$$
