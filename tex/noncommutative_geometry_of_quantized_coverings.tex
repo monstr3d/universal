@@ -2665,7 +2665,7 @@ where $ \bigoplus_{\widetilde x \in \widetilde \sX}$ means the norm completion o
 \end{proof}
 \begin{empt}\label{hered_lift_repr_empt}
 	Let a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ be  {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}), and let $\rho : A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). If $\widetilde \rho  : \widetilde{A}\to B\left( \widetilde{\H}\right)$ is induced by a pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ (cf. Definition \ref{induced_repr_defn}) then $\widetilde \rho$ is faithful nondegenerate representation (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). If $\left\{u_\la \right\}_{\la\in\La} \subset  B\left(\H \right)_+$ is an increasing  net of positive elements explained in \ref{hered_repr_p_empt} then one can define a net $\left\{\rho\left(u_\la \right) \right\}_{\la\in\La}\subset B\left(  \H\right) $ such that then there is a projector $p \in B\left( \H\right)$ such that  $p$ is a strong limit of $\left\{\rho\left(u_\la \right) \right\}_{\la\in\La}$ in $B\left(\H\right)$ and	\bean
-	B = \left\{ a \in A | p\rho\left( a\right) p = \rho\left( a\right)\right\}.
+\forall a \in 	B  p\quad \rho\left( a\right) p = \rho\left( a\right).
 	\eean
 	Moreover  a natural representation
 	\bean
@@ -11594,10 +11594,13 @@ Consider the situation of  \ref{blowing_strict_empt} and suppose than both repre
 	\item there is a strong limit  $s$-$\lim_{\la \in \Xi\left( \sU\right)} \pi_\sY\left( u_\la\right)  = \pi''_\sY\left(\chi_\sU \right)$ (cf. Definition \ref{strong_topology_defn}) in $B\left(\H \right)$	
 	where $\chi_\sU: \sU \to \left[0,1\right]$ is a characteristic function  of $\sU$ (cf. Definition \ref{top_char_f_defn}),
 		\item one has
-	\be\label{blowing_hered_pap_eqn}
-\forall a \in ~	_\sU A_\sU\quad  \pi''_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi''_\sY\left(\chi_\sU \right) = \rho\left(a \right)  
-	\ee
-	(cf. equation \eqref{hered_pap_eqn}) and there is a faithful nondegenerate representation 
+	\bea
+	\label{blowing_uau_eqn}
+	_\sU A_\sU = \left\{a \in A \left| \lim_{\la \in \Xi\left( \sU\right)} \left\| a - u_\la a u_\la \right\|=0 \right.\right\}, \\
+	\nonumber
+\forall a \in ~	_\sU A_\sU\quad  \pi''_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi''_\sY\left(\chi_\sU \right) = \rho\left(a \right)
+	\eea
+	(cf. equations \eqref{hered_uau_eqn} and \eqref{hered_pap_eqn}) and there is a faithful nondegenerate representation 
 	\be\label{blowing_hered_rep_eqn}
 	B \hookto B\left(\pi''_\sY\left(\chi_\sU \right) \sH \right) 
 	\ee
@@ -12709,16 +12712,16 @@ which can be uniquely extended up to a linear map $\widetilde \H \to \widetilde 
 		Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  \\$\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure, then a given by \eqref{blowing_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}).
 \end{lemma}
 \begin{proof}
-From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the equation \ref{blowing_hered_pap_eqn}  !!! CHECK !!! it follows that
+From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the equation \ref{blowing_uau_eqn}  it follows that
 \bean
-_\sU A_\sU = \left\{a \in A |\pi''_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi''_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
+_\sU A_\sU =\left\{a \in A \left| \lim_{\la \in \Xi\left( \sU\right)} \left\| a - \pi_\sY\left(  u_\la\right)  a \pi_\sY\left(  u_\la \right) \right\|=0 \right.\right\}
 \eean
-where $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}), and $\pi_\sY$ is a given by the Definition \ref{multiplier_el_defn} representation. If $\widetilde \rho: A_0\left( \widetilde \sY\right)\hookto B\left(\widetilde \H \right)$ is an induced by a pair $\left( \rho, \left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)\right)$ representation and    $\widetilde{A}'$ is a {hereditary} $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-{lift} of $_\sU A_\sU$ (cf. Definition \ref{hereditary_lift_defn}) then using the construction \ref{hered_lift_repr_empt} one can proof that
+where $\Xi\left( \sU\right)$ is given by the Exercise \ref{top_u_net_exer} net and $\pi_\sY$ is a given by the Definition \ref{multiplier_el_defn} representation. If   $\widetilde{A}'$ is a {hereditary} $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-{lift} of $_\sU A_\sU$ (cf. Definition \ref{hereditary_lift_defn}) then from the Remark \ref{hered_lift_rem}
+it follows that
 $$
-\widetilde{A}' =   \left\{ \left.\widetilde a \in A_0\left( \widetilde \sY\right) ~\right| \pi''_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right)\widetilde \rho\left( \widetilde a\right)\pi''_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right) = \widetilde\rho\left(\widetilde a\right)\right\}=~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} 
+\widetilde{A}' =   \left\{ \left.\widetilde a \in A_0\left( \widetilde \sY\right) ~\right|\lim_{\la \in \Xi\left( \sU\right)}\left\|  \pi_{\widetilde\sY}\left(u_\la \right) \widetilde a\pi_{\widetilde\sY}\left(u_\la \right)- a\right\|  =0 \right\}.
 $$
-where $\widetilde{\sU} \bydef q^{-1}\left(\sU\right)$.
- Similarly to the Lemma \ref{blowing_uau_conn_lem}  one can proof that $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the Lemma \ref{blowing_multiplier_lem} it follows that there is a natural inclusion 
+!!! CONNECTED CHECK !!! Similarly to the Lemma \ref{blowing_uau_conn_lem}  one can proof that $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the Lemma \ref{blowing_multiplier_lem} it follows that there is a natural inclusion 
   $C\left(\sV\right)\subset M\left(_\sU A_\sU\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$   then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
 Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_aln_eqn} if follows that 
 \be\label{blowing_e_n_eqn}
