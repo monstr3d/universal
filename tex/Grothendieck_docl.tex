@@ -1,0 +1,347 @@
+\documentclass{beamer}
+\usepackage{amsmath,amssymb,amsthm,slashed, euscript}
+
+\usepackage{tikz}
+
+\textwidth=110mm
+
+
+\title{Grothendieck topology of  $C^*$-algebras}
+\institute
+{
+Algebras in analysis
+}
+
+\author{Petr R. Ivankov  }
+
+
+
+\theoremstyle{plain}
+\newtheorem{defn}{Definition}
+\newtheorem{rem}{Remark}
+\newtheorem{exm}{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem{prop}{Proposition}
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{lem}{Lemma}%[section]
+\newtheorem{thm}{Theorem}%[section]
+
+\newcommand{\bean}{\begin{eqnarray*}}
+\newcommand{\eean}{\end{eqnarray*}}
+
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\Ef}{\mathbb{E}}
+\newcommand{\desc}{\mathfrak{desc}}
+
+
+%Uppercase Gothic characters
+\newcommand{\gtA}{\mathfrak{A}}
+\newcommand{\gtB}{\mathfrak{B}}
+\newcommand{\gtM}{\mathfrak{M}}
+\newcommand{\gtN}{\mathfrak{N}}
+\newcommand{\gtP}{\mathfrak{P}}
+\newcommand{\gtS}{\mathfrak{S}}
+
+%Lowercase Gothic characters
+\newcommand{\gtf}{\mathfrak{f}}
+\newcommand{\gtg}{\mathfrak{g}}
+
+%Bold Characters
+\newcommand{\Cb}{\mathbb{C}}
+\newcommand{\Nb}{\mathbb{N}}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Zb}{\mathbb{Z}}
+
+%Uppercase Greek characters
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Te}{\Theta}
+\newcommand{\Om}{\Omega}
+\newcommand{\s}{ }
+
+%Lowercase Greek characters
+\newcommand{\al}{\alpha}
+\newcommand{\gm}{\gamma}
+\newcommand{\dl}{\delta}
+\newcommand{\sg}{\sigma}
+\newcommand{\ph}{\varphi}
+\newcommand{\te}{\theta}
+\newcommand{\ze}{\zeta}
+\newcommand{\lift}{\mathfrak{lift}}
+
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Coo}{{\mathrm{C}}^\infty}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\spinc}{\textbf{$spin^c$}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Ccl}{\mathbf{C}l}
+\newcommand{\xto}{\xrightarrow}
+
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\ox}{\otimes}
+\newcommand{\nb}{\nabla}
+\newcommand{\sS}{\mathcal{S}}
+\newcommand{\Dn}{D\!\!\!\!/}
+%\newcommand{\ij}{{i,j}}
+\newcommand{\aC}{\ensuremath{\underline{\Cb}} }
+\newcommand{\scp}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\op}[1]{J{#1}J^\dag}
+\newcommand{\sA}{\mathcal{A}} 
+\newcommand{\sB}{\mathcal{B}}       %%
+\newcommand{\sC}{\mathcal{C}}       %%
+\newcommand{\sD}{\mathcal{D}}       %%
+\newcommand{\sE}{\mathcal{E}}       %%
+\newcommand{\sF}{\mathcal{F}}       %%
+\newcommand{\sG}{\mathcal{G}}       %%
+\newcommand{\sH}{\mathcal{H}}       %%
+\newcommand{\sI}{\mathcal{I}}       %%
+\newcommand{\sJ}{\mathcal{J}}       %%
+\newcommand{\sK}{\mathcal{K}}       %%
+\newcommand{\sL}{\mathcal{L}}       %%
+\newcommand{\sM}{\mathcal{M}}       %%
+\newcommand{\sN}{\mathcal{N}}       %%
+\newcommand{\sO}{\mathcal{O}}       %%
+\newcommand{\sP}{\mathcal{P}}       %%
+\newcommand{\sQ}{\mathcal{Q}}       %%
+\newcommand{\sR}{\mathcal{R}}       %%
+\newcommand{\sT}{\mathcal{T}}       %%
+\newcommand{\sU}{\mathcal{U}}       %%
+\newcommand{\sV}{\mathcal{V}}       %%
+\newcommand{\sX}{\mathcal{X}}       %%
+\newcommand{\sY}{\mathcal{Y}}       %%
+\newcommand{\sZ}{\mathcal{Z}}       %%
+\newcommand{\N}{\mathbb{N}}                  %% 
+
+\renewcommand{\a}{\alpha}     
+\newcommand{\la}{\lambda}     
+\newcommand{\La}{\Lambda}
+\newcommand{\bt}{\beta}           %% short for  \beta
+ 
+    
+\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}  
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+  
+\begin{document}
+%\titlepage
+
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+	\begin{defn}
+		Let  $C$  be a category with pullbacks. Suppose that  for each object $U$ of $C$ there are  distinguished sets of families of morphisms $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
+		satisfying the following axioms: 
+		\begin{enumerate}
+			\item[(a)] for any covering $\left\{U_\iota \to U\right\}_{\iota\in I}$ and any morphism $U \to V$ in $ C$, the fibre products 
+			$U_\iota\times_U V$ exist, and $\left\{U_\iota\times_U V \to V\right\}_{\iota\in I}$ is a covering of $V$; 
+			\item[(b)] if $\left\{U_\iota \to U \right\}_{\iota\in I}$ is a covering of $U$, and if for each $\iota \in I$, $\left\{V_{\iota j} \to U_\iota  \right\}_{j \in I_\iota}$	is a 
+			covering of $U_\iota$, then the family $\left\{V_{\iota j }\to U\right\}_{\iota j}$ is a covering of $U$; 
+			\item[(c)] for any $U$ in $C$, the family $\left\{U\xrightarrow{\Id}U \right\}$ consisting of a single map is a covering of $U$. 
+		\end{enumerate}
+		The system of coverings is then called a \alert{Grothendieck pretopology}.
+		\end{defn}
+\end{frame}
+\begin{frame}
+		\begin{example}\label{top_gro_exm}
+		If $\sX$ is a topological space then one has a category of open subsets and their inclusions. If both $\sU_1, \sU_2 \subset \sX$ are open subsets then one can define a fibre product  by the following way
+		$$
+		\sU_1\times_\sX \sU_2 \bydef \sU_1 \cap \sU_2.	
+		$$
+		If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \subset \sU\right\}_{\iota\in I}$, is a covering of $\sU$ if and only if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is a specialization of Grothendieck topology. 
+	\end{example}
+\end{frame}
+\begin{frame}
+	\begin{definition}\label{etale_presheaf_defn}
+	A \alert{presheaf of sets} on a category $ C$
+	is a contravariant functor $ F$ from $ C$ to the category of sets. Thus,  $ F$
+	to each object $U$ in $ C$ 
+	attaches a set $ F\left(U \right)$ , and to each morphism $\varphi: U \to V$
+	in $ C$, a map $ F\left(\varphi\right): F\left(V \right)\to  F\left(U \right)$. Note that the notion of a presheaf on $ C$ 
+	does not depend on the 
+	coverings. We sometimes denote $ F\left(\varphi\right)$ by $a \mapsto a|_U$.
+	
+\end{definition}
+Similarly, a presheaf of (Abelian) groups or rings for the Grothendieck pretopology is a contravariant functor from
+$ C$ to the category of (Abelian) groups or rings.
+\end{frame}
+\begin{frame}
+\begin{definition}\label{etale_sheaf_defn}
+	A \alert{sheaf} for the Grothendieck pretopology
+	is a presheaf $ F$ 
+	that satisfies the sheaf condition, that is a sequence 
+	\be\label{etale_sheaf_eqn}
+	 F \left(U\right) \to \prod_{\iota \in I}  F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I}  F \left(U_\iota \times_U U_j\right)
+	\ee
+	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $ F$ 
+	is a sheaf if the map 
+	$$
+	f \mapsto \left\{f|_{U_\iota }\right\}: F \left(U\right) \to \prod_{\iota \in I}  F \left(U_\iota \right)
+	$$
+	identifies $ F\left( U\right)$ with the subset of the product consisting of families $\left\{f|_{U_\iota }\right\}$ such that 
+	$$
+	f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
+	$$
+	for all $\iota, j \in I$. 
+	When $\mathbf T$ 
+	is the site arising from a topological space then these definitions coincide with the 
+	topological ones. 
+	
+\end{definition}
+\end{frame}
+
+\begin{frame}
+	
+	\begin{definition}
+	A category $C$  together with 
+the Grothendieck  (pre)topology is called a \alert{site} $\mathbf T\bydef \left(  C, J\right)$. Then $\mathrm{Cat}\left( \mathbf T\right)\bydef  C$ denotes the underlying category. 
+	\end{definition}
+	
+	
+	\begin{definition}
+	If $\mathbf T$ is a site then  a category  $\mathbf{Sh}\left( \mathbf T \right)$ of sheaves of sets is a \alert{Grothendieck topos}.
+\end{definition}
+	\begin{definition}\label{forget_sheaf_defn}
+	There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheaves. Moreover there is a \alert{forgetful functor} $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+\end{definition}
+
+
+\end{frame}
+\begin{frame}
+	\begin{lem}\label{associated_sheaf_stmnt}
+	There is an adjoint $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$ to the  forgetful functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T  \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
+\end{lem}	
+	\begin{defn}\label{associated_sheaf_defn}
+	The given by the above lemma  \ref{associated_sheaf_stmnt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \alert{associated sheaf functor}.
+\end{defn}
+\begin{lem}\label{site_enough_stmt}
+	%8.13$
+	If $\mathbf T$ is a site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
+\end{lem}
+\begin{definition}\label{grothenidieck_topos_defn}
+	If $\mathbf T$ is a site then  a category  $\mathbf{Sh}\left( \mathbf T \right)$ of sheaves of sets is a \alert{Grothendieck topos}.
+\end{definition}
+
+\end{frame}
+\begin{frame}
+	\begin{definition}\label{frame_defn}
+	A \alert{frame} is partially  ordered set with all joins and all finite meets which satisfies the infinite distributive law:
+	$$
+	x \wedge \left( \bigvee_\iota y_\iota \right) = \bigvee_\iota\left(x\wedge   y_\iota \right) 
+	$$
+	A \alert{frame homomorphism} 
+	is a function which preserves finite meets and arbitrary joins. Frames and frame homomorphisms form a category $\mathbf{Frm}$.
+\end{definition}
+\begin{definition}\label{locale_defn}
+	The category $\alert{ Locale}$ of \textit{locales} is the opposite of the category of frames
+	$$
+	\mathbf{ Locale} \bydef \mathbf{Frm}^\text{op}.
+	$$
+	If $X$ is  a locale  denote by $\mathcal O\left( X\right)$ the corresponding  frame.
+\end{definition}
+\end{frame}
+\begin{frame}
+The definition  of sheaves on a topological space depends
+only on the lattice of open sets of that space, and so extends at once to
+define sheaves on a locale $X$. Thus an "open" object $U$ is underlying category is said to be
+covered by a family $\left\{U_\iota \right\}$ of "opens" of $X$ with each $U_\iota \le U$  if and only if $U= \bigvee_\iota V_\iota$ thus
+\be\label{localic_site}
+\left\{U_\iota\subset U \right\} \text{ covers } U \text{ if and only if } U= \bigvee_\iota V_\iota
+\ee
+The equation \eqref{localic_site} yields a Grothendieck pretopology, so one obtains a Grothendieck topology. In result we obtain a site and a Grothendieck topos.
+\begin{definition}\label{localic_topos_defn}
+	A Grothendieck topos obtained from a locale is said to be \alert{localic}.
+\end{definition}
+\end{frame}
+\begin{frame}
+		\begin{definition}\label{hered_defn}\
+		A cone $M$ in the positive part of $C^*$-algebra $A$ is said to be \textit{hereditary} if $0 \le x \le y$, $y \in M$ implies $x \in M$ for each $x \in A$. A $C^*$-subalgebra $B$ of $A$ is \alert{hereditary} if $B_+$ is hereditary in $A_+$.
+	\end{definition}
+The set   $\mathbf{Hered}/A$ of hereditary subalgebra is  partially ordered.
+We define a meet and arbitrary joins on $\mathbf{Hered}/A$ by the following way
+\bean
+\forall B', B'' \quad B' \wedge B'' \bydef B'\cap B'',~\\\label{join_eqn}
+\forall  \left\{B_\iota\right\}_{\iota\in I} \subset  \mathbf{Hered}/A \\ \bigvee_{\iota \in I} B_\iota  \bydef \text{a generated by } \bigcup_{\iota \in I} B_\iota \text{ hereditary } C^*\text{-subalgebra of } A.~ 
+\eean
+\end{frame}
+\begin{frame}
+	\begin{lemma}\label{hered_ideal_lem}
+	Let $A$ be a $C^*$-algebra.
+	\begin{enumerate}
+		\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left ideals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+		\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+		\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
+		\be\label{left_ideal_eqn}
+		L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B\right\}
+		\ee
+		is the unique closed left ideal of $A$ corresponding to $B$.
+	\end{enumerate}
+\end{lemma}
+
+\end{frame}
+\begin{frame}
+		\begin{theorem}\label{left_ideal_thm}
+		%3.1.2. Theorem.
+		If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
+		is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
+		$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
+	\end{theorem}
+\begin{lemma}\alert{Ivankov}
+	The partially ordered set  $\mathbf{Hered}/A$ is a locale.
+\end{lemma}
+	
+\end{frame}
+
+
+
+\begin{frame}
+	%TAKESAKI
+\begin{lemma}
+If $f$ is a bounded continuous function defined on an open dense 
+subset $G$ of a stonean space $\Om$, then $f$ can be extended to a continuous function 
+defined on the whole space $\Om$. Therefore, the Stone-\v{C}ech compactification 
+of any open dense subset of Q is the whole space $\Om$ itself. 
+\end{lemma}
+
+
+\end{frame}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
