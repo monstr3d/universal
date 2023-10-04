@@ -812,7 +812,55 @@ From the Example \ref{c_0_x_rem} it follows that $\mathfrak{Locale}\left( C_0\le
 \mathfrak{Locale}\left(A \right)\to\sX.
 \eean
 \end{example}
+\subsection{Pullbacks of locales}
 
+\paragraph{}Let $X', X'', X$ be locales with surjections (cf. Definition \ref{loc_emp_sup_defn}) $f': X'\to X$ and $f'': X''\to X$. If $U' \in X'$ then $U'$ can be regarded as locale and there is an embedding $f'_{U'}: U' \subset X'$ (cf. ref{$U' \in X'$}). So there is a map $f_{U'}\bydef f' \circ f'_{U'}:U' \to X$. From the Theorem \ref{locale_decomp_thm} it follows that there is a nucleus $j_{U'}$ on $X$ for which $f_{U'}$
+factors through the embedding $i_{U'} : X_{j_{U'}} \hookto X$ via a surjection $p_{U'} \to X_{j_{U'}}$, i.e. $f_{j_{U'}} = i_{{U'}} \circ p_{U'}$. Moreover from the Theorem \ref{locale_decomp_uni_thm} if follows that 
+\be\label{inc_loc_eqn}
+\forall V' \in X' \quad V' \le U' \quad f_{V'} = i_{{V'}} \circ p_{U'}
+\ee
+Similarly for any $U'' \in X''$ one can define a nucleus $j_{U''}$ on $X$
+\begin{definition}\label{compatible_defn}
+A pair $\left(U', U''\right) \in X'\times X''$ is said to be \textit{compatible} if $j_{U'}= j_{U''}$
+\end{definition}
+\begin{lemma}
+A family $X'\times_X X''$ of compatible pairs has the natural structure of locale.
+\end{lemma}
+\begin{proof}
+Let $\left\{\left(U'_\iota, U''_\iota \right)\right\}_{\iota \in I}\subset X'\times_X X'$ and let $U' \bydef \bigvee U'_\iota$, $~ U'' \bydef \bigvee U''_\iota$. Then from the equation \ref{inc_loc_eqn} for all $\iota \in I$ there is a natural morphism $f''_\iota: U''_\iota \to X_{j_{U'}}$. One can define a morphism $f''_{U''}:U'' \to X_{j_{U'}}$ by the following way. If $V \in  X_{j_{U'}}$ then for any $\iota \in I$ one has $V''_\iota  \bydef f''^{-1}_{U''_\iota}\left( V\right) \in U''_\iota$. Otherwise $V''_\iota  \in U''$ because $U''_\iota  \le U''$. We define $f''^{-1}_{V}\bydef \bigvee  f''^{-1}_{U''_\iota}\left( V\right)$. From this fact it follows that there is an embedding $X_{j_{U''}} \hookto X_{j_{U'}}$.  Similarly  one has an embedding $X_{j_{U'}} \hookto X_{j_{U''}}$, so we obtain $X_{j_{U'}} = X_{j_{U''}}$ and 
+$$
+\left( \bigvee U'_\iota, \bigvee U''_\iota\right) \in X'\times_X X'.
+$$
+We define
+$$
+ \bigvee \left(  U'_\iota,  U''_\iota\right) \bydef \left( \bigvee U'_\iota, \bigvee U''_\iota\right).
+$$
+If  $\left(U'_1, U''_1 \right), ~ \left(U'_2, U''_2 \right)\in   X'\times_X X''$ then $\left(U'_1\bigvee U'_2, U''_1 \bigvee U''_2 \right)\in  X'\times_X X''$ and
+$$
+j_{U'_1\bigvee U'_2}= j_{U''_1\bigvee U''_2} = j.
+$$
+From \eqref{wedge_eqn} it follows that 
+$$
+j\left(U'_1\wedge U'_2 \right) = j U'_1 \wedge j U'_2=j U''_1 \wedge j U''_2 = j\left(U''_1\wedge U''_2 \right).
+$$
+So one has $\left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right) \in X'\times_X X''$.
+we define
+$$
+\left(U'_1, U''_1 \right)\wedge \left(U'_2, U''_2\right)\bydef \left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right).
+$$
+We leave to the reader a proof of the condition \ref{frame_eqn}.
+\end{proof}
+\begin{definition}\label{locale_pullback_defn}
+One has a following  pullback diagram
+		\newline
+\begin{tikzcd}
+	X'\times_X X'' \arrow[d] \arrow[r]
+	& X' \arrow[d]\\
+	X''\arrow[r]	& X
+\end{tikzcd}
+\\
+In this case we say that $	X'\times_X X''$ is a \textit{pullback of locales}.
+\end{definition}
 \section{Locales of commutative von Neumann algebras}
 \paragraph*{}
 Let $\sX$ be a locally compact Hausdorff topological space, end let $\mu$ be a nondegenerate positive Radon measure on $\sX$ such that $\mu\left( \sX\right)= 1$.
@@ -991,7 +1039,7 @@ $$
 where $B \in \mathfrak{Frame}\left(A \right)$. 
 \end{rem}
 
-\begin{remark}
+\begin{remark}!!!!
 From the Example \ref{ctr_exm} one has a surjective  local homeomorphism
 \be\label{ctr_p_eqn}
 p_A:\mathfrak{Space}\left(A \right)\to \sX
@@ -1066,6 +1114,7 @@ Any $e_x$ yields a line $\C e_x \subset \H_x$ and a point of $\mathfrak{pt}_x \i
 \paragraph*{}
 Here we consider an analog of the described in the Appendix \ref{dd_dual_sec} duality.
 \subsection{General theory}
+
 \begin{empt}\label{dd_dual_empt}
 	Let $A, A', A'', \widetilde{A}$ be $C^*$-algebras, and let
 	\be\label{dd_bimodule_eqn}
@@ -1162,8 +1211,7 @@ If $
 	h: \mathfrak{Locale}\left( \widetilde A\right) \to \mathfrak{Locale}\left( A\right)
 	\eean	
 	of locales. 
-	For any $\widetilde B \in \mathfrak{Locale}\left( \widetilde A\right) $ one has $f_! \circ \widetilde f_! \left(\widetilde B \right)= g_! \circ \widetilde g_! \left(\widetilde B \right)= h_!\left( \widetilde B\right) $, i.e. $\widetilde B$ yields an element of $$\left(\widetilde f_! \left(\widetilde B \right), \widetilde g_! \left(\widetilde B \right) \right) 
-	\in \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right)$$ where $\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)$ means a set theoretic pullback, i.e.
+Consider a pullback of locales (cf. Definition \ref{locale_pullback_defn})
 	\newline
 	\begin{tikzcd}
 		\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right) \arrow[d] \arrow[r]
@@ -1172,6 +1220,7 @@ If $
 	\end{tikzcd}
 	\\
 	\\
+	! DELETE !!!
 	So one has a set theoretic map 
 	\bean
 	\Phi: \mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
@@ -1868,12 +1917,50 @@ i: X_j \hookto X
 given by the frame morphism $i^{-1}:\mathcal{O}(X) \to \mathcal{O}(X_j) $ defined by $i^{-1}U =jU$
 [Its right adjoint $i_*:  \mathcal{O}(X_j) \to  \mathcal{O}(X)$ is simply the inclusion: $i^*U = U$ for all $U \in \mathcal{O}(X_j)$.] Locales of the form $X_j$ where $j$ is a nucleus on $X$
 are called the \textit{sublocales} of $X$.
-\begin{theorem}
+\begin{theorem}\label{locale_decomp_thm}
 Let $f: Y \to X$
  be a map of locales. Then there exists a nucleus $j$ on $X$ for which $f$
 factors through the embedding $i : X_j \hookto X$ via a surjection $p: Y \to X_j$, i.e. $f = i \circ p$.
-
 \end{theorem}
+\begin{empt}
+	Fragment !!!
+The given map $f: X \to Y$ of locales yields
+adjoint functors $\mathcal{O}(X) \substack{ \xrightarrow{f^{-1}}\\\xleftarrow[f_*]{}}\mathcal{O}(Y)$. Define $j$ as the composite
+$j : f_*f^{-1}:\mathcal{O}(Y) \to \mathcal{O}(X)$; then $j$ is a nucleus.
+\end{empt}
+\begin{theorem}\label{locale_decomp_uni_thm}
+%Theorem 6 (Factorization Theorem, uniqueness). 
+Let $f : Y \to X$ be a map of locales, while $Y \xrightarrow{p} A \xrightarrow{u} X$ and $Y \xrightarrow{q}B \xrightarrow{v} X$
+are two factorizations of $f$. If $v$ is an embedding and $p$ is a surjection,
+then there exists a unique map $g: A \to B$ of locales such that $gp = q$
+and $vg = u$. %as in the commutative diagram
+%Y q ) B
+%pL/~//~ Iv
+%A -"",u.,---+l X.
+Moreover, if $u$ is also an embedding and $q$ is also a surjection, then $g$ is
+an isomorphism.
+\end{theorem}
+\begin{empt}\label{open_sublocale_empt}
+For a given locale $X$ and an element $U\in \mathcal{O}(X)$, the set (the downward
+closure) $\downarrow U = \left\{W \in \mathcal{O}(X)| W \le U\right\}$. 
+is clearly a frame, and there is
+an evident surjective frame morphism
+\be\label{emb_eqn}
+U \wedge \cdot : \mathcal{O}(X) \to \downarrow U\quad W \mapsto W \wedge U
+\ee
+Let us also write $U$ for the locale given by this frame $\downarrow U$; i.e., the locale
+$U$ defined by the frame $ \mathcal{O}(U) = \downarrow U$. Then \eqref{emb_eqn} describes an embedding
+\be
+f : U \hookto X, \quad f^{-1}\left(W \right) = U\wedge W \quad W \in  \mathcal{O}(X)
+\ee
+By the definition of implication as an adjoint, the right adjoint $f_*$ of $f^{-1}$ 
+is the map $V \mapsto U \Rightarrow V$, for $V \le U$. It follows that $U$ is isomorphic to
+the sublocale $X_j$ , for the nucleus $j = f_*f^{-1}$; i.e., $jW = (U \Rightarrow (U\wedge W)) =
+(U \Rightarrow W)$ for each $W \in  \mathcal{O}(X)$
+Sublocales of this form are called \textit{open sublocales} of $X$. In other words,
+any element $U \in  \mathcal{O}(X)$ defines a unique open sublocale of $X$, usually
+called $U \hookto X$.
+\end{empt}
 %\begin{definition}\label{open_locale_mor_defn}\cite{topos:intro}
 %Definition 1. 
 %A map $f : X \to Y$ of locales is \textit{open} if and only if the corresponding map $f^{-1}: \mathcal O\left( Y\right) \to  \mathcal O\left( X\right)$ of posets has a left adjoint $f_!$ which satisfies the Frobenius identity
