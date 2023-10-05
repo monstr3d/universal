@@ -812,55 +812,6 @@ From the Example \ref{c_0_x_rem} it follows that $\mathfrak{Locale}\left( C_0\le
 \mathfrak{Locale}\left(A \right)\to\sX.
 \eean
 \end{example}
-\subsection{Pullbacks of locales}
-
-\paragraph{}Let $X', X'', X$ be locales with surjections (cf. Definition \ref{loc_emp_sup_defn}) $f': X'\to X$ and $f'': X''\to X$. If $U' \in X'$ then $U'$ can be regarded as locale and there is an embedding $f'_{U'}: U' \subset X'$ (cf. ref{$U' \in X'$}). So there is a map $f_{U'}\bydef f' \circ f'_{U'}:U' \to X$. From the Theorem \ref{locale_decomp_thm} it follows that there is a nucleus $j_{U'}$ on $X$ for which $f_{U'}$
-factors through the embedding $i_{U'} : X_{j_{U'}} \hookto X$ via a surjection $p_{U'} \to X_{j_{U'}}$, i.e. $f_{j_{U'}} = i_{{U'}} \circ p_{U'}$. Moreover from the Theorem \ref{locale_decomp_uni_thm} if follows that 
-\be\label{inc_loc_eqn}
-\forall V' \in X' \quad V' \le U' \quad f_{V'} = i_{{V'}} \circ p_{U'}
-\ee
-Similarly for any $U'' \in X''$ one can define a nucleus $j_{U''}$ on $X$
-\begin{definition}\label{compatible_defn}
-A pair $\left(U', U''\right) \in X'\times X''$ is said to be \textit{compatible} if $j_{U'}= j_{U''}$
-\end{definition}
-\begin{lemma}
-A family $X'\times_X X''$ of compatible pairs has the natural structure of locale.
-\end{lemma}
-\begin{proof}
-Let $\left\{\left(U'_\iota, U''_\iota \right)\right\}_{\iota \in I}\subset X'\times_X X'$ and let $U' \bydef \bigvee U'_\iota$, $~ U'' \bydef \bigvee U''_\iota$. Then from the equation \ref{inc_loc_eqn} for all $\iota \in I$ there is a natural morphism $f''_\iota: U''_\iota \to X_{j_{U'}}$. One can define a morphism $f''_{U''}:U'' \to X_{j_{U'}}$ by the following way. If $V \in  X_{j_{U'}}$ then for any $\iota \in I$ one has $V''_\iota  \bydef f''^{-1}_{U''_\iota}\left( V\right) \in U''_\iota$. Otherwise $V''_\iota  \in U''$ because $U''_\iota  \le U''$. We define $f''^{-1}_{V}\bydef \bigvee  f''^{-1}_{U''_\iota}\left( V\right)$. From this fact it follows that there is an embedding $X_{j_{U''}} \hookto X_{j_{U'}}$.  Similarly  one has an embedding $X_{j_{U'}} \hookto X_{j_{U''}}$, so we obtain $X_{j_{U'}} = X_{j_{U''}}$ and 
-$$
-\left( \bigvee U'_\iota, \bigvee U''_\iota\right) \in X'\times_X X'.
-$$
-We define
-$$
- \bigvee \left(  U'_\iota,  U''_\iota\right) \bydef \left( \bigvee U'_\iota, \bigvee U''_\iota\right).
-$$
-If  $\left(U'_1, U''_1 \right), ~ \left(U'_2, U''_2 \right)\in   X'\times_X X''$ then $\left(U'_1\bigvee U'_2, U''_1 \bigvee U''_2 \right)\in  X'\times_X X''$ and
-$$
-j_{U'_1\bigvee U'_2}= j_{U''_1\bigvee U''_2} = j.
-$$
-From \eqref{wedge_eqn} it follows that 
-$$
-j\left(U'_1\wedge U'_2 \right) = j U'_1 \wedge j U'_2=j U''_1 \wedge j U''_2 = j\left(U''_1\wedge U''_2 \right).
-$$
-So one has $\left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right) \in X'\times_X X''$.
-we define
-$$
-\left(U'_1, U''_1 \right)\wedge \left(U'_2, U''_2\right)\bydef \left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right).
-$$
-We leave to the reader a proof of the condition \ref{frame_eqn}.
-\end{proof}
-\begin{definition}\label{locale_pullback_defn}
-One has a following  pullback diagram
-		\newline
-\begin{tikzcd}
-	X'\times_X X'' \arrow[d] \arrow[r]
-	& X' \arrow[d]\\
-	X''\arrow[r]	& X
-\end{tikzcd}
-\\
-In this case we say that $	X'\times_X X''$ is a \textit{pullback of locales}.
-\end{definition}
 \section{Locales of commutative von Neumann algebras}
 \paragraph*{}
 Let $\sX$ be a locally compact Hausdorff topological space, end let $\mu$ be a nondegenerate positive Radon measure on $\sX$ such that $\mu\left( \sX\right)= 1$.
@@ -1970,7 +1921,58 @@ called $U \hookto X$.
 %\end{definition}
 %\begin{definition}
 %A partially ordered set is \textit{complete} if and only if every subset of $P$ has an 1. u. b. (a "sup" or a join) and a g.1.b. (an "inf" or a meet); actually it suffices to require the existence of all 1.u.b.s. Thus $P$ is complete as a poset if and only if  $P$ as a category has all limits and all colimits.
-%\end{definition}	
+%\end{definition}
+
+\subsection{Pullbacks of locales}
+
+\paragraph{}Let $X', X'', X$ be locales with surjections (cf. Definition \ref{loc_emp_sup_defn}) $f': X'\to X$ and $f'': X''\to X$. If $U' \in X'$ then $U'$ can be regarded as locale and there is an embedding $f'_{U'}: U' \subset X'$ (cf. ref{$U' \in X'$}). So there is a map $f_{U'}\bydef f' \circ f'_{U'}:U' \to X$. From the Theorem \ref{locale_decomp_thm} it follows that there is a nucleus $j_{U'}$ on $X$ for which $f_{U'}$
+factors through the embedding $i_{U'} : X_{j_{U'}} \hookto X$ via a surjection $p_{U'} \to X_{j_{U'}}$, i.e. $f_{j_{U'}} = i_{{U'}} \circ p_{U'}$. Moreover from the Theorem \ref{locale_decomp_uni_thm} if follows that 
+\be\label{inc_loc_eqn}
+\forall V' \in X' \quad V' \le U' \quad f_{V'} = i_{{V'}} \circ p_{U'}
+\ee
+Similarly for any $U'' \in X''$ one can define a nucleus $j_{U''}$ on $X$
+\begin{definition}\label{compatible_defn}
+	A pair $\left(U', U''\right) \in X'\times X''$ is said to be \textit{compatible} if $j_{U'}= j_{U''}$
+\end{definition}
+\begin{lemma}
+	A family $X'\times_X X''$ of compatible pairs has the natural structure of locale.
+\end{lemma}
+\begin{proof}
+	Let $\left\{\left(U'_\iota, U''_\iota \right)\right\}_{\iota \in I}\subset X'\times_X X'$ and let $U' \bydef \bigvee U'_\iota$, $~ U'' \bydef \bigvee U''_\iota$. Then from the equation \ref{inc_loc_eqn} for all $\iota \in I$ there is a natural morphism $f''_\iota: U''_\iota \to X_{j_{U'}}$. One can define a morphism $f''_{U''}:U'' \to X_{j_{U'}}$ by the following way. If $V \in  X_{j_{U'}}$ then for any $\iota \in I$ one has $V''_\iota  \bydef f''^{-1}_{U''_\iota}\left( V\right) \in U''_\iota$. Otherwise $V''_\iota  \in U''$ because $U''_\iota  \le U''$. We define $f''^{-1}_{V}\bydef \bigvee  f''^{-1}_{U''_\iota}\left( V\right)$. From this fact it follows that there is an embedding $X_{j_{U''}} \hookto X_{j_{U'}}$.  Similarly  one has an embedding $X_{j_{U'}} \hookto X_{j_{U''}}$, so we obtain $X_{j_{U'}} = X_{j_{U''}}$ and 
+	$$
+	\left( \bigvee U'_\iota, \bigvee U''_\iota\right) \in X'\times_X X'.
+	$$
+	We define
+	$$
+	\bigvee \left(  U'_\iota,  U''_\iota\right) \bydef \left( \bigvee U'_\iota, \bigvee U''_\iota\right).
+	$$
+	If  $\left(U'_1, U''_1 \right), ~ \left(U'_2, U''_2 \right)\in   X'\times_X X''$ then $\left(U'_1\bigvee U'_2, U''_1 \bigvee U''_2 \right)\in  X'\times_X X''$ and
+	$$
+	j_{U'_1\bigvee U'_2}= j_{U''_1\bigvee U''_2} = j.
+	$$
+	From \eqref{wedge_eqn} it follows that 
+	$$
+	j\left(U'_1\wedge U'_2 \right) = j U'_1 \wedge j U'_2=j U''_1 \wedge j U''_2 = j\left(U''_1\wedge U''_2 \right).
+	$$
+	So one has $\left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right) \in X'\times_X X''$.
+	we define
+	$$
+	\left(U'_1, U''_1 \right)\wedge \left(U'_2, U''_2\right)\bydef \left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right).
+	$$
+	We leave to the reader a proof of the condition \ref{frame_eqn}.
+\end{proof}
+\begin{definition}\label{locale_pullback_defn}
+	One has a following  pullback diagram
+	\newline
+	\begin{tikzcd}
+		X'\times_X X'' \arrow[d] \arrow[r]
+		& X' \arrow[d]\\
+		X''\arrow[r]	& X
+	\end{tikzcd}
+	\\
+	In this case we say that $	X'\times_X X''$ is a \textit{pullback of locales}.
+\end{definition}
+	
 \subsection{Spatial locales}\label{spatial_toposes_sec}
 \paragraph*{}	
 Any topological space $\sX$ yields a Grothendieck topology, so 	a Grothendieck topology is a generalization of the classical topology. A topos is \textit{spatial} if it corresponds to a classical topology.
