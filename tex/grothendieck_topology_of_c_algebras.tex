@@ -762,46 +762,6 @@ If $R$ is a ring then there is a homomorphism of rings  then from the Remark \re
 where the notation \ref{etale_hom_a_eqn} is used.
 \end{remark}
 
-\begin{lemma}\label{locale_open_lem}
-	Any hereditary full injective homomorphism $f: A \hookto \mathbf{RC}\left(\widetilde A\right)$ (or $f: A \hookto \mathbf{LC}\left(\widetilde A\right)$)  yields an open map of locales  (cf. Definition \ref{open_locale_mor_defn}). Moreover the map is a surjection (cf. Definition \ref{loc_emp_sup_defn}).
-\end{lemma}
-\begin{proof}
-	Let us define a frame homomorphism 
-	\be\label{frame_a_moprhism_eqn}
-	\begin{split}
-		f_!:	\mathfrak{Frame}\left( \widetilde A\right)\to \mathfrak{Frame}\left(  A\right)\\
-		\widetilde B \mapsto  \bigcap_{\substack{B \in \mathfrak{Frame}\left(  A\right)\\ \widetilde B\subset f^{-1}\left( B\right)  }} B
-	\end{split}
-	\ee
-According to 	\eqref{open_locale_mor_eqn} one needs check the following condition
-	\be\label{hered_open_eqn}
-f_!\left( \widetilde B \wedge  f^{-1} {B}\right)  = f_!\left(\widetilde B\right)  \wedge B\quad  \text{ for all }\quad B\in \mathfrak{Frame}\left(  A\right), \quad \widetilde  B\in \mathfrak{Frame}\left( \widetilde A\right)
-\ee
-Both $B\subset A$ and $\widetilde B \subset \widetilde A$ are hereditary $C^*$-subalgebras. If $L\left( f_!\left(\widetilde B \right)\right)$ is the $C^*$-norm closure of $f_!\left(\widetilde B \right) A$ then 	
-	$$
-	L\left( f_!\left(\widetilde B \right)\right)  = 	\bigcap_{\substack{\L \subset A\\ \L \text{ is left ideal}\\ L\left( \widetilde B\right) \subset \L \widetilde{A}  }} \L.
-	$$ If
-	$
-	L\left(f^{-1}B \right) 	
-	$
-	is the $C^*$-norm closure of $B  \widetilde A$, and $L\left( \widetilde B \wedge  f^{-1} {B}\right)$  is the $C^*$-norm closure of $\left( B  \widetilde A\right) \cap \widetilde B$ then one has
-	\bean
-	L\left( 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right)\right) =  \bigcap_{\substack{\L_B \subset A\\ \L_B \text{ is left ideal}\\  L\left( \widetilde B\right)\cap B\widetilde A \subset \L_B \widetilde{A}  }} \L_B
-	\eean
-	From  $L\left( \widetilde B\right) \subset \L \widetilde{A}$ it follows that $\left(  L\left( \widetilde B\right)\cap B\widetilde A\right)\subset \left( \L \cap B\right) \widetilde A = \left( \L \cap L\left( B\right) \right) \widetilde A$, so one has
-	$$
-	L\left( 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right)\right)\subset	L\left( f_!\left(\widetilde B \right)\right)\cap L\left( B\right)
-	$$
-	or equivalently $f_!\left( \widetilde B \wedge  f^{-1} {B}\right)  \subset f_!\left(\widetilde B\right)  \wedge B$. Otherwise from $L\left( \widetilde B\right)\cap B\widetilde A \subset \L_B \widetilde{A} $ it follows that $L\left( \widetilde B\right)\cap B\widetilde A \subset\left(  \L_B\cap L(B)\right)  \widetilde{A}$, so one has 
-	$$
-	L\left( f_!\left(\widetilde B \right)\right)\cap L\left( B\right)\subset L\left( 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right)\right)
-$$
-or equivalently $f_!\left(\widetilde B \right)\wedge  B\subset 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right) $.  A conjunction of both inclusions $f_!\left( \widetilde B \wedge  f^{-1} {B}\right)  \subset f_!\left(\widetilde B\right)  \wedge B$ and $f_!\left(\widetilde B \right)\wedge  B\subset 	f_!\left( \widetilde B \wedge  f^{-1} {B}\right)$ is equivalent to the condition \eqref{frame_a_moprhism_eqn}.
-
-Since $f$ is injective, it yields an injective map of frames $\mathfrak{Frame}\left(A \right)\hookto \mathfrak{Frame}\left(\widetilde A \right)$. According to the Definition \ref{loc_emp_sup_defn} the corresponding locale map $\mathfrak{Locale}\left(\widetilde A \right)\to \mathfrak{Locale}\left( A \right)$ is surjective.
-
-In the case of $f: A \hookto \mathbf{LC}\left(\widetilde A\right)$ the proof is similar.
-\end{proof}
 \begin{example}\label{ctr_exm}
 	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ then from the the Theorem  \ref{dauns_hofmann_thm} one has a hereditary full injective *-homomorphism $C_0\left(\sX\right)$ so there is an open morphism of locales
 	$$
@@ -812,58 +772,6 @@ From the Example \ref{c_0_x_rem} it follows that $\mathfrak{Locale}\left( C_0\le
 \mathfrak{Locale}\left(A \right)\to\sX.
 \eean
 \end{example}
-
-\subsection{Pullbacks of locales}
-
-\paragraph{}Let $X', X'', X$ be locales with surjections (cf. Definition \ref{loc_emp_sup_defn}) $f': X'\to X$ and $f'': X''\to X$. If $U' \in X'$ then $U'$ can be regarded as locale and there is an embedding $f'_{U'}: U' \subset X'$ (cf. ref{$U' \in X'$}). So there is a map $f_{U'}\bydef f' \circ f'_{U'}:U' \to X$. From the Theorem \ref{locale_decomp_thm} it follows that there is a nucleus $j_{U'}$ on $X$ for which $f_{U'}$
-factors through the embedding $i_{U'} : X_{j_{U'}} \hookto X$ via a surjection $p_{U'} \to X_{j_{U'}}$, i.e. $f_{j_{U'}} = i_{{U'}} \circ p_{U'}$. Moreover from the Theorem \ref{locale_decomp_uni_thm} if follows that 
-\be\label{inc_loc_eqn}
-\forall V' \in X' \quad V' \le U' \quad f_{V'} = i_{{V'}} \circ p_{U'}
-\ee
-Similarly for any $U'' \in X''$ one can define a nucleus $j_{U''}$ on $X$
-\begin{definition}\label{compatible_defn}
-	A pair $\left(U', U''\right) \in X'\times X''$ is said to be \textit{compatible} if $j_{U'}= j_{U''}$
-\end{definition}
-\begin{lemma}
-	A family $X'\times_X X''$ of compatible pairs has the natural structure of locale.
-\end{lemma}
-\begin{proof}
-	Let $\left\{\left(U'_\iota, U''_\iota \right)\right\}_{\iota \in I}\subset X'\times_X X'$ and let $U' \bydef \bigvee U'_\iota$, $~ U'' \bydef \bigvee U''_\iota$. Then from the equation \ref{inc_loc_eqn} for all $\iota \in I$ there is a natural morphism $f''_\iota: U''_\iota \to X_{j_{U'}}$. One can define a morphism $f''_{U''}:U'' \to X_{j_{U'}}$ by the following way. If $V \in  X_{j_{U'}}$ then for any $\iota \in I$ one has $V''_\iota  \bydef f''^{-1}_{U''_\iota}\left( V\right) \in U''_\iota$. Otherwise $V''_\iota  \in U''$ because $U''_\iota  \le U''$. We define $f''^{-1}_{V}\bydef \bigvee  f''^{-1}_{U''_\iota}\left( V\right)$. From this fact it follows that there is an embedding $X_{j_{U''}} \hookto X_{j_{U'}}$.  Similarly  one has an embedding $X_{j_{U'}} \hookto X_{j_{U''}}$, so we obtain $X_{j_{U'}} = X_{j_{U''}}$ and 
-	$$
-	\left( \bigvee U'_\iota, \bigvee U''_\iota\right) \in X'\times_X X'.
-	$$
-	We define
-	$$
-	\bigvee \left(  U'_\iota,  U''_\iota\right) \bydef \left( \bigvee U'_\iota, \bigvee U''_\iota\right).
-	$$
-	If  $\left(U'_1, U''_1 \right), ~ \left(U'_2, U''_2 \right)\in   X'\times_X X''$ then $\left(U'_1\bigvee U'_2, U''_1 \bigvee U''_2 \right)\in  X'\times_X X''$ and
-	$$
-	j_{U'_1\bigvee U'_2}= j_{U''_1\bigvee U''_2} = j.
-	$$
-	From \eqref{wedge_eqn} it follows that 
-	$$
-	j\left(U'_1\wedge U'_2 \right) = j U'_1 \wedge j U'_2=j U''_1 \wedge j U''_2 = j\left(U''_1\wedge U''_2 \right).
-	$$
-	So one has $\left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right) \in X'\times_X X''$.
-	we define
-	$$
-	\left(U'_1, U''_1 \right)\wedge \left(U'_2, U''_2\right)\bydef \left( U'_1\wedge U'_2 , U''_1\wedge U''_2 \right).
-	$$
-	We leave to the reader a proof of the condition \ref{frame_eqn}.
-\end{proof}
-\begin{definition}\label{locale_pullback_defn}
-	One has a following  pullback diagram
-	\newline
-	\begin{tikzcd}
-		X'\times_X X'' \arrow[d] \arrow[r]
-		& X' \arrow[d]\\
-		X''\arrow[r]	& X
-	\end{tikzcd}
-	\\
-	In this case we say that $	X'\times_X X''$ is a \textit{pullback of locales}.
-\end{definition}
-
-
 
 \section{Locales of commutative von Neumann algebras}
 \paragraph*{}
@@ -1206,7 +1114,7 @@ If $
 
 
 \begin{empt}
-	If we consider the situation of the Definition \ref{dd_dual_defn} then from the Lemma  \ref{locale_open_lem} one has open maps 
+	If we consider the situation of the Definition \ref{dd_dual_defn} then from the Lemma  \ref{locale_lem} morphisms of locales
 	\bean
 	f : \mathfrak{Locale}\left( A'\right) \to \mathfrak{Locale}\left( A\right),\\
 	g : \mathfrak{Locale}\left( A''\right) \to \mathfrak{Locale}\left( A\right),\\
@@ -1214,76 +1122,41 @@ If $
 	\widetilde g : \mathfrak{Locale}\left( \widetilde A\right) \to \mathfrak{Locale}\left( A''\right),\\
 	h: \mathfrak{Locale}\left( \widetilde A\right) \to \mathfrak{Locale}\left( A\right)
 	\eean	
-	of locales. 
-Consider a pullback of locales (cf. Definition \ref{locale_pullback_defn})
-	\newline
-	\begin{tikzcd}
-		\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A'\right) \arrow[d] \arrow[r]
-		& \mathfrak{Locale}\left( A'\right)\arrow[d, "f_!"]\\
-		\mathfrak{Locale}\left( A''\right)\arrow[r, "g_!"]	&\mathfrak{Locale}\left( A\right)
-	\end{tikzcd}
-	\\
-	\\
-	! DELETE !!!
-	So one has a set theoretic map 
-	\bean
-	\Phi: \mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
-	\widetilde B \mapsto\left(\widetilde f_! \left(\widetilde B \right), \widetilde g_! \left(\widetilde B \right)\right) 
-	\eean
-	Let us define a map
-	\bean
-	\Psi: \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)\to \mathfrak{Locale}\left( \widetilde A\right),\\
-	\left(B', B''\right) \mapsto \bydef f^{-1}\left(B' \right) \wedge g^{-1}\left(B'' \right).
-	\eean
-	From \eqref{hered_open_eqn} it follows that
-	\bean
-	\widetilde f_!\left(\widetilde  g^{-1} {B''} \wedge \widetilde  f^{-1} {B'}\right)  = \widetilde f_!\left(g^{-1} {B''}\right)  \wedge B',\\
-	%\widetilde g_!\left( \widetilde  f^{-1} {B'} \wedge \widetilde   g^{-1} {B''}\right)  = \widetilde  g_!\left(\widetilde  f^{-1} {B'}\right)  \wedge B'',\\
-	%f_!\left( B'\right)= g_!\left(B'' \right) = f_!\circ  \widetilde f_!\left(B' \right)
-	\eean
-	From
-	\bean
-	\widetilde f_!\left(g^{-1} {B''}\right)=  f^{-1} \left( g_!\circ \widetilde g_!\left(g^{-1} {B''}\right)\right) = f^{-1} \left( f_!\circ \widetilde f_!\left(f^{-1} {B'}\right)\right)= B'
-	\eean
-	it follows that $\widetilde f_!\left(\widetilde  f^{-1} {B'} \wedge \widetilde  g^{-1} {B''}\right)= B'$. 
-	Similarly one has $\widetilde g_!\left(\widetilde  f^{-1} {B'} \wedge \widetilde  g^{-1} {B''}\right)= B''$
-	The maps
-	\bean
-	\mathfrak{Locale}\left( \widetilde A\right)\to \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right),\\
-	\mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)\to \mathfrak{Locale}\left( \widetilde A\right)
-	\eean
-	are mutually inverse so one has a set theoretic bijection
-	\be\label{duality_locale_map_eqn}
-	\mathfrak{Locale}\left( \widetilde A\right)\cong \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right).
-	\ee
+	of locales. From \eqref{dd_phi_eqn}  it follows that
+\be\label{ff_gg_eqn}
+f \circ \widetilde f = g \circ \widetilde g = h.
+\ee
 \end{empt}
-\begin{definition}\label{dd_locale_defn}
-The given by the equation \eqref{duality_locale_map_eqn} bijective map
-$$
-	\mathfrak{Locale}\left( \widetilde A\right)\cong \mathfrak{Locale}\left( A'\right)\times_{\mathfrak{Locale}\left( A\right)} \mathfrak{Locale}\left( A''\right)
-$$
-is said to be a \textit{Dixmier}-\textit{Douady duality of locales}.
-\end{definition}
-
 
 \begin{empt}
 If $R$ is a ring then from \eqref{topos_hom_chech_hom_r_eqn} it follows that there are ring homomorphisms
 	\bean
-\check{H}^\bullet \left(A, R \right) \xrightarrow{\check{H}^\bullet(\phi, R)} \check{H}^\bullet\left(A', R \right),\\
-\check{H}^\bullet\left(A, R \right) \xrightarrow{\check{H}^\bullet\left(\psi, R \right) } \check{H}^\bullet\left(A'', R \right),\\
-\check{H}^\bullet\left(A', R \right) \xrightarrow{\check{H}^\bullet\left( \widetilde \phi, R\right)} \check{H}^\bullet\left(\widetilde A, R \right),\\
-\check{H}^\bullet\left(A'', R \right) \xrightarrow{\check{H}^\bullet\left( \widetilde \psi, R\right) } \check{H}^\bullet\left(\widetilde A, R \right),\\
+\check{H}^\bullet \left(A, R \right) \xrightarrow{\check{H}^\bullet(f, R)} \check{H}^\bullet\left(A', R \right),\\
+\check{H}^\bullet\left(A, R \right) \xrightarrow{\check{H}^\bullet\left(g, R \right) } \check{H}^\bullet\left(A'', R \right),\\
+\check{H}^\bullet\left(A', R \right) \xrightarrow{\check{H}^\bullet\left( \widetilde f, R\right)} \check{H}^\bullet\left(\widetilde A, R \right),\\
+\check{H}^\bullet\left(A'', R \right) \xrightarrow{\check{H}^\bullet\left( \widetilde g, R\right) } \check{H}^\bullet\left(\widetilde A, R \right),\\
+\check{H}^\bullet\left(A, R \right) \xrightarrow{\check{H}^\bullet\left(  h, R\right) } \check{H}^\bullet\left(\widetilde A, R \right).
 \eean 
-such that 
+Taking into account  \eqref{ff_gg_eqn} one has
 \be\label{cup_eq_eqn}
-\check{H}^\bullet\left( \widetilde \phi, R\right) \circ \check{H}^\bullet\left(  \phi, R\right)=\check{H}^\bullet\left( \widetilde \psi, R\right) \circ \check{H}^\bullet\left(  \psi, R\right). 
+\check{H}^\bullet\left( \widetilde f, R\right) \circ \check{H}^\bullet\left(  f, R\right)=\check{H}^\bullet\left( \widetilde g, R\right) \circ \check{H}^\bullet\left(  g, R\right) = \check{H}^\bullet\left( h, R\right). 
 \ee
 There is a pairing
-\bean
+\be\label{cup_p_eqn}
+\begin{split}
 \check{H}^\bullet\left(A', R \right)\times \check{H}^\bullet\left(A'', R \right)\to \check{H}^\bullet\left(\widetilde A, R \right),\\
-\left(x', x''\right) \mapsto \check{H}^\bullet\left( \widetilde \phi, R\right)\left( x'\right) \smile \check{H}^\bullet\left( \widetilde \psi, R\right)\left( x''\right)
-\eean
-where $\smile$ is a cup product (cf. the equation \eqref{cup_prod_eqn} and the Remark \ref{ring_homo_rem} !!! \ref{topos_hom_chech_hom_r_eqn}  \ref{topos_hom_hom_eqn}  !!!). From \eqref{cup_eq_eqn} it follows that the above pairing yields a following group homomorphism
+\left(x', x''\right) \mapsto \check{H}^\bullet\left( \widetilde f, R\right)\left( x'\right) \smile \check{H}^\bullet\left( \widetilde g, R\right)\left( x''\right)
+\end{split}
+\ee
+where $\smile$ is a cup product (cf. the Proposition \ref{cup_ass_prop} and the Remark \ref{ring_homo_rem}). 
+Taking into account the equations \eqref{cup_eq_eqn} and \eqref{cup_ass_eqn} one has 
+\be\label{cross_p_eqn}
+\begin{split}
+\left(  \check{H}^\bullet\left( \widetilde f, R\right)\left( x'\right)\smile \check{H}^\bullet\left( f, R\right)\left( x\right)\right)  \smile \check{H}^\bullet\left( \widetilde g, R\right)\left( x''\right)=\\= \check{H}^\bullet\left( \widetilde f, R\right)\left( x'\right) \smile \left( \check{H}^\bullet\left( g, R\right)\left( x\right)\smile \check{H}^\bullet\left( \widetilde g, R\right)\left( x''\right)\right) 
+\end{split}
+\ee
+where $x \in \check{H}^\bullet\left(A , R\right),\quad x' \in \check{H}^\bullet\left(A' , R\right), \quad  \in \check{H}^\bullet\left(A'' , R\right)$.
+From the equation \eqref{cross_p_eqn}  it follows that the  pairing \eqref{cup_p_eqn} yields a following group homomorphism
 \be\label{dd_coh_eqn}
 \check{H}^\bullet\left(A' , R\right)\otimes_{\check{H}^\bullet\left(A, R \right)} \check{H}^\bullet\left(A'', R \right)\to \check{H}^\bullet\left(\widetilde A, R \right).
 \ee
@@ -1291,7 +1164,8 @@ where $\smile$ is a cup product (cf. the equation \eqref{cup_prod_eqn} and the R
 \begin{definition}\label{dd_coh_defn}
 	The given by the equation \eqref{dd_coh_eqn} pairing
 	$$
-\check{H}^\bullet\left(A' \right)\otimes_{\check{H}^\bullet\left(A \right)} \check{H}^\bullet\left(A'' \right)\to \check{H}^\bullet\left(\widetilde A \right)	$$
+\check{H}^\bullet\left(A' , R\right)\otimes_{\check{H}^\bullet\left(A, R \right)} \check{H}^\bullet\left(A'', R \right)\to \check{H}^\bullet\left(\widetilde A, R \right)
+$$
 	is said to be the \textit{cohomological Dixmier}-\textit{Douady duality}.
 	
 \end{definition}
@@ -1837,144 +1711,7 @@ $$
 of locales and localic toposes.
 
 \end{proposition}
-\begin{lemma}\label{loc_adj_lem}
-%Lemma 1. 
-A morphism $\Phi: A \to B$ of frames considered as a map
-of posets has a right adjoint $\Psi : B \to A$
-such that
-\be\label{loc_adj_eqn}
-\Psi\left( U\right)  \bydef \bigvee \left\{V \in B | \Phi\left( V\right) \le U \right\}.
-\ee
-\end{lemma}
-Recall that for a map $f: Y\to X$ of locales, the corresponding frame
-map $f^{-1}: \mathcal{O}(Y)\to \mathcal{O}(X)$, considered as a map of posets, has a right
-adjoint $f_*: \mathcal{O}(Y)\to \mathcal{O}(X)$ (Lemma \ref{loc_adj_lem}). The unit and counit of this
-adjunction between posets state that $U \le f_*f^{-1} (U)$ for any $U \in \mathcal{O}(X)$,
-and that  $f^{-1}f_* (V) < V$ for any $V \in \mathcal{O}(Y)$. Moreover, the triangular
-identities for the adjunction reduce to the equalities
-\be\label{redu_eqn}
- f_*f^{-1}f_*=f^{-1}, \quad f^{-1}f_*f^{-1} = f_*, 
-\ee
 
-\begin{definition}\label{loc_emp_sup_defn}\cite{topos:intro}
-A map $X \to Y$ of locales is an \textit{embedding}
-(respectively a \textit{surjection}) if and only if the corresponding morphism of frames
-$\mathcal O \left(Y \right)  \to \mathcal O \left(X \right)$ is surjective (resp. is injective).
-\end{definition}
-\begin{lemma}\cite{topos:intro}
-%Lemma 2. 
-Let $f : X \to Y$ be a map of locales. The following three
-conditions are equivalent:
-\begin{enumerate}
-	\item [(a)] $f$ is a surjection of locales (i.e., 1-1 is one-to-one);
-	\item 	[(b)] $f_*f^{-1} = \Id: \mathcal{O}(X)\cong \mathcal{O}(X)$,
-	\item 	[(c)] $f_*: \mathcal{O}(Y)\to \mathcal{O}(X)$ is a surjection of posets.
-	
-\end{enumerate}
-
-Also, the following are equivalent:
-\begin{enumerate}
-	\item [(a')] $f$ is an embedding of locales (i.e., 1-1 is one-to-one);
-	\item 	[(b')] $f^{-1}f_* = \Id: \mathcal{O}(Y)\cong \mathcal{O}(Y)$,
-	\item 	[(c')] $f_*: \mathcal{O}(Y)\to \mathcal{O}(X)$ is  is injective (one-to-one).
-	\end{enumerate}
-\end{lemma}
-Consider an embedding $f: X \to Y$ of locales. Thus, by (c') above,
-$f_*: \mathcal{O}(Y)\to \mathcal{O}(X)$ is injective, and again by \eqref{redu_eqn} its image consists of
-precisely those elements $U\in \mathcal{O}(X)$ which are fixed under the operator
-$f_*f^{-1}: \mathcal{O}(X)\to \mathcal{O}(X)$. This operator $j \bydef f_*f^{-1}$ is (the underlying
-functor of) the monad of the adjunction $f^{-1} \vdash f_*$, while the unit and
-multiplication of this monad are maps which can be expressed by the
-following inequalities, for each $U$ in the poset $\mathcal{O}(X)$:
-\bea\label{lju_eqn}
-U\le jU,\\
-\label{llju_eqn}
-jj U \le jU.
-\eea
-Notice that by the functoriality of $j = f_*f^{-1}$, \eqref{lju_eqn} implies that $j U\le j^2 U$ so that \eqref{llju_eqn} is in fact an identity 
-\be\label{lllju_eqn}
-j^2 U = j U
-\ee
-
-Notice also that, since $f_*$ and $f^{-1}$ both preserve finite meets ($f_*$ as
-a right adjoint and $f^{-1}$ as a frame morphism), we have for any $U, U' \in 
- \mathcal{O}(X)$
- \be\label{wedge_eqn}
- j\left( U\wedge U'\right) = jU \wedge j U'
- \ee
-An operator $j:  \mathcal{O}(X)\to  \mathcal{O}(X)$ satisfying the identities (2), (3'), (4) is called a \textit{nucleus} on the locale $X$. This nucleus determines the domain locale $Y$. Indeed, it is  stated  if $f: Y \to X$ is an embedding of locales, then $\mathcal{O}(Y)$ is isomorphic to the set of fixed points $\left\{U \in \mathcal{O}(X)| jU = U\right\}$ of the nucleus $j f_*f^{-1}$. The converse of this observation also holds:
-\begin{proposition}
-Let $j: \mathcal{O}(X)\to \mathcal{O}(X)$ be a nucleus on a locale $X$.
-Then the poset of $j$-fixed points $\left\{U \in \mathcal{O}(X)| jU = U\right\}$ is a frame,
-and $j$ defines a surjective frame-morphism from $\mathcal{O}(X)$ into this frame of
-fixed points.
-\end{proposition}
-The locale corresponding to this frame of fixed points  $\left\{U \in \mathcal{O}(X)| jU = U\right\}$ is usually denoted by $X_j$-so the corresponding frame is
-\be
-\mathcal{O}(X_j) = \left\{U \in \mathcal{O}(X)| jU = U\right\}
-\ee
-The proposition then states that the nucleus $j$ on $X$ determines an
-embedding of locales
-\be
-i: X_j \hookto X
-\ee
-given by the frame morphism $i^{-1}:\mathcal{O}(X) \to \mathcal{O}(X_j) $ defined by $i^{-1}U =jU$
-[Its right adjoint $i_*:  \mathcal{O}(X_j) \to  \mathcal{O}(X)$ is simply the inclusion: $i^*U = U$ for all $U \in \mathcal{O}(X_j)$.] Locales of the form $X_j$ where $j$ is a nucleus on $X$
-are called the \textit{sublocales} of $X$.
-\begin{theorem}\label{locale_decomp_thm}
-Let $f: Y \to X$
- be a map of locales. Then there exists a nucleus $j$ on $X$ for which $f$
-factors through the embedding $i : X_j \hookto X$ via a surjection $p: Y \to X_j$, i.e. $f = i \circ p$.
-\end{theorem}
-\begin{empt}
-	Fragment !!!
-The given map $f: X \to Y$ of locales yields
-adjoint functors $\mathcal{O}(X) \substack{ \xrightarrow{f^{-1}}\\\xleftarrow[f_*]{}}\mathcal{O}(Y)$. Define $j$ as the composite
-$j : f_*f^{-1}:\mathcal{O}(Y) \to \mathcal{O}(X)$; then $j$ is a nucleus.
-\end{empt}
-\begin{theorem}\label{locale_decomp_uni_thm}
-%Theorem 6 (Factorization Theorem, uniqueness). 
-Let $f : Y \to X$ be a map of locales, while $Y \xrightarrow{p} A \xrightarrow{u} X$ and $Y \xrightarrow{q}B \xrightarrow{v} X$
-are two factorizations of $f$. If $v$ is an embedding and $p$ is a surjection,
-then there exists a unique map $g: A \to B$ of locales such that $gp = q$
-and $vg = u$. %as in the commutative diagram
-%Y q ) B
-%pL/~//~ Iv
-%A -"",u.,---+l X.
-Moreover, if $u$ is also an embedding and $q$ is also a surjection, then $g$ is
-an isomorphism.
-\end{theorem}
-\begin{empt}\label{open_sublocale_empt}
-For a given locale $X$ and an element $U\in \mathcal{O}(X)$, the set (the downward
-closure) $\downarrow U = \left\{W \in \mathcal{O}(X)| W \le U\right\}$. 
-is clearly a frame, and there is
-an evident surjective frame morphism
-\be\label{emb_eqn}
-U \wedge \cdot : \mathcal{O}(X) \to \downarrow U\quad W \mapsto W \wedge U
-\ee
-Let us also write $U$ for the locale given by this frame $\downarrow U$; i.e., the locale
-$U$ defined by the frame $ \mathcal{O}(U) = \downarrow U$. Then \eqref{emb_eqn} describes an embedding
-\be
-f : U \hookto X, \quad f^{-1}\left(W \right) = U\wedge W \quad W \in  \mathcal{O}(X)
-\ee
-By the definition of implication as an adjoint, the right adjoint $f_*$ of $f^{-1}$ 
-is the map $V \mapsto U \Rightarrow V$, for $V \le U$. It follows that $U$ is isomorphic to
-the sublocale $X_j$ , for the nucleus $j = f_*f^{-1}$; i.e., $jW = (U \Rightarrow (U\wedge W)) =
-(U \Rightarrow W)$ for each $W \in  \mathcal{O}(X)$
-Sublocales of this form are called \textit{open sublocales} of $X$. In other words,
-any element $U \in  \mathcal{O}(X)$ defines a unique open sublocale of $X$, usually
-called $U \hookto X$.
-\end{empt}
-%\begin{definition}\label{open_locale_mor_defn}\cite{topos:intro}
-%Definition 1. 
-%A map $f : X \to Y$ of locales is \textit{open} if and only if the corresponding map $f^{-1}: \mathcal O\left( Y\right) \to  \mathcal O\left( X\right)$ of posets has a left adjoint $f_!$ which satisfies the Frobenius identity
-%\be\label{open_locale_mor_eqn}
-%f_!(V \wedge  f^{-1} U) = f_!(V) \wedge U\quad  \text{ for all }\quad U\in O\left( X\right), \quad V \in O\left( Y\right).
-%\ee
-%\end{definition}
-%\begin{definition}
-%A partially ordered set is \textit{complete} if and only if every subset of $P$ has an 1. u. b. (a "sup" or a join) and a g.1.b. (an "inf" or a meet); actually it suffices to require the existence of all 1.u.b.s. Thus $P$ is complete as a poset if and only if  $P$ as a category has all limits and all colimits.
-%\end{definition}
 
 \subsection{Spatial locales}\label{spatial_toposes_sec}
 \paragraph*{}	
@@ -2043,6 +1780,7 @@ from the category of locales to the category of topological spaces (cf. \cite{to
 The functor $\mathrm{pt}: \mathbf{Locales}\to \mathbf{Spaces}$ is right adjoint
 to the functor $\mathrm{Loc} : \mathbf{Spaces} \to \mathbf{Locales}$.
 \end{theorem}
+
 
 \begin{definition}\label{sober_defn}\cite{topos:intro}
 A topological space $\sX$ is said to be \textit{sober} if and only is for any
@@ -2414,9 +2152,9 @@ For any locale X, the following are equivalent:
 		\begin{enumerate}
 			\item[(i)] The cup-product is associative, i.e., for $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, $\ga \in \check{H}^r\left(\mathscr U,  \mathscr H\right)$
 			we have 
-			$$
+		\be\label{cup_ass_eqn}
 			\a \smile \left( \bt \smile \ga\right) 	= \left( \a \smile \bt\right) \smile \ga. 
-			$$
+	\ee
 			\item[(ii)]	 The \textit{cup}-\textit{product} is \textit{graded}-\textit{commutative}. If $\a \in \check{H}^p\left(\mathscr U,  \mathscr F\right)$,  $\bt \in \check{H}^q\left(\mathscr U,  \mathscr G\right)$, we have 
 			$$
 			\a \smile \bt =\left( -1\right)^p  \bt \smile \a.
@@ -2446,7 +2184,7 @@ For any locale X, the following are equivalent:
 Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):\check{H}^\bullet\left(\sY, F \right)\to \check{H}^\bullet\left(\sX, F \right)$ is a homomorphism of rings.
 	\end{exercise}
 	
-	\begin{remark}\label{ring_homo_rem} !!! \ref{topos_hom_chech_hom_r_eqn}  \ref{topos_hom_hom_eqn}  !!!
+	\begin{remark}\label{ring_homo_rem} 
 	In \cite{milne:lec,swan:cup} it is explained that the homomorphism \eqref{cech_hom_eqn} Lemma \ref{gr_ring_lem} and the Exercise  \ref{ring_homo_exer} can by applied to any Grothendieck topology.
 	\end{remark}
 	
