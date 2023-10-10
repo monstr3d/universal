@@ -2039,32 +2039,102 @@ For any locale X, the following are equivalent:
 %X\setminus  \left( \downarrow\left(  x_1\right)\cup ... \cup \downarrow\left(  x_n\right)\right) 
 %$$
 
+\subsection{Cohomology}\label{grothendieck_cohomology_section}
+\paragraph{}
+Here I follow to \cite{milne:lec}. The functor
+\bean
+\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
+\mathscr F \mapsto \mathscr F\left(X \right) 
+\eean
+of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution
+$$
+0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
+$$
+and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+\be\label{complex_eqn}
+\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{d_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{d_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
+\ee
+This is no longer exact (in general).
 
-	\subsection{Cohomology of sheaves}\label{grothendieck_cohomology_section}
-	\paragraph*{}
-	Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. The functor
-	\bean
-	\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
-	\mathscr F \mapsto \mathscr F\left(X \right) 
-	\eean
-	of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution (cf. Statement \ref{site_enough_stmt})
-	$$
-	0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
-	$$
-	and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
-	\be\label{complex_eqn}
-	0 \hookto\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\dl_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\dl_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
-	\ee
-	which is no longer exact (in general). For any $r\ge 0$ the complex \eqref{complex_eqn} yields the $r^{\text{th}}$ \textit{cohomology
-		group}  
+\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
+	%			Theorem 1.1 A. 
+	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
+	$F: \mathfrak A \to  \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
+	Then 
+	\begin{enumerate}
+		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
+		to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+		of the choices of injective resolutions made.
+		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
+		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
+		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+		obtain a long exact sequence 
+		$$
+		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
+		$$
+		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
+				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
+			\path[-stealth]
+			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
+			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
+			(m-1-1) edge node [right]  {} (m-2-1)
+			(m-1-2) edge node [right] {} (m-2-2);
+		\end{tikzpicture}
+		\\
+		\	
+		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
+		
+	\end{enumerate}
+\end{theorem}
+\begin{definition}\label{acyc_defn}\cite{hartshorne:ag}
+With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, an object $J$ of $\mathfrak A$ is acyclic for 
+$F$ if $R^pF = 0$ for all $p > 0$. 
+\end{definition}
+\begin{proposition}\label{acyc_prop}\cite{hartshorne:ag}
+%Proposition 1.2A. 
+With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, suppose there is an exact 
+sequence 
+$$
+0 \to A \xrightarrow{\dl_0} J^0 \xrightarrow{\dl_1}J^1 \to \dots
+$$
+where each $J^p$ is acyclic for $F$,  $p\ge 0$. (We say $J^\bullet$ is an $F$-\textit{acyclic resolution}
+of $A$.) Then for each $p \ge 0$ there is a natural isomorphism $R^p\left( F\left(A \right) \right) = h^p\left( F\left( J^\bullet\right) \right)$
+where 
 	\be\label{etale_coh_eqn}
-	H^r\left(X,\ \mathscr F \right)\bydef\begin{cases}
-		\ker \dl^0 & r = 0\\
-		\ker~ \dl_{r} / \im~ \dl_{r - 1}  & r > 0
-	\end{cases},
-	\ee
-	which does not depend on choice of injective resolution up to isomorphism.
-	
+	\begin{split}
+h^p\left( F\left( J^\bullet\right) \right)\bydef\begin{cases}
+	\ker F\left( \dl^0 \right) & p = 0\\
+	\ker~ F\left(  \dl_{p} \right) / \im~ F\left(  \dl_{p-1}\right)   & p > 0
+\end{cases}
+	\end{split}
+\ee
+
+\end{proposition}
+
+
+The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $r^{\text{th}}$ cohomology
+group  $$
+H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \F \right) 
+$$.
+The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
+\begin{enumerate}
+	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\cong \Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
+	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
+	\item [(c)]  short exact sequence of sheaves
+	$0\to \mathscr F' \to \mathscr F \to \mathscr F'' \to 0$	gives rise to a long exact sequence
+	$$
+	0 \to H^0\left(X, \mathscr F'  \right) \to H^0\left(X, \mathscr F  \right) \to H^0\left(X, \mathscr F''  \right) \to H^1\left(X,\ \mathscr F'  \right) \to ...
+	$$
+	and the association of the long exact sequence with the short exact sequence is functional.
+\end{enumerate}
+Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
+by the properties (a), (b) and (c).
+
 \begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
 	%8.17 
 	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geometric_morphism_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
