@@ -746,40 +746,65 @@ where the notation \ref{etale_hom_a_eqn} is used.
 
 \section{Locales of commutative $C^*$-algebras}
 \paragraph{}
-Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  on a closed subset
+Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  an open subset
 \be\label{top_xb_eqn}
-\sX_B \bydef\left\{x \in \sX\quad |\quad \forall a \in B \quad a\left(x \right) = 0\right\}.
+\sX_B \bydef\left\{x \in \sX\quad |\quad \exists a \in B \quad a\left(x \right) \neq 0\right\}.
 \ee
 One can define a locale 	$\mathfrak{Adjont}\left( \sX\right)$ such that its elements are closed subsets of $\sX$ and having following operations
 \be\label{top_adj_eqn}
 \begin{split}
 \emptyset \bydef 0,\\
 \sX \bydef 1,\\
-\bigvee \sU_\iota \bydef \quad \text{ a closure of } \quad \bigcup\sU_\iota,\\ 
-\sV \wedge \sU\bydef \sV \cap \sU.
+\bigvee \sU_\iota \bydef \quad \text{ a union of open subsets of } \quad \bigcap\sU_\iota,\\ 
+\sV \wedge \sU\bydef \sV \cup \sU.
 \end{split}
 \ee
-We leave to the reader proof of that the locale $\mathfrak{Adjont}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ (cf. Definition \ref{gelfand_a_locale_defn}).
+\begin{lemma}\label{comm_alg_loc_lem}
+The locale $\mathfrak{Adjont}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ (cf. Definition \ref{gelfand_a_locale_defn}).
+\end{lemma}
+\begin{proof}
+We leave to the reader the proof of this lemma
+\end{proof}
 Let $p^{-1}:	\mathfrak{Frame}\left(C_0\left(  \sX\right) \right)\to \left\{0, 1\right\}$
-be a point of  the Gelfand $A$-frame	$\mathfrak{Frame}\left(A \right)$  (cf. Definition \ref{locale_point_defn}). If $K \bydef
+be a point of  the Gelfand $C_0\left(  \sX\right)$-frame	$\mathfrak{Frame}\left(C_0\left(  \sX\right) \right)$  (cf. Definition \ref{locale_point_defn}). If $K \bydef
 \left\{B \left.|~ p^{-1} \left( B \right)  = 0\right.\right\}$ and  
 $$
 P \bydef  \bigvee K \bydef \left( \bigvee_{B\in K} B\right) \in 	\mathfrak{Frame}\left(C_0\left(  \sX\right) \right)
 $$ 
-(cf. \eqref{p_p_eqn}) then $P$ is a hereditary subalgebra of $C_0\left(  \sX\right)$. From the equation \eqref{pprime_eqn} it follows that $P \neq A$. If $\sX_P$ is given by \eqref{top_xb_eqn} then from $P \neq A$ it follows that $\sX_P\neq \sX$. If  $x', x'' \in\sX\setminus  \sX_P$ and $\sU = \sX_P\cup \{x'\}$, $~\sV = \sX_P\cup \{x''\}$ then
+(cf. \eqref{p_p_eqn}) then $P$ is a hereditary subalgebra of $C_0\left(  \sX\right)$. From the equation \eqref{pprime_eqn} it follows that $P \neq A$. If $\sX_P$ is given by \eqref{top_xb_eqn} then from $P \neq A$ it follows that $\sX_P\neq \sX$. If  $x', x''\in  \sX_P$ with $x' \neq x''$ then there are $\sU, \sV \in \mathfrak{Adjont}\left( \sX\right)$ such that
 \bean
-\sX_p = \sU \cap \sV,\\
-\sU \not\subset \sX_p,\quad 
-\sV \not\subset \sX_p,
+\sX_P = \sU \cup \sV,\\
+\sU \subsetneqq \sX_p,\quad 
+\sV \subsetneqq \sX_p,
 \eean
-i.e, there is a contradiction with \eqref{prime_eqn}. It turns out that there is $x \in  \in\sX$ such that $\sX_P= \sX\setminus \{x\}$. If $x$ has no one-point neighborhoods then the set $\sX_P= \sX\setminus \{x\}$ is not closed. So if $\sX$ has no points with  one-point neighborhoods then the locale $\mathfrak{Adjont}\left( \sX\right)\cong \mathfrak{Locale}\left( C_0\left(  \sX\right)\right)$ has no points.
+i.e, 
+\bean
+\sX_P = \sU \wedge \sV,\\
+\sU > \sX_P,\quad 
+\sV > \sX_P,
+\eean
+The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that there is $x \in  \in\sX$ such that $\sX_P= \{x\}$. If $x$ has no one-point neighborhoods then the set $\{x\}$ is not open. So if $\sX$ has no points with  one-point neighborhoods then the locale $\mathfrak{Adjont}\left( \sX\right)\cong \mathfrak{Locale}\left( C_0\left(  \sX\right)\right)$ has no points.
 \begin{theorem}\label{comm_sh_thm}
-If $\sX$ is a Hausdorff, locally compact space then there is a faithful functor  (cf. Definition \ref{funct_full_faithfull_defn})
-$$
-F_X : \mathbf{Ab}\left(\sX  \right) \hookto \mathbf{Ab}\left(\mathfrak{Locale} \left( C_0\left(  \sX\right)\right)  \right).
-$$
-between categories of sheaves of Abelian groups (cf. Remark \ref{ab_uss_rem}).		
+Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] If $\sX$ is a Hausdorff, locally compact space then there is a faithful functor  (cf. Definition \ref{funct_full_faithfull_defn})
+		$$
+		F_X : \mathbf{Ab}\left(\sX  \right) \hookto \mathbf{Ab}\left(\mathfrak{Locale} \left( C_0\left(  \sX\right)\right)  \right)
+		$$
+		between categories of sheaves of Abelian groups (cf. Remark \ref{ab_uss_rem}).
+		\item[(ii)] For any $\mathscr F \in \mathbf{Ab}\left(\sX  \right)$ and $p \ge 0$ one has the natural isomorphism
+		$$
+	H^p\left(\sX, \mathscr F  \right) 	\cong H^p\left(\mathfrak{Locale} \left( C_0\left(  \sX\right)\right),  F\left(\mathscr F\right) \right).
+		$$
+	\end{enumerate}
 \end{theorem}
+\begin{proof}
+(i) From the Lemma \ref{comm_alg_loc_lem} it follows that one should construct a faithful functor $F^{\mathrm{top}}_X : \mathbf{Ab}\left(\sX  \right) \hookto \mathbf{Ab}\left(\mathfrak{Adjoint} \left( \sX  \right)\right)$. For any  $\mathscr F \in \mathbf{Ab}\left(\sX  \right)$ and any $\sU \in  \mathfrak{Adjoint} \left( \sX  \right)$ we define 
+$F_X \left( \mathscr F\right) \left(\sU \right)$ as group of continuous maps    $f:\sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ to the	\'espace etal\'e such that $p\circ f = \Id_\sU$ (cf. Exercise \ref{sheaf_etale_exer} and the Remark \ref{sheaf_rem}). If $\sV \subset \sU$
+then the required by the Definition \ref{presheaf_defn} map $F_X \left( \mathscr F\right) \left(\sU \right)\to F_X \left( \mathscr F\right) \left(\sV \right)$ is given by $f \mapsto f|_\sV$.
+
+\end{proof}
+
 
 
 \begin{remark}\label{comm_sh_rem}
@@ -837,11 +862,11 @@ B' \wedge B'' = P \quad \Leftrightarrow \quad  \pi\left(P \right) \H =  \pi\left
  1& \pi\left(B \right)\H \neq L.
  \end{cases}
  \ee 
-  From the equation i\eqref{k_eno_eqn} it follows that 
+  From the equation \eqref{k_eno_eqn} and \eqref{point_set_eqn} it follows that 
  $$
- \forall B \in \mathfrak{Frame}\left( \K\right) \quad \forall p \in  \mathrm{pt}(\K) \quad \dim \pi\left(B \right)\H > 1 \quad  p\left(B \right) = 1
+ \forall B \in \mathfrak{Frame}\left( \K\right) \quad \forall p \in  \mathrm{pt}(\K) \quad \dim \pi\left(B \right)\H > 1 \quad  p\left(B \right) = 1.
  $$
- (cf. equation \eqref{point_set_eqn}). If  $\dim \H> 2$ then there is an infinite set of different $B \in \mathfrak{Locale}\left( \K\right)$ such that $\dim \pi\left(B \right)\H > 1\quad \Rightarrow\quad \mathrm{pt}(B)=1$. From this fact it follows that $\mathfrak{Locale}\left( \K\right)$ is not spatial (cf. Definition \ref{spatial_locale_defn}).
+If  $\dim \H> 2$ then there is an infinite set of different $B \in \mathfrak{Locale}\left( \K\right)$ such that $\dim \pi\left(B \right)\H > 1\quad \Rightarrow\quad \mathrm{pt}(B)=1$. From this fact it follows that $\mathfrak{Locale}\left( \K\right)$ is not spatial (cf. Definition \ref{spatial_locale_defn}).
  \end{proof}
 \begin{remark}
 There is a bijection $\pt\left( \K\right) \cong P\H$, however a topology of $\pt\left( \K\right) \cong P\H$ is quite specific. From the equation \eqref{comp_open_set_eqn} it follows that any open subset of $\pt\left( \K\right) \cong P\H$ is given by
@@ -1399,6 +1424,7 @@ $$
 \begin{appendices}
 	
 		\section{Categories theory}
+		\subsection{Categories}
 			\begin{thm}\label{zorn_thm}\cite{spanier:at} (Zorn's lemma). A partially ordered set in which every  simply ordered set has an upper bound contains maximal elements.
 		\end{thm}
 	\begin{definition}\label{category_defn}\cite{goldblatt:topoi}
@@ -1572,7 +1598,7 @@ $$
 				Any object of $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ can be expressed as a colimit of a diagram whose vertices are representable functors.
 			\end{lemma}
 			
-\section{Functors}
+\subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
 	A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
 	\begin{enumerate}
@@ -1603,7 +1629,7 @@ F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\
 \begin{definition}\label{funct_full_faithfull_defn}\cite{bass}
 	A functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is said to be \textit{faithful} (resp. \textit{full}) if the given by \eqref{f_ab_funct_eqn} map is injective (resp. surjective).
 \end{definition}
-\begin{defn}\label{functor_contravariant_defn}
+\begin{defn}\label{functor_contravariant_defn}\cite{goldblatt:topoi}
 	A \textit{contravariant} functor is one that reverses direction by mapping domains 
 	to codomains and vice versa. 
 	Thus $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is a contravariant functor if it assigns to $f: a\to b$ an 
@@ -1614,10 +1640,10 @@ F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\
 \end{defn}
 
 
-\begin{definition}\label{exact_functor_defn}
+\begin{definition}\label{exact_functor_defn}\cite{goldblatt:topoi}
 	A left/right exact functor is a functor that preserves finite limits/finite colimits.
 \end{definition}
-\section{Natural transformations}\label{natural_transformation_sec}
+\subsection{Natural transformations}\label{natural_transformation_sec}
 \paragraph{}
 Here I follow to \cite{goldblatt:topoi}.
 Given two categories $\mathscr C$ and $\mathscr D$ we are going to construct a category, 
@@ -1660,7 +1686,7 @@ In summary then, a \textit{natural transformation} from functor $F: \mathscr C\t
 %We assume that reader is familiar with the notions of \textit{limit} and \text{colimit}.
 
 
-\section{Adjoint functors}\label{adjoint_functor_sec}
+\subsection{Adjoint functors}\label{adjoint_functor_sec}
 \paragraph*{}
 
 If both $\mathscr C$ and $\mathscr D$ are categories then a pair of functors $\mathscr C \substack{ \xrightarrow{F}\\\xleftarrow[G]{}}\mathscr D$ are \textit{adjoint functors} if for any $\mathscr C$-object $A$ and $\mathscr D$-object $B$ there is a natural bijection
@@ -1680,7 +1706,7 @@ G{\xrightarrow {\;\eta G\;}}GFG{\xrightarrow {\;G\varepsilon \,}}G
 		\end{split}
 \ee
 are the identity transformations $1_F$ and $1_G$ on $F$ and $G$ respectively. $F$ is said to be \textit{left adjoint} $G$, and $G$ is \textit{right adjoint} $F$.
-\section{Topoi}
+\section{Elementary topoi}
 
 \begin{definition}\label{topos_defn}\cite{johnstone:topos}
 A category $\mathcal E$ is called an (elementary) \textit{topos} if
@@ -1719,9 +1745,9 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 
 
 
-	\section{Grothendieck topology and sheaves}
+	\section{Grothendieck topology, sheaves and cosheaves}
 	
-	\subsection{Sites and sheaves}\label{appendix_etale_sec}
+	\subsection{Sites}\label{appendix_etale_sec}
 
 	\begin{definition}\label{pretopology_defn}\cite{johnstone:topos,milne:lec}
 		Let  $\mathscr C$  be a category with pullbacks. Suppose that  for each object $U$ of $\mathscr C$ there are  distinguished sets of families of morphisms $\left\{U_\iota \to U\right\}_{\iota\in I}$, called the \textit{coverings} of $U$, 
@@ -1745,7 +1771,7 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 	\begin{definition}\label{top_gro_definition}
 		In the situation of the Example \ref{top_gro_exm} one has a site $\mathbf T_{\sX}$ \textit{arising} from $\sX$.
 	\end{definition}
-	
+	\subsection{Sheaves}
 	\begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
 		A \textit{presheaf of sets} on a category $\mathscr C$
 		is a contravariant functor $\mathscr F$ from $\mathscr C$ to the category of sets. Thus,  $\mathscr F$
@@ -2105,7 +2131,7 @@ $$
 where each $J^p$ is acyclic for $F$,  $p\ge 0$. (We say $J^\bullet$ is an $F$-\textit{acyclic resolution}
 of $A$.) Then for each $p \ge 0$ there is a natural isomorphism $R^p\left( F\left(A \right) \right) = h^p\left( F\left( J^\bullet\right) \right)$
 where 
-	\be\label{etale_coh_eqn}
+	\be\label{etale_der_eqn}
 	\begin{split}
 h^p\left( F\left( J^\bullet\right) \right)\bydef\begin{cases}
 	\ker F\left( \dl^0 \right) & p = 0\\
@@ -2130,7 +2156,17 @@ The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 	$$
 	0 \to H^0\left(X, \mathscr F'  \right) \to H^0\left(X, \mathscr F  \right) \to H^0\left(X, \mathscr F''  \right) \to H^1\left(X,\ \mathscr F'  \right) \to ...
 	$$
-	and the association of the long exact sequence with the short exact sequence is functional.
+	and the association of the long exact sequence with the short exact sequence is functional;
+	\item[(d)]
+	
+	\be\label{etale_coh_eqn}
+\begin{split}
+	H^p\left(X, \mathscr F \right)\bydef\begin{cases}
+		\ker \Ga\left( \dl^0 \right) & p = 0\\
+		\ker~ \Ga\left(  \dl_{p} \right) / \im~ \Ga\left(  \dl_{p-1}\right)   & p > 0
+	\end{cases}
+\end{split}
+\ee
 \end{enumerate}
 Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
 by the properties (a), (b) and (c).
@@ -2220,8 +2256,24 @@ by the properties (a), (b) and (c).
 		\ee
 	\end{empt}
 	
-	\section{Topological presheaves and sheaves}
-	\subsection{General theory}
+
+	
+	\section{Topological sheaves and cosheaves}
+		\subsection{General topology}
+	
+	\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
+		A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
+	\end{definition}
+	
+	\begin{lemma}
+		%	'Lemma 41.6.
+		
+		Let $\sX$ be a paracompact Hausdorff space; let $\left\{\sU_\a\right\}$ be an  
+		indexed family of open sets covering $\sX$. Then there exists a locally finite indexed family $\left\{\sV_\a\right\}$
+		of open sets covering $\sX$ such that for each $\a$ the closure of $\sV_\a$ is a subset of $\sU_\a$.
+	\end{lemma}
+	
+	\subsection{General theory of sheves}
 	\paragraph*{}
 	The explained below definitions are specializations of   \ref{etale_presheaf_defn} and  \ref{etale_sheaf_defn} ones (cf. Example \ref{top_gro_exm}).
 	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
@@ -2256,6 +2308,8 @@ by the properties (a), (b) and (c).
 	\begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
 		If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
 	\end{definition}
+	
+	
 	
 %	\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
 %		Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
@@ -2344,53 +2398,53 @@ by the properties (a), (b) and (c).
 
 
 
-\begin{remark}\label{sheaf_rem}
+\begin{remark}\label{sheaf_rem}\cite{bredon:sheaf, godement:sheaf}	
 	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
-\begin{empt}\cite{bredon:sheaf}					
- For any sheaf $\sF$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \sF \right)$ be the
+\begin{empt}\cite{bredon:sheaf, godement:sheaf}					
+ For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
 	collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
 	Such possibly discontinuous sections are called \textit{serrations}. That is
 	\be
-	C^0(\left(\sU, \sF \right)\bydef \prod_{x \in \sX} \sF_x
+	C^0(\left(\sU, \mathscr F \right)\bydef \prod_{x \in \sX} \mathscr F_x
 	\ee
 	!!! WHERE $F_x$ !!!
-	Under point-wise operations, this is an Abelian group, and the functor $\sU \mapsto 	C^0(\left(\sU, \sF \right)$, $\sX$. Indeed it is a sheaf (cf. \cite{bredon:sheaf}) which will be denoted by $\mathscr C^0(\left(\sU, \sF \right)$. Note that if $\sX_d$ denotes the point set of $\sX$ 
-	with the discrete topology and if $\phi : \sX_d \to \sX$ is the canonical map, then $\mathscr C^0(\left(\sU, \sF \right)\cong f_*f^* \sF$.
-	Inclusion of the collection of sections of $\sF$ in the collection of all serrations
-	gives an inclusion $\sF\left(\sU \right)\mapsto   C^0(\left(\sU, \sF \right)= \mathscr C^0(\left(\sU, \sF \right)\left(\sU \right)$  and hence
+	Under point-wise operations, this is an Abelian group, and the functor $\sU \mapsto 	C^0(\left(\sU, \mathscr F \right)$, $\sX$. Indeed it is a sheaf (cf. \cite{bredon:sheaf}) which will be denoted by $\mathscr C^0(\left(\sU, \mathscr F \right)$. Note that if $\sX_d$ denotes the point set of $\sX$ 
+	with the discrete topology and if $\phi : \sX_d \to \sX$ is the canonical map, then $\mathscr C^0(\left(\sU, \mathscr F \right)\cong f_*f^* \mathscr F$.
+	Inclusion of the collection of sections of $\mathscr F$ in the collection of all serrations
+	gives an inclusion $\mathscr F\left(\sU \right)\mapsto   C^0(\left(\sU, \mathscr F \right)= \mathscr C^0(\left(\sU, \mathscr F \right)\left(\sU \right)$  and hence
 	provides a natural monomorphism
 	\be\label{sheaf_can_res}
-	\eps : \sF \hookto \mathscr C^0\left(\sX, \sF \right)
+	\eps : \mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)
 	\ee
 	(For $\phi : \sX_d \to \sX$ as above, this inclusion coincides with the monomorphism
-	$\bt :\sF \hookto f_*f^*\sF$). 
-	Let $\mathscr{Z}^{1}\left(\sX, \sF \right) \bydef \coker\left\{\sF \hookto \mathscr C^0\left(\sX, \sF \right)\right\}$. so that the sequence
+	$\bt :\mathscr F \hookto f_*f^*\mathscr F$). 
+	Let $\mathscr{Z}^{1}\left(\sX, \mathscr F \right) \bydef \coker\left\{\mathscr F \hookto \mathscr C^0\left(\sX, \mathscr F \right)\right\}$. so that the sequence
 	$$
-	\{0\}\to \sF \to \mathscr{C}^{0}\left(\sX, \sF \right) \to \mathscr{Z}^{1}\left(\sX, \sF \right)\to {0}
+	\{0\}\to \mathscr F \to \mathscr{C}^{0}\left(\sX, \mathscr F \right) \to \mathscr{Z}^{1}\left(\sX, \mathscr F \right)\to {0}
 	$$
 	is exact. We also define, inductively,
 \bean
-	\mathscr{C}^{n}\left(\sX, \sF \right) \bydef \mathscr{C}^{0}\left( \mathscr{Z}^{n}\left(\sX, \sF \right)\right),\\
-	\mathscr{Z}^{n+1}\left(\sX, \sF \right) \bydef \mathscr{Z}^{1}\left( \mathscr{Z}^{n}\left(\sX, \sF \right)\right)  
+	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \bydef \mathscr{C}^{0}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right),\\
+	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right) \bydef \mathscr{Z}^{1}\left( \mathscr{Z}^{n}\left(\sX, \mathscr F \right)\right)  
 \eean
 	so that
 \bean
-		\mathscr{Z}^{n}\left(\sX, \sF \right) \xrightarrow{\eps} \mathscr{C}^{n}\left(\sX, \sF \right)\xrightarrow{\partial}
-	\mathscr{Z}^{n+1}\left(\sX, \sF \right)
+		\mathscr{Z}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\eps} \mathscr{C}^{n}\left(\sX, \mathscr F \right)\xrightarrow{\partial}
+	\mathscr{Z}^{n+1}\left(\sX, \mathscr F \right)
 \eean
 
 	is exact. Let $d \bydef \eps \circ \partial$ be the composition
 	$$
-	\mathscr{C}^{n}\left(\sX, \sF \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \sF \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \sF \right) 
+	\mathscr{C}^{n}\left(\sX, \mathscr F \right) \xrightarrow{\partial }  \mathscr{Z}^{n + 1}\left(\sX, \mathscr F \right)\xrightarrow{\eps}\mathscr{C}^{n+1}\left(\sX, \mathscr F \right) 
 $$
 
 	Then the sequence 
 	\be
-0 \to \sF \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \sF \right) \xrightarrow{d } \mathscr{C}^{1}\left(\sX, \sF \right)\xrightarrow{d } \mathscr{C}^{2}\left(\sX, \sF \right)\xrightarrow{d}\dots
+0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d}\dots
 	\ee
-	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \sF \right)$ is a resolution of $\sF$. It is called the \textit{canonical
-	resolution} of $\sF$.
+	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
+	resolution} of $\mathscr F$.
 \end{empt}
 
 \begin{definition}\label{sub_sheaf_defn}\cite{hartshorne:ag}
@@ -2415,21 +2469,6 @@ $$
 		% A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ x,p ls a lcal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> x(f~ { V), for every open set V in Y. As V ranges over all open neighbor- 	hoods of /(P), f~l(V) ranges over a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
 				
 			\end{definition}
-			\begin{example} \label{sheaf_ringed_space_exm}
-				One has a following ringed spaces (cf.Definition \ref{sheaf_ringed_space_exm})
-				\begin{enumerate}
-					\item [(i)] If $\sX$ is topological space and a sheaf   $\mathscr C_\sX$ associated with a presheaf
-					$$
-					\sU \mapsto C_0\left( \sU\right) 
-					$$
-					then $\left(\sX, \mathscr C_\sX \right)$ is a ringed space.
-					\item [(ii)]If $M$ is smooth manifold and a sheaf   $\mathscr C^\infty_M$ associated with a presheaf
-					$$
-					\sU \mapsto \Coo\left( \sU\right) 
-					$$
-					then $\left(M, \mathscr C^\infty_\sX \right)$ is a ringed space.
-				\end{enumerate}
-			\end{example}
 			
 			\begin{definition}\label{sheaf_of_modules_den}\cite{hartshorne:ag}
 				Let $\left(\sX, \mathcal O_\sX \right)$  be a ringed space. A \textit{sheaf  of $ \mathcal O_\sX $-modules} 
@@ -2443,9 +2482,35 @@ $$
 			\end{definition}
 					
 			\subsection{Flasque (flabby) and soft sheaves}
-			\begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
+			\begin{definition}\label{sheaf_flasque_defn}\cite{hartshorne:ag}
 				A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 			\end{definition}
+			\begin{remark}\label{sheaf_locale_flasque}
+			If $X$ ia a locale then one can define flasque sheaves in the category $\mathbf{Sh}\left(X \right)$. 
+			\end{remark}
+			\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
+			%Proposition 2.5. // 
+		If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
+			\end{proposition}
+			\begin{exercise}\label{sheaf_flasque_exer}
+			Similarly to the described in \cite{hartshorne:ag} theory of flasque shaves prove that
+			for any locale $X$ and for every flasque sheaf in the category $\mathbf{Ab}\left(X \right)$ one has  $H^p\left(X, \mathscr F \right)  = 0$ for all $p > 0$ 
+			\end{exercise}
+		\begin{remark}\label{sheaf_flasque_rem}
+	If $X$ is   a locale, $\mathscr F \in \mathbf{Ab}\left(X \right)$ and 
+		$$
+		0 \to \mathscr F \xrightarrow{\dl_0} \sJ^0 \xrightarrow{\dl_1}\sJ^1 \to \dots
+		$$
+		is an exact sequence where each $\sJ^p$ is flasque then from the Exercise \ref{sheaf_flasque_exer} it follows that $\sJ^p$ is acyclic for any $p\ge 0$. Taking into account the Proposition \ref{acyc_prop} one has
+			\be\label{etale_cohf_eqn}
+		\begin{split}
+			H^p\left(X, \mathscr F \right)\bydef\begin{cases}
+				\ker \Ga\left( \dl^0 \right) & p = 0\\
+				\ker~ \Ga\left(  \dl_{p} \right) / \im~ \Ga\left(  \dl_{p-1}\right)   & p > 0
+			\end{cases}
+		\end{split}
+		\ee
+		\end{remark}	
 			Recall that for $s \in \mathscr{F}\left(\sX \right)$, 
 			\be\label{sheaf_supp_eqn}
 			\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
@@ -2669,10 +2734,10 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 	\end{remark}
 	\begin{corollary}
 	%Corollary. 
-	For $\Phi$ paracompactifying and sheaves $\sF$ on $\sX$ there as
+	For $\Phi$ paracompactifying and sheaves $\mathscr F$ on $\sX$ there as
 	a natural isomorphism
 	$$
-\check{H}_\Phi^\bullet\left(\sX, \sF \right) \cong {H}_\Phi^\bullet\left(\sX, \sF \right) 
+\check{H}_\Phi^\bullet\left(\sX, \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX, \mathscr F \right) 
 	$$
 	\end{corollary}
 
@@ -3444,6 +3509,8 @@ A partially ordered set yields an Alexandrov space $L(A)$.
 
 \bibitem{topos:intro} Saunders Mac Lane, Ieke Moerdijk
 \textit{Sheaves in Geometry and Logic. A First Introduction to Topos Theory}. Springer-Verlag - Berlin : New York. 1994.
+
+\bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
 
 \bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
