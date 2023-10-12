@@ -2255,7 +2255,130 @@ by the properties (a), (b) and (c).
 		\check{H}^r\left(X, F\right)\bydef \check{H}^r\left(X, F_X\right).
 		\ee
 	\end{empt}
+	\subsection{Set and universes}
 	
+
+	For a set $u$, we denote as usual by $\P\left( u\right)$  the set of subsets of $u : \P(u) \bydef
+\left\{x | x \subset u\right\}$
+\begin{definition}\cite{kashiwara:cat_sheaves}
+%	Definition 1.1.1. 
+	A universe $\sU$ is a set satisfying the following properties:
+	\begin{enumerate}
+		\item[(i)] 		$\emptyset\in \sU$
+		\item[(ii)] $u \in \sU$ implies $u\subset \sU$, (equivalently, $x \in \sU$ and $y \in x$ implies $y\in \sU$, or 	else $\sU \subset \P\left( \sU\right)$ ,
+		\item[(iii)] $u \in \sU$ implies $\{u\}\in \sU$,
+		\item[(iv)] $u \in \sU$ implies $\P\left( u\right)  \in \sU$,
+		\item[(v)] if $I \in \sU$ and $u_i\in \sU$ for all $i \in I$ , then $\bigcup_{i \in I}u_i \in \sU$
+	\item[(vi)] $\N \in \sU$.
+		
+	\end{enumerate}
+	As a consequence we have
+	\begin{enumerate}
+		\item[(vii)] $u \in \sU$ implies $\bigcup_{x \in u} x \in \sU$,
+			\item[(viii)]$u,v \in \sU$ implies $x \times y \in \sU$,
+		\item[(ix)] $u \subset v \in \sU$ implies $u \in \sU$,
+		\item[(x)] if $I \in \sU$ and $u_i \in \sU$ for all $i \in I$, then $\prod_{i \in I} u_i \in \sU$.
+	\end{enumerate}
+	Following Grothendieck, we shall add an axiom to the Zermelo-Fraenkel theory,
+asking that for any set $X$ there exists a universe $\sU$ such that $X \in \sU$.
+\end{definition}
+\begin{definition}\cite{kashiwara:cat_sheaves}
+%Definition 1.1.2. 
+Let $\sU$ be a universe.
+\begin{enumerate}
+	\item [(i)] A set is called a $\sU$-\textit{set} if it belongs to $\sU$.
+	\item [(ii)] A set is called $\sU$-\textit{small} if it is isomorphic to a set belonging to $\sU$.
+\end{enumerate}
+\end{definition}
+\begin{definition}
+A category $\mathscr C$ is called a $\sU$-\textit{category} if $\Hom \mathscr C(X, Y)$ is $\sU$-small for any $\mathscr C$-objects $X$ and $Y$.
+\end{definition}
+
+\begin{definition}
+%Definition 1.4.2. 
+Let $\mathscr C$ be a $\sU$-category. We define the big categories
+\bean
+\mathscr C^\wedge_\sU \bydef  \text{ the category of functors from } \mathscr C^{\mathrm{op}} \text{ to } \sU\text{-}\mathbf{Set} ,\\
+\mathscr C^\vee_\sU \bydef  \text{ the category of functors from } \mathscr C^{\mathrm{op}} \text{ to } \left( \sU\text{-}\mathbf{Set}\right)^{\mathrm{op}} 
+\eean 
+and the functors
+\bean
+\mathrm{h}_{\mathscr C}: \mathscr C\to \mathscr \mathscr C^\wedge_\sU\quad X \mapsto \Hom\left(\bullet, X \right),\\ 
+\mathrm{k}_{\mathscr C}: \mathscr C\to \mathscr \mathscr C^\vee_\sU\quad X \mapsto \Hom\left( X, \bullet \right)
+\eean 
+
+\end{definition}
+\begin{definition}
+A category $I$ is \textit{filtrant} if it satisfies the conditions (i)–(iii)
+below.
+\begin{enumerate}
+	\item [(i)] $I$ is non empty,
+	\item [(ii)]  for any $i$ and $j$ in $I$ , there exist $k \in I$ and morphisms $i \to k$, $j \to k$,
+	\item [(ii)]  for any parallel morphisms $f, g : i \rightrightarrows j $, there exists a morphism $h : j \to k$
+	such that $h \circ f = h \circ g$.
+\end{enumerate}
+A category $I$ is \textit{cofiltrant} if $I^{\mathrm{op}}$ is filtrant.
+\end{definition} 
+Assume first that $\mathscr C$ is the category $\mathbf{Set}$ and let us consider \textit{projective
+systems}. In other words, $\bt$ is an object of $I^\wedge$. Denote by $\mathrm{pt}_{I^\wedge}$ the constant
+functor from $I^\mathrm{op}$ to $\mathbf{Set}$, defined by $\mathrm{pt}_{I^\wedge}(i) \bydef \mathrm{pt}$ for all $i \in I$ . Note that $\mathrm{pt}_{I^\wedge}(i)$
+is a terminal object of $I^\wedge$. We define a set, called the \textit{projective} limit of $\bt$, by
+$$
+\varprojlim \bt \bydef \Hom_{I^\wedge}\left(\mathrm{pt}_{I^\wedge}, \bt \right) 
+$$
+\begin{definition}
+%Definition 2.1.2. (i)
+\begin{enumerate}
+	\item [(i)] We define $\varinjlim \a$ and $\varprojlim \bt$ by the formulas
+	\bea
+	\varinjlim \a \bydef X \mapsto \varinjlim \Hom_{\mathscr{C}}\left(\a , X  \right) = \varinjlim \left(\mathrm{h}_{\mathscr{C}}\circ \a \right) \in \mathbf{Set},\\
+	\varprojlim \a \bydef X \mapsto \varprojlim \Hom_{\mathscr{C}}\left( X, b  \right) = \varprojlim \left(\mathrm{k}_{\mathscr{C}}\circ \a \right) \in \mathbf{Set}.
+	\eea
+\end{enumerate} 
+
+\end{definition}
+
+\begin{proposition}
+%Proposition 3.1.3. 
+
+Let $\a : I \to \mathbf{ Set}$ be a functor with $I$ small and filtrant.
+Define the relation $\sim$ on $\coprod_i \a\left( i\right)$  as follows: $\a(i)) \ni  x \sim y \in \a( j )$ if there exist
+$s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
+\begin{itemize}
+	\item [(i)] the relation $\sim$ is an equivalence relation,
+\item	[(ii)] $\varinjlim \a = \coprod_i \a(i)/ \sim$.
+\end{itemize}
+
+\end{proposition}
+	Recall that a universe $\sU$ is given. When we consider a category, it means a
+	$\sU$-category and $\mathbf{Set}$ is the category of $\sU$-sets %(see Convention 1.4.1). 
+	As far
+	as this has no implications, we will skip this point.
+	Recall that for a category $\mathscr C$, inductive limits in $\mathscr C^\wedge \bydef \bydef \mathrm{Fct}\left( \mathscr C^{\mathrm{op}}, \mathbf{Set}\right)$  are
+	denoted by “$\varinjlim$”.
+	\begin{definition}
+	%	Definition 6.1.1.
+	\begin{enumerate}
+		\item[(i)] 	Let $\mathscr C$ be a $\sU$-category. An \textit{ind}-\textit{object} in $\mathscr C$ is an object
+		$A \in \mathscr C^\wedge$ which is isomorphic to “$\varinjlim$” for some functor $\a : I \to  \mathscr C$  with
+		$I$ filtrant and $\sU$-small.
+		\item[(ii)] We denote by $\mathrm {Ind}^\sU\left(  \mathscr C \right)$ (or simply $\mathrm {Ind}\left(  \mathscr C \right)$ if there is no risk of confusion)
+		the full big subcategory of $\mathscr C^\wedge$ consisting of ind-objects, and call it the \textit{indization}
+		of $\mathscr C$. We denote by $\iota_{\mathscr C} : \mathscr C \to {Ind}\left(  \mathscr C \right)$ the natural functor (induced
+		by $\mathrm{h}_{\mathscr C}$).
+				\item[(iii)] 	Similarly a \textit{pro}-\textit{object} in $\mathscr C$ is an object
+		$B \in \mathscr C^\vee$ which is isomorphic to “$\varprojlim$” $\bt$ for some functor $\bt : I^{\mathrm{op}} \to  \mathscr C$  with
+		$I$ filtrant and $\sU$-small.
+		\item[(iv)] We denote by $\mathrm {Pro}^\sU\left(  \mathscr C \right)$ (or simply $\mathrm {Pro}\left(  \mathscr C \right)$)
+		the full big subcategory of $\mathscr C^\vee$ consisting of pro-objects
+		
+	\end{enumerate}
+	\end{definition}
+	There is an equivalence
+	\be
+	\mathrm {Pro}\left(  \mathscr C \right)= \mathrm {Ind}\left(  \mathscr C^{\mathrm{op}} \right)^{\mathrm{op}}
+	\ee
+%	Lemma 6.1.2. The categories Ind(C) and Pro(C) are U-categories.
 
 	
 	\section{Topological sheaves and cosheaves}
@@ -3496,7 +3619,7 @@ A partially ordered set yields an Alexandrov space $L(A)$.
 
 \bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
-
+\bibitem{kashiwara:cat_sheaves}Masaki Kashiwara and Pierre Schapira. \textit{Categories and sheaves} volume 332 ofGrundlehren der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]. Springer-Verlag, Berlin, 2006.
 
 \bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
 \bibitem{johnstone:stone_spaces} Peter Johnstone. \textit{Stone Spaces} Cambridge Studies in Advanced Mathematics 3, Cambridge University Press (1982, 1986).
