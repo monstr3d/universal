@@ -623,6 +623,7 @@ $$
 $$
 \end{proof}
 \begin{definition}\label{gelfand_a_locale_defn}
+	!!!!!
 	The given by the Theorem \ref{ca_locale_thm}  locale   is said to be a  \textit{Gelfand} $A$-\textit{locale}, we denote it by $\mathfrak{Locale}\left(A \right)$. A localic topos
 	\be\label{a_locale_eqn}
 	\mathfrak{Topos}\left( A\right)  = \mathbf{Sh}\left(\mathfrak{Locale}\left(A \right) \right). 
@@ -1598,6 +1599,12 @@ $$
 				Any object of $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ can be expressed as a colimit of a diagram whose vertices are representable functors.
 			\end{lemma}
 			
+\begin{definition}
+	\label{(co)complete_defn}A category $\mathbf{C}$ is called \textit{complete}
+	if it admits small limits, and \textbf{cocomplete} if it admits small
+	colimits.
+\end{definition}
+			
 \subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
 	A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
@@ -1766,12 +1773,12 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 		$$
 		\sU_1\times_\sX \sU_2 \bydef \sU_1 \cap \sU_2.	
 		$$
-		If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \subset \sU\right\}_{\iota\in I}$, is a covering of $\sU$ (cf. Definition \ref{pretopology_defn}) if and only if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is a specialization of Grothendieck topology. 
+		If $\sU \subset \sX$ is an open subset then we assume that a family  $\left\{\sU_\iota \subset \sU\right\}_{\iota\in I}$, is a covering of $\sU$ (cf. Definition \ref{pretopology_defn}) if and only if  $\sU = \cup_{\iota\in I}\sU_\iota$. This system of coverings is a specialization of Grothendieck pretopology. 
 	\end{example}
 	\begin{definition}\label{top_gro_definition}
 		In the situation of the Example \ref{top_gro_exm} one has a site $\mathbf T_{\sX}$ \textit{arising} from $\sX$.
 	\end{definition}
-	\subsection{Sheaves}
+	\subsection{Sheaves and cosheaves}
 	\begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
 		A \textit{presheaf of sets} on a category $\mathscr C$
 		is a contravariant functor $\mathscr F$ from $\mathscr C$ to the category of sets. Thus,  $\mathscr F$
@@ -1874,7 +1881,23 @@ Any {Grothendieck topos} is a topos in the sense of the Definition \ref{topos_de
 		F_X \bydef \mathscr P.
 		\ee
 	\end{definition}
-	
+
+\paragraph{}
+
+\begin{definition}\label{coheaf_defn}\cite{shimizu_cosh}
+Let $X$ be a small category equipped with a pretopology $J$ and $\V$ be a category. 
+Recall that a functor $\mathscr G : X \to \V$ is called a \textit{precosheaf} on $X$. 
+It is called a \textit{cosheaf} if the diagram
+\begin{equation}\label{coeq cosh}
+	\coprod_{j,k \in I} \mathscr G(U_j \times_U U_k) \rightrightarrows \coprod_{i \in I} \mathscr G(U_i) \to \mathscr G(U)
+\end{equation}
+is a coequalizer in $\V$ for all $\{U_i \to U\}_i \in J$. 
+In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. 
+\end{definition}
+
+
+
+
 		\subsection{Localic topoi}
 	\begin{definition}\label{frame_defn}\cite{topos:intro}
 A \textit{frame} is lattice with all joins and all finite meets which satisfies the infinite distributive law:
@@ -3571,7 +3594,7 @@ A partially ordered set yields an Alexandrov space $L(A)$.
 
 \end{appendices}
 
-
+\section{APP}
  
  \begin{thebibliography}{10}
  	
@@ -3658,6 +3681,8 @@ Translations of Mathematical Monographs, vol. 226, 2005.
 
 %\bibitem{phillips:inv_lim_app}N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} University of California at Los Angeles, Los Angeles,  CA 90024 Edited by David E. Evans, Masamichi TakesakiPublisher: Cambridge University Press DOI: https://doi.org/10.1017/CBO9780511662270.011 pp 127-186, Print publication year: 1989.
 
+\bibitem{prasolov:coseafication} Andrei V. Prasolov. \textit{Cosheafification}. Theory Appl. Categ., 31:1134Ð1175, 2016.
+
 \bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
 
 \bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
@@ -3666,6 +3691,9 @@ Translations of Mathematical Monographs, vol. 226, 2005.
 E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
 
 \bibitem{swan:cup} Richard G. Swan. \textit{Cup products in sheaf cohomology, pure injectives, and a substitute for projective resolutions}. Journal of Pure and Applied Algebra 144 (1999) 169(2), 1999.
+\bibitem{shimizu_cosh}
+Yuri Shimizu \textit{$\infty$-cosheafification}, arXiv:2106.14135v2. 2021.
+
 
 \bibitem{torsten:sheaves} Torsten Wedhorn. \textit{Manifolds, sheaves, and cohomology}. (Springer Studium Mathematik - Master) (Englisch) Taschenbuch . August 2016.
 
