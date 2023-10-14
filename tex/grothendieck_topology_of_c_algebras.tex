@@ -784,26 +784,40 @@ i.e,
 \sU > \sX_P,\quad 
 \sV > \sX_P,
 \eean
-The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that there is $x \in  \in\sX$ such that $\sX_P= \{x\}$. If $x$ has no one-point neighborhoods then the set $\{x\}$ is not open. So if $\sX$ has no points with  one-point neighborhoods then the locale $\mathfrak{Adjont}\left( \sX\right)\cong \mathfrak{Locale}\left( C_0\left(  \sX\right)\right)$ has no points.
+The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that there is $x \in  \in\sX$ such that $\sX_P= \{x\}$. If $x$ has no one-point neighborhoods then the set $\{x\}$ is not open. So if $\sX$ has no points with  one-point neighborhoods then the locale $\mathfrak{Adjont}\left( \sX\right)\cong \mathfrak{Locale}\left( C_0\left(  \sX\right)\right)$ has no points. We denote an  map 
+\be\label{top_sh_csh_eqn}
+\begin{split}
+\mathfrak{Inv}: \mathfrak{Adjont}\left( \sX\right) \to \mathfrak{Locale}\left( \sX\right),\\
+\sU \mapsto \sU,\\
+\forall  \sV, \sU  \in \mathfrak{Adjont}\left( \sX\right) ~~ \Leftrightarrow ~~ \sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV ~~  \Leftrightarrow ~~ \mathfrak{Inv}\left( \sV\right) \le  \mathfrak{Inv}\left( \sU\right)
+\end{split}
+\ee
+where left part implies an element of $\mathfrak{Adjont}\left( \sX\right)$ and right part an element of $\mathfrak{Locale}\left( \sX\right)$.  
 \begin{theorem}\label{comm_sh_thm}
-Following conditions hold:
 	\begin{enumerate}
-		\item[(i)] If $\sX$ is a Hausdorff, locally compact space then there is a faithful functor  (cf. Definition \ref{funct_full_faithfull_defn})
+		\item [(i)] There is a natural bijective map 
 		$$
-		F_X : \mathbf{Ab}\left(\sX  \right) \hookto \mathbf{Ab}\left(\mathfrak{Locale} \left( C_0\left(  \sX\right)\right)  \right)
+		\mathfrak{Inv}: \mathbf{PreSh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)  \cong \mathbf{PreSh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right) ,
 		$$
-		between categories of sheaves of Abelian groups (cf. Remark \ref{ab_uss_rem}).
-		\item[(ii)] For any $\mathscr F \in \mathbf{Ab}\left(\sX  \right)$ and $p \ge 0$ one has the natural isomorphism
-		$$
-	H^p\left(\sX, \mathscr F  \right) 	\cong H^p\left(\mathfrak{Locale} \left( C_0\left(  \sX\right)\right),  F\left(\mathscr F\right) \right).
-		$$
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-(i) From the Lemma \ref{comm_alg_loc_lem} it follows that one should construct a faithful functor $F^{\mathrm{top}}_X : \mathbf{Ab}\left(\sX  \right) \hookto \mathbf{Ab}\left(\mathfrak{Adjoint} \left( \sX  \right)\right)$. For any  $\mathscr F \in \mathbf{Ab}\left(\sX  \right)$ and any $\sU \in  \mathfrak{Adjoint} \left( \sX  \right)$ we define 
-$F_X \left( \mathscr F\right) \left(\sU \right)$ as group of continuous maps    $f:\sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ to the	\'espace etal\'e such that $p\circ f = \Id_\sU$ (cf. Exercise \ref{sheaf_etale_exer} and the Remark \ref{sheaf_rem}). If $\sV \subset \sU$
-then the required by the Definition \ref{presheaf_defn} map $F_X \left( \mathscr F\right) \left(\sU \right)\to F_X \left( \mathscr F\right) \left(\sV \right)$ is given by $f \mapsto f|_\sV$.
 
+	\item[(ii)]	such that
+	\bean
+	\mathfrak{Inv}\left( \mathbf{Sh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)\right)   \cong \mathbf{Sh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{CSh}\left( \mathfrak{Locale}\left( \sX\right)\right) 
+	\eean
+	\end{enumerate}
+
+
+\end{theorem}
+\begin{proof} (i)
+For any presheaf $\mathscr F \in \mathbf{PreSh}\left( \mathfrak{Adjont}\left( \sX\right)\right)$ we define a precosheaf \\$\mathscr G \in \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right)$ such that
+$$
+\forall \sU \in \mathfrak{Adjont}\left( \sX\right)\quad \mathscr G\left(\mathfrak{Inv}\left(\sU \right)\right)   \bydef \mathscr F\left( \sU\right) 
+$$
+From \eqref{top_sh_csh_eqn} if follows that if $\sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV$ there is a homomorphism $\rho_{\sV \sU}:\mathscr F\left(\sV  \right) \to \mathscr F\left(\sU  \right)$. We define
+$$
+	\mathfrak{Inv}\left( \rho_{\sV \sU} \right) : \mathscr G\left(\mathfrak{Inv}\left(\sV \right)\right)\to \mathscr G\left(\mathfrak{Inv}\left(\sU \right)\right)\bydef  \rho_{\sV \sU}.
+$$
+(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
 \end{proof}
 
 
@@ -1797,7 +1811,7 @@ $\mathscr C$ to the category of (Abelian) groups or rings.
 		A \textit{sheaf} for the Grothendieck pretopology
 		is a presheaf $\mathscr F$ 
 		that satisfies the sheaf condition, that is a sequence 
-		\be\label{etale_sheaf_eqn}
+		\be\label{sheaf_eqn}
 		\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \times_U U_j\right)
 		\ee
 		is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
@@ -1892,7 +1906,7 @@ It is called a \textit{cosheaf} if the diagram
 	\coprod_{j,k \in I} \mathscr G(U_j \times_U U_k) \rightrightarrows \coprod_{i \in I} \mathscr G(U_i) \to \mathscr G(U)
 \end{equation}
 is a coequalizer in $\V$ for all $\{U_i \to U\}_i \in J$. 
-In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. 
+In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. If $X$ is a site or a locale then we denote by $\mathbf{PreCSh}\left(X \right)$ and  $\mathbf{CSh}\left(X \right)$ a category of precosheafs and cosheaves respectively.
 \end{definition}
 
 
