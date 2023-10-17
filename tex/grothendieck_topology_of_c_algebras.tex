@@ -760,11 +760,11 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 \sV \wedge \sU\bydef \sV \cap \sU.
 \end{split}
 \ee
-However 
+
 \begin{lemma}\label{comm_alg_loc_lem}. Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] The locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)\cong \mathfrak{Closed}\left( \sX\right)$,
-		\item[(ii)] If $\sX$ has no isolated points then the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$.
+		\item [(i)] the locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$,
+		\item[(ii)] if $\sX$ has no isolated points then the  locale $\mathfrak{Closed}\left( \sX\right)\cong \mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ is pointless.
 	\end{enumerate}
 \end{lemma}
 
@@ -791,8 +791,77 @@ P \not\subset  P''\Leftrightarrow P'' \not \le P.
 \eean
 The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+We denote an  map 
+\be\label{top_sh_csh_eqn}
+\begin{split}
+	\mathfrak{Inv}: \mathfrak{Closed}\left( \sX\right) \to \mathfrak{Locale}\left( \sX\right),\\
+	\sU \mapsto ^\neg \sU\bydef \sX \setminus\sU,\\
+	\forall  \sV, \sU  \in \mathfrak{Adjont}\left( \sX\right) ~~ \Leftrightarrow ~~ \sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV ~~  \Leftrightarrow ~~ \mathfrak{Inv}\left( \sV\right) \le  \mathfrak{Inv}\left( \sU\right)
+\end{split}
+\ee
+where left part implies an element of $\mathfrak{Adjont}\left( \sX\right)$ and right part an element of $\mathfrak{Locale}\left( \sX\right)$.  
+\begin{theorem}\label{comm_sh_thm}
+	\begin{enumerate}
+		\item [(i)] There is a natural bijective map 
+		$$
+		\mathfrak{Inv}: \mathbf{PreSh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)  \cong \mathbf{PreSh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right) ,
+		$$
+		
+		\item[(ii)]	such that
+		\bean
+		\mathfrak{Inv}\left( \mathbf{Sh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)\right)   \cong \mathbf{Sh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{CSh}\left( \mathfrak{Locale}\left( \sX\right)\right) 
+		\eean
+	\end{enumerate}
+	
+	
+\end{theorem}
+\begin{proof} (i)
+	For any presheaf $\mathscr F \in \mathbf{PreSh}\left( \mathfrak{Closed}\left( \sX\right)\right)$ we define a precosheaf \\$^\neg\mathscr F \in \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right)$ such that
+	$$
+	\forall \sU \in \mathfrak{Closd}\left( \sX\right)\quad \neg\mathscr F\left(\mathfrak{Inv}\left(\sU \right)\right)   \bydef \mathscr F\left( \sU\right) 
+	$$
+	From \eqref{top_sh_csh_eqn} if follows that if $\sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV$ there is a homomorphism $\rho_{\sV \sU}:\mathscr F\left(\sV  \right) \to \mathscr F\left(\sU  \right)$. We define
+	$$
+	\mathfrak{Inv}\left( \rho_{\sV \sU} \right) : \mathscr G\left(\mathfrak{Inv}\left(\sV \right)\right)\to \mathscr G\left(\mathfrak{Inv}\left(\sU \right)\right)\bydef  \rho_{\sV \sU}.
+	$$
+	(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
+\end{proof}
+\paragraph{!!! DELETE !!! START} !!! DELETE !!!
+\begin{empt}\label{top_paracompact_empt}
+	Henceforth we suppose that $\sX$ is paracompact, so since $\sX$ from the Theorems \ref{gelfand-naimark_thm} and \ref{top_paracompact_thm} it follows that $\sX$ is metrizable. Any subspace of $\sU \subset \sX$ is metrizable  so $\sU$ is paracompact. Let $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups. From the Remark \ref{sheaf_rem} it follows that there is a presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ such that
+	\be\label{top_paracompact_eqn}
+	\begin{split}
+	\forall \sU \in \mathfrak{Closed}\left(\sX \right)\quad ^\neg \mathscr{ A}\left(\sU \right) \bydef \text{ a group of continuous sections }  \iota :\sU\to \mathrm{Sp\acute{e}}\left(\mathscr A \right),\\
+	\forall ~\sV , \sU 	\in \mathfrak{Closed}\left(\sX \right) , \quad \sV \subset \sU \quad ^\neg\mathscr{ A}\left(\sU \right)\to ^\neg\mathscr{ A}\left(\sV \right); \quad \iota \mapsto \iota|_\sV.
+	\end{split}
+	\ee
+\end{empt}
 
+\begin{lemma}
+If $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups, then the given by the equation \eqref{top_paracompact_eqn} presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ is a sheaf.
+\end{lemma}
+\begin{proof}
+If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
+$$
+\bigvee \sU_\iota = \text{ a closure of } \bigcup \sU_\iota.
+$$
+Let  $\left\lbrace s_\iota \in ^\neg \mathscr{ A}\left(\sU_\iota  \right)\right\rbrace$ be a family with
+$$
+\forall \iota, j \in I \quad s_\iota|_j = s_j|_\iota
+$$
+Since $\sX$ is metrizable, for any $\sU_\iota$ there is  fundamental system of
+paracompact neighborhoods $\left\{\sV_{\iota, \a}\right\}$ of $\sU_\iota$  such that $\mathscr A\left( \sU_\iota\right) = \varinjlim_{\sV_{\iota, \a}} \mathscr A\left(
+\sV_{\iota, \a} \right)$ (cf. Theorem \ref{paracompact_n_thm}). For any $\iota$ there is an open set $\sV_\iota \in  \left\{\sV_{\iota, \a}\right\}$ and $t_\iota \in A\left(
+\sV_{\iota}\right)$ such that   $s_\iota$ is the "restriction" of $t_\iota$. A space $\bigcup \sU_\iota$ is paracompact (cf. \ref{top_paracompact_empt}, so there is a locally finite family   $\left\{\mathcal W_{\bt, \iota}\right\}_{(\bt, \iota) \in \B\times I}$ of open sets such that
+\begin{itemize}
+	\item $\mathcal W_{\bt, \iota} \subset \sV_{\iota}$,
+	\item $\bigcup \mathcal W_{\bt, \iota} = \bigcup \sU_\iota$,
+	\item the family $\left\{\mathcal W_{\bt, \iota}\right\}$ is locally finite.
+\end{itemize}
+From the Lemma \ref{top_paracompact_lem} it follows  that for any $\left( \bt, \iota\right) \in \B\times I$ there is 
+\end{proof}
 
+\paragraph{!!! DELETE !!! FINISH}
 \section{Locales of the $C^*$-algebras of compact operators}
 \paragraph{}
 In this section we use  following notations:
@@ -2384,23 +2453,22 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 	\ee
 %	Lemma 6.1.2. The categories Ind(C) and Pro(C) are U-categories.
 
-	
-	\section{Topological sheaves and cosheaves}
+
+	\section{Topological sheaves and sheaves}
 		\subsection{General topology}
 	
 	\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
 		A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
 	\end{definition}
 	
-	\begin{lemma}\cite{munkres:topology}
+	\begin{lemma}\label{top_paracompact_lem}\cite{munkres:topology}
 		%	'Lemma 41.6.
-		
 		Let $\sX$ be a paracompact Hausdorff space; let $\left\{\sU_\a\right\}$ be an  
 		indexed family of open sets covering $\sX$. Then there exists a locally finite indexed family $\left\{\sV_\a\right\}$
 		of open sets covering $\sX$ such that for each $\a$ the closure of $\sV_\a$ is a subset of $\sU_\a$.
 	\end{lemma}
 	
-	\begin{theorem}
+	\begin{theorem}\label{top_paracompact_thm}\cite{munkres:topology}
 %	Theorem 42.1 
 	(Smirnov metrization theorem). A space $]sX$ is metrizable if and
 	only if it is a paracompact Hausdorff space that is locally metrizable.
@@ -2579,7 +2647,7 @@ $$
 	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
 	resolution} of $\mathscr F$.
 \end{empt}
-\begin{theorem}\label{jj}\cite{bredon:sheaf}
+\begin{theorem}\label{paracompact_n_thm}\cite{bredon:sheaf}
 %9.5. Theorem. 
 Let $A$ be a subspace of $\sX$ having a fundamental system of
 paracompact neighborhoods. Then for any sheaf $\mathscr F$ on $\sX$, we have $\mathscr F\left( A\right) = \varinjlim \mathscr F\left(
@@ -2915,7 +2983,81 @@ that are not locally connected, but
 on locally connected spaces, a suitable notion of constant cosheaf is the
 precosheaf assigning to $\sU$ the free $L$-module on the components of $\sU$.
 \end{definition}
+\begin{definition}\label{top_flabby_cosh_defn}\cite{bredon:sheaf}
+%1.2. Definition. 
+A cosheaf $\mathfrak{A}$ is said to be \textit{flabby} if $\mathfrak{A}\left( \sU\right) \to\mathfrak{A}\left( \sX\right) $
+is a monomorphism for each open $\sU\subset\sX$.
+\end{definition}
 
+\begin{prop}
+%1.10. Proposition. 
+Let $\mathfrak{A}$ be a cosheaf and $M$ an $L$-module. Then the
+presheaf $~\sU \mapsto \Hom\left(\mathfrak{A}\left(\sU \right) , M \right)$  is a sheaf, denoted by $\mathscr Hom \left(\mathfrak{A} , M \right)$. It is
+flabby if $\mathfrak{A}$ is flabby and $M$ is an injective module. It is torsion free if each
+$\mathfrak{A}\left(\sU \right)$ is divisible.
+\end{prop}
+
+\begin{empt}
+Let $M$ be an $L$-module. $M$ has the canonical injective resolution $0 \hookto M \hookto M^0 \to M^1$ where $M^0 \bydef I(M)$ is the injective hull, and $M^1 \bydef I(M)/ M$. $M^1$ is
+injective since it is divisible and since $L$ is a principal ideal domain.
+
+\end{empt}
+\begin{definition}
+A \textit{differential cosheaf} $\mathfrak{A}_*$ is a graded cosheaf together with a differential
+$d : \mathfrak{A}_p \to \mathfrak{A}_{p -1}$ of degree -1 with $d^2 = 0$. For our purposes, $ \mathfrak{A}_p= 0$ will often
+vanish for $p > 0$.
+\end{definition}
+\begin{definition}
+The  \textit{dual} $\mathfrak{A}_*$ is a graded cosheaf together with a differential
+		$d : \mathfrak{A}_p \to \mathfrak{A}_{p -1}$ of degree -1 with $d^2 = 0$. For our purposes, $ \mathfrak{A}_p= 0$ will often
+		vanish for $p > 0$.
+	\end{definition}
+\begin{definition}
+The 
+\textit{dual} of the differential cosheaf $\mathfrak{A}_*$, with respect to the $L$-module
+$M$ is defined to be the differential sheaf
+$$
+\mathscr D\left( \mathfrak{A}_*, M\right)\bydef \mathscr Hom \left(\mathfrak{A}_*, M^* \right)  
+$$
+where as usual, the term in degree $n$ is
+$$
+\mathscr D^n\left( \mathfrak{A}_*, M\right)= \bigoplus_{p + q = n} \mathscr Hom\left( \mathfrak{A}_p, M^q\right) = \mathscr Hom\left( \mathfrak{A}_n, M^0\right) \bigoplus \mathscr Hom\left( \mathfrak{A}_{n -1}, M^1\right)
+$$
+and where the differential $\mathscr D^n\to \mathscr D^{n + 1}$ is $d= d' - d''$, $d'$ being the homomorphism
+induced by the differential $M^q \to M^{q + 1}$ and $(-1)d''$ being that
+induced by $\mathfrak{A}_{p+1}\to \mathfrak{A}_{p}$. Explicitly, if
+$$
+f \in \mathscr D^n\left( \mathfrak{A}_*, M\right)\left(\sU \right) = \bigoplus_{p + q = n}\Hom\left( \mathfrak{A}_p, M^q\right)\left(\sU  \right) 
+$$
+and if $
+a \in \mathfrak{A}_*(\sU)
+$ then
+$$
+(df)(a) = d(f (a)) - (-1)^n f (da)
+$$.
+Since $M^*$ is injective, $\mathscr D\left( \bullet, M\right)$  is an exact functor of differential cosheaves.
+\end{definition}
+\begin{empt}
+Consider the canonical injective resolution $\mathcal J^*\left(\sX, L \right)$  of $L$ and
+note that $\mathcal J^*\left(\sX, L \right)|\sU  = \mathcal J^*\left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
+we define
+\bean
+\mathscr C_*\left(\sX, \mathscr A \right) \bydef \mathscr D_*\left(\mathscr J^*\left(\sX, L \right)   \right) \otimes \mathscr A,\\
+C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi\left(  C_*\left(\sX, \mathscr A \right)\right) 
+\eean
+and
+$$
+H^\Phi\left( \sX,\mathscr A \right) \bydef H_p\left( C_*^\Phi\left(\sX, \mathscr A \right)\right) 
+$$
+
+%'Caution: Hp(X;4) corresponds to homology based on infinite, locallyfinite chains, while HH(X;4) is analogous to classical homology.] Recallthat by our notational conventions,Cp(U; L) = Hom(rc(,SZ9(U; L)), L¡) ¨ Hom(r,(gp+1(U; L)), L' ).Thus Cp (X;4) = 0 for p < -1. Since Or* (X; L) is a module over theflabby sheaf `'¡(X; L) of rings, 2.5 gives the following facts:3.1. Proposition. W.(X; 4) is a `'¡(X; L)-module and hence is 4D-fine
+for any paracompactifying family of supports c. Also, W. (X; L) is flabby
+and torsion-free. Consequently, W.(X;4) is an exact functor of 4, as is
+C?(X;,d) when' is paracompactifying.
+Thus, when 4D is paracompactifying and 0 -+ 4' 4 -p 4" -+ 0 is
+exact, we have the induced exact homology sequence
+Hp (X;,d') -+ Hp (X; ,d) Hp (X;,d") -+ Hp 1(X;.,d') ...
+\end{empt}
 	
 	\section{$C^*$-algebras}
 	\paragraph*{}  
