@@ -749,82 +749,49 @@ where the notation \ref{etale_hom_a_eqn} is used.
 \paragraph{}
 Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  an open subset
 \be\label{top_xb_eqn}
-\sX_B \bydef\left\{x \in \sX\quad |\quad \exists a \in B \quad a\left(x \right) \neq 0\right\}.
+\sX_B \bydef\left\{x \in \sX\quad |\quad \exists a \in B \quad a\left(x \right)= 0\right\}.
 \ee
-One can define a locale 	$\mathfrak{Adjont}\left( \sX\right)$ such that its elements are closed subsets of $\sX$ and having following operations
+One can define a locale  such that its elements are closed subsets of $\sX$ and having following operations
 \be\label{top_adj_eqn}
 \begin{split}
 \emptyset \bydef 0,\\
 \sX \bydef 1,\\
-\bigvee \sU_\iota \bydef \quad \text{ a union of open subsets of } \quad \bigcap\sU_\iota,\\ 
-\sV \wedge \sU\bydef \sV \cup \sU.
+\bigvee \sU_\iota \bydef \quad \text{ the closure of } \quad \bigcup\sU_\iota,\\ 
+\sV \wedge \sU\bydef \sV \cap \sU.
 \end{split}
 \ee
-\begin{lemma}\label{comm_alg_loc_lem}
-The locale $\mathfrak{Adjont}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ (cf. Definition \ref{gelfand_a_locale_defn}).
-\end{lemma}
-\begin{proof}
-We leave to the reader the proof of this lemma
-\end{proof}
-Let $p^{-1}:	\mathfrak{Frame}\left(C_0\left(  \sX\right) \right)\to \left\{0, 1\right\}$
-be a point of  the Gelfand $C_0\left(  \sX\right)$-frame	$\mathfrak{Frame}\left(C_0\left(  \sX\right) \right)$  (cf. Definition \ref{locale_point_defn}). If $K \bydef
-\left\{B \left.|~ p^{-1} \left( B \right)  = 0\right.\right\}$ and  
-$$
-P \bydef  \bigvee K \bydef \left( \bigvee_{B\in K} B\right) \in 	\mathfrak{Frame}\left(C_0\left(  \sX\right) \right)
-$$ 
-(cf. \eqref{p_p_eqn}) then $P$ is a hereditary subalgebra of $C_0\left(  \sX\right)$. From the equation \eqref{pprime_eqn} it follows that $P \neq A$. If $\sX_P$ is given by \eqref{top_xb_eqn} then from $P \neq A$ it follows that $\sX_P\neq \sX$. If  $x', x''\in  \sX_P$ with $x' \neq x''$ then there are $\sU, \sV \in \mathfrak{Adjont}\left( \sX\right)$ such that
-\bean
-\sX_P = \sU \cup \sV,\\
-\sU \subsetneqq \sX_p,\quad 
-\sV \subsetneqq \sX_p,
-\eean
-i.e, 
-\bean
-\sX_P = \sU \wedge \sV,\\
-\sU > \sX_P,\quad 
-\sV > \sX_P,
-\eean
-The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that there is $x \in  \in\sX$ such that $\sX_P= \{x\}$. If $x$ has no one-point neighborhoods then the set $\{x\}$ is not open. So if $\sX$ has no points with  one-point neighborhoods then the locale $\mathfrak{Adjont}\left( \sX\right)\cong \mathfrak{Locale}\left( C_0\left(  \sX\right)\right)$ has no points. We denote an  map 
-\be\label{top_sh_csh_eqn}
-\begin{split}
-\mathfrak{Inv}: \mathfrak{Adjont}\left( \sX\right) \to \mathfrak{Locale}\left( \sX\right),\\
-\sU \mapsto \sU,\\
-\forall  \sV, \sU  \in \mathfrak{Adjont}\left( \sX\right) ~~ \Leftrightarrow ~~ \sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV ~~  \Leftrightarrow ~~ \mathfrak{Inv}\left( \sV\right) \le  \mathfrak{Inv}\left( \sU\right)
-\end{split}
-\ee
-where left part implies an element of $\mathfrak{Adjont}\left( \sX\right)$ and right part an element of $\mathfrak{Locale}\left( \sX\right)$.  
-\begin{theorem}\label{comm_sh_thm}
+However 
+\begin{lemma}\label{comm_alg_loc_lem}. Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] There is a natural bijective map 
-		$$
-		\mathfrak{Inv}: \mathbf{PreSh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)  \cong \mathbf{PreSh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right) ,
-		$$
-
-	\item[(ii)]	such that
-	\bean
-	\mathfrak{Inv}\left( \mathbf{Sh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)\right)   \cong \mathbf{Sh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{CSh}\left( \mathfrak{Locale}\left( \sX\right)\right) 
-	\eean
+		\item [(i)] The locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)\cong \mathfrak{Closed}\left( \sX\right)$,
+		\item[(ii)] If $\sX$ has no isolated points then the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$.
 	\end{enumerate}
+\end{lemma}
 
-
-\end{theorem}
-\begin{proof} (i)
-For any presheaf $\mathscr F \in \mathbf{PreSh}\left( \mathfrak{Adjont}\left( \sX\right)\right)$ we define a precosheaf \\$\mathscr G \in \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right)$ such that
+\begin{proof}
+	(i) Follows from the equations \eqref{top_xb_eqn} and \eqref{top_adj_eqn}. The details of the proof are left to the reader.\\
+	(ii)
+We denote by $\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right)$ the frame which correspond to the locale $\mathfrak{Closed}\left( \sX\right)$.
+Let $p^{-1}:	\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right)\to \left\{0, 1\right\}$ be a point. If $K \bydef
+\left\{\sU \in \mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right)\left.|~ p^{-1} \left( \sU \right)  = 0\right.\right\}$ and  
 $$
-\forall \sU \in \mathfrak{Adjont}\left( \sX\right)\quad \mathscr G\left(\mathfrak{Inv}\left(\sU \right)\right)   \bydef \mathscr F\left( \sU\right) 
+P \bydef  \bigvee K \bydef \left( \bigvee_{B\in K} B\right) \in 	\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right).
 $$
-From \eqref{top_sh_csh_eqn} if follows that if $\sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV$ there is a homomorphism $\rho_{\sV \sU}:\mathscr F\left(\sV  \right) \to \mathscr F\left(\sU  \right)$. We define
-$$
-	\mathfrak{Inv}\left( \rho_{\sV \sU} \right) : \mathscr G\left(\mathfrak{Inv}\left(\sV \right)\right)\to \mathscr G\left(\mathfrak{Inv}\left(\sU \right)\right)\bydef  \rho_{\sV \sU}.
-$$
-(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
+From the equation \eqref{pprime_eqn} it follows that $P \neq \sX$, so $^\neg P \bydef \sX \setminus P$ is a nonempty open set. If $\sX$ has no isolated points then since $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) there are two open subsets $^\neg P', ^\neg P'' \subset ^\neg P$ such that
+\bean
+^\neg P' \subsetneqq ^\neg P,\\
+^\neg P'' \subsetneqq ^\neg P,\\
+^\neg P  = ^\neg P' \cup ^\neg P''.
+\eean
+If $P' \bydef  \sX \setminus ^\neg P'$ and $P'' \bydef  \sX \setminus ^\neg P''$ then
+\bean
+P = P' \cap P'' = P' \wedge P'',\\
+P \not\subset  P'\Leftrightarrow P' \not \le P,\\
+P \not\subset  P''\Leftrightarrow P'' \not \le P.
+\eean
+The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
 
-
-
-\begin{remark}\label{comm_sh_rem}
-The Theorem \ref{comm_sh_thm} states a correspondence between properties of the $C^*$-algebra $C_0\left(  \sX\right)$ and its spectrum $\sX$. On the other hand the commutative Gelfand-Na\u{\i}mark theorem \ref{gelfand-naimark_thm} yields a duality between a commutative  $C^*$-algebra  and its spectrum. This fact is a motivation of the Definition \ref{gelfand_a_locale_defn}.
-\end{remark}
 
 \section{Locales of the $C^*$-algebras of compact operators}
 \paragraph{}
@@ -1849,7 +1816,7 @@ A category $\mathscr C$  together with
 		
 \end{defn}
 \begin{rem}\label{pretopology_to_topology_rem}\cite{johnstone:topos}
-If we are given a pretopology $P$ on  $\mathscr C$, we can replace it be a topology having same sheaves, by defining a sieve to be $J$-covering if and only if it contains $P$-covering family.
+If there is  given a pretopology $P$ on  $\mathscr C$, we can replace it be a topology having same sheaves, by defining a sieve to be $J$-covering if and only if it contains $P$-covering family.
 \end{rem}
 	\begin{definition}\label{forget_sheaf_defn}
 		There are categories $\mathbf{PreSh}\left(\mathbf T \right)$, $ \mathbf{Sh}\left(\mathbf T\right)$ of presheaves an sheaves. Moreover there is a \textit{forgetful functor} $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T \right)\to \mathbf{PreSh}\left(\mathbf T \right)$.
@@ -1900,13 +1867,13 @@ Any {Grothendieck topos} is a topos in the sense of the Definition \ref{topos_de
 
 \begin{definition}\label{coheaf_defn}\cite{shimizu_cosh}
 Let $X$ be a small category equipped with a pretopology $J$ and $\V$ be a category. 
-Recall that a functor $\mathscr G : X \to \V$ is called a \textit{precosheaf} on $X$. 
+Recall that a functor $ \mathfrak{A}: X \to \V$ is called a \textit{precosheaf} on $X$. 
 It is called a \textit{cosheaf} if the diagram
 \begin{equation}\label{coeq cosh}
-	\coprod_{j,k \in I} \mathscr G(U_j \times_U U_k) \rightrightarrows \coprod_{i \in I} \mathscr G(U_i) \to \mathscr G(U)
+	\coprod_{j,k \in I}  \mathfrak{A}(U_j \times_U U_k) \rightrightarrows \coprod_{i \in I}  \mathfrak{A}(U_i) \to  \mathfrak{A}(U)
 \end{equation}
 is a coequalizer in $\V$ for all $\{U_i \to U\}_i \in J$. 
-In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. If $X$ is a site or a locale then we denote by $\mathbf{PreCSh}\left(X \right)$ and  $\mathbf{CSh}\left(X \right)$ a category of precosheafs and cosheaves respectively.
+In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. If $X$ is a site or (in particular) a locale then we denote by $\mathbf{PreCSh}\left(X \right)$ and  $\mathbf{CSh}\left(X \right)$ a category of precosheafs and cosheaves respectively.
 \end{definition}
 
 
@@ -2425,13 +2392,19 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 		A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
 	\end{definition}
 	
-	\begin{lemma}
+	\begin{lemma}\cite{munkres:topology}
 		%	'Lemma 41.6.
 		
 		Let $\sX$ be a paracompact Hausdorff space; let $\left\{\sU_\a\right\}$ be an  
 		indexed family of open sets covering $\sX$. Then there exists a locally finite indexed family $\left\{\sV_\a\right\}$
 		of open sets covering $\sX$ such that for each $\a$ the closure of $\sV_\a$ is a subset of $\sU_\a$.
 	\end{lemma}
+	
+	\begin{theorem}
+%	Theorem 42.1 
+	(Smirnov metrization theorem). A space $]sX$ is metrizable if and
+	only if it is a paracompact Hausdorff space that is locally metrizable.
+	\end{theorem}
 	
 	\subsection{General theory of sheves}
 	\paragraph*{}
@@ -2606,7 +2579,22 @@ $$
 	is exact. That is, $\mathscr{C}^{\bullet}\left(\sX, \mathscr F \right)$ is a resolution of $\mathscr F$. It is called the \textit{canonical
 	resolution} of $\mathscr F$.
 \end{empt}
+\begin{theorem}\label{jj}\cite{bredon:sheaf}
+%9.5. Theorem. 
+Let $A$ be a subspace of $\sX$ having a fundamental system of
+paracompact neighborhoods. Then for any sheaf $\mathscr F$ on $\sX$, we have $\mathscr F\left( A\right) = \varinjlim \mathscr F\left(
+\sU \right)$, where $\sU$ ranges over the neighborhoods of $A$.
+\end{theorem}
 
+\begin{theorem}\cite{godement:sheaf}
+%Théor?me 5.2.2. —
+ Soit $\mathfrak{A}$ un recouvrement ouvert, ou bien fermé et localement fini, 
+de $\sX$; pour tout faisceau $\mathscr A$ on a un isomorphisme canonique 
+$$
+H^0\left(\mathfrak{A}, \mathscr A \right)\cong  \Ga\left( \mathscr A\right) = H^0\left(\sX, \mathscr A \right).
+$$
+
+\end{theorem}
 \begin{definition}\label{sub_sheaf_defn}\cite{hartshorne:ag}
 	A \textit{subsheaf}  of a sheaf $\mathscr F$ is a sheaf $\mathscr F'$ such that for every open set 
 	$\sU \subset \sX$, $\quad \mathscr F'\left(\sU \right)$  is a subgroup of $\mathscr F\left(\sU \right)$, and the restriction maps of the 
@@ -2645,7 +2633,7 @@ $$
 			\begin{definition}\label{sheaf_flasque_defn}\cite{hartshorne:ag}
 				A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 			\end{definition}
-			\begin{remark}\label{sheaf_locale_flasque}
+			\begin{remark}\label{sheaf_locale_flasque} !!!! DELETE !!!
 			If $X$ ia a locale then one can define flasque sheaves in the category $\mathbf{Sh}\left(X \right)$. 
 			\end{remark}
 			\begin{proposition}\label{sheaf_flasque_prop}\cite{hartshorne:ag}
@@ -2900,6 +2888,33 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 \check{H}_\Phi^\bullet\left(\sX, \mathscr F \right) \cong {H}_\Phi^\bullet\left(\sX, \mathscr F \right) 
 	$$
 	\end{corollary}
+	
+	
+	\subsection{Cosheaves}
+	\paragraph{}
+Here $L$ is  a ring that is a principal ideal domain.
+\begin{definition}\label{top_cosh_defn}\cite{bredon:sheaf}
+%1.1. Definition. 
+A \textit{precosheaf} on a topological space $\sX$ is a covariant functor from the
+category of open subsets of $\sX$ to that of $L$-modules. A precosheaf is a
+\textit{cosheaf} if the sequence
+\begin{equation}\label{topcoeq cosh}
+	\bigoplus_{\bt, \ga} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{i \in I}  \mathfrak{A}(\sU_i) \xrightarrow{f}  \mathfrak{A}(\sU)
+\end{equation}
+is exact for all collections $\left\{\sU_\a\right\}$ of open sets with $\sU = \cup_\a \sU_\a$,  where\\ $g \bydef \sum_{\bt, \ga} \left(i_{\sU_\bt, \sU_{\bt, \ga}} -i_{\sU_\ga, \sU_{\ga, \bt}}\right)$
+ and $f\bydef \sum_\a i_{\sU, \sU_\a}$ ($i_{\sU,\sV}$ being the canonical
+homomorphism $\mathfrak{A}\left( \sV\right) \to \mathfrak{A}\left( \sU\right)$  for $\sV \to \sU$).
+\end{definition}
+\begin{remark} 
+The Definition \ref{top_cosh_defn} is a specialization of \ref{coheaf_defn} one.
+\end{remark}
+\begin{definition}\label{top_const_cosh_defn}\cite{bredon:sheaf}
+The \textit{constant precosheaf} $L$ is the precosheaf taking the value $L$ on each
+$\sU$. There is no generally acceptable notion of a constant cosheaf on spaces
+that are not locally connected, but
+on locally connected spaces, a suitable notion of constant cosheaf is the
+precosheaf assigning to $\sU$ the free $L$-module on the components of $\sU$.
+\end{definition}
 
 	
 	\section{$C^*$-algebras}
