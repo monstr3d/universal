@@ -2137,24 +2137,126 @@ For any locale X, the following are equivalent:
 %$$
 %X\setminus  \left( \downarrow\left(  x_1\right)\cup ... \cup \downarrow\left(  x_n\right)\right) 
 %$$
+\subsection{Derived functors}
 
-\subsection{Cohomology}\label{grothendieck_cohomology_section}
-\paragraph{}
-Here I follow to \cite{milne:lec}. The functor
+\begin{definition}
+ An \textit{Abelian category} is a category $\mathfrak{A}$, such that: $\Hom\left(A, B \right)$ has a structure of an Abelian group for each objects $A,~ B$ of $\mathfrak{A}$, and the composition law is linear; finite direct sums exist; every morphism has a kernel 
+and a cokernel; every monomorphism is the kernel of its cokernel, every 
+epimorphism is the cokernel of its kernel; and finally, every morphism 
+can be factored into an epimorphism followed by a monomorphism. 
+\end{definition}
+\begin{empt}
+A \textit{complex} $A^\bullet$ in an 
+Abelian category  $\mathfrak{A}$ is a collection of objects $A^n$, $n \in \Z$, and morphisms 
+$d^n : A^n \to A^{n + 1}$, such that $d^{n+1} \circ d^n = 0$ for all $n$. If the objects $A^n$ are specified 
+only in a certain range, e.g., $n \ge 0$, then we set $A^n = 0$ for all other $n$. A 
+morphism of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
+each $n$, which commute with the coboundary maps $d^n$. 
+The $n$th cohomology object $h^n\left( A^\bullet\right)$  of the complex $A^\bullet$  is defined to be
+\be
+h^n\left( A^\bullet\right)\bydef \ker d^n / \im d^n.
+\ee 
+If $f : A^\bullet \to B^\bullet$ is a morphism of complexes, then $f$ induces a natural map $h^n\left(f \right) : h^n\left(A^\bullet \right)\to h^n\left(B^\bullet \right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet$ 
+is a short 
+exact sequence of complexes, then there are natural maps $\dl^n : h^n \left( C^\bullet\right) \to h^n \left( A^\bullet\right)$ 
+	giving rise to a long exact sequence 
+	\bean 
+\dots 	 h^n \left( A^\bullet\right) \to h^n \left( B^\bullet\right)\to h^n \left( C^\bullet\right)\xrightarrow{\dl^n} h^{n+1} \left( A^\bullet\right)\to \dots.
+	\eean
+	Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f \sim g$) 
+	if there is a collection of morphisms $k^n : A^n \to B^{n-1}$ for each $n$ (which need 
+	not commute with the $d^n$) such that $f - g = d k - k d$. The collection of morphisms, $\left\{k^n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
+	the \textit{same} morphism  $h^n \left( A^\bullet\right)\to  h^n \left( B^\bullet\right)$ on the cohomology objects, for each $n$. 
+	\end{empt}
+\begin{definition}
+	A covariant functor $F:\mathfrak A \to \mathfrak B$ from one Abelian category to another is 
+\textit{additive} if for any two objects $A, A'$ in $\mathfrak A$, the induced map $\Hom(A,A') \to  
+Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left exact} if it is 
+additive and for every short exact sequence 
+$$
+0 \to A' \to A \to A'' \to 0
+$$
+in $\mathfrak A$, the sequence 
+$$
+0 \to FA' \to FA \to FA'' 
+$$
+is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
+\textit{right exact}. If it is both left and right exact, we say it is \textit{exact}. If only the 
+middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact in the middle}. 
+For a contravariant functor we make analogous definitions. For example, 
+$F:\mathfrak A \to \mathfrak B$ is \textit{left exact} if it is additive, and for every short exact sequence as 
+above, the sequence 
+$$
+0 \to FA'' \to FA \to FA' 
+$$
+is exact in $\mathfrak B$. 
+
+\end{definition}	
+
+
+\begin{definition}
+An object $I$ of $\mathfrak  A$ is 
+\textit{injective} if the functor $\Hom\left(\cdot, I\right)$ is exact. An \textit{injective resolution} of an object 
+$A$ of $\mathfrak  A$ is a complex $I^\bullet$, defined in degrees i  0, together with a morphism 
+$\eps A \to I^0$, such that $I^n$ is an injective object of $\mathfrak  A$ for each $n \ge 0$, and such 
+that the sequence 
 \bean
-\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
-\mathscr F \mapsto \mathscr F\left(X \right) 
+0\to A \xrightarrow{\eps} I^0 \to I^1 \to \dots
 \eean
-of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution
-$$
-0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
-$$
-and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
-\be\label{complex_eqn}
-\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{d_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{d_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
-\ee
-This is no longer exact (in general).
+is exact. 
+\end{definition}
+\begin{definition}
+		If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
+$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}.
+\end{definition}
+\begin{remark}
+ If $\mathfrak A$ has enough injectives, then every 
+object has an injective resolution. Furthermore, a well-known lemma states 
+that any two injective resolutions are homotopy equivalent. 
+\end{remark}
+\begin{definition}
+let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A\to\mathfrak B$ 
+be a covariant left exact functor. Then we construct the \textit{right derived functors} 
+$R^nF$, $i \ge 0$, of $F$ as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
+an injective resolution $I^\bullet$ of $A$. Then we define 
+\be
+R^nF\left( A\right) \bydef h^n\left(F\left( I^\bullet\right)  \right) .
+	\ee
+\end{definition}
+\begin{theorem}
+Let $\mathfrak A$ be an abelian category with enough injectives, and let 
+$F:\mathfrak A \to \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
+Then 
+\begin{enumerate}
+	\item[(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from $\mathfrak A$ to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+of the choices of injective resolutions made. 
+\item[(b)] There is a natural isomorphism $F \cong R^0F$. 
+\item[(c)] For each short exact sequence $
+0 \to A' \to A \to A'' \to 0
+$ and for each 
+$n\ge 0$ there is a natural morphism $\dl^n : R^nF\left(A'' \right)   R^{n + 1}F\left(A' \right)$ such that we 
+obtain a long exact sequence
+\bean
+\dots \to R^{n}F\left(A' \right)\to R^{n}F\left(A \right)\to R^{n}F\left(A'' \right)\xrightarrow{\dl^n} R^{n + 1}F\left(A' \right)\to R^{n + 1}F\left(A \right)\to \dots .
+\eean  
 
+
+\item[(d)] Given a morphism of the exact sequence of (c) to another $0 \to B' \to B \to B'' \to 0$
+a commutative diagram 
+				\newline
+\begin{tikzcd}
+	 R^{n}F\left(A'' \right) \arrow[d]\arrow[r, "\dl^n"]
+	&  R^{n+1}F\left(A'' \right) \arrow[d]\\
+	 R^{n}F\left(B'' \right)\arrow[r, "\dl^n"]	&  R^{n+1}F\left(A' \right)
+\end{tikzcd}
+\\
+\\
+
+\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n > 0$, we have 
+$R^nF\left( I^\bullet\right)  = 0$.
+\end{enumerate}
+
+\end{theorem}
 \begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
 	%			Theorem 1.1 A. 
 	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
@@ -2172,50 +2274,89 @@ This is no longer exact (in general).
 		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
 		$$
 		\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
-				R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
-			\path[-stealth]
-			(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
-			(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
-			(m-1-1) edge node [right]  {} (m-2-1)
-			(m-1-2) edge node [right] {} (m-2-2);
-		\end{tikzpicture}
-		\\
-		\	
+				\newline
+\begin{tikzcd}
+	R^{n}F\left(A'' \right) \arrow[d]\arrow[r, "\dl^n"]
+	&  R^{n+1}F\left(A'' \right) \arrow[d]\\
+	R^{n}F\left(B'' \right)\arrow[r, "\dl^n"]	&  R^{n+1}F\left(B' \right)
+\end{tikzcd}
 		\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
-		
 	\end{enumerate}
 \end{theorem}
 \begin{definition}\label{acyc_defn}\cite{hartshorne:ag}
-With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, an object $J$ of $\mathfrak A$ is acyclic for 
-$F$ if $R^pF = 0$ for all $p > 0$. 
+	With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, an object $J$ of $\mathfrak A$ is acyclic for 
+	$F$ if $R^pF = 0$ for all $p > 0$. 
 \end{definition}
 \begin{proposition}\label{acyc_prop}\cite{hartshorne:ag}
-%Proposition 1.2A. 
-With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, suppose there is an exact 
-sequence 
-$$
-0 \to A \xrightarrow{\dl_0} J^0 \xrightarrow{\dl_1}J^1 \to \dots
-$$
-where each $J^p$ is acyclic for $F$,  $p\ge 0$. (We say $J^\bullet$ is an $F$-\textit{acyclic resolution}
-of $A$.) Then for each $p \ge 0$ there is a natural isomorphism $R^p\left( F\left(A \right) \right) = h^p\left( F\left( J^\bullet\right) \right)$
-where 
+	%Proposition 1.2A. 
+	With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, suppose there is an exact 
+	sequence 
+	$$
+	0 \to A \xrightarrow{\dl_0} J^0 \xrightarrow{\dl_1}J^1 \to \dots
+	$$
+	where each $J^p$ is acyclic for $F$,  $p\ge 0$. (We say $J^\bullet$ is an $F$-\textit{acyclic resolution}
+	of $A$.) Then for each $p \ge 0$ there is a natural isomorphism $R^p\left( F\left(A \right) \right) = h^p\left( F\left( J^\bullet\right) \right)$
+	where 
 	\be\label{etale_der_eqn}
 	\begin{split}
-h^p\left( F\left( J^\bullet\right) \right)\bydef\begin{cases}
-	\ker F\left( \dl^0 \right) & p = 0\\
-	\ker~ F\left(  \dl_{p} \right) / \im~ F\left(  \dl_{p-1}\right)   & p > 0
-\end{cases}
+		h^p\left( F\left( J^\bullet\right) \right)\bydef\begin{cases}
+			\ker F\left( \dl^0 \right) & p = 0\\
+			\ker~ F\left(  \dl_{p} \right) / \im~ F\left(  \dl_{p-1}\right)   & p > 0
+		\end{cases}
 	\end{split}
-\ee
-
+	\ee
 \end{proposition}
 
+\begin{definition}
+Let $\mathfrak  A$ and $\mathfrak  B$ be Abelian categories. A (\textit{covariant}) $\dl$-\textit{functor} from 
+$\mathfrak  A$ to $\mathfrak  B$ is a collection of functors $T\bydef \left\{T^n\right\}_{n \ge 0}$, together with a morphism $\dl^n: T^n(A'') \to  T^{n + 1}(A')$ for each short exact sequence $0 \to A'\to A \to A'' \to 0$, 
+and each $n \ge 0$, such that: 
+\begin{enumerate}
+	\item[(a)]
 
+For each short exact sequence as above, there is a long exact sequence
+\bean
+0 \to  T^0\left(   A'\right) \to T^0\left(   A\right) \to T^0\left(   A''\right) \xrightarrow{\delta^0} T^{1}\left(   A'\right) \to \dots \\
+\dots \to  T^n\left(   A\right) \to T^n\left(   A''\right) \xrightarrow{\delta^n} T^{n+1}\left(   A'\right) \to  T^{n+1}\left(   A\right) \to \dots;
+\eean 
+\item[(b)] for each morphism of one short exact sequence (as above) into another 
+$0 \to B'\to B \to BA'' \to 0$, the $\dl$'s give a commutative diagram 
+				\newline
+\begin{tikzcd}
+T^n\left(A'' \right) \arrow[d]\arrow[r, "\dl^n"]
+	&  T^{n+1}\left(A'' \right) \arrow[d]\\
+	T^{n}F\left(B'' \right)\arrow[r, "\dl^n"]	&  T^{n+1}\left(B' \right)
+\end{tikzcd}
+\end{enumerate}
+\end{definition}
+\begin{definition}
+	 The $\dl$ functor $T\bydef \left\{T^n\right\}_{n \ge 0}: \mathfrak A \to \mathfrak B$, is said to be \textit{universal} if, given 
+any other $\dl$-functor $T'\bydef \left\{T'^n\right\}_{n \ge 0}: \mathfrak A \to \mathfrak B$, and given any morphism of 
+functors $f^0: T^0 \to T'^0$, there exists a unique sequence of morphisms 
+$f^n: T^n \to T'^n$ for each $n \ge 0$, starting with the given $f^0$, which commute 
+with the $\dl^n$ for each short exact sequence. 
+\end{definition}
+\begin{theorem}
+ Assume that $\mathfrak  A$ has enough injectives. Then for any left exact 
+functor $F:\mathfrak  A\to\mathfrak  B$, the derived functors $\left\{R^nF\right\}_{n \ge 0}$ form a universal $\dl$-functor with $F = R^0F$. Conversely, if $T \bydef \left\{T^n\right\}_{n \ge 0}$ is any universal $\dl$-functor, 
+then $T^0$ is left exact, and the $T^n$ are isomorphic to $R^n T^0$ for each $n \ge 0$.
+\end{theorem}
+\subsection{Cohomology}\label{grothendieck_cohomology_section}
+\paragraph{}
+Here I follow to \cite{milne:lec}. The functor
+\bean
+\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
+\mathscr F \mapsto \mathscr F\left(X \right) 
+\eean
+of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution
+$$
+0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
+$$
+and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+\be\label{complex_eqn}
+\Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{d_0} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{d_1} \Ga\left(X, \mathscr I^2  \right) \to ... 
+\ee
+This is no longer exact (in general).
 The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $r^{\text{th}}$ cohomology
 group  $$
 H^r\left(X,\ \mathscr F \right)\bydef R^r\Ga\left(X, \F \right) 
@@ -2231,7 +2372,6 @@ The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 	$$
 	and the association of the long exact sequence with the short exact sequence is functional;
 	\item[(d)]
-	
 	\be\label{etale_coh_eqn}
 \begin{split}
 	H^p\left(X, \mathscr F \right)\bydef\begin{cases}
@@ -2243,7 +2383,6 @@ The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 \end{enumerate}
 Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
 by the properties (a), (b) and (c).
-
 \begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
 	%8.17 
 	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geometric_morphism_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
@@ -2259,10 +2398,6 @@ by the properties (a), (b) and (c).
 		\ee
 		where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{associated_sheaf_defn}).
 	\end{notation}
-	
-	
-	
-	
 	\subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
 	\paragraph*{} Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
 	\be\label{cech_eqn}
@@ -2311,7 +2446,6 @@ by the properties (a), (b) and (c).
 	\be\label{chech_eqn}
 	\check{H}^r\left(X, \mathscr P\right)\bydef \varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, \mathscr P\right).
 	\ee
-	
 	\begin{defn}\label{chech_defn}\cite{bryl:loop,milne:lec}
 		The  \textit{\v{C}ech cohomology groups} are given by equation \eqref{chech_eqn}.
 	\end{defn}
