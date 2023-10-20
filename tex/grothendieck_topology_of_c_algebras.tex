@@ -791,6 +791,57 @@ P \not\subset  P''\Leftrightarrow P'' \not \le P.
 \eean
 The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+
+\begin{empt}\label{top_paracompact_empt}
+If $\mathscr{ A}$ is a sheaf of Abelian groups on $\sX$ the using the Remark \ref{sheaf_rem} one has  a presheaf $\overline{\mathscr{ A}}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ such that
+	\be\label{top_paracompact_eqn}
+	\begin{split}
+		\forall \sU \in \mathfrak{Closed}\left(\sX \right)\quad\overline{\mathscr{ A}}\left(\sU \right) \bydef \text{ a group of continuous sections }  \iota :\sU\to \mathrm{Sp\acute{e}}\left(\mathscr A \right),\\
+		\forall ~\sV , \sU 	\in \mathfrak{Closed}\left(\sX \right) , \quad \sV \subset \sU \quad \overline{\mathscr{ A}}\left(\sU \right)\to\overline{\mathscr{ A}}\left(\sV \right); \quad \iota \mapsto \iota|_\sV.
+	\end{split}
+	\ee
+\end{empt}
+\begin{theorem}\label{comm_alg_loc_thm}
+If the space $\sX$  is compact then for any sheaf $\mathscr{ A}$  of Abelian groups on $\sX$ one has:
+\begin{enumerate}
+	\item[(i)] the presheaf $\overline{\mathscr{ A}}$ is a sheaf,
+	\item[(ii)] for each $p\ge 0$ there is a natural isomorphism  $H^p\left(\sX, \mathscr{ A} \right)\cong  H^p\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right), \overline{\mathscr{ A}} \right)$.
+	
+\end{enumerate}
+	
+\end{theorem}
+\begin{proof}
+	(i)	If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
+	$$
+	 = \text{ a closure of } \bigcup \sU_\iota.
+	$$
+	Let  $\left\lbrace s_\iota \in \overline{\mathscr{ A}}\left(\sU_\iota  \right)\right\rbrace$ be a family with
+	$$
+	\forall \iota, j \in I \quad s_\iota|_j = s_j|_\iota
+	$$
+	For any point $x \in \bigcup \sU_\iota$ there are
+	\begin{itemize}
+		\item  $\iota \in I$ such that $x \in \left|s_\iota \right|$.
+		\item  an open neighborhood $\sU_\x$ of $x$  and an element $a^x \in \mathscr{ A}\left(\sU_\x \right)$ such that
+		$$
+	\forall x' \in 	\sU_x\cap \left|s_\iota \right|\quad s_\iota\left(x' \right) = a^x\left( x'\right) 
+		$$ 
+	\end{itemize}
+		The set $\bigcup_{x \in \bigcup \sU_\iota} \sU_x$ is open and $\bigcup \sU_\iota\subset \bigcup_{x \in \bigcup \sU_\iota} \sU_x$. It follows that the closure $\overline{\sU}$ of  $\bigcup \sU_\iota$ is a subset of $\bigcup_{x \in \bigcup \sU_\iota} \sU_x$. On the other hand $\overline{\sU}$  is a closed subset of the compact set $\sX$, i.e.  $\overline{\sU}$ is compact.  There is a finite set $\left\{x_1, ..., x_n\right\}$ such that $\overline{\sU} \subset \bigcup_{j=1}^n \sU_{x_j}$. From the \ref{top_paracompact_lem} it follows that there is a family $\left\{\sV_1, ..., \sV_n\right\}$ of closed  subsets of $\sX$ such that $\sV_j \subset \sU_{x_j}$ and $\overline{\sU} \subset \bigcup_{j=1}^n \sV_{j}$. For any $j = 1,..., n$ there is $\iota \in I$ such that $\sV_j\cap \bigcup \sU_\iota \subset \left|s_\iota \right|$. We denote by $s_j$ a the restriction of $s_\iota$. From the Theorem \ref{closed_cov_thm} it follows that there is $t \in \mathscr{ A}\left(\bigcup \sU_\iota \right)$. Such that  $t|_{\sV_j}= s_j$. From the our construction it turns out that $t|_{\sU_\iota}= s_\iota$. From the Theorem \ref{sheaf_neigh_en_thm} it follows that there is an open neighborhood $\sV$ of $\bigcup \sU_\iota$ and a section $q \in \mathscr A\left(  \sV\right) $ such that $t = q|_{\bigcup \sU_\iota}$. Otherwise $\overline \sU \subset \sV$ because  $\bigcup \sU_\iota$ is dense in $\overline \sU$. We define the required section $s \in \mathscr A\left(  \overline \sU\right)$ as $s \bydef q|_{\overline \sU}$.
+		\\
+(ii)	From  $\Ga\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)\right) \cong   \Ga\left(\sX , {\mathscr{ A}} \right)$ and the Theorem \ref{uni_delta_thm} it follows that for any $n > 0$ there is the natural map % $H^p\left(\sX, \mathscr{ A} \right)\to  H^p\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right), \overline{\mathscr{ A}} \right)$.
+	
+\end{proof}
+
+\begin{remark}
+	Both the Lemma \ref{comm_alg_loc_lem} and the Theorem \ref{comm_alg_loc_thm} a motivations of the term "Gelfand locale" (cf. Theorem \ref{gelfand-naimark_thm}).
+\end{remark}
+\begin{lemma}
+	If $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups, then the given by the equation \eqref{top_paracompact_eqn} presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ is a sheaf.
+\end{lemma}
+
+
+\paragraph{!!! DELETE START !!!}
 We denote an  map 
 \be\label{top_sh_csh_eqn}
 \begin{split}
@@ -826,42 +877,8 @@ where left part implies an element of $\mathfrak{Adjont}\left( \sX\right)$ and r
 	$$
 	(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
 \end{proof}
-\paragraph{!!! DELETE !!! START} !!! DELETE !!!
-\begin{empt}\label{top_paracompact_empt}
-	Henceforth we suppose that $\sX$ is paracompact, so since $\sX$ from the Theorems \ref{gelfand-naimark_thm} and \ref{top_paracompact_thm} it follows that $\sX$ is metrizable. Any subspace of $\sU \subset \sX$ is metrizable  so $\sU$ is paracompact. Let $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups. From the Remark \ref{sheaf_rem} it follows that there is a presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ such that
-	\be\label{top_paracompact_eqn}
-	\begin{split}
-	\forall \sU \in \mathfrak{Closed}\left(\sX \right)\quad ^\neg \mathscr{ A}\left(\sU \right) \bydef \text{ a group of continuous sections }  \iota :\sU\to \mathrm{Sp\acute{e}}\left(\mathscr A \right),\\
-	\forall ~\sV , \sU 	\in \mathfrak{Closed}\left(\sX \right) , \quad \sV \subset \sU \quad ^\neg\mathscr{ A}\left(\sU \right)\to ^\neg\mathscr{ A}\left(\sV \right); \quad \iota \mapsto \iota|_\sV.
-	\end{split}
-	\ee
-\end{empt}
+\paragraph{!!! DELETE !!! FINISH} !!! DELETE !!!
 
-\begin{lemma}
-If $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups, then the given by the equation \eqref{top_paracompact_eqn} presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ is a sheaf.
-\end{lemma}
-\begin{proof}
-If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
-$$
-\bigvee \sU_\iota = \text{ a closure of } \bigcup \sU_\iota.
-$$
-Let  $\left\lbrace s_\iota \in ^\neg \mathscr{ A}\left(\sU_\iota  \right)\right\rbrace$ be a family with
-$$
-\forall \iota, j \in I \quad s_\iota|_j = s_j|_\iota
-$$
-Since $\sX$ is metrizable, for any $\sU_\iota$ there is  fundamental system of
-paracompact neighborhoods $\left\{\sV_{\iota, \a}\right\}$ of $\sU_\iota$  such that $\mathscr A\left( \sU_\iota\right) = \varinjlim_{\sV_{\iota, \a}} \mathscr A\left(
-\sV_{\iota, \a} \right)$ (cf. Theorem \ref{paracompact_n_thm}). For any $\iota$ there is an open set $\sV_\iota \in  \left\{\sV_{\iota, \a}\right\}$ and $t_\iota \in A\left(
-\sV_{\iota}\right)$ such that   $s_\iota$ is the "restriction" of $t_\iota$. A space $\bigcup \sU_\iota$ is paracompact (cf. \ref{top_paracompact_empt}, so there is a locally finite family   $\left\{\mathcal W_{\bt, \iota}\right\}_{(\bt, \iota) \in \B\times I}$ of open sets such that
-\begin{itemize}
-	\item $\mathcal W_{\bt, \iota} \subset \sV_{\iota}$,
-	\item $\bigcup \mathcal W_{\bt, \iota} = \bigcup \sU_\iota$,
-	\item the family $\left\{\mathcal W_{\bt, \iota}\right\}$ is locally finite.
-\end{itemize}
-From the Lemma \ref{top_paracompact_lem} it follows  that for any $\left( \bt, \iota\right) \in \B\times I$ there is 
-\end{proof}
-
-\paragraph{!!! DELETE !!! FINISH}
 \section{Locales of the $C^*$-algebras of compact operators}
 \paragraph{}
 In this section we use  following notations:
@@ -2336,7 +2353,7 @@ functors $f^0: T^0 \to T'^0$, there exists a unique sequence of morphisms
 $f^n: T^n \to T'^n$ for each $n \ge 0$, starting with the given $f^0$, which commute 
 with the $\dl^n$ for each short exact sequence. 
 \end{definition}
-\begin{theorem}
+\begin{theorem}\label{uni_delta_thm}
  Assume that $\mathfrak  A$ has enough injectives. Then for any left exact 
 functor $F:\mathfrak  A\to\mathfrak  B$, the derived functors $\left\{R^nF\right\}_{n \ge 0}$ form a universal $\dl$-functor with $F = R^0F$. Conversely, if $T \bydef \left\{T^n\right\}_{n \ge 0}$ is any universal $\dl$-functor, 
 then $T^0$ is left exact, and the $T^n$ are isomorphic to $R^n T^0$ for each $n \ge 0$.
@@ -2608,7 +2625,7 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 	only if it is a paracompact Hausdorff space that is locally metrizable.
 	\end{theorem}
 	
-	\subsection{General theory of sheves}
+	\subsection{General theory of sheaves}
 	\paragraph*{}
 	The explained below definitions are specializations of   \ref{etale_presheaf_defn} and  \ref{etale_sheaf_defn} ones (cf. Example \ref{top_gro_exm}).
 	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
@@ -2898,7 +2915,16 @@ $$
 				Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
 			\end{lemma}
 			
-			
+		\begin{theorem}
+		%Théor?me 1.3.1.—? 
+		Soient $\mathscr F$ un faisceau de base $\sX$ et $\left\{M_\iota\right\}_{\iota\in I}$ un recouvrement 
+		fermé localement fini de $\sX$. Supposons données des sections $s_\iota \in \mathscr F\left(M_\iota \right)$  de telle sorte que 
+		$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s_\in \mathscr F\left(\sX \right)$ qui 
+		co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
+		\end{theorem}
+		\begin{theorem}\label{closed_cov_thm}
+			ENGLISH !!!
+		\end{theorem}	
 			%\begin{theorem}\cite{bredon:sheaf}
 			%	6.2.\\
 			%	Theorem. Let $\mathscr P$ be a presheaf  DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
@@ -2911,6 +2937,10 @@ $$
 				%	3.3.1\\
 				Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
 			\end{theorem}
+					\begin{theorem}\label{sheaf_neigh_en_thm}\cite{godement:sheaf}
+!!!		ENGLISH !!!
+			\end{theorem}
+			
 			\begin{theorem}
 				%Thorme 3.4.1- — 
 				Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que 
@@ -3172,8 +3202,8 @@ $$.
 Since $M^*$ is injective, $\mathscr D\left( \bullet, M\right)$  is an exact functor of differential cosheaves.
 \end{definition}
 \begin{empt}
-Consider the canonical injective resolution $\mathcal J^*\left(\sX, L \right)$  of $L$ and
-note that $\mathcal J^*\left(\sX, L \right)|\sU  = \mathcal J^*\left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
+Consider the canonical injective resolution $\mathscr J^*\left(\sX, L \right)$  of $L$ and
+note that $\mathscr J^*\left(\sX, L \right)|\sU  = \mathscr J^*\left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
 we define
 \bean
 \mathscr C_*\left(\sX, \mathscr A \right) \bydef \mathscr D_*\left(\mathscr J^*\left(\sX, L \right)   \right) \otimes \mathscr A,\\
