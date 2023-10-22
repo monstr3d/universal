@@ -791,6 +791,64 @@ P \not\subset  P''\Leftrightarrow P'' \not \le P.
 \eean
 The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+\begin{empt}
+Let $\mathbb{K} = \R$ or $\mathbb{K}=\C$ and let $C\left(\sX,  \mathbb{K}\right)$ be a  $\mathbb{K}$ -algebra of continuous maps from $\sX$ to $\mathbb{K}$. Let  $E \to \sX$ be a locally trivial linear bundle with fiber $\mathbb{K}^n$. There is the adjoint bundle $E^*$ such that sections of $E^*$ are bundle homomorphisms $\Hom_{C\left(\sX,  \mathbb{K}\right)}\left( E,  \mathbb{K}\right)$. We suppose that there is an isomorphism of bundles $E\cong E^*$.  There is a presheaf $\in \mathbf{Sh}\left(\sX \right)$  of stalks of sections of $E$ such that for any open  $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ one has
+\bean
+\mathcal E\left(\sU \right) \bydef \quad \text{a group of sections of}\quad  E \quad \text{over}\quad \sU,\\
+\rho_{\sU \sV}: \mathcal E\left(\sU \right) \to \mathcal E\left(\sV \right); \quad s \mapsto s|_\sU.
+\eean
+One can proof that $\mathcal E$ is a sheaf. Similarly one has a dual copresheaf $\mathcal E^*$ such that
+\bean
+\mathcal E^*\left(\sU \right) \bydef \Hom_{C\left(\sX,  \mathbb{K}\right)}\left( E|_\sU, C\left(\sU,  \mathbb{K}\right)\right) \cong  \mathcal E\left(\sU \right)\\
+\rho^*_{\sV \sU}: \mathcal E^*\left(\sV \right)\to \mathcal E^*\left(\sU \right)
+\eean 
+where a map $\rho^*_{\sV \sU}$ is adjoint to $\rho_{\sU \sV}$.
+
+\end{empt}
+We denote a  map 
+\be\label{top_sh_csh_eqn}
+\begin{split}
+	\mathfrak{Inv}: \mathfrak{Closed}\left( \sX\right) \to \mathfrak{Locale}\left( \sX\right),\\
+	\sU \mapsto ^\neg \sU\bydef \sX \setminus\sU,\\
+	\forall  \sV, \sU  \in \mathfrak{Adjont}\left( \sX\right) ~~ \Leftrightarrow ~~ \sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV ~~  \Leftrightarrow ~~ \mathfrak{Inv}\left( \sV\right) \le  \mathfrak{Inv}\left( \sU\right)
+\end{split}
+\ee
+where left part implies an element of $\mathfrak{Closed}\left( \sX\right)$ and right part an element of $\mathfrak{Locale}\left( \sX\right)$.  
+\begin{theorem}\label{comm_sh_thm}
+If both $\mathbf{PreCSh}\left(  \sX\right)$ and $\mathbf{CSh}\left(  \sX\right)$ are categories of precosheaves and cosheaves over the locale $\mathfrak{Locale}\left( \sX\right)$	(cf. Definition \ref{coheaf_defn}) then one has:
+	\begin{enumerate}
+		\item [(i)] there is a natural bijective map 
+		$$
+		\neg: \mathbf{PreSh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)  \cong \mathbf{PreSh}\left( \mathfrak{Closed}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{PreCSh}\left(  \sX\right) ,
+		$$
+		
+		\item[(ii)]	such that
+		\bean
+	\neg\left( \mathbf{Sh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)\right)  \subset \mathbf{CSh}\left( \sX\right). 
+		\eean
+	\end{enumerate}
+	
+	
+\end{theorem}
+\begin{proof} (i)
+	For any presheaf $\mathscr F \in \mathbf{PreSh}\left( \mathfrak{Closed}\left( \sX\right)\right)$ we define a precosheaf \\$^\neg\mathscr F \in \mathbf{PreCSh}\left(  \sX\right)$ such that
+\bean
+	\forall \sU \in \mathfrak{Closed}\left( \sX\right)\quad  ^\neg\mathscr F\left(  \sU \right)   \bydef \mathscr F\left( ^\neg\sU\right) 
+\eean
+	From \eqref{top_sh_csh_eqn} if follows that if $\sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV$ there is a homomorphism $\rho_{\sV \sU}:\mathscr F\left(\sV  \right) \to \mathscr F\left(\sU  \right)$. We define
+	$$
+	^\neg \rho_{\sV \sU} :\neg \mathscr F\left(^\neg\sV \right)\to ^\neg \mathscr  F\left(^\neg\sU \right)\bydef  \rho_{\sV \sU}.
+	$$
+	(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
+\end{proof}
+
+\begin{theorem} !!!
+12.7. Theorem. If there exists a quasi-n-coresolution ,C, of L by flabby
+cosheaves, then X is clcL and 9*(,C*; M) is a quasi-n-resolution of M by
+flabby sheaves for any L-module M.
+\end{theorem}
+\paragraph{!!! DELETE !!! START} !!! DELETE !!!
+
 
 \begin{empt}\label{top_paracompact_empt}
 If $\mathscr{ A}$ is a sheaf of Abelian groups on $\sX$ the using the Remark \ref{sheaf_rem} one has  a presheaf $\overline{\mathscr{ A}}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ such that
@@ -802,7 +860,7 @@ If $\mathscr{ A}$ is a sheaf of Abelian groups on $\sX$ the using the Remark \re
 	\ee
 \end{empt}
 \begin{theorem}\label{comm_alg_loc_thm}
-If the space $\sX$  is compact then for any sheaf $\mathscr{ A}$  of Abelian groups on $\sX$ one has:
+If the space $\sX$  is paracompact then for any sheaf $\mathscr{ A}$  of Abelian groups on $\sX$ one has:
 \begin{enumerate}
 	\item[(i)] the presheaf $\overline{\mathscr{ A}}$ is a sheaf,
 	\item[(ii)] for each $p\ge 0$ there is a natural isomorphism  $H^p\left(\sX, \mathscr{ A} \right)\cong  H^p\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right), \overline{\mathscr{ A}} \right)$.
@@ -811,9 +869,10 @@ If the space $\sX$  is compact then for any sheaf $\mathscr{ A}$  of Abelian gro
 	
 \end{theorem}
 \begin{proof}
-	(i)	If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
+	(i)	The space $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) so it is metrizable (cf. Theorem \ref{top_paracompact_thm}). It turns out that any subspace of $\sX$ is metrizable and paracompact.
+	If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
 	$$
-	 = \text{ a closure of } \bigcup \sU_\iota.
+	\bigvee \sU_\iota = \text{ a closure of } \bigcup \sU_\iota.
 	$$
 	Let  $\left\lbrace s_\iota \in \overline{\mathscr{ A}}\left(\sU_\iota  \right)\right\rbrace$ be a family with
 	$$
@@ -827,7 +886,23 @@ If the space $\sX$  is compact then for any sheaf $\mathscr{ A}$  of Abelian gro
 	\forall x' \in 	\sU_x\cap \left|s_\iota \right|\quad s_\iota\left(x' \right) = a^x\left( x'\right) 
 		$$ 
 	\end{itemize}
-		The set $\bigcup_{x \in \bigcup \sU_\iota} \sU_x$ is open and $\bigcup \sU_\iota\subset \bigcup_{x \in \bigcup \sU_\iota} \sU_x$. It follows that the closure $\overline{\sU}$ of  $\bigcup \sU_\iota$ is a subset of $\bigcup_{x \in \bigcup \sU_\iota} \sU_x$. On the other hand $\overline{\sU}$  is a closed subset of the compact set $\sX$, i.e.  $\overline{\sU}$ is compact.  There is a finite set $\left\{x_1, ..., x_n\right\}$ such that $\overline{\sU} \subset \bigcup_{j=1}^n \sU_{x_j}$. From the \ref{top_paracompact_lem} it follows that there is a family $\left\{\sV_1, ..., \sV_n\right\}$ of closed  subsets of $\sX$ such that $\sV_j \subset \sU_{x_j}$ and $\overline{\sU} \subset \bigcup_{j=1}^n \sV_{j}$. For any $j = 1,..., n$ there is $\iota \in I$ such that $\sV_j\cap \bigcup \sU_\iota \subset \left|s_\iota \right|$. We denote by $s_j$ a the restriction of $s_\iota$. From the Theorem \ref{closed_cov_thm} it follows that there is $t \in \mathscr{ A}\left(\bigcup \sU_\iota \right)$. Such that  $t|_{\sV_j}= s_j$. From the our construction it turns out that $t|_{\sU_\iota}= s_\iota$. From the Theorem \ref{sheaf_neigh_en_thm} it follows that there is an open neighborhood $\sV$ of $\bigcup \sU_\iota$ and a section $q \in \mathscr A\left(  \sV\right) $ such that $t = q|_{\bigcup \sU_\iota}$. Otherwise $\overline \sU \subset \sV$ because  $\bigcup \sU_\iota$ is dense in $\overline \sU$. We define the required section $s \in \mathscr A\left(  \overline \sU\right)$ as $s \bydef q|_{\overline \sU}$.
+	 There is a locally finite refinement $\left\{\mathcal{W}_\a\right\}$ of the covering $\bigcup_{x \in \bigcup \sU_\iota} \sU_x$ If  $x \in \bigcup \sU_\iota$ then there is $\mathcal{W}_\a\subset \sU_x$ such that 
+	\be\label{ww_eqn}
+		\forall x' \in 	\mathcal{W}_\a\cap \left|s_\iota \right|\quad s_\iota\left(x' \right) = a^x\left( x'\right) 
+\ee 
+	For any $x \in \bigcup \sU_\iota$ we select $\mathcal{W}_\a$ such that $\mathcal{W}_\a \subset \sU_x$ and denote by $\mathcal{W}_x \bydef  \mathcal{W}_\a$, $b^x \bydef a^x|_{\mathcal{W}_x}$. From \eqref{ww_eqn} it follows that
+	$$
+	\forall \iota' \in I \quad \forall x' \in 	\mathcal{W}_x\cap \left|s_\iota \quad \right|s_{\iota'}\left(x' \right) = b^x\left( x'\right) 
+	$$
+	So the covering $\bigcup \sU_\iota \subset \bigcup \mathcal W_x$ is locally finite.
+	The set $\bigcup \mathcal W_x$ is open and $\bigcup \sU_\iota\subset \bigcup \mathcal W_\a$.	It follows that the closure $\overline{\sU}$ of  $\bigcup \sU_\iota$ is a subset of $\bigcup \mathcal W_x$. From the Lemma  \ref{top_paracompact_lem} it follows that there is a family $\left\{\sV_x\right\}$ of closed  subsets of $\sX$ such that $\sV_x\subset \mathcal W_x$ and $\overline{\sU} \subset \bigcup \mathcal W_x$. For any $x \in \bigcup \sU_\iota$ a intersection $\mathcal W_x \bigcap  \left(  \bigcup \sU_\iota\right)$ is closed in  $\left(  \bigcup \sU_\iota\right)$ thus the family $\left\{\mathcal W_x \bigcap  \left(  \bigcup \sU_\iota\right)\right\}$ is a locally finite covering of  $\bigcup \sU_\iota$
+From the Theorem \ref{closed_cov_thm} it follows that there is $t \in \mathscr{ A}\left(\bigcup \sU_\iota \right)$. Such that  $t|_{\sV_j}= s_j$. From the our construction it turns out that $t|_{\sU_\iota}= s_\iota$. From the Theorem \ref{sheaf_neigh_en_thm} it follows that there is an open neighborhood $\sV$ of $\bigcup \sU_\iota$ and a section $q \in \mathscr A\left(  \sV\right) $ such that $t = q|_{\bigcup \sU_\iota}$. Otherwise $\overline \sU \subset \sV$ because  $\bigcup \sU_\iota$ is dense in $\overline \sU$. We define the required section $s \in \mathscr A\left(  \overline \sU\right)$ as $s \bydef q|_{\overline \sU}$.	
+	
+
+	
+	\paragraph{title}
+	
+	On the other hand $\overline{\sU}$  is a closed subset of the compact set $\sX$, i.e.  $\overline{\sU}$ is compact.  There is a finite set $\left\{x_1, ..., x_n\right\}$ such that $\overline{\sU} \subset \bigcup_{j=1}^n \sU_{x_j}$. For any $j = 1,..., n$ there is $\iota \in I$ such that $\sV_j\cap \bigcup \sU_\iota \subset \left|s_\iota \right|$. We denote by $s_j$ a the restriction of $s_\iota$. 
 		\\
 (ii)	From  $\Ga\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)\right) \cong   \Ga\left(\sX , {\mathscr{ A}} \right)$ and the Theorem \ref{uni_delta_thm} it follows that for any $n > 0$ there is the natural map % $H^p\left(\sX, \mathscr{ A} \right)\to  H^p\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right), \overline{\mathscr{ A}} \right)$.
 	
@@ -840,43 +915,6 @@ If the space $\sX$  is compact then for any sheaf $\mathscr{ A}$  of Abelian gro
 	If $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups, then the given by the equation \eqref{top_paracompact_eqn} presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ is a sheaf.
 \end{lemma}
 
-
-\paragraph{!!! DELETE START !!!}
-We denote an  map 
-\be\label{top_sh_csh_eqn}
-\begin{split}
-	\mathfrak{Inv}: \mathfrak{Closed}\left( \sX\right) \to \mathfrak{Locale}\left( \sX\right),\\
-	\sU \mapsto ^\neg \sU\bydef \sX \setminus\sU,\\
-	\forall  \sV, \sU  \in \mathfrak{Adjont}\left( \sX\right) ~~ \Leftrightarrow ~~ \sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV ~~  \Leftrightarrow ~~ \mathfrak{Inv}\left( \sV\right) \le  \mathfrak{Inv}\left( \sU\right)
-\end{split}
-\ee
-where left part implies an element of $\mathfrak{Adjont}\left( \sX\right)$ and right part an element of $\mathfrak{Locale}\left( \sX\right)$.  
-\begin{theorem}\label{comm_sh_thm}
-	\begin{enumerate}
-		\item [(i)] There is a natural bijective map 
-		$$
-		\mathfrak{Inv}: \mathbf{PreSh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)  \cong \mathbf{PreSh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right) ,
-		$$
-		
-		\item[(ii)]	such that
-		\bean
-		\mathfrak{Inv}\left( \mathbf{Sh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)\right)   \cong \mathbf{Sh}\left( \mathfrak{Adjont}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{CSh}\left( \mathfrak{Locale}\left( \sX\right)\right) 
-		\eean
-	\end{enumerate}
-	
-	
-\end{theorem}
-\begin{proof} (i)
-	For any presheaf $\mathscr F \in \mathbf{PreSh}\left( \mathfrak{Closed}\left( \sX\right)\right)$ we define a precosheaf \\$^\neg\mathscr F \in \mathbf{PreCSh}\left( \mathfrak{Locale}\left( \sX\right)\right)$ such that
-	$$
-	\forall \sU \in \mathfrak{Closd}\left( \sX\right)\quad \neg\mathscr F\left(\mathfrak{Inv}\left(\sU \right)\right)   \bydef \mathscr F\left( \sU\right) 
-	$$
-	From \eqref{top_sh_csh_eqn} if follows that if $\sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV$ there is a homomorphism $\rho_{\sV \sU}:\mathscr F\left(\sV  \right) \to \mathscr F\left(\sU  \right)$. We define
-	$$
-	\mathfrak{Inv}\left( \rho_{\sV \sU} \right) : \mathscr G\left(\mathfrak{Inv}\left(\sV \right)\right)\to \mathscr G\left(\mathfrak{Inv}\left(\sU \right)\right)\bydef  \rho_{\sV \sU}.
-	$$
-	(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
-\end{proof}
 \paragraph{!!! DELETE !!! FINISH} !!! DELETE !!!
 
 \section{Locales of the $C^*$-algebras of compact operators}
@@ -2324,7 +2362,7 @@ $R^nF\left( I^\bullet\right)  = 0$.
 	\ee
 \end{proposition}
 
-\begin{definition}
+\begin{definition}\cite{hartshorne:ag}
 Let $\mathfrak  A$ and $\mathfrak  B$ be Abelian categories. A (\textit{covariant}) $\dl$-\textit{functor} from 
 $\mathfrak  A$ to $\mathfrak  B$ is a collection of functors $T\bydef \left\{T^n\right\}_{n \ge 0}$, together with a morphism $\dl^n: T^n(A'') \to  T^{n + 1}(A')$ for each short exact sequence $0 \to A'\to A \to A'' \to 0$, 
 and each $n \ge 0$, such that: 
@@ -2605,7 +2643,7 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 %	Lemma 6.1.2. The categories Ind(C) and Pro(C) are U-categories.
 
 
-	\section{Topological sheaves and sheaves}
+	\section{Topological sheaves and cosheaves}
 		\subsection{General topology}
 	
 	\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
@@ -3131,7 +3169,7 @@ A \textit{precosheaf} on a topological space $\sX$ is a covariant functor from t
 category of open subsets of $\sX$ to that of $L$-modules. A precosheaf is a
 \textit{cosheaf} if the sequence
 \begin{equation}\label{topcoeq cosh}
-	\bigoplus_{\bt, \ga} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{i \in I}  \mathfrak{A}(\sU_i) \xrightarrow{f}  \mathfrak{A}(\sU)
+	\bigoplus_{\bt, \ga\in \mathscr A} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(\sU)
 \end{equation}
 is exact for all collections $\left\{\sU_\a\right\}$ of open sets with $\sU = \cup_\a \sU_\a$,  where\\ $g \bydef \sum_{\bt, \ga} \left(i_{\sU_\bt, \sU_{\bt, \ga}} -i_{\sU_\ga, \sU_{\ga, \bt}}\right)$
  and $f\bydef \sum_\a i_{\sU, \sU_\a}$ ($i_{\sU,\sV}$ being the canonical
