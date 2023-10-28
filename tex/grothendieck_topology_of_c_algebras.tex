@@ -801,34 +801,46 @@ The above equation is a contradiction with with \eqref{prime_eqn}. It turns out 
 		$$
 		\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left( \mathscr L\left(\sU \right), L \right). 
 		$$
-		\item[(ii)] A map
+		\item[(ii)] There is a natural isomorphism of sheaves
 		$$
-		\sU \in \mathfrak{Closed}\left( \sX\right)\quad\sU \mapsto \mathfrak A\left(^\neg \sU \right) 
-		$$
-		is a sheaf on the locale $\mathfrak{Closed}\left( \sX\right)$.
+\mathfrak D	\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left(\mathfrak D \mathscr L\left(\sU \right), L \right). 
+	$$
+		
+		\item[(iii)] If $\sV, \sU \in \mathfrak{Closed}\left( \sX\right)$ such that $\sV \subset \sU$ and if $i^{^\neg\sV, ^\neg\sU}: \mathfrak D \left( \mathscr L \right)\left( ^\neg\sV\right)\to \mathfrak D \left( \mathscr L \right)\left(^\neg \sU\right)$ 
+then maps
+	\bean
+^\neg  \mathscr L:	\mathfrak{Closed}\left( \sX\right)\to \mathbf{Ab},\quad 
+		\sU \mapsto \mathfrak D \left( \mathscr L \right)\left(^\neg \sU \right);\\
+^\neg r^{\sV,\sU} : ^\neg  \mathscr L \left( \sU  \right)\to ^\neg  \mathscr L \left( \sV  \right)\quad \mathrm{equivalently}\quad \mathfrak D \left( \mathscr L \right)\left(^\neg \sU \right)\to \mathfrak D \left( \mathscr L \right)\left(^\neg \sV \right)
+\eean
+		yield a sheaf on the locale $\mathfrak{Closed}\left( \sX\right)$.
 	\end{enumerate}
 \end{lemma}
 \begin{proof}(i)
 Since $\sX$ is compact any open subset $\sU$ is a finite disjoint union of connected components, i.e. $\sU = \bigsqcup_{j = 1}^n \sU_j$. It follows that $\mathscr L\left( \sU\right) =  L^n$ and $\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left( L^n, L \right) \cong L^n$.
 The isomorphism \eqref{sh_co_eqn} is a simple consequence of these fact.\\
-(ii) If $\sV \subset \sU$ then $^\neg \sU\subset ^\neg \sV$, and there is the natural map
-$$
+(ii) Can be proven similarly (i).\\
+(iii) If $\sU, \sV \in\mathfrak{Closed}\left( \sX\right)$ such that $\sV \subset \sU$ then $^\neg \sU\subset ^\neg \sV$, and there is the natural map
+$$ !!!
 i_{\sV\sU}:\mathfrak A\left(^\neg \sV\ \right) \to \mathfrak A\left(^\neg \sU\ \right). 
 $$
-If $\left\{\sU_{   \a}\right\}_{\a \in \A}\subset \mathfrak{Closed}\left( \sX\right)$ then $\sU \bydef \bigvee \sU_\a$ is a closure of  $\bigcup \sU_\a$. So $^\neg \sU$ is a maximal open subset of $\bigcap ^\neg \sU_\a$.  Consider a family $\left\{s_\a \in \mathfrak A\left(^\neg \sU_\a \right) \right\}$ such that for all $\a', \a''\in \A$ one has
+If $\left\{\sU_{   \a}\right\}_{\a \in \A}\subset \mathfrak{Closed}\left( \sX\right)$ then $\sU \bydef \bigvee \sU_\a$ is a closure of  $\bigcup \sU_\a$. So $^\neg \sU$ is a maximal open subset of $\bigcap ^\neg \sU_\a$.  Consider a family $\left\{s_\a \in \neg \mathscr L\left( \sU_\a\right) = \mathfrak D \left( \mathscr L \right)\left(^\neg \sU_\a \right) \right\}$ such that for all $\a_1, \a_2\in \A$ one has
 \bean
-\rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right) = \rho_{\sU_{   \a''},\sX}\left( s_{\a''}\right)
+i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_1}\right) = i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_2}\right) 
 \eean
 From the above equation and (i) it follows that 
 $$
-\varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)  = \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a''}\right)\right)
+\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_1}\right)\right)=\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_2};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_2}\right)\right)
 $$
-where $\varphi_{\sX}$ is given by \eqref{sh_co_eqn}, so one has
-$$
-\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|= \left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a''}\right)\right)\right|
-$$
+where $\varphi_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}$ is given by \eqref{sh_co_eqn}. In particular one has
+\bean
+\left.\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_1}\right)\right)\right|_{\neg \sU }= \left.\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_2};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_2}\right)\right)\right|_{\neg\sU }
+\eean 
+So there is $t \in \neg \mathscr L\left(\sU \right)= $ 
+
+
 (cf. Equation \ref{sheaf_supp_eqn})
-On the other hand $\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|\subset \overline \sU_\a$ where $\overline \sU_\a$ is the closure of $\sU_\a$. It turns out that there is
+On the other hand $\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|\subset \overline \sU_\a$ where $\overline \sU_\a$ is the closure of $\sU_\a$. It turns out that there is.
 
 \end{proof}
 
