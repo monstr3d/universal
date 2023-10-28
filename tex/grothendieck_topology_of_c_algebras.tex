@@ -760,7 +760,6 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 \sV \wedge \sU\bydef \sV \cap \sU.
 \end{split}
 \ee
-
 \begin{lemma}\label{comm_alg_loc_lem}. Following conditions hold:
 	\begin{enumerate}
 		\item [(i)] the locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$,
@@ -791,6 +790,61 @@ P \not\subset  P''\Leftrightarrow P'' \not \le P.
 \eean
 The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+\begin{lemma}\label{sh_co_lem}
+	Let $\sX$ be a compact locally connected space, and let $L$ is a principal ideal domain. If $L_\sX$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr L \bydef \mathfrak{Ass}\left( L_\sX\right)$ ia an associated sheaf  then following conditions hold:
+	\begin{enumerate}
+		\item [(i)] 	For any open $\sU \in \sX$ there are natural isomorphisms
+		\be\label{sh_co_eqn}
+	\varphi_\sU:	\mathscr L\left(\sU \right) \cong \mathfrak D \left( \mathscr L \right) \left(\sU \right)  
+		\ee
+		where $\mathfrak D \left( \mathscr L \right)$ is a dual cosheaf
+		$$
+		\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left( \mathscr L\left(\sU \right), L \right). 
+		$$
+		\item[(ii)] A map
+		$$
+		\sU \in \mathfrak{Closed}\left( \sX\right)\quad\sU \mapsto \mathfrak A\left(^\neg \sU \right) 
+		$$
+		is a sheaf on the locale $\mathfrak{Closed}\left( \sX\right)$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}(i)
+Since $\sX$ is compact any open subset $\sU$ is a finite disjoint union of connected components, i.e. $\sU = \bigsqcup_{j = 1}^n \sU_j$. It follows that $\mathscr L\left( \sU\right) =  L^n$ and $\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left( L^n, L \right) \cong L^n$.
+The isomorphism \eqref{sh_co_eqn} is a simple consequence of these fact.\\
+(ii) If $\sV \subset \sU$ then $^\neg \sU\subset ^\neg \sV$, and there is the natural map
+$$
+i_{\sV\sU}:\mathfrak A\left(^\neg \sV\ \right) \to \mathfrak A\left(^\neg \sU\ \right). 
+$$
+If $\left\{\sU_{   \a}\right\}_{\a \in \A}\subset \mathfrak{Closed}\left( \sX\right)$ then $\sU \bydef \bigvee \sU_\a$ is a closure of  $\bigcup \sU_\a$. So $^\neg \sU$ is a maximal open subset of $\bigcap ^\neg \sU_\a$.  Consider a family $\left\{s_\a \in \mathfrak A\left(^\neg \sU_\a \right) \right\}$ such that for all $\a', \a''\in \A$ one has
+\bean
+\rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right) = \rho_{\sU_{   \a''},\sX}\left( s_{\a''}\right)
+\eean
+From the above equation and (i) it follows that 
+$$
+\varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)  = \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a''}\right)\right)
+$$
+where $\varphi_{\sX}$ is given by \eqref{sh_co_eqn}, so one has
+$$
+\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|= \left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a''}\right)\right)\right|
+$$
+(cf. Equation \ref{sheaf_supp_eqn})
+On the other hand $\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|\subset \overline \sU_\a$ where $\overline \sU_\a$ is the closure of $\sU_\a$. It turns out that there is
+
+\end{proof}
+
+
+
+\begin{definition}
+		PAGE 280
+1.2. Definition. A cosheaf 21 is said to be "flabby" if ix,U : 21(U) --+ 21(X)
+is a monomorphism for each open U C X.
+\end{definition}
+\begin{definition}
+	PAGE 280
+	1.4. Definition. 
+	Let 21 be a flabby cosheaf and let s E 21(U). Let Isl C U
+	(the "support" of s) be defined by: x V Isi if there is an open set V C U
+	with x 0 V and with s E Im(iu,V : 21(V) 21(U))\end{definition}
 \begin{empt}
 Let $\mathbb{K}$ be a possible noncommutative field. Let $\mathscr P_{{\mathbb{K}}} \bydef {\mathbb{K}}_\sX  $ id a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) on $\sX$, let $\mathscr A \bydef \mathfrak{Uss}\left(\mathscr P_{{\mathbb{K}}} \right)$ be an associated sheaf (cf. Definition \ref{associated_sheaf_defn}). 
 For any open  $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ one has homomorphism
@@ -850,6 +904,7 @@ X is said to be $clc_L$ if given $x$ and $N$ as above, $M$ can be chosen,
 independently of $n$, so that $r^n_{M, N}$ for all $n$.
 \end{definition}
 \begin{proposition}
+
 Following conditions hold:
 \begin{enumerate}
 	\item[(i)] $\mathfrak A_p$ is a flabby cosheaf for all $p \ge 0$,
@@ -892,7 +947,7 @@ $$
 \eean 
 and standard homological algebra provides a natural exact sequence
 \bean
-\Ext\left( H_{p-1}\left( \mathfrak A\left( \sU\right),M \right)\right)  %\to H^p\left(\mathscr{D}\left( \mathfrak{A}_*\left(\sU \right), M^* \right) \to \Hom\left( \right) 
+\Ext\left( H_{p-1}\left( \mathfrak A\left( \sU\right),M \right)\right)  \to H^p\left(\mathscr{D}\left( \mathfrak{A}_*\left(\sU \right), M^* \right)\right)  \to \Hom\left( \right) 
 \eean
 which splits, nonnaturally; see [54) and [75].
 \end{empt}
@@ -914,13 +969,13 @@ Hp (X; d) = Hp(C?(X;,d)).
 finite chains, while HH(X;4) is analogous to classical homology.] Recall
 that by our notational conventions,
 \end{empt}
-\begin{definition}
+\begin{definition} PAGE 350.
 12.4. Definition.
  A locally compact space $\sX$  is said to be $k$-$hlc_L$ if for
 each $x \in \sX$ and each neighborhood $\sU$ of $x$ there is a neighborhood $\sV \subset \sU$
 of $x$ such that the homomorphism
 $$
-i^{\sU, \sV}_* : \tilde H^c\left(\sU, L\right) \to \tilde H^c\left( \sU, L\right)
+i^{\sU, \sV}_* : \tilde H^c_k\left(\sV, L\right) \to \tilde H^c_k\left( \sU, L\right)
 $$
 is trivial. The space $\sX$ is $hlc^n_L$ if it is $k$-$hlcL$ for all $k \le n$.
 \end{definition}
@@ -3099,12 +3154,14 @@ $$
 			\end{cases}
 		\end{split}
 		\ee
-		\end{remark}	
-			Recall that for $s \in \mathscr{F}\left(\sX \right)$, 
-			\be\label{sheaf_supp_eqn}
-			\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
-			\ee
-			denotes the \textit{support} of the section $s$.
+		\end{remark}
+		\begin{definition}\label{sheaf_support_defn}
+		For $s \in \mathscr{F}\left(\sX \right)$, 
+\be\label{sheaf_supp_eqn}
+\left|  s\right| = \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
+\ee
+denotes the \textit{support} of the section $s$.
+		\end{definition}	
 			\begin{definition}\label{phi_supp_defn}\cite{godement:sheaf}.
 				Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
 				subsets of $\sX$  such that:
