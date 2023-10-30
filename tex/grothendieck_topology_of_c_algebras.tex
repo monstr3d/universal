@@ -790,8 +790,35 @@ P \not\subset  P''\Leftrightarrow P'' \not \le P.
 \eean
 The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
-\begin{lemma}\label{sh_co_lem}
-	Let $\sX$ be a compact locally connected space, and let $L$ is a principal ideal domain. If $L_\sX$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr L \bydef \mathfrak{Ass}\left( L_\sX\right)$ ia an associated sheaf  then following conditions hold:
+\begin{lemma}\label{sh_co_lem} 
+	Let $\sX$ be a compact locally connected space. Suppose there is an inclusion $\sX \hookto\sY$.  If $^\neg \sU \bydef \sY \setminus \sU$ for all $\sU \in  \mathfrak{Closed }\left( \sX\right)$ and $\mathfrak A$ is a flabby cosheaf on $\sY$ (cf. Definitions \ref{top_cosh_defn} and \ref{top_flabby_cosh_defn} then the map
+	\be\label{top_sheaf_eqn}
+	\sU \mapsto \mathfrak A\left(^\neg \sU\right)
+	\ee 
+	is a sheaf over the locale $\mathfrak{Closed }\left( \sX\right)$ (cf. Definition \ref{sheaf_defn}). 
+\end{lemma}
+
+\begin{proof}
+If $\sU, \sV \in  \mathfrak{Closed }\left( \sX\right)$ are such that $\sV \le \sU$ then $^\neg \sU \subset ^\neg \sV$. From the Definition \ref{top_presheaf_defn} it follows that there is the natural homomorphism
+$$
+i_{^\neg \sV, ^\neg \sU}  :\mathfrak{A}\left( ^\neg \sU\right)\to \mathfrak{A}\left( ^\neg \sV\right).
+$$
+From this circumstance it follows that the map \eqref{top_sheaf_eqn} is a presheaf on $\mathfrak{Closed}\left( \sX\right)$ (cf. Definition \ref{presheaf_defn}), we denote it by 
+$^\neg \mathfrak A\in \mathbf{PreShAb}\left(\mathfrak{Closed}\left( \sX\right)  \right)$ (cf. Remark \ref{ab_uss_rem}).  Any $s \in ^\neg \mathfrak A\left( \sU\right) $ corresponds to $^\neg s \in  \mathfrak A\left(^\neg \sU\right) $. Let us prove that $^\neg \mathfrak A$ is a sheaf (cf. Definition \ref{sheaf_defn}). Let $\left\{s_\a\right\}_{\a\in \A}$ be a family such that $s_\a \in ^\neg \mathfrak A\left( \sU_\a\right)$ and $\sU_\a\in \mathfrak{Closed }\left( \sX\right)$ such that   
+\bean
+s_{\a'}|_{\sU_{   \a'}\wedge\sU_{   \a''}}=s_{\a''}|_{\sU_{   \a'}\wedge\sU_{   \a''}}
+\eean 
+ for all  $\a', \a'' \in \A$. It turns out that 
+ \be\label{top_co_eqn}
+i_{^\neg \sU_{   \a',  ^\neg\sU_{   \a'}\cup  ^\neg\sU_{   \a''}}, }  ^\neg s_{\a'} = i_{^\neg \sU_{   \a'',  ^\neg\sU_{   \a'}\cup  ^\neg\sU_{   \a''}}, }  ^\neg s_{\a''}   
+ \ee
+  Taking into account that $\left| s_\a\right|$ is a closed subset  $\sU_{   \a''}$ from \eqref{top_co_eqn} it follows that for all $\a \in \A$ one has
+$\left| s_\a\right| \subset \sU$ where $\sU$ is a maximal open subset of $\bigcap^\neg \sU_{   \a}$ So there is $s \in \neg \mathfrak A\left( \sU\right)$ such that $i_{^\neg \sU   ,  ^\neg\sU_{   \a'}}\neg s= \neg s_\a$ for all $\a \in \A$. Thus $s$ is the required by the Definition \ref{sheaf_defn} section.
+\end{proof}
+
+
+\begin{lemma}\label{sh_coo_lem} !!!! MAY BE DELETE !!!
+	Let $\sX$ be a compact locally connected space, and let $R$ is a principal ideal domain. Suppose there is an injective continuous map $\sX \hookto\sY$. If $R_\sY$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr L \bydef \mathfrak{Ass}\left( R_\sY\right)$ ia an associated sheaf  then following conditions hold:
 	\begin{enumerate}
 		\item [(i)] 	For any open $\sU \in \sX$ there are natural isomorphisms
 		\be\label{sh_co_eqn}
@@ -843,14 +870,20 @@ So there is $t \in \neg \mathscr L\left(\sU \right)= $
 On the other hand $\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|\subset \overline \sU_\a$ where $\overline \sU_\a$ is the closure of $\sU_\a$. It turns out that there is.
 
 \end{proof}
-
-
-
-\begin{definition}
-		PAGE 280
-1.2. Definition. A cosheaf 21 is said to be "flabby" if ix,U : 21(U) --+ 21(X)
-is a monomorphism for each open U C X.
+\begin{definition}\label{flabby_co_defn}
+	PAGE 280
+	1.2. Definition. A cosheaf 21 is said to be "flabby" if ix,U : 21(U) --+ 21(X)
+	is a monomorphism for each open U C X.
 \end{definition}
+
+\begin{definition}\label{flabby_co_supp_defn}
+	PAGE 281 
+1.4. Definition. 
+Let $\mathfrak A$ be a flabby cosheaf (cf. Definition \ref{flabby_co_defn}) and let $s \in  \mathfrak A$. Let $\left| s\right| \subset \sU$ 
+(the \textit{support} of $s$) be defined by: $x \notin \left| s\right|$  if there is an open set $\sV \subset \sU$
+with $x \notin \sX$ and with $s \in \im i_{\sU, \sV} \mathfrak A(\sU)\to \mathfrak A(\sV)$.
+\end{definition}
+
 \begin{definition}
 	PAGE 280
 	1.4. Definition. 
@@ -2135,7 +2168,7 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 		In the situation of the Example \ref{top_gro_exm} one has a site $\mathbf T_{\sX}$ \textit{arising} from $\sX$.
 	\end{definition}
 	\subsection{Sheaves and cosheaves}
-	\begin{definition}\label{etale_presheaf_defn}\cite{milne:lec}
+	\begin{definition}\label{presheaf_defn}\cite{milne:lec}
 		A \textit{presheaf of sets} on a category $\mathscr C$
 		is a contravariant functor $\mathscr F$ from $\mathscr C$ to the category of sets. Thus,  $\mathscr F$
 		to each object $U$ in $\mathscr C$ 
@@ -2149,7 +2182,7 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 	Similarly, a presheaf of (Abelian) groups or rings for the Grothendieck pretopology is a contravariant functor from
 $\mathscr C$ to the category of (Abelian) groups or rings.
 	\end{remark}
-	\begin{definition}\label{etale_sheaf_defn}\cite{milne:lec}
+	\begin{definition}\label{sheaf_defn}\cite{milne:lec}
 		A \textit{sheaf} for the Grothendieck pretopology
 		is a presheaf $\mathscr F$ 
 		that satisfies the sheaf condition, that is a sequence 
@@ -2916,8 +2949,8 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 	
 	\subsection{General theory of sheaves}
 	\paragraph*{}
-	The explained below definitions are specializations of   \ref{etale_presheaf_defn} and  \ref{etale_sheaf_defn} ones (cf. Example \ref{top_gro_exm}).
-	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
+	The explained below definitions are specializations of   \ref{presheaf_defn} and  \ref{sheaf_defn} ones (cf. Example \ref{top_gro_exm}).
+	\begin{definition}\label{top_presheaf_defn}\cite{hartshorne:ag}
 		Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data:
 		\begin{itemize}
 			\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
@@ -2931,7 +2964,7 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 		\end{itemize}
 	\end{definition}
 	
-	\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
+	\begin{definition}\label{top_sheaf_defn}\cite{hartshorne:ag}
 		A {presheaf} $\mathscr F$ on  
 		a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
 		\begin{itemize}
