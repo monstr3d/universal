@@ -612,7 +612,11 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	$$
 	P \bydef  \bigvee K \bydef \left( \bigvee_{B\in K} B\right) \in 	\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right).
 	$$
-	From the equation \eqref{pprime_eqn} it follows that $P \neq \sX$, so $^\neg P \bydef \sX \setminus P$ is a nonempty open set. If $\sX$ has no isolated points then since $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) there are two open subsets $^\neg P', ^\neg P'' \subset ^\neg P$ such that
+	From the equation \eqref{pprime_eqn} it follows that $P \neq \sX$, so 
+\be\label{top_neg_op}	
+	^\neg P \bydef \sX \setminus P
+\ee	
+	 is a nonempty open set. If $\sX$ has no isolated points then since $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) there are two open subsets $^\neg P', ^\neg P'' \subset ^\neg P$ such that
 	\bean
 	^\neg P' \subsetneqq ^\neg P,\\
 	^\neg P'' \subsetneqq ^\neg P,\\
@@ -626,8 +630,55 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	\eean
 	The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+\begin{remark}
+If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)$ then the operation \eqref{top_neg_op} can be replaced with
+\be\label{top_neg_ex_op_eqn}	
+^\neg P \bydef \sY \setminus P
+\ee	
+\end{remark}
+\begin{empt}
+Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). From the Proposition \ref{precosh_sh_prop} it follows that the map
+$$
+\mathfrak A : \sU \mapsto H^c_0\left( \sU, \mathscr {L}\right) 
+$$
+is a cosheaf (cf. Definition \ref{top_cosh_defn})
+\end{empt}
+ \begin{lemma}
+ The given by
+\bean
+\mathfrak{Closed}\left( \sX\right)\to \mathbf{Ab},\\
+ \sU \mapsto \mathfrak A\left( ^\neg \sU\right) 
+\eean
+ map yields a sheaf on the locale $\mathfrak{Closed}\left(\sX \right)$. 
+ \end{lemma}
+\begin{empt}
+Then if $\sU\subset\sY$  is an open subset which is a disjoint union $\sU = \bigsqcup_{\la\in \La}\sU_\la$ of connected components then
+$ \mathscr {L}\left(\sU \right) \cong L^\La \bydef \prod_{\la\in \La} L$. 
+From the Theorem \ref{top_free_l_thm} one has a map  $\mathfrak A$ from the set of open subsets of  $\sY$ to the set of free $L$-modules
+\be\label{top_const_sh_eqn}
+\mathfrak A \left(\sU \right) \bydef  H^c_0\left(\sU,\mathscr {L}\right)  \cong \bigoplus_{\la\in \La} H^c_0\left(\sU_\la,\mathscr {L}\right) \cong \bigoplus_{\la\in \La} L
+\ee
+If $\sV$ is connected then one can define a map $i_{\sV, \sU}:\mathfrak A \left(\sV \right)\to \mathfrak A \left(\sU \right)$ by the following way. If $\sV= \bigsqcup_{\xi\in \Xi}\sV_\xi$ then there is the unique map $\varphi :\Xi \to \La$ such that $\sV_\xi \subset \sU_{\varphi\left( \La\right) }$. For any  $s \in \mathfrak A \left(\sU \right) $ there is a finite subset $\Xi_0 \subset \Xi$ such that
+$$
+s =\sum_{\xi \in \Xi_0} s_\xi \quad \text{where} \quad s_\xi \in H^c_0\left(\sV_\xi,\mathscr {L}\right).
+$$
+We define $i_{\sV, \sU}$ by following way
+$$
+s =\sum_{\xi \in \Xi_0} s_\xi \mapsto \sum_{\la \in \varphi\left(   \Xi_0 \right) } s_\la \quad \text{where} \quad  s_\la = \sum_{\xi \in \varphi^{-1}\left( \la\right)} s_\xi.
+$$
+One can proof that $\mathfrak A$ is cosheaf ()
+
+\end{empt}
+
+
+\paragraph{title}
+\begin{theorem}\label{top_free_l_thm!!!}
+	PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
+	$clc^1_L$, then $H^c_0\left(\sX, L \right)$  is the free $L$-module on the components of $\sX$.
+	\end{theorem}
+\paragraph{title}
 \begin{lemma}\label{sh_co_lem} 
-	Let $\sX$ be a compact locally connected space. Suppose there is an inclusion $\sX \hookto\sY$.  If $^\neg \sU \bydef \sY \setminus \sU$ for all $\sU \in  \mathfrak{Closed }\left( \sX\right)$ and $\mathfrak A$ is a flabby cosheaf on $\sY$ (cf. Definitions \ref{top_cosh_defn} and \ref{top_flabby_cosh_defn} then the map
+	. Suppose there is an inclusion $\sX \hookto\sY$.  If $^\neg \sU \bydef \sY \setminus \sU$ for all $\sU \in  \mathfrak{Closed }\left( \sX\right)$ and $\mathfrak A$ is a flabby cosheaf on $\sY$ (cf. Definitions \ref{top_cosh_defn} and \ref{top_flabby_cosh_defn} then the map
 	\be\label{top_sheaf_eqn}
 	\sU \mapsto \mathfrak A\left(^\neg \sU\right)
 	\ee 
@@ -667,15 +718,36 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	from the the Theorem \ref{top_diml_thm} it follows that 
 \end{empt}
 	\subsection{Cosheaves}
+	\begin{definition}\label{top_res_defn}
+	PAGE 34
+	1.1. Definition. A \textit{graded sheaf} $\mathscr L^*$ is a sequence $\left\{\mathscr L^p\right\}$ of sheaves, $p$
+	ranging over the integers. A \textit{differential sheaf} is a graded sheaf together
+	with homomorphisms $d : \mathscr L^p \to \mathscr L^{p+1}$ such that $d^2: \mathscr L^p \to \mathscr L^{p+2}$ is zero for
+	all $p$. A \textit{resolution} of a sheaf $d$ is a differential sheaf $\mathscr L^{p}$ with $\mathscr L_p = 0$
+	for $p < 0$ together with an \textit{augmentation} homomorphism $\eps : \mathscr A \to \mathscr L^0$
+	such that the sequence $\mathscr A  \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\to \dots $ is exact.
+	\end{definition}
+	
+	
 \paragraph{}
-Here $L$ is  a ring that is a principal ideal domain.
-\begin{definition}\label{top_dimlp_defn}\cite{bredon:sheaf}
-	16.3. Definition. PAGE 111 Let 4) be a family of supports on X and let L be a fixed
+	\begin{definition}
+	16.3. Definition. PAGE 111
+	
+	Let 4) be a family of supports on X and let L be a fixed
 	ground ring with unit. We let dime,L X be the least integer n (or oo) such
 	that H (X; 4) = 0 for all sheaves 4 of L-modules and all k > n.
 \end{definition}
-\begin{theorem}\label{top_diml_thm}
-	PAGE 111
+\begin{remark}  PAGE 69
+	The following result shows that softness is a "local" property. Recall
+	that 
+	\be\label{top_ep_eqn}
+	E\left(\Phi \right) \bydef \bigcup \left\{K | K \in \Phi\right\}
+	\ee
+\end{remark}
+\begin{theorem}
+	16.4. Definition. PAGE 111 Let 4) be a family of supports on X and let L be a fixed
+	ground ring with unit. We let dime,L X be the least integer n (or oo) such
+	that H (X; 4) = 0 for all sheaves 4 of L-modules and all k > n.
 	16.4. Theorem. The following four statements are equivalent:
 	(a) dim. ,L X < n.
 	(b) H +1(X; d) = 0 for all sheaves d of L-modules.
@@ -685,13 +757,8 @@ Here $L$ is  a ring that is a principal ideal domain.
 	be replaced by "4>-soft."
 \end{theorem}
 
-\begin{remark}
-	The following result shows that softness is a "local" property. Recall
-	that 
-	\be\label{top_ep_eqn}
-	E\left(\Phi \right) \bydef \bigcup \left\{K | K \in \Phi\right\}
-	\ee
-\end{remark}
+
+
 
 \begin{definition}\label{top_loc_para_defn}
 	PAGE 112 We say that a space X is locally paracompact if it is Hausdorff and each
@@ -709,7 +776,88 @@ Here $L$ is  a ring that is a principal ideal domain.
 	X is locally paracompact then we define (using \ref{top_loc_para_prop})
 	$\dim_L\sX$ = dime,L X, where 4i is paracompactifying and E(4)) = X.
 \end{definition}
+\begin{proposition}
+	PAGE 285
+1.10. Proposition. Let $\mathfrak A$ be a cosheaf and $M$ an $L$-module. Then the
+presheaf $\sU \mapsto \Hom\left(\mathfrak A (\sU), M \right)$ is a sheaf, denoted by  $\mathscr Hom\left(\mathfrak A, M \right)$ It is
+flabby if $\mathfrak A$ is flabby and $M$ is an injective module. It is torsion free if each
+$\mathfrak A(\sU)$ is divisible.
+\end{proposition}
+\begin{proposition}
+5.3. Proposition. PAGE 220  $\Phi\left( c\right)$ If f : X -+ Y is a map between locally compact Hausdorff
+j` spaces, then
+(a) c(Y) = {K C X closed I f IK : K Y is proper},
+(b) ID(c) = {K E f -'(-D) I f IK : K -+ Y is proper},
+(c) ' C 4(c) Gs (f (W) C 4i and f JK : K -+ Y is proper for all K E'I).
+\end{proposition}
+\begin{proposition}
+		PAGE 285
+1.12. Proposition. Let $\mathfrak A$ be a torsion free flabby cosheaf and let $M$ be
+an injective $L$-module. Then $\Ga_\Phi\left(\mathscr Hom\left(\mathfrak A, M \right) \right)$  is divisible for any family
+of supports.
+\end{proposition}
+!!! PAGE 294 !!!
+\begin{definition}
+3.2. Definition. PAGE 294 
+A sheaf $\mathscr L$ of $L$-modules on the locally compact space $\sX$
+is said to be \textit{replete} if it is $c$-soft and if $\Ga_c\left( \mathscr L|_\sU\right)$  is divisible for all open
+sets $\sU\subset \sX$.
+\end{definition}
+\begin{proposition}
+3.3. Proposition.   PAGE 294 
+If 2 is a replete sheaf on X and if A C X zs locally
+closed, then 21A and 2A are replete. An injective sheaf is replete.
+\end{proposition}
+\begin{proposition}
+	
+	!!! BAD PROPOSITION flabby DELETE !!!  PAGE 294 
+3.4. Proposition. If $\mathscr L$ is a replete differential sheaf, then $\mathfrak D\left(\mathscr L^* \right)$  is
+torsion-free and flabby. If $\mathfrak L_*$ is a torsion-free flabby differential cosheaf,
+then $\mathscr D\left(\mathfrak L_* \right)$  is replete.
+\end{proposition}
 
+\begin{empt}
+	PAGE 303 
+Let A C X be locally closed and hence locally compact. If D is a family of
+supports on X, note that for the inclusion i = iX,A : A --+ X we have that
+I (c) = CIA; see IV-5.3(b). Therefore, Section 4 provides the chain map
+C:JA(A;.CIA) - C?(X;.d)
+and the induced homomorphism
+i, : Hp I A(A; 4I A) Hp (X; 4)
+(28)
+for any sheaf 4 on X.
+\end{empt}
+\begin{theorem}\label{top_free_l_thm}
+PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
+$clc^1_L$, then $H^c_0\left(\sX, L \right)$  is the free $L$-module on the components of $\sX$.
+\end{theorem}
+\begin{remark}\label{top_free_l_rem}
+The proof of the Theorem is based on the following fact
+\be\label{top_free_l_eqn}
+H^c_0 (\sX; L) \cong \varinjlim_{K}  H^c_0 (K; L)\cong \varinjlim_{K} \Hom\left( H^0\left(K ; L\right) , L\right) \cong  L.
+\ee
+where the set $\sX$ is connected and the sets $K$ are compact.
+\end{remark}
+\begin{theorem}
+5.3. Theorem. If 4) is a paracompactifying family of supports on X and
+4 is any sheaf on X, then the canonical map
+\bean
+\varinjlim_{K \in \Phi}H_*\left(K, \mathscr A|_K \right) \to H_*\left(K, \mathscr A|_K \right) 
+\eean
+lirr H.(K;.4IK) - H'(X;4)
+is an isomorphzsm.9
+\end{theorem}
+\begin{theorem}
+	PAGE 322 
+5.6. Theorem. Let (.,ff, (D) be elementary.10 Then:
+\begin{enumerate}
+	\item[(i)] (i) The natural map $\lim_K  H_*\left(K , M\right)\to H_*\left(\sX , M\right)$ is an isomorphism.
+	KE-D
+	(ii) The canonical map H!(X;,Itf) -* is an isomorphism
+	for any replete resolution T' of L.
+\end{enumerate}
+
+If t = c, then these statements hold for arbitrary sheaves x.11\end{theorem}
 \begin{definition}\label{top_ndiml_defn}\cite{bredon:sheaf}
 	PAGE 329 9.1. Definition. 
 	
@@ -785,26 +933,6 @@ Here $L$ is  a ring that is a principal ideal domain.
 		with respect to one cohomology theory but not with respect to another. 
 	\end{empt}
 	
-	\begin{definition}
-		16.3. Definition. PAGE 1111
-		
-		Let 4) be a family of supports on X and let L be a fixed
-		ground ring with unit. We let dime,L X be the least integer n (or oo) such
-		that H (X; 4) = 0 for all sheaves 4 of L-modules and all k > n.
-	\end{definition}
-	
-	\begin{theorem}
-		16.4. Definition. PAGE 111 Let 4) be a family of supports on X and let L be a fixed
-		ground ring with unit. We let dime,L X be the least integer n (or oo) such
-		that H (X; 4) = 0 for all sheaves 4 of L-modules and all k > n.
-		16.4. Theorem. The following four statements are equivalent:
-		(a) dim. ,L X < n.
-		(b) H +1(X; d) = 0 for all sheaves d of L-modules.
-		(c) For every sheaf .d of L-modules, Zn(X; 4) is D-acyclic.
-		(d) Every sheaf 4 of L-modules has a 4>-acyclic resolution of length n.
-		Moreover, if 4> is paracompactifying, then "4>-acyclic" in (c) and (d) can
-		be replaced by "4>-soft."
-	\end{theorem}
 	\begin{theorem}\cite{spanier:at}
 		%16 PAGE 296 theorem
 		If $A$ is a compact subset of $\R^n$, then for all $q$ and $R$ modules $G$ 
@@ -832,35 +960,6 @@ Here $L$ is  a ring that is a principal ideal domain.
 		Let 21 be a flabby cosheaf and let s E 21(U). Let Isl C U
 		(the "support" of s) be defined by: x V Isi if there is an open set V C U
 		with x 0 V and with s E Im(iu,V : 21(V) 21(U))\end{definition}
-	\begin{empt}
-		Let $\mathbb{K}$ be a possible noncommutative field. Let $\mathscr P_{{\mathbb{K}}} \bydef {\mathbb{K}}_\sX  $ id a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) on $\sX$, let $\mathscr A \bydef \mathfrak{Uss}\left(\mathscr P_{{\mathbb{K}}} \right)$ be an associated sheaf (cf. Definition \ref{associated_sheaf_defn}). 
-		For any open  $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ one has homomorphism
-		\be\label{top_rv_eqn}
-		\rho_{\sU \sV}: \mathscr A\left(\sU \right) \to \mathscr A\left(\sV \right),
-		\\ \quad s \mapsto s|_\sV.
-		\ee
-		If $\sU\subset  \sX$ is an open subset and $\sU = \bigsqcup \sU_{\iota\in I}$ is a disjoint union of connected components then any $s \in A\left(\sU \right)$ corresponds to a family $\left\{s_\iota\right\}_{\iota\in I}\subset \mathbb{K}$.
-		If  $\mathfrak{A}\left(\sU \right)  \bydef \Hom_{ \mathbb{K}}\left(\mathscr A\left( 
-		\sU\right) , \mathbb{K} \right)$ then any $t \in \mathfrak{A}\left(\sU \right)$ corresponds to a family $\left\{t_\iota\right\}_{\iota\in I}\subset \Hom_{\mathbb{K}}\left( \mathbb{K}, \mathbb{K}\right)$. From the natural isomorphism $\mathbb{K} \cong  \Hom_{\mathbb{K}}\left( \mathbb{K}, \mathbb{K}\right)$ it follows that there is a natural isomorphism 
-		\bean
-		\mathfrak{A}\left(\sU \right) \cong \mathscr{A}\left(\sU \right)
-		\eean
-		If $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ then there is the natural adjoint to \eqref{top_rv_eqn}
-		\be\label{top_a_rv_eqn}
-		\begin{split}
-			\rho^*_{\sV \sU}: \mathfrak A\left(\sV \right)\cong \Hom_{\mathbb{K}}\left(\mathscr A\left(\sV \right) , \mathbb{K}\right)  \to \mathfrak A\left(\sU \right) \cong \Hom_{\mathbb{K}}\left(\mathscr A\left(\sU \right), \mathbb{K}\right).
-		\end{split}
-		\ee
-		One can proof that $\mathfrak A$ is a cosheaf of $\mathbb{K}$-modules (cf. Definition \ref{top_cosh_defn}).
-		Let
-		$$
-		\mathscr A = \mathscr A^0 \to \mathscr A^1\to \mathscr A^2\to \dots
-		$$
-		be a canonical injective resolution (cf. \ref{canonical_resolution_empt}) of $\mathscr A$ and for any $p \ge 0$ denote by $\mathfrak A_p$ a precosheaf
-		$$
-		\sU \mapsto  \Hom_{\mathbb{K}}\left(\mathscr A^p\left(\sU\right) , \mathbb{K} \right) 
-		$$
-	\end{empt}
 	\begin{cor}
 		PAGE 66
 		9.6. Corollary. If $\Phi$ is paracompactifying, then every flabby sheaf on $\sX$
@@ -943,11 +1042,13 @@ Here $L$ is  a ring that is a principal ideal domain.
 		Consider the canonical injective resolution ,f (X; L) of L (see 11-3) and
 		note that J'(X;L)IU = ,4'(U;L) for U C X open. For a sheaf 4 on X,
 		we define
-		\bean
+		\be\label{top_homology_eqn}
+\begin{split}
 		\mathscr C_*\left( \sX, \mathscr A\right)  \bydef \mathscr D_*\left(\mathscr J \left(\sX, L \right) \right) \otimes \mathscr A,\\
-		C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi \left(\mathscr C_*\left( \sX, \mathscr A\right) \right),\\
-		H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right) 
-		\eean
+C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi \left(\mathscr C_*\left( \sX, \mathscr A\right) \right),\\
+H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right) 
+\end{split}		
+		\ee
 		W.(X;.d) = 9.(¤'(X;L)) 0 d,
 		C!(X;4) = rb(W.(X;,W)),
 		and
@@ -1009,8 +1110,20 @@ Here $L$ is  a ring that is a principal ideal domain.
 		!!! Recall that $\mathfrak D \left(\mathscr L^*\right)$ is the cosheaf
 		$\sU \mapsto \Ga_c \left(\mathscr D\left( \mathscr L\right)|_\sU  \right)$. 
 	\end{theorem}
+\begin{definition}\label{top_cosh_defn}\cite{bredon:sheaf}
+	%1.1. Definition. 
+	A \textit{precosheaf} on a topological space $\sX$ is a covariant functor from the
+	category of open subsets of $\sX$ to that of $L$-modules. A precosheaf is a
+	\textit{cosheaf} if the sequence
+	\begin{equation}\label{topcoeq cosh}
+		\bigoplus_{\bt, \ga\in \mathscr A} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(\sU)
+	\end{equation}
+	is exact for all collections $\left\{\sU_\a\right\}$ of open sets with $\sU = \cup_\a \sU_\a$,  where\\ $g \bydef \sum_{\bt, \ga} \left(i_{\sU_\bt, \sU_{\bt, \ga}} -i_{\sU_\ga, \sU_{\ga, \bt}}\right)$
+	and $f\bydef \sum_\a i_{\sU, \sU_\a}$ ($i_{\sU,\sV}$ being the canonical
+	homomorphism $\mathfrak{A}\left( \sV\right) \to \mathfrak{A}\left( \sU\right)$  for $\sV \to \sU$).
+\end{definition}
 	
-	\begin{proposition}
+	\begin{proposition}\label{precosh_sh_prop}
 		
 		PAGE 439.	!!! TO APPENDIX !!!
 		Let $\sX$ be locally compact. Then for any sheaf $\mathscr A$ on
@@ -1027,22 +1140,10 @@ Here $L$ is  a ring that is a principal ideal domain.
 		0 \to \Ext\left( H^{k+1}\left(\sX, L \right), M \right) \to H_k\left(\sX, M \right) \to \Hom \left( H^{k}\left(\sX, L \right), M \right)
 		$$
 		
-		forall $k<n$.
+		for all $k<n$.
 	\end{corollary}
 
 
-\begin{definition}\label{top_cosh_defn}\cite{bredon:sheaf}
-	%1.1. Definition. 
-	A \textit{precosheaf} on a topological space $\sX$ is a covariant functor from the
-	category of open subsets of $\sX$ to that of $L$-modules. A precosheaf is a
-	\textit{cosheaf} if the sequence
-	\begin{equation}\label{topcoeq cosh}
-		\bigoplus_{\bt, \ga\in \mathscr A} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(\sU)
-	\end{equation}
-	is exact for all collections $\left\{\sU_\a\right\}$ of open sets with $\sU = \cup_\a \sU_\a$,  where\\ $g \bydef \sum_{\bt, \ga} \left(i_{\sU_\bt, \sU_{\bt, \ga}} -i_{\sU_\ga, \sU_{\ga, \bt}}\right)$
-	and $f\bydef \sum_\a i_{\sU, \sU_\a}$ ($i_{\sU,\sV}$ being the canonical
-	homomorphism $\mathfrak{A}\left( \sV\right) \to \mathfrak{A}\left( \sU\right)$  for $\sV \to \sU$).
-\end{definition}
 \begin{remark} 
 	The Definition \ref{top_cosh_defn} is a specialization of \ref{coheaf_defn} one.
 \end{remark}
@@ -1347,6 +1448,13 @@ If both $\mathbf{PreCSh}\left(  \sX\right)$ and $\mathbf{CSh}\left(  \sX\right)$
 	$$
 	(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
 \end{proof}
+
+\paragraph{!!!}
+\begin{theorem}\label{top_free_l_thm!}
+	PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
+	$clc^1_L$, then $H^c_0\left(\sX, L \right)$  is the free $L$-module on the components of $\sX$.
+	\end{theorem}
+\paragraph{title}
 
 
 \paragraph{!!! DELETE !!! START} !!! DELETE !!!
@@ -4423,7 +4531,36 @@ A partially ordered set yields an Alexandrov space $L(A)$.
 	
 \end{proof}
 \
-!!!!
+\begin{empt}
+	Let $\mathbb{K}$ be a possible noncommutative field. Let $\mathscr P_{{\mathbb{K}}} \bydef {\mathbb{K}}_\sX  $ id a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) on $\sX$, let $\mathscr A \bydef \mathfrak{Uss}\left(\mathscr P_{{\mathbb{K}}} \right)$ be an associated sheaf (cf. Definition \ref{associated_sheaf_defn}). 
+	For any open  $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ one has homomorphism
+	\be\label{top_rv_eqn}
+	\rho_{\sU \sV}: \mathscr A\left(\sU \right) \to \mathscr A\left(\sV \right),
+	\\ \quad s \mapsto s|_\sV.
+	\ee
+	If $\sU\subset  \sX$ is an open subset and $\sU = \bigsqcup \sU_{\iota\in I}$ is a disjoint union of connected components then any $s \in A\left(\sU \right)$ corresponds to a family $\left\{s_\iota\right\}_{\iota\in I}\subset \mathbb{K}$.
+	If  $\mathfrak{A}\left(\sU \right)  \bydef \Hom_{ \mathbb{K}}\left(\mathscr A\left( 
+	\sU\right) , \mathbb{K} \right)$ then any $t \in \mathfrak{A}\left(\sU \right)$ corresponds to a family $\left\{t_\iota\right\}_{\iota\in I}\subset \Hom_{\mathbb{K}}\left( \mathbb{K}, \mathbb{K}\right)$. From the natural isomorphism $\mathbb{K} \cong  \Hom_{\mathbb{K}}\left( \mathbb{K}, \mathbb{K}\right)$ it follows that there is a natural isomorphism 
+	\bean
+	\mathfrak{A}\left(\sU \right) \cong \mathscr{A}\left(\sU \right)
+	\eean
+	If $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ then there is the natural adjoint to \eqref{top_rv_eqn}
+	\be\label{top_a_rv_eqn}
+	\begin{split}
+		\rho^*_{\sV \sU}: \mathfrak A\left(\sV \right)\cong \Hom_{\mathbb{K}}\left(\mathscr A\left(\sV \right) , \mathbb{K}\right)  \to \mathfrak A\left(\sU \right) \cong \Hom_{\mathbb{K}}\left(\mathscr A\left(\sU \right), \mathbb{K}\right).
+	\end{split}
+	\ee
+	One can proof that $\mathfrak A$ is a cosheaf of $\mathbb{K}$-modules (cf. Definition \ref{top_cosh_defn}).
+	Let
+	$$
+	\mathscr A = \mathscr A^0 \to \mathscr A^1\to \mathscr A^2\to \dots
+	$$
+	be a canonical injective resolution (cf. \ref{canonical_resolution_empt}) of $\mathscr A$ and for any $p \ge 0$ denote by $\mathfrak A_p$ a precosheaf
+	$$
+	\sU \mapsto  \Hom_{\mathbb{K}}\left(\mathscr A^p\left(\sU\right) , \mathbb{K} \right) 
+	$$
+\end{empt}
+\
 \section{APP}
 
  
