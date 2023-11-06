@@ -630,6 +630,28 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	\eean
 	The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+\begin{empt}
+Let $\sX$ be an orientable $n$-\textit{dimensional homology manifold over} $L$. From \eqref{top_dim_eqn} it follows that $\dim_L \sX= n$. If $\mathscr J^* \left(\sX, L \right)$ the canonical injective resolution of $L$ (cf. \ref{canonical_resolution_empt}) then from the equation \eqref{top_dim_eqn}  $\mathscr J^p \left(\sX, L \right)= 0$ for any $p > n$ (cf. the equation \eqref{top_dim_eqn})
+\end{empt}
+
+!!! MAY BE MANIFOLD \ref{top_coh_man_defn} !!!
+
+\paragraph{BEGIN}
+	\begin{empt}\label{top_homology_empt!}\cite{bredon:sheaf}
+	PAGE 292,\
+	Consider the canonical injective resolution $\mathscr J^* \left(\sX, L \right)$ of $L$ (cf. \ref{canonical_resolution_empt}) and
+	note that $\mathscr J^* \left(\sX, L \right)|_\sU= \mathscr J^* \left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
+	we define
+	\be\label{top_homology_eqn!}
+	\begin{split}
+		\mathscr C_*\left( \sX, \mathscr A\right)  \bydef \mathscr D_*\left(\mathscr J^* \left(\sX, L \right) \right) \otimes \mathscr A,\\
+		C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi \left(\mathscr C_*\left( \sX, \mathscr A\right) \right),\\
+		H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right). 
+	\end{split}
+	\ee		
+\end{empt}
+\
+\paragraph{END}
 \begin{remark}
 If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)$ then the operation \eqref{top_neg_op} can be replaced with
 \be\label{top_neg_ex_op_eqn}	
@@ -730,52 +752,58 @@ One can proof that $\mathfrak A$ is cosheaf ()
 	
 	
 \paragraph{}
-	\begin{definition}
+	\begin{definition}\label{top_dim_defn}
 	16.3. Definition. PAGE 111
 	
-	Let 4) be a family of supports on X and let L be a fixed
-	ground ring with unit. We let dime,L X be the least integer n (or oo) such
-	that H (X; 4) = 0 for all sheaves 4 of L-modules and all k > n.
+	Let $\Phi$ be a family of supports on $\sX$ and let $\Phi$ be a fixed
+	ground ring with unit. We let $\dim_{\Phi, L} \sX$ be the least integer $n$ (or $\infty$) such
+	that  $H^{n+1}\left(\sX, \mathscr A \right)  = 0$ for all sheaves 4 of $L$-modules and all $k > n$.
 \end{definition}
-\begin{remark}  PAGE 69
-	The following result shows that softness is a "local" property. Recall
-	that 
+\begin{notation}  PAGE 69
+In \cite{bredon:sheaf} the following notation is used
 	\be\label{top_ep_eqn}
-	E\left(\Phi \right) \bydef \bigcup \left\{K | K \in \Phi\right\}
+	E\left(\Phi \right) \bydef \bigcup \left\{K | K \in \Phi\right\}.
 	\ee
-\end{remark}
+\end{notation}
 \begin{theorem}
-	16.4. Definition. PAGE 111 Let 4) be a family of supports on X and let L be a fixed
-	ground ring with unit. We let dime,L X be the least integer n (or oo) such
-	that H (X; 4) = 0 for all sheaves 4 of L-modules and all k > n.
-	16.4. Theorem. The following four statements are equivalent:
-	(a) dim. ,L X < n.
+PAGE 111	16.4. Theorem. The following four statements are equivalent:
+\begin{enumerate}
+	\item[(a)] $\dim$.
 	(b) H +1(X; d) = 0 for all sheaves d of L-modules.
 	(c) For every sheaf .d of L-modules, Zn(X; 4) is D-acyclic.
 	(d) Every sheaf 4 of L-modules has a 4>-acyclic resolution of length n.
 	Moreover, if 4> is paracompactifying, then "4>-acyclic" in (c) and (d) can
+	
+\end{enumerate}	
+
 	be replaced by "4>-soft."
 \end{theorem}
 
 
 
 
-\begin{definition}\label{top_loc_para_defn}
-	PAGE 112 We say that a space X is locally paracompact if it is Hausdorff and each
+\begin{definition}\label{top_loc_para_defn}\cite{bredon:sheaf}
+	PAGE 112 We say that a space $\sX$ is locally paracompact  if it is Hausdorff and each
 	point has a closed paracompact neighborhood. Such a space possesses a
 	paracompactifying family $E\left(\Phi \right)=\sX$ (and conversely). Indeed, the
 	set of all closed K such that K has a closed paracompact neighborhood in
 	X is such a family.
 \end{definition}
 \begin{proposition}\label{top_loc_para_prop}
-	PAGE 112 16.5. Proposition. If 4i and T are paracompactifying and E(4) C E(LY),
-	then any 41-soft sheaf is 4i-soft and dim4,,L X < dim,y,L X.
+	PAGE 112 16.5. Proposition. If $\Phi$ and $\Psi$ are paracompactifying and $E\left(\Phi \right)\subset E\left(\Psi \right)$ ,
+	then any $\Psi$-soft sheaf is $\Phi$-soft and $\dim_{\Phi, L} \sX \le \dim_{\Psi, L} \sX$ 
 \end{proposition}
 \begin{definition}\label{top_diml_defn}
 	PAGE 112.
-	X is locally paracompact then we define (using \ref{top_loc_para_prop})
-	$\dim_L\sX$ = dime,L X, where 4i is paracompactifying and E(4)) = X.
+$\sX$ is locally paracompact (cf. Definition \ref{top_loc_para_defn}) then we define (using \ref{top_loc_para_prop})
+	$\dim_L\sX \bydef \dim_{\Phi, L}$, where $\Phi$ is paracompactifying and $E\left( \Phi\right)= \sX$.
 \end{definition}
+
+
+\begin{theorem}\label{top_loc_dim_thm}
+16.14. PAGE 115 Theorem. Let X be locally compact Hausdorff and L a ring with
+unit. Then $\dim_L \sX \le n \Leftrightarrow H^{n+1}\left(\sU, L \right)= 0$  for all open sets $\sU \subset \sX$.
+\end{theorem}
 \begin{proposition}
 	PAGE 285
 1.10. Proposition. Let $\mathfrak A$ be a cosheaf and $M$ an $L$-module. Then the
@@ -848,26 +876,28 @@ lirr H.(K;.4IK) - H'(X;4)
 is an isomorphzsm.9
 \end{theorem}
 \begin{theorem}
-	PAGE 322 
-5.6. Theorem. Let (.,ff, (D) be elementary.10 Then:
+	PAGE 309
+5.6\ Theorem. $\left(\mathscr M, \Phi \right)$  be elementary Then:
 \begin{enumerate}
-	\item[(i)] (i) The natural map $\lim_K  H_*\left(K , M\right)\to H_*\left(\sX , M\right)$ is an isomorphism.
-	KE-D
-	(ii) The canonical map H!(X;,Itf) -* is an isomorphism
-	for any replete resolution T' of L.
+	\item[(i)] The natural map $\varinjlim_{K \in \Phi}  H^\Phi_*\left(K , \mathscr M\right)\to H^\Phi_*\left(\sX ,\mathscr M\right)$ is an isomorphism.
+
+\item[	(ii)] The canonical map $H^\Phi_*\left(\sX, \mathscr M \right)$  is an isomorphism
+	for any replete resolution $\mathcal L^*$ of $L$.
 \end{enumerate}
 
-If t = c, then these statements hold for arbitrary sheaves x.11\end{theorem}
+If $\Phi = c$, then these statements hold for arbitrary sheaves $\mathscr M$,
+
+\end{theorem}
 \begin{definition}\label{top_ndiml_defn}\cite{bredon:sheaf}
 	PAGE 329 9.1. Definition. 
 	
-	A locally compact space X is called an $n$-\textit{dimensional
-		weak homology manifold over} $L$ (abbreviated as $n-whm_L$) if $\dim L X < \infty$
-	and $\mathscr H_p (X; L) = 0$ for $p\neq n$ and is torsion-free if $p=n$.  $\mathscr H_p (X; L) = 0$) is
-	called the \textit{orientation sheaf} of X and will be denoted by $\mathscr O = \mathscr O_\sX$. An
-	n-whmL X is said to be an $n$-\textit{dimensional homology manifold over} $L$
-	(abbreviated as n-hmL) if 6 is locally constant18 with stalks isomorphic to
-	L. It is said to be\textit{orientable} if 0 is constant.
+	A locally compact space $\sX$ is called an $n$-\textit{dimensional
+		weak homology manifold over} $L$ (abbreviated as $n$-$whm_L$) if $\dim_L \sX < \infty$
+	and $\mathscr H_p (\sX; L) = 0$ for $p\neq n$ and is torsion-free if $p=n$.  $\mathscr H_p (\sX; L) = 0$ is
+	called the \textit{orientation sheaf} of $\sX$ and will be denoted by $\mathscr O = \mathscr O_\sX$. An
+	$n$-$whm_L$ $\sX$ is said to be an $n$-\textit{dimensional homology manifold over} $L$
+	(abbreviated as $n$-$hm_L$) if $\mathscr O$ is locally constant with stalks isomorphic to
+	$L$. It is said to be \textit{orientable} if $\mathscr O$ is constant.
 \end{definition}
 \begin{remark}\label{top_dim_rem}
 	PAGE 331
@@ -880,17 +910,17 @@ If t = c, then these statements hold for arbitrary sheaves x.11\end{theorem}
 \begin{theorem}
 	16.16.  PAGE 380
 	
-	Theorem. Let X be a connected n-cmL, let F (; X be a proper
-	closed subset, let U C X be any nonempty open subset, and let .Al be an
-	elementary sheaf on X. Then:
+	Theorem. Let $\sX$ be a connected $n$-$cm_L$, let $F\subsetneqq\sX$  be a proper
+	closed subset, let $\sU \subset 
+	\sX$ be any nonempty open subset, and let $\mathscr M$ be an
+	elementary sheaf on $\sX$. Then:
 	\begin{enumerate}
-		\item (a) %If o1 has stalks L, then Hn(F;.Af) = 0 and Hn_1(F;.dl) as torsionfree;
-		\item[	(b)] $H^n_c\left(\mathscr O \right)$  is the free $L$ -module on the components of $\sU$;
-		\item[	(c)] H, (F; .AO = 0;
-		(d) jX u : Hrn(U;.A1) Hn(X; A) is surjective;
-		(e) jX u : Hrn (U; 0) - H2 (X; B) is an isomorphism if U is connected;
-		¤16. Generalized manifolds 381
-		(f) X is orientable a Hn, (X; L) L.
+		\item [(a)] If $\mathscr M$ has stalks $L$, then $H_n\left( F, \mathscr M\right)= 0$  and $H_{n-1}\left( F, \mathscr M\right)$ as torsion free;
+		\item[(b)] $H^n_c\left(\sU, \mathscr O \right)$  is the free $L$ -module on the components of $\sU$;
+		\item[(c)] $H^n_c\left(F,\mathscr M \right)=0;$
+	\item[(d)] $j^*_{\sX, \sU} : H^n_c\left(\sU,\mathscr M \right)\to H^n_c\left(\sX,\mathscr M \right)$ is surjective;
+	\item[(e)]$j^*_{\sX, \sU} : H^n_c\left(\sU,\mathscr O \right)\to H^n_c\left(\sX,\mathscr O \right)$ is an isomorphism if $\sU$ is connected;
+	\item[(f)] $\sX$ is orientable $\Leftrightarrow H^c_n\left( \sX, L\right) = L$.
 	\end{enumerate}
 	
 \end{theorem}
@@ -1037,25 +1067,18 @@ If t = c, then these statements hold for arbitrary sheaves x.11\end{theorem}
 		\eean
 		which splits, nonnaturally; see [54) and [75].
 	\end{empt}
-	\begin{empt}
+	\begin{empt}\label{top_homology_empt}\cite{bredon:sheaf}
 		PAGE 292,\
-		Consider the canonical injective resolution ,f (X; L) of L (see 11-3) and
-		note that J'(X;L)IU = ,4'(U;L) for U C X open. For a sheaf 4 on X,
+		Consider the canonical injective resolution $\mathscr J^* \left(\sX, L \right)$ of $L$ (cf. \ref{canonical_resolution_empt}) and
+		note that $\mathscr J^* \left(\sX, L \right)|_\sU= \mathscr J^* \left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
 		we define
 		\be\label{top_homology_eqn}
 \begin{split}
-		\mathscr C_*\left( \sX, \mathscr A\right)  \bydef \mathscr D_*\left(\mathscr J \left(\sX, L \right) \right) \otimes \mathscr A,\\
+		\mathscr C_*\left( \sX, \mathscr A\right)  \bydef \mathscr D_*\left(\mathscr J^* \left(\sX, L \right) \right) \otimes \mathscr A,\\
 C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi \left(\mathscr C_*\left( \sX, \mathscr A\right) \right),\\
-H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right) 
-\end{split}		
-		\ee
-		W.(X;.d) = 9.(¤'(X;L)) 0 d,
-		C!(X;4) = rb(W.(X;,W)),
-		and
-		Hp (X; d) = Hp(C?(X;,d)).
-		'Caution: Hp(X;4) corresponds to homology based on infinite, locally
-		finite chains, while HH(X;4) is analogous to classical homology.] Recall
-		that by our notational conventions,
+H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right). 
+\end{split}
+\ee		
 	\end{empt}
 	\begin{definition} PAGE 350.
 		12.4. Definition.
@@ -1122,6 +1145,57 @@ H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathsc
 	and $f\bydef \sum_\a i_{\sU, \sU_\a}$ ($i_{\sU,\sV}$ being the canonical
 	homomorphism $\mathfrak{A}\left( \sV\right) \to \mathfrak{A}\left( \sU\right)$  for $\sV \to \sU$).
 \end{definition}
+\paragraph{DELETE BEGIN}
+
+	\bean
+		\mathscr C^*\left(\sX,  \mathscr A \right)\to  	\mathscr C^*\left(\sX,  \mathscr A |A\right) \quad \text{cohomomorphism}\\
+	i^*			\mathscr C^*\left(\sX,  \mathscr A \right)\to  i^* 	\mathscr C^*\left(\sX,  \mathscr A |A\right) \quad \text{cohomomorphism}\\
+	\ker i^* = 		\mathscr C^*\left(\sX,  A; \mathscr A \right)\\
+C^*_\Phi\left(\sX,  \mathscr A |A\right)= \Ga_\Phi\left(\mathscr C^*\left(\sX,  A; \mathscr A \right) \right)\\
+H^*_\Phi\left(\mathscr C^*\left(\sX,  A; \mathscr A \right) \right)= H^*\left( \Ga_\Phi\left(\mathscr C^*\left(\sX,  A; \mathscr A \right)\right)  \right)\\ 
+	B \subset A\\
+	\dots \to H^p_\Phi\left( X, A, \mathscr A \right)  \to H^p_\Phi\left( X, B, \mathscr A \right) \to H^p_{\Phi|A}\left( A, B, \mathscr A \right) \to H^{p+1}_\Phi\left( X, A, \mathscr A \right) \to \\
+0\to	C_*^{\Phi|A}\left(A; \mathscr A|A \right) \to 	C_*^{\Phi}\left(\sX; \mathscr A|A \right) \to 	C_*^{\Phi}\left(\sX, A; \mathscr A|A \right)\to 0\\
+0 \to \mathscr F \left(\cup U_\iota\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \cap U_j\right)
+\\
+	 \mathfrak{A}(^\neg \sU_\bt \cup  ^\neg \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(^\neg \sU_\bt \cap  ^\neg \sU_\ga)\to 0
+\\
+0 \to H^n(^\neg \sU_\bt \cup  ^\neg \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  H^n(\sU_\a) \xrightarrow{f}  H^n(^\neg \sU_\bt \cap  ^\neg \sU_\ga)
+\\
+	\bigoplus_{\bt, \ga\in \mathscr A} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(\sU)
+\\
+H^p_{\Phi|U}\left(\sU ; \mathscr O \times  \mathscr A \right)\cong H^p_{\Phi}\left(\sX, F ; \mathscr O \times  \mathscr A \right)\cong H^{\Phi|U}_{n-p}\left(\sU ; \mathscr O \times  \mathscr A \right) 
+\\
+H^p_{\Phi|F}\left(F ; \mathscr O \times  \mathscr A \right)\cong H^{\Phi}_{n-p}\left(\sX, \sU ; \mathscr O \times  \mathscr A \right) 
+\\
+H^p_c\left(\sX, A; \mathscr O\otimes \mathscr A \right) \cong H^c_{n-p}\left(\sX \setminus  A, \sX ; \mathscr A\right) 
+\\
+\tilde H_q\left( \R^n - A, G\right) \cong \bar H^{n - p - 1}\left(A, G \right) 
+\eean
+
+	\begin{definition}\label{sheaf_defn!}\cite{milne:lec}
+	A \textit{sheaf} for the Grothendieck pretopology
+	is a presheaf $\mathscr F$ 
+	that satisfies the sheaf condition, that is a sequence 
+	\be\label{sheaf_eqn}
+	\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \times_U U_j\right)
+	\ee
+	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
+	is a sheaf if the map 
+	$$
+	f \mapsto \left\{f|_{U_\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
+	$$
+	identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f|_{U_\iota }\right\}$ such that 
+	$$
+	f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
+	$$
+	for all $\iota, j \in I$. 
+	When $\mathbf T$ 
+	is the site arising from a topological space then these definitions coincide with the 
+	topological ones. 
+	
+\end{definition}
+\paragraph{DELETE END}
 	
 	\begin{proposition}\label{precosh_sh_prop}
 		
@@ -1229,7 +1303,13 @@ H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathsc
 	exact, we have the induced exact homology sequence
 	Hp (X;,d') -+ Hp (X; ,d) Hp (X;,d") -+ Hp 1(X;.,d') ...
 \end{empt}
-
+\begin{definition}\label{top_coh_man_defn}\cite{bredon:sheaf}
+375
+16.7. Definition. The space $\sX$ is called an $n$-\textit{dimensional cohomology
+manifold over} $L$ (denoted $n$-$cr_L$) if $\sX$ has locally constant cohomology
+modules, locally equivalent to $L$ in degree $n$, and to zero in degrees other
+than $n$, and if $\dim_L\sX < \infty$.
+\end{definition}
 
 
 \section{Gelfand topoi}
@@ -2888,40 +2968,25 @@ an injective resolution $I^\bullet$ of $A$. Then we define
 R^nF\left( A\right) \bydef h^n\left(F\left( I^\bullet\right)  \right) .
 	\ee
 \end{definition}
-\begin{theorem}
-Let $\mathfrak A$ be an abelian category with enough injectives, and let 
-$F:\mathfrak A \to \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
-Then 
-\begin{enumerate}
-	\item[(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from $\mathfrak A$ to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
-of the choices of injective resolutions made. 
-\item[(b)] There is a natural isomorphism $F \cong R^0F$. 
-\item[(c)] For each short exact sequence $
-0 \to A' \to A \to A'' \to 0
-$ and for each 
-$n\ge 0$ there is a natural morphism $\dl^n : R^nF\left(A'' \right)   R^{n + 1}F\left(A' \right)$ such that we 
-obtain a long exact sequence
-\bean
-\dots \to R^{n}F\left(A' \right)\to R^{n}F\left(A \right)\to R^{n}F\left(A'' \right)\xrightarrow{\dl^n} R^{n + 1}F\left(A' \right)\to R^{n + 1}F\left(A \right)\to \dots .
-\eean  
 
+\begin{definition}DIMCA !!!
+Let $\mathscr A$
+be an Abelian category and 
+$K\left(\mathscr A \right)$
+its category of chain complexes modulo chain homotopy (the Òhomotopy category of chain complexesÓ).
 
-\item[(d)] Given a morphism of the exact sequence of (c) to another $0 \to B' \to B \to B'' \to 0$
-a commutative diagram 
-				\newline
-\begin{tikzcd}
-	 R^{n}F\left(A'' \right) \arrow[d]\arrow[r, "\dl^n"]
-	&  R^{n+1}F\left(A'' \right) \arrow[d]\\
-	 R^{n}F\left(B'' \right)\arrow[r, "\dl^n"]	&  R^{n+1}F\left(A' \right)
-\end{tikzcd}
-\\
-\\
+Equip 
+$K\left(\mathscr A \right)$
+with the structure of a homotopical category by declaring the weak equivalences to be the \textit{quasi-isomorphisms}: those morphisms 
+$f: V\to W$
+which induce isomorphisms in (co)homology $H(F) \to H\left(W \right)$. The \textit{derived category}
+$D\left( \mathscr A\right)$
+is the homotopy category of 
+with respect to these weak equivalences
+is the homotopy category of $\mathscr A$
+with respect to these weak equivalences.
+\end{definition}
 
-\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n > 0$, we have 
-$R^nF\left( I^\bullet\right)  = 0$.
-\end{enumerate}
-
-\end{theorem}
 \begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
 	%			Theorem 1.1 A. 
 	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
@@ -2933,7 +2998,7 @@ $R^nF\left( I^\bullet\right)  = 0$.
 		of the choices of injective resolutions made.
 		\item[(b)] There is a natural isomorphism $F \cong R^0F$.
 		\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
-		$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+		$n \ge 0$ there is a natural morphism $\delta^n: R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
 		obtain a long exact sequence 
 		$$
 		\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
