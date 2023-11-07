@@ -631,12 +631,65 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
 \begin{empt}
-Let $\sX$ be an orientable $n$-\textit{dimensional homology manifold over} $L$. From \eqref{top_dim_eqn} it follows that $\dim_L \sX= n$. If $\mathscr J^* \left(\sX, L \right)$ the canonical injective resolution of $L$ (cf. \ref{canonical_resolution_empt}) then from the equation \eqref{top_dim_eqn}  $\mathscr J^p \left(\sX, L \right)= 0$ for any $p > n$ (cf. the equation \eqref{top_dim_eqn})
+Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensional homology manifold over} $L$ (cf. Definition \ref{top_ndiml_defn}). From \eqref{top_dim_eqn} it follows that $\dim_L \sX = n$. From the theorem \ref{top_c_ac_thm} it follows that any sheaf $\mathscr A$ of $L$-modules has a $c$-soft resolution (cf. Definition \ref{top_res_defn})
+ 	\be\label{top_res_eqn}
+0\to \mathscr A  \xrightarrow{\eps}\mathscr A^0  \xrightarrow{d}\mathscr A^{1}  \xrightarrow{d}\mathscr A^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr A^n \to 0
+ \ee
+ If $\mathscr L\bydef \mathfrak{Ass}\left(L_\sX \right) $ sheaf associated with a constant presheaf 
+  	\be\label{top_resh_eqn}
+ 0\to \mathscr L   \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr L^n \to 0
+ \ee
+ or equivalently
+   	\be\label{top_reshh_eqn}
+ 0\to \mathscr H^0\left( \mathscr L^0\right)   \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr L^n \to 0
+ \ee
+ The differential sheaf $\mathscr L^*$ is a $c$-soft {quasi}-
+ $n$-{resolution} of $L$ (cf. Definition \ref{top_quasi_res}). From the Theorem \ref{top_from_sh_to_cosh_thm} one has a s a flabby quasi-$n$-coresolution of $L$. Also,
+ $\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
+ for $p \le n$.
+ 
+ \ref{top_quasi_res}
+ 
+From the Theorem \ref{top_soft_flabby_thm} it follows that the sheaf  $\mathscr L^p$ is  is flabby for all $p > 1$.
 \end{empt}
 
 !!! MAY BE MANIFOLD \ref{top_coh_man_defn} !!!
 
 \paragraph{BEGIN}
+	\begin{theorem}\label{top_from_sh_to_cosh_thm!}
+	PAGE 352. 12.9. Theorem. Suppose that $\sX$ is $clc_L^{n+1}$ Then $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi-$n$-coresolution of $L$ for any $c$-soft quasi-$(n + 1)$-resolution $\mathscr L$ of $L$. Also,
+	$\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
+	for $p \le n$.
+	!!! Recall that $\mathfrak D \left(\mathscr L^*\right)$ is the cosheaf
+	$\sU \mapsto \Ga_c \left(\mathscr D\left( \mathscr L\right)|_\sU  \right)$. 
+\end{theorem}
+\
+
+	\begin{definition}\label{top_quasi_res!}
+	PAGE 350 12.5
+	Definition. Let $M$ be an $L$-module. Let $\mathscr L^*$ be a differential sheaf
+	and let $M \to H^0\left( \mathscr L^*\right)$  be a homomorphism of presheaves (i.e., $M \to 
+	H^0\left( \mathscr L^*\left( 
+	\sU\right) \right)$  for all open $\sU$). Then $\mathscr L^*$, together with $\eps$, is called a \textit{quasi}-
+	$n$-\textit{resolution} of $M$ provided that
+	\begin{enumerate}
+		\item[(a)]  $\mathscr L^*$ is bounded below,
+		\item[	(b)] $\mathscr H^p\left( \mathscr L^*\right)= 0$  for all $0 \neq p \le  n$,
+		\item[	(c)] $\eps$ induces an isomorphism $M \to \mathscr H^p\left( \mathscr L^*\right)$  of sheaves.
+	\end{enumerate}
+	
+	Similarly, let $\mathfrak{L}_*$ be a differential cosheaf and $\eta: H_0\left( \mathfrak L_*\right)  \to L$ a homomorphism
+	of precosheaves. Then $\mathfrak{L}_*$, together with $\eta$, is called a \textit{quasi}-$n$-\textit{coresolution}
+	of $L$ provided that
+	\begin{enumerate}
+		\item [(a)] $\mathfrak{L}_*$ is bounded below,
+		\item[	(b)] $H_p\left( \mathfrak{L}_*\right) =0$ for $p< 0$ and $H_p\left( \mathfrak{L}_*\right)$ is locally zero for $0\neq p \le n$
+		\item[	(c)] $\eta$ is a local isomorphism of precosheaves.
+	\end{enumerate}
+	
+	We call $\mathfrak{L}_*$ an -$n$-\textit{coresolution} if also $\mathfrak{L}_p = 0$ for $p < 0$.
+\end{definition}
+\
 	\begin{empt}\label{top_homology_empt!}\cite{bredon:sheaf}
 	PAGE 292,\
 	Consider the canonical injective resolution $\mathscr J^* \left(\sX, L \right)$ of $L$ (cf. \ref{canonical_resolution_empt}) and
@@ -732,7 +785,7 @@ One can proof that $\mathfrak A$ is cosheaf ()
 	Moreover the resolution is $c$-soft (cf. Theorem \ref{top_diml_thm}). From the Theorem \ref{top_from_sh_to_cosh_thm} it follows that there is $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi $n$-
 	coresolution $\mathfrak D \left(\mathscr L^*\right)$ 
 	\be
-	\mathfrak A \leftarrow \mathfrak A_1 \leftarrow \dots \leftarrow\mathfrak A_n 
+	0\to \mathfrak A \leftarrow \mathfrak A_1 \leftarrow \dots \leftarrow\mathfrak A_n 
 	\ee
 	
 	
@@ -747,7 +800,7 @@ One can proof that $\mathfrak A$ is cosheaf ()
 	with homomorphisms $d : \mathscr L^p \to \mathscr L^{p+1}$ such that $d^2: \mathscr L^p \to \mathscr L^{p+2}$ is zero for
 	all $p$. A \textit{resolution} of a sheaf $d$ is a differential sheaf $\mathscr L^{p}$ with $\mathscr L_p = 0$
 	for $p < 0$ together with an \textit{augmentation} homomorphism $\eps : \mathscr A \to \mathscr L^0$
-	such that the sequence $\mathscr A  \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\to \dots $ is exact.
+	such that the sequence $0\to \mathscr A  \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\to \dots $ is exact.
 	\end{definition}
 	
 	
@@ -765,18 +818,23 @@ In \cite{bredon:sheaf} the following notation is used
 	E\left(\Phi \right) \bydef \bigcup \left\{K | K \in \Phi\right\}.
 	\ee
 \end{notation}
-\begin{theorem}
+\begin{definition}\label{top_ac_defn}\cite{bredon:sheaf}
+The sheaf $\mathscr A$ is
+said to be $\Phi$-acyclic if
+$$
+H^{p}\left( \sX, \mathscr A\right) = 0, \quad \forall p > 0.
+$$
+\end{definition}
+\begin{theorem}\label{top_c_ac_thm}
 PAGE 111	16.4. Theorem. The following four statements are equivalent:
 \begin{enumerate}
-	\item[(a)] $\dim$.
-	(b) H +1(X; d) = 0 for all sheaves d of L-modules.
-	(c) For every sheaf .d of L-modules, Zn(X; 4) is D-acyclic.
-	(d) Every sheaf 4 of L-modules has a 4>-acyclic resolution of length n.
-	Moreover, if 4> is paracompactifying, then "4>-acyclic" in (c) and (d) can
+	\item[(a)] $\dim_{\Phi, L}\sX \le n$.
+	\item[(b)] $H^{n+1}\left( \sX, \mathscr A\right) = 0$ for all sheaves $\mathscr A$ of $L$-modules.
+%	(c) For every sheaf .d of L-modules, Zn(X; 4) is D-acyclic.
+	\item[(c)] Every sheaf $\mathscr A$ of $L$-modules has a $\Phi$-acyclic resolution of length $n$.
 	
 \end{enumerate}	
-
-	be replaced by "4>-soft."
+	Moreover, if $\Phi$ is paracompactifying, then "$\Phi$-acyclic" in (c) 7 can	be replaced by "$\Phi$-soft."
 \end{theorem}
 
 
@@ -995,6 +1053,16 @@ If $\Phi = c$, then these statements hold for arbitrary sheaves $\mathscr M$,
 		9.6. Corollary. If $\Phi$ is paracompactifying, then every flabby sheaf on $\sX$
 		is $\Phi$-soft.
 	\end{cor}
+	\begin{definition}\label{top_rel_haus_defn}
+		PAGE 66
+Let us call a subspace A C X relatively Hausdorff (in X) if any two
+points of A have disjoint open neighborhoods in X.
+	\end{definition}
+	\begin{theorem}\label{top_soft_flabby_thm}
+	9.8. Theorem. PAGE 67 Let $A$ be a compact, relatively Hausdorff (cf. Definition \ref{top_rel_haus_defn}) subspace of a
+	space $\sX$. Then for any sheaf $\mathscr A$ on $\sX$, we have that $\mathscr A = \varinjlim_\sU \mathscr A(\sU)$,
+	where $\sU$ ranges over the neighborhoods of $A$ in $\sX$.
+	\end{theorem}
 	\begin{empt}
 		PAGE 126.
 		In this section we take cohomology with coefficients in the constant sheaf
@@ -1090,17 +1158,16 @@ H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathsc
 		$$
 		is trivial. The space $\sX$ is $hlc^n_L$ if it is $k$-$hlcL$ for all $k \le n$.
 	\end{definition}
-	\begin{definition}
+	\begin{definition}\label{top_quasi_res}
 		PAGE 350 12.5
 		Definition. Let $M$ be an $L$-module. Let $\mathscr L^*$ be a differential sheaf
-		and let $M \to H^0\left( \mathscr L^*\right)$  be a homomorphism of presheaves [i.e., $M \to 
+		and let $\eps: M \to H^0\left( \mathscr L^*\right)$  be a homomorphism of presheaves (i.e. $M \to 
 		H^0\left( \mathscr L^*\left( 
-		\sU\right) \right)$  for all open $\sU$). Then $\mathscr L^*$, together with $\eps$, is called a \textit{quasi}-
-		\textit{resolution} of $M$ provided that
+		\sU\right) \right)$  for all open $\sU$). Then $\mathscr L^*$, together with $\eps$, is called a \textit{quasi}-$n$-\textit{resolution} of $M$ provided that
 		\begin{enumerate}
 			\item[(a)]  $\mathscr L^*$ is bounded below,
 			\item[	(b)] $\mathscr H^p\left( \mathscr L^*\right)= 0$  for all $0 \neq p \le  n$,
-			\item[	(c)] $\eps$ induces an isomorphism $M \to \mathscr H^p\left( \mathscr L^*\right)$  of sheaves.
+			\item[	(c)] $\eps$ induces an isomorphism $M \to \mathscr H^0\left( \mathscr L^*\right)$  of sheaves.
 		\end{enumerate}
 		
 		Similarly, let $\mathfrak{L}_*$ be a differential cosheaf and $\eta: H_0\left( \mathfrak L_*\right)  \to L$ a homomorphism
@@ -1126,10 +1193,9 @@ H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathsc
 		flabby sheaves for any $L$-module $M$.
 	\end{theorem}
 	\begin{theorem}\label{top_from_sh_to_cosh_thm}
-		PAGE 352. 12.9. Theorem. Suppose that X is clcL+1 Then $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi n-
-		coresolution of L for any c-soft quasi-(n + 1)-resolution !' of L. Also,
-		X is hlc' and there as a natural isomorphism Hp(D(Y*)(U)) HH(U;L)
-		for p < n.
+		PAGE 352. 12.9. Theorem. Suppose that $\sX$ is $clc_L^{n+1}$ Then $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi-$n$-coresolution of $L$ for any $c$-soft quasi-$(n + 1)$-resolution $\mathscr L$ of $L$. Also,
+		$\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
+		for $p \le n$.
 		!!! Recall that $\mathfrak D \left(\mathscr L^*\right)$ is the cosheaf
 		$\sU \mapsto \Ga_c \left(\mathscr D\left( \mathscr L\right)|_\sU  \right)$. 
 	\end{theorem}
