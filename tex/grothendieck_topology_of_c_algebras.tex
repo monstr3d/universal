@@ -587,7 +587,8 @@ Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C
 \be\label{top_xb_eqn}
 \sX_B \bydef\left\{x \in \sX\quad |\quad \exists a \in B \quad a\left(x \right)= 0\right\}.
 \ee
-One can define a locale  such that its elements are closed subsets of $\sX$ and having following operations
+Suppose that $\sX$ is a closed subset of $\sY$.
+One can define a locale $\mathfrak{Closed}\left( \sX\right)$ such that its elements are closed subsets of $\sX$ and having following operations
 \be\label{top_adj_eqn}
 \begin{split}
 	\emptyset \bydef 0,\\
@@ -596,12 +597,12 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	\sV \wedge \sU\bydef \sV \cap \sU.
 \end{split}
 \ee
-\begin{lemma}\label{comm_alg_loc_lem}. Following conditions hold:
+\begin{theorem}\label{top_alg_loc_thm} Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] the locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$,
-		\item[(ii)] if $\sX$ has no isolated points then the  locale $\mathfrak{Closed}\left( \sX\right)\cong \mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ is pointless.
+		\item [(i)] The locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$.
+		\item[(ii)] If $\sX$ has no isolated points then the  locale $\mathfrak{Closed}\left( \sX\right)\cong \mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ is pointless.
 	\end{enumerate}
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
 	(i) Follows from the equations \eqref{top_xb_eqn} and \eqref{top_adj_eqn}. The details of the proof are left to the reader.\\
@@ -614,7 +615,7 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	$$
 	From the equation \eqref{pprime_eqn} it follows that $P \neq \sX$, so 
 \be\label{top_neg_op}	
-	^\neg P \bydef \sX \setminus P
+	^\neg P \bydef \sY \setminus P
 \ee	
 	 is a nonempty open set. If $\sX$ has no isolated points then since $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) there are two open subsets $^\neg P', ^\neg P'' \subset ^\neg P$ such that
 	\bean
@@ -630,6 +631,23 @@ One can define a locale  such that its elements are closed subsets of $\sX$ and 
 	\eean
 	The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. 
 \end{proof}
+\begin{remark}
+	The above construction does not depend on the inclusion $\sX \to \sY$. The inclusion will be used later.
+\end{remark}
+
+\begin{definition}\label{top_neg_defn}
+	Let $\mathfrak{A}$ be a precosheaf on $\sY$ (cf. Definition \ref{top_cosh_defn}). There is a presheaf $^\neg \mathfrak{A}$ on the locale $\mathfrak{Closed}\left( \sX\right)$ such that
+	\be\label{top_neg_eqn}
+	\forall \sU \in \mathfrak{Closed}\left( \sX\right) \quad ^\neg \mathfrak{A}\left( \sU\right) \bydef \mathfrak{A}\left( ^\neg \sU\right).
+	\ee
+	We say that $^\neg \mathfrak{A}$ is the \textit{negation presheaf of} $\mathfrak{A}$.
+\end{definition}
+\begin{remark}
+The Definition \ref{top_neg_defn} and the Statement  \ref{associated_sheaf_stmnt} yield associated  sheaves on the locale  $\mathfrak{Closed}\left( \sX\right)$. However an associated sheaf of nontrivial sheaf can be 
+
+
+However it is interesting to obtain explicit construction which does not depend on the Statement  \ref{associated_sheaf_stmnt}.
+\end{remark}
 \begin{empt}
 Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensional homology manifold over} $L$ (cf. Definition \ref{top_ndiml_defn}). From \eqref{top_dim_eqn} it follows that $\dim_L \sX = n$. From the theorem \ref{top_c_ac_thm} it follows that any sheaf $\mathscr A$ of $L$-modules has a $c$-soft resolution (cf. Definition \ref{top_res_defn})
  	\be\label{top_res_eqn}
@@ -643,8 +661,7 @@ Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensiona
    	\be\label{top_reshh_eqn}
  0\to \mathscr H^0\left( \mathscr L^0\right)   \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr L^n \to 0
  \ee
- The differential sheaf $\mathscr L^*$ is a $c$-soft {quasi}-
- $n$-{resolution} of $L$ (cf. Definition \ref{top_quasi_res}). From the Theorem \ref{top_from_sh_to_cosh_thm} one has a s a flabby quasi-$n$-coresolution of $L$. Also,
+ The differential sheaf $\mathscr L^*$ is a $c$-soft {quasi}-$n$-{resolution} of $L$ (cf. Definition \ref{top_quasi_res}). From the Theorem \ref{top_from_sh_to_cosh_thm} one has a s a flabby quasi-$n$-coresolution of $L$. Also,
  $\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
  for $p \le n$.
  
@@ -655,56 +672,6 @@ From the Theorem \ref{top_soft_flabby_thm} it follows that the sheaf  $\mathscr 
 
 !!! MAY BE MANIFOLD \ref{top_coh_man_defn} !!!
 
-\paragraph{BEGIN}
-	\begin{theorem}\label{top_from_sh_to_cosh_thm!}
-	PAGE 352. 12.9. Theorem. Suppose that $\sX$ is $clc_L^{n+1}$ Then $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi-$n$-coresolution of $L$ for any $c$-soft quasi-$(n + 1)$-resolution $\mathscr L$ of $L$. Also,
-	$\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
-	for $p \le n$.
-	!!! Recall that $\mathfrak D \left(\mathscr L^*\right)$ is the cosheaf
-	$\sU \mapsto \Ga_c \left(\mathscr D\left( \mathscr L\right)|_\sU  \right)$. 
-\end{theorem}
-\
-
-	\begin{definition}\label{top_quasi_res!}
-	PAGE 350 12.5
-	Definition. Let $M$ be an $L$-module. Let $\mathscr L^*$ be a differential sheaf
-	and let $M \to H^0\left( \mathscr L^*\right)$  be a homomorphism of presheaves (i.e., $M \to 
-	H^0\left( \mathscr L^*\left( 
-	\sU\right) \right)$  for all open $\sU$). Then $\mathscr L^*$, together with $\eps$, is called a \textit{quasi}-
-	$n$-\textit{resolution} of $M$ provided that
-	\begin{enumerate}
-		\item[(a)]  $\mathscr L^*$ is bounded below,
-		\item[	(b)] $\mathscr H^p\left( \mathscr L^*\right)= 0$  for all $0 \neq p \le  n$,
-		\item[	(c)] $\eps$ induces an isomorphism $M \to \mathscr H^p\left( \mathscr L^*\right)$  of sheaves.
-	\end{enumerate}
-	
-	Similarly, let $\mathfrak{L}_*$ be a differential cosheaf and $\eta: H_0\left( \mathfrak L_*\right)  \to L$ a homomorphism
-	of precosheaves. Then $\mathfrak{L}_*$, together with $\eta$, is called a \textit{quasi}-$n$-\textit{coresolution}
-	of $L$ provided that
-	\begin{enumerate}
-		\item [(a)] $\mathfrak{L}_*$ is bounded below,
-		\item[	(b)] $H_p\left( \mathfrak{L}_*\right) =0$ for $p< 0$ and $H_p\left( \mathfrak{L}_*\right)$ is locally zero for $0\neq p \le n$
-		\item[	(c)] $\eta$ is a local isomorphism of precosheaves.
-	\end{enumerate}
-	
-	We call $\mathfrak{L}_*$ an -$n$-\textit{coresolution} if also $\mathfrak{L}_p = 0$ for $p < 0$.
-\end{definition}
-\
-	\begin{empt}\label{top_homology_empt!}\cite{bredon:sheaf}
-	PAGE 292,\
-	Consider the canonical injective resolution $\mathscr J^* \left(\sX, L \right)$ of $L$ (cf. \ref{canonical_resolution_empt}) and
-	note that $\mathscr J^* \left(\sX, L \right)|_\sU= \mathscr J^* \left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
-	we define
-	\be\label{top_homology_eqn!}
-	\begin{split}
-		\mathscr C_*\left( \sX, \mathscr A\right)  \bydef \mathscr D_*\left(\mathscr J^* \left(\sX, L \right) \right) \otimes \mathscr A,\\
-		C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi \left(\mathscr C_*\left( \sX, \mathscr A\right) \right),\\
-		H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right). 
-	\end{split}
-	\ee		
-\end{empt}
-\
-\paragraph{END}
 \begin{remark}
 If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)$ then the operation \eqref{top_neg_op} can be replaced with
 \be\label{top_neg_ex_op_eqn}	
@@ -712,7 +679,7 @@ If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)
 \ee	
 \end{remark}
 \begin{empt}
-Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). From the Proposition \ref{precosh_sh_prop} it follows that the map
+Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). From the Proposition \ref{{comm_alg_loc_thm}  !!! THEOREM !!!sh_sh_prop} it follows that the map
 $$
 \mathfrak A : \sU \mapsto H^c_0\left( \sU, \mathscr {L}\right) 
 $$
@@ -744,8 +711,56 @@ $$
 One can proof that $\mathfrak A$ is cosheaf ()
 
 \end{empt}
+\paragraph{TOPOLOGICAL CECH}
 
-
+PAGE 189
+The \v{C}ech cohomology over topological space is a specialization of the theory explained in the section \ref{cech_cohomology_sec}.
+Let $\mathscr A$ be a presheaf on $\sX$ and $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering of
+	$\sX$. We shall use $\sigma^n$ to denote an ordered $n$-simplex $\left( \a_0, ..., \a_n\right)$, of the
+	nerve $N\left(\mathscr U\right)$ of $\mathscr U$, and $\sU_{\sigma^n}$ to denote $\sU_{\a_0,..., \a_n} \bydef \sU_{\a_0} \cap \dots \cap \sU_{\a_n}$. Let $c \in \check{C}\left(\sX; \mathscr A \right)$. Then the support $\left|c \right|$  of $c$ is characterized by
+	\be\label{top_cech_supp_eqn}
+	x \notin c\Leftrightarrow \exists V_x \ni 0=c\left(\sigma^n \right)|_{\sU_{\sigma^n}\cap \sV_x} \in \mathscr A\left( \sV_x \cap \sU_{\sigma^n} \right) \quad \forall \sigma^n \in N\left(\mathscr U\right)
+	\ee
+	where $\sV_x$ is an open neighborhood of $x$.
+	!!! $\check{C}$ define !!!
+	\begin{proposition}
+		PAGE 190
+	4.3. Proposition. If ' is paracompactifying, then any given cohomology
+	class ry E H (X; A) is represented by a cocycle cu E C (1.t; A) for some
+	locally finite covering it of X.
+		!!! $\check{C}$ define !!!
+	\end{proposition}
+	\begin{proposition}
+		PAGE 191
+	4.4. Theorem. If 4i is paracompactifying and A is a presheaf on X such
+	that . 9 9 4 s a / ( A ) = 0, then H (X; A) = 0 for all n.
+		!!! $\check{C}$ define !!!
+	\end{proposition}
+	\begin{corollary}
+		PAGE 191
+4.5. Corollary. If ID is paracompactifying on X, A is a presheaf on X, and
+4 = .?heaj(A), then the canonical map 0: A -+ d induces an isomorphism
+H;(X;A) -1+ R,(X;-d
+	\end{corollary}
+	\begin{theorem} PAGE 192
+	4.9. Theorem. If 4 is a sheaf on X and it = {Uo,; a E I} is any open
+	covering of X, then is a resolution of 4.
+	\end{theorem}
+	
+	\begin{corollary}
+		PAGE 192
+	4.9. Theorem. If 4 is a sheaf on X and it = {Uo,; a E I} is any open
+	covering of X, then is a resolution of 4.
+	\end{corollary}
+	\begin{theorem}
+		PAGE 193 
+	4.13. Theorem. Let $\mathscr A$ be a sheaf on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma^n};\mathscr A \right)= 0$  for $p > 0$ and
+	all $\sigma^n \in N\left(\mathscr U \right)$ , all $n$. Then there is a canonical isomorphism
+	\be
+	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
+	\ee
+	\end{theorem}
+\paragraph{TOPOLOGICAL CECH FINISH}
 \paragraph{title}
 \begin{theorem}\label{top_free_l_thm!!!}
 	PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
@@ -1098,7 +1113,7 @@ points of A have disjoint open neighborhoods in X.
 	\begin{proposition}
 		PAGE 282 
 		1.6 Proposition. 
-		If $\mathscr L$ is a $c$-soft sheaf then the precosheaf $\Ga_c\mathscr L$, where
+		If $\mathscr L$ is a $c$-soft sheaf then the \ref{comm_alg_loc_thm}  !!! THEOREM !!!sheaf $\Ga_c\mathscr L$, where
 		$$
 		\left(\Ga_c\mathscr L \right)\left( \sU\right) \bydef \Ga_c\left(\mathscr L|_{\sU} \right)  
 		$$
@@ -1171,12 +1186,12 @@ H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathsc
 		\end{enumerate}
 		
 		Similarly, let $\mathfrak{L}_*$ be a differential cosheaf and $\eta: H_0\left( \mathfrak L_*\right)  \to L$ a homomorphism
-		of precosheaves. Then $\mathfrak{L}_*$, together with $\eta$, is called a \textit{quasi}-$n$-\textit{coresolution}
+		of \ref{comm_alg_loc_thm}  !!! THEOREM !!!sheaves. Then $\mathfrak{L}_*$, together with $\eta$, is called a \textit{quasi}-$n$-\textit{coresolution}
 		of $L$ provided that
 		\begin{enumerate}
 			\item [(a)] $\mathfrak{L}_*$ is bounded below,
 			\item[	(b)] $H_p\left( \mathfrak{L}_*\right) =0$ for $p< 0$ and $H_p\left( \mathfrak{L}_*\right)$ is locally zero for $0\neq p \le n$
-			\item[	(c)] $\eta$ is a local isomorphism of precosheaves.
+			\item[	(c)] $\eta$ is a local isomorphism of \ref{comm_alg_loc_thm}  !!! THEOREM !!!sheaves.
 		\end{enumerate}
 		
 		We call $\mathfrak{L}_*$ an -$n$-\textit{coresolution} if also $\mathfrak{L}_p = 0$ for $p < 0$.
@@ -1615,15 +1630,7 @@ If $\mathscr{ A}$ is a sheaf of Abelian groups on $\sX$ the using the Remark \re
 	\end{split}
 	\ee
 \end{empt}
-\begin{theorem}\label{comm_alg_loc_thm}
-If the space $\sX$  is paracompact then for any sheaf $\mathscr{ A}$  of Abelian groups on $\sX$ one has:
-\begin{enumerate}
-	\item[(i)] the presheaf $\overline{\mathscr{ A}}$ is a sheaf,
-	\item[(ii)] for each $p\ge 0$ there is a natural isomorphism  $H^p\left(\sX, \mathscr{ A} \right)\cong  H^p\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right), \overline{\mathscr{ A}} \right)$.
-	
-\end{enumerate}
-	
-\end{theorem}
+
 \begin{proof}
 	(i)	The space $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) so it is metrizable (cf. Theorem \ref{top_paracompact_thm}). It turns out that any subspace of $\sX$ is metrizable and paracompact.
 	If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
@@ -1665,7 +1672,7 @@ From the Theorem \ref{closed_cov_thm} it follows that there is $t \in \mathscr{ 
 \end{proof}
 
 \begin{remark}
-	Both the Lemma \ref{comm_alg_loc_lem} and the Theorem \ref{comm_alg_loc_thm} a motivations of the term "Gelfand locale" (cf. Theorem \ref{gelfand-naimark_thm}).
+	Both the Lemma \ref{comm_alg_loc_thm}  !!! THEOREM !!! and the Theorem \ref{comm_alg_loc_thm} a motivations of the term "Gelfand locale" (cf. Theorem \ref{gelfand-naimark_thm}).
 \end{remark}
 \begin{lemma}
 	If $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups, then the given by the equation \eqref{top_paracompact_eqn} presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ is a sheaf.
@@ -3193,7 +3200,7 @@ by the properties (a), (b) and (c).
 		\ee
 		where $\mathfrak{Ass}$ means the associated sheaf functor (cf. Definition \ref{associated_sheaf_defn}).
 	\end{notation}
-	\subsection{\v{C}ech cohomology}\label{presheaf_cohomology_sec}
+	\subsection{\v{C}ech cohomology}\label{cech_cohomology_sec}
 	\paragraph*{} Here I follow to \cite{milne:lec}. Let $\mathbf T$ be a site, and let $X$ be an object of $\mathrm{Cat}\left( \mathbf T\right)$. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
 	\be\label{cech_eqn}
 	C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
@@ -3753,7 +3760,7 @@ denotes the \textit{support} of the section $s$.
 	
 	\subsection{Cohomology}
 	\paragraph*{}
-	The described below theories are specializations of described in sections \ref{grothendieck_cohomology_section} and \ref{presheaf_cohomology_sec} ones (cf. Example \ref{top_gro_exm}).
+	The described below theories are specializations of described in sections \ref{grothendieck_cohomology_section} and \ref{cech_cohomology_sec} ones (cf. Example \ref{top_gro_exm}).
 	%\begin{lemma}\cite{hartshorne:ag}
 	%	Let $\sX$ be a topological space, and $\mathscr U$ an open covering of $\sX$. Then for any sheaf $\mathscr U$ on $\sX$ and	for each $r \ge 0$ there is a natural map, functorial in $\mathscr F$.
 	%	$$
