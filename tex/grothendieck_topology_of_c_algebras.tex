@@ -713,6 +713,29 @@ One can proof that $\mathfrak A$ is cosheaf ()
 \end{empt}
 \paragraph{TOPOLOGICAL CECH}
 
+
+PAGE 27
+
+\begin{empt}
+Let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ be an open covering of a space $\sX$ indexed by a set
+$I$ and let $\mathscr A$ be a presheaf on $X$. Then an $n$-cochain c of it is a function
+defined on ordered $(n + 1)$-tuples $\left((\a_0, ... , \a_n\right)$ of members of $I$ such that
+ $\sU_{\a_0,..., \a_n} \bydef \sU_{\a_0} \cap \dots \cap \sU_{\a_n}$ with value $c_{\a_0,..., \a_n}\in \mathscr A\left( sU_{\a_0,..., \a_n}\right)$ 
+These form a group denoted by $\check C\left(\mathscr U, \mathscr A \right)$. An open set $\sV$ of $\sX$ is covered
+by $\mathscr U \cap \sV \bydef \left\{\sU_\a\right\}_{\a \in I}$. Thus we have the cochain group $\check C\left(\mathscr U\cap \sV, \mathscr A \right)$,
+and the assignment $\sV \mapsto  \check C\left(\mathscr U\cap \sV, \mathscr A \right)$ gives a presheaf on $\sV$, and hence a
+sheaf
+$$
+ \check{\mathscr C}^n \left(\mathscr \sV, \mathscr A \right)\bydef \mathfrak{Ass}\left(V \mapsto  \check C\left(\mathscr U\cap \sV, \mathscr A \right)\right)  
+$$
+Thus it makes sense to speak of the support $\left|c \right|$  of a cochain, i.e., $\left|c \right|\bydef \left|\th\left( c \right) \right|$ , where $\th :\check C\left(\mathscr U; \mathscr A \right)\to \Ga \left( \check {\mathscr C}\left(\mathscr U; \mathscr A \right)\right)$ This defines the cochain group
+$\check  C\left(\mathscr U; \mathscr A \right)$ for a family $\Phi$ of supports on $\sX$. The coboundary operator
+$$
+d c\left(\a_0, ..., \a_{n+1}\right)\bydef~ \sum_{\iota = 0}^{n+1}\left( -1\right)^\iota c\left(\a_0, ..., \hat \a_\iota, ..., \a_{n+1}\right)|_{\sU_{\a_0, ..., \a_{n+1}}}
+$$
+The above equation is a specialization of \eqref{cech_differential_eqn}.
+\end{empt}
+================\\
 PAGE 189
 The \v{C}ech cohomology over topological space is a specialization of the theory explained in the section \ref{cech_cohomology_sec}.
 Let $\mathscr A$ be a presheaf on $\sX$ and $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering of
@@ -742,11 +765,7 @@ Let $\mathscr A$ be a presheaf on $\sX$ and $\mathscr U = \left\{\sU_\a\right\}_
 4 = .?heaj(A), then the canonical map 0: A -+ d induces an isomorphism
 H;(X;A) -1+ R,(X;-d
 	\end{corollary}
-	\begin{theorem} PAGE 192
-	4.9. Theorem. If 4 is a sheaf on X and it = {Uo,; a E I} is any open
-	covering of X, then is a resolution of 4.
-	\end{theorem}
-	
+
 	\begin{corollary}
 		PAGE 192
 	4.9. Theorem. If 4 is a sheaf on X and it = {Uo,; a E I} is any open
@@ -760,6 +779,44 @@ H;(X;A) -1+ R,(X;-d
 	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
 	\ee
 	\end{theorem}
+	
+	PAGE 445
+	
+\begin{theorem}
+	13.1. Theorem. If each intersection U of at most m + 1 members of it
+has
+$$
+H_q\left(\mathfrak{A}\left( \sU\right)  \right) = 0 \quad \forall~ 0 \neq q < n
+$$
+then
+$$
+\la
+$$
+
+,\u : Hk (Qt. (X)) -' Hk (it; 2t)
+is an isomorphism for all k < min{n, m} and a monomorphism for k =
+min{n, m}.
+Applying this to Borel-Moore homology, we have:
+
+\end{theorem}
+
+\begin{corollary}
+	13.2. Corollary. Let .,l be an arbitrary sheaf on the locally compact Hausdorff
+space X. Let it be an open covering of X such that for each intersection
+U of at most m + 1 members of it, HQ(U;.A) = 0 for all 0 < q < n.
+Then the canonical map
+H,(X;") - Hk(U;
+is an isomorphism for all k < min{n, m} and a monomorphism for k
+min{n, m}.
+\end{corollary}
+\begin{corollary}
+13.3. Corollary. Let d be an arbitrary sheaf on the space X. Let U be
+an open covering of X such that for each intersection U of at most m + 1
+members of it, AHq (U; .d) = 0 for all 0 < q < n. Then the canonical map
+AHk(X;1d) - Hk(U; AHO(';4))
+ss an isomorphism for all k < min{n, m} and a monomorphism for k =
+min{n, m}. D
+\end{corollary}
 \paragraph{TOPOLOGICAL CECH FINISH}
 \paragraph{title}
 \begin{theorem}\label{top_free_l_thm!!!}
@@ -2715,6 +2772,72 @@ If there is  given a pretopology $P$ on  $\mathscr C$, we can replace it be a to
 	\begin{defn}\label{associated_sheaf_defn}\cite{johnstone:topos}
 		The given by the Statement  \ref{associated_sheaf_stmnt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
 	\end{defn}
+		\begin{empt}\label{associated_sheaf_empt}
+		Here I follow to \cite{topos:intro}
+		Let $\mathcal{P}$ be a presheaf on $\mathbf{C}$, i.e., a functor $\mathbf{C}^{\mathrm{op}} \to \mathbf{Sets}$. The construction
+			of $\mathfrak{Ass}\left(\mathcal{P} \right)$  proceeds in two steps: first we will construct a new
+			presheaf $\mathcal{P}^+$, which is not yet necessarily a sheaf, but is halfway there.
+			Call a presheaf $\mathcal{P}$ \textit{separated} if a matching family can have \textit{at most one
+			amalgamation}. In other words, $\mathcal{P}$ is separated if for any $x, y \in \mathcal{P}\left(C \right)$  
+			and any cover $s \in J(C)$, $x|_f = y|_f$ for all $f \in \S$ implies $x = y$ (here
+			$C$ is an arbitrary object of the category $\mathbf{C}$). So separated presheaves
+			satisfy the uniqueness condition occurring in the definition of a sheaf,
+			but not necessarily the existence condition. We will show that for any
+			presheaf $\mathcal{P}$, the newly constructed presheaf $\mathcal{P}^+$ is separated, and that
+			$\mathcal{P}^+$ is a sheaf if $\mathcal{P}$ itself is already separated. Then $\mathfrak{Ass}\left(\mathcal{P} \right)$  is obtained by
+			applying this plus-construction twice, as
+		$$
+		\mathfrak{Ass}\left( \mathcal{P}\right) \bydef \left( \mathcal{P}^+\right)^+. 	
+			$$
+			To understand the definition of $\mathcal{P}^+$, notice that if $
+			\mathcal{P}$ were to be a
+			sheaf, then for any cover $R$ of an object $C$ of $\mathbf{C}$, a matching family $\left\{x_f\right\}_{f \in R}$
+			of elements of $\mathcal{P}$ should actually represent a unique element
+			of $\mathcal{P}(C)$. Moreover, still assuming $\mathcal{P}$ to be a sheaf, if $S \in J(C)$ is a
+			refinement of $R$, i.e., $R \subset R$ then the subfamily $\left\{x_f\right\}_{f \in S}$, which is a
+			matching family for the cover $S$, actually represents exactly the same
+			element of $P(C)$.
+			
+			Given an arbitrary presheaf $\mathcal{P}$, we might therefore try to define a
+			new presheaf $\mathcal{P}^+$ by
+			\be
+			\mathcal{P}^+(C) \bydef \varinjlim_{R \in J(C)} \mathrm{Match}(R, \mathcal{P}),
+		\ee
+			where $\mathrm{Match}(R, \mathcal{P})$ denotes the set of matching families for the cover $R$
+			of $C$, and the colimit is taken over all covering sieves of $C$, ordered by
+			reverse inclusion. In other words, an element of $\mathcal{P}^+(C)$ is an equivalence
+			class of matching families
+			\be
+			\mathbf{x} = \left\{x_f | f : D \to \C \in R\right\} \quad x \in \mathcal{P}(D),\quad \text{and} \quad x_f \dot k = x_{f_k}
+			\ee
+		for all  $k: E \to D$ where two such families  $\mathbf{x}=\left\{x_f | f \in R\right\}$ and
+		$\mathbf{y}=\left\{y_g | g \in S\right\}$ are equivalent when there is a common refinement
+		$T \subset R \cap S$  with $T \in J(C)$ such that $x_f= y_f$ or all $f$ in $T$.
+			The so-defined $\mathcal{P}^+$ has the structure of a presheaf, where the restriction
+			map $P^+(C)\to \mathcal{P}^+(C')$ for a morphism $h: C' \to C$ in $\mathbf{C}$ is given
+			by
+		\be
+	\mathbf{x}=\left\{x_f | f \in R\right\}\dot f \bydef \mathbf{x}=\left\{x_{hf'} | f' \in h^*R\right\}
+			\ee
+			observe that this is well-defined on equivalence classes. This construction
+		$\mathcal{P}\mapsto \mathcal{P}'$ is a functor of $\mathcal{P}$, because each map $\phi : \mathcal{P} \to \Q$ of presheaves
+			(i.e., each natural transformation $\phi$) induces in the evident way a map
+		 $\phi^+ : \mathcal{P}^+ \to \Q^+$/ Moreover, there is a canonical map of presheaves
+			$$
+			\eta: \mathcal{P} \to \mathcal{P}^+
+			$$
+		defined for each $x \in \mathcal{P}\left(C\right)$ as the equivalence class of the matching family
+		\be
+		\eta_C\left(x \right) = \left\{x \cdot f| f \in t_C\right\}
+	\ee 
+		where $t_C$ is the maximal sieve on $C$.
+		However, one application of the plus-construction will not always
+		suffice. But, consider $\mathcal{P}^{++}$. An element
+		of $\mathcal{P}^{++} \left( U\right)$ is an (equivalence class of) sets of elements $s_i \in \mathcal{P}\left( U_i\right)$  for
+		some open cover $\left\{{U_i }\right\}$ of $U$, which match ($s_i = s_j$) whenever the overlap
+		$U_i \cap U_j$ is nonempty. 
+		                                                                             	\end{empt}
+	
 		\begin{rem}\label{ab_uss_rem}
 		Similarly there are categories re categories $\mathbf{PreShAb}\left(\mathbf T \right)$, $ ~~\mathbf{Ab}\left(\mathbf T\right)$ of presheaves an sheaves of Abelian groups (cf. Remark \ref{etale_presheaf_rem}). Also there a functors $\mathfrak{Forget} : \mathbf{Ab}\left(\mathbf T \right)\to \mathbf{PreShAb}\left(\mathbf T \right)$ and $\mathfrak{Ass} : \mathbf{PreShAb}\left(\mathbf T  \right)\to \mathbf{Ab}\left(\mathbf T \right)$. The functor $\mathfrak{Ass}$ is an adjoint to $\mathfrak{Forget}$.
 	\end{rem}
@@ -3206,9 +3329,9 @@ by the properties (a), (b) and (c).
 	C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
 	\ee
 	For $s \in C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
-	$$
-	d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},..., \iota_{r + 1}} \right)  
-	$$
+	\be\label{cech_differential_eqn}
+	d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},\iota_{j+1},..., \iota_{r + 1}} \right)  
+\ee
 	$\mathrm{res}_j$ is the restriction map corresponding to the projection map
 	$$
 	U_{\iota_0,..., \iota_{r + 1}}\mapsto U_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}.
@@ -3264,19 +3387,26 @@ by the properties (a), (b) and (c).
 		\check{H}^r\left(X, F\right)\bydef \check{H}^r\left(X, F_X\right).
 		\ee
 	\end{empt}
+	\begin{remark}
+		% PAGE 
+	It is proven in \cite{johnstone:topos} that for any presheaf $\mathscr A \in$ on the site $\mathbf{T}$ and any $U \in \mathrm{Cat}\left( \mathbf T\right)$ one has
+	\be\label{cech_ass_eqn}
+	\check{H}^0\left( \sU, \mathscr A\right) = \varinjlim_{R \in J(U)} \Hom_{\E} \left(R,  \mathscr A\right)= \mathfrak{Ass}\left(\mathscr A \right) \left( U\right).  
+	\ee
+	\end{remark}
 	\subsection{Set and universes}
 	
 
-	For a set $u$, we denote as usual by $\P\left( u\right)$  the set of subsets of $u : \P(u) \bydef
+	For a set $u$, we denote as usual by $P\left( u\right)$  the set of subsets of $u : P(u) \bydef
 \left\{x | x \subset u\right\}$
 \begin{definition}\cite{kashiwara:cat_sheaves}
 %	Definition 1.1.1. 
 	A universe $\sU$ is a set satisfying the following properties:
 	\begin{enumerate}
 		\item[(i)] 		$\emptyset\in \sU$
-		\item[(ii)] $u \in \sU$ implies $u\subset \sU$, (equivalently, $x \in \sU$ and $y \in x$ implies $y\in \sU$, or 	else $\sU \subset \P\left( \sU\right)$ ,
+		\item[(ii)] $u \in \sU$ implies $u\subset \sU$, (equivalently, $x \in \sU$ and $y \in x$ implies $y\in \sU$, or 	else $\sU \subset P\left( \sU\right)$ ,
 		\item[(iii)] $u \in \sU$ implies $\{u\}\in \sU$,
-		\item[(iv)] $u \in \sU$ implies $\P\left( u\right)  \in \sU$,
+		\item[(iv)] $u \in \sU$ implies $P\left( u\right)  \in \sU$,
 		\item[(v)] if $I \in \sU$ and $u_i\in \sU$ for all $i \in I$ , then $\bigcup_{i \in I}u_i \in \sU$
 	\item[(vi)] $\N \in \sU$.
 		
