@@ -642,13 +642,10 @@ One can define a locale $\mathfrak{Closed}\left( \sX\right)$ such that its eleme
 	\ee
 	We say that $^\neg \mathfrak{A}$ is the \textit{negation presheaf of} $\mathfrak{A}$.
 \end{definition}
-\begin{remark}
-The Definition \ref{top_neg_defn} and the Statement  \ref{associated_sheaf_stmnt} yield associated  sheaves on the locale  $\mathfrak{Closed}\left( \sX\right)$. However an associated sheaf of nontrivial sheaf can be 
+\begin{example}
+Let $\sX$ be 	
+\end{example}
 
-
-However it is interesting to obtain explicit construction which does not depend on the Statement  \ref{associated_sheaf_stmnt}.
-\end{remark}
-\begin{empt}
 Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensional homology manifold over} $L$ (cf. Definition \ref{top_ndiml_defn}). From \eqref{top_dim_eqn} it follows that $\dim_L \sX = n$. From the theorem \ref{top_c_ac_thm} it follows that any sheaf $\mathscr A$ of $L$-modules has a $c$-soft resolution (cf. Definition \ref{top_res_defn})
  	\be\label{top_res_eqn}
 0\to \mathscr A  \xrightarrow{\eps}\mathscr A^0  \xrightarrow{d}\mathscr A^{1}  \xrightarrow{d}\mathscr A^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr A^n \to 0
@@ -668,7 +665,6 @@ Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensiona
  \ref{top_quasi_res}
  
 From the Theorem \ref{top_soft_flabby_thm} it follows that the sheaf  $\mathscr L^p$ is  is flabby for all $p > 1$.
-\end{empt}
 
 !!! MAY BE MANIFOLD \ref{top_coh_man_defn} !!!
 
@@ -679,7 +675,7 @@ If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)
 \ee	
 \end{remark}
 \begin{empt}
-Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). From the Proposition \ref{{comm_alg_loc_thm}  !!! THEOREM !!!sh_sh_prop} it follows that the map
+Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). From the Proposition \ref{comm_alg_loc_thm}  !!! THEOREM !!!\ref{sh_sh_prop} it follows that the map
 $$
 \mathfrak A : \sU \mapsto H^c_0\left( \sU, \mathscr {L}\right) 
 $$
@@ -766,10 +762,15 @@ Let $\mathscr A$ be a presheaf on $\sX$ and $\mathscr U = \left\{\sU_\a\right\}_
 H;(X;A) -1+ R,(X;-d
 	\end{corollary}
 
-	\begin{corollary}
+	\begin{theorem}
 		PAGE 192
-	4.9. Theorem. If 4 is a sheaf on X and it = {Uo,; a E I} is any open
+	4.9. Theorem. If $\mathscr A$ is a sheaf on $\sX$ and it = {Uo,; a E I} is any open
 	covering of X, then is a resolution of 4.
+	\end{theorem}
+	\begin{corollary}
+	4.10. Corollary. Let d be a sheaf on X and let it be an open covering
+	of X. Then H¡D(U;.:d) r,(4). If d is flabby, then H (it;..d) = 0 for
+	n>0.
 	\end{corollary}
 	\begin{theorem}
 		PAGE 193 
@@ -779,11 +780,93 @@ H;(X;A) -1+ R,(X;-d
 	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
 	\ee
 	\end{theorem}
+\begin{proof}
+Let $\mathscr A^q \bydef  \mathscr C^q\left(\sX,\mathscr A^* \right)$  and consider the complex $\check C^p\left( \mathscr U,\mathscr A^*\right)$  for $p$
+fixed. Since $\check C^p\left( \mathscr U,\bullet\right)$ is an exact functor of presheaves, we have
+\bean
+H^q\left(\check C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U;\check H^q\left( \Ga \mathscr A^*|_\bullet\right)\right)  = C^p\left( \mathscr U;\check H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
+\begin{cases}
+\check C^p\left( \mathscr U; \mathscr A^*\right) & q = 0\\
+0 & q \neq 0
+\end{cases}
+\eean
+by the hypothesis that $H^q\left( \sU_{\sigma^n};\mathscr A \right)= 0$ for $q > 0$.
+Consider the diagram
+	\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+& 0  & 0 & 0 & 0 &	\\ 
+0 & \Ga\left(\mathscr A \right) 		& \Ga\left(\mathscr A^0 \right) & \Ga\left(\mathscr A^1 \right)  &  \Ga\left(\mathscr A^2 \right)& \dots\\
+0 & \check C^0\left(\mathscr U, \mathscr A \right) 		& \check C^0\left(\mathscr U, \mathscr A^0 \right) & \check C^0\left(\mathscr U, \mathscr A^1 \right)  &  \check C^0\left(\mathscr U, \mathscr A^2 \right)& \dots \\0 & \check C^1\left(\mathscr U, \mathscr A \right) 		& \check C^1\left(\mathscr U, \mathscr A^0 \right) & \check C^1\left(\mathscr U, \mathscr A^1 \right)  &  \check C^1\left(\mathscr U, \mathscr A^2 \right)& \dots\\0 & \check C^2\left(\mathscr U, \mathscr A \right) 		& \check C^2\left(\mathscr U, \mathscr A^0 \right) & \check C^2\left(\mathscr U, \mathscr A^1 \right)  &  \check C^2\left(\mathscr U, \mathscr A^2 \right)& \dots\\& \vdots  & \vdots & \vdots & \vdots &
+\\};
+	\path[-stealth]
+	(m-1-2) edge node [right]  {} (m-2-2)
+	(m-1-3) edge node [right]  {} (m-2-3)
+	(m-1-4) edge node [right]  {} (m-2-4)
+	(m-1-5) edge node [right]  {} (m-2-5)
 	
-	PAGE 445
+	(m-2-1) edge node [right]  {} (m-2-2)
+	(m-2-2) edge node [right]  {} (m-2-3)
+	(m-2-3) edge node [right]  {} (m-2-4)
+	(m-2-4) edge node [right]  {} (m-2-5)
+	(m-2-5) edge node [right]  {} (m-2-6)
+	(m-2-2) edge node [right]  {} (m-3-2)
+	(m-2-3) edge node [right]  {} (m-3-3)
+	(m-2-4) edge node [right]  {} (m-3-4)
+	(m-2-5) edge node [right]  {} (m-3-5)
+	
+	(m-2-2) edge node [right]  {} (m-3-2)
+	(m-2-3) edge node [right]  {} (m-2-3)
+	(m-2-4) edge node [right]  {} (m-3-4)
+	(m-2-5) edge node [right]  {} (m-3-5)
+	
+	(m-3-1) edge node [right]  {} (m-3-2)
+	(m-3-2) edge node [right]  {} (m-3-3)
+	(m-3-3) edge node [right]  {} (m-3-4)
+	(m-3-4) edge node [right]  {} (m-3-5)
+	(m-3-5) edge node [right]  {} (m-3-6)
+	
+	(m-3-2) edge node [right]  {} (m-4-2)
+	(m-3-3) edge node [right]  {} (m-4-3)
+	(m-3-4) edge node [right]  {} (m-4-4)
+	(m-3-5) edge node [right]  {} (m-4-5)
+	
+	(m-4-1) edge node [right]  {} (m-4-2)
+	(m-4-2) edge node [right]  {} (m-4-3)
+	(m-4-3) edge node [right]  {} (m-4-4)
+	(m-4-4) edge node [right]  {} (m-4-5)
+	(m-4-5) edge node [right]  {} (m-4-6)
+
+(m-4-2) edge node [right]  {} (m-5-2)
+(m-4-3) edge node [right]  {} (m-5-3)
+(m-4-4) edge node [right]  {} (m-5-4)
+(m-4-5) edge node [right]  {} (m-5-5)
+	
+(m-5-1) edge node [right]  {} (m-5-2)
+(m-5-2) edge node [right]  {} (m-5-3)
+(m-5-3) edge node [right]  {} (m-5-4)
+(m-5-4) edge node [right]  {} (m-5-5)
+(m-5-5) edge node [right]  {} (m-5-6)
+
+(m-5-2) edge node [right]  {} (m-6-2)
+(m-5-3) edge node [right]  {} (m-6-3)
+(m-5-4) edge node [right]  {} (m-6-4)
+(m-5-5) edge node [right]  {} (m-6-5)
+	;
+\end{tikzpicture}
+\\
+
+	
+in which the rows are exact, excepting the first, as just shown and the
+columns are exact, excepting the first, by 4.10 and 4.9. A diagram chase
+shows that the homology of the first (nontrivial) row is isomorphic to that
+of the first column.
+\end{proof}	
+
 	
 \begin{theorem}
-	13.1. Theorem. If each intersection U of at most m + 1 members of it
+	PAGE 445	13.1. Theorem. If each intersection U of at most m + 1 members of it
 has
 $$
 H_q\left(\mathfrak{A}\left( \sU\right)  \right) = 0 \quad \forall~ 0 \neq q < n
@@ -801,7 +884,7 @@ Applying this to Borel-Moore homology, we have:
 \end{theorem}
 
 \begin{corollary}
-	13.2. Corollary. Let .,l be an arbitrary sheaf on the locally compact Hausdorff
+	PAGE 445	13.2. Corollary. Let .,l be an arbitrary sheaf on the locally compact Hausdorff
 space X. Let it be an open covering of X such that for each intersection
 U of at most m + 1 members of it, HQ(U;.A) = 0 for all 0 < q < n.
 Then the canonical map
@@ -1315,7 +1398,7 @@ H^p_c\left(\sX, A; \mathscr O\otimes \mathscr A \right) \cong H^c_{n-p}\left(\sX
 	A \textit{sheaf} for the Grothendieck pretopology
 	is a presheaf $\mathscr F$ 
 	that satisfies the sheaf condition, that is a sequence 
-	\be\label{sheaf_eqn}
+	\be\label{sheaf_eqn!}
 	\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \times_U U_j\right)
 	\ee
 	is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
@@ -3540,6 +3623,60 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 	only if it is a paracompact Hausdorff space that is locally metrizable.
 	\end{theorem}
 	
+\subsection{Simplicial sets and geometric realization}
+\begin{definition}\cite{gelfand_manin}
+A \textit{simplicial set} is a family of sets $X_\bullet \bydef \left\{X_n\right\}_{n = 0,1, ...}$
+and of maps $X(f) : X_n\to X_m$, one for each nondecreasing map $f : [m] \to [n]$ 
+	such that the following conditions are satisfied:
+	\bean
+	X\left(\Id\right)= \Id,\\
+X(g\circ f)=X(f)\circ X(g).	
+	\eean 
+%	The only difference with the gluing data introduced in 1.1.1b) is that / 	need not be strictly increasing. 
+Elements of $X_n$ are called $n$-simplices. Instead 
+	of $X_\bullet$, we will often write simply $X$. 
+	For any nondecreasing map $f : [m] \to [n]$ we define the \textit{f-th face} Af 
+	as the linear map $\Delta_m \to \Dl_n$ that maps any vertex $e_j \in \Dl_m$ into the vertex 
+	$f(e_j) \in \Dl_n$, $j = 0, ...,m$. 
+%	Contrary to the situation in 1.1.1a), Af is not necessarily an embedding: if 	/ is not strictly increasing, then Af decreasesthedimension gluing together 
+	some vertices of Am. 
+	\end{definition}
+	\begin{definition}\cite{gelfand_manin}
+ The \textit{geometric realization} $\left|X \right|$ of a simplicial set $\left\{X_n\right\}$ is the 
+topological space with the underlying set $\bigsqcup_{n = 0}^\infty \left(\Dl_n\times X_n \right)/R$ , where $R$ is the 
+weakest equivalence relation identifying points $(s,x) \in  \Dl_n\times X_n$ and $(t,y) \in  \Dl_m\times X_m$ if 
+\bean
+y = X(f)x,\\
+s = \Dl_f\left( t\right)  
+\eean
+
+	for some nondecreasing map $f : [m] \to [n]$I We shall write these 
+	conditions as 
+	$$
+	(t,y) \mapsto (s,x).
+	$$ 
+	The topology on $\left|X \right|$ is the weakest one for which the factorization by $R$ 
+	is continuous. 
+	\end{definition}
+
+
+\begin{definition}\label{nerve_defn}\cite{gelfand_manin}
+	Let $\sY$ be a topological space, $\mathscr U \bydef \left\{\sU_{   \a}\right\}$ be its covering (either by open or by 
+closed sets), $\a$ running over some set $\A$. Let 
+\bean
+X_n \bydef \left\{\left(\a_0, ..., \a_n\right)| \sU_{\a_0}\cap ...\cap \sU_{\a_n}\right\} \neq \emptyset,\\
+X(f)\left(\a_0, ..., \a_n\right) = \left(\a_{f_0}, ..., \a_{f_n}\right) \quad  \text{for} \quad f : [m] \to [n].
+\eean 
+\end{definition}
+\begin{remark}\cite{gelfand_manin}
+		This simplicial set reflects the combinatorial structure of a covering. One 
+can show that if the covering $\mathscr U$ is locally finite and all nonempty finite intersections $\sU_{\a_0}\cap ...\cap \sU_{\a_n}$ are contractible, then the geometric realization $\left|X \right|$
+of $X$ is homotopically equivalent to $\sY$, so that the topology can be efficiently 
+encoded into combinatorial data. 
+
+\end{remark}
+		
+	
 	\subsection{General theory of sheaves}
 	\paragraph*{}
 	The explained below definitions are specializations of   \ref{presheaf_defn} and  \ref{sheaf_defn} ones (cf. Example \ref{top_gro_exm}).
@@ -4872,7 +5009,7 @@ A partially ordered set yields an Alexandrov space $L(A)$.
 
 %\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
 
-%\bibitem{gelfand_manin} Sergei I. Gelfand, Yuri I. Manin. \textit{Methods of Homological Algebra},  Springer Monographs in Mathematics (SMM), 1996.
+\bibitem{gelfand_manin} Sergei I. Gelfand, Yuri I. Manin. \textit{Methods of Homological Algebra},  Springer Monographs in Mathematics (SMM), 1996.
 
 \bibitem{goldblatt:topoi} Robert Goldblatt. \textit{Topoi: The Categorial Analysis of Logic}. Revised edition of XLVII 445. Studies in logic and the foundations of mathematics, vol. 98. North-Holland, Amsterdam, New York, and Oxford, 1984, xvi + 551 pp. 1984.
 
