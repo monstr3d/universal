@@ -642,10 +642,173 @@ One can define a locale $\mathfrak{Closed}\left( \sX\right)$ such that its eleme
 	\ee
 	We say that $^\neg \mathfrak{A}$ is the \textit{negation presheaf of} $\mathfrak{A}$.
 \end{definition}
-\begin{example}
-Let $\sX$ be 	
-\end{example}
-
+\begin{empt}
+Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $L$ be ring, $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). 
+From the Proposition \ref{precosh_sh_prop}  it follows that the map
+$$
+\mathfrak L : \sU \mapsto H^c_0\left( \sU, \mathscr {L}\right) 
+$$
+is a cosheaf (cf. Definition \ref{top_cosh_defn}). Suppose that there is an open covering  $\mathscr U \bydef \left\{\sU_\a\right\}_{\a \in \A}$ of $\sX$. If  $\overline \sU_\a\subset \sX$ is a closure of $\sU_\a$ for any $\a\in \A$, then $\overline \sU_\a$ is a closed subset of $\sY$ and $^\neg  \sU_\a \bydef \sY \setminus \overline \sU_\a$ is an open subset of $\sY$. For any $\left(\a_0, ...\a_n\right)\in \A^n$ we denote by $\sU_{\a_0, ...\a_n}\bydef \sU_{   \a_0} \cap \dots \cap \sU_{   \a_n}$ and $^\neg \sU_{\a_0, ...\a_n}\bydef ~ ^\neg\sU_{   \a_0} \cup \dots \cup ^\neg \sU_{   \a_n}$.
+ Let $^\neg \mathscr L = \mathfrak{Ass}\left(\neg  \mathfrak L\right)$ be the sheaf on $\mathfrak{Closed}\left( \sX\right)$ associated with with the negation presheaf $\neg  \mathfrak L$ (cf. Definition \ref{top_neg_defn}). 
+ 
+ \begin{proof}
+ Let 
+ $$
+ ^\neg \mathscr L\xrightarrow{\eps}\mathscr A^0  \xrightarrow{d}\mathscr A^{1}  \xrightarrow{d}\mathscr A^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr A^n \to\dots
+ $$
+ be an injective resolution. Since $\check C^p\left( \mathscr U,\bullet\right)$ is an exact functor of presheaves, we have
+ \bean
+ H^q\left(\check C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U; H^q\left( \Ga \mathscr A^*|\bullet\right)\right)  = C^p\left( \mathscr U; H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
+ \begin{cases}
+ 	\check C^p\left( \mathscr U; \mathscr A^*\right) & q = 0\\
+ 	0 & q \neq 0
+ \end{cases}
+ \eean
+ by the hypothesis that $H^q\left( \sU_{\sigma^n};\mathscr A \right)= 0$ for $q > 0$.
+ Consider the diagram
+ \newline
+ \begin{tikzpicture}
+ 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+ 	{
+ 		& 0  & 0 & 0 & 0 &	\\ 
+ 		0 & \Ga\left( ^\neg \mathscr L\right) 		& \Ga\left(\mathscr A^0 \right) & \Ga\left(\mathscr A^1 \right)  &  \Ga\left(\mathscr A^2 \right)& \dots\\
+ 		0 & \check C^0\left(\mathscr U,  ^\neg \mathscr L \right) 		& \check C^0\left(\mathscr U, \mathscr A^0 \right) & \check C^0\left(\mathscr U, \mathscr A^1 \right)  &  \check C^0\left(\mathscr U, \mathscr A^2 \right)& \dots \\0 & \check C^1\left(\mathscr U, ^\neg \mathscr L \right) 		& \check C^1\left(\mathscr U, \mathscr A^0 \right) & \check C^1\left(\mathscr U, \mathscr A^1 \right)  &  \check C^1\left(\mathscr U, \mathscr A^2 \right)& \dots\\0 & \check C^2\left(\mathscr U,  ^\neg \mathscr L \right) 		& \check C^2\left(\mathscr U, \mathscr A^0 \right) & \check C^2\left(\mathscr U, \mathscr A^1 \right)  &  \check C^2\left(\mathscr U, \mathscr A^2 \right)& \dots\\& \vdots  & \vdots & \vdots & \vdots &
+ 		\\};
+ 	\path[-stealth]
+ 	(m-1-2) edge node [right]  {} (m-2-2)
+ 	(m-1-3) edge node [right]  {} (m-2-3)
+ 	(m-1-4) edge node [right]  {} (m-2-4)
+ 	(m-1-5) edge node [right]  {} (m-2-5)
+ 	
+ 	(m-2-1) edge node [right]  {} (m-2-2)
+ 	(m-2-2) edge node [right]  {} (m-2-3)
+ 	(m-2-3) edge node [right]  {} (m-2-4)
+ 	(m-2-4) edge node [right]  {} (m-2-5)
+ 	(m-2-5) edge node [right]  {} (m-2-6)
+ 	(m-2-2) edge node [right]  {} (m-3-2)
+ 	(m-2-3) edge node [right]  {} (m-3-3)
+ 	(m-2-4) edge node [right]  {} (m-3-4)
+ 	(m-2-5) edge node [right]  {} (m-3-5)
+ 	
+ 	(m-2-2) edge node [right]  {} (m-3-2)
+ 	(m-2-3) edge node [right]  {} (m-2-3)
+ 	(m-2-4) edge node [right]  {} (m-3-4)
+ 	(m-2-5) edge node [right]  {} (m-3-5)
+ 	
+ 	(m-3-1) edge node [right]  {} (m-3-2)
+ 	(m-3-2) edge node [right]  {} (m-3-3)
+ 	(m-3-3) edge node [right]  {} (m-3-4)
+ 	(m-3-4) edge node [right]  {} (m-3-5)
+ 	(m-3-5) edge node [right]  {} (m-3-6)
+ 	
+ 	(m-3-2) edge node [right]  {} (m-4-2)
+ 	(m-3-3) edge node [right]  {} (m-4-3)
+ 	(m-3-4) edge node [right]  {} (m-4-4)
+ 	(m-3-5) edge node [right]  {} (m-4-5)
+ 	
+ 	(m-4-1) edge node [right]  {} (m-4-2)
+ 	(m-4-2) edge node [right]  {} (m-4-3)
+ 	(m-4-3) edge node [right]  {} (m-4-4)
+ 	(m-4-4) edge node [right]  {} (m-4-5)
+ 	(m-4-5) edge node [right]  {} (m-4-6)
+ 	
+ 	(m-4-2) edge node [right]  {} (m-5-2)
+ 	(m-4-3) edge node [right]  {} (m-5-3)
+ 	(m-4-4) edge node [right]  {} (m-5-4)
+ 	(m-4-5) edge node [right]  {} (m-5-5)
+ 	
+ 	(m-5-1) edge node [right]  {} (m-5-2)
+ 	(m-5-2) edge node [right]  {} (m-5-3)
+ 	(m-5-3) edge node [right]  {} (m-5-4)
+ 	(m-5-4) edge node [right]  {} (m-5-5)
+ 	(m-5-5) edge node [right]  {} (m-5-6)
+ 	
+ 	(m-5-2) edge node [right]  {} (m-6-2)
+ 	(m-5-3) edge node [right]  {} (m-6-3)
+ 	(m-5-4) edge node [right]  {} (m-6-4)
+ 	(m-5-5) edge node [right]  {} (m-6-5)
+ 	;
+ \end{tikzpicture}
+ \\
+ 
+ 
+ in which the rows are exact, excepting the first, as just shown and the
+ columns are exact, excepting the first, by 4.10 and 4.9. A diagram chase
+ shows that the homology of the first (nontrivial) row is isomorphic to that
+ of the first column.
+ 
+ \end{proof}
+ Let
+ \be
+ ^\neg \mathscr L\xrightarrow{\eps}\mathscr A^0  \xrightarrow{d}\mathscr A^{1}  \xrightarrow{d}\mathscr A^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr A^n \to\dots
+ \ee
+ be an injective resolution.
+	\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		& 0  & 0 & 0 & 0 &	\\ 
+		0 & \check \Ga\left(^\neg \mathscr L  \right) 		& \Ga\left(\mathscr A^0 \right) & \Ga\left(\mathscr A^1 \right)  &  \Ga\left(\mathscr A^2 \right)& \dots\\
+		0 & \check C^0\left(\mathscr U, \mathscr A \right) 		& \check C^0\left(\mathscr U, \mathscr A^0 \right) & \check C^0\left(\mathscr U, \mathscr A^1 \right)  &  \check C^0\left(\mathscr U, \mathscr A^2 \right)& \dots \\0 & \check C^1\left(\mathscr U, \mathscr A \right) 		& \check C^1\left(\mathscr U, \mathscr A^0 \right) & \check C^1\left(\mathscr U, \mathscr A^1 \right)  &  \check C^1\left(\mathscr U, \mathscr A^2 \right)& \dots\\0 & \check C^2\left(\mathscr U, \mathscr A \right) 		& \check C^2\left(\mathscr U, \mathscr A^0 \right) & \check C^2\left(\mathscr U, \mathscr A^1 \right)  &  \check C^2\left(\mathscr U, \mathscr A^2 \right)& \dots\\& \vdots  & \vdots & \vdots & \vdots &
+		\\};
+	\path[-stealth]
+	(m-1-2) edge node [right]  {} (m-2-2)
+	(m-1-3) edge node [right]  {} (m-2-3)
+	(m-1-4) edge node [right]  {} (m-2-4)
+	(m-1-5) edge node [right]  {} (m-2-5)
+	
+	(m-2-1) edge node [right]  {} (m-2-2)
+	(m-2-2) edge node [right]  {} (m-2-3)
+	(m-2-3) edge node [right]  {} (m-2-4)
+	(m-2-4) edge node [right]  {} (m-2-5)
+	(m-2-5) edge node [right]  {} (m-2-6)
+	(m-2-2) edge node [right]  {} (m-3-2)
+	(m-2-3) edge node [right]  {} (m-3-3)
+	(m-2-4) edge node [right]  {} (m-3-4)
+	(m-2-5) edge node [right]  {} (m-3-5)
+	
+	(m-2-2) edge node [right]  {} (m-3-2)
+	(m-2-3) edge node [right]  {} (m-2-3)
+	(m-2-4) edge node [right]  {} (m-3-4)
+	(m-2-5) edge node [right]  {} (m-3-5)
+	
+	(m-3-1) edge node [right]  {} (m-3-2)
+	(m-3-2) edge node [right]  {} (m-3-3)
+	(m-3-3) edge node [right]  {} (m-3-4)
+	(m-3-4) edge node [right]  {} (m-3-5)
+	(m-3-5) edge node [right]  {} (m-3-6)
+	
+	(m-3-2) edge node [right]  {} (m-4-2)
+	(m-3-3) edge node [right]  {} (m-4-3)
+	(m-3-4) edge node [right]  {} (m-4-4)
+	(m-3-5) edge node [right]  {} (m-4-5)
+	
+	(m-4-1) edge node [right]  {} (m-4-2)
+	(m-4-2) edge node [right]  {} (m-4-3)
+	(m-4-3) edge node [right]  {} (m-4-4)
+	(m-4-4) edge node [right]  {} (m-4-5)
+	(m-4-5) edge node [right]  {} (m-4-6)
+	
+	(m-4-2) edge node [right]  {} (m-5-2)
+	(m-4-3) edge node [right]  {} (m-5-3)
+	(m-4-4) edge node [right]  {} (m-5-4)
+	(m-4-5) edge node [right]  {} (m-5-5)
+	
+	(m-5-1) edge node [right]  {} (m-5-2)
+	(m-5-2) edge node [right]  {} (m-5-3)
+	(m-5-3) edge node [right]  {} (m-5-4)
+	(m-5-4) edge node [right]  {} (m-5-5)
+	(m-5-5) edge node [right]  {} (m-5-6)
+	
+	(m-5-2) edge node [right]  {} (m-6-2)
+	(m-5-3) edge node [right]  {} (m-6-3)
+	(m-5-4) edge node [right]  {} (m-6-4)
+	(m-5-5) edge node [right]  {} (m-6-5)
+	;
+\end{tikzpicture}
+\\
+\end{empt}
+\paragraph{FINISH}
 Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensional homology manifold over} $L$ (cf. Definition \ref{top_ndiml_defn}). From \eqref{top_dim_eqn} it follows that $\dim_L \sX = n$. From the theorem \ref{top_c_ac_thm} it follows that any sheaf $\mathscr A$ of $L$-modules has a $c$-soft resolution (cf. Definition \ref{top_res_defn})
  	\be\label{top_res_eqn}
 0\to \mathscr A  \xrightarrow{\eps}\mathscr A^0  \xrightarrow{d}\mathscr A^{1}  \xrightarrow{d}\mathscr A^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr A^n \to 0
@@ -674,13 +837,7 @@ If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)
 ^\neg P \bydef \sY \setminus P
 \ee	
 \end{remark}
-\begin{empt}
-Let  $\sX$ be a closed subset of  $\sY$ and a set  $\sY$ is locally connected.  Let $\mathscr {L}\bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf (cf. Definitions \ref{constant_presheaf_defn}, \ref{associated_sheaf_defn}). From the Proposition \ref{comm_alg_loc_thm}  !!! THEOREM !!!\ref{sh_sh_prop} it follows that the map
-$$
-\mathfrak A : \sU \mapsto H^c_0\left( \sU, \mathscr {L}\right) 
-$$
-is a cosheaf (cf. Definition \ref{top_cosh_defn})
-\end{empt}
+
  \begin{lemma}
  The given by
 \bean
@@ -710,9 +867,10 @@ One can proof that $\mathfrak A$ is cosheaf ()
 \paragraph{TOPOLOGICAL CECH}
 
 
-PAGE 27
+
 
 \begin{empt}
+	PAGE 27
 Let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ be an open covering of a space $\sX$ indexed by a set
 $I$ and let $\mathscr A$ be a presheaf on $X$. Then an $n$-cochain c of it is a function
 defined on ordered $(n + 1)$-tuples $\left((\a_0, ... , \a_n\right)$ of members of $I$ such that
@@ -761,7 +919,86 @@ Let $\mathscr A$ be a presheaf on $\sX$ and $\mathscr U = \left\{\sU_\a\right\}_
 4 = .?heaj(A), then the canonical map 0: A -+ d induces an isomorphism
 H;(X;A) -1+ R,(X;-d
 	\end{corollary}
+\begin{corollary}
+	PAGE 192 4.12. Corollary. For 44 paracompactifying and sheaves a on $\sX$ there as
+	a natural isomorphism
+	$$
+\check H^*_\Phi\left(\sX, \mathscr A \right)  H^*_\Phi\left(\sX, \mathscr A \right) 
+	$$
+\end{corollary}
 
+\begin{lemma}\label{row_col_chasing_lem}\cite{bargmam:double}
+If in the  complex below, all rows but the first row shown (the row
+of $A_{0,r}$'s) and all columns but the first column shown (the column of $A_{r,0}$'s), are exact,
+then the homologies of the first row and the first column are isomorphic:
+	\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		& 0  & 0 & 0 & 0 &	\\ 
+		0 & A_{00} 		& A_{01} & A_{02}  &   A_{03}& \dots\\
+		0 & A_{10} 		& A_{11} & A_{02}  &   A_{13} & \dots\\
+		0 & A_{20} 		& A_{21} & A_{22}  &  A_{23}& \dots\\
+		0 & A_{30} 		& A_{31} & A_{32}  &   A_{33}& \dots\\& \vdots  & \vdots & \vdots & \vdots &
+		\\};
+	\path[-stealth]
+	(m-1-2) edge node [right]  {} (m-2-2)
+	(m-1-3) edge node [right]  {} (m-2-3)
+	(m-1-4) edge node [right]  {} (m-2-4)
+	(m-1-5) edge node [right]  {} (m-2-5)
+	
+	(m-2-1) edge node [right]  {} (m-2-2)
+	(m-2-2) edge node [right]  {} (m-2-3)
+	(m-2-3) edge node [right]  {} (m-2-4)
+	(m-2-4) edge node [right]  {} (m-2-5)
+	(m-2-5) edge node [right]  {} (m-2-6)
+	(m-2-2) edge node [right]  {} (m-3-2)
+	(m-2-3) edge node [right]  {} (m-3-3)
+	(m-2-4) edge node [right]  {} (m-3-4)
+	(m-2-5) edge node [right]  {} (m-3-5)
+	
+	(m-2-2) edge node [right]  {} (m-3-2)
+	(m-2-3) edge node [right]  {} (m-2-3)
+	(m-2-4) edge node [right]  {} (m-3-4)
+	(m-2-5) edge node [right]  {} (m-3-5)
+	
+	(m-3-1) edge node [right]  {} (m-3-2)
+	(m-3-2) edge node [right]  {} (m-3-3)
+	(m-3-3) edge node [right]  {} (m-3-4)
+	(m-3-4) edge node [right]  {} (m-3-5)
+	(m-3-5) edge node [right]  {} (m-3-6)
+	
+	(m-3-2) edge node [right]  {} (m-4-2)
+	(m-3-3) edge node [right]  {} (m-4-3)
+	(m-3-4) edge node [right]  {} (m-4-4)
+	(m-3-5) edge node [right]  {} (m-4-5)
+	
+	(m-4-1) edge node [right]  {} (m-4-2)
+	(m-4-2) edge node [right]  {} (m-4-3)
+	(m-4-3) edge node [right]  {} (m-4-4)
+	(m-4-4) edge node [right]  {} (m-4-5)
+	(m-4-5) edge node [right]  {} (m-4-6)
+	
+	(m-4-2) edge node [right]  {} (m-5-2)
+	(m-4-3) edge node [right]  {} (m-5-3)
+	(m-4-4) edge node [right]  {} (m-5-4)
+	(m-4-5) edge node [right]  {} (m-5-5)
+	
+	(m-5-1) edge node [right]  {} (m-5-2)
+	(m-5-2) edge node [right]  {} (m-5-3)
+	(m-5-3) edge node [right]  {} (m-5-4)
+	(m-5-4) edge node [right]  {} (m-5-5)
+	(m-5-5) edge node [right]  {} (m-5-6)
+	
+	(m-5-2) edge node [right]  {} (m-6-2)
+	(m-5-3) edge node [right]  {} (m-6-3)
+	(m-5-4) edge node [right]  {} (m-6-4)
+	(m-5-5) edge node [right]  {} (m-6-5)
+	;
+\end{tikzpicture}
+\\
+
+\end{lemma}
 	\begin{theorem}
 		PAGE 192
 	4.9. Theorem. If $\mathscr A$ is a sheaf on $\sX$ and it = {Uo,; a E I} is any open
@@ -772,6 +1009,7 @@ H;(X;A) -1+ R,(X;-d
 	of X. Then H¡D(U;.:d) r,(4). If d is flabby, then H (it;..d) = 0 for
 	n>0.
 	\end{corollary}
+	
 	\begin{theorem}
 		PAGE 193 
 	4.13. Theorem. Let $\mathscr A$ be a sheaf on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma^n};\mathscr A \right)= 0$  for $p > 0$ and
@@ -784,7 +1022,7 @@ H;(X;A) -1+ R,(X;-d
 Let $\mathscr A^q \bydef  \mathscr C^q\left(\sX,\mathscr A^* \right)$  and consider the complex $\check C^p\left( \mathscr U,\mathscr A^*\right)$  for $p$
 fixed. Since $\check C^p\left( \mathscr U,\bullet\right)$ is an exact functor of presheaves, we have
 \bean
-H^q\left(\check C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U;\check H^q\left( \Ga \mathscr A^*|_\bullet\right)\right)  = C^p\left( \mathscr U;\check H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
+H^q\left(\check C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U; H^q\left( \Ga \mathscr A^*|\bullet\right)\right)  = C^p\left( \mathscr U; H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
 \begin{cases}
 \check C^p\left( \mathscr U; \mathscr A^*\right) & q = 0\\
 0 & q \neq 0
@@ -3035,6 +3273,28 @@ $$
 of locales and localic toposes.
 
 \end{proposition}
+\begin{empt}\cite{topos:intro}
+One can define implication and
+negation operators for elements $U$ and $V$ of any frame $A$, by setting
+thus
+\be
+\begin{split}
+	U \Rightarrow V \bydef \bigvee\left\{W \in A | W \wedge U \le V\right\},\\
+	\neg U \bydef \left( U \Rightarrow 0\right) = \bigvee\left\{W \in A | W \wedge U=0\right\}.
+\end{split}
+\ee
+For any locale $X$ the negation gives a double negation
+\be
+\neg\neg :\mathcal O\left( X\right) \to\mathcal O\left( X\right) 
+\ee
+where $\mathcal O\left( X\right)$ is a frame of locale $X$. One can define a sublocale $X_{\neg\neg}\subset X$ such that
+\be\label{double_neg_loc_eqn}
+\mathcal O\left( X_{\neg\neg}\right) \bydef \left\{U \in \mathcal O\left(X \right)|\neg\neg U = U  \right\}
+\ee
+\end{empt}
+\begin{definition}\label{double_neg_loc_defn}
+We say that the given by \eqref{double_neg_loc_eqn} locale $ X_{\neg\neg}$ is the \textit{double negation locale} of $X$.
+\end{definition}
 
 
 \subsection{Spatial locales}\label{spatial_toposes_sec}
@@ -3420,9 +3680,9 @@ by the properties (a), (b) and (c).
 	U_{\iota_0,..., \iota_{r + 1}}\mapsto U_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}.
 	$$
 	As in the classical case, one verifies by a straightforward calculation that
-	$$
-	C^\bullet\left( \mathscr U, \mathscr P\right) \bydef C^0\left( \mathscr U, \mathscr P\right) \to C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} C^r\left( \mathscr U, \mathscr P\right)\to ...
-	$$
+\be\label{chech_res_eqn}
+	C^\bullet\left( \mathscr U, \mathscr P\right) \bydef C^0\left( \mathscr U, \mathscr P\right) \to...\to C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} C^r\left( \mathscr U, \mathscr P\right)\to ...
+\ee
 	is a complex. Define
 	\be\label{cech_coh_eqn}
 	\check{H}^r\left( \mathscr U, \mathscr P\right) \bydef H^r\left(C^\bullet\left( \mathscr U, \mathscr P\right)   \right)= \begin{cases}
@@ -4976,6 +5236,11 @@ A partially ordered set yields an Alexandrov space $L(A)$.
  	
  	
  \bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
+ 
+ 
+\bibitem{bargmam:double} George M. Bergman. \textit{On Diagram-Chasing in Double Complexes}.  Theory and Applications of Categories, Vol. 26, No. 3, 2012, pp. 60Ð96.  2012.
+
+ ON DIAGRAM-CHASING IN DOUBLE COMPLEXES
 
 \bibitem{beyond_sober_duality} Marcello M. Bonsanguea, Bart Jacobs, Joost N. Kok	\textit{Duality beyond sober spaces: Topological spaces and 	observation frames}. Theoretical Computer Science 151 ( 1995) 79-124, 1995.
 
