@@ -919,6 +919,13 @@ From $\chi\left(\Ga\right)= \{1\}$ it follows that $\varphi\left( \Ga\right) = \
 The reader can proof that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$.  
 \section{Representations of hereditary subalgebras}
 
+!!! CHANGE ALL BY FOLLOWING LEMMA !!!
+\begin{lemma}\label{hered_full_non_repr_lem}
+	Let $A$ be a $C^*$ algebra and let $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation. If $B\subset A$ is a hereditary $C^*$-subalgebra and $\H_B$ is a norm closure of $\rho\left(B \right) \H$ then the restriction of $\rho$ yields the natural faithful nondegenerate representation $\rho_B: B\hookto B\left(\H_B \right)$ 
+\end{lemma}
+\begin{proof}
+	Follows from the Lemma \ref{nondegenerate_repr_lem}.
+\end{proof}
 \begin{empt}\label{hered_repr_p_empt}
 	If $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation then there is a $C^*$-algebra $A''$ such that
 	\begin{itemize}
@@ -1066,7 +1073,7 @@ $\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 $ and the comparison  it 
 \section{Miscellany}
 
 \paragraph{}
- 
+ !!! CHANGE GROTHE!!!
 Let $X$ be a $C^*$-Hilbert $A$-module. We also write $X_A$ instead $X$ and
    $\left\langle{x},{y}\right\rangle_{X_A}$ instead $\left\langle{x},{y}\right\rangle_{A}$, the meaning depends on context. 
 If $\ell^2\left( A\right)$ is the {standard Hilbert $A$-module (cf. Definition \ref{standard_h_m_defn})}
@@ -1483,7 +1490,7 @@ Indeed conditions (a), (b) of the Definition \ref{fin_pre_defn} state an isomorp
 theorem of Galois theory. (cf. \cite{kurosh:lga} Chapter Six, \S~6 for details).
 \end{remark}
 \begin{definition}\label{proper_subgroup_fin_defn}
-Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if a quadruple
+Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). {\tiny }A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if a quadruple
 \be\label{proper_subgroup_fin_eqn}
 \left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
 \ee
@@ -16163,6 +16170,9 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 	\begin{definition}\label{foli_defn!!!}
 	Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$ l is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
 \end{definition}
+\begin{theorem}\label{foli_torus_cov_thm}
+!!!!
+\end{theorem}
 \paragraph{title}
 
 \section{Infinite coverings}
@@ -16842,6 +16852,9 @@ From $\Ga = M\Z^n$ and $\Z^n = M\Ga^\vee$ one has the isomorphism $\Ga^\vee/\Z^n
 	
 \end{empt}
 
+
+
+
 \begin{definition}\label{nt_ff_inclusion_m_defn}
 In the described in \ref{nt_ff_inclusion_empt} situation we say that the inclusion $\pi:C\left(\mathbb{T}^n_{\Theta}\right) \hookto C\left(\mathbb{T}^n_{\widetilde{\Theta}}\right)$ \textit{corresponds} to the matrix $M$.
 \end{definition}
@@ -16901,6 +16914,7 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	x \bullet \widetilde{a} = \widetilde{a};~~ \forall \widetilde{a} \in C\left(\mathbb{T}^n_{\widetilde{\Theta}}\right)\quad \Leftrightarrow\quad  x \in \Ga.
 	\ee
 \end{empt}
+
 \begin{lemma}\label{nt_fin_cov_gr_lem}
 	If $G$ is given by \eqref{nt_fin_g_eqn} then there is the natural group isomorphism $G \cong \Z^n/\Ga$.
 \end{lemma}
@@ -16992,6 +17006,11 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	$$
 	is  an unital noncommutative finite-fold  covering.
 \end{remark}
+\begin{empt}
+If $\left( C\left(\T^{n}_{{\Th}} \right), \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then from the Theorem \ref{stable_fin_cov_thm} it follows that   $\left( C\left(\T^{n}_{{\Th}} \right)\otimes \K, \widetilde A\otimes \K, G, \pi\right)$. From !!! it follows that there is a foliated space $\left(\T^n, \sF\right)$ such that $C\left(\T^{n}_{{\Th}} \right)\otimes \K\cong C^*_r\left(\T^n, \sF\right)$. From the Theorem \ref{foli_torus_cov_thm} it follows that there is a finite-fold topological covering $q: M \to \T^n$ such that $\widetilde A\otimes \K\cong C^*_r\left( M, \widetilde \F\right)$ where $\widetilde \F$ is a $q$-lift of $\sF$ (cf. Definition \ref{!!!}) and $G  = G\left(M, \T^n \right)$  it is known that  $G\left(M, \T^n \right)$ is a finite Abelian group, i.e. $G \cong \bigoplus_{j = 1}^n \Z_{n_j}$.
+\\
+!!! CONTINUE !!!
+\end{empt}
 \begin{corollary}
 	Consider the situation of the Theorem \ref{nt_fin_thm}.  If both operator algebras $\Coo 
 	\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ are given by \eqref{nt_coo_eqn} then the quadruple $$\left( \Coo\left(\T^{n}_{{\Th}} \right), \Coo\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi|_{\Coo\left(\T^{n}_{\widetilde{\Th}} \right)}\right)$$ is a noncommutative finite-fold covering of bounded operator *-algebras (cf. Definition \ref{fin_oa_defn}).
@@ -18539,7 +18558,7 @@ $$
 $$
 is complete and $N \bydef \widetilde p\left(\widetilde N \right)$ is also a complete transversal. There are $C^*$-algebras $C^*_r\left( \G^{N}_{N}\right)$ and  $C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)$ given by \ref{foli_pseudo_empt}.
 From the Lemma \ref{foli_stab_lem} it turns out that
-\be\label{foli_stab_eqn}
+\be\label{foli_stab_torus_eqn}
 \begin{split}
 	C^*_r\left(\T^2, \sF_\th\right)\cong C^*_r\left( \G^{N}_{N}\right)\otimes\K,\\
 	C^*_r\left(\R^2,  \widetilde\sF\right) \cong C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)\otimes\K.
@@ -18549,7 +18568,7 @@ It is proven in \cite{connes:ncg94} that
 \be\label{nt_f_a_eqn}
 C^*_r\left(\G^{N}_{N}\right)\cong C\left( \T^2_\th\right) 
 \ee
-where $C\left( \T^2_\th\right)$ is a noncommutative torus (cf. Definition \ref{nt_defn}).  From the equation \eqref{foli_stab_eqn} it follows that
+where $C\left( \T^2_\th\right)$ is a noncommutative torus (cf. Definition \ref{nt_defn}).  From the equation \eqref{foli_stab_torus_eqn} it follows that
 \be\label{nt_f_k_eqn}
 C^*_r\left(\T^2, \sF_\th\right)\cong C\left( \T^2_\th\right)\otimes \K
 \ee
@@ -22834,7 +22853,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	has a dense open subset which is Hausdorff in the relative topology.
 \end{definition}
 
-\begin{theorem}\label{oa_haus_prim_thm}
+\begin{theorem}\label{oa_haus_prim_thm}\cite{rae:ctr_morita}
 	%	Theorem A.50. 
 	Suppose that $A$ 
 	is a $C^*$-algebra such that $\check{A}$
@@ -22956,6 +22975,11 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 \begin{theorem}\label{ctr_fin_bundle_thm}\cite{fell:operator_fields}
 	Every {homogeneous $C^*$-algebra of order} $n$ (cf. Definition \ref{ctr_homo_defn}) is isomorphic with some $C_0\left(B \right)$, where $B$ is a fibre bundle with base space $\hat A$, fibre space $\mathbb{M}_n\left(\C\right)$ , and group $PU\left(n \right)$. 
 \end{theorem}
+\begin{lemma}\label{ctr_sep_haus_lem}\cite{chun-yen:separability}
+%Corollary 2.6. 
+Let $A$ be a separable C*-algebra. Then its spectrum $\sX$
+is metrizable if and only if $\sX$ is Hausdorff. In this case, A is a $CCR$.
+\end{lemma}
 \begin{thm}\label{ctr_hausdoff_thm}\cite{kaplansky:certain}
 	Let $A$ be a $C^*$-algebra in which for every primitive ideal $P$,
 	$P$ is finite-dimensional and of order independent of $P$. Then the structure space of $A$ is Hausdorff.
@@ -22966,7 +22990,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	\be\label{ctr_open_id_eqn}
 	\sU \leftrightarrow 	A|_{\mathcal U}.
 	\ee
-	On the other it is proven in \cite{rae:ctr_morita} that any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra. From the Theorem \ref{ctr_hat_check_thm} it turns out that the prime spectrum of $A$ coincides with its primitive one (cf. Definition \ref{prime_primtive_defn}).  So  the equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and open sets of the spectrum of $A$.
+	On the other hand any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra (cf. Lemma \ref{ctr_sep_haus_lem}). From the Theorem \ref{ctr_hat_check_thm} it turns out that the prime spectrum of $A$ coincides with its primitive one (cf. Definition \ref{prime_primtive_defn}).  So  the equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and open sets of the spectrum of $A$.
 \end{remark}
 
 \begin{lemma}\label{ctr_fact_lem}\cite{rae:ctr_morita}
@@ -25832,9 +25856,7 @@ of sheaves. An isomorphism is a morphism  which has a two-sided inverse.
 \begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
 	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
 \end{prdf}
-\begin{remark}\label{sheaf_ass_rem}
-The above construction is a specialization of the Statement  \ref{site_sheaf_stmt} and the Definition \ref{site_sheaf_ass_defn}.
-\end{remark}
+
 \begin{empt}\label{sheaf_empt}
 	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
 	\begin{itemize}
@@ -26382,70 +26404,7 @@ open subset.
 		is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 	\end{definition}
 	
-\section{Groupoids and $C^*$-algebras}
-\paragraph*{}
-Here I follow to \cite{brown:proper_groupoids}.
-\begin{subsection}{$C_0\left(\sX\right)$-algebras}
-	\paragraph*{}
-	Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x\bydef\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x)\bydef A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semi-continuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
-	
-	\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semi-continuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x)\bydef p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
-		\begin{enumerate}
-			\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
-			\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A\times\A$ to $\A$,
-			\item[B3] For each $k\in\C$, the maps $a\mapsto ka$ and $a\mapsto a^*$ are continuous from $\A$ to $\A$, and 
-			\item[B4] If $\{a_i\}$ is a net in $\A$ such that $p(a_i)\rightarrow x$ and $\|a_i\|\rightarrow 0$, then $a_i\rightarrow 0_x$ (where $0_x$ is the zero element of $A(x)$).
-		\end{enumerate}
-		\label{defn usccb}\end{defn}
-	
-	The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0\left(\sX\right)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0\left(\sX\right)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
-\end{subsection}
-\begin{subsection}{The Reduced Crossed Product}\label{sec red cross}
-	\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
-		\begin{enumerate}
-			\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
-			\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^2$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
-			\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G\times\A$ to $\A$.
-		\end{enumerate}
-		The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
-	
-	The point is that given a dynamical system, we can construct a convolution algebra which we then complete to obtain the reduced crossed product.  The remainder of this section is devoted to a sketch of this construction.  First we need the following definition.
-	\begin{defn}Let $(\A, G,\alpha)$ be a groupoid dynamical system, we define the pullback bundle of $\A$ to be
-		\begin{equation}\label{r*A}r^*\A\bydef\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
-	
-	\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
-		\begin{equation*}f*g(\gamma)\bydef\int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
-	
-	The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
-	
-	Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
-	\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
-	It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
-	Therefore
-	\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
-	We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
-	\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
-	defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu^{-1})$.
-	We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
-	\begin{equation}\|f\|_r\bydef\sup\{\|\Ind\pi(f)\|:
-		\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
-	
-%	\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
-	
-	As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
-	
-	In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
-	$$\|f\|_I\bydef\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
-	We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
-\end{subsection}
-
-
-
-
-
-	
-
-	\section{Foliations and pseudogroups}
+\section{Foliations and pseudogroups}
 	%\paragraph{}
 	% Here I follow to \cite{connes:ncg94}
 	\begin{definition}\cite{connes:ncg94}		
@@ -26894,10 +26853,14 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	The following  lemma is a more strong version of the Theorem \ref{foli_mor_thm}.
 	\begin{lemma}\label{foli_stab_lem}\cite{hilsum_scandalis:stab}
 		Si $N$ est une transversale fidle de $M$
-		on a: $C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K$.
+		on a: 
+	\be\label{foli_stab_eqn}
+	C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K
+	\ee	
 	\end{lemma}
 	\begin{remark}\label{foli_stab_rem}
-		The English translation of the Theorem \ref{foli_stab_lem} is "if $N$ is a complete transversal then $C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K$".
+		The English translation of the Theorem \ref{foli_stab_lem} is "if $N$ is a complete transversal then 
+	$C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K$".
 	\end{remark}
 	\begin{empt}\label{foli_stab_empt}
 		Besides the Lemma \ref{foli_stab_lem} we need some details of its proof. If $N$ is a complete transversal and
@@ -27147,7 +27110,7 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 		The matrix $\Theta$ is called \emph{quite irrational} if, for all $\lambda \in \Z^n$, the condition $\exp(2\pi i \, \lambda\cdot \Theta  \mu) = 1$ for all $
 		\la,\mu \in \Z^n$ implies $\lambda = 0$.
 	\end{definition}
-	\begin{definition}\label{nt_defn}
+	\begin{definition}\label{nt_defn}\cite{wagner:pb}
 		Let $\Theta$ be an invertible, real  skew-symmetric quite irrational $n \times n$ matrix. A noncommutative torus $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by the set $\left\{U_k\right\}_{k \in \Z^n}$ of unitary elements which satisfy to the following relations.
 		\begin{equation}\label{nt_unitary_product_eqn}
 			U_k U_p = e^{-\pi ik ~\cdot~ \Theta p} U_{k + p}; ~~~   \end{equation}
@@ -27163,6 +27126,11 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 			\th_{21}& 0 &\ldots & \th_{2n}\\
 			\vdots& \vdots &\ddots & \vdots\\
 			\th_{n1}& \th_{n2} &\ldots & 0
+		\end{pmatrix}=\begin{pmatrix}
+		0& \th_{12} &\ldots & \th_{1n}\\
+		-\th_{12}& 0 &\ldots & \th_{2n}\\
+		\vdots& \vdots &\ddots & \vdots\\
+		-\th_{1n}& -\th_{2n} &\ldots & 0
 		\end{pmatrix}
 	\end{equation}
 	then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by unitary elements   $u_1,..., u_n \in U\left( C\left(\mathbb{T}^n_{\Theta}\right)\right) $ such that following condition holds
@@ -28513,7 +28481,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 %
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 
-\bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012 This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.
+\bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012. This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.
 
 \bibitem{mont:hopf-morita} M. Cohen, D. Fischman, S. Montgomery. \textit{Hopf Galois extensions, smash products, and Morita equivalence}. Journal of Algebra Volume 133, Issue 2, September 1990, Pages 351-372, 1990.
 
