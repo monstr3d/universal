@@ -2619,6 +2619,24 @@ G \cong \left\{\left.g \in\Aut\left(  \widetilde{A}\right) \right|ga= a \quad\fo
 $$
 From the above equation it follows that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ satisfies to the Definition \ref{fin_pre_defn}.
 \end{proof}
+\begin{corollary}\label{red_proper_cor}
+	If 	$\left(A, \widetilde{A}, G, \pi \right)$ is  a 
+	reduced  noncommutative finite-fold pre-covering then any normal subgroup $H \subset G$ is proper  (cf. Definition \ref{proper_subgroup_fin_defn}).
+\end{corollary}
+\begin{proof}
+One needs check that the quadruple  
+\be\label{red_proper_q_eqn}
+	\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
+	\ee 	is a  {noncommutative finite-fold  pre-covering}. If $\sX$, $\widetilde \sX$ and $\widetilde \sX^H = \widetilde \sX/ H$ are spectra of $A$, $\widetilde{A}$ and $\widetilde{A}^H$ then from the Proposition \ref{spectrum_cov_prop} it follows that there are surjective continuous maps $\widetilde p: \widetilde \sX \to \sX$, $~\widetilde p^H: \widetilde \sX \to \widetilde\sX^H$ and  $p: \widetilde \sX^H \to \sX$ such that $\widetilde p = p \circ \widetilde p^H$.  The pre-covering is  	$\left(A, \widetilde{A}, G, \pi \right)$ is reduced so one has
+\be\label{red_proper_eqn}
+\forall \widetilde x \in \widetilde \sX \quad \rep_{  \widehat{x }}\left(\pi\left(A\right) \right)=\rep_{  \widehat{x }}\left(\widetilde A \right) .
+\ee
+On the other hand there is the natural injective *-homomorphism $\rho: \widetilde A^H \to \widetilde A$ such that $\pi = \rho \circ \pi^H$. If the quasi-covering \eqref{red_proper_q_eqn} is not reduced then there is $\widetilde{x}\in \widetilde{\sX}$ such that  $\rep_{\widetilde p^H\left(\widetilde x \right) } \left( \pi^H\left(A \right) \right) \subsetneqq \rep_{\widetilde p^H\left(\widetilde x \right)} \left( \widetilde A^H  \right)$ then 
+$$
+\rep_{  \widetilde{x }}\left(\pi\left(A\right) \right)= \rep_{  \widetilde{x }}\left(\rho \left( \pi^H\left(A \right) \right) \right)\subsetneqq \rep_{  \widetilde{x }}\left( \rho\left(\widetilde A^H \right) \right)\subset \rep_{  \widetilde{x }}\left( \widetilde A \right).
+$$
+The above equation contradicts with \eqref{red_proper_eqn} one, so the quasi-covering \eqref{red_proper_q_eqn} is reduced. From the Lemma \ref{quasi_red_lem} it follows that the quadruple \eqref{red_proper_q_eqn} 	is a  {noncommutative finite-fold  pre-covering}.
+\end{proof}
 \begin{remark}\label{proper_reduced_remark}
 	Let 	$\left(A, \widetilde{A}, G, \pi \right)$ be a 
 	noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}), and let $\widetilde{A}_{\text{red}}$ be a reduced $C^*$-algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}). If 
@@ -2626,7 +2644,7 @@ From the above equation it follows that the quadruple $\left(A, \widetilde{A}, G
 	H \bydef \left\{g \in G \left| \forall \widetilde{a}_{\text{red}} \in \widetilde{A}_{\text{red}} \quad g\widetilde{a}_{\text{red}}=\widetilde{a}_{\text{red}}\right.\right\}\subset G
 \ee
 	then from the Lemma \ref{quasi_red_lem} it follows that $H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). Moreover if	$\left(A, \widetilde{A}, G, \pi \right)$  is a
-	noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then from there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
+	noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
 	\be\label{reduced_decomp_eqn}
 	\begin{split}
 \left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)= \left(A, \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|A \right), \pi^H\right), 
@@ -2855,7 +2873,7 @@ Consider the situation of the Definition \ref{fin_cat_defn}. The  $C^*$-algebra 
 %	From the Lemma \ref{lift_unitization_lem} it follows that any hereditary subalgebra  semilocally proper subalgebra of $A$ is also  semilocally proper subalgebra of $A$.
 %\end{empt}
 \begin{definition}\label{semilocally_1_connected_defn}
-	If $A$ is a $C^*$-algebra then a connected (cf. Definition \ref{connected_c_a_defn}) a connected hereditary $c^*$-subalgebra $B \subset A$ is said to be \textit{semilocally proper} if for any finite-fold noncommutative covering $\left(A, \widetilde A, G, \pi\right)$  there is a connected hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ such that:
+	If $A$ is a $C^*$-algebra then a connected (cf. Definition \ref{connected_c_a_defn}) a connected hereditary $C^*$-subalgebra $B \subset A$ is said to be \textit{semilocally proper} if for any finite-fold noncommutative covering $\left(A, \widetilde A, G, \pi\right)$  there is a connected hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ such that:
 	
 	\begin{enumerate}
 		\item[(a)] $g \widetilde B \cap \widetilde B = \{0\}$ for all nontrivial  $g \in G\left(\left.\widetilde A\right| A\right)$;
@@ -2865,27 +2883,6 @@ Consider the situation of the Definition \ref{fin_cat_defn}. The  $C^*$-algebra 
 	We say that $A$ is \textit{semilocally 1-connected with respect to } 	$\mathfrak{S}^{\text{pt}}$ if $A$ equals to its hereditary subalgebra  generated by a union of all semilocally proper with respect to 	$\mathfrak{S}^{\text{pt}}$ subalgebras.
 	
 \end{definition}
-
-\begin{empt}\label{semilocally_proper_gen_empt} 
-	Consider a situation of the Definition \ref{semilocally_1_connected_defn}. The $C^*$-algebra $\widetilde A$ equal to its hereditary subalgebra generated by $\pi\left(A \right)$ (cf. Lemma \ref{quasi_hareditary_lem}). If $\left\{B_\a\right\}_{\a \in \mathscr A}$ is a family of all semilocally proper subalgebras of $A$ then $A$ equals to its hereditary subalgebra generated by the union $\cup_{\a \in \mathscr A} B_\a$. If $\widetilde B_\a \subset \widetilde A_\a$ is such that
-	\begin{enumerate}
-		\item[(a)] $g \widetilde B \cap \widetilde B = \{0\}$ for all nontrivial  $g \in G\left(\left.\widetilde A\right| A\right)$;
-		\item[(b)] A generated by $\pi\left(B \right)$ hereditary subalgebra of $ \widetilde A$ equals to a   hereditary subalgebra generated by $\bigoplus_{g \in G\left(\left.\widetilde A \right| A\right)} \widetilde B$.
-		%\item[(c)] If $\widetilde B_\la$ is a generated by $\bigoplus_{g \in G\left(\left.A_\la\right| A\right)} g {B}_\la$ hereditary subalgebra then  $\pi\left( B\right) = \widetilde B_\la^{G\left(\left.A_\la\right| A\right)}$;
-	\end{enumerate}
-	then clearly $\widetilde A$ equals to its hereditary subalgebra generated by a union 
-	$$
-	\bigcup_{\a\in \mathscr A}\bigoplus_{g \in G\left(\left.\widetilde A \right| A\right)} g \widetilde B_\a
-	$$
-	
-\end{empt}
-\begin{corollary}\label{semilocally_lem} 
-	Let $A$ be a  semilocally 1-connected  and proper with respect to covering compositions (cf. Definitions \ref{semilocally_1_connected_defn}, \ref{proper_composition_defn}) $C^*$-algebra. If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  covering then $\widetilde A$   is semilocally 1-connected,  and proper with respect to covering compositions $C^*$-algebra.
-\end{corollary}
-\begin{proof}
-	Follows from the Definitions \ref{semilocally_1_connected_defn}, \ref{proper_composition_defn} and the  \ref{semilocally_proper_gen_empt}
-\end{proof}
-
 
  \section{Strong Morita equivalence of finite-fold coverings}
  
@@ -13719,6 +13716,13 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\end{enumerate}	
 	for all $\la\in \La$.\\
 \end{proof}
+\begin{exercise}\label{stable_fin_cov_exer}
+	Proof that in the situation of the Theorem \ref{stable_fin_cov_thm} if  a  {noncommutative finite-fold  covering} $\left( A, \widetilde{A}, G, \pi\right)$  is reduced (cf. Definition \ref{fin_red_defn}) then a  {noncommutative finite-fold  covering}
+	$
+	\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{K^+} \right)
+	$ is also reduced.
+\end{exercise}
+	
 
 
 \begin{empt}
@@ -16171,7 +16175,7 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 	Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$ l is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
 \end{definition}
 \begin{theorem}\label{foli_torus_cov_thm}
-!!!!
+
 \end{theorem}
 \paragraph{title}
 
@@ -16806,6 +16810,105 @@ If $C^{m,R}_f \bydef C''\left(1 + \left(2R\right)\right)^m +  C^m_f 2^m$ then
 \paragraph{}
 
 The finite-fold coverings of  noncommutative tori are described in \cite{clarisson:phd,schwieger:nt_cov}. Here we would like to prove that these coverings comply with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. 
+\begin{empt}
+Let $\left(\T^2, \sF\right)$ be a linear foliation on torus (cf. Example \ref{fol_tor_exm}). One has $\T^2 = S^1 \times S^1$, assume that $S^1 \to S^1 \times S^1$ is the natural map to the first term of the direct product. If $N$ is the image of $S^1$ then from 
+\eqref{foli_nt_eqn} it follows that
+\bean
+C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+\eean
+On the other hand from the equation \eqref{foli_stab_eqn}  it follows that'
+\bean
+C\left(\T^2_\th\right)\otimes \K \cong C^*_r\left(\T^2, \sF\right).
+\eean
+If $\left( C\left(\T^{n}_{{\Th}} \right), \widetilde A, G, \pi\right)$ is a reduced noncommutative finite-fold covering (cf. Definitions \ref{fin_defn}, and \ref{fin_red_defn}) then from the Theorem \ref{stable_fin_cov_thm} and the Exercise \ref{stable_fin_cov_exer} it follows that  $\left( C\left(\T^{n}_{{\Th}} \right)\otimes \K=  C^*_r\left(\T^2, \sF\right), \widetilde A\otimes \K, G, \pi\right)$ is a reduced noncommutative finite-fold covering. If the covering. From the Theorem \ref{foli_torus_cov_thm} it follows that there is a covering $M \to \T^2$ such that.
+\end{empt}
+
+	\begin{example}\label{fol_tor_exm!}\emph{Linear foliation on torus.} Here I follow to \cite{connes:ncg94}.
+	Consider a vector field $\tilde{X}$ on $\R^2$ given by
+	\[
+	\tilde{X}=\alpha\frac{\partial}{\partial
+		x}+\beta\frac{\partial}{\partial y}
+	\]
+	with constant $\alpha$ and $\beta $. Since $\tilde{X}$ is
+	invariant under all translations, it determines a vector field $X$
+	on the two-dimensional torus ${\T}^2={\R}^2/{\Z}^2$. The vector
+	field $X$ determines a foliation $\mathcal{F}$ on ${\T}^2$. The leaves of
+	$\mathcal{F}$ are the images of the parallel lines
+	$\tilde{L}=\{(x_0+t\alpha, y_0+t\beta): t\in\R\}$ with the slope
+	$\theta=\beta/\alpha $ under the projection $\R^2\to \T^2$.
+	In the case when $\theta$ is rational, all leaves of $\mathcal{F}$ are
+	closed and are circles, and the foliation $\mathcal{F}$ is determined by
+	the fibers of a fibration $\T^2\to S^1$. In the case when $\theta$
+	is irrational, all leaves of $\mathcal{F}$ are everywhere dense in $\T^2$. We say that  $\left(\T^2, \mathcal{F}_\th \right)$ is  the \textit{Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ 
+	with natural coordinates $\left((x, y \right)\in \R^2$. Here $\th\in (0,1)$ is an irrational number.
+	The graph $\G$ of this foliation is the manifold $\G \cong \T\times \R$ with range and source maps  $\G \to \T^2$ given by
+	\bean
+	r((x, y), t) = (x + t, y + \th t).\\
+	s((x, y), t) = (x, y)
+	\eean
+	and with composition given by $((x, y), t)((x_0, y_0), t_0) = ((x_0, y_0), t + t_0)$ for any pair of	composable elements.
+	Every closed geodesic of the at torus $\T^2$ yields a compact transversal. More precisely,
+	for each pair $(p, q)$ of relatively prime integers we let $N_{p,q}$ be the submanifold of $\T^2$
+	given by
+	$$
+	N_{p,q} = \left\{(ps, qs) | s\in \R/\Z\right\}
+	$$
+	The graph $\G$ reduced by $N = N_{p,q}$, i.e. $\G^N_N \bydef \left\{\left.\ga \in \G \right| r(\ga)\in N, \quad s(\ga)\in N\right\}$
+	the manifold $\G^N_N=\T\times \Z$ with range and source maps given by:
+	\bean
+	r(x, n) = x + n\th' ;\\
+	s(x, n) = x
+	\eean
+	where $\th'$ is determined uniquely by any pair $(p_0, q_0)$ of integers such that $pq_0 - p_0q= 1$, $\quad \th' = \frac{p'\th - q'}{p\th - q}$
+	%	The $C^*$-algebra $C^*_{r,N}\left( \T^2, F\right)$ 
+	%	is the crossed product of $C(\T)$ by the rotation of angle $\th'$,
+	%	i.e. it is the irrational rotation $C^*$-algebra $C\left(\T_{\th'}\right)$, generated by two unitaries $U$
+	%	and $V$ such that:
+	%	$$
+	%	VU = e^{2\pi i\th' } UV,
+	%	$$
+	%	Since $N = N_{p,q}$ meets every leaf 
+	%	of the foliation, it follows that $C^*_r (V, F)$ is strongly
+	%	Morita equivalent to $C\left(\T_{\th'}\right)$ for any relatively prime pair $(p, q)$. In particular for $p = 0,~
+	%	q = 1$ we get $C\left(\T_{\th}\right)$, and, by transitivity of strong Morita equivalence
+	If $N = N_{0,1}$ then 
+	\bean
+	r(x, n) = x + n\th ;\\
+	s(x, n) = x
+	\eean
+	Let $U$ be an element of $C\left(\T\right)$ which comes from
+	\bean
+	U:\R \to \C,\\
+	t \mapsto e^{2\pi i t}.
+	\eean
+	If both  $u, v\in C^\infty_c\left(\G^N_N \right)$ are such that
+	\be\label{foli_uv_eqn}
+	\begin{split}
+		u\left(x, n \right) = \begin{cases}
+			U\left(x \right) & n = 0\\
+			0 & n\neq 0
+		\end{cases};\\
+		v\left(x, n \right) = \begin{cases}
+			1 & n = 1\\
+			0 & n\neq 1
+		\end{cases},\\
+	\end{split}
+	\ee
+	then from  the equations \eqref{foli_pseudo_eqn}
+	one has
+	\bean
+	u^*=u^{-1},\\
+	v^*=v^{-1},\\
+	vu = e^{2\pi i\th } uv.
+	\eean
+	Indeed above equations describe a noncommutative 2-torus $C\left(\T^2_\th\right)$ (cf Definition \ref{nt_defn}). Using this fact one deduce that 
+	\be\label{foli_nt_eqn1}
+	C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+	\ee
+\end{example}
+
+
+
 \begin{empt}\label{nt_ff_inclusion_empt}
 	Let $C\left(\mathbb{T}^n_{\Theta}\right)$ be a noncommutative torus (cf. Definition \ref{nt_defn}).  Denote by $\left\{U_k\right\}_{k \in \Z^n}\subset C\left(\mathbb{T}^n_{\Theta}\right) $ the set of unitary elements which satisfy to \eqref{nt_unitary_product_eqn}. We would like to construct an inclusion $\pi:C\left(\mathbb{T}^n_{\Theta}\right) \hookto C\left(\mathbb{T}^n_{\widetilde{\Theta}}\right)$ where $C\left(\mathbb{T}^n_{\widetilde{\Theta}}\right)$ is another noncommutative torus. Denote by $\left\{\widetilde{U}_k\right\}_{k \in \Z^n}\subset C\left(\mathbb{T}^n_{\widetilde{\Theta}}\right)$ the set of unitary elements which satisfy to \eqref{nt_unitary_product_eqn}, i.e.
 	\begin{equation}\label{nt_unitary_productc_eqn}
@@ -26905,8 +27008,6 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	\end{empt}
 	\begin{theorem}\cite{candel:foliII}
 %	Theorem 1.5.16. 
-	
-	
 	Let $(M, \sF)$ be a foliated space and let $\left(Z, \mathcal H\right)$ be the holonomy
 	pseudogroup associated to a complete transversal $Z$. Then the foliation
 	$C^*$-algebra is Morita equivalent to the pseudogroup $C^*$-algebra.
