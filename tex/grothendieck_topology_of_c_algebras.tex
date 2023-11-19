@@ -850,7 +850,7 @@ where $\mathscr A^c\in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\righ
 \end{theorem}
 	\begin{theorem}\label{paracompact_n_thm!}\cite{bredon:sheaf}
 	%9.5. Theorem. 
-	!!! USE THIS THEOREM IN PROOF !!!
+	!!! USE THIS THEOREM IN PROOF RINGED FLABBY !!!
 	Let $A$ be a subspace of $\sX$ having a fundamental system of
 	paracompact neighborhoods. Then for any sheaf $\mathscr F$ on $\sX$, we have $\mathscr F\left( A\right) = \varinjlim \mathscr F\left(
 	\sU \right)$, where $\sU$ ranges over the neighborhoods of $A$.
@@ -890,10 +890,10 @@ If $\sX$ is a compact metrizable space then one has:
 \be\label{top_open_closed_cech_eqn}
 \begin{split}
 \forall \iota \quad \sV_\iota \subset \sU_\iota,\\
-\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{n-1}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_0} \cap ... \cap \sV_{n-1}\neq \emptyset,
+\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
 \end{split}
 \ee
-\item[(ii)]  for any finite covering $\left\{\sV_\iota \right\}_{\iota \in I}$ of $\sX$ by closed subsets there is a finite  covering $\left\{\sV_\iota \right\}_{\iota \in I}$ of $\sX$ by open  subsets which satisfies to the condition \eqref{top_open_closed_cech_eqn}.
+\item[(ii)]  for any finite covering $\left\{\sV_\iota \right\}_{\iota \in I}$ of $\sX$ by closed subsets there is a finite  covering $\left\{\sU_\iota \right\}_{\iota \in I}$ of $\sX$ by open  subsets which satisfies to the condition \eqref{top_open_closed_cech_eqn}.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -921,25 +921,77 @@ For all $\sU_{\iota_0,..., \iota_{n-1}}$ we select an arbitrary point $x \in \sU
 $$
 r_{\iota_0,..., \iota_{n-1}}\bydef \frac{\inf_{y \in \sX \setminus \sU_{\iota_0,..., \iota_{n-1}} } \mathfrak{dist}\left(x, y \right) }{2}.
 $$
-If $r_f < r_0$ and $r < r_{\iota_0,..., \iota_{n-1}}$ for all $sU_{\iota_0,..., \iota_{n-1}}\neq \emptyset$ then one has
+If $r_f < r_0$ and $r < r_{\iota_0,..., \iota_{n-1}}$ for all $\sU_{\iota_0,..., \iota_{n-1}}\neq \emptyset$ then one has
 \bean
  \sX = \bigcup_{\iota \in I}  \sU^{r_f}_\iota,
  \forall \iota \\
  \forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{n-1}\neq \emptyset\quad \Leftrightarrow \quad \sU^{r_f}_{\iota_0} \cap ... \cap \sU^{r_f}_{n-1}\neq \emptyset,
 \eean 
-If $\sV_\iota$ is the closure of $\sU^{r_f}_{\iota}$ then the family $\left\{\sV_\iota \right\}_{\iota \in I}$ satisfies to the condition \ref{top_open_closed_cech_eqn}.\\
-(ii) Let $\left\{\sV_\iota \right\}_{\iota \in I}$ be a finite closed covering of $\sX$. Denote by $\A$ the set of finite subsets of $I$ such that
-!!!
+If
+\be\label{top_open_closed_c_cech_eqn}
+ \sV^{r_f}_\iota\bydef \text{ the closure of } \sU^{r_f}_{\iota}
+ \ee 
+  then the family $\left\{\sV^{r_f}_\iota \right\}_{\iota \in I}$ satisfies to the condition \ref{top_open_closed_cech_eqn}.\\
+(ii) Let $\left\{\sV_\iota \right\}_{\iota \in I}$ be a finite closed covering of $\sX$.  If  $\sV_{\iota_0} \cap ... \cap \sV_{n-1}=\emptyset$ then
+$$ 
+\inf_{\substack{x \in \sX \setminus \sV_{\iota_0}\\ y \in \sV_{\iota_1,..., \iota_{n-1}} }} \mathfrak{dist}\left(x, y \right) > 0
+$$
+If 
+ \bean
+r_{\iota_0,..., \iota_{n-1}}\bydef \frac{1}{2}{\inf_{\substack{x \in \sX \setminus \sV_{\iota_0}\\ y \in \sV_{\iota_1,..., \iota_{n-1}} }} \mathfrak{dist}\left(x, y \right)},\\ \\
+r_f \in \R \quad \sV_{\iota_0} \cap ... \cap \sV_{n-1}=\emptyset \Rightarrow r_f < r_{\iota_0,..., \iota_{n-1}}
+\eean
+and
+$$
+\sU^{r_f}_\iota \bydef \left\{x \in \sX | \exists y \in \sV_\iota\quad  \mathfrak{dist}\left(x, y \right)< r_f\right\}
+$$
+then a family $\left\{\sU^{r_f}_\iota \right\}_{\iota \in I}$ satisfies to the conditions \eqref{top_open_closed_cech_eqn}.
 \end{proof}
+\begin{lemma}\label{top_cech_cof_cov_lem}
+Let  $\left\{\sU_\la\right\}_{\la \in \La}$ (resp. $\left\{\sV_\th\right\}_{\th \in \Th}$) be  finite coverings of $\sX$ by open (resp. closed) sets. There are  refinements $\left\{\sU_\iota \right\}_{\iota \in I}$ and $\left\{\sV_\iota \right\}_{\iota \in I}$ of  $\left\{\sU_\la\right\}_{\la \in \La}$ and $\left\{\sV_\th\right\}_{\th \in \Th}$ which satisfy to condition \eqref{top_open_closed_cech_eqn}.
+\end{lemma}
+\begin{proof}
+Let $\left\{\sV^{r_{c}}_\la\right\}_{\la \in \La}$  be a closed covering of $\sX$ given by (i)  of the Lemma \ref{top_open_closed_cech_lem} i.e
+\bean
+\begin{split}
+	\forall \la \quad \sV_\la \subset \sU_\la,\\
+	\forall \left(\la_0, ..., \la_{n-1}\right)\in I^n \quad \sU_{\la_0} \cap ... \cap \sU_{\la_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV^{r_{c}}_{\la_0} \cap ... \cap \sV^{r_{c}}_{\la_{n-1}}\neq \emptyset.
+\end{split}\eean 
+If $\left\{\sV_\iota \right\}_{\iota \in I}$ is a refinement of both $\left\{\sV^{r_{c}}_\la\right\}_{\la \in \La}$ and $\left\{\sV_\th\right\}_{\th \in \Th}$ then there is a map $\phi : I \to \La$ such that $\sV_\iota \subset \sV_{\phi\left(\iota \right) }$. Otherwise from (ii) of the Lemma   \ref{top_open_closed_cech_lem} is $r_o$ such that for any $r \le r_o$ one has
+\bean
+\begin{split}
+	\forall \iota \quad \sV_\iota \subset \sU^{r_o}_\iota,\\
+	\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU^{r_o}_{\iota_0} \cap ... \cap \sU^{r_0}_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_o} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
+\end{split}
+\eean
+If $r < r_0$ and $r < r_c$ and $\sU_\iota \bydef \sV^r_\iota$ then for all $\iota \in I$ one has $\sU_\iota \subset \sU_{\phi\left(\iota \right) }$ i.e. $\left\{\sU_\iota\right\}_{\iota \in I}$ is a refinement of $\left\{\sU_\la\right\}_{\la \in \La}$. Moreover one has
+\
+\be\label{top_open_closed_t_cech_eqn}
+\begin{split}
+	\forall \iota \quad \sV_\iota \subset \sU_\iota,\\
+	\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
+\end{split}
+\ee
+
+ 
+
+\end{proof}
+
 \begin{theorem}\label{cech_n_thm}
 If $\sX$ is a compact metrizable space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
-$$
+\be\label{cech_n_eqn}
 \check H^p\left(\sX,  \mathscr A\right) \cong \check H^p\left(\mathfrak{Closed}\left( \sX\right),  \mathscr A^c\right)
-$$
+\ee
 where $\mathscr A^c\in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right) $ is given by the equation \eqref{top_closed_sheaf_eqn}.
 \end{theorem}
 \begin{proof}
-According to the Remark \ref{top_chech_cof_rem} one can use only finite open coverings of $\sX$ for calculation of $\check H^p\left(\sX,  \mathscr A\right)$, Let us define a homomorphism $\check H^p\left(\sX,  \mathscr A\right) \to \check H^p\left(\mathfrak{Closed}\left( \sX\right),  \mathscr A^c\right)$. If 
+According to the Remark \ref{top_chech_cof_rem} one can use only finite open coverings of $\sX$ for calculation of $\check H^p\left(\sX,  \mathscr A\right)$.
+According to \eqref{top_open_closed_t_cech_eqn} for any $p$ one has isomorphism
+\be\label{cech_n_iso_eqn}
+\check H^p\left(\left\{\sU_\iota \right\}_{\iota \in I},  \mathscr A\right) \cong \check H^p\left(\left\{\sV_\iota \right\}_{\iota \in I},  \mathscr A^c\right).
+\ee
+On the other hand the given by the Lemma \ref{top_cech_cof_cov_lem} systems of coverings  $\left\{\sU_\iota \right\}_{\iota \in I}$ and $\left\{\sV_\iota \right\}_{\iota \in I}$ are cofinal in the sites $\sX$ and $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ respectively, so from  \eqref{cech_n_iso_eqn} one can obtain isomorphisms \eqref{cech_n_eqn}.
+
 \end{proof}
 
 
