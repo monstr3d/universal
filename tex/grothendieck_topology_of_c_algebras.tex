@@ -1966,7 +1966,7 @@ $$
 		An object $\mathbb{1}$ is \textit{terminal} in a category $\mathscr C$ if for every $\mathscr C$-object $a$ there is one and only one arrow from $a$ to $\mathbb{1}$ in $\mathscr C$.
 	\end{definition}
 	
-	\subsection{Limits}\label{limit_sec}
+	\subsection{Limits and colimits}\label{limit_sec}
 	\paragraph{} Here I follow to \cite{goldblatt:topoi}. The notion of \textit{commutative diagram}, is a 
 	very important aid to understanding used in category theory.
 	By a 
@@ -1996,47 +1996,49 @@ $$
 	category $\mathscr C$ we simply mean a collection of $\mathscr C$-objects $d_j, d_k,...$ together 
 	with some $\mathscr C$-arrows $g: d_j \to d_k$ between certain of the objects in the 
 	diagram. (Possibly more than one arrow between a given pair of objects, 
-	possibly none). 
+	possibly none).
+	\begin{definition}\label{lim_defn}
 	A \textit{cone} for diagram $D$ consists of a $\mathscr C$-object $c$ together with a $\mathscr C$-arrow 
-	$c\to d_j$ for each object $f_j$ in $D$, such that
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			d_j  & & d_k \\ 
-			& c  & \\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$g$} (m-1-3)
-		(m-2-2) edge node [left]  {$f_j~~$} (m-1-1)
-		(m-2-2) edge node [right] {$~~f_k$} (m-1-3);
-	\end{tikzpicture}
-	\\ 	
-	commutes, whenever g is an arrow in the diagram $D$. We use the 
-	symbolism $\left\{f_j: c\to d_j\right\}$ to denote a cone for $D$. 
-	
-	
-	A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ with the property that for 
-	any other $D$-cone $\left\{f'_j: c'\to d_j\right\}$ there is exactly one arrow $f:c' \to c$ such 
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			& d_j &  \\ 
-			c'	&  & c \\};
-		\path[-stealth]
-		(m-2-1) edge node [above] {$g$} (m-2-3)
-		(m-2-1) edge node [left]  {$f'_j~~$} (m-1-2)
-		(m-2-3) edge node [right] {$~~f_j$} (m-1-2);
-	\end{tikzpicture}
-	\\ 	
-	commutes for every object $d_j$ in $D$. 
-	This limiting cone, when it exists, is said to have the \textit{universal property} 
-	with respect to $D$ -cones.
-	A limit for 
-	diagram $D$ is unique up to isomorphism.%:- if {ft: Ñ> a\} and {f-:c'Ñ> d;} 			are both limits for D, then the unique commuting arrow f: c'Ñ above is 			iso (its inverse is the unique commuting arrow c-Ñ*c' whose existence 			follows from the fact that {/,': c' Ñ> dj is a limit). 
-			% It is universal amongst such cones-any other 		D-cone factors uniquely through it as in the last diagram.		
-			
-			
+$c\to d_j$ for each object $f_j$ in $D$, such that
+\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		d_j  & & d_k \\ 
+		& c  & \\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$g$} (m-1-3)
+	(m-2-2) edge node [left]  {$f_j~~$} (m-1-1)
+	(m-2-2) edge node [right] {$~~f_k$} (m-1-3);
+\end{tikzpicture}
+\\ 	
+commutes, whenever g is an arrow in the diagram $D$. We use the 
+symbolism $\left\{f_j: c\to d_j\right\}$ to denote a cone for $D$. 
+
+
+A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ with the property that for 
+any other $D$-cone $\left\{f'_j: c'\to d_j\right\}$ there is exactly one arrow $f:c' \to c$ such 
+\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		& d_j &  \\ 
+		c'	&  & c \\};
+	\path[-stealth]
+	(m-2-1) edge node [above] {$g$} (m-2-3)
+	(m-2-1) edge node [left]  {$f'_j~~$} (m-1-2)
+	(m-2-3) edge node [right] {$~~f_j$} (m-1-2);
+\end{tikzpicture}
+\\ 	
+commutes for every object $d_j$ in $D$. 
+This limiting cone, when it exists, is said to have the \textit{universal property} 
+with respect to $D$ -cones.
+A limit for 
+diagram $D$ is unique up to isomorphism.%:- if {ft: Ñ> a\} and {f-:c'Ñ> d;} 			are both limits for D, then the unique commuting arrow f: c'Ñ above is 			iso (its inverse is the unique commuting arrow c-Ñ*c' whose existence 			follows from the fact that {/,': c' Ñ> dj is a limit). 
+		% It is universal amongst such cones-any other 		D-cone factors uniquely through it as in the last diagram.		
+		
+		
+	\end{definition} 
 			\begin{definition}\label{pull_back_defn}\cite{goldblatt:topoi}
 				A \textit{pullback} of a pair $a \xrightarrow{f}c \xleftarrow{g} b$ of $\mathscr C$-arrows with a common codomain 
 				is a limit in $\mathscr C$ for the diagram 
@@ -2075,6 +2077,62 @@ $$
 				having the obvious universal property. 
 				
 			\end{definition}
+			
+	\begin{definition}\label{monomorphism_defn}\cite{goldblatt:topoi}
+		PAGE 36
+		An arrow $f: a \to b$ in a category $\mathscr C$ is monic in <Û if for any parallel pair 
+		g, h:czta of <Û -arrows, the equality f¡g=f¡h implies that g = h. The 
+		symbolism /: a >-> b is used to indicate that / is monic.
+\end{definition}	
+\begin{remark}
+MONIC MONO !!!
+\end{remark}
+\begin{definition}\label{epimorphism_defn}\cite{goldblatt:topoi}
+	
+	PAGE 39.
+An arrow $f:a\to b$ is epic (right-cancellable) in a category $\mathscr C$ if for any 
+pair of $\mathscr C$-arrows $g, h : b\substack{\to\\\to} c$, the equality $g\circ f = h \circ f$ implies that $g = h$, i.e. 
+whenever a diagram 
+			\newline
+\begin{tikzcd}
+	a \arrow[d, "f"] \arrow[r, "f"] 
+	& b \arrow[d, "g"]\\
+b\arrow[r, "h"]	& c
+\end{tikzcd}
+\\
+\\
+commutes, then $g = h$.
+\end{definition}	
+			\begin{definition}\label{initial_ob_defn}\cite{goldblatt:topoi}
+		PAGE 43
+			
+			 An object $0_{\mathscr C}$ is \textit{initial} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
+			there is one and only one arrow from $0_{\mathscr C}$ to $a$ in ${\mathscr C}$. 
+			\end{definition}
+					
+			\begin{definition}\label{terminal_ob_defn}\cite{goldblatt:topoi}
+				PAGE 44
+					An object $1_{\mathscr C}$ is \textit{terminal} in category $\mathscr C$ if for every $\mathscr C$-object $a$ 
+				there is one and only one arrow to $0_{\mathscr C}$ to $a$ in ${\mathscr C}$. 
+			\end{definition}
+			
+			\begin{definition}\label{kernel_defn}
+				!!! FAITH !!! 
+			If a category $\mathscr C$ has an initial object $0_{\mathscr C}$ then the \textit{kernel} (denoted by $\ker f$ ) of  ${\mathscr C}$-morphism $A \xrightarrow{f} B$ is a limit of the diagram
+			\newline
+\begin{tikzcd}
+	& 0_{\mathscr C} \arrow[d, ""]\\
+A\arrow[r, "f"]	& X
+\end{tikzcd}
+			
+			\end{definition}
+\begin{definition}
+	FAITH
+	
+The \textit{image} of ${\mathscr C}$-morphism $A \xrightarrow{f} B$ (denoted by $\im f$) is an initial object of the category of all monomorphism $I \xrightarrow{\iota} B$ such that there is $\phi_\iota$ with $f = \iota \circ \phi_\iota$
+\end{definition}
+			
+			
 			
 			\begin{defn}\label{sets_cat_defn}\cite{johnstone:topos}
 				There is the \textit{category  of sets and functions} $\mathscr{S}$. We use the therm \textit{small category} for a category those morphisms form a set. If $\mathscr C$ is a small category, we write $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$ for the category of \textit{presheaves}, i.e. contravariant functors from $\mathscr{C}$ to $\mathscr{S}$; among the objects of $\mathscr{S}^{\mathscr{C}^{\mathrm{op}}}$, we have the \textit{representable} functors $h_U$, where $U$ is an object of $\mathscr C$, defined by $h_U\left( V\right) \bydef \Hom_{\mathscr{C}}\left( V, U\right)$; we shall also write $h^U$ for the covariant representable  functor $\Hom_{\mathscr{C}}\left( U, -\right)$.
@@ -2254,7 +2312,27 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 %\\
 
 %\end{definition}
+\begin{definition}\label{image_defn}\cite{topos:intro}
+	PAGE 184
+Call a monic $m$ the \textit{image} of the arrow $f$ if $f$ factors through $f$, say
+as $f = me$ for some $e$, and if, whenever $f$ factors through a monic $h$,
+so does $h$. This says in effect that m is the smallest subobject (of the
+codomain of $f$) through which $f$ can factor.
+\end{definition}
+\begin{proposition}\label{image_prop}
+PAGE 185 Proposition 1. 
+In a topos, every arrow $f$ has an image $m$ and
+factors as $f = me$, with $e$ epi.
 
+\end{proposition}
+\begin{definition}\label{kernel_t_defn}\cite{topos:intro} MAY BE DELETE
+PAGE 197 Recall that the \textit{kernel pair} of a map $f: A \to B$ is the pair of projections
+to A from the pullback of f along itself, as in
+\end{definition}
+\begin{theorem}\label{kernel_thm_defn}\cite{topos:intro}
+Theorem 8. In a topos, every epimorphism is the coequalizer of its
+kernel pair.
+\end{theorem}
 
 
 
@@ -3408,6 +3486,56 @@ encoded into combinatorial data.
 \begin{remark}\label{sheaf_rem}\cite{bredon:sheaf, godement:sheaf}	
 	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
+\begin{definition}\label{sheaf_big_defn}\cite{hartshorne:ag}
+PAGE 54.
+ A \textit{subsheaf} of a sheaf $\mathscr A$ is a sheaf $\mathscr A'$ such that for every open set 
+	$\sU \subset \sX$, $~\mathscr A'\left(\sU\right)$ is a subgroup of $\mathscr A'\left(\sU\right)$, and the restriction maps of the 
+	sheaf $\mathscr A'$ are induced by those of $\mathscr A'$. It follows that for any point $P$, the 
+	stalk $\mathscr A'_P$ is a subgroup of $\mathscr A_P$. 
+	
+	If $\varphi : \mathscr A \to \mathscr B$ is a morphism of sheaves, we define the \textit{kernel} of $\varphi$ 
+	denoted $\ker \varphi$, to be the presheaf kernel of $\varphi$ (which is a sheaf). Thus 
+	 $\ker \varphi$ is a subsheaf of $\mathscr A$
+	We say that a morphism of sheaves $\varphi  \mathscr A \to \mathscr B$ is \textit{injective} if  $\ker \varphi = 0$. 
+	Thus $\varphi$ is injective if and only if the induced map $\varphi\left( \sU\right): \mathscr A\left(\sU\right)\to \mathscr B\left(\sU\right)$  is 
+		injective for every open set of $\sX$. 
+	
+%		If cp\ 3F -> ^ is a morphism of sheaves, we define the zm^ of cp, 
+		denoted im cp, to be the sheaf associated to the presheaf image of cp. By 
+		the universal property of the sheaf associated to a presheaf, there is a 
+		natural map im cp -> rS. In fact this map is injeetive (see Ex. 1.4), and thus 
+%		im cp can be identified with a subsheaf of f&. 
+%		We say that a morphism cp\,? -> ^ of sheaves is sitrjective if im cp = f^. 
+%		We say that a sequence . . . Ñ> ^l~"] -Ñ> .Wl ^> ,?l^x -> . . . of sheaves 
+%		and morphisms is ^xacr if at each stage ker <p' = im cpl ~ l. Thus a sequence 
+		64 
+		1 Sheaves 
+%		0 Ñ> #" -^ rS is exact if and only if cp is injective, and <F -^ C^ Ñ> 0 is exact 
+		if and only if cp is surjective. 
+		Now let 3F' be a subsheaf of a sheaf 3F. We define the quotient sheaf 
+	%	.9j.?' to be the sheaf associated to the presheaf U -> ^A0/^W)- It 
+%		follows that for any point P, the stalk (.^"/.^"')P is the quotient .?PI.?'P. 
+		H (p:,F Ñ> <4 is a. morphism of sheaves, we define the cokemel of cp, 
+		denoted coker cp, to be the sheaf associated to the presheaf cokernel of cp. 
+%		
+\end{definition}
+			\begin{definition}\label{sheaf_flasque_defn}\cite{hartshorne:ag}
+	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
+\end{definition}
+\begin{exercise}\cite{hartshorne:ag}\label{sheaf_flasque_exer}
+Suppose that $\mathscr F$ is a flasque sheaf on $\sX$.
+	(a) Show that a constant sheaf on an irreducible topological space is flasque. See 
+	(I, ¤1) for irreducible topological spaces. 
+%	(b) If 0 Ñ> .?' -> & -> .?" -> 0 is an exact sequence of sheaves, and if .?' is 
+%	flasque, then for any open set l\ the sequence 0 -> W\\j) -> #(U) -> 
+	3?"(lr) -> 0 of abelian groups is also exact. * 
+%	(c) If 0 -> J^' -> J? -> .?" -> 0 is an exact sequence of sheaves, and if &' and 3F 
+	are flasque, then 5F" is flasque. 
+%	(d) \i f\X -> Y is a continuous map, and if J^ is a flasque sheaf on X, then /^ 
+	is a flasque sheaf on X 
+%	(e) Let & be any sheaf on X. We define a new sheafs, called the sheaf of discontinuous sections of J^ as follows. For each open set U c X, ^(U) is the set of 
+\end{exercise}
+
 \begin{empt}\label{canonical_resolution_empt}\cite{bredon:sheaf, godement:sheaf}					
  For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
 	collection of all functions (not necessarily continuous) $f: \sU\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such 	that $p \circ f$ is the identity on $\sU$, $~~p : \mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \sX$ being the canonical projection (cf. Exercise \ref{sheaf_etale_exer}).
@@ -3504,9 +3632,6 @@ $$
 			\end{definition}
 					
 			\subsection{Flasque (flabby) and soft sheaves}
-			\begin{definition}\label{sheaf_flasque_defn}\cite{hartshorne:ag}
-				A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
-			\end{definition}
 			\begin{remark}\label{sheaf_locale_flasque} !!!! DELETE !!!
 			If $X$ ia a locale then one can define flasque sheaves in the category $\mathbf{Sh}\left(X \right)$. 
 			\end{remark}
@@ -3514,7 +3639,7 @@ $$
 			%Proposition 2.5. // 
 		If $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then  $H^p\left(\sX, \mathscr F \right)  = 0$ for all $p > 0$.
 			\end{proposition}
-			\begin{exercise}\label{sheaf_flasque_exer}
+			\begin{exercise}\label{sheaf_flasque_my_exer}
 			Similarly to the described in \cite{hartshorne:ag} theory of flasque shaves prove that
 			for any locale $X$ and for every flasque sheaf in the category $\mathbf{Ab}\left(X \right)$ one has  $H^p\left(X, \mathscr F \right)  = 0$ for all $p > 0$ 
 			\end{exercise}
@@ -3523,7 +3648,7 @@ $$
 		$$
 		0 \to \mathscr F \xrightarrow{\dl_0} \sJ^0 \xrightarrow{\dl_1}\sJ^1 \to \dots
 		$$
-		is an exact sequence where each $\sJ^p$ is flasque then from the Exercise \ref{sheaf_flasque_exer} it follows that $\sJ^p$ is acyclic for any $p\ge 0$. Taking into account the Proposition \ref{acyc_prop} one has
+		is an exact sequence where each $\sJ^p$ is flasque then from the Exercise \ref{sheaf_flasque_my_exer} it follows that $\sJ^p$ is acyclic for any $p\ge 0$. Taking into account the Proposition \ref{acyc_prop} one has
 			\be\label{etale_cohf_eqn}
 		\begin{split}
 			H^p\left(X, \mathscr F \right)\bydef\begin{cases}
