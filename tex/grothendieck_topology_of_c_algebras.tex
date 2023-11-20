@@ -839,8 +839,36 @@ If $\mathscr F$ is a sheaf on $\sX$ then one can define a presheaf $\mathscr F^c
 \be\label{top_closed_sheaf_eqn}
 \forall \sU \in \mathfrak{Closed}\left( \sX\right)\quad \mathscr F^c\left( \sU\right) \bydef \text{a space of continuous sections of } \mathscr F \text{ over }\sU
 \ee
-(cf. Remark \ref{sheaf_rem}). From the Theorem \ref{closed_cov_thm} it follows that
-$\mathscr F^c\in \mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right) \right)= \mathbf{Sh}\left(\mathfrak{Site}\left( C_0\left(\sX \right) \right) \right)$.
+(cf. Remark \ref{sheaf_rem}). 
+\begin{lemma}
+The given by \eqref{top_closed_sheaf_eqn} presheaf $\mathscr F^c$ is a sheaf on the site $\mathfrak{Closed}\left( \sX\right)$, i.e. $\mathscr F^c\in \mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right) \right)= \mathbf{Sh}\left(\mathfrak{Site}\left( C_0\left(\sX \right) \right) \right)$.
+
+\end{lemma}
+\begin{proof}
+Follows from the Theorem \ref{closed_cov_thm}.
+\end{proof}
+\begin{lemma}\label{top_open_closed_const_lem}
+Let $\sX$ be a  compact, locally connected space, and let $F$ be a set. Let $F_\sX$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr F \bydef \mathfrak{Ass}\left(F_\sX\right)$. If $F_{\left( \mathfrak{Closed}\left( \sX\right) \right)}$ is a a constant presheaf then one has the natural isomorphism
+$$
+\mathfrak{Ass}\left(F_{\mathfrak{Closed}\left( \sX\right)}\right)\cong \mathscr F^c.
+$$
+where $\mathscr F^c$ is given by \eqref{top_closed_sheaf_eqn}
+\end{lemma}
+\begin{proof}
+Any $\sU \in \mathfrak{Closed}\left( \sX\right)$ then $\sU$ is compact since it is a closed subset of the compact set $\sX$. It follows that  $\sU$ is a finite disjoint union of compact sets, i.e.
+$$
+\sU = \bigsqcup_{j = 1}^n \sU_j.
+$$
+So any $s \in \mathfrak{Ass}\left(F_{\mathfrak{Closed}\left( \sX\right)}\right)$ corresponds to a family $\left\lbrace f_1, ..., f_n\right\rbrace \subset F$ where $f_j$ is regarded as an element of $\mathfrak{Ass}\left(F_{\mathfrak{Closed}\left( \sX\right)}\right)\left(\sU \right)$ 
+Since the space $\sX$ is locally connected there is a family $\left\{\sV_1, ..., \sV_n\right\}$ of connected open subsets of $\sX$ such that
+\bean
+\forall j = 1,..., n \quad \sU_j\subset \sV_j,\\
+j \neq k \quad \sV_j \cap \sV_k = \emptyset
+\eean
+Any $f_j$ can be regarded as element of $\mathscr F\left( \sV_j\right)$  and the family $\left\lbrace f_1, ..., f_n\right\rbrace$ defines a section $t \in \mathscr F\left(\sV\bydef \bigsqcup_{j=1}^n \sV_j\right)$. On the other hand $t$ is a continuous section of $\mathscr F$ over $\sV$ and $s$ is a restriction of $t$, i.e. $s = t|_{\sU}$. From \ref{top_closed_sheaf_eqn} it follows that $s \in \mathscr F^c\left( \sU\right)$. 
+\end{proof}
+
+
 \begin{theorem}
 If $\sX$ is a compact space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
 $$
@@ -850,7 +878,7 @@ where $\mathscr A^c\in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\righ
 \end{theorem}
 	\begin{theorem}\label{paracompact_n_thm!}\cite{bredon:sheaf}
 	%9.5. Theorem. 
-	!!! USE THIS THEOREM IN PROOF RINGED FLABBY !!!
+	!!! USE THIS THEOREM IN PROOF  FLABBY !!!
 	Let $A$ be a subspace of $\sX$ having a fundamental system of
 	paracompact neighborhoods. Then for any sheaf $\mathscr F$ on $\sX$, we have $\mathscr F\left( A\right) = \varinjlim \mathscr F\left(
 	\sU \right)$, where $\sU$ ranges over the neighborhoods of $A$.
@@ -3704,8 +3732,11 @@ denotes the \textit{support} of the section $s$.
 		$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s_\in \mathscr F\left(\sX \right)$ qui 
 		co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
 		\end{theorem}
-		\begin{theorem}\label{closed_cov_thm}
-			ENGLISH !!!
+		\begin{theorem}\label{closed_cov_thm}\cite{godement:sheaf}
+		Let $\mathscr U$ be either open covering or locally finite closed covering of $\sX$. For any sheaf $\mathscr A$ there is a canonical isomorphism
+		$$
+		H^0\left(\mathscr U; \mathscr A \right) \cong \Ga\left(\mathscr A \right)\cong H^0\left(\sX; \mathscr A \right).
+		$$
 		\end{theorem}	
 			%\begin{theorem}\cite{bredon:sheaf}
 			%	6.2.\\
