@@ -806,7 +806,8 @@ If $R$ is a ring then there is a homomorphism of rings  then from the Remark \re
 where the notation \ref{etale_hom_a_eqn} is used.
 \end{remark}
 
-\section{Locales of commutative $C^*$-algebras}
+\section{Grothendieck topology of commutative $C^*$-algebras}
+\subsection{Basic constructions}
 \paragraph{}
 Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  an open subset
 \be\label{top_xb_eqn}
@@ -835,6 +836,9 @@ For any $\sU \in 	\mathfrak{Closed}\left( \sX\right)$ a covering of $\sU$ is a f
 \left(\mathbf{Hered}/A, J_A\right)\cong \left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)
 \ee
 where the Grothendieck topology $J_\sX$ is corresponds to the described above coverings.
+
+\subsection{Sheaves}
+\paragraph{}
 If $\mathscr F$ is a sheaf on $\sX$ then one can define a presheaf $\mathscr F^c$ on $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ such that
 \be\label{top_closed_sheaf_eqn}
 \forall \sU \in \mathfrak{Closed}\left( \sX\right)\quad \mathscr F^c\left( \sU\right) \bydef \text{a space of continuous sections of } \mathscr F \text{ over }\sU
@@ -867,50 +871,89 @@ j \neq k \quad \sV_j \cap \sV_k = \emptyset
 \eean
 Any $f_j$ can be regarded as element of $\mathscr F\left( \sV_j\right)$  and the family $\left\lbrace f_1, ..., f_n\right\rbrace$ defines a section $t \in \mathscr F\left(\sV\bydef \bigsqcup_{j=1}^n \sV_j\right)$. On the other hand $t$ is a continuous section of $\mathscr F$ over $\sV$ and $s$ is a restriction of $t$, i.e. $s = t|_{\sU}$. From \ref{top_closed_sheaf_eqn} it follows that $s \in \mathscr F^c\left( \sU\right)$. 
 \end{proof}
+\begin{definition}\label{top_comm_flasque_defn}
+	A sheaf $\mathscr G \in \mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is said to be $\mathfrak{Closed}\left( \sX\right)$-\textit{flasque} if for any $\sV \mathfrak{Closed}\left( \sX\right)$ and any $s \in \mathscr G\left(\sV \right)$ there is $t \in  G\left(\sU \right)$ such that $s = t|_\sU$.
+\end{definition}
+\begin{lemma}\label{top_comm_flasque_lem}
+If $\sX$ is a compact Hausdorff space and $\mathscr F \in \mathbf{Sh}\left(\sX \right)$ is a flasque sheaf  (cf. Definition \ref{sheaf_flasque_defn}) then the given by the equation \eqref{top_closed_sheaf_eqn} sheaf $\mathscr F^c \in \mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is $\mathfrak{Closed}\left( \sX\right)$-{flasque}.
+\end{lemma}
+\begin{proof} 
+If  $\sV \mathfrak{Closed}\left( \sX\right)$ then $\sV$ is a closed subset if compact set of $\sX$, so $\sV$ is compact. If $s\in \mathscr F\left(\sV \right)$ then from the Theorem \ref{paracompact_n_thm} it follows that there is an open subset $\sU \subset \sX$ such that  $\sV \subset \sU$ and $t \in s\in \mathscr F\left(\sU \right)$ such that $s = t|_\sV$. On the other hand there is $t' \in \mathscr F\left(\sU \right)$ such that $t = t'|_\sU$ because a sheaf $\mathscr F$ is flasque. It turns out that $s = t'|_\sV$.
+\end{proof}
+\begin{exercise}\label{sheaf_flasque_c_exer}
+	Suppose that $\mathscr A\in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is a $\mathfrak{Closed}\left( \sX\right)$-flasque sheaf.
+\begin{itemize}
+	\item[(a)]  If $\mathscr A' \to \mathscr A \to \mathscr A''$ is an exact sequence of $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$-sheaves, and if $\mathscr A'$ is $\mathfrak{Closed}\left( \sX\right)$-flasque, then for any  $\sU\in \mathfrak{Closed}\left( \sX\right)$ the sequence If $\mathscr A'\left( \sU\right)  \to \mathscr A\left( \sU\right)  \to \mathscr A''\left( \sU\right) $ of Abelian groups is also exact. 
+	\item[(b)] If  $\mathscr A' \to \mathscr A \to \mathscr A''$ is an exact sequence of  $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$-sheaves, and  if $\mathscr A'$ and $\mathscr A$
+are $\mathfrak{Closed}\left( \sX\right)$-flasque, then $\mathscr A''$ is $\mathfrak{Closed}\left( \sX\right)$ is flasque. 
+	%	(d) \i f\X -> Y is a continuous map, and if J^ is a flasque sheaf on X, then /^ 
+	%	is a flasque sheaf on X 
+	%	(e) Let & be any sheaf on X. We define a new sheafs, called the sheaf of discontinuous sections of J^ as follows. For each open set U c X, ^(U) is the set of 
+\end{itemize}
+\end{exercise}
+\begin{remark}
+The exercise \ref{sheaf_flasque_c_exer} is an analog of \ref{sheaf_flasque_exer} one.
+\end{remark}
+\begin{empt}\label{top_closed_restr_empt}
+If  $\mathscr A \in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ then for any $\sV \in \mathfrak{Closed}\left( \sX\right)$ we define a sheaf  $\mathscr A_\sV \in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ associated with the presheaf
+\be
+		\sV' \mapsto \begin{cases}
+	\mathscr A\left( \sV'\right) & \sV' \subset \sV\\
+	0 & \sV' \not\subset \sV
+\end{cases}	.
+\ee
+This construction is an analog of the Exercise \ref{sheaf_flasque_ext_exer}
+\end{empt}
+\begin{empt}
+If $\Z_{\mathfrak{Closed}\left( \sX\right)}$ is a constant sheaf and $\mathscr O\bydef \mathfrak{Ass}\left(\Z_{\mathfrak{Closed}\left( \sX\right)} \right) \in  \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ then $\mathfrak{Closed}\left( \sX\right)$ becomes a "ringed space". Any  $\mathscr A\in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is a sheaf of $\mathscr O$-modules.
+\end{empt}
+\begin{proposition}\label{sheaf_flasque_closed_ext_prop}
+Any $\mathfrak{Closed}\left( \sX\right)$ flasque sheaf $\mathcal A \in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is acyclic (cf. Definition \ref{acyc_defn})
+\end{proposition}
+\begin{proof}
+The proof of this proposition is an analog of the \ref{sheaf_flasque_ext_prop} one.
+\end{proof}
 
+\subsection{Sheaf cohomology}
+\paragraph{}
+For topological space $\sX$ and any sheaf  $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ there is the  given by  \eqref{canonical_resolution_eqn} canonical resolution 	
+\be\label{canonical_resolution_c_eqn}
+0 \to \mathscr A \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr A \right) \xrightarrow{d_0 } \mathscr{C}^{1}\left(\sX, \mathscr A \right)\xrightarrow{d_1 } \mathscr{C}^{2}\left(\sX, \mathscr A \right)\xrightarrow{d_2}\dots
+\ee	
 
 \begin{theorem}
-If $\sX$ is a compact space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
+If $\sX$ is a compact Hausdorff space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
 $$
 H^p\left(\sX,  \mathscr A\right) \cong H^p\left(\mathfrak{Closed}\left( \sX\right),  \mathscr A^c\right)
 $$
 where $\mathscr A^c\in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right) $ is given by the equation \eqref{top_closed_sheaf_eqn}.
 \end{theorem}
-	\begin{theorem}\label{paracompact_n_thm!}\cite{bredon:sheaf}
-	%9.5. Theorem. 
-	!!! USE THIS THEOREM IN PROOF  FLABBY !!!
-	Let $A$ be a subspace of $\sX$ having a fundamental system of
-	paracompact neighborhoods. Then for any sheaf $\mathscr F$ on $\sX$, we have $\mathscr F\left( A\right) = \varinjlim \mathscr F\left(
-	\sU \right)$, where $\sU$ ranges over the neighborhoods of $A$.
-\end{theorem}
 \begin{proof}
-	!!!! 2.4 HARTSHORNE !!!
-If we consider  the  given by  \eqref{canonical_resolution_eqn} canonical resolution, i.e.
-	\be\label{canonical_resolution_c_eqn}
-0 \to \mathscr F \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr F \right) \xrightarrow{d_0 } \mathscr{C}^{1}\left(\sX, \mathscr F \right)\xrightarrow{d_1 } \mathscr{C}^{2}\left(\sX, \mathscr F \right)\xrightarrow{d_2}\dots
-\ee	
-then for all $p$ the  sheaf $\mathscr{C}^{0}\left(\sX, \mathscr F \right)$ flabby.
-From the Proposition \ref{sheaf_flasque_prop} it follows that 
-$H^p\left(\sX, \mathscr F \right)  = 0$ for all $q$ and  $p > 0$.
 
-and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+
+then for all $p$ the  sheaf $\mathscr{C}^{0}\left(\sX, \mathscr A \right)$ flasque. From 
+From the Proposition \ref{sheaf_flasque_prop} it follows that 
+$H^p\left(\sX, 	\mathscr{C}^{p}\left(\sX, \mathscr A \right)  \right)  = 0$ for all $q$ and  $p > 0$.
+If we apply the functor $\Ga\left(\sX, \cdot \right)$ then we obtain a complex
 \bean
-\Ga\left(X,\ 	\mathscr{C}^{0}\left(\sX, \mathscr F \right)  \right) \xrightarrow{\Ga\left( d_0 \right)} \Ga\left(X,	\mathscr{C}^{1}\left(\sX, \mathscr F \right) \right) \xrightarrow{\Ga\left( d_1 \right)} \Ga\left(X, 	\mathscr{C}^{2}\left(\sX, \mathscr F \right)  \right) \to ... 
+\Ga\left(X,\ 	\mathscr{C}^{0}\left(\sX, \mathscr A \right)  \right) \xrightarrow{\Ga\left( d_0 \right)} \Ga\left(X,	\mathscr{C}^{1}\left(\sX, \mathscr A \right) \right) \xrightarrow{\Ga\left( d_1 \right)} \Ga\left(X, 	\mathscr{C}^{2}\left(\sX, \mathscr A \right)  \right) \to ... 
 \eean
-For any $p$ a sheaf $\mathscr{C}^{0}\left(\sX, \mathscr F \right)$ is flabby, so it is acyclic 
-The complex \eqref{complex_eqn}  and the Theorem \ref{derived_finctor_thm} define the $p^{\text{th}}$ cohomology
+For any $p$ a sheaf $\mathscr{C}^{0}\left(\sX, \mathscr A \right)$ is flasque, so it is acyclic 
+from the Theorem \ref{acyc_prop} one has  the $p^{\text{th}}$ cohomology
 group 
 
 \bean
 \begin{split}
-	H^p\left(X, \mathscr F \right)=\begin{cases}
+	H^p\left(\sX, \mathscr A \right)=\begin{cases}
 		\ker \Ga\left( d_0 \right) & p = 0\\
 		\ker~ \Ga\left( d_p \right) / \im~ \Ga\left(  d_{p-1}\right)   & p > 0
 	\end{cases}
 \end{split}
 \eean
-
+On the other hand from Lemma \ref{top_comm_flasque_lem} it follows that 
+!!!! PROOF THAT RESOLUTION.
 \end{proof}
+\subsection{\v{C}ech cohomology}
 \begin{lemma}\label{top_open_closed_cech_lem}
 	If $\sX$ is a compact locally connected space then one has:
 	\begin{enumerate}
@@ -3007,7 +3050,7 @@ with respect to these weak equivalences.
 	\end{enumerate}
 \end{theorem}
 \begin{definition}\label{acyc_defn}\cite{hartshorne:ag}
-	With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, an object $J$ of $\mathfrak A$ is acyclic for 
+	With 	$F: \mathfrak A \to  \mathfrak B$  as in the theorem \ref{derived_finctor_thm}, an object $J$ of $\mathfrak A$ is \textit{acyclic} for 
 	$F$ if $R^pF = 0$ for all $p > 0$. 
 \end{definition}
 \begin{proposition}\label{acyc_prop}\cite{hartshorne:ag}
@@ -3563,9 +3606,8 @@ PAGE 54.
 	\begin{itemize}
 		\item[(a)]  If $\mathscr F' \to \mathscr F \to \mathscr F''$ is an exact sequence of sheaves, and if $\mathscr F'$ is 
 		flasque, then for any open set $\sU$ the sequence If $\mathscr F'\left( \sU\right)  \to \mathscr F\left( \sU\right)  \to \mathscr F''\left( \sU\right) $ of Abelian groups is also exact. 
-		\item[(b)] If  $\mathscr F' \to \mathscr F \to \mathscr F''$ is an exact sequence of sheaves, and if $\mathscr F'$ is 
-		flasque, and if $\mathscr F'$ and $\mathscr F$
-		are flasque, then $F''$ is flasque. 
+		\item[(b)] If  $\mathscr F' \to \mathscr F \to \mathscr F''$ is an exact sequence of sheaves, and if $\mathscr F'$ and $\mathscr F$
+		are flasque, then $\mathscr F''$ is flasque. 
 		%	(d) \i f\X -> Y is a continuous map, and if J^ is a flasque sheaf on X, then /^ 
 		%	is a flasque sheaf on X 
 		%	(e) Let & be any sheaf on X. We define a new sheafs, called the sheaf of discontinuous sections of J^ as follows. For each open set U c X, ^(U) is the set of 
