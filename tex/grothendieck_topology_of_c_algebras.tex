@@ -2464,12 +2464,17 @@ kernel pair.
 		attaches a set $\mathscr F\left(U \right)$ , and to each morphism $\varphi: U \to V$
 		in $\mathscr C$, a map $\mathscr F\left(\varphi\right):\mathscr F\left(V \right)\to \mathscr F\left(U \right)$. Note that the notion of a presheaf on $\mathscr C$ 
 		does not depend on the 
-		coverings. We sometimes denote $\mathscr F\left(\varphi\right)$ by $a \mapsto a|_U$.
-		
+		coverings. We sometimes denote $\mathscr F\left(\varphi\right)$ by $a \mapsto a|_U$. If both $\mathscr F$  and $\mathscr G$ are presheaves then a \textit{morphism} of presheaves $\mathscr F\to\mathscr G$ is the natural transformation of functors (cf. Section \ref{natural_transformation_sec}).
 	\end{definition}
 	\begin{remark}\label{etale_presheaf_rem}\cite{milne:lec}
 	Similarly, a presheaf of (Abelian) groups or rings for the Grothendieck pretopology is a contravariant functor from
 $\mathscr C$ to the category of (Abelian) groups or rings.
+	\end{remark}
+	\begin{remark}\label{psersh_im_rem}
+	If $\mathscr F\to\mathscr G$ is a morphism of presheaves then the image (cf. Definition \ref{image_defn}) of $f$ is a presheaf 
+\be\label{psersh_im_eqn}
+	U \mapsto f \mathscr F\left(\sU \right). 
+\ee
 	\end{remark}
 	\begin{definition}\label{sheaf_defn}\cite{milne:lec}
 		A \textit{sheaf} for the Grothendieck pretopology
@@ -2522,10 +2527,7 @@ If there is  given a pretopology $P$ on  $\mathscr C$, we can replace it be a to
 	\begin{statement}\label{associated_sheaf_stmnt}\cite{johnstone:topos}
 		There is an adjoint $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$ to the  forgetful functor $\mathfrak{Forget} : \mathbf{Sh}\left(\mathbf T  \right)\to \mathbf{PreSh}\left(\mathbf T \right)$ (cf. Definition \ref{forget_sheaf_defn}).
 	\end{statement}	
-	\begin{defn}\label{associated_sheaf_defn}\cite{johnstone:topos}
-		The given by the Statement  \ref{associated_sheaf_stmnt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
-	\end{defn}
-		\begin{empt}\label{associated_sheaf_empt}
+\begin{proof}	
 		Here I follow to \cite{topos:intro}
 		Let $\mathcal{P}$ be a presheaf on $\mathbf{C}$, i.e., a functor $\mathbf{C}^{\mathrm{op}} \to \mathbf{Sets}$. The construction
 			of $\mathfrak{Ass}\left(\mathcal{P} \right)$  proceeds in two steps: first we will construct a new
@@ -2589,11 +2591,21 @@ If there is  given a pretopology $P$ on  $\mathscr C$, we can replace it be a to
 		of $\mathcal{P}^{++} \left( U\right)$ is an (equivalence class of) sets of elements $s_i \in \mathcal{P}\left( U_i\right)$  for
 		some open cover $\left\{{U_i }\right\}$ of $U$, which match ($s_i = s_j$) whenever the overlap
 		$U_i \cap U_j$ is nonempty. 
-		                                                                             	\end{empt}
-	
+		                                                                             	\end{proof}
+		                                                                             		\begin{defn}\label{associated_sheaf_defn}\cite{johnstone:topos}
+		                                                                             		The given by the Statement  \ref{associated_sheaf_stmnt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
+		                                                                             	\end{defn}
+		                                                                             	
+		                                                                      	                                                                           \begin{definition}\label{sheaf_morphism_defn}
+     	A \textit{morphism} in the category $\mathbf{Sh}\left(\mathbf T \right)$ is a morphism of presheaves (cf. Definition \ref{presheaf_defn})
+  \end{definition}
+  \begin{remark}\label{sheaf_image_rem}
+  If $\mathscr F \xrightarrow{\varphi} \mathscr G$ is a $\mathbf{Sh}\left(\mathbf T \right)$-morphism then the given by \eqref{psersh_im_eqn} presheaf is not necessary a sheaf. So the image (cf. Definition \ref{image_defn}) of $\varphi$ is the sheaf associated with the presheaf given by \eqref{psersh_im_eqn}.
+  \end{remark}
 		\begin{rem}\label{ab_uss_rem}
 		Similarly there are categories re categories $\mathbf{PreShAb}\left(\mathbf T \right)$, $ ~~\mathbf{Ab}\left(\mathbf T\right)$ of presheaves an sheaves of Abelian groups (cf. Remark \ref{etale_presheaf_rem}). Also there a functors $\mathfrak{Forget} : \mathbf{Ab}\left(\mathbf T \right)\to \mathbf{PreShAb}\left(\mathbf T \right)$ and $\mathfrak{Ass} : \mathbf{PreShAb}\left(\mathbf T  \right)\to \mathbf{Ab}\left(\mathbf T \right)$. The functor $\mathfrak{Ass}$ is an adjoint to $\mathfrak{Forget}$.
 	\end{rem}
+	
 	
 	\begin{statement}\label{site_enough_stmt}\cite{johnstone:topos}
 		%8.13$
