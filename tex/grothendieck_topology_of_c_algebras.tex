@@ -913,6 +913,11 @@ Any $\mathfrak{Closed}\left( \sX\right)$ flasque sheaf $\mathcal A \in \mathbf{A
 \begin{proof}
 The proof of this proposition is an analog of the \ref{sheaf_flasque_ext_prop} one.
 \end{proof}
+\begin{lemma}
+Let $\mathscr F, \mathscr G\in \mathbf{Sh}\left( \sX\right)$  are sheaves, and let $\mathscr F\xrightarrow{f} \mathscr G$ is a $\mathbf{Sh}\left( \sX\right)$ 
+
+!!! IMAGE OF MORPHISM !!!
+\end{lemma}
 
 \subsection{Sheaf cohomology}
 \paragraph{}
@@ -2186,10 +2191,22 @@ A\arrow[r, "f"]	& X
 \end{tikzcd}
 			
 			\end{definition}
-\begin{definition}
-	FAITH
-	
-The \textit{image} of ${\mathscr C}$-morphism $A \xrightarrow{f} B$ (denoted by $\im f$) is an initial object of the category of all monomorphism $I \xrightarrow{\iota} B$ such that there is $\phi_\iota$ with $f = \iota \circ \phi_\iota$
+\begin{definition}\label{image_defn}\cite{faith_rmcat}
+The \textit{image} of ${\mathscr C}$-morphism $A \xrightarrow{f} B$ (denoted by $\im f$) is an initial object of the category of all monomorphism $I \xrightarrow{\iota} B$ such that there is $\phi_\iota$ with $f = \iota \circ \phi_\iota$ Then the diagram
+				\newline
+\begin{tikzcd}
+	A \arrow[rr, "f"]\arrow[rd, ""] & & B\\
+	 & I\arrow[ru, ""] &
+\end{tikzcd}
+\\
+is commutative. %Thus $\im f \to B$ is the minimal monomorphism from the composition.
+\end{definition}
+\begin{definition}\label{exact_sec_defn}\cite{faith_rmcat}
+	A sequence of morphisms 
+	$$
+	...\to A_{j-1}\xrightarrow{f_{j-1}} A_{j}\xrightarrow{f_{j}} A_{j+1}\xrightarrow{f_{j+1}} A_{j+1}\to ...
+	$$
+	is \textit{exact} if $\ker f_{j+1}= \im f_j$ as subobjects of $A_{j+1}$ for all $j$.
 \end{definition}
 			
 			
@@ -2389,7 +2406,7 @@ A category category  of sets and functions $\mathscr S$ (cf. Definition \ref{set
 %\\
 
 %\end{definition}
-\begin{definition}\label{image_defn}\cite{topos:intro}
+\begin{definition}\label{image_topos_defn}\cite{topos:intro}
 	PAGE 184
 Call a monic $m$ the \textit{image} of the arrow $f$ if $f$ factors through $f$, say
 as $f = me$ for some $e$, and if, whenever $f$ factors through a monic $h$,
@@ -3114,11 +3131,12 @@ Here I follow to \cite{milne:lec}. The functor
 \Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
 \mathscr F \mapsto \mathscr F\left(X \right) 
 \eean
-of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution
+of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor.  An exact sequence (cf. Definition \ref{exact_sec_defn})
 $$
 0 \to \mathscr F \to  \mathscr I^0\xrightarrow{\dl^0} \mathscr I^1\xrightarrow{\dl^1} \mathscr I^2 \to ...
 $$
-and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+is said to be an \textit{injective resolution} if for all $\mathscr I^p$ is an injective object (cf. Definition \ref{injective_object_defn}) of $\mathfrak  A$ for all $p$.
+We apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
 \be\label{complex_eqn}
 \Ga\left(X,\ \mathscr I^0  \right) \xrightarrow{\Ga\left( \dl^0 \right)} \Ga\left(X, \mathscr I^1  \right) \xrightarrow{\Ga\left( \dl^1 \right)} \Ga\left(X, \mathscr I^2  \right) \to ... 
 \ee
@@ -3564,38 +3582,34 @@ encoded into combinatorial data.
 	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
 \begin{definition}\label{sheaf_big_defn}\cite{hartshorne:ag}
-PAGE 54.
+PAGE 64.
  A \textit{subsheaf} of a sheaf $\mathscr A$ is a sheaf $\mathscr A'$ such that for every open set 
 	$\sU \subset \sX$, $~\mathscr A'\left(\sU\right)$ is a subgroup of $\mathscr A'\left(\sU\right)$, and the restriction maps of the 
-	sheaf $\mathscr A'$ are induced by those of $\mathscr A'$. It follows that for any point $P$, the 
+	sheaf $\mathscr A'$ are induced by those of $\mathscr A$. It follows that for any point $P$, the 
 	stalk $\mathscr A'_P$ is a subgroup of $\mathscr A_P$. 
 	
 	If $\varphi : \mathscr A \to \mathscr B$ is a morphism of sheaves, we define the \textit{kernel} of $\varphi$ 
 	denoted $\ker \varphi$, to be the presheaf kernel of $\varphi$ (which is a sheaf). Thus 
-	 $\ker \varphi$ is a subsheaf of $\mathscr A$
+	 $\ker \varphi$ is a subsheaf of $\mathscr A$.
 	We say that a morphism of sheaves $\varphi  \mathscr A \to \mathscr B$ is \textit{injective} if  $\ker \varphi = 0$. 
 	Thus $\varphi$ is injective if and only if the induced map $\varphi\left( \sU\right): \mathscr A\left(\sU\right)\to \mathscr B\left(\sU\right)$  is 
 		injective for every open set of $\sX$. 
-	
-%		If cp\ 3F -> ^ is a morphism of sheaves, we define the zm^ of cp, 
-		denoted im cp, to be the sheaf associated to the presheaf image of cp. By 
-		the universal property of the sheaf associated to a presheaf, there is a 
-		natural map im cp -> rS. In fact this map is injeetive (see Ex. 1.4), and thus 
+		If $\varphi:  \mathscr A \to \mathscr B$  is a morphism of sheaves, we define the \textit{image} of $\varphi$, 
+		denoted $\im \varphi$, to be the sheaf associated to the presheaf image of $\varphi$.
+		% By 		the universal property of the sheaf associated to a presheaf, there is a 	!!!	natural map im cp -> rS. In fact this map is injective (see Ex. 1.4), and thus 
 %		im cp can be identified with a subsheaf of f&. 
 %		We say that a morphism cp\,? -> ^ of sheaves is sitrjective if im cp = f^. 
-%		We say that a sequence . . . Ñ> ^l~"] -Ñ> .Wl ^> ,?l^x -> . . . of sheaves 
-%		and morphisms is ^xacr if at each stage ker <p' = im cpl ~ l. Thus a sequence 
-		64 
-		1 Sheaves 
-%		0 Ñ> #" -^ rS is exact if and only if cp is injective, and <F -^ C^ Ñ> 0 is exact 
-		if and only if cp is surjective. 
-		Now let 3F' be a subsheaf of a sheaf 3F. We define the quotient sheaf 
+		We say that a sequence $... \to \mathscr A^{j-1}\xrightarrow{\varphi^{j-1}} \mathscr A^{j}\xrightarrow{\varphi^{j}} \mathscr A^{j+1}\to ...$  of sheaves 
+		and morphisms is \textit{exact} if at each stage $\ker \varphi^j = \im \varphi^{j-1}$%. Thus a sequence 
+		
+%		0 Ñ> #" -^ rS is exact if and only if cp is injective, and <F -^ C^ Ñ> 0 is exact 		if and only if cp is surjective. 		Now let 3F' be a subsheaf of a sheaf 3F. We define the quotient sheaf 
 	%	.9j.?' to be the sheaf associated to the presheaf U -> ^A0/^W)- It 
-%		follows that for any point P, the stalk (.^"/.^"')P is the quotient .?PI.?'P. 
-		H (p:,F Ñ> <4 is a. morphism of sheaves, we define the cokemel of cp, 
-		denoted coker cp, to be the sheaf associated to the presheaf cokernel of cp. 
+%		follows that for any point P, the stalk (.^"/.^"')P is the quotient .?PI.?'P. 		H (p:,F Ñ> <4 is a. morphism of sheaves, we define the cokemel of cp, 		denoted coker cp, to be the sheaf associated to the presheaf cokernel of cp. 
 %		
 \end{definition}
+\begin{remark}\label{top_comply_rem}
+The Definition \ref{sheaf_big_defn} is a specialization  of the Definitions \ref{kernel_defn}, \ref{image_defn} and 
+\end{remark}
 			\begin{definition}\label{sheaf_flasque_defn}\cite{hartshorne:ag}
 	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
@@ -5888,6 +5902,10 @@ where $\sV_x$ is an open neighborhood of $x$.
 \bibitem{cuntz_meyer_ros:bivariant} Joachim Cuntz, Ralf Meyer, Jonathan M. Rosenberg.
 \textit{Topological and Bivariant K-Theory}. (Oberwolfach Seminars, 36, Band 36) 2010.
 \bibitem{eust} Samuel Eilenberg, Norman E. Steenrod. \textit{Foundations of Algebraic Topology}. Published by Princeton University Press 1952.
+
+
+\bibitem{faith_rmcat}
+Faith, Carl Clifton. \textit{Algebra: Rings, modules and categories} (Die Grundlehren der mathematischen Wissenschaften in Einzeldarstellungen, No. 190) Published by Springer Verlag, 1981
 %\bibitem{dimca:sheaves} Alexandru Dimca. \textit{Sheaves in Topology} Springer Science \& Business Media, Mar 12, 2004. 
 
 %\bibitem{engelking:general_topology} Ryszard Engelking. \textit{General topology}, PWN, Warsaw. 1977.
