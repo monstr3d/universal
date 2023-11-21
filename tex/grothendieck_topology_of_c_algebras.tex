@@ -910,103 +910,91 @@ group
 \end{split}
 \eean
 
-\end{proof}	
+\end{proof}
 \begin{lemma}\label{top_open_closed_cech_lem}
-If $\sX$ is a compact metrizable space then one has:
-\begin{enumerate}
-	\item [(i)] for any finite covering $\left\{\sU_\iota \right\}_{\iota \in I}$ of $\sX$ by open subsets there is a finite  covering $\left\{\sV_\iota \right\}_{\iota \in I}$ of $\sX$ by closed  subsets such that 
-\be\label{top_open_closed_cech_eqn}
-\begin{split}
-\forall \iota \quad \sV_\iota \subset \sU_\iota,\\
-\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
-\end{split}
-\ee
-\item[(ii)]  for any finite covering $\left\{\sV_\iota \right\}_{\iota \in I}$ of $\sX$ by closed subsets there is a finite  covering $\left\{\sU_\iota \right\}_{\iota \in I}$ of $\sX$ by open  subsets which satisfies to the condition \eqref{top_open_closed_cech_eqn}.
-\end{enumerate}
+	If $\sX$ is a compact locally connected space then one has:
+	\begin{enumerate}
+		\item [(i)] for any finite covering $\left\{\sU_\iota \right\}_{\iota = 1,..., m}$ of $\sX$ by open subsets there is a finite  covering $\left\{\sV_\iota \right\}_{\iota = }$ of $\sX$ by closed  subsets such that 
+		\be\label{top_open_closed_cech_eqn}
+		\begin{split}
+			\forall \iota \quad \sV_\iota \subset \sU_\iota,\\
+			\forall \left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n \quad \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
+		\end{split}
+		\ee
+		\item[(ii)]  for any finite covering $\left\{\sV_\iota \right\}_{\iota = 1,..., m}$ of $\sX$ by closed subsets there is a finite  covering %$\left\{\sU_\iota \right\}_{\iota = 1,..., m}$ of $\sX$ by open  subsets which satisfies to the condition \eqref{top_open_closed_cech_eqn}.
+	\end{enumerate}
 \end{lemma}
 \begin{proof}
-(i)  Let $\mathfrak{dist}\left(\cdot, \cdot \right): \sX^2 \to \R$ be the distance on $\sX$.  If $r$ be a positive real number then the set
+	(i)  For any $\iota  = 1,..., m$ and any $x_\iota \in \sU_\iota$ we select a compact neighborhood $\sV_{x_\iota}$ such that $\sV_{x_\iota}\subset \sU_\iota$. If $\sU_{x_\iota}$ is an open subset of  $\sV_{x_\iota}$ such that ${x_\iota}\subset \sU_{x_\iota}$ then one has $\sX = \bigcup_{x_\iota}\sU_{x_\iota}= \sX$. The set $\sX$ is compact so there is a finite set $\left\{x^1_{1}, ..., x^{k_1}_1,...,x^1_{m}, ..., x^{k_m}_1\right\}$ such that
+\be\label{top_un1_eqn}
+\sX = \bigcup_{\iota = 1}^m \left(\bigcup_{p = 1}^{k_\iota}  \sU_{x^p_\iota}\right).	
+\ee
+The set  $\sV'_\iota \bydef  \bigcup_{p = 1}^{k_\iota}  \sV_{x^p_\iota}$ is closed for any $\iota  = 1,..., m$ and from the equation \eqref{top_un1_eqn} it follows that 	$\bigcup_{\iota = 1}^m \sV'_\iota = \sX$.  For any $n$ and $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n$ such $\sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset$ we select a point $x_{\iota_0, ..., \iota_{n-1}}\in \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}$. If
+$$
+\sV_\iota \bydef \sV'_\iota \cup \left(\bigcup_{\substack{ \iota \in \left\{\iota_0, ..., \iota_{n-1}\right\}}} \left\{x_{\iota_0, ..., \iota_{n-1}}\right\}\right) 
+$$
+	then the family $\left\{\sV_\iota \right\}_{\iota \in I}$ satisfies to the condition \ref{top_open_closed_cech_eqn}.\\
+	(ii) Since $\sX$ is compact  any $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset$ and any $\iota$ such that $\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\cap \sV_\iota = \emptyset$ we select open sets $\sU'_\iota$ and $\sU^\iota_{\iota_0, ..., \iota_{n-1}}$ such that 
 \bean
-\sU^r_\iota \bydef \left\{x \in \sU_\iota | \forall y \in \sX\setminus   \sU_\iota \quad \mathfrak{dist}\left(x, y \right)> r\right\}\subset \sX
+\sV_\iota \subset \sU_\iota,\\
+\sV^\iota_{\iota_0, ..., \iota_{n-1}}\subset \sU^\iota_{\iota_0, ..., \iota_{n-1}},\\
+\sU_\iota\cap \sU^\iota_{\iota_0, ..., \iota_{n-1}} = \emptyset.
 \eean
-is open. Moreover 
+For any $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n $ such that $\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset$ the finite intersection 
 $$
-\sU_\iota = \bigcap_{r > 0} \sU^r_\iota
+\sU_{\iota_0, ..., \iota_{n-1}} \bydef \bigcap_{\iota \notin \left\{\iota_0, ..., \iota_{n-1}\right\}} \sU^\iota_{\iota_0, ..., \iota_{n-1}}
 $$
-It follows that 
-$$
-\sX = \bigcup_{\iota \in I} \bigcup_{r > 0} \sU^r_\iota
-$$
-Since $\sX$ is compact there is $r_0 > 0$ such that
-$$
-\forall r \in \R \quad  0 < r < r_0 \quad \Rightarrow \quad  \sX = \bigcup_{\iota \in I}  \sU^r_\iota.
-$$
-If  $\left(\iota_0, ..., \iota_{n-1}\right)\in I^n$ is such that   $\sU_{\iota_0,..., \iota_{n-1}}\bydef\sU_{\iota_0} \cap ... \cap \sU_{n-1}\neq \emptyset$ then for any point $x \in \sU_{\iota_0} \cap ... \cap \sU_{n-1}$ one has
-$$
-\inf_{y \in \sX \setminus \sU_{\iota_0,..., \iota_{n-1}} } \mathfrak{dist}\left(x, y \right) > 0.
-$$
-For all $\sU_{\iota_0,..., \iota_{n-1}}$ we select an arbitrary point $x \in \sU_{\iota_0,..., \iota_{n-1}}$ and denote by
-$$
-r_{\iota_0,..., \iota_{n-1}}\bydef \frac{\inf_{y \in \sX \setminus \sU_{\iota_0,..., \iota_{n-1}} } \mathfrak{dist}\left(x, y \right) }{2}.
-$$
-If $r_f < r_0$ and $r < r_{\iota_0,..., \iota_{n-1}}$ for all $\sU_{\iota_0,..., \iota_{n-1}}\neq \emptyset$ then one has
+is an open set. If 
 \bean
- \sX = \bigcup_{\iota \in I}  \sU^{r_f}_\iota,
- \forall \iota \\
- \forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{n-1}\neq \emptyset\quad \Leftrightarrow \quad \sU^{r_f}_{\iota_0} \cap ... \cap \sU^{r_f}_{n-1}\neq \emptyset,
-\eean 
+\sU \bydef \bigcup_{\substack{\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n\\\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}}\neq \emptyset} \sU_{\iota_0, ..., \iota_{n-1}},\\
+\sV'_\iota \bydef \sV_\iota \setminus \sU
+\eean
+then one has
+$$
+\bigcup_{\iota = 1}^m \sV'_\iota = \bigsqcup_{\iota = 1}^m \sV'_\iota
+$$
+Since the space $\sX$ is normal there is a family of open sets $\left\{\sU''_\iota\right\}_{\iota =1,..., m}$ such that
+\bean
+\sV'_\iota\subset \sU''_\iota,\\
+\iota' \neq \iota'' \quad \Rightarrow \quad \sU_{\iota'}\cap \sU_{\iota''}= \emptyset.
+\eean
 If
-\be\label{top_open_closed_c_cech_eqn}
- \sV^{r_f}_\iota\bydef \text{ the closure of } \sU^{r_f}_{\iota}
- \ee 
-  then the family $\left\{\sV^{r_f}_\iota \right\}_{\iota \in I}$ satisfies to the condition \ref{top_open_closed_cech_eqn}.\\
-(ii) Let $\left\{\sV_\iota \right\}_{\iota \in I}$ be a finite closed covering of $\sX$.  If  $\sV_{\iota_0} \cap ... \cap \sV_{n-1}=\emptyset$ then
-$$ 
-\inf_{\substack{x \in \sX \setminus \sV_{\iota_0}\\ y \in \sV_{\iota_1,..., \iota_{n-1}} }} \mathfrak{dist}\left(x, y \right) > 0
 $$
-If 
- \bean
-r_{\iota_0,..., \iota_{n-1}}\bydef \frac{1}{2}{\inf_{\substack{x \in \sX \setminus \sV_{\iota_0}\\ y \in \sV_{\iota_1,..., \iota_{n-1}} }} \mathfrak{dist}\left(x, y \right)},\\ \\
-r_f \in \R \quad \sV_{\iota_0} \cap ... \cap \sV_{n-1}=\emptyset \Rightarrow r_f < r_{\iota_0,..., \iota_{n-1}}
-\eean
-and
+\sU_\iota \bydef \sU''_\iota \cup \left(\bigcup_{\substack{\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n\\\iota \in \left\{\iota_0, ..., \iota_{n-1}\right\}}}  \right) \sU_{\iota_0, ..., \iota_{n-1}}
 $$
-\sU^{r_f}_\iota \bydef \left\{x \in \sX | \exists y \in \sV_\iota\quad  \mathfrak{dist}\left(x, y \right)< r_f\right\}
-$$
-then a family $\left\{\sU^{r_f}_\iota \right\}_{\iota \in I}$ satisfies to the conditions \eqref{top_open_closed_cech_eqn}.
+	then a family $\left\{\sU_\iota \right\}_{\iota \in I}$ of open sets satisfies to the conditions \eqref{top_open_closed_cech_eqn}.
 \end{proof}
+	
 \begin{lemma}\label{top_cech_cof_cov_lem}
 Let  $\left\{\sU_\la\right\}_{\la \in \La}$ (resp. $\left\{\sV_\th\right\}_{\th \in \Th}$) be  finite coverings of $\sX$ by open (resp. closed) sets. There are  refinements $\left\{\sU_\iota \right\}_{\iota \in I}$ and $\left\{\sV_\iota \right\}_{\iota \in I}$ of  $\left\{\sU_\la\right\}_{\la \in \La}$ and $\left\{\sV_\th\right\}_{\th \in \Th}$ which satisfy to condition \eqref{top_open_closed_cech_eqn}.
 \end{lemma}
 \begin{proof}
-Let $\left\{\sV^{r_{c}}_\la\right\}_{\la \in \La}$  be a closed covering of $\sX$ given by (i)  of the Lemma \ref{top_open_closed_cech_lem} i.e
+Let $\left\{\sV_\la\right\}_{\la \in \La}$  be a closed covering of $\sX$ given by (i)  of the Lemma \ref{top_open_closed_cech_lem} i.e
 \bean
 \begin{split}
 	\forall \la \quad \sV_\la \subset \sU_\la,\\
-	\forall \left(\la_0, ..., \la_{n-1}\right)\in I^n \quad \sU_{\la_0} \cap ... \cap \sU_{\la_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV^{r_{c}}_{\la_0} \cap ... \cap \sV^{r_{c}}_{\la_{n-1}}\neq \emptyset.
+	\forall \left(\la_0, ..., \la_{n-1}\right)\in I^n \quad \sU_{\la_0} \cap ... \cap \sU_{\la_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\la_0} \cap ... \cap \sV_{\la_{n-1}}\neq \emptyset.
 \end{split}\eean 
-If $\left\{\sV_\iota \right\}_{\iota \in I}$ is a refinement of both $\left\{\sV^{r_{c}}_\la\right\}_{\la \in \La}$ and $\left\{\sV_\th\right\}_{\th \in \Th}$ then there is a map $\phi : I \to \La$ such that $\sV_\iota \subset \sV_{\phi\left(\iota \right) }$. Otherwise from (ii) of the Lemma   \ref{top_open_closed_cech_lem} is $r_o$ such that for any $r \le r_o$ one has
+If $\left\{\sV_\iota \right\}_{\iota \in I}$ is a refinement of both $\left\{\sV_\la\right\}_{\la \in \La}$ and $\left\{\sV_\th\right\}_{\th \in \Th}$ then there is a map $\phi : I \to \La$ such that $\sV_\iota \subset \sV_{\phi\left(\iota \right) }$. Otherwise from (ii) of the Lemma   \ref{top_open_closed_cech_lem}   one has a family $\left\{\sU'_\iota \right\}_{\iota \in I}$ such that
 \bean
 \begin{split}
-	\forall \iota \quad \sV_\iota \subset \sU^{r_o}_\iota,\\
-	\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU^{r_o}_{\iota_0} \cap ... \cap \sU^{r_0}_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_o} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
+	\forall \iota \quad \sV_\iota \subset \sU'_\iota,\\
+	\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU'_{\iota_0} \cap ... \cap \sU'_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_o} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
 \end{split}
 \eean
-If $r < r_0$ and $r < r_c$ and $\sU_\iota \bydef \sV^r_\iota$ then for all $\iota \in I$ one has $\sU_\iota \subset \sU_{\phi\left(\iota \right) }$ i.e. $\left\{\sU_\iota\right\}_{\iota \in I}$ is a refinement of $\left\{\sU_\la\right\}_{\la \in \La}$. Moreover one has
-\
+If we define $\sU_\iota \bydef \sU'_\iota \cap \sU_{\phi\left( \iota\right)}$  then for all $\iota \in I$ one has $\sU_\iota \subset \sU_{\phi\left(\iota \right) }$ i.e. $\left\{\sU_\iota\right\}_{\iota \in I}$ is a refinement of $\left\{\sU_\la\right\}_{\la \in \La}$. Moreover one has
+
 \be\label{top_open_closed_t_cech_eqn}
 \begin{split}
 	\forall \iota \quad \sV_\iota \subset \sU_\iota,\\
 	\forall \left(\iota_0, ..., \iota_{n-1}\right)\in I^n \quad \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset\quad \Leftrightarrow \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset,
 \end{split}
 \ee
-
- 
-
+so this  lemma is proven.
 \end{proof}
 
 \begin{theorem}\label{cech_n_thm}
-If $\sX$ is a compact metrizable space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
+If $\sX$ is a compact  space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
 \be\label{cech_n_eqn}
 \check H^p\left(\sX,  \mathscr A\right) \cong \check H^p\left(\mathfrak{Closed}\left( \sX\right),  \mathscr A^c\right)
 \ee
@@ -1993,6 +1981,7 @@ $$
 	\begin{definition}\label{term_ob_defn}\cite{goldblatt:topoi}
 		An object $\mathbb{1}$ is \textit{terminal} in a category $\mathscr C$ if for every $\mathscr C$-object $a$ there is one and only one arrow from $a$ to $\mathbb{1}$ in $\mathscr C$.
 	\end{definition}
+
 	
 	\subsection{Limits and colimits}\label{limit_sec}
 	\paragraph{} Here I follow to \cite{goldblatt:topoi}. The notion of \textit{commutative diagram}, is a 
@@ -2196,7 +2185,24 @@ has a terminal object and pullbacks.
 	
 \end{enumerate}
 \end{proposition}
-			
+				
+			\begin{definition}\label{injective_object_defn}\cite{topos:intro}
+				In any category $\mathscr C$, an object $K$ is said to be \textit{injective} when for
+				every monomorphism $m: S \to B$ in $\mathscr C$ every $f: S\to K$ can be extended
+				to $g: B \to K$ with $g\circ m = f$, as in the diagram
+				\newline
+\begin{tikzcd}
+	S \arrow[r, "m"]\arrow[d, "f"] & B\arrow[ld, "g"]\\
+ K &
+\end{tikzcd}
+\\
+				Equivalently, this states that for each monomorphism $m: S \to B$ the
+				induced map
+				\bean
+				m^*: \Hom( B, K) \to \Hom( S, K) 
+				\eean
+				is onto. 	
+\end{definition}
 \subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
 	A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
@@ -3092,9 +3098,9 @@ The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
 	\item [(c)]  short exact sequence of sheaves
 	$0\to \mathscr F' \to \mathscr F \to \mathscr F'' \to 0$	gives rise to a long exact sequence
-	$$
+	\be\label{long_coh_sec_eqn}
 	0 \to H^0\left(X, \mathscr F'  \right) \to H^0\left(X, \mathscr F  \right) \to H^0\left(X, \mathscr F''  \right) \to H^1\left(X,\ \mathscr F'  \right) \to ...
-	$$
+\ee
 	and the association of the long exact sequence with the short exact sequence is functional;
 \end{enumerate}
 Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
@@ -3550,19 +3556,82 @@ PAGE 54.
 			\begin{definition}\label{sheaf_flasque_defn}\cite{hartshorne:ag}
 	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
+
 \begin{exercise}\cite{hartshorne:ag}\label{sheaf_flasque_exer}
-Suppose that $\mathscr F$ is a flasque sheaf on $\sX$.
-	(a) Show that a constant sheaf on an irreducible topological space is flasque. See 
-	(I, ¤1) for irreducible topological spaces. 
-%	(b) If 0 Ñ> .?' -> & -> .?" -> 0 is an exact sequence of sheaves, and if .?' is 
-%	flasque, then for any open set l\ the sequence 0 -> W\\j) -> #(U) -> 
-	3?"(lr) -> 0 of abelian groups is also exact. * 
-%	(c) If 0 -> J^' -> J? -> .?" -> 0 is an exact sequence of sheaves, and if &' and 3F 
-	are flasque, then 5F" is flasque. 
-%	(d) \i f\X -> Y is a continuous map, and if J^ is a flasque sheaf on X, then /^ 
-	is a flasque sheaf on X 
-%	(e) Let & be any sheaf on X. We define a new sheafs, called the sheaf of discontinuous sections of J^ as follows. For each open set U c X, ^(U) is the set of 
+	PAGE 67
+	Suppose that $\mathscr F$ is a flasque sheaf on $\sX$.
+	\begin{itemize}
+		\item[(a)]  If $\mathscr F' \to \mathscr F \to \mathscr F''$ is an exact sequence of sheaves, and if $\mathscr F'$ is 
+		flasque, then for any open set $\sU$ the sequence If $\mathscr F'\left( \sU\right)  \to \mathscr F\left( \sU\right)  \to \mathscr F''\left( \sU\right) $ of Abelian groups is also exact. 
+		\item[(b)] If  $\mathscr F' \to \mathscr F \to \mathscr F''$ is an exact sequence of sheaves, and if $\mathscr F'$ is 
+		flasque, and if $\mathscr F'$ and $\mathscr F$
+		are flasque, then $F''$ is flasque. 
+		%	(d) \i f\X -> Y is a continuous map, and if J^ is a flasque sheaf on X, then /^ 
+		%	is a flasque sheaf on X 
+		%	(e) Let & be any sheaf on X. We define a new sheafs, called the sheaf of discontinuous sections of J^ as follows. For each open set U c X, ^(U) is the set of 
+	\end{itemize}
+	
 \end{exercise}
+
+
+\begin{exercise}\cite{hartshorne:ag}\label{sheaf_flasque_ext_exer}
+1.19. PAGE 68
+ \textit{Extending a Sheaf by Zero}. Let $\sX$ be a topological space, let $\sZ$ be a closed subset, 
+let $i : \sZ \to \sX$ be the inclusion, let $\sU \bydef \sX \setminus \sZ$ be the complementary open subset, and let $j: \sU \to \sZ$ be its inclusion. 
+\begin{enumerate}
+	\item[(a)] Let $\mathscr F$ be a sheaf on $\sZ$. Show that the stalk $\left( i^*\mathscr F\right)_P$  of the direct image sheaf on 
+		$\sX$  is $\mathscr F_P$ if $P \in \sZ$, $~0$ if $P \notin \sZ$. Hence we call $i^*\mathscr F$ the sheaf obtained by extending 
+		$\mathscr F$ by zero outside $\sZ$. By abuse of notation we will sometimes write iF instead 
+		of $i^*\mathscr F$, and say "consider $i^*\mathscr F$ as a sheaf on $\sX$" when we mean "consider $i^*\mathscr F$.
+		\item[(b)] Now let $i^*\mathscr F$ be a sheaf on $\sU$. Let $j_!\left( \mathscr F\right)$ be the sheaf on $\sX$ associated to the presheaf 
+	$$
+\sV \mapsto \begin{cases}
+	\mathscr F\left( \sV\right) & \sV \subset \sU\\
+	0 & \sV \not\subset \sU
+\end{cases}	.
+	$$	
+ Show that the stalk $\left( j_!\mathscr F\right)_P$ is 
+			equal to $\mathscr F_P$ if $P \in \sU$, $~0$ if $P \notin \sU$, and show that $j_!\mathscr F$ is the only sheaf on $\sX$ which 
+			has this property, and whose restriction to $\sU$ is $\mathscr F$. We call $j_!\mathscr F$ the sheaf 
+			obtained by extending $\mathscr F$ by zero outside $\sU$. 
+			\item[(c)] Now let $\mathscr F$ be a sheaf on $\sX$. Show that there is an exact sequence of sheaves 
+			on $\sX$.
+			$$
+	0 \to j_!\left(\mathscr F|_\sU \right) 	\to\mathscr F\to i_*\left(\mathscr F|_\sZ \right)	
+			$$ 
+\end{enumerate}
+
+\end{exercise}
+\begin{lemma}\cite{hartshorne:ag}\label{sheaf_flasque_ext_lem}
+PAGE 207  Lemma 2.4. 
+if  $\left(\sX, \mathscr O_\sX\right)$ is a ringed space, any injective $O_\sX$-module is flasque. 
+\end{lemma}
+\begin{proof}
+For any open subset $\sU \subset \sX$, let $\mathscr O_\sU$ denote the sheaf $j_!\left(\mathscr O_\sX |_\sU\right)$  which 
+is the restriction of $\mathscr O_\sX$ to $\sU$, extended by zero outside $\sU$ (cf. Exercise \ref{sheaf_flasque_ext_exer}). Now 
+let $\mathscr J$ be an injective $\mathscr O_\sX$-module, and let $\sV \subset \sU$ be open sets. Then we 
+have an inclusion $0\to \mathscr O_\sV\to \mathscr O_\sU$ of sheaves of $\mathscr O_\sX$-modules. Since  $\mathscr J$ is injective, we get a surjection $\Hom\left(\mathscr O_\sU, \mathscr J \right) \to\Hom\left(\mathscr O_\sV, \mathscr J \right)\to 0$. But $\Hom\left(\mathscr O_\sU, \mathscr J \right) =  \mathscr J\left(\sU \right)$ 
+and $\Hom\left(\mathscr O_\sV, \mathscr J \right) =  \mathscr J\left(\sV \right)$  so $\mathscr J$ is flasque. 
+\end{proof}
+\begin{proposition}\cite{hartshorne:ag}\label{sheaf_flasque_ext_prop}
+	PAGE 207  Proposition 2.5. 
+	If  $\mathscr F$ is a flasque sheaf on a topological space $\sX$, then 
+	$H^p\left(\sX, \mathscr F \right) = 0$ for all $p > 0$.  
+\end{proposition}
+\begin{proof}
+Embed $\mathscr F$ in an injective object $\mathscr J$ of $\mathbf{Ab}\left( \sX\right)$  and let $\mathscr G$ be the quotient:
+\bean
+0 \to \mathscr F \to \mathscr J \to \mathscr G\to 0
+\eean  
+Then $\mathscr F$ is flasque by hypothesis, $\mathscr J$ is flasque by the lemma \ref{sheaf_flasque_ext_lem}, and so $\mathscr G$ is flasque 
+by the Exercise \ref{sheaf_flasque_exer}. Now since $\mathscr F$ is flasque, we have an exact sequence 
+(cf.  Exercise \ref{sheaf_flasque_exer})
+\bean
+0 \to \Ga\left(\sX, \mathscr F  \right) \to \Ga\left(\sX, \mathscr J  \right) \to \Ga\left(\sX, \mathscr G  \right) \to 0
+\eean
+	On the other hand, since $\mathscr J$ is injective, we have $H^p\left(\sX, \mathscr J  \right) = 0$  for $p > 0$ (cf. Section \ref{grothendieck_cohomology_section}). Thus from the long exact sequence of cohomology \eqref{long_coh_sec_eqn}, we get $H^1\left(\sX, \mathscr F \right)= 0$  and $H^p\left(\sX, \mathscr F \right)=H^{p-1}\left(\sX, \mathscr G \right)$ for each $p \ge 2$. But $\mathscr G$ is also 
+	flasque, so by induction on $p$ we get the result. 
+\end{proof}
 
 \begin{empt}\label{canonical_resolution_empt}\cite{bredon:sheaf, godement:sheaf}					
  For any sheaf $\mathscr F$ of Abelian groups on $\sX$ and open set $\sU\subset \sX$  we let $C^0(\left(\sU, \mathscr F \right)$ be the
