@@ -806,7 +806,7 @@ If $R$ is a ring then there is a homomorphism of rings  then from the Remark \re
 where the notation \ref{etale_hom_a_eqn} is used.
 \end{remark}
 
-\section{Grothendieck topology of commutative $C^*$-algebras}
+\section{Topoi of commutative $C^*$-algebras}
 \subsection{Basic constructions}
 \paragraph{}
 Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  an open subset
@@ -841,7 +841,7 @@ where the Grothendieck topology $J_\sX$ is corresponds to the described above co
 \paragraph{}
 If $\mathscr F$ is a sheaf on $\sX$ then one can define a presheaf $\mathscr F^c$ on $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ such that
 \be\label{top_closed_sheaf_eqn}
-\forall \sU \in \mathfrak{Closed}\left( \sX\right)\quad \mathscr F^c\left( \sU\right) \bydef \text{a space of continuous sections of } \mathscr F \text{ over }\sU
+\forall \sV \in \mathfrak{Closed}\left( \sX\right)\quad \mathscr F^c\left( \sV\right) \bydef \text{a space of continuous sections of } \mathscr F \text{ over }\sV
 \ee
 (cf. Remark \ref{sheaf_rem}). 
 \begin{lemma}
@@ -849,7 +849,7 @@ The given by \eqref{top_closed_sheaf_eqn} presheaf $\mathscr F^c$ is a sheaf on 
 
 \end{lemma}
 \begin{proof}
-Follows from the Theorem \ref{closed_cov_thm}.
+Follows from the Theorem \ref{closed_cov_thm}. !!! CORRECT use \ref{top_soft_flabby_thm}.
 \end{proof}
 \begin{lemma}\label{top_open_closed_const_lem}
 Let $\sX$ be a  compact, locally connected space, and let $F$ be a set. Let $F_\sX$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr F \bydef \mathfrak{Ass}\left(F_\sX\right)$. If $F_{\left( \mathfrak{Closed}\left( \sX\right) \right)}$ is a a constant presheaf then one has the natural isomorphism
@@ -878,7 +878,7 @@ Any $f_j$ can be regarded as element of $\mathscr F\left( \sV_j\right)$  and the
 If $\sX$ is a compact Hausdorff space and $\mathscr F \in \mathbf{Sh}\left(\sX \right)$ is a flasque sheaf  (cf. Definition \ref{sheaf_flasque_defn}) then the given by the equation \eqref{top_closed_sheaf_eqn} sheaf $\mathscr F^c \in \mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is $\mathfrak{Closed}\left( \sX\right)$-{flasque}.
 \end{lemma}
 \begin{proof} 
-If  $\sV \mathfrak{Closed}\left( \sX\right)$ then $\sV$ is a closed subset if compact set of $\sX$, so $\sV$ is compact. If $s\in \mathscr F\left(\sV \right)$ then from the Theorem \ref{paracompact_n_thm} it follows that there is an open subset $\sU \subset \sX$ such that  $\sV \subset \sU$ and $t \in s\in \mathscr F\left(\sU \right)$ such that $s = t|_\sV$. On the other hand there is $t' \in \mathscr F\left(\sU \right)$ such that $t = t'|_\sU$ because a sheaf $\mathscr F$ is flasque. It turns out that $s = t'|_\sV$.
+If  $\sV\in \mathfrak{Closed}\left( \sX\right)$ then $\sV$ is a closed subset if compact set of $\sX$, so $\sV$ is compact. If $s\in \mathscr F\left(\sV \right)$ then from the Theorem \ref{paracompact_n_thm} it follows that there is an open subset $\sU \subset \sX$ such that  $\sV \subset \sU$ and $t \in s\in \mathscr F\left(\sU \right)$ such that $s = t|_\sV$. On the other hand there is $t' \in \mathscr F\left(\sU \right)$ such that $t = t'|_\sU$ because a sheaf $\mathscr F$ is flasque. It turns out that $s = t'|_\sV$.
 \end{proof}
 \begin{exercise}\label{sheaf_flasque_c_exer}
 	Suppose that $\mathscr A\in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is a $\mathfrak{Closed}\left( \sX\right)$-flasque sheaf.
@@ -908,23 +908,35 @@ This construction is an analog of the Exercise \ref{sheaf_flasque_ext_exer}
 If $\Z_{\mathfrak{Closed}\left( \sX\right)}$ is a constant sheaf and $\mathscr O\bydef \mathfrak{Ass}\left(\Z_{\mathfrak{Closed}\left( \sX\right)} \right) \in  \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ then $\mathfrak{Closed}\left( \sX\right)$ becomes a "ringed space". Any  $\mathscr A\in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is a sheaf of $\mathscr O$-modules.
 \end{empt}
 \begin{proposition}\label{sheaf_flasque_closed_ext_prop}
-Any $\mathfrak{Closed}\left( \sX\right)$ flasque sheaf $\mathcal A \in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is acyclic (cf. Definition \ref{acyc_defn})
+Any $\mathfrak{Closed}\left( \sX\right)$ flasque sheaf $\mathcal A \in \mathbf{Ab}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ is acyclic for $\Ga$ (cf. Definition \ref{acyc_defn})
 \end{proposition}
 \begin{proof}
 The proof of this proposition is an analog of the \ref{sheaf_flasque_ext_prop} one.
 \end{proof}
-\begin{lemma}
-Let $\mathscr F, \mathscr G\in \mathbf{Sh}\left( \sX\right)$  are sheaves, and let $\mathscr F\xrightarrow{f} \mathscr G$ is a $\mathbf{Sh}\left( \sX\right)$ 
+	Let $\sX$ be a compact, Hausdorff space, and let $\mathscr F\xrightarrow{f} \mathscr G$ is  $\mathbf{Sh}\left( \sX\right)$-morphism. Let $\mathscr F^c$ and  $\mathscr G^c$ are given by \eqref{top_closed_sheaf_eqn} $\mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$-objects. If $\sV \in \mathfrak{Closed}\left( \sX\right)$ and $s \in \mathscr F^c\left( \sV\right)$ then from the Theorem \ref{top_soft_flabby_thm} it follows that  there is an open subset $\sU \subset \sX$ and $t \in \mathscr F$ such that $\sV\subset \sU$ and $s = t|_\sV$. One can define $\mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$-morphism $\mathscr F^c\xrightarrow{f^c} \mathscr G^c$ by the following way
+	\be	
+	s \mapsto f (t)|_\sV
+	\ee 
 
-!!! IMAGE OF MORPHISM !!!
+\begin{lemma}\label{top_image_lem}
+In the above situation the image $\im f^c$ (cf. Definition \ref{image_defn}) of $f^c$ is given by 
+\bean
+\forall \sV \in \mathfrak{Closed}\left( \sX\right)\quad \im f^c\left( \sV\right) \bydef \mathrm{~a~space~of~continuous~sections~of~} \im f \mathrm{ ~over~ }\sV.
+\eean
 \end{lemma}
+\begin{proof}
+From the Remark \ref{sheaf_image_rem} it follows that for any $s \in \im f^c\left( \sV\right)$ there is a finite family $\left\{\sV_1, ..., \sV_n\right\}\subset \mathfrak{Closed}\left( \sX\right)$ and $s_j \in \mathscr F^c\left( \sV_j\right)$ for all $j = 1,..., n$ such that
+\bean
+\sV_j \cap \sV_k \neq \emptyset\quad \Rightarrow \quad \left. f^c\left(s_j \right)\right|_{\sV_j \cap \sV_k}= \left. f^c\left(s_k \right)\right|_{\sV_j \cap \sV_k}
+\eean 
+From the Theorem \ref{closed_cov_thm} it follows that the family $\left\{f\left(s_1 \right), ..., f\left(s_1 \right) \right\}$ uniquely defines an element of {the space of continuous sections of } $\mathscr F$ \text{ over }$\sV$.
+\end{proof}
+
+
 
 \subsection{Sheaf cohomology}
 \paragraph{}
-For topological space $\sX$ and any sheaf  $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ there is the  given by  \eqref{canonical_resolution_eqn} canonical resolution 	
-\be\label{canonical_resolution_c_eqn}
-0 \to \mathscr A \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr A \right) \xrightarrow{d_0 } \mathscr{C}^{1}\left(\sX, \mathscr A \right)\xrightarrow{d_1 } \mathscr{C}^{2}\left(\sX, \mathscr A \right)\xrightarrow{d_2}\dots
-\ee	
+
 
 \begin{theorem}
 If $\sX$ is a compact Hausdorff space then for $\mathscr A\in \mathbf{Ab}\left( \sX\right)$ and  any $p$ there is a natural isomorphism
@@ -934,17 +946,15 @@ $$
 where $\mathscr A^c\in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right) $ is given by the equation \eqref{top_closed_sheaf_eqn}.
 \end{theorem}
 \begin{proof}
-
-
-then for all $p$ the  sheaf $\mathscr{C}^{0}\left(\sX, \mathscr A \right)$ flasque. From 
-From the Proposition \ref{sheaf_flasque_prop} it follows that 
-$H^p\left(\sX, 	\mathscr{C}^{p}\left(\sX, \mathscr A \right)  \right)  = 0$ for all $q$ and  $p > 0$.
-If we apply the functor $\Ga\left(\sX, \cdot \right)$ then we obtain a complex
-\bean
-\Ga\left(X,\ 	\mathscr{C}^{0}\left(\sX, \mathscr A \right)  \right) \xrightarrow{\Ga\left( d_0 \right)} \Ga\left(X,	\mathscr{C}^{1}\left(\sX, \mathscr A \right) \right) \xrightarrow{\Ga\left( d_1 \right)} \Ga\left(X, 	\mathscr{C}^{2}\left(\sX, \mathscr A \right)  \right) \to ... 
-\eean
-For any $p$ a sheaf $\mathscr{C}^{0}\left(\sX, \mathscr A \right)$ is flasque, so it is acyclic 
-from the Theorem \ref{acyc_prop} one has  the $p^{\text{th}}$ cohomology
+There is the  given by  \eqref{canonical_resolution_eqn} canonical resolution 	
+\be\label{canonical_resolution_c_eqn}
+0 \to \mathscr A \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr A \right) \xrightarrow{d_0 } \mathscr{C}^{1}\left(\sX, \mathscr A \right)\xrightarrow{d_1 } \mathscr{C}^{2}\left(\sX, \mathscr A \right)\xrightarrow{d_2}\dots
+\ee	
+Applying the functor $\Ga$ one has a complex
+\be\label{top_open_eqn}
+\Ga\left(\sX,\ 	\mathscr{C}^{0}\left(\sX, \mathscr A \right)  \right) \xrightarrow{\Ga\left( d_0 \right)} \Ga\left(\sX,	\mathscr{C}^{1}\left(\sX, \mathscr A \right) \right) \xrightarrow{\Ga\left( d_1 \right)} \Ga\left(\sX, 	\mathscr{C}^{2}\left(\sX, \mathscr A \right)  \right) \to ... 
+~.\ee
+For any $p$ a sheaf $\mathscr{C}^{0}\left(\sX, \mathscr A \right)$ is flasque , so it is acyclic for $\Ga$ (cf. \ref{sheaf_flasque_ext_prop}). From the Theorem \ref{acyc_prop} one has  the $p^{\text{th}}$ cohomology
 group 
 
 \bean
@@ -952,11 +962,40 @@ group
 	H^p\left(\sX, \mathscr A \right)=\begin{cases}
 		\ker \Ga\left( d_0 \right) & p = 0\\
 		\ker~ \Ga\left( d_p \right) / \im~ \Ga\left(  d_{p-1}\right)   & p > 0
-	\end{cases}
+	\end{cases}~~.
 \end{split}
 \eean
-On the other hand from Lemma \ref{top_comm_flasque_lem} it follows that 
-!!!! PROOF THAT RESOLUTION.
+If $\mathscr{C}^{p}\left(\sX, \mathscr A \right)^c$ is a  given by \eqref{top_closed_sheaf_eqn} $\mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$-object then from the Remark \ref{sheaf_image_rem} and the Lemma \ref{top_image_lem} if follows that the sequence 
+\bean
+0 \to \mathscr A^c \xrightarrow{\eps} 	\mathscr{C}^{0}\left(\sX, \mathscr A \right)^c \xrightarrow{d^c_0 } \mathscr{C}^{1}\left(\sX, \mathscr A \right)^c\xrightarrow{d^c_1 } \mathscr{C}^{2}\left(\sX, \mathscr A \right)^c\xrightarrow{d^c_2}\dots
+\eean
+is exact (cf. Definition \ref{exact_sec_defn}). From the Lemma \ref{top_comm_flasque_lem}  it follows that for all $p$ the sheaf $\mathscr{C}^{0}\left(\sX, \mathscr A \right)^c$ is  $\mathfrak{Closed}\left( \sX\right)$-{flasque}
+From the Proposition \ref{sheaf_flasque_closed_ext_prop} it follows that $\mathscr{C}^{0}\left(\sX, \mathscr A \right)^c$ is acyclic for $\Ga$ (cf. Definition \ref{acyc_defn}). If we apply the functor $\Ga\left(\mathfrak{Closed}\left( \sX\right), \cdot \right)$ then we obtain a complex
+\be\label{top_closed_eqn}
+\begin{split}
+\Ga\left(\mathfrak{Closed}\left( \sX\right),\ 	\mathscr{C}^{0}\left(\sX, \mathscr A \right)^c  \right) \xrightarrow{\Ga\left( d^c_0 \right)} \Ga\left(\mathfrak{Closed}\left( \sX\right),	\mathscr{C}^{1}\left(\sX, \mathscr A \right)^c \right) \xrightarrow{\Ga\left( d^c_1 \right)}\\\xrightarrow{\Ga\left( d^c_1 \right)} \Ga\left(\mathfrak{Closed}\left( \sX\right), 	\mathscr{C}^{2}\left(\sX, \mathscr A \right)^c  \right) \to ... 
+\end{split}
+\ee
+ From the Proposition \ref{acyc_prop} it follows that
+ 	\bean
+ \begin{split}
+ 	 H^p\left(\mathfrak{Closed}\left( \sX\right),  \mathscr A^c\right)=\begin{cases}
+ 		\ker \Ga\left( d^c_0 \right) & p = 0\\
+ 		\ker~ \Ga\left(  d^c_{p} \right) / \im~ \Ga\left(  d^c_{p-1}\right)   & p > 0
+ 	\end{cases}
+ \end{split}
+ \eean
+However the complex \eqref{top_open_eqn} is naturally isomorphic to \eqref{top_closed_eqn} one, it follows that
+\bean
+\forall p\ge 0 \quad	H^p\left(\sX, \mathscr A \right)=\begin{cases}
+	\ker \Ga\left( d_0 \right) & p = 0\\
+	\ker~ \Ga\left( d_p \right) / \im~ \Ga\left(  d_{p-1}\right)   & p > 0
+\end{cases}~~=\\
+=  	 H^p\left(\mathfrak{Closed}\left( \sX\right),  \mathscr A^c\right)=\begin{cases}
+	\ker \Ga\left( d^c_0 \right) & p = 0\\
+	\ker~ \Ga\left(  d^c_{p} \right) / \im~ \Ga\left(  d^c_{p-1}\right)   & p > 0
+\end{cases}.
+\eean 
 \end{proof}
 \subsection{\v{C}ech cohomology}
 \begin{lemma}\label{top_open_closed_cech_lem}
@@ -974,44 +1013,45 @@ On the other hand from Lemma \ref{top_comm_flasque_lem} it follows that
 \end{lemma}
 \begin{proof}
 	(i)  For any $\iota  = 1,..., m$ and any $x_\iota \in \sU_\iota$ we select a compact neighborhood $\sV_{x_\iota}$ such that $\sV_{x_\iota}\subset \sU_\iota$. If $\sU_{x_\iota}$ is an open subset of  $\sV_{x_\iota}$ such that ${x_\iota}\subset \sU_{x_\iota}$ then one has $\sX = \bigcup_{x_\iota}\sU_{x_\iota}= \sX$. The set $\sX$ is compact so there is a finite set $\left\{x^1_{1}, ..., x^{k_1}_1,...,x^1_{m}, ..., x^{k_m}_1\right\}$ such that
-\be\label{top_un1_eqn}
-\sX = \bigcup_{\iota = 1}^m \left(\bigcup_{p = 1}^{k_\iota}  \sU_{x^p_\iota}\right).	
-\ee
-The set  $\sV'_\iota \bydef  \bigcup_{p = 1}^{k_\iota}  \sV_{x^p_\iota}$ is closed for any $\iota  = 1,..., m$ and from the equation \eqref{top_un1_eqn} it follows that 	$\bigcup_{\iota = 1}^m \sV'_\iota = \sX$.  For any $n$ and $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n$ such $\sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset$ we select a point $x_{\iota_0, ..., \iota_{n-1}}\in \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}$. If
-$$
-\sV_\iota \bydef \sV'_\iota \cup \left(\bigcup_{\substack{ \iota \in \left\{\iota_0, ..., \iota_{n-1}\right\}}} \left\{x_{\iota_0, ..., \iota_{n-1}}\right\}\right) 
-$$
+	\be\label{top_un1_eqn}
+	\sX = \bigcup_{\iota = 1}^m \left(\bigcup_{p = 1}^{k_\iota}  \sU_{x^p_\iota}\right).	
+	\ee
+	The set  $\sV'_\iota \bydef  \bigcup_{p = 1}^{k_\iota}  \sV_{x^p_\iota}$ is closed for any $\iota  = 1,..., m$ and from the equation \eqref{top_un1_eqn} it follows that 	$\bigcup_{\iota = 1}^m \sV'_\iota = \sX$.  For any $n$ and $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n$ such $\sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}\neq \emptyset$ we select a point $x_{\iota_0, ..., \iota_{n-1}}\in \sU_{\iota_0} \cap ... \cap \sU_{\iota_{n-1}}$. If
+	$$
+	\sV_\iota \bydef \sV'_\iota \cup \left(\bigcup_{\substack{ \iota \in \left\{\iota_0, ..., \iota_{n-1}\right\}}} \left\{x_{\iota_0, ..., \iota_{n-1}}\right\}\right) 
+	$$
 	then the family $\left\{\sV_\iota \right\}_{\iota \in I}$ satisfies to the condition \ref{top_open_closed_cech_eqn}.\\
 	(ii) Since $\sX$ is compact  any $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n \quad \sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset$ and any $\iota$ such that $\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\cap \sV_\iota = \emptyset$ we select open sets $\sU'_\iota$ and $\sU^\iota_{\iota_0, ..., \iota_{n-1}}$ such that 
-\bean
-\sV_\iota \subset \sU_\iota,\\
-\sV^\iota_{\iota_0, ..., \iota_{n-1}}\subset \sU^\iota_{\iota_0, ..., \iota_{n-1}},\\
-\sU_\iota\cap \sU^\iota_{\iota_0, ..., \iota_{n-1}} = \emptyset.
-\eean
-For any $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n $ such that $\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset$ the finite intersection 
-$$
-\sU_{\iota_0, ..., \iota_{n-1}} \bydef \bigcap_{\iota \notin \left\{\iota_0, ..., \iota_{n-1}\right\}} \sU^\iota_{\iota_0, ..., \iota_{n-1}}
-$$
-is an open set. If 
-\bean
-\sU \bydef \bigcup_{\substack{\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n\\\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}}\neq \emptyset} \sU_{\iota_0, ..., \iota_{n-1}},\\
-\sV'_\iota \bydef \sV_\iota \setminus \sU
-\eean
-then one has
-$$
-\bigcup_{\iota = 1}^m \sV'_\iota = \bigsqcup_{\iota = 1}^m \sV'_\iota
-$$
-Since the space $\sX$ is normal there is a family of open sets $\left\{\sU''_\iota\right\}_{\iota =1,..., m}$ such that
-\bean
-\sV'_\iota\subset \sU''_\iota,\\
-\iota' \neq \iota'' \quad \Rightarrow \quad \sU_{\iota'}\cap \sU_{\iota''}= \emptyset.
-\eean
-If
-$$
-\sU_\iota \bydef \sU''_\iota \cup \left(\bigcup_{\substack{\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n\\\iota \in \left\{\iota_0, ..., \iota_{n-1}\right\}}}  \right) \sU_{\iota_0, ..., \iota_{n-1}}
-$$
+	\bean
+	\sV_\iota \subset \sU_\iota,\\
+	\sV^\iota_{\iota_0, ..., \iota_{n-1}}\subset \sU^\iota_{\iota_0, ..., \iota_{n-1}},\\
+	\sU_\iota\cap \sU^\iota_{\iota_0, ..., \iota_{n-1}} = \emptyset.
+	\eean
+	For any $\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n $ such that $\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}\neq \emptyset$ the finite intersection 
+	$$
+	\sU_{\iota_0, ..., \iota_{n-1}} \bydef \bigcap_{\iota \notin \left\{\iota_0, ..., \iota_{n-1}\right\}} \sU^\iota_{\iota_0, ..., \iota_{n-1}}
+	$$
+	is an open set. If 
+	\bean
+	\sU \bydef \bigcup_{\substack{\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n\\\sV_{\iota_0} \cap ... \cap \sV_{\iota_{n-1}}}\neq \emptyset} \sU_{\iota_0, ..., \iota_{n-1}},\\
+	\sV'_\iota \bydef \sV_\iota \setminus \sU
+	\eean
+	then one has
+	$$
+	\bigcup_{\iota = 1}^m \sV'_\iota = \bigsqcup_{\iota = 1}^m \sV'_\iota
+	$$
+	Since the space $\sX$ is normal there is a family of open sets $\left\{\sU''_\iota\right\}_{\iota =1,..., m}$ such that
+	\bean
+	\sV'_\iota\subset \sU''_\iota,\\
+	\iota' \neq \iota'' \quad \Rightarrow \quad \sU_{\iota'}\cap \sU_{\iota''}= \emptyset.
+	\eean
+	If
+	$$
+	\sU_\iota \bydef \sU''_\iota \cup \left(\bigcup_{\substack{\left(\iota_0, ..., \iota_{n-1}\right)\in \left\{1,..., m\right\}^n\\\iota \in \left\{\iota_0, ..., \iota_{n-1}\right\}}}  \right) \sU_{\iota_0, ..., \iota_{n-1}}
+	$$
 	then a family $\left\{\sU_\iota \right\}_{\iota \in I}$ of open sets satisfies to the conditions \eqref{top_open_closed_cech_eqn}.
 \end{proof}
+
 	
 \begin{lemma}\label{top_cech_cof_cov_lem}
 Let  $\left\{\sU_\la\right\}_{\la \in \La}$ (resp. $\left\{\sV_\th\right\}_{\th \in \Th}$) be  finite coverings of $\sX$ by open (resp. closed) sets. There are  refinements $\left\{\sU_\iota \right\}_{\iota \in I}$ and $\left\{\sV_\iota \right\}_{\iota \in I}$ of  $\left\{\sU_\la\right\}_{\la \in \La}$ and $\left\{\sV_\th\right\}_{\th \in \Th}$ which satisfy to condition \eqref{top_open_closed_cech_eqn}.
@@ -1058,312 +1098,7 @@ On the other hand the given by the Lemma \ref{top_cech_cof_cov_lem} systems of c
 
 \end{proof}
 
-
-
-
-
-
-\paragraph{!!!}	
-	 
-\begin{theorem}\label{top_alg_loc_thm} Following conditions hold:
-	\begin{enumerate}
-		\item [(i)] The locale $\mathfrak{Closed}\left( \sX\right)$ is naturally isomorphic to the Gelfand $C_0\left(  \sX\right)$-locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$.
-		\item[(ii)] If $\sX$ has no isolated points then the  locale $\mathfrak{Closed}\left( \sX\right)\cong \mathfrak{Locale}\left(C_0\left(  \sX\right) \right)$ is pointless.
-		\item[(iii)] The double negation $\mathfrak{Closed}\left( \sX\right)_{\neg\neg}$ (cf. Definition \ref{double_neg_loc_defn}) of the locale $\mathfrak{Closed}\left( \sX\right)$ contains all regular closed subspaces of $\sX$ (cf. Definition \ref{top_reg_defn}).
-	\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-	(i) Follows from the equations \eqref{top_xb_eqn} and \eqref{top_adj_eqn}. The details of the proof are left to the reader.\\
-	(ii)
-	We denote by $\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right)$ the frame which correspond to the locale $\mathfrak{Closed}\left( \sX\right)$.
-	Let $p^{-1}:	\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right)\to \left\{0, 1\right\}$ be a point. If $K \bydef
-	\left\{\sU \in \mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right)\left.|~ p^{-1} \left( \sU \right)  = 0\right.\right\}$ and  
-	$$
-	P \bydef  \bigvee K \bydef \left( \bigvee_{B\in K} B\right) \in 	\mathcal O\left( \mathfrak{Closed}\left( \sX\right)\right).
-	$$
-	From the equation \eqref{pprime_eqn} it follows that $P \neq \sX$, so 
-	\be\label{top_neg_op}	
-	^\neg P \bydef \sY \setminus P
-	\ee	
-	is a nonempty open set. If $\sX$ has no isolated points then since $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) there are two open subsets $^\neg P', ^\neg P'' \subset ^\neg P$ such that
-	\bean
-	^\neg P' \subsetneqq ^\neg P,\\
-	^\neg P'' \subsetneqq ^\neg P,\\
-	^\neg P  = ^\neg P' \cup ^\neg P''.
-	\eean
-	If $P' \bydef  \sX \setminus ^\neg P'$ and $P'' \bydef  \sX \setminus ^\neg P''$ then
-	\bean
-	P = P' \cap P'' = P' \wedge P'',\\
-	P \not\subset  P'\Leftrightarrow P' \not \le P,\\
-	P \not\subset  P''\Leftrightarrow P'' \not \le P.
-	\eean
-	The above equation is a contradiction with with \eqref{prime_eqn}. It turns out that the  locale $\mathfrak{Locale}\left(C_0\left(  \sX\right) \right) \cong \mathfrak{Closed}\left( \sX\right)$ has no points. \\
-	(iii) The proof is left to the reader.
-\end{proof}
-\begin{empt} Let $\sX$ be a compact, locally connected, Hausdorff, orientable $n$-{dimensional homology manifold over} $L$ (cf. Definition \ref{top_ndiml_defn}). From \eqref{top_dim_eqn} it follows that $\dim_L \sX = n$. From the theorem \ref{top_c_ac_thm} it follows that any sheaf $\mathscr A$ of $L$-modules has a $c$-soft resolution (cf. Definition \ref{top_res_defn})
-	\be\label{top_res_eqn}
-	0\to \mathscr A  \xrightarrow{\eps}\mathscr A^0  \xrightarrow{d}\mathscr A^{1}  \xrightarrow{d}\mathscr A^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr A^n \to 0
-	\ee
-	If $\mathscr L\bydef \mathfrak{Ass}\left(L_\sX \right) $ sheaf associated with a constant presheaf 
-	\be\label{top_resh_eqn}
-	0\to \mathscr L   \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr L^n \to 0
-	\ee
-	or equivalently
-	\be\label{top_reshh_eqn}
-	0\to \mathscr H^0\left( \mathscr L^0\right)   \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\xrightarrow{d}\dots \xrightarrow{d}\mathscr L^n \to 0
-	\ee
-	The differential sheaf $\mathscr L^*$ is a $c$-soft {quasi}-$n$-{resolution} of $L$ (cf. Definition \ref{top_quasi_res}). From the Theorem \ref{top_from_sh_to_cosh_thm} one has a s a flabby quasi-$n$-coresolution of $L$. Also,
-	$\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
-	for $p \le n$.
-	From the Theorem \ref{top_soft_flabby_thm} it follows that the sheaf  $\mathscr L^p$ is  is flabby for all $p > 1$.
-	
-	For any $\sF \in \mathfrak{Closed}\left( \sX\right)_{\neg\neg}$ a covering of $\sF$ is a family $\left\{\sU_\a\right\}$ of open subsets of $\sY$ such that $ \sX \setminus \sU \subset \sU_\a$ and $\sU$ is a closure of  $\cap \sU_\a$.  Let $L$ be an unital ring, and let $\mathscr L \bydef \mathfrak{Ass}\left(L_\sY \right)$ be a sheaf associated with constant presheaf.
-	
-	
-	and let $\mathfrak A \bydef H^c_0\left(\bullet, L \right) $ be a cosheaf given by the Proposition \ref{precosh_sh_prop} 
-\end{empt}
-\begin{definition}
-	
-\end{definition}
-
-\begin{definition}
-	A covering of a topological space $\sX$ by regular closed sets is said to be \textit{good} 
-\end{definition}
-\begin{empt}
-	Let $\sX$ be a compact Hausdorff space, and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ a covering by regular closed spaces  of $\sX$. Let $N\left(\mathscr U \right)$ be the nerve of $\mathscr U$ (cf. Definition \ref{})
-	
-	
-	having the property that $H^p\left( \sU_{\sigma^n};\mathscr A \right)= 0$  for $p > 0$ and
-	all $\sigma^n \in N\left(\mathscr U \right)$ , all $n$.
-\end{empt}
-\begin{theorem}
-	PAGE 193 
-	4.13. Theorem. Let $\mathscr A$ be a sheaf on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma^n};\mathscr A \right)= 0$  for $p > 0$ and
-	all $\sigma^n \in N\left(\mathscr U \right)$ , all $n$. Then there is a canonical isomorphism
-	\be
-	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
-	\ee
-\end{theorem}
-\begin{proof}
-	Let $\mathscr A^q \bydef  \mathscr C^q\left(\sX,\mathscr A^* \right)$  and consider the complex $\check C^p\left( \mathscr U,\mathscr A^*\right)$  for $p$
-	fixed. Since $\check C^p\left( \mathscr U,\bullet\right)$ is an exact functor of presheaves, we have
-	\bean
-	H^q\left(\check C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U; H^q\left( \Ga \mathscr A^*|\bullet\right)\right)  = C^p\left( \mathscr U; H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
-	\begin{cases}
-		\check C^p\left( \mathscr U; \mathscr A^*\right) & q = 0\\
-		0 & q \neq 0
-	\end{cases}
-	\eean
-	by the hypothesis that $H^q\left( \sU_{\sigma^n};\mathscr A \right)= 0$ for $q > 0$.
-	Consider the diagram
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			& 0  & 0 & 0 & 0 &	\\ 
-			0 & \Ga\left(\mathscr A \right) 		& \Ga\left(\mathscr A^0 \right) & \Ga\left(\mathscr A^1 \right)  &  \Ga\left(\mathscr A^2 \right)& \dots\\
-			0 & \check C^0\left(\mathscr U, \mathscr A \right) 		& \check C^0\left(\mathscr U, \mathscr A^0 \right) & \check C^0\left(\mathscr U, \mathscr A^1 \right)  &  \check C^0\left(\mathscr U, \mathscr A^2 \right)& \dots \\0 & \check C^1\left(\mathscr U, \mathscr A \right) 		& \check C^1\left(\mathscr U, \mathscr A^0 \right) & \check C^1\left(\mathscr U, \mathscr A^1 \right)  &  \check C^1\left(\mathscr U, \mathscr A^2 \right)& \dots\\0 & \check C^2\left(\mathscr U, \mathscr A \right) 		& \check C^2\left(\mathscr U, \mathscr A^0 \right) & \check C^2\left(\mathscr U, \mathscr A^1 \right)  &  \check C^2\left(\mathscr U, \mathscr A^2 \right)& \dots\\& \vdots  & \vdots & \vdots & \vdots &
-			\\};
-		\path[-stealth]
-		(m-1-2) edge node [right]  {} (m-2-2)
-		(m-1-3) edge node [right]  {} (m-2-3)
-		(m-1-4) edge node [right]  {} (m-2-4)
-		(m-1-5) edge node [right]  {} (m-2-5)
-		
-		(m-2-1) edge node [right]  {} (m-2-2)
-		(m-2-2) edge node [right]  {} (m-2-3)
-		(m-2-3) edge node [right]  {} (m-2-4)
-		(m-2-4) edge node [right]  {} (m-2-5)
-		(m-2-5) edge node [right]  {} (m-2-6)
-		(m-2-2) edge node [right]  {} (m-3-2)
-		(m-2-3) edge node [right]  {} (m-3-3)
-		(m-2-4) edge node [right]  {} (m-3-4)
-		(m-2-5) edge node [right]  {} (m-3-5)
-		
-		(m-2-2) edge node [right]  {} (m-3-2)
-		(m-2-3) edge node [right]  {} (m-2-3)
-		(m-2-4) edge node [right]  {} (m-3-4)
-		(m-2-5) edge node [right]  {} (m-3-5)
-		
-		(m-3-1) edge node [right]  {} (m-3-2)
-		(m-3-2) edge node [right]  {} (m-3-3)
-		(m-3-3) edge node [right]  {} (m-3-4)
-		(m-3-4) edge node [right]  {} (m-3-5)
-		(m-3-5) edge node [right]  {} (m-3-6)
-		
-		(m-3-2) edge node [right]  {} (m-4-2)
-		(m-3-3) edge node [right]  {} (m-4-3)
-		(m-3-4) edge node [right]  {} (m-4-4)
-		(m-3-5) edge node [right]  {} (m-4-5)
-		
-		(m-4-1) edge node [right]  {} (m-4-2)
-		(m-4-2) edge node [right]  {} (m-4-3)
-		(m-4-3) edge node [right]  {} (m-4-4)
-		(m-4-4) edge node [right]  {} (m-4-5)
-		(m-4-5) edge node [right]  {} (m-4-6)
-		
-		(m-4-2) edge node [right]  {} (m-5-2)
-		(m-4-3) edge node [right]  {} (m-5-3)
-		(m-4-4) edge node [right]  {} (m-5-4)
-		(m-4-5) edge node [right]  {} (m-5-5)
-		
-		(m-5-1) edge node [right]  {} (m-5-2)
-		(m-5-2) edge node [right]  {} (m-5-3)
-		(m-5-3) edge node [right]  {} (m-5-4)
-		(m-5-4) edge node [right]  {} (m-5-5)
-		(m-5-5) edge node [right]  {} (m-5-6)
-		
-		(m-5-2) edge node [right]  {} (m-6-2)
-		(m-5-3) edge node [right]  {} (m-6-3)
-		(m-5-4) edge node [right]  {} (m-6-4)
-		(m-5-5) edge node [right]  {} (m-6-5)
-		;
-	\end{tikzpicture}
-	\\
-	
-	
-	in which the rows are exact, excepting the first, as just shown and the
-	columns are exact, excepting the first, by 4.10 and 4.9. A diagram chase
-	shows that the homology of the first (nontrivial) row is isomorphic to that
-	of the first column.
-\end{proof}	
-
-\begin{remark}
-	The above construction does not depend on the inclusion $\sX \to \sY$. The inclusion will be used later.
-\end{remark}
-
-\begin{definition}\label{top_neg_defn}
-	Let $\mathfrak{A}$ be a precosheaf on $\sY$ (cf. Definition \ref{top_cosh_defn}). There is a presheaf $^\neg \mathfrak{A}$ on the locale $\mathfrak{Closed}\left( \sX\right)$ such that
-	\be\label{top_neg_eqn}
-	\forall \sU \in \mathfrak{Closed}\left( \sX\right) \quad ^\neg \mathfrak{A}\left( \sU\right) \bydef \mathfrak{A}\left( ^\neg \sU\right).
-	\ee
-	We say that $^\neg \mathfrak{A}$ is the \textit{negation presheaf of} $\mathfrak{A}$.
-\end{definition}
-
-\paragraph{!!!}
-\begin{empt}
-Let $\mathbb{K} = \R$ or $\mathbb{K}=\C$ and let $C\left(\sX,  \mathbb{K}\right)$ be a  $\mathbb{K}$ -algebra of continuous maps from $\sX$ to $\mathbb{K}$. Let  $E \to \sX$ be a locally trivial linear bundle with fiber $\mathbb{K}^n$. There is the adjoint bundle $E^*$ such that sections of $E^*$ are bundle homomorphisms $\Hom_{C\left(\sX,  \mathbb{K}\right)}\left( E,  \mathbb{K}\right)$. We suppose that there is an isomorphism of bundles $E\cong E^*$.  There is a presheaf $\in \mathbf{Sh}\left(\sX \right)$  of stalks of sections of $E$ such that for any open  $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ one has
-\bean
-\mathcal E\left(\sU \right) \bydef \quad \text{a group of sections of}\quad  E \quad \text{over}\quad \sU,\\
-\rho_{\sU \sV}: \mathcal E\left(\sU \right) \to \mathcal E\left(\sV \right); \quad s \mapsto s|_\sU.
-\eean
-One can proof that $\mathcal E$ is a sheaf. Similarly one has a dual copresheaf $\mathcal E^*$ such that
-\bean
-\mathcal E^*\left(\sU \right) \bydef \Hom_{C\left(\sX,  \mathbb{K}\right)}\left( E|_\sU, C\left(\sU,  \mathbb{K}\right)\right) \cong  \mathcal E\left(\sU \right)\\
-\rho^*_{\sV \sU}: \mathcal E^*\left(\sV \right)\to \mathcal E^*\left(\sU \right)
-\eean 
-where a map $\rho^*_{\sV \sU}$ is adjoint to $\rho_{\sU \sV}$.
-
-\end{empt}
-We denote a  map 
-\be\label{top_sh_csh_eqn}
-\begin{split}
-	\mathfrak{Inv}: \mathfrak{Closed}\left( \sX\right) \to \mathfrak{Locale}\left( \sX\right),\\
-	\sU \mapsto ^\neg \sU\bydef \sX \setminus\sU,\\
-	\forall  \sV, \sU  \in \mathfrak{Adjont}\left( \sX\right) ~~ \Leftrightarrow ~~ \sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV ~~  \Leftrightarrow ~~ \mathfrak{Inv}\left( \sV\right) \le  \mathfrak{Inv}\left( \sU\right)
-\end{split}
-\ee
-where left part implies an element of $\mathfrak{Closed}\left( \sX\right)$ and right part an element of $\mathfrak{Locale}\left( \sX\right)$.  
-\begin{theorem}\label{comm_sh_thm}
-If both $\mathbf{PreCSh}\left(  \sX\right)$ and $\mathbf{CSh}\left(  \sX\right)$ are categories of precosheaves and cosheaves over the locale $\mathfrak{Locale}\left( \sX\right)$	(cf. Definition \ref{coheaf_defn}) then one has:
-	\begin{enumerate}
-		\item [(i)] there is a natural bijective map 
-		$$
-		\neg: \mathbf{PreSh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)  \cong \mathbf{PreSh}\left( \mathfrak{Closed}\left( \sX\right)\right)  \xrightarrow{\sim} \mathbf{PreCSh}\left(  \sX\right) ,
-		$$
-		
-		\item[(ii)]	such that
-		\bean
-	\neg\left( \mathbf{Sh}\left( \mathfrak{Locale}\left( C_0\left(\sX\right)\right)\right)\right)  \subset \mathbf{CSh}\left( \sX\right). 
-		\eean
-	\end{enumerate}
-	
-	
-\end{theorem}
-\begin{proof} (i)
-	For any presheaf $\mathscr F \in \mathbf{PreSh}\left( \mathfrak{Closed}\left( \sX\right)\right)$ we define a precosheaf \\$^\neg\mathscr F \in \mathbf{PreCSh}\left(  \sX\right)$ such that
-\bean
-	\forall \sU \in \mathfrak{Closed}\left( \sX\right)\quad  ^\neg\mathscr F\left(  \sU \right)   \bydef \mathscr F\left( ^\neg\sU\right) 
-\eean
-	From \eqref{top_sh_csh_eqn} if follows that if $\sV \subset \sU  \quad  \Leftrightarrow~~ \sU \le \sV$ there is a homomorphism $\rho_{\sV \sU}:\mathscr F\left(\sV  \right) \to \mathscr F\left(\sU  \right)$. We define
-	$$
-	^\neg \rho_{\sV \sU} :\neg \mathscr F\left(^\neg\sV \right)\to ^\neg \mathscr  F\left(^\neg\sU \right)\bydef  \rho_{\sV \sU}.
-	$$
-	(ii)  Follows from the equations \eqref{sheaf_eqn} and \eqref{coheaf_defn}
-\end{proof}
-
-\paragraph{!!!}
-\begin{theorem}\label{top_free_l_thm!}
-	PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
-	$clc^1_L$, then $H^c_0\left(\sX, L \right)$  is the free $L$-module on the components of $\sX$.
-	\end{theorem}
-\paragraph{title}
-
-
-\paragraph{!!! DELETE !!! START} !!! DELETE !!!
-
-
-\begin{empt}\label{top_paracompact_empt}
-If $\mathscr{ A}$ is a sheaf of Abelian groups on $\sX$ the using the Remark \ref{sheaf_rem} one has  a presheaf $\overline{\mathscr{ A}}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ such that
-	\be\label{top_paracompact_eqn}
-	\begin{split}
-		\forall \sU \in \mathfrak{Closed}\left(\sX \right)\quad\overline{\mathscr{ A}}\left(\sU \right) \bydef \text{ a group of continuous sections }  \iota :\sU\to \mathrm{Sp\acute{e}}\left(\mathscr A \right),\\
-		\forall ~\sV , \sU 	\in \mathfrak{Closed}\left(\sX \right) , \quad \sV \subset \sU \quad \overline{\mathscr{ A}}\left(\sU \right)\to\overline{\mathscr{ A}}\left(\sV \right); \quad \iota \mapsto \iota|_\sV.
-	\end{split}
-	\ee
-\end{empt}
-
-\begin{proof}
-	(i)	The space $\sX$ is Hausdorff (cf. Theorem \ref{gelfand-naimark_thm}) so it is metrizable (cf. Theorem \ref{top_paracompact_thm}). It turns out that any subspace of $\sX$ is metrizable and paracompact.
-	If $\left\{\sU_\iota\right\}_{\iota \in I}\subset \mathfrak{Closed}\left(\sX \right)$ then from the equation \eqref{top_adj_eqn} it follows that 
-	$$
-	\bigvee \sU_\iota = \text{ a closure of } \bigcup \sU_\iota.
-	$$
-	Let  $\left\lbrace s_\iota \in \overline{\mathscr{ A}}\left(\sU_\iota  \right)\right\rbrace$ be a family with
-	$$
-	\forall \iota, j \in I \quad s_\iota|_j = s_j|_\iota
-	$$
-	For any point $x \in \bigcup \sU_\iota$ there are
-	\begin{itemize}
-		\item  $\iota \in I$ such that $x \in \left|s_\iota \right|$.
-		\item  an open neighborhood $\sU_\x$ of $x$  and an element $a^x \in \mathscr{ A}\left(\sU_\x \right)$ such that
-		$$
-	\forall x' \in 	\sU_x\cap \left|s_\iota \right|\quad s_\iota\left(x' \right) = a^x\left( x'\right) 
-		$$ 
-	\end{itemize}
-	 There is a locally finite refinement $\left\{\mathcal{W}_\a\right\}$ of the covering $\bigcup_{x \in \bigcup \sU_\iota} \sU_x$ If  $x \in \bigcup \sU_\iota$ then there is $\mathcal{W}_\a\subset \sU_x$ such that 
-	\be\label{ww_eqn}
-		\forall x' \in 	\mathcal{W}_\a\cap \left|s_\iota \right|\quad s_\iota\left(x' \right) = a^x\left( x'\right) 
-\ee 
-	For any $x \in \bigcup \sU_\iota$ we select $\mathcal{W}_\a$ such that $\mathcal{W}_\a \subset \sU_x$ and denote by $\mathcal{W}_x \bydef  \mathcal{W}_\a$, $b^x \bydef a^x|_{\mathcal{W}_x}$. From \eqref{ww_eqn} it follows that
-	$$
-	\forall \iota' \in I \quad \forall x' \in 	\mathcal{W}_x\cap \left|s_\iota \quad \right|s_{\iota'}\left(x' \right) = b^x\left( x'\right) 
-	$$
-	So the covering $\bigcup \sU_\iota \subset \bigcup \mathcal W_x$ is locally finite.
-	The set $\bigcup \mathcal W_x$ is open and $\bigcup \sU_\iota\subset \bigcup \mathcal W_\a$.	It follows that the closure $\overline{\sU}$ of  $\bigcup \sU_\iota$ is a subset of $\bigcup \mathcal W_x$. From the Lemma  \ref{top_paracompact_lem} it follows that there is a family $\left\{\sV_x\right\}$ of closed  subsets of $\sX$ such that $\sV_x\subset \mathcal W_x$ and $\overline{\sU} \subset \bigcup \mathcal W_x$. For any $x \in \bigcup \sU_\iota$ a intersection $\mathcal W_x \bigcap  \left(  \bigcup \sU_\iota\right)$ is closed in  $\left(  \bigcup \sU_\iota\right)$ thus the family $\left\{\mathcal W_x \bigcap  \left(  \bigcup \sU_\iota\right)\right\}$ is a locally finite covering of  $\bigcup \sU_\iota$
-From the Theorem \ref{closed_cov_thm} it follows that there is $t \in \mathscr{ A}\left(\bigcup \sU_\iota \right)$. Such that  $t|_{\sV_j}= s_j$. From the our construction it turns out that $t|_{\sU_\iota}= s_\iota$. From the Theorem \ref{sheaf_neigh_en_thm} it follows that there is an open neighborhood $\sV$ of $\bigcup \sU_\iota$ and a section $q \in \mathscr A\left(  \sV\right) $ such that $t = q|_{\bigcup \sU_\iota}$. Otherwise $\overline \sU \subset \sV$ because  $\bigcup \sU_\iota$ is dense in $\overline \sU$. We define the required section $s \in \mathscr A\left(  \overline \sU\right)$ as $s \bydef q|_{\overline \sU}$.	
-	
-
-	
-	\paragraph{title}
-	
-	On the other hand $\overline{\sU}$  is a closed subset of the compact set $\sX$, i.e.  $\overline{\sU}$ is compact.  There is a finite set $\left\{x_1, ..., x_n\right\}$ such that $\overline{\sU} \subset \bigcup_{j=1}^n \sU_{x_j}$. For any $j = 1,..., n$ there is $\iota \in I$ such that $\sV_j\cap \bigcup \sU_\iota \subset \left|s_\iota \right|$. We denote by $s_j$ a the restriction of $s_\iota$. 
-		\\
-(ii)	From  $\Ga\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right)\right) \cong   \Ga\left(\sX , {\mathscr{ A}} \right)$ and the Theorem \ref{uni_delta_thm} it follows that for any $n > 0$ there is the natural map % $H^p\left(\sX, \mathscr{ A} \right)\to  H^p\left(\mathfrak{Locale}\left(C_0\left(  \sX\right) \right), \overline{\mathscr{ A}} \right)$.
-	
-\end{proof}
-
-\begin{remark}
-	Both the Lemma \ref{comm_alg_loc_thm}  !!! THEOREM !!! and the Theorem \ref{comm_alg_loc_thm} a motivations of the term "Gelfand locale" (cf. Theorem \ref{gelfand-naimark_thm}).
-\end{remark}
-\begin{lemma}
-	If $\mathscr{ A}\in \mathbf{Ab}\left(\sX\right)$ be a sheaf of Abelian groups, then the given by the equation \eqref{top_paracompact_eqn} presheaf $^\neg \mathscr{ A}\in \mathbf{Ab}\left(\mathfrak{Closed}\left(\sX \right) \right)$ is a sheaf.
-\end{lemma}
-
-\paragraph{!!! DELETE !!! FINISH} !!! DELETE !!!
-
-\section{Locales of the $C^*$-algebras of compact operators}
+\section{Topoi of the $C^*$-algebras of compact operators}
 \paragraph{}
 In this section we use  following notations:
 \begin{itemize}
@@ -1438,7 +1173,7 @@ respectively (cf. 	 the Remark \ref{ring_homo_rem} !!! \ref{topos_hom_chech_hom_
   
 
  
-\section{Locales of liminaly $C^*$-algebras with Hausdorff spectra}
+\section{Topoi of liminaly $C^*$-algebras with Hausdorff spectra}
 
 
 \subsection{Gelfand spaces}
@@ -2182,7 +1917,7 @@ commutes, then $g = h$.
 			\end{definition}
 			
 			\begin{definition}\label{kernel_defn}
-				!!! FAITH !!! 
+			\cite{faith_rmcat}
 			If a category $\mathscr C$ has an initial object $0_{\mathscr C}$ then the \textit{kernel} (denoted by $\ker f$ ) of  ${\mathscr C}$-morphism $A \xrightarrow{f} B$ is a limit of the diagram
 			\newline
 \begin{tikzcd}
@@ -2473,7 +2208,7 @@ $\mathscr C$ to the category of (Abelian) groups or rings.
 	\begin{remark}\label{psersh_im_rem}
 	If $\mathscr F\to\mathscr G$ is a morphism of presheaves then the image (cf. Definition \ref{image_defn}) of $f$ is a presheaf 
 \be\label{psersh_im_eqn}
-	U \mapsto f \mathscr F\left(\sU \right). 
+	U \mapsto f \mathscr F\left(U \right). 
 \ee
 	\end{remark}
 	\begin{definition}\label{sheaf_defn}\cite{milne:lec}
@@ -2599,12 +2334,19 @@ If there is  given a pretopology $P$ on  $\mathscr C$, we can replace it be a to
 		                                                                      	                                                                           \begin{definition}\label{sheaf_morphism_defn}
      	A \textit{morphism} in the category $\mathbf{Sh}\left(\mathbf T \right)$ is a morphism of presheaves (cf. Definition \ref{presheaf_defn})
   \end{definition}
-  \begin{remark}\label{sheaf_image_rem}
-  If $\mathscr F \xrightarrow{\varphi} \mathscr G$ is a $\mathbf{Sh}\left(\mathbf T \right)$-morphism then the given by \eqref{psersh_im_eqn} presheaf is not necessary a sheaf. So the image (cf. Definition \ref{image_defn}) of $\varphi$ is the sheaf associated with the presheaf given by \eqref{psersh_im_eqn}.
-  \end{remark}
-		\begin{rem}\label{ab_uss_rem}
+  		\begin{rem}\label{ab_uss_rem}
 		Similarly there are categories re categories $\mathbf{PreShAb}\left(\mathbf T \right)$, $ ~~\mathbf{Ab}\left(\mathbf T\right)$ of presheaves an sheaves of Abelian groups (cf. Remark \ref{etale_presheaf_rem}). Also there a functors $\mathfrak{Forget} : \mathbf{Ab}\left(\mathbf T \right)\to \mathbf{PreShAb}\left(\mathbf T \right)$ and $\mathfrak{Ass} : \mathbf{PreShAb}\left(\mathbf T  \right)\to \mathbf{Ab}\left(\mathbf T \right)$. The functor $\mathfrak{Ass}$ is an adjoint to $\mathfrak{Forget}$.
 	\end{rem}
+	\begin{remark}
+	If 	If $\mathscr A\xrightarrow{f}\mathscr B$ is a morphism of presheaves of Abelian groups then the kernel (cf. Definition \ref{kernel_defn}) $\ker f$ of $f$ is given by
+	\be\label{ker_prsheaf_eqn}
+	\ker f =  \sU \mapsto \left\{s \in \mathscr A| f(s) = 0\right\}
+	\ee
+	\end{remark}
+	\begin{remark}\label{sheaf_image_rem}
+		If $\mathscr F \xrightarrow{\varphi} \mathscr G$ is a $\mathbf{Sh}\left(\mathbf T \right)$-morphism then the given by \eqref{psersh_im_eqn} presheaf is not necessary a sheaf. So the image (cf. Definition \ref{image_defn}) of $\varphi$ is the sheaf associated with the presheaf given by \eqref{psersh_im_eqn}. $\mathscr A \xrightarrow{f} \mathscr B$ is an $\mathbf{Ab}\left(\mathbf T \right)$-morphism then the kernel $\ker f$  (cf. Definition \ref{kernel_defn}) of $\psi$ is given by
+	the equation  \eqref{ker_prsheaf_eqn}.
+	\end{remark}
 	
 	
 	\begin{statement}\label{site_enough_stmt}\cite{johnstone:topos}
@@ -5177,7 +4919,7 @@ A partially ordered set yields an Alexandrov space $L(A)$.
 		Let us call a subspace A C X relatively Hausdorff (in X) if any two
 		points of A have disjoint open neighborhoods in X.
 	\end{definition}
-	\begin{theorem}\label{top_soft_flabby_thm}
+	\begin{theorem}\label{top_soft_flabby_thm}\cite{bredon:sheaf}
 		9.8. Theorem. PAGE 67 Let $A$ be a compact, relatively Hausdorff (cf. Definition \ref{top_rel_haus_defn}) subspace of a
 		space $\sX$. Then for any sheaf $\mathscr A$ on $\sX$, we have that $\mathscr A = \varinjlim_\sU \mathscr A(\sU)$,
 		where $\sU$ ranges over the neighborhoods of $A$ in $\sX$.
