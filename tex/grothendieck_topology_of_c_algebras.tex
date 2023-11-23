@@ -2427,24 +2427,24 @@ In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. If $X$ is a site
 
 
 \subsection{Geometric morphisms into Grothendieck topoi}
-
 \paragraph{}
+Here I follow to \cite{topos:intro}.
 Suppose $f: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is a geometric morphism. Its inverse image
-functor $f^*: \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$ preserves colimits, and every presheaf $R$ on $\mathbb{C}$
+functor $f^*: \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$ preserves colimits, and every presheaf $\mathscr F$ on $\mathbf{C}$
 is a colimit of representable presheaves, so (up to natural isomorphism)
 the functor $f^*$ is completely determined by what it does to representables.
-More explicitly, each presheaf $R \in  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is canonically a colimit
-$\varinjlim H$ of representables. Indeed, $R$ determines the category $\int R$ of its
-elements, with objects the pairs $(C, r)$, where $r \in R(C)$ and $C \in \mathbf{C}$,
-while $H: \int  R \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ sends this object $(C, r)$ to $\Hom( -, C) \bydef  \mathbf{y}C$.
+More explicitly, each presheaf $\mathscr F \in  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is canonically a colimit
+$\varinjlim H$ of representables. Indeed, $\mathscr F$ determines the category $\int \mathscr F$ of its
+elements, with objects the pairs $(C, r)$, where $r \in \mathscr F(C)$ and $C \in \mathbf{C}$,
+while $H: \int \mathscr F \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ sends this object $(C, r)$ to $\mathbf{y}C \bydef \Hom( -, C) $.
 This colimit $\varinjlim H$ can be presented as a coequalizer,
 with coproducts over the arrows $u: (C', r') -t (C, r)$ and then over the
-objects of $\int R$. This gives the following coequalizer in $\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$:
+objects of $\int \mathscr F$. This gives the following coequalizer in $\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$:
 \be\label{coprod_topos_eqn}
-\coprod_{\substack{u: C'\to C\\r \in R(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}\mathbf{y}C\xrightarrow{\eps} R;
+\coprod_{\substack{u: C'\to C\\r \in R(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
 \ee
 specifically, if we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
-$r \in  R(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)'= \mathbb{C}\left( B, C'\right)$  for some object
+$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)'= \mathbb{C}\left( B, C'\right)$  for some object
 $B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
 \bean
 \th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
@@ -2453,13 +2453,13 @@ $B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(
 The functor $f^*: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ preserves colimits, so it sends this coequalizer
 \eqref{coprod_topos_eqn} to the following coequalizer in the topos $\E$:
 \be\label{coprod_topos_e_eqn}
-\coprod_{\substack{u: C'\to C\\r \in R(C)}}f^*\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}f^*\mathbf{y}C\xrightarrow{\eps} f^*R;
+\coprod_{\substack{u: C'\to C\\r \in R(C)}}f^*\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}f^*\mathbf{y}C\xrightarrow{\eps} f^*\mathscr F;
 \ee
 Now suppose that $\E$ has all small colimits, let $A:\mathbf{C}\to \E$
 be any (covariant) functor and consider the tensor product functor
-$-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. Explicitly, for any $R \in \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ the object $R\otimes_{\mathbf{C}}A$ of $\E$ is defined by the following coequalizer:
+$-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. Explicitly, for any $R \in \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ the object $\mathscr F\otimes_{\mathbf{C}}A$ of $\E$ is defined by the following coequalizer:
 \be\label{coprod_topos_a_eqn}
-\coprod_{\substack{u: C'\to C\\r \in R(C)}}A\left(C' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}A\left(C \right)\xrightarrow{\eps} R\otimes_{\mathbf{C}}A;
+\coprod_{\substack{u: C'\to C\\r \in R(C)}}A\left(C' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}A\left(C \right)\xrightarrow{\eps} \mathscr F\otimes_{\mathbf{C}}A;
 \ee
 The functor $-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. thus defined is an extension
 of the functor $A : \mathbf{C}\to \E$, in the sense that, up to isomorphism, the
@@ -2471,21 +2471,20 @@ diagram
 \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\arrow[ru, "-\otimes_{\mathbf{C}}"]	&  ~
 \end{tikzcd}
 \\
-commutes. Indeed, this is just the canonical isomorphism
-\be\label{topos_mor_eqn}
-\mathbf{ y}(C)\otimes_{\mathbf{C}} A = \Hom\left(-, C \right)\otimes_{\mathbf{C}} A \cong A(C).
-\ee
-Moreover, the functor$ \otimes_{\mathbf{C}} A$ is left adjoint to the functor
-\be\label{coprod_topos_aa_eqn}
-\underline{\Hom}_\E (A, - ): \E \to  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
-\ee
-defined, for an object $E$ in $\E$ and an object $C$ in $\mathbf{C}$, by
-\be\label{coprod_topos_aas_eqn}
-\underline{\Hom}_\E (A, E )\left(C \right) = \Hom_\E\left(A\left( C\right) , E \right)  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
-\ee
-This adjunction  assumes that $\E$ is cocomplete. The
-co completeness hypothesis "$\E$ has all small colimits" may be replaced by
-"$\E$ is a topos over sets"%, provided the functor $A: \mathbf{C}\to \E$ is also replacedby a left ll(C) object (an "internal diagram") on the category objectI (C)in E. See V. 7 (5). Here ll: Sets -+ E is the canonical functor,¤1(8).
+commutes. 
+%Indeed, this is just the canonical isomorphism
+%\be\label{topos_mor_eqn}
+%\mathbf{ y}(C)\otimes_{\mathbf{C}} A = \Hom\left(-, C \right)\otimes_{\mathbf{C}} A \cong A(C).
+%\ee
+%Moreover, the functor$ \otimes_{\mathbf{C}} A$ is left adjoint to the functor
+%\be\label{coprod_topos_aa_eqn}
+%\underline{\Hom}_\E (A, - ): \E \to  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
+%\ee
+%defined, for an object $E$ in $\E$ and an object $C$ in $\mathbf{C}$, by
+%\be\label{coprod_topos_aas_eqn}
+%\underline{\Hom}_\E (A, E )\left(C \right) = \Hom_\E\left(A\left( C\right) , E \right)  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
+%\ee
+%This adjunction  assumes that $\E$ is cocomplete. The co completeness hypothesis "$\E$ has all small colimits" may be replaced by"$\E$ is a topos over sets"%, provided the functor $A: \mathbf{C}\to \E$ is also replacedby a left ll(C) object (an "internal diagram") on the category objectI (C)in E. See V. 7 (5). Here ll: Sets -+ E is the canonical functor,¤1(8).
 \subsection{Morphisms of sites}
 \begin{definition}\label{morphism_of_sites_defn}\cite{topos:intro}
 Suppose $\left(\mathbf{C}, J)\right)$ and $\left(\mathbf{D}, K\right)$  are two sites, and suppose $\mathbf{C}$ and $\mathbf{D}$ are
@@ -2498,13 +2497,29 @@ preserves finite limits as well as covers. %Here ¢ preserves covers meansthat if
 \begin{theorem}\label{site_mor_thm}\cite{topos:intro}
 %Theorem 2. 
 For categories $\mathbf{C}$ and $\mathbf{D}$ with finite limits, any
-such morphism of sites $\phi: \mathbf{C}\to \mathbf{D}$ induces a geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\to \mathbf{Sh}\left(\mathbf{C}, J\right)$.
-%f: Sh(D, K) -+ Sh(C, J); the direct image functor f*: Sh(D, K) -+Sh(C, J) sends a sheaf F on D to the composition f*(F) = F 0 ¢, and
-the inverse image 1*: Sh(C, J) -+ Sh(D, K) sends a sheaf G on C to
-the tensor product G Q9c A.p, where
-!!!
-%A.p = a 0 y 0 ¢: C ~ D Y ) SetsDOP _--!a~-+) Sh(D, K).
+such morphism of sites $\phi: \mathbf{C}\to \mathbf{D}$ induces a geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$.
+%f: Sh(D, K) -+ Sh(C, J); the direct image functor f*: Sh(D, K) -+Sh(C, J) sends a sheaf F on D to the composition f*(F) = F 0 ¢,
 \end{theorem}
+\begin{empt}\label{site_mor_empt}\cite{topos:intro}
+Here we explicitly describe the given by the Theorem \ref{site_mor_thm} geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$. The direct image if given by
+\be\label{geom_dir_im_eqn}
+\begin{split}
+\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f_*} \mathbf{Sh}\left(\mathbf{C}, J\right),\\
+\mathscr F \mapsto \mathscr F\circ \phi.
+\end{split}
+\ee
+The inverse image is given by
+\be\label{geom_inv_im_eqn}
+\begin{split}
+ \mathbf{Sh}\left(\mathbf{C}, J\right)\xrightarrow{f^*}	\mathbf{Sh}\left(\mathbf{D}, K\right),\\
+	\mathscr G \mapsto \mathscr G\otimes A_\phi.
+\end{split}
+\ee
+where 
+\be\label{geom_ep_im_eqn}
+A_\phi \bydef \mathbf{C} \xrightarrow{\phi} \mathbf{D} \xrightarrow{\mathbf{y}} \mathbf{Sets}^{\mathbf{D}^{\mathrm{op}}} \xrightarrow{\mathfrak{Ass}}\mathbf{Sh}\left(\mathbf{D}, K\right).
+\ee
+\end{empt}
 
 
 
