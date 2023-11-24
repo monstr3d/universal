@@ -1125,82 +1125,96 @@ Now we can construct a specialization of given by the section \ref{groth_top_sec
 There is an alternative description of $\mathfrak{Site}\left(\K \right)$. Let $d \in \N$ or $d = \infty$. If $d = \infty$ we suppose that $\C^d \bydef \ell^2\left(\N \right)$. There is a complex projective plane $\C P^d$. Now
 \begin{enumerate}
 	\item[(a)] $\mathbf{Hered}/\K$-objects are subsets of $\C P^d$ given by
-	$$
+	\be\label{compact_zar_open_eqn}
 	\sU = \C P^d \setminus \bigcup_{j = 1}^n L_j
-	$$
+\ee
 	where $L_j$ is a complex linear projective subspace,  
 	\item[(b)]  $\mathbf{Hered}/\K$-morphisms $\sV \to \sU$ are inclusions $\sV \subset \sU$.
 \end{enumerate}
-A pullback $\sU' \times_{\C P^d} \sU''$ is an intersection $\sU' \cap \sU''$
+A pullback $\sU' \times_{\C P^d} \sU''$ is an intersection $\sU' \cap \sU''$.
 A covering of $\mathbf{Hered}/\K$-object $\sU$ is a finite family $\left\{\sU_1, ..., \sU_n\right\}$ of $\mathbf{Hered}/\K$-objects, such that $\sU = \sU_1 \cup...\cup \sU_n$. 
 \end{empt}
 \begin{empt}
-Suppose that $d$ is finite, and consider $\C P^d$ as an algebraic manifold with Zariski topology $J_{\mathrm{Zar}}$.  There is a site $\left(\C P^d \right)$. From \ref{compact_alt_constr} it follows that there is a morphism of sites
-\be
-\left(\mathbf{Hered}/\K, J_\K \right) \to \left(\C P^d, J_{\mathrm{Zar}} \right) 
+Suppose that $d$ is finite, and consider $\C P^d$ as an algebraic manifold with Zariski topology $J_{\mathrm{Zar}}$. On the other there is a category  $\mathbf{Cat}\left( \C P^d\right) $  of open with respect $J_{\mathrm{Zar}}$  subsets of $\C P^d$ and their inclusions. Since any given by \eqref{compact_zar_open_eqn} set is open one has a functor
+\be\label{compac_to_cp_eqn}
+\mathbf{Hered}/\K \xrightarrow\phi \mathbf{Cat}\left( \C P^d\right).
 \ee
-(cf. Definition \ref{morphism_of_sites_defn}). From the Theorem \ref{site_mor_thm} it follows that there is a geometric morphism
+There is a site $\left(\C P^d, J_{\mathrm{Zar}}\right)$ and  one can prove that the functor \ref{compac_to_cp_eqn} is  a morphism of sites (cf. Definition \ref{morphism_of_sites_defn}). From the Theorem \ref{site_mor_thm} it follows that there is a geometric morphism
+\be\label{compac_geom_eqn}
+ \mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right)
+\ee
+Let $F$ be a  Abelian group, and let both $F_{\mathbf{Hered}/\K} \in \mathbf{Ab}^{\left(\mathbf{Hered}/\K \right)^{\text{op} }}$ and $F_{\mathbf{Cat}\left( \C P^d\right)} \in \mathbf{Ab}^{\left(\C P^d \right)^{\text{op} }}$ be constant presheaves (cf. Definition \ref{constant_presheaf_defn}) of Abelian groups. It is known that if $\sU$ is an open with respect to Zariski topology subset of connected complex manifold then $\sU$ is connected. From this fact it follows that both  $F_{\mathbf{Hered}/\K}$ and $F_{\mathbf{Cat}\left( \C P^d\right)}$ are sheaves, i.e. $F_{\mathbf{Hered}/\K}\in \mathbf{Ab}\left(\mathbf{Hered}/\K, J_\K \right)$ and $F_{\mathbf{Cat}\left( \C P^d\right)}\in \mathbf{Ab}\left(\C P^d, J_{\mathrm{Zar}}\right) $ and
+\be\label{compact_f_eqn}
+\begin{split}
+\forall U \in \mathbf{Hered}/\K \quad F_{\mathbf{Hered}/\K}\left( U\right) \cong F,\\ 
+\forall \sU \in \C P^d \quad F_{\mathbf{Cat}\left( \C P^d\right)}\left( \sU\right) \cong F.
+\end{split}
+\ee
+If $\mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right)\xrightarrow{f_*} \mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right)$ is the direct image (cf. Definition \ref{geometric_morphism_defn}) then from \eqref{geom_dir_im_eqn}
+it follows that $f_*F_{\mathbf{Cat}\left( \C P^d\right)}\left( U\right)=  F_{\mathbf{Cat}\left( \C P^d\right)}\left( \phi \left( U\right) \right)\cong F$ for all $\forall U \in \mathbf{Hered}/\K$, and taking into account \eqref{compact_f_eqn} one has
+\be\label{compact_f_d_eqn}
+\begin{split}
+f_*F_{\mathbf{Cat}\left( \C P^d\right)}= F_{\mathbf{Hered}/\K}
+\end{split}
+\ee
+There is a specialization of \eqref{geom_ep_im_eqn} given by 
 $$
-\mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right) \to \mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right) 
+A_\phi \bydef \mathbf{Hered}/\K \xrightarrow{\phi}\mathbf{Cat}\left( \C P^d\right)   \xrightarrow{\mathbf{y}} \mathbf{Sets}^{\mathbf{Cat}\left( \C P^d\right)^{\mathrm{op}}} \xrightarrow{\mathfrak{Ass}}\mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right)
 $$
+For any $U \in \mathbf{Hered}/\K$ the one has  $\phi\left( U\right)  =  U $ we $U$ is regarded as a $\mathbf{Cat}\left( \C P^d\right)$-object. 
+One has 
+$$
+\forall \sU \in \mathbf{Cat}\left( \C P^d\right)\quad  \mathbf y \circ \phi \left(U\right)\left(\sU \right) = \Hom_{\mathbf{Cat}\left( \C P^d\right)}\left(\sU, U \right) = \begin{cases}
+	\sU \to U & \sU \subset U\\
+	\emptyset & \sU \not\subset U.
+\end{cases}
+$$
+From the above equation it turns out that for any $U \in \mathbf{Hered}/\K$ $\mathbf y \circ \phi \left(U\right)$ is sheaf so $A_\phi$ is given by
+$$
+\forall \sU \in \mathbf{Cat}\left( \C P^d\right)\quad  A_\phi \left(U\right)\left(\sU \right) = \Hom_{\mathbf{Cat}\left( \C P^d\right)}\left(\sU, U \right) = \begin{cases}
+	\sU \to U & \sU \subset U\\
+	\emptyset & \sU \not\subset U.
+\end{cases}
+$$
+
+
+ 
+$$
+\forall \sU \in \C P^d \quad \left( \mathbf y \circ \phi \left( F_{\mathbf{Hered}/\K}\right)\right) \left(\sU \right)  
+$$
+
+The inverse image $ \mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right)\xrightarrow{f^*}\mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right)$ is given by \eqref{geom_inv_im_eqn}, so one has
+$$
+f^*F_{\mathbf{Hered}/\K} = F_{\mathbf{Hered}/\K}\otimes_{\mathbf{Hered}/\K} A_\phi.
+$$
+On the other hand from the equation \eqref{coprod_topos_a_eqn} it follows that 
+\be\label{compact_topos_a_eqn}
+\coprod_{\substack{u: U'\to U\\r \in F_{\mathbf{Hered}/\K}(C)}}A_\phi\left(U' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{U \in \mathbf{Hered}/\K\\r \in F_{\mathbf{Hered}/\K}(U)}}A_\phi\left(U \right)\xrightarrow{\eps} \mathbf{Hered}/\K\otimes_{\mathbf{C}}A_\phi;
+\ee
+
 \end{empt}
+\paragraph{title}
+\be\label{coprod_topos_eqn!}
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
+\ee
+specifically, if we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
+$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)= \mathbf{C}\left( B, C'\right)$  for some object
+$B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
+\bean
+\th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
+\tau \left(r, u, v \right)  \bydef \left(ru, v \right) 
+\eean 
+
+\paragraph{title}
+
 \begin{theorem}\label{top_nerve_thm}
 	PAGE 193 !!! DOWN !!!
-	4.13. Theorem. Let $\mathscr A$ be a sheaf on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma^n};\mathscr A \right)= 0$  for $p > 0$ and
-	all $\sigma^n \in N\left(\mathscr U \right)$ , all $n$. Then there is a canonical isomorphism
+	4.13. Theorem. Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
+	all $\sigma \in K\left(\mathscr U \right)$ in the nerve of covering (cf. Definition \ref{nerve_defn}). Then there is a canonical isomorphism
 	\be
 	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
 	\ee
 \end{theorem}
-\begin{lemma}\label{k_spat_lem}
-The Gelfand $\K$-locale (cf. Definition \ref{gelfand_a_site_defn} !!! SITE !!!) is not spatial (cf. Definition \ref{spatial_locale_defn}).
-\end{lemma}
-\begin{proof}
-Let $p^{-1}:	\mathfrak{Frame}\left(\K \right)\to \left\{0, 1\right\}$
- be a point of  the hereditary $A$-frame	$\mathfrak{Frame}\left(A \right)$  (cf. Definition \ref{locale_point_defn}). If $K \bydef
- \left\{B \left.|~ p^{-1} \left( B \right)  = 0\right.\right\}$ and  
- $$
- P \bydef  \bigvee K \bydef \left( \bigvee_{B\in K} B\right) \in 	\mathfrak{Frame}\left(\K \right)
- $$ 
- (cf. \eqref{p_p_eqn}) then $P$ is a hereditary subalgebra of $\K$. From the equation \eqref{pprime_eqn} it follows that $P \neq {0}$ and from the Lemma \ref{compact_hered_lem} it follows that $\pi\left(P \right)\H \neq {0}$. If $\dim \pi\left(P \right)\H > 1$ then there are $B', B'' \subsetneqq P$, such that $\pi\left(P \right) \H =  \pi\left(B' \right) \H+ \pi\left(B'' \right) \H$, so one has
-  \bean
- B' \not\le  P \quad \Leftrightarrow \quad P \not\subset B'\quad \Leftrightarrow \quad \pi\left(P \right) \H \not\subset \pi\left(B' \right) \H ,\\
-B'' \not\le  P \quad \Leftrightarrow \quad P \not\subset B''\quad\Leftrightarrow \quad \pi\left(P \right) \H \not\subset \pi\left(B'' \right) \H ,\\
-B' \wedge B'' = P \quad \Leftrightarrow \quad  \pi\left(P \right) \H =  \pi\left(B' \right) \H+ \pi\left(B'' \right) \H,
- \eean
- i.e. $P$ does not satisfies to conditions  \eqref{prime_eqn} and \eqref{pprime_eqn}. If $\dim \pi\left(P \right)\H = 1$ and
- $$
- B' \wedge B'' = P \Leftrightarrow  \pi\left(P \right) \H =  \pi\left(B' \right) \H+ \pi\left(B'' \right) \H
- $$
- then $\pi\left(B' \right) \H = \pi\left(P \right) \H \quad\Leftrightarrow \quad B'= P$ or $\pi\left(B'' \right) \H= \pi\left(P \right) \H\quad \Leftrightarrow \quad B'' = P$. So $P$ corresponds to a point if and only if $\dim  \pi\left(P \right) \H= 1$. From our construction if follows that for any point of $p \in \mathrm{pt}(\K)$ there is a one-dimensional subspace $L \subset \H$ such that
- \be\label{k_eno_eqn}
- p^{-1}\left( B\right) = \begin{cases}
- 0& \pi\left(B \right)\H = L,\\
- 1& \pi\left(B \right)\H \neq L.
- \end{cases}
- \ee 
-  From the equation \eqref{k_eno_eqn} and \eqref{point_set_eqn} it follows that 
- $$
- \forall B \in \mathfrak{Frame}\left( \K\right) \quad \forall p \in  \mathrm{pt}(\K) \quad \dim \pi\left(B \right)\H > 1 \quad  p\left(B \right) = 1.
- $$
-If  $\dim \H> 2$ then there is an infinite set of different $B \in \mathfrak{Locale}\left( \K\right)$ such that $\dim \pi\left(B \right)\H > 1\quad \Rightarrow\quad \mathrm{pt}(B)=1$. From this fact it follows that $\mathfrak{Locale}\left( \K\right)$ is not spatial (cf. Definition \ref{spatial_locale_defn}).
- \end{proof}
-\begin{remark}
-There is a bijection $\pt\left( \K\right) \cong P\H$, however a topology of $\pt\left( \K\right) \cong P\H$ is quite specific. From the equation \eqref{comp_open_set_eqn} it follows that any open subset of $\pt\left( \K\right) \cong P\H$ is given by
-\be
-\left\{p_{\mathfrak{pt}}| \mathfrak{pt}\in P\H, \quad \H' \not\perp \mathfrak{pt}\right\}
-\ee
-where $\H'\subset \H$ is subspace. 
-\end{remark}
-\begin{empt}
- There is a natural  surjective map $P\H \to \H \setminus \{0\}$. This map yields a natural topology $P\H$. The bisection $P \H \xrightarrow{\approx}\pt\left( \K\right)$ is a continuous map. So for any Abelian group $F$ and any ring $R$ there are following homomorphism of groups and rings
-\bean
-\check{H}^\bullet\left(\K, F\right)  \to  \check{H}^\bullet\left(P\H, F\right),\\
-\check{H}^\bullet\left(\K, R\right)  \to  \check{H}^\bullet\left(P\H, R\right),
-\eean 
-respectively (cf. 	 the Remark \ref{ring_homo_rem} !!! \ref{topos_hom_chech_hom_r_eqn}  \ref{topos_hom_hom_eqn}  !!!).
-\end{empt}
-  
 
  
 \section{Topoi of liminaly $C^*$-algebras with Hausdorff spectra}
@@ -2410,7 +2424,30 @@ Any {Grothendieck topos} is a topos in the sense of the Definition \ref{topos_de
 		\ee
 	\end{definition}
 
-\paragraph{}
+\begin{definition}\label{yoneda_defn}
+Each object $C$ of a small category $\mathbf{C}$ gives rise to a presheaf $\mathbf y (C)$ on $\mathbf C$, defined on
+an object $D$ of $\mathbf C$ by
+\be\label{yoneda1_eqn}
+\mathbf y(C)(D) \bydef \Hom_{\mathbf C}(D,C)
+\ee
+and on a morphism $D'\xrightarrow{\a}D$, for $D\xrightarrow{u}C$, by
+\be\label{yoneda2_eqn}
+\begin{split}
+\mathbf y(C)(\a): \Hom_{\mathbf C}(D,C)\to \Hom_{\mathbf C}(D',C)\\
+\mathbf y(C)(\a)(u) = u\circ \a;
+\end{split}
+\ee
+or briefly, $\mathbf y(C): \Hom_{\mathbf C}(\cdot ,C)$ is the contravariant $\Hom$-functor.
+Presheaves which, up to isomorphism, are of this form are called \textit{representable
+presheaves} or \textit{representable functors}. If $f: C_1 \to C_2$ is a morphism
+in $\mathbf C$, there is a natural transformation $y(C_1) \to y(C_2 )$ obtained
+by composition with $f$. This makes $\mathbf y$ into a functor
+\be
+\mathbf y : \mathbf C \to \mathbf{Sets}^{\mathbf C^{\text{op}}}, \quad C \mapsto  \Hom_{\mathbf C}(\cdot ,C)
+\ee
+from $\mathbf C$ to the contravariant functors on C (hence the exponent $C^{\text{op}}$).
+It is called the \textit{Yoneda embedding}.
+\end{definition}
 
 \begin{definition}\label{coheaf_defn}\cite{shimizu_cosh}
 Let $X$ be a small category equipped with a pretopology $J$ and $\V$ be a category. 
@@ -2435,16 +2472,16 @@ is a colimit of representable presheaves, so (up to natural isomorphism)
 the functor $f^*$ is completely determined by what it does to representables.
 More explicitly, each presheaf $\mathscr F \in  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is canonically a colimit
 $\varinjlim H$ of representables. Indeed, $\mathscr F$ determines the category $\int \mathscr F$ of its
-elements, with objects the pairs $(C, r)$, where $r \in \mathscr F(C)$ and $C \in \mathbf{C}$,
-while $H: \int \mathscr F \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ sends this object $(C, r)$ to $\mathbf{y}C \bydef \Hom( -, C) $.
+elements, with objects the pairs $(C, r)$, where $r \in \mathscr F(C)$ and $C \in \mathbf{C}$. A morphism of $\int \mathscr F$ is a morphism from $(C, r)$ to $(C', r')$ is  $\mathbf C$-morphism $\phi: C' \to C$ such that $\mathscr F\left( f\right)\left( r'\right)  = r$. 
+While $H: \int \mathscr F \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ sends this object $(C, r)$ to $\mathbf{y}C \bydef \Hom( -, C) $.
 This colimit $\varinjlim H$ can be presented as a coequalizer,
-with coproducts over the arrows $u: (C', r') -t (C, r)$ and then over the
+with coproducts over the arrows $u: (C', r') \to (C, r)$ and then over the
 objects of $\int \mathscr F$. This gives the following coequalizer in $\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$:
 \be\label{coprod_topos_eqn}
-\coprod_{\substack{u: C'\to C\\r \in R(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
 \ee
 specifically, if we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
-$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)'= \mathbb{C}\left( B, C'\right)$  for some object
+$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)= \mathbf{C}\left( B, C'\right)$  for some object
 $B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
 \bean
 \th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
@@ -2453,13 +2490,13 @@ $B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(
 The functor $f^*: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ preserves colimits, so it sends this coequalizer
 \eqref{coprod_topos_eqn} to the following coequalizer in the topos $\E$:
 \be\label{coprod_topos_e_eqn}
-\coprod_{\substack{u: C'\to C\\r \in R(C)}}f^*\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}f^*\mathbf{y}C\xrightarrow{\eps} f^*\mathscr F;
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}f^*\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}f^*\mathbf{y}C\xrightarrow{\eps} f^*\mathscr F;
 \ee
 Now suppose that $\E$ has all small colimits, let $A:\mathbf{C}\to \E$
 be any (covariant) functor and consider the tensor product functor
-$-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. Explicitly, for any $R \in \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ the object $\mathscr F\otimes_{\mathbf{C}}A$ of $\E$ is defined by the following coequalizer:
+$-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. Explicitly, for any $\mathscr F \in \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ the object $\mathscr F\otimes_{\mathbf{C}}A$ of $\E$ is defined by the following coequalizer:
 \be\label{coprod_topos_a_eqn}
-\coprod_{\substack{u: C'\to C\\r \in R(C)}}A\left(C' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in R(C)}}A\left(C \right)\xrightarrow{\eps} \mathscr F\otimes_{\mathbf{C}}A;
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}A\left(C' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}A\left(C \right)\xrightarrow{\eps} \mathscr F\otimes_{\mathbf{C}}A;
 \ee
 The functor $-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. thus defined is an extension
 of the functor $A : \mathbf{C}\to \E$, in the sense that, up to isomorphism, the
@@ -2497,11 +2534,11 @@ preserves finite limits as well as covers. %Here ¢ preserves covers meansthat if
 \begin{theorem}\label{site_mor_thm}\cite{topos:intro}
 %Theorem 2. 
 For categories $\mathbf{C}$ and $\mathbf{D}$ with finite limits, any
-such morphism of sites $\phi: \mathbf{C}\to \mathbf{D}$ induces a geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$.
+such morphism of sites $\phi: \mathbf{C}\to \mathbf{D}$ induces a geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$ (cf. Definition \ref{geometric_morphism_defn}).
 %f: Sh(D, K) -+ Sh(C, J); the direct image functor f*: Sh(D, K) -+Sh(C, J) sends a sheaf F on D to the composition f*(F) = F 0 ¢,
 \end{theorem}
 \begin{empt}\label{site_mor_empt}\cite{topos:intro}
-Here we explicitly describe the given by the Theorem \ref{site_mor_thm} geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$. The direct image if given by
+Here we explicitly describe the given by the Theorem \ref{site_mor_thm} geometric morphism $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$. The direct image is given by
 \be\label{geom_dir_im_eqn}
 \begin{split}
 \mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f_*} \mathbf{Sh}\left(\mathbf{C}, J\right),\\
@@ -2512,13 +2549,14 @@ The inverse image is given by
 \be\label{geom_inv_im_eqn}
 \begin{split}
  \mathbf{Sh}\left(\mathbf{C}, J\right)\xrightarrow{f^*}	\mathbf{Sh}\left(\mathbf{D}, K\right),\\
-	\mathscr G \mapsto \mathscr G\otimes A_\phi.
+	\mathscr G \mapsto \mathscr G\otimes_{\mathbf C} A_\phi.
 \end{split}
 \ee
 where 
 \be\label{geom_ep_im_eqn}
-A_\phi \bydef \mathbf{C} \xrightarrow{\phi} \mathbf{D} \xrightarrow{\mathbf{y}} \mathbf{Sets}^{\mathbf{D}^{\mathrm{op}}} \xrightarrow{\mathfrak{Ass}}\mathbf{Sh}\left(\mathbf{D}, K\right).
+A_\phi \bydef \mathbf{C} \xrightarrow{\phi} \mathbf{D} \xrightarrow{\mathbf{y}} \mathbf{Sets}^{\mathbf{D}^{\mathrm{op}}} \xrightarrow{\mathfrak{Ass}}\mathbf{Sh}\left(\mathbf{D}, K\right),
 \ee
+tensor product is given by \eqref{coprod_topos_a_eqn}, the Yoneda presheaf $\mathbf y$ is given by the equations \eqref{yoneda1_eqn},   \eqref{yoneda2_eqn} and $\mathfrak{Ass}$ is the an  {associated sheaf functor} (cf. Definition \ref{associated_sheaf_defn}).
 \end{empt}
 
 
@@ -3180,7 +3218,9 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 
 	\section{Topological sheaves and cosheaves}
 		\subsection{General topology}
-	
+	\begin{definition}\label{nerve_defn}\cite{spanier:at}
+	Given a set $X$ and a collection $\mathscr W = \left\{W\right\}$ of subsets of $X$, the \textit{nerve} of $\mathscr W$ denoted by $K\left( \mathscr W\right)$, is  the simplicial complex whose simplexes are finite nonempty subsets of  $\mathscr W$ with nonempty intersections. Thus the vertices of $K\left( \mathscr W\right)$ are nonempty elements of $\mathscr W$.
+	\end{definition}
 	\begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
 		A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
 	\end{definition}
@@ -3198,7 +3238,9 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 	only if it is a paracompact Hausdorff space that is locally metrizable.
 	\end{theorem}
 	
+	
 \subsection{Simplicial sets and geometric realization}
+!!! MAY BE DELETE
 \begin{definition}\cite{gelfand_manin}
 A \textit{simplicial set} is a family of sets $X_\bullet \bydef \left\{X_n\right\}_{n = 0,1, ...}$
 and of maps $X(f) : X_n\to X_m$, one for each nondecreasing map $f : [m] \to [n]$ 
@@ -3235,7 +3277,8 @@ s = \Dl_f\left( t\right)
 	\end{definition}
 
 
-\begin{definition}\label{nerve_defn}\cite{gelfand_manin}
+\begin{definition}\label{nerve_m_defn}\cite{gelfand_manin}
+	MAY BE DELETE !!!
 	Let $\sY$ be a topological space, $\mathscr U \bydef \left\{\sU_{   \a}\right\}$ be its covering (either by open or by 
 closed sets), $\a$ running over some set $\A$. Let 
 \bean
