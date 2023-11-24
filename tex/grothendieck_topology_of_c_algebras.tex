@@ -1176,7 +1176,17 @@ $$
 	\emptyset & \sU \not\subset U.
 \end{cases}
 $$
-
+There is a following specialization of \eqref{coprod_topos_eqn}
+\be\label{compact_topos_eqn!}
+\coprod_{\substack{u: U'\to U\\r \in F_{\mathbf{Hered}/\K}(U)}}\mathbf{y}U' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{U \in \mathbf{Hered}/\K\\r \in F_{\mathbf{Hered}/\K}(U)}}\mathbf{y}U\xrightarrow{\eps} F_{\mathbf{Hered}/\K};
+\ee
+If we write elements of $\coprod_{u,r} \mathbf{y}U'$ as triples $(r, u, v)$ with
+$r \in  F_{\mathbf{Hered}/\K}(U)$, $~u: U' \to U$ and $v \in  \mathbf{y}(U')(V)= \mathbf{C}\left( V, U'\right)$  for some object
+$V$ in $\mathbf{Hered}/\K$, and similarly write elements of $\coprod_{U,r}$ as pairs $(r, w)$ with $w\in \mathbf{Hered}/\K(V, U)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
+\bean
+\th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
+\tau \left(r, u, v \right)  \bydef \left(ru, v \right) 
+\eean 
 
  
 $$
@@ -1189,7 +1199,7 @@ f^*F_{\mathbf{Hered}/\K} = F_{\mathbf{Hered}/\K}\otimes_{\mathbf{Hered}/\K} A_\p
 $$
 On the other hand from the equation \eqref{coprod_topos_a_eqn} it follows that 
 \be\label{compact_topos_a_eqn}
-\coprod_{\substack{u: U'\to U\\r \in F_{\mathbf{Hered}/\K}(C)}}A_\phi\left(U' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{U \in \mathbf{Hered}/\K\\r \in F_{\mathbf{Hered}/\K}(U)}}A_\phi\left(U \right)\xrightarrow{\eps} \mathbf{Hered}/\K\otimes_{\mathbf{C}}A_\phi;
+\coprod_{\substack{u: U'\to U\\r \in F_{\mathbf{Hered}/\K}(C)}}A_\phi\left(U' \right)\left(\sU \right)   \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{U \in \mathbf{Hered}/\K\\r \in F_{\mathbf{Hered}/\K}(U)}}A_\phi\left(U \right)\left(\sU \right) \xrightarrow{\eps} \mathbf{Hered}/\K\otimes_{\mathbf{C}}A_\phi\left(\sU \right) ;
 \ee
 
 \end{empt}
@@ -1206,7 +1216,70 @@ $B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(
 \eean 
 
 \paragraph{title}
-
+\paragraph{}
+Here I follow to \cite{topos:intro}.
+Suppose $f: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is a geometric morphism. Its inverse image
+functor $f^*: \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$ preserves colimits, and every presheaf $\mathscr F$ on $\mathbf{C}$
+is a colimit of representable presheaves, so (up to natural isomorphism)
+the functor $f^*$ is completely determined by what it does to representables.
+More explicitly, each presheaf $\mathscr F \in  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is canonically a colimit
+$\varinjlim H$ of representables. Indeed, $\mathscr F$ determines the category $\int \mathscr F$ of its
+elements, with objects the pairs $(C, r)$, where $r \in \mathscr F(C)$ and $C \in \mathbf{C}$. A morphism of $\int \mathscr F$ is a morphism from $(C, r)$ to $(C', r')$ is  $\mathbf C$-morphism $\phi: C' \to C$ such that $\mathscr F\left( f\right)\left( r'\right)  = r$. 
+While $H: \int \mathscr F \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ sends this object $(C, r)$ to $\mathbf{y}C \bydef \Hom( -, C) $.
+This colimit $\varinjlim H$ can be presented as a coequalizer,
+with coproducts over the arrows $u: (C', r') \to (C, r)$ and then over the
+objects of $\int \mathscr F$. This gives the following coequalizer in $\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$:
+\be\label{coprod_topos_eqn}
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
+\ee
+or equivalently for any object $B$ is $\mathbf C$ one has
+\be\label{coprod_topos_[]_eqn}
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\Hom_{\mathbf C} \left( B, C'\right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\Hom_{\mathbf C} \left( B, C\right)\xrightarrow{\eps} \mathscr F\left(B \right) ;
+\ee
+If we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
+$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)= \mathbf{C}\left( B, C'\right)$  for some object
+$B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
+\bean
+\th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
+\tau \left(r, u, v \right)  \bydef \left(ru, v \right) 
+\eean 
+The functor $f^*: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ preserves colimits, so it sends this coequalizer
+\eqref{coprod_topos_eqn} to the following coequalizer in the topos $\E$:
+\be\label{coprod_topos_e_eqn}
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}f^*\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}f^*\mathbf{y}C\xrightarrow{\eps} f^*\mathscr F;
+\ee
+Now suppose that $\E$ has all small colimits, let $A:\mathbf{C}\to \E$
+be any (covariant) functor and consider the tensor product functor
+$-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. Explicitly, for any $\mathscr F \in \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ the object $\mathscr F\otimes_{\mathbf{C}}A$ of $\E$ is defined by the following coequalizer:
+\be\label{coprod_topos_a_eqn}
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}A\left(C' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}A\left(C \right)\xrightarrow{\eps} \mathscr F\otimes_{\mathbf{C}}A;
+\ee
+The functor $-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. thus defined is an extension
+of the functor $A : \mathbf{C}\to \E$, in the sense that, up to isomorphism, the
+diagram
+\newline
+\begin{tikzcd}
+	\mathbf{C} \arrow[d, "\mathbf{y}"]\arrow[r, "A"]
+	&  \E \\
+	\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\arrow[ru, "-\otimes_{\mathbf{C}}"]	&  ~
+\end{tikzcd}
+\\
+commutes. 
+%Indeed, this is just the canonical isomorphism
+%\be\label{topos_mor_eqn}
+%\mathbf{ y}(C)\otimes_{\mathbf{C}} A = \Hom\left(-, C \right)\otimes_{\mathbf{C}} A \cong A(C).
+%\ee
+%Moreover, the functor$ \otimes_{\mathbf{C}} A$ is left adjoint to the functor
+%\be\label{coprod_topos_aa_eqn}
+%\underline{\Hom}_\E (A, - ): \E \to  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
+%\ee
+%defined, for an object $E$ in $\E$ and an object $C$ in $\mathbf{C}$, by
+%\be\label{coprod_topos_aas_eqn}
+%\underline{\Hom}_\E (A, E )\left(C \right) = \Hom_\E\left(A\left( C\right) , E \right)  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
+%\ee
+%This adjunction  assumes that $\E$ is cocomplete. The co completeness hypothesis "$\E$ has all small colimits" may be replaced by"$\E$ is a topos over sets"%, provided the functor $A: \mathbf{C}\to \E$ is also replacedby a left ll(C) object (an "internal diagram") on the category objectI (C)in E. See V. 7 (5). Here ll: Sets -+ E is the canonical functor,¤1(8).
+\
+\paragraph{title}
 \begin{theorem}\label{top_nerve_thm}
 	PAGE 193 !!! DOWN !!!
 	4.13. Theorem. Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
@@ -2459,8 +2532,21 @@ It is called a \textit{cosheaf} if the diagram
 is a coequalizer in $\V$ for all $\{U_i \to U\}_i \in J$. 
 In other words, a cosheaf is a $\V^{\mathrm{op}}$-valued sheaf. If $X$ is a site or (in particular) a locale then we denote by $\mathbf{PreCSh}\left(X \right)$ and  $\mathbf{CSh}\left(X \right)$ a category of precosheafs and cosheaves respectively.
 \end{definition}
-
-
+\begin{lemma}\label{represented_presheaf_lem}\cite{johnstone:topos}
+Any object of $\mathbf{Sets}^{\mathbf C^{\mathrm{op}}}$ can be expressed as a colimit of a diagram whose vertices are representable functors.
+\end{lemma}
+\begin{proof}
+	Let $X$ is an object of $\mathbf{Sets}^{\mathbf C^{\mathrm{op}}}$, and let $\left(\mathbf C\downarrow X\right)$ denote the (small) \textit{comma category} whose objects a pairs, $U$ is an object of $\mathbf C$ and $\Hom_{\mathbf C}\left(\cdot, U \right) \xrightarrow{\a}X$ is $\mathbf{Sets}^{\mathbf C^{\mathrm{op}}}$-morphism, and those morphisms are commutative triangles 
+					\newline
+	\begin{tikzcd}
+		\Hom\left(\cdot, U \right) \arrow[rr]\arrow[rd] & &	\Hom\left(\cdot, V \right)\arrow[ld]\\
+		&  X & \\
+	\end{tikzcd}
+	\\
+	 $\mathbf{Sets}^{\mathbf C^{\mathrm{op}}}$.
+	 
+	 Then we have an obvious "forgetful" diagram in $\left(\mathbf C\downarrow X\right)\to \mathbf{Sets}^{\mathbf C^{\mathrm{op}}}$ given by $\left( U, \a \right) \mapsto \Hom_{\mathbf C}\left(\cdot, U \right)$; and the colimit of this diagram is readily to be $X$.
+\end{proof}
 
 
 \subsection{Geometric morphisms into Grothendieck topoi}
@@ -2480,7 +2566,11 @@ objects of $\int \mathscr F$. This gives the following coequalizer in $\mathbf{S
 \be\label{coprod_topos_eqn}
 \coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
 \ee
-specifically, if we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
+or equivalently for any object $B$ is $\mathbf C$ one has
+\be\label{coprod_topos_[]_eqn}
+\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\Hom_{\mathbf C} \left( B, C'\right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\Hom_{\mathbf C} \left( B, C\right)\xrightarrow{\eps} \mathscr F\left(B \right) ;
+\ee
+If we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
 $r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)= \mathbf{C}\left( B, C'\right)$  for some object
 $B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
 \bean
