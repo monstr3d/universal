@@ -833,7 +833,7 @@ The category $\mathbf{Hered}/C_0\left(\sX \right)$ is equivalent to the category
 \end{tikzpicture}
 \end{enumerate}
 For any $\sU \in 	\mathfrak{Closed}\left( \sX\right)$ a covering of $\sU$ is a finite family $\left\{\sU_\iota\subset \sU\right\}$ such that $\sU = \bigcup \sU_\iota$. There is an equivalence of sites
-\be
+\be\label{top_closed_site_eqn}
 \left(\mathbf{Hered}/A, J_A\right)\cong \left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)
 \ee
 where the Grothendieck topology $J_\sX$ is corresponds to the described above coverings.
@@ -1101,9 +1101,16 @@ On the other hand the given by the Lemma \ref{top_cech_cof_cov_lem} systems of c
 
 \section{Topoi of the $C^*$-algebras of compact operators}
 \paragraph{}
+Let $p \in \N\cup \infty$
 In this section we use  following notations:
 \begin{itemize}
-	\item $\H$ is a Hilbert space,
+	\item 
+$$
+\H \bydef \begin{cases}
+\C P^p & p \in \N\\
+\ell^2\left(\N \right) & p = \infty
+\end{cases}.
+$$	
 	\item  $\pi:\K \bydef \K\left(\H \right)$ the $C^*$-algebra of compact operators. 
 \end{itemize}
 The natural representation $\pi:\K \to B\left(\H \right)$ is irreducible. 
@@ -1121,12 +1128,99 @@ From the Lemma \ref{compact_hered_lem} the map $B \mapsto \H_B$ yields one-to-on
 \end{enumerate}
 Now we can construct a specialization of given by the section \ref{groth_top_sec} construction. A family  $\mathbf{Hered}/\K$-objects is naturally isomorphic to the family of closed subspaces of $\H$.  A $\mathbf{Hered}/\K$ morphism $\H' \to \H''$ corresponds to an inclusion $\H'' \subset \H'$. The fiber product $\H' \times_{\{0\}} \H''$ corresponds to $\H' + \H''$. A covering of $\H'$ is a finite set $\left\{\H_1, ..., \H_n\right\}$ of subspaces  such that $\H'= \bigcap_{j = 1}^n\H_j$. So one has a pretopology denoted by $J_\K$, and the Gelfand $\K$-site $\mathfrak{Site}\left(\K \right) = \left(\mathbf{Hered}/\K, J_\K \right)$. 
 \end{empt}
+\begin{empt}
+There is an alternative description of $\mathfrak{Site}\left(\K \right)$. Instead to Hilbert spaces we set their orthogonal complements.   A $\mathbf{Hered}/\K$ morphism $\H' \to \H''$ corresponds to an inclusion $\H' \subset \H''$. The fiber product $\H' \times_{\{0\}} \H''$ corresponds to $\H' \cap  \H''$. A covering of $\H'$ is a finite set $\left\{\H_1, ..., \H_n\right\}$ of subspaces  such that $\H'= \sum_{j = 1}^n\H_j$. So one has a pretopology denoted by $J_\K$, and the Gelfand $\K$-site $\mathfrak{Site}\left(\K \right) = \left(\mathbf{Hered}/\K, J_\K \right)$. 
+\end{empt}
+\begin{empt}
+Suppose that $d$ is finite and $d \bydef n - 1$. Then one has a projective space $\C P^d = P\left(\H \right)$. The site $\left(\mathbf{Hered}/\K, J_\K \right)$, can be described by following way. Elements of $J_\K$ are linear subspaces of  $\C P^d$ the fiber product corresponds to intersection of spaces, a covering of subspace $P \H' \subset \C P^d$ is a finite set $\left\{P\H_1, ..., P\H_n\right\}$ of subspaces of $\C P^d$ such that $P\H'$ is a minimal linear subspace which contains a union $P\H_1\cup ...\cup P\H_n$. Three is a site a given by \eqref{top_closed_site_eqn} site
+$
+\left(\mathfrak{Closed}\left( \C P^d \right), J_{\C P^d}\right)
+$. Any $\mathbf{Hered}/\K$-object corresponds to a closed subspace of $\C P^d$, so it is a $\mathfrak{Closed}\left( \C P^d \right)$-object. Let $\mathscr U_\K$ be a family of the given by the equation \eqref{compact_zar_open_eqn} open sets of $\C P^d$ and let $\mathscr U_{\mathfrak{Closed}\left( \C P^d \right)}$ be a family of all subsets of $\mathfrak{Closed}\left( \C P^d \right)$-objects. One has
+$$
+s \in C^r\left( \mathscr U_\K, F_{\mathbf{Hered}/\K}\right)\quad \Rightarrow \quad s \in C^r\left( \mathscr U_{\mathfrak{Closed}\left( \C P^d \right)}, F_{\mathfrak{Closed}\left( \C P^d \right)}\right)
+$$
+where the notation \eqref{cech_eqn} is used. Moreover for any $c \in C^r\left( \mathscr U_\K, F_{\mathbf{Hered}/\K}\right)$ a following condition hold:
+\be\label{compact_diff_eqn}
+d^r_{\mathscr U_\K} c = 0 \quad \Rightarrow \quad d^r_{ \mathscr U_{\C P^d}} c = 0
+\ee
+where $d^r_{\mathscr U_\K}$ (resp. $d^r_{ \mathscr U_{\C P^d}}$) are given by \eqref{cech_differential_eqn} differentials which are related to the families $\mathscr U_\K$ and  $\mathscr U_{\C P^d}$ respectively. From the equation \eqref{compact_diff_eqn} it follows that for any $r > 0$ there is an  homomorphism
+$$
+H^r\left( \K, F\right) \hookto H^r\left( \mathfrak{Closed}\left( \C P^d \right), F\right).
+$$
+Let us fix $f \in F$.
+If $P_\H$ is a subspace of is a linear subspace of $\C P^d$ such that codimension of $P\H$ equals to 1 then if $P \H_1$, $~P \H_1$, $~P \H_3$ are such that $P\H_1 \neq  P\H_2,~~ P\H_1 \neq  P\H_3,~~ P\H_2 \neq  P\H_3$ then $P\H \neq  P\H_1 \cap P\H_2 \cap P\H_3$. From this circumstance it follows that if  chain $s^{P\H} \in C^1\left(\mathscr U_\K, F \right)$ is given by
+\be\label{compact_cycle_eqn}
+\begin{split}
+ s^{P\H}_{P\H, \C P^d} = f,\\
+\forall \left( P\H_1, P\H_2 \right) \neq \left(P\H, \C P^d \right)   \quad s^{P\H}_{P\H_1, P\H_2}= 0 
+\end{split}
+\ee
+(cf. Equation \eqref{cech_eqn}) then $d^1 s = 0$ (cf. \ref{cech_differential_eqn}), i.e. $s$ is a cocycle. If both $P\H'$, $P\H''$ have codimension 1 and $P\H'\neq P\H''$ then a family $\mathscr U' = \left\{P\H', P\H''\right\}$ is a covering of $\mathbf{Hered}/\K$. If  $s^0 \in C^0\left(\mathscr U_\K, F \right)$ is given by 
+\be\label{compact_cycle_0_eqn}
+\begin{split}
+\quad s^0_{P\H'\cap  P\H''} = f,\\
+	\forall P\H \neq P\H'\cap  P\H''   \quad s^0_{P\H}= 0 
+\end{split}
+\ee
+then
+$$
+d^0 s^0 =  s^{P\H'}- s^{P\H''}
+$$
+If follows that cohomology class of $s^{P\H''}$ does not depend on choice of $P\H''$. If $P\H^r$ is a subspace  of codimension  $r$ then there is a family $\mathscr U^r = \left\{P \H_1, ..., P\H_r\right\}$ such that $P\H^r= P \H_1\cap ...\cap P\H_r$. There is chain $s^{P\H^r} \in C^r\left(\mathscr U^r, F \right)$
+\be\label{compact_cycle_r_eqn}
+\begin{split}
+s^{P\H^r}_{P\H_1, ..., P\H_r,  \C P^d} = f,\\
+\forall \left(L_0, ..., L_{r}\right) \neq \left(P\H_1, ..., P\H_r,  \C P^d \right)  \in \mathscr U^r \quad s^{P\H^r}_{L_0, ..., L_{r}}= 0 
+\end{split}
+\ee
+One has
+$$
+d^{r}s^{P\H^r}
+$$
+
+
+Suppose that $F = \Z$, $f = 1$ and consider  chain $s$ as an element of 
+\paragraph{title}
+
+it cannot be be represented by 
+$$
+P\H \neq  P\H_1 \cap P\H_2 \cap P\H_3; \quad  P\H_1 \neq  P\H_2,\quad P\H_1 \neq  P\H_3,\quad P\H_2 \neq  P\H_3,
+$$
+
+
+there is only three intersections  
+\bean
+\C P^d\cap \C P^d \cap P\H = C P^d\cap  P\H \cap P\H =  P\H \cap P\H \cap P\H = P\H
+\eean  
+
+
+, then $P_\H = \C P^d \cap \C P^d$. For any $f \in F$ we define a $1$ chain $c \in C^1\left(\mathscr U_\K, F \right)$ such that
+$$
+\exists f \in F \quad  \quad s_{P\H, P\H} = f.
+$$ 
+(cf. Equation \eqref{cech_eqn}).
+
+
+If $P\H$ is a linear subspace of $\C P^d$ such that codimension of $P\H$ equals to $k$ then there are subspaces
+\end{empt}
+\paragraph{title}
+Define
+\be\label{cech_eqn!}
+C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
+\ee
+For $s \in C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
+\be\label{cech_differential_eqn!}
+d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},\iota_{j+1},..., \iota_{r + 1}} \right)  
+\ee
+
+\paragraph{title}
 \begin{empt}\label{compact_alt_constr}
-There is an alternative description of $\mathfrak{Site}\left(\K \right)$. Let $d \in \N$ or $d = \infty$. If $d = \infty$ we suppose that $\C^d \bydef \ell^2\left(\N \right)$. There is a complex projective plane $\C P^d$. Now
+
+There is an alternative description of $\mathfrak{Site}\left(\K \right)$. Let $p \in \N$ or $p = \infty$. If $p = \infty$ we suppose that $\C^p \bydef \ell^2\left(\N \right)$. There is a complex projective space  $\C P^d$ where $d \bydef n-1$. Now
 \begin{enumerate}
 	\item[(a)] $\mathbf{Hered}/\K$-objects are subsets of $\C P^d$ given by
 	\be\label{compact_zar_open_eqn}
-	\sU = \C P^d \setminus \bigcup_{j = 1}^n L_j
+	U = \C P^d \setminus \bigcup_{j = 1}^n L_j
 \ee
 	where $L_j$ is a complex linear projective subspace,  
 	\item[(b)]  $\mathbf{Hered}/\K$-morphisms $\sV \to \sU$ are inclusions $\sV \subset \sU$.
@@ -1135,26 +1229,29 @@ A pullback $\sU' \times_{\C P^d} \sU''$ is an intersection $\sU' \cap \sU''$.
 A covering of $\mathbf{Hered}/\K$-object $\sU$ is a finite family $\left\{\sU_1, ..., \sU_n\right\}$ of $\mathbf{Hered}/\K$-objects, such that $\sU = \sU_1 \cup...\cup \sU_n$. 
 \end{empt}
 \begin{empt}
-Suppose that $d$ is finite, and consider $\C P^d$ as an algebraic manifold with Zariski topology $J_{\mathrm{Zar}}$. On the other there is a category  $\mathbf{Cat}\left( \C P^d\right) $  of open with respect $J_{\mathrm{Zar}}$  subsets of $\C P^d$ and their inclusions. Since any given by \eqref{compact_zar_open_eqn} set is open one has a functor
+Suppose that $d$ is finite, and consider $\C P^d$ as an complex manifold with classical  topology $J_{\C P^d}$. On the other there is a category  $\mathbf{Cat}\left( \C P^d\right) $  of open with respect $J_{\C P^d}$  subsets of $\C P^d$ and their inclusions. Since any given by \eqref{compact_zar_open_eqn} set is open one has a functor
 \be\label{compac_to_cp_eqn}
 \mathbf{Hered}/\K \xrightarrow\phi \mathbf{Cat}\left( \C P^d\right).
 \ee
-There is a site $\left(\C P^d, J_{\mathrm{Zar}}\right)$ and  one can prove that the functor \ref{compac_to_cp_eqn} is  a morphism of sites (cf. Definition \ref{morphism_of_sites_defn}). From the Theorem \ref{site_mor_thm} it follows that there is a geometric morphism
+There is a site $\left(\mathbf{Cat}\left( \C P^d\right), J_{\C P^d}\right)$ and  one can prove that the functor \ref{compac_to_cp_eqn} is  a morphism of sites (cf. Definition \ref{morphism_of_sites_defn}). From the Theorem \ref{site_mor_thm} it follows that there is a geometric morphism
 \be\label{compac_geom_eqn}
- \mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right)
+ \mathbf{Sh}\left(\mathbf{Cat}\left( \C P^d\right), J_{\C P^d} \right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right)
 \ee
-Let $F$ be a  Abelian group, and let both $F_{\mathbf{Hered}/\K} \in \mathbf{Ab}^{\left(\mathbf{Hered}/\K \right)^{\text{op} }}$ and $F_{\mathbf{Cat}\left( \C P^d\right)} \in \mathbf{Ab}^{\left(\C P^d \right)^{\text{op} }}$ be constant presheaves (cf. Definition \ref{constant_presheaf_defn}) of Abelian groups. It is known that if $\sU$ is an open with respect to Zariski topology subset of connected complex manifold then $\sU$ is connected. From this fact it follows that both  $F_{\mathbf{Hered}/\K}$ and $F_{\mathbf{Cat}\left( \C P^d\right)}$ are sheaves, i.e. $F_{\mathbf{Hered}/\K}\in \mathbf{Ab}\left(\mathbf{Hered}/\K, J_\K \right)$ and $F_{\mathbf{Cat}\left( \C P^d\right)}\in \mathbf{Ab}\left(\C P^d, J_{\mathrm{Zar}}\right) $ and
-\be\label{compact_f_eqn}
-\begin{split}
-\forall U \in \mathbf{Hered}/\K \quad F_{\mathbf{Hered}/\K}\left( U\right) \cong F,\\ 
-\forall \sU \in \C P^d \quad F_{\mathbf{Cat}\left( \C P^d\right)}\left( \sU\right) \cong F.
-\end{split}
-\ee
+Let $F$ be a  Abelian group, and let both $F_{\mathbf{Hered}/\K} \in \mathbf{Ab}^{\left(\mathbf{Hered}/\K \right)^{\text{op} }}$ and $F_{\mathbf{Cat}\left( \C P^d\right)} \in \mathbf{Ab}^{\left(\C P^d \right)^{\text{op} }}$ be constant presheaves (cf. Definition \ref{constant_presheaf_defn}) of Abelian groups. 
 If $\mathbf{Sh}\left(\C P^d, J_{\mathrm{Zar}} \right)\xrightarrow{f_*} \mathbf{Sh}\left(\mathbf{Hered}/\K, J_\K \right)$ is the direct image (cf. Definition \ref{geometric_morphism_defn}) then from \eqref{geom_dir_im_eqn}
 it follows that $f_*F_{\mathbf{Cat}\left( \C P^d\right)}\left( U\right)=  F_{\mathbf{Cat}\left( \C P^d\right)}\left( \phi \left( U\right) \right)\cong F$ for all $\forall U \in \mathbf{Hered}/\K$, and taking into account \eqref{compact_f_eqn} one has
 \be\label{compact_f_d_eqn}
 \begin{split}
-f_*F_{\mathbf{Cat}\left( \C P^d\right)}= F_{\mathbf{Hered}/\K}
+	f_*F_{\mathbf{Cat}\left( \C P^d\right)}= F_{\mathbf{Hered}/\K}
+\end{split}
+\ee
+Let $m < d$ and let $\left\{L_0, ..., L_m\right\}$ be a family of different $d - 1$ dimensional linear. 
+
+It is known that if $sU$ is an open with respect to Zariski topology subset of connected complex manifold then $\sU$ is connected. From this fact it follows that both  $F_{\mathbf{Hered}/\K}$ and $F_{\mathbf{Cat}\left( \C P^d\right)}$ are sheaves, i.e. $F_{\mathbf{Hered}/\K}\in \mathbf{Ab}\left(\mathbf{Hered}/\K, J_\K \right)$ and $F_{\mathbf{Cat}\left( \C P^d\right)}\in \mathbf{Ab}\left(\C P^d, J_{\mathrm{Zar}}\right) $ and
+\be\label{compact_f_eqn}
+\begin{split}
+\forall U \in \mathbf{Hered}/\K \quad F_{\mathbf{Hered}/\K}\left( U\right) \cong F,\\ 
+\forall \sU \in \C P^d \quad F_{\mathbf{Cat}\left( \C P^d\right)}\left( \sU\right) \cong F.
 \end{split}
 \ee
 There is a specialization of \eqref{geom_ep_im_eqn} given by 
@@ -1203,83 +1300,6 @@ On the other hand from the equation \eqref{coprod_topos_a_eqn} it follows that
 \ee
 
 \end{empt}
-\paragraph{title}
-\be\label{coprod_topos_eqn!}
-\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
-\ee
-specifically, if we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
-$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)= \mathbf{C}\left( B, C'\right)$  for some object
-$B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
-\bean
-\th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
-\tau \left(r, u, v \right)  \bydef \left(ru, v \right) 
-\eean 
-
-\paragraph{title}
-\paragraph{}
-Here I follow to \cite{topos:intro}.
-Suppose $f: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is a geometric morphism. Its inverse image
-functor $f^*: \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$ preserves colimits, and every presheaf $\mathscr F$ on $\mathbf{C}$
-is a colimit of representable presheaves, so (up to natural isomorphism)
-the functor $f^*$ is completely determined by what it does to representables.
-More explicitly, each presheaf $\mathscr F \in  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ is canonically a colimit
-$\varinjlim H$ of representables. Indeed, $\mathscr F$ determines the category $\int \mathscr F$ of its
-elements, with objects the pairs $(C, r)$, where $r \in \mathscr F(C)$ and $C \in \mathbf{C}$. A morphism of $\int \mathscr F$ is a morphism from $(C, r)$ to $(C', r')$ is  $\mathbf C$-morphism $\phi: C' \to C$ such that $\mathscr F\left( f\right)\left( r'\right)  = r$. 
-While $H: \int \mathscr F \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ sends this object $(C, r)$ to $\mathbf{y}C \bydef \Hom( -, C) $.
-This colimit $\varinjlim H$ can be presented as a coequalizer,
-with coproducts over the arrows $u: (C', r') \to (C, r)$ and then over the
-objects of $\int \mathscr F$. This gives the following coequalizer in $\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$:
-\be\label{coprod_topos_eqn}
-\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\mathbf{y}C\xrightarrow{\eps} \mathscr F;
-\ee
-or equivalently for any object $B$ is $\mathbf C$ one has
-\be\label{coprod_topos_[]_eqn}
-\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}\Hom_{\mathbf C} \left( B, C'\right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}\Hom_{\mathbf C} \left( B, C\right)\xrightarrow{\eps} \mathscr F\left(B \right) ;
-\ee
-If we write elements of $\coprod_{u,r} \mathbf{y}C'$ as triples $(r, u, v)$ with
-$r \in  \mathscr F(C)$, $~u: C' \to C$ and $v \in  \mathbf{y}(C')(B)= \mathbf{C}\left( B, C'\right)$  for some object
-$B$ in $\mathbf{C}$, and similarly write elements of $\coprod_{C,r}$ as pairs $(r, w)$ with $w\in \mathbf{ C}(B, C)$, then $\th$ and $\tau$ in \eqref{coprod_topos_eqn} are the maps given by
-\bean
-\th\left(r, u, v \right) \bydef \left(r, u \circ v \right),\\
-\tau \left(r, u, v \right)  \bydef \left(ru, v \right) 
-\eean 
-The functor $f^*: \E \to \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ preserves colimits, so it sends this coequalizer
-\eqref{coprod_topos_eqn} to the following coequalizer in the topos $\E$:
-\be\label{coprod_topos_e_eqn}
-\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}f^*\mathbf{y}C' \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}f^*\mathbf{y}C\xrightarrow{\eps} f^*\mathscr F;
-\ee
-Now suppose that $\E$ has all small colimits, let $A:\mathbf{C}\to \E$
-be any (covariant) functor and consider the tensor product functor
-$-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. Explicitly, for any $\mathscr F \in \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}$ the object $\mathscr F\otimes_{\mathbf{C}}A$ of $\E$ is defined by the following coequalizer:
-\be\label{coprod_topos_a_eqn}
-\coprod_{\substack{u: C'\to C\\r \in \mathscr F(C)}}A\left(C' \right)  \substack{ \xrightarrow{\th}\\\xrightarrow[\tau]{}} \coprod_{\substack{C \in \mathbf{C}\\r \in \mathscr F(C)}}A\left(C \right)\xrightarrow{\eps} \mathscr F\otimes_{\mathbf{C}}A;
-\ee
-The functor $-\otimes_{\mathbf{C}}A:\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\to \E$. thus defined is an extension
-of the functor $A : \mathbf{C}\to \E$, in the sense that, up to isomorphism, the
-diagram
-\newline
-\begin{tikzcd}
-	\mathbf{C} \arrow[d, "\mathbf{y}"]\arrow[r, "A"]
-	&  \E \\
-	\mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}\arrow[ru, "-\otimes_{\mathbf{C}}"]	&  ~
-\end{tikzcd}
-\\
-commutes. 
-%Indeed, this is just the canonical isomorphism
-%\be\label{topos_mor_eqn}
-%\mathbf{ y}(C)\otimes_{\mathbf{C}} A = \Hom\left(-, C \right)\otimes_{\mathbf{C}} A \cong A(C).
-%\ee
-%Moreover, the functor$ \otimes_{\mathbf{C}} A$ is left adjoint to the functor
-%\be\label{coprod_topos_aa_eqn}
-%\underline{\Hom}_\E (A, - ): \E \to  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
-%\ee
-%defined, for an object $E$ in $\E$ and an object $C$ in $\mathbf{C}$, by
-%\be\label{coprod_topos_aas_eqn}
-%\underline{\Hom}_\E (A, E )\left(C \right) = \Hom_\E\left(A\left( C\right) , E \right)  \mathbf{Sets}^{\mathbf{C}^{\mathrm{op}}}
-%\ee
-%This adjunction  assumes that $\E$ is cocomplete. The co completeness hypothesis "$\E$ has all small colimits" may be replaced by"$\E$ is a topos over sets"%, provided the functor $A: \mathbf{C}\to \E$ is also replacedby a left ll(C) object (an "internal diagram") on the category objectI (C)in E. See V. 7 (5). Here ll: Sets -+ E is the canonical functor,¤1(8).
-\
-\paragraph{title}
 \begin{theorem}\label{top_nerve_thm}
 	PAGE 193 !!! DOWN !!!
 	4.13. Theorem. Let $\mathscr A$ be a sheaf of Abelian groups  on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma};\mathscr A \right)= 0$  for $p > 0$ and
@@ -4759,12 +4779,123 @@ where $n = \dim \sX$. Note that $A^0(\sX)= \Z$, and that $A^r(\sX) = \{0\}$ for 
 	%Note also that if X is complete there is a natural group homo	morphism, the degree, from An(X) to Z, defined by deg(^/7I-Pi) = ?/7f, where 	the Pt are points. This is well-defined on rational equivalence classes because 
 \begin{remark}\label{ag_chow_ring_rem}
 If $\sX$ is a 	nonsingular projective variety  then there is an explained in \cite{hartshorne:ag} pairing $A^r(\sX) \times A^s(\sX)\to A^{r + s}(\sX)$ for each $r,s$. If $\sY \in A^r(\sX)$ and $\sZ \in A^s(\sX)$ we denote the pairing  cycle class by $\sY.\sZ$. If $A(\sX)\bydef \bigoplus A^r(\sX)$ then this pairing makes $A(\sX)$ into a commutative associative 
-graded ring with identity. It is called the \text{Chow ring} of $\sX$. Roughly speaking  $\sY.\sZ$ correspond   to the  intersection $\sY\cap\sZ$ of subvarieties.
+graded ring with identity. It is called the \text{Chow ring} of $\sX$. Roughly speaking  $\sY.\sZ$ correspond   to the  intersection $\sY\cap\sZ$ of subvarieties. Below we denote by $\left[\sV\right]$ an element of the Chow ring  represented by subvariety $\sV \subset \sX$.
 \end{remark}
+\begin{empt}
+For an $n$-dimensional non-singular variety $\sY$, set
+\be
+A^p \left(\sY  \right)\bydef A_{n-p}\left(\sY \right).  
+\ee
+With this indexing by codimension, we have
+$$
+A^p \left(\sY  \right)\otimes A^q \left(\sY  \right)\to A^{p+q}\left( \sY\right) 
+$$
+\end{empt}
  
 %	Before stating the axioms, for any morphism f:X -> X' of varieties in 93, 	we assume that X x X' is also in 93, and we define a homomorphism 	f*:A(X') -> A(X) as follows. For a subvariety Y' c X' we define 	where px and p2 are the projections of X x X' to X and X', and T^ is the 	graph of/, considered as a cycle on X x X'. 
+
+\subsection{Chow ring and homology}
+\paragraph{} 
+Here I follow to \cite{fulton:intersection}. Each $k$-dimensional complex variety $\sV$ has a cycle class ${cl}(\sV)$  in $H_{2k}\left( \sV\right)$, where 
+$H_*$ denotes homology with locally finite supports (Borel-Moore homology). If $\sV$ is a subvariety of an $n$-dimensional complex manifold $\sX$, then $H_{2k}(\sV) \cong H^{2n - 2k} \left(\sX \setminus \sV \right)$ 
+The resulting homomorphism from cycles to homology 
+passes to algebraic equivalence. There results in particular a cycle map
+\be
+cl : A_*\left(\sX  \right) \to H_*\left( \sX\right) 
+\ee
+for complex schemes $\sX$, which is covariant for proper morphisms, and 
+compatible with Chern classes of vector bundles. 
+If $\sV$ and $\mathcal W$ are subvarieties of dimensions $k$ and $l$ of a non-singular $n$-dimensional variety $\sX$, a refined topological intersection product $cl\left(\sV \right)\cdot cl\left( \mathcal W\right)$   
+is constructed in $H_{2m}(\sV \cap \mathcal W)$, $m = k + l-n$. If $cl^\sX (\sV)$is the class in 
+$H^{2n - 2k}(\sX,\sX \setminus \sV)$ dual to $cl(\sV)$, and similarly for $cl^\sX(\mathcal W)$, then $cl(\sV)\dot(\mathcal W)$
+		is defined to be the class dual to 
+		$$
+		cl^\sX\left( \sV\right) \smile 	cl^\sX\left( \mathcal W\right)\in H^{2n - 2m}\left(\sX, \sX \setminus \sV \cap \mathcal W \right). 
+		$$
+Borel-Moore homology can be defined using singular cohomology. If a 
+space $\sX$ is imbedded as a closed subspace of $\R^n$, then 
+\be\label{chow1_eqn}
+H_j\left(\sX  \right) \cong H^{n-j}\left(\R^n, \R^n \setminus \sX \right) 
+\ee
+where the group on the right is relative singular cohomology with integer 
+coefficients. More generally, if $\sX$ is a closed subspace of a space $\sY$, there are 
+cap products 
+\be\label{chow2_eqn}
+H^j\left(\sY, \sY \setminus\sX \right) \otimes \xrightarrow{\frown}H_{k-j}\left(\sX \right). 
+\ee
+If $\sX$ is an oriented, connected, real $n$-manifold, then $H_n\left( \sY\right)$ is freely generated by 
+a \textit{fundamental class} $\mu_\sY$, and capping with $\mu_\sY$ determines an isomorphism 
+\be\label{chow3_eqn}
+H^{n-j}\left(\sY, \sY \setminus \sX \right) \xrightarrow[\cong]{\frown \mu_\sY}H_{k-j}\left( \sX\right). 
+\ee
+When $\sY = \R^n$, this is the isomorphism of \eqref{chow1_eqn}. When $\sX = \sY$, \eqref{chow3_eqn} is the Poincar\'{e} duality isomorphism of $H^{n-j}\left(\sY \right)$  with $H_{j}\left(\sY \right)$. 
+If $f : \sY \to \sX$ is a proper morphism, there are covariant homomorphisms 
+\be\label{chow4_eqn}
+f_* : H_{j}\left(\sX \right) \to H_{j}\left(\sY \right) 
+\ee
+If $j: \sU \to \sY$ is an open embedding, there are contravariant restriction homomorphisms
+\be\label{chow5_eqn}
+j^* : H_{p}\left(\sY \right) \to H_{p}\left(\sU \right). 
+\ee
+ If $\sX$ is the complement of $\sU$ in $\sY$, $i: \sX\to \sY$ the closed embedding, there is a long exact sequence 
+ \be\label{chow6_eqn}
+ ...\to  H_{p+1}\left(\sU \right) \to H_{p}\left(\sX \right)\xrightarrow{i_*} \H_{p}\left(\sY \right)\xrightarrow{j_*}H_{p}\left(\sU \right)\to H_{p-1}\left(\sX \right)\to .... 
+ \ee
+  If $\sX$ is a disjoint union of a finite number of spaces $\sX_1,..., \sX_m$, then 
+ \be\label{chow7_eqn}
+H_{i}\left(\sX \right) = H_{i}\left(\sX_1 \right) \oplus ...\oplus H_{i}\left(\sX_m \right)
+ \ee 
+ There are evident compatibilities among these homomorphisms, which will be used without comment. One such is the equation  
+ \be\label{chow8_eqn}
+\left( u \smile v \right) \frown a = j^*\left( u\right)\frown \left( v \frown a\right)  
+ \ee 
+ in $H_*\left( \sX \cap \mathcal W\right)$ , where $\sX \hookto \sY$, $~j:\mathcal W \to  \sY$ are closed embeddings, $u \in H^*(\sY, \sY\setminus \sX), ~v \in H^*(\sY, \sY- \mathcal W), ~a \in H_*\left( \sY\right)$. 
+ \begin{lemma}\cite{fulton:intersection}
+% Lemma 19.1.1. 
+ If $\sX$ is an $n$-dimensional complex scheme, then $H^j(\sX) =\{0\}$ for 
+ $i >2n$, and $H_{2n}\left(\sX \right) $ is a free Abelian group with one generator for each irreducible 
+ component of $\sX$. 
+ \end{lemma}
+ \begin{definition}
+ The generator of $H_{2n}\left(\sX \right)$ corresponding to an $n$-dimensional irreducible 
+ component $\sX_i$, will be denoted $cl(\sX_i)$; it is determined by the fact that it 
+ restricts to the fundamental class $\mu_{\sU_i}$ for any connected open subset $\sU_i$, of the 
+ non-singular locus of $\sX_i$. More generally, if $\sV$ is a $k$-dimensional closed sub variety of a scheme $\sX$, define the \textit{cycle class} $cl_\sX(V)$ by 
+ \be
+ cl_\sX\left(\sV \right) \bydef i_* cl\left(\sV\right)\in H_{2k}\left( \sX\right) 
+ \ee
+ where $i$ is the inclusion of $\sV$ in $\sX$. When no confusion is likely, we may write $cl (\sV)$ 
+ in place of $cl_\sX\left( V\right)$. It is proven in \cite{fulton:intersection}. For any $\sX$, there is a homomorphism denoted $cl$, or $cl_\sX$, 
+ \bean
+ A_*(\sX )\to H_*\left(\sX \right),\\
+ \sum_i n_i \left[\sV_i\right] \mapsto \sum_i n_i cl\left(\sV_i\right).
+ \eean 
+ \end{definition}
+ \begin{definition}\label{ad_ori_defn}
+Every regular (closed) embedding $i: \sV\hookto\sX$ of codimension $d$ has an \textit{orientation class}.
+\be\label{ad_ori_eqn}
+u_i = u_{\sV, \sX}\in H^{2d}\left(\sX, \sX \setminus \sV \right) 
+\ee 
+ \end{definition}
+There is a long exact sequence of cohomology
+ \be
+ \begin{split}
+ 	...\to  H^{p-1}\left(\sV ; \Z\right) \to H^{p}\left(\sX, \sX\setminus\sV ;\Z\right)\xrightarrow{i^*_p} H^{p}\left(\sX;\Z \right)\xrightarrow{j^*_p}H^{p}\left(\sV ; \Z\right)\to\\ \to H^{p+1}\left(\sX, \sX\setminus\sV ; \Z\right)\to .... 
+ \end{split}
+ \ee
+ There is an Abelian group homomorphism $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ such that if $\sV$ is an irreducible $k$-dimensional submanifold of $\sX$ then
+ \be
+ cl \left(\left[\sY\right] \right) = i^*_{2d}\left(u_{\sV, \sX} \right)\in H^{2d} \left(\sX \right)
+ \ee 
+
+ 
+ \begin{corollary}
+ 	%19.2
+ The mapping $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ is a homomorphism of graded rings, covariant for morphism of non-singular varieties. 
+ \end{corollary}
 \end{appendices}
 \section{APP}
+
 
 \begin{lemma}\label{sh_coo_lem} !!!! MAY BE DELETE !!!
 	Let $\sX$ be a compact locally connected space, and let $R$ is a principal ideal domain. Suppose there is an injective continuous map $\sX \hookto\sY$. If $R_\sY$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr L \bydef \mathfrak{Ass}\left( R_\sY\right)$ ia an associated sheaf  then following conditions hold:
