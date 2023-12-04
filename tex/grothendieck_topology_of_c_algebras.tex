@@ -581,9 +581,8 @@ For any topological space there is a sheaf cohomology. A Grothendieck topology  
 
 \section{Gelfand topoi}
 \subsection{Grothendieck topology}\label{groth_top_sec}
-\paragraph*{}
-
-	If $A$ is a $C^*$-algebra then there is a category $\mathbf{Hered}/A$ such that:
+\begin{definition}\label{hered_cat_defn}
+If $A$ is a $C^*$-algebra then there is a category $\mathbf{Hered}/A$ such that:
 \begin{itemize}
 	\item $\mathbf{Hered}/A$-objects are hereditary $C^*$- subalgebras of $A$,
 	\item $\mathbf{Hered}/A$-morphism  from $B' \subset A$ to $B'' \subset A$ is a natural inclusion $B''\subset B'$ such that a following diagram 
@@ -602,6 +601,7 @@ For any topological space there is a sheaf cohomology. A Grothendieck topology  
 	is commutative. In the above diagram the morphism $A \to B'$ and $A \to B'$  correspond to inclusions $B' \subset A$ and $B'' \subset A$.
 \end{itemize}
 Note that the trivial $C^*$-algebra is a final object of the category.
+\end{definition}
 \begin{definition}\label{pullback_covering_ca_defn}
 	For any two $\mathbf{Hered}/A$-objects $B', B''$ we define their \textit{fibre product} or \textit{pullback} (cf. Definition \ref{pullback_defn}) by the following way
 \be\label{fibre_eqn}
@@ -1126,21 +1126,22 @@ On the other hand the given by the Lemma \ref{top_cech_cof_cov_lem} systems of c
 
 \section{Topoi of continuous trace  $C^*$-algebras}
 \paragraph{} Let $A \bydef CT\left(\sX, \dl \right)$ the stable
-continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Notation \ref{ctr_not}). Suppose that the space $\sX$ is compact. Let $U \subset M\left(A \right)$ be a group of unitary elements.  For any hereditary $C^*$ subalgebra $B \subset A$ there is a normal subgroup
-\be\label{ctr_ub_eqn}
-U_B \bydef \left\{u \in U | \forall b \in B \quad u b = b\right\}\subset U.
-\ee
-For any  $\mathbf{Hered}/A$-object denote by
-\be
-\forall B \in \mathbf{Hered}/A \quad U\left( B \right) \bydef U / U_B.
-\ee
-When one  for any $B', B'' \in  \mathbf{Hered}/A$ such that $B' \subset B''$ (i.e. there is $\mathbf{Hered}/A$-morphism $B'' \to B'$)  then there is a natural injective  homomorphism of groups:
+continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Notation \ref{ctr_not}). Suppose that the space $\sX$ is compact. Let $U \subset M\left(A \right)$ be a group of unitary elements.  For any  hereditary $C^*$-subalgebra $B \subset A$ denote by  $L\left( B\right)$ is a given by the equation  \eqref{left_ideal_eqn} left ideal of $A$. Let $L^\perp\left( B\right)$ is the $C^*$-norm completion of the union of left ideals $L \subset A$ such that $L \cap  L\left( B\right)= \{0\}$. For any hereditary $C^*$-subalgebra $B \subset A$ there is a subgroup
 \bean
- U\left( B'' \right)\to U\left( B' \right)
-\eean 
-So the map $B \mapsto  U\left( B \right)$ is a presheaf with respect to the Gelfand $A$-topology (cf. Definition \ref{gelfand_a_site_defn})
+U_B \bydef \left\{u \in U | \forall a \in L^\perp\left( B\right)  \quad  a u = a,\quad  u a^* = a^*\right\}\subset U
+\eean
+For any $v \in U$, $u \in U_B$ and $a\in L^\perp\left( B\right)$ one has
+$$
+a \left( v u v^{-1}\right) = \left( \left( av\right)u\right)    v^{-1}=\left(a v \right) v^{-1}= a,
+$$
+or $v  U_B v^{-1} =  U_B$, i.e. $U_B$ is a normal subgroup of $U$.
+ If for any $B', B'' \in  \mathbf{Hered}/A$ such that $B' \subset B''$ (i.e. there is $\mathbf{Hered}/A$-morphism $B'' \to B'$) there are  natural inclusions $L\left({B'}\right)\subset L\left({B''}\right)$, $~L^\perp\left({B''}\right)\subset L^\perp\left({B'}\right)$ and $U_{B'}\subset U_{B''}$. So if $U\left( B\right)\bydef U / U_B$ then there  the natural surjective  homomorphism of groups
+\be\label{ctr_ub_eqn}
+U\left(B'\right) \to U\left(B'' \right). 
+\ee
+When  the map $B \mapsto  U\left( B \right)$ is a presheaf of groups on a category $\mathbf{Hered}/A$ (cf. Definitions \ref{hered_cat_defn} and  \ref{presheaf_defn}).
 \begin{lemma}
-The  map $B \mapsto  U\left( B \right)$ is a sheaf. 
+The  map $B \mapsto  U\left( B \right)$ is a sheaf with respect to the Gelfand $A$-topology (cf. Definition \ref{gelfand_a_site_defn}).
 \end{lemma}
 \begin{proof}
 	Firstly we prove that the presheaf is separated (cf. Definition \ref{sheaf_defn}).
