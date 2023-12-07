@@ -1280,7 +1280,6 @@ structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bund
 	= \mu_{\iota j}\mu_{jk}\mu_{kl}\mu_{jl}^{-1}\mu_{jl}\mu_{\iota l}^{-1}
 	\ee
 \end{empt}
-
 \begin{lemma}
 	PAGE 107 !!! Lemma 4.81. Let $\H$ be a Hilbert space, $\sZ$ a paracompact space, and $\left\{\la_{\iota j} \right\} \in Z^1(\mathscr U,A)$ a cocycle with coefficients in the sheaf $A$ of germs of continuous
 	$\Aut~\K(\H)$-valued functions on $\sZ$. Then the above procedure gives a class
@@ -1290,9 +1289,77 @@ structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bund
 \end{lemma}
 
 \begin{lemma}
-PAGE 141. Lemma 5.47. Suppose A is a continuous-trace C?-algebra with spectrum T, ? ? AutC0(T) A, and t ? T. Then there are a compact neighbourhood F of t and a
-unitary multiplier u ? UM(AF ) such that ?F = Ad u.
+PAGE 141. !!! Lemma 5.47. Suppose $A$ is a continuous-trace $C^*$-algebra with spectrum $T$, $\a \in \Aut_{C_0\left( T\right) }~ A$, and $t \in T$. Then there are a compact neighborhood $F$ of $T$ and a
+unitary multiplier $u \in UM\left(A|^F \right)$  such that $\a^F = \mathrm{Ad}u$.
 \end{lemma}
+\begin{theorem}
+	PAGE 140
+	Theorem 5.42. Suppose that $A$ is a continuous-trace $C^*$-algebra with spectrum $T$.
+	Then there is a homomorphism $\zeta :\Aut_{C_0\left( T \right)}A\to H^2\left( T, \Z\right)$  such that
+	$$
+	0 \to \mathrm{Inn}~ A \to \Aut_{C_0\left( T \right)} A\xrightarrow{\zeta} H^2\left( T, \Z\right)
+	$$
+	
+	is an exact sequence of groups. If $A$ is stable, then $\zeta$ is surjective.
+\end{theorem}
+\begin{proof}
+	!!!
+We define ?(?) to be the image under
+¢1 : H1(T, S) ?= H2(T;Z) of a class in H1(T, S). We choose compact sets $\left\{F_\iota\right\}_{\iota \in I}$
+whose interiors $\mathscr U \bydef \left\{\sU_\iota\right\}$ cover $T$ such that there are unitaries $u_\iota \in  UM\left(A|^{F_\iota} \right)$
+with $\a|^{F_\iota} =\mathrm{Ad} u_\iota$. Passing from $F_\iota$ to $F_{\iota j}$ involves taking a quotient of $A|^{F_\iota}$ , so there
+is a canonical map $m \mapsto m^{F_{\iota j}}$ of $M\left(A|^{F_\iota}\right)$ onto $M\left(A|^{F_{\iota j}}\right)$. Since  $\left( \a^{F_{\iota }}\right)^{F_{\iota j}} = \a^{F_{\iota j}}$,
+we have Ad(ui)Fij = Ad(uj)Fij ; thus
+Á
+(ui)Fij
+¢?
+(uj)Fij is in the center of M(AFij ),
+and is therefore given by a continuous function ?ij : Fij ? T. We can compute
+pointwise (see Lemma 5.2), so ?ij is characterized by
+uj(t) = ?ij(t)ui(t) for t ? Fij .
+If t ? Fijk, then
+uk(t) = ?jk(t)uj(t) = ?jk(t)?ij(t)ui(t),
+so ?ij?jk = ?ik, and { ?ij } is a cocycle in Z1(U, S). It should be clear that the class
+[?ij ] does not depend on the choice of cover. If we had chosen different unitaries vi
+with Ad vi = ?Fi , then Ad u?i vi = id, so u?i vi ? UZM(AFi ) is given by a continuous
+function ? ? C(Fi,T). Thus the cocycle corresponding to the vi is { ??1
+	j ?ij?i },
+which differs from { ?ij } by the coboundary { ??1
+	j ?i } and hence defines the same
+class in H1(T, S). We can therefore define ?(?) = ¢1([?ij ]) ? H2(T;Z).
+If ? is inner, say ? = Ad u, then we can choose ui to be the image uFi of u
+under the canonical map M(A) ? M(AFi ), and the corresponding cocycle { ?ij } is identically 1, so ?(?) = ¢1(1) = 0. Conversely, if ?(?) = 0, then by refining
+U we can assume that { ?ij } is a coboundary { ??1
+	j ?i }, and we could have chosen
+??1
+i ui instead of ui; thus we may as well assume that (ui)Fij = (uj)Fij for all i, j.
+We use these to define a multiplier u of A. Let a ? A. Then we have elements
+uiaFi of AFi ; choose ai ? A such that aFi
+i = uiaFi . If { ?i } is a partition of unity
+subordinate to U, then Lemma 5.4 gives us an element ua :=
+P
+?i á ai of A, which
+is characterized by
+(ua)(t) =
+X
+i
+?i(t)ai(t) =
+X
+i
+?i(t)ui(t)a(t).
+5.5 Classification up to Stable Isomorphism 143
+Notice that a 7? ua is certainly A-linear on the right. If t ? Fi, then ui(t) = uj(t)
+whenever t ? Fij , and hence for any j such that ?j(t) 6= 0; thus we can further
+deduce that (ua)(t) = ui(t)a(t) for t ? Fi. It follows that the corresponding map
+a 7? u?a defined using the u?i is an adjoint for a 7? ua such that u?u = u?u = 1.
+Thus u is a unitary element of L(AA) = M(A). Finally, we compute pointwise
+(ua)(t) = ui(t)a(t) = ?(t)
+Á
+a(t)
+¢
+ui(t) = ?(a)(t)ui(t) = (?(a)u)(t)
+to see that ?(a) = uau? and ? = Ad u.
+\end{proof}
 \paragraph{!!!DOWN}
 
 Example 4.25. If $n = 0$ (and $\sS$ is a sheaf), then $H^0\left(\mathscr U, \sS \right)$ coincides with
@@ -1335,14 +1402,8 @@ continuous function $u : T \to U\left(\H \right)$  satisfying
 \eean 
 
 \end{proposition}
-PAGE 140
-Theorem 5.42. Suppose that $A$ is a continuous-trace $C^*$-algebra with spectrum $T$.
-Then there is a homomorphism $\zeta L\Aut_{C_0\left( T \right)}\to H^2\left( T, \Z\right)$  such that
-	$$
-0 \to \mathrm{Inn}~ A \to \Aut_{C_0\left( T \right)}\xrightarrow{\zeta} H^2\left( T, \Z\right)
-	$$
 
-is an exact sequence of groups. If $A$ is stable, then $\zeta$ is surjective.
+
 \section{Generalized Dixmier-Douady duality}
 
 \paragraph*{}
@@ -3113,10 +3174,10 @@ by the properties (a), (b) and (c).
 \sU_{\iota_0, ..., \iota_{p}}\bydef \sU_{\iota_0} \cap ...\cap \sU_{\iota_p}	
 	$ for any $\left(\iota_0, ..., \iota_p\right)\in I^{p+1}$.
 	\begin{definition}\label{nonab_coh_defn}
-	We define the \textit{group of }$p$- \textit{cochains of the covering } $\mathscr U$ \text{with coefficients in the sheaf of groups } $\G$ as the product group
+	We define the \textit{group of }$p$- \textit{cochains of the covering } $\mathscr U$ \textit{with coefficients in the sheaf of groups } $\G$ as the product group
 	$$
-	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right) 
-	$$. A 1-cochain $\left(g_{\iota, j} \right)$ is called a  1 - \textit{cocycle} if it satisfies  the conditions
+	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right). 
+	$$ A 1-cochain $\left(g_{\iota, j} \right)$ is called a  1 - \textit{cocycle} if it satisfies  the conditions
 	\be\label{nonab_coh_eqn}
 	\sU_{\iota, j, k}\neq \emptyset \quad \Rightarrow  \quad  g_{\iota k} = g_{\iota, j}g_{jk}.
 	\ee
