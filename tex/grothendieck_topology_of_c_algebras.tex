@@ -220,6 +220,7 @@
 	\renewcommand{\SS}{\mathcal{S}}              %% Schwartz space
 	\newcommand{\sss}{\mathcal{S}}               %% Schwartz space
 	\DeclareMathOperator{\supp}{\mathfrak{supp}}            %% support
+	\DeclareMathOperator{\cosupp}{\mathfrak{cosupp}}            %% support
 	\newcommand{\T}{\mathbb{T}}                  %% circle as a group
 	\renewcommand{\th}{\theta}                   %% short for \theta
 	\newcommand{\thalf}{\tfrac{1}{2}}            %% small* fraction 1/2
@@ -1151,26 +1152,20 @@ is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
 \begin{definition}\label{ctr_supp_defn}
 If $B$ is a hereditary $C^*$-subalgebra  of $A$ then a given by
 \be\label{ctr_supp_eqn}
-\supp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
+\cosupp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
 \ee
-closed subset of $\sX$ is said to be a \textit{support} of $B$.
+closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
 \end{definition}
-Let $U \bydef U\left( M\left(CT\left(\sX, \dl \right)\right)\right) $ be a group of unitary elements of multiplier $C^*$-algebra.  For any  hereditary $C^*$-subalgebra $B \subset A$ denote by  $L\left( B\right)$ is a given by the equation  \eqref{left_ideal_eqn} left ideal of $CT\left(\sX, \dl \right)$. Let 
-\be\label{ctr_perp_eqn}
-\begin{split}
-L^\perp\left( B\right) \text{ is the }C^*-\text{norm completion of the union of left ideals } L \subset CT\left(\sX, \dl \right) \\\text{ such that }L \cap  L\left( B\right)= \{0\}
-\end{split}
+Let $U \bydef U\left( M\left(CT\left(\sX, \dl \right)\right)\right) $ be a group of unitary elements of multiplier $C^*$-algebra.  If $B \subset CT\left(\sX, \dl \right)$ is a hereditary $C^*$-subalgebra  and  $L\left( B\right)$ is a given by the equation  \eqref{left_ideal_eqn} left ideal then From $M\left(CT\left(\sX, \dl \right) \right) L\left( B\right)= L\left( B\right)$ it follows that there is a natural surjective group homomorphism
+$$
+U \to U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right) 
+$$
+where  $U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right)$ is a subgroup of $\Aut_{C_0\left( \sX\right)} \left(  CT\left(\sX, \dl \right)/ L\left( B\right)\right)$. The following notation  
+\be
+U^A \left(B \right) \bydef U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right) 
 \ee
-$L^\perp\left( B\right)$ is the $C^*$-norm completion of the union of left ideals $L \subset CT\left(\sX, \dl \right)$ such that $L \cap  L\left( B\right)= \{0\}$. For any hereditary $C^*$-subalgebra $B \subset A$ there is a subgroup
-\bean
-U_B \bydef \left\{u \in U | \forall a \in L^\perp\left( B\right)  \quad  a u = a,\quad  u a^* = a^*\right\}\subset U
-\eean
-For any $v \in U$, $u \in U_B$ and $a\in L^\perp\left( B\right)$ one has
-$$
-a \left( v u v^{-1}\right) = \left( \left( av\right)u\right)    v^{-1}=\left(a v \right) v^{-1}= a,
-$$
-or $v  U_B v^{-1} =  U_B$, i.e. $U_B$ is a normal subgroup of $U$.
- If for any $B', B'' \in  \mathbf{Hered}/A$ such that $B' \subset B''$ (i.e. there is $\mathbf{Hered}/A$-morphism $B'' \to B'$) there are  natural inclusions $L\left({B'}\right)\subset L\left({B''}\right)$, $~L^\perp\left({B''}\right)\subset L^\perp\left({B'}\right)$ and $U_{B'}\subset U_{B''}$. So if $U^A\left( B\right)\bydef U / U_B$ then there  the natural surjective  homomorphism of groups
+will be used. 
+Given $B', B'' \in  \mathbf{Hered}/A$ such that $B' \subset B''$ (i.e. there is $\mathbf{Hered}/A$-morphism $B'' \to B'$) there is the   natural inclusion  the natural surjective  homomorphism of groups
 \be\label{ctr_ub_eqn}
 U^A\left(B'\right) \xrightarrow{p^{B'}_{B''}} U^A\left(B'' \right). 
 \ee
@@ -1179,33 +1174,51 @@ When  the map $B \mapsto  U^A\left( B \right)$ is a presheaf of groups on the ca
 The  map $B \mapsto  U^A\left( B \right)$ is a sheaf with respect to the Gelfand $A$-topology (cf. Definition \ref{gelfand_a_site_defn}).
 \end{lemma}
 \begin{proof}
-If $B$ is a   $\mathbf{Hered}/A$-object then a covering of $B$ is a finite family $\left\{B_1, ..., B_n\right\}$ of  $\mathbf{Hered}/A$-objects such that  $B = \bigcap_{\iota=1}^n B_\iota$. If $L\left( B\right)$ and $L\left( B_\iota \right)$ are given by the equation \eqref{left_ideal_eqn} then $ L\left( B\right)= \bigcap_{\iota =1}^n L\left( B_\iota\right)$. It turns out that
-\be\label{ctr_sum_eqn}
-L^\perp \left( B\right)= \sum_{\iota =1}^n L^\perp \left( B_\iota\right)
-\ee
-where $L^\perp$ is given by \eqref{ctr_perp_eqn}. Further proof contains two parts:
+If $B$ is a   $\mathbf{Hered}/CT\left(\sX, \dl \right)$-object then a covering of $B$ is a finite family $\left\{B_1, ..., B_n\right\}$ of  $\mathbf{Hered}/CT\left(\sX, \dl \right)$-objects such that  $B = \bigcap_{\iota=1}^n B_\iota$. If $L\left( B\right)$ and $L\left( B_\iota \right)$ are given by the equation \eqref{left_ideal_eqn} then $ L\left( B\right)= \bigcap_{\iota =1}^n L\left( B_\iota\right)$.  Further proof contains two parts:
 \begin{enumerate}
 	\item [(i)] the presheaf is separated (cf. Definition \ref{sheaf_defn}), i.e. the given by \eqref{sheaf_eqn} morphism $\eps$ is a monomorphism,
 		\item [(ii)] the  morphism $\eps$ is an epimorphism.
 \end{enumerate}
 (i) If $u \in U^A\left( B\right)$ is not trivial and $\widetilde u \in U$ is a representative of $u$ such that
 $$
-a \in L^\perp \left( B\right)\quad a \widetilde u \neq 0.
+a \notin L\left(B \right) \quad  \widetilde u a \neq a.
 $$
-Taking into account \eqref{ctr_sum_eqn} there are $\iota \in \left\{1,..., n\right\}$ and $a_\iota \in L^\perp \left( B_\iota\right)$ such that $a_\iota \widetilde u \neq 0$. However $\widetilde u$ is a representative of 
- $p^{B}_{B_\iota}\left(u \right)$ (cf. \eqref{ctr_ub_eqn}).\\
-  (ii) Let  $P \subset  \left\{1, ..., n\right\}^2$ be such that for any $\left(\iota, j\right)\in P$ the generated by a union $B_\iota \cup B_j$ hereditary $C^*$-algebra $B_{\iota j}$ is not $A$. Equivalently $L\left( B_{\iota j}\right) = L \left( B_\iota\right)+ L \left( B_j\right)\neq A$ or $L\left( B_{\iota j}\right)^\perp =L^\perp \left( B_\iota\right)\cap L^\perp \left( B_j\right)\neq \{0\}$. If $u \in U\left( B\right)$ and $\widetilde u \in U$ is a representative  of $u$ then for any $\iota = 1, ...,n$ the element $u_\iota \bydef p^B_{B_\iota}\left( u\right) $ is represented by $\widetilde u$. One should prove that $p^{B_\iota}_{B_{\iota j}}\left( u_\iota \right) = p^{B_j}_{B_{\iota j}}\left( u_j \right)$. This fact follows from the following equation
+From $L\left( B\right)= \bigcap_{\iota =1}^n L\left( B_\iota\right)$ it follows that there is $\iota$ such that $a \notin L\left(B_\iota \right)$ so is $p^{B}_{B_\iota}$ is given by \eqref{ctr_ub_eqn} then $p^{B}_{B_\iota}\left( u\right) \neq 1_{U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right)}$.\\
+  (ii) Let  $P \subset  \left\{1, ..., n\right\}^2$ be such that for any $\left(\iota, j\right)\in P$ the generated by a union $B_\iota \cup B_j$ hereditary $C^*$-algebra $B_{\iota j}$ is not $L \left( B_\iota\right)+ L \left( B_j\right)$. Equivalently $L\left( B_{\iota j}\right) = L \left( B_\iota\right)+ L \left( B_j\right)\neq CT\left(\sX, \dl \right)$ or $CT\left(\sX, \dl \right)/\left(L \left( B_\iota\right)+ L \left( B_j\right) \right)\neq 0$, so $U\left(B_{\iota j} \right)\neq \{1\}$ . If $u \in U\left( B\right)$ and $\widetilde u \in U$ is a representative  of $u$ then for any $\iota = 1, ...,n$ the element $u_\iota \bydef p^B_{B_\iota}\left( u\right) $ is represented by $\widetilde u$. One should prove that $p^{B_\iota}_{B_{\iota j}}\left( u_\iota \right) = p^{B_j}_{B_{\iota j}}\left( u_j \right)$. This fact follows from the following equation
  \bean
   p^B_{B_{\iota j}}=  p^{B_\iota }_{B_{\iota j}}\circ  p^B_{B_\iota}=  p^{B_j }_{B_{\iota j}}\circ  p^B_{B_j}.
  \eean 
 \end{proof}
+\begin{remark}
+For any open subset $\sU \subset \sX$
+\end{remark}
 \begin{empt}
 	The sheaf $U^A$ of $\mathfrak{Sita}\left(A \right)$ is a counterpart of the explained in \ref{relating_empt} sheaf $U$ on $\sX$.
 From the Theorem \ref{dauns_hofmann_thm} it follows that there is an inclusion $C_b\left( \sX\right) \to M\left( A\right)$ so  $S \bydef  C_b\left( \sX\right) \cap U\left(  M\left( A\right)\right)$ is a subgroup of $U$. The subgroup $\widetilde S \subset \widetilde U$ yields a presheaf of $U^A$, denote by $S^A$ its associated sheaf. One can proof that $\widetilde S$ is a normal subgroup of $\widetilde U$ so there is a quotient sheaf $A^A\bydef U^A / S^A$ (cf. Definition \ref{sheaf_big_defn}).
 There is a sheaf $S$ on $\sX$ of $\T$-valued functions (cf. \ref{relating_empt}), i.e. for all $\sU$ a group $S\left( \sU\right)$ is a group of continuous functions $\sU \to \T$. 
 
 \end{empt}
+\ref{constant_presheaf_defn}!!!
 \paragraph{!!! ESSENTIAL}
+\begin{empt}
+PAGE 72 !!! Example 4.15. Let $\sR$ and S be the sheaves, respectively, of germs of continuous
+$\R$- and $\T$-valued functions on $\sX$, and $\Z_\sX$ the constant sheaf (cf. Definition \ref{constant_presheaf_defn}). Then
+$$
+0 \to \Z_\sX \xrightarrow{j}\sR \xrightarrow{e}\sS\to 1
+$$
+is a short exact sequence of sheaves when $e$ is the exponential map and $j$ is the
+inclusion map:
+$$
+j_\sU : \Z_\sX(\sU)\bydef C(\sU,\Z)\hookto \sR(U) \bydef  C(\sU,\sR).
+$$
+Properties (a) and (b) are immediate from the exactness of the underlying short
+exact sequence
+$$
+0 \to \Z \to \T \xrightarrow{e^{2\pi(\cdot)}}\T \to 1.
+$$
+of topological groups. 
+%For (c), fix U and x ? U. If f ? S(U), then there is an open neighborhood V of x in U such that |f(y) ? f(x)| < 2 for y ? V . Therefore there is a continuous branch of log on T \ {?f(x) }, g := 1 $2\pi i log ?f|_\sV$ is in R(V ), and eV (g) = f|V As our first motivation for looking at cohomology, recall that a short exact sequence of sheaves0 w Q w R w ?S w 0induces, for each U, an exact sequence0 w Q(U) w R(U) w ?U S(U),and in particular an exact sequence 0 w Q(X) w R(X) w ?X S(X) of the groups of global sections. It is natural to ask when the final map ?X is onto,and one answer is given by cohomology: there is a cohomology group H1(X,Q)such that0 w Q(X) w R(X) w S(X) w H1(X,Q) w á á á (4.3)is exact. Then triviality of H1(X,Q) will imply that ?X is onto; an importantgoal of cohomology theory is to compute cohomology groups like H1(X,Q), and inparticular to decide when they are trivial.
+\end{empt}
 \begin{theorem}
 Theorem 4.37. PAGE 85. Suppose that $\sS$ and $\mathcal R$ are, respectively, the sheaves of germs
 of continuous $\T$- and $\R$-valued functions on a paracompact space $\sX$. Then for
@@ -1214,8 +1227,18 @@ onto $H^{n+1}(\sX,\Z)$. The connecting homomorphism $\Dl^0$ induces an isomorphi
 of $ C(\sX,\T)/e(C(\sX,\R))$ onto $H^1\left( \sX, \Z\right)$ . (Here, $e$ denotes the exponential map of
 Example 4.12.)
 \end{theorem}
+\begin{proposition}
+Proposition 4.76.  !!! PAGE 104 Let $G$ be a contractible topological group, and $Z$ a paracompact
+space. Then the cohomology set $H^1(\sZ, G)$ (cf. Definition \ref{nonab_coh_den}) consists of just one class, that of the
+constant cocycle $\la_{\iota j}=e$.
+\end{proposition}
+\begin{corollary}
+PAGE 106 !!	Corollary 4.79. Let $\sH$ be an infinite-dimensional Hilbert space, and suppose $p :
+\sX\to \sZ$ is a (locally trivial) bundle over a paracompact space $\sZ$ with fibre $\H$ and
+structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bundle $\sZ \times \sH$.
+\end{corollary}
 \begin{empt}\label{relating_empt}\cite{rae:ctr_morita}
-	PAGE 106
+	PAGE 106 !!!
 	We now turn to the Dixmier-Douady classification of bundles with fibre $\K\left( \H\right)$ 
 	and structure group $\Aut~ \K(\H)$ over a paracompact space $\sZ$. From Remark 4.54,
 	such a bundle is determined up to isomorphism by the class $\left[\a_{\iota j}\right]$ of its transition
@@ -1266,7 +1289,10 @@ Example 4.12.)
 	is a cocycle $\left\{\la_{\iota j} \right\}\in Z^1(\mathscr U,U)$ satisfying  $\la_{\iota j}= \mathrm{Ad} \circ \mu_{\iota j} $ for all $\iota$, $j$.
 \end{lemma}
 
-\
+\begin{lemma}
+PAGE 141. Lemma 5.47. Suppose A is a continuous-trace C?-algebra with spectrum T, ? ? AutC0(T) A, and t ? T. Then there are a compact neighbourhood F of t and a
+unitary multiplier u ? UM(AF ) such that ?F = Ad u.
+\end{lemma}
 \paragraph{!!!DOWN}
 
 Example 4.25. If $n = 0$ (and $\sS$ is a sheaf), then $H^0\left(\mathscr U, \sS \right)$ coincides with
@@ -2395,6 +2421,7 @@ Any {Grothendieck topos} is a topos in the sense of the Definition \ref{topos_de
 		\be\label{constant_presheaf_eqn}
 		F_X \bydef \mathscr P.
 		\ee
+		A sheaf associated (cf. Definition \ref{associated_sheaf_defn}) with a constant sheaf will is named a \text{constant sheaf}. We use the same notation $F_X$ for a constant sheaf. The difference between the constant presheaf and the constant sheaf depends from the context.
 	\end{definition}
 
 \begin{definition}\label{yoneda_defn}
@@ -3074,7 +3101,7 @@ by the properties (a), (b) and (c).
 	\end{empt}
 	\begin{remark}
 		% PAGE 
-	It is proven in \cite{johnstone:topos} that for any presheaf $\mathscr A \in$ on the site $\mathbf{T}$ and any $U \in \mathrm{Cat}\left( \mathbf T\right)$ one has
+	It is proven in \cite{johnstone:topos} that for any presheaf $\mathscr A$ on the site $\mathbf{T}$ and any $U \in \mathrm{Cat}\left( \mathbf T\right)$ one has
 	\be\label{cech_ass_eqn}
 	\check{H}^0\left( \sU, \mathscr A\right) = \varinjlim_{R \in J(U)} \Hom_{\E} \left(R,  \mathscr A\right)= \mathfrak{Ass}\left(\mathscr A \right) \left( U\right).  
 	\ee
@@ -3102,7 +3129,7 @@ by the properties (a), (b) and (c).
 	\ee  
 	With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
 \be
-H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)B\left( C^0\left( \mathscr U, \G\right)\right) 
+H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/B\left( C^0\left( \mathscr U, \G\right)\right) 
 \ee
 If $\mathscr V$ is a refinement of the covering $\mathscr U$ then similarly to \eqref{cech_refi_eqn} for any $p$ there is a natural homomorphism
 $$
@@ -4198,6 +4225,29 @@ Prove that a given by \eqref{cech_hom_eqn} map $\check{H}^\bullet\left(f\right):
 	Let $A$ be a separable C*-algebra. Then its spectrum $\sX$
 	is metrizable if and only if $\sX$ is Hausdorff. In this case, A is a $CCR$.
 \end{lemma}
+
+	\begin{empt} \cite{rae:ctr_morita}
+	Let $\hat A$ be the space of primitive ideals of $A$.
+	The topology on $\hat A$ always determines the ideal structure of $A$: the open
+	sets $\sU$ in $\mathrm{Prim}~ A$ are in one-to-one correspondence with the ideals
+	\be\label{open_ideal_eqn}
+	\left.A\right|_\sU \stackrel{\mathrm{def}}{=} \bigcap \left\{\left.P\in \hat A~\right| P \notin \sU\right\}
+	\ee
+	and there are natural homeomorphisms $P \mapsto P\cap \sU$ of $\sU$ onto the set of primitive ideals of  $ \left.A\right|_\sU$, and
+	$P \mapsto P/A_\sU$ of $\hat A \setminus \sU$ onto  the set of primitive ideals of  $A/A_\sU$. %(Proposition A.27). 
+	When $\hat A$
+	is a (locally compact) Hausdorff space $T$, we can localize at a point $t$ â that is,
+	examine behavior in a neighborhood of $t$ â either by looking at the ideal $A_\sU$
+	corresponding to an open neighborhood $\sU$ of $t$, or by passing to the quotient
+	\be\label{closed_ideal_eqn}
+	\left.A\right|^F \stackrel{\text{def}}{=} A/\left( 
+	\left.A\right|_{\hat A \setminus F} \right) 
+	\ee
+	corresponding to a compact neighborhood $F$ of $t$. 
+	%Since	life seems to be technically less complicated this way, we have chosen the $A \mapsto A^F$	option.
+	%We shall need two lemmas about localization. The first is a corollary of the Dauns-Hofmann Theorem,and the second says that localizing A-B imprimitivity bimodules gives AF-F BF imprimitivity bimodules.
+\end{empt}
+\
 	
 		\subsection{ Dixmier-Douady duality}\label{dd_dual_sec}
 %	\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
