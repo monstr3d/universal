@@ -726,24 +726,27 @@ B \mapsto C^*\text{-norm completion of } \varphi\left(B \right)^*\widetilde{A} \
 \end{split}
 \ee
 \begin{theorem}\label{geometric_morphism_thm}
-The functor \eqref{geom_functor_eqn} yields a geometric morphism
+The functor \eqref{geom_functor_eqn} yields a  morphism of sites 
+\be\label{site_morphism_eqn} 
+\mathfrak{Site}\left( \widetilde A \right) \xrightarrow{\mathfrak{Site}(\varphi)}\mathfrak{Site}\left( A\right) 
+\ee
+(cf. Definition \ref{morphism_of_sites_defn}). There is a natural geometric morphism
 \be\label{geometric_morphism_eqn} 
-\mathfrak{Topos}\left( \widetilde A \right) \xrightarrow{\mathfrak{Topos}(\phi)}\mathfrak{Topos}\left( A\right) 
+\mathfrak{Topos}\left( \widetilde A \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathfrak{Topos}\left( A\right) 
 \ee
 (cf. Definition \ref{geometric_morphism_defn})
 \end{theorem}
 
 \begin{proof}
-
-From the Theorem \ref{site_mor_thm} and the Lemma \ref{site_lim_lem} it turns out that one needs check the the given by \eqref{geom_functor_eqn} functor $\overline \varphi$ satisfies to the following conditions:
+From the Lemma \ref{site_lim_lem} it follows that both categories $\mathbf{Hered}/A$ and $\mathbf{Hered}/\widetilde A$ have finite limits. According to the Definition  \ref{morphism_of_sites_defn} one needs check the given by \eqref{geom_functor_eqn} functor $\overline \varphi$ satisfies to the following conditions:
 \begin{enumerate}
 	\item[(i)] $\overline \varphi$ preserves finite limits,
-	\item[(ii)] $\overline \varphi$ preserves coverings.
+	\item[(ii)] $\overline \varphi$ preserves coverings
 \end{enumerate}
-An elementary proof of these conditions is left to the reader.
+A  proof of these conditions is left to the reader. The existence of the geometric morphism \eqref{geometric_morphism_eqn} follows from the Theorem \ref{site_mor_thm}/ 
 \end{proof}
 \begin{empt}
-		Let both $\left(\mathbf{C}, J)\right)$ and $\left(\mathbf{D}, K\right)$  are two sites, and suppose that $\phi:\mathbf{C}\to \mathbf{D}$ satisfies to the Definition \ref{morphism_of_sites_defn}. From the Theorem \ref{site_mor_thm} it follows that there is a geometric morphism  $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$. A following lemma is an analog of (i) of the Proposition \ref{spectral_sequence_prop}
+		Let both $\left(\mathbf{C}, J\right)$ and $\left(\mathbf{D}, K\right)$  are two sites, and suppose that $\phi:\mathbf{C}\to \mathbf{D}$ satisfies to the Definition \ref{morphism_of_sites_defn}. From the Theorem \ref{site_mor_thm} it follows that there is a geometric morphism  $\mathbf{Sh}\left(\mathbf{D}, K\right)\xrightarrow{f} \mathbf{Sh}\left(\mathbf{C}, J\right)$. A following lemma is an analog of (i) of the Proposition \ref{spectral_sequence_prop}
 		\end{empt}
 
 \begin{lemma}\label{cech_geom_lem}
@@ -789,7 +792,7 @@ Taking into account that $\check H^r\left(\mathbf{Sh}\left(\mathbf{C}, J\right),
 
 
 \section{Topoi of commutative $C^*$-algebras}
-\subsection{Basic constructions}
+\subsection{Sites}
 \paragraph{}
 Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  an open subset
 \be\label{top_xb_eqn}
@@ -815,7 +818,7 @@ The category $\mathbf{Hered}/C_0\left(\sX \right)$ is equivalent to the category
 \end{enumerate}
 For any $\sU \in 	\mathfrak{Closed}\left( \sX\right)$ a covering of $\sU$ is a finite family $\left\{\sU_\iota\subset \sU\right\}$ such that $\sU = \bigcup \sU_\iota$. There is an equivalence of sites
 \be\label{top_closed_site_eqn}
-\left(\mathbf{Hered}/A, J_A\right)\cong \left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)
+\left(\mathbf{Hered}/C_0\left(\sX \right), J_{C_0\left(\sX \right)}\right)\cong \left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)
 \ee
 where the Grothendieck topology $J_\sX$ is corresponds to the described above coverings.
 
@@ -1112,11 +1115,11 @@ A^A\left( B\right)  \bydef p_B CT\left(\sX, \dl \right) p_B \subset B\left( \H\r
 \ee
 It is clear that $A^A\left(B \right)$ is a $C^*$-algebra and there is a surjective *-homomorphism $A^A_B:CT\left(\sX, \dl \right) \to A^A\left( B\right)$.  Given $B', B'' \in  \mathbf{Hered}/CT\left(\sX, \dl \right)$ such that $B' \subset B''$ (i.e. there is $\mathbf{Hered}/CT\left(\sX, \dl \right)$-morphism $B'' \to B'$) there is   the natural surjective  *-homomorphism
 \be\label{ctr_psh_of_alg}
-A^A_{B'B''}:A^A\left( B'\right) \to A^A\left( B''\right).
+C^A_{B'B''}:C^A\left( B'\right) \to C^A\left( B''\right).
 \ee 
 It turns out that a map
 \be\label{ctr_psh_defn}
-B \mapsto A^A\left( B\right) 
+B \mapsto C^A\left( B\right) 
 \ee
 is a $\mathbf{Hered}/CT\left(\sX, \dl \right)$-presheaf of $C^*$-algebras (cf. Definitions \ref{presheaf_defn} and \ref{hered_cat_defn}).
 
@@ -1129,13 +1132,58 @@ If $B$ is a   $\mathbf{Hered}/CT\left(\sX, \dl \right)$-object then a covering o
 	\item [(i)] the presheaf is separated (cf. Definition \ref{sheaf_defn}), i.e. the given by \eqref{sheaf_eqn} morphism $\eps$ is a monomorphism,
 	\item [(ii)] the  morphism $\eps$ is an epimorphism.
 \end{enumerate}
-(i) Any $a \in A^A\left( B\right)$ is given by $p_B \widetilde a p_B$  where $\widetilde a \in CT\left(\sX, \dl \right)$. However if  $p_{B_\iota}\widetilde a p_{B_\iota}= 0$ for every $\iota = 1,..., n$ then $p_B \widetilde a p_B = 0$.\\
-(ii)  Let  $P \subset  \left\{1, ..., n\right\}^2$ be such that for any $\left(\iota, j\right)\in P$ the generated by a union $B_\iota \cup B_j$ hereditary $C^*$-algebra $B_{\iota j}$ is not $\mathbf{Hered}/CT\left(\sX, \dl \right)$. It follows that $\im p_{B_\iota}\cap \im p_{B_j}\neq \{0\}$ for any $a \in A\left( B\right)$ then there is $\widetilde a \in CT\left(\sX, \dl \right)$ such that $a = p_B \widetilde a p_B$. If $a_\iota \bydef A^A_{BB_\iota} \left(a \right)$ then $a_\iota =  p_{B_\iota} \widetilde a   p_{B_{\iota}}$. 
-One should prove that $A^A_{B_\iota B_{\iota j}}\left( a_\iota \right) = A^A_{B_jB_{\iota j}}\left( a_j \right)$. This fact follows from the following equation
+(i) Any $a \in C^A\left( B\right)$ is given by $p_B \widetilde a p_B$  where $\widetilde a \in CT\left(\sX, \dl \right)$. However if  $p_{B_\iota}\widetilde a p_{B_\iota}= 0$ for every $\iota = 1,..., n$ then $p_B \widetilde a p_B = 0$.\\
+(ii)  Let  $P \subset  \left\{1, ..., n\right\}^2$ be such that for any $\left(\iota, j\right)\in P$ the generated by a union $B_\iota \cup B_j$ hereditary $C^*$-algebra $B_{\iota j}$ is not $\mathbf{Hered}/CT\left(\sX, \dl \right)$. It follows that $\im p_{B_\iota}\cap \im p_{B_j}\neq \{0\}$ for any $a \in A\left( B\right)$ then there is $\widetilde a \in CT\left(\sX, \dl \right)$ such that $a = p_B \widetilde a p_B$. If $a_\iota \bydef C^A_{BB_\iota} \left(a \right)$ then $a_\iota =  p_{B_\iota} \widetilde a   p_{B_{\iota}}$. 
+One should prove that $C^A_{B_\iota B_{\iota j}}\left( a_\iota \right) = C^A_{B_jB_{\iota j}}\left( a_j \right)$. This fact follows from the following equation
 \bean
-A^{B_\iota}_{B_{\iota j}}\left( a_\iota \right)= A^{B_j}_{B_{\iota j}}\left( a_j \right)= p_{B_\iota j} \widetilde a   p_{B_{\iota j}}
+ C^A_{B_\iota B_{\iota j}}\left( a_\iota \right)= C^A_{B_\iota B_{\iota j}}\left( a_j \right)= p_{B_\iota j} \widetilde a   p_{B_{\iota j}}
 \eean 
 \end{proof}
+From \eqref{ctr_pb_c_eqn} it follows that $p_B u = u p_B$ for all $u\in U$, so $U$ there is a natural action $U \times C^A\left(B\right)\to C^A\left( B\right)$. If $U_B$ is a kernel of this action then $U_B$ is a normal subgroup.  
+\begin{exercise}
+Prove that the map
+\be\label{ctr_u_sh_eqn}
+U^A : B \mapsto U^A\left(B\right) \bydef U / U_B
+\ee
+is a sheaf of groups, i.e. $U_A \in \mathbf{Sh}\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right)\right)$ (cf. \eqref{sheaf_notation_eqn}).
+\end{exercise}
+From the  \ref{ctr_rep_eq_lem} it follows that for any $a \in CT\left(\sX, \dl \right)$ a subset 
+$$
+\sX_a \bydef \left\{x \in \sX | \left\| \mathfrak{rep}_x\left(a \right) \right\| > 0\right\}\subset \sX
+$$
+is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
+\begin{definition}\label{ctr_supp_defn}
+	If $B$ is a hereditary $C^*$-subalgebra  of $A$ then a given by
+	\be\label{ctr_supp_eqn}
+	\cosupp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
+	\ee
+	closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
+\end{definition}
+From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion $C\left( \sX \right) \subset M\left( CT\left(\sX, \dl \right)\right)$. From this fact one can deduce that is $B$ is a hereditary $C^*$-subalgebra and $S'(B)$ is a group of continuous maps from $\cosupp B \to \T$ then there is a natural injective homomorphism of groups $S'\left(B\right) \to U^A\left( B\right)$. One has a presheaf $B \mapsto S'\left( B\right)$. If
+\be\label{ctr_sa_eqn}
+S^A \bydef \mathfrak{Ass}\left( B \mapsto S'\left(B\right)\right) 
+\ee 
+ where $\mathfrak{Ass}$ means an associated sheaf (cf. Definition \ref{associated_sheaf_defn}).
+From the *-homomorphism $\varphi : C\left( \sX \right) \hookto M\left( CT\left(\sX, \dl \right)\right)$ and the Lemma \ref{geometric_morphism_thm} it follows that there a  morphism of sites 
+ \be\label{ctr_site_morphism_eqn} 
+ \mathfrak{Site}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Site}(\varphi)}\mathfrak{Site}\left( C\left( \sX \right)\right) 
+ \ee
+ (cf. Definition \ref{morphism_of_sites_defn}) and a natural geometric morphism
+ \be\label{ctr_geometric_morphism_eqn} 
+ \mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathfrak{Topos}\left(C\left( \sX \right)\right) 
+ \ee
+ (cf. Definition \ref{geometric_morphism_defn}). On the other hand from  \eqref{top_closed_site_eqn} it follows that there is a natural isomorphism of sites $\mathfrak{Site}\left( C\left( \sX \right)\right)\cong \mathfrak{Closed}\left( \sX\right)$. If $S \in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right)$ is a sheaf of germs of continuous maps from $\sX$ to $\T$ then one can proof that
+ \be
+ S^A = \mathfrak{Topos}(\varphi)^* (S)
+ \ee
+ where $\mathfrak{Topos}(\varphi)^*$ is the inverse image of $\mathfrak{Topos}(\varphi)$ (cf. Definition \ref{geometric_morphism_defn}) $S^A  \in \mathbf{Ab}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right)$ is given by the equation \eqref{ctr_sa_eqn}.
+ 
+ 
+ From the Lemma \ref{cech_geom_lem} it follows that there is a natural homomorphism
+ $$
+ \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2} \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right)
+ $$
+\paragraph{DELETE}
 If $U \bydef U\left( M\left(CT\left(\sX, \dl \right)\right)\right) $ is a group of unitary elements of multiplier $C^*$-algebra and $B$ is a hereditary subalgebra of $CT\left(\sX, \dl \right)$ then from the equation \eqref{ctr_pb_c_eqn} it follows that  there is homomorphism of groups
 $
 U'^A_B : U \to \Aut ~A^A\left( B\right) 
@@ -1148,9 +1196,6 @@ The map
 B \mapsto U^A\left(B \right)
 \ee 
 is a $\mathbf{Hered}/CT\left(\sX, \dl \right)$-presheaf of groups (cf. Definitions \ref{presheaf_defn} and \ref{hered_cat_defn}). Similarly to the Lemma \ref{ctr_psh_sh_defn} one can proof that a  presheaf \eqref{ctr_ua_eqn} is a sheaf with respect to the Gelfand $CT\left(\sX, \dl \right)$-topology (cf. Definition \ref{gelfand-naimark_thm}). 
-
-
-
 From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion
 $$
 dd
@@ -1175,13 +1220,7 @@ $$
 \sX_a \bydef \left\{x \in \sX | \left\| \mathfrak{rep}_x\left(a \right) \right\| > 0\right\}\subset \sX
 $$
 is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
-\begin{definition}\label{ctr_supp_defn}
-	If $B$ is a hereditary $C^*$-subalgebra  of $A$ then a given by
-	\be\label{ctr_supp_eqn}
-	\cosupp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
-	\ee
-	closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
-\end{definition}
+
 There is a presheaf $S^A$ of groups $S$ !!! 
 
 \begin{lemma}
@@ -1211,13 +1250,7 @@ There is a sheaf $S$ on $\sX$ of $\T$-valued functions (cf. \ref{relating_empt})
 \ref{constant_presheaf_defn}!!!
 \paragraph{!!! ESSENTIAL}
 
-\begin{proposition}
-Proposition 5.36. PAGE 135 !!! Suppose $\H$ is a Hilbert space, and $p: E\to T$ is a locally
-trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over a paracompact
-locally compact space $T$, with transition functions $\a_{\iota, j}$. Then
-$\Ga_0\left( E\right)$ is a continuous-trace $C^*$-algebra with spectrum $T$ and Dixmier-Douady class
-$\dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right) \cong H^3\left( \sX,\Z \right)$. 
-\end{proposition}
+
 
 \begin{empt}
 PAGE 72 !!! Example 4.15. Let $\sR$ and S be the sheaves, respectively, of germs of continuous
@@ -1256,7 +1289,7 @@ PAGE 106 !!	Corollary 4.79. Let $\sH$ be an infinite-dimensional Hilbert space, 
 \sX\to \sZ$ is a (locally trivial) bundle over a paracompact space $\sZ$ with fibre $\H$ and
 structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bundle $\sZ \times \sH$.
 \end{corollary}
-\begin{empt}\label{relating_empt}\cite{rae:ctr_morita}
+\begin{empt}\label{ctr_cycle_map_empt}\cite{rae:ctr_morita}
 	PAGE 106 !!!
 	We now turn to the Dixmier-Douady classification of bundles with fibre $\K\left( \H\right)$ 
 	and structure group $\Aut~ \K(\H)$ over a paracompact space $\sZ$. From Remark 4.54,
@@ -1298,15 +1331,39 @@ structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bund
 	\nu_{\iota jk}\nu_{\iota kl} = \mu_{\iota j}\mu_{jl}\mu_{\iota l}^{-1}\nu_{jkl} = \mu_{\iota j}\nu_{jkl}\mu_{jl}\mu_{\iota l}^{-1}
 	= \mu_{\iota j}\mu_{jk}\mu_{kl}\mu_{jl}^{-1}\mu_{jl}\mu_{\iota l}^{-1}
 	\ee
+	!!!
+	\be
+	\la_{\iota j} = \Id_{C\left(B_{\iota j} \right) }
+	\ee
+	!!!
 \end{empt}
-\begin{lemma}
+\begin{lemma}\label{ctr_cycle_map_lem}\cite{rae:ctr_morita}
 	PAGE 107 !!! Lemma 4.81. Let $\H$ be a Hilbert space, $\sZ$ a paracompact space, and $\left\{\la_{\iota j} \right\} \in Z^1(\mathscr U,A)$ a cocycle with coefficients in the sheaf $A$ of germs of continuous
 	$\Aut~\K(\H)$-valued functions on $\sZ$. Then the above procedure gives a class
 	$\Dl\left( \left[\la_{\iota j}\right]\right) \bydef \left[\nu_{\iota j k}\right]$ in $H^2(\sZ, S)$ which depends only on the class of $\left\{\la_{\iota j} \right\}$ in
 	$H^1(\sZ,A)$, and which vanishes if and only if, possibly after refining the cover, there
 	is a cocycle $\left\{\la_{\iota j} \right\}\in Z^1(\mathscr U,U)$ satisfying  $\la_{\iota j}= \mathrm{Ad} \circ \mu_{\iota j} $ for all $\iota$, $j$.
 \end{lemma}
+\begin{proof}
+We first note that the class $\left[\nu_{\iota j k}\right]$ does not depend on the choice of liftings
+	$\mu_{\iota j}$: Lemma 1.5 implies that any other liftings could, apart from the possible need to
+	refine the cover, only differ from $\mu_{\iota j}$ by scalar functions $\rho_{\iota j}: \sU_{\iota j} \to \T$, and then the
+	corresponding 2-cocycle would be $\left( d\rho^{-1}\right)\nu$ . If we replace $\left\{ \la_{\iota j} \right\}$ by the equivalent
+	cocycle $\left\{\eta_\iota \la_{\iota j} \eta_\iota^{-1}\right\}$, we can by refining the cover $\left\{\sU_\iota\right\}$ assume that $\eta_\iota = \mathrm{Ad}\zeta_\iota$ for
+	some continuous maps $\zeta_\iota : \sU_\iota \to U\left(\H \right)$ , and then $\mathrm{Ad} \circ\left(\zeta_\iota \mu_{\iota j} \zeta_\iota^{-1}\right)=\eta_\iota \la_{\iota j} \eta_\iota^{-1}$. With
+	this choice of liftings, we obtain exactly the same cocycle $\left\{\nu_{\iota jk}\right\}$. So we have a well-
+	defined map $\Dl$ of $H^1(Z,A)$ into $H^2(Z, S)$, which clearly vanishes on the image of
+	$H^1(Z, U)$ Ñ that is, if we could have found $\mu_{\iota j}$ which formed a cocycle. Conversely,
+	if $\Dl\left(\left[\la_{\iota j}\right]\right)=0$, then again after refining the cover, $\nu_{\iota jk}$ has the form $d\left( \rho_{\iota j}\right)$  for some $\rho_{\iota j}\in C^1\left( \mathscr U, S\right)$, and then $\left\{\rho^{-1}_{\iota j}\mu_{\iota j}\right\}$ is a cocycle with $\mathrm{Ad}\circ \left(\rho^{-1}_{\iota j}\mu_{\iota j} \right) = \la_{\iota j}$
+\end{proof}
 
+\begin{proposition}
+	Proposition 5.36. PAGE 135 !!! Suppose $\H$ is a Hilbert space, and $p: E\to T$ is a locally
+	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over a paracompact
+	locally compact space $T$, with transition functions $\a_{\iota, j}$. Then
+	$\Ga_0\left( E\right)$ is a continuous-trace $C^*$-algebra with spectrum $T$ and Dixmier-Douady class
+	$\dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right) \cong H^3\left( \sX,\Z \right)$. 
+\end{proposition}
 \begin{lemma}
 PAGE 141. !!! Lemma 5.47. Suppose $A$ is a continuous-trace $C^*$-algebra with spectrum $T$, $\a \in \Aut_{C_0\left( T\right) }~ A$, and $t \in T$. Then there are a compact neighborhood $F$ of $T$ and a
 unitary multiplier $u \in UM\left(A|^F \right)$  such that $\a^F = \mathrm{Ad}u$.
@@ -1386,10 +1443,10 @@ $Z^0\left(\mathscr U, \sS \right)$. Since $f = \left\{f_\iota\right\}$ satisfies
 such that F|Ui = fi, we can identify H0(U, S) with the group S(X) of global
 sections. Note that this is independent of the cover U.
 Example 4.26. If $n = 1$ , $Z^1\left(\mathscr U, \sS \right)$ consists of sections $\la_{\iota j}$ satisfying
-$d^1\la_{\iota j k} = \la_{jk} ? \la_{\iota k} + \la_{\iota j} = 0$ in $\S\left( \sU_{\iota j k}\right)$. When the sheaf $\S$ is the sheaf of $\T$-
+$d^1\la_{\iota j k} = \la_{jk} + \la_{\iota k} + \la_{\iota j} = 0$ in $\S\left( \sU_{\iota j k}\right)$. When the sheaf $\S$ is the sheaf of $\T$-
 valued functions, we write everything multiplicatively, and the family $\la_{\iota j}: \sU_{\iota j} \to \T$ is a cocycle when
 \be
-\la_{\iota k} =\la_{\iota j} + \la_{ jk} on Uijk (4.6)
+\la_{\iota k} =\la_{\iota j} + \la_{ jk} \text{ on } U_{\iota jk} (4.6)
 \ee
 The cocycle $\left\{\la_{\iota j}\right\}$ is a coboundary when there are continuous functions $\mu_\iota : \sU_\iota \to \T$
 such that
@@ -1422,6 +1479,33 @@ continuous function $u : T \to U\left(\H \right)$  satisfying
 
 \end{proposition}
 
+\paragraph{Dixmier DEFINITION !!!}
+\begin{empt} PAGE 109 !!!
+We are now ready to define the Dixmier-Douady invariant of a bundle p : X ? Z
+with fibre K(H) and structure group AutK(H) over a paracompact space Z. Choose
+a family of local trivializations of p : X ? Z, and let ?ij : Uij ? AutK(H) be
+the corresponding transition functions, which form a cocycle with coefficients in
+the sheaf A of continuous AutK(H)-valued functions. By Remark 4.54, the bundle
+is determined up to isomorphism by the class [?ij ] in H1(Z,A). By Lemma 4.83,
+there is a class ¢([?ij ]) in H2(Z, S) which vanishes if and only if, after refinement
+of the cover {Ui }, { ?ij } has the form Ad ??ij for some cocycle { ?ij } with values
+in the sheaf U of continuous U(H)-valued functions. The Dixmier-Douady class
+of the bundle p : X ? Z is the image ?(X) in H3(Z;Z) of ¢([?ij ]) under the
+isomorphism H2(Z, S) ?= H3(Z;Z) of Theorem 4.42. We have essentially proved
+the following version of the Dixmier-Douady Classification Theorem:
+
+\end{empt}
+\begin{theorem}
+Theorem 4.85. !!! PAGE 109. Let H be a Hilbert space, and let p : X ? Z be a bundle over a
+paracompact space Z with fibre K(H) and structure group AutK(H).
+(a) The Dixmier-Douady class ?(X) vanishes if and only if the bundle has tran-
+sition functions of the form Ad ??ij , for some open cover {Ui } of Z and
+continuous functions ?ij : Uij ? U(H) satisfying ?ij?jk = ?ik on Uijk.
+(b) If H is infinite-dimensional, the Dixmier-Douady class ?(X) determines p :
+X ? Z up to isomorphism, and all classes in H3(Z;Z) arise as the Dixmier-
+Douady class of some such bundle.
+\end{theorem}
+\paragraph{END DIXMIER !!!}
 
 \section{Generalized Dixmier-Douady duality}
 
