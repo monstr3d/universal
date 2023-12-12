@@ -665,7 +665,7 @@ From the Proposition \ref{fin_lim_prop} one needs check that 	has a terminal obj
 \mathbf{Ab}\left(A\right)\bydef	\mathbf{Ab}\left(\mathbf{T}_{A} \right) \cong 	\mathbf{Ab}\left(\mathbf{T}_{\mathfrak{Site}\left(A \right)}\right)
 \end{split}
 \ee
-The trivial subalgebra $\{0\}\subset A$ if the terminal object of $\mathbf{Hered}/A$7 for  any sheaf $\mathscr F \in \mathbf{Ab}\left(A\right)$ and/or presheaf $\mathscr P \in \mathbf{PreAb}\left(A\right)$ of Abelian groups the following notation is used
+The trivial subalgebra $\{0\}\subset A$ if the terminal object of $\mathbf{Hered}/A$ for  any sheaf $\mathscr F \in \mathbf{Ab}\left(A\right)$ and/or presheaf $\mathscr P \in \mathbf{PreAb}\left(A\right)$ of Abelian groups the following notation is used
 \be\label{cohom_sheaf_not}
 \begin{split}
 H^r\left(\mathfrak{Site}\left(A \right),\mathscr F\right)\bydef H^r\left(\{0\},\mathscr F\right),\\
@@ -673,16 +673,15 @@ H^r\left(\mathfrak{Site}\left(A \right),\mathscr F\right)\bydef H^r\left(\{0\},\
 \end{split}
 \ee
 where $r \ge 0$ (cf. equations \eqref{etale_coh_eqn} and \eqref{cech_hom_comp_eqn} respectively).
-For any group  $F$ and any $r > 0$ we denote !!!
-one has  natural isomorphisms
+If $F$ is an Abelian group and $F_{\mathbf{Hered}/A}$ (resp. $F_{\mathfrak{Site}\left(A \right)}$) is a constant presheaf (resp. sheaf) then for any $r > 0$ we use the following notation
 \bea\label{hom_eqn}
-H^r\left(\mathfrak{Site}\left(A \right),F\right)\cong {H}^r\left(A, F \right),\\
+H^r\left(\mathfrak{Site}\left(A \right),F\right)\bydef  {H}^r\left(\mathfrak{Site}\left(A \right), F_{\mathfrak{Site}\left(A \right)} \right),\\
 \label{chech_hom_eqn}
-\check H^r\left(\mathfrak{Site}\left(A \right), F\right)\cong \check{H}^r\left(A, F \right)
+\check H^r\left(\mathfrak{Site}\left(A \right), F\right)\bydef\check{H}^r\left(\mathfrak{Site}\left(A \right), F_{\mathbf{Hered}/A} \right) \cong \check{H}^r\left(\mathfrak{Site}\left(A \right), F_{\mathfrak{Site}\left(A \right)} \right).
 \eea
-where both notations  \eqref{const_shef_coh_eqn} and \eqref{etale_hom_a_eqn} are  used. If $R$ is a ring then there is a graded ring 
+If $R$ is a ring then there is a graded ring 
 \be\label{cohom_ring}
-\check H^\bullet\left(\mathfrak{Site}\left(A \right), R\right)\cong \check{H}^\bullet\left(A, R \right)
+\check H^\bullet\left(\mathfrak{Site}\left(A \right), R\right)
 \ee
 (cf. the Lemma \ref{gr_ring_lem}, and the Remark \ref{ring_homo_rem}).
 \end{notation}
@@ -834,7 +833,7 @@ The given by \eqref{top_closed_sheaf_eqn} presheaf $\mathscr F^c$ is a sheaf on 
 
 \end{lemma}
 \begin{proof}
-Follows from the Theorem \ref{closed_cov_thm}. !!! CORRECT use \ref{top_soft_flabby_thm}.
+Follows from the Theorem Theorem \ref{loc_fin_french_thm} (cf. English translation  \ref{loc_fin_eng_thm}). !!! CORRECT use \ref{top_soft_flabby_thm}.
 \end{proof}
 \begin{lemma}\label{top_open_closed_const_lem}
 Let $\sX$ be a  compact, locally connected space, and let $F$ be a set. Let $F_\sX$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr F \bydef \mathfrak{Ass}\left(F_\sX\right)$. If $F_{\left( \mathfrak{Closed}\left( \sX\right) \right)}$ is a a constant presheaf then one has the natural isomorphism
@@ -914,7 +913,7 @@ From the Remark \ref{sheaf_image_rem} it follows that for any $s \in \im f^c\lef
 \bean
 \sV_j \cap \sV_k \neq \emptyset\quad \Rightarrow \quad \left. f^c\left(s_j \right)\right|_{\sV_j \cap \sV_k}= \left. f^c\left(s_k \right)\right|_{\sV_j \cap \sV_k}
 \eean 
-From the Theorem \ref{closed_cov_thm} it follows that the family $\left\{f\left(s_1 \right), ..., f\left(s_1 \right) \right\}$ uniquely defines an element of {the space of continuous sections of } $\mathscr F$ \text{ over }$\sV$.
+From the Theorem \ref{loc_fin_french_thm} (cf. English translation  \ref{loc_fin_eng_thm}) it follows that the family $\left\{f\left(s_1 \right), ..., f\left(s_1 \right) \right\}$ uniquely defines an element of {the space of continuous sections of } $\mathscr F$ \text{ over }$\sV$.
 \end{proof}
 
 
@@ -984,9 +983,14 @@ However the complex \eqref{top_open_eqn} is naturally isomorphic to \eqref{top_c
 \end{proof}
 \subsection{\v{C}ech cohomology}
 \begin{lemma}\label{top_open_closed_p_cech_lem}\cite{rae:ctr_morita}
-PAGE 104 !!! DOWN !!!	Lemma 4.77. Suppose $F_1,, . . . , F_n$ are closed subsets of a normal space $\sZ$, and
+PAGE 104 !!! DOWN !!!  !!! DO NOT DELETE !!!	Lemma 4.77. Suppose $F_1,, . . . , F_n$ are closed subsets of a normal space $\sZ$, and
 	$W_{\iota j}$ are open neighborhoods %of F_\iota for 1 ≤ i, j ≤ n. Then there are open
 	neighborhoods Ni of Fi such that Ni ? Nj ? Wij for all i, j.
+\end{lemma}
+\begin{lemma}\label{top_open_closed_pp_cech_lem}
+Lemma 4.84. Let F1, . . . , Fn be closed subsets of a normal space, and Wijk open
+neighborhoods of Fi ? Fj ? Fk for all i, j, k. Then there are open neighbourhoods
+Ni of Fi such that Ni ? Nj ? Nk ? Wijk for all i, j, k.
 \end{lemma}
 \begin{lemma}\label{top_open_closed_cech_lem}
 	If $\sX$ is a compact locally connected space then one has:
@@ -1159,6 +1163,13 @@ is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
 	\ee
 	closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
 \end{definition}
+\begin{remark}
+	For any closed subset $F \subset \sX$ there is a hereditary $C^*$-subalgebra
+	\be\label{ctr_cosupp_eqn}
+	CT\left(\sX, \dl \right)\left(F  \right) \bydef  \text{ the } C^*\text{-norm completion of }  C_0\left(\sX \setminus F \right)CT\left(\sX, \dl \right)C_0\left(\sX \setminus F \right), 
+	\ee
+	such that $\cosupp  CT\left(\sX, \dl \right)\left(F  \right) = F$. If $\left\{\F_\iota\right\}$ is a family of closed  sets such that $\bigcup F_\iota = \sX$ then $\bigcap CT\left(\sX, \dl \right)\left(F_\iota  \right)= 0$.
+\end{remark}
 From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion $C\left( \sX \right) \subset M\left( CT\left(\sX, \dl \right)\right)$. From this fact one can deduce that is $B$ is a hereditary $C^*$-subalgebra and $S'(B)$ is a group of continuous maps from $\cosupp B \to \T$ then there is a natural injective homomorphism of groups $S'\left(B\right) \to U^A\left( B\right)$. One has a presheaf $B \mapsto S'\left( B\right)$. If
 \be\label{ctr_sa_eqn}
 S^A \bydef \mathfrak{Ass}\left( B \mapsto S'\left(B\right)\right) 
@@ -1173,7 +1184,7 @@ From the *-homomorphism $\varphi : C\left( \sX \right) \hookto M\left( CT\left(\
  \mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathfrak{Topos}\left(C\left( \sX \right)\right) 
  \ee
  (cf. Definition \ref{geometric_morphism_defn}). On the other hand from  \eqref{top_closed_site_eqn} it follows that there is a natural isomorphism of sites $\mathfrak{Site}\left( C\left( \sX \right)\right)\cong \mathfrak{Closed}\left( \sX\right)$. If $S \in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right)$ is a sheaf of germs of continuous maps from $\sX$ to $\T$ then one can proof that
- \be
+ \be\label{ctr_t_ii_eqn}
  S^A = \mathfrak{Topos}(\varphi)^* (S)
  \ee
  where $\mathfrak{Topos}(\varphi)^*$ is the inverse image of $\mathfrak{Topos}(\varphi)$ (cf. Definition \ref{geometric_morphism_defn}) $S^A  \in \mathbf{Ab}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right)$ is given by the equation \eqref{ctr_sa_eqn}.
@@ -1181,79 +1192,28 @@ From the *-homomorphism $\varphi : C\left( \sX \right) \hookto M\left( CT\left(\
  $$
  \check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)\to  \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
  $$
+  From the Lemma \ref{cech_geom_lem} it follows that there is a natural homomorphism
+\be\label{ctr_h2_eqn}
+ \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right)
+\ee
+From \eqref{const_sheaf_morphism_eqn} and the Lemma \ref{cech_geom_lem} it follows that there is a homomorphism
+\be\label{ctr_h3_eqn}
+\check H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right) \xrightarrow{\check{H}^3\left(\Z \right) } \check H^3\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , \Z \right)
+\ee
+where the notation \eqref{chech_hom_eqn} is used.
  
- From the Lemma \ref{cech_geom_lem} it follows that there is a natural homomorphism
- $$
- \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2} \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right)
- $$
- If $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
- trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota j}$ then 	$\dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}) represents $\delta \in H^3\left( \sX,\Z \right)$.
-
-\paragraph{DELETE}
-If $U \bydef U\left( M\left(CT\left(\sX, \dl \right)\right)\right) $ is a group of unitary elements of multiplier $C^*$-algebra and $B$ is a hereditary subalgebra of $CT\left(\sX, \dl \right)$ then from the equation \eqref{ctr_pb_c_eqn} it follows that  there is homomorphism of groups
-$
-U'^A_B : U \to \Aut ~A^A\left( B\right) 
-$. Moreover if $U^A\left(B \right)\bydef \im   U'^A_B$ then one has a surjective homomorphism of groups
-$
-U^A_B : U \to U^A\left(B \right)
-$.
-The map 
-\be\label{ctr_ua_eqn}
-B \mapsto U^A\left(B \right)
-\ee 
-is a $\mathbf{Hered}/CT\left(\sX, \dl \right)$-presheaf of groups (cf. Definitions \ref{presheaf_defn} and \ref{hered_cat_defn}). Similarly to the Lemma \ref{ctr_psh_sh_defn} one can proof that a  presheaf \eqref{ctr_ua_eqn} is a sheaf with respect to the Gelfand $CT\left(\sX, \dl \right)$-topology (cf. Definition \ref{gelfand-naimark_thm}). 
-From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion
-$$
-dd
-$$
-
-
-  If $B \subset CT\left(\sX, \dl \right)$ is a hereditary $C^*$-subalgebra  and  $L\left( B\right)$ is a given by the equation  \eqref{left_ideal_eqn} left ideal then From $M\left(CT\left(\sX, \dl \right) \right) L\left( B\right)= L\left( B\right)$ it follows that there is a natural surjective group homomorphism
-$$
-U \to U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right) 
-$$
-where  $U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right)$ is a subgroup of $\Aut_{C_0\left( \sX\right)} \left(  CT\left(\sX, \dl \right)/ L\left( B\right)\right)$. The following notation  
-\be
-U^A \left(B \right) \bydef U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right) 
-\ee
-will be used. 
-
-\be\label{ctr_ub_eqn}
-U^A\left(B'\right) \xrightarrow{p^{B'}_{B''}} U^A\left(B'' \right). 
-\ee
-When  the map $B \mapsto  U^A\left( B \right)$ is a presheaf of groups on the category $\mathbf{Hered}/A$ (cf. Definitions \ref{hered_cat_defn} and  \ref{presheaf_defn}).From the  \ref{ctr_rep_eq_lem} it follows that for any $a \in CT\left(\sX, \dl \right)$ a subset 
-$$
-\sX_a \bydef \left\{x \in \sX | \left\| \mathfrak{rep}_x\left(a \right) \right\| > 0\right\}\subset \sX
-$$
-is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
-
-There is a presheaf $S^A$ of groups $S$ !!! 
-
-\begin{lemma}
-	The  map $B \mapsto  U^A\left( B \right)$ is a sheaf with respect to the Gelfand $A$-topology (cf. Definition \ref{gelfand_a_site_defn}).
-\end{lemma}
+ \begin{lem}\label{ctr_main_lem}
+Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
+trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota j}$. If  $\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}) then 
+\bea
+\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right) = 0,\\
+\check{H}^3\left(\Z \right)\left(\dl \right)  = 0.
+\eea
+where $\check{H}^2\left(\T \right)$ and $\check{H}^3\left(\Z \right)$ are given by the equations \eqref{ctr_h2_eqn} and \eqref{ctr_h3_eqn} respectively.
+ \end{lem}
 \begin{proof}
-	
-	(i) If $u \in U^A\left( B\right)$ is not trivial and $\widetilde u \in U$ is a representative of $u$ such that
-	$$
-	a \notin L\left(B \right) \quad  \widetilde u a \neq a.
-	$$
-	From $L\left( B\right)= \bigcap_{\iota =1}^n L\left( B_\iota\right)$ it follows that there is $\iota$ such that $a \notin L\left(B_\iota \right)$ so is $p^{B}_{B_\iota}$ is given by \eqref{ctr_ub_eqn} then $p^{B}_{B_\iota}\left( u\right) \neq 1_{U\left( CT\left(\sX, \dl \right)/ L\left( B\right) \right)}$.\\
-	(ii) Let  $P \subset  \left\{1, ..., n\right\}^2$ be such that for any $\left(\iota, j\right)\in P$ the generated by a union $B_\iota \cup B_j$ hereditary $C^*$-algebra $B_{\iota j}$ is not $L \left( B_\iota\right)+ L \left( B_j\right)$. Equivalently $L\left( B_{\iota j}\right) = L \left( B_\iota\right)+ L \left( B_j\right)\neq CT\left(\sX, \dl \right)$ or $CT\left(\sX, \dl \right)/\left(L \left( B_\iota\right)+ L \left( B_j\right) \right)\neq 0$, so $U\left(B_{\iota j} \right)\neq \{1\}$ . If $u \in U\left( B\right)$ and $\widetilde u \in U$ is a representative  of $u$ then for any $\iota = 1, ...,n$ the element $u_\iota \bydef p^B_{B_\iota}\left( u\right) $ is represented by $\widetilde u$. One should prove that $p^{B_\iota}_{B_{\iota j}}\left( u_\iota \right) = p^{B_j}_{B_{\iota j}}\left( u_j \right)$. This fact follows from the following equation
-	\bean
-	p^B_{B_{\iota j}}=  p^{B_\iota }_{B_{\iota j}}\circ  p^B_{B_\iota}=  p^{B_j }_{B_{\iota j}}\circ  p^B_{B_j}.
-	\eean 
+The transition functions $\a_{\iota j} \in A\left(F_{\iota j} \right)$ can be regarded as transition functions  $\a^A_{\iota j} \in A^A\left(	CT\left(\sX, \dl \right)\left(F_{\iota j}  \right) \right)$  where hereditary subalgebras 	$CT\left(\sX, \dl \right)\left(F_{\iota j}  \right)$  are given by the equation \eqref{ctr_cosupp_eqn}. However all $\a^A_{\iota j}$ are identical isomorphisms. It follows that $\left[\a^A_{\iota j}\right] \in D\left( C^0\left( \mathscr U, A^A\right)\right) $ where $D$ is given by \eqref{nonab_perm_eqn}. !!! It turns out that $\left[\a^A_{\iota j}\right]$ is trivial in $\check H^1\left( \mathscr U, A^A\right)$. But $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$ is the image of $\left[\a^A_{\iota j}\right]$ so it is also trivial, it follows that $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)= 0$. Since $\check{H}^3\left(\Z \right)\left(\dl \right)$ is an image of $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$  one has $\check{H}^3\left(\Z \right)\left(\dl \right)= 0$.
 \end{proof}
-\begin{remark}
-For any open subset $\sU \subset \sX$
-\end{remark}
-\begin{empt}
-	The sheaf $U^A$ of $\mathfrak{Site\sqrt{}}\left(A \right)$ is a counterpart of the explained in \ref{relating_empt} sheaf $U$ on $\sX$.
-From the Theorem \ref{dauns_hofmann_thm} it follows that there is an inclusion $C_b\left( \sX\right) \to M\left( A\right)$ so  $S \bydef  C_b\left( \sX\right) \cap U\left(  M\left( A\right)\right)$ is a subgroup of $U$. The subgroup $\widetilde S \subset \widetilde U$ yields a presheaf of $U^A$, denote by $S^A$ its associated sheaf. One can proof that $\widetilde S$ is a normal subgroup of $\widetilde U$ so there is a quotient sheaf $A^A\bydef U^A / S^A$ (cf. Definition \ref{sheaf_big_defn}).
-There is a sheaf $S$ on $\sX$ of $\T$-valued functions (cf. \ref{relating_empt}), i.e. for all $\sU$ a group $S\left( \sU\right)$ is a group of continuous functions $\sU \to \T$. 
-
-\end{empt}
-\ref{constant_presheaf_defn}!!!
 \paragraph{!!! ESSENTIAL}
 
 
@@ -1368,7 +1328,7 @@ We first note that the class $\left[\nu_{\iota j k}\right]$ does not depend on t
 	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over a paracompact
 	locally compact space $T$, with transition functions $\a_{\iota, j}$. Then
 	$\Ga_0\left( E\right)$ is a continuous-trace $C^*$-algebra with spectrum $T$ and Dixmier-Douady class
-	$\dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right) \cong H^3\left( \sX,\Z \right)$. 
+	$\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right) \cong H^3\left( \sX,\Z \right)$. 
 \end{proposition}
 \begin{lemma}
 PAGE 141. !!! Lemma 5.47. Suppose $A$ is a continuous-trace $C^*$-algebra with spectrum $T$, $\a \in \Aut_{C_0\left( T\right) }~ A$, and $t \in T$. Then there are a compact neighborhood $F$ of $T$ and a
@@ -1897,30 +1857,6 @@ $$
 is dense in $\pi_a^{\dl + \rho}\left( C^*_r\left( M, \F, \dl+\rho\right)\right)$. On the other hand the representation 	$\pi_a^{\dl + \rho}: C^*_r\left( M, \F. \dl+\rho\right)\hookto B\left(\widetilde \H_a \right)$ is atomic (cf. Definition \ref{atomic_repr_defn})  so it is faithful and nondegenerate. Taking into account the Lemma \ref{dd_hh_lem} one has a required Dixmier-Douady duality.
 \end{proof}
 
-\section{Gelfand locales versus Bohr locales}
-\subsection{Locales of $C^*$-algebras of type $I_0$}
-\paragraph*{} Let $A$ be a $C^*$-algebra of type $I_0$. Any element of the Gelfand $A$ locale $\mathfrak{Locale}\left( A\right) $ corresponds to a hereditary $C^*$-subalgebra $B \subset A$. However from the Definition \ref{type_i0_defn} that $B$ is a hereditary subalgebra generated by a union of its hereditary commutative subalgebras. On the other hand any family of commutative $C^*$-algebras yields an element of the Bohr locale. So the Gelfand $A$-locale $\mathfrak{Locale}(A)$ is isomorphic to Bohr one, i.e.  $\mathfrak{Locale}(A)\cong \mathfrak{BohrLocale}(A)$.
-
-
-
-\subsection{Locales of Cuntz algebras}
-\paragraph*{}If $\mathcal O_n$ is an explained in the Appendix \ref{cuntz_alg_sec} Cuntz algebra then any commutative subalgebra of $\mathcal O_n$ is given by
-$$
-\C S_\a S^*_\a \quad \a \in W^n_\infty
-$$
-where $S_\a$ (cf. the equations \eqref{words_eqn} and \eqref{words_a_eqn}). From this fact it follows that the Bohr locale of $\mathcal O_n$ equals to the locale $2^{W^n_\infty}$ of subsets of $W^n_\infty$. The Gelfand locale corresponds to hereditary subalgebras of $\mathcal O_n$ or, equivalently closed right ideals (cf. Lemma \ref{hered_ideal_lem}). If $L \subset \mathcal O_n$ is a closed left ideal and  $	S_\mu S^*_\nu \in L$ then from \eqref{ss_eqn} it follows that $S^*_\mu S_\mu S^*_\nu = S^*_\nu \in L$.  It follows that any closed left ideal is generated by elements $S^*_\a \in L$. Let us define an equivalence equation on $2^{W^n_\infty}$ such that 
-\bean
-\forall X', X'' \in 2^{W^n_\infty} \quad X' \sim X'' \quad \Leftrightarrow\\ \Leftrightarrow  \text{the closure of } \sum_{\a'\in X'} \mathcal O_n S_{\a'} = \text{the closure of } \sum_{\a''\in X''} \mathcal O_n S_{\a''}
-\eean
-For example if we consider $n = 2$ then from $S_{(1)}\sim S_{(1, 1)}+ S_{(1, 2)}$ if follows that 
-\be\label{cuntz_n_eqn}
-\left\{(1)\right\}\sim  \left\{(1, 1), (1, 2)\right\}.
-\ee
- From the Lemma \ref{hered_ideal_lem} it follows that the  Gelfand locale corresponds to the quotient set $W^n_\infty/ \sim$, i.e. Bohr locale (cf. Definition \ref{bohr_topos_defn}) is not isomorphic to the Gelfand $A$-locale, i.e.
-$$
-\mathfrak{Locale}\left( \mathcal O_n\right) \not\cong \mathfrak{BohrLocale}\left( \mathcal O_n\right)
-$$
-(for example cf. \eqref{cuntz_n_eqn}).
 \begin{appendices}
 	
 		\section{Categories theory}
@@ -2404,7 +2340,7 @@ kernel pair.
 	\begin{definition}\label{top_gro_definition}
 		In the situation of the Example \ref{top_gro_exm} one has a site $\mathbf T_{\sX}$ \textit{arising} from $\sX$.
 	\end{definition}
-	\subsection{Sheaves and cosheaves}
+	\subsection{Sheaves}
 	\begin{definition}\label{presheaf_defn}\cite{milne:lec}
 		A \textit{presheaf of sets} on a category $\mathscr C$
 		is a contravariant functor $\mathscr F$ from $\mathscr C$ to the category of sets. Thus,  $\mathscr F$
@@ -2586,12 +2522,12 @@ Any {Grothendieck topos} is a topos in the sense of the Definition \ref{topos_de
 	%If both $\mathscr E$, $\mathscr F$ are Grothendieck toposes and  $\mathscr F\xrightarrow{f}\mathscr E$ is {geometric morphism} then direct image $f^*$ is left exact. 
 	%\end{rem}
 	\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
-		If $X$ is an object of $\mathrm{Cat}\left( \mathbf T\right)$ (cf. Definition \ref{pretopology_defn}    then for any set $F$ there is a \textit{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) \bydef F$ and $\mathscr P\left( f\right) \bydef \Id_F$ for all $\mathrm{Cat}\left( \mathbf T\right)/X$-morphism $f: U\to V$.
+	For any site $\mathbf T$   (cf. Definition \ref{pretopology_defn}    and any set $F$ there is a \textit{constant presheaf} $\mathscr P$ such that $\mathscr P\left( U\right) \bydef F$ and $\mathscr P\left( f\right) \bydef \Id_F$ for all $\mathrm{Cat}\left( \mathbf T\right)$-morphism $f: U\to V$.
 		We use a following notation
 		\be\label{constant_presheaf_eqn}
-		F_X \bydef \mathscr P.
+		F_{\mathrm{Cat}\left( \mathbf T\right)} \bydef \mathscr P.
 		\ee
-		A sheaf associated (cf. Definition \ref{associated_sheaf_defn}) with a constant sheaf will is named a \text{constant sheaf}. We use the same notation $F_X$ for a constant sheaf. The difference between the constant presheaf and the constant sheaf depends from the context.
+		A sheaf $F_{\mathbf T} \bydef \mathfrak{Ass}\left(F_{\mathrm{Cat}\left( \mathbf T\right)} \right) $  associated (cf. Definition \ref{associated_sheaf_defn}) with a constant sheaf  $F_{\mathrm{Cat}\left( \mathbf T\right)}$ will be named a \textit{constant sheaf}.
 	\end{definition}
 
 \begin{definition}\label{yoneda_defn}
@@ -2745,221 +2681,17 @@ A_\phi \bydef \mathbf{C} \xrightarrow{\phi} \mathbf{D} \xrightarrow{\mathbf{y}} 
 \ee
 tensor product is given by \eqref{coprod_topos_a_eqn}, the Yoneda presheaf $\mathbf y$ is given by the equations \eqref{yoneda1_eqn},   \eqref{yoneda2_eqn} and $\mathfrak{Ass}$ is the an  {associated sheaf functor} (cf. Definition \ref{associated_sheaf_defn}).
 \end{empt}
+\begin{exercise}
+Proof that if $F$ is a set then in the situation of the Theorem \ref{site_mor_thm} one has
+\be\label{const_sheaf_morphism_eqn}
+f^* F_{\left(\mathbf{C}, J\right)}\cong F_{\left(\mathbf{D}, K\right)}
+\ee.
+where both $F_{\left(\mathbf{C}, J\right)}$ and  $F_{\left(\mathbf{D}, K\right)}$ are constant sheaves (cf. Definition \ref{constant_presheaf_defn}).
+\end{exercise}
 
 
-
-		\subsection{Localic topoi}
-	\begin{definition}\label{frame_defn}\cite{topos:intro}
-A \textit{frame} is lattice with all joins and all finite meets which satisfies the infinite distributive law:
-\be\label{frame_eqn}
-x \wedge \left( \bigvee_\iota y_\iota \right) = \bigvee_\iota\left(x\wedge   y_\iota \right) 
-\ee
-A \textit{frame homomorphism} 
-is a function which preserves finite meets and arbitrary joins. Notice
-that any frame has a largest element 1 (the empty meet) and a smallest
-element 0 (the empty join); thus a morphism   of frames $\Phi: B \to A$
-satisfies
-\be\label{locale_mor_eqn}
-\begin{split}
-\Phi\left(0\right)= 0,\\
-\Phi\left(1\right)= 1,\\
-\Phi\left(U\wedge V\right) = \Phi\left(U\right)\wedge  \Phi\left(V\right),\\
-\Phi\left(\bigvee U_\iota\right) = \bigvee \Phi\left(U_\iota\right).\\
-\end{split}
-\ee
-
-for all elements $U_\iota$ , $U$, and $V$ of $B$.
-
- Frames and frame homomorphisms form a category $\mathbf{Frm}$.
-	\end{definition}
-		\begin{definition}\label{locale_defn}\cite{topos:intro}
-		The category $\mathbf{ Locale}$ of \textit{locales} is the opposite of the category of frames
-		$$
-		\mathbf{ Locale} \bydef \mathbf{Frm}^\text{op}.
-		$$
-		If $X$ is  a locale  denote by $\mathcal O\left( X\right)$ the corresponding  frame.
-	\end{definition}
-	The definition  of sheaves on a topological space depends
-	only on the lattice of open sets of that space, and so extends at once to
-	define sheaves on a locale $X$. Thus an "open" object $U$ is underlying category is said to be
-	covered by a family $\left\{U_\iota \right\}$ of "opens" of $X$ with each $U_\iota \le U$  if and only if $U= \bigvee_\iota V_\iota$ thus
-	\be\label{localic_site}
-	\left\{U_\iota\subset U \right\} \text{ covers } U \text{ if and only if } U= \bigvee_\iota V_\iota
-	\ee
-	The equation \eqref{localic_site} yields a Grothendieck pretopology, so one obtains a Grothendieck topology. In result we obtain a site and a Grothendieck topos.
 	
-\begin{definition}\label{localic_topos_defn}\cite{topos:intro}
-	A Grothendieck topos obtained from a locale is said to be \textit{localic}.
-\end{definition}
-	\begin{theorem}\label{locale_thm}\cite{topos:intro}
-		For a Grothendieck $\mathscr E$ the following are equivalent:
-		\begin{enumerate}
-			\item [(i)] $\mathscr E$ is localic,
-			\item[(ii)] there exists a site for $\mathscr E$ with a patrially ordered set as underlying category,
-			\item[(iii)] $\mathcal{E}$ is generated by the subobjects of its terminal object 1.
-		\end{enumerate}
-	\end{theorem}
-	
-
-\begin{proposition}\label{locale_funct_prop}\cite{topos:intro}
-%Proposition 2. 
-The natural  functor $X \mapsto \mathbf{ Sh}(X)$ from locales to topoi induces
-for any two locales $X$ and $Y$ an equivalence of categories
-$$
-\mathbf{Maps}(X, Y) \xrightarrow{\cong} \Hom\left( \mathbf{Sh}(X), \mathbf{Sh}(Y)\right) 
-$$
-of locales and localic toposes.
-
-\end{proposition}
-\begin{empt}\cite{topos:intro}
-One can define implication and
-negation operators for elements $U$ and $V$ of any frame $A$, by setting
-thus
-\be
-\begin{split}
-	U \Rightarrow V \bydef \bigvee\left\{W \in A | W \wedge U \le V\right\},\\
-	\neg U \bydef \left( U \Rightarrow 0\right) = \bigvee\left\{W \in A | W \wedge U=0\right\}.
-\end{split}
-\ee
-For any locale $X$ the negation gives a double negation
-\be
-\neg\neg :\mathcal O\left( X\right) \to\mathcal O\left( X\right) 
-\ee
-where $\mathcal O\left( X\right)$ is a frame of locale $X$. One can define a sublocale $X_{\neg\neg}\subset X$ such that
-\be\label{double_neg_loc_eqn}
-\mathcal O\left( X_{\neg\neg}\right) \bydef \left\{U \in \mathcal O\left(X \right)|\neg\neg U = U  \right\}
-\ee
-\end{empt}
-\begin{definition}\label{double_neg_loc_defn}
-We say that the given by \eqref{double_neg_loc_eqn} locale $ X_{\neg\neg}$ is the \textit{double negation locale} of $X$.
-\end{definition}
-
-
-\subsection{Spatial locales}\label{spatial_toposes_sec}
-\paragraph*{}	
-Any topological space $\sX$ yields a Grothendieck topology, so 	a Grothendieck topology is a generalization of the classical topology. A topos is \textit{spatial} if it corresponds to a classical topology.
-%\begin{definition}\label{topos_point_defn}\cite{johnstone:topos}
-%Let $\mathscr S$ be a category of sets and functions, and let $\mathscr E \xrightarrow{\ga} \mathscr S$ be an $\mathscr S$-topos (cf. Definition \ref{relative_topos_defn}). By a \text{point} of $\mathscr E$ we mean a Geometric morphism $\mathscr S \xrightarrow{p} \mathcal E$ over $\mathscr S$. If $K$ is a class of points, we say that $K$ is \textit{sufficient} if the family of functors $\left\{\left.p^*\right| p\in K\right\}$ is conservative, i.e. if any $X \xrightarrow{f} Y$ in $\mathscr E$ such that $p^*\left(f \right)$ is iso for all $K$ is necessary iso. We say that $\mathscr E$ \text{has enough points} if the class of all points of $\mathscr E$ is sufficient.
-%\end{definition}
-%\begin{example}\label{top_points_exm}\cite{johnstone:topos}
-%Let  $\mathcal E \bydef \mathbf{Sh}\left( \sX\right)$,  $\sX$ is a topological space. Then any point $x$ of $\sX$ corresponds to a continuous map ${x} \xrightarrow{x}\sX$. Moreover, the set of points which arise in this way is sufficient.
-%\end{example}
-
-
-\begin{definition}\label{locale_point_defn}\cite{topos:intro}
-A	\textit{point} $p: 1\to X$ of a locale $X$ is the same thing
-	as a frame morphism to the initial frame
-	\be\label{locale_point_eqn}
-	p^{-1}:\mathcal{O}\left( X \right) \to \left\{0, 1\right\}.
-	\ee
-\end{definition}
-	The map $p^{-1}$ can be conveniently presented in terms of its \textit{kernel} $K \bydef
-\left\{U \left.| p^{-1} \left( U \right)  = 0\right.\right\}$, a subset of $X$ with the following properties
-\be\label{k_p_eqn}
-\begin{split}
-1 \notin K,\\
-U \wedge V \in K\quad  \Leftrightarrow \quad U \in K \text{ or } V \in K,\\
-\bigvee V_\iota \in K \quad  \Leftrightarrow \quad \forall \iota \quad V_\iota \in K
-\end{split}
-\ee
-If
-\be\label{p_p_eqn}
- P \bydef  \bigvee K \bydef \left( \bigvee_{U\in K} U\right) \in \mathcal O\left( X\right) 
- \ee
- then
- \bea\label{prime_eqn}
-U\wedge V = P  \quad  \Leftrightarrow \quad U \le P \text{ or } V\le P,\\
-\label{pprime_eqn}
-1 \neq P.
- \eea
- A satisfying to \eqref{prime_eqn} element $P\in \mathcal O\left(X \right)$ is said to be \textit{prime}, if it also satisfies to  \eqref{pprime_eqn} then we say that $P$ is. \textit{properly prime}.
-\begin{lemma}\label{point_lem}\cite{topos:intro}
-The points of a locale $X$ may be described in any of the
-following three equivalent ways:
-\begin{enumerate}
-	\item[(i)] as maps of locales $p: 1 \to X$; i.e., as frame morphisms
-		$p^{-1}:\mathcal{O}\left( X \right) \to \left\{0, 1\right\}$;
-	\item[(ii)] as subsets $K \subset \mathcal{O}\left( X \right)$ satisfying the three conditions of \eqref{k_p_eqn};
-	\item[(iii)] as proper prime elements $P \in  \mathcal{O}\left( X \right)$); i.e., as elements $P\in \mathcal{O}\left( X \right)$ satisfying \eqref{prime_eqn} and \eqref{pprime_eqn}.
-\end{enumerate}
-\end{lemma}
-
-This set of points carries a natural
-topology for which the open sets are the sets of the form
-\be\label{point_set_eqn}
-\mathrm{pt}(U) = \left\lbrace p \in \mathrm{pt}(X) \left| p^{-1}\left( U\right)  = 1\right.\right\rbrace \subset \mathrm{pt}(X)\quad \text{ for some }\quad U \in \mathcal O\left(X\right)
-\ee
-From a map $f: X\to Y$ of locales one can construct a continuous map $\mathrm{pt}(X)\to \mathrm{pt}(Y)$ of topological spaces, i.e.
-\be\label{sober_map}
-\mathrm{pt}(f): (p: 1 \to X) \mapsto  (f \circ p : 1 \to X \to Y). 
-\ee
-Thus there is a functor 
-\be\label{point_f_eqn}
-\mathrm{pt}: \mathbf{Locales}\to \mathbf{Spaces}
-\ee
-from the category of locales to the category of topological spaces (cf. \cite{topos:intro} for details).
-\begin{theorem}
-The functor $\mathrm{pt}: \mathbf{Locales}\to \mathbf{Spaces}$ is right adjoint
-to the functor $\mathrm{Loc} : \mathbf{Spaces} \to \mathbf{Locales}$.
-\end{theorem}
-
-
-\begin{definition}\label{sober_defn}\cite{topos:intro}
-A topological space $\sX$ is said to be \textit{sober} if and only is for any
-open subset $\sU\subset \sX$ such that
-\begin{enumerate}
-	\item[(a)] $\sU \neq \sX$,
-	\item[(b)] $\sV \cap \mathcal W \subset \sU \Rightarrow \sV \subset \sU$ or $\mathcal W\subset \sU$ (all open $\sV , \mathcal W\subset \sU$,
-\end{enumerate}
-there is a unique point $x \in \sX$ with   $\sU = \sX \setminus \overline{\{x\}}$ where  $\overline{\{x\}}$ is the  closure of the one-point set $\{x\}$.
-\end{definition}
-\begin{remark}\label{sober_rem}\cite{topos:intro}
-	A closed	subset $F \subset \sX$ is called \textit{irreducible} if it can not be written as the union of two smaller closed subsets; that is, whenever $F_1$ and $F_2$ are closed sets
-	with $F= F_1 \cup F_2$, then $F_1 = F$ or $F_2 = F$. Clearly, if $x$ is a point of $\sX$,
-	then a closure of $\{x\}$ is an irreducible closed set. Thus $\sX$ is sober if and only if every nonempty
-	irreducible closed set is the closure of a unique point.
-\end{remark}
-
-\begin{proposition}\label{sober_prop}\cite{topos:intro}
-For any topological space $\sX$, the following are equivalent: 
-\begin{enumerate}
-\item[(i)] $\sX$ is sober;
-\item[(ii)] the unit of the adjunction $\sX \mapsto \mathrm{pt}\circ \mathrm{Loc}\left( \sX\right)$  is a homeomorphism;
-\item[(iii)] there is a homeomorphism $\sX \cong \mathrm{pt}(X)$ for some locale $X$.
-\end{enumerate}	
-\end{proposition}
-\begin{remark}\label{pointless_loc}\cite{topos:intro}
-	The functor $\mathrm{pt}$ from locales to spaces is by no means faithful. In
-	fact, there are many locales which have no points at all.
-\end{remark}
-\begin{definition}\label{spatial_locale_defn}\cite{topos:intro}
-A locale $X$ is said to have \textit{enough points} (or to be \textit{spatial}) if elements of the lattice $\mathcal O(X)$ can be distinguished by points of $X$. Specifically, this means
-that for any two distinct elements $U, V \in  \mathcal O(X)$, there exists a point
-$p : 1 \to X$ such that $p^{-1}\left( U\right)\neq p^{-1}\left(V \right)$, i.e.
-\be\label{enough_points_p_eqn}
-\forall U, V\in \mathcal O\left(X \right) \quad U \neq V \quad \Rightarrow\quad \exists p \in \mathrm{pt} (X)\quad p^{-1}\left(U \right) \neq p^{-1}\left(V \right) 
-\ee
-
-Equivalently, $X$ has enough points if and only if, for any  $U, V \in  \mathcal O(X)$.
-\be\label{enough_points_eqn}
-\mathrm{pt}(U) = \mathrm{pt}(V) \quad \Rightarrow \quad U = V.
-\ee
-\end{definition}
-
-\begin{proposition}\label{enough_points_prop}\cite{topos:intro}
-For any locale X, the following are equivalent:
-\begin{enumerate}
-	\item[(i)] $X$ has enough points;
-\item[(ii)] the counit $\mathrm{Loc}\circ\mathrm{pt} X \to X$ is an isomorphism of locales;
-\item[(iii)] $X \cong \mathrm{Loc}\left(\sX \right)$  for some topological space $\sX$.
-\end{enumerate}
-
-\end{proposition}
-% And we define the \textit{upper interval topology} $\Phi(X, \le)$ (sometimes called the weak topology) to be the smallest topology for which all sets of the form $\downarrow\left(  x\right) $ are closed, i.e. the topology based by sets of the form 
-%$$
-%X\setminus  \left( \downarrow\left(  x_1\right)\cup ... \cup \downarrow\left(  x_n\right)\right) 
-%$$
-\subsection{Derived functors}
+	\subsection{Derived functors}
 
 \begin{definition}
  An \textit{Abelian category} is a category $\mathfrak{A}$, such that: $\Hom\left(A, B \right)$ has a structure of an Abelian group for each objects $A,~ B$ of $\mathfrak{A}$, and the composition law is linear; finite direct sums exist; every morphism has a kernel 
@@ -3283,23 +3015,23 @@ by the properties (a), (b) and (c).
 \sU_{\iota_0, ..., \iota_{p}}\bydef \sU_{\iota_0} \cap ...\cap \sU_{\iota_p}	
 	$ for any $\left(\iota_0, ..., \iota_p\right)\in I^{p+1}$.
 	\begin{definition}\label{nonab_coh_defn}
-	We define the \textit{group of }$p$- \textit{cochains of the covering } $\mathscr U$ \textit{with coefficients in the sheaf of groups } $\G$ as the product group
+	We define the \textit{group of }$p$-\textit{cochains of the covering } $\mathscr U$ \textit{with coefficients in the sheaf of groups } $\G$ as the product group
 	$$
 	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right). 
 	$$ A 1-cochain $\left(g_{\iota, j} \right)$ is called a  1 - \textit{cocycle} if it satisfies  the conditions
 	\be\label{nonab_coh_eqn}
-	\sU_{\iota, j, k}\neq \emptyset \quad \Rightarrow  \quad  g_{\iota k} = g_{\iota, j}g_{jk}.
+	\sU_{\iota, j, k}\neq \emptyset \quad \Rightarrow  \quad  g_{\iota, k} = g_{\iota, j}g_{j,k}.
 	\ee
 	The set of 1-cocycles in $C^1\left( \mathscr U, \G\right)$ (which set in general is not a subgroup) however is denoted by  $Z^1\left( \mathscr U, \G\right)$,
 	\end{definition}
-	Let $g^0 = \left\{g_\iota\right\}\in C^0\left( \mathscr U, \G\right)$, $~g^1 = \left\{g_{\iota, j}\right\}\in C^1\left( \mathscr U, \G\right)$, we define an element $G\left( g^0\right).g^1 \in Z^1\left( \mathscr U, \G\right)$ by
+	Let $g^0 = \left\{g_\iota\right\}\in C^0\left( \mathscr U, \G\right)$, $~g^1 = \left\{g_{\iota, j}\right\}\in C^1\left( \mathscr U, \G\right)$, we define an element $D\left( g^0\right).g^1 \in Z^1\left( \mathscr U, \G\right)$ by
 	\be\label{nonab_perm_eqn}
-	\left( D\left( g^0\right).g^1\right)_{\iota j}
+	\left( D\left( g^0\right).g^1\right)_{\iota, j}
 	\bydef  g_\iota g_{\iota, j} g^{-1}_j.
 	\ee  
 	With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
 \be
-H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/B\left( C^0\left( \mathscr U, \G\right)\right) 
+H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C^0\left( \mathscr U, \G\right)\right) 
 \ee
 If $\mathscr V$ is a refinement of the covering $\mathscr U$ then similarly to \eqref{cech_refi_eqn} for any $p$ there is a natural homomorphism
 $$
@@ -3316,135 +3048,9 @@ and call the \textit{first cohomology set of } $\sX$ \textit{ with coefficients 
 An element of this inductive limit is class of elements in the union of sets $H^1\left( \mathscr U, \G\right)$, an element in $H^1\left( \mathscr U, \G\right)$ being equivalent to an element in $H^1\left( \mathscr V, \G\right)$ if and only if for a suitable common refinement $\mathscr W$ of $\mathscr U$ and $\mathscr V$, the canonical image of these elements in  $H^1\left( \mathscr U, \G\right)$ are same.
 \end{definition}
 \begin{remark}\label{nonab_coh_rem}
-	There is a generalization of the Definition \ref{nonab_coh_defn} for Grothendieck topology (cf. \cite{johnstone:topos,topos:intro})
+	There are  generalizations of the Definitions \ref{nonab_coh_defn} and \ref{nonab_coh_den}  for Grothendieck topology (cf. \cite{johnstone:topos,topos:intro})
 \end{remark}
 	
-	\subsection{Set and universes}
-	
-
-	For a set $u$, we denote as usual by $P\left( u\right)$  the set of subsets of $u : P(u) \bydef
-\left\{x | x \subset u\right\}$
-\begin{definition}\cite{kashiwara:cat_sheaves}
-%	Definition 1.1.1. 
-	A universe $\sU$ is a set satisfying the following properties:
-	\begin{enumerate}
-		\item[(i)] 		$\emptyset\in \sU$
-		\item[(ii)] $u \in \sU$ implies $u\subset \sU$, (equivalently, $x \in \sU$ and $y \in x$ implies $y\in \sU$, or 	else $\sU \subset P\left( \sU\right)$ ,
-		\item[(iii)] $u \in \sU$ implies $\{u\}\in \sU$,
-		\item[(iv)] $u \in \sU$ implies $P\left( u\right)  \in \sU$,
-		\item[(v)] if $I \in \sU$ and $u_i\in \sU$ for all $i \in I$ , then $\bigcup_{i \in I}u_i \in \sU$
-	\item[(vi)] $\N \in \sU$.
-		
-	\end{enumerate}
-	As a consequence we have
-	\begin{enumerate}
-		\item[(vii)] $u \in \sU$ implies $\bigcup_{x \in u} x \in \sU$,
-			\item[(viii)]$u,v \in \sU$ implies $x \times y \in \sU$,
-		\item[(ix)] $u \subset v \in \sU$ implies $u \in \sU$,
-		\item[(x)] if $I \in \sU$ and $u_i \in \sU$ for all $i \in I$, then $\prod_{i \in I} u_i \in \sU$.
-	\end{enumerate}
-	Following Grothendieck, we shall add an axiom to the Zermelo-Fraenkel theory,
-asking that for any set $X$ there exists a universe $\sU$ such that $X \in \sU$.
-\end{definition}
-\begin{definition}\cite{kashiwara:cat_sheaves}
-%Definition 1.1.2. 
-Let $\sU$ be a universe.
-\begin{enumerate}
-	\item [(i)] A set is called a $\sU$-\textit{set} if it belongs to $\sU$.
-	\item [(ii)] A set is called $\sU$-\textit{small} if it is isomorphic to a set belonging to $\sU$.
-\end{enumerate}
-\end{definition}
-\begin{definition}
-A category $\mathscr C$ is called a $\sU$-\textit{category} if $\Hom \mathscr C(X, Y)$ is $\sU$-small for any $\mathscr C$-objects $X$ and $Y$.
-\end{definition}
-
-\begin{definition}
-%Definition 1.4.2. 
-Let $\mathscr C$ be a $\sU$-category. We define the big categories
-\bean
-\mathscr C^\wedge_\sU \bydef  \text{ the category of functors from } \mathscr C^{\mathrm{op}} \text{ to } \sU\text{-}\mathbf{Set} ,\\
-\mathscr C^\vee_\sU \bydef  \text{ the category of functors from } \mathscr C^{\mathrm{op}} \text{ to } \left( \sU\text{-}\mathbf{Set}\right)^{\mathrm{op}} 
-\eean 
-and the functors
-\bean
-\mathrm{h}_{\mathscr C}: \mathscr C\to \mathscr \mathscr C^\wedge_\sU\quad X \mapsto \Hom\left(\bullet, X \right),\\ 
-\mathrm{k}_{\mathscr C}: \mathscr C\to \mathscr \mathscr C^\vee_\sU\quad X \mapsto \Hom\left( X, \bullet \right)
-\eean 
-
-\end{definition}
-\begin{definition}
-A category $I$ is \textit{filtrant} if it satisfies the conditions (i)–(iii)
-below.
-\begin{enumerate}
-	\item [(i)] $I$ is non empty,
-	\item [(ii)]  for any $i$ and $j$ in $I$ , there exist $k \in I$ and morphisms $i \to k$, $j \to k$,
-	\item [(ii)]  for any parallel morphisms $f, g : i \rightrightarrows j $, there exists a morphism $h : j \to k$
-	such that $h \circ f = h \circ g$.
-\end{enumerate}
-A category $I$ is \textit{cofiltrant} if $I^{\mathrm{op}}$ is filtrant.
-\end{definition} 
-Assume first that $\mathscr C$ is the category $\mathbf{Set}$ and let us consider \textit{projective
-systems}. In other words, $\bt$ is an object of $I^\wedge$. Denote by $\mathrm{pt}_{I^\wedge}$ the constant
-functor from $I^\mathrm{op}$ to $\mathbf{Set}$, defined by $\mathrm{pt}_{I^\wedge}(i) \bydef \mathrm{pt}$ for all $i \in I$ . Note that $\mathrm{pt}_{I^\wedge}(i)$
-is a terminal object of $I^\wedge$. We define a set, called the \textit{projective} limit of $\bt$, by
-$$
-\varprojlim \bt \bydef \Hom_{I^\wedge}\left(\mathrm{pt}_{I^\wedge}, \bt \right) 
-$$
-\begin{definition}
-%Definition 2.1.2. (i)
-\begin{enumerate}
-	\item [(i)] We define $\varinjlim \a$ and $\varprojlim \bt$ by the formulas
-	\bea
-	\varinjlim \a \bydef X \mapsto \varinjlim \Hom_{\mathscr{C}}\left(\a , X  \right) = \varinjlim \left(\mathrm{h}_{\mathscr{C}}\circ \a \right) \in \mathbf{Set},\\
-	\varprojlim \a \bydef X \mapsto \varprojlim \Hom_{\mathscr{C}}\left( X, b  \right) = \varprojlim \left(\mathrm{k}_{\mathscr{C}}\circ \a \right) \in \mathbf{Set}.
-	\eea
-\end{enumerate} 
-
-\end{definition}
-
-\begin{proposition}
-%Proposition 3.1.3. 
-
-Let $\a : I \to \mathbf{ Set}$ be a functor with $I$ small and filtrant.
-Define the relation $\sim$ on $\coprod_i \a\left( i\right)$  as follows: $\a(i)) \ni  x \sim y \in \a( j )$ if there exist
-$s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
-\begin{itemize}
-	\item [(i)] the relation $\sim$ is an equivalence relation,
-\item	[(ii)] $\varinjlim \a = \coprod_i \a(i)/ \sim$.
-\end{itemize}
-
-\end{proposition}
-	Recall that a universe $\sU$ is given. When we consider a category, it means a
-	$\sU$-category and $\mathbf{Set}$ is the category of $\sU$-sets %(see Convention 1.4.1). 
-	As far
-	as this has no implications, we will skip this point.
-	Recall that for a category $\mathscr C$, inductive limits in $\mathscr C^\wedge \bydef \bydef \mathrm{Fct}\left( \mathscr C^{\mathrm{op}}, \mathbf{Set}\right)$  are
-	denoted by “$\varinjlim$”.
-	\begin{definition}
-	%	Definition 6.1.1.
-	\begin{enumerate}
-		\item[(i)] 	Let $\mathscr C$ be a $\sU$-category. An \textit{ind}-\textit{object} in $\mathscr C$ is an object
-		$A \in \mathscr C^\wedge$ which is isomorphic to “$\varinjlim$” for some functor $\a : I \to  \mathscr C$  with
-		$I$ filtrant and $\sU$-small.
-		\item[(ii)] We denote by $\mathrm {Ind}^\sU\left(  \mathscr C \right)$ (or simply $\mathrm {Ind}\left(  \mathscr C \right)$ if there is no risk of confusion)
-		the full big subcategory of $\mathscr C^\wedge$ consisting of ind-objects, and call it the \textit{indization}
-		of $\mathscr C$. We denote by $\iota_{\mathscr C} : \mathscr C \to {Ind}\left(  \mathscr C \right)$ the natural functor (induced
-		by $\mathrm{h}_{\mathscr C}$).
-				\item[(iii)] 	Similarly a \textit{pro}-\textit{object} in $\mathscr C$ is an object
-		$B \in \mathscr C^\vee$ which is isomorphic to “$\varprojlim$” $\bt$ for some functor $\bt : I^{\mathrm{op}} \to  \mathscr C$  with
-		$I$ filtrant and $\sU$-small.
-		\item[(iv)] We denote by $\mathrm {Pro}^\sU\left(  \mathscr C \right)$ (or simply $\mathrm {Pro}\left(  \mathscr C \right)$)
-		the full big subcategory of $\mathscr C^\vee$ consisting of pro-objects
-		
-	\end{enumerate}
-	\end{definition}
-	There is an equivalence
-	\be
-	\mathrm {Pro}\left(  \mathscr C \right)= \mathrm {Ind}\left(  \mathscr C^{\mathrm{op}} \right)^{\mathrm{op}}
-	\ee
-%	Lemma 6.1.2. The categories Ind(C) and Pro(C) are U-categories.
-
-
 	\section{Topological sheaves and cosheaves}
 		\subsection{General topology}
 	\begin{definition}\label{nerve_defn}\cite{spanier:at}
@@ -3468,63 +3074,7 @@ $s : i \to k$ and $t : j \to k$ such that $\a(s)(x) = \a(t)(y)$. Then
 	\end{theorem}
 	
 	
-\subsection{Simplicial sets and geometric realization}
-!!! MAY BE DELETE
-\begin{definition}\cite{gelfand_manin}
-A \textit{simplicial set} is a family of sets $X_\bullet \bydef \left\{X_n\right\}_{n = 0,1, ...}$
-and of maps $X(f) : X_n\to X_m$, one for each nondecreasing map $f : [m] \to [n]$ 
-	such that the following conditions are satisfied:
-	\bean
-	X\left(\Id\right)= \Id,\\
-X(g\circ f)=X(f)\circ X(g).	
-	\eean 
-%	The only difference with the gluing data introduced in 1.1.1b) is that / 	need not be strictly increasing. 
-Elements of $X_n$ are called $n$-simplices. Instead 
-	of $X_\bullet$, we will often write simply $X$. 
-	For any nondecreasing map $f : [m] \to [n]$ we define the \textit{f-th face} Af 
-	as the linear map $\Delta_m \to \Dl_n$ that maps any vertex $e_j \in \Dl_m$ into the vertex 
-	$f(e_j) \in \Dl_n$, $j = 0, ...,m$. 
-%	Contrary to the situation in 1.1.1a), Af is not necessarily an embedding: if 	/ is not strictly increasing, then Af decreasesthedimension gluing together 
-	some vertices of Am. 
-	\end{definition}
-	\begin{definition}\cite{gelfand_manin}
- The \textit{geometric realization} $\left|X \right|$ of a simplicial set $\left\{X_n\right\}$ is the 
-topological space with the underlying set $\bigsqcup_{n = 0}^\infty \left(\Dl_n\times X_n \right)/R$ , where $R$ is the 
-weakest equivalence relation identifying points $(s,x) \in  \Dl_n\times X_n$ and $(t,y) \in  \Dl_m\times X_m$ if 
-\bean
-y = X(f)x,\\
-s = \Dl_f\left( t\right)  
-\eean
-
-	for some nondecreasing map $f : [m] \to [n]$I We shall write these 
-	conditions as 
-	$$
-	(t,y) \mapsto (s,x).
-	$$ 
-	The topology on $\left|X \right|$ is the weakest one for which the factorization by $R$ 
-	is continuous. 
-	\end{definition}
-
-
-\begin{definition}\label{nerve_m_defn}\cite{gelfand_manin}
-	MAY BE DELETE !!!
-	Let $\sY$ be a topological space, $\mathscr U \bydef \left\{\sU_{   \a}\right\}$ be its covering (either by open or by 
-closed sets), $\a$ running over some set $\A$. Let 
-\bean
-X_n \bydef \left\{\left(\a_0, ..., \a_n\right)| \sU_{\a_0}\cap ...\cap \sU_{\a_n}\right\} \neq \emptyset,\\
-X(f)\left(\a_0, ..., \a_n\right) = \left(\a_{f_0}, ..., \a_{f_n}\right) \quad  \text{for} \quad f : [m] \to [n].
-\eean 
-\end{definition}
-\begin{remark}\cite{gelfand_manin}
-		This simplicial set reflects the combinatorial structure of a covering. One 
-can show that if the covering $\mathscr U$ is locally finite and all nonempty finite intersections $\sU_{\a_0}\cap ...\cap \sU_{\a_n}$ are contractible, then the geometric realization $\left|X \right|$
-of $X$ is homotopically equivalent to $\sY$, so that the topology can be efficiently 
-encoded into combinatorial data. 
-
-\end{remark}
-		
-	
-	\subsection{General theory of sheaves}
+\subsection{General theory of sheaves}
 	\paragraph*{}
 	The explained below definitions are specializations of   \ref{presheaf_defn} and  \ref{sheaf_defn} ones (cf. Example \ref{top_gro_exm}).
 	\begin{definition}\label{top_presheaf_defn}\cite{hartshorne:ag}
@@ -3923,12 +3473,16 @@ denotes the \textit{support} of the section $s$.
 				Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
 			\end{lemma}
 			
-		\begin{theorem}\cite{godement:sheaf}
+		\begin{theorem}\label{loc_fin_french_thm}\cite{godement:sheaf}
 		%Théor?me 1.3.1.—? 
 		Soient $\mathscr F$ un faisceau de base $\sX$ et $\left\{M_\iota\right\}_{\iota\in I}$ un recouvrement 
 		fermé localement fini de $\sX$. Supposons données des sections $s_\iota \in \mathscr F\left(M_\iota \right)$  de telle sorte que 
-		$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s_\in \mathscr F\left(\sX \right)$ qui 
+		$s_\iota = s_j$ dans $M_\iota \cap M_j$- quels que soient $\iota$ et $j$; alors il existe une section  $s \in \mathscr F\left(\sX \right)$ qui 
 		co\"incide avec $s_\iota$ dans $M_\iota$- quel que soit $\iota \in I$. 
+		\end{theorem}
+		Following theorem is an English translation of the \ref{loc_fin_french_thm} one.
+		\begin{theorem}\label{loc_fin_eng_thm}\cite{godement:sheaf}
+		Let $\sX$ is a topological space, and let $\mathscr F \in \mathbf{Sh}\left( \sX\right)$. Let $\left\{M_\iota\right\}$ is a locally finite closed covering of $\sX$, and let $s_\iota \in \mathscr F\left( M_\iota \right)$ be such that $s_\iota = s_j$ on $M_\iota \cap M_j$ for all $\iota$ and $j$. Then there is $s \in \mathscr F\left( \sX\right)$ 
 		\end{theorem}
 		\begin{theorem}\label{closed_cov_thm}\cite{godement:sheaf}
 		Let $\mathscr U$ be either open covering or locally finite closed covering of $\sX$. For any sheaf $\mathscr A$ there is a canonical isomorphism
@@ -4831,1380 +4385,7 @@ If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with
 %		with the given by the equations \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} operations. Let $C^*_r\left(M, \F, \a \right)$ be the completion of $C_c\left(M, \F, \a \right)$ with respect to the norm \eqref{groupoid_norm_eqn}. From the Statement \ref{gropoid_mult_lem}  there is the natural inclusion 		$C_0\left(M \right) \hookto M\left( C^*_r\left(M, \F, \a\right)\right)$.
 %	\end{empt}
 	
-\section{Bohr locales}
-\paragraph*{}
-The aim of Bohr toposes is to relate algebraic quantum mechanics to
-topos theory, so as to construct new foundations for quantum logic
-and quantum spaces.	Bohr toposes provide the topos-theoretical notion of a space which
-intrinsically carries the intuitionistic logical structure of a Heyting algebra. We need the following.
-\begin{definition}\label{alex_top_defn}\cite{johnstone:stone_spaces}.
-	Let $X$ be a partially ordered set. We define the \textit{Alexandrov topology} $\Upsilon(X, \le)$ (or simply 
-	$\Upsilon(X)$, if the partial order is obvious) to be the collection of all \textit{upper sets}
-	in $X$ (i.e. sets $U$ such that $x \in  U$ and $x \le y$ imply $y \in U$); this is clearly a 
-	topology, since it is closed under arbitrary unions and intersections. 
-	
-\end{definition}
-
-\begin{remark}\label{alex_not_sober}\cite{beyond_sober_duality}
-	Alexandrov topology are not always sober.
-\end{remark} 
-For any $C^*$-algebra 
-one can consider the partially ordered set $\mathcal C(A)$  of commutative
-subalgebras of $A$, ordered by inclusion. The assignment of this partially ordered to
-a $C^*$-algebra induces a functor $\mathcal C$ from the category of $C^*$-algebras to the category of partially ordered sets, since one has for any
-homomorphism $A \xrightarrow{h}B$ a functor $
-\mathcal C(A)\xrightarrow{\mathcal C}  \mathcal C(B)$
-\newline
-\begin{tikzcd}
-	C \arrow[d] \arrow[r, mapsto]
-	& h(C) \arrow[d]\\
-	B\arrow[r, mapsto]	&h (B)
-\end{tikzcd}
-\\
-\\
-A partially ordered set yields an Alexandrov space $L(A)$.
-\begin{definition}\label{bohr_topos_defn}\cite{joost:borification}
-	The \textit{Bohr topos} of $C^*$-algebra $A$ is a  topos sheaves $\mathbf{Sh}\left( L(A)\right)$ over an Alexandrov space $L(A)$.
-\end{definition}
-\begin{remark}
-	The open sets of the Alexandrov space is a partially ordered set, so from the Theorem \ref{locale_thm} it follows that the {Bohr topos} is localic. 
-\end{remark}
-\begin{definition}\label{bohr_locale_defn}
-	The locale of the {Bohr topos} of $C^*$-algebra $A$ is said to be the \textit{Bohr} $A$-\textit{locale}, denoted by $\mathfrak{BohrLocale}(A)$.
-\end{definition}
-\begin{remark}\label{bohr_not_spat_rem}
-	From the Remark \ref{alex_not_sober} and the Proposition \ref{sober_prop} it follows that the {Bohr topos} should not be always spatial.
-\end{remark}
-	
-\section{Algebraic geometry}
-\paragraph{}
-In this section we will consider schemes satisfying the following condition: 
-\\
-(*) $\sX$ is a Noetherian integral separated scheme which is regular in codimension one. Details of this notion is explained in \cite{hartshorne:ag}. 
-\begin{remark}\label{ag_weil_complex_rem}
-	For any natural $n$ a complex projective space $\C P^n$ satisfies to the condition (*).
-\end{remark}
-
-
-\subsection{Weil divisors}
-
-\begin{definition}\label{ag_weil_div_defn}\cite{hartshorne:ag}
-Let X satisfy (*). A \textit{prime divisor} on $D$ is a closed integral sub-
-scheme $\sY$ of codimension one. A \textit{Weil divisor} is an element of the free Abelian group $\mathrm{Div}~ \sX$ generated by the prime divisors. We write a divisor 
-as $D = \sum n_j \sY_j$  where the $\sY_j$ are prime divisors, the $n_j$ are integers, and only finitely many $n_j$ are different from zero. If all the $n_j \ge  0$, we say 
-that $D$ is \textit{effective}. 
-\end{definition}
-\begin{empt}\cite{hartshorne:ag}
-The used below notions are explained in \cite{hartshorne:ag}. If $\sY$ is a prime divisor of $\sX$, let $\eta \in \sY$ be its generic point. Then the local ring $\mathscr O_{\eta, \sX}$ is a discrete valuation ring with quotient field $K$, the function field of $\sX$. We call the corresponding valuation $v_\sY$ the \textit{valuation of} $\sY$. Since $\sX$ is separated, $\sY$ is uniquely  determined by its valuation. Now let $f \in K^*$ be any nonzero rational function on $\sX$. Then $v_\sY\left(f\right)$ is an integer. If it positive, we say that $f$ has a \text{zero} along $\sY$; if it is negative, we say that $f$ has a \textit{pole} along $\sY$ of order $-v_\sY\left(f \right)$.  
-\end{empt}
-\begin{lemma}\label{ag_weil_div_lem}\cite{hartshorne:ag}
-Let $\sX$ satisfy (*), and let $f\in K^*$ be a nonzero function on $\sX$. 
-Then $v_\sY\left(f \right)= 0$  for all except finitely many prime divisors $\sY$. 
-\end{lemma}
-\begin{definition}
-Let $\sX$ satisfy (*) and let fe $K^*$. We define the \textit{divisor} of $f$, denoted $(f)$, by 
-$$
-(f)\bydef \sum v_\sY\left( f\right) \cdot \sY,
-$$
-where the sum is taken over all prime divisors of $\sX$. By the lemma, this 
-is a finite sum, hence it is a divisor. Any divisor which is equal to the 
-divisor of a function is called a \textit{principal} divisor. 
-\end{definition}
-Note that if $f,g \in  K^*$, then $(f/g) = (f) — (g$) because of the properties of valuations. Therefore sending a function $f$ to its divisor $(f)$ gives a homomorphism of the multiplicative group  $K^*$ to the additive group $\mathrm{Div}~ \sX$, and the image, which consists of the principal divisors, is a subgroup of $\mathrm{Div}~ \sX$. 
-\begin{definition}
-Let $\sX$ satisfy (*). Two divisors $D$ and $D'$ are said to be \textit{linearly}\label{ag_div_class_gr_defn}\cite{hartshorne:ag}
-equivalent, written $D \approx D$ if $D - D'$ is a principal divisor. The group $\mathrm{Div} ~\sX$ of all divisors divided by the subgroup of principal divisors is 
-called the \textit{divisor class group} of $\sX$, and is denoted by $\mathrm{Cl}~ \sX$. 
-\end{definition}
-\subsection{Intersection theory}
-\paragraph{}
-Let $\sX$ be any variety over a field  $k$. A \textit{cycle of codimension} $r$ on $\sX$ is an element of the free Abelian group generated by the closed irreducible subvarieties of $\sX$ 
-of codimension $r$. So we write a cycle as $Y = \sum n_j \sY_j$ where the $\sY_j$ are sub	varieties, and $n_j \in \Z$. Sometimes it is useful to speak of the cycle associated 
-	to a closed subscheme. If $Z$ is a closed subscheme of codimension $r$ let  $\sY_1, ..., \sY_l$ be those irreducible components of $\sZ$ which have codimension $r$, 	and define the cycle associated to $\sZ$ to be $\sum n_j \sY_j$, where $n_j$ is the length of 
-		the local ring $\mathscr O_{y_j, \sZ}$ of the generic point $y_j$ of $\sY_j$ on $\sZ$. 
-			Let $f: \sX \to \sX'$ be a morphism of varieties, and let $\sY$ be a subvariety of $\sX$. 	If $\dim f(\sY) < \dim \sY$, we set $f_*\left( \sY\right) = 0$. If $\dim f(\sY) = \dim \sY$, then the 			function field $K(\sY)$ is a finite extension field of $K(f(\sY))$, and we set 
-			$$
-			f_*(\sY )\bydef \left[K(\sY) : K\left(f(\sY) \right)  \right]\cdot \overline{f (\sY)} .
-			$$
-						 
-	Now we come to the definition of rational equivalence For any subvariety 	$\sV$ of $\sX$, let $f: \tilde \sV \to \sV$ be the normalization of $\sV$. Then $\sV$ satisfies the condition (*), so we can talk about Weil divisors and linear equivalence 
-	on $\widetilde \sV$. Whenever $D$ and $B'$ are linearly equivalent Weil divisors on $\widetilde \sV$, we say 
-	that $f_*D$ and $f_*D'$  are \textit{rationally equivalent} as cycles on $\sX$. Then we define 
-	rational equivalence of cycles on $\sX$ in general by dividing out by the group 
-	generated by all such $f_*D \cong f_*D'$ for all subvarieties $\sV$, and all linearly 
-	equivalent Weil divisors $D,D'$ on $\sV$. In particular, if X itself is normal, then 
-	rational equivalence for cycles of codimension 1 coincides with linear 
-	equivalence of Weil divisors. 
-	For each $r$ we let $A^r(\sX)$ be the group of cycles of codimension $r$ on $\sX$  
-	modulo rational equivalence. We denote by $A(\sX)$ the graded group $\bigoplus_{r=0}^n A^r(\sX)$,
-where $n = \dim \sX$. Note that $A^0(\sX)= \Z$, and that $A^r(\sX) = \{0\}$ for 	$r > \dim X$. 
-	%Note also that if X is complete there is a natural group homo	morphism, the degree, from An(X) to Z, defined by deg(^/7I-Pi) = ?/7f, where 	the Pt are points. This is well-defined on rational equivalence classes because 
-\begin{remark}\label{ag_chow_ring_rem}
-If $\sX$ is a 	nonsingular projective variety  then there is an explained in \cite{hartshorne:ag} pairing $A^r(\sX) \times A^s(\sX)\to A^{r + s}(\sX)$ for each $r,s$. If $\sY \in A^r(\sX)$ and $\sZ \in A^s(\sX)$ we denote the pairing  cycle class by $\sY.\sZ$. If $A(\sX)\bydef \bigoplus A^r(\sX)$ then this pairing makes $A(\sX)$ into a commutative associative 
-graded ring with identity. It is called the \text{Chow ring} of $\sX$. Roughly speaking  $\sY.\sZ$ correspond   to the  intersection $\sY\cap\sZ$ of subvarieties. Below we denote by $\left[\sV\right]$ an element of the Chow ring  represented by subvariety $\sV \subset \sX$.
-\end{remark}
-\begin{empt}
-For an $n$-dimensional non-singular variety $\sY$, set
-\be
-A^p \left(\sY  \right)\bydef A_{n-p}\left(\sY \right).  
-\ee
-With this indexing by codimension, we have
-$$
-A^p \left(\sY  \right)\otimes A^q \left(\sY  \right)\to A^{p+q}\left( \sY\right) 
-$$
-\end{empt}
- 
-%	Before stating the axioms, for any morphism f:X -> X' of varieties in 93, 	we assume that X x X' is also in 93, and we define a homomorphism 	f*:A(X') -> A(X) as follows. For a subvariety Y' c X' we define 	where px and p2 are the projections of X x X' to X and X', and T^ is the 	graph of/, considered as a cycle on X x X'. 
-
-\subsection{Chow ring and homology}
-\paragraph{} 
-Here I follow to \cite{fulton:intersection}. Each $k$-dimensional complex variety $\sV$ has a cycle class ${cl}(\sV)$  in $H_{2k}\left( \sV\right)$, where 
-$H_*$ denotes homology with locally finite supports (Borel-Moore homology). If $\sV$ is a subvariety of an $n$-dimensional complex manifold $\sX$, then $H_{2k}(\sV) \cong H^{2n - 2k} \left(\sX \setminus \sV \right)$ 
-The resulting homomorphism from cycles to homology 
-passes to algebraic equivalence. There results in particular a cycle map
-\be
-cl : A_*\left(\sX  \right) \to H_*\left( \sX\right) 
-\ee
-for complex schemes $\sX$, which is covariant for proper morphisms, and 
-compatible with Chern classes of vector bundles. 
-If $\sV$ and $\mathcal W$ are subvarieties of dimensions $k$ and $l$ of a non-singular $n$-dimensional variety $\sX$, a refined topological intersection product $cl\left(\sV \right)\cdot cl\left( \mathcal W\right)$   
-is constructed in $H_{2m}(\sV \cap \mathcal W)$, $m = k + l-n$. If $cl^\sX (\sV)$is the class in 
-$H^{2n - 2k}(\sX,\sX \setminus \sV)$ dual to $cl(\sV)$, and similarly for $cl^\sX(\mathcal W)$, then $cl(\sV)\dot(\mathcal W)$
-		is defined to be the class dual to 
-		$$
-		cl^\sX\left( \sV\right) \smile 	cl^\sX\left( \mathcal W\right)\in H^{2n - 2m}\left(\sX, \sX \setminus \sV \cap \mathcal W \right). 
-		$$
-Borel-Moore homology can be defined using singular cohomology. If a 
-space $\sX$ is imbedded as a closed subspace of $\R^n$, then 
-\be\label{chow1_eqn}
-H_j\left(\sX  \right) \cong H^{n-j}\left(\R^n, \R^n \setminus \sX \right) 
-\ee
-where the group on the right is relative singular cohomology with integer 
-coefficients. More generally, if $\sX$ is a closed subspace of a space $\sY$, there are 
-cap products 
-\be\label{chow2_eqn}
-H^j\left(\sY, \sY \setminus\sX \right) \otimes \xrightarrow{\frown}H_{k-j}\left(\sX \right). 
-\ee
-If $\sX$ is an oriented, connected, real $n$-manifold, then $H_n\left( \sY\right)$ is freely generated by 
-a \textit{fundamental class} $\mu_\sY$, and capping with $\mu_\sY$ determines an isomorphism 
-\be\label{chow3_eqn}
-H^{n-j}\left(\sY, \sY \setminus \sX \right) \xrightarrow[\cong]{\frown \mu_\sY}H_{k-j}\left( \sX\right). 
-\ee
-When $\sY = \R^n$, this is the isomorphism of \eqref{chow1_eqn}. When $\sX = \sY$, \eqref{chow3_eqn} is the Poincar\'{e} duality isomorphism of $H^{n-j}\left(\sY \right)$  with $H_{j}\left(\sY \right)$. 
-If $f : \sY \to \sX$ is a proper morphism, there are covariant homomorphisms 
-\be\label{chow4_eqn}
-f_* : H_{j}\left(\sX \right) \to H_{j}\left(\sY \right) 
-\ee
-If $j: \sU \to \sY$ is an open embedding, there are contravariant restriction homomorphisms
-\be\label{chow5_eqn}
-j^* : H_{p}\left(\sY \right) \to H_{p}\left(\sU \right). 
-\ee
- If $\sX$ is the complement of $\sU$ in $\sY$, $i: \sX\to \sY$ the closed embedding, there is a long exact sequence 
- \be\label{chow6_eqn}
- ...\to  H_{p+1}\left(\sU \right) \to H_{p}\left(\sX \right)\xrightarrow{i_*} \H_{p}\left(\sY \right)\xrightarrow{j_*}H_{p}\left(\sU \right)\to H_{p-1}\left(\sX \right)\to .... 
- \ee
-  If $\sX$ is a disjoint union of a finite number of spaces $\sX_1,..., \sX_m$, then 
- \be\label{chow7_eqn}
-H_{i}\left(\sX \right) = H_{i}\left(\sX_1 \right) \oplus ...\oplus H_{i}\left(\sX_m \right)
- \ee 
- There are evident compatibilities among these homomorphisms, which will be used without comment. One such is the equation  
- \be\label{chow8_eqn}
-\left( u \smile v \right) \frown a = j^*\left( u\right)\frown \left( v \frown a\right)  
- \ee 
- in $H_*\left( \sX \cap \mathcal W\right)$ , where $\sX \hookto \sY$, $~j:\mathcal W \to  \sY$ are closed embeddings, $u \in H^*(\sY, \sY\setminus \sX), ~v \in H^*(\sY, \sY- \mathcal W), ~a \in H_*\left( \sY\right)$. 
- \begin{lemma}\cite{fulton:intersection}
-% Lemma 19.1.1. 
- If $\sX$ is an $n$-dimensional complex scheme, then $H^j(\sX) =\{0\}$ for 
- $i >2n$, and $H_{2n}\left(\sX \right) $ is a free Abelian group with one generator for each irreducible 
- component of $\sX$. 
- \end{lemma}
- \begin{definition}
- The generator of $H_{2n}\left(\sX \right)$ corresponding to an $n$-dimensional irreducible 
- component $\sX_i$, will be denoted $cl(\sX_i)$; it is determined by the fact that it 
- restricts to the fundamental class $\mu_{\sU_i}$ for any connected open subset $\sU_i$, of the 
- non-singular locus of $\sX_i$. More generally, if $\sV$ is a $k$-dimensional closed sub variety of a scheme $\sX$, define the \textit{cycle class} $cl_\sX(V)$ by 
- \be
- cl_\sX\left(\sV \right) \bydef i_* cl\left(\sV\right)\in H_{2k}\left( \sX\right) 
- \ee
- where $i$ is the inclusion of $\sV$ in $\sX$. When no confusion is likely, we may write $cl (\sV)$ 
- in place of $cl_\sX\left( V\right)$. It is proven in \cite{fulton:intersection}. For any $\sX$, there is a homomorphism denoted $cl$, or $cl_\sX$, 
- \bean
- A_*(\sX )\to H_*\left(\sX \right),\\
- \sum_i n_i \left[\sV_i\right] \mapsto \sum_i n_i cl\left(\sV_i\right).
- \eean 
- \end{definition}
- \begin{definition}\label{ad_ori_defn}
-Every regular (closed) embedding $i: \sV\hookto\sX$ of codimension $d$ has an \textit{orientation class}.
-\be\label{ad_ori_eqn}
-u_i = u_{\sV, \sX}\in H^{2d}\left(\sX, \sX \setminus \sV \right) 
-\ee 
- \end{definition}
-There is a long exact sequence of cohomology
- \be
- \begin{split}
- 	...\to  H^{p-1}\left(\sV ; \Z\right) \to H^{p}\left(\sX, \sX\setminus\sV ;\Z\right)\xrightarrow{i^*_p} H^{p}\left(\sX;\Z \right)\xrightarrow{j^*_p}H^{p}\left(\sV ; \Z\right)\to\\ \to H^{p+1}\left(\sX, \sX\setminus\sV ; \Z\right)\to .... 
- \end{split}
- \ee
- There is an Abelian group homomorphism $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ such that if $\sV$ is an irreducible $k$-dimensional submanifold of $\sX$ then
- \be
- cl \left(\left[\sY\right] \right) = i^*_{2d}\left(u_{\sV, \sX} \right)\in H^{2d} \left(\sX \right)
- \ee 
-
- 
- \begin{corollary}
- 	%19.2
- The mapping $cl: A^*\left( \sX\right)  \to H^*\left(\sX \right)$ is a homomorphism of graded rings, covariant for morphism of non-singular varieties. 
- \end{corollary}
 \end{appendices}
-\section{APP}
-\section{Topoi of the $C^*$-algebras of compact operators}
-\paragraph{}
-Let $p \in \N\cup \infty$
-In this section we use  following notations:
-\begin{itemize}
-	\item 
-	$$
-	\H \bydef \begin{cases}
-		\C P^p & p \in \N\\
-		\ell^2\left(\N \right) & p = \infty
-	\end{cases}.
-	$$	
-	\item  $\pi:\K \bydef \K\left(\H \right)$ the $C^*$-algebra of compact operators. 
-\end{itemize}
-The natural representation $\pi:\K \to B\left(\H \right)$ is irreducible. 
-\subsection{Sheaves and cohomology}
-\begin{lemma}\label{compact_hered_lem}
-	If $B \subset \K$ is a hereditary $C^*$-subalgebra then $B \cong \K\left(\H_B\right)$ where $\H_B \bydef \pi\left(B \right)  \H$. 
-\end{lemma}
-\begin{proof}
-	The $C^*$-algebra $\K$ has the single irreducible representation $\pi : A \to B\left(\H\right)$. The *-homomorphism $\pi$ is injective so  $B\not\subset \ker \pi$, so from the Lemma \ref{hered_irred_lem} it follows that $\pi|_B : B \to B\left(\H_B\right)$  is an irreducible representation of $B$. From the condition (iv) of the Theorem  \ref{irred_thm} it follows that for any two vectors $\xi, \eta \in \H_B$ with $\xi \neq 0$ there is $b \in B$ such that $\pi\left(b \right)\xi = \eta$. From this fact and taking into account that $b \in B$ is compact one concludes that $B = \K\left( \H_B\right)$. 
-\end{proof}
-\begin{empt}
-	From the Lemma \ref{compact_hered_lem} the map $B \mapsto \H_B$ yields one-to-one correspondence between hereditary $C^*$-subalgebras of $\K$ and subspaces of $\H$ such that
-	\begin{enumerate}
-		\item  $B' \cap B''$ corresponds to $\H_{B'}\cap \H_{B''}$,
-		\item A generated by   $B' \cup B''$ hereditary $C^*$-subalgebra  of $\K$ corresponds to  $\H_{B'} + \H_{B''}$.
-	\end{enumerate}
-	Now we can construct a specialization of given by the section \ref{groth_top_sec} construction. A family  $\mathbf{Hered}/\K$-objects is naturally isomorphic to the family of closed subspaces of $\H$.  A $\mathbf{Hered}/\K$ morphism $\H' \to \H''$ corresponds to an inclusion $\H'' \subset \H'$. The fiber product $\H' \times_{\{0\}} \H''$ corresponds to $\H' + \H''$. A covering of $\H'$ is a finite set $\left\{\H_1, ..., \H_n\right\}$ of subspaces  such that $\H'= \bigcap_{j = 1}^n\H_j$. So one has a pretopology denoted by $J_\K$, and the Gelfand $\K$-site $\mathfrak{Site}\left(\K \right) = \left(\mathbf{Hered}/\K, J_\K \right)$. 
-\end{empt}
-\begin{empt}
-	There is an alternative description of $\mathfrak{Site}\left(\K \right)$. Instead to Hilbert spaces we set their orthogonal complements.   A $\mathbf{Hered}/\K$ morphism $\H' \to \H''$ corresponds to an inclusion $\H' \subset \H''$. The fiber product $\H' \times_{\{0\}} \H''$ corresponds to $\H' \cap  \H''$. A covering of $\H'$ is a finite set $\left\{\H_1, ..., \H_n\right\}$ of subspaces  such that $\H'= \sum_{j = 1}^n\H_j$. So one has  an alternative  pretopology denoted by $J_\K$, and the Gelfand $\K$-site $\mathfrak{Site}\left(\K \right) = \left(\mathbf{Hered}/\K, J_\K \right)$. Henceforth this alternative topology will be used.
-\end{empt}
-\begin{empt}
-	Let $R$ be a ring ans let $R_\K$ be a constant presheaf (cf. Definition \ref{constant_presheaf_defn}). If $\mathscr R \bydef \mathfrak {Ass}\left( R_\K\right)$ is the associated sheaf (cf. Definition \ref{associated_sheaf_defn}). If $\H' \subset \H$ is a $\C$-linear subspace  then $\H'$ can be regarded as a $\mathbf{Hered}/\K$-object and  according to 
-	to  the Statement \ref{associated_sheaf_defn} any $s \in \mathscr R$ can be represented by a finite family $\left\{\left(\H_1, r_1 \right),..., \left(\H_k, r_k \right) \right\}\subset  \mathbf{Hered}/\K \times R$ such that:
-	\bean
-	\sum_{j = 1}^k \H_j = \H',\\
-	\H_{j_1}\cap \H_{j_2} \neq \{0\}\quad \Rightarrow \quad r_{j_1}= r_{j_2}.
-	\eean
-	It turns out that any  $s \in \mathscr R$ can be represented by a finite family $\left\{\left(\H_1, r_1 \right),..., \left(\H_k, r_k \right) \right\}\subset  \mathbf{Hered}/\K \times R$ such that:
-	\be\label{compact_sh_eqn}
-	\begin{split}
-		\sum_{j = 1}^k \H_j = \H',\\
-		j_1 \neq j_2 \quad \Rightarrow \quad \H_{j_1}\cap \H_{j_2} = \{0\}
-	\end{split}
-	\ee
-\end{empt}
-\begin{remark}
-	From the equation \ref{compact_sh_eqn} it follows that  $\mathscr R$ can be regarded as flabby sheaf, i.e.
-	\bean
-	\forall \H' \in \H \quad \forall s' \in \mathscr R\left( \H'\right)\quad   \exists  s \in \mathscr R\left( \H\right)\quad 
-	\eean 
-\end{remark}
-
-\
-
-\begin{lemma}\label{sh_coo_lem} !!!! MAY BE DELETE !!!
-	Let $\sX$ be a compact locally connected space, and let $R$ is a principal ideal domain. Suppose there is an injective continuous map $\sX \hookto\sY$. If $R_\sY$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr L \bydef \mathfrak{Ass}\left( R_\sY\right)$ ia an associated sheaf  then following conditions hold:
-	\begin{enumerate}
-		\item [(i)] 	For any open $\sU \in \sX$ there are natural isomorphisms
-		\be\label{sh_co_eqn}
-		\varphi_\sU:	\mathscr L\left(\sU \right) \cong \mathfrak D \left( \mathscr L \right) \left(\sU \right)  
-		\ee
-		where $\mathfrak D \left( \mathscr L \right)$ is a dual cosheaf
-		$$
-		\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left( \mathscr L\left(\sU \right), L \right). 
-		$$
-		\item[(ii)] There is a natural isomorphism of sheaves
-		$$
-		\mathfrak D	\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left(\mathfrak D \mathscr L\left(\sU \right), L \right). 
-		$$
-		
-		\item[(iii)] If $\sV, \sU \in \mathfrak{Closed}\left( \sX\right)$ such that $\sV \subset \sU$ and if $i^{^\neg\sV, ^\neg\sU}: \mathfrak D \left( \mathscr L \right)\left( ^\neg\sV\right)\to \mathfrak D \left( \mathscr L \right)\left(^\neg \sU\right)$ 
-		then maps
-		\bean
-		^\neg  \mathscr L:	\mathfrak{Closed}\left( \sX\right)\to \mathbf{Ab},\quad 
-		\sU \mapsto \mathfrak D \left( \mathscr L \right)\left(^\neg \sU \right);\\
-		^\neg r^{\sV,\sU} : ^\neg  \mathscr L \left( \sU  \right)\to ^\neg  \mathscr L \left( \sV  \right)\quad \mathrm{equivalently}\quad \mathfrak D \left( \mathscr L \right)\left(^\neg \sU \right)\to \mathfrak D \left( \mathscr L \right)\left(^\neg \sV \right)
-		\eean
-		yield a sheaf on the locale $\mathfrak{Closed}\left( \sX\right)$.
-	\end{enumerate}
-\end{lemma}
-\begin{proof}(i)
-	Since $\sX$ is compact any open subset $\sU$ is a finite disjoint union of connected components, i.e. $\sU = \bigsqcup_{j = 1}^n \sU_j$. It follows that $\mathscr L\left( \sU\right) =  L^n$ and $\mathfrak D \left( \mathscr L \right)\left( \sU\right) 	\bydef \Hom_L\left( L^n, L \right) \cong L^n$.
-	The isomorphism \eqref{sh_co_eqn} is a simple consequence of these fact.\\
-	(ii) Can be proven similarly (i).\\
-	(iii) If $\sU, \sV \in\mathfrak{Closed}\left( \sX\right)$ such that $\sV \subset \sU$ then $^\neg \sU\subset ^\neg \sV$, and there is the natural map
-	$$ !!!
-	i_{\sV\sU}:\mathfrak A\left(^\neg \sV\ \right) \to \mathfrak A\left(^\neg \sU\ \right). 
-	$$
-	If $\left\{\sU_{   \a}\right\}_{\a \in \A}\subset \mathfrak{Closed}\left( \sX\right)$ then $\sU \bydef \bigvee \sU_\a$ is a closure of  $\bigcup \sU_\a$. So $^\neg \sU$ is a maximal open subset of $\bigcap ^\neg \sU_\a$.  Consider a family $\left\{s_\a \in \neg \mathscr L\left( \sU_\a\right) = \mathfrak D \left( \mathscr L \right)\left(^\neg \sU_\a \right) \right\}$ such that for all $\a_1, \a_2\in \A$ one has
-	\bean
-	i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_1}\right) = i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_2}\right) 
-	\eean
-	From the above equation and (i) it follows that 
-	$$
-	\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_1}\right)\right)=\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_2};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_2}\right)\right)
-	$$
-	where $\varphi_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}$ is given by \eqref{sh_co_eqn}. In particular one has
-	\bean
-	\left.\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_1};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_1}\right)\right)\right|_{\neg \sU }= \left.\varphi^{-1}_{\neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2})}\left( i_{\neg \sU_{   \a_2};\ \neg ( \sU_{   \a_1}\cap ~\sU_{   \a_2}) }\left( s_{\a_2}\right)\right)\right|_{\neg\sU }
-	\eean 
-	So there is $t \in \neg \mathscr L\left(\sU \right)= $ 
-	
-	
-	(cf. Equation \ref{sheaf_supp_eqn})
-	On the other hand $\left|  \varphi^{-1}_{\sX}\left( \rho_{\sU_{   \a''},\sX}\left( s_{\a'}\right)\right)\right|\subset \overline \sU_\a$ where $\overline \sU_\a$ is the closure of $\sU_\a$. It turns out that there is.
-	
-\end{proof}
-\
-\begin{empt}
-	Let $\mathbb{K}$ be a possible noncommutative field. Let $\mathscr P_{{\mathbb{K}}} \bydef {\mathbb{K}}_\sX  $ id a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) on $\sX$, let $\mathscr A \bydef \mathfrak{Uss}\left(\mathscr P_{{\mathbb{K}}} \right)$ be an associated sheaf (cf. Definition \ref{associated_sheaf_defn}). 
-	For any open  $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ one has homomorphism
-	\be\label{top_rv_eqn}
-	\rho_{\sU \sV}: \mathscr A\left(\sU \right) \to \mathscr A\left(\sV \right),
-	\\ \quad s \mapsto s|_\sV.
-	\ee
-	If $\sU\subset  \sX$ is an open subset and $\sU = \bigsqcup \sU_{\iota\in I}$ is a disjoint union of connected components then any $s \in A\left(\sU \right)$ corresponds to a family $\left\{s_\iota\right\}_{\iota\in I}\subset \mathbb{K}$.
-	If  $\mathfrak{A}\left(\sU \right)  \bydef \Hom_{ \mathbb{K}}\left(\mathscr A\left( 
-	\sU\right) , \mathbb{K} \right)$ then any $t \in \mathfrak{A}\left(\sU \right)$ corresponds to a family $\left\{t_\iota\right\}_{\iota\in I}\subset \Hom_{\mathbb{K}}\left( \mathbb{K}, \mathbb{K}\right)$. From the natural isomorphism $\mathbb{K} \cong  \Hom_{\mathbb{K}}\left( \mathbb{K}, \mathbb{K}\right)$ it follows that there is a natural isomorphism 
-	\bean
-	\mathfrak{A}\left(\sU \right) \cong \mathscr{A}\left(\sU \right)
-	\eean
-	If $\sU, \sV\subset \sX$ such that $\sV \subset \sU$ then there is the natural adjoint to \eqref{top_rv_eqn}
-	\be\label{top_a_rv_eqn}
-	\begin{split}
-		\rho^*_{\sV \sU}: \mathfrak A\left(\sV \right)\cong \Hom_{\mathbb{K}}\left(\mathscr A\left(\sV \right) , \mathbb{K}\right)  \to \mathfrak A\left(\sU \right) \cong \Hom_{\mathbb{K}}\left(\mathscr A\left(\sU \right), \mathbb{K}\right).
-	\end{split}
-	\ee
-	One can proof that $\mathfrak A$ is a cosheaf of $\mathbb{K}$-modules (cf. Definition \ref{top_cosh_defn}).
-	Let
-	$$
-	\mathscr A = \mathscr A^0 \to \mathscr A^1\to \mathscr A^2\to \dots
-	$$
-	be a canonical injective resolution (cf. \ref{canonical_resolution_empt}) of $\mathscr A$ and for any $p \ge 0$ denote by $\mathfrak A_p$ a precosheaf
-	$$
-	\sU \mapsto  \Hom_{\mathbb{K}}\left(\mathscr A^p\left(\sU\right) , \mathbb{K} \right) 
-	$$
-\end{empt}
-\begin{definition}\label{top_reg_defn}\cite{counter_topology}
-	An open set is called \textit{regular open} if it is a maximal open subset of its closure. We say that a closed set is \textit{regular closed} if it is the closure of its maximal open subset.
-\end{definition}
-
-\begin{definition}
-	Denition 1.1. Let X be a topological space. A family of contractible open
-	subspaces Ui forms a good (open) cover if every nonempty intersection Ui1
-	\
-	: : : \ Uin is contractible.
-\end{definition}
-\begin{definition}
-	Denition 2.4. If X is a finite CW complex, a good closed cover is a family of
-	contractible subcomplexes ?Xi º such that every intersection of the Xi is either
-	empty or contractible
-\end{definition}
-\begin{definition}
-	By a closed covering a of a compact space X, we will always mean an
-	ordered, finite covering a = (A1, ? • ? , Ar) by closed sets in X such that every
-	point of X is in the interior of some A'.
-\end{definition}
-\begin{empt}
-	Any cover of a manifold by geodesically convex open subsets is a good cover;
-	by convexity, every nonempty intersection of them is contractible.
-\end{empt}
-	\subsection{Cosheaves}
-\begin{definition}\label{top_res_defn}
-	PAGE 34
-	1.1. Definition. A \textit{graded sheaf} $\mathscr L^*$ is a sequence $\left\{\mathscr L^p\right\}$ of sheaves, $p$
-	ranging over the integers. A \textit{differential sheaf} is a graded sheaf together
-	with homomorphisms $d : \mathscr L^p \to \mathscr L^{p+1}$ such that $d^2: \mathscr L^p \to \mathscr L^{p+2}$ is zero for
-	all $p$. A \textit{resolution} of a sheaf $d$ is a differential sheaf $\mathscr L^{p}$ with $\mathscr L_p = 0$
-	for $p < 0$ together with an \textit{augmentation} homomorphism $\eps : \mathscr A \to \mathscr L^0$
-	such that the sequence $0\to \mathscr A  \xrightarrow{\eps}\mathscr L^0  \xrightarrow{d}\mathscr L^{1}  \xrightarrow{d}\mathscr L^2\to \dots $ is exact.
-\end{definition}
-
-
-\paragraph{}
-\begin{definition}\label{top_dim_defn}
-	16.3. Definition. PAGE 111
-	
-	Let $\Phi$ be a family of supports on $\sX$ and let $\Phi$ be a fixed
-	ground ring with unit. We let $\dim_{\Phi, L} \sX$ be the least integer $n$ (or $\infty$) such
-	that  $H^{n+1}\left(\sX, \mathscr A \right)  = 0$ for all sheaves 4 of $L$-modules and all $k > n$.
-\end{definition}
-\begin{notation}  PAGE 69
-	In \cite{bredon:sheaf} the following notation is used
-	\be\label{top_ep_eqn}
-	E\left(\Phi \right) \bydef \bigcup \left\{K | K \in \Phi\right\}.
-	\ee
-\end{notation}
-\begin{definition}\label{top_ac_defn}\cite{bredon:sheaf}
-	The sheaf $\mathscr A$ is
-	said to be $\Phi$-acyclic if
-	$$
-	H^{p}\left( \sX, \mathscr A\right) = 0, \quad \forall p > 0.
-	$$
-\end{definition}
-\begin{theorem}\label{top_c_ac_thm}
-	PAGE 111	16.4. Theorem. The following four statements are equivalent:
-	\begin{enumerate}
-		\item[(a)] $\dim_{\Phi, L}\sX \le n$.
-		\item[(b)] $H^{n+1}\left( \sX, \mathscr A\right) = 0$ for all sheaves $\mathscr A$ of $L$-modules.
-		%	(c) For every sheaf .d of L-modules, Zn(X; 4) is D-acyclic.
-		\item[(c)] Every sheaf $\mathscr A$ of $L$-modules has a $\Phi$-acyclic resolution of length $n$.
-		
-	\end{enumerate}	
-	Moreover, if $\Phi$ is paracompactifying, then "$\Phi$-acyclic" in (c) 7 can	be replaced by "$\Phi$-soft."
-\end{theorem}
-
-
-
-
-\begin{definition}\label{top_loc_para_defn}\cite{bredon:sheaf}
-	PAGE 112 We say that a space $\sX$ is locally paracompact  if it is Hausdorff and each
-	point has a closed paracompact neighborhood. Such a space possesses a
-	paracompactifying family $E\left(\Phi \right)=\sX$ (and conversely). Indeed, the
-	set of all closed K such that K has a closed paracompact neighborhood in
-	X is such a family.
-\end{definition}
-\begin{proposition}\label{top_loc_para_prop}
-	PAGE 112 16.5. Proposition. If $\Phi$ and $\Psi$ are paracompactifying and $E\left(\Phi \right)\subset E\left(\Psi \right)$ ,
-	then any $\Psi$-soft sheaf is $\Phi$-soft and $\dim_{\Phi, L} \sX \le \dim_{\Psi, L} \sX$ 
-\end{proposition}
-\begin{definition}\label{top_diml_defn}
-	PAGE 112.
-	$\sX$ is locally paracompact (cf. Definition \ref{top_loc_para_defn}) then we define (using \ref{top_loc_para_prop})
-	$\dim_L\sX \bydef \dim_{\Phi, L}$, where $\Phi$ is paracompactifying and $E\left( \Phi\right)= \sX$.
-\end{definition}
-
-
-\begin{theorem}\label{top_loc_dim_thm}
-	16.14. PAGE 115 Theorem. Let X be locally compact Hausdorff and L a ring with
-	unit. Then $\dim_L \sX \le n \Leftrightarrow H^{n+1}\left(\sU, L \right)= 0$  for all open sets $\sU \subset \sX$.
-\end{theorem}
-\begin{proposition}
-	PAGE 285
-	1.10. Proposition. Let $\mathfrak A$ be a cosheaf and $M$ an $L$-module. Then the
-	presheaf $\sU \mapsto \Hom\left(\mathfrak A (\sU), M \right)$ is a sheaf, denoted by  $\mathscr Hom\left(\mathfrak A, M \right)$ It is
-	flabby if $\mathfrak A$ is flabby and $M$ is an injective module. It is torsion free if each
-	$\mathfrak A(\sU)$ is divisible.
-\end{proposition}
-\begin{proposition}
-	5.3. Proposition. PAGE 220  $\Phi\left( c\right)$ If f : X -+ Y is a map between locally compact Hausdorff
-	j` spaces, then
-	(a) c(Y) = {K C X closed I f IK : K Y is proper},
-	(b) ID(c) = {K E f -'(-D) I f IK : K -+ Y is proper},
-	(c) ' C 4(c) Gs (f (W) C 4i and f JK : K -+ Y is proper for all K E'I).
-\end{proposition}
-\begin{proposition}
-	PAGE 285
-	1.12. Proposition. Let $\mathfrak A$ be a torsion free flabby cosheaf and let $M$ be
-	an injective $L$-module. Then $\Ga_\Phi\left(\mathscr Hom\left(\mathfrak A, M \right) \right)$  is divisible for any family
-	of supports.
-\end{proposition}
-!!! PAGE 294 !!!
-\begin{definition}
-	3.2. Definition. PAGE 294 
-	A sheaf $\mathscr L$ of $L$-modules on the locally compact space $\sX$
-	is said to be \textit{replete} if it is $c$-soft and if $\Ga_c\left( \mathscr L|_\sU\right)$  is divisible for all open
-	sets $\sU\subset \sX$.
-\end{definition}
-\begin{proposition}
-	3.3. Proposition.   PAGE 294 
-	If 2 is a replete sheaf on X and if A C X zs locally
-	closed, then 21A and 2A are replete. An injective sheaf is replete.
-\end{proposition}
-\begin{proposition}
-	
-	!!! BAD PROPOSITION flabby DELETE !!!  PAGE 294 
-	3.4. Proposition. If $\mathscr L$ is a replete differential sheaf, then $\mathfrak D\left(\mathscr L^* \right)$  is
-	torsion-free and flabby. If $\mathfrak L_*$ is a torsion-free flabby differential cosheaf,
-	then $\mathscr D\left(\mathfrak L_* \right)$  is replete.
-\end{proposition}
-
-\begin{empt}
-	PAGE 303 
-	Let A C X be locally closed and hence locally compact. If D is a family of
-	supports on X, note that for the inclusion i = iX,A : A --+ X we have that
-	I (c) = CIA; see IV-5.3(b). Therefore, Section 4 provides the chain map
-	C:JA(A;.CIA) - C?(X;.d)
-	and the induced homomorphism
-	i, : Hp I A(A; 4I A) Hp (X; 4)
-	(28)
-	for any sheaf 4 on X.
-\end{empt}
-\begin{theorem}\label{top_free_l_thm}
-	PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
-	$clc^1_L$, then $H^c_0\left(\sX, L \right)$  is the free $L$-module on the components of $\sX$.
-\end{theorem}
-\begin{remark}\label{top_free_l_rem}
-	The proof of the Theorem is based on the following fact
-	\be\label{top_free_l_eqn}
-	H^c_0 (\sX; L) \cong \varinjlim_{K}  H^c_0 (K; L)\cong \varinjlim_{K} \Hom\left( H^0\left(K ; L\right) , L\right) \cong  L.
-	\ee
-	where the set $\sX$ is connected and the sets $K$ are compact.
-\end{remark}
-\begin{theorem}
-	5.3. Theorem. If 4) is a paracompactifying family of supports on X and
-	4 is any sheaf on X, then the canonical map
-	\bean
-	\varinjlim_{K \in \Phi}H_*\left(K, \mathscr A|_K \right) \to H_*\left(K, \mathscr A|_K \right) 
-	\eean
-	lirr H.(K;.4IK) - H'(X;4)
-	is an isomorphzsm.9
-\end{theorem}
-\begin{theorem}
-	PAGE 309
-	5.6\ Theorem. $\left(\mathscr M, \Phi \right)$  be elementary Then:
-	\begin{enumerate}
-		\item[(i)] The natural map $\varinjlim_{K \in \Phi}  H^\Phi_*\left(K , \mathscr M\right)\to H^\Phi_*\left(\sX ,\mathscr M\right)$ is an isomorphism.
-		
-		\item[	(ii)] The canonical map $H^\Phi_*\left(\sX, \mathscr M \right)$  is an isomorphism
-		for any replete resolution $\mathcal L^*$ of $L$.
-	\end{enumerate}
-	
-	If $\Phi = c$, then these statements hold for arbitrary sheaves $\mathscr M$,
-	
-\end{theorem}
-\begin{definition}\label{top_ndiml_defn}\cite{bredon:sheaf}
-	PAGE 329 9.1. Definition. 
-	
-	A locally compact space $\sX$ is called an $n$-\textit{dimensional
-		weak homology manifold over} $L$ (abbreviated as $n$-$whm_L$) if $\dim_L \sX < \infty$
-	and $\mathscr H_p (\sX; L) = 0$ for $p\neq n$ and is torsion-free if $p=n$.  $\mathscr H_p (\sX; L) = 0$ is
-	called the \textit{orientation sheaf} of $\sX$ and will be denoted by $\mathscr O = \mathscr O_\sX$. An
-	$n$-$whm_L$ $\sX$ is said to be an $n$-\textit{dimensional homology manifold over} $L$
-	(abbreviated as $n$-$hm_L$) if $\mathscr O$ is locally constant with stalks isomorphic to
-	$L$. It is said to be \textit{orientable} if $\mathscr O$ is constant.
-\end{definition}
-\begin{remark}\label{top_dim_rem}
-	PAGE 331
-	It is proven in \cite{bredon:sheaf} that
-	\be\label{top_dim_eqn}
-	\dim_L \sX= n \text{ for an } n\text{-}hm_L \sX,
-	\ee
-	(cf. Definition \ref{top_diml_defn}).
-\end{remark}
-\begin{definition}
-	PAGE 375
-	16.7 Definition. The space $\sX$ is called an $n$-\textit{dimensional cohomology
-		manifold over} $L$ (denoted $n$-$cm_L$) if $\sX$ has locally constant cohomology
-	modules, locally equivalent to $L$ in degree $n$, and to zero in degrees other
-	than $n$, and if $\dim_L\sX < \infty$.
-\end{definition}
-\begin{theorem}
-	PAGE 375 16.8. Theorem. If $\sX$ is connected, then the following four conditions are
-	equivalent:
-	\begin{enumerate}
-		\item 	[(a)] is an $n$-$cm_L$L.
-		\item 		[(b)] $\dim_L \sX = n < \infty$ and $\sX$ has locally constant cohomology modules
-		locally equivalent to $M^*$, when $M^*$ is finitely generated.
-		\item 		[(c)] $\sX$ is $clc_L^\infty$ and  an $n$-$hm_L$.
-		\item 		[(d)] $\sX$ is  $clc_L^\infty$, $\dim_L \sX < \infty$, and the stalks of $\mathscr H_r\left(\sX, L \right)$  are
-		zero for $r \neq n$ and are isomorphic to $L$ for $r = n$.
-	\end{enumerate}
-\end{theorem}
-\begin{corollary}
-	Corollary.16 9  337 If L is the integers or afield, then a locally compact
-	space X is an n-cmL X is clci , dimL X < oo, and
-	HP(X, X - {x}; L).; L, for p = n,
-	0, for p o n
-	for allxEX.
-\end{corollary}
-\begin{theorem}
-	16.16.  PAGE 380
-	
-	Theorem. Let $\sX$ be a connected $n$-$cm_L$, let $F\subsetneqq\sX$  be a proper
-	closed subset, let $\sU \subset 
-	\sX$ be any nonempty open subset, and let $\mathscr M$ be an
-	elementary sheaf on $\sX$. Then:
-	\begin{enumerate}
-		\item [(a)] If $\mathscr M$ has stalks $L$, then $H_n\left( F, \mathscr M\right)= 0$  and $H_{n-1}\left( F, \mathscr M\right)$ as torsion free;
-		\item[(b)] $H^n_c\left(\sU, \mathscr O \right)$  is the free $L$ -module on the components of $\sU$;
-		\item[(c)] $H^n_c\left(F,\mathscr M \right)=0;$
-		\item[(d)] $j^*_{\sX, \sU} : H^n_c\left(\sU,\mathscr M \right)\to H^n_c\left(\sX,\mathscr M \right)$ is surjective;
-		\item[(e)]$j^*_{\sX, \sU} : H^n_c\left(\sU,\mathscr O \right)\to H^n_c\left(\sX,\mathscr O \right)$ is an isomorphism if $\sU$ is connected;
-		\item[(f)] $\sX$ is orientable $\Leftrightarrow H^c_n\left( \sX, L\right) = L$.
-	\end{enumerate}
-	
-\end{theorem}
-\begin{exercise}
-	20. PAGE 413
-	Let X be an n-whmL and let 4i be paracompactifying. Let $A \subset B \subset \sX$ be
-	closed subspaces. Then show that
-	\be\label{top_hh_eqn}
-	H^p_{\Phi|_B}\left(B, A; \mathscr O\otimes \mathscr A \right) \cong H^{\Phi|_{\sX - A}}_{n-p}\left(\sX \setminus  A, \sX \setminus  B, \mathscr A\right) 
-	\ee
-	naturally, for any sheaf d on X.
-\end{exercise}
-\begin{remark}
-	!!! UP !!!
-	If $\sX$ is compact From \eqref{top_hh_eqn} it follows that
-	\be\label{top_ch_eqn}
-	H^p_c\left(\sX, A; \mathscr O\otimes \mathscr A \right) \cong H^c_{n-p}\left(\sX \setminus  A, \sX ; \mathscr A\right) 
-	\ee
-	
-\end{remark}
-\begin{empt}\label{top_taut_empt}\cite{spanier:at}
-	For a pair (A,B) in a topological space X we define a neighborhood 
-	((7, V) of (A,B) to be a pair in X such that U is a neighborhood of A and V is 
-	a neighborhood of B. The family of all neighborhoods of (A,B) in X is directed 
-	downward by inclusion. Hence 
-	%HQ(U,V; G) | (U,V) 
-	a neighborhood of (A,B)
-	is a direct system, and we define 
-	%H%A,B; G) = lirru {H«(C7,V; G)} 
-	where (U,V) varies over neighborhoods of (A,B) [or over the cofinal family of 
-	open neighborhoods of (A,B)]. The restriction maps Hi(U,V; G) -> H(A,B; G) 
-	define a natural homomorphism 
-	%f: H<i{A,B; G) -> H(A,B; G) 
-		The pair (A,B) is said to be 
-		
-		\textit{tautly imbedded} in X, or to be a taut pair in X 
-		(with respect to singular cohomology), if i is an isomorphism for all q and G. 
-		The definition of tautness can be formulated for any cohomology theory (or 
-		any contravariant functor). We shall see examples later of a subspace taut 
-		with respect to one cohomology theory but not with respect to another. 
-	\end{empt}
-	
-	\begin{theorem}\cite{spanier:at}
-		%16 PAGE 296 theorem
-		If $A$ is a compact subset of $\R^n$, then for all $q$ and $R$ modules $G$ 
-		$$
-		\tilde H_q\left( \R^n - A, G\right) \cong \bar H^{n - p - 1}\left(A, G \right) 
-		$$
-	\end{theorem}
-	\begin{definition}\label{flabby_co_defn}
-		PAGE 280
-		1.2. Definition. A cosheaf 21 is said to be "flabby" if ix,U : 21(U) --+ 21(X)
-		is a monomorphism for each open U C X.
-	\end{definition}
-	
-	\begin{definition}\label{flabby_co_supp_defn}
-		PAGE 281 
-		1.4. Definition. 
-		Let $\mathfrak A$ be a flabby cosheaf (cf. Definition \ref{flabby_co_defn}) and let $s \in  \mathfrak A$. Let $\left| s\right| \subset \sU$ 
-		(the \textit{support} of $s$) be defined by: $x \notin \left| s\right|$  if there is an open set $\sV \subset \sU$
-		with $x \notin \sX$ and with $s \in \im i_{\sU, \sV} \mathfrak A(\sU)\to \mathfrak A(\sV)$.
-	\end{definition}
-	
-	\begin{definition}
-		PAGE 280
-		1.4. Definition. 
-		Let 21 be a flabby cosheaf and let s E 21(U). Let Isl C U
-		(the "support" of s) be defined by: x V Isi if there is an open set V C U
-		with x 0 V and with s E Im(iu,V : 21(V) 21(U))\end{definition}
-	\begin{cor}
-		PAGE 66
-		9.6. Corollary. If $\Phi$ is paracompactifying, then every flabby sheaf on $\sX$
-		is $\Phi$-soft.
-	\end{cor}
-	\begin{definition}\label{top_rel_haus_defn}
-		PAGE 66
-		Let us call a subspace A C X relatively Hausdorff (in X) if any two
-		points of A have disjoint open neighborhoods in X.
-	\end{definition}
-	\begin{theorem}\label{top_soft_flabby_thm}\cite{bredon:sheaf}
-		9.8. Theorem. PAGE 67 Let $A$ be a compact, relatively Hausdorff (cf. Definition \ref{top_rel_haus_defn}) subspace of a
-		space $\sX$. Then for any sheaf $\mathscr A$ on $\sX$, we have that $\mathscr A = \varinjlim_\sU \mathscr A(\sU)$,
-		where $\sU$ ranges over the neighborhoods of $A$ in $\sX$.
-	\end{theorem}
-	\begin{empt}
-		PAGE 126.
-		In this section we take cohomology with coefficients in the constant sheaf
-		$L$, where $L$ is a principal ideal domain. There is the canonical inclusion
-		$L \Ga\left(L \right)  = H_0\left(\sX, L \right)$ , and the cokernel is called the reduced cohomology
-		group $\tilde H^0(X; L) = H^0(\sX L)/L$. For $p \neq 0$ we let $\tilde H^p(X; L) = H^p(\sX L)$.
-		
-	\end{empt}
-	\begin{definition}
-		PAGE 126.
-		17.1. Definition. 
-		The space $\sX$ is said to be $n$-$clc_L$ (cohomology locally
-		connected) if for each point $x \in \sX$ and neighborhood $N$ of $x$, there is a
-		neighborhood $M \subset N$ of $x$ such that the restriction homomorphism
-		$$
-		r^n_{M, N} : \tilde H^n \left( N, L \right) \to \tilde H^n \left( M, L \right)
-		$$
-		is zero.
-		
-		$\sX$ is said to be $clc^n_L$ if it is $n$-$clc_L$ for all k < n and  $clc^\infty_L$ if it is $k$-$clc_L$
-		for all $k$.
-		X is said to be $clc_L$ if given $x$ and $N$ as above, $M$ can be chosen,
-		independently of $n$, so that $r^n_{M, N}$ for all $n$.
-	\end{definition}
-	\begin{proposition}
-		
-		Following conditions hold:
-		\begin{enumerate}
-			\item[(i)] $\mathfrak A_p$ is a flabby cosheaf for all $p \ge 0$,
-			\item[(i)] For any open subset $\sU \subset \sX$  
-		\end{enumerate}
-	\end{proposition}
-	\begin{proposition}
-		PAGE 282 
-		1.6 Proposition. 
-		If $\mathscr L$ is a $c$-soft sheaf then the \ref{comm_alg_loc_thm}  !!! THEOREM !!!sheaf $\Ga_c\mathscr L$, where
-		$$
-		\left(\Ga_c\mathscr L \right)\left( \sU\right) \bydef \Ga_c\left(\mathscr L|_{\sU} \right)  
-		$$
-		is a flabby cosheaf. This cosheaf will also be denoted bye
-		$$
-		\Ga_c\left\{\mathscr L\right\}= \Ga_c\mathscr L 
-		$$
-	\end{proposition}
-	\begin{proposition}
-		PAGE 283
-		1.8. Proposition. Every flabby cosheaf $\mathfrak A$  has the form $\mathfrak A$ for a
-		unique $c$-soft sheaf $\mathscr A$. Moreover, the sheaf $\mathscr A$ is torsion-free a $\Leftrightarrow\left| \right|$
-		for all s E 21(X) and all 0  m E L. (In this case, we say that 21 is
-		"torsion-free. ")
-	\end{proposition}
-	\begin{empt}
-		PAGE 290
-		If $\mathscr L^*$ is a $c$-soft differential sheaf, then $\Ga_\mathscr L^*$ will be regarded as a
-		differential cosheaf with the gradation
-		$$
-		\left( \Ga_c\mathscr L^*\right)_p \bydef \Ga_c\mathscr L^{-p}
-		$$
-		%(rcy`)9 = r,.r-p.The differential sheaf M) will also be denoted by2(Y'; M) = !?(r"9?'; M).Note that!2(9?*JU; M) = 9(9?';M)I U (5)for open sets U C X. Also, as above, we let 9n stand for /-n. For ourpurposes, !2n will usually vanish for n < -1. Note that M) is an exactfunctor of c-soft differential sheaves.
-	\end{empt}
-	\begin{empt}
-		PAGE 291
-		2.3. For any differential cosheaf $\mathfrak{A}_*$. we have
-		\bean
-		\mathscr{D}\left( \mathfrak{A}_*\left(\sU \right), M^* \right) = \Hom\left( \mathfrak{A}_*\left(\sU \right), M^*\right) 
-		\eean 
-		and standard homological algebra provides a natural exact sequence
-		\bean
-		\Ext\left( H_{p-1}\left( \mathfrak A\left( \sU\right),M \right)\right)  \to H^p\left(\mathscr{D}\left( \mathfrak{A}_*\left(\sU \right), M^* \right)\right)  \to \Hom\left( \right) 
-		\eean
-		which splits, nonnaturally; see [54) and [75].
-	\end{empt}
-	\begin{empt}\label{top_homology_empt}\cite{bredon:sheaf}
-		PAGE 292,\
-		Consider the canonical injective resolution $\mathscr J^* \left(\sX, L \right)$ of $L$ (cf. \ref{canonical_resolution_empt}) and
-		note that $\mathscr J^* \left(\sX, L \right)|_\sU= \mathscr J^* \left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
-		we define
-		\be\label{top_homology_eqn}
-		\begin{split}
-			\mathscr C_*\left( \sX, \mathscr A\right)  \bydef \mathscr D_*\left(\mathscr J^* \left(\sX, L \right) \right) \otimes \mathscr A,\\
-			C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi \left(\mathscr C_*\left( \sX, \mathscr A\right) \right),\\
-			H_*^\Phi\left(\sX, \mathscr A \right) \bydef H_p\left(C_*^\Phi\left(\sX, \mathscr A \right) \right). 
-		\end{split}
-		\ee		
-	\end{empt}
-	\begin{definition} PAGE 350.
-		12.4. Definition.
-		A locally compact space $\sX$  is said to be $k$-$hlc_L$ if for
-		each $x \in \sX$ and each neighborhood $\sU$ of $x$ there is a neighborhood $\sV \subset \sU$
-		of $x$ such that the homomorphism
-		$$
-		i^{\sU, \sV}_* : \tilde H^c_k\left(\sV, L\right) \to \tilde H^c_k\left( \sU, L\right)
-		$$
-		is trivial. The space $\sX$ is $hlc^n_L$ if it is $k$-$hlcL$ for all $k \le n$.
-	\end{definition}
-	\begin{definition}\label{top_quasi_res}
-		PAGE 350 12.5
-		Definition. Let $M$ be an $L$-module. Let $\mathscr L^*$ be a differential sheaf
-		and let $\eps: M \to H^0\left( \mathscr L^*\right)$  be a homomorphism of presheaves (i.e. $M \to 
-		H^0\left( \mathscr L^*\left( 
-		\sU\right) \right)$  for all open $\sU$). Then $\mathscr L^*$, together with $\eps$, is called a \textit{quasi}-$n$-\textit{resolution} of $M$ provided that
-		\begin{enumerate}
-			\item[(a)]  $\mathscr L^*$ is bounded below,
-			\item[	(b)] $\mathscr H^p\left( \mathscr L^*\right)= 0$  for all $0 \neq p \le  n$,
-			\item[	(c)] $\eps$ induces an isomorphism $M \to \mathscr H^0\left( \mathscr L^*\right)$  of sheaves.
-		\end{enumerate}
-		
-		Similarly, let $\mathfrak{L}_*$ be a differential cosheaf and $\eta: H_0\left( \mathfrak L_*\right)  \to L$ a homomorphism
-		of \ref{comm_alg_loc_thm}  !!! THEOREM !!!sheaves. Then $\mathfrak{L}_*$, together with $\eta$, is called a \textit{quasi}-$n$-\textit{coresolution}
-		of $L$ provided that
-		\begin{enumerate}
-			\item [(a)] $\mathfrak{L}_*$ is bounded below,
-			\item[	(b)] $H_p\left( \mathfrak{L}_*\right) =0$ for $p< 0$ and $H_p\left( \mathfrak{L}_*\right)$ is locally zero for $0\neq p \le n$
-			\item[	(c)] $\eta$ is a local isomorphism of \ref{comm_alg_loc_thm}  !!! THEOREM !!!sheaves.
-		\end{enumerate}
-		
-		We call $\mathfrak{L}_*$ an -$n$-\textit{coresolution} if also $\mathfrak{L}_p = 0$ for $p < 0$.
-	\end{definition}
-	\begin{theorem}
-		PAGE 351
-		12.6. Theorem. 
-		$\sX$ is $hlc^n_L\Leftrightarrow C^c_*\left(\bullet, L \right)$  is a quasi-$n$-coresolution of $L$.
-	\end{theorem}
-	\begin{theorem} !!!
-		PAGE 351	12.7. Theorem. 
-		If there exists a quasi-$n$-coresolution $\mathfrak{L}_*$, of $L$ by flabby
-		cosheaves, then $\sX$ is $clc^n_L$ and $\mathscr D^*\left( \mathfrak{L}_*, M\right)$  is a quasi-$n$-resolution of $M$ by
-		flabby sheaves for any $L$-module $M$.
-	\end{theorem}
-	\begin{theorem}\label{top_from_sh_to_cosh_thm}
-		PAGE 352. 12.9. Theorem. Suppose that $\sX$ is $clc_L^{n+1}$ Then $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi-$n$-coresolution of $L$ for any $c$-soft quasi-$(n + 1)$-resolution $\mathscr L$ of $L$. Also,
-		$\sX$ is $hlc_L^n$ and there as a natural isomorphism $H_p \left( \mathfrak D \left(\mathscr L^*\right)\right) \left(\sU \right) = H^c_p\left(\sU, L \right)$ 
-		for $p \le n$.
-		!!! Recall that $\mathfrak D \left(\mathscr L^*\right)$ is the cosheaf
-		$\sU \mapsto \Ga_c \left(\mathscr D\left( \mathscr L\right)|_\sU  \right)$. 
-	\end{theorem}
-	\begin{definition}\label{top_cosh_defn}\cite{bredon:sheaf}
-		%1.1. Definition. 
-		A \textit{precosheaf} on a topological space $\sX$ is a covariant functor from the
-		category of open subsets of $\sX$ to that of $L$-modules. A precosheaf is a
-		\textit{cosheaf} if the sequence
-		\begin{equation}\label{topcoeq cosh}
-			\bigoplus_{\bt, \ga\in \mathscr A} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(\sU)
-		\end{equation}
-		is exact for all collections $\left\{\sU_\a\right\}$ of open sets with $\sU = \cup_\a \sU_\a$,  where\\ $g \bydef \sum_{\bt, \ga} \left(i_{\sU_\bt, \sU_{\bt, \ga}} -i_{\sU_\ga, \sU_{\ga, \bt}}\right)$
-		and $f\bydef \sum_\a i_{\sU, \sU_\a}$ ($i_{\sU,\sV}$ being the canonical
-		homomorphism $\mathfrak{A}\left( \sV\right) \to \mathfrak{A}\left( \sU\right)$  for $\sV \to \sU$).
-	\end{definition}
-	\paragraph{DELETE BEGIN}
-	
-	\bean
-	\mathscr C^*\left(\sX,  \mathscr A \right)\to  	\mathscr C^*\left(\sX,  \mathscr A |A\right) \quad \text{cohomomorphism}\\
-	i^*			\mathscr C^*\left(\sX,  \mathscr A \right)\to  i^* 	\mathscr C^*\left(\sX,  \mathscr A |A\right) \quad \text{cohomomorphism}\\
-	\ker i^* = 		\mathscr C^*\left(\sX,  A; \mathscr A \right)\\
-	C^*_\Phi\left(\sX,  \mathscr A |A\right)= \Ga_\Phi\left(\mathscr C^*\left(\sX,  A; \mathscr A \right) \right)\\
-	H^*_\Phi\left(\mathscr C^*\left(\sX,  A; \mathscr A \right) \right)= H^*\left( \Ga_\Phi\left(\mathscr C^*\left(\sX,  A; \mathscr A \right)\right)  \right)\\ 
-	B \subset A\\
-	\dots \to H^p_\Phi\left( X, A, \mathscr A \right)  \to H^p_\Phi\left( X, B, \mathscr A \right) \to H^p_{\Phi|A}\left( A, B, \mathscr A \right) \to H^{p+1}_\Phi\left( X, A, \mathscr A \right) \to \\
-	0\to	C_*^{\Phi|A}\left(A; \mathscr A|A \right) \to 	C_*^{\Phi}\left(\sX; \mathscr A|A \right) \to 	C_*^{\Phi}\left(\sX, A; \mathscr A|A \right)\to 0\\
-	0 \to \mathscr F \left(\cup U_\iota\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \cap U_j\right)
-	\\
-	\mathfrak{A}(^\neg \sU_\bt \cup  ^\neg \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(^\neg \sU_\bt \cap  ^\neg \sU_\ga)\to 0
-	\\
-	0 \to H^n(^\neg \sU_\bt \cup  ^\neg \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  H^n(\sU_\a) \xrightarrow{f}  H^n(^\neg \sU_\bt \cap  ^\neg \sU_\ga)
-	\\
-	\bigoplus_{\bt, \ga\in \mathscr A} \mathfrak{A}(\sU_\bt \cap \sU_\ga) \xrightarrow{g} \bigoplus_{\a \in \mathscr A}  \mathfrak{A}(\sU_\a) \xrightarrow{f}  \mathfrak{A}(\sU)
-	\\
-	H^p_{\Phi|U}\left(\sU ; \mathscr O \times  \mathscr A \right)\cong H^p_{\Phi}\left(\sX, F ; \mathscr O \times  \mathscr A \right)\cong H^{\Phi|U}_{n-p}\left(\sU ; \mathscr O \times  \mathscr A \right) 
-	\\
-	H^p_{\Phi|F}\left(F ; \mathscr O \times  \mathscr A \right)\cong H^{\Phi}_{n-p}\left(\sX, \sU ; \mathscr O \times  \mathscr A \right) 
-	\\
-	H^p_c\left(\sX, A; \mathscr O\otimes \mathscr A \right) \cong H^c_{n-p}\left(\sX \setminus  A, \sX ; \mathscr A\right) 
-	\\
-	\tilde H_q\left( \R^n - A, G\right) \cong \bar H^{n - p - 1}\left(A, G \right) 
-	\eean
-	
-	\begin{definition}\label{sheaf_defn!}\cite{milne:lec}
-		A \textit{sheaf} for the Grothendieck pretopology
-		is a presheaf $\mathscr F$ 
-		that satisfies the sheaf condition, that is a sequence 
-		\be\label{sheaf_eqn!}
-		\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)\rightrightarrows  \prod_{\iota, j \in I\times I} \mathscr F \left(U_\iota \times_U U_j\right)
-		\ee
-		is exact for every covering $\left\{U_\iota \to U\right\}$. Thus $\mathscr F$ 
-		is a sheaf if the map 
-		$$
-		f \mapsto \left\{f|_{U_\iota }\right\}:\mathscr F \left(U\right) \to \prod_{\iota \in I} \mathscr F \left(U_\iota \right)
-		$$
-		identifies $\mathscr F\left( U\right)$ with the subset of the product consisting of families $\left\{f|_{U_\iota }\right\}$ such that 
-		$$
-		f_\iota|_{U_\iota \times_U U_j}= f_j|_{U_\iota \times_U U_j}
-		$$
-		for all $\iota, j \in I$. 
-		When $\mathbf T$ 
-		is the site arising from a topological space then these definitions coincide with the 
-		topological ones. 
-		
-	\end{definition}
-	\paragraph{DELETE END}
-	
-	\begin{proposition}\label{precosh_sh_prop}
-		
-		PAGE 439.	!!! TO APPENDIX !!!
-		Let $\sX$ be locally compact. Then for any sheaf $\mathscr A$ on
-		$\sX$, the precosheaf $H^c_0\left(\bullet, \mathscr A \right)$  is a cosheaf.
-	\end{proposition}
-	
-	!!! PAGE 442 !!!
-	
-	\begin{corollary}
-		11.4. Corollary.  !!! PAGE 443 !!!
-		If $\sX$ is compact and $clc_L^{n+1}$, then there are the split exact
-		sequences
-		$$
-		0 \to \Ext\left( H^{k+1}\left(\sX, L \right), M \right) \to H_k\left(\sX, M \right) \to \Hom \left( H^{k}\left(\sX, L \right), M \right)
-		$$
-		
-		for all $k<n$.
-	\end{corollary}
-	
-	
-	\begin{remark} 
-		The Definition \ref{top_cosh_defn} is a specialization of \ref{coheaf_defn} one.
-	\end{remark}
-	\begin{definition}\label{top_const_cosh_defn}\cite{bredon:sheaf}  !!! COMPARE !!!
-		The \textit{constant precosheaf} $L$ is the precosheaf taking the value $L$ on each
-		$\sU$. There is no generally acceptable notion of a constant cosheaf on spaces
-		that are not locally connected, but
-		on locally connected spaces, a suitable notion of constant cosheaf is the
-		precosheaf assigning to $\sU$ the free $L$-module on the components of $\sU$.
-	\end{definition}
-	\begin{definition}\label{top_flabby_cosh_defn}\cite{bredon:sheaf}
-		%1.2. Definition. 
-		A cosheaf $\mathfrak{A}$ is said to be \textit{flabby} if $\mathfrak{A}\left( \sU\right) \to\mathfrak{A}\left( \sX\right) $
-		is a monomorphism for each open $\sU\subset\sX$.
-	\end{definition}
-	
-	\begin{prop}
-		%1.10. Proposition. 
-		Let $\mathfrak{A}$ be a cosheaf and $M$ an $L$-module. Then the
-		presheaf $~\sU \mapsto \Hom\left(\mathfrak{A}\left(\sU \right) , M \right)$  is a sheaf, denoted by $\mathscr Hom \left(\mathfrak{A} , M \right)$. It is
-		flabby if $\mathfrak{A}$ is flabby and $M$ is an injective module. It is torsion free if each
-		$\mathfrak{A}\left(\sU \right)$ is divisible.
-	\end{prop}
-	
-	\begin{empt}
-		Let $M$ be an $L$-module. $M$ has the canonical injective resolution $0 \hookto M \hookto M^0 \to M^1$ where $M^0 \bydef I(M)$ is the injective hull, and $M^1 \bydef I(M)/ M$. $M^1$ is
-		injective since it is divisible and since $L$ is a principal ideal domain.
-		
-	\end{empt}
-	\begin{definition}
-		A \textit{differential cosheaf} $\mathfrak{A}_*$ is a graded cosheaf together with a differential
-		$d : \mathfrak{A}_p \to \mathfrak{A}_{p -1}$ of degree -1 with $d^2 = 0$. For our purposes, $ \mathfrak{A}_p= 0$ will often
-		vanish for $p > 0$.
-	\end{definition}
-	\begin{definition}
-		The  \textit{dual} $\mathfrak{A}_*$ is a graded cosheaf together with a differential
-		$d : \mathfrak{A}_p \to \mathfrak{A}_{p -1}$ of degree -1 with $d^2 = 0$. For our purposes, $ \mathfrak{A}_p= 0$ will often
-		vanish for $p > 0$.
-	\end{definition}
-	\begin{definition}
-		The 
-		\textit{dual} of the differential cosheaf $\mathfrak{A}_*$, with respect to the $L$-module
-		$M$ is defined to be the differential sheaf
-		$$
-		\mathscr D\left( \mathfrak{A}_*, M\right)\bydef \mathscr Hom \left(\mathfrak{A}_*, M^* \right)  
-		$$
-		where as usual, the term in degree $n$ is
-		$$
-		\mathscr D^n\left( \mathfrak{A}_*, M\right)= \bigoplus_{p + q = n} \mathscr Hom\left( \mathfrak{A}_p, M^q\right) = \mathscr Hom\left( \mathfrak{A}_n, M^0\right) \bigoplus \mathscr Hom\left( \mathfrak{A}_{n -1}, M^1\right)
-		$$
-		and where the differential $\mathscr D^n\to \mathscr D^{n + 1}$ is $d= d' - d''$, $d'$ being the homomorphism
-		induced by the differential $M^q \to M^{q + 1}$ and $(-1)d''$ being that
-		induced by $\mathfrak{A}_{p+1}\to \mathfrak{A}_{p}$. Explicitly, if
-		$$
-		f \in \mathscr D^n\left( \mathfrak{A}_*, M\right)\left(\sU \right) = \bigoplus_{p + q = n}\Hom\left( \mathfrak{A}_p, M^q\right)\left(\sU  \right) 
-		$$
-		and if $
-		a \in \mathfrak{A}_*(\sU)
-		$ then
-		$$
-		(df)(a) = d(f (a)) - (-1)^n f (da)
-		$$.
-		Since $M^*$ is injective, $\mathscr D\left( \bullet, M\right)$  is an exact functor of differential cosheaves.
-	\end{definition}
-	\begin{empt}\label{comm_th_empt}
-		Consider the canonical injective resolution $\mathscr J^*\left(\sX, L \right)$  of $L$ (cf. \ref{canonical_resolution_empt}) and
-		note that $\mathscr J^*\left(\sX, L \right)|\sU  = \mathscr J^*\left(\sU, L \right)$ for $\sU\subset \sX$ open. For a sheaf $\mathscr A$ on $\sX$,
-		we define
-		\bean
-		\mathscr C_*\left(\sX, \mathscr A \right) \bydef \mathscr D_*\left(\mathscr J^*\left(\sX, L \right)   \right) \otimes \mathscr A,\\
-		C_*^\Phi\left(\sX, \mathscr A \right) \bydef \Ga_\Phi\left(  C_*\left(\sX, \mathscr A \right)\right) 
-		\eean
-		and
-		$$
-		H^\Phi_p\left( \sX,\mathscr A \right) \bydef H_p\left( C_*^\Phi\left(\sX, \mathscr A \right)\right) 
-		$$
-		
-		%'Caution: Hp(X;4) corresponds to homology based on infinite, locallyfinite chains, while HH(X;4) is analogous to classical homology.] Recallthat by our notational conventions,Cp(U; L) = Hom(rc(,SZ9(U; L)), L°) ® Hom(r,(gp+1(U; L)), L' ).Thus Cp (X;4) = 0 for p < -1. Since Or* (X; L) is a module over theflabby sheaf `'°(X; L) of rings, 2.5 gives the following facts:3.1. Proposition. W.(X; 4) is a `'°(X; L)-module and hence is 4D-fine
-		for any paracompactifying family of supports c. Also, W. (X; L) is flabby
-		and torsion-free. Consequently, W.(X;4) is an exact functor of 4, as is
-		C?(X;,d) when' is paracompactifying.
-		Thus, when 4D is paracompactifying and 0 -+ 4' 4 -p 4" -+ 0 is
-		exact, we have the induced exact homology sequence
-		Hp (X;,d') -+ Hp (X; ,d) Hp (X;,d") -+ Hp 1(X;.,d') ...
-	\end{empt}
-	\begin{definition}\label{top_coh_man_defn}\cite{bredon:sheaf}
-		375
-		16.7. Definition. The space $\sX$ is called an $n$-\textit{dimensional cohomology
-			manifold over} $L$ (denoted $n$-$cr_L$) if $\sX$ has locally constant cohomology
-		modules, locally equivalent to $L$ in degree $n$, and to zero in degrees other
-		than $n$, and if $\dim_L\sX < \infty$.
-	\end{definition}
-	
-\section{APP}
-
-
-\paragraph{FINISH}
-
-!!! MAY BE MANIFOLD \ref{top_coh_man_defn} !!!
-
-\begin{remark}
-	If  $\sX$ is a closed subset of  $\sY$ then  $\mathfrak{Closed}\left( \sX\right)$ then the operation \eqref{top_neg_op} can be replaced with
-	\be\label{top_neg_ex_op_eqn}	
-	^\neg P \bydef \sY \setminus P
-	\ee	
-\end{remark}
-
-\begin{lemma}
-	The given by
-	\bean
-	\mathfrak{Closed}\left( \sX\right)\to \mathbf{Ab},\\
-	\sU \mapsto \mathfrak A\left( ^\neg \sU\right) 
-	\eean
-	map yields a sheaf on the locale $\mathfrak{Closed}\left(\sX \right)$. 
-\end{lemma}
-\begin{empt}
-	Then if $\sU\subset\sY$  is an open subset which is a disjoint union $\sU = \bigsqcup_{\la\in \La}\sU_\la$ of connected components then
-	$ \mathscr {L}\left(\sU \right) \cong L^\La \bydef \prod_{\la\in \La} L$. 
-	From the Theorem \ref{top_free_l_thm} one has a map  $\mathfrak A$ from the set of open subsets of  $\sY$ to the set of free $L$-modules
-	\be\label{top_const_sh_eqn}
-	\mathfrak A \left(\sU \right) \bydef  H^c_0\left(\sU,\mathscr {L}\right)  \cong \bigoplus_{\la\in \La} H^c_0\left(\sU_\la,\mathscr {L}\right) \cong \bigoplus_{\la\in \La} L
-	\ee
-	If $\sV$ is connected then one can define a map $i_{\sV, \sU}:\mathfrak A \left(\sV \right)\to \mathfrak A \left(\sU \right)$ by the following way. If $\sV= \bigsqcup_{\xi\in \Xi}\sV_\xi$ then there is the unique map $\varphi :\Xi \to \La$ such that $\sV_\xi \subset \sU_{\varphi\left( \La\right) }$. For any  $s \in \mathfrak A \left(\sU \right) $ there is a finite subset $\Xi_0 \subset \Xi$ such that
-	$$
-	s =\sum_{\xi \in \Xi_0} s_\xi \quad \text{where} \quad s_\xi \in H^c_0\left(\sV_\xi,\mathscr {L}\right).
-	$$
-	We define $i_{\sV, \sU}$ by following way
-	$$
-	s =\sum_{\xi \in \Xi_0} s_\xi \mapsto \sum_{\la \in \varphi\left(   \Xi_0 \right) } s_\la \quad \text{where} \quad  s_\la = \sum_{\xi \in \varphi^{-1}\left( \la\right)} s_\xi.
-	$$
-	One can proof that $\mathfrak A$ is cosheaf ()
-	
-\end{empt}
-\paragraph{TOPOLOGICAL CECH}
-
-
-
-
-\begin{empt}
-	PAGE 27
-	Let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ be an open covering of a space $\sX$ indexed by a set
-	$I$ and let $\mathscr A$ be a presheaf on $X$. Then an $n$-cochain c of it is a function
-	defined on ordered $(n + 1)$-tuples $\left((\a_0, ... , \a_n\right)$ of members of $I$ such that
-	$\sU_{\a_0,..., \a_n} \bydef \sU_{\a_0} \cap \dots \cap \sU_{\a_n}$ with value $c_{\a_0,..., \a_n}\in \mathscr A\left( sU_{\a_0,..., \a_n}\right)$ 
-	These form a group denoted by $\check C\left(\mathscr U, \mathscr A \right)$. An open set $\sV$ of $\sX$ is covered
-	by $\mathscr U \cap \sV \bydef \left\{\sU_\a\right\}_{\a \in I}$. Thus we have the cochain group $\check C\left(\mathscr U\cap \sV, \mathscr A \right)$,
-	and the assignment $\sV \mapsto  \check C\left(\mathscr U\cap \sV, \mathscr A \right)$ gives a presheaf on $\sV$, and hence a
-	sheaf
-	$$
-	\check{\mathscr C}^n \left(\mathscr \sV, \mathscr A \right)\bydef \mathfrak{Ass}\left(V \mapsto  \check C\left(\mathscr U\cap \sV, \mathscr A \right)\right)  
-	$$
-	Thus it makes sense to speak of the support $\left|c \right|$  of a cochain, i.e., $\left|c \right|\bydef \left|\th\left( c \right) \right|$ , where $\th :\check C\left(\mathscr U; \mathscr A \right)\to \Ga \left( \check {\mathscr C}\left(\mathscr U; \mathscr A \right)\right)$ This defines the cochain group
-	$\check  C\left(\mathscr U; \mathscr A \right)$ for a family $\Phi$ of supports on $\sX$. The coboundary operator
-	$$
-	d c\left(\a_0, ..., \a_{n+1}\right)\bydef~ \sum_{\iota = 0}^{n+1}\left( -1\right)^\iota c\left(\a_0, ..., \hat \a_\iota, ..., \a_{n+1}\right)|_{\sU_{\a_0, ..., \a_{n+1}}}
-	$$
-	The above equation is a specialization of \eqref{cech_differential_eqn}.
-\end{empt}
-
-\begin{remark}\label{top_chech_rem}
-The \v{C}ech cohomology over topological space is a specialization of the theory explained in the section \ref{cech_cohomology_sec}.
-\end{remark}
-\begin{remark}\label{top_chech_cof_rem}\cite{bredon:sheaf}
-Now, the \v{C}ech cohomology groups are not altered by restriction to any
-cofinal system of coverings. Therefore, if $\sX$ is compact, we can restrict the
-coverings used to finite coverings.
-\end{remark}
-================\\
-PAGE 189
-
-Let $\mathscr A$ be a presheaf on $\sX$ and $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering of
-$\sX$. We shall use $\sigma^n$ to denote an ordered $n$-simplex $\left( \a_0, ..., \a_n\right)$, of the
-nerve $N\left(\mathscr U\right)$ of $\mathscr U$, and $\sU_{\sigma^n}$ to denote $\sU_{\a_0,..., \a_n} \bydef \sU_{\a_0} \cap \dots \cap \sU_{\a_n}$. Let $c \in \check{C}\left(\sX; \mathscr A \right)$. Then the support $\left|c \right|$  of $c$ is characterized by
-\be\label{top_cech_supp_eqn}
-x \notin c\Leftrightarrow \exists V_x \ni 0=c\left(\sigma^n \right)|_{\sU_{\sigma^n}\cap \sV_x} \in \mathscr A\left( \sV_x \cap \sU_{\sigma^n} \right) \quad \forall \sigma^n \in N\left(\mathscr U\right)
-\ee
-where $\sV_x$ is an open neighborhood of $x$.
-!!! $\check{C}$ define !!!
-\begin{proposition}
-	PAGE 190
-	4.3. Proposition. If ' is paracompactifying, then any given cohomology
-	class ry E H (X; A) is represented by a cocycle cu E C (1.t; A) for some
-	locally finite covering it of X.
-	!!! $\check{C}$ define !!!
-\end{proposition}
-\begin{proposition}
-	PAGE 191
-	4.4. Theorem. If 4i is paracompactifying and A is a presheaf on X such
-	that . 9 9 4 s a / ( A ) = 0, then H (X; A) = 0 for all n.
-	!!! $\check{C}$ define !!!
-\end{proposition}
-\begin{corollary}
-	PAGE 191
-	4.5. Corollary. If ID is paracompactifying on X, A is a presheaf on X, and
-	4 = .?heaj(A), then the canonical map 0: A -+ d induces an isomorphism
-	H;(X;A) -1+ R,(X;-d
-\end{corollary}
-\begin{corollary}
-	PAGE 192 4.12. Corollary. For 44 paracompactifying and sheaves a on $\sX$ there as
-	a natural isomorphism
-	$$
-	\check H^*_\Phi\left(\sX, \mathscr A \right)  H^*_\Phi\left(\sX, \mathscr A \right) 
-	$$
-\end{corollary}
-
-\begin{lemma}\label{row_col_chasing_lem}\cite{bargmam:double}
-	If in the  complex below, all rows but the first row shown (the row
-	of $A_{0,r}$'s) and all columns but the first column shown (the column of $A_{r,0}$'s), are exact,
-	then the homologies of the first row and the first column are isomorphic:
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			& 0  & 0 & 0 & 0 &	\\ 
-			0 & A_{00} 		& A_{01} & A_{02}  &   A_{03}& \dots\\
-			0 & A_{10} 		& A_{11} & A_{02}  &   A_{13} & \dots\\
-			0 & A_{20} 		& A_{21} & A_{22}  &  A_{23}& \dots\\
-			0 & A_{30} 		& A_{31} & A_{32}  &   A_{33}& \dots\\& \vdots  & \vdots & \vdots & \vdots &
-			\\};
-		\path[-stealth]
-		(m-1-2) edge node [right]  {} (m-2-2)
-		(m-1-3) edge node [right]  {} (m-2-3)
-		(m-1-4) edge node [right]  {} (m-2-4)
-		(m-1-5) edge node [right]  {} (m-2-5)
-		
-		(m-2-1) edge node [right]  {} (m-2-2)
-		(m-2-2) edge node [right]  {} (m-2-3)
-		(m-2-3) edge node [right]  {} (m-2-4)
-		(m-2-4) edge node [right]  {} (m-2-5)
-		(m-2-5) edge node [right]  {} (m-2-6)
-		(m-2-2) edge node [right]  {} (m-3-2)
-		(m-2-3) edge node [right]  {} (m-3-3)
-		(m-2-4) edge node [right]  {} (m-3-4)
-		(m-2-5) edge node [right]  {} (m-3-5)
-		
-		(m-2-2) edge node [right]  {} (m-3-2)
-		(m-2-3) edge node [right]  {} (m-2-3)
-		(m-2-4) edge node [right]  {} (m-3-4)
-		(m-2-5) edge node [right]  {} (m-3-5)
-		
-		(m-3-1) edge node [right]  {} (m-3-2)
-		(m-3-2) edge node [right]  {} (m-3-3)
-		(m-3-3) edge node [right]  {} (m-3-4)
-		(m-3-4) edge node [right]  {} (m-3-5)
-		(m-3-5) edge node [right]  {} (m-3-6)
-		
-		(m-3-2) edge node [right]  {} (m-4-2)
-		(m-3-3) edge node [right]  {} (m-4-3)
-		(m-3-4) edge node [right]  {} (m-4-4)
-		(m-3-5) edge node [right]  {} (m-4-5)
-		
-		(m-4-1) edge node [right]  {} (m-4-2)
-		(m-4-2) edge node [right]  {} (m-4-3)
-		(m-4-3) edge node [right]  {} (m-4-4)
-		(m-4-4) edge node [right]  {} (m-4-5)
-		(m-4-5) edge node [right]  {} (m-4-6)
-		
-		(m-4-2) edge node [right]  {} (m-5-2)
-		(m-4-3) edge node [right]  {} (m-5-3)
-		(m-4-4) edge node [right]  {} (m-5-4)
-		(m-4-5) edge node [right]  {} (m-5-5)
-		
-		(m-5-1) edge node [right]  {} (m-5-2)
-		(m-5-2) edge node [right]  {} (m-5-3)
-		(m-5-3) edge node [right]  {} (m-5-4)
-		(m-5-4) edge node [right]  {} (m-5-5)
-		(m-5-5) edge node [right]  {} (m-5-6)
-		
-		(m-5-2) edge node [right]  {} (m-6-2)
-		(m-5-3) edge node [right]  {} (m-6-3)
-		(m-5-4) edge node [right]  {} (m-6-4)
-		(m-5-5) edge node [right]  {} (m-6-5)
-		;
-	\end{tikzpicture}
-	\\
-	
-\end{lemma}
-\begin{theorem}
-	PAGE 192
-	4.9. Theorem. If $\mathscr A$ is a sheaf on $\sX$ and it = {Uo,; a E I} is any open
-	covering of X, then is a resolution of 4.
-\end{theorem}
-\begin{corollary}
-	4.10. Corollary. Let d be a sheaf on X and let it be an open covering
-	of X. Then H°D(U;.:d) r,(4). If d is flabby, then H (it;..d) = 0 for
-	n>0.
-\end{corollary}
-
-\begin{theorem}
-	PAGE 193 
-	4.13. Theorem. Let $\mathscr A$ be a sheaf on $\sX$ and let $\mathscr U = \left\{\sU_\a\right\}_{\a \in I}$ an open covering  of $\sX$ having the property that $H^p\left( \sU_{\sigma^n};\mathscr A \right)= 0$  for $p > 0$ and
-	all $\sigma^n \in N\left(\mathscr U \right)$ , all $n$. Then there is a canonical isomorphism
-	\be
-	H^*\left(\sX, \mathscr A \right) \cong \check H^*\left( \mathscr U; \mathscr A\right). 
-	\ee
-\end{theorem}
-\begin{proof}
-	Let $\mathscr A^q \bydef  \mathscr C^q\left(\sX,\mathscr A^* \right)$  and consider the complex $\check C^p\left( \mathscr U,\mathscr A^*\right)$  for $p$
-	fixed. Since $\check C^p\left( \mathscr U,\bullet\right)$ is an exact functor of presheaves, we have
-	\bean
-	H^q\left(\check C^p\left( \mathscr U; \mathscr A^*\right)\right) = \check C^p\left( \mathscr U; H^q\left( \Ga \mathscr A^*|\bullet\right)\right)  = C^p\left( \mathscr U; H^q\left( \bullet, \mathscr  A^*\right)\right) = \\
-	\begin{cases}
-		\check C^p\left( \mathscr U; \mathscr A^*\right) & q = 0\\
-		0 & q \neq 0
-	\end{cases}
-	\eean
-	by the hypothesis that $H^q\left( \sU_{\sigma^n};\mathscr A \right)= 0$ for $q > 0$.
-	Consider the diagram
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			& 0  & 0 & 0 & 0 &	\\ 
-			0 & \Ga\left(\mathscr A \right) 		& \Ga\left(\mathscr A^0 \right) & \Ga\left(\mathscr A^1 \right)  &  \Ga\left(\mathscr A^2 \right)& \dots\\
-			0 & \check C^0\left(\mathscr U, \mathscr A \right) 		& \check C^0\left(\mathscr U, \mathscr A^0 \right) & \check C^0\left(\mathscr U, \mathscr A^1 \right)  &  \check C^0\left(\mathscr U, \mathscr A^2 \right)& \dots \\0 & \check C^1\left(\mathscr U, \mathscr A \right) 		& \check C^1\left(\mathscr U, \mathscr A^0 \right) & \check C^1\left(\mathscr U, \mathscr A^1 \right)  &  \check C^1\left(\mathscr U, \mathscr A^2 \right)& \dots\\0 & \check C^2\left(\mathscr U, \mathscr A \right) 		& \check C^2\left(\mathscr U, \mathscr A^0 \right) & \check C^2\left(\mathscr U, \mathscr A^1 \right)  &  \check C^2\left(\mathscr U, \mathscr A^2 \right)& \dots\\& \vdots  & \vdots & \vdots & \vdots &
-			\\};
-		\path[-stealth]
-		(m-1-2) edge node [right]  {} (m-2-2)
-		(m-1-3) edge node [right]  {} (m-2-3)
-		(m-1-4) edge node [right]  {} (m-2-4)
-		(m-1-5) edge node [right]  {} (m-2-5)
-		
-		(m-2-1) edge node [right]  {} (m-2-2)
-		(m-2-2) edge node [right]  {} (m-2-3)
-		(m-2-3) edge node [right]  {} (m-2-4)
-		(m-2-4) edge node [right]  {} (m-2-5)
-		(m-2-5) edge node [right]  {} (m-2-6)
-		(m-2-2) edge node [right]  {} (m-3-2)
-		(m-2-3) edge node [right]  {} (m-3-3)
-		(m-2-4) edge node [right]  {} (m-3-4)
-		(m-2-5) edge node [right]  {} (m-3-5)
-		
-		(m-2-2) edge node [right]  {} (m-3-2)
-		(m-2-3) edge node [right]  {} (m-2-3)
-		(m-2-4) edge node [right]  {} (m-3-4)
-		(m-2-5) edge node [right]  {} (m-3-5)
-		
-		(m-3-1) edge node [right]  {} (m-3-2)
-		(m-3-2) edge node [right]  {} (m-3-3)
-		(m-3-3) edge node [right]  {} (m-3-4)
-		(m-3-4) edge node [right]  {} (m-3-5)
-		(m-3-5) edge node [right]  {} (m-3-6)
-		
-		(m-3-2) edge node [right]  {} (m-4-2)
-		(m-3-3) edge node [right]  {} (m-4-3)
-		(m-3-4) edge node [right]  {} (m-4-4)
-		(m-3-5) edge node [right]  {} (m-4-5)
-		
-		(m-4-1) edge node [right]  {} (m-4-2)
-		(m-4-2) edge node [right]  {} (m-4-3)
-		(m-4-3) edge node [right]  {} (m-4-4)
-		(m-4-4) edge node [right]  {} (m-4-5)
-		(m-4-5) edge node [right]  {} (m-4-6)
-		
-		(m-4-2) edge node [right]  {} (m-5-2)
-		(m-4-3) edge node [right]  {} (m-5-3)
-		(m-4-4) edge node [right]  {} (m-5-4)
-		(m-4-5) edge node [right]  {} (m-5-5)
-		
-		(m-5-1) edge node [right]  {} (m-5-2)
-		(m-5-2) edge node [right]  {} (m-5-3)
-		(m-5-3) edge node [right]  {} (m-5-4)
-		(m-5-4) edge node [right]  {} (m-5-5)
-		(m-5-5) edge node [right]  {} (m-5-6)
-		
-		(m-5-2) edge node [right]  {} (m-6-2)
-		(m-5-3) edge node [right]  {} (m-6-3)
-		(m-5-4) edge node [right]  {} (m-6-4)
-		(m-5-5) edge node [right]  {} (m-6-5)
-		;
-	\end{tikzpicture}
-	\\
-	
-	
-	in which the rows are exact, excepting the first, as just shown and the
-	columns are exact, excepting the first, by 4.10 and 4.9. A diagram chase
-	shows that the homology of the first (nontrivial) row is isomorphic to that
-	of the first column.
-\end{proof}	
-
-
-\begin{theorem}
-	PAGE 445	13.1. Theorem. If each intersection U of at most m + 1 members of it
-	has
-	$$
-	H_q\left(\mathfrak{A}\left( \sU\right)  \right) = 0 \quad \forall~ 0 \neq q < n
-	$$
-	then
-	$$
-	\la
-	$$
-	
-	,\u : Hk (Qt. (X)) -' Hk (it; 2t)
-	is an isomorphism for all k < min{n, m} and a monomorphism for k =
-	min{n, m}.
-	Applying this to Borel-Moore homology, we have:
-	
-\end{theorem}
-
-\begin{corollary}
-	PAGE 445	13.2. Corollary. Let .,l be an arbitrary sheaf on the locally compact Hausdorff
-	space X. Let it be an open covering of X such that for each intersection
-	U of at most m + 1 members of it, HQ(U;.A) = 0 for all 0 < q < n.
-	Then the canonical map
-	H,(X;") - Hk(U;
-	is an isomorphism for all k < min{n, m} and a monomorphism for k
-	min{n, m}.
-\end{corollary}
-\begin{corollary}
-	13.3. Corollary. Let d be an arbitrary sheaf on the space X. Let U be
-	an open covering of X such that for each intersection U of at most m + 1
-	members of it, AHq (U; .d) = 0 for all 0 < q < n. Then the canonical map
-	AHk(X;1d) - Hk(U; AHO(';4))
-	ss an isomorphism for all k < min{n, m} and a monomorphism for k =
-	min{n, m}. D
-\end{corollary}
-\paragraph{TOPOLOGICAL CECH FINISH}
-\paragraph{title}
-\begin{theorem}\label{top_free_l_thm!!!}
-	PAGE 314.   5.14. Theorem. Let $\sX$ be locally connected. If either $L$ is a field or $\sX$ is
-	$clc^1_L$, then $H^c_0\left(\sX, L \right)$  is the free $L$-module on the components of $\sX$.
-\end{theorem}
-\paragraph{title}
-\begin{lemma}\label{sh_co_lem} 
-	. Suppose there is an inclusion $\sX \hookto\sY$.  If $^\neg \sU \bydef \sY \setminus \sU$ for all $\sU \in  \mathfrak{Closed }\left( \sX\right)$ and $\mathfrak A$ is a flabby cosheaf on $\sY$ (cf. Definitions \ref{top_cosh_defn} and \ref{top_flabby_cosh_defn} then the map
-	\be\label{top_sheaf_eqn}
-	\sU \mapsto \mathfrak A\left(^\neg \sU\right)
-	\ee 
-	is a sheaf over the locale $\mathfrak{Closed }\left( \sX\right)$ (cf. Definition \ref{sheaf_defn}). 
-\end{lemma}
-
-\begin{proof}
-	If $\sU, \sV \in  \mathfrak{Closed }\left( \sX\right)$ are such that $\sV \le \sU$ then $^\neg \sU \subset ^\neg \sV$. From the Definition \ref{top_presheaf_defn} it follows that there is the natural homomorphism
-	$$
-	i_{^\neg \sV, ^\neg \sU}  :\mathfrak{A}\left( ^\neg \sU\right)\to \mathfrak{A}\left( ^\neg \sV\right).
-	$$
-	From this circumstance it follows that the map \eqref{top_sheaf_eqn} is a presheaf on $\mathfrak{Closed}\left( \sX\right)$ (cf. Definition \ref{presheaf_defn}), we denote it by 
-	$^\neg \mathfrak A\in \mathbf{PreShAb}\left(\mathfrak{Closed}\left( \sX\right)  \right)$ (cf. Remark \ref{ab_uss_rem}).  Any $s \in ^\neg \mathfrak A\left( \sU\right) $ corresponds to $^\neg s \in  \mathfrak A\left(^\neg \sU\right) $. Let us prove that $^\neg \mathfrak A$ is a sheaf (cf. Definition \ref{sheaf_defn}). Let $\left\{s_\a\right\}_{\a\in \A}$ be a family such that $s_\a \in ^\neg \mathfrak A\left( \sU_\a\right)$ and $\sU_\a\in \mathfrak{Closed }\left( \sX\right)$ such that   
-	\bean
-	s_{\a'}|_{\sU_{   \a'}\wedge\sU_{   \a''}}=s_{\a''}|_{\sU_{   \a'}\wedge\sU_{   \a''}}
-	\eean 
-	for all  $\a', \a'' \in \A$. It turns out that 
-	\be\label{top_co_eqn}
-	_{~^\neg \sU_{   \a'},  ^\neg\sU_{   \a'}\cup  ^\neg\sU_{   \a''}}~ ^\neg s_{\a'} = i_{^\neg \sU_{   \a''},  ^\neg\sU_{   \a'}\cup  ^\neg\sU_{   \a''}}~ ^\neg s_{\a''} 
-	\ee
-	Taking into account that $\left| s_\a\right|$ is a closed subset  $\sU_{   \a''}$ from \eqref{top_co_eqn} it follows that for all $\a \in \A$ one has
-	$\left| s_\a\right| \subset \sU$ where $\sU$ is a maximal open subset of $\bigcap^\neg \sU_{   \a}$ So there is $s \in \neg \mathfrak A\left( \sU\right)$ such that $i_{^\neg \sU   ,  ^\neg\sU_{   \a'}}\neg s= \neg s_\a$ for all $\a \in \A$. Thus $s$ is the required by the Definition \ref{sheaf_defn} section.
-\end{proof}
-\begin{empt}
-	Let $\sY$ be a compact  $n$-\textit{dimensional homology manifold over} principal ideal domain $L$ (cf. Definition \ref{top_ndiml_defn}). One has $\dim_L \sY = n$ (cf. the equation \eqref{top_dim_eqn}, and the Definition \ref{top_diml_defn}). If $L_\sY\in \mathbf{PreAb}\left(\sY \right) $ is a constant presheaf and $\mathscr{L} \bydef \mathfrak{Ass}\left( L_\sY\right)\in \mathbf{ShAb}\left(\sY \right) $ is the associated sheaf  then there is the canonical injective resolution (cf. \ref{canonical_resolution_empt}). From the Theorem \ref{top_diml_thm} the resolution looks like
-	\bean
-	0\to \mathscr L \to \mathscr L^1 \to \dots \mathscr L^n \to 0
-	\eean 
-	Moreover the resolution is $c$-soft (cf. Theorem \ref{top_diml_thm}). From the Theorem \ref{top_from_sh_to_cosh_thm} it follows that there is $\mathfrak D \left(\mathscr L^*\right)$  is a flabby quasi $n$-
-	coresolution $\mathfrak D \left(\mathscr L^*\right)$ 
-	\be
-	0\to \mathfrak A \leftarrow \mathfrak A_1 \leftarrow \dots \leftarrow\mathfrak A_n 
-	\ee
-	
-	
-	
-	from the the Theorem \ref{top_diml_thm} it follows that 
-\end{empt}
-	
-	
-
 \section{APP}
 
  
@@ -6268,7 +4449,7 @@ Second Edition, Springer, 1997.
 
 \bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
-\bibitem{grothendieck:sheaf_noabelian} Alexander Grothendieck, \textit{A General Theory of Fibre Spaces With Structure Sheaf}, University of Kansas, Report No. 4 (1955, 1958), 1958.
+\bibitem{grothendieck:sheaf_noabelian} Alexander Grothendieck. \textit{A General Theory of Fibre Spaces With Structure Sheaf}, University of Kansas, Report No. 4 (1955, 1958), 1958.
 
 \bibitem{kashiwara:cat_sheaves}Masaki Kashiwara and Pierre Schapira. \textit{Categories and sheaves} volume 332 ofGrundlehren der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]. Springer-Verlag, Berlin, 2006.
 
