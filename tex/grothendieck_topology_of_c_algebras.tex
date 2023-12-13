@@ -1181,17 +1181,35 @@ $$
 CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}\cap ...\cap CT\left(\sX, \dl \right)_{\sX \setminus \sU_n} = \{0\}
 $$
  (cf. Definition \ref{pullback_covering_ca_defn}).
-The cycle $c^A_\sX= \left[ \a_{\iota j}  \right] \in Z^1\left( \mathscr U, A\right)$ naturally defines a cycle $c^A_A= \left[ \a^A_{\iota j}  \right] \in \Z^1\left( \mathscr U^A, A^A\right)$. However the cycle $\left[ \a^A_{\iota j}  \right]$ yields global section $1_{CT\left(\sX, \dl \right)}\in A^A\left(\{0\} \right) $ of $A^A$, so one has $\left[ \a^A_{\iota j}  \right]\in D^0\left(  \mathscr U^A, A^A\right)$ (cf. \eqref{nonab_perm_eqn}), i.e. $c^A_A$ is a trivial cycle in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
-Similarly to \ref{ctr_cycle_map_empt}  and the Lemma \ref{ctr_cycle_map_lem} one can construct a map
-$$
-\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)\xrightarrow{\phi_{1,2} } \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
-$$
-and $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ since $\left[ \a^A_{\iota j}  \right]$ is trivial in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
-From the Lemma \ref{cech_geom_lem} it follows that there is a natural homomorphism
-\be\label{ctr_h2_eqn}
-\check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right)
+The cycle $c^A_\sX= \left[ \a_{\iota j}  \right] \in Z^1\left( \mathscr U, A\right)$ naturally defines a cycle $c^A_A= \left[ \a^A_{\iota j}  \right] \in \Z^1\left( \mathscr U^A, A^A\right)$. However the cycle $\left[ \a^A_{\iota j}  \right]$ yields global section $1_{CT\left(\sX, \dl \right)}\in A^A\left(\{0\} \right) $ of $A^A$, so one has $\left[ \a^A_{\iota j}  \right]\in D^0\left(  \mathscr U^A, A^A\right)$ (cf. \eqref{nonab_perm_eqn}, \eqref{nonab_coh_q_eqn}), i.e. $c^A_A$ is a trivial cycle in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+
+
+
+Similarly to \ref{ctr_cycle_map_empt}  and the Lemma \ref{ctr_cycle_map_lem} one can construct an isomorphism
+\be\label{ctr_p12_eqn}
+\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)\xrightarrow[\cong]{\phi_{1,2} } \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
 \ee
+and $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ since $\left[ \a^A_{\iota j}  \right]$ is trivial in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+From the Lemma \ref{cech_geom_lem} it follows that there are natural homomorphisms
+\bea\label{ctr_h2_eqn}
+\check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right),\\
+\check H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right) \xrightarrow{\check{H}^3\left(\Z \right) } \check H^3\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , \Z \right)
+\eea
 and taking into account  $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ one has $\check{H}^2\left(\T \right)\left(\dl^2 \right) = 0$.
+ \begin{theorem}\label{ctr_main_thm}
+	Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
+	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota, j}$. If  $\dl^2 \bydef \Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}), and $\check{H}^2\left(\T \right)$ is given by \eqref{ctr_h2_eqn} then
+\bea\label{ctr_h20_ker_eqn}
+\ker \check{H}^2\left(\T \right) = 	\Z \dl^2,\\
+\label{ctr_h30_ker_eqn}
+\ker \check{H}^3\left(\Z \right) = 	\Z \dl.
+\eea
+\end{theorem}
+\begin{proof}
+From the isomorphism \eqref{ctr_p12_eqn} it follows that a cocycle $c \in Z^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right)$ satisfies to  $\left[c\right]= 0 \in Z^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right)$ if it equals to $\Dl\left(\left\{\a'_{\iota j}\right\} \right)$ such that  $\left[\a'_{\iota j}\right]$ is a trivial element of $\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)$, i.e. $\left[\a'_{\iota j}\right]\in D\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A\right)$ (cf. \eqref{nonab_perm_eqn})
+
+\end{proof}
+
  \begin{lem}\label{ctr_main_lem}
 	Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
 	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota j}$. If  $\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}) then 
@@ -1207,7 +1225,7 @@ and taking into account  $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right
 	
 	 Since $\check{H}^3\left(\Z \right)\left(\dl \right)$ is an image of $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$  one has $\check{H}^3\left(\Z \right)\left(\dl \right)= 0$.
 \end{proof}
-\
+
 \paragraph{!!! DELETE} 
 is a group of unitary elements of the multiplies of  $CT\left(\sX, \dl \right)$ then for any $\mathfrak{Closed}\left( \sX\right)$ there is an equivalence 
 
@@ -3090,11 +3108,12 @@ by the properties (a), (b) and (c).
 	\begin{definition}\label{nonab_coh_defn}
 	We define the \textit{group of }$p$-\textit{cochains of the covering } $\mathscr U$ \textit{with coefficients in the sheaf of groups } $\G$ as the product group
 	$$
-	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right). 
+C^p\left(\mathscr U , \G \right) \bydef	\prod_{I^p }H^0\left(\sU_{\iota_0, ..., \iota_{p}}, \G \right). 
 	$$ A 1-cochain $\left(g_{\iota, j} \right)$ is called a  1 - \textit{cocycle} if it satisfies  the conditions
 	\be\label{nonab_coh_eqn}
 	\sU_{\iota, j, k}\neq \emptyset \quad \Rightarrow  \quad  g_{\iota, k} = g_{\iota, j}g_{j,k}.
 	\ee
+	(We recall that for any open $\sU\subset \sX$,  $~H^0\left(\sU, \G \right)$ is the group of sections of $\G$ on $\sU$). Thus an element of $C^P\left( \mathscr U, \G\right)$ is an arbitrary family $\left\{g_{\iota_0}, ..., g_{\iota_p}\right\} $ of sections of $\G$ on the intersection $\sU_{\iota_0, ..., \iota_{p}}$.
 	The set of 1-cocycles in $C^1\left( \mathscr U, \G\right)$ (which set in general is not a subgroup) however is denoted by  $Z^1\left( \mathscr U, \G\right)$,
 	\end{definition}
 	Let $g^0 = \left\{g_\iota\right\}\in C^0\left( \mathscr U, \G\right)$, $~g^1 = \left\{g_{\iota, j}\right\}\in C^1\left( \mathscr U, \G\right)$, we define an element $D\left( g^0\right).g^1 \in Z^1\left( \mathscr U, \G\right)$ by
@@ -3103,7 +3122,7 @@ by the properties (a), (b) and (c).
 	\bydef  g_\iota g_{\iota, j} g^{-1}_j.
 	\ee  
 	With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
-\be
+\be\label{nonab_coh_q_eqn}
 H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C^0\left( \mathscr U, \G\right)\right) 
 \ee
 If $\mathscr V$ is a refinement of the covering $\mathscr U$ then similarly to \eqref{cech_refi_eqn} for any $p$ there is a natural homomorphism
