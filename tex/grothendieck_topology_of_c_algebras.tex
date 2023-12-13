@@ -791,7 +791,7 @@ Taking into account that $\check H^r\left(\mathbf{Sh}\left(\mathbf{C}, J\right),
 
 
 \section{Topoi of commutative $C^*$-algebras}
-\subsection{Sites}
+\subsection{Sites}\label{top_closed_sec}
 \paragraph{}
 Let $\sX$ be a locally compact, Hausdorff topological space, and let $A \bydef C_0\left( \sX\right)$ be a corresponding commutative $C^*$-algebra. Any hereditary $C^*$-subalgebra $B \subset A$ is an closed ideal which uniquely depends  an open subset
 \be\label{top_xb_eqn}
@@ -1101,7 +1101,135 @@ On the other hand the given by the Lemma \ref{top_cech_cof_cov_lem} systems of c
 
 
 \section{Topoi of continuous trace  $C^*$-algebras}
-\paragraph{} Let $CT\left(\sX, \dl \right)$ the stable
+
+\paragraph{}
+Let $CT\left(\sX, \dl \right)$ the stable
+continuous-trace algebra  with DixmierÐDouady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Notation \ref{ctr_not}). Suppose that the space $\sX$ is compact. If $B \subset  CT\left(\sX, \dl \right)$ is a hereditary subalgebra then from  \ref{ctr_rep_eq_lem} it follows that for any $a \in CT\left(\sX, \dl \right)$ a subset 
+$$
+\sX_a \bydef \left\{x \in \sX | \left\| \mathfrak{rep}_x\left(a \right) \right\| > 0\right\}\subset \sX
+$$
+is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
+\begin{definition}\label{ctr_supp_defn}
+	If $B$ is a hereditary $C^*$-subalgebra  of $A$ then a given by
+	\be\label{ctr_supp_eqn}
+	\cosupp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
+	\ee
+	closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
+\end{definition}
+Consider a presheaf $C^\sX$ on the category $\mathfrak{Closed}\left(\sX\right)$ (cf. Section \ref{top_closed_sec}) such that for any $\mathfrak{Closed}\left(\sX\right)$-object $\sU$ one has
+\be\label{top_cx_eqn}
+C^\sX\left(\sU  \right) \bydef CT\left(\sX, \dl \right)|^\sU
+\ee
+where the notation \ref{closed_ideal_eqn} is used.
+\begin{lemma}\label{ctr_sh_lem}
+The given by \eqref{top_cx_eqn} presheaf is a $\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ sheaf  (cf. \eqref{top_closed_site_eqn}).
+\end{lemma}
+\begin{proof}
+!!!	
+\end{proof}
+From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion $\varphi: C\left( \sX \right) \subset M\left( CT\left(\sX, \dl \right)\right)$ which satisfies to the Definition \ref{hereditary_full_defn}, so the Lemma \ref{geometric_morphism_thm} yields  a  morphism of sites 
+\bean
+\mathfrak{Site}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Site}(\varphi)}\mathfrak{Site}\left( C\left( \sX \right)\right) 
+\eean
+(cf. Definition \ref{morphism_of_sites_defn}) and a natural geometric morphism
+\bean
+\mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathfrak{Topos}\left(C\left( \sX \right)\right) 
+\eean
+(cf. Definition \ref{geometric_morphism_defn}). From the equation \eqref{top_closed_site_eqn} it turns out that the above morphism of sites and geometric morphism are equivalent to following morphisms 
+\bea\label{ctr_site_morphism_eqn} 
+\mathfrak{Site}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Site}(\varphi)}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right),\\ 
+\label{ctr_geometric_morphism_eqn} 
+\mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathbf{Sh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right). 
+\eea
+If $U' \bydef UM\left( CT\left(\sX, \dl \right)\right)$ and  $A' \bydef\Aut_{C\left(\sX\right)}\left( CT\left(\sX, \dl \right)\right)$ then for any $\sU \in \mathfrak{Closed}\left( \sX\right)$ there are equivalence relations
+\bean
+\forall u', u'' \in U' \quad u' \sim_\sU u'' \quad \Leftrightarrow \quad \forall x \in ( CT\left(\sX, \dl \right)\quad \left(u'- u'' \right)x \in CT\left(\sX, \dl \right)|_{\sX \setminus\sU},\\
+\forall a', a'' \in A' \quad a' \sim_\sU a'' \quad \Leftrightarrow \quad \forall x \in ( CT\left(\sX, \dl \right)\quad \left(a'- a'' \right)x \in CT\left(\sX, \dl \right)|_{\sX \setminus\sU}
+\eean
+where  $CT\left(\sX, \dl \right)|_{\sX \setminus\sU}$ is given by \eqref{open_ideal_eqn}. One can define presheaves $U^\sX, \A^\sX \in \mathbf{PreSh}\left(\mathfrak{Closed}\left( \sX\right), J_\sX\right)$ of groups such that for any $\mathfrak{Closed}\left( \sX\right)$-object $\sU$ one has
+\bean
+U^\sX \left(\sU  \right)\bydef U' /\sim_\sU,\\ 
+A^\sX \left(\sU  \right)\bydef A' /\sim_\sU,\\ 
+\eean
+Similarly to the Lemma \ref{ctr_sh_lem} one can proof that both $U^\sX$ and $A^\sX$ are sheaves.  If $S^\sX$ is a sheaf of germs of continuous maps $\sX \to \T$ then one has
+$$
+A^\sX = U^\sX / S^\sX
+$$
+(cf. !!!).
+Denote by
+\bean
+U^A \bydef \mathfrak{Topos}(\varphi)^* U^\sX,\\
+A^A \bydef \mathfrak{Topos}(\varphi)^* U^\sX,\\
+S^A \bydef \mathfrak{Topos}(\varphi)^* S^\sX
+\eean
+where $\mathfrak{Topos}(\varphi)^*$ is the inverse image (cf. Definition \ref{geometric_morphism_defn}) of the given by \eqref{ctr_geometric_morphism_eqn} geometric morphism. 
+If   $\dl^2 \in \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right)$
+is the preimage of $\dl \in H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right)$
+then there is a finite set $\mathscr U = \left\lbrace \sU_1, ..., \sU_n \right\rbrace $ such that $\dl^2$ is represented by $c^S_\sX = \left[\nu_{\iota, j, k}\right]\in \Z^2\left( \mathscr U, \T\right)$. On the other hand $c^S_\sX = \Dl c^A_\sX$ where $c^A_\sX= \left[ \a_{\iota j}  \right) \in \Z^1\left( \mathscr U, A\right)$ and  $\Dl$ is an explained in \ref{ctr_cycle_map_empt} map. If $\mathscr U$ is such that $\a_{\iota j} = \mathrm{Ad}u_{\iota j}$ where $\a_{\iota j}\in A\left( \sU_\iota \cap \sU_j\right)$ and $u_{\iota j}\in U\left( \sU_\iota \cap \sU_j\right)$ then according to \eqref{ctr_vijk_eqn} one has
+	\be\label{ctr_vijk_p_eqn}
+\forall z \in \sU_{\iota j k} \quad \nu_{\iota jk}(z)  \quad   \mu_{\iota j}(z)\mu_{j k}(z)\mu^{-1}_{\iota k}
+\ee
+If we consider a map \eqref{ctr_site_morphism_eqn} then 
+$$
+\mathfrak{Site}(\varphi)^{-1}\left(\sU_\iota \right) =  CT\left(\sX, \dl \right)|_{\sX \setminus \sU_\iota}
+$$
+where the ideal $CT\left(\sX, \dl \right)|_{\sX \setminus \sU_\iota}$ is given by the equation \eqref{open_ideal_eqn}.
+A family $$
+\mathscr U^A\bydef \left\{CT\left(\sX, \dl \right)_{\sX \setminus \sU_1}, ..., CT\left(\sX, \dl \right)_{\sX \setminus \sU_n}\right\}
+$$ is a covering of $\{0\} \in \mathbf{Hered}/CT\left(\sX, \dl \right)$, i.e.
+$$
+CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}\cap ...\cap CT\left(\sX, \dl \right)_{\sX \setminus \sU_n} = \{0\}
+$$
+ (cf. Definition \ref{pullback_covering_ca_defn}).
+The cycle $c^A_\sX= \left[ \a_{\iota j}  \right] \in Z^1\left( \mathscr U, A\right)$ naturally defines a cycle $c^A_A= \left[ \a^A_{\iota j}  \right] \in \Z^1\left( \mathscr U^A, A^A\right)$. However the cycle $\left[ \a^A_{\iota j}  \right]$ yields global section $1_{CT\left(\sX, \dl \right)}\in A^A\left(\{0\} \right) $ of $A^A$, so one has $\left[ \a^A_{\iota j}  \right]\in D^0\left(  \mathscr U^A, A^A\right)$ (cf. \eqref{nonab_perm_eqn}), i.e. $c^A_A$ is a trivial cycle in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+Similarly to \ref{ctr_cycle_map_empt}  and the Lemma \ref{ctr_cycle_map_lem} one can construct a map
+$$
+\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)\xrightarrow{\phi_{1,2} } \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
+$$
+and $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ since $\left[ \a^A_{\iota j}  \right]$ is trivial in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+From the Lemma \ref{cech_geom_lem} it follows that there is a natural homomorphism
+\be\label{ctr_h2_eqn}
+\check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right)
+\ee
+and taking into account  $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ one has $\check{H}^2\left(\T \right)\left(\dl^2 \right) = 0$.
+ \begin{lem}\label{ctr_main_lem}
+	Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
+	trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota j}$. If  $\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}) then 
+	\bea\label{ctr_h20_eqn}
+	\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right) = 0,\\\label{ctr_h30_eqn}
+	\check{H}^3\left(\Z \right)\left(\dl \right)  = 0.
+	\eea
+	where $\check{H}^2\left(\T \right)$ and $\check{H}^3\left(\Z \right)$ are given by the equations \eqref{ctr_h2_eqn} and \eqref{ctr_h3_eqn} respectively.
+\end{lem}
+\begin{proof}
+	The equation \eqref{ctr_h20_eqn} is already proven.
+!!! EXACT SEQUENCE !!!	
+	
+	 Since $\check{H}^3\left(\Z \right)\left(\dl \right)$ is an image of $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$  one has $\check{H}^3\left(\Z \right)\left(\dl \right)= 0$.
+\end{proof}
+\
+\paragraph{!!! DELETE} 
+is a group of unitary elements of the multiplies of  $CT\left(\sX, \dl \right)$ then for any $\mathfrak{Closed}\left( \sX\right)$ there is an equivalence 
+
+
+So one can deduce that is $B$ is a hereditary $C^*$-subalgebra and $S'(B)$ is a group of continuous maps from $\cosupp B \to \T$ then there is a natural injective homomorphism of groups $S'\left(B\right) \to U^A\left( B\right)$. One has a presheaf $B \mapsto S'\left( B\right)$. If
+\be\label{ctr_sa_eqn}
+S^A \bydef \mathfrak{Ass}\left( B \mapsto S'\left(B\right)\right) 
+\ee 
+where $\mathfrak{Ass}$ means an associated sheaf (cf. Definition \ref{associated_sheaf_defn}).
+From the *-homomorphism $\varphi : C\left( \sX \right) \hookto M\left( CT\left(\sX, \dl \right)\right)$ and the  On the other hand from  \eqref{top_closed_site_eqn} it follows that there is a natural isomorphism of sites $\mathfrak{Site}\left( C\left( \sX \right)\right)\cong \mathfrak{Closed}\left( \sX\right)$. If $S \in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right)$ is a sheaf of germs of continuous maps from $\sX$ to $\T$ then one can proof that
+\be\label{ctr_t_ii_eqn}
+S^A = \mathfrak{Topos}(\varphi)^* (S)
+\ee
+where $\mathfrak{Topos}(\varphi)^*$ is the inverse image of $\mathfrak{Topos}(\varphi)$ (cf. Definition \ref{geometric_morphism_defn}) $S^A  \in \mathbf{Ab}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right)$ is given by the equation \eqref{ctr_sa_eqn}.
+
+From \eqref{const_sheaf_morphism_eqn} and the Lemma \ref{cech_geom_lem} it follows that there is a homomorphism
+\be\label{ctr_h3_eqn}
+\check H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right) \xrightarrow{\check{H}^3\left(\Z \right) } \check H^3\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , \Z \right)
+\ee
+where the notation \eqref{chech_hom_eqn} is used.
+
+Let $CT\left(\sX, \dl \right)$ the stable
 continuous-trace algebra  with DixmierÐDouady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Notation \ref{ctr_not}). Suppose that the space $\sX$ is compact. 	For any hereditary $C^*$-subalgebra of $CT\left(\sX, \dl \right)$ there is a given by the equation \ref{left_ideal_eqn} left ideal $L\left(B\right)$.
 From the Theorem \ref{left_ideal_thm} it follows that  	
 there is 	 an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
@@ -1151,18 +1279,6 @@ U^A : B \mapsto U^A\left(B\right) \bydef U / U_B
 \ee
 is a sheaf of groups, i.e. $U_A \in \mathbf{Sh}\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right)\right)$ (cf. \eqref{sheaf_notation_eqn}).
 \end{exercise}
-From the  \ref{ctr_rep_eq_lem} it follows that for any $a \in CT\left(\sX, \dl \right)$ a subset 
-$$
-\sX_a \bydef \left\{x \in \sX | \left\| \mathfrak{rep}_x\left(a \right) \right\| > 0\right\}\subset \sX
-$$
-is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
-\begin{definition}\label{ctr_supp_defn}
-	If $B$ is a hereditary $C^*$-subalgebra  of $A$ then a given by
-	\be\label{ctr_supp_eqn}
-	\cosupp B \bydef \sX \setminus \bigcup_{a \in B} \sX_a
-	\ee
-	closed subset of $\sX$ is said to be a \textit{cosupport} of $B$.
-\end{definition}
 \begin{remark}
 	For any closed subset $F \subset \sX$ there is a hereditary $C^*$-subalgebra
 	\be\label{ctr_cosupp_eqn}
@@ -1170,50 +1286,7 @@ is open (where $\mathfrak{rep}_x$ is given by \eqref{rep_x_eqn})
 	\ee
 	such that $\cosupp  CT\left(\sX, \dl \right)\left(F  \right) = F$. If $\left\{\F_\iota\right\}$ is a family of closed  sets such that $\bigcup F_\iota = \sX$ then $\bigcap CT\left(\sX, \dl \right)\left(F_\iota  \right)= 0$.
 \end{remark}
-From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural inclusion $C\left( \sX \right) \subset M\left( CT\left(\sX, \dl \right)\right)$. From this fact one can deduce that is $B$ is a hereditary $C^*$-subalgebra and $S'(B)$ is a group of continuous maps from $\cosupp B \to \T$ then there is a natural injective homomorphism of groups $S'\left(B\right) \to U^A\left( B\right)$. One has a presheaf $B \mapsto S'\left( B\right)$. If
-\be\label{ctr_sa_eqn}
-S^A \bydef \mathfrak{Ass}\left( B \mapsto S'\left(B\right)\right) 
-\ee 
- where $\mathfrak{Ass}$ means an associated sheaf (cf. Definition \ref{associated_sheaf_defn}).
-From the *-homomorphism $\varphi : C\left( \sX \right) \hookto M\left( CT\left(\sX, \dl \right)\right)$ and the Lemma \ref{geometric_morphism_thm} it follows that there a  morphism of sites 
- \be\label{ctr_site_morphism_eqn} 
- \mathfrak{Site}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Site}(\varphi)}\mathfrak{Site}\left( C\left( \sX \right)\right) 
- \ee
- (cf. Definition \ref{morphism_of_sites_defn}) and a natural geometric morphism
- \be\label{ctr_geometric_morphism_eqn} 
- \mathfrak{Topos}\left( CT\left(\sX, \dl \right) \right) \xrightarrow{\mathfrak{Topos}(\varphi)}\mathfrak{Topos}\left(C\left( \sX \right)\right) 
- \ee
- (cf. Definition \ref{geometric_morphism_defn}). On the other hand from  \eqref{top_closed_site_eqn} it follows that there is a natural isomorphism of sites $\mathfrak{Site}\left( C\left( \sX \right)\right)\cong \mathfrak{Closed}\left( \sX\right)$. If $S \in \mathbf{Ab}\left( \mathfrak{Closed}\left( \sX\right)\right)$ is a sheaf of germs of continuous maps from $\sX$ to $\T$ then one can proof that
- \be\label{ctr_t_ii_eqn}
- S^A = \mathfrak{Topos}(\varphi)^* (S)
- \ee
- where $\mathfrak{Topos}(\varphi)^*$ is the inverse image of $\mathfrak{Topos}(\varphi)$ (cf. Definition \ref{geometric_morphism_defn}) $S^A  \in \mathbf{Ab}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right)$ is given by the equation \eqref{ctr_sa_eqn}.
- Similarly to \ref{ctr_cycle_map_empt}  and the Lemma \ref{ctr_cycle_map_lem} one can construct a map
- $$
- \check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)\to  \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
- $$
-  From the Lemma \ref{cech_geom_lem} it follows that there is a natural homomorphism
-\be\label{ctr_h2_eqn}
- \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right)
-\ee
-From \eqref{const_sheaf_morphism_eqn} and the Lemma \ref{cech_geom_lem} it follows that there is a homomorphism
-\be\label{ctr_h3_eqn}
-\check H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right) \xrightarrow{\check{H}^3\left(\Z \right) } \check H^3\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , \Z \right)
-\ee
-where the notation \eqref{chech_hom_eqn} is used.
  
- \begin{lem}\label{ctr_main_lem}
-Suppose that  $CT\left(\sX, \dl \right)=\Ga\left(E \right) $ is a  set of sections a locally
-trivial bundle with fibre $\K(\H)$ and structure group $\Aut~ \K(\H)$ over the   space $\sX$ with transition functions $\a_{\iota j}$. If  $\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( \sX, S\right) \cong H^3\left( \sX,\Z \right)$  represents $\dl \in H^3\left( \sX,\Z \right)$ (cf. Proposition \ref{ctr_dd_prop}) then 
-\bea
-\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right) = 0,\\
-\check{H}^3\left(\Z \right)\left(\dl \right)  = 0.
-\eea
-where $\check{H}^2\left(\T \right)$ and $\check{H}^3\left(\Z \right)$ are given by the equations \eqref{ctr_h2_eqn} and \eqref{ctr_h3_eqn} respectively.
- \end{lem}
-\begin{proof}
-The transition functions $\a_{\iota j} \in A\left(F_{\iota j} \right)$ can be regarded as transition functions  $\a^A_{\iota j} \in A^A\left(	CT\left(\sX, \dl \right)\left(F_{\iota j}  \right) \right)$  where hereditary subalgebras 	$CT\left(\sX, \dl \right)\left(F_{\iota j}  \right)$  are given by the equation \eqref{ctr_cosupp_eqn}. However all $\a^A_{\iota j}$ are identical isomorphisms. It follows that $\left[\a^A_{\iota j}\right] \in D\left( C^0\left( \mathscr U, A^A\right)\right) $ where $D$ is given by \eqref{nonab_perm_eqn}. !!! It turns out that $\left[\a^A_{\iota j}\right]$ is trivial in $\check H^1\left( \mathscr U, A^A\right)$. But $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$ is the image of $\left[\a^A_{\iota j}\right]$ so it is also trivial, it follows that $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)= 0$. Since $\check{H}^3\left(\Z \right)\left(\dl \right)$ is an image of $\check{H}^2\left(\T \right)\left( \Dl\left(\left[\a_{\iota j}\right] \right)\right)$  one has $\check{H}^3\left(\Z \right)\left(\dl \right)= 0$.
-\end{proof}
 \paragraph{!!! ESSENTIAL}
 
 
@@ -1285,7 +1358,7 @@ structure group $U(\H)$. Then $p: \sX \to \sZ$ is isomorphic to the trivial bund
 	$$
 	and since $\ker \text{Ad} = \T$ (Lemma 1.5), there are continuous functions $\nu_{\iota jk} : \sU_{\iota jk} \to \T$
 	satisfying
-	\be
+	\be\label{ctr_vijk_eqn}
 	\forall z \in \sU_{\iota j k}\quad   \mu_{\iota j}(z)\mu_{j k}(z) = \nu_{\iota jk}(z)  \mu_{\iota k}(z)(4.27)
 	\ee
 	It is a simple matter to check that $\left[\nu_{\iota jk}\right]$ is a 2-cocycle in $Z^2\left(\mathscr U, S \right)$ :
@@ -4027,31 +4100,6 @@ From the proposition it follows that that if $A =\Ga_0\left( \sX, \A\right)$ and
 		\eea
 		where $K_\bullet\left( CT\left(\sX, \dl \right)\right)$ means $K$-theoretic groups of $C^*$-algebra $ CT\left(\sX, \dl \right)$ and $K^\bullet\left( \sX\right)$ means $K$-theoretic groups of the space $\sX$.
 	\end{proposition}
-	\subsection{Cuntz algebras}\label{cuntz_alg_sec}
-	\paragraph*{} Here I follow to \cite{cuntz_alg}.
-	We consider the $C^*$-algebra $\mathcal O_n$ generated by $n \ge 2$ isometries $S_1, ..., S_n$
-	on an infinite-dimensional Hubert space, with the property that $S_1S^*_1 + ... + S_nS^*_n = 1_{\mathcal O_n}$. Given $n\in \N$, let $W^n_k$ be the set of all $k$-tuples $\left(j_1,..., j_k\right)$, with $j_l \in \left\{1, ..., n\right\}$. Let $W^n_0 \bydef 0$ and 
-\be\label{words_eqn}	
-W^n_\infty \bydef \bigcup_{k = 0}^\infty W^n_k
-\ee
-For any $\a =  \left(j_1,..., j_k\right) \in W^n_k\subset W^n_\infty$ denote by
-\be\label{words_a_eqn}
-\begin{split}
-S_\a \bydef S_{j_1} \cdot ...\cdot S_{j_k}.
-\end{split}	
-\ee
-\begin{statement}\label{word_stmt}\cite{cuntz_alg}
-The $C^*$-algebra $\mathcal O_n$ is the $C^*$-norm completion of the linear span of given by 
-\bean
-S_\mu S^*_\nu \quad \mu, \nu \in W^n_\infty 
-\eean
-\end{statement}
-It is proven in \cite{cuntz_alg} that
-\be\label{ss_eqn}
-S^*_\mu S_\nu  = \dl_{\mu\nu} 1_{\mathcal O_n}.
-\ee
-
-
 	\section{Groupoids, foliations,  and $C^*$-algebras}\label{foliations_sec}
 	\subsection{Groupoids and their $C^*$-algebras}
 	\paragraph*{}
