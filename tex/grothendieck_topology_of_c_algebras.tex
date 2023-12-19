@@ -1270,7 +1270,15 @@ $$ is a covering of $\{0\} \in \mathbf{Hered}/CT\left(\sX, \dl \right)$, i.e.
 $$
 CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}\cap ...\cap CT\left(\sX, \dl \right)_{\sX \setminus \sU_n} = \{0\}
 $$
-Let $A^A \in \mathbf{Sh}\left(\mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)  \right)$ be the given by \eqref{ctr_a_eqn} sheaf of groups and let $\left\{\a^A_\iota \right\}\in C^0\left( \mathscr U^A, A^A\right)$ be a 0-chain (cf. the Definition \ref{nonab_coh_defn} and the Remark \ref{nonab_coh_rem}). If $\left\{1_{\sU_{\iota, j}}\right\}\in Z^1\left( \mathscr U^A, A^A\right)$ is a trivial cocycle then 
+Let $A^A \in \mathbf{Sh}\left(\mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)  \right)$ be the given by \eqref{ctr_a_eqn} sheaf of groups, and let $\a \in \Aut_{C\left(\sX\right)}\left(CT\left(\sX, \dl \right) \right)$. For any $\sU_\iota \in \mathscr U$ element the restriction $\a|_{\sU_\iota}$ is represented by a continuous map $\a_\iota : \sU_\iota \to \Aut\left(\K \right)$. From \eqref{ctr_trans_eqn} it follows that 
+$$
+\forall x \in \sU_\iota \cap \sU_j \quad \a_\iota \left(x \right) \a_j^{-1} \left(x \right)= \a_\iota 1_{\Aut\left(\K \right)}\a_j^{-1} = \a_{\iota, j}\left( x\right) 
+$$
+From the above equation it follows that $ \a_{\iota, j}\in \left( D\left(\left\{\a^A_\iota \right\}\right).\left\{1_{\sU_{\iota, j}}\right\}\right)_{\iota, j}$ (cf. \eqref{nonab_perm_eqn}) so $\a_{\iota, j}$ represents a trivial class of $\check H^1\left(\mathfrak{Site} \left(CT\left(\sX, \dl \right) \right) A^A\right)$. It turns out that $\Dl \left(\a^A_{\iota j} \right) = 0 \in H^2\left(\mathfrak{Site} \left(CT\left(\sX, \dl \right) \right), S^A\right)$.
+
+
+
+$\left\{\a^A_\iota \right\}\in C^0\left( \mathscr U^A, A^A\right)$ be a 0-chain (cf. the Definition \ref{nonab_coh_defn} and the Remark \ref{nonab_coh_rem}). If $\left\{1_{\sU_{\iota, j}}\right\}\in Z^1\left( \mathscr U^A, A^A\right)$ is a trivial cocycle then 
 $$
  \left( D\left(\left\{\a^A_\iota \right\}\right).\left\{1_{\sU_{\iota, j}}\right\}\right)_{\iota, j}
  \bydef  \a^A_\iota \left(a^A_j \right)^{-1}
@@ -1287,14 +1295,15 @@ H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C
 \ee
 !!!
 \paragraph{INSERT}
+\begin{empt}\cite{rae:ctr_morita}\label{ctr_trans_empt}
 PAGE 95.
-We now want to relate bundles over $\Z$ to sheaf cohomology. We fix a bundle
+We now want to relate bundles over $\sZ$ to sheaf cohomology. We fix a bundle
 $p : \sX \to \sZ$ with fibre $F$ and structure group $G$, and choose an open cover $\left\{\sU_\iota\right\}$ of
-$\sZ$ for which there are local trivializations $h_\iota: p^{-1}\left(\sU_\iota  \right)\to \sU_\iota F$ . For each pair $\iota, j$
+$\sZ$ for which there are local trivializations $h_\iota: p^{-1}\left(\sU_\iota  \right)\to \sU_\iota \times F$ . For each pair $\iota, j$
 there is a continuous map $s_{\iota j} \to G$ such that
-$$
+\be\label{ctr_trans_eqn}
 h_\iota \circ h_j^{-1}\left(z, f \right) = \left(z, s_{\iota, j}\left(f \right)  \right) \quad \text{for} \left(z, f \right) \in \sU_{\iota, j}\times F.
-$$
+\ee
 Then for $(z, f)\in \sU_{\iota, j, k}$ we have
 $$
 h_\iota \circ h_k^{-1}\left(z, f \right) = \left(h_\iota \circ h_j^{-1} \right)\circ  \left(h_j \circ h_k^{-1} \right) = \left(z, s_{\iota, j}\left( z\right)\left( s_{\iota, j}\left( z\right)\left(f \right)\right)   \right)
@@ -1303,6 +1312,9 @@ so that
 $$
 s_{\iota, k}\left(z \right) = s_{\iota, j}\left(z \right)\circ s_{j,k}\left(z \right)
 $$
+as homeomorphisms of $F$; in other words, $\left\{s_{\iota, j}\right\}$ is a 1-cocycle with values in $G$ (cf. \eqref{nonab_coh_eqn})
+The functions $\left\{s_{\iota, j}\right\}$ are called \textit{transition} functions for the bundle $p : \sX \to \sZ$.
+\end{empt}
 \paragraph{INSERT}
 
  (cf. Definition \ref{pullback_covering_ca_defn}).
