@@ -1232,17 +1232,32 @@ A^\sX = U^\sX / S^\sX
 $$
 (cf. !!!).
 Denote by
-\bean
+\bea\label{ctr_u_eqn}
 U^A \bydef \mathfrak{Topos}(\varphi)^* U^\sX,\\
+\label{ctr_a_eqn}
 A^A \bydef \mathfrak{Topos}(\varphi)^* U^\sX,\\
+\label{ctr_s_eqn}
 S^A \bydef \mathfrak{Topos}(\varphi)^* S^\sX
-\eean
+\eea
 where $\mathfrak{Topos}(\varphi)^*$ is the inverse image (cf. Definition \ref{geometric_morphism_defn}) of the given by \eqref{ctr_geometric_morphism_eqn} geometric morphism. 
 If   $\dl^2 \in \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right)$
 is the preimage of $\dl \in H^3\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , \Z \right)$
-then there is a finite set $\mathscr U = \left\lbrace \sU_1, ..., \sU_n \right\rbrace $ such that $\dl^2$ is represented by $c^S_\sX = \left[\nu_{\iota, j, k}\right]\in \Z^2\left( \mathscr U, \T\right)$. On the other hand $c^S_\sX = \Dl c^A_\sX$ where $c^A_\sX= \left[ \a_{\iota j}  \right) \in \Z^1\left( \mathscr U, A\right)$ and  $\Dl$ is an explained in \ref{ctr_cycle_map_empt} map. If $\mathscr U$ is such that $\a_{\iota j} = \mathrm{Ad}u_{\iota j}$ where $\a_{\iota j}\in A\left( \sU_\iota \cap \sU_j\right)$ and $u_{\iota j}\in U\left( \sU_\iota \cap \sU_j\right)$ then according to \eqref{ctr_vijk_eqn} one has
-	\be\label{ctr_vijk_p_eqn}
-\forall z \in \sU_{\iota j k} \quad \nu_{\iota jk}(z)  \quad   \mu_{\iota j}(z)\mu_{j k}(z)\mu^{-1}_{\iota k}
+then there is a finite set $\mathscr U = \left\lbrace \sU_1, ..., \sU_n \right\rbrace\subset \mathfrak{Closed}\left(\sX\right)$ such that:
+\begin{enumerate}
+	\item for all $\sU_\iota\in \mathscr U\quad     CT\left(\sX, \dl \right)|^{\sU_\iota} \cong C\left( \sU_\iota\right) \otimes \K$,
+	\item $\dl^2$ is represented by $c^S_\sX = \left\{\nu_{\iota, j, k}\right\}\in \Z^2\left( \mathscr U, \T\right)$.
+\end{enumerate}
+From the Proposition \ref{ctr_dd_prop} it follows that if $CT\left(\sX, \dl \right)$ is a space $\G_0\left(E \right)$ of sections o 
+trivial bundle $E \to \sX$ with fibre $\K(\H)$  with transition functions $\a_{\iota, j}$ then 
+$\dl^2 =\Dl\left(\left[\a_{\iota j}\right] \right) \in H^2\left( T, S\right)$. For any pair $\iota, j$ there is $\mu_{\iota, j}\in U^\sX\left(\sU_\iota \cap \sU_j \right)$ such that $\a_{\iota j}= \mathrm{Ad} \mu_{\iota, j}$ (cf. equation \eqref{ctr_ad_eqn}).   On the other hand  according to \eqref{ctr_vijk_eqn} one has
+\be\label{ctr_vijk_p_eqn}
+\forall z \in \sU_{\iota, j, k}= \sU_\iota \cap \sU_j \cap \sU_k \quad \nu_{\iota, j,k}(z)  =   \mu_{\iota, j}(z)\mu_{j, k}(z)\mu_{k,\iota}\left(z \right) .
+\ee
+
+
+\be\label{ctr_ad_eqn}
+!!! DOWN!!!\quad 
+ \mathrm{Ad} u \bydef x \mapsto u^* x u.
 \ee
 If we consider a map \eqref{ctr_site_morphism_eqn} then 
 $$
@@ -1250,11 +1265,46 @@ $$
 $$
 where the ideal $CT\left(\sX, \dl \right)|_{\sX \setminus \sU_\iota}$ is given by the equation \eqref{open_ideal_eqn}.
 A family $$
-\mathscr U^A\bydef \left\{CT\left(\sX, \dl \right)_{\sX \setminus \sU_1}, ..., CT\left(\sX, \dl \right)_{\sX \setminus \sU_n}\right\}
+\mathscr U^A\bydef \left\{CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}, ..., CT\left(\sX, \dl \right)|_{\sX \setminus \sU_n}\right\}
 $$ is a covering of $\{0\} \in \mathbf{Hered}/CT\left(\sX, \dl \right)$, i.e.
 $$
 CT\left(\sX, \dl \right)|_{\sX \setminus \sU_1}\cap ...\cap CT\left(\sX, \dl \right)_{\sX \setminus \sU_n} = \{0\}
 $$
+Let $A^A \in \mathbf{Sh}\left(\mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)  \right)$ be the given by \eqref{ctr_a_eqn} sheaf of groups and let $\left\{\a^A_\iota \right\}\in C^0\left( \mathscr U^A, A^A\right)$ be a 0-chain (cf. the Definition \ref{nonab_coh_defn} and the Remark \ref{nonab_coh_rem}). If $\left\{1_{\sU_{\iota, j}}\right\}\in Z^1\left( \mathscr U^A, A^A\right)$ is a trivial cocycle then 
+$$
+ \left( D\left(\left\{\a^A_\iota \right\}\right).\left\{1_{\sU_{\iota, j}}\right\}\right)_{\iota, j}
+ \bydef  \a^A_\iota \left(a^A_j \right)^{-1}
+$$
+(cf. equation \eqref{nonab_perm_eqn}). Note that the given by \eqref{ctr_ad_eqn} homomorphism depends on the trivialization $CT\left(\sX, \dl \right)|^\sU \cong C\left( \sU\right) \otimes \K$. We suppose that for any $\sU_\iota \in \mathscr U$ element $\a^A_\iota = \mathrm{Ad} u_\iota$ where a trivialization $CT\left(\sX, \dl \right)|^{\sU_\iota} \cong C\left( \sU_\iota\right) \otimes \K$ is implied. An element $\a^A_{\iota, j}\bydef \left( D\left(\left\{\a^A_\iota \right\}\right).\left\{1_{\sU_{\iota, j}}\right\}\right)_{\iota, j}$ corresponds to a map
+$$
+u_\iota  \mu_{\iota j} u^{-1}_j \in U\left(C\left( \sU_j\right) \otimes \K\to  C\left( \sU_\iota\right) \otimes \K \right)|_{\sU_\iota \cap \sU_j} 
+$$
+\\
+!!!
+With this definition, $D$ is a representation of the group $C^0\left( \mathscr U, \G\right)$ by permutations of the set $C^1\left( \mathscr U, \G\right)$; it is moreover trivial that $Z^1\left( \mathscr U, \G\right)$ is stable under the operations of $C^0\left( \mathscr U, \G\right)$. Denote by
+\be\label{nonab_coh_q_eqn!}
+H^1\left( \mathscr U, \G\right) \bydef Z^1\left( \mathscr U, \G\right)/D\left( C^0\left( \mathscr U, \G\right)\right) 
+\ee
+!!!
+\paragraph{INSERT}
+PAGE 95.
+We now want to relate bundles over $\Z$ to sheaf cohomology. We fix a bundle
+$p : \sX \to \sZ$ with fibre $F$ and structure group $G$, and choose an open cover $\left\{\sU_\iota\right\}$ of
+$\sZ$ for which there are local trivializations $h_\iota: p^{-1}\left(\sU_\iota  \right)\to \sU_\iota F$ . For each pair $\iota, j$
+there is a continuous map $s_{\iota j} \to G$ such that
+$$
+h_\iota \circ h_j^{-1}\left(z, f \right) = \left(z, s_{\iota, j}\left(f \right)  \right) \quad \text{for} \left(z, f \right) \in \sU_{\iota, j}\times F.
+$$
+Then for $(z, f)\in \sU_{\iota, j, k}$ we have
+$$
+h_\iota \circ h_k^{-1}\left(z, f \right) = \left(h_\iota \circ h_j^{-1} \right)\circ  \left(h_j \circ h_k^{-1} \right) = \left(z, s_{\iota, j}\left( z\right)\left( s_{\iota, j}\left( z\right)\left(f \right)\right)   \right)
+$$
+so that
+$$
+s_{\iota, k}\left(z \right) = s_{\iota, j}\left(z \right)\circ s_{j,k}\left(z \right)
+$$
+\paragraph{INSERT}
+
  (cf. Definition \ref{pullback_covering_ca_defn}).
 The cycle $c^A_\sX= \left[ \a_{\iota j}  \right] \in Z^1\left( \mathscr U, A\right)$ naturally defines a cycle $c^A_A= \left[ \a^A_{\iota j}  \right] \in \Z^1\left( \mathscr U^A, A^A\right)$. However the cycle $\left[ \a^A_{\iota j}  \right]$ yields global section $1_{CT\left(\sX, \dl \right)}\in A^A\left(\{0\} \right) $ of $A^A$, so one has $\left[ \a^A_{\iota j}  \right]\in D^0\left(  \mathscr U^A, A^A\right)$ (cf. \eqref{nonab_perm_eqn}, \eqref{nonab_coh_q_eqn}), i.e. $c^A_A$ is a trivial cycle in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
 !!!
@@ -1265,9 +1315,9 @@ Consider a cycle
 
 Similarly to \ref{ctr_cycle_map_empt}  and the Lemma \ref{ctr_cycle_map_lem} one can construct an isomorphism
 \be\label{ctr_p12_eqn}
-\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) A^A\right)\xrightarrow[\cong]{\phi_{1,2} } \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
+\check H^1\left( \mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), A^A\right)\xrightarrow[\cong]{\phi_{1,2} } \check H^2\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right), S^A \right). 
 \ee
-and $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ since $\left[ \a^A_{\iota j}  \right]$ is trivial in $H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
+and $\phi_{1,2} \left( \left[ \a^A_{\iota j}  \right]\right)= 0$ since $\left[ \a^A_{\iota j}  \right]$ is trivial in $\check H^1\left(\mathfrak{Site}\left(CT\left(\sX, \dl \right)\right) , A^A \right)$.
 From the Lemma \ref{cech_geom_lem} it follows that there are natural homomorphisms
 \bea\label{ctr_h2_eqn}
 \check H^2\left(\mathbf{Sh}\left(\mathfrak{Closed}\left(\sX\right)\right)  , S \right) \xrightarrow{\check{H}^2\left(\T \right) } \check H^2\left(\mathbf{Sh}\left( \mathfrak{Site}\left( CT\left(\sX, \dl \right)\right)\right) , S^A \right),\\
