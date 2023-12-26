@@ -28,6 +28,7 @@ namespace Diagram.UI
 
         static public IUIFactory uiFactory;
 
+    
         #endregion
 
         #region Public Members
@@ -90,6 +91,9 @@ namespace Diagram.UI
             if (UIFactory is AssemblyFactory)
             {
                 AssemblyFactory f = UIFactory as AssemblyFactory;
+                var fact = list.ToArray();
+                list.Clear();
+                
                 f.Add(factory);
                 return;
             }

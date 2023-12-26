@@ -30,7 +30,7 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
-            var atm = new DimAtm.Serializable.Atmosphere();
+      /*      var atm = new DimAtm.Serializable.Atmosphere();
             var l = new DinAtm.Forms.Labels.LabelAtmosphere();
             var g = new Gravity_36_36.Wrapper.Serializable.Gravity();
             using (var s = new MemoryStream())
@@ -47,6 +47,7 @@ namespace Aviation.Light
                     var lg = f.Deserialize(st);
                 }
             }
+      //*/
 
             /*     WpfInterface.StaticExtensionWebInterfaceUI.Init();
                Application.SetHighDpiMode(HighDpiMode.SystemAware);
