@@ -130,7 +130,7 @@ namespace Diagram.UI.Factory
 
         IObjectContainer loadContainer(Stream stream)
         {
-            BinaryFormatter binary = StaticExtensionDiagramUISerializable.CreareBinaryFormatter();
+            BinaryFormatter binary = StaticExtensionDiagramUISerializable.CreateBinaryFormatter();
             IObjectContainer ob = binary.Deserialize(stream) as IObjectContainer;
             stream.Close();
             return ob;
@@ -138,7 +138,7 @@ namespace Diagram.UI.Factory
 
         MultiLibraryObject loadMultilibrary(Stream stream)
         {
-            BinaryFormatter binary = StaticExtensionDiagramUISerializable.CreareBinaryFormatter();
+            BinaryFormatter binary = StaticExtensionDiagramUISerializable.CreateBinaryFormatter();
             SerializationBinder binder = SerializationInterface.StaticExtensionSerializationInterface.Binder;
             PureDesktopPeer d = new PureDesktopPeer();
             d.Load(stream, binder, true);

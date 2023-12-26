@@ -780,12 +780,13 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                /*// !!!!
+                using (var stream = File.OpenWrite("bytes.bin"))
+                {
+                    stream.Write(bytes);
+                }
+                ex.ShowError();//*/
             }
-            /*   !!! TEMP   MemoryStream ms = new MemoryStream(bytes);
-                 BinaryFormatter bf = new BinaryFormatter();
-                 return bf.Deserialize(ms);
-            */
             return null;
         }
 

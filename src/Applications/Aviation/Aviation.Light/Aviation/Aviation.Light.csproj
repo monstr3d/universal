@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+
     <!--    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>-->
     <ApplicationIcon>Aviation.ico</ApplicationIcon>
   </PropertyGroup>
@@ -241,12 +243,20 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DimAtm.Serializable\DimAtm.Serializable.csproj">
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Forms\DinAtm.Forms.csproj">
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Forms\DinAtm.Forms.csproj" />
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Portable\DinAtm.Portable.csproj">
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Pure\DinAtm.Pure.csproj">
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\Dynamic.Atmosphere\Dynamic.Atmosphere.Portable\Dynamic.Atmosphere.Portable.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\Dynamic.Atmosphere\Dynamic.Atmosphere.Serializable\Dynamic.Atmosphere.Serializable.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\Dynamic.Atmosphere\Dynamic.Atmosphere\Dynamic.Atmosphere.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DynamicAtmosphere\DynamicAtmosphere.Wrapper.UI\DynamicAtmosphere.Wrapper.UI.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DynamicAtmosphere\DynamicAtmosphere.Wrapper\DynamicAtmosphere.Wrapper.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DynamicAtmosphere\DynamicAtmosphere\DynamicAtmosphere.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity36\Gravity36.Wrapper.UI\Gravity36.Wrapper.UI.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity36\Gravity36.Wrapper\Gravity36.Wrapper.csproj" />
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity36\Gravity36\Gravity36.csproj" />
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36.Wrapper.Serializable\Gravity_36_36.Wrapper.Serializable.csproj">
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36.Wrapper.UI\Gravity_36_36.Wrapper.UI.csproj">
@@ -255,6 +265,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36\Gravity_36_36.csproj">
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\ExternalLibraries\SunPosition\SunPosition.csproj" />
     <ProjectReference Include="..\..\..\..\Generated\GeneratedProject\GeneratedProject.csproj">
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ThirdParty\OfficePickers\OfficePickers.csproj">

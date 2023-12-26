@@ -16,6 +16,8 @@ using BasicEngineering.UI.Factory;
 using Aviation.UI;
 using System.Xml;
 using System.Runtime.Intrinsics.Arm;
+using NUnit.Framework;
+using DataPerformer.Portable;
 
 namespace Aviation.Light
 {
@@ -28,13 +30,31 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
-            //     WpfInterface.StaticExtensionWebInterfaceUI.Init();
-            /*   Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            var atm = new DimAtm.Serializable.Atmosphere();
+            var l = new DinAtm.Forms.Labels.LabelAtmosphere();
+            var g = new Gravity_36_36.Wrapper.Serializable.Gravity();
+            using (var s = new MemoryStream())
+            {
+                var f = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                f.Serialize(s, atm);
+                f.Serialize(s, l);
+                f.Serialize(s, g);
+                var b = s.ToArray();
+                using (var st = new MemoryStream(b))
+                {
+                    var a = f.Deserialize(st);
+                    var la = f.Deserialize(st);
+                    var lg = f.Deserialize(st);
+                }
+            }
+
+            /*     WpfInterface.StaticExtensionWebInterfaceUI.Init();
+               Application.SetHighDpiMode(HighDpiMode.SystemAware);
                Application.EnableVisualStyles();
-               Application.SetCompatibleTextRenderingDefault(false);*/
-            ApplicationConfiguration.Initialize();
+               //Application.SetCompatibleTextRenderingDefault(false);
+             ApplicationConfiguration.Initialize();
 
-
+            */
             AssemblyService.StaticExtensionAssemblyService.Init();
 
 
@@ -70,7 +90,7 @@ namespace Aviation.Light
             }
 
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+     //       Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(GetForm(filename, null, logWriter, testInterface));
         }
 

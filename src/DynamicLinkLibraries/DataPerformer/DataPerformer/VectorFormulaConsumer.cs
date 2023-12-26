@@ -61,7 +61,8 @@ namespace DataPerformer
         {
             try
             {
-                formulaString = (string[])info.GetValue("Formulas", typeof(string[]));
+                var fs = info.GetValue("Formulas", typeof(object));
+                formulaString = fs as string[];
                 isSerialized = true;
                 args = (ArrayList)info.GetValue("Arguments", typeof(ArrayList));
                 pars = (Hashtable)info.GetValue("Parameters", typeof(Hashtable));
@@ -152,6 +153,7 @@ namespace DataPerformer
             }
             if (formulae != null)
             {
+                
                 formulaString = formulae.ToStringEnumerable().ToArray();
             }
             info.AddValue("Formulas", formulaString);

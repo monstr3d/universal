@@ -17,6 +17,12 @@ namespace SerializationInterface
         /// </summary>
         private static SerializationBinder binder;
 
+        private static BinaryFormatter binaryFormatter
+        {
+            get => new BinaryFormatter();
+        }
+
+
         private static List<SerializationBinder> binders = new List<SerializationBinder>();
 
         /// <summary>
@@ -31,9 +37,8 @@ namespace SerializationInterface
             byte[] b = new byte[0];
             if (obj != null)
             {
-                BinaryFormatter bf = new BinaryFormatter();
                 MemoryStream s = new MemoryStream();
-                bf.Serialize(s, obj);
+                binaryFormatter.Serialize(s, obj);
                 b = new byte[s.Length];
                 Array.Copy(s.GetBuffer(), b, b.Length);
             }
@@ -47,9 +52,8 @@ namespace SerializationInterface
         /// <returns>The bytes</returns>
         public static byte[] Serialize(this object obj)
         {
-            BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, obj);
+            binaryFormatter.Serialize(ms, obj);
             byte[] buffer = new byte[ms.Position];
             Array.Copy(ms.GetBuffer(), buffer, buffer.Length);
             return buffer;
@@ -108,7 +112,7 @@ namespace SerializationInterface
         /// <returns>The object</returns>
         public static T Deserialize<T>(this Stream stream) where T : class
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            var bf = binaryFormatter;
             if (binder != null)
             {
                 bf.Binder = binder;
@@ -126,10 +130,9 @@ namespace SerializationInterface
         public static T Clone<T>(this T obj) where T : class
         {
             MemoryStream ms = new MemoryStream();
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(ms, obj);
+            binaryFormatter.Serialize(ms, obj);
             ms.Position = 0;
-            return bf.Deserialize(ms) as T;
+            return binaryFormatter.Deserialize(ms) as T;
         }
 
         /// <summary>

@@ -293,7 +293,7 @@ namespace Diagram.UI
         /// Creates binary formatter
         /// </summary>
         /// <returns>Binary formatter</returns>
-        public static BinaryFormatter CreareBinaryFormatter()
+        public static BinaryFormatter CreateBinaryFormatter()
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             binaryFormatter.SetBinder();

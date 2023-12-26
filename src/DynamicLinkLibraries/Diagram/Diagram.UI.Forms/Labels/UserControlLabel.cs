@@ -565,7 +565,12 @@ namespace Diagram.UI.Labels
         {
             get
             {
-                return PureDesktopPeer.GetProperties(properties, bytes);
+                if (properties == null)
+                {
+                    properties = PureDesktopPeer.GetProperties(properties, bytes);
+                    bytes = null;
+                }
+                return properties;
             }
             set
             {

@@ -19,6 +19,8 @@ namespace SerializationInterface
         /// </summary>
         private SerializationBinder[] binders;
 
+        List<Type> types = new List<Type>();
+
         #endregion
 
         #region Ctor
@@ -47,9 +49,19 @@ namespace SerializationInterface
         {
             try
             {
+
+                /// !!! DELETE TEST !!!
+                if (typeName.Contains("Atmo"))
+                {
+
+                }
                 Type t = Type.GetType(String.Format("{0}, {1}", typeName, assemblyName));
                 if (t != null)
                 {
+                    var inter = new List<Type>(t.GetInterfaces());
+                    if (!inter.Contains(typeof(ISerializable)))
+                    {
+                    }
                     return t;
                 }
             }
@@ -64,6 +76,7 @@ namespace SerializationInterface
                     Type t = binder.BindToType(assemblyName, typeName);
                     if (t != null)
                     {
+                        types.Add(t);
                         return t;
                     }
                 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Vector3D;
+using RealMatrixProcessor;
 
 namespace DynamicAtmosphere
 {
@@ -178,6 +178,7 @@ namespace DynamicAtmosphere
 
         double atm(double[] x, DateTime time, double alf, double del, ref double s0, ref double h, int[] it)
         {
+            var z = new double[3];
             double hh = x.Normalize(y, 0);
             
 

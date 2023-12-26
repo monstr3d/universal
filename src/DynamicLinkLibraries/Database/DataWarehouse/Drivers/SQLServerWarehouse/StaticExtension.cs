@@ -26,7 +26,7 @@ namespace SQLServerWarehouse
         }
 
 
-static internal DataWarehouseContext Context
+        static internal DataWarehouseContext Context
         { get; set; }
         static internal ILeaf ToLeaf(this string id)
         {
@@ -67,7 +67,7 @@ static internal DataWarehouseContext Context
                 if (method == null)
                 {
                     type = null;
-                }    
+                }
                 method.Invoke(component, new object[] { connection });
                 connection.Open();
                 action();

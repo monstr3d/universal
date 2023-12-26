@@ -49,11 +49,11 @@ namespace DataPerformer
             try
             {
                 isSerialized = true;
-                varsH = (Hashtable)info.GetValue("Vars", typeof(Hashtable));
-                parsH = (Hashtable)info.GetValue("Pars", typeof(Hashtable));
-                aliasesH = (Hashtable)info.GetValue("Aliases", typeof(Hashtable));
-                argsH = (ArrayList)info.GetValue("Arguments", typeof(ArrayList));
-                aliasNamesH = (Hashtable)info.GetValue("AliasNames", typeof(Hashtable));
+                varsH = (Hashtable)info.GetValue("Vars", typeof(object));
+                parsH = (Hashtable)info.GetValue("Pars", typeof(object));
+                aliasesH = (Hashtable)info.GetValue("Aliases", typeof(object));
+                argsH = (ArrayList)info.GetValue("Arguments", typeof(object));
+                aliasNamesH = (Hashtable)info.GetValue("AliasNames", typeof(object));
                 comments = (byte[])info.GetValue("Comments", typeof(byte[]));
             }
             catch (Exception ex)
