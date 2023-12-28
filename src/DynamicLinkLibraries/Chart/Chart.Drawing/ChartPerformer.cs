@@ -889,6 +889,42 @@ namespace Chart.Drawing
         /// <summary>
         /// Physical - screen transformation
         /// </summary>
+        /// <param name="x">Physical x - coordinate</param>
+        /// <param name="y">Physical y - coordinate</param>
+        /// <param name="p">Screen coordinates</param>
+        public void Transform(double x, double[] y, int[] p)
+        {
+            if (invertX)
+            {
+                p[0] = (int)((double)size[0] * ((x - dSize[1, 0]) / (dSize[0, 0] - dSize[1, 0])));
+            }
+            else
+            {
+                p[0] = (int)((double)size[0] * ((x - dSize[0, 0]) / (dSize[1, 0] - dSize[0, 0])));
+            }
+            if (invertY)
+            {
+                for (var i = 0; i < y.Length; i++)
+                {
+                    p[i + 1] = size[1] - (int)((double)size[1] * ((y[i] - dSize[1, 1]) /
+                    (dSize[0, 1] - dSize[1, 1])));
+                }
+            }
+            else
+            {
+                for (var i = 0; i < y.Length; i++)
+                {
+                    p[i + 1] = size[1] - (int)((double)size[1] * ((y[i] - dSize[0, 1]) /
+                    (dSize[1, 1] - dSize[0, 1])));
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Physical - screen transformation
+        /// </summary>
         /// <param name="x">Physisical coordinates</param>
         /// <param name="point">Screen coordinates</param>
         public void Transform(double[] x, int[] point)

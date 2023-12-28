@@ -138,6 +138,10 @@ namespace Chart.UserControls
         /// <param name="painter">Painter</param>
         public void AddSeries(ISeries series, ISeriesPainter painter)
         {
+            if (painter.Performer == null) 
+            {
+                painter.Performer = performer;
+            }
             performer.AddSeries(series, painter);
             RefreshAll();
         }
