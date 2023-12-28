@@ -32,13 +32,13 @@ namespace Chart.Drawing.Interfaces
             foreach (IPoint p in points)
             {
                 double x = p.X;
-                double y = p.Y;
+                var y = p.Y;
                 if (b)
                 {
                     size[0, 0] = x;
                     size[1, 0] = x;
-                    size[0, 1] = y;
-                    size[1, 1] = y;
+                    size[0, 1] = y.Min();
+                    size[1, 1] = y.Max();
                     b = false;
                 }
                 if (size[0, 0] > x)
@@ -49,13 +49,13 @@ namespace Chart.Drawing.Interfaces
                 {
                     size[1, 0] = x;
                 }
-                if (size[0, 1] > y)
+                if (size[0, 1] > y.Min())
                 {
-                    size[0, 1] = y;
+                    size[0, 1] = y.Min();
                 }
-                if (size[1, 1] < y)
+                if (size[1, 1] < y.Max())
                 {
-                    size[1, 1] = y;
+                    size[1, 1] = y.Max();
                 }
             }
         }

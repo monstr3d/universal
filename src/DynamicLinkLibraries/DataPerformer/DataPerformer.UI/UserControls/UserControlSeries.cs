@@ -101,7 +101,7 @@ namespace DataPerformer.UI.UserControls
                 IList<IPoint> l = value.Points;
                 foreach (IPoint p in l)
                 {
-                    series.AddXY(p.X, p.Y);
+                    series.AddXY(p.X, p.Y[0]);
                 }
                 Show();
             }

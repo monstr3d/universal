@@ -41,7 +41,7 @@ namespace Chart.Drawing.Painters
             for (int i = 0; i < points.Count; i++)
             {
                 xx = points[i];
-                performer.Transform(xx.X, xx.Y, pointFinish);
+                performer.Transform(xx.X, xx.Y[0], pointFinish);
                 g.DrawLine(pens[0], pointFinish[0] - 1, pointFinish[1], pointFinish[0] + 1, pointFinish[1]);
                 g.DrawLine(pens[0], pointFinish[0], pointFinish[1] - 1, pointFinish[0], pointFinish[1] + 1);
             }

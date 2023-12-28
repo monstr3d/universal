@@ -230,6 +230,15 @@ namespace Diagram.UI.UserControls
             object o = selected[n];
             if (!table.ContainsKey(o))
             {
+                var ss = comboBoxInter.SelectedItem;
+                if (ss != null)
+                {
+                    var t = ss + "";
+                    if (textBoxComment.Text != t)
+                    {
+                        textBoxComment.Text = t;
+                    }
+                }
                 return;
             }
             object[] ob = table[o] as object[];

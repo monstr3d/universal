@@ -43,6 +43,7 @@ namespace Chart.UserControls
 
         #region Members
 
+   
         /// <summary>
         /// Preparation
         /// </summary>
@@ -55,6 +56,7 @@ namespace Chart.UserControls
                 throw new Exception("Double initialization");
             }
             performer = new ChartPerformer(this, insets, hasStandardHandlers);
+            Coordinator = new Drawing.Coordinators.EmptyCoordinator();
             Paint += new PaintEventHandler(OnPaint);
             Resize += new EventHandler(OnResize);
             BackColor = Color.White;

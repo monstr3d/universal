@@ -71,12 +71,12 @@ namespace Chart.Drawing.Series
                     if (i == 0)
                     {
                         size[0, 0] = p.X;
-                        size[0, 1] = p.Y;
+                        size[0, 1] = p.Y[0];
                         size[1, 0] = p.X;
-                        size[1, 1] = p.Y;
+                        size[1, 1] = p.Y[0];
                         continue;
                     }
-                    double[] x = new double[] { p.X, p.Y };
+                    double[] x = new double[] { p.X, p.Y[0] };
                     for (int j = 0; j < 2; j++)
                     {
                         if (x[j] < size[0, j])
@@ -93,6 +93,9 @@ namespace Chart.Drawing.Series
             }
         }
 
+        int ISeries.YCount => 1;
+
+
         IList<IPoint> ISeries.Points
         {
             get
@@ -100,6 +103,12 @@ namespace Chart.Drawing.Series
                 return pointList;
             }
         }
+
+        void ISeries.Add(IPoint point)
+        {
+            pointList.Add(point);
+        }
+
 
         #endregion
 
@@ -115,7 +124,7 @@ namespace Chart.Drawing.Series
             for (int i = 0; i < l.Count; i++)
             {
                 IPoint p = l[i];
-                AddXY(p.X, p.Y);
+                AddXY(p.X, p.Y[0]);
             }
         }
 
@@ -130,6 +139,20 @@ namespace Chart.Drawing.Series
             pointList.Add(p);
         }
 
+        /// <summary>
+        /// Adds new point
+        /// </summary>
+        /// <param name="x">X - coordinate</param>
+        /// <param name="y">Y - coordinate</param>
+        public void AddXY(double ? x, double ? y)
+        {
+            if ((x != null) && (y != null))
+            {
+                AddXY((double)x, (double)y);
+            }
+        }
+
+
         #endregion
-   }
+    }
 }

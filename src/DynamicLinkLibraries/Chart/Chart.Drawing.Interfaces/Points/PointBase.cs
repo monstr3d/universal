@@ -54,9 +54,9 @@ namespace Chart.Drawing.Interfaces.Points
             get { return x; }
         }
 
-        double IPoint.Y
+        double[] IPoint.Y
         {
-            get { return y; }
+            get { return [y]; }
         }
 
         object IPoint.Properties
@@ -70,6 +70,8 @@ namespace Chart.Drawing.Interfaces.Points
                 obj = value;
             }
         }
+
+        int IPoint.YCount => 1;
 
         #endregion
 

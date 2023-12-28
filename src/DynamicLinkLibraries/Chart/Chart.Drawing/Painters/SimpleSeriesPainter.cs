@@ -66,11 +66,11 @@ namespace Chart.Drawing.Painters
                 return;
             }
             int[] size = performer.CanvasSize;
-            performer.Transform(xx.X, xx.Y, pointStart);
+            performer.Transform(xx.X, xx.Y[0], pointStart);
             for (int i = 1; i < points.Count; i++)
             {
                 xx = points[i];
-                performer.Transform(xx.X, xx.Y, pointFinish);
+                performer.Transform(xx.X, xx.Y[0], pointFinish);
                 int dx = Math.Abs(pointStart[0] - pointFinish[0]);
                 int dy = Math.Abs(pointStart[1] - pointFinish[1]);
                 if ((dx < performer.StepX) | (dy < performer.StepY))

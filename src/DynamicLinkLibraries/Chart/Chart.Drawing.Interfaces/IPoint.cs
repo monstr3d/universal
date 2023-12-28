@@ -21,7 +21,7 @@ namespace Chart.Drawing.Interfaces
         /// <summary>
         /// The y - coorditate
         /// </summary>
-        double Y
+        double[] Y
         {
             get;
         }
@@ -34,5 +34,11 @@ namespace Chart.Drawing.Interfaces
             get;
             set;
         }
+
+        /// <summary>
+        /// Count of ordinates
+        /// </summary>
+        int YCount
+        { get; }
     }
 }

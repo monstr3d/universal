@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Chart.Drawing.Interfaces
+﻿namespace Chart.Drawing.Interfaces
 {
     /// <summary>
     /// Common interfase of all series
@@ -25,5 +20,17 @@ namespace Chart.Drawing.Interfaces
         {
             get;
         }
+
+        /// <summary>
+        /// Dimension of y - coordinate
+        /// </summary>
+        int YCount
+        {  get; }
+
+        /// <summary>
+        /// Adds a point
+        /// </summary>
+        /// <param name="point">The point to add</param>
+        void Add(IPoint point);
     }
 }

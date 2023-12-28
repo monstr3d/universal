@@ -28,838 +28,842 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlContainerDesigner));
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.buttonAcceptInterfaces = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.comboBoxInter = new System.Windows.Forms.ComboBox();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panelDrawing = new System.Windows.Forms.Panel();
-            this.panelLabelPeer = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelIntLeft = new System.Windows.Forms.Panel();
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.panelBaseCheck = new System.Windows.Forms.Panel();
-            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.checkedListBoxInter = new System.Windows.Forms.CheckedListBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.textBoxComment = new System.Windows.Forms.TextBox();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.buttonAlignment = new System.Windows.Forms.Button();
-            this.panel32 = new System.Windows.Forms.Panel();
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.panelIntBottom = new System.Windows.Forms.Panel();
-            this.buttonAcceptAll = new System.Windows.Forms.Button();
-            this.panelIntTop = new System.Windows.Forms.Panel();
-            this.menuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainMenuDesigner = new System.Windows.Forms.MenuStrip();
-            this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSeparator = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.toolStripButtonFont = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonToolBox = new System.Windows.Forms.ToolStripButton();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonLoadFromDatabase = new System.Windows.Forms.ToolStripButton();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.saveFileDialogContainer = new System.Windows.Forms.SaveFileDialog();
-            this.panel5.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panelDrawing.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panelCenter.SuspendLayout();
-            this.panelBaseCheck.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
-            this.splitContainerMain.Panel1.SuspendLayout();
-            this.splitContainerMain.Panel2.SuspendLayout();
-            this.splitContainerMain.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel29.SuspendLayout();
-            this.panel30.SuspendLayout();
-            this.panel31.SuspendLayout();
-            this.panelIntBottom.SuspendLayout();
-            this.panelTop.SuspendLayout();
-            this.toolStripMain.SuspendLayout();
-            this.SuspendLayout();
+            panelRight = new System.Windows.Forms.Panel();
+            panel5 = new System.Windows.Forms.Panel();
+            buttonAcceptInterfaces = new System.Windows.Forms.Button();
+            panel9 = new System.Windows.Forms.Panel();
+            panel11 = new System.Windows.Forms.Panel();
+            panel18 = new System.Windows.Forms.Panel();
+            comboBoxInter = new System.Windows.Forms.ComboBox();
+            panel19 = new System.Windows.Forms.Panel();
+            panel20 = new System.Windows.Forms.Panel();
+            panel21 = new System.Windows.Forms.Panel();
+            panel22 = new System.Windows.Forms.Panel();
+            panel23 = new System.Windows.Forms.Panel();
+            panel24 = new System.Windows.Forms.Panel();
+            panel25 = new System.Windows.Forms.Panel();
+            panelDrawing = new System.Windows.Forms.Panel();
+            panelLabelPeer = new System.Windows.Forms.Panel();
+            panel12 = new System.Windows.Forms.Panel();
+            panel13 = new System.Windows.Forms.Panel();
+            panel14 = new System.Windows.Forms.Panel();
+            panel15 = new System.Windows.Forms.Panel();
+            panel8 = new System.Windows.Forms.Panel();
+            panel6 = new System.Windows.Forms.Panel();
+            panel7 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            panelIntLeft = new System.Windows.Forms.Panel();
+            panelCenter = new System.Windows.Forms.Panel();
+            panelBaseCheck = new System.Windows.Forms.Panel();
+            splitContainerMain = new System.Windows.Forms.SplitContainer();
+            panel4 = new System.Windows.Forms.Panel();
+            checkedListBoxInter = new System.Windows.Forms.CheckedListBox();
+            panel3 = new System.Windows.Forms.Panel();
+            panel1 = new System.Windows.Forms.Panel();
+            panel2 = new System.Windows.Forms.Panel();
+            label2 = new System.Windows.Forms.Label();
+            panel10 = new System.Windows.Forms.Panel();
+            panel26 = new System.Windows.Forms.Panel();
+            textBoxComment = new System.Windows.Forms.TextBox();
+            panel27 = new System.Windows.Forms.Panel();
+            panel28 = new System.Windows.Forms.Panel();
+            panel29 = new System.Windows.Forms.Panel();
+            label3 = new System.Windows.Forms.Label();
+            panel30 = new System.Windows.Forms.Panel();
+            panel31 = new System.Windows.Forms.Panel();
+            buttonAlignment = new System.Windows.Forms.Button();
+            panel32 = new System.Windows.Forms.Panel();
+            panel33 = new System.Windows.Forms.Panel();
+            panel34 = new System.Windows.Forms.Panel();
+            panel35 = new System.Windows.Forms.Panel();
+            panelIntBottom = new System.Windows.Forms.Panel();
+            buttonAcceptAll = new System.Windows.Forms.Button();
+            panelIntTop = new System.Windows.Forms.Panel();
+            menuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            menuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            mainMenuDesigner = new System.Windows.Forms.MenuStrip();
+            menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            menuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            menuItemSeparator = new System.Windows.Forms.ToolStripMenuItem();
+            menuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            menuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
+            panelLeft = new System.Windows.Forms.Panel();
+            toolStripButtonFont = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonToolBox = new System.Windows.Forms.ToolStripButton();
+            saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            panelTop = new System.Windows.Forms.Panel();
+            toolStripMain = new System.Windows.Forms.ToolStrip();
+            openToolStripButton = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonLoadFromDatabase = new System.Windows.Forms.ToolStripButton();
+            panelBottom = new System.Windows.Forms.Panel();
+            saveFileDialogContainer = new System.Windows.Forms.SaveFileDialog();
+            panel5.SuspendLayout();
+            panel9.SuspendLayout();
+            panel11.SuspendLayout();
+            panel18.SuspendLayout();
+            panel20.SuspendLayout();
+            panel25.SuspendLayout();
+            panelDrawing.SuspendLayout();
+            panel7.SuspendLayout();
+            panelCenter.SuspendLayout();
+            panelBaseCheck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
+            splitContainerMain.Panel1.SuspendLayout();
+            splitContainerMain.Panel2.SuspendLayout();
+            splitContainerMain.SuspendLayout();
+            panel4.SuspendLayout();
+            panel2.SuspendLayout();
+            panel10.SuspendLayout();
+            panel26.SuspendLayout();
+            panel29.SuspendLayout();
+            panel30.SuspendLayout();
+            panel31.SuspendLayout();
+            panelIntBottom.SuspendLayout();
+            mainMenuDesigner.SuspendLayout();
+            panelTop.SuspendLayout();
+            toolStripMain.SuspendLayout();
+            SuspendLayout();
             // 
             // panelRight
             // 
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(948, 38);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(11, 587);
-            this.panelRight.TabIndex = 11;
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(829, 36);
+            panelRight.Margin = new System.Windows.Forms.Padding(4);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(10, 550);
+            panelRight.TabIndex = 11;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.buttonAcceptInterfaces);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 521);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(529, 44);
-            this.panel5.TabIndex = 5;
+            panel5.Controls.Add(buttonAcceptInterfaces);
+            panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel5.Location = new System.Drawing.Point(0, 489);
+            panel5.Margin = new System.Windows.Forms.Padding(4);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(462, 41);
+            panel5.TabIndex = 5;
             // 
             // buttonAcceptInterfaces
             // 
-            this.buttonAcceptInterfaces.Location = new System.Drawing.Point(223, 9);
-            this.buttonAcceptInterfaces.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonAcceptInterfaces.Name = "buttonAcceptInterfaces";
-            this.buttonAcceptInterfaces.Size = new System.Drawing.Size(100, 28);
-            this.buttonAcceptInterfaces.TabIndex = 0;
-            this.buttonAcceptInterfaces.Text = "Accept";
-            this.buttonAcceptInterfaces.Click += new System.EventHandler(this.buttonAcceptInterfaces_Click);
+            buttonAcceptInterfaces.Location = new System.Drawing.Point(195, 8);
+            buttonAcceptInterfaces.Margin = new System.Windows.Forms.Padding(4);
+            buttonAcceptInterfaces.Name = "buttonAcceptInterfaces";
+            buttonAcceptInterfaces.Size = new System.Drawing.Size(88, 26);
+            buttonAcceptInterfaces.TabIndex = 0;
+            buttonAcceptInterfaces.Text = "Accept";
+            buttonAcceptInterfaces.Click += buttonAcceptInterfaces_Click;
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.panel11);
-            this.panel9.Controls.Add(this.panel12);
-            this.panel9.Controls.Add(this.panel13);
-            this.panel9.Controls.Add(this.panel14);
-            this.panel9.Controls.Add(this.panel15);
-            this.panel9.Controls.Add(this.panel8);
-            this.panel9.Controls.Add(this.panel6);
-            this.panel9.Controls.Add(this.panel7);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(403, 369);
-            this.panel9.TabIndex = 6;
+            panel9.Controls.Add(panel11);
+            panel9.Controls.Add(panel12);
+            panel9.Controls.Add(panel13);
+            panel9.Controls.Add(panel14);
+            panel9.Controls.Add(panel15);
+            panel9.Controls.Add(panel8);
+            panel9.Controls.Add(panel6);
+            panel9.Controls.Add(panel7);
+            panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel9.Location = new System.Drawing.Point(0, 0);
+            panel9.Margin = new System.Windows.Forms.Padding(4);
+            panel9.Name = "panel9";
+            panel9.Size = new System.Drawing.Size(353, 346);
+            panel9.TabIndex = 6;
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.panel18);
-            this.panel11.Controls.Add(this.panel19);
-            this.panel11.Controls.Add(this.panel20);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(13, 36);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(367, 284);
-            this.panel11.TabIndex = 20;
+            panel11.Controls.Add(panel18);
+            panel11.Controls.Add(panel19);
+            panel11.Controls.Add(panel20);
+            panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            panel11.Location = new System.Drawing.Point(11, 34);
+            panel11.Margin = new System.Windows.Forms.Padding(4);
+            panel11.Name = "panel11";
+            panel11.Size = new System.Drawing.Size(322, 266);
+            panel11.TabIndex = 20;
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.comboBoxInter);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(0, 12);
-            this.panel18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(367, 37);
-            this.panel18.TabIndex = 20;
+            panel18.Controls.Add(comboBoxInter);
+            panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            panel18.Location = new System.Drawing.Point(0, 11);
+            panel18.Margin = new System.Windows.Forms.Padding(4);
+            panel18.Name = "panel18";
+            panel18.Size = new System.Drawing.Size(322, 35);
+            panel18.TabIndex = 20;
             // 
             // comboBoxInter
             // 
-            this.comboBoxInter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBoxInter.FormattingEnabled = true;
-            this.comboBoxInter.Location = new System.Drawing.Point(0, 0);
-            this.comboBoxInter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBoxInter.Name = "comboBoxInter";
-            this.comboBoxInter.Size = new System.Drawing.Size(367, 24);
-            this.comboBoxInter.TabIndex = 0;
-            this.comboBoxInter.SelectedIndexChanged += new System.EventHandler(this.comboBoxInter_SelectedIndexChanged);
+            comboBoxInter.Dock = System.Windows.Forms.DockStyle.Top;
+            comboBoxInter.FormattingEnabled = true;
+            comboBoxInter.Location = new System.Drawing.Point(0, 0);
+            comboBoxInter.Margin = new System.Windows.Forms.Padding(4);
+            comboBoxInter.Name = "comboBoxInter";
+            comboBoxInter.Size = new System.Drawing.Size(322, 23);
+            comboBoxInter.TabIndex = 0;
+            comboBoxInter.SelectedIndexChanged += comboBoxInter_SelectedIndexChanged;
             // 
             // panel19
             // 
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 0);
-            this.panel19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(367, 12);
-            this.panel19.TabIndex = 16;
+            panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            panel19.Location = new System.Drawing.Point(0, 0);
+            panel19.Margin = new System.Windows.Forms.Padding(4);
+            panel19.Name = "panel19";
+            panel19.Size = new System.Drawing.Size(322, 11);
+            panel19.TabIndex = 16;
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.panel21);
-            this.panel20.Controls.Add(this.panel22);
-            this.panel20.Controls.Add(this.panel23);
-            this.panel20.Controls.Add(this.panel24);
-            this.panel20.Controls.Add(this.panel25);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 45);
-            this.panel20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(367, 239);
-            this.panel20.TabIndex = 19;
+            panel20.Controls.Add(panel21);
+            panel20.Controls.Add(panel22);
+            panel20.Controls.Add(panel23);
+            panel20.Controls.Add(panel24);
+            panel20.Controls.Add(panel25);
+            panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel20.Location = new System.Drawing.Point(0, 42);
+            panel20.Margin = new System.Windows.Forms.Padding(4);
+            panel20.Name = "panel20";
+            panel20.Size = new System.Drawing.Size(322, 224);
+            panel20.TabIndex = 19;
             // 
             // panel21
             // 
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(0, 0);
-            this.panel21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(367, 4);
-            this.panel21.TabIndex = 20;
+            panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel21.Location = new System.Drawing.Point(0, 0);
+            panel21.Margin = new System.Windows.Forms.Padding(4);
+            panel21.Name = "panel21";
+            panel21.Size = new System.Drawing.Size(322, 4);
+            panel21.TabIndex = 20;
             // 
             // panel22
             // 
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel22.Location = new System.Drawing.Point(367, 0);
-            this.panel22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(0, 4);
-            this.panel22.TabIndex = 18;
+            panel22.Dock = System.Windows.Forms.DockStyle.Right;
+            panel22.Location = new System.Drawing.Point(322, 0);
+            panel22.Margin = new System.Windows.Forms.Padding(4);
+            panel22.Name = "panel22";
+            panel22.Size = new System.Drawing.Size(0, 4);
+            panel22.TabIndex = 18;
             // 
             // panel23
             // 
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel23.Location = new System.Drawing.Point(0, 0);
-            this.panel23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(0, 4);
-            this.panel23.TabIndex = 17;
+            panel23.Dock = System.Windows.Forms.DockStyle.Left;
+            panel23.Location = new System.Drawing.Point(0, 0);
+            panel23.Margin = new System.Windows.Forms.Padding(4);
+            panel23.Name = "panel23";
+            panel23.Size = new System.Drawing.Size(0, 4);
+            panel23.TabIndex = 17;
             // 
             // panel24
             // 
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(367, 0);
-            this.panel24.TabIndex = 16;
+            panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            panel24.Location = new System.Drawing.Point(0, 0);
+            panel24.Margin = new System.Windows.Forms.Padding(4);
+            panel24.Name = "panel24";
+            panel24.Size = new System.Drawing.Size(322, 0);
+            panel24.TabIndex = 16;
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.panelDrawing);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel25.Location = new System.Drawing.Point(0, 4);
-            this.panel25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(367, 235);
-            this.panel25.TabIndex = 19;
+            panel25.Controls.Add(panelDrawing);
+            panel25.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel25.Location = new System.Drawing.Point(0, 4);
+            panel25.Margin = new System.Windows.Forms.Padding(4);
+            panel25.Name = "panel25";
+            panel25.Size = new System.Drawing.Size(322, 220);
+            panel25.TabIndex = 19;
             // 
             // panelDrawing
             // 
-            this.panelDrawing.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelDrawing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelDrawing.Controls.Add(this.panelLabelPeer);
-            this.panelDrawing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDrawing.Location = new System.Drawing.Point(0, 0);
-            this.panelDrawing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelDrawing.Name = "panelDrawing";
-            this.panelDrawing.Size = new System.Drawing.Size(367, 235);
-            this.panelDrawing.TabIndex = 2;
-            this.panelDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDrawing_MouseDown);
+            panelDrawing.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            panelDrawing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            panelDrawing.Controls.Add(panelLabelPeer);
+            panelDrawing.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelDrawing.Location = new System.Drawing.Point(0, 0);
+            panelDrawing.Margin = new System.Windows.Forms.Padding(4);
+            panelDrawing.Name = "panelDrawing";
+            panelDrawing.Size = new System.Drawing.Size(322, 220);
+            panelDrawing.TabIndex = 2;
+            panelDrawing.MouseDown += panelDrawing_MouseDown;
             // 
             // panelLabelPeer
             // 
-            this.panelLabelPeer.BackColor = System.Drawing.SystemColors.Control;
-            this.panelLabelPeer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelLabelPeer.Location = new System.Drawing.Point(115, 58);
-            this.panelLabelPeer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelLabelPeer.Name = "panelLabelPeer";
-            this.panelLabelPeer.Size = new System.Drawing.Size(133, 123);
-            this.panelLabelPeer.TabIndex = 0;
+            panelLabelPeer.BackColor = System.Drawing.SystemColors.Control;
+            panelLabelPeer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelLabelPeer.Location = new System.Drawing.Point(101, 54);
+            panelLabelPeer.Margin = new System.Windows.Forms.Padding(4);
+            panelLabelPeer.Name = "panelLabelPeer";
+            panelLabelPeer.Size = new System.Drawing.Size(100, 100);
+            panelLabelPeer.TabIndex = 0;
             // 
             // panel12
             // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel12.Location = new System.Drawing.Point(380, 36);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(0, 333);
-            this.panel12.TabIndex = 18;
+            panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            panel12.Location = new System.Drawing.Point(333, 34);
+            panel12.Margin = new System.Windows.Forms.Padding(4);
+            panel12.Name = "panel12";
+            panel12.Size = new System.Drawing.Size(0, 312);
+            panel12.TabIndex = 18;
             // 
             // panel13
             // 
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel13.Location = new System.Drawing.Point(13, 36);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(0, 333);
-            this.panel13.TabIndex = 17;
+            panel13.Dock = System.Windows.Forms.DockStyle.Left;
+            panel13.Location = new System.Drawing.Point(11, 34);
+            panel13.Margin = new System.Windows.Forms.Padding(4);
+            panel13.Name = "panel13";
+            panel13.Size = new System.Drawing.Size(0, 312);
+            panel13.TabIndex = 17;
             // 
             // panel14
             // 
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(13, 36);
-            this.panel14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(367, 0);
-            this.panel14.TabIndex = 16;
+            panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            panel14.Location = new System.Drawing.Point(11, 34);
+            panel14.Margin = new System.Windows.Forms.Padding(4);
+            panel14.Name = "panel14";
+            panel14.Size = new System.Drawing.Size(322, 0);
+            panel14.TabIndex = 16;
             // 
             // panel15
             // 
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel15.Location = new System.Drawing.Point(13, 369);
-            this.panel15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(367, 0);
-            this.panel15.TabIndex = 19;
+            panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel15.Location = new System.Drawing.Point(11, 346);
+            panel15.Margin = new System.Windows.Forms.Padding(4);
+            panel15.Name = "panel15";
+            panel15.Size = new System.Drawing.Size(322, 0);
+            panel15.TabIndex = 19;
             // 
             // panel8
             // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(380, 36);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(23, 333);
-            this.panel8.TabIndex = 2;
+            panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            panel8.Location = new System.Drawing.Point(333, 34);
+            panel8.Margin = new System.Windows.Forms.Padding(4);
+            panel8.Name = "panel8";
+            panel8.Size = new System.Drawing.Size(20, 312);
+            panel8.TabIndex = 2;
             // 
             // panel6
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 36);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(13, 333);
-            this.panel6.TabIndex = 1;
+            panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            panel6.Location = new System.Drawing.Point(0, 34);
+            panel6.Margin = new System.Windows.Forms.Padding(4);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(11, 312);
+            panel6.TabIndex = 1;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.label1);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(403, 36);
-            this.panel7.TabIndex = 0;
+            panel7.Controls.Add(label1);
+            panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            panel7.Location = new System.Drawing.Point(0, 0);
+            panel7.Margin = new System.Windows.Forms.Padding(4);
+            panel7.Name = "panel7";
+            panel7.Size = new System.Drawing.Size(353, 34);
+            panel7.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Layout";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(111, 8);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(43, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Layout";
             // 
             // panelIntLeft
             // 
-            this.panelIntLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelIntLeft.Location = new System.Drawing.Point(0, 12);
-            this.panelIntLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelIntLeft.Name = "panelIntLeft";
-            this.panelIntLeft.Size = new System.Drawing.Size(11, 565);
-            this.panelIntLeft.TabIndex = 3;
+            panelIntLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelIntLeft.Location = new System.Drawing.Point(0, 11);
+            panelIntLeft.Margin = new System.Windows.Forms.Padding(4);
+            panelIntLeft.Name = "panelIntLeft";
+            panelIntLeft.Size = new System.Drawing.Size(10, 530);
+            panelIntLeft.TabIndex = 3;
             // 
             // panelCenter
             // 
-            this.panelCenter.Controls.Add(this.panelBaseCheck);
-            this.panelCenter.Controls.Add(this.panelIntLeft);
-            this.panelCenter.Controls.Add(this.panelIntBottom);
-            this.panelCenter.Controls.Add(this.panelIntTop);
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(11, 38);
-            this.panelCenter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(948, 587);
-            this.panelCenter.TabIndex = 14;
+            panelCenter.Controls.Add(panelBaseCheck);
+            panelCenter.Controls.Add(panelIntLeft);
+            panelCenter.Controls.Add(panelIntBottom);
+            panelCenter.Controls.Add(panelIntTop);
+            panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenter.Location = new System.Drawing.Point(10, 36);
+            panelCenter.Margin = new System.Windows.Forms.Padding(4);
+            panelCenter.Name = "panelCenter";
+            panelCenter.Size = new System.Drawing.Size(829, 550);
+            panelCenter.TabIndex = 14;
             // 
             // panelBaseCheck
             // 
-            this.panelBaseCheck.Controls.Add(this.splitContainerMain);
-            this.panelBaseCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBaseCheck.Location = new System.Drawing.Point(11, 12);
-            this.panelBaseCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelBaseCheck.Name = "panelBaseCheck";
-            this.panelBaseCheck.Size = new System.Drawing.Size(937, 565);
-            this.panelBaseCheck.TabIndex = 4;
+            panelBaseCheck.Controls.Add(splitContainerMain);
+            panelBaseCheck.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelBaseCheck.Location = new System.Drawing.Point(10, 11);
+            panelBaseCheck.Margin = new System.Windows.Forms.Padding(4);
+            panelBaseCheck.Name = "panelBaseCheck";
+            panelBaseCheck.Size = new System.Drawing.Size(819, 530);
+            panelBaseCheck.TabIndex = 4;
             // 
             // splitContainerMain
             // 
-            this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMain.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.splitContainerMain.Name = "splitContainerMain";
+            splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainerMain.Location = new System.Drawing.Point(0, 0);
+            splitContainerMain.Margin = new System.Windows.Forms.Padding(4);
+            splitContainerMain.Name = "splitContainerMain";
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.panel4);
-            this.splitContainerMain.Panel1.Controls.Add(this.panel5);
+            splitContainerMain.Panel1.Controls.Add(panel4);
+            splitContainerMain.Panel1.Controls.Add(panel5);
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainerMain.Panel2.Controls.Add(this.panel9);
-            this.splitContainerMain.Panel2.Controls.Add(this.panel10);
-            this.splitContainerMain.Size = new System.Drawing.Size(937, 565);
-            this.splitContainerMain.SplitterDistance = 529;
-            this.splitContainerMain.SplitterWidth = 5;
-            this.splitContainerMain.TabIndex = 0;
+            splitContainerMain.Panel2.Controls.Add(panel9);
+            splitContainerMain.Panel2.Controls.Add(panel10);
+            splitContainerMain.Size = new System.Drawing.Size(819, 530);
+            splitContainerMain.SplitterDistance = 462;
+            splitContainerMain.TabIndex = 0;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.checkedListBoxInter);
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.panel1);
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(529, 521);
-            this.panel4.TabIndex = 6;
+            panel4.Controls.Add(checkedListBoxInter);
+            panel4.Controls.Add(panel3);
+            panel4.Controls.Add(panel1);
+            panel4.Controls.Add(panel2);
+            panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel4.Location = new System.Drawing.Point(0, 0);
+            panel4.Margin = new System.Windows.Forms.Padding(4);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(462, 489);
+            panel4.TabIndex = 6;
             // 
             // checkedListBoxInter
             // 
-            this.checkedListBoxInter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxInter.Location = new System.Drawing.Point(13, 36);
-            this.checkedListBoxInter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.checkedListBoxInter.Name = "checkedListBoxInter";
-            this.checkedListBoxInter.Size = new System.Drawing.Size(503, 485);
-            this.checkedListBoxInter.TabIndex = 3;
+            checkedListBoxInter.Dock = System.Windows.Forms.DockStyle.Fill;
+            checkedListBoxInter.Location = new System.Drawing.Point(11, 34);
+            checkedListBoxInter.Margin = new System.Windows.Forms.Padding(4);
+            checkedListBoxInter.Name = "checkedListBoxInter";
+            checkedListBoxInter.Size = new System.Drawing.Size(440, 455);
+            checkedListBoxInter.TabIndex = 3;
             // 
             // panel3
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(516, 36);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(13, 485);
-            this.panel3.TabIndex = 2;
+            panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            panel3.Location = new System.Drawing.Point(451, 34);
+            panel3.Margin = new System.Windows.Forms.Padding(4);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(11, 455);
+            panel3.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 36);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(13, 485);
-            this.panel1.TabIndex = 1;
+            panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            panel1.Location = new System.Drawing.Point(0, 34);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(11, 455);
+            panel1.TabIndex = 1;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(529, 36);
-            this.panel2.TabIndex = 0;
+            panel2.Controls.Add(label2);
+            panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            panel2.Location = new System.Drawing.Point(0, 0);
+            panel2.Margin = new System.Windows.Forms.Padding(4);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(462, 34);
+            panel2.TabIndex = 0;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(168, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Public objects";
+            label2.Location = new System.Drawing.Point(147, 8);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(214, 26);
+            label2.TabIndex = 1;
+            label2.Text = "Public objects";
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.panel26);
-            this.panel10.Controls.Add(this.panel27);
-            this.panel10.Controls.Add(this.panel28);
-            this.panel10.Controls.Add(this.panel29);
-            this.panel10.Controls.Add(this.panel30);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 369);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(403, 196);
-            this.panel10.TabIndex = 5;
+            panel10.Controls.Add(panel26);
+            panel10.Controls.Add(panel27);
+            panel10.Controls.Add(panel28);
+            panel10.Controls.Add(panel29);
+            panel10.Controls.Add(panel30);
+            panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel10.Location = new System.Drawing.Point(0, 346);
+            panel10.Margin = new System.Windows.Forms.Padding(4);
+            panel10.Name = "panel10";
+            panel10.Size = new System.Drawing.Size(353, 184);
+            panel10.TabIndex = 5;
             // 
             // panel26
             // 
-            this.panel26.Controls.Add(this.textBoxComment);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(13, 36);
-            this.panel26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(377, 44);
-            this.panel26.TabIndex = 15;
+            panel26.Controls.Add(textBoxComment);
+            panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel26.Location = new System.Drawing.Point(11, 34);
+            panel26.Margin = new System.Windows.Forms.Padding(4);
+            panel26.Name = "panel26";
+            panel26.Size = new System.Drawing.Size(331, 41);
+            panel26.TabIndex = 15;
             // 
             // textBoxComment
             // 
-            this.textBoxComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxComment.Location = new System.Drawing.Point(0, 0);
-            this.textBoxComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(377, 22);
-            this.textBoxComment.TabIndex = 0;
+            textBoxComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBoxComment.Location = new System.Drawing.Point(0, 0);
+            textBoxComment.Margin = new System.Windows.Forms.Padding(4);
+            textBoxComment.Name = "textBoxComment";
+            textBoxComment.Size = new System.Drawing.Size(331, 23);
+            textBoxComment.TabIndex = 0;
             // 
             // panel27
             // 
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel27.Location = new System.Drawing.Point(390, 36);
-            this.panel27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(13, 44);
-            this.panel27.TabIndex = 13;
+            panel27.Dock = System.Windows.Forms.DockStyle.Right;
+            panel27.Location = new System.Drawing.Point(342, 34);
+            panel27.Margin = new System.Windows.Forms.Padding(4);
+            panel27.Name = "panel27";
+            panel27.Size = new System.Drawing.Size(11, 41);
+            panel27.TabIndex = 13;
             // 
             // panel28
             // 
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel28.Location = new System.Drawing.Point(0, 36);
-            this.panel28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(13, 44);
-            this.panel28.TabIndex = 12;
+            panel28.Dock = System.Windows.Forms.DockStyle.Left;
+            panel28.Location = new System.Drawing.Point(0, 34);
+            panel28.Margin = new System.Windows.Forms.Padding(4);
+            panel28.Name = "panel28";
+            panel28.Size = new System.Drawing.Size(11, 41);
+            panel28.TabIndex = 12;
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.label3);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel29.Location = new System.Drawing.Point(0, 0);
-            this.panel29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(403, 36);
-            this.panel29.TabIndex = 11;
+            panel29.Controls.Add(label3);
+            panel29.Dock = System.Windows.Forms.DockStyle.Top;
+            panel29.Location = new System.Drawing.Point(0, 0);
+            panel29.Margin = new System.Windows.Forms.Padding(4);
+            panel29.Name = "panel29";
+            panel29.Size = new System.Drawing.Size(353, 34);
+            panel29.TabIndex = 11;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Comment";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(34, 15);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(61, 15);
+            label3.TabIndex = 0;
+            label3.Text = "Comment";
             // 
             // panel30
             // 
-            this.panel30.Controls.Add(this.panel31);
-            this.panel30.Controls.Add(this.panel32);
-            this.panel30.Controls.Add(this.panel33);
-            this.panel30.Controls.Add(this.panel34);
-            this.panel30.Controls.Add(this.panel35);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel30.Location = new System.Drawing.Point(0, 80);
-            this.panel30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(403, 116);
-            this.panel30.TabIndex = 14;
+            panel30.Controls.Add(panel31);
+            panel30.Controls.Add(panel32);
+            panel30.Controls.Add(panel33);
+            panel30.Controls.Add(panel34);
+            panel30.Controls.Add(panel35);
+            panel30.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel30.Location = new System.Drawing.Point(0, 75);
+            panel30.Margin = new System.Windows.Forms.Padding(4);
+            panel30.Name = "panel30";
+            panel30.Size = new System.Drawing.Size(353, 109);
+            panel30.TabIndex = 14;
             // 
             // panel31
             // 
-            this.panel31.Controls.Add(this.buttonAlignment);
-            this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(13, 12);
-            this.panel31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(377, 92);
-            this.panel31.TabIndex = 15;
+            panel31.Controls.Add(buttonAlignment);
+            panel31.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel31.Location = new System.Drawing.Point(11, 11);
+            panel31.Margin = new System.Windows.Forms.Padding(4);
+            panel31.Name = "panel31";
+            panel31.Size = new System.Drawing.Size(331, 87);
+            panel31.TabIndex = 15;
             // 
             // buttonAlignment
             // 
-            this.buttonAlignment.Location = new System.Drawing.Point(59, 32);
-            this.buttonAlignment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonAlignment.Name = "buttonAlignment";
-            this.buttonAlignment.Size = new System.Drawing.Size(299, 28);
-            this.buttonAlignment.TabIndex = 5;
-            this.buttonAlignment.Text = "Alignment";
-            this.buttonAlignment.UseVisualStyleBackColor = true;
-            this.buttonAlignment.Click += new System.EventHandler(this.buttonAlignment_Click);
+            buttonAlignment.Location = new System.Drawing.Point(52, 30);
+            buttonAlignment.Margin = new System.Windows.Forms.Padding(4);
+            buttonAlignment.Name = "buttonAlignment";
+            buttonAlignment.Size = new System.Drawing.Size(262, 26);
+            buttonAlignment.TabIndex = 5;
+            buttonAlignment.Text = "Alignment";
+            buttonAlignment.UseVisualStyleBackColor = true;
+            buttonAlignment.Click += buttonAlignment_Click;
             // 
             // panel32
             // 
-            this.panel32.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel32.Location = new System.Drawing.Point(390, 12);
-            this.panel32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(13, 92);
-            this.panel32.TabIndex = 13;
+            panel32.Dock = System.Windows.Forms.DockStyle.Right;
+            panel32.Location = new System.Drawing.Point(342, 11);
+            panel32.Margin = new System.Windows.Forms.Padding(4);
+            panel32.Name = "panel32";
+            panel32.Size = new System.Drawing.Size(11, 87);
+            panel32.TabIndex = 13;
             // 
             // panel33
             // 
-            this.panel33.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel33.Location = new System.Drawing.Point(0, 12);
-            this.panel33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(13, 92);
-            this.panel33.TabIndex = 12;
+            panel33.Dock = System.Windows.Forms.DockStyle.Left;
+            panel33.Location = new System.Drawing.Point(0, 11);
+            panel33.Margin = new System.Windows.Forms.Padding(4);
+            panel33.Name = "panel33";
+            panel33.Size = new System.Drawing.Size(11, 87);
+            panel33.TabIndex = 12;
             // 
             // panel34
             // 
-            this.panel34.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel34.Location = new System.Drawing.Point(0, 0);
-            this.panel34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(403, 12);
-            this.panel34.TabIndex = 11;
+            panel34.Dock = System.Windows.Forms.DockStyle.Top;
+            panel34.Location = new System.Drawing.Point(0, 0);
+            panel34.Margin = new System.Windows.Forms.Padding(4);
+            panel34.Name = "panel34";
+            panel34.Size = new System.Drawing.Size(353, 11);
+            panel34.TabIndex = 11;
             // 
             // panel35
             // 
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel35.Location = new System.Drawing.Point(0, 104);
-            this.panel35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(403, 12);
-            this.panel35.TabIndex = 14;
+            panel35.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel35.Location = new System.Drawing.Point(0, 98);
+            panel35.Margin = new System.Windows.Forms.Padding(4);
+            panel35.Name = "panel35";
+            panel35.Size = new System.Drawing.Size(353, 11);
+            panel35.TabIndex = 14;
             // 
             // panelIntBottom
             // 
-            this.panelIntBottom.Controls.Add(this.buttonAcceptAll);
-            this.panelIntBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelIntBottom.Location = new System.Drawing.Point(0, 577);
-            this.panelIntBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelIntBottom.Name = "panelIntBottom";
-            this.panelIntBottom.Size = new System.Drawing.Size(948, 10);
-            this.panelIntBottom.TabIndex = 2;
-            this.panelIntBottom.UseWaitCursor = true;
-            this.panelIntBottom.Visible = false;
+            panelIntBottom.Controls.Add(buttonAcceptAll);
+            panelIntBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelIntBottom.Location = new System.Drawing.Point(0, 541);
+            panelIntBottom.Margin = new System.Windows.Forms.Padding(4);
+            panelIntBottom.Name = "panelIntBottom";
+            panelIntBottom.Size = new System.Drawing.Size(829, 9);
+            panelIntBottom.TabIndex = 2;
+            panelIntBottom.UseWaitCursor = true;
+            panelIntBottom.Visible = false;
             // 
             // buttonAcceptAll
             // 
-            this.buttonAcceptAll.Location = new System.Drawing.Point(419, 7);
-            this.buttonAcceptAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonAcceptAll.Name = "buttonAcceptAll";
-            this.buttonAcceptAll.Size = new System.Drawing.Size(171, 28);
-            this.buttonAcceptAll.TabIndex = 0;
-            this.buttonAcceptAll.Text = "Apply";
-            this.buttonAcceptAll.UseVisualStyleBackColor = true;
-            this.buttonAcceptAll.UseWaitCursor = true;
-            this.buttonAcceptAll.Visible = false;
-            this.buttonAcceptAll.Click += new System.EventHandler(this.buttonAcceptAll_Click);
+            buttonAcceptAll.Location = new System.Drawing.Point(367, 7);
+            buttonAcceptAll.Margin = new System.Windows.Forms.Padding(4);
+            buttonAcceptAll.Name = "buttonAcceptAll";
+            buttonAcceptAll.Size = new System.Drawing.Size(150, 26);
+            buttonAcceptAll.TabIndex = 0;
+            buttonAcceptAll.Text = "Apply";
+            buttonAcceptAll.UseVisualStyleBackColor = true;
+            buttonAcceptAll.UseWaitCursor = true;
+            buttonAcceptAll.Visible = false;
+            buttonAcceptAll.Click += buttonAcceptAll_Click;
             // 
             // panelIntTop
             // 
-            this.panelIntTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelIntTop.Location = new System.Drawing.Point(0, 0);
-            this.panelIntTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelIntTop.Name = "panelIntTop";
-            this.panelIntTop.Size = new System.Drawing.Size(948, 12);
-            this.panelIntTop.TabIndex = 1;
+            panelIntTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelIntTop.Location = new System.Drawing.Point(0, 0);
+            panelIntTop.Margin = new System.Windows.Forms.Padding(4);
+            panelIntTop.Name = "panelIntTop";
+            panelIntTop.Size = new System.Drawing.Size(829, 11);
+            panelIntTop.TabIndex = 1;
             // 
             // menuItemSaveAs
             // 
-            this.menuItemSaveAs.Text = "Save as";
+            menuItemSaveAs.Name = "menuItemSaveAs";
+            menuItemSaveAs.Size = new System.Drawing.Size(112, 22);
+            menuItemSaveAs.Text = "Save as";
             // 
             // menuItem3
             // 
-            this.menuItem3.Text = "Exit";
+            menuItem3.Name = "menuItem3";
+            menuItem3.Size = new System.Drawing.Size(112, 22);
+            menuItem3.Text = "Exit";
             // 
             // mainMenuDesigner
             // 
-            this.mainMenuDesigner.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-            this.menuItemFile});
+            mainMenuDesigner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItemFile });
+            mainMenuDesigner.Location = new System.Drawing.Point(0, 0);
+            mainMenuDesigner.Name = "mainMenuDesigner";
+            mainMenuDesigner.Size = new System.Drawing.Size(200, 24);
+            mainMenuDesigner.TabIndex = 0;
             // 
             // menuItemFile
             // 
-            this.menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-            this.menuItemOpen,
-            this.menuItemSeparator,
-            this.menuItemSaveAs,
-            this.menuItem1,
-            this.menuItem2,
-            this.menuItem3});
-            this.menuItemFile.Text = "File";
+            menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItemOpen, menuItemSeparator, menuItemSaveAs, menuItem1, menuItem2, menuItem3 });
+            menuItemFile.Name = "menuItemFile";
+            menuItemFile.Size = new System.Drawing.Size(37, 20);
+            menuItemFile.Text = "File";
             // 
             // menuItemOpen
             // 
-            this.menuItemOpen.Text = "Open";
+            menuItemOpen.Name = "menuItemOpen";
+            menuItemOpen.Size = new System.Drawing.Size(112, 22);
+            menuItemOpen.Text = "Open";
             // 
             // menuItemSeparator
             // 
-            this.menuItemSeparator.Text = "-";
+            menuItemSeparator.Name = "menuItemSeparator";
+            menuItemSeparator.Size = new System.Drawing.Size(112, 22);
+            menuItemSeparator.Text = "-";
             // 
             // menuItem1
             // 
-            this.menuItem1.Text = "Save";
+            menuItem1.Name = "menuItem1";
+            menuItem1.Size = new System.Drawing.Size(112, 22);
+            menuItem1.Text = "Save";
             // 
             // menuItem2
             // 
-            this.menuItem2.Text = "-";
+            menuItem2.Name = "menuItem2";
+            menuItem2.Size = new System.Drawing.Size(112, 22);
+            menuItem2.Text = "-";
             // 
             // toolStripButtonRefresh
             // 
-            this.toolStripButtonRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRefresh.Image")));
-            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
-            this.toolStripButtonRefresh.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButtonRefresh.Text = "Refresh";
+            toolStripButtonRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonRefresh.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonRefresh.Image");
+            toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonRefresh.Name = "toolStripButtonRefresh";
+            toolStripButtonRefresh.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonRefresh.Text = "Refresh";
             // 
             // toolStripButtonClear
             // 
-            this.toolStripButtonClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClear.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClear.Image")));
-            this.toolStripButtonClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonClear.Name = "toolStripButtonClear";
-            this.toolStripButtonClear.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButtonClear.Text = "Clear";
-            this.toolStripButtonClear.Visible = false;
+            toolStripButtonClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonClear.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonClear.Image");
+            toolStripButtonClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonClear.Name = "toolStripButtonClear";
+            toolStripButtonClear.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonClear.Text = "Clear";
+            toolStripButtonClear.Visible = false;
             // 
             // panelLeft
             // 
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 38);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(11, 587);
-            this.panelLeft.TabIndex = 10;
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 36);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(10, 550);
+            panelLeft.TabIndex = 10;
             // 
             // toolStripButtonFont
             // 
-            this.toolStripButtonFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFont.Image")));
-            this.toolStripButtonFont.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonFont.Name = "toolStripButtonFont";
-            this.toolStripButtonFont.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButtonFont.Text = "Font";
-            this.toolStripButtonFont.Visible = false;
+            toolStripButtonFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonFont.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonFont.Image");
+            toolStripButtonFont.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonFont.Name = "toolStripButtonFont";
+            toolStripButtonFont.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonFont.Text = "Font";
+            toolStripButtonFont.Visible = false;
             // 
             // toolStripButtonToolBox
             // 
-            this.toolStripButtonToolBox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonToolBox.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonToolBox.Image")));
-            this.toolStripButtonToolBox.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonToolBox.Name = "toolStripButtonToolBox";
-            this.toolStripButtonToolBox.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButtonToolBox.Text = "ToolBox";
-            this.toolStripButtonToolBox.Visible = false;
+            toolStripButtonToolBox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonToolBox.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonToolBox.Image");
+            toolStripButtonToolBox.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonToolBox.Name = "toolStripButtonToolBox";
+            toolStripButtonToolBox.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonToolBox.Text = "ToolBox";
+            toolStripButtonToolBox.Visible = false;
             // 
             // saveToolStripButton
             // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(24, 24);
-            this.saveToolStripButton.Text = "Save";
-            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
+            saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            saveToolStripButton.Image = (System.Drawing.Image)resources.GetObject("saveToolStripButton.Image");
+            saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            saveToolStripButton.Name = "saveToolStripButton";
+            saveToolStripButton.Size = new System.Drawing.Size(24, 24);
+            saveToolStripButton.Text = "Save";
+            saveToolStripButton.Click += saveToolStripButton_Click;
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.toolStripMain);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(959, 38);
-            this.panelTop.TabIndex = 12;
+            panelTop.Controls.Add(toolStripMain);
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(4);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(839, 36);
+            panelTop.TabIndex = 12;
             // 
             // toolStripMain
             // 
-            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripButton,
-            this.toolStripButtonLoadFromDatabase,
-            this.saveToolStripButton,
-            this.toolStripButtonClear,
-            this.toolStripButtonRefresh,
-            this.toolStripButtonToolBox,
-            this.toolStripButtonFont});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 0);
-            this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(959, 27);
-            this.toolStripMain.TabIndex = 6;
-            this.toolStripMain.Text = "Main";
+            toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
+            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { openToolStripButton, toolStripButtonLoadFromDatabase, saveToolStripButton, toolStripButtonClear, toolStripButtonRefresh, toolStripButtonToolBox, toolStripButtonFont });
+            toolStripMain.Location = new System.Drawing.Point(0, 0);
+            toolStripMain.Name = "toolStripMain";
+            toolStripMain.Size = new System.Drawing.Size(839, 27);
+            toolStripMain.TabIndex = 6;
+            toolStripMain.Text = "Main";
             // 
             // openToolStripButton
             // 
-            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
-            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(24, 24);
-            this.openToolStripButton.Text = "Open";
+            openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            openToolStripButton.Image = (System.Drawing.Image)resources.GetObject("openToolStripButton.Image");
+            openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            openToolStripButton.Name = "openToolStripButton";
+            openToolStripButton.Size = new System.Drawing.Size(24, 24);
+            openToolStripButton.Text = "Open";
             // 
             // toolStripButtonLoadFromDatabase
             // 
-            this.toolStripButtonLoadFromDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLoadFromDatabase.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLoadFromDatabase.Image")));
-            this.toolStripButtonLoadFromDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonLoadFromDatabase.Name = "toolStripButtonLoadFromDatabase";
-            this.toolStripButtonLoadFromDatabase.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButtonLoadFromDatabase.Text = "Load from database";
-            this.toolStripButtonLoadFromDatabase.Visible = false;
+            toolStripButtonLoadFromDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonLoadFromDatabase.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonLoadFromDatabase.Image");
+            toolStripButtonLoadFromDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonLoadFromDatabase.Name = "toolStripButtonLoadFromDatabase";
+            toolStripButtonLoadFromDatabase.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonLoadFromDatabase.Text = "Load from database";
+            toolStripButtonLoadFromDatabase.Visible = false;
             // 
             // panelBottom
             // 
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 625);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(959, 10);
-            this.panelBottom.TabIndex = 13;
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 586);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(839, 9);
+            panelBottom.TabIndex = 13;
             // 
             // saveFileDialogContainer
             // 
-            this.saveFileDialogContainer.Filter = "Container files|*.cont";
+            saveFileDialogContainer.Filter = "Container files|*.cont";
             // 
             // UserControlContainerDesigner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.panelCenter);
-            this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelTop);
-            this.Controls.Add(this.panelBottom);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "UserControlContainerDesigner";
-            this.Size = new System.Drawing.Size(959, 635);
-            this.panel5.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panelDrawing.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panelCenter.ResumeLayout(false);
-            this.panelBaseCheck.ResumeLayout(false);
-            this.splitContainerMain.Panel1.ResumeLayout(false);
-            this.splitContainerMain.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
-            this.splitContainerMain.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
-            this.panel29.ResumeLayout(false);
-            this.panel29.PerformLayout();
-            this.panel30.ResumeLayout(false);
-            this.panel31.ResumeLayout(false);
-            this.panelIntBottom.ResumeLayout(false);
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
-            this.toolStripMain.ResumeLayout(false);
-            this.toolStripMain.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(panelRight);
+            Controls.Add(panelCenter);
+            Controls.Add(panelLeft);
+            Controls.Add(panelTop);
+            Controls.Add(panelBottom);
+            Margin = new System.Windows.Forms.Padding(4);
+            Name = "UserControlContainerDesigner";
+            Size = new System.Drawing.Size(839, 595);
+            panel5.ResumeLayout(false);
+            panel9.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel18.ResumeLayout(false);
+            panel20.ResumeLayout(false);
+            panel25.ResumeLayout(false);
+            panelDrawing.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panelCenter.ResumeLayout(false);
+            panelBaseCheck.ResumeLayout(false);
+            splitContainerMain.Panel1.ResumeLayout(false);
+            splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerMain).EndInit();
+            splitContainerMain.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            panel29.ResumeLayout(false);
+            panel29.PerformLayout();
+            panel30.ResumeLayout(false);
+            panel31.ResumeLayout(false);
+            panelIntBottom.ResumeLayout(false);
+            mainMenuDesigner.ResumeLayout(false);
+            mainMenuDesigner.PerformLayout();
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
+            toolStripMain.ResumeLayout(false);
+            toolStripMain.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

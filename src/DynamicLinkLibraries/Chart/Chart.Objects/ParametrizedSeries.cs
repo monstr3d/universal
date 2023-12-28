@@ -67,6 +67,15 @@ namespace Chart.Objects
             }
         }
 
+        int ISeries.YCount => 1;
+
+        void ISeries.Add(IPoint point)
+        {
+            pointList.Add(point);
+        }
+
+
+
         #endregion
 
         #region Members

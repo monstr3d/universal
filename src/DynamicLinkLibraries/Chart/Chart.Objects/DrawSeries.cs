@@ -138,6 +138,14 @@ namespace Chart.Objects
             get { return points; }
         }
 
+        int ISeries.YCount => 1;
+
+        void ISeries.Add(IPoint point)
+        {
+            points.Add(point);
+        }
+
+
         #endregion
 
         #region IIteratorConsumer Members
@@ -211,9 +219,7 @@ namespace Chart.Objects
             }
         }
 
-
-
-
+ 
         private void acceptMeasurements(List<string> measurements)
         {
             object[] t = factory.Types;

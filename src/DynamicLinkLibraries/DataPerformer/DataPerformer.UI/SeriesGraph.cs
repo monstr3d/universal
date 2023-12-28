@@ -53,6 +53,13 @@ namespace DataPerformer.UI
             get { return points; }
         }
 
+        int ISeries.YCount => 1;
+
+        void ISeries.Add(IPoint point)
+        {
+            points.Add(point);
+        }
+
         #endregion
 
 
@@ -70,7 +77,7 @@ namespace DataPerformer.UI
             foreach (IPoint p in points)
             {
                 double x = p.X;
-                double y = p.Y;
+                double y = p.Y[0];
                 if (b)
                 {
                     size[0, 0] = x;

@@ -66,7 +66,7 @@ namespace Chart.Drawing.Painters
                     continue;
                 }
                 IDrawablePoint dp = o as IDrawablePoint;
-                performer.Transform(xx.X, xx.Y, pointFinish);
+                performer.Transform(xx.X, xx.Y[0], pointFinish);
                 dp.Draw(g, pointFinish[0], pointFinish[1]);
             }
         }
