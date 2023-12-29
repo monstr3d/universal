@@ -190,7 +190,7 @@ namespace DataPerformer.Portable
 
         }
 
-
+        
         /// <summary>
         /// Performs action with fixed step
         /// </summary>

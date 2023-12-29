@@ -65,7 +65,7 @@ namespace Chart.Drawing.Painters
                 {
                     var arr = queue.ToArray();
                     var ar = arr[1];
-                    int n = ar[3] > ar[4] ? 1 : 0;
+                    int n = ar[3] > ar[4] ? 0 : 1;
                     var pen = pens[n];
                     var brush = brushes[n];
                     g.DrawLine(pen, ar[0], ar[1], ar[0], ar[2]);

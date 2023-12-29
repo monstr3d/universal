@@ -1257,10 +1257,22 @@ namespace DataPerformer.UI.UserControls
 
         }
 
+
+        private void PeformIterator(IDataConsumer consumer, IIterator iterator)
+        {
+            dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
+        }
+
         private void StartChart()
         {
             try
             {
+                var it = (consumer as DataConsumerIterate).Iterator;
+                if (it != null) 
+                {
+                    PeformIterator(consumer, it);
+                    return;
+                }
                 if (array == null)
                 {
                     PerformFixed();
@@ -1474,7 +1486,7 @@ namespace DataPerformer.UI.UserControls
         {
             if (l is IIterator)
             {
-                StartRealtimeAnalysis(l as IIterator, (() => { return stop(null); }));
+                StartRealtimeAnalysis(l as IIterator, stop);
             }
             else
             {
@@ -1484,17 +1496,7 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
-        void StartRealtimeAnalysis(IIterator l, Func<bool> stop)
-        {
-            UserControlRealtime rt = this.FindChild<UserControlRealtime>();
-            if (l is IChangeBufferItem)
-            {
-                changeBufferItem = l as IChangeBufferItem;
-                changeBufferItem.Change += ChangeBufferItem;
-            }
-            consumer.PerformIterator(l, l as ITimeMeasurementProvider,
-                StaticExtensionEventInterfaces.RealtimeLogAnalysis, stop);
-        }
+      
 
         void StartRealtimeClick()
         {
@@ -2299,7 +2301,7 @@ namespace DataPerformer.UI.UserControls
             }
             realtimeRun = () =>
             {
-                StartRealtimeAnalysis(iterator, stop);
+                StartRealtimeAnalysis(iterator, (o) => stop());
             };
             realtimeStop = () =>
             {
@@ -2783,55 +2785,6 @@ namespace DataPerformer.UI.UserControls
                 try
                 {
                     performer.Remove(typeof(DynamicSeriesAttribute));
-                    /*     if (ucmg != null)
-                         {
-                             if (dicto != null)
-                             {
-                                 Dictionary<string, string> d = new Dictionary<string, string>();
-                                 foreach (string key in dicto.Keys)
-                                 {
-                                     foreach (string s in dta.Keys)
-                                     {
-                                         if (key.Length > s.Length)
-                                         {
-                                             if (key.Contains(s))
-                                             {
-                                                 d[key] = s;
-                                                 break;
-                                             }
-                                         }
-                                     }
-                                 }
-                                 foreach (string key in dicto.Keys)
-                                 {
-                                     object o = dicto[key];
-                                     if (!dta.ContainsKey(key))
-                                     {
-                                         string st = d[key];
-                                     }
-                                     IMeasurement m = dta[key];
-                                     dobta[m] = o;
-                                     SeriesTypes.ParametrizedSeries s = o as SeriesTypes.ParametrizedSeries;
-
-                                     ParametrizedSeries series = new ParametrizedSeries(null, null);
-                                     series.Add(s);
-                                     //b.Tag = series;
-                                     bool isStep = false;
-                                     if ( data.Item2.ContainsKey(key))
-                                     {
-                                         isStep = data.Item2[key];
-                                     }
-                                     Color[] color = dmta[m];
-
-                                     ISeriesPainter painter = isStep ?
-                                         new Chart.Drawing.Painters.StepSeriesPainter(color) :
-                                         new Chart.Drawing.Painters.SimpleSeriesPainter(color);
-                                     performer.AddSeries(series, painter);
-                                     ownSeries.Add(series);
-                                 }
-                             }
-                         }
-                         else*/
                     {
                         Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
                         Dictionary<string, IMeasurement> dd = MeasureByNameInternal;
@@ -2843,25 +2796,7 @@ namespace DataPerformer.UI.UserControls
 
                             performer.AddSeries(series, d[dd[key]][0]);
                             ownSeries.Add(series);
-                            /*
-                            object[] ob = dsta[key];
-                            ob[0] = o;
-                            Button b = ob[2] as Button;
-                            b.Tag = o;
-                            if (!(o is DataPerformer.SeriesTypes.ParametrizedSeries))
-                            {
-                                b.Tag = new object[] { key, o };
-                                continue;
-                            }
-                            DataPerformer.SeriesTypes.ParametrizedSeries s = ps as DataPerformer.SeriesTypes.ParametrizedSeries;
-
-                            ParametrizedSeries series = new ParametrizedSeries(null, null);
-                            series.Add(s);
-                            //b.Tag = series;
-                            OfficePickers.ColorPicker.ComboBoxColorPicker p = ob[3] as OfficePickers.ColorPicker.ComboBoxColorPicker;
-                            performer.AddSeries(series, p.Color);
-                            ownSeries.Add(series);*/
-                        }
+                                        }
                     }
                     performer.RefreshAll();
                 }

@@ -218,7 +218,6 @@ namespace DataTableSelection
         {
             current = 0;
             rowreference[0] = table.Rows[0];
-
         }
 
         /// <summary>

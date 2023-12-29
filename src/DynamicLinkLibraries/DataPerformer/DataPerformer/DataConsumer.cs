@@ -18,6 +18,7 @@ using DataPerformer.SeriesTypes;
 using DataPerformer.Portable;
 
 using DataPerformer.Portable.DifferentialEquationProcessors;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DataPerformer
 {
@@ -25,7 +26,7 @@ namespace DataPerformer
     /// Base class of data consumers
     /// </summary>
     [Serializable()]
-    public class DataConsumer : Portable.DataConsumer, ISerializable
+    public class DataConsumer : DataConsumerIterate, ISerializable
     {    
 
         #region Fields
@@ -294,6 +295,38 @@ namespace DataPerformer
             return d;
         }
 
+        public Dictionary<string, object> PerformIterator(IIterator iterator, string argument, string[] values,
+             
+      Func<bool> stop)
+        {
+            ParametrizedSeries[] series;
+            return PerformIterator(iterator, argument, values, out series, stop);
+        }
+
+        private  Dictionary<string, object> PerformIterator(IIterator iterator, string argument, string[] values,
+             out ParametrizedSeries[] series,
+      Func<bool> stop)
+        {
+            Dictionary<DoubleArrayFunction, IMeasurement[]> functions;
+            Dictionary<string, object> dic = CreateMeasurements(argument, values, out series, out functions, null);
+            this.ResetAll();
+            iterator.Reset();
+            do
+            {
+                if (stop())
+                {
+                    break;
+                }
+                this.UpdateAll();
+                foreach (var s in series)
+                {
+                    s.Step();
+                }
+            }
+            while (iterator.Next());
+            return dic;
+        }
+
 
 
         /// <summary>
@@ -434,12 +467,12 @@ namespace DataPerformer
      Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop)
         {
             this.PerformArray(array, this.GetRootDesktop(), 
-                DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                DifferentialEquationProcessor.Processor, 0, () =>
                {
                    if (stop())
                    {
-                       DataPerformer.Portable.StaticExtensionDataPerformerPortable.StopRun();
+                       StaticExtensionDataPerformerPortable.StopRun();
                    }
                    UpdateChildrenData();
                    foreach (ParametrizedSeries s in series)
@@ -456,7 +489,9 @@ namespace DataPerformer
            );
         }
 
-        private void PerformFixed(double start, double step, int count, string argument, string[] values,
+   
+
+        private void PerformFixed(double start, double step, int count, string argument, string[] values, 
      ParametrizedSeries[] series,
     Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, string reason, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
