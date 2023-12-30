@@ -1,6 +1,6 @@
 ﻿namespace WindowsTemplates
 {
-    partial class FormCenteredPanelThin
+    partial class FormCenteredDateTime
     {
         /// <summary>
         /// Required designer variable.
@@ -29,76 +29,89 @@
         private void InitializeComponent()
         {
             panelCenter = new System.Windows.Forms.Panel();
+            dateTimePicker = new System.Windows.Forms.DateTimePicker();
             panelRight = new System.Windows.Forms.Panel();
             panelLeft = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
             panelBottom = new System.Windows.Forms.Panel();
+            panelCenter.SuspendLayout();
             SuspendLayout();
             // 
             // panelCenter
             // 
+            panelCenter.Controls.Add(dateTimePicker);
             panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelCenter.Location = new System.Drawing.Point(0, 0);
-            panelCenter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelCenter.Location = new System.Drawing.Point(5, 12);
+            panelCenter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelCenter.Name = "panelCenter";
-            panelCenter.Size = new System.Drawing.Size(407, 328);
-            panelCenter.TabIndex = 15;
+            panelCenter.Size = new System.Drawing.Size(282, 28);
+            panelCenter.TabIndex = 20;
+            // 
+            // dateTimePicker
+            // 
+            dateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            dateTimePicker.Location = new System.Drawing.Point(0, 0);
+            dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new System.Drawing.Size(282, 23);
+            dateTimePicker.TabIndex = 0;
             // 
             // panelRight
             // 
             panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelRight.Location = new System.Drawing.Point(407, 0);
-            panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelRight.Location = new System.Drawing.Point(287, 12);
+            panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(0, 328);
-            panelRight.TabIndex = 13;
+            panelRight.Size = new System.Drawing.Size(5, 28);
+            panelRight.TabIndex = 18;
             // 
             // panelLeft
             // 
             panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelLeft.Location = new System.Drawing.Point(0, 0);
-            panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelLeft.Location = new System.Drawing.Point(0, 12);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(0, 328);
-            panelLeft.TabIndex = 12;
+            panelLeft.Size = new System.Drawing.Size(5, 28);
+            panelLeft.TabIndex = 17;
             // 
             // panelTop
             // 
             panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             panelTop.Location = new System.Drawing.Point(0, 0);
-            panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(407, 0);
-            panelTop.TabIndex = 11;
+            panelTop.Size = new System.Drawing.Size(292, 12);
+            panelTop.TabIndex = 16;
             // 
             // panelBottom
             // 
             panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 328);
-            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelBottom.Location = new System.Drawing.Point(0, 40);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(407, 0);
-            panelBottom.TabIndex = 14;
+            panelBottom.Size = new System.Drawing.Size(292, 6);
+            panelBottom.TabIndex = 19;
             // 
-            // FormCenteredPanelThin
+            // FormCenteredDateTime
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(407, 328);
+            ClientSize = new System.Drawing.Size(292, 46);
             Controls.Add(panelCenter);
             Controls.Add(panelRight);
             Controls.Add(panelLeft);
             Controls.Add(panelTop);
             Controls.Add(panelBottom);
-            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            Name = "FormCenteredPanelThin";
-            Text = "FormCenteredPanelThin";
+            Name = "FormCenteredDateTime";
+            Text = "Centered date time";
+            panelCenter.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panelCenter;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelTop;

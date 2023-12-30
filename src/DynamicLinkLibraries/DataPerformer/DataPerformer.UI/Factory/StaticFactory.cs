@@ -23,28 +23,36 @@ namespace DataPerformer.UI.Factory
 
         }
 
+        public static readonly ButtonWrapper[] FilterButtons =
+            [
+                new ButtonWrapper(typeof(Base.Filters.FilterWrapper), "Average", "Average Filter", ResourceFilters.Average,
+                    null, true, false),
+                new ButtonWrapper(typeof(Base.Filters.FilterWrapper), "Donchian", "Donchian Filter", ResourceFilters.Donhcian,
+                    null, true, false)
+          ];
+
         /// <summary>
         /// Buttons of general objects
         /// </summary>
-        public static readonly ButtonWrapper[] GeneralObjectsButtons = new ButtonWrapper[]
-        {
-    DefaultFactory.DefaultObjectButtons[0],  DefaultFactory.DefaultObjectButtons[1],
+        public static readonly ButtonWrapper[] GeneralObjectsButtons = [
+        
+    DefaultFactory.DefaultObjectButtons[0], DefaultFactory.DefaultObjectButtons[1],
             new ButtonWrapper(typeof(DataPerformer.ObjectTransformer), "",
                       "Object transformer", ResourceImage.Transform.ToBitmap(), null, true, false),
             new ButtonWrapper(typeof(DataPerformer.VectorFormulaConsumer),
                        "Mv", "Vector performer", ResourceImage.FormulaEditor, null, true, false),
             new ButtonWrapper(typeof(DataPerformer.Recursive), "",
-                "Recursive", ResourceImage.Recursive.ToBitmap(),  null, true, false),
-           new ButtonWrapper(typeof(DataPerformer.DifferentialEquationSolver), "",
-                "Differential equation system", ResourceImage.ODE.ToBitmap(),  null, true, false),
-          new ButtonWrapper(typeof(DataPerformer.VectorAssembly), "",
+                "Recursive", ResourceImage.Recursive.ToBitmap(), null, true, false),
+            new ButtonWrapper(typeof(DataPerformer.DifferentialEquationSolver), "",
+                "Differential equation system", ResourceImage.ODE.ToBitmap(), null, true, false),
+            new ButtonWrapper(typeof(DataPerformer.VectorAssembly), "",
                 "Vector", ResourceImage.Vector, null, true, false),
-             new ButtonWrapper(typeof(DataPerformer.MatrixAssembly), "",
+            new ButtonWrapper(typeof(DataPerformer.MatrixAssembly), "",
                 "Matrix", ResourceImage.Matrix, null, true, false),
-                new ButtonWrapper(typeof(DataPerformer.ArrayDisassembly), "",
-                "Components of array", ResourceImage.ArrayDisassembly.ToBitmap(),  null, true, false),
+            new ButtonWrapper(typeof(DataPerformer.ArrayDisassembly), "",
+                "Components of array", ResourceImage.ArrayDisassembly.ToBitmap(), null, true, false),
             new ButtonWrapper(typeof(DataPerformer.ArrayTransformer), "",
-                "Array transformer", ResourceImage.VectorToArray,  null, true, false),
+                "Array transformer", ResourceImage.VectorToArray, null, true, false),
             new ButtonWrapper(typeof(DataPerformer.FunctionAccumulator), "",
                 "Accumulator function", ResourceImage.Accumulator, null, true, false),
             new ButtonWrapper(typeof(DataPerformer.Advanced.Accumulators.AccumulatorSeriesArgument), "",
@@ -69,19 +77,18 @@ namespace DataPerformer.UI.Factory
                 "Point series", ResourceImage.PointSeries, null, true, false),
             new ButtonWrapper(typeof(DataPerformer.FormulaFilterIterator), "",
                 "Formula filter", ResourceImage.FormulaFilter.ToBitmap(), null, true, false),
-           new ButtonWrapper(typeof(DataPerformer.Helpers.KalmanFilter), "",
+            new ButtonWrapper(typeof(DataPerformer.Helpers.KalmanFilter), "",
                 "Kalman filter", ResourceImage.KalmanFilter.ToBitmap(), null, true, false),
 
             new ButtonWrapper(typeof(DataPerformer.Helpers.DataPerformerCollectionStateTransformer), "",
                 "Collection object transformer", ResourceImage.Collection.ToBitmap(), null, true, false),
-          new ButtonWrapper(typeof(DataPerformer.Objects.ManualInput), "",
+            new ButtonWrapper(typeof(DataPerformer.Objects.ManualInput), "",
                 "Manual input", ResourceImage._383, null, true, false),
-    new ButtonWrapper(typeof(EventRelated.TimeSeriesMedian), "",
+            new ButtonWrapper(typeof(EventRelated.TimeSeriesMedian), "",
                 "Median", ResourceImage.Median, null, true, false),
-       new ButtonWrapper(typeof(EventRelated.BufferedData.BufferReadWrite), "",
+            new ButtonWrapper(typeof(EventRelated.BufferedData.BufferReadWrite), "",
                 "Buffer", ResourceImage.DataObjectIcon, null, true, false)
-
-        };
+];
 
         /// <summary>
         /// Dictionary of images

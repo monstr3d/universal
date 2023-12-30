@@ -58,7 +58,7 @@ namespace DataPerformer.Formula
 
         //Action SetValueAction;
 
-        static private Action<object> checkValue = (object o) => { };
+        static private Func<object, bool> checkValue = (object o) => true;
 
         #endregion
 
@@ -310,7 +310,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Checks value
         /// </summary>
-        public static Action<object> CheckValue
+        public static Func<object, bool> CheckValue
         {
             get
             {

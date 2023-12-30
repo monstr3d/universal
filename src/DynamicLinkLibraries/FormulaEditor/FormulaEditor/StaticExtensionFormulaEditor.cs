@@ -25,7 +25,7 @@ namespace FormulaEditor
         /// <summary>
         ///  checks value
         /// </summary>
-        private static Action<object> checkValue = null;
+        private static Func<object, bool> checkValue = null;
 
 
         static List<string> additionalFormulas = new List<string>();
@@ -343,7 +343,7 @@ namespace FormulaEditor
         /// <summary>
         /// Checks value
         /// </summary>
-        public static Action<object> CheckValue
+        public static Func<object, bool> CheckValue
         {
             get
             {

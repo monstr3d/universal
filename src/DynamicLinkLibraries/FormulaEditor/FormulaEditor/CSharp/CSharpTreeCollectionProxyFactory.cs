@@ -33,7 +33,7 @@ namespace FormulaEditor.CSharp
 
         ObjectFormulaTree[] trees;
 
-        protected Action<object> checkValue;
+        protected Func<object, bool> checkValue;
 
 
         protected string code;
@@ -54,7 +54,7 @@ namespace FormulaEditor.CSharp
 
         #region ITreeCollectionProxyFactory Members
 
-        ITreeCollectionProxy ITreeCollectionProxyFactory.CreateProxy(ITreeCollection collection, Action<object> checkValue)
+        ITreeCollectionProxy ITreeCollectionProxyFactory.CreateProxy(ITreeCollection collection, Func<object, bool> checkValue)
         {
             this.collection = collection;
             this.checkValue = checkValue;
@@ -161,7 +161,7 @@ namespace FormulaEditor.CSharp
             l.Add("");
             if (checkValue)
             {
-                l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, BaseTypes.ObjectAction checkValue)");
+                l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue)");
                 l.Add("{");
                 l.Add("\tthis.trees = trees;");
                 l.Add("\tthis.checkValue = checkValue;");
@@ -190,9 +190,11 @@ namespace FormulaEditor.CSharp
             if (checkValue)
             {
                 l.Add("");
-                l.Add("BaseTypes.ObjectAction checkValue;");
+                l.Add("Func<object, bool> checkValue;");
+                l.Add("object variable;");
+
             }
-           // l.Add("\t}");
+            // l.Add("\t}");
             return l;
         }
 

@@ -18,6 +18,6 @@ namespace FormulaEditor.Interfaces
         /// <param name="collection">Collection of trees</param>
         /// <param name="checkValue">Check value delegate</param>
         /// <returns>The proxy</returns>
-        ITreeCollectionProxy CreateProxy(ITreeCollection collection, Action<object> checkValue);
+        ITreeCollectionProxy CreateProxy(ITreeCollection collection, Func<object, bool> checkValue);
     }
 }

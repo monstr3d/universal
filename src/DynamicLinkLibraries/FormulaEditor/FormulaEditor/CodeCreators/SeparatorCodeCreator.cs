@@ -95,7 +95,9 @@ namespace FormulaEditor.CodeCreators
                 }
                 if (sep[0].Equals(" = aliasName") & sep[1].Equals(".Value;"))
                 {
-                    string str = ret + " = " + st + "aliasName" + sp + sep[1];
+                    string[] str = ["variable = aliasName" + sp + sep[1],
+                            "if (checkValue(variable)) return;",
+                    ret + " = " + st + "variable;"];
                    initializers = new List<string>()
                    {
                        "aliasName" + sp + " = " +  
@@ -106,7 +108,7 @@ namespace FormulaEditor.CodeCreators
                    {
                        "Diagram.UI.Interfaces.IAliasName aliasName" + sp + ";"
                    };
-                    return new List<string>() { str };
+                    return str.ToList();
                 }
             }
             variables = new List<string>();

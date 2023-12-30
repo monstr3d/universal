@@ -1768,7 +1768,7 @@ namespace Diagram.UI
             ICategoryObject ob = tools.Factory.CreateObject(tools.Active);
             if (ob != null)
             {
-                Diagram.UI.StaticExtensionDiagramUI.PostCreateObject(ob);
+                StaticExtensionDiagramUI.PostCreateObject(ob);
                 label.Object = ob;
                 ob.SetAssociatedObject(label);
                 label.Object.SetAssociatedObject(label);

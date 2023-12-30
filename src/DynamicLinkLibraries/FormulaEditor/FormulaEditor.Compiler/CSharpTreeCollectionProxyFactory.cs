@@ -36,7 +36,7 @@ namespace FormulaEditor.Compiler
                     collection.CreateProxy(code);
                     Type[] types = ass.GetTypes();
                     Type[] inp = (checkValue == null) ? new Type[] { typeof(ObjectFormulaTree[]) } :
-                        new Type[] { typeof(ObjectFormulaTree[]), typeof(ObjectAction) };
+                        new Type[] { typeof(ObjectFormulaTree[]), typeof(Func<object, bool>) };
                     foreach (Type t in types)
                     {
                         if (t.GetInterface(typeof(ITreeCollectionProxy).FullName) != null)
@@ -46,9 +46,8 @@ namespace FormulaEditor.Compiler
                                 ConstructorInfo constructor = t.GetConstructor(inp);
                                 return constructor.Invoke(new object[] { local.Trees }) as ITreeCollectionProxy;
                             }
-                            ObjectAction act = new ObjectAction(checkValue);
                             ConstructorInfo ci = t.GetConstructor(inp);
-                            return ci.Invoke(new object[] { local.Trees, act }) as ITreeCollectionProxy;
+                            return ci.Invoke(new object[] { local.Trees, checkValue }) as ITreeCollectionProxy;
                         }
                     }
                 }

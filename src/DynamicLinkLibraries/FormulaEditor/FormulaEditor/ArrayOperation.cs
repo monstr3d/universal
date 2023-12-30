@@ -7,7 +7,6 @@ using System.Text;
 using BaseTypes;
 using BaseTypes.Interfaces;
 
-using FormulaEditor.Interfaces;
 
 namespace FormulaEditor
 {

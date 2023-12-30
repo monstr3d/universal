@@ -254,9 +254,5 @@ namespace BaseTypes
 
     }
 
-    /// <summary>
-    /// Object action
-    /// </summary>
-    /// <param name="o">Object</param>
-    public delegate void ObjectAction(object o);
+ 
 }

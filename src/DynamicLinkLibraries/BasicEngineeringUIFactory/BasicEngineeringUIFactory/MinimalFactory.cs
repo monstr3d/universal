@@ -57,9 +57,15 @@ namespace BasicEngineering.UI.Factory
         /// <returns>The object</returns>
         public override ICategoryObject CreateObject(IPaletteButton button)
         {
-            if (button.ReflectionType.Equals(typeof(DataPerformer.DataConsumer)))
+            var type = button.ReflectionType;
+            var kind = button.Kind;
+            if (type.Equals(typeof(DataConsumer)))
             {
                 return new DataConsumer(0);
+            }
+            if (type.Equals(typeof(DataPerformer.Base.Filters.FilterWrapper)))
+            {
+                return new DataPerformer.Base.Filters.FilterWrapper(kind);
             }
             return null;
         }
@@ -274,6 +280,15 @@ namespace BasicEngineering.UI.Factory
             if (t.GetInterface(typeof(DataPerformer.Interfaces.INamedCoordinates).FullName) != null)
             {
                 return DataPerformer.UI.Labels.NamedlSeriesLabel.Create(t);
+            }
+            if (t.Equals(typeof(DataPerformer.Base.Filters.FilterWrapper)))
+            {
+                if (kind == "Donchian")
+                {
+                    return typeof(DataPerformer.UI.Labels.DonchianLabel).CreateLabelUI(false);
+                }
+                return typeof(DataPerformer.UI.Labels.AverageLabel).CreateLabelUI(false);
+
             }
             if (t.Equals(typeof(DataConsumer)))
             {
