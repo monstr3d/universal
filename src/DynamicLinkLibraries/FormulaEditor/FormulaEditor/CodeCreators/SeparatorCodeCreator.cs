@@ -90,13 +90,18 @@ namespace FormulaEditor.CodeCreators
                    {
                        "DataPerformer.Interfaces.IMeasurement measurement" + sp + ";"
                    };
-                    string str = ret + " = " + st + "measurement" + sp + sep[1];
-                    return new List<string>() { str };
+                    string[] str =
+                        [
+                        "variable = measurement" + sp + sep[1],
+                               "if (checkValue(variable)) { success = false; return; }",
+                          ret + " = " + st + "variable;"
+                ];
+                    return str.ToList();
                 }
                 if (sep[0].Equals(" = aliasName") & sep[1].Equals(".Value;"))
                 {
                     string[] str = ["variable = aliasName" + sp + sep[1],
-                            "if (checkValue(variable)) return;",
+                        "if (checkValue(variable)) { success = false; return; }",
                     ret + " = " + st + "variable;"];
                    initializers = new List<string>()
                    {

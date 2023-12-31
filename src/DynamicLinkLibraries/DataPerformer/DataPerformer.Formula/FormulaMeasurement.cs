@@ -58,7 +58,7 @@ namespace DataPerformer.Formula
 
         //Action SetValueAction;
 
-        static private Func<object, bool> checkValue = (object o) => true;
+        static private Func<object, bool> checkValue = (object o) => false;
 
         #endregion
 
@@ -186,8 +186,10 @@ namespace DataPerformer.Formula
             try
             {
                 object o = tree.Result;
-                checkValue(o);
-                ret = o;
+                if (!checkValue(o))
+                {
+                    ret = o;
+                }
             }
             catch (Exception ex)
             {

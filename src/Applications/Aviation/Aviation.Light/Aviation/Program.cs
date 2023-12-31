@@ -14,16 +14,17 @@ using CommonService;
 using BasicEngineering.UI.Factory;
 
 using Aviation.UI;
-using System.Xml;
-using System.Runtime.Intrinsics.Arm;
-using NUnit.Framework;
-using DataPerformer.Portable;
+using DataPerformer.Formula;
 
 namespace Aviation.Light
 {
 
     class Program
     {
+        static bool check(object o)
+        {
+            return o == null;
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -58,9 +59,11 @@ namespace Aviation.Light
             */
             AssemblyService.StaticExtensionAssemblyService.Init();
 
+            // FormulaMeasurement.CheckValue = (o)                            => o == null;
+            FormulaEditor.StaticExtensionFormulaEditor.CheckValue = check;
 
 
-        string filename = "";
+            string filename = "";
             /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
                      string st = t.FullName + "," + t.Assembly; //*/
  //           new Gravity_36_36.Gravity();

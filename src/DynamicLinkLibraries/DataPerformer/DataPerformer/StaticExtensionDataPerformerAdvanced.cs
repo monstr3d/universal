@@ -334,7 +334,7 @@ namespace DataPerformer
                     foreach (string k in d.Keys)
                     {
                         object v = d[k]()();
-                        FormulaMeasurement.CheckValue(v);
+                     FormulaMeasurement.CheckValue(v);
                     }
                      if ((bool)cond.Parameter())
                     {

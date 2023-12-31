@@ -48,6 +48,7 @@ namespace FormulaEditor.CSharp
         /// </summary>
         protected CSharpTreeCollectionProxyFactory()
         {
+            
         }
 
         #endregion
@@ -139,11 +140,12 @@ namespace FormulaEditor.CSharp
         #region Private Members
 
         private List<string> PostCreateCode(ICodeCreator local, IList<string> lcode,
-           IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = false)
+           IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = true)
         {
             List<string> l = new List<string>();
             l.Add("public void Update()");
             l.Add("{");
+            l.Add("\tsuccess = true;");
             foreach (string s in lcode)
             {
                 l.Add("\t" + s);
@@ -152,10 +154,10 @@ namespace FormulaEditor.CSharp
             int nTree = local.Trees.Length;
             if (checkValue)
             {
-                for (int i = 0; i < nTree; i++)
+            /*    for (int i = 0; i < nTree; i++)
                 {
                     l.Add("\tcheckValue(var_" + i + ");");
-                }
+                */
             }
             l.Add("}");
             l.Add("");
@@ -190,8 +192,9 @@ namespace FormulaEditor.CSharp
             if (checkValue)
             {
                 l.Add("");
-                l.Add("Func<object, bool> checkValue;");
+                l.Add("Func<object, bool> checkValue = (o) => false;");
                 l.Add("object variable;");
+                l.Add("bool success = true;");
 
             }
             // l.Add("\t}");
@@ -249,7 +252,7 @@ namespace FormulaEditor.CSharp
             func.Add("");
             func.Add("object " + f + "()");
             func.Add("{");
-            func.Add("\treturn " + tid + ";");
+            func.Add("\treturn success ? " + tid + " : null;");
             func.Add("}");
         }
 

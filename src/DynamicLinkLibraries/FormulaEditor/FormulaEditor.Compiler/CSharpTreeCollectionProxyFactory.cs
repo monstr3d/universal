@@ -33,9 +33,13 @@ namespace FormulaEditor.Compiler
                 try
                 {
                     Assembly ass = StaticExtensionFormulaEditorCompiler.Compiler[code];
+                    if (ass == null)
+                    {
+                        /// Check point
+                    }
                     collection.CreateProxy(code);
                     Type[] types = ass.GetTypes();
-                    Type[] inp = (checkValue == null) ? new Type[] { typeof(ObjectFormulaTree[]) } :
+                    Type[] inp = (checkValue == null) ? [ typeof(ObjectFormulaTree[]) ] :
                         new Type[] { typeof(ObjectFormulaTree[]), typeof(Func<object, bool>) };
                     foreach (Type t in types)
                     {
