@@ -345,7 +345,7 @@ namespace DataPerformer.Portable.Runtime
                     {
                         up();
                     }
-                    UpdateMeasurements();
+                 //!!! CHECK    UpdateMeasurements();
                 };
             }
         }

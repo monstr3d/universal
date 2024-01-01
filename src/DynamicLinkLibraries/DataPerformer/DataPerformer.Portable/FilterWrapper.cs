@@ -1,6 +1,7 @@
 ﻿using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Filters;
+using Event.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,68 @@ using System.Threading.Tasks;
 
 namespace DataPerformer.Portable
 {
-    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements
+    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IRealTimeStartStop
     {
+
+        #region Fields 
+        
         protected string kind = "";
 
         protected string input;
 
-
         protected IFilter filter;
 
-        public IFilter Filter { get => filter;  }
+        IMeasurement measurement;
+
+        IMeasurement measurementOut;
+
+        bool isUpdated = false;
+
+        double? outval;
+
+
+        #endregion
+
+        #region Ctor
+
+        public FilterWrapper(string kind) : this(true)
+        {
+            this.kind = kind;
+            SetFilter();
+        }
+
+        protected FilterWrapper(bool b) : base(40)
+        {
+        }
+
+        #endregion
+
+        #region Members
+
+        protected void SetFilter()
+        {
+            bool b = kind == "Donchian";
+            if (b)
+            {
+                filter = new Donchian();
+                measurementOut = new DonchianMeasurement(this);
+            }
+            else
+            {
+                filter = new Average();
+                measurementOut = new FilterMeasurement(this);
+            }
+        }
+            
+
+
+        public IFilter Filter { get => filter; }
 
 
         public string Input
-      
+
         { get => input; set { input = value; Find(); } }
-   
+
         protected void Find()
         {
             try
@@ -36,37 +83,16 @@ namespace DataPerformer.Portable
 
         public string Kind { get => kind; }
 
-        IMeasurement measurement;
+        #endregion
 
-        IMeasurement measurementOut;
+        #region IPostSetArrow Members
 
-        bool isUpdated = false;
-
-        double outval;
-
-     
-        
-
-
-        public FilterWrapper(string kind) : this(true)
-        {
-            this.kind = kind;
-            SetFilter();
-        }
-
-        protected FilterWrapper(bool b) : base(40)
-        {
-            measurementOut = new FilterMeasurement(this);
-        }
-        protected void SetFilter()
-        {
-            filter = kind == "Donchian" ? new Donchian() : new Average();
-        }
-
-        public void PostSetArrow()
+        void IPostSetArrow.PostSetArrow()
         {
             Find();
         }
+
+        #endregion
 
         #region IMeasurements Members
 
@@ -74,15 +100,61 @@ namespace DataPerformer.Portable
 
         int IMeasurements.Count => 1;
 
-        bool IMeasurements.IsUpdated { get => isUpdated; set => isUpdated = value; }
+        bool IMeasurements.IsUpdated 
+        { 
+            get => isUpdated; 
+            set => isUpdated = value; 
+        }
 
         void IMeasurements.UpdateMeasurements()
         {
-            var a = measurement.Parameter();
-            outval = filter[(double)a];
+            var a = (double?)measurement.Parameter();
+            outval = filter[a];
         }
 
         #endregion
+
+        #region IRealTimeStartStop Members
+
+        event Action IRealTimeStartStop.OnStart
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        event Action IRealTimeStartStop.OnStop
+        {
+            add
+            {
+            }
+
+            remove
+            {
+            }
+        }
+
+        void IRealTimeStartStop.Start()
+        {
+            filter.Reset();
+        }
+
+        void IRealTimeStartStop.Stop()
+        {
+        }
+
+        #endregion
+
+        #region Measurement class
+        
+        class DonchianMeasurement : FilterMeasurement
+        {
+            public DonchianMeasurement(FilterWrapper filter) : base(filter) { }
+        }
 
         class FilterMeasurement : IMeasurement
         {
@@ -103,23 +175,6 @@ namespace DataPerformer.Portable
             object IMeasurement.Type => (double)0;
         }
 
-        class IN : IMeasurements
-        {
-            #region IMeasurements Members
-
-            IMeasurement IMeasurements.this[int number] => throw new NotImplementedException();
-
-            int IMeasurements.Count => throw new NotImplementedException();
-
-            bool IMeasurements.IsUpdated { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-            void IMeasurements.UpdateMeasurements()
-            {
-                throw new NotImplementedException();
-            }
-
-            #endregion
-        }
-
+        #endregion
     }
 }

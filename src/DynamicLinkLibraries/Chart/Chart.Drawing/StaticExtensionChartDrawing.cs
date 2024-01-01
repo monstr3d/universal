@@ -14,6 +14,11 @@ namespace Chart.Drawing
     public static class StaticExtensionChartDrawing
     {
         /// <summary>
+        /// Factory
+        /// </summary>
+        public static ISeriesPainterFactory SeriesPainterFactory { get; set; }
+
+        /// <summary>
         /// Gets painter
         /// </summary>
         /// <param name="factory">The factoryparam>
@@ -26,6 +31,24 @@ namespace Chart.Drawing
                 throw new Exception("Factory does not support series painter");
             }
             return (factory as IPointFactoryExtended).GetPainter(performer);
+        }
+
+        /// <summary>
+        /// Gets series painter
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static ISeriesPainter ToSeriesPainter(this object obj)
+        {
+            if (SeriesPainterFactory == null)
+            {
+                return null;
+            }
+            if (obj == null)
+            {
+                return null;
+            }
+            return SeriesPainterFactory[obj];
         }
     }
 }

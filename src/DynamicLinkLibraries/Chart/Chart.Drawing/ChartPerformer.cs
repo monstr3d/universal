@@ -473,9 +473,15 @@ namespace Chart.Drawing
         /// </summary>
         /// <param name="s">Series to add</param>
         /// <param name="color">Color</param>
-        public void AddSeries(ISeries s, Color color)
+        /// <param name="additional">Additional object</param>
+        public void AddSeries(ISeries s, Color color, object additional = null)
         {
-            ISeriesPainter p = new SimpleSeriesPainter(new Color[] { color });
+            var t = new Tuple<ISeries, Color[], object>(s, [color], additional);
+            var p = t.ToSeriesPainter();
+            if (p == null)
+            {
+                p = new SimpleSeriesPainter(new Color[] { color });
+            }
             AddSeries(s, p);
         }
 

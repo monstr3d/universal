@@ -43,7 +43,7 @@ namespace DataPerformer.UI.Labels
         /// Default constructor
         /// </summary>
         public AverageLabel()
-            : base(typeof(FilterWrapper), "Average", ResourceFilters.Donhcian)
+            : base(typeof(FilterWrapper), "Average", ResourceFilters.Average)
         {
 
         }

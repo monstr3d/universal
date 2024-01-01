@@ -17,18 +17,21 @@ namespace DataPerformer.Portable.Filters
 
         protected Queue<double> data = new Queue<double>();
 
-        public virtual double this[double a] => Calc(a);
+        public virtual double? this[double ?a] => Calc(a);
 
-        int IFilter.Count { get; set; }
+        int IFilter.Count { get; set; } = 2;
 
         void IFilter.Reset()
         {
             data.Clear();
         }
 
-        protected double Calc(double a)
+        protected double? Calc(double ? a)
         {
-            data.Enqueue(a);
+            if (a != null)
+            {
+                data.Enqueue((double)a);
+            }
             return a;
         }
     }

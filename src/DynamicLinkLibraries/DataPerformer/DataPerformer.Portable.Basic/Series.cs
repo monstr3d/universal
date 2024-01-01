@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Numerics;
 using System.Xml;
 
 
@@ -380,6 +380,20 @@ namespace DataPerformer.Portable.Basic
             CheckEqualStep();
         }
 
+        /// <summary>
+        /// Adds point
+        /// </summary>
+        /// <param name="x">x - coordinate</param>
+        /// <param name="y">y - coordinate</param>
+        public virtual void AddXY(double? x, double? y)
+        {
+            if ((x == null) | (y == null))
+            {
+                return;
+            }
+            AddXY((double)x, (double)y);
+        }
+
 
         /// <summary>
         /// Adds point
@@ -394,6 +408,20 @@ namespace DataPerformer.Portable.Basic
             }
             points.Add(new double[] { x, y });
         }
+
+        /// <summary>
+        /// Adds point
+        /// </summary>
+        /// <param name="x">x - coordinate</param>
+        /// <param name="y">y - coordinate</param>
+        public virtual void AddXY(double x, double[] y)
+        {
+            var a = new double[y.Length + 1];
+            a[0] = x;
+            Array.Copy(y, 0, a, 1, y.Length);
+            points.Add(a);
+        }
+
 
         /// <summary>
         /// Access to i - th point (j = 0 access to x - coordinate, j = 1 access to y coordinate)

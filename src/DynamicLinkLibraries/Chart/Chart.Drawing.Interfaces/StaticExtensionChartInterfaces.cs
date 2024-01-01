@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chart.Drawing.Interfaces.Points;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,43 @@ namespace Chart.Drawing.Interfaces
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Creator of coordinare functions
+        /// </summary>
+        static public ICoordinateFunctionsCreator CoordinateFunctionsCreator
+        { get; set; }
+
+        /// <summary>
+        /// Coodinate functions from object
+        /// </summary>
+        /// <param name="obj">The object</param>
+        /// <returns>The functions</returns>
+        public static Func<object, object>[] CreateCoordinateFunctions(this object obj)
+        {
+            if (CoordinateFunctionsCreator == null)
+            {
+                return null;
+            }
+            if (obj == null)
+            {
+                return null;
+            }
+            return CoordinateFunctionsCreator[obj];
+        }
+
+        /// <summary>
+        /// Creates a point from array
+        /// </summary>
+        /// <param name="x">The array</param>
+        /// <returns>The point</returns>
+        static public IPoint ToPoint(this double[] x)
+        {
+            if (x.Length == 2) return new PointBase(x[0], x[1]);
+            double[] y = new double[x.Length - 1];
+            Array.Copy(x, 1, y, 0, y.Length);
+            return new MultiPoint(x[0], y);
         }
 
         /// <summary>

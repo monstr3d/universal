@@ -525,6 +525,21 @@ namespace BaseTypes.Utils
             return 0;
         }
 
+        /// <summary>
+        /// Converts object to double
+        /// </summary>
+        /// <param name="o">The object</param>
+        /// <returns>Conversion result</returns>
+        public static double? ToNullDouble(object o)
+        {
+            if (o == null)
+            {
+                return null;
+            } 
+            return ToDouble(o);
+        }
+
+
 
         /// <summary>
         /// Converts object to double

@@ -38,9 +38,13 @@ namespace DataPerformer.UI.UserControls
                 if (!(value is Base.Filters.FilterWrapper)) { throw new Exception(); }
                 filterWrapper = value;
                 if (filterWrapper.Kind != "Average") { throw new Exception(); }
-           }
+                filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
+                numericUpDownCount.Value = filterWrapper.Filter.Count;
+                Disposed += UserControlAverage_Disposed;
+            }
         }
 
+  
         private void NumericUpDownCount_ValueChanged(object sender, EventArgs e)
         {
             filterWrapper.Filter.Count = (int)numericUpDownCount.Value;
@@ -57,18 +61,32 @@ namespace DataPerformer.UI.UserControls
 
         void IPostSet.Post()
         {
+            FilterWrapper_OnChangeInput();
+            comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
+            numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
+            filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
+            
+        }
+
+        private void UserControlAverage_Disposed(object sender, EventArgs e)
+        {
+            filterWrapper.OnChangeInput -= FilterWrapper_OnChangeInput;
+        }
+
+        private void FilterWrapper_OnChangeInput()
+        {
             var meas = filterWrapper.GetAllMeasurements((double)0);
+            comboBoxInput.Items.Clear();
             comboBoxInput.Items.AddRange(meas.ToArray());
             for (int i = 0; i < meas.Count; i++)
             {
-                if (meas[i] != filterWrapper.Input)
+                if (meas[i] == filterWrapper.Input)
                 {
                     comboBoxInput.SelectedIndex = i;
                     break;
                 }
             }
-            comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
-            numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
+
         }
     }
 }

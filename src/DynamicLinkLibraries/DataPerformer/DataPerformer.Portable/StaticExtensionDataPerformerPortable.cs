@@ -34,7 +34,8 @@ namespace DataPerformer.Portable
 
         #region Fields
 
-
+        // Type check
+        private static readonly double a = 0;
         /// <summary>
         /// Comparer of measurements
         /// </summary>
@@ -78,6 +79,24 @@ namespace DataPerformer.Portable
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Checks whether type is double
+        /// </summary>
+        /// <param name="obj">The type</param>
+        /// <returns>The result of checking</returns>
+        public static bool IsDoubleType(this object obj)
+        {
+            if (obj.Equals(a)) return true;
+            if (obj is ArrayReturnType)
+            {
+                ArrayReturnType art = obj as ArrayReturnType;
+                return art.ElementType.Equals(a);
+            }
+            return false;
+
+        }
+
 
         /// <summary>
         /// Converts object to differential equation solver

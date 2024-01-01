@@ -11,7 +11,7 @@ namespace DataPerformer.Portable.Filters
         int Count
         { get; set; }
 
-        double this[double a] { get; }
+        double? this[double? a] { get; }
 
         void Reset();
     }

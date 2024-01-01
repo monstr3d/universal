@@ -41,9 +41,10 @@ namespace Chart.Objects
             List<double[]> l = series.Points;
             foreach (double[] d in l)
             {
-                pointList.Add(new PointBase(d[0], d[1]));
+                pointList.Add(d.ToPoint()); ;
             }
         }
+
 
         #region ISeries Members
 

@@ -254,11 +254,15 @@ namespace DataPerformer
                     continue;
                 }
                 object t = val.Type;
-                if (t.Equals(a))
+                if (t.IsDoubleType())
                 {
 
-                    ParametrizedSeries ps =
-                        new ParametrizedSeries(arg.ToValueHolder(), val.ToValueHolder());
+                    var ps =
+                        new ParametrizedSeries(arg.ToValueHolder(), val.ToValueHolder(), t)
+                        {
+                            Attached = key
+                        };
+                    
                     m.Add(ps);
                     o = ps;
                 }
@@ -310,7 +314,6 @@ namespace DataPerformer
             Dictionary<DoubleArrayFunction, IMeasurement[]> functions;
             Dictionary<string, object> dic = CreateMeasurements(argument, values, out series, out functions, null);
             this.ResetAll();
-            iterator.Reset();
             do
             {
                 if (stop())

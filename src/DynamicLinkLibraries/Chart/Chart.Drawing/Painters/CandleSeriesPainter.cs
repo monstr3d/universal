@@ -65,14 +65,21 @@ namespace Chart.Drawing.Painters
                 {
                     var arr = queue.ToArray();
                     var ar = arr[1];
-                    int n = ar[3] > ar[4] ? 0 : 1;
+                    int n = xx.Y[2] > xx.Y[3] ? 0 : 1;
                     var pen = pens[n];
                     var brush = brushes[n];
-                    g.DrawLine(pen, ar[0], ar[1], ar[0], ar[2]);
                     int dxl = (arr[1][0] - arr[0][0]) / 3;
                     int dxr = (arr[2][0] - arr[1][0]) / 3;
                     var xp = ar[0] - dxl;
                     var wp = dxl + dxr;
+                    if (wp < 5)
+                    {
+                        g.DrawLine(pen, ar[0], ar[1], ar[0], ar[2]);
+                    }
+                    else
+                    {
+                        g.FillRectangle(brush, ar[0]-1, ar[1], 3, ar[2] - ar[1]);
+                    }
                     int[] cc = [ar[3], ar[4]];
                     var yp = cc.Min();
                     var hp = cc.Max() - cc.Min();

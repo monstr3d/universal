@@ -1,20 +1,13 @@
-﻿using DataPerformer.Base.Filters;
-using DataPerformer.Interfaces;
+﻿using System;
+using System.Windows.Forms;
+
 using DataPerformer.Portable;
 using DataPerformer.Portable.Filters;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Diagram.UI.Interfaces;
 
 namespace DataPerformer.UI.UserControls
 {
-    public partial class UserControlDonchian : UserControl
+    public partial class UserControlDonchian : UserControl, IPostSet
     {
         Base.Filters.FilterWrapper filterWrapper;
 
@@ -30,21 +23,11 @@ namespace DataPerformer.UI.UserControls
             {
                 if (value == null) { return; }
                 if (filterWrapper != null) { throw new Exception(); }
-                if (filterWrapper.Kind != "Donchian") { throw new Exception(); }
                 filterWrapper = value;
-                var meas = filterWrapper.GetAllMeasurements((double)0);
-                comboBoxInput.Items.AddRange(meas.ToArray());
-                for (int i = 0; i < meas.Count; i++)
-                {
-                    if (meas[i] != filterWrapper.Input)
-                    {
-                        comboBoxInput.SelectedIndex = i;
-                        break;
-                    }
-                }
-                comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
-                numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
-                checkBoxMaximum.CheckedChanged += CheckBoxMaximum_CheckedChanged;
+                if (filterWrapper.Kind != "Donchian") { throw new Exception(); }
+                filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
+                numericUpDownCount.Value = filterWrapper.Filter.Count;
+                checkBoxMaximum.Checked = (filterWrapper.Filter as Donchian).Max;
             }
         }
 
@@ -65,6 +48,37 @@ namespace DataPerformer.UI.UserControls
             {
                 filterWrapper.Input = o.ToString();
             }
+        }
+
+
+        void IPostSet.Post()
+        {
+            FilterWrapper_OnChangeInput();
+            comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
+            numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
+            checkBoxMaximum.CheckStateChanged += CheckBoxMaximum_CheckedChanged;
+            Disposed += UserControlDonchian_Disposed;  
+        }
+
+        private void UserControlDonchian_Disposed(object sender, EventArgs e)
+        {
+            filterWrapper.OnChangeInput -= FilterWrapper_OnChangeInput;
+        }
+
+        private void FilterWrapper_OnChangeInput()
+        {
+            var meas = filterWrapper.GetAllMeasurements((double)0);
+            comboBoxInput.Items.Clear();
+            comboBoxInput.Items.AddRange(meas.ToArray());
+            for (int i = 0; i < meas.Count; i++)
+            {
+                if (meas[i] == filterWrapper.Input)
+                {
+                    comboBoxInput.SelectedIndex = i;
+                    break;
+                }
+            }
+
         }
     }
 }

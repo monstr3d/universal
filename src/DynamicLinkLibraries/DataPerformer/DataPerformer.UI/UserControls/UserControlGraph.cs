@@ -51,6 +51,7 @@ using Event.UI;
 
 using WindowsExtensions;
 using System.Threading.Tasks;
+using Chart.Indicators;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -72,6 +73,8 @@ namespace DataPerformer.UI.UserControls
         List<Tuple<double, Dictionary<IMeasurement, object>>> listAnalysis;
 
         internal IndicatorWrapper indicatorWrapper = new IndicatorWrapper();
+
+        internal MouseTransformerIndicator mouseTransformerIndicator = new MouseTransformerIndicator();
 
         /// <summary>
         /// The "undefined argument message"
@@ -266,17 +269,19 @@ namespace DataPerformer.UI.UserControls
         /// </summary>
         public void Post()
         {
-       /*!!! BAD    try
-            {
-                postInit();
-                refresh();
-                performer.Add(this);
-            }
-            catch (Exception ex)
-            {
-                ex.ShowError(10);
-            }
-            */
+            /*!!! BAD    try
+                 {
+                     postInit();
+                     refresh();
+                     performer.Add(this);
+                 }
+                 catch (Exception ex)
+                 {
+                     ex.ShowError(10);
+                 }
+                 */
+            IPostSet ps = this;
+            ps.Post();
         }
 
         #endregion
@@ -289,7 +294,14 @@ namespace DataPerformer.UI.UserControls
             {
                 postInit();
                 refresh();
-                performer.Add(this);
+                mouseTransformerIndicator.Action = Indicate;
+                mouseTransformerIndicator.Enabled = (enabled) =>
+                {
+                    labelX.Visible = enabled;
+                    labelY.Visible = enabled;
+                };
+              //  performer.Add(mouseTransformerIndicator);
+                performer.Add(mouseTransformerIndicator);
             }
             catch (Exception ex)
             {
@@ -340,6 +352,14 @@ namespace DataPerformer.UI.UserControls
         #endregion
 
         #region IMouseChartIndicator Members
+
+        void Indicate(string[] s)
+        {
+            labelX.Text = "X = " + s[0];
+            labelY.Text = "Y = " + s[1];
+
+        }
+
 
         void IMouseChartIndicator.Indicate(double x, double y)
         {
@@ -1185,21 +1205,24 @@ namespace DataPerformer.UI.UserControls
                   */
             fillMea();
             int n = -1;
-            for (int i = 0; i < consumer.Count; i++)
+            if (consumer != null)
             {
-
-                IMeasurements arrow = consumer[i];
-                string name = consumer.GetMeasurementsName(arrow);
-                for (int j = 0; j < arrow.Count; j++)
+                for (int i = 0; i < consumer.Count; i++)
                 {
-                    IMeasurement m = arrow[j];
-                    string s = name + "." + m.Name;
-                    comboBoxArg.Items.Add(s);
-                    if (s.Equals(data.Item4[1]))
-                    {
-                        n = j;
-                    }
 
+                    IMeasurements arrow = consumer[i];
+                    string name = consumer.GetMeasurementsName(arrow);
+                    for (int j = 0; j < arrow.Count; j++)
+                    {
+                        IMeasurement m = arrow[j];
+                        string s = name + "." + m.Name;
+                        comboBoxArg.Items.Add(s);
+                        if (s.Equals(data.Item4[1]))
+                        {
+                            n = j;
+                        }
+
+                    }
                 }
             }
             if (n >= 0)
@@ -1214,32 +1237,35 @@ namespace DataPerformer.UI.UserControls
             }
 
             bool b = false;
-            IList<string> l = consumer.GetAllMeasurements(b);
-            dicMea.Clear();
-            panelText.Controls.Clear();
-            comboBoxCond.FillCombo(l);
-            comboBoxCond.SelectCombo(data.Item4[0]);
-            int y = 0;
-            int w = panelText.Width;
-            for (int i = 0; i < consumer.Count; i++)
+            if (consumer != null)
             {
-                IMeasurements m = consumer[i];
-                string name = consumer.GetMeasurementsName(m);
-                Panel pm = new PanelMeasureText(consumer, consumer[i], w, dicMea, name, data.Item3);
-                pm.Top = y;
-                panelText.Controls.Add(pm);
-                y = pm.Bottom;
+                IList<string> l = consumer.GetAllMeasurements(b);
+                dicMea.Clear();
+                panelText.Controls.Clear();
+                comboBoxCond.FillCombo(l);
+                comboBoxCond.SelectCombo(data.Item4[0]);
+                int y = 0;
+                int w = panelText.Width;
+                for (int i = 0; i < consumer.Count; i++)
+                {
+                    IMeasurements m = consumer[i];
+                    string name = consumer.GetMeasurementsName(m);
+                    Panel pm = new PanelMeasureText(consumer, consumer[i], w, dicMea, name, data.Item3);
+                    pm.Top = y;
+                    panelText.Controls.Add(pm);
+                    y = pm.Bottom;
+                }
+                double a = 0;
+                IList<string> ld = consumer.GetAllMeasurements(a);
+                comboBoxStart.FillCombo(ld);
+                comboBoxStart.SelectCombo(data.Item4[2]);
+                comboBoxStep.FillCombo(ld);
+                comboBoxStep.SelectCombo(data.Item4[3]);
+                int ni = 0;
+                IList<string> li = consumer.GetAllMeasurements(ni);
+                comboBoxStepCount.FillCombo(li);
+                comboBoxStepCount.SelectCombo(data.Item4[4]);
             }
-            double a = 0;
-            IList<string> ld = consumer.GetAllMeasurements(a);
-            comboBoxStart.FillCombo(ld);
-            comboBoxStart.SelectCombo(data.Item4[2]);
-            comboBoxStep.FillCombo(ld);
-            comboBoxStep.SelectCombo(data.Item4[3]);
-            int ni = 0;
-            IList<string> li = consumer.GetAllMeasurements(ni);
-            comboBoxStepCount.FillCombo(li);
-            comboBoxStepCount.SelectCombo(data.Item4[4]);
         }
 
         private int GetValue(ComboBox cb, TextBox tb, out string str)
@@ -1260,6 +1286,18 @@ namespace DataPerformer.UI.UserControls
 
         private void PeformIterator(IDataConsumer consumer, IIterator iterator)
         {
+            iterator.Reset();
+            var mea = consumer.FindMeasurement(globalArg);
+            var coord = mea.CreateCoordinateFunctions();
+            if (coord != null)
+            {
+                mouseTransformerIndicator.X = coord[0];
+                mouseTransformerIndicator.Y = coord[1];
+
+            }
+            var coll = consumer.GetDependentCollection();
+            coll.ForEach((IRealTimeStartStop s) => s.Stop());
+            coll.ForEach((IRealTimeStartStop s) => s.Start());
             dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
         }
 
@@ -1267,6 +1305,7 @@ namespace DataPerformer.UI.UserControls
         {
             try
             {
+                mouseTransformerIndicator.X = null;
                 var it = (consumer as DataConsumerIterate).Iterator;
                 if (it != null) 
                 {
@@ -2793,8 +2832,8 @@ namespace DataPerformer.UI.UserControls
                             SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
                             ParametrizedSeries series = new ParametrizedSeries(null, null);
                             series.Add(ps);
-
-                            performer.AddSeries(series, d[dd[key]][0]);
+                            var mea = dd[key];
+                            performer.AddSeries(series, d[dd[key]][0], mea);
                             ownSeries.Add(series);
                                         }
                     }

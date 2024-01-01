@@ -22,23 +22,55 @@ namespace DataPerformer.SeriesTypes
         /// </summary>
         new protected Func<Func<object>> y;
 
+        protected object ordinateType;
+
+        protected Action step;
+
+        readonly static double a = 0;
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="x">Absciss</param>
         /// <param name="y">Ordinate</param>
-        public ParametrizedSeries(Func<Func<object>> x, Func<Func<object>> y)
+        /// <param name="ordinateType">Ordinate type</param>
+        public ParametrizedSeries(Func<Func<object>> x, 
+            Func<Func<object>> y, object ordinateType = null) 
         {
             this.x = x;
             this.y = y;
+            this.ordinateType = ordinateType;
+            if (ordinateType == null)
+            {
+                step = StandardStep;
+            }
+            else if (ordinateType.Equals(a))
+            {
+                step = StandardStep;
+            }
+            else
+            {
+                step = ArrayStep;
+            }
         }
+
+        /// <summary>
+        /// Attached object
+        /// </summary>
+        public object Attached
+        { get; set; }
 
         /// <summary>
         /// Steps
         /// </summary>
         public virtual void Step()
         {
-            AddXY(Converter.ToDouble(x()()), Converter.ToDouble(y()()));
+            step();
+        }
+
+        private void StandardStep()
+        {
+            AddXY(Converter.ToNullDouble(x()()), Converter.ToNullDouble(y()()));
 
             /*!!! Test of test   (Artificial bug) 
            AddXY(Converter.ToDouble(x()()), Converter.ToDouble(y()()) + 0.0001);
@@ -46,6 +78,18 @@ namespace DataPerformer.SeriesTypes
             //End test of test*/
 
         }
+
+        private void ArrayStep()
+        {
+            var a = x()();
+            var b = y()();
+            if (a == null | b == null)
+            {
+                return;
+            }
+            AddXY((double)a, b as double[]);
+        }
+
 
         /// <summary>
         /// Adds point
