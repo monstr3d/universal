@@ -355,6 +355,10 @@ namespace FormulaEditor.CSharp
             {
                 return optionalSeparator;
             }
+            if (op is NegationOperation) 
+            {
+                return [" = !", ";"];
+            }
             if (op is ElementaryBinaryOperation)
             {
                 ElementaryBinaryOperation eb = op as ElementaryBinaryOperation;

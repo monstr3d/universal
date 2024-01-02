@@ -352,6 +352,7 @@ namespace Diagram.UI.Utils
         #region ComboBox
 
         #region Fill
+        
         /// <summary>
         /// Fills combobox
         /// </summary>
@@ -554,6 +555,25 @@ namespace Diagram.UI.Utils
         #endregion
 
         #region Select
+
+        /// <summary>
+        /// Gets selected string of combobox
+        /// </summary>
+        /// <param name="comboBox">The combobox</param>
+        /// <returns>The string</returns>
+        public static string GetSelectedString(this ComboBox comboBox)
+        {
+            var k = comboBox.SelectedIndex;
+            if (k  < 0)
+            {
+                return "";
+            }
+            if (k >= comboBox.Items.Count)
+            {
+                return "";
+            }
+            return comboBox.Items[k].ToString();
+        }
 
         /// <summary>
         /// Selects item of combobox

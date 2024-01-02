@@ -42,6 +42,8 @@ namespace CategoryTheory
 
         #region Public Members
 
+   
+
         /// <summary>
         /// Name of category object or arrow
         /// </summary>

@@ -222,11 +222,11 @@ namespace DataPerformer.Formula
                 {
                     if (operation is AliasNameVariable)
                     {
-                        return new string[] { " = aliasName", ".Value;" };
+                        return [ " = aliasName", ".Value;" ];
                     }
                     if (operation is IMeasurementHolder)
                     {
-                        return new string[] { " = measurement", ".Parameter();" };
+                        return [ " = measurement", ".Parameter();" ];
                     }
                     return null;
                 }

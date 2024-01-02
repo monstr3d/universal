@@ -65,7 +65,6 @@ namespace DataPerformer.UI.UserControls
             comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
             numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
             filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
-            
         }
 
         private void UserControlAverage_Disposed(object sender, EventArgs e)

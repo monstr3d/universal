@@ -139,6 +139,18 @@ namespace BaseTypes
         #region Public Members
 
         /// <summary>
+        /// Nullable type converion
+        /// </summary>
+        /// <typeparam name="T">Conversion type</typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        static public T? ToNullable<T>(this object obj) where T : struct
+        {
+            if (obj == null) return null;
+            return (T)obj;
+        }
+
+        /// <summary>
         /// Adds the action
         /// </summary>
         /// <param name="action">The action</param>
