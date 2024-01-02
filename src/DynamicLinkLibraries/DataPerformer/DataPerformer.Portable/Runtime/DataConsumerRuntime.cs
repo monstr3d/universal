@@ -268,7 +268,7 @@ namespace DataPerformer.Portable.Runtime
         {
             provider.Time = time;
             List<IStarted> ls = new List<IStarted>();
-            collection.ForEach<IStarted>((IStarted s) => { ls.Add(s); s.Start(time); });
+            collection.ForEach((IStarted s) => { ls.Add(s); s.Start(time); });
             IStep st = this;
             st.Step = -1;
             IDifferentialEquationProcessor pr = DifferentialEquationProcessor.Processor;
@@ -334,7 +334,7 @@ namespace DataPerformer.Portable.Runtime
                     started.Add(st);
                 }
             }
-            collection.ForEach<IStep>((IStep s) => { steps.Add(s); });
+            collection.ForEach((IStep s) => { steps.Add(s); });
             AddUpdateAll(UpdateMeasurements);
             if (updatable.Count >= 0)
             {
@@ -399,11 +399,11 @@ namespace DataPerformer.Portable.Runtime
         {
             components.Clear();
             components.AddRange(collection.AllComponents);
-            collection.ForEach<ICategoryObject>((ICategoryObject l) => { objects.Add(l); });
+            collection.ForEach((ICategoryObject l) => { objects.Add(l); });
             arrows.Clear();
-            collection.ForEach<ICategoryArrow>((ICategoryArrow l) => { arrows.Add(l); });
+            collection.ForEach((ICategoryArrow l) => { arrows.Add(l); });
             IDifferentialEquationProcessor processor = 
-                DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor;
+                DifferentialEquationProcessor.Processor;
         }
 
         private void GetMeasurements()

@@ -121,7 +121,7 @@ namespace Event.UI.UserControls
             ICategoryObject co = Block;
             List<string> l = new List<string>();
             IDesktop desktop = co.GetRootDesktop();
-            desktop.ForEach<IEvent>((IEvent ev) =>
+            desktop.ForEach((IEvent ev) =>
                 {
                     l.Add(co.GetRelativeName(ev as IAssociatedObject));
                 });

@@ -118,7 +118,7 @@ namespace DataPerformer.Portable.Time
         {
             if (collection != null)
             {
-                collection.ForEach<IStopped>((IStopped stop) => { stop.Stop(); });
+                collection.ForEach((IStopped stop) => { stop.Stop(); });
                 Reset(collection);
                 dictionary.Clear();
                 return;
@@ -355,7 +355,7 @@ namespace DataPerformer.Portable.Time
         private void CreateMeasurements(int priority, string reason)
         {
             List<IMeasurements> l = new List<IMeasurements>();
-            collection.ForEach<IDataConsumer>((IDataConsumer c) =>
+            collection.ForEach((IDataConsumer c) =>
             {
                 if (c.SatisfiesReason(reason))
                 {
@@ -369,7 +369,7 @@ namespace DataPerformer.Portable.Time
                     }
                 }
             });
-            collection.ForEach<IMeasurements>((IMeasurements m) =>
+            collection.ForEach((IMeasurements m) =>
             {
 
                 if (priority == 0)

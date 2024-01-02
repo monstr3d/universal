@@ -998,7 +998,7 @@ namespace Diagram.UI
 
         private void PostLoadPrivate()
         {
-            this.ForEach<IPostLoad>((post) => { post.Post(); });
+            this.ForEach((IPostLoad post) => { post.Post(); });
         }
 
         /// <summary>

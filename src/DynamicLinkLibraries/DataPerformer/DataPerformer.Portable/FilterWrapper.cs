@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataPerformer.Portable
 {
-    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IRealTimeStartStop
+    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IStarted
     {
 
         #region Fields 
@@ -114,43 +114,18 @@ namespace DataPerformer.Portable
 
         #endregion
 
-        #region IRealTimeStartStop Members
+        #region IStarted Members
 
-        event Action IRealTimeStartStop.OnStart
-        {
-            add
-            {
-            }
-
-            remove
-            {
-            }
-        }
-
-        event Action IRealTimeStartStop.OnStop
-        {
-            add
-            {
-            }
-
-            remove
-            {
-            }
-        }
-
-        void IRealTimeStartStop.Start()
+ 
+        void IStarted.Start(double time)
         {
             filter.Reset();
-        }
-
-        void IRealTimeStartStop.Stop()
-        {
         }
 
         #endregion
 
         #region Measurement class
-        
+
         class DonchianMeasurement : FilterMeasurement
         {
             public DonchianMeasurement(FilterWrapper filter) : base(filter) { }

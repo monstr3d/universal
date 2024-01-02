@@ -1284,7 +1284,7 @@ namespace DataPerformer.UI.UserControls
         }
 
 
-        private void PeformIterator(IDataConsumer consumer, IIterator iterator)
+        private void PerformIterator(IDataConsumer consumer, IIterator iterator)
         {
             iterator.Reset();
             var mea = consumer.FindMeasurement(globalArg);
@@ -1309,7 +1309,7 @@ namespace DataPerformer.UI.UserControls
                 var it = (consumer as DataConsumerIterate).Iterator;
                 if (it != null) 
                 {
-                    PeformIterator(consumer, it);
+                    PerformIterator(consumer, it);
                     return;
                 }
                 if (array == null)

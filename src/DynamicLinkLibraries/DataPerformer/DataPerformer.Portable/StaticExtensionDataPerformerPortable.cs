@@ -1419,7 +1419,7 @@ namespace DataPerformer.Portable
         /// <param name="collection">The collection</param>
         public static void ResetUpdatedMeasurements(this IComponentCollection collection)
         {
-            collection.ForEach<IMeasurements>((IMeasurements m) => { m.IsUpdated = false; });
+            collection.ForEach((IMeasurements m) => { m.IsUpdated = false; });
         }
 
         /// <summary>

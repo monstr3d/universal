@@ -96,7 +96,7 @@ namespace ImageTransformation.UI
                 (Diagram.UI.Interfaces.IDesktop desktop, XElement document) =>
                 {
                     List<string> ls = new List<string>();
-                    desktop.ForEach<ExternalImage>((ExternalImage image) =>
+                    desktop.ForEach((ExternalImage image) =>
                     {
                         if (image.GetType().Equals(typeof(ExternalImage)))
                         {

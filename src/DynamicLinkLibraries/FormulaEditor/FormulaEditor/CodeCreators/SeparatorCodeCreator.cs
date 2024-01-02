@@ -61,6 +61,7 @@ namespace FormulaEditor.CodeCreators
             string[] sep = separatorCreator[tree];
             if (sep == null)
             {
+                var ss = separatorCreator[tree]; // DELETE AFTER !!!
                 variables = null;
                 initializers = null;
                 return null;

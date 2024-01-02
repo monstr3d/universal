@@ -1526,7 +1526,7 @@ namespace Diagram.UI
         public static void ForEach<T>(this IComponentCollection collection, Action<T> action, bool find = false) where T : class
         {
             IEnumerable<object> c = collection.AllComponents;
-            ForEach<T>(c, action, find);
+            ForEach(c, action, find);
         }
 
         /// <summary>
@@ -1570,7 +1570,7 @@ namespace Diagram.UI
         public static void ForEach<T>(this ICategoryObject obj, Action<T> action, bool find = false) where T : class
         {
             IDesktop desktop = GetRootDesktop(obj);
-            desktop.ForEach<T>(action, find);
+            desktop.ForEach(action, find);
         }
 
   
@@ -3225,7 +3225,7 @@ namespace Diagram.UI
                 if (obj is IObjectContainer)
                 {
                     IObjectContainer oc = obj as IObjectContainer;
-                    oc.ForEach<object>((object obb) =>
+                    oc.ForEach((object obb) =>
                     {
                         if (!(obb is IObjectContainer))
                         {
@@ -3281,7 +3281,7 @@ namespace Diagram.UI
                         }
                     }
                 };
-            collection.ForEach<ICategoryArrow>(arrowAction);
+            collection.ForEach(arrowAction);
             List<List<object>> llist = new List<List<object>>();
             foreach (List<object> l in list)
             {

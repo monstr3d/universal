@@ -371,7 +371,7 @@ namespace DataPerformer.Advanced.Accumulators
 
         private void Update()
         {
-            this.ForEach<IStack>(delegate(IStack s)
+            this.ForEach(delegate(IStack s)
            {
                s.Push();
            });

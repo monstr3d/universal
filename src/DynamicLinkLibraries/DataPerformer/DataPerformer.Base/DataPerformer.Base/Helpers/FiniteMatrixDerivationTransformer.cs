@@ -190,7 +190,7 @@ namespace DataPerformer.Helpers
         public static List<string> GetNames(IComponentCollection collection)
         {
             List<string> l = new List<string>();
-            collection.ForEach<IObjectTransformer>((IObjectTransformer t) => 
+            collection.ForEach((IObjectTransformer t) => 
             {if (IsAccessible(t) != null) { l.Add(t.GetName(collection));}});
             return l;
         }

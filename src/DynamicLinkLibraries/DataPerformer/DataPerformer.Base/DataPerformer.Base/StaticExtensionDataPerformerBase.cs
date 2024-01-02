@@ -131,7 +131,7 @@ namespace DataPerformer
                 return new string[0];
             }
             List<string> l = new List<string>();
-            desktop.ForEach<IMeasurements>((IMeasurements m) =>
+            desktop.ForEach((IMeasurements m) =>
                 {
                     IAssociatedObject aob = m as IAssociatedObject;
                     INamedComponent ncm = aob.Object as INamedComponent;
@@ -184,7 +184,7 @@ namespace DataPerformer
             }
             IDesktop desktop = nc.Root.Desktop;
             Array arr = null;
-            desktop.ForEach<IMeasurements>((IMeasurements m) =>
+            desktop.ForEach((IMeasurements m) =>
             {
 
                 IAssociatedObject aob = m as IAssociatedObject;
@@ -237,7 +237,7 @@ namespace DataPerformer
                         l.Add(new string[] { n, ss });
                     }
                 };
-            collection.ForEach<IStateDoubleVariables>(action);
+            collection.ForEach(action);
             return l;
         }
 
@@ -256,7 +256,7 @@ namespace DataPerformer
                 Array.Copy(x, 0, output, i, n);
                 i += n;
             };
-            collection.ForEach<IStateDoubleVariables>(action);
+            collection.ForEach(action);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace DataPerformer
                 v.Set(input, i, x.Length);
                 i += n;
             };
-            collection.ForEach<IStateDoubleVariables>(action);
+            collection.ForEach(action);
         }
 
         /// <summary>
