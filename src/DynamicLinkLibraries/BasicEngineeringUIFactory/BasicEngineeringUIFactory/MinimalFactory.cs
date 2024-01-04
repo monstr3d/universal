@@ -117,11 +117,11 @@ namespace BasicEngineering.UI.Factory
                 }
                 if (obj is Table3D)
                 {
-                    return new DataPerformer.UI.Forms.FormTable3D(lab);
+                    return new FormTable3D(lab);
                 }
                 if (obj is DataPerformer.Helpers.DataPerformerCollectionStateTransformer)
                 {
-                    return new DataPerformer.UI.Forms.FormDataPerformerCollectionStateTransformer(lab);
+                    return new FormDataPerformerCollectionStateTransformer(lab);
                 }
                 if (obj is MatrixAssembly)
                 {
@@ -137,23 +137,23 @@ namespace BasicEngineering.UI.Factory
                 }
                 if (obj is ArrayTransformer)
                 {
-                    return new DataPerformer.UI.Forms.FormArrayTransformer(lab);
+                    return new FormArrayTransformer(lab);
                 }
                 if (obj is DataPerformer.ObjectTransformer)
                 {
-                    return new DataPerformer.UI.Forms.FormObjectTransformer(lab);
+                    return new FormObjectTransformer(lab);
                 }
                 if (obj is Chart.Objects.DrawSeries)
                 {
-                    return new DataPerformer.UI.FormPointCollection(lab);
+                    return new FormPointCollection(lab);
                 }
                 if (obj is DataPerformer.Helpers.KalmanFilter)
                 {
-                    return new DataPerformer.UI.Forms.FormKalmanFilter(lab);
+                    return new FormKalmanFilter(lab);
                 }
                 if (obj is FunctionAccumulator)
                 {
-                    return new DataPerformer.UI.Forms.FormFuncAccumulator(lab);
+                    return new FormFuncAccumulator(lab);
                 }
                 if (obj is Regression.CombinedSelection)
                 {
@@ -161,23 +161,23 @@ namespace BasicEngineering.UI.Factory
                 }
                 if (obj is FormulaFilterIterator)
                 {
-                    return new DataPerformer.UI.FormIteratorFilter(lab);
+                    return new FormIteratorFilter(lab);
                 }
                 if (obj is DifferentialEquationSolver)
                 {
-                    return new DataPerformer.UI.Forms.FormDiffEquation(lab);
+                    return new FormDiffEquation(lab);
                 }
                 if (obj is Recursive)
                 {
-                    return new DataPerformer.UI.Forms.FormRecursive(lab);
+                    return new FormRecursive(lab);
                 }
                 if (obj is Regression.XmlSelectionCollection)
                 {
-                    return new DataPerformer.UI.FormXmlSelection(lab);
+                    return new FormXmlSelection(lab);
                 }
                 if (obj is Regression.AliasRegression)
                 {
-                    return new DataPerformer.UI.Forms.FormAliasRegression(lab);
+                    return new FormAliasRegression(lab);
                 }
             }
             return null;

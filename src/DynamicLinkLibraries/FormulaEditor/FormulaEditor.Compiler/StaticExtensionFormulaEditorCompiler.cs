@@ -30,14 +30,15 @@ namespace FormulaEditor.Compiler
         /// </summary>
         public static void Init()
         {
-
+  
         }
 
         static StaticExtensionFormulaEditorCompiler()
         {
-                CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory();
-                StaticExtensionFormulaEditor.Factory = f;
-                StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
-         }
+            StaticExtensionFormulaEditor.Init();
+            CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory();
+            StaticExtensionFormulaEditor.Factory = f;
+            StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
+        }
     }
 }

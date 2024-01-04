@@ -21,6 +21,7 @@ using FormulaEditor.Symbols;
 using FormulaEditor.Interfaces;
 using DataPerformer.Formula;
 using DataPerformer.Formula.Interfaces;
+using Diagram.Interfaces;
 
 namespace DataPerformer.Formula
 {
@@ -29,7 +30,7 @@ namespace DataPerformer.Formula
 	/// </summary>
 	public class Recursive : CategoryObject,  IDataConsumer, IMeasurements, IStarted, IAlias,
 		ICheckCorrectness, IStep, IRuntimeUpdate, ITimeMeasurementConsumer, 
-		IVariableDetector, ITreeCollection,	ITimeVariable, IPostSetArrow
+		IVariableDetector, ITreeCollection,	ITimeVariable, IAdditionalStart, IPostSetArrow
 	{
 
 		#region Fields
@@ -304,25 +305,30 @@ namespace DataPerformer.Formula
 		/// Starts this object
 		/// </summary>
 		/// <param name="time">Start time</param>
-		public void Start(double time)
+		void IStarted.Start(double time)
 		{
-			foreach (char c in vars.Keys)
-			{
-				object[] o0 = vars[c] as object[];
-				object[] o = variables[c] as object[];
-				o[0] = o0[2];
-			}
-			oldStep = step;
+			Start();
 		}
 
-		#endregion
+        #endregion
 
-		#region IAlias Members
 
-		/// <summary>
-		/// List of alias names
-		/// </summary>
-		public IList<string> AliasNames
+        #region IAdditionalStart Members
+
+        void IAdditionalStart.Start()
+        {
+            Start();
+        }
+
+        #endregion
+
+
+        #region IAlias Members
+
+        /// <summary>
+        /// List of alias names
+        /// </summary>
+        public IList<string> AliasNames
 		{
 			get
 			{
@@ -732,7 +738,20 @@ namespace DataPerformer.Formula
 		#endregion
 
 		#region Private Members
-		private void UpdateFormulas()
+
+		void Start()
+		{
+            foreach (char c in vars.Keys)
+            {
+                object[] o0 = vars[c] as object[];
+                object[] o = variables[c] as object[];
+                o[0] = o0[2];
+            }
+            oldStep = step;
+
+        }
+
+        private void UpdateFormulas()
 		{
 			foreach (char c in variables.Keys)
 			{
@@ -917,14 +936,14 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region Variable
+        #region Variable
 
-		/// <summary>
-		/// Auxiliary class for measurement providinf
-		/// </summary>
-		class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IMeasurementHolder
+        /// <summary>
+        /// Auxiliary class for measurement providinf
+        /// </summary>
+        class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IMeasurementHolder
 		{
 
 			#region Fields

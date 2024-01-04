@@ -151,6 +151,18 @@ namespace BaseTypes
         }
 
         /// <summary>
+        /// Checks whether nullable condition is true
+        /// </summary>
+        /// <param name="condition">The condition</param>
+        /// <returns>The resulst</returns>
+        static public bool IsTrue(this bool? condition)
+        {
+            if (condition == null) return false;
+            return condition.Value;
+        }
+
+ 
+        /// <summary>
         /// Adds the action
         /// </summary>
         /// <param name="action">The action</param>

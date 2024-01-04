@@ -80,6 +80,24 @@ namespace DataPerformer.Formula
         {
             th = this;
             proxyFactory = StaticExtensionFormulaEditor.Factory;
+            PostUpdate += VectorFormulaConsumer_PostUpdate;
+        }
+
+        private void VectorFormulaConsumer_PostUpdate()
+        {
+            var x = proxy.Success;
+            if (x)
+            {
+                foreach (var m in measurements)
+                {
+                    var p = m.Parameter();
+                    if (p == null)
+                    {
+                        int i = 0;
+                    }
+                }
+
+            }
         }
 
         #endregion

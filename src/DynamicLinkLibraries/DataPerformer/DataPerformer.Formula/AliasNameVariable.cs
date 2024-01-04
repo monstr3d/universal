@@ -95,7 +95,7 @@ namespace DataPerformer.Formula
 
         object IObjectOperation.this[object[] x]
         {
-            get { return alias[name]; }
+            get { return GetValue(); }
         }
 
         object IObjectOperation.ReturnType
@@ -138,6 +138,15 @@ namespace DataPerformer.Formula
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Gets value
+        /// </summary>
+        /// <returns></returns>
+        public object GetValue()
+        {
+            return alias[name];
+        }
 
         /// <summary>
         /// Alias Name

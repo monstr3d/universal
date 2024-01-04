@@ -1,11 +1,5 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using BaseTypes;
 using FormulaEditor.Interfaces;
 
 namespace FormulaEditor.Compiler
@@ -40,7 +34,7 @@ namespace FormulaEditor.Compiler
                     collection.CreateProxy(code);
                     Type[] types = ass.GetTypes();
                     Type[] inp = (checkValue == null) ? [ typeof(ObjectFormulaTree[]) ] :
-                        new Type[] { typeof(ObjectFormulaTree[]), typeof(Func<object, bool>) };
+                       [ typeof(ObjectFormulaTree[]), typeof(Func<object, bool>) ];
                     foreach (Type t in types)
                     {
                         if (t.GetInterface(typeof(ITreeCollectionProxy).FullName) != null)

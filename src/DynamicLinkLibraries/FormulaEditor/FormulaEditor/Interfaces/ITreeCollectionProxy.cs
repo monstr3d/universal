@@ -25,6 +25,13 @@ namespace FormulaEditor.Interfaces
         /// Update function
         /// </summary>
         void Update();
+
+        /// <summary>
+        /// The success sign
+        /// </summary>
+        bool Success {  get; }
+
+
     }
  
 }

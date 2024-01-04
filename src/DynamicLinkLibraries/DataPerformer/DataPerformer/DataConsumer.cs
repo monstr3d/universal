@@ -219,7 +219,7 @@ namespace DataPerformer
         /// <param name="functions">functions</param>
         /// <param name="disassembly">Disassembly</param>
         /// <returns>Mesurements dictionary</returns>
-        public Dictionary<string, object>  CreateMeasurements(string argument, string[] values,  out ParametrizedSeries[] series, 
+        public Dictionary<string, object> CreateMeasurements(string argument, string[] values, out ParametrizedSeries[] series,
             out Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> dis = new Dictionary<IMeasurement, MeasurementsDisassemblyWrapper>();
@@ -262,38 +262,42 @@ namespace DataPerformer
                         {
                             Attached = key
                         };
-                    
+
                     m.Add(ps);
                     o = ps;
                 }
-                else if (disassembly.ContainsKey(val))
+                else if (disassembly != null)
                 {
-                    MeasurementsDisassemblyWrapper mv = disassembly[val];
-                    string k = key.Substring(0, key.IndexOf('.') + 1);
-                    foreach (IMeasurement mea in mv.Measurements)
+
+                    if (disassembly.ContainsKey(val))
                     {
-
-                        ParametrizedSeries ps =
-                            new ParametrizedSeries(arg.ToValueHolder(), mea.ToValueHolder());
-                        m.Add(ps);
-                        if (ps != null)
+                        MeasurementsDisassemblyWrapper mv = disassembly[val];
+                        string k = key.Substring(0, key.IndexOf('.') + 1);
+                        foreach (IMeasurement mea in mv.Measurements)
                         {
-                            d[k + mea.Name] = ps;
+
+                            ParametrizedSeries ps =
+                                new ParametrizedSeries(arg.ToValueHolder(), mea.ToValueHolder());
+                            m.Add(ps);
+                            if (ps != null)
+                            {
+                                d[k + mea.Name] = ps;
+                            }
+
                         }
+                        continue;
 
+                        /* TEMP DELETE   DoubleArrayFunction f = new DoubleArrayFunction(t);
+                        functions[f] = new IMeasurement[] { arg, val };
+                        o = f;
+                        */
                     }
-                    continue;
-
-                    /* TEMP DELETE   DoubleArrayFunction f = new DoubleArrayFunction(t);
-                    functions[f] = new IMeasurement[] { arg, val };
-                    o = f;
-                    */
                 }
                 if (o != null)
                 {
                     d[key] = o;
                 }
-           }
+            }
             series = m.ToArray();
             Prepare();
             return d;

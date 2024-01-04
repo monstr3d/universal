@@ -562,7 +562,7 @@ namespace AssemblyService
                 }
                 try
                 {
-                    Assembly.Load(f);
+                    Assembly.LoadFile(f);
                     l.AddLast(Path.GetFileName(f));
                 }
                 catch (Exception ex)

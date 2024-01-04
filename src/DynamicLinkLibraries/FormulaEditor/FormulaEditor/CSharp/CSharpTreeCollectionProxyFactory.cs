@@ -139,13 +139,19 @@ namespace FormulaEditor.CSharp
 
         #region Private Members
 
+        bool Success { get => true; }
+
         private List<string> PostCreateCode(ICodeCreator local, IList<string> lcode,
            IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = true)
         {
-            List<string> l = new List<string>();
-            l.Add("public void Update()");
-            l.Add("{");
-            l.Add("\tsuccess = true;");
+            List<string> l =
+            [
+                "public bool Success { get => success; }",
+                "",
+                "public void Update()",
+                "{",
+                "\tsuccess = true;",
+            ];
             foreach (string s in lcode)
             {
                 l.Add("\t" + s);
@@ -165,6 +171,7 @@ namespace FormulaEditor.CSharp
             {
                 l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue)");
                 l.Add("{");
+                l.Add("\tsuccess = false;");
                 l.Add("\tthis.trees = trees;");
                 l.Add("\tthis.checkValue = checkValue;");
             }

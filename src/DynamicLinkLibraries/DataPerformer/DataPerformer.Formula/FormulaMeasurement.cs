@@ -35,7 +35,11 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Return value
         /// </summary>
-        protected object ret;
+        protected object ReturnValue
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Name
@@ -45,16 +49,17 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Parameter
         /// </summary>
-        protected Func<object> par;
+        protected Func<object> parameter;
 
         /// <summary>
         /// Associated addition
         /// </summary>
         protected AssociatedAddition associated;
 
-        ITreeCollectionProxy proxy;
-
+  
         Func<object> proxyPar;
+
+        object defaultValue = null;
 
         //Action SetValueAction;
 
@@ -70,7 +75,14 @@ namespace DataPerformer.Formula
             this.tree = tree;
             this.name = name;
             this.associated = associated;
-            par = GetDefaultValue;
+            var operation = tree.Operation;
+            if (operation is AliasNameVariable)
+            {
+                var ali = operation as AliasNameVariable;
+                parameter = ali.GetValue;
+                return;
+            }
+            parameter = zero;
          }
 
         #endregion
@@ -81,7 +93,7 @@ namespace DataPerformer.Formula
         {
             get 
             {
-                return par; 
+                return parameter; 
             }
         }
 
@@ -99,6 +111,11 @@ namespace DataPerformer.Formula
 
  
         #region Members
+
+        object zero()
+        {
+            return defaultValue;
+        }
 
         /// <summary>
         /// Gets all trees for formula measures
@@ -163,8 +180,8 @@ namespace DataPerformer.Formula
         /// </summary>
         public virtual void Reset()
         {
-            ret = null;
-            par = GetDefaultValue;
+            ReturnValue = null;
+          /// !!! ILLEGAL par = GetDefaultValue;
         }
 
         /// <summary>
@@ -174,7 +191,7 @@ namespace DataPerformer.Formula
         {
             get
             {
-                return new ObjectFormulaTree[] { tree };
+                return [ tree ];
             }
         }
 
@@ -188,7 +205,7 @@ namespace DataPerformer.Formula
                 object o = tree.Result;
                 if (!checkValue(o))
                 {
-                    ret = o;
+                    ReturnValue = o;
                 }
             }
             catch (Exception ex)
@@ -222,8 +239,11 @@ namespace DataPerformer.Formula
             proxyPar = null;
             if (proxy != null)
             {
-                this.proxy = proxy;
                 proxyPar = new Func<object>(proxy[tree]);
+                if (parameter == zero)
+                {
+                    parameter = proxyPar;
+                }
             }
         }
 
@@ -268,7 +288,7 @@ namespace DataPerformer.Formula
         public static FormulaMeasurement Create(ObjectFormulaTree tree, int n,
             string name, AssociatedAddition associated)
         {
-            object ret = null;
+    /* !!!! DELETE       object ret = null;
             try
             {
                 ret = tree.Result;
@@ -276,7 +296,7 @@ namespace DataPerformer.Formula
             catch (Exception ex)
             {
                 ex.ShowError(-1);
-            }
+            }-/*/
             FormulaMeasurement fm;
             if (n == 0)
             {
@@ -286,7 +306,7 @@ namespace DataPerformer.Formula
                     return new FormulaMeasurementDistribution(tree, name, associated);
                 }
                 fm = new FormulaMeasurement(tree, name, associated);
-                fm.ret = ret;
+              // !!! ILLEGAL !!!  fm.ReturnValue = ReturnValue;
                 return fm;
             }
             string dn = "D" + name;
@@ -300,7 +320,7 @@ namespace DataPerformer.Formula
             fm = new FormulaMeasurementDerivation(tree, der, name, aa);
             try
             {
-                fm.ret = t.Result;
+                fm.ReturnValue = t.Result;
             }
             catch (Exception exc)
             {
@@ -377,12 +397,12 @@ namespace DataPerformer.Formula
 
         private void SetProxy()
         {
-            ret = proxyPar();
+            ReturnValue = proxyPar();
         }
 
         private void SetTree()
         {
-            ret = tree.Result;
+            ReturnValue = tree.Result;
         }
 
 
@@ -392,29 +412,33 @@ namespace DataPerformer.Formula
             bool b = proxyPar == null;
             if (b)
             {
-                ret = tree.Result;
+                ReturnValue = tree.Result;
             }
             else
             {
-               ret = proxyPar();
+                ReturnValue = proxyPar();
             }
-            if (ret == null)
+            if (ReturnValue != null)
             {
-                ret = tree.Result;
+                /// !!! CHECK RETURN !!!
             }
-            if (ret != null)
+            if (ReturnValue == null)
             {
-                if (ret.GetType().Equals(typeof(double)))
+                ReturnValue = tree.Result;
+            }
+            if (ReturnValue != null)
+            {
+                if (ReturnValue.GetType().Equals(typeof(double)))
                 {
-                    double dr = (double)ret;
+                    double dr = (double)ReturnValue;
                     if (double.IsInfinity(dr) | double.IsNaN(dr) |
                         double.IsNegativeInfinity(dr) | double.IsPositiveInfinity(dr))
                     {
                         dr = 0;
-                        ret = dr;
+                        ReturnValue = dr;
                         try
                         {
-                            ret = tree.Result;
+                            ReturnValue = tree.Result;
                         }
                         catch (Exception ex)
                         {
@@ -430,21 +454,21 @@ namespace DataPerformer.Formula
                 }
                 else
                 {
-                    ret = type;
+                   /// !!! ILLEGAL !!ret = type;
                 }
             }
-            if (ret != null)
+            if (ReturnValue != null)
             {
                 if (b)
                 {
-                    par = GetValue;
+                    parameter = GetValue;
                 }
                 else
                 {
-                    par = proxyPar;
+                    parameter = proxyPar;
                 }
             }
-            return ret;
+            return ReturnValue;
         }
 
         /// <summary>

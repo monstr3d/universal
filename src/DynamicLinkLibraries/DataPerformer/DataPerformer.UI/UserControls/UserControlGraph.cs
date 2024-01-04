@@ -52,6 +52,7 @@ using Event.UI;
 using WindowsExtensions;
 using System.Threading.Tasks;
 using Chart.Indicators;
+using Diagram.Interfaces;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -1296,8 +1297,7 @@ namespace DataPerformer.UI.UserControls
 
             }
             var coll = consumer.GetDependentCollection();
-            coll.ForEach((IRealTimeStartStop s) => s.Stop());
-            coll.ForEach((IRealTimeStartStop s) => s.Start());
+            coll.ForEach((IAdditionalStart s) => s.Start());
             dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
         }
 

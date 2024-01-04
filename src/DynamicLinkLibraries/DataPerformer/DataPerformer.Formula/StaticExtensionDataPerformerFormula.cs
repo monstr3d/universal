@@ -59,12 +59,16 @@ namespace DataPerformer.Formula
         /// <returns>Measurement</returns>
         static public IMeasurement ToMeasurement(ObjectFormulaTree tree)
         {
-            IObjectOperation op = tree.Operation;
-            if (op is IMeasurementHolder)
+            IObjectOperation operation = tree.Operation;
+            if (operation is IMeasurementHolder)
             {
-                IMeasurementHolder h = op as IMeasurementHolder;
-                IMeasurement measurement = h.Measurement;
-                return new Measurement(measurement.Type, () => h.Measurement.Parameter(), measurement.Name);
+                IMeasurementHolder holder = operation as IMeasurementHolder;
+                IMeasurement measurement = holder.Measurement;
+                var paramerer = () =>
+                {
+                    return measurement.Parameter();
+                };
+                return new Measurement(measurement.Type, paramerer, measurement.Name);
             }
             return null;
         }

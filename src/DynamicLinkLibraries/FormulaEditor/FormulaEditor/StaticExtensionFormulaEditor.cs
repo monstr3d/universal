@@ -61,6 +61,15 @@ namespace FormulaEditor
         #region Public Members
 
         /// <summary>
+        /// Initialization
+        /// </summary>
+        public static void Init()
+        {
+
+        }
+
+
+        /// <summary>
         /// String representation of formulae
         /// </summary>
         /// <param name="formulae">The formulae</param>

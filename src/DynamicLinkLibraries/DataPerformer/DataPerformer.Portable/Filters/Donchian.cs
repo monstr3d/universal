@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace DataPerformer.Portable.Filters
 {
+    /// <summary>
+    /// Donchian filter
+    /// </summary>
     public class Donchian : BasicFilter
     {
         public bool Max
@@ -16,20 +15,21 @@ namespace DataPerformer.Portable.Filters
 
         double? Calculate(double ? a)
         {
+            double? ret = null;
+            if (data.Count == inter.Count)
+            {
+                ret = Max ? data.Max() : data.Min();
+            }
             var c = base[a];
             if (a == null)
             {
                 return null;
             }
-            if (data.Count > inter.Count)
+            while (data.Count > inter.Count)
             {
                 data.Dequeue();
             }
-            if (data.Count == inter.Count)
-            {
-                return Max ? data.Max() : data.Min();
-            }
-            return null;
+            return ret;
         }
     }
 }

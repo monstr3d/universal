@@ -476,7 +476,7 @@ namespace Chart.Drawing
         /// <param name="additional">Additional object</param>
         public void AddSeries(ISeries s, Color color, object additional = null)
         {
-            var t = new Tuple<ISeries, Color[], object>(s, [color], additional);
+            var t = new Tuple<ISeries, Color[], ChartPerformer, object>(s, [color], this, additional);
             var p = t.ToSeriesPainter();
             if (p == null)
             {

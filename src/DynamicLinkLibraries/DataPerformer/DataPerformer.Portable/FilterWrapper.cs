@@ -1,20 +1,19 @@
 ﻿using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Filters;
-using Event.Interfaces;
+using Diagram.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataPerformer.Portable
 {
-    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IStarted
+    /// <summary>
+    /// Wrapper of filters
+    /// </summary>
+    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IAdditionalStart
     {
 
         #region Fields 
-        
+
         protected string kind = "";
 
         protected string input;
@@ -62,7 +61,7 @@ namespace DataPerformer.Portable
                 measurementOut = new FilterMeasurement(this);
             }
         }
-            
+
 
 
         public IFilter Filter { get => filter; }
@@ -100,10 +99,10 @@ namespace DataPerformer.Portable
 
         int IMeasurements.Count => 1;
 
-        bool IMeasurements.IsUpdated 
-        { 
-            get => isUpdated; 
-            set => isUpdated = value; 
+        bool IMeasurements.IsUpdated
+        {
+            get => isUpdated;
+            set => isUpdated = value;
         }
 
         void IMeasurements.UpdateMeasurements()
@@ -116,11 +115,11 @@ namespace DataPerformer.Portable
 
         #region IStarted Members
 
- 
-        void IStarted.Start(double time)
+        void IAdditionalStart.Start()
         {
             filter.Reset();
         }
+
 
         #endregion
 

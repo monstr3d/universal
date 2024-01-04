@@ -62,14 +62,14 @@ namespace DataPerformer.Formula
         /// Constructor
         /// </summary>
         /// <param name="symbol">Symbol of variable</param>
-        /// <param name="measure">Measure</param>
+        /// <param name="measurement">Measure</param>
         /// <param name="detector">Detector of variables</param>
-        internal VariableMeasurement(string symbol, IMeasurement measure, IVariableDetector detector)
+        internal VariableMeasurement(string symbol, IMeasurement measurement, IVariableDetector detector)
         {
             this.symbol = symbol;
-            this.measurement = measure;
+            this.measurement = measurement;
             this.detector = detector;
-            object par = measure.Type;
+            object par = measurement.Type;
             if (par is IOneVariableFunction)
             {
                 func = par as IOneVariableFunction;
