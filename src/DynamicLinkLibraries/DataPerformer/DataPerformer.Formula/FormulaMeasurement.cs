@@ -102,9 +102,9 @@ namespace DataPerformer.Formula
             get { return name; }
         }
 
-        object IMeasurement.Type
+        object IMeasurement.Type 
         {
-            get { return tree.ReturnType; }
+            get => tree.ReturnType;
         }
 
         #endregion

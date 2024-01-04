@@ -352,10 +352,7 @@ namespace FormulaEditor
 		/// </summary>
 		public object ReturnType
 		{
-			get
-			{
-				return operation.ReturnType;
-			}
+            get => operation.ReturnType;
 		}
 
 		/// <summary>

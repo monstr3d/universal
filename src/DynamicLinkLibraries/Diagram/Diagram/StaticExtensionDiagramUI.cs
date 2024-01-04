@@ -705,10 +705,10 @@ namespace Diagram.UI
         {
             Action<Assembly> act = (Assembly ass) =>
             {
-                var st = ass.GetInterfaces<IAdditionalStart>();
+                var st = ass.GetInterfaces<IRunning>();
                 foreach (var s in st)
                 {
-                    s.Start();
+                    s.IsRunning = true;
                 }
             };
             act.AssemblyAction();

@@ -30,10 +30,25 @@ namespace DataPerformer.Formula
 	/// </summary>
 	public class Recursive : CategoryObject,  IDataConsumer, IMeasurements, IStarted, IAlias,
 		ICheckCorrectness, IStep, IRuntimeUpdate, ITimeMeasurementConsumer, 
-		IVariableDetector, ITreeCollection,	ITimeVariable, IAdditionalStart, IPostSetArrow
+		IVariableDetector, ITreeCollection,	ITimeVariable, IRunning, IPostSetArrow
 	{
 
 		#region Fields
+
+		/// <summary>
+		/// Alias getter
+		/// </summary>
+		Func<string, object> GetAlias; 
+
+		/// <summary>
+		/// Alias setter
+		/// </summary>
+        Action<string, object> SetAlias; 
+
+		/// <summary>
+		/// The "is running" sign
+		/// </summary>
+        protected bool isRunning = false;
 
 		/// <summary>
 		/// Internal variables
@@ -153,7 +168,9 @@ namespace DataPerformer.Formula
 		public Recursive()
 		{
 			update = UpdateFormulas;
-		}
+            GetAlias = GetAliasStatic;
+            SetAlias = SetAliasStatic;
+        }
 
         #endregion
 
@@ -307,21 +324,24 @@ namespace DataPerformer.Formula
 		/// <param name="time">Start time</param>
 		void IStarted.Start(double time)
 		{
-			Start();
+			Start(true);
 		}
 
         #endregion
 
+        #region IRunning Members
 
-        #region IAdditionalStart Members
-
-        void IAdditionalStart.Start()
+        bool IRunning.IsRunning
         {
-            Start();
+			get => isRunning;
+			set
+			{
+				isRunning = value;
+				Start(value);
+			}
         }
 
         #endregion
-
 
         #region IAlias Members
 
@@ -345,27 +365,15 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		object IAlias.this[string alias]
+		/// <summary>
+		/// Gets or sets alias
+		/// </summary>
+		/// <param name="alias">Alias name</param>
+		/// <returns>Alias value</returns>
+        object IAlias.this[string alias]
 		{
-			get
-			{
-				if (aliases.ContainsKey(alias[0]))
-				{
-					return aliases[alias[0]];
-				}
-				object[] o = vars[alias[0]] as object[];
-				return o[2];
-			}
-			set
-			{
-				if (aliases.ContainsKey(alias[0]))
-				{
-					aliases[alias[0]] = value;
-					return;
-				}
-				object[] o = vars[alias[0]] as object[];
-				o[2] = value;
-			}
+			get => GetAlias(alias);
+			set => SetAlias(alias, value);
 		}
 
 		/// <summary>
@@ -375,8 +383,13 @@ namespace DataPerformer.Formula
 		/// <returns>Returns type of alias object</returns>
 		public object GetType(string name)
 		{
-			IAlias al = this;
-			return AliasTypeDetector.Detector.DetectType(al[name]);
+			IAlias alias = this;
+			object alname = alias[name];
+            if (alname == null)
+            {
+                
+            }
+            return AliasTypeDetector.Detector.DetectType(alname);
 		}
 
 		event Action<IAlias, string> IAlias.OnChange
@@ -735,19 +748,72 @@ namespace DataPerformer.Formula
 
 		internal Dictionary<object, object> Pars => pars;
 
-		#endregion
+        #endregion
 
-		#region Private Members
+        #region Private Members
 
-		void Start()
-		{
-            foreach (char c in vars.Keys)
+
+        object GetAliasStatic(string alias)
+        {
+            if (aliases.ContainsKey(alias[0]))
             {
-                object[] o0 = vars[c] as object[];
-                object[] o = variables[c] as object[];
-                o[0] = o0[2];
+                return aliases[alias[0]];
             }
-            oldStep = step;
+            object[] o = vars[alias[0]] as object[];
+            return o[2];
+        }
+
+        object GetAliasDynamic(string alias)
+        {
+            if (aliases.ContainsKey(alias[0]))
+            {
+                return aliases[alias[0]];
+            }
+            object[] o = variables[alias[0]] as object[];
+            return o[0];
+        }
+
+        void SetAliasStatic(string alias, object value)
+        {
+            if (aliases.ContainsKey(alias[0]))
+            {
+                aliases[alias[0]] = value;
+                return;
+            }
+            object[] o = vars[alias[0]] as object[];
+            o[2] = value;
+        }
+
+        void SetAliasDymamic(string alias, object value)
+        {
+            if (aliases.ContainsKey(alias[0]))
+            {
+                aliases[alias[0]] = value;
+                return;
+            }
+            object[] o = variables[alias[0]] as object[];
+            o[0] = value;
+        }
+
+
+        void Start(bool start)
+		{
+			if (start)
+			{
+
+				foreach (char c in vars.Keys)
+				{
+					object[] o0 = vars[c] as object[];
+					object[] o = variables[c] as object[];
+					o[0] = o0[2];
+				}
+				oldStep = step;
+				GetAlias = GetAliasDynamic;
+				SetAlias = SetAliasDymamic;
+				return;
+			}
+			GetAlias = GetAliasStatic; 
+			SetAlias = SetAliasStatic;
 
         }
 

@@ -9,7 +9,7 @@ namespace DataPerformer.Portable
     /// <summary>
     /// Wrapper of filters
     /// </summary>
-    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IAdditionalStart
+    public class FilterWrapper : DataConsumer, IPostSetArrow, IMeasurements, IRunning
     {
 
         #region Fields 
@@ -27,6 +27,8 @@ namespace DataPerformer.Portable
         bool isUpdated = false;
 
         double? outval;
+
+        bool isRunning = false;
 
 
         #endregion
@@ -115,9 +117,14 @@ namespace DataPerformer.Portable
 
         #region IStarted Members
 
-        void IAdditionalStart.Start()
+        bool IRunning.IsRunning
         {
-            filter.Reset();
+            get => isRunning;
+            set
+            {
+                isRunning = value;
+                if (value) filter.Reset();
+            }
         }
 
 

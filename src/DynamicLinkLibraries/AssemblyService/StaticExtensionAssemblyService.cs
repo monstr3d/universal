@@ -44,33 +44,12 @@ namespace AssemblyService
             locations.AddLast(ass.Location);
         }
 
+        /// <summary>
+        /// Inits itself
+        /// </summary>
         static public void Init()
         {
             
-
-   /*         string[] resources = executingAssembly.GetManifestResourceNames();
-            foreach (string resource in resources)
-            {
-                if (resource.EndsWith(".dll"))
-                {
-                    using (Stream stream = executingAssembly.GetManifestResourceStream(resource))
-                    {
-                        if (stream == null)
-                            continue;
-
-                        byte[] assemblyRawBytes = new byte[stream.Length];
-                        stream.Read(assemblyRawBytes, 0, assemblyRawBytes.Length);
-                        try
-                        {
-                            assemblyDictionary.Add(resource, Assembly.Load(assemblyRawBytes));
-                        }
-                        catch (Exception ex)
-                        {
-                            System.Diagnostics.Debug.Print("Failed to load: " + resource + " Exception: " + ex.Message);
-                        }
-                    }
-                }
-            }*/
         }
 
         static internal  bool HasAttributeAss<T>(this Type type) where T : Attribute

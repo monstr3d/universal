@@ -1284,7 +1284,6 @@ namespace DataPerformer.UI.UserControls
 
         }
 
-
         private void PerformIterator(IDataConsumer consumer, IIterator iterator)
         {
             iterator.Reset();
@@ -1297,7 +1296,7 @@ namespace DataPerformer.UI.UserControls
 
             }
             var coll = consumer.GetDependentCollection();
-            coll.ForEach((IAdditionalStart s) => s.Start());
+            coll.ForEach((IRunning s) => s.IsRunning = true);
             dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
         }
 
@@ -2823,6 +2822,8 @@ namespace DataPerformer.UI.UserControls
             {
                 try
                 {
+                    var coll = consumer.GetDependentCollection();
+                    coll.ForEach((IRunning s) => s.IsRunning = false);
                     performer.Remove(typeof(DynamicSeriesAttribute));
                     {
                         Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;

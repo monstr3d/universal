@@ -87,6 +87,10 @@ namespace DataPerformer.Portable
         /// <returns>The result of checking</returns>
         public static bool IsDoubleType(this object obj)
         {
+            if (obj == null)
+            {
+
+            }
             if (obj.Equals(a)) return true;
             if (obj is ArrayReturnType)
             {

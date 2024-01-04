@@ -5,13 +5,14 @@ using System.Text;
 namespace Diagram.Interfaces
 {
     /// <summary>
-    /// Additional start
+    /// Running object
     /// </summary>
-    public interface IAdditionalStart
+    public interface IRunning
     {
         /// <summary>
-        /// Starts itself
+        /// The "is running" sign
         /// </summary>
-        void Start();
+        bool IsRunning { get; set; }
+
     }
 }

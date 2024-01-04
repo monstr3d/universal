@@ -17,6 +17,13 @@ namespace Animation
     [InitAssembly]
     public static class StaticExtensionAnimationInterfaces
     {
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        static public void Init()
+        {
+
+        }
 
         #region Private
 
