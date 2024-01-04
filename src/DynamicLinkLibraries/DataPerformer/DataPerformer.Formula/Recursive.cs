@@ -28,27 +28,17 @@ namespace DataPerformer.Formula
 	/// <summary>
 	/// Recurrent object
 	/// </summary>
-	public class Recursive : CategoryObject,  IDataConsumer, IMeasurements, IStarted, IAlias,
+	public class Recursive : CategoryObject,  IDataConsumer, IMeasurements, IStarted, IRunning, IAlias,
 		ICheckCorrectness, IStep, IRuntimeUpdate, ITimeMeasurementConsumer, 
-		IVariableDetector, ITreeCollection,	ITimeVariable, IRunning, IPostSetArrow
+		IVariableDetector, ITreeCollection,	ITimeVariable, IPostSetArrow
 	{
 
 		#region Fields
 
 		/// <summary>
-		/// Alias getter
-		/// </summary>
-		Func<string, object> GetAlias; 
-
-		/// <summary>
-		/// Alias setter
-		/// </summary>
-        Action<string, object> SetAlias; 
-
-		/// <summary>
 		/// The "is running" sign
 		/// </summary>
-        protected bool isRunning = false;
+		protected bool isRunning = false;
 
 		/// <summary>
 		/// Internal variables
@@ -61,9 +51,14 @@ namespace DataPerformer.Formula
 		protected Dictionary<object, object> aliases = new Dictionary<object, object>();
 
 		/// <summary>
-		/// String representation of internal variables
+		/// Temporary aliases
 		/// </summary>
-		protected Dictionary<object, object> vars = new Dictionary<object, object>();
+		protected Dictionary<object, object> tempAliases = new Dictionary<object, object>();
+
+        /// <summary>
+        /// String representation of internal variables
+        /// </summary>
+        protected Dictionary<object, object> vars = new Dictionary<object, object>();
 
 		/// <summary>
 		/// String representation of external parameters
@@ -168,9 +163,7 @@ namespace DataPerformer.Formula
 		public Recursive()
 		{
 			update = UpdateFormulas;
-            GetAlias = GetAliasStatic;
-            SetAlias = SetAliasStatic;
-        }
+		}
 
         #endregion
 
@@ -314,23 +307,27 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region IStarted Members
+        #region IStarted Members
 
-		/// <summary>
-		/// Starts this object
-		/// </summary>
-		/// <param name="time">Start time</param>
-		void IStarted.Start(double time)
-		{
-			Start(true);
-		}
+        /// <summary>
+        /// Starts this object
+        /// </summary>
+        /// <param name="time">Start time</param>
+        void IStarted.Start(double time)
+        {
+            Start(true);
+        }
 
         #endregion
 
+
         #region IRunning Members
 
+        /// <summary>
+		/// The "is running" sign
+		/// </summary>
         bool IRunning.IsRunning
         {
 			get => isRunning;
@@ -365,15 +362,27 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		/// <summary>
-		/// Gets or sets alias
-		/// </summary>
-		/// <param name="alias">Alias name</param>
-		/// <returns>Alias value</returns>
-        object IAlias.this[string alias]
+		object IAlias.this[string alias]
 		{
-			get => GetAlias(alias);
-			set => SetAlias(alias, value);
+			get
+			{
+				if (aliases.ContainsKey(alias[0]))
+				{
+					return aliases[alias[0]];
+				}
+				object[] o = vars[alias[0]] as object[];
+				return o[2];
+			}
+			set
+			{
+				if (aliases.ContainsKey(alias[0]))
+				{
+					aliases[alias[0]] = value;
+					return;
+				}
+				object[] o = vars[alias[0]] as object[];
+				o[2] = value;
+			}
 		}
 
 		/// <summary>
@@ -383,13 +392,8 @@ namespace DataPerformer.Formula
 		/// <returns>Returns type of alias object</returns>
 		public object GetType(string name)
 		{
-			IAlias alias = this;
-			object alname = alias[name];
-            if (alname == null)
-            {
-                
-            }
-            return AliasTypeDetector.Detector.DetectType(alname);
+			IAlias al = this;
+			return AliasTypeDetector.Detector.DetectType(al[name]);
 		}
 
 		event Action<IAlias, string> IAlias.OnChange
@@ -748,59 +752,14 @@ namespace DataPerformer.Formula
 
 		internal Dictionary<object, object> Pars => pars;
 
-        #endregion
+		#endregion
 
-        #region Private Members
+		#region Private Members
 
-
-        object GetAliasStatic(string alias)
-        {
-            if (aliases.ContainsKey(alias[0]))
-            {
-                return aliases[alias[0]];
-            }
-            object[] o = vars[alias[0]] as object[];
-            return o[2];
-        }
-
-        object GetAliasDynamic(string alias)
-        {
-            if (aliases.ContainsKey(alias[0]))
-            {
-                return aliases[alias[0]];
-            }
-            object[] o = variables[alias[0]] as object[];
-            return o[0];
-        }
-
-        void SetAliasStatic(string alias, object value)
-        {
-            if (aliases.ContainsKey(alias[0]))
-            {
-                aliases[alias[0]] = value;
-                return;
-            }
-            object[] o = vars[alias[0]] as object[];
-            o[2] = value;
-        }
-
-        void SetAliasDymamic(string alias, object value)
-        {
-            if (aliases.ContainsKey(alias[0]))
-            {
-                aliases[alias[0]] = value;
-                return;
-            }
-            object[] o = variables[alias[0]] as object[];
-            o[0] = value;
-        }
-
-
-        void Start(bool start)
+		void Start(bool stated)
 		{
-			if (start)
+			if (stated)
 			{
-
 				foreach (char c in vars.Keys)
 				{
 					object[] o0 = vars[c] as object[];
@@ -808,12 +767,18 @@ namespace DataPerformer.Formula
 					o[0] = o0[2];
 				}
 				oldStep = step;
-				GetAlias = GetAliasDynamic;
-				SetAlias = SetAliasDymamic;
+				tempAliases.Clear();
+				foreach (var alias in aliases.Keys)
+				{
+					tempAliases[alias] = aliases[alias];
+				}
 				return;
 			}
-			GetAlias = GetAliasStatic; 
-			SetAlias = SetAliasStatic;
+            foreach (var alias in tempAliases.Keys)
+            {
+                aliases[alias] = tempAliases[alias];
+            }
+
 
         }
 
@@ -1002,14 +967,14 @@ namespace DataPerformer.Formula
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Variable
+		#region Variable
 
-        /// <summary>
-        /// Auxiliary class for measurement providinf
-        /// </summary>
-        class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IMeasurementHolder
+		/// <summary>
+		/// Auxiliary class for measurement providinf
+		/// </summary>
+		class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IMeasurementHolder
 		{
 
 			#region Fields
