@@ -774,9 +774,10 @@ namespace DataPerformer.UI.UserControls
 
         internal string ArgumentString
         {
-            get
+            get => data.Item4[1];
+            set
             {
-                return data.Item4[1];
+                data.Item4[1] = value;  
             }
         }
 
@@ -787,14 +788,16 @@ namespace DataPerformer.UI.UserControls
                 object o = comboBoxArg.SelectedItem;
                 if (o == null)
                 {
-                    data.Item4[1] = "Time";
-                    changeArgument(data.Item4[1]);
+                    ArgumentString = "Time";
+                    changeArgument(ArgumentString);
                     return StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
                 }
-                data.Item4[1] = o + "";
-                changeArgument(data.Item4[1]);
-                return consumer.FindMeasurement(data.Item4[1], true);
+                ArgumentString = o + "";
+                changeArgument(ArgumentString);
+                return consumer.FindMeasurement(ArgumentString, true);
             }
+
+ 
         }
 
         internal Dictionary<string, object[]> Parameters
@@ -887,7 +890,7 @@ namespace DataPerformer.UI.UserControls
         void SaveSettings()
         {
             var o = comboBoxArg.SelectedItem ?? "Time";
-            data.Item4[1] = o + "";
+            ArgumentString = o + "";
             Dictionary<string, IMeasurement> t = TextDictionary;
             Dictionary<IMeasurement, Color[]> mc = MeasureColorDictionary;
             var si = comboBoxCond.SelectedItem ?? "";
@@ -1180,32 +1183,9 @@ namespace DataPerformer.UI.UserControls
             FillPoints();
             comboBoxArg.Items.Clear();
             panelMea.Controls.Clear();
-            /*      if (ucmg != null)
-                  {
-                      if (!ucmg.IsDisposed)
-                      {
-                          ucmg.Dispose();
-                          ucmg = null;
-                      }
-                  }
-                  ucmg = UserControlMeasureGraph.Create(consumer);
-                  if (ucmg == null)
-                  {
-                      return;
-                  }
-                  ucmg.Data = data;
-                  ucmg.Dock = DockStyle.Top;
-                  try
-                  {
-                      panelMea.Controls.Add(ucmg);
-                  }
-                  catch (Exception ex)
-                  {
-                      ex.ShowError();
-                  }
-                  */
             fillMea();
             int n = -1;
+            int num = 0;
             if (consumer != null)
             {
                 for (int i = 0; i < consumer.Count; i++)
@@ -1218,11 +1198,11 @@ namespace DataPerformer.UI.UserControls
                         IMeasurement m = arrow[j];
                         string s = name + "." + m.Name;
                         comboBoxArg.Items.Add(s);
-                        if (s.Equals(data.Item4[1]))
+                        if (s.Equals(ArgumentString))
                         {
-                            n = j;
+                            n = num;
                         }
-
+                        ++num;
                     }
                 }
             }
@@ -1711,7 +1691,7 @@ namespace DataPerformer.UI.UserControls
                             val.Add(key);
                         }
                     }
-                    globalArg = data.Item4[1];
+                    globalArg =ArgumentString;
                 }
                 else
                 {
@@ -1726,7 +1706,7 @@ namespace DataPerformer.UI.UserControls
                 return;
             }
             object ot = comboBoxArg.SelectedItem ?? "Time";
-            data.Item4[1] = ot  + "";
+            ArgumentString = ot  + "";
             backgroundWorker.RunWorkerAsync();
         }
 
@@ -1932,7 +1912,7 @@ namespace DataPerformer.UI.UserControls
                 r.AppendChild(cc);
             }
             XmlElement arg = doc.CreateElement("Argument");
-            arg.InnerText = data.Item4[1];
+            arg.InnerText = ArgumentString;
             r.AppendChild(arg);
             XmlElement p = doc.CreateElement("Parameters");
             r.AppendChild(p);

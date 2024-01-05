@@ -318,13 +318,14 @@ namespace DataPerformer
             Dictionary<DoubleArrayFunction, IMeasurement[]> functions;
             Dictionary<string, object> dic = CreateMeasurements(argument, values, out series, out functions, null);
             this.ResetAll();
+            var rt = this.CreateRuntime(null);
             do
             {
                 if (stop())
                 {
                     break;
                 }
-                this.UpdateAll();
+                rt.UpdateAll();
                 foreach (var s in series)
                 {
                     s.Step();
