@@ -18,6 +18,7 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 using DataPerformer.Formula.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataPerformer.Formula
 {
@@ -363,10 +364,11 @@ namespace DataPerformer.Formula
             }
         }
 
+
         /// <summary>
         /// The operation that performs after arrows setting
         /// </summary>
-        public virtual void PostSetArrow()
+        protected virtual void PostSetArrowProtected()
         {
             postDeserialize();
             postSetAlias();
@@ -518,42 +520,6 @@ namespace DataPerformer.Formula
                 }
             }
         }
-
-   
-        /// <summary>
-        /// Starts this object
-        /// </summary>
-        new public void Start(double time)
-        {
-            try
-            {
-                timeOld = time;
-                foreach (Variable v in output)
-                {
-                    char c = v.Symbol;
-                    object[] o = variables[c] as object[];
-                    v.Value = (double)o[4];
-                }
-                prepareStart = () =>
-                {
-                    UpdateChildrenData();
-
-                    foreach (object[] o in variables.Values)
-                    {
-                        ObjectFormulaTree t = o[2] as ObjectFormulaTree;
-                        object ob = t.Result;
-                        DeltaFunction.Reset(t);
-                    }
-                    prepareStart = () => { };
-                };
-            }
-            catch (Exception e)
-            {
-                e.ShowError(10);
-                this.Throw(e);
-            }
-        }
-
         /// <summary>
         /// Calculates initial value of variable
         /// </summary>
@@ -976,7 +942,7 @@ namespace DataPerformer.Formula
                 {
                     if (!acc.ContainsKey(s))
                     {
-                        acc[s] = new Variable(s, aa);
+                        acc[s] = new Variable(s, aa, this);
                     }
                 }
                 else
@@ -1067,7 +1033,13 @@ namespace DataPerformer.Formula
                 {
                     AliasName an = externalAliases[v];
                     IMeasurement m = v;
-                    an.SetValue(m.Parameter());
+                    var p = m.Parameter;
+                    var value = p();
+                    if (value == null)
+                    {
+
+                    }
+                    an.SetValue(value);
                 }
                 foreach (IMeasurements m in dependent)
                 {
@@ -1075,6 +1047,10 @@ namespace DataPerformer.Formula
                     m.UpdateMeasurements();
                 }
                 update();
+                if (!proxy.Success)
+                {
+
+                }
             }
             catch (Exception e)
             {
@@ -1238,7 +1214,7 @@ namespace DataPerformer.Formula
         private void AddVariable(char c, AssociatedAddition aa)
         {
             string str = c + "";
-            Variable v = new Variable(str, aa);
+            Variable v = new Variable(str, aa, this);
             if (!acc.ContainsKey(str))
             {
                 acc[str] = v;
@@ -1390,6 +1366,53 @@ namespace DataPerformer.Formula
                 o[4] = x;
                 ++i;
             }
+        }
+
+        #endregion
+
+        #region IStarted Members
+
+        /// <summary>
+        /// Starts this object
+        /// </summary>
+        void IStarted.Start(double time)
+        {
+            try
+            {
+                timeOld = time;
+                foreach (Variable v in output)
+                {
+                    char c = v.Symbol;
+                    object[] o = variables[c] as object[];
+                    v.Value = (double)o[4];
+                }
+                prepareStart = () =>
+                {
+                    UpdateChildrenData();
+
+                    foreach (object[] o in variables.Values)
+                    {
+                        ObjectFormulaTree t = o[2] as ObjectFormulaTree;
+                        object ob = t.Result;
+                        DeltaFunction.Reset(t);
+                    }
+                    prepareStart = () => { };
+                };
+            }
+            catch (Exception e)
+            {
+                e.ShowError(10);
+                this.Throw(e);
+            }
+        }
+
+        #endregion
+
+        #region IPostSetArrow
+
+        void IPostSetArrow.PostSetArrow()
+        {
+            PostSetArrowProtected();
         }
 
         #endregion
@@ -1623,7 +1646,7 @@ namespace DataPerformer.Formula
 
         class Variable : IObjectOperation, 
             IPowered, IOperationAcceptor, IMeasurement, IDerivation, 
-            IDerivationOperation, IStack, IMeasurementHolder
+            IDerivationOperation, IStack, IMeasurementHolder, IAssociatedObject
         {
 
             #region Fields
@@ -1647,18 +1670,32 @@ namespace DataPerformer.Formula
 
             protected AssociatedAddition addition;
 
+            DifferentialEquationSolver equationSolver;
+
             #endregion
 
             #region Ctor
 
-            internal Variable(string symbol, AssociatedAddition addition)
+            internal Variable(string symbol, AssociatedAddition addition, DifferentialEquationSolver equationSolver)
             {
                 this.symbol = symbol;
                 par = GetValue;
                 this.addition = addition;
+                this.equationSolver = equationSolver;
+
             }
 
 
+
+            #endregion
+
+            #region IAssociatedObject Members
+
+            object IAssociatedObject.Object
+            {
+                get => equationSolver;
+                set { }
+            }
 
             #endregion
 
@@ -1699,7 +1736,7 @@ namespace DataPerformer.Formula
 
             IMeasurement IDerivation.Derivation
             {
-                get { return derivation; }
+                get => derivation;
             }
 
             #endregion

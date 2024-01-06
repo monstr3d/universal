@@ -159,7 +159,7 @@ namespace FormulaEditor
         /// <returns>Shift result</returns>
         private object shift(object o, object shift)
         {
-            double s = Converter.ToDouble(shift);
+            double s = shift.ToDouble();
             int i = (int)s;
             if (type is Byte)
             {

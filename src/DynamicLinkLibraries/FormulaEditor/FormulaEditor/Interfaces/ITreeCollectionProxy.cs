@@ -16,7 +16,7 @@ namespace FormulaEditor.Interfaces
         /// </summary>
         /// <param name="tree">The tree</param>
         /// <returns>The proxy parameter</returns>
-        GetValue this[ObjectFormulaTree tree]
+        Func<object> this[ObjectFormulaTree tree]
         {
             get;
         }

@@ -59,7 +59,7 @@ namespace DataPerformer.TestInterface.UI
                     IEnumerable<string> keys = d.Keys;
                     DataConsumer cons = co as DataConsumer;
                     var lc =
-                    new SeriesWrapper.LocalChart(name, cons.Start,
+                    new SeriesWrapper.LocalChart(name, cons.StartTime,
                     cons.Step, cons.Steps, data.Item4[1], keys.ToArray());
                     lc.Create(collection);
                     return lc;

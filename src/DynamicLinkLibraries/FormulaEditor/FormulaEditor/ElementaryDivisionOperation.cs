@@ -1,4 +1,5 @@
 ﻿using BaseTypes.Interfaces;
+using BaseTypes.Utils;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 using System;
@@ -512,8 +513,8 @@ namespace FormulaEditor
 
         private object divided(object[] args)
         {
-            double a = Convert.ToDouble(args[0]);
-            double b = Convert.ToDouble(args[1]);
+            double a = (double)args[0].ToNullDouble();
+            double b = (double)args[1].ToNullDouble();
             return a / b;
         }
 

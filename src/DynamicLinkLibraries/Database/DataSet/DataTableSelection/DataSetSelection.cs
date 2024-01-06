@@ -11,6 +11,7 @@ using GeneralLinearMethod;
 using DataPerformer;
 using DataSetService;
 using Regression;
+using BaseTypes.Utils;
 
 
 namespace DataTableSelection
@@ -378,7 +379,7 @@ namespace DataTableSelection
                             }
                             else
                             {
-                                a = Convert.ToDouble(o);
+                                a = o.ToDouble();
                             }
                         }
                         catch (Exception ex)

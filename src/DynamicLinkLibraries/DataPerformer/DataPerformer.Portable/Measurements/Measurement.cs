@@ -94,17 +94,7 @@ namespace DataPerformer.Portable.Measurements
             }
         }
 
-        /// <summary>
-        /// Gets double value of measure
-        /// </summary>
-        /// <param name="measure">The measure</param>
-        /// <returns>The double value</returns>
-        public static double GetDouble(IMeasurement measure)
-        {
-            return (double)measure.Parameter();
-        }
-
-
+    
         /// <summary>
         /// Gets name of type
         /// </summary>

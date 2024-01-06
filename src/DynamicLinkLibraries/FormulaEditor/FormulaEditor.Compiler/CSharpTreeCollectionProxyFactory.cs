@@ -26,7 +26,7 @@ namespace FormulaEditor.Compiler
             {
                 try
                 {
-                    Assembly ass = StaticExtensionFormulaEditorCompiler.Compiler[code];
+                    var ass = StaticExtensionFormulaEditorCompiler.Compiler[code];
                     if (ass == null)
                     {
                         /// Check point

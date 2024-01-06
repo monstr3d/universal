@@ -394,7 +394,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Start
         /// </summary>
-        public double Start
+        public double StartTime
         {
             get
             {

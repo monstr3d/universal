@@ -530,13 +530,13 @@ namespace BaseTypes.Utils
         /// </summary>
         /// <param name="o">The object</param>
         /// <returns>Conversion result</returns>
-        public static double? ToNullDouble(object o)
+        public static double? ToNullDouble(this object o)
         {
             if (o == null)
             {
                 return null;
             } 
-            return ToDouble(o);
+            return o.ToDouble();
         }
 
 
@@ -546,7 +546,7 @@ namespace BaseTypes.Utils
         /// </summary>
         /// <param name="o">The object</param>
         /// <returns>Conversion result</returns>
-        public static double ToDouble(object o)
+        public static double ToDouble(this object o)
         {
             if (o is decimal)
             {

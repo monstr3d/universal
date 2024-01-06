@@ -66,7 +66,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < m.Count; j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    w[i] = w[i] + Measurement.GetDouble(der.Derivation) * dt;
+                    w[i] = w[i] + der.Derivation.ToDouble() * dt;
                     ++i;
                 }
                 s.CopyVariablesToSolver(i - m.Count, w);

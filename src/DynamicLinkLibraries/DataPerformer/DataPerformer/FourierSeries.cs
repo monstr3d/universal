@@ -197,7 +197,7 @@ namespace DataPerformer
                 result[1, 0] = 0;
                 double x = (double)input.Parameter();
                 IDerivation der = input as IDerivation;
-                double d = Measurement.GetDouble(der.Derivation);
+                double d = der.Derivation.ToDouble();
                 for (int i = 0; i < series[0].Count; i++)
                 {
                     double om = series[0][i, 0];

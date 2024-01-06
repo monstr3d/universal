@@ -4,6 +4,7 @@ using System.Text;
 
 using AnalyticPolynom;
 using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 using DataPerformer.Portable.Measurements;
 
@@ -160,8 +161,8 @@ namespace DataPerformer
                     for (int j = 0; j < m.Count; j++)
                     {
                         IDerivation der = m[j] as IDerivation;
-                        prevDeri[paramCount, stepCount] = Measurement.GetDouble(der.Derivation);
-                        prevStep[paramCount] = (double)m[j].Parameter();
+                        prevDeri[paramCount, stepCount] = der.Derivation.ToDouble();
+                        prevStep[paramCount] = m[j].ToDouble();
                         ++paramCount;
                     }
                     s.CopyVariablesToSolver(paramCount - m.Count, prevStep);
@@ -210,7 +211,7 @@ namespace DataPerformer
                     for (int j = 0; j < m.Count; j++)
                     {
                         IDerivation der = m[j] as IDerivation;
-                        prevDeri[paramCount, order - 1] = Measurement.GetDouble(der.Derivation);
+                        prevDeri[paramCount, order - 1] = der.Derivation.ToDouble();
                         ++paramCount;
                     }
                 }

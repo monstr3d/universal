@@ -105,8 +105,8 @@ namespace FormulaEditor
                 }
                 if (!ElementaryBinaryOperation.IsInteger64(x[0]) | !ElementaryBinaryOperation.IsInteger64(x[0]))
                 {
-                    double a = Converter.ToDouble(x[0]);
-                    double b = Converter.ToDouble(x[1]);
+                    double a = x[0].ToDouble();
+                    double b = x[1].ToDouble();
                     if (a > b)
                     {
                         i = 1;

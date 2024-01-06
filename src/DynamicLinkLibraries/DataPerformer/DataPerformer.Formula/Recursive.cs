@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
 
+using BaseTypes.Interfaces;
 
 using CategoryTheory;
 
@@ -10,18 +9,16 @@ using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Aliases;
-
-using BaseTypes.Interfaces;
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
+using Diagram.Interfaces;
 
 using FormulaEditor;
 using FormulaEditor.Symbols;
 using FormulaEditor.Interfaces;
-using DataPerformer.Formula;
+
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+
 using DataPerformer.Formula.Interfaces;
-using Diagram.Interfaces;
 
 namespace DataPerformer.Formula
 {

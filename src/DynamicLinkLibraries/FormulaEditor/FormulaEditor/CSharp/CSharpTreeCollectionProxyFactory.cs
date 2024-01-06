@@ -139,8 +139,6 @@ namespace FormulaEditor.CSharp
 
         #region Private Members
 
-        bool Success { get => true; }
-
         private List<string> PostCreateCode(ICodeCreator local, IList<string> lcode,
            IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = true)
         {
@@ -187,10 +185,10 @@ namespace FormulaEditor.CSharp
             } 
             l.Add("}");
             l.Add("");
-            l.Add("public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]");
+            l.Add("public Func<object> this[FormulaEditor.ObjectFormulaTree tree]");
             l.Add("{ get { return dictionary[tree]; }}");
             l.Add("");
-            l.Add("Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();");
+            l.Add("Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();");
             l.Add("");
             foreach (string s in variables)
             {

@@ -91,15 +91,12 @@ namespace DataPerformer.Formula
 
         Func<object> IMeasurement.Parameter
         {
-            get 
-            {
-                return parameter; 
-            }
+            get => parameter;
         }
 
         string IMeasurement.Name
         {
-            get { return name; }
+            get => name;
         }
 
         object IMeasurement.Type 

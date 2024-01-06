@@ -23,8 +23,8 @@ namespace Chart.Objects
 
         public override void Step()
         {
-            double xp = Converter.ToDouble(x()());
-            double yp = Converter.ToDouble(y()());
+            double xp = x()().ToDouble();
+            double yp = y()().ToDouble();
             AddXY(xp, yp);
             pointList.Add(new PointBase(xp, yp));
         }

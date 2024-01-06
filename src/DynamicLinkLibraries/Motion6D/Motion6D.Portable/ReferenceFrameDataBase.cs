@@ -328,7 +328,7 @@ namespace Motion6D.Portable
                     for (int i = 0; i < 3; i++)
                     {
                         IDerivation d = measurements[i] as IDerivation;
-                        v[i] = Measurement.GetDouble(d.Derivation);
+                        v[i] = d.Derivation.ToDouble();
                     }
                 }
                 double[] qua = relative.Quaternion;
@@ -346,7 +346,7 @@ namespace Motion6D.Portable
                     for (int i = 0; i < 4; i++)
                     {
                         IDerivation d = measurements[i + 3] as IDerivation;
-                        der[i] = Measurement.GetDouble(d.Derivation);
+                        der[i] = d.Derivation.ToDouble();
                     }
                     Vector3D.StaticExtensionVector3D.CalculateDynamics(or.Quaternion, der, om, qd);
                 }
@@ -357,11 +357,11 @@ namespace Motion6D.Portable
                     double[] linacc = acc.RelativeAcceleration;
                     for (int i = 0; i < linacc.Length; i++)
                     {
-                       linacc[i] = Measurement.GetDouble(secondDeriM[i]);
+                       linacc[i] = secondDeriM[i].ToDouble();
                     }
                     for (int i = 0; i < 4; i++)
                     {
-                       angsec[i] = Measurement.GetDouble(secondDeriM[i + 3]);
+                       angsec[i] = secondDeriM[i + 3].ToDouble();
                     }
                     IAngularVelocity av = relative as IAngularVelocity;
                     double[] om = av.Omega;

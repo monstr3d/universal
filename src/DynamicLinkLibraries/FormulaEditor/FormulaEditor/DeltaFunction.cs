@@ -4,8 +4,6 @@ using System.Text;
 
 using BaseTypes.Interfaces;
 
-using FormulaEditor.Interfaces;
-
 namespace FormulaEditor
 {
     /// <summary>

@@ -23,6 +23,10 @@ namespace Aviation.Light
     {
         static bool check(object o)
         {
+            if (o == null) 
+            {
+                return true;
+            }
             return o == null;
         }
         /// <summary>

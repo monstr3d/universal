@@ -157,7 +157,7 @@ namespace DataPerformer.UI.Forms
             foreach (char c in var.Keys)
             {
                 object[] o = var[c] as object[];
-                double a = Converter.ToDouble(o[2]);
+                double a = o[2].ToDouble();
                 dataTableInitial.Rows.Add(new object[] { c + "", a });
             }
             IAlias al = recursive;

@@ -92,7 +92,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = Measurement.GetDouble(der.Derivation);
+                    z[i] = der.Derivation.ToDouble();
                     k[0, i] = z[i] * dt;
                     w[i] = f[i] + 0.5 * k[0, i];
                     ++i;
@@ -109,7 +109,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = Measurement.GetDouble(der.Derivation);
+                    z[i] = der.Derivation.ToDouble();
                     k[1, i] = z[i] * dt;
                     w[i] = f[i] + 0.5 * k[1, i];
                     ++i;
@@ -126,7 +126,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = Measurement.GetDouble(der.Derivation);
+                    z[i] = der.Derivation.ToDouble();
                     k[2, i] = z[i] * dt;
                     w[i] = f[i] + k[2, i];
                     ++i;
@@ -143,7 +143,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = Measurement.GetDouble(der.Derivation);
+                    z[i] = der.Derivation.ToDouble();
                     k[3, i] = z[i] * dt;
                     ++i;
                 }

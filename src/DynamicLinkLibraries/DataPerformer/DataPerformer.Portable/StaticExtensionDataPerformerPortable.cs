@@ -81,6 +81,24 @@ namespace DataPerformer.Portable
         #region Public Members
 
         /// <summary>
+        /// Gets double value of measure
+        /// </summary>
+        /// <param name="measurement">The measure</param>
+        /// <returns>The double value</returns>
+        public static double ToDouble(this IMeasurement measurement)
+        {
+            var parameter = measurement.Parameter;
+            object o = parameter();
+            if (o == null)
+            {
+
+            }
+            return (double)o;
+        }
+
+
+
+        /// <summary>
         /// Checks whether type is double
         /// </summary>
         /// <param name="obj">The type</param>

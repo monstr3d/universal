@@ -753,7 +753,7 @@ namespace DataPerformer.UI.UserControls
             DataConsumer consumer = this.consumer as DataConsumer;
             ArrayList graphControls = consumer.GraphControls;
             ControlPanel.LoadControls(panelGraph, graphControls);
-            calculatorBoxStart.Text = consumer.Start + "";
+            calculatorBoxStart.Text = consumer.StartTime + "";
             calculatorBoxStep.Text = consumer.Step + "";
             textBoxStepCount.Text = consumer.Steps + "";
             pic.Text = ResourceService.Resources.GetControlResource("Color", DataPerformer.UI.Utils.ControlUtilites.Resources);
@@ -910,7 +910,7 @@ namespace DataPerformer.UI.UserControls
                 data.Item4[5] = "";
             }
             data.Item5[0] = (int)numericUpDownPause.Value;
-            consumer.Start = double.Parse(calculatorBoxStart.Text);
+            consumer.StartTime = double.Parse(calculatorBoxStart.Text);
             consumer.Step = double.Parse(calculatorBoxStep.Text);
             string sc;
             consumer.Steps = GetValue(comboBoxStepCount, textBoxStepCount, out sc);
@@ -1052,7 +1052,7 @@ namespace DataPerformer.UI.UserControls
                 StopCalc(calc);
                 Action<Action> animation = (Action act) =>
                 {
-                    double start = consumer.Start;
+                    double start = consumer.StartTime;
                     double step = consumer.Step;
                     int count = consumer.Steps;
                     consumer.PerformFixed(start, step, count,
@@ -1069,7 +1069,7 @@ namespace DataPerformer.UI.UserControls
                 StopCalc(calc);
                 Action<Action> animation = (Action act) =>
                 {
-                    double start = consumer.Start;
+                    double start = consumer.StartTime;
                     double step = consumer.Step;
                     int count = consumer.Steps;
                     consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
@@ -1367,8 +1367,8 @@ namespace DataPerformer.UI.UserControls
             try
             {
                 DataConsumer consumer = this.consumer as DataConsumer;
-                consumer.PerformFixed(consumer.Start, consumer.Step, consumer.Steps,
-                    DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider, processor,
+                consumer.PerformFixed(consumer.StartTime, consumer.Step, consumer.Steps,
+                    StaticExtensionDataPerformerPortable.Factory.TimeProvider, processor,
                     StaticExtensionDataPerformerInterfaces.Calculation,
                     0, TextAction);
             }
@@ -1668,7 +1668,7 @@ namespace DataPerformer.UI.UserControls
                         }
                     }
                 }//*/
-                consumer.Start = double.Parse(calculatorBoxStart.Text);
+                consumer.StartTime = double.Parse(calculatorBoxStart.Text);
                 consumer.Step = double.Parse(calculatorBoxStep.Text);
                 string sc;
                 consumer.Steps = GetValue(comboBoxStepCount, textBoxStepCount, out sc);
@@ -1738,10 +1738,10 @@ namespace DataPerformer.UI.UserControls
                     }
                     dicText.Clear();
                     WritePar();
-                    consumer.Start = Double.Parse(calculatorBoxStart.Text);
+                    consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
                     consumer.Step = Double.Parse(calculatorBoxStep.Text);
                     consumer.Steps = Int32.Parse(textBoxStepCount.Text);
-                    double start = consumer.Start;
+                    double start = consumer.StartTime;
                     double step = consumer.Step;
                     int count = consumer.Steps;
                     IObjectLabel lab = parentLab;

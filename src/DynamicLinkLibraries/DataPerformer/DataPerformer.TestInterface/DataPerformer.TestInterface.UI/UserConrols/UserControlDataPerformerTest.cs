@@ -115,7 +115,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
                     Dictionary<string, Color[]> d = data.Item1;
                     IEnumerable<string> keys = d.Keys;
                     DataConsumer cons = co as DataConsumer;
-                    test.AddChart(name, cons.Start, cons.Step, cons.Steps, 
+                    test.AddChart(name, cons.StartTime, cons.Step, cons.Steps, 
                         data.Item4[1], keys.ToArray<string>(), collection);
                     return;
                 }
