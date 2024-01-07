@@ -15,9 +15,9 @@ using System.Windows.Forms;
 namespace DataPerformer.UI.Labels
 {
     [Serializable()]
-    public class AverageLabel : UserControlBaseLabel
+    public class FilterLabel : UserControlBaseLabel
     { 
-        UserControlAverage uc = new UserControlAverage();
+        UserControlFilter uc = new UserControlFilter();
         protected override UserControl Control =>  uc;
 
         FilterWrapper filterWrapper;
@@ -42,19 +42,19 @@ namespace DataPerformer.UI.Labels
         /// <summary>
         /// Default constructor
         /// </summary>
-        public AverageLabel()
-            : base(typeof(FilterWrapper), "Average", ResourceFilters.Average)
+        public FilterLabel()
+            : base(typeof(FilterWrapper), "Filter", ResourceFilters.Average)
         {
-
+            Width = uc.Width;
+            Height = uc.Height;
         }
-
 
         /// <summary>
         /// Deserialization constructor
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        private AverageLabel(SerializationInfo info, StreamingContext context)
+        private FilterLabel(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
     

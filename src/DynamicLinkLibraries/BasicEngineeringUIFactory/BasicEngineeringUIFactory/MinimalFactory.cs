@@ -17,6 +17,9 @@ using Diagram.UI.Interfaces;
 using DataPerformer;
 using DataPerformer.UI;
 using DataPerformer.UI.Forms;
+using System.Collections;
+using System.Drawing;
+using DataPerformer.Helpers;
 
 namespace BasicEngineering.UI.Factory
 {
@@ -65,7 +68,7 @@ namespace BasicEngineering.UI.Factory
             }
             if (type.Equals(typeof(DataPerformer.Base.Filters.FilterWrapper)))
             {
-                return new DataPerformer.Base.Filters.FilterWrapper(kind);
+                return new DataPerformer.Base.Filters.FilterWrapper(0);
             }
             return null;
         }
@@ -110,22 +113,22 @@ namespace BasicEngineering.UI.Factory
                 {
                     return new FormVectorConsumer(lab);
                 }
-                if (obj.GetType().Equals(typeof(DataPerformer.Series)))
+                if (obj.GetType().Equals(typeof(Series)))
                 {
-                    object[] array = new object[] { (int)0, System.Drawing.Color.Red, new System.Collections.ICollection[0], true };
+                    object[] array = [ (int)0, Color.Red, new ICollection[0], true ];
                     return new FormSeries(lab, array);
                 }
                 if (obj is Table3D)
                 {
                     return new FormTable3D(lab);
                 }
-                if (obj is DataPerformer.Helpers.DataPerformerCollectionStateTransformer)
+                if (obj is DataPerformerCollectionStateTransformer)
                 {
                     return new FormDataPerformerCollectionStateTransformer(lab);
                 }
                 if (obj is MatrixAssembly)
                 {
-                    return new DataPerformer.UI.FormMatrixAssembly(lab);
+                    return new FormMatrixAssembly(lab);
                 }
                 if (obj is VectorAssembly)
                 {
@@ -139,7 +142,7 @@ namespace BasicEngineering.UI.Factory
                 {
                     return new FormArrayTransformer(lab);
                 }
-                if (obj is DataPerformer.ObjectTransformer)
+                if (obj is ObjectTransformer)
                 {
                     return new FormObjectTransformer(lab);
                 }
@@ -147,7 +150,7 @@ namespace BasicEngineering.UI.Factory
                 {
                     return new FormPointCollection(lab);
                 }
-                if (obj is DataPerformer.Helpers.KalmanFilter)
+                if (obj is KalmanFilter)
                 {
                     return new FormKalmanFilter(lab);
                 }
@@ -283,12 +286,7 @@ namespace BasicEngineering.UI.Factory
             }
             if (t.Equals(typeof(DataPerformer.Base.Filters.FilterWrapper)))
             {
-                if (kind == "Donchian")
-                {
-                    return typeof(DataPerformer.UI.Labels.DonchianLabel).CreateLabelUI(false);
-                }
-                return typeof(DataPerformer.UI.Labels.AverageLabel).CreateLabelUI(false);
-
+                return typeof(DataPerformer.UI.Labels.FilterLabel).CreateLabelUI(true);
             }
             if (t.Equals(typeof(DataConsumer)))
             {

@@ -25,11 +25,9 @@ namespace DataPerformer.UI.Factory
 
         public static readonly ButtonWrapper[] FilterButtons =
             [
-                new ButtonWrapper(typeof(Base.Filters.FilterWrapper), "Average", "Average Filter", ResourceFilters.Average,
-                    null, true, false),
-                new ButtonWrapper(typeof(Base.Filters.FilterWrapper), "Donchian", "Donchian Filter", ResourceFilters.Donhcian,
+                new ButtonWrapper(typeof(Base.Filters.FilterWrapper), "Filter", "Filter wrapper", ResourceFilters.Average,
                     null, true, false)
-          ];
+           ];
 
         /// <summary>
         /// Buttons of general objects

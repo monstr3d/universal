@@ -24,13 +24,6 @@ using DataPerformer.UI.UserControls;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls.Graph;
 
-using ToolBox;
-
-using Chart;
-using Chart.Interfaces;
-using Chart.Drawing.Interfaces;
-using Chart.Objects;
-using Chart.Panels;
 
 namespace DataPerformer.UI.Labels
 {

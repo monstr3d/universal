@@ -18,6 +18,7 @@ using Diagram.UI.UserControls;
 
 using ResourceService;
 using AssemblyService.Attributes;
+using System.Runtime.CompilerServices;
 
 namespace Diagram.UI
 {
@@ -269,6 +270,28 @@ namespace Diagram.UI
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// Finds children
+        /// </summary>
+        /// <typeparam name="T">Child type</typeparam>
+        /// <param name="control">Parent control</param>
+        /// <returns>Children</returns>
+        public static IEnumerable<T> FindChildren<T>(this Control control) where T : class
+        {
+            if (control is T)
+            {
+                yield return control as T;
+            }
+            foreach (Control c in control.Controls)
+            {
+                var t = c.FindChildren<T>();
+                foreach (T child in t)
+                {
+                    yield return child;
+                }
+            }
         }
 
 

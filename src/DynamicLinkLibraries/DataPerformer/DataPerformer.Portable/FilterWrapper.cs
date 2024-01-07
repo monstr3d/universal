@@ -14,7 +14,7 @@ namespace DataPerformer.Portable
 
         #region Fields 
 
-        protected string kind = "";
+        protected int  kind = 0;
 
         protected string input;
 
@@ -35,7 +35,7 @@ namespace DataPerformer.Portable
 
         #region Ctor
 
-        public FilterWrapper(string kind) : this(true)
+        public FilterWrapper(int kind) : this(true)
         {
             this.kind = kind;
             SetFilter();
@@ -51,17 +51,25 @@ namespace DataPerformer.Portable
 
         protected void SetFilter()
         {
-            bool b = kind == "Donchian";
-            if (b)
+            switch (kind)
             {
-                filter = new Donchian();
-                measurementOut = new DonchianMeasurement(this);
+                case 0:
+                    filter = new Average();
+                    break;
+                case 1:
+                    var d = new Donchian();
+                    d.Max = true;
+                    filter = d;
+                    break;
+                case 2:
+                    d = new Donchian();
+                    d.Max = false;
+                    filter = d;
+                    break;
+                default: throw new ArgumentException();
             }
-            else
-            {
-                filter = new Average();
-                measurementOut = new FilterMeasurement(this);
-            }
+
+            measurementOut = new FilterMeasurement(this);
         }
 
 
@@ -82,7 +90,16 @@ namespace DataPerformer.Portable
             catch { }
         }
 
-        public string Kind { get => kind; }
+        public int Kind 
+        { 
+            get => kind; 
+            set 
+            { 
+               kind = value; 
+               SetFilter(); 
+            }
+        
+        }
 
         #endregion
 
@@ -132,11 +149,7 @@ namespace DataPerformer.Portable
 
         #region Measurement class
 
-        class DonchianMeasurement : FilterMeasurement
-        {
-            public DonchianMeasurement(FilterWrapper filter) : base(filter) { }
-        }
-
+    
         class FilterMeasurement : IMeasurement
         {
             public FilterMeasurement(FilterWrapper filter)

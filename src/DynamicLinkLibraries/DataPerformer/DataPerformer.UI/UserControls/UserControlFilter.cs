@@ -1,20 +1,32 @@
-﻿using System;
-using System.Windows.Forms;
-
+﻿using DataPerformer.Base.Filters;
+using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Filters;
 using Diagram.UI.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration.Internal;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
-    public partial class UserControlDonchian : UserControl, IPostSet
+    public partial class UserControlFilter : UserControl, IPostSet
     {
         Base.Filters.FilterWrapper filterWrapper;
 
-        public UserControlDonchian()
+  
+        public UserControlFilter()
         {
             InitializeComponent();
         }
+
+
 
         internal Base.Filters.FilterWrapper Filter
         {
@@ -23,17 +35,35 @@ namespace DataPerformer.UI.UserControls
             {
                 if (value == null) { return; }
                 if (filterWrapper != null) { throw new Exception(); }
+                if (!(value is Base.Filters.FilterWrapper)) { throw new Exception(); }
                 filterWrapper = value;
-                if (filterWrapper.Kind != "Donchian") { throw new Exception(); }
+                switch (filterWrapper.Kind)
+                {
+                    case 0: 
+                        radioButtonAverage.Checked = true;
+                        break;
+                    case 1:
+                        radioButtonDonchianMinimum.Checked = true;
+                        break;
+                    case 2:
+                        radioButtonDonchianMax.Checked = true;
+                        break;
+                        default: throw new Exception();
+
+                          
+                }
+                radioButtonAverage.CheckedChanged += CheckedChanged;
+               
                 filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
                 numericUpDownCount.Value = filterWrapper.Filter.Count;
-                checkBoxMaximum.Checked = (filterWrapper.Filter as Donchian).Max;
+                Disposed += UserControl_Disposed;
             }
         }
 
-        private void CheckBoxMaximum_CheckedChanged(object sender, EventArgs e)
+        private void CheckedChanged(object sender, EventArgs e)
         {
-            (filterWrapper.Filter as Donchian).Max = checkBoxMaximum.Checked;
+            int k = radioButtonAverage.Checked ? 0 : radioButtonDonchianMinimum.Checked ? 1 :  2;
+            filterWrapper.Kind = k;
         }
 
         private void NumericUpDownCount_ValueChanged(object sender, EventArgs e)
@@ -50,17 +80,15 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
-
         void IPostSet.Post()
         {
             FilterWrapper_OnChangeInput();
             comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
             numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
-            checkBoxMaximum.CheckStateChanged += CheckBoxMaximum_CheckedChanged;
-            Disposed += UserControlDonchian_Disposed;  
+            filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
         }
 
-        private void UserControlDonchian_Disposed(object sender, EventArgs e)
+        private void UserControl_Disposed(object sender, EventArgs e)
         {
             filterWrapper.OnChangeInput -= FilterWrapper_OnChangeInput;
         }

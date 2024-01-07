@@ -12,20 +12,15 @@ namespace DataPerformer.Base.Filters
     [Serializable()]
     public class FilterWrapper : Portable.FilterWrapper, ISerializable
     {
-        public FilterWrapper(string kind)
+        public FilterWrapper(int kind)
             : base(kind) { }
 
         private FilterWrapper(SerializationInfo info, StreamingContext context) : base(true)
         {
-            kind = info.GetString("Kind");
+            kind = info.GetInt32("Kind");
             Input = info.GetString("Input");
             SetFilter();
             filter.Count = info.GetInt32("Count");
-            if (filter is Donchian)
-            {
-                (filter as Donchian).Max = info.GetBoolean("Max");
-            }
-
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -33,10 +28,6 @@ namespace DataPerformer.Base.Filters
             info.AddValue("Kind", kind);
             info.AddValue("Count", filter.Count);
             info.AddValue("Input", Input);
-            if (filter is Donchian)
-            {
-                info.AddValue("Max", (filter as Donchian).Max);
-            }
         }
     }
 }
