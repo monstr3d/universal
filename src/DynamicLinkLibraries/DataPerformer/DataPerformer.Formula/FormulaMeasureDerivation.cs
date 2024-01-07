@@ -26,8 +26,8 @@ namespace DataPerformer.Formula
         #region Ctor
 
         public FormulaMeasurementDerivation(ObjectFormulaTree tree,
-            FormulaMeasurement derivation, string name, AssociatedAddition associated)
-            : base(tree, name, associated)
+            FormulaMeasurement derivation, string name, AssociatedAddition associated, object obj)
+            : base(tree, name, associated, obj)
         {
             this.derivation = derivation;
         }
@@ -39,8 +39,8 @@ namespace DataPerformer.Formula
         /// <param name="name">Measure name</param>
         /// <param name="associated">Associated addition</param>
         protected FormulaMeasurementDerivation(ObjectFormulaTree tree,
-            string name, AssociatedAddition associated)
-            : base(tree, name, associated)
+            string name, AssociatedAddition associated, object obj)
+            : base(tree, name, associated, obj)
         {
         }
 
@@ -108,7 +108,7 @@ namespace DataPerformer.Formula
         /// <param name="next">The "next" msign</param>
         /// <param name="addition">Associated addition</param>
         /// <returns>Next derivation iteration</returns>
-        public FormulaMeasurementDerivation Iterate(bool next, AssociatedAddition addition)
+        public FormulaMeasurementDerivation Iterate(bool next, AssociatedAddition addition, object obj)
         {
             string dn = "D" + name;
             ObjectFormulaTree t = tree.Derivation("d/dt");
@@ -119,22 +119,22 @@ namespace DataPerformer.Formula
                 FormulaMeasurementDerivation der = null;
                 if (d != null)
                 {
-                    der = new FormulaMeasurementDerivationDistribution(t, dn, aa);
+                    der = new FormulaMeasurementDerivationDistribution(t, dn, aa, obj);
                 }
                 else
                 {
-                    der = new FormulaMeasurementDerivation(t, dn, aa);
+                    der = new FormulaMeasurementDerivation(t, dn, aa, obj);
                 }
                 derivation = der;
                 return der;
             }
             if (d != null)
             {
-                derivation = new FormulaMeasurementDistribution(t, dn, aa);
+                derivation = new FormulaMeasurementDistribution(t, dn, aa, obj);
             }
             else
             {
-                derivation = new FormulaMeasurement(t, dn, aa);
+                derivation = new FormulaMeasurement(t, dn, aa, obj);
             }
             return null;
         }

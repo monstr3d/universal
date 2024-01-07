@@ -145,7 +145,12 @@ namespace DataPerformer.Formula
         /// <returns></returns>
         public object GetValue()
         {
-            return alias[name];
+            var value = alias[name];
+            if (value == null)
+            {
+
+            }    
+            return value;
         }
 
         /// <summary>

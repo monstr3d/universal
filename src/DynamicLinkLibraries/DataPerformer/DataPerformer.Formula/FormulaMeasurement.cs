@@ -13,6 +13,7 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 
 using DataPerformer.Interfaces;
+using AssemblyService.Attributes;
 
 
 namespace DataPerformer.Formula
@@ -20,12 +21,17 @@ namespace DataPerformer.Formula
     /// <summary>
     /// Formula measure
     /// </summary>
-    public class FormulaMeasurement : IMeasurement
+    public class FormulaMeasurement : IMeasurement, IAssociatedObject
     {
 
         delegate object GetParameter();
 
         #region Fields
+
+        /// <summary>
+        /// Associated object
+        /// </summary>
+        protected object obj;
 
         /// <summary>
         /// Associated tree
@@ -70,8 +76,9 @@ namespace DataPerformer.Formula
         #region Ctor
 
         public FormulaMeasurement(ObjectFormulaTree tree, string name, 
-            AssociatedAddition associated)
+            AssociatedAddition associated, object obj)
         {
+            this.obj = obj;
             this.tree = tree;
             this.name = name;
             this.associated = associated;
@@ -86,6 +93,17 @@ namespace DataPerformer.Formula
          }
 
         #endregion
+
+        #region IMeasurement Members
+
+        object IAssociatedObject.Object
+        {
+            get => obj;
+            set { }
+        }
+
+        #endregion
+
 
         #region IMeasurement Members
 
@@ -283,7 +301,7 @@ namespace DataPerformer.Formula
         /// <param name="associated">Associated addition</param>
         /// <returns>Measurement</returns>
         public static FormulaMeasurement Create(ObjectFormulaTree tree, int n,
-            string name, AssociatedAddition associated)
+            string name, AssociatedAddition associated, object obj)
         {
     /* !!!! DELETE       object ret = null;
             try
@@ -300,9 +318,9 @@ namespace DataPerformer.Formula
                 IDistribution d = DeltaFunction.GetDistribution(tree);
                 if (d != null)
                 {
-                    return new FormulaMeasurementDistribution(tree, name, associated);
+                    return new FormulaMeasurementDistribution(tree, name, associated, obj);
                 }
-                fm = new FormulaMeasurement(tree, name, associated);
+                fm = new FormulaMeasurement(tree, name, associated, obj);
               // !!! ILLEGAL !!!  fm.ReturnValue = ReturnValue;
                 return fm;
             }
@@ -313,8 +331,8 @@ namespace DataPerformer.Formula
                 throw new Exception("VariableMeasure.Derivation");
             }
             AssociatedAddition aa = FormulaMeasurementDerivation.Create(associated);
-            FormulaMeasurement der = Create(t, n - 1, dn, aa);
-            fm = new FormulaMeasurementDerivation(tree, der, name, aa);
+            FormulaMeasurement der = Create(t, n - 1, dn, aa, obj);
+            fm = new FormulaMeasurementDerivation(tree, der, name, aa, obj);
             try
             {
                 fm.ReturnValue = t.Result;

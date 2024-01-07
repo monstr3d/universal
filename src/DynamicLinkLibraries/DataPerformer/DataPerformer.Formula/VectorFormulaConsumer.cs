@@ -80,26 +80,9 @@ namespace DataPerformer.Formula
         {
             th = this;
             proxyFactory = StaticExtensionFormulaEditor.Factory;
-            PostUpdate += VectorFormulaConsumer_PostUpdate;
         }
 
-        private void VectorFormulaConsumer_PostUpdate()
-        {
-            var x = proxy.Success;
-            if (x)
-            {
-                foreach (var m in measurements)
-                {
-                    var p = m.Parameter();
-                    if (p == null)
-                    {
-                        int i = 0;
-                    }
-                }
-
-            }
-        }
-
+    
         #endregion
 
         #region Overriden Members
@@ -515,7 +498,7 @@ namespace DataPerformer.Formula
                             creator = VariableDetector.GetCreator(this);
                         }
                         ObjectFormulaTree t = ObjectFormulaTree.CreateTree(f, creator);
-                        measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa);
+                        measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa, this);
                     }
                     catch (Exception ex)
                     {
@@ -777,7 +760,7 @@ namespace DataPerformer.Formula
                     MathFormula formula = MathFormula.FromString(MathSymbolFactory.Sizes, formulaString[i]);
                     MathFormula f = formula.FullTransform(null);
                     ObjectFormulaTree t = ObjectFormulaTree.CreateTree(f, ElementaryFunctionsCreator.Object);
-                    measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa);
+                    measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa, this);
                 }
             }
             catch (Exception e)

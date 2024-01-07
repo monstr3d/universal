@@ -88,11 +88,11 @@ namespace DataPerformer
             info.AddValue("Vars", varsH);
             info.AddValue("Pars", parsH);
             info.AddValue("Aliases", aliasesH);
-            argsH = new ArrayList();
+   /*         argsH = new ArrayList();
             foreach (string s in arguments)
             {
                 argsH.Add(s);
-            }
+            }*/
             info.AddValue("Arguments", argsH);
             info.AddValue("AliasNames", aliasNamesH);
             if (comments != null)

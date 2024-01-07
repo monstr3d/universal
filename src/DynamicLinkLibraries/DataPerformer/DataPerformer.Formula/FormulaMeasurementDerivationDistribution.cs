@@ -17,14 +17,14 @@ namespace DataPerformer.Formula
 
         public FormulaMeasurementDerivationDistribution(ObjectFormulaTree tree, 
             FormulaMeasurement derivation,
-            string name, AssociatedAddition associated)
-            : base(tree, derivation, name, associated)
+            string name, AssociatedAddition associated, object obj)
+            : base(tree, derivation, name, associated, obj)
         {
         }
         
         public FormulaMeasurementDerivationDistribution(ObjectFormulaTree tree,
-            string name, AssociatedAddition associated)
-            : base(tree, name, associated)
+            string name, AssociatedAddition associated, object obj)
+            : base(tree, name, associated, obj)
         {
         }
 

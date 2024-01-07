@@ -169,7 +169,7 @@ namespace FormulaEditor.CSharp
             {
                 l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue)");
                 l.Add("{");
-                l.Add("\tsuccess = false;");
+                l.Add("\tsuccess = true;");
                 l.Add("\tthis.trees = trees;");
                 l.Add("\tthis.checkValue = checkValue;");
             }

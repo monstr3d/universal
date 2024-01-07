@@ -76,7 +76,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 int n = s.GetVariablesCount();
                 for (int j = 0; j < n; j++)
                 {
-                    w[i] = (double)m[j].Parameter();
+                    w[i] = m[j].ToDouble();
                     f[i] = w[i];
                     ++i;
                 }

@@ -66,7 +66,9 @@ namespace DataPerformer.Formula
                 IMeasurement measurement = holder.Measurement;
                 var paramerer = () =>
                 {
-                    return measurement.Parameter();
+                    var p = measurement.Parameter;
+                    var value = p();
+                    return value;
                 };
                 return new Measurement(measurement.Type, paramerer, measurement.Name);
             }

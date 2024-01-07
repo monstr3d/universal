@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 
 
-using CategoryTheory;
 
 using Diagram.UI;
 using Diagram.UI.Labels;
@@ -17,11 +16,8 @@ using Diagram.UI.Interfaces;
 
 
 using FormulaEditor;
-using FormulaEditor.UI;
 
-using ToolBox;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
@@ -42,7 +38,7 @@ namespace DataPerformer.UI.Forms
         private Hashtable aliasCombo = new Hashtable();
 
         private DifferentialEquationSolver solver;
-        private Portable.DataConsumer consumer;
+     
         private IObjectLabel label;
 
         private bool first = true;
@@ -62,7 +58,6 @@ namespace DataPerformer.UI.Forms
             PanelFormula.SetResize(panelFormula);
             this.label = label;
             solver = label.Object as DifferentialEquationSolver;
-            consumer = solver;
             // ArrayList comments = solver.Comments;
             this.SetComments(solver.Comments);
             numericUpDownDerivationOrder.Value = solver.DerivationOrder;
@@ -234,7 +229,7 @@ namespace DataPerformer.UI.Forms
                     if (sn.Length != 0)
                     {
                         //ElectromagneticUIFactory f = label.Desktop.Tools.Factory as ElectromagneticUIFactory;
-                        IMeasurement m = DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
+                        IMeasurement m = StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
                         par.Add(sn[0], m);
                     }
                 }

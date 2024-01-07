@@ -142,8 +142,8 @@ namespace BaseTypes
         /// Nullable type converion
         /// </summary>
         /// <typeparam name="T">Conversion type</typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">Converted object</param>
+        /// <returns>Conversion result</returns>
         static public T? ToNullable<T>(this object obj) where T : struct
         {
             if (obj == null) return null;

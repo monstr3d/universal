@@ -18,7 +18,6 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 using DataPerformer.Formula.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
 namespace DataPerformer.Formula
 {
@@ -656,7 +655,7 @@ namespace DataPerformer.Formula
                         ne = true;
                     }
                 }
-                v.SetTree(t, ne, aa, formulas);
+                v.SetTree(t, ne, aa, formulas, this);
             }
             SetDerivations();
         }
@@ -988,7 +987,7 @@ namespace DataPerformer.Formula
                         ne = true;
                     }
                 }
-                v.SetTree(t, ne, aa, formulas);
+                v.SetTree(t, ne, aa, formulas, this);
             }
             foreach (IMeasurement mf in formulas)
             {
@@ -1047,10 +1046,6 @@ namespace DataPerformer.Formula
                     m.UpdateMeasurements();
                 }
                 update();
-                if (!proxy.Success)
-                {
-
-                }
             }
             catch (Exception e)
             {
@@ -1297,6 +1292,7 @@ namespace DataPerformer.Formula
 
         void IStack.Push()
         {
+            if (output == null) return;
             foreach (IStack s in output)
             {
                 s.Push();
@@ -1305,6 +1301,7 @@ namespace DataPerformer.Formula
 
         void IStack.Pop()
         {
+            if (output == null) return;
             foreach (IStack s in output)
             {
                 s.Pop();
@@ -1412,6 +1409,7 @@ namespace DataPerformer.Formula
 
         void IPostSetArrow.PostSetArrow()
         {
+            var s = ToString();
             PostSetArrowProtected();
         }
 
@@ -1563,7 +1561,7 @@ namespace DataPerformer.Formula
                             t = ObjectFormulaTree.CreateTree(f, creator);
                             oo[2] = t;
                         }
-                        measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa);
+                        measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa, this);
                     }
                     catch (Exception ex)
                     {
@@ -1653,7 +1651,7 @@ namespace DataPerformer.Formula
 
             private Stack<double> stack = new Stack<double>();
 
-            const Double a = 0;
+            const double a = 0;
 
             double value;
 
@@ -1663,7 +1661,7 @@ namespace DataPerformer.Formula
 
             ObjectFormulaTree tree;
 
-            Func<object> par;
+            Func<object> parameter;
 
 
             private string symbol;
@@ -1679,13 +1677,11 @@ namespace DataPerformer.Formula
             internal Variable(string symbol, AssociatedAddition addition, DifferentialEquationSolver equationSolver)
             {
                 this.symbol = symbol;
-                par = GetValue;
+                parameter = GetValue;
                 this.addition = addition;
                 this.equationSolver = equationSolver;
 
             }
-
-
 
             #endregion
 
@@ -1758,7 +1754,7 @@ namespace DataPerformer.Formula
 
             Func<object> IMeasurement.Parameter
             {
-                get { return par; }
+                get { return parameter; }
             }
 
             string IMeasurement.Name
@@ -1787,7 +1783,7 @@ namespace DataPerformer.Formula
             internal void SetTree(ObjectFormulaTree tree,
                 bool next,
                 AssociatedAddition addition,
-                IList<IMeasurement> list)
+                IList<IMeasurement> list, object obj)
             {
                 string dn = "D" + symbol;
                 this.tree = tree;
@@ -1796,11 +1792,11 @@ namespace DataPerformer.Formula
                 {
                     if (d != null)
                     {
-                        temp = new FormulaMeasurementDerivationDistribution(tree, null, symbol, addition);
+                        temp = new FormulaMeasurementDerivationDistribution(tree, null, symbol, addition, obj);
                     }
                     else
                     {
-                        temp = new FormulaMeasurementDerivation(tree, null, symbol, addition);
+                        temp = new FormulaMeasurementDerivation(tree, null, symbol, addition, obj);
                     }
                     derivation = temp;
                     list.Add(derivation);
@@ -1808,11 +1804,11 @@ namespace DataPerformer.Formula
                 }
                 if (d != null)
                 {
-                    derivation = new FormulaMeasurementDistribution(tree, symbol, addition);
+                    derivation = new FormulaMeasurementDistribution(tree, symbol, addition, obj);
                 }
                 else
                 {
-                    derivation = new FormulaMeasurement(tree, symbol, addition);
+                    derivation = new FormulaMeasurement(tree, symbol, addition, obj);
                 }
                 list.Add(derivation);
                 return;
@@ -1821,7 +1817,7 @@ namespace DataPerformer.Formula
             internal void Iterate(bool next)
             {
                 AssociatedAddition aa = FormulaMeasurementDerivation.Create(addition);
-                temp = temp.Iterate(next, aa);
+                temp = temp.Iterate(next, aa, equationSolver);
             }
 
             internal char Symbol

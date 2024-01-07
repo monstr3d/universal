@@ -804,7 +804,7 @@ namespace DataPerformer.Formula
 				{
 					object[] o = variables[c] as object[];
 					ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
-					FormulaMeasurement fm = FormulaMeasurement.Create(tree, 0, c + "", aa);
+					FormulaMeasurement fm = FormulaMeasurement.Create(tree, 0, c + "", aa, this);
 					dictF[c] = fm;
 					outNew.Add(fm);
 				}

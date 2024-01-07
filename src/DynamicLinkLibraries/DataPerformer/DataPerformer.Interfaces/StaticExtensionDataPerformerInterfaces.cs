@@ -255,6 +255,38 @@ namespace DataPerformer.Interfaces
         #endregion
 
         /// <summary>
+        /// Nullable type converion
+        /// </summary>
+        /// <typeparam name="T">Conversion type</typeparam>
+        /// <param name="measuresment">Measurement</param>
+        /// <returns>Coversion result</returns>
+        static public T? ToNullable<T>(this IMeasurement measuresment) where T : struct
+        {
+            if (measuresment == null) return null;
+            var parameter = measuresment.Parameter;
+            if (parameter == null) return null;
+            var variable = parameter();
+            if (variable == null) return null;
+            return (T)variable;
+        }
+
+        /// <summary>
+        /// Checks whether nullable condition is true
+        /// </summary>
+        /// <param name="condition">The condition</param>
+        /// <returns>The resulst</returns>
+        static public bool IsTrue(this bool? condition)
+        {
+            if (condition == null) return false;
+            return condition.Value;
+        }
+
+
+
+
+
+
+        /// <summary>
         /// Gets the time
         /// </summary>
         /// <param name="Consumer">Consumer</param>

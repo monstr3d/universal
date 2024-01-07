@@ -25,9 +25,10 @@ namespace DataPerformer.Formula
         /// <param name="tree">Tree</param>
         /// <param name="name">Name</param>
         /// <param name="addition">Addition</param>
+        /// <param name="obj">Associated object</param>
         public FormulaMeasurementDistribution(ObjectFormulaTree tree, 
-            string name, AssociatedAddition addition)
-            : base(tree, name, addition)
+            string name, AssociatedAddition addition, object obj)
+            : base(tree, name, addition, obj)
         {
         }
 

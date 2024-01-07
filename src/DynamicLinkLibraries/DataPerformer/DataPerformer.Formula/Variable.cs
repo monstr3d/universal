@@ -16,15 +16,18 @@ namespace DataPerformer.Formula
     /// <summary>
     /// State variable
     /// </summary>
-    public class Variable :  IMeasurementHolder,
-        IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IDerivation, IDerivationOperation, IStack
+    public class Variable :  IMeasurementHolder, IAssociatedObject,
+        IObjectOperation, IPowered, IOperationAcceptor, 
+        IMeasurement, IDerivation, IDerivationOperation, IStack
     {
 
         #region Fields
 
         private Stack<double> stack = new Stack<double>();
 
-        const Double a = 0;
+        object obj;
+
+        const double a = 0;
 
         double value;
 
@@ -45,8 +48,9 @@ namespace DataPerformer.Formula
 
         #region Ctor
 
-        public Variable(string symbol, AssociatedAddition addition)
+        public Variable(string symbol, AssociatedAddition addition, object obj)
         {
+            this.obj = obj;
             this.symbol = symbol;
             par = GetValue;
             this.addition = addition;
@@ -130,7 +134,6 @@ namespace DataPerformer.Formula
 
         #endregion
 
-
         #region IMeasurementHolder Members
         IMeasurement IMeasurementHolder.Measurement => this;
 
@@ -152,7 +155,7 @@ namespace DataPerformer.Formula
         internal void SetTree(ObjectFormulaTree tree,
             bool next,
             AssociatedAddition addition,
-            IList<IMeasurement> list)
+            IList<IMeasurement> list, object obj)
         {
             string dn = "D" + symbol;
             this.tree = tree;
@@ -161,11 +164,11 @@ namespace DataPerformer.Formula
             {
                 if (d != null)
                 {
-                    temp = new FormulaMeasurementDerivationDistribution(tree, null, symbol, addition);
+                    temp = new FormulaMeasurementDerivationDistribution(tree, null, symbol, addition, obj);
                 }
                 else
                 {
-                    temp = new FormulaMeasurementDerivation(tree, null, symbol, addition);
+                    temp = new FormulaMeasurementDerivation(tree, null, symbol, addition, obj);
                 }
                 derivation = temp;
                 list.Add(derivation);
@@ -173,11 +176,11 @@ namespace DataPerformer.Formula
             }
             if (d != null)
             {
-                derivation = new FormulaMeasurementDistribution(tree, symbol, addition);
+                derivation = new FormulaMeasurementDistribution(tree, symbol, addition, obj);
             }
             else
             {
-                derivation = new FormulaMeasurement(tree, symbol, addition);
+                derivation = new FormulaMeasurement(tree, symbol, addition, obj);
             }
             list.Add(derivation);
             return;
@@ -186,7 +189,7 @@ namespace DataPerformer.Formula
         internal void Iterate(bool next)
         {
             AssociatedAddition aa = FormulaMeasurementDerivation.Create(addition);
-            temp = temp.Iterate(next, aa);
+            temp = temp.Iterate(next, aa, obj);
         }
 
         /// <summary>
@@ -210,6 +213,13 @@ namespace DataPerformer.Formula
                 this.value = value;
             }
         }
+
+        object IAssociatedObject.Object
+        {
+            get => obj; 
+            set { }
+        }
+
         void Update()
         {
             derivation.Update();

@@ -92,7 +92,7 @@ namespace TestProjectFormulaEditor
                 {
                     ObjectFormulaTree tree = ob[1] as ObjectFormulaTree;
                     string fs = ob[0] + "";
-                    GetValue g = proxy[tree];
+                    Func<object> g = proxy[tree];
                     foreach (bool x in bar)
                     {
                         det["a"] = x;
@@ -154,7 +154,7 @@ namespace TestProjectFormulaEditor
                 {
                     ObjectFormulaTree tree = ob[1] as ObjectFormulaTree;
                     string fs = ob[0] + "";
-                    GetValue g = proxy[tree];                                       // Proxy functions
+                    Func<object> g = proxy[tree];                                       // Proxy functions
                     for (int i = 0; i < 10; i++)
                     {
                         double x = 0.007 + 0.07 * i;
@@ -216,7 +216,7 @@ namespace TestProjectFormulaEditor
                 object[] o = dic[func];
                 ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
                 string fs = o[0] + "";
-                GetValue g = proxy[tree];
+                Func<object> g = proxy[tree];
                 for (int i = 0; i < 10; i++)
                 {
                     double x = -5 + 0.5 * i;
@@ -293,7 +293,7 @@ namespace TestProjectFormulaEditor
                 object[] o = dic[func];
                 ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
                 string fs = o[0] + "";
-                GetValue g = proxy[tree];
+                Func<object> g = proxy[tree];
                 for (int i = 0; i < 10; i++)
                 {
                     double t = 5 + 0.5 * i;
@@ -348,7 +348,7 @@ namespace TestProjectFormulaEditor
             FormulaEditor.Interfaces.IFormulaObjectCreator cr = det.GetCreator();
             ObjectFormulaTree tree = ObjectFormulaTree.CreateTree(formulae[0], cr);
             FormulaEditor.Interfaces.ITreeCollectionProxy proxy = (new ObjectFormulaTree[] { tree }).CreateProxy();
-            GetValue g = proxy[tree];
+            Func<object> g = proxy[tree];
             for (int i = 0; i < 10; i++)
             {
                 double a = 0.5 + 2.7 * i;
@@ -416,7 +416,7 @@ namespace TestProjectFormulaEditor
                 {
                     ObjectFormulaTree tree = ob[1] as ObjectFormulaTree;
                     string fs = ob[0] + "";
-                    GetValue g = proxy[tree];
+                    Func<object>  g = proxy[tree];
                     for (int i = 0; i < 10; i++)
                     {
                         double x = 0.007 + 0.07 * i;
@@ -459,7 +459,7 @@ namespace TestProjectFormulaEditor
             for (int i = 0; i < x.Length; i++)
             {
                 ObjectFormulaTree tree = l[i] as ObjectFormulaTree;
-                GetValue g = proxy[tree];
+                Func<object> g = proxy[tree];
                 double a = x[i];
                 object b = tree.Result;
                 Assert.That(a.Equals(b));

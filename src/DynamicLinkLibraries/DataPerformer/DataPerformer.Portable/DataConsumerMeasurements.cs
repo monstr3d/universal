@@ -76,8 +76,7 @@ namespace DataPerformer.Portable
         /// </summary>
         protected Dictionary<string, object> parameters = new Dictionary<string, object>();
 
-        protected event Action PostUpdate = () => { };
-
+ 
         /// <summary>
         /// External unaries
         /// </summary>
@@ -292,7 +291,6 @@ namespace DataPerformer.Portable
                     throw new Exception("Formulas are not accepted");
                 }
                 update();
-                PostUpdate();
                 foreach (int i in feedAliases.Keys)
                 {
                     IMeasurement m = measurements[i];
