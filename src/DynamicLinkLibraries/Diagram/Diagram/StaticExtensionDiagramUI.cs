@@ -13,8 +13,8 @@ using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Attributes;
 using Diagram.Interfaces;
+
 using AssemblyService;
-using System.Diagnostics;
 
 namespace Diagram.UI
 {

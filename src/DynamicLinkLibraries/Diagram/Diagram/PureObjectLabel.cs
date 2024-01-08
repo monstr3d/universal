@@ -516,16 +516,6 @@ namespace Diagram.UI.Labels
             int lc = cd.Level;
             int ld = desktop.Level;
             string p = "";
-           /* if (lc == 0)
-            {
-                for (int i = 0; i < ld; i++)
-                {
-                    p += "../";
-                }
-                IDesktop root = desktop.Root;
-                string path = GetName(component, root);
-                return p + path;
-            }*/
             List<IDesktop> lic = new List<IDesktop>();
             IDesktop dd = cd;
             while (true)

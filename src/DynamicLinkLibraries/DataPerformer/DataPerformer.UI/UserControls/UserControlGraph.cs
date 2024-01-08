@@ -53,6 +53,7 @@ using WindowsExtensions;
 using System.Threading.Tasks;
 using Chart.Indicators;
 using Diagram.Interfaces;
+using Chart.DataPerformer;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -1264,7 +1265,7 @@ namespace DataPerformer.UI.UserControls
 
         }
 
-        private void PerformIterator(IDataConsumer consumer, IIterator iterator)
+        private void PerformIteratorOLD(IDataConsumer consumer, IIterator iterator)
         {
             iterator.Reset();
             var mea = consumer.FindMeasurement(globalArg);
@@ -1279,6 +1280,61 @@ namespace DataPerformer.UI.UserControls
             coll.ForEach((IRunning s) => s.IsRunning = true);
             dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
         }
+
+        private void PerformIterator(IDataConsumer consumer, IIterator iterator)
+        {
+            iterator.Reset();
+            var mea = consumer.FindMeasurement(globalArg);
+            var coord = mea.CreateCoordinateFunctions();
+            if (coord != null)
+            {
+                mouseTransformerIndicator.X = coord[0];
+                mouseTransformerIndicator.Y = coord[1];
+
+            }
+            var coll = consumer.GetDependentCollection();
+            coll.ForEach((IRunning s) => s.IsRunning = true);
+            MeasurementSeries[] series = null;
+            dicto = consumer.PerformIterator(iterator, globalArg, globalFunc, out series, () => backgroundWorker.CancellationPending);
+        }
+
+        public Dictionary<string, object> PerformIterator(IIterator iterator, string argument, string[] values,
+
+Func<bool> stop)
+        {
+            MeasurementSeries[] series;
+            return PerformIterator(iterator, argument, values, out series, stop);
+        }
+
+        private Dictionary<string, object> PerformIterator(IIterator iterator, string argument, string[] values,
+     out MeasurementSeries[] series,
+Func<bool> stop)
+        {
+            Dictionary<string, object> dic = consumer.CreateMeasurements(argument, values, out series);
+            consumer.ResetAll();
+            var rt = consumer.CreateRuntime(null);
+            do
+            {
+                if (stop())
+                {
+                    break;
+                }
+                rt.UpdateAll();
+                foreach (var s in series)
+                {
+                    s.Step();
+                }
+            }
+            while (iterator.Next());
+            return dic;
+        }
+
+
+
+
+
+
+
 
         private void StartChart()
         {
@@ -2804,19 +2860,39 @@ namespace DataPerformer.UI.UserControls
                 {
                     var coll = consumer.GetDependentCollection();
                     coll.ForEach((IRunning s) => s.IsRunning = false);
+                    bool pr = true;
+                    if (dicto.Count > 0) 
+                    {
+                        foreach (var kvp in dicto.Values) 
+                        { 
+                            if (!(kvp is SeriesTypes.ParametrizedSeries))
+                            {
+                                pr = false;
+                            }
+                            break;
+                        }
+                    }
+                    performer.RemoveAll();
                     performer.Remove(typeof(DynamicSeriesAttribute));
                     {
                         Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
                         Dictionary<string, IMeasurement> dd = MeasureByNameInternal;
                         foreach (string key in dicto.Keys)
                         {
-                            SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
-                            ParametrizedSeries series = new ParametrizedSeries(null, null);
-                            series.Add(ps);
                             var mea = dd[key];
-                            performer.AddSeries(series, d[dd[key]][0], mea);
-                            ownSeries.Add(series);
-                                        }
+
+                            if (pr)
+                            {
+                                SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
+                                ParametrizedSeries series = new ParametrizedSeries(null, null);
+                                series.Add(ps);
+                                performer.AddSeries(series, d[dd[key]][0], mea);
+                                ownSeries.Add(series);
+                                continue;
+                            }
+                            ISeries s = dicto[key] as ISeries;
+                            performer.AddSeries(s, d[dd[key]][0], mea);
+                        }
                     }
                     performer.RefreshAll();
                 }

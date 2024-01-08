@@ -19,7 +19,7 @@ namespace BasicEngineering.UI.Factory
                     animation = (Action action) =>
                     {
                         desktop.PerformFixed(startTime, step, stepCount,
-                           DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                           StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                            DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
                            1, action, "Animation");
                     };

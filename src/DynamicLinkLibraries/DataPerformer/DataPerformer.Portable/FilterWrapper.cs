@@ -150,7 +150,7 @@ namespace DataPerformer.Portable
         #region Measurement class
 
     
-        class FilterMeasurement : IMeasurement
+        class FilterMeasurement : IMeasurement, IAssociatedObject
         {
             public FilterMeasurement(FilterWrapper filter)
             {
@@ -167,6 +167,8 @@ namespace DataPerformer.Portable
             string IMeasurement.Name => "Output";
 
             object IMeasurement.Type => (double)0;
+
+            object IAssociatedObject.Object { get => filter; set  { } }
         }
 
         #endregion

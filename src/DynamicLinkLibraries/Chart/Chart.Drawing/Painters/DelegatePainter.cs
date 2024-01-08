@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace Chart.Drawing.Painters
         private DelegatePainter(Color[] colors) : base(colors)
         {
             Paint += ( obj, g) => { };
+            PaintPoint += (a, b, c) => { };
         }
   
         public DelegatePainter() : this([])
@@ -20,6 +22,8 @@ namespace Chart.Drawing.Painters
         }
 
         public event Action<int[], Graphics> Paint;
+
+        public event Action<int[], Graphics, IPoint> PaintPoint;
 
         public override void Draw(ISeries series, Graphics g)
         {
@@ -41,6 +45,7 @@ namespace Chart.Drawing.Painters
                 var xx = points[i];
                 performer.Transform(xx.X, xx.Y[0], pointStart);
                 Paint(pointStart, g);
+                PaintPoint(pointStart, g, xx);
             }
         }
 

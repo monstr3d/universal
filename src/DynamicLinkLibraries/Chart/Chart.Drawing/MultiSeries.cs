@@ -1,10 +1,7 @@
 ﻿using Chart.Drawing.Interfaces;
 using Chart.Drawing.Interfaces.Points;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Chart.Drawing
 {
@@ -14,6 +11,7 @@ namespace Chart.Drawing
 
         ISeries inter;
 
+  
         private double[,] size = new double[2, 2];
 
         private bool calculatedSize = false;

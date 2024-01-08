@@ -3,6 +3,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Filters;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,26 +44,28 @@ namespace DataPerformer.UI.UserControls
                         radioButtonAverage.Checked = true;
                         break;
                     case 1:
-                        radioButtonDonchianMinimum.Checked = true;
+                        radioButtonDonchianMaximum.Checked = true;
                         break;
                     case 2:
-                        radioButtonDonchianMax.Checked = true;
+                        radioButtonDonchianMinimum.Checked = true;
                         break;
                         default: throw new Exception();
 
                           
                 }
                 radioButtonAverage.CheckedChanged += CheckedChanged;
-               
-                filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
+                radioButtonDonchianMinimum.CheckedChanged += CheckedChanged;
+                radioButtonDonchianMaximum.CheckedChanged += CheckedChanged;
                 numericUpDownCount.Value = filterWrapper.Filter.Count;
+                filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
                 Disposed += UserControl_Disposed;
             }
         }
 
+     
         private void CheckedChanged(object sender, EventArgs e)
         {
-            int k = radioButtonAverage.Checked ? 0 : radioButtonDonchianMinimum.Checked ? 1 :  2;
+            int k = radioButtonAverage.Checked ? 0 : radioButtonDonchianMaximum.Checked ? 1 :  2;
             filterWrapper.Kind = k;
         }
 
@@ -82,7 +85,8 @@ namespace DataPerformer.UI.UserControls
 
         void IPostSet.Post()
         {
-            FilterWrapper_OnChangeInput();
+            filterWrapper.OnChangeInput -= FilterWrapper_OnChangeInput;
+            FillComboBox();
             comboBoxInput.SelectedIndexChanged += ComboBoxInput_SelectedIndexChanged;
             numericUpDownCount.ValueChanged += NumericUpDownCount_ValueChanged;
             filterWrapper.OnChangeInput += FilterWrapper_OnChangeInput;
@@ -93,20 +97,23 @@ namespace DataPerformer.UI.UserControls
             filterWrapper.OnChangeInput -= FilterWrapper_OnChangeInput;
         }
 
-        private void FilterWrapper_OnChangeInput()
+        void SelectComboBox()
+        {
+            comboBoxInput.SelectCombo(filterWrapper.Input);
+        }
+
+        void FillComboBox() 
         {
             var meas = filterWrapper.GetAllMeasurements((double)0);
             comboBoxInput.Items.Clear();
-            comboBoxInput.Items.AddRange(meas.ToArray());
-            for (int i = 0; i < meas.Count; i++)
-            {
-                if (meas[i] == filterWrapper.Input)
-                {
-                    comboBoxInput.SelectedIndex = i;
-                    break;
-                }
-            }
+            comboBoxInput.FillCombo(meas);
+            SelectComboBox();
 
+        }
+
+        private void FilterWrapper_OnChangeInput()
+        {
+            FillComboBox();
         }
     }
 }

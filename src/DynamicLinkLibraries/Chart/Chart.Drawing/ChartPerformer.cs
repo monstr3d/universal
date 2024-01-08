@@ -480,7 +480,7 @@ namespace Chart.Drawing
             var p = t.ToSeriesPainter();
             if (p == null)
             {
-                p = new SimpleSeriesPainter(new Color[] { color });
+                p = new SimpleSeriesPainter([ color ]);
             }
             AddSeries(s, p);
         }

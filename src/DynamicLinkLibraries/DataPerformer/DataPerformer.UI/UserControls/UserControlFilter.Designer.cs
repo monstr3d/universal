@@ -67,8 +67,8 @@
             panel46 = new System.Windows.Forms.Panel();
             panelRadioButton = new System.Windows.Forms.Panel();
             groupBoxType = new System.Windows.Forms.GroupBox();
+            radioButtonDonchianMaximum = new System.Windows.Forms.RadioButton();
             radioButtonDonchianMinimum = new System.Windows.Forms.RadioButton();
-            radioButtonDonchianMax = new System.Windows.Forms.RadioButton();
             radioButtonAverage = new System.Windows.Forms.RadioButton();
             panelTopTop.SuspendLayout();
             panel10.SuspendLayout();
@@ -464,8 +464,8 @@
             // 
             // groupBoxType
             // 
+            groupBoxType.Controls.Add(radioButtonDonchianMaximum);
             groupBoxType.Controls.Add(radioButtonDonchianMinimum);
-            groupBoxType.Controls.Add(radioButtonDonchianMax);
             groupBoxType.Controls.Add(radioButtonAverage);
             groupBoxType.Dock = System.Windows.Forms.DockStyle.Fill;
             groupBoxType.Location = new System.Drawing.Point(0, 0);
@@ -475,27 +475,27 @@
             groupBoxType.TabStop = false;
             groupBoxType.Text = "Filter type";
             // 
+            // radioButtonDonchianMaximum
+            // 
+            radioButtonDonchianMaximum.AutoSize = true;
+            radioButtonDonchianMaximum.Location = new System.Drawing.Point(11, 71);
+            radioButtonDonchianMaximum.Name = "radioButtonDonchianMaximum";
+            radioButtonDonchianMaximum.Size = new System.Drawing.Size(134, 19);
+            radioButtonDonchianMaximum.TabIndex = 2;
+            radioButtonDonchianMaximum.TabStop = true;
+            radioButtonDonchianMaximum.Text = "Donchian maximum";
+            radioButtonDonchianMaximum.UseVisualStyleBackColor = true;
+            // 
             // radioButtonDonchianMinimum
             // 
             radioButtonDonchianMinimum.AutoSize = true;
-            radioButtonDonchianMinimum.Location = new System.Drawing.Point(11, 71);
+            radioButtonDonchianMinimum.Location = new System.Drawing.Point(11, 44);
             radioButtonDonchianMinimum.Name = "radioButtonDonchianMinimum";
-            radioButtonDonchianMinimum.Size = new System.Drawing.Size(134, 19);
-            radioButtonDonchianMinimum.TabIndex = 2;
+            radioButtonDonchianMinimum.Size = new System.Drawing.Size(132, 19);
+            radioButtonDonchianMinimum.TabIndex = 1;
             radioButtonDonchianMinimum.TabStop = true;
-            radioButtonDonchianMinimum.Text = "Donchian maximum";
+            radioButtonDonchianMinimum.Text = "Donchian minimum";
             radioButtonDonchianMinimum.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonDonchianMax
-            // 
-            radioButtonDonchianMax.AutoSize = true;
-            radioButtonDonchianMax.Location = new System.Drawing.Point(11, 44);
-            radioButtonDonchianMax.Name = "radioButtonDonchianMax";
-            radioButtonDonchianMax.Size = new System.Drawing.Size(132, 19);
-            radioButtonDonchianMax.TabIndex = 1;
-            radioButtonDonchianMax.TabStop = true;
-            radioButtonDonchianMax.Text = "Donchian minimum";
-            radioButtonDonchianMax.UseVisualStyleBackColor = true;
             // 
             // radioButtonAverage
             // 
@@ -587,8 +587,8 @@
         private System.Windows.Forms.Panel panel46;
         private System.Windows.Forms.Panel panelRadioButton;
         private System.Windows.Forms.GroupBox groupBoxType;
+        private System.Windows.Forms.RadioButton radioButtonDonchianMaximum;
         private System.Windows.Forms.RadioButton radioButtonDonchianMinimum;
-        private System.Windows.Forms.RadioButton radioButtonDonchianMax;
         private System.Windows.Forms.RadioButton radioButtonAverage;
     }
 }
