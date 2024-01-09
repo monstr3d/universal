@@ -223,6 +223,20 @@ namespace Diagram.UI
         }
 
         /// <summary>
+        /// Finds parent
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="control">The control</param>
+        /// <returns>The parent</returns>
+        public static IEnumerable<T> FindAll<T>(this Control control) where T : Control
+        {
+            var c = control;
+            while (c.Parent != null) { c = c.Parent; }
+            return c.FindChildren<T>();
+        }
+
+
+        /// <summary>
         /// Finds child
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
@@ -271,6 +285,7 @@ namespace Diagram.UI
             }
             return null;
         }
+
 
         /// <summary>
         /// Finds children
