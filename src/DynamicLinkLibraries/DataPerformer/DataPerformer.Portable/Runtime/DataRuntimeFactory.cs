@@ -123,6 +123,10 @@ namespace DataPerformer.Portable.Runtime
             List<object> l = new List<object>();
             IEnumerable<ICategoryObject> ob = comp.ClearDoubleObjects();
             l.AddRange(ob);
+            if (consumer.ShouldInsertIntoChildren())
+            {
+                l.Add(consumer);
+            }
             return new ComponentCollection(l, (consumer as ICategoryObject).GetRootDesktop());
         }
 

@@ -14,5 +14,10 @@ namespace Diagram.Interfaces
         /// </summary>
         bool IsRunning { get; set; }
 
+        /// <summary>
+        /// Running changed event
+        /// </summary>
+        event Action<IRunning, bool> Running;
+
     }
 }

@@ -10,12 +10,14 @@ using Diagram.UI;
 
 using DataPerformer.Interfaces;
 using Event.Interfaces;
+using DataPerformer.Interfaces.Attributes;
 
 namespace DataPerformer.Portable
 {
     /// <summary>
     /// Consumer of data
     /// </summary>
+    [InsertIntoChilldrenCoollection(false)]
     public class DataConsumer : CategoryObject,  IDataConsumer,
         IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
     {

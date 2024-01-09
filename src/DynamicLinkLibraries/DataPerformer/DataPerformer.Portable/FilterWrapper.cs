@@ -30,6 +30,7 @@ namespace DataPerformer.Portable
 
         bool isRunning = false;
 
+        Action<IRunning, bool> running;
 
         #endregion
 
@@ -49,20 +50,28 @@ namespace DataPerformer.Portable
 
         #region Members
 
+        Donchian Donchian
+        {
+            get =>
+               filter is Donchian ? filter as Donchian : new Donchian();
+        }
         protected void SetFilter()
         {
             switch (kind)
             {
                 case 0:
-                    filter = new Average();
+                    if (!(filter is Average))
+                    {
+                        filter = new Average();
+                    }
                     break;
                 case 1:
-                    var d = new Donchian();
+                    var d = Donchian;
                     d.Max = true;
                     filter = d;
                     break;
                 case 2:
-                    d = new Donchian();
+                    d = Donchian;
                     d.Max = false;
                     filter = d;
                     break;
@@ -141,16 +150,31 @@ namespace DataPerformer.Portable
             {
                 isRunning = value;
                 if (value) filter.Reset();
+                running?.Invoke(this, value);
+            }
+        }
+
+        event Action<IRunning, bool> IRunning.Running
+        {
+            add
+            {
+                running += value;
+            }
+
+            remove
+            {
+                running -= value;
             }
         }
 
 
-        #endregion
 
-        #region Measurement class
+    #endregion
 
-    
-        class FilterMeasurement : IMeasurement, IAssociatedObject
+    #region Measurement class
+
+
+    class FilterMeasurement : IMeasurement, IAssociatedObject
         {
             public FilterMeasurement(FilterWrapper filter)
             {

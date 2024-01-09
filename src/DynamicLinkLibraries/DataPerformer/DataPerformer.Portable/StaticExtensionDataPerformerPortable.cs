@@ -2295,6 +2295,18 @@ namespace DataPerformer.Portable
             return 0;
         }
 
+        /// <summary>
+        /// Checks whether one should include to children
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <returns>Result</returns>
+        static public bool ShouldInsertIntoChildren(this object value)
+        {
+            var att = value.GetAttribute<InsertIntoChilldrenCoollectionAttribute>();
+            return att == null ? true : att.Insert;
+        }
+
+
         #endregion
 
         #region Private Members

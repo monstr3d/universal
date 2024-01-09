@@ -9,6 +9,8 @@ namespace DataPerformer.Portable.Filters
     {
         protected IFilter inter;
 
+        int count = 2;
+
         public BasicFilter()
         {
             inter = this;
@@ -18,7 +20,11 @@ namespace DataPerformer.Portable.Filters
 
         public virtual double? this[double ?a] => Calc(a);
 
-        int IFilter.Count { get; set; } = 2;
+        int IFilter.Count
+        {
+            get => count; 
+            set { data.Clear(); count = value; }
+        }
 
         void IFilter.Reset()
         {

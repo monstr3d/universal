@@ -439,6 +439,17 @@ namespace DataPerformer.Portable.Runtime
                 }
  
             }
+            if (consumer.ShouldInsertIntoChildren())
+            {
+                if (consumer is IMeasurements)
+                {
+                    var mm = consumer as IMeasurements;
+                    if (!measurements.Contains(mm))
+                    {
+                        measurements.Add(mm);
+                    }
+                }
+            }
         }
 
         #endregion

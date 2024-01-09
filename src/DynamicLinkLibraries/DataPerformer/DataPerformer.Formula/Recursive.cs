@@ -332,8 +332,25 @@ namespace DataPerformer.Formula
 			{
 				isRunning = value;
 				Start(value);
+				running?.Invoke(this, value);
 			}
         }
+
+        Action<IRunning, bool> running;
+
+        event Action<IRunning, bool> IRunning.Running
+        {
+            add
+            {
+                running += value;
+            }
+
+            remove
+            {
+                running -= value;
+            }
+        }
+
 
         #endregion
 
