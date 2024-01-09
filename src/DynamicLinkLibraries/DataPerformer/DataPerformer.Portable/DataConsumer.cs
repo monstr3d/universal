@@ -17,7 +17,7 @@ namespace DataPerformer.Portable
     /// <summary>
     /// Consumer of data
     /// </summary>
-    [InsertIntoChilldrenCoollection(false)]
+   // [InsertIntoChilldrenCoollection(false)]
     public class DataConsumer : CategoryObject,  IDataConsumer,
         IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
     {

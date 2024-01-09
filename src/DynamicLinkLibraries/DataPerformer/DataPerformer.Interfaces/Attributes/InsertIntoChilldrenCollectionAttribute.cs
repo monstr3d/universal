@@ -3,9 +3,9 @@
 
 namespace DataPerformer.Interfaces.Attributes
 {
-    public class InsertIntoChilldrenCoollectionAttribute : Attribute
+    public class InsertIntoChilldrenCollectionAttribute : Attribute
     {
-        public InsertIntoChilldrenCoollectionAttribute(bool insert)
+        public InsertIntoChilldrenCollectionAttribute(bool insert)
         {
             Insert = insert;
         }

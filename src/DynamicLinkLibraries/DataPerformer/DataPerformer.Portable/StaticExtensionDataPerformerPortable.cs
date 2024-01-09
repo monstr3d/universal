@@ -2302,8 +2302,9 @@ namespace DataPerformer.Portable
         /// <returns>Result</returns>
         static public bool ShouldInsertIntoChildren(this object value)
         {
-            var att = value.GetAttribute<InsertIntoChilldrenCoollectionAttribute>();
-            return att == null ? true : att.Insert;
+            var att = 
+                value.GetAttribute<InsertIntoChilldrenCollectionAttribute>();
+            return att == null ? false : att.Insert;
         }
 
 

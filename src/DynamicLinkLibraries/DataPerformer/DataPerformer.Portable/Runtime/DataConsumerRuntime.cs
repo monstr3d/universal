@@ -437,17 +437,14 @@ namespace DataPerformer.Portable.Runtime
                 {
                     GetMeasurements(m as IDataConsumer);
                 }
- 
+
             }
-            if (consumer.ShouldInsertIntoChildren())
+            if (consumer is IMeasurements)
             {
-                if (consumer is IMeasurements)
+                var mm = consumer as IMeasurements;
+                if (!measurements.Contains(mm))
                 {
-                    var mm = consumer as IMeasurements;
-                    if (!measurements.Contains(mm))
-                    {
-                        measurements.Add(mm);
-                    }
+                    measurements.Add(mm);
                 }
             }
         }
