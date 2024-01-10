@@ -2007,6 +2007,18 @@ namespace DataPerformer.Portable
         }
 
         /// <summary>
+        /// Gets relative name of measurements
+        /// </summary>
+        /// <param name="consumer">The consumer</param>
+        /// <param name="measurements">The measurements</param>
+        /// <returns>The name</returns>
+        public static string GetRelativeMeasurementsName(this IDataConsumer consumer, IMeasurements measurements)
+        {
+            return (consumer as IAssociatedObject).GetRelativeName(measurements as IAssociatedObject);
+        }
+
+ 
+        /// <summary>
         /// Find measurements of consumer by strings
         /// </summary>
         /// <param name="consumer">Consumer</param>

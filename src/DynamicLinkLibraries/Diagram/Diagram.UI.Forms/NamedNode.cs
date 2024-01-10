@@ -48,7 +48,7 @@ namespace Diagram.UI
                     Text = component.GetName(nc.Desktop);
                 }
             }
-            ImageIndex = NamedComponent.GetImageNumber(component);
+            ImageIndex = component.GetImageNumber();
             SelectedImageIndex = ImageIndex;
         }
 

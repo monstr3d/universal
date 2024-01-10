@@ -96,7 +96,7 @@ namespace Diagram.UI.UserControls
             int ph = pictureBoxObject.Height;
             try
             {
-                Image im = NamedComponent.GetImage(theObject);
+                Image im = theObject.GetImage();
                 pictureBoxObject.Width = im.Width;
                 pictureBoxObject.Height = im.Height;
                 pictureBoxObject.Image = im;

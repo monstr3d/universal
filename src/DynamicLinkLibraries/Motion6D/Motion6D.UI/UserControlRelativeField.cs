@@ -64,7 +64,8 @@ namespace Motion6D.UI
             {
                 return;
             }
-            Image im = NamedComponent.GetImage(field.Field as ICategoryObject);
+            Image im = 
+                (field.Field as ICategoryObject).GetImage();
             pictureBoxGrav.Image = im;
             string name =
                 data.GetRelativeName(field.Field as ICategoryObject);

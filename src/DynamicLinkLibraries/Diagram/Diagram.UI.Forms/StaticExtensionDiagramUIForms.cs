@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -18,7 +16,6 @@ using Diagram.UI.UserControls;
 
 using ResourceService;
 using AssemblyService.Attributes;
-using System.Runtime.CompilerServices;
 
 namespace Diagram.UI
 {
@@ -50,6 +47,111 @@ namespace Diagram.UI
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Gets image of component
+        /// </summary>
+        /// <param name="component">The component</param>
+        /// <returns>The image</returns>
+        public static Image GetImage(this INamedComponent component)
+        {
+            if (component is IObjectLabelUI)
+            {
+                IObjectLabelUI l = component as IObjectLabelUI;
+                return l.Image as Image;
+            }
+            if (component is IObjectLabel)
+            {
+                IObjectLabel l = component as IObjectLabel;
+                object o = l.Object;
+                if (o is MultiLibraryObject)
+                {
+                    return ResourceImage.MultiInterface.ToBitmap();
+                }
+            }
+            IPaletteButton button = GetButton(component);
+            return button.ButtonImage as Image;
+
+        }
+
+
+        /// <summary>
+        /// Gets image of category object
+        /// </summary>
+        /// <param name="obj">The object</param>
+        /// <returns>The image</returns>
+        public static Image GetImage(this ICategoryObject obj)
+        {
+            INamedComponent c = obj.Object as INamedComponent;
+            return GetImage(c);
+        }
+
+        /// <summary>
+        /// Gets image of arrow
+        /// </summary>
+        /// <param name="arrow">The arrow</param>
+        /// <returns>The image</returns>
+        public static Image GetImage(this ICategoryArrow arrow)
+        {
+            INamedComponent c = arrow.Object as INamedComponent;
+            return GetImage(c);
+        }
+
+
+        /// <summary>
+        /// Gets component button
+        /// </summary>
+        /// <param name="component">Component</param>
+        /// <returns>The component button</returns>
+        public static IPaletteButton GetButton(this INamedComponent component)
+        {
+            PanelDesktop desktop = GetDesktop(component);
+            return desktop.Tools.FindButton(component);
+        }
+
+        /// <summary>
+        /// Gets root UI desktop of component
+        /// </summary>
+        /// <param name="component">The component</param>
+        /// <returns>The desktop</returns>
+        public static PanelDesktop GetDesktop(INamedComponent component)
+        {
+            if (component.Desktop is PanelDesktop)
+            {
+                return component.Desktop as PanelDesktop;
+            }
+            return GetDesktop(component.Parent);
+        }
+
+
+
+        /// <summary>
+        /// Gets image number
+        /// </summary>
+        /// <param name="component">Component</param>
+        /// <returns>The image number</returns>
+        public static int GetImageNumber(this INamedComponent component)
+        {
+            IPaletteButton button = GetButton(component);
+            if (button == null)
+            {
+                return 0;
+            }
+            return button.ImageNumber;
+        }
+
+
+
+        /// <summary>
+        /// Gets tooltip of component
+        /// </summary>
+        /// <param name="component">The component</param>
+        /// <returns>The tooltip</returns>
+        public static string GetToolTip(this INamedComponent component)
+        {
+            IPaletteButton button = GetButton(component);
+            return button.ToolTip;
+        }
 
 
         /// <summary>

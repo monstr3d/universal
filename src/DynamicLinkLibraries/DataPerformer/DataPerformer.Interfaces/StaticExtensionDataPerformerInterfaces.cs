@@ -7,6 +7,7 @@ using System.Reflection;
 using DataPerformer.Attributes;
 using DataPerformer.Interfaces.BufferedData.Interfaces;
 using DataPerformer.Interfaces.BufferedData;
+using System.Runtime.CompilerServices;
 
 namespace DataPerformer.Interfaces
 {
@@ -253,6 +254,44 @@ namespace DataPerformer.Interfaces
         }
 
         #endregion
+
+        /// <summary>
+        /// Gets data consumer measurements
+        /// </summary>
+        /// <param name="consumer">The consumer</param>
+        /// <returns>The measurements</returns>
+        public static IEnumerable<IMeasurements> GetDataConsumerMeasurements(this IDataConsumer consumer)
+        {
+            var n = consumer.Count;
+            for (int i = 0; i < n; i++)
+            {
+                yield return consumer[i];
+            }
+        }
+
+        /// <summary>
+        /// Gets measurements
+        /// </summary>
+        /// <param name="measurements">Collection of measurements</param>
+        /// <param name="type">The type</param>
+        /// <returns>All measurements</returns>
+        public static IEnumerable<IMeasurement> GetMeasurementObjects(this IMeasurements measurements, object type = null)
+        {
+            var n = measurements.Count;
+            for (int i = 0; i < n; i++)
+            {
+                var m = measurements[i];
+                if (type == null)
+                {
+                    yield return m;
+                    continue;
+                }
+                if (m.Type.Equals(type))
+                {
+                    yield return m;
+                }
+            }
+        }
 
         /// <summary>
         /// Nullable type converion

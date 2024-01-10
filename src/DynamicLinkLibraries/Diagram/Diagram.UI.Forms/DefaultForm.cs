@@ -51,8 +51,8 @@ namespace Diagram.UI
 			this.component = component;
 			this.LoadControlResources(ControlUtilites.Resources);//, Resources);
 			UpdateFormUI();
-			pictureBoxObject.Image = NamedComponent.GetImage(component);
-			labelH.Text = NamedComponent.GetToolTip(component);
+			pictureBoxObject.Image = component.GetImage();
+			labelH.Text = component.GetToolTip();
 			object o = null;
 			if (component is IObjectLabel)
 			{
@@ -84,8 +84,8 @@ namespace Diagram.UI
 				return;
 			}
 			IArrowLabel label = component as IArrowLabel;
-			pictureBoxSource.Image = NamedComponent.GetImage(label.Source);
-			pictureBoxTarget.Image = NamedComponent.GetImage(label.Target);
+			pictureBoxSource.Image = label.Source.GetImage();
+			pictureBoxTarget.Image = label.Target.GetImage();
 		}
 
 		/// <summary>

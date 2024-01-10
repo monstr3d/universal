@@ -587,7 +587,7 @@ namespace Diagram.UI.Labels
         {
             get
             {
-                IPaletteButton button = GetButton(this);
+                IPaletteButton button =	this.GetButton();
                 return button.ButtonImage;
             }
         }

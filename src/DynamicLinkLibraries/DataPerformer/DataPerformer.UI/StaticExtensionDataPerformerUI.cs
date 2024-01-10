@@ -171,6 +171,75 @@ namespace DataPerformer.UI
         }
 
         /// <summary>
+        /// Sets dictionary
+        /// </summary>
+        /// <param name="dictionary">The dictionary</param>
+        /// <param name="ao">The associated object</param>
+        public static void Set(this IColorDictionary dictionary, IAssociatedObject ao)
+        {
+            var o = ao.Object;
+            if (o is Control)
+            {
+                var control = (Control)o;
+                var d = control.FindChildObject<IColorDictionary>();
+                if (d != null)
+                {
+                    d.ColorDictionary = dictionary.ColorDictionary;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets color dictionary
+        /// </summary>
+        /// <param name="ao">The assiciated object</param>
+        /// <param name="dictionary">The dictionary</param>
+        public static void Set(this IAssociatedObject ao, IColorDictionary dictionary)
+        {
+            var o = ao.Object;
+            if (o is Control)
+            {
+                var control = (Control)o;
+                var d = control.FindChildObject<IColorDictionary>();
+                if (d != null)
+                {
+                    dictionary.ColorDictionary = d.ColorDictionary;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Transforms color dictionary to strings
+        /// </summary>
+        /// <param name="dictionary">The dictionary</param>
+        /// <returns>The strings</returns>
+        public static IEnumerable<string> ToStrings(this IColorDictionary dictionary)
+        {
+            var dd = dictionary.ColorDictionary;
+            foreach (var item in dd.Keys)
+            {
+                var str = item.ToString() + ".";
+                var d = dd[item];
+                foreach (var k in d.Keys)
+                {
+                    yield return str + k;
+                }
+                
+            }
+        }
+
+
+        /// <summary>
+        /// Gets image of measurements
+        /// </summary>
+        /// <param name="measurements">The measurements</param>
+        /// <returns>The image</returns>
+        static public Image GetImage(this IMeasurements measurements)
+        {
+            return (measurements as ICategoryObject).GetImage();
+        }
+
+        /// <summary>
         /// Gets measurement objects 
         /// </summary>
         /// <param name="dataConsumer">Consumer of data</param>

@@ -50,8 +50,8 @@ namespace Motion6D.UI
             link = label.Arrow as MechanicalAggregateLink;
             try
             {
-                pictureBoxParent.Image = NamedComponent.GetImage(label.Target);
-                pictureBoxChild.Image = NamedComponent.GetImage(label.Source);
+                pictureBoxParent.Image = label.Target.GetImage();
+                pictureBoxChild.Image = label.Source.GetImage();
             }
             catch (Exception ex)
             {

@@ -47,7 +47,7 @@ namespace DataPerformer.UI
 			PictureBox box = new PictureBox();
 			box.Left = 5;
 			box.Top = y + 5;
-			Image im = NamedComponent.GetImage(theLabel);
+			Image im = theLabel.GetImage();
 			box.Width = im.Width;
 			box.Height = im.Height;
 			box.Image = im;
@@ -79,7 +79,7 @@ namespace DataPerformer.UI
 			box.Top = y + 5;
 			box.Width = 50;
 			box.Height = 50;
-			box.Image = NamedComponent.GetImage(theLabel);
+			box.Image = theLabel.GetImage();
 			Controls.Add(box);
 			Label label = new Label();
 			label.Top = box.Top;
@@ -107,7 +107,7 @@ namespace DataPerformer.UI
 			PictureBox box = new PictureBox();
 			box.Left = 5;
 			box.Top = y + 5;
-			Image im = NamedComponent.GetImage(theObject);
+			Image im = theObject.GetImage();
 			box.Width = im.Width;
 			box.Height = im.Height;
 			box.Image = im;
@@ -141,7 +141,7 @@ namespace DataPerformer.UI
 				int yy = label.Top + label.Height;
 				Controls.Add(label);
 				PictureBox box = new PictureBox();
-				Image im = NamedComponent.GetImage(objects[i]);
+				Image im = objects[i].GetImage();
 				box.Width = im.Width;
 				box.Height = im.Height;
 				box.Left = 5;

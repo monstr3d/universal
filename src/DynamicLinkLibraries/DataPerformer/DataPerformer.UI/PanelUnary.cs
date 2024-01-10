@@ -1,24 +1,14 @@
 using System;
 using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Configuration.Assemblies;
 using System.Collections;
-using System.Drawing;
-using System.ComponentModel;
-using System.Xml;
 
 
 using CategoryTheory;
-using Diagram.UI.Labels;
 
 using BaseTypes.Interfaces;
 
-
-using FormulaEditor;
-using FormulaEditor.Interfaces;
-using FormulaEditor.UI;
+using Diagram.UI;
+using Diagram.UI.Labels;
 
 
 namespace DataPerformer.UI
@@ -44,7 +34,7 @@ namespace DataPerformer.UI
 			ICategoryObject o = operation as ICategoryObject;
 			label = o.Object as IObjectLabel;
 			PictureBox p = new PictureBox();
-			p.Image = NamedComponent.GetImage(label);
+			p.Image = label.GetImage();
 			int y = 10;
 			int x = 10;
 			p.Left = x;
