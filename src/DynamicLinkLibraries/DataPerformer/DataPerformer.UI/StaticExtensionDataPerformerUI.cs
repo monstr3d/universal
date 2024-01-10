@@ -15,6 +15,8 @@ using Diagram.UI.Utils;
 
 using BaseTypes.Interfaces;
 
+using AssemblyService.Attributes;
+
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
@@ -24,7 +26,7 @@ using Chart;
 using Chart.Drawing.Series;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
-using AssemblyService.Attributes;
+
 
 namespace DataPerformer.UI
 {
@@ -186,6 +188,17 @@ namespace DataPerformer.UI
                 {
                     d.ColorDictionary = dictionary.ColorDictionary;
                 }
+            }
+        }
+
+        public static IEnumerable<IMeasurements> GetMeasurements(this IColorDictionary dictionary,
+            IDataConsumer consumer)
+        {
+            var d = dictionary.ColorDictionary;
+            foreach (var measurements in consumer.GetMeasurements())
+            {
+                var name = consumer.GetRelativeMeasurementsName(measurements);
+                if (d.ContainsKey(name)) yield return measurements;
             }
         }
 
@@ -492,6 +505,46 @@ namespace DataPerformer.UI
             }
             return painter;
         }
+
+        /// <summary>
+        /// Gets colors dictoinary
+        /// </summary>
+        /// <param name="consumer">Consumer</param>
+        /// <param name="measurements">Measurements</param>
+        /// <param name="colors">Colors</param>
+        /// <returns>The Dictionary</returns>
+        public static Dictionary<IMeasurement, Color> GetColors(this IDataConsumer consumer,
+            IMeasurements[] measurements, Dictionary<string, Dictionary<string, Color>> colors)
+        {
+            var list = new List<IMeasurements>(measurements);
+            if (consumer is IMeasurements)
+            {
+                if (consumer.ShouldInsertIntoChildren())
+                {
+                    list.Add((IMeasurements)consumer);
+                }
+            }
+            Dictionary<IMeasurement, Color> dict = new Dictionary<IMeasurement, Color>();
+            foreach (var item in list)
+            {
+                var name = consumer.GetRelativeMeasurementsName(item);
+                if (!colors.ContainsKey(name))
+                {
+                    continue;
+                }
+                var d = colors[name];
+                foreach (var m in item.GetMeasurementObjects())
+                {
+                    var nn = m.Name;
+                    if (d.ContainsKey(nn))
+                    {
+                        dict[m] = d[nn];
+                    }
+                }
+            }
+            return dict;
+        }
+
 
         /// <summary>
         /// Draws two parameter table

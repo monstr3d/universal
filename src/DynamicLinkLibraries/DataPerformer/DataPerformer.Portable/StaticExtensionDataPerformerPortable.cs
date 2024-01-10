@@ -1261,9 +1261,22 @@ namespace DataPerformer.Portable
             object type = null)
         {
             Dictionary<IMeasurement, string> dictionary = new Dictionary<IMeasurement, string>();
+            List<IMeasurements> list = new List<IMeasurements>();
             for (int i = 0; i < consumer.Count; i++)
             {
                 IMeasurements m = consumer[i];
+                list.Add(m);
+            }
+            if (consumer is IMeasurements)
+            {
+                if (consumer.ShouldInsertIntoChildren())
+                {
+                    list.Add((IMeasurements)consumer);
+                }
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                IMeasurements m = list[i];
                 string on = consumer.GetMeasurementsName(m);
                 for (int j = 0; j < m.Count; j++)
                 {
@@ -1921,6 +1934,29 @@ namespace DataPerformer.Portable
                     }
                 }
             }
+            if (consumer is IMeasurements)
+            {
+                if (consumer.ShouldInsertIntoChildren())
+                {
+                    if (consumer is IAssociatedObject)
+                    {
+                        IMeasurements measurements = consumer as IMeasurements;
+                        var o = (consumer as IAssociatedObject).Object;
+                        if (o is INamedComponent)
+                        {
+                            var nn = (o as INamedComponent).Name + ".";
+                            foreach (var mt in measurements.GetMeasurementObjects())
+                            {
+                                if (mt == measurement)
+                                {
+                                    return nn + mt.Name;
+                                }
+                             }
+                        }
+                    }
+                  
+                }
+            }
             return null;
         }
 
@@ -2000,6 +2036,21 @@ namespace DataPerformer.Portable
                     if (s.Equals(m.Name))
                     {
                         return m;
+                    }
+                }
+            }
+            if (consumer is IMeasurements)
+            {
+                if (consumer.ShouldInsertIntoChildren())
+                {
+                    var cm = consumer as IMeasurements;
+                    foreach (var cmm in cm.GetMeasurementObjects())
+                    {
+                        var nm = consumer.GetName(cmm);
+                        if (measure.Equals(nm))
+                        {
+                            return cmm;
+                        }
                     }
                 }
             }

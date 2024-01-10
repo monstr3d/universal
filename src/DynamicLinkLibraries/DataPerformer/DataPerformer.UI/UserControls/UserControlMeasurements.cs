@@ -44,7 +44,7 @@ namespace DataPerformer.UI.UserControls
             var name = DataConsumer.GetRelativeMeasurementsName(value);
             labelName.Text = name;
             int top = 0;
-            foreach (var measurement in value.GetMeasurementObjects((double)0))
+            foreach (var measurement in value.GetMeasurementObjects())
             {
                 var mName = measurement.Name;
                 var uc = new UserControlMeasurement();
