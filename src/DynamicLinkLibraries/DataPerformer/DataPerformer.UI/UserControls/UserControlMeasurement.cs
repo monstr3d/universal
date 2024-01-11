@@ -12,8 +12,6 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
         }
 
-
-
         public Color[] Color
         {
             get => checkBoxName.Checked ? [comboBoxColorPicker.Color] : null;
@@ -37,18 +35,4 @@ namespace DataPerformer.UI.UserControls
         }
     }
 
-/* !!!
-        public Tuple<Color, string, bool> Tuple
-        {
-            get => new Tuple<Color, string, bool>(
-                comboBoxColorPicker.Color, checkBoxName.Text,
-                checkBoxName.Checked);
-            set
-            {
-                comboBoxColorPicker.Color = value.Item1;
-                checkBoxName.Text = value.Item2;
-                checkBoxName.Checked = value.Item3;
-            }
-        }
-    }*/
 }

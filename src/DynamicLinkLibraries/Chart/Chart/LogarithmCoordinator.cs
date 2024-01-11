@@ -15,7 +15,7 @@ namespace Chart
     /// <summary>
     /// Logarithm coordinator
     /// </summary>
-    public class LogarithmCoordinator : Chart.Drawing.Coordinators.LogarithmCoordinator
+    public class LogarithmCoordinator : Drawing.Coordinators.LogarithmCoordinator
     {
 
         #region Fields

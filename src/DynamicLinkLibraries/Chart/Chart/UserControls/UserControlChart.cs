@@ -11,6 +11,7 @@ using Chart.Forms;
 using Chart.Classes;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Series;
+using Diagram.UI.Interfaces;
 
 namespace Chart.UserControls
 {
@@ -264,6 +265,7 @@ namespace Chart.UserControls
             string[] f = dob.GetFormats();
         }
 
+  
         #endregion
     }
 }

@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             panelCenter = new System.Windows.Forms.Panel();
-            panelRight = new System.Windows.Forms.Panel();
-            panelLeft = new System.Windows.Forms.Panel();
-            panelTop = new System.Windows.Forms.Panel();
-            panelBottom = new System.Windows.Forms.Panel();
-            panelPictureCenter = new System.Windows.Forms.Panel();
-            panelPictureRight = new System.Windows.Forms.Panel();
-            panelPictureLeft = new System.Windows.Forms.Panel();
-            panelPicture = new System.Windows.Forms.Panel();
-            panelName = new System.Windows.Forms.Panel();
-            pictureBox = new System.Windows.Forms.PictureBox();
-            labelName = new System.Windows.Forms.Label();
             panelNameCenter = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
             panel5 = new System.Windows.Forms.Panel();
             panelMeasurements = new System.Windows.Forms.Panel();
             panel7 = new System.Windows.Forms.Panel();
+            panelRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            panelTop = new System.Windows.Forms.Panel();
+            panelPictureCenter = new System.Windows.Forms.Panel();
+            pictureBoxMeasurement = new System.Windows.Forms.PictureBox();
+            panelPictureRight = new System.Windows.Forms.Panel();
+            panelPictureLeft = new System.Windows.Forms.Panel();
+            panelPicture = new System.Windows.Forms.Panel();
+            panelName = new System.Windows.Forms.Panel();
+            labelName = new System.Windows.Forms.Label();
+            panelBottom = new System.Windows.Forms.Panel();
             panelCenter.SuspendLayout();
+            panelNameCenter.SuspendLayout();
             panelTop.SuspendLayout();
             panelPictureCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMeasurement).BeginInit();
             panelName.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
-            panelNameCenter.SuspendLayout();
             SuspendLayout();
             // 
             // panelCenter
@@ -66,112 +66,6 @@
             panelCenter.Name = "panelCenter";
             panelCenter.Size = new System.Drawing.Size(346, 120);
             panelCenter.TabIndex = 8;
-            // 
-            // panelRight
-            // 
-            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelRight.Location = new System.Drawing.Point(345, 108);
-            panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(1, 12);
-            panelRight.TabIndex = 2;
-            // 
-            // panelLeft
-            // 
-            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelLeft.Location = new System.Drawing.Point(0, 108);
-            panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(1, 12);
-            panelLeft.TabIndex = 1;
-            // 
-            // panelTop
-            // 
-            panelTop.Controls.Add(panelPictureCenter);
-            panelTop.Controls.Add(panelName);
-            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            panelTop.Location = new System.Drawing.Point(0, 0);
-            panelTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(346, 108);
-            panelTop.TabIndex = 0;
-            // 
-            // panelBottom
-            // 
-            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 120);
-            panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(346, 1);
-            panelBottom.TabIndex = 7;
-            // 
-            // panelPictureCenter
-            // 
-            panelPictureCenter.Controls.Add(pictureBox);
-            panelPictureCenter.Controls.Add(panelPictureRight);
-            panelPictureCenter.Controls.Add(panelPictureLeft);
-            panelPictureCenter.Controls.Add(panelPicture);
-            panelPictureCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelPictureCenter.Location = new System.Drawing.Point(0, 0);
-            panelPictureCenter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelPictureCenter.Name = "panelPictureCenter";
-            panelPictureCenter.Size = new System.Drawing.Size(346, 56);
-            panelPictureCenter.TabIndex = 8;
-            // 
-            // panelPictureRight
-            // 
-            panelPictureRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelPictureRight.Location = new System.Drawing.Point(328, 10);
-            panelPictureRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelPictureRight.Name = "panelPictureRight";
-            panelPictureRight.Size = new System.Drawing.Size(18, 46);
-            panelPictureRight.TabIndex = 2;
-            // 
-            // panelPictureLeft
-            // 
-            panelPictureLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelPictureLeft.Location = new System.Drawing.Point(0, 10);
-            panelPictureLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelPictureLeft.Name = "panelPictureLeft";
-            panelPictureLeft.Size = new System.Drawing.Size(17, 46);
-            panelPictureLeft.TabIndex = 1;
-            // 
-            // panelPicture
-            // 
-            panelPicture.Dock = System.Windows.Forms.DockStyle.Top;
-            panelPicture.Location = new System.Drawing.Point(0, 0);
-            panelPicture.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelPicture.Name = "panelPicture";
-            panelPicture.Size = new System.Drawing.Size(346, 10);
-            panelPicture.TabIndex = 0;
-            // 
-            // panelName
-            // 
-            panelName.Controls.Add(labelName);
-            panelName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelName.Location = new System.Drawing.Point(0, 56);
-            panelName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panelName.Name = "panelName";
-            panelName.Size = new System.Drawing.Size(346, 52);
-            panelName.TabIndex = 7;
-            // 
-            // pictureBox
-            // 
-            pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            pictureBox.Location = new System.Drawing.Point(17, 10);
-            pictureBox.Name = "pictureBox";
-            pictureBox.Size = new System.Drawing.Size(311, 46);
-            pictureBox.TabIndex = 3;
-            pictureBox.TabStop = false;
-            // 
-            // labelName
-            // 
-            labelName.AutoSize = true;
-            labelName.Location = new System.Drawing.Point(11, 19);
-            labelName.Name = "labelName";
-            labelName.Size = new System.Drawing.Size(38, 15);
-            labelName.TabIndex = 0;
-            labelName.Text = "label1";
             // 
             // panelNameCenter
             // 
@@ -221,6 +115,113 @@
             panel7.Size = new System.Drawing.Size(344, 1);
             panel7.TabIndex = 7;
             // 
+            // panelRight
+            // 
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(345, 108);
+            panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(1, 12);
+            panelRight.TabIndex = 2;
+            // 
+            // panelLeft
+            // 
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 108);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(1, 12);
+            panelLeft.TabIndex = 1;
+            // 
+            // panelTop
+            // 
+            panelTop.Controls.Add(panelPictureCenter);
+            panelTop.Controls.Add(panelName);
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(346, 108);
+            panelTop.TabIndex = 0;
+            // 
+            // panelPictureCenter
+            // 
+            panelPictureCenter.Controls.Add(pictureBoxMeasurement);
+            panelPictureCenter.Controls.Add(panelPictureRight);
+            panelPictureCenter.Controls.Add(panelPictureLeft);
+            panelPictureCenter.Controls.Add(panelPicture);
+            panelPictureCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelPictureCenter.Location = new System.Drawing.Point(0, 0);
+            panelPictureCenter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelPictureCenter.Name = "panelPictureCenter";
+            panelPictureCenter.Size = new System.Drawing.Size(346, 56);
+            panelPictureCenter.TabIndex = 8;
+            // 
+            // pictureBoxMeasurement
+            // 
+            pictureBoxMeasurement.Dock = System.Windows.Forms.DockStyle.Fill;
+            pictureBoxMeasurement.Location = new System.Drawing.Point(17, 10);
+            pictureBoxMeasurement.Name = "pictureBoxMeasurement";
+            pictureBoxMeasurement.Size = new System.Drawing.Size(311, 46);
+            pictureBoxMeasurement.TabIndex = 3;
+            pictureBoxMeasurement.TabStop = false;
+            // 
+            // panelPictureRight
+            // 
+            panelPictureRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelPictureRight.Location = new System.Drawing.Point(328, 10);
+            panelPictureRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelPictureRight.Name = "panelPictureRight";
+            panelPictureRight.Size = new System.Drawing.Size(18, 46);
+            panelPictureRight.TabIndex = 2;
+            // 
+            // panelPictureLeft
+            // 
+            panelPictureLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelPictureLeft.Location = new System.Drawing.Point(0, 10);
+            panelPictureLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelPictureLeft.Name = "panelPictureLeft";
+            panelPictureLeft.Size = new System.Drawing.Size(17, 46);
+            panelPictureLeft.TabIndex = 1;
+            // 
+            // panelPicture
+            // 
+            panelPicture.Dock = System.Windows.Forms.DockStyle.Top;
+            panelPicture.Location = new System.Drawing.Point(0, 0);
+            panelPicture.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelPicture.Name = "panelPicture";
+            panelPicture.Size = new System.Drawing.Size(346, 10);
+            panelPicture.TabIndex = 0;
+            // 
+            // panelName
+            // 
+            panelName.Controls.Add(labelName);
+            panelName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelName.Location = new System.Drawing.Point(0, 56);
+            panelName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelName.Name = "panelName";
+            panelName.Size = new System.Drawing.Size(346, 52);
+            panelName.TabIndex = 7;
+            // 
+            // labelName
+            // 
+            labelName.AutoSize = true;
+            labelName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            labelName.Location = new System.Drawing.Point(11, 19);
+            labelName.Name = "labelName";
+            labelName.Size = new System.Drawing.Size(51, 20);
+            labelName.TabIndex = 0;
+            labelName.Text = "label1";
+            // 
+            // panelBottom
+            // 
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 120);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(346, 1);
+            panelBottom.TabIndex = 7;
+            // 
             // UserControlMeasurements
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -230,12 +231,12 @@
             Name = "UserControlMeasurements";
             Size = new System.Drawing.Size(346, 121);
             panelCenter.ResumeLayout(false);
+            panelNameCenter.ResumeLayout(false);
             panelTop.ResumeLayout(false);
             panelPictureCenter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMeasurement).EndInit();
             panelName.ResumeLayout(false);
             panelName.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
-            panelNameCenter.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -251,7 +252,7 @@
         private System.Windows.Forms.Panel panelPictureLeft;
         private System.Windows.Forms.Panel panelPicture;
         private System.Windows.Forms.Panel panelName;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.PictureBox pictureBoxMeasurement;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Panel panelNameCenter;
         private System.Windows.Forms.Panel panel4;

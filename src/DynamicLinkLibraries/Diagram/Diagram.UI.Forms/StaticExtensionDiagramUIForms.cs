@@ -16,6 +16,7 @@ using Diagram.UI.UserControls;
 
 using ResourceService;
 using AssemblyService.Attributes;
+using Diagram.Interfaces;
 
 namespace Diagram.UI
 {
@@ -47,6 +48,44 @@ namespace Diagram.UI
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Executes action
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="control">Control</param>
+        /// <param name="action">Action</param>
+        /// <param name="all">The "all" sig</param>
+        static public void Execute<T>(this Control control, Action<T> action, bool all = false) where T : class
+        {
+            IEnumerable<T> values;
+            if (all)
+            {
+                values = control.FindAll<T>();
+            }
+            else
+            {
+                values = control.FindChildren<T>();
+            }
+            foreach (var item in values)
+            {
+                action(item);
+            }
+
+        }
+
+        /// <summary>
+        /// Sets named component to the control
+        /// </summary>
+        /// <param name="control">The control</param>
+        /// <param name="component">The component</param>
+        public static void SetNamedComponentHolder(this Control control,
+            INamedComponent component)
+        {
+            Action<INamedComponentHolder> action = 
+                (n) => n.NamedComponent = component;
+            control.Execute(action);
+        }
 
         /// <summary>
         /// Gets image of component
@@ -330,7 +369,7 @@ namespace Diagram.UI
         /// <typeparam name="T">Type</typeparam>
         /// <param name="control">The control</param>
         /// <returns>The parent</returns>
-        public static IEnumerable<T> FindAll<T>(this Control control) where T : Control
+        public static IEnumerable<T> FindAll<T>(this Control control) where T : class
         {
             var c = control;
             while (c.Parent != null) { c = c.Parent; }
