@@ -18,7 +18,7 @@ namespace Chart
     /// <summary>
     /// Simple coordinate drawing conmonent
     /// </summary>
-    public class SimpleCoordinator : Chart.Drawing.Coordinators.SimpleCoordinator
+    public class SimpleCoordinator : Drawing.Coordinators.SimpleCoordinator
     {
         /// <summary>
         /// Constructor

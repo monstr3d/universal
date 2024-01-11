@@ -14,5 +14,6 @@ namespace Chart.Drawing.Interfaces.Points
         /// <param name="obj"></param>
         /// <returns></returns>
         Func<object, object>[] this[object obj] { get; }
+
     }
 }

@@ -18,6 +18,30 @@ namespace Chart.Drawing
         /// </summary>
         public static ISeriesPainterFactory SeriesPainterFactory { get; set; }
 
+
+        /// <summary>
+        /// Preparation of Chart performer
+        /// </summary>
+        public static IChartPerformerPreparation ChartPerformerPreparation
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Preparation of chart performer
+        /// </summary>
+        /// <param name="performer"></param>
+        /// <param name="obj"></param>
+        public static void PrepareChartPerformer(this ChartPerformer performer, object obj)
+        {
+            if (ChartPerformerPreparation == null)
+            {
+                return;
+            }
+            ChartPerformerPreparation.Prepare(performer, obj);
+        }
+
         /// <summary>
         /// Gets painter
         /// </summary>

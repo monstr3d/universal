@@ -54,6 +54,7 @@ using System.Threading.Tasks;
 using Chart.Indicators;
 using Diagram.Interfaces;
 using Chart.DataPerformer;
+using Chart.UserControls;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -91,7 +92,7 @@ namespace DataPerformer.UI.UserControls
 
         private Chart.ChartPerformer performer;
 
-        private LogarithmCoordinator coordinator;
+        private ICoordPainter coordinator;
 
         private List<ISeries> ownSeries = new List<ISeries>();
 
@@ -747,7 +748,7 @@ namespace DataPerformer.UI.UserControls
             panelGraph.Controls.Add(panel);
             panel.Dock = DockStyle.Fill;
             performer.Resize();
-            coordinator = new LogarithmCoordinator(performer);
+            coordinator = new Chart.SimpleCoordinator(5, 5, performer);
             performer.Coordinator = coordinator;
             EditorReceiver.AddEditorDrag(panelGraph);
             PictureReceiver.AddImageDrag(panelGraph);
@@ -1290,7 +1291,19 @@ namespace DataPerformer.UI.UserControls
             {
                 mouseTransformerIndicator.X = coord[0];
                 mouseTransformerIndicator.Y = coord[1];
-
+            }
+            var ch = this.FindChildObject<UserControlChart>();
+            if (ch != null)
+            {
+                ch.Performer.PrepareChartPerformer(mea);
+            }
+            else
+            {
+                var pch = this.FindChildObject<PanelChart>();
+                if (pch != null)
+                {
+                    pch.Performer.PrepareChartPerformer(mea);
+                }
             }
             var coll = consumer.GetDependentCollection();
             coll.ForEach((IRunning s) => s.IsRunning = true);
@@ -1328,12 +1341,6 @@ Func<bool> stop)
             while (iterator.Next());
             return dic;
         }
-
-
-
-
-
-
 
 
         private void StartChart()

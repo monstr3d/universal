@@ -47,9 +47,17 @@ namespace Chart.Indicators
         }
 
 
-        public Func<object, object> X {  get; set; }
+        public Func<object, object> X 
+        {  
+            get; 
+            set; 
+        }
 
-        public Func<object, object> Y { get; set;}
+        public Func<object, object> Y 
+        { 
+            get; 
+            set;
+        }
 
         public Action<string[]> Action { get; set; }
 

@@ -10,6 +10,8 @@ namespace Chart.Drawing.TextPainters
 {
     internal class EmptyTextPainter : ICoordTextPainter
     {
+        
+
         ChartPerformer ICoordTextPainter.Performer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         void ICoordTextPainter.DrawTextX(Graphics g, int[,] insets, double[,] dSize, int[] size, double[] scale)

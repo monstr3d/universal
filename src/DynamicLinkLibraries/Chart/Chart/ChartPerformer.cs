@@ -881,7 +881,7 @@ namespace Chart
             #endregion
         }
 
-        class ControlWrapper : IControl
+        public class ControlWrapper : IControl
         {
             #region Fields
 
@@ -913,6 +913,8 @@ namespace Chart
             }
 
             #endregion
+
+            public Control Control { get => control;  }
         }
 
         #endregion

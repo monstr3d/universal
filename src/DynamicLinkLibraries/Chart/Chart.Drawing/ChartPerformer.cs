@@ -246,6 +246,14 @@ namespace Chart.Drawing
         #region Public Members
 
         /// <summary>
+        /// Control
+        /// </summary>
+        public IControl Control
+        {
+            get => virtualControl;
+        }
+
+        /// <summary>
         /// First series
         /// </summary>
         public ISeries First
