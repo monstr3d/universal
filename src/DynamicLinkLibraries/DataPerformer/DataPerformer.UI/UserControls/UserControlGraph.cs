@@ -1586,8 +1586,8 @@ Func<bool> stop)
             IDesktop desktop = (consumer as ICategoryObject).GetRootDesktop();
             IComponentCollection collection = consumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
             IAsynchronousCalculation animation =
-                collection.StartAnimation(new string[] {StaticExtensionEventInterfaces.Realtime,
-             AnimationType.GetReason()}, AnimationType, Pause, TimeScale, true, checkBoxAbsoluteTime.Checked);
+                collection.StartAnimation([StaticExtensionEventInterfaces.Realtime,
+             AnimationType.GetReason()], AnimationType, Pause, TimeScale, true, checkBoxAbsoluteTime.Checked);
             if (animation != null)
             {
                 StaticExtensionEventPortable.OnceStop(animation.Interrupt);
