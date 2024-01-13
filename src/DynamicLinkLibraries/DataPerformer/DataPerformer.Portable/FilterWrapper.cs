@@ -135,7 +135,7 @@ namespace DataPerformer.Portable
 
         void IMeasurements.UpdateMeasurements()
         {
-            var a = (double?)measurement.Parameter();
+            var a = measurement.ToNullable<double>();
             outval = filter[a];
         }
 
@@ -171,11 +171,15 @@ namespace DataPerformer.Portable
 
     #endregion
 
+     object func()
+        { return outval; }
+
     #region Measurement class
 
 
     class FilterMeasurement : IMeasurement, IAssociatedObject
         {
+            
             public FilterMeasurement(FilterWrapper filter)
             {
                 this.filter = filter;
@@ -184,9 +188,8 @@ namespace DataPerformer.Portable
 
             FilterWrapper filter;
 
-            object func() => filter.outval;
-
-            Func<object> IMeasurement.Parameter => func;
+    
+            Func<object> IMeasurement.Parameter => filter.func;
 
             string IMeasurement.Name => "Output";
 

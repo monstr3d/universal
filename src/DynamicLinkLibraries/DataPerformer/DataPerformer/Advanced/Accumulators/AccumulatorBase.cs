@@ -371,11 +371,8 @@ namespace DataPerformer.Advanced.Accumulators
 
         private void Update()
         {
-            this.ForEach(delegate(IStack s)
-           {
-               s.Push();
-           });
-
+            this.ForEach((IStack s) => s.Push());
+    
             ITimeMeasurementProvider old = processor.TimeProvider;
             processor.TimeProvider = this;
             if (block)

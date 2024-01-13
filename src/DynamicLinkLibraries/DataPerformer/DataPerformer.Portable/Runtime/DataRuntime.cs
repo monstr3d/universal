@@ -185,7 +185,7 @@ namespace DataPerformer.Portable.Runtime
                     realTimeData =
                         new Dictionary<IComponentCollection, Tuple<IDataRuntime, double[],
                             IDifferentialEquationProcessor, Action>>();
-                    this.realtime = realtime as ITimeMeasurementProvider;
+                    this.realtime = realtime;
                     provider = realtime;
                     dCollection = new Dictionary<object, IComponentCollection>();
                     /*!!!! * DECOMPOSITION THINK AFTER

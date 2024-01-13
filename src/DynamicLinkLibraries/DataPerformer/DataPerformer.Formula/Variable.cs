@@ -139,6 +139,19 @@ namespace DataPerformer.Formula
 
         #endregion
 
+        #region IStack Members
+
+        void IStack.Push()
+        {
+            stack.Push(value);
+        }
+
+        void IStack.Pop()
+        {
+            value = stack.Pop();
+        }
+
+        #endregion
 
 
         #region Members
@@ -232,18 +245,5 @@ namespace DataPerformer.Formula
 
         #endregion
 
-        #region IStack Members
-
-        void IStack.Push()
-        {
-            stack.Push(value);
-        }
-
-        void IStack.Pop()
-        {
-            value = stack.Pop();
-        }
-
-        #endregion
     }
 }

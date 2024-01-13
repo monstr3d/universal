@@ -14,6 +14,20 @@ namespace Chart.Drawing
     public static class StaticExtensionChartDrawing
     {
         /// <summary>
+        /// Gets series from the chart performer
+        /// </summary>
+        /// <param name="performer">The chart performer</param>
+        /// <returns>The series</returns>
+        public static IEnumerable<ISeries> GetSeries(this ChartPerformer performer)
+        {
+            int n = performer.Count;
+            for (int i = 0; i < n; i++)
+            {
+                yield return performer[i];
+            }
+        }
+        
+        /// <summary>
         /// Factory
         /// </summary>
         public static ISeriesPainterFactory SeriesPainterFactory { get; set; }

@@ -655,10 +655,7 @@ namespace Diagram.UI
             }
             l.Add("\t}");
             l.Add("}");
-            if (onCreateCode != null)
-            {
-                onCreateCode(l);
-            }
+            onCreateCode?.Invoke(l);
             return l;
         }
 

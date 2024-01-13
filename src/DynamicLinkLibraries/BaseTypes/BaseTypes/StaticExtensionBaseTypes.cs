@@ -151,6 +151,19 @@ namespace BaseTypes
         }
 
         /// <summary>
+        /// Nullable type converion
+        /// </summary>
+        /// <typeparam name="T">Conversion type</typeparam>
+        /// <param name="obj">Converted object</param>
+        /// <returns>Conversion result</returns>
+        static public T ToNullableObject<T>(this object obj) where T : class
+        {
+            if (obj == null) return null;
+            return obj as T;
+        }
+
+
+        /// <summary>
         /// Checks whether nullable condition is true
         /// </summary>
         /// <param name="condition">The condition</param>

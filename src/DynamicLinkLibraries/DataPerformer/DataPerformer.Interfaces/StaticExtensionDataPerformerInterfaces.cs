@@ -310,6 +310,23 @@ namespace DataPerformer.Interfaces
         }
 
         /// <summary>
+        /// Nullable type converion
+        /// </summary>
+        /// <typeparam name="T">Conversion type</typeparam>
+        /// <param name="measuresment">Measurement</param>
+        /// <returns>Coversion result</returns>
+        static public T ToNullableObject<T>(this IMeasurement measuresment) where T : class
+        {
+            if (measuresment == null) return null;
+            var parameter = measuresment.Parameter;
+            if (parameter == null) return null;
+            var variable = parameter();
+            if (variable == null) return null;
+            return variable as T; 
+        }
+
+
+        /// <summary>
         /// Checks whether nullable condition is true
         /// </summary>
         /// <param name="condition">The condition</param>

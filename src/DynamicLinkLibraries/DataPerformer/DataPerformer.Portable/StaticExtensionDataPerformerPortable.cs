@@ -205,8 +205,13 @@ namespace DataPerformer.Portable
                     provider.Time = start;
                     double t = start;
                     double last = t;
-                    Action<double, double, long> act = runtime.Step(processor,
-                        (double time) => { provider.Time = time; }, reason, asynchronousCalculation);
+                    Action<double, double, long> 
+                        act = runtime.Step(processor,
+                        (time) => 
+                        { 
+                            provider.Time = time; 
+                        }
+                        , reason, asynchronousCalculation);
                     for (int i = 0; i < count; i++)
                     {
                         t = start + i * step;
