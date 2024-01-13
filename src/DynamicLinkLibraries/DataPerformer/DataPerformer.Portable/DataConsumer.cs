@@ -14,10 +14,10 @@ using DataPerformer.Interfaces.Attributes;
 
 namespace DataPerformer.Portable
 {
+ 
     /// <summary>
-    /// Consumer of data
+    /// Data consimer
     /// </summary>
-   // [InsertIntoChilldrenCoollection(false)]
     public class DataConsumer : CategoryObject,  IDataConsumer,
         IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
     {
@@ -101,6 +101,8 @@ namespace DataPerformer.Portable
         protected List<IEvent> events = new List<IEvent>();
 
         protected string calculationReason = "";
+
+        private IMeasurement timeMeasurement = null;
 
         #endregion
 
@@ -210,8 +212,12 @@ namespace DataPerformer.Portable
         /// </summary>
         protected virtual IMeasurement TimeMeasurement
         {
-            get;
-            set;
+            get => timeMeasurement;
+            set
+            {
+                if (timeMeasurement == value) return;
+                timeMeasurement = value;
+            }
         }
 
         #endregion

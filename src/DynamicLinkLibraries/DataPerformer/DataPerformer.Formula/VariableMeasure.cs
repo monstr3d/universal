@@ -14,6 +14,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Formula.Interfaces;
 using BaseTypes;
+using DataPerformer.Portable.Measurements;
 
 namespace DataPerformer.Formula
 {
@@ -26,7 +27,19 @@ namespace DataPerformer.Formula
 
         #region Fields
 
-        internal IMeasurement measurement;
+        IMeasurement measurement;
+
+
+        internal IMeasurement Measurement
+        {
+            get => measurement;
+            set
+            {
+                if (measurement == value) { return; }
+                measurement = value;
+            }
+        }
+     
 
         ObjectFormulaTree derivation;
 
@@ -67,7 +80,7 @@ namespace DataPerformer.Formula
         internal VariableMeasurement(string symbol, IMeasurement measurement, IVariableDetector detector)
         {
             this.symbol = symbol;
-            this.measurement = measurement;
+            this.Measurement = measurement;
             this.detector = detector;
             object par = measurement.Type;
             if (par is IOneVariableFunction)
@@ -107,12 +120,12 @@ namespace DataPerformer.Formula
 
         object IObjectOperation.this[object[] x]
         {
-            get { return measurement.Parameter(); }
+            get { return Measurement.Parameter(); }
         }
 
         object IObjectOperation.ReturnType
         {
-            get { return measurement.Type; }
+            get { return Measurement.Type; }
         }
 
         bool IPowered.IsPowered
@@ -130,11 +143,11 @@ namespace DataPerformer.Formula
             {
                 return derivation;
             }
-            if (!(measurement is IDerivation))
+            if (!(Measurement is IDerivation))
             {
                 throw new Exception("VariableMeasure.Derivation");
             }
-            IDerivation d = measurement as IDerivation;
+            IDerivation d = Measurement as IDerivation;
             VariableMeasurement mea = new VariableMeasurement("", d.Derivation, null);
             derivation = new ObjectFormulaTree(mea, new List<ObjectFormulaTree>());
             return derivation;
@@ -162,7 +175,7 @@ namespace DataPerformer.Formula
     */
             if (func != null)
             {
-                func = measurement.Parameter() as IOneVariableFunction;
+                func = Measurement.Parameter() as IOneVariableFunction;
                 funcwrapper = new OneVariableFunctionDetector(func);
                 return OneVariableFunctionDetector.Accept(funcwrapper, type);
             }
@@ -179,18 +192,17 @@ namespace DataPerformer.Formula
 
         #endregion
 
-        #region Members
 
         /// <summary>
         /// Measurement
         /// </summary>
-        public IMeasurement Measurement
+        IMeasurement IMeasurementHolder.Measurement
         {
-            get
-            {
-                return measurement;
-            }
+            get => Measurement;
         }
+
+
+        #region Members
 
         /// <summary>
         /// Sets a measurement
@@ -198,7 +210,7 @@ namespace DataPerformer.Formula
         /// <param name="measurement">The measurement</param>
         public void SetMeasurement(IMeasurement measurement)
         {
-            this.measurement = measurement;
+           Measurement = measurement;
         }
 
         /// <summary>

@@ -25,7 +25,7 @@ namespace DataPerformer.Portable.Runtime
 
         DateTime dt;
 
-        protected IMeasurement timeMeasurement;
+        protected IMeasurement timeMeasurement = null;
 
         protected double currentTime;
         
@@ -46,13 +46,12 @@ namespace DataPerformer.Portable.Runtime
                 {
                     dt = DateTime;
                     time = () =>
-                        {
-                            return (DateTime.Now - dt).TotalDays;
-                        };
+                        (DateTime.Now - dt).TotalDays;
                 }
                 else
                 {
-                    time = () => { return DateTime.Now.DateTimeToDay(); };
+                    time = () => 
+                        DateTime.Now.DateTimeToDay();
                 }
             }
             else
@@ -62,13 +61,12 @@ namespace DataPerformer.Portable.Runtime
                 {
                     dt = DateTime.Now;
                     time = () =>
-                    {
-                        return coeff * (DateTime.Now - dt).TotalDays;
-                    };
+                       coeff * (DateTime.Now - dt).TotalDays;
                 }
                 else
                 {
-                    time = () => { return coeff * DateTime.Now.DateTimeToDay(); };
+                    time = () => 
+                        coeff * DateTime.Now.DateTimeToDay();
                 }
             }
             currentTime = time();
@@ -76,7 +74,14 @@ namespace DataPerformer.Portable.Runtime
             {
                return currentTime;
             };
-            timeMeasurement = new TimeMeasurement(new Func<object>(mea));
+            if (timeMeasurement == null)
+            {
+                timeMeasurement = new TimeMeasurement(new Func<object>(mea));
+            }
+            else if (timeMeasurement is TimeMeasurement)
+            {
+                (timeMeasurement as TimeMeasurement).TimeParameter = mea;
+            }
         }
 
         /// <summary>
@@ -106,20 +111,14 @@ namespace DataPerformer.Portable.Runtime
 
         IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
-            get { return timeMeasurement; }
+            get => timeMeasurement;
         }
 
         double ITimeMeasurementProvider.Time
         {
-            get
-            {
-                return currentTime;
-            }
-            set
-            {
-                currentTime = value;
-            }
-        }
+            get => currentTime;
+            set => currentTime = value;
+         }
 
         double ITimeMeasurementProvider.Step
         {

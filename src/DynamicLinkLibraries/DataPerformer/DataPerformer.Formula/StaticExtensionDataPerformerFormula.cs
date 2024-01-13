@@ -16,6 +16,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI;
 using DataPerformer.Portable.Measurements;
 using AssemblyService.Attributes;
+using System.Runtime.InteropServices;
 
 namespace DataPerformer.Formula
 {
@@ -34,6 +35,37 @@ namespace DataPerformer.Formula
 
         #endregion
 
+       
+        class HolderMeasurement:  IMeasurement
+        {
+            IMeasurementHolder measurementHolder;
+
+            object type;
+
+            string name;
+
+            internal HolderMeasurement(IMeasurementHolder measurementHolder)
+            {
+                this.measurementHolder = measurementHolder;
+                var mea = measurementHolder.Measurement;
+                type = mea.Type;
+                name = mea.Name;
+            }
+
+            Func<object> IMeasurement.Parameter => parameter;
+
+            string IMeasurement.Name => name;
+
+            object IMeasurement.Type => type;
+
+            object parameter()
+            {
+                var mea = measurementHolder.Measurement;
+                var p = mea.Parameter;
+                return p();
+            }
+        }
+        
         #region Public Members
 
         /// <summary>
@@ -62,6 +94,8 @@ namespace DataPerformer.Formula
             IObjectOperation operation = tree.Operation;
             if (operation is IMeasurementHolder)
             {
+                return new HolderMeasurement((IMeasurementHolder)operation);
+                /*
                 IMeasurementHolder holder = operation as IMeasurementHolder;
                 IMeasurement measurement = holder.Measurement;
                 var paramerer = () =>
@@ -70,7 +104,7 @@ namespace DataPerformer.Formula
                     var value = p();
                     return value;
                 };
-                return new Measurement(measurement.Type, paramerer, measurement.Name);
+                return new Measurement(measurement.Type, paramerer, measurement.Name);)*/
             }
             return null;
         }
@@ -87,7 +121,7 @@ namespace DataPerformer.Formula
             {
                 return;
             }
-            v.measurement = measurement;
+            v.Measurement = measurement;
         }
 
         /// <summary>
@@ -102,7 +136,7 @@ namespace DataPerformer.Formula
             {
                 return null;
             }
-            return v.measurement;
+            return v.Measurement;
         }
 
         /// <summary>
@@ -238,6 +272,7 @@ namespace DataPerformer.Formula
                 }
             }
         }
+
 
     }
 }

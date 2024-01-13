@@ -98,7 +98,7 @@ namespace Event.Portable.Runtime
             try
             {
                 ITimeMeasurementProvider realTime  =  f.Create(isAbsoluteTime, timeUnit, reason);
-                Tuple<IDataConsumer,IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation> tuple =
+                var tuple =
                     new Tuple<IDataConsumer, IComponentCollection, 
                     ITimeMeasurementProvider, IAsynchronousCalculation>
                     (dataConsumer, collection, realTime, stepAction);

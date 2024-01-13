@@ -294,7 +294,11 @@ namespace DataPerformer.Portable.Runtime
                 {
                     t.Item2[0] = startRuntime;
                 }
-                collection.ForEach((IStarted st) => { st.Start(startRuntime); });
+                collection.ForEach(
+                    (IStarted st) => 
+                 st.Start(startRuntime)
+                    
+                );
             }
         }
 

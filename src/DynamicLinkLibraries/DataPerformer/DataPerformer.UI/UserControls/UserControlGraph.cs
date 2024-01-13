@@ -1583,7 +1583,7 @@ Func<bool> stop)
         {
             currentCommand = "start";
             DataConsumer consumer = this.consumer as DataConsumer;
-            IDesktop desktop = (consumer as ICategoryObject).GetRootDesktop();
+            IDesktop desktop = consumer.GetRootDesktop();
             IComponentCollection collection = consumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
             IAsynchronousCalculation animation =
                 collection.StartAnimation([StaticExtensionEventInterfaces.Realtime,

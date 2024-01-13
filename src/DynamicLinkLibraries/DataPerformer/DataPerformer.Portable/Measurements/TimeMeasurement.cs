@@ -28,6 +28,7 @@ namespace DataPerformer.Portable.Measurements
 
         #region Public Members
 
+     
         /// <summary>
         /// Time parameter
         /// </summary>
