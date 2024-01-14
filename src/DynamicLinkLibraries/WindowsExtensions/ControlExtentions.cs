@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 using System.Windows.Forms;
 using WindowsExtensions.Interfaces;
+using WindowsExtensions.MouseOperations;
 
 namespace WindowsExtensions
 {
@@ -22,6 +24,47 @@ namespace WindowsExtensions
 
         #endregion
 
+       
+        /// <summary>
+        /// Enables mouse wheel resize
+        /// </summary>
+        /// <param name="control">The control</param>
+        /// <param name="enable">The "enable" sign</param>
+        public static void EnableMouseWheelResize(this Control control, bool enable)
+        {
+            MouseWheelResizer resizer = null;
+            var tag = control.Tag;
+            if (tag is MouseWheelResizer)
+            {
+                resizer = (MouseWheelResizer)tag;
+            }
+            else
+            {
+                resizer = new MouseWheelResizer(control);
+            }
+            resizer.Set(enable);
+        }
+        
+        /// <summary>
+        /// Gets all children of a control
+        /// </summary>
+        /// <param name="control">The control</param>
+        /// <returns>The Children</returns>
+        public static IEnumerable<Control> GetAllChildren(this Control control)
+        {
+            foreach (var o in control.Controls)
+            {
+                if (!(o is Control)) continue;
+                var c= (Control)o;
+                foreach (var item in c.GetAllChildren())
+                {
+                    yield return item;
+                }
+                yield return c;
+            }
+        }
+        
+        
         /// <summary>
         /// Enabled lock execution of action
         /// </summary>
