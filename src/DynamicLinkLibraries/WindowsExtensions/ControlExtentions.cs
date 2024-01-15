@@ -6,7 +6,6 @@ using System.Text;
 
 using System.Windows.Forms;
 using WindowsExtensions.Interfaces;
-using WindowsExtensions.MouseOperations;
 
 namespace WindowsExtensions
 {
@@ -24,27 +23,7 @@ namespace WindowsExtensions
 
         #endregion
 
-       
-        /// <summary>
-        /// Enables mouse wheel resize
-        /// </summary>
-        /// <param name="control">The control</param>
-        /// <param name="enable">The "enable" sign</param>
-        public static void EnableMouseWheelResize(this Control control, bool enable)
-        {
-            MouseWheelResizer resizer = null;
-            var tag = control.Tag;
-            if (tag is MouseWheelResizer)
-            {
-                resizer = (MouseWheelResizer)tag;
-            }
-            else
-            {
-                resizer = new MouseWheelResizer(control);
-            }
-            resizer.Set(enable);
-        }
-        
+          
         /// <summary>
         /// Gets all children of a control
         /// </summary>
