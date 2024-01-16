@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -69,28 +70,28 @@ namespace WindowsExtensions
         void ResizeChild(Control control, MouseEventArgs e)
         {
             var d = zoom;
-            switch (ResizeType)
+            try
             {
-                case ResizeType.Horizontal:
-                    control.Width = (int)(Width * zoom);
-                    HorizontalScroll.Value = (int)(e.X * d);
-                    break;
-                case ResizeType.Vertical:
-                    control.Height = (int)(Height * zoom);
-                    VerticalScroll.Value = (int)(e.Y * d);
-                    break;
+                switch (ResizeType)
+                {
+                    case ResizeType.Horizontal:
+                        control.Width = (int)(Width * zoom);
+                        ///             HorizontalScroll.Maximum = control.Width + 40;
+                        HorizontalScroll.Value = (int)(e.X * d);
+                        break;
+                    case ResizeType.Vertical:
+                        control.Height = (int)(Height * zoom);
+                        VerticalScroll.Value = (int)(e.Y * d);
+                        break;
                     case ResizeType.Both:
-                    control.Width = (int)(Width * zoom);
-                    control.Height = (int)(Height * zoom);
-                    VerticalScroll.Value = (int)(e.Y * d);
-                    break;
+                        control.Width = (int)(Width * zoom);
+                        control.Height = (int)(Height * zoom);
+                        VerticalScroll.Value = (int)(e.Y * d);
+                        break;
                     default: break;
+                }
             }
-            var lp = PointToScreen(e.Location);
-            var l = control.PointToScreen(zero);
-       /*     var offX = lp.X - l.X;
-            var offY = lp.Y - l.Y;*/
-  
+            catch { }
 
         }
 
