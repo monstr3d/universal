@@ -161,6 +161,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             timer1 = new System.Windows.Forms.Timer(components);
             saveFileDialogScadaXml = new System.Windows.Forms.SaveFileDialog();
+            openInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             panelTop.SuspendLayout();
             panelTopTop.SuspendLayout();
             panelBottom.SuspendLayout();
@@ -720,7 +721,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // menuStripMain
             // 
             menuStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewMenu, toolsToolStripMenuItem1, wizardsToolStripMenuItem, databaseToolStripMenuItem, updateToolStripMenuItem, checkDesktopToolStripMenuItem, saveLogsToolStripMenuItem, helpToolStripMenuItem, generateToolStripMenuItem, openLogDirectoryToolStripMenuItem, testToolStripMenuItem });
+            menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewMenu, toolsToolStripMenuItem1, wizardsToolStripMenuItem, databaseToolStripMenuItem, updateToolStripMenuItem, checkDesktopToolStripMenuItem, saveLogsToolStripMenuItem, helpToolStripMenuItem, generateToolStripMenuItem, openLogDirectoryToolStripMenuItem, testToolStripMenuItem, openInExplorerToolStripMenuItem });
             menuStripMain.Location = new System.Drawing.Point(0, 0);
             menuStripMain.Name = "menuStripMain";
             menuStripMain.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -1147,6 +1148,13 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // 
             saveFileDialogScadaXml.Filter = "Xml Files|*.xml";
             // 
+            // openInExplorerToolStripMenuItem
+            // 
+            openInExplorerToolStripMenuItem.Name = "openInExplorerToolStripMenuItem";
+            openInExplorerToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            openInExplorerToolStripMenuItem.Text = "Open in Explorer";
+            openInExplorerToolStripMenuItem.Click += openInExplorerToolStripMenuItem_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1308,6 +1316,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxClassName;
+        private System.Windows.Forms.ToolStripMenuItem openInExplorerToolStripMenuItem;
     }
 }
 
