@@ -247,11 +247,6 @@ namespace DataPerformer.Formula
 			{
 				return;
 			}
-			/*!!!	if (step == oldStep)
-				{
-					return;
-				}
-				step = oldStep;*/
 			try
 			{
 				foreach (char c in externalAliases.Keys)
@@ -264,7 +259,6 @@ namespace DataPerformer.Formula
 				}
 				UpdateChildrenData();
 				update();
-				//UpdateFormulas();
 				foreach (char c in variables.Keys)
 				{
 					object[] o = variables[c] as object[];
@@ -318,7 +312,6 @@ namespace DataPerformer.Formula
         }
 
         #endregion
-
 
         #region IRunning Members
 

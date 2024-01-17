@@ -52,7 +52,11 @@ namespace FormulaEditor
         /// <summary>
         /// Field
         /// </summary>
-        Field
+        Field,
+        /// <summary>
+        /// Boolean
+        /// </summary>
+        Boolean
     }
 
     /// <summary>

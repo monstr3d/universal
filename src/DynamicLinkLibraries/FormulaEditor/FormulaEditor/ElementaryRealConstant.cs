@@ -14,7 +14,7 @@ namespace FormulaEditor
     /// Elementary real constant
     /// </summary>
     public class ElementaryRealConstant : IObjectOperation, IPowered, IOperationAcceptor, IFormulaCreatorOperation,
-        IDerivationOperation, ISupportsZero
+        IDerivationOperation, ISupportsZero,  IStringConstantValue
     {
 
         #region Fields
@@ -71,6 +71,16 @@ namespace FormulaEditor
 
         #endregion
 
+        #region IStringConstantValue Members
+
+        /// <summary>
+        /// IStringConstantValue Members
+        /// </summary>
+        string IStringConstantValue.Value => StringValue;
+
+        #endregion
+
+
         /// <summary>
         /// Creates formula
         /// </summary>
@@ -97,7 +107,7 @@ namespace FormulaEditor
         /// <summary>
         /// Types of input parameters
         /// </summary>
-        object[] BaseTypes.Interfaces.IObjectOperation.InputTypes
+        object[] IObjectOperation.InputTypes
         {
             get
             {
@@ -210,5 +220,7 @@ namespace FormulaEditor
                 return s.Replace(MathSymbol.DecimalSep[0], '.');
             }
         }
+
+   
     }
 }

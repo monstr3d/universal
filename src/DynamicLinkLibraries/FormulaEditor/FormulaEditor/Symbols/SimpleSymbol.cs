@@ -79,6 +79,10 @@ namespace FormulaEditor.Symbols
 		public SimpleSymbol(char c, byte type, bool italic, string s) : this(c, type, italic)
 		{
 			this.s = s;
+			if ((s == "True") | (s == "False"))
+			{
+				type = (byte)FormulaConstants.Boolean;
+			}
 		}
 
 		/// <summary>
@@ -140,7 +144,7 @@ namespace FormulaEditor.Symbols
             bold = true;
             italic = false;
             s = value + "";
-            type = (byte)FormulaConstants.Variable;
+            type = (byte)FormulaConstants.Boolean;
       }
 
         /// <summary>
@@ -180,6 +184,11 @@ namespace FormulaEditor.Symbols
             sb = e.GetAttribute("Sb");
             italic = LoadBool("Italic", e);
             bold = LoadBool("Bold", e);
+			var t = e.GetAttribute("S");
+			if ((t == "True") || (t == "False"))
+			{ 
+				type = (byte)FormulaConstants.Boolean;
+			}
         }
 
         /// <summary>

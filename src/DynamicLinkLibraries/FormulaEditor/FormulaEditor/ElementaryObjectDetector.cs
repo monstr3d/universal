@@ -125,7 +125,19 @@ namespace FormulaEditor
                 }
 				return new ElementaryObjectVariable(sym.Pair, table);
 			}
-			if (s.SymbolType == (byte)FormulaConstants.Variable)
+			if (s.SymbolType == (byte)FormulaConstants.Boolean)
+			{
+                if (s.String.Equals("True"))
+                {
+                    return new BooleanConstant(true);
+                }
+                if (s.String.Equals("False"))
+                {
+                    return new BooleanConstant(false);
+                }
+
+            }
+            if (s.SymbolType == (byte)FormulaConstants.Variable)
 			{
 				if (s.Symbol == '%')
 				{
@@ -135,14 +147,6 @@ namespace FormulaEditor
 				{
 					return new TranscredentRealConstant('e');
 				}
-                if (s.String.Equals("True"))
-                {
-                    return new BooleanConstant(true);
-                }
-                if (s.String.Equals("False"))
-                {
-                    return new BooleanConstant(false);
-                }
                 IOperationAcceptor var = detector.Detect(s);
                 if (var != null)
                 {

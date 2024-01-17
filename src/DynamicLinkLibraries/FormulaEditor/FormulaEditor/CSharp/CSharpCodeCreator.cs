@@ -162,7 +162,11 @@ namespace FormulaEditor.CSharp
             {
                 //exception.ShowError(-1);
             }
-            return CreateTreeCode(tree, ret, parameters, out variables, out initializers);
+            if (ret.Length > 0)
+            {
+                return CreateTreeCode(tree, ret, parameters, out variables, out initializers);
+            }
+            return null;
         }
 
         /// <summary>
@@ -173,11 +177,23 @@ namespace FormulaEditor.CSharp
         public override string GetConstValue(ObjectFormulaTree tree)
         {
             IObjectOperation op = tree.Operation;
+            if (op is IStringConstantValue)
+            {
+                return (op as IStringConstantValue).Value;
+            }
+                
+      /* !!! DELETE          
             if (op is ElementaryRealConstant)
             {
                 ElementaryRealConstant co = op as ElementaryRealConstant;
                 return co.StringValue;
             }
+            if (op is BooleanConstant)
+            {
+                BooleanConstant ce = op as BooleanConstant;
+                return ce.StringValue;
+            }
+      */
             if (op.ReturnType.Equals(""))
             {
                 return "\"\"";
@@ -865,12 +881,12 @@ namespace FormulaEditor.CSharp
         /// Creates array code
         /// </summary>
         /// <param name="tree">Base tree</param>
-        /// <param name="ret">Return</param>
+        /// <param name="retValue">Return</param>
         /// <param name="parameters">Variables</param>
         /// <param name="variables">Parameters</param>
         /// <param name="initializers">Initializers</param>
         /// <returns>List of code strings</returns>
-        protected IList<string> CreateTreeCode(ObjectFormulaTree tree, string ret, string[] parameters,
+        protected IList<string> CreateTreeCode(ObjectFormulaTree tree, string retValue, string[] parameters,
             out IList<string> variables, out IList<string> initializers)
         {
             List<string> l = new List<string>();
@@ -912,11 +928,15 @@ namespace FormulaEditor.CSharp
             }
             if (count > 0)
             {
-                l.Add(ret + " = " + ss + curr + "Calculate(currentArray);");
+                l.Add("variable = " + curr +  "Calculate(currentArray);");
+                l.Add("if (checkValue(variable)) { success = false; return; }");
+                l.Add(retValue + " = " + ss + "variable;");
             }
             else
             {
-                l.Add(ret + " = " + ss + curr + "Calculate();");
+                l.Add("variable =  " + curr + "Calculate();");
+                l.Add("if (checkValue(variable)) { success = false; return; }");
+                l.Add(retValue + " = " + ss + "variable;");
             }
             initializers = new List<string>();
             variables = vari; 

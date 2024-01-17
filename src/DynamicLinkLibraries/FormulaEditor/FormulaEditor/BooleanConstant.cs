@@ -12,7 +12,7 @@ namespace FormulaEditor
     /// <summary>
     /// Boolean constant
     /// </summary>
-    public class BooleanConstant : IObjectOperation, IOperationAcceptor, IFormulaCreatorOperation
+    public class BooleanConstant : IObjectOperation, IOperationAcceptor, IFormulaCreatorOperation, IStringConstantValue
     {
         #region Fields
 
@@ -54,6 +54,18 @@ namespace FormulaEditor
             return new MathFormula(level, sizes, val);
         }
 
+        #region IStringConstantValue Members
+
+        /// <summary>
+        /// IStringConstantValue Members
+        /// </summary>
+        string IStringConstantValue.Value => StringValue.ToLower();
+
+        #endregion
+
+
+
+
         /// <summary>
         /// Operation priority
         /// </summary>
@@ -68,7 +80,7 @@ namespace FormulaEditor
         /// <summary>
         /// Types of input parameters
         /// </summary>
-        object[] BaseTypes.Interfaces.IObjectOperation.InputTypes
+        object[] IObjectOperation.InputTypes
         {
             get
             {
