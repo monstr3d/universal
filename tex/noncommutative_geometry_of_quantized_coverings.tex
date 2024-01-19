@@ -22098,7 +22098,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\be\label{tau_ideal_eqn}
 	\mathcal{I}_\tau\bydef\left\{\left.a \in A \ \right| \ \tau(a^*a)=0\right\}
 	\ee 
-	So $A/\mathcal{I}_\tau$ is a pre-Hilbert space. Denote by $L^2\left(A, \tau\right)$ the Hilbert  completion of $A/\mathcal{I}_\tau$.  The Hilbert space  $L^2\left(A, \tau\right)$ is a space of a  GNS representation  $A\to B\left(L^2\left(A, \tau\right) \right)$ (or equivalently $A\times L^2\left(A, \tau\right)\to(L^2\left(A, \tau\right) $) which comes from the Hilbert norm completion of the natural action $A \times A/\mathcal{I}_\tau \to A/\mathcal{I}_\tau$. The natural map  $A \to A/\mathcal{I}_\tau$ induces the homomorphism of left $A$-modules
+	So $A/\mathcal{I}_\tau$ is a pre-Hilbert space. Denote by $L^2\left(A, \tau\right)$ the Hilbert  completion of $A/\mathcal{I}_\tau$.  The Hilbert space  $L^2\left(A, \tau\right)$ is a space of a  GNS representation  $A\to B\left(L^2\left(A, \tau\right) \right)$ (or equivalently $A\times L^2\left(A, \tau\right)\to L^2\left(A, \tau\right) $) which comes from the Hilbert norm completion of the natural action $A \times A/\mathcal{I}_\tau \to A/\mathcal{I}_\tau$. The natural map  $A \to A/\mathcal{I}_\tau$ induces the homomorphism of left $A$-modules
 	\be\label{from_a_to_l2_eqn}
 	\begin{split}
 		f_\tau : A \to L^2\left(A, \tau\right),\\
@@ -22106,12 +22106,23 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\end{split}
 	\ee
 	such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right)$.
-	\begin{theorem}\label{state_repr_thm}\cite{pedersen:ca_aut}
-		For each positive functional $\tau$ on a $C^*$-algebra $A$ there is a cyclic representation $\pi_{\tau}:A \to L^2\left(A, \tau\right)$ with a cyclic vector $\xi_{\tau}\in L^2\left(A, \tau\right)$ such that $\left( \pi_{\tau}\left( x\right) \xi_{\tau}, \xi_{\tau} \right)= \tau\left(a \right)$ for all $x \in A$.   
+	\begin{theorem}\label{state_repr_thm}\cite{pedersen:ca_aut} %3.3.3
+		For each positive functional $\tau$ on a $C^*$-algebra $A$ there is a cyclic representation $\pi_{\tau}: A \to \left( L^2\left(A, \tau\right)\right) $ with a cyclic vector $\xi_{\tau}\in L^2\left(A, \tau\right)$ such that $\left( \pi_{\tau}\left( x\right) \xi_{\tau}, \xi_{\tau} \right)= \tau\left(a \right)$ for all $x \in A$.   
 	\end{theorem}
 	\begin{defn}\label{gns_defn}\cite{murphy,pedersen:ca_aut}
-		The given by the Theorem \ref{state_repr_thm} representation is said to be a \textit{GNS reprerentation}.
+		The given by the Theorem \ref{state_repr_thm} representation is said to be a \textit{GNS reprerentation}. We say that the representation 
+		$\pi_{\tau}$ given by the Theorem \ref{state_repr_thm} is the cyclic representation \textit{associated with} $\tau$
 	\end{defn}
+	\begin{proposition}\label{state_repr_prop}\cite{pedersen:ca_aut}
+		%3.3.5. Proposition. 
+		Let $\phi$ be a positive functional on a $C*$-algebra A and let 
+	$\pi_\phi$ its associated representation. For each positive functional $\psi \le \phi$, 
+		there is a unique element $a \in \pi\left(A \right)'$  with $0\le a \le 1$ such that 
+	$$
+\pi_\psi\left( x\right) = \left(\pi_\phi\left(x \right)  a \xi_\phi, \xi_\phi \right).	
+	$$
+	for all $x \in A$.
+	\end{proposition}
 	\begin{empt}\label{l2_mu}
 	If $C^*$-algebra $A$ is commutative then	from the Theorem \ref{meafunc_thm} it follows that the state $\tau: A = C_0\left(\sX\right)\to \C$ can be represented by the following integral
 		\begin{equation}\label{hilb_integral}
