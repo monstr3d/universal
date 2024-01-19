@@ -22071,7 +22071,17 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 
 
 	\section{States and representations}\label{st_rep_sec}
-	
+\begin{definition}\label{representation_defn}\cite{pedersen:ca_aut}
+%3.3.1. 
+A representation of a $C^*$-algebra $A$ is a *- homomorphism  consisting $\pi : A \to B\left( \H\right)$ where $B\left(\H \right)$ is a $C^*$-algebra of bounded operators  on a Hilbert space $\H$ . If $\left\{\pi_\la \to B\left(\H_\la \right)  \right\}$ is a family of 
+representations we define a representation $\oplus \pi_\la$, on the Hilbert space $\oplus \H_\la$t by 
+$$
+\left( \oplus \pi_\la\right) \left(x \right) \oplus \xi_\la  \bydef   \oplus \pi_\la \left(x \right)  \xi_\la
+$$
+for all $x$ in $A$. In the converse direction, if $\pi : A \to B\left( \H\right)$ is a representation and $p$ is a 
+projection in $\pi \left( A\right)'$  then we define \textit{subrepresentations} $\pi_1$ and $\pi_2$ on $p\H$ and $\left(1 - p \right)\H$  simply by restricting the operators $\pi\left(x \right)$  to these subspaces. For the 	new representations we may write $\pi_1 \oplus \pi_2 = \pi$. 
+
+\end{definition}	
 	\begin{definition}\label{representation_equivalence_defn}\cite{pedersen:ca_aut}
 %3.3.6. 
 We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: A \to B\left( \H_2\right)$ of a $C^*$-algebra $A$ are \textit{spatially equivalent} (or \textit{unitarily equivalent}) if there is an isometry $u$ of $\H_1$ 	onto $\H_2$ such that $u\pi_1\left(x \right)u^*  = \pi_2\left(x \right)$  for all $x$ in $A$. We say that the representations are \textit{equivalent} (or \textit{quasi-equivalent}) if there is an isomorphism $\rho$ of	$\pi_1\left( A\right)''$ onto 	$\pi_2\left( A\right)''$ such that $\rho\left(  \pi_1\left( x\right)\right) =\pi_2\left( x\right)$ for all $x$ in $A$. % Note that spatial 	equivalence implies equivalence since the map p:a^>uau* of B(H{) onto 		B(H2) is strongly continuous and takes n^A) onto7T2(^4), wherefore p gives an		isomorphism of n^Af onto 
@@ -22110,7 +22120,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 		For each positive functional $\tau$ on a $C^*$-algebra $A$ there is a cyclic representation $\pi_{\tau}: A \to \left( L^2\left(A, \tau\right)\right) $ with a cyclic vector $\xi_{\tau}\in L^2\left(A, \tau\right)$ such that $\left( \pi_{\tau}\left( x\right) \xi_{\tau}, \xi_{\tau} \right)= \tau\left(a \right)$ for all $x \in A$.   
 	\end{theorem}
 	\begin{defn}\label{gns_defn}\cite{murphy,pedersen:ca_aut}
-		The given by the Theorem \ref{state_repr_thm} representation is said to be a \textit{GNS reprerentation}. We say that the representation 
+		The given by the Theorem \ref{state_repr_thm} representation is said to be a \textit{GNS representation}. We say that the representation 
 		$\pi_{\tau}$ given by the Theorem \ref{state_repr_thm} is the cyclic representation \textit{associated with} $\tau$
 	\end{defn}
 	\begin{proposition}\label{state_repr_prop}\cite{pedersen:ca_aut}
@@ -22123,6 +22133,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	$$
 	for all $x \in A$.
 	\end{proposition}
+	
 	\begin{empt}\label{l2_mu}
 	If $C^*$-algebra $A$ is commutative then	from the Theorem \ref{meafunc_thm} it follows that the state $\tau: A = C_0\left(\sX\right)\to \C$ can be represented by the following integral
 		\begin{equation}\label{hilb_integral}
@@ -22135,10 +22146,10 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 		\end{equation}
 		hence $C_0\left(\mathcal X\right)$ is a pre-Hilbert space. Denote by $L^2\left(C_0\left(\mathcal X\right), \tau\right)$ or $L^2\left(\mathcal X, \mu\right)$ the Hilbert space completion of $C_0\left(\mathcal X\right)$. %From  \cite{murphy,takesaki:oa_ii} it   follows that the strong closure of  $C_0\left(\mathcal X\right)$ in $B\left(L^2\left(\mathcal X, \mu\right) \right)$ is isomorphic to the algebra $L^{\infty}\left(\mathcal X, \mu\right)$ (of classes of) essentially bounded complex-valued measurable functions.  The  $L^{\infty}\left(\mathcal X, \mu\right)$ is a $C^*$-algebra with the pointwise-defined operations and the essential norm $f \mapsto \|f\|_\infty$.
 	\end{empt}
-	%\begin{lemma}\label{domi_mult_repr_lem}\cite{pedersen:ca_aut}
+	\begin{lemma}\label{domi_mult_repr_lem}\cite{pedersen:ca_aut}
 	%	3.3.8. COROLLARY. 
-	%	Let $\psi$ and $\phi$ be positive functionals on a $C^*$-algebra $A$ and $\psi$ 	is dominated by a multiple of $\phi$. If both representations $\pi_\phi : A \to B\left( \H_\phi\right)$ and  $\pi_\psi : A \to B\left( \H_\psi\right)$  correspond $\phi$ and $\psi$ respectively   then the representation $\pi_\psi : A \to B\left( \H_\psi\right)$  is spatially 	equivalent to a subrepresentation of $\pi_\phi : A \to B\left( \H_\phi\right)$.  
-	%\end{lemma}
+		Let $\psi$ and $\phi$ be positive functionals on a $C^*$-algebra $A$ and $\psi$ 	is dominated by a multiple of $\phi$. If both representations $\pi_\phi : A \to B\left( \H_\phi\right)$ and  $\pi_\psi : A \to B\left( \H_\psi\right)$  correspond $\phi$ and $\psi$ respectively   then the representation $\pi_\psi : A \to B\left( \H_\psi\right)$  is spatially 	equivalent to a subrepresentation of $\pi_\phi : A \to B\left( \H_\phi\right)$.  
+	\end{lemma}
 	\begin{definition}\label{orth_func_defn}(cf. \cite{pedersen:ca_aut})
 	%3.2.4
 	Let $A$ be  $C^*$-algebra. Two positive functionals $\phi: A \to \C$ and  $\psi: A \to \C$ are \textit{orthogonal} if
