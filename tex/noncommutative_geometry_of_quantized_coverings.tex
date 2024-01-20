@@ -2332,7 +2332,7 @@ $$
 It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
 
 \end{proof}
-\begin{exercise}\label{disunct_irr_exer}
+\begin{exercise}\label{disunct_irr_exer}  !!! MAY BE DELETE !!!
 	Let $A$ be a $C^*$-algebra, and let
 	$\tau_1, ..., \tau_n: A\to\C$ be mutually orthogonal  states (cf. Definition \ref{orth_func_defn}). Let $\tau\bydef c_1 \tau_1 +... +c_n\tau_n$ be a state such that $c_1> 0, ..., c_n > 0$ and $c_1+...+c_n=1$.  Let $\pi: A \to B\left(L^2\left( A,\tau \right)  \right)$ and $\pi_j: A \to B\left(L^2\left( A,\tau_j \right)  \right)$ be the GNS representations (cf. Definition \ref{gns_defn}) which correspond to $\tau$ and $\tau_1, ..., \tau_n$. From the Corollary \ref{domin_rep_cor} for any $j=1,..., n$ a representation $\pi_j$ can be regarded as a subrepresentation of 
 	$\pi$ (cf. Definition \ref{subrepr_defn}). If $\pi\left(A \right)'$ is a commutant of $\pi\left( A\right) $ in $B\left(L^2\left( A,\tau \right) \right)$ then any representation $\pi_j$ is a representation on $p_j L^2\left( A,\tau \right)$, where $p_j\in \pi\left(A \right)'$ is a projector with central support projection $z_j \in \mathscr Z\left( \pi\left(A \right)'\right)$ (cf. Definition \ref{central_supp_defn}). Prove following statements:
@@ -2358,11 +2358,7 @@ It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is no
 	\end{enumerate}
 \end{exercise}
 
-\begin{exercise}\label{sub_funct_exer}
-Let $\psi = a_1 \phi_1 + ... + a_n \phi_n$ be a state on $C^*$-algebra $A$ where $\phi_1, ..., \phi_n$ are mutually orthogonal pure states and $a_1 + ... + a_n = 1$. 
-Let $\th : A\to \C$ be a positive functional such that $\th \le \psi$. Prove that $\th =  b_1 \phi_1 + ... + b_n \phi_n$
- where $b_j \le a_j$ for any $j = 1,...,n$.
-\end{exercise}
+
 \begin{proposition} \label{spectrum_cov_prop}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn})  then following conditions hold:
 	\begin{itemize}
@@ -2426,14 +2422,13 @@ From our construction it turns out that
 \be\label{tau_oplus_eqn}
 \begin{split}
 \forall \widetilde a \in \widetilde A \quad \widetilde \tau^\oplus \left(\widetilde a\right) =\frac{1}{\left|G' \right| } \sum_{	g \in G'}\widetilde \tau\left( g \widetilde a\right),\\
-\tau^\oplus = \frac{1}{\left|G' \right| } \sum_{	g \in G'}g \widetilde \tau.
+\widetilde \tau^\oplus = \frac{1}{\left|G' \right| } \sum_{	g \in G'}g \widetilde \tau.
 \end{split}
 \ee
-From $\widetilde q \le  \widetilde \tau^\oplus$ and the Exercise \ref{sub_funct_exer} it turns out that
-$$
-\widetilde q = \sum_{g \in G'} t_g \left(g\widetilde \tau\right)\quad \text{where} \quad \forall g \in G' \quad t_g \in \R.
-$$
-On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if and only if there is $t \in \R$ such that $ \forall g \in G' \quad t_g = t$. It follows that $\widetilde q =t \widetilde \tau^\oplus$  and $q = t\tau$. So the state $\tau$ is pure (cf. Definition \ref{ps_defn}) and  $\widetilde\tau \mapsto \tau$ is 	the  given by \eqref{spectrum_cov_eqn} map $p$.  Let us prove that the map $p$ is continuous.
+If $\pi_{\widetilde \tau^\oplus} : \widetilde A \to B\left( \H_{\widetilde \tau^\oplus}\right)$ is an associated with  $\widetilde \tau^\oplus$ representation  (cf. Definition \ref{gns_defn}) then from the Lemma \ref{disj_repr_lem} it follows that $$\H_{\widetilde \tau^\oplus} = \bigoplus_{g \in G'} \H_{g\widetilde \tau}$$ where
+$\H_{g\widetilde \tau}$ is a space of the associated with $g\widetilde \tau$ representation $\pi_{g\widetilde \tau} :  \widetilde A \to B\left(\H_{g\widetilde \tau}\right)$. From $\widetilde q \le  \widetilde \tau^\oplus$ and the Lemma \ref{domi_mult_repr_lem} it follows that 
+if $\pi_q : A \to B\left( \H_p\right)$  is an associated with  $q$ representation  (cf. Definition \ref{gns_defn})   then  $\pi_q : A \to B\left( \H_q\right)$  is spatially 	equivalent to a subrepresentation of $\pi_{\tau^\oplus} : A \to B\left( \H_{\tau^\oplus}\right)$ (cf. Definition \ref{subrepr_defn}). From the Definition \ref{subrepr_defn} it follows that $\H_q$ is a closed invariant subspace of $\bigoplus_{g \in G'} \H_{g\widetilde \tau}$. Taking into account that $\pi_{g\widetilde \tau}$ is an irreducible for any $g \in G'$ we conclude that there is a subset $H \subset G'$ such that $\H_q = \bigoplus_{g \in K} \H_{g\widetilde \tau}$. From the Theorem \ref{state_repr_thm} it follows that 
+$q = \sum_{g \in H} b_g \left(g \widetilde{\tau} \right)$ where  $b_g$ is a positive real number for any $g \in H$. It follows that $q = \sum_{g \in G'} t_g \left(g \widetilde{\tau} \right)$ where  $t_g$ is a non negative real number for any $g \in G'$. On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if and only if there is $t \in \R$ such that $ \forall g \in G' \quad t_g = t$. It follows that $\widetilde q =t \widetilde \tau^\oplus$  and $q = t\tau$. So the state $\tau$ is pure (cf. Definition \ref{ps_defn}) and  $\widetilde\tau \mapsto \tau$ is 	the  given by \eqref{spectrum_cov_eqn} map $p$.  Let us prove that the map $p$ is continuous.
  From the Theorem \ref{jtop_thm} and the Definition \ref{jtop_defn}	any closed set $\mathcal U \subset  \mathcal X$ corresponds to a closed two-sided ideal $I  \subset A$ such that
 	\bean
 	\mathcal U  = \left\{ \left.x \in \mathcal X~\right|~  \rep_x\left( I\right)= \{0\}  \right\}.
@@ -2485,7 +2480,19 @@ From the Proposition \ref{state_prop} it follows that there is a pure state $\wi
 \tau^\oplus \bydef \frac{1}{\left| G\right| }\sum_{	g \in G} g\widetilde{\tau},\\
 \rho^\oplus \bydef \frac{1}{\left| G\right| }\sum_{	g \in G} g\widetilde{\rho}'
 \eean 
-$G$-invariant states respectively (cf. Definition \ref{state_cov_11_defn} and Lemma \ref{state_cov_11_lem}). From $\rho\preceq\tau$ it follows that $\rho^\oplus\preceq\tau^\oplus$. Otherwise from the Corollary \ref{domin_rep_cor} it follows that $\rho'\preceq\rho^\oplus$, so one has $\rho'\preceq\tau^\oplus$. From the Exercise \ref{disunct_irr_exer} it turns out that there is $g \in G$ such that $\widetilde \rho' \preceq g \widetilde \tau$. If $\widetilde \rho \bydef g^{-1}\widetilde \rho'$ then from $\widetilde \rho' \preceq g \widetilde \tau$ one has
+$G$-invariant states respectively (cf. Definition \ref{state_cov_11_defn} and Lemma \ref{state_cov_11_lem}). From $\rho\preceq\tau$ it follows that $\rho^\oplus\preceq\tau^\oplus$. Otherwise from the Corollary \ref{domin_rep_cor} it follows that $\rho'\preceq\rho^\oplus$, so one has $\rho'\preceq\tau^\oplus$.  From \eqref{tau_oplus_eqn} it follows that 
+	\bean
+	\forall \widetilde a \in \widetilde A \quad \widetilde \tau^\oplus \left(\widetilde a\right) =\frac{1}{\left|G' \right| } \sum_{	g \in G'}\widetilde \tau\left( g \widetilde a\right),\\
+\widetilde \tau^\oplus = \frac{1}{\left|G' \right| } \sum_{	g \in G'}g \widetilde \tau.
+\eean
+If 
+
+
+
+
+
+
+!!! REPLACE EXERCISE !!! From the Exercise \ref{disunct_irr_exer} it turns out that there is $g \in G$ such that $\widetilde \rho' \preceq g \widetilde \tau$. If $\widetilde \rho \bydef g^{-1}\widetilde \rho'$ then from $\widetilde \rho' \preceq g \widetilde \tau$ one has
 $$
 \widetilde{\rho}\preceq\widetilde\tau
 $$
@@ -22073,14 +22080,15 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	\section{States and representations}\label{st_rep_sec}
 \begin{definition}\label{representation_defn}\cite{pedersen:ca_aut}
 %3.3.1. 
-A representation of a $C^*$-algebra $A$ is a *- homomorphism  consisting $\pi : A \to B\left( \H\right)$ where $B\left(\H \right)$ is a $C^*$-algebra of bounded operators  on a Hilbert space $\H$ . If $\left\{\pi_\la \to B\left(\H_\la \right)  \right\}$ is a family of 
-representations we define a representation $\oplus \pi_\la$, on the Hilbert space $\oplus \H_\la$t by 
-$$
-\left( \oplus \pi_\la\right) \left(x \right) \oplus \xi_\la  \bydef   \oplus \pi_\la \left(x \right)  \xi_\la
-$$
-for all $x$ in $A$. In the converse direction, if $\pi : A \to B\left( \H\right)$ is a representation and $p$ is a 
-projection in $\pi \left( A\right)'$  then we define \textit{subrepresentations} $\pi_1$ and $\pi_2$ on $p\H$ and $\left(1 - p \right)\H$  simply by restricting the operators $\pi\left(x \right)$  to these subspaces. For the 	new representations we may write $\pi_1 \oplus \pi_2 = \pi$. 
+A representation of a $C^*$-algebra $A$ is a *- homomorphism  consisting $\pi : A \to B\left( \H\right)$ where $B\left(\H \right)$ is a $C^*$-algebra of bounded operators  on a Hilbert space $\H$. % If$\left\{\pi_\la \to B\left(\H_\la \right)  \right\}$ is a family of representations we define a representation $\oplus \pi_\la$, on the Hilbert space $\oplus \H_\la$t by $$
+%\left( \oplus \pi_\la\right) \left(x \right) \oplus \xi_\la  \bydef   \oplus \pi_\la \left(x \right)  %\xi_\la
+%$$
+%for all $x$ in $A$. In the converse direction, if $\pi : A \to B\left( \H\right)$ is a representation and $p$ is a projection in $\pi \left( A\right)'$  then we define \textit{subrepresentations} $\pi_1$ and $\pi_2$ on $p\H$ and $\left(1 - p \right)\H$  simply by restricting the operators $\pi\left(x \right)$  to these subspaces. For the 	new representations we may write $\pi_1 \oplus \pi_2 = \pi$. 
 
+\end{definition}
+\begin{definition}\label{subrepr_defn}\cite{blackadar:oa}
+	A \textit{subrepresentation} of a representation $\pi: A \to B\left(\widetilde \H\right)$ on $\H$ is the restriction of $\pi$ to a
+	closed invariant subspace of $\H \subset \widetilde \H$.
 \end{definition}	
 	\begin{definition}\label{representation_equivalence_defn}\cite{pedersen:ca_aut}
 %3.3.6. 
@@ -22148,7 +22156,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\end{empt}
 	\begin{lemma}\label{domi_mult_repr_lem}\cite{pedersen:ca_aut}
 	%	3.3.8. COROLLARY. 
-		Let $\psi$ and $\phi$ be positive functionals on a $C^*$-algebra $A$ and $\psi$ 	is dominated by a multiple of $\phi$. If both representations $\pi_\phi : A \to B\left( \H_\phi\right)$ and  $\pi_\psi : A \to B\left( \H_\psi\right)$  correspond $\phi$ and $\psi$ respectively   then the representation $\pi_\psi : A \to B\left( \H_\psi\right)$  is spatially 	equivalent to a subrepresentation of $\pi_\phi : A \to B\left( \H_\phi\right)$.  
+		Let $\psi$ and $\phi$ be positive functionals on a $C^*$-algebra $A$ and $\psi$ 	is dominated by a multiple of $\phi$. If both representations $\pi_\phi : A \to B\left( \H_\phi\right)$ and  $\pi_\psi : A \to B\left( \H_\psi\right)$  correspond $\phi$ and $\psi$ respectively   then the representation $\pi_\psi : A \to B\left( \H_\psi\right)$  is spatially 	equivalent to a subrepresentation of $\pi_\phi : A \to B\left( \H_\phi\right)$ (cf. Definition \ref{subrepr_defn}).  
 	\end{lemma}
 	\begin{definition}\label{orth_func_defn}(cf. \cite{pedersen:ca_aut})
 	%3.2.4
@@ -22167,10 +22175,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	 
 	\end{definition}
 
-\begin{definition}\label{subrepr_defn}\cite{blackadar:oa}
-	A \textit{subrepresentation} of a representation $\pi: A \to B\left(\widetilde \H\right)$ on $\H$ is the restriction of $\pi$ to a
-	closed invariant subspace of $\H \subset \widetilde \H$.
-\end{definition}
+
 \begin{definition}\label{orth_repr_defn}\cite{blackadar:oa}
 	Let $\pi$ and $\rho$ be two (nondegenerate) representations
 	of a $C^*$-algebra $A$, on Hilbert spaces $\H_\pi$ and $\H_\rho$.\\
@@ -22235,8 +22240,14 @@ equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\righ
 		a representation which corresponds to $x$.  Sometimes we use alternative notation of the spectrum $A\hat~\stackrel{\text{def}}{=}\hat A$.
 	\end{definition}
 	
+	\begin{lem}\label{disj_repr_lem}\cite{pedersen:ca_aut}
+%3.13.3. COROLLARY.
+Two irreducible representations $\pi_1: A \to B\left(\H_1 \right)$   and  $\pi_2: A \to B\left(\H_2 \right)$   of a 
+$C^*$-algebra $A$ are either disjoint (cf. Definition \ref{orth_repr_defn}) or spatially equivalent (cf. Definition \ref{equiv_repr_defn}). 
+	\end{lem}
+	
 	%4.7.1.
-	\begin{defn}\label{universal_rep_defn} 
+	\begin{defn}\label{universal_rep_defn}\cite{pedersen:ca_aut} 
 		\cite{pedersen:ca_aut}
 		Let $A$ be a $C^*$-algebra, and let $S$ be the state space of $A$. For any $s \in S$ there is an associated representation $\pi_s: A \hookto B\left( \H_s\right)$. The representation $\prod_{s \in S} \pi_s: A \hookto \prod_{s \in S} B\left(\H_s \right)$ is said to be the \textit{universal representation}. The universal representation can be regarded as $A \hookto B\left( \widetilde \H\right)$ where $\widetilde \H$ is a norm completion of the algebraic direct sum $\bigoplus_{s \in S}\H_s$. 
 	\end{defn} 
