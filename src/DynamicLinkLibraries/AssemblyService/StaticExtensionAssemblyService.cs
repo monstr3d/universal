@@ -8,7 +8,7 @@ using AssemblyService.Attributes;
 namespace AssemblyService
 {
     /// <summary>
-    /// Works with asseblies
+    /// Works with assemblies
     /// </summary>
     public static class StaticExtensionAssemblyService
     {
