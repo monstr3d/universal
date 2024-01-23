@@ -8,7 +8,7 @@ using Diagram.UI;
 namespace Regression
 {
     /// <summary>
-    /// Regresson based on the aliases 
+    /// Regression based on the aliases 
     /// </summary>
     [Serializable()]
     public class AliasRegression : Portable.AliasRegression, ISerializable
