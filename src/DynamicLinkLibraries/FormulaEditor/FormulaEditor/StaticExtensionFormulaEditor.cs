@@ -25,7 +25,10 @@ namespace FormulaEditor
         /// <summary>
         ///  checks value
         /// </summary>
-        private static Func<object, bool> checkValue = null;
+        private static Func<object, bool> checkValue = (object o) =>
+            {
+                return o == null;
+            };
 
 
         static List<string> additionalFormulas = new List<string>();
