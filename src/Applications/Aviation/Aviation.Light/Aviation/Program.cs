@@ -29,48 +29,68 @@ namespace Aviation.Light
             }
             return o == null;
         }
+
+        static void Test()
+        {
+            /*      var atm = new DimAtm.Serializable.Atmosphere();
+      var l = new DinAtm.Forms.Labels.LabelAtmosphere();
+      var g = new Gravity_36_36.Wrapper.Serializable.Gravity();
+      using (var s = new MemoryStream())
+      {
+          var f = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+          f.Serialize(s, atm);
+          f.Serialize(s, l);
+          f.Serialize(s, g);
+          var b = s.ToArray();
+          using (var st = new MemoryStream(b))
+          {
+              var a = f.Deserialize(st);
+              var la = f.Deserialize(st);
+              var lg = f.Deserialize(st);
+          }
+      }
+//*/
+
+            /*     WpfInterface.StaticExtensionWebInterfaceUI.Init();*/
+        }
+
+        static void TestType()
+        {
+            var gv = new Gravity_36_36.Wrapper.Serializable.Gravity();
+            var b = gv is Gravity_36_36.Wrapper.Gravity;
+            var ggg = (Gravity_36_36.Wrapper.Gravity)gv;
+            var a = new Regression.AliasRegression();
+            var bb = a is Regression.Portable.AliasRegression;
+            bb = false;
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
-      /*      var atm = new DimAtm.Serializable.Atmosphere();
-            var l = new DinAtm.Forms.Labels.LabelAtmosphere();
-            var g = new Gravity_36_36.Wrapper.Serializable.Gravity();
-            using (var s = new MemoryStream())
-            {
-                var f = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                f.Serialize(s, atm);
-                f.Serialize(s, l);
-                f.Serialize(s, g);
-                var b = s.ToArray();
-                using (var st = new MemoryStream(b))
-                {
-                    var a = f.Deserialize(st);
-                    var la = f.Deserialize(st);
-                    var lg = f.Deserialize(st);
-                }
-            }
-      //*/
 
-            /*     WpfInterface.StaticExtensionWebInterfaceUI.Init();
                Application.SetHighDpiMode(HighDpiMode.SystemAware);
                Application.EnableVisualStyles();
                //Application.SetCompatibleTextRenderingDefault(false);
              ApplicationConfiguration.Initialize();
 
-            */
+         
             AssemblyService.StaticExtensionAssemblyService.Init();
+
+            TestType();
 
             // FormulaMeasurement.CheckValue = (o)                            => o == null;
             FormulaEditor.StaticExtensionFormulaEditor.CheckValue = check;
+
+            FormulaEditor.StaticExtensionFormulaEditor.ShouldCheckValueInGeneratedCode = true;
+
 
 
             string filename = "";
             /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
                      string st = t.FullName + "," + t.Assembly; //*/
- //           new Gravity_36_36.Gravity();
+            //           new Gravity_36_36.Gravity();
             TextWriter logWriter = null;
             if (args != null)
             {

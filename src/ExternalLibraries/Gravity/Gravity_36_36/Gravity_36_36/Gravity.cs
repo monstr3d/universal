@@ -71,14 +71,14 @@ namespace Gravity_36_36
         #endregion
 
         #region Ctor
-/* !!! DELETE AFTER
+
         /// <summary>
         /// Constructor
         /// </summary>
         public Gravity()
         {
 
-        }*/
+        }
 
         #endregion
 

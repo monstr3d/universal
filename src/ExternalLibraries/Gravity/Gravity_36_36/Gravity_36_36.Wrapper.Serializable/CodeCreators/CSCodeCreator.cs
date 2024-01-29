@@ -21,16 +21,12 @@ namespace Gravity_36_36.Wrapper.CodeCreators
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
-            var type = obj.GetType();
-            var tt = type.BaseType;
-            var ttt = typeof(Gravity_36_36.Wrapper.Gravity);
-            var b = tt.Equals(ttt);
-            b = obj is Gravity_36_36.Wrapper.Gravity;
+            var b = obj is Gravity_36_36.Wrapper.Gravity;
             if (!b)
             {
                 return null;
             }
-            var gravity = (Gravity_36_36.Wrapper.Gravity)obj;
+            var gravity = obj as Gravity_36_36.Wrapper.Gravity;
             if (gravity == null)
             {
                 return null;

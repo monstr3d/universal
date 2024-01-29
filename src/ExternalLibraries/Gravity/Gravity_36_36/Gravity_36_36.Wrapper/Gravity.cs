@@ -36,6 +36,19 @@ namespace Gravity_36_36.Wrapper
 
         #endregion
 
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public Gravity()
+            : base()
+        {
+
+        }
+
+        #endregion 
+
         #region IAssociatedObject Members
 
         object IAssociatedObject.Object

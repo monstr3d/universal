@@ -119,7 +119,7 @@ namespace DataPerformer.Formula
             l.Add("\t\tInit();");
             l.Add("\t}");
             l.Add("");
-            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
+            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Func<object, bool> checkValue)");
             l.Add("\t{");
             l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
             l.Add("\t\tvar t = ");
@@ -261,7 +261,7 @@ namespace DataPerformer.Formula
                 l.Add("\t\t" + s);
             }
             l.Add("\t}");
-            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
+            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Func<object, bool> checkValue)");
             l.Add("\t{");
             l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
             l.Add("\t\tFormulaEditor.ObjectFormulaTree[] trees = FormulaEditor.StaticExtensionFormulaEditor.Transform(f.Trees);");

@@ -1,5 +1,8 @@
+using Aviation.Web;
 using Aviation.Web.Client.Pages;
 using Aviation.Web.Components;
+
+StaticExtensionAviationWeb.Init();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,3 +41,4 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(typeof(Aviation.Web.Client._Imports).Assembly);
 
 app.Run();
+

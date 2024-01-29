@@ -16,7 +16,7 @@ using GeneralLinearMethod;
 namespace Regression.Portable
 {
 	/// <summary>
-	/// Regresson based on the aliases 
+	/// Regression based on the aliases 
 	/// </summary>
     public class AliasRegression : CategoryObject, IDataConsumer, 
         IStructuredSelectionConsumer, IStructuredCalculation,

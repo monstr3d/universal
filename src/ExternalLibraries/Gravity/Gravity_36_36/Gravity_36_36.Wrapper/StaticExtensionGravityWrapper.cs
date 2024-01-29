@@ -34,7 +34,7 @@ namespace Gravity_36_36.Wrapper
         /// </summary>
         static StaticExtensionGravityWrapper()
         {
-            new CodeCreators.CSCodeCreator();
+          //  new CodeCreators.CSCodeCreator();
         }
 
         #endregion
