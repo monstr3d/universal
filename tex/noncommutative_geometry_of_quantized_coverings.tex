@@ -3893,7 +3893,7 @@ M\left(\varphi\right): M\left(\widehat  A\right) \hookto M\left( \overline{A}\ri
 \ee
 \end{corollary}
 \begin{proof}
-If $\widehat a \in  M\left(\widehat  A\right)$ and  $\left\{u_\a\right\}_{\a \in \mathscr A}\in \widehat A$ be an approximate of $\widehat A$ then one should prove that a net $\left\{\varphi\left(u_\a \widehat a\right) \right\}$ and/or a net $\left\{\varphi\left( \widehat a u_\a\right) \right\}$ are/is convergent with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}). In this case we define
+If $\widehat a \in  M\left(\widehat  A\right)$ and  $\left\{u_\a\right\}_{\a \in \mathscr A}\in \widehat A$ is an approximate of $\widehat A$ then one should prove that a net $\left\{\varphi\left(u_\a \widehat a\right) \right\}$ and/or a net $\left\{\varphi\left( \widehat a u_\a\right) \right\}$ are/is convergent with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}). In this case we define
 $$
 M\left(\varphi \left(\widehat a\right) \right)\bydef \bt\text{-}\lim_{\a\in\mathscr A} \varphi\left( \widehat a u_\a\right)= \bt\text{-}\lim_{\a\in\mathscr A} \varphi\left( u_a\widehat a \right).
 $$
@@ -3901,13 +3901,13 @@ If $\overline a \in \overline A$ and $\eps > 0$ then from the Corollary \ref{bt_
 $$
 \left\|  \overline a - \varphi\left(\widehat{a}'\right)\overline a' \right\| < \frac{\eps}{2}.
 $$
-On the other hand there is $\a_0 \in \overline A$ such that 
+On the other hand there is $\a_0 \in \mathscr A$ such that 
 $$
-\forall \a \in \overline A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|<\frac{\eps}{2\left\| \overline{a}' \right\|}.
+\forall \widehat a \in \widehat A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|<\frac{\eps}{2\left\| \overline{a}' \right\|}.
 $$
 Using the triangle identity one has
 \bean
-\forall \a \in \overline A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|\left(   \varphi \left( u_\a  \widehat a\right) -\varphi\left( u_{\a_0}   \widehat a \right)\right)  \overline a \right\| < \left\|  \overline a - \varphi\left(\widehat{a}'\right)\overline a' \right\|+\\+\left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|\left\| \overline{a}' \right\|< \eps
+\forall \a \in \mathscr A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|\left(   \varphi \left( u_\a  \widehat a\right) -\varphi\left( u_{\a_0}   \widehat a \right)\right)  \overline a \right\| < \left\|  \overline a - \varphi\left(\widehat{a}'\right)\overline a' \right\|+\\+\left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|\left\| \overline{a}' \right\|< \eps
 \eean
 i.e. a net $\left\lbrace \varphi \left( u_\a  \widehat a\right)\overline a\right\rbrace$ is $C^*$-norm convergent. Similarly one can prove that a net $\left\lbrace \overline a\varphi \left( u_\a  \widehat a\right)\right\rbrace$ $C^*$-norm convergent, so a net $\left\{\varphi\left(u_\a \widehat a\right) \right\}$ is convergent with respect to the strict topology of $M\left( \overline{A}\right)$.
 \end{proof}
@@ -3922,17 +3922,36 @@ i.e. a net $\left\lbrace \varphi \left( u_\a  \widehat a\right)\overline a\right
  $\mathfrak{S}^{\mathrm{pt}}$ and for any $C^*$-algebra $\overline{A}'$ subordinated to	$\mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
  	$\psi : \overline{A}'\hookto\overline{A}$ such that all
  	$g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}'$ one has
- 	\bean
+ 	\be\label{disconnected_lim_eqn}
+ 	\begin{split}
  	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
- 	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
- 	\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
- 	\eean 
+\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
+\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
+ 	\end{split}
+ 	\ee
  	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions then we say that the triple \eqref{disc_triple_eqn} is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. 
- 
  \end{definition}
- \begin{remark}
-If a disconnected infinite noncommutative covering exists then it is unique.
- \end{remark}
+ \begin{lemma}\label{uni_dicsonnected_lem}
+If a disconnected infinite noncommutative covering exists then it is unique up to *-isomorphism. 
+ \end{lemma}
+ \begin{proof}
+ If both $\overline{A}'$ and $\overline{A}''$ are disconnected infinite noncommutative coverings then there are injective *-homomorphism (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) $\phi' : \overline{A}'\hookto\overline{A}''$ and $\phi'': \overline{A}''\hookto \overline{A}'$. From the Lemma \ref{bt_lim_lem} it follows that any $\overline a' \in \overline A'$ is given by
+ $$
+  \overline a' =\bt\text{-}\lim_{\la \in \La} a'_\la
+ $$
+ where 
+ $$
+ 	a'_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a' \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 
+ $$
+ where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. \eqref{bt_lim_eqn}). On the other hand from \eqref{disconnected_lim_eqn} it follows that $$
+ \phi'\left(\overline a' \right)= \bt\text{-}\lim_{\la \in \La} a'_\la.
+ $$ 
+ Similarly one can prove that
+ $$
+ \phi'' \circ \phi'\left( \overline a'\right) = \bt\text{-}\lim_{\la \in \La} a'_\la =  \overline a',
+ $$
+ i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are *-isomorphisms.
+ \end{proof}
  \begin{empt}
  	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}), and let $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ be a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
  	\be\label{infinite_covering_transformation_group_eqn}
@@ -3955,7 +3974,7 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	
  \end{empt}
  \begin{remark}\label{dense_inf_rem}
- If $\overline \A = K\left(\overline \A \right)$ and   maps  $\widetilde m : A \to M\left(\widetilde A \right)$, $~\widetilde m_\la : A_\la \to M\left(\widetilde A \right)$ is given by \eqref{inj_to_m_eqn}  then form the Corollary \ref{bt_lim_a_cor} it follows that:
+ If $\overline \A = K\left(\overline \A \right)$ and   maps  $\widetilde m : A \to M\left(\widetilde A \right)$, $~\widetilde m_\la : A_\la \to M\left(\widetilde A \right)$ are given by \eqref{inj_to_m_eqn}  then form the Corollary \ref{bt_lim_a_cor} it follows that:
  \begin{itemize}
  	\item the maps $\widetilde m$ and $m_\la$ are injective,
  	\item the subsets $\widetilde m\left( A\right) \widetilde A$, $~\widetilde A\widetilde m\left( A\right)$, $~\widetilde m_\la\left( A_\la\right) \widetilde A$ and $\widetilde A\widetilde m_\la\left( A_\la\right)$ are dense in $\widetilde A$.
