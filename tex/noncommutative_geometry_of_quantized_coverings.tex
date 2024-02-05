@@ -3822,7 +3822,8 @@ g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left
  	\be\label{a_la_eqn}
  	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
- 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}) .
+ 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
+ 		\item[(d)] The set of given by \eqref{a_la_eqn} elements is dense in $A_\la$.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
@@ -4238,9 +4239,8 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  	
  	If  $\eta =\left\lbrace\eta_\la \right\rbrace  = \left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ then from  $a_\a \H_\la \subset \H_\la$ it follows that $a_\a \xi_\la = a_\a|_{\H_\la} \xi_{\la}\in \H_{\la}$ and $\eta_\la =  \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}$.
  \end{proof}
- !!! CONTINUE !!!
-  \begin{empt}\label{atomic_faithful_empt}
-  	Consider the situation of the Definition \ref{subord_defn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be any representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in \overline \A$ is given by
+\begin{empt}\label{atomic_faithful_empt}
+  	Consider the situation of the Definition \ref{subord_defn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be a representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in \overline \A$ is given by
    $$
   \forall \overline a \in \overline\A \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
   $$
@@ -4267,26 +4267,23 @@ It follows that the map \eqref{ext_repr_eqn} is a *-homomorphism. Since $\overli
 \be\label{ext_repro_eqn}
 ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
 \ee
-If $\rho: \overline{A}\to B \left(\widehat \H_\rho\right)$ is any faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then from \ref{multiplier_el_defn} it follows that there is a natural representation 
-$$
-M\left(\rho \right) : M\left(\overline{A} \right) \to  B \left(\widehat \H_\rho\right)
-$$
-and its restriction
-$$
-M\left(\rho \right)|_{\widehat A} \bydef M\left(\rho \right) \circ \phi: \widehat A\to B\left(\widehat \H_\rho \right) 
-$$
-where the inclusion $\phi : \widehat{A}\hookto M\left(\overline A\right)$ is required by the condition (a) of the Definition \ref{subord_defn}. 
-For any positive $\overline{a}\in \overline{\A}_+$ if $a_\la = 	\bt$-$\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ then $a_\la > \overline{a}$. On the other hand $\rho\left(\overline{a}\right)> 0$. It follows that
-$$
-s\text{-}\lim_{\la\in\La}M\left(\rho \right)|_{\widehat A}\left( a_\la\right)= ext\left( M\left(\rho \right)|_{\widehat A}\right) \left(  \overline a\right)  > 0.
-$$
-it follows that the representation  $ext\left( M\left(\rho \right)|_{\widehat A}\right): \overline{A}\to B\left(\H_\rho \right)$ is faithful. If $\pi_{\text{uni}}:\widehat A\to B\left(\H_{\text{uni}} \right)$ is the universal representation then a representation  $ext\left( \pi_{\text{uni}}\right) : \overline A \hookto B\left(\H_{\text{uni}} \right)$ is faithful.  Since the set $\La$ is countable and for any positive $\overline a \in \overline{\A}_+$ one has
-$$
-ext\left( \pi_{\text{uni}}\right) \left( \overline a \right) = s\text{-}\lim \pi_{\text{uni}}\left(a_\la \right), 
-$$
- there is a natural inclusion $\overline{\A}\subset 	\mathscr B\left(\widehat A\right)$ where $\mathscr B\left(A\right)$ is the enveloping Borel *-algebra of $\widehat A$ (cf. Definition \ref{borel_env_defn})
 \end{empt}
-\begin{lemma}\label{atomic_faithful_lem}
+\begin{lemma}
+In an equivariant representation $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}) is faithful and non-degenerated (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerated.
+\end{lemma}
+\begin{proof}
+The notation of the Definition \ref{subord_defn} is used. If $\overline a \in \overline \A$ then there and 	$a \bydef 	\bt-\sum_{g\in \widehat{G}}g \overline a \in  K\left( A\right)$ then there is $b \in A$ such that $ab\neq 0$. From 	$a \bydef 	\bt-\sum_{g\in \widehat{G}}g \overline a$ it follows that there is a finite subset $G_0\subset  \widehat{G}$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) b \neq 0$.  Moreover there is $g \in G_0$ such that $ (g\overline a)b \neq 0$. The representation $\widehat \pi$ is faithful, so there is $\xi \in \widehat{\H}$ such that $(g\overline a)b \xi \neq 0$, so one has $g^{-1}\left((g\overline a)b \xi  \right) = \overline a b g^{-1}\xi \neq 0$ (cf. equations \eqref{equivt_eqn} and \eqref{equivt_eqn}). It turns out that $\overline a \widehat{\H} \neq \{0\}$. But $\overline \A$ is dense in $\overline A$, so  $\overline a \widehat{\H} \neq \{0\}$ for all  $\overline a \in \overline A$, i.e. the given by \eqref{ext_repro_eqn} representation is faithful.
+
+If $\xi \in \widehat{\H}$ then there is $a_\la \in A_\la$ such that $a_\la\xi \neq 0$ because the representation is non-degenerated. From the condition (d) of the Definition \ref{subord_defn} it follows that for each $\eps > 0$ there is $\overline a \in \overline \A$ such that
+$$
+\lVert a - \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\rVert < \eps.
+$$
+So there is  $\overline a \in \overline \A$ such that $\left( \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\right) \xi \neq 0$. It turns out that there is a finite subset $G_0\subset  \ker\left(\widehat{G}\to G_\la\right)$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) \xi \neq 0$, and one has $g \in G_0$ satisfying $g \overline a \xi \neq 0$, i.e. $\overline \A\xi \neq 0$. So the given by \eqref{ext_repro_eqn} representation is non-degenerated.
+
+
+\end{proof}
+
+\begin{lemma}\label{atomic_faithful_lem} !!! DELERE
 	If 
 	 	$
 	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
