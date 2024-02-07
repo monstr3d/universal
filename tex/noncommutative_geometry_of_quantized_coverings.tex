@@ -3816,7 +3816,7 @@ g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left
  		\ee
  		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset \overline A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
  	\be\label{a_la_eqn}
- 	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
+ 	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
  		\item[(d)] The set of given by \eqref{a_la_eqn} elements is dense in $A_\la$.
@@ -3837,12 +3837,12 @@ $$
 $$
 If $\overline b \in \overline A$ and $e \in \widehat{G}$ is a unity of  $\widehat{G}$ f then for any $\eps > 0$ there is a finite set $\{e\} \subset G'\subset  \widehat{G}$ such that for any finite set $H \subset \widehat G$, such that $G'\subset H$ following condition holds
 $$
-\left\| \sum_{g \in H}g \overline a \overline b - \phi\left( a\right)  \overline b \right\| <\eps.
+\left\| \sum_{g \in H}\left( g \overline a \right) \overline b - \phi\left( a\right)  \overline b \right\| <\eps.
 $$
 It turns out that 
 for any finite set $G''\subset  \widehat{G} \setminus G'$ one has
 $$
- \left\| \sum_{g \in G''}g \overline a \overline b \right\| <\eps.
+ \left\| \sum_{g \in G''}\left( g \overline a\right)  \overline b \right\| <\eps.
 $$
 Since the set $G'$ is finite there is $\la_\eps\in \La$ such that 
 $$
@@ -3867,7 +3867,7 @@ Let $\overline a \in  K\left( \overline{A}\right)_+$ be a positive element and $
 $$
  \phi\circ \varphi_\la\left(b_\la\right) =	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a 
 $$
-(cf. condition (c) of the Definition \ref{subord_defn}) from the Corollary \ref{bt_lim_lem} it follows that
+(cf. condition (d) of the Definition \ref{subord_defn}) from the Corollary \ref{bt_lim_lem} it follows that
 for all $\eps > 0$ there is $\la_\eps$ such that 
 $$
 \forall \la \in \La \quad \la \ge \la_\eps \quad \Rightarrow \quad \left\| \phi\circ \varphi_\la\left(b_\la\right) \overline b - \overline b~\overline b\right\| = \left\| \phi\circ \varphi_\la\left(b_\la\right) \overline b - \overline a\right\| < \eps.
@@ -3902,7 +3902,7 @@ On the other hand there is $\a_0 \in \mathscr A$ such that
 $$
 \forall \widehat a \in \widehat A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|<\frac{\eps}{2\left\| \overline{a}' \right\|}.
 $$
-Using the triangle identity one has
+Using the triangle inequality one has
 \bean
 \forall \a \in \mathscr A \quad \a \ge \a_0 \quad\Rightarrow\quad \left\|\left(   \varphi \left( u_\a  \widehat a\right) -\varphi\left( u_{\a_0}   \widehat a \right)\right)  \overline a \right\| < \left\|  \overline a - \varphi\left(\widehat{a}'\right)\overline a' \right\|+\\+\left\|  u_\a  \widehat a'-u_{\a_0}   \widehat a' \right\|\left\| \overline{a}' \right\|< \eps
 \eean
@@ -3938,7 +3938,7 @@ If a disconnected infinite noncommutative covering exists then it is unique up t
  $$
  where 
  $$
- 	a'_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a' \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 
+ 	a'_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a' \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 
  $$
  where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. \eqref{bt_lim_eqn}). On the other hand from \eqref{disconnected_lim_eqn} it follows that $$
  \phi'\left(\overline a' \right)= \bt\text{-}\lim_{\la \in \La} a'_\la.
@@ -3963,19 +3963,15 @@ If a disconnected infinite noncommutative covering exists then it is unique up t
  	\be\label{inj_to_m_eqn}
  	\widetilde m : A \to M\left(\widetilde A \right)
  	\ee
- 	Similarly for all $\la\in \La$ one can obtain a natural homomorphism
+ 	Similarly for all $\la\in \La$ one can obtain a natural *-homomorphism
  	\be\label{inj_to_ml_eqn}
  \widetilde m _\la: A_\la \to M\left(\widetilde A \right)
  \ee
  	
  	
  \end{empt}
- \begin{remark}\label{dense_inf_rem}
- If $\overline \A = K\left(\overline \A \right)$ and   maps  $\widetilde m : A \to M\left(\widetilde A \right)$, $~\widetilde m_\la : A_\la \to M\left(\widetilde A \right)$ are given by \eqref{inj_to_m_eqn}  then form the Corollary \ref{bt_lim_a_cor} it follows that:
- \begin{itemize}
- 	\item the maps $\widetilde m$ and $\widetilde m_\la$ are injective,
- 	\item the subsets $\widetilde m\left( A\right) \widetilde A$, $~\widetilde A\widetilde m\left( A\right)$, $~\widetilde m_\la\left( A_\la\right) \widetilde A$ and $\widetilde A\widetilde m_\la\left( A_\la\right)$ are dense in $\widetilde A$.
- \end{itemize}
+ \begin{remark}\label{dense_inf_rem} 
+ If $\overline \A = K\left(\overline \A \right)$ and   maps  $\widetilde m : A \to M\left(\widetilde A \right)$, $~\widetilde m_\la : A_\la \to M\left(\widetilde A \right)$ are given by \eqref{inj_to_m_eqn}  then form the Corollary \ref{bt_lim_a_cor} it follows that the subsets $\widetilde m\left( A\right) \widetilde A$, $~\widetilde A\widetilde m\left( A\right)$, $~\widetilde m_\la\left( A_\la\right) \widetilde A$ and $\widetilde A\widetilde m_\la\left( A_\la\right)$ are dense in $\widetilde A$.
  \end{remark}
  
 \begin{definition}\label{good_defn}
@@ -3989,7 +3985,12 @@ If a disconnected infinite noncommutative covering exists then it is unique up t
  \begin{remark}\label{cond_b_ref_rem}
  	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
  \end{remark}
- 
+ \begin{lemma}
+ 	 If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a good weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn} and \ref{good_defn}) then both given by  	\eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} *-homomorphisms are injective.
+\end{lemma}
+\begin{proof}
+Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{inj_to_m_eqn} *-homomorphism. If $\widetilde m$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde m\left( a\right)  \widetilde A = \{0\}$. From the equations \eqref{subord_ga_eqn} it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ for each $g \in \widehat G$. Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde m\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $\widetilde m\left( a\right)  \overline A = \{0\}$, however it contradicts with the Definition \ref{subord_defn}. So $\widetilde m$ is injective. Similarly one can prove that the given by  \eqref{inj_to_ml_eqn} *-homomorphisms is also injective.
+\end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
  	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). and let 
@@ -5025,7 +5026,7 @@ so there is the inclusion
 
  \begin{empt}\label{hurewicz_n_to_h_constr_empt}
  	Let us fix $\la\in \La$, and 
-let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  the Remark \ref{dense_inf_rem} it follows that both  $ \widetilde m_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde m_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
+let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  the Remark \ref{dense_inf_rem} !!!CHECK !!! it follows that both  $ \widetilde m_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde m_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
 a natural inclusion of pre-Hilbert spaces
  	\begin{equation}\label{tensor_n_eqn}
  		\begin{split}
