@@ -4265,7 +4265,7 @@ It follows that the map \eqref{ext_repr_eqn} is a *-homomorphism. Since $\overli
 ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
 \ee
 \end{empt}
-\begin{lemma}
+\begin{lemma}\label{infinite_faithful_nondegererate_lem}
 If an equivariant representation $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}) is faithful and non-degenerated (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerated.
 \end{lemma}
 \begin{proof}
@@ -4280,7 +4280,7 @@ So there is  $\overline a \in \overline \A$ such that $\left( \bt\text{-}\sum_{g
 
 \end{proof}
 
-!!! CONTINUE !!!
+
 
 \subsection{Coverings of *-algebras}
 
@@ -4480,11 +4480,11 @@ In the situation of the Definition \ref{comp_o*_defn} morphisms of $\mathfrak{S}
 	\ee
 	is  a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let  $\left(B, \overline{B}, \widehat G\right)$  be a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_B$ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn}) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
   	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra.  There is the natural action $\widehat G\times \widehat A\to \widehat A$.
-  	Suppose that there is an equivariant faithful representation $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equiv_repr_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
+  	Suppose that there is an equivariant faithful non-degenerated representation $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equiv_repr_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
   	$$
   ext\left(\widehat \pi \right) : \overline B \to 	 B \left(\widehat\H \right)
   	$$
-  	is faithful.  Suppose that there is a $\widehat G$-invariant dense subspace $\widehat \D\subset \widehat\H$ such that there is an  injective *-homomorphism   
+  	is faithful and non-degenerate (cf. Lemma \ref{infinite_faithful_nondegererate_lem}).  Suppose that there is a $\widehat G$-invariant dense subspace $\widehat \D\subset \widehat\H$ such that there is an  injective *-homomorphism   
 	\be\label{pi_o*_eqn}
 	\pi: \widehat A\hookto \L^\dagger\left(\widehat\D \right)\quad \text{where } \L^\dagger\left(\widehat\D \right)  \text{ is given by \eqref{l_dag_eqn}}
 	\ee
@@ -4714,7 +4714,7 @@ is a \textit{pointed algebraical  finite covering category of real operator spac
 \eean
 complexification $\C	\mathfrak{S}^{\text{pt}}_{\text{op}}$ of $	\mathfrak{S}^{\text{pt}}_{\text{op}}$ is algebraical  finite covering category of  real operator spaces (cf Definition \ref{comp_op_pt_defn}).  Let $\widetilde{A}$ be the inverse noncommutative limit of 	$\mathfrak{S}^{\text{pt}}$ if there is a net $\left\{x_\la \in X_\la\right\}_{\la \in \La}\subset \widehat{A}$ such that
 \be\label{spec_rop_eqn}
-\widetilde x = \lim_{\la \in \La } x_\la
+\widetilde x =\bt\text{-} \lim_{\la \in \La } x_\la
 \ee
 	where the $\bt \text{-}\lim$ implies the  limit   with respect to the strict topology of $M\left(\widetilde A \right)$  (cf. Definition \ref{strong_topology_defn}).
 \end{definition}
@@ -5015,7 +5015,7 @@ so there is the inclusion
 
  \begin{empt}\label{hurewicz_n_to_h_constr_empt}
  	Let us fix $\la\in \La$, and 
-let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  the Remark \ref{dense_inf_rem} !!!CHECK !!! it follows that both  $ \widetilde m_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde m_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
+let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  the Remark \ref{dense_inf_rem} it follows that both  $ \widetilde m_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde m_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
 a natural inclusion of pre-Hilbert spaces
  	\begin{equation}\label{tensor_n_eqn}
  		\begin{split}
@@ -5044,7 +5044,7 @@ If $C_c\left(G, \widetilde{A}\right)$ is an explained in the Appendix \ref{discr
 	\item [(a)] $C_c\left(G, \widetilde{A}\right) \subset \K\left(X_A \right)$,
 	\item[(b)] $C_c\left(G, \widetilde{A}\right)$ is dense *-subalgebra of $\K\left(X_A \right)$.
 \end{enumerate}
-In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the given by the inclusion (a) $C^*$-norm. Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$. Indeed  $\widetilde A\rtimes_cG$ is a completion of  $C_c\left(G, \widetilde{A}\right)$ with respect to a following $C^*$-norm
+In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the  $C^*$-norm given by the inclusion (a). Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$. Indeed  $\widetilde A\rtimes_cG$ is a completion of  $C_c\left(G, \widetilde{A}\right)$ with respect to a following $C^*$-norm
 $$
 \forall a \in C_c\left(G, \widetilde{A}\right)\quad \left\| a\right\|\bydef   \left\| \ka\left(a \right)\right\|
 $$
@@ -5309,6 +5309,7 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 %\section{Basic constructions}
 %\paragraph*{}
 \section{Multiples of continuous functions}
+!!! CONTINUE !!!
 \begin{lemma}\label{top_multiple_lem} Let $\sX$ be a locally compact Hausdorff space.
 	Let $f', f'' \in C_0\left(\sX \right)$ be such that $\supp f' \subset \supp f''$, and let $\sU \bydef \left\{\left.x \in \sX~\right| f''\left( x\right) \neq 0 \right\}$ . Suppose $f: \sX \to \C$ be given by
 	\be\label{top_div_eqn}
@@ -21722,7 +21723,7 @@ is said to be a \textit{bicommutant} of $M$.
 	
 	
 	%\begin{defn}\cite{pedersen:ca_aut}
-	%Let $B \in B(H)$ be a $C^*$-algebra. Denote by $B''$ the strong closure of $B$ in $B(H)$. $B''$ is an unital weakly closed $C^*$-algebra and if $B$ acts non-degenerately on $H$ then  $B''$ is the {\it bicommutant} of $B$. Any strongly (=weakly) closed algebra is said to be a {\it von Neumann algebra}.
+	%Let $B \in B(H)$ be a $C^*$-algebra. Denote by $B''$ the strong closure of $B$ in $B(H)$. $B''$ is an unital weakly closed $C^*$-algebra and if $B$ acts nondegenerately on $H$ then  $B''$ is the {\it bicommutant} of $B$. Any strongly (=weakly) closed algebra is said to be a {\it von Neumann algebra}.
 	%\end{defn}
 	%\begin{defn}\cite{pedersen:ca_aut}
 	%For any $x\in B(H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
@@ -22145,7 +22146,7 @@ $C^*$-algebra $A$ are either disjoint (cf. Definition \ref{orth_repr_defn}) or s
 	\end{prop}
 	
 	\begin{thm}\label{env_alg_thm}\cite{pedersen:ca_aut}
-		For each non-degenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
+		For each nondegenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
 	\end{thm}
 	
 	\begin{definition}\label{prime_primtive_defn}\cite{pedersen:ca_aut}
@@ -22342,12 +22343,12 @@ $$
 \end{lemma}
 \begin{theorem}\label{vn_ext_thm}\cite{pedersen:ca_aut}
 %3.7.7. THEOREM. 
-For each non-degenerate representation $A \to B\left(\H \right)$  of a $C^*$-algebra 
+For each nondegenerate representation $A \to B\left(\H \right)$  of a $C^*$-algebra 
 $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ which extends $\pi$. 
 \end{theorem}
 	%\begin{definition}
 	%	3.8.1. 
-	%	With each (non-degenerate) representation $\pi: A \to B\left(\H\right)$ of a $C^*$-algebra $A$ we associate the projection $c\left(\pi\right)$ in the center of $A''$ for which $A''\left(\pi\right)$ is isomorphic 	to $\pi(A)''$( = $\pi''\left(A'' \right)$ ). We say that  $c\left(\pi\right)$ is the \textit{central cover} of $\pi: A \to B\left(\H\right)$
+	%	With each (nondegenerate) representation $\pi: A \to B\left(\H\right)$ of a $C^*$-algebra $A$ we associate the projection $c\left(\pi\right)$ in the center of $A''$ for which $A''\left(\pi\right)$ is isomorphic 	to $\pi(A)''$( = $\pi''\left(A'' \right)$ ). We say that  $c\left(\pi\right)$ is the \textit{central cover} of $\pi: A \to B\left(\H\right)$
 	%\end{definition}
 	%\begin{theorem}
 	%		3.8.2. THEOREM. 
@@ -22583,7 +22584,7 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 	In this section we consider an analogue of the $A \otimes_B - : \ _B\mathcal{M}\to _A\mathcal{M}$ functor or an algebraic generalization of continuous maps. Following text is in fact a citation of \cite{rieffel_morita}.
 	
 	\begin{defn}\label{herm_mod_defn}
-		\cite{rieffel_morita} Let $B$ be a $C^*$-algebra. By a (left) {\it Hermitian  $B$-module} we will mean the Hilbert space $\H$ of a non-degenerate *-representation $A \rightarrow B(\H)$. Denote by $\mathbf{Herm}(B)$ the category of Hermitian  $B$-modules.
+		\cite{rieffel_morita} Let $B$ be a $C^*$-algebra. By a (left) {\it Hermitian  $B$-module} we will mean the Hilbert space $\H$ of a nondegenerate *-representation $A \rightarrow B(\H)$. Denote by $\mathbf{Herm}(B)$ the category of Hermitian  $B$-modules.
 	\end{defn}
 	\begin{empt}
 		\cite{rieffel_morita} Let $A$, $B$ be $C^*$-algebras. In this section we will study some general methods for construction of functors from  $\mathbf{Herm}(B)$ to  $\mathbf{Herm}(A)$.
