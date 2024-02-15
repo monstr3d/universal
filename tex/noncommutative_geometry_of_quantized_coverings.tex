@@ -5810,7 +5810,6 @@ Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 
 
 
-
 \section{Transitive coverings}\label{top_transitive_section}
 
 \paragraph*{}
@@ -6168,6 +6167,18 @@ $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\
 	(b) Follows from the Lemma  \ref{top_homo_lem}.\\
 	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
 	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
+\end{proof}
+
+\begin{lemma}\label{top_compact_lem}
+	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}). Let $p: \overline \sX \to \sX$ be a transitive covering, such that the group of  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) .  For any compact subset  $\overline \sY \subset \overline \sX$ there is a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+\begin{itemize}
+	\item $p = \widetilde p \circ \overline p$,
+	\item The set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
+\end{itemize}	
+\end{lemma}
+!!! FINISH PROOF !!!
+\begin{proof}
+	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$. One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Suppose that $j, k =1,..., n$ be such that $\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset$ and ${p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset$. Then there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ there is $\la_{jk} \in \La$ such that $\overline{p}_{\la_{jk}}\left(\overline{x}_j \right)\neq \overline{p}_{\la_{jk}}\left(\overline{x}_k \right)$ (cf. Definition \ref{top_inv_lim_defn}). It turns out that $\overline{p}_{\la_{jk}}\left(\overline{   \mathcal U }_{j} \right)\cap \overline{p}_{\la_{jk}}\left( \overline{   \mathcal U }_{k}\right) = \emptyset$. If  $\la_{\overline{   \mathcal U }}\in \La$ is such that $\la_{\overline{   \mathcal U }}\ge \la_{jk}$ for all $j,k=1,...,n$ (cf. Definition \ref{directed_set_defn}) then for all $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$.
 \end{proof}
 
 
@@ -9850,14 +9861,7 @@ If $\sV$ is a connected component of $\widetilde{p}^{-1}_\sY\left(\sU' \right)$ 
 \end{definition}
 
 
-\begin{lemma}\label{top_compact_la_lem}
-	Let  $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category, and let $\overline{   \mathcal X}$ be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
-	For any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal U }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }} \in \La$ such that  the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. 
-\end{lemma}
-\begin{proof}
- For any $\overline{x}\in \overline{   \mathcal U }$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto $\overline{p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$. One has $\overline{   \mathcal U } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal U }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal U } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Suppose that $j, k =1,..., n$ be such that $\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset$ and $\overline{p}\left(\overline{   \mathcal U }_{j} \right)\cap \overline{p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset$. Then there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that $\overline{p}\left(\overline{x}_j \right) = \overline{p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ there is $\la_{jk} \in \La$ such that $\overline{p}_{\la_{jk}}\left(\overline{x}_j \right)\neq \overline{p}_{\la_{jk}}\left(\overline{x}_k \right)$ (cf. Definition \ref{top_inv_lim_defn}). It turns out that $\overline{p}_{\la_{jk}}\left(\overline{   \mathcal U }_{j} \right)\cap \overline{p}_{\la_{jk}}\left( \overline{   \mathcal U }_{k}\right) = \emptyset$. If  $\la_{\overline{   \mathcal U }}\in \La$ is such that $\la_{\overline{   \mathcal U }}\ge \la_{jk}$ for all $j,k=1,...,n$ (cf. Definition \ref{directed_set_defn}) then for all $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$.
-\end{proof}
-The proof of the following corollary is left to the reader.
+The proof of the following corollary is left to the reader. !!! \ref{top_compact_la_lem} !!!
 \begin{corollary}\label{top_comp_lau_cor} 
 	Let  $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category, and let $\overline{   \mathcal X}$ be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
 For any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there are an open subset $\overline{   \mathcal U }\subset\overline\sX$ with compact closure $\la_{\overline{   \mathcal U}} \in \La$
