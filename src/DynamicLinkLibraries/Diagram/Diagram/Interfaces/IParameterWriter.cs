@@ -16,7 +16,7 @@ namespace Diagram.UI
         void Write(Dictionary<string, string> parameters);
 
          /// <summary>
-        /// Flushs itself
+        /// Flushes itself
         /// </summary>
         void Flush();
     }

@@ -11,17 +11,22 @@ using BaseTypes.Interfaces;
 
 using CategoryTheory;
 
+using Diagram.UI;
+using Diagram.UI.Aliases;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+
+
+
 using DataPerformer.Attributes;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable.Measurements;
+using DataPerformer.Portable.Wrappers;
 
-using Diagram.UI;
-using Diagram.UI.Aliases;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
 using Event.Interfaces;
+using System.Xml;
 
 namespace DataPerformer.Portable
 {
@@ -188,55 +193,15 @@ namespace DataPerformer.Portable
              int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null,
              IErrorHandler errorHandler = null)
         {
-            ITimeMeasurementProvider old = processor.TimeProvider;
-            try
-            {
-                using (TimeProviderBackup backup = new TimeProviderBackup(consumer, provider, processor, reason, priority))
-                {
-                    provider.Time = start;
-                    IDataRuntime runtime = backup.Runtime;
-                    runtime.StartAll(start);
-                    processor.TimeProvider = provider;
-                    IStep st = null;
-                    if (runtime is IStep)
-                    {
-                        st = runtime as IStep;
-                    }
-                    provider.Time = start;
-                    double t = start;
-                    double last = t;
-                    Action<double, double, long> 
-                        act = runtime.Step(processor,
-                        (time) => 
-                        { 
-                            provider.Time = time; 
-                        }
-                        , reason, asynchronousCalculation);
-                    for (int i = 0; i < count; i++)
-                    {
-                        t = start + i * step;
-                        act(last, t, i);
-                        last = t;
-                        action();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (errorHandler != null)
-                {
-                    errorHandler.ShowError(ex, 10);
-                }
-                else
-                {
-                    ex.ShowError(10);
-                }
-            }
-            processor.TimeProvider = old;
+
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            wrapper.PerformFixed(start, step, count, provider, processor, reason, priority,
+                action, asynchronousCalculation, errorHandler);
 
         }
+ 
+ 
 
-        
         /// <summary>
         /// Performs action with fixed step
         /// </summary>
@@ -252,27 +217,10 @@ namespace DataPerformer.Portable
         static public void PerformFixed(this IComponentCollection collection, double start, double step, int count, ITimeMeasurementProvider provider,
             IDifferentialEquationProcessor processor, int priority, Action action, string reason)
         {
-            using (TimeProviderBackup backup = new
-                TimeProviderBackup(collection, provider, processor, priority, reason))
-            {
-                List<IMeasurements> measurements = backup.Measurements;
-                IDataRuntime runtime = backup.Runtime;
-                ITimeMeasurementProvider old = processor.TimeProvider;
-                processor.TimeProvider = provider;
-                Action<double, double, long> act = runtime.Step(processor,
-                    (double time) => { provider.Time = time; }, reason);
-                double last = start;
-                double t = start;
-                for (int i = 0; i < count; i++)
-                {
-                    t = start + i * step;
-                    act(last, t, (long)i);
-                    last = t;
-                    action();
-                }
-                processor.TimeProvider = old;
-            }
-        }
+            var wrapper = new ComponentCollectionWrapper(collection);
+            wrapper.PerformFixed(start, step, count, provider, processor, priority, action,
+                 reason);
+         }
 
 
 
@@ -306,7 +254,7 @@ namespace DataPerformer.Portable
         /// Creates disassembly object dictionary
         /// </summary>
         /// <param name="measurements">Measurements</param>
-        /// <param name="disassembly">Misassembly</param>
+        /// <param name="disassembly">Disassembly</param>
         /// <returns>The dictionary</returns>
         static public Dictionary<IMeasurement, IDisassemblyObject>
             CreateDisassemblyObjectDictionary(this IEnumerable<IMeasurement> measurements,  
@@ -437,7 +385,7 @@ namespace DataPerformer.Portable
         ///  Creates disassembly object dictionary
         /// </summary>
         /// <param name="dataConsumer">Data consumer</param>
-        /// <param name="disassembly">Misassembly</param>
+        /// <param name="disassembly">Disassembly</param>
         /// <returns>The dictionary</returns>
         static public Dictionary<IMeasurement, IDisassemblyObject>
             CreateDisassemblyObjectDictionary(this IDataConsumer dataConsumer, 
@@ -455,11 +403,81 @@ namespace DataPerformer.Portable
            return l.CreateDisassemblyObjectDictionary(disassembly);
         }
 
+
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="collection">Components</param>
+        /// <param name="input">Input</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count</param>
+        /// <returns>Result</returns>
+        static public XmlDocument CreateXmlDocument(this IDataConsumer consumer,
+            XmlDocument input, double start, double step,
+            int count)
+        {
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            return wrapper.CreateXmlDocument(input, start, step, count);
+
+        }
+
+
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="desktop">Desktop</param>
+        /// <param name="consumer">Consumer name</param>
+        /// <param name="input">Input</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <returns>Document</returns>
+        static public XmlDocument CreateXmlDocument(this IDesktop desktop, string consumer,
+            XmlDocument input, double start, double step, int count)
+        {
+            var wrapper = new ComponentCollectionWrapper(desktop);
+            return wrapper.CreateXmlDocument(consumer, input, start, step, count);
+        }
+
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="desktop">Desktop</param>
+        /// <param name="input">Input</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <returns>Document</returns>
+        static public XmlDocument CreateXmlDocument(this IDesktop desktop,
+            XmlDocument input, double start, double step, int count)
+        {
+            var wrapper = new ComponentCollectionWrapper(desktop);
+            string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
+            return wrapper.CreateXmlDocument(consumer, input, start, step, count);
+        }
+
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="desktop">Desktop</param>
+        /// <param name="input">Input</param>
+        /// <returns>Document</returns>
+        static public XmlDocument CreateXmlDocument(this IDesktop desktop, XmlDocument input)
+        {
+            var wrapper = new ComponentCollectionWrapper(desktop);
+            return wrapper.CreateXmlDocument(input);
+        }
+
+
+
+
         /// <summary>
         ///  Creates disassembly measurements dictionary
         /// </summary>
         /// <param name="dataConsumer">Data consumer</param>
-        /// <param name="disassembly">Misassembly</param>
+        /// <param name="disassembly">Disassembly</param>
         /// <returns>The dictionary</returns>
         static public Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> CreateDisassemblyMeasurements(
             this IDataConsumer dataConsumer, IDisassemblyObject disassembly)

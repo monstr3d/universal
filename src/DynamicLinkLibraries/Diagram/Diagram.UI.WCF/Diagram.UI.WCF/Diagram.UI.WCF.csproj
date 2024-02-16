@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15B3E0D2-6217-493A-A690-158C497F5318}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diagram.UI.WCF</RootNamespace>
+    <AssemblyName>Diagram.UI.WCF</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\ITransformer.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="NamedComponent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="StaticExtensionDiagramUIWCF.cs" />
+    <Compile Include="TransformerCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
+      <Project>{8a9c8c8b-40b2-418c-ac92-4bdbb6e071c3}</Project>
+      <Name>BaseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SerializationInterface\SerializationInterface.csproj">
+      <Project>{7d532180-b3ec-4344-bb15-11de8e8e7967}</Project>
+      <Name>SerializationInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.csproj">
+      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram.UI\Diagram.UI.csproj">
+      <Project>{3a2ab37f-17cd-4cb2-96c6-14d4efbf8279}</Project>
+      <Name>Diagram.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

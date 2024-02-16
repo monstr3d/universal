@@ -330,7 +330,7 @@ namespace DataPerformer.Interfaces
         /// Checks whether nullable condition is true
         /// </summary>
         /// <param name="condition">The condition</param>
-        /// <returns>The resulst</returns>
+        /// <returns>The result</returns>
         static public bool IsTrue(this bool? condition)
         {
             if (condition == null) return false;

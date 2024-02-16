@@ -1,0 +1,310 @@
+﻿using CategoryTheory;
+using DataPerformer.Interfaces;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+
+namespace DataPerformer.Portable.Wrappers
+{
+    /// <summary>
+    /// Wrapper of data consumer
+    /// </summary>
+    public class DataConsumerWrapper
+    {
+        /// <summary>
+        /// The data consumer
+        /// </summary>
+        public IDataConsumer Consumer { get; private set; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="consumer"> The data consumer</param>
+        public DataConsumerWrapper(IDataConsumer consumer)
+        {
+            Consumer = consumer;
+        }
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        public void PerformFixed(double start, double step, int count,
+            ITimeMeasurementProvider provider,
+              IDifferentialEquationProcessor processor, string reason,
+             int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null,
+             IErrorHandler errorHandler = null)
+        {
+            ITimeMeasurementProvider old = processor.TimeProvider;
+            try
+            {
+                using (TimeProviderBackup backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                {
+                    provider.Time = start;
+                    IDataRuntime runtime = backup.Runtime;
+                    runtime.StartAll(start);
+                    processor.TimeProvider = provider;
+                    IStep st = null;
+                    if (runtime is IStep)
+                    {
+                        st = runtime as IStep;
+                    }
+                    provider.Time = start;
+                    double t = start;
+                    double last = t;
+                    Action<double, double, long>
+                        act = runtime.Step(processor,
+                        (time) =>
+                        {
+                            provider.Time = time;
+                        }
+                        , reason, asynchronousCalculation);
+                    for (int i = 0; i < count; i++)
+                    {
+                        t = start + i * step;
+                        act(last, t, i);
+                        last = t;
+                        action();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (errorHandler != null)
+                {
+                    errorHandler.ShowError(ex, 10);
+                }
+                else
+                {
+                    ex.ShowError(10);
+                }
+            }
+            processor.TimeProvider = old;
+
+        }
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        public void PerformFixed(double start, double step, int count, string reason,
+           int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+        {
+            PerformFixed(start, step, count,
+                   StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                   DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
+                reason, priority, action, asynchronousCalculation, errorHandler);
+        }
+
+        /// <summary>
+        /// Finds measure
+        /// </summary>
+        /// <param name="measure">Measure name</param>
+        /// <param name="allowNull">The allow null sign</param>
+        /// <returns>The measure</returns>
+        public IMeasurement FindMeasurement(string measure, bool allowNull = false)
+        {
+            if (measure == null)
+            {
+                if (!allowNull)
+                {
+                    throw new Exception("Undefined measure");
+                }
+                return null;
+            }
+            int n = measure.LastIndexOf(".");
+            if (n < 0)
+            {
+                if (!allowNull)
+                {
+                    throw new Exception("Undefined measure");
+                }
+                return null;
+            }
+            string p = measure.Substring(0, n);
+            string s = measure.Substring(n + 1);
+            IAssociatedObject ass = Consumer as IAssociatedObject;
+            INamedComponent comp = ass.Object as INamedComponent;
+            IDesktop d = comp.Desktop;
+            for (int i = 0; i < Consumer.Count; i++)
+            {
+                IMeasurements mea = Consumer[i];
+                IAssociatedObject ao = mea as IAssociatedObject;
+                INamedComponent nc = ao.Object as INamedComponent;
+                string name = PureObjectLabel.GetName(nc, d);
+                if (!name.Equals(p))
+                {
+                    continue;
+                }
+                for (int j = 0; j < mea.Count; j++)
+                {
+                    IMeasurement m = mea[j];
+                    if (s.Equals(m.Name))
+                    {
+                        return m;
+                    }
+                }
+            }
+            if (Consumer is IMeasurements)
+            {
+                if (Consumer.ShouldInsertIntoChildren())
+                {
+                    var cm = Consumer as IMeasurements;
+                    foreach (var cmm in cm.GetMeasurementObjects())
+                    {
+                        var nm = Consumer.GetName(cmm);
+                        if (measure.Equals(nm))
+                        {
+                            return cmm;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+
+
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count</param>
+        /// <returns>Result</returns>
+        public XmlDocument CreateXmlDocument(
+            XmlDocument input, double start, double step,
+            int count)
+        {
+            List<string> p = new List<string>();
+            IMeasurement cond = null;
+            string arg = null;
+            Dictionary<string, Func<Func<object>>> d = new Dictionary<string, Func<Func<object>>>();
+            XmlElement r = input.DocumentElement;
+            foreach (XmlElement e in r.ChildNodes)
+            {
+                string name = e.Name;
+                if (name.Equals("Condition"))
+                {
+                    cond = FindMeasurement(e.InnerText, true);
+                    continue;
+                }
+                if (name.Equals("Argument"))
+                {
+                    arg = e.InnerText;
+                    continue;
+                }
+                if (name.Equals("Parameters"))
+                {
+                    XmlNodeList nl = e.ChildNodes;
+                    foreach (XmlElement xp in nl)
+                    {
+                        string pn = null;
+                        string pv = null;
+                        foreach (XmlElement xpp in xp.ChildNodes)
+                        {
+                            string npp = xpp.Name;
+                            if (npp.Equals("Name"))
+                            {
+                                pn = xpp.InnerText;
+                                continue;
+                            }
+                            pv = xpp.InnerText;
+                        }
+                        IMeasurement mcc = FindMeasurement(pn, false);
+                        d[pv] = mcc.ToValueHolder();
+                    }
+                }
+            }
+            XmlParameterWriter xpv = new XmlParameterWriter(null);
+            IParameterWriter pvv = xpv;
+            Action acts = () =>
+            {
+                Dictionary<string, string> dpp = new Dictionary<string, string>();
+                foreach (string k in d.Keys)
+                {
+                    object v = d[k]()();
+                    dpp[k] = v + "";
+                }
+                pvv.Write(dpp);
+            };
+
+            Action act = (cond == null) ? acts : () =>
+            {
+                foreach (string k in d.Keys)
+                {
+                    object v = d[k]()();
+                }
+                if ((bool)cond.Parameter())
+                {
+                    acts();
+                }
+            };
+            try
+            {
+               Consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
+            }
+            catch (Exception e)
+            {
+                e.ShowError(10);
+            }
+            return xpv.Document;
+        }
+
+
+
+        /// <summary>
+        /// Gets all iterators of consumer
+        /// </summary>
+        /// <param name="consumer">Consumer</param>
+        /// <param name="iterators">List of iterators</param>
+        public void GetIterators(List<IIterator> iterators)
+        {
+            getIterators(Consumer, iterators);
+        }
+
+        static void getIterators(IDataConsumer consumer, List<IIterator> list)
+        {
+            for (int i = 0; i < consumer.Count; i++)
+            {
+                IMeasurements m = consumer[i];
+                if (m is IIterator)
+                {
+                    IIterator it = m as IIterator;
+                    if (!list.Contains(it))
+                    {
+                        list.Add(it);
+                    }
+                }
+                if (m is IDataConsumer)
+                {
+                    IDataConsumer c = m as IDataConsumer;
+                    getIterators(c, list);
+                }
+            }
+        }
+
+
+    }
+}
