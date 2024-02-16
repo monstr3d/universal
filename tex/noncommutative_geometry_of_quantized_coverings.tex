@@ -5309,7 +5309,7 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 %\section{Basic constructions}
 %\paragraph*{}
 \section{Multiples of continuous functions}
-!!! CONTINUE !!!
+
 \begin{lemma}\label{top_multiple_lem} Let $\sX$ be a locally compact Hausdorff space.
 	Let $f', f'' \in C_0\left(\sX \right)$ be such that $\supp f' \subset \supp f''$, and let $\sU \bydef \left\{\left.x \in \sX~\right| f''\left( x\right) \neq 0 \right\}$ . Suppose $f: \sX \to \C$ be given by
 	\be\label{top_div_eqn}
@@ -6170,15 +6170,47 @@ $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\
 \end{proof}
 
 \begin{lemma}\label{top_compact_lem}
-	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}). Let $p: \overline \sX \to \sX$ be a transitive covering, such that the group of  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) .  For any compact subset  $\overline \sY \subset \overline \sX$ there is a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}). Let $p: \overline \sX \to \sX$ be a transitive covering, such that the group of  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there is a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
 \begin{itemize}
 	\item $p = \widetilde p \circ \overline p$,
-	\item The set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
+	\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
 \end{itemize}	
 \end{lemma}
-!!! FINISH PROOF !!!
+
 \begin{proof}
-	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$. One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Suppose that $j, k =1,..., n$ be such that $\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset$ and ${p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset$. Then there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ there is $\la_{jk} \in \La$ such that $\overline{p}_{\la_{jk}}\left(\overline{x}_j \right)\neq \overline{p}_{\la_{jk}}\left(\overline{x}_k \right)$ (cf. Definition \ref{top_inv_lim_defn}). It turns out that $\overline{p}_{\la_{jk}}\left(\overline{   \mathcal U }_{j} \right)\cap \overline{p}_{\la_{jk}}\left( \overline{   \mathcal U }_{k}\right) = \emptyset$. If  $\la_{\overline{   \mathcal U }}\in \La$ is such that $\la_{\overline{   \mathcal U }}\ge \la_{jk}$ for all $j,k=1,...,n$ (cf. Definition \ref{directed_set_defn}) then for all $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$.
+	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$. One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Suppose that $j, k =1,..., n$ be such that
+	\be\label{top_compact_eqn}
+	\begin{split}
+		j > k,\\
+	\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset,\\
+{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
+	\end{split}
+	\ee
+ Then there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ there is a nontrivial $g \in G\left(\left.\overline\sX\right| \sX  \right)$ such that $\overline{x}_j = g_{jk} \overline{x}_k$. Since the group $G\left(\left.\overline\sX\right| \sX  \right)$ is residually finite there is a homomorphism $h_{jk}:G\left(\left.\overline\sX\right| \sX  \right)\to G_{jk}$ such that:
+	\begin{itemize}
+		\item $G_{jk}$ is a finite group,
+		\item $h_{jk}\left(g_{jk} \right)$ is not trivial. 
+	\end{itemize} 
+	If $H_{jk}\bydef \ker h_{jk}$, and $\sX_{jk} \bydef \overline{\sX}/ H_{jk}$ then there are natural coverings $\overline p_{jk}: \overline \sX\to \widetilde \sX_{jk}$ and $\widetilde p_{jk}: \widetilde \sX_{jk}\to \sX$
+	such that
+	\be\label{top_compactp_eqn}
+	\begin{split}
+		G\left(\left. \sX_{jk}\right| \sX  \right)\to G_{jk},\\
+		\widetilde p_{jk}\circ \overline p_{jk} = p,\\
+				\overline p_{jk}\left( \overline{x}_j\right) \neq \overline p_{k}\left( \overline{x}_k\right),\\
+		\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)= \emptyset
+	\end{split}
+	\ee
+$H_{jk}$ is a normal subgroup of $G\left(\left.\overline\sX\right| \sX  \right)$ and the index   $\left( G\left(\left.\overline\sX\right| \sX  \right) : H_{jk} \right) $ is finite (cf. Section \ref{grops_sec}). There is a finite set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ such that any $\left(j, k \right)\in J$ satisfies to the conditions \eqref{top_compact_eqn}. If
+$$
+H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
+$$
+then index   $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)$ is finite (cf Example \ref{profinite_exm}). So is $\widetilde \sX \bydef \overline \sX / H$ then there is are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactp_eqn} one has
+\be\label{top_compactpp_eqn}
+ \overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
+\ee
+Let $\overline y \in \overline \sY$ and $\widetilde y = \overline p\left(\overline y\right)\in \widetilde \sX$. Let $\overline y' \in \overline \sY$ and $\widetilde y = \overline p\left(\overline y'\right)$. If $\overline y \in \overline \sU_j$ then from \eqref{top_compactpp_eqn} it follows that $\overline y'\in \overline \sU_j$, so  $\overline y'= \overline y$, i.e. $\overline p$ yields a bijective map  
+$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
 \end{proof}
 
 
@@ -6934,7 +6966,7 @@ The following Lemma is evident.
 \begin{proof}
 	If $a \in C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then $\supp a$ is compact. Since $p$ is a finite-fold covering $\supp \lift_p\left( a\right)= p^{-1}\left( \supp a\right) \subset \widetilde{\sX}$ is compact, hence $\lift_p\left( a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \sF \right)$. For any $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a net $\left\{a_\a\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right\}_{\a \in \mathscr A}$ such that there is a norm limit $\lim_{\a}a_\a = a$. Otherwise for any $\al, \bt\in \mathscr A$ one has $\left\|a_\a - a_\bt\right\|= \left\|\lift_p\left( a_\a\right)  - \lift_p\left( a_\bt\right) \right\|$ it follows that the net $\left\{\lift_p\left( a_\a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde\sF \right)\right\}$ is convergent and $\lim_{\a} \lift_p\left( a_\a\right) = \lift_p\left( a\right)$.
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{remark}\label{top_compact_c0_rem}
 	Similarly to the Remark \ref{top_cl_cc_iso_rem} $C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$
 	is the  minimal norm closed subspace of $C_b\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$ which contains all products $\widetilde f \lift_p\left( a\right) $ where $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\widetilde f \in C_0\left(\widetilde\sX\right)$.
@@ -6946,7 +6978,7 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 \ee
 
 \end{exercise}
-\begin{empt}\label{top_norm_sub_empt}
+\begin{empt}\label{top_norm_sub_empt} !!! CORRECT !!!
 	If $B \subset 	C_0\left(A \right) = C_0\left(\sX, \left\{A_x\right\}, A \right)$  is a norm closed $\C$-space then for any $x \in \sX$ there is a normed $\C$-subspace
 	\be
 	\mathring{B}_x = \left\{\left. b_x \in A_x\right|~ \exists b' \in B \quad b_x = b'_x  \right\}
@@ -7122,7 +7154,7 @@ one has
 	
 \end{enumerate}
 \end{exercise}
-\begin{empt}
+\begin{empt}  !!! INSERT \ref{top_compact_lem} !!!
 Let $p: \widetilde \sX \to \sX$ be a covering. If $\widetilde a \in C_c\left( \widetilde \sX\right)$ and there is $x \in \sX$ such that 
 the set $\mathcal Z_x \bydef \left\{\left.p^{-1}\left(\{x\} \right)\right|\widetilde a\left( \widetilde x\right) \neq 0\right\}$ is not finite then $\supp \widetilde a$ contains an infinite discrete subset $\mathcal Z_x$. It is impossible because the set $\supp \widetilde a$ is compact.   So $\mathcal Z_x$ is finite and there is a map 
 \be\label{top_desc_c_eqn}
@@ -9859,9 +9891,14 @@ If $\sV$ is a connected component of $\widetilde{p}^{-1}_\sY\left(\sU' \right)$ 
 \begin{definition}\label{top_topological_inv_lim_defn}
 	The given by the Lemma  \ref{top_universal_covering_lem} terminal object $\left(\left(\widetilde{\sX}, \widetilde{x}_0\right),p^{\widetilde{\mathcal X}} \right)$ of the category $\downarrow\mathfrak{S}_{\left( \sX, x_0\right)}$ is said to be the \textit{topological inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.  The notation $\left(\left(\widetilde{\sX}, \widetilde{x}_0\right),p^{\widetilde{\mathcal X}} \right) = \varprojlim  \mathfrak{S}_{\left( \sX, x_0\right)}$ or simply $~\widetilde{\mathcal{X}} =  \varprojlim \mathfrak{S}_{\left( \sX, x_0\right)}$ will be used. The given by (ii) of the Lemma \ref{top_spec_top_constr_lem} space $\overline{\mathcal X}$ is said to be the \textit{topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
 \end{definition}
+\begin{lemma}\label{top_compact_la_lem}
+	Let  $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category, and let $\overline{   \mathcal X}$ be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
+	For any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal U }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }} \in \La$ such that  the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. 
+\end{lemma}
+\begin{proof}
+The proof of this lemma can be obtained from the Lemma \ref{top_compact_lem}.
+\end{proof}
 
-
-The proof of the following corollary is left to the reader. !!! \ref{top_compact_la_lem} !!!
 \begin{corollary}\label{top_comp_lau_cor} 
 	Let  $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category, and let $\overline{   \mathcal X}$ be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
 For any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there are an open subset $\overline{   \mathcal U }\subset\overline\sX$ with compact closure $\la_{\overline{   \mathcal U}} \in \La$
@@ -21049,12 +21086,34 @@ such that
 where the pairing $\left(\cdot, \cdot\right) : \Ga\left( E \otimes T^*\left( M\right) \right) \times \Ga\left( T\left( M\right)\right)  \to \Ga\left( E \right) $ is induced by the pairing $\Ga\left( T^*\left(M \right)\right)   \times \Ga\left( T\left( M\right)\right)  \to \Coo\left(M \right) $.
 
 \chapter{Algebra}
-\section{Inverse limits of groups}
+\section{Groups}\label{grops_sec}
+\paragraph{}
+We suppose that the reader is familiar  with the notion of group. Here I follow to \cite{lang}.
+Let $G$ be a group and $H$ a subgroup. A \textit{left coset} of $H$ in $G$ is a subset of 
+$G$ of type $aH$, for some element $a \in G$. 
+$G$ is the disjoint union of the left cosets of $H$. A similar 
+remark applies to right cosets (i.e. subsets of $G$ of type $Ha$). The number of left 
+cosets of $H$ in $G$ is denoted by $(G : H)$, and is called the \textit{(left) index} of $H$ in $G$. The kernel of a group-homomorphism is a 
+subgroup. We now wish to characterize such subgroups. 
+Let $f: G' \to G$ be a group-homomorphism, and let $H$ be its kernel. If $x$ is an 
+element of $G$, then $xH = Hx$ because both are equal to $f^{-1}\left(x \right)$ . We can 
+also rewrite this relation as $xHx^{-1}  = H$. A subgroup 
+ satisfying this condition will be called \textit{normal}.
+A left index of a normal subgroup coincides with the right one.
+
 \begin{definition}\label{group_inv_lim_defn}\cite{spanier:at}
 If $\left\{G_\a\right\}$ is an inverse system of
 groups  (that is, $G_\a$ is a group for each $\a$ and $f^\bt_\a: G_\bt\to  G_\a$ is a homomorphism 
 for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a set (cf. Definition \ref{inv_lim_defn})) is a subgroup of $\prod G_\a$. 
 \end{definition}
+
+\begin{example}\label{profinite_exm}\cite{lang}
+Example. Let $G$ be a group. Let $\F$ be the family of normal subgroups of 
+finite index. If $H$, $K$ are normal of finite index, then so is $H \cap K$ so ($\F$ is a 
+directed family. We may then form the inverse limit $\varprojlim G/H$ with $H \in \F$
+A group which is an inverse limit of finite groups is called \textit{profinite} 
+
+\end{example}
 	\section{Finitely generated modules}
 	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
 		% 2.3.13 THEOREM. T
@@ -28706,9 +28765,10 @@ PARIS ¥ FRANKFURT. 1965.
 \bibitem{kurat:topI} Kazimierz Kuratowski. \textit{Topology}. Volume 1. Academic Press, 1966
 
 
-%\bibitem{lang} S. Lang. Algebra. Addison-Wesley Publishing Company, Reading, Mass. 1965.
 
 \bibitem{lance:so} E. Christopher Lance. \textit{The compact quantum group $SO(3)_q$}. Journal of Operator Theory, Vol. 40, No. 2 (Fall 1998), pp. 295-307, 1998.
+
+\bibitem{lang} S. Lang. Algebra. Addison-Wesley Publishing Company, Reading, Mass. 1965.
 
 %\bibitem{lazar_tailor:mo}A. J. Lazar and D. C. Taylor, \textit{Multipliers of Pedersen's ideal}, Mem. Amer. Math. Soc No. 169, 1976. (1976).
 
