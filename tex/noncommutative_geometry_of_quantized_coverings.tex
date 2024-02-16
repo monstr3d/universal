@@ -6274,7 +6274,7 @@ $\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \
 	and $\Ga_b$ is a functor to the category of Banach spaces and isometries.
 \end{empt}
 
-\section{Continuous structures lift and descent}\label{top_lift_desc_sec}
+\section{Continuity structures lift and descent}\label{top_lift_desc_sec}
 \paragraph*{}
 Let $\sX$ be a locally compact, Hausdorff space; and  for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). Denote by
 \be\label{top_c_sec_eqn}
@@ -6978,20 +6978,30 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 \ee
 
 \end{exercise}
-\begin{empt}\label{top_norm_sub_empt} !!! CORRECT !!!
+\begin{empt}\label{top_norm_sub_empt} 
 	If $B \subset 	C_0\left(A \right) = C_0\left(\sX, \left\{A_x\right\}, A \right)$  is a norm closed $\C$-space then for any $x \in \sX$ there is a normed $\C$-subspace
 	\be
 	\mathring{B}_x = \left\{\left. b_x \in A_x\right|~ \exists b' \in B \quad b_x = b'_x  \right\}
 	\ee
-	Denote by $B_x$ the norm closure of $\mathring{B}_x$ and suppose $B_x \neq \{0\}$ for any $x \in \sX$.  The $\C$-space $B$ is a continuity structure  for $\sX$ {and the} $\left\{B_x\right\}_{x \in \sX}$. 
+	Denote by $B_x$ the norm closure of $\mathring{B}_x$ and suppose $B_x \neq \{0\}$ for any $x \in \sX$.  
 \end{empt}
+\begin{lemma}\label{top_norm_sub_lem} 
+In the situation \ref{top_norm_sub_empt} the $\C$-space $B$ satisfies to the conditions  (a),(b) of the Definition \ref{op_fields_defn}.
+\end{lemma}
+\begin{proof}
+	
+	
+	\begin{enumerate}
+	\item[(a)] If $b \in B$ then $b \in C_0\left(\sX, \left\{A_x\right\}, A \right)$, so from (a) the Definition \ref{op_fields_defn} it follows that the map  $x \mapsto \left\| b_x\right\|$  is continuous on $\sX$.
+	\item[(b)] $B_x$ the norm closure of $\mathring{B}_x$, so $\mathring{B}_x$. \end{enumerate}
+\end{proof}
 
 \begin{definition}\label{top_norm_sub_cc_defn}
 	In the situation \ref{top_norm_sub_empt} the family $\left\{B_x\right\}_{x \in \sX}$ is the $B$-\textit{restriction} of  $\left\{A_x\right\}_{x \in \sX}$.
 \end{definition}
 
 \begin{empt}\label{top_cstr_res_empt}
-	If $B$ is a  $C_0\left( \sX\right)$-module then from the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natural isomorphism
+From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natural isomorphism
 	\be\label{top_cstr_res_eqn}
 	B \cong C_0\left(\sX, \left\{B_x\right\}, B \right).
 	\ee
@@ -7014,7 +7024,7 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 	such that $C_c\left(B \right)$ is dense in $C_0\left(B \right)$.
 \end{definition}
 \begin{lemma}\label{top_sub_eq_lem}
-	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ are $\C$-subspaces, such that $B'$ is a norm closed $C_0\left(\sX \right)$-module. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
+	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ are norm closed $\C$-subspaces. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
 	\be\nonumber
 	\forall x \in \sX \quad B''_x \subset B'_x \quad \Rightarrow \quad B'' \subset B'
 	\ee
@@ -7027,7 +7037,7 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 	Select $b'' \in B''$ and $x_0 \in \sX$. For any $\eps > 0$ there is $b' = \left\{b'_x\right\} \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)$ such that $\left\|b'_{x_0} - b''_{x_0} \right\| < \frac{\eps}{2}$. The map $x \mapsto \left\|b'_{x} - b''_{x} \right\|$ is continuous (cf. Lemma \ref{op_cont_con_lem}), it turns out that there is an open neighborhood $\sU$ of $x_0$ such that $\left\|b'_{x} - b''_{x} \right\| < \eps$ for every $x \in \sU$. If follows that $b''$ is continuous with respect to $B'$ (cf. Definition \ref{op_cont_fields_defn}). Taking into account  that  $\text{norm}_{b''} \in C_0\left(\sX\right)$ it turns out that $b'' \in C_0\left(\sX, \left\{B'_x\right\}, B' \right)= B'$, hence $B'' \subset B'$ (cf. Corollary \ref{top_cl_cc_iso_cor}).
 \end{proof}
 \begin{corollary}\label{top_sub_eq_cor}
-	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ be  closed $C_0\left(\sX \right)$-modules. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
+	Let us consider a continuity structure $A$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ such that $A \cong C_0\left(\sX, \left\{A_x\right\}, A \right)$. Let both $B', B'' \subset A$ be  norm closed subspaces. If both $\left\{B'_x\right\}$ and $\left\{B''_x\right\}$ are  $B'$ and $B''$-restrictions  of $\left\{A_x\right\}$ (cf. Definition \ref{top_norm_sub_cc_defn}) then one has
 	\be\nonumber
 	\forall x \in \sX \quad B''_x = B'_x \quad \Rightarrow \quad B'' = B'.
 	\ee
@@ -7154,7 +7164,7 @@ one has
 	
 \end{enumerate}
 \end{exercise}
-\begin{empt}  !!! INSERT \ref{top_compact_lem} !!!
+\begin{empt}  
 Let $p: \widetilde \sX \to \sX$ be a covering. If $\widetilde a \in C_c\left( \widetilde \sX\right)$ and there is $x \in \sX$ such that 
 the set $\mathcal Z_x \bydef \left\{\left.p^{-1}\left(\{x\} \right)\right|\widetilde a\left( \widetilde x\right) \neq 0\right\}$ is not finite then $\supp \widetilde a$ contains an infinite discrete subset $\mathcal Z_x$. It is impossible because the set $\supp \widetilde a$ is compact.   So $\mathcal Z_x$ is finite and there is a map 
 \be\label{top_desc_c_eqn}
@@ -7164,21 +7174,37 @@ x \mapsto \sum_{\widetilde{x}\in p^{-1}\left(x \right) } \widetilde a\left(\wide
 \end{split}
 \ee   
 \end{empt}
-
+\begin{lemma}\label{top_desc_c_lem}
+	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}).  If $p: \widetilde \sX \to \sX$ is a transitive covering, such that the group of  group of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then the  map \eqref{top_desc_c_eqn} induces a homomorphism 
+	$$
+\desc^c_p : C_c\left( \widetilde \sX\right)\to  C_c\left(  \sX\right)
+	$$
+	of $C_0\left(\sX \right)$-modules. 
+\end{lemma}
+\begin{proof}
+	If $\widetilde{a}\in C_c\left( \widetilde \sX\right)$ then $\supp \widetilde{a}$ is compact. From the Lemma  \ref{top_compact_lem} it follows that there is a finite-fold transitive covering covering $p': \widetilde \sX' \to \sX$ and a transitive covering  $p'': \widetilde \sX\to \widetilde \sX' \to \sX$ such that $p = p' \circ p''$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $p''\left( \widetilde{a}\right)$. So there is  descent $\desc_{p''}\left(\widetilde  a \right) \in  C_0\left( \widetilde \sX'\right)$ (cf. Definition \ref{top_lift_desc_defn}). Moreover $\desc_{p''}\left(\widetilde  a \right) \in  C_0\left( \widetilde \sX'\right)$ since the set  $p''\left( \widetilde{a}\right)$ is compact.  The group $G\left(\left.\widetilde\sX'\right| \sX  \right)$ is finite so 
+	\be\label{top_decs_c_sum}
+	\sum_{	g \in G\left(\left.\widetilde\sX'\right| \sX  \right)}g \desc_{p''}\left(\widetilde  a \right) \in C_c\left( \widetilde \sX\right) 
+	\ee
+	The sum \eqref{top_decs_c_sum} so it uniquely defines $a \in C_b\left( \sX\right)$.
+	We leave to the reader the proof of following statements:
+	\begin{itemize}
+		\item $a \in C_c\left( \sX\right)$,
+		\item  $a = \desc^c_p\left(\widetilde a \right)$.
+	\end{itemize}
+	It is clear that the obtained map is  a homomorphism 
+	of $C_0\left(\sX \right)$-modules.
+\end{proof}
 \begin{exercise}
-Prove that the given by \eqref{top_desc_c_eqn}  map $\desc^c_p\left(\widetilde a \right)$ satisfies to following conditions:
-\begin{enumerate}
-	\item [(a)] $\desc^c_p\left(\widetilde a \right)\in C_c\left(\sX\right)$,
-	\item[(b)] If $\widetilde a \in C_c\left(\widetilde \sX\right)$ and 	
+Prove that if $\widetilde a \in C_c\left(\widetilde \sX\right)$ and 	
 	the covering $p$ is transitive (cf. Definition \ref{top_cov_trans_defn}) then there is a convergent (in the sense of strict topology of $M\left( C_0\left(\widetilde \sX\right)\right) $) series
 	$$
 	\lift_p \left( \desc^c_p\left(\widetilde a \right)\right)  =\bt\text{-} \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}g \widetilde a
 	$$
-	(cf. Definition \ref{strict_topology_defn} and equation \eqref{strict_topology_eqn}), where $\lift_p$ means the $p$-lift (cf. Definition \ref{top_lift_defn}).
-\end{enumerate}
+	(cf. Definition \ref{strict_topology_defn} and equation \eqref{strict_topology_eqn}), where $\lift_p$ means the $p$-lift (cf. Definition \ref{top_lift_defn}) and $\desc^c_p\left(\widetilde a \right)$ is the given by \eqref{top_desc_c_eqn}  map.
 \end{exercise}
 \begin{definition}\label{top_cdesc_defn}
-The equation \eqref{top_desc_c_eqn} yields a homomorphism
+The Lemma \eqref{top_desc_c_lem} yields a homomorphism
 \be\label{top_cdesc_eqn}
 \desc^c_p : C_c\left( \widetilde\sX\right)\to  C_c\left( \sX\right).
 \ee
