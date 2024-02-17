@@ -2113,7 +2113,7 @@ namespace Diagram.UI
         /// <param name="fileName">The fileName</param>
         /// <param name="namespacE">Namespace</param>
         /// <param name="className">Classname</param>
-        public void SaveCSCodeToFile(string fileName, string namespacE, string className)
+        public void SaveCSCodeToFile(string fileName, string namespacE, string className, bool staticClass = true)
         {
             MemoryStream stream = new MemoryStream();
             SaveAll(stream);
@@ -2121,7 +2121,7 @@ namespace Diagram.UI
             PureDesktopPeer d = new PureDesktopPeer();
             bool b = d.Load(stream, null, true);
           //  d.Refresh();
-            List<string> l = d.CreateInitDesktopCSharpCode(namespacE, className);
+            List<string> l = d.CreateInitDesktopCSharpCode(namespacE, className, staticClass);
             using (TextWriter w = new StreamWriter(fileName))
             {
                 foreach (string s in l)

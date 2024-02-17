@@ -497,16 +497,22 @@ namespace Diagram.UI
         /// Creates desktop code
         /// </summary>
         /// <param name="desktop">The desktop</param>
-        /// <param name="preffix">The preffix</param>
+        /// <param name="prefix">The prefix</param>
         /// <param name="className">Desktop class</param>
         /// <param name="postLoad">Post load</param>
         /// <param name="constructorType">Type of constructor</param>
+        /// <param name="staticClass">The "static class sign</param>
         /// <returns>The code</returns>
-        public static List<string> CreateDesktopCode(this PureDesktop desktop, string preffix,
-            string className, string check = null, bool postLoad = false, string constructorType = "internal ")
+        public static List<string> CreateDesktopCode(this PureDesktop desktop, string prefix,
+            string className, string check = null, bool postLoad = false, string constructorType = "internal ", bool staticClass = true)
         {
+            var ct = constructorType;
+            if (staticClass)
+            {
+                ct = "public ";
+            }
             List <string> l = new List<string>();
-            string pr = preffix;
+            string pr = prefix;
             if (pr.Length > 0)
             {
                 if (pr[pr.Length - 1] != '.')
@@ -631,30 +637,46 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="desktope">Desktop</param>
         /// <param name="namespacE">Namespace</param>
-        /// <param name="className">Classname</param>
+        /// <param name="className">Class name</param>
+        /// <param name="staticClass">Flag of static class</param>
         /// <returns>The code</returns>
-        public static List<string> CreateInitDesktopCSharpCode(this IDesktop desktop, string namespacE, string className)
+        public static List<string> CreateInitDesktopCSharpCode(this IDesktop desktop, string namespacE, 
+            string className, bool staticClass = true)
         {
             List<string> l = new List<string>();
             l.Add(StandardHeader);
             l.Add("namespace " + namespacE);
             l.Add("{");
-            l.Add("\tpublic static class " + className);
-            l.Add("\t{");
-            l.Add("");
-            l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
-            l.Add("");
-            l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new InternalDesktop(); }");
-            l.Add("");
-            List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "InternalDesktop",
-                "SuccessLoad = pl & pd;\n\t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "internal ");
-            l.Add("\t\tinternal class " + lt[0]);
-            for (int i = 1; i < lt.Count; i++)
+            if (staticClass)
             {
-                l.Add("\t\t" + lt[i]);
+                l.Add("\tpublic static class " + className);
+                l.Add("\t{");
+                l.Add("");
+                l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
+                l.Add("");
+                l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new InternalDesktop(); }");
+                l.Add("");
+                List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "InternalDesktop",
+                    "SuccessLoad = pl & pd;\n\t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "internal ");
+                l.Add("\t\tinternal class " + lt[0]);
+                for (int i = 1; i < lt.Count; i++)
+                {
+                    l.Add("\t\t" + lt[i]);
+                }
+                l.Add("\t}");
+                l.Add("}");
             }
-            l.Add("\t}");
-            l.Add("}");
+            else
+            {
+                l.Add("\tpublic  class " + className + " : Diagram.UI.PureDesktop");
+                List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", className,
+               " \t\t\t\tPostLoad(this);\n\t\t\t\tName = \"" + className + "\"; ", true, "public ");
+                for (int i = 1; i < lt.Count; i++)
+                {
+                    l.Add("\t" + lt[i]);
+                }
+                l.Add("}");
+            }
             onCreateCode?.Invoke(l);
             return l;
         }
