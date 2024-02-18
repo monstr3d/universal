@@ -243,7 +243,7 @@ namespace DataPerformer
        ParametrizedSeries[] series,
       Dictionary<DoubleArrayFunction, IMeasurement[]> functions, string reason)
         {
-            consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+     /* !!!       consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                  Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, 
                 reason,  0, () =>
                 {
@@ -257,8 +257,8 @@ namespace DataPerformer
                         double xx = (double)mm[0].Parameter();
                         f[xx] = mm[1].Parameter();
                     }
-                }
-            );
+                }, null
+            );*/
         }
 
  

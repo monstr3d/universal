@@ -55,6 +55,10 @@ using Chart.Indicators;
 using Diagram.Interfaces;
 using Chart.DataPerformer;
 using Chart.UserControls;
+using System.Threading;
+using System.IO;
+using DataPerformer.Portable.Helpers;
+using System.Text.Json;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -68,6 +72,8 @@ namespace DataPerformer.UI.UserControls
     {
 
         #region Specific Fields
+
+        List<List<object>> lists = new List<List<object>>();
 
         internal Dictionary<IMeasurement, ParametrizedSeries> SeriesDictionary;
 
@@ -113,6 +119,8 @@ namespace DataPerformer.UI.UserControls
         private string mode = "";
 
         bool textMode = false;
+
+        CancellationTokenSource ctx;
 
         Dictionary<IMeasurement, Color[]> dcolorAnalysis;
 
@@ -1057,9 +1065,9 @@ namespace DataPerformer.UI.UserControls
                     double start = consumer.StartTime;
                     double step = consumer.Step;
                     int count = consumer.Steps;
-                    consumer.PerformFixed(start, step, count,
+                 /*!!!   consumer.PerformFixed(start, step, count,
                        StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                        DifferentialEquationProcessor.Processor, reason, 1, act, calc);
+                        DifferentialEquationProcessor.Processor, reason,  1,  act, null, calc, null);*/
                 };
                 StaticExtensionDataPerformerUI.StartSynchronousAnimation(this, animation);
             }
@@ -1074,8 +1082,8 @@ namespace DataPerformer.UI.UserControls
                     double start = consumer.StartTime;
                     double step = consumer.Step;
                     int count = consumer.Steps;
-                    consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                    DifferentialEquationProcessor.Processor, reason, 1, act, calc);
+                 /* !!!   consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                    DifferentialEquationProcessor.Processor, reason, 1, act, null, null, calc);*/
                 };
                 StaticExtensionDataPerformerUI.StartSynchronousAnimation(this, animation);
 
@@ -1402,8 +1410,9 @@ Func<bool> stop)
         private void TextAction()
         {
             internalTextAction();
-            if (backgroundWorkerText.CancellationPending)
+            if (ctx.Token.IsCancellationRequested)
             {
+                ctx = null;
                 StaticExtensionDataPerformerPortable.StopRun();
             }
         }
@@ -1430,10 +1439,10 @@ Func<bool> stop)
             try
             {
                 DataConsumer consumer = this.consumer as DataConsumer;
-                consumer.PerformFixed(consumer.StartTime, consumer.Step, consumer.Steps,
+             /*   consumer.PerformFixed(consumer.StartTime, consumer.Step, consumer.Steps,
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider, processor,
                     StaticExtensionDataPerformerInterfaces.Calculation,
-                    0, TextAction);
+                    0, TextAction);*/
             }
             catch (Exception e)
             {
@@ -1465,6 +1474,7 @@ Func<bool> stop)
                 return d;
             }
         }
+
 
         private void WriteText()
         {
@@ -1770,83 +1780,151 @@ Func<bool> stop)
             }
             object ot = comboBoxArg.SelectedItem ?? "Time";
             ArgumentString = ot  + "";
-            backgroundWorker.RunWorkerAsync();
+            if (ctx == null)
+            {
+                ctx = new();
+            }
+            var t = new Task(DoWork);
+            t.GetAwaiter().OnCompleted(WorkCompleted);
+            t.Start();
+       //     backgroundWorker.RunWorkerAsync();
         }
 
         void StartTextClick()
         {
-
             DataConsumer consumer = this.consumer as DataConsumer;
+            Action<string> actxml = (string filename) =>
+            {
+                text = true;
+                pw.Clear();
+                IParameterWriter w = new XmlParameterWriter(filename);
+                pw.Add(w);
+                mc = null;
+                IObjectLabel label = parentLab;
+                object si = comboBoxCond.SelectedItem;
+                if (si != null)
+                {
+                    internalTextAction = CondWrite;
+                    data.Item4[0] = si + "";
+                    mc = consumer.FindMeasurement(data.Item4[0], false);
+                }
+                else
+                {
+                    data.Item4[0] = "";
+                    internalTextAction = WriteText;
+                }
+                dicText.Clear();
+                WritePar();
+                consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
+                consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                double start = consumer.StartTime;
+                double step = consumer.Step;
+                int count = consumer.Steps;
+                IObjectLabel lab = parentLab;
+                IDesktop d = lab.Desktop.Root;
+                IDataRuntime rt = StaticExtensionDataPerformerPortable.Factory.Create(d, 0);
+                processor = DifferentialEquationProcessor.Processor;
+                if (processor != null)
+                {
+                    processor.Set(d);
+                }
+                IMeasurement arg = Argument;
+                if (arg == null)
+                {
+                    return;
+                }
+                removeOwn();
+                ActParent(ActionType.Start,
+                    Animation.Interfaces.Enums.ActionType.Calculation);
+                rt.Refresh();
+                double st = double.Parse(calculatorBoxStart.Text);
+                rt.StartAll(st);
+                consumer.FullReset();
+                for (int i = 0; i < 10; i++)
+                {
+                    try
+                    {
+                        consumer.UpdateChildrenData();
+                        break;
+                    }
+                    catch (Exception exx)
+                    {
+                        exx.ShowError(10);
+                        if (i == 9)
+                        {
+                            ShowErrorLocal(exx);
+                            ActParent(ActionType.Stop, null);
+                            return;
+                        }
+                    }
+                }
+            };
+
+
+
+            Action<string> actjson =  (string filename) =>
+            {
+                lists.Clear();
+                IObjectLabel label = parentLab;
+                object si = comboBoxCond.SelectedItem;
+                if (si != null)
+                {
+                   // internalTextAction = CondWrite;
+                    data.Item4[0] = si + "";
+                    mc = consumer.FindMeasurement(data.Item4[0], false);
+                }
+                else
+                {
+                    data.Item4[0] = "";
+                   // internalTextAction = WriteText;
+                }
+                
+                dicText.Clear();
+                 consumer.StartTime = double.Parse(calculatorBoxStart.Text);
+                consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                double start = consumer.StartTime;
+                double step = consumer.Step;
+                int count = consumer.Steps;
+                 consumer.PerformFixed(start, step, count, 
+                     StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                    DifferentialEquationProcessor.Processor, StaticExtensionDataPerformerInterfaces.Calculation, 
+                    0, WriteList, mc, 
+                    () => ctx.Token.IsCancellationRequested);
+                string jsonString = JsonSerializer.Serialize(lists);
+                if (File.Exists(filename))
+                {
+                    File.Delete(filename);
+                }
+                using (var writer = new StreamWriter(filename))
+                {
+                    writer.Write(jsonString);
+                }
+            };
+
+       /*     double start, double step, int count,
+            ITimeMeasurementProvider provider,
+              IDifferentialEquationProcessor processor, string reason,
+             int priority, Action action, IMeasurement condition, IAsynchronousCalculation asynchronousCalculation = null,
+             IErrorHandler errorHandler = null)*/
             try
             {
                 Action<string> act = (string filename) =>
                 {
-                    text = true;
-                    pw.Clear();
-                    IParameterWriter w = new XmlParameterWriter(filename);
-                    pw.Add(w);
-                    mc = null;
-                    IObjectLabel label = parentLab;
-                    object si = comboBoxCond.SelectedItem;
-                    if (si != null)
+                    var ext = Path.GetExtension(filename);
+                    if (ext.ToLower() == ".xml")
                     {
-                        internalTextAction = CondWrite;
-                        data.Item4[0] = si + "";
-                        mc = consumer.FindMeasurement(data.Item4[0], false);
+                        actxml(filename);
                     }
                     else
                     {
-                        data.Item4[0] = "";
-                        internalTextAction = WriteText;
+                        actjson(filename);
                     }
-                    dicText.Clear();
-                    WritePar();
-                    consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
-                    consumer.Step = Double.Parse(calculatorBoxStep.Text);
-                    consumer.Steps = Int32.Parse(textBoxStepCount.Text);
-                    double start = consumer.StartTime;
-                    double step = consumer.Step;
-                    int count = consumer.Steps;
-                    IObjectLabel lab = parentLab;
-                    IDesktop d = lab.Desktop.Root;
-                    IDataRuntime rt = StaticExtensionDataPerformerPortable.Factory.Create(d, 0);
-                    processor = DifferentialEquationProcessor.Processor;
-                    if (processor != null)
-                    {
-                        processor.Set(d);
-                    }
-                    IMeasurement arg = Argument;
-                    if (arg == null)
-                    {
-                        return;
-                    }
-                    removeOwn();
-                    ActParent(ActionType.Start,
-                        Animation.Interfaces.Enums.ActionType.Calculation);
-                    rt.Refresh();
-                    double st = double.Parse(calculatorBoxStart.Text);
-                    rt.StartAll(st);
-                    consumer.FullReset();
-                    for (int i = 0; i < 10; i++)
-                    {
-                        try
-                        {
-                            consumer.UpdateChildrenData();
-                            break;
-                        }
-                        catch (Exception exx)
-                        {
-                            exx.ShowError(10);
-                            if (i == 9)
-                            {
-                                ShowErrorLocal(exx);
-                                ActParent(ActionType.Stop, null);
-                                return;
-                            }
-                        }
-                    }
+
+                    
                 };
-                this.SaveXml(act);
+                this.SaveJSONXml(act);
             }
             catch (Exception ex)
             {
@@ -1855,15 +1933,43 @@ Func<bool> stop)
                 ActParent(ActionType.Stop, null);
                 return;
             }
-            backgroundWorkerText.RunWorkerAsync();
+            Task t = new Task(Text_DoWork);
+            if (ctx == null)
+            {
+                ctx = new();
+            }
+            t.GetAwaiter().OnCompleted(Text_RunWorkerCompleted);
+            t.Start();
+          //   backgroundWorkerText.RunWorkerAsync();
         }
+
+        void WriteList()
+        {
+            var list = new List<object>();
+            foreach (TextBox tb in dicMea.Keys)
+            {
+                string key = tb.Text;
+                if (key.Length > 0)
+                {
+                    list.Add(dicMea[tb].Parameter());
+                }
+            }
+            lists.Add(list);
+        }
+
+
 
         private void PerformFixed()
         {
+            
             try
             {
+                if (ctx != null)
+                {
+                    ctx = new();
+                }
                 dicto =
-                    (consumer as DataConsumer).PerformFixed(globalArg, globalFunc, () => backgroundWorker.CancellationPending, measurementsWrapperDictionary);
+                    (consumer as DataConsumer).PerformFixed(globalArg, globalFunc, () => ctx.Token.IsCancellationRequested, measurementsWrapperDictionary);
             }
             catch (Exception ex)
             {
@@ -2035,11 +2141,17 @@ Func<bool> stop)
 
         }
 
-        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        void DoWork()
         {
             StartChart();
             ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
             this.InvokeIfNeeded(() => { toolStripButtonStop.Enabled = false; });
+
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+           DoWork();
         }
 
         private void StartTextAnalysis(object l)
@@ -2821,6 +2933,10 @@ Func<bool> stop)
             {
                 return;
             }
+            if (ctx != null)
+            {
+                ctx.Cancel();
+            }
             if (mode.Equals(StaticExtensionEventInterfaces.RealtimeLogAnalysis))
             {
                 if (analysisPause != null)
@@ -2841,11 +2957,11 @@ Func<bool> stop)
                 type = 0;
                 if (text)
                 {
-                    backgroundWorkerText.CancelAsync();
+                  //  backgroundWorkerText.CancelAsync();
                 }
                 else
                 {
-                    backgroundWorker.CancelAsync();
+                //    backgroundWorker.CancelAsync();
                 }
             }
             else
@@ -2855,7 +2971,12 @@ Func<bool> stop)
             ActParent(ActionType.Stop, null);
         }
 
-        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            WorkCompleted();
+        }
+
+        private void WorkCompleted()
         {
             if (CommonComplete())
             {
@@ -2912,7 +3033,8 @@ Func<bool> stop)
             ActParent(ActionType.Stop, null);
         }
 
-        private void backgroundWorkerText_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+
+        private void Text_RunWorkerCompleted()
         {
             if (CommonComplete())
             {
@@ -2925,14 +3047,27 @@ Func<bool> stop)
             ActParent(ActionType.Stop, null);
         }
 
-        private void backgroundWorkerText_DoWork(object sender, DoWorkEventArgs e)
+
+
+        private void backgroundWorkerText_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Text_RunWorkerCompleted();
+        }
+
+        private void Text_DoWork()
         {
             StartText();
-             this.InvokeIfNeeded(() =>
-             {
+            this.InvokeIfNeeded(() =>
+            {
                 ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
                 toolStripButtonStop.Enabled = false;
-             });
+            });
+        }
+
+
+        private void backgroundWorkerText_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Text_DoWork();
         }
 
         private void toolStripButtonAnimation_Click(object sender, EventArgs e)
@@ -3078,8 +3213,6 @@ Func<bool> stop)
             toolStripButtonStop.Enabled = false;
         }
 
-        #endregion
-
         private void panelMea_Resize(object sender, EventArgs e)
         {
             int w = panelMea.Width;
@@ -3088,5 +3221,8 @@ Func<bool> stop)
                 c.Width = w - c.Left;
             }
         }
+
+        #endregion
+
     }
 }

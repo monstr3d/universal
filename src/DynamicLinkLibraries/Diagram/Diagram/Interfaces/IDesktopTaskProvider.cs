@@ -27,5 +27,6 @@ namespace Diagram.UI.Interfaces
         /// <param name="name">Task name</param>
         /// <returns>Gets task</returns>
         string GetTask(string name);
+
     }
 }

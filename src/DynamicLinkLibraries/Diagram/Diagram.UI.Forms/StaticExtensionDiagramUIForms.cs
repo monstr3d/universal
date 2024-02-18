@@ -777,14 +777,15 @@ namespace Diagram.UI
         }
 
         /// <summary>
-        /// Saves xml
+        /// Saves JSON or Xml
         /// </summary>
         /// <param name="form">Parent form</param>
         /// <param name="action">Action with filename</param>
-        public static void SaveXml(this IWin32Window form, Action<string> action)
+        public static void SaveJSONXml(this IWin32Window form, Action<string> action)
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = Resources.GetControlResource("Xml Files|*.xml", Utils.ControlUtilites.Resources);
+            var f = Resources.GetControlResource("JSON files (.json)|*.json|Xml files (.xml)|*.xml", Utils.ControlUtilites.Resources);
+            dialog.Filter = f;
             if (dialog.ShowDialog(form) != DialogResult.OK)
             {
                 return;

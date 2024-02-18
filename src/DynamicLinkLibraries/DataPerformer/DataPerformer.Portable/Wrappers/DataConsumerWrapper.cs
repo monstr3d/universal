@@ -42,15 +42,21 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
+        /// <param name="stop">Stop function</param>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
         public void PerformFixed(double start, double step, int count,
             ITimeMeasurementProvider provider,
               IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null,
+             int priority, Action action, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
              IErrorHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
+            var stp = stop;
+            if (stp == null)
+            {
+                stp = () => false;
+            }
             try
             {
                 using (TimeProviderBackup backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
@@ -76,6 +82,10 @@ namespace DataPerformer.Portable.Wrappers
                         , reason, asynchronousCalculation);
                     for (int i = 0; i < count; i++)
                     {
+                        if (stp())
+                        {
+                            break;
+                        }
                         t = start + i * step;
                         act(last, t, i);
                         last = t;
@@ -98,6 +108,88 @@ namespace DataPerformer.Portable.Wrappers
 
         }
 
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        /// <param name="errorHandler">Asynchronous calculation</param>
+        public void PerformFixed(double start, double step, int count,
+            ITimeMeasurementProvider provider,
+              IDifferentialEquationProcessor processor, string reason,
+             int priority, Action action, IMeasurement condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
+             IErrorHandler errorHandler = null)
+        {
+            ITimeMeasurementProvider old = processor.TimeProvider;
+            Func<bool> stp = stop;
+            if (stp == null)
+            {
+                stp = () => false;
+            }
+            try
+            {
+                using (TimeProviderBackup backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                {
+                    provider.Time = start;
+                    IDataRuntime runtime = backup.Runtime;
+                    runtime.StartAll(start);
+                    processor.TimeProvider = provider;
+                    IStep st = null;
+                    if (runtime is IStep)
+                    {
+                        st = runtime as IStep;
+                    }
+                    provider.Time = start;
+                    double t = start;
+                    double last = t;
+                    Action<double, double, long>
+                        act = runtime.Step(processor,
+                        (time) =>
+                        {
+                            provider.Time = time;
+                        }
+                        , reason, asynchronousCalculation);
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (stp())
+                        {
+                            break;
+                        }
+                        t = start + i * step;
+                        act(last, t, i);
+                        last = t;
+                        if ((bool)condition.Parameter())
+                        {
+                            action();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (errorHandler != null)
+                {
+                    errorHandler.ShowError(ex, 10);
+                }
+                else
+                {
+                    ex.ShowError(10);
+                }
+            }
+            processor.TimeProvider = old;
+        }
+
         /// <summary>
         /// Performs action with fixed step
         /// </summary>
@@ -108,12 +200,12 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
         public void PerformFixed(double start, double step, int count, string reason,
-           int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+           int priority, Action action, Func<bool> stop = null,IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
         {
             PerformFixed(start, step, count,
                    StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                    DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
-                reason, priority, action, asynchronousCalculation, errorHandler);
+                reason, priority, action, stop, asynchronousCalculation, errorHandler);
         }
 
         /// <summary>
@@ -183,6 +275,7 @@ namespace DataPerformer.Portable.Wrappers
             return null;
         }
 
+    
 
 
         /// <summary>
@@ -263,7 +356,7 @@ namespace DataPerformer.Portable.Wrappers
             };
             try
             {
-               Consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
+               PerformFixed(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
             }
             catch (Exception e)
             {
@@ -272,6 +365,8 @@ namespace DataPerformer.Portable.Wrappers
             return xpv.Document;
         }
 
+
+   
 
 
         /// <summary>

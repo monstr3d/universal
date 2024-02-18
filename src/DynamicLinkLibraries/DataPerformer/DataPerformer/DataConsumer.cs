@@ -336,7 +336,6 @@ namespace DataPerformer
         }
 
 
-
         /// <summary>
         /// Performs action with fixed step
         /// </summary>
@@ -508,28 +507,28 @@ namespace DataPerformer
             {
                 dis = disassembly;
             }
-           this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-               DifferentialEquationProcessor.Processor, reason,  0, () =>
-               {
-                   foreach (MeasurementsDisassemblyWrapper w in dis.Values)
-                   {
-                       w.Update();
-                   }
-                   if (stop())
-                   {
-                       StaticExtensionDataPerformerPortable.StopRun();
-                   }
-                   foreach (ParametrizedSeries s in series)
-                   {
-                       s.Step();
-                   }
-                   foreach (DoubleArrayFunction f in functions.Keys)
-                   {
-                       IMeasurement[] mm = functions[f];
-                       double xx = (double)mm[0].Parameter();
-                       f[xx] = mm[1].Parameter();
-                   }
-               }
+            this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                DifferentialEquationProcessor.Processor, reason, 0, () =>
+                {
+                    foreach (MeasurementsDisassemblyWrapper w in dis.Values)
+                    {
+                        w.Update();
+                    }
+                    if (stop())
+                    {
+                        StaticExtensionDataPerformerPortable.StopRun();
+                    }
+                    foreach (ParametrizedSeries s in series)
+                    {
+                        s.Step();
+                    }
+                    foreach (DoubleArrayFunction f in functions.Keys)
+                    {
+                        IMeasurement[] mm = functions[f];
+                        double xx = (double)mm[0].Parameter();
+                        f[xx] = mm[1].Parameter();
+                    }
+                }, stop
            );
         }
 
