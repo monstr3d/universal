@@ -247,6 +247,12 @@ namespace Unity.Standard
         #region Public Members
 
         /// <summary>
+        /// Global scale
+        /// </summary>
+        public static float GlobalScale
+        { get; set; } = 1f;
+
+        /// <summary>
         /// String to single
         /// </summary>
         /// <param name="value">String value</param>

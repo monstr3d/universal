@@ -29,6 +29,8 @@ public class Activation : MonoBehaviour
     public string[] strings = new string[0];
 
     public float[] constants;
+
+    public float globalScale = 1f;
     
     static bool exists = false;
 
@@ -58,6 +60,7 @@ public class Activation : MonoBehaviour
 
     private void Awake()
     {
+        StaticExtensionUnity.GlobalScale = globalScale;
         StaticExtensionUnity.Activation = this;
         if (activation != null)
         {
@@ -84,17 +87,24 @@ public class Activation : MonoBehaviour
         StaticExtensionUnity.Activation = this;
         exists = true;
         type = activationObject.GetActivationType(level);
-        MethodInfo stop = type.GetMethod("Collision", 
-            new Type[] { typeof(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>) });
-        if (stop != null)
+        if (type != null)
         {
-            StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> x) =>
+            MethodInfo stop = type.GetMethod("Collision",
+                new Type[] { typeof(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>) });
+            if (stop != null)
             {
-                stop.Invoke(null, new object[] { x });
-            };
+                StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> x) =>
+                {
+                    stop.Invoke(null, new object[] { x });
+                };
+            }
         }
 
-        MethodInfo mi = type.GetMethod("Set", new Type[] { typeof(MonoBehaviour) });
+        MethodInfo mi = null;
+        if (type != null)
+        {
+            mi = type.GetMethod("Set", new Type[] { typeof(MonoBehaviour) });
+        }
         if (activation != null)
         {
             if (activationObject != null)
@@ -107,13 +117,23 @@ public class Activation : MonoBehaviour
             }
             update = UpdateFist;
         }
-        foreach (MonoBehaviour monoBehaviour in components)
+        if (mi != null)
         {
-            mi.Invoke(null, new object[] { monoBehaviour });
+            foreach (MonoBehaviour monoBehaviour in components)
+            {
+                mi.Invoke(null, new object[] { monoBehaviour });
+            }
         }
         foreach (MonoBehaviour monoBehaviour in components)
         {
-            monoBehaviour.enabled = true;
+            if (!monoBehaviour.enabled)
+            {
+                monoBehaviour.enabled = true;
+                if (!monoBehaviour.enabled)
+                {
+                    monoBehaviour.enabled = true;
+                }
+            }
         }
     }
 

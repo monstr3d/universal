@@ -69,7 +69,16 @@ namespace Chart.DataPerformer
             return d;
         }
 
-
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="iterator">Iterator</param>
+        /// <param name="argument">Argument</param>
+        /// <param name="values">Values</param>
+        /// <param name="series">Series</param>
+        /// <param name="stop">Stop funcion</param>
+        /// <returns>Output</returns>
         public static Dictionary<string, object> PerformIterator(this IDataConsumer consumer,
          IIterator iterator, string argument, string[] values,
      out MeasurementSeries[] series,

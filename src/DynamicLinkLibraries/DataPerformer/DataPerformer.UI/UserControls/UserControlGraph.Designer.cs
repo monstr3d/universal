@@ -142,7 +142,6 @@ namespace DataPerformer.UI.UserControls
             toolStripButtonSeries = new System.Windows.Forms.ToolStripComboBox();
             panelRight = new System.Windows.Forms.Panel();
             panelLeft = new System.Windows.Forms.Panel();
-            backgroundWorker = new System.ComponentModel.BackgroundWorker();
             contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(components);
             showRuntimeIndicatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             backgroundWorkerReatimeAnalysis = new System.ComponentModel.BackgroundWorker();
@@ -1237,12 +1236,6 @@ namespace DataPerformer.UI.UserControls
             panelLeft.Size = new System.Drawing.Size(1, 370);
             panelLeft.TabIndex = 1;
             // 
-            // backgroundWorker
-            // 
-            backgroundWorker.WorkerSupportsCancellation = true;
-            backgroundWorker.DoWork += backgroundWorker_DoWork;
-            backgroundWorker.RunWorkerCompleted += backgroundWorker_RunWorkerCompleted;
-            // 
             // contextMenuStripMain
             // 
             contextMenuStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1376,7 +1369,6 @@ namespace DataPerformer.UI.UserControls
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.ToolStripButton toolStripButtonStart;
         private System.Windows.Forms.ToolStripButton toolStripButtonStop;
-        private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBoxPoints;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripButton toolStripButtonAnimation;

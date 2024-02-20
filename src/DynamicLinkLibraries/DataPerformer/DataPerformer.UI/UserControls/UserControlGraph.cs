@@ -1286,7 +1286,7 @@ namespace DataPerformer.UI.UserControls
             }
             var coll = consumer.GetDependentCollection();
             coll.ForEach((IRunning s) => s.IsRunning = true);
-            dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
+            dicto = (consumer as DataConsumer).PerformIterator(iterator, globalArg, globalFunc, () => ctx.Token.IsCancellationRequested);
         }
 
         private void PerformIterator(IDataConsumer consumer, IIterator iterator)
@@ -1315,7 +1315,7 @@ namespace DataPerformer.UI.UserControls
             var coll = consumer.GetDependentCollection();
             coll.ForEach((IRunning s) => s.IsRunning = true);
             MeasurementSeries[] series = null;
-            dicto = consumer.PerformIterator(iterator, globalArg, globalFunc, out series, () => backgroundWorker.CancellationPending);
+            dicto = consumer.PerformIterator(iterator, globalArg, globalFunc, out series, () => ctx.Token.IsCancellationRequested);
         }
 
         public Dictionary<string, object> PerformIterator(IIterator iterator, string argument, string[] values,
@@ -1846,8 +1846,8 @@ Func<bool> stop)
         {
             try
             {
-                dicto =
-                    (consumer as DataConsumer).PerformArray(array, globalArg, globalFunc, () => backgroundWorker.CancellationPending);
+               // dicto =
+               //     (consumer as DataConsumer).PerformArray(array, globalArg, globalFunc, () => ctx.Token.ThrowIfCancellationRequested);
             }
             catch (Exception ex)
             {
