@@ -17,6 +17,7 @@ using Diagram.UI.UserControls;
 using ResourceService;
 using AssemblyService.Attributes;
 using Diagram.Interfaces;
+using WindowsExtensions;
 
 namespace Diagram.UI
 {
@@ -783,14 +784,22 @@ namespace Diagram.UI
         /// <param name="action">Action with filename</param>
         public static void SaveJSONXml(this IWin32Window form, Action<string> action)
         {
-            SaveFileDialog dialog = new SaveFileDialog();
-            var f = Resources.GetControlResource("JSON files (.json)|*.json|Xml files (.xml)|*.xml", Utils.ControlUtilites.Resources);
-            dialog.Filter = f;
-            if (dialog.ShowDialog(form) != DialogResult.OK)
+            var fn = "";
+            var act = () =>
             {
-                return;
+                SaveFileDialog dialog = new SaveFileDialog();
+                var f = Resources.GetControlResource("JSON files |*.json|Xml files |*.xml", Utils.ControlUtilites.Resources);
+                dialog.Filter = f;
+                if (dialog.ShowDialog(form) == DialogResult.OK)
+                {
+                    fn = dialog.FileName;
+                }
+            };
+            (form as Control).InvokeIfNeeded(act);
+            if (fn.Length > 0)
+            {
+                action(fn);
             }
-            action(dialog.FileName);
       }
 
 

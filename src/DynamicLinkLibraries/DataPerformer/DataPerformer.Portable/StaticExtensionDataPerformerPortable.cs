@@ -27,6 +27,7 @@ using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
 using System.Xml;
+using Diagram.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -253,6 +254,24 @@ namespace DataPerformer.Portable
             wrapper.PerformFixed(start, step, count, provider, processor, priority, action,
                  reason);
          }
+
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="consumer">The Data Consumer</param>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="action">The action</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public static void PerformIterator(this IDataConsumer consumer, IIterator iterator,
+           Action action, Func<bool> stop = null, Action preparation = null,
+           IErrorHandler errorHandler = null)
+        {
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            wrapper.PerformIterator(iterator, action, stop, preparation, errorHandler);
+        }
+
 
 
 

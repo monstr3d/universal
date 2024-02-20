@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Windows.Forms;
+using System.IO;
+using System.Text.Json;
+using System.Threading.Tasks;
+using System.Threading;
+
 
 using CategoryTheory;
 
+using Diagram.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
@@ -27,8 +31,9 @@ using DataPerformer.Interfaces.BufferedData.Interfaces;
 
 using DataPerformer.UI;
 using DataPerformer.UI.Objects;
+using DataPerformer.UI.Interfaces;
 
-
+using Event.UI;
 using Event.Interfaces;
 using Event.Portable;
 using Event.Log.Database.Interfaces;
@@ -37,28 +42,20 @@ using Animation.Interfaces;
 
 using ToolBox;
 
-using Chart;
 using Chart.Interfaces;
 using Chart.Drawing;
 using Chart.Drawing.Interfaces;
 using Chart.Objects;
 using Chart.Panels;
+using Chart.Indicators;
+using Chart.DataPerformer;
+using Chart.UserControls;
 
-using DataPerformer.UI.Interfaces;
 
-using Event.UI;
 
 
 using WindowsExtensions;
-using System.Threading.Tasks;
-using Chart.Indicators;
-using Diagram.Interfaces;
-using Chart.DataPerformer;
-using Chart.UserControls;
-using System.Threading;
-using System.IO;
-using DataPerformer.Portable.Helpers;
-using System.Text.Json;
+
 
 namespace DataPerformer.UI.UserControls
 {
@@ -74,6 +71,8 @@ namespace DataPerformer.UI.UserControls
         #region Specific Fields
 
         List<List<object>> lists = new List<List<object>>();
+
+        string fileText;
 
         internal Dictionary<IMeasurement, ParametrizedSeries> SeriesDictionary;
 
@@ -1792,147 +1791,12 @@ Func<bool> stop)
 
         void StartTextClick()
         {
-            DataConsumer consumer = this.consumer as DataConsumer;
-            Action<string> actxml = (string filename) =>
+
+            this.InvokeIfNeeded(() =>
             {
-                text = true;
-                pw.Clear();
-                IParameterWriter w = new XmlParameterWriter(filename);
-                pw.Add(w);
-                mc = null;
-                IObjectLabel label = parentLab;
-                object si = comboBoxCond.SelectedItem;
-                if (si != null)
-                {
-                    internalTextAction = CondWrite;
-                    data.Item4[0] = si + "";
-                    mc = consumer.FindMeasurement(data.Item4[0], false);
-                }
-                else
-                {
-                    data.Item4[0] = "";
-                    internalTextAction = WriteText;
-                }
-                dicText.Clear();
-                WritePar();
-                consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
-                consumer.Step = Double.Parse(calculatorBoxStep.Text);
-                consumer.Steps = Int32.Parse(textBoxStepCount.Text);
-                double start = consumer.StartTime;
-                double step = consumer.Step;
-                int count = consumer.Steps;
-                IObjectLabel lab = parentLab;
-                IDesktop d = lab.Desktop.Root;
-                IDataRuntime rt = StaticExtensionDataPerformerPortable.Factory.Create(d, 0);
-                processor = DifferentialEquationProcessor.Processor;
-                if (processor != null)
-                {
-                    processor.Set(d);
-                }
-                IMeasurement arg = Argument;
-                if (arg == null)
-                {
-                    return;
-                }
-                removeOwn();
-                ActParent(ActionType.Start,
-                    Animation.Interfaces.Enums.ActionType.Calculation);
-                rt.Refresh();
-                double st = double.Parse(calculatorBoxStart.Text);
-                rt.StartAll(st);
-                consumer.FullReset();
-                for (int i = 0; i < 10; i++)
-                {
-                    try
-                    {
-                        consumer.UpdateChildrenData();
-                        break;
-                    }
-                    catch (Exception exx)
-                    {
-                        exx.ShowError(10);
-                        if (i == 9)
-                        {
-                            ShowErrorLocal(exx);
-                            ActParent(ActionType.Stop, null);
-                            return;
-                        }
-                    }
-                }
-            };
-
-
-
-            Action<string> actjson =  (string filename) =>
-            {
-                lists.Clear();
-                IObjectLabel label = parentLab;
-                object si = comboBoxCond.SelectedItem;
-                if (si != null)
-                {
-                   // internalTextAction = CondWrite;
-                    data.Item4[0] = si + "";
-                    mc = consumer.FindMeasurement(data.Item4[0], false);
-                }
-                else
-                {
-                    data.Item4[0] = "";
-                   // internalTextAction = WriteText;
-                }
-                
-                dicText.Clear();
-                 consumer.StartTime = double.Parse(calculatorBoxStart.Text);
-                consumer.Step = Double.Parse(calculatorBoxStep.Text);
-                consumer.Steps = Int32.Parse(textBoxStepCount.Text);
-                double start = consumer.StartTime;
-                double step = consumer.Step;
-                int count = consumer.Steps;
-                 consumer.PerformFixed(start, step, count, 
-                     StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                    DifferentialEquationProcessor.Processor, StaticExtensionDataPerformerInterfaces.Calculation, 
-                    0, WriteList, mc, 
-                    () => ctx.Token.IsCancellationRequested);
-                string jsonString = JsonSerializer.Serialize(lists);
-                if (File.Exists(filename))
-                {
-                    File.Delete(filename);
-                }
-                using (var writer = new StreamWriter(filename))
-                {
-                    writer.Write(jsonString);
-                }
-            };
-
-       /*     double start, double step, int count,
-            ITimeMeasurementProvider provider,
-              IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, IMeasurement condition, IAsynchronousCalculation asynchronousCalculation = null,
-             IErrorHandler errorHandler = null)*/
-            try
-            {
-                Action<string> act = (string filename) =>
-                {
-                    var ext = Path.GetExtension(filename);
-                    if (ext.ToLower() == ".xml")
-                    {
-                        actxml(filename);
-                    }
-                    else
-                    {
-                        actjson(filename);
-                    }
-
-                    
-                };
-                this.SaveJSONXml(act);
-            }
-            catch (Exception ex)
-            {
-                ex.ShowError(10);
-                ControlExtensions.ShowMessageBoxModal("Refresh please");
-                ActParent(ActionType.Stop, null);
-                return;
-            }
+                ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
+                toolStripButtonStop.Enabled = false;
+            });
             Task t = new Task(Text_DoWork);
             if (ctx == null)
             {
@@ -3036,13 +2900,28 @@ Func<bool> stop)
 
         private void Text_RunWorkerCompleted()
         {
-            if (CommonComplete())
+            if (Path.GetExtension(fileText).ToLower() == ".json")
             {
-                return;
+                string jsonString = JsonSerializer.Serialize(lists);
+                if (File.Exists(fileText))
+                {
+                    File.Delete(fileText);
+                }
+                using (var writer = new StreamWriter(fileText))
+                {
+                    writer.Write(jsonString);
+                }
             }
-            foreach (IParameterWriter wr in pw)
+            else
             {
-                wr.Flush();
+                if (CommonComplete())
+                {
+                    return;
+                }
+                foreach (IParameterWriter wr in pw)
+                {
+                    wr.Flush();
+                }
             }
             ActParent(ActionType.Stop, null);
         }
@@ -3056,12 +2935,152 @@ Func<bool> stop)
 
         private void Text_DoWork()
         {
-            StartText();
-            this.InvokeIfNeeded(() =>
+             DataConsumer consumer = this.consumer as DataConsumer;
+            Action<string> actxml = (string filename) =>
             {
-                ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
-                toolStripButtonStop.Enabled = false;
-            });
+                text = true;
+                pw.Clear();
+                IParameterWriter w = new XmlParameterWriter(filename);
+                pw.Add(w);
+                mc = null;
+                IObjectLabel label = parentLab;
+                object si = comboBoxCond.SelectedItem;
+                if (si != null)
+                {
+                    internalTextAction = CondWrite;
+                    data.Item4[0] = si + "";
+                    mc = consumer.FindMeasurement(data.Item4[0], false);
+                }
+                else
+                {
+                    data.Item4[0] = "";
+                    internalTextAction = WriteText;
+                }
+                dicText.Clear();
+                WritePar();
+                consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
+                consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                double start = consumer.StartTime;
+                double step = consumer.Step;
+                int count = consumer.Steps;
+                IObjectLabel lab = parentLab;
+                IDesktop d = lab.Desktop.Root;
+                IDataRuntime rt = StaticExtensionDataPerformerPortable.Factory.Create(d, 0);
+                processor = DifferentialEquationProcessor.Processor;
+                if (processor != null)
+                {
+                    processor.Set(d);
+                }
+                IMeasurement arg = Argument;
+                if (arg == null)
+                {
+                    return;
+                }
+                removeOwn();
+                rt.Refresh();
+                double st = double.Parse(calculatorBoxStart.Text);
+                rt.StartAll(st);
+                consumer.FullReset();
+                for (int i = 0; i < 10; i++)
+                {
+                    try
+                    {
+                        consumer.UpdateChildrenData();
+                        break;
+                    }
+                    catch (Exception exx)
+                    {
+                        exx.ShowError(10);
+                        if (i == 9)
+                        {
+                            ShowErrorLocal(exx);
+                            ActParent(ActionType.Stop, null);
+                            return;
+                        }
+                    }
+                }
+            };
+
+
+
+            Action<string> actjson = (string filename) =>
+            {
+                try
+                {
+
+                    lists.Clear();
+                    IObjectLabel label = parentLab;
+                    object si;
+                    Action p = () =>
+                    {
+                        si = comboBoxCond.SelectedItem;
+                        if (si != null)
+                        {
+                            // internalTextAction = CondWrite;
+                            data.Item4[0] = si + "";
+                        }
+                        else
+                        {
+                            data.Item4[0] = "";
+                            // internalTextAction = WriteText;
+                        }
+
+                        dicText.Clear();
+                        consumer.StartTime = double.Parse(calculatorBoxStart.Text);
+                        consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                        consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                    };
+                    this.InvokeIfNeeded(p);
+                    double start = consumer.StartTime;
+                    double step = consumer.Step;
+                    int count = consumer.Steps;
+                    mc = consumer.FindMeasurement(data.Item4[0], false);
+                    ctx = new();
+                    consumer.PerformFixed(start, step, count,
+                        StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                       DifferentialEquationProcessor.Processor, StaticExtensionDataPerformerInterfaces.Calculation,
+                       0, WriteList, mc,
+                       () => ctx.Token.IsCancellationRequested);
+                }
+                catch (Exception exx)
+                {
+                    exx.ShowError(10);
+                    ShowErrorLocal(exx);
+                    return;
+                }
+            };
+
+            try
+            {
+                ActParent(ActionType.Start,
+                    Animation.Interfaces.Enums.ActionType.Calculation);
+                Action<string> act = (string filename) =>
+                {
+                    fileText = filename;
+                    var ext = Path.GetExtension(filename);
+                    if (ext.ToLower() == ".xml")
+                    {
+                        actxml(filename);
+                    }
+                    else
+                    {
+                        actjson(filename);
+                    }
+
+
+                };
+                this.SaveJSONXml(act);
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError(10);
+                ControlExtensions.ShowMessageBoxModal("Refresh please");
+                ActParent(ActionType.Stop, null);
+                return;
+            }
+
+
         }
 
 

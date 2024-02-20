@@ -227,7 +227,7 @@ namespace Scripts.Specific
             }
             if (keyCode == StopKey)
             {
-          //      ResultIndicator.Stop();
+                ResultIndicator.Stop();
             }
         }
 

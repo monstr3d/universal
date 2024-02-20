@@ -69,7 +69,32 @@ namespace Chart.DataPerformer
             return d;
         }
 
+
         public static Dictionary<string, object> PerformIterator(this IDataConsumer consumer,
+         IIterator iterator, string argument, string[] values,
+     out MeasurementSeries[] series,
+         Func<bool> stop)
+        {
+            MeasurementSeries[] ss = null;
+            Dictionary<string, object> dic = null;
+            Action preparation = () =>
+            {
+                dic = consumer.CreateMeasurements(argument, values, out ss);
+            };
+            consumer.PerformIterator(iterator, () =>
+            {
+                foreach (var s in ss)
+                {
+                    s.Step();
+                }
+
+            }, stop, preparation);
+            series = ss;
+            return dic;
+        }
+
+        // !!! OLD DELETE !!!
+        public static Dictionary<string, object> PerformIteratorOLD(this IDataConsumer consumer,
             IIterator iterator, string argument, string[] values,
         out MeasurementSeries[] series,
             Func<bool> stop)

@@ -170,7 +170,6 @@ namespace FormulaEditor
                 return a;
             }
         }
-
   
         /// <summary>
         /// Accepts operation

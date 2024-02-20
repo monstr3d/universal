@@ -100,27 +100,13 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Quaternion jump;
 
-    private static float globalScale = 1f;
-
 
     #endregion
 
     #region Standard Members
 
-    private void OnEnable()
-    {
-        
-    }
-
-
-    private void OnDisable()
-    {
-        
-    }
-
     private void Awake()
     {
-        globalScale = StaticExtensionUnity.GlobalScale;
         this.Add();
         MonoBehaviourTimerFactory.OnStart +=
             (string s) =>
@@ -129,15 +115,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
                 {
                     SetConstants();
                     constants = new string[0];
-                }
-                Action act = (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
-                if (cam != null)
-                {
-                    lateUpdate = act;
-                }
-                else
-                {
-                    update = act;
                 }
             };
         exists = desktop.ScadaExists();
@@ -157,7 +134,14 @@ public class ReferenceFrameBehavior : MonoBehaviour
             referenceFrame = frame.Own;
         }
         cam = gameObject.GetComponent<Camera>();
-   
+        if (cam != null)
+        {
+            lateUpdate = UpdatePosition;
+        }
+        else
+        {
+            update = UpdatePosition;
+        }
         if (onTriggerEnter.Length > 0)
         {
             ConstructorInfo c = StaticExtensionUnity.updatesTriggerAction[onTriggerEnter];
@@ -281,13 +265,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
     {
         gameObject.transform.rotation = referenceFrame.ToQuaternion();
         gameObject.transform.position = referenceFrame.Position.ToPosition();
-    }
-
-    void UpdateGlobalScalePosition()
-    {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
-        var p = referenceFrame.Position.ToPosition();
-        gameObject.transform.position = p * globalScale;
     }
 
 
