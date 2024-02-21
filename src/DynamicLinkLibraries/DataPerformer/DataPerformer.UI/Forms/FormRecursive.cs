@@ -84,10 +84,10 @@ namespace DataPerformer.UI.Forms
 
         private void fillVariables()
         {
-            string var = Forms.FormDiffEquation.Variables;
+            string var = FormDiffEquation.Variables;
             Dictionary<object,object> variables = recursive.Variables;
             string vars = "";
-            foreach (char c in variables.Keys)
+            foreach (char c in recursive.OrderedVariables)
             {
                 vars += c;
             }
@@ -113,7 +113,7 @@ namespace DataPerformer.UI.Forms
             formulaPanels.Clear();
             panelFormula.Controls.Clear();
             int top = 0;
-            foreach (char c in variables.Keys)
+            foreach (char c in recursive.OrderedVariables)
             {
                 PanelFormula p = new PanelFormula("" + c, this, panelFormula.Width, 200, Forms.FormDiffEquation.Variables, false, null, null);
                 p.Left = 0;

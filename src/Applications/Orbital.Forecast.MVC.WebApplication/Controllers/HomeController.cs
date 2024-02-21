@@ -32,7 +32,6 @@ namespace Orbital.Forecast.MVC.WebApplication.Controllers
         public ViewResult ForecastInput(ForecastWeb forecast)
         {
             return View(forecast.Values);
-
         }
 
 

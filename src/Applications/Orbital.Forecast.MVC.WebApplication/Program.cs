@@ -1,6 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
-
-var orbital = new Orbital.Forecast.MVC.WebApplication.Models.ForecastWeb();
+/*var orbital = new Orbital.Forecast.MVC.WebApplication.Models.ForecastWeb();
 
 var x = orbital.X;
 x = orbital.Y;
@@ -11,7 +10,7 @@ x = orbital.Vz;
 x = orbital.S;
 x = orbital.F107;
 x = orbital.F107A;
-x = orbital.Ap;
+x = orbital.Ap;*/
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

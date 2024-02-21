@@ -1,16 +1,17 @@
-﻿using DataPerformer.Interfaces;
+﻿using Diagram.UI.Interfaces;
+using DataPerformer.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
-using Diagram.UI.Interfaces;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Orbital.Forecast.MVC.WebApplication.Models
 {
-    public class ForecastWeb : GeneratedProject.Forecast
+    public class ForecastWeb
     {
 
 
         #region Fields
+        GeneratedProject.Forecast forecast = new GeneratedProject.Forecast();
+  
 
         DinAtm.Portable.Atmosphere atmosphere;
         DataPerformer.Formula.DifferentialEquationSolver solver;
@@ -18,6 +19,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         IAlias atm;
         DataPerformer.Portable.DataConsumer dataConsumer;
         DataPerformer.Portable.Wrappers.DataConsumerWrapper wrapper;
+        
         #endregion
 
         /// <summary>
@@ -25,11 +27,11 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// </summary>
         public ForecastWeb()
         {
-            atmosphere = GetObject("Atmosphere") as DinAtm.Portable.Atmosphere;
+            atmosphere = forecast.GetObject("Atmosphere") as DinAtm.Portable.Atmosphere;
             atm = atmosphere;
-            solver = GetObject("Motion equations") as DataPerformer.Formula.DifferentialEquationSolver;
+            solver = forecast.GetObject("Motion equations") as DataPerformer.Formula.DifferentialEquationSolver;
             alias = solver;
-            dataConsumer = GetObject("Chart") as DataPerformer.Portable.DataConsumer;
+            dataConsumer = forecast.GetObject("Chart") as DataPerformer.Portable.DataConsumer;
             wrapper = new DataPerformer.Portable.Wrappers.DataConsumerWrapper(dataConsumer);
         }
 
@@ -147,18 +149,22 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// </summary>
         [Required(ErrorMessage = "Count of steps")]
         public int Count
-        { get; set; } = 1800;
+        { get; set; } = 18000;
 
         public List<List<object>> Values
         {
             get
             {
                 var dt = Time.ToOADate();
-                var l = wrapper.PerformFixed(dt, 1, Count,
+                var f = new GeneratedProject.Forecast();
+                IDataConsumer dc = f.GetObject("Chart") as IDataConsumer;
+                var w =
+                    new DataPerformer.Portable.Wrappers.DataConsumerWrapper(dc);
+                var l = w.PerformFixed(dt, 1, Count,
                     new DataPerformer.Portable.Helpers.TimeMeasurementProvider(),
                     new RungeProcessor(),
                     StaticExtensionDataPerformerInterfaces.Calculation, 0,
-                    "Recursive.z", ["Motion equations.x", "Motion equations.y"]);
+                    "Recursive.y", ["Motion equations.x", "Motion equations.y"]);
 
                 return l;
             }

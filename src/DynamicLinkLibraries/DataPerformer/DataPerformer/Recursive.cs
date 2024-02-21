@@ -65,6 +65,7 @@ namespace DataPerformer
 		/// </summary>
 		public Recursive()
 		{
+		
 		}
 
 		/// <summary>
@@ -153,7 +154,7 @@ namespace DataPerformer
 
 		void Convert()
 		{
-            foreach (char c in vars.Keys)
+            foreach (char c in varc)
             {
                 object[] o = vars[c] as object[];
                 string st = o[1] as string;
@@ -172,6 +173,7 @@ namespace DataPerformer
 			Copy(parsH, pars);
 			Copy(aliasesH, aliases);
 			Copy(externalAlsH, externalAls);
+			Order();
 		}
 
 

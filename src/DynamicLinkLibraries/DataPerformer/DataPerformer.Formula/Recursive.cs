@@ -33,6 +33,11 @@ namespace DataPerformer.Formula
 		#region Fields
 
 		/// <summary>
+		/// Ordered variables
+		/// </summary>
+		protected List<char> varc = new List<char>();
+
+		/// <summary>
 		/// The "is running" sign
 		/// </summary>
 		protected bool isRunning = false;
@@ -259,7 +264,7 @@ namespace DataPerformer.Formula
 				}
 				UpdateChildrenData();
 				update();
-				foreach (char c in variables.Keys)
+				foreach (char c in varc)
 				{
 					object[] o = variables[c] as object[];
 					o[0] = o[3];
@@ -361,7 +366,7 @@ namespace DataPerformer.Formula
 				{
 					list.Add(c + "");
 				}
-				foreach (char c in vars.Keys)
+				foreach (char c in varc)
 				{
 					list.Add(c + "");
 				}
@@ -518,8 +523,12 @@ namespace DataPerformer.Formula
 		/// </summary>
 		public virtual void PostSetArrow()
 		{
+			if (varc.Count == 0)
+			{
+				Order();
+			}
 			acceptParameters();
-			acceptFormulas();
+			AcceptFormulas();
 			ExternalAliases = externalAls;
 			CreateProxyInternal();
 		}
@@ -551,6 +560,7 @@ namespace DataPerformer.Formula
 			set
 			{
 				vars = value;
+				Order();
 			}
 		}
 
@@ -568,7 +578,7 @@ namespace DataPerformer.Formula
 						throw new Exception("Shortage of variables");
 					}
 				}
-				foreach (char c in vars.Keys)
+				foreach (char c in varc)
 				{
 					if (!value.ContainsKey(c))
 					{
@@ -708,7 +718,7 @@ namespace DataPerformer.Formula
 				}
 				pars = value;
 				acceptParameters();
-				acceptFormulas();
+				AcceptFormulas();
 			}
 		}
 
@@ -727,6 +737,14 @@ namespace DataPerformer.Formula
 				}
 				return list;
 			}
+		}
+
+		/// <summary>
+		/// Ordered variables
+		/// </summary>
+		public List<char> OrderedVariables
+		{
+			get => varc;
 		}
 
 		/// <summary>
@@ -751,11 +769,122 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region Internal Members
+        #region Protected Members
 
-		internal Dictionary<object, object> Aliases => aliases;
+		/// <summary>
+		/// Orders variables
+		/// </summary>
+		protected void Order()
+		{
+			varc.Clear();
+			foreach(char c in vars.Keys)
+			{
+				varc.Add(c);
+			}
+			varc.Sort();
+		}
+
+        /// <summary>
+        /// Accepts formulas
+        /// </summary>
+        protected void AcceptFormulas()
+        {
+            output.Clear();
+            acc.Clear();
+            foreach (char c in varc)
+            {
+                Variable v;
+                output.Add(Variable.GetMeasure(c, this, out v));
+                acc[c + ""] = v;
+            }
+            foreach (char c in parameters.Keys)
+            {
+                IMeasurement m = parameters[c] as IMeasurement;
+                VariableMeasurement v = c.Create(m, this);
+                acc[c + ""] = v;
+            }
+            foreach (char c in aliases.Keys)
+            {
+                AliasNameVariable v = new AliasNameVariable(c, this);
+                acc[c + ""] = v;
+                object[] o = aliases[c] as object[];
+            }
+            IAlias al = this;
+            IList<string> l = al.AliasNames;
+            foreach (string n in l)
+            {
+                if (n.Length == 1)
+                {
+                }
+            }
+            IFormulaObjectCreator creator = VariableDetector.GetCreator(this);
+            variables.Clear();
+            foreach (char c in varc)
+            {
+                variables[c] = new object[4];
+            }
+            IList<string> an = AliasNames;
+            List<ObjectFormulaTree> tt = new List<ObjectFormulaTree>();
+            string proh = "\u03B4";
+            foreach (char c in parameters.Keys)
+            {
+                IMeasurement m = parameters[c];
+                if (m.Type is IOneVariableFunction)
+                {
+                    proh += c;
+                }
+            }
+            foreach (char c in varc)
+            {
+                object t = null;
+                object[] os = vars[c] as object[];
+                if (an.Contains(c + ""))
+                {
+                    t = GetType(c + "");
+                }
+                else
+                {
+                    t = os[2];
+                }
+                if (t is IOneVariableFunction)
+                {
+                    proh += c;
+                }
+            }
+            foreach (char c in varc)
+            {
+                object[] os = vars[c] as object[];
+                object t = null;
+                if (an.Contains(c + ""))
+                {
+                    t = GetType(c + "");
+                }
+                else
+                {
+                    t = os[2];
+                }
+                object[] ol = variables[c] as object[];
+                string f = os[1] as string;
+                MathFormula form = MathFormula.FromString(MathSymbolFactory.Sizes, f);
+                ObjectFormulaTree tree = ObjectFormulaTree.CreateTree(form.FullTransform(proh), creator);
+                if (!t.Equals(tree.ReturnType))
+                {
+                    throw new Exception("Illegal return type");
+                }
+                ol[1] = tree;
+                tt.Add(tree);
+            }
+            trees = tt.ToArray();
+        }
+
+
+        #endregion
+
+        #region Internal Members
+
+        internal Dictionary<object, object> Aliases => aliases;
 
 		internal Dictionary<object, object> Pars => pars;
 
@@ -767,7 +896,7 @@ namespace DataPerformer.Formula
 		{
 			if (stated)
 			{
-				foreach (char c in vars.Keys)
+				foreach (char c in varc)
 				{
 					object[] o0 = vars[c] as object[];
 					object[] o = variables[c] as object[];
@@ -791,7 +920,7 @@ namespace DataPerformer.Formula
 
         private void UpdateFormulas()
 		{
-			foreach (char c in variables.Keys)
+			foreach (char c in varc)
 			{
 				object[] o = variables[c] as object[];
 				ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
@@ -810,7 +939,7 @@ namespace DataPerformer.Formula
 				//int k = 0;
 				dictF = new Dictionary<char, FormulaMeasurement>();
 				AssociatedAddition aa = new AssociatedAddition(this, null);
-				foreach (char c in variables.Keys)
+				foreach (char c in varc)
 				{
 					object[] o = variables[c] as object[];
 					ObjectFormulaTree tree = o[1] as ObjectFormulaTree;
@@ -825,7 +954,7 @@ namespace DataPerformer.Formula
 				}
 				FormulaMeasurement.Set(lm, proxy);
 				update = UpdateProxy;
-				output = outNew;
+			// !!! VERY BAD	output = outNew;
 			}
 			catch (Exception ex)
 			{
@@ -836,7 +965,7 @@ namespace DataPerformer.Formula
 		private void UpdateProxy()
 		{
 			proxy.Update();
-			foreach (char c in variables.Keys)
+			foreach (char c in varc)
 			{
 				object[] o = variables[c] as object[];
 				IMeasurement m = dictF[c];
@@ -844,99 +973,6 @@ namespace DataPerformer.Formula
 			}
 		}
 
-		/// <summary>
-		/// Accepts formulas
-		/// </summary>
-		private void acceptFormulas()
-		{
-			output.Clear();
-			acc.Clear();
-
-			foreach (char c in vars.Keys)
-			{
-				Variable v;
-				output.Add(Variable.GetMeasure(c, this, out v));
-				acc[c + ""] = v;
-			}
-			foreach (char c in parameters.Keys)
-			{
-				IMeasurement m = parameters[c] as IMeasurement;
-				VariableMeasurement v = c.Create(m, this);
-				acc[c + ""] = v;
-			}
-			foreach (char c in aliases.Keys)
-			{
-				AliasNameVariable v = new AliasNameVariable(c, this);
-				acc[c + ""] = v;
-				object[] o = aliases[c] as object[];
-			}
-			IAlias al = this;
-			IList<string> l = al.AliasNames;
-			foreach (string n in l)
-			{
-				if (n.Length == 1)
-				{
-				}
-			}
-			IFormulaObjectCreator creator = VariableDetector.GetCreator(this);
-			variables.Clear();
-			foreach (char c in vars.Keys)
-			{
-				variables[c] = new object[4];
-			}
-			IList<string> an = AliasNames;
-			List<ObjectFormulaTree> tt = new List<ObjectFormulaTree>();
-			string proh = "\u03B4";
-			foreach (char c in parameters.Keys)
-			{
-				IMeasurement m = parameters[c];
-				if (m.Type is IOneVariableFunction)
-				{
-					proh += c;
-				}
-			}
-			foreach (char c in vars.Keys)
-			{
-				object t = null;
-				object[] os = vars[c] as object[];
-				if (an.Contains(c + ""))
-				{
-					t = GetType(c + "");
-				}
-				else
-				{
-					t = os[2];
-				}
-				if (t is IOneVariableFunction)
-				{
-					proh += c;
-				}
-			}
-			foreach (char c in vars.Keys)
-			{
-				object[] os = vars[c] as object[];
-				object t = null;
-				if (an.Contains(c + ""))
-				{
-					t = GetType(c + "");
-				}
-				else
-				{
-					t = os[2];
-				}
-				object[] ol = variables[c] as object[];
-				string f = os[1] as string;
-				MathFormula form = MathFormula.FromString(MathSymbolFactory.Sizes, f);
-				ObjectFormulaTree tree = ObjectFormulaTree.CreateTree(form.FullTransform(proh), creator);
-				if (!t.Equals(tree.ReturnType))
-				{
-					throw new Exception("Illegal return type");
-				}
-				ol[1] = tree;
-				tt.Add(tree);
-			}
-			trees = tt.ToArray();
-		}
 
 		/// <summary>
 		/// Accepts external parameters

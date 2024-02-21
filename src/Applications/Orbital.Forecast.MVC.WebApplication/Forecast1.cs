@@ -6,60 +6,56 @@ using System.Text;
 
 namespace GeneratedProject
 {
-	public  class Forecast : Diagram.UI.PureDesktop
+	public  class Forecast1 : Diagram.UI.PureDesktop
 	{
-		public Forecast()
+		public Forecast1()
 		{
-			objects.Add(new Forecast.OblectLabel0("Atmosphere", this));
-			objects.Add(new Forecast.OblectLabel1("Gravity", this));
-			objects.Add(new Forecast.OblectLabel2("Vector", this));
-			objects.Add(new Forecast.OblectLabel3("G-transformation", this));
-			objects.Add(new Forecast.OblectLabel4("A-transformation", this));
-			objects.Add(new Forecast.OblectLabel5("Motion equations", this));
-			objects.Add(new Forecast.OblectLabel6("Recursive", this));
-			objects.Add(new Forecast.OblectLabel7("Chart", this));
+			objects.Add(new Forecast1.OblectLabel0("Atmosphere", this));
+			objects.Add(new Forecast1.OblectLabel1("Gravity", this));
+			objects.Add(new Forecast1.OblectLabel2("Vector", this));
+			objects.Add(new Forecast1.OblectLabel3("G-transformation", this));
+			objects.Add(new Forecast1.OblectLabel4("A-transformation", this));
+			objects.Add(new Forecast1.OblectLabel5("Motion equations", this));
+			objects.Add(new Forecast1.OblectLabel6("Recursive", this));
+			objects.Add(new Forecast1.OblectLabel7("Chart", this));
 			Diagram.UI.Labels.PureArrowLabel currALabel = null;
-			currALabel  = new Forecast.ArrowLabel0("", this);
+			currALabel  = new Forecast1.ArrowLabel0("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)3;
 			currALabel.TargetNumber = (int)1;
-			currALabel  = new Forecast.ArrowLabel1("", this);
+			currALabel  = new Forecast1.ArrowLabel1("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)4;
 			currALabel.TargetNumber = (int)0;
-			currALabel  = new Forecast.ArrowLabel2("", this);
+			currALabel  = new Forecast1.ArrowLabel2("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)3;
 			currALabel.TargetNumber = (int)2;
-			currALabel  = new Forecast.ArrowLabel3("", this);
+			currALabel  = new Forecast1.ArrowLabel3("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)4;
 			currALabel.TargetNumber = (int)2;
-			currALabel  = new Forecast.ArrowLabel4("", this);
+			currALabel  = new Forecast1.ArrowLabel4("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)5;
 			currALabel.TargetNumber = (int)3;
-			currALabel  = new Forecast.ArrowLabel5("", this);
+			currALabel  = new Forecast1.ArrowLabel5("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)5;
 			currALabel.TargetNumber = (int)4;
-			currALabel  = new Forecast.ArrowLabel6("", this);
+			currALabel  = new Forecast1.ArrowLabel6("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)5;
 			currALabel.TargetNumber = (int)2;
-			currALabel  = new Forecast.ArrowLabel7("", this);
+			currALabel  = new Forecast1.ArrowLabel7("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)7;
 			currALabel.TargetNumber = (int)5;
-			currALabel  = new Forecast.ArrowLabel8("", this);
+			currALabel  = new Forecast1.ArrowLabel8("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)6;
 			currALabel.TargetNumber = (int)5;
-			currALabel  = new Forecast.ArrowLabel9("", this);
-			arrows.Add(currALabel);
-			currALabel.SourceNumber = (int)7;
-			currALabel.TargetNumber = (int)2;
-			currALabel  = new Forecast.ArrowLabel10("", this);
+			currALabel  = new Forecast1.ArrowLabel9("", this);
 			arrows.Add(currALabel);
 			currALabel.SourceNumber = (int)7;
 			currALabel.TargetNumber = (int)6;
@@ -2293,12 +2289,12 @@ namespace GeneratedProject
 					};
 					parameters =new Dictionary<string, object>()
 					{
-						{"y", (double)4112.9884576209461 },
-						{"x", (double)-5110.5458043714179 },
-						{"z", (double)2555.3253645580562 },
 						{"u", (double)3.1201970923142439 },
+						{"v", (double)1.7737490756446463 },
 						{"w", (double)6.9300634883477716 },
-						{"v", (double)1.7737490756446463 }
+						{"y", (double)4112.9884576209461 },
+						{"z", (double)2555.3253645580562 },
+						{"x", (double)-5110.5458043714179 }
 					};
 					operationNames = new Dictionary<System.Int32,System.String>()
 					{
@@ -2665,15 +2661,15 @@ namespace GeneratedProject
 					};
 					aliases = new Dictionary<object, object>()
 					{
-									{"q" , (System.Double)(5.3174953569821228E-09)}
+									{"y" , (System.Double)(-4463.9369842100004)}
 						,			{"o" , (System.Double)(0.00014584231700000001)}
-						,			{"z" , (System.Double)(0)}
+						,			{"x" , (System.Double)(-5448.3481532400001)}
+						,			{"u" , (System.Double)(-0.98539477743199999)}
 						,			{"v" , (System.Double)(1.2168189383400001)}
 						,			{"s" , (System.Double)(1.6189340462770081E-13)}
-						,			{"x" , (System.Double)(-5448.3481532400001)}
 						,			{"w" , (System.Double)(7.45047785592)}
-						,			{"u" , (System.Double)(-0.98539477743199999)}
-						,			{"y" , (System.Double)(-4463.9369842100004)}
+						,			{"z" , (System.Double)(0)}
+						,			{"q" , (System.Double)(5.3174953569821228E-09)}
 					};
 					isSerialized = true;
 					calculateDerivation = false;
@@ -3121,8 +3117,9 @@ namespace GeneratedProject
 					proxyFactory = this;
 					vars = new Dictionary<object, object>()
 					{
-						{'y', new object[] {(System.Double)(0),"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"&gt;\" S=\"&gt;\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"∖\" S=\"AND\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"&lt;\" S=\"&lt;\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",(System.Boolean)(false)}}
-						,{'x', new object[] {(System.Double)(0),"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)(0)}}
+						{'y', new object[] {(System.Double)(0),"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)(0)}}
+						,{'x', new object[] {(System.Double)(0),"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)(0)}}
+						,{'z', new object[] {(System.Double)(0),"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"&lt;\" S=\"&lt;\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"∖\" S=\"AND\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"&gt;\" S=\"&gt;\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",(System.Boolean)(false)}}
 					};
 			
 					aliases = new Dictionary<object, object>()
@@ -3157,12 +3154,15 @@ namespace GeneratedProject
 						variable = measurement0.Parameter();
 						if (checkValue(variable)) { success = false; return; }
 						var_0 = (double)variable;
-						var_2 = (var_0) > (var_1);
-						variable = measurement3.Parameter();
+						variable = measurement1.Parameter();
 						if (checkValue(variable)) { success = false; return; }
-						var_3 = (double)variable;
-						var_5 = (var_3) < (var_4);
-						var_6 = (var_2) & (var_5);
+						var_1 = (double)variable;
+						variable = measurement2.Parameter();
+						if (checkValue(variable)) { success = false; return; }
+						var_2 = (double)variable;
+						var_4 = (var_2) < (var_3);
+						var_6 = (var_0) > (var_5);
+						var_7 = (var_4) & (var_6);
 					}
 					
 					internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue)
@@ -3171,7 +3171,8 @@ namespace GeneratedProject
 						this.trees = trees;
 						this.checkValue = checkValue;
 						measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
-						measurement3 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[3]);
+						measurement1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[1]);
+						measurement2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[2]);
 						dictionary[trees[0]] = Get_0;
 						dictionary[trees[1]] = Get_1;
 						dictionary[trees[2]] = Get_2;
@@ -3179,6 +3180,7 @@ namespace GeneratedProject
 						dictionary[trees[4]] = Get_4;
 						dictionary[trees[5]] = Get_5;
 						dictionary[trees[6]] = Get_6;
+						dictionary[trees[7]] = Get_7;
 					}
 					
 					public Func<object> this[FormulaEditor.ObjectFormulaTree tree]
@@ -3187,18 +3189,20 @@ namespace GeneratedProject
 					Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();
 					
 					DataPerformer.Interfaces.IMeasurement measurement0;
-					DataPerformer.Interfaces.IMeasurement measurement3;
+					DataPerformer.Interfaces.IMeasurement measurement1;
+					DataPerformer.Interfaces.IMeasurement measurement2;
 					FormulaEditor.ObjectFormulaTree currentTree = null;
 					object[] currentArray = null;
 					double doubleValue = 0;
 					FormulaEditor.ObjectFormulaTree[] trees = null;
 					double var_0 = 0;
 					double var_1 = 0;
-					bool var_2 = false;
+					double var_2 = 0;
 					double var_3 = 0;
-					double var_4 = 0;
-					bool var_5 = false;
+					bool var_4 = false;
+					double var_5 = 0;
 					bool var_6 = false;
+					bool var_7 = false;
 					
 					object Get_0()
 					{
@@ -3233,6 +3237,11 @@ namespace GeneratedProject
 					object Get_6()
 					{
 						return success ? var_6 : null;
+					}
+					
+					object Get_7()
+					{
+						return success ? var_7 : null;
 					}
 					
 					Func<object, bool> checkValue = (o) => false;
@@ -3383,19 +3392,6 @@ namespace GeneratedProject
 			{
 				this.desktop = desktop;
 				arrow = new ArrowLabel9.CategoryArrow();
-			}
-	
-			internal class CategoryArrow : DataPerformer.Portable.DataLink
-			{
-			}
-		}
-	
-		internal class ArrowLabel10 : Diagram.UI.Labels.PureArrowLabel
-		{
-			internal ArrowLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-			{
-				this.desktop = desktop;
-				arrow = new ArrowLabel10.CategoryArrow();
 			}
 	
 			internal class CategoryArrow : DataPerformer.Portable.DataLink
