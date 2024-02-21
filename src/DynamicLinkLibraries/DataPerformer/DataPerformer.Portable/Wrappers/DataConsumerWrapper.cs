@@ -164,16 +164,63 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="processor">Differential equation processor</param>
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
-        /// <param name="action">Additional action</param>
-        /// <param name="condition">Condition</param>
+        /// <param name="contidion">Condition</param>
+        /// <param name="paramerets">Parameters</param>
         /// <param name="stop">Stop function</param>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
         /// <param name="errorHandler">Asynchronous calculation</param>
-        public void PerformFixed(double start, double step, int count,
+        /// <returns></returns>
+        public List<List<object>> PerformFixed(double start, double step, int count,
+        ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor, string reason,
+        int priority, string contidion, IEnumerable<string> paramerets, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+        IErrorHandler errorHandler = null)
+        {
+            var list = new List<List<object>>();
+            var cond = FindMeasurement(contidion);
+            var m = new List<IMeasurement>();
+            foreach (var s in paramerets)
+            {
+                m.Add(FindMeasurement(s));
+            }
+            var measurements = m.ToArray();
+            Action action = () =>
+            {
+                var l = new List<object>();
+                foreach (var measurement in measurements)
+                {
+                    l.Add(measurement.Parameter());
+                }
+                list.Add(l);
+            };
+            PerformFixed(start, step, count, provider,
+            processor, reason, 0, action, cond, stop, 
+            asynchronousCalculation, errorHandler);
+            return list;  
+        }
+
+
+            /// <summary>
+            /// Performs action with fixed step
+            /// </summary>
+            /// <param name="start">Start</param>
+            /// <param name="step">Step</param>
+            /// <param name="count">Count of steps</param>
+            /// <param name="provider">Provider of time measure</param>
+            /// <param name="processor">Differential equation processor</param>
+            /// <param name="reason">Reason</param>
+            /// <param name="priority">Priority</param>
+            /// <param name="action">Additional action</param>
+            /// <param name="condition">Condition</param>
+            /// <param name="stop">Stop function</param>
+            /// <param name="errorHandler">Error handler</param>
+            /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+            /// <param name="errorHandler">Asynchronous calculation</param>
+            public void PerformFixed(double start, double step, int count,
             ITimeMeasurementProvider provider,
               IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, IMeasurement condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
+             int priority, Action action, IMeasurement condition, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
              IErrorHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
@@ -245,7 +292,7 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
         public void PerformFixed(double start, double step, int count, string reason,
-           int priority, Action action, Func<bool> stop = null,IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+           int priority, Action action, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
         {
             PerformFixed(start, step, count,
                    StaticExtensionDataPerformerPortable.Factory.TimeProvider,
@@ -254,14 +301,14 @@ namespace DataPerformer.Portable.Wrappers
         }
 
         /// <summary>
-        /// Finds measure
+        /// Finds measurement
         /// </summary>
-        /// <param name="measure">Measure name</param>
+        /// <param name="measurement">Measurement name</param>
         /// <param name="allowNull">The allow null sign</param>
-        /// <returns>The measure</returns>
-        public IMeasurement FindMeasurement(string measure, bool allowNull = false)
+        /// <returns>The measurement</returns>
+        public IMeasurement FindMeasurement(string measurement, bool allowNull = false)
         {
-            if (measure == null)
+            if (measurement == null)
             {
                 if (!allowNull)
                 {
@@ -269,7 +316,7 @@ namespace DataPerformer.Portable.Wrappers
                 }
                 return null;
             }
-            int n = measure.LastIndexOf(".");
+            int n = measurement.LastIndexOf(".");
             if (n < 0)
             {
                 if (!allowNull)
@@ -278,8 +325,8 @@ namespace DataPerformer.Portable.Wrappers
                 }
                 return null;
             }
-            string p = measure.Substring(0, n);
-            string s = measure.Substring(n + 1);
+            string p = measurement.Substring(0, n);
+            string s = measurement.Substring(n + 1);
             IAssociatedObject ass = Consumer as IAssociatedObject;
             INamedComponent comp = ass.Object as INamedComponent;
             IDesktop d = comp.Desktop;
@@ -310,7 +357,7 @@ namespace DataPerformer.Portable.Wrappers
                     foreach (var cmm in cm.GetMeasurementObjects())
                     {
                         var nm = Consumer.GetName(cmm);
-                        if (measure.Equals(nm))
+                        if (measurement.Equals(nm))
                         {
                             return cmm;
                         }

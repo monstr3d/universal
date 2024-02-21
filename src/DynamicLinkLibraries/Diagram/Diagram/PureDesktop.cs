@@ -679,7 +679,7 @@ namespace Diagram.UI
         /// <param name="desktop">The desktop for post load</param>
         public static void PostLoad(IDesktop desktop)
         {
-            desktopPostLoad(desktop);
+            desktopPostLoad?.Invoke(desktop);
         }
 
         /// <summary>

@@ -183,6 +183,8 @@ namespace DataPerformer.Formula
 
         #region Members
 
+        #region Public Memmbers
+
         /// <summary>
         /// Gets formula
         /// </summary>
@@ -231,44 +233,81 @@ namespace DataPerformer.Formula
             }
         }
 
-
-         /// <summary>
-        /// The count of measurements
+        /// <summary>
+        /// Calculates derivations
         /// </summary>
-        int IMeasurements.Count
+        public void CalculateDerivations()
         {
-            get
+            try
             {
-                if (output == null)
+                foreach (Variable v in externalAliases.Keys)
                 {
-                    return 0;
+                    AliasName an = externalAliases[v];
+                    IMeasurement m = v;
+                    var p = m.Parameter;
+                    var value = p();
+                    if (value == null)
+                    {
+
+                    }
+                    an.SetValue(value);
                 }
-                return output.Length;
+                foreach (IMeasurements m in dependent)
+                {
+                    m.IsUpdated = false;
+                    m.UpdateMeasurements();
+                }
+                update();
             }
-        }
-
-        int VariablesCount
-        {
-            get
+            catch (Exception e)
             {
-                IMeasurements m = this;
-                return m.Count;
+                e.ShowError();
             }
         }
-
 
         /// <summary>
-        /// Access to n - th measurement
+        /// Table of external aliases
         /// </summary>
-        IMeasurement IMeasurements.this[int n]
+        public Dictionary<object, object> ExternalAliases
         {
             get
             {
-                return output[n];
+                return aliasNames;
+            }
+            set
+            {
+                aliasNames = value;
+                postSetAlias();
             }
         }
 
+        /// <summary>
+        /// Names of all aliases
+        /// </summary>
+        public override List<string> AllAliases
+        {
+            get
+            {
+                List<string> a = new List<string>();
+                this.GetAliases(a, null);
+                return a;
+            }
+        }
 
+        /// <summary>
+        /// Order of derivation
+        /// </summary>
+        new public int DerivationOrder
+        {
+            get
+            {
+                return deriOrder;
+            }
+            set
+            {
+                deriOrder = value;
+            }
+        }
 
         /// <summary>
         /// Updates measurements data
@@ -303,174 +342,6 @@ namespace DataPerformer.Formula
                 time = value;
             }
         }
-
-        private void SetParameter()
-        {
-  //          Prepare();
-            DynamicalParameter parameter = new DynamicalParameter();
-            foreach (IMeasurements measurements in measurementsData)
-            {
-                string name = this.GetMeasurementsName(measurements);
-                for (int i = 0; i < measurements.Count; i++)
-                {
-                    IMeasurement measure = measurements[i];
-                    string p = name + "." + measure.Name;
-                    List<string> arg = new List<string>(arguments);
-                    foreach (string s in arg)
-                    {
-                        string ss = s.Substring(4);
-                        //!!!TEMP====================
-                        bool b = ss.Equals(p);
-                        if (!b)
-                        {
-                            if (ss.Replace("/", "_").Equals(p))
-                            {
-                                arguments.Remove(s);
-                                arguments.Add(s.Substring(0, 4) + p);
-                                b = true;
-                            }
-                        }
-                        if (b)
-                        //!!!TEMP ===
-                        {
-                            char c = s[0];
-                            parameter.Add(c, measure);
-                            string key = c + "";
-                            if (!acc.ContainsKey(key))
-                            {
-                                acc[c + ""] = c.Create(measure, this);
-                            }
-                        }
-                    }
-                }
-            }
-            timeVariable = null;
-            IMeasurement timeMeasure =
-                StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
-            foreach (string s in arguments)
-            {
-                if (s.Substring(4).Equals("Time"))
-                {
-                    //timeChar = s[0];
-                    // parameter.Add(s[0], timeMeasure);
-                    string key = s[0] + "";
-                    if (!acc.ContainsKey(key))
-                    {
-                        timeVariable = s[0].Create(timeMeasure, this);
-                        acc[key] = timeVariable;
-                    }
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// The operation that performs after arrows setting
-        /// </summary>
-        protected virtual void PostSetArrowProtected()
-        {
-            postDeserialize();
-            postSetAlias();
-            isSerialized = true;
-            foreach (IMeasurements measurements in measurementsData)
-            {
-                string name = this.GetMeasurementsName(measurements);
-                for (int i = 0; i < measurements.Count; i++)
-                {
-                    IMeasurement measure = measurements[i];
-                    string p = name + "." + measure.Name;
-                    List<string> arg = new List<string>(arguments);
-                    foreach (string s in arg)
-                    {
-                        string ss = s.Substring(4);
-                        //!!!TEMP====================
-                        bool b = ss.Equals(p);
-                        if (!b)
-                        {
-                            if (ss.Replace("/", "_").Equals(p))
-                            {
-                                arguments.Remove(s);
-                                arguments.Add(s.Substring(0, 4) + p);
-                                b = true;
-                            }
-                        }
-                        if (b)
-                        //!!!TEMP ===
-                        {
-                            char c = s[0];
-                            //                           parameter.Add(c, measure);
-                            string key = c + "";
-                            if (!acc.ContainsKey(key))
-                            {
-                                acc[c + ""] = c.Create(measure, this);
-                            }
-                        }
-                    }
-                }
-                isSerialized = false;
-            }
-
-        }
- 
-
-        /// <summary>
-        /// Accepts measurements
-        /// </summary>
-        private void acceptMeasurements()
-        {
-            timeVariable = null;
-            Portable.DynamicalParameter parameter = new Portable.DynamicalParameter();
-            parameters.Clear();
-            foreach (IMeasurements measurements in measurementsData)
-            {
-                string name = this.GetMeasurementsName(measurements);
-                for (int i = 0; i < measurements.Count; i++)
-                {
-                    IMeasurement measure = measurements[i];
-                    string p = name + "." + measure.Name;
-                    foreach (char c in pars.Keys)
-                    {
-                        if (!pars.ContainsKey(c))
-                        {
-                            continue;
-                        }
-                        if (pars[c] == null)
-                        {
-                            continue;
-                        }
-                        string s = pars[c] as string;
-                        if (s.Equals(p))
-                        {
-                            parameter.Add(c, measure);
-                            VariableMeasurement vm = c.Create(measure, this);
-                            parameters[c] = vm;
-                        }
-                    }
-                }
-            }
-            foreach (string s in arguments)
-            {
-                if (s.Substring(s.Length - 4).Equals("Time"))
-                {
-                    timeVariable = s[0].Create(
-                      StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement,
-                        this);
-                    parameters[s[0]] = timeVariable;
-                }
-            }
-            foreach (char c in pars.Keys)
-            {
-                if (!parameters.ContainsKey(c))
-                {
-                    if (pars[c] != null)
-                    {
-                        this.Throw(new Exception(PureDesktop.GetResourceString(VectorFormulaConsumer.ExternalParameter_) +
-                            c + PureDesktop.GetResourceString(VectorFormulaConsumer._IsNotDefined)));
-                    }
-                }
-            }
-        }
-
 
         /// <summary>
         /// Arguments of equations
@@ -796,49 +667,6 @@ namespace DataPerformer.Formula
             }
         }
 
-
-        #region IAlias Members
-
-        /// <summary>
-        /// Names of aliases
-        /// </summary>
-        public override IList<string> AliasNames
-        {
-            get
-            {
-                List<string> s = new List<string>();
-                foreach (string str in aliases.Keys)
-                {
-                    s.Add(str);
-                }
-                return s;
-            }
-        }
-
-        /// <summary>
-        /// Access to alias object
-        /// </summary>
-        public override object this[string alias]
-        {
-            get
-            {
-                return aliases[alias];
-            }
-            set
-            {
-                char c = alias[0];
-                // double a = (double)value;
-                aliases[alias] = value;
-                if (variables.ContainsKey(c))
-                {
-                    SetValue(c, value);
-                }
-            }
-        }
-
-  
-        #endregion
-
         /// <summary>
         /// Clears set of variables
         /// </summary>
@@ -848,6 +676,58 @@ namespace DataPerformer.Formula
             vars.Clear();
         }
 
+        #endregion
+
+        #region Protected Members
+
+        /// <summary>
+        /// The operation that performs after arrows setting
+        /// </summary>
+        protected virtual void PostSetArrowProtected()
+        {
+            postDeserialize();
+            postSetAlias();
+            isSerialized = true;
+            foreach (IMeasurements measurements in measurementsData)
+            {
+                string name = this.GetMeasurementsName(measurements);
+                for (int i = 0; i < measurements.Count; i++)
+                {
+                    IMeasurement measure = measurements[i];
+                    string p = name + "." + measure.Name;
+                    List<string> arg = new List<string>(arguments);
+                    foreach (string s in arg)
+                    {
+                        string ss = s.Substring(4);
+                        //!!!TEMP====================
+                        bool b = ss.Equals(p);
+                        if (!b)
+                        {
+                            if (ss.Replace("/", "_").Equals(p))
+                            {
+                                arguments.Remove(s);
+                                arguments.Add(s.Substring(0, 4) + p);
+                                b = true;
+                            }
+                        }
+                        if (b)
+                        //!!!TEMP ===
+                        {
+                            char c = s[0];
+                            //                           parameter.Add(c, measure);
+                            string key = c + "";
+                            if (!acc.ContainsKey(key))
+                            {
+                                acc[c + ""] = c.Create(measure, this);
+                            }
+                        }
+                    }
+                }
+                isSerialized = false;
+            }
+
+        }
+
         /// <summary>
         /// Performs operations after deserialization
         /// </summary>
@@ -855,7 +735,7 @@ namespace DataPerformer.Formula
         {
             Hpars = new Dictionary<object, object>(pars);
             Haliases = new Dictionary<object, object>(aliases);
-      //      Harguments = new Dictionary<object, object>(arguments);
+            //      Harguments = new Dictionary<object, object>(arguments);
             foreach (string s in args)
             {
                 arguments.Add(s);
@@ -1011,92 +891,136 @@ namespace DataPerformer.Formula
             }
         }
 
-        /*!!! PROXY TEST     ITreeCollectionProxy Proxy
-             {
-                 get
-                 {
-                     ITreeCollection t = this;
-                     return new Calculation.Calculate(t.Trees, (object o) => { });
-                 }
-             }
-             */
+ 
+        #endregion
 
-        /// <summary>
-        /// Calculates derivations
-        /// </summary>
-        public void CalculateDerivations()
+        #region Private Members
+
+        int VariablesCount
         {
-            try
+            get
             {
-                foreach (Variable v in externalAliases.Keys)
+                IMeasurements m = this;
+                return m.Count;
+            }
+        }
+
+        private void SetParameter()
+        {
+  //          Prepare();
+            DynamicalParameter parameter = new DynamicalParameter();
+            foreach (IMeasurements measurements in measurementsData)
+            {
+                string name = this.GetMeasurementsName(measurements);
+                for (int i = 0; i < measurements.Count; i++)
                 {
-                    AliasName an = externalAliases[v];
-                    IMeasurement m = v;
-                    var p = m.Parameter;
-                    var value = p();
-                    if (value == null)
+                    IMeasurement measure = measurements[i];
+                    string p = name + "." + measure.Name;
+                    List<string> arg = new List<string>(arguments);
+                    foreach (string s in arg)
                     {
-
+                        string ss = s.Substring(4);
+                        //!!!TEMP====================
+                        bool b = ss.Equals(p);
+                        if (!b)
+                        {
+                            if (ss.Replace("/", "_").Equals(p))
+                            {
+                                arguments.Remove(s);
+                                arguments.Add(s.Substring(0, 4) + p);
+                                b = true;
+                            }
+                        }
+                        if (b)
+                        //!!!TEMP ===
+                        {
+                            char c = s[0];
+                            parameter.Add(c, measure);
+                            string key = c + "";
+                            if (!acc.ContainsKey(key))
+                            {
+                                acc[c + ""] = c.Create(measure, this);
+                            }
+                        }
                     }
-                    an.SetValue(value);
                 }
-                foreach (IMeasurements m in dependent)
+            }
+            timeVariable = null;
+            IMeasurement timeMeasure =
+                StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
+            foreach (string s in arguments)
+            {
+                if (s.Substring(4).Equals("Time"))
                 {
-                    m.IsUpdated = false;
-                    m.UpdateMeasurements();
+                    //timeChar = s[0];
+                    // parameter.Add(s[0], timeMeasure);
+                    string key = s[0] + "";
+                    if (!acc.ContainsKey(key))
+                    {
+                        timeVariable = s[0].Create(timeMeasure, this);
+                        acc[key] = timeVariable;
+                    }
                 }
-                update();
-            }
-            catch (Exception e)
-            {
-                e.ShowError();
             }
         }
 
         /// <summary>
-        /// Table of external aliases
+        /// Accepts measurements
         /// </summary>
-        public Dictionary<object, object> ExternalAliases
+        private void acceptMeasurements()
         {
-            get
+            timeVariable = null;
+            Portable.DynamicalParameter parameter = new Portable.DynamicalParameter();
+            parameters.Clear();
+            foreach (IMeasurements measurements in measurementsData)
             {
-                return aliasNames;
+                string name = this.GetMeasurementsName(measurements);
+                for (int i = 0; i < measurements.Count; i++)
+                {
+                    IMeasurement measure = measurements[i];
+                    string p = name + "." + measure.Name;
+                    foreach (char c in pars.Keys)
+                    {
+                        if (!pars.ContainsKey(c))
+                        {
+                            continue;
+                        }
+                        if (pars[c] == null)
+                        {
+                            continue;
+                        }
+                        string s = pars[c] as string;
+                        if (s.Equals(p))
+                        {
+                            parameter.Add(c, measure);
+                            VariableMeasurement vm = c.Create(measure, this);
+                            parameters[c] = vm;
+                        }
+                    }
+                }
             }
-            set
+            foreach (string s in arguments)
             {
-                aliasNames = value;
-                postSetAlias();
+                if (s.Substring(s.Length - 4).Equals("Time"))
+                {
+                    timeVariable = s[0].Create(
+                      StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement,
+                        this);
+                    parameters[s[0]] = timeVariable;
+                }
+            }
+            foreach (char c in pars.Keys)
+            {
+                if (!parameters.ContainsKey(c))
+                {
+                    if (pars[c] != null)
+                    {
+                        this.Throw(new Exception(PureDesktop.GetResourceString(VectorFormulaConsumer.ExternalParameter_) +
+                            c + PureDesktop.GetResourceString(VectorFormulaConsumer._IsNotDefined)));
+                    }
+                }
             }
         }
-
-        /// <summary>
-        /// Names of all aliases
-        /// </summary>
-        public override List<string> AllAliases
-        {
-            get
-            {
-                List<string> a = new List<string>();
-                this.GetAliases(a, null);
-                return a;
-            }
-        }
-
-        /// <summary>
-        /// Order of derivation
-        /// </summary>
-        new public int DerivationOrder
-        {
-            get
-            {
-                return deriOrder;
-            }
-            set
-            {
-                deriOrder = value;
-            }
-        }
-
 
         /// <summary>
         /// Initialization
@@ -1138,8 +1062,6 @@ namespace DataPerformer.Formula
             return DeltaFunction.GetDistribution(t);
         }
 
-
-
         private void postSetAlias()
         {
             externalAliases.Clear();
@@ -1154,7 +1076,6 @@ namespace DataPerformer.Formula
                 externalAliases[v] = this.FindAliasName(s, false);
             }
         }
-
 
         private void SetDerivations()
         {
@@ -1221,6 +1142,84 @@ namespace DataPerformer.Formula
         }
 
         #endregion
+
+        #endregion
+
+        #region IMeasurements Members
+
+        /// <summary>
+        /// The count of measurements
+        /// </summary>
+        int IMeasurements.Count
+        {
+            get
+            {
+                if (output == null)
+                {
+                    return 0;
+                }
+                return output.Length;
+            }
+        }
+
+
+        /// <summary>
+        /// Access to n - th measurement
+        /// </summary>
+        IMeasurement IMeasurements.this[int n]
+        {
+            get
+            {
+                return output[n];
+            }
+        }
+
+
+        #endregion
+
+
+        #region IAlias Members
+
+        /// <summary>
+        /// Names of aliases
+        /// </summary>
+        public override IList<string> AliasNames
+        {
+            get
+            {
+                List<string> s = new List<string>();
+                foreach (string str in aliases.Keys)
+                {
+                    s.Add(str);
+                }
+                return s;
+            }
+        }
+
+        /// <summary>
+        /// Access to alias object
+        /// </summary>
+        public override object this[string alias]
+        {
+            get
+            {
+                return aliases[alias];
+            }
+            set
+            {
+                char c = alias[0];
+                aliases[alias] = value;
+                if (variables.ContainsKey(c))
+                {
+                    SetValue(c, value);
+                }
+            }
+        }
+
+
+        #endregion
+
+
 
         #region IVariableDetector Members
 

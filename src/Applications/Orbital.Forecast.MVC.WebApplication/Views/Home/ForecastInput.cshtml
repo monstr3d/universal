@@ -1,0 +1,97 @@
+﻿@model Orbital.Forecast.MVC.WebApplication.Models.ForecastWeb
+
+<h4>ForecastWeb</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ForecastInput">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="X" class="control-label"></label>
+                <input asp-for="X" class="form-control" />
+                <span asp-validation-for="X" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Y" class="control-label"></label>
+                <input asp-for="Y" class="form-control" />
+                <span asp-validation-for="Y" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Z" class="control-label"></label>
+                <input asp-for="Z" class="form-control" />
+                <span asp-validation-for="Z" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vx" class="control-label"></label>
+                <input asp-for="Vx" class="form-control" />
+                <span asp-validation-for="Vx" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vy" class="control-label"></label>
+                <input asp-for="Vy" class="form-control" />
+                <span asp-validation-for="Vy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vz" class="control-label"></label>
+                <input asp-for="Vz" class="form-control" />
+                <span asp-validation-for="Vz" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S" class="control-label"></label>
+                <input asp-for="S" class="form-control" />
+                <span asp-validation-for="S" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="F107A" class="control-label"></label>
+                <input asp-for="F107A" class="form-control" />
+                <span asp-validation-for="F107A" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="F107" class="control-label"></label>
+                <input asp-for="F107" class="form-control" />
+                <span asp-validation-for="F107" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ap" class="control-label"></label>
+                <input asp-for="Ap" class="form-control" />
+                <span asp-validation-for="Ap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Count" class="control-label"></label>
+                <input asp-for="Count" class="form-control" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <input asp-for="Level" class="form-control" />
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasParent" /> @Html.DisplayNameFor(model => model.HasParent)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

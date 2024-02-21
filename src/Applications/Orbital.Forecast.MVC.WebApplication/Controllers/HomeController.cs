@@ -1,3 +1,6 @@
+using DataPerformer.Interfaces;
+using DataPerformer.Portable.DifferentialEquationProcessors;
+using DataPerformer.Portable.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Orbital.Forecast.MVC.WebApplication.Models;
 using System.Diagnostics;
@@ -17,6 +20,21 @@ namespace Orbital.Forecast.MVC.WebApplication.Controllers
         {
             return View();
         }
+
+
+        [HttpGet]
+        public ViewResult ForecastInput()
+        {
+            return View(new ForecastWeb());
+        }
+
+        [HttpPost]
+        public ViewResult ForecastInput(ForecastWeb forecast)
+        {
+            return View(forecast.Values);
+
+        }
+
 
         public IActionResult Privacy()
         {
