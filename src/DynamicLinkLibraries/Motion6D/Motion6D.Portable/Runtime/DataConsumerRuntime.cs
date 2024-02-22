@@ -226,7 +226,7 @@ namespace Motion6D.Portable.Runtime
             IStep st = this;
             st.Step = -1;
             IDifferentialEquationProcessor pr = 
-                DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor;
+                DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor.New;
             if (pr == null)
             {
                 return;

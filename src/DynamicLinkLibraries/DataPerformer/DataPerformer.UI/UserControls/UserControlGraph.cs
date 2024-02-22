@@ -55,6 +55,7 @@ using Chart.UserControls;
 
 
 using WindowsExtensions;
+using DataPerformer.Portable.Helpers;
 
 
 namespace DataPerformer.UI.UserControls
@@ -69,6 +70,8 @@ namespace DataPerformer.UI.UserControls
     {
 
         #region Specific Fields
+
+        XmlDocument docResult;
 
         List<List<object>> lists = new List<List<object>>();
 
@@ -178,10 +181,7 @@ namespace DataPerformer.UI.UserControls
         static private readonly Image im = ResourceImage.Graph.ToBitmap();
 
         IDifferentialEquationProcessor processor;
-
-        IMeasurement mc;
-
-        
+     
 
         private Action internalTextAction;
 
@@ -1397,15 +1397,7 @@ Func<bool> stop)
             }
         }
 
-        private void CondWrite()
-        {
-            bool cond = (bool)mc.Parameter();
-            if (cond)
-            {
-                WriteText();
-            }
-        }
-
+  
         private void TextAction()
         {
             internalTextAction();
@@ -1420,7 +1412,7 @@ Func<bool> stop)
         {
             try
             {
-                internalTextAction = (mc == null) ? new Action(CondWrite) : WriteText;
+               // internalTextAction = (mc == null) ? new Action(CondWrite) : WriteText;
                 consumer.PerformArray(array,
                     (consumer as ICategoryObject).GetRootDesktop(),
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider,
@@ -1832,8 +1824,8 @@ Func<bool> stop)
                 {
                     ctx = new();
                 }
-                dicto =
-                    (consumer as DataConsumer).PerformFixed(globalArg, globalFunc, () => ctx.Token.IsCancellationRequested, measurementsWrapperDictionary);
+              /* !!! dicto =
+                    (consumer as DataConsumer).PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);*/
             }
             catch (Exception ex)
             {
@@ -2036,7 +2028,6 @@ Func<bool> stop)
             if (si != null)
             {
                 data.Item4[0] = si + "";
-                mc = consumer.FindMeasurement(data.Item4[0], false);
             }
             else
             {
@@ -2068,8 +2059,6 @@ Func<bool> stop)
                     textDictionary[measurement.Name] = measurement;
                 }
             }
-            condition = (mc == null) ? new Func<bool>(() => { return true; }) :
-                () => { return (bool)mc.Parameter(); };
             textXML = XElement.Parse("<Analysis/>");
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
                 consumer.CreateDisassemblyMeasurements();
@@ -2897,16 +2886,16 @@ Func<bool> stop)
             ActParent(ActionType.Stop, null);
         }
 
-
         private void Text_RunWorkerCompleted()
         {
+            if (File.Exists(fileText))
+            {
+                File.Delete(fileText);
+            }
+
             if (Path.GetExtension(fileText).ToLower() == ".json")
             {
                 string jsonString = JsonSerializer.Serialize(lists);
-                if (File.Exists(fileText))
-                {
-                    File.Delete(fileText);
-                }
                 using (var writer = new StreamWriter(fileText))
                 {
                     writer.Write(jsonString);
@@ -2914,18 +2903,22 @@ Func<bool> stop)
             }
             else
             {
-                if (CommonComplete())
+                docResult.Save(fileText);
+
+                if (false)
                 {
-                    return;
-                }
-                foreach (IParameterWriter wr in pw)
-                {
-                    wr.Flush();
+                    if (CommonComplete())
+                    {
+                        return;
+                    }
+                    foreach (IParameterWriter wr in pw)
+                    {
+                        wr.Flush();
+                    }
                 }
             }
             ActParent(ActionType.Stop, null);
         }
-
 
 
         private void backgroundWorkerText_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -2933,85 +2926,69 @@ Func<bool> stop)
             Text_RunWorkerCompleted();
         }
 
+        bool stop()
+        {
+            return ctx.Token.IsCancellationRequested;
+        }
+
         private void Text_DoWork()
         {
-             DataConsumer consumer = this.consumer as DataConsumer;
+            DataConsumer consumer = this.consumer as DataConsumer;
+            IMeasurement arg = null;
+            double st = 0;
             Action<string> actxml = (string filename) =>
             {
-                text = true;
-                pw.Clear();
-                IParameterWriter w = new XmlParameterWriter(filename);
-                pw.Add(w);
-                mc = null;
-                IObjectLabel label = parentLab;
-                object si = comboBoxCond.SelectedItem;
-                if (si != null)
+                Action act = () =>
                 {
-                    internalTextAction = CondWrite;
-                    data.Item4[0] = si + "";
-                    mc = consumer.FindMeasurement(data.Item4[0], false);
-                }
-                else
-                {
-                    data.Item4[0] = "";
+                    text = true;
+                    pw.Clear();
+                    IParameterWriter w = new XmlParameterWriter(filename);
+                    pw.Add(w);
+                    IObjectLabel label = parentLab;
+                    object si = comboBoxCond.SelectedItem;
+                    if (si != null)
+                    {
+                         data.Item4[0] = si + "";
+                    }
+                    else
+                    {
+                        data.Item4[0] = "";
+                     }
+                    dicText.Clear();
                     internalTextAction = WriteText;
-                }
-                dicText.Clear();
-                WritePar();
-                consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
-                consumer.Step = Double.Parse(calculatorBoxStep.Text);
-                consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                    WritePar();
+                    consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
+                    consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                    consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                    arg = Argument;
+                    st = double.Parse(calculatorBoxStart.Text);
+                };
+                this.InvokeIfNeeded(act);
                 double start = consumer.StartTime;
                 double step = consumer.Step;
                 int count = consumer.Steps;
-                IObjectLabel lab = parentLab;
-                IDesktop d = lab.Desktop.Root;
-                IDataRuntime rt = StaticExtensionDataPerformerPortable.Factory.Create(d, 0);
-                processor = DifferentialEquationProcessor.Processor;
-                if (processor != null)
-                {
-                    processor.Set(d);
-                }
-                IMeasurement arg = Argument;
-                if (arg == null)
-                {
-                    return;
-                }
-                removeOwn();
-                rt.Refresh();
-                double st = double.Parse(calculatorBoxStart.Text);
-                rt.StartAll(st);
-                consumer.FullReset();
-                for (int i = 0; i < 10; i++)
-                {
-                    try
-                    {
-                        consumer.UpdateChildrenData();
-                        break;
-                    }
-                    catch (Exception exx)
-                    {
-                        exx.ShowError(10);
-                        if (i == 9)
-                        {
-                            ShowErrorLocal(exx);
-                            ActParent(ActionType.Stop, null);
-                            return;
-                        }
-                    }
-                }
+                ctx = new();
+                docResult = consumer.CreateXmlDocument(data.Item3,
+                                data.Item4[0], start,
+                               step, count, stop, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                       DifferentialEquationProcessor.Processor);
+
+       /*         string condition, Func< bool > stop, double start, double step,
+            int count, ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor, IErrorHandler errorHandler = null*/
             };
 
 
 
-            Action<string> actjson = (string filename) =>
+                Action<string> actjson = (string filename) =>
             {
                 try
                 {
 
                     lists.Clear();
                     IObjectLabel label = parentLab;
-                    object si;
+                    object si = null;
+                    string ss = null;
                     Action p = () =>
                     {
                         si = comboBoxCond.SelectedItem;
@@ -3019,12 +2996,14 @@ Func<bool> stop)
                         {
                             // internalTextAction = CondWrite;
                             data.Item4[0] = si + "";
+                            ss = si + "";
                         }
                         else
                         {
                             data.Item4[0] = "";
                             // internalTextAction = WriteText;
                         }
+
 
                         dicText.Clear();
                         consumer.StartTime = double.Parse(calculatorBoxStart.Text);
@@ -3035,13 +3014,16 @@ Func<bool> stop)
                     double start = consumer.StartTime;
                     double step = consumer.Step;
                     int count = consumer.Steps;
-                    mc = consumer.FindMeasurement(data.Item4[0], false);
                     ctx = new();
-                    consumer.PerformFixed(start, step, count,
+                    
+                    consumer.PerformFixed(start, step, count,    
                         StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                       DifferentialEquationProcessor.Processor, StaticExtensionDataPerformerInterfaces.Calculation,
-                       0, WriteList, mc,
-                       () => ctx.Token.IsCancellationRequested);
+                       DifferentialEquationProcessor.Processor, 
+                       StaticExtensionDataPerformerInterfaces.Calculation,
+                       0, WriteList, ss,
+                       stop, null, null);
+
+    
                 }
                 catch (Exception exx)
                 {

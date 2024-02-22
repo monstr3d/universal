@@ -1,4 +1,9 @@
+using DataPerformer.Portable.DifferentialEquationProcessors;
+using DataPerformer.Portable;
+
 var builder = WebApplication.CreateBuilder(args);
+AssemblyService.StaticExtensionAssemblyService.Init();
+DifferentialEquationProcessor.Processor = RungeProcessor.Processor;
 /*var orbital = new Orbital.Forecast.MVC.WebApplication.Models.ForecastWeb();
 
 var x = orbital.X;

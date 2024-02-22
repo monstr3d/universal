@@ -29,7 +29,7 @@ namespace DataPerformer.Event.Portable
         {
             try
             {
-                using (DataPerformer.Portable.TimeProviderBackup backup = 
+                using (var backup = 
                     new DataPerformer.Portable.TimeProviderBackup(consumer, timeProvider, null, reason, 0))
                 {
                     IDataRuntime runtime = backup.Runtime;
@@ -87,7 +87,7 @@ namespace DataPerformer.Event.Portable
         {
             try
             {
-                using (DataPerformer.Portable.TimeProviderBackup backup = 
+                using (var backup = 
                     new DataPerformer.Portable.TimeProviderBackup(consumer, timeProvider, null, reason, 0))
                 {
                     IDataRuntime runtime = backup.Runtime;

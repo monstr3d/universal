@@ -302,7 +302,7 @@ namespace DataPerformer
         static public void PerformArray(this IDataConsumer consumer, Array array, IComponentCollection collection, ITimeMeasurementProvider provider,
             IDifferentialEquationProcessor processor, int priority, Action action, string reason)
         {
-            using (TimeProviderBackup backup = new TimeProviderBackup(collection, provider, processor, priority, reason))
+            using (var backup = new TimeProviderBackup(collection, provider, processor, priority, reason))
             {
                 IDataRuntime runtime = backup.Runtime;
                 ITimeMeasurementProvider old = processor.TimeProvider;

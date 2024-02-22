@@ -18,6 +18,7 @@ namespace AssemblyService
         static LinkedList<string> locations = new LinkedList<string>();
 
         static string dir;
+        
         static StaticExtensionAssemblyService()
         {
             Action<Exception> act = (Exception ex) => 

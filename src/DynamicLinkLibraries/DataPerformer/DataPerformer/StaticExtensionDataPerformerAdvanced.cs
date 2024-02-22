@@ -167,7 +167,8 @@ namespace DataPerformer
         /// <param name="series">Series</param>
         /// <param name="functions">Functions</param>
         /// <returns>Result of simulation</returns>
-        public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer, double start, double step, int count, 
+        public static Dictionary<string, object> PerformFixedTT(this IDataConsumer consumer, 
+            double start, double step, int count, 
             string argument, string[] values,
              out ParametrizedSeries[] series,
             out Dictionary<DoubleArrayFunction, IMeasurement[]> functions)
@@ -181,9 +182,9 @@ namespace DataPerformer
                 {
                     return null;
                 }
-                PerformFixed(consumer, start, step, count, argument, 
+   /* !!!!            PerformFixed(consumer, start, step, count, argument, 
                     values, series, functions, StaticExtensionDataPerformerInterfaces.Calculation);
-                return dic;
+       */         return dic;
             }
 
             catch (Exception ex)
@@ -206,13 +207,15 @@ namespace DataPerformer
         /// <param name="argument">Argument</param>
         /// <param name="values">Values</param>
         /// <returns>Dictionary of performed result</returns>
-        public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+    /*!!!    public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer, double start, double step, int count,
             string argument, string[] values)
         {
             ParametrizedSeries[] series = null;
             Dictionary<DoubleArrayFunction, IMeasurement[]> functions = null;
             return consumer.PerformFixed(start, step, count, argument, values, out series, out functions);
-        }
+        }*/
+
+
         /// <summary>
         /// Gets series
         /// </summary>
@@ -227,39 +230,40 @@ namespace DataPerformer
              string argument, string[] values)
         {
             Dictionary<string, Portable.Basic.Series> dic = new Dictionary<string, Portable.Basic.Series>();
-            Dictionary<string, object> d = consumer.PerformFixed(start, step, count, argument, values);
+         /*  !!! Dictionary<string, object> d = consumer.PerformFixed(start, step, count, argument, values);
             foreach (string key in d.Keys)
             {
                 ParametrizedSeries s = d[key] as ParametrizedSeries;
                 Portable.Basic.Series ser = new Portable.Basic.Series();
                 ser.CopyFrom(s);
                 dic[key] = ser;
-            }
+            }*/
             return dic;
         }
 
 
-        private static void PerformFixed(IDataConsumer consumer, double start, double step, int count, string argument, string[] values,
+      /*  !!! private static void PerformFixedT(this IDataConsumer consumer, double start, double step, int count, string argument, string[] values,
        ParametrizedSeries[] series,
       Dictionary<DoubleArrayFunction, IMeasurement[]> functions, string reason)
         {
-     /* !!!       consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                 Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, 
-                reason,  0, () =>
-                {
-                    foreach (ParametrizedSeries s in series)
-                    {
-                        s.Step();
-                    }
-                    foreach (DoubleArrayFunction f in functions.Keys)
-                    {
-                        IMeasurement[] mm = functions[f];
-                        double xx = (double)mm[0].Parameter();
-                        f[xx] = mm[1].Parameter();
-                    }
-                }, null
-            );*/
-        }
+            consumer.PerformFixed(start, step, count, 
+                StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+              Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
+             reason, 0, () =>
+             {
+                 foreach (ParametrizedSeries s in series)
+                 {
+                     s.Step();
+                 }
+                 foreach (DoubleArrayFunction f in functions.Keys)
+                 {
+                     IMeasurement[] mm = functions[f];
+                     double xx = (double)mm[0].Parameter();
+                     f[xx] = mm[1].Parameter();
+                 }
+             }, null
+            );
+        }*/
 
  
         #region Binder Class

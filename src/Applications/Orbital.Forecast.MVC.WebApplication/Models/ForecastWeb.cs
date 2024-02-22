@@ -162,10 +162,9 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
                     new DataPerformer.Portable.Wrappers.DataConsumerWrapper(dc);
                 var l = w.PerformFixed(dt, 1, Count,
                     new DataPerformer.Portable.Helpers.TimeMeasurementProvider(),
-                    new RungeProcessor(),
+                    DifferentialEquationProcessor.Processor,
                     StaticExtensionDataPerformerInterfaces.Calculation, 0,
                     "Recursive.y", ["Motion equations.x", "Motion equations.y"]);
-
                 return l;
             }
         }

@@ -39,14 +39,14 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="step">Step</param>
         /// <param name="count">Count of steps</param>
         /// <returns>Document</returns>
-        public XmlDocument CreateXmlDocument(string consumer,
+    /*!!!    public XmlDocument CreateXmlDocument(string consumer,
             XmlDocument input, double start, double step, int count)
         {
             var desktop = ComponentCollection as IDesktop;
             var c = desktop.GetObject(consumer) as IDataConsumer;
             var wrapper = new DataConsumerWrapper(c);
             return wrapper.CreateXmlDocument(input, start, step, count);
-        }
+        }*/
 
         /// <summary>
         /// Creates Xml document
@@ -56,18 +56,18 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="step">Step</param>
         /// <param name="count">Count of steps</param>
         /// <returns>Document</returns>
-        public XmlDocument CreateXmlDocument(XmlDocument input, double start, double step, int count)
+      /* !!!  public XmlDocument CreateXmlDocument(XmlDocument input, double start, double step, int count)
         {
             string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
             return CreateXmlDocument(consumer, input, start, step, count);
-        }
+        }*/
 
         /// <summary>
         /// Creates Xml document
         /// </summary>
         /// <param name="input">Input</param>
         /// <returns>Document</returns>
-        public XmlDocument CreateXmlDocument(XmlDocument input)
+      /* !!! public XmlDocument CreateXmlDocument(XmlDocument input)
         {
             string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
             XmlElement p = input.GetElementsByTagName("Interval")[0] as XmlElement;
@@ -82,7 +82,7 @@ namespace DataPerformer.Portable.Wrappers
             double finish = (double)d["Finish"].FromString(a);
             int count = (int)((finish - start) / step);
             return CreateXmlDocument(consumer, input, start, step, count);
-        }
+        }*/
 
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace DataPerformer.Portable.Wrappers
         public void PerformFixed(double start, double step, int count, ITimeMeasurementProvider provider,
         IDifferentialEquationProcessor processor, int priority, Action action, string reason)
         {
-            using (TimeProviderBackup backup = new
+            using (var backup = new
                 TimeProviderBackup(ComponentCollection, provider, processor, priority, reason))
             {
                 List<IMeasurements> measurements = backup.Measurements;

@@ -380,7 +380,7 @@ namespace DataPerformer.Advanced.Accumulators
                 //return;
             }
             block = true;
-            using (TimeProviderBackup tb = new TimeProviderBackup(this, this, processor, StaticExtensionDataPerformerInterfaces.Calculation, 0))
+            using (var tb = new TimeProviderBackup(this, this, processor, StaticExtensionDataPerformerInterfaces.Calculation, 0))
             {
                 runtime.StartAll(0);
                 IDataConsumer th = this;

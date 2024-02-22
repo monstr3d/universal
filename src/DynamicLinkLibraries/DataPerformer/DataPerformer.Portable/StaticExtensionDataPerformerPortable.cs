@@ -171,16 +171,16 @@ namespace DataPerformer.Portable
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
         /// <param name="errorHandler">Asynchronous calculation</param>
         public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
-            ITimeMeasurementProvider provider,
-              IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, IMeasurement condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
-             IErrorHandler errorHandler = null)
+                ITimeMeasurementProvider provider,
+                  IDifferentialEquationProcessor processor, string reason,
+                 int priority, Action action, string condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
+                 IErrorHandler errorHandler = null)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
             wrapper.PerformFixed(start, step, count,
              provider,
                processor, reason,
-              priority, action, condition, stop,  asynchronousCalculation,
+              priority, action, condition, stop, asynchronousCalculation,
               errorHandler);
         }
 
@@ -195,14 +195,14 @@ namespace DataPerformer.Portable
             /// <param name="reason">Reason</param>
             /// <param name="priority">Priority</param>
             /// <param name="action">Additional action</param>
-            public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count, string reason,
+       /*     public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count, string reason,
            int priority, Action action, Func<bool> stop = null,  IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
         {
             consumer.PerformFixed(start, step, count,
                    StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                    DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
                 reason, priority, action, stop, asynchronousCalculation, errorHandler);
-        }
+        }*/
 
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace DataPerformer.Portable
         /// <param name="stop">Stop function</param>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
-        static public void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+ /*       static public void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
             ITimeMeasurementProvider provider,
               IDifferentialEquationProcessor processor, string reason,
              int priority, Action action, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
@@ -231,7 +231,7 @@ namespace DataPerformer.Portable
             wrapper.PerformFixed(start, step, count, provider, processor, reason, priority,
                 action, stop, asynchronousCalculation, errorHandler);
 
-        }
+        }*/
  
  
 
@@ -439,7 +439,7 @@ namespace DataPerformer.Portable
         /// <param name="disassembly">Disassembly</param>
         /// <returns>The dictionary</returns>
         static public Dictionary<IMeasurement, IDisassemblyObject>
-            CreateDisassemblyObjectDictionary(this IDataConsumer dataConsumer, 
+            CreateDisassemblyObjectDictionary(this IDataConsumer dataConsumer,
             IDisassemblyObject disassembly)
         {
             List<IMeasurement> l = new List<IMeasurement>();
@@ -451,7 +451,7 @@ namespace DataPerformer.Portable
                     l.Add(m[j]);
                 }
             }
-           return l.CreateDisassemblyObjectDictionary(disassembly);
+            return l.CreateDisassemblyObjectDictionary(disassembly);
         }
 
 
@@ -465,13 +465,42 @@ namespace DataPerformer.Portable
         /// <param name="step">Step</param>
         /// <param name="count">Count</param>
         /// <returns>Result</returns>
-        static public XmlDocument CreateXmlDocument(this IDataConsumer consumer,
+/*  !!!      static public XmlDocument CreateXmlDocument(this IDataConsumer consumer,
             XmlDocument input, double start, double step,
             int count)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
             return wrapper.CreateXmlDocument(input, start, step, count);
 
+        }*/
+
+        /// <summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="output">Output parameters</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="start">Start time</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="provider">Provider of time measurements</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <returns>The Xml document</returns>
+        static public XmlDocument CreateXmlDocument(this IDataConsumer consumer, 
+            Dictionary<string, string> output,
+            string condition, double start, double step,
+            int count, Func<bool> stop, 
+            ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor, 
+        IErrorHandler errorHandler = null)
+        {
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            return wrapper.CreateXmlDocument(output,
+               start, step,
+             count, condition, stop, provider,
+             processor, errorHandler);
         }
 
 
@@ -485,12 +514,13 @@ namespace DataPerformer.Portable
         /// <param name="step">Step</param>
         /// <param name="count">Count of steps</param>
         /// <returns>Document</returns>
-        static public XmlDocument CreateXmlDocument(this IDesktop desktop, string consumer,
+       /*!!! static public XmlDocument CreateXmlDocument(this IDesktop desktop, string consumer,
             XmlDocument input, double start, double step, int count)
         {
             var wrapper = new ComponentCollectionWrapper(desktop);
             return wrapper.CreateXmlDocument(consumer, input, start, step, count);
         }
+       */
 
         /// <summary>
         /// Creates Xml document
@@ -501,13 +531,13 @@ namespace DataPerformer.Portable
         /// <param name="step">Step</param>
         /// <param name="count">Count of steps</param>
         /// <returns>Document</returns>
-        static public XmlDocument CreateXmlDocument(this IDesktop desktop,
+  /*!!!      static public XmlDocument CreateXmlDocument(this IDesktop desktop,
             XmlDocument input, double start, double step, int count)
         {
             var wrapper = new ComponentCollectionWrapper(desktop);
             string consumer = (input.GetElementsByTagName("ChartName")[0] as XmlElement).InnerText;
             return wrapper.CreateXmlDocument(consumer, input, start, step, count);
-        }
+        }*/
 
         /// <summary>
         /// Creates Xml document
@@ -515,11 +545,12 @@ namespace DataPerformer.Portable
         /// <param name="desktop">Desktop</param>
         /// <param name="input">Input</param>
         /// <returns>Document</returns>
-        static public XmlDocument CreateXmlDocument(this IDesktop desktop, XmlDocument input)
+   /*!!!     static public XmlDocument CreateXmlDocument(this IDesktop desktop, XmlDocument input)
         {
             var wrapper = new ComponentCollectionWrapper(desktop);
             return wrapper.CreateXmlDocument(input);
         }
+   */
 
 
 

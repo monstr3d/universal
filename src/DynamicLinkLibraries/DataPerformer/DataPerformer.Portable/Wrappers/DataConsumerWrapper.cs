@@ -1,16 +1,16 @@
-﻿using CategoryTheory;
-using DataPerformer.Interfaces;
-using DataPerformer.Portable.Basic;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml;
+
+using CategoryTheory;
+
 using Diagram.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+
+using DataPerformer.Interfaces;
+
 
 namespace DataPerformer.Portable.Wrappers
 {
@@ -33,6 +33,9 @@ namespace DataPerformer.Portable.Wrappers
             Consumer = consumer;
         }
 
+
+        #region PerformFixed
+
         /// <summary>
         /// Performs action with fixed step
         /// </summary>
@@ -47,10 +50,10 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="stop">Stop function</param>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
-        public void PerformFixed(double start, double step, int count,
+        void PerformFixed(double start, double step, int count,
             ITimeMeasurementProvider provider,
               IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
+             int priority, Action action, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
              IErrorHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
@@ -59,9 +62,20 @@ namespace DataPerformer.Portable.Wrappers
             {
                 stp = () => false;
             }
+            Action acts = action;
+            if (condition != null)
+            {
+                acts = () =>
+                {
+                    if ((bool)condition.Parameter())
+                    {
+                        action();
+                    }
+                };
+            }
             try
             {
-                using (TimeProviderBackup backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
                 {
                     provider.Time = start;
                     IDataRuntime runtime = backup.Runtime;
@@ -91,7 +105,7 @@ namespace DataPerformer.Portable.Wrappers
                         t = start + i * step;
                         act(last, t, i);
                         last = t;
-                        action();
+                        acts();
                     }
                 }
             }
@@ -109,50 +123,24 @@ namespace DataPerformer.Portable.Wrappers
             processor.TimeProvider = old;
         }
 
-        /// <summary>
-        /// Performs iterator
-        /// </summary>
-        /// <param name="iterator">The iterator</param>
-        /// <param name="action">The action</param>
-        /// <param name="stop">The stop</param>
-        /// <param name="preparation">The preparation action</param>
-        /// <param name="errorHandler">The error handler</param>
-        public void PerformIterator(IIterator iterator,
-           Action action, Func<bool> stop = null, Action preparation = null,
-           IErrorHandler errorHandler = null)
+        public void PerformFixed(double start, double step, int count,
+     ITimeMeasurementProvider provider,
+       IDifferentialEquationProcessor processor, string reason,
+      int priority, Action action, string condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+      IErrorHandler errorHandler = null)
         {
-            Func<bool> st = (stop == null)? ()=> false : stop;
-            try
+            IMeasurement cm = null;
+            if (condition != null)
             {
-                iterator.Reset();
-                Consumer.ResetAll();
-                var rt = Consumer.CreateRuntime(null);
-                var coll = Consumer.GetDependentCollection();
-                coll.ForEach((IRunning s) => s.IsRunning = true);
-                preparation?.Invoke();
-                do
-                {
-                    if (st())
-                    {
-                        break;
-                    }
-                    action();
-                    rt.UpdateAll();
-                }
-                while (iterator.Next());
+                cm = FindMeasurement(condition);
             }
-            catch (Exception e)
-            {
-                if (errorHandler != null)
-                {
-                    errorHandler.ShowError(e, null);
-                }
-                else
-                {
-                    e.ShowError(null);
-                }
-            }
+            PerformFixed(start, step, count,
+                provider,
+                   processor, reason,
+                  priority, action, cm, stop, asynchronousCalculation,
+                  errorHandler);
         }
+
 
         /// <summary>
         /// Performs action with fixed step
@@ -174,11 +162,10 @@ namespace DataPerformer.Portable.Wrappers
         public List<List<object>> PerformFixed(double start, double step, int count,
         ITimeMeasurementProvider provider,
         IDifferentialEquationProcessor processor, string reason,
-        int priority, string contidion, IEnumerable<string> paramerets, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+        int priority, string condition, IEnumerable<string> paramerets, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
         IErrorHandler errorHandler = null)
         {
             var list = new List<List<object>>();
-            var cond = FindMeasurement(contidion);
             var m = new List<IMeasurement>();
             foreach (var s in paramerets)
             {
@@ -195,33 +182,33 @@ namespace DataPerformer.Portable.Wrappers
                 list.Add(l);
             };
             PerformFixed(start, step, count, provider,
-            processor, reason, 0, action, cond, stop, 
+            processor, reason, priority, action, condition, stop,
             asynchronousCalculation, errorHandler);
-            return list;  
+            return list;
         }
 
 
-            /// <summary>
-            /// Performs action with fixed step
-            /// </summary>
-            /// <param name="start">Start</param>
-            /// <param name="step">Step</param>
-            /// <param name="count">Count of steps</param>
-            /// <param name="provider">Provider of time measure</param>
-            /// <param name="processor">Differential equation processor</param>
-            /// <param name="reason">Reason</param>
-            /// <param name="priority">Priority</param>
-            /// <param name="action">Additional action</param>
-            /// <param name="condition">Condition</param>
-            /// <param name="stop">Stop function</param>
-            /// <param name="errorHandler">Error handler</param>
-            /// <param name="asynchronousCalculation">Asynchronous calculation</param>
-            /// <param name="errorHandler">Asynchronous calculation</param>
-            public void PerformFixed(double start, double step, int count,
-            ITimeMeasurementProvider provider,
-              IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, IMeasurement condition, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-             IErrorHandler errorHandler = null)
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        /// <param name="errorHandler">Asynchronous calculation</param>
+     /*   public void PerformFixed(double start, double step, int count,
+        ITimeMeasurementProvider provider,
+          IDifferentialEquationProcessor processor, string reason,
+         int priority, Action action, IMeasurement condition, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+         IErrorHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
             Func<bool> stp = stop;
@@ -231,7 +218,7 @@ namespace DataPerformer.Portable.Wrappers
             }
             try
             {
-                using (TimeProviderBackup backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
                 {
                     provider.Time = start;
                     IDataRuntime runtime = backup.Runtime;
@@ -280,7 +267,8 @@ namespace DataPerformer.Portable.Wrappers
                 }
             }
             processor.TimeProvider = old;
-        }
+        }*/
+ 
 
         /// <summary>
         /// Performs action with fixed step
@@ -291,84 +279,19 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
-        public void PerformFixed(double start, double step, int count, string reason,
+  /*      public void PerformFixed(double start, double step, int count, string reason,
            int priority, Action action, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
         {
             PerformFixed(start, step, count,
                    StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                    DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
                 reason, priority, action, stop, asynchronousCalculation, errorHandler);
-        }
+        }*/
 
-        /// <summary>
-        /// Finds measurement
-        /// </summary>
-        /// <param name="measurement">Measurement name</param>
-        /// <param name="allowNull">The allow null sign</param>
-        /// <returns>The measurement</returns>
-        public IMeasurement FindMeasurement(string measurement, bool allowNull = false)
-        {
-            if (measurement == null)
-            {
-                if (!allowNull)
-                {
-                    throw new Exception("Undefined measure");
-                }
-                return null;
-            }
-            int n = measurement.LastIndexOf(".");
-            if (n < 0)
-            {
-                if (!allowNull)
-                {
-                    throw new Exception("Undefined measure");
-                }
-                return null;
-            }
-            string p = measurement.Substring(0, n);
-            string s = measurement.Substring(n + 1);
-            IAssociatedObject ass = Consumer as IAssociatedObject;
-            INamedComponent comp = ass.Object as INamedComponent;
-            IDesktop d = comp.Desktop;
-            for (int i = 0; i < Consumer.Count; i++)
-            {
-                IMeasurements mea = Consumer[i];
-                IAssociatedObject ao = mea as IAssociatedObject;
-                INamedComponent nc = ao.Object as INamedComponent;
-                string name = PureObjectLabel.GetName(nc, d);
-                if (!name.Equals(p))
-                {
-                    continue;
-                }
-                for (int j = 0; j < mea.Count; j++)
-                {
-                    IMeasurement m = mea[j];
-                    if (s.Equals(m.Name))
-                    {
-                        return m;
-                    }
-                }
-            }
-            if (Consumer is IMeasurements)
-            {
-                if (Consumer.ShouldInsertIntoChildren())
-                {
-                    var cm = Consumer as IMeasurements;
-                    foreach (var cmm in cm.GetMeasurementObjects())
-                    {
-                        var nm = Consumer.GetName(cmm);
-                        if (measurement.Equals(nm))
-                        {
-                            return cmm;
-                        }
-                    }
-                }
-            }
-            return null;
-        }
 
-    
+        #endregion
 
+        #region CreateXmlDocument
 
         /// <summary>
         /// Creates Xml document
@@ -378,7 +301,7 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="step">Step</param>
         /// <param name="count">Count</param>
         /// <returns>Result</returns>
-        public XmlDocument CreateXmlDocument(
+  /*      public XmlDocument CreateXmlDocument(
             XmlDocument input, double start, double step,
             int count)
         {
@@ -448,7 +371,59 @@ namespace DataPerformer.Portable.Wrappers
             };
             try
             {
-               PerformFixed(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
+                //PerformFixedT(start, step, count, StaticExtensionDataPerformerInterfaces.Calculation, 0, act);
+            }
+            catch (Exception e)
+            {
+                e.ShowError(10);
+            }
+            return xpv.Document;
+        }*/
+
+        ///<summary>
+        /// Creates Xml document
+        /// </summary>
+        /// <param name="output">Output parameters</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="start">Start time</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <returns>The Xml document</returns>
+        public XmlDocument CreateXmlDocument(Dictionary<string, string> output,
+             double start, double step, int count, string condition,
+         Func<bool> stop, ITimeMeasurementProvider provider,
+        IDifferentialEquationProcessor processor, IErrorHandler errorHandler = null)
+        {
+            IMeasurement cond = null;
+            if (condition != null)
+            {
+                cond = FindMeasurement(condition);
+            }
+            var d = new Dictionary<string, IMeasurement>();
+            foreach (var a in output.Keys)
+            {
+                d[a] = FindMeasurement(a);
+            }
+            XmlParameterWriter xpv = new XmlParameterWriter(null);
+            IParameterWriter pvv = xpv;
+            Action act = () =>
+            {
+                Dictionary<string, string> dpp = new Dictionary<string, string>();
+                foreach (string k in d.Keys)
+                {
+                    object v = d[k].Parameter();
+                    dpp[output[k]] = v + "";
+                }
+                pvv.Write(dpp);
+            };
+
+            try
+            {
+                PerformFixed(start, step, count, provider, processor,
+                    StaticExtensionDataPerformerInterfaces.Calculation,
+                    0, act, cond, stop, null, errorHandler);
             }
             catch (Exception e)
             {
@@ -457,8 +432,120 @@ namespace DataPerformer.Portable.Wrappers
             return xpv.Document;
         }
 
+        #endregion
 
-   
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="action">The action</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public void PerformIterator(IIterator iterator,
+           Action action, Func<bool> stop = null, Action preparation = null,
+           IErrorHandler errorHandler = null)
+        {
+            Func<bool> st = (stop == null)? ()=> false : stop;
+            try
+            {
+                iterator.Reset();
+                Consumer.ResetAll();
+                var rt = Consumer.CreateRuntime(null);
+                var coll = Consumer.GetDependentCollection();
+                coll.ForEach((IRunning s) => s.IsRunning = true);
+                preparation?.Invoke();
+                do
+                {
+                    if (st())
+                    {
+                        break;
+                    }
+                    action();
+                    rt.UpdateAll();
+                }
+                while (iterator.Next());
+            }
+            catch (Exception e)
+            {
+                if (errorHandler != null)
+                {
+                    errorHandler.ShowError(e, null);
+                }
+                else
+                {
+                    e.ShowError(null);
+                }
+            }
+        }
+ 
+        /// <summary>
+        /// Finds measurement
+        /// </summary>
+        /// <param name="measurement">Measurement name</param>
+        /// <param name="allowNull">The allow null sign</param>
+        /// <returns>The measurement</returns>
+        public IMeasurement FindMeasurement(string measurement, bool allowNull = false)
+        {
+            if (measurement == null)
+            {
+                if (!allowNull)
+                {
+                    throw new Exception("Undefined measure");
+                }
+                return null;
+            }
+            int n = measurement.LastIndexOf(".");
+            if (n < 0)
+            {
+                if (!allowNull)
+                {
+                    throw new Exception("Undefined measure");
+                }
+                return null;
+            }
+            string p = measurement.Substring(0, n);
+            string s = measurement.Substring(n + 1);
+            IAssociatedObject ass = Consumer as IAssociatedObject;
+            INamedComponent comp = ass.Object as INamedComponent;
+            IDesktop d = comp.Desktop;
+            for (int i = 0; i < Consumer.Count; i++)
+            {
+                IMeasurements mea = Consumer[i];
+                IAssociatedObject ao = mea as IAssociatedObject;
+                INamedComponent nc = ao.Object as INamedComponent;
+                string name = PureObjectLabel.GetName(nc, d);
+                if (!name.Equals(p))
+                {
+                    continue;
+                }
+                for (int j = 0; j < mea.Count; j++)
+                {
+                    IMeasurement m = mea[j];
+                    if (s.Equals(m.Name))
+                    {
+                        return m;
+                    }
+                }
+            }
+            if (Consumer is IMeasurements)
+            {
+                if (Consumer.ShouldInsertIntoChildren())
+                {
+                    var cm = Consumer as IMeasurements;
+                    foreach (var cmm in cm.GetMeasurementObjects())
+                    {
+                        var nm = Consumer.GetName(cmm);
+                        if (measurement.Equals(nm))
+                        {
+                            return cmm;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
 
 
         /// <summary>
