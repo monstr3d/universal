@@ -10,6 +10,8 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
+using static System.Collections.Specialized.BitVector32;
+using System.Collections;
 
 
 namespace DataPerformer.Portable.Wrappers
@@ -33,24 +35,106 @@ namespace DataPerformer.Portable.Wrappers
             Consumer = consumer;
         }
 
+        #region PefrormIterator
 
-        #region PerformFixed
+      /*  IEnumerable<object> PerformIterator(IEnumerable<double> times,
+            ITimeMeasurementProvider provider,
+              IDifferentialEquationProcessor processor, string reason,
+             int priority, Func<object> func, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+             IErrorHandler errorHandler = null)
+        {
+            ITimeMeasurementProvider old = processor.TimeProvider;
+            var stp = stop;
+            if (stp == null)
+            {
+                stp = () => false;
+            }
+            Func<bool> f = () => true;
+            if (condition != null) 
+            {
+                f = () => (bool)condition.Parameter();
+            }
+            try
+            {
+                using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                {
+                   bool first = true;
+                    Action<double, double, long> act;
+                    foreach (var time in times)
+                    {
+                        if (first)
+                        {
+                            first = false;
+                            provider.Time = time;
+                            IDataRuntime runtime = backup.Runtime;
+                            runtime.StartAll(time);
+                            processor.TimeProvider = provider;
+                            IStep st = null;
+                            if (runtime is IStep)
+                            {
+                                st = runtime as IStep;
+                            }
+                            provider.Time = time;
+                            double t = time;
+                            double last = t;
+                            act = runtime.Step(processor,
+                            (time) =>
+                            {
+                                provider.Time = time;
+                            }
+                            , reason, asynchronousCalculation);
+                            continue;
+                        }
+                        if (stp())
+                        {
+                            break;
+                        }
+                        t = testc;
+                        act(last, t, i);
+                        last = t;
+                        acts();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (errorHandler != null)
+                {
+                    errorHandler.ShowError(ex, 10);
+                }
+                else
+                {
+                    ex.ShowError(10);
+                }
+            }
+            processor.TimeProvider = old;
+        }
+    }*/
 
-        /// <summary>
-        /// Performs action with fixed step
-        /// </summary>
-        /// <param name="start">Start</param>
-        /// <param name="step">Step</param>
-        /// <param name="count">Count of steps</param>
-        /// <param name="provider">Provider of time measure</param>
-        /// <param name="processor">Differential equation processor</param>
-        /// <param name="reason">Reason</param>
-        /// <param name="priority">Priority</param>
-        /// <param name="action">Additional action</param>
-        /// <param name="stop">Stop function</param>
-        /// <param name="errorHandler">Error handler</param>
-        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
-        void PerformFixed(double start, double step, int count,
+
+    #endregion
+
+
+    #region PerformFixed
+
+
+
+
+    /// <summary>
+    /// Performs action with fixed step
+    /// </summary>
+    /// <param name="start">Start</param>
+    /// <param name="step">Step</param>
+    /// <param name="count">Count of steps</param>
+    /// <param name="provider">Provider of time measure</param>
+    /// <param name="processor">Differential equation processor</param>
+    /// <param name="reason">Reason</param>
+    /// <param name="priority">Priority</param>
+    /// <param name="action">Additional action</param>
+    /// <param name="stop">Stop function</param>
+    /// <param name="errorHandler">Error handler</param>
+    /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+    void PerformFixed(double start, double step, int count,
             ITimeMeasurementProvider provider,
               IDifferentialEquationProcessor processor, string reason,
              int priority, Action action, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
@@ -77,10 +161,11 @@ namespace DataPerformer.Portable.Wrappers
             {
                 using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
                 {
+                    var p = backup.Processor;
                     provider.Time = start;
                     IDataRuntime runtime = backup.Runtime;
                     runtime.StartAll(start);
-                    processor.TimeProvider = provider;
+                    p.TimeProvider = provider;
                     IStep st = null;
                     if (runtime is IStep)
                     {
@@ -90,7 +175,7 @@ namespace DataPerformer.Portable.Wrappers
                     double t = start;
                     double last = t;
                     Action<double, double, long>
-                        act = runtime.Step(processor,
+                        act = runtime.Step(p,
                         (time) =>
                         {
                             provider.Time = time;

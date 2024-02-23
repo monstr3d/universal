@@ -10,7 +10,9 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
 
 
         #region Fields
-        GeneratedProject.Forecast forecast = new GeneratedProject.Forecast();
+        GeneratedProject.Forecast.InternalDesktop forecast = 
+            GeneratedProject.Forecast.Desktop as 
+            GeneratedProject.Forecast.InternalDesktop;
   
 
         DinAtm.Portable.Atmosphere atmosphere;
@@ -38,12 +40,14 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         internal DataPerformer.Portable.DataConsumer Consumer
         { get => dataConsumer; }
 
+        [Display(Name = "Start time")]
         [Required(ErrorMessage = "Start time")]
         public DateTime Time { get; set; } = DateTime.Now;
 
         /// <summary>
         /// X - coordinate
         /// </summary>
+        [Display(Name = "X - coordinate")]
         [Required(ErrorMessage = "X - coordinate")]
         public double X
         {
@@ -54,6 +58,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// Y - coordinate
         /// </summary>
+        [Display(Name = "Y - coordinate")]
         [Required(ErrorMessage = "Y - coordinate")]
         public double Y
         {
@@ -64,6 +69,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// X - coordinate
         /// </summary>
+        [Display(Name = "Z - coordinate")]
         [Required(ErrorMessage = "Z - coordinate")]
         public double Z
         {
@@ -74,6 +80,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// X - velocity
         /// </summary>
+        [Display(Name = "X - velocity")]
         [Required(ErrorMessage = "X - velocity")]
         public double Vx
         {
@@ -84,6 +91,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// Y - velocity
         /// </summary>
+        [Display(Name = "Y - velocity")]
         [Required(ErrorMessage = "Y - velocity")]
         public double Vy
         {
@@ -95,6 +103,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// Z - velocity
         /// </summary>
+        [Display(Name = "Z - velocity")]
         [Required(ErrorMessage = "Z - velocity")]
         public double Vz
         {
@@ -105,6 +114,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// X - coordinate
         /// </summary>
+        [Display(Name = "Ballistic coefficient")]
         [Required(ErrorMessage = "Ballistic coefficient")]
         public double S
         {
@@ -116,6 +126,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// Atmospheric parameter F107A
         /// </summary>
+        [Display(Name = "Atmospheric parameter F107A")]
         [Required(ErrorMessage = "Atmospheric parameter F107A")]
         public int F107A
         {
@@ -123,10 +134,10 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
             set => atm["F107A"] = value;
         }
 
-
         /// <summary>
         /// Atmospheric parameter F107A
         /// </summary>
+        [Display(Name = "Atmospheric parameter F107")]
         [Required(ErrorMessage = "Atmospheric parameter F107")]
         public int F107
         {
@@ -137,7 +148,8 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// Atmospheric parameter F107A
         /// </summary>
-        [Required(ErrorMessage = "Atmospheric parameter F107A")]
+        [Display(Name = "Atmospheric parameter Ap")]
+        [Required(ErrorMessage = "Atmospheric parameter Ap")]
         public int Ap
         {
             get => (int)atm["Ap"];
@@ -147,6 +159,7 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         /// <summary>
         /// Count of steps
         /// </summary>
+        [Display(Name = "Count of steps")]
         [Required(ErrorMessage = "Count of steps")]
         public int Count
         { get; set; } = 18000;
@@ -155,16 +168,15 @@ namespace Orbital.Forecast.MVC.WebApplication.Models
         {
             get
             {
-                var dt = Time.ToOADate();
-                var f = new GeneratedProject.Forecast();
-                IDataConsumer dc = f.GetObject("Chart") as IDataConsumer;
-                var w =
-                    new DataPerformer.Portable.Wrappers.DataConsumerWrapper(dc);
-                var l = w.PerformFixed(dt, 1, Count,
+                var dt = Time.ToOADate() * 86400;
+                string[] par = ["Vector.Formula_8",
+                    "Motion equations.x", "Motion equations.y", "Motion equations.z",
+                "Motion equations.u", "Motion equations.v", "Motion equations.w"];
+                 var l = wrapper.PerformFixed(dt, 1, Count,
                     new DataPerformer.Portable.Helpers.TimeMeasurementProvider(),
                     DifferentialEquationProcessor.Processor,
                     StaticExtensionDataPerformerInterfaces.Calculation, 0,
-                    "Recursive.y", ["Motion equations.x", "Motion equations.y"]);
+                    "Recursive.y", par);
                 return l;
             }
         }

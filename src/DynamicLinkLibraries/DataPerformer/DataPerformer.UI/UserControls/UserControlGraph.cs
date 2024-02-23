@@ -1820,12 +1820,10 @@ Func<bool> stop)
             
             try
             {
-                if (ctx != null)
-                {
-                    ctx = new();
-                }
-              /* !!! dicto =
-                    (consumer as DataConsumer).PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);*/
+                ctx = new();
+                DataConsumer dc = consumer as DataConsumer;
+               dicto =
+                    dc.PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);
             }
             catch (Exception ex)
             {

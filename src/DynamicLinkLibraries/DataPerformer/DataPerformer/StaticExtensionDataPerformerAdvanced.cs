@@ -207,7 +207,7 @@ namespace DataPerformer
         /// <param name="argument">Argument</param>
         /// <param name="values">Values</param>
         /// <returns>Dictionary of performed result</returns>
-    /*!!!    public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+    /*    public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer, double start, double step, int count,
             string argument, string[] values)
         {
             ParametrizedSeries[] series = null;

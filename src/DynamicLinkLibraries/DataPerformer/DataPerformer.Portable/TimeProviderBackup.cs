@@ -69,11 +69,7 @@ namespace DataPerformer.Portable
             SetTimeProvider(collection, provider, dictionary);
             CreateMeasurements(priority, null);
             runtime = consumer.CreateRuntime(reason, priority);
-            this.processor = processor;
-            if (processor != null)
-            {
-                processor.Set(collection); // !!! added to allow buffer processing, as no IDifferentialEquationProcessoris required there
-            }
+            Set(processor, collection);
         }
 
         /// <summary>
@@ -91,8 +87,7 @@ namespace DataPerformer.Portable
             CreateMeasurements(priority, reason);
             runtime = StaticExtensionDataPerformerPortable.Factory.Create(collection, priority);
             SetTimeProvider(collection, provider, dictionary);
-            this.processor = processor;
-            processor.Set(collection);
+            Set(processor, collection);
         }
 
         /// <summary>
@@ -107,8 +102,7 @@ namespace DataPerformer.Portable
             CreateMeasurements(priority, reason);
             runtime = StaticExtensionDataPerformerPortable.Factory.Create(collection, priority);
             SetTimeProvider(collection, StaticExtensionDataPerformerPortable.Factory.TimeProvider, dictionary);
-            processor = DifferentialEquationProcessors.DifferentialEquationProcessor.Processor;
-            processor.Set(collection);
+            Set(DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, collection);
         }
 
         #endregion
@@ -140,6 +134,11 @@ namespace DataPerformer.Portable
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Processor
+        /// </summary>
+        public IDifferentialEquationProcessor Processor => processor;
 
         /// <summary>
         /// Runtime
@@ -197,7 +196,17 @@ namespace DataPerformer.Portable
             }
         }
 
+        void Set(IDifferentialEquationProcessor processor, IComponentCollection collection)
+        {
+            if (processor != null)
+            {
+                this.processor = processor;
+                this.processor.Set(collection);
+            }
 
+        }
+
+           
         private static void SetTimeProvider(IComponentCollection collection,
             ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {

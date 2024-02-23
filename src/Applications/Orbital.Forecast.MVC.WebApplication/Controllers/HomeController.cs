@@ -31,7 +31,8 @@ namespace Orbital.Forecast.MVC.WebApplication.Controllers
         [HttpPost]
         public ViewResult ForecastInput(ForecastWeb forecast)
         {
-            return View(forecast.Values);
+            var f = ForecastOutput.FromList(forecast.Values);
+            return View("ForecastResult", f); 
         }
 
 

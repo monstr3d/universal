@@ -372,7 +372,6 @@ namespace DataPerformer.Advanced.Accumulators
         private void Update()
         {
             this.ForEach((IStack s) => s.Push());
-    
             ITimeMeasurementProvider old = processor.TimeProvider;
             processor.TimeProvider = this;
             if (block)
@@ -382,6 +381,8 @@ namespace DataPerformer.Advanced.Accumulators
             block = true;
             using (var tb = new TimeProviderBackup(this, this, processor, StaticExtensionDataPerformerInterfaces.Calculation, 0))
             {
+                var p = tb.Processor;
+                p.TimeProvider = this;
                 runtime.StartAll(0);
                 IDataConsumer th = this;
                 double last;
@@ -400,7 +401,7 @@ namespace DataPerformer.Advanced.Accumulators
                     s.Step = -1;
                 }
                 Action<double, double, long> act =
-                    runtime.Step(processor, SetTime, StaticExtensionDataPerformerInterfaces.Calculation);
+                    runtime.Step(p, SetTime, StaticExtensionDataPerformerInterfaces.Calculation);
                 for (int i = 0; i < arg.Length; i++)
                 {
                     double time = arg[i];

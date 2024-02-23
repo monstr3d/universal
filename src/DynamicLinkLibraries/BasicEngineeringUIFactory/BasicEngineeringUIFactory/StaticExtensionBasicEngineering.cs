@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CategoryTheory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace BasicEngineering.UI.Factory
         static StaticExtensionBasicEngineering()
         {
 
+        }
+
+        public static bool StaticClassGenerated
+        {
+            get => Properties.Settings.Default.StaticClassGenerated;
+            set => Properties.Settings.Default.StaticClassGenerated = value;
         }
 
         /// <summary>

@@ -19,6 +19,7 @@ using DataPerformer.Portable;
 
 using DataPerformer.Portable.DifferentialEquationProcessors;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DataPerformer
 {
@@ -349,7 +350,7 @@ namespace DataPerformer
         /// <param name="stop">Stop function</param>
         /// <param name="disassembly">Disassembly</param>
         /// <returns>Result of simulation</returns>
-   /*!!!     public Dictionary<string, object> PerformFixed(double start, double step, int count, string argument, string[] values,
+        public Dictionary<string, object> PerformFixed(double start, double step, int count, string argument, string[] values,
              out ParametrizedSeries[] series,
             out Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
@@ -378,7 +379,7 @@ namespace DataPerformer
             functions = null;
             return null;
         }
-   */
+   
 
         /// <summary>
         /// Performs action with fixed step
@@ -388,12 +389,12 @@ namespace DataPerformer
         /// <param name="stop">Stop function</param>
         /// <param name="disassembly">Disassembly</param>
         /// <returns>Action result</returns>
-   /*!!!     public Dictionary<string, object> PerformFixed(string argument, string[] values, Func<bool> stop,
+       public Dictionary<string, object> PerformFixed(string argument, string[] values, Func<bool> stop,
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
             return PerformFixed(start, step, steps, argument, values, stop, disassembly);
         }
-   */
+   
         /// <summary>
         /// Performs action with array of arguments
         /// </summary>
@@ -445,7 +446,7 @@ namespace DataPerformer
             Dictionary<DoubleArrayFunction, IMeasurement[]> functions = null;
             return PerformArray(array, argument, values, out series, out functions, stop);
         }
-/*
+
         /// <summary>
         /// Performs operation with fixed step
         /// </summary>
@@ -466,7 +467,7 @@ namespace DataPerformer
             return PerformFixed(start, step, steps, argument, values, out series, out functions, stop, disassembly);
         }
 
-        */
+   
 
         #endregion
 
@@ -499,9 +500,7 @@ namespace DataPerformer
            );
         }
 
-   
-
-        private void PerformFixed(double start, double step, int count, string argument, string[] values, 
+         private void PerformFixed(double start, double step, int count, string argument, string[] values, 
      ParametrizedSeries[] series,
     Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, string reason, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
@@ -510,7 +509,7 @@ namespace DataPerformer
             {
                 dis = disassembly;
             }
-   /*  !!!        this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+             this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                 DifferentialEquationProcessor.Processor, reason, 0, () =>
                 {
                     foreach (MeasurementsDisassemblyWrapper w in dis.Values)
@@ -531,8 +530,8 @@ namespace DataPerformer
                         double xx = (double)mm[0].Parameter();
                         f[xx] = mm[1].Parameter();
                     }
-                }, stop
-           );*/
+                }, null, stop
+           );
         }
 
 

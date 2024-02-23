@@ -75,7 +75,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// External measurements
         /// </summary>
-        protected List<IMeasurements> mea = new List<IMeasurements>();
+        protected List<IMeasurements> measurements = new List<IMeasurements>();
 
         /// <summary>
         /// Links to variables
@@ -122,19 +122,19 @@ namespace DataPerformer.Portable
 
         void IDataConsumer.Add(IMeasurements measurements)
         {
-            mea.Add(measurements);
+            this.measurements.Add(measurements);
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)
         {
-            mea.Remove(measurements);
+            this.measurements.Remove(measurements);
         }
 
         void IDataConsumer.UpdateChildrenData()
         {
             try
             {
-                foreach (IMeasurements m in mea)
+                foreach (IMeasurements m in measurements)
                 {
                     m.UpdateMeasurements();
                 }
@@ -148,12 +148,12 @@ namespace DataPerformer.Portable
 
         int IDataConsumer.Count
         {
-            get { return mea.Count; }
+            get { return this.measurements.Count; }
         }
 
         IMeasurements IDataConsumer.this[int n]
         {
-            get { return mea[n]; }
+            get { return measurements[n]; }
         }
 
         void IDataConsumer.Reset()
@@ -365,9 +365,9 @@ namespace DataPerformer.Portable
             }
             string cn = name.Substring(0, n);
             string suff = name.Substring(n + 1);
-            for (int i = 0; i < mea.Count; i++)
+            for (int i = 0; i < measurements.Count; i++)
             {
-                IMeasurements m = mea[i];
+                IMeasurements m = measurements[i];
                 IAssociatedObject ao = m as IAssociatedObject;
                 string na = this.GetRelativeName(ao);
                 if (cn.Equals(na))

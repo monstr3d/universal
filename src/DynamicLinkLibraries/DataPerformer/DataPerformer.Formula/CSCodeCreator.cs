@@ -163,12 +163,31 @@ namespace DataPerformer.Formula
             l.Add("\tinternal CategoryObject()");
             l.Add("\t{");
             l.Add("\t\tproxyFactory = this;");
-            int dim = v.Variables.Length;
-            var feed = v.Feedback;
-            bool beg = true;
-
+            var beg = true;
+            l.Add("\t\taliasNames  = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            var an = v.ExternalAliases;
+            foreach (var key in an.Keys)
+            {
+                string s = "\t\t\t{ \'" + key + 
+                    "\' ," + "\"" + an[key] + "\" }";
+                if (!beg)
+                {
+                    s = ", " + s;
+                }
+                else
+                {
+                    beg = false;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
+            beg = true;
             l.Add("\t\tfeedback = new Dictionary<int, string>()");
             l.Add("\t\t{");
+            int dim = v.Variables.Length;
+            var feed = v.Feedback;
             foreach (var key in feed.Keys)
             {
                 string s = "\t\t\t{ " + key + "," + "\"" + feed[key] + "\" }";
