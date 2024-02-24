@@ -76,7 +76,6 @@ namespace DataPerformer.Portable
         {
             new CSCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
-            Factory = Runtime.DataRuntimeFactory.Singleton;
             Runtime.DataRuntimeFactory.Singleton.SetBase();
             Runtime.DataRuntimeFactory.Singleton.SetBaseAction();
             (Runtime.DataRuntimeFactory.Singleton as IActionFactoryCreator).SetBaseAction();

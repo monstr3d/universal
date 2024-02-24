@@ -2,21 +2,7 @@ using DataPerformer.Portable.DifferentialEquationProcessors;
 using DataPerformer.Portable;
 
 var builder = WebApplication.CreateBuilder(args);
-AssemblyService.StaticExtensionAssemblyService.Init();
-DifferentialEquationProcessor.Processor = RungeProcessor.Processor;
-/*var orbital = new Orbital.Forecast.MVC.WebApplication.Models.ForecastWeb();
-
-var x = orbital.X;
-x = orbital.Y;
-x = orbital.Z;
-x = orbital.Vx;
-x = orbital.Vy;
-x = orbital.Vz;
-x = orbital.S;
-x = orbital.F107;
-x = orbital.F107A;
-x = orbital.Ap;*/
-
+Init();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -42,3 +28,25 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void Init()
+{
+    AssemblyService.StaticExtensionAssemblyService.Init();
+    DifferentialEquationProcessor.Processor = RungeProcessor.Processor;
+
+ 
+    /*var orbital = new Orbital.Forecast.MVC.WebApplication.Models.ForecastWeb();
+
+    var x = orbital.X;
+    x = orbital.Y;
+    x = orbital.Z;
+    x = orbital.Vx;
+    x = orbital.Vy;
+    x = orbital.Vz;
+    x = orbital.S;
+    x = orbital.F107;
+    x = orbital.F107A;
+    x = orbital.Ap;*/
+
+
+}
