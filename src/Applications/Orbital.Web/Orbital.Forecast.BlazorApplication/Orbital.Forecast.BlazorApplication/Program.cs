@@ -1,5 +1,5 @@
-using BlazorApp.Client.Pages;
-using BlazorApp.Components;
+using Orbital.Forecast.BlazorApplication.Client.Pages;
+using Orbital.Forecast.BlazorApplication.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +33,6 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(BlazorApp.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(Orbital.Forecast.BlazorApplication.Client._Imports).Assembly);
 
 app.Run();
