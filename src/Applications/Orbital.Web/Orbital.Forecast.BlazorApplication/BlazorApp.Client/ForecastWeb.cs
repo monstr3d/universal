@@ -177,7 +177,7 @@ namespace Orbital.Forecast.Blasor
                     new DataPerformer.Portable.Helpers.TimeMeasurementProvider(),
                     DifferentialEquationProcessor.Processor,
                     StaticExtensionDataPerformerInterfaces.Calculation, 0,
-                    "Recursive.y", par);
+                    null, par);
                 return l;
             }
         }

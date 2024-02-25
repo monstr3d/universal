@@ -28,10 +28,21 @@
 
     private Random random = new();
 
+    List<List<object>> lists;
+
     protected override void OnInitialized()
     {
-        chartData = new ChartData { Labels = GetDefaultDataLabels(6), Datasets = GetDefaultDataSets(3) };
-        lineChartOptions = new() { Responsive = true, Interaction = new Interaction { Mode = InteractionMode.Index } };
+        BlazorApp.StaticExtension.Init();
+        lists = forecast.Values;
+        chartData = new ChartData 
+        { 
+            Labels = GetDefaultDataLabels(3), 
+            Datasets = GetDefaultDataSets(3) 
+        };
+
+        lineChartOptions = new() 
+        { Responsive = true, Interaction = new Interaction 
+            { Mode = InteractionMode.Index } };
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -68,63 +79,115 @@
             }
         }
 
-        async Task Foreast()
+        async Task ForeastAsync()
         {
             var newDatasets = new List<IChartDataset>();
             chartData.Datasets = newDatasets;
+            foreach (var dataset in chartData.Datasets)
+            {
+                if (dataset is LineChartDataset lineChartDataset
+                    && lineChartDataset is not null
+                    && lineChartDataset.Data is not null)
+                {
+                    var count = lineChartDataset.Data.Count;
+
+                    var newData = new List<double>();
+                    for (var i = 0; i < count; i++)
+                    {
+                        newData.Add(random.Next(200));
+                    }
+
+                    lineChartDataset.Data = newData;
+                    newDatasets.Add(lineChartDataset);
+                }
+            }
 
             await lineChart.UpdateAsync(chartData, lineChartOptions);
         }
     }
-/*
-    private async Task AddDatasetAsync()
-    {
+            /*
+            private async Task AddDatasetAsync()
+            {
         if (chartData is null || chartData.Datasets is null) return;
 
-        var chartDataset = GetRandomLineChartDataset();
-        chartData = await lineChart.AddDatasetAsync(chartData, chartDataset, lineChartOptions);
+    var chartDataset = GetRandomLineChartDataset();
+    chartData = await lineChart.AddDatasetAsync(chartData, chartDataset, lineChartOptions);
     }
 
     private async Task AddDataAsync()
     {
-        if (chartData is null || chartData.Datasets is null)
-            return;
+    if (chartData is null || chartData.Datasets is null)
+    return;
 
-        var data = new List<IChartDatasetData>();
+    var data = new List<IChartDatasetData>();
         foreach (var dataset in chartData.Datasets)
-        {
+            {
             if (dataset is LineChartDataset lineChartDataset)
-                data.Add(new LineChartDatasetData(lineChartDataset.Label, random.Next(200)));
-        }
-
-        chartData = await lineChart.AddDataAsync(chartData, GetNextDataLabel(), data);
+    data.Add(new LineChartDatasetData(lineChartDataset.Label, random.Next(200)));
     }
 
-    private async Task ShowHorizontalLineChartAsync()
+    chartData = await lineChart.AddDataAsync(chartData, GetNextDataLabel(), data);
+            }
+
+            private async Task ShowHorizontalLineChartAsync()
     {
-        lineChartOptions.IndexAxis = "y";
-        await lineChart.UpdateAsync(chartData, lineChartOptions);
+    lineChartOptions.IndexAxis = "y";
+    await lineChart.UpdateAsync(chartData, lineChartOptions);
     }
 
-    private async Task ShowVerticalLineChartAsync()
+        private async Task ShowVerticalLineChartAsync()
     {
-        lineChartOptions.IndexAxis = "x";
-        await lineChart.UpdateAsync(chartData, lineChartOptions);
+    lineChartOptions.IndexAxis = "x";
+    await lineChart.UpdateAsync(chartData, lineChartOptions);
     }*/
 
     #region Data Preparation
 
     private List<IChartDataset> GetDefaultDataSets(int numberOfDatasets)
     {
-        var datasets = new List<IChartDataset>();
+        /*var datasets = new List<IChartDataset>();
 
         for (var index = 0; index < numberOfDatasets; index++)
-        {
+            {
             datasets.Add(GetRandomLineChartDataset());
+        }*/
+
+        return GetCoordinaresDataSets();
+    }
+
+    private List<IChartDataset> GetCoordinaresDataSets()
+    {
+        var datasets = new List<IChartDataset>();
+
+        for (var index = 0; index < 3; index++)
+        {
+            var d = GetCoordinateChartDataset(index);
+            datasets.Add(d);
         }
 
         return datasets;
     }
+
+    LineChartDataset GetCoordinateChartDataset(int i)
+    {
+        var c = ColorBuilder.CategoricalTwelveColors[i].ToColor();
+
+   
+        return new LineChartDataset
+            {
+                Label = $"Team {datasetsCount}",
+                Data = GetCoordinates(i),
+                BackgroundColor = new List<string> { c.ToRgbString() },
+                BorderColor = new List<string> { c.ToRgbString() },
+                BorderWidth = new List<double> { 2 },
+                HoverBorderWidth = new List<double> { 4 },
+                PointBackgroundColor = new List<string> { c.ToRgbString() },
+                PointRadius = new List<int> { 0 }, // hide points
+                PointHoverRadius = new List<int> { 4 }
+            };
+
+    }
+
 
     private LineChartDataset GetRandomLineChartDataset()
     {
@@ -146,6 +209,17 @@
             };
     }
 
+    private List<double> GetCoordinates(int i)
+    {
+        var data = new List<double>();
+        foreach (var l in lists)
+        {
+            
+            data.Add((double)l[i + 1]);
+        }
+        return data;
+    }
+
     private List<double> GetRandomData()
     {
         var data = new List<double>();
@@ -160,9 +234,9 @@
     private List<string> GetDefaultDataLabels(int numberOfLabels)
     {
         var labels = new List<string>();
-        for (var index = 0; index < numberOfLabels; index++)
+        for (var index = 0; index < lists.Count; index++)
         {
-            labels.Add(GetNextDataLabel());
+            labels.Add("");
         }
 
         return labels;

@@ -29,6 +29,7 @@ namespace AssemblyService
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
             AppDomain.CurrentDomain.AssemblyLoad += CurrentDomain_AssemblyLoadArgs;
             Assembly ass = typeof(StaticExtensionAssemblyService).Assembly;
+            CurrentDomain_AssemblyLoad(ass);
             assemblyDictionary[ass.FullName] = ass;
             LoadBaseAssemblies(act);
         }
