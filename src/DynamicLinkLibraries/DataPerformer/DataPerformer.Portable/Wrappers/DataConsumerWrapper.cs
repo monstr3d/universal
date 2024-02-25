@@ -37,108 +37,108 @@ namespace DataPerformer.Portable.Wrappers
 
         #region PefrormIterator
 
-      /*  IEnumerable<object> PerformIterator(IEnumerable<double> times,
-            ITimeMeasurementProvider provider,
-              IDifferentialEquationProcessor processor, string reason,
-             int priority, Func<object> func, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-             IErrorHandler errorHandler = null)
-        {
-            ITimeMeasurementProvider old = processor.TimeProvider;
-            var stp = stop;
-            if (stp == null)
-            {
-                stp = () => false;
-            }
-            Func<bool> f = () => true;
-            if (condition != null) 
-            {
-                f = () => (bool)condition.Parameter();
-            }
-            try
-            {
-                using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
-                {
-                   bool first = true;
-                    Action<double, double, long> act;
-                    foreach (var time in times)
-                    {
-                        if (first)
-                        {
-                            first = false;
-                            provider.Time = time;
-                            IDataRuntime runtime = backup.Runtime;
-                            runtime.StartAll(time);
-                            processor.TimeProvider = provider;
-                            IStep st = null;
-                            if (runtime is IStep)
-                            {
-                                st = runtime as IStep;
-                            }
-                            provider.Time = time;
-                            double t = time;
-                            double last = t;
-                            act = runtime.Step(processor,
-                            (time) =>
-                            {
-                                provider.Time = time;
-                            }
-                            , reason, asynchronousCalculation);
-                            continue;
-                        }
-                        if (stp())
-                        {
-                            break;
-                        }
-                        t = testc;
-                        act(last, t, i);
-                        last = t;
-                        acts();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (errorHandler != null)
-                {
-                    errorHandler.ShowError(ex, 10);
-                }
-                else
-                {
-                    ex.ShowError(10);
-                }
-            }
-            processor.TimeProvider = old;
-        }
-    }*/
+        /*  IEnumerable<object> PerformIterator(IEnumerable<double> times,
+              ITimeMeasurementProvider provider,
+                IDifferentialEquationProcessor processor, string reason,
+               int priority, Func<object> func, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+               IErrorHandler errorHandler = null)
+          {
+              ITimeMeasurementProvider old = processor.TimeProvider;
+              var stp = stop;
+              if (stp == null)
+              {
+                  stp = () => false;
+              }
+              Func<bool> f = () => true;
+              if (condition != null) 
+              {
+                  f = () => (bool)condition.Parameter();
+              }
+              try
+              {
+                  using (var backup = new TimeProviderBackup(Consumer, provider, processor, reason, priority))
+                  {
+                     bool first = true;
+                      Action<double, double, long> act;
+                      foreach (var time in times)
+                      {
+                          if (first)
+                          {
+                              first = false;
+                              provider.Time = time;
+                              IDataRuntime runtime = backup.Runtime;
+                              runtime.StartAll(time);
+                              processor.TimeProvider = provider;
+                              IStep st = null;
+                              if (runtime is IStep)
+                              {
+                                  st = runtime as IStep;
+                              }
+                              provider.Time = time;
+                              double t = time;
+                              double last = t;
+                              act = runtime.Step(processor,
+                              (time) =>
+                              {
+                                  provider.Time = time;
+                              }
+                              , reason, asynchronousCalculation);
+                              continue;
+                          }
+                          if (stp())
+                          {
+                              break;
+                          }
+                          t = testc;
+                          act(last, t, i);
+                          last = t;
+                          acts();
+                      }
+                  }
+              }
+              catch (Exception ex)
+              {
+                  if (errorHandler != null)
+                  {
+                      errorHandler.ShowError(ex, 10);
+                  }
+                  else
+                  {
+                      ex.ShowError(10);
+                  }
+              }
+              processor.TimeProvider = old;
+          }
+      }*/
 
 
-    #endregion
+        #endregion
 
 
-    #region PerformFixed
+        #region PerformFixed
 
 
 
 
-    /// <summary>
-    /// Performs action with fixed step
-    /// </summary>
-    /// <param name="start">Start</param>
-    /// <param name="step">Step</param>
-    /// <param name="count">Count of steps</param>
-    /// <param name="provider">Provider of time measure</param>
-    /// <param name="processor">Differential equation processor</param>
-    /// <param name="reason">Reason</param>
-    /// <param name="priority">Priority</param>
-    /// <param name="action">Additional action</param>
-    /// <param name="stop">Stop function</param>
-    /// <param name="errorHandler">Error handler</param>
-    /// <param name="asynchronousCalculation">Asynchronous calculation</param>
-    void PerformFixed(double start, double step, int count,
-            ITimeMeasurementProvider provider,
-              IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-             IErrorHandler errorHandler = null)
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="stop">Stop function</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        void PerformFixed(double start, double step, int count,
+                ITimeMeasurementProvider provider,
+                  IDifferentialEquationProcessor processor, string reason,
+                 int priority, Action action, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+                 IErrorHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
             var stp = stop;
@@ -209,10 +209,10 @@ namespace DataPerformer.Portable.Wrappers
         }
 
         public void PerformFixed(double start, double step, int count,
-     ITimeMeasurementProvider provider,
-       IDifferentialEquationProcessor processor, string reason,
-      int priority, Action action, string condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-      IErrorHandler errorHandler = null)
+            ITimeMeasurementProvider provider,
+            IDifferentialEquationProcessor processor, string reason,
+            int priority, Action action, string condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
+            IErrorHandler errorHandler = null)
         {
             IMeasurement cm = null;
             if (condition != null)

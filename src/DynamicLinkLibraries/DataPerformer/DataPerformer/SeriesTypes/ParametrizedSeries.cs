@@ -4,6 +4,7 @@ using System.Text;
 
 using FormulaEditor;
 using BaseTypes.Utils;
+using BaseTypes;
 
 namespace DataPerformer.SeriesTypes
 {
@@ -48,9 +49,10 @@ namespace DataPerformer.SeriesTypes
             {
                 step = StandardStep;
             }
-            else
+            else if (ordinateType is ArrayReturnType)
             {
-                step = ArrayStep;
+                var t = ((ArrayReturnType)ordinateType).IsObjectType;
+                step = t ? ArrayObjectStep: ArrayStep;
             }
         }
 
@@ -78,6 +80,22 @@ namespace DataPerformer.SeriesTypes
             //End test of test*/
 
         }
+
+        private void ArrayObjectStep()
+        {
+            var a = x()();
+            var b = y()();
+            if (a == null | b == null)
+            {
+                return;
+            }
+            object[] array = b as object[];
+            var xx = new double[array.Length];
+            Array.Copy(array, xx, xx.Length);
+            AddXY((double)a, xx);
+        }
+
+
 
         private void ArrayStep()
         {
