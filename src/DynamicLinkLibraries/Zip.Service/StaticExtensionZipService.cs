@@ -23,6 +23,9 @@ namespace Zip.Service
         {
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionZipService()
         {
             ZipListLoader.Singleton.AddListLoader();

@@ -1075,9 +1075,9 @@ namespace Diagram.UI
 
         #region Ctor
 
-
-
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionDiagramUIForms()
         {
             Init();

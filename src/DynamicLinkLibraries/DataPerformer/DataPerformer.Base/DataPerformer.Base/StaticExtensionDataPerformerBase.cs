@@ -44,6 +44,9 @@ namespace DataPerformer
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionDataPerformerBase()
         {
             Func<object, object> f = BaseTypes.Extended.ArrayReturnType.Convert;

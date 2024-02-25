@@ -1,19 +1,18 @@
 ﻿using AssemblyService.Attributes;
 
-namespace BitmapConsumer.TestIntefface
+namespace Chart.Library.Factory
 {
     [InitAssembly]
-    public static class StaticExtensionBitmapConsumerTestInterface
+    public static  class StaticExtensionChartLibraryFactory
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        static StaticExtensionBitmapConsumerTestInterface()
+        static StaticExtensionChartLibraryFactory()
         {
-            new TestCreator();
+            new CandleSeriesLibrary();
         }
 
-        /// <summary>
         /// Inits itself
         /// </summary>
         static public void Init()

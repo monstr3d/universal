@@ -34,6 +34,9 @@ namespace Bitmap.FormulaEditior
 
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionBitmapFormulaEditor()
         {
             foreach (string s in Operations)

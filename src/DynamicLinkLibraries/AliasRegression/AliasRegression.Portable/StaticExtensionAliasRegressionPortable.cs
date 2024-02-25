@@ -27,6 +27,9 @@ namespace Regression.Portable
 
         #region Private
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionAliasRegressionPortable()
         {
             new CSCodeCreator();

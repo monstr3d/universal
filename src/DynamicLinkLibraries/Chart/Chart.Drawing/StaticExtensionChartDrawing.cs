@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Chart.Drawing.Factory;
 using Chart.Drawing.Interfaces;
 
 namespace Chart.Drawing
@@ -13,6 +13,8 @@ namespace Chart.Drawing
     /// </summary>
     public static class StaticExtensionChartDrawing
     {
+
+        private static ISeriesPainterFactory seriesPainterFactory = null;
         /// <summary>
         /// Gets series from the chart performer
         /// </summary>
@@ -26,11 +28,32 @@ namespace Chart.Drawing
                 yield return performer[i];
             }
         }
-        
+
+        /// <summary>
+        /// Adds a factory
+        /// </summary>
+        /// <param name="factory">The factory to add</param>
+        public static void Add(this ISeriesPainterFactory factory)
+        {
+            if (seriesPainterFactory == null)
+            {
+                seriesPainterFactory = factory;
+                return;
+            }
+            SeriesPainterFactoryCollection f = (seriesPainterFactory is
+                SeriesPainterFactoryCollection) ? seriesPainterFactory as SeriesPainterFactoryCollection :
+                new();
+            f.Add(factory);
+        }
+
         /// <summary>
         /// Factory
         /// </summary>
-        public static ISeriesPainterFactory SeriesPainterFactory { get; set; }
+        public static ISeriesPainterFactory SeriesPainterFactory
+        {
+            get => seriesPainterFactory;
+            set => seriesPainterFactory = value;
+        }
 
 
         /// <summary>
@@ -89,4 +112,5 @@ namespace Chart.Drawing
             return SeriesPainterFactory[obj];
         }
     }
+        
 }

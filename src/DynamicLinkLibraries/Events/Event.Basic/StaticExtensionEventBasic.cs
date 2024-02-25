@@ -37,10 +37,9 @@ namespace Event.Basic
 
         #region Ctor
 
-        //static public object FromBytes
 
         /// <summary>
-        /// Initialization
+        /// Constructor
         /// </summary>
         static StaticExtensionEventBasic()
         {

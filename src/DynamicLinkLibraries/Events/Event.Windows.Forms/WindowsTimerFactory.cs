@@ -33,6 +33,9 @@ namespace Event.Windows.Forms
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static WindowsTimerFactory()
         {
             WindowsTimerFactory f = Singleton;

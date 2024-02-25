@@ -245,6 +245,9 @@ namespace DataPerformer.Formula
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionDataPerformerFormula()
         {
             new CSCodeCreator();

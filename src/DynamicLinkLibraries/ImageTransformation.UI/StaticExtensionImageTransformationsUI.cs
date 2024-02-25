@@ -90,6 +90,9 @@ namespace ImageTransformation.UI
            { typeof(ImageTransformations.BitmapTransformer), ResourceImage.BitmapTransformer.ToBitmap()},
         };
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionImageTransformationsUI()
         {
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory.OnCreateXml +=
