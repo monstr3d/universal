@@ -164,7 +164,7 @@ namespace Orbital.Forecast.Blasor
         [Display(Name = "Count of steps")]
         [Required(ErrorMessage = "Count of steps")]
         public int Count
-        { get; set; } = 18000;
+        { get; set; } = 1800;
 
         public List<List<object>> Values
         {
