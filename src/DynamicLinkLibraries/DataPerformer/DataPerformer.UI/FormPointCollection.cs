@@ -60,7 +60,7 @@ namespace DataPerformer.UI
             performer = panel.Performer;
             performer.Resize();
             panelChart.Controls.Add(panel);
-            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5, performer);
+            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5);
             performer.Coordinator = coordinator;
             setChooser();
             string fn = draw.FactoryName;

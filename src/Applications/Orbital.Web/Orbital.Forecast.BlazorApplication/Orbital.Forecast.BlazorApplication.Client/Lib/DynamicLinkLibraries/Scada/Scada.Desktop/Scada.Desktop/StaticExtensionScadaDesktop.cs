@@ -38,6 +38,9 @@ namespace Scada.Desktop
 
         #region Constructor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionScadaDesktop()
         {
             ScadaDesktop.Singleton.SetBase();

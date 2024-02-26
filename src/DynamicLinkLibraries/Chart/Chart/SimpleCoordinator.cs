@@ -26,8 +26,8 @@ namespace Chart
         /// <param name="nx">X - division</param>
         /// <param name="ny">Y - division</param>
         /// <param name="performer">Performer of chart drawing</param>
-        public SimpleCoordinator(int nx, int ny, ChartPerformer performer)
-            : base(nx, ny, performer)
+        public SimpleCoordinator(int nx, int ny)
+            : base(nx, ny)
         {
         }
 

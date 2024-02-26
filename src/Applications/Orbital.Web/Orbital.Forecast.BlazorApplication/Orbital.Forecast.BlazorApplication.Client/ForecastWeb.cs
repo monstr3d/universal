@@ -11,10 +11,10 @@ namespace Orbital.Forecast.Blasor
 
 
         #region Fields
-        GeneratedProject.Forecast.InternalDesktop forecast = 
-            GeneratedProject.Forecast.Desktop as 
+        GeneratedProject.Forecast.InternalDesktop forecast =
+            GeneratedProject.Forecast.Desktop as
             GeneratedProject.Forecast.InternalDesktop;
-  
+
 
         DinAtm.Portable.Atmosphere atmosphere;
         DataPerformer.Formula.DifferentialEquationSolver solver;
@@ -22,7 +22,7 @@ namespace Orbital.Forecast.Blasor
         IAlias atm;
         DataPerformer.Portable.DataConsumer dataConsumer;
         DataPerformer.Portable.Wrappers.DataConsumerWrapper wrapper;
-        
+
         #endregion
 
         /// <summary>
@@ -56,6 +56,7 @@ namespace Orbital.Forecast.Blasor
             set => alias["x"] = value;
         }
 
+  
         /// <summary>
         /// Y - coordinate
         /// </summary>
@@ -173,11 +174,11 @@ namespace Orbital.Forecast.Blasor
                 string[] par = ["Vector.Formula_8",
                     "Motion equations.x", "Motion equations.y", "Motion equations.z",
                 "Motion equations.u", "Motion equations.v", "Motion equations.w"];
-                 var l = wrapper.PerformFixed(dt, 1, Count,
-                    new DataPerformer.Portable.Helpers.TimeMeasurementProvider(),
-                    DifferentialEquationProcessor.Processor,
-                    StaticExtensionDataPerformerInterfaces.Calculation, 0,
-                    null, par);
+                var l = wrapper.PerformFixed(dt, 1, Count,
+                   new DataPerformer.Portable.Helpers.TimeMeasurementProvider(),
+                   DifferentialEquationProcessor.Processor,
+                   StaticExtensionDataPerformerInterfaces.Calculation, 0,
+                   null, par);
                 return l;
             }
         }

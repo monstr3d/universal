@@ -23,15 +23,18 @@ namespace Chart.Drawing.Coordinators
         protected double[] scale = new double[2];
         protected int[] p = new int[2];
         private double[][] sc = new double[2][];
-        protected ChartPerformer performer;
+
+        protected ICoordPainter coordPainter;
+        
+        private ChartPerformer performer;
 
 
         protected ICoordTextPainter xText = new SimpleCoordTextPainter();
         protected ICoordTextPainter yText = new SimpleCoordTextPainter();
 
-        public SimpleCoordinator(int nx, int ny, ChartPerformer performer)
+        public SimpleCoordinator(int nx, int ny)
         {
-            this.performer = performer;
+            coordPainter = this;
             n[0] = nx;
             n[1] = ny;
             sc[0] = scd;
@@ -201,7 +204,6 @@ namespace Chart.Drawing.Coordinators
 
         #region ICoordPainter Members
 
-
         ICoordTextPainter ICoordPainter.X
         {
             get
@@ -242,6 +244,14 @@ namespace Chart.Drawing.Coordinators
             }
         }
 
+
+        ChartPerformer ICoordPainter.Performer
+        {
+            get => performer;
+            set => performer = value;
+        }
+
+
         /// <summary>
         /// Clears insets
         /// </summary>
@@ -251,6 +261,7 @@ namespace Chart.Drawing.Coordinators
         {
         }
 
+    
 
         #endregion
     }

@@ -59,7 +59,7 @@ namespace DataPerformer.UI.UserControls
         {
             InitializeComponent();
             userControlChart.Prepare(new int[,] { { 80, 30 }, { 10, 40 } }, true);
-            userControlChart.Coordinator = new Chart.Drawing.Coordinators.SimpleCoordinator(5, 5, userControlChart.Performer);
+            userControlChart.Coordinator = new Chart.Drawing.Coordinators.SimpleCoordinator(5, 5);
             userControlChart.SetObject(this);
             toolStripLabelCoord.Text = "";
         }

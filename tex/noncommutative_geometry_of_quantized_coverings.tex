@@ -831,7 +831,7 @@ Following table contains  special symbols.
 	A connected closed two-sided ideal $A$ of  $C^*$-algebra $B$ is said to be a \textit{connected component of}  $B$ is there is a direct sum $B = A \oplus A'$ of $C^*$-algebras.
 \end{definition}
 \begin{exercise}\label{conn_comp_exer}
-Using the Theorem \ref{ideal_spectrum_thm} prove that there is a natural one-to-one correspondence between connected components of $C^*$-algebra and connected components of its spectrum (cf. Definitions \ref{top_connected_component_defn}, \ref{prime_primtive_defn}).
+Using the Theorem \ref{ideal_spectrum_thm} prove that there is a natural one-to-one correspondence between connected components of $C^*$-algebra and connected components of its spectrum (cf. Definitions \ref{top_connected_component_defn}, \ref{spectrum_prime_primtive_defn}).
 \end{exercise}
 \begin{empt}\label{unital_notation_empt}
 	Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
@@ -8525,7 +8525,7 @@ If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital nonc
 \begin{proof}
 	The spectrum of $\widetilde{A}$ equals to $\sX$  since the given by \ref{spectrum_cov_eqn} map is a homeomorphism. If $\pi:C\left( {\sX}\right)\hookto\widetilde{A}$ is not a *-isomorphism then there is $x \in \sX$ such that $\dim \rep_x\left( \widetilde A\right)> 1$. From the Lemma \ref{comm_ccr_lem} it follows that there is a  maximal number $N$ among $\dim \rep_x\left( \widetilde A\right)$ From the Proposition \ref{less_n_pi_prop} it follows that a set
 	$$
-	_{N-1}{   \mathcal X }= \left\{{x} \in {   \mathcal X }~|~\dim \rep_{ {x}}\left( \widetilde A\right)= N\right\}\subset \sX
+	_{N-1}{   \mathcal X }= \left\{{x} \in {   \mathcal X }~|~\dim \rep_{ {x}}\left( \widetilde A\right)\le N\right\}\subset \sX
 	$$
 is a closed subset of $\sX$, so a set 	
 $$
@@ -8537,7 +8537,7 @@ _N\widetilde{A} =\bigcap_{{x}\in {   \mathcal X }\setminus _N{   \mathcal X }}\k
 $$
 then from Theorem \ref{ctr_fin_bundle_thm} it turns out $_N\widetilde{A}$ corresponds to  a fibre bundle with the base space $_N{   \mathcal X }$ and and fibre space $\mathbb{M}_N\left( \C\right)$. It follows that there is an open subset ${   \mathcal U } \subset _N{   \mathcal X }$ such that
 \be\label{comm_lem_triv_u_eqn}
-\left._N\widetilde{A}\right|_{{   \mathcal U }}= \left.\widetilde{A}\right|_{{   \mathcal U }} \cong C_0\left( {   \mathcal U }\right) \otimes \mathbb{M}_N\left( \C\right)
+_N\widetilde{A}= \left.\widetilde{A}\right|_{{   \mathcal U }} \cong C_0\left( {   \mathcal U }\right) \otimes \mathbb{M}_N\left( \C\right)
 \ee
 where $\left._N\widetilde{A}\right|_{{   \mathcal U }}$ is given by the equation \eqref{open_ideal_eqn}. If $ x \in {   \mathcal U }$
  and  $ f_{ x}\in C_c\left({   \mathcal U } \right)$ is an $ x$-stump (cf. Definition \ref{top_stump_defn}) then there is an open subset ${   \mathcal V }\subset {   \mathcal U}$   
@@ -8607,10 +8607,10 @@ The $C^*$-algebra  $C\left(\sX \right) $ is commutative, it follows that
 $$
  a \in C\left(\sX \right) \Rightarrow \rep_{{x}}\left( a\right) = 
 \begin{pmatrix}
-f\left({x} \right)  & 0 &\ldots & 0\\
-0& f\left({x} \right)  &\ldots&0 \\
+a\left({x} \right)  & 0 &\ldots & 0\\
+0& a\left({x} \right)  &\ldots&0 \\
 \vdots& \vdots &\ddots&\vdots\\
-0& 0 & \ldots &f\left({x} \right) 
+0& 0 & \ldots &a\left({x} \right) 
 \end{pmatrix} \quad\forall x \in   {\mathcal U}  
 $$
 and taking into account the equation \eqref{top_rep_eqn} one has $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( a\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{{x}}\left( a\right)$ for every $\widetilde x \in   \widetilde{\mathcal X}$. It means that $\chi_{\epsilon}\left( a\right) = a$ for all $a \in C\left(\sX\right)$
@@ -11661,7 +11661,7 @@ i.e. $_\sU A_\sU = A_1$. If	$\sU$ is not connected then there is a disjoint unio
 \end{corollary}
 
 \begin{empt}\label{blowing_prop_empt}
-	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of a $C^*$-algebra  $A$  (cf. Definition \ref{blowing_defn}). If  $\sX$ is a spectrum of $A$ (cf. Definition \ref{prime_primtive_defn}) for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$ (cf. Definition \ref{irred_defn}).	 If  $\sU \subset \sX$ is  an  open subset then the $C^*$-algebra 
+	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of a $C^*$-algebra  $A$  (cf. Definition \ref{blowing_defn}). If  $\sX$ is a spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$ (cf. Definition \ref{irred_defn}).	 If  $\sU \subset \sX$ is  an  open subset then the $C^*$-algebra 
 	$A_x \bydef\rep_x\left(C_0\left( \sU\right)  \right)$ is commutative. Let $\left\{A^{\a}_x\right\}_{\a\in \mathscr A_x}$ be a family of all connected components (cf. Definition \ref{connected_comp_defn}) of $A_x$. If $\H^\a_x$ is a Hilbert norm completion of $A^\a_x \H_x$ then from $\a' \neq \a''$ it turns out that $\H^{\a'}_x\perp \H^{\a''}_x$. Suppose that $\H^\parallel_x$ is the Hilbert norm completion of $A_x \H_x$ and $\H^\perp_x \subset \H_x$ is an orthogonal complement of $\H^\parallel_x$, i.e.
 $\H_x = \H^\perp_x \oplus  \H^\parallel_x$.
 The following set
@@ -14695,9 +14695,11 @@ If $\sum_{j = 1}^n \widetilde f_j \in C_c\left( \widetilde \sX\right)$ is a subo
 \eean
 From $\pi\left( a_j\right)\in \widetilde A$ and $\sqrt{\widetilde f_j}\in M\left(\widetilde A\right)$ it follows that $\sum_{j = 1}^n \widetilde f_j\widetilde a \in \widetilde A$. From  $\left\|\sum_{j = 1}^n \widetilde f_j\widetilde a -\widetilde a   \right\|< \eps$ it follows that $\widetilde a \in \widetilde A$, i.e. $ A_0\left( \widetilde \sX\right) \subset \widetilde A$. The proof of that there is a natural $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$ is left to the reader.
 \end{proof}
-
+\begin{corollary}
+Let $A$ be a continuous trace $C^*$-algebra, and let $\mathcal X$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).	If $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space then the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
+\end{corollary}
 \begin{empt}\label{ctr_funct_empt}
-	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and the Lemma \ref{ctr_blowing_disint_lem}). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn}).  Similarly to \ref{top_functor_empt} we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
+	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and the Lemma \ref{ctr_blowing_disint_lem}). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn}).  Similarly to \ref{top_functor_empt} we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
 	We define
@@ -14720,7 +14722,7 @@ From the Corollary \ref{ctr_fin_cor} it follows that $\widetilde A_1\cong A_0\le
 \end{empt}
 
 \begin{theorem}\label{ctr_fin_thm}
-	Let  $A$ is a connected continuous trace $C^*$-algebra, such that the primitive spectrum $\sX$ (cf. Definition \ref{prime_primtive_defn}) is locally connected. The  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) is an equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
+	Let  $A$ is a connected continuous trace $C^*$-algebra, such that the primitive spectrum $\sX$ (cf. Definition \ref{spectrum_prime_primtive_defn}) is locally connected. The  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) is an equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
 \end{theorem}
 \begin{proof}
 According to the Definition \ref{category_equivalence_definition} one should  construct  natural isomorphisms $\tau : \mathbb{1}_{\mathfrak{FinCov}\text{-}A} \cong A_0 \circ 	\mathrm{Spe}$, and $\sigma : \mathbb{1}_{\mathfrak{FinCov}\text{-}\sX}\cong \mathrm{Spe} \circ A_0$. If $\left(A,  \widetilde{  A} ,G\left(\left. \widetilde{ A } ~\right|   A\right) ,  \pi\right)$ is a $\mathfrak{FinCov}\text{-}A$-object then it is equivalent to 
@@ -15798,7 +15800,7 @@ An inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right)
 	$$
 \end{lemma}
 \begin{proof}
-If $\sX$ is a primitive spectrum (cf. Definition \ref{prime_primtive_defn}) of $C^*_r\left(M,\sF\right)$ then from the  Theorem \ref{foli_irred_hol_thm} it follows that  any $x \in \sX$ corresponds the a  leaf $L_x$ of $\left(M,\sF\right)$ which has no holonomy. From the equation \eqref{foli_repr_eqn} the representation is given by
+If $\sX$ is a primitive spectrum (cf. Definition \ref{spectrum_prime_primtive_defn}) of $C^*_r\left(M,\sF\right)$ then from the  Theorem \ref{foli_irred_hol_thm} it follows that  any $x \in \sX$ corresponds the a  leaf $L_x$ of $\left(M,\sF\right)$ which has no holonomy. From the equation \eqref{foli_repr_eqn} the representation is given by
 $$
 \rep_{x} : C^*_r\left(M,\sF\right) \to B\left( L^2\left(L_x \right) \right) 
 $$
@@ -15847,7 +15849,7 @@ On the other hand $\K \otimes C_0\left( \R^n\right)$ is a continuous trace $C^*$
 
 
 \begin{empt}\label{foli_spectral_empt}
-	Let $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}). Let $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  be {natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}). Let $\sX$ be a primitive spectrum (cf. Definition \ref{prime_primtive_defn}) of  $C^*_r\left(M,\sF\right)$. Let us define a partially defined map from $f:M\to\sX$ such that
+	Let $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}). Let $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  be {natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}). Let $\sX$ be a primitive spectrum (cf. Definition \ref{spectrum_prime_primtive_defn}) of  $C^*_r\left(M,\sF\right)$. Let us define a partially defined map from $f:M\to\sX$ such that
 \begin{itemize}
 	\item If $y \in M$ and a leaf corresponding to $y$ leaf $L_y$ has no holonomy then $f\left( y\right)$ corresponds to an irreducible  representation $\rho: C^*_r\left(M,\sF\right)\to B\left( L^2\left(L_y\right)\right) $.
 	\item  If the leaf $L_y$ has holonomy then we put  $f\left( y\right)$ undefined.
@@ -22256,12 +22258,12 @@ $C^*$-algebra $A$ are either disjoint (cf. Definition \ref{orth_repr_defn}) or s
 		For each nondegenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
 	\end{thm}
 	
-	\begin{definition}\label{prime_primtive_defn}\cite{pedersen:ca_aut}
+	\begin{definition}\label{spectrum_prime_primtive_defn}\cite{pedersen:ca_aut}
 		An ideal $I$ in a $C^*$-algebra $A$ is \textit{prime}  if $xAy \subset I$  implies $x\in I$  or $y\in I$
 		for all $x$, $y$ in $A$.  Equivalently, $I$ is prime if $I_1I_2\subset I$ implies  $I_1\subset I$ or 
 	 $I_2\subset I$ for any two (left, right, or two-sided) ideals $I_1$ and $I_2$ of $A$. 
 		We say that $I$ is a \textit{primitive} ideal if $I= \ker\pi$ for some irreducible 
-		representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation.
+		representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. This definition complies with \ref{equiv_repr_defn} one.
 	\end{definition}
 \begin{proposition}\label{primitive_prime_prop}\cite{pedersen:ca_aut}
 %	3.13.10. 	Proposition. 
@@ -22962,7 +22964,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	Let $A$ be a $C^*$-algebra of type I. Then 
 	\begin{enumerate}
 		\item [(i)] $\K \subset \pi\left(A \right)$ for each irreducible representation $\pi: A \to B\left(\H \right)$  of $A$.
-		\item[(ii)] $\hat A = \check{A}$ (cf. Definition \ref{prime_primtive_defn}).
+		\item[(ii)] $\hat A = \check{A}$ (cf. Definition \ref{spectrum_prime_primtive_defn}).
 	\end{enumerate}
 \end{theorem}
 \begin{prop}\label{ctr_hered_prop}\cite{pedersen:ca_aut}
@@ -22984,7 +22986,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	%	Theorem A.50. 
 	Suppose that $A$ 
 	is a $C^*$-algebra such that $\check{A}$
-	is either second-countable !!! or almost Hausdorff (cf. Definition \ref{oa_haus_defn}). Then every prime ideal is primitive (cf. Definition \ref{prime_primtive_defn}). 
+	is either second-countable !!! or almost Hausdorff (cf. Definition \ref{oa_haus_defn}). Then every prime ideal is primitive (cf. Definition \ref{spectrum_prime_primtive_defn}). 
 \end{theorem}
 
 
@@ -23117,7 +23119,7 @@ is metrizable if and only if $\sX$ is Hausdorff. In this case, A is a $CCR$.
 	\be\label{ctr_open_id_eqn}
 	\sU \leftrightarrow 	A|_{\mathcal U}.
 	\ee
-	On the other hand any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra (cf. Lemma \ref{ctr_sep_haus_lem}). From the Theorem \ref{ctr_hat_check_thm} it turns out that the prime spectrum of $A$ coincides with its primitive one (cf. Definition \ref{prime_primtive_defn}).  So  the equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and open sets of the spectrum of $A$.
+	On the other hand any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra (cf. Lemma \ref{ctr_sep_haus_lem}). From the Theorem \ref{ctr_hat_check_thm} it turns out that the prime spectrum of $A$ coincides with its primitive one (cf. Definition \ref{spectrum_prime_primtive_defn}).  So  the equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and open sets of the spectrum of $A$.
 \end{remark}
 
 \begin{lemma}\label{ctr_fact_lem}\cite{rae:ctr_morita}

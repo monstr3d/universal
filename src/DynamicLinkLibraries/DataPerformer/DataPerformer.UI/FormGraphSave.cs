@@ -74,7 +74,7 @@ namespace DataPerformer.UI
             performer = panel.Performer;
             panelGraph.Controls.Add(panel);
             panel.LoadResources();
-            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5, performer);
+            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5);
             performer.Coordinator = coordinator;
             EditorReceiver.AddEditorDrag(panelGraph);
             PictureReceiver.AddImageDrag(panelGraph);

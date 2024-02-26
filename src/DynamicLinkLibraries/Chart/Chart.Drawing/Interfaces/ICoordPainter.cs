@@ -53,5 +53,10 @@ namespace Chart.Drawing.Interfaces
             set;
         }
 
+        /// <summary>
+        /// Pefrormer of chart
+        /// </summary>
+        ChartPerformer Performer { get; set; }
+
     }
 }

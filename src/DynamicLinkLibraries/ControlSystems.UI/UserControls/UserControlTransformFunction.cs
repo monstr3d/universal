@@ -175,7 +175,7 @@ namespace ControlSystems.UI.UserControls
             foreach (UserControlChart chart in charts)
             {
                 chart.Prepare(new int[,] { { 50, 5 }, { 5, 50 } }, true);
-                chart.Coordinator = new SimpleCoordinator(5, 5, chart.Performer);
+                chart.Coordinator = new SimpleCoordinator(5, 5);
             }
         }
 
@@ -258,7 +258,7 @@ namespace ControlSystems.UI.UserControls
             {
                 UserControlChart chart = charts[i];
                 chart.RemoveAll();
-                chart.Coordinator = new SimpleCoordinator(5, 5, chart.Performer);
+                chart.Coordinator = new SimpleCoordinator(5, 5);
             }
             Chart.Drawing.Series.SimpleSeries sa = new Chart.Drawing.Series.SimpleSeries();
             Chart.Drawing.Series.SimpleSeries sp = new Chart.Drawing.Series.SimpleSeries();

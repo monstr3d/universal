@@ -755,7 +755,7 @@ namespace DataPerformer.UI.UserControls
             panelGraph.Controls.Add(panel);
             panel.Dock = DockStyle.Fill;
             performer.Resize();
-            coordinator = new Chart.SimpleCoordinator(5, 5, performer);
+            coordinator = new Chart.SimpleCoordinator(5, 5);
             performer.Coordinator = coordinator;
             EditorReceiver.AddEditorDrag(panelGraph);
             PictureReceiver.AddImageDrag(panelGraph);

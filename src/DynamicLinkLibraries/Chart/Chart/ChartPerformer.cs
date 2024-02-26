@@ -520,6 +520,7 @@ namespace Chart
             set
             {
                 coordPainter = value;
+                coordPainter.Performer = this;
             }
         }
 

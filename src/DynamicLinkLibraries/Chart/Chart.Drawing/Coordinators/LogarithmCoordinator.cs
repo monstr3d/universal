@@ -22,7 +22,7 @@ namespace Chart.Drawing.Coordinators
 
         #region Constructors
         public LogarithmCoordinator(ChartPerformer performer)
-            : base(5, 5, performer)
+            : base(5, 5)
         {
 
         }
@@ -62,7 +62,8 @@ namespace Chart.Drawing.Coordinators
 
         public override void DrawCoord(Graphics g, int[,] insets, double[,] dSize, int[] size)
         {
-            xLog.Performer = performer;
+            var performer = coordPainter.Performer;
+            xLog.Performer =  performer;
             yLog.Performer = performer;
             xText.Performer = performer;
             yText.Performer = performer;
@@ -110,6 +111,7 @@ namespace Chart.Drawing.Coordinators
 
         protected void drawCoordLog(Graphics g, int[] size, double[,] dSize, int i)
         {
+            var performer = coordPainter.Performer;
             Pen pen = new Pen(Color.Black);
             int min = (int)Math.Floor(dSize[0, i]);
             int max = (int)Math.Ceiling(dSize[1, i]);

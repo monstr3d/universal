@@ -59,7 +59,7 @@ namespace ImageNavigation.UserControls
         {
             InitializeComponent();
             userControlChart.Prepare(new int[,] { { 80, 30 }, { 10, 40 } }, true);
-            userControlChart.Coordinator = new SimpleCoordinator(5, 5, userControlChart.Performer);
+            userControlChart.Coordinator = new SimpleCoordinator(5, 5);
             userControlChart.SetObject(this);
         }
 

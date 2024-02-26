@@ -2,13 +2,15 @@
 
 using CategoryTheory;
 using DataPerformer.Interfaces;
+using Web.Interfaces;
 
 namespace Gravity_36_36.Wrapper
 {
     /// <summary>
     /// Gravity field
     /// </summary>
-    public class Gravity : Gravity_36_36.Gravity, ICategoryObject, IObjectTransformer
+    public class Gravity : Gravity_36_36.Gravity, ICategoryObject, IObjectTransformer,
+       IUrlProvider, IUrlConsumer
     {
         #region Fields
 
@@ -115,6 +117,63 @@ namespace Gravity_36_36.Wrapper
 
         #endregion
 
+        #region IUrlConsumer Members
+
+
+        string IUrlConsumer.Url
+        {
+            set
+            {
+                url = value;
+                ChangeConsumer();
+                changeConsumer(url);
+            }
+        }
+
+
+        event Action<string> IUrlConsumer.Change
+        {
+            add
+            {
+                changeConsumer += value;
+            }
+
+            remove
+            {
+                changeConsumer -= value;
+            }
+        }
+
+        #endregion
+
+        #region IUrlProvider Members
+
+        string IUrlProvider.Url
+        {
+            get
+            {
+                ChangeProvider();
+                changeProvider(url);
+                return url;
+            }
+        }
+
+
+        event Action<string> IUrlProvider.Change
+        {
+            add
+            {
+                changeProvider += value;
+            }
+
+            remove
+            {
+                changeConsumer += value;
+            }
+        }
+
+        #endregion
+ 
         #region Protected Members
 
         /// <summary>

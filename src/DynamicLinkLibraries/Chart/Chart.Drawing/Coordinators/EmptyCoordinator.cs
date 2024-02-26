@@ -16,6 +16,7 @@ namespace Chart.Drawing.Coordinators
 
         ICoordTextPainter ICoordPainter.X { get => textPainter; set => textPainter=value; }
         ICoordTextPainter ICoordPainter.Y { get => textPainter; set => textPainter=value; }
+        ChartPerformer ICoordPainter.Performer { get => null; set { } }
 
         void ICoordPainter.ClearInsets(IControl component, int[,] insets)
         {
@@ -27,6 +28,8 @@ namespace Chart.Drawing.Coordinators
 
         void ICoordPainter.DrawCoord(Graphics g, int[,] insets, double[,] dSize, int[] size)
         {
+
         }
+
     }
 }

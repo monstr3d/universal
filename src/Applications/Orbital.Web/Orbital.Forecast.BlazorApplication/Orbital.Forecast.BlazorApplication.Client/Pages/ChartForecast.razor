@@ -14,8 +14,8 @@
 <PageTitle>Chart</PageTitle>
 
 <LineChart @ref="lineChart" Width="800" Class="mb-4" />
-
-<Button Type="ButtonType.Button" Color="ButtonColor.Primary" Size="Size.Small" @onclick="async () => await RandomizeAsync()"> Randomize </Button>
+<InputNumber @bind-Value=forecast.X/>
+<Button Type="ButtonType.Button" Color="ButtonColor.Primary" Size="Size.Small" @onclick="async () => await ForeastAsync()"> Randomize </Button>
 
 @code {
     Orbital.Forecast.Blasor.ForecastWeb forecast = new();
@@ -26,20 +26,25 @@
     private int datasetsCount;
     private int labelsCount;
 
-    private Random random = new();
 
     List<List<object>> lists;
+
+
+    void CreateChartData()
+    {
+        chartData = new ChartData
+            {
+                Labels = GetDefaultDataLabels(3),
+                Datasets = GetDefaultDataSets(3)
+            };
+
+    }
 
     protected override void OnInitialized()
     {
         BlazorApp.StaticExtension.Init();
         lists = forecast.Values;
-        chartData = new ChartData 
-        { 
-            Labels = GetDefaultDataLabels(3), 
-            Datasets = GetDefaultDataSets(3) 
-        };
-
+        CreateChartData();
         lineChartOptions = new() 
         { Responsive = true, Interaction = new Interaction 
             { Mode = InteractionMode.Index } };
@@ -54,99 +59,12 @@
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    private async Task RandomizeAsync()
-    {
-        if (chartData is null || chartData.Datasets is null || !chartData.Datasets.Any()) return;
-
-        var newDatasets = new List<IChartDataset>();
-
-        foreach (var dataset in chartData.Datasets)
-        {
-            if (dataset is LineChartDataset lineChartDataset
-                && lineChartDataset is not null
-                && lineChartDataset.Data is not null)
-            {
-                var count = lineChartDataset.Data.Count;
-
-                var newData = new List<double>();
-                for (var i = 0; i < count; i++)
-                {
-                    newData.Add(random.Next(200));
-                }
-
-                lineChartDataset.Data = newData;
-                newDatasets.Add(lineChartDataset);
-            }
-        }
-
-        async Task ForeastAsync()
-        {
-            var newDatasets = new List<IChartDataset>();
-            chartData.Datasets = newDatasets;
-            foreach (var dataset in chartData.Datasets)
-            {
-                if (dataset is LineChartDataset lineChartDataset
-                    && lineChartDataset is not null
-                    && lineChartDataset.Data is not null)
-                {
-                    var count = lineChartDataset.Data.Count;
-
-                    var newData = new List<double>();
-                    for (var i = 0; i < count; i++)
-                    {
-                        newData.Add(random.Next(200));
-                    }
-
-                    lineChartDataset.Data = newData;
-                    newDatasets.Add(lineChartDataset);
-                }
-            }
-
-            await lineChart.UpdateAsync(chartData, lineChartOptions);
-        }
-    }
-            /*
-            private async Task AddDatasetAsync()
-            {
-        if (chartData is null || chartData.Datasets is null) return;
-
-    var chartDataset = GetRandomLineChartDataset();
-    chartData = await lineChart.AddDatasetAsync(chartData, chartDataset, lineChartOptions);
-    }
-
-    private async Task AddDataAsync()
-    {
-    if (chartData is null || chartData.Datasets is null)
-    return;
-
-    var data = new List<IChartDatasetData>();
-        foreach (var dataset in chartData.Datasets)
-            {
-            if (dataset is LineChartDataset lineChartDataset)
-    data.Add(new LineChartDatasetData(lineChartDataset.Label, random.Next(200)));
-    }
-
-    chartData = await lineChart.AddDataAsync(chartData, GetNextDataLabel(), data);
-            }
-
-            private async Task ShowHorizontalLineChartAsync()
-    {
-    lineChartOptions.IndexAxis = "y";
-    await lineChart.UpdateAsync(chartData, lineChartOptions);
-    }
-
-        private async Task ShowVerticalLineChartAsync()
-    {
-    lineChartOptions.IndexAxis = "x";
-    await lineChart.UpdateAsync(chartData, lineChartOptions);
-    }*/
-
     #region Data Preparation
 
     private List<IChartDataset> GetDefaultDataSets(int numberOfDatasets)
     {
         /*var datasets = new List<IChartDataset>();
-
+         * 
         for (var index = 0; index < numberOfDatasets; index++)
             {
             datasets.Add(GetRandomLineChartDataset());
@@ -167,6 +85,14 @@
 
         return datasets;
     }
+
+    async Task ForeastAsync()
+    {
+        lists = forecast.Values;
+        CreateChartData();
+        await lineChart.UpdateAsync(chartData, lineChartOptions);
+    }
+
 
     LineChartDataset GetCoordinateChartDataset(int i)
     {
@@ -189,26 +115,6 @@
     }
 
 
-    private LineChartDataset GetRandomLineChartDataset()
-    {
-        var c = ColorBuilder.CategoricalTwelveColors[datasetsCount].ToColor();
-
-        datasetsCount += 1;
-
-        return new LineChartDataset
-            {
-                Label = $"Team {datasetsCount}",
-                Data = GetRandomData(),
-                BackgroundColor = new List<string> { c.ToRgbString() },
-                BorderColor = new List<string> { c.ToRgbString() },
-                BorderWidth = new List<double> { 2 },
-                HoverBorderWidth = new List<double> { 4 },
-                PointBackgroundColor = new List<string> { c.ToRgbString() },
-                PointRadius = new List<int> { 0 }, // hide points
-                PointHoverRadius = new List<int> { 4 }
-            };
-    }
-
     private List<double> GetCoordinates(int i)
     {
         var data = new List<double>();
@@ -220,16 +126,6 @@
         return data;
     }
 
-    private List<double> GetRandomData()
-    {
-        var data = new List<double>();
-        for (var index = 0; index < labelsCount; index++)
-        {
-            data.Add(random.Next(200));
-        }
-
-        return data;
-    }
 
     private List<string> GetDefaultDataLabels(int numberOfLabels)
     {
@@ -242,11 +138,6 @@
         return labels;
     }
 
-    private string GetNextDataLabel()
-    {
-        labelsCount += 1;
-        return $"Day {labelsCount}";
-    }
 
     #endregion Data Preparation
 

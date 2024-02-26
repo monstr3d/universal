@@ -274,7 +274,7 @@ namespace DataPerformer.UI.Labels
             performer = userControlChart.Performer;
             string[] names = PointCollectionChooserFactory.Factory.Names;
             comboBoxType.FillCombo(names);
-            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5, performer);
+            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5);
             performer.Coordinator = coordinator;
             setChooser();
             string fn = series.FactoryName;

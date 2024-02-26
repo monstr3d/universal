@@ -236,7 +236,7 @@ namespace DataPerformer.UI.UserControls
             panel.LoadResources();
             panel.Dock = DockStyle.Fill;
             performer.Resize();
-            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5, performer);
+            SimpleCoordinator coordinator = new SimpleCoordinator(5, 5);
             performer.Coordinator = coordinator;
             EditorReceiver.AddEditorDrag(panelGraph);
             PictureReceiver.AddImageDrag(panelGraph);

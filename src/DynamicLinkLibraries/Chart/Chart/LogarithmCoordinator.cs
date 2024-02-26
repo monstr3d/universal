@@ -77,6 +77,7 @@ namespace Chart
         /// <param name="size">Screen size</param>
         public override void DrawCoord(Graphics g, int[,] insets, double[,] dSize, int[] size)
         {
+            var performer = coordPainter.Performer;
             xLog.Performer = performer;
             yLog.Performer = performer;
             xText.Performer = performer;
@@ -137,6 +138,8 @@ namespace Chart
         /// <param name="i">Coordinate sing (0 - x, 1 - y) </param>
         new protected void drawCoordLog(Graphics g, int[] size, double[,] dSize, int i)
         {
+            var performer = coordPainter.Performer;
+
             Pen pen = new Pen(Color.Black);
             int min = (int)Math.Floor(dSize[0, i]);
             int max = (int)Math.Ceiling(dSize[1, i]);
