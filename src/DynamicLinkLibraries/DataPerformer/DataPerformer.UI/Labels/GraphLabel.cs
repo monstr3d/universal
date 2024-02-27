@@ -89,7 +89,7 @@ namespace DataPerformer.UI.Labels
          Tuple<Color, bool, double[]>>>>[]> dat;
 
 
-      UserControlGraph child;
+        UserControlGraph child;
 
         TimeType timeType = TimeType.Second;
 

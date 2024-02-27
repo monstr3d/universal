@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using System.Xml;
 
@@ -454,6 +455,15 @@ namespace DataPerformer.Portable.Basic
             }
         }
 
+
+        double[] Select(int i)
+        {
+            var x = points[i];
+            var y = new double[x.Length - 1];
+            Array.Copy(x, 1, y, 0, y.Length);
+            return [ y.Min(), y.Max() ];
+        }
+
         /// <summary>
         /// Size of this series
         /// </summary>
@@ -461,31 +471,14 @@ namespace DataPerformer.Portable.Basic
         {
             get
             {
-                double[,] size = new double[2, 2];
+                var lx = new List<double>();
+                var ly = new List<double>();
                 for (int i = 0; i < points.Count; i++)
                 {
-                    double[] x = (double[])points[i];
-                    if (i == 0)
-                    {
-                        size[0, 0] = x[0];
-                        size[0, 1] = x[1];
-                        size[1, 0] = x[0];
-                        size[1, 1] = x[1];
-                        continue;
-                    }
-                    for (int j = 0; j < 2; j++)
-                    {
-                        if (x[j] < size[0, j])
-                        {
-                            size[0, j] = x[j];
-                        }
-                        if (x[j] > size[1, j])
-                        {
-                            size[1, j] = x[j];
-                        }
-                    }
+                    lx.Add(points[i][0]);
+                    ly.AddRange(Select(i));
                 }
-                return size;
+                return new double[,] { {lx.Min(), lx.Max()},{ ly.Min(), ly.Max()} };
             }
         }
 

@@ -8,6 +8,7 @@ using System.Reflection;
 
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
+using System.Net.Http.Headers;
 
 namespace Chart.Drawing
 {
@@ -625,33 +626,23 @@ namespace Chart.Drawing
                 dSize[1, 1] = 1;
                 return;
             }
+            List<double>[] x = [new List<double>(), new List<double>()];
             for (int i = 0; i < Count; i++)
             {
                 ISeries s = this[i];
                 double[,] size = s.Size;
-                if (i == 0)
-                {
-                    for (int j = 0; j < 2; j++)
-                    {
-                        for (int k = 0; k < 2; k++)
-                        {
-                            dSize[j, k] = size[j, k];
-                        }
-                    }
-                    continue;
-                }
                 for (int j = 0; j < 2; j++)
                 {
-                    if (size[0, j] < dSize[0, j])
+                    for (int k = 0; k < 2; k++)
                     {
-                        dSize[0, j] = size[0, j];
-                    }
-                    if (size[1, j] > dSize[1, j])
-                    {
-                        dSize[1, j] = size[1, j];
+                        x[j].Add(size[j, k]);
                     }
                 }
             }
+            dSize[0, 0] = x[0].Min();
+            dSize[0, 1] = x[1].Min();
+            dSize[1, 0] = x[0].Max();
+            dSize[1, 1] = x[1].Max();
             //resizeHistograms();
             for (int i = 0; i < 2; i++)
             {

@@ -88,7 +88,7 @@ namespace DataPerformer.UI
         static StaticExtensionDataPerformerUI()
         {
             new Binder();
-            (new Portable.DisassemblyObjects.ArrayDisassemblyObject((double)0)).Add();
+        /// !!! DISASSEMBLY MAY BE NEEDED     (new Portable.DisassemblyObjects.ArrayDisassemblyObject((double)0)).Add();
             BufferDataImageList = new ImageList();
             BufferDataImageList.Images.AddRange(new Image[]
             {

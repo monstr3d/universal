@@ -19,25 +19,28 @@ namespace DataPerformer.Portable
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
-            List<string> l = new List<string>();
+
             string str = null;
-            if (obj is SeriesBase)
+            List<string> l = new ();
+            switch (obj)
             {
-                return Get(obj as SeriesBase);
+                case SeriesBase seriesBase:
+                    return Get(seriesBase);
+                case ObjectTransformer objectTransformer:
+                    return GetObjectTransformer(objectTransformer);
+                case VectorAssembly vectorAssembly:
+                    return Get(vectorAssembly);
+                case DataLink dataLink:
+                    str = "DataPerformer.Portable.DataLink";
+                    break;
+                case ObjectTransformerLink objectTransformerLink:
+                    str = "DataPerformer.Portable.ObjectTransformerLink";
+                    break;
+                default:
+                    break;
             }
-            if (obj is ObjectTransformer)
-            { 
-                    return GetObjectTransformer(obj as ObjectTransformer);
-            }
-            if ((obj is DataLink))
-            {
-                str = "DataPerformer.Portable.DataLink";
-            }
-            if (obj is ObjectTransformerLink)
-            {
-                str = "DataPerformer.Portable.ObjectTransformerLink";
-            }
-            if (str == null)
+
+             if (str == null)
             {
                 string th = obj.GetType().Name;
                 if (th.Equals("DataConsumer"))
@@ -63,9 +66,35 @@ namespace DataPerformer.Portable
             return l;
         }
 
+        List<string> Get(VectorAssembly assembly)
+        {
+            List<string> l = new();
+            string str = "DataPerformer.Portable.VectorAssembly";
+            l.Add(str);
+            l.Add("{");
+            l.Add("\tinternal CategoryObject() : base()");
+            l.Add("\t{");
+            l.Add("\t\tnames ="); 
+            l.Add("\t\t[");
+            var names = assembly.Names;
+            bool beg = true;
+            foreach (var name in names)
+            {
+                var s = beg ? "\t\t\t" : "\t\t\t, ";
+                beg = false;
+                s += "\"" + name + "\"";
+                l.Add(s);
+            }
+            l.Add("\t\t];");
+            l.Add("\t}");
+            l.Add("}");
+            return l;
+        }
+
+
         List<string> Get(SeriesBase series)
         {
-            List<string> l = new List<string>();
+            List<string> l = new ();
             string str = "DataPerformer.Portable.SeriesBase";
             l.Add(str);
             l.Add("{");
