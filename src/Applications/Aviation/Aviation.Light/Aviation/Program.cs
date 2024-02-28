@@ -15,6 +15,7 @@ using BasicEngineering.UI.Factory;
 
 using Aviation.UI;
 using DataPerformer.Formula;
+using Chart.UserControls;
 
 namespace Aviation.Light
 {
@@ -70,12 +71,12 @@ namespace Aviation.Light
         static void Main(string[] args)
         {
 
+
                Application.SetHighDpiMode(HighDpiMode.SystemAware);
                Application.EnableVisualStyles();
                //Application.SetCompatibleTextRenderingDefault(false);
              ApplicationConfiguration.Initialize();
-
-         
+ 
             AssemblyService.StaticExtensionAssemblyService.Init();
 
             TestType();

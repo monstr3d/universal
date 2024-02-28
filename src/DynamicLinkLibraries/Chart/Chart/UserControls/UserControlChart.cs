@@ -55,7 +55,7 @@ namespace Chart.UserControls
                 throw new Exception("Double initialization");
             }
             performer = new ChartPerformer(this, insets, hasStandardHandlers);
-            Coordinator = new Drawing.Coordinators.EmptyCoordinator();
+            Coordinator = new Drawing.Coordinators.SimpleCoordinator();
             Paint += new PaintEventHandler(OnPaint);
             Resize += new EventHandler(OnResize);
             BackColor = Color.White;
@@ -74,8 +74,11 @@ namespace Chart.UserControls
         /// </summary>
         public bool IsBlocked
         {
-            get => performer.IsBlocked;
-            set => performer.IsBlocked = value;
+            get => (performer == null) ? false : performer.IsBlocked;
+            set
+            {
+                if (performer != null) performer.IsBlocked = value;
+            }
         }
 
         /// <summary>
@@ -93,6 +96,10 @@ namespace Chart.UserControls
             }
             set
             {
+                if (value == null)
+                {
+                    return;
+                }
                 if (performer == null)
                 {
                     return;

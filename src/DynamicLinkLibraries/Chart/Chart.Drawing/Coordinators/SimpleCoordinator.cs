@@ -41,6 +41,11 @@ namespace Chart.Drawing.Coordinators
             sc[1] = scd;
         }
 
+        public SimpleCoordinator() : this(5, 5)
+        {
+
+        }
+
         static SimpleCoordinator()
         {
             double[] k = { 2, 5 };

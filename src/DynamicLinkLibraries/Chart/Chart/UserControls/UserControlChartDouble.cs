@@ -8,13 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DataPerformer.UI.UserControls
+namespace Chart.UserControls
 {
-    public partial class UserControlMultiGraph : UserControl
+    public partial class UserControlChartDouble : UserControl
     {
-
-        private List<Dictionary<string, Color>> dictionary = null;
-        public UserControlMultiGraph()
+        public UserControlChartDouble()
         {
             InitializeComponent();
         }

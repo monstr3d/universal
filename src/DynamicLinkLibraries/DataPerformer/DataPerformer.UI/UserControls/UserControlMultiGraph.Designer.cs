@@ -30,35 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMultiGraph));
-            panel22 = new System.Windows.Forms.Panel();
-            label10 = new System.Windows.Forms.Label();
-            textBoxAnimationScale = new System.Windows.Forms.TextBox();
-            userControlTimeUnitAnimation = new Diagram.UI.UserControls.UserControlTimeUnit();
-            numericUpDownPause = new System.Windows.Forms.NumericUpDown();
-            panel19 = new System.Windows.Forms.Panel();
-            label8 = new System.Windows.Forms.Label();
-            tabPageAnimation = new System.Windows.Forms.TabPage();
-            panel23 = new System.Windows.Forms.Panel();
-            panel24 = new System.Windows.Forms.Panel();
-            checkBoxSynchronous = new System.Windows.Forms.CheckBox();
-            panel25 = new System.Windows.Forms.Panel();
-            panel27 = new System.Windows.Forms.Panel();
-            panel28 = new System.Windows.Forms.Panel();
-            panel29 = new System.Windows.Forms.Panel();
-            panel30 = new System.Windows.Forms.Panel();
-            buttonStartStopRealtime = new System.Windows.Forms.Button();
-            tabPageStartStopRealtime = new System.Windows.Forms.TabPage();
-            panel26 = new System.Windows.Forms.Panel();
-            panel16 = new System.Windows.Forms.Panel();
-            panel18 = new System.Windows.Forms.Panel();
-            panel20 = new System.Windows.Forms.Panel();
-            panel21 = new System.Windows.Forms.Panel();
-            checkBoxAbsoluteTime = new System.Windows.Forms.CheckBox();
-            userControlTimeType = new Diagram.UI.UserControls.UserControlTimeUnit();
-            label9 = new System.Windows.Forms.Label();
-            panel17 = new System.Windows.Forms.Panel();
-            panelTop = new System.Windows.Forms.Panel();
-            panel13 = new System.Windows.Forms.Panel();
+            Chart.Drawing.Coordinators.SimpleCoordinator simpleCoordinator1 = new Chart.Drawing.Coordinators.SimpleCoordinator();
             backgroundWorkerTextRealtimeAnalysis = new System.ComponentModel.BackgroundWorker();
             showRuntimeIndicatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(components);
@@ -74,390 +46,31 @@
             toolStripButtonAnimation = new System.Windows.Forms.ToolStripButton();
             toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
             toolStripMain = new System.Windows.Forms.ToolStrip();
-            panel32 = new System.Windows.Forms.Panel();
-            panel33 = new System.Windows.Forms.Panel();
-            panel34 = new System.Windows.Forms.Panel();
-            panel35 = new System.Windows.Forms.Panel();
-            userControlCadr = new Graph.UserControlCadr();
-            panel31 = new System.Windows.Forms.Panel();
-            tabPageCadr = new System.Windows.Forms.TabPage();
-            panel15 = new System.Windows.Forms.Panel();
-            userControlRealtime = new UserControlRealtime();
+            toolStripLabelNumber = new System.Windows.Forms.ToolStripLabel();
+            toolStripComboBoxNumber = new System.Windows.Forms.ToolStripComboBox();
             backgroundWorkerReatimeAnalysis = new System.ComponentModel.BackgroundWorker();
-            checkBoxIterator = new System.Windows.Forms.CheckBox();
-            checkBoxDirectoryIteration = new System.Windows.Forms.CheckBox();
-            label6 = new System.Windows.Forms.Label();
-            comboBoxStepCount = new System.Windows.Forms.ComboBox();
-            comboBoxStep = new System.Windows.Forms.ComboBox();
-            comboBoxStart = new System.Windows.Forms.ComboBox();
-            panel4 = new System.Windows.Forms.Panel();
-            calculatorBoxStep = new System.Windows.Forms.TextBox();
-            calculatorBoxStart = new System.Windows.Forms.TextBox();
-            labelY = new System.Windows.Forms.Label();
-            labelX = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            textBoxStepCount = new System.Windows.Forms.TextBox();
-            label3 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            comboBoxArg = new System.Windows.Forms.ComboBox();
-            panelMeaRight = new System.Windows.Forms.Panel();
-            panelMeaBottom = new System.Windows.Forms.Panel();
-            splitContainerGraph = new System.Windows.Forms.SplitContainer();
-            panelMeaLeft = new System.Windows.Forms.Panel();
-            panel1 = new System.Windows.Forms.Panel();
-            panel2 = new System.Windows.Forms.Panel();
-            panel3 = new System.Windows.Forms.Panel();
-            panelIntLeft = new System.Windows.Forms.Panel();
-            tabPageGraph = new System.Windows.Forms.TabPage();
-            panel5 = new System.Windows.Forms.Panel();
-            tabControlMain = new System.Windows.Forms.TabControl();
-            tabPageText = new System.Windows.Forms.TabPage();
             contextMenuStripTextTab = new System.Windows.Forms.ContextMenuStrip(components);
             saveXmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            panelText = new System.Windows.Forms.Panel();
-            panel9 = new System.Windows.Forms.Panel();
-            panel7 = new System.Windows.Forms.Panel();
-            panelTextBottom = new System.Windows.Forms.Panel();
-            panel8 = new System.Windows.Forms.Panel();
-            panel10 = new System.Windows.Forms.Panel();
-            comboBoxCond = new System.Windows.Forms.ComboBox();
-            panel11 = new System.Windows.Forms.Panel();
-            panel12 = new System.Windows.Forms.Panel();
-            label7 = new System.Windows.Forms.Label();
-            panel14 = new System.Windows.Forms.Panel();
-            tabPageRealTime = new System.Windows.Forms.TabPage();
-            panel6 = new System.Windows.Forms.Panel();
             panelDraw = new System.Windows.Forms.Panel();
+            panelMain = new System.Windows.Forms.Panel();
+            splitContainer = new System.Windows.Forms.SplitContainer();
+            userControlChartDouble = new Chart.UserControls.UserControlChartDouble();
+            userControlFilledChart = new Chart.UserControls.UserControlFilledChart();
+            userControlChartMeasurements = new UserControlChartMeasurements();
             panelBottom = new System.Windows.Forms.Panel();
             panelCenter = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownPause).BeginInit();
-            panel19.SuspendLayout();
-            tabPageAnimation.SuspendLayout();
-            panel24.SuspendLayout();
-            tabPageStartStopRealtime.SuspendLayout();
-            panel26.SuspendLayout();
-            panel17.SuspendLayout();
-            panelTop.SuspendLayout();
+            userControlDoubleMeasurements = new UserControlDoubleMeasurements();
             contextMenuStripMain.SuspendLayout();
             toolStripMain.SuspendLayout();
-            panel31.SuspendLayout();
-            tabPageCadr.SuspendLayout();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerGraph).BeginInit();
-            splitContainerGraph.Panel2.SuspendLayout();
-            splitContainerGraph.SuspendLayout();
-            panel3.SuspendLayout();
-            tabPageGraph.SuspendLayout();
-            tabControlMain.SuspendLayout();
-            tabPageText.SuspendLayout();
             contextMenuStripTextTab.SuspendLayout();
-            panel8.SuspendLayout();
-            panel10.SuspendLayout();
-            panel12.SuspendLayout();
-            tabPageRealTime.SuspendLayout();
-            panel6.SuspendLayout();
             panelDraw.SuspendLayout();
+            panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+            splitContainer.Panel1.SuspendLayout();
+            splitContainer.Panel2.SuspendLayout();
+            splitContainer.SuspendLayout();
             panelCenter.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel22
-            // 
-            panel22.Dock = System.Windows.Forms.DockStyle.Right;
-            panel22.Location = new System.Drawing.Point(812, 31);
-            panel22.Margin = new System.Windows.Forms.Padding(4);
-            panel22.Name = "panel22";
-            panel22.Size = new System.Drawing.Size(0, 389);
-            panel22.TabIndex = 18;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(20, 45);
-            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(119, 15);
-            label10.TabIndex = 43;
-            label10.Text = "Animation time scale";
-            // 
-            // textBoxAnimationScale
-            // 
-            textBoxAnimationScale.Location = new System.Drawing.Point(326, 38);
-            textBoxAnimationScale.Margin = new System.Windows.Forms.Padding(4);
-            textBoxAnimationScale.Name = "textBoxAnimationScale";
-            textBoxAnimationScale.Size = new System.Drawing.Size(175, 23);
-            textBoxAnimationScale.TabIndex = 42;
-            // 
-            // userControlTimeUnitAnimation
-            // 
-            userControlTimeUnitAnimation.Location = new System.Drawing.Point(326, 4);
-            userControlTimeUnitAnimation.Margin = new System.Windows.Forms.Padding(4);
-            userControlTimeUnitAnimation.Name = "userControlTimeUnitAnimation";
-            userControlTimeUnitAnimation.Size = new System.Drawing.Size(175, 26);
-            userControlTimeUnitAnimation.TabIndex = 41;
-            userControlTimeUnitAnimation.TimeUnit = BaseTypes.Attributes.TimeType.Second;
-            // 
-            // numericUpDownPause
-            // 
-            numericUpDownPause.Location = new System.Drawing.Point(102, 7);
-            numericUpDownPause.Margin = new System.Windows.Forms.Padding(4);
-            numericUpDownPause.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
-            numericUpDownPause.Name = "numericUpDownPause";
-            numericUpDownPause.Size = new System.Drawing.Size(67, 23);
-            numericUpDownPause.TabIndex = 40;
-            // 
-            // panel19
-            // 
-            panel19.Controls.Add(label10);
-            panel19.Controls.Add(textBoxAnimationScale);
-            panel19.Controls.Add(userControlTimeUnitAnimation);
-            panel19.Controls.Add(numericUpDownPause);
-            panel19.Controls.Add(label8);
-            panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel19.Location = new System.Drawing.Point(0, 31);
-            panel19.Margin = new System.Windows.Forms.Padding(4);
-            panel19.Name = "panel19";
-            panel19.Size = new System.Drawing.Size(812, 389);
-            panel19.TabIndex = 20;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(17, 11);
-            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(38, 15);
-            label8.TabIndex = 39;
-            label8.Text = "Pause";
-            // 
-            // tabPageAnimation
-            // 
-            tabPageAnimation.Controls.Add(panel19);
-            tabPageAnimation.Controls.Add(panel22);
-            tabPageAnimation.Controls.Add(panel23);
-            tabPageAnimation.Controls.Add(panel24);
-            tabPageAnimation.Controls.Add(panel25);
-            tabPageAnimation.Location = new System.Drawing.Point(4, 24);
-            tabPageAnimation.Margin = new System.Windows.Forms.Padding(4);
-            tabPageAnimation.Name = "tabPageAnimation";
-            tabPageAnimation.Size = new System.Drawing.Size(812, 420);
-            tabPageAnimation.TabIndex = 3;
-            tabPageAnimation.Text = "Animation";
-            tabPageAnimation.UseVisualStyleBackColor = true;
-            // 
-            // panel23
-            // 
-            panel23.Dock = System.Windows.Forms.DockStyle.Left;
-            panel23.Location = new System.Drawing.Point(0, 31);
-            panel23.Margin = new System.Windows.Forms.Padding(4);
-            panel23.Name = "panel23";
-            panel23.Size = new System.Drawing.Size(0, 389);
-            panel23.TabIndex = 17;
-            // 
-            // panel24
-            // 
-            panel24.Controls.Add(checkBoxSynchronous);
-            panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            panel24.Location = new System.Drawing.Point(0, 0);
-            panel24.Margin = new System.Windows.Forms.Padding(4);
-            panel24.Name = "panel24";
-            panel24.Size = new System.Drawing.Size(812, 31);
-            panel24.TabIndex = 16;
-            // 
-            // checkBoxSynchronous
-            // 
-            checkBoxSynchronous.AutoSize = true;
-            checkBoxSynchronous.Location = new System.Drawing.Point(18, 4);
-            checkBoxSynchronous.Margin = new System.Windows.Forms.Padding(4);
-            checkBoxSynchronous.Name = "checkBoxSynchronous";
-            checkBoxSynchronous.Size = new System.Drawing.Size(95, 19);
-            checkBoxSynchronous.TabIndex = 0;
-            checkBoxSynchronous.Text = "Synchronous";
-            checkBoxSynchronous.UseVisualStyleBackColor = true;
-            // 
-            // panel25
-            // 
-            panel25.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel25.Location = new System.Drawing.Point(0, 420);
-            panel25.Margin = new System.Windows.Forms.Padding(4);
-            panel25.Name = "panel25";
-            panel25.Size = new System.Drawing.Size(812, 0);
-            panel25.TabIndex = 19;
-            // 
-            // panel27
-            // 
-            panel27.Dock = System.Windows.Forms.DockStyle.Right;
-            panel27.Location = new System.Drawing.Point(808, 4);
-            panel27.Margin = new System.Windows.Forms.Padding(4);
-            panel27.Name = "panel27";
-            panel27.Size = new System.Drawing.Size(0, 412);
-            panel27.TabIndex = 18;
-            // 
-            // panel28
-            // 
-            panel28.Dock = System.Windows.Forms.DockStyle.Left;
-            panel28.Location = new System.Drawing.Point(4, 4);
-            panel28.Margin = new System.Windows.Forms.Padding(4);
-            panel28.Name = "panel28";
-            panel28.Size = new System.Drawing.Size(0, 412);
-            panel28.TabIndex = 17;
-            // 
-            // panel29
-            // 
-            panel29.Dock = System.Windows.Forms.DockStyle.Top;
-            panel29.Location = new System.Drawing.Point(4, 4);
-            panel29.Margin = new System.Windows.Forms.Padding(4);
-            panel29.Name = "panel29";
-            panel29.Size = new System.Drawing.Size(804, 0);
-            panel29.TabIndex = 16;
-            // 
-            // panel30
-            // 
-            panel30.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel30.Location = new System.Drawing.Point(4, 416);
-            panel30.Margin = new System.Windows.Forms.Padding(4);
-            panel30.Name = "panel30";
-            panel30.Size = new System.Drawing.Size(804, 0);
-            panel30.TabIndex = 19;
-            // 
-            // buttonStartStopRealtime
-            // 
-            buttonStartStopRealtime.BackColor = System.Drawing.Color.Green;
-            buttonStartStopRealtime.Dock = System.Windows.Forms.DockStyle.Fill;
-            buttonStartStopRealtime.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
-            buttonStartStopRealtime.Location = new System.Drawing.Point(0, 0);
-            buttonStartStopRealtime.Margin = new System.Windows.Forms.Padding(4);
-            buttonStartStopRealtime.Name = "buttonStartStopRealtime";
-            buttonStartStopRealtime.Size = new System.Drawing.Size(804, 412);
-            buttonStartStopRealtime.TabIndex = 0;
-            buttonStartStopRealtime.Text = "Start";
-            buttonStartStopRealtime.UseVisualStyleBackColor = false;
-            // 
-            // tabPageStartStopRealtime
-            // 
-            tabPageStartStopRealtime.Controls.Add(panel26);
-            tabPageStartStopRealtime.Controls.Add(panel27);
-            tabPageStartStopRealtime.Controls.Add(panel28);
-            tabPageStartStopRealtime.Controls.Add(panel29);
-            tabPageStartStopRealtime.Controls.Add(panel30);
-            tabPageStartStopRealtime.Location = new System.Drawing.Point(4, 24);
-            tabPageStartStopRealtime.Margin = new System.Windows.Forms.Padding(4);
-            tabPageStartStopRealtime.Name = "tabPageStartStopRealtime";
-            tabPageStartStopRealtime.Padding = new System.Windows.Forms.Padding(4);
-            tabPageStartStopRealtime.Size = new System.Drawing.Size(812, 420);
-            tabPageStartStopRealtime.TabIndex = 4;
-            tabPageStartStopRealtime.Text = "Control";
-            tabPageStartStopRealtime.UseVisualStyleBackColor = true;
-            // 
-            // panel26
-            // 
-            panel26.Controls.Add(buttonStartStopRealtime);
-            panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel26.Location = new System.Drawing.Point(4, 4);
-            panel26.Margin = new System.Windows.Forms.Padding(4);
-            panel26.Name = "panel26";
-            panel26.Size = new System.Drawing.Size(804, 412);
-            panel26.TabIndex = 20;
-            // 
-            // panel16
-            // 
-            panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel16.Location = new System.Drawing.Point(0, 420);
-            panel16.Margin = new System.Windows.Forms.Padding(4);
-            panel16.Name = "panel16";
-            panel16.Size = new System.Drawing.Size(812, 0);
-            panel16.TabIndex = 19;
-            // 
-            // panel18
-            // 
-            panel18.Dock = System.Windows.Forms.DockStyle.Right;
-            panel18.Location = new System.Drawing.Point(812, 0);
-            panel18.Margin = new System.Windows.Forms.Padding(4);
-            panel18.Name = "panel18";
-            panel18.Size = new System.Drawing.Size(0, 32);
-            panel18.TabIndex = 18;
-            // 
-            // panel20
-            // 
-            panel20.Dock = System.Windows.Forms.DockStyle.Top;
-            panel20.Location = new System.Drawing.Point(0, 0);
-            panel20.Margin = new System.Windows.Forms.Padding(4);
-            panel20.Name = "panel20";
-            panel20.Size = new System.Drawing.Size(812, 0);
-            panel20.TabIndex = 16;
-            // 
-            // panel21
-            // 
-            panel21.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel21.Location = new System.Drawing.Point(0, 32);
-            panel21.Margin = new System.Windows.Forms.Padding(4);
-            panel21.Name = "panel21";
-            panel21.Size = new System.Drawing.Size(812, 0);
-            panel21.TabIndex = 19;
-            // 
-            // checkBoxAbsoluteTime
-            // 
-            checkBoxAbsoluteTime.AutoSize = true;
-            checkBoxAbsoluteTime.Location = new System.Drawing.Point(365, 6);
-            checkBoxAbsoluteTime.Margin = new System.Windows.Forms.Padding(4);
-            checkBoxAbsoluteTime.Name = "checkBoxAbsoluteTime";
-            checkBoxAbsoluteTime.Size = new System.Drawing.Size(100, 19);
-            checkBoxAbsoluteTime.TabIndex = 2;
-            checkBoxAbsoluteTime.Text = "Absolute time";
-            checkBoxAbsoluteTime.UseVisualStyleBackColor = true;
-            // 
-            // userControlTimeType
-            // 
-            userControlTimeType.Location = new System.Drawing.Point(153, 4);
-            userControlTimeType.Margin = new System.Windows.Forms.Padding(4);
-            userControlTimeType.Name = "userControlTimeType";
-            userControlTimeType.Size = new System.Drawing.Size(144, 26);
-            userControlTimeType.TabIndex = 1;
-            userControlTimeType.TimeUnit = BaseTypes.Attributes.TimeType.Second;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(4, 4);
-            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(57, 15);
-            label9.TabIndex = 0;
-            label9.Text = "Time unit";
-            // 
-            // panel17
-            // 
-            panel17.Controls.Add(checkBoxAbsoluteTime);
-            panel17.Controls.Add(userControlTimeType);
-            panel17.Controls.Add(label9);
-            panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel17.Location = new System.Drawing.Point(0, 0);
-            panel17.Margin = new System.Windows.Forms.Padding(4);
-            panel17.Name = "panel17";
-            panel17.Size = new System.Drawing.Size(812, 32);
-            panel17.TabIndex = 20;
-            // 
-            // panelTop
-            // 
-            panelTop.Controls.Add(panel17);
-            panelTop.Controls.Add(panel18);
-            panelTop.Controls.Add(panel20);
-            panelTop.Controls.Add(panel21);
-            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            panelTop.Location = new System.Drawing.Point(0, 0);
-            panelTop.Margin = new System.Windows.Forms.Padding(4);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(812, 32);
-            panelTop.TabIndex = 16;
-            // 
-            // panel13
-            // 
-            panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            panel13.Location = new System.Drawing.Point(812, 32);
-            panel13.Margin = new System.Windows.Forms.Padding(4);
-            panel13.Name = "panel13";
-            panel13.Size = new System.Drawing.Size(0, 388);
-            panel13.TabIndex = 18;
             // 
             // backgroundWorkerTextRealtimeAnalysis
             // 
@@ -499,12 +112,14 @@
             toolStripButtonSeries.Name = "toolStripButtonSeries";
             toolStripButtonSeries.Size = new System.Drawing.Size(75, 27);
             toolStripButtonSeries.Text = "<Series>";
+            toolStripButtonSeries.Visible = false;
             // 
             // toolStripButtonType
             // 
             toolStripButtonType.Name = "toolStripButtonType";
             toolStripButtonType.Size = new System.Drawing.Size(140, 27);
             toolStripButtonType.Text = "<Series type>";
+            toolStripButtonType.Visible = false;
             // 
             // toolStripButtonClearAll
             // 
@@ -523,12 +138,14 @@
             toolStripButtonAdd.Name = "toolStripButtonAdd";
             toolStripButtonAdd.Size = new System.Drawing.Size(24, 24);
             toolStripButtonAdd.Text = "Add";
+            toolStripButtonAdd.Visible = false;
             // 
             // toolStripComboBoxPoints
             // 
             toolStripComboBoxPoints.Name = "toolStripComboBoxPoints";
             toolStripComboBoxPoints.Size = new System.Drawing.Size(140, 27);
             toolStripComboBoxPoints.Text = "<Points>";
+            toolStripComboBoxPoints.Visible = false;
             // 
             // toolStripButtonStop
             // 
@@ -572,420 +189,28 @@
             // toolStripMain
             // 
             toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonStart, toolStripButtonAnimation, toolStripButtonPause, toolStripButtonStop, toolStripComboBoxPoints, toolStripButtonAdd, toolStripButtonClearAll, toolStripButtonType, toolStripButtonSeries });
+            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonStart, toolStripButtonAnimation, toolStripButtonPause, toolStripButtonStop, toolStripComboBoxPoints, toolStripButtonAdd, toolStripButtonClearAll, toolStripButtonType, toolStripButtonSeries, toolStripLabelNumber, toolStripComboBoxNumber });
             toolStripMain.Location = new System.Drawing.Point(0, 0);
             toolStripMain.Name = "toolStripMain";
             toolStripMain.Size = new System.Drawing.Size(820, 27);
             toolStripMain.TabIndex = 30;
             toolStripMain.Text = "Main";
             // 
-            // panel32
+            // toolStripLabelNumber
             // 
-            panel32.Dock = System.Windows.Forms.DockStyle.Right;
-            panel32.Location = new System.Drawing.Point(812, 0);
-            panel32.Margin = new System.Windows.Forms.Padding(4);
-            panel32.Name = "panel32";
-            panel32.Size = new System.Drawing.Size(0, 420);
-            panel32.TabIndex = 18;
+            toolStripLabelNumber.Name = "toolStripLabelNumber";
+            toolStripLabelNumber.Size = new System.Drawing.Size(100, 24);
+            toolStripLabelNumber.Text = "Number of charts";
             // 
-            // panel33
+            // toolStripComboBoxNumber
             // 
-            panel33.Dock = System.Windows.Forms.DockStyle.Left;
-            panel33.Location = new System.Drawing.Point(0, 0);
-            panel33.Margin = new System.Windows.Forms.Padding(4);
-            panel33.Name = "panel33";
-            panel33.Size = new System.Drawing.Size(0, 420);
-            panel33.TabIndex = 17;
-            // 
-            // panel34
-            // 
-            panel34.Dock = System.Windows.Forms.DockStyle.Top;
-            panel34.Location = new System.Drawing.Point(0, 0);
-            panel34.Margin = new System.Windows.Forms.Padding(4);
-            panel34.Name = "panel34";
-            panel34.Size = new System.Drawing.Size(812, 0);
-            panel34.TabIndex = 16;
-            // 
-            // panel35
-            // 
-            panel35.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel35.Location = new System.Drawing.Point(0, 420);
-            panel35.Margin = new System.Windows.Forms.Padding(4);
-            panel35.Name = "panel35";
-            panel35.Size = new System.Drawing.Size(812, 0);
-            panel35.TabIndex = 19;
-            // 
-            // userControlCadr
-            // 
-            userControlCadr.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlCadr.Location = new System.Drawing.Point(0, 0);
-            userControlCadr.Margin = new System.Windows.Forms.Padding(4);
-            userControlCadr.Name = "userControlCadr";
-            userControlCadr.Size = new System.Drawing.Size(812, 420);
-            userControlCadr.TabIndex = 0;
-            // 
-            // panel31
-            // 
-            panel31.Controls.Add(userControlCadr);
-            panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel31.Location = new System.Drawing.Point(0, 0);
-            panel31.Margin = new System.Windows.Forms.Padding(4);
-            panel31.Name = "panel31";
-            panel31.Size = new System.Drawing.Size(812, 420);
-            panel31.TabIndex = 20;
-            // 
-            // tabPageCadr
-            // 
-            tabPageCadr.Controls.Add(panel31);
-            tabPageCadr.Controls.Add(panel32);
-            tabPageCadr.Controls.Add(panel33);
-            tabPageCadr.Controls.Add(panel34);
-            tabPageCadr.Controls.Add(panel35);
-            tabPageCadr.Location = new System.Drawing.Point(4, 24);
-            tabPageCadr.Margin = new System.Windows.Forms.Padding(4);
-            tabPageCadr.Name = "tabPageCadr";
-            tabPageCadr.Size = new System.Drawing.Size(812, 420);
-            tabPageCadr.TabIndex = 5;
-            tabPageCadr.Text = "Cadr";
-            tabPageCadr.UseVisualStyleBackColor = true;
-            // 
-            // panel15
-            // 
-            panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            panel15.Location = new System.Drawing.Point(0, 32);
-            panel15.Margin = new System.Windows.Forms.Padding(4);
-            panel15.Name = "panel15";
-            panel15.Size = new System.Drawing.Size(0, 388);
-            panel15.TabIndex = 17;
-            // 
-            // userControlRealtime
-            // 
-            userControlRealtime.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlRealtime.Location = new System.Drawing.Point(0, 0);
-            userControlRealtime.Margin = new System.Windows.Forms.Padding(4);
-            userControlRealtime.Name = "userControlRealtime";
-            userControlRealtime.Size = new System.Drawing.Size(812, 388);
-            userControlRealtime.TabIndex = 0;
+            toolStripComboBoxNumber.Items.AddRange(new object[] { "1", "2" });
+            toolStripComboBoxNumber.Name = "toolStripComboBoxNumber";
+            toolStripComboBoxNumber.Size = new System.Drawing.Size(121, 27);
             // 
             // backgroundWorkerReatimeAnalysis
             // 
             backgroundWorkerReatimeAnalysis.WorkerSupportsCancellation = true;
-            // 
-            // checkBoxIterator
-            // 
-            checkBoxIterator.AutoSize = true;
-            checkBoxIterator.Location = new System.Drawing.Point(90, 67);
-            checkBoxIterator.Name = "checkBoxIterator";
-            checkBoxIterator.Size = new System.Drawing.Size(64, 19);
-            checkBoxIterator.TabIndex = 38;
-            checkBoxIterator.Text = "Iteraror";
-            checkBoxIterator.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxDirectoryIteration
-            // 
-            checkBoxDirectoryIteration.AutoSize = true;
-            checkBoxDirectoryIteration.Location = new System.Drawing.Point(10, 67);
-            checkBoxDirectoryIteration.Name = "checkBoxDirectoryIteration";
-            checkBoxDirectoryIteration.Size = new System.Drawing.Size(74, 19);
-            checkBoxDirectoryIteration.TabIndex = 37;
-            checkBoxDirectoryIteration.Text = "Directory";
-            checkBoxDirectoryIteration.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(413, 19);
-            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(64, 15);
-            label6.TabIndex = 36;
-            label6.Text = "Step count";
-            // 
-            // comboBoxStepCount
-            // 
-            comboBoxStepCount.FormattingEnabled = true;
-            comboBoxStepCount.Location = new System.Drawing.Point(463, 64);
-            comboBoxStepCount.Margin = new System.Windows.Forms.Padding(4);
-            comboBoxStepCount.Name = "comboBoxStepCount";
-            comboBoxStepCount.Size = new System.Drawing.Size(106, 23);
-            comboBoxStepCount.TabIndex = 35;
-            // 
-            // comboBoxStep
-            // 
-            comboBoxStep.FormattingEnabled = true;
-            comboBoxStep.Location = new System.Drawing.Point(335, 64);
-            comboBoxStep.Margin = new System.Windows.Forms.Padding(4);
-            comboBoxStep.Name = "comboBoxStep";
-            comboBoxStep.Size = new System.Drawing.Size(120, 23);
-            comboBoxStep.TabIndex = 34;
-            // 
-            // comboBoxStart
-            // 
-            comboBoxStart.FormattingEnabled = true;
-            comboBoxStart.Location = new System.Drawing.Point(205, 66);
-            comboBoxStart.Margin = new System.Windows.Forms.Padding(4);
-            comboBoxStart.Name = "comboBoxStart";
-            comboBoxStart.Size = new System.Drawing.Size(120, 23);
-            comboBoxStart.TabIndex = 33;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(checkBoxIterator);
-            panel4.Controls.Add(checkBoxDirectoryIteration);
-            panel4.Controls.Add(label6);
-            panel4.Controls.Add(comboBoxStepCount);
-            panel4.Controls.Add(comboBoxStep);
-            panel4.Controls.Add(comboBoxStart);
-            panel4.Controls.Add(calculatorBoxStep);
-            panel4.Controls.Add(calculatorBoxStart);
-            panel4.Controls.Add(labelY);
-            panel4.Controls.Add(labelX);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(textBoxStepCount);
-            panel4.Controls.Add(label3);
-            panel4.Controls.Add(label1);
-            panel4.Controls.Add(label2);
-            panel4.Controls.Add(comboBoxArg);
-            panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel4.Location = new System.Drawing.Point(1, 318);
-            panel4.Margin = new System.Windows.Forms.Padding(4);
-            panel4.Name = "panel4";
-            panel4.Size = new System.Drawing.Size(802, 94);
-            panel4.TabIndex = 27;
-            // 
-            // calculatorBoxStep
-            // 
-            calculatorBoxStep.Location = new System.Drawing.Point(335, 41);
-            calculatorBoxStep.Margin = new System.Windows.Forms.Padding(4);
-            calculatorBoxStep.Name = "calculatorBoxStep";
-            calculatorBoxStep.Size = new System.Drawing.Size(122, 23);
-            calculatorBoxStep.TabIndex = 32;
-            calculatorBoxStep.Text = "0";
-            // 
-            // calculatorBoxStart
-            // 
-            calculatorBoxStart.Location = new System.Drawing.Point(205, 41);
-            calculatorBoxStart.Margin = new System.Windows.Forms.Padding(4);
-            calculatorBoxStart.Name = "calculatorBoxStart";
-            calculatorBoxStart.Size = new System.Drawing.Size(122, 23);
-            calculatorBoxStart.TabIndex = 31;
-            calculatorBoxStart.Text = "0";
-            // 
-            // labelY
-            // 
-            labelY.AutoSize = true;
-            labelY.Location = new System.Drawing.Point(189, 4);
-            labelY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            labelY.Name = "labelY";
-            labelY.Size = new System.Drawing.Size(28, 15);
-            labelY.TabIndex = 30;
-            labelY.Text = "Y = ";
-            labelY.Visible = false;
-            // 
-            // labelX
-            // 
-            labelX.AutoSize = true;
-            labelX.Location = new System.Drawing.Point(10, 4);
-            labelX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            labelX.Name = "labelX";
-            labelX.Size = new System.Drawing.Size(28, 15);
-            labelX.TabIndex = 29;
-            labelX.Text = "X = ";
-            labelX.Visible = false;
-            // 
-            // label4
-            // 
-            label4.Location = new System.Drawing.Point(176, 19);
-            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(66, 26);
-            label4.TabIndex = 27;
-            label4.Text = "Start";
-            // 
-            // textBoxStepCount
-            // 
-            textBoxStepCount.Location = new System.Drawing.Point(463, 41);
-            textBoxStepCount.Margin = new System.Windows.Forms.Padding(4);
-            textBoxStepCount.Name = "textBoxStepCount";
-            textBoxStepCount.Size = new System.Drawing.Size(106, 23);
-            textBoxStepCount.TabIndex = 23;
-            textBoxStepCount.Text = "2";
-            // 
-            // label3
-            // 
-            label3.Location = new System.Drawing.Point(407, 19);
-            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(116, 26);
-            label3.TabIndex = 24;
-            // 
-            // label1
-            // 
-            label1.Location = new System.Drawing.Point(25, 19);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(78, 17);
-            label1.TabIndex = 20;
-            label1.Text = "Argument";
-            // 
-            // label2
-            // 
-            label2.Location = new System.Drawing.Point(281, 21);
-            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(46, 26);
-            label2.TabIndex = 22;
-            label2.Text = "Step";
-            // 
-            // comboBoxArg
-            // 
-            comboBoxArg.FormattingEnabled = true;
-            comboBoxArg.ItemHeight = 15;
-            comboBoxArg.Location = new System.Drawing.Point(10, 41);
-            comboBoxArg.Margin = new System.Windows.Forms.Padding(4);
-            comboBoxArg.Name = "comboBoxArg";
-            comboBoxArg.Size = new System.Drawing.Size(140, 23);
-            comboBoxArg.TabIndex = 19;
-            comboBoxArg.Text = "Time";
-            // 
-            // panelMeaRight
-            // 
-            panelMeaRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelMeaRight.Location = new System.Drawing.Point(328, 0);
-            panelMeaRight.Margin = new System.Windows.Forms.Padding(4);
-            panelMeaRight.Name = "panelMeaRight";
-            panelMeaRight.Size = new System.Drawing.Size(1, 317);
-            panelMeaRight.TabIndex = 29;
-            // 
-            // panelMeaBottom
-            // 
-            panelMeaBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelMeaBottom.Location = new System.Drawing.Point(1, 317);
-            panelMeaBottom.Margin = new System.Windows.Forms.Padding(4);
-            panelMeaBottom.Name = "panelMeaBottom";
-            panelMeaBottom.Size = new System.Drawing.Size(328, 1);
-            panelMeaBottom.TabIndex = 30;
-            // 
-            // splitContainerGraph
-            // 
-            splitContainerGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            splitContainerGraph.Location = new System.Drawing.Point(1, 0);
-            splitContainerGraph.Margin = new System.Windows.Forms.Padding(4);
-            splitContainerGraph.Name = "splitContainerGraph";
-            // 
-            // splitContainerGraph.Panel2
-            // 
-            splitContainerGraph.Panel2.Controls.Add(panelMeaRight);
-            splitContainerGraph.Panel2.Controls.Add(panelMeaBottom);
-            splitContainerGraph.Panel2.Controls.Add(panelMeaLeft);
-            splitContainerGraph.Size = new System.Drawing.Size(802, 318);
-            splitContainerGraph.SplitterDistance = 469;
-            splitContainerGraph.TabIndex = 28;
-            // 
-            // panelMeaLeft
-            // 
-            panelMeaLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelMeaLeft.Location = new System.Drawing.Point(0, 0);
-            panelMeaLeft.Margin = new System.Windows.Forms.Padding(4);
-            panelMeaLeft.Name = "panelMeaLeft";
-            panelMeaLeft.Size = new System.Drawing.Size(1, 318);
-            panelMeaLeft.TabIndex = 28;
-            // 
-            // panel1
-            // 
-            panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            panel1.Location = new System.Drawing.Point(5, 4);
-            panel1.Margin = new System.Windows.Forms.Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(802, 1);
-            panel1.TabIndex = 32;
-            // 
-            // panel2
-            // 
-            panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            panel2.Location = new System.Drawing.Point(4, 4);
-            panel2.Margin = new System.Windows.Forms.Padding(4);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(1, 412);
-            panel2.TabIndex = 28;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(splitContainerGraph);
-            panel3.Controls.Add(panel4);
-            panel3.Controls.Add(panelIntLeft);
-            panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel3.Location = new System.Drawing.Point(4, 4);
-            panel3.Margin = new System.Windows.Forms.Padding(4);
-            panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(803, 412);
-            panel3.TabIndex = 31;
-            // 
-            // panelIntLeft
-            // 
-            panelIntLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelIntLeft.Location = new System.Drawing.Point(0, 0);
-            panelIntLeft.Margin = new System.Windows.Forms.Padding(4);
-            panelIntLeft.Name = "panelIntLeft";
-            panelIntLeft.Size = new System.Drawing.Size(1, 412);
-            panelIntLeft.TabIndex = 26;
-            // 
-            // tabPageGraph
-            // 
-            tabPageGraph.Controls.Add(panel1);
-            tabPageGraph.Controls.Add(panel2);
-            tabPageGraph.Controls.Add(panel3);
-            tabPageGraph.Controls.Add(panel5);
-            tabPageGraph.Location = new System.Drawing.Point(4, 24);
-            tabPageGraph.Margin = new System.Windows.Forms.Padding(4);
-            tabPageGraph.Name = "tabPageGraph";
-            tabPageGraph.Padding = new System.Windows.Forms.Padding(4);
-            tabPageGraph.Size = new System.Drawing.Size(812, 420);
-            tabPageGraph.TabIndex = 0;
-            tabPageGraph.Text = "Chart";
-            tabPageGraph.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            panel5.Location = new System.Drawing.Point(807, 4);
-            panel5.Margin = new System.Windows.Forms.Padding(4);
-            panel5.Name = "panel5";
-            panel5.Size = new System.Drawing.Size(1, 412);
-            panel5.TabIndex = 30;
-            // 
-            // tabControlMain
-            // 
-            tabControlMain.Controls.Add(tabPageGraph);
-            tabControlMain.Controls.Add(tabPageText);
-            tabControlMain.Controls.Add(tabPageRealTime);
-            tabControlMain.Controls.Add(tabPageStartStopRealtime);
-            tabControlMain.Controls.Add(tabPageAnimation);
-            tabControlMain.Controls.Add(tabPageCadr);
-            tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            tabControlMain.Location = new System.Drawing.Point(0, 27);
-            tabControlMain.Margin = new System.Windows.Forms.Padding(4);
-            tabControlMain.Name = "tabControlMain";
-            tabControlMain.SelectedIndex = 0;
-            tabControlMain.Size = new System.Drawing.Size(820, 448);
-            tabControlMain.TabIndex = 31;
-            // 
-            // tabPageText
-            // 
-            tabPageText.ContextMenuStrip = contextMenuStripTextTab;
-            tabPageText.Controls.Add(panelText);
-            tabPageText.Controls.Add(panel9);
-            tabPageText.Controls.Add(panel7);
-            tabPageText.Controls.Add(panelTextBottom);
-            tabPageText.Controls.Add(panel8);
-            tabPageText.Location = new System.Drawing.Point(4, 24);
-            tabPageText.Margin = new System.Windows.Forms.Padding(4);
-            tabPageText.Name = "tabPageText";
-            tabPageText.Padding = new System.Windows.Forms.Padding(4);
-            tabPageText.Size = new System.Drawing.Size(812, 420);
-            tabPageText.TabIndex = 1;
-            tabPageText.Text = "Text";
-            tabPageText.UseVisualStyleBackColor = true;
             // 
             // contextMenuStripTextTab
             // 
@@ -1000,146 +225,10 @@
             saveXmlToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             saveXmlToolStripMenuItem.Text = "Save Xml";
             // 
-            // panelText
-            // 
-            panelText.AutoScroll = true;
-            panelText.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelText.Location = new System.Drawing.Point(5, 45);
-            panelText.Margin = new System.Windows.Forms.Padding(4);
-            panelText.Name = "panelText";
-            panelText.Size = new System.Drawing.Size(802, 371);
-            panelText.TabIndex = 11;
-            // 
-            // panel9
-            // 
-            panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            panel9.Location = new System.Drawing.Point(807, 45);
-            panel9.Margin = new System.Windows.Forms.Padding(4);
-            panel9.Name = "panel9";
-            panel9.Size = new System.Drawing.Size(1, 371);
-            panel9.TabIndex = 10;
-            // 
-            // panel7
-            // 
-            panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            panel7.Location = new System.Drawing.Point(4, 45);
-            panel7.Margin = new System.Windows.Forms.Padding(4);
-            panel7.Name = "panel7";
-            panel7.Size = new System.Drawing.Size(1, 371);
-            panel7.TabIndex = 9;
-            // 
-            // panelTextBottom
-            // 
-            panelTextBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelTextBottom.Location = new System.Drawing.Point(4, 416);
-            panelTextBottom.Margin = new System.Windows.Forms.Padding(4);
-            panelTextBottom.Name = "panelTextBottom";
-            panelTextBottom.Size = new System.Drawing.Size(804, 0);
-            panelTextBottom.TabIndex = 8;
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(panel10);
-            panel8.Controls.Add(panel11);
-            panel8.Controls.Add(panel12);
-            panel8.Controls.Add(panel14);
-            panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            panel8.Location = new System.Drawing.Point(4, 4);
-            panel8.Margin = new System.Windows.Forms.Padding(4);
-            panel8.Name = "panel8";
-            panel8.Size = new System.Drawing.Size(804, 41);
-            panel8.TabIndex = 6;
-            // 
-            // panel10
-            // 
-            panel10.ContextMenuStrip = contextMenuStripTextTab;
-            panel10.Controls.Add(comboBoxCond);
-            panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel10.Location = new System.Drawing.Point(167, 6);
-            panel10.Margin = new System.Windows.Forms.Padding(4);
-            panel10.Name = "panel10";
-            panel10.Size = new System.Drawing.Size(626, 35);
-            panel10.TabIndex = 23;
-            // 
-            // comboBoxCond
-            // 
-            comboBoxCond.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBoxCond.FormattingEnabled = true;
-            comboBoxCond.Location = new System.Drawing.Point(0, 0);
-            comboBoxCond.Margin = new System.Windows.Forms.Padding(4);
-            comboBoxCond.Name = "comboBoxCond";
-            comboBoxCond.Size = new System.Drawing.Size(626, 23);
-            comboBoxCond.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            panel11.Location = new System.Drawing.Point(793, 6);
-            panel11.Margin = new System.Windows.Forms.Padding(4);
-            panel11.Name = "panel11";
-            panel11.Size = new System.Drawing.Size(11, 35);
-            panel11.TabIndex = 22;
-            // 
-            // panel12
-            // 
-            panel12.ContextMenuStrip = contextMenuStripTextTab;
-            panel12.Controls.Add(label7);
-            panel12.Dock = System.Windows.Forms.DockStyle.Left;
-            panel12.Location = new System.Drawing.Point(0, 6);
-            panel12.Margin = new System.Windows.Forms.Padding(4);
-            panel12.Name = "panel12";
-            panel12.Size = new System.Drawing.Size(167, 35);
-            panel12.TabIndex = 21;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ContextMenuStrip = contextMenuStripTextTab;
-            label7.Location = new System.Drawing.Point(17, 6);
-            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(99, 15);
-            label7.TabIndex = 0;
-            label7.Text = "Output condition";
-            // 
-            // panel14
-            // 
-            panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            panel14.Location = new System.Drawing.Point(0, 0);
-            panel14.Margin = new System.Windows.Forms.Padding(4);
-            panel14.Name = "panel14";
-            panel14.Size = new System.Drawing.Size(804, 6);
-            panel14.TabIndex = 20;
-            // 
-            // tabPageRealTime
-            // 
-            tabPageRealTime.Controls.Add(panel6);
-            tabPageRealTime.Controls.Add(panel13);
-            tabPageRealTime.Controls.Add(panel15);
-            tabPageRealTime.Controls.Add(panelTop);
-            tabPageRealTime.Controls.Add(panel16);
-            tabPageRealTime.Location = new System.Drawing.Point(4, 24);
-            tabPageRealTime.Margin = new System.Windows.Forms.Padding(4);
-            tabPageRealTime.Name = "tabPageRealTime";
-            tabPageRealTime.Size = new System.Drawing.Size(812, 420);
-            tabPageRealTime.TabIndex = 2;
-            tabPageRealTime.Text = "Realtime";
-            tabPageRealTime.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(userControlRealtime);
-            panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel6.Location = new System.Drawing.Point(0, 32);
-            panel6.Margin = new System.Windows.Forms.Padding(4);
-            panel6.Name = "panel6";
-            panel6.Size = new System.Drawing.Size(812, 388);
-            panel6.TabIndex = 20;
-            // 
             // panelDraw
             // 
             panelDraw.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            panelDraw.Controls.Add(tabControlMain);
+            panelDraw.Controls.Add(panelMain);
             panelDraw.Controls.Add(toolStripMain);
             panelDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             panelDraw.Location = new System.Drawing.Point(1, 0);
@@ -1147,6 +236,63 @@
             panelDraw.Name = "panelDraw";
             panelDraw.Size = new System.Drawing.Size(824, 479);
             panelDraw.TabIndex = 3;
+            // 
+            // panelMain
+            // 
+            panelMain.Controls.Add(splitContainer);
+            panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelMain.Location = new System.Drawing.Point(0, 27);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new System.Drawing.Size(820, 448);
+            panelMain.TabIndex = 31;
+            // 
+            // splitContainer
+            // 
+            splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainer.Location = new System.Drawing.Point(0, 0);
+            splitContainer.Name = "splitContainer";
+            // 
+            // splitContainer.Panel1
+            // 
+            splitContainer.Panel1.Controls.Add(userControlChartDouble);
+            splitContainer.Panel1.Controls.Add(userControlFilledChart);
+            // 
+            // splitContainer.Panel2
+            // 
+            splitContainer.Panel2.Controls.Add(userControlDoubleMeasurements);
+            splitContainer.Panel2.Controls.Add(userControlChartMeasurements);
+            splitContainer.Size = new System.Drawing.Size(820, 448);
+            splitContainer.SplitterDistance = 666;
+            splitContainer.TabIndex = 0;
+            // 
+            // userControlChartDouble
+            // 
+            userControlChartDouble.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlChartDouble.Location = new System.Drawing.Point(0, 0);
+            userControlChartDouble.Name = "userControlChartDouble";
+            userControlChartDouble.Size = new System.Drawing.Size(666, 448);
+            userControlChartDouble.TabIndex = 1;
+            userControlChartDouble.Visible = false;
+            // 
+            // userControlFilledChart
+            // 
+            userControlFilledChart.Coordinator = simpleCoordinator1;
+            userControlFilledChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlFilledChart.IsBlocked = false;
+            userControlFilledChart.Location = new System.Drawing.Point(0, 0);
+            userControlFilledChart.Name = "userControlFilledChart";
+            userControlFilledChart.Size = new System.Drawing.Size(666, 448);
+            userControlFilledChart.TabIndex = 0;
+            userControlFilledChart.Visible = false;
+            // 
+            // userControlChartMeasurements
+            // 
+            userControlChartMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlChartMeasurements.Location = new System.Drawing.Point(0, 0);
+            userControlChartMeasurements.Name = "userControlChartMeasurements";
+            userControlChartMeasurements.Size = new System.Drawing.Size(150, 448);
+            userControlChartMeasurements.TabIndex = 0;
+            userControlChartMeasurements.Visible = false;
             // 
             // panelBottom
             // 
@@ -1169,6 +315,14 @@
             panelCenter.Size = new System.Drawing.Size(826, 479);
             panelCenter.TabIndex = 12;
             // 
+            // userControlDoubleMeasurements
+            // 
+            userControlDoubleMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlDoubleMeasurements.Location = new System.Drawing.Point(0, 0);
+            userControlDoubleMeasurements.Name = "userControlDoubleMeasurements";
+            userControlDoubleMeasurements.Size = new System.Drawing.Size(150, 448);
+            userControlDoubleMeasurements.TabIndex = 1;
+            // 
             // UserControlMultiGraph
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1177,75 +331,22 @@
             Controls.Add(panelCenter);
             Name = "UserControlMultiGraph";
             Size = new System.Drawing.Size(826, 479);
-            ((System.ComponentModel.ISupportInitialize)numericUpDownPause).EndInit();
-            panel19.ResumeLayout(false);
-            panel19.PerformLayout();
-            tabPageAnimation.ResumeLayout(false);
-            panel24.ResumeLayout(false);
-            panel24.PerformLayout();
-            tabPageStartStopRealtime.ResumeLayout(false);
-            panel26.ResumeLayout(false);
-            panel17.ResumeLayout(false);
-            panel17.PerformLayout();
-            panelTop.ResumeLayout(false);
             contextMenuStripMain.ResumeLayout(false);
             toolStripMain.ResumeLayout(false);
             toolStripMain.PerformLayout();
-            panel31.ResumeLayout(false);
-            tabPageCadr.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            splitContainerGraph.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerGraph).EndInit();
-            splitContainerGraph.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            tabPageGraph.ResumeLayout(false);
-            tabControlMain.ResumeLayout(false);
-            tabPageText.ResumeLayout(false);
             contextMenuStripTextTab.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            tabPageRealTime.ResumeLayout(false);
-            panel6.ResumeLayout(false);
             panelDraw.ResumeLayout(false);
             panelDraw.PerformLayout();
+            panelMain.ResumeLayout(false);
+            splitContainer.Panel1.ResumeLayout(false);
+            splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
+            splitContainer.ResumeLayout(false);
             panelCenter.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxAnimationScale;
-        private Diagram.UI.UserControls.UserControlTimeUnit userControlTimeUnitAnimation;
-        private System.Windows.Forms.NumericUpDown numericUpDownPause;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TabPage tabPageAnimation;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.CheckBox checkBoxSynchronous;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Button buttonStartStopRealtime;
-        private System.Windows.Forms.TabPage tabPageStartStopRealtime;
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.CheckBox checkBoxAbsoluteTime;
-        private Diagram.UI.UserControls.UserControlTimeUnit userControlTimeType;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Panel panel13;
         private System.ComponentModel.BackgroundWorker backgroundWorkerTextRealtimeAnalysis;
         private System.Windows.Forms.ToolStripMenuItem showRuntimeIndicatorsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripMain;
@@ -1261,62 +362,19 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonAnimation;
         private System.Windows.Forms.ToolStripButton toolStripButtonStart;
         private System.Windows.Forms.ToolStrip toolStripMain;
-        private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.Panel panel35;
-        private Graph.UserControlCadr userControlCadr;
-        private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.TabPage tabPageCadr;
-        private System.Windows.Forms.Panel panel15;
-        private UserControlRealtime userControlRealtime;
         private System.ComponentModel.BackgroundWorker backgroundWorkerReatimeAnalysis;
-        private System.Windows.Forms.CheckBox checkBoxIterator;
-        private System.Windows.Forms.CheckBox checkBoxDirectoryIteration;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBoxStepCount;
-        private System.Windows.Forms.ComboBox comboBoxStep;
-        private System.Windows.Forms.ComboBox comboBoxStart;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox calculatorBoxStep;
-        private System.Windows.Forms.TextBox calculatorBoxStart;
-        private System.Windows.Forms.Label labelY;
-        private System.Windows.Forms.Label labelX;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxStepCount;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxArg;
-        private System.Windows.Forms.Panel panelMeaRight;
-        private System.Windows.Forms.Panel panelMeaBottom;
-        private System.Windows.Forms.SplitContainer splitContainerGraph;
-        private System.Windows.Forms.Panel panelMeaLeft;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panelIntLeft;
-        private System.Windows.Forms.TabPage tabPageGraph;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TabControl tabControlMain;
-        private System.Windows.Forms.TabPage tabPageText;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripTextTab;
         private System.Windows.Forms.ToolStripMenuItem saveXmlToolStripMenuItem;
-        private System.Windows.Forms.Panel panelText;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panelTextBottom;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.ComboBox comboBoxCond;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TabPage tabPageRealTime;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panelDraw;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelCenter;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelNumber;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxNumber;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.SplitContainer splitContainer;
+        private Chart.UserControls.UserControlFilledChart userControlFilledChart;
+        private Chart.UserControls.UserControlChartDouble userControlChartDouble;
+        private UserControlChartMeasurements userControlChartMeasurements;
+        private UserControlDoubleMeasurements userControlDoubleMeasurements;
     }
 }

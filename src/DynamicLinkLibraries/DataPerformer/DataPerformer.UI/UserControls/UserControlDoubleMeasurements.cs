@@ -10,11 +10,9 @@ using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
-    public partial class UserControlMultiGraph : UserControl
+    public partial class UserControlDoubleMeasurements : UserControl
     {
-
-        private List<Dictionary<string, Color>> dictionary = null;
-        public UserControlMultiGraph()
+        public UserControlDoubleMeasurements()
         {
             InitializeComponent();
         }
