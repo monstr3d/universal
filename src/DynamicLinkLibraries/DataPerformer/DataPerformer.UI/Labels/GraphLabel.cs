@@ -309,7 +309,10 @@ namespace DataPerformer.UI.Labels
         {
             get;
             private set;
-        }
+        } = new List<Dictionary<string, Color[]>>()
+        {
+            new ()// Dictionary<string, Color[]>()
+        };
 
         internal double TimeScaleAnimation
         {
