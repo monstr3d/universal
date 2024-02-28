@@ -358,7 +358,7 @@ namespace DataPerformer
             {
                 series = null;
                 functions = null;
-                Dictionary<string, object> dic = CreateMeasurements(argument, values, out series, out functions, disassembly);
+                var dic = CreateMeasurements(argument, values, out series, out functions, disassembly);
                 if (dic == null)
                 {
                     return null;

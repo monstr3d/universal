@@ -60,13 +60,13 @@ namespace DataPerformer.UI
         /// </summary>
         /// <param name="series">Series for saving</param>
         /// <param name="comments">Comments for saving</param>
-        public FormGraphSave(DataPerformer.Series series, ArrayList comments)
+        public FormGraphSave(Series series, ArrayList comments)
         {
             InitializeComponent();
             this.LoadResources();
             this.series.CopyFrom(series);
             //this.series.CopyFrom(series);
-            PanelChart panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
+            var panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
             panel.Width = panelGraph.Width - 100;
             panel.Height = panelGraph.Height - 100;
             panel.Left = 50;

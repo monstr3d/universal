@@ -5,13 +5,10 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
-
-using Chart.Interfaces;
 using Chart.Forms;
-using Chart.Classes;
 using Chart.Drawing.Interfaces;
-using Chart.Drawing.Series;
-using Diagram.UI.Interfaces;
+using Chart.Drawing.Painters;
+using Chart.Drawing;
 
 namespace Chart.UserControls
 {
@@ -27,6 +24,7 @@ namespace Chart.UserControls
         private ISeriesSetter setter;
 
         private ISeriesGetter getter;
+
 
         #endregion
 
@@ -50,7 +48,7 @@ namespace Chart.UserControls
         /// </summary>
         /// <param name="insets">Insets</param>
         /// <param name="hasStandardHandlers">The has standard handlers sign</param>
-        public void Prepare(int[,] insets, bool hasStandardHandlers)
+        public void Prepare(int[,] insets, bool hasStandardHandlers = true)
         {
             if (performer != null)
             {
@@ -64,26 +62,20 @@ namespace Chart.UserControls
         }
 
         /// <summary>
+        /// Preparation
+        /// </summary>
+        public void Prepare()
+        {
+            Prepare(new int[,] { { 50, 5 }, { 5, 50 } });
+        }
+
+        /// <summary>
         /// The "is blocked" sign
         /// </summary>
         public bool IsBlocked
         {
-            get
-            {
-                if (performer == null)
-                {
-                    return true;
-                }
-                return performer.IsBlocked;
-            }
-            set
-            {
-                if (performer == null)
-                {
-                    return;
-                }
-                performer.IsBlocked = value;
-            }
+            get => performer.IsBlocked;
+            set => performer.IsBlocked = value;
         }
 
         /// <summary>
@@ -148,6 +140,24 @@ namespace Chart.UserControls
         }
 
         /// <summary>
+        /// Adds series
+        /// </summary>
+        /// <param name="s">Series to add</param>
+        /// <param name="color">Color</param>
+        /// <param name="additional">Additional object</param>
+        public void AddSeries(ISeries s, Color color, object additional = null)
+        {
+            var t = new Tuple<ISeries, Color[], ChartPerformer, object>(s, [color], performer, additional);
+            var p = t.ToSeriesPainter();
+            if (p == null)
+            {
+                p = new SimpleSeriesPainter([color]);
+            }
+            AddSeries(s, p);
+        }
+
+
+        /// <summary>
         /// Removes series
         /// </summary>
         /// <param name="series">Series to remove</param>
@@ -184,6 +194,25 @@ namespace Chart.UserControls
             }
         }
 
+ 
+        /// <summary>
+        /// Refresh
+        /// </summary>
+        protected void RefreshAll()
+        {
+            try
+            {
+                performer.RefreshAll();
+                Refresh();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        #endregion
+
+        #region Event handlers
         /// <summary>
         /// The OnPaint event handler
         /// </summary>
@@ -219,24 +248,6 @@ namespace Chart.UserControls
             }
         }
 
-        /// <summary>
-        /// Refresh
-        /// </summary>
-        protected void RefreshAll()
-        {
-            try
-            {
-                performer.RefreshAll();
-                Refresh();
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        #endregion
-
-        #region Event handlers
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -133,6 +133,8 @@ namespace DataPerformer.UI.UserControls
              Tuple<Color[], bool, double[]>>>>[]>
             data = null;
 
+   
+
         private static readonly Color[] orderedColors = new Color[]
         {
             Color.Red, Color.Green, Color.Blue, Color.Goldenrod, Color.Fuchsia, Color.Ivory, Color.Khaki
@@ -749,7 +751,7 @@ namespace DataPerformer.UI.UserControls
 
         internal void Init()
         {
-            PanelChart panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
+            var panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
             panel.Cursor = Cursors.Cross;
             performer = panel.Performer;
             panelGraph.Controls.Add(panel);
@@ -959,7 +961,7 @@ namespace DataPerformer.UI.UserControls
             for (int i = 0; i < consumer.Count; i++)
             {
                 IMeasurements measurements = consumer[i];
-                PanelMeasureGraph panel = new PanelMeasureGraph(measurements, consumer as DataConsumer, data.Item1);
+                var panel = new PanelMeasureGraph(measurements, consumer as DataConsumer, data.Item1);
                 panel.Width = panelMea.Width - 10;
                 Panel sep = new Panel();
                 sep.Width = panel.Width;

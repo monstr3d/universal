@@ -32,7 +32,7 @@ namespace DataPerformer.UI
 		private Hashtable mea = new Hashtable();
         private Dictionary<Button, object> buttons = new Dictionary<Button, object>();
 		private DataConsumer consumer;
-        private Dictionary<string, Color[]> dic;
+        private Dictionary<string, Color[]> colorDictionary;
         //private Dictionary<string, bool> dicStep;
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace DataPerformer.UI
 		{
             this.measurements = measurements;
 			this.consumer = consumer;
-            this.dic = dic;
+            colorDictionary = dic;
             //this.dicStep = dicStep;
 			Initialize();
             Resize += panelMea_Resize;
@@ -68,7 +68,7 @@ namespace DataPerformer.UI
                 string sn = panelName + "." + y.Name;
                  OfficePickers.ColorPicker.ComboBoxColorPicker pic = o[3] as OfficePickers.ColorPicker.ComboBoxColorPicker;
                 Button b = o[2] as Button;
-                dic[sn] = new Color[] { pic.Color };
+                colorDictionary[sn] = new Color[] { pic.Color };
                 object[] ob = new object[] { null, o[1], o[2], o[3] };
                 series[sn] = ob;
                 buttons[b] = ob;
@@ -240,10 +240,10 @@ namespace DataPerformer.UI
                 cb.Width = Width - cb.Left - 10;
                 cb.Top = y;
                 string fn = panelName + "." + nm;
-                if (dic.ContainsKey(fn))
+                if (colorDictionary.ContainsKey(fn))
                 {
                     cb.Checked = true;
-                    pic.Color = dic[fn][0];
+                    pic.Color = colorDictionary[fn][0];
                 }
 				pic.Left = cb.Left;
 				pic.Top = cb.Bottom + 5;

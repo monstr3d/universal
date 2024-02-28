@@ -10,8 +10,6 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
-using static System.Collections.Specialized.BitVector32;
-using System.Collections;
 
 
 namespace DataPerformer.Portable.Wrappers

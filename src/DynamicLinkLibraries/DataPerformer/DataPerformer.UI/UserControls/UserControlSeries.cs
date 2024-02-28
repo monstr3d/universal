@@ -227,7 +227,7 @@ namespace DataPerformer.UI.UserControls
         protected virtual void PreInit()
         {
             pic.Text = ResourceService.Resources.GetControlResource("Color", DataPerformer.UI.Utils.ControlUtilites.Resources);
-            PanelChart panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
+            var panel = new PanelChart(new int[,] { { 80, 30 }, { 10, 40 } });
             panel.SetObject(this);
             panelGraph.DragEnter += fileDragEnter;
             panelGraph.DragDrop += fileDragDrop;

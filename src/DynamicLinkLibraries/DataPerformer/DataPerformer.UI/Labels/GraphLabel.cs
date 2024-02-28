@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Linq;
@@ -18,11 +14,10 @@ using Diagram.UI.Labels;
 
 using BaseTypes.Attributes;
 
-using DataPerformer;
-using DataPerformer.Interfaces;
 using DataPerformer.UI.UserControls;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls.Graph;
+using Chart.Drawing;
 
 
 namespace DataPerformer.UI.Labels
@@ -54,7 +49,7 @@ namespace DataPerformer.UI.Labels
 
         private Label lt = new Label();
 
- 
+
         private Forms.FormGraph form = null;
 
         private double timeScaleAnimation = 1;
@@ -65,17 +60,17 @@ namespace DataPerformer.UI.Labels
             Dictionary<string, string>, string[], int[],
              Tuple<double[],
             Dictionary<string, Dictionary<string,
-            Tuple<Color[], bool, double[]>>>>[]> data = 
-     
-            new Tuple<Dictionary<string, Color[]>, Dictionary<string, bool>, 
-                Dictionary<string, string>, string[], int[],  Tuple<double[],
+            Tuple<Color[], bool, double[]>>>>[]> data =
+
+            new Tuple<Dictionary<string, Color[]>, Dictionary<string, bool>,
+                Dictionary<string, string>, string[], int[], Tuple<double[],
             Dictionary<string, Dictionary<string,
             Tuple<Color[], bool, double[]>>>>[]>
-                (new Dictionary<string, Color[]>(), 
-                new Dictionary<string,bool>(),
-                new Dictionary<string,string>(), new string[]{"", "", "", "", "", ""}, 
-                new int[2], 
-                new Tuple<double[], Dictionary<string, Dictionary<string, Tuple<Color[], bool, double[]>>>>[] 
+                (new Dictionary<string, Color[]>(),
+                new Dictionary<string, bool>(),
+                new Dictionary<string, string>(), new string[] { "", "", "", "", "", "" },
+                new int[2],
+                new Tuple<double[], Dictionary<string, Dictionary<string, Tuple<Color[], bool, double[]>>>>[]
                 {
                         new Tuple<double[], Dictionary<string, Dictionary<string, Tuple<Color[], bool, double[]>>>>
                     (new double[]{60}, new Dictionary<string, Dictionary<string, Tuple<Color[], bool, double[]>>>())
@@ -96,11 +91,11 @@ namespace DataPerformer.UI.Labels
         bool absoluteTime = true;
 
         Tuple<double[],
-                    Dictionary<string, 
+                    Dictionary<string,
                     Dictionary<string, Tuple<Color, bool, double[]>>>> rtime;
 
         Tuple<double[],
-            Dictionary<string, 
+            Dictionary<string,
             Dictionary<string, Tuple<Color[], bool, double[]>>>> realtime = null;
 
         internal Dictionary<string, Size> sizes = new Dictionary<string, Size>();
@@ -120,7 +115,7 @@ namespace DataPerformer.UI.Labels
 
         }
 
- 
+
         /// <summary>
         /// Deserialization constructor
         /// </summary>
@@ -168,6 +163,7 @@ namespace DataPerformer.UI.Labels
             info.AddValue("TimeUnitAnimation", timeUnitAnimation, typeof(TimeType));
             info.AddValue("IndicatorSizes", sizes, typeof(Dictionary<string, Size>));
             info.AddValue("CadrNumber", cadrNumber);
+            info.AddValue("MultiSeries", MultiSeries, typeof(List<Dictionary<string, Color[]>>));
         }
 
         #endregion
@@ -189,7 +185,7 @@ namespace DataPerformer.UI.Labels
         }
 
         #endregion
- 
+
         #region IGraphLabel Members
 
         /// <summary>
@@ -208,11 +204,11 @@ namespace DataPerformer.UI.Labels
             }
             set
             {
-  
+
             }
         }
 
-       #endregion
+        #endregion
 
         #region IStartStop Members
 
@@ -308,6 +304,12 @@ namespace DataPerformer.UI.Labels
         #endregion
 
         #region Members
+
+        internal List<Dictionary<string, Color[]>> MultiSeries
+        {
+            get;
+            private set;
+        }
 
         internal double TimeScaleAnimation
         {
@@ -476,6 +478,15 @@ namespace DataPerformer.UI.Labels
                 timeUnitAnimation = (TimeType)info.GetValue("TimeUnitAnimation", typeof(TimeType));
                 sizes = info.GetValue("IndicatorSizes", typeof(Dictionary<string, Size>)) as Dictionary<string, Size>;
                 cadrNumber = info.GetInt32("CadrNumber");
+                try
+                {
+                    MultiSeries = info.GetValue("MultiSeries", typeof(List<Dictionary<string, Color[]>>)) 
+                        as List<Dictionary<string, Color[]>>;
+                }
+                catch
+                {
+
+                }
 
             }
             catch (Exception ex)

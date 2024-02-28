@@ -5515,6 +5515,16 @@ From the above construction it follows that for any compact subset $\sY\subset\s
 \section{Weak fundamental groups}
 \paragraph{}
 The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied for more general connected spaces.
+\begin{definition}\label{top_transitive_defn}
+	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
+	\be\label{top_transitive_eqn}
+	\forall \widetilde x \in \widetilde\sX \quad	G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)\widetilde x = p^{-1}\left( p\left( \widetilde x\right) \right).
+	\ee
+\end{definition}
+\begin{remark}
+	From the Theorem \ref{top_cov_fact_thm} and the Lemma \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
+\end{remark}
+
 \begin{definition}\label{top_weakly_simply_connected_defn} 
 A connected space $\sX$ is said to be \textit{weakly simply connected} if for any covering $p: \widetilde \sX\to \sX$ the space $\sX$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn})
 \end{definition}
@@ -5526,16 +5536,13 @@ The Definition \ref{simply_connected_defn} can be regarded as a generalization o
 \end{remark}
 
 	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
-		An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
+		An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any transitive covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
 	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighborhood.
 \end{defn} 
 \begin{remark}
 	Any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
 \end{remark}
-\begin{remark}
-	Any weakly simply connected open subset $\sU \subset \sX$ (cf. Definition \ref{top_weakly_simply_connected_defn}) is weakly semilocally 1-connected.
-\end{remark}
-
+!!!!
 \begin{definition}\label{top_weak_path_defn}
 Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \textit{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for all $j = 1,..., n$.
 \end{definition}
@@ -5632,7 +5639,10 @@ then there is  $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ s
 \end{proof}
 
 \begin{defn}\label{top_closed_path_defn}
-	If $\left(\sX, x_0\right)$ is a pointed space (cf. Definition \ref{top_pointed_defn}) then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.  The  $x_0$-{path} is said to be \textit{closed} if $x_0\in\sU_n$
+	If $\left(\sX, x_0\right)$ is a pointed space (cf. Definition \ref{top_pointed_defn}) then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.  The  $x_0$-{path} is said to be \textit{closed} if $x_0\in\sU_n$.  Denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that 
+	\be\label{top_closed_path_eqn}
+	\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
+\ee
 \end{defn}
 
 \begin{rem}
@@ -5642,7 +5652,7 @@ Any pair of closed path is composable.
 \begin{exercise}\label{top_path_lift_exer}
 	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering (cf. Definition \ref{top_pointed_defn}), and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
 be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
-Prove that there is an unique  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}).
+Prove that there is an unique weak path  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}).
 \end{exercise}
 \begin{definition}\label{top_path_lift_defn}
 	The given by the Exercise  \ref{top_path_lift_exer} path $\widetilde{\mathfrak p}$ is said to be the $p$-\textit{lift} or  $p$-$\widetilde x_0$-\textit{lift} of $\mathfrak p$. We write
@@ -5652,15 +5662,32 @@ Prove that there is an unique  $\widetilde{\mathfrak p}\bydef \left(\widetilde \
 \end{definition}
 \begin{definition}\label{top_contactible_path_defn}
 	Let 
- $\left(\sX, x_0\right)$ be  a pointed space such that  $\sX$ is a connected, locally connected and weakly semilocally 1-connected space.  A closed  semilocally 1-connected path $x_0$-path $\mathfrak p \bydef \left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed transitive covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ a $p$-$x_0$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
+ $\left(\sX, x_0\right)$ be  a pointed space.  A closed  semilocally 1-connected path $\mathfrak p \bydef \left(\sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x_0\right) $ (cf. Definitions \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$
+ 
+ 
+ 
+ a $p$-$x_0$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
 \end{definition}
-!!! PROVE !!!
+
 \begin{exercise}\label{top_path_inv_exer} 
 Prove that 	if $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compositions $\mathfrak p^* \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible.
 \end{exercise}
-\begin{definition}
-We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
+\begin{definition}\label{top_path_equiv_defn}
+We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1,\mathfrak p_2\in \mathfrak{Paths} \left( x_0, x\right)$ are \textit{homotopically equivalent} if  a composition $\mathfrak p_1 \circ \mathfrak p^*_2\in \mathfrak{Paths} \left( x_0, x_0\right)$ is contractible. We write  $\mathfrak p_1 \sim \mathfrak p_2$
 \end{definition}
+\begin{exercise}\label{top_path_equiv_exer}
+	Prove that homotopically equivalence relation $\sim$ satisfies to the Definition \ref{equivalence_relation_defn}.
+\end{exercise}
+\begin{notation}\label{top_path_equiv_not}
+From the Exercise \ref{top_path_equiv_exer} it follows that there is a quotient set $\mathfrak{Paths} \left( x_0, x\right)/\sim$ (cf. Definition \ref{top_path_equiv_exer}). We use the following notation $$\left[\mathfrak{Paths} \left( x_0, x\right)\right]\bydef \mathfrak{Paths} \left( x_0, x\right)/\sim.$$ For any $\mathfrak p\in  \mathfrak{Paths} \left( x_0, x\right)$ we denote by $\left[\mathfrak p\right]\in \left[\mathfrak{Paths} \left( x_0, x\right)\right]$ a represented by $\mathfrak p$ element.
+\end{notation}
+\begin{empt}
+Let $\mathfrak p_{11}, \mathfrak p_{12}, \mathfrak p_{21}, \mathfrak p_{22}\in \mathfrak{Paths} \left( x_0, x_0\right)$ be such that $\mathfrak p_{11}\sim \mathfrak p_{21}$ and $\mathfrak p_{12}\sim \mathfrak p_{22}$. Denote by $\mathfrak p_{1} \bydef \mathfrak p_{11}\circ \mathfrak p_{12}$ and $\mathfrak p_{1} \bydef \mathfrak p_{11}\circ \mathfrak p_{12}$
+
+
+
+Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering.
+\end{empt}
 
 
  From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
@@ -5681,9 +5708,7 @@ then the described above group is said to be a \textit{weak fundamental group} o
 	between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
 \end{exercise}
 Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space. 
-For any $x \in \sX$ denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that $$
-\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
-$$
+For any $x \in \sX$ !!!
 There is an equivalence relation $\sim_{\left( x_0, x\right)}$ on $\mathfrak{Paths} \left( x_0, x\right)$ such that
 $$
 \mathfrak p_1, \mathfrak p_2 \in  \mathfrak{Paths} \left( x_0, x\right)~~ \mathfrak p_1\sim_{\left( x_0, x\right)} \mathfrak p_2 ~~\Leftrightarrow ~~ \mathfrak p^*_1\circ  \mathfrak p_2 \text{ is contractible (cf. Definition \ref{top_contactible_path_defn})}.
@@ -5817,17 +5842,8 @@ Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 \section{Transitive coverings}\label{top_transitive_section}
 
 \paragraph*{}
-The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering"  one.
+The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering"  one (cf. Definition \ref{top_transitive_defn}).
 
-\begin{definition}\label{top_transitive_defn}
-	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
-	\be\label{top_transitive_eqn}
-	\forall \widetilde x \in \widetilde\sX \quad	G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)\widetilde x = p^{-1}\left( p\left( \widetilde x\right) \right).
-	\ee
-\end{definition}
-\begin{remark}
-	From the Theorem \ref{top_cov_fact_thm} and the Lemma \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
-\end{remark}
 
 \begin{lemma}\label{top_trans_tp_cov_lem}
 	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
@@ -7837,7 +7853,7 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 	$$
 \forall a \in A \quad a = 0 \quad \Leftrightarrow \quad \left\{r \in R | ra = 0\right\}	= \{0\}.
 	$$
-	For  every open subset $\sU\subset\sX$ we define  an equivalence relation $\sim_\sU$ (cf. Definition \ref{equiv_rel_defn}) on $A$ such that
+	For  every open subset $\sU\subset\sX$ we define  an equivalence relation $\sim_\sU$ (cf. Definition \ref{equivalence_relation_defn}) on $A$ such that
 \be\label{top_sheaf_e_eqn}
 	a' \sim_\sU a'' \quad \Leftrightarrow\quad \left( \forall r \in R \quad \supp r \subset \sU \quad \Rightarrow\quad ra' = r a''\right). 
 \ee
@@ -14016,7 +14032,7 @@ f^{\text{pt}}_S : \left(S^1, s_0 \right)\to \left( \sX, x_0\right)
 $$
 be a map which represents a generator $\left[f_S\right]$ of an Abelian group \\ $ \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$.
 \begin{exercise}
-	A given by the Proposition \ref{top_pi1_pi1_prop} action yields an equivalence relation (cf. Definition \ref{equiv_rel_defn}) on $\pi_1\left(\sX \right)$ such that
+	A given by the Proposition \ref{top_pi1_pi1_prop} action yields an equivalence relation (cf. Definition \ref{equivalence_relation_defn}) on $\pi_1\left(\sX \right)$ such that
 	$$
 	\forall \ga_1, \ga_2 , \a \in \pi_1\left(\sX \right)\quad \ga_1\cdot \a \sim \ga_2\cdot \a.
 	$$
@@ -19725,7 +19741,7 @@ The identity natural transformation $\mathbb{1}_F :F\to F$ assigns to each objec
 	\end{remark}
 	\section{Equivalence relations}
 	
-	\begin{definition}\label{equiv_rel_defn}\cite{spanier:at}
+	\begin{definition}\label{equivalence_relation_defn}\cite{spanier:at}
 	An \textit{equivalence relation} in a set $A$ is a relation $\sim$ between elements of $A$ 
 	which is \textit{reflexive} (that is, $a\sim a$ for all $a \in A$), \textit{symmetric} (that is, $a\sim a'$ 
 	implies $a'\sim a$ for $a, a'\in A$), and \textit{transitive} (that is, $a\sim a'$ and $a'\sim a''$
