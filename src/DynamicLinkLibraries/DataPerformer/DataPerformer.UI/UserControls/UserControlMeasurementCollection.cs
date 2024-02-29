@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {
+    /// <summary>
+    /// User control of collection of measurements
+    /// </summary>
     public partial class UserControlMeasurementCollection : UserControl, IColorDictionary
     {
         Dictionary<string, UserControlMeasurements> measurementList = 
@@ -45,6 +48,7 @@ namespace DataPerformer.UI.UserControls
         }
 
         public IDataConsumer DataConsumer { get; set; }
+        
         Dictionary<string, Dictionary<string, Color>> IColorDictionary.ColorDictionary 
         { 
             get => dictionary; 

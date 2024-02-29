@@ -2842,10 +2842,10 @@ Func<bool> stop)
                     var coll = consumer.GetDependentCollection();
                     coll.ForEach((IRunning s) => s.IsRunning = false);
                     bool pr = true;
-                    if (dicto.Count > 0) 
+                    if (dicto.Count > 0)
                     {
-                        foreach (var kvp in dicto.Values) 
-                        { 
+                        foreach (var kvp in dicto.Values)
+                        {
                             if (!(kvp is SeriesTypes.ParametrizedSeries))
                             {
                                 pr = false;
@@ -2855,25 +2855,23 @@ Func<bool> stop)
                     }
                     performer.RemoveAll();
                     performer.Remove(typeof(DynamicSeriesAttribute));
+                    Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
+                    Dictionary<string, IMeasurement> dd = MeasureByNameInternal;
+                    foreach (string key in dicto.Keys)
                     {
-                        Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
-                        Dictionary<string, IMeasurement> dd = MeasureByNameInternal;
-                        foreach (string key in dicto.Keys)
-                        {
-                            var mea = dd[key];
+                        var mea = dd[key];
 
-                            if (pr)
-                            {
-                                SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
-                                ParametrizedSeries series = new ParametrizedSeries(null, null);
-                                series.Add(ps);
-                                performer.AddSeries(series, d[dd[key]][0], mea);
-                                ownSeries.Add(series);
-                                continue;
-                            }
-                            ISeries s = dicto[key] as ISeries;
-                            performer.AddSeries(s, d[dd[key]][0], mea);
+                        if (pr)
+                        {
+                            SeriesTypes.ParametrizedSeries ps = dicto[key] as SeriesTypes.ParametrizedSeries;
+                            ParametrizedSeries series = new ParametrizedSeries(null, null);
+                            series.Add(ps);
+                            performer.AddSeries(series, d[dd[key]][0], mea);
+                            ownSeries.Add(series);
+                            continue;
                         }
+                        ISeries s = dicto[key] as ISeries;
+                        performer.AddSeries(s, d[dd[key]][0], mea);
                     }
                     performer.RefreshAll();
                 }

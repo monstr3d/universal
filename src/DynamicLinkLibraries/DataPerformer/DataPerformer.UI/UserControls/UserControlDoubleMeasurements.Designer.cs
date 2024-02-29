@@ -36,8 +36,8 @@
             tabControl = new System.Windows.Forms.TabControl();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage2 = new System.Windows.Forms.TabPage();
-            userControlMeasurements2 = new UserControlMeasurements();
-            userControlMeasurements1 = new UserControlMeasurements();
+            userControlMeasurements2 = new UserControlMeasurementCollection();
+            userControlMeasurements1 = new UserControlMeasurementCollection();
             panelCenter.SuspendLayout();
             tabControl.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -126,7 +126,6 @@
             // userControlMeasurements2
             // 
             userControlMeasurements2.DataConsumer = null;
-            userControlMeasurements2.Dictionary = null;
             userControlMeasurements2.Dock = System.Windows.Forms.DockStyle.Fill;
             userControlMeasurements2.Location = new System.Drawing.Point(3, 3);
             userControlMeasurements2.Name = "userControlMeasurements2";
@@ -136,7 +135,6 @@
             // userControlMeasurements1
             // 
             userControlMeasurements1.DataConsumer = null;
-            userControlMeasurements1.Dictionary = null;
             userControlMeasurements1.Dock = System.Windows.Forms.DockStyle.Fill;
             userControlMeasurements1.Location = new System.Drawing.Point(3, 3);
             userControlMeasurements1.Name = "userControlMeasurements1";
@@ -170,8 +168,8 @@
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private UserControlMeasurements userControlMeasurements1;
+        private UserControlMeasurementCollection userControlMeasurements1;
         private System.Windows.Forms.TabPage tabPage2;
-        private UserControlMeasurements userControlMeasurements2;
+        private UserControlMeasurementCollection userControlMeasurements2;
     }
 }

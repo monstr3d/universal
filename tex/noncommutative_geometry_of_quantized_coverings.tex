@@ -5512,9 +5512,12 @@ If $f' \in C_c\left( \sX\right)$ is a covering sum of $\sY$ (cf. Definition \ref
 \begin{remark}\label{top_cfs_rem}
 From the above construction it follows that for any compact subset $\sY\subset\sX$ and a family $\left\{\sU_\a\subset \sX\right\}$ of open subsets with compact closures such that $\sX = \cup~\sU_\a$  there is a covering sum for $\sY$ which is dominated by $\left\{\sU_\a\right\}$.
 \end{remark}
-\section{Weak fundamental groups}
-\paragraph{}
-The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied for more general connected spaces.
+
+
+\section{Transitive coverings}\label{top_transitive_section}
+
+\paragraph*{}
+The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering"
 \begin{definition}\label{top_transitive_defn}
 	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
 	\be\label{top_transitive_eqn}
@@ -5525,27 +5528,105 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 	From the Theorem \ref{top_cov_fact_thm} and the Lemma \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
 \end{remark}
 
-\begin{definition}\label{top_weakly_simply_connected_defn} 
-A connected space $\sX$ is said to be \textit{weakly simply connected} if for any covering $p: \widetilde \sX\to \sX$ the space $\sX$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn})
-\end{definition}
-\begin{remark}
-Any connected, path connected, simply connected  space is weakly simply connected.
-\end{remark}
-\begin{remark}
-The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_fin_thm} below).
-\end{remark}
+\begin{lemma}\label{top_trans_tp_cov_lem}
+	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
+	$$
+	\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x.
+	$$
+\end{lemma}
+\begin{proof}
+	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$. There are open neighborhoods $\widetilde\sU'$ and $\widetilde\sU''$ of $\widetilde x$ and $g \widetilde x$ such that $\widetilde\sU'\cap \widetilde\sU'' = \emptyset$. Otherwise since $g$ is a homeomorphism there is open neighborhood $\widetilde\sV$ of $\widetilde x$ such that $g\widetilde\sV \subset \widetilde\sU''$. It follows that $g\widetilde x \neq \widetilde x$ for all $\widetilde x \in \widetilde \sU'\cap \widetilde\sV$. Hence the set
+	$$
+	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x \neq \widetilde x\right\}
+	$$
+	is open, or equivalently the set
+	$$
+	\widetilde{ \mathcal W}	=	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\}
+	$$
+	is closed.  Suppose that $\widetilde x \in \widetilde \sX$ is such that $\widetilde x = g \widetilde x$. There is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ such that a restriction  $\left.p\right|_{\widetilde\sU}$ is injective. On the other hand the restriction $\left.p\right|_{\widetilde\sU}$ can be regarded as a homeomorphism from ${\widetilde\sU}$ onto $p\left( {\widetilde\sU}\right)$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
+	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad g\widetilde x = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ g \left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so $\widetilde{ \mathcal W}$ is open.  From $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$ it turns out that $\widetilde{ \mathcal W}\neq \widetilde\sX$. On the other hand $\widetilde{ \mathcal W}$ is an open and closed subset of a connected set $\widetilde{    \sX }$, so one has $\widetilde{ \mathcal W}= \emptyset$. It means that
+	$$
+	\forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x \neq \widetilde x.
+	$$
+\end{proof}
+\begin{corollary}\label{top_trans_tp_cov_cor}
+	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
+	\bean 
+	G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
+	g \mapsto g\widetilde x_0. 
+	\eean
+	is biective	then $p$ is a transitive covering.
+\end{corollary}
 
-	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
-		An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any transitive covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
-	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighborhood.
-\end{defn} 
+\begin{corollary}\label{top_trans_cov_factor_cor}
+	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a {transitive} covering then there is the natural homeomorphism $\sX  \cong \widetilde{\mathcal X}/G\left(\left.\widetilde{\sX}~\right|\sX\right)$.
+\end{corollary}
 \begin{remark}
-	Any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
-\end{remark}
-!!!!
+	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
+\end{remark} 
+\begin{lemma}\label{top_covp_cat_lem}
+	Consider a commutative triangle of connected topological spaces and  continuous maps
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	Suppose  $\sX$ is a  locally compact, locally connected,  Hausdorff space and $p_1$, $p_2$ are coverings. For all $g\in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ the following condition holds
+	$$
+	\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)= p\left( \widetilde x_1\right) . 
+	$$
+\end{lemma}
+\begin{proof}
+	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p\left(  g\widetilde x_1\right) \neq p\left( \widetilde x_1\right) $. There are open neighborhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x_1\right) $ and $p\left( \widetilde gx_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open neighborhood $\widetilde\sV_1$ of $\widetilde x_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde x \right) \neq p\left( \widetilde x\right)$ for all $\widetilde x \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
+	$$
+	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) \neq p\left( \widetilde x\right)\right\}
+	$$
+	is open, or equivalently the set
+	$$
+	\widetilde{ \mathcal W}_1	=	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) = p\left( \widetilde x\right)\right\}
+	$$
+	is closed.  Suppose that $\widetilde x_1 \in \widetilde \sX_1$ is such that $\widetilde x_1 = g \widetilde x_1$. There is an  open neighborhood $\widetilde \sU'_1$ of $\widetilde x_1$ such that $\left.p_1\right|_{\widetilde\sU'_1}$ is injective. There is an open neighborhood $\widetilde \sU'_2$ of $p\left( \widetilde x_1\right) $ such that $\left.p_2\right|_{\widetilde\sU'_2}$ is injective. Since $\sX$ is locally connected there is a connected open neighborhood $\sU$ of $p_1\left(\widetilde x_1\right)$ such that $\sU\subset p_1\left(\widetilde \sU'_1\right)\cap p_2\left(\widetilde\sU'_2 \right)$. If $\widetilde\sU_1 = \widetilde\sU'_1
+	\cap p_1^{-1}\left(\sU\right)$ and  $\widetilde\sU_2 = \widetilde\sU'_2
+	\cap p_2^{-1}\left(\sU\right)$ then both $\left.p_1\right|_{\widetilde\sU_1}$ and $\left.p_2\right|_{\widetilde\sU_2}$ are injective and may be regarded as homeomorphisms from both $\widetilde\sU_1$ and $\widetilde\sU_2$ onto $\sU$. For any $\widetilde x \in \widetilde\sU_1$ one has
+	$$
+	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left(g\widetilde x \right).
+	$$
+	On the other hand from $g \in  G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ it follows that  $p_1\left(g \widetilde x \right) =  p_1\left( \widetilde x \right)$, hence the following condition holds
+	$$
+	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left( \widetilde x \right)=  p\left( \widetilde x \right).
+	$$
+	The above equation is true for all $\widetilde x \in \widetilde\sU_1$ so the set 	$\widetilde{ \mathcal W}_1$ is open.
+	From $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)$ it turns out that $\widetilde{ \mathcal W}_1 \neq \emptyset$ and taking into account that $\sX$ is connected we conclude that $\widetilde{ \mathcal W}_1 = \widetilde{ \mathcal X}_1$. It equivalently means that
+	$$
+	\forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)=p\left( \widetilde x_1\right) .
+	$$
+\end{proof}
+
+\begin{corollary}\label{top_covp_cat_cor}
+	Consider the situation of the Lemma \ref{top_covp_cat_lem}. If the map $p$ is surjective and the covering $p_1$ is transitive then the map $p$ is a transitive covering.
+\end{corollary}
+\begin{proof}
+	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering. There is the natural homomorphic inclusion $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\subset  G\left(\left. \widetilde{\sX}_1~\right|\mathcal{X}\right)$. Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
+	$$
+	G_{\widetilde x_2} = \left\{\left.g \in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\right| p\left(g \widetilde x_2 \right)=p\left( \widetilde x_2\right)  \right\}.
+	$$
+	However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_2} = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, hence $p^{-1}\left(\widetilde x_2 \right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$. 
+\end{proof}
 \begin{definition}\label{top_weak_path_defn}
-Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \textit{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for all $j = 1,..., n$.
+	Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$.
 \end{definition}
+\begin{definition}\label{top_gen_path_defn}
+	Let $\sX$ be a connected,  locally compact, Hausdorff space.
+	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n-1$.
+\end{definition}
+
 \begin{empt}\label{top_path_inv_empt}
 	There is an involution * on the set of paths such that
 	\be\label{top_path_inv_eqn}
@@ -5573,10 +5654,6 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 	\mathfrak p\bydef \desc_p\left( \widetilde{\mathfrak p}\right). 
 	\ee
 \end{defn}
-\begin{definition}\label{top_gen_path_defn}
-	Let $\sX$ be a connected,  locally compact, Hausdorff space.
-	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n-1$.
-\end{definition}
 
 
 
@@ -5590,11 +5667,11 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 	\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a'' \right.\right\},\\
 	\mathscr A'\bydef \left\{\left.\a \in \mathscr A\right| \sU_{\a} \in\mathfrak{A}_{\a'} \right\}.
 	\eean
-	If $\mathscr A'=\mathscr A$ then this lemma is proven. If not then  and 
+	If $\mathscr A'=\mathscr A$ then this lemma is proven. If not   and 
 	$$
 	\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)\neq \emptyset,
 	$$
-then there is  $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
+	then there is  $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
 	\bean
 	\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)= \emptyset.
 	\eean
@@ -5638,40 +5715,372 @@ then there is  $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ s
 	So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.	
 \end{proof}
 
-\begin{defn}\label{top_closed_path_defn}
-	If $\left(\sX, x_0\right)$ is a pointed space (cf. Definition \ref{top_pointed_defn}) then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.  The  $x_0$-{path} is said to be \textit{closed} if $x_0\in\sU_n$.  Denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that 
+\begin{empt}\label{top_lconn_part}
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
+	\begin{itemize}
+		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
+		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
+		\item $\sU_\a$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}).
+	\end{itemize}
+	For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$, which is mapped homeomorphically onto $\sU_\a$. One has
+	$$
+	\widetilde \sX=\bigcup_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A} 	g \widetilde \sU_\a
+	$$
+\end{empt}
+\begin{definition}\label{top_lconn_defn}
+	In the above situation we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
+	$\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is the $p$-\textit{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. We say that  family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with coverings} if it is complaint with any finite-fold covering of $\sX$.
+\end{definition}
+\begin{exercise}\label{top_path_lift_exer}
+	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering (cf. Definition \ref{top_pointed_defn}), and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
+	be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
+	Prove that there is an unique weak path  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}).
+\end{exercise}
+\begin{definition}\label{top_path_lift_defn}
+	The given by the Exercise  \ref{top_path_lift_exer} path $\widetilde{\mathfrak p}$ is said to be the $p$-\textit{lift} or  $p$-$\widetilde x_0$-\textit{lift} of $\mathfrak p$. We write
+	\be\label{top_path_lift_eqn}
+	\begin{split}
+	\lift_p~\mathfrak p\bydef\widetilde{\mathfrak p},\\
+		\lift^{\widetilde x_0}_p~\mathfrak p\bydef\widetilde{\mathfrak p}.
+	\end{split}
+	\ee 
+\end{definition}
+
+\begin{empt}\label{top_path_comp_empt}
+	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure, and let $\widetilde{\mathfrak A}$ be a $p$-lift of $\mathfrak A$ (cf. Definition \ref{top_lconn_defn}). Select $\widetilde\sU_0 \in \widetilde{\mathfrak A}$ such that $\widetilde x_0\in \widetilde\sU_0$. Let $\sU_0 = p\left(\widetilde\sU_0 \right)$. From the Lemma \ref{top_gen_path_lem} it follows that for all $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ there is a $\widetilde{\mathfrak A}$-path $\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ such that
+	\be\label{top_path_compl_eqn}
+	\widetilde\sU_{\widetilde\a_1}= \widetilde\sU_{0}; \quad g \widetilde x_0 \in  \widetilde\sU_{\widetilde\a_n}.
+	\ee
+	A path which satisfies to  \eqref{top_path_compl_eqn} is not unique. One has
+	\be\label{top_path_comp_lem_eqn}
+	\begin{split}
+		\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)\quad \Rightarrow p\left( \widetilde x_0\right) \in  p\left( \widetilde\sU_{\widetilde\a_1}\right)\cap p\left( \widetilde\sU_{\widetilde\a_n}\right)
+	\end{split}
+	\ee
+	If $g', g'' \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then from \eqref{top_path_comp_lem_eqn} it follows that there is the composition $\desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}$ (cf. Definition \ref{top_path_comp_defn}).
+\end{empt}
+\begin{definition}\label{top_closed_path_corr_defn}
+	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be $p$-\textit{contractible} if it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+\end{definition}
+\begin{rem}\label{top_inv_path_rem}
+If a weak path $\widetilde{\mathfrak p}$ {corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then its involution $\widetilde{\mathfrak p}^*$ {corresponds to} $g^{-1} \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+\end{rem}
+\begin{lemma}\label{top_lift_comp_lem}
+	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$ where $g',g''\in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. If
+	\bean
+	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
+	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
+	\eean
+	then $g'g''\widetilde x_0\in  \widetilde\sU_{\widetilde\a_{k + l}}$.
+\end{lemma}
+\begin{proof}
+From $g' \widetilde x_0\in \widetilde\sU_{\widetilde\a'_k}$ it follows that 
+there is a weak path
+	$$
+	\widetilde{\mathfrak p} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_1},..., g'\widetilde\sU_{\widetilde\a''_l}\right).
+	$$
+Taking into account $g' \widetilde x_0\in \widetilde\sU_{\widetilde\a'_k}\in \widetilde\sU_{\widetilde\a'_k}$,% $\quad g'' \widetilde x_0\in \widetilde\sU_{\widetilde\a''_l}$ one has $g'' g' \widetilde  \widetilde\sU_{\widetilde\a_{k + l }}$.
+\end{proof}
+\begin{empt}\label{top_g_homo_empt}
+	Consider a commutative triangle of connected, locally connected, locally compact, Hausdorff spaces  and  transitive coverings.
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}' & &\widetilde{\mathcal X}''\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p'~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p''$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	Let  $\mathfrak A \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$ evenly covered by both $p'$ and $p''$. Let both  $\widetilde{\mathfrak A}'\bydef {\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~}$ and  $\widetilde{\mathfrak A}''\bydef\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\mathfrak A$ respectively (cf. Definition \ref{top_lconn_defn}). Let $\widetilde \sU'_0 \in \left\{\widetilde \sU_{\widetilde \a' }\right\}$, and $\widetilde x_0 \in \widetilde \sU'_0$. Denote by $ \widetilde \sU''_0\bydef p\left(\widetilde \sU'_0\right)\subset \widetilde \sX''$, $  \sU_0\bydef p'\left(\widetilde \sU'_0\right)\subset \sX$, $\widetilde x''_0\bydef p\left(\widetilde x'_0\right)\subset \widetilde \sU''_0$, $  x_0\bydef p'\left(\widetilde x'_0\right)\subset \sU_0$. Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijecive maps
+	\bean 
+	G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\xrightarrow{\approx}p'^{-1}p'\left(\widetilde x'_0 \right),\\
+	g \mapsto g\widetilde x'_0;\\
+	G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)\xrightarrow{\approx}p''^{-1}p''\left(\widetilde x''_0 \right),\\
+	g \mapsto g\widetilde x''_0. 
+	\eean
+	On the other hand the map $p$ induces the surjective map $p'^{-1}p'\left(\widetilde x'_0 \right)\to p''^{-1}p''\left(\widetilde x''_0 \right)$ so one has the surjective map
+	\be\label{top_g_homo_eqn}
+	h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right).
+	\ee
+\end{empt}
+\begin{lemma}\label{top_homo_lem}
+	In the situation \ref{top_g_homo_empt} following condition holds:
+	\begin{itemize}
+		\item [(i)] 	The given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ is a homomorphism of groups.
+		\item[(ii)] If we consider the natural inclusion $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)\subset  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ then $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)$ is a normal subgroup of $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ (cf. Definition \ref{normal_subgroup_defn}).
+	\end{itemize}
+\end{lemma}
+\begin{proof} (i)
+	Let $g_1, g_2 \in G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\widetilde{\mathfrak A}'$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_closed_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\widetilde{\mathfrak A}''$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
+	\bean
+	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde\sU'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
+	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde\sU''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
+	\eean
+	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that if  $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that both $h\left(g_1g_2 \right)$  and $h\left(g_1 \right)h\left(g_2 \right)$ correspond to the single path $\widetilde{\mathfrak p}''$,  so $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
+	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
+\end{proof}
+
+\begin{corollary}\label{com_norm_cor}
+	Let $\sX$, $\sX'$ and $\sX''$ be connected, locally connected, locally compact, Hausdorff spaces.
+	If $p': \sX' \to \sX$ and $p'': \sX'' \to \sX'$ are finite-fold  transitive  coverings such that $p'' \circ p'$ is transitive then
+	\begin{enumerate}
+		\item[(i)] There is an exact sequence of group homomorphisms
+		$$
+		\left\{e\right\} \to 	G\left(\left.\sX''~\right|~\sX' \right) \to 	G\left(\left.\sX''~\right|~\sX \right) \to 	G\left(\sX'~|~\sX \right) \to \left\{e\right\}.
+		$$
+		\item[(ii)]
+		For any $g \in 	G\left(\left.\sX''~\right|~\sX \right)$ one has
+		$
+		gC_0\left(\sX' \right) = C_0\left(\sX' \right). 
+		$
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	(i) Directly follows from the Lemma \ref{top_homo_lem}.\\
+	(ii) We will implicitly use following inclusions  $C_0\left(\sX \right)\subset C_0\left(\sX' \right)\subset C_0\left(\sX'' \right)$.
+If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and only if $g''a' = a'$ for all $g'' \in G\left(\left.\sX''~\right|~\sX' \right)$. Since 	$G\left(\left.\sX''~\right|~\sX' \right)$ is a normal subgroup of $G\left(\left.\sX''~\right|~\sX \right)$ (cf. Definition \ref{normal_subgroup_defn}) for each $g \in  G\left(\left.\sX''~\right|~\sX \right)$ and $g''_1 \in  G\left(\left.\sX''~\right|~\sX' \right)$ there is $g''_2 \in  G\left(\left.\sX''~\right|~\sX' \right)$ such that $g''_1g = gg''_2$ (cf \eqref{normal_subgroup_eqn}), it turns out $g''_1ga' = gg''_2a'= ga'$, i.e. $g''_1 \left(ga' \right)= ga'$ so one has $ga' \in   C_0\left(\sX' \right)$.
+\end{proof}
+
+
+\begin{definition}\label{top_fin_cov_defn}
+	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
+	\begin{itemize}
+		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
+		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
+	\end{itemize}
+	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$.	We also suppose that any isomorphism class of this category contains a single object.
+\end{definition}
+\begin{remark}\label{top_fin_cov_tr_rem}
+	From the Corollary \ref{top_covp_cat_cor} it follows that $p_{12}$ is a transitive covering.
+\end{remark}
+
+\begin{remark}\label{top_fin_cov_rem}
+	We also use the alternative notation in which objects of $\mathfrak{FinCov}$-$\sX$ are covering spaces, i.e. a covering $\widetilde\sX \to \sX$ is replaced with the space $\widetilde\sX$.
+\end{remark}
+\begin{lemma}\label{top_compliant_covering_lem}
+	If $p_1:\widetilde\sX_1 \to \sX$, $p_2:\widetilde\sX_2 \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p': \widetilde\sX_1 \to  \widetilde\sX_2$, $p'': \widetilde\sX_1 \to  \widetilde\sX_2$ are morphisms of $\mathfrak{FinCov}$-$\sX$ then there is $g \in 	G\left(\left.\widetilde\sX_2~\right|\sX\right)$ such that
+	$$
+	p'' =  g \circ p'.
+	$$
+\end{lemma}
+
+\begin{proof}
+	The covering $p_2$ is transitive, so from $p' \circ p_2= p'' \circ p_2$ it turns out that
+	$$
+	\forall	\widetilde x_1\in \widetilde\sX_1\quad  \text{ there is the unique } g_{\widetilde x_1} \in G\left(\left.\widetilde\sX_2~\right|\sX\right)\quad p'\left( \widetilde x_1\right)= g_{\widetilde x_1} \circ p''\left(\widetilde x_1 \right).  
+	$$
+	There is the map
+	\bean
+	h: \widetilde\sX_1 \to G\left(\left.\widetilde\sX_2~\right|\sX\right);\\
+	\widetilde x_1\mapsto g_{\widetilde x_1} 
+	\eean
+	and since both $p'$ and $p''$ are local isomorphisms the map $h$ is continuous. However the space  $G\left(\left.\widetilde\sX_2~\right|\sX\right)$ of homeomorphisms is discrete and the space $\widetilde\sX_1$ is connected, hence the map $h$ is constant, i.e.
+	$$
+	\exists g \in G\left(\left.\widetilde\sX_2~\right|\sX\right) \quad \forall \widetilde x_1\in \widetilde\sX_1 \quad p''\left( \widetilde x_1\right) = g\circ p'\left( \widetilde x_1\right).
+	$$
+\end{proof} 
+\begin{empt}\label{top_cov_preord_empt}
+	One can define a pre-ordering (cf. Definition \ref{ord_defn}) on a family of  $\mathfrak{FinCov}$-$\sX$-objects (cf. Definition \ref{top_fin_cov_defn}) such that one has
+	$$
+	\left(\widetilde \sX' \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right)
+	$$
+	if and only if there is a finite-fold transitive covering $\widetilde \sX'\to \widetilde \sX''$ which can be included into a following commutative diagram
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde \sX' & \widetilde \sX''  \\ 
+			& \sX\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {} (m-1-2)
+		(m-1-1) edge node [left]  {} (m-2-2)
+		(m-1-2) edge node [right] {} (m-2-2);
+	\end{tikzpicture}
+	\\ 	
+\end{empt}
+\begin{exercise}\label{top_cov_directed_exer}
+	Let both $\widetilde \sX'\to \sX$ and $\widetilde \sX''\to \sX$ are finite-fold transitive coverings. Let $\widetilde \sX$ be a pullback (cf. Definition \ref{pull_back_defn}), or equivalently an inverse limit (cf.  Definition \ref{top_inv_lim_defn}) of the Diagram
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			& \widetilde \sX''  \\ 
+			\widetilde \sX'		& \sX\\};
+		\path[-stealth]
+		(m-1-2) edge node [above] {} (m-2-2)
+		(m-2-1) edge node [left]  {} (m-2-2);
+	\end{tikzpicture}
+	\\ 	
+	Prove following statements:
+	\begin{itemize}
+		\item both natural maps $\widetilde \sX\to \widetilde \sX'$ and $\widetilde \sX\to \widetilde \sX''$ are finite-fold transitive coverings,
+		\item one has
+		\bean
+		\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX' \to \sX\right),\\
+		\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right),
+		\eean
+		\item the family of isomorphism classes of  $\mathfrak{FinCov}$-$\sX$-objects is a directed set (cf. Definition \ref{directed_set_defn}).
+	\end{itemize}
+\end{exercise}
+
+\begin{definition}\label{top_fin_cov_p_defn}
+	Let $\left(\sX, x_0 \right)$ be a pointed space such that $\sX$ is a connected, locally connected,  locally compact,  Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\left( \sX, x_0\right) $ such that
+	\begin{itemize}
+		\item  $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$-objects are transitive finite-fold coverings\\ $\left( \widetilde\sX, \widetilde x_0\right)  \to \left( \sX, x_0\right)$ of $\sX$ preserving base-points,
+		\item a morphism form $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ to $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ is a preserving base-points surjective continuous map $p: \left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX_2, x^2_0\right)$ such that $p \circ p_1 = p_2$.
+	\end{itemize}
+	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
+\end{definition}
+\begin{remark}\label{top_skeleton_rem}
+	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
+	So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
+\end{remark}
+
+
+
+\begin{lemma}\label{top_comply_lem}
+	Let   $\sX$ be a connected, locally connected, locally compact, Hausdorff space. 
+	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_2\to \sX$ are transitive coverings.
+	If  $p^2_1 : \widetilde{\sX}_2\to  \widetilde{\sX}_1$ is surjective continuous map such  that $p_2 = p_1\circ p^2_1$  then following conditions hold:
+	\begin{enumerate}				\item[(a)] The map  $p^2_1$ is a transitive finite-fold covering.
+		
+		\item[(b)] There is a natural homeomorphism
+		\be\label{top_g_sur_eqn}
+		\widetilde{\sX}_1 \cong \widetilde{\sX}_2/G\left(\left.\widetilde \sX_1~\right|\sX \right).
+		\ee		
+		\item[(c)] 
+		
+		
+		The natural homomorphism $h: G\left(\left.\widetilde \sX_2~\right|\sX \right)\to 	G\left(\left.\widetilde \sX_1~\right|\sX \right)$ 
+		is surjective. 
+		\item[(d)] If  $q:\widetilde{\sX}_2\to  \widetilde{\sX}_1$ is any surjective continuous map such that $p_2 = q \circ  p_1$ then there is the unique $g \in 	G_1$ such that 
+		\be\nonumber
+		q =  g\circ  p^2_1.
+		\ee
+	\end{enumerate}
+	
+\end{lemma}
+
+
+
+
+\begin{proof}
+	
+	If $x_0 \in \sX$ is any point then from the Lemma  \ref{top_homo_lem} it follows that the natural surjective map $p_2^{-1}\left(x_0 \right) \to p_1^{-1}\left(x_0 \right)$ induces the natural surjective homomorphism 
+	$ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ of groups. Let us prove (a)-(d).\\
+	(a)  Follows from the Corollary \ref{top_covp_cat_cor}.\\		
+	(b) Follows from the Lemma  \ref{top_homo_lem}.\\
+	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
+	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
+\end{proof}
+
+\begin{lemma}\label{top_compact_lem}
+	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}). Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there is a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+	\begin{itemize}
+		\item $p = \widetilde p \circ \overline p$,
+		\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
+	\end{itemize}	
+\end{lemma}
+
+\begin{proof}
+	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ (cf. Definition \ref{top_weakly_semi1_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Suppose that $j, k =1,..., n$ be such that
+	\be\label{top_compact_eqn}
+	\begin{split}
+		j > k,\\
+		\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset,\\
+		{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
+	\end{split}
+	\ee	
+	Then there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is transitive there is a nontrivial $g_{jk} \in G\left(\left.\overline\sX\right| \sX  \right)$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $G\left(\left.\overline\sX\right| \sX  \right)$ is residually finite there is a homomorphism $h_{jk}:G\left(\left.\overline\sX\right| \sX  \right)\to G_{jk}$ such that:
+	\begin{itemize}
+		\item $G_{jk}$ is a finite group,
+		\item $h_{jk}\left(g_{jk} \right)$ is not trivial. 
+	\end{itemize} 
+	If $H_{jk}\bydef \ker h_{jk}$, and $\sX_{jk} \bydef \overline{\sX}/ H_{jk}$ then there are natural coverings $\overline p_{jk}: \overline \sX\to  \sX_{jk}$ and $\widetilde p_{jk}:  \sX_{jk}\to \sX$
+	such that
+	\be\label{top_compactp_eqn}
+	\begin{split}
+		G\left(\left. \sX_{jk}\right| \sX  \right)\cong G_{jk},\\
+		\widetilde p_{jk}\circ \overline p_{jk} = p,\\
+		\overline p_{jk}\left( \overline{x}_j\right)  = h_{jk}\left(g_{jk} \right)	\overline p_{jk}\left( \overline{x}_k\right) \quad \Rightarrow \quad 			\overline p_{jk}\left( \overline{x}_j\right) \neq \overline p_{jk}\left( \overline{x}_k\right)\\
+	\end{split}
+	\ee
+	If  $g_1, g_2  \in G\left(\left.\overline\sX\right| \sX  \right)$ then
+	\bean
+	\forall g \in \left\{g_1,g_2\right\} \quad	\overline \sU_j \cap g \overline \sU_k \subset \overline \sU_j \cap p^{-1}\left({p}\left( \overline{   \mathcal U }_{k} \right) \right) \subset p^{-1} \left( {p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right)\right).
+	\eean
+	Moreover if $\overline \sU_j \cap g_1 \overline \sU_k\neq \emptyset$ then $\overline \sU_j \cap g_1 \overline \sU_k$ is homeomorphically mapped onto $ {p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right)$.
+	On the other hand if $\overline x_2 \in 	\overline \sU_j \cap g_2 \overline \sU_k$ then $p\left( \overline x_2\right) \in {p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right)$ so there is $\overline x_1 \in \overline \sU_j \cap g_1 \overline \sU_k$ such that $p\left(\overline x_1\right)=p\left(\overline x_2\right)$. From $\overline x_1, \overline x_2 \in \overline \sU_j$ it follows that $\overline x_1= \overline x_2$ so $\overline x_2\in g_1\overline\sU_k$.  So one has
+	$$
+	g_1\overline\sU_k\cap g_2\overline\sU_k\neq \emptyset \quad \Rightarrow \quad g_1 = g_2,
+	$$
+	hence $g_{jk} \in G\left(\left.\overline\sX\right| \sX  \right)$ is the unique element, such that   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Otherwise if 		$\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)\neq  \emptyset$ then there is $g \in  \ker h_{jk}$ such that $\overline{   \mathcal U }_j \cap g \overline{   \mathcal U }_k\neq \emptyset$. Taking into account $g_{jk}\notin H_{jk}  =\ker h_{jk}$ one has a contradiction. From the contradiction it follows that it is impossible that the condition 	$\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)\neq  \emptyset$ does not hold, i.e.
+	\be\label{top_compactppp_eqn}
+	\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)=  \emptyset.
+	\ee 
+	Both sets  $\overline p_{jk}\left( \overline{\sU}_j\right)$ and $\overline p_{jk}\left( \overline{\sU}_k\right)$ are homeomorphically mapped onto $p\left( \overline{\sU}_j\right)\subset \sX$ and $p\left( \overline{\sU}_k\right)\subset \sX$ respectively.
+	$H_{jk}$ is a normal subgroup of $G\left(\left.\overline\sX\right| \sX  \right)$ and the index   $\left( G\left(\left.\overline\sX\right| \sX  \right) : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). There is a finite set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ such that any $\left(j, k \right)\in J$ satisfies to the conditions \eqref{top_compact_eqn}. If
+	$$
+	H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
+	$$
+	then index   $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there is are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
+	\be\label{top_compactpp_eqn}
+	\overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
+	\ee
+	Let $\overline y', \overline y'' \in \overline \sY$ be such that $\overline p\left(\overline y'\right)= \overline p\left(\overline y''\right)= \widetilde y$.
+	If $\overline y' \in \overline \sU_j$ then from \eqref{top_compactpp_eqn} it follows that $\overline y''\in \overline \sU_j$, so  $\overline y'= \overline y''$, i.e. $\overline p$ yields a bijective map  
+	$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
+\end{proof}
+
+
+
+
+\section{Weak fundamental groups}
+\paragraph{}
+The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied for more general connected spaces.
+
+
+\begin{definition}\label{top_weakly_simply_connected_defn} 
+A connected space $\sX$ is said to be \textit{weakly simply connected} if for any covering $p: \widetilde \sX\to \sX$ the space $\sX$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn})
+\end{definition}
+\begin{remark}
+Any connected, path connected, simply connected  space is weakly simply connected.
+\end{remark}
+\begin{remark}
+The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_fin_thm} below).
+\end{remark}
+
+	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
+		An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any transitive covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
+	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x\in \sX$ there is a semilocally proper neighborhood. A weak path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn}) is \textit{semilocally 1-connected} if $\sU_j$ is semilocally proper for every $j = 1,..., n$.
+\end{defn} 
+\begin{remark}
+	Any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
+\end{remark}
+
+
+\begin{defn}\label{top_x0_path_defn}
+Let $\left(\sX, x_0\right)$ be a pointed space (cf. Definition \ref{top_pointed_defn}) such that $\sX$ is locally connected, weakly semilocally 1-connected space. A semilocally 1-connected path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.   Denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all $x_0$-paths such that 
 	\be\label{top_closed_path_eqn}
 	\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
 \ee
 \end{defn}
 
-\begin{rem}
-Any pair of closed path is composable.
-\end{rem}
-
-\begin{exercise}\label{top_path_lift_exer}
-	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering (cf. Definition \ref{top_pointed_defn}), and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
-be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
-Prove that there is an unique weak path  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}).
-\end{exercise}
-\begin{definition}\label{top_path_lift_defn}
-	The given by the Exercise  \ref{top_path_lift_exer} path $\widetilde{\mathfrak p}$ is said to be the $p$-\textit{lift} or  $p$-$\widetilde x_0$-\textit{lift} of $\mathfrak p$. We write
-	\be\label{top_path_lift_eqn}
-	\lift_p~\mathfrak p\bydef\widetilde{\mathfrak p}.
-	\ee 
-\end{definition}
+\begin{remark}
+	Any pair of closed $x_0$-paths is composable (cf. Definitions \ref{top_path_comp_defn} and \ref{top_closed_path_corr_defn}).
+\end{remark}
 \begin{definition}\label{top_contactible_path_defn}
 	Let 
- $\left(\sX, x_0\right)$ be  a pointed space.  A closed  semilocally 1-connected path $\mathfrak p \bydef \left(\sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x_0\right) $ (cf. Definitions \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$
- 
- 
- 
- a $p$-$x_0$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
-\end{definition}
+ $\left(\sX, x_0\right)$ be  a pointed space.  A closed  semilocally 1-connected path $\mathfrak p \bydef \left(\sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x_0\right) $ (cf. Definitions \ref{top_weak_path_defn} and \ref{top_x0_path_defn}) is said to be \textit{contractible} if  for any pointed transitive covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ it is $p$-contractible (cf. Definition \ref{top_closed_path_corr_defn}).
+ \end{definition}
 
-\begin{exercise}\label{top_path_inv_exer} 
-Prove that 	if $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compositions $\mathfrak p^* \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible.
-\end{exercise}
+\begin{rem}\label{top_path_inv_rem}
+If $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compositions $\mathfrak p^* \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible (cf. the Remark \ref{top_inv_path_rem} and the Lemma \ref{}).
+\end{rem}
 \begin{definition}\label{top_path_equiv_defn}
 We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1,\mathfrak p_2\in \mathfrak{Paths} \left( x_0, x\right)$ are \textit{homotopically equivalent} if  a composition $\mathfrak p_1 \circ \mathfrak p^*_2\in \mathfrak{Paths} \left( x_0, x_0\right)$ is contractible. We write  $\mathfrak p_1 \sim \mathfrak p_2$
 \end{definition}
@@ -5690,7 +6099,7 @@ Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a
 \end{empt}
 
 
- From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
+ From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_rem} !!! REMARK !!! it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
 \begin{definition}\label{top_weak_fundamental_group_defn}
 If
 $\left(\sX, x_0\right)$ is  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space
@@ -5836,414 +6245,6 @@ Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 	If $\mathfrak p = \desc_p \widetilde {\mathfrak p}$ is a $p$ descent  of $\widetilde {\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}) then  the path $\mathfrak p$ is closed and
 	$h\left(\left[\mathfrak p\right]\right)= n$. So the homomorphism $h$ is surjective. In result one has an isomorphism $\pi^{\text{w}}_1\left(\sX \right)\cong\Z$. However the explained in the Remark \ref{top_homotopy_group_rem} fundamental group $\pi_1\left(\sX \right)$ is trivial since $\sX$ is not path connected.
 \end{example}
-
-
-
-\section{Transitive coverings}\label{top_transitive_section}
-
-\paragraph*{}
-The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering"  one (cf. Definition \ref{top_transitive_defn}).
-
-
-\begin{lemma}\label{top_trans_tp_cov_lem}
-	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
-	$$
-	\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x.
-	$$
-\end{lemma}
-\begin{proof}
-	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$. There are open neighborhoods $\widetilde\sU'$ and $\widetilde\sU''$ of $\widetilde x$ and $g \widetilde x$ such that $\widetilde\sU'\cap \widetilde\sU'' = \emptyset$. Otherwise since $g$ is a homeomorphism there is open neighborhood $\widetilde\sV$ of $\widetilde x$ such that $g\widetilde\sV \subset \widetilde\sU''$. It follows that $g\widetilde x \neq \widetilde x$ for all $\widetilde x \in \widetilde \sU'\cap \widetilde\sV$. Hence the set
-	$$
-	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x \neq \widetilde x\right\}
-	$$
-	is open, or equivalently the set
-	$$
-	\widetilde{ \mathcal W}	=	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\}
-	$$
-	is closed.  Suppose that $\widetilde x \in \widetilde \sX$ is such that $\widetilde x = g \widetilde x$. There is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ such that a restriction  $\left.p\right|_{\widetilde\sU}$ is injective. On the other hand the restriction $\left.p\right|_{\widetilde\sU}$ can be regarded as a homeomorphism from ${\widetilde\sU}$ onto $p\left( {\widetilde\sU}\right)$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
-	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad g\widetilde x = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ g \left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so $\widetilde{ \mathcal W}$ is open.  From $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$ it turns out that $\widetilde{ \mathcal W}\neq \widetilde\sX$. On the other hand $\widetilde{ \mathcal W}$ is an open and closed subset of a connected set $\widetilde{    \sX }$, so one has $\widetilde{ \mathcal W}= \emptyset$. It means that
-	$$
-	\forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x \neq \widetilde x.
-	$$
-\end{proof}
-\begin{corollary}\label{top_trans_tp_cov_cor}
-	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
-	\bean 
-	G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
-	g \mapsto g\widetilde x_0. 
-	\eean
-	is biective	then $p$ is a transitive covering.
-\end{corollary}
-
-\begin{corollary}\label{top_trans_cov_factor_cor}
-	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a {transitive} covering then there is the natural homeomorphism $\sX  \cong \widetilde{\mathcal X}/G\left(\left.\widetilde{\sX}~\right|\sX\right)$.
-\end{corollary}
-\begin{remark}
-	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
-\end{remark} 
-\begin{lemma}\label{top_covp_cat_lem}
-	Consider a commutative triangle of connected topological spaces and  continuous maps
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
-			& {\mathcal X}\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p$} (m-1-3)
-		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	Suppose  $\sX$ is a  locally compact, locally connected,  Hausdorff space and $p_1$, $p_2$ are coverings. For all $g\in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ the following condition holds
-	$$
-	\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)= p\left( \widetilde x_1\right) . 
-	$$
-\end{lemma}
-\begin{proof}
-	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p\left(  g\widetilde x_1\right) \neq p\left( \widetilde x_1\right) $. There are open neighborhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x_1\right) $ and $p\left( \widetilde gx_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open neighborhood $\widetilde\sV_1$ of $\widetilde x_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde x \right) \neq p\left( \widetilde x\right)$ for all $\widetilde x \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
-	$$
-	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) \neq p\left( \widetilde x\right)\right\}
-	$$
-	is open, or equivalently the set
-	$$
-	\widetilde{ \mathcal W}_1	=	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) = p\left( \widetilde x\right)\right\}
-	$$
-	is closed.  Suppose that $\widetilde x_1 \in \widetilde \sX_1$ is such that $\widetilde x_1 = g \widetilde x_1$. There is an  open neighborhood $\widetilde \sU'_1$ of $\widetilde x_1$ such that $\left.p_1\right|_{\widetilde\sU'_1}$ is injective. There is an open neighborhood $\widetilde \sU'_2$ of $p\left( \widetilde x_1\right) $ such that $\left.p_2\right|_{\widetilde\sU'_2}$ is injective. Since $\sX$ is locally connected there is a connected open neighborhood $\sU$ of $p_1\left(\widetilde x_1\right)$ such that $\sU\subset p_1\left(\widetilde \sU'_1\right)\cap p_2\left(\widetilde\sU'_2 \right)$. If $\widetilde\sU_1 = \widetilde\sU'_1
-	\cap p_1^{-1}\left(\sU\right)$ and  $\widetilde\sU_2 = \widetilde\sU'_2
-	\cap p_2^{-1}\left(\sU\right)$ then both $\left.p_1\right|_{\widetilde\sU_1}$ and $\left.p_2\right|_{\widetilde\sU_2}$ are injective and may be regarded as homeomorphisms from both $\widetilde\sU_1$ and $\widetilde\sU_2$ onto $\sU$. For any $\widetilde x \in \widetilde\sU_1$ one has
-	$$
-	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left(g\widetilde x \right).
-	$$
-	On the other hand from $g \in  G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ it follows that  $p_1\left(g \widetilde x \right) =  p_1\left( \widetilde x \right)$, hence the following condition holds
-	$$
-	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left( \widetilde x \right)=  p\left( \widetilde x \right).
-	$$
-	The above equation is true for all $\widetilde x \in \widetilde\sU_1$ so the set 	$\widetilde{ \mathcal W}_1$ is open.
-	From $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)$ it turns out that $\widetilde{ \mathcal W}_1 \neq \emptyset$ and taking into account that $\sX$ is connected we conclude that $\widetilde{ \mathcal W}_1 = \widetilde{ \mathcal X}_1$. It equivalently means that
-	$$
-	\forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)=p\left( \widetilde x_1\right) .
-	$$
-\end{proof}
-
-\begin{corollary}\label{top_covp_cat_cor}
-	Consider the situation of the Lemma \ref{top_covp_cat_lem}. If the map $p$ is surjective and the covering $p_1$ is transitive then the map $p$ is a transitive covering.
-\end{corollary}
-\begin{proof}
-	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering. There is the natural homomorphic inclusion $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\subset  G\left(\left. \widetilde{\sX}_1~\right|\mathcal{X}\right)$. Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
-	$$
-	G_{\widetilde x_2} = \left\{\left.g \in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\right| p\left(g \widetilde x_2 \right)=p\left( \widetilde x_2\right)  \right\}.
-	$$
-	However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_2} = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, hence $p^{-1}\left(\widetilde x_2 \right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$. 
-\end{proof}
-
-\begin{empt}\label{top_lconn_part}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
-	\begin{itemize}
-		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
-		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
-		\item $\sU_\a$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}).
-	\end{itemize}
-	For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$, which is mapped homeomorphically onto $\sU_\a$. One has
-	$$
-	\widetilde \sX=\bigcup_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A} 	g \widetilde \sU_\a
-	$$
-\end{empt}
-\begin{definition}\label{top_lconn_defn}
-	In the above situation we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
-	$\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is the $p$-\textit{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. We say that  family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with coverings} if it is complaint with any finite-fold covering of $\sX$.
-\end{definition}
-
-\begin{empt}\label{top_path_comp_empt}
-	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure, and let $\widetilde{\mathfrak A}$ be a $p$-lift of $\mathfrak A$ (cf. Definition \ref{top_lconn_defn}). Select $\widetilde\sU_0 \in \widetilde{\mathfrak A}$ such that $\widetilde x_0\in \widetilde\sU_0$. Let $\sU_0 = p\left(\widetilde\sU_0 \right)$. From the Lemma \ref{top_gen_path_lem} it follows that for all $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ there is a $\widetilde{\mathfrak A}$-path $\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ such that
-	\be\label{top_path_compl_eqn}
-	\widetilde\sU_{\widetilde\a_1}= \widetilde\sU_{0}; \quad \widetilde\sU_{\widetilde\a_n}= g \widetilde\sU_{0}
-	\ee
-	A path which satisfies to  \eqref{top_path_compl_eqn} is not unique. One has
-	\be\label{top_path_comp_lem_eqn}
-	\begin{split}
-\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)\quad \Rightarrow
-		\\
-		\Rightarrow p\left( \widetilde\sU_{\widetilde\a_1}\right)= p\left( \widetilde\sU_{\widetilde\a_n}\right)= \sU_0.
-	\end{split}
-	\ee
-	If $g', g'' \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then from \eqref{top_path_comp_lem_eqn} it follows that there is the composition $\desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}$ (cf. Definition \ref{top_path_comp_defn}).
-\end{empt}
-\begin{definition}\label{top_path_corr_defn}
-	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be $p$-\textit{contractible} if  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
-\end{definition}
-
-
-\begin{lemma}\label{top_lift_comp_lem}
-	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$ where $g',g''\in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. If
-	\bean
-	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
-	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
-	\eean
-	then $ \widetilde\sU_{\widetilde\a_{k + l}}= g'g''\widetilde \sU_0$.
-\end{lemma}
-\begin{proof}
-	From $\widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$ it follows that
-	$$
-	\widetilde{\mathfrak p} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_1},..., g'\widetilde\sU_{\widetilde\a''_l}\right)
-	$$
-	and taking into account $g'\widetilde\sU_{\widetilde\a''_1}= \widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$, $\quad\widetilde\sU_{\widetilde\a''_l}=g''\widetilde\sU_0$ one has $ \widetilde\sU_{\widetilde\a_{k + l }}= g'g''\widetilde \sU_0$.
-\end{proof}
-\begin{empt}\label{top_g_homo_empt}
-	Consider a commutative triangle of connected, locally connected, locally compact, Hausdorff spaces  and  transitive coverings.
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde{\mathcal X}' & &\widetilde{\mathcal X}''\\ 
-			& {\mathcal X}\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p$} (m-1-3)
-		(m-1-1) edge node [left]  {$p'~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p''$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	Let  $\mathfrak A \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$ evenly covered by both $p'$ and $p''\circ p$. Let both  $\widetilde{\mathfrak A}'\bydef {\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~}$ and  $\widetilde{\mathfrak A}''\bydef\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\mathfrak A$ respectively (cf. Definition \ref{top_lconn_defn}). Let $\widetilde \sU'_0 \in \left\{\widetilde \sU_{\widetilde \a' }\right\}$, and $\widetilde x_0 \in \widetilde \sU'_0$. Denote by $ \widetilde \sU''_0\bydef p\left(\widetilde \sU'_0\right)\subset \widetilde \sX''$, $  \sU_0\bydef p'\left(\widetilde \sU'_0\right)\subset \sX$, $\widetilde x''_0\bydef p\left(\widetilde x'_0\right)\subset \widetilde \sU''_0$, $  x_0\bydef p'\left(\widetilde x'_0\right)\subset \sU_0$. Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijecive maps
-	\bean 
-	G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\xrightarrow{\approx}p'^{-1}p'\left(\widetilde x'_0 \right),\\
-	g \mapsto g\widetilde x'_0;\\
-	G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)\xrightarrow{\approx}p''^{-1}p''\left(\widetilde x''_0 \right),\\
-	g \mapsto g\widetilde x''_0. 
-	\eean
-	On the other hand the map $p$ induces the surjective map $p'^{-1}p'\left(\widetilde x'_0 \right)\to p''^{-1}p''\left(\widetilde x''_0 \right)$ so one has the surjective map
-	\be\label{top_g_homo_eqn}
-	h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right).
-	\ee
-\end{empt}
-\begin{lemma}\label{top_homo_lem}
-	In the situation \ref{top_g_homo_empt} following condition holds:
-	\begin{itemize}
-		\item [(i)] 	The given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ is a homomorphism of groups.
-		\item[(ii)] If we consider the natural inclusion $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)\subset  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ then $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)$ is a normal subgroup of $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ (cf. Definition \ref{normal_subgroup_defn}).
-	\end{itemize}
-\end{lemma}
-\begin{proof} (i)
-	Let $g_1, g_2 \in G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\widetilde{\mathfrak A}'$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\widetilde{\mathfrak A}''$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
-	\bean
-	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde\sU'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
-	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde\sU''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
-	\eean
-	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that if  $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that both $h\left(g_1g_2 \right)$  and $h\left(g_1 \right)h\left(g_2 \right)$ correspond to the single path $\widetilde{\mathfrak p}''$,  so $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
-	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
-\end{proof}
-
-\begin{corollary}\label{com_norm_cor}
-	Let $\sX$, $\sX'$ and $\sX''$ be connected, locally connected, locally compact, Hausdorff spaces.
-	If $p': \sX' \to \sX$ and $p'': \sX'' \to \sX'$ are finite-fold  transitive  coverings such that $p'' \circ p'$ is transitive then
-	\begin{enumerate}
-		\item[(i)] There is an exact sequence of group homomorphisms
-		$$
-		\left\{e\right\} \to 	G\left(\left.\sX''~\right|~\sX' \right) \to 	G\left(\left.\sX''~\right|~\sX \right) \to 	G\left(\sX'~|~\sX \right) \to \left\{e\right\}.
-		$$
-		\item[(ii)]
-		For any $g \in 	G\left(\left.\sX''~\right|~\sX \right)$ one has
-		$
-		gC_0\left(\sX' \right) = C_0\left(\sX' \right). 
-		$
-	\end{enumerate}
-\end{corollary}
-\begin{proof}
-	(i) Directly follows from the Lemma \ref{top_homo_lem}.\\
-	(ii) We will implicitly use following inclusions  $C_0\left(\sX \right)\subset C_0\left(\sX' \right)\subset C_0\left(\sX'' \right)$.
-	Suppose  $a' \in C_0\left(\sX'' \right)$. One has $a' \in C_0\left(\sX'\right)$ if and only if $g''a' = a'$ for all $g'' \in G\left(\left.\sX''~\right|~\sX' \right)$. Since 	$G\left(\left.\sX''~\right|~\sX' \right)$ is a normal subgroup of $G\left(\left.\sX''~\right|~\sX \right)$ (cf. Definition \ref{normal_subgroup_defn}) for each $g \in  G\left(\left.\sX''~\right|~\sX \right)$ and $g''_1 \in  G\left(\left.\sX''~\right|~\sX' \right)$ there is $g''_2 \in  G\left(\left.\sX''~\right|~\sX' \right)$ such that $g''_1g = gg''_2$ (cf \eqref{normal_subgroup_eqn}), it turns out $g''_1ga' = gg''_2a'= ga'$, i.e. $g''_1 \left(ga' \right)= ga'$ so one has $ga' \in   C_0\left(\sX' \right)$.
-\end{proof}
-
-
-\begin{definition}\label{top_fin_cov_defn}
-	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
-	\begin{itemize}
-		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
-		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
-	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$.	We also suppose that any isomorphism class of this category contains a single object.
-\end{definition}
-\begin{remark}\label{top_fin_cov_tr_rem}
-	From the Corollary \ref{top_covp_cat_cor} it follows that $p_{12}$ is a transitive covering.
-\end{remark}
-
-\begin{remark}\label{top_fin_cov_rem}
-	We also use the alternative notation in which objects of $\mathfrak{FinCov}$-$\sX$ are covering spaces, i.e. a covering $\widetilde\sX \to \sX$ is replaced with the space $\widetilde\sX$.
-\end{remark}
-\begin{lemma}\label{top_compliant_covering_lem}
-	If $p_1:\widetilde\sX_1 \to \sX$, $p_2:\widetilde\sX_2 \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p': \widetilde\sX_1 \to  \widetilde\sX_2$, $p'': \widetilde\sX_1 \to  \widetilde\sX_2$ are morphisms of $\mathfrak{FinCov}$-$\sX$ then there is $g \in 	G\left(\left.\widetilde\sX_2~\right|\sX\right)$ such that
-	$$
-	p'' =  g \circ p'.
-	$$
-\end{lemma}
-
-\begin{proof}
-	The covering $p_2$ is transitive, so from $p' \circ p_2= p'' \circ p_2$ it turns out that
-	$$
-	\forall	\widetilde x_1\in \widetilde\sX_1\quad  \text{ there is the unique } g_{\widetilde x_1} \in G\left(\left.\widetilde\sX_2~\right|\sX\right)\quad p'\left( \widetilde x_1\right)= g_{\widetilde x_1} \circ p''\left(\widetilde x_1 \right).  
-	$$
-	There is the map
-	\bean
-	h: \widetilde\sX_1 \to G\left(\left.\widetilde\sX_2~\right|\sX\right);\\
-	\widetilde x_1\mapsto g_{\widetilde x_1} 
-	\eean
-	and since both $p'$ and $p''$ are local isomorphisms the map $h$ is continuous. However the space  $G\left(\left.\widetilde\sX_2~\right|\sX\right)$ of homeomorphisms is discrete and the space $\widetilde\sX_1$ is connected, hence the map $h$ is constant, i.e.
-	$$
-	\exists g \in G\left(\left.\widetilde\sX_2~\right|\sX\right) \quad \forall \widetilde x_1\in \widetilde\sX_1 \quad p''\left( \widetilde x_1\right) = g\circ p'\left( \widetilde x_1\right).
-	$$
-\end{proof} 
-\begin{empt}\label{top_cov_preord_empt}
-	One can define a pre-ordering (cf. Definition \ref{ord_defn}) on a family of  $\mathfrak{FinCov}$-$\sX$-objects (cf. Definition \ref{top_fin_cov_defn}) such that one has
-	$$
-	\left(\widetilde \sX' \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right)
-	$$
-	if and only if there is a finite-fold transitive covering $\widetilde \sX'\to \widetilde \sX''$ which can be included into a following commutative diagram
-			\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde \sX' & \widetilde \sX''  \\ 
-			& \sX\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {} (m-1-2)
-		(m-1-1) edge node [left]  {} (m-2-2)
-		(m-1-2) edge node [right] {} (m-2-2);
-	\end{tikzpicture}
-	\\ 	
-\end{empt}
-\begin{exercise}\label{top_cov_directed_exer}
-Let both $\widetilde \sX'\to \sX$ and $\widetilde \sX''\to \sX$ are finite-fold transitive coverings. Let $\widetilde \sX$ be a pullback (cf. Definition \ref{pull_back_defn}), or equivalently an inverse limit (cf.  Definition \ref{top_inv_lim_defn}) of the Diagram
-			\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-	 & \widetilde \sX''  \\ 
-	\widetilde \sX'		& \sX\\};
-	\path[-stealth]
-	(m-1-2) edge node [above] {} (m-2-2)
-	(m-2-1) edge node [left]  {} (m-2-2);
-\end{tikzpicture}
-\\ 	
-Prove following statements:
-\begin{itemize}
-	\item both natural maps $\widetilde \sX\to \widetilde \sX'$ and $\widetilde \sX\to \widetilde \sX''$ are finite-fold transitive coverings,
-	\item one has
-	\bean
-		\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX' \to \sX\right),\\
-			\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right),
-	\eean
-		\item the family of isomorphism classes of  $\mathfrak{FinCov}$-$\sX$-objects is a directed set (cf. Definition \ref{directed_set_defn}).
-\end{itemize}
-\end{exercise}
-
-\begin{definition}\label{top_fin_cov_p_defn}
-	Let $\left(\sX, x_0 \right)$ be a pointed space such that $\sX$ is a connected, locally connected,  locally compact,  Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\left( \sX, x_0\right) $ such that
-	\begin{itemize}
-		\item  $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$-objects are transitive finite-fold coverings\\ $\left( \widetilde\sX, \widetilde x_0\right)  \to \left( \sX, x_0\right)$ of $\sX$ preserving base-points,
-		\item a morphism form $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ to $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ is a preserving base-points surjective continuous map $p: \left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX_2, x^2_0\right)$ such that $p \circ p_1 = p_2$.
-	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
-\end{definition}
-\begin{remark}\label{top_skeleton_rem}
-		If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
-So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
-\end{remark}
-
-
-
-\begin{lemma}\label{top_comply_lem}
-	Let   $\sX$ be a connected, locally connected, locally compact, Hausdorff space. 
-	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_2\to \sX$ are transitive coverings.
-	If  $p^2_1 : \widetilde{\sX}_2\to  \widetilde{\sX}_1$ is surjective continuous map such  that $p_2 = p_1\circ p^2_1$  then following conditions hold:
-	\begin{enumerate}				\item[(a)] The map  $p^2_1$ is a transitive finite-fold covering.
-		
-		\item[(b)] There is a natural homeomorphism
-		\be\label{top_g_sur_eqn}
-		\widetilde{\sX}_1 \cong \widetilde{\sX}_2/G\left(\left.\widetilde \sX_1~\right|\sX \right).
-\ee		
-		\item[(c)] 
-		
-		
-		The natural homomorphism $h: G\left(\left.\widetilde \sX_2~\right|\sX \right)\to 	G\left(\left.\widetilde \sX_1~\right|\sX \right)$ 
-		is surjective. 
-		\item[(d)] If  $q:\widetilde{\sX}_2\to  \widetilde{\sX}_1$ is any surjective continuous map such that $p_2 = q \circ  p_1$ then there is the unique $g \in 	G_1$ such that 
-		\be\nonumber
-		q =  g\circ  p^2_1.
-		\ee
-	\end{enumerate}
-	
-\end{lemma}
-
-
-
-
-\begin{proof}
-	
-If $x_0 \in \sX$ is any point then from the Lemma  \ref{top_homo_lem} it follows that the natural surjective map $p_2^{-1}\left(x_0 \right) \to p_1^{-1}\left(x_0 \right)$ induces the natural surjective homomorphism 
-$ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ of groups. Let us prove (a)-(d).\\
-	(a)  Follows from the Corollary \ref{top_covp_cat_cor}.\\		
-	(b) Follows from the Lemma  \ref{top_homo_lem}.\\
-	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
-	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
-\end{proof}
-
-\begin{lemma}\label{top_compact_lem}
-	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}). Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there is a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
-\begin{itemize}
-	\item $p = \widetilde p \circ \overline p$,
-	\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
-\end{itemize}	
-\end{lemma}
-
-\begin{proof}
-	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ (cf. Definition \ref{top_weakly_semi1_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Suppose that $j, k =1,..., n$ be such that
-	\be\label{top_compact_eqn}
-	\begin{split}
-		j > k,\\
-	\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset,\\
-{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
-	\end{split}
-	\ee	
- Then there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is transitive there is a nontrivial $g_{jk} \in G\left(\left.\overline\sX\right| \sX  \right)$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $G\left(\left.\overline\sX\right| \sX  \right)$ is residually finite there is a homomorphism $h_{jk}:G\left(\left.\overline\sX\right| \sX  \right)\to G_{jk}$ such that:
-	\begin{itemize}
-		\item $G_{jk}$ is a finite group,
-		\item $h_{jk}\left(g_{jk} \right)$ is not trivial. 
-	\end{itemize} 
-	If $H_{jk}\bydef \ker h_{jk}$, and $\sX_{jk} \bydef \overline{\sX}/ H_{jk}$ then there are natural coverings $\overline p_{jk}: \overline \sX\to  \sX_{jk}$ and $\widetilde p_{jk}:  \sX_{jk}\to \sX$
-	such that
-	\be\label{top_compactp_eqn}
-	\begin{split}
-		G\left(\left. \sX_{jk}\right| \sX  \right)\cong G_{jk},\\
-		\widetilde p_{jk}\circ \overline p_{jk} = p,\\
-		\overline p_{jk}\left( \overline{x}_j\right)  = h_{jk}\left(g_{jk} \right)	\overline p_{jk}\left( \overline{x}_k\right) \quad \Rightarrow \quad 			\overline p_{jk}\left( \overline{x}_j\right) \neq \overline p_{jk}\left( \overline{x}_k\right)\\
-	\end{split}
-	\ee
-	If  $g_1, g_2  \in G\left(\left.\overline\sX\right| \sX  \right)$ then
-	\bean
-\forall g \in \left\{g_1,g_2\right\} \quad	\overline \sU_j \cap g \overline \sU_k \subset \overline \sU_j \cap p^{-1}\left({p}\left( \overline{   \mathcal U }_{k} \right) \right) \subset p^{-1} \left( {p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right)\right).
-\eean
-	Moreover if $\overline \sU_j \cap g_1 \overline \sU_k\neq \emptyset$ then $\overline \sU_j \cap g_1 \overline \sU_k$ is homeomorphically mapped onto $ {p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right)$.
- On the other hand if $\overline x_2 \in 	\overline \sU_j \cap g_2 \overline \sU_k$ then $p\left( \overline x_2\right) \in {p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right)$ so there is $\overline x_1 \in \overline \sU_j \cap g_1 \overline \sU_k$ such that $p\left(\overline x_1\right)=p\left(\overline x_2\right)$. From $\overline x_1, \overline x_2 \in \overline \sU_j$ it follows that $\overline x_1= \overline x_2$ so $\overline x_2\in g_1\overline\sU_k$.  So one has
- $$
- g_1\overline\sU_k\cap g_2\overline\sU_k\neq \emptyset \quad \Rightarrow \quad g_1 = g_2,
- $$
- hence $g_{jk} \in G\left(\left.\overline\sX\right| \sX  \right)$ is the unique element, such that   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Otherwise if 		$\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)\neq  \emptyset$ then there is $g \in  \ker h_{jk}$ such that $\overline{   \mathcal U }_j \cap g \overline{   \mathcal U }_k\neq \emptyset$. Taking into account $g_{jk}\notin H_{jk}  =\ker h_{jk}$ one has a contradiction. From the contradiction it follows that it is impossible that the condition 	$\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)\neq  \emptyset$ does not hold, i.e.
- \be\label{top_compactppp_eqn}
- 	\overline p_{jk}\left( \overline{\sU}_j\right) \cap \overline p_{jk}\left( \overline{\sU}_k\right)=  \emptyset.
- \ee 
- 	Both sets  $\overline p_{jk}\left( \overline{\sU}_j\right)$ and $\overline p_{jk}\left( \overline{\sU}_k\right)$ are homeomorphically mapped onto $p\left( \overline{\sU}_j\right)\subset \sX$ and $p\left( \overline{\sU}_k\right)\subset \sX$ respectively.
-$H_{jk}$ is a normal subgroup of $G\left(\left.\overline\sX\right| \sX  \right)$ and the index   $\left( G\left(\left.\overline\sX\right| \sX  \right) : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). There is a finite set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ such that any $\left(j, k \right)\in J$ satisfies to the conditions \eqref{top_compact_eqn}. If
-$$
-H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
-$$
-then index   $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there is are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
-\be\label{top_compactpp_eqn}
- \overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
-\ee
-Let $\overline y', \overline y'' \in \overline \sY$ be such that $\overline p\left(\overline y'\right)= \overline p\left(\overline y''\right)= \widetilde y$.
-If $\overline y' \in \overline \sU_j$ then from \eqref{top_compactpp_eqn} it follows that $\overline y''\in \overline \sU_j$, so  $\overline y'= \overline y''$, i.e. $\overline p$ yields a bijective map  
-$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
-\end{proof}
-
 
 
 \section{Vector bundles and spaces of sections}

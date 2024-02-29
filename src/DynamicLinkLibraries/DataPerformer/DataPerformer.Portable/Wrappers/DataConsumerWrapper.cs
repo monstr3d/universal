@@ -35,6 +35,52 @@ namespace DataPerformer.Portable.Wrappers
 
         #region PefrormIterator
 
+        /// <summary>
+        /// Performs iterator
+        /// </summary>
+        /// <param name="iterator">The iterator</param>
+        /// <param name="action">The action</param>
+        /// <param name="stop">The stop</param>
+        /// <param name="preparation">The preparation action</param>
+        /// <param name="errorHandler">The error handler</param>
+        public void PerformIterator(IIterator iterator,
+           Action action, Func<bool> stop = null, Action preparation = null,
+           IErrorHandler errorHandler = null)
+        {
+            Func<bool> st = (stop == null) ? () => false : stop;
+            try
+            {
+                iterator.Reset();
+                Consumer.ResetAll();
+                var rt = Consumer.CreateRuntime(null);
+                var coll = Consumer.GetDependentCollection();
+                coll.ForEach((IRunning s) => s.IsRunning = true);
+                preparation?.Invoke();
+                do
+                {
+                    if (st())
+                    {
+                        break;
+                    }
+                    action();
+                    rt.UpdateAll();
+                }
+                while (iterator.Next());
+            }
+            catch (Exception e)
+            {
+                if (errorHandler != null)
+                {
+                    errorHandler.ShowError(e, null);
+                }
+                else
+                {
+                    e.ShowError(null);
+                }
+            }
+        }
+
+
         /*  IEnumerable<object> PerformIterator(IEnumerable<double> times,
               ITimeMeasurementProvider provider,
                 IDifferentialEquationProcessor processor, string reason,
@@ -518,52 +564,7 @@ namespace DataPerformer.Portable.Wrappers
         #endregion
 
         /// <summary>
-        /// Performs iterator
-        /// </summary>
-        /// <param name="iterator">The iterator</param>
-        /// <param name="action">The action</param>
-        /// <param name="stop">The stop</param>
-        /// <param name="preparation">The preparation action</param>
-        /// <param name="errorHandler">The error handler</param>
-        public void PerformIterator(IIterator iterator,
-           Action action, Func<bool> stop = null, Action preparation = null,
-           IErrorHandler errorHandler = null)
-        {
-            Func<bool> st = (stop == null)? ()=> false : stop;
-            try
-            {
-                iterator.Reset();
-                Consumer.ResetAll();
-                var rt = Consumer.CreateRuntime(null);
-                var coll = Consumer.GetDependentCollection();
-                coll.ForEach((IRunning s) => s.IsRunning = true);
-                preparation?.Invoke();
-                do
-                {
-                    if (st())
-                    {
-                        break;
-                    }
-                    action();
-                    rt.UpdateAll();
-                }
-                while (iterator.Next());
-            }
-            catch (Exception e)
-            {
-                if (errorHandler != null)
-                {
-                    errorHandler.ShowError(e, null);
-                }
-                else
-                {
-                    e.ShowError(null);
-                }
-            }
-        }
- 
-        /// <summary>
-        /// Finds measurement
+        /// Finds a measurement
         /// </summary>
         /// <param name="measurement">Measurement name</param>
         /// <param name="allowNull">The allow null sign</param>

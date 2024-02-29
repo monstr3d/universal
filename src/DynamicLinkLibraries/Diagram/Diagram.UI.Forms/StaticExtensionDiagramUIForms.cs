@@ -833,9 +833,9 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="actionType">Action type</param>
         /// <param name="buttons">Buttons</param>
-        public static void EnableDisableButtons(this Diagram.UI.Interfaces.ActionType actionType, ToolStripButton[][] buttons)
+        public static void EnableDisableButtons(this ActionType actionType, ToolStripButton[][] buttons)
         {
-            if (actionType == Diagram.UI.Interfaces.ActionType.Start |
+            if (actionType == ActionType.Start |
                 actionType == ActionType.Resume)
             {
 
@@ -848,7 +848,7 @@ namespace Diagram.UI
                 return;
             }
 
-            if (actionType == Diagram.UI.Interfaces.ActionType.Stop)
+            if (actionType == ActionType.Stop)
             {
                 buttons[0].SetEnabled(true);
                 buttons[1].SetEnabled(false);
@@ -868,7 +868,6 @@ namespace Diagram.UI
                 }
                 return;
             }
-
         }
 
         /// <summary>

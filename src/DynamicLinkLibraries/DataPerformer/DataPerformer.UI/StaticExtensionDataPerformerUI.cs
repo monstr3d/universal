@@ -173,6 +173,37 @@ namespace DataPerformer.UI
         }
 
         /// <summary>
+        /// Conversion of dictionary
+        /// </summary>
+        /// <param name="dictionary">Prototype</param>
+        /// <returns>Conversion result</returns>
+        public static Dictionary<string, Color[]> Convert(this Dictionary<string, Color> dictionary)
+        {
+            var d = new Dictionary<string, Color[]>();
+            foreach (var key in dictionary.Keys)
+            {
+                d[key] = [dictionary[key]];
+            }
+            return d;
+        }
+
+        /// <summary>
+        /// Conversion of dictionary
+        /// </summary>
+        /// <param name="dictionary">Prototype</param>
+        /// <returns>Conversion result</returns>
+        public static Dictionary<string, Color> Convert(this Dictionary<string, Color[]> dictionary)
+        {
+            var d = new Dictionary<string, Color>();
+            foreach (var key in dictionary.Keys)
+            {
+                d[key] = dictionary[key][0];
+            }
+            return d;
+        }
+
+ 
+        /// <summary>
         /// Sets dictionary
         /// </summary>
         /// <param name="dictionary">The dictionary</param>
