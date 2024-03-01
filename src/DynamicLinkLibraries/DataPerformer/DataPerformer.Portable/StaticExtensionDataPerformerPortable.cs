@@ -27,7 +27,6 @@ using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
 using System.Xml;
-using Diagram.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -183,25 +182,35 @@ namespace DataPerformer.Portable
               errorHandler);
         }
 
-
-            /// <summary>
-            /// Performs action with fixed step
-            /// </summary>
-            /// <param name="consumer">Data consumer</param>
-            /// <param name="start">Start</param>
-            /// <param name="step">Step</param>
-            /// <param name="count">Count of steps</param>
-            /// <param name="reason">Reason</param>
-            /// <param name="priority">Priority</param>
-            /// <param name="action">Additional action</param>
-       /*     public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count, string reason,
-           int priority, Action action, Func<bool> stop = null,  IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+        /// <summary>
+        /// Get dicionary of measurements
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <returns>The Dictionaty</returns>
+        public static Dictionary<string, IMeasurement> GetMeasurementsInverseDictionary(this IDataConsumer consumer)
         {
-            consumer.PerformFixed(start, step, count,
-                   StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                   DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
-                reason, priority, action, stop, asynchronousCalculation, errorHandler);
-        }*/
+            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+            return wrapper.Measurements;
+        }
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /*     public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count, string reason,
+            int priority, Action action, Func<bool> stop = null,  IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+         {
+             consumer.PerformFixed(start, step, count,
+                    StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                    DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
+                 reason, priority, action, stop, asynchronousCalculation, errorHandler);
+         }*/
 
 
         /// <summary>
@@ -219,20 +228,20 @@ namespace DataPerformer.Portable
         /// <param name="stop">Stop function</param>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
- /*       static public void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
-            ITimeMeasurementProvider provider,
-              IDifferentialEquationProcessor processor, string reason,
-             int priority, Action action, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
-             IErrorHandler errorHandler = null)
-        {
+        /*       static public void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+                   ITimeMeasurementProvider provider,
+                     IDifferentialEquationProcessor processor, string reason,
+                    int priority, Action action, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
+                    IErrorHandler errorHandler = null)
+               {
 
-            var wrapper = new Wrappers.DataConsumerWrapper(consumer);
-            wrapper.PerformFixed(start, step, count, provider, processor, reason, priority,
-                action, stop, asynchronousCalculation, errorHandler);
+                   var wrapper = new Wrappers.DataConsumerWrapper(consumer);
+                   wrapper.PerformFixed(start, step, count, provider, processor, reason, priority,
+                       action, stop, asynchronousCalculation, errorHandler);
 
-        }*/
- 
- 
+               }*/
+
+
 
         /// <summary>
         /// Performs action with fixed step

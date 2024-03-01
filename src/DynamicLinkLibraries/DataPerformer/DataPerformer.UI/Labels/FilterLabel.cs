@@ -1,16 +1,12 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Windows.Forms;
+
+using CategoryTheory;
 using DataPerformer.Base.Filters;
-using DataPerformer.Portable.Basic;
 using DataPerformer.UI.UserControls;
 using Diagram.UI.Labels;
-using FormulaEditor.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace DataPerformer.UI.Labels
 {

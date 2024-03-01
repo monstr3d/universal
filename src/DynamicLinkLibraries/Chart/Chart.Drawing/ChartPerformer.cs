@@ -506,6 +506,11 @@ namespace Chart.Drawing
         }
 
 
+        /// <summary>
+        /// Adds a series
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="painter"></param>
         public void AddSeries(ISeries s, ISeriesPainter painter)
         {
             if (parent != null)

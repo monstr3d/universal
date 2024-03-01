@@ -26,6 +26,8 @@ using Chart;
 using Chart.Drawing.Series;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
+using DataPerformer.UI.UserControls;
+using Chart.Objects;
 
 
 namespace DataPerformer.UI
@@ -136,6 +138,36 @@ namespace DataPerformer.UI
                 initText -= value;
             }
         }
+
+        /// <summary>
+        /// Setting series to a chart
+        /// </summary>
+        /// <param name="chart">The chart</param>
+        /// <param name="colors">The colors</param>
+        /// <param name="data">Chart data</param>
+        /// <param name="measurements">Measurements</param>
+        static public void Set(this Chart.UserControls.UserControlFilledChart chart, 
+            IColorDictionary colors, Dictionary<string, object> data, Dictionary<string, IMeasurement> measurements)
+        {
+            var d = colors.ColorDictionary;
+            foreach (var key in d.Keys)
+            {
+                var s = key + ".";
+                var v = d[key];
+                foreach (var item in v.Keys)
+                {
+                    var t = s + item;
+                    var p = v[item];
+                    var ps = data[t] as SeriesTypes.ParametrizedSeries;
+                    ParametrizedSeries series = new ParametrizedSeries(null, null);
+                    series.Add(ps);
+                    var m = measurements[t];
+                    chart.AddSeries(series, p, m);
+                }
+            }
+            chart.RefreshAll();
+        }
+ 
 
         /// <summary>
         /// Initiate writing text file

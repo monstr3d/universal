@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Xml;
 
 
 using BaseTypes;
-using BaseTypes.Interfaces;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -18,8 +16,6 @@ using DataPerformer.SeriesTypes;
 using DataPerformer.Portable;
 
 using DataPerformer.Portable.DifferentialEquationProcessors;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Collections.Specialized.BitVector32;
 
 namespace DataPerformer
 {

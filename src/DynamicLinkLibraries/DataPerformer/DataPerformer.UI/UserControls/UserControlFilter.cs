@@ -1,19 +1,9 @@
-﻿using DataPerformer.Base.Filters;
-using DataPerformer.Interfaces;
+﻿using System;
+using System.Windows.Forms;
+
 using DataPerformer.Portable;
-using DataPerformer.Portable.Filters;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration.Internal;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DataPerformer.UI.UserControls
 {

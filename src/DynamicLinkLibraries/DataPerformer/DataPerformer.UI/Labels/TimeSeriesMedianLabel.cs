@@ -1,15 +1,14 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Windows.Forms;
+
+using CategoryTheory;
+
 using DataPerformer.Event.Portable.Objects;
 using DataPerformer.UI.UserControls;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DataPerformer.UI.Labels
 {

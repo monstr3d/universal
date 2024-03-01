@@ -158,10 +158,7 @@ namespace DataPerformer.Portable.Wrappers
 
         #endregion
 
-
         #region PerformFixed
-
-
 
 
         /// <summary>
@@ -563,6 +560,9 @@ namespace DataPerformer.Portable.Wrappers
 
         #endregion
 
+
+        #region Public members
+
         /// <summary>
         /// Finds a measurement
         /// </summary>
@@ -630,6 +630,29 @@ namespace DataPerformer.Portable.Wrappers
             return null;
         }
 
+        /// <summary>
+        /// Measurements by name
+        /// </summary>
+        public Dictionary<string, IMeasurement> Measurements
+        {
+            get
+            {
+                var d = new Dictionary<string, IMeasurement>();
+                for (int i = 0; i < Consumer.Count; i++)
+                {
+                    var mm = Consumer[i];
+                    var mn = Consumer.GetMeasurementsName(mm) + ".";
+                    for (int j = 0; j < mm.Count; j++)
+                    {
+                        var m = mm[j];
+                        var s = mn +  m.Name;
+                        d[s] = m;
+                    }
+                }
+                return d;
+            }
+        }
+
 
 
         /// <summary>
@@ -641,6 +664,8 @@ namespace DataPerformer.Portable.Wrappers
         {
             getIterators(Consumer, iterators);
         }
+
+        #endregion 
 
         static void getIterators(IDataConsumer consumer, List<IIterator> list)
         {
@@ -662,7 +687,6 @@ namespace DataPerformer.Portable.Wrappers
                 }
             }
         }
-
 
     }
 }

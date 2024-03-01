@@ -1,20 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
-using CategoryTheory;
-
-using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 
-using BaseTypes.Attributes;
-
-using DataPerformer;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls;
 

@@ -109,11 +109,18 @@ namespace Chart.UserControls
             userControlChart.SetObject(o);
         }
 
- 
+        /// <summary>
+        /// Clears itself
+        /// </summary>
+        public void Clear()
+        {
+            userControlChart.Performer.RemoveAll();
+        }
+
         /// <summary>
         /// Refresh
         /// </summary>
-        protected void RefreshAll()
+        public void RefreshAll()
         {
             try
             {

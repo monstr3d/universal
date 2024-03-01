@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMultiGraph));
-            Chart.Drawing.Coordinators.SimpleCoordinator simpleCoordinator2 = new Chart.Drawing.Coordinators.SimpleCoordinator();
+            Chart.Drawing.Coordinators.SimpleCoordinator simpleCoordinator1 = new Chart.Drawing.Coordinators.SimpleCoordinator();
             showRuntimeIndicatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(components);
             panelRight = new System.Windows.Forms.Panel();
@@ -40,10 +40,8 @@
             toolStripButtonClearAll = new System.Windows.Forms.ToolStripButton();
             toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
             toolStripComboBoxPoints = new System.Windows.Forms.ToolStripComboBox();
-            toolStripButtonStop = new System.Windows.Forms.ToolStripButton();
             toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
             toolStripButtonAnimation = new System.Windows.Forms.ToolStripButton();
-            toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
             toolStripMain = new System.Windows.Forms.ToolStrip();
             toolStripLabelNumber = new System.Windows.Forms.ToolStripLabel();
             contextMenuStripTextTab = new System.Windows.Forms.ContextMenuStrip(components);
@@ -53,14 +51,16 @@
             splitContainer = new System.Windows.Forms.SplitContainer();
             userControlChartDouble = new Chart.UserControls.UserControlChartDouble();
             userControlFilledChart = new Chart.UserControls.UserControlFilledChart();
+            userControlDoubleMeasurements = new UserControlDoubleMeasurements();
+            userControlMeasurements = new UserControlMeasurementCollection();
             panel2 = new System.Windows.Forms.Panel();
             panel3 = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
-            toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
             toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonStop = new System.Windows.Forms.ToolStripButton();
             toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -81,13 +81,11 @@
             labelY = new System.Windows.Forms.Label();
             labelX = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            textBoxStepCount = new System.Windows.Forms.TextBox();
+            numericUpDownStepCount = new System.Windows.Forms.NumericUpDown();
             label3 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             comboBoxArg = new System.Windows.Forms.ComboBox();
-            userControlMeasurements = new UserControlMeasurements();
-            userControlDoubleMeasurements = new UserControlDoubleMeasurements();
             contextMenuStripMain.SuspendLayout();
             toolStripMain.SuspendLayout();
             contextMenuStripTextTab.SuspendLayout();
@@ -101,6 +99,7 @@
             toolStrip1.SuspendLayout();
             panelBottom.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownStepCount).BeginInit();
             SuspendLayout();
             // 
             // showRuntimeIndicatorsToolStripMenuItem
@@ -174,16 +173,6 @@
             toolStripComboBoxPoints.Text = "<Points>";
             toolStripComboBoxPoints.Visible = false;
             // 
-            // toolStripButtonStop
-            // 
-            toolStripButtonStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            toolStripButtonStop.Enabled = false;
-            toolStripButtonStop.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonStop.Image");
-            toolStripButtonStop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripButtonStop.Name = "toolStripButtonStop";
-            toolStripButtonStop.Size = new System.Drawing.Size(24, 24);
-            toolStripButtonStop.Text = "Stop";
-            // 
             // toolStripButtonPause
             // 
             toolStripButtonPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -204,19 +193,10 @@
             toolStripButtonAnimation.Text = "Animation";
             toolStripButtonAnimation.Visible = false;
             // 
-            // toolStripButtonStart
-            // 
-            toolStripButtonStart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            toolStripButtonStart.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonStart.Image");
-            toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripButtonStart.Name = "toolStripButtonStart";
-            toolStripButtonStart.Size = new System.Drawing.Size(24, 24);
-            toolStripButtonStart.Text = "Start";
-            // 
             // toolStripMain
             // 
             toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonStart, toolStripButtonAnimation, toolStripButtonPause, toolStripButtonStop, toolStripComboBoxPoints, toolStripButtonAdd, toolStripButtonClearAll, toolStripButtonType, toolStripButtonSeries, toolStripLabelNumber });
+            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonAnimation, toolStripButtonPause, toolStripComboBoxPoints, toolStripButtonAdd, toolStripButtonClearAll, toolStripButtonType, toolStripButtonSeries, toolStripLabelNumber });
             toolStripMain.Location = new System.Drawing.Point(0, 0);
             toolStripMain.Name = "toolStripMain";
             toolStripMain.Size = new System.Drawing.Size(820, 27);
@@ -298,7 +278,7 @@
             // 
             // userControlFilledChart
             // 
-            userControlFilledChart.Coordinator = simpleCoordinator2;
+            userControlFilledChart.Coordinator = simpleCoordinator1;
             userControlFilledChart.Dock = System.Windows.Forms.DockStyle.Fill;
             userControlFilledChart.IsBlocked = false;
             userControlFilledChart.Location = new System.Drawing.Point(0, 0);
@@ -306,6 +286,25 @@
             userControlFilledChart.Size = new System.Drawing.Size(753, 421);
             userControlFilledChart.TabIndex = 0;
             userControlFilledChart.Visible = false;
+            // 
+            // userControlDoubleMeasurements
+            // 
+            userControlDoubleMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlDoubleMeasurements.Location = new System.Drawing.Point(0, 0);
+            userControlDoubleMeasurements.Name = "userControlDoubleMeasurements";
+            userControlDoubleMeasurements.Size = new System.Drawing.Size(124, 421);
+            userControlDoubleMeasurements.TabIndex = 1;
+            userControlDoubleMeasurements.Visible = false;
+            // 
+            // userControlMeasurements
+            // 
+            userControlMeasurements.DataConsumer = null;
+            userControlMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlMeasurements.Location = new System.Drawing.Point(0, 0);
+            userControlMeasurements.Name = "userControlMeasurements";
+            userControlMeasurements.Size = new System.Drawing.Size(124, 421);
+            userControlMeasurements.TabIndex = 0;
+            userControlMeasurements.Visible = false;
             // 
             // panel2
             // 
@@ -338,25 +337,27 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton4, toolStripComboBox1, toolStripButton5, toolStripButton6, toolStripComboBox2, toolStripComboBox3, toolStripLabel1, toolStripComboBoxNumber });
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonStart, toolStripButton2, toolStripButton3, toolStripButtonStop, toolStripComboBox1, toolStripButton5, toolStripButton6, toolStripComboBox2, toolStripComboBox3, toolStripLabel1, toolStripComboBoxNumber });
             toolStrip1.Location = new System.Drawing.Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new System.Drawing.Size(881, 27);
             toolStrip1.TabIndex = 31;
             toolStrip1.Text = "Main";
             // 
-            // toolStripButton1
+            // toolStripButtonStart
             // 
-            toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (System.Drawing.Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            toolStripButton1.Text = "Start";
+            toolStripButtonStart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonStart.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonStart.Image");
+            toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonStart.Name = "toolStripButtonStart";
+            toolStripButtonStart.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonStart.Text = "Start";
+            toolStripButtonStart.Click += toolStripButtonStart_Click;
             // 
             // toolStripButton2
             // 
             toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Enabled = false;
             toolStripButton2.Image = (System.Drawing.Image)resources.GetObject("toolStripButton2.Image");
             toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton2.Name = "toolStripButton2";
@@ -373,16 +374,18 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new System.Drawing.Size(24, 24);
             toolStripButton3.Text = "Pause";
+            toolStripButton3.Visible = false;
             // 
-            // toolStripButton4
+            // toolStripButtonStop
             // 
-            toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            toolStripButton4.Enabled = false;
-            toolStripButton4.Image = (System.Drawing.Image)resources.GetObject("toolStripButton4.Image");
-            toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new System.Drawing.Size(24, 24);
-            toolStripButton4.Text = "Stop";
+            toolStripButtonStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButtonStop.Enabled = false;
+            toolStripButtonStop.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonStop.Image");
+            toolStripButtonStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonStop.Name = "toolStripButtonStop";
+            toolStripButtonStop.Size = new System.Drawing.Size(24, 24);
+            toolStripButtonStop.Text = "Stop";
+            toolStripButtonStop.Click += toolStripButtonStop_Click;
             // 
             // toolStripComboBox1
             // 
@@ -455,7 +458,7 @@
             panel4.Controls.Add(labelY);
             panel4.Controls.Add(labelX);
             panel4.Controls.Add(label4);
-            panel4.Controls.Add(textBoxStepCount);
+            panel4.Controls.Add(numericUpDownStepCount);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(label2);
@@ -575,14 +578,15 @@
             label4.TabIndex = 27;
             label4.Text = "Start";
             // 
-            // textBoxStepCount
+            // numericUpDownStepCount
             // 
-            textBoxStepCount.Location = new System.Drawing.Point(463, 41);
-            textBoxStepCount.Margin = new System.Windows.Forms.Padding(4);
-            textBoxStepCount.Name = "textBoxStepCount";
-            textBoxStepCount.Size = new System.Drawing.Size(106, 23);
-            textBoxStepCount.TabIndex = 23;
-            textBoxStepCount.Text = "2";
+            numericUpDownStepCount.Location = new System.Drawing.Point(463, 41);
+            numericUpDownStepCount.Margin = new System.Windows.Forms.Padding(4);
+            numericUpDownStepCount.Maximum = new decimal(new int[] { 1316134912, 2328, 0, 0 });
+            numericUpDownStepCount.Name = "numericUpDownStepCount";
+            numericUpDownStepCount.Size = new System.Drawing.Size(106, 23);
+            numericUpDownStepCount.TabIndex = 23;
+            numericUpDownStepCount.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // label3
             // 
@@ -621,26 +625,6 @@
             comboBoxArg.TabIndex = 19;
             comboBoxArg.Text = "Time";
             // 
-            // userControlMeasurements
-            // 
-            userControlMeasurements.DataConsumer = null;
-            userControlMeasurements.Dictionary = null;
-            userControlMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlMeasurements.Location = new System.Drawing.Point(0, 0);
-            userControlMeasurements.Name = "userControlMeasurements";
-            userControlMeasurements.Size = new System.Drawing.Size(124, 421);
-            userControlMeasurements.TabIndex = 0;
-            userControlMeasurements.Visible = false;
-            // 
-            // userControlDoubleMeasurements
-            // 
-            userControlDoubleMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlDoubleMeasurements.Location = new System.Drawing.Point(0, 0);
-            userControlDoubleMeasurements.Name = "userControlDoubleMeasurements";
-            userControlDoubleMeasurements.Size = new System.Drawing.Size(124, 421);
-            userControlDoubleMeasurements.TabIndex = 1;
-            userControlDoubleMeasurements.Visible = false;
-            // 
             // UserControlMultiGraph
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -665,6 +649,7 @@
             panelBottom.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownStepCount).EndInit();
             ResumeLayout(false);
         }
 
@@ -678,10 +663,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearAll;
         private System.Windows.Forms.ToolStripButton toolStripButtonAdd;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBoxPoints;
-        private System.Windows.Forms.ToolStripButton toolStripButtonStop;
         private System.Windows.Forms.ToolStripButton toolStripButtonPause;
         private System.Windows.Forms.ToolStripButton toolStripButtonAnimation;
-        private System.Windows.Forms.ToolStripButton toolStripButtonStart;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripTextTab;
         private System.Windows.Forms.ToolStripMenuItem saveXmlToolStripMenuItem;
@@ -704,16 +687,16 @@
         private System.Windows.Forms.Label labelY;
         private System.Windows.Forms.Label labelX;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxStepCount;
+        private System.Windows.Forms.NumericUpDown numericUpDownStepCount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxArg;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonStart;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButtonStop;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
@@ -725,6 +708,6 @@
         private Chart.UserControls.UserControlFilledChart userControlFilledChart;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private UserControlDoubleMeasurements userControlDoubleMeasurements;
-        private UserControlMeasurements userControlMeasurements;
+        private UserControlMeasurementCollection userControlMeasurements;
     }
 }

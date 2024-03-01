@@ -1,14 +1,13 @@
-﻿using DataPerformer.Interfaces;
-using Event.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 using DataPerformer.Portable;
-using System.Windows.Forms;
+using DataPerformer.Interfaces;
+using Event.Interfaces;
+
 
 namespace DataPerformer.UI.Objects
 {
@@ -30,6 +29,7 @@ namespace DataPerformer.UI.Objects
             IDataConsumer c = consumer;
             indicators.RemoveMeasurementObjects();
             Dictionary<IMeasurement, string> d = consumer.GetMeasurementsDictionary();
+
             //!!! ALL  INDICATORS c.GetMeasurementObjects(indicators, f);
 
             foreach (IMeasurement m in d.Keys)

@@ -50,7 +50,7 @@ namespace DataPerformer.UI.Labels
         private Label lt = new Label();
 
 
-        private Forms.FormGraph form = null;
+        private Form form = null;
 
         private double timeScaleAnimation = 1;
 
@@ -163,7 +163,7 @@ namespace DataPerformer.UI.Labels
             info.AddValue("TimeUnitAnimation", timeUnitAnimation, typeof(TimeType));
             info.AddValue("IndicatorSizes", sizes, typeof(Dictionary<string, Size>));
             info.AddValue("CadrNumber", cadrNumber);
-            info.AddValue("MultiSeries", MultiSeries, typeof(List<Dictionary<string, Color[]>>));
+            info.AddValue("MultiSeries", MultiSeries, typeof(List<Dictionary<string, Dictionary<string, Color>>>));
         }
 
         #endregion
@@ -276,7 +276,14 @@ namespace DataPerformer.UI.Labels
         /// </summary>
         public override void CreateForm()
         {
-            form = new Forms.FormGraph(this);
+            if (false)
+            {
+                form = new Forms.FormGraph(this);
+            }
+            else
+            { 
+                form = new Forms.FormMultiGraph(this);
+            }
         }
 
         /// <summary>
@@ -305,11 +312,11 @@ namespace DataPerformer.UI.Labels
 
         #region Members
 
-        internal List<Dictionary<string, Color[]>> MultiSeries
+        internal List<Dictionary<string, Dictionary<string, Color>>> MultiSeries
         {
             get;
             private set;
-        } = new List<Dictionary<string, Color[]>>()
+        } = new()
         {
             new ()// Dictionary<string, Color[]>()
         };
@@ -483,8 +490,8 @@ namespace DataPerformer.UI.Labels
                 cadrNumber = info.GetInt32("CadrNumber");
                 try
                 {
-                    MultiSeries = info.GetValue("MultiSeries", typeof(List<Dictionary<string, Color[]>>)) 
-                        as List<Dictionary<string, Color[]>>;
+                    MultiSeries = info.GetValue("MultiSeries", typeof(List<Dictionary<string, Dictionary<string, Color>>>)) 
+                        as List<Dictionary<string, Dictionary<string, Color>>>;
                 }
                 catch
                 {

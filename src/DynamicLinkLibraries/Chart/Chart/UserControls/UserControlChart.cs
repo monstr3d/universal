@@ -154,7 +154,7 @@ namespace Chart.UserControls
         /// <param name="additional">Additional object</param>
         public void AddSeries(ISeries s, Color color, object additional = null)
         {
-            var t = new Tuple<ISeries, Color[], ChartPerformer, object>(s, [color], performer, additional);
+            var t = new Tuple<ISeries, Color[], Drawing.ChartPerformer, object>(s, [color], performer, additional);
             var p = t.ToSeriesPainter();
             if (p == null)
             {

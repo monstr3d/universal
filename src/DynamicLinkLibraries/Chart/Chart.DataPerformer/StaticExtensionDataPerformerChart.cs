@@ -69,6 +69,25 @@ namespace Chart.DataPerformer
             return d;
         }
 
+        public static Dictionary<string, object> PerformFixed(this IDataConsumer consumer,
+         double start, double step, int count,  string argument, string[] values,
+     out MeasurementSeries[] series,
+         Func<bool> stop)
+        {
+            
+            MeasurementSeries[] ss = null;
+
+            var dic = consumer.CreateMeasurements(argument, values, out ss);
+        //    consumer.PerformFixed()
+            series = ss;
+            return dic;
+        }
+      /* PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+                ITimeMeasurementProvider provider,
+                  IDifferentialEquationProcessor processor, string reason,
+                 int priority, Action action, string condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
+                 IErrorHandler errorHandler = null)*/
+
         /// <summary>
         /// Performs iterator
         /// </summary>
