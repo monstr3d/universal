@@ -298,6 +298,7 @@
             // 
             // userControlMeasurements
             // 
+            userControlMeasurements.AutoScroll = true;
             userControlMeasurements.DataConsumer = null;
             userControlMeasurements.Dock = System.Windows.Forms.DockStyle.Fill;
             userControlMeasurements.Location = new System.Drawing.Point(0, 0);

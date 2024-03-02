@@ -914,7 +914,7 @@ Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \
 \varphi : \Q^n \to e^{\frac{i\Q}{2\pi}},\\
 x \mapsto e^{\frac{i\psi\left(x \right) }{2\pi}}.
 \eean
- The restriction $\varphi|_{\Z^n}: \Z^n \to e^{\frac{i\Q}{2\pi}}$ is a character on $\Z^n$. From $\phi\left(\Ga \right) \subset  \Z$ it follows that $\varphi|_{\Z^n}\left( \Ga\right) = \{1\}$, i.e. $\varphi|_{\Z^n}$ is trivial on $\Ga$. So $\varphi|_{\Z^n}$ yields a homomorphism $\chi_\phi: \Z^n / \Ga \to e^{\frac{i\Q}{2\pi}}$. Indeed $\chi_\phi$ is a character.  If $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$ then $\phi\left( \Z^n \right) \subset \Z$ and $\varphi|_{\Z^n}$ yields  a trivial character. Otherwise if the character $\varphi|_{\Z^n}$ is trivial then $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$. So any element of   $\Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$ yield a character $\Z^n / \Ga\to e^{\frac{i\Q}{2\pi}}$.
+ The restriction $\varphi|_{\Z^n}: \Z^n \to e^{\frac{i\Q}{2\pi}}$ is a character on $\Z^n$. From $\phi\left(\Ga \right) \subset  \Z$ it follows that $\varphi|_{\Z^n}\left( \Ga\right) = \{1\}$, i.e. $\varphi|_{\Z^n}$ is trivial on $\Ga$. So $\varphi|_{\Z^n}$ yields a homomorphism $\chi_\phi: \Z^n / \Ga \to e^{\frac{i\Q}{2\pi}}$, i.e. $\chi_\phi$ is a character.  If $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$ then $\phi\left( \Z^n \right) \subset \Z$ and $\varphi|_{\Z^n}$ yields  a trivial character. Otherwise if the character $\varphi|_{\Z^n}$ is trivial then $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$. So any element of   $\Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$ yield a character $\Z^n / \Ga\to e^{\frac{i\Q}{2\pi}}$.
  
 Conversely a character $\chi : \Z^n/\Ga \to e^{\frac{i\Q}{2\pi}}$ naturally yields a character $\th : \Z^n \to e^{\frac{i\Q}{2\pi}}$. Let $\left(e_1, ..., e_n\right)\subset \Z^n$ be generators of $\Z^n$ and for any $j = 1, ..., n$ we select $\xi_j \in \Q$ such that $\chi\left(e_j\right)=e^{\frac{i\xi_j}{2\pi}}$. Define 
 \bean 
@@ -947,6 +947,7 @@ The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\
 		\ee
 		\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}). 
 	\end{itemize}
+	The existence ot a net $\left\{u_\la \right\}$ follows from the Lemma \ref{hered_ideal_lem} and the Theorem \ref{left_ideal_thm}. 
 	One has
 	\be\label{hered_uau_eqn}
 	B = \left\{ a \in A \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}
@@ -1005,6 +1006,7 @@ The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\
 	\ee
 	is an open subset of $\sX$ because it is a union of open sets.
 \end{empt}
+!!! CONTINUE !!!
 \begin{lemma}\label{top_hered_lem}
 	In the situation \ref{top_hered_empt} one has $B = C_0\left(\sU \right)$.
 \end{lemma}
@@ -2729,38 +2731,11 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 %Now similarly to the Corollary \ref{cov_mult_fin_cor} one can prove that a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
 %\end{proof}
 
-\begin{definition}\label{fin_cat_defn}  !!! DELETE !!!
-	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{category_defn}) such that following conditions hold:
-	\begin{itemize}
-		\item [(i)]  $\mathfrak{FinCov}$-$A$-objects  are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
-		\item[(ii)] A $\mathfrak{FinCov}$-$A$-morphism from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				\widetilde A'  & & A'' \\ 
-				& A  & \\};
-			\path[-stealth]
-			(m-1-3) edge node [above] {$\pi$} (m-1-1)
-			(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
-			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
-		\end{tikzpicture}
-		\\ 	
-		is commutative. We also require that  there is a $\left(A, \widetilde{A}', G', \pi' \right)$-proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
-		$$
-		\left(\widetilde A'', \widetilde A', G\left(\left.  \widetilde A'\right| \widetilde A''\right), \pi\right)\cong \left(\widetilde A'^H, \widetilde A', H, \Id_{\widetilde A'}|_{\widetilde A''}\right)
-		$$
-		 (cf. Lemma \ref{fin_composition_covering_lem}).
-		\item[(iii)] Compositions of morphisms come from compositions of *-homomorphisms.
-	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
-	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$. Similarly we define the subcategories of \textit{reduced}  (cf. Definition \ref{fin_red_defn}) and \textit{free} (cf. Definition \ref{fin_free_defn}) finite-fold noncommutative coverings. We denote them by 
-	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. 
-\end{definition}
+
 
 \begin{definition}\label{proper_composition_defn}
-Consider the situation of the Definition \ref{fin_cat_defn}  !!! DELETE !!!. The  $C^*$-algebra $A$ is \textit{proper with respect to covering compositions} if for any noncommutative finite-fold coverings  $\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)$ and  
-	$\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)$ and there are a  noncommutative finite-fold covering $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$ and\\ a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$-proper normal subgroup $H\subset G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there are following equivalences:
+The  $C^*$-algebra $A$ is \textit{proper with respect to covering compositions} if for any noncommutative finite-fold coverings  $\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)$ and  
+	$\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)$ and there are a  noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$ and a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$-proper normal subgroup $H\subset G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there are following equivalences:
 	\bean
 	\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)\cong 	\left(A, \widetilde{A}^H, G\left(\left.\widetilde{A}~\right|{A}  \right)/H, \pi \right),\\
 	\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)\cong 	\left(\widetilde A^H, \widetilde{A},H,\left. \Id_{\widetilde A}\right|_{\widetilde A^H} \right)
@@ -3749,7 +3724,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		\ee
  		is a directed set.
  	\end{itemize}
- 	We say that $\mathfrak{S}$  \textit{allows base-points} if there is its pointed subcategory.
+ 	We say that $\mathfrak{S}$  \textit{allows base-points} if there is a pointed subcategory of  $\mathfrak{S}$.
  \end{definition}
  \begin{notation}\label{pointed_not}
   		We suppose that a family of   $\mathfrak{S}^{\text{pt}}$-objects is indexed by directed set $\La$
@@ -3765,9 +3740,6 @@ There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}
  \begin{remark}
  The motivation of the Definition \ref{pointed_defn} is explained in \ref{top_pointed_defn_empt}.
  \end{remark}
- \begin{remark}\label{base_pt_iso_rem}
- 	Any two skeletons of every category are isomorphic. So our results do not depend on a base-point choice up to isomorphism.
- \end{remark}
  \begin{remark}\label{implicit_inc_rem}
  	Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ where $C^*$-$\varprojlim_{\la \in\La} A_\la$ means a $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}). Sometimes we write $ A_\nu \subset A_\mu$ instead of  $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$.
  \end{remark}
@@ -3775,7 +3747,7 @@ There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}
  	% 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
  	% \end{definition}
  \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
- 	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)\cong G\left(\left.A_\mu~\right|A \right)/G\left(\left.A_\mu~\right|A_\nu \right) $ the surjective homomorphism which comes from $\pi^\nu_\mu$. (From the Definition \ref{fin_cat_defn}  !!! DELETE !!! it follows that $G\left(\left.A_\mu~\right|A_\nu \right)$  is a normal subgroup of $G\left(\left.A_\mu~\right|A \right)$).
+ 	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)\cong G\left(\left.A_\mu~\right|A \right)/G\left(\left.A_\mu~\right|A_\nu \right) $ the surjective homomorphism which comes from $\pi^\nu_\mu$. From (iii) of \ref{comp_empt} it follows that $G\left(\left.A_\mu~\right|A_\nu \right)$  is a normal subgroup of $G\left(\left.A_\mu~\right|A \right)$).
  \end{empt}
  
  \begin{defn}\label{inv_g_lim_defn}
@@ -3787,7 +3759,7 @@ There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}
  	\be\label{hurewicz_la_eqn}
  	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right).
  	\ee
- 	We say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}). The group $\widehat{G}$ does not depend on a choice of base-point up to isomorphism (cf. Remark \ref{base_pt_iso_rem}).
+ 	We say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}). The group $\widehat{G}$ does not depend on a choice of base-point up to isomorphism (cf. Remark \ref{comp_pt_rem}).
  \end{defn}
  \begin{empt}\label{inf_g_act_empt}
  	In the situation of the Definition \ref{inv_g_lim_defn} for all $\la\in \La$ there is an action 

@@ -114,7 +114,7 @@ namespace Chart.UserControls
         /// </summary>
         public void Clear()
         {
-            userControlChart.Performer.RemoveAll();
+            userControlChart.Clear();
         }
 
         /// <summary>

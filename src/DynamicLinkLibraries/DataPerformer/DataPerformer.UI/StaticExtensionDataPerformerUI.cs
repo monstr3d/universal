@@ -149,6 +149,7 @@ namespace DataPerformer.UI
         static public void Set(this Chart.UserControls.UserControlFilledChart chart, 
             IColorDictionary colors, Dictionary<string, object> data, Dictionary<string, IMeasurement> measurements)
         {
+            chart.Clear();
             var d = colors.ColorDictionary;
             foreach (var key in d.Keys)
             {

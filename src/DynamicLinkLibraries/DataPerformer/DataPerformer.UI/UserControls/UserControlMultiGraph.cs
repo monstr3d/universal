@@ -40,7 +40,9 @@ namespace DataPerformer.UI.UserControls
         string arg = null;
 
         string[] variables = null;
+
         CancellationTokenSource ctx;
+
         Task<Dictionary<string, object>> pFixed;
 
         ToolStripButton[][] startStopPauseButtons;
@@ -49,13 +51,17 @@ namespace DataPerformer.UI.UserControls
 
         #endregion
 
+        #region Cror
+
         public UserControlMultiGraph()
         {
             InitializeComponent();
             startStopPauseButtons = [[toolStripButtonStart], [toolStripButtonStop]];
         }
 
+        #endregion
 
+        #region Members
 
         internal GraphLabel Label
         {
@@ -148,29 +154,16 @@ namespace DataPerformer.UI.UserControls
 
         void SetFirst()
         {
+            if (dictionary.Count > 2)
+            {
+                while (dictionary.Count > 2)
+                {
+                    dictionary.RemoveAt(dictionary.Count - 1);
+                }
+            }
             toolStripComboBoxNumber.SelectedIndex = dictionary.Count -1;
             toolStripComboBoxNumber.SelectedIndexChanged += ToolStripComboBoxNumber_SelectedIndexChanged;
             Set();
-        }
-
-        private void ToolStripComboBoxNumber_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var n = toolStripComboBoxNumber.SelectedIndex;
-            var m = dictionary.Count;
-            if (m == n)
-            {
-                return;
-            }
-            if (m > n)
-            {
-                dictionary.Add(new());
-            }
-            else
-            {
-                dictionary.RemoveAt(1);
-            }
-            Set();
-
         }
 
         void Set()
@@ -198,7 +191,6 @@ namespace DataPerformer.UI.UserControls
                 (measurements[i] as IColorDictionary).ColorDictionary = dictionary[i];
             }
         }
-
 
         void Start()
         {
@@ -229,8 +221,6 @@ namespace DataPerformer.UI.UserControls
             this.InvokeIfNeeded(action);
             ActParent(ActionType.Stop, null);
         }
-
-
 
         void PefrormFixed()
         {
@@ -275,7 +265,30 @@ namespace DataPerformer.UI.UserControls
 
         }
 
+        #endregion
+
         #region Event Handlers
+
+        private void ToolStripComboBoxNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var n = toolStripComboBoxNumber.SelectedIndex + 1;
+            var m = dictionary.Count;
+            if (m == n)
+            {
+                return;
+            }
+            if (m < n)
+            {
+                dictionary.Add(new());
+            }
+            else
+            {
+                dictionary.RemoveAt(1);
+            }
+            Set();
+
+        }
+
 
         private void toolStripButtonStart_Click(object sender, EventArgs e)
         {
@@ -288,8 +301,6 @@ namespace DataPerformer.UI.UserControls
         }
 
         #endregion
-
-
 
         #region IStartStop Members
 

@@ -110,6 +110,14 @@ namespace Chart.UserControls
         }
 
         /// <summary>
+        /// Clears itself
+        /// </summary>
+        public void Clear()
+        {
+            performer.RemoveAll();
+        }
+
+        /// <summary>
         /// Performer
         /// </summary>
         public ChartPerformer Performer
