@@ -3676,6 +3676,164 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
     \subsection{Coverings of $C^*$-algebras}
  \paragraph*{}
  This section contains  noncommutative generalizations of infinite coverings.
+ \begin{definition}\label{compliant_covering_defn}
+ 	Let us consider the following diagram\\
+ 	\newline
+ 	\begin{tikzpicture}
+ 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+ 		{
+ 			\widetilde A_1  &  & \widetilde A_2\\
+ 			& A & \\};
+ 		\path[-stealth]
+ 		(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
+ 		(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
+ 		(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
+ 		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
+ 	\end{tikzpicture}
+ 	\\
+ 	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  it satisfies to following conditions:
+ 	\begin{enumerate}
+ 		\item[(a)]
+ 		If there is a *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
+ 		\item[(b)] Following condition holds
+ 		\be\label{g_sur_eqn}
+ 		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
+ 		\ee 
+ 		\item[(c)] From \eqref{g_sur_eqn} it turns out that there is the homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+ 		\be\label{g_sur_pi_eqn}
+ 		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
+ 		\ee 
+ 		for each $a_1 \in \widetilde A_1$.  
+ 		We claim that $h$ is surjective. 
+ 		\item[(d)] If  $\rho: \widetilde A_1 \to \widetilde A_2$ is any *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ then there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+ 		\be\label{compliant_covering_g_eqn}
+ 		\rho =  \pi^1_2 \circ g.
+ 		\ee
+ 	\end{enumerate}
+ 	
+ \end{definition}
+ \begin{definition}\label{compliant_comes_defn}
+ 	In the situation of the Definition \ref{compliant_covering_defn} we say that the homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ which satisfies to \eqref{g_sur_pi_eqn} \textit{comes} from $\pi^1_2$.
+ \end{definition}
+ \begin{remark}
+ 	From the Definition \ref{compliant_covering_defn} it turns out that if $\rho': \widetilde A_1 \to \widetilde A_2$ and $\rho': \widetilde A_2 \to \widetilde A_1$ are *-homomorphisms such that $\pi_2 = \rho' \circ \pi_1$ and $\pi_1 = \rho'' \circ \pi_2$ then both $\rho'$ and $\rho''$ are *-isomorphisms.
+ \end{remark}
+ 
+ 
+ 
+ \begin{definition}\label{comp_defn}
+ 	Let $\La$ be a directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\mathrm{min}} \in \La$.
+ 	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  following conditions hold:
+ 	\begin{enumerate}
+ 		\item[(a)] For any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}).
+ 		\item [(b)]
+ 		For  $\mu, \nu \in \La$ one has
+ 		\be\label{fg_ord_eqn}
+ 		\begin{split}
+ 			\mu \ge \nu  \text{ if and only if there is an *-homomorphism } \pi: A_\nu \hookto A_\mu; \\
+ 			\text{ such that } \pi_\mu = \pi \circ \pi_\nu.
+ 		\end{split}
+ 		\ee
+ 	\end{enumerate}
+ 	The set 
+ 	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+ 	is said to be an \textit{algebraical  finite covering category}. 
+ 	We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
+ \end{definition}
+ % \begin{definition}\label{comp_defn}
+ 	% 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
+ 	% \end{definition}
+ \begin{definition}\label{comp_pt_defn}
+ 	A subcategory $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$ We use following notation
+ 	\be\label{comp_pt_eqn}
+ 	\begin{split}
+ 		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+ 		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+ 	\end{split}
+ 	\ee
+ \end{definition}
+ \begin{remark}\label{comp_pt_rem}
+ 	The Definition \ref{comp_pt_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
+ \end{remark}
+ 
+ \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{comp_pt_defn}.
+ 	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which comes from $\pi^\nu_\mu$ (cf. Definition \ref{compliant_comes_defn}).
+ \end{empt}
+ \begin{lemma}\label{inv_g_lim_lem}
+ 	Let us use notation of \ref{inv_g_lim_empt}. If $\mu,\la, \nu$ are such that $\mu > \la > \nu$ then $h^\mu_\nu = h^\mu_\la \circ h^\la_\nu$. 
+ \end{lemma}
+ \begin{proof}
+ 	From the  equation \eqref{g_sur_pi_eqn} it turns out that for all $a_\nu \in A_\nu$ and $g_\mu \in  G\left(\left.A_\mu~\right|A \right)$ one has
+ 	\bea\label{h_array_eqn}
+ 	\pi^\nu_\mu\left( h^\mu_\nu\left( g_\mu\right)  a_\nu\right)=g_\mu \circ \pi^\nu_\mu\left( a_\nu\right),\\
+ 	\label{h_array1_eqn}
+ 	\pi^\nu_\la\left( h^\la_\nu\left(h^\mu_\la\left(  g_\mu\right) \right)  a_\nu\right)=h^\mu_\la\left(  g_\mu\right) \circ \pi^\nu_\la\left( a_\nu\right),\\
+ 	\label{h_array2_eqn}
+ 	\pi^\la_\mu\left(h^\mu_\la\left( g_\mu\right)\pi^\nu_\la \left(  a_\nu\right) \right)=  g_\mu \circ \pi^\la_\mu\left( \pi^\nu_\la \left(  a_\nu\right)\right)= g_\mu \circ \pi^\nu_\mu \left(  a_\nu\right).
+ 	\eea
+ 	If we substitute $h^\mu_\la\left( g_\mu\right)\pi^\nu_\la \left(  a_\nu\right)$ in the left part of \eqref{h_array2_eqn} by the left part of \eqref{h_array1_eqn} and taking into account $\pi^\la_\mu\circ\pi^\nu_\la=\pi^\nu_\mu$ one has
+ 	\be\label{h_array3_eqn}
+ 	\pi^\la_\mu\left(\pi^\nu_\la\left( h^\la_\nu\left(h^\mu_\la\left(  g_\mu\right) \right)  a_\nu\right) \right)= \pi^\nu_\mu\left( h^\la_\nu\circ h^\mu_\la\left(  g_\mu\right)   a_\nu\right) = g_\mu \circ \pi^\nu_\mu \left(  a_\nu\right).\\
+ 	\ee
+ 	Comparison of \eqref{h_array_eqn} and \eqref{h_array3_eqn} yields $h^\mu_\nu = h^\mu_\la \circ h^\la_\nu$.
+ \end{proof}
+ 
+ 
+ \begin{defn}\label{inv_g_lim_rem}
+ 	From the Lemma \ref{inv_g_lim_lem} it turns out that one can define surjecive homomorphisms  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which come from $\pi^\nu_\mu$, hence there is the inverse limit 
+ 	$$
+ 	\widehat{G}=	\varprojlim_{\la \in \La} G\left(\left.A_\la~\right|~A\right)
+ 	$$
+ 	of groups. For any $\la \in \La$ there is the surjecive homomorphism 
+ 	\be\label{h_la_eqn}
+ 	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right)
+ 	\ee
+ 	Wa say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}).
+ \end{defn}
+ 
+ \begin{lemma}\label{base_point_change_lem}
+ 	Let 
+ 	$\mathfrak{S}=\left\{ \left( A , A_{\la},  G\left(\left.A_\la~\right|A \right), \pi_{\la}\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}$.
+ 	be an {algebraical  finite covering category}.	Consider two pointed subcategories $\mathfrak{S}^{\text{pt}}_\pi$, $\mathfrak{S}^{\text{pt}}_\rho$ having morphisms $\left\{\pi^\nu_\mu: A_{\nu}\hookto A_{
+ 		\mu}\right\}$ and $\left\{\rho^\nu_\mu: A_{\nu}\hookto A_{
+ 		\mu}\right\}$.
+ 	Suppose that both $$\left\{ d^\mu_{\nu} : G\left(\left.A_\mu~\right|A\right) \to G\left(\left.A_\nu~\right|A\right)\right\}  \text{ and }\left\{ e^\mu_{\nu} : G\left(\left.A_\mu~\right|A\right) \to G\left(\left.A_\nu~\right|A\right)\right\} $$ are surjecive homomorphisms which come from $\left\{\pi^\nu_\mu\right\}$ and $\left\{\rho^\nu_\mu\right\}$ respectively. 	Suppose that both $\widehat{G} = \varprojlim_{\la \in \La} G\left(\left.A_\la~\right|A\right)$ and $\widehat{H} = \varprojlim_{\la \in \La} G\left(\left.A_\la~\right|A\right)$ are inverse limits which come from $\left\{ d^\mu_{\nu} \right\} $ and $\left\{ e^\mu_{\nu} \right\} $ respectively. If 
+ 	$d_\la :\widehat{G}\to G\left(\left.A_\nu~\right|A\right)$ and $e_\la :\widehat{H}\to G\left(\left.A_\nu~\right|A\right)$ are natural surjective homomorphisms then there is the bijective map $\phi: \widehat{G} \xrightarrow{\approx} \widehat{H}$ and $\widehat{g}\in \widehat{G}$ such that
+ 	\bea\label{base_point_change_lem_eqn}
+ 	e_\la\circ \phi = d_\la \circ \widehat{g},\\
+ 	\label{base_point_change_p_lem_eqn}
+ 	\rho^\nu_\mu = 	\pi^\nu_\mu \circ d_\nu\left(\widehat{g} \right) \quad \forall \mu > \nu 
+ 	\eea
+ \end{lemma}
+ \begin{proof}
+ 	If $\mu \ge \nu$ then there is $g_\nu \in G\left(\left.A_\nu~\right|A\right)$ such that
+ 	\be\label{base_point_change_p_eqn}
+ 	\rho^\nu_\mu =   \pi^\nu_\mu \circ g_\nu.
+ 	\ee From $\pi^\nu_\mu = \pi^\la_\mu \circ \pi^\nu_\la$ and $\rho^\nu_\mu = \rho^\la_\mu \circ \rho^\nu_\la$ one has $d^\mu_\nu\left(g_\mu\right)= g_\nu$. The family $\left\{g_\la\right\}$ gives an element $\widehat{g}\in \widehat{G}$. Any $\widehat{g}' \in \widehat{G}$ corresponds to a family $\left\{g'_\la\right\}_{\la \in \La}$ such that $d^\mu_\nu\left(g'_\mu \right) = g'_\nu$. Otherwise there is the family $\left\{g''_\la\right\}_{\la \in \La}$ such that $g''_\la = g'_\la \circ d_\la \left(  \widehat{g}\right)$ and $e^\mu_\nu\left(g''_\mu \right) = g''_\nu$. The family $\left\{g''_\la\right\}$ uniquely defines the element $\widehat{g}'' \in \widehat{H}$. In result one has the  bijective map
+ 	\bean
+ 	\phi: \widehat{G} \xrightarrow{\approx} \widehat{H},\\
+ 	\widehat{g}' \mapsto \widehat{g}''
+ 	\eean 
+ 	which satisfies to the equation \eqref{base_point_change_lem_eqn}. The equation \eqref{base_point_change_p_lem_eqn} follows from \eqref{base_point_change_p_eqn}.
+ \end{proof}
+ \begin{rem}\label{base_point_change_gr_rem}
+ 	The map $\phi$ induces the isomorphism of groups
+ 	\be\label{base_point_change_rem_eqn}
+ 	\begin{split}
+ 		\varphi: \widehat{G} \xrightarrow{\approx} \widehat{H},\\
+ 		\widehat{g}^{~-1}	\widehat{g}'\widehat{g} \mapsto \phi\left( 	\widehat{g}'\right) 
+ 	\end{split}
+ 	\ee
+ \end{rem}
+ 
+ \begin{rem}\label{base_point_change_rem}
+ 	Let 
+ 	$\mathfrak{S}=\left\{ \left( A , A_{\la},  G\left(\left.A_\la~\right|A\right), \pi_{\la}\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}$.
+ 	be an {algebraical  finite covering category}. If both 
+ 	$\left\{\pi^\nu_\mu\right\}$ and $ \left\{\rho^\nu_\mu\right\}$ are base-points of $\mathfrak{S}$ then from the Lemma \ref{base_point_change_lem} it turns out the category $\left( \mathfrak{S}, \left\{\pi^\nu_\mu\right\}\right)$ is equivalent to $\left( \mathfrak{S}, \left\{\rho^\nu_\mu\right\}\right)$.
+ \end{rem}
+ \paragraph{title}
+
  \begin{empt}\label{comp_empt}
  	Let $A$ be a connected $C^*$-algebra.	Consider a category $\mathfrak{S}$ such that.
 	\begin{itemize}
