@@ -142,7 +142,7 @@ Noncommutative geometry and topology
   \titlepage
 \end{frame}
 
-One has a natural isomorphism $\pi_1\left( \sX, x_0\right)\cong G\left(\left.\widetilde \sX  \right| \sX\right)$ where  $\widetilde \sX  \to  \sX$ is the universal covering. Algebraic geometry has no analogs of infinite coverings, however  there are \'etale morphisms which are analogs of finite coverings. So an analog of fundamental group is obtained via the set of finite coverings. One has a category of pointed finite-fold coverings 
+One has a natural isomorphism $\pi_1\left( \sX, x_0\right)\cong G\left(\left.\widetilde \sX  \right| \sX\right)$ where  $\widetilde \sX  \to  \sX$ is the universal covering. Algebraic geometry has no analogs of infinite coverings, however  there are \'etale morphisms which are analogs of finite coverings. So the Grothendieck's fundamental group is obtained via the set of finite coverings. One has a category of pointed finite-fold coverings 
 \newline 
 	\begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -155,11 +155,11 @@ One has a natural isomorphism $\pi_1\left( \sX, x_0\right)\cong G\left(\left.\wi
 	(m-1-3) edge node [right]  {} (m-2-2);
 \end{tikzpicture}
 \\
-and then we define $\widehat \pi_1\left( \sX, x_0\right)\bydef \varprojlim G\left(\left. \sX_\la  \right| \sX\right)$. The group $\widehat \pi_1\left( \sX, x_0\right)$ is the \alert{profinite completion} $\pi_1\left( \sX, x_0\right)$. The noncommutative geometry yields finer result, i.e. one has
+The Grothendieck's fundamental group equals to $\widehat \pi_1\left( \sX, x_0\right)\bydef \varprojlim G\left(\left. \sX_\la  \right| \sX\right)$. The noncommutative geometry yields finer result, i.e.
 $
-\widehat \pi_1\left( \sX, x_0\right) \bydef  \pi_1\left( \sX, x_0\right)/ \bigcap_\la \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right) 
+\widehat \pi^{\text{NCG}}_1\left( \sX, x_0\right) \bydef  \pi_1\left( \sX, x_0\right)/ \bigcap_\la \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right) 
 $
-To obtain an analog of algebraic geometry one needs analogs  of both: 
+To obtain a NCG  Grothendieck's analog one needs analogs  of both: 
 \begin{itemize}
 	\item finite-fold coverings,
 	\item diagram of pointed coverings.
@@ -218,9 +218,11 @@ A covering $p:\widetilde\sX\to \mathcal  X $ is \textit{transitive}  if for all 
 Above definition and lemma can be applied to compact spaces and unital $C^*$-algebras. However there is a modification such that new definition yields noncommutative finite-fold coverings with nonunital $A$ and $\widetilde{A}$.
 In result one has the following Theorem.
 \begin{theorem}
-	\alert{P. Ivankov}. 	Let $\mathcal X$ be a connected, locally compact, Hausdorff space.
-	If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering then there is a connected space $\widetilde{   \mathcal X }$ and a transitive finite-fold covering  $p: \widetilde{   \mathcal X } \to \sX$ such that $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$, $G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ and $\pi$ corresponds to $p$.
+	\alert{Petr Ivankov}. 	Let $\mathcal X$ be a connected, locally compact, Hausdorff space.
+	If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering then there is a connected space $\widetilde{   \mathcal X }$ and a transitive finite-fold covering  $p: \widetilde{   \mathcal X } \to \sX$ such that
+	$\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is equivalent to $\left(C_0\left( {   \mathcal X }\right), C_0\left( \widetilde{   \mathcal X }\right), G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right), \pi\right)$
 \end{theorem}
+Thus we have an analog of finite-fold coverings, below we find an analog of pointed coverings.
 \end{frame}
 \section{Pointed diagrams}
 
@@ -239,7 +241,7 @@ In result one has the following Theorem.
 \\
 
 
-	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} (\alert{P. Ivankov}) if  it satisfies to following conditions:
+	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} (\alert{Petr Ivankov}) if  it satisfies to following conditions:
 	\begin{enumerate}
 		\item[(a)]
 		If there is an injective *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering.
@@ -255,7 +257,7 @@ In result one has the following Theorem.
 		$$
 		for each $a_1 \in \widetilde A_1$.  
 		We claim that $h$ is surjective. 
-		\item[(d)] If  $\rho: \widetilde A_1 \to \widetilde A_2$ is any *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ then there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\item[(d)] If  $\rho: \widetilde A_1 \to \widetilde A_2$ is any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ then there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
 		\be\label{compliant_covering_g_eqn}
 		\rho =  \pi^1_2 \circ g.
 		\ee
@@ -264,13 +266,13 @@ In result one has the following Theorem.
 \begin{frame}
 Let $A$ be a $C^*$-algebra. Below we consider a set of assumptions about $A$. If $A$ does not satisfy to these assumptions then a fundamental group of $A$ is not defined. Consider a set noncommutative all finite-fold coverings $\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by a set  $\La$ and suppose that  following conditions hold:
 \begin{enumerate}
-	\item[(a)] For any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant.
+	\item[(a)] For any $\nu, \mu \in \La$ a pair $\left( \pi_\nu, \pi_\mu\right)$ is compliant.
 	\item [(b)]
 The set	$\La$ is a directed set ordered by the following formula.
 	\be\label{fg_ord_eqn}
 	\begin{split}
-		\mu \ge \nu  \text{ if and only if there is an injective}\\ *-\text{homomorphism } \pi: A_\nu \hookto A_\mu; 
-		\text{ such that } \pi_\mu = \pi \circ \pi_\nu.
+		\nu \ge \mu  \text{ if and only if there is an injective}\\ \text{*-homomorphism } \pi^\nu_\mu: A_\mu \hookto A_\nu; 
+		\text{ such that } \pi_\nu = \pi^\mu_\nu \circ \pi_\mu.
 	\end{split}
 	\ee
 \end{enumerate}
@@ -290,7 +292,7 @@ Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ of  $\mathfrak{S}
 	\be\label{h_la_eqn}
 	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right)
 	\ee
-	The group $\widehat{G}$ is an analog of the obtained in the Algebraic geometry fundamental group. However we would like to obtain more accurate result.
+	The group $\widehat{G}$ is an analog of the obtained in the Grothendieck's fundamental group. However we would like to obtain finer result.
 \end{frame}
 \begin{frame}
 	\begin{definition}
@@ -378,7 +380,7 @@ G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A
 \end{frame}
 \begin{frame}
 	\begin{definition}
-	If 	$A$ is a good then $G\left(\left.\widetilde{A}~\right| A\right)$ is said to be the \textit{fundamental group} of $A$. We write
+	If the $C^*$-algebra 	$A$ is  good then $G\left(\left.\widetilde{A}~\right| A\right)$ is said to be the \textit{fundamental group} of $A$. We write
 	$$
 \pi_1\left(A \right) \bydef G\left(\left.\widetilde{A}~\right| A\right).	
 	$$
@@ -394,10 +396,10 @@ G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A
 		\item  $\mathfrak{S}_\sX$-objects are transitive  finite-fold coverings $p:\widetilde \sX \to \sX$,
 		\item  $\mathfrak{S}_\sX$-morphism from  $p':\widetilde \sX' \to \sX$ to  $p'':\widetilde \sX \to \sX$ is a surjective continuous map $p: \widetilde \sX' \to \widetilde \sX''$, such that $p' = p \circ p''$.
 	\end{itemize}
-It is proven that $p$ is transitive covering.	There is a pre-ordering  on a family of  $\mathfrak{S}_\sX$-objects such that $\left( \widetilde \sX' \to \sX\right) \ge \left( \widetilde \sX' \to \sX\right)$ if and only is there is a  $\mathfrak{S}_\sX$-morphism from  $p':\widetilde \sX' \to \sX$ to  $p'':\widetilde \sX'' \to \sX$. This pre-ordering corresponds to a directed set $\La$.
+It is proven that $p$ is transitive covering.	There is a pre-ordering  on a family of  $\mathfrak{S}_\sX$-objects such that $\left( \widetilde \sX' \to \sX\right) \ge \left( \widetilde \sX'' \to \sX\right)$ if and only is there is a  $\mathfrak{S}_\sX$-morphism from  $p':\widetilde \sX' \to \sX$ to  $p'':\widetilde \sX'' \to \sX$. This pre-ordering corresponds to a directed set $\La$.
 \end{frame}
 \begin{frame}
-Suppose that the set of  $\mathfrak{S}_\sX$-objects is indexed by $\La$, i.e. 
+Suppose that   $\mathfrak{S}_\sX$-objects are indexed by $\La$, i.e. 
 $$
 \mathfrak{S}_\sX\text{-objects} = \left\{\sX_\la \to\sX \right\}_{\la \in \La}.
 $$
@@ -413,10 +415,10 @@ A category $\mathfrak{S}_\sX$ yields a category $\mathfrak{S}$ of {category of f
 	\item $\mathfrak{S}$ - objects are noncommutative finite-fold coverings $\left(C_0\left( \sX\right), C_0\left( \sX_\la\right),  G\left(\left. \sX_\la  \right| \sX\right), \pi_\la   \right)$.
 	\item $\mathfrak{S}$-morphism is from $\left(C_0\left( \sX\right), C_0\left( \sX_\nu\right),  G\left(\left. \sX_\nu  \right| \sX\right), \pi_\nu   \right)$ to $\left(C_0\left( \sX\right), C_0\left( \sX_\mu\right),  G\left(\left. \sX_\mu  \right| \sX\right), \pi_\mu   \right)$ is an induced by a covering $\sX_\nu \to \sX_\mu$ injective $*$-homomorphism $ C_0\left( \sX_\mu\right) \hookto  C_0\left( \sX_\nu\right)$.
 \end{itemize}
-A subcategory $\mathfrak{S}_{\left(\sX, x_0\right)}$ of $\mathfrak{S}_\sX$ induces  a {pointed  finite-fold coverings} $\mathfrak{S}^{\mathrm{pt}}$ of coverings of $C_0\left(\sX \right)$.
+A subcategory $\mathfrak{S}_{\left(\sX, x_0\right)}$ of $\mathfrak{S}_\sX$ induces  a {pointed category of   finite-fold coverings} $\mathfrak{S}^{\mathrm{pt}}$ of coverings of $C_0\left(\sX \right)$.
 \end{frame}
 \begin{frame}
-Now we have all ingredients to obtain fundamental group of $C^*$-algebra as profinite completion. However we can have more accurate result.
+Now we have all ingredients to obtain NCG analog of Grothendieck's fundamental group of $C^*$-algebra as profinite completion. However we can have more accurate result.
 
 \begin{definition}\label{top_specp_defn}
 Let $\widehat \sX\bydef \varprojlim_{\la \in \La}\sX_\la$ be the inverse limit of topological spaces. Let $\widehat p_\la : \widehat \sX\to \sX_\la$ be the natural continuous map for all $\la\in\La$. The subset  $\widehat \sU\subset \widehat \sX$ 
@@ -446,7 +448,7 @@ Consider a topological space  $\overline  \sX$ which coincides with $\widehat \s
 \end{frame}
 \begin{frame}
 Since for all $\la\in \La$ a map $\overline p_\la: \overline  \sX \to \sX_\la$ 
-continuous and surjective there  is an injective $*$-homomorphism  $C_0\left(\sX_\la \right)\hookto C_b \left( \overline  \sX\right) = M\left(C_0 \left( \overline  \sX\right) \right)$. From this fact one can deduce  that there is an  injective $*$-homomorphism  $\phi: C^*$-$\varinjlim_{\la\in \La} C_0\left(\sX_\la \right)\hookto M\left(C_0 \left( \overline  \sX\right) \right)$. From $G\left(\left. \overline\sX  \right| \sX\right)= \varprojlim_{\la \in \La} G\left(\left. \sX_\la  \right| \sX\right)$ it follows that there is  an action
+continuous and surjective, so there  is an injective $*$-homomorphism  $C_0\left(\sX_\la \right)\hookto C_b \left( \overline  \sX\right) = M\left(C_0 \left( \overline  \sX\right) \right)$. From this fact one can deduce  that there is an  injective $*$-homomorphism  $\phi: C^*$-$\varinjlim_{\la\in \La} C_0\left(\sX_\la \right)\hookto M\left(C_0 \left( \overline  \sX\right) \right)$. From actions $G\left(\left. \sX_\la  \right| \sX\right)\times \sX_\a \to \sX_\la$ and $G\left(\left. \overline\sX  \right| \sX\right)= \varprojlim_{\la \in \La} G\left(\left. \sX_\la  \right| \sX\right)$ it follows that there is  an action
 $$
 \widehat G \times C_0 \left( \overline  \sX\right) \to C_0 \left( \overline  \sX\right).
 $$
@@ -486,14 +488,14 @@ $$
 
 then one can proof that the strict limit of the series equals to $\phi\left(a_\la \right)$. Another cases can be deduced from special ones.
 \begin{frame}
-From the above constructions it follows that the $C^*$-algebra $C_0\left( \overline \sX\right)$ is subordinated to   $A$. It is much more difficult to prove that $C_0\left( \overline \sX\right)$ is the unique up to isomorphism $C^*$-algebra subordinated to   $C_0\left(\sX \right)$. It follows that the triple
+From the above constructions it follows that the $C^*$-algebra $C_0\left( \overline \sX\right)$ is subordinated to   $C_0\left( \sX\right) $. It is much more difficult to prove that $C_0\left( \overline \sX\right)$ is the unique up to isomorphism $C^*$-algebra subordinated to   $C_0\left(\sX \right)$. It follows that the triple
 	\be\nonumber
 \left(C_0\left(  \sX\right), C_0\left( \overline \sX\right), G\left(\left.\overline{\sX}~\right| \sX\right)\right)
 \ee
-is a {disconnected universal covering} of $C_0\left(\sX \right) $ (cf. equation \ref{disc_triple_eqn}). If $\widetilde \sX$ is a connected component of $\overline \sX$ then there is a covering  $\widetilde \sX\to \sX$ because $ \sX$ is locally connected. If both $\widetilde \sX'$ and $\widetilde \sX''$ are connected components of $\overline \sX$,  both $\widetilde x'_0 \in \widetilde \sX'$ and $\widetilde x''_0 \in \widetilde \sX''$ are such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right)$ then there is  $g \in G\left(\left.\overline{\sX}~\right| \sX\right)$ such that $ \widetilde x''_0 = g  \widetilde x'_0$. From this fact one can obtain a following
+is a {disconnected universal covering} of $C_0\left(\sX \right) $ (cf. equation \eqref{disc_triple_eqn}). If $\widetilde \sX$ is a connected component of $\overline \sX$ then there is a covering  $\widetilde \sX\to \sX$ because $ \sX$ is locally connected. If both $\widetilde \sX'$ and $\widetilde \sX''$ are connected components of $\overline \sX$,  both $\widetilde x'_0 \in \widetilde \sX'$ and $\widetilde x''_0 \in \widetilde \sX''$ are such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right)$ then there is  $g \in G\left(\left.\overline{\sX}~\right| \sX\right)$ such that $ \widetilde x''_0 = g  \widetilde x'_0$. From this fact one can obtain a following
 \be
 \begin{split}
-\widetilde \sX'' = g \widetilde \sX',\quad 
+\widetilde \sX'' = g \widetilde \sX'\quad \Rightarrow \quad
 C_0\left( \widetilde \sX''\right) = gC_0\left( \widetilde \sX'\right).
 \end{split}
 \ee
@@ -509,7 +511,7 @@ G\left(\left.C_0\left( \widetilde{\sX}\right) \right| C_0\left( \sX \right)\righ
 \ee
 (cf. equation \eqref{infinite_covering_transformation_group_eqn}).
 \begin{theorem}\alert{Petr Ivankov}
-	If a topological space $X$ is connected, locally connected and weakly semilocally 1-connected then $C_0\left(X \right)$ and there is a natural isomorphism 
+	If a topological space $\sX$ is connected, locally connected and weakly semilocally 1-connected then $C_0\left(\sX \right)$ and there is a natural isomorphism 
 	$$
 	\pi_1\left( C_0\left(X \right)\right)  \cong \frac{\pi^{\text{w}}_1\left(\sX, x_0\right)}{\bigcap_{\la\in \La} \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right)}
 	$$
@@ -530,6 +532,7 @@ G\left(\left.C_0\left( \widetilde{\sX}\right) \right| C_0\left( \sX \right)\righ
 	between the weak fundamental group, and the classical one.
 	
 \end{lemma}
+$A = C_0\left( \sX\right)$ 
 \end{frame}
 
 \end{document}
