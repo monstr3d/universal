@@ -142,7 +142,7 @@ Noncommutative geometry and topology
   \titlepage
 \end{frame}
 
-One has $\pi_1\left( \sX, x_0\right)\cong G\left(\left.\widetilde \sX  \right| \sX\right)$ where  $\widetilde \sX  \to  \sX$ is the universal covering. \\ Algebraic geometry has no analogs of infinite coverings, however  there are \'etale morphisms which are analogs of finite coverings. So an analog of fundamental group is obtained via the set of finite coverings. One has a category of pointed finite-fold coverings 
+One has a natural isomorphism $\pi_1\left( \sX, x_0\right)\cong G\left(\left.\widetilde \sX  \right| \sX\right)$ where  $\widetilde \sX  \to  \sX$ is the universal covering. Algebraic geometry has no analogs of infinite coverings, however  there are \'etale morphisms which are analogs of finite coverings. So an analog of fundamental group is obtained via the set of finite coverings. One has a category of pointed finite-fold coverings 
 \newline 
 	\begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -177,7 +177,7 @@ To obtain an analog of algebraic geometry one needs analogs  of both:
  	\end{equation*}
  	then $p$ is a finite-fold  covering.
  \end{theorem}
-  It is naturally define a finite-fold covering of $C^*$-algebras as an injective $*$-homomorphisms $A\hookto B$ such that $B$-is a finitely generated Hilbert module over
+  It is naturally to define a finite-fold covering of $C^*$-algebras as an injective $*$-homomorphisms $A\hookto \widetilde A$ such that $ \widetilde A$-is a finitely generated Hilbert module over
   $A$. However this definition does not gives good generalizations of results  related to topological coverings.
  
  \end{frame}
@@ -187,11 +187,11 @@ To obtain an analog of algebraic geometry one needs analogs  of both:
 	\begin{enumerate}
 		\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
 		$
-		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\pi\left( a\right)  = \pi\left( a\right) ;~~\forall a \in A\right\}
 		$
 		is finite.
 		\item[(b)] 	\be\label{cond_b_eqn}
-		A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}.\ee
+	\pi\left( 	A\right)  = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}.\ee
 	\end{enumerate}
 	We say that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \to \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. 
 \end{definition}
@@ -200,7 +200,7 @@ To obtain an analog of algebraic geometry one needs analogs  of both:
 \begin{frame}
 	\begin{definition}
 		\alert{Petr Ivankov}
-		Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} if \\ $\pi$ is unital and $\widetilde{A}$ is a finitely generated projective  $A$-module.
+		Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} if $\pi\left(1_A \right) = 1_{\widetilde A}$  and $\widetilde{A}$ is a finitely generated projective  $A$-module.
 	\end{definition}
  	\begin{lemma}
 		\alert{Petr Ivankov, Alexander Pavlov, Evgenij Troitsky.}
@@ -215,7 +215,7 @@ A covering $p:\widetilde\sX\to \mathcal  X $ is \textit{transitive}  if for all 
 \end{frame}
 \begin{frame}
 
-Above definition and lemma can be applied to compact spaces and unital $C^*$-algebras. However there is is a modification of the Definition of noncommutative finite-fold coverings with nonunital $A$ and $\widetilde{A}$.
+Above definition and lemma can be applied to compact spaces and unital $C^*$-algebras. However there is a modification such that new definition yields noncommutative finite-fold coverings with nonunital $A$ and $\widetilde{A}$.
 In result one has the following Theorem.
 \begin{theorem}
 	\alert{P. Ivankov}. 	Let $\mathcal X$ be a connected, locally compact, Hausdorff space.
@@ -242,7 +242,7 @@ In result one has the following Theorem.
 	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} (\alert{P. Ivankov}) if  it satisfies to following conditions:
 	\begin{enumerate}
 		\item[(a)]
-		If there is a *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering.
+		If there is an injective *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering.
 		\item[(b)] Following condition holds
 		\be\label{g_sur_eqn}
 		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
@@ -262,7 +262,7 @@ In result one has the following Theorem.
 		\newline
 	\end{enumerate}
 \begin{frame}
-Let $A$ be a $C^*$-algebra. Below we consider a set of assumptions about $A$. If $A$ does not satisfy to this assumptions then a fundamental group of $A$ is not defined. Consider a set noncommutative finite-fold coverings $\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by a set  $\La$ and suppose that  following conditions hold:
+Let $A$ be a $C^*$-algebra. Below we consider a set of assumptions about $A$. If $A$ does not satisfy to these assumptions then a fundamental group of $A$ is not defined. Consider a set noncommutative all finite-fold coverings $\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by a set  $\La$ and suppose that  following conditions hold:
 \begin{enumerate}
 	\item[(a)] For any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant.
 	\item [(b)]
@@ -277,10 +277,9 @@ The set	$\La$ is a directed set ordered by the following formula.
 Consider a category $\mathfrak{S}$ such that
 \begin{itemize}
 	\item $\mathfrak{S}$-objects are elements of $\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$
-	\item $\mathfrak{S}$-morphism from $ \pi_\nu: A \hookto A_{\nu}$ to $ \pi_\mu A \hookto A_\mu$ is an injective *-homomorphism $\pi^\nu_\mu : A_\mu \hookto  A_\nu$ such that $\pi_\nu = \pi^{\nu}_\mu \circ \pi_\nu$. 
+	\item $\mathfrak{S}$-morphism from $ \pi_\nu: A \hookto A_{\nu}$ to $ \pi_\mu: A \hookto A_\mu$ is an injective *-homomorphism $\pi^\nu_\mu : A_\mu \hookto  A_\nu$ such that $\pi_\nu = \pi^{\nu}_\mu \circ \pi_\nu$. 
 \end{itemize}
-Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ which is equivalent to the ordered category $\La$.
-
+Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ of  $\mathfrak{S}$   which is equivalent to the ordered category $\La$. 
 \end{frame}
 \begin{frame}
 	It is proven that if a category $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism. The category $\mathfrak{S}^{\text{pt}}$ is an analog of the category pointed finite-fold coverings. Moreover  one can define surjective homomorphisms  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which come from $\pi^\nu_\mu$, hence there is the inverse limit 
@@ -291,19 +290,16 @@ Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ which is equivale
 	\be\label{h_la_eqn}
 	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right)
 	\ee
-	\begin{rem}
 	The group $\widehat{G}$ is an analog of the obtained in the Algebraic geometry fundamental group. However we would like to obtain more accurate result.
-	\end{rem}
 \end{frame}
 \begin{frame}
 	\begin{definition}
 		We say that $\mathfrak{S}$ is a \textit{category of finite-fold coverings} of $A$, $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed category of finite-fold coverings} of $A$.
 	\end{definition}
-	
-There is the natural action $\widehat{G}\times \bigcup_{\la\in \La} A_\la \to  \bigcup_{\la\in \La} A_\la$. On the other hand there is $C^*$-inductive limit $\widehat A \bydef C^*$-$\varinjlim A_\la$, such that the union $\bigcup_{\la\in \La} A_\la$ is dense in $\widehat A$. So there is a natural action $\widehat{G} \times \widehat{A}\to \widehat{A}$,.
+Using the actions  $G\left(\left.A_\la~\right|~A\right)\times A_\la \to A_\la$ we can obtain  the natural action $\widehat{G}\times \bigcup_{\la\in \La} A_\la \to  \bigcup_{\la\in \La} A_\la$. On the other hand there is $C^*$-inductive limit $\widehat A \bydef C^*$-$\varinjlim A_\la$, such that the union $\bigcup_{\la\in \La} A_\la$ is dense in $\widehat A$. So there is a natural action $\widehat{G} \times \widehat{A}\to \widehat{A}$,.
 \end{frame}
 \begin{frame}
-	Consider the above situation.  We say that a $C^*$-algebra $\overline A$ is \textit{ subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold:
+	Consider the above situation.  We say that a $C^*$-algebra $\overline A$ is \textit{ subordinated to}  $A$ if following conditions hold:
 	\begin{enumerate}
 		\item [(a)] there is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$,
 		\item[(b)] there is an action $\widehat{G}\times \overline A \to \overline A$ such that
@@ -314,7 +310,7 @@ There is the natural action $\widehat{G}\times \bigcup_{\la\in \La} A_\la \to  \
 			g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left(g\widehat a \right),
 		\end{split}
 		\ee
-		\item[(c)] if $K\left( \overline{A}\right)$ is the Pedersen's ideal of $A$ then   for any $\la\in \La$  and $\overline a \in K\left( \overline{A}\right)$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$. Moreover we require that
+		\item[(c)] if $K\left( \overline{A}\right)$ is the Pedersen's ideal of $\overline A$ then   for any $\la\in \La$  and $\overline a \in K\left( \overline{A}\right)$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$. Moreover we require that
 		\be\label{a_la_eqn}
 		a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
 		\ee
@@ -331,7 +327,7 @@ There is the natural action $\widehat{G}\times \bigcup_{\la\in \La} A_\la \to  \
  \ee
 	is a \textit{disconnected universal covering} of $A$ if following conditions hold:
 \begin{itemize}
-	\item $\overline{A}'$ subordinated to	$A$,
+	\item $\overline{A}$ subordinated to	$A$,
 	\item  for any $C^*$-algebra $\overline{A}'$ subordinated to	$A$  there is the natural injective *-homomorphism
 	$\psi : \overline{A}'\hookto\overline{A}$ such that all
 	$g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}'$ one has
@@ -382,7 +378,7 @@ G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A
 \end{frame}
 \begin{frame}
 	\begin{definition}
-	If 	$A$is a good then $G\left(\left.\widetilde{A}~\right| A\right)$ is said to be the \textit{fundamental group} of $A$. We write
+	If 	$A$ is a good then $G\left(\left.\widetilde{A}~\right| A\right)$ is said to be the \textit{fundamental group} of $A$. We write
 	$$
 \pi_1\left(A \right) \bydef G\left(\left.\widetilde{A}~\right| A\right).	
 	$$
@@ -393,7 +389,7 @@ G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A
 	\begin{definition}\label{top_weakly_semi1_defn}
 		An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any transitive covering $\widetilde{\sX}\to\sX$.	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x\in \sX$ there is a semilocally proper neighborhood.
 	\end{definition} 
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Consider a category $\mathfrak{S}_\sX$, such that 
+	Let $\sX$ be a connected, locally connected, locally compact, weakly semilocally 1-connected, Hausdorff  topological space. Consider a category $\mathfrak{S}_\sX$, such that 
 	\begin{itemize}
 		\item  $\mathfrak{S}_\sX$-objects are transitive  finite-fold coverings $p:\widetilde \sX \to \sX$,
 		\item  $\mathfrak{S}_\sX$-morphism from  $p':\widetilde \sX' \to \sX$ to  $p'':\widetilde \sX \to \sX$ is a surjective continuous map $p: \widetilde \sX' \to \widetilde \sX''$, such that $p' = p \circ p''$.
@@ -450,7 +446,7 @@ Consider a topological space  $\overline  \sX$ which coincides with $\widehat \s
 \end{frame}
 \begin{frame}
 Since for all $\la\in \La$ a map $\overline p_\la: \overline  \sX \to \sX_\la$ 
-continuous is an injective $*$-homomorphism  $C_0\left(\sX_\la \right)\hookto C_b \left( \overline  \sX\right) = M\left(C_0 \left( \overline  \sX\right) \right)$. From this fact one can deduce  that there is an  injective $*$-homomorphism  $\phi: C^*$-$\varinjlim_{\la\in \La} C_0\left(\sX_\la \right)\hookto M\left(C_0 \left( \overline  \sX\right) \right)$. From $G\left(\left. \overline\sX  \right| \sX\right)= \varprojlim_{\la \in \La} G\left(\left. \sX_\la  \right| \sX\right)$ it follows that there is  an action
+continuous and surjective there  is an injective $*$-homomorphism  $C_0\left(\sX_\la \right)\hookto C_b \left( \overline  \sX\right) = M\left(C_0 \left( \overline  \sX\right) \right)$. From this fact one can deduce  that there is an  injective $*$-homomorphism  $\phi: C^*$-$\varinjlim_{\la\in \La} C_0\left(\sX_\la \right)\hookto M\left(C_0 \left( \overline  \sX\right) \right)$. From $G\left(\left. \overline\sX  \right| \sX\right)= \varprojlim_{\la \in \La} G\left(\left. \sX_\la  \right| \sX\right)$ it follows that there is  an action
 $$
 \widehat G \times C_0 \left( \overline  \sX\right) \to C_0 \left( \overline  \sX\right).
 $$
@@ -483,18 +479,18 @@ is convergent with respect to the strict topology of $M\left(C_0\left( \overline
 From  $\overline a \in C_c\left( \overline  \sX\right)$ it follows that the support $\overline \sY$ of $\overline a$ is compact. Let us prove this statement for special cases of $\la \in \La$  such that  $\overline  \sY$ is mapped homeomorphically onto $\overline p_\la \left( \overline  \sY\right)\subset \sX_\la$. If $a_\la \in C_c\left(\sX_\la \right)$ is such that
 $$
 a_\la\left(x_\la \right) = \begin{cases}
-	\overline a\left( \overline x\right)  &  \overline x \in  \overline \sY \quad \text { AND } \quad \overline p_\la\left( \overline x \right)= x_\la \\
+	\overline a\left( \overline x\right)  &  x_\la \in  p_\la \left( \overline  \sY\right) \quad  \overline x \in  \overline \sY \quad \text { AND } \quad \overline p_\la\left( \overline x \right)= x_\la \\
 	0 & x_\la \notin  p_\la \left( \overline  \sY\right)
 \end{cases}
 $$
 
 then one can proof that the strict limit of the series equals to $\phi\left(a_\la \right)$. Another cases can be deduced from special ones.
 \begin{frame}
-From the above constructions it follows that the $C^*$-algebra $C_0\left( \overline \sX\right)$ is subordinated to   $\mathfrak{S}^{\text{pt}}$. It is much more difficult to prove that $C_0\left( \overline \sX\right)$ is the unique up to isomorphism $C^*$-algebra subordinated to   $\mathfrak{S}^{\text{pt}}$. It follows that the triple
+From the above constructions it follows that the $C^*$-algebra $C_0\left( \overline \sX\right)$ is subordinated to   $A$. It is much more difficult to prove that $C_0\left( \overline \sX\right)$ is the unique up to isomorphism $C^*$-algebra subordinated to   $C_0\left(\sX \right)$. It follows that the triple
 	\be\nonumber
 \left(C_0\left(  \sX\right), C_0\left( \overline \sX\right), G\left(\left.\overline{\sX}~\right| \sX\right)\right)
 \ee
-is a {disconnected universal covering} of $A$ (cf. equation \ref{disc_triple_eqn}). If $\widetilde \sX$ is a connected component of $\overline \sX$ then there is a covering  $\widetilde \sX\to \sX$ because $ \sX$ is locally connected. If both $\widetilde \sX'$ and $\widetilde \sX''$ are connected components of $\overline \sX$,  both $\widetilde x'_0 \in \widetilde \sX'$ and $\widetilde x''_0 \in \widetilde \sX''$ are such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right)$ then there is  $g \in G\left(\left.\overline{\sX}~\right| \sX\right)$ such that $ \widetilde x''_0 = g  \widetilde x'_0$. From this fact one can obtain a following
+is a {disconnected universal covering} of $C_0\left(\sX \right) $ (cf. equation \ref{disc_triple_eqn}). If $\widetilde \sX$ is a connected component of $\overline \sX$ then there is a covering  $\widetilde \sX\to \sX$ because $ \sX$ is locally connected. If both $\widetilde \sX'$ and $\widetilde \sX''$ are connected components of $\overline \sX$,  both $\widetilde x'_0 \in \widetilde \sX'$ and $\widetilde x''_0 \in \widetilde \sX''$ are such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right)$ then there is  $g \in G\left(\left.\overline{\sX}~\right| \sX\right)$ such that $ \widetilde x''_0 = g  \widetilde x'_0$. From this fact one can obtain a following
 \be
 \begin{split}
 \widetilde \sX'' = g \widetilde \sX',\quad 
@@ -505,14 +501,36 @@ Since connected components of $C_0\left( \overline \sX\right)$ correspond to con
 \end{frame}
 \begin{frame}
 \be\nonumber
-G\left(\left.\widetilde{A}~\right| A\right)\bydef 
-\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
+\begin{split}
+G\left(\left.C_0\left( \widetilde{\sX}\right) \right| C_0\left( \sX \right)\right) \bydef \\
+\left\{g\in  G\left(\left. C_0\left( \overline{\sX}\right) ~\right| C_0\left( \sX \right)\right)\left|~\forall a^\perp \in  C_0\left( \widetilde{\sX}\right.)^\perp \quad ga^\perp = a^\perp\right.\right\}\cong \\
+\left\{g\in  G\left(\left. \overline{\sX} ~\right| \sX \right)\left|\forall x \in  \overline{\sX} \setminus \widetilde \sX \quad g\overline{x} = \overline x\right.\right\}\cong  G\left(\left. \widetilde{\sX} ~\right| \sX \right)
+\end{split}
 \ee
-
-(cf. equation \ref{infinite_covering_transformation_group_eqn})
+(cf. equation \eqref{infinite_covering_transformation_group_eqn}).
+\begin{theorem}\alert{Petr Ivankov}
+	If a topological space $X$ is connected, locally connected and weakly semilocally 1-connected then $C_0\left(X \right)$ and there is a natural isomorphism 
+	$$
+	\pi_1\left( C_0\left(X \right)\right)  \cong \frac{\pi^{\text{w}}_1\left(\sX, x_0\right)}{\bigcap_{\la\in \La} \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right)}
+	$$
+	where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is the weak fundamental group. In particular if $\pi_1\left( C_0\left(\sX \right)\right)$ is residually finite then
+	$$
+		\pi_1\left( C_0\left(\sX \right)\right)  \cong {\pi^{\text{w}}_1\left(\sX, x_0\right)}
+	$$
+	
+\end{theorem}
 \end{frame}
 
-
+\begin{frame}
+\begin{lemma}\alert{P. Ivankov}.
+	If $\sX$ be a connected, locally path-connected  and  semilocally 1-connected  space. then there is a natural isomorphism
+	$$
+	\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
+	$$
+	between the weak fundamental group, and the classical one.
+	
+\end{lemma}
+\end{frame}
 
 \end{document}
 
