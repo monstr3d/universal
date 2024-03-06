@@ -3730,8 +3730,8 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		For  $\mu, \nu \in \La$ one has
  		\be\label{fg_ord_eqn}
  		\begin{split}
- 			\mu \ge \nu  \text{ if and only if there is an *-homomorphism } \pi: A_\nu \hookto A_\mu; \\
- 			\text{ such that } \pi_\mu = \pi \circ \pi_\nu.
+ 			\mu \ge \nu  \text{ if and only if there is an *-homomorphism } \pi^\mu_\nu: A_\nu \hookto A_\mu; \\
+ 			\text{ such that } \pi_\mu = \pi^\mu_\nu \circ \pi_\nu.
  		\end{split}
  		\ee
  	\end{enumerate}
@@ -3743,7 +3743,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  % \begin{definition}\label{comp_defn}
  	% 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
  	% \end{definition}
- \begin{definition}\label{comp_pt_defn}
+ \begin{definition}\label{pointed_defn}
  	A subcategory $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$ We use following notation
  	\be\label{comp_pt_eqn}
  	\begin{split}
@@ -3753,10 +3753,10 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\ee
  \end{definition}
  \begin{remark}\label{comp_pt_rem}
- 	The Definition \ref{comp_pt_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
+ 	The Definition \ref{pointed_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
  \end{remark}
  
- \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{comp_pt_defn}.
+ \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
  	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which comes from $\pi^\nu_\mu$ (cf. Definition \ref{compliant_comes_defn}).
  \end{empt}
  \begin{lemma}\label{inv_g_lim_lem}
@@ -3794,7 +3794,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \begin{lemma}\label{base_point_change_lem}
  	Let 
  	$\mathfrak{S}=\left\{ \left( A , A_{\la},  G\left(\left.A_\la~\right|A \right), \pi_{\la}\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}$.
- 	be an {algebraical  finite covering category}.	Consider two pointed subcategories $\mathfrak{S}^{\text{pt}}_\pi$, $\mathfrak{S}^{\text{pt}}_\rho$ having morphisms $\left\{\pi^\nu_\mu: A_{\nu}\hookto A_{
+ 	be an {algebraical  finite covering category}.	Consider two pointed subcategories $\mathfrak{S}^{\mathrm{pt}}_\pi$, $\mathfrak{S}^{\mathrm{pt}}_\rho$ having morphisms $\left\{\pi^\nu_\mu: A_{\nu}\hookto A_{
  		\mu}\right\}$ and $\left\{\rho^\nu_\mu: A_{\nu}\hookto A_{
  		\mu}\right\}$.
  	Suppose that both $$\left\{ d^\mu_{\nu} : G\left(\left.A_\mu~\right|A\right) \to G\left(\left.A_\nu~\right|A\right)\right\}  \text{ and }\left\{ e^\mu_{\nu} : G\left(\left.A_\mu~\right|A\right) \to G\left(\left.A_\nu~\right|A\right)\right\} $$ are surjecive homomorphisms which come from $\left\{\pi^\nu_\mu\right\}$ and $\left\{\rho^\nu_\mu\right\}$ respectively. 	Suppose that both $\widehat{G} = \varprojlim_{\la \in \La} G\left(\left.A_\la~\right|A\right)$ and $\widehat{H} = \varprojlim_{\la \in \La} G\left(\left.A_\la~\right|A\right)$ are inverse limits which come from $\left\{ d^\mu_{\nu} \right\} $ and $\left\{ e^\mu_{\nu} \right\} $ respectively. If 
@@ -3832,58 +3832,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	be an {algebraical  finite covering category}. If both 
  	$\left\{\pi^\nu_\mu\right\}$ and $ \left\{\rho^\nu_\mu\right\}$ are base-points of $\mathfrak{S}$ then from the Lemma \ref{base_point_change_lem} it turns out the category $\left( \mathfrak{S}, \left\{\pi^\nu_\mu\right\}\right)$ is equivalent to $\left( \mathfrak{S}, \left\{\rho^\nu_\mu\right\}\right)$.
  \end{rem}
- \paragraph{title}
 
- \begin{empt}\label{comp_empt}
- 	Let $A$ be a connected $C^*$-algebra.	Consider a category $\mathfrak{S}$ such that.
-	\begin{itemize}
-	\item [(i)]  Any  $\mathfrak{S}$-object  is a connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
-	\item[(ii)] A $\mathfrak{S}$-morphism from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde A'  & & \widetilde A'' \\ 
-			& A  & \\};
-		\path[-stealth]
-		(m-1-3) edge node [above] {$\pi$} (m-1-1)
-		(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
-		(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
-	\end{tikzpicture}
-	\\ 	
-	is commutative. We also require that  there is a $\left(A, \widetilde{A}', G', \pi' \right)$-proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
-	$$
-	\left(\widetilde A'', \widetilde A', G\left(\left.  \widetilde A'\right| \widetilde A''\right), \pi\right)\cong \left(\widetilde A'^H, \widetilde A', H, \Id_{\widetilde A'}|_{\widetilde A''}\right)
-	$$
-	(cf. Lemma \ref{fin_composition_covering_lem}).
-	\item[(iii)] If both $\pi_1: \widetilde A_1 \to \widetilde A_2$ and $\pi_2: \widetilde A_2 \to \widetilde A_3$ are $\mathfrak{S}$-morphisms which corresponds to noncommutative finite-fold coverings $\left( \widetilde A_1, \widetilde A_2, G_{12}, \pi_{12}\right)$, $\left( \widetilde A_2, \widetilde A_3, G_{23}, \pi_{23}\right)$ then a pair $\left(\left( \widetilde A_2, \widetilde A_3, G_{23}, \pi_{23}\right), \left( \widetilde A_1, \widetilde A_2, G_{12}, \pi_{12}\right) \right)$ is composable (cf. Definition \ref{composable_coverings_defn}).
-		\item[(iv)] If both $\left(A, \widetilde{A}, G, \pi' \right)$ and  $\left(A, \widetilde{A}, G, \pi'' \right)$  are $\mathfrak{S}$-objects then there is $g \in G\left( \left.\widetilde A \right| A\right)$ such that $\pi_1 = g \circ \pi_2$. 
-	\item[(v)] Compositions of morphisms come from compositions of *-homomorphisms.
-\end{itemize}
- \end{empt}
-  
- \begin{definition}\label{alg_fin_cat_defn}
- 	Consider a situation \ref{comp_empt} and suppose that $\mathfrak{S}$ is skeletal (cf. Definition \ref{skeletal_defn}).
- 	The category $\mathfrak{S}$ 
- 	is said to be an \textit{algebraical  finite covering category}. 
- 	We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
- \end{definition}
- \begin{definition}\label{pointed_defn}
- 	Let $\mathfrak{S}$ be an algebraical  finite covering category (cf. Definitions \ref{skeletal_defn} and \ref{alg_fin_cat_defn}). A subcategory  $\mathfrak{S}^{\text{pt}}$ of $\mathfrak{S}$ is a \textit{pointed algebraical  finite covering category} of $\mathfrak{S}$  if one has:
- 	\begin{itemize}
- 		\item[(a)] a family of $\mathfrak{S}^{\text{pt}}$-objects coincides with a family of $\mathfrak{S}^{\text{pt}}$-objects,
- 		\item[(b)] if there is a $\mathfrak{S}$-morphism from  $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$  then  there is $\mathfrak{S}^{\text{pt}}$-morphism from  $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$,
- 		\item[(c)] for  any pair  $\left( \left( A , A', G\left(\left.A'~\right|A \right), \pi'\right),	\left( A , A'', G\left(\left.A''~\right|A \right), \pi''\right)\right) $ of  $\mathfrak{S}^{\text{pt}}$-objects there is no more than one morphism from $	\left( A , A', G\left(\left.A'~\right|A \right), \pi'\right)$ to \\ $	\left( A , A'', G\left(\left.A''~\right|A \right), \pi''\right)$,
- 			\item[(d)] The set of $\mathfrak{S}^{\text{pt}}$-objects  is ordered by the following way:
- 		\be\label{fg_ordp_eqn}
- 		\begin{split}
- 			\left( A , A', G\left(\left.A'~\right|A \right), \pi'\right) \le 	\left( A , A'', G\left(\left.A''~\right|A \right), \pi''\right) \\ \Leftrightarrow ~ \text{there is a } \mathfrak{FinCov}\text{-}A\text{-morphism } \left( A'' , A', G\left(\left.A''~\right|A' \right) , \pi\right)\\ \text{ from } \left( A , A', G\left(\left.A'~\right|A \right), \pi'\right) \le 	\left( A , A'', G\left(\left.A''~\right|A \right), \pi''\right)  , 
- 		\end{split}
- 		\ee
- 		is a directed set.
- 	\end{itemize}
- 	We say that $\mathfrak{S}$  \textit{allows base-points} if there is a pointed subcategory of  $\mathfrak{S}$.
- \end{definition}
  \begin{notation}\label{pointed_not}
   		We suppose that a family of   $\mathfrak{S}^{\text{pt}}$-objects is indexed by directed set $\La$
  $$
@@ -3892,9 +3841,6 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
 There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}}= A$.
  \end{notation}
  
- \begin{remark}\label{comp_pt_rem}
- If {pointed algebraical  finite covering category} of $\mathfrak{S}$ exists then it is unique up to isomorphism.
- \end{remark}
  \begin{remark}
  The motivation of the Definition \ref{pointed_defn} is explained in \ref{top_pointed_defn_empt}.
  \end{remark}
@@ -3904,9 +3850,6 @@ There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}
  % \begin{definition}\label{alg_fin_cat_defn}
  	% 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
  	% \end{definition}
- \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
- 	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)\cong G\left(\left.A_\mu~\right|A \right)/G\left(\left.A_\mu~\right|A_\nu \right) $ the surjective homomorphism which comes from $\pi^\nu_\mu$. From (iii) of \ref{comp_empt} it follows that $G\left(\left.A_\mu~\right|A_\nu \right)$  is a normal subgroup of $G\left(\left.A_\mu~\right|A \right)$).
- \end{empt}
  
  \begin{defn}\label{inv_g_lim_defn}
  	From  the Definition \ref{pointed_defn}  it turns out that one can  define surjective homomorphism  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$  which come from $\pi^\nu_\mu$, hence there is the inverse limit 
@@ -10112,6 +10055,9 @@ $$
 From our construction it follows that $f$ is the unique pointed  map $\left( \sY, y_0 \right) \to\left( \widetilde{ {\sX}}, \widetilde x_0\right)$ which satisfies to the equation \eqref{top_fs_eqn}. For any $\widetilde{ x}'\in f\left(\sY \right)$ there is an open neighborhood evenly covered by $f$. In particular $f \left( \sY\right)$ is an open subset of $\widetilde \sX$. Let $\widetilde \sZ \subset \widetilde \sX$ be the closure of $f \left( \sY\right)$ and let $\widetilde x' \in \widetilde \sZ\setminus f \left( \sY\right)$. If $x' \bydef \widetilde p\left(\widetilde x' \right)$ then there are 
  open  neighborhoods $\sU'_1$ and $\sU'_2$ of $x'$  evenly covered by both $p_\sY$ and $\widetilde{p}$ respectively. Let $\sU'$  be an open connected  neighborhood of $x'$ such that $\sU' \subset  \sU'_1\cap \sU'_2$. If $\widetilde\sU'$ is a connected component of $\widetilde p^{-1}\left( \sU'\right)$ such that $\widetilde x' \in \widetilde\sU'$ then since $f\left( \sY\right)$ is dense in $\mathcal Z$ there is $\widetilde x'' \in \widetilde\sU' \cap f\left( \sY\right)$, i.e. $\exists y'' \in \sY \quad f\left( y''\right)=\widetilde x''$. From $ \widetilde x'' \in \widetilde\sU'$ it follows that  $ \widetilde p\left( \widetilde x''\right)  \in \sU'$  and  $\widetilde p_\sY\left( \widetilde y''\right)  \in \sU'$.
 If $\sV$ is a connected component of $\widetilde{p}^{-1}_\sY\left(\sU' \right)$ such that  $y'' \in \sV$ then from ${p}_\sY \left(\sV \right) = \sU'$ it follows that $\widetilde p_\sY\left(\sV\right)= \widetilde \sU'$. In particular $\widetilde x' \in \widetilde p_\sY\left(\sV\right)\subset \widetilde p_\sY\left(\sY\right)$, it contradicts with $\widetilde x' \in \widetilde \sZ\setminus f \left( \sY\right)$. From this contradiction it follows that $\widetilde \sZ\setminus  f \left( \sY\right)= \emptyset$, so $\widetilde \sZ =   f \left( \sY\right)$ and the set $f \left( \sY\right)$ is a closed subset of $\widetilde\sX$. Thus $f \left( \sY\right)$ is a nonempty open and closed subset of $\widetilde\sX$. However the set $\widetilde\sX$ is connected, it follows that   $\widetilde\sX = f \left( \sY\right)$, i.e. the map $f$ is surjective. Thus $f$ satisfies to the Definition  \ref{comm_top_constr_morph_defn}, i.e. $f$ is a morphism of the category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$. So for any object of the category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$ there is the unique natural morphism to $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)$ i.e.  $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)$ is the terminal object. (cf. Definition \ref{term_ob_defn}).
+
+
+!!! USE \ref{top_locally_conn_cov_thm}!!!
 \end{proof}
 
 
