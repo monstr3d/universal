@@ -3726,7 +3726,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	Let $A$ be a $C^*$-algebra.  Let us consider a skeletal category $\mathfrak{S}$ (cf. Definition \ref{skeletal_defn}) such that
  	\begin{itemize}
  		\item $\mathfrak{S}$-objects are noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.
- 		\item $\mathfrak{S}$-morphism from $\pi_\nu: A \hookto A_\nu$ to   $\pi_\mu: A \hookto A_\mu$ is an injective homomorphism  $*$-homomorphism $pi: A_\nu \hookto A_\mu$ with 
+ 		\item $\mathfrak{S}$-morphism from $\pi_\nu: A \hookto A_\nu$ to   $\pi_\mu: A \hookto A_\mu$ is any injective   $*$-homomorphism $\pi: A_\nu \hookto A_\mu$ with 
  	$\pi_\mu = \pi \circ \pi_\nu$,
  	\item  compositions of $\mathfrak{S}$-morphisms corresponds to compositions of relevant $*$-homomorphisms.
  	\end{itemize} 
@@ -3763,6 +3763,9 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \end{definition}
  \begin{remark}\label{comp_pt_rem}
  	The Definition \ref{pointed_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
+ \end{remark}
+  \begin{remark}
+ 	The motivation of the Definition \ref{pointed_defn} is explained in \ref{top_pointed_defn_empt}.
  \end{remark}
  
  \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
@@ -3850,9 +3853,6 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
 There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}}= A$.
  \end{notation}
  
- \begin{remark}
- The motivation of the Definition \ref{pointed_defn} is explained in \ref{top_pointed_defn_empt}.
- \end{remark}
  \begin{remark}\label{implicit_inc_rem}
  	Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ where $C^*$-$\varprojlim_{\la \in\La} A_\la$ means a $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}). Sometimes we write $ A_\nu \subset A_\mu$ instead of  $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$.
  \end{remark}
@@ -3861,7 +3861,7 @@ There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}
  	% \end{definition}
  
  \begin{defn}\label{inv_g_lim_defn}
- 	From  the Definition \ref{pointed_defn}  it turns out that one can  define surjective homomorphism  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$  which come from $\pi^\nu_\mu$, hence there is the inverse limit 
+ 	From  the Definition \ref{pointed_defn} and (c) of the Definition \ref{compliant_covering_defn} it turns out that one can  define surjective homomorphism  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$  which come from $\pi^\nu_\mu$, hence there is the inverse limit 
  	$$
  	\widehat{G}=	\varprojlim_{\la \in \La} G\left(\left.A_\la~\right|~A\right)
  	$$
@@ -3940,7 +3940,7 @@ g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left
  	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
- 		\item[(d)] The set of given by \eqref{a_la_eqn} elements is dense in $A_\la$.
+ 		\item[(d)] The set of given by \eqref{a_la_eqn} elements is dense in $\phi\circ \varphi_\la\left( A_\la \right)$.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
