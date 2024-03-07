@@ -157,7 +157,7 @@ One has a natural isomorphism $\pi_1\left( \sX, x_0\right)\cong G\left(\left.\wi
 \\
 The Grothendieck's fundamental group equals to $\pi^{\text{AG}}_1\left( \sX, x_0\right)\bydef \varprojlim_{\la\in\La} G\left(\left. \sX_\la  \right| \sX\right)$. The noncommutative geometry yields finer result, i.e.
 $
-\widehat \pi^{\text{NCG}}_1\left( \sX, x_0\right) \bydef  \pi_1\left( \sX, x_0\right)/ \bigcap_{\la\in\La} \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right) 
+\pi^{\text{NCG}}_1\left( \sX, x_0\right) \bydef  \pi_1\left( \sX, x_0\right)/ \bigcap_{\la\in\La} \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right) 
 $
 To obtain a NCG  Grothendieck's analog one needs analogs  of both: 
 \begin{itemize}
@@ -271,15 +271,15 @@ Let $A$ be a $C^*$-algebra. Below we consider a set of assumptions about $A$. If
 The set	$\La$ is a directed set ordered by the following formula.
 	\be\label{fg_ord_eqn}
 	\begin{split}
-		\nu \ge \mu  \text{ if and only if there is an injective}\\ \text{*-homomorphism } \pi^\nu_\mu: A_\mu \hookto A_\nu; 
-		\text{ such that } \pi_\nu = \pi^\mu_\nu \circ \pi_\mu.
+		\nu \ge \mu  \text{ if and only if there is an injective}\\ \text{*-homomorphism } \pi: A_\mu \hookto A_\nu; 
+		\text{ such that } \pi_\nu = \pi \circ \pi_\mu.
 	\end{split}
 	\ee
 \end{enumerate}
 Consider a skeletal category $\mathfrak{S}$ such that:
 \begin{itemize}
 	\item $\mathfrak{S}$-objects are elements of $\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$,
-	\item $\mathfrak{S}$-morphism from $ \pi_\nu: A \hookto A_{\nu}$ to $ \pi_\mu: A \hookto A_\mu$ is an injective *-homomorphism $\pi^\nu_\mu : A_\mu \hookto  A_\nu$ such that $\pi_\nu = \pi^{\nu}_\mu \circ \pi_\nu$. 
+	\item $\mathfrak{S}$-morphism from $ \pi_\nu: A \hookto A_{\nu}$ to $ \pi_\mu: A \hookto A_\mu$ is an injective *-homomorphism $\pi : A_\mu \hookto  A_\nu$ such that $\pi_\nu = \pi \circ \pi_\nu$. 
 \end{itemize}
 Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ of  $\mathfrak{S}$   which is equivalent to the ordered category $\La$. 
 \end{frame}
@@ -292,7 +292,7 @@ Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ of  $\mathfrak{S}
 	\be\label{h_la_eqn}
 	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right)
 	\ee
-	The group $\widehat{G}$ is an NCG analog of the Grothendieck's fundamental group. However we would like to obtain finer result.
+	The group $\widehat{G}$ is an NCG-analog of the Grothendieck's fundamental group. However we would like to obtain finer result.
 \end{frame}
 \begin{frame}
 	\begin{definition}
@@ -314,7 +314,7 @@ Using the actions  $G\left(\left.A_\la~\right|~A\right)\times A_\la \to A_\la$ w
 		\ee
 		\item[(c)] if $K\left( \overline{A}\right)$ is the Pedersen's ideal of $\overline A$ then   for any $\la\in \La$  and $\overline a \in K\left( \overline{A}\right)$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$. Moreover we require that
 		\be\label{a_la_eqn}
-		a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
+		a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G\left(\left.A_\la~\right|~A\right)\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
 		\ee
 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$,
 		\item[(d)] the set of given by \eqref{a_la_eqn} elements is dense in $A_\la$.
@@ -522,7 +522,7 @@ G\left(\left.C_0\left( \widetilde{\sX}\right) \right| C_0\left( \sX \right)\righ
 
 \begin{frame}
 \begin{lemma}\alert{Petr Ivankov}.
-	If $\sX$ be a connected, locally path-connected  and  semilocally 1-connected  space. then there is a natural isomorphism
+	If $\sX$ is a connected, locally path-connected  and  semilocally 1-connected  space. then there is a natural isomorphism
 	$$
 	\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
 	$$
@@ -530,6 +530,28 @@ G\left(\left.C_0\left( \widetilde{\sX}\right) \right| C_0\left( \sX \right)\righ
 	
 \end{lemma}
 
+\begin{theorem}\alert{Petr Ivankov}.
+Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be the spectrum of $A$. 	If  $\sX$ is connected, locally connected and weakly semilocally 1-connected then $C_0\left(\sX \right)$ and there is a natural isomorphism 
+	$$
+	\pi_1\left( A\right)  \cong \frac{\pi^{\text{w}}_1\left(\sX, x_0\right)}{\bigcap_{\la\in \La} \ker \left( \pi_1\left( \sX, x_0\right)\to G\left(\left. \sX_\la  \right| \sX\right)\right)}
+	$$
+	where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is the weak fundamental group. 
+\end{theorem}
+
+\end{frame}
+\begin{frame}
+\alert{A conjecture}.
+If $\left(M, \sF \right)$ is a foliated manifold and $C^*_r\left(M, \sF \right)$ is a reduced $C^*$-algebra of the foliation then one has
+$$
+	\pi_1\left(C^*_r\left(M, \sF \right)\right)  \cong \frac{\pi_1\left(M, x_0\right)}{\bigcap_{\la\in \La} \ker \left( \pi_1\left( M, x_0\right)\to G\left(\left. M_\la  \right| M\right)\right)}.
+$$  
+
+
+\end{frame}
+\begin{frame}
+	\alert{Thank you}
+	
+	
 \end{frame}
 
 \end{document}
