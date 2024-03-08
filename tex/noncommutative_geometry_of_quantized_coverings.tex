@@ -1372,11 +1372,11 @@ If $ \A$ is  category then a related to $ \A$ construction is said to be \textit
    \section{Basic definitions}\label{cov_fin_bas_sec}
   \subsection{Coverings of $C^*$-algebras}
    \paragraph{}
-   !!! CONTINUE !!!
+
  Here the noncommutative generalization of the Theorem \ref{pavlov_troisky_thm} is being considered.  
    \begin{definition}\label{fin_quasi_defn}
 	Let  $A$  be  a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\pi: A \hookto \widetilde{A}$ be an injective, unital (in the sense of the Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
-	$C^*$-algebras. Let $G$ be a finite  group of *-automorphisms of $\widetilde{A}$ such that 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
+	$C^*$-algebras. Let $G$ be a finite  group of *-automorphisms of $\widetilde{A}$ such that 	$\pi\left(A\right) = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
 	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
 	\be\label{fin_cov_gr_eqn}
 	G\left(\left.\widetilde{A}~\right| {A} \right) \stackrel{\text{def}}{=}  	G.
@@ -1427,30 +1427,34 @@ one has $a \in \pi\left(A \right)$. Using the equation \eqref{four_decompositon_
 
 
 \begin{lemma}\label{quasi_approximate_unit_lem}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is an  approximate unit (cf. Definition \ref{approximate_unit_defn} ) of  $\widetilde{A}$ which is contained in $A$.
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is an  approximate unit (cf. Definition \ref{approximate_unit_defn} ) of  $\widetilde{A}$ which is contained in $\pi\left( A\right) $.
 \end{lemma}
 \begin{proof}
-	From the Theorem \ref{approximate_unit_thm}  there is an approximate unit  $\left\{\widetilde{u}_\la \right\}_{\la \in \La}$ of  $\widetilde{A}$. For any $g \in G$ and $\widetilde{x}\in  \widetilde{A}$ one has 
+	From the Theorem \ref{approximate_unit_thm}  one has an approximate unit  $\left\{\widetilde{u}_\la \right\}_{\la \in \La}$ of  $\widetilde{A}$. For any $g \in G$ and $\widetilde{x}\in  \widetilde{A}$ one has 
 \bean
 	\lim_\la \left\|\widetilde{x}- \widetilde{x}\left( g\widetilde{u}_\la\right)  \right\| = 	\lim_\la \left\|g\left(g^{-1} \widetilde{x}- \left(g^{-1} \widetilde{x} \right) \widetilde{u}_\la\right)   \right\|=\\=\left\|g\lim_\la\left(g^{-1} \widetilde{x}- \left(g^{-1} \widetilde{x} \right) \widetilde{u}_\la\right)   \right\| =0,
 \eean
 	i.e.  $\left\{g\widetilde{u}_\la \right\}_{\la \in \La}$ is an approximate unit of  $\widetilde{A}$. 
-	If ${v}_\la \bydef \frac{1}{\left|G\right|}\sum_{g\in G} g\widetilde{u}_\la \in A$, then 
+	If ${v}_\la \bydef \frac{1}{\left|G\right|}\sum_{g\in G} g\widetilde{u}_\la \in \widetilde A^G= \pi\left( A\right) $, then 
 	\bean
 	\lim_\la \left\| \widetilde{x}- \widetilde{x}v_\la   \right\| = 	\lim_\la \left\|\frac{1}{\left|G\right|}\sum_{g\in G} \left( \widetilde{x}- \widetilde{x}   \left( g\widetilde{u}_\la\right)\right)    \right\|\le \lim_\la \frac{1}{\left|G\right|}\sum_{g\in G}\left\| \widetilde{x}- \widetilde{x}  \left( g\widetilde{u}_\la\right)   \right\| = 0.
 	\eean
 	Similarly one can prove that $\lim_\la \left\| \widetilde{x}- v_\la \widetilde{x}  \right\|=0$, i.e.   $\left\{{v}_\la \right\}_{\la \in \La}$ is an approximate unit of $\widetilde A$. 
-	Otherwise from $gv_\la = v_\la$ 
-	for all  $g\in G$ and $\la\in \La$ it turns out that 
-	  the net $\left\{{v}_\la \right\}$ is  contained in $\widetilde A^G = A$.
+	Otherwise $\left\{{v}_\la \right\}_{\la \in \La}\subset\pi\left(A\right)$.
   \end{proof}
-
+\begin{remark}\label{implicit_inclusion_rem}
+Since a $*$-homomorphism $\pi: A\hookto \widetilde{A}$ it can be implicitly replaced by an inclusion
+\be\label{implicit_inclusion_eqn}
+A\subset \widetilde{A}
+\ee 
+\end{remark}
 \begin{lemma}\label{fin_top_lem}
 If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  quasi-covering} then $\widetilde{A}$ is a $C^*$-Hilbert $A$-module with respect to the following $A$-valued product
 	\begin{equation}\label{finite_hilb_mod_prod_eqn}
-	\left\langle \widetilde a, \widetilde b \right\rangle_{{A}} =\sum_{g \in G} g\left( \widetilde a^* \widetilde b\right). 
+	\left\langle \widetilde a, \widetilde b \right\rangle_{{A}} =\sum_{g \in G} g\left( \widetilde a^* \widetilde b\right) 
 	\end{equation}
-\end{lemma}
+	where the inclusion \eqref{implicit_inclusion_eqn} is implied.
+	\end{lemma}
 \begin{proof}
 	Direct calculation shows that the product \eqref{finite_hilb_mod_prod_eqn} satisfies to conditions (a)-(d) of the Definition \ref{hilbert_module_defn}. Let us prove that $\widetilde{A}$ is closed with respect to the norm \eqref{hilb_norm_eqn}.
 	The norm $\left\| \cdot\right\|_H$  of $A$-Hilbert pre-module $\widetilde{A}_A$  is given by
@@ -1478,10 +1482,10 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 	\begin{enumerate}
 		\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
 				\be\nonumber
-		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in A\quad ga = a\right\}
+		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \pi \left( A\right) \quad ga = a\right\}
 		\ee
 		is finite.
-		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
+		\item[(b)] 	$\pi\left( A \right) = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
@@ -1509,12 +1513,13 @@ a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn})
 \begin{proof}	
 	From the Definition \ref{fin_pre_defn} it follows that
 	$$
-G = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}.
+G = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in \pi \left( A\right) \right\}.
 	$$
 	So one has
-	$$
+\bean
+\forall g \in \Aut\left(\widetilde{A}\right) \quad \forall a^H \in \widetilde A^H\quad   g\widetilde a^H = \widetilde a^H \quad \Rightarrow \quad \forall a \in \pi\left(A \right) \quad g a = a,\\
  \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}\subset G.	
-	$$
+\eean
 	It turns out that
 	\bean
 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}= \\= \left\{ \left.g \in G~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}=H.
@@ -1550,6 +1555,7 @@ hence one has
 \begin{remark}
 	From the equation \eqref{left_right_eqv_equ} it follows that the usage of left $A$-modules in the Definition \ref{fin_unital_defn} is equivalent to the usage of right ones.
 \end{remark}
+!!! CONTINUE !!!
 \begin{remark}\label{fin_cov_kasp_rem}
 	From the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
 \end{remark}
@@ -1585,6 +1591,7 @@ where $\widetilde a^H_j \bydef \frac{1}{\left|H \right| }\sum_{g \in H}g \wideti
 We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$ is a
    		 \textit{noncommutative finite-fold covering with unitization}, (resp. \textit{noncommutative finite-fold quasi-covering with unitization}). 
    \end{definition}
+   !!! CONTINUE !!!
 \begin{lemma}\label{fin_composition_uni_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering  with unitization (cf. Definition \ref{fin_unitization_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there are following finite-fold noncommutative coverings with unitization:
 	\bea\label{fin_composition_uni_1_eqn}
