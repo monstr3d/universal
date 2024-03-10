@@ -831,7 +831,7 @@ Following table contains  special symbols.
 	A connected closed two-sided ideal $A$ of  $C^*$-algebra $B$ is said to be a \textit{connected component of}  $B$ is there is a direct sum $B = A \oplus A'$ of $C^*$-algebras.
 \end{definition}
 \begin{exercise}\label{conn_comp_exer}
-Using the Theorem \ref{ideal_spectrum_thm} prove that there is a natural one-to-one correspondence between connected components of $C^*$-algebra and connected components of its spectrum (cf. Definitions \ref{top_connected_component_defn}, \ref{spectrum_prime_primtive_defn}).
+Using the Theorems  \ref{ideal_spectrum_thm} and \ref{dauns_hofmann_thm} prove that there is a natural one-to-one correspondence between connected components of $C^*$-algebra and quasi-components of its spectrum (cf. Definitions \ref{top_quasi_component_defn}, \ref{spectrum_prime_primtive_defn}).
 \end{exercise}
 \begin{empt}\label{unital_notation_empt}
 	Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
@@ -1555,7 +1555,6 @@ hence one has
 \begin{remark}
 	From the equation \eqref{left_right_eqv_equ} it follows that the usage of left $A$-modules in the Definition \ref{fin_unital_defn} is equivalent to the usage of right ones.
 \end{remark}
-!!! CONTINUE !!!
 \begin{remark}\label{fin_cov_kasp_rem}
 	From the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
 \end{remark}
@@ -1585,13 +1584,12 @@ where $\widetilde a^H_j \bydef \frac{1}{\left|H \right| }\sum_{g \in H}g \wideti
    	%	\item[(b)]$A = B\bigcap \widetilde{A}$,
    		\item[(b)] there is a %(strong) 
    	  unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}) such that
-   	  $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and
+   	  $\pi = \widetilde{\pi}|_A$ (or, equivalently $\pi\left( A \right)= \widetilde{A}\cap \widetilde \pi\left( B\right)$) and
    	   the action $G \times\widetilde{A} \to \widetilde{A}$ comes from  the $G \times\widetilde{B} \to \widetilde{B}$ one.
    	\end{enumerate}
 We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$ is a
    		 \textit{noncommutative finite-fold covering with unitization}, (resp. \textit{noncommutative finite-fold quasi-covering with unitization}). 
    \end{definition}
-   !!! CONTINUE !!!
 \begin{lemma}\label{fin_composition_uni_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering  with unitization (cf. Definition \ref{fin_unitization_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there are following finite-fold noncommutative coverings with unitization:
 	\bea\label{fin_composition_uni_1_eqn}
@@ -1609,7 +1607,7 @@ Let $\left(B, \widetilde{B}, G, \widetilde\pi \right)$ be a required by the Defi
 	%	\item[(b)]$A = B\bigcap \widetilde{A}$,
 	\item[(b)] There is a %(strong) 
 	unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}) such that
-	$\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and
+	$\pi = \widetilde{\pi}|_A$ (or, equivalently $\pi\left( A \right)= \widetilde{A}\cap \widetilde \pi\left( B\right)$) and
 	the action $G \times\widetilde{A} \to \widetilde{A}$ comes from  the $G \times\widetilde{B} \to \widetilde{B}$ one.
 \end{enumerate}
 There is a natural inclusion $ \widetilde{A}^H \subset  \widetilde{B}^H$, let us prove that $ \widetilde{A}^H$ is an essential ideal of $\widetilde{B}^H$ (cf. Definition \ref{essential_defn}). Let  $\widetilde b \in \widetilde B^H\setminus \{0\}$ be such that $\widetilde b\widetilde A^H= \{0\}$. Since $\widetilde b\neq 0$ from the Lemma \ref{essential_lem} there is $\widetilde a \in \widetilde A$ such that $\widetilde b \widetilde a \neq 0$. From \eqref{four_decompositon_eqn} it follows that one can assume that $\widetilde a$ is positive. From the equation $\widetilde b \widetilde a = \widetilde b \sqrt{\widetilde a} \sqrt{\widetilde a} \neq 0$ it follows that $\widetilde b \sqrt{\widetilde a}\neq 0$ and $\widetilde b \sqrt{\widetilde a}\left( \widetilde b \sqrt{\widetilde a}\right)^* =  \widetilde b \sqrt{\widetilde a} \sqrt{\widetilde a}\widetilde b^*= \widetilde b\widetilde a\widetilde b^*$ is a nonzero positive element. The following sum
@@ -1644,15 +1642,15 @@ are unital noncommutative finite-fold coverings. From the Definition \ref{fin_un
  \ee
  \end{remark}
 \begin{remark}\label{fin_ded_rem}
-	The equation   $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) follows from the actions $G \times\widetilde{A} \to \widetilde{A}$ and $G \times\widetilde{B} \to \widetilde{B}$. Really 
-	if $ \widetilde a\in \widetilde{A}\cap B$, or   equivalently  $ \widetilde a \in \widetilde \pi\left( A\right)$ then from $\widetilde a\in B$ it follows that	$	\widetilde a = \frac{1}{\left|G \right| }\sum_{	g \in G}\widetilde a$, so one has $\widetilde a \in \widetilde A^G = A$. It turns out that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A = \widetilde{A}\cap B$).
+	The equation   $\pi = \widetilde{\pi}|_A$ (or, equivalently $\pi\left( A \right)= \widetilde{A}\cap \widetilde \pi\left( B\right)$) follows from the actions $G \times\widetilde{A} \to \widetilde{A}$ and $G \times\widetilde{B} \to \widetilde{B}$. Really 
+	if $ \widetilde a\in \widetilde{A}\cap \pi\left( B\right)$, or   equivalently  $ \widetilde a \in \widetilde \pi\left( A\right)$ then from $\widetilde a\in \widetilde \pi\left( B\right)$ it follows that	$	\widetilde a = \frac{1}{\left|G \right| }\sum_{	g \in G}\widetilde a$, so one has $\widetilde a \in \widetilde A^G = \pi\left(A\right)$. It turns out that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A = \widetilde{A}\cap\widetilde{\pi} \left( B\right)$).
 \end{remark}
 \begin{remark}
 Any unital noncommutative finite-fold covering is a noncommutative finite-fold quasi-covering with unitization.
 \end{remark}
 
 \begin{empt}\label{act_mult_empt}
-If $\left(A, \widetilde{A}, G, \pi \right)$ be {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}) then there is the action $G \times M\left(A \right) \to M\left(A\right)$ such that for any $\widetilde a\in M\left( \widetilde A\right)$  (cf. Definition \ref{strict_topology_defn}) one has
+If $\left(A, \widetilde{A}, G, \pi \right)$ be {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}) then there is the action $G \times M\left(\widetilde A \right) \to M\left(\widetilde A\right)$ such that for any $\widetilde a\in M\left( \widetilde A\right)$  (cf. Definition \ref{strict_topology_defn}) one has
 \be\label{gma_act_eqn}
 g \widetilde a \bydef \bt\text{-}\lim v_\la g \widetilde a
 \ee
@@ -1663,6 +1661,7 @@ g\left(\widetilde b \widetilde a \right)=\lim v_\la g\left(  \widetilde b\wideti
 \eean 
 
 \end{empt}
+!!! CONTINUE !!!
  \begin{lemma}\label{fin_multilier_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then one has:
 	\begin{enumerate}
@@ -20181,8 +20180,28 @@ points of $\sX$ can be joined by a path in $\sX$.
 \begin{theorem}\label{top_loc_conn_thm}\cite{munkres:topology}
 	A space $\mathcal X$ is locally connected if and only if for every open set $\mathcal U$, each component of $\mathcal U$ is open in $\mathcal X$.
 \end{theorem}
+\begin{proposition}\label{top_quasi_component_prop}\cite{bredon:topology_geometry}
+%	4.11. 	Proposition. 
+The statement "$d(p) = d(q)$ for every discrete valued map $d$
+	on $\sX$" is an equivalence relation. D
+\end{proposition}
+\begin{definition}\label{top_quasi_component_defn}\cite{bredon:topology_geometry}
+%4.12. Definition. 
+The equivalence classes of the relation in Proposition \ref{top_quasi_component_prop}
+are called the \textit{quasi}-\textit{components} of $\sX$.
+\end{definition}
+\begin{proposition}\label{top_quasi_component_closed_prop}\cite{bredon:topology_geometry}
+%4.13. Proposition. 
+Quasi-components of a space $\sX$ are closed. Each connected
+set is contained in a quasi-component. (In particular, each connected component is contained
+in a quasi-component.) Quasi-components are either equal or disjoint,
+and fill out $\sX$.
+\end{proposition}
 
-
+\begin{exercise}\label{top_loc_conn_exer}\cite{bredon:topology_geometry}
+Prove that If $\sX$ is locally connected, show that its components are open and equal its
+quasi-components.
+\end{exercise}
 
 \begin{definition}\cite{spanier:at}
 Given a set $\sX$ and an indexed collection of topological spaces $\left\{\sX_j\right\}_{j \in J}$ functions $f_j : \sX \to \sX_j$, the \textit{topology induced} on $\sX$ by the functions $\left\{f_j\right\}$ is the 
@@ -28721,6 +28740,9 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 
 
 \bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
+
+\bibitem{bredon:topology_geometry} Bredon, Glen E. \textit{Topology and geometry} (Graduate texts in mathematics) Corr. 2nd print Edition, 1993
+
 
 \bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag.  ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 1997.
 
