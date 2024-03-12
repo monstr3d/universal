@@ -13,15 +13,19 @@
 
 <PageTitle>Chart</PageTitle>
 
-<LineChart @ref="lineChart" Width="800" Class="mb-4" />
+<LineChart @ref="lineChartCoordinate" Width="800" Class="mb-4" />
+<LineChart @ref="lineChartVelocity" Width="800" Class="mb-4" />
 <InputNumber @bind-Value=forecast.X/>
 <Button Type="ButtonType.Button" Color="ButtonColor.Primary" Size="Size.Small" @onclick="async () => await ForeastAsync()"> Randomize </Button>
 
 @code {
     Orbital.Forecast.Blasor.ForecastWeb forecast = new();
-    private LineChart lineChart = default!;
+    private LineChart lineChartCoordinate = default!;
+    private LineChart lineChartVelocity = default!;
     private LineChartOptions lineChartOptions = default!;
-    private ChartData chartData = default!;
+    private ChartData[] chartData = default!;
+
+    private LineChart[] lineChart;
 
     private int datasetsCount;
     private int labelsCount;
@@ -32,11 +36,13 @@
 
     void CreateChartData()
     {
-        chartData = new ChartData
-            {
-                Labels = GetDefaultDataLabels(3),
-                Datasets = GetDefaultDataSets(3)
-            };
+        chartData =[ new ChartData()
+               { Labels = GetDefaultDataLabels(3),
+                Datasets = GetDefaultDataSets(3, 0) },
+    new ChartData()
+               { Labels = GetDefaultDataLabels(3),
+                Datasets = GetDefaultDataSets(3, 1) }
+        ];
 
     }
 
@@ -44,6 +50,7 @@
     {
         BlazorApp.StaticExtension.Init();
         lists = forecast.Values;
+        lineChart = [lineChartCoordinate, lineChartVelocity];
         CreateChartData();
         lineChartOptions = new() 
         { Responsive = true, Interaction = new Interaction 
@@ -54,32 +61,37 @@
     {
         if (firstRender)
         {
-            await lineChart.InitializeAsync(chartData, lineChartOptions);
+            lineChart = [lineChartCoordinate, lineChartVelocity];
+            for (int i = 0; i < chartData.Length; i++)
+            {
+
+                await lineChart[i].InitializeAsync(chartData[i], lineChartOptions);
+            }
         }
         await base.OnAfterRenderAsync(firstRender);
     }
 
     #region Data Preparation
 
-    private List<IChartDataset> GetDefaultDataSets(int numberOfDatasets)
+    private List<IChartDataset> GetDefaultDataSets(int numberOfDatasets, int i)
     {
         /*var datasets = new List<IChartDataset>();
-         * 
+        * 
         for (var index = 0; index < numberOfDatasets; index++)
             {
             datasets.Add(GetRandomLineChartDataset());
         }*/
 
-        return GetCoordinaresDataSets();
+        return GetCoordinaresDataSets(i);
     }
 
-    private List<IChartDataset> GetCoordinaresDataSets()
+    private List<IChartDataset> GetCoordinaresDataSets(int i)
     {
         var datasets = new List<IChartDataset>();
 
         for (var index = 0; index < 3; index++)
         {
-            var d = GetCoordinateChartDataset(index);
+            var d = GetCoordinateChartDataset(index, i);
             datasets.Add(d);
         }
 
@@ -90,19 +102,23 @@
     {
         lists = forecast.Values;
         CreateChartData();
-        await lineChart.UpdateAsync(chartData, lineChartOptions);
+        for (int i = 0; i < 2; i++)
+        {
+            await lineChart[i].UpdateAsync(chartData[i], lineChartOptions);
+        }
     }
 
 
-    LineChartDataset GetCoordinateChartDataset(int i)
+    LineChartDataset GetCoordinateChartDataset(int i, int j)
     {
-        var c = ColorBuilder.CategoricalTwelveColors[i].ToColor();
+        int k = 3 * i + j + 1;
+        var c = ColorBuilder.CategoricalTwelveColors[k].ToColor();
 
-   
+
         return new LineChartDataset
             {
                 Label = $"Team {datasetsCount}",
-                Data = GetCoordinates(i),
+                Data = GetCoordinates(i, j),
                 BackgroundColor = new List<string> { c.ToRgbString() },
                 BorderColor = new List<string> { c.ToRgbString() },
                 BorderWidth = new List<double> { 2 },
@@ -115,13 +131,14 @@
     }
 
 
-    private List<double> GetCoordinates(int i)
+    private List<double> GetCoordinates(int i, int j)
     {
         var data = new List<double>();
+        var k = 3 * j + 1 + i;
         foreach (var l in lists)
         {
             
-            data.Add((double)l[i + 1]);
+            data.Add((double)l[k]);
         }
         return data;
     }

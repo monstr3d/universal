@@ -52,7 +52,7 @@ namespace DataPerformer.Portable
         private static Dictionary<string, IAsynchronousCalculationFactory> asynchronousCalculations =
             new Dictionary<string, IAsynchronousCalculationFactory>();
 
-  
+
         /// <summary>
         /// Desktop
         /// </summary>
@@ -71,7 +71,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Constructor
         /// </summary>
-        static  StaticExtensionDataPerformerPortable()
+        static StaticExtensionDataPerformerPortable()
         {
             new CSCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
@@ -261,7 +261,7 @@ namespace DataPerformer.Portable
             var wrapper = new ComponentCollectionWrapper(collection);
             wrapper.PerformFixed(start, step, count, provider, processor, priority, action,
                  reason);
-         }
+        }
 
         /// <summary>
         /// Performs iterator
@@ -308,7 +308,7 @@ namespace DataPerformer.Portable
         /// </summary>
         static public ITimeMeasurementProviderFactory TimeMeasureProviderFactory
         { get; set; }
-        
+
         /// <summary>
         /// Creates disassembly object dictionary
         /// </summary>
@@ -316,10 +316,10 @@ namespace DataPerformer.Portable
         /// <param name="disassembly">Disassembly</param>
         /// <returns>The dictionary</returns>
         static public Dictionary<IMeasurement, IDisassemblyObject>
-            CreateDisassemblyObjectDictionary(this IEnumerable<IMeasurement> measurements,  
+            CreateDisassemblyObjectDictionary(this IEnumerable<IMeasurement> measurements,
             IDisassemblyObject disassembly)
         {
-            Dictionary<IMeasurement, IDisassemblyObject> d = 
+            Dictionary<IMeasurement, IDisassemblyObject> d =
                 new Dictionary<IMeasurement, IDisassemblyObject>();
             foreach (IMeasurement m in measurements)
             {
@@ -338,7 +338,7 @@ namespace DataPerformer.Portable
         /// <param name="dataConsumer">Consumer of data</param>
         /// <param name="factory">Factory of objects</param>
         /// <returns>Dictionary of objects</returns>
-        static public Dictionary<IMeasurement, object> GetMeasurementObjects(this IDataConsumer dataConsumer, 
+        static public Dictionary<IMeasurement, object> GetMeasurementObjects(this IDataConsumer dataConsumer,
             IMeasurementObjectFactory factory)
         {
             Dictionary<IMeasurement, object> d = new Dictionary<IMeasurement, object>();
@@ -397,7 +397,7 @@ namespace DataPerformer.Portable
         /// </summary>
         /// <param name="dictionary">Dictionary of objects</param>
         /// <param name="condition">Condition for remove</param>
-        static public void RemoveMeasurementObjects(this Dictionary<IMeasurement, object> dictionary, 
+        static public void RemoveMeasurementObjects(this Dictionary<IMeasurement, object> dictionary,
             Func<object, bool> condition)
         {
             List<IMeasurement> l = new List<IMeasurement>(dictionary.Keys);
@@ -416,7 +416,7 @@ namespace DataPerformer.Portable
         /// <param name="dataConsumer"></param>
         /// <param name="type"></param>
         /// <returns>The dictionary</returns>
-        static public Dictionary<IMeasurement, string> GetMeasurementsDictionary(this IDataConsumer dataConsumer, 
+        static public Dictionary<IMeasurement, string> GetMeasurementsDictionary(this IDataConsumer dataConsumer,
             object type = null)
         {
             if (type == null)
@@ -496,12 +496,12 @@ namespace DataPerformer.Portable
         /// <param name="processor">Differential equation processor</param>
         /// <param name="errorHandler">Error handler</param>
         /// <returns>The Xml document</returns>
-        static public XmlDocument CreateXmlDocument(this IDataConsumer consumer, 
+        static public XmlDocument CreateXmlDocument(this IDataConsumer consumer,
             Dictionary<string, string> output,
             string condition, double start, double step,
-            int count, Func<bool> stop, 
+            int count, Func<bool> stop,
             ITimeMeasurementProvider provider,
-        IDifferentialEquationProcessor processor, 
+        IDifferentialEquationProcessor processor,
         IErrorHandler errorHandler = null)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
@@ -1084,7 +1084,7 @@ namespace DataPerformer.Portable
             {
                 return false;
             }
-            CalculationReasonsAttribute attr =  obj.GetAttribute<CalculationReasonsAttribute>();
+            CalculationReasonsAttribute attr = obj.GetAttribute<CalculationReasonsAttribute>();
             if (attr == null)
             {
                 return false;
@@ -1098,7 +1098,7 @@ namespace DataPerformer.Portable
                 }
             }
             return false;
-        } 
+        }
 
         /// <summary>
         /// Updates measurements
@@ -1188,10 +1188,25 @@ namespace DataPerformer.Portable
         /// Gets aliases names linked to data consumer
         /// </summary>
         /// <param name="consumer">The data consumer</param>
+        /// <param name="type">Type of alias</param>
+        /// <returns>List of aliases</returns>
+        public static List<string> GetAllAliases(this IDataConsumer consumer, object type = null)
+        {
+            var l = new List<string>();
+            var d = (consumer as IAssociatedObject).GetRootDesktop();
+            consumer.GetAllAliases(d, l, type);
+            return l;
+            
+        }
+
+        /// <summary>
+        /// Gets aliases names linked to data consumer
+        /// </summary>
+        /// <param name="consumer">The data consumer</param>
         /// <param name="desktop">Relative desktop</param>
         /// <param name="l">List of name of aliases</param>
         /// <param name="type">Type of alias</param>
-        public static void GetAllAliases(this IDataConsumer consumer, IDesktop desktop, IList<string> l, object type)
+        public static void GetAllAliases(this IDataConsumer consumer, IDesktop desktop, IList<string> l, object type = null)
         {
             for (int i = 0; i < consumer.Count; i++)
             {

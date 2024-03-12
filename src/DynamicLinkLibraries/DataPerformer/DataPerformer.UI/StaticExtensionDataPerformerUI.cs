@@ -28,6 +28,7 @@ using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
 using DataPerformer.UI.UserControls;
 using Chart.Objects;
+using DataPerformer.UI.Labels;
 
 
 namespace DataPerformer.UI
@@ -45,11 +46,13 @@ namespace DataPerformer.UI
 
         static internal IComparer<TreeNode> BufferComparer = TreeNodeComparer.Singleton;
 
+        static List<IDataConsumerCodeGenerator> dataConsumerCodeGenerators = new();
+
         /// <summary>
         /// Buffer connection string
         /// </summary>
-        static public readonly string BufferConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BufferDatabase;Integrated Security=" +
-            "True";
+     // !!!   static public readonly string BufferConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BufferDatabase;Integrated Security=" +
+     // !!!       "True";
 
         /// <summary>
         /// Modes for painting
@@ -68,7 +71,7 @@ namespace DataPerformer.UI
             new BaseTypes.DisassemblyObjectList();
 
         static internal DataPerformer.Interfaces.Objects.MeasurementObjectFactoryCollection GraphCollection =
-            new DataPerformer.Interfaces.Objects.MeasurementObjectFactoryCollection();
+            new ();
 
         static event Action onUpdateAnalysisUI = () => { };
 
@@ -113,6 +116,20 @@ namespace DataPerformer.UI
         static public void Init()
         {
 
+        }
+
+        public static void GenerateCode(this GraphLabel label, string nameSpace, string className)
+        {
+
+        }
+
+        /// <summary>
+        /// Adds code generator
+        /// </summary>
+        /// <param name="codeGenerator"></param>
+        static public void  Add(this IDataConsumerCodeGenerator codeGenerator)
+        {
+            dataConsumerCodeGenerators.Add(codeGenerator);
         }
 
         /// <summary>

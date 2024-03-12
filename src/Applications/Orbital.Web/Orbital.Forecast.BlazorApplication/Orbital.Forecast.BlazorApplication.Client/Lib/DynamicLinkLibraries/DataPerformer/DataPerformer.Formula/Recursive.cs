@@ -671,7 +671,7 @@ namespace DataPerformer.Formula
 		/// <summary>
 		/// Dynalical parameter
 		/// </summary>
-		public Formula.DynamicalParameter Parameter
+		public DynamicalParameter Parameter
 		{
 			set
 			{

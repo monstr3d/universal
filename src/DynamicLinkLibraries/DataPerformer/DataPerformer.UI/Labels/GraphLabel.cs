@@ -276,7 +276,7 @@ namespace DataPerformer.UI.Labels
         /// </summary>
         public override void CreateForm()
         {
-            if (true)
+            if (false)
             {
                 form = new Forms.FormGraph(this);
             }
