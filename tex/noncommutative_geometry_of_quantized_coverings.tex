@@ -3703,7 +3703,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \chapter{Noncommutative infinite coverings}\label{cov_inf_chap}
  
  \section{Basic definitions}\label{inf_bas_constr_sec}
- 
+ !!! CONTINUE !!!
     \subsection{Coverings of $C^*$-algebras}
  \paragraph*{}
  This section contains  noncommutative generalizations of infinite coverings.
@@ -5521,12 +5521,13 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 \section{Partitions of unity and compact subsets}
 
 \begin{lemma}\label{top_a_u_lem}
-	If $\mathcal X$  is a locally compact,  
+	If $\mathcal X$  is a locally compact,  locally connected,
 	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$  there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
 	\begin{itemize}
 		\item $a\left(\sX\right) = \left[0,1\right]$,
 		\item 	$a\left( x_0\right) = 1$,
 		\item $\supp a \subset \mathcal U$,
+		\item a set $\sX \setminus a^{-1}\left(\{0\} \right)$ is connected.
 		\item	there is an open neighborhood $\mathcal V\subset\mathcal U$ of $x_0$ which satisfies to the following condition
 		\be\label{com_a_u_eqn}
 		a\left(\mathcal V \right)= \{1\}.
@@ -5534,7 +5535,16 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 	\end{itemize}
 \end{lemma}
 \begin{proof}
-	From the Exercise \ref{top_completely_regular_exer} it turns out that that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}), i.e. there is a  continuous function $a: \mathcal X \to \left[0,1 \right]$  such that $a\left( x_0\right) = 1$ and $a\left(\mathcal X \setminus \mathcal U \right)= \{0\}$. The set $\mathcal V = \left\{ x \in \mathcal X~|~a\left(x \right)> \frac{2}{3}  \right\}$ is open.
+	From the Exercise \ref{top_completely_regular_exer} it turns out that that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}), i.e. there is a  continuous function $b: \mathcal X \to \left[0,1 \right]$  such that $b\left( x_0\right) = 1$ and $b\left(\mathcal X \setminus \mathcal U \right)= \{0\}$. A set 
+	$\sU' \bydef \left\{x \in \sX | a'\left(x \right) \neq 0\right\}$ is open. If $\sU''$ is a containing $x_0$ connected component of $\sU'$ (cf. Definition \ref{top_connected_component_defn}) then from the Exercise \ref{top_loc_conn_exer} $\sU''$ it follows that is a quasi-component of  $\sU'$ (cf. Definition \ref{top_quasi_component_defn}). If a map $c: \sX \to  \left[0,1\right]$ is given by
+	$$
+c\left(x \right) \bydef \begin{cases}
+b\left(x \right)& x \in \sU''\\
+	0 & x \in \sX \setminus \sX''
+	\end{cases}
+	$$
+	then from our construction it follows that $c \in C_0\left( \sX\right)$ and a set set $\sX \setminus c^{-1}\left(\{0\} \right)$ is connected.
+	The set $\mathcal V = \left\{ x \in \mathcal X~|~c\left(x \right)> \frac{2}{3}  \right\}$ is open.
 	If $f: \R \to \R$ is a continuous function given by
 	\be\nonumber%\label{top_23_func_eqn}
 f\left(t\right)=	\left\{\begin{array}{c l}
@@ -5544,10 +5554,10 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 	\end{array}
 	\right.
 	\ee
-	then $f\left(a \right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. 
+	then $a \bydef f\left(c \right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. 
 \end{proof}
 \begin{definition}\label{top_stump_defn}
-Let $\mathcal X$ be a locally compact,  
+Let $\mathcal X$ be a locally compact, locally connected, 
 Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} then we denote by
 \be\label{top_fx_eqn}
 {f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
@@ -20179,7 +20189,11 @@ if there does not exist a separation of  $\sX$.
 A space $\sX$ is connected if and only if the only subsets of $\sX$ that are both
 open and closed in $\sX$ are the empty set and $\sX$ itself.
 \end{remark}
-
+\begin{theorem}\label{connected_closure_thm}\cite{munkres:topology}
+%Theorem 23.4. 
+Let $A$ be a connected subspace of $\sX$, and let $\overline A$ be the closure of $A$, i.e. intersection of containing $A$ closed sets. If $A \subset B \subset \overline A$, then $B$ is also
+connected.
+\end{theorem}
 \begin{definition}\label{top_path_connected_defn}\cite{munkres:topology}
 %Definition. 
 Given points $x$ and $y$ of the space $\sX$, a \textit{path} in $\sX$ from $x$ to $y$ is a continuous map $f: \left[a, b\right]\to \sX$ of some closed interval in the real line into $\sX$, such
@@ -20208,7 +20222,7 @@ points of $\sX$ can be joined by a path in $\sX$.
 \end{theorem}
 \begin{proposition}\label{top_quasi_component_prop}\cite{bredon:topology_geometry}
 %	4.11. 	Proposition. 
-The statement "$d(p) = d(q)$ for every discrete valued map $d$
+The statement "$d(p) = d(q)$" for every discrete valued map $d$
 	on $\sX$" is an equivalence relation. D
 \end{proposition}
 \begin{definition}\label{top_quasi_component_defn}\cite{bredon:topology_geometry}

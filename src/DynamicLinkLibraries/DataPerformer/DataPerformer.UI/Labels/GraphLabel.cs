@@ -17,7 +17,6 @@ using BaseTypes.Attributes;
 using DataPerformer.UI.UserControls;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls.Graph;
-using Chart.Drawing;
 
 
 namespace DataPerformer.UI.Labels
@@ -164,6 +163,7 @@ namespace DataPerformer.UI.Labels
             info.AddValue("IndicatorSizes", sizes, typeof(Dictionary<string, Size>));
             info.AddValue("CadrNumber", cadrNumber);
             info.AddValue("MultiSeries", MultiSeries, typeof(List<Dictionary<string, Dictionary<string, Color>>>));
+            info.AddValue("CodeAliases", CodeAliases, typeof(Dictionary<string, string>));
         }
 
         #endregion
@@ -312,6 +312,19 @@ namespace DataPerformer.UI.Labels
 
         #region Members
 
+        /// <summary>
+        /// Aliases of code generation
+        /// </summary>
+        public Dictionary<string, string> CodeAliases
+        {
+            get;
+            private set;
+        } = new();
+
+        
+        /// <summary>
+        /// Series for multi graphics
+        /// </summary>
         internal List<Dictionary<string, Dictionary<string, Color>>> MultiSeries
         {
             get;
@@ -497,6 +510,16 @@ namespace DataPerformer.UI.Labels
                 {
 
                 }
+                try
+                {
+                    CodeAliases = info.GetValue("CodeAliases", typeof(Dictionary<string, string>))
+                        as Dictionary<string, string>;
+                }
+                catch
+                {
+
+                }
+
 
             }
             catch (Exception ex)

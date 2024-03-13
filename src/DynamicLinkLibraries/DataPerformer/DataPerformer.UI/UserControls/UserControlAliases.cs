@@ -17,6 +17,9 @@ namespace DataPerformer.UI.UserControls
 
         IDataConsumer dataConsumer;
 
+
+        Dictionary<string, string> dictionary;
+
         /// <summary>
         ///  Constructor
         /// </summary>
@@ -43,27 +46,10 @@ namespace DataPerformer.UI.UserControls
         /// </summary>
         public Dictionary<string, string> Dictionary
         {
-            get
-            {
-                var d = new Dictionary<string, string>();
-                foreach (DataGridViewRow r in dataGridView.Rows)
-                {
-                    var s = r.Cells[1].Value;
-                    if (s == null)
-                    {
-                        continue;
-                    }
-                    var c = s + "";
-                    if (c.Length == 0)
-                    {
-                        continue;
-                    }
-                    d[r.Cells[0].Value + ""] = c;
-                }
-                return d;
-            }
+
             set
             {
+                dictionary = value;
                 foreach (DataGridViewRow r in dataGridView.Rows)
                 {
                     var s = r.Cells[0].Value + "";
@@ -74,6 +60,29 @@ namespace DataPerformer.UI.UserControls
 
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets data
+        /// </summary>
+        public void Get()
+        {
+            dictionary.Clear();
+            foreach (DataGridViewRow r in dataGridView.Rows)
+            {
+                var s = r.Cells[1].Value;
+                if (s == null)
+                {
+                    continue;
+                }
+                var c = s + "";
+                if (c.Length == 0)
+                {
+                    continue;
+                }
+                dictionary[r.Cells[0].Value + ""] = c;
+            }
+
         }
 
         void Set()

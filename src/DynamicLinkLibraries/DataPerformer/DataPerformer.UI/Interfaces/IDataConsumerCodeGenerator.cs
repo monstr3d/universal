@@ -15,12 +15,8 @@ namespace DataPerformer.UI.Interfaces
         /// <param name="nameSpace">Namespace</param>
         /// <param name="className">Name of class</param>
         /// <param name="obj">Additional object</param>
-        void Generate(GraphLabel label, string nameSpace, string className, object obj);
+        void Generate(GraphLabel label, string nameSpace, string className);
 
-        /// <summary>
-        /// Check whether the genreator requres aliases
-        /// </summary>
-        bool RequireAliases {  get; }
-
+ 
     }
 }
