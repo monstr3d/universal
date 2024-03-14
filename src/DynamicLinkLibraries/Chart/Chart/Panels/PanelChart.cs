@@ -6,6 +6,7 @@ using System.Drawing;
 using Chart.Forms;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Series;
+using Diagram.UI;
 
 namespace Chart.Panels
 {
@@ -153,14 +154,21 @@ namespace Chart.Panels
 
         private void copySeriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ISeries s = getter.Series;
-            if (s == null)
+            try
             {
-                return;
+                ISeries s = getter.Series;
+                if (s == null)
+                {
+                    return;
+                }
+                PureSeries ps = new PureSeries();
+                ps.Copy(s);
+                Clipboard.SetDataObject(ps);
             }
-            PureSeries ps = new PureSeries();
-            ps.Copy(s);
-            Clipboard.SetDataObject(ps);
+            catch (Exception ex) 
+            {
+                ex.ShowError();
+            }
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)

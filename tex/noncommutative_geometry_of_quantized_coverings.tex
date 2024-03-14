@@ -3753,9 +3753,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  
  
  \begin{definition}\label{alg_fin_cat_defn}
- 	
- 	
- 	!!! MAY BE LA MIN ALGEADY EXISTS !!!
+
  	Let $\La$ be a directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\mathrm{min}} \in \La$.
  	Let $A$ be a $C^*$-algebra.  Let us consider a skeletal category $\mathfrak{S}$ (cf. Definition \ref{skeletal_defn}) such that
  	\begin{itemize}
@@ -3795,6 +3793,9 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\end{split}
  	\ee
  \end{definition}
+ \begin{remark}\label{base_pt_iso_rem}
+ 	If pointed algebraical  finite covering category $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism.
+ \end{remark}
  \begin{remark}\label{comp_pt_rem}
  	The Definition \ref{pointed_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
  \end{remark}
@@ -3879,14 +3880,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$\left\{\pi^\nu_\mu\right\}$ and $ \left\{\rho^\nu_\mu\right\}$ are base-points of $\mathfrak{S}$ then from the Lemma \ref{base_point_change_lem} it turns out the category $\left( \mathfrak{S}, \left\{\pi^\nu_\mu\right\}\right)$ is equivalent to $\left( \mathfrak{S}, \left\{\rho^\nu_\mu\right\}\right)$.
  \end{rem}
 
- \begin{notation}\label{pointed_not}
-  		We suppose that a family of   $\mathfrak{S}^{\text{pt}}$-objects is indexed by directed set $\La$
- $$
- \left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}.
- $$
-There is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}}= A$.
- \end{notation}
- 
+
  \begin{remark}\label{implicit_inc_rem}
  	Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ where $C^*$-$\varprojlim_{\la \in\La} A_\la$ means a $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}). Sometimes we write $ A_\nu \subset A_\mu$ instead of  $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$.
  \end{remark}
@@ -4474,7 +4468,7 @@ So there is  $\overline a \in \overline \A$ such that $\left( \bt\text{-}\sum_{g
 \end{definition}
 
 \begin{definition}\label{comp_pt_pro_defn}
-	A skeleton  !!! SKELETON !!!(cf. Definition \ref{skeleton_defn}) $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category of pro-$C^*$-algebras $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category of pro-$C^*$-algebras}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in$pro-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+ A \textit{pointed algebraical  finite covering category of pro-$C^*$-algebras}  $\mathfrak{S}^{\text{pt}}$ is a subcategory of $\mathfrak{S}$ which is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in$pro-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_pro_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
@@ -4482,7 +4476,9 @@ So there is  $\overline a \in \overline \A$ such that $\left( \bt\text{-}\sum_{g
 	\end{split}
 	\ee
 \end{definition}
-
+\begin{remark}
+	If $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism.
+\end{remark}
 \begin{remark}
 There is a pointed{ algebraical  finite covering category}  
 \be\label{bounded_ptcat_eqn}
@@ -4538,25 +4534,27 @@ $\left(A, \widetilde{A}, G\right)$ is an
 
 
 \begin{defn}\label{inf_cov_oa_cat_defn} 
-A skeleton  !!! SKELETON !!!(cf. Definition \ref{skeleton_defn}) of  a {category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras} 
+ A \textit{pointed category of  noncommutative finite-fold coverings of bounded operator *-algebras}. 
 \be\label{comp_oa_pt_eqn}
 \begin{split}
 	\mathfrak{S}^{\text{pt}} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
 	\text{or simply} \quad \mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
 \end{split}
 \ee
-is said to be a \textit{pointed category of  noncommutative finite-fold coverings of bounded operator *-algebras}. We denote it by $\mathfrak{S}^{\text{pt}}$. Any morphism of 	$\mathfrak{S}^{\text{pt}}$ is a restriction of the corresponding morphism of $\mathfrak{S}_B$.
+is a subcategory of $	\mathfrak{S}$ which is equivalent to the pre-ordering category $\La$. Any morphism of 	$\mathfrak{S}^{\text{pt}}$ is a restriction of the corresponding morphism of $\mathfrak{S}_B$.
 \end{defn}
-
+\begin{remark}
+If $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism.
+\end{remark}
 \begin{empt}\label{inf_cov_oa_empt}
 	In the situation of the Definition \ref{inf_cov_oa_cat_defn} suppose that there 
 	is a good pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
 \be\label{inf_cov_oa_eqn}
 	\begin{split}
-		\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\mu \hookto B_\nu \right\}_{\substack{\mu, \nu \in \La\\\nu > \mu}}\right)
+		\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\mu \hookto B_\nu \right\}_{\substack{\mu, \nu \in \La\\\nu > \mu}}\right).
 	\end{split}
 	\ee
-which is a skeleton  !!! SKELETON !!!of \eqref{oa_cat_eqn}. 	
+	
 	 Let	$\left(B, \widetilde B, G \right)	$	be the weak inverse noncommutative limit of $ \mathfrak{S}^{\text{pt}}_B$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
 	% For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
 	%\be\label{inf_cov_oam_eqn}
@@ -4606,7 +4604,7 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 
 \begin{definition}\label{comp_o*_defn}
 	Let $\La$ be a  directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be an $O^*$-algebra (cf. Definition \ref{o*alg_defn}).  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{fino*_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that $\mathfrak{S}^{\text{pt}}$ is a skeleton  !!! SKELETON !!!of $\mathfrak S$, i.e.
+	Let $A$ be an $O^*$-algebra (cf. Definition \ref{o*alg_defn}).  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{fino*_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that $\mathfrak{S}^{\text{pt}}$ is a subcategory of $\mathfrak S$, such that:
 	\begin{enumerate}
 		\item [(a)] any object of $\mathfrak{S}^{\text{pt}}$ corresponds to a class of isomorphic objects of $\mathfrak{S}$,
 		\item[(b)]  for any $\nu, \mu\in \La$ such that $\nu >\mu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\mu_\nu:  A_{\mu}\hookto A_\nu$ of  $O^*$-algebras  such that $\pi_\nu =\pi^\mu_\nu \circ \pi_\mu$,
@@ -4734,7 +4732,7 @@ be a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ t
 
 \begin{definition}\label{comp_qo*_defn}
 	Let $\La$ be a  directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $\left( \mathfrak A, \mathfrak A_0 \right) $ be a quasi-$O^*$-algebra  (cf. Definitions \ref{quasi_defn}, \ref{o*alg_defn}).  Let us consider a family noncommutative finite-fold coverings of  quasi-$O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\la, \mathfrak A_0^\la \right)\right\}_{\la \in \La}$ (cf. Definition \ref{oq*fin_defn}) indexed by  $\La$ such that $\left( \mathfrak A^{{\la_{\mathrm{min}}}}, \mathfrak A_0^{{\la_{\mathrm{min}}}} \right)= \left( \mathfrak A, \mathfrak A_0 \right)$, and $\pi_{\la_{\mathrm{min}}}= \Id_{\left( \mathfrak A, \mathfrak A_0 \right)}$.  Suppose that there is a skeleton  !!! SKELETON !!!$\mathfrak{S}^{\text{pt}}$ of the category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}), i.e.
+	Let $\left( \mathfrak A, \mathfrak A_0 \right) $ be a quasi-$O^*$-algebra  (cf. Definitions \ref{quasi_defn}, \ref{o*alg_defn}).  Let us consider a family noncommutative finite-fold coverings of  quasi-$O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\la, \mathfrak A_0^\la \right)\right\}_{\la \in \La}$ (cf. Definition \ref{oq*fin_defn}) indexed by  $\La$ such that $\left( \mathfrak A^{{\la_{\mathrm{min}}}}, \mathfrak A_0^{{\la_{\mathrm{min}}}} \right)= \left( \mathfrak A, \mathfrak A_0 \right)$, and $\pi_{\la_{\mathrm{min}}}= \Id_{\left( \mathfrak A, \mathfrak A_0 \right)}$.  Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ of the category $\mathfrak{S}$ such that:
 	\begin{enumerate}
 		\item [(a)] The set of objects of $\mathfrak{S}^{\text{pt}}$ is a family of isomorphism classes of $\mathfrak{S}$.
 		\item[(b)]  For any $\mu, \nu\in \La$ such that $\mu>\nu$ there is the unique morphism from $\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\nu, \mathfrak A_0^\nu \right)$ to $\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  \left( \mathfrak A^\nu, \mathfrak A^\nu_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)$ of  quasi-$O^*$-algebras (cf. Definition \ref{oq*fin_defn})  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
