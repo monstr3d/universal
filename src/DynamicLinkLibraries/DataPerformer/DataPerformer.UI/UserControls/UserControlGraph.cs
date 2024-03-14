@@ -767,7 +767,7 @@ namespace DataPerformer.UI.UserControls
             calculatorBoxStart.Text = consumer.StartTime + "";
             calculatorBoxStep.Text = consumer.Step + "";
             textBoxStepCount.Text = consumer.Steps + "";
-            pic.Text = ResourceService.Resources.GetControlResource("Color", DataPerformer.UI.Utils.ControlUtilites.Resources);
+            pic.Text = ResourceService.Resources.GetControlResource("Color", Utils.ControlUtilites.Resources);
             pic.Width = 50;
             StaticExtensionDataPerformerUI.FillSeriesTypeCombo(toolStripButtonType);
             performer.MouseDown += (object sender, MouseEventArgs args) =>

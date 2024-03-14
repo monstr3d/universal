@@ -164,8 +164,10 @@ namespace DataPerformer.UI
         /// <param name="data">Chart data</param>
         /// <param name="measurements">Measurements</param>
         static public void Set(this Chart.UserControls.UserControlFilledChart chart, 
-            IColorDictionary colors, Dictionary<string, object> data, Dictionary<string, IMeasurement> measurements)
+            IColorDictionary colors, Dictionary<string, object> data, Dictionary<string, IMeasurement> measurements,
+            out Dictionary<IMeasurement, ISeries> dic)
         {
+            dic = new();
             chart.Clear();
             var d = colors.ColorDictionary;
             foreach (var key in d.Keys)
@@ -180,6 +182,7 @@ namespace DataPerformer.UI
                     ParametrizedSeries series = new ParametrizedSeries(null, null);
                     series.Add(ps);
                     var m = measurements[t];
+                    dic[m] = series;
                     chart.AddSeries(series, p, m);
                 }
             }

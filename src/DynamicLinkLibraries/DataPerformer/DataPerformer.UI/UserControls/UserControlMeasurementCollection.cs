@@ -15,10 +15,33 @@ namespace DataPerformer.UI.UserControls
     public partial class UserControlMeasurementCollection : UserControl, IColorDictionary
     {
         Dictionary<string, UserControlMeasurements> measurementList = 
-            new Dictionary<string, UserControlMeasurements>();
+            new ();
+
+
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public UserControlMeasurementCollection()
         {
             InitializeComponent();
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Series
+        /// </summary>
+        public Dictionary<IMeasurement, Chart.Drawing.Interfaces.ISeries> Series
+        {
+            set
+            {
+                foreach (var item in measurementList.Values)
+                {
+                    item.Series = value;
+                }
+            }
         }
 
         /// <summary>
@@ -85,7 +108,7 @@ namespace DataPerformer.UI.UserControls
                 return d;
             }
         }
-
+   
         private void UserControlMeasurementCollection_Resize(object sender, EventArgs e)
         {
             foreach (var measurements in measurementList.Values)

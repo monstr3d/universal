@@ -1,7 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Xml.Linq;
+
+using DataPerformer.Interfaces;
+
+using Chart;
+using Diagram.UI;
+
 
 namespace DataPerformer.UI.UserControls
 {
@@ -10,6 +16,7 @@ namespace DataPerformer.UI.UserControls
         public UserControlMeasurement()
         {
             InitializeComponent();
+            this.Execute<Control>((c) => c.ContextMenuStrip = contextMenuStrip);
         }
 
         public Color[] Color
@@ -18,10 +25,16 @@ namespace DataPerformer.UI.UserControls
             set => SetColor(value);
         }
 
+        internal IMeasurement Measurement { get; set; }
+
         public string MeasurementName
         {
             set => checkBoxName.Text = value;
         }
+
+
+        public Dictionary<IMeasurement, Chart.Drawing.Interfaces.ISeries> Series
+        { get; set; }
 
         void SetColor(Color[] color)
         {
@@ -32,6 +45,18 @@ namespace DataPerformer.UI.UserControls
             }
             checkBoxName.Checked = true;
             comboBoxColorPicker.Color = color[0];
+        }
+
+        private void copyChartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Series != null)
+            {
+                if (Series.ContainsKey(Measurement))
+                {
+                    var s = Series[Measurement];
+                    s.CopyToClipboard();
+                }
+            }
         }
     }
 

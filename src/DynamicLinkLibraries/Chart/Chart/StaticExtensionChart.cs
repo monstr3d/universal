@@ -17,6 +17,7 @@ namespace Chart
     public static class StaticExtensionChart
     { 
         private static char[] sep = "\r\n\t".ToCharArray();
+        
         /// <summary>
         /// Copies series to clipboard
         /// </summary>
@@ -24,12 +25,21 @@ namespace Chart
         public static void CopyToClipboard(this ISeriesGetter getter)
         {
             ISeries s = getter.Series;
-            if (s == null)
+            if (s != null)
             {
-                return;
+                s.CopyToClipboard();
             }
+          }
+
+
+        /// <summary>
+        /// Copies a series to the clipboard
+        /// </summary>
+        /// <param name="series">The series</param>
+        public static void CopyToClipboard(this ISeries series)
+        {
             PureSeries ps = new PureSeries();
-            ps.Copy(s);
+            ps.Copy(series);
             Clipboard.SetDataObject(ps, false);
         }
 

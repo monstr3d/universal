@@ -24,6 +24,17 @@ namespace DataPerformer.UI.UserControls
             InitializeComponent();
         }
 
+        public Dictionary<IMeasurement, Chart.Drawing.Interfaces.ISeries> Series
+        {
+            set
+            {
+                foreach (var item in measurements.Values)
+                {
+                    item.Series = value;
+                }
+            }
+        }
+
         public IMeasurements Measurements
         {
             set => Set(value);
@@ -49,6 +60,7 @@ namespace DataPerformer.UI.UserControls
             {
                 var mName = measurement.Name;
                 var uc = new UserControlMeasurement();
+                uc.Measurement = measurement;
                 uc.MeasurementName = mName;
                 var ht = uc.Height;
                 panelMeasurements.Height += ht;

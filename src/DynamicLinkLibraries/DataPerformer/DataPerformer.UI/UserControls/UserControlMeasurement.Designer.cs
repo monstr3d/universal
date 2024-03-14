@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelCenter = new System.Windows.Forms.Panel();
             panel1 = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
@@ -41,11 +42,14 @@
             panelLeft = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
             checkBoxName = new System.Windows.Forms.CheckBox();
+            contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(components);
+            copyChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             panelBottom = new System.Windows.Forms.Panel();
             panelCenter.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
             panelTop.SuspendLayout();
+            contextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // panelCenter
@@ -101,7 +105,7 @@
             comboBoxColorPicker.FormattingEnabled = true;
             comboBoxColorPicker.IntegralHeight = false;
             comboBoxColorPicker.ItemHeight = 16;
-            comboBoxColorPicker.Items.AddRange(new object[] { "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color" });
+            comboBoxColorPicker.Items.AddRange(new object[] { "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color", "Color" });
             comboBoxColorPicker.Location = new System.Drawing.Point(0, 0);
             comboBoxColorPicker.Name = "comboBoxColorPicker";
             comboBoxColorPicker.Size = new System.Drawing.Size(221, 22);
@@ -181,6 +185,19 @@
             checkBoxName.Text = "checkBox1";
             checkBoxName.UseVisualStyleBackColor = true;
             // 
+            // contextMenuStrip
+            // 
+            contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { copyChartToolStripMenuItem });
+            contextMenuStrip.Name = "contextMenuStrip";
+            contextMenuStrip.Size = new System.Drawing.Size(135, 26);
+            // 
+            // copyChartToolStripMenuItem
+            // 
+            copyChartToolStripMenuItem.Name = "copyChartToolStripMenuItem";
+            copyChartToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            copyChartToolStripMenuItem.Text = "Copy series";
+            copyChartToolStripMenuItem.Click += copyChartToolStripMenuItem_Click;
+            // 
             // panelBottom
             // 
             panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -206,6 +223,7 @@
             panel2.ResumeLayout(false);
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
+            contextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -225,5 +243,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private OfficePickers.ColorPicker.ComboBoxColorPicker comboBoxColorPicker;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem copyChartToolStripMenuItem;
     }
 }

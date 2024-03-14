@@ -5,8 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using Chart.Drawing.Interfaces;
 using Chart.UserControls;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
@@ -208,6 +207,7 @@ namespace DataPerformer.UI.UserControls
         void FixedCompleted()
         {
             var p = pFixed.Result;
+            Dictionary<IMeasurement, ISeries> dic = null;
             var dmea = consumer.GetMeasurementsInverseDictionary();
             Action action = () =>
             {
@@ -215,8 +215,10 @@ namespace DataPerformer.UI.UserControls
                 {
                     var chart = charts[i];
                     var m = measurements[i];
-                    chart.Set(m, p, dmea);
+                    chart.Set(m, p, dmea, out dic);
+                    measurements[i].Series = dic;
                 }
+
             };
             this.InvokeIfNeeded(action);
             ActParent(ActionType.Stop, null);
