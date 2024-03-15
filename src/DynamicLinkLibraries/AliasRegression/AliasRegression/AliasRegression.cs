@@ -61,6 +61,14 @@ namespace Regression
             {
                 exc.ShowError(-1);
             }
+            try
+            {
+                Coefficient = info.GetDouble("Coefficient");
+            }
+            catch (Exception exc)
+            {
+                exc.ShowError(-1);
+            }
         }
 
         #endregion
@@ -84,6 +92,7 @@ namespace Regression
             {
                 info.AddValue("Comments", comments);
             }
+            info.AddValue("Coefficient", Coefficient);
         }
 
         #endregion

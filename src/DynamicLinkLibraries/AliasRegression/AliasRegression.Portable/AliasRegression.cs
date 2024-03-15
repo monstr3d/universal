@@ -420,9 +420,18 @@ namespace Regression.Portable
 		}
 
 
-		#endregion
+        #endregion
 
-		#region Specific members
+        #region Specific members
+
+        /// <summary>
+        /// Coefficient
+        /// </summary>
+        public double Coefficient
+		{
+			get;
+			set;
+		} = 1;
 
         /// <summary>
         /// Number of tests
@@ -683,7 +692,7 @@ namespace Regression.Portable
                 }
                 delta = d;
             }
-			method.Iterate(x, delta, dispersions, y, y1, h);
+			method.Iterate(x, delta, dispersions, y, y1, h, Coefficient);
 			for (int i = 0; i < x.Length; i++)
 			{
                 IAliasName al = aliases[i];

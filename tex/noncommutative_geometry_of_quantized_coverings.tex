@@ -5159,10 +5159,47 @@ so there is the inclusion
 	\ee
 \end{rem}
 
+\paragraph{!!!}
+\begin{lemma}\label{induced_nondegenerate_lem}	
+	If a representation  $\rho: A \hookto B\left(\H \right) $ is nondegenerate then a representation  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is also nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}). 
+\end{lemma}
+\begin{proof}
+	For any $\widetilde \xi \in \widetilde \H$ and any $\eps > 0$ there are $\left\{\widetilde a_1,..., \widetilde a_n\right\}\in \widetilde A$ and $\left\{\xi_1, ..., \xi_n\right\}$ such that
+	\be\label{nondeg1_eqn}
+	\left\|\widetilde a_1\otimes \xi_1 + ... + \widetilde a_n\otimes \xi_n - \widetilde \xi\right\| < \frac{\left\| \widetilde \xi\right\|}{3},
+	\ee	
+	because $\widetilde A \otimes_A \H$ is dense in $\widetilde \H$. From \eqref{nondeg1_eqn} and the triangle identity it follows that
+	\be\label{nondeg2_eqn}
+	\left\|\widetilde a_1\otimes \xi_1 + ... + \widetilde a_n\otimes \xi_n\right\| >\frac{2\left\| \widetilde \xi\right\|}{3},
+	\ee	
+	If $\left\{\widetilde u_\la\right\}_{\la \in \La}\subset \widetilde A$ is an approximate unit for $\widetilde A$ (cf. Definition \ref{approximate_unit_defn}) then one has
+	\be\label{nondeg3_eqn}
+	\forall j = 1,..., n\quad \lim_{\la\in\La} \widetilde u_\la \widetilde a_j = \widetilde a_j,
+	\ee	
+	From \eqref{nondeg3_eqn} it turns out that there is $\widetilde u \in \left\{\widetilde u_\la\right\}_{\la \in \La}$ with
+	for $\widetilde A$ (cf. Definition \ref{approximate_unit_defn}) then one has
+	\be\label{nondeg4_eqn}
+	\left\|\widetilde a_1\otimes \xi_1 + ... + \widetilde a_n\otimes \xi_n - u\left( \widetilde a_1\otimes \xi_1 + ... + \widetilde a_n\otimes \xi_n\right) \right\| < \frac{\left\| \widetilde \xi\right\|}{3},
+	\ee
+	Applying the triangle identity to both \eqref{nondeg1_eqn} and \eqref{nondeg4_eqn} one has
+	\be\label{nondeg5_eqn}
+	\left\|\widetilde u\left( \widetilde a_1\otimes \xi_1 + ... + \widetilde a_n\otimes \xi_n\right) \right\| > \frac{\left\| \widetilde \xi\right\|}{3},
+	\ee
+	From \eqref{nondeg1_eqn} and taking into account $\left\|u \right\|\le 1$ we conclude that 
+	\be\label{nondeg6_eqn}
+	\left\|\widetilde u\left( \widetilde a_1\otimes \xi_1 + ... + \widetilde a_n\otimes \xi_n\right)- \widetilde u \widetilde \xi  \right\| < \frac{\left\| \widetilde \xi\right\|}{3},
+	\ee
+	The equations \eqref{nondeg5_eqn} and \eqref{nondeg6_eqn} are compatible if and only if $\widetilde u \widetilde \xi\neq 0$, i.e.   the representation $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}).
+\end{proof}
+
+
+\paragraph{!!!}
+
 \begin{lemma}\label{induced_nondegenerate_inf_lem}
 	If  $\widetilde \A = K\left(\widetilde A \right)$ and a representation  $\rho: A \hookto B\left(\H \right) $ is nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) then a representation  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is also nondegenerate. 
 \end{lemma}
 \begin{proof}
+	!!! CORRECT !!!
 	From $K\left( \widetilde A\right)\cdot K\left( \widetilde A\right) =K\left( \widetilde A\right)$ it follows that $\widetilde A\cdot K\left( \widetilde A\right) = K\left( \widetilde A\right)$. Otherwise $K\left( \widetilde A\right)$ is dense in $_{\widetilde{A}}X_A\subset \widetilde{A}$, so from the Proposition \ref{induced_nondegenerate_prop} it follows  that the representation $\widetilde \rho$ is nondegenerate.
 \end{proof}
 

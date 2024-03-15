@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using CategoryTheory;
@@ -14,9 +11,6 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 
-using GeneralLinearMethod;
-
-using Regression;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
@@ -51,6 +45,7 @@ namespace DataPerformer.UI.Forms
         {
             this.label = label;
             regression = label.Object as Regression.AliasRegression;
+            textBoxCoefficient.Text = regression.Coefficient + "";
             UpdateFormUI();
             createAliasPanels(regression.Aliases.Count);
             fillAliasPanels();
@@ -276,7 +271,6 @@ namespace DataPerformer.UI.Forms
         {
             int n = (int)numericUpDownAliases.Value;
             createAliasPanels(n);
-
         }
 
         private void buttonAccept_Click(object sender, EventArgs e)
@@ -286,6 +280,7 @@ namespace DataPerformer.UI.Forms
                 regression.Aliases = aliases;
                 regression.MeasuresNames = measurements;
                 regression.SelectionsNames = selections;
+                regression.Coefficient = double.Parse(textBoxCoefficient.Text);
                 regression.Init();
             }
             catch (Exception ex)

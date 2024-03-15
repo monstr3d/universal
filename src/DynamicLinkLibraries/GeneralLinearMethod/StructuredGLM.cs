@@ -198,17 +198,19 @@ namespace GeneralLinearMethod
 		}
 
 
-		/// <summary>
-		/// Performs iteration step
-		/// </summary>
-		/// <param name="x">Input/Output parameters</param>
-		/// <param name="dx">Delta</param>
-		/// <param name="d">Weights of Input/Output</param>
-		/// <param name="y">Auxiliary variable</param>
-		/// <param name="y1">Auxiliary variable</param>
-		/// <param name="h">Numercial derivations</param>
-		/// <returns>Sigma0</returns>
-		public double Iterate(double[] x, double[] dx, double[] d, double?[] y, double?[] y1, double?[,] h)
+        /// <summary>
+        /// Performs iteration step
+        /// </summary>
+        /// <param name="x">Input/Output parameters</param>
+        /// <param name="dx">Delta</param>
+        /// <param name="d">Weights of Input/Output</param>
+        /// <param name="y">Auxiliary variable</param>
+        /// <param name="y1">Auxiliary variable</param>
+        /// <param name="h">Numercial derivations</param>
+        /// <param name="coefficient">Coefficient</param>
+        /// <returns>Sigma0</returns>
+        public double Iterate(double[] x, double[] dx, double[] d, double?[] y, double?[] y1, double?[,] h, 
+			double coefficient = 1)
 		{
 			double s = 0;
             int l = DataDimension;
@@ -285,7 +287,7 @@ namespace GeneralLinearMethod
 			StaticExtensionRealMatrix.Solve(a, z, indx);
             for (int i = 0; i < n; i++)
             {
-                x[i] += z[i];
+                x[i] += coefficient * z[i];
             }
 			return s;
 		}
