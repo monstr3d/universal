@@ -5,16 +5,19 @@ using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
 
+using BaseTypes.Interfaces;
+using DataPerformer.Formula.Interfaces;
 
 using DataPerformer.Interfaces;
 
-using FormulaEditor.Interfaces;
-using BaseTypes.Interfaces;
-using DataPerformer.Formula.Interfaces;
 using FormulaEditor;
+using FormulaEditor.Interfaces;
 
 namespace DataPerformer.Formula
 {
+    /// <summary>
+    /// Wrappre of formula
+    /// </summary>
     public class DataPerformerFormula
     {
         #region Fields
@@ -33,7 +36,7 @@ namespace DataPerformer.Formula
         /// Constructor 
         /// </summary>
         /// <param name="treeCollection">Collection of trees</param>
-        public DataPerformerFormula(ITreeCollection treeCollection = null)
+        public DataPerformerFormula(ITreeCollection treeCollection)
         {
             this.treeCollection = treeCollection;
         }
@@ -58,7 +61,6 @@ namespace DataPerformer.Formula
             IObjectOperation op = tree.Operation;
             if (op is AliasNameVariable variable)
             {
-                variable.Object = treeCollection;
                 return variable.AliasName;
             }
             return null;

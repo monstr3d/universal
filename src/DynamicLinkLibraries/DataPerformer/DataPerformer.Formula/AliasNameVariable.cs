@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 using BaseTypes.Interfaces;
 
-
 using Diagram.UI.Interfaces;
 using Diagram.UI.Aliases;
 
@@ -44,9 +43,6 @@ namespace DataPerformer.Formula
         protected IAliasName aliasName;
 
 
-        private object obj;
-
-
         #endregion
 
         #region Ctor
@@ -57,15 +53,13 @@ namespace DataPerformer.Formula
         /// <param name="symbol">Formula symbol</param>
         /// <param name="alias">Alias object</param>
         /// <param name="name">Alias name</param>
-        public AliasNameVariable(string symbol, IAlias alias, string name, object obj = null)
+        public AliasNameVariable(string symbol, IAlias alias, string name)
         {
             this.alias = alias;
             this.name = name;
             this.symbol = symbol;
             tree = new ObjectFormulaTree(this, new List<ObjectFormulaTree>());
             aliasName = new AliasName(alias, name);
-            this.obj = obj;
-
         }
 
         /// <summary>
@@ -74,8 +68,8 @@ namespace DataPerformer.Formula
         /// <param name="symbol">Formula symbol</param>
         /// <param name="alias">Alias object</param>
         /// <param name="name">Alias name</param>
-        public AliasNameVariable(char symbol, IAlias alias, string name, object obj = null)
-            : this(symbol + "", alias, name, obj)
+        public AliasNameVariable(char symbol, IAlias alias, string name)
+            : this(symbol + "", alias, name)
         {
         }
 
@@ -84,8 +78,8 @@ namespace DataPerformer.Formula
         /// </summary>
         /// <param name="symbol">Formula symbol</param>
         /// <param name="alias">Alias object</param>
-        public AliasNameVariable(char symbol, IAlias alias, object obj = null)
-            : this(symbol + "", alias, symbol + "", obj)
+        public AliasNameVariable(char symbol, IAlias alias)
+            : this(symbol + "", alias, symbol + "")
         {
         }
 
@@ -144,12 +138,7 @@ namespace DataPerformer.Formula
 
         #region Public Members
 
-        /// <summary>
-        /// Object
-        /// </summary>
-        public object Object { get => obj; set => obj = value; }
-
-        /// <summary>
+            /// <summary>
         /// Gets value
         /// </summary>
         /// <returns></returns>

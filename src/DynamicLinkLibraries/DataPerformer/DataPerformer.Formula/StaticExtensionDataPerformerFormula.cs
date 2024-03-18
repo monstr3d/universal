@@ -12,6 +12,7 @@ using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
 using AssemblyService.Attributes;
+using FormulaEditor.CSharp;
 
 namespace DataPerformer.Formula
 {
@@ -23,13 +24,18 @@ namespace DataPerformer.Formula
     {
         #region Fields
 
-        static DataPerformerFormula dataPerformerFormula = new();
+        static readonly DataPerformerFormula dataPerformerFormula = new(null);
 
  
         #endregion
 
          
         #region Public Members
+
+        static public ITreeCollectionProxyFactory  CreatorFactory(ITreeCollection treeCollection)
+        {
+           return StaticExtensionFormulaEditor.CreatorFactory[treeCollection];
+        }
 
         /// <summary>
         /// Converts a tree to AliasName

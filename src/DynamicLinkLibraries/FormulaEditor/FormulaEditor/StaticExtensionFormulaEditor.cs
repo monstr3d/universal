@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Xml.Linq;
 
 using BaseTypes;
 using BaseTypes.Interfaces;
+
 using FormulaEditor.Collections;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
@@ -340,7 +340,7 @@ namespace FormulaEditor
         /// <summary>
         /// Factory of proxy
         /// </summary>
-        static public ITreeCollectionProxyFactory Factory
+        static private ITreeCollectionProxyFactory Factory
         {
             get;
             set;

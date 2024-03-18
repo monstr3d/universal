@@ -169,7 +169,7 @@ namespace DataPerformer.Formula
         /// </summary>
         public DifferentialEquationSolver()
         {
-            proxyFactory = StaticExtensionFormulaEditor.CreatorFactory[this];
+            proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
             init();
             vars = new Dictionary<object, object>();
             pars = new Dictionary<object, object>();
@@ -879,8 +879,7 @@ namespace DataPerformer.Formula
             SetDerivations();
             try
             {
-                proxy = null;
-                proxy = this.CreateProxy();
+                proxy = proxyFactory.CreateProxy(this, StaticExtensionFormulaEditor.CheckValue);
                 // PROXY UPDATE
                 update = proxy.Update;
                 FormulaMeasurement.Set(formulas, proxy);

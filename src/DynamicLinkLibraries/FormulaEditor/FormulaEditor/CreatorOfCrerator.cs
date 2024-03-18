@@ -6,7 +6,7 @@ namespace FormulaEditor
     public abstract class CreatorOfCrerator
     {
 
-        public abstract CSharpTreeCollectionProxyFactory this[ITreeCollection treeCollection]
+        public abstract ITreeCollectionProxyFactory this[ITreeCollection treeCollection]
         {  get;  }
     }
 }

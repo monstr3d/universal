@@ -164,7 +164,8 @@ namespace DataPerformer.Formula
 		/// </summary>
 		public Recursive()
 		{
-			update = UpdateFormulas;
+			proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
+            update = UpdateFormulas;
 		}
 
         #endregion
