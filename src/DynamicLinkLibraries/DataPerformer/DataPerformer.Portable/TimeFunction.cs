@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 using BaseTypes.Interfaces;
 
 
-using FormulaEditor;
-using FormulaEditor.Interfaces;
-
-namespace DataPerformer
+namespace DataPerformer.Portable
 {
     /// <summary>
     /// Time function
@@ -112,7 +107,7 @@ namespace DataPerformer
             }
         }
 
-        
+
 
         object IObjectOperation.ReturnType
         {
@@ -136,7 +131,7 @@ namespace DataPerformer
         /// <param name="y">The value</param>
         internal void Set(int i, double x, object y)
         {
-           // haseq = -1;
+            // haseq = -1;
             data[i, 0] = x;
             data[i, 1] = Clone(y);
         }

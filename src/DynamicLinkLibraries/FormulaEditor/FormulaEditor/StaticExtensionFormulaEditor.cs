@@ -346,6 +346,15 @@ namespace FormulaEditor
             set;
         }
 
+        /// <summary>
+        /// Creator factory
+        /// </summary>
+        static public CreatorOfCrerator CreatorFactory
+        {
+            get;
+            set;
+        }
+
         static public ITreeCollectionCodeCreator TreeCollectionCodeCreator
         {
             get;
@@ -593,6 +602,7 @@ namespace FormulaEditor
         #endregion
 
         #region Helper Class
+
 
         class SimpleTreeCollection : ITreeCollection
         {

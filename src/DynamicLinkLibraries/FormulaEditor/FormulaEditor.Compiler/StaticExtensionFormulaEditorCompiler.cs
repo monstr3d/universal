@@ -1,5 +1,4 @@
-﻿using System;
-using AssemblyService.Attributes;
+﻿using AssemblyService.Attributes;
 
 using CompilerService.Interfaces;
 
@@ -36,8 +35,9 @@ namespace FormulaEditor.Compiler
         static StaticExtensionFormulaEditorCompiler()
         {
             StaticExtensionFormulaEditor.Init();
-            CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory();
+            CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory(null);
             StaticExtensionFormulaEditor.Factory = f;
+            StaticExtensionFormulaEditor.CreatorFactory = new CreatorOfCreator();
             StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
         }
     }

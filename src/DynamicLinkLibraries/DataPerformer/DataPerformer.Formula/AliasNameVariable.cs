@@ -1,16 +1,13 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 using BaseTypes.Interfaces;
 
 
-using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Aliases;
 
 using FormulaEditor;
 using FormulaEditor.Interfaces;
-using Diagram.UI.Aliases;
 
 namespace DataPerformer.Formula
 {
@@ -41,7 +38,13 @@ namespace DataPerformer.Formula
         /// </summary>
         protected ObjectFormulaTree tree;
 
-        IAliasName aliasName;
+        /// <summary>
+        /// Alias name
+        /// </summary>
+        protected IAliasName aliasName;
+
+
+        private object obj;
 
 
         #endregion
@@ -54,13 +57,15 @@ namespace DataPerformer.Formula
         /// <param name="symbol">Formula symbol</param>
         /// <param name="alias">Alias object</param>
         /// <param name="name">Alias name</param>
-        public AliasNameVariable(string symbol, IAlias alias, string name)
+        public AliasNameVariable(string symbol, IAlias alias, string name, object obj = null)
         {
             this.alias = alias;
             this.name = name;
             this.symbol = symbol;
             tree = new ObjectFormulaTree(this, new List<ObjectFormulaTree>());
             aliasName = new AliasName(alias, name);
+            this.obj = obj;
+
         }
 
         /// <summary>
@@ -69,8 +74,8 @@ namespace DataPerformer.Formula
         /// <param name="symbol">Formula symbol</param>
         /// <param name="alias">Alias object</param>
         /// <param name="name">Alias name</param>
-        public AliasNameVariable(char symbol, IAlias alias, string name)
-            : this(symbol + "", alias, name)
+        public AliasNameVariable(char symbol, IAlias alias, string name, object obj = null)
+            : this(symbol + "", alias, name, obj)
         {
         }
 
@@ -79,8 +84,8 @@ namespace DataPerformer.Formula
         /// </summary>
         /// <param name="symbol">Formula symbol</param>
         /// <param name="alias">Alias object</param>
-        public AliasNameVariable(char symbol, IAlias alias)
-            : this(symbol + "", alias, symbol + "")
+        public AliasNameVariable(char symbol, IAlias alias, object obj = null)
+            : this(symbol + "", alias, symbol + "", obj)
         {
         }
 
@@ -138,6 +143,11 @@ namespace DataPerformer.Formula
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Object
+        /// </summary>
+        public object Object { get => obj; set => obj = value; }
 
         /// <summary>
         /// Gets value

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using CategoryTheory;
 
 using BaseTypes.Interfaces;
@@ -14,9 +11,7 @@ using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
-using DataPerformer.Portable.Measurements;
 using AssemblyService.Attributes;
-using System.Runtime.InteropServices;
 
 namespace DataPerformer.Formula
 {
@@ -28,44 +23,12 @@ namespace DataPerformer.Formula
     {
         #region Fields
 
-        static List<IOperationDetector> operationDetectors = new List<IOperationDetector>();
+        static DataPerformerFormula dataPerformerFormula = new();
 
-        static List<IBinaryDetector> binary = new List<IBinaryDetector>();
-
-
+ 
         #endregion
 
-       
-        class HolderMeasurement:  IMeasurement
-        {
-            IMeasurementHolder measurementHolder;
-
-            object type;
-
-            string name;
-
-            internal HolderMeasurement(IMeasurementHolder measurementHolder)
-            {
-                this.measurementHolder = measurementHolder;
-                var mea = measurementHolder.Measurement;
-                type = mea.Type;
-                name = mea.Name;
-            }
-
-            Func<object> IMeasurement.Parameter => parameter;
-
-            string IMeasurement.Name => name;
-
-            object IMeasurement.Type => type;
-
-            object parameter()
-            {
-                var mea = measurementHolder.Measurement;
-                var p = mea.Parameter;
-                return p();
-            }
-        }
-        
+         
         #region Public Members
 
         /// <summary>
@@ -75,13 +38,7 @@ namespace DataPerformer.Formula
         /// <returns>AliasName</returns>
         static public IAliasName ToAliasName(ObjectFormulaTree tree)
         {
-
-            IObjectOperation op = tree.Operation;
-            if (op is AliasNameVariable)
-            {
-                return (op as AliasNameVariable).AliasName;
-            }
-            return null;
+            return dataPerformerFormula.ToAliasName(tree);
         }
 
         /// <summary>
@@ -91,22 +48,7 @@ namespace DataPerformer.Formula
         /// <returns>Measurement</returns>
         static public IMeasurement ToMeasurement(ObjectFormulaTree tree)
         {
-            IObjectOperation operation = tree.Operation;
-            if (operation is IMeasurementHolder)
-            {
-                return new HolderMeasurement((IMeasurementHolder)operation);
-                /*
-                IMeasurementHolder holder = operation as IMeasurementHolder;
-                IMeasurement measurement = holder.Measurement;
-                var paramerer = () =>
-                {
-                    var p = measurement.Parameter;
-                    var value = p();
-                    return value;
-                };
-                return new Measurement(measurement.Type, paramerer, measurement.Name);)*/
-            }
-            return null;
+            return dataPerformerFormula.ToMeasurement(tree);
         }
 
         /// <summary>
@@ -116,12 +58,7 @@ namespace DataPerformer.Formula
         /// <param name="variable">The time variable</param>
         static public void Set(this IMeasurement measurement, ITimeVariable variable)
         {
-            VariableMeasurement v = variable.Variable;
-            if (v == null)
-            {
-                return;
-            }
-            v.Measurement = measurement;
+            dataPerformerFormula.Set(measurement, variable);
         }
 
         /// <summary>
@@ -131,12 +68,7 @@ namespace DataPerformer.Formula
         /// <returns>The time measure</returns>
         static public IMeasurement GetTimeMeasurement(this ITimeVariable variable)
         {
-            VariableMeasurement v = variable.Variable;
-            if (v == null)
-            {
-                return null;
-            }
-            return v.Measurement;
+            return dataPerformerFormula.GetTimeMeasurement(variable);
         }
 
         /// <summary>
@@ -148,12 +80,7 @@ namespace DataPerformer.Formula
         /// <returns>The variable</returns>
         static public VariableMeasurement Create(this string symbol, IMeasurement measurement, IVariableDetector detector)
         {
-            if (!(measurement is IDistribution))
-            {
-                return new VariableMeasurement(symbol, measurement, detector);
-            }
-            IDistribution distribution = measurement as IDistribution;
-            return new VariableMeasureDistribution(symbol, measurement, distribution, detector);
+            return dataPerformerFormula.Create(symbol, measurement, detector);
         }
 
 
@@ -166,7 +93,7 @@ namespace DataPerformer.Formula
         /// <returns>The variable</returns>
         static public VariableMeasurement Create(this char symbol, IMeasurement measure, IVariableDetector detector)
         {
-            return Create(symbol + "", measure, detector);
+            return dataPerformerFormula.Create(symbol + "", measure, detector);
         }
 
 
@@ -175,7 +102,7 @@ namespace DataPerformer.Formula
         /// </summary>
         static public List<IOperationDetector> OperationDetectors
         {
-            get { return operationDetectors; }
+            get { return DataPerformerFormula.operationDetectors; }
         }
 
 
@@ -184,7 +111,7 @@ namespace DataPerformer.Formula
         /// </summary>
         static public List<IBinaryDetector> BinaryDetectors
         {
-            get { return binary; }
+            get { return DataPerformerFormula.binary; }
         }
 
 
@@ -194,7 +121,7 @@ namespace DataPerformer.Formula
         /// <param name="detector">Detector for adding</param>
         static public void Add(this IOperationDetector detector)
         {
-            operationDetectors.Add(detector);
+            DataPerformerFormula.operationDetectors.Add(detector);
         }
 
 
@@ -204,7 +131,7 @@ namespace DataPerformer.Formula
         /// <param name="detector">Detector for adding</param>
         static public void Add(this IBinaryDetector detector)
         {
-            binary.Add(detector);
+            DataPerformerFormula.binary.Add(detector);
         }
 
         /// <summary>
@@ -212,33 +139,17 @@ namespace DataPerformer.Formula
         /// </summary>
         /// <param name="collection">The collection</param>
         /// <returns>The invalid component</returns>
-        static public IAssociatedObject InvalidCompilation(this IComponentCollection collection)
+        public static IAssociatedObject InvalidCompilation(this IComponentCollection collection)
         {
-            IAssociatedObject ao = null;
-            collection.ForEach((ITreeCollection c) =>
-            {
-                if (ao == null)
-                {
-                    if (!c.IsValid | c.HasFiction())
-                    {
-                        if (c is IAssociatedObject)
-                        {
-                            ao = c as IAssociatedObject;
-                        }
-                    }
-                }
-
-            }
-            );
-            return ao;
+            return dataPerformerFormula.InvalidCompilation(collection);
         }
-
 
         /// <summary>
         /// Inits itself
         /// </summary>
         static public void Init()
         {
+ 
         }
 
         #endregion
@@ -254,9 +165,6 @@ namespace DataPerformer.Formula
             (new DataPerformerSeparator()).Add();
         }
 
-        #endregion
-
-
         class DataPerformerSeparator : IOperationSeparator
         {
             string[] IOperationSeparator.this[IObjectOperation operation]
@@ -265,16 +173,18 @@ namespace DataPerformer.Formula
                 {
                     if (operation is AliasNameVariable)
                     {
-                        return [ " = aliasName", ".Value;" ];
+                        return [" = aliasName", ".Value;"];
                     }
                     if (operation is IMeasurementHolder)
                     {
-                        return [ " = measurement", ".Parameter();" ];
+                        return [" = measurement", ".Parameter();"];
                     }
                     return null;
                 }
             }
         }
+
+        #endregion
 
 
     }

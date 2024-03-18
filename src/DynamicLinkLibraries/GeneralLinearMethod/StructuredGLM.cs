@@ -1,7 +1,3 @@
-using System;
-
-using RealMatrixProcessor;
-using DataPerformer;
 using DataPerformer.Interfaces;
 
 namespace GeneralLinearMethod
@@ -12,12 +8,18 @@ namespace GeneralLinearMethod
 	/// </summary>
 	public class StructuredGLM : IStructuredCalculation, IStructuredSelection
 	{
-		
+
 		#region Fields
+
 		/// <summary>
-		/// Auxiliary variable
+		/// Processor of real matrix
 		/// </summary>
-		private double[] z;
+		RealMatrixProcessor.RealMatrix realMatrix = new();
+
+        /// <summary>
+        /// Auxiliary variable
+        /// </summary>
+        private double[] z;
 
 		/// <summary>
 		/// Auxiliary variable
@@ -221,7 +223,6 @@ namespace GeneralLinearMethod
                     h[i, im] = 1;
                 }
             }
- 
 			for (int i = 0; i < n; i++)
 			{
 				z[i] = 0;
@@ -243,6 +244,7 @@ namespace GeneralLinearMethod
 			{
 				x[i] += dx[i];
 				Calculate(x, selection, y1);
+				var pp = 0; /// !!! BREAKPOINT 
 				for (int im = 0; im < l; im++)
 				{
 					double? der = (y1[im] - y[im]) / dx[i];
@@ -284,7 +286,7 @@ namespace GeneralLinearMethod
 			{
 				a[i, i] += d[i];
 			}
-			StaticExtensionRealMatrix.Solve(a, z, indx);
+			realMatrix.Solve(a, z, indx);
             for (int i = 0; i < n; i++)
             {
                 x[i] += coefficient * z[i];

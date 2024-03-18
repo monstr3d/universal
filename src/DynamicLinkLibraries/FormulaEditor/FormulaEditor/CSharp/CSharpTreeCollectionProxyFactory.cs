@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using FormulaEditor;
-using System.CodeDom.Compiler;
-using System.Reflection;
 
 using BaseTypes;
 
@@ -167,11 +163,12 @@ namespace FormulaEditor.CSharp
             l.Add("");
             if (checkValue)
             {
-                l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue)");
+                l.Add(consturctor + "(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue, DataPerformer.Formula.DataPerformerFormula dataPerformerFormula)");
                 l.Add("{");
                 l.Add("\tsuccess = true;");
                 l.Add("\tthis.trees = trees;");
                 l.Add("\tthis.checkValue = checkValue;");
+                l.Add("\tthis.dataPerformerFormula = dataPerformerFormula;");
             }
             else
             {
@@ -200,6 +197,7 @@ namespace FormulaEditor.CSharp
                 l.Add("Func<object, bool> checkValue = (o) => false;");
                 l.Add("object variable;");
                 l.Add("bool success = true;");
+                l.Add("DataPerformer.Formula.DataPerformerFormula dataPerformerFormula = null;");
 
             }
             // l.Add("\t}");

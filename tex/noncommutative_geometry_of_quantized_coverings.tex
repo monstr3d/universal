@@ -3792,6 +3792,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
  	\end{split}
  	\ee
+ 	If  a \textit{pointed algebraical  finite covering category} exists then we say that $\mathfrak{S}$ allows base-points.
  \end{definition}
  \begin{remark}\label{base_pt_iso_rem}
  	If pointed algebraical  finite covering category $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism.
@@ -4928,9 +4929,9 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 
 \section{Universal  coverings and  fundamental groups}
 
-!!! CONTINUE !!!
+
 \paragraph{}
-Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups  (cf. Definition \ref{group_inv_lim_defn}). However this theory does not yield the fundamental group, it provides  the profinite completion of it only. Another  construction of the noncommutative fundamental group is an application of the described in this section theory. A discussed here  construction yields a noncommutative  fundamental group which is isomorphic to the topological one in case of commutative $C^*$-algebras (cf. Theorem \ref{comm_uni_lim_thm}).
+Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups  (cf. Definition \ref{group_inv_lim_defn}). However this theory does not yield the fundamental group, it provides  the profinite completion of it only. Another  construction of the noncommutative fundamental group is an application of the described in this section theory. A discussed here  construction yields a noncommutative  fundamental group which  in case of commutative $C^*$-algebras is finer that the profinite completion (cf. Theorem \ref{comm_uni_lim_thm}).
 
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \paragraph{} Here a noncommutative generalization of the universal covering space (cf. Definition \ref{top_universal_covering_defn}) is discussed.
@@ -5045,6 +5046,7 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
 \end{enumerate}
 \end{exercise}
 \section{Induced representations}\label{inf_ind_repr_subsection}
+!!! CONTINUE !!!
 \paragraph*{}
 	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering category. If  $\overline A$ is {weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{subord_defn}), and $\overline{\A}\subset \overline A$ satisfies to the condition (c) of \ref{subord_defn}) then from \eqref{a_la_eqn} it follows that there is a sesquilinear $A$-valued product
 	\be\label{inf_hilb_product_eqn}
@@ -5067,10 +5069,10 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
  	\end{equation}
  	is a $C^*$-Hilbert $A$-module and $\widetilde{A}$-$A$-bimodule (cf. Definition \ref{hilbert_module_defn}).
  \begin{definition}\label{infinite_hilb_mod_defn}
- 	In the above situation we say that the $C^*$ Hilbert $A$-module $X$ \textit{corresponds} to the {weak infinite noncommutative covering}  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$. Since $X$ is $\widetilde{A}$-$A$-bimodule we use following notations for it
+ 	In the above situation we say that the $C^*$-Hilbert $A$-module $\mathscr L^2\left( \widetilde{A}\right) $ \textit{corresponds} to the {weak infinite noncommutative covering}  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$. Since $\mathscr L^2\left( \widetilde{A}\right)$ is $\widetilde{A}$-$A$-bimodule we use following notations for it
  	\bean
- 	X_A\bydef X,\\
- 	_{\widetilde{A}}X_A\bydef X.
+ 	\mathscr L^2\left( \widetilde{A}\right)_A\bydef X,\\
+ 	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\bydef X.
  	\eean
   \end{definition}
 \begin{remark}\label{infinite_hilb_inv_rem}
@@ -5082,32 +5084,32 @@ x \mapsto x^*
  
  \begin{defn}\label{induced_repr_inf_defn}
  	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}}$ and  let $$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$$  be a weak infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ 
- 	(cf. Definition \ref{infinite_noncommutative_covering_defn}). 	 Suppose that 	 $C^*$-Hilbert $A$-module $_{\widetilde{A}}X_A$ corresponds to 
+ 	(cf. Definition \ref{infinite_noncommutative_covering_defn}). 	 Suppose that 	 $C^*$-Hilbert $A$-module $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ corresponds to 
  	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right) $.  
- 	If $\rho: A \to B\left( \H\right)$ is a representation and   $\widetilde{\rho}=_{\widetilde{A}}X_A-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) 
+ 	If $\rho: A \to B\left( \H\right)$ is a representation and   $\widetilde{\rho}=_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) 
  	The representation  $\widetilde{\rho}:\widetilde{A} \to  B\left( \widetilde{\H}\right)$ is said to be \textit{induced} by  $\rho$. We also say that  $\widetilde{\rho}$ is  \textit{induced by a pair} $\left( \rho, \left( A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)\right) $. 
  \end{defn}
  Since the given by \eqref{inf_hilb_norm_eqn} norm exceeds the $C^*$-norm of  $\widetilde{A}$ there is the natural inclusion 
 \be\label{inf_hilb_inc_eqn}
-_{\widetilde{A}}X_A\subset \widetilde{A}.
+_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\subset \widetilde{A}.
 \ee
 The given by  \ref{inf_hilb_product_eqn}  pairing can be uniquely extended up to the following product
 \be\label{inf_hilb_f_prod_eqn}
 \begin{split}
-\left\langle \cdot, \cdot  \right\rangle_A : X_A ~\otimes_A X_A \to A,\\
+\left\langle \cdot, \cdot  \right\rangle_A : \mathscr L^2\left( \widetilde{A}\right)_A ~\otimes_A \mathscr L^2\left( \widetilde{A}\right)_A \to A,\\
  	\left\langle \widetilde{a}, \widetilde{b}  \right\rangle_A  \bydef\bt- \sum_{g \in  G\left(\left.\widetilde{A}_\pi~\right|A \right)} g \left(\widetilde{a}^* \widetilde{b}  \right) \in A 
 \end{split}
 \ee
  where the above series is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \widetilde{A}\right)$
 \begin{rem}\label{ap_act_hilb_rem} 
- If  $\widetilde{\rho}:\widetilde{A} \to  B\left( \widetilde{\H}\right)$ is   {induced} by $\left( \rho, \left( A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)\right) $ then $\widetilde{\H}$ is the completion of the pre-Hilbert space $ X \otimes_A \H$ with given by
+ If  $\widetilde{\rho}:\widetilde{A} \to  B\left( \widetilde{\H}\right)$ is   {induced} by $\left( \rho, \left( A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)\right) $ then $\widetilde{\H}$ is the completion of the pre-Hilbert space $ \mathscr L^2\left( \widetilde{A}\right) \otimes_A \H$ with given by
  \be\label{comp_hilb_eqn}
- \left(\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \right)_{\widetilde{\H}} = \left( \xi, \left\langle \widetilde{a} , \widetilde{b} \right\rangle_A \eta\right)_{\H} \quad \forall \widetilde{a} \otimes \xi,~ \widetilde{b} \otimes \eta \in X \otimes_A \H
+ \left(\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \right)_{\widetilde{\H}} = \left( \xi, \left\langle \widetilde{a} , \widetilde{b} \right\rangle_A \eta\right)_{\H} \quad \forall \widetilde{a} \otimes \xi,~ \widetilde{b} \otimes \eta \in \mathscr L^2\left( \widetilde{A}\right) \otimes_A \H
  \ee
  scalar product (cf. equation \eqref{hilb_prod_eqn}). The action $\widetilde{A}\otimes \widetilde \H\to \widetilde \H$ corresponds to the completion of the following action
  \be\label{comp_hilb_actf_eqn}
  \begin{split}
- \widetilde{A} \times	\left(X \otimes_A \H \right) \to X \otimes_A \H  ;\\
+ \widetilde{A} \times	\left( \mathscr L^2\left( \widetilde{A}\right) \otimes_A \H \right) \to  \mathscr L^2\left( \widetilde{A}\right) \otimes_A \H  ;\\
  \left(\widetilde a, \widetilde b\otimes \xi \right) \mapsto \widetilde a\widetilde b\otimes \xi.
  \end{split}
  \ee
@@ -5138,7 +5140,7 @@ so there is the inclusion
 	$$
 	\forall \widetilde \xi \in \widetilde{\H} \quad \left(f_\delta\left( \widetilde a\right) \widetilde \xi, f_\delta\left( \widetilde a\right) \widetilde \xi \right)_{\widetilde\H}\le \left(\widetilde a \widetilde \xi, \widetilde a\widetilde \xi \right)_{\widetilde\H} = 0.
 	$$
-	From the Lemma \ref{pedersen_eps_lem} one has $f_\delta\left( \widetilde a\right)\in X$ and  if $\widetilde \xi \bydef  f_\delta\left( \widetilde a\right)\otimes  \xi \in X\otimes_A \H \subset \widetilde \H$ then from \eqref{hilb_prod_eqn} it follows that
+	From the Lemma \ref{pedersen_eps_lem} one has $f_\delta\left( \widetilde a\right)\in  \mathscr L^2\left( \widetilde{A}\right)$ and  if $\widetilde \xi \bydef  f_\delta\left( \widetilde a\right)\otimes  \xi \in  \mathscr L^2\left( \widetilde{A}\right)\otimes_A \H \subset \widetilde \H$ then from \eqref{hilb_prod_eqn} it follows that
 	\be\label{inf_ind_c_eqn}
 	\begin{split}
 		\forall \xi \in \H\quad 	\left(f_\delta\left( \widetilde a\right) \left( f_\delta\left( \widetilde a\right)\otimes \xi \right) , f_\delta\left( \widetilde a\right) \left( f_\delta\left( \widetilde a\right)\otimes \xi \right) \right)_{\widetilde\H}=\\= \left( \xi, \left\langle f^2_\delta\left( \widetilde a\right), f^2_\delta\left( \widetilde a\right)\right\rangle_A \xi\right)_\H=0. 
@@ -5166,7 +5168,7 @@ so there is the inclusion
 \end{lemma}
 \begin{proof}
 	This lemma can be proven as well as \ref{induced_nondegenerate_lem} one.
-%	From $K\left( \widetilde A\right)\cdot K\left( \widetilde A\right) =K\left( \widetilde A\right)$ it follows that $\widetilde A\cdot K\left( \widetilde A\right) = K\left( \widetilde A\right)$. Otherwise $K\left( \widetilde A\right)$ is dense in $_{\widetilde{A}}X_A\subset \widetilde{A}$, so from the Proposition \ref{induced_nondegenerate_prop} it follows  that the representation $\widetilde \rho$ is nondegenerate.
+%	From $K\left( \widetilde A\right)\cdot K\left( \widetilde A\right) =K\left( \widetilde A\right)$ it follows that $\widetilde A\cdot K\left( \widetilde A\right) = K\left( \widetilde A\right)$. Otherwise $K\left( \widetilde A\right)$ is dense in $_{\widetilde{A}} \mathscr L^2\left( \widetilde{A}\right)_A\subset \widetilde{A}$, so from the Proposition \ref{induced_nondegenerate_prop} it follows  that the representation $\widetilde \rho$ is nondegenerate.
 \end{proof}
 
 
@@ -5187,57 +5189,57 @@ a natural inclusion of pre-Hilbert spaces
  	 \ee
  \end{empt}
 \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
-
-\paragraph{}  Let  $X =X_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module which is a completion of $K\left(\widetilde{A}\right)$ with respect to the given by \eqref{inf_hilb_norm_eqn}  norm. % where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
-Any pair $\left(\widetilde{a}, g\right) \in \widetilde{A}\times G$ yields a *-endomorphism 
+!!! CONTINUE !!!
+\paragraph{}  Let  $ \mathscr L^2\left( \widetilde{A}\right) = \mathscr L^2\left( \widetilde{A}\right)_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module which is a completion of $K\left(\widetilde{A}\right)$ with respect to the given by \eqref{inf_hilb_norm_eqn}  norm. % where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
+Any pair $\left(\widetilde{a}, g\right) \in \widetilde{A}\times G$ yields a $*$-endomorphism 
 \be\label{hm_inc_eqn}
 \begin{split}
-	h_{\widetilde{a}, g}\in \End^*_A\left(X \right) ,\\
-	\xi \mapsto\widetilde{a} \left(g\xi  \right)\quad \xi\in X. 
+	h_{\widetilde{a}, g}\in \End^*_A\left( \mathscr L^2\left( \widetilde{A}\right) \right) ,\\
+	\xi \mapsto\widetilde{a} \left(g\xi  \right)\quad \xi\in  \mathscr L^2\left( \widetilde{A}\right). 
 \end{split}
 \ee
-If $C_c\left(G, \widetilde{A}\right)$ is an explained in the Appendix \ref{discr_cr_prod_sec} *-algebra then the equation \eqref{hm_inc_eqn} yields an inclusion  $C_c\left(G, \widetilde{A}\right)\subset \End^*_A\left(X \right)$. Henceforth we suppose that:
+If $C_c\left(G, \widetilde{A}\right)$ is an explained in the Appendix \ref{discr_cr_prod_sec} *-algebra then the equation \eqref{hm_inc_eqn} yields an inclusion  $C_c\left(G, \widetilde{A}\right)\subset \End^*_A\left( \mathscr L^2\left( \widetilde{A}\right) \right)$. Henceforth we suppose that:
 \begin{enumerate}
-	\item [(a)] $C_c\left(G, \widetilde{A}\right) \subset \K\left(X_A \right)$,
-	\item[(b)] $C_c\left(G, \widetilde{A}\right)$ is dense *-subalgebra of $\K\left(X_A \right)$.
+	\item [(a)] $C_c\left(G, \widetilde{A}\right) \subset \K\left( \mathscr L^2\left( \widetilde{A}\right)_A \right)$,
+	\item[(b)] $C_c\left(G, \widetilde{A}\right)$ is dense *-subalgebra of $\K\left( \mathscr L^2\left( \widetilde{A}\right)_A \right)$.
 \end{enumerate}
-In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the  $C^*$-norm given by the inclusion (a). Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$. Indeed  $\widetilde A\rtimes_cG$ is a completion of  $C_c\left(G, \widetilde{A}\right)$ with respect to a following $C^*$-norm
+In this case  $\K\left( \mathscr L^2\left( \widetilde{A}\right)_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the  $C^*$-norm given by the inclusion (a). Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left( \mathscr L^2\left( \widetilde{A}\right)_A \right)$. Indeed  $\widetilde A\rtimes_cG$ is a completion of  $C_c\left(G, \widetilde{A}\right)$ with respect to a following $C^*$-norm
 $$
 \forall a \in C_c\left(G, \widetilde{A}\right)\quad \left\| a\right\|\bydef   \left\| \ka\left(a \right)\right\|
 $$
-where $\ka: C_c\left(G, \widetilde{A}\right)\hookto \K\left(X_A \right)$ is the natural inclusion.
-There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times X_A\to X_A$. 
+where $\ka: C_c\left(G, \widetilde{A}\right)\hookto \K\left( \mathscr L^2\left( \widetilde{A}\right)_A \right)$ is the natural inclusion.
+There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times  \mathscr L^2\left( \widetilde{A}\right)_A\to  \mathscr L^2\left( \widetilde{A}\right)_A$. 
 \begin{definition}\label{cross_cov_defn}
 	In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
 In the above situation one can define analogs of equations \eqref{mor_pp_fin_eqn}.
 \be\label{mor_pp_inf_eqn}
 	\begin{split}
-\varphi:X \otimes_{A} X   \to \widetilde{A} \rtimes_c G,\quad		\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right); \\
-\psi: X  \otimes_{\widetilde{A} \rtimes_c G}  X  \to A, \quad		\psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), 
+\varphi:X \otimes_{A}  \mathscr L^2\left( \widetilde{A}\right)   \to \widetilde{A} \rtimes_c G,\quad		\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right); \\
+\psi: \mathscr L^2\left( \widetilde{A}\right)  \otimes_{\widetilde{A} \rtimes_c G}  \mathscr L^2\left( \widetilde{A}\right)  \to A, \quad		\psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), 
 \end{split}
 \ee
 Unlike \eqref{mor_pp_fin_eqn} the group $G$ is not finite. However from the equation \eqref{inf_hilb_f_prod_eqn} and the dense inclusion  $C_c\left(G, \widetilde{A}\right) \subset \K\left(X_A \right)$ it turns out that both  $\varphi$ and $\psi$ are well defined.
 In result one has the following pairings:
 	\begin{equation}\label{hilb_inf_eqn}
 	\begin{split}
-\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}: X \otimes_{A}  X\to \widetilde{A} \rtimes_c G,\quad \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes_c G} \bydef \varphi\left(\widetilde a \otimes \widetilde b^* \right);\\ 
-\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}: X \otimes_{\widetilde{A} \rtimes_c G} X\to A, \quad \left\langle\widetilde a,\widetilde b \right\rangle_A \bydef \psi\left( \widetilde a^* \otimes \widetilde b\right)
+\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}: \mathscr L^2\left( \widetilde{A}\right) \otimes_{A}  \mathscr L^2\left( \widetilde{A}\right)\to \widetilde{A} \rtimes_c G,\quad \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes_c G} \bydef \varphi\left(\widetilde a \otimes \widetilde b^* \right);\\ 
+\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}: \mathscr L^2\left( \widetilde{A}\right) \otimes_{\widetilde{A} \rtimes_c G} \mathscr L^2\left( \widetilde{A}\right)\to A, \quad \left\langle\widetilde a,\widetilde b \right\rangle_A \bydef \psi\left( \widetilde a^* \otimes \widetilde b\right)
 \end{split}
 \end{equation}
-Using isomorphism $\widetilde{A} \rtimes_c G \cong \K \left(X_A \right)$ the pairing $\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}$ can be defined by the following  way 
+Using isomorphism $\widetilde{A} \rtimes_c G \cong \K \left(\mathscr L^2\left( \widetilde{A}\right)_A \right)$ the pairing $\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}$ can be defined by the following  way 
  	\begin{equation}\label{hilb_infz_eqn}
  	\begin{split}
- 		\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes_c G}\bydef \xi\left\rangle \right\langle \eta \bydef \zeta \mapsto \eta	\left\langle \xi, \zeta \right\rangle_{A}\in \K \left(X_A \right)\cong  \widetilde{A} \rtimes_c G\quad \forall\zeta \in X_A.
+ 		\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes_c G}\bydef \xi\left\rangle \right\langle \eta \bydef \zeta \mapsto \eta	\left\langle \xi, \zeta \right\rangle_{A}\in \K \left(\mathscr L^2\left( \widetilde{A}\right)_A \right)\cong  \widetilde{A} \rtimes_c G\quad \forall\zeta \in \mathscr L^2\left( \widetilde{A}\right)_A.
  	\end{split}
  \end{equation}
  
 \begin{definition}\label{allows_morita_defn}
 In the  situation of the Definition \ref{cross_cov_defn}
-	we say that an infinite noncommutative covering $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if the linear span of $\left\langle X, X \right\rangle_{\widetilde{A} \rtimes_c G}$  is dense in $A$.
+	we say that an infinite noncommutative covering $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if the linear span of $\left\langle \mathscr L^2\left( \widetilde{A}\right), \mathscr L^2\left( \widetilde{A}\right) \right\rangle_{\widetilde{A} \rtimes_c G}$  is dense in $A$.
 \end{definition}
 \begin{exercise}\label{allows_morita_exer}
-	Let  $\left(A, \widetilde{A}, G\right)$ be an infinite noncommutative covering which {allows strong Morita equivalence}.  Prove that $X$ is an  {$A$-$ \widetilde A\rtimes_cG$-equivalence
+	Let  $\left(A, \widetilde{A}, G\right)$ be an infinite noncommutative covering which {allows strong Morita equivalence}.  Prove that $L^2\left( \widetilde{A}\right)$ is an  {$A$-$ \widetilde A\rtimes_cG$-equivalence
 		bimodule} (cf. Definition \ref{strong_morita_defn}). 
 \end{exercise} 
 
@@ -5267,24 +5269,24 @@ In the  situation of the Definition \ref{cross_cov_defn}
 	is a \textit{weakly coherent set of spectral triples}. We write $\mathfrak{S}_{\left(\sA, \sH, D, J\right)} \in \mathfrak{WCohTriple}$.
 \end{defn}
 \begin{defn}\label{spectral_triple_coh_defn}
-	A {weakly coherent set of spectral triples} $	\mathfrak{S}_{\left(\sA, \sH, D\right)}$ is said to be a \textit{coherent set of spectral triples} if there is a $C^*$-Hilbert $A$-module $X =~	_{\widetilde{A}}X_A$ which corresponds to $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ (cf. Definition \ref{infinite_hilb_mod_defn}).
+	A {weakly coherent set of spectral triples} $	\mathfrak{S}_{\left(\sA, \sH, D\right)}$ is said to be a \textit{coherent set of spectral triples} if there is a $C^*$-Hilbert $A$-module $\mathscr L^2\left( \widetilde{A}\right) =~	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ which corresponds to $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ (cf. Definition \ref{infinite_hilb_mod_defn}).
 \end{defn}
 
 \subsection{Constructive approach}\label{str_cov_sec}
 \paragraph*{}
-Consider the situation of the Definition \ref{spectral_triple_coh_defn}. Let $\rho: A \hookto B\left(\H\right)$ be the natural representation, and let $\widetilde\rho: \widetilde A \hookto B\left(\widetilde \H\right)$  be a representation {induced} by $\left( \rho, \left( A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}), where $\widetilde \H$ is a norm completion of a pre-Hilbert space $ 	X\otimes_{A_{}} \H$. Using the given by \eqref{infinite_hilb_inv_eqn} involution, similarly to the equations \eqref{cc_eqn}, \eqref{ccc_eqn} one can define maps 
+Consider the situation of the Definition \ref{spectral_triple_coh_defn}. Let $\rho: A \hookto B\left(\H\right)$ be the natural representation, and let $\widetilde\rho: \widetilde A \hookto B\left(\widetilde \H\right)$  be a representation {induced} by $\left( \rho, \left( A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}), where $\widetilde \H$ is a norm completion of a pre-Hilbert space $ \mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{}} \H$. Using the given by \eqref{infinite_hilb_inv_eqn} involution, similarly to the equations \eqref{cc_eqn}, \eqref{ccc_eqn} one can define maps 
 \be\label{cc_inf_defn}
 \begin{split}
-	\widetilde	J : X\otimes_{A_{}} \H\to X\otimes_{A_{}} \H,\\
+	\widetilde	J : \mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{}} \H\to \mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{}} \H,\\
 	\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi;\\
-	\widetilde	J^\dagger : X\otimes_{A_{}} \H\to X\otimes_{A_{}} \H,\\
+	\widetilde	J^\dagger : \mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{}} \H\to \mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{}} \H,\\
 	\widetilde J^\dagger \left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J^\dagger\xi,
 \end{split}
 \ee
 which can be extended up to anti-isometries $\widetilde J: \widetilde \H\xrightarrow{\approx }\widetilde \H$ and $\widetilde J^\dagger: \widetilde \H\xrightarrow{\approx }\widetilde \H$ such that $\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger= \Id_{\widetilde \H}$. 
 From \eqref{kla_dens_eqn} it turns out that for all $\la\in \La$ there is a dense inclusion 	
 \bean
-X\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H. 
+\mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H. 
 \eean
 From the equations  \eqref{first_order_wt_eqn}, \eqref{first_order_wtb_eqn} it turns out that
 \be\label{first_order_la_eqn}
@@ -5293,7 +5295,7 @@ From the equations  \eqref{first_order_wt_eqn}, \eqref{first_order_wtb_eqn} it t
 	\Rightarrow b_\la \left[ D_\la, J_\la a^*_\la J^\dagger_\la\right]=  \left[ D_\la, J_\la a^*_\la J^\dagger_\la\right]b_\la.
 \end{split}
 \ee
-If  $a_\la \in \A_\la$ then one can define right action of an operator $\left[D_\la, Ja^*_\la J^\dagger\right]$  on the space 	$X\otimes_{A_{\la}} \H_{\la}$ such that
+If  $a_\la \in \A_\la$ then one can define right action of an operator $\left[D_\la, Ja^*_\la J^\dagger\right]$  on the space 	$\mathscr L^2\left( \widetilde{A}\right)\otimes_{A_{\la}} \H_{\la}$ such that
 \be\label{fist_order_la_eqn}
 \left(  \widetilde  a\ox\xi\right)\left[D_\la, J_\la a^*_\la J^\dagger_\la\right]= \widetilde  a\ox \left[D_\la, J_\la a^*_\la J^\dagger_\la\right] \xi
 \ee
@@ -5328,7 +5330,7 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 	Let $\Om^1_D$ be the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D, J\right)$ (cf. Definition \ref{ass_cycle_defn}).
 	An element $\widetilde{a}  \in \widetilde{A}$ is said to be $\mathfrak{S}_{\left(\sA, \sH, D, J\right)}$- \textit{smooth} if the following conditions hold:
 	\begin{enumerate}
-		\item[(a)] The element $\widetilde{a}$ lies in $X$.
+		\item[(a)] The element $\widetilde{a}$ lies in $\mathscr L^2\left( \widetilde{A}\right)$.
 		\item[(b)] For any $\la \in \La$ the series 
 		$$
 		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a} 
@@ -5343,9 +5345,9 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$   (cf. Definition \ref{strong_topology_defn}).	.
 		%	Moreover one has
 		%	$$
-		%	\lim_{\la\in \La} \left[D_\la, a_\la\right] \in X \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
+		%	\lim_{\la\in \La} \left[D_\la, a_\la\right] \in \mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
 		%	$$
-		%	where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $X \otimes_{\A} \Om^1_D \subset \widetilde{A} \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
+		%	where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $\mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset \widetilde{A} \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
 	\end{enumerate}
 	Denote by 
 	\be\label{a_s_eqn}	

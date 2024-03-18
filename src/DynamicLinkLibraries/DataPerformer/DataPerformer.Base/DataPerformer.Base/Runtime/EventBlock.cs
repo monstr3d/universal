@@ -17,35 +17,27 @@ namespace DataPerformer.Runtime
     /// Event block
     /// </summary>
     [Serializable()]
-    public class EventBlock : CategoryObject, ISerializable, IEventBlock, IPostSetArrow
+    public class EventBlock : Portable.Runtime.EventBlock, ISerializable
     {
 
-        #region Fields
-
-        string[] names = new string[0];
-
-        List<IEvent> list = new List<IEvent>();
-
-        #endregion
- 
         #region Ctor
 
-  		/// <summary>
-		/// Default constructor
-		/// </summary>
-       public EventBlock()
-       {
-       }
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public EventBlock()
+        {
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-       protected EventBlock(SerializationInfo info, StreamingContext context)
-       {
-           names = info.GetValue("Names", typeof(string[])) as string[];
-       }
+        protected EventBlock(SerializationInfo info, StreamingContext context)
+        {
+            names = info.GetValue("Names", typeof(string[])) as string[];
+        }
 
         #endregion
 
@@ -63,58 +55,5 @@ namespace DataPerformer.Runtime
 
         #endregion
 
-        #region IEventBlock Members
-
-        bool IEventBlock.this[IEvent ev]
-        {
-            get 
-            {
-                return list.Contains(ev);
-            }
-        }
-
-        string[] IEventBlock.Names
-        {
-            get
-            {
-                return names;
-            }
-            set
-            {
-                SetNames(value);
-            }
-        }
-
-        #endregion
-
-        #region IPostSetArrow Members
-
-        void IPostSetArrow.PostSetArrow()
-        {
-            SetNames(names);
-        }
-
-        #endregion
-
-        #region Private
-
-        void SetNames(string[] names)
-        {
-            List<string> l = new List<string>();
-            list.Clear();
-            foreach (string name in names)
-            {
-                IEvent ev = this.GetRelativeObject<IEvent>(name);
-                if (ev == null)
-                {
-                    continue;
-                }
-                list.Add(ev);
-                l.Add(name);
-            }
-            this.names = names;
-        }
-
-        #endregion
     }
 }

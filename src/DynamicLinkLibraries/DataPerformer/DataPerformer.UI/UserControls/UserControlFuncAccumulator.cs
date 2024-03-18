@@ -109,7 +109,10 @@ namespace DataPerformer.UI.UserControls
                 return;
             }
             start.Text = arg[0] + "";
-            step.Text = (arg[1] - arg[0]) + "";
+            if (arg.Length > 1)
+            {
+                step.Text = (arg[1] - arg[0]) + "";
+            }
             stepCount.Text = arg.Length + "";
             intDeg.Value = acc.Degree;
         }

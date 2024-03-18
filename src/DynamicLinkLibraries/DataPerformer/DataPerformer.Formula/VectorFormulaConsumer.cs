@@ -79,7 +79,7 @@ namespace DataPerformer.Formula
         protected VectorFormulaConsumer()
         {
             th = this;
-            proxyFactory = StaticExtensionFormulaEditor.Factory;
+            proxyFactory = StaticExtensionFormulaEditor.CreatorFactory[this];
         }
 
     

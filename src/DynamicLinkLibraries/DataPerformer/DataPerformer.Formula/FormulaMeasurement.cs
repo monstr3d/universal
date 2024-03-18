@@ -24,8 +24,6 @@ namespace DataPerformer.Formula
     public class FormulaMeasurement : IMeasurement, IAssociatedObject
     {
 
-        delegate object GetParameter();
-
         #region Fields
 
         /// <summary>
@@ -123,7 +121,6 @@ namespace DataPerformer.Formula
         }
 
         #endregion
-
  
         #region Members
 
@@ -144,7 +141,6 @@ namespace DataPerformer.Formula
             var opt = new List<ObjectFormulaTree>();
             return GetTreesLocal(meas, list, globalList);
         }
-
 
         private static ObjectFormulaTree[] GetTreesLocal(FormulaMeasurement[] meas, List<ObjectFormulaTree> list,
             List<FormulaMeasurement> globalList)
@@ -494,9 +490,8 @@ namespace DataPerformer.Formula
         {
             return tree.Result;
         }
-        
-        
 
         #endregion
+
     }
 }

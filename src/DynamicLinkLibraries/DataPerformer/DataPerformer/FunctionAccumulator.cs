@@ -25,10 +25,6 @@ namespace DataPerformer
     [CalculationPriority(1)]
     public class FunctionAccumulator : AccumulatorBase
     {
-        #region Fields
-
-  
-        #endregion
 
         #region Ctor
 
@@ -74,33 +70,11 @@ namespace DataPerformer
             if (arg != null)
             {
                 info.AddValue("Arguments", arg, typeof(double[]));
-             }
-        }
-
-        #endregion
-
-        #region Specific Members
-
-        /// <summary>
-        /// Array of arguments
-        /// </summary>
-        public double[] Arguments
-        {
-            get
-            {
-                return arg;
-            }
-            set
-            {
-                arg = value;
-                if (arg != null)
-                {
-                    Post();
-                }
             }
         }
 
         #endregion
+
 
     }
 

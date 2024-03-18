@@ -84,7 +84,7 @@ namespace FormulaEditor.CodeCreators
                     initializers = new List<string>()
                    {
                        "measurement" + sp + " = " +
-                        "DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees["
+                        "dataPerformerFormula.ToMeasurement(trees["
                         + k + "]);"
                    };
                     variables = new List<string>()
@@ -106,8 +106,8 @@ namespace FormulaEditor.CodeCreators
                     ret + " = " + st + "variable;"];
                    initializers = new List<string>()
                    {
-                       "aliasName" + sp + " = " +  
-                        "DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[" 
+                       "aliasName" + sp + " = " +
+                        "dataPerformerFormula.ToAliasName(trees["
                         + k + "]);"
                    };
                     variables = new List<string>()
@@ -119,7 +119,6 @@ namespace FormulaEditor.CodeCreators
             }
             variables = new List<string>();
             initializers = new List<string>();
-
             string s = ret;
             int n = sep.Length;
             int m = parameters.Length;
@@ -136,10 +135,6 @@ namespace FormulaEditor.CodeCreators
         }
 
         #endregion
-
-    
-
-
 
     }
 }
