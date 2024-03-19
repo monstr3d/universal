@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
+
 using BaseTypes.Interfaces;
+
 using Diagram.UI.Interfaces;
+
 using DataPerformer.Interfaces;
+
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 
@@ -37,7 +38,7 @@ namespace DataPerformer.Formula
 
         ObjectFormulaTree tree;
 
-        Func<object> par;
+        Func<object> parameter;
 
 
         private string symbol;
@@ -52,11 +53,9 @@ namespace DataPerformer.Formula
         {
             this.obj = obj;
             this.symbol = symbol;
-            par = GetValue;
+            parameter = GetValue;
             this.addition = addition;
         }
-
-
 
         #endregion
 
@@ -119,7 +118,7 @@ namespace DataPerformer.Formula
 
         Func<object> IMeasurement.Parameter
         {
-            get { return par; }
+            get { return parameter; }
         }
 
         string IMeasurement.Name
@@ -135,6 +134,7 @@ namespace DataPerformer.Formula
         #endregion
 
         #region IMeasurementHolder Members
+
         IMeasurement IMeasurementHolder.Measurement => this;
 
         #endregion
@@ -152,7 +152,6 @@ namespace DataPerformer.Formula
         }
 
         #endregion
-
 
         #region Members
 

@@ -259,33 +259,22 @@ namespace Regression.Portable
 			{
                 aliases[i].Value = x[i];
 			}
-            /*!!!/// TEMP ====================	
-
-                UpdateChildrenData();
-                if (DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory != null)
-                {
-                    runtime.UpdateAll();
-                }
-                this.FullReset();
-                UpdateChildrenData();
-
-                ///=============*/
-   //         runtime.StartAll(0);
             runtime.UpdateAll();
 			int n = 0;
 			for (int i = 0; i < measurementsDitcionary.Count; i++)
 			{
-				IMeasurement m = measurementsDitcionary[i] as IMeasurement;
+				IMeasurement m = measurementsDitcionary[i];
+				var parameter = m.Parameter;
 				object t = m.Type;
 				if (t.Equals(a))
 				{
-					y[n] = (double) m.Parameter();
+					y[n] = (double) parameter();
 					++n;
 					continue;
 				}
 				else
 				{
-					Array ar = m.Parameter() as Array;
+					Array ar = parameter() as Array;
 					for (int j = 0; j < ar.GetLength(0); j++)
 					{
                         y[n] = (double)ar.GetValue(j);

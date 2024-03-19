@@ -19,7 +19,7 @@ namespace DataPerformer.Portable
     {
         #region Fields
 
-        Dictionary<ITimeMeasurementConsumer, IMeasurement> dictionary = new Dictionary<ITimeMeasurementConsumer, IMeasurement>();
+        Dictionary<ITimeMeasurementConsumer, IMeasurement> dictionary = new ();
 
         IDataConsumer consumer;
 
@@ -165,8 +165,7 @@ namespace DataPerformer.Portable
 
         static void SetTimeProvider(object o, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            ITimeMeasurementConsumer tc = o.GetLabelObject<ITimeMeasurementConsumer>();
-            if (tc != null)
+            if (o.GetLabelObject<ITimeMeasurementConsumer>() is ITimeMeasurementConsumer tc)
             {
                 if (dictionary.ContainsKey(tc))
                 {
@@ -205,12 +204,11 @@ namespace DataPerformer.Portable
             }
 
         }
-
            
         private static void SetTimeProvider(IComponentCollection collection,
             ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            IEnumerable<object> c = collection.AllComponents;
+            var c = collection.AllComponents;
             foreach (object o in c)
             {
                 SetTimeProvider(o, provider, dictionary);

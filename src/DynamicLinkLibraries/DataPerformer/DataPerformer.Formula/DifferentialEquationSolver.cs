@@ -24,9 +24,11 @@ namespace DataPerformer.Formula
     /// <summary>
     /// Solver of ordinary differential equations system
     /// </summary>
-    public class DifferentialEquationSolver : DataConsumerMeasurements, IDifferentialEquationSolver, 
+    public class DifferentialEquationSolver : DataConsumerMeasurements, 
+        IDifferentialEquationSolver, 
         IStarted,  ICheckCorrectness, IVariableDetector,
-        IDynamical, ITreeCollection, ITimeVariable, IStack, IRuntimeUpdate, IPostSetArrow
+        IDynamical, ITreeCollection, ITimeVariable, IStack, 
+        IRuntimeUpdate, IPostSetArrow
     {
 
         #region Fields
@@ -1176,7 +1178,6 @@ namespace DataPerformer.Formula
 
         #endregion
 
-
         #region IAlias Members
 
         /// <summary>
@@ -1217,8 +1218,6 @@ namespace DataPerformer.Formula
 
 
         #endregion
-
-
 
         #region IVariableDetector Members
 
@@ -1867,8 +1866,6 @@ namespace DataPerformer.Formula
             #endregion
 
         }
-
-        //delegate void PrepareStart(); */
 
         #endregion
 

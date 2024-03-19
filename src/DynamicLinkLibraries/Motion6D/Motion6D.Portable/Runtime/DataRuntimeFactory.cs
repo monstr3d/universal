@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;

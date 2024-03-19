@@ -24,6 +24,8 @@ namespace DataPerformer.Portable
 
         private int degree;
 
+        RealMatrixProcessor.RealMatrix realMatrix = new();
+
 
         #endregion
 
@@ -31,6 +33,7 @@ namespace DataPerformer.Portable
 
         private TimeFunction()
         {
+
         }
 
         internal TimeFunction(int size, object type)
@@ -54,9 +57,8 @@ namespace DataPerformer.Portable
 
         object[] IObjectOperation.InputTypes
         {
-            get { return new object[] { (double)0 }; }
+            get => [(double)0];
         }
-
 
         object IObjectOperation.this[object[] x]
         {
@@ -107,16 +109,14 @@ namespace DataPerformer.Portable
             }
         }
 
-
-
         object IObjectOperation.ReturnType
         {
-            get { return type; }
+            get => type;
         }
 
         bool IPowered.IsPowered
         {
-            get { return false; }
+            get => false;
         }
 
         #endregion
@@ -131,7 +131,6 @@ namespace DataPerformer.Portable
         /// <param name="y">The value</param>
         internal void Set(int i, double x, object y)
         {
-            // haseq = -1;
             data[i, 0] = x;
             data[i, 1] = Clone(y);
         }
@@ -154,7 +153,7 @@ namespace DataPerformer.Portable
             {
                 n = data.GetLength(0) - degree - 2;
             }
-            return RealMatrixProcessor.StaticExtensionRealMatrix.LagrangeInterpolation(t, degree, n, data);
+            return realMatrix.LagrangeInterpolation(t, degree, n, data);
         }
 
         object Clone(object o)

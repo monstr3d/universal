@@ -103,12 +103,11 @@ namespace DataPerformer.Formula
         /// <returns>The time measure</returns>
         public IMeasurement GetTimeMeasurement(ITimeVariable variable)
         {
-            VariableMeasurement v = variable.Variable;
-            if (v == null)
+            if (variable.Variable is VariableMeasurement v)
             {
-                return null;
+                return v.Measurement;
             }
-            return v.Measurement;
+            return null;
         }
 
         /// <summary>
@@ -187,9 +186,9 @@ namespace DataPerformer.Formula
             internal HolderMeasurement(IMeasurementHolder measurementHolder, ITreeCollection treeCollection)
             {
                 this.measurementHolder = measurementHolder;
-                var mea = measurementHolder.Measurement;
-                type = mea.Type;
-                name = mea.Name;
+                var measurement = measurementHolder.Measurement;
+                type = measurement.Type;
+                name = measurement.Name;
                 this.treeCollection = treeCollection;
             }
 
@@ -201,14 +200,12 @@ namespace DataPerformer.Formula
 
             object parameter()
             {
-                var mea = measurementHolder.Measurement;
-                var p = mea.Parameter;
+                var measurement = measurementHolder.Measurement;
+                var p = measurement.Parameter;
                 return p();
             }
 
             public ITreeCollection TreeCollection { get => treeCollection; }
-
-
            
         }
 

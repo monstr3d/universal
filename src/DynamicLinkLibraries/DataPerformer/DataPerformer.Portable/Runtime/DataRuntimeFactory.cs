@@ -31,7 +31,6 @@ namespace DataPerformer.Portable.Runtime
         /// </summary>
         protected DataRuntimeFactory()
         {
-
         }
 
         #endregion
@@ -43,7 +42,7 @@ namespace DataPerformer.Portable.Runtime
         /// </summary>
         public static readonly DataRuntimeFactory Singleton = new DataRuntimeFactory();
 
-        private ITimeMeasurementProvider provider = new TimeMeasurementProvider();
+        protected  ITimeMeasurementProvider provider = new TimeMeasurementProvider(null);
 
         /// <summary>
         /// Check level

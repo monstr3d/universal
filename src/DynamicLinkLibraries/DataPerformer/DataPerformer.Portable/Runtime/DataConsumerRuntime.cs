@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
 
@@ -97,7 +94,7 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        protected ITimeMeasurementProvider provider = new TimeMeasurementProvider();
+        protected ITimeMeasurementProvider provider;
 
         /// <summary>
         /// Data consumer
@@ -134,6 +131,7 @@ namespace DataPerformer.Portable.Runtime
         public DataConsumerRuntime(IDataRuntimeFactory factory, IDataConsumer consumer, string reason,
             int priority = 0)
         {
+            provider = new TimeMeasurementProvider(consumer);
             this.reason = reason;
             this.factory = factory;
             this.consumer = consumer;

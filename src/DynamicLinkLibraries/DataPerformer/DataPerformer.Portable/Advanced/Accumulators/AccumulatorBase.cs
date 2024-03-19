@@ -357,7 +357,8 @@ namespace DataPerformer.Portable.Advanced.Accumulators
                 //return;
             }
             block = true;
-            using (var tb = new TimeProviderBackup(this, this, processor, StaticExtensionDataPerformerInterfaces.Calculation, 0))
+            using (var tb = new TimeProviderBackup(this, this, 
+                processor, StaticExtensionDataPerformerInterfaces.Calculation, 0))
             {
                 var p = tb.Processor;
                 p.TimeProvider = this;
@@ -388,7 +389,7 @@ namespace DataPerformer.Portable.Advanced.Accumulators
                     foreach (IMeasurement m in functions.Keys)
                     {
                         object o = m.Parameter();
-                        TimeFunction f = functions[m];
+                        var f = functions[m];
                         f.Set(i, time, o);
                     }
                     last = time;

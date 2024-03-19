@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using CategoryTheory;
-using DataPerformer.Interfaces;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+
+using DataPerformer.Interfaces;
 
 namespace DataPerformer.Portable.Time
 {
@@ -30,7 +29,6 @@ namespace DataPerformer.Portable.Time
         IDifferentialEquationProcessor processor;
 
         List<IMeasurements> measurements = null;
-
 
         #endregion
 

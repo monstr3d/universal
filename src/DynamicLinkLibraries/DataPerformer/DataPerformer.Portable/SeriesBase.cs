@@ -187,12 +187,8 @@ namespace DataPerformer.Portable
         /// </summary>
         int IMeasurements.Count
         {
-            get
-            {
-                return (function == null) ? measurements.Length : measurements.Length + 1;
-            }
+            get => (function == null) ? measurements.Length : measurements.Length + 1;
         }
-
 
         #endregion
 

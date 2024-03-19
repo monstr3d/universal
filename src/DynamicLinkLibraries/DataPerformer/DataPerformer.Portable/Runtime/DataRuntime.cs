@@ -29,39 +29,39 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Objects
         /// </summary>
-        protected List<ICategoryObject> objects = new List<ICategoryObject>();
+        protected List<ICategoryObject> objects = new ();
 
         /// <summary>
         /// Arrows
         /// </summary>
-        protected List<ICategoryArrow> arrows = new List<ICategoryArrow>();
+        protected List<ICategoryArrow> arrows = new ();
 
         /// <summary>
         /// Updatable objects
         /// </summary>
-        protected List<Action> updatable = new List<Action>();
+        protected List<Action> updatable = new ();
 
 
         /// <summary>
         /// Dynamical objects
         /// </summary>
-        protected List<IDynamical> dynamical = new List<IDynamical>();
+        protected List<IDynamical> dynamical = new ();
 
         /// <summary>
         /// Measurements
         /// </summary>
-        protected List<IMeasurements> measurements = new List<IMeasurements>();
+        protected List<IMeasurements> measurements = new ();
 
         /// <summary>
         /// Steps
         /// </summary>
-        protected List<IStep> steps = new List<IStep>();
+        protected List<IStep> steps = new ();
 
 
         /// <summary>
         /// Components
         /// </summary>
-        protected List<object> components = new List<object>();
+        protected List<object> components = new ();
 
         /// <summary>
         /// Step
@@ -78,7 +78,7 @@ namespace DataPerformer.Portable.Runtime
         /// </summary>
         protected List<IComponentCollection> collections;
 
-        private Dictionary<string, object> logDictionary = new Dictionary<string, object>();
+        private Dictionary<string, object> logDictionary = new ();
 
         /// <summary>
         /// Dictionary of collections
@@ -89,13 +89,13 @@ namespace DataPerformer.Portable.Runtime
         /// Dictionary of processors
         /// </summary>
         protected Dictionary<IComponentCollection, Tuple<double[], IDifferentialEquationProcessor>> cProcessors =
-            new Dictionary<IComponentCollection, Tuple<double[], IDifferentialEquationProcessor>>();
+            new ();
 
         /// <summary>
         /// Dictionary of processors
         /// </summary>
         protected Dictionary<object, Tuple<double[], IDifferentialEquationProcessor>> processors =
-            new Dictionary<object, Tuple<double[], IDifferentialEquationProcessor>>();
+            new ();
 
 
 
@@ -112,7 +112,7 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        ITimeMeasurementProvider provider = new TimeMeasurementProvider();
+        ITimeMeasurementProvider provider;
 
         /// <summary>
         /// State
@@ -170,6 +170,15 @@ namespace DataPerformer.Portable.Runtime
             IAsynchronousCalculation realtimeStep = null,
             ITimeMeasurementProvider realtime = null)
         {
+
+            if (realtime != null)
+            {
+                this.realtime = realtime;
+            }
+            else
+            {
+                this.realtime = new TimeMeasurementProvider(collection);
+            }
             this.collection = collection;
             this.priority = priority;
             this.reason = reason;

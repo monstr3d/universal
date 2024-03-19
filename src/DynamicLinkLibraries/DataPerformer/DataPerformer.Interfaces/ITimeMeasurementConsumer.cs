@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataPerformer.Interfaces
+﻿namespace DataPerformer.Interfaces
 {
     /// <summary>
     /// Consumer of time

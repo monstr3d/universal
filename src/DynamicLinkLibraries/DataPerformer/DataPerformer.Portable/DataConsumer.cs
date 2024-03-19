@@ -94,9 +94,9 @@ namespace DataPerformer.Portable
         /// </summary>
         protected int steps = 2;
 
-        protected IAssociatedObject[] children = new IAssociatedObject[] { new Diagram.UI.Objects.EmptyAddRemove() };
+        protected IAssociatedObject[] children = [ new Diagram.UI.Objects.EmptyAddRemove() ];
 
-        protected List<IEvent> events = new List<IEvent>();
+        protected List<IEvent> events = new ();
 
         protected string calculationReason = "";
 
@@ -191,14 +191,8 @@ namespace DataPerformer.Portable
 
         IMeasurement ITimeMeasurementConsumer.Time
         {
-            get
-            {
-                return TimeMeasurement;
-            }
-            set
-            {
-                TimeMeasurement = value;
-            }
+            get => TimeMeasurement;
+            set => TimeMeasurement = value;
         }
 
         #endregion

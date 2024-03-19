@@ -21,6 +21,8 @@ namespace DataPerformer.Portable.Helpers
 
         IMeasurement timeMeasurement;
 
+        private object obj;
+
         #endregion
 
         #region Ctor
@@ -28,9 +30,10 @@ namespace DataPerformer.Portable.Helpers
         /// <summary>
         /// Default constructor
         /// </summary>
-        public TimeMeasurementProvider()
+        public TimeMeasurementProvider(object obj)
         {
             timeMeasurement = new TimeMeasurement(GetTime);
+            this.obj = obj;
         }
 
         #endregion
@@ -39,34 +42,19 @@ namespace DataPerformer.Portable.Helpers
 
         IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
-            get
-            {
-                return timeMeasurement;
-            }
+            get => timeMeasurement;
         }
 
         double ITimeMeasurementProvider.Time
         {
-            get
-            {
-                return time;
-            }
-            set
-            {
-                time = value;
-            }
+            get => time;
+            set => time = value;
         }
 
         double ITimeMeasurementProvider.Step
         {
-            get
-            {
-                return step;
-            }
-            set
-            {
-                step = value;
-            }
+            get => step;
+            set => step = value;
         }
 
         #endregion

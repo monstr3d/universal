@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Text;
-
-using CategoryTheory;
 
 using BaseTypes.Interfaces;
 
@@ -12,9 +8,7 @@ using FormulaEditor.Interfaces;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using DataPerformer.Formula.Interfaces;
-using BaseTypes;
-using DataPerformer.Portable.Measurements;
+
 
 namespace DataPerformer.Formula
 {

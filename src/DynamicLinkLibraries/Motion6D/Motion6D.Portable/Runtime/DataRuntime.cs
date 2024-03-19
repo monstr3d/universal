@@ -25,7 +25,7 @@ namespace Motion6D.Portable.Runtime
         /// <summary>
         /// Frames
         /// </summary>
-        private List<IPosition> frames = new List<IPosition>();
+        private List<IPosition> frames = new ();
 
         /// <summary>
         /// Collection of additional solvers
@@ -34,10 +34,10 @@ namespace Motion6D.Portable.Runtime
 
 
         private Dictionary<AggregableWrapper, MechanicalAggregateEquation> mechanicalEquationsOld
-            = new Dictionary<AggregableWrapper, MechanicalAggregateEquation>();
+            = new ();
 
         private Dictionary<AggregableWrapper, MechanicalAggregateEquation> mechanicalEquationsNew
-            = new Dictionary<AggregableWrapper, MechanicalAggregateEquation>();
+            = new ();
 
         private Action updateInternal;
 

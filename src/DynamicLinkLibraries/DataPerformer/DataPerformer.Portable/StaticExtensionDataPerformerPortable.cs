@@ -52,6 +52,8 @@ namespace DataPerformer.Portable
         private static Dictionary<string, IAsynchronousCalculationFactory> asynchronousCalculations =
             new Dictionary<string, IAsynchronousCalculationFactory>();
 
+        static CommonWrapper wrapper = new();
+
 
         /// <summary>
         /// Desktop
@@ -91,13 +93,7 @@ namespace DataPerformer.Portable
         /// <returns>The double value</returns>
         public static double ToDouble(this IMeasurement measurement)
         {
-            var parameter = measurement.Parameter;
-            object o = parameter();
-            if (o == null)
-            {
-
-            }
-            return (double)o;
+            return wrapper.ToDouble(measurement);
         }
 
 
@@ -109,19 +105,8 @@ namespace DataPerformer.Portable
         /// <returns>The result of checking</returns>
         public static bool IsDoubleType(this object obj)
         {
-            if (obj == null)
-            {
-
-            }
-            if (obj.Equals(a)) return true;
-            if (obj is ArrayReturnType)
-            {
-                ArrayReturnType art = obj as ArrayReturnType;
-                return art.ElementType.Equals(a);
-            }
-            return false;
-
-        }
+            return wrapper.IsDoubleType(obj);
+         }
 
 
         /// <summary>
@@ -131,15 +116,7 @@ namespace DataPerformer.Portable
         /// <returns>The solver</returns>
         public static IDifferentialEquationSolver ToDifferentialEquationSolver(this object obj)
         {
-            if (obj is IDifferentialEquationSolver)
-            {
-                return obj as IDifferentialEquationSolver;
-            }
-            if (obj is IChildrenObject)
-            {
-                return (obj as IChildrenObject).GetChild<IDifferentialEquationSolver>();
-            }
-            return null;
+            return wrapper.ToDifferentialEquationSolver(obj);
         }
 
 
@@ -2681,7 +2658,6 @@ namespace DataPerformer.Portable
                 }
             }
         }
-
     
         /// <summary>
         /// Sets time provider to data consumer and all dependent objects

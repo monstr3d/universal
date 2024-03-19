@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
-using DataPerformer.Portable.Measurements;
+using DataPerformer.Portable.Wrappers;
 
 namespace DataPerformer.Portable.DifferentialEquationProcessors
 {
@@ -34,6 +30,8 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// Auxiliary buffer variable
         /// </summary>
         private double[] f;
+
+        CommonWrapper wrapper = new();
 
         /// <summary>
         /// Auxiliary buffer variable
@@ -76,7 +74,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 int n = s.GetVariablesCount();
                 for (int j = 0; j < n; j++)
                 {
-                    w[i] = m[j].ToDouble();
+                    w[i] = ToDouble(m[j]);
                     f[i] = w[i];
                     ++i;
                 }
@@ -92,7 +90,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = der.Derivation.ToDouble();
+                    z[i] = ToDouble(der.Derivation);
                     k[0, i] = z[i] * dt;
                     w[i] = f[i] + 0.5 * k[0, i];
                     ++i;
@@ -109,7 +107,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = der.Derivation.ToDouble();
+                    z[i] = ToDouble(der.Derivation);
                     k[1, i] = z[i] * dt;
                     w[i] = f[i] + 0.5 * k[1, i];
                     ++i;
@@ -143,7 +141,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                 for (int j = 0; j < s.GetVariablesCount(); j++)
                 {
                     IDerivation der = m[j] as IDerivation;
-                    z[i] = der.Derivation.ToDouble();
+                    z[i] = ToDouble(der.Derivation);
                     k[3, i] = z[i] * dt;
                     ++i;
                 }
@@ -217,6 +215,16 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
             }
         }
 
+        double ToDouble(IMeasurement measurement)
+        {
+            var parameter = measurement.Parameter;
+            object o = parameter();
+            if (o == null)
+            {
+
+            }
+            return (double)o;
+        }
 
         private int GetCount(IMeasurements m)
         {
