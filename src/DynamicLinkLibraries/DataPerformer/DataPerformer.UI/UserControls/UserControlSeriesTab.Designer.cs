@@ -57,7 +57,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBoxStepCount = new System.Windows.Forms.TextBox();
+            this.textBoxStepCount = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxStep = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -659,7 +659,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxStart;
         private System.Windows.Forms.Label labelStart;
-        private System.Windows.Forms.TextBox textBoxStepCount;
+        private System.Windows.Forms.NumericUpDown textBoxStepCount;
         private System.Windows.Forms.Label label2;
      }
 }

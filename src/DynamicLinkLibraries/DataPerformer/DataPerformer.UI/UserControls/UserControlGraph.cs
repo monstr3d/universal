@@ -481,7 +481,7 @@ namespace DataPerformer.UI.UserControls
                 double start = Double.Parse(calculatorBoxStart.Text);
                 double step = Double.Parse(calculatorBoxStep.Text);
 
-                int steps = Int32.Parse(textBoxStepCount.Text);
+                int steps = (int)numericUpDownStepCount.Value;
                 IGraphLabel l = this;
                 int i = 0;
                 return new object[] { start, step, steps, data.Item5[0], i };
@@ -766,7 +766,7 @@ namespace DataPerformer.UI.UserControls
             ControlPanel.LoadControls(panelGraph, graphControls);
             calculatorBoxStart.Text = consumer.StartTime + "";
             calculatorBoxStep.Text = consumer.Step + "";
-            textBoxStepCount.Text = consumer.Steps + "";
+            numericUpDownStepCount.Value = consumer.Steps;
             pic.Text = ResourceService.Resources.GetControlResource("Color", Utils.ControlUtilites.Resources);
             pic.Width = 50;
             StaticExtensionDataPerformerUI.FillSeriesTypeCombo(toolStripButtonType);
@@ -924,7 +924,7 @@ namespace DataPerformer.UI.UserControls
             consumer.StartTime = double.Parse(calculatorBoxStart.Text);
             consumer.Step = double.Parse(calculatorBoxStep.Text);
             string sc;
-            consumer.Steps = GetValue(comboBoxStepCount, textBoxStepCount, out sc);
+            consumer.Steps = GetValue(comboBoxStepCount, numericUpDownStepCount, out sc);
             data.Item4[4] = sc;
             this.FindChild<UserControlRealtime>().SaveSettings();
         }
@@ -1260,17 +1260,17 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
-        private int GetValue(ComboBox cb, TextBox tb, out string str)
+        private int GetValue(ComboBox cb, NumericUpDown tb, out string str)
         {
+            str = "";
             if (cb.SelectedItem == null)
             {
-                str = "";
-                return int.Parse(tb.Text);
+                return (int)tb.Value;
             }
             str = cb.SelectedItem + "";
             IMeasurement m = consumer.FindMeasurement(str, false);
             int i = (int)m.Parameter();
-            tb.Text = i + "";
+            tb.Value = i;
             return i;
 
         }
@@ -1737,7 +1737,7 @@ Func<bool> stop)
                 consumer.StartTime = double.Parse(calculatorBoxStart.Text);
                 consumer.Step = double.Parse(calculatorBoxStep.Text);
                 string sc;
-                consumer.Steps = GetValue(comboBoxStepCount, textBoxStepCount, out sc);
+                consumer.Steps = GetValue(comboBoxStepCount, numericUpDownStepCount, out sc);
                 data.Item4[4] = sc;
                 consumer.GraphControls = ControlPanel.GetControls(panelGraph);
                 IMeasurement arg = Argument;
@@ -1915,9 +1915,9 @@ Func<bool> stop)
             string[] sa = new string[] { "Start", "Step", "Finish" };
             double ss = Double.Parse(calculatorBoxStart.Text);
             string sta = ss.StringValue();
-            double ff = ss + (Double.Parse(calculatorBoxStep.Text) * Int32.Parse(textBoxStepCount.Text));
+            double ff = ss + (Double.Parse(calculatorBoxStep.Text) * (double)numericUpDownStepCount.Value);
             string fin = ff.StringValue();
-            string[] sp = new string[] { sta, textBoxStepCount.Text, fin };
+            string[] sp = [ sta, numericUpDownStepCount.Value + "", fin ];
             XmlElement inter = doc.CreateElement("Interval");
             for (int i = 0; i < 3; i++)
             {
@@ -2957,7 +2957,7 @@ Func<bool> stop)
                     WritePar();
                     consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
                     consumer.Step = Double.Parse(calculatorBoxStep.Text);
-                    consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                    consumer.Steps = (int)numericUpDownStepCount.Value;
                     arg = Argument;
                     st = double.Parse(calculatorBoxStart.Text);
                 };
@@ -3006,7 +3006,7 @@ Func<bool> stop)
                         dicText.Clear();
                         consumer.StartTime = double.Parse(calculatorBoxStart.Text);
                         consumer.Step = Double.Parse(calculatorBoxStep.Text);
-                        consumer.Steps = Int32.Parse(textBoxStepCount.Text);
+                        consumer.Steps = (int)numericUpDownStepCount.Value;
                     };
                     this.InvokeIfNeeded(p);
                     double start = consumer.StartTime;

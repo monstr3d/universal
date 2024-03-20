@@ -69,7 +69,7 @@ namespace DataPerformer.UI.UserControls
             labelY = new System.Windows.Forms.Label();
             labelX = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            textBoxStepCount = new System.Windows.Forms.TextBox();
+            numericUpDownStepCount = new System.Windows.Forms.NumericUpDown();
             label3 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -389,7 +389,7 @@ namespace DataPerformer.UI.UserControls
             panel4.Controls.Add(labelY);
             panel4.Controls.Add(labelX);
             panel4.Controls.Add(label4);
-            panel4.Controls.Add(textBoxStepCount);
+            panel4.Controls.Add(numericUpDownStepCount);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(label2);
@@ -509,12 +509,12 @@ namespace DataPerformer.UI.UserControls
             // 
             // textBoxStepCount
             // 
-            textBoxStepCount.Location = new System.Drawing.Point(463, 41);
-            textBoxStepCount.Margin = new System.Windows.Forms.Padding(4);
-            textBoxStepCount.Name = "textBoxStepCount";
-            textBoxStepCount.Size = new System.Drawing.Size(106, 23);
-            textBoxStepCount.TabIndex = 23;
-            textBoxStepCount.Text = "2";
+            numericUpDownStepCount.Location = new System.Drawing.Point(463, 41);
+            numericUpDownStepCount.Margin = new System.Windows.Forms.Padding(4);
+            numericUpDownStepCount.Name = "textBoxStepCount";
+            numericUpDownStepCount.Size = new System.Drawing.Size(106, 23);
+            numericUpDownStepCount.TabIndex = 23;
+            numericUpDownStepCount.Text = "2";
             // 
             // label3
             // 
@@ -1336,7 +1336,7 @@ namespace DataPerformer.UI.UserControls
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxStepCount;
+        private System.Windows.Forms.NumericUpDown numericUpDownStepCount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

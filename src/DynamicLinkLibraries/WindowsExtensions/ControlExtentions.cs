@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -23,7 +25,26 @@ namespace WindowsExtensions
 
         #endregion
 
-          
+
+        /// <summary>
+        /// Opens folder in file explorer
+        /// </summary>
+        /// <param name="folderPath">The folder</param>
+        public static void OpenFolder(this string folderPath)
+        {
+            if (Directory.Exists(folderPath))
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    Arguments = folderPath,
+                    FileName = "explorer.exe"
+                };
+
+                Process.Start(startInfo);
+            }
+        }
+
+
         /// <summary>
         /// Gets all children of a control
         /// </summary>
@@ -34,7 +55,7 @@ namespace WindowsExtensions
             foreach (var o in control.Controls)
             {
                 if (!(o is Control)) continue;
-                var c= (Control)o;
+                var c = (Control)o;
                 foreach (var item in c.GetAllChildren())
                 {
                     yield return item;
