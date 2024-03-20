@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 
 using CategoryTheory;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI;
 
 using BaseTypes.Interfaces;
+
 using DataPerformer.Formula.Interfaces;
 
 using DataPerformer.Interfaces;
@@ -16,7 +18,7 @@ using FormulaEditor.Interfaces;
 namespace DataPerformer.Formula
 {
     /// <summary>
-    /// Wrappre of formula
+    /// Wrapper of formula
     /// </summary>
     public class DataPerformerFormula
     {
@@ -86,7 +88,7 @@ namespace DataPerformer.Formula
         /// </summary>
         /// <param name="measurement">The measure</param>
         /// <param name="variable">The time variable</param>
-         public void Set(IMeasurement measurement, ITimeVariable variable)
+        public void Set(IMeasurement measurement, ITimeVariable variable)
         {
             VariableMeasurement v = variable.Variable;
             if (v == null)
@@ -124,7 +126,7 @@ namespace DataPerformer.Formula
                 return new VariableMeasurement(symbol, measurement, detector);
             }
             IDistribution distribution = measurement as IDistribution;
-            return new VariableMeasureDistribution(symbol, measurement, distribution, detector);
+            return new VariableMeasurementDistribution(symbol, measurement, distribution, detector);
         }
 
 
@@ -135,9 +137,9 @@ namespace DataPerformer.Formula
         /// <param name="measurement">The measurement</param>
         /// <param name="detector">The detector</param>
         /// <returns>The variable</returns>
-        public VariableMeasurement Create(char symbol, IMeasurement measure, IVariableDetector detector)
+        public VariableMeasurement Create(char symbol, IMeasurement measurement, IVariableDetector detector)
         {
-            return Create(symbol + "", measure, detector);
+            return Create(symbol + "", measurement, detector);
         }
 
         /// <summary>

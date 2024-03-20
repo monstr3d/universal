@@ -23,15 +23,10 @@ namespace DataPerformer.Formula
 
         IMeasurement measurement;
 
-
         internal IMeasurement Measurement
         {
             get => measurement;
-            set
-            {
-                if (measurement == value) { return; }
-                measurement = value;
-            }
+            set => measurement = value;
         }
      
 
@@ -74,7 +69,7 @@ namespace DataPerformer.Formula
         internal VariableMeasurement(string symbol, IMeasurement measurement, IVariableDetector detector)
         {
             this.symbol = symbol;
-            this.Measurement = measurement;
+            Measurement = measurement;
             this.detector = detector;
             object par = measurement.Type;
             if (par is IOneVariableFunction)

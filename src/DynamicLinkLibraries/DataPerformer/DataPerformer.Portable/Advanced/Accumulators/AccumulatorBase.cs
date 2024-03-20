@@ -99,7 +99,7 @@ namespace DataPerformer.Portable.Advanced.Accumulators
         protected AccumulatorBase()
         {
             processor = new InternalRungeProcessor(this);
-            timeMeasurement = new TimeMeasurement(new Func<object>(GetTime));
+            timeMeasurement = new TimeMeasurement(GetAccumulatorTime);
             children[0] = new EventBlock();
         }
 
@@ -259,7 +259,7 @@ namespace DataPerformer.Portable.Advanced.Accumulators
             }
         }
 
-        private object GetTime()
+        private object GetAccumulatorTime()
         {
             return time;
         }
@@ -417,7 +417,6 @@ namespace DataPerformer.Portable.Advanced.Accumulators
                 }
             }
         }
-
 
         private void SetTime(double time)
         {

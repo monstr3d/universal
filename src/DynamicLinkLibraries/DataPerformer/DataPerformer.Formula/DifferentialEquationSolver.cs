@@ -11,12 +11,13 @@ using Diagram.UI.Aliases;
 
 using BaseTypes.Interfaces;
 
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+
 using DataPerformer.Formula.Interfaces;
 
 namespace DataPerformer.Formula
@@ -38,7 +39,7 @@ namespace DataPerformer.Formula
 
         internal Dictionary<object, object> Haliases;
 
-
+        DataPerformerFormula dataPerformerFormula;
 
         /// <summary>
         /// Input dynamical parameter
@@ -48,13 +49,12 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Table of variables of equations. Table contains initial values and derivations of variables
         /// </summary>
-        protected Dictionary<object, object> variables = new Dictionary<object, object>();
+        protected Dictionary<object, object> variables = new ();
 
         /// <summary>
         /// Table representation of input parameters
         /// </summary>
-        new private Dictionary<char, VariableMeasurement> parameters = 
-            new Dictionary<char, VariableMeasurement>();
+        new private Dictionary<char, VariableMeasurement> parameters = new ();
 
 
         /// <summary>
@@ -80,35 +80,35 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Table representation of variables
         /// </summary>
-        protected Dictionary<object, object> vars = new Dictionary<object, object>();
+        protected Dictionary<object, object> vars = new ();
 
         /// <summary>
         /// Table representation of parameters
         /// </summary>
-        protected Dictionary<object, object> pars = new Dictionary<object, object>();
+        protected Dictionary<object, object> pars = new ();
 
         /// <summary>
         /// Table of aliases
         /// </summary>
-        protected Dictionary<object, object> aliases = new Dictionary<object, object>();
+        protected Dictionary<object, object> aliases = new ();
 
         /// <summary>
         /// Table of aliases names
         /// </summary>
-        protected Dictionary<object, object> aliasNames = new Dictionary<object, object>();
+        protected Dictionary<object, object> aliasNames = new ();
 
         /// <summary>
         /// Table of external aliases
         /// </summary>
-        private Dictionary<Variable, AliasName> externalAliases = new Dictionary<Variable, AliasName>();
+        private Dictionary<Variable, AliasName> externalAliases = new ();
 
         /// <summary>
         /// List of variables
         /// </summary>
-        private List<Variable> varlist = new List<Variable>();
+        private List<Variable> varlist = new ();
 
 
-        protected List<string> variabelstr = new List<string>();
+        protected List<string> variabelstr = new ();
 
 
 
@@ -116,7 +116,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Dictionary of acceptors
         /// </summary>
-        private Dictionary<string, IOperationAcceptor> acc = new Dictionary<string, IOperationAcceptor>();
+        private Dictionary<string, IOperationAcceptor> acc = new ();
 
         /// <summary>
         /// Formula creator
@@ -132,10 +132,10 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Measurements
         /// </summary>
-        private List<IMeasurement> formulas = new List<IMeasurement>();
+        private List<IMeasurement> formulas = new ();
 
 
-        private List<FormulaMeasurement> fom = new List<FormulaMeasurement>();
+        private List<FormulaMeasurement> fom = new ();
 
         /// <summary>
         /// Time variable
@@ -145,7 +145,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Orders of derivations
         /// </summary>
-        protected Dictionary<string, int> deriOrders = new Dictionary<string, int>();
+        protected Dictionary<string, int> deriOrders = new ();
 
         /// <summary>
         /// Proxy factory
@@ -155,10 +155,7 @@ namespace DataPerformer.Formula
         private double[] outputD;
 
 
-        private List<object> args = new List<object>();
-
-   
-
+        private List<object> args = new ();
 
         ITreeCollectionProxy proxy;
 
@@ -171,6 +168,7 @@ namespace DataPerformer.Formula
         /// </summary>
         public DifferentialEquationSolver()
         {
+            dataPerformerFormula = new(this);
             proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
             init();
             vars = new Dictionary<object, object>();
@@ -470,11 +468,7 @@ namespace DataPerformer.Formula
         /// </summary>
         new public void Prepare()
         {
-
-            //parameters.Clear();
-            //string str = "";
-            //            aliases.Clear();
-            Double a = 0;
+            double a = 0;
             string var = AllVariables;
             Dictionary<object, object> table = new Dictionary<object, object>();
             foreach (char c in var)
@@ -642,7 +636,7 @@ namespace DataPerformer.Formula
         /// <param name="m">The parameter measurement</param>
         public void SetParameter(char c, IMeasurement m)
         {
-            VariableMeasurement v = c.Create(m, this);
+            VariableMeasurement v = dataPerformerFormula.Create(c, m, this);
             parameters[c] = v;
             string s = m.Name;
             pars[c] = s;
@@ -720,7 +714,7 @@ namespace DataPerformer.Formula
                             string key = c + "";
                             if (!acc.ContainsKey(key))
                             {
-                                acc[c + ""] = c.Create(measure, this);
+                                acc[c + ""] = dataPerformerFormula.Create(c, measure, this);
                             }
                         }
                     }
@@ -812,7 +806,10 @@ namespace DataPerformer.Formula
                         {
                             table[c] = t;
                         }
-                        acc[c + ""] = c.Create(m, this);
+                        if (!acc.ContainsKey(c + ""))
+                        {
+                            acc[c + ""] = dataPerformerFormula.Create(c, m, this);
+                        }
                     }
                 }
             }
@@ -940,14 +937,14 @@ namespace DataPerformer.Formula
                             string key = c + "";
                             if (!acc.ContainsKey(key))
                             {
-                                acc[c + ""] = c.Create(measure, this);
+                                acc[c + ""] = dataPerformerFormula.Create(c, measure, this);
                             }
                         }
                     }
                 }
             }
             timeVariable = null;
-            IMeasurement timeMeasure =
+            IMeasurement timeMeasurement =
                 StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
             foreach (string s in arguments)
             {
@@ -958,7 +955,7 @@ namespace DataPerformer.Formula
                     string key = s[0] + "";
                     if (!acc.ContainsKey(key))
                     {
-                        timeVariable = s[0].Create(timeMeasure, this);
+                        timeVariable = dataPerformerFormula.Create(s[0], timeMeasurement, this);
                         acc[key] = timeVariable;
                     }
                 }
@@ -978,8 +975,8 @@ namespace DataPerformer.Formula
                 string name = this.GetMeasurementsName(measurements);
                 for (int i = 0; i < measurements.Count; i++)
                 {
-                    IMeasurement measure = measurements[i];
-                    string p = name + "." + measure.Name;
+                    IMeasurement measurement = measurements[i];
+                    string p = name + "." + measurement.Name;
                     foreach (char c in pars.Keys)
                     {
                         if (!pars.ContainsKey(c))
@@ -993,9 +990,13 @@ namespace DataPerformer.Formula
                         string s = pars[c] as string;
                         if (s.Equals(p))
                         {
-                            parameter.Add(c, measure);
-                            VariableMeasurement vm = c.Create(measure, this);
-                            parameters[c] = vm;
+                            parameter.Add(c, measurement);
+                            if (!acc.ContainsKey(c + ""))
+                            {
+                                var vm = dataPerformerFormula.Create(c, measurement, this);
+                                parameters[c] = vm;
+                                acc[c + ""] = vm;
+                            }
                         }
                     }
                 }
@@ -1004,9 +1005,15 @@ namespace DataPerformer.Formula
             {
                 if (s.Substring(s.Length - 4).Equals("Time"))
                 {
-                    timeVariable = s[0].Create(
-                      StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement,
-                        this);
+                    var tp = StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
+                    timeVariable = dataPerformerFormula.Create(s[0], tp, this);
+                    if (timeVariable is IOperationAcceptor acceptor)
+                    {
+                        if (!acc.ContainsKey(s[0] + ""))
+                        {
+                            acc[s[0] + ""] = acceptor;
+                        }
+                    }
                     parameters[s[0]] = timeVariable;
                 }
             }
@@ -1421,11 +1428,16 @@ namespace DataPerformer.Formula
         {
             get
             {
-                return this.GetTimeMeasurement();
+                var m =  base.TimeMeasurement;
+                if (m != null)
+                {
+                    return m;
+                }
+                return dataPerformerFormula.GetTimeMeasurement(this);
             }
             set
             {
-                value.Set(this);
+                dataPerformerFormula.Set(value, this);
                 base.TimeMeasurement = value;
             }
         }

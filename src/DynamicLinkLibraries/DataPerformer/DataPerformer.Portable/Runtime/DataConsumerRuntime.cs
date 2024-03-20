@@ -116,7 +116,7 @@ namespace DataPerformer.Portable.Runtime
         /// </summary>
         string reason;
 
-    
+
         #endregion
 
         #region Ctor

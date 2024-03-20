@@ -14,7 +14,7 @@ namespace DataPerformer.Portable
         #region Fields
 
         internal static readonly IOneVariableFunction Object = new TimeFunction();
-        private readonly static Double a = 0;
+        private readonly static double a = 0;
         private bool haseq = true;
         object type;
         double start = 0;

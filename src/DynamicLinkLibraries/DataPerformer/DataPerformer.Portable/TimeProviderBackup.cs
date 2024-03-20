@@ -114,7 +114,7 @@ namespace DataPerformer.Portable
             if (collection != null)
             {
                 collection.ForEach((IStopped stop) => { stop.Stop(); });
-                Reset(collection);
+                ResetTime();
                 dictionary.Clear();
                 return;
             }
@@ -163,36 +163,34 @@ namespace DataPerformer.Portable
         }
 
 
-        static void SetTimeProvider(object o, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(ITimeMeasurementConsumer tc, ITimeMeasurementProvider provider, 
+            IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            if (o.GetLabelObject<ITimeMeasurementConsumer>() is ITimeMeasurementConsumer tc)
+            if (dictionary.ContainsKey(tc))
             {
-                if (dictionary.ContainsKey(tc))
-                {
-                    if (tc.Time != provider.TimeMeasurement)
-                    {
-                        dictionary[tc] = tc.Time;
-                        tc.Time = provider.TimeMeasurement;
-                    }
-                }
-                else
+                if (tc.Time != provider.TimeMeasurement)
                 {
                     dictionary[tc] = tc.Time;
                     tc.Time = provider.TimeMeasurement;
                 }
             }
-            IChildrenObject co = o.GetLabelObject<IChildrenObject>();
-            if (co != null)
+            else
             {
-                IAssociatedObject[] ch = co.Children;
-                if (ch != null)
-                {
-                    foreach (object ob in ch)
-                    {
-                        SetTimeProvider(ob, provider, dictionary);
-                    }
-                }
+                dictionary[tc] = tc.Time;
+                tc.Time = provider.TimeMeasurement;
             }
+            /*          IChildrenObject co = o.GetLabelObject<IChildrenObject>();
+                      if (co != null)
+                      {
+                          IAssociatedObject[] ch = co.Children;
+                          if (ch != null)
+                          {
+                              foreach (object ob in ch)
+                              {
+                                  SetTimeProvider(ob, provider, dictionary);
+                              }
+                          }
+                      }*/
         }
 
         void Set(IDifferentialEquationProcessor processor, IComponentCollection collection)
@@ -208,10 +206,18 @@ namespace DataPerformer.Portable
         private static void SetTimeProvider(IComponentCollection collection,
             ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            var c = collection.AllComponents;
-            foreach (object o in c)
+            var c = collection.GetAll<ITimeMeasurementConsumer>();
+            foreach (var o in c)
             {
                 SetTimeProvider(o, provider, dictionary);
+            }
+        }
+
+        void ResetTime()
+        {
+            foreach (var key in dictionary.Keys)
+            {
+                key.Time = dictionary[key];
             }
         }
 

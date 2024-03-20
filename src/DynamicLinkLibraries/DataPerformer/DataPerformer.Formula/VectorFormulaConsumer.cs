@@ -68,6 +68,8 @@ namespace DataPerformer.Formula
         
         private IMeasurements th;
 
+        DataPerformerFormula dataPerformerFormula;
+
    
         #endregion
 
@@ -78,6 +80,7 @@ namespace DataPerformer.Formula
         /// </summary>
         protected VectorFormulaConsumer()
         {
+            dataPerformerFormula = new (this);
             th = this;
             proxyFactory = StaticExtensionFormulaEditor.CreatorFactory[this];
         }
@@ -269,14 +272,15 @@ namespace DataPerformer.Formula
                                 string key = c + "";
                                 if (!acceptors.ContainsKey(key))
                                 {
-                                    acceptors[c + ""] = c.Create(measurement, this);
+                                    acceptors[c + ""] =
+                                        dataPerformerFormula.Create(c, measurement, this);
                                 }
                             }
                         }
                     }
                 }
                 timeVariable = null;
-                IMeasurement timeMeasure = 
+                IMeasurement timeMeasurement = 
                     StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
                 foreach (string s in arguments)
                 {
@@ -287,7 +291,7 @@ namespace DataPerformer.Formula
                         string key = s[0] + "";
                         if (!acceptors.ContainsKey(key))
                         {
-                            timeVariable = s[0].Create(timeMeasure, this);
+                            timeVariable = dataPerformerFormula.Create(s[0], timeMeasurement, this);
                             acceptors[key] = timeVariable;
                         }
                     }

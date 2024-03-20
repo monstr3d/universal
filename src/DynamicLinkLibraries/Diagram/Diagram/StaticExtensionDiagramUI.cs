@@ -419,7 +419,6 @@ namespace Diagram.UI
             return l;
         }
 
-
         /// <summary>
         /// Error handler
         /// </summary>
@@ -685,7 +684,6 @@ namespace Diagram.UI
 
         #region Public members
 
-
         /// <summary>
         /// Sets order
         /// </summary>
@@ -733,7 +731,6 @@ namespace Diagram.UI
             act.AssemblyAction();
         }
 
-
         /// <summary>
         /// Gets children
         /// </summary>
@@ -764,7 +761,6 @@ namespace Diagram.UI
             }
             return null;
         }
-
 
         /// <summary>
         /// Sets parents of objects of desktop
@@ -805,8 +801,6 @@ namespace Diagram.UI
             return l;
         }
 
-
-
         /// <summary>
         /// Adds C# class code creator
         /// </summary>
@@ -828,7 +822,6 @@ namespace Diagram.UI
             return GetOrder(nc1, d) - GetOrder(nc2, d);
         }
 
-
         /// <summary>
         /// Common desktop of two components
         /// </summary>
@@ -848,7 +841,6 @@ namespace Diagram.UI
             }
             return null;
         }
-
 
         /// <summary>
         /// Path of component desktops
@@ -915,7 +907,6 @@ namespace Diagram.UI
             }
             return null;
         }
-
 
         /// <summary>
         /// Gets name of associated object
@@ -1016,26 +1007,6 @@ namespace Diagram.UI
             l.Sort();
             return l.ToArray();
         }
-
-        /*
-        /// <summary>
-        /// Inverts the dictionary
-        /// </summary>
-        /// <typeparam name="T">Key type</typeparam>
-        /// <typeparam name="S">Value type</typeparam>
-        /// <param name="dictionary">The dictionary</param>
-        /// <returns>Inverted dictionary</returns>
-        public static Dictionary<T, S> Invert<T, S>(this IDictionary<S, T> dictionary)
-        {
-            Dictionary<T, S> d = new Dictionary<T, S>();
-            foreach (S s in dictionary.Keys)
-            {
-                d[dictionary[s]] = s;
-            }
-            return d;
-        }*/
-
- 
       
         /// <summary>
         /// Adds Error hablder
@@ -1255,10 +1226,10 @@ namespace Diagram.UI
                 }
                 else
                 {
-                    return new object[] { caro };
+                    return [caro];
                 }
             }
-            return new object[] { obj };
+            return [obj];
         }
 
         /// <summary>
@@ -1304,8 +1275,6 @@ namespace Diagram.UI
                 yield return o;
             }
         }
-
-        
 
         /// <summary>
         /// Gets all category objects and arrows of collection
@@ -1857,8 +1826,6 @@ namespace Diagram.UI
             return GetAssociatedObject<T>(d, name);
         }
 
-        
-
         /// <summary>
         /// Gets source arrows of object
         /// </summary>
@@ -2067,7 +2034,6 @@ namespace Diagram.UI
             return GetLabelObject<T>(GetObject(collection, name));
         }
 
-
         /// <summary>
         /// Gets children objects
         /// </summary>
@@ -2093,7 +2059,6 @@ namespace Diagram.UI
                 }
             }
         }
-
 
         /// <summary>
         /// Gets all names of collection
@@ -2596,7 +2561,6 @@ namespace Diagram.UI
             }
         }
 
-
         /// <summary>
         /// Adds double to code creator
         /// </summary>
@@ -2638,8 +2602,6 @@ namespace Diagram.UI
                 lcode.Add(s);
             }
         }
-
-
 
         #region Dependent
 

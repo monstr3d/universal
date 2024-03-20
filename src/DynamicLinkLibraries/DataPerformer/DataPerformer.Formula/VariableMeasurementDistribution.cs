@@ -11,7 +11,7 @@ using DataPerformer.Interfaces;
 
 namespace DataPerformer.Formula
 {
-    class VariableMeasureDistribution : VariableMeasurement, IDistribution
+    class VariableMeasurementDistribution : VariableMeasurement, IDistribution
     {
         #region Fields
 
@@ -21,7 +21,7 @@ namespace DataPerformer.Formula
 
         #region Ctor
 
-        internal VariableMeasureDistribution(string symbol, IMeasurement measure,
+        internal VariableMeasurementDistribution(string symbol, IMeasurement measure,
             IDistribution distribution, IVariableDetector detector)
             : base(symbol, measure, detector)
         {
