@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 
@@ -16,10 +11,10 @@ namespace Diagram.UI.UserControls
     public partial class UserControlEditList : UserControl
     {
         #region Fields
+        
         Type type;
 
-         static private int height = 0;
-
+        static private int height = 0;
 
         Control control;
 
@@ -114,7 +109,7 @@ namespace Diagram.UI.UserControls
                     return;
                 }
                 ConstructorInfo c = type.GetConstructor(new Type[0]);
-                control = c.Invoke(new object[0]) as Control;
+                control = c.Invoke([]) as Control;
                 control.Dock = DockStyle.Fill;
                 userControl.Controls.Add(control);
             }

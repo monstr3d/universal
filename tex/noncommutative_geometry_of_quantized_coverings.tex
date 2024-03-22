@@ -5901,11 +5901,12 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 	In the above situation we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
 	$\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is the $p$-\textit{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. We say that  family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with coverings} if it is complaint with any finite-fold covering of $\sX$.
 \end{definition}
-!!! CONTINUE !!!
+
 \begin{exercise}\label{top_path_lift_exer}
 	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering (cf. Definition \ref{top_pointed_defn}), and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
-	be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
-	Prove that there is an unique weak path  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}).
+	be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Assume that $\widetilde{\mathfrak{A}}$ is the $p$-lift of $\mathfrak{A}$ (cf. Definition \ref{top_lconn_defn}).	
+	Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
+	Prove that there is an unique $\widetilde{\mathfrak{A}}$-path  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$  such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$ (cf. Definition \ref{top_path_desc_defn}).
 \end{exercise}
 \begin{definition}\label{top_path_lift_defn}
 	The given by the Exercise  \ref{top_path_lift_exer} path $\widetilde{\mathfrak p}$ is said to be the $p$-\textit{lift} or  $p$-$\widetilde x_0$-\textit{lift} of $\mathfrak p$. We write
@@ -5939,18 +5940,17 @@ If a weak path $\widetilde{\mathfrak p}$ {corresponds to} $g \in G\left(\left.\w
 \begin{lemma}\label{top_lift_comp_lem}
 	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$ where $g',g''\in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. If
 	\bean
-	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
+	\widetilde{\mathfrak p} = \lift^{\widetilde x_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
 	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
 	\eean
 	then $g'g''\widetilde x_0\in  \widetilde\sU_{\widetilde\a_{k + l}}$.
 \end{lemma}
 \begin{proof}
 From $g' \widetilde x_0\in \widetilde\sU_{\widetilde\a'_k}$ it follows that 
-there is a weak path
 	$$
-	\widetilde{\mathfrak p} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_1},..., g'\widetilde\sU_{\widetilde\a''_l}\right).
+	\widetilde{\mathfrak p} = \lift^{\widetilde x_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right)=\left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_1},..., g'\widetilde\sU_{\widetilde\a''_l}\right)=\left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right),
 	$$
-Taking into account $g' \widetilde x_0\in \widetilde\sU_{\widetilde\a'_k}\in \widetilde\sU_{\widetilde\a'_k}$,% $\quad g'' \widetilde x_0\in \widetilde\sU_{\widetilde\a''_l}$ one has $g'' g' \widetilde  \widetilde\sU_{\widetilde\a_{k + l }}$.
+Taking into account $g'' \widetilde x_0\in \widetilde\sU_{\widetilde\a''_l}$ we conclude that $g'  g'' \widetilde x_0 \in  g'\widetilde\sU_{\widetilde\a_{k + l }}= \widetilde\sU_{\widetilde\a_{k + l}}$.
 \end{proof}
 \begin{empt}\label{top_g_homo_empt}
 	Consider a commutative triangle of connected, locally connected, locally compact, Hausdorff spaces  and  transitive coverings.
@@ -5966,33 +5966,34 @@ Taking into account $g' \widetilde x_0\in \widetilde\sU_{\widetilde\a'_k}\in \wi
 		(m-1-3) edge node [right] {$~~p''$} (m-2-2);
 	\end{tikzpicture}
 	\\
-	Let  $\mathfrak A \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$ evenly covered by both $p'$ and $p''$. Let both  $\widetilde{\mathfrak A}'\bydef {\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~}$ and  $\widetilde{\mathfrak A}''\bydef\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\mathfrak A$ respectively (cf. Definition \ref{top_lconn_defn}). Let $\widetilde \sU'_0 \in \left\{\widetilde \sU_{\widetilde \a' }\right\}$, and $\widetilde x_0 \in \widetilde \sU'_0$. Denote by $ \widetilde \sU''_0\bydef p\left(\widetilde \sU'_0\right)\subset \widetilde \sX''$, $  \sU_0\bydef p'\left(\widetilde \sU'_0\right)\subset \sX$, $\widetilde x''_0\bydef p\left(\widetilde x'_0\right)\subset \widetilde \sU''_0$, $  x_0\bydef p'\left(\widetilde x'_0\right)\subset \sU_0$. Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijecive maps
+	Let  $\mathfrak A \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$ evenly covered by both $p'$ and $p''$. Let both  $\widetilde{\mathfrak A}'\bydef {\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~}$ and  $\widetilde{\mathfrak A}''\bydef\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\mathfrak A$ respectively (cf. Definition \ref{top_lconn_defn}).
+Let $\widetilde{x}'_0	\in 	\widetilde{\mathcal X}'$, $~\widetilde{x}''_0	\bydef p\left(\widetilde{x}'_0\right)\in 	\widetilde{\mathcal X}''$ and $x_0 \bydef p'\left( \widetilde{x}'_0 \right)= p''\left( \widetilde{x}''_0 \right)$.  Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijective maps
 	\bean 
-	G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\xrightarrow{\approx}p'^{-1}p'\left(\widetilde x'_0 \right),\\
+	G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)\xrightarrow{\approx}p'^{-1}p'\left(\widetilde x'_0 \right),\\
 	g \mapsto g\widetilde x'_0;\\
-	G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)\xrightarrow{\approx}p''^{-1}p''\left(\widetilde x''_0 \right),\\
+	G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X } \right)\xrightarrow{\approx}p''^{-1}p''\left(\widetilde x''_0 \right),\\
 	g \mapsto g\widetilde x''_0. 
 	\eean
 	On the other hand the map $p$ induces the surjective map $p'^{-1}p'\left(\widetilde x'_0 \right)\to p''^{-1}p''\left(\widetilde x''_0 \right)$ so one has the surjective map
 	\be\label{top_g_homo_eqn}
-	h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right).
+	h :  G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)\to G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X } \right).
 	\ee
 \end{empt}
 \begin{lemma}\label{top_homo_lem}
 	In the situation \ref{top_g_homo_empt} following condition holds:
 	\begin{itemize}
-		\item [(i)] 	The given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ is a homomorphism of groups.
-		\item[(ii)] If we consider the natural inclusion $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)\subset  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ then $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)$ is a normal subgroup of $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ (cf. Definition \ref{normal_subgroup_defn}).
+		\item [(i)] 	The given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)\to G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X } \right)$ is a homomorphism of groups.
+		\item[(ii)] If we consider the natural inclusion $ G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X }'' \right)\subset  G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)$ then $ G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X }'' \right)$ is a normal subgroup of $ G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)$ (cf. Definition \ref{normal_subgroup_defn}).
 	\end{itemize}
 \end{lemma}
 \begin{proof} (i)
-	Let $g_1, g_2 \in G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\widetilde{\mathfrak A}'$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_closed_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\widetilde{\mathfrak A}''$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
+	Let $g_1, g_2 \in G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\widetilde{\mathfrak A}'$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_closed_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\widetilde{\mathfrak A}''$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
 	\bean
-	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde\sU'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
-	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde\sU''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
+	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde x'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
+	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde x''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
 	\eean
-	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that if  $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that both $h\left(g_1g_2 \right)$  and $h\left(g_1 \right)h\left(g_2 \right)$ correspond to the single path $\widetilde{\mathfrak p}''$,  so $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
-	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
+	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that if  $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $g_1g_2\widetilde x'_0\in \widetilde\sU'_{\widetilde\a'_{k + l }} $. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $ h\left(g_1g_2 \right) \widetilde x''_0\in p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that both $h\left(g_1g_2 \right)$  and $h\left(g_1 \right)h\left(g_2 \right)$ correspond to the single path $\widetilde{\mathfrak p}''$,  so $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
+	(ii) Follows from $G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X }' \right)= \ker h$.
 \end{proof}
 
 \begin{corollary}\label{com_norm_cor}
@@ -6056,9 +6057,9 @@ If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and on
 \end{proof} 
 \begin{empt}\label{top_cov_preord_empt}
 	One can define a pre-ordering (cf. Definition \ref{ord_defn}) on a family of  $\mathfrak{FinCov}$-$\sX$-objects (cf. Definition \ref{top_fin_cov_defn}) such that one has
-	$$
+\be\label{top_cov_ord_eqn}
 	\left(\widetilde \sX' \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right)
-	$$
+\ee
 	if and only if there is a finite-fold transitive covering $\widetilde \sX'\to \widetilde \sX''$ which can be included into a following commutative diagram
 	\newline
 	\begin{tikzpicture}
@@ -6097,7 +6098,13 @@ If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and on
 		\item the family of isomorphism classes of  $\mathfrak{FinCov}$-$\sX$-objects is a directed set (cf. Definition \ref{directed_set_defn}).
 	\end{itemize}
 \end{exercise}
-
+\begin{remark}\label{top_ord_rem}
+From our construction it follows that $\mathfrak{FinCov}$-$\sX$ objects can be indexed by a directed set $\La$ such that
+\be\label{top_ord_eqn}
+\forall \mu, \nu \in \La \quad \mu \ge \nu \quad \Leftrightarrow \quad \left( \sX_\mu \to \sX\right)\ge 	\left(\sX_\nu \to \sX\right)
+\ee
+(cf. Equation \ref{top_cov_ord_eqn})
+\end{remark}
 \begin{definition}\label{top_fin_cov_p_defn}
 	Let $\left(\sX, x_0 \right)$ be a pointed space such that $\sX$ is a connected, locally connected,  locally compact,  Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\left( \sX, x_0\right) $ such that
 	\begin{itemize}
@@ -6107,8 +6114,7 @@ If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and on
 	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
 \end{definition}
 \begin{remark}\label{top_skeleton_rem}
-	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
-	So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton  !!! SKELETON !!!(cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
+	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$. If follows that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is equivalent to the pre-ordering category which corresponds to a pre-ordering category (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}) of the explained in the  Remark \ref{top_ord_rem} directed set $\La$.
 \end{remark}
 
 
@@ -6148,7 +6154,7 @@ If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and on
 	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
 	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
 \end{proof}
-
+!!! CONTINUE !!!
 \begin{lemma}\label{top_compact_lem}
 	Let $\sX$ be  a connected, locally connected, weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}). Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there is a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
 	\begin{itemize}
@@ -9868,6 +9874,8 @@ Let $\widetilde{\sX}\to \sX$ be a transitive covering. Consider a family of fini
 
 
 \begin{definition}\label{top_pointed_cat_defn}
+	
+	!!! USE \ref{top_comply_lem} !!!
 	Let $\mathfrak{S}_\sX$ be a topological finite covering category with the set of objects $\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$. Suppose that there are base points $x_0 \in \sX$ and $x^\la_0 \in \sX_\la$ such that for any $\la \in \La$ the $p_\la$ is a pointed map $\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)$ (cf. Definition \ref{top_pointed_defn}). Let us consider a subcategory $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right)\}$  of $\mathfrak{S}_\sX$  such that any morphism  $p^\mu_\nu: \left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)$ of $\mathfrak{S}_{\left( \sX, x_0\right) }$ is a pointed  map.  If for any $\mu, \nu \in \La$ such that $\mu \ge \nu$ there is a pointed map $p^\mu_\nu: \left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)$  then we say that $\mathfrak{S}_{\left( \sX, x_0\right) }$ is a \textit{pointed topological finite covering category} and we write 
 	\be\label{top_sec_p_eqn}
 	\begin{split}
@@ -10625,7 +10633,7 @@ A following theorem gives universal  coverings of commutative $C^*$-algebras.
 	
 	
 \end{theorem}
-
+!!! USE \ref{top_comply_lem} !!!
 \begin{proof}
 (i)
 	If $\mathfrak{S}_\sX=\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ is a family of all transitive finite-fold coverings of $\sX$ then from the proof of the Lemma \ref{top_associded_lem} it follows that a set $\La$ is directed. Using the functor $C_0$ (cf. \ref{top_functor_empt}) one can obtain a family of all noncommutative finite-fold coverings of $C_0\left( \sX\right)$ is given by 
@@ -12616,6 +12624,7 @@ yields a  *-isomorphism $A_0\left(\widetilde \sY \right)\xrightarrow{\sim} A''$.
 The Definition \ref{blowing_liftq_defn} is compliant with \ref{top_lift_defn}  one (cf. Examples \ref{blowing_hausdorff_exm}  and \ref{blowing_disintegrable_exm}).
 \end{remark}
 \begin{empt}\label{blowing_lift_desc_empt}
+	!!! USE \ref{top_comply_lem} !!!
 Let $A$ be $C^*$-algebra, and let $C_0\left(\sY\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \left( \widetilde \sY , \widetilde y_0\right) \to \left( \sY, y_0\right) $ be a pointed transitive covering such that a {covering group} $G\left( \left.{\widetilde{\sY}}~\right|\sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let  $A_0\left(\widetilde \sY \right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let 
 $$
 \mathfrak{S}_{\left( \sY, y_0  \right) }=\left\{ p_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La} 
@@ -13544,6 +13553,7 @@ $$
 	 where $\pi_1^{\mathrm{w}}\left( \sY, y_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $\mathfrak{ResFin}$ is given by the equation \eqref{top_fin_eqn}.
 	\end{enumerate}
 \end{corollary}
+!!! USE \ref{top_comply_lem} !!!
 \begin{proof}
 Follows from the Corollary \ref{blowing_functor_eq_cor} and  the Theorem \ref{blowing_main_thm}.
 \end{proof}

@@ -24,7 +24,9 @@ namespace DataPerformer.UI.UserControls
 
         TextBox start;
         TextBox step;
-        TextBox stepCount;
+        
+        
+        NumericUpDown stepCount;
 
         NumericUpDown intDeg;
 
@@ -79,13 +81,15 @@ namespace DataPerformer.UI.UserControls
 
         void Create()
         {
-            Type tt = typeof(TextBox);
-            Type[] t = new Type[] { tt, tt, tt, typeof(NumericUpDown) };
+            var tb = typeof(TextBox);
+            var nud = typeof(NumericUpDown);
+            Type[] t = new Type[] { tb, tb, nud, nud };
             Diagram.UI.UserControls.UserControlEditList u = userControlEditList;
             u.Types = t;
             start = u.GetControl<TextBox>(0);
             step = u.GetControl<TextBox>(1);
-            stepCount = u.GetControl<TextBox>(2);
+            stepCount = u.GetControl<NumericUpDown>(2);
+            stepCount.Maximum = 100000000;
             intDeg = u.GetControl<NumericUpDown>(3);
         }
 
@@ -113,7 +117,7 @@ namespace DataPerformer.UI.UserControls
             {
                 step.Text = (arg[1] - arg[0]) + "";
             }
-            stepCount.Text = arg.Length + "";
+            stepCount.Value = arg.Length;
             intDeg.Value = acc.Degree;
         }
 
@@ -124,7 +128,7 @@ namespace DataPerformer.UI.UserControls
             {
                 double st = Double.Parse(start.Text);
                 double s = Double.Parse(step.Text);
-                int n = Int32.Parse(stepCount.Text);
+                int n = (int)stepCount.Value;
                 double[] arg = new double[n];
                 for (int i = 0; i < arg.Length; i++)
                 {

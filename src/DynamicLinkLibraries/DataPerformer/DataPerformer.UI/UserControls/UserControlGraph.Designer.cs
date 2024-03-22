@@ -158,6 +158,7 @@ namespace DataPerformer.UI.UserControls
             panelGraph.SuspendLayout();
             panelMeaTop.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownStepCount).BeginInit();
             tabPageText.SuspendLayout();
             contextMenuStripTextTab.SuspendLayout();
             panel8.SuspendLayout();
@@ -507,14 +508,15 @@ namespace DataPerformer.UI.UserControls
             label4.TabIndex = 27;
             label4.Text = "Start";
             // 
-            // textBoxStepCount
+            // numericUpDownStepCount
             // 
             numericUpDownStepCount.Location = new System.Drawing.Point(463, 41);
             numericUpDownStepCount.Margin = new System.Windows.Forms.Padding(4);
-            numericUpDownStepCount.Name = "textBoxStepCount";
+            numericUpDownStepCount.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
+            numericUpDownStepCount.Name = "numericUpDownStepCount";
             numericUpDownStepCount.Size = new System.Drawing.Size(106, 23);
             numericUpDownStepCount.TabIndex = 23;
-            numericUpDownStepCount.Text = "2";
+            numericUpDownStepCount.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // label3
             // 
@@ -1287,6 +1289,7 @@ namespace DataPerformer.UI.UserControls
             panelMeaTop.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownStepCount).EndInit();
             tabPageText.ResumeLayout(false);
             contextMenuStripTextTab.ResumeLayout(false);
             panel8.ResumeLayout(false);
