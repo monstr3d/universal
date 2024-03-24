@@ -35,10 +35,10 @@ namespace FormulaEditor.Compiler
         static StaticExtensionFormulaEditorCompiler()
         {
             StaticExtensionFormulaEditor.Init();
-       //     CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory(null);
-        //    StaticExtensionFormulaEditor.Factory = f;
+            CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory(null);
+           // StaticExtensionFormulaEditor.Factory = f;
             StaticExtensionFormulaEditor.CreatorFactory = new CreatorOfCreator();
-           // StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
+            StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
         }
     }
 }

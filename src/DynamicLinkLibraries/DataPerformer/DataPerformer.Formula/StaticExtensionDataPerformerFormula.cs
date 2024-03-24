@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
-
-using CategoryTheory;
+﻿using CategoryTheory;
 
 using BaseTypes.Interfaces;
+
+
+using Diagram.UI.Interfaces;
+using Diagram.UI;
+using AssemblyService.Attributes;
+
 
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 
 using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
-using Diagram.UI.Interfaces;
-using Diagram.UI;
-using AssemblyService.Attributes;
-using FormulaEditor.CSharp;
+using System.Collections.Generic;
 
 namespace DataPerformer.Formula
 {
@@ -26,15 +27,20 @@ namespace DataPerformer.Formula
 
         static readonly DataPerformerFormula dataPerformerFormula = new(null);
 
- 
         #endregion
 
-         
+
         #region Public Members
 
-        static public ITreeCollectionProxyFactory  CreatorFactory(ITreeCollection treeCollection)
+        /// <summary>
+        /// Creates proxy factory
+        /// </summary>
+        /// <param name="treeCollection">Collection of trees</param>
+        /// <returns>The proxy factory</returns>
+        static public ITreeCollectionProxyFactory CreatorFactory(ITreeCollection treeCollection)
         {
-           return StaticExtensionFormulaEditor.CreatorFactory[treeCollection];
+            CreatorOfCrerator creatorOfCrerator = StaticExtensionFormulaEditor.CreatorFactory;
+            return (creatorOfCrerator == null) ? null : creatorOfCrerator[treeCollection];
         }
 
         /// <summary>
@@ -111,7 +117,6 @@ namespace DataPerformer.Formula
             get { return DataPerformerFormula.operationDetectors; }
         }
 
-
         /// <summary>
         /// Detector of operations
         /// </summary>
@@ -119,7 +124,6 @@ namespace DataPerformer.Formula
         {
             get { return DataPerformerFormula.binary; }
         }
-
 
         /// <summary>
         /// Adds detector
@@ -129,7 +133,6 @@ namespace DataPerformer.Formula
         {
             DataPerformerFormula.operationDetectors.Add(detector);
         }
-
 
         /// <summary>
         /// Adds detector
@@ -155,7 +158,7 @@ namespace DataPerformer.Formula
         /// </summary>
         static public void Init()
         {
- 
+
         }
 
         #endregion
@@ -191,7 +194,6 @@ namespace DataPerformer.Formula
         }
 
         #endregion
-
 
     }
 }

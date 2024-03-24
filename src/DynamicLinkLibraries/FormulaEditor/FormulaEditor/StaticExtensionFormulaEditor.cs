@@ -353,7 +353,7 @@ namespace FormulaEditor
         {
             get;
             set;
-        }
+        } = CreatorOfCrerator.Instance;
 
         static public ITreeCollectionCodeCreator TreeCollectionCodeCreator
         {
