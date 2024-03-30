@@ -8051,6 +8051,28 @@ the series
 	is convergent in the strong  topology of $B\left(\H_a\right)$.\\
 	(ii) Follows from the equation \eqref{commp_lift_desc_sum_strong_eqn}.
 \end{proof}
+\begin{exercise}\label{comm_lift_desc_sum_exer}
+	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
+	\begin{enumerate}
+		\item The series
+		$$
+		\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a  = \lift_p\circ \desc_p\left(\widetilde a \right).
+		$$
+		is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( C_0\left(\widetilde\sX\right)\right)$.
+		\item 	If $\widetilde f\in C_0\left(\widetilde\sX\right)_+$ a positive element is such that $\supp  \widetilde f\subset \widetilde \sU$ then one has
+		\be\label{top_desc_fin_eqn}
+		\widetilde f= \sqrt{ \widetilde f}\sqrt{ \desc_p\left( \widetilde f\right) }.
+		\ee
+		\item 
+		If $f \in C_0\left(\sX \right)$ is such that $\supp f \subset \sU$ then for all $\xi \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)$
+		one has
+		\be\label{top_lift_pa_eqn}
+		\lift^p_{\widetilde{\sU}}\left(f \xi \right)=  \lift^p_{\widetilde{\sU}}\left(f \right)\lift_p\left( \xi \right)
+		\ee
+		
+	\end{enumerate}
+\end{exercise}
+\
 \begin{exercise}
 		Consider the situation \ref{comm_lift_desc_sum_strong_empt}.  Let $\widetilde a \in A_c\left(\widetilde\sX \right)$ (cf. \eqref{top_cs_funct_b_defn}). Prove following statements:
 		\begin{enumerate}
@@ -8083,7 +8105,7 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 \end{definition}
 
 \begin{lemma}\label{comm_comply_lem}
-	Suppose that $\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$ is locally trivial.
+	Suppose that $\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$ is locally trivial (cf. Definition \ref{comm_loc_triv_defn}).
 	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_1\to \sX$ are transitive coverings.
 	If  $\pi^1_2 : \mathscr C_0\left( \widetilde{\sX}_1\right)  \to \mathscr C_0\left( \widetilde{\sX}_2\right)$ is a $*$-homomorphism such that $\mathscr C_0\left( p_1\right) = \pi^1_2 \circ \mathscr C_0\left( p_2\right)$ (cf. Notation \eqref{top_c0_ob_eqn}) then following conditions hold:
 	\begin{enumerate}
@@ -9115,8 +9137,16 @@ it turns out that
 $$
 \epsilon_1 ,\epsilon_2\in [0, 2\pi)~\&~\epsilon_1 \neq \epsilon_2 \Rightarrow \rep_{ {x}_0}\left(\chi_{\epsilon_1}\left( \widetilde{b}\right)  \right) \neq \rep_{ {x}_0}\left(\chi_{\epsilon_2}\left( \widetilde{b}\right)  \right)\Rightarrow \chi_{\epsilon_1} \neq \chi_{\epsilon_2}.
 $$
-The $C^*$-algebra  $C\left(\sX \right) $ is commutative, it follows that
-$$
+From $\pi\left(1_{C\left( \sX\right) }\right)= 1_{\widetilde{A}}$ it follows that for all $x \in \sU$ one has
+\bean
+\rep_x\left( \pi\left(1_{C\left( \sX\right) }\right)\right) 
+ = 
+ \begin{pmatrix}
+ 	1  & 0 &\ldots & 0\\
+ 	0& 1  &\ldots&0 \\
+ 	\vdots& \vdots &\ddots&\vdots\\
+ 	0& 0 & \ldots & 1
+ \end{pmatrix},\\
  a \in C\left(\sX \right) \Rightarrow \rep_{{x}}\left( a\right) = 
 \begin{pmatrix}
 a\left({x} \right)  & 0 &\ldots & 0\\
@@ -9124,7 +9154,7 @@ a\left({x} \right)  & 0 &\ldots & 0\\
 \vdots& \vdots &\ddots&\vdots\\
 0& 0 & \ldots &a\left({x} \right) 
 \end{pmatrix} \quad\forall x \in   {\mathcal U}  
-$$
+\eean
 and taking into account the equation \eqref{top_rep_eqn} one has $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( a\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{{x}}\left( a\right)$ for every $\widetilde x \in   \widetilde{\mathcal X}$. It means that $\chi_{\epsilon}\left( a\right) = a$ for all $a \in C\left(\sX\right)$
 hence the  group
 \be\nonumber
@@ -9339,11 +9369,11 @@ The Theorem \ref{top_fin_thm}   yields a pure algebraic definition of the fundam
 \end{remark}
 
 \begin{lem}\label{top_functor_lem}
-	Let $\sX$ be a connected locally connected locally compact second-countable Hausdorff space.
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
 	Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
 	\begin{itemize}
 		\item  Objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$.
-		\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective $*$-homomorphism $\pi: C_0\left( \widetilde{\sX} \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
+		\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective $*$-homomorphism $\pi: C_0\left( \widetilde{\sX}' \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
 		\newline
 		\begin{tikzpicture}
 			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -9374,8 +9404,8 @@ The Theorem \ref{top_fin_thm}   yields a pure algebraic definition of the fundam
 	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
 	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{comm_comply_lem} it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
-	(ii) If an open subset $\sU \subset \sX$ is connected, then $C_0\left(\sU\right)$ is not the ideal $\left.\mathscr C_0\left( \sX\right)\right|_{\sU_\a}$ is not a direct sum of no more than one nontrivial $C^*$-algebras.  The space $\sX$ is locally connected so any point has a fundamental system of connected neighborhoods. It turns out that
-	$\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{\C_x\right\}_{x \in \sX}, C_0\left(\sX\right) \right)$ is locally trivial, so one can apply the Lemma \ref{comm_comply_lem}.	The conditions (a)-(d) of the Definition directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
+	(ii) If an open subset $\sU \subset \sX$ is connected, then $C_0\left(\sU\right)=\left.\mathscr C_0\left( \sX\right)\right|_{\sU_\a}$ is not a direct sum of no more than one nontrivial $C^*$-algebras.  The space $\sX$ is locally connected, so any point has a fundamental system of connected neighborhoods. It turns out that
+	$\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{\C_x\right\}_{x \in \sX}, C_0\left(\sX\right) \right)$ is locally trivial (cf. Definition \ref{comm_loc_triv_defn}), so one can apply the Lemma \ref{comm_comply_lem}.	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
 \end{proof}
 \begin{remark}
 Indeed the Lemma  \ref{top_functor_lem}is an alternative formulation of the Theorem \ref{top_fin_thm} only. An advantage the Lemma \ref{top_functor_lem}is a usage the category theory language.
@@ -9391,16 +9421,6 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \begin{proof}
 	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) and (c) of the Definition \ref{fin_weak_defn} is left to the reader.
 \end{proof}
-
-
-\begin{remark}\label{top_fin_red_rem}
-If $\widetilde A\subsetneqq C_0\left( \widetilde \sX\right)$ is a hereditary subalgebra (cf. Definition \ref{hered_defn}) such that $C_0\left(\sX\right)\subset \widetilde A$  then there is a closed left ideal $\widetilde L \subsetneqq  C_0\left( \widetilde \sX\right)$ which satisfies to the relation $\widetilde A = \widetilde L\cap \widetilde L^*$ (cf. Lemma \ref{hered_ideal_lem}). From $\widetilde L \subsetneqq  C_0\left( \widetilde \sX\right)$ it follows that there is $\widetilde x_0 \in \widetilde{ {\sX}}$ such that $\forall \widetilde l \in \widetilde L\quad \widetilde l\left( \widetilde x_0 \right)=0$. It turns out that
-$$
-\forall \widetilde a \in \widetilde A\quad \widetilde a\left( \widetilde x_0 \right)=0.
-$$
-If $a \in C_0\left(\sX \right)$ is such that $a\left(p\left(\widetilde x_0 \right) \right) \neq 0$ then $a\notin\widetilde A$, therefore $C_0\left(\sX \right)\not\subset \widetilde A$, i.e. any containing $C_0\left(\sX \right)$ hereditary subalgebra of $C_0\left( \widetilde \sX\right)$ is $C_0\left( \widetilde \sX\right)$. So  the given by the Theorem \ref{top_fin_thm} {noncommutative finite-fold covering} 
-is reduced (cf. Definition \ref{fin_red_defn}).
-\end{remark}
 
 
 
@@ -10262,6 +10282,7 @@ $$
 $$
 The group $\widehat{G}$ of such homeomorphisms is said to be the \textit{group of  covering  transformations} of $\mathfrak S$. Denote by $G\left(\left.\widehat{\sX}~\right|\sX \right)\stackrel{\text{def}}{=}\widehat{G}$. 
 \end{definition}
+!!! CONTINUE !!!
 \begin{lemma}\label{top_surj_group_lem}
  Consider the  situation  of the Definition \ref{top_pointed_cat_defn}, and suppose that for all $\la\in\La$ the  covering is transitive (cf. Definition \ref{top_transitive_defn}). If
 $\left( \widehat{\mathcal{X}}, \widehat{x}_0 \right) = \varprojlim \left( \sX_\la, x^\la_0\right)$ is the inverse limit  in the category of topological spaces and continuous maps  (cf. Definition \ref{top_inv_lim_defn}) then there is the natural group isomorphism $G\left(\left.\widehat{\sX}~\right|\sX \right) \cong \varprojlim  G\left({\mathcal{X}}_\la~|~\mathcal X \right)$ where $\varprojlim  G\left({\mathcal{X}}_\la~|~\mathcal X \right)$ means the inverse limit in the sense of the Definition \ref{group_inv_lim_defn}. Moreover for any $\widehat x_0 \in  \widehat \sX$ the map
