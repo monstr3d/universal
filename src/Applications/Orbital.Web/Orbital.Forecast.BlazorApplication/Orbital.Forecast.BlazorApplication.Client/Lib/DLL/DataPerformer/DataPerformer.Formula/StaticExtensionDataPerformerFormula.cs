@@ -1,18 +1,18 @@
-﻿using CategoryTheory;
+﻿using System.Collections.Generic;
+
+using CategoryTheory;
 
 using BaseTypes.Interfaces;
-
-
-using Diagram.UI.Interfaces;
-using Diagram.UI;
-using AssemblyService.Attributes;
-
 
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 
 using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
+using Diagram.UI.Interfaces;
+using Diagram.UI;
+using AssemblyService.Attributes;
+using FormulaEditor.CSharp;
 
 namespace DataPerformer.Formula
 {
@@ -26,21 +26,15 @@ namespace DataPerformer.Formula
 
         static readonly DataPerformerFormula dataPerformerFormula = new(null);
 
-
+ 
         #endregion
 
-
+         
         #region Public Members
 
-        /// <summary>
-        /// Creates proxy factory
-        /// </summary>
-        /// <param name="treeCollection">Collection of trees</param>
-        /// <returns>The proxy factory</returns>
-        static public ITreeCollectionProxyFactory CreatorFactory(ITreeCollection treeCollection)
+        static public ITreeCollectionProxyFactory  CreatorFactory(ITreeCollection treeCollection)
         {
-            CreatorOfCrerator creatorOfCrerator = StaticExtensionFormulaEditor.CreatorFactory;
-            return (creatorOfCrerator == null) ? null : creatorOfCrerator[treeCollection];
+           return StaticExtensionFormulaEditor.CreatorFactory[treeCollection];
         }
 
         /// <summary>

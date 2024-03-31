@@ -28,6 +28,7 @@ namespace DataPerformer.UI.Forms
         private FormMultiGraph()
         {
             InitializeComponent();
+            generateCodeToolStripMenuItem.Visible = StaticExtensionDataPerformerUI.HasDataConsumerCodeGenerator;
         }
 
         /// <summary>

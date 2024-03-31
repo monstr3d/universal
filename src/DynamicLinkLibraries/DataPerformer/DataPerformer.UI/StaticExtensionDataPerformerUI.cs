@@ -29,6 +29,7 @@ using Chart.Drawing.Painters;
 using DataPerformer.UI.UserControls;
 using Chart.Objects;
 using DataPerformer.UI.Labels;
+using BaseTypes;
 
 
 namespace DataPerformer.UI
@@ -131,6 +132,11 @@ namespace DataPerformer.UI
         {
             dataConsumerCodeGenerators.Add(codeGenerator);
         }
+
+        /// <summary>
+        /// Has data consumer generators
+        /// </summary>
+        static public bool HasDataConsumerCodeGenerator { get => !dataConsumerCodeGenerators.IsEmpty(); }
 
         /// <summary>
         /// Udates Analisys UI event

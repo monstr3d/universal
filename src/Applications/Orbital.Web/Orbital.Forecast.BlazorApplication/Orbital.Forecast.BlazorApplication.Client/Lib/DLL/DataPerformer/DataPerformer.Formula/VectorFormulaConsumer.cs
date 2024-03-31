@@ -82,7 +82,7 @@ namespace DataPerformer.Formula
         {
             dataPerformerFormula = new (this);
             th = this;
-            proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this); //lStaticExtensionDataPerformerFormula StaticExtensionFormulaEditor.CreatorFactory[this];
+            proxyFactory = StaticExtensionFormulaEditor.CreatorFactory[this];
         }
 
     

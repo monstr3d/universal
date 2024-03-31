@@ -34,7 +34,6 @@
             panelRight = new System.Windows.Forms.Panel();
             panelLeft = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
-            panelBottom = new System.Windows.Forms.Panel();
             menuStrip = new System.Windows.Forms.MenuStrip();
             fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +64,8 @@
             searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            panelBottom = new System.Windows.Forms.Panel();
+            generateCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             panelCenter.SuspendLayout();
             panelTop.SuspendLayout();
             menuStrip.SuspendLayout();
@@ -116,18 +117,9 @@
             panelTop.Size = new System.Drawing.Size(800, 30);
             panelTop.TabIndex = 16;
             // 
-            // panelBottom
-            // 
-            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 450);
-            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(800, 0);
-            panelBottom.TabIndex = 19;
-            // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem });
+            menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, generateCodeToolStripMenuItem });
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new System.Drawing.Size(800, 24);
@@ -334,6 +326,21 @@
             aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             aboutToolStripMenuItem.Text = "&About...";
             // 
+            // panelBottom
+            // 
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 450);
+            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(800, 0);
+            panelBottom.TabIndex = 19;
+            // 
+            // generateCodeToolStripMenuItem
+            // 
+            generateCodeToolStripMenuItem.Name = "generateCodeToolStripMenuItem";
+            generateCodeToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            generateCodeToolStripMenuItem.Text = "Generate code";
+            // 
             // FormMultiGraph
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -394,5 +401,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateCodeToolStripMenuItem;
     }
 }
