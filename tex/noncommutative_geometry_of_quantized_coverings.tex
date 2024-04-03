@@ -14243,21 +14243,6 @@ Let $A$ be a $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$ be e category
 \section{Infinite coverings}
 
 \paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
-\paragraph{title!!!!}
-	\begin{remark}\label{pederesen_ideal_rem!}
-	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$ (cf. \ref{weak_topology_defn}). A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
-	\be\label{pederesen_ideal_eqn!}
-	\begin{split}
-		K^+_0\left(A \right)  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
-		K^+\left(A \right)  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K^+_0, ~ j = 1,...,n, ~ a \le \sum a_j \left[a\right] \le b\right\}.
-	\end{split}
-	\ee
-	$K^+_0\left(A \right)$ is a set of operators in $A_+$ with majorized supports, and $K^+\left(A \right)$ is the smallest ideal containing $K^+_0\left(A \right)$. The definition of $K^+_0\left(A \right)$ may be rephrased without reference to $A''$ as follows: $a \in K^+_0\left(A \right)$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
-	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K^+\left(A \right)$.
-\end{remark}
-
-
-\paragraph{!!!}
 \begin{empt}
 If $A$ is a $C^*$-algebra then there is a natural $*$-isomorphism $A \otimes \K \cong \K\left(\ell^2\left( A\right) \right)$. From the Definition \ref{compact_a_operator_defn} it follows that any $b \in \K\left(\ell^2\left( A\right) \right)$ is a $C^*$-norm limit of finite linear sums of the given by \eqref{rank_one_notation_eqn} operators. So one has
 $$
@@ -14271,27 +14256,40 @@ If $\left\| b_j  - b \right\| < 1$ and $a \in A$ is such that $\left[a\right]\le
 $$
 a = \left(1_{M\left(A \right) }\otimes p_j \right) a \left(1_{M\left(A \right) }\otimes p_j \right). 
 $$
-So for all $a \in K^+_0\left(A \right)$ (cf. \eqref{pederesen_ideal_eqn}) there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(\N \right)$ such that 
+So for all $a \in K^+_0\left(A\otimes \K \right)$ (cf. \eqref{pederesen_ideal_eqn}) there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(\N \right)$ such that 
 \be\label{fin_peders_mat_equation}
 a = \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= n\\k= n}} a_{jk} \otimes \mathfrak{e}_{jk}\quad a_{jk} \in A
 \ee
-where $\mathfrak{e}_{jk}$ is $j,k$-elementary matrix (cf. Definition   \ref{elementary_defn}). Taking into account the Remark \ref{pederesen_ideal_rem} one concludes that any  $a \in K\left(A \right)$ satisfies to the condition \ref{fin_peders_mat_equation}.
+where $\mathfrak{e}_{jk}$ is $j,k$-elementary matrix (cf. Definition   \ref{elementary_defn}). Taking into account the Remark \ref{pederesen_ideal_rem} one concludes that any  $a \in K\left(A\otimes\K \right)$ satisfies to the condition \ref{fin_peders_mat_equation}.
 If $a \in K\left( A \otimes \K\right)$ then 
 $$
 b_{jk} \bydef \left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) a \left(1_{M\left(A \right) }\otimes \mathfrak{e}_{kj} \right)  = a_{jk} \otimes \mathfrak{e}_{jj}\in  K\left( A \otimes \K\right)
 $$
 There are $b^1, b^2, b^3, b^4 \in K^{+} \left( A \otimes \K\right) $ such that $b_{jk}= b^1 - b^2 + i b^3 - ib^4$. Otherwise if for any $b^j = \sum_{l=1}^{m_j} b^{j}_l$ where $b^{j}_l\in  K^+_0\left(A \otimes \K\right)$ then 
 \bean
-b_{jk}= \sum_{k=1}^{k_1}b^1_l  - \sum_{l=1}^{k_2}b^2_l + i \sum_{l=1}^{k_3}b^1_3 - i\sum_{l=1}^{k_4}b^4_l=\\=\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{ll} \right) \left( \sum_{l=1}^{l_1}b^1_l  - \sum_{l=1}^{l_2}b^2_l + i \sum_{l=1}^{l_3}b^1_3 - i\sum_{l=1}^{l_4}b^4_l\right)\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) 
+b_{jk}= \sum_{k=1}^{k_1}b^1_l  - \sum_{l=1}^{k_2}b^2_l + i \sum_{l=1}^{k_3}b^1_3 - i\sum_{l=1}^{k_4}b^4_l=\\=\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{ll} \right) \left( \sum_{l=1}^{k_1}b^1_l  - \sum_{l=1}^{k_2}b^2_l + i \sum_{l=1}^{k_3}b^1_3 - i\sum_{l=1}^{k_4}b^4_l\right)\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) 
 \eean
-If $c^n_l \in \left(  A \otimes \K\right)_+$ is such that $\left[b^n_l\right] < c^n_l$ then
-
-
-
-
-
-
+If $c^m_l \in \left(  A \otimes \K\right)_+$ is such that $\left[b^m_l\right] \le c^m_l$ then
+$$
+\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right)\left[b^n_l\right]\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) \le \left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right)c^n_l\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right).
+$$
+On the other hand there are $d^m_l, f^m_l \in A$ such that
+\bean
+\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right)b^n_l\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) = d^m_l \otimes \mathfrak{e}_{jj},\\
+\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right)c^n_l\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) = f^m_l \otimes \mathfrak{e}_{jj},\\
+\left[d^m_l\right] \le f^m_l.
+\eean 
+From $\left[d^m_l\right] \le f^m_l$ it turns out that $d^m_l\in K^+_0\left( A\right)$ and
+$$
+a_{jk}= \sum_{k=1}^{k_1}d^1_l  - \sum_{l=1}^{k_2}d^2_l + i \sum_{l=1}^{k_3}d^1_3 - i\sum_{l=1}^{k_4}d^4_l.
+$$ 
+In result one has the following lemma.
 \end{empt}
+\begin{lemma}\label{stable_pedersen_lem}
+for all $a \in K\left(A\otimes\K \right)$ (cf. \eqref{pederesen_ideal_eqn}) there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(\N \right)$ such that 
+\be\label{fin_peders_matl_equation}
+a = \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= n\\k= n}} a_{jk} \otimes \mathfrak{e}_{jk}\quad a_{jk} \in K\left( A\right). 
+\ee\end{lemma}
 
 \begin{lemma}\label{stab_t_a_lem}
 	Let 	$\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}$ be a algebraical  finite covering category (cf.  Definition \ref{alg_fin_cat_defn}).
