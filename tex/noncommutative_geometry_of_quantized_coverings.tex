@@ -11544,7 +11544,7 @@ From the above equation it turns out that
 \left\|  	h_{\widetilde{a}, g}-\sum_{j = 1}^n h_{f_j \widetilde a, g}\right\| < \eps.
 \ee
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
-The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{comp_aop_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
+The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{compact_a_operator_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
 $h_{\widetilde{a}, g}\in \K\left(X_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(X_{C_0\left( \sX\right) } \right)$.\\
 (b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
@@ -11573,7 +11573,7 @@ $$
 \left\|  \widetilde a \left\rangle \right\langle \widetilde b-\xi \left\rangle \right\langle \eta\right\|< \eps.
 $$
 Taking into account $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ one concludes that the rank-one operator $\xi \left\rangle \right\langle \eta$ lies in the $C^*$-norm completion of $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$.
-On the other hand from the Definition \ref{comp_aop_defn} it follows that $\K\left(X_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(X_{C_0\left( \sX\right) } \right)$.
+On the other hand from the Definition \ref{compact_a_operator_defn} it follows that $\K\left(X_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(X_{C_0\left( \sX\right) } \right)$.
 \end{proof}
 \begin{exercise}\label{top_all_exer}
 Prove that a linear span of \\ $\left\langle X_{C_0\left( \sX\right)}, X_{C_0\left( \sX\right) }\right\rangle_{C_0\left( \widetilde\sX\right)\rtimes_c G\left(\widetilde{\sX}~|~ \mathcal X\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
@@ -14243,7 +14243,55 @@ Let $A$ be a $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$ be e category
 \section{Infinite coverings}
 
 \paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
+\paragraph{title!!!!}
+	\begin{remark}\label{pederesen_ideal_rem!}
+	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$ (cf. \ref{weak_topology_defn}). A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
+	\be\label{pederesen_ideal_eqn!}
+	\begin{split}
+		K^+_0\left(A \right)  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
+		K^+\left(A \right)  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K^+_0, ~ j = 1,...,n, ~ a \le \sum a_j \left[a\right] \le b\right\}.
+	\end{split}
+	\ee
+	$K^+_0\left(A \right)$ is a set of operators in $A_+$ with majorized supports, and $K^+\left(A \right)$ is the smallest ideal containing $K^+_0\left(A \right)$. The definition of $K^+_0\left(A \right)$ may be rephrased without reference to $A''$ as follows: $a \in K^+_0\left(A \right)$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
+	Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K^+\left(A \right)$.
+\end{remark}
 
+
+\paragraph{!!!}
+\begin{empt}
+If $A$ is a $C^*$-algebra then there is a natural $*$-isomorphism $A \otimes \K \cong \K\left(\ell^2\left( A\right) \right)$. From the Definition \ref{compact_a_operator_defn} it follows that any $b \in \K\left(\ell^2\left( A\right) \right)$ is a $C^*$-norm limit of finite linear sums of the given by \eqref{rank_one_notation_eqn} operators. So one has
+$$
+b = \lim_{j \to \infty} b_j
+$$
+where for all $j \in \N$ there is a finite-rank projector $p_j \in \K$ such that 
+$$
+b_j = \left(1_{M\left(A \right) }\otimes p_j \right) b_j \left(1_{M\left(A \right) }\otimes p_j \right) 
+$$
+If $\left\| b_j  - b \right\| < 1$ and $a \in A$ is such that $\left[a\right]\le b$ (cf. Remark \ref{pederesen_ideal_rem}) then 
+$$
+a = \left(1_{M\left(A \right) }\otimes p_j \right) a \left(1_{M\left(A \right) }\otimes p_j \right). 
+$$
+So for all $a \in K^+_0\left(A \right)$ (cf. \eqref{pederesen_ideal_eqn}) there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(\N \right)$ such that 
+\be\label{fin_peders_mat_equation}
+a = \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= n\\k= n}} a_{jk} \otimes \mathfrak{e}_{jk}\quad a_{jk} \in A
+\ee
+where $\mathfrak{e}_{jk}$ is $j,k$-elementary matrix (cf. Definition   \ref{elementary_defn}). Taking into account the Remark \ref{pederesen_ideal_rem} one concludes that any  $a \in K\left(A \right)$ satisfies to the condition \ref{fin_peders_mat_equation}.
+If $a \in K\left( A \otimes \K\right)$ then 
+$$
+b_{jk} \bydef \left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) a \left(1_{M\left(A \right) }\otimes \mathfrak{e}_{kj} \right)  = a_{jk} \otimes \mathfrak{e}_{jj}\in  K\left( A \otimes \K\right)
+$$
+There are $b^1, b^2, b^3, b^4 \in K^{+} \left( A \otimes \K\right) $ such that $b_{jk}= b^1 - b^2 + i b^3 - ib^4$. Otherwise if for any $b^j = \sum_{l=1}^{m_j} b^{j}_l$ where $b^{j}_l\in  K^+_0\left(A \otimes \K\right)$ then 
+\bean
+b_{jk}= \sum_{k=1}^{k_1}b^1_l  - \sum_{l=1}^{k_2}b^2_l + i \sum_{l=1}^{k_3}b^1_3 - i\sum_{l=1}^{k_4}b^4_l=\\=\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{ll} \right) \left( \sum_{l=1}^{l_1}b^1_l  - \sum_{l=1}^{l_2}b^2_l + i \sum_{l=1}^{l_3}b^1_3 - i\sum_{l=1}^{l_4}b^4_l\right)\left(1_{M\left(A \right) }\otimes \mathfrak{e}_{jj} \right) 
+\eean
+If $c^n_l \in \left(  A \otimes \K\right)_+$ is such that $\left[b^n_l\right] < c^n_l$ then
+
+
+
+
+
+
+\end{empt}
 
 \begin{lemma}\label{stab_t_a_lem}
 	Let 	$\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}$ be a algebraical  finite covering category (cf.  Definition \ref{alg_fin_cat_defn}).
@@ -22471,6 +22519,19 @@ representation.
 	\begin{defn}\label{pedersens_ideal_defn}\cite{blackadar:ko}
 		The ideal $K\left( A\right) $ from the theorem \ref{peder_id_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
 	\end{defn}
+	\begin{remark}\label{pederesen_ideal_rem}
+	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$ (cf. \ref{weak_topology_defn}). A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
+	\be\label{pederesen_ideal_eqn}
+	\begin{split}
+	K^+_0\left(A \right)  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
+		K^+\left(A \right)  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K^+_0\left( A\right) , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
+	\end{split}
+	\ee
+	$K^+_0\left(A \right)$ is a set of operators in $A_+$ with majorized supports, and $K^+\left(A \right)$ is the smallest ideal containing $K^+_0\left(A \right)$. The definition of $K^+_0\left(A \right)$ may be rephrased without reference to $A''$ as follows: $a \in K^+_0\left(A \right)$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
+Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K^+\left(A \right)$.
+	\end{remark}
+	
+	
 \begin{remark}\cite{pedersen:ca_aut} 
 One has
 \bea\label{peder_k_eqn}
@@ -23081,7 +23142,7 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 		$$
 		Denote by $\Hom^*_A\left(X, Y \right)\subset \Hom_A\left(X, Y \right)$ of all  {adjointable} operators. The set $\End^*_A\left(X \right)\bydef \Hom^*_A\left(X, X \right)$ is a  $C^*$-algebra.
 	\end{definition}
-	\begin{defn}\label{comp_aop_defn}\cite{pedersen:ca_aut}
+	\begin{defn}\label{compact_a_operator_defn}\cite{pedersen:ca_aut}
 		If $X$ is a $C^*$ Hilbert $A$-rigged module then
 		denote by $\theta_{\xi, \zeta} \in \End^*_A\left(X \right)$   such that
 		\begin{equation}\label{rank_one_eqn}
@@ -23157,7 +23218,7 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 	\end{definition}
 	\begin{remark}\label{c_misch_rem}\cite{sol_tro:ca_op}
 		If $C^*$-algebra $A$  is unital then
-		any {compact} (in the sense of Mishchenko) operator is compact in the sense of the Definition \ref{comp_aop_defn}, and vice versa.
+		any {compact} (in the sense of Mishchenko) operator is compact in the sense of the Definition \ref{compact_a_operator_defn}, and vice versa.
 	\end{remark}
 	
 	
