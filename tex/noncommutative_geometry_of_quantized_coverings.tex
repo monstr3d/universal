@@ -3970,23 +3970,48 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
  		\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
  		for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
- 		\be\label{subord_ga_eqn}
- 		\begin{split}
- 		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	\left(\phi\left(g\widehat a \right)\right) g \overline{a},\\
-g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left(g\widehat a \right).
+ 	\be\label{subord_ga_eqn}
+ 		 		\begin{split}
+ 			g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	\left(\phi\left(g\widehat a \right)\right) g \overline{a},\\
+ 			g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left(g\widehat a \right).
  		\end{split}
  		\ee
- 		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset \overline A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
+ 		
+	\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset \overline A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
  	\be\label{a_la_eqn}
- 	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
+ 	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
+ 		\item[(d)] One has
+ 		\be\label{one_m_eqn}
+ 	\phi\circ \varphi_{\la_{\text{min}}}\left( 1_{M\left( A\right) } \right) = 1_{M\left( \overline A\right) }
+ 	\ee
+
+ 	%	If $\left\{u_\a \right\}\subset A = A_{\la_{\text{min}}}$ is an approximate unit (cf. Definition \ref{approximate_unit_defn}) then $\left\{\phi\circ \varphi_{\la_{\text{min}}}\left(  u_\a \right) \right\}\subset A = A_{\la_{\text{min}}}\subset \overline{A}$ is also an approximate unit.  !!! USE IT !!!
 % 		\item[(d)] The set of given by \eqref{a_la_eqn} elements is dense in $\phi\circ \varphi_\la\left( A_\la \right)$.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
+ \begin{remark}\label{subordinated_rem}
+ 	Since $*$-homomorphisms $\phi$ and $\varphi_\la$ are injective one can replace them with inclusions and taking into account the Remark  \ref{coherent_rem} one has following inclusions
+ 	\be
+ 	\begin{split}
+ 	\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}\subset M\left( \overline A\right),\\
+ 	\forall \la\in \La \quad A_\la \subset \widehat{A}\subset M\left( \overline A\right).
+ 	\end{split}
+ 	\ee
+ 	The equations \eqref{subord_ga_eqn}, \eqref{a_la_eqn} and \eqref{one_m_eqn} can be replaced with
+ 	
+ 	\bea\label{subord_gaa_eqn}
+		\forall g \in \widehat{G}\quad \forall \widehat a \in \widehat{A}\quad \overline a \in \overline{A}	\quad g \left(\widehat a   \overline{a} \right)= \left(g\widehat a \right)\left(g  \overline{a}\right), \quad g \left( \overline{a} \widehat a   \right)=\left(g  \overline{a}\right) \left(g\widehat a \right),\\
+		\label{a_laa_eqn}
+			a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in  K\left( A_\la\right),\\
+			\label{one_ma_eqn}
+1_{M\left( A\right)} = 1_{M\left( \overline A\right) }.
+ 	\eea
+ \end{remark}
 \begin{lemma}\label{bt_lim_lem}
-In the situation of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! one has
+In the situation of the Definition \ref{subordinated_defn}  one has
 \be\label{bt_lim_eqn}
 \forall \overline a \in \overline\A \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
 \ee
@@ -4073,7 +4098,7 @@ i.e. a net $\left\lbrace \varphi \left( u_\a  \widehat a\right)\overline a\right
 
 
  \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
- If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!) then we say that   a triple
+ If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subordinated_defn}) then we say that   a triple
  \be\label{disc_triple_eqn}
  \left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef  \varprojlim_{\la\in\La}G\left(\left.A_\la~\right| A\right)\right)
  \ee
@@ -4088,7 +4113,7 @@ i.e. a net $\left\lbrace \varphi \left( u_\a  \widehat a\right)\overline a\right
 \psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
  	\end{split}
  	\ee
- 	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! inclusions then we say that the triple \eqref{disc_triple_eqn} is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. 
+ 	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subordinated_defn} inclusions then we say that the triple \eqref{disc_triple_eqn} is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. 
  \end{definition}
  \begin{lemma}\label{uni_dicsonnected_lem}
 If a disconnected infinite noncommutative covering exists then it is unique up to $*$-isomorphism. 
@@ -14243,6 +14268,8 @@ Let $A$ be a $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$ be e category
 \section{Infinite coverings}
 
 \paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
+
+!!! MAY BE DELETE AFTET !!!
 \begin{empt}
 If $A$ is a $C^*$-algebra then there is a natural $*$-isomorphism $A \otimes \K \cong \K\left(\ell^2\left( A\right) \right)$. From the Definition \ref{compact_a_operator_defn} it follows that any $b \in \K\left(\ell^2\left( A\right) \right)$ is a $C^*$-norm limit of finite linear sums of the given by \eqref{rank_one_notation_eqn} operators. So one has
 $$
@@ -14256,7 +14283,7 @@ If $\left\| b_j  - b \right\| < 1$ and $a \in A$ is such that $\left[a\right]\le
 $$
 a = \left(1_{M\left(A \right) }\otimes p_j \right) a \left(1_{M\left(A \right) }\otimes p_j \right). 
 $$
-So for all $a \in K^+_0\left(A\otimes \K \right)$ (cf. \eqref{pederesen_ideal_eqn}) there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(\N \right)$ such that 
+So for all $a \in K^+_0\left(A\otimes \K \right)$ (cf. \eqref{pederesen_ideal_eqn}) there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(A^\sim \right)$ such that 
 \be\label{fin_peders_mat_equation}
 a = \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= n\\k= n}} a_{jk} \otimes \mathfrak{e}_{jk}\quad a_{jk} \in A
 \ee
@@ -14320,31 +14347,26 @@ a = \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= n\\k= n}} a_{jk} \otimes \mathfr
 \begin{proof}
 	Directly follows from the Lemma \ref{stab_t_a_lem}.
 \end{proof}
+!!! MAY BE DELETE BEFORE !!!
 \begin{empt} 
 If one has a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})		
-		\bean
+		\be\label{stable_repa_eqn}  
 \begin{split}
 	\mathfrak{S}^{\text{pt}}_A= \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{split}
-\eean
+\ee
 then from the Section \ref{stab_fin_sec}
 it follows that an algebraical  finite covering category
 \begin{equation*}
 	\mathfrak{S}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{equation*}
-should not be pointed. However there is a subset $\La_\K\subset \La$ such that
-\begin{equation}\label{stab_sk_eqn}
-	\begin{split}
-	\mathfrak{S}^{\text{pt}}_{A\otimes \K} \bydef \\ \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La_\K}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La_\K\\ \nu >\ge \mu}}\right)
-	\end{split}
-\end{equation}
-is a skeleton  !!! SKELETON !!!of the category $\mathfrak{S}_{A\otimes \K}$ (cf. Definition \ref{skeleton_defn})
+should not be pointed. 
 \end{empt}
 \begin{definition}\label{stable_rep_defn}  
 	Let 
-	\bean
+	\be\label{stable_rep_eqn}  
 	\mathfrak{S}^{\text{pt}}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
-\eean
+\ee
 be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). We say that 
 $	\mathfrak{S}^{\text{pt}}_{A\otimes \K}$ is \textit{represented by}
 	\bean
@@ -14357,6 +14379,89 @@ if one has
 \eean
 \end{definition}
 
+\begin{empt}
+	Let $\left\{\mathfrak e_j\right\}_{j \in \N}$ be a basis of the Hilbert space $\ell^2\left(\N \right)$, and let  $\mathfrak{e}_{j,k}\in \K\bydef \K\left\{\ell^2\left(\N \right)\right\}$ be $j,k$-elementary matrix (cf. Definition   \ref{elementary_defn}). Suppose that $\overline A^\K$ is a $C^*$-algebra subordinated (cf. Definition \ref{subordinated_defn}) to the given by \eqref{stable_rep_eqn} pointed pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). There is a hereditary subalgebra 
+	$$
+	\overline A \bydef \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) \overline A^\K \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) \subset  \overline A^\K
+	$$
+	Using operators $\left(1_{M\left( A\right) } \otimes \mathfrak{e}_{l,m}\right)$ one can prove that for any $j, k\in \N$ there is a bijective map
+	$$
+\left(1_{M\left( A\right) } \otimes \mathfrak{e}_{j,j}\right) \overline A^\K \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{k,k}\right)\cong \overline A.
+	$$
+	From this fact it follows that any $\overline a^\K\in \overline A^\K$ correspond to an infinite matrix
+	\bean
+	\begin{pmatrix}
+	\overline	a_{1,1}& \ldots & \overline a_{n,1} &  \dots \\
+		\vdots& \ddots & \vdots& \ldots\\
+	\overline	a_{n,1}& \ldots &\overline a_{n,n} &  \ldots \\
+		\vdots& \vdots & \vdots & \ddots \\
+	\end{pmatrix}
+	\eean
+	such that  $\overline a_{j,k}\in \overline A$ for any $j,k \in \N$ and $\overline a_{j,k}$ corresponds to a subset $\left(1_{M\left( A\right) } \otimes \mathfrak{e}_{j,j}\right) \overline A^\K \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{k,k}\right)$. If $\overline a^\K\in \overline A^\K_+$ is positive and
+	$$
+	a^\K = \sum_{g \in \widehat G} \overline a^\K \in K\left(A \otimes \K \right) 
+	$$
+(cf. equation \eqref{subord_gaa_eqn}) then 	$\overline a^\K < a^\K$. On the other hand from $a^\K\in A \otimes \K$ it follows that for all $\eps > 0$ there is $N \in \N$ such that
+$$
+\left\|a^\K - \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= N\\k= N}} a_{j,k} \otimes \mathfrak{e}_{jk} \right\| < \eps, \quad a_{j,k} \in A.
+$$
+Taking into  account $\overline a^\K < a^\K$ we conclude that 
+\be\label{okk_eqn}
+\left\| \overline a^\K - \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= N\\k= N}} \overline a_{j,k} \otimes \mathfrak{e}_{jk} \right\| < \eps, \quad \overline a_{j,k} \in \overline A.
+\ee
+From \eqref{okk_eqn} it turns out that $\overline A^\K= \overline A \otimes \K$.
+If $\overline a \in \overline A_+$ is an element of $K^+_0\left( \overline A \otimes \K\right)$ then there is $\overline b^\K \in  \left( \overline A \otimes \K\right)_+$ 
+ such that $\left[\overline a\right]\le \overline b^K$ (cf. Remark \ref{pederesen_ideal_rem}).	From  $\overline a = \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) \overline A^\K \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right)$ it follows that
+ $\left[ \overline a\right]  \le \overline b$ where $$\overline b \bydef \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) \overline b^\K \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right)\in \overline A.$$
+ From the Remark \ref{pederesen_ideal_rem} it follows that $\overline a \in K^+_0\left( \overline a\right)$. Using the Remark \ref{pederesen_ideal_rem} one can deduce that
+ \be
+ \overline a \in \overline A \cap \K\left(\overline A \otimes \K \right) \quad \Leftrightarrow \quad  \overline a \in K\left( \overline A\right). 
+ \ee
+If $\overline a \in \overline A \cap \K\left(\overline A \otimes \K \right)$ then
+\bean
+a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) K\left(A_\la \otimes \K \right)  \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right)\in \\\in  K\left(A_\la \otimes \K \right)\cong K\left( A_\la\right) .
+\eean 
+If we compare the above equation with \eqref{a_laa_eqn} we conclude that $\overline A$ is subordinated to $\mathfrak{S}^{\text{pt}}_A$ given by \eqref{stable_repa_eqn}. In result one has the following lemma.
+\end{empt}
+\begin{lemma}
+In the above situation following conditions hold:
+\begin{enumerate}
+	\item[(i)] if $C^*$-algebra $\overline A^\K$ is subordinated to $\mathfrak{S}^{\text{pt}}_{A\otimes K }$ (cf, Definition \ref{subordinated_defn}) then there is a If $C^*$-algebra $\overline A$  subordinated  to $ \mathfrak{S}^{\text{pt}}_A$ such that $\overline A^\K\cong \overline A\otimes \K$,
+	\item[(ii)] if both $\overline A$ and $\overline A$ are disconnected {disconnected infinite noncommutative coverings} (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) of $\mathfrak{S}^{\text{pt}}_A$ and $\mathfrak{S}^{\text{pt}}_{A\otimes\K}$ respectively, then one has
+	\be
+	\overline A^\K\subset \overline A\otimes \K
+	\ee
+\end{enumerate}
+\end{lemma}
+!!! MAY BE DELETE
+\begin{lem}
+If a pointed algebraical  finite covering category 
+\bean
+\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+\eean
+(cf. Definition \ref{pointed_defn}) is represented by 
+	\bean
+\mathfrak{S}^{\mathrm{pt}}_{A} \bydef   \left(\left\{\pi_\la: A\hookto A_\la\right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+\eean
+(cf. Definition \ref{stable_rep_defn}) then one has:
+\begin{enumerate}
+	\item [(i)] any $C^*$-algebra  $\overline A^ \K$ subordinated to $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K}$ (cf. Definition \ref{subordinated_defn}) is naturally isomorphic to $\overline A\otimes \K$ where $\overline A$ is subordinated to $\mathfrak{S}^{\mathrm{pt}}_{A}$,
+	\item[(ii)] for any $C^*$-algebra $\overline A$  subordinated to $\mathfrak{S}^{\mathrm{pt}}_{A}$ the $C^*$-algebra $\overline A\otimes \K$  subordinated to $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K}$
+\end{enumerate}
+
+\end{lem}
+\begin{proof}
+(i) If  $\overline a^K \in K\left( \overline A^ \K\right)_+ $ is a positive element  then from the equation \eqref{a_la_eqn} it follows that
+$$
+a = \bt\text{-}\sum_{g \in \widehat{G}} g \overline a \in  K\left( A\right). 	
+$$
+From the Lemma \ref{stable_pedersen_lem} it turns out that 
+ there is a basis $\left\{\mathfrak{e}_j\right\}_{j \in N}\subset \ell^2\left(\N \right)$ such that 
+	\bean
+	a = \sum_{\substack{j= 1\\ k= 1}}^{\substack{j= n\\k= n}} a_{jk} \otimes \mathfrak{e}_{jk}\quad a_{jk} \in K\left( A\right). 
+	\eean
+
+\end{proof}
 
 \chapter{Hurewicz homomorphism. A sketch}\label{h_chap}
 \section{Preliminaries}\label{h_prel}
