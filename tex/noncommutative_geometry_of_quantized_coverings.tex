@@ -20,6 +20,7 @@
 %\usepackage{mathtools}
 
 \usetikzlibrary{matrix}
+\usetikzlibrary{cd}
 
 \usepackage{siunitx}
 
@@ -3987,7 +3988,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\phi\circ \varphi_{\la_{\text{min}}}\left( 1_{M\left( A\right) } \right) = 1_{M\left( \overline A\right) }
  	\ee
 
- 	%	If $\left\{u_\a \right\}\subset A = A_{\la_{\text{min}}}$ is an approximate unit (cf. Definition \ref{approximate_unit_defn}) then $\left\{\phi\circ \varphi_{\la_{\text{min}}}\left(  u_\a \right) \right\}\subset A = A_{\la_{\text{min}}}\subset \overline{A}$ is also an approximate unit.  !!! USE IT !!!
+ 	%	If $\left\{u_\a \right\}\subset A = A_{\la_{\text{min}}}$ is an approximate unit (cf. Definition \ref{approximate_unit_defn}) then $\left\{\phi\circ \varphi_{\la_{\text{min}}}\left(  u_\a \right) \right\}\subset A = A_{\la_{\text{min}}}\subset \overline{A}$ is also an approximate unit.  
 % 		\item[(d)] The set of given by \eqref{a_la_eqn} elements is dense in $\phi\circ \varphi_\la\left( A_\la \right)$.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
@@ -4054,7 +4055,7 @@ Let $\overline a \in  K\left( \overline{A}\right)_+$ be a positive element and $
 $$
  \phi\circ \varphi_\la\left(b_\la\right) =	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a 
 $$
-(cf. condition (d) of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!) from the Corollary \ref{bt_lim_lem} it follows that
+(cf. condition (d) of the Definition \ref{subordinated_defn}. It follows that
 for all $\eps > 0$ there is $\la_\eps$ such that 
 $$
 \forall \la \in \La \quad \la \ge \la_\eps \quad \Rightarrow \quad \left\| \phi\circ \varphi_\la\left(b_\la\right) \overline b - \overline b~\overline b\right\| = \left\| \phi\circ \varphi_\la\left(b_\la\right) \overline b - \overline a\right\| < \eps.
@@ -4176,7 +4177,7 @@ If a disconnected infinite noncommutative covering exists then it is unique up t
  	 If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a good weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn} and \ref{good_defn}) then both given by  	\eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} $*$-homomorphisms are injective.
 \end{lemma}
 \begin{proof}
-Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{inj_to_m_eqn} $*$-homomorphism. If $\widetilde m$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde m\left( a\right)  \widetilde A = \{0\}$. From the equations \eqref{subord_ga_eqn} it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ for each $g \in \widehat G$. Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde m\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $\widetilde m\left( a\right)  \overline A = \{0\}$, however it contradicts with the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!. So $\widetilde m$ is injective. Similarly one can prove that the given by  \eqref{inj_to_ml_eqn} $*$-homomorphisms is also injective.
+Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{inj_to_m_eqn} $*$-homomorphism. If $\widetilde m$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde m\left( a\right)  \widetilde A = \{0\}$. From the equations \eqref{subord_ga_eqn} it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ for each $g \in \widehat G$. Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde m\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $\widetilde m\left( a\right)  \overline A = \{0\}$, however it contradicts with the Definition \ref{subordinated_defn}. So $\widetilde m$ is injective. Similarly one can prove that the given by  \eqref{inj_to_ml_eqn} $*$-homomorphisms is also injective.
 \end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
@@ -4424,7 +4425,7 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  	If  $\eta =\left\lbrace\eta_\la \right\rbrace  = \left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ then from  $a_\a \H_\la \subset \H_\la$ it follows that $a_\a \xi_\la = a_\a|_{\H_\la} \xi_{\la}\in \H_{\la}$ and $\eta_\la =  \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}$.
  \end{proof}
 \begin{empt}\label{atomic_faithful_empt}
-  	Consider the situation of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be a representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in \overline \A$ is given by
+  	Consider the situation of the Definition \ref{subordinated_defn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be a representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in \overline \A$ is given by
    $$
   \forall \overline a \in \overline\A \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
   $$
@@ -4456,9 +4457,9 @@ ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
 If an equivariant representation $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}) is faithful and non-degenerated (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerated.
 \end{lemma}
 \begin{proof}
-The notation of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! is used. If $\overline a \in \overline \A$ then there and 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a \in  K\left( A\right)$ then there is $b \in A$ such that $ab\neq 0$. From 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a$ it follows that there is a finite subset $G_0\subset  \widehat{G}$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) b \neq 0$.  Moreover there is $g \in G_0$ such that $ (g\overline a)b \neq 0$. The representation $\widehat \pi$ is faithful, so there is $\xi \in \widehat{\H}$ such that $(g\overline a)b \xi \neq 0$, so one has $g^{-1}\left((g\overline a)b \xi  \right) = \overline a b g^{-1}\xi \neq 0$ (cf. equations \eqref{equivt_eqn} and \eqref{equivt_eqn}). It turns out that $\overline a \widehat{\H} \neq \{0\}$. But $\overline \A$ is dense in $\overline A$, so  $\overline a \widehat{\H} \neq \{0\}$ for all  $\overline a \in \overline A$, i.e. the given by \eqref{ext_repro_eqn} representation is faithful.
+The notation of the Definition \ref{subordinated_defn} is used. If $\overline a \in \overline \A$ then there and 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a \in  K\left( A\right)$ then there is $b \in A$ such that $ab\neq 0$. From 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a$ it follows that there is a finite subset $G_0\subset  \widehat{G}$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) b \neq 0$.  Moreover there is $g \in G_0$ such that $ (g\overline a)b \neq 0$. The representation $\widehat \pi$ is faithful, so there is $\xi \in \widehat{\H}$ such that $(g\overline a)b \xi \neq 0$, so one has $g^{-1}\left((g\overline a)b \xi  \right) = \overline a b g^{-1}\xi \neq 0$ (cf. equations \eqref{equivt_eqn} and \eqref{equivt_eqn}). It turns out that $\overline a \widehat{\H} \neq \{0\}$. But $\overline \A$ is dense in $\overline A$, so  $\overline a \widehat{\H} \neq \{0\}$ for all  $\overline a \in \overline A$, i.e. the given by \eqref{ext_repro_eqn} representation is faithful.
 
-If $\xi \in \widehat{\H}$ then there is $a_\la \in A_\la$ such that $a_\la\xi \neq 0$ because the representation is non-degenerated. From the condition (d) of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! it follows that for each $\eps > 0$ there is $\overline a \in \overline \A$ such that
+If $\xi \in \widehat{\H}$ then there is $a_\la \in A_\la$ such that $a_\la\xi \neq 0$ because the representation is non-degenerated. From the condition (d) of the Definition \ref{subordinated_defn} it follows that for each $\eps > 0$ there is $\overline a \in \overline \A$ such that
 $$
 \lVert a - \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\rVert < \eps.
 $$
@@ -4468,7 +4469,7 @@ So there is  $\overline a \in \overline \A$ such that $\left( \bt\text{-}\sum_{g
 \end{proof}
 
 \begin{lemma}\label{strict_strong_1_lem}
-Let  $\overline{A}$ be a $C^*$-algebra weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!), and $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_repr_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation. If  $\overline{a}\in \overline{A}$,  $\la \in \La$ and  $a_\la$ is the sum of the series 
+Let  $\overline{A}$ be a $C^*$-algebra weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subordinated_defn}), and $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_repr_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation. If  $\overline{a}\in \overline{A}$,  $\la \in \La$ and  $a_\la$ is the sum of the series 
 	$$
 \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a  	
 $$
@@ -4490,7 +4491,7 @@ $$
 $$
 \end{proof}
 \begin{lemma}\label{strict_strong_2_lem}
-	Let  $\overline{A}$ be a $C^*$-algebra weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!), and $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_repr_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation.  In the situation of the Lemma \ref{bt_lim_lem} if one has a given by \eqref{bt_lim_eqn} strict limit
+	Let  $\overline{A}$ be a $C^*$-algebra weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subordinated_defn}), and $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_repr_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation.  In the situation of the Lemma \ref{bt_lim_lem} if one has a given by \eqref{bt_lim_eqn} strict limit
 	$$
 \forall \overline a \in \overline\A \quad \overline a =\bt\text{-}\lim_{\la \in \La}a_\la$$
 	 (cf. Definition \ref{strict_topology_defn}) then there is a limit
@@ -5122,7 +5123,7 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
 \paragraph*{}
-	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering category. If  $\overline A$ is {weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!), and $\overline{\A}\subset \overline A$ satisfies to the condition (c) of \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!) then from \eqref{a_la_eqn} it follows that there is a sesquilinear $A$-valued product
+	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering category. If  $\overline A$ is {weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{subordinated_defn}), and $\overline{\A}\subset \overline A$ satisfies to the condition (c) of \ref{subordinated_defn}) then from \eqref{a_la_eqn} it follows that there is a sesquilinear $A$-valued product
 	\be\label{inf_hilb_product_eqn}
 	\begin{split}
 	\left\langle \cdot, \cdot  \right\rangle_A : \overline{\A}\times \overline{\A} \to A,\\
@@ -5505,7 +5506,7 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 \end{remark}
 
 \begin{defn}\label{ax_smooth_el_defn}
-	Let us consider the  situation of the Definition \ref{axiomatic_d_defn}, and let  $\widetilde{\A}$ be the given by the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! dense *-subalgebra of $\widetilde A$ 	An element $\widetilde{a}  \in \widetilde{A}$ is said to be $\mathfrak{S}_{\left(\sA, \sH, D\right)}$- \textit{axiomatically smooth} if the following conditions hold:
+	Let us consider the  situation of the Definition \ref{axiomatic_d_defn}, and let  $\widetilde{\A}$ be the given by the Definition \ref{subordinated_defn} dense *-subalgebra of $\widetilde A$ 	An element $\widetilde{a}  \in \widetilde{A}$ is said to be $\mathfrak{S}_{\left(\sA, \sH, D\right)}$- \textit{axiomatically smooth} if the following conditions hold:
 	\begin{enumerate}
 		\item[(a)]  $\widetilde{a}\in \widetilde\A$,
 		\item[(b)] for any $\la \in \La$ the series 
@@ -5587,7 +5588,7 @@ Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} th
 \be\label{top_fx_eqn}
 {f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
 \ee
-Assume that $\supp {f}_{{x}_0}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps.
+Assume that a set $\left\{x \in \mathcal X~|~ f\left(x \right)>0 \right\}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps.
 \end{definition}
 \begin{corollary}\label{com_a_u_cor}
 	Let $\mathcal X$ be a locally compact,   
@@ -5617,7 +5618,7 @@ A family
 is such that $\sY \subset \cup_{x \in \sY} \sV_x$.
 The set $
 \sU_x \bydef \left\{\left. x\in\sX\right| f_x\left( x\right)> 0 \right\}
-$ is dense in $\supp f_x$ so $\sU_x$ is connected.  
+$ is dense in $\supp f_x$ so $\supp f_x$ is connected (cf. Theorem \ref{top_connected_closure_thm}).  
 Moreover $\sV_x \subset \sU_x$ and there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sY \subset \bigcup_{j=1}^n \sV_{x_j}$, because the set $\sY$ is compact.
 If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(x \right) \ge 1$ for all $x \in \sY$. If 
 $$
@@ -5974,13 +5975,13 @@ Taking into account $g'' \widetilde x_0\in \widetilde\sU_{\widetilde\a''_l}$ we 
 \begin{empt}\label{top_path_hom_empt}
 	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure. Let $\mathfrak{Closed}\left( \sX, x_0\right)$ be a set of  $\mathfrak A$-paths such that
 	$$
-\left(\sU_1, ..., \sU_n \right) \in \mathfrak{Closed}\left( \sX, x_0\right) \quad \Rightarrow \quad x_0 \in \sU_1\cap \sU_n.	
+\left(\sU_1, ..., \sU_n \right) \in \mathfrak{Closed}\left( \sX, x_0\right) \quad \Leftrightarrow \quad x_0 \in \sU_1\cap \sU_n.	
 	$$
 One can construct a map 
 	$$
 h_{\widetilde \sX}	: \mathfrak{Closed}\left( \sX, x_0\right) \to G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)
 	$$
-	such that $h_{\widetilde \sX}\left( \mathfrak p\right)$ corresponds $\lift^{\widetilde x_0}_p\left( \mathfrak p\right)$ (cf. the equation \eqref{top_path_lift_eqn} and the Definition \ref{top_closed_path_corr_defn}). From the Lemma \ref{top_lift_comp_lem} and the remark \ref{top_inv_path_rem} it hollows that
+	such that $h_{\widetilde \sX}\left( \mathfrak p\right)$ corresponds $\lift^{\widetilde x_0}_p\left( \mathfrak p\right)$ (cf. the equation \eqref{top_path_lift_eqn} and the Definition \ref{top_closed_path_corr_defn}). From the Lemma \ref{top_lift_comp_lem} and the Remark \ref{top_inv_path_rem} it hollows that
 	\bea\label{top_path_m_eqn}
 \forall \mathfrak p', \mathfrak p'' \in \mathfrak{Closed}\left( \sX, x_0\right) \quad h_{\widetilde \sX}\left( \mathfrak p'\circ \mathfrak p''\right) =  h_{\widetilde \sX}\left( \mathfrak p'\right) h_{\widetilde \sX}\left(  \mathfrak p''\right),\\
 \label{top_path_i_eqn} \forall \mathfrak p \in \mathfrak{Closed}\left( \sX, x_0\right) \quad h_{\widetilde \sX}\left( \mathfrak p^*\right) = \left(  h_{\widetilde \sX}\left( \mathfrak p\right)\right)^{-1}. 
@@ -6030,6 +6031,19 @@ Let $\widetilde{x}'_0	\in 	\widetilde{\mathcal X}'$, $~\widetilde{x}''_0	\bydef 
 	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that if  $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $g_1g_2\widetilde x'_0\in \widetilde\sU'_{\widetilde\a'_{k + l }} $. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $ h\left(g_1g_2 \right) \widetilde x''_0\in p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that both $h\left(g_1g_2 \right)$  and $h\left(g_1 \right)h\left(g_2 \right)$ correspond to the single path $\widetilde{\mathfrak p}''$,  so $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
 	(ii) Follows from $G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X }' \right)= \ker h$.
 \end{proof}
+\begin{empt}\label{top_covering_inclusion_empt}
+If $p : \widetilde \sX \to \sX$ is a covering then for any $a \in C_0\left( \sX\right)$ there is a map 
+\bean
+\phi: \widetilde \sX \to \C;\\
+\widetilde{x} \mapsto a \circ p\left( \widetilde{x}\right)  
+\eean
+For any open $\sU \in \C$ the set $a^{-1}\left( \sU\right)$ is open so $\phi^{-1}\left(\sU \right) = p^{-1}\left(a^{-1}\left( \sU\right) \right)$ is also open set. So $\phi$ is continuous. We leave to the reader a proof of the following statements:
+\begin{enumerate}
+	\item [(i)] above construction yields a natural inclusion $C_b\left(  \sX\right)\subset C_b\left( \widetilde \sX\right)$ of $ C^*$-algebras,
+	\item[(ii)] if the covering $p$ is finite-fold then there a natural inclusion $C_0\left(  \sX\right)\subset C_0\left( \widetilde \sX\right)$.
+\end{enumerate}
+
+\end{empt}
 
 \begin{corollary}\label{com_norm_cor}
 	Let $\sX$, $\sX'$ and $\sX''$ be connected, locally connected, locally compact, Hausdorff spaces.
@@ -6042,14 +6056,14 @@ Let $\widetilde{x}'_0	\in 	\widetilde{\mathcal X}'$, $~\widetilde{x}''_0	\bydef 
 		\item[(ii)]
 		For any $g \in 	G\left(\left.\sX''~\right|~\sX \right)$ one has
 		$
-		gC_0\left(\sX' \right) = C_0\left(\sX' \right). 
+		gC_0\left(\sX' \right) = C_0\left(\sX' \right)
 		$
+		where the explained in \ref{top_covering_inclusion_empt} inclusion $C_0\left(\sX' \right) \subset C_0\left(\sX'' \right)$ is implied.
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
 	(i) Directly follows from the Lemma \ref{top_homo_lem}.\\
-	(ii) We will implicitly use following inclusions  $C_0\left(\sX \right)\subset C_0\left(\sX' \right)\subset C_0\left(\sX'' \right)$.
-If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and only if $g''a' = a'$ for all $g'' \in G\left(\left.\sX''~\right|~\sX' \right)$. Since 	$G\left(\left.\sX''~\right|~\sX' \right)$ is a normal subgroup of $G\left(\left.\sX''~\right|~\sX \right)$ (cf. Definition \ref{normal_subgroup_defn}) for each $g \in  G\left(\left.\sX''~\right|~\sX \right)$ and $g''_1 \in  G\left(\left.\sX''~\right|~\sX' \right)$ there is $g''_2 \in  G\left(\left.\sX''~\right|~\sX' \right)$ such that $g''_1g = gg''_2$ (cf \eqref{normal_subgroup_eqn}), it turns out $g''_1ga' = gg''_2a'= ga'$, i.e. $g''_1 \left(ga' \right)= ga'$ so one has $ga' \in   C_0\left(\sX' \right)$.
+	(ii) If  $a' \in C_0\left(\sX'' \right)$ then $a' \in C_0\left(\sX'\right)$ if and only if $g''a' = a'$ for all $g'' \in G\left(\left.\sX''~\right|~\sX' \right)$. Since 	$G\left(\left.\sX''~\right|~\sX' \right)$ is a normal subgroup of $G\left(\left.\sX''~\right|~\sX \right)$ (cf. Definition \ref{normal_subgroup_defn}) for each $g \in  G\left(\left.\sX''~\right|~\sX \right)$ and $g''_1 \in  G\left(\left.\sX''~\right|~\sX' \right)$ there is $g''_2 \in  G\left(\left.\sX''~\right|~\sX' \right)$ such that $g''_1g = gg''_2$ (cf \eqref{normal_subgroup_eqn}), it turns out $g''_1ga' = gg''_2a'= ga'$, i.e. $g''_1 \left(ga' \right)= ga'$ so one has $ga' \in   C_0\left(\sX' \right)$.
 \end{proof}
 
 
@@ -6149,7 +6163,7 @@ From our construction it follows that $\mathfrak{FinCov}$-$\sX$ objects can be i
 	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
 \end{definition}
 \begin{remark}\label{top_skeleton_rem}
-	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$. If follows that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is equivalent to the pre-ordering category which corresponds to a pre-ordering category (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}) of the explained in the  Remark \ref{top_ord_rem} directed set $\La$.
+	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$. If follows that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is equivalent to the pre-ordering category (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}) which corresponds to   the explained in the  Remark \ref{top_ord_rem} directed set $\La$.
 \end{remark}
 
 
@@ -6305,7 +6319,7 @@ $\left(\sX, x_0\right)$ be  a pointed space.  A closed  semilocally 1-connected 
 If $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compositions $\mathfrak p^* \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible (cf. the Remark \ref{top_inv_path_rem} and the Lemma \ref{top_homo_lem}).
 \end{rem}
 \begin{definition}\label{top_path_equiv_defn}
-We say that both  weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1,\mathfrak p_2\in \mathfrak{Paths} \left( x_0, x\right)$ are \textit{homotopically equivalent} if  a composition $\mathfrak p_1 \circ \mathfrak p^*_2\in \mathfrak{Paths} \left( x_0, x_0\right)$ is contractible. We write  $\mathfrak p_1 \sim_{\left( x_0, x\right)} \mathfrak p_2$
+We say that both  weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1,\mathfrak p_2\in \mathfrak{Paths} \left( x_0, x\right)$ are \textit{homotopically equivalent} if  a composition $\mathfrak p_1 \circ \mathfrak p^*_2\in \mathfrak{Paths} \left( x_0, x_0\right)$ is contractible. We write  $\mathfrak p_1 \sim_{\left( x_0, x\right)} \mathfrak p_2$.
 \end{definition}
 
 \begin{empt}\label{top_pp_lift_empt}
@@ -6331,24 +6345,6 @@ Prove following statements:
 \begin{remark}
 	Any pair of closed $x_0$-paths is composable (cf. Definitions \ref{top_path_comp_defn} and \ref{top_closed_path_corr_defn}). Moreover if $\mathfrak p \in  \mathfrak{Paths} \left( x_0, x_0\right)$ then the involution $\mathfrak p^*$ of $\mathfrak p$ also lies in $\mathfrak{Paths} \left( x_0, x_0\right)$.
 \end{remark}
-\begin{empt} !!! MAY BE DELETE !!!
-	If $p: \left( \widetilde{\sX}, \widetilde x_0\right) \to \left( \sX, x_0\right) $ is a pointed transitive covering then there is a natural map
-	$$
-\mathfrak{Paths} \left( x_0, x_0\right) \to G\left(\left. \widetilde{\sX}\right| \sX\right) 	
-	$$
-(cf. \ref{top_path_hom_empt}). It turns out that if  $\left\{\left( {\sX}_\la,  x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in \La}$ is a family of all pointed transitive coverings 
-then there is a map
-$$
-h : \mathfrak{Paths} \left( x_0, x_0\right) \to G\bydef \prod_{\la\in \La} G\left(\left. {\sX}_\la\right| \sX\right).
-$$
-From the equations \eqref{top_path_m_eqn} and \eqref{top_path_i_eqn}
-	\bea\label{top_path_mm_eqn}
-\forall \mathfrak p', \mathfrak p'' \in \mathfrak{Paths} \left( x_0, x_0\right) \quad h\left( \mathfrak p'\circ \mathfrak p''\right) =  h\left( \mathfrak p'\right) h\left(  \mathfrak p''\right),\\
-\label{top_path_im_eqn} \forall \mathfrak p \in \mathfrak{Paths} \left( x_0, x_0\right) \quad h\left( \mathfrak p^*\right) = \left(  h\left( \mathfrak p\right)\right)^{-1}. 
-\eea
-	
-\end{empt}
-
 
 
 \begin{notation}\label{top_path_equiv_not}
@@ -20651,7 +20647,7 @@ if there does not exist a separation of  $\sX$.
 A space $\sX$ is connected if and only if the only subsets of $\sX$ that are both
 open and closed in $\sX$ are the empty set and $\sX$ itself.
 \end{remark}
-\begin{theorem}\label{connected_closure_thm}\cite{munkres:topology}
+\begin{theorem}\label{top_connected_closure_thm}\cite{munkres:topology}
 %Theorem 23.4. 
 Let $A$ be a connected subspace of $\sX$, and let $\overline A$ be the closure of $A$, i.e. intersection of containing $A$ closed sets. If $A \subset B \subset \overline A$, then $B$ is also
 connected.
@@ -20788,35 +20784,50 @@ The image of a compact space under a continuous map is compact.
 		\end{enumerate}
 		
 	\end{theorem}
-	
+\begin{definition}\label{top_onen_map_defn}\cite{munkres:topology}
+A map $f: \sX \to \sY$ is said to be an \textit{open map} if for every open set $\sU$ of $\sX$, the
+set $f\left(\sU \right)$  is open in $\sY$.
+\end{definition}	
 	\begin{definition}\label{top_bicont_defn}\cite{kurat:topI}
 A continuous map 	 	$f$ is called \textit{bicontinuous} if it is onto and if
 	 $$
- \left(A \text{ is open}\right) \Leftarrow  \left(f^{-1}\left( A\right)  \text{ is open}\right)
+ \left(A \text{ is open}\right) \Leftrightarrow  \left(f^{-1}\left( A\right)  \text{ is open}\right)
 	 $$
 	 Equivalently 
 	 $$
-	 \left(A \text{ is closed}\right) \Leftarrow  \left(f^{-1}\left( A\right)  \text{ is closed}\right)
-	 $$	 
+	 \left(A \text{ is closed}\right) \Leftrightarrow  \left(f^{-1}\left( A\right)  \text{ is closed}\right).
+	 $$	
 	 \end{definition}
+	 \begin{theorem}\label{top_bicont_oc_thm}\cite{kurat:topI}
+	Let $f: \sX \to \sY$ be open or closed onto. Then $f$ is bicontinuous.
+\end{theorem}
 	 \begin{theorem}\label{top_bicont_thm}\cite{kurat:topI}
 	 If $f$ is bicontinuous and one-to-one, then $f$ is a homeomorphism.
 	 \end{theorem}
+	 	 \begin{theorem}\label{top_bicont_inv_thm}\cite{kurat:topI}
+	 	If $f$ is bicontinuous and $g: \sY \to \sZ$. If $h \bydef g \circ f$ is continuous, then so is $g$. If $h$ is bicontinuous, then so is $g$.
+	 	\newline
+	 	\begin{tikzcd}
+	 		\sX \arrow[rd, "h"] \arrow[r, "f"]
+	 		& \sY\arrow[d, "g"]\\
+	 		& \sZ
+	 	\end{tikzcd}
+	 \end{theorem}
+	 
 	 \begin{definition}\label{top_separable_defn}\cite{munkres:topology}
 	 A space having a countable !!! dense subset is said to be \textit{separable}.
 	 \end{definition}	
 	\begin{defn}\label{top_support_defn}\cite{munkres:topology}
 		If $\phi: \mathcal X \to \mathbb{C}$  is continuous then the \textit{support} of $\phi$ is defined to be the closure of the set $\phi^{-1}\left(\mathbb{\C}\setminus \{0\}\right)$ Thus if $x$ lies outside the support, there is some neighborhood of $x$ on which $\phi$ vanishes. Denote by $\supp \phi$ the support of $\phi$.
 	\end{defn}
-	 	\begin{thm}\label{comm_sep_thm}\cite{chun-yen:separability}
-	 		For a locally compact Hausdorff space $\mathcal X$, the following are 		equivalent:
-	 		\begin{enumerate}
-				\item[(a)] The Abelian $C^*$-algebra $C_0\left(\mathcal X \right)$  is separable;
-	 			\item[(b)]$\mathcal X$ is $\sigma$-compact and metrizable;
-				\item[(c)]$\mathcal X$ is second-countable !!!.
-			\end{enumerate}
-	
-		\end{thm}
+%	 	\begin{thm}\label{comm_sep_thm}\cite{chun-yen:separability}
+%	 		For a locally compact Hausdorff space $\mathcal X$, the following are 		equivalent:
+%	 		\begin{enumerate}
+%				\item[(a)] The Abelian $C^*$-algebra $C_0\left(\mathcal X \right)$  is separable;
+%	 			\item[(b)]$\mathcal X$ is $\sigma$-compact and metrizable;
+%				\item[(c)]$\mathcal X$ is second-countable !!!.
+%			\end{enumerate}
+%		\end{thm}
 	%	\begin{thm}\label{top_sec_cov_thm}\cite{munkres:topology}
 	%		Suppose that $\mathcal X$ is second-countable !!! space. Then:
 	%		\begin{enumerate}
@@ -21301,8 +21312,13 @@ an open subset of $\sX$
 \end{lemma}
 
 	\begin{lemma}\label{top_om_lem}\cite{spanier:at}
-		A local homeomorphism is an open map (cf. Definition \ref{top_bicont_defn}).
+		A local homeomorphism is an open map (cf. Definition \ref{top_onen_map_defn}).
 	\end{lemma}
+	
+	
+	\begin{remark}\label{top_cov_bicont_rem}
+ From the Lemmas \ref{top_om_lem} and \ref{top_om_lem} it follows that any covering is a bicontinuous map (cf. Definition \ref{top_bicont_defn}).
+	\end{remark}
 	
 
 	\subsubsection{Unique path lifting}
