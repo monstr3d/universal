@@ -52,10 +52,7 @@ using Chart.DataPerformer;
 using Chart.UserControls;
 
 
-
-
 using WindowsExtensions;
-using DataPerformer.Portable.Helpers;
 
 
 namespace DataPerformer.UI.UserControls

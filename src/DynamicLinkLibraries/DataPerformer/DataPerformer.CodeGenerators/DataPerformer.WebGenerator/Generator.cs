@@ -12,7 +12,9 @@ namespace DataPerformer.WebGenerator
         {
             this.Add();
         }
-        void IDataConsumerCodeGenerator.Generate(GraphLabel label, string nameSpace, string className)
+
+
+        void IDataConsumerCodeGenerator.Generate(GraphLabel label)
         {
             throw new NotImplementedException();
         }

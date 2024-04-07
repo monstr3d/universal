@@ -12,10 +12,7 @@ namespace DataPerformer.UI.Interfaces
         /// Generates code
         /// </summary>
         /// <param name="label">Label</param>
-        /// <param name="nameSpace">Namespace</param>
-        /// <param name="className">Name of class</param>
-        /// <param name="obj">Additional object</param>
-        void Generate(GraphLabel label, string nameSpace, string className);
+        void Generate(GraphLabel label);
 
  
     }
