@@ -20,6 +20,8 @@ using AssemblyService.Attributes;
 
 using ResourceService;
 using WindowsExtensions;
+using System.Configuration;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace Diagram.UI
 {
@@ -33,10 +35,12 @@ namespace Diagram.UI
 
         #region Fields
 
+        private static string execonfDir;
+
         /// <summary>
         /// All forms
         /// </summary>
-        private static List<Form> forms = new List<Form>();
+        private static List<Form> forms = new ();
 
         private static List<IDragDrop> dragDrop;
 
@@ -50,7 +54,39 @@ namespace Diagram.UI
 
         #endregion
 
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static StaticExtensionDiagramUIForms()
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
+            string path = config.FilePath;
+            execonfDir = Path.GetDirectoryName(path);
+            /*    char s = Path.DirectorySeparatorChar;
+                if (p[p.Length - 1] != s)
+                {
+                    p += s;
+                }
+                execonfDir = p;*/
+            StaticExtensionCategoryTheory.FindObject = FindFormObject.Singleton;
+            dragDrop = new List<IDragDrop>(
+                AssemblyService.StaticExtensionAssemblyService.GetInterfacesFromBaseDirectory<IDragDrop>());
+            new Binder();
+        }
+
+ 
+        #endregion
+
+
+
         #region Public Members
+
+        /// <summary>
+        /// Configuration exe directory
+        /// </summary>
+        static public string ExeConfigurationDirectory { get => execonfDir; }
 
         /// <summary>
         /// Executes action
@@ -881,25 +917,13 @@ namespace Diagram.UI
             updatableForm.UpdateFormUI();
         }
 
-        /// <summary>
-        /// First
-        /// </summary>
-        static bool first = true;
-
+  
         /// <summary>
         /// Inits itself
         /// </summary>
         static public void Init()
         {
-            if (!first)
-            {
-                return;
-            }
-            first = false;
-            StaticExtensionCategoryTheory.FindObject = FindFormObject.Singleton;
-            dragDrop = new List<IDragDrop>(
-                AssemblyService.StaticExtensionAssemblyService.GetInterfacesFromBaseDirectory<IDragDrop>());
-            new Binder();
+ 
         }
 
         /// <summary>
@@ -1071,18 +1095,6 @@ namespace Diagram.UI
             GetRootLabel(p, ref l);
         }
 
-
-        #endregion
-
-        #region Ctor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        static StaticExtensionDiagramUIForms()
-        {
-            Init();
-        }
 
         #endregion
 

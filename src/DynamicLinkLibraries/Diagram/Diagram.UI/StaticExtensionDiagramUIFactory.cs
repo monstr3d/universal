@@ -13,7 +13,8 @@ namespace Diagram.UI
     /// </summary>
     public static class StaticExtensionDiagramUIFactory
     {
-        #region Fields
+
+       #region Fields
 
         /// <summary>
         /// Default label factoty

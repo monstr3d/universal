@@ -70,13 +70,11 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            ApplicationConfiguration.Initialize();
 
-
-               Application.SetHighDpiMode(HighDpiMode.SystemAware);
-               Application.EnableVisualStyles();
-               //Application.SetCompatibleTextRenderingDefault(false);
-             ApplicationConfiguration.Initialize();
- 
             AssemblyService.StaticExtensionAssemblyService.Init();
 
             TestType();
@@ -119,7 +117,7 @@ namespace Aviation.Light
             }
 
             Application.EnableVisualStyles();
-     //       Application.SetCompatibleTextRenderingDefault(false);
+            //       Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(GetForm(filename, null, logWriter, testInterface));
         }
 

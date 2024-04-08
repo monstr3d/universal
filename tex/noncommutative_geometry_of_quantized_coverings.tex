@@ -3985,7 +3985,11 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
  		\item[(d)] One has
  		\be\label{one_m_eqn}
- 	\phi\circ \varphi_{\la_{\text{min}}}\left( 1_{M\left( A\right) } \right) = 1_{M\left( \overline A\right) }
+ 	\phi\circ \varphi_{\la_{\text{min}}}\left( 1_{M\left( A\right) } \right) = 1_{M\left( \overline A\right) },
+ 	\ee
+ 	or equivalently if $\left\{u_\a\right\}_{\a \in \mathscr A}\subset A$ is an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}) then for any $\overline{b}\in \overline{A}$ one has
+ 	\be\label{one_mm_eqn}
+ 	\lim_{\a \in \mathscr A}\left\| \left( 	\phi\circ \varphi_{\la_{\text{min}}} \left(u_\a \right) \right)  \overline{b}\right\| = \lim_{\a \in \mathscr A}\left\| \overline{b}	\left( \phi\circ \varphi_{\la_{\text{min}}} \left(u_\a \right) \right)  \right\|= 0.
  	\ee
 
  	%	If $\left\{u_\a \right\}\subset A = A_{\la_{\text{min}}}$ is an approximate unit (cf. Definition \ref{approximate_unit_defn}) then $\left\{\phi\circ \varphi_{\la_{\text{min}}}\left(  u_\a \right) \right\}\subset A = A_{\la_{\text{min}}}\subset \overline{A}$ is also an approximate unit.  
@@ -5544,6 +5548,61 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 
 %\section{Basic constructions}
 %\paragraph*{}
+\section{Multiples of continuous functions}
+
+\begin{lemma}\label{top_multiple_lem} Let $\sX$ be a locally compact Hausdorff space.
+	Let $f', f'' \in C_0\left(\sX \right)$ be such that $\supp f' \subset \supp f''$, and let $\sU \bydef \left\{\left.x \in \sX~\right| f''\left( x\right) \neq 0 \right\}$ . Suppose $f: \sX \to \C$ be given by
+	\be\label{top_div_eqn}
+	f\left(x \right) \bydef	\left\{\begin{array}{c l}
+		\frac{f'\left( x\right) }{f''\left( x\right)}  & x \in \sU\\
+		0 & x \notin \sU\\
+	\end{array}\right..
+	\ee
+	One has $f \in C_0\left(\sX \right)$ if and only if following conditions hold:
+	\begin{enumerate}
+		\item [(a)]  for any $x_0 \in \supp f'' \setminus \sU$ and any net $\left\{x_\a \in \sU\right\}_{\a \in \mathscr A}$ such that $\lim_{\a}x_\a= x_0$ following condition holds
+		$$
+		\lim_{\a \in \mathscr A} \frac{f'\left( x_\a\right) }{f''\left( x_\a\right)}= 0,
+		$$
+		\item[(b)] for any $\eps> 0$ there  is a compact $\sV \subset\sX$ such that
+		$$
+		x \in \sU \cap \left(\sX \setminus\sV \right) \quad \Rightarrow \left|\frac{f'\left( x\right) }{f''\left( x\right)} \right| < \eps.
+		$$
+		
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	If $x_0 \in \sU$ then $f''\left( x_0\right) \neq 0$ so $f$ is  continuous at $x_0$. If $x_0 \in \sX \setminus \supp f''$ then there is an open neighborhood $\mathcal W$ of $x_0$ such that $f''\left(\mathcal W\right) = f\left(\mathcal W\right) = \{0\}$, hence $f$  is  continuous at $x_0$. If $x_0 \in \supp f''\setminus\sU$ then from the equation \eqref{top_div_eqn} and the condition (a) it turns out that $f$ is  continuous at $x_0$.
+	Condition  (b)  means that  $f \in C_0\left(\sX \right)$ (cf. Definition \ref{c_c_def_2}). 
+\end{proof}
+\begin{definition}\label{top_multiple_defn}
+	For any  $f', f'' \in C_0\left(\sX \right)$  $f'$ is said to be a \textit{multiple} of $f''$ if there is $f \in C_0\left(\sX \right)$ such that $f' = ff''$ and $f''\left(x \right) = 0 \Rightarrow f\left(x \right) = 0.$ Denote by
+	\be\label{top_multiple_eqn}
+	\begin{split}
+		\mathfrak{div}\left( f',f''\right)\stackrel{\text{def}}{=} f  \in C_0\left(\sX \right).\\
+	\end{split}
+	\ee
+\end{definition}
+\begin{remark}\label{top_multiple_rem}
+	If $f', f'' \in C_0\left(\sX \right)$ then  $f'$ is a {multiple} of $f''$ if and only if $f'$ and $f''$ satisfy to the Lemma \ref{top_multiple_lem}.
+\end{remark}
+
+\begin{empt}
+	Let $\sX$ be a locally compact Hausdorff space, and let $f_\eps$ be given by \eqref{f_eps_eqn}. For every positive $f \in C_0\left( \sX\right)_+$ and and $\eps > 0$  the pair $f_\eps\left( f\right), f$  satisfies to the Lemma \ref{top_multiple_lem}, i.e. $f_\eps\left( f\right) \in C_0\left(\sX \right)$ is a multiple of $f$. If
+	\be\label{top_f_eps_eqn}
+	F_\eps \left( f\right) \stackrel{\text{def}}{=} \mathfrak{div}\left(f_\eps\left( f\right),f\right) 
+	\ee
+	then one has 
+	\be\label{top_f_eps_n_eqn}
+	\left\|f - F_\eps\left(  f\right) f  \right\|=	\left\|f - f_\eps\left(  f\right) \right\| \le \eps.
+	\ee
+	The set $\supp f_\eps$ is compact, so from $\supp f_\eps = \supp F_\eps\left(  f\right)$ it turns out that
+	\be\label{top_f0_eps_n_eqn}
+	F_\eps\left(  f\right)  \in C_c\left(\sX \right)
+	\ee
+	(cf. Definition \ref{c_c_def_1}).
+\end{empt}
+
 \section{Partitions of unity and compact subsets}
 
 \begin{lemma}\label{top_a_u_lem}
@@ -6818,15 +6877,6 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 \end{proof} 
 
 
-\begin{definition}\label{top_multiple_a_defn}
-	In the situation of the Lemma \ref{top_multiple_a_lem} we say that $a$ is a \textit{multiple} of  $f$.
-We write
-	\be\label{top_multiple_ad_eqn}
-	\begin{split}
-		\mathfrak{div}\left( a,f\right)\stackrel{\text{def}}{=} b \in C_0\left( \sX, \left\{A_x\right\}, \sF\right).
-	\end{split}
-	\ee
-\end{definition}
 
 \begin{empt}
 	If	$\sF$ is  a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ then from the Lemma \ref{op_cont_module_lem} it follows that $C_0\left(\sX \right)\sF \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right)$.
@@ -7348,7 +7398,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 	\end{split}
 	\end{equation}	
 \end{remark}
-\begin{defn}\label{top_desc_compact_defn}
+\begin{defn}\label{top_compactly_supported_descent_defn}
 	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group of  group of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
 Lemma \ref{top_compact_lem}	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
 \be\label{top_desc_compact_eqn}
@@ -7357,7 +7407,7 @@ Lemma \ref{top_compact_lem}	it follows that there is a finite-fold transitive co
 then we say that $\desc^c_p$ is \textit{compactly supported} $p$-\textit{descent}.
 \end{defn}
 \begin{remark}\label{top_desc_compact_rem}
-	In the situation of the Definition \ref{top_desc_compact_defn} the  map  \eqref{top_desc_compact_eqn} induces a homomorphism 
+	In the situation of the Definition \ref{top_compactly_supported_descent_defn} the  map  \eqref{top_desc_compact_eqn} induces a homomorphism 
 	$$
 \desc^c_p : C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)\to  C_0\left(\sX, \left\{A_x\right\}, \sF \right)
 	$$
@@ -7864,7 +7914,7 @@ then following conditions hold:
 		\in C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
 	\end{split}
 	\ee
-	where both $ \lift_p$ and $\desc^c_p$ are given by Definitions \ref{top_lift__main_defn} and \ref{top_desc_compact_defn} respectively.
+	where both $ \lift_p$ and $\desc^c_p$ are given by Definitions \ref{top_lift__main_defn} and \ref{top_compactly_supported_descent_defn} respectively.
 \end{enumerate}
 \end{corollary}
 \begin{proof}
@@ -7984,7 +8034,7 @@ The following conditions hold:
 	\end{split}
 	\ee
 \end{enumerate}
-where $\desc^c_p\left( \widetilde{a}\right) \in A$ is the \textit{compactly supported} $p$-\textit{descent} of $\widetilde{a}$ (cf. Definition \ref{top_desc_compact_defn})  and $A$ is regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$ (cf. Lemma \ref{comm_lift_desc_sum_lem}).
+where $\desc^c_p\left( \widetilde{a}\right) \in A$ is the \textit{compactly supported} $p$-\textit{descent} of $\widetilde{a}$ (cf. Definition \ref{top_compactly_supported_descent_defn})  and $A$ is regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$ (cf. Lemma \ref{comm_lift_desc_sum_lem}).
 \end{corollary}
 \begin{proof}
 This corollary follows from the Lemma \ref{comm_lift_desc_sum_strong_lem}. The method of proof is similar to the method of proof of the Corollary \ref{comm_lift_desc_sum_cor}.
@@ -8032,9 +8082,9 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 \begin{definition}\label{comm_loc_triv_defn}
 	Let $\sX$ be a locally compact Hausdorff space and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). Suppose that $
 	\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$. Let
-	$$
+\be\label{comm_loc_triv_eqn}
 	\mathscr C_0\left( \sX\right) \stackrel{\mathrm{def}}{=} C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)
-	$$
+\ee
 	and let us consider the following closed ideal 
 	\be\label{comm_res_eqn}
 	\left.\mathscr C_0\left( \sX\right)\right|_{\sU} \stackrel{\mathrm{def}}{=}\left\{\left\{\left.a_x \in A_x \right\}_{x \in \sX}~\right| x \notin \sU \Rightarrow a_x = 0\right\}\subset \mathscr C_0\left( \sX\right).
@@ -8510,7 +8560,7 @@ is commutative.
 	The given by \eqref{desc_c_sheaf_eqn} $R$-linear homomorphism $\desc^c_p$ is said to be a \textit{compactly supported} $p$-\textit{descent}
 \end{definition}
 \begin{remark}
-The Definition \ref{desc_c_sheaf_defn} is compliant with the Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_desc_compact_defn}  !!!.
+The Definition \ref{desc_c_sheaf_defn} is compliant with the Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_compactly_supported_descent_defn}  !!!.
 \end{remark}
 
 
@@ -9311,7 +9361,7 @@ The Theorem \ref{top_fin_thm}   yields a pure algebraic definition of the fundam
 
 \begin{lem}\label{top_functor_lem}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
+	Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$ such that
 	\begin{itemize}
 		\item  Objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$.
 		\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective $*$-homomorphism $\pi: C_0\left( \widetilde{\sX}' \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
@@ -9336,19 +9386,25 @@ The Theorem \ref{top_fin_thm}   yields a pure algebraic definition of the fundam
 	
 \end{lem}
 \begin{proof}
-	(i) From the Theorem \ref{top_fin_thm} it follows that there is a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
+If $\mathscr C \bydef \left(\sX, \left\{\C_x\cong \C\right\}_{x \in \sX},  C_0\left(
+	\sX \right)\right)$ then $C_0\left( \sX\right) = \mathscr C_0\left(\sX \right)$ (cf. \eqref{comm_loc_triv_eqn}) 
+\\	(i) From the Theorem \ref{top_fin_thm} it follows that there is a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
 	$$
 	\left(p:\widetilde{\sX} \to \sX \right) \mapsto 	C_0\left( p\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}\right)
 	$$
 	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}. If $p':\widetilde{\sX}' \to \sX$ and $p'':\widetilde{\sX}'' \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p: \widetilde{\sX}' \to \widetilde{\sX}''$ is a morphism of $\mathfrak{FinCov}$-$\sX$ then from the Lemma \ref{top_covp_cat_lem} it turns out that $p$ is a transitive finite-fold covering. From the equation \eqref{top_c0_p_eqn} it follows that $p$ corresponds to the injective $*$-homomorphism
 	\be\label{top_c_funct_lem_eqn}
-	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
+ 	C_0\left(p \right)\bydef \mathscr C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
-	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{comm_comply_lem} it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
+(cf. equation \eqref{top_c0_ob_eqn}).	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)\bydef \mathscr C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{comm_comply_lem} it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
 	(ii)  Let us consider a continuity structure $C_0\left(
-	\sX \right) $ for $\sX$ {and the} $\left\{\C_x\cong \C\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).  If an open subset $\sU \subset \sX$ is connected, then $$\left.C_0\left(\sX, \left\{\C_x\cong \C\right\}_{x \in \sX},  C_0\left(
-	\sX \right)\right)\right|_\sU \cong C_0\left(\sU\right)$$ is not a direct sum of no more than one nontrivial $C^*$-algebras.  The space $\sX$ is locally connected, so any point has a fundamental system of connected neighborhoods. It turns out that
-	$\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{\C_x\right\}_{x \in \sX}, C_0\left(\sX\right) \right)$ is locally trivial (cf. Definition \ref{comm_loc_triv_defn}), so one can apply the Lemma \ref{comm_comply_lem}.	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
+	\sX \right) $ for $\sX$ {and the} $\left\{\C_x\cong \C\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).  If an open subset $\sU \subset \sX$ is connected, then 
+	$$
+	\left.\mathscr C_0\left(\sX\right)\right|_\sU \cong C_0\left(\sU\right)
+	$$ 
+(cf. equation \eqref{comm_res_eqn})	
+		is not a direct sum of no more than one nontrivial $C^*$-algebras.  The space $\sX$ is locally connected, so any point has a fundamental system of connected neighborhoods. It turns out that
+	$\mathscr C$ is locally trivial (cf. Definition \ref{comm_loc_triv_defn}), so one can apply the Lemma \ref{comm_comply_lem}.	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
 \end{proof}
 
 \begin{remark}
@@ -10506,11 +10562,8 @@ If $\la \in \La$ and $\phi_\la:G\left( \left.{\widetilde{\sX}}~\right|\sX\right)
 	$$ 
  is injective we conclude that $g$ is trivial, so $\widetilde{x}_1 = \widetilde{x}_2$. Thus the map $\overline{p}$ is injective, and since $\overline{p}$ is a covering (cf. Remark \ref{comm_top_constr_morph_rem}) it is a homeomorphism. From the natural homeomorphism $\left( \widetilde{\sX}_{\mathrm{res~fin}},  \widetilde{x}_0\right)\cong \left( \widetilde{\sX}',  \widetilde{x}'_0\right)$ it turns out that $\left( \widetilde{\sX} , \widetilde{x}_0 \right)$ is the inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$
 	\end{proof}
-\begin{empt}\label{top_pointed_defn_empt}
-Here we explain a motivation of the Definition \ref{pointed_defn} !!! EXPLAN
-\end{empt}
 \begin{notation}\label{top_discontinuous_not}
-If $\sX$ is a set then we denote by $D^*\left( \sX\right)$ a $C^*$-algebra of bounded maps from $\sX$ to $C^*$. $D^*\left( \sX\right)\cong C\left(\sX \right)$ if we consider the discrete topology on  $\sX$.
+If $\sX$ is a set then we denote by $D^*\left( \sX\right)$ a $C^*$-algebra of bounded maps from $\sX$ to $\C$.  If we consider the discrete topology on  $\sX$ then $D^*\left( \sX\right)\cong C\left(\sX \right)$.
 \end{notation}
 
 \begin{empt}\label{top_long_p_empt}
@@ -10528,16 +10581,22 @@ then there is the natural category
 	\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}_{\substack{\mu,\nu\in\La\\
 			\mu\ge\nu}}  \right\}
 \eean 
-where $C_0\left( p_\la\right)$ and $C_0\left( p^\mu_\nu\right)$ are given by the equation \eqref{top_c0p_eqn}. If $\overline \sX$ is the disconnected be a disconnected infinite noncommutative covering of $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$ (cf. Definition  \ref{disconnected_infinite_noncommutative_covering_defn}) then for any $\la \in \La$ there is an inclusion $C_0\left( \mathcal{X}_\la\right) \hookto C_b\left(\overline \sX \right)$. Using this fact one can obtain the natural inclusion
+where $C_0\left( p_\la\right)$ and $C_0\left( p^\mu_\nu\right)$ are given by the equation \eqref{top_c0p_eqn}. If $\overline \sX$ is the disconnected infinite noncommutative covering of $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$ (cf. Definition  \ref{disconnected_infinite_noncommutative_covering_defn}) then for any $\la \in \La$ there is an inclusion $C_0\left( \mathcal{X}_\la\right) \subset C_b\left(\overline \sX \right)$ (cf. \ref{top_covering_inclusion_empt}). Using this fact one can obtain the natural inclusion
 \be\label{top_subord_ga_eqn}
-C^*\text{-}\varinjlim_{\la\in \La}  C_0\left(\sX_\la\right)\hookto C_b\left(\overline \sX \right).
+C^*\text{-}\varinjlim_{\la\in \La}  C_0\left(\sX_\la\right)\subset C_b\left(\overline \sX \right).
 \ee
-where $C^*\text{-}\varinjlim$ denotes an inductive limit of $C^*$-algebras in the sense of the Definition \ref{inductive_lim_non_defn}. Let  $\overline a\in  D^*\left( \overline\sX\right)_+$ (cf. Notation \ref{top_discontinuous_not}) be a positive element  such that for all $\la \in \La$
-\bean
+where $C^*\text{-}\varinjlim$ denotes an inductive limit of $C^*$-algebras in the sense of the Definition \ref{inductive_lim_non_defn}. Let  $\overline a\in  D^*\left( \overline\sX\right)_+$ (cf. Notation \ref{top_discontinuous_not}) be a positive element  such that for all $\la \in \La$ one has
+\be\label{top_atomic_cc_eqn}
 \sum_{g \in \ker\left(\widehat{G}\to  G\left( \left.\sX_\la~\right|\sX\right)\right) }g \overline a \in  C_c\left(\sX_\la\right)
-\eean 
+\ee 
 where point-wise convergence of the series is implied and $C_c\left(\sX_\la\right)$ is regarded as a $C^*$-subalgebra of $D^*\left( \overline\sX\right)$.
- Denote by $\overline b^1 \bydef \overline a$. Let $\overline x_0\in \overline \sX$ be such that $\frac{2}{3}\left\| a\right\|<  \overline a \left( \overline x_0\right) \le \left\| a\right\|$. From  the equation \eqref{top_atomic_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \overline b^1\right\|<b^1_{\la_0}\left(\overline{p}_{\la_0}\left( \overline x_0\right)  \right) < \frac{4}{3}\left\| \overline b^1\right\|$ where $b^1_{\la_0}= \bt\text{-} \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline b^1$. From the condition (c) of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! it follows that $b^1_{\la_0} \in \K\left(C_0\left( \sX_{\la_0}\right)  \right)$, so there is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that $\frac{2}{3}\left\|  \overline b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \overline b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\overline{a}^1 \bydef f_\eps \left(\overline{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \overline b^1\right\|$. If $a^1_{\la_0}= \bt\text{-} \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline a^1\in \K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \overline b^1\right\| >\overline a^1 \left( \overline x_0\right)$ if follows that
+ Denote by $\overline b^1 \bydef \overline a$. Let $\overline x_0\in \overline \sX$ be such that $\frac{2}{3}\left\| a\right\|<  \overline a \left( \overline x_0\right) \le \left\| a\right\|$. 
+ 
+ !!! CHECK !!!
+ 
+ 
+ 
+ From  the equation \eqref{top_atomic_cc_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \overline b^1\right\|<b^1_{\la_0}\left(\overline{p}_{\la_0}\left( \overline x_0\right)  \right) < \frac{4}{3}\left\| \overline b^1\right\|$ where $b^1_{\la_0}= \bt\text{-} \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline b^1$. From the condition (c) of the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! it follows that $b^1_{\la_0} \in \K\left(C_0\left( \sX_{\la_0}\right)  \right)$, so there is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that $\frac{2}{3}\left\|  \overline b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \overline b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\overline{a}^1 \bydef f_\eps \left(\overline{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \overline b^1\right\|$. If $a^1_{\la_0}= \bt\text{-} \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline a^1\in \K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \overline b^1\right\| >\overline a^1 \left( \overline x_0\right)$ if follows that
 	$0<  \overline a \left( \overline x_0\right)< \frac{1}{3}\left\|  \overline b^1\right\|$ and 
 	$0< a^1_{\la_0}\left(\overline{p}_{\la_0}\left(\overline x_0 \right)  \right)< b^1_{\la_0}\left(\overline{p}_{\la_0}\left(\overline x_0 \right) \right) - \frac{2}{3}\left\| \overline b^1\right\|< \frac{2}{3}\left\| \overline b^1\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \overline b^1\right\|$ 
 	for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ be such that $\mu > \la$ and  $a^1_{\mu}= \beta$-$\sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \overline a^1$ then one has
@@ -10669,23 +10728,51 @@ is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointe
 \begin{proof}
 The category $\mathfrak{S}_{\left(\sX, x_0\right)}$  is equivalent to the pre-ordering category of the directed set $\La$, as well as the equivalent category $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$.
 \end{proof}
+\begin{empt}\label{top_pointed_defn_empt}
+	The Corollary \ref{top_base_point_cor} explains the motivation of  the Definition \ref{pointed_defn}.
+\end{empt}
 
 
 \begin{lemma}\label{top_is_subord_lem}
-Let  $\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La}$ be an explained in the Corollary \ref{top_base_point_cor}  topological finite covering category (cf. Definition \ref{top_finite_covering_category_defn}). If $\overline{  \mathcal X}$ be  the disconnected inverse limit of $\mathfrak{S}_{\left( \mathcal{X}, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) then the $C^*$-algebra $C_0\left(\overline{  \mathcal X} \right)$ is subordinated (cf. Definition  \eqref{subordinated_defn} !!! CONDITION (d) DELETE !!!) the given by \eqref{top_base_point_eqn} a {pointed algebraical  finite covering category} $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$ (cf. Definition \ref{pointed_defn}).
+Let  $\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La}$ be an explained in the Corollary \ref{top_base_point_cor}  topological finite covering category (cf. Definition \ref{top_finite_covering_category_defn}). If $\overline{  \mathcal X}$ be  the disconnected inverse limit of $\mathfrak{S}_{\left( \mathcal{X}, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) then the $C^*$-algebra $C_0\left(\overline{  \mathcal X} \right)$ is subordinated (cf. Definition  \eqref{subordinated_defn}  the given by \eqref{top_base_point_eqn} a {pointed algebraical  finite covering category} $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$ (cf. Definition \ref{pointed_defn}).
 \end{lemma}
 \begin{proof}
-	One needs check conditions (a)-(c) of  the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!.\\
+	One needs check conditions (a)-(d) of  the Definition \ref{subordinated_defn}.\\
 	(a) The inclusion
 	$
-	\psi:	C^*\text{-}\varinjlim_{\la\in \La}  C_0\left(\sX_\la\right)\hookto C_b\left(\overline \sX \right) = M\left(C_b\left(\overline \sX \right) \right)$ corresponds to the equation \eqref{top_subord_ga_eqn},\\
+	\psi:	C^*\text{-}\varinjlim_{\la\in \La}  C_0\left(\sX_\la\right)\hookto C_b\left(\overline \sX \right) = M\left(C_b\left(\overline \sX \right) \right)$ corresponds to the equation \eqref{top_subord_ga_eqn}.\\
 (b)	If 	$\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 \left. C_0\left(  \sX_\la\right) ~ \right|C_0\left( \sX\right) \right)= \varprojlim_{\la \in \La} G\left(
 \left.  \sX_\la~ \right|\sX\right)$ then from the Corollary \ref{top_bijectt_cor} it follows that $\widehat{G}\cong G\left(
 \left. \overline  \sX~ \right|\sX\right)$. An action
 $G\left(
 \left. \overline  \sX~ \right|\sX\right)\times \overline  \sX$ naturally yields an action $\widehat{G} \times C_0\left(\overline{  \mathcal X} \right)\to C_0\left(\overline{  \mathcal X} \right)$. We leave to the reader a proof of  the specialization of conditions \eqref{subord_ga_eqn},\\
-(c) Follows from the Corollary \ref{comm_lift_desc_sum_cor}.
+(c) Follows from the Corollary \ref{comm_lift_desc_sum_cor}.\\
+(d) Let $\left\{u_\a\right\}_{\a \in \mathscr A} \subset A$ be an approximate unit for $C_0\left( \sX\right)$. If $\overline b \in C_0\left(\overline \sX \right)_+$ is a positive element and $\eps > 0$ then there is a compact set $\overline \sY \in \overline \sX$ such that
+$$
+\forall \overline  x \in \overline \sX \setminus \overline \sY \quad \left|\overline b\left( \overline x\right) \right| < \frac{\eps}{2}.
+$$
+If $\overline f \in C_c\left(\overline \sX \right)$ if a covering sum for $\overline \sY$ (cf. Definition \ref{top_covering_sum_defn}) then  $\overline b' \bydef \overline f~ \overline b \in C_c\left(\overline \sX \right)$ and
+\be\label{top_bbf_eqn}
+\left\|\overline b- \overline b' \right\|<  \frac{\eps}{2}.
+\ee
+ If $b \bydef \desc^c_{\overline p} \left( \overline b'\right)\in C_c\left( \sX\right)  $ is the compactly supported descent (cf. Definition \ref{top_compactly_supported_descent_defn}) and $\overline \sU \bydef \left\{\left. \overline x \in \overline \sX \right|  \overline f~ \left(\overline x \right) > 0 \right\}$ then one has
+\be\label{top_bbbf_eqn}
+\lift^{\overline p}_{\overline \sU} \left( b \right) \ge \overline b' 
+\ee
+where $\lift^{\overline p}_{\overline \sU}$ is a $\overline p$-${\overline \sU}$-lift (cf. Definition \ref{top_lift_desc_defn}. There is  is $\a_0\in  \mathscr A$ such that
+\bean
+\forall \a \in  \mathscr A \quad \a \ge \a_0 \quad \Rightarrow \quad \left\| b - b u_\a \right\| < \eps\quad \text{AND} \quad \left\|b - u_\a b \right\|<  \frac{\eps}{2}.
+\eean
+From the above equation  and \eqref{top_bbbf_eqn}  it follows that $\forall \a \in  \mathscr A$ one has
+\bean
+ \a \ge \a_0  \Rightarrow \left\| \overline b' - \overline b' \phi\circ \varphi_{\la_{\text{min}}} \left(u_\a \right)\right\| <\frac{\eps}{2}\quad \text{AND} \quad \left\|\overline b' - \phi\circ \varphi_{\la_{\text{min}}} \left(u_\a \right) \overline b' \right\|< \frac{\eps}{2}.
+\eean
+Taking into account \eqref{top_bbf_eqn} and the triangle identity we obtain the following
+\be\label{top_one_mm_eqn}
+\a \ge \a_0  \Rightarrow \left\| \overline b - \overline b \phi\circ \varphi_{\la_{\text{min}}} \left(u_\a \right)\right\| < \eps\quad \text{AND} \quad \left\|\overline b - \phi\circ \varphi_{\la_{\text{min}}} \left(u_\a \right) \overline b \right\|< \eps.
+\ee
+The equation \eqref{top_one_mm_eqn} can be regarded as a specialization of \eqref{one_mm_eqn} one. Using this fact one can prove the specialization of \eqref{one_mm_eqn} for any (not necessary positive) $\overline b \in C_0\left(\overline \sX \right)$.
 \end{proof}
 
 \begin{empt}
@@ -10735,11 +10822,11 @@ $G\left(
 If $ \left(C_0\left(\sX\right), \overline{A}, G\left(\left.\overline{A}~\right| C_0\left(\sX\right)\right)\right)$ is a disconnected infinite noncommutative covering of $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$ (cf. Definition  \ref{disconnected_infinite_noncommutative_covering_defn}) then has $\overline{A}= C_0\left( \overline{\sX}\right)$.
 \end{lemma}
 \begin{proof}
-	From the Lemma \ref{top_is_subord_lem} it follows that $C_0\left( \overline{\sX}\right)$ is subordinated to  $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$, i.e. $C_0\left( \overline{\sX}\right)\subset \overline{A}$. If $\overline a \in K\left( \overline A\right)_+$ is a positive element  then from the Lemma \ref{top_atomic_lem} it follows that $\overline a$ is uniquely defined by an element of $D^*\left( \overline \sX\right)$ (cf. Notation \ref{top_discontinuous_not}). From the condition (c) of the Definition  \ref{subordinated_defn} !!! CONDITION (d) DELETE !!! and the Lemma \ref{top_disc_p_lem} it follows that $\overline a$ corresponds to an element of $C_c\left( \overline \sX\right)$,
+	From the Lemma \ref{top_is_subord_lem} it follows that $C_0\left( \overline{\sX}\right)$ is subordinated to  $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$, i.e. $C_0\left( \overline{\sX}\right)\subset \overline{A}$. If $\overline a \in K\left( \overline A\right)_+$ is a positive element  then from the Lemma \ref{top_atomic_lem} it follows that $\overline a$ is uniquely defined by an element of $D^*\left( \overline \sX\right)$ (cf. Notation \ref{top_discontinuous_not}). From the condition (c) of the Definition  \ref{subordinated_defn} and the Lemmas \ref{infinite_faithful_nondegererate_lem}, \ref{top_disc_p_lem} it follows that $\overline a$ corresponds to an element of $C_c\left( \overline \sX\right)$,
  so $\overline A\subset C_0\left(  \overline \sX\right)$.
 \end{proof}
 
-
+!!! CONTINUE !!!
 	\begin{empt}\label{comm_transitive_empt} From the Lemma \ref{top_disc_lem}	 it follows that  the disconnected inverse noncommutative limit of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
 		According to the equation  \eqref{disc_triple_eqn} one has
 	\be\nonumber
@@ -10808,7 +10895,6 @@ is a given by the Corollary  \ref{top_base_point_cor} {pointed algebraical  fini
 \end{enumerate}
 	
 \end{theorem}
-
 \begin{empt}\label{top_r_inf_empt}
 Both the given by \eqref{top_base_point_eqn} {pointed algebraical  finite covering category} and the construction \ref{top_r_fin_empt} yield pointed algebraical  finite covering category of operator spaces $\mathfrak{S}^{\text{pt}}_{\text{op}}$ (cf. Definition \ref{comp_op_pt_defn}) which  corresponds to a noncommutative finite-fold coverings of operator spaces \be\label{top_comp_cat_eqn}
 \begin{split}
@@ -11846,7 +11932,7 @@ $$
  		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a
  		} = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right) 
 $$
-where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_desc_compact_defn}  !!!). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft_eqn} it follows that
+where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_compactly_supported_descent_defn}  !!!). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft_eqn} it follows that
 $$
 a_\la = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right)\in \Coo\left(\widetilde M \right).
 $$
@@ -13073,7 +13159,7 @@ a following map
 \end{definition}
 
 \begin{remark}
-	The Definition \ref{blowing_cdesc_defn} is a generalization of the Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_desc_compact_defn}  !!! (cf. Examples \ref{blowing_hausdorff_exm} and \ref{blowing_disintegrable_exm}).
+	The Definition \ref{blowing_cdesc_defn} is a generalization of the Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_compactly_supported_descent_defn}  !!! (cf. Examples \ref{blowing_hausdorff_exm} and \ref{blowing_disintegrable_exm}).
 \end{remark}
 \begin{corollary}\label{blowing_cov_inc_strict_cor}
 	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). Let $K\left( A_0\left( \overline{\sY}\right)\right)$ be a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{pedersens_ideal_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
