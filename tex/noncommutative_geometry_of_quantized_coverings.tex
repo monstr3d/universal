@@ -1955,6 +1955,15 @@ We say that $\left(A, \widetilde{A}'', G, \pi \right)$ is a \textit{composition}
 %\end{exercise}
 
 \subsection{Coverings of *-algebras} 
+\begin{definition}\label{fin_quasi*_defn}
+	Let  $A$  be  a connected $*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\pi: A \hookto \widetilde{A}$ be an injective, unital (in the sense of the Definition \ref{principal_non_defn}) $*$-homomorphism of % connected	  
+	$C^*$-algebras. Let $G$ be a finite  group of *-automorphisms of $\widetilde{A}$ such that 	$\pi\left(A\right) = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
+	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or $*$-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
+	\be\label{fin_cov_gr*_eqn}
+	G\left(\left.\widetilde{A}~\right| {A} \right) \stackrel{\text{def}}{=}  	G.
+	\ee
+\end{definition}
+
 \begin{definition}\label{fin_pre*_defn}  
 	Let $\pi: A \hookto \widetilde{A}$ be an injective  $*$-homomorphism of % connected
 	$*$-algebras such that following conditions hold:
@@ -2388,6 +2397,42 @@ $$
 It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
 
 \end{proof}
+
+\begin{empt}\label{tau_compl_empt}
+	Let  $\left(B, \widetilde{B}, G, \pi \right)$  be a {noncommutative finite-fold  quasi-covering} of  $*$-algebras  (cf. Definition \ref{fin_quasi*_defn}). Suppose that there is a family of positive functionals $\left\{\tau_\a: B\to \C \right\}_{\a \in \mathscr A}$ such that
+\begin{enumerate}
+	\item[(a)] for any positive $b \in B_+$ there is  $\a \in \mathscr A$ such that $\tau_\a\left( b\right) > 0$,
+	\item [(b)] for all $\a \in \mathscr A$  similarly to the Theorem \ref{state_repr_thm}	there is a representation  $\pi_{\tau_\a}: A \to B\left( L^2\left(A, \tau\right)\right)$,
+	\item[(c)] for any $b \in B$ there is $C \in \R$ such that $\pi_{\tau_\a}\left( b\right) \le C$  for all $\a \in \mathscr A$,
+\end{enumerate}	
+There is a $C^*$-norm 
+\be\label{tau_b_eqn}
+\begin{split}
+\left\|\cdot  \right\|: B \to \R,\\
+b \mapsto \sup_{\a \in \mathscr A}\left\| \pi_{\tau_\a}\left( b\right)\right\| 
+\end{split}
+\ee
+Let $\left\{\widetilde \tau_{\widetilde \a}: \widetilde B\to \C \right\}_{\widetilde \a \in \widetilde {\mathscr A}}$ be a family family of positive functionals such that
+$$
+\widetilde \a \in \widetilde {\mathscr A}\quad \exists \a \in  {\mathscr A}\quad \forall b \in B \quad \widetilde \tau_{\widetilde \a}\left( \pi\left(b \right) \right) =  \tau_{ \a}\left( b  \right). 
+$$
+There is a $C^*$-norm 
+\be\label{tau_tb_eqn}
+\begin{split}
+\left\|\cdot  \right\|:\widetilde B \to \R,\\
+\widetilde b \mapsto \sup_{\widetilde\a \in \widetilde{\mathscr A}}\left\| \pi_{\widetilde\tau_{\widetilde\a}}\left(\widetilde b\right)\right\| 
+\end{split}
+\ee
+If both  $A$ and $\widetilde{A}$ are a completions with respect to these $C^*$-norms then
+\begin{itemize}
+	\item  $A$ and $\widetilde{A}$  are $C^*$-algebras,
+	\item there is an injective $*$-homomorphism $\widetilde{\pi} : A \hookto \widetilde A$ such that  $\left(A, \widetilde{A}, G, \widetilde{\pi} \right)$  is a {noncommutative finite-fold  quasi-covering} of  $C*$-algebras  (cf. Definition \ref{fin_quasi_defn}).
+\end{itemize}
+If  $\left(B, \widetilde{B}, G, \pi \right)$ is a noncommutative finite-fold pre-covering in the sense of the  Definition \ref{fin_pre*_defn} then $\left(A, \widetilde{A}, G, \widetilde\pi \right)$ is a noncommutative finite-fold pre-covering in the sense of the  Definition \ref{fin_pre_defn}.
+\end{empt}
+\begin{definition}\label{tau_compl_defn}
+In the situation \ref{tau_compl_defn} we say that both $A$ and $\widetilde A$ are $\left\{\tau_\a: B\to \C \right\}_{\a \in \mathscr A}~$-\textit{completions} of $B$ and $\widetilde B$ respectively. The quadruple $\left(A, \widetilde{A}, G, \widetilde{\pi} \right)$ is said to be the $\left\{\tau_\a: B\to \C \right\}_{\a \in \mathscr A}~$-\textit{completion} of $\left(B, \widetilde{B}, G, {\pi} \right)$.
+\end{definition}
 
 \begin{proposition} \label{spectrum_cov_prop}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn})  then following conditions hold:
@@ -4200,7 +4245,7 @@ Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{in
  Moreover if $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  is a good   disconnected infinite noncommutative covering then the triple \eqref{infinite_noncommutative_covering_eqn} is an \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$.
  \end{definition}
 
-\begin{definition}\label{equiv_defn}
+\begin{definition}\label{equivariant_representation_defn}
 	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
 	\be\label{equivt_eqn}
 	g \left(\widehat{a}{\xi} \right) = \left(g\widehat{a} \right) \left(g{\xi} \right); \quad \forall g \in \widehat{G},~ \widehat{a} \in \widehat{A},~ {\xi}\in {\H}.
@@ -4458,7 +4503,7 @@ ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
 \ee
 \end{empt}
 \begin{lemma}\label{infinite_faithful_nondegererate_lem}
-If an equivariant representation $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}) is faithful and non-degenerated (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerated.
+If an equivariant representation $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful and non-degenerated (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerated.
 \end{lemma}
 \begin{proof}
 The notation of the Definition \ref{subordinated_defn} is used. If $\overline a \in \overline \A$ then there and 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a \in  K\left( A\right)$ then there is $b \in A$ such that $ab\neq 0$. From 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a$ it follows that there is a finite subset $G_0\subset  \widehat{G}$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) b \neq 0$.  Moreover there is $g \in G_0$ such that $ (g\overline a)b \neq 0$. The representation $\widehat \pi$ is faithful, so there is $\xi \in \widehat{\H}$ such that $(g\overline a)b \xi \neq 0$, so one has $g^{-1}\left((g\overline a)b \xi  \right) = \overline a b g^{-1}\xi \neq 0$ (cf. equations \eqref{equivt_eqn} and \eqref{equivt_eqn}). It turns out that $\overline a \widehat{\H} \neq \{0\}$. But $\overline \A$ is dense in $\overline A$, so  $\overline a \widehat{\H} \neq \{0\}$ for all  $\overline a \in \overline A$, i.e. the given by \eqref{ext_repro_eqn} representation is faithful.
@@ -4713,11 +4758,11 @@ In the situation of the Definition \ref{comp_o*_defn} morphisms of $\mathfrak{S}
 	\ee
 	is  a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let  $\left(B, \overline{B}, \widehat G\right)$  be a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_B$ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn}) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
   	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra.  There is the natural action $\widehat G\times \widehat A\to \widehat A$.
-  	Suppose that there is an equivariant faithful non-degenerated representation $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equiv_repr_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
+  	Suppose that there is an equivariant  faithful nondegenerate representation (cf. Definitions \ref{equivariant_representation_defn}, \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equivalent_representation_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
   	$$
   ext\left(\widehat \pi \right) : \overline B \to 	 B \left(\widehat\H \right)
   	$$
-  	is faithful and non-degenerate (cf. Lemma \ref{infinite_faithful_nondegererate_lem}).  Suppose that there is a $\widehat G$-invariant dense subspace $\widehat \D\subset \widehat\H$ such that there is an  injective $*$-homomorphism   
+  	is faithful and nondegenerate (cf. Lemma \ref{infinite_faithful_nondegererate_lem}).  Suppose that there is a $\widehat G$-invariant dense subspace $\widehat \D\subset \widehat\H$ such that there is an  injective $*$-homomorphism   
 	\be\label{pi_o*_eqn}
 	\pi: \widehat A\hookto \L^\dagger\left(\widehat\D \right)\quad \text{where } \L^\dagger\left(\widehat\D \right)  \text{ is given by \eqref{l_dag_eqn}}
 	\ee
@@ -4813,11 +4858,6 @@ be a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ t
 \begin{definition}\label{comp_qo*_defn}
 	Let $\La$ be a  directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $\left( \mathfrak A, \mathfrak A_0 \right) $ be a quasi-$O^*$-algebra  (cf. Definitions \ref{quasi_defn}, \ref{o*alg_defn}).  Let us consider a family noncommutative finite-fold coverings of  quasi-$O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\la, \mathfrak A_0^\la \right)\right\}_{\la \in \La}$ (cf. Definition \ref{oq*fin_defn}) indexed by  $\La$ such that $\left( \mathfrak A^{{\la_{\mathrm{min}}}}, \mathfrak A_0^{{\la_{\mathrm{min}}}} \right)= \left( \mathfrak A, \mathfrak A_0 \right)$, and $\pi_{\la_{\mathrm{min}}}= \Id_{\left( \mathfrak A, \mathfrak A_0 \right)}$.  Suppose that there is a subcategory $\mathfrak{S}^{\text{pt}}$ of the category $\mathfrak{S}$ which is equivalent to the pre-ordering category $\La$ (cf. Definition \ref{preordercat_defn}).
-	\begin{enumerate}
-		\item [(a)] The set of objects of $\mathfrak{S}^{\text{pt}}$ is a family of isomorphism classes of $\mathfrak{S}$.
-		\item[(b)]  For any $\mu, \nu\in \La$ such that $\mu>\nu$ there is the unique morphism from $\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\nu, \mathfrak A_0^\nu \right)$ to $\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  \left( \mathfrak A^\nu, \mathfrak A^\nu_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)$ of  quasi-$O^*$-algebras (cf. Definition \ref{oq*fin_defn})  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
-		\item[(c)] All morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (b).
-	\end{enumerate}
 	We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras}.   We write $\mathfrak{S}^{\text{pt}} \in  QO^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_qo*_eqn}
 	\begin{split}
@@ -4844,7 +4884,7 @@ satisfies to the conditions  described in \ref{comp_pt_o*_empt}. If 	$\left(\mat
 	(cf. Definitions \ref{pointed_defn} and \ref{good_defn}), and there is a weak {infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_B$. (cf. Definition \ref{infinite_noncommutative_covering_defn}). \be\label{be_eqn} 
 	\left(B, \widetilde{B}, G_{\widehat\pi}\right)
 	\ee 
-\item[(ii)] There is an equivariant faithful representation $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equiv_repr_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
+\item[(ii)] There is an equivariant faithful representation $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equivalent_representation_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
 $$
 ext\left(\widehat \pi \right) : \overline B \to 	 B \left(\widehat\H \right)
 $$
@@ -6924,15 +6964,7 @@ The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
 
 
 
-\begin{lemma}\label{top_cb_lem}
-	Let $\bt\sF$ be the given by families $\left\{a_{\bt x}\right\}$ (cf.\eqref{top_beta_fam_eqn}) continuity structure  for $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$. If $A \subset \bt\sF$ the norm bounded and norm closed  $C\left(\bt\sX \right)$-submodule which is a continuity structure for   $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$ then there is the natural isomorphism
-	\be\label{top_cb_lem_eqn}
-	A \cong C_b\left(\sX, \left\{A_x\right\}, \sF  \right). 
-	\ee
-\end{lemma}
-\begin{proof}
-	The inclusion $A \subset \bt\sF$ induces an inclusion $A \subset C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)$. From the Corollaries \ref{top_c0_cont_str_cor} and \ref{top_cl_cc_iso_cor} it follows that  $A = C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)$, and taking into account $C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)\cong C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ one has \ref{top_cb_lem_eqn}.
-\end{proof}
+
 
 %\begin{empt}\label{top_cy_eqn}
 %	Let $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x\in\sX}$. If $\sX \subset \sY$ is a commodification  then $C_0\left( \sX\right)$  is an inclusion of $C\left( \sY\right)\subset C_b\left(\sX \right)$ of $C^*$-algebras. Denote by
@@ -7519,7 +7551,7 @@ $$
 	If $a \in 	C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ and $b \in 	C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ then $ab  \in 	C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$. Form the Lemma
 	\ref{top_norm_c0cc_lem} it follows that $\text{norm}_a\in C_0\left(\sX \right)$ and from  the Lemma \ref{top_bounded_norm_lem} it follows that $\text{norm}_a, \text{norm}_{ab}\in C_b\left(\sX \right)$. Taking into account $\text{norm}_{ab} \le \text{norm}_{a}\text{norm}_{b}$ we conclude that  $\text{norm}_{ab}\in C_0\left(\sX \right)$, hence from the Lemma \ref{top_norm_c0cc_lem} one has $ab \in C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$. Similarly we prove that $ba \in C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$, so $b \in M\left(C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)\right)$.
 \end{proof}	
-!!! FINISH !!!
+
 \begin{empt}\label{top_a_res_rem}
 	If $A = C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)$ is a $C^*$-algebra with Hausdorff spectrum and $\sV\subset\sX$ is any subset then denote by $C_0\left(\sV, \left\{ A_{x}\right\}, A  \right)$ the $\sV$-{restriction} of $C_0\left(\sX, \left\{A_x\right\}, A \right)$ (cf. Definition \ref{ctr_restr_defn}). The space $C_0\left(\sV, \left\{ A_{x}\right\}, A  \right)$ has the natural structure  of *-algebra with $C^*$-norm. It is norm closed (cf. Remark \ref{top_cv_nc_rem}), so $C_0\left(\sV, \left\{ A_{x}\right\}, A  \right)$ is a $C^*$-algebra.
 \end{empt}
@@ -8550,7 +8582,7 @@ is commutative.
 	$$
 	\mathscr S^X\left(\sX \right)_c \bydef \left\{\left. a \in \mathscr S^X\left(\sX\right) \right| \supp a \text{ is compact }\right\}
 	$$
-	where $\supp$ is given by the equation \eqref{sheaf_supp_eqn}. Prove that if $p: \widetilde \sX \to \sX$ is a covering then similarly to 	\eqref{top_cdesc_eqn} there is an $R$-module homomorphism
+	where $\supp$ is given by the equation \eqref{sheaf_supp_eqn}. Prove that if $p: \widetilde \sX \to \sX$ is a covering then similarly to 	\eqref{top_compactly_supported_descent_defn} there is an $R$-module homomorphism
 	\be\label{desc_c_sheaf_eqn}
 	\desc^c_p: p^{-1}\mathscr S^X\left(\widetilde \sX \right)_c\to 	\mathscr S^X\left(\sX \right)_c.
 	\ee
@@ -8560,7 +8592,7 @@ is commutative.
 	The given by \eqref{desc_c_sheaf_eqn} $R$-linear homomorphism $\desc^c_p$ is said to be a \textit{compactly supported} $p$-\textit{descent}
 \end{definition}
 \begin{remark}
-The Definition \ref{desc_c_sheaf_defn} is compliant with the Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_compactly_supported_descent_defn}  !!!.
+The Definition \ref{desc_c_sheaf_defn} is compliant with the Definition \ref{top_compactly_supported_descent_defn}.
 \end{remark}
 
 
@@ -10454,9 +10486,6 @@ $$
 From our construction it follows that $f$ is the unique pointed  map $\left( \sY, y_0 \right) \to\left( \widetilde{ {\sX}}, \widetilde x_0\right)$ which satisfies to the equation \eqref{top_fs_eqn}. For any $\widetilde{ x}'\in f\left(\sY \right)$ there is an open neighborhood evenly covered by $f$. In particular $f \left( \sY\right)$ is an open subset of $\widetilde \sX$. Let $\widetilde \sZ \subset \widetilde \sX$ be the closure of $f \left( \sY\right)$ and let $\widetilde x' \in \widetilde \sZ\setminus f \left( \sY\right)$. If $x' \bydef \widetilde p\left(\widetilde x' \right)$ then there are 
  open  neighborhoods $\sU'_1$ and $\sU'_2$ of $x'$  evenly covered by both $p_\sY$ and $\widetilde{p}$ respectively. Let $\sU'$  be an open connected  neighborhood of $x'$ such that $\sU' \subset  \sU'_1\cap \sU'_2$. If $\widetilde\sU'$ is a connected component of $\widetilde p^{-1}\left( \sU'\right)$ such that $\widetilde x' \in \widetilde\sU'$ then since $f\left( \sY\right)$ is dense in $\mathcal Z$ there is $\widetilde x'' \in \widetilde\sU' \cap f\left( \sY\right)$, i.e. $\exists y'' \in \sY \quad f\left( y''\right)=\widetilde x''$. From $ \widetilde x'' \in \widetilde\sU'$ it follows that  $ \widetilde p\left( \widetilde x''\right)  \in \sU'$  and  $\widetilde p_\sY\left( \widetilde y''\right)  \in \sU'$.
 If $\sV$ is a connected component of $\widetilde{p}^{-1}_\sY\left(\sU' \right)$ such that  $y'' \in \sV$ then from ${p}_\sY \left(\sV \right) = \sU'$ it follows that $\widetilde p_\sY\left(\sV\right)= \widetilde \sU'$. In particular $\widetilde x' \in \widetilde p_\sY\left(\sV\right)\subset \widetilde p_\sY\left(\sY\right)$, it contradicts with $\widetilde x' \in \widetilde \sZ\setminus f \left( \sY\right)$. From this contradiction it follows that $\widetilde \sZ\setminus  f \left( \sY\right)= \emptyset$, so $\widetilde \sZ =   f \left( \sY\right)$ and the set $f \left( \sY\right)$ is a closed subset of $\widetilde\sX$. Thus $f \left( \sY\right)$ is a nonempty open and closed subset of $\widetilde\sX$. However the set $\widetilde\sX$ is connected, it follows that   $\widetilde\sX = f \left( \sY\right)$, i.e. the map $f$ is surjective. Thus $f$ satisfies to the Definition  \ref{comm_top_constr_morph_defn}, i.e. $f$ is a morphism of the category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$. So for any object of the category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$ there is the unique natural morphism to $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)$ i.e.  $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)$ is the terminal object. (cf. Definition \ref{term_ob_defn}).
-
-
-!!! USE \ref{top_locally_conn_cov_thm}!!!
 \end{proof}
 
 
@@ -10917,6 +10946,83 @@ C_0\left( \sX^\sim_\la\right) = \C C_0\left( \sX^\sim_\la, \R\right),\\
 \ee
 (cf. \eqref{top_complex_eqn}). From \eqref{top_creal_fam_eqn} it turns out that the given by \eqref{top_comp_cat_eqn} noncommutative finite-fold coverings of operator spaces is the complexification of the family \eqref{top_comp_cat_eqn}. It follows that the given by \eqref{top_creal_fam_eqn}  family  $\mathfrak{S}^{\text{pt}}_{\text{op}}$ is a pointed algebraical  finite covering category of real operator spaces (cf. Definition \ref{comp_rop_pt_defn}).
 \end{empt}
+\begin{empt}\label{top_mu_empt} 
+	Denote by  
+	\bean
+	\begin{split}
+		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
+		\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+				\mu\ge\nu}} \right\}\\
+		%\in \\
+		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+	\end{split}
+	\eean
+	a	pointed topological finite covering category. Denote by 	\bean
+	\begin{split}
+		\mathfrak{S}_{ C_0\left(\sX \right) } = \\
+		=\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto  C_0\left(\sX_\mu \right)\right\}\right).
+	\end{split}
+	\eean
+	the given by the Corollary \ref{top_base_point_cor} 
+	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}).
+	Let $\tau: C_c\left(\sX \right)\to \C$ be a positive functional given by the Theorem \eqref{meafunc_eqn}, i.e. there exists a Borel
+	measure $\mu$ on $\sX$  such that
+	\be\label{top_meafunc_eqn}
+	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_c\left(\sX \right).
+	\ee
+	Suppose that $\mu\left( \sU\right) > 0$ for any  nonempty open set $\sU\subset\sX$, or equivalently 
+	$$
+	\forall a \in C_c\left(\widetilde \sX\right)\quad a > 0 \quad \Rightarrow \tau\left(a \right) > 0.
+	$$
+	
+	Let $\overline{\mathcal X}$ be to be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
+	\be\label{top_wtl_eqn}
+	\begin{split}
+		\tau_\la : C_c\left(\sX_\la \right)\to \C,\\
+		a_\la \mapsto \tau\left( \sum_{g \in G\left(\left.\sX_\la~\right|\sX \right) }ga\right) 
+	\end{split}
+	\ee
+	where a $\sum_{g \in G\left(\left.\sX_\la~\right|\sX \right)}ga$ is regarded as an element of $C_c\left( \sX\right)$. From the Theorem \ref{meafunc_thm} it turns out that $\tau_\la$ is given by 	
+	\bean
+	\tau_\la\left(a_\la \right) = \int_{\sX_\la} a_\la~ d{\mu_\la} \quad \forall a_\la \in C_c\left(\sX_\la \right).
+	\eean
+	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu_\la\bydef  \lift_{p_\la}\mu$ is the $p_\la$-lift of $\mu$ (cf. Definition \ref{top_lift_measure_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \sX_\la\right) \times C_c\left( \sX_\la\right) \to\C$ given by
+	\bean
+	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a^*_\la, b_\la\right) \cong  \int_{\sX_\la} a^*_\la b_\la~ d{\mu_\la} 
+	\eean
+	so $C_c\left( \sX_\la\right)$ becomes a pre-Hilbert space.
+	Denote by $L^2\left(\sX_\la, \mu_\la \right)$ the Hilbert norm completion of $C_c\left( \sX_\la\right)$.  Let us define a functional
+	\bean
+	\overline \tau: C_c\left(\overline  \sX\right) \to\C,\\
+	\overline a \mapsto \int_{\overline\sX}  \overline a_\la~ d \overline \mu
+	\eean
+	where $\overline \mu \bydef  \lift_{\overline p}\mu$ is the $\overline p$-lift of $\mu$ (cf. Definition \ref{top_lift_measure_defn}). 
+	One has
+	\be\label{top_ot_eqn}
+	\overline\tau\left(\overline a \right)= \tau_\la\left(\desc_{\overline p_\la}\left( \overline  a\right)\right)\quad\la\ge \la_{\supp \overline  a}
+	\ee
+	
+	Let us define the $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \overline\sX\right) \times C_c\left(\overline  \sX\right) \to\C$.
+	The product is given by
+	\bean
+	\left(\overline  a, \overline  b\right)\bydef \overline\tau \left( \overline  a^*\overline  b\right).
+	\eean
+	Thus  $C_c\left(\overline  \sX\right)$ becomes a pre-Hilbert space denote by $L^2\left(\overline  \sX , \overline \mu\right)$ its norm completion.  A natural action $C_b\left(\overline  \sX \right)  \times C_c\left(\overline  \sX \right)\to C_c\left(\overline  \sX \right)$ yields an action $C_b\left(\overline  \sX \right)  \times  L^2\left(\overline  \sX , \overline \mu\right)\to L^2\left(\overline  \sX , \overline \mu\right)$ which gives  a faithful representation	\be\label{top_phi_mu_eqn}
+	\overline	\pi_\tau :  C_b\left(\overline  \sX \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right).
+	\ee
+	On the other hand from if $\widehat{C_0\left(\sX \right) }\bydef C^*\text{-}\lim_{\la\in \La} C_0\left(  \sX_\la \right)$ then from the condition (a) of the Definition \ref{subordinated_defn} one has an inclusion $\widehat{C_0\left(\sX \right) }\hookto M\left(C_0\left(\overline  \sX \right) \right) = C_b\left(\overline  \sX \right)$ so the representation $\overline	\pi_\tau$ yields a representation 	\be\label{top_pi_mu_eqn}
+	\widehat	\pi_\tau\bydef\left.\overline	\pi_\tau \right|_{\widehat{C_0\left(\sX \right) }}: \widehat{C_0\left(\sX \right) }\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right).
+	\ee
+\end{empt}
+\begin{exercise}\label{top_pi_mu_exer}
+	Prove following statements.
+	\begin{itemize}
+		\item The representation \ref{top_phi_mu_eqn} is faithful and nondegenerate (cf. Definitions \ref{faithful_inf_lem} and \ref{nondegenerate_repr_defn}).
+		\item The representation \eqref{top_pi_mu_eqn} is equivariant (cf. Definition \ref{equivariant_representation_defn}.
+	\end{itemize}
+\end{exercise}	
+
+
 
  \subsection{Universal  coverings and  fundamental groups}
 \paragraph*{}
@@ -11208,7 +11314,7 @@ one has  a pointed algebraical  finite covering category
 	\mathfrak{S}_b\bydef\left\{ \left( B ,  B_{\la} , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}= \\ =\left\{ \left(C_0\left(M \right)  ,  C_0\left( M_{\la}\right)  , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}.
 \end{split}
 \ee
-If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural given by \eqref{top_pi_mu_eqn} equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$. If $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_b$ (cf. Definition \ref{infinite_noncommutative_covering_defn}. If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
+If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then from the Exercise \ref{top_pi_mu_exer} it turns out that there is the natural given by \eqref{top_pi_mu_eqn} faithful, nondegenerate, equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$ (cf. Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \ref{equivariant_representation_defn}). If $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_b$ (cf. Definition \ref{infinite_noncommutative_covering_defn}. If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
 \be
 \begin{split}
 	\widetilde \H \cong L^2\left( \widetilde M, \widetilde\mu\bydef \overline\mu|_{\widetilde M}\right) ,\\
@@ -11406,11 +11512,11 @@ a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Re
 \ee
 
 \begin{lemma}
-The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn}  !!! DELETE (a) (b) !!!)
+The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn}).
 \end{lemma}
 \begin{proof}
-	In this lemma the pair $\left( \mathfrak A, \mathfrak A_0 \right)$ (resp. $\left( \mathfrak A^\la, \mathfrak A^\la_0 \right)$) of the Definition \ref{comp_qo*_defn}  !!! DELETE (a) (b) !!! corresponds to $\left(\Coo_c\left(M \right)', \Coo\left(M \right)\right) $ (resp. $\left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)\right)$). The given by \eqref{comp_pt_qo*_eqn} {pointed algebraic finite covering category of quasi-$*$-algebras} corresponds to  $\mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
-Now one needs check that the family $ \mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$ satisfies to the conditions (a)-(c) of the Definition \ref{comp_qo*_defn}  !!! DELETE (a) (b) !!!. However these conditions directly follow from the given by \eqref{top_comp_pt_qo*_eqn} definition of $
+	In this lemma the pair $\left( \mathfrak A, \mathfrak A_0 \right)$ (resp. $\left( \mathfrak A^\la, \mathfrak A^\la_0 \right)$) of the Definition \ref{comp_qo*_defn}  corresponds to $\left(\Coo_c\left(M \right)', \Coo\left(M \right)\right) $ (resp. $\left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)\right)$). The given by \eqref{comp_pt_qo*_eqn} {pointed algebraic finite covering category of quasi-$*$-algebras} corresponds to  $\mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
+Now one needs check that the family $ \mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$ satisfies to   the Definition \ref{comp_qo*_defn}. However it directly follows from the given by \eqref{top_comp_pt_qo*_eqn} definition of $
 	\mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
 \end{proof}	
 \begin{empt}\label{top_comp_qo*_empt}
@@ -11532,17 +11638,17 @@ The above equation is equivalent to \eqref{top_inv_qo*_rlimp_eqn} one.
 \subsection{Strong Morita equivalence of infinite coverings}
 	\paragraph*{} Here we consider a specialization of the explained in the Section \ref{inf_mor_sec} theory.
 \begin{lemma}\label{top_all_lem}
-If a $C^*$-Hilbert ${C_0\left({\sX}\right)}$-module $X_{C_0\left({\sX}\right)}$ corresponds (cf. Definition \ref{infinite_hilb_mod_defn}) to a given by the Theorem \ref{top_main_thm}
+If a $C^*$-Hilbert ${C_0\left({\sX}\right)}$-module $\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right) _{C_0\left({\sX}\right)}$ corresponds (cf. Definition \ref{infinite_hilb_mod_defn}) to a given by the Theorem \ref{top_main_thm}
 infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn})
-then  $X_{C_0\left({\sX}\right)}$ satisfies to the 
+then  $\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left({\sX}\right)}$ satisfies to the 
 conditions (a), (b)  of the Section \ref{inf_mor_sec}.
 \end{lemma}
 \begin{proof}
-(a) Let $\left(\widetilde{a}, g\right) \in C_0\left(\mathcal{X}\right)\times G\left(\widetilde{\sX}~|~ \mathcal X\right)$ and let $h_{\widetilde{a}, g}\in \End^*_{C_0\left(\sX \right) }\left(X \right)$ is given by \eqref{hm_inc_eqn} i.e. 
+(a) Let $\left(\widetilde{a}, g\right) \in C_0\left(\mathcal{X}\right)\times G\left(\widetilde{\sX}~|~ \mathcal X\right)$ and let $h_{\widetilde{a}, g}\in \End^*_{C_0\left(\sX \right) }\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right) \right)$ is given by \eqref{hm_inc_eqn} i.e. 
 \be\label{topo_hm_inc_eqn}
 \begin{split}
 	h_{\widetilde{a}, g}\left(\xi \right) 
-	 = g\left(\xi \widetilde{a} \right) \quad \forall \xi\in X
+	 = g\left(\xi \widetilde{a} \right) \quad \forall \xi\in \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)
 \end{split}
 \ee
 For any $\eps > 0$ the set
@@ -11560,7 +11666,7 @@ From the above equation it turns out that
 \ee
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
 The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{compact_a_operator_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
-$h_{\widetilde{a}, g}\in \K\left(X_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(X_{C_0\left( \sX\right) } \right)$.\\
+$h_{\widetilde{a}, g}\in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$.\\
 (b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
 $$
@@ -11571,7 +11677,7 @@ $$
 \bigsqcup_{g \in G_j} g\supp f_j \cap \supp \widetilde b
 $$
 of compact subsets. It is impossible, so $G_j$ is  finite for all  $j=1,..., n$.
-If $\ka_j \bydef f_j \widetilde a \left\rangle \right\langle \widetilde b\in  \K\left(X_{C_0\left( \sX\right) } \right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}) then $a \left\rangle \right\langle b = \sum_{j=1}^n \ka_j$. For any $\widetilde c \in \K\left(X_{C_0\left( {\sX}\right)}  \right)$ one has
+If $\ka_j \bydef f_j \widetilde a \left\rangle \right\langle \widetilde b\in  \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}) then $a \left\rangle \right\langle b = \sum_{j=1}^n \ka_j$. For any $\widetilde c \in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( {\sX}\right)}  \right)$ one has
 $$
 \ka_j \widetilde c = \sum_{g \in G\left(\widetilde{\sX}~|~ \mathcal X\right)} g\left(  \widetilde c f_j\widetilde a^*\right) \widetilde b=  \sum_{g \in G_j} g\left(  \widetilde cf_j\widetilde a^*\right) \widetilde b
 $$
@@ -11583,15 +11689,15 @@ it follows that
 $$
 \ka_j = \sum_{g \in G_j}h_{f_j\widetilde a^*g_j^{-1}\widetilde b, g_j}\in C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)
 $$
-and taking into account $\widetilde a \left\rangle \right\langle \widetilde b = \sum_{j=1}^n \ka_j$ one has $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$. The $\C$-space  $K\left(C_0\left( \widetilde{\sX}\right)  \right)$  is dense in $X_{C_0\left( {\sX}\right)}$, so for any $\xi, \eta \in X_{C_0\left( {\sX}\right)}$ and $\eps > 0$ there are $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right)$ such that
+and taking into account $\widetilde a \left\rangle \right\langle \widetilde b = \sum_{j=1}^n \ka_j$ one has $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$. The $\C$-space  $K\left(C_0\left( \widetilde{\sX}\right)  \right)$  is dense in $\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( {\sX}\right)}$, so for any \\$\xi, \eta \in \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( {\sX}\right)}$ and $\eps > 0$ there are $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right)$ such that
 $$
 \left\|  \widetilde a \left\rangle \right\langle \widetilde b-\xi \left\rangle \right\langle \eta\right\|< \eps.
 $$
 Taking into account $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ one concludes that the rank-one operator $\xi \left\rangle \right\langle \eta$ lies in the $C^*$-norm completion of $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$.
-On the other hand from the Definition \ref{compact_a_operator_defn} it follows that $\K\left(X_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(X_{C_0\left( \sX\right) } \right)$.
+On the other hand from the Definition \ref{compact_a_operator_defn} it follows that $\K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$.
 \end{proof}
 \begin{exercise}\label{top_all_exer}
-Prove that a linear span of \\ $\left\langle X_{C_0\left( \sX\right)}, X_{C_0\left( \sX\right) }\right\rangle_{C_0\left( \widetilde\sX\right)\rtimes_c G\left(\widetilde{\sX}~|~ \mathcal X\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
+Prove that a linear span of \\ $\left\langle \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right)}, \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) }\right\rangle_{C_0\left( \widetilde\sX\right)\rtimes_c G\left(\widetilde{\sX}~|~ \mathcal X\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
 $$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
 \end{exercise}
 \begin{remark}
@@ -11786,7 +11892,7 @@ Both $\Ga^\infty\left( M_\la,  \sS_\la \right)$ and $\Ga^\infty_c\left(  \wideti
 \end{equation}
 of spectral triples. 
 \begin{lemma}
-The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D, J\right) }$ is the coherent set of spectral triples (cf. Definition \ref{spectral_triple_coh_defn}  !!! DELETE !!!).
+The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D, J\right) }$ is the coherent set of spectral triples (cf. Definition \ref{spectral_triple_coh_defn}).
 \end{lemma}
 
 \begin{proof}
@@ -11829,12 +11935,12 @@ from  the Corollary \ref{top_comp_lau_cor} there are an open subset $\widetilde{
 	In the situation \ref{top_smooth_a_empt} the element $\widetilde a$ satisfies to the condition (b) of the Definition \ref{smooth_el_defn} if and only if $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$.
 \end{lemma}	
 \begin{proof}
-If $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ then from the Exercise  \ref{top_cscd_st_exer} !!! REPLACE \ref{comm_lift_desc_sum_lem} !!!!! one has
+If $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ then from the Lemma \ref{comm_lift_desc_sum_lem} one has
 $$
  		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a
  		} = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right) 
 $$
-where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition \ref{top_cdesc_defn}  !!! REPLACE \ref{top_compactly_supported_descent_defn}  !!!). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft_eqn} it follows that
+where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition  \ref{top_compactly_supported_descent_defn}). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft_eqn} it follows that
 $$
 a_\la = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right)\in \Coo\left(\widetilde M \right).
 $$
@@ -15934,7 +16040,7 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 			\overline \pi: A_0\left( \overline\sX\right)\hookto B\left(L^2\left( A_0\left( \overline\sX\right), \tr_{\overline\tau}  \right) \right).
 		\end{split}
 		\ee	
-		\item The representation $\pi$ is equivariant (cf. Definition \ref{equiv_defn}).
+		\item The representation $\pi$ is equivariant (cf. Definition \ref{equivariant_representation_defn}).
 		\item Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal X}$. If $\overline a \in A_0\left(\overline\sX \right)$ is  an  element such that 
 		$\supp \overline a \subset \overline \sU$ then the following conditions hold:
 		\begin{enumerate}
@@ -22825,7 +22931,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\ee
 	such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right)$.
 	\begin{theorem}\label{state_repr_thm}\cite{pedersen:ca_aut} %3.3.3
-		For each positive functional $\tau$ on a $C^*$-algebra $A$ there is a cyclic representation $\pi_{\tau}: A \to \left( L^2\left(A, \tau\right)\right) $ with a cyclic vector $\xi_{\tau}\in L^2\left(A, \tau\right)$ such that $\left( \pi_{\tau}\left( x\right) \xi_{\tau}, \xi_{\tau} \right)= \tau\left(a \right)$ for all $x \in A$.   
+		For each positive functional $\tau$ on a $C^*$-algebra $A$ there is a cyclic representation $\pi_{\tau}: A \to B\left( L^2\left(A, \tau\right)\right) $ with a cyclic vector $\xi_{\tau}\in L^2\left(A, \tau\right)$ such that $\left( \pi_{\tau}\left( x\right) \xi_{\tau}, \xi_{\tau} \right)= \tau\left(a \right)$ for all $x \in A$.   
 	\end{theorem}
 	\begin{defn}\label{gns_defn}\cite{murphy,pedersen:ca_aut}
 		The given by the Theorem \ref{state_repr_thm} representation is said to be a \textit{GNS representation}. We say that the representation 
@@ -22929,7 +23035,7 @@ equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\righ
 		From the condition (i) of the Theorem \ref{irred_thm} it turns out that irreducibility is the categorical property, i.e. if there is the equivalence between category of representations of $C^*$-algebras then any irreducible representation is mapped to irreducible one.  The equivalence between category of representations corresponds to the strong Morita equivalence (cf. \ref{strong_morita_sec}).
 	\end{remark}
 	
-	\begin{definition}\label{equiv_repr_defn}\cite{pedersen:ca_aut}
+	\begin{definition}\label{equivalent_representation_defn}\cite{pedersen:ca_aut}
 		Let $A$ be a $C^*$-algebra.
 		We say that two representations $\pi_1: A \to B\left( \H_1\right)$ and $\pi_2: A \to B\left( \H_2\right)$  are \textit{spatially equivalent} (or \textit{unitary equivalent}) if there is an isometry $u$ of $\H_1$ onto $\H_2$ such that $u\pi_1\left(a \right)u^*=\pi_2\left(a \right)$ for all $a \in A$. By the \textit{spectrum} or  of $A$ we understand the set $\hat A$ of spatially equivalence classes of irreducible representations. For any $x \in \hat A$ we denote by
 		\be\label{rep_x_eqn}
@@ -22943,7 +23049,7 @@ equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\righ
 	\begin{lem}\label{disj_repr_lem}\cite{pedersen:ca_aut}
 %3.13.3. COROLLARY.
 Two irreducible representations $\pi_1: A \to B\left(\H_1 \right)$   and  $\pi_2: A \to B\left(\H_2 \right)$   of a 
-$C^*$-algebra $A$ are either disjoint (cf. Definition \ref{orth_repr_defn}) or spatially equivalent (cf. Definition \ref{equiv_repr_defn}). 
+$C^*$-algebra $A$ are either disjoint (cf. Definition \ref{orth_repr_defn}) or spatially equivalent (cf. Definition \ref{equivalent_representation_defn}). 
 	\end{lem}
 	
 	%4.7.1.
@@ -22967,7 +23073,7 @@ $C^*$-algebra $A$ are either disjoint (cf. Definition \ref{orth_repr_defn}) or s
 		for all $x$, $y$ in $A$.  Equivalently, $I$ is prime if $I_1I_2\subset I$ implies  $I_1\subset I$ or 
 	 $I_2\subset I$ for any two (left, right, or two-sided) ideals $I_1$ and $I_2$ of $A$. 
 		We say that $I$ is a \textit{primitive} ideal if $I= \ker\pi$ for some irreducible 
-		representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. This definition complies with \ref{equiv_repr_defn} one.
+		representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation. This definition complies with \ref{equivalent_representation_defn} one.
 	\end{definition}
 \begin{proposition}\label{primitive_prime_prop}\cite{pedersen:ca_aut}
 %	3.13.10. 	Proposition. 
@@ -23008,7 +23114,7 @@ Every prime ideal in a separable (cf. Definition \ref{top_separable_defn}) $C^*$
 The spaces $\hat A$ and $\check A$ supplied with Jacobson topology are said to be the \textit{primitive spectrum} and the \textit{prime spectrum} of $A$ respectively. Sometimes we use the \textit{spectrum} world instead of the \textit{primitive spectrum} one.
 \end{definition}
 %\begin{remark}
-%Sometimes we us the \textit{spectrum} world instead to the \textit{primitive spectrum} one (cf. Definition \ref{equiv_repr_defn}).
+%Sometimes we us the \textit{spectrum} world instead to the \textit{primitive spectrum} one (cf. Definition \ref{equivalent_representation_defn}).
 %\end{remark}
 	\begin{proposition}\label{oa_sc_prim_thm}\cite{pedersen:ca_aut}
 		%	4.3.6. PROPOSITION (cf. 3.13.10). 
@@ -27821,7 +27927,12 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 \ee
 	\end{example}
 	
-	
+		\begin{exercise}\cite{candel:foliII}
+		%Exercise 1.4.4. 
+		Let $\mathcal W \bydef \G\left(\sU_1 \right)....\  \G\left(\sU_1 \right)$. Then the collection of linear
+		combinations of elements of the form $f = f_1*...* f_n,~ f_j \in \G\left(\sU_1 \right)$, is dense
+		in the space of compactly supported continuous half densities on $\mathcal W$, in the
+		inductive limit topology (cf. Definition \ref{top_ind_lim_defn}).	\end{exercise}
 	
 	\subsection{Restriction of foliation}
 	
@@ -27928,6 +28039,7 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 	\begin{remark}\label{foli_trans_rem}
 		If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ transitively acts on leaves having no holonomy.
 	\end{remark}
+
 	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
 	\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
 	\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
