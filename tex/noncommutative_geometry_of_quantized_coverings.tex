@@ -1471,9 +1471,9 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 \begin{proof}
 	Direct calculation shows that the product \eqref{finite_hilb_mod_prod_eqn} satisfies to conditions (a)-(d) of the Definition \ref{hilbert_module_defn}. Let us prove that $\widetilde{A}$ is closed with respect to the norm \eqref{hilb_norm_eqn}.
 	The norm $\left\| \cdot\right\|_H$  of $A$-Hilbert pre-module $\widetilde{A}_A$  is given by
-	$$
-	\left\| \widetilde{a}\right\|_H=\bydef  \sqrt{	\left\langle \widetilde a,\widetilde a \right\rangle_{{A}}} = \sqrt{\left\| \sum_{g \in G} g\left( \widetilde{a}^*\widetilde{a}\right) \right\|_C }
-	$$
+\be\label{c_hilb_norm_eqn}
+	\left\| \widetilde{a}\right\|_H\bydef  \sqrt{	\left\langle \widetilde a,\widetilde a \right\rangle_{{A}}} = \sqrt{\left\| \sum_{g \in G} g\left( \widetilde{a}^*\widetilde{a}\right) \right\|_C }
+\ee
 	where $\left\| \cdot\right\|_C$ is the $C^*$-norm. From the above equation and taking into account $\left\| \widetilde{a}\right\|_C = \sqrt{\left\| \widetilde{a}^*\widetilde{a}\right\|_C}$ it turns out
 	\be\label{hilb_c_norm_eqn}
 	\begin{split}
@@ -2398,41 +2398,62 @@ It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is no
 
 \end{proof}
 
-\begin{empt}\label{tau_compl_empt}
-	Let  $\left(B, \widetilde{B}, G, \pi \right)$  be a {noncommutative finite-fold  quasi-covering} of  $*$-algebras  (cf. Definition \ref{fin_quasi*_defn}). Suppose that there is a family of positive functionals $\left\{\tau_\a: B\to \C \right\}_{\a \in \mathscr A}$ such that
-\begin{enumerate}
-	\item[(a)] for any positive $b \in B_+$ there is  $\a \in \mathscr A$ such that $\tau_\a\left( b\right) > 0$,
-	\item [(b)] for all $\a \in \mathscr A$  similarly to the Theorem \ref{state_repr_thm}	there is a representation  $\pi_{\tau_\a}: A \to B\left( L^2\left(A, \tau\right)\right)$,
-	\item[(c)] for any $b \in B$ there is $C \in \R$ such that $\pi_{\tau_\a}\left( b\right) \le C$  for all $\a \in \mathscr A$,
-\end{enumerate}	
-There is a $C^*$-norm 
-\be\label{tau_b_eqn}
-\begin{split}
-\left\|\cdot  \right\|: B \to \R,\\
-b \mapsto \sup_{\a \in \mathscr A}\left\| \pi_{\tau_\a}\left( b\right)\right\| 
-\end{split}
+\begin{definition}\label{basic_state_den}
+ If $A$ is a $C^*$-algebra then a family of states  $\left\{\tau_\a: A\to \C \right\}_{\a \in \mathscr A}$ is \textit{basic for} $A$ if one has
+\be\label{basic_state_eqn}
+\forall a \in A \quad \left\|  a\right\|=
+	\sup_{\a \in \mathscr A}\left\| \pi_{\a}\left( a\right)\right\|
 \ee
-Let $\left\{\widetilde \tau_{\widetilde \a}: \widetilde B\to \C \right\}_{\widetilde \a \in \widetilde {\mathscr A}}$ be a family family of positive functionals such that
-$$
-\widetilde \a \in \widetilde {\mathscr A}\quad \exists \a \in  {\mathscr A}\quad \forall b \in B \quad \widetilde \tau_{\widetilde \a}\left( \pi\left(b \right) \right) =  \tau_{ \a}\left( b  \right). 
-$$
-There is a $C^*$-norm 
-\be\label{tau_tb_eqn}
-\begin{split}
-\left\|\cdot  \right\|:\widetilde B \to \R,\\
-\widetilde b \mapsto \sup_{\widetilde\a \in \widetilde{\mathscr A}}\left\| \pi_{\widetilde\tau_{\widetilde\a}}\left(\widetilde b\right)\right\| 
-\end{split}
-\ee
-If both  $A$ and $\widetilde{A}$ are a completions with respect to these $C^*$-norms then
-\begin{itemize}
-	\item  $A$ and $\widetilde{A}$  are $C^*$-algebras,
-	\item there is an injective $*$-homomorphism $\widetilde{\pi} : A \hookto \widetilde A$ such that  $\left(A, \widetilde{A}, G, \widetilde{\pi} \right)$  is a {noncommutative finite-fold  quasi-covering} of  $C*$-algebras  (cf. Definition \ref{fin_quasi_defn}).
-\end{itemize}
-If  $\left(B, \widetilde{B}, G, \pi \right)$ is a noncommutative finite-fold pre-covering in the sense of the  Definition \ref{fin_pre*_defn} then $\left(A, \widetilde{A}, G, \widetilde\pi \right)$ is a noncommutative finite-fold pre-covering in the sense of the  Definition \ref{fin_pre_defn}.
-\end{empt}
-\begin{definition}\label{tau_compl_defn}
-In the situation \ref{tau_compl_defn} we say that both $A$ and $\widetilde A$ are $\left\{\tau_\a: B\to \C \right\}_{\a \in \mathscr A}~$-\textit{completions} of $B$ and $\widetilde B$ respectively. The quadruple $\left(A, \widetilde{A}, G, \widetilde{\pi} \right)$ is said to be the $\left\{\tau_\a: B\to \C \right\}_{\a \in \mathscr A}~$-\textit{completion} of $\left(B, \widetilde{B}, G, {\pi} \right)$.
+where $\pi_{\a}: A \to  B\left( L^2\left(A, \tau_\a\right)\right)$  is a given by the Theorem \ref{state_repr_thm} representation.
 \end{definition}
+\begin{lemma}\label{basic_state_lem}
+Let  $\left(A, \widetilde{A}, G, \pi \right)$  be a {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}). If  $\left\{\tau_\a: A\to \C \right\}_{\a \in \mathscr A}$ is a {basic} family of states for $A$  and for all $\a \in \mathscr A$ one has a state
+\be\label{basic_state_l_eqn}
+\begin{split}
+\widetilde{\tau}_\a : \widetilde{A} \to \C,\\
+\widetilde{a} \mapsto \frac{1}{\left|G\right|} \tau_\a\left(\sum_{	g \in G}g \widetilde{a} \right) 
+\end{split}
+\ee
+then a family of states for $\left\{\widetilde\tau_\a: \widetilde A\to \C \right\}_{\a \in \mathscr A}$ is a {basic} for $\widetilde A$
+\end{lemma}
+\begin{proof}
+	For all $\a \in \mathscr A$ denote by $\widetilde{\tau}_\a : \widetilde{A} \to \C$ the given by \eqref{basic_state_l_eqn} state. If 
+$\widetilde{\pi}_\a	: \widetilde A \to  B\left( L^2\left(\widetilde A, \widetilde\tau_\a\right)\right)$  be a given by the Theorem \ref{state_repr_thm} representation then from
+\be\label{basic_tt_eqn}
+\begin{split}
+\forall a \in A \quad\pi\left( a\right)  = \frac{1}{\left|G\right|} \sum_{	g \in G}g \pi\left( a\right),\\
+ \forall \widetilde a \in\widetilde  A \quad \forall g \in G \quad \left\|g \widetilde{a}\right\| = \left\| \widetilde{a}\right\|
+\end{split}
+\ee
+it follows that
+$$
+\forall a \in A \quad \left\|\widetilde{\pi}_\a\left(\pi\left(a \right)  \right)\right\| = \left\|\pi_\a\left(a \right)\right\|. 
+$$
+From \eqref{basic_state_eqn} it follows that
+$$
+\forall a \in A \quad \left\|  a\right\|^2=
+\sup_{\a \in \mathscr A}\left\| \pi_{\a}\left( a^*a\right)\right\|.
+$$
+There are $C^*$-norm $\left\|\cdot \right\|_C : \widetilde{A}\to \R$ of $\widetilde{A}$ and the norm $\left\|\cdot \right\|_H : \widetilde{A}\to \R$ of $C^*$-Hilbert $A$-module $ \widetilde{A}$ (cf. Lemma \ref{fin_top_lem}) such that 
+	\be\label{hilb_cc_norm_eqn}
+\begin{split}
+	\left\| \widetilde{a}\right\|_C \le \left\| \widetilde{a}\right\|_H,\\
+	\left\| \widetilde{a}\right\|_H \le \sqrt{\left|G\right|} 	\left\| \widetilde{a}\right\|_C,
+\end{split}
+\ee
+(cf. \eqref{hilb_c_norm_eqn}). From \eqref{c_hilb_norm_eqn} and \eqref{basic_tt_eqn} it follows that
+\bean
+\left\| \widetilde{a}\right\|^2_H =  \sup_{\a \in \mathscr A}\left\| \pi_{\a}\left( \sum_{g \in G} g\left( \widetilde{a}^*\widetilde{a}\right)\right)\right\|= \sup_{\a \in \mathscr A}\left\| \widetilde\pi_{\a}\circ \pi \left( \sum_{g \in G} g\left( \widetilde{a}^*\widetilde{a}\right)\right)\right\| = \\
+= \left|G\right| \sup_{\a \in \mathscr A} \left\| \widetilde\pi_{\a} \left( \widetilde{a}^*\widetilde{a}\right)\right\|= \left|G\right| \sup_{\a \in \mathscr A} \left\| \widetilde\pi_{\a} \left( \widetilde{a}\right)\right\|^2,\\
+\sup_{\a \in \mathscr A} \left\| \widetilde\pi_{\a} \left( \widetilde{a}\right)\right\|^2\le \left\| \widetilde{a}\right\|^2_H.
+\eean
+From the above equations and \eqref{hilb_cc_norm_eqn} it follows that the norms $	\left\| \cdot \right\|_C$, 	$\left\| \cdot\right\|_H$ and $\sup_{\a \in \mathscr A} \left\| \widetilde\pi_{\a} \left( \cdot\right)\right\|$ yield equivalent topologies. Since both $	\left\| \cdot \right\|_C$ and $\sup_{\a \in \mathscr A} \left\| \widetilde\pi_{\a} \left( \cdot\right)\right\|$ are $C^*$-norms one has
+\be\label{basic_state_t_eqn}
+\forall  \widetilde a \in \widetilde A \quad \left\| \widetilde a\right\|=
+\sup_{\a \in \mathscr A }\left\| \widetilde\pi_{\a}\left( \widetilde a\right)\right\|.
+\ee
+The equation \eqref{basic_state_t_eqn} is a specialization of \eqref{basic_state_eqn} one.
+\end{proof}
 
 \begin{proposition} \label{spectrum_cov_prop}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn})  then following conditions hold:
@@ -22939,7 +22960,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\end{defn}
 	\begin{proposition}\label{state_repr_prop}\cite{pedersen:ca_aut}
 		%3.3.5. Proposition. 
-		Let $\phi$ be a positive functional on a $C*$-algebra A and let 
+		Let $\phi$ be a positive functional on a $C^*$-algebra A and let 
 	$\pi_\phi$ its associated representation. For each positive functional $\psi \le \phi$, 
 		there is a unique element $a \in \pi\left(A \right)'$  with $0\le a \le 1$ such that 
 	$$
