@@ -2395,7 +2395,6 @@ $$
 \frac{1}{\left|G\right|}\sum_{g \in G} \widetilde{\tau}\left(g\widetilde{a} \right)\neq 0.
  $$
 It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
-
 \end{proof}
 
 \begin{definition}\label{basic_state_den}
@@ -2406,6 +2405,17 @@ It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is no
 \ee
 where $\pi_{\a}: A \to  B\left( L^2\left(A, \tau_\a\right)\right)$  is a given by the Theorem \ref{state_repr_thm} representation.
 \end{definition}
+\begin{remark}
+If a family of states  $\left\{\tau_\a: A\to \C \right\}_{\a \in \mathscr A}$ is {basic for} $A$ and $\H$ is a norm completion of the algebraic direct sum $\bigoplus_{\a \in \mathscr A}L^2\left(A, \tau_\a\right)$ and 
+$$
+\pi : A \hookto B\left(\H \right) 
+$$
+is the natural representation (the direct sum of $\left\{\pi_{\a}: A \to  B\left( L^2\left(A, \tau_\a\right)\right)\right\}_{\a \in \mathscr A}$) then $\pi$ is faithful (cf. Definition \ref{faithful_repr_defn}). So one has
+\be\label{basic_state_s_eqn}
+\forall a \in A \quad \left\|  a\right\|=
+\sup_{\a \in \mathscr A}\left\| \pi_{\a}\left( a\right)\right\| = \left\| \pi\left( a\right)\right\|.
+\ee
+\end{remark}
 \begin{lemma}\label{basic_state_lem}
 Let  $\left(A, \widetilde{A}, G, \pi \right)$  be a {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}). If  $\left\{\tau_\a: A\to \C \right\}_{\a \in \mathscr A}$ is a {basic} family of states for $A$  and for all $\a \in \mathscr A$ one has a state
 \be\label{basic_state_l_eqn}
@@ -12431,6 +12441,7 @@ Prove that
 \begin{lemma}\label{blowing_supp_lem}
 	If $A$ is a  $C^*$-algebra,   $C_0\left( \sY\right) \subset M\left(A \right)$  is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}) and $K\left(A\right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for all $a \in K\left(A \right)$ the support $\supp a\subset \sY$ of $a$  is compact.  
 \end{lemma}
+!!! $K_0 $!!!
 \begin{proof}
 	Firstly we suppose that $a$ is positive. From the Lemma \ref{pedersen_eps_lem} it turns out that there is a positive $a' \in A_+$ such that $a = f_\eps\left(a'\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn}.
 	From the  Definition \ref{blowing_disintegrable_defn} it follows that there is a family of open sets $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ such that a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras (cf. Definition \ref{blowing_disintegrable_defn}) generates the $C^*$-algebra $A$. Moreover one can suppose that the closure of $\sU_\a$ is compact for all $\a \in \mathscr A$. 
@@ -12587,31 +12598,31 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 \section{Hausdorff blowing-up and noncommutative  coverings}
 
 \paragraph{}
-Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering then from the Theorem \ref{top_main_thm} and the Definition \ref{subordinated_defn} !!! CONDITION (d) DELETE !!!  it follows that there is a $C_0\left( \sY\right)$-valued sesquilinear product
+Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering such that the covering  group $G\left(\left.\widetilde\sY \right|\sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then from  the Lemma \ref{comm_lift_desc_sum_lem}
 \be
 \begin{split}
 \left\langle \cdot, \cdot \right\rangle_{C_0\left(\sY \right)} : C_c\left(\widetilde\sY \right) \times  C_c\left(\widetilde\sY \right)\to C_0\left(\sY \right) ,\\
 \left(\widetilde f_1, \widetilde f_2 \right) \mapsto\bt\text{-} \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}	g\left(\widetilde f^*_1  \widetilde f_2 \right).
 \end{split}
 \ee
-where a sum of an infinite series implies a strict topology (cf. Definition \ref{strict_topology_defn}).
+where a sum of a possible infinite series implies a strict topology (cf. Definition \ref{strict_topology_defn}).
 \begin{empt}\label{blowing_hilb_mod_empt}
 	Let $A$ be connected a $C^*$-algebra with disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}).  If  
 $C_c\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ is an algebraic tensor product then one can define an $A$-valued  sesquilinear pairing on $C_c\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ such that $\left\langle \widetilde f_1 \otimes a_1,  \widetilde f_2 \otimes a_2\right\rangle_A \bydef a^*_1 \left\langle \widetilde f_1 ,  \widetilde f_2 \right\rangle_{C_0\left(\sY\right)} a_2\in A$. Henceforth we denote by $X_A$ the $C^*$-Hilbert $A$-module which is the completion of\\ $C_c\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ with respect to the norm
 \be\label{blowing_hilb_mod_eqn}
 \left\| \widetilde a \right\| \bydef \sqrt{\left\| \left\langle \widetilde a ,  \widetilde a \right\rangle_A\right\|}. 
 \ee
-If both $\sY$ and $\widetilde \sY$ are compact then $X_{A} \cong C\left( \widetilde \sY\right) \otimes_{C\left(\sY \right) } A$.
+If the space $\sY$ is  compact then and the covering is finite-fold then $X_{A} \cong C\left( \widetilde \sY\right) \otimes_{C\left(\sY \right) } A$.
 
 \end{empt}
 
 \begin{empt}\label{blowing_h_empt}
 	
-	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation
+	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then from the Definition \ref{multiplier_el_defn} it follows that  there is a faithful representation
 	\be\label{blowing_py_eqn} 
-	\pi_{\sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)
+	\pi_{\sY}:C_0\left( \sY\right) \hookto B\left(  \H\right).
 	\ee
-	 (cf. Definition \ref{multiplier_el_defn}). Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a representation
+ Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a faithful representation
 	\be\label{blowing_indc0_eqn}
 	\pi_{\widetilde \sY} \bydef X_{C_0\left(\sY \right) }-\Ind^{C_0\left(\widetilde \sY \right)}_{C_0\left(\sY \right)}: C_0\left(\widetilde \sY \right)\hookto B\left( \widetilde \H\right) 
 	\ee
@@ -16487,6 +16498,34 @@ The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition
 \be\label{foli_atomic_eqn}
 \pi_a = \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}} \rho_L: C^*_r\left(M, \sF\right) \hookto B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right).
 \ee
+
+!!! INSERT !!!!
+\paragraph{!!!}
+
+\begin{definition}\label{state_cov_11_defn!}
+	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\widetilde{\tau}$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\widetilde{\tau}\left( g\widetilde{a}\right)=\widetilde{\tau}\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
+\end{definition}
+
+\begin{lemma}\label{state_cov_11_lem!}
+	If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is a one-to-one correspondence between positive functionals on $A$ and invariant positive functionals on $\widetilde{A}$.
+\end{lemma}
+\begin{proof}
+	If $\tau: A \to \C$ is a positive functional on $A$ then there is the invariant positive functional
+	\be\label{state_down_eqn!}
+	\begin{split}
+		\widetilde{\tau}:  \widetilde{A}\to \C,\\
+		\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \tau\left(g\widetilde{a} \right),
+	\end{split}
+	\ee
+	i.e. there is a given by $\tau \to \widetilde\tau$ map $\phi$ from the set of positive functionals on $A$ to the set of invariant positive functionals on  $\widetilde{A}$. % This map is invective, because $\widetilde{\tau}\left(a \right) = \tau\left(a\right)$ for all $a\in A$. 
+	If $\widetilde{\tau}: \widetilde{A}\to \C$ is an invariant positive functional  then there is positive  $\widetilde{a}\in \widetilde{A}_+$ such that $\widetilde{\tau}\left(\widetilde{a} \right)\neq 0$. So one has
+	$$
+	\frac{1}{\left|G\right|}\sum_{g \in G} \widetilde{\tau}\left(g\widetilde{a} \right)\neq 0.
+	$$
+	It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
+\end{proof}
+
+\paragraph{!!!}
 
 \subsection{Hausdorff blowing-up of a foliation algebra}\label{foli_blowing_sec}
 
