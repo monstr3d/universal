@@ -17,14 +17,8 @@ namespace DataPerformer.WebGenerator.UserControls
             InitializeComponent();
         }
 
-        DataTable Table
-        {
-            get
-            {
-                DataTable dt = new DataTable();
-                return dt;
-            }
-        }
+
+        
 
     }
 }

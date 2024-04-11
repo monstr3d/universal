@@ -5942,7 +5942,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 \begin{definition}\label{top_weak_path_defn}
 	Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$.
 \end{definition}
-\begin{definition}\label{top_gen_path_defn}
+\begin{definition}\label{top_u_path_defn}
 	Let $\sX$ be a connected,  locally compact, Hausdorff space.
 	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n-1$.
 \end{definition}
@@ -5978,7 +5978,7 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 
 
 \begin{lemma}\label{top_gen_path_lem}
-	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
+	Consider the situation of the Definition \ref{top_u_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
 \end{lemma}
 
 \begin{proof}
@@ -6003,7 +6003,7 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 \end{proof}
 
 \begin{corollary}\label{top_connected_union_cor}
-	In the situation of the Definition \ref{top_gen_path_defn}  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
+	In the situation of the Definition \ref{top_u_path_defn}  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
 	\begin{itemize}
 		\item 
 		$$
@@ -6021,7 +6021,7 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 	\end{itemize}
 \end{corollary}
 \begin{proof}
-	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a given by the Definition \ref{top_gen_path_defn} family.
+	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a given by the Definition \ref{top_u_path_defn} family.
 	Select $\a_0 \in \mathscr A$. For any $\a\in \mathscr A$ we define  a path $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a_0}$ and $\sU_{\a_n}=\sU_{\a}$ (cf Lemma \ref{top_gen_path_lem}). For all $\a \in \mathscr A$ a closure of a finite union $\sV_{\a}\bydef \bigcup \sU_{\a_j}$ is compact because a closure of $\sU_{\a_j}$ is compact for every $j = 1,..., n$. From $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j=1,...,n-1$ it turns out that $\sV_{\a}$ is connected, and taking into account $\bigcup_{\a\in \mathscr A}\sU_\a = \sX$ one has 
 	\bean
 	\forall \a\in \mathscr A \quad  \sU_\a\subset \sV_\a\quad \Rightarrow\quad \bigcup_{\a\in \mathscr A}\sU_\a\subset \bigcup_{\a\in \mathscr A}\sV_\a \quad \Rightarrow\quad\bigcup_{\a\in \mathscr A}\sV_\a= \sX.
@@ -6104,9 +6104,9 @@ Taking into account $g'' \widetilde x_0\in \widetilde\sU_{\widetilde\a''_l}$ we 
 \end{proof}
 \begin{empt}\label{top_path_hom_empt}
 	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure. Let $\mathfrak{Closed}\left( \sX, x_0\right)$ be a set of  $\mathfrak A$-paths such that
-	$$
+\be\label{top_closed_defn}
 \left(\sU_1, ..., \sU_n \right) \in \mathfrak{Closed}\left( \sX, x_0\right) \quad \Leftrightarrow \quad x_0 \in \sU_1\cap \sU_n.	
-	$$
+\ee
 One can construct a map 
 	$$
 h_{\widetilde \sX}	: \mathfrak{Closed}\left( \sX, x_0\right) \to G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)
@@ -6583,7 +6583,7 @@ It is known that the space $I^2_o$ is locally connected.
 Let $p: \widetilde \sX \to I^2_o$ be a covering. 
 For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
 From the Lemma \ref{top_gen_path_lem} it follows that there is a $\left\{\sU_x\right\}_{x \in \sX}$-path $\left( \sU_1, ..., \sU_{n}\right)$ 
-(cf. Definition \ref{top_gen_path_defn})  from $\left(0,0\right)$ to $\left(1,1\right)$. 
+(cf. Definition \ref{top_u_path_defn})  from $\left(0,0\right)$ to $\left(1,1\right)$. 
 If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected (cf. \cite{counter_topology}). 
 However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. Let $\widetilde x_0\in \widetilde \sX$, and let us construct a continuous map $\phi_{\widetilde x_0} : I^2_o \to \widetilde \sX$ such that $\phi_{\widetilde x_0} \circ p\left(\widetilde x_0 \right)= \widetilde x_0$ and $p \circ \phi_{\widetilde x_0} = \Id_{I^2_o }$. If $p\left(\widetilde x_0 \right)\in \sU_j$ and $\widetilde\sU_j$ is a connected component of $p^{-1}\left(\sU_j \right)$ such that  $\widetilde x_0\in \widetilde \sU_j$ then there is a natural homeomorphism $\phi_j:\sU_j\to \widetilde\sU_j$.  There is $\widetilde x_{j+1}\in \widetilde \sU_j$ such $p\left( \widetilde x_{j+1}\right)  \in \sU_{j+1}$. If $\widetilde \sU_{j+1}$ is a connected component of $p^{-1}\circ \left( \sU_{j+1} \right)$ such that $\widetilde x_{j+1} \in \widetilde \sU_{j+1}$ so there is a homeomorphism $\phi_{j+1}:\sU_{j+1}\to \widetilde\sU_{j+1}$. Going on one can construct homeomorphism  $\phi_{m}:\sU_{m}\to \widetilde\sU_{m}$ for any $m = j+2,..., n$. Similarly there is homeomorphism  $\phi_{m}:\sU_{m}\to \widetilde\sU_{m}$ for any $m = j-2,..., 1$. One can proof that
 $$
@@ -16486,6 +16486,84 @@ such that following conditions hold:
 \paragraph{}
 
 \section{Basic constructions}
+\subsection{Lifts of groupoids}
+\paragraph{}
+Let $\G$ be a topological groupoid (cf. Definition \ref{groupoid_topological_defn}), and let $\sU \subset \G^0$ be a connected open set. If $\G^\sU_\sU$ is a reduction of $\G$ by $\sU$ (cf. Definition \ref{groupoid_reduction_defn}) then we denote by
+\be\label{groupoid_reduction_connected_eqn}
+^c\G^\sU_\sU\bydef \bigcup_{x \in \sU} \sU_x\subset \G^\sU_\sU
+\ee
+where $x$ is regarded an element of $\G^\sU_\sU$ and $\sU_x$ is a quasi-component of $x$ in $\G^\sU_\sU$.
+	\begin{definition}\label{groupoid_reduction_connected_defn}
+		The given by \eqref{groupoid_reduction_connected_eqn} set $^c\G^\sU_\sU$ is 	said to be  the \textit{connected reduction} of $\G$ by $\sU$.	
+		\end{definition}
+\begin{definition}\label{groupoid_represented_path_defn}
+Let $\G$ be a topological groupoid, and let $\mathfrak p \bydef \left(\sU_1, ..., \sU_n \right)$ be a weak path on $\G^0$ (cf. Definition \ref{top_weak_path_defn}). We say that $\ga \in \G$ is \textit{represented by} $\mathfrak p$ if 
+\be\label{groupoid_represented_path_eqn}
+\ga = \ga_1 \cdot ... \cdot \ga_n \quad \forall j = 1,..., n \quad \ga_j \in~ ^c\G^{\sU_{j}}_{\sU_{j}}
+\ee
+where $^c\G^{\sU_{j}}_{\sU_{j}}$ is the {connected reduction} of $\G$ by $\sU_j$.
+\end{definition}
+		
+\begin{definition}\label{groupoid_disintegrable_defn}
+A topological groupoid $\G$ is said to be \textit{disintegrable} if for any family $\mathfrak A \bydef \left\{\sU_\a \subset \G^0\right\}_{\a \in \mathscr A}$ of connected open sets such that $\G^0 = \bigcup _{\a \in \mathscr A}$ any $\ga \in \G$ there is represented by $\mathfrak A$-path $\left(\sU_1, ..., \sU_n \right)$ (cf. Definition \ref{top_up_path_eqn}).
+\end{definition}
+
+\begin{empt}
+Let $\G$ be a  topological groupoid (cf. Definition \ref{groupoid_topological_defn} and let $\ga \in \G$. Let $p: \widetilde \G^0 \to \G^0$ be a transitive covering.
+\end{empt}
+
+ \begin{definition}\label{groupoid_regular_covering_defn}
+ Let $\G$ be a  topological groupoid (cf. Definitions \ref{groupoid_topological_defn} \ref{groupoid_disintegrable_defn}). Let $p: \widetilde \G^0 \to \G^0$ be a transitive covering.  Let $\ga \in \G$. We say that $p$ is $\ga$-\textit{regular} is for all $\widetilde{x}$ such that $p\left( \widetilde x\right) = s\left(\ga\right)$, for any     {compliant with} $p$ family $\mathfrak A \bydef \left\{\sU_\a\subset \G^0\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_lconn_defn}), and for any two $\mathfrak A$-paths $\mathfrak{p}', \mathfrak{p}''$ such that $\ga$ is represented by both  $\mathfrak{p}'$ and $\mathfrak{p}''$ one has
+ \be
+ \lift_p^{\left( \widetilde x, r\left(\ga\right)\right) }\left( \mathfrak p' \right)= \lift_p^{\left( \widetilde x, r\left(\ga\right)\right) }\left( \mathfrak p'' \right)
+ \ee
+ where $\lift_p^{\left( \widetilde x, r\left(\ga\right)\right) }$ means $p$-$\left( \widetilde x, r\left(\ga\right)\right)$-lift (cf. Definition \ref{top_pp_lift_defn}). We say that $p$ is $\G$-\textit{regular} if it is $\ga$-regular for any $\ga\in \G$.
+ \end{definition}
+\begin{remark}
+The Definition \ref{groupoid_regular_covering_defn}  is a generalization of \ref{foli_reg_cov_defn} one.
+\end{remark} 
+\begin{empt}\label{groupoid_lift_empt}
+Let $\G$ be a disintegrable groupoid and let  $p: \widetilde \G^0 \to \G^0$ be $\G$-{regular} covering. Let $$
+\widetilde \G \subset \left\{\left. \left( \widetilde x, \ga \right) \in \widetilde \G^0\times \G\right| p\left( \widetilde x\right)= s\left(\ga \right)  \right\}
+$$
+For all $\left( \widetilde x, \ga \right)\in \widetilde \G$ we denote by
+\be
+\begin{split}
+s\left(\left( \widetilde x, \ga \right) \right) \bydef \widetilde x,\\
+r\left(\left( \widetilde x, \ga \right) \right) \bydef \ \lift_p^{\left( \widetilde x, r\left(\ga\right)\right) }\left( \mathfrak p \right) \text{ where } \ga  \text{ is represented by }  \mathfrak p \text{ (cf.  \ref{groupoid_represented_path_defn})}
+\end{split}
+\ee
+For any $\widetilde \ga_1 = \left( \widetilde x_1, \ga_1 \right) ,~ \widetilde \ga_2= \left( \widetilde x_2, \ga_2 \right)\in \widetilde \Ga$  such that $s\left(\widetilde \ga_1\right)= r\left(\widetilde \ga_2\right)$ we define
+\be
+\widetilde \ga_1\circ  \widetilde\ga_2\bydef \left( \widetilde x_2, \ga_1\circ \ga_2 \right)
+\ee
+Also for any $\widetilde \ga = \left( \widetilde x, \ga \right)\in \widetilde \G$
+we define
+\be
+\widetilde \ga^{-1}\bydef \left( r\left( \widetilde \ga\right), \ga^{-1} \right)
+\ee
+\end{empt}
+\begin{exercise}\label{groupoid_lift_exer}
+Prove that the explained in \ref{groupoid_lift_empt} operations satisfy to the Definition \ref{groupoid_defn} 
+\end{exercise}
+\begin{definition}\label{groupoid_lift_defn}
+If  $\G$ is a disintegrable groupoid and   $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} covering then the given by  \ref{groupoid_lift_empt} groupoid $\widetilde\G$ is said to be the $p$-\textit{lift} of $G$, 
+\end{definition}
+\begin{definition}
+If $\widetilde\G$ is  $p$-\textit{lift} of $G$ then there is the natural map
+\be
+\begin{split}
+p_\G : \widetilde\G \to \G,\\
+\left( \widetilde x, \ga \right) \mapsto \ga
+\end{split}
+\ee
+A $p$-\textit{topology} on $\widetilde\G$ is such that both maps $p_\G$ and $s:  \widetilde\G \to \widetilde\G^0$ are continuous.
+\end{definition}
+\begin{exercise}
+Prove that the groupoid  $\widetilde\G$ with the $p$-topology is a topological groupoid (cf. Definition \ref{groupoid_topological_defn}).
+\end{exercise}
+
+
 \subsection{Irreducible representations}
 \paragraph{}
 For any foliated space $\left(M, \sF\right)$ denote by $M/\sF$ the set of all leaves, and for any leaf $L \in M/\sF$ we select a point $x_L \in L$. We write 
@@ -27136,7 +27214,7 @@ is a homeomorphism.
 Two homomorphism are \textit{similar} (write $\phi\sim \psi$) if there exists a function $\th: \G^0 \to \H$ such that $\left(\th\circ r\right)(x)\phi\left(x\right)= \psi\left(x\right)\left( \th\circ s\right)(x)$. Groupoids $\G$ and $\H$ are called \textit{similar} (write $\G\sim \H$) if there exists homomorphisms $\phi: \G \to \H$ and $\psi : \H\to \G$  such that $\phi \circ \psi$ and $\psi \circ \phi$ are similar to identity isomorphisms. 
 	\end{definition}
 	\begin{definition}\label{groupoid_reduction_defn}\cite{renault:gropoid_ca}
-	Let $\G$ be a groupoid, and let $E$ be a subset of $G^0$.
+	Let $\G$ be a groupoid, and let $E$ be a subset of $\G^0$.
 	A subgroupoid 
 	$$
 	\G^E_E \bydef \left\{x \in G | r(x), s(x)\in E\right\}
@@ -27205,8 +27283,8 @@ $$
 \end{definition}
 \begin{empt}
 Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
-us first define $G^n$ for any $n\in\N$ The sets $\H^0$ , $G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . X_{n-1}) \in \G\times...\times \G$ such that for $
-j = 1 . . . . . n - l$ , $\quad x_j$ is composable with its left neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
+us first define $G^n$ for any $n\in\N$. The sets $\H^0$ , $G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
+j = 1 , . . . , n - l$ , $\quad x_j$ is composable with its left neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
 \begin{enumerate}
 	\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = r(x_0)$ and
 	\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
@@ -27230,7 +27308,7 @@ the group of $n$-coboundaries w i l l be denoted by $B^n(\G,A)$ and the $n$-th c
 $Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
 \end{definition}
 
-	\begin{definition}\label{groupoid_top_defn}\cite{renault:gropoid_ca}
+	\begin{definition}\label{groupoid_topological_defn}\cite{renault:gropoid_ca}
 	A \textit{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
 	\begin{enumerate}
 		\item [(a)] $\G \to \G \quad x \mapsto x^{-1}$ is continuous,

@@ -1785,7 +1785,7 @@ Func<bool> stop)
 
             this.InvokeIfNeeded(() =>
             {
-                ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
+                ActParent(ActionType.Start, Animation.Interfaces.Enums.ActionType.Calculation);
                 toolStripButtonStop.Enabled = false;
             });
             Task t = new Task(Text_DoWork);
@@ -1795,7 +1795,6 @@ Func<bool> stop)
             }
             t.GetAwaiter().OnCompleted(Text_RunWorkerCompleted);
             t.Start();
-          //   backgroundWorkerText.RunWorkerAsync();
         }
 
         void WriteList()
@@ -2952,8 +2951,8 @@ Func<bool> stop)
                     dicText.Clear();
                     internalTextAction = WriteText;
                     WritePar();
-                    consumer.StartTime = Double.Parse(calculatorBoxStart.Text);
-                    consumer.Step = Double.Parse(calculatorBoxStep.Text);
+                    consumer.StartTime = double.Parse(calculatorBoxStart.Text);
+                    consumer.Step = double.Parse(calculatorBoxStep.Text);
                     consumer.Steps = (int)numericUpDownStepCount.Value;
                     arg = Argument;
                     st = double.Parse(calculatorBoxStart.Text);

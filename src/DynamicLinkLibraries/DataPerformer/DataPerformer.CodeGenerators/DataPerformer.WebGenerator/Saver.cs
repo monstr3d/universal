@@ -1,13 +1,14 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 
 namespace DataPerformer.WebGenerator
 {
     public class Saver
     {
 
-        public DataTable Input {  get; set; }
+        public Dictionary<string, string> Input { get; set; } = new();
 
-        public DataTable Output { get; set; }
+        public Dictionary<string, string> Output { get; set; } = new();
 
         public string Classname { get; set; }
 
