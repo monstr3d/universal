@@ -1000,9 +1000,17 @@ The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\
 	One can prove this lemma by usage of the proof of the Lemma 
 	\ref{hered_repr_lem}.
 \end{proof}
-\begin{lem}
-Let $\sX$ be a locally compact Hausdorff space and let $\left\{\sU_\la\right\}_{\la \in \La}$ be a family of subsets of $\sX$ such that 
+\begin{lem}\label{top_ul_lem}
+If $\sX$ is a locally compact Hausdorff space and $\left\{\sU_\la\right\}_{\la \in \La}$ is a family of subsets of $\sX$ such that the union $\cup_{\la \in \La} C_0\left( \sU_\la\right)$ is dense in $C_0\left( \sX\right)$ then $\sX = \cup_{\la \in \La} \sU_\la$.
 \end{lem}
+\begin{proof}
+If $x \in \sX \setminus \cup_{\la \in \La} \sU_\la$ and $f \in C_0\left( \sX\right)$ is such that $f\left( x\right)= 1$ then
+$$
+\inf_{g \in \cup_{\la \in \La} C_0\left( \sU_\a\right)} \left\|f - g \right\| \ge 1,
+$$
+i.e. $\cup_{\la \in \La} C_0\left( \sU_\a\right)$ is not dense in $C_0\left( \sX\right)$.
+  
+\end{proof}
 \begin{empt}\label{top_hered_empt}
 	Let $B\subset C_0\left(\sX \right)$ be a hereditary $C^*$-subalgebra (cf, Definition \ref{hered_defn}),  and let $\left\{u_\la\right\}_{\la \in \La}$ be an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}). A set
 	\be\label{top_hered_eqn}
@@ -1015,36 +1023,9 @@ Let $\sX$ be a locally compact Hausdorff space and let $\left\{\sU_\la\right\}_{
 	In the situation \ref{top_hered_empt} one has $B = C_0\left(\sU \right)$.
 \end{lemma}
 \begin{proof}
-	If $B \not\subset C_0\left(\sU \right)$ then there is $a \in B \setminus C_0\left(\sU \right)$, such that one has $x \in \sX \setminus \sU$ with $a\left( x \right)\neq 0$. It follows that  
-	$$
-	\lim_{\la\in \La} \left\| a - u_\la a u_\la\right\| \ge \left| a\left( x \right)\right| > 0
-	$$
-	so there is a contradiction with \eqref{hered_uau_eqn}. Thus $B \subset C_0\left(\sU \right)$.
-	
-	If  $a \in C_0\left(\sU \right)$ and $\eps > 0$ then there is a compact subset $\sY \subset \sU$ such that
-	$$
-	\forall x \in \sU \setminus\sY \quad \left| a\left(x\right)\right| < \eps 
-	$$
-	(cf. Definition \ref{c_c_def_2}). If $x \in \sU$ then there is $\la'_x \in \La$ such that $u_\la\left( x\right) > 0$. Moreover there is an open neighborhood $\sU_x$ of $x$ such that
-	$$
-	\dl_x \bydef \inf_{x' \in \sU_x} u_{\la'_x}\left( x'\right) > 0.
-	$$
-	From \eqref{hered_uau_eqn} it follows that there is $\la_x\in \La$ such that
-	$$
-	\left\| u_{\la'_x} - u_{\la_x}u_{\la'_x}u_{\la_x}\right\| 	< \frac{\eps \dl_x}{\left\|a \right\| }.
-	$$
-	From the above construction it turns out that 
-	$$
-	\forall x' \in \sU_x \quad \left| u_{\la_x} a\left(x\right)u_{\la_x}\right|< \eps.
-	$$
-	The set $\sY$ is compact so from $\sY \subset \cup_{x \in \sY} \sU_{x}$ it follows that there is a finite subset $\left\{x_1, ..., x_n\right\}\subset \sY$ such that 
-	$$
-	\sY \subset \bigcup_{j = 1}^n \sU_{x_j}
-	$$
-	If $\la\in \La$ is such that $\la \ge \la_{x_j}$ for any $j = 1,...,n$ then $\left| u_{\la}(x) a\left(x\right)u_{\la}(x)\right|< \eps$ for any $x \in \sX$, or equivalently $\left\| u_{\la} a\left(x\right)u_{\la}\right\|< \eps$. It turns out that 	
-$\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 $ and the comparison  it with \eqref{hered_uau_eqn} yields $a\in B$ and $C_0\left(\sU\right)\subset B$.
-\end{proof}
+For any $\la\in \La$ denote by $\sU_\la \bydef \left\{x \in \sX | u_\la\left(x \right) > 0\right\}$. The union $\cup_{\la \in \La} C_0\left( \sU_\la\right)$ is dense in $C_0\left( \sU_\la\right)$ so this lemma follows from the \ref{top_ul_lem} one.
 
+\end{proof}
 \begin{exercise}\label{top_u_net_exer}
 	Let $\sX$ be a locally compact, Hausdorff space.\\ Denote by $\Xi\left( \sX\right)\bydef \left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ a net of all positive continuous maps such that 
 	\bean
@@ -1659,16 +1640,23 @@ If $\left(A, \widetilde{A}, G, \pi \right)$ is finite-fold noncommutative pre-co
 	On the other hand since $\widetilde A_{\la_0}\subset \widetilde A$ is a hereditary subalgebra, $p_{\la_0}\in A_{\la_0}\subset \widetilde A_{\la_0}$, so from the Lemma \ref{hered_lem} it follows that $p_{\la_0}\widetilde a p_{\la_0}\in \widetilde A_{\la_0}$. Taking into account equations \eqref{four_decompositon_eqn} and  \eqref{hered_dense_eqn} one concludes that  the union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
 \end{proof}
 
-
 \begin{definition}\label{fin_defn} 
-	Consider a minimal family $\mathfrak{Cov}$ noncommutative finite-fold  pre-coverings such that:
+	Consider a minimal family $\mathfrak{Cov}$ noncommutative finite-fold satisfying  to following conditions.
 	\begin{enumerate}
-		\item [(a)] $\mathfrak{Cov}$ contains any unital noncommutative  finite-fold  covering (cf. Definition \ref{fin_unital_defn}),
-		\item[(b)] if $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$ then it  contains any subordinated to $\left(A, \widetilde{A}, G, \pi \right)$  pre-covering (cf. Definition \ref{fin_subordinated_defn}),
-		\item[(c)] if $\left(A, \widetilde{A}, G, \pi \right)$ is finite-fold noncommutative pre-covering and there is family   $\left(A_\la, \widetilde{A}_\la, G, \pi_\la  \right)_{\la \in \La}$ of subordinated to $\left(A, \widetilde{A}, G, \pi \right)$  finite-fold noncommutative pre-coverings (cf. Definition \ref{fin_subordinated_defn}) satisfying following conditions:
+				\item [(a)] $\mathfrak{Cov}$ contains any unital noncommutative  finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
+		
+		\item [(b)] If $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$  and there is noncommutative finite-fold  pre-covering $\left(B, \widetilde{B}, G, \rho \right)$ such that:
 		\begin{enumerate}
-			\item[(i)] for all $\la \in \La$ the family $\mathfrak{Cov}$ contains $\left(A_\la, \widetilde{A}_\la, G, \pi_\la  \right)$,
-			\item[(ii)] a union $\cup_{\la \in \La} A_\la$ is dense in $A$,
+			\item [(i)]  $\left(A, \widetilde{A}, G, \pi \right)$ is subordinated to $\left(B, \widetilde{B}, G, \rho \right)$ (cf. definition \ref{subordinated_defn}),
+			\item[(ii)] the natural inclusion $A \hookto B$ is the unitization.
+		\end{enumerate}
+		then  $\left(B, \widetilde{B}, G, \rho \right)$ is a unital noncommutative finite-fold  covering.
+		\item[(c)] If $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$ then it contains any subordinated to $\left(A, \widetilde{A}, G, \pi \right)$ noncommutative finite-fold  covering  pre-covering (cf. Definition \ref{fin_subordinated_defn}) satisfying to the condition (b).
+		\item[(d)] If $\left(A, \widetilde{A}, G, \pi \right)$ is finite-fold noncommutative pre-covering satisfying to the condition (b) and there is an indexed by a directed set $\La$ family   $\left(A_\la, \widetilde{A}_\la, G, \pi_\la  \right)_{\la \in \La}$ of subordinated to $\left(A, \widetilde{A}, G, \pi \right)$  finite-fold noncommutative pre-coverings (cf. Definition \ref{fin_subordinated_defn}) satisfying following conditions:
+		\begin{enumerate}
+			\item[(i)] $\forall \mu, \nu \in \La \quad \mu\le \mu \quad \Rightarrow \quad A_\mu \subset A_\nu$,
+			\item[(ii)] for all $\la \in \La$ the family $\mathfrak{Cov}$ contains $\left(A_\la, \widetilde{A}_\la, G, \pi_\la  \right)$,
+			\item[(iii)] a union $\cup_{\la \in \La} A_\la$ is dense in $A$,
 		\end{enumerate}
 		then $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$.
 	\end{enumerate}
@@ -9121,68 +9109,86 @@ is not finite, i.e. one has the contradiction with (a) of the Definition \ref{fi
 	\eean
 	From the Corollary \ref{comm_ccr_cor} it follows that $\left.\Id_{\widetilde{A}}\right|_{C\left( \widetilde{\sX}\right)}:C\left( \widetilde{\sX}\right)\hookto \widetilde A$ is a $*$-isomorphism, so $\widetilde A \cong C\left( \widetilde{\sX}\right)$ and 
 		$$
-		\left(A, \widetilde{A}, G, \pi \right)\cong\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right). 
+		\left(A, \widetilde{A}, G, \pi \right)\cong\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right). C_0\left(p \right)  \right). 
 		$$
 \end{proof}
-The algebraic construction of nonunital finite-fold coverings requires the following definition.
 
-\begin{definition}\label{top_covering_compactification_defn}
-	A   covering $p: \widetilde{   \mathcal X } \to \mathcal X$ is said to be a \textit{ covering with compactification} if there are compactifications ${   \mathcal X } \hookto {   \mathcal Y }$ and $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ such that:
-	\begin{itemize}
-		\item there is a covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$,
-		\item the covering $p$ is the restriction of $\widetilde{p}$, i.e. $p = \widetilde{p}|_{\widetilde{   \mathcal X }}$.
-	\end{itemize}
+\begin{theorem}\label{top_fin_thm}  
+	Let $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space. 
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)] If a quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Proposition \ref{spectrum_cov_prop}, continuous map then $p$ is a finite-fold transitive topological covering and $\widetilde{   \mathcal X }$ is a connected space. Moreover one has $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$,  $~~G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ and $\pi = C_0\left(p \right)$  where   $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
+		\item[(ii)] If $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering and $*$-homomorphism $C_0\left(p \right)  : C_0\left( {   \mathcal X }\right) \hookto C_0\left( \widetilde{   \mathcal X }\right)$ comes from the finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}) and the action $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\times C_0\left( \widetilde{   \mathcal X  }\right) \to C_0\left( \widetilde{   \mathcal X }\right)$ is induced by $G\left( \widetilde{   \mathcal X } ~|~ {   \mathcal X }\right)\times  \widetilde{   \mathcal X }\to  \widetilde{   \mathcal X }$  then there is the connected  noncommutative finite-fold covering $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$  (cf. Definition \ref{fin_defn}).
+	\end{enumerate}
+\end{theorem}
+\begin{definition}\label{fin_defn!} 
+	Consider a minimal family $\mathfrak{Cov}$ noncommutative finite-fold satisfying  to following conditions.
+	\begin{enumerate}
+		\item [(a)] $\mathfrak{Cov}$ contains any unital noncommutative  finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
+		
+		\item [(b)] If $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$  and there is noncommutative finite-fold  pre-covering $\left(B, \widetilde{B}, G, \rho \right)$ such that:
+		\begin{enumerate}
+			\item [(i)]  $\left(A, \widetilde{A}, G, \pi \right)$ is subordinated to $\left(B, \widetilde{B}, G, \rho \right)$ (cf. definition \ref{subordinated_defn}),
+			\item[(ii)] the natural inclusion $A \hookto B$ is the unitization.
+		\end{enumerate}
+		then  $\left(B, \widetilde{B}, G, \rho \right)$ is a unital noncommutative finite-fold  covering.
+		\item[(c)] If $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$ then it contains any subordinated to $\left(A, \widetilde{A}, G, \pi \right)$  pre-covering (cf. Definition \ref{fin_subordinated_defn}) satisfying to the condition (b).
+		\item[(d)] If $\left(A, \widetilde{A}, G, \pi \right)$ is finite-fold noncommutative pre-covering satisfying to the condition (b) and there is an indexed by a directed set $\La$ family   $\left(A_\la, \widetilde{A}_\la, G, \pi_\la  \right)_{\la \in \La}$ of subordinated to $\left(A, \widetilde{A}, G, \pi \right)$  finite-fold noncommutative pre-coverings (cf. Definition \ref{fin_subordinated_defn}) satisfying following conditions:
+		\begin{enumerate}
+			\item[(i)] $\forall \mu, \nu \in \La \quad \mu\le \mu \quad \Rightarrow \quad A_\mu \subset A_\nu$,
+			\item[(ii)] for all $\la \in \La$ the family $\mathfrak{Cov}$ contains $\left(A_\la, \widetilde{A}_\la, G, \pi_\la  \right)$,
+			\item[(iii)] a union $\cup_{\la \in \La} A_\la$ is dense in $A$,
+		\end{enumerate}
+		then $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$.
+	\end{enumerate}
+	Any element of $\mathfrak{Cov}$ is said to be a  \textit{noncommutative finite-fold  covering}.
 \end{definition}
-\begin{example}
-	
-	Let $g: S^1 \to S^1$ be an $n$-fold covering of a circle. Let $\mathcal X \cong \widetilde{\mathcal X} \cong S^1 \times \left[0,1\right)$. 
-	The map
-	\begin{equation*}
-	\begin{split}
-	p: \widetilde{   \mathcal X } \to \mathcal X,\\
-	p = g \times \Id_{\left[0,1\right)}
-	\end{split}
-	\end{equation*}
-	is an $n$-fold covering. If $\mathcal Y \cong \widetilde{\mathcal Y} \cong S^1 \times \left[0,1\right]$ then a compactification $\left[0,1\right) \hookto \left[0,1\right]$ induces  compactifications  $\mathcal X \hookto\mathcal Y$, $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$. The map
-	\begin{equation*}
-	\begin{split}
-	\widetilde{p}: \widetilde{   \mathcal Y } \to \mathcal Y,\\
-	\widetilde{p} = g \times \Id_{\left[0,1\right]}
-	\end{split}
-	\end{equation*}
-	is a covering  such that $\widetilde{p}|_{\widetilde{   \mathcal X }}=p$. So if $n > 1$ then $p$ is  a nontrivial covering with  compactification.\\
-\end{example}
-\begin{example}
-	Let $\mathcal X  = \C \setminus \{0\}$ be a complex plane with punctured 0, which is parameterized by the complex-valued variable $z\in \C$. Let  $\mathcal X \hookto\mathcal Y$ be any compactification. If both $\left\{z'_\a \in \mathcal X\right\}$, 	$\left\{z''_\a \in \mathcal X\right\}$ are  nets such that $\lim_{\a}\left|z'_\a\right|=\lim_\a\left|z''_\a\right| = 0$ then form $\lim_{\a}\left|z'_\a-z''_\a\right|= 0$ it turns out 
-	\begin{equation}\label{x_0_eqn}
-	x_0 = \lim_{\a} z'_\a = \lim_{\a} z''_\a \in \mathcal Y.
-	\end{equation}
-	If $\widetilde{   \mathcal X } \cong \mathcal X$ then for any $n \in \N$ such that $n > 1$ there is an $n$-fold covering 
-	\begin{equation*}
-	\begin{split}
-	p: \widetilde{   \mathcal X } \to \mathcal X,\\
-	z \mapsto z^n.
-	\end{split}
-	\end{equation*}
-	If both  $\mathcal X \hookto\mathcal Y$, $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ are compactifications, and $\widetilde{p}: \widetilde{   \mathcal Y } \to \mathcal Y$ is a covering such that $\widetilde{p}|_{\widetilde{   \mathcal X }} = p$ then from \eqref{x_0_eqn} it turns out $\widetilde{p}^{-1}\left(x_0 \right)= \left\{\widetilde{x}_0\right\}$ where $\widetilde{x}_0$ is the unique point such that following conditions hold:
-	\begin{equation*}
-	\begin{split}
-	\widetilde{x}_0 = \lim_{\a} \widetilde{z}_\a \in \widetilde{   \mathcal Y },\\
-	\lim_{\a}\left|\widetilde{z}_\a\right|= 0.
-	\end{split}
-	\end{equation*}
-	It turns out $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$. However $\widetilde{p}$ is an $n$-fold covering and if $n >1$ then  $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=n>1$. It contradicts with $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$, and from the contradiction it turns out that for any $n > 1$ the map  $p$ is not a covering with  compactification.
-\end{example}
 
+\begin{proof}
+(i) Let us use an induction for a proof. Consider conditions (a)-(c) of the Definition \ref{fin_defn}.
+\begin{enumerate}
+	\item[(a)] If a quadruple $\left(C\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a unital  noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}), then from the Corollary  \ref{comm_comm_cor} the quadruple $\left(C\left(\mathcal  X \right), \widetilde{A}, G, \pi \right)$ is equivalent to $$\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right)$$ where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
+\item[(b)] If and there is noncommutative finite-fold  pre-covering $\left(B, \widetilde{B}, G, \rho \right)$ such that:
+\begin{enumerate}
+	\item [(i)]  $\left(C_0\left(\sX \right) , \widetilde{A}, G, \pi \right)$ is subordinated to $\left(B, \widetilde{B}, G, \rho \right)$ (cf. definition \ref{subordinated_defn}),
+	\item[(ii)] the natural inclusion $C_0\left(\sX \right)  \hookto B$ is the unitization.
+\end{enumerate}
+then  $B$ is commutative because a commutative $C^*$-algebra $C_0\left(\sX \right)$ is an essential ideal of $B$. So there is a compact space $\sY$ and a dense inclusion $\sX\subset \sY$ (cf. Example \ref{comm_ess_exm}). From the  Corollary  \ref{comm_comm_cor} it follows that there is a compact set $\widetilde \sY$ and a finite-fold transitive covering $\widetilde p:  \widetilde{\mathcal Y}$ such that $\left(B, \widetilde{B}, G, \rho \right)$ is equivalent to 
+$$
+\left(C\left({\mathcal Y} \right) , C\left( \widetilde{\mathcal Y}\right) , G\left(\left.\widetilde{\sY}~\right|\sY\right) , C_0\left(\widetilde p \right)  \right)
+$$
+If $\widetilde{\sX}\bydef  \widetilde p^{-1}\left( \sX\right)$ then there is a transitive covering $p: \widetilde{\sX} \to {\sX}$ which is a restriction of $\widetilde p$ and $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is equivalent to
+$$ \left(C_0\left({\mathcal X} \right) , C_0\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right), C_0\left( p\right) \right). 
+$$
+\item[(c)] If $\mathfrak{Cov}$ contains $\left(A, \widetilde{A}, G, \pi \right)$ then it contains any subordinated to $\left(A, \widetilde{A}, G, \pi \right)$  pre-covering (cf. Definition \ref{fin_subordinated_defn}) satisfying to the condition (b).
+\end{enumerate}
+\end{proof}
+\begin{corollary}\label{top_connected_union_cor!}
+	In the situation of the Definition \ref{top_u_path_defn}  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
+	\begin{itemize}
+		\item 
+		$$
+		\sX = \bigcup_{\la\in \La}\sU_\la,
+		$$
+		\item a closure of $\sU_\la$ is compact for each $\la\in \La$,
+		\item
+		\be\label{top_lmit_eqn}
+		\forall \mu, \nu \in \La  \quad \sU_\mu \cap \sU_\nu \neq \emptyset,
+		\ee
+		\item
+		\be\label{top_lmord_eqn}
+		\forall \mu, \nu \in \La \quad \mu \le \nu\quad\Leftrightarrow \quad \sU_\mu \subset \sU_\nu.
+		\ee
+	\end{itemize}
+\end{corollary}
+\
 
-
-The following lemma supplies the quantization of coverings with compactification.
 
 \begin{lemma}\label{comm_fin_lem}
 	Let $\mathcal X$ be a locally compact, locally connected, Hausdorff space and there is an injective $*$-homomorphism $\pi: C\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
 	\begin{enumerate}
 		\item [(i)] the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G  , \pi  \right)$ is a  noncommutative finite-fold covering with unitization !!!!!!!!!!,
-		\item[(ii)] the $C^*$-algebra $\widetilde{A}$ is commutative, moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $C_0\left( \sX\right) $ (resp. $\widetilde{A}$) then a given by the Proposition \ref{spectrum_cov_prop} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification (cf. Definition \ref{top_covering_compactification_defn}) such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$
+		\item[(ii)] the $C^*$-algebra $\widetilde{A}$ is commutative, moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $C_0\left( \sX\right) $ (resp. $\widetilde{A}$) then a given by the Proposition \ref{spectrum_cov_prop} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification (cf. Definition \ref{top_covering_compactification_defn} !!! DELETE !!!) such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$
 		where $*$-homomorphism $C_0\left(p \right): C_0\left(\mathcal  X \right)\to C_0\left(\widetilde{\mathcal X} \right)$ is $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
 	\end{enumerate}
 \end{lemma}
@@ -9241,18 +9247,10 @@ If $ \widetilde \sU\bydef p^{-1}\left(  \sU \right)$ then $G\widetilde \sU= \wid
 	\widetilde B = \left\{\left.\widetilde a \in C_0\left(\widetilde \sX \right) \right|\lim_{\la \in \La}\left\| \widetilde a-C_0\left(p \right)\left( u_\la\right)\widetilde aC_0\left(p \right)\left( u_\la\right)\right\| =0 \right\}
 	\eean 
 	Taking into account the Lemma \ref{top_hered_lem} we conclude that $\widetilde B = C_0\left(\widetilde \sU \right) $.
-The set $\sU$ is connected, it turns out that there is a natural isomorphism $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\cong G\left(\left. \widetilde{   \mathcal U } ~\right| {   \mathcal U }\right)\cong G\left(\left.C_0\left(  \widetilde{   \mathcal U }\right)  ~\right|C_0\left(  {   \mathcal U }\right) \right)$. From  the Lemma \ref{quasi_red_lem} it follows that the quadruple is $\left(C_0\left(\mathcal  U \right), C_0\left(  \widetilde{   \mathcal U }\right) ,G\left(\left. \widetilde{   \mathcal U } ~\right| {   \mathcal U }\right), \left.  C_0\left(p \right)\right|_{C_0\left(  \widetilde{   \mathcal U }\right)}\right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Both closures  $\sV$ and $\widetilde \sV$  of $\sU$ and $\widetilde \sU$ are compact sets, so the restriction $p|_{\widetilde{   \mathcal U }}:\widetilde \sU \to {   \mathcal U }$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}).
+The set $\sU$ is connected, it turns out that there is a natural isomorphism $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\cong G\left(\left. \widetilde{   \mathcal U } ~\right| {   \mathcal U }\right)\cong G\left(\left.C_0\left(  \widetilde{   \mathcal U }\right)  ~\right|C_0\left(  {   \mathcal U }\right) \right)$. From  the Lemma \ref{quasi_red_lem} it follows that the quadruple is $\left(C_0\left(\mathcal  U \right), C_0\left(  \widetilde{   \mathcal U }\right) ,G\left(\left. \widetilde{   \mathcal U } ~\right| {   \mathcal U }\right), \left.  C_0\left(p \right)\right|_{C_0\left(  \widetilde{   \mathcal U }\right)}\right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Both closures  $\sV$ and $\widetilde \sV$  of $\sU$ and $\widetilde \sU$ are compact sets, so the restriction $p|_{\widetilde{   \mathcal U }}:\widetilde \sU \to {   \mathcal U }$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn} !!! DELETE !!!).
 So from the Lemma \ref{comm_fin_lem} it follows that the quadruple $\left(C_0\left(\mathcal  U \right), C_0\left(  \widetilde{   \mathcal U }\right) ,G\left(\left. \widetilde{   \mathcal U } ~\right| {   \mathcal U }\right), \left.  C_0\left(p \right)\right|_{C_0\left(  \widetilde{   \mathcal U }\right)}\right)$ is a covering with unitization !!!!!!!!!! (cf. Definition \ref{fin_subunital_defn}  !!! DELETED !!! !!! CORRECT !!!), i.e $C_0\left(\sU\right)$ satisfies to the Definition \ref{hereditary_proper_lift_defn}.
 \end{proof}
-\begin{theorem}\label{top_fin_thm}  
-	Let $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space. 
-	Following conditions hold:
-	\begin{enumerate}
-		\item [(i)] If a quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn} !!!!!!!!!!), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Proposition \ref{spectrum_cov_prop}, continuous map then $p$ is a finite-fold transitive topological covering and $\widetilde{   \mathcal X }$ is a connected space. Moreover one has $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$,  $~~G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ and $\pi = C_0\left(p \right)$  where   $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
-		\item[(ii)] If $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering and $*$-homomorphism $C_0\left(p \right)  : C_0\left( {   \mathcal X }\right) \hookto C_0\left( \widetilde{   \mathcal X }\right)$ comes from the finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}) and the action $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\times C_0\left( \widetilde{   \mathcal X  }\right) \to C_0\left( \widetilde{   \mathcal X }\right)$ is induced by $G\left( \widetilde{   \mathcal X } ~|~ {   \mathcal X }\right)\times  \widetilde{   \mathcal X }\to  \widetilde{   \mathcal X }$  then there is the connected  noncommutative finite-fold covering $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$  (cf. Definition \ref{fin_defn} !!!!!!!!!!).
-	\end{enumerate}
-\end{theorem}
-	\begin{proof}
+\begin{proof} !!! DELETE
 	(i)  Let $\left\{A_\la \subset C_0\left\{\sX\right\}\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} !!!!!!!!!! family of \\ $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $C_0\left(\mathcal  X \right)$ from the Theorem \ref{gelfand-naimark_thm} and  Proposition \ref{hered_spectrum_prop} it follows that there is an open subset $\sU_\la\subset \sX$ such that $A_\la\cong C_0\left(\sU_\la\right)$. Let $\widetilde A_\la\subset \widetilde A$ be   a {hereditary} $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi \right)$-{lift} of $A_\la\cong C_0\left(\sU_\la\right)$ (cf. the Definition \ref{hereditary_lift_defn}). From the Definitions (\ref{hereditary_lift_defn} and \ref{hereditary_proper_lift_defn}) it follows that $\left(C_0\left(\mathcal  U_\la \right), \widetilde{A}_\la, G,    \pi|_{C_0\left(\mathcal  U_\la \right)}\right)$ is a noncommutative finite-fold covering with unitization !!!!!!!!!!. Let $\widetilde\sX$ is the spectrum of $\widetilde A$ and a map $p: \widetilde\sX \to\sX$ is given by the Proposition \ref{spectrum_cov_prop}.
 	If  $\widetilde\sU_\la$ is the  spectra of  $\widetilde A_\la$ and 
 then from the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{A}_\la$ is commutative, i.e. $\widetilde{A}_\la\cong C_0\left(\widetilde\sU_\la\right)$ and a restriction $\left.p\right|_{\widetilde\sU_\la}: \widetilde\sU_\la\to\sU_\la$ is a transitive finite-fold covering.  Moreover one has $\pi|_{C_0\left(\mathcal  U_\la \right)}= \left.C_0\left( p\right)\right|_{C_0\left(\mathcal  U_\la \right)}$.	
@@ -9358,7 +9356,7 @@ If $\sX$ is a locally compact, Hausdorff space then a *-algebra $Cont\left(\sX \
 p_\sV : \sX \to \R,\\
 a \mapsto \max_{x \in \sV}\left|a\left(x\right)\right|
 \eean
-where $\sV \subset\sX$ is a compact subset. So $Cont\left(\sX \right)$ is a pro-$C^*$-algebra (cf. Definition \ref{pro_c_defn}) such that $C_0\left(\sX\right)$ is an essential !!!!!!!!!! ideal (cf. Definition \ref{essential !!!!!!!!!!_defn}) of the $C^*$-algebra  $b\left(Cont\left(\sX \right) \right)$ of bounded elements (cf. Definition \ref{pro_bound_defn}).
+where $\sV \subset\sX$ is a compact subset. So $Cont\left(\sX \right)$ is a pro-$C^*$-algebra (cf. Definition \ref{pro_c_defn}) such that $C_0\left(\sX\right)$ is an essential !!!!!!!!!! ideal (cf. Definition \ref{essential_defn}) of the $C^*$-algebra  $b\left(Cont\left(\sX \right) \right)$ of bounded elements (cf. Definition \ref{pro_bound_defn}).
 \begin{exercise}\label{top_pro_fin_exer} Let $\sX$ be a locally compact, Hausdorff space, and let $p: \widetilde{\sX}\to \sX$ be a finite-fold transitive covering.
 	Prove following statements:
 	\begin{itemize}
@@ -11005,7 +11003,7 @@ From the Theorem \ref{top_pro_fin_thm} it follows that these $*$-homomorphisms a
 is a {pointed algebraical  finite covering category of pro-$C^*$-algebras} (cf. Definition \ref{comp_pt_pro_defn}).
 
 \begin{empt}\label{top_pro_empt}
-Let us obtain the $\mathfrak{S}^{\text{pt}}_{Cont\left(\sX \right) }$-specialization of the given by \ref{inv_pro_lim_empt} construction. If for any $\la\in \La$ the set $b\left(Cont\left(\sX_\la\right) \right)$ is a $C^*$-algebra of bounded elements of $Cont\left(\sX_\la\right)$   (cf. Definition \ref{pro_bound_defn} and Proposition \ref{pro_bound_prop}) then $ b\left(Cont\left(\sX_\la\right) \right)= C_b\left(\sX_\la\right)$. Moreover $B_\la \bydef C_0\left(\sX_\la\right)$ is an essential !!!!!!!!!! ideal of $C_b\left(\sX_\la\right)$.  If $B \bydef C_0\left( \sX\right)$ then from the Theorem \ref{top_main_thm}
+Let us obtain the $\mathfrak{S}^{\text{pt}}_{Cont\left(\sX \right) }$-specialization of the given by \ref{inv_pro_lim_empt} construction. If for any $\la\in \La$ the set $b\left(Cont\left(\sX_\la\right) \right)$ is a $C^*$-algebra of bounded elements of $Cont\left(\sX_\la\right)$   (cf. Definition \ref{pro_bound_defn} and Proposition \ref{pro_bound_prop}) then $ b\left(Cont\left(\sX_\la\right) \right)= C_b\left(\sX_\la\right)$. Moreover $B_\la \bydef C_0\left(\sX_\la\right)$ is an essential  ideal (cf. Definition \ref{essential_defn}) of $C_b\left(\sX_\la\right)$.  If $B \bydef C_0\left( \sX\right)$ then from the Theorem \ref{top_main_thm}
  one has a good   { algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn})
 	\be\label{top_sb_pro_eqn}
 \begin{split}
@@ -11198,7 +11196,7 @@ Then
 \pi: \widehat A\hookto \L^\dagger\left(\widehat\D \right).
 \ee
 (cf. the condition \eqref{top_diff*_eqn}).
-If $\widehat G \bydef \varprojlim G\left(\left.M_\la\right|M\right)$ is the inverse limit (cf. Definition \ref{group_inv_lim_defn}) then the natural action $\widehat G\times \overline M\to \overline M$ induces the action $\widehat G\times L^2\left(\overline M, \overline \mu\right)\to L^2\left(\overline M, \overline \mu\right)$ which satisfies to \eqref{o*_dinv_eqn}. Similarly to the equation \ref{top_ddound_eqn} the bounded part of $D^*\left( M_\la, T_\la\right)$ equals to $\Coo\left(M_\la \right) \cap C_b\left(M_\la \right)$ where we natural inclusion $\Coo \left(M_\la \right)\subset  D\left( M_\la\right)$ is implied. The $C^*$-norm completion of  $\Coo\left(M_\la \right) \cap C_b\left(M_\la \right)$ equals to $C_b\left(M_\la \right)$ and $B_\la \bydef C_0\left(M_\la \right)$ is an essential !!!!!!!!!! ideal of $C_b\left(M_\la \right)$. Similarly to  \eqref{bl_cat_eqn}
+If $\widehat G \bydef \varprojlim G\left(\left.M_\la\right|M\right)$ is the inverse limit (cf. Definition \ref{group_inv_lim_defn}) then the natural action $\widehat G\times \overline M\to \overline M$ induces the action $\widehat G\times L^2\left(\overline M, \overline \mu\right)\to L^2\left(\overline M, \overline \mu\right)$ which satisfies to \eqref{o*_dinv_eqn}. Similarly to the equation \ref{top_ddound_eqn} the bounded part of $D^*\left( M_\la, T_\la\right)$ equals to $\Coo\left(M_\la \right) \cap C_b\left(M_\la \right)$ where we natural inclusion $\Coo \left(M_\la \right)\subset  D\left( M_\la\right)$ is implied. The $C^*$-norm completion of  $\Coo\left(M_\la \right) \cap C_b\left(M_\la \right)$ equals to $C_b\left(M_\la \right)$ and $B_\la \bydef C_0\left(M_\la \right)$ is an essential  ideal of $C_b\left(M_\la \right)$ (cf. Definition \ref{essential_defn}). Similarly to  \eqref{bl_cat_eqn}
 one has  a pointed algebraical  finite covering category
 \be\label{top_bl_cat_eqn}
 \begin{split}
@@ -12472,16 +12470,16 @@ where the left part comes from the given by  the Lemma \ref{fin_multilier_lem} !
 \end{enumerate}  
 \end{definition}
 \begin{lemma}\label{blowing_comply_lem}
-If in the situation of the Definition  \ref{blowing_comply_defn} $p$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}) then  $\left(A, \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering with unitization !!!!!!!!!! (cf. Definition \ref{fin_subunital_defn}  !!! DELETED !!! !!! CORRECT !!!). 
+If in the situation of the Definition  \ref{blowing_comply_defn} $p$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn} !!! DELETE !!!) then  $\left(A, \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering with unitization !!!!!!!!!! (cf. Definition \ref{fin_subunital_defn}  !!! DELETED !!! !!! CORRECT !!!). 
 \end{lemma}
 \begin{proof}
-From the Definition \ref{top_covering_compactification_defn} it follows that there is a transitive covering $\widetilde p : \widetilde \sZ \to \sZ$ such that 
+From the Definition \ref{top_covering_compactification_defn} !!! DELETE !!! it follows that there is a transitive covering $\widetilde p : \widetilde \sZ \to \sZ$ such that 
 \begin{itemize}
 	\item both $\widetilde \sZ$ and $\sZ$ are compact,
 	\item there are dense inclusions $\sY \subset \sZ$ and $\widetilde \sY \subset \widetilde\sZ$,
 	\item $p = \widetilde p|_{\widetilde\sY}$
 \end{itemize}
-from the example \ref{comm_ess_exm} and the Definition \ref{unitization !!!!!!!!!!_defn} it turns out that there are natural unitization !!!!!!!!!!s $C_0\left( \sY\right) \subset C\left( \sZ\right)$ and $C_0\left(\widetilde \sY\right) \subset C\left( \widetilde \sZ\right)$ If $\left\{u_\a\right\}\subset A$ is approximate unit  then it can be regarded as and approximate unit for $\widetilde A$ (cf. Lemma \ref{quasi_approximate_unit_lem}). For any $\widetilde f \in C\left(\sZ\right)$ there is a net $\left\{f_\a\right\}\in C-0\left(\sY \right)$ such that $\widetilde f = \bt$-$\lim f_\a$ where the strict topology of $M\left(C_0\left( \sY\right)  \right)$ is implied. For any $\widetilde f \in C\left(\sZ\right)$ and $\widetilde a \in A$ we define 
+from the example \ref{comm_ess_exm} and the Definition \ref{unitization_defn} it turns out that there are natural unitization !!!!!!!!!!s $C_0\left( \sY\right) \subset C\left( \sZ\right)$ and $C_0\left(\widetilde \sY\right) \subset C\left( \widetilde \sZ\right)$ If $\left\{u_\a\right\}\subset A$ is approximate unit  then it can be regarded as and approximate unit for $\widetilde A$ (cf. Lemma \ref{quasi_approximate_unit_lem}). For any $\widetilde f \in C\left(\sZ\right)$ there is a net $\left\{f_\a\right\}\in C-0\left(\sY \right)$ such that $\widetilde f = \bt$-$\lim f_\a$ where the strict topology of $M\left(C_0\left( \sY\right)  \right)$ is implied. For any $\widetilde f \in C\left(\sZ\right)$ and $\widetilde a \in A$ we define 
 \bean
 \widetilde f \widetilde a \bydef \lim_{\a} f_\a u_a \widetilde a, \\
 \widetilde a \widetilde f \bydef \lim_{\a} \widetilde a f_\a u_a
@@ -14212,7 +14210,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\end{enumerate}
 	We need prove that the quadruple $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)$ satisfies to conditions (a), (b) the Definition \ref{fin_subunital_defn}  !!! DELETED !!! !!! CORRECT !!!.\\
 	(a)
-	Let $\mathcal K^+$ be the  unitisation given by \ref{stab_uni_empt}. Algebra $A \otimes \mathcal K$ (resp. $\widetilde{A} \otimes \mathcal K$) is an essential !!!!!!!!!! ideal of $B \otimes \mathcal K^+$ (resp. $\widetilde{B} \otimes \mathcal K^+$), i.e. both ${A} \otimes \mathcal K \hookto B \otimes \mathcal K^+$ and $\widetilde{A} \otimes \mathcal K \hookto \widetilde{B} \otimes \mathcal K^+$ are unitization !!!!!!!!!!s. \\
+	Let $\mathcal K^+$ be the  unitisation given by \ref{stab_uni_empt}. Algebra $A \otimes \mathcal K$ (resp. $\widetilde{A} \otimes \mathcal K$) is an essential  ideal of $B \otimes \mathcal K^+$ (resp. $\widetilde{B} \otimes \mathcal K^+$) (cf. Definition \ref{essential_defn}), i.e. both ${A} \otimes \mathcal K \hookto B \otimes \mathcal K^+$ and $\widetilde{A} \otimes \mathcal K \hookto \widetilde{B} \otimes \mathcal K^+$ are unitization !!!!!!!!!!s. \\
 	(b) The quadruple 
 	$\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering, hence $\left( B \otimes \K^+, \widetilde{B}  \otimes \K^+, G, \widetilde{\pi}  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering. 
 	Since $\left(B ,\widetilde{B}, G \right)$ is an unital  noncommutative finite-fold covering the algebra $\widetilde{B}$ is a finitely generated $B$ module, i.e. there are $\widetilde{b}_1, \dots , \widetilde{b}_n \in \widetilde{B}$ such that any $\widetilde{b} \in\widetilde{B}$ is given by
@@ -15064,7 +15062,7 @@ Our following constructions require an analog of the Dini's theorem.
 	\begin{enumerate}
 		\item[(a)] 
 		There are unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
-		$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential !!!!!!!!!! ideal of $\widetilde{A}$ (resp. $\widetilde{B}$) and $A = B\bigcap \widetilde{A}$,
+		$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential  ideal of $\widetilde{A}$ (cf. Definition \ref{essential_defn}) (resp. $\widetilde{B}$) and $A = B\bigcap \widetilde{A}$,
 		\item[(b)] There is a 
 		unital  noncommutative finite-fold covering $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
 	\end{enumerate}
@@ -15126,15 +15124,15 @@ Our following constructions require an analog of the Dini's theorem.
 \end{proof}
 
 \begin{lemma}\label{ctr_ess_dense_lem}
-	If $A$ is a $C^*$-algebra with the Hausdorff spectrum $\sX$ then the bijective map \eqref{ctr_open_id_eqn} yields the one-to-one correspondence between essential !!!!!!!!!! ideals and open dense subsets of $\sX$. 
+	If $A$ is a $C^*$-algebra with the Hausdorff spectrum $\sX$ then the bijective map \eqref{ctr_open_id_eqn} yields the one-to-one correspondence between essential ideals (cf. Definition \ref{essential_defn} and open dense subsets of $\sX$. 
 \end{lemma}
 \begin{proof}
 	The given by \eqref{ctr_open_id_eqn} map $	\sU \leftrightarrow 	A|_{\mathcal U}$ yields the one-to-one correspondence between  ideals and open  subsets of $\sX$ (cf. Remark \ref{ctr_open_res_rem}). 
 	
 	Suppose that $\sU \subset \sX$ is a dense subset of $\sX$ and
-	$a \in A$ be such that $a\neq 0$ and $a A|_{\mathcal U}=\left\{0\right\}$. From the Lemma \ref{ctr_rep_eq_lem} it follows that there is an open subset $\sV \subset \sX$ such that $\rep_x\left( a\right) \neq 0$ for all $x \in \sV$. Since $\sU$ is dense, one has $\sV \cap \sU \neq \emptyset$. There is $x_0\in \sU$  such that  $\rep_{x_0}\left( a\right) \neq 0$. From the Exercise \ref{top_completely_regular_exer} it follows that the space $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}). There is a continuous function $f_\sU: \mathcal X \to \left[0,1 \right]$ such that $f_\sU\left(x_0 \right)= 1$ and $f_\sU\left(\mathcal X\setminus\sU \right)= \left\{0\right\} $.  Otherwise from the Lemma \ref{ctr_fact_lem} if follows that $f_\sU a^* \in A|_{\mathcal U}$.  From $\left\|\rep_{x_0}\left( a\left(  f_\sU a^*\right) \right) \right\| = \left\|\rep_{x_0}\left( a \right) \right\|^2\neq 0$ it follows that $a A|_{\mathcal U}\neq\left\{0\right\}$.  From the Lemma \ref{essential !!!!!!!!!!_lem} it turns out that $A|_{\mathcal U}$ is an essential !!!!!!!!!! ideal. 
+	$a \in A$ be such that $a\neq 0$ and $a A|_{\mathcal U}=\left\{0\right\}$. From the Lemma \ref{ctr_rep_eq_lem} it follows that there is an open subset $\sV \subset \sX$ such that $\rep_x\left( a\right) \neq 0$ for all $x \in \sV$. Since $\sU$ is dense, one has $\sV \cap \sU \neq \emptyset$. There is $x_0\in \sU$  such that  $\rep_{x_0}\left( a\right) \neq 0$. From the Exercise \ref{top_completely_regular_exer} it follows that the space $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}). There is a continuous function $f_\sU: \mathcal X \to \left[0,1 \right]$ such that $f_\sU\left(x_0 \right)= 1$ and $f_\sU\left(\mathcal X\setminus\sU \right)= \left\{0\right\} $.  Otherwise from the Lemma \ref{ctr_fact_lem} if follows that $f_\sU a^* \in A|_{\mathcal U}$.  From $\left\|\rep_{x_0}\left( a\left(  f_\sU a^*\right) \right) \right\| = \left\|\rep_{x_0}\left( a \right) \right\|^2\neq 0$ it follows that $a A|_{\mathcal U}\neq\left\{0\right\}$.  From the Lemma \ref{essential_lem} it turns out that $A|_{\mathcal U}$ is an essential  ideal (cf. Definition \ref{essential_defn}). 
 	
-	If $\sU$ is not dense then there is an open subset $\sV \subset \sX$ such that $\sU\cap\sV= \emptyset$. There is $a \in A$ such that and $x_0\in \sV$ such that $\rep_{x_0}\left(a\right)\neq 0$. There is a continuous function $f_\sV: \mathcal X \to \left[0,1 \right]$ such that $f_\sV\left(x_0 \right)= 1$ and $f_\sV\left(\mathcal X\setminus\sV \right)= \left\{0\right\}$, and $\rep_{x_0}\left( f_\sV a \right)= \rep_{x_0}\left(  a \right)\neq 0$. So $f_\sV a\neq 0$. Otherwise for all $f \in C_0\left(\sU \right)$ from $f_\sV f= 0$ it follows that $\left(f_\sV a \right)\left(fb\right)= 0$ for all $b \in A$.  On the other hand form the Lemma \ref{ctr_fact_lem} it follows that  $A|_{\mathcal U}$ is the $C^*$-norm closure of $C_0\left(\sU \right)A$, so one has $\left(f_\sV a \right)A|_{\mathcal U}=\left\{0\right\}$, i.e. the ideal  $A|_{\mathcal U}$ is not essential !!!!!!!!!!.
+	If $\sU$ is not dense then there is an open subset $\sV \subset \sX$ such that $\sU\cap\sV= \emptyset$. There is $a \in A$ such that and $x_0\in \sV$ such that $\rep_{x_0}\left(a\right)\neq 0$. There is a continuous function $f_\sV: \mathcal X \to \left[0,1 \right]$ such that $f_\sV\left(x_0 \right)= 1$ and $f_\sV\left(\mathcal X\setminus\sV \right)= \left\{0\right\}$, and $\rep_{x_0}\left( f_\sV a \right)= \rep_{x_0}\left(  a \right)\neq 0$. So $f_\sV a\neq 0$. Otherwise for all $f \in C_0\left(\sU \right)$ from $f_\sV f= 0$ it follows that $\left(f_\sV a \right)\left(fb\right)= 0$ for all $b \in A$.  On the other hand form the Lemma \ref{ctr_fact_lem} it follows that  $A|_{\mathcal U}$ is the $C^*$-norm closure of $C_0\left(\sU \right)A$, so one has $\left(f_\sV a \right)A|_{\mathcal U}=\left\{0\right\}$, i.e. the ideal  $A|_{\mathcal U}$ is not essential (cf. Definition \ref{essential_defn}).
 \end{proof}
 
 
@@ -15153,7 +15151,7 @@ is not finite.
 \end{lemma}
 
 \begin{proof}
-	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential !!!!!!!!!! ideal $\widetilde I$ which is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_ess_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. It follows that $\widetilde I= \left.\widetilde A\right|_{\widetilde\sX_{\widetilde I}}$.
+	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential ideal $\widetilde I$ (cf. Definition \ref{essential_defn}) which is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_ess_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. It follows that $\widetilde I= \left.\widetilde A\right|_{\widetilde\sX_{\widetilde I}}$.
 	 The set $\widetilde\sX_{\widetilde I}$ is open and dense in $\widetilde\sX$, hence $\widetilde \sU'\bydef \widetilde \sU\cap \widetilde\sX_{\widetilde I}$ is open and it is not empty.
 	 The $C^*$-algebra  $\left.\widetilde A\right|_{\widetilde \sU'}$ is a closed two sided ideal of the continuous trace $C^*$-algebra $\widetilde I$, so from the Proposition  \ref{ctr_hered_prop} it follows that $\left.\widetilde A\right|_{\widetilde \sU'}$  is  a continuous trace $C^*$-algebra. If for  $\widetilde x \in \widetilde \sX$ denote by 
 	$$
@@ -19601,7 +19599,7 @@ then $UV = e^{\frac{2\pi i}{n}}VU$. There is an isomorphism
 C\left( \T^{2}_{\th /n}\right)\otimes \mathbb{M}_n\left(\C \right)\cong  C\left( \T^{2}_{\left(\th+1 \right) /n}\right)\otimes\mathbb{M}_n\left(\C \right),\\
 \widetilde u_1\otimes m \mapsto \widetilde u_2\otimes Um, \quad \widetilde v_1\otimes m \mapsto \widetilde v_2\otimes Vm.
 \eean 
-Although coverings $\phi_1$ and $\phi_2$ are essential !!!!!!!!!!ly different their  stabilizations
+Although coverings $\phi_1$ and $\phi_2$ are essentially different their  stabilizations
 \bean
 \phi_1\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\th /n}\right)\otimes \K,\\
 \phi_2\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\left( \th+1\right) /n}\right)\otimes \K
@@ -20400,7 +20398,7 @@ In the above situation the triple $\left( B, \widetilde B, \Z_k\right)$ is a non
  $$
  \widetilde B= C_0\left(\C_{\left( \widetilde\mu\right)}\right) \rtimes_r \Z\subset C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+ \rtimes_r \Z=  \widetilde C
  $$
- which is a unitization !!!!!!!!!! (cf. Definition \ref{unitization !!!!!!!!!!_defn}). Moreover if
+ which is a unitization !!!!!!!!!! (cf. Definition \ref{unitization_defn}). Moreover if
  \be\label{qg_c_eqn}
  C \bydef \widetilde C^{\Z_k} \bydef \left\{\left.  \widetilde c \in  \widetilde B \right| \forall g \in \Z_k\quad g  \widetilde c = \widetilde c\right\}
  \ee
@@ -20434,7 +20432,7 @@ $
 \exists j \in \{0, ..., k-1\} \quad a =  e^{\frac{2\pi ij}{k}}1_{C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+},
 $, or equivalently $g = \a^j$
 so $G$ uniquely depends on $j$ modulo $k$, so  $G\cong \Z_k$. It follows that  $\left(C, \widetilde{C}, G, \pi_C \right)$ is  %(strong) 
-noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Since both $B$ and $\widetilde B$ are essential !!!!!!!!!! ideals of   $C$ and $\widetilde C$ the quadruple $\left(B, \widetilde{B}, G, \left.\pi_C \right|_B\right)$ is also noncommutative finite-fold pre-covering.
+noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Since both $B$ and $\widetilde B$ are essential  ideals of   $C$ (cf. Definition \ref{essential_defn}) and $\widetilde C$ the quadruple $\left(B, \widetilde{B}, G, \left.\pi_C \right|_B\right)$ is also noncommutative finite-fold pre-covering.
   \end{proof}
 \begin{exercise}
 	Prove that in the above situation the quadruple  $\left(A, \widetilde{A}, \Z_k, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B, \widetilde{B}, \Z_k, \left.\pi_B\right|_B \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
@@ -22620,7 +22618,7 @@ In \cite{bogachev_measure_v2} the space of $C_c\left( \sX\right)$ is denoted by 
 	%\end{prop} 
 	
 %	\begin{empt}
-%		We need the notion of essential !!!!!!!!!! support  functions described in \cite{elliot:an}. For a given Borel measure $\mu$ let $f$ be a Borel-measurable function. Consider the collection $\widetilde{\Om}$ of open subsets $\om$ with the property that $f\left(x \right)=0$ for $\mu$-almost every $x \in \om$ and let the open set $\om^*$ be the union of all $\om$'s in  $\widetilde{\Om}$.
+%		We need the notion of essential  support  functions described in \cite{elliot:an}. For a given Borel measure $\mu$ let $f$ be a Borel-measurable function. Consider the collection $\widetilde{\Om}$ of open subsets $\om$ with the property that $f\left(x \right)=0$ for $\mu$-almost every $x \in \om$ and let the open set $\om^*$ be the union of all $\om$'s in  $\widetilde{\Om}$.
 %	\end{empt}
 %	\begin{defn}\label{essential !!!!!!!!!!_support_defn}
 %	 	The  \textit{essential !!!!!!!!!! support} of $f$ or $\mathfrak{ess~supp}\left( f\right)$ is the complement of $\om^*$. There is the following formula
@@ -22656,18 +22654,18 @@ $
 $
 with product $a^0b^0\bydef \left(ba\right)^0$. If $A$ is a *-algebra then one can define $a^0 \bydef a^*$.
 \end{definition}
-	\begin{definition}\label{essential !!!!!!!!!!_defn}\cite{rae:ctr_morita}
+	\begin{definition}\label{essential_defn}\cite{rae:ctr_morita}
 		% Definition 2.35. 
 		A two sided ideal $I$ in a $C^*$-algebra $A$
-		is essential !!!!!!!!!! if $I$ 
+		is \textit{essential}  if $I$ 
 		has nonzero intersection 
 		with every other nonzero ideal $A$. 
 	\end{definition}
 	Alternatively the essential !!!!!!!!!! ideal can be given by the following lemma.
-	\begin{lemma}\label{essential !!!!!!!!!!_lem}\cite{rae:ctr_morita}
+	\begin{lemma}\label{essential_lem}\cite{rae:ctr_morita}
 		%Lemma 2.36. 
 		An ideal $I$ 
-		is essential !!!!!!!!!! if and only if $aI= \left\{0\right\}$
+		is essential (cf. Definition \ref{essential_defn}) if and only if $aI= \left\{0\right\}$
 		implies $a 
 		=0$.
 	\end{lemma}
@@ -22677,7 +22675,7 @@ with product $a^0b^0\bydef \left(ba\right)^0$. If $A$ is a *-algebra then one ca
 		$$
 		I\bydef \left(\left.f\in A\right| f\left(x\right)= 0 \quad \forall x \in \sX\setminus\sU\right)
 		$$
-		is an essential !!!!!!!!!! ideal in $A$ 
+		is an essential ideal in $A$ 
 		if and only if $\sU$ 
 		is dense 
 		in $\sX$. 
@@ -22693,11 +22691,11 @@ A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if 
 	\begin{lemma}\label{nondegenerate_repr_lem}\cite{matro:hcm}
 		A representation $A\to B\left( \H\right)$ is {nondegenerate} if $\rho\left(A\right)\H$ is dense in $\sH$. 
 	\end{lemma}
-	\begin{defn}\label{unitization !!!!!!!!!!_defn}\cite{rae:ctr_morita}
-		A \textit{unitization !!!!!!!!!!} of a $C^*$-algebra $A$ is  a $C^*$-algebra $B$ with identity and an injective $*$-homomorphism $\iota: A \hookto B$ such that $\iota\left(A\right)$ is an essential !!!!!!!!!! ideal of $B$. 
+	\begin{defn}\label{unitization_defn}\cite{rae:ctr_morita}
+		A \textit{unitization} of a $C^*$-algebra $A$ is  a $C^*$-algebra $B$ with identity and an injective $*$-homomorphism $\iota: A \hookto B$ such that $\iota\left(A\right)$ is an essential ideal of $B$ . 
 	\end{defn}
 	
-	\begin{example}\label{unitization !!!!!!!!!!_exm}
+	\begin{example}\label{unitization_exm}
 		Suppose $A$ is  $C^*$-algebra which has no identity. Then $A^+ = A \oplus \C$
 		is a *-algebra with 
 	\be\label{a_plus_eqn}
@@ -22707,13 +22705,13 @@ A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if 
 		$$
 		\left\|a \oplus 0 \right\|_{A^+}=\left\|a \oplus 0 \right\|_{A}
 		$$
-		where $\left\|\cdot \right\|_{A}$ is the $C^*$-norm on $A$. Thus $A^+$ is an unital $C^*$-algebra, and the natural map $A\hookto A^+$ is a unitization !!!!!!!!!!.
+		where $\left\|\cdot \right\|_{A}$ is the $C^*$-norm on $A$. Thus $A^+$ is an unital $C^*$-algebra, and the natural map $A\hookto A^+$ is a unitization.
 	\end{example}
 	\begin{definition}\label{multiplier_min_defn}
-		Let $A$ be a $C^*$-algebra. The described in the Example \ref{unitization !!!!!!!!!!_exm} unitization !!!!!!!!!!   $\iota: A \hookto B$  is called \textit{minimal}.
+		Let $A$ be a $C^*$-algebra. The described in the Example \ref{unitization_exm} unitization !!!!!!!!!!   $\iota: A \hookto B$  is called \textit{minimal}.
 	\end{definition}
 	\begin{definition}\label{multiplier_max_defn}\cite{rae:ctr_morita}
-		A unitization !!!!!!!!!!   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential !!!!!!!!!! ideal of a $C^*$-algebra there is a $*$-homomorphism $\phi: C\to B$ such that $\phi \circ j = \iota$. 
+		A unitization !!!!!!!!!!   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential ideal of a $C^*$-algebra there is a $*$-homomorphism $\phi: C\to B$ such that $\phi \circ j = \iota$. 
 	\end{definition}
 	
 	\begin{rem}\label{multiplier_rem}
