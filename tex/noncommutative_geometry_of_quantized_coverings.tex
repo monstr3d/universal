@@ -1364,7 +1364,21 @@ If $ \A$ is  category then a related to $ \A$ construction is said to be \textit
 %\end{empt}
 
 
-
+\begin{empt}\label{lift_mult_empt}
+Let $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras, and let $\left\{u_\a\right\}_{\a \in \mathscr A}\subset A$ be an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}). Suppose  that
+$$
+\forall \widetilde a \in \widetilde A \quad \Rightarrow \quad \lim_{\a \in \mathscr A}\left\| \widetilde a - \pi\left( u_\a\right)  \widetilde a \pi\left( u_\a\right)\right\| = 0,
+$$
+i.e. $\bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a\right)= 1_{M\left( \widetilde A\right)}$.
+Then there  is an injective *-homomorphism 
+\be\label{lift_mult_eqn}
+\begin{split}
+M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
+a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a\right) \pi\left( a\right) \pi\left( u_\a\right)
+\end{split}
+\ee
+where $\bt\text{-}\lim_{\a \in \mathscr A}$ means the limit with respect to the strict topology  of $M\left( \widetilde A\right)$ (cf. Definition \ref{strict_topology_defn}).
+\end{empt}
 
 \chapter{Noncommutative finite-fold coverings}\label{cov_fin_chap}
    \section{Basic definitions}\label{cov_fin_bas_sec}
@@ -12652,6 +12666,31 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 \end{remark}
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
+\subsection{Axiomatic approach}
+\paragraph{}
+
+If $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras, which satisfies to conditions \ref{lift_mult_empt} then there is s an injective *-homomorphism 
+$$
+	M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
+	a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a\right) \pi\left( a\right) \pi\left( u_\a\right)
+$$
+given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ are blowing ups then there are natural inclusions  $C_b\left( \sY\right) \subset M\left( A\right)$ and $C_b\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ Suppose that 
+\begin{itemize}
+	\item $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$,
+	\item there is a transitive covering $q:  \widetilde \sY \to \sY$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
+\item  the covering transformation  group $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).
+\end{itemize}
+If $\widetilde \sU \subset \widetilde \sY$ which is mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sU$ then we suppose that there is $*$-isomorphism
+\be
+\begin{split}
+\pi_{\widetilde{\sU}} : ~_\sU A_\sU \hookto ~_{\widetilde \sU} \widetilde A_{\widetilde \sU},\\
+a \mapsto \lim_{\a \in \mathscr A} \widetilde u_\a \pi\left(a \right) \widetilde u_\a
+\end{split}
+\ee
+where the notation \eqref{blowing_sue3_eqn} is used, the $C^*$-norm limit is implied and $\left\{\widetilde u_\a\right\}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$. 
+
+We say that $A_0\left( \widetilde \sY\right)$ is a $q$-\textit{lift} of $A$.
+\subsection{Constructive approach}
 \begin{empt}\label{blowing_lift_empt}
 	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\G^0 \right)$-valued product
 	\bean
@@ -12681,7 +12720,7 @@ In the situation \ref{blowing_lift_empt} we say that the covering $q: \widetilde
 \ee
 	then the homomorphism $\varphi_C$ yields Hausdorff blowing-up $C_0\left( \widetilde \sY\right)\hookto M\left( A_0\left( \widetilde \sY\right)\right) $. 
 \end{enumerate}
-We say that $A_0\left( \widetilde \sY\right)$ is a $q$-\textit{lift} of $A$.
+
 \end{definition}
 \begin{remark}
 If we consider the Definition \ref{blowing_lift_defn} then one has:
