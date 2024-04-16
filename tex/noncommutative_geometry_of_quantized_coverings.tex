@@ -4039,7 +4039,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \end{remark}
   Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras (cf. Definition \ref{inductive_lim_non_defn}), and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
  \left.  A_\la~ \right|A\right)$ be the inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).
-  \begin{definition}\label{subordinated_defn}
+   \begin{definition}\label{subordinated_defn}
  	Consider the above situation.  We say that a $C^*$-algebra $\overline A$ is \textit{weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold.
  	\begin{enumerate}
  		\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
@@ -4054,7 +4054,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		
 	\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset \overline A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
  	\be\label{a_la_eqn}
- 	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
+ 	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in \phi\circ \varphi_\la\left( A_\la\right) 	
  	\ee
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
  		\item[(d)] One has
@@ -4174,6 +4174,35 @@ Using the triangle inequality one has
 \eean
 i.e. a net $\left\lbrace \varphi \left( u_\a  \widehat a\right)\overline a\right\rbrace$ is $C^*$-norm convergent. Similarly one can prove that a net $\left\lbrace \overline a\varphi \left( u_\a  \widehat a\right)\right\rbrace$ $C^*$-norm convergent, so a net $\left\{\varphi\left(u_\a \widehat a\right) \right\}$ is convergent with respect to the strict topology of $M\left( \overline{A}\right)$.
 \end{proof}
+
+\begin{lemma}\label{subordinated_lem}
+	Consider the Definition \ref{subordinated_defn}. If $\overline{\A}= K\left( \overline A\right)$ then from the  equation \eqref{a_la_eqn} of the Definition \ref{subordinated_defn} it follows that
+	\be\label{a_lak_eqn}
+	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
+	\ee
+\end{lemma}
+\begin{proof}
+	If $\overline a \in K\left( \overline A\right)_0$ then from the Lemma \ref{pedersen_eps_lem} it follows that there is   $\overline b \in \overline A$ and $\eps > 0$ such that  $\overline a f_\eps\left( \overline b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. If $\overline c \bydef f_{\eps/2}\left( \overline b\right)$ then  $\overline a = f_{\eps/2}\left( \overline c\right)$. Let denote
+	\bean
+	c_\la \bydef \bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline c 
+	\eean
+	and let us prove that $a_\la \le f_{\eps/2}\left( c_\la\right)$. If we consider a faithful representation then $\overline A \to B\left( \overline \xi\right)$ then for any $\overline \xi \in \overline \H$ such that $\left\| \overline \xi\right\|= 1$ one has
+	\bea\label{subordinated_1_eqn}
+	\left(\overline \xi, f_{\eps/2}\left( \overline c\right)\overline \xi \right) = \max\left(0,  \left(\overline \xi, \overline c\overline \xi \right)- \frac{\eps}{2} \right),\\\label{subordinated_2_eqn}
+	\left(\overline \xi, c_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \left(\overline \xi,\left(  g \overline c\right) \overline \xi \right),\\
+	\label{subordinated_3_eqn} \left(\overline \xi, a_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right) 
+	\eea
+	From 
+	\bean
+	\max\left(0, \sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)\ge \\\ge\sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)
+	\eean
+	and taking into account \eqref{subordinated_1_eqn}-\eqref{subordinated_3_eqn} one has
+	$$
+	\left(\overline \xi, a_\la \overline \xi \right)\le \left(\overline \xi, f_{\eps/2}\left( \overline c\right) \overline \xi \right)
+	$$
+	So $a_\la \le f_{\eps/2}\left( c_\la\right)$ and taking into account $f_{\eps/2}\left(c_\la\right)\in K\left(A_\la \right)_0$ we conclude that $a_\la\in K\left(A_\la \right)$. Using the Definition \ref{pedersens_ideal_defn} one can prove this Lemma for all $\overline a \in K\left( \overline A\right)$.
+\end{proof}
+
 
 
  \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
@@ -10887,7 +10916,7 @@ The equation \eqref{top_one_mm_eqn} can be regarded as a specialization of \eqre
 If $ \left(C_0\left(\sX\right), \overline{A}, G\left(\left.\overline{A}~\right| C_0\left(\sX\right)\right)\right)$ is a disconnected infinite noncommutative covering of $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$ (cf. Definition  \ref{disconnected_infinite_noncommutative_covering_defn}) then has $\overline{A}= C_0\left( \overline{\sX}\right)$.
 \end{lemma}
 \begin{proof}
-	From the Lemma \ref{top_is_subord_lem} it follows that $C_0\left( \overline{\sX}\right)$ is subordinated to  $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$, i.e. $C_0\left( \overline{\sX}\right)\subset \overline{A}$. If $\overline a \in K\left( \overline A\right)_+$ is a positive element  then from the Lemma \ref{top_atomic_lem} it follows that $\overline a$ is uniquely defined by an element of $D^*\left( \overline \sX\right)$ (cf. Notation \ref{top_discontinuous_not}). From the condition (c) of the Definition  \ref{subordinated_defn} and the Lemmas \ref{infinite_faithful_nondegererate_lem}, \ref{top_disc_p_lem} it follows that $\overline a$ corresponds to an element of $C_c\left( \overline \sX\right)$,
+	From the Lemma \ref{top_is_subord_lem} it follows that $C_0\left( \overline{\sX}\right)$ is subordinated to  $	\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$, i.e. $C_0\left( \overline{\sX}\right)\subset \overline{A}$. If $\overline a \in K\left( \overline A\right)_+$ is a positive element  then from the Lemma \ref{top_atomic_lem} it follows that $\overline a$ is uniquely defined by an element of $D^*\left( \overline \sX\right)$ (cf. Notation \ref{top_discontinuous_not}). From the condition (c) of the Definition  \ref{subordinated_defn} and the Lemmas \ref{subordinated_lem}, \ref{infinite_faithful_nondegererate_lem}, \ref{top_disc_p_lem} it follows that $\overline a$ corresponds to an element of $C_c\left( \overline \sX\right)$,
  so $\overline A\subset C_0\left(  \overline \sX\right)$.
 \end{proof}
 
