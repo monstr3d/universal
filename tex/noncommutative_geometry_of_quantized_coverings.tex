@@ -12286,20 +12286,59 @@ From \eqref{blowing_su_eqn} it follows that
 \sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A ~\text{ AND } ~A_{\sU'}\subset A_{\sU''}~\text{ AND }~  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
 \ee
 \end{empt}
-\begin{definition}\label{blowing_source_supp_defn}
+\begin{definition}\label{blowing_support_defn} 
+	If $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$ then for any $a \in A$ we say that the closure of the intersection
+	\be
+	\bigcup_{a \in ~_\sU A_\sU} \sU
+	\ee
+	is said to be a \textit{support} of $a$. We denote it by $\supp a$.
+\end{definition}
+
+
+\begin{definition}\label{blowing_source_supp_defn}   !!!\ref{blowing_support_defn} !!!
 If $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$ then for any $a \in A$ we say that the closure of the intersection
 \be
-\bigcup_{a \in A_\sU} \sU
+\bigcup_{a \in ~_\sU A_\sU} \sU
 \ee
 is said to be a \textit{source}-\textit{support} of $a$. We denote it by $s$-$\supp a$. Similarly we define the  \textit{range}-\textit{support} denoted by $s$-$\supp a$.
 \end{definition}
 \begin{definition}\label{blowing_compact_defn}
-	Let $A$ be a $C^*$-algebra, end let $K\left( A\right)$ be Pedersen's ideal of $A$ (cf. Definition \ref{pedersens_ideal_defn})
- A  Hausdorff blowing-up $\varphi: C_0\left( \sY\right)\hookto M\left( A\right)$ of $A$ is \textit{compact} if a {source}-{support} (cf. Definition \ref{blowing_source_supp_defn}) of any $a \in K\left(A \right)$ is compact. 
+	 Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is \text{compact} if for any $a \in A$ and $\eps > 0$ there is  $b \in A$  such that
+	 \begin{enumerate}
+	 	\item [(a)] $\left\|a-b \right\| < \eps$,
+	 	\item[(b)] the support $\supp b$ (cf. Definition \ref{blowing_support_defn}) of $b$ is compact.
+	 \end{enumerate}
 \end{definition}
-\begin{remark}
-If 	Hausdorff blowing-up $\varphi: C_0\left( \sY\right)\hookto M\left( A\right)$ of $A$ is {compact} then from \eqref{blowing_sue2_eqn} it follows that a {range}-{support} of any $a \in K\left(A \right)$ is compact.
-\end{remark}
+
+
+\begin{lemma}\label{blowing_compact_lem}
+If Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact}  then and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
+\end{lemma}
+\begin{proof}
+If $a \in K\left(A\right)_0$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand since $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact} (cf. Definition \ref{blowing_compact_defn}) there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact.
+ If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  representation (cf. Definition \ref{faithful_repr_defn}) then there is $\xi \in \H$ such that
+\bean\label{blowing_ac_eqn}
+\forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
+\eean
+From $\left\|c - b \right\|  < \eps/2$ if follows that
+\be\label{blowing_acc_eqn}
+\forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
+\ee
+On the other hand from $f_\eps \left( b\right)> 0$ it follows that there is $\xi \in \H$ and $\la \in \R_+$ such that
+\bean
+\left\| \xi \right\| = 1,\\
+\rho\left(b \right)\xi = \left( \la+\eps \right) \xi,\\
+\rho\left(a \right)\xi = \la  \xi,\\
+\left( \xi, \rho\left( b \right) \xi\right) - \left( \xi, \rho\left( a \right) \xi\right)= \eps
+\eean
+and taking into account \eqref{blowing_acc_eqn} one has
+$$
+\left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
+$$
+Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$. From $c \in  C_c\left(\G , \sigma \right)$ and the Theorem  \ref{top_compact_img_thm} it follows that the set $s\left(\supp c\right)$ is compact. Otherwise $s\left(\supp c\right)$ equals to the source-support of $c$ (cf. Definition \ref{blowing_source_supp_defn}   !!!\ref{blowing_support_defn} !!!
+
+!!! CHECK !!!
+\end{proof}
 
 \begin{empt}\label{blowing_strict_empt} 
 	Suppose that $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sU\right)}$ where $\Xi\left( \sU\right)$ is given by the Exercise \ref{top_u_net_exer} net and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
@@ -12714,9 +12753,9 @@ where $\End_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the al
 In the situation \ref{blowing_lift_empt} we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\textit{regular} if one has:
 \begin{enumerate}
 	\item [(a)] $\varphi_A\left(A \right) \subset \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$  and $\varphi_C\left(C_0 \left(\widetilde \sY \right) \right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ where $ \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable operators (cf. Definition \ref{adjointable_operator_defn}),
-	\item[(b)] If $A_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is a $C^*$-subalgebra generated by products
+	\item[(b)] If $A_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is a $C^*$-subalgebra generated by following operators
 \be\label{blowing_prods_eqn}
-\varphi_C\left( \widetilde f\right) \varphi_A\left(a \right),  	\quad \widetilde f\in C_0 \left(\widetilde \sY \right), \quad a \in A
+ \varphi_C\left( \widetilde f'\right)\left( \varphi_C\left( \widetilde f''\right) \varphi_A\left(a \right)\right)^* ,  	\quad \widetilde f',\widetilde f''\in C_c \left(\widetilde \sY \right), \quad a \in A
 \ee
 	then the homomorphism $\varphi_C$ yields Hausdorff blowing-up $C_0\left( \widetilde \sY\right)\hookto M\left( A_0\left( \widetilde \sY\right)\right) $. 
 \end{enumerate}
@@ -16877,10 +16916,10 @@ From the Lemma \ref{groupoid_mult_repr_lem} it follows that there is a natural H
 C_0\left(\G^0 \right)\hookto M\left( C^*_\rho\left(\G , \sigma \right)\right)  
 \ee
 \end{remark}
-\begin{lemma}
+\begin{lemma} !!!~ DELETE !!!
 The given by \ref{groupoid_blowing_eqn} Hausdorff blowing-up is compact (cf. Definition \ref{blowing_compact_defn})
 \end{lemma}
-\begin{proof}
+\begin{proof}!!!~ DELETE !!!
 If $a \in K_0\left(C^*_\rho\left(\G , \sigma \right)\right)$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in C^*_\rho\left(\G , \sigma \right)_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand since $C_c\left(\G , \sigma \right)$ is dense in $C^*_\rho\left(\G , \sigma \right)$ there is a positive element  $c \in C_c\left(\G , \sigma \right)$  such that $\left\|c - b \right\|  < \eps/2$. If $a \le c$ does not hold and $\rho: C^*_\rho\left(\G , \sigma \right) \hookto B\left(\H \right)$ is a natural  representation then there is $\xi \in \H$ such that
 \bean\label{groupoid_ac_eqn}
 \forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
@@ -16900,7 +16939,7 @@ and taking into account \eqref{groupoid_acc_eqn} one has
 $$
 \left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
 $$
-Above condition contradicts with \eqref{groupoid_ac_eqn} so $a \le c$. From $c \in  C_c\left(\G , \sigma \right)$ and the Theorem  \ref{top_compact_img_thm} it follows that the set $s\left(\supp c\right)$ is compact. Otherwise $s\left(\supp c\right)$ equals to the source-support of $c$ (cf. Definition \ref{blowing_source_supp_defn}
+Above condition contradicts with \eqref{groupoid_ac_eqn} so $a \le c$. From $c \in  C_c\left(\G , \sigma \right)$ and the Theorem  \ref{top_compact_img_thm} it follows that the set $s\left(\supp c\right)$ is compact. Otherwise $s\left(\supp c\right)$ equals to the source-support of $c$ (cf. Definition \ref{blowing_source_supp_defn}   !!!\ref{blowing_support_defn} !!!
 
 \end{proof}	
 \begin{empt}\label{groupoid_cov_empt}
