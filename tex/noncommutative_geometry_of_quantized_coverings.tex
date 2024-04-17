@@ -1687,7 +1687,7 @@ g\left(\widetilde b \widetilde a \right)=\lim v_\la g\left(  \widetilde b\wideti
 \begin{proof} 
 	(i)
 	From the Lemma \ref{quasi_approximate_unit_lem}  and the Proposition \ref{mult_str_pos_prop} it turns out that $\pi$ extends to the inclusion
-	\be\label{mult_map}
+	\be\label{mult_map_eqn}
 M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 	\ee\\
 	(ii) If  $a \in M\left(A \right)$ then there is a net $\left\{a_\la\right\}\bydef\left\{v_\la a\right\}\subset A$ such that $a =\bt$-$\lim a_\la$ with respect to the strict topology of $M\left({A} \right)$ (cf Definition \ref{strict_topology_defn}).	From \eqref{gma_act_eqn} it follows that
@@ -1821,6 +1821,9 @@ We say that  $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{connected} if $
 \end{definition}
 \begin{remark}
 	The Definition \ref{fin_defn} is motivated by the Theorem \ref{top_fin_thm}.
+\end{remark}
+\begin{remark}
+Roughly speaking the Definition \ref{fin_defn} is an approximation of any covering by coverings with compact spaces.
 \end{remark}
 
 \begin{lemma}\label{fin_def_lem}
@@ -5849,7 +5852,7 @@ where $\mathscr A$ is a finite set.
 	\end{split}
 	\ee
 	We also write
-	\be\label{top_aln_eqn}
+	\be\label{top_finite_covering_basis_eqn}
 	\begin{split}
 		\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\a  \in \widetilde{\mathscr A}}= \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sX \right)_+ ,\\
 		1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{j=1 }^n\widetilde{e}^2_{\widetilde{j}},\\
@@ -5883,7 +5886,7 @@ From the above construction it follows that for any compact subset $\sY\subset\s
 \paragraph*{}
 The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering".
 \begin{definition}\label{top_transitive_defn}
-	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
+	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_group_of_covering_transformations_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
 	\be\label{top_transitive_eqn}
 	\forall \widetilde x \in \widetilde\sX \quad	G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)\widetilde x = p^{-1}\left( p\left( \widetilde x\right) \right).
 	\ee
@@ -5891,6 +5894,25 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 \begin{remark}
 	From the Theorem \ref{top_cov_fact_thm} and the Lemma \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
 \end{remark}
+\begin{lemma}\label{top_compact_preimage_lem}
+	If $p: \widetilde \sX\to \sX$ is a finite-fold covering, 
+	and a set $\sY \subset \sX$ is compact then the preimage $p^{-1}\left(\sY \right)$ is also compact. 
+\end{lemma}
+\begin{proof}
+For any $x \in \sY$ we select an open neighborhood $\sU_x$ with compact closure which is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). From the Corollary \ref{com_a_u_cor}	it follows that there are $\mathcal W_x \subset \sV_x \subset \sU_x$ such that $\mathcal W_x$ is an open neighborhood of $x$ and the set $\subset \sV_x$ is closed. The set $\sV_x$ is compact because it is a subset of the compact closure of $\sU_x$. There is $\left\{x_1, ..., x_n\right\}$ such that $\sY \subset \mathcal W_{x_1}\cup ...\cup \mathcal W_{x_n}\subset \mathcal V_{x_1}\cup ...\cup \mathcal V_{x_n}$. For any $j = 1,..., n$ the set $p^{-1}\left(\sV_j \right)$ is a finite disjoint union of homeomorphic  $\sV_{x_j}$ sets. So $p^{-1}\left(\sV_j \right)$ is compact since $\sV_{x_j}$ is compact. The finite union $\bigcup_{j=1}^n p^{-1}\left(\sV_{x_j} \right)$ of compact sets is compact. From $p^{-1}\left( \sY \right) \subset \bigcup_{j=1}^n p^{-1}\left(\sV_{x_j} \right)$ and taking into account that $p^{-1}\left( \sY \right)$ is closed we conclude that  $p^{-1}\left( \sY \right)$ is compact.
+
+\end{proof}
+\begin{corollary}\label{top_compact_cc_c0_lem}
+If $p: \widetilde \sX\to \sX$ is a finite-fold covering then there are natural injective $*$-homomorphisms:
+\bea\label{top_compact_cc_eqn}
+C_c\left( p\right) : C_c\left(  \sX\right) \hookto \C_c\left( \widetilde \sX\right),\\
+\label{top_compact_cc_c0_eqn}
+C_0\left( p\right) : C_0\left(  \sX\right) \hookto \C_0\left( \widetilde \sX\right).
+\eea
+\end{corollary}
+\begin{proof}
+	If $f \in C_c\left(\sX \right)$ then we define  $C_c\left( p\right)\left(f\right)\left(\widetilde x \right) \bydef f\circ p\left(\widetilde{x}\right)$. Since the map $p$ is continuous the map $C_c\left( p\right)\left(f\right)$ is a continuous map from  $\widetilde \sX$ to $\C$. From then Lemma \ref{top_compact_preimage_lem} it follows that $C_c\left( p\right)\left(f\right)\in C_c\left( \widetilde \sX\right)$. It is clear that $C_c\left( p\right)$ is injective $*$-homomorphism. The equation \eqref{top_compact_cc_c0_eqn} follows from \eqref{top_compact_cc_eqn} and the Definition \ref{c_c_def_1}, i.e. $C_0\left( p\right)$ can be obtained from $C_c\left( p\right)$ by topological completion.
+\end{proof}
 
 \begin{lemma}\label{top_trans_tp_cov_lem}
 	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
@@ -6078,7 +6100,12 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 	$$
 	So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.	
 \end{proof}
-
+\begin{corollary}\label{top_compact_union_cor}
+	If $\sX$ is a locally compact, locally connected, Hausdorff space than any compact subset of $\sX$ is a subset of connected compact subset of $\sX$.
+\end{corollary}
+\begin{proof}
+If $\sV$ is a compact set and $\left\{\sU_\la\right\}_{\la\in\La}$ is given by the Corollary \ref{top_connected_union_cor} then from $\sV \subset\sX= \bigcup_{\la\in \La}\sU_\la$ it follows that there is a finite subset $\left\{\la_1, ..., \la_n\right\}\subset \La$ such that $\sV \subset\sX= \bigcup^n_{j =1}\sU_{\la_j}$. The set $\La$ is directed so there is $\la\in\La$ such that $\la \ge \la_j$ for all $j = 1,...,n$. If follows that $\sV \subset \sU_\la$. According to the Corollary the closure $\mathcal W$ if $\sU_\la$ is compact. From the Theorem \ref{top_connected_closure_thm} it follows that the set $\mathcal W$ is connected.
+\end{proof}
 \begin{empt}\label{top_lconn_part}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
 	\begin{itemize}
@@ -6379,7 +6406,7 @@ From our construction it follows that $\mathfrak{FinCov}$-$\sX$ objects can be i
 \end{proof}
 
 \begin{lemma}\label{top_compact_lem}
-	Let $\sX$ be  a connected, locally connected space. Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there are both a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+	Let $\sX$ be  a connected, locally connected space. Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there are both a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
 	\begin{itemize}
 		\item $p = \widetilde p \circ \overline p$,
 		\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
@@ -6448,7 +6475,7 @@ The index   $\left( G\left(\left.\overline\sX\right| \sX  \right) : H_{jk} \righ
 	$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
 \end{proof}
 \begin{corollary}\label{top_compact_cor}
-	Let $\sX$ be  a connected, locally connected space. Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there is a covering sum $\overline f \in C_c\left( \overline \sX \right)$ (cf. Definition \ref{top_covering_sum_defn})  and   there are both a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+	Let $\sX$ be  a connected, locally connected space. Let $p: \overline \sX \to \sX$ be a transitive covering, such that the  group of covering transformations $G\left(\left.\overline\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  For any compact subset  $\overline \sY \subset \overline \sX$ there is a covering sum $\overline f \in C_c\left( \overline \sX \right)$ (cf. Definition \ref{top_covering_sum_defn})  and   there are both a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
 	\begin{itemize}
 		\item $p = \widetilde p \circ \overline p$,
 		\item the set $\supp \overline f$ is homeomorphically mapped onto $\overline p \left( \supp \overline f\right)$.
@@ -6625,7 +6652,7 @@ Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected,
 $$
 \pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
 $$
-where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}). 
+where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_group_of_covering_transformations_defn}). 
 
 \end{exercise}
 \begin{lemma}\label{top_lex_square_lem}
@@ -7339,7 +7366,7 @@ The following Lemma is evident.
 	\ee
 \end{lemma}
 \begin{proof}
-	If $a \in C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then $\supp a$ is compact. Since $p$ is a finite-fold covering $\supp \lift_p\left( a\right)= p^{-1}\left( \supp a\right) \subset \widetilde{\sX}$ is compact, hence $\lift_p\left( a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \sF \right)$. For any $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a net $\left\{a_\a\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right\}_{\a \in \mathscr A}$ such that there is a norm limit $\lim_{\a}a_\a = a$. Otherwise for any $\al, \bt\in \mathscr A$ one has $\left\|a_\a - a_\bt\right\|= \left\|\lift_p\left( a_\a\right)  - \lift_p\left( a_\bt\right) \right\|$ it follows that the net $\left\{\lift_p\left( a_\a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde\sF \right)\right\}$ is convergent and $\lim_{\a} \lift_p\left( a_\a\right) = \lift_p\left( a\right)$.
+	If $a \in C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then $\supp a$ is compact. Since $p$ is a finite-fold covering $\supp \lift_p\left( a\right)= p^{-1}\left( \supp a\right) \subset \widetilde{\sX}$ is compact (cf. Lemma \ref{top_compact_preimage_lem}), hence $\lift_p\left( a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \sF \right)$. For any $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a net $\left\{a_\a\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right\}_{\a \in \mathscr A}$ such that there is a norm limit $\lim_{\a}a_\a = a$. Otherwise for any $\al, \bt\in \mathscr A$ one has $\left\|a_\a - a_\bt\right\|= \left\|\lift_p\left( a_\a\right)  - \lift_p\left( a_\bt\right) \right\|$ it follows that the net $\left\{\lift_p\left( a_\a\right)\in C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde\sF \right)\right\}$ is convergent and $\lim_{\a} \lift_p\left( a_\a\right) = \lift_p\left( a\right)$.
 \end{proof}
 
 \begin{remark}\label{top_compact_c0_rem}
@@ -7516,7 +7543,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 	\end{equation}	
 \end{remark}
 \begin{defn}\label{top_compactly_supported_descent_defn}
-	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group of  group of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group of  group of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
 Lemma \ref{top_compact_lem}	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
 \be\label{top_desc_compact_eqn}
 \desc^c_p\left(\widetilde a \right) \bydef \sum_{	g \in G\left( \left. \widetilde \sX'\right| \sX\right) } g \desc_{\widetilde p'} \left(\widetilde a \right)\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)
@@ -8338,7 +8365,7 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 	\be\label{ctr_pic0_eqn}
 	\pi^1_2=\mathscr C_0\left(p^2_1 \right).
 	\ee
-	(b) If $g_j \in G_j$ then from (a) of this lemma it follows that there is a covering $q_j : \widetilde{\sX}_j \to \widetilde{\sX}_j$ such that $q_j = p_j \circ q_j$ and $\mathscr C_0\left(q_j \right) = g$. From the Definition  \ref{top_covering_transformations_group_defn} it turns out that $q_j \in  G\left(\left.\widetilde \sX_j~\right|\sX \right)$ and one has the isomorphism
+	(b) If $g_j \in G_j$ then from (a) of this lemma it follows that there is a covering $q_j : \widetilde{\sX}_j \to \widetilde{\sX}_j$ such that $q_j = p_j \circ q_j$ and $\mathscr C_0\left(q_j \right) = g$. From the Definition  \ref{top_group_of_covering_transformations_defn} it turns out that $q_j \in  G\left(\left.\widetilde \sX_j~\right|\sX \right)$ and one has the isomorphism
 	\bean
 	G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right),\\
 	g_j \mapsto q_j.
@@ -9466,7 +9493,7 @@ G = \left\{ \left.g \in \Aut\left(C_0\left(\widetilde{   \mathcal X }\right) \ri
 is finite.
 \item[(b)] A $*$-isomorphism 	$C_0\left({   \mathcal X }\right) \cong C_0\left(\widetilde{   \mathcal X }\right)^G$ follows from the natural homeomorphism $\sX \cong \widetilde\sX/G$.
 \end{enumerate}
-If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{top_strictly_proper_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $C_0\left( \sU_\la\right)\subset C_0\left( \sX\right)$ is $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} C_0\left(\sU_\la \right)$ is dense in $C_0\left(\sX \right)$.  If $a \in C_0\left(\sX \right)$ and $\eps > 0$ then from the Definition \ref{c_c_def_2} it follows that there is a compact set $\sY \subset \sX$ such that $\forall  x \in \sX \setminus\sY \quad \Rightarrow\quad \left|a\left(x\right)\right| < \varepsilon$. If $f$ is a covering sum of $\sY$ (cf. Definition \ref{top_covering_sum_defn}) then one has $\left\|a -fa\right\| < \varepsilon$. On the other hand the set $\supp f$ is compact, so from $\cup \sU_\la = \sX$ it follows that there is $\la_0\in \La$ such that $\supp f \subset \sU_{{\la_0}}$. From $\supp fa \subset \supp f$ it follows that $fa \in C_0\left(\sU_{{\la_0}} \right)$.  
+If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets with compact closure then from the Lemma \ref{top_strictly_proper_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $C_0\left( \sU_\la\right)\subset C_0\left( \sX\right)$ is $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} C_0\left(\sU_\la \right)$ is dense in $C_0\left(\sX \right)$.  If $a \in C_0\left(\sX \right)$ and $\eps > 0$ then from the Definition \ref{c_c_def_2} it follows that there is a compact set $\sY \subset \sX$ such that $\forall  x \in \sX \setminus\sY \quad \Rightarrow\quad \left|a\left(x\right)\right| < \varepsilon$. If $f$ is a covering sum of $\sY$ (cf. Definition \ref{top_covering_sum_defn}) then one has $\left\|a -fa\right\| < \varepsilon$. On the other hand the set $\supp f$ is compact, so from $\cup \sU_\la = \sX$ it follows that there is $\la_0\in \La$ such that $\supp f \subset \sU_{{\la_0}}$. From $\supp fa \subset \supp f$ it follows that $fa \in C_0\left(\sU_{{\la_0}} \right)$.  
 \end{proof}
 \begin{corollary}
 	If $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space then the $C^*$-algebra $C_0\left(\sX \right)$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
@@ -11943,7 +11970,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 
 \subsection{Coverings of spectral triples}
 
-\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S, \mu\right) ,\slashed D, J\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $\widetilde p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem}   it turns out that there is a pointed (topological)  finite covering category 
+\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S, \mu\right) ,\slashed D, J\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $\widetilde p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem}   it turns out that there is a pointed (topological)  finite covering category 
 \be\label{top_m_cat_eqn}
 \mathfrak{S}_{\left(M, x_0\right)} = \left\{p_\la:\left(  M_\la, x^\la_0 \right) \to \left( M,{x_0}\right) \right\}
 \ee
@@ -12295,23 +12322,56 @@ From \eqref{blowing_su_eqn} it follows that
 \end{definition}
 
 
-\begin{definition}\label{blowing_source_supp_defn}   !!!\ref{blowing_support_defn} !!!
+\begin{definition}\label{blowing_source_supp_defn}   !
 If $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$ then for any $a \in A$ we say that the closure of the intersection
 \be
-\bigcup_{a \in ~_\sU A_\sU} \sU
+\bigcup_{a \in ~A_\sU} \sU
 \ee
-is said to be a \textit{source}-\textit{support} of $a$. We denote it by $s$-$\supp a$. Similarly we define the  \textit{range}-\textit{support} denoted by $s$-$\supp a$.
+is said to be a \textit{source}-\textit{support} of $a$. We denote it by $s$-$\supp$. Similarly we define the  \textit{range}-\textit{support} denoted by $s$-$\supp a$.
 \end{definition}
 \begin{definition}\label{blowing_compact_defn}
 	 Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is \text{compact} if for any $a \in A$ and $\eps > 0$ there is  $b \in A$  such that
 	 \begin{enumerate}
 	 	\item [(a)] $\left\|a-b \right\| < \eps$,
-	 	\item[(b)] the support $\supp b$ (cf. Definition \ref{blowing_support_defn}) of $b$ is compact.
+	 	\item[(b)] the source-support $\supp b$ (cf. Definition \ref{blowing_support_defn}) of $b$ is compact.
 	 \end{enumerate}
 \end{definition}
-
-
 \begin{lemma}\label{blowing_compact_lem}
+	If Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact} if and only if  for any $a\in A$ and $\eps > 0$ there are an open set and $b \in ~_\sU A_\sU$ such that
+		 \begin{enumerate}
+		\item [(a)] $\left\|a-b \right\| < \eps$,
+		\item[(b)] the closure of $\sU$ is compact.
+	\end{enumerate}
+	Let $\sU_1 \subset \sY$ and $b \in A_{\sU_1}$ be such that 
+			 \begin{itemize}
+		\item [(a)] $\left\|a-c \right\| < \eps/4$,
+		\item[(b)] the closure $\sV_1$ of $\sU_1$ is compact.
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+If $b$ satisfies to the $b \in ~_\sU A_\sU$ satisfies to the conditions (a), (b) then $b \in A_\sU$.
+
+	If $f_1 \in C_c\left(\sY\right)$ is a covering sum for  $\sV_1$ (cf. Definition \ref{top_covering_sum_defn}) then $bf_1 = b$, and from $\left\|f \right\|=1$ it follows that $	\left\|\left( a-b\right)  f_1 \right\|< \eps$. 	Taking into account  $\left\|f \right\|=1$ and the triangle inequality one has
+\be\label{blowing_compact_1_eqn}
+	\left\|a-a f_1 \right\|\le \left\|\left( a-c\right) f_1 \right\|+ \left\|c - cf_1 \right\|+ \left\|a-c \right\| < \frac{\eps}{2}.
+\ee
+	Similarly one can proof that there is $f_2 \in C_c\left(\sY \right)$ such that
+		$$
+		\left\|\left( af_1\right)^* -\left( af_1\right)^*f^*_2 \right\| = 	\left\|f_2 a f_1 -a f_1\right\|< \frac{\eps}{2}
+	$$
+	and taking into account \eqref{blowing_compact_1_eqn} one has
+	$$
+\left\|a - f_2 a f_1\right\|<\eps.	
+	$$
+	If $\sU' \bydef \left\{y \in \sY| f_1\left(y \right) > 0 \right\}$ and $\sU'' \bydef \left\{y \in \sY| f_2\left(y \right) > 0 \right\}$ and $\sU \bydef \sU'\cup \sU''$.
+	$$
+ f_2 a f_1 \in ~_{\sU}A_{\sU}	
+	$$
+	On the other hand the closure of $\sU$ is compact because it equals to the union $\supp f_1 \cup\supp f_2$ of two compact sets.
+\end{proof}	 
+
+
+\begin{lemma}\label{blowing_compact_pedersen_lem}
 If Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact}  then and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
 \end{lemma}
 \begin{proof}
@@ -12709,29 +12769,143 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 \paragraph{}
 
 If $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras, which satisfies to conditions \ref{lift_mult_empt} then there is s an injective *-homomorphism 
-$$
+\bean
 	M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
 	a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a\right) \pi\left( a\right) \pi\left( u_\a\right)
-$$
-given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ are blowing ups then there are natural inclusions  $C_b\left( \sY\right) \subset M\left( A\right)$ and $C_b\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ Suppose that 
+\eean
+given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ are compact blowing-ups cf. (Definitions \ref{blowing_defn} and \ref{blowing_compact_defn})   then there are natural inclusions  $C_b\left( \sY\right) \subset M\left( A\right)$ and $C_b\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$, Suppose that 
 \begin{itemize}
 	\item $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$,
 	\item there is a transitive covering $q:  \widetilde \sY \to \sY$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
-\item  the covering transformation  group $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).
+\item  the covering transformation  group $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).
 \end{itemize}
-If $\widetilde \sU \subset \widetilde \sY$ which is mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sU$ then we suppose that there is $*$-isomorphism
+If $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sU$ then we suppose that there is normed isomorphism
+of left $A$-modules given by
 \be
 \begin{split}
-\pi_{\widetilde{\sU}} : ~_\sU A_\sU \hookto ~_{\widetilde \sU} \widetilde A_{\widetilde \sU},\\
-a \mapsto \lim_{\a \in \mathscr A} \widetilde u_\a \pi\left(a \right) \widetilde u_\a
+\pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU},\\
+a \mapsto \lim_{\a \in \mathscr A}\pi\left(a \right) \widetilde u_\a
 \end{split}
 \ee
 where the notation \eqref{blowing_sue3_eqn} is used, the $C^*$-norm limit is implied and $\left\{\widetilde u_\a\right\}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$. 
+\begin{definition}\label{blowing_lift_defn}
+	In the above situation we denote $A_0\left( \widetilde \sY\right)$. We say that an injective *-homomorphism
+\be	\label{blowing_lift_eqn}
+A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+\ee
+is a $q$-\textit{lift} of $A$. 	
+\end{definition}
+\begin{lemma}\label{blowing_group_lem}
+There is a natural isomorphism of groups
+$$
+G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}
+$$
+\end{lemma}
+\begin{proof}
+!!!
+\end{proof}
+\begin{lemma}\label{blowing_fin_lem}
+If the covering $p$ is finite-fold then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
+\end{lemma}
+\begin{proof}
+If $a \in K\left( A\right)$ is an element of the Pedersen's ideal then the source- support $\sV \bydef s$-$\supp a$ is compact (cf. Definition \ref{blowing_source_supp_defn}, and the Lemma \ref{blowing_compact_lem}). From the Lemma \ref{top_compact_preimage_lem} it follows that the preimage $\widetilde \sV \bydef q^{-1}\left(\sV \right)$ is compact. There is a finite sum $\widetilde f = \sum_{j = 1}^n \widetilde f_j$ such that for any $j = 1,...,n$ the set $\widetilde\sU_j \bydef \left\{\left.\widetilde y \in \widetilde\sY\right| \widetilde f_j\left( \widetilde y\right)> 0 \right\}$  is mapped homeomorphically onto $\sU_j \bydef q\left( \widetilde \sU_j\right)$. It follows that 
+$$
+\pi\left(a \right)= \sum_{j=1}^n \pi_{ \widetilde \sU_j}\left( a\desc_p\left( \widetilde f_j\right) \right) 
+$$
+where $\desc_p\left( \widetilde f_j\right)$ is the $p$-descent of $\left( \widetilde f_j\right)$ (cf. Definition \ref{top_lift_desc_defn}).
+For any $j = 1,...,n$ one has $\pi_{ \widetilde \sU_j}\left( a\desc_p\left( \widetilde f_j\right) \right)\in  A_0\left( \widetilde \sY\right)$. This construction yields a *-homomorphism $K\left( A\right)\hookto A_0\left( \widetilde \sY\right)$ and hence $K\left( A\right)$ is dense in $A$ the homomorphism can be uniquely extended up to $ A \hookto	 A_0\left( \widetilde \sY\right)$.
+\end{proof}
+\begin{definition}\label{blowing_lift_fin_defn}
+The given by the Lemma \ref{blowing_fin_lem} injective $*$-homomorphism
+\be	\label{blowing_lift_fin_eqn}
+A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
+\ee
+is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
+\end{definition}
+\begin{remark}\label{blowing_pre_rem}
+If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then from the Lemma \ref{blowing_group_lem} it follows that
+$$
+\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)
+$$
+is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).
+\end{remark}
 
-We say that $A_0\left( \widetilde \sY\right)$ is a $q$-\textit{lift} of $A$.
+
+\begin{theorem}\label{blowing_compact_unitization_thm} 
+	Let both $\sY$ and $\widetilde \sY$ are compact Hausdorff spaces, and 
+	let $q: \widetilde \sY \to  \sY$ be a transitive finite-fold covering.
+If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple
+\be\label{blowing_pre_eqn}
+\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)
+\ee
+is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
+\end{theorem}
+\begin{proof}
+	The quadruple \eqref{blowing_pre_eqn} a noncommutative finite-fold pre-covering  (cf. Definition \ref{fin_pre_defn} and the Remark \ref{blowing_pre_rem}). There is a given by the equation \eqref{mult_map_eqn} injective $*$-homomorphism $M\left(\pi\right): M\left(A \right) \hookto M\left( A_0\left( \widetilde \sY\right)\right)$. 
+If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sY\right)$ and $\widetilde A \cup C\left( \widetilde \sY\right)$ subalgebras of $M\left(A \right)$ and $M\left(A_0\left( \widetilde \sY\right) \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$  is a noncommutative finite-fold   pre-covering.
+	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sY \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then one has
+	\bean
+	\forall \widetilde b \in \widetilde B\quad \widetilde b = \sum_{j=1}^n \widetilde e_j b_j, \quad b_j = \sum_{g \in G} g\left(\widetilde e_j \widetilde b \right)\in B;\\
+	\widetilde B = \widetilde e_1 B + ... + \widetilde e_n B,
+	\eean
+	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
+\end{proof}
+
+\begin{lemma}\label{blowing_aal_lem}
+	Let $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ be a {finite}-$q$-{lift}. If $\sU\subset \sY$ is a connected subset with compact closure then $_\sU A_\sU$ is $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
+\end{lemma}
+\begin{proof}
+A {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{lift} of $_\sU A_\sU$. is the norm completion of $\pi\left( ~_\sU A_\sU\right)  A_0\left( \widetilde \sY\right)\pi\left( ~_\sU A_\sU\right)$. Using this fact and that $_\sU A_\sU$ is a competition of $C_0\left(\sU \right)A C_0\left(\sU \right)$ one can proof the {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{lift} of $_\sU A_\sU$ equals to the norm completion of $C_0\left(\widetilde \sU \right)A_0\left( \widetilde \sY\right) C_0\left(\widetilde \sU \right)$, or equivalently $_{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. The closure $\sV$ of $\sU$ is compact, so from the Lemma \ref{top_compact_lem} it follows that the preimage $\sV \bydef q^{-1}\left( \sV\right)$  is compact. Moreover there are natural inclusions $C\left(\sV \right) \subset  M\left( ~_\sU A_\sU\right) $ and 
+$C\left(\widetilde \sV \right) \subset  M\left( ~_\sU  A_0\left( \widetilde \sY\right)_\sU\right)$. From the Theorem  \ref{blowing_compact_unitization_thm} it turns out that the quadruple
+$$
+\left(~_\sU A_\sU ,	~_{\widetilde \sU} A_0\left( \widetilde \sY\right)_{\widetilde \sU}, A_0\left(q\right)|_{_\sU A_\sU }, G\left(\left.\widetilde \sY\right|\sY \right) \right)
+$$ 
+is a noncommutative finite-fold covering with unitization.
+
+\end{proof}
+\begin{theorem}\label{blowing_axiomatic_thm}
+If 	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+\end{theorem}
+\begin{proof}
+If $\left\{\sU_\la \subset \sY\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets with compact closure then from the Lemma \ref{blowing_compact_lem} it follows that the union $\bigcup_{\la \in \La}~_{\sU_\la} A _{\sU_\la}$ is dense in $A$. One the other hand from the Lemma \ref{blowing_aal_lem} it follows that for all  $\la\in \La$ the ${\sU_\la} A _{\sU_\la}$ is $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
+\end{proof}
+
+\begin{empt}
+Let $q: \widetilde \sY \to \sY$ be a transitive covering with residually finite (cf. Definition \ref{residually_finite_defn}) group $G\left(\left.\widetilde \sY\right|\sY \right)$ group of covering transformations \ref{top_group_of_covering_transformations_defn}. Let 	
+\bean
+A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+\eean
+is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}). Let $\widetilde y_0$ be a point, and $y_0\bydef q\left( \widetilde y_0\right)$. If $\left\{G_\la\right\}_{\la \in \La}$ is a family of all finite factor groups of $G\left(\left.\widetilde \sY\right|\sY \right)$ then for any $\la \in \La$ there are a transitive finite-fold coverings $p_\la: \sY_\la  \to \sY$ such that $G_\la\cong G\left(\sY_\la | \sY\right)$ and a $\widetilde p_\la: \widetilde \sY_\la \to \sY$ such that $p = \widetilde p_\la \circ p_\la$ (cf. proof of the Lemma \ref{top_compact_lem} and the Example \ref{top_cat_example_exm}). One can obtain {pointed topological finite covering category}
+	\bean
+\begin{split}
+	\mathfrak{S}_{\left( \sY, y_0\right) }\bydef\\
+	\bydef \left\{\left\{p_\la:\left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sY_\mu, y^\mu_0\right) \to \left( \sY_\nu, y^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}
+\end{split}
+\eean
+(cf. Definition \ref{top_pointed_cat_defn}) such that $y^\la_0 = \widetilde p_\la\left( \widetilde y_0\right)$. For any $\la\in \La$ there is a $C^*$-algebra
+$$
+M_\la \bydef M\left(	M\left( A_0\left( \widetilde \sY\right)\right) \right)^{\ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G\left(\sY_\la | \sY\right) \right) } 
+$$ 
+and the $*$-homomorphism $A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ induces an injective  $*$-homomorphism $m_\la : A \hookto M_\la$. If $A_\la \subset M_\la$ is a generated by $m_\la\left(A \right)$ hereditary $C^*$-subalgebra then there is an injective $*$-homomorphism   $k_\la  : A \to A_\la$. !!!
+\end{empt}
+\begin{definition}\label{top_pointed_cat_defn!!}
+	
+	Let $\mathfrak{S}_\sX$ be a subcategory of the given by the Definition \ref{top_fin_cov_defn} category $\mathfrak{FinCov}$-$\sX$. Let  $\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ be a family of $\mathfrak{S}_\sX$-objects. Suppose that there are base points $x_0 \in \sX$ and $x^\la_0 \in \sX_\la$ such that for any $\la \in \La$ the $p_\la$ is a pointed map $\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)$ (cf. Definition \ref{top_pointed_defn}). Let us consider a subcategory $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right)\}$  of $\mathfrak{S}_\sX$  such that any morphism  $p^\mu_\nu: \left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)$ of $\mathfrak{S}_{\left( \sX, x_0\right) }$ is a pointed  map.  If for any $\mu, \nu \in \La$ such that $\mu \ge \nu$ there is a pointed map $p^\mu_\nu: \left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)$  then we say that $\mathfrak{S}_{\left( \sX, x_0\right) }$ is a \textit{pointed topological finite covering category} and we write 
+	\be\label{top_sec_p_eqn}
+	\begin{split}
+		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
+		\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+				\mu\ge\nu}} \right\}\\
+		%\in \\
+		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+	\end{split}
+	\ee
+\end{definition}
+\
 \subsection{Constructive approach}
 \begin{empt}\label{blowing_lift_empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\G^0 \right)$-valued product
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\G^0 \right)$-valued product
 	\bean
 	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
 	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
@@ -12749,20 +12923,25 @@ so $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(
 \eea
 where $\End_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the algebra of endomorphisms of  the $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$.
 \end{empt}
-\begin{definition}\label{blowing_lift_defn}
+\begin{definition}\label{blowing_lift_constr_defn}
 In the situation \ref{blowing_lift_empt} we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\textit{regular} if one has:
 \begin{enumerate}
 	\item [(a)] $\varphi_A\left(A \right) \subset \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$  and $\varphi_C\left(C_0 \left(\widetilde \sY \right) \right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ where $ \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable operators (cf. Definition \ref{adjointable_operator_defn}),
-	\item[(b)] If $A_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is a $C^*$-subalgebra generated by following operators
+	\item[(b)] if $A_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is a $C^*$-norm completion of generated by elements 
 \be\label{blowing_prods_eqn}
- \varphi_C\left( \widetilde f'\right)\left( \varphi_C\left( \widetilde f''\right) \varphi_A\left(a \right)\right)^* ,  	\quad \widetilde f',\widetilde f''\in C_c \left(\widetilde \sY \right), \quad a \in A
-\ee
-	then the homomorphism $\varphi_C$ yields Hausdorff blowing-up $C_0\left( \widetilde \sY\right)\hookto M\left( A_0\left( \widetilde \sY\right)\right) $. 
+\varphi_C\left( \widetilde f\right) \varphi_A\left(a \right)\in \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),  	\quad \widetilde f\in C_0 \left(\widetilde \sY \right), \quad a \in A
+\ee	
+right $A$-module then $A_0\left( \widetilde \sY\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$
 \end{enumerate}
 
 \end{definition}
+
+
+\begin{lem}
+q lift Lemma.!!!
+\end{lem}
 \begin{remark}
-If we consider the Definition \ref{blowing_lift_defn} then one has:
+If we consider the Definition \ref{blowing_lift_constr_defn} then one has:
 \begin{enumerate}
 	\item[(i)] The action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ yields an inclusion
 	\be\label{blowing_multiplier_eqn}
@@ -12798,7 +12977,7 @@ Let $\left(A, \widetilde A, G, \pi\right)$ be a {noncommutative finite-fold  pre
 		where the left part comes from the given by  the Lemma \ref{fin_multilier_lem} action $G \times M\left( \widetilde A\right)\to M\left( \widetilde A\right)$ and the right part corresponds to the natural action  $G\left(\left. \widetilde \sY\right| \sY\right) \times C_0\left(\widetilde \sY \right)\to C_0\left(\widetilde \sY \right)$.
 	\end{enumerate}  
 \end{definition}
-\begin{lemma}\label{blowing_comply_lem}
+\begin{lemma}\label{blowing_comply_lem} !!! MAY BE DELETE
 	If in the situation of the Definition  \ref{blowing_comply_defn} $p$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}) then  $\left(A, \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}). 
 \end{lemma}
 \begin{proof}
@@ -12814,7 +12993,7 @@ Let $\left(A, \widetilde A, G, \pi\right)$ be a {noncommutative finite-fold  pre
 	\widetilde a \widetilde f \bydef \lim_{\a} \widetilde a f_\a u_a
 	\eean
 	where $C^*$-norm limits are implied. One can prove that from the above equations it follows that $\widetilde f \in M\left(\widetilde A \right)$ (cf. Proposition \ref{dc_prop} and the Remark \ref{dc_rem}. If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sZ\right)$ and $\widetilde A \cup C\left( \widetilde \sZ\right)$ subalgebras of $M\left(A \right)$ and $M\left(\widetilde A \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is a finite-fold noncommutative  pre-covering.
-	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sZ \right)_+$ satisfies to \eqref{top_aln_eqn} then one has
+	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sZ \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then one has
 	\bean
 	\forall \widetilde b \in \widetilde B\quad \widetilde b = \sum_{j=1}^n \widetilde e_j b_j, \quad b_j = \sum_{g \in G} g\left(\widetilde e_j \widetilde b \right)\in B;\\
 	\widetilde B = \widetilde e_1 B + ... + \widetilde e_n B,
@@ -12866,7 +13045,7 @@ Let $\left(A, \widetilde A, G, \pi\right)$ be a {noncommutative finite-fold  pre
 \paragraph{}
 
 \begin{empt}\label{blowing_hilb_mod_empt}
-Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering such that the covering  group $G\left(\left.\widetilde\sY \right|\sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then from  the Lemma \ref{comm_lift_desc_sum_lem} it follows that there is the following product
+Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering such that the covering  group $G\left(\left.\widetilde\sY \right|\sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then from  the Lemma \ref{comm_lift_desc_sum_lem} it follows that there is the following product
 \be\label{blowing_product_eqn}
 \begin{split}
 \left\langle \cdot, \cdot \right\rangle_{C_0\left(\sY \right)} : C_c\left(\widetilde\sY \right) \times  C_c\left(\widetilde\sY \right)\to C_0\left(\sY \right) ,\\
@@ -13340,7 +13519,7 @@ The Definition \ref{blowing_liftq_defn} is compliant with \ref{top_lift_defn}  o
 \end{remark}
 \begin{empt}\label{blowing_lift_desc_empt}
 	!!! USE \ref{top_comply_lem} !!!
-Let $A$ be $C^*$-algebra, and let $C_0\left(\sY\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \left( \widetilde \sY , \widetilde y_0\right) \to \left( \sY, y_0\right) $ be a pointed transitive covering such that a {covering group} $G\left( \left.{\widetilde{\sY}}~\right|\sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let  $A_0\left(\widetilde \sY \right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let 
+Let $A$ be $C^*$-algebra, and let $C_0\left(\sY\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \left( \widetilde \sY , \widetilde y_0\right) \to \left( \sY, y_0\right) $ be a pointed transitive covering such that a {covering group} $G\left( \left.{\widetilde{\sY}}~\right|\sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let  $A_0\left(\widetilde \sY \right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let 
 $$
 \mathfrak{S}_{\left( \sY, y_0  \right) }=\left\{ p_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La} 
 $$
@@ -13648,7 +13827,7 @@ $$
 $$
 From the Lemma \ref{blowing_uau_conn_lem}  it turns out  that $_{{\sU}}A_{{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the Lemma \ref{blowing_multiplier_lem} it follows that there is a natural inclusion 
   $C\left(\sV\right)\subset M\left(_\sU A_\sU\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are   $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
-Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_aln_eqn} if follows that 
+Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_finite_covering_basis_eqn} if follows that 
 \be\label{blowing_e_n_eqn}
 \begin{split}
 \exists \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sV \right)_+ ,\\
@@ -13816,7 +13995,7 @@ From the Lemma \ref{blowing_weak_inf_cov_lem} and the Definition \ref{disconnect
 		Definition \ref{blowing_proper_defn}) then $A^{\mathrm{prop}}_\sU$ is simply connected (cf. Definition \ref{simply_connected_defn});
 		\item[(b)] There is a   transitive covering $q: \widetilde \sY \to \sY$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}) and an open connected subset $\widetilde \sU\subset  \widetilde \sY$ which homeomorphically mapped onto $\sU$ and following conditions hold:
 		\begin{enumerate}
-			\item[(i)] a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
+			\item[(i)] a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
 			\item[(ii)] One has
 			\be\label{blowig_hered_prop_eqn}
 			_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}= A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}			
@@ -13832,7 +14011,7 @@ From the Lemma \ref{blowing_weak_inf_cov_lem} and the Definition \ref{disconnect
 
 \begin{empt}\label{blowing_inf_c_empt}
 Let $A$ be a connected $C^*$-algebra, and let $C\left( \sY\right) \hookto A$ be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) with compact $\sY$. Let $\sU\subset \sY$ be a semilocally 1-connected subset (cf. Definition \ref{blowing_semi_defn}). Let $q: \widetilde \sY \to \sY$ be a transitive covering which satisfies to the condition (b) of the Definition \ref{blowing_semi_defn}.
-The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), so from the Lemma  \ref{top_associded_lem} it follows that there is  a pointed  topological finite covering category
+The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), so from the Lemma  \ref{top_associded_lem} it follows that there is  a pointed  topological finite covering category
   \bean
 \begin{split}
 	\mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
@@ -16836,7 +17015,7 @@ where $x$ is regarded an element of $\G^\sU_\sU$ and $\sU_x$ is a quasi-componen
 	\end{split}
 	\ee
 \end{remark}
-\begin{lemma}\label{groupoid_compact_preimage_lem}
+\begin{lemma}\label{groupoid_compact_preimage_lem}!!! DELETE
 	If $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} finite-fold covering, 
 	$\widetilde\G$ is the  $p$-{lift} of $\G$, a set $\sY \subset \G$ is compact and $p_\G : \widetilde\G \to \G$ is given by \eqref{groupoid_lift_eqn} then the preimage $p^{-1}_\G\left(\sY \right)$ is also compact. 
 \end{lemma}
@@ -16971,7 +17150,7 @@ So one construct $*$-algebra $C_c\left(\widetilde \G, \widetilde\sigma \right)$.
 \begin{empt}\label{groupoid_cov_fin_empt}
 	Let us consider a specialization of the situation \ref{groupoid_cov_empt} where the covering 
  $p: \widetilde \G^0 \to \G^0$ is finite-fold.
-If $\widetilde a \in  C_c\left(\widetilde \G, \widetilde \sigma \right)$ then  $\widetilde a$ can be regarded as an element of $C_c\left(\widetilde \G \right)$ the set $\supp \widetilde a$ is compact, so from the Theorem \ref{top_compact_img_thm} it follows that $\widetilde \sZ \bydef s\left( \widetilde a\right)$ is compact. If $\sY \bydef p\left( \widetilde\sZ \right)$  then the set $\widetilde\sY \bydef p^{-1} \left(\sY\right)$ is also compact and the restriction $p|_{\widetilde\sY}: \widetilde\sY \to \sY$ is a transitive covering. If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sY \right)_+$ satisfies to \eqref{top_aln_eqn} then from the Lemma  \ref{top_tietze_ext_lem}  it follows that there are $\left\{\widetilde{l}_1, ..., \widetilde{l}_n\right\}\subset C_c\left(\widetilde \G^0 \right)$ such that $\widetilde{e}_j= \widetilde{l}_j|_{\widetilde\sY}$ for every $j \in 1,..., n$. From  \eqref{top_aln_eqn} it follows that 
+If $\widetilde a \in  C_c\left(\widetilde \G, \widetilde \sigma \right)$ then  $\widetilde a$ can be regarded as an element of $C_c\left(\widetilde \G \right)$ the set $\supp \widetilde a$ is compact, so from the Theorem \ref{top_compact_img_thm} it follows that $\widetilde \sZ \bydef s\left( \widetilde a\right)$ is compact. If $\sY \bydef p\left( \widetilde\sZ \right)$  then the set $\widetilde\sY \bydef p^{-1} \left(\sY\right)$ is also compact and the restriction $p|_{\widetilde\sY}: \widetilde\sY \to \sY$ is a transitive covering. If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sY \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then from the Lemma  \ref{top_tietze_ext_lem}  it follows that there are $\left\{\widetilde{l}_1, ..., \widetilde{l}_n\right\}\subset C_c\left(\widetilde \G^0 \right)$ such that $\widetilde{e}_j= \widetilde{l}_j|_{\widetilde\sY}$ for every $j \in 1,..., n$. From  \eqref{top_finite_covering_basis_eqn} it follows that 
 $$
 \widetilde a = \sum_{j=1}^n \widetilde l_j a_j, \quad a_j = \sum_{g \in G} g\left(\widetilde l_j \widetilde a \right)\in C_c\left(\G, \sigma \right)$$
 For any $\widetilde b \otimes \xi\in C_c\left(\widetilde \G^0\right)\otimes_{\G^0} \H$ we define a product
@@ -18047,7 +18226,7 @@ If $y \in \T^2$ then there is an open foliation chart $\sU$ (cf. \ref{foli_leaf_
 (a) Follows from the Lemma \ref{foli_simply_connected_lem}.\\
 (b) If we consider the covering $\widetilde q : \R^2 \to \T^2$ and an open connected subset $\widetilde \sU \subset \R^2$ which is mapped homeomorphically onto $\sU$ then $\widetilde \sU$ is a foliation chart of $\left(\R^2, \widetilde \F\right)$. Moreover one has:
 		\begin{enumerate}
-	\item[(i)] a covering  group $G \left( \left. \R^2\right| \T^1 \right)\cong \Z^2$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
+	\item[(i)] a covering  group $G \left( \left. \R^2\right| \T^1 \right)\cong \Z^2$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
 	\item[(ii)] The proof of  \eqref{blowig_hered_prop_eqn} is left to the reader,
 \end{enumerate}
 
@@ -21961,7 +22140,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 		A topological space $\mathcal X$ is said to be \textit{locally path-connected} if the path components of open sets are open.
 	\end{defn}
 	%\paragraph{} It follows from Lemma \ref{lem_3_spanier_lem} that if $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting then for any two objects $\widetilde{x}_1$ and $\widetilde{x}_2$ in the fundamental groupoid of $\widetilde{X}$
-	\begin{defn}\label{top_covering_transformations_group_defn}\cite{spanier:at}
+	\begin{defn}\label{top_group_of_covering_transformations_defn}\cite{spanier:at}
 		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right)$ this group.
 	\end{defn}
 \begin{theorem}\label{top_fundamental_group_mor_thm}\cite{spanier:at}
