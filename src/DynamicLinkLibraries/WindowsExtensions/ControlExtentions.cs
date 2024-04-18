@@ -33,6 +33,29 @@ namespace WindowsExtensions
         #region Members
 
         /// <summary>
+        /// Fills DataGridView
+        /// </summary>
+        /// <param name="dataGridView">The DataGridView</param>
+        /// <param name="keys">Keys</param>
+        /// <param name="dictionary">Dictionary</param>
+        public static void Fill(this DataGridView dataGridView, IEnumerable<string> keys,
+            IDictionary<string, string> dictionary)
+        {
+            extension.Fill(dataGridView, keys, dictionary);
+        }
+
+        /// <summary>
+        /// Fills DataGridView
+        /// </summary>
+        /// <param name="dataGridView">The DataGridView</param>
+        /// <param name="dictionary">Dictionary</param>
+        public static void Fill(this DataGridView dataGridView,
+            IDictionary<string, string> dictionary)
+        {
+            extension.Fill(dataGridView, dictionary);
+        }
+
+        /// <summary>
         /// Finds child of control
         /// </summary>
         /// <typeparam name="T">Type</typeparam>

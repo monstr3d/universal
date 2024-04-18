@@ -2209,7 +2209,18 @@ unital  noncommutative finite-fold quasi-covering  $\left(M\left(A \right)  ,M\l
 	\ee
 	
 \end{remark}
-
+\begin{corollary}\label{cov_mult_fin_c_cor}
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) then there is  an 
+	unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}).
+\end{corollary}
+\begin{proof}
+Since both $A \subset M\left(A \right)$ and $\widetilde{A}\subset M\left( \widetilde{A}\right)$ are essential ideals one has
+\bean
+\left\{\left.g \in \Aut\left( M\left( \widetilde{A}\right)\right)\right| g\widetilde{\pi}\left(a \right)    = \widetilde{\pi}\left(a \right) \left( a\right) \quad \forall a \in M\left(A\right) \right\}\cong \\
+\cong \left\{\left.g \in \Aut\left( \widetilde{A}\right)\right| g \pi\left(a \right)    =\pi\left(a \right) \left( a\right) \quad \forall a \in A \right\}.
+\eean
+It follows that $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Now this corollary follows from \ref{cov_mult_fin_cor} one.
+\end{proof}
 \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_fin_defn}
@@ -5130,7 +5141,7 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \paragraph{} Here a noncommutative generalization of the universal covering space (cf. Definition \ref{top_universal_covering_defn}) is discussed.
 \begin{empt}
-Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ which contains  \textit{all} classes of isomorphisms of connected noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} classes of isomorphisms of connected reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} classes of isomorphisms of connected free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) (resp. \textit{all} classes of isomorphisms of connected  reduced  noncommutative finite-fold coverings with unitization (cf. Definition \ref{fin_unitization_defn}) of $A$. Consider all noncommutative finite-fold coverings $\left\lbrace \pi^\mu_\nu: A_\mu \hookto A_\nu\right\rbrace$.
+Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ which contains  \textit{all} classes of isomorphisms of connected noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} classes of isomorphisms of connected reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} classes of isomorphisms of connected free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) (resp. \textit{all} classes of isomorphisms of connected   noncommutative finite-fold coverings with unitization (cf. Definition \ref{fin_unitization_defn}) of $A$. Consider all noncommutative finite-fold coverings $\left\lbrace \pi^\mu_\nu: A_\mu \hookto A_\nu\right\rbrace$.
 \end{empt}
 \begin{definition}\label{fundamental_group_nc_defn} 
  Suppose that both families $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and $\left\lbrace \pi^\mu_\nu: A_\mu \hookto A_\nu\right\rbrace$ yield  an {algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn}) which allows base-points (cf. Definition \ref{pointed_defn}). Assume that
@@ -12263,8 +12274,18 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 
 
 \begin{definition}\label{blowing_defn}
-Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if both $CA\subset A$ and $AC\subset A$ are dense subspaces of $A$. 
-\end{definition}
+Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if both sets
+\be\label{blowing_eqn}
+\begin{split}
+C_c\left( \sY\right)A \bydef \left\{fa| f \in C_c\left( \sY\right)\quad a \in A \right\},\\
+AC_c\left( \sY\right) \bydef \left\{af| f \in C_c\left( \sY\right)\quad a \in A \right\}
+\end{split}
+\ee
+are dense in $A$.
+\end{definition}\label{blowing_rem}
+\begin{remark}
+$C_c\left( \sY\right)$ is dense in $A$ if and only if $AC_c\left( \sY\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}).
+\end{remark}
 \begin{example}\label{blowing_hausdorff_exm}	If $A$ is a  given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$, which is Hausdorff blowing-up.
 \end{example}.
 \begin{empt}\label{blowing_au_ua_empt}
@@ -12329,27 +12350,17 @@ If $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowin
 \ee
 is said to be a \textit{source}-\textit{support} of $a$. We denote it by $s$-$\supp$. Similarly we define the  \textit{range}-\textit{support} denoted by $s$-$\supp a$.
 \end{definition}
-\begin{definition}\label{blowing_compact_defn}
-	 Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is \text{compact} if for any $a \in A$ and $\eps > 0$ there is  $b \in A$  such that
-	 \begin{enumerate}
-	 	\item [(a)] $\left\|a-b \right\| < \eps$,
-	 	\item[(b)] the source-support $\supp b$ (cf. Definition \ref{blowing_support_defn}) of $b$ is compact.
-	 \end{enumerate}
-\end{definition}
 \begin{lemma}\label{blowing_compact_lem}
-	If Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact} if and only if  for any $a\in A$ and $\eps > 0$ there are an open set and $b \in ~_\sU A_\sU$ such that
+	If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is a {Hausdorff blowing-up} if and only if  for any $a\in A$ and $\eps > 0$ there are an open set and $b \in ~_\sU A_\sU$ such that
 		 \begin{enumerate}
 		\item [(a)] $\left\|a-b \right\| < \eps$,
 		\item[(b)] the closure of $\sU$ is compact.
 	\end{enumerate}
-	Let $\sU_1 \subset \sY$ and $b \in A_{\sU_1}$ be such that 
-			 \begin{itemize}
-		\item [(a)] $\left\|a-c \right\| < \eps/4$,
-		\item[(b)] the closure $\sV_1$ of $\sU_1$ is compact.
-	\end{itemize}
+
 \end{lemma}
 \begin{proof}
-If $b$ satisfies to the $b \in ~_\sU A_\sU$ satisfies to the conditions (a), (b) then $b \in A_\sU$.
+	Let $f \in C_c\left( \sY\right)$ and $c \in A$ such that
+	$\left\|a-f'c \right\| < \eps/4$ (cf. equation \eqref{blowing_eqn}). Similarly there is $c \in A$ and 
 
 	If $f_1 \in C_c\left(\sY\right)$ is a covering sum for  $\sV_1$ (cf. Definition \ref{top_covering_sum_defn}) then $bf_1 = b$, and from $\left\|f \right\|=1$ it follows that $	\left\|\left( a-b\right)  f_1 \right\|< \eps$. 	Taking into account  $\left\|f \right\|=1$ and the triangle inequality one has
 \be\label{blowing_compact_1_eqn}
@@ -12375,7 +12386,7 @@ If $b$ satisfies to the $b \in ~_\sU A_\sU$ satisfies to the conditions (a), (b)
 If Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact}  then and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
 \end{lemma}
 \begin{proof}
-If $a \in K\left(A\right)_0$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand since $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact} (cf. Definition \ref{blowing_compact_defn}) there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact.
+If $a \in K\left(A\right)_0$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand since $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact} (cf. Definition \ref{blowing_compact_defn} !!! DELETE IT !!!) there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact.
  If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  representation (cf. Definition \ref{faithful_repr_defn}) then there is $\xi \in \H$ such that
 \bean\label{blowing_ac_eqn}
 \forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
@@ -12767,13 +12778,14 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 \section{Hausdorff blowing-up and noncommutative  coverings}
 \subsection{Axiomatic approach}
 \paragraph{}
-
+Here we suppose that we have Hausdorff blowing-us and investigate conditions when they enable us to construct noncommutative coverings.
+\begin{empt}\label{blowing_axiomatic_empt}
 If $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras, which satisfies to conditions \ref{lift_mult_empt} then there is s an injective *-homomorphism 
 \bean
 	M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
 	a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a\right) \pi\left( a\right) \pi\left( u_\a\right)
 \eean
-given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ are compact blowing-ups cf. (Definitions \ref{blowing_defn} and \ref{blowing_compact_defn})   then there are natural inclusions  $C_b\left( \sY\right) \subset M\left( A\right)$ and $C_b\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$, Suppose that 
+given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ are compact blowing-ups cf. (Definitions \ref{blowing_defn} and \ref{blowing_compact_defn} !!! DELETE IT !!!)   then there are natural inclusions  $C_b\left( \sY\right) \subset M\left( A\right)$ and $C_b\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$, Suppose that 
 \begin{itemize}
 	\item $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$,
 	\item there is a transitive covering $q:  \widetilde \sY \to \sY$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
@@ -12781,13 +12793,14 @@ given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subs
 \end{itemize}
 If $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sU$ then we suppose that there is normed isomorphism
 of left $A$-modules given by
-\be
+\be\label{blowing_axiomatic_eqn}
 \begin{split}
 \pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU},\\
 a \mapsto \lim_{\a \in \mathscr A}\pi\left(a \right) \widetilde u_\a
 \end{split}
 \ee
-where the notation \eqref{blowing_sue3_eqn} is used, the $C^*$-norm limit is implied and $\left\{\widetilde u_\a\right\}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$. 
+where the notation \eqref{blowing_sue3_eqn} is used, the $C^*$-norm limit is implied and $\left\{\widetilde u_\a\right\}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$.
+\end{empt} 
 \begin{definition}\label{blowing_lift_defn}
 	In the above situation we denote $A_0\left( \widetilde \sY\right)$. We say that an injective *-homomorphism
 \be	\label{blowing_lift_eqn}
@@ -12804,8 +12817,42 @@ $$
 \begin{proof}
 !!!
 \end{proof}
+\begin{empt}\label{blowing_ext_empt}
+	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
+	$$
+	\widetilde{C}_{\widetilde{x}}\bydef \left\{c = \rep_{  \widetilde{x }}\left( a\right)\left|  a \in C_0\left(\sY \right)\right. \right\}\subset \rep_{  \widetilde{x }}\left(M\left( \widetilde A\right) \right)  
+	$$
+	is commutative. So a $C^*$-algebra
+	$$
+	\widetilde{C}\bydef \left\{\left.\widetilde c \in M\left( \widetilde A\right)\right| \rep_{  \widetilde{x }}\left( \widetilde c\right) \in \widetilde{C}_{\widetilde{x}} \right\}\subset M\left( \widetilde A\right)
+	$$
+	is also commutative. There is a locally compact Hausdorff space $\widetilde\sY$ such that
+\be\label{blowing_ext_eqn}
+\widetilde{C}\cong C_0\left(\widetilde \sY\right)
+\ee	
+If for any $\widetilde a\in \widetilde A$ and $\eps > 0$ there is $a \in A$   such that
+	\be\label{blowing_dens_cond}
+	 \left\|\widetilde a - \widetilde a \pi\left(a \right) \right\| < \eps 
+	\ee
+	then 
+	\bean
+	\begin{split}
+	\widetilde A 	C_0\left(  \sY\right)\bydef \left\{ \widetilde a f \left|  f \in C_0\left( \sY\right)\quad \widetilde a \in \widetilde A \right.\right\},\\
+		\end{split}
+	\eean 
+	are dense in $A$.
+	There is an injective *-homomorphism
+	\be\label{blowing_cb_eqn}
+	C_b\left( \sY\right) \hookto C_b\left( \widetilde \sY\right) 
+	\ee
+\end{empt}
+\subsubsection{Finite-fold coverings}
 \begin{lemma}\label{blowing_fin_lem}
-If the covering $p$ is finite-fold then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
+If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
+	\bean
+A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+\eean
+is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
 \end{lemma}
 \begin{proof}
 If $a \in K\left( A\right)$ is an element of the Pedersen's ideal then the source- support $\sV \bydef s$-$\supp a$ is compact (cf. Definition \ref{blowing_source_supp_defn}, and the Lemma \ref{blowing_compact_lem}). From the Lemma \ref{top_compact_preimage_lem} it follows that the preimage $\widetilde \sV \bydef q^{-1}\left(\sV \right)$ is compact. There is a finite sum $\widetilde f = \sum_{j = 1}^n \widetilde f_j$ such that for any $j = 1,...,n$ the set $\widetilde\sU_j \bydef \left\{\left.\widetilde y \in \widetilde\sY\right| \widetilde f_j\left( \widetilde y\right)> 0 \right\}$  is mapped homeomorphically onto $\sU_j \bydef q\left( \widetilde \sU_j\right)$. It follows that 
@@ -12852,10 +12899,10 @@ If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sY\right)$ and 
 \end{proof}
 
 \begin{lemma}\label{blowing_aal_lem}
-	Let $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ be a {finite}-$q$-{lift}. If $\sU\subset \sY$ is a connected subset with compact closure then $_\sU A_\sU$ is $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
+	Let $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ be a {finite}-$q$-{lift}. If $\sU\subset \sY$ is a connected subset with compact closure then $_\sU A_\sU$ is $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
 \end{lemma}
 \begin{proof}
-A {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{lift} of $_\sU A_\sU$. is the norm completion of $\pi\left( ~_\sU A_\sU\right)  A_0\left( \widetilde \sY\right)\pi\left( ~_\sU A_\sU\right)$. Using this fact and that $_\sU A_\sU$ is a competition of $C_0\left(\sU \right)A C_0\left(\sU \right)$ one can proof the {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{lift} of $_\sU A_\sU$ equals to the norm completion of $C_0\left(\widetilde \sU \right)A_0\left( \widetilde \sY\right) C_0\left(\widetilde \sU \right)$, or equivalently $_{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. The closure $\sV$ of $\sU$ is compact, so from the Lemma \ref{top_compact_lem} it follows that the preimage $\sV \bydef q^{-1}\left( \sV\right)$  is compact. Moreover there are natural inclusions $C\left(\sV \right) \subset  M\left( ~_\sU A_\sU\right) $ and 
+A {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{lift} of $_\sU A_\sU$. is the norm completion of $\pi\left( ~_\sU A_\sU\right)  A_0\left( \widetilde \sY\right)\pi\left( ~_\sU A_\sU\right)$. Using this fact and that $_\sU A_\sU$ is a competition of $C_0\left(\sU \right)A C_0\left(\sU \right)$ one can proof the {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{lift} of $_\sU A_\sU$ equals to the norm completion of $C_0\left(\widetilde \sU \right)A_0\left( \widetilde \sY\right) C_0\left(\widetilde \sU \right)$, or equivalently $_{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. The closure $\sV$ of $\sU$ is compact, so from the Lemma \ref{top_compact_lem} it follows that the preimage $\sV \bydef q^{-1}\left( \sV\right)$  is compact. Moreover there are natural inclusions $C\left(\sV \right) \subset  M\left( ~_\sU A_\sU\right) $ and 
 $C\left(\widetilde \sV \right) \subset  M\left( ~_\sU  A_0\left( \widetilde \sY\right)_\sU\right)$. From the Theorem  \ref{blowing_compact_unitization_thm} it turns out that the quadruple
 $$
 \left(~_\sU A_\sU ,	~_{\widetilde \sU} A_0\left( \widetilde \sY\right)_{\widetilde \sU}, A_0\left(q\right)|_{_\sU A_\sU }, G\left(\left.\widetilde \sY\right|\sY \right) \right)
@@ -12864,12 +12911,53 @@ is a noncommutative finite-fold covering with unitization.
 
 \end{proof}
 \begin{theorem}\label{blowing_axiomatic_thm}
-If 	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+If 	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-If $\left\{\sU_\la \subset \sY\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets with compact closure then from the Lemma \ref{blowing_compact_lem} it follows that the union $\bigcup_{\la \in \La}~_{\sU_\la} A _{\sU_\la}$ is dense in $A$. One the other hand from the Lemma \ref{blowing_aal_lem} it follows that for all  $\la\in \La$ the ${\sU_\la} A _{\sU_\la}$ is $\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
+If $\left\{\sU_\la \subset \sY\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets with compact closure then from the Lemma \ref{blowing_compact_lem} it follows that the union $\bigcup_{\la \in \La}~_{\sU_\la} A _{\sU_\la}$ is dense in $A$. One the other hand from the Lemma \ref{blowing_aal_lem} it follows that for all  $\la\in \La$ the ${\sU_\la} A _{\sU_\la}$ is $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
+\end{proof}
+\begin{theorem}\label{blowing_unitization_thm}
+Let  $\left(A, \widetilde{A}, G, \pi \right)$  be noncommutative finite-fold covering with unitization (cf. Definition  \ref{fin_unitization_defn}), and let $C\left(\sY\right)\to M\left( A\right)$ be Hausdorff blowing-up with compact $\sY$. Let $\rho: C\left( \sY\right) \hookto C\left( \widetilde \sY\right)$  be given by \eqref{blowing_cb_eqn}. The action $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$ induces an action  $G\times C\left(\widetilde \sY \right) \to C\left(\widetilde \sY \right)$. Then $C\left(\widetilde \sY \right)$ is a finitely generated $C\left(\sY \right)$-module. 
+\end{theorem}
+\begin{proof}
+From the Corollary \ref{cov_mult_fin_c_cor} it follows that there is  an 
+unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}). If $C\left(\widetilde \sY \right)$ is not a finitely generated $C\left(\sY \right)$ then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
+$$
+C\left(\widetilde \sY \right) = \sum_{\la\in \La} M_\la,
+$$
+of right $C\left(\sY \right)$-modules, such that for any finite subset $\La_0 \subset \La$ one has
+$$
+C\left(\widetilde \sY \right) \neq \sum_{\la\in \La_0} M_\la,
+$$
+One has an algebraic sum 
+$$
+M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
+$$
+of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+$$
+M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
+$$
 \end{proof}
 
+\begin{lemma}
+If   noncommutative finite-fold covering with unitization $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition  \ref{fin_unitization_defn}) satisfies to the Theorem \ref{blowing_axiomatic_thm} then the $*$-homomorphism $\pi$ is equivalent to the $q$-lift $A \hookto A_0\left(\widetilde \sY \right)$ of $A$ (cf. Definition \ref{blowing_lift_fin_eqn}).  
+\end{lemma}
+\begin{proof}
+From the Lemma \ref{blowing_fin_lem} it follows that one should prove that the covering $q : \widetilde \sY$ satisfies to explained in \ref{blowing_axiomatic_empt}. Let us check that the given by \eqref{blowing_axiomatic_eqn} map 
+\bean
+\begin{split}
+	\pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU},\\
+	a \mapsto \lim_{\a \in \mathscr A}\pi\left(a \right) \widetilde u_\a
+\end{split}
+\eean 
+is bijective. 
+If $\widetilde a\in \pi_{\widetilde{\sU}} \left( A\right)$ then 
+$$
+\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a \in \widetilde A^{ G\left(\left.\widetilde \sY\right|\sY \right)}.
+$$
+So there is the unique $a \in A$ such that $\pi\left(a \right) =  \sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a$. The map $\widetilde a \mapsto a$ is inverse to $	\pi_{\widetilde{\sU}}$. Checking of another conditions of \ref{blowing_axiomatic_empt} is  left to the reader.
+\end{proof}
+\subsubsection{Infinite coverings}
 \begin{empt}
 Let $q: \widetilde \sY \to \sY$ be a transitive covering with residually finite (cf. Definition \ref{residually_finite_defn}) group $G\left(\left.\widetilde \sY\right|\sY \right)$ group of covering transformations \ref{top_group_of_covering_transformations_defn}. Let 	
 \bean
@@ -12904,6 +12992,7 @@ and the $*$-homomorphism $A_b\left(q\right) : A \hookto	M\left( A_0\left( \widet
 \end{definition}
 \
 \subsection{Constructive approach}
+Here we have a coverings  Hausdorff blowing-us and using them we will construct noncommutative coverings.
 \begin{empt}\label{blowing_lift_empt}
 	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\G^0 \right)$-valued product
 	\bean
@@ -17096,7 +17185,7 @@ C_0\left(\G^0 \right)\hookto M\left( C^*_\rho\left(\G , \sigma \right)\right)
 \ee
 \end{remark}
 \begin{lemma} !!!~ DELETE !!!
-The given by \ref{groupoid_blowing_eqn} Hausdorff blowing-up is compact (cf. Definition \ref{blowing_compact_defn})
+The given by \ref{groupoid_blowing_eqn} Hausdorff blowing-up is compact (cf. Definition \ref{blowing_compact_defn} !!! DELETE IT !!!)
 \end{lemma}
 \begin{proof}!!!~ DELETE !!!
 If $a \in K_0\left(C^*_\rho\left(\G , \sigma \right)\right)$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in C^*_\rho\left(\G , \sigma \right)_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand since $C_c\left(\G , \sigma \right)$ is dense in $C^*_\rho\left(\G , \sigma \right)$ there is a positive element  $c \in C_c\left(\G , \sigma \right)$  such that $\left\|c - b \right\|  < \eps/2$. If $a \le c$ does not hold and $\rho: C^*_\rho\left(\G , \sigma \right) \hookto B\left(\H \right)$ is a natural  representation then there is $\xi \in \H$ such that

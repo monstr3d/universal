@@ -39,8 +39,7 @@ namespace DataPerformer.WebGenerator.UserControls
             input.Fill(an, saver.Input);
             IGraphLabel l = label;
             var s = l.Data.Item3;
-            var list = new List<string>(s.Keys);
-            
+    
 
 
         }

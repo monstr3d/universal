@@ -18,6 +18,43 @@ namespace WindowsExtensions
         #region Members
 
         /// <summary>
+        /// Fills DataGridView
+        /// </summary>
+        /// <param name="dataGridView">The DataGridView</param>
+        /// <param name="keys">Keys</param>
+        /// <param name="dictionary">Dictionary</param>
+        public void Fill(DataGridView dataGridView, IEnumerable<string> keys, 
+            IDictionary<string, string> dictionary)
+        {
+            var list = new List<string>(keys);
+            list.Sort();
+            foreach (var item in list)
+            {
+                var v = dictionary.ContainsKey(item) ? dictionary[item] : "";
+                dataGridView.Rows.Add([item, v]);
+            }
+        }
+
+        /// <summary>
+        /// Fills DataGridView
+        /// </summary>
+        /// <param name="dataGridView">The DataGridView</param>
+        /// <param name="dictionary">Dictionary</param>
+        public void Fill(DataGridView dataGridView,
+            IDictionary<string, string> dictionary)
+        {
+            dictionary.Clear();
+            foreach (var row in dataGridView.Rows)
+            {
+                var s = row[1].ToString();
+                if (s.Length > 0)
+                {
+                    dictionary[row[0].ToString()] = s;
+                }
+            }
+        }
+
+        /// <summary>
         /// Finds child of control
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
