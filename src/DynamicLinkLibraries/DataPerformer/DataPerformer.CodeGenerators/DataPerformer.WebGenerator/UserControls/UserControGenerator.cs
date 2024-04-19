@@ -2,8 +2,10 @@
 using DataPerformer.Portable;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.Labels;
+using Diagram.UI;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Windows.Forms;
 using WindowsExtensions;
@@ -36,20 +38,17 @@ namespace DataPerformer.WebGenerator.UserControls
             consumer = label.Object as IDataConsumer;
             userControGeneratorSummary.Saver = saver;
             var an = consumer.GetAllAliases();
-            input.Fill(an, saver.Input);
+            DataTable dt = an.Create(saver.Input);
+            dt.Fill(input);
             IGraphLabel l = label;
             var s = l.Data.Item3;
-    
-
 
         }
 
         internal void Genterate()
         {
-            userControlInput.Fill(saver.Input);
-            userControlOutput.Fill(saver.Output);
-            userControGeneratorSummary.Get();
-
+            //saver.Input =
+    
             string jsonString = JsonSerializer.Serialize(saver);
 
         }

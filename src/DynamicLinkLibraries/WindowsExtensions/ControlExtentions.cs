@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using WindowsExtensions.Interfaces;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace WindowsExtensions
 {
@@ -31,28 +30,14 @@ namespace WindowsExtensions
         #endregion
 
         #region Members
-
         /// <summary>
-        /// Fills DataGridView
+        /// Fills DataGridView by DataTable
         /// </summary>
-        /// <param name="dataGridView">The DataGridView</param>
-        /// <param name="keys">Keys</param>
-        /// <param name="dictionary">Dictionary</param>
-        public static void Fill(this DataGridView dataGridView, IEnumerable<string> keys,
-            IDictionary<string, string> dictionary)
+        /// <param name="dataTable">DataTable</param>
+        /// <param name="dataGridView">DataGridView</param>
+        public static void Fill(this DataTable dataTable, DataGridView dataGridView)
         {
-            extension.Fill(dataGridView, keys, dictionary);
-        }
-
-        /// <summary>
-        /// Fills DataGridView
-        /// </summary>
-        /// <param name="dataGridView">The DataGridView</param>
-        /// <param name="dictionary">Dictionary</param>
-        public static void Fill(this DataGridView dataGridView,
-            IDictionary<string, string> dictionary)
-        {
-            extension.Fill(dataGridView, dictionary);
+           extension.Fill(dataTable, dataGridView);
         }
 
         /// <summary>
@@ -64,16 +49,6 @@ namespace WindowsExtensions
         public static T FindControlChild<T>(this Control control) where T : Control
         {
             return extension.FindControlChild<T>(control);
-        }
-
-        /// <summary>
-        /// Gets data table from control
-        /// </summary>
-        /// <param name="control">The control</param>
-        /// <returns>The data table</returns>
-        public static DataTable ToDataTable(this Control control)
-        {
-            return extension.ToDataTable(control);
         }
 
         /// <summary>

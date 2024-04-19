@@ -36,25 +36,6 @@ namespace WindowsExtensions
         }
 
         /// <summary>
-        /// Fills DataGridView
-        /// </summary>
-        /// <param name="dataGridView">The DataGridView</param>
-        /// <param name="dictionary">Dictionary</param>
-        public void Fill(DataGridView dataGridView,
-            IDictionary<string, string> dictionary)
-        {
-            dictionary.Clear();
-            foreach (var row in dataGridView.Rows)
-            {
-                var s = row[1].ToString();
-                if (s.Length > 0)
-                {
-                    dictionary[row[0].ToString()] = s;
-                }
-            }
-        }
-
-        /// <summary>
         /// Finds child of control
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
@@ -77,17 +58,21 @@ namespace WindowsExtensions
             return null;
         }
 
-        /// <summary>
-        /// Gets data table from control
-        /// </summary>
-        /// <param name="control">The control</param>
-        /// <returns>The data table</returns>
-        public DataTable ToDataTable(Control control)
-        {
-            var dataGridView = FindControlChild<DataGridView>(control);
-            return (dataGridView == null) ? null : ToDataTable(dataGridView);
-        }
 
+        /// <summary>
+        /// Fills DataGridView by DataTable
+        /// </summary>
+        /// <param name="dataTable">DataTable</param>
+        /// <param name="dataGridView">DataGridView</param>
+        public void Fill(DataTable dataTable, DataGridView dataGridView)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                var rv = row.ItemArray;
+                dataGridView.Rows.Add(rv);
+            }
+        }
+ 
         /// <summary>
         /// Creates Data table from Data grid view
         /// </summary>

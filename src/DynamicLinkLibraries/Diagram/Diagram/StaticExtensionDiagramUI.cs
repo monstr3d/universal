@@ -15,6 +15,7 @@ using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 
 using AssemblyService;
+using System.Data;
 
 namespace Diagram.UI
 {
@@ -25,6 +26,9 @@ namespace Diagram.UI
     {
 
         #region Fields
+
+
+        private static ExtensionObject extension = new ExtensionObject();
 
         /// <summary>
         /// Separator
@@ -71,6 +75,38 @@ namespace Diagram.UI
         #endregion
 
         #region Public Memberes
+
+        /// <summary>
+        /// Creates data table
+        /// </summary>
+        /// <param name="strings">Strings</param>
+        /// <param name="dic">Dictionary</param>
+        public static DataTable Create(this IEnumerable<string> strings, Dictionary<string, string> dic)
+        {
+            return extension.Create(strings, dic);
+        }
+
+
+        /// <summary>
+        /// Fills Dictionary from data table
+        /// </summary>
+        /// <param name="data">The data table</param>
+        /// <param name="dic">The dictionary</param>
+        public static void Fill(this DataTable data, Dictionary<string, string> dic)
+        {
+            extension.Fill(data, dic);
+        }
+
+        /// <summary>
+        /// Fills dictionary from data table
+        /// </summary>
+        /// <param name="dataTable">The data table</param>
+        /// <param name="strings">Strings</param>
+        /// <param name="dic">Dictionary</param>
+        public static void Fill(DataTable dataTable, IEnumerable<string> strings, Dictionary<string, string> dic)
+        {
+            extension.Fill(dataTable, strings, dic);
+        }
 
         /// <summary>
         /// Copy of an array to a string
