@@ -12313,6 +12313,10 @@ where $C_0\left( \sY\right)''$ is isomorphic to a bicommutant (cf. Definition \r
 \ee	
 
 \end{exercise}
+Denote by
+\be\label{blowing_sue4_eqn}
+_\sU A_\sV \bydef~_\sU A\cap  A_\sV.
+\ee
 \begin{lemma}\label{blowing_compact_lem}
 	If $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}	for any $a \in A$ and $\eps > 0$ following conditions hols:
 	\begin{enumerate}
@@ -12395,29 +12399,25 @@ From \eqref{blowing_su_eqn} it follows that
 \sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A ~\text{ AND } ~A_{\sU'}\subset A_{\sU''}~\text{ AND }~  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
 \ee
 \end{empt}
-\begin{definition}\label{blowing_support_defn} 
-	If $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$ then for any $a \in A$ we say that the closure of the intersection
-	\be
-	\bigcup_{a \in ~_\sU A_\sU} \sU
-	\ee
-	is said to be a \textit{support} of $a$. We denote it by $\supp a$.
-\end{definition}
 
 
-\begin{definition}\label{blowing_source_supp_defn}   
+\begin{definition}\label{blowing_support_defn}  
 If $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$ then for any $a \in A$ we say that the closure of the intersection
 \be
-\bigcup_{a \in ~A_\sU} \sU
+\bigcap_{a \in ~A_\sU} \sU
 \ee
-is said to be a \textit{source}-\textit{support} of $a$. We denote it by $s$-$\supp$. Similarly we define the  \textit{range}-\textit{support} denoted by $s$-$\supp a$.
+is said to be a \textit{source}-\textit{support} of $a$. We denote it by $s$-$\supp$. Similarly we define the  \textit{range}-\textit{support} denoted by $r$-$\supp a$. The union $\supp a \bydef s$-$\supp a \cup r$-$-\supp a$ is  \textit{support} of $a$.
 \end{definition}
-
-\begin{lemma}\label{blowing_compact_pedersen_lem}
-If Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact}  then and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
+\begin{remark}\label{blowing_compact_rem}
+	From the Lemma \ref{blowing_compact_lem}
+It follows that the set of elements with compact support is dense in $A$.
+\end{remark}
+\begin{lemma}\label{blowing_pedersen_compact_lem}
+If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact.
 \end{lemma}
 \begin{proof}
-If $a \in K\left(A\right)_0$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand since $C_0\left( \sY\right)\hookto M\left( A\right)$ is {compact} (cf. Definition \ref{blowing_compact_defn} !!! DELETE IT !!!) there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact.
- If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  representation (cf. Definition \ref{faithful_repr_defn}) then there is $\xi \in \H$ such that
+If $a \in K\left(A\right)_0$ (cf \eqref{k0_ped_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Remark \ref{blowing_compact_rem}).
+ If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation (cf. Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn}) then there is $\xi \in \H$ such that
 \bean\label{blowing_ac_eqn}
 \forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
 \eean
@@ -12425,9 +12425,10 @@ From $\left\|c - b \right\|  < \eps/2$ if follows that
 \be\label{blowing_acc_eqn}
 \forall \xi \in \H  \quad \left\| \xi \right\| = 1\quad \Rightarrow\quad  \left|\left( \xi, \rho\left( b \right) \xi\right)-\left( \xi, \rho\left( c \right) \xi\right) \right| < \eps/2
 \ee
-On the other hand from $f_\eps \left( b\right)> 0$ it follows that there is $\xi \in \H$ and $\la \in \R_+$ such that
+On the other hand from $a =f_\eps \left( b\right)> 0$ it follows that there is $\xi \in \H$ and $\la \in \R_+$ such that
 \bean
 \left\| \xi \right\| = 1,\\
+\rho\left(a \right) \xi = \la \xi,\\
 \rho\left(b \right)\xi = \left( \la+\eps \right) \xi,\\
 \rho\left(a \right)\xi = \la  \xi,\\
 \left( \xi, \rho\left( b \right) \xi\right) - \left( \xi, \rho\left( a \right) \xi\right)= \eps
@@ -12436,12 +12437,25 @@ and taking into account \eqref{blowing_acc_eqn} one has
 $$
 \left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
 $$
-Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$. From $c \in  C_c\left(\G , \sigma \right)$ and the Theorem  \ref{top_compact_img_thm} it follows that the set $s\left(\supp c\right)$ is compact. Otherwise $s\left(\supp c\right)$ equals to the source-support of $c$ (cf. Definition \ref{blowing_source_supp_defn}   !!!\ref{blowing_support_defn} !!!
-
-!!! CHECK !!!
+Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$.
+From $a, c > 0$ it follows that
+\bean
+s\text{-}\supp a = r\text{-}\supp a = \supp a,\\
+s\text{-}\supp c = r\text{-}\supp c = \supp c
+\eean
+If $\supp a \subsetneqq \supp c$ then there is a nonempty  open set  $\sU \subset \supp a\setminus \supp c$. For any $f \in C_0\left(\sU \right)\setminus \{0\}$ one has
+\bean
+faf^* > 0,\\
+fcf^* = 0.
+\eean
+However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is not true and $\supp a \subset\supp c$. Thus the set $\supp a$ is a closed subset of the compact set $\supp c$ therefore $\supp a$ is compact. Using this fact and the Definition \ref{pedersens_ideal_defn} we conclude that $\supp a$ is compact for any $a \in K\left( A\right)$. 
 \end{proof}
+\begin{remark}
+	The Lemma \ref{blowing_pedersen_compact_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
+\end{remark}
+
 \begin{remark}\label{blowing_compact_pedersen_rem}
-	From the Lemma \ref{blowing_compact_pedersen_lem} it  follows that $K\left( A\right) \subset A_c$ where $A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn})
+	From the Lemma \ref{blowing_pedersen_compact_lem} it  follows that $K\left( A\right) \subset A_c$ where $A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn})
 \end{remark}
 
 \begin{empt}\label{blowing_strict_empt} 
@@ -12651,58 +12665,6 @@ Prove that
 \end{split}
 \ee
 \end{exercise}
-\begin{lemma}\label{blowing_supp_lem}
-	If $A$ is a  $C^*$-algebra,   $C_0\left( \sY\right) \subset M\left(A \right)$  is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}) and $K\left(A\right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for all $a \in K\left(A \right)$ the support $\supp a\subset \sY$ of $a$  is compact.  
-\end{lemma}
-!!! $K_0 $!!!
-\begin{proof}
-	Firstly we suppose that $a$ is positive. From the Lemma \ref{pedersen_eps_lem} it turns out that there is a positive $a' \in A_+$ such that $a = f_\eps\left(a'\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn}.
-	From the  Definition \ref{blowing_disintegrable_defn} it follows that there is a family of open sets $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ such that a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras (cf. Definition \ref{blowing_disintegrable_defn}) generates the $C^*$-algebra $A$. Moreover one can suppose that the closure of $\sU_\a$ is compact for all $\a \in \mathscr A$. 
-	If $b \bydef \sqrt{a'}$ then  from the Definition \ref{blowing_disintegrable_defn} it turns out that for all $\delta > 0$ there is	
-	\bean
-	b' = \sum_{j = 1}^{n} b_{j,1}\cdot ... \cdot b_{j,m_j}\in A,\\
-	\forall j = 1,..., n \quad k = 1,..., m_j\quad \exists \a_{j,k}\in \mathscr A\quad b_{j,k}\in A^{\mathrm{prop}}_{\sU_{\a_{j,k}}},\\
-	\left\|b - b' \right\| < \delta.\\
-	\eean
-	From the equations \eqref{blowing_proprer_inc_op_eqn} it follows that 
-	$
-	b' \in A^{\text{prop}}_{\cup \sU_{\a_{j,k}}}.
-	$
-	If $\sV$ is the closure of a finite union $\sU\bydef\cup \sU_{\a_{j,k}}$ of open sets with compact closure then $\sV$ is compact.  From $\supp b'\subset \sV$ it follows that if  $a'' \bydef b'^*b'$ then $\supp a''\subset \sV$. If  $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a' - a''\right\|< \eps$. 
-	If $\chi$ is a characteristic map of $\supp a''$ (cf. Definition \ref{top_char_f_defn}) and $A \to B\left(\H\right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then $\chi$ corresponds to a projector $p^\parallel\in  B\left(\H\right)$. If  $\H^>$ is a completion of $f_\eps\left(a'\right)\H= a\H$ then $\H^> = p^{a'}_{\left(\eps, \infty\right) }\H$ where $p^{a'}_{\left(\eps, \infty\right) }$ is a spectral projection of $a'$ which corresponds to $\left(\eps, \infty\right)\subset \R$ (cf. Definition \ref{spectral_proj_defn}). It follows that
-	\bea
-	%\forall \eta \in \H^>\setminus \{0\} \quad \Leftrightarrow\quad  f_\eps\left(a\right)\eta \neq 0 \quad \Leftrightarrow\quad \frac{\left\|a \eta \right\|}{\left\| \eta \right\|}\ge \eps \\
-	\label{blowing_ge_eqn}
-	\forall \xi \in \H \setminus \{0\}\quad \xi \in \H^>\quad \Leftrightarrow \quad f_\eps\left(a'\right)\xi \neq 0 \quad \Leftrightarrow \quad \frac{\left\|a' \xi \right\|}{\left\| \xi \right\|}\ge \eps.
-	\eea
-	If $p^\perp \bydef 1_{B\left(\H\right)}- p^\parallel$ then $p^\perp$ is also a projector. If $\supp f_{\eps}\left( a'\right)\not\subset\supp a''$ then there is $\xi \in p^\perp\H$ such that $f_\eps\left(a'\right)\xi \neq 0$. From the equation \eqref{blowing_ge_eqn} it follows that
-	if $\left\|\xi \right\|= 1$ then $\left\|a'\xi \right\|\ge \eps$. From $a''\xi = 0$ it follows that $\left\|a'- a'' \right\|\ge \eps$, it contradicts with our construction. So the assumption $\supp f_{\eps}\left( a'\right)= \supp a\not\subset\supp a''$ is not true, it turns out that $\supp a\subset\supp a''$. It turns out that the set $a$ is compact, because it is  a closed subset of compact set $\supp a''$. From the equations \eqref{four_decompositon_eqn} and \eqref{blowing_ge_eqn}  one concludes that $\supp a$ is compact for all $a \in K\left(A \right)$. 
-\end{proof}
-\begin{remark}
-The Lemma \ref{blowing_supp_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
-\end{remark}
-
-\begin{corollary}\label{blowing_supp_cor}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be  disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of all open subsets with compact closure such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.
-\end{corollary}
-\begin{proof}
-	This lemma will be proved is for any $\eps > 0$ and $a \in A$ there is $\a\in \mathscr A$ and $a' \in A^{\mathrm{prop}}_{\sU_\a}$ such that
-	\be\label{blowing_aap_eqn}
-	\left\| a' - a\right\|< \eps. 
-	\ee
-	Following proof contains two parts:
-	\begin{enumerate}
-		\item [(i)] $a$ is positive, i.e. $a \in A_+$.
-		\item [(ii)] $a$ is any element of $A$, i.e. $a \in A$.
-	\end{enumerate}
-	(i) If $f_\eps$ is given by \eqref{f_eps_eqn} then one has
-	\begin{itemize}
-		\item $\left\| f_\eps\left(a\right) - a\right\|< \eps$.
-		\item $\supp f_\eps\left(a\right)$ is compact.
-	\end{itemize}
-	Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $\supp f_\eps\left(a\right)\subset \sU_\a$. So $\supp f_\eps\left(a\right) \in A^{\mathrm{prop}}_{\sU_\a}$, i.e. $a$ satisfies to \eqref{blowing_aap_eqn}.\\
-	(ii) Any $a \in A$ can be represented by following way $ a = b + i c - i d -  e$ where $b,c, d,e\in A_+$ (cf. \eqref{four_decompositon_eqn}). From this representation and (i) it follows that any $a\in A$ satisfies to  \eqref{blowing_aap_eqn}.
-\end{proof}
 
 
 \begin{lemma}\label{blowing_prop_norm_lem}
@@ -12809,7 +12771,7 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 \end{remark}
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
-\subsection{Lifts}
+\subsection{Lift and descent}
 \paragraph{}
 Here we suppose that we have Hausdorff blowing-us and investigate conditions when they enable us to construct noncommutative coverings.
 \begin{empt}\label{blowing_axiomatic_empt}
@@ -12823,15 +12785,15 @@ given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subs
 	\item[(a)] $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$,
 	\item[(b)] there is a transitive covering $q:  \widetilde \sY \to \sY$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
 \item[(c)] the covering transformation  group $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}),
-\item[(d)] if $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sU$ then we suppose that there is normed isomorphism
-of left $A$-modules given by
+\item[(d)] if $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sY$ then we suppose that there is a normed isomorphism
+of left $A$-$C_0\left(\sU \right)$ bimodules  given by
 \be\label{blowing_axiomatic_eqn}
 \begin{split}
-	\pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU},\\
-	a \mapsto \lim_{\a \in \mathscr A}\pi\left(a \right) \widetilde u_\a
+	\pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU}\\
+\forall	a \in A_\sU \quad \forall f \in C_0\left( \sU\right) \quad \pi_{\widetilde \sU}\left( af\right)= \pi\left( a\right)\lift^q_{\widetilde{\sU}} \left(f \right) .
 \end{split}
 \ee
-where the notation \eqref{blowing_sue3_eqn} is used, the $C^*$-norm limit is implied and $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$ (cf. Definition \ref{approximate_unit_defn}).
+where $\lift^q_{\widetilde{\sU}} \left(f \right)$ is the $q$-$\widetilde{\sU}$-lift (cf, Definition \ref{top_lift_desc_defn})
 \end{enumerate}
 \end{empt} 
 \begin{definition}\label{blowing_lift_defn}
@@ -12841,18 +12803,64 @@ A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)
 \ee
 is a $q$-\textit{lift} of $A$. 	
 \end{definition}
+\begin{lemma}
+	If both $\widetilde \sV \subset \widetilde \sY$  and $\widetilde \sU \subset \widetilde \sY$ open sets homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ and $\sU \bydef q\left( \widetilde \sU \right)$ then there is an isometric map
+	$$
+~_{\widetilde \sV} \widetilde \pi_{\widetilde \sU} : ~_{ \sV}  A_{ \sU}\xrightarrow{\approx}	~_{\widetilde \sV} \widetilde A_{\widetilde \sU}
+$$
+which is an isomorphism of both $C_0\left(\sV \right)$- $C_0\left(\sU \right)$-bimodules and $~_{ \sV}  A_{ \sV}$-$_{ \sU}  A_{ \sU}$-bimodules.
+\end{lemma}
+\begin{empt}
+	From \ref{blowing_axiomatic_eqn} it follows that $\widetilde \sV \subset \widetilde \sY$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ than there is a normed isomorphism
+	of right $A$-modules given by
+	\be\label{blowing_axiomatic_r_eqn}
+	\begin{split}
+	_{\widetilde{\sV}} 	\pi : ~ _\sV A \xrightarrow{\cong}~_{\widetilde \sV} \widetilde A,\\
+\forall	a \in ~_\sV A \quad \forall f \in C_0\left( \sV\right) \quad _{\widetilde \sV}\pi\left(f a\right)= \lift^q_{\widetilde{\sV}}\left(f \right)  \pi\left( a\right) .
+	\end{split}
+	\ee
+	If $\widetilde{a}\in ~_{\widetilde \sV} \widetilde A_{\widetilde \sU}$ 
+	then there is    $a \in~_\sV A$ such that
+	$$
+\widetilde{a} = 	~_{\widetilde{\sV}} 	\pi\left( a\right)
+	$$
+	If $a \notin    A_\sU$ then there is $\eps > 0$ such that  $\left\| a - b \right\|>\eps$ and, in particular
+	$$
+\forall f \in C_0\left(\sU \right) \quad \left\|a - af\right\| > \eps
+	$$
+	However from $\widetilde{a}\in \widetilde A_{\widetilde \sU}$ it follows that there is $\widetilde f\in C_0\left(\widetilde{\sU}\right)$ such that $\left\|\widetilde a - \widetilde a \widetilde f\right\| < \eps$ and taking into account $\eqref{blowing_axiomatic_r_eqn}$ we conclude that
+	$\left\|a - a\desc_q\left( \widetilde f\right) \right\| < \eps$ where $\desc_q\left( \widetilde f\right)$ is the $q$-descent (cf, Definition \ref{top_lift_defn}).  From this contraindication it turns out that $a \in    A_\sU\Rightarrow a \in ~_{ \sV}  A_{ \sU}$. Now we define 
+	$$
+~_{\widetilde \sV} \widetilde \pi_{\widetilde \sU}\bydef ~_{\widetilde \sV} \widetilde \pi|_{_{ \sV}  A_{ \sU}	}
+	$$
+\end{empt}
 \begin{lemma}\label{blowing_group_lem}
 There is a natural isomorphism of groups
-$$
-G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}
-$$
+\be\label{blowing_group_action_eqn}
+G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}.
+\ee
 \end{lemma}
-\begin{proof}
-!!!
+\begin{proof} 
+Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$.  Any hereditary $C^*$-subalgebra of $\widetilde A$ which is $*$-isomorphic to $_{\sU_\a} A_{\sU_\a}$ as $C^*$-algebra and $C_0\left(\sU_\a \right)-C_0\left(\sU_\a \right)$-bimodule is given by $_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}}$ where $p\left(\widetilde \a \right) = \a$.  It follows that
+$$
+\forall g^{\text{alg}}\in \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}
+$$
+there is $\widetilde \a'\in \widetilde{\mathscr A}$ such that $p\left(\widetilde \a' \right)= \a$ and   $g^{\text{alg}}~_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}}=~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a'}}$.
+
+	
+	
+	!!!
+For any $g \in G\left(\left.\widetilde \sY\right|\sY \right)$ we define $*$-automorphism of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{pedersens_ideal_defn}) of such that
+$$
+\forall a \in A\quad \forall \widetilde a \in K\left( \widetilde a\right) \quad \pi\left( a\right) \left( g\widetilde a\right)= g\left(  \pi\left( a\right)  g\widetilde a\right).
+$$
+From the Lemma \ref{blowing_pedersen_compact_lem}  if follows that  the support $\supp \widetilde a$ of $\widetilde a$ (cf. Definition \ref{blowing_support_defn}) is compact. It follows that there is a family $\left\{\widetilde \sU_1, ..., \widetilde \sU_1 \right\}$ of open sets such that
+\begin{itemize}
+	\item $\supp \widetilde a \subset \bigcup_{j = 1}^n \widetilde \sU_j$,
+	\item $\widetilde \sU_j$ is mapped homeomorphically 
+\end{itemize}
+
 \end{proof}
-\begin{lemma}
-HEREDITARY ANALOG OF \eqref{blowing_axiomatic_eqn} !!!!
-\end{lemma}
 \begin{empt}\label{blowing_ext_empt}
 	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
 	$$
@@ -12873,7 +12881,7 @@ If for any $\widetilde a\in \widetilde A$ and $\eps > 0$ there is $a \in A$   su
 	then 
 	\bean
 	\begin{split}
-	\widetilde A 	C_0\left(  \sY\right)\bydef \left\{ \widetilde a f \left|  f \in C_0\left( \sY\right)\quad \widetilde a \in \widetilde A \right.\right\},\\
+	\widetilde A 	C_c\left(  \sY\right)\bydef \left\{ \widetilde a f \left|  f \in C_c\left( \sY\right)\quad \widetilde a \in \widetilde A \right.\right\},\\
 		\end{split}
 	\eean 
 	are dense in $A$.
@@ -13038,34 +13046,9 @@ $$
 \begin{lemma}
 If   noncommutative finite-fold covering with unitization $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition  \ref{fin_unitization_defn}) satisfies to the Theorem \ref{blowing_unitization_thm} then the $*$-homomorphism $\pi$ is equivalent to the $q$-lift $A \hookto A_0\left(\widetilde \sY \right)$ of $A$ (cf. Definition \ref{blowing_lift_fin_eqn}).  
 \end{lemma}
-\paragraph{!!!}
-\begin{empt}\label{blowing_axiomatic_empt!}
-	If $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras, which satisfies to conditions \ref{lift_mult_empt} then there is s an injective *-homomorphism 
-	\bean
-	M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
-	a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a\right) \pi\left( a\right) \pi\left( u_\a\right)
-	\eean
-	given by the equation \eqref{lift_mult_eqn}. If both $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ are  blowing-ups cf. (Definitions \ref{blowing_defn})   then there are natural inclusions  $C_b\left( \sY\right) \subset M\left( A\right)$ and $C_b\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$, Suppose that 
-	\begin{enumerate}
-		\item[(a)] $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$,
-		\item[(b)] there is a transitive covering $q:  \widetilde \sY \to \sY$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
-		\item[(c)] the covering transformation  group $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}),
-		\item[(d)] if $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sU$ then we suppose that there is normed isomorphism
-		of left $A$-modules given by
-		\be\label{blowing_axiomatic_eqn}
-		\begin{split}
-			\pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU},\\
-			a \mapsto \lim_{\a \in \mathscr A}\pi\left(a \right) \widetilde u_\a
-		\end{split}
-		\ee
-		where the notation \eqref{blowing_sue3_eqn} is used, the $C^*$-norm limit is implied and $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$ (cf. Definition \ref{approximate_unit_defn}).
-	\end{enumerate}
-\end{empt} 
-\
-\paragraph{!!!}
 \begin{proof}
 	
-From the Lemma \ref{blowing_fin_lem} it follows that one should prove that the covering $q : \widetilde \sY$ satisfies to explained in \ref{blowing_axiomatic_empt} conditions (a)-(d). 
+From the Lemma \ref{blowing_fin_lem} it follows that one should prove that the covering $q : \widetilde \sY$ satisfies to explained in \ref{blowing_axiomatic_empt} !!! ADD \ref{lift_mult_empt} !!! conditions (a)-(d). 
 !!! (a)-(c)\\
 (d)Let us check that the given by \eqref{blowing_axiomatic_eqn} map 
 \bean
@@ -13079,7 +13062,7 @@ If $\widetilde a\in \pi_{\widetilde{\sU}} \left( A\right)$ then
 $$
 \sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a \in \widetilde A^{ G\left(\left.\widetilde \sY\right|\sY \right)}.
 $$
-So there is the unique $a \in A$ such that $\pi\left(a \right) =  \sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a$. The map $\widetilde a \mapsto a$ is inverse to $	\pi_{\widetilde{\sU}}$. Checking of another conditions of \ref{blowing_axiomatic_empt} is  left to the reader.
+So there is the unique $a \in A$ such that $\pi\left(a \right) =  \sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a$. The map $\widetilde a \mapsto a$ is inverse to $	\pi_{\widetilde{\sU}}$. Checking of another conditions of \ref{blowing_axiomatic_empt} !!! ADD \ref{lift_mult_empt} !!! is  left to the reader.
 \end{proof}
 \subsection{Infinite coverings}
 \begin{empt}
@@ -13118,80 +13101,7 @@ and the $*$-homomorphism $A_b\left(q\right) : A \hookto	M\left( A_0\left( \widet
 \subsection{Constructive approach}
 Here we have a coverings  Hausdorff blowing-us and using them we will construct noncommutative coverings.
 
-\paragraph{!!!} MAY BE DELETED LATER
-\begin{definition}\label{blowing_lift_defn!}
-	In the above situation we denote $A_0\left( \widetilde \sY\right)$. We say that an injective *-homomorphism
-	\be	\label{blowing_lift_eqn}
-	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
-	\ee
-	is a $q$-\textit{lift} of $A$. 	
-\end{definition}
-\begin{proof}
-	content...
-\end{proof}
-\begin{empt}
-If $A$ is a $C^*$-algebra, and  $q: \widetilde{\sY}\to \sY$ is an  $A$-{regular} finite-fold transitive covering  then there is the natural inclusion $C_0\left(q \right) : C_0\left( \sY\right)\hookto C_0\left( \widetilde\sY\right)$ where $C_0\left(q \right)$ is given by the Corollary  \ref{comm_comm_cor}. Since  $C_0\left( \sY\right)A$ is dense in $A$ (cf. Definition \ref{blowing_defn})  the  $C^*$-algebra $A$ can be regarded as a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$  generated by products
-\be\label{blowing_prods_f_eqn}
-\varphi_C\left( C_0\left(q \right) \right) \varphi_A\left(a \right),  	\quad  f\in C_0 \left( \sY \right), \quad a \in A
-\ee
-(cf. equation \eqref{blowing_prods_eqn}). From both \eqref{blowing_prods_eqn} and \eqref{blowing_prods_f_eqn} it follows that there is a natural injective *-homomorphism
-	\be\label{blowing_fin_eqn}
-A_0\left( q\right): A \hookto A_0\left(  \widetilde \sY\right)  
-\ee
-which is a specialization of \ref{blowing_multiplier_eqn} one.
-\end{empt}
-Let $\left(A, \widetilde A, G, \pi\right)$ be a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}) and let $M\left( \pi\right) : M\left( A\right)\hookto  M\left( \widetilde A\right)$ be the given by the Lemma \ref{fin_multilier_lem}  injective *-homomorphism.
-\begin{definition}\label{blowing_comply_defn} !!! MAY BE DELETE
-	In the above situation we say that both Hausdorff blowing-ups $C_0\left(\sY \right)\hookto M\left(A\right)$ and  $C_0\left(\widetilde \sY \right)\hookto M\left(\widetilde A\right)$ \textit{comply} with $\left(A, \widetilde A, G, \pi\right)$ if one has
-	\begin{enumerate}
-		\item[(a)] $M\left( \pi\right)\left( C_0\left( \sY \right)\right) \subset C_0\left(\widetilde \sY \right)$,
-		\item[(b)] there is a transitive finite-fold covering $p: \widetilde \sY \to \sY$ such that the natural inclusion $ C_0\left( \sY \right)\hookto C_0\left(\widetilde \sY \right)$ equals to $C_0\left(p \right)$  (cf/ equation \eqref{top_c0p_eqn}),
-		\item[(c)] there is a natural isomorphism $\phi: G \cong G\left(\left. \widetilde \sY\right| \sY\right)$ such that
-		$$
-		\forall g \in G \quad \forall  \widetilde{a}\in C_0\left(\widetilde \sY \right) \quad g \widetilde a = \phi\left( g\right) \widetilde a 	
-		$$
-		where the left part comes from the given by  the Lemma \ref{fin_multilier_lem} action $G \times M\left( \widetilde A\right)\to M\left( \widetilde A\right)$ and the right part corresponds to the natural action  $G\left(\left. \widetilde \sY\right| \sY\right) \times C_0\left(\widetilde \sY \right)\to C_0\left(\widetilde \sY \right)$.
-	\end{enumerate}  
-\end{definition}
-\begin{lemma}\label{blowing_comply_lem} !!! MAY BE DELETE
-	If in the situation of the Definition  \ref{blowing_comply_defn} $p$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}) then  $\left(A, \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}). 
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{top_covering_compactification_defn} it follows that there is a transitive covering $\widetilde p : \widetilde \sZ \to \sZ$ such that 
-	\begin{itemize}
-		\item both $\widetilde \sZ$ and $\sZ$ are compact,
-		\item there are dense inclusions $\sY \subset \sZ$ and $\widetilde \sY \subset \widetilde\sZ$,
-		\item $p = \widetilde p|_{\widetilde\sY}$
-	\end{itemize}
-	from the example \ref{comm_ess_exm} and the Definition \ref{unitization_defn} it turns out that there are natural unitizations $C_0\left( \sY\right) \subset C\left( \sZ\right)$ and $C_0\left(\widetilde \sY\right) \subset C\left( \widetilde \sZ\right)$ If $\left\{u_\a\right\}\subset A$ is approximate unit  then it can be regarded as and approximate unit for $\widetilde A$ (cf. Lemma \ref{quasi_approximate_unit_lem}). For any $\widetilde f \in C\left(\sZ\right)$ there is a net $\left\{f_\a\right\}\in C-0\left(\sY \right)$ such that $\widetilde f = \bt$-$\lim f_\a$ where the strict topology of $M\left(C_0\left( \sY\right)  \right)$ is implied. For any $\widetilde f \in C\left(\sZ\right)$ and $\widetilde a \in A$ we define 
-	\bean
-	\widetilde f \widetilde a \bydef \lim_{\a} f_\a u_a \widetilde a, \\
-	\widetilde a \widetilde f \bydef \lim_{\a} \widetilde a f_\a u_a
-	\eean
-	where $C^*$-norm limits are implied. One can prove that from the above equations it follows that $\widetilde f \in M\left(\widetilde A \right)$ (cf. Proposition \ref{dc_prop} and the Remark \ref{dc_rem}. If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sZ\right)$ and $\widetilde A \cup C\left( \widetilde \sZ\right)$ subalgebras of $M\left(A \right)$ and $M\left(\widetilde A \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is a finite-fold noncommutative  pre-covering.
-	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sZ \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then one has
-	\bean
-	\forall \widetilde b \in \widetilde B\quad \widetilde b = \sum_{j=1}^n \widetilde e_j b_j, \quad b_j = \sum_{g \in G} g\left(\widetilde e_j \widetilde b \right)\in B;\\
-	\widetilde B = \widetilde e_1 B + ... + \widetilde e_n B,
-	\eean
-	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
-\end{proof}
-\begin{theorem}\label{blowing_covering_thm}
-	If  $\left(A, \widetilde A, G, \pi\right)$ is a {noncommutative finite-fold  pre-covering} and both both Hausdorff blowing-ups $C_0\left(\sY \right)\hookto M\left(A\right)$, $~C_0\left(\widetilde \sY \right)\hookto M\left(\widetilde A\right)$ $C_0\left(\widetilde \sY \right)\hookto M\left(\widetilde A\right)$ \textit{comply} with $\left(A, \widetilde A, G, \pi\right)$ then  $\left(A, \widetilde A, G, \pi\right)$ is a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
-\end{theorem}
-\begin{proof}
-	If $\left\{\sU_\la\subset \sX \right\}_{\la\in \La}$ is a family of connected open sets with compact closures then one has:
-	\begin{enumerate}
-		\item from the Lemma \ref{blowing_comply_lem} it follows that $_{\sU_\la} A_{\sU_\la}$ is a connected $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}) $C^*$-subalgebra of $A$.
-		\item From $\sY = \cup \sU_\la$ (cf. Lemma \ref{top_connected_union_cor}) and the Definition \ref{blowing_defn} it follows that the union
-		$$
-		\bigcup_{\la \in \La} ~_{\sU_\la} A_{\sU_\la}
-		$$ 
-		is dense in $A$.
-	\end{enumerate}
-\end{proof}
-\paragraph{!!!!}
-   	Action of $g\in G\left({\widetilde{A}}~|~A \right)$ on $\widetilde{A}$ can be defined by representation as $ \widetilde{\rho}\left( g \widetilde{a}\right)  = g \widetilde{\rho}\left( \widetilde{a}\right) g^{-1}$, i.e.
+  	Action of $g\in G\left({\widetilde{A}}~|~A \right)$ on $\widetilde{A}$ can be defined by representation as $ \widetilde{\rho}\left( g \widetilde{a}\right)  = g \widetilde{\rho}\left( \widetilde{a}\right) g^{-1}$, i.e.
 
 
 
@@ -13340,7 +13250,7 @@ The Definition \ref{top_lift_a_f_defn} is a specialization of the Definition \re
 		\ee 
 		is faithful and nondegenerate (cf. Lemmas \ref{faithful_inf_lem}, \ref{induced_nondegenerate_inf_lem} and  a Proposition 2.66 \cite{rae:ctr_morita});
 		\item There is a natural Hausdorff blowing-up $C_0\left(\widetilde{\sY}\right)\hookto M\left( A_0\left(\widetilde \sY \right)\right)$ which can be extended up to an injective $*$-homomorphism inclusion $C_b\left(\widetilde{\sY}\right)\hookto M\left( A_0\left(\widetilde \sY \right)\right)$;
-		\item If $K\left(A_0\left(\widetilde \sY \right) \right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right) \right)$ the support $\supp \widetilde a$ (cf. Definition \ref{blowing_supp_defn}) of $\widetilde a$ is compact (cf. Lemma \ref{blowing_supp_lem}).
+		\item If $K\left(A_0\left(\widetilde \sY \right) \right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right) \right)$ the support $\supp \widetilde a$ (cf. Definition \ref{blowing_supp_defn}) of $\widetilde a$ is compact (cf. Lemma \ref{blowing_supp_lem} !!! REPLACE \ref{blowing_pedersen_compact_lem} !!!).
 	\end{enumerate}
 
 \end{exercise}
@@ -14037,7 +13947,7 @@ From the above equation it follows that $G= G\left(\left.\widetilde \sY \right|\
 	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), and an injective  $*$-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{blowing_conn_fam_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{pedersens_ideal_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
+	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{blowing_conn_fam_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{pedersens_ideal_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} !!! REPLACE \ref{blowing_pedersen_compact_lem} !!! it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
 	$$
 	a \in A^{\text{prop}}_{\sU_{\la_0}}\subset ~_{\sU_{\la_0}}A_{\sU_{\la_0}}\subset \bigcup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}.
 	$$
@@ -17323,7 +17233,7 @@ and taking into account \eqref{groupoid_acc_eqn} one has
 $$
 \left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
 $$
-Above condition contradicts with \eqref{groupoid_ac_eqn} so $a \le c$. From $c \in  C_c\left(\G , \sigma \right)$ and the Theorem  \ref{top_compact_img_thm} it follows that the set $s\left(\supp c\right)$ is compact. Otherwise $s\left(\supp c\right)$ equals to the source-support of $c$ (cf. Definition \ref{blowing_source_supp_defn}   !!!\ref{blowing_support_defn} !!!
+Above condition contradicts with \eqref{groupoid_ac_eqn} so $a \le c$. From $c \in  C_c\left(\G , \sigma \right)$ and the Theorem  \ref{top_compact_img_thm} it follows that the set $s\left(\supp c\right)$ is compact. Otherwise $s\left(\supp c\right)$ equals to the source-support of $c$ (cf. Definition \ref{blowing_support_defn}  !!!\ref!!! REPLACE \ref{blowing_support_defn} !!! !!!
 
 \end{proof}	
 \begin{empt}\label{groupoid_cov_empt}
@@ -25844,25 +25754,23 @@ Here I follow to \cite{phillips:inv_lim_app}.	We begin with the construction of 
 	elements of $F(G)^+=F(G)$ because they do not make sense in a nonunital $C^*$-
 	algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge „ g$
 	for some fixed $e \in G$ and all $g \in G \coprod G^*$).
-	\begin{defn}\label{gr_ca_defn}\cite{phillips:inv_lim_app}
-		Let $(G,R)$ be a set of generators and relations.
+	\begin{definition}\label{gr_ca_defn}\cite{phillips:inv_lim_app}
+		Let $(G,R)$ be a set of \textit{generators and relations}.
 		(That is, $G$ is a set and $R$ is a set of relations on $G$). Then a \textit{representation} of
 		$(G,R)$ in a $C^*$-algebra $A$ is a function $\rho : G \to A$ such that the elements $\rho(g)$ for $g \in G$ satisfy the relations $R$ in $A$. A representation on a Hilbert space $\H$ is a
 		representation in $B(\H)$.
-	\end{defn} 
-	\begin{defn}\label{adm_gr_defn}
+	\end{definition} 
+	\begin{definition}\label{adm_gr_defn}
 		(Compare \cite{blackadar:shape_theory}). A set $(G,R)$ of generators and
 		relations is \textit{admissible} if the following conditions hold:
 		\begin{enumerate}
-			
-			
 			\item The function from $G$ to the zero $C^*$-algebra is a representation of $(G,R)$.
 			\item If $\rho$ is a representation of $(G,R)$ in a $C^*$-algebra $A$, and if $B$ is a $C^*$-subalgebra of $A$ which contains $\rho(G)$, then $\rho$ is a representation of $(G,R)$ in $B$.
 			\item If $\rho$ is a representation of $(G, R)$ in a $C^*$-algebra $A$, and if $\psi: A\to B$ is a surjective homomorphism, then $\psi \circ \rho$ is a representation of $(G, R)$ in $B$.
 			\item For every $g \in G$ there is a constant $M(g)$ such that $\|\rho (g) \| < M(g)$ for all representations $p$ of $(G, R)$.
 			\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $\H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho_{\alpha}(g)$   is a representation of $(G, R)$ on $\H= \oplus \H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(\H)$ by (4), in fact satisfy the relations $R$.)
 		\end{enumerate}
-	\end{defn}
+	\end{definition}
 	Note that, in the presence of (3), condition (1) is equivalent to "there
 	exists a representation of $(G, R)$." Also note that, for relations of the sort considered
 	by Blackadar, (2) and (3) are automatic and (5) follows from (4).
@@ -25870,7 +25778,8 @@ Here I follow to \cite{phillips:inv_lim_app}.	We begin with the construction of 
 	%x does not satisfy (l) of the definition.
 	\begin{definition}\label{universal_ca_defn}\cite{phillips:inv_lim_app}
 	The \textit{universal $C^*$-algebra on the generators $G$ and relations $R$} is a $C^*$- algebra $C^*(G,R)$ with a representation $\rho$ of $(G,R)$ in $C^*(G,R)$, such that, given any representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$, then there is a unique homomorphism
-$\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$.	\end{definition}
+$\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$.	
+\end{definition}
  If $(G,R)$ is admissible, then $C^*(G,R)$ exists
 	and, following Blackadar, can be obtained as the Hausdorff completion of $F(G)$ in the $C^*$ -seminorm $\|x\| = \mathrm{sup}|\rho(x)\|$ where $\rho$ is a representation of $(G,R)$.
 	Note that condition (4) guarantees that $\|x\| < \infty$ for $x \in G$, and that condition
