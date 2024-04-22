@@ -12803,11 +12803,11 @@ A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)
 \ee
 is a $q$-\textit{lift} of $A$. 	
 \end{definition}
-\begin{lemma}
+\begin{lemma}\label{blowing_uv_iso_lem}
 	If both $\widetilde \sV \subset \widetilde \sY$  and $\widetilde \sU \subset \widetilde \sY$ open sets homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ and $\sU \bydef q\left( \widetilde \sU \right)$ then there is an isometric map
-	$$
+\be\label{blowing_uv_iso_eqn}
 ~_{\widetilde \sV} \widetilde \pi_{\widetilde \sU} : ~_{ \sV}  A_{ \sU}\xrightarrow{\approx}	~_{\widetilde \sV} \widetilde A_{\widetilde \sU}
-$$
+\ee
 which is an isomorphism of both $C_0\left(\sV \right)$- $C_0\left(\sU \right)$-bimodules and $~_{ \sV}  A_{ \sV}$-$_{ \sU}  A_{ \sU}$-bimodules.
 \end{lemma}
 \begin{empt}
@@ -12837,7 +12837,7 @@ which is an isomorphism of both $C_0\left(\sV \right)$- $C_0\left(\sU \right)$-b
 \begin{lemma}\label{blowing_group_lem}
 There is a natural isomorphism of groups
 \be\label{blowing_group_action_eqn}
-G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}.
+G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\bydef \widetilde A\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}.
 \ee
 \end{lemma}
 \begin{proof} 
@@ -12845,25 +12845,59 @@ Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of co
 $$
 \forall g^{\text{alg}}\in G^{\text{alg}}\bydef \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}
 $$
-there is $\widetilde \a'\in \widetilde{\mathscr A}$ such that $p\left(\widetilde \a' \right)= \a$ and   $g^{\text{alg}}~_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}}=~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a'}}$. From $p\left(\widetilde \a' \right)= p\left(\widetilde \a' \right)$ it follows that there is $\forall g^{\text{top}}_{\widetilde \a}\in G^{\text{top}}\bydef G\left(\left.\widetilde \sY\right|\sY \right)$ such that $\widetilde \a' = g\widetilde \a$ and $g^{\text{alg}}~_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}} =~_{g^{\text{top}}_{\widetilde \a}\widetilde\sU_{\widetilde\a}} \widetilde A_{{g^{\text{top}}_{\widetilde \a}\widetilde\sU_{\widetilde\a}}}$. If $\widetilde\sU_{\widetilde\a'}\cap \widetilde\sU_{\widetilde\a''} \neq \emptyset$ then for $\widetilde\sU_{\widetilde\a'}\cap  g^{\text{top}}  \widetilde\sU_{\widetilde\a''} = \emptyset$ for any nontrivial $ g^{\text{top}}\in  G^{\text{top}}$. Also for any nontrivial  $g_1^{\text{top}}, g^{\text{top}}_2\in  G^{\text{top}}$ one has $g_1^{\text{top}}\widetilde\sU_{\widetilde\a'}\cap g_1^{\text{top}} \widetilde\sU_{\widetilde\a''} \neq \emptyset$ and $g_1^{\text{top}}\widetilde\sU_{\widetilde\a'}\cap g_2^{\text{top}} g_1^{\text{top}} \widetilde\sU_{\widetilde\a''} =\emptyset$.  So there are $\widetilde a' \in 
+there is $\widetilde \a'\in \widetilde{\mathscr A}$ such that $p\left(\widetilde \a' \right)= \a$ and   $g^{\text{alg}}~_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}}=~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a'}}$. From $p\left(\widetilde \a' \right)= p\left(\widetilde \a' \right)$ it follows that there is $\forall g^{\text{top}}_{\widetilde \a}\in G^{\text{top}}\bydef G\left(\left.\widetilde \sY\right|\sY \right)$ such that $\widetilde \a' = g\widetilde \a$ and $g^{\text{alg}}~_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}} =~_{g^{\text{top}}_{\widetilde \a}\widetilde\sU_{\widetilde\a}} \widetilde A_{{g^{\text{top}}_{\widetilde \a}\widetilde\sU_{\widetilde\a}}}$. If $\widetilde\sU_{\widetilde\a'}\cap \widetilde\sU_{\widetilde\a''} \neq \emptyset$ then for $\widetilde\sU_{\widetilde\a'}\cap  g^{\text{top}}  \widetilde\sU_{\widetilde\a''} = \emptyset$ for any nontrivial $ g^{\text{top}}\in  G^{\text{top}}$. Also for any nontrivial  $g_1^{\text{top}}, g^{\text{top}}_2\in  G^{\text{top}}$ one has $g_1^{\text{top}}\widetilde\sU_{\widetilde\a'}\cap g_1^{\text{top}} \widetilde\sU_{\widetilde\a''} \neq \emptyset$ and $g_1^{\text{top}}\widetilde\sU_{\widetilde\a'}\cap g_2^{\text{top}} g_1^{\text{top}} \widetilde\sU_{\widetilde\a''} =\emptyset$.  So there are $\widetilde a' \in _{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a'}}$ and $\widetilde a'' \in~ _{\widetilde\sU_{\widetilde\a''}} \widetilde A_{\sU_{\widetilde \a''}}$ such that $a'a'' \neq 0$.  In this situation following conditions
+\bean
+g^{\text{alg}}\a'\in ~_{g^{\text{top}}_{\widetilde \a'}\widetilde\sU_{\widetilde\a'}} \widetilde A_{{g^{\text{top}}_{\widetilde \a'}\widetilde\sU_{\widetilde\a'}}},\\
+g^{\text{alg}}\a''\in ~_{g^{\text{top}}_{\widetilde \a''}\widetilde\sU_{\widetilde\a''}} \widetilde A_{{g^{\text{top}}_{\widetilde \a''}\widetilde\sU_{\widetilde\a';}}},\\
+\left(g^{\text{alg}}a' \right)\left(g^{\text{alg}}a'' \right) \neq 0 
+\eean
+hold if and only if $g^{\text{top}}_{\widetilde \a''}= g^{\text{top}}_{\widetilde \a'}$. Thus there is a map $\phi:G^{\text{alg}} \to G^{\text{top}}$ such that
 $$
-ss
+\forall  g^{\text{alg}}\in G^{\text{alg}}\quad \forall \widetilde \a \in \widetilde{\mathscr A}\quad \widetilde a \in ~_{\widetilde\sU_{\widetilde\a}} \widetilde A_{\sU_{\widetilde \a}}\Rightarrow g^{\text{alg}}\widetilde \a\in ~_{\phi\left(g^{\text{alg}} \right) \widetilde\sU_{\widetilde\a}} \widetilde A_{\phi\left(g^{\text{alg}} \right)\sU_{\widetilde \a}}.
 $$
-
-	
-	
-	!!!
-For any $g \in G\left(\left.\widetilde \sY\right|\sY \right)$ we define $*$-automorphism of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{pedersens_ideal_defn}) of such that
+For any  $C_0\left(\sU_{\a'} \right)$-$C_0\left(\sU_{\a''} \right)$-bimodule $\widetilde B\subset \widetilde A$  which is isomorphic to $_{\sU_{\a'}} A_{\sU_{\a''}}$ as a normed $C_0\left(\sU_{\a'} \right)$-$C_0\left(\sU_{\a''} \right)$-bimodule there are $\widetilde \a', \widetilde \a'' \in \widetilde{\mathscr A}$ with $p\left(\widetilde \a' \right)=\a'$, $~p\left(\widetilde \a'' \right)=\a''$ such that $\widetilde B= ~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a''}}$. Moreover the bimodule $\widetilde B$ is the $C^*$-norm completion of $\C$-linear span of elements given by
 $$
-\forall a \in A\quad \forall \widetilde a \in K\left( \widetilde a\right) \quad \pi\left( a\right) \left( g\widetilde a\right)= g\left(  \pi\left( a\right)  g\widetilde a\right).
+\widetilde a' \widetilde a \widetilde a''; \quad \widetilde a'\in  ~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a'}}, \quad \widetilde a\in \widetilde A, \quad \widetilde a''\in  ~_{\widetilde\sU_{\widetilde\a''}} \widetilde A_{\sU_{\widetilde \a''}}.
 $$
-From the Lemma \ref{blowing_pedersen_compact_lem}  if follows that  the support $\supp \widetilde a$ of $\widetilde a$ (cf. Definition \ref{blowing_support_defn}) is compact. It follows that there is a family $\left\{\widetilde \sU_1, ..., \widetilde \sU_1 \right\}$ of open sets such that
-\begin{itemize}
-	\item $\supp \widetilde a \subset \bigcup_{j = 1}^n \widetilde \sU_j$,
-	\item $\widetilde \sU_j$ is mapped homeomorphically 
-\end{itemize}
-
-\end{proof}
+From the above equation it turns out that for all $g^{\text{alg}}\in G^{\text{alg}}$ the bimodule $g^{\text{alg}}\widetilde B$ is the $C^*$-norm completion of $\C$ linear span of elements given by
+$$
+\widetilde a' \widetilde a \widetilde a''; \quad \widetilde a'\in  ~_{\phi\left( g^{\text{alg}}\right) \widetilde\sU_{\widetilde\a'}} \widetilde A_{\phi\left( g^{\text{alg}}\right)\sU_{\widetilde \a'}}, \quad \widetilde a\in \widetilde A, \quad \widetilde a''\in  ~_{\phi\left( g^{\text{alg}}\right)\widetilde\sU_{\widetilde\a''}} \widetilde A_{\phi\left( g^{\text{alg}}\right)\sU_{\widetilde \a''}}.
+$$
+Equivalently $\widetilde B = ~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a''}}$ and $g^{\text{alg}} \widetilde B =~_{\phi\left( g^{\text{alg}}\right)\widetilde\sU_{\widetilde\a'}} \widetilde A_{\phi\left( g^{\text{alg}}\right)\sU_{\widetilde \a''}}$. In result for all $\widetilde \a', \widetilde \a''\in \widetilde{\mathscr A}$ one has $g^{\text{alg}} ~_{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a''}}= _{\phi\left( g^{\text{alg}}\right)\widetilde\sU_{\widetilde\a'}} \widetilde A_{\phi\left( g^{\text{alg}}\right)\sU_{\widetilde \a''}}$. Moreover
+$$
+\widetilde a \in~ _{\widetilde\sU_{\widetilde\a'}} \widetilde A_{\sU_{\widetilde \a''}} \quad \Rightarrow\quad  g^{\text{alg}} \widetilde a = ~_{\phi\left( g^{\text{alg}}\right)\widetilde\sU_{\widetilde\a'}} \widetilde \pi_{\phi\left( g^{\text{alg}}\right)\sU_{\widetilde \a''}}\circ ~_{\widetilde\sU_{\widetilde\a'}} \widetilde \pi^{-1}_{\sU_{\widetilde \a''}}\left(\widetilde a \right) 
+$$
+(cf. equation \eqref{blowing_uv_iso_eqn}). Since the $C^*$-algebra $\widetilde A$ is generated by a union 
+$$
+\bigcup_{\widetilde \a', \widetilde \a''\in \widetilde{\mathscr A}}~ _{\widetilde\sU_{\widetilde\a'}}  \widetilde A_{\widetilde\sU_{\widetilde \a''}}
+$$
+the map $\phi$ is injective. Let us prove that $\phi$ is invertible. Let $K\left(\widetilde A\right)$ be the Pedersen's ideal of $\widetilde A$ (cf. Definition \ref{pedersens_ideal_defn}), and let $G^\K \subset  \Aut\left( K\left(\widetilde A\right)\right) $ is a subgroup of $*$-automorphisms such that
+\bean
+g \in G^K\Leftrightarrow\\ \forall \widetilde a \in K\left(\widetilde A\right)~  \forall a \in A ~ g \left(\widetilde a \pi\left(a \right)\right)  = \left( g\widetilde a\right)  \pi\left(a \right),~ g \left( \pi\left(a \right)\widetilde a\right)  =   \pi\left(a \right) \left( g\widetilde a\right).
+\eean 
+If $\widetilde a \in K\left(\widetilde A\right)$ then from the the support $\supp \widetilde a$ is compact.
+For any $g \in G\left(\left.\widetilde \sY\right|\sY \right)$ we define $*$-automorphism $\varphi\left( g\right)$  of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{pedersens_ideal_defn}) of such that
+$$
+\forall a \in A\quad \forall \widetilde a \in K\left( \widetilde A\right) \quad \pi\left( a\right) \left( g\widetilde a\right)= g\left(  \pi\left( a\right)  g\widetilde a\right).
+$$
+From the Lemma \ref{blowing_pedersen_compact_lem}  if follows that  the support $\supp \widetilde a$ of $\widetilde a$ (cf. Definition \ref{blowing_support_defn}) is compact. There is a subordinated to the family $\left\{\widetilde\sU\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$ covering sum
+$$
+\widetilde f\bydef \sum_{j = 1}^n \widetilde f_{\widetilde \a_j}
+$$
+such that $\widetilde f \widetilde a\widetilde f= \widetilde a$ and
+$$
+\left\{\left.\widetilde y \in \widetilde \sY\right| \widetilde f\left(\widetilde y \right)\neq 0 \right\}\subset \widetilde \sU_{\widetilde \a_j}.
+$$
+From our construction it follows that 
+$$
+\widetilde a = \sum^n_{\substack{j = 1\\k=1}} \widetilde f _{\widetilde \a_j}\widetilde a\widetilde f_{\widetilde \a_k} 
+$$
+We set
+\bean
+\varphi\left(g \right) \widetilde a  \bydef \sum^n_{\substack{j = 1\\k=1}}  ~_{g\widetilde\sU_{\widetilde\a_j}} \widetilde \pi_{g\widetilde\sU_{\widetilde \a_k}}\left(\widetilde a \right)\circ ~_{\widetilde\sU_{\widetilde\a_j}} \widetilde \pi^{-1}_{\widetilde\sU_{\widetilde \a_k}}\left(\widetilde a \right)
+\eean
+$ K\left( \widetilde A\right)$ is dense in $M\left( \widetilde A\right)$ with respect to the strict topology of  $M\left( \widetilde A\right)$ (cf. Definition \ref{strict_topology_defn}), so $\varphi\left(g \right)$ can be uniquely extended up to $*$-isomorphism of $M\left( \widetilde A\right)$. Both mutually inverse maps $\phi$ and $\varphi$ yield the $*$-automorphism required  by this lemma.
+\end{proof} 
 \begin{empt}\label{blowing_ext_empt}
 	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
 	$$
@@ -12893,8 +12927,30 @@ If for any $\widetilde a\in \widetilde A$ and $\eps > 0$ there is $a \in A$   su
 	C_b\left( \sY\right) \hookto C_b\left( \widetilde \sY\right) 
 	\ee
 \end{empt}
+
+\begin{theorem}\label{blowing_compact_unitization_thm} 
+	Let both $\sY$ and $\widetilde \sY$ are compact Hausdorff spaces, and 
+	let $q: \widetilde \sY \to  \sY$ be a transitive finite-fold covering.
+	If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple
+	\be\label{blowing_pre_eqn}
+	\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)
+	\ee
+	is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
+\end{theorem}
+\begin{proof}
+	The quadruple \eqref{blowing_pre_eqn} a noncommutative finite-fold pre-covering  (cf. Definition \ref{fin_pre_defn} and the Remark \ref{blowing_pre_rem}). There is a given by the equation \eqref{mult_map_eqn} injective $*$-homomorphism $M\left(\pi\right): M\left(A \right) \hookto M\left( A_0\left( \widetilde \sY\right)\right)$. 
+	If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sY\right)$ and $\widetilde A \cup C\left( \widetilde \sY\right)$ subalgebras of $M\left(A \right)$ and $M\left(A_0\left( \widetilde \sY\right) \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$  is a noncommutative finite-fold   pre-covering.
+	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sY \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then one has
+	\bean
+	\forall \widetilde b \in \widetilde B\quad \widetilde b = \sum_{j=1}^n \widetilde e_j b_j, \quad b_j = \sum_{g \in G} g\left(\widetilde e_j \widetilde b \right)\in B;\\
+	\widetilde B = \widetilde e_1 B + ... + \widetilde e_n B,
+	\eean
+	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
+\end{proof}
+
+
 \begin{empt}\label{blowing_lift_empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\G^0 \right)$-valued product
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\sY \right)$-valued product
 	\bean
 	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
 	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
@@ -12983,27 +13039,6 @@ $$
 $$
 is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).
 \end{remark}
-
-
-\begin{theorem}\label{blowing_compact_unitization_thm} 
-	Let both $\sY$ and $\widetilde \sY$ are compact Hausdorff spaces, and 
-	let $q: \widetilde \sY \to  \sY$ be a transitive finite-fold covering.
-If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple
-\be\label{blowing_pre_eqn}
-\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)
-\ee
-is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
-\end{theorem}
-\begin{proof}
-	The quadruple \eqref{blowing_pre_eqn} a noncommutative finite-fold pre-covering  (cf. Definition \ref{fin_pre_defn} and the Remark \ref{blowing_pre_rem}). There is a given by the equation \eqref{mult_map_eqn} injective $*$-homomorphism $M\left(\pi\right): M\left(A \right) \hookto M\left( A_0\left( \widetilde \sY\right)\right)$. 
-If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sY\right)$ and $\widetilde A \cup C\left( \widetilde \sY\right)$ subalgebras of $M\left(A \right)$ and $M\left(A_0\left( \widetilde \sY\right) \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$  is a noncommutative finite-fold   pre-covering.
-	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sY \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then one has
-	\bean
-	\forall \widetilde b \in \widetilde B\quad \widetilde b = \sum_{j=1}^n \widetilde e_j b_j, \quad b_j = \sum_{g \in G} g\left(\widetilde e_j \widetilde b \right)\in B;\\
-	\widetilde B = \widetilde e_1 B + ... + \widetilde e_n B,
-	\eean
-	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
-\end{proof}
 
 \begin{lemma}\label{blowing_aal_lem}
 	Let $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ be a {finite}-$q$-{lift}. If $\sU\subset \sY$ is a connected subset with compact closure then $_\sU A_\sU$ is $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
