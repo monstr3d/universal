@@ -3788,7 +3788,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
 
 
  \chapter{Noncommutative infinite coverings}\label{cov_inf_chap}
- 
+ !!! FINITE INDEX GROUP !!!
  \section{Basic definitions}\label{inf_bas_constr_sec}
 
     \subsection{Coverings of $C^*$-algebras}
@@ -7531,7 +7531,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 	\end{equation}	
 \end{remark}
 \begin{defn}\label{top_compactly_supported_descent_defn}
-	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group of  group of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group  of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
 Lemma \ref{top_compact_lem}	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
 \be\label{top_desc_compact_eqn}
 \desc^c_p\left(\widetilde a \right) \bydef \sum_{	g \in G\left( \left. \widetilde \sX'\right| \sX\right) } g \desc_{\widetilde p'} \left(\widetilde a \right)\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)
@@ -12787,7 +12787,7 @@ is a $q$-\textit{lift} of $A$.
 \ee
 which is an isomorphism of both $C_0\left(\sV \right)$- $C_0\left(\sU \right)$-bimodules and $~_{ \sV}  A_{ \sV}$-$_{ \sU}  A_{ \sU}$-bimodules.
 \end{lemma}
-\begin{empt}
+\begin{proof}
 	From \ref{blowing_axiomatic_eqn} it follows that $\widetilde \sV \subset \widetilde \sY$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ than there is a normed isomorphism
 	of right $A$-modules given by
 	\be\label{blowing_axiomatic_r_eqn}
@@ -12810,7 +12810,17 @@ which is an isomorphism of both $C_0\left(\sV \right)$- $C_0\left(\sU \right)$-b
 	$$
 ~_{\widetilde \sV} \widetilde \pi_{\widetilde \sU}\bydef ~_{\widetilde \sV} \widetilde \pi|_{_{ \sV}  A_{ \sU}	}
 	$$
-\end{empt}
+\end{proof}
+\begin{definition}\label{blowing_desc_defn}
+In the situation of the Lemma \ref{blowing_uv_iso_lem} 
+$$
+a \bydef ~_{\widetilde \sV} \widetilde \pi_{\widetilde \sU}\left( \widetilde a\right) 
+$$
+is the $q$-\textit{descent} of $\widetilde a$.   Write $a \bydef \desc_q \left( \widetilde a\right)$. 
+\end{definition}
+\begin{remark}
+The Definition \ref{blowing_desc_defn} is a generalization of \ref{top_lift_desc_defn} one.
+\end{remark}
 \begin{lemma}\label{blowing_group_lem}
 There is a natural isomorphism of groups
 \be\label{blowing_group_action_eqn}
@@ -12866,18 +12876,77 @@ $$
 \left\{\left.\widetilde y \in \widetilde \sY\right| \widetilde f\left(\widetilde y \right)\neq 0 \right\}\subset \widetilde \sU_{\widetilde \a_j}.
 $$
 From our construction it follows that 
-$$
+\be\label{blowing_jk_eqn}
 \widetilde a = \sum^n_{\substack{j = 1\\k=1}} \widetilde f _{\widetilde \a_j}\widetilde a\widetilde f_{\widetilde \a_k} 
-$$
+\ee
 We set
 \bean
 \varphi\left(g \right) \widetilde a  \bydef \sum^n_{\substack{j = 1\\k=1}}  ~_{g\widetilde\sU_{\widetilde\a_j}} \widetilde \pi_{g\widetilde\sU_{\widetilde \a_k}}\left(\widetilde a \right)\circ ~_{\widetilde\sU_{\widetilde\a_j}} \widetilde \pi^{-1}_{\widetilde\sU_{\widetilde \a_k}}\left(\widetilde a \right)
 \eean
 $ K\left( \widetilde A\right)$ is dense in $M\left( \widetilde A\right)$ with respect to the strict topology of  $M\left( \widetilde A\right)$ (cf. Definition \ref{strict_topology_defn}), so $\varphi\left(g \right)$ can be uniquely extended up to $*$-isomorphism of $M\left( \widetilde A\right)$. Both mutually inverse maps $\phi$ and $\varphi$ yield the $*$-automorphism required  by this lemma.
 \end{proof} 
-\begin{lemma}
-	!!! RESIDULALLY FINITE SERIES LEM !!!
+\begin{lemma}\label{blowing_lift_desc_sum_lem}
+	If 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+$
+	is a $q$-\textit{lift} (cf. Definition \ref{blowing_lift_defn}) of $A$ and both $\widetilde \sU, \widetilde \sV$ are homeomorphically mapped onto $\sU \bydef q\left( \widetilde\sU\right)$ and $\sV \bydef q\left( \widetilde\sV\right)$ respectively then for any $\widetilde{a} \in ~_{\widetilde \sU} A_0\left( \widetilde \sY\right)_{\widetilde \sV}$ following conditions hold:
+	\begin{enumerate}
+		\item[(i)] a series
+	\be\label{blowing_uv_series_eqn}
+	\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}	
+\ee
+		is convergent with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}),
+		\item[(ii)] If $a \bydef ~_{\widetilde \sU} \pi^{-1}_{\widetilde \sV}  \left(\widetilde a \right)$  (cf. equation \eqref{blowing_uv_iso_eqn}) then $\pi\left(a \right)$ is a sum of the series \ref{blowing_uv_iso_eqn}. then the sum of the series equals to $\pi\left( a\right)$.  
+	\end{enumerate}
 \end{lemma}
+\begin{proof}
+(i)	If $\widetilde b \in A_0\left( \widetilde \sY\right)$ and $\eps > 0$ then three is $\widetilde c \in K\left( A_0\left( \widetilde \sY\right)\right)$ such that 
+	$$
+	\left\|\widetilde b- \widetilde c \right\|< \frac{\eps }{\left\| \widetilde a\right\| }.
+	$$ 
+	From the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \widetilde c$ of $\widetilde c$ is compact.
+	If a set $G_0 \bydef \left\{\left.g \in G\left(\left.\widetilde \sY\right|\sY \right)\right| g \widetilde \sU \cap \supp \widetilde c \neq \emptyset\right\}$ is not finite then $\supp \widetilde c$ contains an infinite disjoint union of open subsets. It is impossible since $\supp \widetilde c$ compact so the set $G_0$ is finite. It follows that if $G \subset  G\left(\left.\widetilde \sY\right|\sY \right)$ is a finite subset with $G_0 \subset G$ then
+\bean
+\left( \sum_{	g \in G}g \widetilde{a}\right) \widetilde c = \left( \sum_{	g \in G_0}g \widetilde{a}\right) 	\widetilde c,\\
+\left\|\left( \sum_{	g \in G}g \widetilde{a}\right) \widetilde b- \left( \sum_{	g \in G_0}g \widetilde{a}\right) 	\widetilde b\right\| < \eps.
+\eean
+The above equation means that a series $\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}\left( g \widetilde{a}\right)\widetilde b$ is $C^*$-norm convergent. Similarly one can prove that the series  $\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}\widetilde b	\left( g \widetilde{a}\right)$ is also $C^*$-norm convergent, so the series \eqref{blowing_uv_series_eqn} is convergent  with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ (cf. equation \ref{strict_topology_norm_eqn}).\\
+(ii) Follows from
+$$
+\pi\left(a  \right) \widetilde c = \sum_{	g \in G}\left( g \widetilde{a}\right) \widetilde c,
+$$
+where the notation of (i) is used.
+\end{proof}
+\begin{remark}
+The Lemma \ref{blowing_lift_desc_sum_lem} is a generalization of \ref{comm_lift_desc_sum_lem} one.
+\end{remark}
+\begin{corollary}\label{blowing_lift_desc_sum_cor}
+	If 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+$
+is a $q$-\textit{lift} and $\widetilde a \in  A_0\left( \widetilde \sY\right)$ is such that the support $\supp \widetilde a$ of $\widetilde a$ is compact then a series 
+	\be\label{blowing_comp_series_eqn}
+\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}	
+\ee
+is convergent with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}).
+\end{corollary}
+\begin{proof}
+Similarly to \ref{blowing_jk_eqn} one has
+$$
+\widetilde a = \sum^n_{\substack{j = 1\\k=1}} \widetilde f _{\widetilde \a_j}\widetilde a\widetilde f_{\widetilde \a_k}.
+$$
+However from the Lemma \ref{blowing_lift_desc_sum_cor} for any $j,k = 1,...,n$ the series 
+$$
+\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g\left(  f _{\widetilde \a_j}\widetilde{a}f _{\widetilde \a_k}\right) 
+$$
+is convergent with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}). Thus the series \ref{blowing_comp_series_eqn} is a finite sum of convergent series, it follows that the series is convergent.
+\end{proof}
+
+
+\begin{definition}\label{blowing_compactly_supported_descent_defn}
+We say that the given by \eqref{blowing_comp_series_eqn} sum \textit{compactly supported} $q$-\textit{descent} od $\widetilde a$. We denote it by $\desc^c_q\left( \widetilde a\right)$.
+\end{definition}
+\begin{remark}
+The Definition \ref{blowing_compactly_supported_descent_defn} is a generalization of \ref{top_compactly_supported_descent_defn} one.
+\end{remark}
 \begin{empt}\label{blowing_ext_empt}
 	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
 	$$
@@ -12986,7 +13055,7 @@ If for any $\widetilde a\in \widetilde A$ and $\eps > 0$ there is $a \in A$   su
 	\end{enumerate}
 \end{theorem}
 
-\
+
 \begin{proof}
 	(i) We should prove that the $*$-homomorphism $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the explained in \ref{blowing_axiomatic_empt} conditions. Firstly we prove that $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the Lemma \ref{lift_mult_lem}. Let $\left\{u_\la\right\}_{\la \in \La}\subset A$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}). If $\widetilde a \in A'_0\left( \widetilde \sY\right)$ and $\eps > 0$ then there are finite sets $\left\{a_1, ..., a_n\right\}\in A$ and $\left\{\widetilde f_1, ..., \widetilde f_n\right\}\in \widetilde \sY$ such that
 	$$
@@ -14136,7 +14205,7 @@ From the Lemma \ref{blowing_weak_inf_cov_lem} and the Definition \ref{disconnect
 		\begin{enumerate}
 			\item[(i)] a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
 			\item[(ii)] One has
-			\be\label{blowig_hered_prop_eqn}
+			\be\label{blowing_hered_prop_eqn}
 			_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}= A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}			
 			\ee
 			where $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), a hereditary $C^*$-subalgebra 	$_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}\subset A_0\left(\widetilde \sY \right)$ is given by the equation \eqref{blowing_sue3_eqn} and $A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}\subset~ _{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}$ is the $\widetilde\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}).		
@@ -14157,7 +14226,7 @@ The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Def
 \end{split}
 \eean
 (cf. Definition \ref{top_pointed_defn}) such that 
-be a given by \eqref{blowing_top_eqn} be a  pointed  topological finite covering  category (cf. Definition \ref{top_fin_cov_defn}) such that $\left(\widetilde\sY, y_0\right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}).  If  $\overline \sY$ is a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn}) then there is a natural inclusion $\widetilde \sY \subset \overline \sY$. So if $\widetilde \sU$ is a required by (b) of the Definition \ref{blowing_semi_defn} open set then $\widetilde \sU$ can be regarded as an open subset of $\overline \sY$. From the equation \eqref{blowig_hered_prop_eqn} it turns out that 
+be a given by \eqref{blowing_top_eqn} be a  pointed  topological finite covering  category (cf. Definition \ref{top_fin_cov_defn}) such that $\left(\widetilde\sY, y_0\right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}).  If  $\overline \sY$ is a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn}) then there is a natural inclusion $\widetilde \sY \subset \overline \sY$. So if $\widetilde \sU$ is a required by (b) of the Definition \ref{blowing_semi_defn} open set then $\widetilde \sU$ can be regarded as an open subset of $\overline \sY$. From the equation \eqref{blowing_hered_prop_eqn} it turns out that 
 				\be\label{blowing_tu_eqn}
 _{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}= A_0\left(\overline \sY \right)^{\mathrm{prop}}_{\widetilde \sU}			
 \ee
@@ -18377,7 +18446,7 @@ If $y \in \T^2$ then there is an open foliation chart $\sU$ (cf. \ref{foli_leaf_
 (b) If we consider the covering $\widetilde q : \R^2 \to \T^2$ and an open connected subset $\widetilde \sU \subset \R^2$ which is mapped homeomorphically onto $\sU$ then $\widetilde \sU$ is a foliation chart of $\left(\R^2, \widetilde \F\right)$. Moreover one has:
 		\begin{enumerate}
 	\item[(i)] a covering  group $G \left( \left. \R^2\right| \T^1 \right)\cong \Z^2$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
-	\item[(ii)] The proof of  \eqref{blowig_hered_prop_eqn} is left to the reader,
+	\item[(ii)] The proof of  \eqref{blowing_hered_prop_eqn} is left to the reader,
 \end{enumerate}
 
 \end{proof}
