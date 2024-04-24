@@ -3794,6 +3794,14 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
     \subsection{Coverings of $C^*$-algebras}
  \paragraph*{}
  This section contains  noncommutative generalizations of infinite coverings.
+ \begin{empt}\label{basic_cov_c_empt}
+ 	If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. We suppose that $\la_{\text{min}} \in \La$ corresponds to the minimal group.
+ 	Let $\widetilde{A}$ be a $C^*$-algebra with an action $\widehat{G}\times \widetilde{A} \to \widetilde{A}$. Suppose that for any element $\widetilde a \in K\left(\widetilde A \right)$ of the Pedersen's  (cf. Definition \ref{pedersens_ideal_defn}) a series 
+ 	\be\label{basic_cov_c_eqn}
+ 	\sum_{	g \in \widehat{G}}g \widetilde a
+ 	\ee
+ \end{empt}
+ 
  \begin{definition}\label{compliant_covering_defn}
  	Let us consider the following diagram\\
  	\newline
@@ -21523,7 +21531,7 @@ For any category there is a skeleton.
 		A subset $\Xi \subset \La$ is said to be \textit{cofinal} in $\La$ if for every $\la \in \La$ there is $\chi \in \Xi$ such that $\la \le \chi$. 
 	\end{definition}
 \section{Inverse systems}
-\begin{definition}\label{inv_lim_defn}\cite{spanier:at}
+\begin{definition}\label{inverse_limit_defn}\cite{spanier:at}
 An \textit{inverse system of sets} $\left\{A_\a, f^\bt_\a\right\}$ consist of a collection of sets $\left\{A_\a\right\}$ indexed by by a directed set $\La = \left\{\a\right\}$ and a collection of functions $f^\bt_\a: A_\bt \to A_\a$ such that
 \begin{enumerate}
 	\item [(a)] $f^\a_\a = 1_{A_\a}: A_\a\cong A_\a$ for $\a\in\La$
@@ -21834,7 +21842,7 @@ smallest or coarsest topology such that each $f_j$ is continuous.
 \begin{definition}\label{top_inv_lim_defn}\cite{spanier:at}
 If $\left\{\sX_\a\right\}_{\a\in\La}$ is an inverse system of topological 
 spaces (that is, $\sX_\a$ is a topological space for $\a\in \La$ and $f^\bt_\a: \sX_\bt\to \sX_\a$ is  
-continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf. Definition \ref{inv_lim_defn}) is given the topology induced by the functions $p_\a : \varprojlim \sX_\a\to\sX_\a$  for $\a\in\La$. 
+continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf. Definition \ref{inverse_limit_defn}) is given the topology induced by the functions $p_\a : \varprojlim \sX_\a\to\sX_\a$  for $\a\in\La$. 
 \end{definition}
 \begin{definition}\label{top_cover_defn}\cite{munkres:topology}
 A collection $\A$ of subsets of a space $\sX$ is said to \textit{cover} $\sX$, or to be a
@@ -23001,11 +23009,12 @@ The left index of any normal subgroup coincides with the right one.
 \begin{definition}\label{group_inv_lim_defn}\cite{spanier:at}
 If $\left\{G_\a\right\}$ is an inverse system of
 groups  (that is, $G_\a$ is a group for each $\a$ and $f^\bt_\a: G_\bt\to  G_\a$ is a homomorphism 
-for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a set (cf. Definition \ref{inv_lim_defn})) is a subgroup of $\prod G_\a$. 
+for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a set (cf. Definition \ref{inverse_limit_defn})) is a subgroup of $\prod G_\a$. 
 \end{definition}
 
 \begin{example}\label{profinite_exm}\cite{lang}
-Example. Let $G$ be a group. Let $\F$ be the family of normal subgroups of 
+%Example. 
+Let $G$ be a group. Let $\F$ be the family of normal subgroups of 
 finite index. If $H$, $K$ are normal of finite index, then so is $H \cap K$ so ($\F$ is a 
 directed family. We may then form the inverse limit $\varprojlim G/H$ with $H \in \F$
 A group which is an inverse limit of finite groups is called \textit{profinite} 
@@ -23782,8 +23791,8 @@ representation.
 	There is an explained in \cite{pedersen:mea_c} alternative definition  Pedersen's ideal. We think of the elements of $A$ as operators on its universal Hilbert space and denote by $A''$ the weak closure of $A$ (cf. \ref{weak_topology_defn}). A projection $p \in A''$ is called \textit{majorized} (relative to $A$) if there exists $b \in A_+$ such that $p \le b$. We let $\left[a\right]$ denote the range projection of any operator $a$ on a Hilbert space and define
 	\be\label{pederesen_ideal_eqn}
 	\begin{split}
-	K^+_0\left(A \right)  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
-		K^+\left(A \right)  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K^+_0\left( A\right) , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
+	K\left(A \right)_0  \bydef \left\{\left. a \in A_+ \right|  \left[a\right] \le b\right\},\\
+		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
 	\end{split}
 	\ee
 	$K^+_0\left(A \right)$ is a set of operators in $A_+$ with majorized supports, and $K^+\left(A \right)$ is the smallest ideal containing $K^+_0\left(A \right)$. The definition of $K^+_0\left(A \right)$ may be rephrased without reference to $A''$ as follows: $a \in K^+_0\left(A \right)$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
