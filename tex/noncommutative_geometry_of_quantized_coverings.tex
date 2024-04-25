@@ -3833,7 +3833,7 @@ $$
  
  \end{empt}
  \begin{definition}\label{algebraical_finite_covering_category_defn}
- The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical  finite covering category} if  any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
+ The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if  any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
  \end{definition}
  \begin{notation}\label{inf_cat_not}
 If we consider the situation  \ref{inf_cat_empt}   then we use the following notation
@@ -3844,12 +3844,16 @@ where $\la_{\text{min}}\in \La$ is the minimal element,
 \be\label{inf_cat_not_pi_eqn}
 \pi_\la \bydef \pi^{\la_{\text{min}}}_\la : A \hookto A_\la.
 \ee
+Also we write
+\be\label{algebraical_finite_covering_category_eqn}
+\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\ee 
  \end{notation}
  
  \begin{definition}\label{infinite_pre_covering_defn}
  	In the situation of the Definition \ref{algebraical_finite_covering_category_defn} we say that a pair $\left( \overline A, \widehat{G}\right)$ is a \textit{pre}-\textit{covering of algebraical finite covering category}  $\mathfrak{S}$ .
  \end{definition}
- \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}$ be an algebraical finite covering category. Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
+ \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category. Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
 \begin{itemize}
 	\item $\mathfrak{Cov}\left(\mathfrak{S} \right)$-objects are pre-coverings of $\mathfrak{S}$ (cf. Definition \ref{infinite_pre_covering_defn}),
 	\item A $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism from $\left( \overline A', \widehat{G}\right)$ to  $\left( \overline A'', \widehat{G}\right)$ is an injective *-homomorphism $\phi: \overline A' \hookto  \overline A''$  such that
@@ -3860,7 +3864,7 @@ where $\la_{\text{min}}\in \La$ is the minimal element,
 \end{itemize} 
  \end{empt}
  \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
- The terminal object $\left( \overline A, \widehat{G}\right)$ (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}$. We also  denote it by the triple
+ The terminal object $\left( \overline A, \widehat{G}\right)$ (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$. We also  denote it by the triple
  \be\label{disconnected_infinite_noncommutative_covering_eqn}
  \left(A\bydef A_{\la_{\text{min}}}, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat{G}\right).
  \ee
@@ -3961,7 +3965,7 @@ is dense in $\bigcup_{\la\in \La} A_\la$ where the natural inclusion $A \subset 
 
 
 \begin{lemma}\label{infinite_pre_covering_lem}
-	If a pair $\left( \overline A, \widehat{G}\right)$ is a {pre}-{covering} of the given by the Remark \ref{inf_cat_rem} !!! REPLACE {algebraical finite covering category defn} !!! category $\mathfrak{S}$ (cf. Definition \ref{infinite_pre_covering_defn})
+	If a pair $\left( \overline A, \widehat{G}\right)$ is a {pre}-{covering} of  {algebraical finite covering category}  $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{infinite_pre_covering_defn})
 then one has
 	\be\label{a_lak_eqn}
 \overline a \in K\left(\overline A \right)\quad  	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in  K\left( A_\la\right).	
@@ -4020,7 +4024,7 @@ If a disconnected infinite noncommutative covering (cf. Definition \ref{disconne
  	
  \end{definition}
  \begin{empt}
- 	Let	 $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\overline A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \overline A \oplus \widetilde A^\perp$, and
+ 	Let	 $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \overline A \oplus \widetilde A^\perp$, and
  	\be\label{infinite_covering_transformation_group_eqn}
  	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
  	\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
@@ -4062,11 +4066,11 @@ Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{in
 \end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
- 	If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{inverse noncommutative limit of $\mathfrak{S}$}. The given by the equation \eqref{infinite_covering_transformation_group_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple
+ 	If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{inverse noncommutative limit of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$}. The given by the equation \eqref{infinite_covering_transformation_group_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple
  	\be\label{infinite_noncommutative_covering_eqn}
  	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
  	\ee
- 	 is said to be the  \textit{infinite noncommutative covering} of $\mathfrak{S}$. 
+ 	 is said to be the  \textit{infinite noncommutative covering} of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}.$$ 
  	We will use the following notation 
  	\begin{equation}\label{inf_lim_not_eqn}
  		\begin{split}
@@ -4394,20 +4398,17 @@ The proof of this lemma is similar the \ref{strict_strong_1_lem} one.
 		\text{or simply} \quad 	\mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
 	\end{split}
 	\ee
-	of noncommutative finite-fold coverings  pro-$C^*$-algebras (cf. Definition \ref{pro_fin_defn}). Suppose that for each $\la\in \La$ there is an essential ideal $B_\la \subset b\left(A_\la \right)$ of the $C^*$-algebra $b\left(A_\la \right) \subset A_\la$ of bounded elements of $A$, such that 
+	of noncommutative finite-fold coverings  pro-$C^*$-algebras (cf. Definition \ref{pro_fin_defn}). 
+	Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\right)\right)$ is 
+	{infinite noncommutative covering} of 
+\be\label{pro_cs_cat_eqn}	
+	\mathfrak{S}_B=\left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\ee	
+	 (cf. Definition \ref{infinite_noncommutative_covering_defn}).
+Assume that for each $\la\in \La$ a $C^*$-algebra  $B_\la \subset b\left(A_\la \right)$ is an essential ideal of the $C^*$-algebra $b\left(A_\la \right) \subset A_\la$ of bounded elements of $A$, such that 
 	\bean
-	\forall \la \in \La \quad \pi_\la\left(B\right) \subset B_\la,\\
-	\forall \mu, \nu \in \La\quad \mu\le\nu  \quad \pi^\mu_\nu\left(B_\mu\right) \subset B_\nu
+\widetilde \pi^\mu_\nu =  \left.\pi^\mu_\nu\right|_{B_\mu}.
 	\eean
-	and restrictions $\pi_\la|_B : B \hookto B_\la$,  $\quad\pi^\mu_\nu|_{B_\mu} : B_\mu \hookto B_\nu$, 	
-	are connected noncommutative finite-fold  coverings (cf. Definition \ref{fin_defn}).
-	Suppose that
-	\be\label{bounded_cat_eqn}
-	\begin{split}
-		\mathfrak{S}_B \bydef \left(\left\{\pi_\la|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\left\{\pi^\mu_\nu|_{B_\mu }: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
-	\end{split}
-	\ee
-	is 	an { algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn}).
 \end{empt}
 
 
@@ -4416,33 +4417,9 @@ The proof of this lemma is similar the \ref{strict_strong_1_lem} one.
 	is said to be an \textit{algebraical  finite covering category of pro-$C^*$-algebras}. 
 	We write $\mathfrak{S} \in$ pro-$\mathfrak{FinAlg}$.
 \end{definition}
-
-\begin{definition}\label{comp_pt_pro_defn} !!! DELETE !!!
- A \textit{!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-algebras}  $\mathfrak{S}^{\text{pt}}$ is a subcategory of $\mathfrak{S}$ which is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in$pro-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
-	\be\label{comp_pt_pro_eqn}
-	\begin{split}
-		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
-	\end{split}
-	\ee
-\end{definition}
-\begin{remark}
-	If $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism.
-\end{remark}
-\begin{remark}
-There is a pointed{ algebraical  finite covering category}  
-\be\label{bounded_ptcat_eqn}
-\begin{split}
-	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\pi_\la|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\left\{\pi^\mu_\nu|_{B_\mu }: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La\\\nu > \mu}}\right)
-\end{split}
-\ee
-(cf. Definition \ref{alg_fin_cat_defn}) which comes from $\mathfrak{S}^{\text{pt}}$.
-\end{remark}
-
 \begin{empt}\label{inv_pro_lim_empt}
-Let $\mathfrak{S}^{\text{pt}}$ be a !!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-algebras, and let 
-	$\mathfrak{S}^{\text{pt}}_B$ be a given by \eqref{bounded_ptcat_eqn}  !!! pointed  DELETE !!! { algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) which comes from \eqref{comp_pt_pro_eqn}. 	
-	Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{good_defn}) and let  $\left(B , \widetilde{B}, \widetilde G\right)$ be a weak {infinite noncommutative covering} of $ \mathfrak{S}!!! pt DELETE !!!_B$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). 
+Let $\mathfrak{S}$ algebraical  finite covering category of pro-$C^*$-algebras, and let 
+	$\mathfrak{S}^{\text{pt}}_B$ be a given by \eqref{comp_pro_eqn}  { algebraical  finite covering category}. 	
 	For any $\la \in \La$ there is a given by \eqref{inj_to_ml_eqn} inclusion
 		$\widetilde m_\la :B_\la \to M\left( \widetilde{B} \right) $. For all $\la\in \La$  any seminorm $p_\a: M\left( \widetilde{B} \right)\to\R$ induces a seminorm
 		\be\label{pro_ind_semi_eqn}
@@ -4454,7 +4431,7 @@ Let $\mathfrak{S}^{\text{pt}}$ be a !!! pointed  DELETE !!!algebraical  finite c
 \begin{definition}\label{inv_pro_lim_defn}
 In the described in \ref{inv_pro_lim_empt} situation we say that the triple
 $\left(A, \widetilde{A}, G\right)$ is an 
- \textit{inverse noncommutative limit of the !!! pointed  DELETE !!!category $\mathfrak{S}!!! pt DELETE !!!$ of pro-$C^*$-algebras} if $\widetilde{A}$ is a maximal among admissible pro-$C^*$-algebras.
+ \textit{inverse noncommutative limit of the category $\mathfrak{S}$ of pro-$C^*$-algebras} if $\widetilde{A}$ is a maximal among admissible pro-$C^*$-algebras.
 \end{definition}
 
 
@@ -4468,50 +4445,19 @@ $\left(A, \widetilde{A}, G\right)$ is an
 		\text{or simply} \quad \mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
 	\end{split}
 	\ee
-	of noncommutative finite-fold covering of bounded operator *-algebras (cf. Definition \ref{fin_oa_defn}). For each $\la\in \La$  denote by  $B_\la$ the $C^*$-norm completion of $A_\la$. Suppose that injective $*$-homomorphisms  $\widetilde \pi_\la : B \hookto B_\la$,  $\quad\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu$ come from 	$\pi_\la$ and $\pi^\mu_\nu$ respectively. Moreover assume that for all $\la, \mu, \nu \in\La$ the $*$-homomorphisms $\widetilde \pi_\la : B \hookto B_\la$,  $\quad\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu$ are connected noncommutative finite-fold  coverings (cf. Definition \ref{fin_defn}).
-	Suppose that
-	\be\label{oa_cat_eqn}
-	\begin{split}
-		\mathfrak{S}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\mu \hookto B_\nu \right\}_{\substack{\mu, \nu \in \La\\\nu > \mu}}\right)
-	\end{split}
-	\ee
-	is 	an { algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn}).
+	of noncommutative finite-fold covering of bounded operator *-algebras (cf. Definition \ref{fin_oa_defn}). 	Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\right)\right)$ is 
+	{infinite noncommutative covering} of 
+	\be\label{bound_cs_cat_eqn}	
+	\mathfrak{S}_B=\left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+	\ee	
+	(cf. Definition \ref{infinite_noncommutative_covering_defn}).
+	For each $\la\in \La$  denote by  $B_\la$ the $C^*$-norm completion of $A_\la$ and $\pi^\mu_\nu = \left.\widetilde\pi^\mu_\nu\right|_{A_\mu}$ 
 \end{empt}
 \begin{definition}\label{comp_oa_defn}
 	The the given by  \eqref{comp_pro_eqn} set $\mathfrak{S}$
 	is said to be an \textit{algebraical  finite covering category of  bounded operator *-algebras}. 
 \end{definition}
 
-
-\begin{defn}\label{inf_cov_oa_cat_defn} 
- A \textit{!!! pointed  DELETE !!!category of  noncommutative finite-fold coverings of bounded operator *-algebras}. 
-\be\label{comp_oa_pt_eqn}
-\begin{split}
-	\mathfrak{S}^{\text{pt}} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-	\text{or simply} \quad \mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
-\end{split}
-\ee
-is a subcategory of $	\mathfrak{S}$ which is equivalent to the pre-ordering category $\La$. Any morphism of 	$\mathfrak{S}^{\text{pt}}$ is a restriction of the corresponding morphism of $\mathfrak{S}_B$.
-\end{defn}
-\begin{remark}
-If $\mathfrak{S}^{\text{pt}}$ exists then it is unique up to isomorphism.
-\end{remark}
-\begin{empt}\label{inf_cov_oa_empt}
-	In the situation of the Definition \ref{inf_cov_oa_cat_defn} suppose that there 
-	is a good !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{pointed_defn})
-\be\label{inf_cov_oa_eqn}
-	\begin{split}
-		\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\mu \hookto B_\nu \right\}_{\substack{\mu, \nu \in \La\\\nu > \mu}}\right).
-	\end{split}
-	\ee
-	
-	 Let	$\left(B, \widetilde B, G \right)	$	be the weak inverse noncommutative limit of $ \mathfrak{S}^{\text{pt}}_B$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
-	% For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
-	%\be\label{inf_cov_oam_eqn}
-	%	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}.
-	%\ee
-	%	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$.
-\end{empt}	
 
 \begin{definition}\label{inf_cov_oa_sub_defn}
 	Consider the situation  \ref{inf_cov_oa_empt}.	We say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if for all $
@@ -4551,7 +4497,7 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 
 
 \subsubsection{Coverings of $O^*$-algebras}
-
+!!!
 \begin{definition}\label{comp_o*_defn}
 	Let $\La$ be a  directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be an $O^*$-algebra (cf. Definition \ref{o*alg_defn}).  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{fino*_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that $\mathfrak{S}^{\text{pt}}$ is a subcategory of $\mathfrak S$, such that:
@@ -4560,10 +4506,10 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 		\item[(b)]  for any $\nu, \mu\in \La$ such that $\nu >\mu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\mu_\nu:  A_{\mu}\hookto A_\nu$ of  $O^*$-algebras  such that $\pi_\nu =\pi^\mu_\nu \circ \pi_\mu$,
 		\item[(c)] all morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (b).
 	\end{enumerate}
-We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{!!! pointed  DELETE !!!algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S}^{\text{pt}} \in  O^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+We say that $\mathfrak{S}$ is a \textit{algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S} \in  O^*$-$ \mathfrak{FinAlg}$, and use the following notation
 \be\label{comp_pt_o*_eqn}
 \begin{split}
-	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+	\mathfrak{S} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
 	\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
 \end{split}
 \ee
@@ -4576,12 +4522,13 @@ We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{!!! pointed  DELETE !!!algeb
 
 \begin{empt}\label{comp_pt_o*_empt}
 In the situation of the Definition \ref{comp_o*_defn} morphisms of $\mathfrak{S}^{\text{pt}}$ can be regarded as inclusions of *-algebras.
-	Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
-	$\mathfrak{S}^{\text{pt}}_B=\left\{ \overline\pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently 
-	\be\label{bl_cat_eqn}
-	\mathfrak{S}!!! pt DELETE !!!_B=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \overline \pi_{\la}\right) \right\}_{\la \in \La}
-	\ee
-	is  a {!!! pointed  DELETE !!!algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let  $\left(B, \overline{B}, \widehat G\right)$  be a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_B$ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! NEW DEFINITION !!!) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
+	Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that  $\left(B, \widetilde{B}, G\left(\left.\widetilde{B}~\right| B\right)\right)$ is 
+	{infinite noncommutative covering} of 
+	\be\label{os_cs_cat_eqn}	
+	\mathfrak{S}_B=\left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+	\ee	
+	(cf. Definition \ref{infinite_noncommutative_covering_defn}). For any  
+	is  a {algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let  $\left(B, \overline{B}, \widehat G\right)$  be a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_B$ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! NEW DEFINITION !!!) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
   	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra.  There is the natural action $\widehat G\times \widehat A\to \widehat A$.
   	Suppose that there is an equivariant  faithful nondegenerate representation (cf. Definitions \ref{equivariant_representation_defn}, \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equivalent_representation_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
   	$$
