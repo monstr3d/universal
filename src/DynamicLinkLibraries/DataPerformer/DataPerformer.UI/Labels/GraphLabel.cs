@@ -321,18 +321,20 @@ namespace DataPerformer.UI.Labels
             private set;
         } = new();
 
-        
-        /// <summary>
-        /// Series for multi graphics
-        /// </summary>
-        internal List<Dictionary<string, Dictionary<string, Color>>> MultiSeries
-        {
-            get;
-            private set;
-        } = new()
+
+        private List<Dictionary<string, Dictionary<string, Color>>> multiSeries = new()
         {
             new ()// Dictionary<string, Color[]>()
         };
+
+
+        /// <summary>
+        /// Series for multi graphics
+        /// </summary>
+        public List<Dictionary<string, Dictionary<string, Color>>> MultiSeries
+        {
+            get => multiSeries;
+        }
 
         internal double TimeScaleAnimation
         {
@@ -503,7 +505,7 @@ namespace DataPerformer.UI.Labels
                 cadrNumber = info.GetInt32("CadrNumber");
                 try
                 {
-                    MultiSeries = info.GetValue("MultiSeries", typeof(List<Dictionary<string, Dictionary<string, Color>>>)) 
+                    multiSeries = info.GetValue("MultiSeries", typeof(List<Dictionary<string, Dictionary<string, Color>>>)) 
                         as List<Dictionary<string, Dictionary<string, Color>>>;
                 }
                 catch

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -19,17 +20,29 @@ namespace WindowsExtensions
         {
             extension = new ExtensionObject();
             extension.ModalMessageBox = new MessageBoxImplementation.TrivialMessageBox();
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
+            configurationPath = config.FilePath;
+
         }
 
         #endregion
 
         #region Fields
 
+        static private string configurationPath;
+
         static ExtensionObject extension;
 
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Configuration path
+        /// </summary>
+        static public string ConfigurationPath { get => configurationPath;  }
+
+
         /// <summary>
         /// Fills DataGridView by DataTable
         /// </summary>
