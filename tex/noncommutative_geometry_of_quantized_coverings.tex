@@ -1380,7 +1380,7 @@ a \mapsto  \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a  a \right)= \bt\te
 where $\bt\text{-}\lim_{\a \in \mathscr A}$ means the limit with respect to the strict topology  of $M\left( \widetilde A\right)$ (cf. Definition \ref{strict_topology_defn}).
 \end{lemma}
 \begin{proof}
-	From \eqref{lift_mult_norm_eqn} it follows that for all $\widetilde a \in \widetilde A$ it follows that following nets
+	From the equations \eqref{lift_mult_norm_eqn} it turns out that for all $\widetilde a \in \widetilde A$ and $a \in A$ following nets
 	\bean
 	\left\{\pi\left( u_\a  a \right)\widetilde a\right\}, \quad \left\{\widetilde a \pi\left( u_\a  a \right)\right\}, \quad \left\{\pi\left(a u_\a   \right)\widetilde a\right\}, \quad \left\{\widetilde a \pi\left(a u_\a  \right)\right\}
 	\eean 
@@ -1702,7 +1702,7 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 	$$
 \forall g \in G\left(\left.\widetilde{A}~\right|A  \right)\quad 	g M\left(\pi \right)\left(a \right)= \bt\text{-}\lim g a_\la = \bt\text{-}\lim  a_\la =\varphi\left(a \right) ,
 	$$ 
-	hence $M\left(\pi \right)\left(M\left(A \right)  \right) \subset  M\left( \widetilde{A}\right)^G$. So there is a natural injective $*$-homomorphism $\phi : M\left(A \right)\hookto  M\left(\widetilde{A} \right)^G$.	On the other hand 	if $a \in M\left(\widetilde{A} \right)^G$ and $b \in \widetilde{A}^G$ then $ab \in \widetilde{A}$ is such that $g\left( ab\right) =\left( ga\right)\left(gb \right) = ab$ for any $g\in G$, i.e. $ab  \in \widetilde{A}^G$. It follows that $M\left( \widetilde{A}\right)^G \widetilde A^G = \widetilde A^G$ and taking into account $\widetilde A^G= A$ one concludes that $M\left( \widetilde{A}\right)^G A = A$. Similarly we can prove that $AM\left( \widetilde{A}\right)^G  = A$. From both  $M\left( \widetilde{A}\right)^GA  = A$ and  $AM\left( \widetilde{A}\right)^G  = A$ it turns out that any $a \in M\left( \widetilde{A}\right)^G$ yields an element of $M\left(A \right)$ (cf. the Definition \ref{multiplier_el_defn} and/or the Remark \ref{dc_rem}), i.e. there is  a $*$-homomorphism.
+	hence $M\left(\pi \right)\left(M\left(A \right)  \right) \subset  M\left( \widetilde{A}\right)^G$. So there is a natural injective $*$-homomorphism $\phi : M\left(A \right)\hookto  M\left(\widetilde{A} \right)^G$.	On the other hand 	if $a \in M\left(\widetilde{A} \right)^G$ and $b \in \widetilde{A}^G$ then $ab \in \widetilde{A}$ is such that $g\left( ab\right) =\left( ga\right)\left(gb \right) = ab$ for any $g\in G$, i.e. $ab  \in \widetilde{A}^G$. It follows that $M\left( \widetilde{A}\right)^G \widetilde A^G = \widetilde A^G$ and taking into account $\widetilde A^G= A$ one concludes that $M\left( \widetilde{A}\right)^G A = A$. Similarly we can prove that $AM\left( \widetilde{A}\right)^G  = A$. From both  $M\left( \widetilde{A}\right)^GA  = A$ and  $AM\left( \widetilde{A}\right)^G  = A$ it turns out that any $a \in M\left( \widetilde{A}\right)^G$ yields an element of $M\left(A \right)$ (cf. the Definition \ref{multiplier_el_defn} and/or the Remark \ref{double_centralizer_rem}), i.e. there is  a $*$-homomorphism.
 	\be\label{mag_mai_eqn}
 	\psi:M\left(\widetilde{A} \right)^G \hookto   M\left(A \right).
 	\ee
@@ -4389,6 +4389,63 @@ The proof of this lemma is similar the \ref{strict_strong_1_lem} one.
 \end{proof}
 
 
+\begin{empt}
+If  $\left( \overline A, \widehat{G}\right)$ be a {pre}-{covering of algebraical finite covering category}  $$\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ (cf. Definition  \ref{infinite_pre_covering_defn}) then from \eqref{basic_cov_cl_eqn} it follows that there is a sesquilinear $A$-valued product
+\be\label{inf_hilb_product_eqn}
+\begin{split}
+	\left\langle \cdot, \cdot  \right\rangle_A : K\left( \overline{A}\right)\times K\left( \overline{A}\right)  \to A,\\
+	\left(\overline{a}, \overline{b}\right) \mapsto \bt\text{-}\sum_{g \in \widehat{G}}g \left( \overline a^* \overline{b}\right) 
+\end{split}
+\ee
+where the above series is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \overline{A}\right)$.    $K\left( \overline{A}\right)$ possesses a structure of $\widetilde{A}$-$A$-bimodule which comes from the structure of $\overline{A}$-$A$-bimodule $\overline{A}$. Then a completion  of  $K\left( \overline{A}\right) $ with respect to  a norm
+\begin{equation}\label{inf_hilb_norm_eqn}
+	\begin{split}
+		\left\| \overline{a}\right\| = \sqrt{\left\| \left\langle \overline{a}, \overline{a}  \right\rangle_A\right\|}
+	\end{split}
+\end{equation}
+we denote by $L^2\left( \overline{A}\right)$.
+\end{empt}
+\begin{definition}\label{infinite_hilb_mod_defn}
+	In the above situation we say that the $C^*$-Hilbert $A$-module $\mathscr L^2\left( \widetilde{A}\right) $ \textit{corresponds} to the { infinite noncommutative covering}  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$. Since $\mathscr L^2\left( \widetilde{A}\right)$ is $\widetilde{A}$-$A$-bimodule we use following notations for it
+	\bean
+	\mathscr L^2\left( \overline{A}\right)_A\bydef \mathscr L^2\left( \overline{A}\right), \quad 
+	_{\overline{A}}\mathscr L^2\left( \overline{A}\right)_A\bydef \mathscr L^2\left( \overline{A}\right).
+	\eean
+\end{definition}
+\begin{empt}
+The natural action $M\left( \overline{A}\right) \times K\left( \overline{A}\right) \to  K\left( \overline{A}\right)$ can be extended up to the action $M\left( \overline{A}\right)\times \mathscr L^2\left( \overline{A}\right) \to \mathscr L^2\left( \overline{A}\right)$ since $ K\left( \overline{A}\right)$ is a dense $\overline{A}$-module of $ \mathscr L^2\left( \overline{A}\right)$, so there is a homomorphism 
+$$
+\phi:M\left( \overline{A}\right) \hookto \End_A \left(\mathscr L^2\left( \overline{A}\right)\right) 
+$$
+of $\C$-algebras. Since $M\left( \overline{A}\right)$ is a $C^*$-algebra one has $\phi\left( M\left( \overline{A}\right)\right) \subset \End^*_A \left( \mathscr L^2\left( \overline{A}\right)\right)$ where  $\End^*_A \left(\mathscr L^2\left( \overline{A}\right)\right)$ is $C^*$-algebra of adjointable operators (cf. Definition \ref{adjointable_operator_defn}). In result one has an injective $*$-homomorphism
+\be\label{mult_adj_eqn}
+\varphi : M\left( \overline{A}\right) \hookto \End^*_A \left(\mathscr L^2\left( \overline{A}\right)\right) 
+\ee
+
+\end{empt}
+\begin{remark}\label{infinite_hilb_inv_rem}
+	The involution on $\widetilde{A}$ induces an involution on $\mathscr L^2\left( \widetilde{A}\right)$, we denote it by
+	\be\label{infinite_hilb_inv_eqn}
+	x \mapsto x^*
+	\ee
+\end{remark}
+
+
+\begin{empt}
+!!! If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is good (cf. Definition \ref{good_defn}), a triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$  the  {infinite noncommutative covering} of $\mathfrak{S}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) then  one can define a product
+\be\label{inf_hilb_prod_eqn!}
+\begin{split}
+	\left\langle \cdot, \cdot  \right\rangle_A : K\left( \widetilde{A}\right) \times K\left( \widetilde{A}\right) \to A
+\end{split}
+\ee
+which is a restriction of \eqref{inf_hilb_product_eqn}. We suppose that  $K\left( \widetilde{A}\right)$ possesses a structure of $\widetilde{A}$-$A$-bimodule which comes from the structure of $\widetilde{A}$-$A$-bimodule $\widetilde{A}$. Then a completion $X$ of  $\widetilde{\A}$ with respect to  a norm
+\begin{equation}\label{inf_hilb_norm_eqn!}
+	\begin{split}
+		\left\| \widetilde{a}\right\| = \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}  \right\rangle_A\right\|}
+	\end{split}
+\end{equation}
+is a $C^*$-Hilbert $A$-module and $\widetilde{A}$-$A$-bimodule (cf. Definition \ref{hilbert_module_defn}).
+\end{empt}
 
 
 \subsection{Coverings of *-algebras}
@@ -4922,43 +4979,10 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
 \end{exercise}
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
-\paragraph*{}
-If  $\left( \overline A, \widehat{G}\right)$ be a {pre}-{covering of algebraical finite covering category}  $$\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ (cf. Definition  \ref{infinite_pre_covering_defn}) then from \eqref{basic_cov_cl_eqn} it follows that there is a sesquilinear $A$-valued product
-	\be\label{inf_hilb_product_eqn}
-	\begin{split}
-	\left\langle \cdot, \cdot  \right\rangle_A : K\left( \overline{A}\right)\times K\left( \overline{A}\right)  \to A,\\
-	\left(\overline{a}, \overline{b}\right) \mapsto \bt\text{-}\sum_{g \in \widehat{G}}g \left( \overline a^* \overline{b}\right) 
-	\end{split}
-	\ee
- 	where the above series is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \overline{A}\right)$. If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is good (cf. Definition \ref{good_defn}), a triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$  the  {infinite noncommutative covering} of $\mathfrak{S}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) then  one can define a product
- 	\be\label{inf_hilb_prod_eqn}
- \begin{split}
- 	\left\langle \cdot, \cdot  \right\rangle_A : K\left( \widetilde{A}\right) \times K\left( \widetilde{A}\right) \to A
- \end{split}
- \ee
- which is a restriction of \eqref{inf_hilb_product_eqn}. We suppose that  $K\left( \widetilde{A}\right)$ possesses a structure of $\widetilde{A}$-$A$-bimodule which comes from the structure of $\widetilde{A}$-$A$-bimodule $\widetilde{A}$. Then a completion $X$ of  $\widetilde{\A}$ with respect to  a norm
- 	\begin{equation}\label{inf_hilb_norm_eqn}
- 	\begin{split}
- 	\left\| \widetilde{a}\right\| = \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}  \right\rangle_A\right\|}
- 	\end{split}
- 	\end{equation}
- 	is a $C^*$-Hilbert $A$-module and $\widetilde{A}$-$A$-bimodule (cf. Definition \ref{hilbert_module_defn}).
- \begin{definition}\label{infinite_hilb_mod_defn}
- 	In the above situation we say that the $C^*$-Hilbert $A$-module $\mathscr L^2\left( \widetilde{A}\right) $ \textit{corresponds} to the {weak infinite noncommutative covering}  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$. Since $\mathscr L^2\left( \widetilde{A}\right)$ is $\widetilde{A}$-$A$-bimodule we use following notations for it
- 	\bean
- 	\mathscr L^2\left( \widetilde{A}\right)_A\bydef \mathscr L^2\left( \widetilde{A}\right), \quad 
- 	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A\bydef \mathscr L^2\left( \widetilde{A}\right).
- 	\eean
-  \end{definition}
-\begin{remark}\label{infinite_hilb_inv_rem}
-The involution on $\widetilde{\A}$ induces an involution on $X$, we denote it by
-\be\label{infinite_hilb_inv_eqn}
-x \mapsto x^*
-\ee
-\end{remark}
+
  
  \begin{defn}\label{induced_repr_inf_defn}
- 	Let $\mathfrak{S} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}$ and  let $$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$$  be a weak infinite noncommutative covering of $\mathfrak{S}$ 
+ 	Let $\mathfrak{S} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}$ and  let $$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$$  be a  infinite noncommutative covering of $\mathfrak{S}$ 
  	(cf. Definition \ref{infinite_noncommutative_covering_defn}). 	 Suppose that 	 $C^*$-Hilbert $A$-module $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ corresponds to 
  	$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right) $.  
  	If $\rho: A \to B\left( \H\right)$ is a representation and   $\widetilde{\rho}=_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{induced_representation_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{induced_representation_defn}) 
@@ -12182,7 +12206,7 @@ Consider the situation of  \ref{blowing_strict_empt} and suppose than both repre
 L: ~	_\sU A_\sU \to ~_\sU A_\sU,\\
 a \mapsto fa.
 	\eean 
-	We leave to the reader details of the proof of the existence of a  double centralizer $\left(L, R\right)$ (cf. Definition \ref{dc_defn}) which corresponds to $f$. The Proposition \ref{dc_prop} yields a map $C_b\left(\sU\right)\to M\left(_\sU A_\sU\right)$. On can prove that this map is an injective $*$-homomorphism.
+	We leave to the reader details of the proof of the existence of a  double centralizer $\left(L, R\right)$ (cf. Definition \ref{double_centralizer_defn}) which corresponds to $f$. The Proposition \ref{dc_prop} yields a map $C_b\left(\sU\right)\to M\left(_\sU A_\sU\right)$. On can prove that this map is an injective $*$-homomorphism.
 \end{proof}	
 	
 
@@ -12451,11 +12475,15 @@ Here we suppose that we have Hausdorff blowing-us and investigate conditions whe
 	Let  $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
 		\item[(a)]
-		The homomorphism $\pi$ satisfies to conditions of the Lemma  \ref{lift_mult_lem}, i.e. there is s an injective *-homomorphism 
+		The homomorphism $\pi$ satisfies to conditions of the Lemma  \ref{lift_mult_lem}, i.e. if $\left\{u_\a\right\}_{\a \in \mathscr A}$ is an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}) then
+\be\label{blowing_lift_mult_norm_eqn}
+\forall \widetilde a \in \widetilde A \quad \lim_{\a \in \mathscr A}\left\| \widetilde a - \pi\left( u_\a\right)  \widetilde a \right\| = \lim_{\a \in \mathscr A}\left\| \widetilde a -  \widetilde a \pi\left( u_\a\right)\right\| = 0
+\ee		
+From the Lemma \ref{lift_mult_lem}	one has an injective *-homomorphism 
 		\be\label{blowing_axiomatic_au_eqn}
 		\begin{split}
 			M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
-			a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a a u_\a\right)
+			a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a a \right) =\bt\text{-}\lim_{\a \in \mathscr A} \pi\left( au_\a  \right)
 		\end{split}
 		\ee
 		given by the equation \eqref{lift_mult_eqn}. 
@@ -12464,7 +12492,7 @@ Here we suppose that we have Hausdorff blowing-us and investigate conditions whe
 		M\left( A\right) \cong M\left(\widetilde A \right)^G\bydef\left\{\left. a \in M\left(\widetilde A \right)\right| \forall g \in G \quad g a = a\right\}
 		$$
 		where the natural action $G\times M\left(\widetilde A \right)$ is implied.
-		\item[(c)] There are  blowing-ups cf. (Definitions \ref{blowing_defn})  $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ with $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$.
+		\item[(c)] There are Hausdorff  blowing-ups cf. (Definitions \ref{blowing_defn})  $C_0\left( \sY\right) \subset M\left( A\right)$ and $C_0\left( \widetilde \sY\right) \subset M\left( \widetilde A\right)$ with $M\left(\pi \right)\left(C_0\left(\sY \right)  \right)\subset C_b\left( \widetilde \sY\right)$.
 		\item[(d)] There is a transitive covering $q:  \widetilde \sY \to \sY$ with $G\left(\left.\widetilde \sY\right|\sY \right)\cong G$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
 		\item[(e)] If $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sY$ then we suppose that there is a normed isomorphism
 		of left $A$-$C_0\left(\sU \right)$ bimodules  given by
@@ -12702,7 +12730,7 @@ a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}
 \end{definition}
 
 \begin{empt}\label{blowing_lift_empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\sY \right)$-valued product
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that a covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\sY \right)$-valued product
 	\bean
 	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
 	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
@@ -12724,69 +12752,183 @@ a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}
 	In the situation \ref{blowing_lift_empt} we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\textit{regular} if one has:
 	\begin{enumerate}
 		\item [(a)] $\varphi_A\left(A \right) \subset \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$  and $\varphi_C\left(C_0 \left(\widetilde \sY \right) \right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ where $ \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable operators (cf. Definition \ref{adjointable_operator_defn}),
-		\item[(b)] if $A'_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is a $C^*$-norm completion of algebraically generated by elements 
+		\item[(b)] if $A'_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is a $C^*$-norm completion of an algebraically generated by elements 
 		\be\label{blowing_prods_eqn}
 		\varphi_C\left( \widetilde f\right) \varphi_A\left(a \right)\in \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),  	\quad \widetilde f\in C_c \left(\widetilde \sY \right), \quad a \in A
 		\ee	
-		right $A$-module then $A'_0\left( \widetilde \sY\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$
+		right $A$-module then $A'_0\left( \widetilde \sY\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$.
 	\end{enumerate}
 	
 \end{definition}
 
-
-\begin{remark}
-	If we consider the Definition \ref{blowing_lift_constr_defn} then one has:
-	\begin{enumerate}
-		\item[(i)] The actions $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ and $C_0\left(\widetilde \sY \right)\times  \mathscr L^2\left(\widetilde \sY \right) _A \to \mathscr L^2\left(\widetilde \sY \right) _A$ yield  inclusions
-		\bea\label{blowing_multiplier_eqn}
-		A \hookto M\left( A'_0\left(  \widetilde \sY\right) \right),  \\
-		\label{blowing_multiplier_c_eqn}
-		C_0\left(\widetilde \sY \right) \hookto M\left( A'_0\left(  \widetilde \sY\right) \right).
-		\eea
-		\item[(ii)] There is a natural action $G\left(\left.\widetilde \sY\right| \sY\right)\times A_0\left(  \widetilde \sY\right)\to A_0\left(  \widetilde \sY\right)$ such that for all $\widetilde a \in  A_0\left(  \widetilde \sY\right)$, $~g \in  G\left(\left.\widetilde \sY\right| \sY\right)$ and $\widetilde \xi \in \mathscr L^2\left(\widetilde \sY \right) _A$ following condition holds
-		\be\label{blowing_action_eqn}
-		\left( g \widetilde{a}\right) \widetilde \xi = g\left(\widetilde{a}\left(g^{-1} \widetilde \xi\right)  \right).
-		\ee
-	\end{enumerate}
+\begin{remark}\label{blowing_tensor_r_rem}
+In the situation of the Definition \ref{blowing_lift_constr_defn} the $C^*$-algebra $A'_0\left( \widetilde \sY\right)$ is a completion of the algebraic tensor product $C_0 \left(\widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ with respect to the norm
+$$
+\sum_{j=1}^n \widetilde f_j \otimes a_j \mapsto \left\| \sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right) \right\|. 
+$$
+So there is a natural inclusion
+\be\label{blowing_tensor_r_eqn}
+\varphi_R : C_0 \left(\widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A \hookto A'_0\left( \widetilde \sY\right).
+\ee
 \end{remark}
+\begin{remark}\label{blowing_lift_constr_rem}
+If $\widetilde a \in A'_0\left( \widetilde \sY\right)$ then for any $\eps > 0$ there are finite subsets $\left\{a_1, ..., a_n\right\}\subset A$ and  $\left\{\widetilde f_1, ..., \widetilde f_n\right\}\in C_0\left( \widetilde \sY\right)$ such that
+\be\label{blowing_prodps_eqn}
+\left\| \widetilde a^*-\sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right) \right\|  = \left\| \widetilde a-\sum_{j=1}^n 	\varphi_A\left(a^*_j \right)\varphi_C\left( \widetilde f^*_j\right)  \right\| < \eps,
+\ee
+since  $A'_0\left( \widetilde \sY\right)$ is a $C^*$-norm completion of an algebraically generated by elements \eqref{blowing_prods_eqn}
+right $A$-module. From \eqref{blowing_prodps_eqn}  $A'_0\left( \widetilde \sY\right)$ is a $C^*$-norm completion of an algebraically generated by elements 
+$$
+\varphi_A\left(a\right)\varphi_C\left( \widetilde f\right), \quad a \in A, \quad \widetilde f \in C_0\left(\widetilde \sY\right) 
+$$
+left $A$-module. Similarly to \eqref{blowing_tensor_r_eqn} one has a dense inclusion
+\be\label{blowing_tensor_l_eqn}
+\varphi_L :  A \otimes_{C_0\left(\sY \right) } C_0 \left(\widetilde \sY\right)\hookto A'_0\left( \widetilde \sY\right).
+\ee
+\end{remark}
+\begin{empt}
+	For any $a \in A$ and $\widetilde a = \sum_{j=1}^n \widetilde f_j \otimes a_j\in  C_0 \left(\widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ we define 
+	$$
+	\widetilde a \bullet a\bydef \sum_{j=1}^n \varphi_R\left( \widetilde f_j \otimes a_j a\right) 
+	$$
+	Since the image of $\varphi_R$ (cf. equation \eqref{blowing_tensor_r_eqn}) is dense in $A'_0\left( \widetilde \sY\right)$ the $\bullet$ product defines a map
+	$$
+R_a : A'_0\left( \widetilde \sY\right) \to A'_0\left( \widetilde \sY\right).
+	$$
+	The usage of the map \eqref{blowing_tensor_l_eqn} yields a map
+	$$
+L_a : A'_0\left( \widetilde \sY\right) \to A'_0\left( \widetilde \sY\right).
+$$
+We leave to the reader the proof of the following statements.
+\begin{enumerate}
+\item For all $a \in A$ a pair $\left(L_a, R_a\right)$ is a double centralizer (cf. Definition \ref{double_centralizer_defn}).
+\item There is the natural inclusion
+\be\label{blowing_multiplier_eqn}
+A'_b\left(q \right)  : A \hookto M\left(A'_0\left( \widetilde \sY\right)\right). 
+\ee
+\end{enumerate}
+	
+	
+	
+\end{empt}
 
 \begin{theorem}Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] if a covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} (cf. Definition \ref{blowing_lift_constr_defn})   then there is a $q$-lift  $	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ (cf. Definition \ref{blowing_lift_defn}) which is naturally equivalent to the given by \eqref{blowing_multiplier_eqn} injective $*$-homomorphism $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$,
-		\item[(ii)] conversely if $A_b\left(q \right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ is $q$-lift then a covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} and $A_b\left(q \right)$  is naturally equivalent to the given by \eqref{blowing_multiplier_eqn}  injective $*$-homomorphism $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$,
+		\item [(i)] if a covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} (cf. Definition \ref{blowing_lift_constr_defn})   then there is a $q$-lift  $	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ (cf. Definition \ref{blowing_lift_defn}) which is naturally equivalent to the given by  \eqref{blowing_multiplier_eqn} injective $*$-homomorphism $A'_b\left(q \right)  : A \hookto M\left(A'_0\left( \widetilde \sY\right)\right)$,
+		\item[(ii)] conversely if $A_b\left(q \right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ is $q$-lift then a covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} and $A_b\left(q \right)$  is naturally equivalent to the given by \eqref{blowing_multiplier_eqn}  injective $*$-homomorphism $A'_b\left(q \right)  : A \hookto M\left(A'_0\left( \widetilde \sY\right)\right)$,
 		\item[(iii)] if a covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} then its $q$-lift is unique up to natural equivalence.
 	\end{enumerate}
 \end{theorem}
 
-
 \begin{proof}
-	(i) We should prove that the $*$-homomorphism $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the explained in \ref{blowing_axiomatic_empt} conditions. Firstly we prove that $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the Lemma \ref{lift_mult_lem}. Let $\left\{u_\la\right\}_{\la \in \La}\subset A$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}). If $\widetilde a \in A'_0\left( \widetilde \sY\right)$ and $\eps > 0$ then there are finite sets $\left\{a_1, ..., a_n\right\}\in A$ and $\left\{\widetilde f_1, ..., \widetilde f_n\right\}\in \widetilde \sY$ such that
-	$$
-	\left\|\widetilde a - \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)\right\| < \frac{\eps}{2}.
-	$$
-	(cf. (b) of the Definition \ref{blowing_lift_constr_defn}). On the other hand for any $j = 1,..., n$ there is $\la_j \in \La$ such that
-	$$
-	\la \ge \la_j \quad \Rightarrow \quad \left\|a_j - a_j u_{\la} \right\| < \frac{\eps}{2\left\|\widetilde f_j \right\|}.
-	$$
-	If $\la_{\text{left}} \ge \la_j$ for all $j = 1,..., n$ then from the triangle identity it follows that
-	\be\label{blowing_left_eqn}
-	\forall \la \ge \la_{\text{left}}\quad  	\left\|\widetilde a - \widetilde a\varphi\left(u_\la \right) \right\|< \eps.
-	\ee
-	Similarly there in $\la_{\text{right}}$ such that
-	\be\label{blowing_right_eqn}
-	\forall \la \ge \la_{\text{right}}\quad  	\left\|\widetilde a^* - \widetilde a^*\varphi\left(u_\la \right) \right\|= \left\|\widetilde a - \varphi\left(u_\la \right) \widetilde a \right\|< \eps.
-	\ee
-	The equations \eqref{blowing_left_eqn} and \eqref{blowing_right_eqn} are specialization of \eqref{lift_mult_norm_eqn} one. Now one should check conditions (a)-(d) of \ref{blowing_axiomatic_empt}.
+	(i) We should prove that the $*$-homomorphism $A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the explained in the Definition  \ref{blowing_lift_defn} conditions (a)-(e). 
 	\begin{enumerate}
-		\item[(a)] Follows from the inclusion $C_0\left(\sY \right)  \subset C_b\left( \widetilde \sY\right)$,
-		\item[(b)] the transitive covering $q:  \widetilde \sY \to \sY$ is explained in \ref{blowing_lift_empt},
-		\item[(c)] according to  \ref{blowing_lift_empt} the covering transformation  group $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}),
-		\item[(d)] Let $\widetilde \sU \subset \widetilde \sY$ be an open subset  which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sY$, and let $\left\{\widetilde u_\a\right\}$  be an approximate unit of $C_0\left( \widetilde \sU\right)$. For any $a \in A_\sU$ we define
-		$$
-		\pi_{\widetilde{\sU}}\left(a \right)\bydef \lim a\widetilde u_\a 
-		$$
-		where the $C^*$-norm limit is implied.
-	\end{enumerate}
+	\item[(a)]
+If $\left\{u_\a\right\}_{\a \in \mathscr A}$ is an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}) and 	
+\be\label{blowing_fin_sum_defn}
+\widetilde a\bydef 	\sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)\in A'_0\left( \widetilde \sY\right)
+\ee
+then 
+\bean
+\lim_{\a \in \mathscr A}\left\|\widetilde a-\widetilde a u_\a \right\| = \lim_{\a \in \mathscr A}\left\|\widetilde a - \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j u_\a\right) \right\|=\\= \lim_{\a \in \mathscr A}\left\| \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j - a_j u_\a\right) \right\|=0.
+\eean
+A set of given by \eqref{blowing_fin_sum_defn} elements is dense in $A'_0\left( \widetilde \sY\right)$, so
+\be\label{blowing_u_l_eqn}
+\forall \widetilde a \in A'_0\left( \widetilde \sY\right)\quad \lim_{\a \in \mathscr A}\left\|\widetilde a-\widetilde a u_\a \right\|=0.
+\ee
+	Similarly an application of the Remark \ref{blowing_lift_constr_rem} yields a  the following
+\be\label{blowing_u_r_eqn}
+\forall \widetilde a \in A'_0\left( \widetilde \sY\right)\quad \lim_{\a \in \mathscr A}\left\|\widetilde a-u_\a \widetilde a  \right\|=0.
+\ee
+So the $*$-homomorphism $A'_b\left(q \right):A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the equations \eqref{blowing_axiomatic_au_eqn} and from the Lemma \ref{lift_mult_lem} one has in injective $*$-homomorphism
+\be\label{blowing_axiomatic_lau_eqn}
+\begin{split}
+M\left( A'_b\left(q\right)\right)  : M\left(  A \right) \hookto	M\left( A'_0\left( \widetilde \sY\right)\right),\\
+a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} u_\a a  =\bt\text{-}\lim_{\a \in \mathscr A}  au_\a 
+\end{split}
+\ee
+where we imply the limit with respect to the strict topology of $M\left(  A'_0\left( \widetilde \sY\right)\right)$,\\ 
+	\item[(b)] According to the assumptions \ref{blowing_lift_empt} a covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite. From the  natural action $G\left(\left.\widetilde \sY\right| \sY\right)\times C_c\left(\widetilde\sY \right) \to C_c\left(\widetilde\sY \right)$ one can construct an action $$G\left(\left.\widetilde \sY\right| \sY\right)\times C_c\left(\widetilde\sY \right)\otimes_{C_0\left(\sY\right)} A \to C_c\left(\widetilde\sY \right)\otimes_{C_0\left(\sY\right)} A.$$ On the other and an algebraic tensor product is dense in the explained in \ref{blowing_lift_empt}  the $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right) _A$, so the natural action
+	$$G\left(\left.\widetilde \sY\right| \sY\right)\times\mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$$
+	can be obtained. We defined the following action
+	\bean
+	G\left(\left.\widetilde \sY\right| \sY\right)\times M\left(  A'_0\left( \widetilde \sY\right)\right) \to M\left(  A'_0\left( \widetilde \sY\right)\right),\\
+	\forall \widetilde{a}\in M\left(  A'_0\left( \widetilde \sY\right)\right)~~ \forall \xi \in \mathscr L^2\left(\widetilde \sY \right) _A ~~\forall g \in G\left(\left.\widetilde \sY\right| \sY\right)~~ \left(g \widetilde a \right) \xi \bydef g\left( \widetilde a\left( g^{-1}\xi \right) \right) 
+	\eean
+	From this action it follows that
+\bean
+a \in  M\left(  A'_0\left( \widetilde \sY\right)\right) ^{	G\left(\left.\widetilde \sY\right| \sY\right)}	\quad \Rightarrow \\  \Rightarrow  \forall \xi \in \mathscr L^2\left(\widetilde \sY \right) _A ~~\forall g \in G\left(\left.\widetilde \sY\right| \sY\right)\quad g\left(a\xi \right) = a\left(g \xi \right). 
+\eean 
+The above equation is equivalent to 
+$$
+ M\left(  A'_0\left( \widetilde \sY\right)\right) ^{	G\left(\left.\widetilde \sY\right| \sY\right)} = M\left(A \right). 
+$$
+\item[(c)] According to the construction \ref{blowing_lift_empt} the inclusion $C_0\left( \sY\right) \subset M\left( A\right)$ is Hausdorff blowing up. If $\widetilde a \in A'_0\left( \widetilde \sY\right)$ and $\eps >0$ then according to (b) of the Definition \ref{blowing_lift_constr_defn} there are finite subsets $\left\{a_1, ..., a_n\right\}\subset A$ and  $\left\{\widetilde f_1, ..., \widetilde f_n\right\}\in C_0\left( \widetilde \sY\right)$ such that
+\bean\label{blowing_aa_eqn}
+\left\| \widetilde a-\sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right) \right\| < \eps,
+\eean
+A finite union $\widetilde \sV = \bigcup_{j = 1}^n \supp \widetilde f_j$ of compact sets is compact. If $\widetilde f\in C_c\left( \widetilde\sY\right) $ is a covering sum for $\widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}) then one has
+\bean
+	\varphi_C\left( \widetilde f\right) \left(  \sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)\right) = \sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right),\\
+\left\| \widetilde a- 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right) \right\|= \left\| \widetilde a- 	\varphi_C\left( \widetilde f\right) \left(  \sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)\right) \right\| < \eps.
+\eean 
+The above equation means that $C_c\left( \widetilde \sY\right) A'_0\left( \widetilde \sY\right)$ is dense in  $A'_0\left( \widetilde \sY\right)$ (cf. equation \ref{blowing_eqn}). Similarly using the Remark \ref{blowing_lift_constr_rem} we conclude that $A'_0\left( \widetilde \sY\right)C_c\left( \widetilde \sY\right)$ is dense in  $A'_0\left( \widetilde \sY\right)$, so the inclusion $C_0\left( \widetilde \sY\right)\hookto M\left(A'_0\left( \widetilde \sY\right) \right)$ is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).\\
+If  $\left\{u_\a\right\}_{\a \in \mathscr A}$ is a approximate unit of $A$ then from the equation \eqref{blowing_axiomatic_lau_eqn} it follows that 
+\be\label{blowing_maf_eqn}
+\begin{split}
+\forall f \in C_0\left(\sY \right)\quad  	M\left( A_b\left(q\right)\right)\left( f\right) = \bt\text{-}\lim_{\a \in \mathscr A} u_\a f  =\bt\text{-}\lim_{\a \in \mathscr A}  fu_\a
+\end{split} 
+\ee
+where we imply the limit with respect to the strict topology of $M\left(  A'_0\left( \widetilde \sY\right)\right)$. From this fact it turns out that 
+\bean
+\forall f \in C_0\left(\sY \right) \quad \forall a \in A \quad 	M\left( A_b\left(q\right)\right)\left( f\right) a = f \lim_{\a \in \mathscr A} \lim_{\a \in \mathscr A}\left(  u_\a a\right) = f a,\\
+a \left( M\left( A'_b\left(q\right)\right)\left( f\right)\right) = \left( \lim_{\a \in \mathscr A} \left(a  u_\a\right)\right)  f = af.
+\eean
+The set 
+$$
+K \bydef \left\{\widetilde a \in \K\left( A'_0\left( \widetilde \sY\right)\right)\left|\widetilde a= \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right) \right.\right\}
+$$
+is dense in  $A'_0\left( \widetilde \sY\right)$ and from \eqref{blowing_maf_eqn} it follows that
+ $$
+\widetilde a = \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)  \quad \Rightarrow \quad \widetilde a M\left( A'_b\left(q\right)\right)\left( f\right) = \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j f\right)
+ $$
+The  $\widetilde a \in \K\left(M\left( A'_0\left( \widetilde \sY\right)\right) \right)$
+Moreover if   $\widetilde a\in K \subset K\left(A'_0\left( \widetilde \sY\right) \right)$ then $\supp \widetilde a$ is compact. If $\widetilde f'$ is a covering sum for  $\supp \widetilde a$ then $\widetilde a = \widetilde a \widetilde f'$. It follows that
+\bean
+\widetilde a M\left( A'_b\left(q\right)\right)\left( f\right) = \left( \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j f\right)\right) \widetilde f'=\\= \left( \sum_{j=1}^n \varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)\right) f \widetilde f' = \widetilde a \widetilde f' f.
+\eean
+From $\widetilde a- \widetilde a \widetilde f' = 0$ it follows that
+\be\label{blowing_af_eqn}
+\widetilde a M\left( A'_b\left(q\right)\right)\left( f\right) = \widetilde af.
+\ee
+where $f$ is regarded as an element of $C_b\left(\widetilde\sY \right)$. 
+The equation \eqref{blowing_af_eqn} is true for all $\widetilde a \in A'_0\left( \widetilde \sY\right)$ since the set $K$ is dense in $A'_0\left( \widetilde \sY\right)$. Similarly one can prove that 
+\be\label{blowing_faa_eqn}
+ M\left( A'_b\left(q\right)\right)\left( f\right)\widetilde a = f\widetilde a
+\ee
+From equations \eqref{blowing_af_eqn} and \eqref{blowing_faa_eqn} it turns out that there are following inclusions
+$$
+ M\left( A'_b\left(q\right)\right)\left(C_0\left(\sY\right)\right)\subset C_b\left(\widetilde \sY\right).
+$$
+\item[(d)] Follows from \ref{blowing_lift_empt}.
+\item[(e)] Let If $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sY$. From the Remark \ref{blowing_lift_constr_rem}  it follows that  $A'_0\left( \widetilde \sY\right)$ is a $C^*$-norm completion of an algebraically generated by elements 
+$$
+\varphi_A\left(a\right)\varphi_C\left( \widetilde f\right), \quad a \in A, \quad \widetilde f \in C_0\left(\widetilde \sY\right) 
+$$
+left $A$-module.  From this fact one can deduce that a set of following sums
+\be\label{blowing_us_eqn}
+\widetilde a\bydef \sum_{j=1}^n \varphi_A\left(a_j\right)\varphi_C\left( \widetilde f_j\right) \quad a \in A, \quad \widetilde f \in C_0\left(\widetilde \sU\right) 
+\ee 
+is dense in  $A'_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a$ is given by \eqref{blowing_us_eqn} and $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}\subset C_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an approximate unit for $C_0\left( \widetilde \sU\right)$ then
+\bean
+\widetilde a = \lim_{\a \in \mathscr A} \widetilde a \widetilde u_\a = \lim_{\a \in \mathscr A} \sum_{j=1}^n \varphi_A\left(a_j\right)\varphi_C\left( \widetilde f_j\widetilde u_\a\right)=\lim_{\a \in \mathscr A}\varphi_A\left(a\right)\varphi_C\left(\widetilde u_\a\right)
+\eean
+where $a = \sum_{j=1}^n a_j \desc_q\left(\widetilde f_j \right)\in A$ and $\desc_q$ means the $q$-descent (cf. Definition \ref{top_lift_desc_defn}). On the other hand since the set of given by \eqref{blowing_us_eqn} sums is dense in $A'_0\left( \widetilde \sY\right)_{\widetilde \sU}$  one has
+$$
+\forall \widetilde a \in A'_0\left( \widetilde \sY\right)_{\widetilde \sU} \quad \exists a \in A_\sU  \quad \widetilde a =\lim_{\a \in \mathscr A}\varphi_A\left(a\right)\varphi_C\left(\widetilde u_\a\right).
+$$
+From the above equation we can obtain the \eqref{blowing_axiomatic_eqn} one,
+\end{enumerate}	
 	(ii) Having the $q$-lift  $A_b\left(q \right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ one can construct a  $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right) _A$ explained in \ref{blowing_lift_empt}
 	There are both a left action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of algebras
 	\bean
@@ -23465,7 +23607,7 @@ We also use an alternative equivalent definition of the multiplier algebra.
 	$$	
 	and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$. 
 \end{lemma}
-\begin{definition}\label{dc_defn}\cite{matro:hcm}
+\begin{definition}\label{double_centralizer_defn}\cite{matro:hcm}
 A pair $\left(L, R\right)$ of maps
 \be\label{dc_eqn}
 L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
@@ -23492,7 +23634,7 @@ $$
 \left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
 $$
 \end{proposition}
-\begin{remark}\label{dc_rem}
+\begin{remark}\label{double_centralizer_rem}
 	In \cite{matro:hcm} it is proven  there is a natural $*$-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
 \end{remark}
 
