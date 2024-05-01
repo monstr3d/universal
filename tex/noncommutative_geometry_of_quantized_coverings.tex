@@ -10033,6 +10033,10 @@ Prove that there is a natural unoriented spectral triple
 
 
 \paragraph*{}
+	Let $p : \widetilde \sX \to \sX$ be a transitive covering with connected, locally connected, locally compact, Hausdorff spaces $\sX$ and $\widetilde \sX$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite. There is a category of spaces $\sX_\la \bydef  \widetilde \sX/ H_\la$ and finite-fold coverings where $H_\la\subset G\left(\left. \widetilde\sX~\right|\sX \right)$ is a normal subgroup (cf. Definition \ref{normal_subgroup_defn}) having finite  index (cf. Section \ref{grops_sec})
+
+
+
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Let us consider a marked by a   pre-ordered set $\La$ (cf. Definition \ref{ord_defn}) subcategory 
 	\be\label{top_fin_cov_cat_eqn}
  \mathfrak{S}_\sX\bydef	\left\{\left\{p_\la: \sX_\la\to\sX\right\}_{\la \in \La}, \left\{p^\mu_\nu: \sX_\mu\to\sX_\nu \right\}_{\substack{\mu, \nu\in \La,\\ \mu \ge \nu}}\right\}
@@ -10525,7 +10529,6 @@ Let
 \end{proof}
 
 \begin{empt}
-	Let $p : \widetilde \sX \to \sX$ be a transitive covering with connected, locally connected, locally compact, Hausdorff spaces, such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite. There is a category of spaces $\sX_\la \bydef  \widetilde \sX/ H_\la$ and finite-fold coverings where $H_\la\subset G\left(\left. \widetilde\sX~\right|\sX \right)$ is a normal subgroup (cf. Definition \ref{normal_subgroup_defn}) having finite  index (cf. Section \ref{grops_sec})
 !!!!
 \end{empt}
 
@@ -21337,7 +21340,7 @@ If $a, b$ are  $\mathscr{C}$-objects then we denote by  $\mathscr{C}\left(a, b \
 	An object $0$ is \textit{initial} in a category $\mathscr C$ if for every $\mathscr C$-object $a$ there is one and only one arrow from $0$ to $a$ in $\mathscr C$.
 \end{definition}
 \begin{definition}\label{terminal_object_defn}\cite{goldblatt:topoi}
-	An object $\mathbb{1}$ is \textit{terminal} in a category $\mathscr C$ if for every $\mathscr C$-object $a$ there is one and only one arrow from $a$ to $\mathbb{1}$ in $\mathscr C$.
+	An object $\mathbb{1}$ is \textit{terminal} or \textit{final} in a category $\mathscr C$ if for every $\mathscr C$-object $a$ there is one and only one arrow from $a$ to $\mathbb{1}$ in $\mathscr C$.
 \end{definition}
 
 \subsection{Limits}\label{limit_sec}
@@ -21794,8 +21797,18 @@ maps, and topological *-algebras over $\C$ and continuous $*$-homomorphisms. (Th
 	\end{definition}
 	\begin{remark}\label{top_base_rem}It is proven that given by the Definition \ref{top_base_defn} collection $\mathscr T$ is a topology  (cf. \cite{munkres:topology}).
 	\end{remark}
+	\begin{proposition}\label{top_final_prop}\cite{bourbaki_sp:gt}
+Let $\sX$ be a set, let $\left\{\sY_\iota\right\}_{\iota\in I}$ be a family of topological spaces, and for each $\iota\in I$ let $f_\iota$ be a mapping of $\sY_\iota$ into $\sX$. Let $\mathfrak{D}$ be a set of subsets $\sU$ of $\sX$ such that $f_\iota^{-1} \left(\sU \right)$ is open in $\sY_\iota$ for each $\iota \in I$; then  $\mathfrak{D}$ is a set of open sets in a topology $\mathfrak{T}$. In particular $\mathfrak{T}$ is the finest topology for which the mappings $f_\iota$ are continuous. In other words, if $g$ is mapping on $\sX$ into a topological space $\sZ$, then $g$ is continuous ($\sX$ carrying the topology $\mathfrak{T}$) if and only if each of the mappings $g\circ f_\iota$ is continuous.
+	\end{proposition}
+	\begin{definition}\label{top_final_defn}
+	Under the hypotheses of Proposition \ref{top_final_prop} we say that the topology $\mathfrak{T}$ is \textit{final} (\textit{with respect to the family of maps} $\left\{f_\iota:\sY_\iota \to \sX\right\}_{\iota\in I}$).
+	\end{definition}
+		\begin{remark}
+		The Definition \ref{top_final_defn} is a specialization of final object (cf. Definition \ref{terminal_object_defn}).
+	\end{remark}
+	
 	\begin{definition}\label{top_pointed_defn}
-		If $\sX$ is a set (resp. topological space) and $x_0 \in \sX$ is a point then we say that the pair $\left(\sX, x_0 \right)$ is a \textit{!!! pointed  DELETE !!!set} (resp. \textit{!!! pointed  DELETE !!!space}) (cf. \cite{spanier:at,switzer:at}). If both $\left(\sX, x_0 \right)$ and $\left(\sY, y_0 \right)$ are !!! pointed  DELETE !!!spaces and $\varphi: \sX \to \sY$ is such that $\varphi\left(x_0\right)= y_0$ then we say that $\varphi$ is a \textit{!!! pointed  DELETE !!!map}. We write
+		If $\sX$ is a set (resp. topological space) and $x_0 \in \sX$ is a point then we say that the pair $\left(\sX, x_0 \right)$ is a \textit{pointed  set} (resp. \textit{pointed space}) (cf. \cite{spanier:at,switzer:at}). If both $\left(\sX, x_0 \right)$ and $\left(\sY, y_0 \right)$ are  pointed  spaces and $\varphi: \sX \to \sY$ is such that $\varphi\left(x_0\right)= y_0$ then we say that $\varphi$ is a \textit{pointed map}. We write
 		\be\label{top_pointed_eqn}
 		\varphi: \left(\sX, x_0 \right)\to\left(\sY, y_0 \right).
 		\ee
