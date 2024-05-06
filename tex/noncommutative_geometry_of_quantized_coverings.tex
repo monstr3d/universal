@@ -8669,7 +8669,7 @@ If $M$ be a smooth manifold then   a space of distribution densities  $\Coo_c\le
 \end{exercise}
 
 \section{Lifts of continuous functions and bundles}
-%\begin{empt}\label{top_cont_spec_empt}
+%\begin{lemma}\label{top_cont_spec_empt}
 
 
 \begin{lemma}\label{top_comp_sum_lem}
@@ -17302,7 +17302,46 @@ then there are both:
 	\item the continuous 2-cocycle $\widetilde \sigma\in Z^2\left(\G, \T\right)$ is the $p$-lift of $\sigma$ (cf. Definition \ref{groupoid_cocycle_lift_defn}).
 	\item a left Haar system $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is the $p$-lift of $\left\{\la^u \left| u \in \G^0\right.\right\}$ (cf. Definition \ref{groupoid_haar_lift_defn}).
 \end{itemize}
-So one can construct a $*$-algebra $C_c\left(\widetilde \G, \widetilde\sigma \right)$. We say that   $C_c\left(\widetilde \G, \widetilde\sigma \right)$ is the $q$-\textit{lift} of $C_c\left( \G, \sigma \right)$
+So one can construct a $*$-algebra $C_c\left(\widetilde \G, \widetilde\sigma \right)$. We say that   $C_c\left(\widetilde \G, \widetilde\sigma \right)$ is the $q$-\textit{lift} of $C_c\left( \G, \sigma \right)$.
+\end{definition}
+\begin{empt}
+	Similarly to the proof of the Lemma \ref{blowing_group_lem}	consider family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are:
+\begin{itemize}
+	\item  the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
+	\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
+	\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \sY$ such that  $\widetilde \sY = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
+\end{itemize}
+	Similarly to \eqref{blowing_jk_eqn} one can proof that following conditions hold.
+\begin{itemize}
+	\item Any $a \in C_c\left(\G , \sigma \right)$ can be represented by following way
+\be\label{groupoid_faf_eqn}
+	a = \sum^{\substack{j = m\\k=n}}_{\substack{j = 1\\k=1}}  f _{j}af_k
+\ee
+	where there are open subsets $\sU'_j, \sU''_k \in \left\{{\sU}_\a\right\}_{\a\in \mathscr A}$ such that $\supp f_j \subset \sU'_j$ and $\supp f_k \subset \sU'_k$.
+	\item Any $\widetilde a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$
+\be\label{groupoid_tfaf_eqn}
+	\widetilde a = \sum^{\substack{j = m\\k=n}}_{\substack{j = 1\\k=1}}  \widetilde f _{j}\widetilde a\widetilde f_{k} 
+\ee
+		where there are open subsets $\widetilde \sU'_j, \widetilde\sU''_k \in \left\{{\widetilde\sU}_{\widetilde\a}\right\}_{{\widetilde\a}\in \widetilde{\mathscr A}}$ such that $\supp \widetilde f_j \subset \widetilde\sU'_j$ and $\supp \widetilde f_k \subset \widetilde\sU'_k$.
+	\end{itemize}
+	Let us define a left  action $C_c\left(\G , \sigma \right)\times  C_c\left(\widetilde \G, \widetilde\sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right)$. From the equations \eqref{groupoid_faf_eqn}	and \eqref{groupoid_tfaf_eqn} one needs define product
+	$$
+	\left(f' a f'' \right) \cdot \left(\widetilde f' \widetilde a \widetilde f'' \right)
+	$$
+	where
+\begin{itemize}
+	\item $a \in C_c\left(\G , \sigma \right)$,
+	\item $\widetilde a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$,
+		\item  there are open subsets $\sU', \sU'' \in \left\{{\sU}_\a\right\}_{\a\in \mathscr A}$ such that $\supp f' \subset \sU'$ and $\supp f'' \subset \sU'$,
+	\item  there are open subsets $\widetilde\sU', \widetilde\sU'' \in \left\{{\widetilde\sU}_{\widetilde\a}\right\}_{{\widetilde\a}\in \widetilde{\mathscr A}}$ such that $\supp \widetilde f' \subset \widetilde \sU'$ and $\supp\widetilde f'' \subset \widetilde\sU'$,
+\end{itemize}	
+If $q \left(  \widetilde f''\right) \cap f' = \emptyset$ then we set $\left(f' a f'' \right) \cdot \left(\widetilde f' \widetilde a \widetilde f'' \right)\bydef 0$.  Otherwise there is $\widetilde{y}'\in \widetilde \G^0$ such that $q\left(\widetilde{y}' \right)$ !!!!
+\end{empt}
+\begin{definition}
+	Let $a \in C_c\left(\G, \sigma \right)$ be represented by  $ f \in C_c\left( \G\right)$ element
+	
+Let $\widetilde a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$ be represented by  $\widetilde f \in C_c\left(\widetilde \G\right)$ element, end let $\widetilde \sU. \widetilde t$
+
 \end{definition}
 \begin{lemma}\label{groipoid_cc_lem}
 	Use notation of the Definition \ref{blowing_lift_constr_defn}.
@@ -17323,6 +17362,7 @@ right $C_c\left(\G , \sigma \right)$-module is a $*$-subalgebra of $\End^*_{C^*_
 		\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
 		\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \sY$ such that  $\widetilde \sY = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
 	\end{itemize}
+
 	If $\sum_{j=1}^n \widetilde f_j$ is a covering sum {dominated} by the family 
 	$\left\{\widetilde \sU_{\widetilde \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}) then the given by \eqref{groupoid_prods_eqn} element equal to 
 $$
