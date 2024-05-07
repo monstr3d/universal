@@ -17294,7 +17294,11 @@ where $x$ is regarded an element of $\G^\sU_\sU$ and $\sU_x$ is a quasi-componen
 	\be\label{groupoid_blowing_eqn}
 	C_0\left(\G^0 \right)\hookto M\left( C^*_\rho\left(\G , \sigma \right)\right)  
 	\ee
+	!!!! CHECK CONDITION !!!
 \end{remark}
+\begin{definition}
+Any $a \in 	C_c\left(\G , \sigma \right)$ is presented by $f \in C_c\left(\G \right)$. We say that  $\ga\in \G$ is \textit{subordinated to} $a$ if $f\left(\ga \right) \neq 0 $. We write $\ga \preceq a$.
+\end{definition}
 \begin{definition}\label{groupoid_cc_lift_defn}
 If $p: \widetilde \G^0 \to \G^0$ is a $\G$-regular transitive covering (cf. Definition \ref{groupoid_lift_defn}) then there are both
 then there are both:
@@ -17324,6 +17328,45 @@ So one can construct a $*$-algebra $C_c\left(\widetilde \G, \widetilde\sigma \ri
 \ee
 		where there are open subsets $\widetilde \sU'_j, \widetilde\sU''_k \in \left\{{\widetilde\sU}_{\widetilde\a}\right\}_{{\widetilde\a}\in \widetilde{\mathscr A}}$ such that $\supp \widetilde f_j \subset \widetilde\sU'_j$ and $\supp \widetilde f_k \subset \widetilde\sU'_k$.
 	\end{itemize}
+For any $a \in C_c\left(\G , \sigma \right)$ and $\widetilde f \in C_c\left( (\widetilde \G^0\right)$ we define a product $\widetilde f a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$. Using subordinated to the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ covering sum of $\supp \widetilde f$ (cf. Definition \ref{top_covering_sum_defn}) one has
+$$
+\widetilde f = \sum_{j=1}^m \widetilde f_j,
+$$
+where for any $j=1,..., m$ there is $\widetilde\sU_j \in \left\{\widetilde \sU_{\widetilde \a}\right\}$ such that $\supp \widetilde f_j\subset \widetilde\sU_j$. Similarly an application of the covering sum of $\supp \widetilde f$ yields the following 
+$$
+a  = \sum_{k=1}^n f_k a.
+$$
+where for any $k=1,..., n$ there is $\sU_k \in \left\{ \sU_{ \a}\right\}$
+If $q\left( \widetilde\sU_j \right)\cap  \sU_k = \emptyset$ then we set $\widetilde f_j\left( f_k a\right) = 0$. Otherwise there is $\widetilde\sU'_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}$ such that $q\left(\widetilde\sU'_k  \right) = \sU_k$ and $\widetilde\sU'_k\cap \widetilde\sU_j\neq 0$. Let $\widetilde f'_k \bydef \lift^q_{\widetilde\sU'_k}\left( f_k\right)\in C_c\left(\widetilde \G^0 \right)  $ be the  $q$-${\widetilde\sU'_k}$-lift (cf. Definition \ref{top_lift_desc_defn}). Denote by $q_\G: \widetilde \G \to \G$ the natural continuous map. If $a$ is represented by $f \in C_c\left(\G \right)$ and $\sV \bydef \left\{\ga \in \G| f\left( \ga \right)\neq 0 \right\}$ then the set
+$$
+\widetilde\sV \bydef q^{-1}_\G\left(\sV \right) \cap r^{-1}\left( \widetilde\sU'_k\right) \in \widetilde \G
+$$
+is mapped homeomorphically onto $p_\G\left( \widetilde\sV\right)$. If $ \widetilde f' \bydef \lift^{q_\G}_{\widetilde\sV}\in C_c\left(\widetilde G\right)$ then $\widetilde f'$ uniquely defines $\widetilde a' \in \widetilde \G$. We set
+ \be\label{groupoid_fa_eqn}
+\widetilde f_j\left( f_k a\right)\bydef\widetilde f_j \widetilde f'_k \widetilde a' 
+ \ee 
+\end{empt}
+\begin{lemma}
+Following conditions hold.
+\begin{enumerate}
+	\item [(i)] The equation \eqref{groupoid_fa_eqn} yields a surjective map 
+	\be\label{groupoid_tensor_eqn}
+\phi:	C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }C_c\left( \G, \sigma \right)\xrightarrow{\approx} C_c\left(\widetilde \G, \widetilde\sigma \right),
+	\ee
+	\item[(ii)] There are natural  left and right actions 
+	\bean
+C_c\left( \G, \sigma \right)\times  C_c\left(\widetilde \G, \widetilde\sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right),\\	
+  C_c\left(\widetilde \G, \widetilde\sigma \right)\times C_c\left( \G, \sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right).
+	\eean
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) From  \eqref{groupoid_tfaf_eqn}  it follows that one should prove that  any $\widetilde f' \widetilde a \widetilde f''$ such that there are $\widetilde{\sU}', \widetilde{\sU}''\in \left\{{\widetilde\sU}_{\widetilde\a}\right\}$ such that $\supp \widetilde f' \subset \widetilde \sU'$ and $\supp \widetilde f'' \subset \widetilde \sU''$  there is $\widetilde f \otimes a \in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }C_c\left( \G, \sigma \right)$ such that $\phi\left(\widetilde f \otimes a \right) = \widetilde f' \widetilde a \widetilde f''$.
+
+
+\end{proof}
+
+\begin{empt}
 	Let us define a left  action $C_c\left(\G , \sigma \right)\times  C_c\left(\widetilde \G, \widetilde\sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right)$. From the equations \eqref{groupoid_faf_eqn}	and \eqref{groupoid_tfaf_eqn} one needs define product
 	$$
 	\left(f' a f'' \right) \cdot \left(\widetilde f' \widetilde a \widetilde f'' \right)
@@ -28353,7 +28396,7 @@ There are following motivations this definition:
 
 \section{Groupoid $C^*$-algebras}
 \paragraph{}
-	Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
+	Let $\G$ be a locally compact Hausdorff groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
 \be\label{groupoid_*_c_eqn}
 \begin{split}
 	f * g \left(x\right)\bydef 
@@ -28397,8 +28440,30 @@ If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a uniqu
 $M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
 $L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
 \end{lemma}
+\subsection{$C^*$-algebras of non-Hausdorff \'etale groupoids}
+\paragraph{} Here I follow to \cite{neshv:non_haudorff}. 
+\begin{definition}
+Assume $\G$ is a locally compact, not necessarily Hausdorff, \'etale groupoid.
+By this, we mean that $\G$ is a groupoid endowed with a locally compact topology
+such that
+\begin{itemize}
+	\item  the groupoid operations are continuous;
+	\item the unit space $\G^0$ is a locally compact Hausdorff space in the relative
+	topology;
+	\item the range map $r : \G \to \G^0$ and the source map $r : \G \to \G^0$ are local
+	homeomorphisms.
+	\end{itemize}
+\end{definition}
 
 
+	For an open Hausdorff subset $\sV \subset \G$, consider the usual space $C_c\left( \sV\right)$  of continuous
+	compactly supported functions on $\sV$ . Every such function can be extended
+	by zero to $\G$; in general, this extension is not a continuous function on $\G$.
+	This way, we can view  $C_c\left( \sV\right)$ as a subspace of the space of functions $\text{Func}\left(\G \right)$ 
+	on $\G$. For arbitrary open subsets $\sU\subset G$ we denote by $C_c\left( \sU\right)$  the
+	linear span of the subspaces $C_c\left( \sV\right) \subset \text{Func}\left(\G \right)$ for all open Hausdorff subsets
+	$\sV \subset \sU$ Instead of all possible $\sV$ , it suffices to take a collection of open bisections
+	covering $\sU$.
 	
 \section{Strong Morita equivalence of groupoid $C^*$-algebras}
 
@@ -30839,6 +30904,7 @@ Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for grou
 
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
+\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left cancellative monoids}. M\"unster J. of Math. 16 (2023), 147Ð175, 2023.
 
 \bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 \bibitem{Paschke:73}
