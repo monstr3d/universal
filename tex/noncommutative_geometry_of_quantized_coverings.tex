@@ -17466,15 +17466,22 @@ given by \eqref{induced_representation_eqn}. On the other hand there is an inclu
 \begin{proof}
 (i) From the Lemma \ref{blowing_induced_representation_lem} it follows that $\widetilde{\rho}_c$ is nondegenerate. If $\widetilde \sZ \subset \widetilde \G$ is compact then from the Theorem \ref{top_compact_img_thm}  it follows that $\widetilde \sV \bydef s\left(\widetilde \sZ \right)$ is compact. There is an action
 $$
-C\left( \widetilde\sV\right) \times C_0\left( \widetilde\sZ\right)\to C_0\left( \widetilde\sZ\right)
+C\left( \widetilde\sV\right) \times C_0\left( \widetilde\sZ\right)\to C_0\left( \widetilde\sZ\right).
 $$
- Let $\sum_{j = 1}^n \widetilde f_j$ be dominated  to $q$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) covering sum then there is a family $\left\{\widetilde f_j\right\}_{j\in \{1,...,n\}}$ such that:
+If  $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset  C_0\left( \widetilde\sZ\right)$ is  uniformly convergent net and  $\sum_{j = 1}^n \widetilde f_j$ is  dominated  to $q$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) covering sum then there is a family $\left\{\widetilde f_j\right\}_{j\in \{1,...,n\}}$ such that:
  \begin{itemize}
  	\item $\supp \widetilde f_j \subset \widetilde \sV_j$,
  	\item $\widetilde \sV_j$ is mapped homeomorphically onto $\sV_j \bydef q\left( \widetilde \sV_j\right)$ then for all $j = 1,..., n$ the net $\left\{\widetilde f_j \widetilde f_\a\right\}\subset C_c\left(s^{-1}\left(\widetilde \sV_j \right)\cap \widetilde\sZ  \right) $ is uniformly convergent. 
  \end{itemize}
- 
-
+If $j=1,...n$ and  $\sZ_j \bydef q\left(s^{-1}\left( \widetilde \sV_j \right)\cap \widetilde\sZ \right)$ then there is a an uniformly convergent net $\left\{f^j_\a \right\}\subset C_0\left(\sZ_1 \right)$.  The net $\left\{f^j_\a \right\}$ yields a net $\left\{a^j_\a \right\} \subset C_c\left(\G , \sigma \right)$. From the Definition it follows that then net $\left\{\rho\left( a^j_\a\right) \right\}$ is convergent with respect to weak topology (cf. Definition \ref{weak_topology_defn}) of $B\left( \H\right)$. From the Definition \ref{induced_representation_defn} it follows that there is a dense inclusion
+$$
+\mathscr L^2\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}\subset \widetilde \H
+$$
+and since $C_c\left(\widetilde \sY \right)$ is dense in $\mathscr L^2\left(\widetilde \sY \right)$ one has a dense inclusion
+$$
+C_c\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}\subset \widetilde \H
+$$
+Let $\widetilde \xi, ~\widetilde \eta \in \widetilde \H$ which correspond to $\widetilde a \otimes \xi,~ \widetilde b \otimes \eta \in C_c\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}$ 
 \end{proof}
 
 \subsection{Irreducible representations}
@@ -17493,32 +17500,7 @@ The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition
 
 
 
-\paragraph{!!!}
 
-\begin{definition}\label{state_cov_11_defn!}
-	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\widetilde{\tau}$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\widetilde{\tau}\left( g\widetilde{a}\right)=\widetilde{\tau}\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
-\end{definition}
-
-\begin{lemma}\label{state_cov_11_lem!}
-	If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is a one-to-one correspondence between positive functionals on $A$ and invariant positive functionals on $\widetilde{A}$.
-\end{lemma}
-\begin{proof}
-	If $\tau: A \to \C$ is a positive functional on $A$ then there is the invariant positive functional
-	\be\label{state_down_eqn!}
-	\begin{split}
-		\widetilde{\tau}:  \widetilde{A}\to \C,\\
-		\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \tau\left(g\widetilde{a} \right),
-	\end{split}
-	\ee
-	i.e. there is a given by $\tau \to \widetilde\tau$ map $\phi$ from the set of positive functionals on $A$ to the set of invariant positive functionals on  $\widetilde{A}$. % This map is invective, because $\widetilde{\tau}\left(a \right) = \tau\left(a\right)$ for all $a\in A$. 
-	If $\widetilde{\tau}: \widetilde{A}\to \C$ is an invariant positive functional  then there is positive  $\widetilde{a}\in \widetilde{A}_+$ such that $\widetilde{\tau}\left(\widetilde{a} \right)\neq 0$. So one has
-	$$
-	\frac{1}{\left|G\right|}\sum_{g \in G} \widetilde{\tau}\left(g\widetilde{a} \right)\neq 0.
-	$$
-	It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
-\end{proof}
-
-\paragraph{!!!}
 
 \subsection{Hausdorff blowing-up of a foliation algebra}\label{foli_blowing_sec}
 
