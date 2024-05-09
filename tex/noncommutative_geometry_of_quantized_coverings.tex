@@ -2392,6 +2392,30 @@ $$
 \forall \widetilde \xi \in \widetilde \H \quad  \phi_\K\left( \widetilde b\left\rangle \right\langle \widetilde   a\right)\left( \widetilde\xi \right)\bydef   \widetilde b\sum_{g \in G} g\left(\widetilde a^* \widetilde \xi\right) \in \widetilde\H. 	
 $$
 \end{proof}
+\begin{definition}\label{state_cov_11_defn}
+	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\widetilde{\tau}$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\widetilde{\tau}\left( g\widetilde{a}\right)=\widetilde{\tau}\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
+\end{definition}
+
+\begin{lemma}\label{state_cov_11_lem}
+	If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is a one-to-one correspondence between positive functionals on $A$ and invariant positive functionals on $\widetilde{A}$.
+\end{lemma}
+\begin{proof}
+	If $\tau: A \to \C$ is a positive functional on $A$ then there is the invariant positive functional
+	\be\label{state_down_eqn}
+	\begin{split}
+		\widetilde{\tau}:  \widetilde{A}\to \C,\\
+		\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \tau\left(g\widetilde{a} \right),
+	\end{split}
+	\ee
+	i.e. there is a given by $\tau \to \widetilde\tau$ map $\phi$ from the set of positive functionals on $A$ to the set of invariant positive functionals on  $\widetilde{A}$. % This map is invective, because $\widetilde{\tau}\left(a \right) = \tau\left(a\right)$ for all $a\in A$. 
+	If $\widetilde{\tau}: \widetilde{A}\to \C$ is an invariant positive functional  then there is positive  $\widetilde{a}\in \widetilde{A}_+$ such that $\widetilde{\tau}\left(\widetilde{a} \right)\neq 0$. So one has
+	$$
+	\frac{1}{\left|G\right|}\sum_{g \in G} \widetilde{\tau}\left(g\widetilde{a} \right)\neq 0.
+	$$
+	It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
+\end{proof}
+
+
 %\begin{definition}\label{basic_state_den}
 % If $A$ is a $C^*$-algebra then a family of states  $\left\{\tau_\a: A\to \C \right\}_{\a \in \mathscr A}$ is \textit{basic for} $A$ if one has
 %\be\label{basic_state_eqn}
@@ -4526,7 +4550,7 @@ $\left(A, \widetilde{A}, G\right)$ is an
 
 
 \begin{definition}\label{inf_cov_oa_sub_defn}
-	Consider the situation  \ref{inf_cov_oa_empt}.	We say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}$ if for all $
+	Under the hypotheses \ref{comp_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
 \widetilde m_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
@@ -4841,7 +4865,7 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 \end{proof}
 
 \begin{empt}\label{comp_op_loc_pt_empt}
-	Consider the situation \ref{inv_pro_lim_empt}. Assume that for every $\la \in \La$ (including $\la_{\mathrm{min}}$ cf. \ref{alg_fin_cat_defn}) there is a sub-unital local operator space $\left(X_\la, Y_\la \right)$ (cf. Definition \ref{op_loc_su_space_defn}) such that $A_\la \cong C^*_e\left(X_\la, Y_\la \right)$ suppose that any $\pi_\la$ and $\pi^\mu_\nu$ corresponds to a noncommutative finite-fold coverings of local operator spaces \be\label{comp_lop_ob_pt_eqn}
+	Consider the situation \ref{inv_pro_lim_empt}. Assume that for every $\la \in \La$  there is a sub-unital local operator space $\left(X_\la, Y_\la \right)$ (cf. Definition \ref{op_loc_su_space_defn}) such that $A_\la \cong C^*_e\left(X_\la, Y_\la \right)$ suppose that any $\pi_\la$ and $\pi^\mu_\nu$ corresponds to a noncommutative finite-fold coverings of local operator spaces \be\label{comp_lop_ob_pt_eqn}
 	\left(\left(X, Y \right) , \left(\left(X_\la, Y_\la \right) \right), G\left(\left.A_\la\right|A \right), \left(\pi^\la_{X_\la}, \pi^\la_{Y_\la}\right)\right)
 	\ee and   
 	\be\label{comp_lop_mo_pt_eqn}
@@ -10068,7 +10092,7 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 (v)	 The category $\mathfrak{S}_p$ is a subcategory of a {topological  pointed  finite covering category} of $\left( \sX, x_0\right)$ (cf. Definition \ref{top_fin_cov_p_defn}).
 \end{proof}
 \begin{definition}\label{top_disconnected_defn}
-	Under the  hypotheses of the Lemma \ref{top_disconnected_lem} we say that the map $\overline p: \overline \sX  \to  \sX$  is \textit{disconnected covering of} $p : \widetilde \sX \to \sX$. The given by (v) of the Theorem category $\mathfrak{S}_p$ is a \textit{finite covering category of} $p : \widetilde \sX \to \sX$.
+	Under the  hypotheses of the Lemma \ref{top_disconnected_lem} we say that the map $\overline p: \overline \sX  \to  \sX$  is the \textit{disconnected covering of} $p : \widetilde \sX \to \sX$. The given by (v) of the Theorem category $\mathfrak{S}_p$ is a \textit{finite covering category of} $p : \widetilde \sX \to \sX$.
 	Write
 	\be\label{top_disconnected_cat_eqn}
 	\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
@@ -10114,6 +10138,23 @@ then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 \end{empt}
 \begin{empt}\label{top_fin_sec_empt}
 	Let $ \sX $ be a connected,  locally compact, Hausdorff  pointed space, and let $\widetilde{p}: \widetilde{\sX},  \to \sX$ be a     transitive covering such that $\widetilde{\sX}$ is connected (cf. Definition \ref{top_pointed_defn}). Consider a family of all surjective homomorphisms $\left\{h_\la:G\left( \left.{\widetilde{\sX}}~\right|\sX\right)\to G_\la\right\}$ onto finite groups. If $H_\la \bydef \ker h_\la$ and $\sX_\la \bydef \widetilde \sX / H_\la$ then there is a  finite-fold transitive covering $p_\la :  \sX_\la \to \sX$ such that
+	\begin{itemize}
+	\item there is a natural sequence of transitive coverings
+	\be\label{top_fin_sec_eqn}
+	\widetilde{\sX}\xrightarrow{\widetilde p_\la}  {\sX}_\la \xrightarrow{ p_\la} \sX;
+	\ee
+	\item one has a natural isomorphism of groups $G\left( \left.{{\sX}_\la}~\right|\sX\right)\cong G_\la$,
+	\item The set $\La$ is ordered by following way
+$\mu \ge \nu$ if there is the following commutative diagram
+	\newline
+\begin{tikzcd}
+	& \widetilde \sX \arrow[ld, "\widetilde p_\mu"] \arrow[rd, "\widetilde p_\nu"] &\\
+\sX_\mu \arrow[rr, "p^\mu_\nu"] \arrow[rd, "p_\mu"]	& &\sX_\nu \arrow[ld, "p_\nu"] \\
+	& \sX&
+\end{tikzcd}
+\newline
+where all arrows are transitive coverings.
+\end{itemize}
 
 Conversely if a finite-fold transitive covering satisfies to the equation \eqref{top_fin_sec_eqn} then there is a natural surjective homomorphism $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)\to G\left( \left.{{\sX}_\la}~\right|\sX\right)$. It follows that there is an 1-1 correspondence between surjective homomorphism and coverings which satisfy to the equation \eqref{top_fin_sec_eqn}. One can proof that
 $$
@@ -10137,48 +10178,37 @@ then one has:
 
 \end{empt}
 
-
+\begin{lemma}\label{top_associded_lem}
+	Under the hypotheses \ref{top_fin_sec_empt} the natural covering $\widetilde{\sX}_{\mathrm{res~fin}}\to   {\sX};$ is the {covering inverse limit of} 
+of the category
+	\bean
+\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+\eean
+(cf. Definition \ref{top_disconnected_defn})
+\end{lemma}
 \begin{proof}
-%	For any  finite group $H$ with a surjective group homomorphism $$\phi:G\left( \left.{\widetilde{\sX}}~\right|\sX\right)\to H$$ there is the  space $\sX_H = \widetilde{\sX} / \ker \phi$. There base-point $\widetilde{x}_0$ naturally defines the base point $x^H_0\in \sX_H$. There are natural transitive !!! pointed  DELETE !!!coverings $p_H : \left( \sX^H, x^H_0 \right)\to \left( \sX, x_0 \right)$ and $\widetilde{p}_H : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_H, x^H_0\right)$ such that $\widetilde{p} = p_H \circ \widetilde{p}_H$. The covering group of $p_H$ is a finite group $H$, so the transitive covering $p_H$ is finite-fold, therefore $p_H$ belongs to the family $\mathfrak{S}_{\left( \sX, x_0  \right) }$. Otherwise since  $\widetilde{p}$ is a transitive covering for any $\la \in \La$ there is the surjective homomorphism $\phi_\la : G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \to G\left( \left.{{\sX}}_\la~\right|\sX\right)$ (cf. Lemma \ref{top_homo_lem}) such that the following condition holds ${{\sX}}_\la = \widetilde{\sX}/ \ker \phi_\la$. So there is a one-to-one correspondence between objects of $\mathfrak{S}_{\left( \sX, x_0  \right) }$ and finite groups which are epimorphic images of $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$. The group  $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is residually finite so the map
-%	\be\label{comm_g_inj_eqn}
-%	\phi = \prod_{\la \in \La}\phi_\la:  G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \hookto \prod_{\la \in \La}G\left( \left.{{\sX}}_\la~\right|\sX\right)
-%	\ee
-%	is an injective homomorphism. \\
-	(i) If $\left\{p_\la : \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}$  is the explained in \ref{top_fin_sec_empt} family of   !!! pointed  DELETE !!!finite-fold transitive coverings  then there is  the order on $\La$ given by  \ref{top_cov_preord_empt}, i.e. 
-	\be\label{top_mu_nu_eqn}
-	\begin{split}
-		\mu \ge \nu  \text{ if and only if there is a surjective coninuous map } p: \sX_\mu \to \sX_\nu \\
-		\text{ such that } p_\mu = p_\nu \circ p .
-	\end{split}
-	\ee
-If $\la \in \La$ and $\phi_\la:G\left( \left.{\widetilde{\sX}}~\right|\sX\right)\to G\left( \left.{{\sX}_\la}~\right|\sX\right)$ is a natural surjective homomorphism then the kernel $\ker \phi_\la \subset G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is a subgroup of  finite index. For any $\mu, \nu \in \La$ the intersection $\ker \phi_\mu \cap \ker \phi_\nu \subset G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is also a subgroup of finite index, so there is the group $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)/\left( \ker \phi_\mu \cap \ker \phi_\nu\right)$ is finite. It follows that there is the space $\widetilde{\sX}/\left( \ker \phi_\mu \cap \ker \phi_\nu\right)$ with the natural finite-fold covering $p_{\mu\nu} : \widetilde{\sX}/\left( \ker \phi_\mu \cap \ker \phi_\nu\right) \to \sX$ and the covering $\widetilde{p}_{\mu\nu}:\widetilde{\sX}\to \widetilde{\sX}/\left( \ker \phi_\mu \cap \ker \phi_\nu\right)$ such that $\widetilde{p}=p_{\mu\nu}\circ\widetilde{p}_{\mu\nu}$. From the definition of $\mathfrak{S}_{\left( \sX, x_0  \right) }$ there is $\la \in \La$ such that the covering $p_{\mu\nu} : \widetilde{\sX}/\left( \ker \phi_\mu \cap \ker \phi_\nu\right) \to \sX$ is equivalent to  $p_{\la} : \sX_\la \to \sX$. From the natural coverings $\widetilde{\sX}/\left( \ker \phi_\mu \cap \ker \phi_\nu\right)\to \widetilde{\sX}/ \ker \phi_\mu$, $\widetilde{\sX}/\left( \ker \phi_\mu \cap \ker \phi_\nu\right)\to \widetilde{\sX}/ \ker \phi_\nu$ it follows that there are coverings $\sX_\la \to \sX_\mu$ and  $\sX_\la \to \sX_\mu$  and from \eqref{top_mu_nu_eqn} it turns out that $\la \ge \mu$ and $\la \ge  \nu$. Hence $\La$ is a directed set.\\
-	(ii)	
-	The pair $\left( \left( \widetilde{\sX}_{\mathrm{res~fin}}, \widetilde{x}^{\mathrm{res~fin}}_0\right), \widetilde{p}_{\mathrm{res~fin}}:\widetilde\sX_{\mathrm{res~fin}}\to \sX \right) $ is an object of the category $\downarrow\mathfrak{S}_{\left( \sX, x_0  \right) }$. If $\left( \widetilde{\sX}',  \widetilde{x}'_0\right)$ is the inverse limit of $\mathfrak{S}_{\left( \sX, x_0  \right) }$ then there is the natural continuous map $\overline{p}:\left( \widetilde{\sX}_{\mathrm{res~fin}},  \widetilde{x}_0\right)\to \left( \widetilde{\sX}',  \widetilde{x}'_0\right)$. If $\widetilde{x}_1, \widetilde{x}_2\in \widetilde{\sX}_{\mathrm{res~fin}}$ are such that $\widetilde{x}_1 \neq \widetilde{x}_2$ and $\overline{p}\left( \widetilde{x}_1\right) = \overline{p}\left( \widetilde{x}_2\right)$ then there is $ g \in G\left( \left.{\widetilde{\sX}}_{\mathrm{res~fin}}~\right|\sX\right)$ such that $\widetilde{x}_1 =  g\widetilde{x}_2$. If $\widetilde{p}'_\la : \left( \widetilde{\sX}',  \widetilde{x}'_0\right)\to \left( {\sX}_\la,  x^\la_0\right)$ then from $\overline{p}\left( \widetilde{x}_1\right) = \overline{p}\left( \widetilde{x}_2\right)$ it turns out that $\widetilde{p}_\la\left( \widetilde{x}_1\right)= \widetilde{p}_\la\left( \widetilde{x}_2\right)$ for all $\la \in \La$. It turns out that $\phi_\la\left(g \right)$ is trivial for every $\la \in \La$. Taking into account that the natural homomorphism
-	$$
-\prod_{\la\in\La} \phi_\la:	G\left( \left.{\widetilde{\sX}_{\mathrm{res~fin}}}~\right|\sX\right)\hookto\prod_{\la\in\La}G\left( \left.{\sX}_{\la}~\right|\sX\right)
-	$$ 
- is injective we conclude that $g$ is trivial, so $\widetilde{x}_1 = \widetilde{x}_2$. Thus the map $\overline{p}$ is injective, and since $\overline{p}$ is a covering (cf. Remark \ref{comm_top_constr_morph_rem}) it is a homeomorphism. From the natural homeomorphism $\left( \widetilde{\sX}_{\mathrm{res~fin}},  \widetilde{x}_0\right)\cong \left( \widetilde{\sX}',  \widetilde{x}'_0\right)$ it turns out that $\left( \widetilde{\sX} , \widetilde{x}_0 \right)$ is the inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$
-	\end{proof}
+Follows from the construction \ref{top_fin_sec_empt}.
+\end{proof}
 \begin{notation}\label{top_discontinuous_not}
 If $\sX$ is a set then we denote by $D^*\left( \sX\right)$ a $C^*$-algebra of bounded maps from $\sX$ to $\C$.  If we consider the discrete topology on  $\sX$ then $D^*\left( \sX\right)\cong C\left(\sX \right)$.
 \end{notation}
 
 \begin{empt}\label{top_long_p_empt}
-	If one has a {!!! pointed  DELETE !!!topological finite covering category} and we write 
-	\bean
-	\begin{split}
-		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
-		\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-				\mu\ge\nu}} \right\}
-	\end{split}
+	Under the  hypotheses of the Lemma \ref{top_disconnected_lem} one has a transitive covering $\widetilde p: \widetilde\sX \to \sX$ given by \eqref{top_disconnected_cat_eqn} category
+		\bean
+	\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 	\eean
-then there is the natural category
-	\bean
-	\mathfrak{S}_{C_0\left( \mathcal{X}\right) } \bydef \\
-	\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}}  \right\}
-\eean 
-where $C_0\left( p_\la\right)$ and $C_0\left( p^\mu_\nu\right)$ are given by the equation \eqref{top_c0p_eqn}. If $\overline \sX$ is the disconnected infinite noncommutative covering of $	\mathfrak{S}!!! pt DELETE !!!_{C_0\left(\sX \right) }$ (cf. Definition  \ref{disconnected_infinite_noncommutative_covering_defn} !!! NEW DEFINITION !!!) then for any $\la \in \La$ there is an inclusion $C_0\left( \mathcal{X}_\la\right) \subset C_b\left(\overline \sX \right)$ (cf. \ref{top_covering_inclusion_empt}). Using this fact one can obtain the natural inclusion
+	(cf. \eqref{top_disconnected_cat_eqn})
+Usage of the {finite covering algebraic functor} $C_0$ (cf. Definition \ref{top_c_funct_defn}) yields a category
+	\be\label{top_fin_cat_eqn}
+	\begin{split}
+\mathfrak{S}_{C_0\left(p\right) } \bydef \\
+\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+\ee
+
+
+ If $\overline p: \overline \sX  \to  \sX$  the {disconnected covering of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn})	 then for any $\la \in \La$ there is an inclusion $C_0\left( \mathcal{X}_\la\right) \subset C_b\left(\overline \sX \right)$ (cf. \ref{top_covering_inclusion_empt}). Using this fact one can obtain the natural inclusion
 \be\label{top_subord_ga_eqn}
 C^*\text{-}\varinjlim_{\la\in \La}  C_0\left(\sX_\la\right)\subset C_b\left(\overline \sX \right).
 \ee
