@@ -1837,34 +1837,29 @@ Roughly speaking the Definition \ref{fin_defn} is an approximation of any coveri
 \begin{lemma}\label{fin_def_lem}
 	Under the hypotheses of the Definition \ref{fin_defn}  if for all $\la\in\La$ a $C^*$-subalgebra $\widetilde{A}_\la\subset \widetilde A$ is   a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $A_\la$ (cf. Definition \ref{hereditary_lift_defn}) then a union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
 \end{lemma}
-
 \begin{proof}
-	Let $\widetilde a \in \widetilde A_+$ be a positive element, and let $\eps > 0$. Let $a\bydef \sum_{g\in G} g \widetilde a \in A_+$ (cf. \eqref{implicit_inclusion_eqn})and let $p \bydef G_\delta\left( a\right)\in A$ where $G_\delta$ is given by \eqref{g_eps_eqn}. From the Lemma \ref{g_eps_lem} and  $\widetilde a < a$ it follows that $\left\|p \widetilde a p\right\|\le 2 \delta \left\|a\right\|$. If  $ 2 \delta \left\|a\right\| < \frac{\eps}{2}$ then $\left\|\widetilde a - p \widetilde a p\right\|\le\frac{\eps}{2}$. If   $\ga> 0$ then since the union $\cup A_\la$ is dense in $A$ there are $\la_0\in\La$ and a positive $p_{\la_0} \in  A_{\la_0}$ such that $ \left\|p_{\la_0} - p \right\|< \ga$. Using the triangle inequality one has
-	\be\label{hered_ineq_eqn}
-	\begin{split}
-		\left\|p_{\la_0}\widetilde a p_{\la_0}- p \widetilde a p \right\|\le 	\left\|\left( p_{\la_0}-p\right) \widetilde a \left( p_{\la_0}-p\right)+ p_{\la_0}\widetilde ap- p\widetilde a p_{\la_0}\right\|\le \\
-		\left\|\left( p_{\la_0}-p\right) \widetilde a \left( p_{\la_0}-p\right)\right\|+ \left\|p_{\la_0}\widetilde ap- p\widetilde a p_{\la_0}\right\|.
-	\end{split}
-	\ee
-	From $\left\|p\right\|\le 1$ it follows that 
-	\bean
-	\left\|p_{\la_0}\widetilde ap- p\widetilde a p\right\|= \left\|\left( p_{\la_0}-p\right) \widetilde ap\right\|< \ga \left\|\widetilde a \right\|,\\
-	\left\|p\widetilde ap_{\la_0}- p\widetilde a p\right\|= \left\|p \widetilde a\left( p_{\la_0}-p\right)\right\|< \ga \left\|\widetilde a \right\|,\\
-	\left\|p_{\la_0}\widetilde ap- p\widetilde a p_{\la_0}\right\|\le \left\|p_{\la_0}\widetilde ap- p\widetilde a p\right\|+ \left\|p\widetilde a p - p\widetilde ap_{\la_0} \right\| < 2 \ga \left\|\widetilde a \right\|,\\
-	\left\|\left( p_{\la_0}-p\right) \widetilde a \left( p_{\la_0}-p\right)\right\|< \ga^2 \left\|\widetilde a \right\|.
-	\eean
-	A substitution of the above inequalities into \eqref{hered_ineq_eqn} yields the following 
-	$$\left\|p_{\la_0}\widetilde ap_{\la_0}- p\widetilde a p\right\|< \ga^2 \left\|\widetilde a\right\|+ 2 \ga \left\|\widetilde a\right\|,$$ so if $\ga^2 \left\|\widetilde a\right\|+ 2 \ga \left\|\widetilde a\right\|< \frac{\eps}{2}$ then
-\be\label{hered_ineqq_eqn}
-	\left\|p_{\la_0}\widetilde ap_{\la_0}- p\widetilde a p\right\|< \frac{\eps}{2}.
-\ee
-	An application of the triangle inequality \eqref{triangle_ineq_vec_eqn} to \eqref{hered_ineqq_eqn} and $\left\|\widetilde a - p \widetilde a p\right\|\le\frac{\eps}{2}$ yields   the following
-	\be\label{hered_dense_eqn}
-	\left\|p_{\la_0}\widetilde a p_{\la_0}- \widetilde a  \right\|< \eps.
-	\ee
-	On the other hand since $\widetilde A_{\la_0}\subset \widetilde A$ is a hereditary subalgebra, $p_{\la_0}\in A_{\la_0}\subset \widetilde A_{\la_0}$, so from the Lemma \ref{hered_lem} it follows that $p_{\la_0}\widetilde a p_{\la_0}\in \widetilde A_{\la_0}$. Taking into account equations \eqref{four_decompositon_eqn} and  \eqref{hered_dense_eqn} one concludes that  the union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
+From the Lemma \ref{quasi_approximate_unit_lem} it follows that for any $\widetilde a \in \widetilde A$ and $\eps > 0$ there is a positive $u \in A_+$ such that
+$$
+\left\|\widetilde a- \pi\left(u \right)\widetilde a \pi\left(u \right)  \right\| < \frac{\eps}{2}.
+$$
+On the other hand since the union $\left\{A_\la\right\}_{\la \in \La}$ is dense in $A$ for any $\dl> 0$ there is $\la_\dl \in \La$ and positive $a_{\la_\dl}\in A_{\la_\dl}$ such that
+$$
+\left\|a_{\la_\dl} - u \right\| <\dl.
+$$
+So if $x \bydef a_{\la_\dl} - u$ then $\left\|x \right\| <\dl$. It follows that
+\bean
+\left\|\pi\left(a_{\la_\dl} \right)\widetilde a \pi\left(a_{\la_\dl} \right)- \pi\left(u \right)\widetilde a \pi\left(u \right)  \right\|= \left\|\pi\left(u + x\right)\widetilde a \pi\left(u+x \right) - \pi\left(u \right)\widetilde a \pi\left(u \right)  \right\|= \\
+=\left\| \pi\left(x \right) \widetilde a \pi\left(x \right) + \pi\left(x \right) \widetilde a \pi\left(u \right)+ \pi\left(u \right) \widetilde a \pi\left(x \right)\right\|< \left\|\widetilde a \right\|\left\|x \right\|^2 + 2\left\|\widetilde u \right\|\left\|\widetilde a \right\|\left\|x \right\|.
+\eean 
+If $\dl$ is such that $\left\|\widetilde a \right\|\dl^2 + 2\left\|\widetilde u \right\|\left\|\widetilde a \right\|\dl < \eps/2$ then 
+\bean
+\left\|\pi\left(a_{\la_\dl} \right)\widetilde a \pi\left(a_{\la_\dl} \right)- \pi\left(u \right)\widetilde a \pi\left(u \right)  \right\| < < \frac{\eps}{2},
+\eean
+\be\label{al_dense_eqn} 
+\left\|\pi\left(a_{\la_\dl} \right)\widetilde a \pi\left(a_{\la_\dl} \right)- \widetilde a  \right\|< \eps.
+\ee 
+On the other hand from the Definition \ref{hereditary_lift_defn} it follows that $\pi\left(a_{\la_\dl} \right)\widetilde a \pi\left(a_{\la_\dl} \right)\in \widetilde A_{\la_\dl}$, so the union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
 \end{proof}
-
 \begin{lemma}\label{fin_composition_covering_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) then  both noncommutative finite-fold pre-coverings $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and \\
 	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$  given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} are noncommutative finite-fold coverings. 
