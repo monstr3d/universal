@@ -1610,6 +1610,11 @@ where $\widetilde a^H_j \bydef \frac{1}{\left|H \right| }\sum_{g \in H}g \wideti
 We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or $*$-homomorphism $\pi: A \hookto \widetilde{A}$ is a
    		 \textit{noncommutative finite-fold covering with unitization}, (resp. \textit{noncommutative finite-fold quasi-covering with unitization}). 
    \end{definition}
+   \begin{remark}\label{unital_unitization_covering_rem}
+   	If  $\left(A, \widetilde{A}, G, \pi \right)$ is an unital  noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}) then both $A$ and $\widetilde{A}$ are unital, so both identical inclusions   $A \hookto A$  and $\widetilde{A} \hookto \widetilde{A}$ are unitizations (cf. Definition \ref{unitization_defn}). Using this fact one can prove that $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization. 
+   	So any unital noncommutative finite-fold covering is a finite-fold covering with unitization with unitization (cf. Definition \ref{fin_unitization_defn}) 
+   	   \end{remark}
+   
 \begin{lemma}\label{fin_composition_uni_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering  with unitization (cf. Definition \ref{fin_unitization_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there are following finite-fold noncommutative coverings with unitization:
 	\bea\label{fin_composition_uni_1_eqn}
@@ -1832,6 +1837,10 @@ We say that  $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{connected} if $
 \end{remark}
 \begin{remark}
 Roughly speaking the Definition \ref{fin_defn} is an approximation of any covering by coverings with compact spaces.
+\end{remark}
+\begin{remark}\label{unitization_covering_rem}
+	If  $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then a singleton  family $\left\{A\right\}$ satisfies to hypotheses of the Definition \ref{fin_defn}. 
+So any noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) is a noncommutative finite-fold covering.
 \end{remark}
 
 \begin{lemma}\label{fin_def_lem}
@@ -4514,7 +4523,7 @@ $\left(A, \widetilde{A}, G\right)$ is an
 
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
-\begin{empt}\label{comp_oa_empt}
+\begin{empt}\label{inf_oa_empt}
 	Let $\La$ be a directed set (cf. Definition \ref{directed_set_defn}) such that there is a unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be a dense *-subalgebra of $C^*$-algebra $B$.  Let us consider a family of   noncommutative finite-fold coverings of bounded operator *-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{fin_oa_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. Suppose that there is a  category 	
 	\be\label{comp_oa_eqn}
@@ -4538,7 +4547,7 @@ $\left(A, \widetilde{A}, G\right)$ is an
 
 
 \begin{definition}\label{inf_cov_oa_sub_defn}
-	Under the hypotheses \ref{comp_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}$ if for all $
+	Under the hypotheses \ref{inf_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
 \widetilde m_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
@@ -4584,7 +4593,7 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 		\item[(b)]  for any $\nu, \mu\in \La$ such that $\nu >\mu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\mu_\nu:  A_{\mu}\hookto A_\nu$ of  $O^*$-algebras  such that $\pi_\nu =\pi^\mu_\nu \circ \pi_\mu$,
 		\item[(c)] all morphisms of   $\mathfrak{S}$ are described in (b).
 	\end{enumerate}
-We say that $\mathfrak{S}$ is a \textit{algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S} \in  O^*$-$ \mathfrak{FinAlg}$, and use the following notation
+We say that $\mathfrak{S}$ is an \textit{algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S} \in  O^*$-$ \mathfrak{FinAlg}$, and use the following notation
 \be\label{comp_pt_o*_eqn}
 \begin{split}
 	\mathfrak{S} = \left(\left\{ A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
@@ -4603,7 +4612,11 @@ We say that $\mathfrak{S}$ is a \textit{algebraic finite covering category of $O
 
 \begin{empt}\label{comp_pt_o*_empt}
 Under the hypotheses of the Definition \ref{comp_o*_defn} morphisms of $\mathfrak{S}$ can be regarded as inclusions of *-algebras.
- Let  $\left(B, \overline{B}, \widehat G\right)$  be a  disconnected infinite noncommutative covering of $\mathfrak{S}_B\bydef \left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn}) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
+ Let  $\left(B, \overline{B}, \widehat G\right)$  be a  disconnected infinite noncommutative covering of 
+ \be\label{bl_cat_eqn}
+ \mathfrak{S}_B\bydef \left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+ \ee 
+ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn}) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
   	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra.  There is the natural action $\widehat G\times \widehat A\to \widehat A$.
   	Suppose that there is an equivariant  faithful nondegenerate representation (cf. Definitions \ref{equivariant_representation_defn}, \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equivalent_representation_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
   	$$
@@ -4669,7 +4682,7 @@ This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 		\mathfrak{S}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 	\end{split}
 	\ee
-be a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}.  Suppose that there is a dense $G\left(\left. \widetilde B\right| B\right)$-equivariant right  ideal $\widetilde{\mathfrak B}'\subset \widetilde B$. If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \pi_\la \right)$ (cf. Definition \ref{fin_chull_defn}) then we assume that there is an action   $\widetilde{\mathfrak B}'\times \mathfrak B_\la \to \widetilde{\mathfrak B}'$ which comes from the product $\widetilde{ B}\times B_\la\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is a  right action $ \widetilde{\mathfrak B}'\times A_\la \to \widetilde{\mathfrak B}'$ such that
+be a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $$\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}.  Suppose that there is a dense $G\left(\left. \widetilde B\right| B\right)$-equivariant right  ideal $\widetilde{\mathfrak B}'\subset \widetilde B$. If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \pi_\la \right)$ (cf. Definition \ref{fin_chull_defn}) then we assume that there is an action   $\widetilde{\mathfrak B}'\times \mathfrak B_\la \to \widetilde{\mathfrak B}'$ which comes from the product $\widetilde{ B}\times B_\la\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is a  right action $ \widetilde{\mathfrak B}'\times A_\la \to \widetilde{\mathfrak B}'$ such that
 	\be\label{hilb_act_eqn}
 	\forall a \in A_\la \quad \forall b \in \mathfrak B_\la \quad \forall \widetilde b \in \widetilde {\mathfrak B}' \quad  \widetilde b\left(ba \right) =\left(  \widetilde bb\right) a. 
 	\ee
@@ -6170,7 +6183,7 @@ A connected space $\sX$ is said to be \textit{weakly simply connected} if for an
 Any connected, path connected, simply connected  space is weakly simply connected.
 \end{remark}
 \begin{remark}
-The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_fin_thm} below).
+The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorems \ref{top_fin_necassary_thm} and \ref{top_fin_sufficient_thm} below).
 \end{remark}
 
 	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
@@ -6575,23 +6588,13 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	\be\label{top_ab_norm_eqn}
 	\left\|\text{norm}_{a_\a} - \text{norm}_{a_\bt} \right\|\le \left\|{a_\a} - {a_\bt} \right\|.
 	\ee
-	From \eqref{top_ab_norm_eqn} it turns out that the net $\left\{\text{norm}_{a_\a}\right\}$ is uniformly convergent. From $\text{norm}_{a_\a} \in C_c\left( \sX\right)$ and the Definition \ref{top_cc_c0_defn} it turns out $\lim_\a \text{norm}_{a_\a} \in C_0\left(\sX \right)$. Conversely let $a \in C_0\left( A\right)_+$ be a positive element such that $\mathrm{norm}_a \in 	C_0\left(\sX\right)$. If $F_\eps$ is given by \eqref{top_f_eps_eqn} and $a_\eps \in C_c\left( A\right)$ is such that $a_\eps \bydef F_\eps\left(\mathrm{norm}_a \right)a$ then from  \eqref{top_f_eps_n_eqn}  it turns out that
-	$$
-	\left\| F_\eps\left(\mathrm{norm}_a \right)\mathrm{norm}_a - \mathrm{norm}_a\right\| \le \eps,
-	$$
-	or, equivalently
-	$$
-	\left\| F_\eps\left(\mathrm{norm}_a \right)\left(x\right)a_x  -a_x\right\| \le \eps \quad \forall x \in \sX,
-	$$
-	and taking into account \eqref{top_norm_eqn} one has
-	\be \label{top_f_eps_na_eqn}
-	\left\| F_\eps\left(\mathrm{norm}_a \right)a - a\right\|=	\left\| a_\eps  - a \right\| \le \eps.\\
-	\ee
-	From \eqref{top_f0_eps_n_eqn} it follows that
-	\be	\label{top_f0_eps_na_eqn}
-	\supp  F_\eps\left(\mathrm{norm}_a \right)=	\supp a_\eps\quad  \text{ is compact}. 
-	\ee
-	From \eqref{top_f_eps_na_eqn} and \eqref{top_f0_eps_na_eqn} it turns out that there is the norm limit $a = \lim_{\eps \to 0}a_\eps$  such that $a_\eps \in C_c\left( A\right)$. Taking into account the Definition \ref{top_cc_c0_defn} one has $a= \lim_{\eps\to 0}a_\eps \in C_0\left(A\right)$. Using the equation \eqref{four_decompositon_eqn} one can prove this statement for any $a\in C_0\left(A \right)$. 
+	From \eqref{top_ab_norm_eqn} it turns out that the net $\left\{\text{norm}_{a_\a}\right\}$ is uniformly convergent. From $\text{norm}_{a_\a} \in C_c\left( \sX\right)$ and the Definition \ref{top_cc_c0_defn} it turns out $\lim_\a \text{norm}_{a_\a} \in C_0\left(\sX \right)$. Conversely let $a \in C_0\left( A\right)_+$ be a positive element such that $\mathrm{norm}_a \in 	C_0\left(\sX\right)$. If $f_\eps$ is given by \eqref{f_eps_eqn} then one has
+	\bean
+\left\|f_{\eps/2}\left(a \right)  - a\right\| < \eps,\\
+\mathrm{norm}_{f_{\eps/2}\left(a \right)}= f_{\eps/2}\left(\mathrm{norm}_a \right),	
+	\eean 
+	so $a = \lim_{\eps\to 0}  f_{\eps/2}\left(a \right)$. On the other hand
+from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{norm}_a \right)\in K\left(C_0\left(\sX \right)  \right)= C_c\left(\sX \right)$.	
 \end{proof}
 \begin{corollary}\label{top_c0_cont_str_cor}
 	One has
@@ -9131,9 +9134,12 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn
 	is clear.  The $C^*$-algebra $C_0\left( \widetilde{   \mathcal X }\right)$ is connected (cf. Definition \ref{connected_c_a_defn}), so the space $\widetilde{   \mathcal X }$ is connected (cf. Exercise \ref{conn_comp_exer}).
 \end{proof}
 \begin{definition}\label{top_consents_defn}
-We say that a connected, locally compact Hausdorff space $\sX$ \textit{consents with noncommutative coverings} if  for any finite-fold transitive covering $p: \widetilde\sX \to \sX$ a quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
+We say that a connected, locally compact, Hausdorff space $\sX$ \textit{consents with noncommutative coverings} if  for any finite-fold transitive covering $p: \widetilde\sX \to \sX$ a quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
 	
 \end{definition}
+\begin{remark}
+	Any compact,  connected,   Hausdorff space consents with noncommutative coverings (cf. Remarks \ref{unital_unitization_covering_rem} and \ref{unitization_covering_rem}).
+\end{remark}
 \begin{lemma}
 	Let $\sX$ be connected, locally compact Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) $\widetilde{\sX}\to \sX$ is a finite-fold transitive covering then $\widetilde{\sX}$ consents with noncommutative coverings.
 \end{lemma}
@@ -9278,7 +9284,7 @@ where $\sV \subset\sX$ is a compact subset. So $Cont\left(\sX \right)$ is a pro-
 %	In the above situation we say that $\widetilde F$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  $*$-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
 %\end{definition}
 \begin{theorem}\label{top_pro_fin_thm}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}),  $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
 	Cont\left(  p\right): Cont\left(\sX\right)\hookto Cont\left(\widetilde\sX\right)$ is given by the equation \eqref{top_pro_hom_eqn}  then the quadruple 
 	\be\label{top_pro_fin_eqn}
 	\left(Cont\left(\sX\right), Cont\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , Cont\left( p\right) \right)
@@ -10053,19 +10059,18 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 \begin{remark}
 Indeed $\widetilde \sX$ is an  inverse limit if we consider a category having coverings as morphisms.
 \end{remark}
-%\begin{corollary}\label{top_comp_lau_cor} 
-%	Let  $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}pt DELETE $ be a  pointed  DELETE topological finite covering category, and let $\overline{   \mathcal X}$ be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
-%For any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there are an open subset $\overline{   \mathcal U }\subset\overline\sX$ with compact closure $\la_{\overline{   \mathcal U}} \in \La$
-%\begin{itemize}
-%	\item $\overline \sY \subset \overline \sU$,
-%	\item   for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering.
-%\end{itemize}
+\begin{lemma}\label{top_compact_la_lem}
+Under the hypotheses of the Definition \ref{top_disconnected_defn}
+for any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal Y }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal Y }} \in \La$ such that  the set $\overline{   \mathcal Y }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal Y } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. 
+\end{lemma}
+\begin{proof}
+The proof of this lemma can be obtained from the Lemma \ref{top_compact_lem}.
+\end{proof}
 
-%\end{corollary}
+
 
 \begin{corollary}\label{top_comp_la_cor}
-Let 	$\mathfrak{S}_p$ be a given by \eqref{top_category_fin_eqn} a {finite covering category of} $p : \widetilde \sX \to \sX$ (cf, Definition \ref{top_disconnected_defn}). If  $\overline{   \mathcal X}$ be the {disconnected covering} of  $p : \widetilde \sX \to \sX$ 
-then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal U }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal U }}}: \sX_{\la_{\overline{   \mathcal U }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal U }}}\left( \overline{   \mathcal U }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal U }}}\cap g \supp f_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sX}}_{\la_{\overline{   \mathcal U }}}~\right|\sX\right)$.
+	Under the hypotheses of the Definition \ref{top_disconnected_defn} for any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal Y }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal Y }}}: \sX_{\la_{\overline{   \mathcal Y }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal Y }}}\left( \overline{   \mathcal Y }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal Y }}}\cap g \supp f_{\la_{\overline{   \mathcal Y }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sX}}_{\la_{\overline{   \mathcal Y }}}~\right|\sX\right)$.
 \end{corollary}
 \begin{proof}
 	If $\overline f$ is a covering sum of $\overline \sU$ (cf. Definition \ref{top_covering_sum_defn}) then the support $\supp \overline f$ is compact. If we put $\la_{\overline{   \mathcal U }}\bydef \la_{\supp \widetilde f}$
@@ -10377,7 +10382,7 @@ following conditions hold.
 	\item[(ii)] There are  isomorphisms:
 	\begin{itemize}
 		\item $\varprojlim  \mathfrak{S}_{C_0\left(p\right)} \approx C_0\left(\varprojlim  \mathfrak{S}_{p}\right)$.
-		\item $G\left(\left.\varprojlim  \mathfrak{S}_{C_0\left(p\right)}~\right| C_0\left(\mathcal X\right)\right) \approx G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)$ 
+		\item $G\left(\left.\varprojlim  \mathfrak{S}_{C_0\left(p\right)}~\right| C_0\left(\mathcal X\right)\right) \approx G\left(\left.\varprojlim  \mathfrak{S}_{p}~\right| \mathcal X\right)$ 
 \end{itemize}
 		where the notation of the Definition \eqref{inf_lim_not_eqn} is used.
 
@@ -10418,7 +10423,7 @@ C_0\left( \sX^\sim_\la\right) = \C C_0\left( \sX^\sim_\la, \R\right),\\
 	Denote by 
 		\bean
 	\begin{split}
-		\mathfrak{S}_{ C_0\left(\sX \right) } = \\
+		\mathfrak{S}_{ C_0\left(\sX \right) } !!! = \\
 		=\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto  C_0\left(\sX_\mu \right)\right\}\right).
 	\end{split}
 	\eean
@@ -10433,8 +10438,8 @@ algebraical  finite covering category (cf. Definition \ref{disconnected_infinite
 	$$
 	\forall a \in C_c\left(\widetilde \sX\right)\quad a > 0 \quad \Rightarrow \tau\left(a \right) > 0.
 	$$
-	
-	Let $\overline{\mathcal X}$ be to be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
+!!!	
+	Let $\overline{\mathcal X}$ be to be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_disconnected_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
 	\be\label{top_wtl_eqn}
 	\begin{split}
 		\tau_\la : C_c\left(\sX_\la \right)\to \C,\\
@@ -10523,14 +10528,8 @@ then one has:
 		\bean
 		\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 		\eean
-which includes all finite-fold coverings of $\sX$. Taking into account the Theorem \ref{top_fin_thm} the category	
-\bean
-\begin{split}
-	\mathfrak{S}_{C_0\left(p\right) } \bydef \\
-	\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
-\end{split}
-\eean 
-contains any noncommutative finite-fold covering of $C_0\left(\sX\right)$.
+which includes all finite-fold coverings of $\sX$. Taking into account the Theorems \ref{top_fin_necassary_thm} and \ref{top_fin_sufficient_thm}
+ the category $\mathfrak{S}_p$ contains any noncommutative finite-fold covering of $C_0\left(\sX\right)$.
 From the   Definition \ref{fundamental_group_nc_defn} it follows that the triple \eqref{comm_uni_lim_eqn} is an universal covering of $C_0\left( {\sX}\right)$.\\
 (ii) Follows from (i).
 
@@ -10567,20 +10566,16 @@ with given by \eqref{top_x_fr_eqn}	$\widetilde{\sX}_{\mathrm{res~fin}}$	is an un
 
 \subsection{Coverings of *-algebras}
 
+
+
 \subsubsection{Coverings of pro-$C^*$-algebras}
 \paragraph*{}
-
-Suppose that
-\be\nonumber
-\begin{split}
-	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}\\
-	%\in \\
-	\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}.
-\end{split}
-\ee	
-is  a !!! pointed  DELETE !!!topological finite covering category (cf. Definition \ref{top_pointed_cat_defn}). Assume that  $p_\la$ and $p^\mu_\nu$ are finite-fold transitive coverings for all $\la, \mu, \nu \in \La$ (cf. Definition \ref{top_transitive_defn}). From the equation   \ref{top_pro_hom_eqn}  it follows that  there are injective homomorphisms of pro-$C^*$-algebras 
+Let $p : \widetilde \sX \to \sX$ is the {covering inverse limit of} a category 
+$$
+	\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+$$
+(cf. Definition \ref{top_disconnected_defn}).
+ From the equation   \ref{top_pro_hom_eqn}  it follows that  there are injective homomorphisms of pro-$C^*$-algebras 
 \bean
 Cont\left( p_\la\right): Cont\left(\sX\right)\hookto Cont\left(\sX_\la\right),\\
 Cont\left( p^\mu_\nu\right): Cont\left(\sX_\nu\right)\hookto Cont\left(\sX_\mu\right).
@@ -10589,17 +10584,16 @@ From the Theorem \ref{top_pro_fin_thm} it follows that these $*$-homomorphisms a
 \be\label{top_pro_cat_eqn}
 \mathfrak{S}_{Cont\left(\sX \right) }\bydef \left\{ \left\{Cont\left( p_\la\right)\right\}_{\la\in \La}, \left\{Cont\left( p^\mu_\nu\right)\right\}_{\mu,\nu\in\La}\right\}
 \ee
-is a {!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-algebras} (cf. Definition \ref{comp_pt_pro_defn} !!! DELETE !!!).
-
+is a algebraical  finite covering category of pro-$C^*$-algebras (cf. Definition \ref{comp_pro_defn}).
 \begin{empt}\label{top_pro_empt}
 	Let us obtain the $\mathfrak{S}_{Cont\left(\sX \right) }$-specialization of the given by \ref{inv_pro_lim_empt} construction. If for any $\la\in \La$ the set $b\left(Cont\left(\sX_\la\right) \right)$ is a $C^*$-algebra of bounded elements of $Cont\left(\sX_\la\right)$   (cf. Definition \ref{pro_bound_defn} and Proposition \ref{pro_bound_prop}) then $ b\left(Cont\left(\sX_\la\right) \right)= C_b\left(\sX_\la\right)$. Moreover $B_\la \bydef C_0\left(\sX_\la\right)$ is an essential ideal of $C_b\left(\sX_\la\right)$.  If $B \bydef C_0\left( \sX\right)$ then from the Theorem \ref{top_main_thm}
-	one has a good   { algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn})
+	one has a good   { algebraical  finite covering category} (cf. Definition \ref{good_defn})
 	\be\label{top_sb_pro_eqn}
 	\begin{split}
 		\mathfrak{S}_{B } \bydef \left(\left\{C_0\left( p_\la\right):B  \hookto B_\la  \right\}_{\la \in \La},\left\{C_0\left( p^\mu_\nu\right): B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right).
 	\end{split}
 	\ee
-	If $\widetilde \sX$ is a topological inverse limit  of $\mathfrak{S}_{\left(\sX, x_0 \right) }$ (cf. Definition \ref{top_topological_inv_lim_defn}) then from the Theorem \ref{top_main_thm} it follows that the triple 
+	If $\widetilde \sX$ is a topological inverse limit  of $\mathfrak{S}_{\left(\sX, x_0 \right) }$ (cf. Definition \ref{top_disconnected_defn}) then from the Theorem \ref{top_main_thm} it follows that the triple 
 	\bean
 	\left(B , \widetilde{B}, \widetilde G\right)\bydef \left(C\left(\sX \right), C_0\left( \widetilde\sX\right), G\left(\left.\widetilde\sX\right|\sX\right)  \right) 
 	\eean
@@ -10624,7 +10618,7 @@ is a {!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-
 	$$
 	\left(Cont\left(\sX \right), Cont\left( \widetilde{\sX}\right) ,G\left(\left.\widetilde \sX\right| \sX \right) \right)  
 	$$
-	is an inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {!!! pointed  DELETE !!!algebraical  finite covering category $\mathfrak{S}_{Cont\left(\sX \right) }$ of pro-$C^*$-algebras}  (cf. Definition \ref{inv_pro_lim_defn}).
+	is an inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {algebraical  finite covering category $\mathfrak{S}_{Cont\left(\sX \right) }$ of pro-$C^*$-algebras}  (cf. Definition \ref{inv_pro_lim_defn}).
 \end{theorem}
 \begin{proof}
 	Follows from the Exercise \ref{top_pro_exer}.
@@ -10632,38 +10626,33 @@ is a {!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \begin{empt}
-	Let $\left(\sX, x_0 \right)$ be a pointed, connected, locally compact, Hausdorff space and let 	\bean
-	\begin{split}\label{top_inf_cov_oa_empt}
-		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
-		\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-				\mu\ge\nu}} \right\}\\
-		%\in \\
-		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}.
-	\end{split}
-	\eean
-	be	a	!!! pointed  DELETE !!!topological finite covering category (cf. Definition \ref{top_pointed_cat_defn}), and let $~\widetilde{\mathcal{X}}\bydef \varprojlim \mathfrak{S}_{\left( \sX, x_0\right)}$ be a {topological inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) with the natural covering $\widetilde p : \widetilde \sX \to \sX$.
+Let $p : \widetilde \sX \to \sX$ is the {covering inverse limit of} a category 
+$$
+\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+$$
+(cf. Definition \ref{top_disconnected_defn}).
 	Let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
-	The Theorem \ref{top_oa_cov_thm} enables us to construct a !!! pointed  DELETE !!!algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
+	The Theorem \ref{top_oa_cov_thm} enables us to construct a algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
 		\mathfrak{S}_{R } \bydef
 		\left(\left\{ \left.C_0\left( p_\la\right)\right|_R :  R  \hookto  R_\la\right\}, \left\{ \left.C_0\left( p^\mu_{ \nu}\right)\right|_{R_\nu} : R_\nu \hookto R_\mu\right\}\right).
 	\end{split}
 	\ee
-	The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Corollary \ref{top_base_point_cor}  and the Theorem \ref{top_main_thm} one has a 	good	{!!! pointed  DELETE !!!algebraical  finite covering category} (cf. Definitions \ref{pointed_defn} and \ref{good_defn}) given by
+	The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the  the Theorem \ref{top_main_thm} one has a 	good	{algebraical  finite covering category} (cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{good_defn}) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
-		\mathfrak{S}_{C_0\left( \sX\right) } =\\
-		\\
-		\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right)
-	\end{split}
+	\mathfrak{S}_{C_0\left(p\right) } \bydef \\
+	\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+\end{split}
 	\ee
-	The formula \eqref{top_inf_cov_oa_eqn} can be regarded as a specialization of \eqref{top_base_point_eqn} one. From the Theorem \ref{top_main_thm} it follows that there is a transitive covering $~~\widetilde p:\widetilde \sX \to \sX$ such that 
+	
+	The formula \eqref{top_inf_cov_oa_eqn} can be regarded as a specialization of \eqref{algebraical_finite_covering_category_eqn} one. From the Theorem \ref{top_main_thm} it follows that there is a transitive covering $~~\widetilde p:\widetilde \sX \to \sX$ such that 
 	$
 	\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right)  G\left(\left.\widetilde \sX \right|  \sX\right)\right) 
 	$
 	is  an infinite noncommutative covering of $\mathfrak{S}_{C_0\left(\sX\right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
-	So we have all described in  \ref{inf_cov_oa_empt} ingredients. 
+	So we have all described in  \ref{inf_oa_empt} ingredients. 
 \end{empt}
 \begin{lemma}\label{top_inf_cov_oa_lem}
 	Consider the above situation.  If $\widetilde A$ is a *-algebra of continuous maps from $\widetilde \sX$ to $\C$  such that
@@ -10716,7 +10705,7 @@ is a {!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-
 	In the situation of the Lemma \ref{top_inf_cov_oa_lem} the triple
 	$$
 	\left(R,\widetilde R, G\left(\left.\widetilde \sX \right|  \sX\right)\right) 
-	$$ is an {infinite noncommutative covering}  of $\mathfrak{S}!!! pt DELETE !!!_{R}$ in the sense of the  Definition \ref{inf_cov_oa_defn}.
+	$$ is an {infinite noncommutative covering}  of $\mathfrak{S}_{R}$ in the sense of the  Definition \ref{inf_cov_oa_defn}.
 \end{theorem}
 
 \begin{proof}
@@ -10730,7 +10719,7 @@ is a {!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-
 	R_\la \widetilde R \subset  \widetilde R,\\
 	\widetilde R \subset R_\la  \widetilde R
 	\eean
-	it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft_y_defn}). Using the Corollary \ref{top_comp_lau_cor} one can assume that there is an open subset $\widetilde \sU \subset \widetilde \sX$ and $\la_{\widetilde\sU}\in\La$ such that the natural covering $\widetilde p_{\la_{\widetilde\sU}} : \widetilde\sX \to \sX_{\la_{\widetilde\sU}}$ homeomorphically maps $\widetilde\sU$ onto $p_{\la_{\widetilde\sU}}\left(\widetilde\sU\right)$. For all $\widetilde a\in \widetilde R$ one has
+	it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft_y_defn}). Using the Lemma  \ref{top_compact_la_lem}  one can assume that there is an open subset $\widetilde \sU \subset \widetilde \sX$ and $\la_{\widetilde\sU}\in\La$ such that the natural covering $\widetilde p_{\la_{\widetilde\sU}} : \widetilde\sX \to \sX_{\la_{\widetilde\sU}}$ homeomorphically maps $\widetilde\sU$ onto $p_{\la_{\widetilde\sU}}\left(\widetilde\sU\right)$. For all $\widetilde a\in \widetilde R$ one has
 	\bean
 	a^\cup \bydef \desc_{p_{\la_{\widetilde\sU}}}\left( \widetilde f \widetilde a\right) \in R_{\la_{\widetilde\sU}}\subset \bigcup_{\la\in\La} R_\la
 	\eean
@@ -10745,20 +10734,16 @@ is a {!!! pointed  DELETE !!!algebraical  finite covering category of pro-$C^*$-
 \subsubsection{Coverings of $O^*$-algebras}\label{top_inf_o_sec}
 \paragraph*{}
 
-Let $M$ be a finite-dimensional smooth manifold, and let 
-
+Let $M$ be a finite-dimensional smooth manifold, and let $p: \widetilde M \to M$ be a transitive covering such that the covering group $G\left(\left. {\widetilde{M}}~\right|~M\right)$ (cf. Definition  \ref{top_group_of_covering_transformations_defn} is residually finite (cf. Definition \ref{residually_finite_defn})
+Let 
 \be\label{top_secm_p_eqn}
 \begin{split}
-	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}\\
-	%\in \\
-	\mathfrak{S}_{\left( M, x_0\right) }\in \mathfrak{FinTop}.
+	\mathfrak{S}_p \bydef \left\{\left\{M_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:M_\mu\to M_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 \end{split}
 \ee
-be a !!! pointed  DELETE !!! topological finite covering category  (cf. Definition \ref{top_pointed_cat_defn}). 
+be  a finite covering category of  $p: \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn})
 The product $T \bydef M \times \C$ is also a smooth manifold, because $\C$ has the natural smooth structure. So one has a smooth bundle $T \to M$ (cf. Definition \ref{top_sm_bundle_defn}) having a given by \eqref{top_ses_one_eqn} sesquilinear product.
-From the Theorem \ref{top_d_fin_thm} it turns out that there is  a {!!! pointed  DELETE !!!algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
+From the Theorem \ref{top_d_fin_thm} it turns out that there is  an {algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
 \be\label{top_comp_pt_o*_eqn}
 \begin{split}
 	\mathfrak{S}_{D^*\left(M, T \right) } = \left(\left\{\pi_\la: D^*\left( M, T\right)  \hookto D^*\left( M_\la, T_\la \right) \right\}, \left\{\pi^\mu_\nu\right\}\right).
@@ -10768,7 +10753,7 @@ such that  $D^*\left( M , T\right)$ and  $D^*\left( M_\la, T_\la \right)$ are a 
 which satisfy to the condition \eqref{top_diff*_eqn}  for all $\la\in\La$. Note that for every $\la\in\La$ the smooth structure of $M_\la$ comes from the smooth structure on $M$ and the
 covering $M_\la\to M$. Injective $*$-homomorphisms $\pi_\la: D^*\left( M, T \right)\hookto D^*\left( M_\la, T_\la \right)$ and 
 $\pi^\nu_\mu: D^*\left( M_\nu, T_\nu \right)\hookto D^*\left( M_\mu, T_\mu \right)$ come from the equation
-\eqref{top_diff_*alg_lift_eqn}.  If $\overline M$ is the disconnected inverse limit of $\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn}) then there are natural coverings $\overline p: \overline M\to M$, $\overline p_\la: \overline M\to M_\la$ which induce the structure of smooth manifold on $\overline M$. So for all $\la \in \La$ there is a natural injective $*$-homomorphism $D^*\left( M_\la, T_\la \right)\hookto D^*\left(\overline M, \overline T \right)$. If these injective $*$-homomorphisms are regarded as inclusions and $\widehat A \bydef \bigcup_{\la \in \La}D^*\left( M_\la, T_\la \right)$ then there is the following inclusion
+\eqref{top_diff_*alg_lift_eqn}.  If $\overline M$ is the disconnected covering  of $p : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}) then there are natural coverings $\overline p: \overline M\to M$, $\overline p_\la: \overline M\to M_\la$ which induce the structure of smooth manifold on $\overline M$. So for all $\la \in \La$ there is a natural injective $*$-homomorphism $D^*\left( M_\la, T_\la \right)\hookto D^*\left(\overline M, \overline T \right)$. If these injective $*$-homomorphisms are regarded as inclusions and $\widehat A \bydef \bigcup_{\la \in \La}D^*\left( M_\la, T_\la \right)$ then there is the following inclusion
 \be\label{top_dinc_eqn}
 \widehat A\hookto D^*\left(\overline M, \overline T \right)
 \ee
@@ -10786,13 +10771,13 @@ is a dense subspace of $L^2\left(\overline M, \overline \mu\right)$. There is th
 \ee
 (cf. the condition \eqref{top_diff*_eqn}).
 If $\widehat G \bydef \varprojlim G\left(\left.M_\la\right|M\right)$ is the inverse limit (cf. Definition \ref{group_inv_lim_defn}) then the natural action $\widehat G\times \overline M\to \overline M$ induces the action $\widehat G\times L^2\left(\overline M, \overline \mu\right)\to L^2\left(\overline M, \overline \mu\right)$ which satisfies to \eqref{o*_dinv_eqn}. Similarly to the equation \ref{top_ddound_eqn} the bounded part of $D^*\left( M_\la, T_\la\right)$ equals to $\Coo\left(M_\la \right) \cap C_b\left(M_\la \right)$ where we natural inclusion $\Coo \left(M_\la \right)\subset  D\left( M_\la\right)$ is implied. The $C^*$-norm completion of  $\Coo\left(M_\la \right) \cap C_b\left(M_\la \right)$ equals to $C_b\left(M_\la \right)$ and $B_\la \bydef C_0\left(M_\la \right)$ is an essential ideal of $C_b\left(M_\la \right)$. Similarly to  \eqref{bl_cat_eqn}
-one has  a !!! pointed  DELETE !!!algebraical  finite covering category
+one has  an algebraical  finite covering category
 \be\label{top_bl_cat_eqn}
 \begin{split}
 	\mathfrak{S}_b\bydef\left\{ \left( B ,  B_{\la} , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}= \\ =\left\{ \left(C_0\left(M \right)  ,  C_0\left( M_{\la}\right)  , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}.
 \end{split}
 \ee
-If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then from the Exercise \ref{top_pi_mu_exer} it turns out that there is the natural given by \eqref{top_pi_mu_eqn} faithful, nondegenerate, equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$ (cf. Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \ref{equivariant_representation_defn}). If $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  infinite noncommutative covering of $\mathfrak{S}!!! pt DELETE !!!_b$ (cf. Definition \ref{infinite_noncommutative_covering_defn}. If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
+If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then from the Exercise \ref{top_pi_mu_exer} it turns out that there is the natural given by \eqref{top_pi_mu_eqn} faithful, nondegenerate, equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$ (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn} and \ref{equivariant_representation_defn}). The triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  infinite noncommutative covering of $\mathfrak{S}_b$ (cf. Definition \ref{infinite_noncommutative_covering_defn}. If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
 \be
 \begin{split}
 	\widetilde \H \cong L^2\left( \widetilde M, \widetilde\mu\bydef \overline\mu|_{\widetilde M}\right) ,\\
@@ -10857,22 +10842,26 @@ The proof of the Theorem \ref{top_inf_o*_m_thm} is left to the reader.
 Here we consider two  specializations of described in the Section \ref{unb_hilb_sec} theory.
 
 \paragraph{Algebras of unbounded functions}
-Let $\left( \sX, x_0\right) $ be a !!! pointed  DELETE !!!connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Corollary \ref{top_base_point_cor} one has a {!!! pointed  DELETE !!!algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
-\be\nonumber
+Let $p : \widetilde \sX \to \sX$ is the {covering inverse limit of} a category 
+$$
+\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+$$
+(cf. Definition \ref{top_disconnected_defn}), and let \be\nonumber
 \begin{split}
-	\mathfrak{S}!!! pt DELETE !!!_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
+	\mathfrak{S}_{C_0(p)} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}!!! pt DELETE !!!_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
+be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}), given by \eqref{top_category_fin_c0_eqn}
+From the Theorem \ref{top_main_thm} it follows that  a triple 
 $\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
-$ is  an  { infinite noncommutative covering} of $\mathfrak{S}!!! pt DELETE !!!_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
+$ is  an  {infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-algebra of continuous (possibly unbounded) maps from $\sX_\la$ to $\C$.  From the Theorem \ref{top_fin_hilb_thm} it turns out that	
 \bean
 \begin{split}
 	\mathfrak{S}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 \end{split}
 \eean
-is a !!! pointed  DELETE !!!category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{pedersens_ideal_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
+is a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{pedersens_ideal_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
 
 \begin{exercise}\label{top_hilb_adm_exer}
 	Prove following statements:
@@ -10934,15 +10923,15 @@ If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Corollary \ref{top_base_point
 	\mathfrak{S}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}!!! pt DELETE !!!_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
 $\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
-$ is  an  { infinite noncommutative covering} of $\mathfrak{S}!!! pt DELETE !!!_{B}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
+$ is  an  { infinite noncommutative covering} of $\mathfrak{S}_{B}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.
 If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ is the completion of $C_c\left(\sY\right)$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$.
 
 \begin{exercise}\label{top_ch_exer}
 	\begin{enumerate}
-		\item Using the Theorem \ref{top_fin_hilb_thm}  construct a  {!!! pointed  DELETE !!!algebraic finite covering category of $*$-algebras}  given by
+		\item Using the Theorem \ref{top_fin_hilb_thm}  construct an  {algebraic finite covering category of $*$-algebras}  given by
 		\be\label{top_sa_eqn}
 		\begin{split}
 			\mathfrak{S}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
@@ -10950,7 +10939,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 		\ee
 		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}.
 		\item Prove that 	in the described above situation 
-		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}_A$  associated with $\mathfrak{S}_B!!! pt DELETE !!!$} (cf. Definition \ref{main_ch_defn}).
+		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}_A$  associated with $\mathfrak{S}_B$} (cf. Definition \ref{main_ch_defn}).
 		
 	\end{enumerate}
 	
@@ -10972,7 +10961,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 \begin{exercise}\label{top_chull_exer}
 	Prove that in the described above situation 
 	the triple
-	\\$\left(tA, t\widetilde{A}, G\left(\left.t\widetilde A \right| tA\right)\cong G\left(\left.\widetilde B^T \right| B^T\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}_{tA}$  associated with $\mathfrak{S}_{B^T}!!! pt DELETE !!!$} (cf. Definition \ref{main_ch_defn}).
+	\\$\left(tA, t\widetilde{A}, G\left(\left.t\widetilde A \right| tA\right)\cong G\left(\left.\widetilde B^T \right| B^T\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}_{tA}$  associated with $\mathfrak{S}_{B^T}$} (cf. Definition \ref{main_ch_defn}).
 \end{exercise}
 \begin{remark}
 	The given by the Exercise \ref{top_ch_exer} inverse noncommutative limit can be regarded as an inverse noncommutative limit of $O^*$-algebras (cf. Definition \ref{inv_o*_lim_defn}). 	The given by the Exercise \ref{top_chull_exer} inverse noncommutative limit can not be regarded as an inverse noncommutative limit of $O^*$-algebras because $tA$ does not have nontrivial bounded elements.
@@ -10992,7 +10981,7 @@ a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Re
 \ee
 
 \begin{lemma}
-The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}!!! pt DELETE !!!_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{!!! pointed  DELETE !!!algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn}).
+The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}!!! pt DELETE !!!_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn}).
 \end{lemma}
 \begin{proof}
 	In this lemma the pair $\left( \mathfrak A, \mathfrak A_0 \right)$ (resp. $\left( \mathfrak A^\la, \mathfrak A^\la_0 \right)$) of the Definition \ref{comp_qo*_defn}  corresponds to $\left(\Coo_c\left(M \right)', \Coo\left(M \right)\right) $ (resp. $\left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)\right)$). The given by \eqref{comp_pt_qo*_eqn} {!!! pointed  DELETE !!!algebraic finite covering category of quasi-$*$-algebras} corresponds to  $\mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
@@ -11001,17 +10990,17 @@ Now one needs check that the family $ \mathfrak{S}_{\left(\Coo_c\left(M \right)'
 \end{proof}	
 \begin{empt}\label{top_comp_qo*_empt}
 	Here we consider a relevant to $ \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$ specialization of the described in \ref{comp_qo*_empt} construction.	
-	Consider a !!! pointed  DELETE !!! topological finite covering category $	\mathfrak{S}_{\left( M, x_0\right)}$ (cf. Definition \ref{top_pointed_cat_defn}) given by
+	Consider a !!! pointed  DELETE !!! topological finite covering category $	\mathfrak{S}_{\left( M, x_0\right) } !!!$ (cf. Definition \ref{top_pointed_cat_defn}) given by
 	\be\nonumber
 	\begin{split}
-		\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
+		\mathfrak{S}_{\left( M, x_0\right) } !!!\bydef\\
 		\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
 				\mu\ge\nu}} \right\}\\
 		%\in \\
-		\mathfrak{S}_{\left( M, x_0\right) }\in \mathfrak{FinTop}.
+		\mathfrak{S}_{\left( M, x_0\right) } !!!\in \mathfrak{FinTop}.
 	\end{split}
 	\ee
-	Denote by $\widetilde M$ and $\overline M$ the topological  inverse limit and disconnected inverse limit of $\mathfrak{S}_{\left( M, x_0\right)}$ respectively (cf. Definition \ref{top_topological_inv_lim_defn}).
+	Denote by $\widetilde M$ and $\overline M$ the covering  inverse limit and disconnected inverse limit of $\mathfrak{S}_{\left( M, x_0\right) } !!!$ respectively (cf. Definition \ref{top_topological_inv_lim_defn}).
 	
 	
 	The following table gives a mapping between notations of the  \ref{comp_qo*_empt} and this specialization.
@@ -11146,7 +11135,7 @@ From the above equation it turns out that
 \ee
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
 The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{compact_a_operator_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
-$h_{\widetilde{a}, g}\in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$.\\
+$h_{\widetilde{a}, g}\in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } !!! \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } !!! \right)$.\\
 (b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
 $$
@@ -11157,7 +11146,7 @@ $$
 \bigsqcup_{g \in G_j} g\supp f_j \cap \supp \widetilde b
 $$
 of compact subsets. It is impossible, so $G_j$ is  finite for all  $j=1,..., n$.
-If $\ka_j \bydef f_j \widetilde a \left\rangle \right\langle \widetilde b\in  \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}) then $a \left\rangle \right\langle b = \sum_{j=1}^n \ka_j$. For any $\widetilde c \in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( {\sX}\right)}  \right)$ one has
+If $\ka_j \bydef f_j \widetilde a \left\rangle \right\langle \widetilde b\in  \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } !!! \right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}) then $a \left\rangle \right\langle b = \sum_{j=1}^n \ka_j$. For any $\widetilde c \in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( {\sX}\right)}  \right)$ one has
 $$
 \ka_j \widetilde c = \sum_{g \in G\left(\widetilde{\sX}~|~ \mathcal X\right)} g\left(  \widetilde c f_j\widetilde a^*\right) \widetilde b=  \sum_{g \in G_j} g\left(  \widetilde cf_j\widetilde a^*\right) \widetilde b
 $$
@@ -11174,10 +11163,10 @@ $$
 \left\|  \widetilde a \left\rangle \right\langle \widetilde b-\xi \left\rangle \right\langle \eta\right\|< \eps.
 $$
 Taking into account $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ one concludes that the rank-one operator $\xi \left\rangle \right\langle \eta$ lies in the $C^*$-norm completion of $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$.
-On the other hand from the Definition \ref{compact_a_operator_defn} it follows that $\K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$.
+On the other hand from the Definition \ref{compact_a_operator_defn} it follows that $\K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } !!! \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } !!! \right)$.
 \end{proof}
 \begin{exercise}\label{top_all_exer}
-Prove that a linear span of \\ $\left\langle \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right)}, \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) }\right\rangle_{C_0\left( \widetilde\sX\right)\rtimes_c G\left(\widetilde{\sX}~|~ \mathcal X\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
+Prove that a linear span of \\ $\left\langle \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right)}, \mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } !!!\right\rangle_{C_0\left( \widetilde\sX\right)\rtimes_c G\left(\widetilde{\sX}~|~ \mathcal X\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
 $$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
 \end{exercise}
 \begin{remark}
@@ -11189,7 +11178,7 @@ The Exercise \ref{top_all_exer} corresponds to the Proposition \ref{top_allows_m
 %In the above situation there is the natural $*$-isomorphism $\widetilde A\rtimes_cG\cong \widetilde A\rtimes_r G $ where is $\widetilde A\rtimes_cG$ is the \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$ (cf. Definition \ref{cross_cov_defn}) and $\widetilde A\rtimes_rG$ is the reduced crossed product (cf.Appendix \ref{discr_cr_prod_sec}).
 %\end{lemma}
 %\begin{proof}
-%Both crossed products $\widetilde A\rtimes_cG$ and $\widetilde A\rtimes_rG$ are completions of \\	$C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ with respect to both norms $\left\|  \cdot \right\|_c$ and $\left\|  \cdot \right\|_r$. The $C^*$-norm $\left\|  \cdot \right\|_c$ comes from the norm of $\K\left(X_{C_0\left( \sX\right) } \right)$, the norm  $\left\|  \cdot \right\|_r$ is the reduced $C^*$-algebra norm (cf. equation \ref{discr_red_n_eqn}). We will prove that $\left\|  \cdot \right\|_c=\left\|  \cdot \right\|_r$.\\
+%Both crossed products $\widetilde A\rtimes_cG$ and $\widetilde A\rtimes_rG$ are completions of \\	$C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ with respect to both norms $\left\|  \cdot \right\|_c$ and $\left\|  \cdot \right\|_r$. The $C^*$-norm $\left\|  \cdot \right\|_c$ comes from the norm of $\K\left(X_{C_0\left( \sX\right) } !!! \right)$, the norm  $\left\|  \cdot \right\|_r$ is the reduced $C^*$-algebra norm (cf. equation \ref{discr_red_n_eqn}). We will prove that $\left\|  \cdot \right\|_c=\left\|  \cdot \right\|_r$.\\
 %Let $\H \bydef \bigoplus_{\widetilde x \in \widetilde\sX}\C$ is a direct sum of Hilbert spaces, and let $\pi_a: C_0\left(\widetilde{\sX}\right)\hookto B\left(\H \right)$ be the atomic representation (cf. Definition \ref{atomic_repr_cor}). Let $\widetilde \H\bydef \ell^2\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), \H\right)$, and let $\widetilde \pi : C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)\hookto B\left(\widetilde\H \right)$ be given by \eqref{discr_red_repr_eqn} representation, i.e.
 %\be\label{top_discr_red_repr_eqn}
 %\widetilde\pi\left(\delta_{t, \xi} \right) \bydef \delta_{t, \pi_a\left(t^{-1}.a\right) \xi}\quad \la(s)\delta_{st, \xi} \bydef \delta_{t, \xi}, \quad a \in A, \quad t, s \in G, \quad \xi \in \H
@@ -11403,7 +11392,7 @@ One needs check that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left(
 \end{empt}
 \begin{empt}\label{top_smooth_a_empt}
 	If   $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$ then $\widetilde a$ satisfies to the condition (b)    of the Definition \ref{smooth_el_defn} then
-from  the Corollary \ref{top_comp_lau_cor} there are an open subset $\widetilde{   \mathcal U }$ of $\widetilde M$ and $\la_{\widetilde \sU} \in \La$
+from  the Corollary \ref{top_comp_lau_cor}   !!! REPLACE \ref{top_compact_la_lem}   !!!there are an open subset $\widetilde{   \mathcal U }$ of $\widetilde M$ and $\la_{\widetilde \sU} \in \La$
 	  such that
 	\begin{itemize}
 		\item $\supp \widetilde a \subset \widetilde \sU$,
@@ -16461,7 +16450,7 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 		\item[(ii)]  if $\widetilde\sX$  is the {topological inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) with the natural transitive covering $\widetilde p: \widetilde \sX \to \sX$
 		then the triple $$\left(A, A_0\left( \widetilde \sX\right) , G\left(\left.\widetilde \sX\right|\sX\right)\right)$$ is an inverse noncommutative limit of $\mathfrak{S}!!! pt DELETE !!!_A$ (cf. Definition \ref{infinite_noncommutative_covering_defn}), i.e. there are isomorphisms:
 		\begin{itemize}
-			\item $\varprojlim  \mathfrak{S}!!! pt DELETE !!!_{A} \approx A_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right)$.
+			\item $\varprojlim  \mathfrak{S}!!! pt DELETE !!!_{A} \approx A_0\left(\varprojlim  \mathfrak{S}_{ C_0\left(\sX \right) } !!!\right)$.
 			\item $G\left(\left.\varprojlim  \mathfrak{S}!!! pt DELETE !!!_{A}~\right| A\right) \approx G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, y_0\right)}~\right| \mathcal X\right)$,
 		\end{itemize}
 	\end{enumerate}
@@ -16594,14 +16583,14 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 \paragraph*{} Here we consider the generalization of the Theorem  \ref{ctr_main_thm}.
 \begin{empt}\label{ctr_op_main_empt}
 	Let $\left(X, Y\right)$ be a  {sub-unital subspace} having continuous trace (cf. Definition \ref{ctr_oa_defn}) and let $A \bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$.
-	From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Suppose that $\sX$ is a second-countable, connected and locally connected set. Let	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}!!! pt DELETE !!!$ be a !!! pointed  DELETE !!!topological finite covering category such that for any $\mu > \nu$ there is the unique  !!! pointed  DELETE !!! covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. From the Lemma \ref{blowing_base_point_lem} it turns out that is a {!!! pointed  DELETE !!!algebraical  finite covering category} (cf. Definition \ref{pointed_defn} ).
+	From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Suppose that $\sX$ is a second-countable, connected and locally connected set. Let	$\mathfrak{S}_{ C_0\left(\sX \right) } !!!= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}!!! pt DELETE !!!$ be a !!! pointed  DELETE !!!topological finite covering category such that for any $\mu > \nu$ there is the unique  !!! pointed  DELETE !!! covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. From the Lemma \ref{blowing_base_point_lem} it turns out that is a {!!! pointed  DELETE !!!algebraical  finite covering category} (cf. Definition \ref{pointed_defn} ).
 	\be\nonumber
 	\begin{split}
 		\mathfrak{S}_{A } = \\
 		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
 	\end{split}
 	\ee
-	From the Theorem \ref{blowing_main_thm} it follows that $\mathfrak{S}_{A }$ is good. Moreover if $\widetilde\sX$ is the topological inverse limit of $\mathfrak{S}_{\left(\sX, x_0\right)}$ then the triple 
+	From the Theorem \ref{blowing_main_thm} it follows that $\mathfrak{S}_{A }$ is good. Moreover if $\widetilde\sX$ is the topological inverse limit of $\mathfrak{S}_{ C_0\left(\sX \right) } !!!$ then the triple 
 	$$
 	\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mathcal X\right)\right)
 	$$
@@ -18270,7 +18259,7 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 		Suppose that $\left( M,  \sF\right)$ a foliation space with a Hausdorff foliation groupoid $\G\left( M,  \sF\right)$. If  $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ is	a given by the Lemma \ref{foli_base_point_lem} !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition (ref. \ref{pointed_defn}) then following conditions hold:
 	\begin{enumerate}
 		\item [(i)]  the   !!! pointed  DELETE !!!algebraical finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$   is good (cf. Definition \ref{good_defn}), 
-		\item[(ii)]  if $\widetilde M$  is the {topological inverse limit} of the given by \eqref{foli_top_eqn} category  $\mathfrak{S}_{\left( M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by  with the natural transitive covering $\widetilde q: \widetilde M\to M$
+		\item[(ii)]  if $\widetilde M$  is the {topological inverse limit} of the given by \eqref{foli_top_eqn} category  $\mathfrak{S}_{\left( M, x_0\right) } !!!$ (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by  with the natural transitive covering $\widetilde q: \widetilde M\to M$
 		then the triple 
 		$$
 		\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde\sF\right) , G\left(\left.\widetilde M\right|M\right)\right)
@@ -22290,7 +22279,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\end{defn}
 	%\paragraph{} It follows from Lemma \ref{lem_3_spanier_lem} that if $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting then for any two objects $\widetilde{x}_1$ and $\widetilde{x}_2$ in the fundamental groupoid of $\widetilde{X}$
 	\begin{defn}\label{top_group_of_covering_transformations_defn}\cite{spanier:at}
-		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right)$ this group.
+		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \left.\mathcal{\widetilde{X}}~\right|~\mathcal{X}\right)$ this group.
 	\end{defn}
 \begin{theorem}\label{top_fundamental_group_mor_thm}\cite{spanier:at}
 	%2 theoeem 
