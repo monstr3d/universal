@@ -4927,6 +4927,24 @@ Suppose that $\mathfrak{S}$ contains \textit{all} classes of isomorphisms of con
 	\ee
 \end{definition}
 
+\begin{definition}\label{fundamental_group_nc_p_defn} 
+	Let $P$ be a property of noncommutative finite-fold coverings.
+	Let $A$ be a connected $C^*$-algebra, and let 
+	$
+	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
+	$
+	be the  {infinite noncommutative covering} (cf. Definition \ref{infinite_noncommutative_covering_defn}) of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ such that $A = A_{\la_{\mathrm{min}}}$.
+	Suppose that $\mathfrak{S}$ contains \textit{all} classes of isomorphisms of connected noncommutative finite-fold coverings of $A$ (cf. Definition \ref{fin_defn}) which possesses the property $P$. Assume that $\pi^\mu_\nu : A_\mu \hookto A_\nu$ possesses the property $P$ for all $\mu, \nu \in \La$ such that $\mu \le \nu$. 
+	Then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the $P$-\textit{universal  covering} 
+	of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the $P$-\textit{fundamental group} of $A$. We use the following notation
+	\be\label{fg_bas_p_eqn}
+	\pi^P_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\ee
+\end{definition}
+
+
+
+
 
 \begin{exercise}\label{fundamental_group_mor_exer}
 Consider the situation of the Definition \ref{fundamental_group_nc_defn}. 
@@ -9135,8 +9153,35 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn
 \end{proof}
 \begin{definition}\label{top_consents_defn}
 We say that a connected, locally compact, Hausdorff space $\sX$ \textit{consents with noncommutative coverings} if  for any finite-fold transitive covering $p: \widetilde\sX \to \sX$ a quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
-	
 \end{definition}
+\begin{lemma}\label{top_consents_lem}
+Under the conditions of the Definition \ref{top_consents_defn} there is a family $\left\{\sU_\la\subset \sX\right\}_{\la\in\La}$ indexed by directed set $\La$ such that
+\begin{enumerate}
+	\item[(i)] for all $\la\in \La$ a quadruple $$\left(C_0\left(\sU_\la \right), C_0\left( \widetilde{\sU}_\la\bydef p^{-1}\left(\sU_\la \right) \right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)|_{C_0\left(\sU_\la \right)}  \right)$$ is  a noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	\item[(ii)] ${\sX}= \bigcup_{\la\in\La} \sU_\la$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}(i)
+ If $\sX$ {consents with noncommutative coverings} and $p: \widetilde\sX \to \sX$ If $\left\{B_\la \subset C_0\left(\sY \right) \right\}_{\la \in \La}$ is a required by the Definition \ref{fin_defn} indexed by a directed set $\La$ family $\left\{C_\la\right\}_{\la\in \La}$   of connected $\left(C_0\left(\sY \right), C_0\left( \widetilde{\sY}\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)  \right)$-strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}) $C^*$-subalgebras of $C_0\left\{\sY\right)$ such that following conditions hold:
+ \begin{enumerate}
+ 	\item[(a)] 
+ 	$$
+ 	\forall \mu, \nu \in \La \quad \mu \le \nu \quad\Rightarrow\quad C_\mu \subset C_\nu;
+ 	$$	
+ 	\item[(b)]
+ 	a union 
+ 	$
+ 	\bigcup_{\la\in\La} C_\la
+ 	$
+ 	is dense in $C_0\left\{\sX\right)$.
+ \end{enumerate}
+ Clearly for all $\la$ there is a connected open subset $\sU_\la$ such that $C_\la = C_0\left(\sU_\la \right)$,  and a {hereditary} $\left(C_0\left(\sY \right), C_0\left( \widetilde{\sY}\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)  \right)$-{lift} of  $C_0\left(\sU_\la \right)$ (cf. Definition \ref{hereditary_lift_defn}) equals to $C_0\left( q^{-1}\left(\widetilde \sU_\la\bydef  \sU_\la\right) \right)$. From the Definition \ref{hereditary_lift_defn} it turns out that $\left(C_0\left(\sU_\la \right), C_0\left( \widetilde{\sU}_\la\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)|_{C_0\left(\sU_\la \right)}  \right)$ is a covering with unitization. \\
+ (ii) If $x \in {\sX}\setminus \bigcup_{\la\in\La} \sU_\la$ then there is $f \in C_c\left( \sX\right)$ such that $f\left( x\right)= 1$. From 
+ $$
+\forall f' \in  \bigcup_{\la\in\La} C_0\left(\sU_\la \right) \quad \left\| f'-f\right\|\ge 1. 
+ $$  
+ if follows that $\bigcup_{\la\in\La} C_0\left(\sU_\la \right)$ is not dense in $C_0\left( \right)$ however it contradicts with (b) of this lemma. 
+\end{proof}
 \begin{remark}
 	Any compact,  connected,   Hausdorff space consents with noncommutative coverings (cf. Remarks \ref{unital_unitization_covering_rem} and \ref{unitization_covering_rem}).
 \end{remark}
@@ -10741,7 +10786,7 @@ Let
 	\mathfrak{S}_p \bydef \left\{\left\{M_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:M_\mu\to M_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 \end{split}
 \ee
-be  a finite covering category of  $p: \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn})
+be  a finite covering category of  $p: \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}).
 The product $T \bydef M \times \C$ is also a smooth manifold, because $\C$ has the natural smooth structure. So one has a smooth bundle $T \to M$ (cf. Definition \ref{top_sm_bundle_defn}) having a given by \eqref{top_ses_one_eqn} sesquilinear product.
 From the Theorem \ref{top_d_fin_thm} it turns out that there is  an {algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
 \be\label{top_comp_pt_o*_eqn}
@@ -10899,31 +10944,34 @@ is a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the tripl
 \end{proof}
 
 \paragraph{Polynomials in one variable}
-
-Suppose
-\bean%\label{top_hull_top_eqn}
-\begin{split}
-	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
-	\bydef \left\{\left\{q_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{q^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-\end{split}
-\eean
-is  a !!! pointed  DELETE !!!topological finite covering category (cf. Definition \ref{top_pointed_cat_defn}). If $\left( \sY, y_0\right) \bydef \left(  \sX \times \R, \left(x_0, \{0\} \right)\right) $, $~ \left( \sY_\la, y^\la_0\right) \bydef \left(  \sX_\la \times \R, \left(x^\la_0, \{0\} \right)\right) $ then there  is  a !!! pointed  DELETE !!!topological finite covering category 
+Let $p : \widetilde \sX \to \sX$ be the {covering inverse limit of} a category 
+$$
+\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+$$
+(cf. Definition \ref{top_disconnected_defn}), and let 
 \be\nonumber
 \begin{split}
-	\mathfrak{S}_{\left( \sY, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sY_\mu, x^\mu_0\right) \to \left( \sY_\nu, y^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}.
+	\mathfrak{S}_{C_0(p)} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
 \end{split}
 \ee
-where $p_\la \bydef q_\la \times \Id_\R$ and $p^\mu_\nu \bydef q^\mu_\nu \times \Id_\R$.	
-If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Corollary \ref{top_base_point_cor} yields a !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{pointed_defn})
+If $\widetilde{\sY}\bydef \widetilde \sY \times \R$, 
+ $~\sY \bydef  \sX \times \R $, $~ \sY_\la \bydef \times \R $ then $\widetilde p : \widetilde \sY \to \sY$ be the {covering inverse limit of} a category 
+ $$
+ \mathfrak{S}_{\widetilde p} \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{\widetilde p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+ $$
+ (cf. Definition \ref{top_disconnected_defn}). Let
+ \be\nonumber
+ \begin{split}
+ 	\mathfrak{S}_{C_0\left(\widetilde p \right) } \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left(\widetilde p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left(\widetilde p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
+ \end{split}
+ \ee
+ be a given by \eqref{top_category_fin_c0_eqn} algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
 \be\label{top_sb_eqn}
 \begin{split}
 	\mathfrak{S}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}_{C_0\left(\widetilde p \right) }$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
 $\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
 $ is  an  { infinite noncommutative covering} of $\mathfrak{S}_{B}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.
@@ -10972,36 +11020,32 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 
 \subsection{Coverings of   quasi $*$-algebras}
 	\paragraph{}
+	Let $M$ be a finite-dimensional smooth manifold, and let $p: \widetilde M \to M$ be a transitive covering such that the covering group $G\left(\left. {\widetilde{M}}~\right|~M\right)$ (cf. Definition  \ref{top_group_of_covering_transformations_defn} is residually finite (cf. Definition \ref{residually_finite_defn})
+	Let 
+	\be\label{top_secmm_p_eqn}
+	\begin{split}
+		\mathfrak{S}_p \bydef \left\{\left\{M_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:M_\mu\to M_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+	\end{split}
+	\ee
+	be  a finite covering category of  $p: \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}).
 From the Corollary \ref{top_q_fin_lem} it turns out that there  is a %!!! pointed  DELETE !!!algebraic finite covering category of %
 a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Remark \ref{top_distr_dens_q_rem} and Definition \ref{oq*fin_defn}) given by
 \be\label{top_comp_pt_qo*_eqn}
 \begin{split}
- \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) } =\\=\left(\left\{\pi_\la: \left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) \hookto \left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)    \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+ \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) } =\\=\left(\left\{ \left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)    \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
 
 \begin{lemma}
-The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}!!! pt DELETE !!!_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn}).
+The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn}).
 \end{lemma}
 \begin{proof}
-	In this lemma the pair $\left( \mathfrak A, \mathfrak A_0 \right)$ (resp. $\left( \mathfrak A^\la, \mathfrak A^\la_0 \right)$) of the Definition \ref{comp_qo*_defn}  corresponds to $\left(\Coo_c\left(M \right)', \Coo\left(M \right)\right) $ (resp. $\left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)\right)$). The given by \eqref{comp_pt_qo*_eqn} {!!! pointed  DELETE !!!algebraic finite covering category of quasi-$*$-algebras} corresponds to  $\mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
+	In this lemma the pair $\left( \mathfrak A, \mathfrak A_0 \right)$ (resp. $\left( \mathfrak A^\la, \mathfrak A^\la_0 \right)$) of the Definition \ref{comp_qo*_defn}  corresponds to $\left(\Coo_c\left(M \right)', \Coo\left(M \right)\right) $ (resp. $\left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)\right)$). The given by \eqref{comp_pt_qo*_eqn} {algebraic finite covering category of quasi-$*$-algebras} corresponds to  $\mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
 Now one needs check that the family $ \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$ satisfies to   the Definition \ref{comp_qo*_defn}. However it directly follows from the given by \eqref{top_comp_pt_qo*_eqn} definition of $
 	\mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
 \end{proof}	
 \begin{empt}\label{top_comp_qo*_empt}
-	Here we consider a relevant to $ \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$ specialization of the described in \ref{comp_qo*_empt} construction.	
-	Consider a !!! pointed  DELETE !!! topological finite covering category $	\mathfrak{S}_{\left( M, x_0\right) } !!!$ (cf. Definition \ref{top_pointed_cat_defn}) given by
-	\be\nonumber
-	\begin{split}
-		\mathfrak{S}_{\left( M, x_0\right) } !!!\bydef\\
-		\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-				\mu\ge\nu}} \right\}\\
-		%\in \\
-		\mathfrak{S}_{\left( M, x_0\right) } !!!\in \mathfrak{FinTop}.
-	\end{split}
-	\ee
-	Denote by $\widetilde M$ and $\overline M$ the covering  inverse limit and disconnected inverse limit of $\mathfrak{S}_{\left( M, x_0\right) } !!!$ respectively (cf. Definition \ref{top_topological_inv_lim_defn}).
-	
+	Here we consider a relevant to $ \mathfrak{S}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$ specialization of the described in \ref{comp_qo*_empt} construction.		
 	
 	The following table gives a mapping between notations of the  \ref{comp_qo*_empt} and this specialization.
 	\newline
@@ -12376,6 +12420,8 @@ a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}
 	$$
 	However the above series is a finite sum, since the group  $G\left(\left.\widetilde \sY\right|\sY \right)$ is finite. So $a \in A_0\left( \widetilde \sY\right)$. Hence $K\left( A\right)$ is dense in $A$ the homomorphism can be uniquely extended up to $ A \hookto	 A_0\left( \widetilde \sY\right)$.
 \end{proof}
+
+
 \begin{definition}\label{blowing_lift_fin_defn}
 	The given by the Corollary \ref{blowing_fin_cor} injective $*$-homomorphism
 	\be	\label{blowing_lift_fin_eqn}
@@ -12843,33 +12889,10 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 \end{proof}	
 
 \subsection{Finite-fold coverings}
-\begin{lemma}\label{blowing_fin_lem}
-	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
-	\bean
-	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
-	\eean
-	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
-\end{lemma}
-\begin{proof}
-	If $a \in K\left( A\right)$ is an element of the Pedersen's ideal then the source- support $\sV \bydef s$-$\supp a$ is compact (cf. Definition \ref{blowing_source_supp_defn}, and the Lemma \ref{blowing_compact_lem}). From the Lemma \ref{top_compact_preimage_lem} it follows that the preimage $\widetilde \sV \bydef q^{-1}\left(\sV \right)$ is compact. There is a finite sum $\widetilde f = \sum_{j = 1}^n \widetilde f_j$ such that for any $j = 1,...,n$ the set $\widetilde\sU_j \bydef \left\{\left.\widetilde y \in \widetilde\sY\right| \widetilde f_j\left( \widetilde y\right)> 0 \right\}$  is mapped homeomorphically onto $\sU_j \bydef q\left( \widetilde \sU_j\right)$. It follows that 
-	$$
-	\pi\left(a \right)= \sum_{j=1}^n \pi_{ \widetilde \sU_j}\left( a\desc_p\left( \widetilde f_j\right) \right) 
-	$$
-	where $\desc_p\left( \widetilde f_j\right)$ is the $p$-descent of $\left( \widetilde f_j\right)$ (cf. Definition \ref{top_lift_desc_defn}).
-	For any $j = 1,...,n$ one has $\pi_{ \widetilde \sU_j}\left( a\desc_p\left( \widetilde f_j\right) \right)\in  A_0\left( \widetilde \sY\right)$. This construction yields a *-homomorphism $K\left( A\right)\hookto A_0\left( \widetilde \sY\right)$ and hence $K\left( A\right)$ is dense in $A$ the homomorphism can be uniquely extended up to $ A \hookto	 A_0\left( \widetilde \sY\right)$.
-\end{proof}
-
-\begin{remark}\label{blowing_pre_rem}
-	If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then from the Lemma \ref{blowing_group_lem} it follows that
-	$$
-	\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)
-	$$
-	is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).
-\end{remark}
-
-\begin{lemma}\label{blowing_aal_lem}
+\begin{lemma}\label{blowing_aal_lem}!!! MAY BE DELETE !!!
 	Let $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ be a {finite}-$q$-{lift}. If $\sU\subset \sY$ is a connected subset with compact closure then $_\sU A_\sU$ is $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
 \end{lemma}
+
 \begin{proof}
 	A {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{lift} of $_\sU A_\sU$. is the norm completion of $\pi\left( ~_\sU A_\sU\right)  A_0\left( \widetilde \sY\right)\pi\left( ~_\sU A_\sU\right)$. Using this fact and that $_\sU A_\sU$ is a competition of $C_0\left(\sU \right)A C_0\left(\sU \right)$ one can proof the {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{lift} of $_\sU A_\sU$ equals to the norm completion of $C_0\left(\widetilde \sU \right)A_0\left( \widetilde \sY\right) C_0\left(\widetilde \sU \right)$, or equivalently $_{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. The closure $\sV$ of $\sU$ is compact, so from the Lemma \ref{top_compact_lem} it follows that the preimage $\sV \bydef q^{-1}\left( \sV\right)$  is compact. Moreover there are natural inclusions $C\left(\sV \right) \subset  M\left( ~_\sU A_\sU\right) $ and 
 	$C\left(\widetilde \sV \right) \subset  M\left( ~_\sU  A_0\left( \widetilde \sY\right)_\sU\right)$. From the Theorem  \ref{blowing_compact_unitization_thm} it turns out that the quadruple
@@ -12880,14 +12903,62 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 	
 \end{proof}
 \begin{theorem}\label{blowing_axiomatic_thm}
-	If 	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+	Let $q: \widetilde\sY \to \sY$  be a finite-fold transitive covering, and let	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift}. If $\sY$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn})  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
+
 \begin{proof}
-	If $\left\{\sU_\la \subset \sY\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets with compact closure then from the Lemma \ref{blowing_compact_lem} it follows that the union $\bigcup_{\la \in \La}~_{\sU_\la} A _{\sU_\la}$ is dense in $A$. One the other hand from the Lemma \ref{blowing_aal_lem} it follows that for all  $\la\in \La$ the ${\sU_\la} A _{\sU_\la}$ is $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
+	From the Lemma \ref{blowing_group_lem} it follows that $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). From the Lemma \ref{top_consents_lem} it turns out that there is a family $\left\{\sU_\la\subset \sY\right\}_{\la\in\La}$ indexed by directed set $\La$ such that
+	\begin{enumerate}
+		\item[(i)] for all $\la\in \La$ a quadruple $$\left(C_0\left(\sU_\la \right), C_0\left( \widetilde{\sU}_\la\bydef p^{-1}\left(\sU_\la \right) \right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)|_{C_0\left(\sU_\la \right)}  \right)$$ is  a noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}),
+		\item[(ii)] ${\sY}= \bigcup_{\la\in\La} \sU_\la$.
+	\end{enumerate}
+	  On the other hand from the Lemma \ref{cov_mult_fin_lem} it turns out that $$
+	  \left(C_b\left(\sU_\la \right), C_b\left( \widetilde{\sU}_\la\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), M\left( C_0\left( q\right)|_{C_0\left(\sU_\la \right)} \right)  \right)$$ 
+	  is an unital noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}). For all $\la\in \La$ denote by $A_\la \bydef ~_{\sU_\la}A_{\sU_\la}$ and $\widetilde A_\la \bydef ~_{\widetilde\sU_\la} A_0\left( \widetilde \sY\right)_{\widetilde \sU_\la}$. From our construction it follows that for any $\la \in \La$ there are inclusions $C_b\left(\sU_\la \right)\subset M\left( A_\la\right)$ and $C_b\left(\widetilde\sU_\la \right)\subset M\left( \widetilde A_\la\right)$. Let  both $B_\la$ and $\widetilde B_\la$   are generated by unions 	$A_\la \cup C_b\left(\sU_\la \right)$ and $\widetilde A_\la \cup C_b\left(\widetilde \sU_\la \right)$ $C^*$-subalgebras of  $M\left( A_\la\right)$ and  $M\left(\widetilde A_\la\right)$ respectively. Since  $\left(C_b\left(\sU_\la \right), C_b\left( \widetilde{\sU}_\la\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), M\left( C_0\left( q\right)|_{C_0\left(\sU_\la \right)} \right)  \right)$ is an unital noncommutative finite-fold covering  then similarly to \eqref{top_finite_covering_basis_eqn} there is a finite subset $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C_b\left( \widetilde{\sU}_\la\right)_+$ such that
+	\be\label{blowing_finite_covering_basis_eqn}
+	\begin{split}
+	1_{C_b\left(\widetilde{\mathcal Y} \right) }= \sum_{j=1 }^n\widetilde{e}^2_{\widetilde{j}},\\
+	\forall j =1,...,n \quad \widetilde{e}_{j}	\left(g \widetilde{e}_{j} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sX \right|\sX \right).
+\end{split}
+\ee	
+From \eqref{blowing_finite_covering_basis_eqn} it follows that 
+$$
+\widetilde{b}\in \widetilde B_\la \quad \Rightarrow \quad \widetilde{b} = \sum_{j=1 }^n \widetilde e_j b_j; \quad b_j \bydef \sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)} g\left(\widetilde e_j  \widetilde{b}\right)\in B, 
+$$
+so one has
+$$
+\widetilde{B} = \widetilde{e}_1 B + ... +  \widetilde{e}_n B,
+$$
+i.e. $\widetilde{B}$ is a finitely generated $B$-module. So if $\pi_{B_\la}:B_\la \hookto\widetilde{B}_\la$ is the natural $*$-homomorphism the quadruple 
+$
+\left(B_\la, \widetilde{B}_\la,  G\left(\left.\widetilde \sY\right|\sY \right), \pi_{B_\la} \right) 
+$
+is an unital noncommutative finite-fold covering. Since both inclusions $A_\la \subset B_\la$ and $\widetilde A_\la \subset \widetilde B_\la$ are unitizations the quadruple $
+\left(A_\la, \widetilde{A}_\la,  G\left(\left.\widetilde \sY\right|\sY \right), \pi_{B_\la}|_{A_\la} \right) 
+$
+is  a  noncommutative finite-fold covering with unitization, so $A_\la$ is  $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}). 
+If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn})  then $\supp  a$ is compact. From ${\sY}= \bigcup_{\la\in\La} \sU_\la$ it follows that there is $\la_a \in \La$ such that $\supp  a\subset \sU_{\la_a}$ and $ a \in A_{\la_a}$. The union $\bigcup_{\la \in \La} A_\la$ is dense in $A$ because $K\left( A\right)$ is dense in $A$.
 \end{proof}
 \begin{theorem}\label{blowing_unitization_thm}
 	Let  $\left(A, \widetilde{A}, G, \pi \right)$  be noncommutative finite-fold covering with unitization (cf. Definition  \ref{fin_unitization_defn}), and let $C\left(\sY\right)\to M\left( A\right)$ be Hausdorff blowing-up with compact $\sY$. Let $\rho: C\left( \sY\right) \hookto C\left( \widetilde \sY\right)$  be given by the equation \eqref{blowing_cb_eqn}. The action $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$ induces an action  $G\times C\left(\widetilde \sY \right) \to C\left(\widetilde \sY \right)$. Then $C\left(\widetilde \sY \right)$ is a finitely generated $C\left(\sY \right)$-module. 
 \end{theorem}
+\paragraph{!!!}
+\begin{definition}\label{fundamental_group_nc_p_defn!} 
+	Let $P$ be a property of noncommutative finite-fold coverings.
+	Let $A$ be a connected $C^*$-algebra, and let 
+	$
+	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
+	$
+	be the  {infinite noncommutative covering} (cf. Definition \ref{infinite_noncommutative_covering_defn}) of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ such that $A = A_{\la_{\mathrm{min}}}$.
+	Suppose that $\mathfrak{S}$ contains \textit{all} classes of isomorphisms of connected noncommutative finite-fold coverings of $A$ (cf. Definition \ref{fin_defn}) which possesses the property $P$. Assume that $\pi^\mu_\nu : A_\mu \hookto A_\nu$ possesses the property $P$ for all $\mu, \nu \in \La$ such that $\mu \le \nu$. 
+	Then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the $P$-\textit{universal  covering} 
+	of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the $P$-\textit{fundamental group} of $A$. We use the following notation
+	\be\label{fg_bas_p_eqn}
+	\pi^P_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\ee
+\end{definition}
+
+\paragraph{!!!}
 \begin{proof}
 	From the Corollary \ref{cov_mult_fin_c_cor} it follows that there is  an 
 	unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}). If $C\left(\widetilde \sY \right)$ is not a finitely generated $C\left(\sY \right)$ then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
@@ -12913,7 +12984,7 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 \end{lemma}
 \begin{proof}
 	
-	From the Lemma \ref{blowing_fin_lem} it follows that one should prove that the covering $q : \widetilde \sY$ satisfies to explained in \ref{blowing_axiomatic_empt} !!! ADD \ref{lift_mult_empt} !!!  REPLACE LEMMA \ref{lift_mult_lem} !!! !!! conditions (a)-(d). 
+	From the Lemma \ref{blowing_fin_lem} !!! REPLACE \ref{blowing_fin_cor} !!! it follows that one should prove that the covering $q : \widetilde \sY$ satisfies to explained in \ref{blowing_axiomatic_empt} !!! ADD \ref{lift_mult_empt} !!!  REPLACE LEMMA \ref{lift_mult_lem} !!! !!! conditions (a)-(d). 
 	!!! (a)-(c)\\
 	(d)Let us check that the given by \eqref{blowing_axiomatic_eqn} map 
 	\bean
