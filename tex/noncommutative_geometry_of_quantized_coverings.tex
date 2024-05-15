@@ -923,91 +923,88 @@ Conversely a character $\chi : \Z^n/\Ga \to e^{\frac{i\Q}{2\pi}}$ naturally yiel
 \forall\left(a_1, ..., a_n\right)\in \Z^n\quad \varphi \left( a_1e_1 + ... + a_1e_n\right)  = a_1\xi_1 + ... + a_1\xi_n
 \eean 
 From $\chi\left(\Ga\right)= \{1\}$ it follows that $\varphi\left( \Ga\right) = \Z$ i.e. $\varphi|_\Ga\in \Hom\left(\Ga, \Z \right)$.
-The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$.  
-\section{Inclusions of some $C^*$-algebras}
-\paragraph{}
-Let 
-$D$ be a $C^*$-algebra and let $X_D$ a countably generated Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a countable generated Hilbert $A$-module $X_A\subset X_D$ with product $\left\langle \cdot, \cdot\right\rangle_A$ such that
-the following conditions hold
-\bea
-\label{exact_da_1_eqn}
-\left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A.
-\eea
-Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adjointable_operator_defn}). 
+The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$. 
 
-\begin{lemma}\label{compact_inf_lem}
-	In the above situation	let $a, b \in \End_D^*\left( X_D\right)_+$ be positive  operators such that 
-	\bea
-	\label{compact_inf1_eqn}
-	a \le b, \\
-	\label{compact_inf2_eqn}
-	b|_{X_A}\in \K\left(X_A \right),\\
-	\label{compact_inf3_eqn}
-	\forall \xi \in X_A \quad 	\left\langle \xi, a \xi\right\rangle_D\in A.
-	\eea
-	%If $A$ is {module}-{infinite} (cf. Definition \ref{hm_MI_defn}) 
-	If any finitely generated projective Hilbert $A$-module is self-dual (cf. Definitions \ref{hm_selfdual_defn} and \ref{hm_MI_defn}) then  $a|_{X_A}\in \K\left(X_A \right)$.
-\end{lemma}	
-\begin{proof}
-	From \eqref{compact_inf3_eqn} and the polarization equality \eqref{polarization_equality_eqn} it turns out that
-	\be\label{xae_eqn}
-	\forall \xi, \eta \in X_A\quad \left\langle \xi, a \eta\right\rangle_D \in A.
-	\ee
-	Consider $\widetilde a: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$  such that for any $\left(x, y\right) \in X_D \oplus \ell^2\left( D\right)$ one has $\widetilde a \left(x, y\right)= \left(a x, 0\right)$. Similarly one can consider operator $\widetilde b: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$. From  the  Theorem \ref{kasparov_stab_thm} one has 
-	\be\label{kasp_eqn}
-	X_D \oplus \ell^2\left( D\right) \cong \ell^2\left( D\right).
-	\ee
-	So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*_D\left(\ell^2\left( D\right) \right)$. Consider the following inclusions \\ 
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			X_A    & \ell^2\left( A\right)\\
-			X_D    & \ell^2\left( D\right)\\
-		};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$\subset$} (m-1-2)
-		(m-1-1) edge node [right] {$\subset$} (m-2-1)
-		(m-1-2) edge node [right] {$\subset$} (m-2-2)
-		(m-2-1) edge node [above] {$\subset$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	For any $n \in \N$ there is a Hilbert submodule $D^n \subset \ell^2\left( D\right)$ and a projection $p_n: \ell^2\left( D\right)\to D^n$. Denote by $a_n \bydef p_n \widetilde a p_n$, $b_n \bydef p_n \widetilde b p_n$.
-	From \eqref{xae_eqn} it turns out that
-	\be\label{xaen_eqn}
-	\forall \xi, \eta \in  A^n\cap \ell^2\left( D\right) \quad \left\langle \xi, a \eta\right\rangle_D \in A.
-	\ee
-	If $\left( A^n \cap\ell^2\left( D\right)\right)' $ is dual Banach module of $A^n \cap \ell^2\left( D\right)$ (cf. Definition \ref{hm_dual_empt}) then 
-	the restriction $a_n|_{A^n\cap \ell^2\left( D\right)}$ corresponds to an element of $\Hom_A\left( A^n\cap X_A, \left(  A^n\cap X_A \right)'\right)$ given by
-	$$
-	\eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
-	$$
-	However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap \ell^2\left( D\right), A^n\cap X_A\right)\bydef \End_A\left( A^n\cap\ell^2\left( D\right)\right)$. Since $a_n$ is self-adjoint\\ $a_n|_{A^n\cap \ell^2\left( D\right)}\in  \End^*_A\left( A^n\cap \ell^2\left( D\right)\right)$. Otherwise  $A^n\cap \ell^2\left( D\right)$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap \ell^2\left( D\right)\right) \cong \K\left( A^n\cap \ell^2\left( D\right)\right)$, therefore  $a_n|_{A^n\cap  \ell^2\left( D\right)}\in \K\left( A^n\cap \ell^2\left( D\right)\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\delta > 0$ there is $N\in \N$ such that
-	$$
-	\left\| b_N|_{\ell_2\left( A\right) }- b|_{\ell_2\left( A\right) } \right\| < \delta.
-	$$
-	On the other hand one has
-	\bean
-	b|_{\ell_2\left( A\right) }= \begin{pmatrix}
-		b_N|_{\ell_2\left( A\right) } & c_N\\
-		c^*_N &   b^\perp_N
-	\end{pmatrix},\\
-	\left\| b^\perp_N| \right\| < \delta.
-	\eean
-	If 
-	$$
-	a|_{\ell_2\left( A\right) } =\begin{pmatrix}
-		a_N|_{\ell_2\left( A\right) } & d_N\\
-		d^*_N &  a^\perp_N
-	\end{pmatrix}
-	$$
-	then from $a \le b$ it follows that $a^\perp_N<  b^\perp_N$ and $\left\|a^\perp_N \right\|\le \left\|b^\perp_N \right\| < \delta$. If $\delta + 2 \sqrt{\delta \left\| a	 \right\|}< \eps$ then from \eqref{positive_ineq_eqn} it follows that
-	$$
-	\left\| a_N|_{X_A }-  a|_{X_A} \right\| =  \left\| a_N|_{\ell_2\left( A\right) }- \widetilde a|_{\ell_2\left( A\right) } \right\|\le\left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps.
-	$$
-	Since  $ a_N|_{X_A }$ lies in $\K\left(  X_A\right)$ and a number $\eps$ is arbitrary small one has $ a|_{X_A }\in  \K\left(  X_A\right)$.
-\end{proof}
-
+% BEGIN COMMENTED ======================== 
+%\section{Inclusions of some $C^*$-algebras}
+%\paragraph{}
+%Let $D$ be a $C^*$-algebra and let $X_D$ a countably generated Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a countable generated Hilbert $A$-module $X_A\subset X_D$ with product $\left\langle \cdot, \cdot\right\rangle_A$ such that the following conditions hold
+%\bea
+%\label{exact_da_1_eqn}
+%\left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A.
+%\eea
+%Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adjointable_operator_defn}). 
+%\begin{lemma}\label{compact_inf_lem}
+%	In the above situation	let $a, b \in \End_D^*\left( X_D\right)_+$ be positive  operators such that 
+%	\bea
+%	\label{compact_inf1_eqn}
+%	a \le b, \\
+%	\label{compact_inf2_eqn}
+%	b|_{X_A}\in \K\left(X_A \right),\\
+%	\label{compact_inf3_eqn}
+%	\forall \xi \in X_A \quad 	\left\langle \xi, a \xi\right\rangle_D\in A.
+%	\eea
+%	If any finitely generated projective Hilbert $A$-module is self-dual (cf. Definitions \ref{hm_selfdual_defn} and \ref{hm_MI_defn}) then  $a|_{X_A}\in \K\left(X_A \right)$.
+%\end{lemma}	
+%\begin{proof}
+%	From \eqref{compact_inf3_eqn} and the polarization equality \eqref{polarization_equality_eqn} it turns out that
+%	\be\label{xae_eqn}
+%	\forall \xi, \eta \in X_A\quad \left\langle \xi, a \eta\right\rangle_D \in A.
+%	\ee
+%	Consider $\widetilde a: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$  such that for any $\left(x, y\right) \in X_D \oplus \ell^2\left( D\right)$ one has $\widetilde a \left(x, y\right)= \left(a x, 0\right)$. Similarly one can consider operator $\widetilde b: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$. From  the  Theorem \ref{kasparov_stab_thm} one has 
+%	\be\label{kasp_eqn}
+%	X_D \oplus \ell^2\left( D\right) \cong \ell^2\left( D\right).
+%	\ee
+%	So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*_D\left(\ell^2\left( D\right) \right)$. Consider the following inclusions \\ 
+%	\newline
+%	\begin{tikzpicture}
+%		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+%		{
+%			X_A    & \ell^2\left( A\right)\\
+%			X_D    & \ell^2\left( D\right)\\
+%		};
+%		\path[-stealth]
+%		(m-1-1) edge node [above] {$\subset$} (m-1-2)
+%		(m-1-1) edge node [right] {$\subset$} (m-2-1)
+%		(m-1-2) edge node [right] {$\subset$} (m-2-2)
+%		(m-2-1) edge node [above] {$\subset$} (m-2-2);
+%	\end{tikzpicture}
+%	\\
+%	For any $n \in \N$ there is a Hilbert submodule $D^n \subset \ell^2\left( D\right)$ and a projection $p_n: \ell^2\left( D\right)\to D^n$. Denote by $a_n \bydef p_n \widetilde a p_n$, $b_n \bydef p_n \widetilde b p_n$.
+%	From \eqref{xae_eqn} it turns out that
+%	\be\label{xaen_eqn}
+%	\forall \xi, \eta \in  A^n\cap \ell^2\left( D\right) \quad \left\langle \xi, a \eta\right\rangle_D \in A.
+%	\ee
+%	If $\left( A^n \cap\ell^2\left( D\right)\right)' $ is dual Banach module of $A^n \cap \ell^2\left( D\right)$ (cf. Definition \ref{hm_dual_empt}) then 	the restriction $a_n|_{A^n\cap \ell^2\left( D\right)}$ corresponds to an element of $\Hom_A\left( A^n\cap X_A, \left(  A^n\cap X_A \right)'\right)$ given by
+%	$$
+%	\eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
+%	$$
+%	However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap \ell^2\left( D\right), A^n\cap X_A\right)\bydef \End_A\left( A^n\cap\ell^2\left( D\right)\right)$. Since $a_n$ is self-adjoint\\ $a_n|_{A^n\cap \ell^2\left( D\right)}\in  \End^*_A\left( A^n\cap \ell^2\left( D\right)\right)$. Otherwise  $A^n\cap \ell^2\left( D\right)$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap \ell^2\left( D\right)\right) \cong \K\left( A^n\cap \ell^2\left( D\right)\right)$, therefore  $a_n|_{A^n\cap  \ell^2\left( D\right)}\in \K\left( A^n\cap \ell^2\left( D\right)\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\delta > 0$ there is $N\in \N$ such that
+%	$$
+%	\left\| b_N|_{\ell_2\left( A\right) }- b|_{\ell_2\left( A\right) } \right\| < \delta.
+%	$$
+%	On the other hand one has
+%	\bean
+%	b|_{\ell_2\left( A\right) }= \begin{pmatrix}
+%		b_N|_{\ell_2\left( A\right) } & c_N\\
+%		c^*_N &   b^\perp_N
+%	\end{pmatrix},\\
+%	\left\| b^\perp_N| \right\| < \delta.
+%	\eean
+%	If 
+%	$$
+%	a|_{\ell_2\left( A\right) } =\begin{pmatrix}
+%		a_N|_{\ell_2\left( A\right) } & d_N\\
+%		d^*_N &  a^\perp_N
+%	\end{pmatrix}
+%	$$
+%	then from $a \le b$ it follows that $a^\perp_N<  b^\perp_N$ and $\left\|a^\perp_N \right\|\le \left\|b^\perp_N \right\| < \delta$. If $\delta + 2 \sqrt{\delta \left\| a	 \right\|}< \eps$ then from \eqref{positive_ineq_eqn} it follows that
+%	$$
+%	\left\| a_N|_{X_A }-  a|_{X_A} \right\| =  \left\| a_N|_{\ell_2\left( A\right) }- \widetilde a|_{\ell_2\left( A\right) } \right\|\le\left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps.
+%	$$
+%	Since  $ a_N|_{X_A }$ lies in $\K\left(  X_A\right)$ and a number $\eps$ is arbitrary small one has $ a|_{X_A }\in  \K\left(  X_A\right)$.
+%\end{proof}
+% END COMMENTED ========================
 % BEGIN COMMENTED ========================
 %\begin{lemma}\label{g_eps_lem}
 %	Let $a \in B\left( \H\right)_+$ be a positive operator, and let for any $\eps> 0$ a bounded continuous map $G_\eps: \R \to \R$ is  given by
