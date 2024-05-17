@@ -1852,7 +1852,7 @@ hence one has
 	From the equation \eqref{left_right_eqv_equ} it follows that the usage of left $A$-modules in the Definition \ref{fin_unital_defn} is equivalent to the usage of right ones.
 \end{remark}
 \begin{remark}\label{fin_cov_kasp_rem}
-	From the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
+	From the Lemma \ref{fin_hilbert_mod_lem} and the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
 \end{remark}
    \begin{lem}\label{fin_composition_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. If  $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) then there are following unital finite-fold noncommutative coverings
@@ -1997,6 +1997,13 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 \begin{corollary}\label{ind_mult_inv_cor}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is a natural  noncommutative finite-fold  quasi-covering $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \widetilde \pi \right)$  such that $\pi = \left.\widetilde \pi\right|_A$ and an action $G \times \widetilde A \to \widetilde{A}$ is a restriction of an action  $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$.
 \end{corollary}
+\begin{exercise}\label{ind_mult_inv_exer}
+Under hypotheses of the Corollary \ref{ind_mult_inv_cor} prove following statements.
+\begin{enumerate}
+\item If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering with unitization then $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \widetilde \pi \right)$ is an unital noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_unital_defn}).
+\item If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  covering with unitization then $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \widetilde \pi \right)$ is an unital noncommutative finite-fold  covering.
+\end{enumerate}
+\end{exercise}
  \begin{lemma}\label{ind_gmult_act_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then one has an unique natural isomorphism
 	$$
@@ -2434,7 +2441,10 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
   	\be\label{fin_comp*_eqn}
  \widetilde{A} = A\widetilde{b}_1^*+...+A\widetilde{b}_n^*
  \ee
- 
+ Moreover from \ref{four_decompositon_eqn} one can deduce that
+   	\be\label{fin_compp_eqn}
+ \exists \left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}\subset  \widetilde{B}\subset M\left( \widetilde A\right)  \quad \widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n =  \widetilde{b}_1A+...+\widetilde{b}_n A.
+ \ee
 \end{remark}
 \begin{lemma}\label{cov_sep_fin_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. If $A$ is a separable $C^*$-algebra then $\widetilde{A}$ is a separable $C^*$-algebra.
@@ -5727,29 +5737,22 @@ algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
 \section{Partitions of unity and compact subsets}
 
 \begin{lemma}\label{top_a_u_lem}
-	If $\mathcal X$  is a locally compact,  locally connected !!! \ref{top_consents_defn} !!!,
+	If $\mathcal X$  is a locally compact, 
 	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$  there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
 	\begin{itemize}
 		\item $a\left(\sX\right) = \left[0,1\right]$,
 		\item 	$a\left( x_0\right) = 1$,
 		\item $\supp a \subset \mathcal U$,
-		\item a set $\sX \setminus a^{-1}\left(\{0\} \right)$ is connected.
 		\item	there is an open neighborhood $\mathcal V\subset\mathcal U$ of $x_0$ which satisfies to the following condition
 		\be\label{com_a_u_eqn}
 		a\left(\mathcal V \right)= \{1\}.
 		\ee 
 	\end{itemize}
+	If $\sX$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) then one $a$ can be selected such that the support of $a$ (cf. Definition \ref{top_support_defn}) is connected.
 \end{lemma}
 \begin{proof}
 	From the Exercise \ref{top_completely_regular_exer} it turns out that that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}), i.e. there is a  continuous function $b: \mathcal X \to \left[0,1 \right]$  such that $b\left( x_0\right) = 1$ and $b\left(\mathcal X \setminus \mathcal U \right)= \{0\}$. A set 
-	$\sU' \bydef \left\{x \in \sX | a'\left(x \right) \neq 0\right\}$ is open. If $\sU''$ is a containing $x_0$ connected component of $\sU'$ (cf. Definition \ref{top_connected_component_defn}) then from the Exercise \ref{top_loc_conn_exer} $\sU''$ it follows that is a quasi-component of  $\sU'$ (cf. Definition \ref{top_quasi_component_defn}). If a map $c: \sX \to  \left[0,1\right]$ is given by
-	$$
-c\left(x \right) \bydef \begin{cases}
-b\left(x \right)& x \in \sU''\\
-	0 & x \in \sX \setminus \sX''
-	\end{cases}
-	$$
-	then from our construction it follows that $c \in C_0\left( \sX\right)$ and a set set $\sX \setminus c^{-1}\left(\{0\} \right)$ is connected.
+	$\sU' \bydef \left\{x \in \sX | a'\left(x \right) \neq 0\right\}$ is open. 
 	The set $\mathcal V = \left\{ x \in \mathcal X~|~c\left(x \right)> \frac{2}{3}  \right\}$ is open.
 	If $f: \R \to \R$ is a continuous function given by
 	\be\nonumber%\label{top_23_func_eqn}
@@ -5760,15 +5763,21 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 	\end{array}
 	\right.
 	\ee
-	then $a \bydef f\left(c \right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. 
+	then $a \bydef f\left(c \right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. If $\sX$ is locally connected and $\sU''$ is a component of $x_0$ is $\sU'$ (cf. Definition \ref{top_connected_component_defn}) then   from the Exercise \ref{top_loc_conn_exer} it follows that $\sU''$ is a quasi-component of $\sU'$ (cf. Definition \ref{top_quasi_component_defn}). If we define $a' \in C_c\left(\sX \right)$ by following way
+	$$
+	a'\left(x \right) \bydef \begin{cases}
+	a\left( x\right)& x \in \sU''\\
+	0& x \notin \sU''	\end{cases}
+	$$ 
 \end{proof}
+then the support $\supp a'$ is the closure of $\sU''$. From the Theorem \ref{top_connected_closure_thm} it follows that the set $\supp a'$ is connected.
 \begin{definition}\label{top_stump_defn}
-Let $\mathcal X$ be a locally compact, locally connected !!! \ref{top_consents_defn} !!!, 
+Let $\mathcal X$ be a locally compact,  
 Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} then we denote by
 \be\label{top_fx_eqn}
 {f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
 \ee
-Assume that a set $\left\{x \in \mathcal X~|~ f\left(x \right)>0 \right\}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps.
+ We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps.
 \end{definition}
 \begin{corollary}\label{com_a_u_cor}
 	Let $\mathcal X$ be a locally compact,   
@@ -5786,7 +5795,7 @@ Assume that a set $\left\{x \in \mathcal X~|~ f\left(x \right)>0 \right\}$ is co
 and we say that $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-\textit{stump}.
 \end{definition}
 \begin{empt}\label{top_fx_empt} 	
-Let $\sX$ be a locally compact, locally connected !!! \ref{top_consents_defn} !!!, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. For any $x \in \sY$ we select an $x$-stump $f_x\in C_c\left(\sX\right)$ (cf. Definition \ref{top_stump_defn}) such that
+Let $\sX$ be a locally compact, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. For any $x \in \sY$ we select an $x$-stump $f_x\in C_c\left(\sX\right)$ (cf. Definition \ref{top_stump_defn}) such that
 \begin{itemize}
 	\item a set $\supp f_x$ is compact for all $x \in \sY$,
 	\item there is an open neighborhood $\sV_x$ of $x$ such that $f_x\left(\sV_x\right)=\{1\}$.
@@ -5815,7 +5824,7 @@ then
 	$\left\{\sV_x\right\}_{x\in\sX}$ (cf. equation \ref{top_vx_eqn}).
 	\end{defn}
 \begin{lemma}\label{top_compact_nigthbohood_lem}
-	If $\sY\subset\sX$ is a compact subset of a locally compact, Hausdorff space then there is an open subset $\sU \subset\sX$ with compact closure, such that $\sY \subset \sU$.
+	If $\sY\subset\sX$ is a compact subset of a locally compact,  Hausdorff space then there is an open subset $\sU \subset\sX$ with compact closure, such that $\sY \subset \sU$.
 \end{lemma}
 \begin{proof}
 If  $f \bydef \sum_{j = 1}^n f_j\left( x\right)$ is a covering sum of $\sY$  then one has
@@ -5977,7 +5986,7 @@ C_0\left( p\right) : C_0\left(  \sX\right) \hookto C_0\left( \widetilde \sX\righ
 		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
 	\end{tikzpicture}
 	\\
-	Suppose  $\sX$ is a  locally compact, locally connected !!! \ref{top_consents_defn} !!!,  Hausdorff space and $p_1$, $p_2$ are coverings. For all $g\in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ the following condition holds
+	Suppose  $\sX$ is a  locally compact, locally connected,  Hausdorff space and $p_1$, $p_2$ are coverings. For all $g\in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ the following condition holds
 	$$
 	\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)= p\left( \widetilde x_1\right) . 
 	$$
@@ -6009,7 +6018,7 @@ C_0\left( p\right) : C_0\left(  \sX\right) \hookto C_0\left( \widetilde \sX\righ
 \end{proof}
 
 \begin{corollary}\label{top_covp_cat_cor}
-	Consider the situation of the Lemma \ref{top_covp_cat_lem} and suppose that the space $\sX$ is locally connected !!! \ref{top_consents_defn} !!!. If the map $p$ is surjective and the covering $p_1$ is transitive then the map $p$ is a transitive covering.
+	Consider the situation of the Lemma \ref{top_covp_cat_lem} and suppose that the space $\sX$ is locally connected. If the map $p$ is surjective and the covering $p_1$ is transitive then the map $p$ is a transitive covering.
 \end{corollary}
 \begin{proof}
 	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering. There is the natural homomorphic inclusion $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\subset  G\left(\left. \widetilde{\sX}_1~\right|\mathcal{X}\right)$. Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
@@ -6114,13 +6123,13 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 	So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.	
 \end{proof}
 \begin{corollary}\label{top_compact_union_cor}
-	If $\sX$ is a locally compact, locally connected !!! \ref{top_consents_defn} !!!, Hausdorff space than any compact subset of $\sX$ is a subset of connected compact subset of $\sX$.
+	If $\sX$ is a locally compact, locally connected, Hausdorff space then any compact subset of $\sX$ is a subset of connected compact subset of $\sX$.
 \end{corollary}
 \begin{proof}
 If $\sV$ is a compact set and $\left\{\sU_\la\right\}_{\la\in\La}$ is given by the Corollary \ref{top_connected_union_cor} then from $\sV \subset\sX= \bigcup_{\la\in \La}\sU_\la$ it follows that there is a finite subset $\left\{\la_1, ..., \la_n\right\}\subset \La$ such that $\sV \subset\sX= \bigcup^n_{j =1}\sU_{\la_j}$. The set $\La$ is directed so there is $\la\in\La$ such that $\la \ge \la_j$ for all $j = 1,...,n$. If follows that $\sV \subset \sU_\la$. According to the Corollary the closure $\mathcal W$ if $\sU_\la$ is compact. From the Theorem \ref{top_connected_closure_thm} it follows that the set $\mathcal W$ is connected.
 \end{proof}
 \begin{empt}\label{top_lconn_part}
-	Let $\sX$ be a connected, locally connected !!! \ref{top_consents_defn} !!!, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
 	\begin{itemize}
 		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
 		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
@@ -12526,7 +12535,6 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 	Under the hypotheses of the Definition \ref{blowing_spectral_defn} there is a partially defined surjective map from $\sY$ to the spectrum of $A$.
 	So the Definition \ref{blowing_spectral_defn}  yields a motivation of the 	"{Hausdorff blowing-up}" word. If {Hausdorff blowing-up} is spectral then there is a partially defined surjective map from a Hausdorff space  $\sY$ to a possibly non Hausdorff spectrum $\sX$. Similarly in the algebraic geometry the "blowing-up" means a morphism form a nonsingular variety to a singular one (cf. \cite{hartshorne:ag}).
 \end{remark}
-
 \section{Hausdorff blowing-up and noncommutative  coverings}
 \subsection{Lift and descent}
 \paragraph{}
@@ -12826,7 +12834,7 @@ a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}
 	\be\label{blowing_tensor_eqn}
 	\begin{split}
 	\varphi: C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
-\sum_{j=1}^n 	\widetilde f \otimes a \mapsto 	\varphi_C\left( \widetilde f\right) \varphi_A\left(a \right)
+\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
 	\end{split}
 	\ee
 	of right  $A$-modules, where 	$\varphi_A, ~	\varphi_C$ are given by  \eqref{blowing_a_h_eqn}, \eqref{blowing_c_h_eqn} and the algebraic tensor product is implied. Since $K\left(A \right)$ is dense in $A$ the $*$-homomorphism can be uniquely extended up to a map
@@ -13207,6 +13215,7 @@ Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqre
 
 
 \begin{empt}\label{blowing_ext_empt}
+	!!!! $A \to $
 	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
 	$$
 	\widetilde{C}_{\widetilde{x}}\bydef \left\{c = \rep_{  \widetilde{x }}\left( a\right)\left|  a \in C_0\left(\sY \right)\right. \right\}\subset \rep_{  \widetilde{x }}\left(M\left( \widetilde A\right) \right)  
@@ -13235,6 +13244,9 @@ Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqre
 	C_b\left( \sY\right) \hookto C_b\left( \widetilde \sY\right) 
 	\ee
 \end{empt}
+\begin{definition}\label{blowing_ext_defn}
+	Under the hypotheses \ref{blowing_ext_empt} we say that Hausdorff blowing-up is \textit{induced by noncommutative covering}.
+\end{definition}
 
 \begin{theorem}\label{blowing_compact_unitization_thm} 
 !!!	ANY !!!
@@ -13257,6 +13269,47 @@ Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqre
 	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
 \end{proof}
 
+\paragraph{!!! NEW}
+
+\begin{empt}\label{blowing_uc_empt}
+	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY \right)\hookto M\left( A\right) $ be Hausdorff blowing-up, and let
+	$\left(A, \widetilde A,  G\left(\left.\widetilde A\right|A \right), \pi \right)$ be a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is an unital noncommutative finite-fold covering $\left(M\left(A\right) , M\left(\widetilde{A}\right) , G\left(\left.\widetilde A\right|A \right),\widetilde \pi \right)$ (cf. Exercise \ref{ind_mult_inv_exer}). Suppose that if Hausdorff blowing-up $C_0\left( \sY'\right) \hookto M\left( \widetilde A\right)$ is induced by noncommutative covering (cf. Definition \ref{blowing_ext_defn}), then $\sY'\cong  \sY$.  There is the natural $*$-homomorphism $C_0\left(\sY \right)\hookto M\left( \widetilde A\right)$ and we leave to the reader the proof of that it is Hausdorff blowing-up.
+	If  $q: \widetilde \sY \to \sY$ is a   transitive covering  with $q$-lift $A_b\left(q \right)  : A \hookto M\left( A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{blowing_lift_defn}). Then similarly to \ref{blowing_lift_empt} there is an $C^*$-Hilbert $\widetilde A$-module $\mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}$ which is a completion  which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} \widetilde A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm.
+\end{empt}
+\begin{lemma}\label{blowing_uc_lem}
+Under the hypotheses \ref{blowing_uc_empt} the covering $q: \widetilde{\sY}\to \sY$ is $\widetilde A$-{regular} (cf. Definition \ref{blowing_lift_constr_defn}).
+\end{lemma}
+\begin{proof}
+If a finite subset $\left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}\subset  \subset M\left( \widetilde A\right)_+$ satisfies to \eqref{fin_compp_eqn} then one has
+\be\label{blowing_fin_compp_eqn}
+ \widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n =  \widetilde{b}_1A+...+\widetilde{b}_n A.
+\ee
+One should prove that the  $C^*$-norm completion of the 	right $\widetilde{A}$-module
+\bean
+\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left(\widetilde A\right) \right)\in \End^*_{\widetilde A}\left( \mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}\right)
+\eean	
+(cf. equation \eqref{blowing_tensor_eqn}) is a $C^*$-subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}\right)$. If  $\widetilde{b} \in \left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}$, $~a\in A$ and $\widetilde f\in C_c\left(\widetilde\sY\right)$, $~\widetilde f\otimes \widetilde{b} a\in C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left(\widetilde A\right)$ then 
+\bean
+\varphi\left(\widetilde f\otimes a\widetilde{b}  \right) = 	\varphi_C\left( \widetilde f\right) \varphi_A\left(a\widetilde{b}  \right)\quad \Rightarrow \quad \varphi\left( a\widetilde{b} \otimes   \widetilde f\right)^* =\varphi_A\left(a\widetilde{b}  \right)^* \varphi_C\left( \widetilde f\right)^*=\\=\varphi_A\left(\widetilde{b}  a^*\right) \varphi_C\left( \widetilde f^*\right)\\
+= \sum_{j=1}^n \varphi_A \left(  \widetilde{b}_j a_j\right) \varphi_C\left( \widetilde f\right)^*
+\eean 
+where $\sum_{j=1}^n   \widetilde{b}_j a_j= \left(\widetilde{b} a \right)^*$ (cf. \eqref{blowing_fin_compp_eqn}). On the other hand since the covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} for any $\eps > 0$ there is $\sum_{k=1}^m \widetilde f'_k \otimes a'_k \in C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)$ such that
+\bean
+\left\|\varphi \left( \sum_{k=1}^m \widetilde f'_k \otimes a'_k\right) - \varphi_A \left(  a_j\right) \varphi_C\left( \widetilde f\right)^* \right\| < \frac{\eps}{\left\| \widetilde{b}_j\right\|},\\
+\left\|\varphi_A\left(\widetilde b_j \right) \varphi \left( \sum_{k=1}^m \widetilde f'_k \otimes a'_k\right) - \varphi_A \left( \widetilde b_j  a_j\right) \varphi_C\left( \widetilde f\right)^* \right\|< \eps
+\eean
+On 
+
+\end{proof}
+
+	\be\label{blowing_tensor_eqn!}
+\begin{split}
+	\varphi: C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
+	\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
+\end{split}
+\ee
+
+\paragraph{!!! END NEW}
 
 
 \subsection{Induced representations}
@@ -16171,35 +16224,42 @@ Our following constructions require an analog of the Dini's theorem.
 		\item[(b)] There is a 
 		unital  noncommutative finite-fold covering $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
 	\end{enumerate}
-	Any irreducible representation  $\widetilde{\rho} : \widetilde{A}\to B\left(\widetilde{\H} \right)$ can be uniquely extended up to $\widetilde{\rho} : \widetilde{B}\to B\left(\widetilde{\H} \right)$. From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde B$ such that 
+	Any irreducible representation  $\widetilde{\rho} : \widetilde{A}\to B\left(\widetilde{\H} \right)$ can be uniquely extended up to $\widetilde{\rho} : \widetilde{B}\to B\left(\widetilde{\H} \right)$. If $\widetilde \xi \in \widetilde{\H}$ then from the Theorem \ref{irred_thm} it follows that $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$. If $\H \bydef \widetilde \rho\left( B\right)\widetilde \xi$ then there is a representation $\rho : B \to B\left(\H\right)$ and taking into account the Proposition   \ref{spectrum_coverig_finite_prop} we conclude that the representation is irreducible. According to the
+	Definition \ref{fin_unital_defn} and the 	
+	 Remark \ref{fin_cov_kasp_rem} $\widetilde{B}$ is finitely generated projective module $B$-module, i.e. 
+	 $$
+	 \widetilde{B}\cong p_{\widetilde{B}} B^n
+	 $$
+	 where $p_{\widetilde{B}}: B^n \to B^n$ is a projector. So from $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$ and $ \H = \widetilde \rho\left( B \right) \widetilde \xi$ it follows that 
+	 $$
+\widetilde{\H}\cong p_{\widetilde{\H}} \H^n
+$$
+	 where $p_{\widetilde{\H}}: \H^n \to \H^n$ is a projector.
+There is a diagonal action $\rho': B \to B\left( \H^n\right)$ such that
+$$
+b \in B \quad \Rightarrow\quad \rho' \left( b\right) \bydef \begin{pmatrix}
+	\rho\left(b \right)  & 0 &\ldots & 0\\
+	0& \rho\left(b \right)   &\ldots&0 \\
+	\vdots& \vdots &\ddots&\vdots\\
+	0& 0 & \ldots &\rho\left(b \right) 
+\end{pmatrix}. 
+$$
+and 
+$\widetilde \rho \left( b\right) = p_{\widetilde{\H}}\rho'\left( b\right)p_{\widetilde{\H}}$. 
+If $a \in A$ then $\rho\left(a \right)$ is compact (cf. Definition \ref{ccr_defn}). So  both operators  $\rho'\left(a \right)$ and $\widetilde \rho \left( a\right) = p_{\widetilde{\H}}\rho'\left( a\right)p_{\widetilde{\H}}$ are compact, i.e.
+\bean
+\forall a \in A \quad \widetilde \rho \left( a\right) \in \K\left( \widetilde\H\right), 
+\eean
+	From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde B$ such that 
 	\be\label{ctr_i_comp_eqn}
 	\widetilde A = \widetilde b_1A + ... + \widetilde b_nA,
-	\ee hence from
-	$\widetilde{\rho}\left(A \right) \subset \K\left( \widetilde{\H}\right)$ it turns out that $\widetilde{\rho}\left( \widetilde A \right) \subset \K\left( \widetilde{\H}\right)$. If $\widetilde\xi \in \widetilde \H$ is not trivial then from the Theorem \ref{irred_thm} it turns out that
-	$
-	\widetilde \H= \widetilde{\rho}\left( \widetilde{A}\right) \widetilde{\xi}
-	$, and taking into account \eqref{fin_comp*_eqn} one has
-	\bean
-	\widetilde{A} =  A\widetilde{b}_1^*+...+A\widetilde{b}_n^*,
-	\\
-	\widetilde \H  =  \widetilde \H_1 + ... +  \widetilde \H_n \quad \text{ where } \quad \widetilde \H_j = A\widetilde{b}_j^*\widetilde\xi \quad j =1,....n.
-	\eean
-	From the Proposition \ref{spectrum_coverig_finite_prop}   the natural action $A \times \widetilde \H_j \to \widetilde \H_j $ is an irreducible representation 
-	$\rho_j: A \to B\left(\widetilde \H_j \right)$. Since  $A$ is a $CCR$-algebra one has $\rho_j \left(a \right) \in \K\left( \widetilde \H_j\right)$ for all $j = 1,...,n$ and $a \in A$, or equivalently
-	\be\label{ctr_a_comp_eqn}
-	\left.\widetilde{\rho}\left(a \right)\right|_{\widetilde \H_j} \in \K\left(\widetilde \H_j\right)
-	\ee
-	From \eqref{ctr_a_comp_eqn} and $\widetilde \H  =  \widetilde \H_1 + ... +  \widetilde \H_n$ it follows that
+	\ee 
+	hence one has
 	$$
-	\widetilde{\rho}\left(A\right)\subset \K\left(\widetilde \H\right),
-	$$ 
-	hence taking into account one concludes
-	\bean
-	\widetilde{\rho}\left(\widetilde A \right)= \widetilde{\rho}\left(\widetilde b_1\right) \widetilde{\rho}\left(A\right)  + ... + \widetilde{\rho}\left(\widetilde b_n\right) \widetilde{\rho}\left(A\right) =
-	\\
-	= \widetilde{\rho}\left(\widetilde b_1\right) \K\left(\widetilde \H\right)  + ... + \widetilde{\rho}\left(\widetilde b_n\right) \K\left(\widetilde \H\right) \subset  \K\left(\widetilde \H\right).
-	\eean
-	
+\widetilde \rho \left(	\widetilde A \right) = \widetilde \rho \left(\widetilde b_1\right) \widetilde \rho \left(\widetilde A\right) + ... +\widetilde \rho \left( \widetilde b_n\right) \widetilde \rho \left(A\right)	
+	$$
+and taking into account that 	
+	$\widetilde{\rho}\left(A \right) \subset \K\left( \widetilde{\H}\right)$ we conclude that $\widetilde{\rho}\left(\widetilde A \right) \subset \K\left( \widetilde{\H}\right)$.
 \end{proof}
 
 
@@ -16216,7 +16276,6 @@ Our following constructions require an analog of the Dini's theorem.
 \begin{proof}
 	This lemma follows from the Example \ref{blowing_hausdorff_exm} and the Theorem \ref{blowing_axiomatic_thm}.
 \end{proof}
-
 
 
 
@@ -16247,10 +16306,10 @@ This lemma is a specialization of the Theorem  \ref{blowing_functor_f_thm}.
 \subsubsection{Coverings of continuous trace  $C^*$-algebras}
 
 \begin{lemma}\label{ctr_pre_red_lem}
-Let $A$ be a  $C^*$-algebra  of type I (cf. Definition \ref{typeI_defn}), and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}). If $\widetilde{A}_{\mathrm{red}}$ is a reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) and  there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
+Let $A$ be a $CCR$-algebra (cf. Definition \ref{ccr_defn}), and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $\widetilde{A}_{\mathrm{red}}$ is a reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) and  there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
  $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right) \subsetneqq \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde \sU$ then the group
 $$
-\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}\in \widetilde{A} \quad g \widetilde{a}=\widetilde{a}\right\}
+\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
 $$
 is not finite.
 \end{lemma}
@@ -22192,11 +22251,11 @@ points of $\sX$ can be joined by a path in $\sX$.
 	union is  $\sX$, such that each nonempty connected subspace of  $\sX$ intersects only one of
 	them.
 \end{theorem}
-	\begin{definition}\label{top_loc_conn_defn}\cite{munkres:topology}.
-	A space $\mathcal X$ is said to be \textit{locally connected !!! \ref{top_consents_defn} !!!  !!! \ref{top_consents_defn} !!!at} $x$ if for every neighborhood $\mathcal U$ of $x$ there is a connected neighborhood $\mathcal V$ of $x$  contained in $\mathcal U$. If $\mathcal X$ is locally connected !!! \ref{top_consents_defn} !!!  !!! \ref{top_consents_defn} !!!at each of its points, it is said simply to be \textit{locally connected !!! \ref{top_consents_defn} !!!}.
+	\begin{definition}\label{top_locally_connected_defn}\cite{munkres:topology}.
+	A space $\mathcal X$ is said to be \textit{locally connected at} $x$ if for every neighborhood $\mathcal U$ of $x$ there is a connected neighborhood $\mathcal V$ of $x$  contained in $\mathcal U$. If $\mathcal X$ is locally connected at each of its points, it is said simply to be \textit{locally connected}.
 \end{definition}
 \begin{theorem}\label{top_loc_conn_thm}\cite{munkres:topology}
-	A space $\mathcal X$ is locally connected !!! \ref{top_consents_defn} !!!  !!! \ref{top_consents_defn} !!!if and only if for every open set $\mathcal U$, each component of $\mathcal U$ is open in $\mathcal X$.
+	A space $\mathcal X$ is locally connected if and only if for every open set $\mathcal U$, each component of $\mathcal U$ is open in $\mathcal X$.
 \end{theorem}
 \begin{proposition}\label{top_quasi_component_prop}\cite{bredon:topology_geometry}
 %	4.11. 	Proposition. 
@@ -22217,7 +22276,7 @@ and fill out $\sX$.
 \end{proposition}
 
 \begin{exercise}\label{top_loc_conn_exer}\cite{bredon:topology_geometry}
-Prove that If $\sX$ is locally connected !!! \ref{top_consents_defn} !!!, show that its components are open and equal its
+Prove that If $\sX$ is locally connected, show that its components are open and equal its
 quasi-components.
 \end{exercise}
 
