@@ -550,7 +550,7 @@
 	\newcommand{\Hsquare}{%
 		\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
 	}
-	
+
 	\title{Noncommutative Geometry of Quantized Coverings}
 	
 	\author
@@ -12048,8 +12048,8 @@ AC_c\left( \sY\right) \bydef \left\{af| f \in C_c\left( \sY\right)\quad a \in A 
 \end{split}
 \ee
 are dense in $A$.
-\end{definition}\label{blowing_rem}
-\begin{remark}
+\end{definition}
+\begin{remark}\label{blowing_rem}
 $C_c\left( \sY\right)A$ is dense in $A$ if and only if $AC_c\left( \sY\right)$ is dense in $A$ (cf. equations \eqref{blowing_eqn}).
 \end{remark}
 \begin{example}\label{blowing_hausdorff_exm}	If $A$ is a  given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$, which is Hausdorff blowing-up.
@@ -12611,6 +12611,7 @@ if 	right $A$-module
 	(cf. equation \eqref{blowing_tensor_eqn}) is a $*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$
 	then  we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\textit{regular}.  
 \end{definition}
+
 \begin{lemma}\label{blowing_lift_eq_lem}
 The covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} if and only if for any $\widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ there is $\widetilde f \in C_c\left(\widetilde\sY\right)$ such that
 \be\label{blowing_lift_eq_eqn}
@@ -12625,7 +12626,7 @@ If $\widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\l
 \eean
 The finite union $\widetilde \sV \bydef \bigcup_{j = 1}^n \supp \widetilde f_j$ is compact. If $\widetilde f\in C_c\left(\widetilde\sY \right) $ is a covering sum for $\widetilde \sV$ then $\widetilde a = \widetilde a \varphi_C\left(f \right)$.
 
-Suppose that the condition \ref{blowing_lift_eq_empt} holds and let $\widetilde a = \varphi\left(\widetilde f \otimes a \right) \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$. Then there if $\widetilde f'\in  C_c\left( \widetilde \sY \right)$ such that
+Suppose that the condition \ref{blowing_lift_eq_eqn} holds and let $\widetilde a = \varphi\left(\widetilde f \otimes a \right) \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$. Then there if $\widetilde f'\in  C_c\left( \widetilde \sY \right)$ such that
  $$
  \widetilde a = \widetilde a \varphi_C\left(\widetilde f' \right)= \varphi_C\left(\widetilde f \right)\varphi_A\left( a\right) \varphi_C\left(\widetilde f' \right)
  $$
@@ -12644,7 +12645,7 @@ Suppose that the condition \ref{blowing_lift_eq_empt} holds and let $\widetilde 
 where $\lift^q_{\widetilde \sU}$ is a $q$-$\widetilde \sU$-lift (cf. Definition \ref{top_lift_desc_defn}). From \eqref{blowing_lift_eqp_eqn} one can deduce that any element of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ can be represented by following finite sum
 \be\label{blowing_tajk_eqn}
 \begin{split}
- \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a \in K\left( A\right), \\ 
+ \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a_{jk} \in K\left( A\right), \\ 
  \exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
  \end{split}
 \ee
@@ -12672,6 +12673,108 @@ a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \varphi' \left( \widetilde f_\a\ot
 \ee
 is a $q$-\textit{lift} of $A$.
 \end{definition}
+\begin{lemma}
+Under the hypotheses of the Definition \ref{blowing_lift_constr_defn} one has:
+\begin{enumerate}
+	\item [(i)] the natural inclusion $C_0\left(\widetilde \sY\right) \to M\left(A_0\left(\widetilde\sY\right)\right)$ is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}),
+	\item[(ii)] if 
+	\be\label{blowing_com_eqn}
+	A_c\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
+	\ee
+	then there is a natural inclusion
+	$ K\left( A_0\left(\widetilde\sY \right)\right)  \subset A_c\left(\widetilde\sY \right)
+	$ of $*$-algebras.
+	\item[(iii)]
+\be\label{blowing_tajkc_eqn}
+\begin{split}
+\forall\widetilde a \in A_c\left(\widetilde\sY \right)\quad \widetilde a=	\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a_{jk} \in K\left( A\right), \\ 
+	\exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
+\end{split}
+\ee
+where the notation of 	\ref{blowing_cov_empt} is implied,
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) From \ref{blowing_lift_constr_empt} it follows that $A_0\left(\widetilde \sY\right)$ is the $C^*$-norm completion of 
+$$
+\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right) \
+$$ so the set 
+$
+	C_c\left(\widetilde \sY\right)A \bydef \left\{\left.\widetilde fa\right| \widetilde f \in C_c\left( \widetilde \sY\right)\quad a \in A \right\}
+$ (cf. \eqref{blowing_eqn}) is dense in $A_0\left(\widetilde\sY\right)$. From the Remark \ref{blowing_rem} it turns out that the set 
+$
+AC_c\left(\widetilde \sY\right) \bydef \left\{\left.a\widetilde f\right| \widetilde f \in C_c\left( \widetilde \sY\right)\quad a \in A \right\},\\
+$ is dense in $A_0\left(\widetilde\sY\right)$.\\
+(ii) Follows from (i) and the Lemma \ref{blowing_pedersen_compact_lem}.\\
+(iii) Can be proven similarly to the equation \eqref{blowing_tajk_eqn}.
+\end{proof}
+\begin{definition}\label{blowing_compactly_supported_descent_defn}
+A given by \eqref{blowing_tajkc_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{lift} of $A$.  An $A$-module homomorphism 
+\be
+\begin{split}
+\desc^c_q : A_c\left(\widetilde\sY \right)\to A,\\
+\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\mapsto \sum_{\substack{j=1\\ k = 1}}^n \desc^c_q\left(\widetilde f'_j \right) a_{jk}\desc^c_q\left(\widetilde f''_k \right)
+\end{split} 
+\ee
+where $\desc^c_q\left(\widetilde f'_j \right)$ and $\desc^c_q\left(\widetilde f''_k \right)$ are given by the Definition \eqref{top_compactly_supported_descent_defn} is said to be \textit{compactly supported descent}.
+\end{definition}
+
+\begin{exercise}\label{blowing_hausdorff_exer}
+	Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_0\left( \sX\right)\subset M\left(A \right)$ be Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). Let $p: \widetilde{\sX}\to \sX$ be a transitive covering with residually finite group $G\left(\left.\widetilde \sX\right|\sX \right)$ of covering transformations. Prove following statements.
+	\begin{enumerate}
+		\item There is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}).
+		\item The $C^*$-algebra    $A_0\left( \widetilde \sX\right)$ given by the Definition \ref{top_cs_functa_b_defn} is a specialization of   given by the Definition \ref{blowing_lift_defn} one.
+		\item The Definition \ref{top_compactly_supported_descent_defn} is a specialization of the  \ref{blowing_compactly_supported_descent_defn}.
+	\end{enumerate}
+\end{exercise}
+\begin{lemma}
+Under the hypotheses of the Definition \ref{blowing_compactly_supported_descent_defn} one has
+\be
+\forall \widetilde a\in  A_c\left(\widetilde\sY \right)\quad \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = \desc^c_q\left(\widetilde a \right) 
+\ee
+where the sum of the series implies the strict topology of $M\left( A_c\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}).
+\end{lemma}
+\begin{proof}
+Suppose that $\widetilde a$ is positive and $a \bydef \desc^c_q\left(\widetilde a \right)$.  If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then for all $\eps> 0$  there is $\widetilde b' \in A_c\left(\widetilde\sY \right)$ such that
+$$
+\left\|\widetilde b - \widetilde b' \right\| < \frac{\eps}{\left\|a\right\|}.
+$$
+Both sets $\supp \widetilde a$ and $\supp \widetilde b'$ are compact so the set 
+$$
+G_0 \bydef \left\{\left. g \in G\left(\left.\widetilde \sY\right|\sY \right)  \right|g\widetilde a\cap \widetilde b'\neq\emptyset\right\}
+$$
+is finite.
+From 
+$$
+\sum_{g \in G_0}\left( g \widetilde a \right) \widetilde b' = a \widetilde b'
+$$
+and $\left\|\widetilde b - \widetilde b' \right\|< \eps/\left\|a\right\|$ it follows that for any $G_0 \subset G \subset  G\left(\left.\widetilde \sY\right|\sY \right)$
+$$
+\left\|\sum_{g \in G}\left( g \widetilde a \right) \widetilde b = a \widetilde b \right\| < \eps.
+$$
+Similarly one can find a finite set $G'_0$ such that that for any $G'_0 \subset G' \subset  G\left(\left.\widetilde \sY\right|\sY \right)$
+$$
+\left\|\sum_{g \in G'}\widetilde b\left( g \widetilde a \right)  =  \widetilde b a\right\| < \eps.
+$$
+\end{proof}
+\begin{exercise}
+	Under the hypotheses of the Definition \ref{blowing_lift_defn} prove following statements:
+	\begin{enumerate}
+		\item  The $q$-lift $A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right)$ (cf. \eqref{blowing_lift_eqn}) of $A$  can be uniquely extended up to an injective $*$-homomorphism
+			\be\label{blowing_lift_m_eqn}
+			M\left( A_b\left(q \right)\right)  : M\left( A\right)  \hookto M\left( A_0\left(\widetilde\sY\right)\right).
+			\ee 
+		\item There is the natural isomorphism of groups
+		\be
+		\begin{split}
+		 G\left(\left.\widetilde \sY\right|\sY \right) \cong\\ \cong \left\{\left.g \in \Aut\left(M\left( A_0\left(\widetilde\sY\right)\right) \right)\right| \forall \widetilde{a} \in  	M\left( A_b\left(q \right)\right)\left( A\right)\quad g \widetilde a = \widetilde a  \right\}
+		\end{split}
+		\ee
+				
+	\end{enumerate}
+\end{exercise}
+
+\paragraph{!!!!}
 \begin{definition}\label{blowing_lift_defn!!!} !!!!
 	Let  $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
@@ -12715,13 +12818,6 @@ A_b\left(q\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sY\right)\
 \ee
 is a $q$-\textit{lift} of $A$. 	
 \end{definition}
-\begin{exercise}\label{blowing_hausdorff_exer}
-Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_0\left( \sX\right)\subset M\left(A \right)$ be Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). Let $p: \widetilde{\sX}\to \sX$ be a transitive covering with residually finite group $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations. Prove following statements.
-\begin{enumerate}
-	\item There is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}).
-	\item The $C^*$-algebra    $A_0\left( \widetilde \sX\right)$ given by the Definition \ref{top_cs_functa_b_defn} is a specialization of   given by the Definition \ref{blowing_lift_defn} one.
-\end{enumerate}
-\end{exercise}
 \begin{lemma}\label{blowing_uv_iso_lem}
 	If both $\widetilde \sV \subset \widetilde \sY$  and $\widetilde \sU \subset \widetilde \sY$ open sets homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ and $\sU \bydef q\left( \widetilde \sU \right)$ then there is an isometric map
 \be\label{blowing_uv_iso_eqn}
@@ -12915,12 +13011,7 @@ $$
 Since the ideal $K\left( A\right)$ is dense in $A$ this algebra is generated by given by (ii) elements
 \end{proof}
 
-\begin{definition}\label{blowing_compactly_supported_descent_defn}
-We say that the given by \eqref{blowing_comp_series_eqn} sum \textit{compactly supported} $q$-\textit{descent} od $\widetilde a$. We denote it by $\desc^c_q\left( \widetilde a\right)$.
-\end{definition}
-\begin{remark}
-The Definition \ref{blowing_compactly_supported_descent_defn} is a generalization of \ref{top_compactly_supported_descent_defn} one.
-\end{remark}
+
 \begin{corollary}\label{blowing_fin_cor}
 	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
 	\bean
@@ -13302,7 +13393,7 @@ Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqre
 
 \begin{empt}\label{blowing_ext_empt}
 	!!!! $A \to $
-	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
+	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sY$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
 	$$
 	\widetilde{C}_{\widetilde{x}}\bydef \left\{c = \rep_{  \widetilde{x }}\left( a\right)\left|  a \in C_0\left(\sY \right)\right. \right\}\subset \rep_{  \widetilde{x }}\left(M\left( \widetilde A\right) \right)  
 	$$
