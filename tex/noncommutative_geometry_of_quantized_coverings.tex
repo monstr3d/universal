@@ -12535,20 +12535,153 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 	Under the hypotheses of the Definition \ref{blowing_spectral_defn} there is a partially defined surjective map from $\sY$ to the spectrum of $A$.
 	So the Definition \ref{blowing_spectral_defn}  yields a motivation of the 	"{Hausdorff blowing-up}" word. If {Hausdorff blowing-up} is spectral then there is a partially defined surjective map from a Hausdorff space  $\sY$ to a possibly non Hausdorff spectrum $\sX$. Similarly in the algebraic geometry the "blowing-up" means a morphism form a nonsingular variety to a singular one (cf. \cite{hartshorne:ag}).
 \end{remark}
+\begin{lemma}\label{blowing_ajk_defn}
+	Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$. If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ then any element $a \in K\left(A \right)$ of the Pedersen's ideal of $A$ is given by
+\be\label{blowing_ajk_eqn}
+a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \exists \a \in \mathscr A\quad \supp f_j \subset \sU_\a
+\ee
+\end{lemma}
+\begin{proof}
+From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_supp_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
+$$
+a = faf = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
+$$
+\end{proof}
+
+
 \section{Hausdorff blowing-up and noncommutative  coverings}
 \subsection{Lift and descent}
 \paragraph{}
 Here we suppose that we have Hausdorff blowing-us and investigate conditions when they enable us to construct noncommutative coverings.
+\begin{empt}\label{blowing_lift_empt}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that a covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\sY \right)$-valued product
+	\bean
+	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
+	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
+	\eean
+	where $\desc^c_q$ is  a {compactly supported} $q$-{descent} \ref{top_compactly_supported_descent_defn}, So $ C_c \left(\widetilde \sY\right)$ is a pre-Hilbert $C_0\left(\sY \right)$-module (cf. Definition \ref{hilbert_module_defn}). If $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)$ is a completion of $C_c \left(\widetilde \sY \right)$ with respect to given by \eqref{hilbert_module_norm_eqn} norm then $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)$ is a $C^*$-Hilbert $C_0\left(\sY \right)$-module. If $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ is an algebraic tensor product then there is an $A$-valued product.
+	\bean
+	\left\langle\cdot, \cdot  \right\rangle: \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right)\times \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right) \to A,\\
+	\left(\left(\widetilde f \otimes a \right) , \left(\widetilde g  \otimes b \right)  \right) \mapsto a^*\left\langle\widetilde f, \widetilde g \right\rangle_{C_0\left(\sY \right)} b.
+	\eean
+	so $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ becomes a pre-Hilbert $A$-module. We denote by $\mathscr L^2\left(\widetilde \sY \right) _A$ the $C^*$-Hilbert $A$-module which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm. There are both a left action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of $C^*$-algebras
+	\bea\label{blowing_a_h_eqn}
+	\varphi_A : A \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right), \\
+	\label{blowing_c_h_eqn}
+	\varphi_C : C_0 \left(\widetilde \sY \right) \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\eea
+	where $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable  endomorphisms of  the $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$ (cf. Definition \ref{adjointable_operator_defn}).
+	There is a homomorphism 
+	\be\label{blowing_tensor_eqn}
+	\begin{split}
+		\varphi: C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
+		\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
+	\end{split}
+	\ee
+	of right  $A$-modules, where 	$\varphi_A, ~	\varphi_C$ are given by  \eqref{blowing_a_h_eqn}, \eqref{blowing_c_h_eqn} and the algebraic tensor product is implied. Since $K\left(A \right)$ is dense in $A$ the $*$-homomorphism can be uniquely extended up to a map
+	\be\label{blowing_tensoar_eqn}
+	\begin{split}
+		\varphi': C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\end{split}
+	\ee
+	such that the $C^*$ closure of $\varphi\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ coincides with\\  	$\varphi'\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A\right) $ one.
+\end{empt}
+
+\begin{empt}\label{blowing_cov_empt}
+	Under the hypotheses of the Definition \ref{blowing_lift_constr_defn} 
+	let $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ be a family of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are:
+	\begin{itemize}
+		\item  the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
+		\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
+		\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \sY$ such that  $\widetilde \sY = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
+	\end{itemize}
+	the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$. 
+\end{empt}
+
+
+\begin{definition}\label{blowing_lift_hm_defn}
+	Under the hypotheses \ref{blowing_lift_empt} and \ref{blowing_cov_empt} we say that the $C^*$-Hilbert $A$-module  $\mathscr L^2\left(\widetilde \sY \right)_A$ is the $\widetilde \sY$-$A$-\textit{module}.
+\end{definition}
+\begin{definition}\label{blowing_lift_constr_defn}
+	Under the hypotheses  \ref{blowing_lift_empt}
+if 	right $A$-module
+	\be\label{blowing_prods_eqn}
+	\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\ee	
+	(cf. equation \eqref{blowing_tensor_eqn}) is a $*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$
+	then  we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\textit{regular}.  
+\end{definition}
+\begin{lemma}\label{blowing_lift_eq_lem}
+The covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} if and only if for any $\widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ there is $\widetilde f \in C_c\left(\widetilde\sY\right)$ such that
+\be\label{blowing_lift_eq_eqn}
+\forall \widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right) \quad \exists  \widetilde f \in C_c\left(\widetilde\sY\right) \quad  \widetilde a = \widetilde a \varphi_C\left(\widetilde f \right). 
+\ee 
+\end{lemma}
+\begin{proof}
+If $\widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ then under the hypotheses of the Definition \ref{blowing_lift_constr_defn} one has $\widetilde a^* \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ and
+\bean
+\widetilde a^* = \varphi\left(\sum_{j = 1}^n \widetilde f_j \otimes a_j \right),\\
+\widetilde a = \sum_{j = 1}^n \varphi_A \left(a^*_j\right)\varphi_C\left(\widetilde f_j^* \right)   
+\eean
+The finite union $\widetilde \sV \bydef \bigcup_{j = 1}^n \supp \widetilde f_j$ is compact. If $\widetilde f\in C_c\left(\widetilde\sY \right) $ is a covering sum for $\widetilde \sV$ then $\widetilde a = \widetilde a \varphi_C\left(f \right)$.
+
+Suppose that the condition \ref{blowing_lift_eq_empt} holds and let $\widetilde a = \varphi\left(\widetilde f \otimes a \right) \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$. Then there if $\widetilde f'\in  C_c\left( \widetilde \sY \right)$ such that
+ $$
+ \widetilde a = \widetilde a \varphi_C\left(\widetilde f' \right)= \varphi_C\left(\widetilde f \right)\varphi_A\left( a\right) \varphi_C\left(\widetilde f' \right)
+ $$
+ If $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ is an explained in \ref{blowing_cov_empt} family then from the Lemma \ref{blowing_ajk_defn} it follows that 
+ \bean
+ a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \exists \a \in \mathscr A\quad \supp f_j \subset \sU_\a
+ \eean
+ Select $j \in \left\{1,..., n\right\}$ and  $\a_j\in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. Under the hypotheses of \ref{blowing_cov_empt} select $\widetilde \a_j\in\widetilde{\mathscr A}$ such that $p\left(\widetilde\a_j \right) = \a_j$. The set
+ $$
+ G_j \bydef \left\{\left.g \in G\left(\left.\widetilde \sY\right|\sY \right)\right| g \widetilde \sU_{\widetilde a_j} \cap \left( \supp \widetilde f\cup \supp  \widetilde f'   \right)\neq \emptyset  \right\}
+. $$
+ is finite since the union $\supp \widetilde f\cup \supp  \widetilde f'$ is compact. From our construction it follows that
+\be\label{blowing_lift_eqp_eqn}
+ \widetilde a = \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\sum_{g' \in G_j} \lift^q_{g' \widetilde \sU_{\widetilde a_j} }\left(f_j \right) \widetilde f \right) a \varphi_C\left(\sum_{g'' \in G_k} \lift^q_{g'' \widetilde \sU_{\widetilde a_k} }\left(f_k \right)\widetilde f'\right) 
+\ee
+where $\lift^q_{\widetilde \sU}$ is a $q$-$\widetilde \sU$-lift (cf. Definition \ref{top_lift_desc_defn}). From \eqref{blowing_lift_eqp_eqn} one can deduce that any element of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ can be represented by following finite sum
+\be\label{blowing_tajk_eqn}
+\begin{split}
+ \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a \in K\left( A\right), \\ 
+ \exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
+ \end{split}
+\ee
+Now one should prove that the given by \eqref{blowing_tajk_eqn} set is a $*$-algebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$. From
+\bean
+\left( \varphi_C\left(\widetilde f' \right) \varphi_A\left(a\right)\varphi_C\left(\widetilde f'' \right)\right) \left( \varphi_C\left(\widetilde g' \right) \varphi_A\left(b\right)\varphi_C\left(\widetilde g'' \right)\right)=\\=
+\varphi_C\left(\widetilde f' \right)\phi_A\left(a \desc_q\left(\widetilde f'' \widetilde g' \right)  \right) \varphi_C\left(\widetilde g' \right)
+\eean 
+where $\desc_q$ is given by the Definition \ref{top_lift_desc_defn} it turns out that the set \eqref{blowing_tajk_eqn} is closed under multiplication. From
+$$
+\left( \varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\right)^*= \varphi_C\left(\widetilde f''^*_k \right) \varphi_A\left(a^*_{jk}\right)\varphi_C\left(\widetilde f'^*_j \right) 
+$$
+it follows that the set \eqref{blowing_tajk_eqn} is closed under the involution.
+\end{proof}
+\begin{empt}\label{blowing_lift_constr_empt}
+Under the hypotheses of the Definition \ref{blowing_lift_constr_defn} if  $A_0\left(\widetilde\sY\right)$ the $C^*$-norm completion of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ then $A_0\left(\widetilde\sY\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$. If $a \in A$, the map $\varphi'$ is given by \eqref{blowing_tensoar_eqn} and $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset C_c\left(\widetilde \sY \right)$ is an approximate unit of $C_c\left(\widetilde \sY \right)$ then the net $\left\{\varphi' \left( \widetilde f_\a\otimes a\right) \right\}_{\a \in \mathscr A}\subset C_c\left(\widetilde \sY \right)$ is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY\right)\right)$ 
+\end{empt}
 \begin{definition}\label{blowing_lift_defn}
+Under the hypotheses \ref{blowing_lift_constr_empt} we say that a map
+\be
+\begin{split}
+A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right),\\
+a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \varphi' \left( \widetilde f_\a\otimes a\right) 
+\end{split}
+\ee
+is a $q$-\textit{lift} of $A$.
+\end{definition}
+\begin{definition}\label{blowing_lift_defn!!!} !!!!
 	Let  $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
 		\item[(a)]
 		The homomorphism $\pi$ satisfies to conditions of the Lemma  \ref{lift_mult_lem}, i.e. if $\left\{u_\a\right\}_{\a \in \mathscr A}$ is an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}) then
-\be\label{blowing_lift_mult_norm_eqn}
+\be\label{blowing_lift_mult_norm_eqn!} !!! CHANGE !!! !!! CHANGE !!!
 \forall \widetilde a \in \widetilde A \quad \lim_{\a \in \mathscr A}\left\| \widetilde a - \pi\left( u_\a\right)  \widetilde a \right\| = \lim_{\a \in \mathscr A}\left\| \widetilde a -  \widetilde a \pi\left( u_\a\right)\right\| = 0
 \ee		
 From the Lemma \ref{lift_mult_lem}	one has an injective *-homomorphism 
-		\be\label{blowing_axiomatic_au_eqn}
+		\be\label{blowing_axiomatic_au_eqn} !!! CHANGE !!!
 		\begin{split}
 			M\left(\pi \right) : M\left( A\right)  \hookto M\left( \widetilde A\right),\\
 			a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \pi\left( u_\a a \right) =\bt\text{-}\lim_{\a \in \mathscr A} \pi\left( au_\a  \right)
@@ -12564,7 +12697,7 @@ From the Lemma \ref{lift_mult_lem}	one has an injective *-homomorphism
 		\item[(d)] There is a transitive covering $q:  \widetilde \sY \to \sY$ with $G\left(\left.\widetilde \sY\right|\sY \right)\cong G$ such that the natural $*$-homomorphism $C_b\left(q \right): C_0\left(\sY\right) \hookto C_b\left( \widetilde \sY\right)$ comes from $q$,
 		\item[(e)] If $\widetilde \sU \subset \widetilde \sY$ which is homeomorphically  mapped onto $\sU \bydef q\left( \widetilde \sU \right) \subset \sY$ then we suppose that there is a normed isomorphism
 		of left $A$-$C_0\left(\sU \right)$ bimodules  given by
-		\be\label{blowing_axiomatic_eqn}
+		\be\label{blowing_axiomatic_eqn} !!! CHANGE !!!
 		\begin{split}
 			\pi_{\widetilde{\sU}} : ~ A_\sU \xrightarrow{\cong} \widetilde A_{\widetilde \sU}\\
 			\forall	a \in A_\sU \quad \forall f \in C_0\left( \sU\right) \quad \pi_{\widetilde \sU}\left( af\right)= \pi\left( a\right)\lift^q_{\widetilde{\sU}} \left(f \right) .
@@ -12573,11 +12706,11 @@ From the Lemma \ref{lift_mult_lem}	one has an injective *-homomorphism
 		where $\lift^q_{\widetilde{\sU}} \left(f \right)$ is the $q$-$\widetilde{\sU}$-lift (cf, Definition \ref{top_lift_desc_defn}).
 	\end{enumerate}
 Then we denote 
-\be\label{blowing_lift_ay_eqn}
+\be\label{blowing_lift_ay_eqn!!!} !!! CHANGE !!!
 A_0\left( \widetilde \sY\right)\bydef \widetilde A.
 \ee	
 We say that an injective *-homomorphism
-\be	\label{blowing_lift_eqn}
+\be	\label{blowing_lift_eqn} !!! CHANGE !!!
 A_b\left(q\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right) = M\left( \widetilde A \right)  
 \ee
 is a $q$-\textit{lift} of $A$. 	
@@ -12597,7 +12730,7 @@ Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_
 which is an isomorphism of both $C_0\left(\sV \right)$- $C_0\left(\sU \right)$-bimodules and $~_{ \sV}  A_{ \sV}$-$_{ \sU}  A_{ \sU}$-bimodules.
 \end{lemma}
 \begin{proof}
-	From \ref{blowing_axiomatic_eqn} it follows that $\widetilde \sV \subset \widetilde \sY$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ than there is a normed isomorphism
+	From \ref{blowing_axiomatic_eqn} !!! CHANGE !!! it follows that $\widetilde \sV \subset \widetilde \sY$  homeomorphically  mapped onto $\sV \bydef q\left( \widetilde \sV \right)$ than there is a normed isomorphism
 	of right $A$-modules given by
 	\be\label{blowing_axiomatic_r_eqn}
 	\begin{split}
@@ -12811,54 +12944,7 @@ a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}
 	\ee
 	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
 \end{definition}
-
-\begin{empt}\label{blowing_lift_empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If $q: \widetilde \sY\to \sY$ be a transitive covering such that a covering transformation group $G\left(\left.\widetilde \sY\right| \sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then there is $C_0\left(\sY \right)$-valued product
-	\bean
-	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
-	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
-	\eean
-	where $\desc^c_q$ is  a {compactly supported} $q$-{descent} \ref{top_compactly_supported_descent_defn}, So $ C_c \left(\widetilde \sY\right)$ is a pre-Hilbert $C_0\left(\sY \right)$-module (cf. Definition \ref{hilbert_module_defn}). If $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)$ is a completion of $C_c \left(\widetilde \sY \right)$ with respect to given by \eqref{hilbert_module_norm_eqn} norm then $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)$ is a $C^*$-Hilbert $C_0\left(\sY \right)$-module. If $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ is an algebraic tensor product then there is an $A$-valued product.
-	\bean
-	\left\langle\cdot, \cdot  \right\rangle: \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right)\times \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right) \to A,\\
-	\left(\left(\widetilde f \otimes a \right) , \left(\widetilde g  \otimes b \right)  \right) \mapsto a^*\left\langle\widetilde f, \widetilde g \right\rangle_{C_0\left(\sY \right)} b.
-	\eean
-	so $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ becomes a pre-Hilbert $A$-module. We denote by $\mathscr L^2\left(\widetilde \sY \right) _A$ the $C^*$-Hilbert $A$-module which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm. There are both a left action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of $C^*$-algebras
-	\bea\label{blowing_a_h_eqn}
-	\varphi_A : A \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right), \\
-	\label{blowing_c_h_eqn}
-	\varphi_C : C_0 \left(\widetilde \sY \right) \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
-	\eea
-	where $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable  endomorphisms of  the $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$ (cf. Definition \ref{adjointable_operator_defn}).
-	There is a homomorphism 
-	\be\label{blowing_tensor_eqn}
-	\begin{split}
-	\varphi: C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
-\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
-	\end{split}
-	\ee
-	of right  $A$-modules, where 	$\varphi_A, ~	\varphi_C$ are given by  \eqref{blowing_a_h_eqn}, \eqref{blowing_c_h_eqn} and the algebraic tensor product is implied. Since $K\left(A \right)$ is dense in $A$ the $*$-homomorphism can be uniquely extended up to a map
-	\be\label{blowing_tensoar_eqn}
-\begin{split}
-	\varphi': C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
-\end{split}
-\ee
-such that the $C^*$ closure of $\varphi\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ coincides with\\  	$\varphi'\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A\right) $ one.
-\end{empt}
-\begin{definition}\label{blowing_lift_hm_defn}
-Under the hypotheses \ref{blowing_lift_empt} we say that the $C^*$-Hilbert $A$-module  $\mathscr L^2\left(\widetilde \sY \right)_A$ is the $\widetilde \sY$-$A$-\textit{module}.
-\end{definition}
-\begin{definition}\label{blowing_lift_constr_defn}
-	Under the hypotheses  \ref{blowing_lift_empt}
-let   $A'_0\left( \widetilde \sY\right) \subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ be a $C^*$-norm completion of the 	right $A$-module
-	\be\label{blowing_prods_eqn}
-	\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\in \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
-	\ee	
-(cf. equation \eqref{blowing_tensor_eqn}). If $A'_0\left( \widetilde \sY\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$
-then  we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\textit{regular}. 
-	
-\end{definition}
-
+\paragraph{!!!}
 \begin{remark}\label{blowing_tensor_r_rem}
 Under the hypotheses of the Definition \ref{blowing_lift_constr_defn} the $C^*$-algebra $A'_0\left( \widetilde \sY\right)$ is a completion of the algebraic tensor product $C_0 \left(\widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ with respect to the norm
 $$
@@ -12939,7 +13025,7 @@ A set of given by \eqref{blowing_fin_sum_defn} elements is dense in $A'_0\left( 
 \be\label{blowing_u_r_eqn}
 \forall \widetilde a \in A'_0\left( \widetilde \sY\right)\quad \lim_{\a \in \mathscr A}\left\|\widetilde a-u_\a \widetilde a  \right\|=0.
 \ee
-So the $*$-homomorphism $A'_b\left(q \right):A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the equations \eqref{blowing_axiomatic_au_eqn} and from the Lemma \ref{lift_mult_lem} one has in injective $*$-homomorphism
+So the $*$-homomorphism $A'_b\left(q \right):A \hookto	M\left( A'_0\left( \widetilde \sY\right)\right)$ satisfies to the equations \eqref{blowing_axiomatic_au_eqn} !!! CHANGE !!! and from the Lemma \ref{lift_mult_lem} one has in injective $*$-homomorphism
 \be\label{blowing_axiomatic_lau_eqn}
 \begin{split}
 M\left( A'_b\left(q\right)\right)  : M\left(  A \right) \hookto	M\left( A'_0\left( \widetilde \sY\right)\right),\\
@@ -13026,7 +13112,7 @@ where $a = \sum_{j=1}^n a_j \desc_q\left(\widetilde f_j \right)\in A$ and $\desc
 $$
 \forall \widetilde a \in A'_0\left( \widetilde \sY\right)_{\widetilde \sU} \quad \exists a \in A_\sU  \quad \widetilde a =\lim_{\a \in \mathscr A}\varphi_A\left(a\right)\varphi_C\left(\widetilde u_\a\right).
 $$
-From the above equation we can obtain the \eqref{blowing_axiomatic_eqn} one,
+From the above equation we can obtain the \eqref{blowing_axiomatic_eqn} !!! CHANGE !!! one,
 \end{enumerate}	
 	(ii) Having the $q$-lift  $A_b\left(q \right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ one can construct a  $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right) _A$ explained in \ref{blowing_lift_empt}
 	There are both a left action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of algebras
@@ -13044,7 +13130,7 @@ From the above equation we can obtain the \eqref{blowing_axiomatic_eqn} one,
 \widetilde a \in K\left(A_0\left( \widetilde \sY\right) \right)\quad \Rightarrow\quad	\widetilde a =  \sum_{j=1}^n \varphi_C\left( \widetilde f\right) \varphi_A\left(\pi^{-1}_{ \widetilde \sU_j}\left(\widetilde a \widetilde f_j  \right)  \right)\quad \Rightarrow\\ \Rightarrow\quad \exists a \in A \quad \exists \widetilde\in C_c\left(\widetilde\sY \right)\quad  \widetilde a= \varphi_C\left( \widetilde f\right)\varphi_A\left(a \right) 
 \end{split}
 \ee
-	where $\pi_{ \widetilde \sU_j}$ is given by \eqref{blowing_axiomatic_eqn}. It means that $\widetilde a$ lies in left $A$-module  generated by elements \ref{blowing_prods_eqn}. An elementary proof of that any given by \eqref{blowing_prods_eqn} element
+	where $\pi_{ \widetilde \sU_j}$ is given by \eqref{blowing_axiomatic_eqn} !!! CHANGE !!!. It means that $\widetilde a$ lies in left $A$-module  generated by elements \ref{blowing_prods_eqn}. An elementary proof of that any given by \eqref{blowing_prods_eqn} element
 		\bean
 	\varphi_C\left( \widetilde f\right) \varphi_A\left(a \right)\in \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),  	\quad \widetilde f\in C_c \left(\widetilde \sY \right), \quad a \in A
 	\eean
@@ -13258,6 +13344,7 @@ Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqre
 	\ee
 	is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
 \end{theorem}
+
 \begin{proof}
 	The quadruple \eqref{blowing_pre_eqn} a noncommutative finite-fold pre-covering  (cf. Definition \ref{fin_pre_defn} and the Remark \ref{blowing_pre_rem}). There is a given by the equation \eqref{mult_map_eqn} injective $*$-homomorphism $M\left(\pi\right): M\left(A \right) \hookto M\left( A_0\left( \widetilde \sY\right)\right)$. 
 	If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sY\right)$ and $\widetilde A \cup C\left( \widetilde \sY\right)$ subalgebras of $M\left(A \right)$ and $M\left(A_0\left( \widetilde \sY\right) \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$  is a noncommutative finite-fold   pre-covering.
@@ -13279,6 +13366,15 @@ Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqre
 \begin{lemma}\label{blowing_uc_lem}
 Under the hypotheses \ref{blowing_uc_empt} the covering $q: \widetilde{\sY}\to \sY$ is $\widetilde A$-{regular} (cf. Definition \ref{blowing_lift_constr_defn}).
 \end{lemma}
+\begin{proof}
+Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are:
+\begin{itemize}
+	\item  the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
+	\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
+	\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \sY$ such that  $\widetilde \sY = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
+\end{itemize}
+the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$. If $\widetilde a \in K\left(\widetilde A \right)_+$ is a positive element of the Pedersen's ideal of $\widetilde A$ then the sum $a \bydef\sum_{	g \in G\left( \left. \widetilde A\right| A\right) }  \widetilde a$ is  a positive element of the Pedersen's ideal $K\left(A \right)$ of $\widetilde A$
+\end{proof}
 \begin{proof}
 If a finite subset $\left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}\subset  \subset M\left( \widetilde A\right)_+$ satisfies to \eqref{fin_compp_eqn} then one has
 \be\label{blowing_fin_compp_eqn}
