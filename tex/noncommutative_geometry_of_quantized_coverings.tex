@@ -12774,6 +12774,188 @@ $$
 	\end{enumerate}
 \end{exercise}
 
+\begin{empt}
+	The Lemma \ref{blowing_pedersen_compact_lem} and the Corollary  \ref{blowing_lift_desc_sum_cor} yields a sesquilinear pairing 
+	\be\label{blowing_pa_eqn}
+	\begin{split}
+		\left\langle\cdot, \cdot \right\rangle : K\left(A_0\left( \widetilde \sY\right) \right)\times K\left(A_0\left( \widetilde \sY\right) \right) \to A,\\
+		\left\langle \widetilde a, \widetilde b \right\rangle \bydef \bt\text{-}	\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }g \left( \widetilde a \widetilde b\right) 
+	\end{split}
+	\ee
+	where the convergence with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ is implied. Thus $K\left(A_0\left( \widetilde \sY\right)\right)$ becomes a pre-Hilbert $A$-module (cf. Definition \ref{hilbert_module_defn}).
+\end{empt}
+\begin{definition}\label{blowing_hilb_defn}
+	The $C^*$-Hilbert $A$-module which is a completion of $K\left(A_0\left( \widetilde \sY\right)\right)$ with respect to norm
+	$$
+	\left\|\widetilde a\right\|\bydef \sqrt{\left\| \left\langle \widetilde a, \widetilde a \right\rangle \right\|} 
+	$$
+	(cf. \ref{hilbert_module_norm_eqn})  we denote by $\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)$. 
+\end{definition}
+\begin{lemma}\label{blowing_hilb_iso_lem}
+	Under the hypotheses of the Definition \ref{blowing_hilb_defn} there is a natural isomorphism 
+	\be\label{blowing_hilb_iso_eqn}
+	\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A
+	\ee
+	where $\mathscr L^2\left(\widetilde \sY \right)_A$ is $\widetilde \sY$-$A$-{module} (cf. Definition \ref{blowing_lift_hm_defn})
+\end{lemma}
+\begin{proof}
+	If $\widetilde a \in K\left( A_0\left( \widetilde \sY\right)\right)$ the from \eqref{blowing_comp_eqn} it follows that 
+	$$
+	\exists a \in A \quad \exists \widetilde\in C_c\left(\widetilde\sY \right)\quad  \widetilde a= \varphi_C\left( \widetilde f\right)\varphi_A\left(a \right),
+	$$
+	so there is an inclusion
+	$$
+	K\left( A_0\left( \widetilde \sY\right)\right)\subset C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A
+	$$
+	and taking into account that $\mathscr L^2\left(\widetilde \sY \right)_A$ is a completion of $K\left( A_0\left( \widetilde \sY\right)\right)\subset C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A$ one has
+	$$
+	\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\subset\mathscr L^2\left(\widetilde \sY \right)_A
+	$$
+	Let $\eps > 0$. For any  $\widetilde a \in  A_0\left( \widetilde \sY\right)$ and $\dl > 0$ there is $\widetilde a' \in  A_0\left( \widetilde \sY\right)$ such that
+	$$
+	x \bydef  a -  a'; \quad \left\| x \right\|< \dl. 
+	$$
+	One has
+	$$
+	\left\|\widetilde f \otimes a - \widetilde f \otimes a'\right\|_H=  \left\|\widetilde f x\right\|_H \le \left\|x\right\|_C \left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C \le \dl \left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C
+	$$
+	where $ \left\|\cdot\right\|_H$ is a norm of $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$,  $ ~\left\|\cdot\right\|_H$ is the $C^*$-norm and $\desc^c_q$ is compactly supported $q$-descent (cf. Definition \ref{top_compactly_supported_descent_defn}).  If $\dl \bydef \frac{\eps }{\left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C}$ then $\left\|\widetilde f \otimes a - \widetilde f \otimes a'\right\|_H < \eps$ so $K\left( A_0\left( \widetilde \sY\right)\right)$ is dense in $\mathscr L^2\left(\widetilde \sY \right)_A$ and there is an isomorphism \eqref{blowing_hilb_iso_eqn}.
+\end{proof}
+\begin{corollary}\label{blowing_hilb_iso_cor}
+	Under the hypotheses of the  \ref{blowing_hilb_iso_lem} if the covering $q: \widetilde \sY \to \sY$ is finite-fold, then there are $A_0\left( \widetilde \sY\right)$-$A$ bimodule isomorphisms
+	$$
+	A_0\left( \widetilde \sY\right)\cong \mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A.
+	$$
+\end{corollary}
+\begin{proof}
+	The proof of this corollary is similar to the proof of the Lemma \ref{fin_hilbert_mod_lem}.
+\end{proof}
+\begin{lemma}\label{blowing_lift_composition_lem}
+	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+	$
+	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}), and let $\phi: G\left(\left.\widetilde \sY\right|\sY \right)\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
+	$\sY' \bydef \widetilde \sY/ \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)$ then one has:
+	\begin{enumerate}
+		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
+		\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
+		%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
+		%\be\label{blowing_p_s_eqn}
+		%	\sum_{g \in \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)}g \widetilde a
+		%\ee
+		where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
+	\end{enumerate} 
+\end{lemma}
+
+\begin{proof}
+	(i)	Let both $\mathscr L^2\left(\widetilde \sY \right)_A$ and $\mathscr L^2\left(\sY' \right)_A$ be explained in \ref{blowing_lift_empt} $C^*$-Hilbert $A$-modules. 	A natural action $C_0\left( \sY'\right) \times C_0\left(\widetilde \sY\right)$ yields an action $C_0\left( \sY'\right) \times \mathscr L^2\left(\widetilde \sY \right)_A\to \mathscr L^2\left(\widetilde \sY \right)_A$. Using these actions one can obtain  inclusions 
+	$$
+	C_0\left( \sY'\right)\subset	M\left(  A_0\left( \widetilde \sY\right)\right)= 	M\left(  A'_0\left( \widetilde \sY\right)\right) 
+	$$
+	If $A'$ is an algebraically generated by by elements
+	\be\label{blowing_fp_eqn}
+	f'a;\quad a \in K\left(A \right) \quad f' \in C_c\left(q' \right) 
+	\ee
+	right $A$-submodule of $M\left(  A'_0\left( \widetilde \sY\right)\right)$ then $\mathscr L^2\left(\widetilde \sY \right)_A$ is the completion of $A'$ with respect to following norm
+	$$
+	\left\| f'a \right\|_H =\sqrt{\left\| \sum_{	g \in G}g\left( ({f'a})^*f'a\right)\right\|_C  }  
+	$$
+	where $\left\| f'a \right\|_C$ is the $C^*$-norm of $	M\left(  A'_0\left( \widetilde \sY\right)\right)$. From 
+	$$
+	\left\| f'a \right\|_H \le \left\|G \right| \left\| f'a \right\|_C,
+	\left\| f'a \right\|_C \le \left\| f'a \right\|_H
+	$$
+	it follows that $\mathscr L^2\left(\widetilde \sY \right)_A$ coincides with the $C^*$-norm completion of $A'$.
+	If $a \in\left( A\right)$ and $h$ is a covering  sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then
+	$$
+	f' a = f' (a h) = f' a f''; \quad f'' =  C_c\left(q' \right)\left(h \right)\in C_c\left( \sY'\right)  
+	$$
+	where $C_c\left(q' \right):  C_c\left( \sY\right)\hookto C_c\left( \sY'\right)$ is given by \eqref{top_compact_cc_eqn}.
+	!!! CHANGE TILDE !!!	
+	Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$.  If 	
+	$$
+	\sum_{j=1}^n f'_j
+	$$
+	!!! CHANGE TILDE !!!	
+	is  a covering sum  for $\supp f' \cup \supp f''$ dominated by the family $\left\{{\sU}'_{\a'}\subset  \sY'\right\}_{\a'\in \mathscr A'}$ 
+	(cf. Definition  \ref{top_covering_sum_defn}) then
+	\bean
+	f' a\in A' \quad \Rightarrow \quad f' a f'' = \sum_{\substack{j=1\\ k=1}}^n f'_j a' f''_k = \sum_{\substack{j=1\\ k=1}}^n h'_j a_{jk} h''_k, \\ \text{where} \quad  a_{jk} \bydef \sum_{	g \in G}g\left(\sqrt{f'_j}f' a f''\sqrt{f'_k}\right),\quad  h'_j = f'\sqrt{f'_j},\quad  h''_k = f''\sqrt{f''_k}   
+	\eean
+	So any element $a' \in A'$ can represented by the following way
+	\be\label{blowing_jkp_eqn}
+	a' = \sum_{\substack{j=1\\ k=1}}^n h'_j a_{jk} h''_k
+	\ee
+	where for all $j, k$ there are $\sU'_1, \sU'_2 \in \left\{{\sU}'_{\a'}\subset  \sY'\right\}_{\a'\in \mathscr A'}$ such that $\supp h'_j \subset \sU'_1$ and  $\supp h''_k \subset \sU'_2$. We leave to the reader proof of that the set of given by \eqref{blowing_jkp_eqn} elements is closed with respect addition, subtraction, multiplication and $*$-operation, i.e. $A'$ is a *-algebra.  So the completion $A'_0\left(\sY' \right)$ is a $C^*$-algebra, i.e. a covering $q': \sY' \to \sY$ is $A$-regular (cf. Definition \ref{blowing_lift_constr_defn}). From the Theorem \ref{blowing_equivalence_thm} and the Corollary \ref{blowing_fin_cor} it follows that  there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$\\
+	(ii) If $X \bydef  C_c \left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) K\left( A\right)  }$ then  there is a $A$-valued product
+	\bean
+	\left\langle\cdot , \cdot  \right\rangle_A : X \times X \to A,\\
+	\left\langle a' \otimes \widetilde f' ,  a'' \otimes \widetilde f''  \right\rangle_A \bydef a'^* \desc_q (\widetilde f'^* \widetilde f'') a''
+	\eean
+	From the construction \ref{blowing_lift_empt}  it follows that $\mathscr L^2\left(\widetilde \sY \right)_A$ id a completion of $X$ with respect to the norm
+	$$
+	\left\| \widetilde{f} \otimes a\right\|_A \bydef  \sqrt{\left\| a^*\left( \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}f^*f\right)  a \right\|}
+	$$
+	where $\left\|\left\langle\widetilde{a} , \widetilde{a}  \right\rangle_A \right|$ is the $C^*$-norm of $C^*$ algebra $A$.
+	There is an  $A_0\left(  \sY'\right)$-valued product
+	\bean
+	\left\langle\cdot , \cdot  \right\rangle_{A_0\left(  \sY'\right)} : X \times X \to A_0\left(  \sY'\right),\\
+	\left\langle a' \otimes \widetilde f' ,  a'' \otimes \widetilde f''  \right\rangle_{A_0\left(  \sY'\right)} \bydef a^*\left(\bt\text{-}\sum_{g \in \ker\left( G\left(\left.\widetilde \sY\right|\sY \right)\to G\right) }f'^*f'' \right) a
+	\eean
+	with the following norm
+	$$
+	\left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)} \bydef  \sqrt{\left\| a^*\left( \bt\text{-}\sum_{g g \in \ker\left( G\left(\left.\widetilde \sY\right|\sY \right)\to G\right)}f^*f\right)  a \right\|}
+	$$
+	From the above equations it turns out that
+	\bean
+	\left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)} \le \left\| \widetilde{f} \otimes a\right\|_{A},\\
+	\left\| \widetilde{f} \otimes a\right\|_{A}\le \left|G \right| \left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)},
+	\eean 
+	so the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A}$ coincides with the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A_0\left(  \sY'\right)}$. Taking into account the product $\left\langle\cdot , \cdot  \right\rangle_{A_0\left(  \sY'\right)}$ we conclude that $\mathscr L^2\left(\widetilde \sY \right)_A$ is a $C^*$-Hilbert $A_0\left(  \sY'\right)$-module. From $A \subset A_0\left(  \sY'\right)$ it follows that the algebraically generated by elements 
+	\be\label{blowing_far_eqn}
+	\widetilde f  a, \quad \widetilde f \in C_c \left( \widetilde \sY\right), \quad a \in  A
+	\ee
+	right $A$-submodule of $M\left(A_0\left(\widetilde \sY \right) \right)$ is a $\C$-subspace of the algebraically generated by elements 
+	\be\label{blowing_farf_eqn}
+	\widetilde f  a', \quad \widetilde f \in C_c \left( \widetilde \sY\right), \quad a' \in  A_0\left(\widetilde \sY \right).
+	\ee
+	right $A_0\left(\widetilde \sY \right)$-submodule of $M\left(A_0\left(\widetilde \sY \right) \right)$
+	However for any $a' \in A_0\left( \sY' \right)$ and $\eps > 0$  there a sets $\left\{a_1, ..., a_n\right\}\subset A$ and $\left\{f'_1, ..., f'_n\right\}\subset C_c\left( \sY' \right)$ such that
+	\be
+	\left\|a' - \sum_{j=1}^nf'_j a_j   \right\|< \frac{\eps}{\left\|\widetilde f \right\|}.
+	\ee
+	So one has
+	\be\label{blowing_farr_eqn}
+	\left\|\widetilde f a' - \sum_{j=1}^n \widetilde ff'_j a_j   \right\|< \eps.
+	\ee
+	Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqref{blowing_far_eqn} module one has $\sum_{j=1}^n \widetilde ff'_j a_j\in A_0\left(\widetilde \sY \right)$ and taking into account \eqref{blowing_farr_eqn} one has $\widetilde f a'\in A_0\left(\widetilde \sY \right)$. So the closure of generated by \eqref{blowing_farf_eqn} module equals to  $A_0\left(\widetilde \sY \right)$. So the covering $q: \widetilde{\sY}\to \sY'$ is $A_0\left( \sY' \right)$-{regular} (cf. Definition \ref{blowing_lift_constr_defn}). From (i) of the Theorem \ref{blowing_equivalence_thm} it follows that there is a  $q'$-lift  $	A_b\left(q'\right) :A_0\left( \sY' \right) \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
+\end{proof}
+
+
+\begin{lemma}\label{blowing_fin_lem}
+	
+	!!!! CHANGE DELETE !!!
+	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
+	\bean
+	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+	\eean
+	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
+\end{lemma}
+\begin{proof}
+	The $C^*$-algebra is generated by series 
+	$$
+	a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}	
+	$$
+	However the above series is a finite sum, since the group  $G\left(\left.\widetilde \sY\right|\sY \right)$ is finite. So $a \in A_0\left( \widetilde \sY\right)$. Hence $K\left( A\right)$ is dense in $A$ the homomorphism can be uniquely extended up to $ A \hookto	 A_0\left( \widetilde \sY\right)$.
+\end{proof}
+
+
+\begin{definition}\label{blowing_lift_fin_defn}
+	The given by the Corollary \ref{blowing_fin_cor} injective $*$-homomorphism
+	\be	\label{blowing_lift_fin_eqn}
+	A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
+	\ee
+	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
+\end{definition}
 \paragraph{!!!!}
 \begin{definition}\label{blowing_lift_defn!!!} !!!!
 	Let  $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras such that following conditions hold:
@@ -13012,29 +13194,7 @@ Since the ideal $K\left( A\right)$ is dense in $A$ this algebra is generated by 
 \end{proof}
 
 
-\begin{corollary}\label{blowing_fin_cor}
-	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
-	\bean
-	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
-	\eean
-	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
-\end{corollary}
-\begin{proof}
-	The $C^*$-algebra is generated by series 
-	$$
-a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}	
-	$$
-	However the above series is a finite sum, since the group  $G\left(\left.\widetilde \sY\right|\sY \right)$ is finite. So $a \in A_0\left( \widetilde \sY\right)$. Hence $K\left( A\right)$ is dense in $A$ the homomorphism can be uniquely extended up to $ A \hookto	 A_0\left( \widetilde \sY\right)$.
-\end{proof}
 
-
-\begin{definition}\label{blowing_lift_fin_defn}
-	The given by the Corollary \ref{blowing_fin_cor} injective $*$-homomorphism
-	\be	\label{blowing_lift_fin_eqn}
-	A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
-	\ee
-	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
-\end{definition}
 \paragraph{!!!}
 \begin{remark}\label{blowing_tensor_r_rem}
 Under the hypotheses of the Definition \ref{blowing_lift_constr_defn} the $C^*$-algebra $A'_0\left( \widetilde \sY\right)$ is a completion of the algebraic tensor product $C_0 \left(\widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ with respect to the norm
@@ -13087,7 +13247,7 @@ A'_b\left(q \right)  : A \hookto M\left(A'_0\left( \widetilde \sY\right)\right).
 	
 \end{empt}
 
-\begin{theorem}\label{blowing_equivalence_thm}
+\begin{theorem}\label{blowing_equivalence_thm} !!! DELETE !!!
 	Following conditions hold:
 	\begin{enumerate}
 		\item [(i)] if a covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} (cf. Definition \ref{blowing_lift_constr_defn})   then there is a $q$-lift  $	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ (cf. Definition \ref{blowing_lift_defn}) which is naturally equivalent to the given by  \eqref{blowing_multiplier_eqn} injective $*$-homomorphism $A'_b\left(q \right)  : A \hookto M\left(A'_0\left( \widetilde \sY\right)\right)$,
@@ -13233,163 +13393,6 @@ From the above equation we can obtain the \eqref{blowing_axiomatic_eqn} !!! CHAN
 \begin{remark}\label{blowing_not_prim_rem}
 From the Theorem \ref{blowing_equivalence_thm} it follows that $A'_0\left(\widetilde \sY\right)$ is naturally isomorphic $A_0\left(\widetilde \sY\right)$ one, so we write $A_0\left(\widetilde \sY\right)$ instead $A'_0\left(\widetilde \sY\right)$.
 \end{remark}
-
-\begin{empt}
-The Lemma \ref{blowing_pedersen_compact_lem} and the Corollary  \ref{blowing_lift_desc_sum_cor} yields a sesquilinear pairing 
-\be\label{blowing_pa_eqn}
-\begin{split}
-\left\langle\cdot, \cdot \right\rangle : K\left(A_0\left( \widetilde \sY\right) \right)\times K\left(A_0\left( \widetilde \sY\right) \right) \to A,\\
- \left\langle \widetilde a, \widetilde b \right\rangle \bydef \bt\text{-}	\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }g \left( \widetilde a \widetilde b\right) 
-\end{split}
-\ee
-where the convergence with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ is implied. Thus $K\left(A_0\left( \widetilde \sY\right)\right)$ becomes a pre-Hilbert $A$-module (cf. Definition \ref{hilbert_module_defn}).
-\end{empt}
-\begin{definition}\label{blowing_hilb_defn}
-The $C^*$-Hilbert $A$-module which is a completion of $K\left(A_0\left( \widetilde \sY\right)\right)$ with respect to norm
-$$
-\left\|\widetilde a\right\|\bydef \sqrt{\left\| \left\langle \widetilde a, \widetilde a \right\rangle \right\|} 
-$$
-(cf. \ref{hilbert_module_norm_eqn})  we denote by $\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)$. 
-\end{definition}
-\begin{lemma}\label{blowing_hilb_iso_lem}
-Under the hypotheses of the Definition \ref{blowing_hilb_defn} there is a natural isomorphism 
-\be\label{blowing_hilb_iso_eqn}
-\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A
-\ee
-where $\mathscr L^2\left(\widetilde \sY \right)_A$ is $\widetilde \sY$-$A$-{module} (cf. Definition \ref{blowing_lift_hm_defn})
-\end{lemma}
-\begin{proof}
-If $\widetilde a \in K\left( A_0\left( \widetilde \sY\right)\right)$ the from \eqref{blowing_comp_eqn} it follows that 
-$$
-\exists a \in A \quad \exists \widetilde\in C_c\left(\widetilde\sY \right)\quad  \widetilde a= \varphi_C\left( \widetilde f\right)\varphi_A\left(a \right),
-$$
-so there is an inclusion
-$$
- K\left( A_0\left( \widetilde \sY\right)\right)\subset C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A
-$$
-and taking into account that $\mathscr L^2\left(\widetilde \sY \right)_A$ is a completion of $K\left( A_0\left( \widetilde \sY\right)\right)\subset C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A$ one has
-$$
-\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\subset\mathscr L^2\left(\widetilde \sY \right)_A
-$$
-Let $\eps > 0$. For any  $\widetilde a \in  A_0\left( \widetilde \sY\right)$ and $\dl > 0$ there is $\widetilde a' \in  A_0\left( \widetilde \sY\right)$ such that
-$$
- x \bydef  a -  a'; \quad \left\| x \right\|< \dl. 
-$$
-One has
-$$
- \left\|\widetilde f \otimes a - \widetilde f \otimes a'\right\|_H=  \left\|\widetilde f x\right\|_H \le \left\|x\right\|_C \left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C \le \dl \left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C
-$$
-where $ \left\|\cdot\right\|_H$ is a norm of $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$,  $ ~\left\|\cdot\right\|_H$ is the $C^*$-norm and $\desc^c_q$ is compactly supported $q$-descent (cf. Definition \ref{top_compactly_supported_descent_defn}).  If $\dl \bydef \frac{\eps }{\left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C}$ then $\left\|\widetilde f \otimes a - \widetilde f \otimes a'\right\|_H < \eps$ so $K\left( A_0\left( \widetilde \sY\right)\right)$ is dense in $\mathscr L^2\left(\widetilde \sY \right)_A$ and there is an isomorphism \eqref{blowing_hilb_iso_eqn}.
-\end{proof}
-\begin{corollary}\label{blowing_hilb_iso_cor}
-Under the hypotheses of the  \ref{blowing_hilb_iso_lem} if the covering $q: \widetilde \sY \to \sY$ is finite-fold, then there are $A_0\left( \widetilde \sY\right)$-$A$ bimodule isomorphisms
-$$
-A_0\left( \widetilde \sY\right)\cong \mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A.
-$$
-\end{corollary}
-\begin{proof}
-	The proof of this corollary is similar to the proof of the Lemma \ref{fin_hilbert_mod_lem}.
-\end{proof}
-\begin{lemma}\label{blowing_lift_composition_lem}
-Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
-$
-be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}), and let $\phi: G\left(\left.\widetilde \sY\right|\sY \right)\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
-$\sY' \bydef \widetilde \sY/ \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)$ then one has:
-\begin{enumerate}
-	\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
-	\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
-%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
-%\be\label{blowing_p_s_eqn}
-%	\sum_{g \in \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)}g \widetilde a
-%\ee
-	where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
-	 	\end{enumerate} 
-\end{lemma}
-
-\begin{proof}
-(i)	Let both $\mathscr L^2\left(\widetilde \sY \right)_A$ and $\mathscr L^2\left(\sY' \right)_A$ be explained in \ref{blowing_lift_empt} $C^*$-Hilbert $A$-modules. 	A natural action $C_0\left( \sY'\right) \times C_0\left(\widetilde \sY\right)$ yields an action $C_0\left( \sY'\right) \times \mathscr L^2\left(\widetilde \sY \right)_A\to \mathscr L^2\left(\widetilde \sY \right)_A$. Using these actions one can obtain  inclusions 
-	$$
-C_0\left( \sY'\right)\subset	M\left(  A_0\left( \widetilde \sY\right)\right)= 	M\left(  A'_0\left( \widetilde \sY\right)\right) 
-	$$
-If $A'$ is an algebraically generated by by elements
-\be\label{blowing_fp_eqn}
-f'a;\quad a \in K\left(A \right) \quad f' \in C_c\left(q' \right) 
-\ee
-right $A$-submodule of $M\left(  A'_0\left( \widetilde \sY\right)\right)$ then $\mathscr L^2\left(\widetilde \sY \right)_A$ is the completion of $A'$ with respect to following norm
-$$
-\left\| f'a \right\|_H =\sqrt{\left\| \sum_{	g \in G}g\left( ({f'a})^*f'a\right)\right\|_C  }  
-$$
-where $\left\| f'a \right\|_C$ is the $C^*$-norm of $	M\left(  A'_0\left( \widetilde \sY\right)\right)$. From 
-$$
-\left\| f'a \right\|_H \le \left\|G \right| \left\| f'a \right\|_C,
-\left\| f'a \right\|_C \le \left\| f'a \right\|_H
-$$
-it follows that $\mathscr L^2\left(\widetilde \sY \right)_A$ coincides with the $C^*$-norm completion of $A'$.
-If $a \in\left( A\right)$ and $h$ is a covering  sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then
-	$$
-	f' a = f' (a h) = f' a f''; \quad f'' =  C_c\left(q' \right)\left(h \right)\in C_c\left( \sY'\right)  
-	$$
-where $C_c\left(q' \right):  C_c\left( \sY\right)\hookto C_c\left( \sY'\right)$ is given by \eqref{top_compact_cc_eqn}.
-!!! CHANGE TILDE !!!	
-Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$.  If 	
-$$
-\sum_{j=1}^n f'_j
-$$
-!!! CHANGE TILDE !!!	
-is  a covering sum  for $\supp f' \cup \supp f''$ dominated by the family $\left\{{\sU}'_{\a'}\subset  \sY'\right\}_{\a'\in \mathscr A'}$ 
-(cf. Definition  \ref{top_covering_sum_defn}) then
-\bean
-f' a\in A' \quad \Rightarrow \quad f' a f'' = \sum_{\substack{j=1\\ k=1}}^n f'_j a' f''_k = \sum_{\substack{j=1\\ k=1}}^n h'_j a_{jk} h''_k, \\ \text{where} \quad  a_{jk} \bydef \sum_{	g \in G}g\left(\sqrt{f'_j}f' a f''\sqrt{f'_k}\right),\quad  h'_j = f'\sqrt{f'_j},\quad  h''_k = f''\sqrt{f''_k}   
-\eean
-So any element $a' \in A'$ can represented by the following way
-\be\label{blowing_jkp_eqn}
-a' = \sum_{\substack{j=1\\ k=1}}^n h'_j a_{jk} h''_k
-\ee
-where for all $j, k$ there are $\sU'_1, \sU'_2 \in \left\{{\sU}'_{\a'}\subset  \sY'\right\}_{\a'\in \mathscr A'}$ such that $\supp h'_j \subset \sU'_1$ and  $\supp h''_k \subset \sU'_2$. We leave to the reader proof of that the set of given by \eqref{blowing_jkp_eqn} elements is closed with respect addition, subtraction, multiplication and $*$-operation, i.e. $A'$ is a *-algebra.  So the completion $A'_0\left(\sY' \right)$ is a $C^*$-algebra, i.e. a covering $q': \sY' \to \sY$ is $A$-regular (cf. Definition \ref{blowing_lift_constr_defn}). From the Theorem \ref{blowing_equivalence_thm} and the Corollary \ref{blowing_fin_cor} it follows that  there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$\\
-(ii) If $X \bydef  C_c \left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) K\left( A\right)  }$ then  there is a $A$-valued product
-\bean
-\left\langle\cdot , \cdot  \right\rangle_A : X \times X \to A,\\
-\left\langle a' \otimes \widetilde f' ,  a'' \otimes \widetilde f''  \right\rangle_A \bydef a'^* \desc_q (\widetilde f'^* \widetilde f'') a''
-\eean
-From the construction \ref{blowing_lift_empt}  it follows that $\mathscr L^2\left(\widetilde \sY \right)_A$ id a completion of $X$ with respect to the norm
-$$
-\left\| \widetilde{f} \otimes a\right\|_A \bydef  \sqrt{\left\| a^*\left( \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}f^*f\right)  a \right\|}
-$$
-where $\left\|\left\langle\widetilde{a} , \widetilde{a}  \right\rangle_A \right|$ is the $C^*$-norm of $C^*$ algebra $A$.
-There is an  $A_0\left(  \sY'\right)$-valued product
-\bean
-\left\langle\cdot , \cdot  \right\rangle_{A_0\left(  \sY'\right)} : X \times X \to A_0\left(  \sY'\right),\\
-\left\langle a' \otimes \widetilde f' ,  a'' \otimes \widetilde f''  \right\rangle_{A_0\left(  \sY'\right)} \bydef a^*\left(\bt\text{-}\sum_{g \in \ker\left( G\left(\left.\widetilde \sY\right|\sY \right)\to G\right) }f'^*f'' \right) a
-\eean
-with the following norm
-$$
-\left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)} \bydef  \sqrt{\left\| a^*\left( \bt\text{-}\sum_{g g \in \ker\left( G\left(\left.\widetilde \sY\right|\sY \right)\to G\right)}f^*f\right)  a \right\|}
-$$
-From the above equations it turns out that
-\bean
-\left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)} \le \left\| \widetilde{f} \otimes a\right\|_{A},\\
-\left\| \widetilde{f} \otimes a\right\|_{A}\le \left|G \right| \left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)},
-\eean 
-so the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A}$ coincides with the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A_0\left(  \sY'\right)}$. Taking into account the product $\left\langle\cdot , \cdot  \right\rangle_{A_0\left(  \sY'\right)}$ we conclude that $\mathscr L^2\left(\widetilde \sY \right)_A$ is a $C^*$-Hilbert $A_0\left(  \sY'\right)$-module. From $A \subset A_0\left(  \sY'\right)$ it follows that the algebraically generated by elements 
-\be\label{blowing_far_eqn}
-\widetilde f  a, \quad \widetilde f \in C_c \left( \widetilde \sY\right), \quad a \in  A
-\ee
-right $A$-submodule of $M\left(A_0\left(\widetilde \sY \right) \right)$ is a $\C$-subspace of the algebraically generated by elements 
-\be\label{blowing_farf_eqn}
-\widetilde f  a', \quad \widetilde f \in C_c \left( \widetilde \sY\right), \quad a' \in  A_0\left(\widetilde \sY \right).
-\ee
-right $A_0\left(\widetilde \sY \right)$-submodule of $M\left(A_0\left(\widetilde \sY \right) \right)$
-However for any $a' \in A_0\left( \sY' \right)$ and $\eps > 0$  there a sets $\left\{a_1, ..., a_n\right\}\subset A$ and $\left\{f'_1, ..., f'_n\right\}\subset C_c\left( \sY' \right)$ such that
-\be
-\left\|a' - \sum_{j=1}^nf'_j a_j   \right\|< \frac{\eps}{\left\|\widetilde f \right\|}.
-\ee
-So one has
-\be\label{blowing_farr_eqn}
-\left\|\widetilde f a' - \sum_{j=1}^n \widetilde ff'_j a_j   \right\|< \eps.
-\ee
-Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqref{blowing_far_eqn} module one has $\sum_{j=1}^n \widetilde ff'_j a_j\in A_0\left(\widetilde \sY \right)$ and taking into account \eqref{blowing_farr_eqn} one has $\widetilde f a'\in A_0\left(\widetilde \sY \right)$. So the closure of generated by \eqref{blowing_farf_eqn} module equals to  $A_0\left(\widetilde \sY \right)$. So the covering $q: \widetilde{\sY}\to \sY'$ is $A_0\left( \sY' \right)$-{regular} (cf. Definition \ref{blowing_lift_constr_defn}). From (i) of the Theorem \ref{blowing_equivalence_thm} it follows that there is a  $q'$-lift  $	A_b\left(q'\right) :A_0\left( \sY' \right) \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
-\end{proof}
-
 
 \begin{empt}\label{blowing_ext_empt}
 	!!!! $A \to $
