@@ -5953,7 +5953,7 @@ C_0\left( p\right) : C_0\left(  \sX\right) \hookto C_0\left( \widetilde \sX\righ
 	$$
 \end{proof}
 \begin{corollary}\label{top_trans_tp_cov_cor}
-	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
+	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a transitive   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
 	\be\label{top_trans_tp_cov_eqn}
 	\begin{split}
 p_{\widetilde x_0}	:G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
@@ -5962,6 +5962,10 @@ g \mapsto g\widetilde x_0.
 	\ee
 	is bijective	then $p$ is a transitive covering.
 \end{corollary}
+\begin{definition}\label{top_px_gr_defn}
+	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a transitive   covering of connected spaces. For any $x \in \sX$ there is a set $\G^0_{p,x} \bydef p^{-1}\left(x \right)$ 
+ For any $\widetilde x_1, \widetilde x_2\in _{p,x}$ there is $g_{\widetilde x_2, \widetilde x_1}\in \G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)$ such that $\widetilde x_2 =  g_{\widetilde x_2, \widetilde x_1}\widetilde x_1$. We suppose that   $g_{\widetilde x_1, \widetilde x_2}$ is an arrow from $\widetilde x_2$ to  $\widetilde x_1$. The set of arrows is groupoid $\G^0_{p,x}$ (cf. Definition \ref{groupoid_defn}). We say that $\G^0_{p,x}$ is the $p$-$x$-\textit{groupoid}.
+\end{definition}
 
 \begin{corollary}\label{top_trans_cov_factor_cor}
 	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a {transitive} covering then there is the natural homeomorphism $\sX  \cong \widetilde{\mathcal X}/G\left(\left.\widetilde{\sX}~\right|\sX\right)$.
@@ -6014,35 +6018,45 @@ g \mapsto g\widetilde x_0.
 	$$
 \end{proof}
 
-\begin{corollary}\label{top_covp_cat_cor}
+\begin{corollary}\label{top_covp_cat_cor} !!! REPLACE BELOW 
 	Consider the situation of the Lemma \ref{top_covp_cat_lem} and suppose that the space $\sX$ is locally connected. If the map $p$ is surjective and the covering $p_1$ is transitive then following conditions hold:
 \begin{enumerate}
-	\item[(i)] the map $p$ is a transitive covering,
-	\item[(ii)] there is the natural exact sequence  
-	\be\label{top_covp_cat_eqn}
-\{e\}\to G\left(\widetilde{   \mathcal X_1 }~|~{   \mathcal X_2 } \right)	\to 	G\left(\widetilde{   \mathcal X_1 }~|~{   \mathcal X } \right)\to 	G\left(\widetilde{   \mathcal X_2 }~|~{   \mathcal X } \right)\to\{e\}
-	\ee
-	of groups and homomorphisms.
+	\item[(i)] there is the natural exact sequence  
+\be\label{top_covp_cat_eqn}
+\{e\}\to G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\to 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\to\{e\}
+\ee
+of groups and homomorphisms,	
+\item[(ii)] the map $p$ is a transitive covering,
 \end{enumerate}	
 	
 	 
 \end{corollary}
 \begin{proof}
-(i)	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering. There is the natural homomorphic inclusion $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\subset  G\left(\left. \widetilde{\sX}_1~\right|\mathcal{X}\right)$. Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
+	(i)
+	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering.	 Let $g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ be such that there is $\widetilde x_1 \in \widetilde{\sX}_1$ with
+	$ p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right)$. If $\widetilde \sU_1$ is mapped homeomorphically onto  $\sU = p_1\left(\widetilde \sU_1 \right)$ and $\widetilde  \sU_2 = p \left(   \widetilde\sU_1\right)$ then $\widetilde  \sU_2\cap g_2 \widetilde  \sU_2 = \emptyset$ for any nontrivial $g_2 \in G\left(\left.\widetilde\sX_2~\right|\widetilde{\sX}\right)$. It turns out that
+	$$
+	\forall 	\widetilde x'_1 \in \widetilde \sX_1\quad \widetilde p\left(g \widetilde x'_1  \right) =  p\left( \widetilde x'_1  \right).
+	$$
+	From the above equation it follows that a set
+	\be\label{top_uu_eqn!}
+	\left\{\left. \widetilde x_1\in  \widetilde \sX_1\right| p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right) \right\}
+	\ee	
+	is open. Similarly one can proof that the set \eqref{top_uu_eqn} is closed and 
+	$$
+	\exists \widetilde x_1 \quad  p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right)  \quad \Leftrightarrow  \quad \forall \widetilde x_1 \quad  p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right). 
+	$$
+	From the above formula it follows that there is a normal subgroup
+	$$
+	G \bydef \left\{\left. g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\right| \forall p\left( g\widetilde x_1\right)  =   p\left( \widetilde x_1\right)\right\}.
+	$$
+	From the above formula it follows that $G \cong G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ and one can deduce \eqref{top_covp_cat_eqn}.\\
+(ii)	 Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
 	$$
 	G_{\widetilde x_2} = \left\{\left.g \in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\right| p\left(g \widetilde x_2 \right)=p\left( \widetilde x_2\right)  \right\}.
 	$$
-	However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_2} = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, hence $p^{-1}\left(\widetilde x_2 \right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$. \\
-	(ii) If $\widetilde x_1 \in \widetilde \sX_1$ then from \eqref{top_trans_tp_cov_eqn} it follows that there are bijective maps  
-		\bean !!! CORRECT !!!
-	\begin{split}
-		p_1 : 
-		p_{\widetilde x_0}	G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
-		g \mapsto g\widetilde x_0. 
-	\end{split}
-	\eean
+	However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_2} = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, hence $p^{-1}\left(\widetilde x_2 \right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$.
 \end{proof}
-
 
 \begin{definition}\label{top_fin_cov_defn}
 	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
@@ -6179,7 +6193,7 @@ The Definition \ref{simply_connected_defn} can be regarded as a generalization o
 
 
 \begin{defn}\label{top_x0_path_defn}
-Let $\left(\sX, x_0\right)$ be a pointed  space (cf. Definition \ref{top_pointed_defn}) such that $\sX$ is locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, weakly semilocally 1-connected space. A semilocally 1-connected path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.   Denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all $x_0$-paths such that 
+Let $\left(\sX, x_0\right)$ be a pointed  space (cf. Definition \ref{top_pointed_defn}) such that $\sX$ is locally connected (cf. Definition \ref{top_locally_connected_defn}), weakly semilocally 1-connected space. A semilocally 1-connected path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.   Denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all $x_0$-paths such that 
 	\be\label{top_closed_path_eqn}
 	\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
 \ee
@@ -6249,11 +6263,11 @@ $$
 
 \begin{definition}\label{top_weak_fundamental_group_defn}
 If
-$\left(\sX, x_0\right)$ is  a pointed  space, such that $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!and weakly semilocally 1-connected space
+$\left(\sX, x_0\right)$ is  a pointed  space, such that $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}) and weakly semilocally 1-connected space
 then the described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
 \end{definition}
 \begin{exercise}\label{top_fundamental_group_mor_exer}
-	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed  covering where $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!and weakly semilocally 1-connected space. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$. Prove a generalization of the Theorem \ref{top_fundamental_group_mor_thm}.
+	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed  covering where $\sX$ is a connected, locally connected  $q_1\left(\widetilde g'_1 \widetilde g''_1 \right)= \widetilde g'_1 \widetilde g''_1\widetilde x_1$and weakly semilocally 1-connected space. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$. Prove a generalization of the Theorem \ref{top_fundamental_group_mor_thm}.
 \end{exercise}
 \begin{exercise}
 	Let $\sX$ be a connected, locally path-connected  and  semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) Hausdorff space. Prove that there is a natural isomorphism
@@ -6262,7 +6276,7 @@ then the described above group is said to be a \textit{weak fundamental group} o
 	\ee
 	between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
 \end{exercise}
-Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!and weakly semilocally 1-connected space. 
+Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}) and weakly semilocally 1-connected space. 
 Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$ There is a natural map 
 \be
 \begin{split}
@@ -6307,14 +6321,14 @@ Prove that the given by \eqref{top_from_uni_defn} map is a covering.
 \end{exercise}
 From the Exercise \ref{top_uni_cov_exer} it follows that $\widetilde \sX$ is a universal covering space of $\sX$ (cf. Definition \ref{top_universal_covering_defn}).
 So one has the following Theorem.
-\begin{theorem}\label{top_simply_con_cov_thm}If $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, weakly semilocally 1-connected space then there is an universal covering space for $\sX$.
+\begin{theorem}\label{top_simply_con_cov_thm}If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), weakly semilocally 1-connected space then there is an universal covering space for $\sX$.
 \end{theorem}
 
 \begin{remark}
 The Theorem \ref{top_simply_con_cov_thm} is a generalization of the Lemma \ref{top_simply_con_cov_lem}.
 \end{remark}
 \begin{exercise}\label{top_weak_covering_iso_exer}
-Let $\left(\sX, x_0\right)$ be  a  pointed space, such that $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ be an universal covering. Prove that there is a following natural isomorphism
+Let $\left(\sX, x_0\right)$ be  a  pointed space, such that $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}) and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ be an universal covering. Prove that there is a following natural isomorphism
 $$
 \pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
 $$
@@ -6326,7 +6340,7 @@ The ordered square $I^2_o$ (cf. \ref{top_lex_square_empt}) is weakly simply conn
 \end{lemma}
 
 \begin{proof}
-It is known that the space $I^2_o$ is locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!. 
+It is known that the space $I^2_o$ is locally connected (cf. Definition \ref{top_locally_connected_defn}). 
 Let $p: \widetilde \sX \to I^2_o$ be a covering. 
 For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
 From the Lemma \ref{top_gen_path_lem} it follows that there is a $\left\{\sU_x\right\}_{x \in \sX}$-path $\left( \sU_1, ..., \sU_{n}\right)$ 
@@ -6351,7 +6365,7 @@ The set  $\widetilde \sU'_j$ is a neighborhood of  $\widetilde x'_0$ such that $
 \begin{exercise}\label{top_lex_square_exer}
 Let  $I^2_o$ be ordered square (cf. \ref{top_lex_square_empt}). Denote by $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sX \bydef I^2_o/\sim_\sX$ where  $\sim_\sX$ is a minimal equivalence relation such that $x_0 \sim_\sX x_1$.
 \begin{enumerate}
-	\item Prove that $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, compact, Hausdorff space, but $\sX$ is not path connected (cf. \cite{counter_topology}).
+	\item Prove that $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), compact, Hausdorff space, but $\sX$ is not path connected (cf. \cite{counter_topology}).
 	\item Similarly to the proof of the Lemma \ref{top_lex_square_lem} prove that the space $\sX$ is weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}).
 \end{enumerate}
 \end{exercise}
@@ -6362,7 +6376,7 @@ $$
 $$
 Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 	\begin{enumerate}
-		\item Prove that $\widetilde\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff space, but $\widetilde\sX$ is not path connected (cf. \cite{counter_topology}).
+		\item Prove that $\widetilde\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space, but $\widetilde\sX$ is not path connected (cf. \cite{counter_topology}).
 	\item Similarly to the proof of the Lemma \ref{top_lex_square_lem} prove that the space $\widetilde\sX$ is weakly simply connected (cf. Definition \ref{top_weakly_simply_connected_defn}).
 	\end{enumerate}
 \end{exercise}
@@ -6924,7 +6938,7 @@ hence one has $a = \left.b\right|_\sY$.
 \begin{remark}
 The Lemma \ref{top_ax_k_lem} is an analog of the Tietze extension theorem \ref{tietze_ext_thm}. The method of proof of the Lemma \ref{top_ax_k_lem} is similar to the explained in \cite{munkres:topology} one.
 \end{remark}
-Below in this section we assume that all topological spaces are  connected and locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!.
+Below in this section we assume that all topological spaces are  connected and locally connected (cf. Definition \ref{top_locally_connected_defn}).
 
 \begin{empt}\label{top_lift_empt}
 	If $p: \widetilde{\sX} \to \sX$ is a covering then the family $\left\{A_x\right\}$ naturally induces the family $\left\{\widetilde{A}_{\widetilde{x}}\right\}_{\widetilde{x}\in \widetilde{\sX}}$ such that for any ${\widetilde{x}}\in {\widetilde{\sX}}$ there is the isomorphism 
@@ -7377,7 +7391,7 @@ Consider the above situation. If a subset   $\sY \subset \sX$ is compact then th
 \end{proof}
 
 \begin{empt}\label{top_cs_funct_empt}
-	Let $\sX$ be a locally compact, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).
+	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).
 	Denote by
 	\be\label{top_cstr_eqn}
 	\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right).
@@ -7693,7 +7707,7 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 
 
 \begin{lemma}\label{comm_lift_desc_sum_lem}
-	Let $\sX$ be a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $a \in C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$ be such that $\supp a \subset \sU$. If 	$\widetilde{a} = \mathfrak{lift}_{\widetilde{\mathcal U}}\left(a \right)$ 
+	Let $\sX$ be a connected,  locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $a \in C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$ be such that $\supp a \subset \sU$. If 	$\widetilde{a} = \mathfrak{lift}_{\widetilde{\mathcal U}}\left(a \right)$ 
 	then following conditions hold:
 	\begin{enumerate}
 		\item [(i)] The series 	
@@ -7755,7 +7769,7 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 
 
 \begin{corollary}\label{comm_lift_desc_sum_cor}
-	Let $\sX$ be a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering such that the group $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\widetilde a \in C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)$
+	Let $\sX$ be a connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering such that the group $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\widetilde a \in C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)$
 then following conditions hold:
 \begin{enumerate}
 	\item [(i)] The series 	
@@ -8675,7 +8689,7 @@ If $M$ be a smooth manifold then   a space of distribution densities  $\Coo_c\le
 
 
 \begin{lemma}\label{top_comp_sum_lem}
-		Let $\widetilde{   \mathcal X }$ be a  connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering. Let us use the notation of the Definition \ref{top_cs_funct_b_defn}.  Any $\widetilde a \in A_c\left( \widetilde{\sX}\right)$ can be represented by the following way
+		Let $\widetilde{   \mathcal X }$ be a  connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering. Let us use the notation of the Definition \ref{top_cs_funct_b_defn}.  Any $\widetilde a \in A_c\left( \widetilde{\sX}\right)$ can be represented by the following way
 			$$
 	\widetilde a =	\widetilde a_1 + ... + \widetilde a_m 
 		$$
@@ -9117,7 +9131,7 @@ The following lemma supplies the quantization of coverings with compactification
 	Let $\mathcal X$ be a locally compact,  Hausdorff space and there is an injective $*$-homomorphism $\pi: C_0\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
 	\begin{enumerate}
 		\item [(i)] the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G  , \pi  \right)$ is a  noncommutative finite-fold covering with unitization,
-		\item[(ii)] the $C^*$-algebra $\widetilde{A}$ is commutative, moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $C_0\left( \sX\right) $ (resp. $\widetilde{A}$) then a given by the Proposition \ref{spectrum_coverig_finite_prop} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification (cf. Definition \ref{top_covering_compactification_defn}) such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$
+		\item[(ii)] the $C^*$-algebra $\widetilde{A}$ is commutative, moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $C_0\left( \sX\right) $ (resp. $\widetilde{A}$) then a given by the Proposition \ref{spectrum_coverig_finite_prop} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification (cf. Definition \ref{top_covering_compactification_defn}) such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left(\left. \widetilde{\sX}~\right|~ {\sX}\right) , C_0\left( p\right)     \right)$$
 		where $*$-homomorphism $C_0\left(p \right): C_0\left(\mathcal  X \right)\to C_0\left(\widetilde{\mathcal X} \right)$ is $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
 	\end{enumerate}
 \end{lemma}
@@ -9176,6 +9190,72 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn
 \begin{definition}\label{top_consents_defn}
 We say that a connected, locally compact, Hausdorff space $\sX$ \textit{consents with noncommutative coverings} if  for any finite-fold transitive covering $p: \widetilde\sX \to \sX$ a quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
 \end{definition}
+\begin{lemma}\label{top_consent_cat_lem}
+	Consider a commutative triangle of connected topological spaces and  continuous maps
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
+	\end{tikzpicture}
+	\\	
+	such that $\sX$ consents with {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}), and both $\widetilde{\mathcal X}_1$, $~\widetilde{\mathcal X}_2$ are connected. 
+	If both $p_1$ are $p_2$ are  transitive  coverings then one has:
+	\begin{enumerate}
+		\item [(i)] If  $p$ is a surjection then $p$ is a  transitive  covering,
+		\item[(ii)]  there is the natural exact sequence  
+		\be\label{top_covp_cons_cat_eqn}
+		\{e\}\to G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\to 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\to\{e\}
+		\ee
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) The map $p$ yields an injective $*$-homomorphism $C_b\left(p \right): C_0\left(\widetilde\sX_2 \right) \hookto  C_b\left(\widetilde\sX_1 \right)$. If $\widetilde\sU_2\subset \widetilde\sX_2$ is a compact set then $p\left(\widetilde\sU_2 \right)$ is compact (cf. Theorem \ref{top_compact_img_thm}). From the Lemma \ref{top_compact_preimage_lem} it follows that $p^{-1}\left(\widetilde\sU_2 \right)\subset  p_1^{-1}p_2\left(\widetilde\sU_2 \right)$, i.e. $p^{-1}\left(\widetilde\sU_2 \right)$ is a subset of compact set. Form the Definition \ref{c_c_def_1} it follows that the  $*$-homomorphism $C_b\left(p \right): C_0\left(\widetilde\sX_2 \right) \hookto  C_b\left(\widetilde\sX_1 \right)$ yields a $*$-homomorphism $\iota : C_0\left(\widetilde\sX_2 \right) \hookto  C_0\left(\widetilde\sX_1 \right)$.  
+One has a normal subgroup 
+$$
+H \bydef \left\{\left. g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right) \right|\forall  \widetilde a_2\in \widetilde \sX_2\quad g \iota \left(\widetilde a_2 \right) = \iota \left(\widetilde a_2 \right) \right\}\subset  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right).
+$$
+Taking into account that a noncommutative finite-fold covering $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X}_1 \right), G\left(\left. \widetilde{\sX}_1~\right|~ {\sX}\right) , C_0\left( p\right)     \right)$$ is reduced (cf. Definition \ref{fin_red_defn}) and the Corollary \ref{red_proper_cor} one concludes that
+the group  $H$ is $\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X}_1 \right), G\left(\left. \widetilde{\sX}_1~\right|~ {\sX}\right) , C_0\left( p\right)     \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn}). From the Lemma \ref{fin_composition_covering_lem} it follows that there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
+\bean
+\left( C_0\left(\sX \right),C_0\left(\widetilde{\sX}_1 \right)^H, G\left(\left.\widetilde \sX_1~\right|\sX \right)/H, \pi^H\right);\\
+\left(C_0\left(\widetilde{\sX}_1 \right)^H, C_0\left(\widetilde{\sX}_1 \right), H, \left.\Id_{C_0\left(\widetilde{\sX}_1 \right)}\right|_{C_0\left(\widetilde{\sX}_1 \right)^H} \right)
+\eean
+(cf. Definition \ref{fin_composition_covering_defn}). There is the natural inclusion $C_0\left(\widetilde{\sX}_2 \right)\subset C_0\left(\widetilde{\sX}_1 \right)^H$ so there is a continuous surjective map $p':\widetilde{\sX}_1/ H \to \widetilde{\sX}_2$. If the map $p'$ is not a homeomorphism there are $\widetilde x'_1, \widetilde x''_2 \in \widetilde \sX_1$ such that $p\left(\widetilde x'_1 \right) = p\left(\widetilde x''_1 \right)$ and $g_1 \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\setminus H$ with $\widetilde x''_1 =  g\widetilde x'_1$.
+If $\widetilde \sU_1$ is open neighborhood of $\widetilde x'_1$ which  is mapped homeomorphically onto  $\sU = p_1\left(\widetilde \sU_1 \right)$ then $g_1 \widetilde \sU_1$ is an open neighborhood of $\widetilde x''_1$ and $\widetilde \sU_1\cap g_1\widetilde \sU_1= \emptyset$. From
+
+
+
+
+and $\widetilde  \sU_2 = p \left(   \widetilde\sU_1\right)$ then $\widetilde  \sU_2\cap g_2 \widetilde  \sU_2 = \emptyset$ for any nontrivial $g_2 \in G\left(\left.\widetilde\sX_2~\right|\widetilde{\sX}\right)$. It turns out that
+$$
+\forall 	\widetilde x'_1 \in \widetilde \sX_1\quad \widetilde p\left(g \widetilde x'_1  \right) =  p\left( \widetilde x'_1  \right).
+$$
+From the above equation it follows that a set
+\be\label{top_uu_eqn}
+\left\{\left. \widetilde x_1\in  \widetilde \sX_1\right| p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right) \right\}
+\ee	
+is open. Similarly one can proof that the set \eqref{top_uu_eqn} is closed and 
+$$
+\exists \widetilde x_1 \quad  p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right)  \quad \Leftrightarrow  \quad \forall \widetilde x_1 \quad  p\left(g \widetilde x_1  \right) =  p\left( \widetilde x_1  \right). 
+$$
+From the above formula it follows that there is a normal subgroup
+$$
+G \bydef \left\{\left. g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\right| \forall p\left( g\widetilde x_1\right)  =   p\left( \widetilde x_1\right)\right\}.
+$$
+From the above formula it follows that $G \cong G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ and one can deduce \eqref{top_covp_cat_eqn}.\\
+(ii)	 Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
+$$
+G_{\widetilde x_2} = \left\{\left.g \in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\right| p\left(g \widetilde x_2 \right)=p\left( \widetilde x_2\right)  \right\}.
+$$
+However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_2} = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, hence $p^{-1}\left(\widetilde x_2 \right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$
+\end{proof}
+
 \begin{lemma}\label{top_consents_lem}
 A space $\sX$ consents with noncommutative coverings  (cf. the Definition \ref{top_consents_defn}) if and only if for any finite-fold transitive covering $p: \widetilde \sX \to \sX$ there is an indexed by directed set $\La$  a family $\left\{\sU_\la\subset \sX\right\}_{\la\in\La}$ of connected open subsets such that
 \begin{enumerate}
@@ -9457,10 +9537,8 @@ The Lemma \ref{top_s_fin_lem} is a noncommutative counterpart of the Proposition
 \end{remark}
 \subsubsection{Coverings and unbounded operators on Hilbert modules}\label{top_fin_chull_sec}
 \paragraph{Algebras of unbounded functions}
-!!!!
 
-consents with noncommutative coverings
-Let both $\sX$ be  and $\widetilde\sX$ be connected, locally compact Hausdorff space, connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!).
+Let both $\sX$ be  and $\widetilde\sX$ be connected, locally compact Hausdorff space, connected , locally compact, Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}).
 If both $A\bydef Cont\left( \sX\right) $ and $\widetilde A\bydef Cont\left(\widetilde  \sX\right)$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective $*$-homomorphism
 $$
 \pi_A : A\hookto \widetilde A.
@@ -9473,7 +9551,7 @@ B\bydef  C_0\left( \sX\right),\quad
 \mathfrak B\bydef  C_c\left( \sX\right),\quad
 \widetilde{\mathfrak B}\bydef  C_c\left( \widetilde\sX\right).
 \eean 
-then from the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!
+then from the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}
  it turns out that
 $$
 \left( B, \widetilde B, G, \pi_B  \right) \bydef \left( C_0\left( \sX\right),  C_0\left( \widetilde\sX\right), G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right)  \right) 
@@ -9513,7 +9591,7 @@ In the above proof the ideals ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ 
 \end{remark}
 
 \paragraph{Polynomials in one variable} \label {top_fin_hull_sec}
-Let $\sX$ be a locally compact,  connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). Suppose $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!).
+Let $\sX$ be a locally compact,  connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). Suppose $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}).
 Let  $R\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. Clearly $R\left[t\right]$ is an $R$-module. Let $\mathscr S^{R\left[t\right]}$ be an $R\left[t\right]$-sheaf (cf. Definition \ref{top_x_sheaf_defn}).
  Let 
 \be\label{top_poly_a_defn}
@@ -9534,7 +9612,7 @@ $$
 If $\mathfrak B$ is the completion of $\mathfrak B'$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$ such that $\mathfrak B$ is a core (cf. Definition \ref{def:rep_Hilbert_module}).
  If  $p:\widetilde \sX \to \sX$ is a finite-fold transitive covering with connected $\widetilde \sX$ and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then there is the natural finite-fold transitive covering $\widetilde \sX\times\R \to \sX\times\R$ such that $G \cong  G\left(\left.\widetilde \sX\times\R \right| \sX \times\R \right)$. 
  From the 
- Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!
+ Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}
   it follows that one has a natural  {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$).
 If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft_c_exer} it turns out that
 an intersection $\widetilde R \bydef p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft *-subalgebra. We leave to the reader the proof of the natural isomorphism
@@ -9619,7 +9697,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 		\sX & \sX \text{ is compact}\\
 		\text{the one point compactification of } \sX & \sX \text{ is not compact}
 	\end{cases} 
-	\ee (cf. Definition \ref{top_comp_defn}). Suppose  $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!).
+	\ee (cf. Definition \ref{top_comp_defn}). Suppose  $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}).
 	From the Example \ref{op_real_exm} it turns out that he space $C\left(\sX^\sim, \R \right)$ of all real-valued continuous functions is a real operator space. If $C_0\left(\sX, \R \right)$ is an algebra of vanishing at infinity real-valued functions then the pair $$\left(C_0\left(\sX, \R \right), C\left(\sX^\sim, \R \right) \right)$$ is a sub-unital real operator space (cf. the Definitions \ref{op_su_space_defn}, \ref{op_su_r_space_defn} and the Example \ref{sub_alg_exm}). If $p: \widetilde{\sX} \to \sX$ is a finite-fold transitive covering then there are the following complexifications
 	\be\label{top_complex_eqn}
 	\begin{split}
@@ -9636,7 +9714,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 	\eean
 	respectively (cf. Remark \ref{op_su_env_rem}).
 	If $G \bydef G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ then 	
-	from the Theorem \ref{top_fin_necassary_thm} and the Definitions  \ref{fin_op_defn}, \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!
+	from the Theorem \ref{top_fin_necassary_thm} and the Definitions  \ref{fin_op_defn}, \ref{top_consents_defn}
 	 it follows that
 	$$
 	\left(\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right),\left(C_0\left(\sX \right), C\left(\sX^\sim \right)\right) , G, \left(\pi_{C_0\left(\sX \right)}, \pi_{C\left(\sX^\sim \right)} \right) \right)
@@ -9652,7 +9730,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 
 \paragraph*{} 
-If  $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff space 
+Let  $\sX$ be a connected,  locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn})
  and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times_\sX E \to \C$ (cf. Definitions \ref{top_vb_defn} and \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
 \bean
 	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right),\\
@@ -10062,7 +10140,7 @@ Prove that there is a natural unoriented spectral triple
 
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
 \paragraph{}
-	Let $\widetilde p : \widetilde \sX \to \sX$ be a transitive covering with connected,  locally compact, Hausdorff spaces $\sX$ and $\widetilde \sX$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!). Let $\left\{ G_\la\right\}_{\la \in \La}$ be a family of all finite factor groups of  $G\left(\left. \widetilde\sX~\right|\sX \right)$ 
+	Let $\widetilde p : \widetilde \sX \to \sX$ be a transitive covering with connected,  locally compact, Hausdorff spaces $\sX$ and $\widetilde \sX$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}). Let $\left\{ G_\la\right\}_{\la \in \La}$ be a family of all finite factor groups of  $G\left(\left. \widetilde\sX~\right|\sX \right)$ 
 If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. If $\sX_\la \bydef \widetilde \sX/ \ker\left( G\left(\left. \widetilde\sX~\right|\sX \right)\to G_\la\right)$ then there is an inverse limit $\widehat \sX = \varprojlim_{\la \in \La} \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}). There is a natural continuous map $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$. If we consider a  {final} {with respect to the family of maps} $\left\{g \circ \widehat p\right\}_{\widehat{G}}$ topology on $\widehat \sX$ (cf. Definition \ref{top_final_defn}) then we obtain a topological space $\overline \sX$.
 
 \begin{lemma}\label{top_disconnected_lem}
@@ -10595,7 +10673,7 @@ From the   Definition \ref{fundamental_group_nc_defn} it follows that the triple
 \end{proof}
 
 \begin{corollary}\label{comm_uni_lim_cor}
-	Let $\mathcal X$ be a connected, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), locally compact,  Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!) and $\widetilde \sX_{\mathrm{res~fin}}$ is a given by the equation \eqref{top_x_fr_eqn} space, and   $\widetilde{p}:\widetilde{\sX}_{\mathrm{res~fin}}\to \mathcal X$ is the natural covering (cf. \eqref{top_fin_c_sec_eqn}) then one has:
+	Let $\mathcal X$ be a connected, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), locally compact,  Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) and $\widetilde \sX_{\mathrm{res~fin}}$ is a given by the equation \eqref{top_x_fr_eqn} space, and   $\widetilde{p}:\widetilde{\sX}_{\mathrm{res~fin}}\to \mathcal X$ is the natural covering (cf. \eqref{top_fin_c_sec_eqn}) then one has:
 	\begin{enumerate}
 		\item [(i)]  	a triple 
 		\be\label{comm_uni_lim_eqn!}
@@ -15675,7 +15753,7 @@ and taking into account that
 \subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
 
 \begin{lemma}\label{ctr_fin_inv_lem} 
-	Let  $A$ be a $C^*$-algebra, with Hausdorff spectrum $\sX$. If $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!) and $p: 	\widetilde \sX \to \sX$ is a finite-fold transitive covering then there is a noncommutative finite-fold covering 
+	Let  $A$ be a $C^*$-algebra, with Hausdorff spectrum $\sX$. If $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}) and $p: 	\widetilde \sX \to \sX$ is a finite-fold transitive covering then there is a noncommutative finite-fold covering 
 	$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
@@ -16942,14 +17020,14 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 
 \paragraph{!!!}
 
-\begin{exercise}\label{top_lex_square_exer}
+\begin{exercise}\label{top_lex_square_exer1}
 	Let  $I^2_o$ be ordered square (cf. \ref{top_lex_square_empt}). Denote by $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sX \bydef I^2_o/\sim_\sX$ where  $\sim_\sX$ is a minimal equivalence relation such that $x_0 \sim_\sX x_1$.
 	\begin{enumerate}
 		\item Prove that $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, compact, Hausdorff space, but $\sX$ is not path connected (cf. \cite{counter_topology}).
 		\item Similarly to the proof of the Lemma \ref{top_lex_square_lem} prove that the space $\sX$ is weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}).
 	\end{enumerate}
 \end{exercise}
-\begin{exercise}\label{top_lex_square1_exer}
+\begin{exercise}\label{top_lex_square1_exer1}
 	Let us use the notation of the Exercise \ref{top_lex_square_exer}. Let $\sX_j$ be a homeomorphic to $I^2_o$ space for any $j\in \Z$. Let $x^j_0 , x^j_1 \in \sX_j$ be points which correspond to $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sim_{\widetilde \sX}$ be a minimal equivalence relation on $\bigsqcup_{j\in \Z} \sX_j$ such that
 	$$
 	\forall j \in \Z \quad x^j_1 \sim_{\widetilde \sX}  x^{j+1}_0.
@@ -16961,7 +17039,7 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 	\end{enumerate}
 \end{exercise}
 
-\begin{exercise}\label{top_lex_square2_exer}
+\begin{exercise}\label{top_lex_square2_exer1}
 	Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}.   for any $n \in \Z$ define a homeomorphism  $\varphi_n^\sqcup$ of $\sqcup\sX_j$ which homeomorphically  maps $\sX_j$ onto $\sX_{j + n}$. Prove following statements:
 	\begin{enumerate}
 		\item for any $n\in \Z$ the homeomorphism $\varphi_n^\sqcup$ induces a homeomorphism $\varphi_n$ of $\widetilde \sX$,
@@ -22288,7 +22366,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 			(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
 		\end{tikzpicture}
 		\\
-		where $\sX$ is locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!and $p_1$, $p_2$ are covering projections. If $p$ is a surjection then $p$ is a covering projection.
+		where $\sX$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) and $p_1$, $p_2$ are covering projections. If $p$ is a surjection then $p$ is a covering projection.
 	\end{corollary}
 	\begin{theorem}\label{top_locally_conn_cov_com_thm}\cite{spanier:at}
 		If   $p: \widetilde{\mathcal X}\to {\mathcal X}$ is a covering projection onto locally connected base space, then for any component  $\widetilde{\mathcal Y}$ of $\widetilde{\mathcal X}$ the map
