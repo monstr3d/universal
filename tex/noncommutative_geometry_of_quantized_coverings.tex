@@ -11699,7 +11699,7 @@ Denote by
 _\sU A_\sV \bydef~_\sU A\cap  A_\sV.
 \ee
 \begin{lemma}\label{blowing_compact_lem}
-	If $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}	for any $a \in A$ and $\eps > 0$ following conditions hols:
+	If $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}	for any $a \in A$ and $\eps > 0$ following conditions hold:
 	\begin{enumerate}
 		\item[(i)] there is a positive $f \in C_c\left( \sY\right)_+$ with 
 		\be\label{blowing_compact_eqn}
@@ -12280,7 +12280,7 @@ Under the hypotheses of the Definition \ref{blowing_lift_constr_defn} if  $A_0\l
 \end{empt}
 \begin{definition}\label{blowing_lift_defn}
 Under the hypotheses \ref{blowing_lift_constr_empt} we say that a map
-\be
+\be\label{blowing_lift_eqn}
 \begin{split}
 A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right),\\
 a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \varphi' \left( \widetilde f_\a\otimes a\right) 
@@ -12342,7 +12342,7 @@ where $\desc^c_q\left(\widetilde f'_j \right)$ and $\desc^c_q\left(\widetilde f'
 		\item The Definition \ref{top_compactly_supported_descent_defn} is a specialization of the  \ref{blowing_compactly_supported_descent_defn}.
 	\end{enumerate}
 \end{exercise}
-\begin{lemma}
+\begin{lemma}\label{blowing_series_lem}
 Under the hypotheses of the Definition \ref{blowing_compactly_supported_descent_defn} one has
 \be
 \forall \widetilde a\in  A_c\left(\widetilde\sY \right)\quad \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = \desc^c_q\left(\widetilde a \right) 
@@ -12390,14 +12390,14 @@ $$
 \end{exercise}
 
 \begin{empt}
-	The Lemma \ref{blowing_pedersen_compact_lem} and the Corollary  \ref{blowing_lift_desc_sum_cor} yields a sesquilinear pairing 
+	The Lemmas \ref{blowing_pedersen_compact_lem} and  \ref{blowing_series_lem} yield a sesquilinear pairing 
 	\be\label{blowing_pa_eqn}
 	\begin{split}
 		\left\langle\cdot, \cdot \right\rangle : K\left(A_0\left( \widetilde \sY\right) \right)\times K\left(A_0\left( \widetilde \sY\right) \right) \to A,\\
 		\left\langle \widetilde a, \widetilde b \right\rangle \bydef \bt\text{-}	\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }g \left( \widetilde a \widetilde b\right) 
 	\end{split}
 	\ee
-	where the convergence with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ is implied. Thus $K\left(A_0\left( \widetilde \sY\right)\right)$ becomes a pre-Hilbert $A$-module (cf. Definition \ref{hilbert_module_defn}).
+	where the convergence with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}) is implied. Thus $K\left(A_0\left( \widetilde \sY\right)\right)$ becomes a pre-Hilbert $A$-module (cf. Definition \ref{hilbert_module_defn}).
 \end{empt}
 \begin{definition}\label{blowing_hilb_defn}
 	The $C^*$-Hilbert $A$-module which is a completion of $K\left(A_0\left( \widetilde \sY\right)\right)$ with respect to norm
@@ -12414,9 +12414,9 @@ $$
 	where $\mathscr L^2\left(\widetilde \sY \right)_A$ is $\widetilde \sY$-$A$-{module} (cf. Definition \ref{blowing_lift_hm_defn})
 \end{lemma}
 \begin{proof}
-	If $\widetilde a \in K\left( A_0\left( \widetilde \sY\right)\right)$ the from \eqref{blowing_comp_eqn} it follows that 
+	If $\widetilde a \in K\left( A_0\left( \widetilde \sY\right)\right)$ the from \eqref{blowing_pedersen_compact_lem} it follows that 
 	$$
-	\exists a \in A \quad \exists \widetilde\in C_c\left(\widetilde\sY \right)\quad  \widetilde a= \varphi_C\left( \widetilde f\right)\varphi_A\left(a \right),
+	\exists a \in A \quad \exists \widetilde f\in C_c\left(\widetilde\sY \right)\quad  \widetilde a= \varphi_C\left( \widetilde f\right)\varphi_A\left(a \right),
 	$$
 	so there is an inclusion
 	$$
@@ -12436,15 +12436,43 @@ $$
 	$$
 	where $ \left\|\cdot\right\|_H$ is a norm of $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$,  $ ~\left\|\cdot\right\|_H$ is the $C^*$-norm and $\desc^c_q$ is compactly supported $q$-descent (cf. Definition \ref{top_compactly_supported_descent_defn}).  If $\dl \bydef \frac{\eps }{\left\|\desc^c_q\left(\widetilde f^*\widetilde f \right) \right\|_C}$ then $\left\|\widetilde f \otimes a - \widetilde f \otimes a'\right\|_H < \eps$ so $K\left( A_0\left( \widetilde \sY\right)\right)$ is dense in $\mathscr L^2\left(\widetilde \sY \right)_A$ and there is an isomorphism \eqref{blowing_hilb_iso_eqn}.
 \end{proof}
-\begin{corollary}\label{blowing_hilb_iso_cor}
-	Under the hypotheses of the  \ref{blowing_hilb_iso_lem} if the covering $q: \widetilde \sY \to \sY$ is finite-fold, then there are $A_0\left( \widetilde \sY\right)$-$A$ bimodule isomorphisms
-	$$
-	A_0\left( \widetilde \sY\right)\cong \mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A.
-	$$
-\end{corollary}
+
+\begin{lemma}\label{blowing_fin_lem}
+	
+	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
+	\be\label{blowing_fin_eqn}
+	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+	\ee
+	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
+\end{lemma}
 \begin{proof}
-	The proof of this corollary is similar to the proof of the Lemma \ref{fin_hilbert_mod_lem}.
+According to  \ref{blowing_lift_constr_empt} it follows that $A_0\left( \widetilde \sY\right)$ is the $C^*$-norm completion of 
+$$
+\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)
+$$
+For any $\widetilde a \in 	\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ there is $\widetilde f\in C_c\left( \widetilde \sY\right)_+$ such that 
+$$
+\varphi_C\left(\widetilde f \right) \widetilde a.
+$$
+on the other hand for any $a \in  K\left( A\right)$ there is $f \in C_c\left(\sY \right)_+$ such that $f a = a$.  Since a covering $q$ is finite-fold one has 	$A_b\left(q\right)\left( a\right) =  \varphi\left(C_c\left( q\right)\left(f \right) \otimes a \right)\in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\subset  A_0\left( \widetilde \sY\right)$ where $C_c\left( q\right)$ is given by \eqref{top_compact_cc_eqn}.
+Since $K\left(A \right)$ is dense in $A$  one has  
+$$
+\forall a \in A \quad A_b\left(q\right) \left( a\right) \subset  A_0\left( \widetilde \sY\right),
+$$
+or equivalently the equation \eqref{blowing_fin_eqn} holds.
 \end{proof}
+
+
+
+
+\begin{definition}\label{blowing_lift_fin_defn}
+	The given by the Lemma \ref{blowing_fin_lem} injective $*$-homomorphism
+	\be	\label{blowing_lift_fin_eqn}
+	A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
+	\ee
+	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
+\end{definition}
+
 \begin{lemma}\label{blowing_lift_composition_lem}
 	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	$
@@ -12544,34 +12572,6 @@ $$
 	\ee
 	Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqref{blowing_far_eqn} module one has $\sum_{j=1}^n \widetilde ff'_j a_j\in A_0\left(\widetilde \sY \right)$ and taking into account \eqref{blowing_farr_eqn} one has $\widetilde f a'\in A_0\left(\widetilde \sY \right)$. So the closure of generated by \eqref{blowing_farf_eqn} module equals to  $A_0\left(\widetilde \sY \right)$. So the covering $q: \widetilde{\sY}\to \sY'$ is $A_0\left( \sY' \right)$-{regular} (cf. Definition \ref{blowing_lift_constr_defn}). From (i) of the Theorem \ref{blowing_equivalence_thm} it follows that there is a  $q'$-lift  $	A_b\left(q'\right) :A_0\left( \sY' \right) \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
 \end{proof}
-
-
-\begin{lemma}\label{blowing_fin_lem}
-
-	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
-	\bean
-	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
-	\eean
-	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
-\end{lemma}
-\begin{proof}
-	
-	USE A MAP $C_c\left(\sY \right)\to C_c\left( \widetilde\sY\right)$ 
-	The $C^*$-algebra is generated by series 
-	$$
-	a = \sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde{a}	
-	$$
-	However the above series is a finite sum, since the group  $G\left(\left.\widetilde \sY\right|\sY \right)$ is finite. So $a \in A_0\left( \widetilde \sY\right)$. Hence $K\left( A\right)$ is dense in $A$ the homomorphism can be uniquely extended up to $ A \hookto	 A_0\left( \widetilde \sY\right)$.
-\end{proof}
-
-
-\begin{definition}\label{blowing_lift_fin_defn}
-	The given by the Corollary \ref{blowing_fin_cor} injective $*$-homomorphism
-	\be	\label{blowing_lift_fin_eqn}
-	A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
-	\ee
-	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
-\end{definition}
 
 \begin{empt}\label{blowing_ext_empt}
 	!!!! $A \to $
@@ -12757,21 +12757,8 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 \end{proof}	
 
 \subsection{Finite-fold coverings}
-\begin{lemma}\label{blowing_aal_lem}!!! MAY BE DELETE !!!
-	Let $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ be a {finite}-$q$-{lift}. If $\sU\subset \sY$ is a connected subset with compact closure then $_\sU A_\sU$ is $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}).
-\end{lemma}
-
-\begin{proof}
-	A {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{lift} of $_\sU A_\sU$. is the norm completion of $\pi\left( ~_\sU A_\sU\right)  A_0\left( \widetilde \sY\right)\pi\left( ~_\sU A_\sU\right)$. Using this fact and that $_\sU A_\sU$ is a competition of $C_0\left(\sU \right)A C_0\left(\sU \right)$ one can proof the {hereditary} $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-{lift} of $_\sU A_\sU$ equals to the norm completion of $C_0\left(\widetilde \sU \right)A_0\left( \widetilde \sY\right) C_0\left(\widetilde \sU \right)$, or equivalently $_{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. The closure $\sV$ of $\sU$ is compact, so from the Lemma \ref{top_compact_lem} it follows that the preimage $\sV \bydef q^{-1}\left( \sV\right)$  is compact. Moreover there are natural inclusions $C\left(\sV \right) \subset  M\left( ~_\sU A_\sU\right) $ and 
-	$C\left(\widetilde \sV \right) \subset  M\left( ~_\sU  A_0\left( \widetilde \sY\right)_\sU\right)$. From the Theorem  \ref{blowing_compact_unitization_thm} it turns out that the quadruple
-	$$
-	\left(~_\sU A_\sU ,	~_{\widetilde \sU} A_0\left( \widetilde \sY\right)_{\widetilde \sU}, A_0\left(q\right)|_{_\sU A_\sU }, G\left(\left.\widetilde \sY\right|\sY \right) \right)
-	$$ 
-	is a noncommutative finite-fold covering with unitization.
-	
-\end{proof}
 \begin{theorem}\label{blowing_axiomatic_thm}
-	Let $q: \widetilde\sY \to \sY$  be a finite-fold transitive covering, and let	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift}. If $\sY$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!)  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+	Let $q: \widetilde\sY \to \sY$  be a finite-fold transitive covering, and let	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift}. If $\sY$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn})  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 
 \begin{proof}
@@ -15665,7 +15652,7 @@ and taking into account that
 
 
 \begin{lemma}\label{ctr_fin_red_lem}
-	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected space and $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!), and let the category $\mathfrak{FinCov}$-$\sX$ is a {finite covering category} of $\sX$ given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn}) then there is a full and faithful functor $A_0: \mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$.
+	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected space and $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}), and let the category $\mathfrak{FinCov}$-$\sX$ is a {finite covering category} of $\sX$ given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn}) then there is a full and faithful functor $A_0: \mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$.
 	\end{lemma}
 
 \begin{proof}
@@ -16293,9 +16280,9 @@ The details of the proof are left to the reader.
 
 \section{Infinite coverings}\label{ctr_case_sec}
 \subsection{Coverings of $C^*$-algebras}
-
+\subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
 \paragraph*{}
-Let $A$ be a $C^*$-algebra with Hausdorff spectrum $\sX$. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition\ref{top_consents_defn} !!! \ref{top_consents_defn} !!!) and let  $p:\widetilde{\sX} \to  \sX$ be a transitive covering with connected $\widetilde{\sX}$ and residually finite group, such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Exercise \ref{blowing_hausdorff_exer} it turns out that there is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}). 
+Let $A$ be a $C^*$-algebra with Hausdorff spectrum $\sX$. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition\ref{top_consents_defn}) and let  $p:\widetilde{\sX} \to  \sX$ be a transitive covering with connected $\widetilde{\sX}$ and residually finite group, such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Exercise \ref{blowing_hausdorff_exer} it turns out that there is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}). 
 \begin{lemma}\label{ctr_intinite_hausdorff_covering_lem}
 Under described above hypotheses if $\overline p: \overline \sX  \to  \sX$  is {disconnected covering of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
 \bean
@@ -16332,6 +16319,7 @@ Follows from the Theorem \ref{blowing_inf_cov_thm}
 \begin{proof}
 The proof ot this lemma is similar to \ref{top_atomic_lem} one.
 \end{proof}
+\subsubsection{Coverings of continuous trace  $C^*$-algebras}
 \begin{lemma}\label{ctr_intinite_covering_lem}
 	Under  hypotheses of the Lemma \ref{ctr_intinite_hausdorff_covering_lem} if $A$ is a continuous trace $C^*$-algebra (cf. Definitions \ref{continuous_trace_c_a_defn} and \ref{continuous_trace_c_alt_defn}) then a triple $\left(A, A_0\left( \overline\sX\right), G\left(\left. \overline\sX~\right|\sX \right)  \right)$ is a  {disconnected infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p \right) }$     (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn})
 \end{lemma}
@@ -16889,18 +16877,16 @@ such that following conditions hold:
 \chapter{Groupoids, foliations  and their coverings}\label{foliations_chap}
 \paragraph{}
 
-\section{Basic constructions}
-\subsection{Geometric construction}
+\section{Geometric construction}
 \paragraph{}
 In this section we consider locally-compact groupoids $\G$ (cf. Definition \ref{groupoid_topological_defn}) such that $\G^0$ is Hausdorff.
 \begin{definition}\label{groupoid_lift_defn}
-Let $q: \widetilde \sY \to \G^0$ be transitive covering
-and let $\widetilde \sY\times_{\G^0}\G$ be pullback where the map $s : \G \to \G^0$ is implied. We say that the covering  $q$ is $\G$-\textit{regular} if there is  the groupoid $\widetilde \G^0$ with homeomorphism $\widetilde \G\cong \widetilde \sY\times_{\G^0}\G$ such that the natural continuous map 
+Let $q: \widetilde \G^0 \to \G^0$ be transitive covering
+and let $\widetilde \G^0\times_{\G^0}\G$ be pullback where the map $s : \G \to \G^0$ is implied. We say that the covering  $q$ is $\G$-\textit{regular} if there is  the groupoid $\widetilde \G^0$ with homeomorphism $\widetilde \G\cong \widetilde \G^0\times_{\G^0}\G$ such that the natural continuous map 
 \be\label{groupoid_lift_eqn}
 q_\G: \widetilde \G \to \G
 \ee
- is a covering (cf. Definition \ref{covering_groupoid_defn}). The groupoid $\widetilde \G$ is the $p$-\textit{lift} of $\G$. 	A $p$-\textit{topology} on $\widetilde\G$ is such that both maps $p_\G$ and $s:  \widetilde\G \to \widetilde\G^0$ are continuous.
- 
+ is a covering (cf. Definition \ref{covering_groupoid_defn}). The groupoid $\widetilde \G$ is the $q$-\textit{lift} of $\G$. 	A $p$-\textit{topology} on $\widetilde\G$ is such that both maps $q_\G$ and $s:  \widetilde\G \to \widetilde\G^0$ are continuous.
 \end{definition}
 
 
@@ -16908,77 +16894,70 @@ q_\G: \widetilde \G \to \G
  From the  Theorem \ref{covering_groupoid_thm} it follows that the given by the  the Definition \ref{groupoid_lift_defn} groupoid is unique.
 \end{remark}
 \begin{remark}\label{groupoid_liftpp_rem}
-Any element $\left(\widetilde y, x \right) \in \widetilde \sY\times_{\G^0}\G$ uniquely defines a point $r\left(\widetilde{ x} \right)\in \widetilde{\sY}$ where  $\widetilde{ x} \in \widetilde{\G}$ comes from  $\left(\widetilde y, x \right)$.
+Any element $\left(\widetilde y, x \right) \in \widetilde \G^0\times_{\G^0}\G$ uniquely defines a point $r\left(\widetilde{ x} \right)\in \widetilde{\G^0}$ where  $\widetilde{ x} \in \widetilde{\G}$ comes from  $\left(\widetilde y, x \right)$.
 \end{remark}
 \begin{example}
 	According to the Theorem \ref{covering_groupoid_thm}) the existence of coveting is relevant to the lifting problem
 	\newline
 	\begin{tikzcd}
-		& \widetilde \sY\arrow[d, ""]\\
+		& \widetilde \G^0\arrow[d, ""]\\
 		\F \arrow[ru,  dashrightarrow]\arrow[r]	& \G^u_u
 	\end{tikzcd}
 	\newline
-One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. However if the space  $ \G^u_u$ is not locally path connected then 	usage of $\pi_1\left( \G^u_u, u \right)$ does not sufficient. Application of the weak fundamental group $\pi^{\text{w}}_1\left( \G^u_u, u \right)$ (cf. Definition \ref{top_weak_fundamental_group_defn}) is more universal.
+One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. However if the space  $ \G^u_u$ is not locally path connected !!! DELETE !!! then 	usage of $\pi_1\left( \G^u_u, u \right)$ does not sufficient. Application of the weak fundamental group $\pi^{\text{w}}_1\left( \G^u_u, u \right)$ (cf. Definition \ref{top_weak_fundamental_group_defn}) is more universal.
 
 \end{example}
-
-\begin{empt}\label{groupoid_desc_empt}
-	Let $q: \widetilde \G^0 \to \G^0$ be a $\G$-{regular}  covering, and let
-	$\widetilde\G$ be  the  $p$-{lift} of $\G$ (cf. Definition \ref{groupoid_lift_defn}). If $\widetilde \sU \subset \widetilde \G^0$ is a connected set which  mapped homeomorphically onto $\sU$ then then there is a natural homeomorphism $s^{-1}\left( \sU\right)\cong s^{-1}\left( \widetilde \sU\right)$ if $f \in C_c\left( \widetilde \G^0\right)$ is such that $\supp \widetilde f = \widetilde \sU$ then this homeomorphism enables us naturally define $f \in   C_c\left(  \G^0\right)$ such that $\supp f = \sU$. 
-\end{empt}
-\begin{defn}\label{groupoid_desc_defn}
-	Under the hypotheses \ref{groupoid_desc_empt} we say that $f$ is the $p$-\textit{descent} of $\widetilde f$. We write $\desc_p \widetilde f \bydef f$.
-\end{defn}
-
-\begin{empt}
-	Let both $\G^n$ and $\widetilde \G^n$ be explained in \ref{groupoig_gn_empt}. If $\left(\widetilde x_0,...,  \widetilde x_{n-1}\right) \in \widetilde \G^n$ then from the Definition \ref{groupoid_lift_defn}  it follows that $\left(q_\G\left( \widetilde x_0\right) ,...,  q_\G\left( \widetilde x_{n-1}\right)\right)\in G^n$ ($q_\G$ is given by the equation \eqref{groupoid_lift_eqn}). If $\sigma$ is a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) then there is a map
-	\be\label{groupoid_lift_cocyle_eqn}
-	\begin{split}
-		\widetilde \sigma: \widetilde \G^2 \to \T,\\
-		\left(\widetilde x_0, \widetilde x_1 \right) \mapsto \left(p_\G\left( \widetilde x_0\right), p_\G\left( \widetilde x_1\right)\right). 
-	\end{split}
-	\ee
-	Moreover from \eqref{groupoid_b_eqn} it follows that 
-	$$
-	\forall \left(\widetilde x_0, \widetilde x_1 \right) \in \widetilde \G^2\quad \dl^2 \widetilde \sigma \left(\widetilde x_0, \widetilde x_1 \right)=\dl^2  \sigma \left(p_\G\left( \widetilde x_0\right), p_\G\left( \widetilde x_1\right)\right)= 1,
-	$$
-	i.e. $\widetilde \sigma$ is  a continuous 2-cocycle (cf. Definition \ref{groupoid_cocycle_defn}).	
-\end{empt}
-\begin{definition}\label{groupoid_cocycle_lift_defn}
-	We say that the continuous 2-cocycle $\widetilde \sigma\in Z^2\left(\G, \T\right)$ is the $p$-lift of $\sigma$.
-\end{definition}
+%\begin{exercise}
+%	Prove that the groupoid  $\widetilde\G$ with the $p$-topology (cf. Definition \ref{groupoid_lift_defn}) is a topological groupoid (cf. Definition \ref{groupoid_topological_defn}).
+%\end{exercise}
+%\begin{remark}
+%	The action $G\left(\left. \widetilde\G^0 \right|\G^0\right)\times \widetilde\G^0 \to \widetilde\G^0$ yields an action
+%	\be\label{groupoid_group_act_eqn}
+%	\begin{split}
+%		G\left(\left. \widetilde\G^0 \right|\G^0\right)\times  \widetilde\G \to \widetilde\G,\\
+%		\left( g, \left( \widetilde x, \ga \right) \right) \mapsto \left( g\widetilde x, \ga \right).
+%	\end{split}
+%	\ee
+%\end{remark}
 \begin{empt}\label{groupoid_haar_lift_empt}
-	Let $\G$ be a locally compact groupoid, and let   $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} covering. If  $\widetilde\G$ is  the $p$-{lift} of $\G$  then $\widetilde\G$ is locally compact (cf. Exercise \ref{groupoid_loc_comp_lift_exer}). Let $\left\{\la^u \left| u \in \G^0\right.\right\}$ be a left Haar system (cf. Definition \ref{groupoid_haar_defn}). For any $\widetilde u \in \widetilde\G^0$ there is a homeomorphism $\widetilde \G^{\widetilde u} \cong \G^{p\left(\widetilde u \right) }$. Using it  for any $\widetilde u$ one can  naturally construct a measure $\widetilde  \la^{\widetilde u}$ on $\widetilde \G$. From the conditions (a)-(c) of the Definition \ref{groupoid_haar_defn} it follows that
+	Let $\G$ be a locally compact groupoid, and let   $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} covering. If  $\widetilde\G$ is  the $p$-{lift} of $\G$  then $\widetilde\G$ is locally compact (cf. Exercise \ref{groupoid_loc_comp_lift_exer}). Let $\left\{\la^u \left| u \in \G^0\right.\right\}$ be a left Haar system (cf. Definition \ref{groupoid_haar_defn}) for $\G$. For any $\widetilde u \in \widetilde\G^0$ there is a homeomorphism $\widetilde \G^{\widetilde u} \cong \G^{p\left(\widetilde u \right) }$. Using it  for any $\widetilde u$ one can  naturally construct a measure $\widetilde  \la^{\widetilde u}$ on $\widetilde \G$. From the conditions (a)-(c) of the Definition \ref{groupoid_haar_defn} it follows that
 	\begin{enumerate}
 		\item [(a)] the support $\supp \widetilde  \la^{\widetilde u}$ of the measure $\widetilde  \la^{\widetilde u}$ is $\widetilde \G^{\widetilde u}$,
 		\item [(b)]  (continuity) for any $\widetilde f \in C_c\left(\widetilde \G\right)$, $\widetilde u \mapsto \widetilde\la(\widetilde f)\left( \widetilde u\right)  = \int \widetilde f \widetilde d\la^{\widetilde u}$ is continuous, and
 		\item [(c)]  (left invariance) for any $\widetilde x\in \widetilde \G$ and any $\widetilde f \in  C_c(\widetilde \G )$, $\int \widetilde  f \left(  \widetilde x \widetilde y \right)  d\la^{s(\widetilde x)}\left( \widetilde y\right)  =
 		\int \widetilde f\left( \widetilde y\right) d\la^{d\left( \widetilde x\right) }\left( \widetilde y\right) $.
 	\end{enumerate}
-	From these circumstances it turns out that $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is a left Haar system.
+	From these circumstances it turns out that $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is a left Haar system for $\widetilde{\G}$.
 \end{empt}
 \begin{definition}\label{groupoid_haar_lift_defn}
-	Under the hypotheses \ref{groupoid_haar_lift_empt} we say that the left Haar system $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is the $p$-lift of $\left\{\la^u \left| u \in \G^0\right.\right\}$.
+	Under the hypotheses \ref{groupoid_haar_lift_empt} we say that the left Haar system $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is the $p$-\textit{lift} of $\left\{\la^u \left| u \in \G^0\right.\right\}$.
 \end{definition}
 
-\begin{exercise}\label{groupoid_loc_comp_lift_exer}
-	Prove that if a groupoid $\G$ is locally compact then any $p$-lift of $\G$ is locally compact with respect to $p$-topology.
-\end{exercise}
 
-\begin{exercise}
-	Prove that the groupoid  $\widetilde\G$ with the $p$-topology (cf. Definition \ref{groupoid_lift_defn}) is a topological groupoid (cf. Definition \ref{groupoid_topological_defn}).
-\end{exercise}
-\begin{remark}
-	The action $G\left(\left. \widetilde\G^0 \right|\G^0\right) \widetilde\G^0 \to \widetilde\G^0$ yields an action
-	\be\label{groupoid_group_act_eqn}
+
+\begin{empt}
+	Let both $\G^n$ and $\widetilde \G^n$ be explained in \ref{groupoig_gn_empt}. If $\left(\widetilde x_0,...,  \widetilde x_{n-1}\right) \in \widetilde \G^n$ then from the Definition \ref{groupoid_lift_defn}  it follows that $\left(q_\G\left( \widetilde x_0\right) ,...,  q_\G\left( \widetilde x_{n-1}\right)\right)\in G^n$ ($q_\G$ is given by the equation \eqref{groupoid_lift_eqn}). If $\sigma$ is a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) then there is a map
+	\be\label{groupoid_lift_cocyle_eqn}
 	\begin{split}
-		G\left(\left. \widetilde\G^0 \right|\G^0\right)\times  \widetilde\G \to \widetilde\G,\\
-		\left( g, \left( \widetilde x, \ga \right) \right) \mapsto \left( g\widetilde x, \ga \right).
+		\widetilde \sigma: \widetilde \G^2 \to \T,\\
+		\left(\widetilde x_0, \widetilde x_1 \right) \mapsto \left(q_\G\left( \widetilde x_0\right), q_\G\left( \widetilde x_1\right)\right). 
 	\end{split}
 	\ee
-\end{remark}
+	Moreover from \eqref{groupoid_b_eqn} it follows that 
+	$$
+	\forall \left(\widetilde x_0, \widetilde x_1 \right) \in \widetilde \G^2\quad \dl^2 \widetilde \sigma \left(\widetilde x_0, \widetilde x_1 \right)=\dl^2  \sigma \left(q_\G\left( \widetilde x_0\right), q_\G\left( \widetilde x_1\right)\right)= 1,
+	$$
+	i.e. $\widetilde \sigma$ is  a continuous 2-cocycle (cf. Definition \ref{groupoid_cocycle_defn}).	
+\end{empt}
+\begin{definition}\label{groupoid_cocycle_lift_defn}
+	We say that the continuous 2-cocycle $\widetilde \sigma\in Z^2\left(\G, \T\right)$ is the $p$-lift of $\sigma$.
+\end{definition}
+\begin{exercise}\label{groupoid_loc_comp_lift_exer}
+	Prove that if a groupoid $\G$ is locally compact then any $p$-lift of $\G$ is locally compact with respect to $p$-topology (cf. Definition \ref{groupoid_lift_defn}).
+\end{exercise}
 
-\subsection{Algebraic construction}
+
+\section{Algebraic construction}
 \begin{empt}\label{groupoid_rho_empt}
 	If $\G$ is locally compact groupoid with a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) and a left Haar system $\left\{\la^u\left| u \in \G^0\right.\right\}$  (cf. Definition \ref{groupoid_haar_defn}) then there is a $*$-algebra $C_c\left(\G, \sigma \right)$ with given by \eqref{groupoid_*_c_eqn} operations.
 	If  $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ is a representation in the sense of the Definition \ref{groupoid_representation_defn} then there is a $C^*$-seminorm 
@@ -16988,7 +16967,7 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 		a \mapsto \left\|\rho\left( a \right)  \right\|
 	\end{split}
 	\ee
-	We suppose that $\rho$ is faithful, i.e. $a \neq 0\quad \Rightarrow \quad \rho\left(a \right) \neq 0$. The completion of  $C_c\left(\G , \sigma \right)$ with respect to 	$\left\|\cdot  \right\|_\rho$ is a $C^*$-algebra denoted by $C^*_\rho\left(\G , \sigma \right)$
+	We suppose that $\rho$ is \textit{faithful}, i.e. $a \neq 0\quad \Rightarrow \quad \rho_c\left(a \right) \neq 0$. The completion of  $C_c\left(\G , \sigma \right)$ with respect to 	$\left\|\cdot  \right\|_\rho$ is a $C^*$-algebra denoted by $C^*_\rho\left(\G , \sigma \right)$
 \end{empt}
 \begin{definition}\label{groupoid_rho_defn}
 	Under the hypotheses \ref{groupoid_rho_empt} we say that the $C^*$-algebra $C^*_\rho\left(\G , \sigma \right)$ is the $\rho$-\textit{completion} of  $C_c\left(\G , \sigma \right)$.
@@ -17000,14 +16979,16 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 	\ee
 \end{remark}
 
-
+\begin{empt}\label{groupoid_decomp_empt}
+Any $a \in  C_c\left( \G, \sigma \right)$ equals to a finite sum $a = \sum_{j=1}^n a_j$ such that for all $j=1,..., n$  there is an open Hausdorff subset $\sV_j \subset \G$  and $a_j$ is represented by $f_{a_j}\in C_c\left( \sV_j\right)$.
+\end{empt}
 \begin{empt}\label{groupid_tens_empt}
-	Let $\G$ be a locally groupoid, and let  $q: \widetilde \sY \to \G^0$ be $\G$-\textit{regular} covering (cf. Definition \ref{groupoid_lift_defn})
-	Similarly to \ref{blowing_cov_empt}	consider family $\left\{{\sU}_\a\subset  \G^0\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are:
+	Let $\G$ be a locally groupoid, and let  $q: \widetilde \G^0 \to \G^0$ be $\G$-\textit{regular} covering (cf. Definition \ref{groupoid_lift_defn})
+	Similarly to \ref{blowing_cov_empt}	consider family $\left\{{\sU}_\a\subset  \G^0\right\}_{\a\in \mathscr A}$ of connected !!! DELETE !!! open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\G^0 = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected !!! DELETE !!! open set $\widetilde \sU_\a\subset \widetilde \G^0$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \G^0\right|\G^0 \right)\times  \mathscr A$ then there are:
 	\begin{itemize}
-		\item  the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
+		\item  the natural action $G\left(\left.\widetilde \G^0\right|\G^0 \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
 		\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
-		\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \sY$ such that  $\widetilde \sY = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
+		\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \G^0$ such that  $\widetilde \G^0 = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
 	\end{itemize}
 	One can proof that following conditions hold.
 	\begin{itemize}
@@ -17022,7 +17003,8 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 		\ee
 		where there are open subsets $\widetilde \sU'_j, \widetilde\sU''_k \in \left\{{\widetilde\sU}_{\widetilde\a}\right\}_{{\widetilde\a}\in \widetilde{\mathscr A}}$ such that $\supp \widetilde f_j \subset \widetilde\sU'_j$ and $\supp \widetilde f_k \subset \widetilde\sU'_k$.
 	\end{itemize}
-	For any $a \in C_c\left(\G , \sigma \right)$ and $\widetilde f \in C_c\left( \widetilde \G^0\right)$ we define a product $\widetilde f a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$. Using subordinated to the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ covering sum of $\supp \widetilde f$ (cf. Definition \ref{top_covering_sum_defn}) one has
+Below 	for any $a \in C_c\left(\G , \sigma \right)$ and $\widetilde f \in C_c\left( \widetilde \G^0\right)$ we will define a product $\widetilde f a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$. 
+ Using the decomposition  \ref{groupoid_decomp_empt} one can assume that there is an open Hausdorff subset $\sV \subset \G$ such that $a$ is represented by $f_{a}\in C_c\left( \sV\right)$. There is a subordinated to the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ covering sum of $\supp \widetilde f$ (cf. Definition \ref{top_covering_sum_defn}), i.e.
 	$$
 	\widetilde f = \sum_{j=1}^m \widetilde f_j,
 	$$
@@ -17030,14 +17012,14 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 	$$
 	a  = \sum_{k=1}^n f_k a.
 	$$
-	where for any $k=1,..., n$ there is $\sU_k \in \left\{ \sU_{ \a}\right\}$
-	If $q\left( \widetilde\sU_j \right)\cap  \sU_k = \emptyset$ then we set $\widetilde f_j\left( f_k a\right) = 0$. Otherwise there is $\widetilde\sU'_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}$ such that $q\left(\widetilde\sU'_k  \right) = \sU_k$ and $\widetilde\sU'_k\cap \widetilde\sU_j\neq 0$. Let $\widetilde f'_k \bydef \lift^q_{\widetilde\sU'_k}\left( f_k\right)\in C_c\left(\widetilde \G^0 \right)  $ be the  $q$-${\widetilde\sU'_k}$-lift (cf. Definition \ref{top_lift_desc_defn}). Denote by $q_\G: \widetilde \G \to \G$ the natural continuous map. If $a$ is represented by $f \in C_c\left(\G \right)$ and $\sV \bydef \left\{\ga \in \G| f\left( \ga \right)\neq 0 \right\}$ then the set
+	where for any $k=1,..., n$ there is $\sU_k \in \left\{ \sU_{ \a}\right\}$.
+	If $q\left( \widetilde\sU_j \right)\cap  \sU_k = \emptyset$ then we set $\widetilde f_j\left( f_k a\right) = 0$. Otherwise there is $\widetilde\sU'_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}$ such that $q\left(\widetilde\sU'_k  \right) = \sU_k$ and $\widetilde\sU'_k\cap \widetilde\sU_j\neq 0$. Let $\widetilde f'_k \bydef \lift^q_{\widetilde\sU'_k}\left( f_k\right)\in C_c\left(\widetilde \G^0 \right)  $ be the  $q$-${\widetilde\sU'_k}$-lift (cf. Definition \ref{top_lift_desc_defn}). Denote by $q_\G: \widetilde \G \to \G$ the natural continuous map. If $a$ is represented by $f_a \in C_c\left(\G \right)$ and there is an open Hausdorff subspace  $\sV \subset \G$ such that $\supp f_a \subset \sV$  then the set
 	$$
 	\widetilde\sV \bydef q^{-1}_\G\left(\sV \right) \cap r^{-1}\left( \widetilde\sU'_k\right) \in \widetilde \G
 	$$
-	is mapped homeomorphically onto $p_\G\left( \widetilde\sV\right)$. If $ \widetilde f' \bydef \lift^{q_\G}_{\widetilde\sV}\in C_c\left(\widetilde G\right)$ then $\widetilde f'$ uniquely defines $\widetilde a' \in \widetilde \G$. We set
+	is mapped homeomorphically onto $q_\G\left( \widetilde\sV\right)$. If $ \widetilde f'_a \bydef \lift^{q_\G}_{\widetilde\sV}\left( f_a\right) \in C_c\left(\widetilde G\right)$ then $\widetilde f'_a$ uniquely defines $\widetilde a' \in \widetilde \G$. We set
 	\be\label{groupoid_fa_eqn}
-	\widetilde f_j\left( f_k a\right)\bydef\widetilde f_j \widetilde f'_k \widetilde a' 
+	\widetilde f_j\left( f_k a\right)\bydef\widetilde f_j  \widetilde a' 
 	\ee 
 \end{empt}
 \begin{lemma}\label{groupoid_tens_lem}
@@ -17045,7 +17027,7 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 	\begin{enumerate}
 		\item [(i)] The equation \eqref{groupoid_fa_eqn} yields a surjective map 
 		\be\label{groupoid_tensor_eqn}
-		\phi:	C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }C_c\left( \G, \sigma \right)\xrightarrow{\approx} C_c\left(\widetilde \G, \widetilde\sigma \right)
+		\phi:	C_c\left(\widetilde \G^0 \right)\otimes_{C_0\left(\G^0 \right) }C_c\left( \G, \sigma \right)\xrightarrow{\approx} C_c\left(\widetilde \G, \widetilde\sigma \right)
 		\ee
 		where an algebraic tensor product is implied.
 		\item[(ii)] There are natural  right and left actions 
@@ -17056,13 +17038,14 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	(i) From  \eqref{groupoid_tfaf_eqn}  it follows that one should prove that  any $\widetilde f' \widetilde a \widetilde f''$ such that there are $\widetilde{\sU}', \widetilde{\sU}''\in \left\{{\widetilde\sU}_{\widetilde\a}\right\}$ such that $\supp \widetilde f' \subset \widetilde \sU'$ and $\supp \widetilde f'' \subset \widetilde \sU''$  there is $\widetilde f \otimes a \in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }C_c\left( \G, \sigma \right)$ such that $\phi\left(\widetilde f \otimes a \right) = \widetilde f' \widetilde a \widetilde f''$. The set $\widetilde{\sU}''$ is mapped homeomorphically onto $q\left(\widetilde{\sU}''\right)$ so the set $s^{-1}\left(\widetilde{\sU}''\right)$ is mapped homeomorphically onto $q_\G\left(s^{-1}\left(\widetilde{\sU}''\right)\right)$, so if $\widetilde a \widetilde f''$ corresponds to $\widetilde h \in C_c\left(\widetilde \G \right)$ then one has a $q_\G$ descent $h \bydef \desc_{q_\G}\left( \widetilde h\right)$ (cf. Definition \ref{top_lift_desc_defn}) if $a \in  C_c\left( \G, \sigma \right)$ corresponds to $h$ then from the construction \ref{groupid_tens_empt} it follows that 
+	(i)  
+	 From  \eqref{groupoid_tfaf_eqn}  it follows that one should prove that  any $\widetilde f' \widetilde a \widetilde f''$ with $\widetilde{\sU}', \widetilde{\sU}''\in \left\{{\widetilde\sU}_{\widetilde\a}\right\}$ such that $\supp \widetilde f' \subset \widetilde \sU'$ and $\supp \widetilde f'' \subset \widetilde \sU''$  there is $\widetilde f \otimes a \in C_c\left(\widetilde \G^0 \right)\otimes_{C_0\left(\G^0 \right) }C_c\left( \G, \sigma \right)$ which satisfies to following condition $\phi\left(\widetilde f \otimes a \right) = \widetilde f' \widetilde a \widetilde f''$. The set $\widetilde{\sU}''$ is mapped homeomorphically onto $q\left(\widetilde{\sU}''\right)$ so the set $s^{-1}\left(\widetilde{\sU}''\right)$ is mapped homeomorphically onto $q_\G\left(s^{-1}\left(\widetilde{\sU}''\right)\right)$, so if $\widetilde a \widetilde f''$ corresponds to $\widetilde h \in C_c\left(\widetilde \G \right)$ then one has a $q_\G$ descent $h \bydef \desc_{q_\G}\left( \widetilde h\right)$ (cf. Definition \ref{top_lift_desc_defn}) if $a \in  C_c\left( \G, \sigma \right)$ corresponds to $h$ then from the construction \ref{groupid_tens_empt} it follows that 
 	$$
 	\widetilde f' \widetilde a \widetilde f''= \widetilde f' a. 
 	$$
 	(ii) From (i) it follows that 
 	$$
-	\forall \widetilde a \in C_c\left(\widetilde \G, \widetilde\sigma \right)~~ \exists \sum_{j = 1}^n \widetilde f_j \otimes a_j \in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }C_c\left( \G, \sigma \right)~~ \widetilde a= \phi\left( \sum_{j = 1}^n \widetilde f_j \otimes a_j\right).
+	\forall \widetilde a \in C_c\left(\widetilde \G, \widetilde\sigma \right)~~ \exists \sum_{j = 1}^n \widetilde f_j \otimes a_j \in C_c\left(\widetilde \G^0 \right)\otimes_{C_0\left(\G^0 \right) }C_c\left( \G, \sigma \right)~~ \widetilde a= \phi\left( \sum_{j = 1}^n \widetilde f_j \otimes a_j\right).
 	$$
 	For any $a \in  C_c\left( \G, \sigma \right)$ we define
 	$$
@@ -17076,40 +17059,50 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 	Let $\rho: {C_c\left(\G , \sigma \right)} \to B\left( \sH\right) $ be a faithful,   representation in the sense of the Definition \ref{groupoid_representation_defn}.
 Let $q: \widetilde \G^0 \to \G^0$ let a $\G$-regular transitive covering (cf. Definition \ref{groupoid_lift_defn}) and $C^*_\rho\left(\G , \sigma \right)$ is the $\rho$-\textit{completion} of  $C_c\left(\G , \sigma \right)$. If $\mathscr L^2\left(\widetilde \G^0 \right)_{C^*_\rho\left(\G , \sigma \right)}$ is the $\widetilde \G^0$-$C^*_\rho\left(\G , \sigma \right)$-module (cf. Definition \ref{blowing_lift_hm_defn}) then there is the natural homomorphisms 
 \be\label{groupoid_prods_eqn}
-	\phi:C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\to  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\phi:C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\to  \End^*_A\left( \mathscr L^2\left(\widetilde \G^0 \right)_{C^*_\rho\left(\G , \sigma \right)}\right)
 \ee
-of right $C_c\left(\G , \sigma \right)$-modules such that 	$\varphi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\right)$  is a $*$-subalgebra of $\End^*_{C^*_\rho\left(\G , \sigma \right)}\left( \mathscr L^2\left(\widetilde \sY \right)_{C^*_\rho\left(\G , \sigma \right)}\right)$. 
+of right $C_c\left(\G , \sigma \right)$-modules such that 	$\varphi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\right)$  is a $*$-subalgebra of $\End^*_{C^*_\rho\left(\G , \sigma \right)}\left( \mathscr L^2\left(\widetilde \G^0 \right)_{C^*_\rho\left(\G , \sigma \right)}\right)$. 
 \end{corollary}
 \begin{proof}
 From the Lemma \ref{groupoid_tens_lem} it follows that the generated by elements \ref{groupoid_prods_eqn}  $C_c\left(\G , \sigma \right)$-module is isomorphic to $*$-algebra  $C_c\left(\widetilde \G, \widetilde\sigma \right)$.
 \end{proof}
 \begin{theorem}\label{groupoid_lift_thm}
-Under the hypotheses of the Corollary \ref{groupoid_tens_cor} the covering $q: \widetilde \sY\to  \sY$ is $C^*_\rho\left(\G , \sigma \right)$-regular (cf. Definition \ref{blowing_lift_constr_defn}) 
+Under the hypotheses of the Corollary \ref{groupoid_tens_cor} the covering $q: \widetilde \G^0\to  \G^0$ is $C^*_\rho\left(\G , \sigma \right)$-regular (cf. Definition \ref{blowing_lift_constr_defn}) 
 \end{theorem}
 \begin{proof}
 	Since $C_c\left(\G , \sigma \right)$ is dense in $C^*_\rho\left(\G , \sigma \right)$ the map \eqref{groupoid_prods_eqn} can be uniquely extended up to a map
 	$$
-C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C^*_\rho\left(\G , \sigma \right)\to  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)	
+C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C^*_\rho\left(\G , \sigma \right)\to  \End^*_A\left( \mathscr L^2\left(\widetilde \G^0 \right)_A\right)	
 	$$
 	so one has a map
 	$$
-\varphi : 	C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } K\left( C^*_\rho\left(\G , \sigma \right)\right) \to  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)	
+\varphi : 	C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } K\left( C^*_\rho\left(\G , \sigma \right)\right) \to  \End^*_A\left( \mathscr L^2\left(\widetilde \G^0 \right)_A\right)	
 	$$
-	On the other hand both $C_c\left(\G , \sigma \right)$ and $K\left( C^*_\rho\left(\G , \sigma \right)\right) $ are dense in $C^*_\rho\left(\G , \sigma \right)$ so the  $C^*$-norm closure  of $\phi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\right)$ coincides with the $C^*$-norm closure of  $\varphi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } K\left( C^*_\rho\left(\G , \sigma \right)\right)\right)$. However from the Corollary \ref{groupoid_tens_cor} it turns out that the $C^*$-norm completion of $\phi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$, i.e. one has a specialization of the Definition \ref{blowing_lift_constr_defn}.
+	On the other hand both $C_c\left(\G , \sigma \right)$ and $K\left( C^*_\rho\left(\G , \sigma \right)\right) $ are dense in $C^*_\rho\left(\G , \sigma \right)$ so the  $C^*$-norm closure  of $\phi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\right)$ coincides with the $C^*$-norm closure of  $\varphi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } K\left( C^*_\rho\left(\G , \sigma \right)\right)\right)$. However from the Corollary \ref{groupoid_tens_cor} it turns out that the $C^*$-norm completion of $\phi\left( C_c\left( \widetilde \G^0 \right)\otimes_{C_0\left(\G^0\right) } C_c\left(\G , \sigma \right)\right)$ is a $C^*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \G^0 \right)_A\right)$, i.e. one has a specialization of the Definition \ref{blowing_lift_constr_defn}.
 \end{proof}
-\begin{empt}
+\begin{empt}\label{groupoid_alg_lift_empt}
 Under the hypotheses of the Theorem \ref{groupoid_lift_thm} from the Lemma \ref{blowing_induced_representation_lem} it follows that there is a faithful (cf. Definition \ref{faithful_representation_defn}) 
 \bean
-\widetilde{\rho}\bydef\mathscr L^2\left(\widetilde \sY \right)_{C^*_\rho\left(\G , \sigma \right)}\text{-}\Ind^{C^*_\rho\left(\G , \sigma \right)}_{{C^*_\rho\left( \G ,  \sigma \right)}_0\left(\widetilde\sY \right) }\rho: C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)\hookto B\left(\widetilde{\H} \right)
+\widetilde{\rho}\bydef\mathscr L^2\left(\widetilde \G^0 \right)_{C^*_\rho\left(\G , \sigma \right)}\text{-}\Ind^{C^*_\rho\left(\G , \sigma \right)}_{{C^*_\rho\left( \G ,  \sigma \right)}_0\left(\widetilde\G^0 \right) }\rho: C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)\hookto B\left(\widetilde{\H} \right)
 \eean
 given by \eqref{induced_representation_eqn}. On the other hand there is an inclusion $C_c\left(\widetilde \G , \widetilde \sigma \right)\subset C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)$, so there is a representation 
 \be\label{groupoid_rho_c_eqn}
-\widetilde{\rho}_c : C_c\left(\widetilde \G , \widetilde \sigma \right)\hookto B\left(\widetilde{\H} \right)
+\widetilde{\rho} : C_c\left(\widetilde \G , \widetilde \sigma \right)\hookto B\left(\widetilde{\H} \right).
 \ee
 \end{empt}
-\begin{theorem} Following conditions hold.
+\begin{definition}\label{groupoid_alg_lift_defn}
+	Under the hypotheses \ref{groupoid_alg_lift_empt} we say that the completion  $C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)$ of $C_c\left(\widetilde \G , \widetilde \sigma \right)$ with respect to a given by
+\be\label{groupoid_alg_lift_eqn}
+\begin{split}
+\left\| \cdot \right\|_{\widetilde\rho} : C_c\left(\widetilde \G , \widetilde \sigma \right)\to \R,\\
+\widetilde a \mapsto \left\| \widetilde\rho\left(\widetilde a \right)  \right\|
+\end{split}
+\ee
+$C^*$-norm is $q$-\textit{lift} of $C^*_\rho\left(\G , \sigma \right)$.
+\end{definition}
+\begin{theorem}\label{groupoid_blowing_thm} Following conditions hold.
 \begin{enumerate}
-	\item [(i)] The given by \eqref{groupoid_rho_c_eqn} representation $\widetilde{\rho}_c$ satisfies to the Definition \ref{groupoid_representation_defn}.
+	\item [(i)] The given by \eqref{groupoid_rho_c_eqn} representation $\widetilde{\rho}$ satisfies to the Definition \ref{groupoid_representation_defn}.
 	\item[(ii)] There is the natural $*$-isomorphism 
 	$$
  C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong  C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)	.
@@ -17136,13 +17129,13 @@ $$
 
 From the Definition \ref{induced_representation_defn} it follows that there is a dense inclusion
 $$
-\mathscr L^2\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}\subset \widetilde \H
+\mathscr L^2\left(\widetilde \G^0 \right) \otimes_{C_0\left(\G^0 \right) }{C^*_\rho\left(\G , \sigma \right)}\subset \widetilde \H
 $$
-and since $C_c\left(\widetilde \sY \right)$ is dense in $\mathscr L^2\left(\widetilde \sY \right)$ one has a dense inclusion
+and since $C_c\left(\widetilde \G^0 \right)$ is dense in $\mathscr L^2\left(\widetilde \G^0 \right)$ one has a dense inclusion
 $$
-C_c\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}\subset \widetilde \H
+C_c\left(\widetilde \G^0 \right) \otimes_{C_0\left(\G^0 \right) }{C^*_\rho\left(\G , \sigma \right)}\subset \widetilde \H
 $$
-If $\widetilde \xi, ~\widetilde \eta \in \widetilde \H$ which correspond to $\widetilde f' \otimes \xi,~ \widetilde f'' \otimes \eta \in C_c\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}$  then
+If $\widetilde \xi, ~\widetilde \eta \in \widetilde \H$ which correspond to $\widetilde f' \otimes \xi,~ \widetilde f'' \otimes \eta \in C_c\left(\widetilde \G^0 \right) \otimes_{C_0\left(\G^0 \right) }{C^*_\rho\left(\G , \sigma \right)}$  then
 \be\label{groupoid_sum_eqn}
 \left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H} = \sum_{\substack{j=1\\k=1}}^{\substack{j=m\\k=n}}\left(\desc_q\left(\sqrt{\widetilde{f}''_k}\widetilde f'' \right)\eta,\rho\left(  a^{jk}_\a\right)  \desc_q\left(\sqrt{\widetilde{f}'_j}\widetilde f' \right)\xi\right)_\H 
 \ee
@@ -17150,7 +17143,7 @@ For any $j = 1,..., m$ and $k=1,...,n$ the net $\left\{\rho\left( a^{jk}_\a\righ
 $$
 \left\{\left(\desc_q\left(\sqrt{\widetilde{f}''_k}\widetilde f'' \right)\eta,\rho\left(  a^{jk}_\a\right)  \desc_q\left(\sqrt{\widetilde{f}'_j}\widetilde f' \right)\xi\right)_\H\right\}
 $$
-is convergent. From \eqref{groupoid_sum_eqn} it turns out that the net $\left\{\left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H}\right\}$ is convergent. Using this fact can proof that a net $\left\{\left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H}\right\}$ is convergent for all $\widetilde \xi,  \widetilde \eta \in C_c\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}$. Since $C_c\left(\widetilde \sY \right) \otimes_{C_0\left(\sY \right) }{C^*_\rho\left(\G , \sigma \right)}$ is dense in $\widetilde \H$  a net $\left\{\left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H}\right\}$ is convergent for all $\widetilde \xi,  \widetilde \eta \in\widetilde \H$, i.e. a net is convergent $\left\{\widetilde{\rho}_c \left( \widetilde a_\a\right) \right\}$ with respect to the weak topology of $B\left(\widetilde{\H} \right)$.\\
+is convergent. From \eqref{groupoid_sum_eqn} it turns out that the net $\left\{\left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H}\right\}$ is convergent. Using this fact can proof that a net $\left\{\left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H}\right\}$ is convergent for all $\widetilde \xi,  \widetilde \eta \in C_c\left(\widetilde \G^0 \right) \otimes_{C_0\left(\G^0 \right) }{C^*_\rho\left(\G , \sigma \right)}$. Since $C_c\left(\widetilde \G^0 \right) \otimes_{C_0\left(\G^0 \right) }{C^*_\rho\left(\G , \sigma \right)}$ is dense in $\widetilde \H$  a net $\left\{\left(\widetilde \eta, \widetilde a_\a \widetilde \xi\right)_{\widetilde \H}\right\}$ is convergent for all $\widetilde \xi,  \widetilde \eta \in\widetilde \H$, i.e. a net is convergent $\left\{\widetilde{\rho} \left( \widetilde a_\a\right) \right\}$ with respect to the weak topology of $B\left(\widetilde{\H} \right)$.\\
 (ii) If we consider a norm
 \bean
 \left\|\cdot  \right\|_{\widetilde \rho} : C_c\left(\widetilde \G , \widetilde \sigma \right)\to \R,\\
@@ -17158,1077 +17151,49 @@ is convergent. From \eqref{groupoid_sum_eqn} it turns out that the net $\left\{\
 \eean
 then from the Definition \ref{groupoid_rho_defn} it follows that  $C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)$ is the completion of $C_c\left(\widetilde \G , \widetilde \sigma \right)$ with respect to the norm $\left\|\cdot  \right\|_{\widetilde \rho}$. On the other hand from the Lemma \ref{blowing_induced_representation_lem} it turns out that $C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)$ is the  completions of $C_c\left(\widetilde \G , \widetilde \sigma \right)$ with respect to the norm $\left\|\cdot  \right\|_{\widetilde \rho}$
 \end{proof}
-
-\subsection{Irreducible representations}
+\section{Noncommutative coverings of $C^*$-algebras of groupoids}
 \paragraph{}
-For any foliated space $\left(M, \sF\right)$ denote by $M/\sF$ the set of all leaves, and for any leaf $L \in M/\sF$ we select a point $x_L \in L$. We write 
-\be\label{foli_leaf_repr_eqn}
-\rho_L \stackrel{\text{def}}{=} \rho_{x_L}: C^*_r\left(M, \sF\right) \to B\left( L^2\left(\G_{x_L}\right)\right) 
-\ee
-where the representation $\rho_{x_L}$ is given by the equation \eqref{foli_repr_eqn}.
-From the Theorem \ref{foli_irred_hol_thm} it turns out that the representation \eqref{foli_leaf_repr_eqn} is irreducible if and only if the leaf $L$ has no homology. If $M/\sF_{\mathrm{no~hol}} \subset M/\sF$ the subset of leaves which have no holonomy then the spectrum of $C^*_r\left(M, \sF\right)$ coincides with $M/\sF_{\mathrm{no~hol}}$.
-The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition \ref{atomic_repr_defn}) is given by
-\be\label{foli_atomic_eqn}
-\pi_a = \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}} \rho_L: C^*_r\left(M, \sF\right) \hookto B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right).
-\ee
-
-
-
-
-
-
-\subsection{Hausdorff blowing-up of a foliation algebra}\label{foli_blowing_sec}
-
-
-
-\paragraph*{} 
-!!! REPLACE WITH \ref{groupoid_mult_repr_lem} !!!
-Let $\left(M, \mathcal F \right)$ be a foliated manifold (cf. Section \ref{foliations_sec}). 
-If $\Omega_{\mathcal G}^{1/2})$ is given by \eqref{foli_om_g_eqn} and
-and $C_b^{\infty} (M)= C_b\left(M \right)\cap \Coo\left(M \right)  $ is the algebra of smooth bounded complex-valued functions on $M$ then there is a left and right actions  $C_b^{\infty} (M) \times \Omega_{\mathcal G}^{1/2} \to \Omega_{\mathcal G}^{1/2}$ and $ \Omega_{\mathcal G}^{1/2} \times C_b^{\infty} (M)\to \Omega_{\mathcal G}^{1/2}$ given by
-\bean
-f \left(\om_x \otimes \om_y \right)  = f\left( x\right) \left( \om_x \otimes \om_y \right); \\
-\left(\om_x \otimes \om_y \right)f  = f\left( y\right) \left( \om_x \otimes \om_y \right); \\ \text{ where } f \in C_b^{\infty} (M), \quad x, y \in M, \quad \om_x \otimes \om_y \in \Om^{1/2}_x \otimes \Om^{1/2}_y.
-\eean
-These actions naturally induces left and right actions of $C_b^{\infty} (M)$ on the *-algebra described
-$\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ in the Section \ref{foli_alg_subsec}. There is the alternative description of the left and right actions of $C_b^{\infty} (M)$ on $\Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$.
-For all $x \in M$, there  is the representation, $\rho_x: \Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right) \to B\left( L^2\left(\mathcal \G_x \right)\right) $ given by \eqref{foli_repr_eqn}, i.e.
-\begin{equation*}
-	(\rho_x (a) \, \xi) \, (\gamma) =  \int_{\gamma_1 \circ \gamma_2 =
-		\gamma} a(\gamma_1) \, \xi (\gamma_2) \qquad \forall \, \xi \in L^2
-	(\mathcal \G_x).
-\end{equation*}
-Above representations yield the representation
-\be
-\rho\bydef \prod_{x \in M}\rho_x: \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)\to B\left(\bigoplus_{x \in M} L^2\left(\mathcal \G_x \right)\right).
-\ee
-Similarly for all $x \in M$, there  is the representation, $\pi_x: \Coo_b\left(M\right) \to B\left( L^2\left(\mathcal \G_x \right)\right) $ given by
-\be\label{foli_m_act_eqn}
-\pi_x\left( f\right) \xi = \left.f\right|_{\G_x}\xi,
-\ee
-where $\left.f\right|_{\G_x} \in C_b\left(\G_x\right)$ and the the product means the well known  product $ C_b\left(\G_x\right)\times L^2\left(\mathcal \G_x \right)\to L^2\left(\mathcal \G_x \right)$. There is the following representation  
-\be\label{foli_mnor_eqn}
-\pi\bydef \prod_{x \in M}\pi_x: \Coo_b\left(M\right)\to B\left(\bigoplus_{x \in M} L^2\left(\mathcal \G_x \right)\right).
-\ee
-Clearly one has
-\be\label{foli_mnorm_eqn}
-\forall f \in \Coo_b\left(M\right)\quad \left\|\pi\left(f\right) \right\| = \left\|f \right\|_{C_b\left(M \right) }.
-\ee
-Now for all $f \in \Coo_b\left(M\right)$ and $a \in \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ the products $fa$ and $af$ can be defined by the following way
-\be\label{foli_prod_ref_eqn}
-\begin{split}
-	\rho\left(fa \right) = \pi\left(f\right)\rho\left(a \right),\\
-	\rho\left(af \right) =\rho\left(a \right) \pi\left(f\right).
-\end{split}
-\ee
-From the equations \eqref{foli_mnorm_eqn} and \eqref{foli_prod_ref_eqn} it follows that
-\be\label{foli_ab_norm_eqn}
-\begin{split}
-	\Vert fa \Vert_{C^*_r\left(M, \sF \right) }\le \Vert f \Vert_{C_b\left( M\right)  }\Vert a \Vert_{C^*_r\left(M, \sF \right) },\\
-	\Vert af \Vert_{C^*_r\left(M, \sF \right) }\le \Vert f \Vert_{C_b\left( M\right)  }\Vert a \Vert_{C^*_r\left(M, \sF \right) }.
-\end{split}
-\ee
-If the net $\left\{a_\a \right\}\subset  \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ is convergent with respect to  the norm $\Vert\cdot \Vert_{C^*_r\left(M, \sF \right) }$ then from the equation \eqref{foli_ab_norm_eqn} it turns out that both nets $\left\{fa_\a \right\}\subset  \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ and $\left\{a_\a f \right\}\subset  \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ are $\Vert a \Vert_{C^*_r\left(M, \sF \right) }$-norm convergent.
-Taking into account that the $C^*$-algebra $C^*_r \left(M, \mathcal{F}\right)$ is the completion of $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ with respect to the norm $\Vert \cdot \Vert_{C^*_r \left(M, \mathcal{F}\right)}$ one has $fa, af \in C^*_r \left(M, \mathcal{F}\right)$ for any $a \in C^*_r \left(M, \mathcal{F}\right)$ and $f \in \Coo_b(M)$. It turns out that
-every $f \in \Coo_b\left( M\right)$ is a multiplier of $C^*_r \left(M, \mathcal{F}\right)$, i.e.  $\Coo_b\left( M\right) \subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$. Since $\Coo_b\left( M\right)$ is dense in $C_b\left( M\right)$ with respect to given by the equation \ref{foli_mnor_eqn} $C^*$-norm  one has a $*$-homomorphism   
-$C_b\left( M\right)\to M\left(C^*_r \left(M, \mathcal{F}\right) \right)$. If $\widehat \H_a$ is a norm completion of an algebraic direct sum 
-$$
-\bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)
-$$
- then $\widehat \H_a$  is a space of the given by \eqref{foli_atomic_eqn}  
-atomic representation $\pi_a: C^*_r\left(M, \sF\right) \hookto B\left( \widehat \H_a\right)$ (cf. Definition \ref{atomic_repr_defn}). Similarly to the above construction one has a faithful representation $C_b\left( M\right)\hookto  B\left( \widehat \H_a\right)$ which satisfies to the equation \eqref{multiplier_el_eqn}. The atomic representation $\pi_a: C^*_r\left(M, \sF\right) \hookto B\left( \widehat \H_a\right)$ is full and faithful, so the $*$-homomorphism   
-$C_b\left( M\right)\to M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is injective (cf. Definition \ref{multiplier_el_defn}) and one has a natural inclusion
-\be\label{foli_center_eqn}
-C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
-\ee
-\begin{definition}\label{foli_haus_defn}
-An inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ which comes from the equation \eqref{foli_center_eqn} is said to be \textit{natural Hausdorff blowing-up (cf. Definition \ref{blowing_defn})of a foliated space} $\left(M, \mathcal{F}\right)$.
-\end{definition}
-
-
-\begin{lemma}\label{foli_prop_lem}
-	Let $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}). Let $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  be {natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}). Let $\sU$ be an open subset of $M$ and $\phi: C^*_r\left(\sU,\sF|_\sU\right)\hookto C^*_r\left(M,\sF\right)$ is the given by the Proposition \ref{foli_res_inc_prop} injective $*$-homomorphism.  A given by $\phi\left(C^*_r\left(\sU,\sF|_\sU\right) \right)$ $C^*-$subalgebra of $C^*_r\left(M,\sF\right)$  is $\sU$-proper (cf. Definition \ref{blowing_proper_defn} !!! MAY BE DELETE !!!), i.e.
-	$$
-\phi\left( 	C^*_r\left(\sU,\sF|_\sU\right)\right) \cong C^*_r\left(M,\sF\right)_\sU^{\mathrm{prop}}.
-	$$
-\end{lemma}
-\begin{proof}
-If $\sX$ is a primitive spectrum (cf. Definition \ref{spectrum_prime_primtive_defn}) of $C^*_r\left(M,\sF\right)$ then from the  Theorem \ref{foli_irred_hol_thm} it follows that  any $x \in \sX$ corresponds the a  leaf $L_x$ of $\left(M,\sF\right)$ which has no holonomy. From the equation \eqref{foli_repr_eqn} the representation is given by
-$$
-\rep_{x} : C^*_r\left(M,\sF\right) \to B\left( L^2\left(L_x \right) \right) 
-$$
-where $L_x = \G_y$ where $y \in L_x \subset M$. 	The $C^*$ algebra $A_x \bydef\rep_x\left(C_0\left( \sU\right)  \right)$ is commutative. If  $\left\{A^{\a}_x\right\}_{\a\in \mathscr A_x}$ is a family of all connected components 
-(cf. Definition \ref{connected_comp_defn}) of $A_x$ for any $\a \in \mathscr A_x$ there is a connected component $L^{\a}_x$ of $L_x \cap \sU$ such that $A^{\a}_x\cong C_0\left( L^{\a}_x\right)$. 
-If $\H^\a_x$ is a Hilbert norm completion of $A^\a_x \H_x= C_0\left( L^{\a}_x\right)L^2\left( L_x\right)$ then $\H^\a_x= L^2\left( L^{\a}_x\right)$. For any $\a \in \mathscr A_x$ there is an irreducible representation $C^*_r\left(\sU,\sF|_\sU\right)\to B\left(L^2\left( L^{\a}_x\right) \right)$ so one has
-\be\label{foli_prop1_eqn}
-\phi\left(C^*_r\left(\sU,\sF|_\sU\right) \right) L^2\left( L^{\a}_x\right)\subset L^2\left( L^{\a}_x\right).
-\ee 
-If $\H^\parallel_x$ is the Hilbert norm completion of $A_x \H_x$ and $\H^\perp_x \subset \H_x$ is an orthogonal complement of $\H^\parallel_x$, i.e.
-$\H_x = \H^\perp_x \oplus  \H^\parallel_x$ then one has
-\be\label{foli_prop2_eqn}
-\phi\left(C^*_r\left(\sU,\sF|_\sU\right) \right)\H^\perp_x= \{0\}.
-\ee
-From the equations \ref{foli_prop1_eqn}, \ref{foli_prop2_eqn} it follows that $\phi\left(C^*_r\left(\sU,\sF|_\sU\right) \right)$ satisfies to \eqref{blowing_prop_eqn}, i.e. $\phi\left(C^*_r\left(\sU,\sF|_\sU\right) \right)$ is a $\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn} !!! MAY BE DELETE !!!).
-\end{proof}
-
-
-\begin{corollary}\label{foli_disint_cor}
-	If  $C^*_r\left(M,\sF\right)$ is a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}) then  natural Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ of a foliated space $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}) is disintegrable (cf. Definition \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!).
-	\end{corollary}
-\begin{proof}
-Follows from the Lemma \ref{foli_prop_lem} and the Corollary \ref{foli_cov_alg_cor}.
-\end{proof}
-\begin{remark}
-From the Lemma \ref{foli_prop_lem} it follows that there is a natural $*$-isomorphism
-\be\label{foli_prop_eqn}
-	C^*_r\left(\sU,\sF|_\sU\right) \cong C^*_r\left(M,\sF\right)_\sU^{\mathrm{prop}}
-\ee
-where the notation of the Definition \ref{blowing_proper_defn} !!! MAY BE DELETE !!! is used.
-\end{remark}
-\begin{lemma}\label{foli_simply_connected_lem}
-If $\sU$ is a foliation chart (cf. \ref{foli_leaf_empt}) then  the foliated space $\left(\sU,\sF|_\sU\right)$ then the $C^*$-algebra 	$	C^*_r\left(\sU,\sF|_\sU\right) \cong C^*_r\left(M,\sF\right)_\sU^{\mathrm{prop}}$ is simply connected (cf. Definition \ref{simply_connected_defn}). 
-\end{lemma}
-\begin{proof}
-A foliated space $\left(\sU,\sF|_\sU\right)$ 
- is isomorphic  to  the trivial foliated space $\R^m \times \R^n$ (cf. Proposition \ref{foli_tens_comp_prop}). From the Proposition \ref{foli_tens_comp_prop} it follows that
-$$
-C^*_r\left(\sU,\sF|_\sU\right)\cong C^*_r\left(\R^m, \R^n\right)\cong \K\left(L^2\left( \R^m\right) \right)\otimes C_0\left( \R^n\right)\cong  \K \otimes C_0\left( \R^n\right).
-$$
-On the other hand $\K \otimes C_0\left( \R^n\right)$ is a continuous trace $C^*$-algebra, its spectrum equal to $\R^n$. From the Theorem \ref{ctr_fin_thm} it follows that there is a one-to-one correspondence between noncommutative finite-fold coverings of $ \K \otimes C_0\left( \R^n\right)$ and topological coverings of $\R^n$. There is no nontrivial topological coverings $\widetilde{\sX}\to \R^n$ with connected $\widetilde \sX$. So  $ \K \otimes C_0\left( \R^n\right)$  has no nontrivial connected  noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}).
-\end{proof}
-
-
-
-
-
-\begin{empt}\label{foli_spectral_empt}
-	Let $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}). Let $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  be {natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}). Let $\sX$ be a primitive spectrum (cf. Definition \ref{spectrum_prime_primtive_defn}) of  $C^*_r\left(M,\sF\right)$. Let us define a partially defined map from $f:M\to\sX$ such that
+Here we apply the explained in the chapter \ref{blowing_chap} to the investigations of noncommutative coverings of $C^*$-algebras of groupoids.
+\begin{empt}\label{groupoid_n_cov_empt}
+	Suppose that there are following ingredients:
 \begin{itemize}
-	\item If $y \in M$ and a leaf corresponding to $y$ leaf $L_y$ has no holonomy then $f\left( y\right)$ corresponds to an irreducible  representation $\rho: C^*_r\left(M,\sF\right)\to B\left( L^2\left(L_y\right)\right) $.
-	\item  If the leaf $L_y$ has holonomy then we put  $f\left( y\right)$ undefined.
+	\item a connected locally compact groupoid $\G$,
+	\item a left Haar system $\left\{\left.\la^u \right| u \in \G^0\right\}$ for $\G$ (cf. Definition \ref{groupoid_haar_defn}),
+	\item a continuous 2-cocycle in $\sigma \in Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}).
+	\item $*$-algebra $C_c\left(\G, \sigma \right)$ with given by \eqref{groupoid_*_c_eqn} operations,
+	\item a full   representation $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ in the sense of the Definition \ref{groupoid_representation_defn} (cf. \ref{groupoid_rho_empt}), 
+	\item a $\rho$-\textit{completion} $C^*_\rho\left(\G , \sigma \right)$ of  $C_c\left(\G , \sigma \right)$ (cf. Definition \ref{groupoid_rho_defn}),
+		\item  a $\G$-regular covering $q: \widetilde \G^0 \to \G^0$ is  (cf. Definition \ref{groupoid_lift_defn}), with connected $ \widetilde \G^0$,
+	\item the $q$-lift $C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)$ of $C^*_{\rho}\left( \G ,  \sigma \right)$ (cf. Definition \ref{groupoid_alg_lift_defn}).
 \end{itemize}
-\end{empt}
-\begin{exercise}\label{foli_spectral_exer}
-Using the explained in \ref{foli_spectral_empt} partially defined map prove that Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectral_defn}). Prove that the given by the Definition \ref{blowing_spectral_defn} $x$-leaves correspond to   having no holonomy leaves of the foliated space $\left(M, \sF\right)$.
-\end{exercise}
 
-
-
-\subsection{Operator algebras of foliation coverings}
-
-
-
-\begin{lemma}\label{foli_cov_chart_lem}
-	If  $\left(M,\sF\right)$ is a foliated manifold without boundary and $p: \widetilde{M} \to M$ is a covering then for any $x \in M$ there is a foliated chart $\left(\mathcal V , \phi \right)$ such that $x \in \sV$ and $\mathcal V$ is evenly covered by $p$. 
-\end{lemma}
-\begin{proof}
-	If $x \in M$ there is a point then there is an open neighborhood $\sU$ which is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). There is a foliated atlas $\left\{\sU_\a \right\}_{\a \in \mathscr A}$, hence there is $\a \in \mathscr A$ such that $x\in \sU_\a$. There is a $*$-homomorphism $\varphi: {\sU_\a} \xrightarrow{\approx}\R^{q}\times\R^{n-q}$. The set $\mathcal W=\varphi\left(\sU \cap \sU_{\a} \right)$ is an open neighborhood of $\varphi\left(x \right)$. Since cubic neighborhoods are basis of all neighborhoods of   $\varphi\left(x \right)$ there is an inclusion $\psi:\R^{q}\times\R^{n-q} \to \mathcal W$ which is a foliated chart. If $\mathcal V = \varphi^{-1}\left(\mathcal W \right)$ and $\phi = \psi^{-1}\circ\varphi$  then $\left( \mathcal V, \phi \right)$ is a foliated chart, such that  $\mathcal V$ is evenly covered by $p$.
-\end{proof}
-
-\begin{lemma}\label{foli_cov_iso_lem}
-	Let  $\left(M,\sF\right)$ be a foliated manifold without boundary, and let $p: \left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right) $ be a regular  covering (cf. Definition \ref{foli_reg_cov_defn}). If $\widetilde{\sU}$ is a foliated chart such that the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to \sX$ is injective, and $\sU = p\left( \widetilde{\sU}\right)$ then there are the natural involutive isomorphisms
-	\be\label{foli_cov_iso_eqn}
-	\begin{split}
-		\psi_{\widetilde{\sU}}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\xrightarrow{\approx}  C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right) ,\\
-		\psi_{\widetilde{\sU}}:\Ga_c^\infty\left(\left.\sU,\sF\right|_{\sU}\right)\xrightarrow{\approx}  \Ga^\infty_c\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right).
-	\end{split}
-	\ee
-\end{lemma}
-\begin{proof}
-	Follows from the isomorphism $\left(\left.\sU,\sF\right|_{\sU}\right) \cong \left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ of foliated manifolds.
-\end{proof}
-\begin{remark}
-	From the equation \eqref{foli_prop_eqn} it follows that there are following isomorphisms 
-	\be\label{foli_propc_eqn}
-	C^*_r\left(\sU,\sF|_\sU\right) \cong C^*_r\left(M,\sF\right)_\sU^{\mathrm{prop}}\cong 	C^*_r\left(\widetilde\sU,\widetilde\sF|_{\widetilde\sU}\right) \cong C^*_r\left(\widetilde M,\widetilde \sF\right)_{\widetilde\sU}^{\mathrm{prop}}
-	\ee
-	where the notation of the Definition \ref{blowing_proper_defn} !!! MAY BE DELETE !!! is used.
-\end{remark}
-\begin{definition}\label{foli_lift_desc_defn}
-	Under the hypotheses the Lemma \ref{foli_cov_iso_lem} we say that if $\widetilde{a} \in C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ then 	$\psi^{-1}_{\widetilde{\sU}}\left(\widetilde{a} \right)$ is the $p$-\textit{descent} of $\widetilde{a}$. We write
-	$$
-	\desc_p\left(\widetilde{a} \right) \stackrel{\text{def}}{=}\psi^{-1}_{\widetilde{\sU}}\left(\widetilde{a} \right).
-	$$
-	Conversely if $a \in C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)$ then $\widetilde{a}=\psi_{\widetilde{\sU}}\left(a \right) \in C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ is said to be the $p$-$\widetilde{\sU}$-\textit{lift} of  $a$. We write
-	\be\label{foli_lift_eqn}
-	\lift^p_{\widetilde{\sU}}\left(a \right) \stackrel{\text{def}}{=}\psi_{\widetilde{\sU}}\left(a\right).
-	\ee
-\end{definition}
-\begin{remark}\label{foli_desc_idcomposition_rem}
-	From the Definition \ref{foli_lift_desc_defn} it follows that
-	\be\label{foli_desc_inv_eqn}
-	\begin{split}
-		\lift^p_{\widetilde{\sU}} \circ \desc_p\left(\widetilde{a} \right) =\widetilde{a},\\
-		\desc_p \circ \lift^p_{\widetilde{\sU}}\left(a \right) = a.
-	\end{split}
-	\ee
-\end{remark}
-\begin{remark}\label{foli_desc_composition_rem}
-	If $\left(M, \sF\right)$ is a foliated manifold without boundary and both $p': M' \to M$,  $p'': M'' \to M'$ are coverings then for any open subset $\sU''$ of $M''$ such that the restriction $\left.p' \circ p''\right|_{\sU''}$ and any $a'' \in C^*_r\left(\left.\sU'',\sF''\right|_{\sU''}\right)\subset C^*_r\left(M'',\sF''\right)$ one has
-	\be\label{foli_desc_composition_eqn}
-	\begin{split}
-		\desc_{p'\circ p''}\left(a'' \right) = 	\desc_{p'}\circ \desc_{p''}\left(a'' \right). 
-	\end{split}
-	\ee
-\end{remark}
-\begin{remark}
-Indeed the Definition \ref{foli_lift_desc_defn} is a specialization of the Definition \ref{blowing_lift_desc_defn} (cf. Exercise \ref{foli_blowing_exer}).
-\end{remark}
-\begin{empt}\label{foli_cov_atlas_empt}
-	Let  $\left(M,\sF\right)$ be a foliated manifold without boundary, and let $p: \left( \widetilde{M}, \widetilde{   \sF}\right) \to \left(M,\sF\right) $ be a regular covering of foliations (cf. Definition \ref{foli_reg_cov_defn}). For any $x \in M$ we select a chart $\left(\sU, \varphi \right)$ such that $x \in \sU$ and $\sU$ is evenly covered by $p$. In result one has a foliated atlas $\left\{\sU_{\a}\right\}_{\a \in \mathscr A}$ associated to $\sF$ (cf. Definition \ref{foli_defn}) such that $\sU_{\a}$ is evenly covered by $p$. From the Lemma \ref{foli_reg_atlas_ref_lem} one can suppose that the atlas is regular. For any $\a \in \mathscr A$ we select a connected open subset $\widetilde{   \sU}_\a$ which is homemorphically mapped onto $\sU_{\a}$. If $\widetilde {\mathscr A} = \mathscr A \times G\left(\left.\widetilde{M}~\right| M \right)$ and  $\widetilde{   \sU}_{\left( \a, g\right) }= g \widetilde{   \sU}_\a$ then $\left\{ \widetilde{   \sU}_\a\right\}_{\widetilde{   \a}\in \widetilde{\mathscr A}}$ is a foliated atlas of   $\left( \widetilde{M}, \widetilde{   \sF}\right)$ which is regular.
 \end{empt}
 
-\begin{definition}\label{foli_sub_a_defn}
-	Let $\left(M,\sF\right)$ be  a foliated manifold, and let $p: \widetilde{M} \to M$ be a covering.  A regular foliated atlas  $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$  is said to be \textit{subordinated} to $p$ if $\sU_\iota$ is evenly covered by $p$ for all $\iota \in \I$.
-\end{definition}
-\begin{definition}\label{foli_lift_a_defn}
-	Let $\left(M,\sF\right)$ be  a foliated manifold, and let $p: \widetilde{M} \to M$ be a covering.   Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be {subordinated} to $p$ regular foliated atlas. If $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ is the regular foliated atlas of $\widetilde M$ such that for any $\widetilde \iota  \in \widetilde \I$ there is $\iota \in \I$ such that $p\left(\widetilde \sU_{\widetilde \iota }\right)= \sU_\iota$ then we say that $\widetilde{ \mathfrak{A}}$ is the $p$-\textit{lift} of $\mathfrak{A}$.
-\end{definition}
-\begin{definition}\label{foli_ind_sets_defn}
-	Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ be a regular foliated atlas of $M$. We say that the family of given by \eqref{foli_chart_eqn}
-	\be\label{foli_cov_fam_eqn}
-	\sV_{\a} =  \G\left(\sU_{\iota_0} \right)~...~\G\left(\sU_{\iota_k} \right)\in \G\left(M,\sF\right), \quad \a = \left(\iota_1,...,\iota_k,  \right) 
+
+\begin{theorem}\label{groupoid_fin_thm}
+	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) the natural quadruple
+	\be\label{groupoid_fin_eqn}
+	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
 	\ee
-	open Hausdorff sets is \textit{induced} by $\mathfrak{A}$.
-\end{definition}
-\begin{lemma}\label{foli_lift_lem}
-	Let $\left(M,\sF\right)$ be  a foliation, and let $p: \left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right) $ be a regular  covering (cf. Definition \ref{foli_reg_cov_defn}).  Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$   be a {subordinated} to $p$, regular foliated atlas (cf. Definition \ref{foli_reg_atlas_defn}). Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-{lift} of $\mathfrak{A}$. Let 	$\sV_{\a} =  \G\left(\sU_{\iota_0} \right)~...~\G\left(\sU_{\iota_k} \right)\neq 	\emptyset$.
-	If $p\left( \widetilde \sU_{\widetilde \iota_k }\right) = \sU_{ \iota_k }$ then for there is the unique tuple 
+	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+\end{theorem}
+\begin{empt}\label{groupoid_n_cov_inf_empt}
+Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	$G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).
+\end{empt}
+\begin{theorem}\label{blowing_intinite_covering_thm}
+	Under  hypotheses \ref{groupoid_n_cov_empt} and \ref{groupoid_n_cov_inf_empt} if $\overline q: \overline \G^0  \to  \G^0$  is {disconnected covering of} $q : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
 	$
-	\left\{	\widetilde \sU_{\widetilde \iota_0 }, ....,\widetilde \sU_{\widetilde \iota_{k-1} }\right\}
-	$
-	such that 
-	\begin{itemize}
-		\item $p\left(\widetilde \sU_{\widetilde \iota_j }\right)= \sU_{\iota_j}$ for any $j =1,..., k-1$.
-		\item $\G\left(\widetilde \sU_{\widetilde \iota_0} \right)...~\G\left(\widetilde \sU_{\widetilde \iota_k} \right) \neq \emptyset$.			
-	\end{itemize}
-\end{lemma}
-\begin{proof}
-	If $\left\{\widetilde \sU_{\iota_\la} \right\}_{\la \in \La}\subset \widetilde{ \mathfrak{A}}$ is such that  $p\left(\widetilde \sU_{\widetilde \iota_\la }\right)= \sU_{\iota_{k-1}}$ for every $\la \in \La$ then there is the unique $\la_0 \in \La$ such that $\widetilde \sU_{\iota_{\la_0}} \cap \widetilde \sU_{\widetilde \iota_k} \neq \emptyset$. It follows that  $\G\left(\widetilde \sU_{\widetilde \iota_{\la_0}}\right) \G\left(\widetilde \sU_{\widetilde \iota_k}\right)  \neq \emptyset$ and $\G\left(\widetilde \sU_{\widetilde \iota_{\la}}\right) \G\left(\widetilde \sU_{\widetilde \iota_k}\right) = \emptyset$ for all $\la \neq \la_0$. Similarly on can find the unique $\widetilde \sU_{\widetilde \iota_{k-2}}, ...,\widetilde \sU_{\widetilde \iota_0}$ such that $\G\left(\widetilde \sU_{\widetilde \iota_0} \right)...~\G\left(\widetilde \sU_{\widetilde \iota_k} \right) \neq \emptyset$.
-\end{proof}
-\begin{remark}\label{foli_lift_rem}
-	Under the hypotheses of the Lemma \ref{foli_lift_lem} the chart $\widetilde \sU_{\widetilde \iota_k}$  can be replaced with $\widetilde \sU_{\widetilde \iota_0}$. 
-\end{remark}
-
-\begin{empt}
-	From \eqref{foli_ga_p_eqn} it turns out that there is the surjective map $$\Ga_{\oplus}:\bigoplus_{\a}\Ga_c\left(\sV_{   \a},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga_c\left(\G,\Om^{1/2}\right).$$ Otherwise from the Definition \ref{foli_red_defn} it follows that $\Ga_c\left(\G,\Om^{1/2}\right)$ is dense in $C^*_r\left(M,\sF\right)$ with respect the given by \eqref{foli_pseudo_norm_eqn} to pseudonorm for all $\a$ there is the inclusion $\Ga_c\left(\sV_{   \a},\Om^{1/2} \right)\hookto \Ga_c\left(\G,\Om^{1/2}\right)$ which can be regarded as a map 
-	\be\label{foli_phi_a_eqn}
-	\phi_\a: \Ga_c\left(\sV_{   \a},\Om^{1/2} \right)\to C^*_r\left(M,\sF\right).
-	\ee
-	The algebraic $\C$-linear span of elements $\phi_{\a}\left( a_\a\right)$ is dense in $C^*_r\left(M,\sF\right)$ 
-\end{empt}
-\begin{lemma}\label{foli_cov_inc_lem}
-	If $\left(M,\sF\right)$ is  a foliated space, and  $p:\left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right)$ is a regular  covering (cf. Definition \ref{foli_reg_cov_defn}) then one has: 
-	\begin{enumerate}
-		\item [(i)] There is the natural injective $*$-homomorphism
-		\be\label{foli_mult_inc_eqn}
-		C^*_b\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto M\left( C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)\right)
-		\ee
-		\item[(ii)] If $p$ is a finite-fold covering then 	$C^*_b\left(p \right):\left( C^*_r\left({M}, {\sF} \right)\right) \subset C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$, i.e. 
-		is the natural injective $*$-homomorphism
-		\be\label{foli_f_inc_eqn}
-		C^*_r\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
-		\ee
-	\end{enumerate} 
-\end{lemma}
-\begin{proof}
-	(i)
-	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$.  For any $\sU_\iota \in \mathfrak{A}$ and $\widetilde \sU_{\widetilde \iota }\in \widetilde{ \mathfrak{A}}$ consider given by \eqref{foli_inc_gc_eqn} maps, i.e.
-	\bean
-	j_{\sU_{\iota}} : \Ga_c\left(  \G\left(\sU_{\iota} \right) ,\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( M\right) ,\Om^{1/2}\right),\\
-	j_{\widetilde \sU_{\widetilde \iota}} : \Ga_c\left(  \G\left(\widetilde \sU_{\widetilde\iota} \right) ,\widetilde\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( \widetilde M\right) ,\widetilde\Om^{1/2}\right)
-	\eean
-	Let $\sV_{   \a'} = \G\left(\sU_{\iota'_0} \right)...~\G\left(\sU_{\iota'_{k'}} \right)\neq \emptyset$ and let $\widetilde{\sV}_{   \widetilde{\a''}} = \G\left(\widetilde{\sU}_{\widetilde{\iota}''_0} \right)...~\G\left(\widetilde{\sU}_{\widetilde{\iota}''_{k''}} \right)\neq \emptyset$. Let  
-	\bean
-	a'_{\a'}= j_{\sU_{\iota'_0}}\left( a'_{\iota'_0}\right) \cdot ...\cdot j_{\sU_{\iota_{k'}}}\left( a'_{\iota'_{k'}}\right) \in \Ga_c\left(\sV_{   \a'},\Om^{1/2} \right), \quad a'_{\iota'_j}\in \Ga_c\left(  \G\left(\sU_{\iota'_j} \right) ,\Om^{1/2}\right);\\ 
-	\widetilde{a}''_{\widetilde{\a}''}=j_{\widetilde \sU_{\widetilde \iota''_0}}\left(\widetilde  a''_{\widetilde \iota'_0}\right) \cdot ...\cdot j_{\sU_{\widetilde \iota_{k''}}}\left(\widetilde  a''_{\widetilde \iota''_{k''}}\right) \in \Ga_c\left(\widetilde \sV_{   \widetilde \a''},\widetilde \Om^{1/2} \right), \quad \widetilde a''_{\widetilde \iota'_j}\in \Ga_c\left(  \G\left(\sU_{\widetilde \iota''_j} \right) , \widetilde \Om^{1/2}\right)
-	\eean
-	and suppose
-	\bea\label{foli_a_eqn}
-	{a} = \phi_{{\a}'}\left({a}'_{{\a}'} \right)\in C^*_r\left({M}, {\sF} \right),\\
-	\label{foli_wa_eqn}
-	\widetilde{a} = \phi_{\widetilde{\a}''}\left(\widetilde{a}''_{\widetilde{\a}''} \right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right),
-	\eea
-	(cf. \eqref{foli_phi_a_eqn}).
-	One has $p^{-1}  \left(\sU_{\iota'_{k'}} \right) = \bigsqcup_{\la \in \La} \widetilde{\sU}^\la_{\widetilde{\iota}'_{k'}}$. There is no more then one $\la_0 \in \La$ such that $\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}\cap \widetilde{\sU}_{\widetilde{\iota}''_0}\neq \emptyset$. If $\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}\cap \widetilde{\sU}_{\widetilde{\iota}''_0}=\emptyset$ then we set
-	$\widetilde{a}a = 0$. Otherwise we set $\widetilde{\sU}_{\widetilde{\iota}'_{k'}}=\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}$ and according to the Lemma \ref{top_path_lift_exer} there is the unique tuple 
-	$
-	\left\{	\widetilde \sU'_{\widetilde \iota_0 }, ....,\widetilde \sU'_{\widetilde \iota'_{k'-1} }\right\}
-	$		such that 
-	\begin{itemize}
-		\item $p\left(\widetilde \sU'_{\widetilde \iota'_0 }\right)= \sU_{\iota'_j}$ for any $j =1,..., k-1$.
-		\item $\G\left(\widetilde \sU'_{\widetilde \iota'_0} \right)...~\G\left(\widetilde \sU'_{\widetilde \iota'_k} \right) \neq \emptyset$.			
-	\end{itemize}
-	We define
-	$$
-	a \widetilde{a}  = \phi_{{\a}'}\left(\lift_p^{\widetilde \sU_{\widetilde \iota'_0}}\left(a'_{\iota'_0}\right)\cdot...\cdot\lift_p^{\widetilde \sU_{\widetilde \iota'_{k'}}}\left(a'_{\iota'_{k'}}\right) \right)  \widetilde{a}  \in  C^*_r\left(\widetilde{M}, \widetilde{\sF}\right) 
-	$$
-	Similarly one can define $\widetilde{a} a \in C^*_r\left(\widetilde{M}, \widetilde{\sF}\right)$. By linearity this product can be extended up to any  finite sum of given by \eqref{foli_wa_eqn} elements. Since the $\C$-linear span of  given by \eqref{foli_wa_eqn} is dense in $C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ we have products $a \widetilde{a}$ and $\widetilde{a} a$ for every $a \in C^*_r\left(\widetilde{M}, \widetilde{\sF}\right)$. Using the same reasons the products $a \widetilde{a}$ and $\widetilde{a} a$  can be extended up to the linear span of given by \eqref{foli_a_eqn} elements, hence  for any $a \in C^*_r\left({M}, {\sF} \right)$ and $\widetilde{a} =\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ one has $a \widetilde{a}, \widetilde{a} a \in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$.\\
-	(ii) If $p$ is a finite-fold covering then for any $\iota \in \I$ and $p^{-1}  \left(\sU_{ \iota} \right) =\bigsqcup_{\la \in \La} \widetilde{\sU}^\la_{ \iota}$ then the set $\La$ is finite. So for any
-	\be\label{foli_au_eqn}
-	a \in C^*_r\left(\sU_\iota, \left.\sF\right|_{\sU_\iota} \right) \subset C^*_r\left(\sX, \left.\sF\right. \right)
-	\ee one has
-	$$
-	\sum_{ \la \in \La} \lift_p^{\widetilde{\sU}^\la_{ \iota}}\left(a\right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right),
-	$$
-	i.e. there is a map
-	$$
-	C^*_r\left(\sU_\iota, \left.\sF\right|_{\sU_\iota} \right) \hookto C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)
-	$$
-	So one has
-	\be\label{foli_sl_eqn}
-	\sum_{\la \in \La} \lift_{\widetilde{\sV}^{\la}_{   \a'}}\left( a\right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
-	\ee
-	Above equation gives a map from the  minimal algebra $X$ which contains given by  \eqref{foli_au_eqn} elements  to $C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$. Otherwise $X$ is dense in $C^*_r\left({M}, {\sF} \right)$ (cf. the Corollary \ref{foli_cov_alg_cor}) so the map $X \to C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ can be uniquely extended up to the injective $*$-homomorphism $C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$.
-\end{proof}
-\begin{empt}\label{foli_blowing_empt}
-Let $\left(M,\sF\right)$ be  a foliated space, and  let $p:\left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right)$ be a regular  covering (cf. Definition \ref{foli_reg_cov_defn}).  Let us define an injective map $\phi:C_c\left( \widetilde M\right) \otimes_{C_0\left(M \right) } C^*_r\left({M}, {\sF} \right) \hookto C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$. Let  $\widetilde{\mathfrak{A}}\bydef\left\{\widetilde \sU_\a\subset \widetilde M \right\}_{\a \in \mathscr A}$ be a regular foliation atlas such that $\widetilde \sU_\a$ is 
-homeomorphically mapped onto $p\left( \widetilde \sU_\a\right)$ for all $\a \in \mathscr A$.
- Let  $\widetilde f \otimes a \in C_c\left( \widetilde M\right) \otimes_{C_0\left(M \right) } C^*_r\left({M}, {\sF} \right)$, and let $\sum_{j=1}^n \widetilde{f}_j$ be a covering sum 
- for  $\supp \widetilde f$ dominated by the family $\left\{\widetilde \sU_\a\right\}$ (cf. Definition \ref{top_covering_sum_defn}). We put
-  \be\label{foli_blowing_eqn}
-  \phi\left(\widetilde f \otimes a \right)\bydef \sum_{j=1}^n \lift^p_{\widetilde\sU_{\a_j}}\circ \desc_p \left(\widetilde f \widetilde f_j	C^*_b\left(p \right)\left(a\right) \right) 
-  \ee
-  where
-  \begin{itemize}
-  	\item $\a_j \in \mathscr A$ is such that $\supp \widetilde f_j \subset \widetilde \sU_{\a_j}$,
-  	\item $	C^*_b\left(p \right)$ is given by the  equation \eqref{foli_mult_inc_eqn},
-  	\item the maps $\lift^p_{\widetilde\sU_{\a_j}}$ and $\desc_p$ are given by the Definition  \ref{foli_lift_desc_defn} lift and descent.
-  \end{itemize}
-If  $C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right)$ is a $p$-lift of $C^*_r\left(M,\sF\right)$ (cf. Definition \ref{blowing_lift_a_f_defn}) then from the Corollary  \ref{foli_disint_cor} and the Lemma  \ref{blowing_ca_lem}
- it follows that there is a dense inclusion
-\be\label{foli_blowing_ext_eqn}
-C_c\left( \widetilde M\right) \otimes_{C_0\left(M \right) } C^*_r\left({M}, {\sF} \right)\subset  C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right).
-\ee
-\end{empt}
-\begin{exercise}\label{foli_blowing_exer}
-	Consider the situation \ref{foli_blowing_empt} and prove following statements:
-		\begin{enumerate}
-			\item the given by \eqref{foli_blowing_eqn} map $\phi$ is correctly defined, i.e.  it does not depend on a choice of both atlas $\widetilde{\mathfrak{A}}$ and the covering sum $\sum_{j=1}^n \widetilde{f}_j$,
-				\item the map $\phi$ can be uniquely extended up to $*$-isomorphism
-		\be\label{foli_c0_cf_eqn}
- C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right)\cong  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)
-		\ee
-		where the dense inclusion \eqref{foli_blowing_ext_eqn} is implied.
-		\item the given by the equations \eqref{foli_mult_inc_eqn}  and \eqref{foli_f_inc_eqn} $*$-homomorphisms are specializations of \eqref{blowing_ca_m_eqn} and \eqref{blowing_a0q_eqn} ones,
-		\item the Definition \ref{foli_lift_desc_defn} is a specialization of \ref{blowing_lift_desc_defn} one.
-			\end{enumerate}
-		
-\end{exercise}
-\begin{remark}
-The proof of (2) of the Exercise \ref{foli_blowing_exer} requires usage of the Corollary \ref{foli_cov_alg_cor} and the proof of the Lemma \ref{blowing_ca_lem}.
-\end{remark}
-
-\section{Finite-fold coverings of $C^*$-algebras}
-
-\subsection{Coverings of foliations}!!! MAY BE DELETE !!!
-\paragraph{}
-The results of this section follow from the Section \ref{foli_blowing_sec} and the Chapter \ref{blowing_chap}. If $C^*_r\left( M, \sF\right)$ is a reduced $C^*$-algebra of a foliated space  $\left( M, \sF\right)$ then from  the Corollary \ref{foli_disint_cor} it follows that there is a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn},  \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!). If $p : \widetilde M \to M$ is a transitive finite-fold covering then from the Theorem \ref{blowing_functor_ff_thm}  !!! \ref{blowing_functor_f_thm} !!!!!! if follows that there is a noncommutative finite-fold covering 
-$$
-\left( C^*_r\left(M,\sF\right),  C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right), G\left(
-\left. \widetilde M\right| M\right), C^*_r\left(M,\sF\right)_0\left(p\right)\right)
-$$
-(cf. Definition \ref{fin_defn}). Taking into account the $*$-isomorphism \eqref{foli_c0_cf_eqn}  we use an alternative notation of this covering, i.e.
-\be
-\left( C^*_r\left(M,\sF\right),  C^*_r\left(\widetilde M,\widetilde \sF\right), G\left(
-\left. \widetilde M\right| M\right), C^*_r\left(p\right)\right)
-\ee
-where $C^*_r\left(p\right)\bydef C^*_r\left(M,\sF\right)_0\left(p\right)$.
-The following theorem is a specialization of \ref{blowing_functor_ff_thm}  !!! \ref{blowing_functor_f_thm} !!!!!! one.
-
-\begin{theorem}\label{foli_functor_thm}
-	Let $\left(M, \mathcal{F}\right)$ be a foliated space with connected $M$. If    $\mathfrak{FinCov}$-$M$ is the given by the Definition \ref{top_fin_cov_defn} {finite covering category} of $M$, and   $\mathfrak{FinCov}$-$C^*_r \left(M, \mathcal{F}\right)$ is a {category of  noncommutative finite-fold coverings} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{fin_cat_defn}  !!! DELETE !!!) then  there is a full and faithful functor $C^*_r\bydef  C^*_r \left(M, \mathcal{F}\right)_0:\mathfrak{FinCov}$-$M\to \mathfrak{FinCov}$-$C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{funct_full_faithfull_defn}), such that
-	following conditions hold:
-	\begin{enumerate}
-		\item [(i)]  if $p : \widetilde M \to M$ is $\mathfrak{FinCov}$-$M$-object then
-		$$
-		C^*_r\left(p : \widetilde M\to M \right) \bydef \left( C^*_r\left(M,\sF\right),  C^*_r\left(\widetilde M,\widetilde \sF\right), G\left(
-		\left. \widetilde M\right| M\right), C^*_r\left(p\right)\right)
-		$$
-		where $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ is the $p$-\textit{lift} of $\left(M,\mathcal F \right)$ (cf. Definition \ref{fol_cov_defn}),
-		\item[(ii)] if $p^1_2 : \widetilde M_1\to \widetilde M_2$ is $\mathfrak{FinCov}$-$M$-arrow then there is a commutative diagram
-			\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-			\widetilde M_1 & &	\widetilde M_1 \\ 
-				&M  & \\};
-			\path[-stealth]
-				(m-1-1) edge node [above] {$p^1_2$} (m-1-3)
-			(m-1-1) edge node [left]  {$p_1~~~~$} (m-2-2)
-			(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-		\end{tikzpicture}
-		\\ 	
-		where maps $p_1$, $p_2$ and $p^1_2$ are finite-fold transitive coverings. We put
-		$$
-				C^*_r\left(p^1_2 : \widetilde M_1\to \widetilde M_2 \right) \bydef \left( C^*_r\left(\widetilde M_2, \widetilde\sF_2\right), C^*_r\left(\widetilde M_1, \widetilde\sF_1\right), G\left(
-		\left. \widetilde M\right|  \widetilde M_2\right), C^*_r\left(p^1_2\right)\right)
-		$$
-		where both $\left(\widetilde{M}_1,~ \widetilde{\mathcal F}_1 \right)$ and $\left(\widetilde{M}_2,~ \widetilde{\mathcal F}_2 \right)$ are the $p_1$ and $p_2$-{lift} of $\left(M,\mathcal F \right)$ (cf. Definition \ref{fol_cov_defn}).
-	\end{enumerate}
+	\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$
+	is given by \eqref{blowing_algebraical_finite_covering_category_eqn} then a triple
+		\be\label{groupoid_inf_eqn}
+	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
+	\ee 
+	 is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
 	
 \end{theorem}
-
-
-\subsection{Coverings of reduced groupoids}
-\begin{empt}\label{foli_fin_empt} 
-	Let $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular  covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). Suppose that $N$ is a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). If $\widetilde N \bydef p^{-1}\left(N \right) \subset \widetilde M$ then $\widetilde N$ meets any leaf of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ i.e. $\widetilde N$ is a complete transversal. If both $\G^N_N$ and $\G^{\widetilde N}_{\widetilde N}$ are given by \eqref{foli_gnn_eqn} then the map $p$ yields a surjective homomorphism $p_\G:\G^{\widetilde N}_{\widetilde N}\to \G^{ N}_{ N}$ of groupoids that is; $p_\G$ a functor between small categories. The functor induces an injecive $*$-homomorphism $\pi_\G: C^*_r\left(\G^{ N}_{ N}\right)\hookto C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$. From  the Lemma \ref{foli_stab_lem} it follows that there are $*$-isomorphisms
-	$\pi_\K:  C^*_r\left({M},~ {\mathcal F} \right)\cong C^*_r\left(\G^{ N}_{ N}\right)\otimes \K$ and $\widetilde\pi_\K : C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\cong C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes \K$. Otherwise $p$ induced the injecive $*$-homomorphism $\pi: C^*_r\left({M},~ {\mathcal F} \right)\hookto C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$.
-\end{empt}
-\begin{lemma}\label{foli_g_lem}
-	In  the situation \ref{foli_fin_empt} the isomorphisms  $\pi_\K$ and $\widetilde\pi_\K$ can be chosen such that a following diagram 
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			C^*_r\left({M},~ {\mathcal F} \right)  & C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right) \\
-			C^*_r\left(\G^{ N}_{ N}\right)\otimes \K	&  C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes \K \\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$\pi$} (m-1-2)
-		(m-2-1) edge node [above]  {$\pi \otimes\Id_\K$} (m-2-2)
-		(m-1-1) edge node [right] {$\pi_\K$} (m-2-1)
-		(m-1-2) edge node [right] {$\widetilde\pi_\K$} (m-2-2);
-		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
-	\end{tikzpicture}
-	\\
-	is commutative.
-\end{lemma}
 \begin{proof}
-	From the equation \ref{foli_k1_eqn} it follows that
-	\be\label{foli_m1_eqn}
-	\begin{split}
-		C^*_r\left( M, \sF\right)\cong \K\left(\E^{ M}_{ N}\right),\\
-		C^*_r\left(\widetilde M, \widetilde\sF\right)\cong \K\left(\E^{\widetilde M}_{\widetilde N}\right).
-	\end{split}
-	\ee	
-	On the other hand one has
-	\be\label{foli_m2_eqn}
-	\E^{\widetilde M}_{\widetilde N}\cong \G^{\widetilde N}_{\widetilde N}\otimes \E^{ M}_{ N}.
-	\ee
-	From the equation \ref{foli_k2_eqn} it follows that
-	\be\label{foli_m3_eqn}
-	\E^M_N\cong C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right)
-	\ee
-	so the map $\pi_\G$ yields an injecive natural map
-	\be\label{foli_m4_eqn}
-	C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right)\xrightarrow{\pi_\G \otimes \Id_{\ell^2\left(\N\right)}}C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes\ell^2\left( \N\right).
-	\ee
-	The combination of the natural isomorphisms \eqref{foli_m1_eqn},\eqref{foli_m2_eqn} and the inclusion \eqref{foli_m4_eqn} yield required $*$-isomorphisms $\pi_\K$ and $\widetilde\pi_\K$
-	
+	Follows from the Theorem \ref{blowing_inf_cov_thm}
 \end{proof}
-\begin{corollary}\label{foli_fin_cor}
-	If we consider the situation of the Lemma \ref{foli_g_lem} and assume that the covering $p$ is finite-fold  then there is the following noncommutative finite-fold covering 
-	$$
-	\left( C^*_r\left(\G^{ N}_{ N}\right),C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right),  G\left( \left.\widetilde{M}~\right|M\right), \pi_\G\right)
-	$$
-	where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\to C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$ naturally  comes from the action $G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde{M}\to \widetilde{M}$.
-\end{corollary}
-\begin{proof}
-	Follows from the Theorem \ref{foli_functor_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
-\end{proof}
-
-
-\subsubsection{Coverings of reduced groupoids of a linear foliation on torus}
-!!!
-\paragraph{title}
-
-	\begin{definition}\label{foli_defn!!!}
-	Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$ l is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
-\end{definition}
-\begin{theorem}\label{foli_torus_cov_thm}
-
-\end{theorem}
-\paragraph{title}
-
-\section{Infinite coverings}
-\paragraph{}
-Let  $\widetilde{q}:\left( \widetilde{M}, \widetilde{y}_0\right) \to \left( M, y_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde M \right| M\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
-\be\label{foli_top_eqn}
-\begin{split}
-	\mathfrak{S}_{\left( M, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( M_\la, y^\la_0\right) \to \left( M, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left(M_\mu, y^\mu_0  \right)\to \left( M_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
-\end{split}
-\ee
-be a  !!! pointed  DELETE !!! topological finite covering category given by the Lemma \ref{top_associded_lem}.
-
-\begin{lemma}\label{foli_base_point_lem}
-	If we consider the above situation
-	then there is the natural  !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn})
-		\begin{equation}\label{foli_base_point_eqn}
-			\begin{split}
-				\mathfrak{S}!!! pt DELETE !!!_{C^*_r \left(M, \mathcal{F}\right)} \bydef\\\bydef \left\{  \left\{ C^*_r \left( q_{\la}\right) :C^*_r \left(M, \mathcal{F}\right) \hookto C^*_r \left(M_\la, \mathcal{F}_\la\right) \right\}_{\substack{\la \in \La\\~}}\right.,\\ \left.\left\{ C^*_r \left( q^\mu_{\nu}\right) :C^*_r \left(M_\nu, \mathcal{F}_\nu\right) \hookto C^*_r \left(M_\mu, \mathcal{F}_\mu\right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right\} 
-			\end{split}
-		\end{equation}
-\end{lemma}
-\begin{proof}
-	This lemma is a specialization of  \ref{blowing_base_point_lem}   !!! REPLACE \ref{blowing_category_lem}    !!!!one.
-\end{proof}
-\begin{thm}\label{foli_inc_thm}
-	Consider the situation of the Lemma \ref{foli_base_point_lem}, and let $$\left( C_r\left( M, \F\right), \overline A,  G\left(\left.\overline A\right|C_r\left( M, \F\right)\right)\right) $$ be the disconnected infinite noncommutative covering 	(cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! NEW DEFINITION !!!) of the given by 
-\eqref{foli_base_point_eqn} !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}). Suppose that for any $\la\in \La$ a finite-fold noncommutative covering is reducible (cf. Definition \ref{fin_red_defn}).
- If $\overline M$ topological disconnected inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by \eqref{foli_top_eqn} !!! pointed  DELETE !!!topological finite covering category
-$\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_pointed_cat_defn})  and 
- then there is the given by \eqref{blowing_weak_inf_cov_eqn} natural inclusion
-$$
-\pi_A\left( C^*_r\left(\overline M, \overline \sF\right)\right)  \subset \overline A.
-$$
-where $\overline q:\overline M \to M$ is the natural covering,  $\left(\overline M, \overline \sF\right)$ is the $\overline q$-lift of the foliation $\left( M,  \sF\right)$ (cf. Definition \ref{fol_cov_defn}) 
-\end{thm}
-\begin{proof}
-This Theorem follows from the Remark \ref{blowing_weak_inf_cov_rem}.
-\end{proof}
-
-\begin{empt}\label{foli_atomic_empt}
-	From the Lemma \ref{blowing_weak_inf_cov_lem} it follows that 
-	$$\left( C_r\left( M, \F\right),C^*_r\left(\overline M, \overline \sF\right),  G\left(\left.\overline M\right|M\right)\right)  $$ is a  weak disconnected infinite noncommutative covering 	(cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! NEW DEFINITION !!!) of the given by 
-	\eqref{foli_base_point_eqn} !!! pointed  DELETE !!!algebraical  finite covering category.
-  If $\widehat A\bydef C^*$-$\varinjlim C^*_r\left( M_\la,  \sF_\la\right)$ is  a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_non_defn}) and $\pi_a:\widehat A \hookto B\left(\widehat \H_a\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Lemma \ref{atomic_faithful_lem} it follows that there is a faithful representation
-\be\label{foli_ext_eqn}
-ext\left( \pi_a\right) : C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a\right).   
-\ee
- If $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem}  it follows that $\widehat \sX$ is an inverse limit   $\varprojlim \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}) where $\sX_\la$ is a spectrum of $C^*_r\left( M_\la,  \sF_\la\right)$. From the Theorem \ref{foli_irred_hol_thm} it turns out  that any $x_\la \in \sX_\la$  corresponds to a leaf   $L_\la$ of $\left( M_\la,  \sF_\la\right)$ which has no holonomy. The given by the Proposition \ref{spectrum_coverig_finite_prop} map $\sX_\mu \to \sX_\nu$ can be regarded  as $L_\mu \mapsto L_\nu \bydef q^\mu_\nu\left(L_\mu \right)$. Any element of $\widehat \sX$ can be represented by a family $\left\{L_\la \right\}_{\la \in \La}$ of leaves such that
-$$
-\forall \mu, \nu \in \La \quad  \mu\ge \nu\quad \Rightarrow \quad L_\nu = q^\mu_\nu\left(L_\mu \right).
-$$
-This family uniquely defines a leaf $\overline L$ of $\left(\overline M, \overline \sF\right)$ such that $\forall \la \in \La \quad \overline p_\la \left(\overline L \right) = L_\la$ where $\overline p_\la: \overline M \to M_\la$ is a natural covering. 
-The leaf  $\overline L$ has no holonomy, so it  corresponds to an irreducible representation of $C^*_r\left(\overline M, \overline \sF\right)$. We leave to the reader a proof of that the representation \eqref{foli_ext_eqn}    is equivalent to the atomic representation of $C^*_r\left(\overline M, \overline \sF\right)$.
-\end{empt}
-
-
-\subsection{Infinite coverings of Hausdorff foliation groupoids}
-\paragraph{}
-Here we consider foliation spaces such that all leaves of which are simply connected. From \ref{foli_sc_haus_empt} it turns out that groupoids of such spaces are Hausdorff.
-\subsubsection{Reduced sheaf  of the foliation}
-\begin{empt} \label{foli_sheaf_empt}
-	Let $\sV \subset \G\left(M, \sF  \right)$ be an open subset. For any $x \in M$ denote by
-	\be
-	\begin{split}
-		\ker_\sV \bydef \bigcap_{\substack{a \in \Ga_c\left(M, \Om^{1/2}\right) \\ \supp a \subset \sV} }\ker \rho_x\left( a\right),\\ 
-		\im_\sV \bydef  \bigcup_{\substack{a \in  \Ga_c\left(M, \Om^{1/2}\right) \\ \supp a \subset \sV} }\im \rho_x\left( a\right).
-	\end{split}
-	\ee
-	Let $\H''_x$ be the  completion of $\im_\sV$ and let $\H'_x$ be the  orthogonal complement of the completion of $\ker_\sV$. Denote by $p^x_\sV , q^x_\sV \in B\left(L^2\left(\G_x \right)  \right)$ orthogonal projections from  $L^2\left(\G_x \right)$ onto $\H'_x$ and $\H''_x$ respectively. Clearly one has
-	\be
-	\mathcal W \subseteq \sV \Rightarrow p^x_{\mathcal W} \le p^x_\sV \text{ AND } q^x_{\mathcal W} \le q^x_\sV.
-	\ee
-	For any open $\sV  \subset \G\left(M, \sF  \right)$ and $a \in C^*_r\left(M, \sF  \right)$ we define the operator
-	\be\label{foli_a_v_eqn}
-	a|_\sV = \bigoplus_{x \in M} p^x_\sV \rho_x\left(a \right) q^x_\sV \in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right).
-	\ee
-	(cf. equation \ref{foli_atomic_eqn})
-	The $\C$-space of given by  \eqref{foli_a_v_eqn} operators is an Abelian group denoted by $\mathscr G\left(\sV \right)$. If $\mathcal W \subseteq \sV$ then there is the map
-	\be\label{foli_res_eqn}
-	\begin{split}
-		\rho_{\sV \mathcal W }:  \mathscr G\left(\sV \right) \to \mathscr G\left(\mathcal W \right),\\
-		\bigoplus_{x \in M} p^x_\sV \rho_x\left(a \right) q^x_\sV \mapsto p^x_{\mathcal W} p^x_\sV \rho_x\left(a \right) q^x_\sV q^x_{\mathcal W}.
-	\end{split}
-	\ee
-	Thus there is a presheaf  \ref{top_x_sheaf_defn} $\mathscr G$ of Abelian groups (cf. Definition \ref{presheaf_defn}).
-\end{empt}
-
-\begin{definition}\label{foli_presheaf_defn}
-	The presheaf \ref{top_x_sheaf_defn} $\mathscr G$ is said to be \textit{reduced presheaf} of $\left(M,\sF\right)$. The associated with $\mathscr G$ sheaf  \ref{top_x_sheaf_defn} $\mathscr C^*_r\left(M,\sF\right)$ is said to be the \textit{reduced sheaf} of $\left(M,\sF\right)$. 
-\end{definition}
-\begin{remark}
-	From \eqref{foli_a_v_eqn} it turns out that for any open $\sV \subset \G\left(M, \sF \right)$ there are projectors $P_\sV, Q_\sV \in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$
-	\be\label{foli_ag_v_eqn}
-	a|_\sV = P_\sV \pi_a\left(a \right) Q_\sV \in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right).
-	\ee
-	The equation \eqref{foli_res_eqn} can be replaced with
-	\be\label{foli_res_g_eqn}
-	\begin{split}
-		\rho_{\sV \mathcal W }:  \mathscr G\left(\sV \right) \to \mathscr G\left(\mathcal W \right),\\
-		P_\sV \pi_a\left(a \right) Q_\sV \mapsto P_{\mathcal W} P_\sV \pi\left(a \right) Q_\sV Q_{\mathcal W}.
-	\end{split}
-	\ee
-	
-\end{remark}
-\begin{definition}\label{foli_affil_defn}
-	An operator $a\in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ such that for any $\ga \in \G\left(M,\sF\right)$ there is an open neighborhood $\sV_\ga$ and element $b \in C^*_r\left(M,\sF\right)$ such that
-	$$
-	P_{\sV_\ga} \pi_a\left(b \right) Q_{\sV_\ga}= P_{\sV_\ga} a Q_{\sV_\ga}.
-	$$
-	is said to be \textit{affiliated to}  $C^*_r\left(M,\sF\right)$. The $\C$-space of affiliated operators will be denoted by $C^*_b\left(M,\sF\right)$.
-\end{definition}
-\begin{remark}\label{foli_affil_rem}
-Any {affiliated to}  $C^*_r\left(M,\sF\right)$ operator corresponds to a global section of  the {reduced sheaf} $\mathscr C^*_r\left(M,\sF\right)$ of $\left(M,\sF\right)$ (cf. Definition \ref{foli_presheaf_defn}). %Conversely any bounded operator $ a\in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is affiliated to  $C^*_r\left(M,\sF\right)$ if it corresponds to a global section of the sheaf  \ref{top_x_sheaf_defn} $\mathscr C^*_r\left(M,\sF\right)$.
-\end{remark}
-\begin{remark}
-There is the natural inclusion
-\be\label{foli_cr_cb_eqn}
-C^*_r\left(M,\sF\right)\subset C^*_b\left(M,\sF\right).
-\ee
-of $\C$-spaces.
-\end{remark}
-\begin{lemma}\label{foli_lt_lem}
-	If $\G\left(M, \sF \right)$ is a foliation groupoid   and $a \in C_r\left(M, \sF \right)_+$ is a positive element  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
-	\begin{itemize}
-		\item The closure of $\sV$ is compact.
-		\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$ (cf. equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
-	\end{itemize}
-\end{lemma}
-\begin{proof}
-	There is $\delta > 0$ such that $2 \sqrt{ \left\| a	 \right\|}\delta + \delta^2 < \eps$. If  $\gamma > 0$  is  such that $2 \sqrt{\left\| a	 \right\|}\gamma + \gamma^2 < \delta$ then from the Definition \ref{foli_red_defn} it follows that there is $b \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ such that $\left\| \sqrt{a} - b	 \right\|< \gamma$. It turns out that $\left\| a - bb^*	 \right\|< \delta$. Otherwise $bb^* \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ so the support of $bb^*$ is compact. If $\sV$ is the maximal open subset of the support of $bb^*$ then $P_\sV = Q_\sV$ because $bb^*$ is positive (cf. equation \ref{foli_ag_v_eqn}). There is the following representation
-	\bean
-	\pi_a\left(a \right)= \begin{pmatrix}
-		P_\V \pi_a\left(a \right)P_\sV & P_\sV \pi_a\left(a \right)\left( 1-P_\sV\right) \\
-		\left(1- P_\sV \right) \pi_a\left(a \right)P_\sV &\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right)\end{pmatrix},\\ 
-	bb^*=  \begin{pmatrix}
-		d & 0 \\
-		0 &0
-	\end{pmatrix},\\
-	\eean
-	hence from $\left\| a - bb^*	 \right\|< \delta$ and the Lemma \ref{positive_ineq_lem} it follows that $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$.
-\end{proof}
-
-
-
-\subsubsection{Stalks of the reduced sheaf}\label{foli_cases_sec}
-\paragraph*{}
-Here we research local structure of the reduced sheaf, it enables us to construct the global one. 
-
-\begin{empt}\label{foli_cases_empt}
-	%	Let $\G\left(M, \sF \right)$ is be a holonomy graph, and let $\Phi : \Pi\left( M,\sF\right)\to \G\left( M,\sF\right)$ be a given by \eqref{foli_cov_map_eqn} surjective continuous map from the from the space of path on leaves to the foliation graph. 
-	We suppose that the groupoid  $\G\left(M,\sF\right)$ is Hausdorff. 
-	We would like to find stalks of $\mathscr C^*_r\left(M,\sF\right)$  at different $\ga \in \G\left( M,\sF\right)$ (cf. Definition \ref{stalk_defn}). We consider following two types:
-	\begin{enumerate}
-		\item[(I)] $\ga$ is the image of a constant path. 		
-		\item[(II)] $s\left( \ga\right) \neq r\left( \ga\right)$.
-				\item[(III)] $s\left( \ga\right) =r\left( \ga\right)$ and $\ga$ is not image of a constant path $\widetilde{\ga} \in \Pi\left( M,\sF\right)$ where $\Pi\left( M,\sF\right)$ is the space of path on leaves (cf. Definition \ref{foli_path_space_defn}).
-	\end{enumerate}
-\end{empt}
-
-
-
-\paragraph{Type I.}\label{foli_type_I_par}
-Let $\ga \in \G\left(M,\sF\right)$ is a constant path such that $s\left(\ga\right)=r\left(\ga\right)=x_0\in M$, and let $s_\ga \in \mathscr C^*_r\left(M,\sF\right)_\ga$ be an element of the stalk $\mathscr C^*_r\left(M,\sF\right)_\ga$. According to the Definition \ref{stalk_defn} there is an open neighborhood $\sV\subset \G\left(M,\sF\right)$ of $\ga$ and such the $s_\ga$ is represented by $s \in  \mathscr C^*_r\left(M,\sF\right)\left(\sV\right)$. There is a chart $\varphi: \left(0, 1\right)^{2\dim\sF}\times\left(-\eps, 1+\eps\right)^{2\codim\sF}  \to \sV' \subset \G\left(M,\sF\right)$ such that $\sV'\subset \sV$. The restriction $s|_{\sV'}\in \mathscr C^*_r\left(M,\sF\right)\left(\sV'\right)$ also represents  $s_\ga$.  If $\mathcal W \subset \sV'$ is a subset which corresponds to an inclusion $\left(0, 1\right)^{2\dim\sF}\times\left[0, 1\right]^{2\codim\sF}\subset \left(0, 1\right)^{2\dim\sF}\times\left(-\eps, 1+\eps\right)^{2\codim\sF}$
- then from the equation \eqref{foli_prod_eqn} and the Proposition \ref{foli_tens_comp_prop} it follows that
- it follows that there is the natural inclusion
-\bean
-\mathscr C^*_r\left(M,\sF\right) \left(\mathcal W \right) \subset C\left( \left[0, 1\right]^{\codim\sF}\right) \otimes \K\left(L^2\left(\left(0, 1\right)^{\dim\sF} \right) \right)\cong \\ \cong C\left(\sY\right) \otimes \K\left(L^2\left( \left(0, 1\right)^{\dim\sF} \right)\right) 
-\eean
-where $\mathscr C^*_r\left(M,\sF\right) \left(\mathcal W \right)$ means the set of continuous sections over $\mathcal W$ and $\sY$ is a transversal of $\mathcal W$. On the other hand from  the Proposition \ref{foli_tens_comp_prop} it turns out that there is an inclusion 
-$$
-\mathscr C^*_r\left(M,\sF\right) \left(\sV \right)\subset C_0\left( \left(-\eps, 1+\eps\right)^{\codim\sF}\right) \otimes \K\left(L^2\left(\left(0, 1\right)^{\dim\sF} \right) \right)
-$$
-Otherwise from the Lemma \ref{top_ax_k_lem} it follows that the natural $*$-homomorphism 
-\bean
-C_0\left( \left(-\eps, 1+\eps\right)^{\codim\sF}\right) \otimes \K\left(L^2\left(\left(0, 1\right)^{\dim\sF} \right) \right)\to \\ \to C\left( \left[0, 1\right]^{\codim\sF}\right) \otimes \K\left(L^2\left(\left(0, 1\right)^{\dim\sF} \right) \right)
-\eean
-is surjective, so one has
- \bean
- \mathscr C^*_r\left(M,\sF\right) \left(\mathcal W \right) \subset C\left( \left[0, 1\right]^{\codim\sF}\right) \otimes \K\left(L^2\left(\left(0, 1\right)^{\dim\sF} \right) \right)\cong \\ \cong C\left(\sY\right) \otimes \K\left(L^2\left( \left(0, 1\right)^{\dim\sF} \right)\right) 
- \eean
- If $\mathcal W'$ is the maximal open subset of $\mathcal W$ end $\ga \in  \mathcal W'$ then $s|_{\mathcal W'}$ is a representative of $s|_\ga$. On the other hand the restriction  $s|_{\mathcal W'}$ uniquely depends on $s|_{\mathcal W}\in \mathscr C^*_r\left(M,\sF\right) \left(\mathcal W \right)$. In result any $s_\ga$ can be represented by a homeomorphism \\$\left(0,1\right)^{2\dim \sF}\times \left[0, 1\right]^{\codim\sF}\cong \mathcal W \subset \G\left(M,\sF\right)$ and an element\\ $a \in C\left(\sY\right) \otimes \K\left(L^2\left( \left(0, 1\right)^{\dim\sF} \right)\right)$.
- \begin{exercise}\label{foli_tI_exer}
-% Similarly to the equation  \eqref{top_c0_hilb_iso_eqn}
-Construct a Hilbert $C\left(\sY\right)$-module $X_{C\left(\sY\right)}$ such that
- \be\label{foli_tI_hm_eqn}
- C\left(\sY\right) \otimes \K\left(L^2\left( \left(0, 1\right)^{\dim\sF} \right)\right)\cong \K\left(X_{C\left(\sY\right)}\right)
- \ee
- \end{exercise}
- If 
-\be\label{foli_sv_eqn}
-\sV \bydef \varphi\left(\left(0,1\right)^{2\dim \sF}\times \left[0,1\right]^{\codim \sF}\right) 
-\ee 
-then from \eqref{foli_tI_hm_eqn}
-it follows that
-\be\label{foli_t1_eqn}
- \mathscr C^*_r\left(M,\sF\right) \left(\mathcal V \right)\cong \K\left(X_{C\left(\sY\right)}\right).
-\ee
-
-
-\paragraph{Type II.}\label{foli_type_II_par}
-Consider two charts $\phi_s: \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\hookto \G\left(M,\sF\right)$ and \\$\phi_r :\left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\hookto \G\left(M,\sF\right)$ such that \\$\phi_s\left( \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\right) \cap \phi_s\left( \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\right)=\emptyset$,\\ $~s\left( \ga\right) \in \phi_s\left( \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\right)$,  $~r\left( \ga\right) \in \phi_s\left( \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\right)$. Let $\sY_s$ and $\sY_r$ be transversals of above chars such that $s\left(\ga\right) \in \sY_s$ and  $s\left(\ga\right) \in \sY_s$. 
-\begin{exercise}
-	Prove following statements:
-\begin{enumerate}
-	\item One can select $\sY_s$ and $\sY_r$ such that the {holonomy pseudogroup} (cf. the Remark \ref{foli_pseudo_rem} and the Definition \ref{foli_pseudo_defn}) yields the natural diffeomorphism $\sY_s\cong \sY_r$ which corresponds the a $*$-isomorphism $C\left(\sY_s\right)\cong C\left(\sY_r\right)$ 
-	\item Similarly to the Exercise \ref{foli_tI_exer} there are Hilbert $C\left(\sY_s\right)$- and $C\left(\sY_r\right)$-modules $X_{C\left(\sY_s\right)}$ and $X_{C\left(\sY_s\right)}$ such that any $s_\ga\in \mathscr C^*_r\left(M,\sF\right)_\ga$ can be represented by a compact operator $a \in \K\left( X_{C\left(\sY_s\right)}, X_{C\left(\sY_r\right)}\right)$ where the $*$-isomorphism   $C\left(\sY_s\right)\cong C\left(\sY_r\right)$  is implicitly used.
-\end{enumerate}
-\end{exercise}
-Let $\Pi\left( M,\sF\right)$ be the space of paths on leaves (cf. \ref{foli_path_space_defn}), denote by 
-\bean
-{   \mathcal W }\bydef \left\{\left.\ga\in \Pi\left( M,\sF\right)\right|s\left(\ga\right)\in \sU_s  , r\left(\ga\right)\in \sU_r\right\}
-\eean
-where $\sU_s \bydef \phi_s\left(  \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\right)$,  $\sU_r \bydef \phi_r\left(  \left(0, 1\right)^{\dim\sF}\times\left[0, 1\right]^{\codim\sF}\right)$
-Let $\overline\sV\subset\Pi\left( M,\sF\right)$ be the connected component of ${   \mathcal W }$  which contain the $\ga$. Denote by 
-\be\label{foli_svv_eqn}
-\sV \bydef \Phi\left(\overline\sV \right)\subset  \G\left( M,\sF\right)
-\ee 
-where the map $\Phi$ is given by the equation \eqref{foli_cov_map_eqn}
-\begin{definition}\label{foli_svb_defn}
-	The set $\sV_b$ given by 
-	\be\label{foli_svb_eqn}
-	\begin{split}
-		\sV_b \stackrel{\text{def}}{=} \sV \cup \sV^{-1} \cup \sV \cdot \sV^{-1} \cup \sV^{-1} \cdot \sV = \sV \sqcup \sV^{-1} \sqcup \sV \cdot \sV^{-1} \sqcup \sV^{-1} \cdot \sV
-	\end{split}
-	\ee
-	is the \textit{balanced envelope} of $\sV$.
-\end{definition}
-\begin{exercise}\label{foli_tII_exer}
-Prove that
-\be\label{foli_cb_k_eqn}
-\begin{split}
- \mathscr C^*_r\left(M,\sF\right) \left(\mathcal V_b \right)\cong \K\left(X_{C\left(\sY_s\right)}\oplus X_{C\left(\sY_r\right)}\right)\cong\\\cong \K\left(X_{C\left(\sY_s\right)}\right)\oplus \K\left(X_{C\left(\sY_s\right)}, X_{C\left(\sY_r\right)}\right)\oplus \K\left(X_{C\left(\sY_r\right)}, X_{C\left(\sY_s\right)}\right)\oplus \K\left( X_{C\left(\sY_r\right)}\right).
-\end{split}
-\ee
-\end{exercise}
-
-
-\paragraph{Type III.} This type is very complicated, it corresponds to non-Hausdorff foliations groupoids only (cf. Exercise \ref{foli_haus_exer}). However below we consider only Hausdorff foliations groupoids. So we will not describe type III in details.
-
-
-\subsubsection{Construction of coverings}
-
-
-
-\begin{lemma}\label{foli_sec_in_lem}
-Suppose that a foliation groupoid $\G\left(M,\sF\right)$ is Hausdorff.
-Let $C^*_b\left(M,\sF\right)\subset B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ be a space of affiliated operators to $C^*_r\left(M,\sF\right)$ operators (cf. Definition \ref{foli_affil_defn}).
-	Let $a \in C^*_b\left(M,\sF\right)$ be such that its image in $B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is positive. If there is a positive $b \in C^*_r\left(M,\sF\right)_+$ such that $0\le a \le b$ then $a \in C^*_r\left(M,\sF\right)_+$.
-\end{lemma}
-\begin{proof}
-The groupoid $\G\bydef\G\left(M,\sF\right)$ is Hausdorff, so from the Section \ref{foli_cases_sec} it follows that there is two families $\left\{\sV_{\a'} \subset \G\right\}_{\a'\in \mathscr{A}'}$, $\left\{\sV_{\a''} \subset \G\right\}_{\a''\in \mathscr{A}''}$ such that
-\begin{enumerate}
-	\item Both $\sV_{\a'}$ and $\sV_{\a''}$ are given by equations \eqref{foli_sv_eqn} and \eqref{foli_svv_eqn} respectively.
-	\item  $\G\left(M,\sF\right)= \cup \mathring{\sV}_{\a'} \bigcup  \cup \mathring{\sV}_{\a''}$ where both $\mathring{\sV}_{\a'}$ and $\mathring{\sV}_{\a'}$ are maximal open subsets of $\sV_{\a'}$ and $\sV_{\a''}$ respectively.
-\end{enumerate}
-	Let $\La$ be an ordered set and let $\left\{a_\la\right\}_{\la\in\La}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
-	\bean
-	\forall \la \in \La \quad 0 \le a_\la \le a,\\
-	\forall \mu,\nu \in \La \quad \mu \ge\nu \quad a_\mu \ge a_\nu.
-	\eean
-	If $\phi: \R\to\R$ is given by
-	$$
-	\phi\left( x\right) = \begin{cases}
-		0 & x\le 0\\
-		x & x > 0
-	\end{cases}
-	$$
-	and $c \bydef a_\mu +\phi\left(a_\nu-a_\mu \right)$ then 
-	\bean
-	c \ge a_\mu,\\
-c \ge a_\nu,\\
-	0 \le c \le a.
-	\eean
-	From the above equations it follows that the set $\La$ is directed and 
-	the family $\left\{a_\la\right\}_{\la\in\La}$ is a net (cf. Definition \ref{top_net_defn}). Let $\eps > 0$ be given, and let $\delta > 0$ be such that $\delta + 2 \sqrt{\delta\left\| a	 \right\|}< \eps/3$. 
-	
-	Form the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
-	\begin{itemize}
-		\item The closure of $\sV$ is compact.
-		\item $\left\|\left(1-  P_\sV\right)  b\left( 1-P_\sV\right) \right\| < \delta$.
-	\end{itemize}
-	From $a \le b$ it follows that $\left\|\left(1-  P_\sV\right)  a\left( 1-P_\sV\right) \right\| < \delta$.
-	Since $\sV$ has  compact closure  there are finite subsets $\mathscr A'_0\subset \mathscr A'$, $\mathscr A''_0\subset \mathscr A''$  such that
-	\bean
-	\sV\subset \left( \bigcup_{\a' \in \mathscr A'_0} \mathring{\sV}_{\a'} \right) \bigcup  \left( \bigcup_{\a'' \in \mathscr A''_0} \mathring{\sV}_{\a''} \right)
-	\eean
-	 Let $\eps> 0$ be given.
-	From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{ctr_dini_lem} it follows that for any $\a'\in \mathscr A'$ and $\a''\in \mathscr A''$ there are $\la', \la'' \in \La$ such that
-	\bean
-	\left\|\left.\left( a - a_{\la'}\right)\right|_{\sV_{\a'}}  \right\| < \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) },\\
-		\left\|\left.\left( a - a_{\la''}\right)\right|_{\sV_{\a''}}  \right\|\le 	\left\|\left.\left( a - a_{\la''}\right)\right|_{\sV^b_{\a''}}  \right\|  < \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) }
-	\eean
-	where $\sV^b_{\a''}$ is the {balanced envelope} of $\sV_{\a''}$ (cf. Definition \ref{foli_svb_defn}).
-	Since both sets $\mathscr A'_0$ and $\mathscr A''_0$ are finite there is $\la_0\in\La$ such that
-	\bean
-	\forall \a'\in \mathscr A'_0\quad \la \ge\la_0 \quad \Rightarrow\quad\left\|\left.\left( a - a_{\la}\right)\right|_{\sV_{\a'}}  \right\|< \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) },\\
-	\forall \a''\in \mathscr A''_0\quad \la \ge\la_0 \quad \Rightarrow\quad\left\|\left.\left( a - a_{\la}\right)\right|_{\sV_{\a''}}  \right\|< \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) }.
-	\eean
-	and taking into account $\sV\subset \left( \bigcup_{\a' \in \mathscr A'_0} \mathring{\sV}_{\a'} \right) \bigcup  \left( \bigcup_{\a'' \in \mathscr A''_0} \mathring{\sV}_{\a''} \right)$ one concludes that
-	$$
-	\la \ge\la_0 \quad \Rightarrow\quad\left\|a|_{\sV} - \left.a_{\la} \right|_\sV\right\| < \frac{\eps}{3}.
-	$$
-	From the $a_\la < s < a$ it follows that $\left\|\left(1-  P_\sV\right)  a_\la\left( 1-P_\sV\right) \right\| < \delta$, $\left\|\left(1-  P_\sV\right)  s\left( 1-P_\sV\right) \right\| < \delta$ and from the Lemma \ref{positive_ineq_lem} it turns out that
-	\bean
-	\left\|a_\la - \left.a_{\la}\right|_{\sV} \right\| < \delta + 2 \sqrt{\delta\left\| a	 \right\|}< \frac{\eps}{3},\\
-	\left\|a - \left.a\right|_{\sV} \right\| < \delta + 2 \sqrt{\delta\left\| a	 \right\|}< \frac{\eps}{3}.
-	\eean
-	From the above equations it follows that
-	
-	\bean
-	\left\|a - a_\la\right\|< \left\|a - \left.a\right|_\sV\right\|+ \left\| \left.s\right|_\sV-\left.a_\la\right|_\sV\right\|+  \left\| \left.a_\la\right|_\sV-a_\la\right\|< \eps,
-	\eean
-	and taking into account $a_\la\in C^*_r\left(M,\sF\right)$ one has $a\in C^*_r\left(M,\sF\right)$. 
-\end{proof}
-
-
-\begin{exercise}
-	Suppose that a foliation groupoid $\G\left(M,\sF\right)$ is Hausdorff. Prove that the groupoid $\G\left(\overline M, \overline \sF\right)$ is also Hausdorff.
-\end{exercise}
-
-\begin{lemma}\label{foli_sheaf_lem}
-	If $ \overline a  \in K\left( \overline A\right) $ is a positive  element of Pedersen's ideal then $\overline a \in   \pi_A\left( C^*_r\left(\overline M, \overline \sF\right)\right) $ %where $\pi_A: C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a \right)$ is an atomic representation of  $C^*_r\left(\overline M, \overline \sF\right)$ (cf. \ref{foli_atomic_empt} and the equation \eqref{foli_atomic_l_eqn}    \ref{atomic_faithful_lem} ).
-\end{lemma}.
-\begin{proof}
-From the Definition \ref{foli_affil_defn} it follows that
-$$
-C^*_r\left(\overline M,\overline\sF\right)\subset C^*_b\left(\overline M,\overline\sF\right)
-$$.
-Let $\mathscr A$ be an ordered set and let $\left\{a_\a\right\}_{\a\in \mathscr  A}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
-\bean
-\forall \a \in \mathscr A \quad 0 \le a_\a \le \overline a,\\
-\forall \bt,\ga \in \mathscr A \quad \bt \ge\ga \quad a_\bt \ge a_\ga.
-\eean
-If $\phi: \R\to\R$ is given by
-$$
-\phi\left( x\right) = \begin{cases}
-	0 & x\le 0\\
-	x & x > 0
-\end{cases}
-$$
-and $\overline b \bydef a_\bt +\phi\left(a_\ga-a_\bt \right)$ then 
-\bean
-\overline b \ge a_\bt,\\
-\overline b \ge a_\ga,\\
-0 \le \overline b \le \overline a.
-\eean
-From the above equations it follows that the set $\mathscr A$ is directed (cf. Definition \ref{directed_set_defn}) and 
-the family $\left\{a_\a\right\}_{\a\in \mathscr  A}$ is a net (cf. Definition \ref{top_net_defn}).
-Let $a \in C^*_r\left( M,\sF\right)$ is given by the equation \eqref{subord_ga_eqn}; that is
-\be\label{foli_sum_eqn}
-a \bydef \sum_{	g \in G\left( \left. \overline M\right| M\right) }g \overline a.
-\ee
-Let   $\eps > 0$ 	be given, and let $\delta > 0$ be such that $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps /3$.  From the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
-\begin{itemize}
-	\item The closure of $\sV$ is compact.
-	\item $\left\|\left(1-  P_\sV\right)  a \left( 1-P_\sV\right) \right\| < \delta$ (cf. equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
-\end{itemize}
- Since $\sV$ has  compact closure  there are finite families $\left\{\sV_{\iota'}\right\}_{\iota'\in \I'}$ , $\left\{\sV^b_{\iota''}\right\}_{\iota''\in \I''}$ such that $\sV \subset \cup \sV_{\iota'}\bigcup \cup \sV^b_{\iota''}$  where $\sV_{\iota'}$ and $\sV^b_{\iota''}$ are given by  \eqref{foli_sv_eqn} and given by  \eqref{foli_svb_eqn}.   For any $\iota'\in \I'$ (resp. $\iota''\in \I''$) we select $\overline \sV_{\iota'}\subset\G\left(\overline M,\overline\sF\right)$ (resp. $\overline \sV^b_{\iota''}\subset\G\left(\overline M,\overline\sF\right)$) which is homeomorphically mapped onto $\sV_{\iota'}$ (resp. $\sV^b_{\iota''}$). From the equation \ref{foli_sum_eqn} it follows that
- \be\label{foli_sums_eqn}
- \begin{split}
- \forall \iota'\in \I'\quad  \left.a\right|_{\sV_{\iota'}}= \sum_{	g \in G\left( \left. \overline M\right| M\right) } \left.\overline a\right|_{g \overline \sV_{\iota'}},\\
-\forall \iota''\in \I''\quad  \left.a\right|_{\sV^b_{\iota''}}= \sum_{	g \in G\left( \left. \overline M\right| M\right) } \left.\overline a\right|_{g \overline \sV^b_{\iota''}}.
- \end{split}
-\ee
-From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{ctr_dini_lem} it follows that the series \eqref{foli_sums_eqn} are uniformly convergent. So for all $\iota'\in \I'$ and  $\iota''\in \I''$ there are  finite subsets  $G_{\iota'},G_{\iota''} \subset G\left( \left. \overline M\right| M\right)$ such that 
- \be\label{foli_sumse_eqn}
-\begin{split}
- \sum_{	g \in G\left( \left. \overline M\right| M\right) \setminus G_{\iota'}} \left\| \left.\overline a\right|_{g \overline \sV_{\iota'}}\right\| <  \frac{\eps}{3\left(\left|\I' \right| + \left|\I'' \right| \right) } ,\\
- \sum_{	g \in G\left( \left. \overline M\right| M\right) \setminus G_{\iota''}} \left\| \left.\overline a\right|_{g \overline \sV^b_{\iota''}}\right\| <  \frac{\eps}{3\left(\left|\I' \right| + \left|\I'' \right| \right) } 
-\end{split}
-\ee
-The set $G' \bydef \cup_{\iota' \in \I'} G_{\iota'} \bigcup \cup_{\iota'' \in \I''} G_{\iota''}\subset G\left( \left. \overline M\right| M\right)$ is finite. From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{ctr_dini_lem} it follows that for all $\left(g, \iota'\right) \in G'\times \I''$ and $\left(g, \iota'\right) \in G'\times \I''$ there are $\a_{\left(g, \iota'\right)},\a_{\left(g, \iota'\right)}\in \mathscr A$ such that 
-
- \be\label{foli_al_eqn}
-\begin{split}
-\left\|\left.a_{\a_{\left(g, \iota'\right)}}\right|_{g \overline \sV_{\iota'}}-\left.\overline a\right|_{g \overline \sV_{\iota'}} \right\| - <  \frac{\eps}{3\left|G' \right| \left(\left|\I' \right| + \left|\I'' \right| \right) },\\ \left\|\left.a_{\a_{\left(g, \iota''\right)}}\right|_{g \overline \sV^b_{\iota''}}-\left.\overline a\right|_{g \overline \sV^b_{\iota''}} \right\| - <  \frac{\eps}{3\left|G' \right| \left(\left|\I' \right| + \left|\I'' \right| \right) } 
-\end{split}
-\ee
-If 
-$$
-\a_0 \bydef \max\left( \max_{\left(g, \iota' \right)\in G'\times \I'}\a_{\left(g, \iota' \right)}, \max_{\left(g, \iota'' \right)\in G'\times \I''}\a_{\left(g, \iota'' \right)} \right)
-$$
-then form \eqref{foli_al_eqn}
-it follows that
-\be
-\left\|\left.\overline a\right|_{\sV }- \left.a_{\la_0}\right|_{\sV } \right\| < \frac{\eps}{3}
-\ee
-From $a_{\la_0}\le \overline a$ it follows that $\left\|\left(1-  P_\sV\right) a_{\la_0} \left( 1-P_\sV\right) \right\| < \delta$, so from the Lemma \ref{positive_ineq_lem} it follows that
-\be
-\left\|a_{\la_0}- \left.a_{\la_0}\right|_{\sV } \right\|< \delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps /3
-\ee 
-
-From the equations it follows that
-\be\nonumber
-\left\|\left.\overline a\right.- \left.a_{\la_0}\right. \right\|< \left\|\overline a-\left.\overline a\right|_{\sV }\right\|+  \left\|\left.\overline a\right|_{\sV }-\left.a_{\la_0}\right|_{\sV }\right\|+ \left\|\left.a_{\la_0}\right|_{\sV }-a_{\la_0}\right\|<\frac{\eps}{3}+ \frac{\eps}{3}+ \frac{\eps}{3}=\eps
-\ee 
-and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\right)$ one has $\overline a \in C^*_r\left(\overline{M}, \overline{\sF}\right)$.
-
-\end{proof}
-
-\begin{theorem}\label{foli_main_thm}
-		Suppose that $\left( M,  \sF\right)$ a foliation space with a Hausdorff foliation groupoid $\G\left( M,  \sF\right)$. If  $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ is	a given by the Lemma \ref{foli_base_point_lem} !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition (ref. \ref{pointed_defn}) then following conditions hold:
-	\begin{enumerate}
-		\item [(i)]  the   !!! pointed  DELETE !!!algebraical finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$   is good (cf. Definition \ref{good_defn}), 
-		\item[(ii)]  if $\widetilde M$  is the {topological inverse limit} of the given by \eqref{foli_top_eqn} category  $\mathfrak{S}_{\left( M, x_0\right) } !!!$ (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by  with the natural transitive covering $\widetilde q: \widetilde M\to M$
-		then the triple 
-		$$
-		\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde\sF\right) , G\left(\left.\widetilde M\right|M\right)\right)
-		$$ 
-		is an inverse noncommutative limit of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
-	\end{enumerate}
-	\end{theorem}
-\begin{proof}
-	From the Lemma \ref{foli_sheaf_lem} it follows that the !!! pointed  DELETE !!!algebraical category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ is  $\overline M$-{good} (cf. Definition \ref{blowing_good_defn}). So
-	this theorem is a specialization of the \ref{blowing_main_thm} one.
-\end{proof}
-
-\subsubsection{Coverings of reduced groupoids}
-\paragraph*{}
-	Let $\left(M, \sF\right)$ be a  foliated manifold (cf. Definition \ref{foli_defn}), and   Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). Let
-	\bean
-	\begin{split}
-		\mathfrak{S}_{\left( M, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( M_\la, y^\la_0\right) \to \left( M, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left(M_\mu, y^\mu_0  \right)\to \left( M_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
-	\end{split}
-	\eean
-	be a given by \eqref{foli_top_eqn}  be a  !!! pointed  DELETE !!! topological finite covering category (cf. Definition \ref{top_pointed_defn}).
-	 For any $\la\in \La$ the submanifold $N_\la = p_\la^{-1}\left(N \right) $ is a complete transversal.  From the Theorem \ref{foli_main_thm} 
-it follows that there is a good  !!! pointed  DELETE !!!algebraical  finite covering category 
-	\be\nonumber
-	\begin{split}
-		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
-	\end{split}
-	\ee
-	(cf. Definition \ref{good_defn}).
-From the Lemma \ref{foli_g_lem} and (ii) of the Corollary \ref{stab_pt_a_cor} there is a good   !!! pointed  DELETE !!!algebraical  finite covering category.
-\be\label{foli_n_c_eqn}
-\begin{split}
-\mathfrak{S}_{C^*_r\left(\G^{N}_{N}\right)}	\bydef\\
-\bydef\left\{\left\{\pi_\la : C^*_r\left(\G^{N}_{N}\right)\hookto C^*_r\left(\G^{N_\la}_{N_\la}\right)\right\}, 	\left\{\pi^\mu_\nu :C^*_r\left(\G^{N_\mu}_{N_\mu}\right)\hookto C^*_r\left(\G^{N_\nu}_{N_\nu}\right) \right\}\right\}.
-\end{split}
-\ee
-
-Let $\widetilde M$ be the topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category $\mathfrak{S}_{\left( M, y_0  \right) }$ and let $\widetilde p : \widetilde M\to M$ be a natural transitive covering. The submanifold  $ \widetilde N \bydef \widetilde \pi^{-1}\left(N\right)\subset \widetilde N$ is a complete transversal (cf. Remark \ref{foli_pseudo_alg_rem})
-
-\begin{theorem}\label{foli_n_cat_thm}
-The triple $\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of the good   !!! pointed  DELETE !!!algebraical  finite covering category $\mathfrak{S}!!! pt DELETE !!!_{C^*_r\left(\G^{N}_{N}\right)}$ given by \eqref{foli_n_c_eqn}.
-\end{theorem}
-\begin{proof}
-From the Theorem \ref{foli_main_thm} and (ii) of the Corollary \ref{stab_pt_a_cor} it follows that the covering transformation group of $\mathfrak{S}!!! pt DELETE !!!_{C^*_r\left(\G^{N}_{N}\right)}$ equals to $G\left(\left.\widetilde M~\right| M\right)$. Similarly to \ref{foli_stab_empt} we select  a tubular neighborhood $V_N$ of $N$ which is homeomorphic to $N \times [0,1]^q$ and a basis $\left\{\eta_j\right\}_{j\in \N}\subset \ell^2\left(\N \right)$ given by \eqref{foli_basis_eqn}. Then there are isomorphisms
-\bean
-C^*_r\left(\G^{N_\la}_{N_\la}\right) \cong \left(1_{C^*_r\left(\G^{N_\la}_{N_\la}\right)^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left(  C^*_r\left(\G^{N_\la}_{N_\la}\right) \otimes \K \right)  \left(1_{C^*_r\left(\G^{N_\la}_{N_\la}\right)^\sim}  \otimes  \mathfrak{e}_{1,1}\right)
-\eean
-\be\label{foli_n1_eqn}
-C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right) \cong \left(1_{C^*_r\left(\G^{\widetilde N_\la}_{\widetilde N}\right)^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left(  C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right) \otimes \K \right)  \left(1_{C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)^\sim}  \otimes  \mathfrak{e}_{1,1}\right). 
-\ee
-where $\widetilde C^*_r\left(\G^{N_\la}_{N_\la}\right) \otimes \K \cong C^*_r\left(M_\la, \sF_\la\right)$ and 
-\be\label{foli_n2_eqn}
-C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right) \otimes \K\cong C^*_r\left(\widetilde M, \widetilde \sF\right)
-\ee
-From the % Remark \ref{stab_inf_rem} and 
-equations \eqref{foli_n1_eqn}, \eqref{foli_n2_eqn} it turns out that the infinite noncommutative covering equals to $C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$.
-\end{proof}
-
-\begin{cor}\label{foli_n_cat_fg_cor}
-Under the hypotheses of the Theorem \ref{foli_n_cat_thm} one has
-\be
-\pi^{\mathrm{stab}}_1\left( C^*_r\left(\G^{ N}_{ N}\right)\right)\cong\pi_1\left( C^*_r\left(\G^{ N}_{ N}\right)\otimes\K\right) \cong \pi_1\left(M, x_0 \right). 
-\ee	
-\end{cor}
-\begin{proof}
-Follows from the Lemma \ref{foli_stab_lem} and the  Theorem \ref{foli_main_thm}.
-\end{proof}
-
-\subsubsection{Fundamental group  of a linear foliation on torus}
-
-\paragraph{} If $\T^2$ be a topological torus and  $\widetilde q: \left( 
-\R^2, \widetilde x_0\right) \to \left(\T^2, x_0\right)$ is the  universal  !!! pointed  DELETE !!!covering then a group of covering transformation  $G\left(\left.\R^2\right| \T^2\right)\cong \Z^2$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\th \in \R\setminus\Q$ be an irrational number and, let $\left(\T^2, \mathcal{F}_\th \right)$ be an explained in the Example \ref{fol_tor_exm} foliated space then there is a foliation $\left(\R^2, \widetilde\F\right)$ induced by $\widetilde q$ 
-(cf. Definition \ref{fol_cov_defn}). From the Exercise \ref{foli_blowing_exer} it turns out that
-there is a natural $*$-isomorphism
-$$
- C^*_r\left(\R^2, \widetilde{\sF} \right)\cong 	C^*_r\left(\T^2,\sF_\th\right)_0 \left(\R^2 \right)
-$$
-where 	$C^*_r\left(\T^2,\sF_\th\right)_0 \left(\R^2 \right)$ is the $\widetilde q$-lift of $C^*_r\left(\T^2,\sF_\th\right)$ (cf. Definition \ref{blowing_lift_a_f_defn}).
-
-\begin{lemma}\label{foli_fg_lem}
-Hausdorff blowing-up $C\left(\T^2 \right)\hookto M\left(  C^*_r\left(\T^2,\sF_\th\right)\right)$ is {semilocally} 1-{connected} (cf. Definition \ref{blowing_semi_defn})
-\end{lemma}
-\begin{proof}
-If $y \in \T^2$ then there is an open foliation chart $\sU$ (cf. \ref{foli_leaf_empt}) such that $y \in \sU$. One needs prove that $\sU$ is semilocally proper, i.e. it satisfies to the conditions (a), (b) of the Definition \ref{blowing_semi_defn}.\\
-(a) Follows from the Lemma \ref{foli_simply_connected_lem}.\\
-(b) If we consider the covering $\widetilde q : \R^2 \to \T^2$ and an open connected subset $\widetilde \sU \subset \R^2$ which is mapped homeomorphically onto $\sU$ then $\widetilde \sU$ is a foliation chart of $\left(\R^2, \widetilde \F\right)$. Moreover one has:
-		\begin{enumerate}
-	\item[(i)] a covering  group $G \left( \left. \R^2\right| \T^1 \right)\cong \Z^2$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
-	\item[(ii)] The proof of  \eqref{blowing_hered_prop_eqn} is left to the reader,
-\end{enumerate}
-
-\end{proof}
-\begin{corollary}\label{foli_fg_cor}
-A simple fundamental group $\pi_1\left( C^*_r\left(\T^2,\sF_\th\right)\otimes \K\right)$   of $C^*_r\left(\T^2,\sF_\th\right)\otimes \K$ (cf. Definition \ref{fundamental_group_nc_defn} !!! CHANGED !!!) is isomorphic to $\Z^2$.
-\end{corollary}
-\begin{proof}
-Follows from the Lemma \ref{foli_fg_lem} and the Corollary \ref{blowing_semi_cor}.
-\end{proof}
-
- Consider the above situation. If  $N = N_{0,1}$  be an explained in the Example \ref{fol_tor_exm} transversal then one has 
- $$
- C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
-$$
-(cf. equation \eqref{foli_nt_eqn}). On the other hand from the Lemma \ref{foli_stab_lem} it turns out that
-$$
- C^*_r\left(\T^2,\sF_\th\right)\cong C^*_r\left( \G^N_N\right) \otimes \K\cong C\left(\T^2_\th\right)\otimes \K.
-$$
-From the Corollary \ref{stab_k_1_cor} it follows 
-$$
-K_1\left(\right) \cong K_1\left(  C\left(\T^2_\th\right)\right) 
-$$
-On the other hand in \cite{varilly:noncom} it is explained that
-$$
- K_1\left(  C\left(\T^2_\th\right)\right) = \Z\left[u\right]\oplus  \Z\left[v\right]
-$$
- where $u, v\in C\left(\T^2_\th\right)$ are given by \eqref{foli_uv_eqn} unitary generators of $C\left(\T^2_\th\right)$. One can proof that if
- \bean
-U \bydef \begin{pmatrix}
-	 u& 0&\ldots & 0 &  \dots \\
-	0&1&\ldots& 0 & \ldots\\
-	\vdots&	\vdots& \ddots &\vdots &  \ldots \\
-	0&	0& \ldots & 1 & \ldots \\
-	\vdots & \vdots &\vdots & \vdots &\ddots
-\end{pmatrix}, \quad V \bydef \begin{pmatrix}
- v& 0&\ldots & 0 &  \dots \\
-0&1&\ldots& 0 & \ldots\\
-\vdots&	\vdots& \ddots &\vdots &  \ldots \\
-0&	0& \ldots & 1 & \ldots \\
-\vdots & \vdots &\vdots & \vdots &\ddots
-\end{pmatrix}\in   C\left(\T^2_\th\right)\otimes \K^+
- \eean 
- then
-$$
-K_1\left(  C\left(\T^2_\th\right)\otimes\K\right) = \Z\left[U\right]\oplus  \Z\left[V\right]
-$$
-If $m, n \in \N$ then from the Theorem \ref{nt_fin_thm} it turns out that there is an unital noncommutative covering
-$$
-\left(C\left(\T^2_\th\right), C\left(\T^2_{\th/mn}\right), \Z_n\times\Z_m, \pi\right)
-$$
-such that there are generators $\widetilde u, \widetilde v\in  C\left(\T^2_{\th/mn}\right)$ which satisfy to following equations
-\bean
-\pi\left(u\right) = \widetilde u^m;\\
-\pi\left(v\right) = \widetilde v^n.
-\eean
-From the Lemma \ref{stable_fin_cov_comp_lem} one has a noncommutative finite fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
- $$
-\left(C\left(\T^2_\th\right)\otimes \K, C\left(\T^2_{\th/mn}\right)\otimes \K, \Z_n\times\Z_m, \pi \otimes \Id_\K\right) 
- $$
- Moreover if
-  \bean
-\widetilde U \bydef \begin{pmatrix}
- \widetilde	u& 0&\ldots & 0 &  \dots \\
- 	0&1&\ldots& 0 & \ldots\\
- 	\vdots&	\vdots& \ddots &\vdots &  \ldots \\
- 	0&	0& \ldots & 1 & \ldots \\
- 	\vdots & \vdots &\vdots & \vdots &\ddots
- \end{pmatrix}, \quad \widetilde V \bydef \begin{pmatrix}
- \widetilde	v& 0&\ldots & 0 &  \dots \\
- 	0&1&\ldots& 0 & \ldots\\
- 	\vdots&	\vdots& \ddots &\vdots &  \ldots \\
- 	0&	0& \ldots & 1 & \ldots \\
- 	\vdots & \vdots &\vdots & \vdots &\ddots
- \end{pmatrix}\in   C\left(\T^2_{\th/mn}\right)\otimes \K^+
- \eean 
-then there are following finite direct sums
- \bean
-  C\left(\T^2_{\th/mn}\right) = \bigoplus_{\substack{j = 0\\k=0}}^{\substack{n\\m}}\widetilde u^j\widetilde v^k  C\left(\T^2_{\th}\right),\\
-    C\left(\T^2_{\th/mn}\right)\otimes \K = \bigoplus_{\substack{j = 0\\k=0}}^{\substack{n\\m}}\widetilde U^j\widetilde V^k  C\left(\T^2_{\th}\right)\otimes \K
-   \eean
-   of $C\left(\T^2_{\th}\right)$ and $C\left(\T^2_{\th}\right)\otimes\K$-right modules.
-\begin{exercise}
-Consider the above situation and prove following statements.
-\begin{enumerate}
-	\item  For all $n \in \N$ there are $\left(U, n\right)$ and $\left(V, n\right)$ {covering} (cf. Definition \ref{hurewicz_u_n_defn}) of $C\left(\T^2_{\th}\right)\otimes \K$ 
-	\item All these coverings are reduced (cf. \ref{fin_red_defn}).
-	\item All these coverings are coverings  with unitization (cf. \ref{fin_unitization_defn}).
-%	\item The construction \ref{hurewicz_free_ass_sec} yields isomorphism 
-%	\be\label{foli_nt_hur_eqn}
-%	\pi_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)\right) \cong 	K_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)  \right) 
-%	\ee
-\end{enumerate}
-\end{exercise}
-%\begin{remark}
-%The equation \eqref{foli_nt_hur_eqn} is a specialization of Hurewicz homomorphism (cf. Definition \ref{hurewicz_defn}).
-%\end{remark}
-
 \chapter{Coverings of  noncommutative tori}\label{nt_chap} 
 \section{Basic constructions}
 \begin{empt}
@@ -27949,7 +26914,7 @@ $Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
 	\end{remark}
 	\begin{definition}\label{groupoid_haar_defn}\cite{renault:gropoid_ca}
  Let $\G$ be a locally compact groupoid. A \textit{left Haar system} for $\G$
-consists of measures $\left\{\la^u | u \in \G^0\right\}$ on $\G$ such that
+consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ such that
 \begin{enumerate}
 	\item [(a)] the support $\supp\la^u$ of the measure $\la^u$ is $\G^u$,
 	\item [(b)]  (continuity) for any $f \in C_c\left(\G\right)$, $u \mapsto \la(f)(u) = \int f d\la^u$ is continuous, and
@@ -28485,18 +27450,18 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	Given
 	$\gamma : x \to y$ one has a natural isometry of $L^2 (\mathcal G_x)$ on $L^2
 	(G_y)$ which transforms the representation $\rho_x$ in $\rho_y$.
-	\begin{lemma}
+	\begin{lemma}\cite{candel:foliII} 
 		%	Lemma 1.4.1. \\
 		If $f_1 \in \Ga_c\left(\sU_{   \a_1},\Om^{1/2} \right)$ and $f_2 \in \Ga_c\left(\sU_{   \a_2},\Om^{1/2} \right)$ then their convolution is a well-defined element $f_1*f_2 \in \Ga_c\left(\sU_{   \a_1}\cdot\sU_{   \a_2},\Om^{1/2} \right)$
 	\end{lemma}
 	%page 24.
 	%Let $\Ga_c\left( \G,\Om^{1/2}\right)$  be the space of compactly supported smooth sections of $\Om^{1/2}$ over $\G$; its elements are the compactly supported half-densities on G. When G is not Hausdorff, the meaning of c (G,D1/2) is that which was described in Section 1.2. This space will now be given the structure of an algebra with involution. This structure is first described when G is Hausdorff, and the details will then be given when G is arbitrary.
 	
-	\begin{proposition}\label{foli_repr_prop}
+	\begin{proposition}\label{foli_repr_prop}\cite{candel:foliII} 
 		%Proposition 1.4.5. \\
 		If $\sV \subset \G$ is a foliated chart for the graph of $\left(M, \sF\right)$ and $f \in \Ga_c\left(\sV, \Om^{1/2}\right)$ , then $\rho_x\left( f\right)$, given by \eqref{foli_repr_eqn}, is a bounded integral operator on $L^2\left(\G_x \right)$.
 	\end{proposition}
-	\begin{empt}
+	\begin{empt}\cite{candel:foliII} 
 		The space of compactly supported half-densities on $\G$ is taken as given by the exact sequence 
 		\be\label{foli_ga_p_eqn}
 		\bigoplus_{\a_0\a_1}\Ga_c\left(\sU_{   \a_0\a_1}, \Om^{1/2} \right) \to \bigoplus_{\a_0}\Ga_c\left(\sU_{   \a_0},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga_c\left(\G,\Om^{1/2}\right) 
@@ -28507,7 +27472,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	
 	
 	
-	\begin{defn}\label{foli_red_defn}
+	\begin{defn}\label{foli_red_defn}\cite{candel:foliII} 
 		% 	Definition 1.4.7.\\
 		The \textit{reduced} $C^*$-algebra of the foliated space $\left(M,\sF\right)$ is the completion of $\Ga_c\left( \G,\Om^{1/2}\right)$ with respect to the pseudonorm \be\label{foli_pseudo_norm_eqn}
 		\left\|f \right\| =\sup_{x \in M}\left\|  \rho_x\left(f\right)\right\|
@@ -28517,11 +27482,25 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	An obvious consequence of the construction of 
 	$C^*_r\left(M,\sF\right)$ is the following. 
 	
-	\begin{cor}\label{foli_cov_alg_cor}
+	\begin{cor}\label{foli_cov_alg_cor}\cite{candel:foliII} 
 		%	Corollary 1.4.8.
 		Let $M$ be a foliated space and let $\mathfrak{A}$ be a regular cover by foliated charts. Then the algebra generated by the convolution algebras $\Ga_c\left( \G\left(\sU \right), \Om^{1/2}\right)$, $~\sU\in\mathfrak{A}$ is dense in  $C^*_r\left(M,\sF\right)$.
 	\end{cor}
-	\begin{empt}\label{foli_res_inc_empt}
+	\begin{definition}\label{foli_full_defn}\cite{candel:foliII} !!! USE IT !!!
+%Definition 1.4.12. 
+The \textit{full} $C^*$-algebra of the foliated space $(M,\F)$, denoted
+by $C^?(M,\F)$, is the completion of $\Ga_c\left(\G,\Om^{1/2}\right)$ with respect to the
+pseudonorm
+$$
+\left\|f \right\| =\sup_{\pi}\left\|  \rho_x\left(f\right)\right\|
+$$
+
+where $\pi$ runs through all the involutive representations of $\Ga_c\left(\G,\Om^{1/2}\right)$ on a
+separable Hilbert space whose restrictions to the graph $\G\left( \sU\right)$  of each foliated
+chart $\sU$ for $(M,\F)$ are weakly continuous for the inductive limit topology
+on $\Ga_c\left(\G,\Om^{1/2}\right)$.	
+\end{definition}
+	\begin{empt}\label{foli_res_inc_empt}\cite{candel:foliII} 
 		%	page 29-30.
 		Let $\left(M,\sF\right)$ be an arbitrary foliated space and let $\sU\subset  M$ be an open subset.  Then $\left(\sU,\sF|_\sU\right)$ is a foliated space and the inclusion  $\sU\hookto  M$ induces a homomorphism of groupoids $\G\left(\sU \right)\hookto \G$ , hence a mapping
 		\be\label{foli_inc_gc_eqn}
@@ -28533,15 +27512,16 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		%	C^*_r\left(\mathcal{U},\mathcal F|_{\mathcal{U}} \right)\hookto C^*_r\left(M,\mathcal F \right).
 		%	\end{equation}
 	\end{empt}
-	\begin{prop}\label{foli_res_inc_prop} %	Proposition 1.5.5. 
+	\begin{prop}\label{foli_res_inc_prop} \cite{candel:foliII} 
+		%	Proposition 1.5.5. 
 		Let $\sU$ be an open subset of the foliated space $M$. Then the inclusion $\sU \hookto M$ induces an isometry of $C^*_r\left(\sU,\sF|_\sU\right)$  into $C^*_r\left(M,\sF\right)$.
 	\end{prop}
-	\begin{lemma}\label{foli_leaf_lem}
+	\begin{lemma}\label{foli_leaf_lem}\cite{candel:foliII} 
 		%Lemma 1.4.9. 
 		Each element $\ga \in \G$ induces a unitary operator $\rho_\ga : L^2\left(s\left( \ga\right)\right)   \xrightarrow{\approx}  L^2\left(r\left( \ga\right)\right) $   that conjugates the operators $\rho_{s\left(\ga \right)} \left(f \right) $ and $\rho_{r\left(\ga \right)} \left(f \right)$. In particular, the norm of $\rho_x\left(f \right)$  is independent of the point in the leaf through $x$.
 	\end{lemma}
 	
-	\begin{lem}\label{foli_point_lem}
+	\begin{lem}\label{foli_point_lem}\cite{candel:foliII} 
 		%Lemma 1.4.10. 
 		If $f \in \Ga^\infty_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
 	\end{lem}
@@ -28561,6 +27541,11 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		% Proposition 1.5.4. \\
 		The reduced  $C^*$-algebra $C^*_r\left(\mathcal N\times \mathcal Z \right)$ of the trivial foliated space $\mathcal N \times \mathcal Z$ is the tensor product $\K\otimes C_0\left(\mathcal Z\right)$, where $\K$ is the algebra of compact operators on $L^2\left(\mathcal N \right)$  and $ C_0\left(\mathcal Z\right)$ is the space of continuous functions on $\mathcal Z$ that vanish at infinity.
 	\end{prop}
+	\begin{corollary}\cite{candel:foliII} !!! USE IT !!!
+%Corollary 1.5.10. 
+The full $C^*$-algebra of a trivial foliated space $\mathcal N \times \sZ$ is
+the tensor product $\K\left( L^2\left( \mathcal N\right) \right) \otimes C_0\left( \sZ\right)$. 	
+\end{corollary}
 	\begin{thm}\label{foli_tens_comp_thm}\cite{candel:foliII}
 		%	Theorem 1.5.12. 
 		Assume that $\left(M, \sF\right)$ is given by the fibers of a fibration $p : M \to B$ with fiber $F$. Then $\left(M, \sF\right)$ is isomorphic to $C_0\left(B\right)\otimes \K\left(L^2\left(N\right)\right)$.
