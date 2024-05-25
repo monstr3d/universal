@@ -2443,7 +2443,7 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
  \ee
  Moreover from \ref{four_decompositon_eqn} one can deduce that
    	\be\label{fin_compp_eqn}
- \exists \left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}\subset  \widetilde{B}\subset M\left( \widetilde A\right)  \quad \widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n =  \widetilde{b}_1A+...+\widetilde{b}_n A.
+ \exists \left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}\subset  \widetilde{B}\subset M\left( \widetilde A\right)  \quad \widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n =  \widetilde{b}^*_1A+...+\widetilde{b}^*_n A.
  \ee
 \end{remark}
 \begin{lemma}\label{cov_sep_fin_lem}
@@ -12325,7 +12325,7 @@ $ is dense in $A_0\left(\widetilde\sY\right)$.\\
 \end{proof}
 \begin{definition}\label{blowing_compactly_supported_descent_defn}
 A given by \eqref{blowing_tajkc_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{lift} of $A$.  An $A$-module homomorphism 
-\be
+\be\label{blowing_compactly_supported_descent_eqn}
 \begin{split}
 \desc^c_q : A_c\left(\widetilde\sY \right)\to A,\\
 \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\mapsto \sum_{\substack{j=1\\ k = 1}}^n \desc^c_q\left(\widetilde f'_j \right) a_{jk}\desc^c_q\left(\widetilde f''_k \right)
@@ -15899,14 +15899,14 @@ If $A$ is a continuous trace $C^*$-algebra  and $\left(A, \widetilde{A}, G, \pi 
   $$
   From the above equation it follows that  a union $\cup A_\la$ is not dense in $A$. It is contradiction with the definition \ref{fin_defn}, so our assumption $\cup \sX_\la \neq \sX$ is not true and $\cup \sX_\la \neq \sX$. Since $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a covering for any $\la\in \La$ the map $p$ is a covering. From $G\left(\left.\widetilde\sX_\la\right|\sX_\la\right)\cong G$ it follows that  $G\left(\left.\widetilde\sX\right|\sX\right)\cong G$.
 \end{proof}
-\begin{corollary}\label{ctr_fin_cor}
+\begin{theorem}\label{ctr_fin_cov_thm}
 	Let  $A$ is a continuous trace $C^*$-algebra,  and let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If $\sX$ is a spectrum of $A$ then there is a finite-fold transitive covering $p: 	\widetilde \sX \to \sX$ such that 
 	$\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to
 	$$
 \left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
 where $A_0\left( \widetilde{\sX }\right)$ is given by the Definitions  \ref{top_lift_a_f_defn}  or \ref{blowing_lift_a_f_defn} $p$-lift of $A$, and $*$-homomorphism  $A_0\left(p\right)$ is given by the equation   \eqref{blowing_a0q_eqn} one.
-\end{corollary}
+\end{theorem}
 \begin{proof}
 Let us use the notation of the proof of the Lemma \ref{ctr_fin_lem}. From the Lemma \ref{fin_def_lem} it follows that $\widetilde{A}$ is a $C^*$-norm closure of the union $\cup \widetilde{A}_\la$. On the other hand if $A_0\left( \widetilde{\sX}_\la\right)$ is a $p_{\sX_\la}$-lift of a given by \eqref{open_ideal_eqn} ideal $A|_{\sX_\la}$  then from $\widetilde A_\la \subset A_0\left( \widetilde{\sX}_\la\right)$  $A_0\left( \widetilde{\sX}_\la\right) \subset A_0\left( \widetilde{\sX}\right)$ it follows that  $\widetilde{A}\subset A_0\left( \widetilde{\sX}\right)$. If $\eps > 0$ and $\widetilde a \in A_0\left( \widetilde{\sX}\right)$ then there is a compact subset $\widetilde \sV \subset \widetilde \sX$, such that
 $$
@@ -15923,7 +15923,7 @@ From $\pi\left( a_j\right)\in \widetilde A$ and $\sqrt{\widetilde f_j}\in M\left
 Let $A$ be a continuous trace $C^*$-algebra, and let $\mathcal X$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).	If $\mathcal X$ is a locally compact, connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, Hausdorff space then the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
 \end{corollary}
 \begin{empt}\label{ctr_funct_empt}
-	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!! and the Lemma \ref{ctr_blowing_disint_lem} !!! MAY BE DELETE !!!). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn}  !!! DELETE !!!).  Similarly to \ref{top_functor_empt} !!! REPLACE \ref{top_functor_lem}we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
+	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!! and the Lemma \ref{ctr_blowing_disint_lem} !!! MAY BE DELETE !!!). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn}  !!! DELETE !!!).  Similarly to \ref{top_functor_empt} !!! REPLACE \ref{top_functor_lem}we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
 	We define
@@ -15938,7 +15938,7 @@ noncommutative finite-fold covering  $\left(\widetilde A_2 ,   \widetilde{   A }
 	\item $ \widetilde{   A }_2\cong   \widetilde{   A }_1^H$, 
 	\item $\pi^1_2$ is equivalent to the natural inclusion $ \widetilde{   A }_1^H\hookto \widetilde{   A }_1$.   
 \end{itemize} 
-From the Corollary \ref{ctr_fin_cor} it follows that $\widetilde A_1\cong A_0\left( \widetilde \sX_1\right)$ and $\widetilde A_2\cong A_0\left( \widetilde \sX_2\right)$ where both $\widetilde \sX_1$ and $\widetilde \sX_2$ are spectra of $\widetilde A_1$ and $\widetilde A_2$ respectively. If $p^1_2: \widetilde \sX_1\to \widetilde \sX_2$ is given by the Proposition \ref{spectrum_coverig_finite_prop} map then from the Corollary \ref{ctr_fin_cor} it follows that $p^1_2$ is a finite-fold transitive covering. We put 
+From the Corollary \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that $\widetilde A_1\cong A_0\left( \widetilde \sX_1\right)$ and $\widetilde A_2\cong A_0\left( \widetilde \sX_2\right)$ where both $\widetilde \sX_1$ and $\widetilde \sX_2$ are spectra of $\widetilde A_1$ and $\widetilde A_2$ respectively. If $p^1_2: \widetilde \sX_1\to \widetilde \sX_2$ is given by the Proposition \ref{spectrum_coverig_finite_prop} map then from the Corollary \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that $p^1_2$ is a finite-fold transitive covering. We put 
 \bean
 \mathrm{Spe}\left(\left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right)\right)\bydef\left(p^1_2: \widetilde \sX_1 \to \widetilde\sX_2 \right).  
 \eean 
@@ -15946,14 +15946,14 @@ From the Corollary \ref{ctr_fin_cor} it follows that $\widetilde A_1\cong A_0\le
 \end{empt}
 
 \begin{theorem}\label{ctr_fin_thm}
-	Let  $A$ is a connected continuous trace $C^*$-algebra, such that the primitive spectrum $\sX$ (cf. Definition \ref{spectrum_prime_primtive_defn}) is locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!. The  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) is an equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
+	Let  $A$ is a connected continuous trace $C^*$-algebra, such that the primitive spectrum $\sX$ (cf. Definition \ref{spectrum_prime_primtive_defn}) consents with noncommutative coverings. The  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) is an equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
 \end{theorem}
 \begin{proof}
 According to the Definition \ref{category_equivalence_definition} one should  construct  natural isomorphisms $\tau : \mathbb{1}_{\mathfrak{FinCov}\text{-}A} \cong A_0 \circ 	\mathrm{Spe}$, and $\sigma : \mathbb{1}_{\mathfrak{FinCov}\text{-}\sX}\cong \mathrm{Spe} \circ A_0$. If $\left(A,  \widetilde{  A} ,G\left(\left. \widetilde{ A } ~\right|   A\right) ,  \pi\right)$ is a $\mathfrak{FinCov}\text{-}A$-object then it is equivalent to 
 	$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$
-(cf. Corollary \ref{ctr_fin_cor}). One has 
+(cf. Corollary \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!!). One has 
 $$
 \mathrm{Spe}\left(\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right) \right) = \left(p:\widetilde\sX\to\sX \right).
 $$
@@ -17198,6 +17198,8 @@ Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	
 \begin{proof}
 	Follows from the Theorem \ref{blowing_inf_cov_thm}
 \end{proof}
+\section{Lifts of foliations}
+\paragraph{}
 \section{Linear foliation on torus}
 \paragraph{}
 Here we consider a generalization of the Example \ref{fol_tor_exm}. Let $N \in \N$ and $n \bydef 2N$, and let $\th \in \R \setminus \Q$ be an irrational number.
@@ -17336,48 +17338,83 @@ From the dense inclusion \eqref{groupoid_antn_eqn} we obtain a dense inclusion
 \end{empt}
 \begin{theorem}
 For any reduced noncommutative finite-fold covering with unitization 
-$$
+\be\label{groupoid_a_he_eqn}
 \left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)
-$$	
+\ee	
 (cf. Definitions \ref{fin_unital_defn} and \ref{fin_red_defn}) there is a covering $q: \widetilde \T^{2N}\to \T^{2N}$ such that the quadruple  $\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)$ is equivalent to 
-	$$
+\be\label{groupoid_a_ce_eqn}
 \left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right) , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right) 	
-	$$
+\ee
 one.
 \end{theorem}
 \begin{proof}
-	From the construction \ref{groupoid_lift_constr_empt} it follows that there are given by \eqref{groupoid_reg_sing_eqn} $H$-{regular}  $H$-{singular} noncommutative finite-fold coverings with unitization
+	From the construction \ref{groupoid_lift_constr_empt} it follows that there are given by \eqref{groupoid_reg_sing_eqn} $H$-{regular} and  $H$-{singular} noncommutative finite-fold coverings with unitization
 	\bean
 	\begin{split}
-		\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right) , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right),\\
-		\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), \widetilde A, G/H, \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\right)
+		\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right)\cong G/H , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right),\\
+		\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), \widetilde A,H, \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\right)
 	\end{split}
 	\eean
-	(cf. Definition \ref{fin_unitization_defn}). From the Definition \ref{fin_unitization_defn} it follows that there is a finite subset $\left\{\widetilde b_1,...,\widetilde b_n\right\}\in M\left( \widetilde A\right)$ such that
+	(cf. Definition \ref{fin_unitization_defn}). The quadruples \ref{groupoid_a_he_eqn} and 
+	\ref{groupoid_a_ce_eqn} are equivalent if and only if the  $H$-{singular} noncommutative finite-fold covering $$\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), \widetilde A,H, \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\right)$$ is trivial.  From the Definition \ref{fin_unitization_defn} it follows that there is a finite subset $\left\{\widetilde b_1,...,\widetilde b_n\right\}\in M\left( \widetilde A\right)$ such that
 \be\label{groupoid_sum_defn}
 \begin{split}
 	\widetilde A = C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)\widetilde b_1+...+C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)\widetilde b_n =\\=
 C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\widetilde b_1+...+C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\widetilde b_n
 \end{split}
 \ee
-From the Lemma \ref{groupoid_tar_lem} it follows that 
+The universal covering $\widetilde q: \R^{2N}\to \widetilde \T^{2N}$ is $\G\left(\widetilde \T^{2N}, \F_{\widetilde \th} \right)$-regular (cf. Definition \ref{groupoid_lift_defn}), so 
+from the Lemma \ref{groupoid_tar_lem} it follows that 
 $$
 \widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)	
 $$
 is a $*$-subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right)$. However from it follows that
 \bean
 \widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right) =\\
- \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\right) \right)\widetilde b_1+ ...\\... + \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\right) \right)\widetilde b_n. 
+ \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\right) \right)\widetilde M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_1\right)+ ...\\... + \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\right) \right)M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_n\right). 
 \eean
+where $M\left(A_b\left(\widetilde q \right)\right) $ is given by \eqref{blowing_lift_m_eqn}.
 Using dense inclusions \eqref{groupoid_antn_eqn} and  \eqref{groupoid_antnnn_eqn} we obtain the following
-\be
-\widetilde  A\left(\R^{2N} \right)= \left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right)  \widetilde b_1 + ... + \left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right)  \widetilde b_n
+\be\label{groupoid_fing_eqn}
+\begin{split}
+\widetilde  A\left(\R^{2N} \right)= \left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right) M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_1\right)   + ...\\
+... + \left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right) M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_n\right),
+\end{split}
 \ee
-
+and there is an injective $*$-homomorphism $\widetilde \pi: \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right)\hookto \widetilde  A\left(\R^{2N} \right)$.
+From 
+\bean
+H\cong \left\{\left.g \in \Aut\left(\widetilde A \right)\right| \forall a \in C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)_0\left(q \right)(A) \quad ga = a \right\}\cong \\
+\cong \left\{\left.g \in \Aut\left(\widetilde A\left(\R^{2N} \right)  \right)\right| \forall a \in \widetilde \pi\left(  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right)\right)  \quad ga = a \right\}
+\eean
+it follows that a quadruple
+\be\label{groupoid_pre_eqn}
+\left(  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right),\widetilde  A\left(\R^{2N} \right), H, \widetilde \pi  \right) 
+\ee
+is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Since \eqref{groupoid_fing_eqn} is a specialization of \eqref{fin_comp*_eqn} we conclude that the triple \eqref{groupoid_pre_eqn} is a covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+From the Theorem \ref{ctr_fin_cov_thm} it follows that there is a finite-fold transitive covering $p: \widetilde \sX \to \R^{2N}$ with connected $\widetilde \sX$ such that the quadruple  \eqref{groupoid_pre_eqn} is equivalent to 
+$$
+\left(  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right),\left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right)_0\left(\widetilde \sX \right) , H, \widetilde \pi'  \right)
+$$
+However any covering $p: \widetilde \sX \to \R^{2N}$ is trivial, so 
 
 \end{proof}
+\subsection{Infinite coverings}
+\paragraph{}
+It is well known that that there is the universal covering $q: \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_universal_covering_defn}) and the covering group $G\left(\left.\R^{2N}~\right|\T^{3N}\right)\cong \Z^2$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite.
+The following lemma is a direct consequence of the Theorem \ref{blowing_intinite_covering_thm}.
 
-
+\begin{lemma}\label{blowing_intinite_tor_covering_lem}
+	Under  hypotheses \ref{groupoid_n_cov_empt} and \ref{groupoid_n_cov_inf_empt} if $\overline q: \overline \G^0  \to  \G^0$  is {disconnected covering of} $q : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
+	$
+	\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$
+	is given by \eqref{blowing_algebraical_finite_covering_category_eqn} then a triple
+	\be\label{groupoid_inf+tor_eqn}
+	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
+	\ee 
+	is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
+	
+\end{lemma} 
 
 \chapter{Coverings of  noncommutative tori}\label{nt_chap} 
 \section{Basic constructions}
@@ -21304,7 +21341,7 @@ Hausdorff space is properly discontinuous.
 	\end{definition}
 	
 	\begin{lem}\label{top_simply_con_cov_lem}\cite{spanier:at}
-		A connected locally path-connected space $\mathcal X$ has a simply connected covering space if and only if  $\mathcal X$ is semilocally 1-connected.
+		A connected locally path-connected space $\mathcal X$ has a simply connected covering space if and only if  $\mathcal X$ is semilocally 1-connected (cf. Definition \ref{top_semi1_defn}).
 	\end{lem}
 	%\begin{lem}\label{top_simply_con_uni_cor}\cite{spanier:at}
 	%	Any universal covering space of a connected locally path connected semilocally 1-connected space is simply connected.
