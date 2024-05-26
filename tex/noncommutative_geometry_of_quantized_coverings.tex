@@ -12850,7 +12850,7 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 	Following conditions hold:
 	\begin{enumerate}
 		\item[(i)] there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn},
-		\item[(ii)] if $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!) then a finite covering category
+		\item[(ii)] if $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) then a finite covering category
 		\be\label{blowing_category_fin_eqn}
 	\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 	\ee
@@ -17108,9 +17108,9 @@ $C^*$-norm is $q$-\textit{lift} of $C^*_\rho\left(\G , \sigma \right)$.
 \begin{enumerate}
 	\item [(i)] The given by \eqref{groupoid_rho_c_eqn} representation $\widetilde{\rho}$ satisfies to the Definition \ref{groupoid_representation_defn}.
 	\item[(ii)] There is the natural $*$-isomorphism 
-	$$
- C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong  C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)	.
-	$$
+\be\label{groupoid_blowing_fin_eqn}
+ C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)\cong C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)	.
+\ee
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -17175,22 +17175,31 @@ Here we apply the explained in the chapter \ref{blowing_chap} to the investigati
 
 
 \begin{theorem}\label{groupoid_fin_thm}
-	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) the natural quadruple
+	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite-fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) the natural quadruple
 	\be\label{groupoid_fin_eqn}
 	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
 	\ee
 	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{empt}\label{groupoid_n_cov_inf_empt}
-Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	$G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).
+Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	$G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the equation \eqref{groupoid_blowing_fin_eqn} and the Theorems \ref{blowing_inf_cov_thm} and \ref{groupoid_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
+\be\label{groupoid_algebraical_finite_covering_category_eqn}
+\begin{split}
+\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left(q \right) }\bydef \\
+\left\{\left\{C^*_{\rho_\la}\left( \G_\la ,  \sigma_\la \right) \right\}_{\la}, \left\{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q^\nu_\mu\right)  :C^*_{\rho_\mu}\left( \G_\mu ,  \sigma_\mu \right)\hookto C^*_{\rho_\nu}\left( \G_\nu ,  \sigma_\nu \right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\end{split}
+\ee	
 \end{empt}
-\begin{theorem}\label{blowing_intinite_covering_thm}
-	Under  hypotheses \ref{groupoid_n_cov_empt} and \ref{groupoid_n_cov_inf_empt} if $\overline q: \overline \G^0  \to  \G^0$  is {disconnected covering of} $q : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
+
+
+
+\begin{theorem}\label{grupoid_intinite_covering_thm}
+	Under  hypotheses \ref{groupoid_n_cov_empt} and \ref{groupoid_n_cov_inf_empt} if $\overline q: \overline \G^0  \to  \G^0$  is {disconnected covering of} $q : \widetilde \G^0 \to \G^0$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
 	$
 	\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$
-	is given by \eqref{blowing_algebraical_finite_covering_category_eqn} then a triple
+	is given by \eqref{groupoid_algebraical_finite_covering_category_eqn} then a triple
 		\be\label{groupoid_inf_eqn}
-	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
+	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\overline \G , \overline \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \overline{\G}^0\right) , 	G\left(\left.\overline{\G}^0~~\right|~\G^0 \right)\right)  
 	\ee 
 	 is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
 	
@@ -17198,8 +17207,103 @@ Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	
 \begin{proof}
 	Follows from the Theorem \ref{blowing_inf_cov_thm}
 \end{proof}
-\section{Lifts of foliations}
+\section{Coverings  of foliations}
 \paragraph{}
+Any foliated manifold $\left(M, \F\right)$ yields a holonomy groupoid $\G\left(M, \F\right)$ (cf. Definition \ref{foli_defn}) (cf. Definition \ref{foli_graph_defn}).
+\begin{exercise}
+Prove that for any foliated manifold $\left(M, \F\right)$  that any   regular covering $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ (cf. Definition \ref{foli_reg_cov_defn}) is $\G\left(M, \F\right)$-regular (cf. Definition \ref{groupoid_lift_defn}) and vice versa.
+\end{exercise}
+\begin{empt}\label{groupoid_foli_empt}
+	If $\left(M, \F\right)$  is a foliated manifold,  and  $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ be a   regular covering (cf. Definition \ref{foli_reg_cov_defn}) then one has
+\bean
+\G\left( M, \mathcal{F}\right)^0 = M,\\ 
+\G\left( \widetilde M,\widetilde \F\right) ^0 = \widetilde M
+\eean
+where the notation of the Definition \ref{groupoid_defn} is used. Suppose that both $\sigma\in Z^2\left(\G\left( M, \mathcal{F}\right) , \T^2 \right) $ and $\widetilde \sigma\in Z^2\left(\G\left( \widetilde M,\widetilde \F\right), \T^2 \right) $ are trivial 2-cocycles on $\G\left( M, \mathcal{F}\right)$ and $\G\left(\widetilde M, \widetilde \F\right)$ (cf. Definition \ref{groupoid_cocycle_defn}), and define
+	\bean
+	C_c\left( M, \mathcal{F}\right) \bydef C_c\left(\G\left( M, \mathcal{F}\right), \sigma \right),\\
+	C_c\left( \widetilde M,\widetilde \F\right) \bydef C_c\left(\G\left( \widetilde M,\widetilde \F\right), \widetilde\sigma \right).  
+	\eean
+If  $\rho: C_c\left( M, \mathcal{F}\right)\to B\left( \H\right)$ is a faithful representation in the sense of the Definition  \ref{groupoid_representation_defn} then there is $\rho$-{completion} $C^*_\rho\left( M, \mathcal{F}\right)$  of  $C_c\left( M, \mathcal{F}\right)$ (cf. Definition \ref{groupoid_rho_defn}).  There is Hausdorff blowing-up $C_0\left(M\right)\hookto M\left( C^*_\rho\left( M, \mathcal{F}\right)\right) $ (cf. \eqref{groupoid_blowing_eqn}). 
+\end{empt}
+\begin{theorem}\label{groupoid_foli_fin_thm}
+	Under the hypothesis \ref{groupoid_foli_empt}  suppose that the covering $q$ is finite-fold. If $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}) the natural quadruple
+	\be\label{groupoid_foli_fin_eqn}
+	\left(C^*_{\rho}\left( M, \mathcal{F}\right),  C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right) , 	G\left(\left.\widetilde{M}~~\right|~M \right), C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right)   \right)  
+	\ee
+	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+\end{theorem}
+\begin{proof}
+The space $M$ is locally connected, so from \ref{top_fin_sufficient_thm} it follows that $M$  {consents with noncommutative coverings} (cf. Definition  \ref{top_consents_defn}). Hence this theorem is a specialization of \ref{groupoid_fin_thm} one.
+\end{proof}
+\begin{empt}\label{groupoid_n_cov_foli_inf_empt}
+	Under the hypotheses \ref{groupoid_foli_empt} suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From  \ref{groupoid_n_cov_inf_empt} and the Theorem \ref{groupoid_foli_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
+	\be\label{groupoid_foli_algebraical_finite_covering_category_eqn}
+	\begin{split}
+		\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }\bydef \\
+		\left\{\left\{C^*_{\rho_\la}\left( M_\la ,  \F_\la \right) \right\}, \left\{C^*_{\rho}\left( M ,  \F \right)_0\left( q^\nu_\mu\right)  :C^*_{\rho_\mu}\left( M_\mu ,  \F_\mu \right)\hookto C^*_{\rho_\nu}\left( M_\nu ,  \F_\nu \right)\right\}\right\}
+	\end{split}
+	\ee	
+	which is a specialization of \ref{groupoid_algebraical_finite_covering_category_eqn} one.
+\end{empt}
+\begin{theorem}\label{grupoid_foli_intinite_covering_thm}
+	Under  hypotheses \ref{groupoid_foli_empt} and \ref{groupoid_n_cov_foli_inf_empt} if $\overline q: \overline M  \to  \M$  is {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
+	$
+	\mathfrak{S}_{C^*_{\rho}\left( M ,  \F \right)_0\left( q\right) }$
+	is given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then a triple
+	\be\label{groupoid_foli_inf_eqn}
+	\left(C^*_{\rho}\left( M ,  \F \right), C^*_{\overline\rho}\left(\overline M , \overline \F \right) , 	G\left(\left.\overline{M}~~\right|~M \right)   \right)  
+	\ee 
+	is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
+\end{theorem}
+\begin{proof}
+This theorem is a specialization of \ref{grupoid_intinite_covering_thm} one.
+\end{proof}
+\begin{empt}
+For any foliated space $\left(M, \sF\right)$ denote by $M/\sF$ the set of all leaves, and for any leaf $L \in M/\sF$ we select a point $x_L \in L$. We write 
+\be\label{foli_leaf_repr_eqn}
+\rho_L \stackrel{\text{def}}{=} \rho_{x_L}: C^*_r\left(M, \sF\right) \to B\left( L^2\left(\G_{x_L}\right)\right) 
+\ee
+where the representation $\rho_{x_L}$ is given by the equation \eqref{foli_repr_eqn}.
+From the Theorem \ref{foli_irred_hol_thm} it turns out that the representation \eqref{foli_leaf_repr_eqn} is irreducible if and only if the leaf $L$ has no homology. If $M/\sF^{\mathrm{~no~hol}} \subset M/\sF$ the subset of leaves which have no holonomy then the spectrum of $C^*_r\left(M, \sF\right)$ coincides with $M/\sF^{\mathrm{~no~hol}}$.
+The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition \ref{atomic_repr_defn}) is given by
+\be\label{foli_atomic_eqn}
+\pi_a = \bigoplus_{L \in M/\sF^{\mathrm{~no~hol}}} \rho_L: C^*_r\left(M, \sF\right) \hookto B\left( \bigoplus_{L \in M/\sF^{\mathrm{~no~hol}}}  L^2\left(\G_{x_L}\right)\right).
+\ee
+\end{empt}
+\begin{exercise}\label{groupoid_foli_exer}
+Under hypotheses of the Theorem \ref{grupoid_foli_intinite_covering_thm} prove that following conditions hold.
+\begin{enumerate}
+	\item 
+	\be
+	\overline M/\overline \sF^{\mathrm{~no~hol}} = \varprojlim_{\la\in \La}  M_\la/ \sF^{\mathrm{~no~hol}}_\la
+	\ee
+	where $\varprojlim$ is the inverse limit of sets (cf. Definition \ref{inverse_limit_defn}).
+	\item If $\widehat {C^*_\rho\left(M, \sF\right)} \bydef  C^*$-$\varinjlim_{\la \in \La}C^*_{\rho_\la}\left( M_\la ,  \F_\la \right)$ is the $C^*$-inductive limit in the sense of the Definition \ref{inductive_lim_non_defn} and $\widehat \sX$ is the spectrum $\widehat {C^*_\rho\left(M, \sF\right)}$ then  there is a bijection $\widehat \sX\cong \overline M/\overline \sF^{\mathrm{~no~hol}}$ and this bijection agrees with the Lemma \ref{inverse_lim_sp_lem}.
+	\item If both $\widehat \pi_a: \widehat {C^*_\rho\left(M, \sF\right)} \hookto B\left( \widehat \H_a\right) $ and 
+	\be\label{groupoid_folif_eqn}
+	\overline \pi_a : C^*_{\overline\rho}\left(\overline M , \overline \F \right)\hookto B\left(\overline\H_a \right)
+	\ee are atomic representations (cf. Definition \ref{atomic_repr_defn}) then there is a natural isomorphism $\widehat \H_a\cong\overline\H_a$ of Hilbert spaces, 
+\item Under the isomorphism $\widehat \H_a\cong\overline\H_a$ the representation $C^*_{\overline\rho}\left(\overline M , \overline \F \right)\hookto B\left(\overline\H_a \right)$ is equivalent to $ext(\widehat \pi) : C^*_{\overline\rho}\left(\overline M , \overline \F \right)\to B \left(\widehat \H_a\right)$ one where $ext(\widehat \pi)$ is a specialization of the given by \eqref{ext_repro_eqn} representation.
+ \end{enumerate}
+\end{exercise}
+\begin{remark}
+From Lemma \ref{infinite_faithful_nondegererate_lem} and  the Exercise \ref{groupoid_foli_exer} it follows that for any {pre}-{covering $\left(C^*_{\rho}\left( M, \F \right), \overline A, G\left(\left.\overline{M}~~\right|~M \right)\right)$ of the algebraical finite covering category} of algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) $\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }$ given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} there is a faithful, nondegenerate representation
+\be\label{groupoid_folia_eqn}
+\pi_{\overline A} : \overline A \hookto B\left(\overline \H_a \right) 
+\ee
+\end{remark}
+\begin{lemma}
+	Under above hypotheses there for an {pre}-covering $\left(C^*_{\rho}\left( M, \F \right), \overline A, G\left(\left.\overline{M}~~\right|~M \right)\right)$ of the algebraical finite covering category $\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)}$ there is an inclusion
+		\be
+\overline \pi_a \left(  C^*_{\overline\rho}\left(\overline M , \overline \F \right)\right)  \subset 		\pi_{\overline A} \left({\overline A}  \right) 
+		\ee
+		where the equations \eqref{groupoid_folif_eqn} and \eqref{groupoid_folia_eqn} are implied.
+\end{lemma}	
+\begin{proof}
+!!!!
+\end{proof}
+
 \section{Linear foliation on torus}
 \paragraph{}
 Here we consider a generalization of the Example \ref{fol_tor_exm}. Let $N \in \N$ and $n \bydef 2N$, and let $\th \in \R \setminus \Q$ be an irrational number.
@@ -17401,7 +17505,44 @@ However any covering $p: \widetilde \sX \to \R^{2N}$ is trivial, so
 \end{proof}
 \subsection{Infinite coverings}
 \paragraph{}
-It is well known that that there is the universal covering $q: \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_universal_covering_defn}) and the covering group $G\left(\left.\R^{2N}~\right|\T^{3N}\right)\cong \Z^2$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite.
+It is well known that that there is the universal covering $q: \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_universal_covering_defn}) and the covering group $G\left(\left.\R^{2N}~\right|\T^{2N}\right)\cong \Z^2$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite. If $\overline q: \overline \sY  \to  \T^{2N}$   is {disconnected covering of} $q : \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_disconnected_defn}) and $\left\{g_\iota G\left(\left. \R^{2N}~\right|\T^{2N} \right)\right\}_{\iota \in I}$   is  a set of all left cosets of $G\left(\left. \R^{2N}~\right|\T^{2N} \right)$ in $\G\left(\left. \overline \sY~\right|\T^{2N} \right)$ (cf. Definition \ref{group_coset_defn}) then  here is a natural homeomorphism 
+\be\label{groupoid_disconnected_eqn}
+\overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\R^{2N}.
+\ee
+(cf. Lemma \ref{top_disconnected_lem}). Moreover there is a {finite covering category of} $ q : \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_disconnected_defn})
+\be\label{groupoid_category_fin_eqn}
+\mathfrak{S}_q \bydef \left\{\left\{\T^{2N}_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\T^{2N}_\mu\to \T^{2N}_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+\ee
+where $\T^{2N}_\la \cong \T$ for any $\la \in \La$. Moreover for every   $\la \in \La$
+there are coverings $\overline q_\la: \overline \sY: \to \T^{2N}_\la$ and $\widetilde q_\la: \R^{2N}: \to \T^{2N}_\la$ with $\overline q= q_\la \circ \overline q_\la$ and  $\widetilde q= q_\la \circ \widetilde q_\la$. From the Theorem \ref{blowing_inf_cov_thm} it follows that there is an algebraical finite covering category 
+\be\label{grouopoid_nt_algebraical_finite_covering_category_eqn}
+\mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\ee	
+(cf. the Definition \ref{algebraical_finite_covering_category_defn} and the equation \eqref{blowing_algebraical_finite_covering_category_eqn})
+
+\begin{theorem}\label{blowing_inf_cov_thm!}
+	Let $C_0\left( \sY\right) \to A$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and
+	let $q:\widetilde \sY \to \sY$ be a transitive covering with connected $\widetilde \sY$ and residually finite group  $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations.  If  	$A_b\left(q\right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
+	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}), and $\overline q: \overline \sY  \to  \sY$  is {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}).
+	Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn},
+		\item[(ii)] if $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) then a finite covering category
+		\be\label{blowing_category_fin_eqn!}
+		\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+		\ee
+		of $q:\widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) yields an algebraical finite covering category 
+		\be\label{blowing_algebraical_finite_covering_category_eqn!}
+		\mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+		\ee	
+		(cf. Definition \ref{algebraical_finite_covering_category_defn}).	
+		\item[(iii)] under the hypothesis (ii) a triple $\left(A, A_0\left(\overline\sY \right), G\left(\left. \overline\sY~\right|\sY \right) \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+	\end{enumerate}
+\end{theorem}
+\
+
+
+
 The following lemma is a direct consequence of the Theorem \ref{blowing_intinite_covering_thm}.
 
 \begin{lemma}\label{blowing_intinite_tor_covering_lem}
@@ -27350,25 +27491,25 @@ open subset.
 		Let $M$ be an $n$-manifold. A \textit{foliated chart} on $M$ of codimension $q$ is a pair $\left(\sU, \varphi)\right)$, where $\sU\subset M$ is open and $\varphi : \sU \xrightarrow{\approx} B_\tau\times B_\pitchfork$ is a diffeomorphism, $B_\pitchfork$ being a rectangular neighborhood in $\mathbb{F}^q$ and $B_\tau$ a rectangular neighborhood in $\mathbb{F}^{n-q}$. The set $P_y = \varphi^{-1}\left(B_\tau \times \left\{y\right\} \right)$ , where $y \in B_\pitchfork$, is called a \textit{plaque} of this foliated chart. For each $x \in B_\tau$, the set  $S_x=\varphi^{-1}\left(\left\{x\right\} \times B_\pitchfork \right)$  is called a \textit{transversal} of the foliated chart. The set $\partial_{\tau}\sU = \varphi^{-1}\left(B_\tau \times \left(\partial B_\pitchfork \right)  \right)$ is called the \textit{tangential boundary} of $\sU$ and $\partial_{\pitchfork}\sU = \varphi^{-1}\left(\partial \left( B_\tau\right)  \times \partial B_\pitchfork \right)$ is called the \textit{transverse boundary} of $\sU$.
 	\end{definition}
 	
-	\begin{definition}\label{foli_defn}
+	\begin{definition}\label{foli_defn}\cite{candel:foliI}
 		Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$ l is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
 	\end{definition}
-	\begin{definition}\label{fol_res_defn}
+	\begin{definition}\label{fol_res_defn}\cite{candel:foliI}
 		If $\left(M,\mathcal F \right)$ is a foliation and $\mathcal{U} \subset M$ be an open subset $\mathcal F|_{\mathcal{U}}$ is the restriction of $\mathcal F$ on ${\mathcal{U}}$ then we say that  $\left(\mathcal{U},\mathcal F|_{\mathcal{U}}\right) $ is the \textit{restriction}   of $\left(M,\mathcal F \right)$ \textit{to}  $\mathcal{U}$. (cf. \cite{connes:ncg94})
 	\end{definition}
-	\begin{definition}\label{foli_atlas_defn}
+	\begin{definition}\label{foli_atlas_defn}\cite{candel:foliI}
 		A \textit{foliated atlas} of codimension $q$ and class $C^r$ on the $n$-manifold $M$ is a $C^r$-atlas $\mathfrak{A}\bydef\left\{\sU_\a \right\}_{\a \in \mathscr A}$  of foliated charts of codimension $q$ which are \textit{coherently foliated} in the sense that, whenever $P$ and $Q$ are plaques in distinct charts of $\mathfrak{A}$, then $P\cap Q$ is open both in $P$ and $Q$. 
 	\end{definition}
-	\begin{definition}\label{foli_coh_atlas_defn}
-		Two foliated atlases lt and $\mathfrak{A}$ on $\mathfrak{A}'$ of the same codimension and smoothness class $C^r$ are \textit{coherent} ($\mathfrak{A}\approx\mathfrak{A}'$) if $\mathfrak{A}\cup\mathfrak{A}'$ is a foliated $C^*$-atlas.
+	\begin{definition}\label{foli_coh_atlas_defn}\cite{candel:foliI}
+		Two foliated atlases  and $\mathfrak{A}$ on $\mathfrak{A}'$ of the same codimension and smoothness class $C^r$ are \textit{coherent} ($\mathfrak{A}\approx\mathfrak{A}'$) if $\mathfrak{A}\cup\mathfrak{A}'$ is a foliated $C^*$-atlas.
 	\end{definition}
-	\begin{lemma}\label{foli_coh_atlas_eq_lem}
+	\begin{lemma}\label{foli_coh_atlas_eq_lem}\cite{candel:foliI}
 		Coherence of foliated atlases is an equivalence relation.
 	\end{lemma}
 	\begin{lemma}\label{foli_coh_atlas_ass_lem}
 		Let  $\mathfrak{A}$ and $\mathfrak{A}'$ be foliated atlases on $M$ and suppose that $\mathfrak{A}$ is associated to a foliation $\sF$. Then $\mathfrak{A}$ and $\mathfrak{A}'$ are coherent if and only if $\mathfrak{A}'$ is also associated to $\sF$.
 	\end{lemma}
-	\begin{definition}\label{foli_reg_atlas_defn}
+	\begin{definition}\label{foli_reg_atlas_defn}\cite{candel:foliI}
 		A foliated atlas $\mathfrak{A}\bydef\left\{\sU_\a \right\}_{\a \in \mathscr A}$ of class $C^r$ is said to be \textit{regular} if
 		\begin{enumerate}
 			\item [(a)] For each $\al \in \mathscr A$, the closure $\overline{\sU}_\al$ of $\sU_\al$ is a compact subset of a foliated chart  $\left\{\sV_\a \right\}$ and $\varphi_\a = \psi|_{\sU_\a }$.
@@ -27376,7 +27517,7 @@ open subset.
 			\item[(c)] if $\sU_\a$ and $\sU_\bt$ are elements of $\mathfrak{A}$, then the interior of each closed plaque $P \in \overline \sU_\a$ meets at most one plaque in $\overline \sU_\bt$.
 		\end{enumerate}
 	\end{definition}
-	\begin{lemma}\label{foli_reg_atlas_ref_lem}
+	\begin{lemma}\label{foli_reg_atlas_ref_lem}\cite{candel:foliI}
 		Every foliated atlas has a coherent refinement that is regular.
 	\end{lemma}
 	\begin{thm}\label{foli_thm}
@@ -27384,29 +27525,32 @@ open subset.
 	\end{thm}
 	
 	We now have an alternative definition of the term "foliation". 
-	\begin{defn}\label{foli_alt_defn}
+	\begin{defn}\label{foli_alt_defn}\cite{candel:foliI}
 		A \textit{foliation} $\sF$ of codimension $q$ and class $C^r$ on $M$ is a coherence class of foliated atlases of codimension $q$ and class $C^r$ on $M$.
 	\end{defn}
 	By Zorn's lemma, it is obvious that every coherence class of foliated atlases contains a unique maximal foliated atlas. 
-	\begin{defn}\label{foli_max_defn}
+	\begin{defn}\label{foli_max_defn}\cite{candel:foliI}
 		A \textit{foliation of codimension} $q$ and class $C^r$ on $M$ is a maximal foliated $C^r$-atlas of codimension $q$ on $M$.
 	\end{defn}
 	
-	\begin{empt}\label{foli_graph_empt}
+	\begin{empt}\label{foli_graph_empt}\cite{candel:foliII}
 		Let  $\Pi\left( M,\sF\right)$ be the space of paths on leaves, that is, maps $\a : [0,1] \to M$ that are continuous with respect to the leaf topology on $M$. For such a path  let $s\left(\a \right) = \a\left( 0\right)$  be its source or initial point and let  $r\left(\a \right) = \a\left( 1\right)$ be its range or terminal point. The space $\Pi\left( M,\sF\right)$ has a partially defined multiplication: the product $\a\cdot \bt$ of two elements $\a$ and $\bt$ is defined if the terminal point of $\bt$ is the initial point of $\a$, and the result is the path $\bt$ followed by the path $\a$. (Note that this is the opposite to the usual composition of paths  $\al\#\bt = \bt \cdot \a$ used in defining the fundamental group of a space.)
 	\end{empt}
-	\begin{definition}\label{foli_path_space_defn}
+	\begin{definition}\label{foli_path_space_defn}\cite{candel:foliI}
 		Under the hypotheses of \ref{foli_graph_empt} we say that the topological space $\Pi\left( M,\sF\right)$ is the \textit{space of path on leaves}.
 	\end{definition}
-	\begin{definition}\label{foli_groupoid_defn}\cite{candel:foliI}
+%	\begin{definition}\label{foli_groupoid_defn}\cite{candel:foliI}
 		%Definition 2.3.3.
-		A groupoid $\G$ on a set $\sX$ is a category with inverses, having $\sX$ as its set of objects. For $y,z \in \sX$ the set of morphisms of $\G$ from $y$ to $z$ is denoted by $\G^z_y$.
-	\end{definition}
+%		A groupoid $\G$ on a set $\sX$ is a category with inverses, having $\sX$ as its set of objects. For $y,z \in \sX$ the set of morphisms of $\G$ from $y$ to $z$ is denoted by $\G^z_y$.
+%	\end{definition}
 	\begin{defn}\label{foli_graph_defn}\cite{candel:foliII}
 		%	Definition 1.3.1
-		The \textit{graph}, or \textit{my groupoid}, of the foliated space $\left( M,\sF\right)$  is the quotient space of $\Pi\left( M,\sF\right)$ by the equivalence relation that identifies two paths $\a$ and $\bt$ if they have the same initial and terminal points, and the loop $\a \cdot \bt$ has trivial germinal holonomy.
+		The \textit{graph}, or \textit{holonomy groupoid}, of the foliated space $\left( M,\sF\right)$  is the quotient space of $\Pi\left( M,\sF\right)$ by the equivalence relation that identifies two paths $\a$ and $\bt$ if they have the same initial and terminal points, and the loop $\a \cdot \bt$ has trivial germinal holonomy.
 		The graph of $\left( M,\sF\right)$ will be denoted by $\G\left(M, \sF\right)$, or simply by  $\G\left( M\right)$ or by $\G$ when all other variables are understood.
 	\end{defn}
+	\begin{remark}\label{foli_graph_rem}
+		The {holonomy groupoid} is a locally compact topological  groupoid (cf. Definitions \ref{groupoid_defn} and \ref{groupoid_topological_defn}).
+	\end{remark}
 	\begin{remark}
 		There is the natural surjective continuous map
 		\be\label{foli_cov_map_eqn}
@@ -27414,7 +27558,7 @@ open subset.
 		\ee
 		from the space of path on leaves to the foliation graph.
 	\end{remark}
-	\begin{proposition}\label{foli_chart_prop}
+	\begin{proposition}\label{foli_chart_prop}\cite{candel:foliI}
 		%	Proposition 1.3.14. \\
 		Let $\mathfrak{A}= \left\{\sU_\iota\right\}$ be a regular foliated atlas of $M$. For each finite sequence of indices $\left\{\a_0 ,...,\a_k\right\}$, the product
 		\be	\label{foli_chart_eqn}
@@ -27422,7 +27566,7 @@ open subset.
 		\ee
 		is either empty or a foliated chart for the graph $\G$. The collection of all such finite products is a covering of $\G$ by foliated charts. 
 	\end{proposition}
-	\begin{theorem}\label{foli_graph_thm}
+	\begin{theorem}\label{foli_graph_thm}\cite{candel:foliII}
 		The graph $\G$ of $\left( M,\sF\right)$ is a groupoid with unit space $\G_0 = M$, and this algebraic structure is compatible with a foliated structure on $\G$ and $M$. Furthermore, the following properties hold.
 		\begin{enumerate}
 			\item [(i)] The range and source maps $r, s : \G \to M$ are topological submersions. 
@@ -27520,13 +27664,13 @@ open subset.
 		If $\Ga' \subset \Ga$ is also a pseudogroup, it is called a subpseudogroup of $\Ga$.
 	\end{definition}
 
-	\begin{remark}
+	\begin{remark}\cite{candel:foliI}
 		Any pseudogroup is a groupoid (cf. Definition \ref{groupoid_defn}).
 	\end{remark}
 \begin{remark}\cite{candel:foliI}\label{foli_pseudo_rem}
 In the case of general foliations, the total my group of a foliated bun dle must be replaced by a local analogue called the \textit{my pseudogroup}.
 \end{remark}
-	\begin{remark}\label{foli_groupoid_n_red_defn}
+	\begin{remark}\label{foli_groupoid_n_red_defn}\cite{candel:foliI}
 		If $\left(M, \sF\right)$ is a foliated manifold and $N$ is a tranversal then
 		\be\label{foli_gnn_eqn}
 		\G^N_N \bydef \left\{\left. \ga \in \G\left(M, \sF\right)\right| s\left(\ga\right), r\left(\ga\right)\in N\right\}
@@ -27535,7 +27679,7 @@ In the case of general foliations, the total my group of a foliated bun dle must
 		
 		
 	\end{remark}
-	\begin{definition}
+	\begin{definition}\cite{candel:foliI}
 	In the above situation we say that $\G^N_N$ is a \textit{reduced groupoid}.
 	\end{definition}
 
