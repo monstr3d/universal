@@ -4156,6 +4156,36 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \ee
 $C^*$-subalgebra where  $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$. 
  \end{empt}
+ 
+ \begin{lemma}\label{infinite_pre_covering_lem}
+ Under the hypotheses \ref{infinite_covering_basic_empt} one has
+ 	\be\label{a_la_eqn}
+ 	\overline a \in K\left(\overline A \right)\quad  	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G_\la \right)}g \overline a \in  K\left( A_\la\right).	
+ 	\ee
+ \end{lemma}
+ \begin{proof}
+ 	If $\overline a \in K\left( \overline A\right)_0$ then from the Lemma \ref{pedersen_eps_lem} it follows that there is   $\overline b \in \overline A$ and $\eps > 0$ such that  $\overline a = f_\eps\left( \overline b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. If $\overline c \bydef f_{\eps/2}\left( \overline b\right)$ then  $\overline a = f_{\eps/2}\left( \overline c\right)$. Let denote
+ 	\bean
+ 	c_\la \bydef \bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to   G_\la \right)}g \overline c 
+ 	\eean
+ 	and let us prove that $a_\la \le f_{\eps/2}\left( c_\la\right)$. If we consider a faithful representation then $\overline A \to B\left( \overline \xi\right)$ then for any $\overline \xi \in \overline \H$ such that $\left\| \overline \xi\right\|= 1$ one has
+ 	\bea\label{subordinated_1_eqn}
+ 	\left(\overline \xi, f_{\eps/2}\left( \overline c\right)\overline \xi \right) = \max\left(0,  \left(\overline \xi, \overline c\overline \xi \right)- \frac{\eps}{2} \right),\\\label{subordinated_2_eqn}
+ 	\left(\overline \xi, c_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \left(\overline \xi,\left(  g \overline c\right) \overline \xi \right),\\
+ 	\label{subordinated_3_eqn} \left(\overline \xi, a_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right) 
+ 	\eea
+ 	From 
+ 	\bean
+ 	\max\left(0, \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)\ge \\\ge\sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)
+ 	\eean
+ 	and taking into account \eqref{subordinated_1_eqn}-\eqref{subordinated_3_eqn} one has
+ 	$$
+ 	\left(\overline \xi, a_\la \overline \xi \right)\le \left(\overline \xi, f_{\eps/2}\left( \overline c\right) \overline \xi \right)
+ 	$$
+ 	So $a_\la \le f_{\eps/2}\left( c_\la\right)$ and taking into account $f_{\eps/2}\left(c_\la\right)\in K\left(A_\la \right)_0$ we conclude that $a_\la\in K\left(A_\la \right)$. Using the Definition \ref{pedersens_ideal_defn} one can prove this Lemma for all $\overline a \in K\left( \overline A\right)$.
+ \end{proof}
+ 
+ 
  \begin{lemma}\label{infinie_quasi_covering_lem}
 Under the hypotheses  \ref{infinite_covering_basic_empt} all $\mu, \nu \in \La$ such that $\nu\ge\mu$ there is a natural noncommutative finite-fold quasi-covering $\left(A_\mu, A_\la, G_\nu/ G_\mu, \pi^\mu_\nu\right)$ (cf. Definition \ref{fin_quasi_defn}).
  \end{lemma}
@@ -4172,7 +4202,7 @@ $$
 	\pi\left(A_\mu\right) = A_\nu^{ G_\nu/ G_\mu}\stackrel{\text{def}}{=}\left\{
 \left.a\in A_\nu~\right|~ a = g a;\quad \forall g \in  G_\nu/ G_\mu\right\}
 $$
- is left to the reader.
+ is left to the reader. 
  \end{proof}
  \begin{empt}\label{inf_cat_empt}
  Under the hypotheses  of the Lemma \ref{infinie_quasi_covering_lem} there is a category $\mathfrak{S}$ such that
@@ -4195,7 +4225,17 @@ $$
  \end{notation}
  
  \begin{definition}\label{algebraical_finite_covering_category_defn}
- The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if  any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
+ The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if  following conditions hold:
+ \begin{enumerate}
+ \item[(a)]  any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),
+ \item[(b)] any $a_\la \in K\left( A_\la\right) $  can be represented as a sum of the series 
+ \be\label{basic_cov_cl_df_eqn}
+ a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
+ \ee
+ (cf. \eqref{basic_cov_cl_eqn})
+  where  $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}). 
+ \end{enumerate}
+
 We write
  \be\label{algebraical_finite_covering_category_eqn}
  \mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
@@ -4214,10 +4254,7 @@ We write
 \end{itemize} 
  \end{empt}
  \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
- The terminal object $\left(A, \overline A, \widehat{G}\right)$ (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$. We also  denote it by the triple
- \be\label{disconnected_infinite_noncommutative_covering_eqn}
- \left(A\bydef A_{\la_{\text{min}}}, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat{G}\right).
- \ee
+ The terminal object $\left(A, \overline A, \widehat{G}\right)$ (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$. 
  
  \end{definition}
  
@@ -4308,36 +4345,6 @@ is dense in $\bigcup_{\la\in \La} A_\la$ where the natural inclusion $A \subset 
 \end{proof}
 
 
-\begin{lemma}\label{infinite_pre_covering_lem}
-	If a triple $\left( A, \overline A, \widehat{G}\right)$ is a {pre}-{covering} of  {algebraical finite covering category}  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{algebraical_finite_covering_category_eqn})
-then one has
-	\be\label{a_la_eqn}
-\overline a \in K\left(\overline A \right)\quad  	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in  K\left( A_\la\right).	
-	\ee
-\end{lemma}
-\begin{proof}
-	If $\overline a \in K\left( \overline A\right)_0$ then from the Lemma \ref{pedersen_eps_lem} it follows that there is   $\overline b \in \overline A$ and $\eps > 0$ such that  $\overline a = f_\eps\left( \overline b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. If $\overline c \bydef f_{\eps/2}\left( \overline b\right)$ then  $\overline a = f_{\eps/2}\left( \overline c\right)$. Let denote
-	\bean
-	c_\la \bydef \bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline c 
-	\eean
-	and let us prove that $a_\la \le f_{\eps/2}\left( c_\la\right)$. If we consider a faithful representation then $\overline A \to B\left( \overline \xi\right)$ then for any $\overline \xi \in \overline \H$ such that $\left\| \overline \xi\right\|= 1$ one has
-	\bea\label{subordinated_1_eqn}
-	\left(\overline \xi, f_{\eps/2}\left( \overline c\right)\overline \xi \right) = \max\left(0,  \left(\overline \xi, \overline c\overline \xi \right)- \frac{\eps}{2} \right),\\\label{subordinated_2_eqn}
-	\left(\overline \xi, c_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \left(\overline \xi,\left(  g \overline c\right) \overline \xi \right),\\
-	\label{subordinated_3_eqn} \left(\overline \xi, a_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right) 
-	\eea
-	From 
-	\bean
-	\max\left(0, \sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)\ge \\\ge\sum_{ g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)
-	\eean
-	and taking into account \eqref{subordinated_1_eqn}-\eqref{subordinated_3_eqn} one has
-	$$
-	\left(\overline \xi, a_\la \overline \xi \right)\le \left(\overline \xi, f_{\eps/2}\left( \overline c\right) \overline \xi \right)
-	$$
-	So $a_\la \le f_{\eps/2}\left( c_\la\right)$ and taking into account $f_{\eps/2}\left(c_\la\right)\in K\left(A_\la \right)_0$ we conclude that $a_\la\in K\left(A_\la \right)$. Using the Definition \ref{pedersens_ideal_defn} one can prove this Lemma for all $\overline a \in K\left( \overline A\right)$.
-\end{proof}
-
-
 
  \begin{lemma}\label{uni_dicsonnected_lem}
 If a disconnected infinite noncommutative covering (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) exists then it is unique up to $*$-isomorphism. 
@@ -4361,10 +4368,10 @@ If a disconnected infinite noncommutative covering (cf. Definition \ref{disconne
  i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are $*$-isomorphisms.
  \end{proof}
  \begin{empt}
- 	Let	 $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \overline A \oplus \widetilde A^\perp$, and
+ 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \overline A \oplus \widetilde A^\perp$, and
  	\be\label{infinite_covering_transformation_group_eqn}
  	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
- 	\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
+ 	\left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
  	\ee
  	then there is a natural action
  	\be\label{gta_act_eqn}
@@ -4386,24 +4393,24 @@ If a disconnected infinite noncommutative covering (cf. Definition \ref{disconne
  \end{remark}
  
 \begin{definition}\label{good_defn}
-	$\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold.
+	$\left(A, \overline{A},\widehat{G}\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold.
  	\begin{enumerate}
- 		\item[(a)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
+ 		\item[(a)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in \widehat{G}$ such that $g \widetilde{A}'= \widetilde{A}''$.
  		\item [(b)] If $\widetilde A$ is a   connected component of $\overline{A}$ if  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{infinite_covering_transformation_group_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
  	\end{enumerate}
  \end{definition}
  \begin{remark}\label{cond_b_ref_rem}
- 	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {quasi-components} of $\overline \sX$  (cf. Definition \ref{top_quasi_component_defn}) then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
+ 	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {quasi-components} of $\overline \sX$  (cf. Definition \ref{top_quasi_component_defn}) then there is  $g \in \widehat{G}$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
  \end{remark}
  \begin{lemma}
- 	 If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both given by  	\eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} $*$-homomorphisms are injective.
+ 	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both given by  	\eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} $*$-homomorphisms are injective.
 \end{lemma}
 \begin{proof}
 Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{inj_to_m_eqn} $*$-homomorphism. If $\widetilde m$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde m\left( a\right)  \widetilde A = \{0\}$. For any $g \in \widehat G$ from $g\left(\widetilde m\left( a\right)\widetilde A \right)= \widetilde m\left( a\right)g \widetilde A $  it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ . Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde m\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $a  \overline A = \{0\}$, however it contradicts with the inclusion $a \subset M\left(\overline AS \right)$. So $\widetilde m$ is injective. Similarly one can prove that the given by  \eqref{inj_to_ml_eqn} $*$-homomorphisms is also injective.
 \end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
- 	If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then a connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{inverse noncommutative limit of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$}. The given by the equation \eqref{infinite_covering_transformation_group_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple
+ 	If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then a connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{inverse noncommutative limit of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$}. The given by the equation \eqref{infinite_covering_transformation_group_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple
  	\be\label{infinite_noncommutative_covering_eqn}
  	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
  	\ee
@@ -4752,7 +4759,7 @@ of $\C$-algebras. Since $M\left( \overline{A}\right)$ is a $C^*$-algebra one has
 
 
 \begin{empt}\label{infinite_hilb_mod_empt}
- If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is good (cf. Definition \ref{good_defn}), a triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$  the  {infinite noncommutative covering} of $\mathfrak{S}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) then  one can define a product
+ If $\left(A, \overline{A},\widehat{G}\right)$ is good (cf. Definition \ref{good_defn}), a triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$  the  {infinite noncommutative covering} of $\mathfrak{S}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) then  one can define a product
 \be\label{inf_hilb_prod_eqn!}
 \begin{split}
 	\left\langle \cdot, \cdot  \right\rangle_A : K\left( \widetilde{A}\right) \times K\left( \widetilde{A}\right) \to A
@@ -12843,7 +12850,7 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 \paragraph{}
 
 
-\begin{theorem}\label{blowing_inf_cov_thm}
+\begin{theorem}\label{blowing_inf_cov_thm}  !!! ADD (a) (b)  \ref{algebraical_finite_covering_category_defn}!!!
 	Let $C_0\left( \sY\right) \to A$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and
 	let $q:\widetilde \sY \to \sY$ be a transitive covering with connected $\widetilde \sY$ and residually finite group  $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations.  If  	$A_b\left(q\right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
 	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}), and $\overline q: \overline \sY  \to  \sY$  is {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}).
@@ -14990,7 +14997,7 @@ If $\overline a \in \overline A_+$ is an element of $K^+_0\left( \overline A \ot
  \ee
 If $\overline a \in \overline A \cap \K\left(\overline A \otimes \K \right)$ then
 \bean
-a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G\left(\left.A_\la~\right|~A \right)\right)}g \overline a \in \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) K\left(A_\la \otimes \K \right)  \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right)\in \\\in  K\left(A_\la \otimes \K \right)\cong K\left( A_\la\right) .
+a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  \widehat{G}  !!! REPLACE  !!!\right)}g \overline a \in \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) K\left(A_\la \otimes \K \right)  \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right)\in \\\in  K\left(A_\la \otimes \K \right)\cong K\left( A_\la\right) .
 \eean 
 If we compare the above equation with \eqref{a_laa_eqn} we conclude that $\overline A$ is subordinated to $\mathfrak{S}_A$ given by \eqref{stable_repa_eqn}. In result one has the following lemma.
 \end{empt}
@@ -17210,6 +17217,8 @@ Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	
 \section{Coverings  of foliations}
 \paragraph{}
 Any foliated manifold $\left(M, \F\right)$ yields a holonomy groupoid $\G\left(M, \F\right)$ (cf. Definition \ref{foli_defn}) (cf. Definition \ref{foli_graph_defn}).
+\subsection{Finite-fold coverings}
+
 \begin{exercise}
 Prove that for any foliated manifold $\left(M, \F\right)$  that any   regular covering $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ (cf. Definition \ref{foli_reg_cov_defn}) is $\G\left(M, \F\right)$-regular (cf. Definition \ref{groupoid_lift_defn}) and vice versa.
 \end{exercise}
@@ -17236,6 +17245,7 @@ If  $\rho: C_c\left( M, \mathcal{F}\right)\to B\left( \H\right)$ is a faithful r
 \begin{proof}
 The space $M$ is locally connected, so from \ref{top_fin_sufficient_thm} it follows that $M$  {consents with noncommutative coverings} (cf. Definition  \ref{top_consents_defn}). Hence this theorem is a specialization of \ref{groupoid_fin_thm} one.
 \end{proof}
+\subsection{Infinite coverings}
 \begin{empt}\label{groupoid_n_cov_foli_inf_empt}
 	Under the hypotheses \ref{groupoid_foli_empt} suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From  \ref{groupoid_n_cov_inf_empt} and the Theorem \ref{groupoid_foli_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
 	\be\label{groupoid_foli_algebraical_finite_covering_category_eqn}
@@ -17301,7 +17311,19 @@ From Lemma \ref{infinite_faithful_nondegererate_lem} and  the Exercise \ref{grou
 		where the equations \eqref{groupoid_folif_eqn} and \eqref{groupoid_folia_eqn} are implied.
 \end{lemma}	
 \begin{proof}
-Let $\overline x \in \overline{M}$ be a point, and let  $\overline{\sU}\subset \overline{M}$ be a foliation chart  (cf, Definition \ref{foli_chart_defn}) such that  $\overline \sU \subset  \overline{\mathcal N} \times \overline\sZ$, and $\overline{\sU}$ is mapped homeomorphically onto $\sU\bydef q\left( \overline{\sU}\right)\cong \mathcal N \times \sZ$. From the Proposition \ref{foli_tens_comp_prop} and the  Corollary \ref{foli_tens_comp_cor} it follows that there is the natural inclusion $\K\left( L^2\left( \mathcal N\right)\right) \otimes C_0\left(\mathcal Z\right)\subset C^*_{\rho}\left( M, \F \right)$. Suppose that $\overline x$ corresponds to $\left( \overline n,\overline z\right)\in \overline{\mathcal N} \times \overline\sZ$ and $x \bydef q\left( \overline x \right)$  corresponds to $\left(  n, z\right)\in {\mathcal N} \times \sZ$. Let $a' \in \K\left( L^2\left( \mathcal N\right)\right) \otimes C_0\left(\mathcal Z\right)$ is an Abelian element (cf. Definition \ref{abelian_element_defn}) of the continuous trace $C^*$-algebra $\K\left( L^2\left( \mathcal N\right)\right) \otimes C_0\left(\mathcal Z\right)$. From the Proposition \ref{ctr_bundle_prop} it follows that $a'$ corresponds to a continuous map $f_a : \mathcal Z \to \K\left( L^2\left( \mathcal N\right)\right)$. We suppose that $f_a\left( z\right) \neq 0$. From the 
+Let $\overline x \in \overline{M}$ be a point, and let  $\overline{\sU}\subset \overline{M}$ be a foliation chart  (cf, Definition \ref{foli_chart_defn}) such that  $\overline \sU \subset  \overline{\mathcal N} \times \overline\sZ$, and $\overline{\sU}$ is mapped homeomorphically onto $\sU\bydef q\left( \overline{\sU}\right)\cong \mathcal N \times \sZ$. From the Proposition \ref{foli_tens_comp_prop} and the  Corollary \ref{foli_tens_comp_cor} it follows that there is the natural inclusion $\K\left( L^2\left( \mathcal N\right)\right) \otimes C_0\left(\mathcal Z\right)\subset C^*_{\rho}\left( M, \F \right)$. Suppose that $\overline x$ corresponds to $\left( \overline n,\overline z\right)\in \overline{\mathcal N} \times \overline\sZ$ and $x \bydef q\left( \overline x \right)$  corresponds to $\left(  n, z\right)\in {\mathcal N} \times \sZ$. Let $a \in \K\left( L^2\left( \mathcal N\right)\right) \otimes C_0\left(\mathcal Z\right)$ is an Abelian element (cf. Definition \ref{abelian_element_defn}) of the continuous trace $C^*$-algebra $\K\left( L^2\left( \mathcal N\right)\right) \otimes C_0\left(\mathcal Z\right)$. From the Proposition \ref{ctr_bundle_prop} it follows that $a'$ corresponds to a continuous map $f_a : \mathcal Z \to \K\left( L^2\left( \mathcal N\right)\right)$. We suppose that $f_a\left( z\right) \neq 0$. From the Definition \ref{algebraical_finite_covering_category_defn} it follows that there is $\overline a \in K\left( \overline A\right)$ such that
+\be\label{foli_sum}
+a =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
+\ee
+(cf. equation \eqref{basic_cov_cl_df_eqn}). For any $\la \in 
+\la$ there is $ \mathcal N_\la \times \sZ_\la \bydef \overline q_\la\left( \overline{\mathcal N} \times \overline\sZ\right)\subset M_\la$  where $\overline q_\la: \overline M\to M_\la$ is the natural covering. 
+
+
+One can construct an algebraical finite covering category \ref{algebraical_finite_covering_category_defn} 
+
+
+!!!!
+
 \end{proof}
 \section{Linear foliation on torus}
 \paragraph{}
