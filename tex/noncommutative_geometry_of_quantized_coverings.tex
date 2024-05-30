@@ -680,7 +680,7 @@ The Chapter \ref{infinite_covering_chap} is devoted to  noncommutative   infinit
 \paragraph*{}
 The Chapter \ref{top_chap} contains applications of described in Chapters  \ref{cov_fin_chap} and \ref{infinite_covering_chap} theory to commutative $C^*$-algebras. It is constructed a given by the Table \ref{add_mapping_table}   natural one to one correspondence between geometry of topological coverings and "noncommutative" ones.
 \paragraph*{}
-The Chapter \ref{blowing_chap} is devoted  to the construction of  Hausdorff blowing-up. This construction can be applied for obtaining of noncommutative coverings of  $C^*$-algebras with Hausdorff spectrum, and non-Hausdorff one, e.g. $C^*$-algebras of foliations (cf. \cite{candel:foliII}).
+The Chapter \ref{blowing_chap} is devoted  to the construction of  Hausdorff blowing-up. This construction can be applied for obtaining of noncommutative coverings of  $C^*$-algebras with Hausdorff spectrum, and non-Hausdorff one, e.g. $C^*$-algebras of groupoids and foliations (cf. \cite{candel:foliII}).
 
 \paragraph*{}
 In the Chapter \ref{hurewicz_gr_chap} we consider the quantization of homotopy groups explained in \cite{spanier:at,switzer:at}. It is proven that homotopy groups can be calculated by purely algebraic methods. 
@@ -695,7 +695,7 @@ In the Chapter \ref{stab_chap} it is proven that some properties of noncommutati
 
 %\paragraph*{} In the  Chapter \ref{vf_chap} the coverings of spaces of vector fields are being discussed. Sections of vector fields of Hilbert spaces have the natural structure of operator spaces. Application of the results of the Chapters \ref{cov_fin_chap}  and \ref{infinite_covering_chap} yield finite-fold and infinite noncommutative coverings of these spaces.
 
-\paragraph*{} In the Chapter \ref{foliations_chap} we consider noncommutative finite-fold and infinite coverings of $ C^*$-algebras of groupoids. 
+\paragraph*{} In the Chapter \ref{foliations_chap} we consider noncommutative finite-fold and infinite coverings of $ C^*$-algebras of groupoids and foliations. 
 
 \paragraph*{} The Chapter \ref{nt_chap} is devoted to noncommutative coverings of noncommutative tori.% In particular we find a stable fundamental group and Hurewicz homomorphism of noncommutative tori.
 
@@ -824,7 +824,7 @@ Following table contains  special symbols.
 
 \section{$C^*$-inductive limits of nonunital algebras}
   \begin{definition}\label{connected_c_a_defn}
-	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum of $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
+	We say that a $C^*$-algebra $A$ is \textit{connected} if it cannot be represented as a direct sum  $A \cong A' \oplus A''$ of nontrivial $C^*$-algebras $A'$ and $A''$.
 	
 	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
 \end{definition}
@@ -885,7 +885,7 @@ Using the Theorems  \ref{ideal_spectrum_thm} and \ref{dauns_hofmann_thm} prove t
 	\ee
 \end{lemma}
 \begin{proof}
-	Any state $\tau: A\to \C$ induces the  state $\tau^+: A^+\to \C$ given by $\tau^+\left(a\oplus \la  \right)= \tau\left(a \right)$ for any $a \oplus \la \in  A \oplus \C \cong A^+$. Clearly  $\tau^+$ satisfies to  \eqref{state_un_eqn}. 
+	Any state $\tau: A\to \C$ induces the  state $\tau^+: A^+\to \C$ given by $\tau^+\left(a\oplus \la  \right)\bydef \tau\left(a \right)+\la$ for any $a \oplus \la \in  A \oplus \C \cong A^+$. Clearly  $\tau^+$ satisfies to  \eqref{state_un_eqn}. 
 \end{proof}
 
 \begin{corollary}\label{inductive_lim_state_nor_cor}
@@ -1088,6 +1088,7 @@ The algebra of compact operators is given by
 \be\label{comp_fin}
 \K\left(A^n \right) = \mathbb{M}_n\left(A \right) 
 \ee
+!!! FINISH !!!
 \begin{remark}
 	Similarly to \eqref{inf_m_eqn} and  \eqref{comp_fin} any compact operator on the separable Hilbert space can be represented by an infinite or a finite matrix
 	\be\label{comp_matr_eqn}
@@ -1526,7 +1527,7 @@ Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \ri
 is a  {noncommutative finite-fold  pre-covering}. The $*$-homomorphism $\pi^H:A\hookto \widetilde{A}^H $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
 \end{definition}
 \begin{lemma}\label{proper_subgroup_fin_lem}
-If $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ is  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}) and a normal subgroup  $H\subset G\left(\left.\widetilde A~\right|A \right)$ is $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-{proper} (cf. Definition \ref{proper_subgroup_fin_defn}) then a quadruple 
+If $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ is  a {noncommutative finite-fold  pre-covering} and  $H\subset G\left(\left.\widetilde A~\right|A \right)$ is a subgroup  then a quadruple 
 	\be\label{proper_subgroup_finh_eqn}
 \left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
 \ee
@@ -1535,12 +1536,12 @@ a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn})
 \begin{proof}	
 	From the Definition \ref{fin_pre_defn} it follows that
 	$$
-G = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in \pi \left( A\right) \right\}.
+ G\left(\left.\widetilde A~\right|A \right) = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in \pi \left( A\right) \right\}.
 	$$
 	So one has
 \bean
 \forall g \in \Aut\left(\widetilde{A}\right) \quad \forall a^H \in \widetilde A^H\quad   g\widetilde a^H = \widetilde a^H \quad \Rightarrow \quad \forall a \in \pi\left(A \right) \quad g a = a,\\
- \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}\subset G.	
+ \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}\subset  G\left(\left.\widetilde A~\right|A \right).	
 \eean
 	It turns out that
 	\bean
@@ -1580,17 +1581,22 @@ hence one has
 \begin{remark}\label{fin_cov_kasp_rem}
 	From the Lemma \ref{fin_hilbert_mod_lem} and the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
 \end{remark}
-   \begin{lem}\label{fin_composition_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. If  $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) then there are following unital finite-fold noncommutative coverings
-	\bea\label{fin_composition_eqn}
-	\left(A, \widetilde{A}^H, G/H, \rho \right),\\
-	\label{fin_composition2_eqn}
+   \begin{lem}\label{fin_composition_lem} 
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). If  $H \subset G$ is a subgroup then 
+	\be
+		\label{fin_composition2_eqn}
 	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
-	\eea
+	\ee
+is an unital finite-fold noncommutative covering.	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there is a following unital finite-fold noncommutative covering
+	\be\label{fin_composition_eqn}
+	\left(A, \widetilde{A}^H, G/H, \rho \right),\\.
+	\ee
 \end{lem}
 \begin{proof}
-From the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} it follows that both quadruples \eqref{fin_composition_eqn} and \eqref{fin_composition2_eqn} are noncommutative finite-fold pre-coverings (cf. Definition \ref{fin_pre_defn}). If $\widetilde{A}$ is an $A$-module generated by  $\left\{\widetilde a_1 ,..., \widetilde a_n\right\}\subset \widetilde{A}$ then
+From  the Lemma \ref{proper_subgroup_fin_lem} it follows that the  quadruple \eqref{fin_composition2_eqn} is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\widetilde{A}$ is an $A$-module generated by  $\left\{\widetilde a_1 ,..., \widetilde a_n\right\}\subset \widetilde{A}$ then
 $\widetilde{A} = \widetilde a_1 A + ... + \widetilde a_n A$. From $A\subset \widetilde{A}^H$ it  turns out that $\widetilde{A} = \widetilde a_1 \widetilde{A}^H + ... + \widetilde a_n \widetilde{A}^H$, i.e. $\widetilde{A}$ is a finitely generated $\widetilde{A}^H$-module.
+
+If $H$ is a $\left(A, \widetilde{A}, G, \pi \right)$-proper group then from the Definition \ref{proper_subgroup_fin_defn} it follows that the quadruple \ref{fin_composition_eqn}  is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).
 If $\widetilde a^H \in \widetilde{A}^H$ then $\widetilde a^H = \frac{1}{\left|H \right| }\sum_{g \in H} \widetilde a^H$. Otherwise 
 $$
 \widetilde a^H = \widetilde a_1 a_n + ...+ \widetilde a_n a_n =  \frac{1}{\left|H \right| }\sum_{g \in H}\left( g\widetilde a_1 a_n + ...+ g\widetilde a_n a_n\right)= \widetilde a^H_1 a_1 + ...+ \widetilde a^H_n a_n
@@ -1650,7 +1656,7 @@ $$
 \forall \widetilde b\in \widetilde B^H\quad \widetilde b\widetilde A^H\neq \{0\} \quad \Rightarrow\quad \widetilde b \neq 0.
 $$
 From the above equation and the Lemma \ref{essential_lem} it follows that $\widetilde A^H$ is an essential ideal of $\widetilde B^H$.
-Since $\widetilde B^H$ is unital, an inclusion $\widetilde  A^H\hookto\widetilde B^H$ is an unitization. From the Lemma \ref{fin_composition_lem} it follows that both quadruples
+Since $\widetilde B^H$ is unital, an inclusion $\widetilde  A^H\hookto\widetilde B^H$ is an unitization. From the Lemma \ref{fin_composition_lem} !!! CHECK !!! it follows that both quadruples
 	\bean%\label{fin_composition_uni_1_eqn}
 \left(B, \widetilde{B}^H, G/H,\widetilde \rho \right),\\
 %\label{fin_composition_uni_2_eqn}
@@ -6906,7 +6912,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 \end{remark}
 \begin{defn}\label{top_compactly_supported_descent_defn}
 	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group  of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
-Lemma \ref{top_compact_lem} !!! REPLACE \ref{top_compact_thm}  !!!	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
+Theorem  \ref{top_compact_thm} 	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
 \be\label{top_desc_compact_eqn}
 \desc^c_p\left(\widetilde a \right) \bydef \sum_{	g \in G\left( \left. \widetilde \sX'\right| \sX\right) } g \desc_{\widetilde p'} \left(\widetilde a \right)\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)
 \ee
@@ -7482,7 +7488,7 @@ then following conditions hold:
 \end{corollary}
 \begin{proof}
 (i) A set $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
-Lemma \ref{top_compact_lem} !!! REPLACE \ref{top_compact_thm}  !!!	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. 
+Theorem \ref{top_compact_thm} 	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. 
 From the Lemma \ref{comm_lift_desc_sum_lem} it follows that 
 \begin{itemize}
 		\item The series 	
@@ -8564,11 +8570,11 @@ Let  $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite
 \end{itemize}
 \end{lemma}
 \begin{proof}
-	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) then from the Remark \ref{proper_reduced_remark} !!! DELETE !!! it follows that if
+	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) then from the Remark !!! CHECK !!!!\ref{proper_reduced_remark} !!! DELETE !!! it follows that if
 	$$
 	H \bydef \left\{g \in G \left| \forall \widetilde{a}_{\text{red}} \in \widetilde{A}_{\text{red}} \quad g\widetilde{a}_{\text{red}}=\widetilde{a}_{\text{red}}\right.\right\}\subset G
 	$$
-then	$H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). The Lemma \ref{fin_composition_lem}  yields both $H$-{regular} and $H$-{singular} unital finite-fold noncommutative coverings
+then	$H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). The Lemma \ref{fin_composition_lem} !!! CHECK !!!  yields both $H$-{regular} and $H$-{singular} unital finite-fold noncommutative coverings
 	\be\label{top_reg_sing_cover_eqn}
 	\begin{split}
 		\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)= \left(C\left(\sX\right), \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|C\left(  \sX\right)  \right), \pi^H\right), 
@@ -9766,11 +9772,40 @@ Prove that there is a natural unoriented spectral triple
 
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
 \paragraph{}
-	Let $\widetilde p : \widetilde \sX \to \sX$ be a transitive covering with connected,  locally compact, Hausdorff spaces $\sX$ and $\widetilde \sX$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}). Let $\left\{ G_\la\right\}_{\la \in \La}$ be a family of all finite factor groups of  $G\left(\left. \widetilde\sX~\right|\sX \right)$ 
-If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. If $\sX_\la \bydef \widetilde \sX/ \ker\left( G\left(\left. \widetilde\sX~\right|\sX \right)\to G_\la\right)$ then there is an inverse limit $\widehat \sX = \varprojlim_{\la \in \La} \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}). There is a natural continuous map $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$. If we consider a  {final} {with respect to the family of maps} $\left\{g \circ \widehat p\right\}_{\widehat{G}}$ topology on $\widehat \sX$ (cf. Definition \ref{top_final_defn}) then we obtain a topological space $\overline \sX$.
+Here we discuss a related to commutative $C^*$-algebras specialization of the explained in the Chapter \ref{infinite_covering_chap} theory.
+\begin{definition}\label{top_g_category_defn}
+	Let $\widehat  G$ be residually finite group (cf. Definition \ref{residually_finite_defn}). 
+	Let $\left\{G_\la\right\}_{\la\in \La}$ be the indexed by a set $\La$ family of all finite factor groups of $\widehat  G$. If we define an order on $\La$ by the following way
+	\be\label{top_group_order_eqn}
+	\mu \ge \nu \quad \Leftrightarrow \quad \text{there is the natural homomorphism} \quad G_\mu \to G_\nu
+	\ee
+	then $\La$ becomes an directed set (cf. Definition \ref{directed_set_defn}). We say that $\La$ is $\widehat  G$-\textit{set} and the given by $\La$ pre-ordering category (cf. Definition \ref{preordercat_defn}) is $\widehat  G$-\textit{category}. We denote  $\widehat  G$-{category} $\La_{\widehat G }$
+	There is the natural functor from $\La_{\widehat G }$ to the category of groups and surjective homomorphisms.
+\end{definition}
+\begin{empt}\label{top_fin_cov_cat_empt}
+Let $\overline \sX$ be a topological space with an action $\widehat  G\times \overline \sX\to \overline\sX$ of residually finite group $\widehat  G$ (cf. Definition \ref{residually_finite_defn}) of properly discontinuous  group of homeomorphisms (cf. Definition \ref{top_prop_disc_grouop_defn}). 	For any finite factor group $G_\la = \widehat G/ H_\la$ we define a space $\sX_\la \bydef \overline \sX/ H_\la$. Then there is a category of topological spaces and finite-fold transitive coverings given by
+\be\label{top_g_x_cat_eqn}
+\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+\ee
+(cf. \eqref{top_category_fin_eqn})
+Usage of the {finite covering algebraic functor} $C_0$ (cf. Definition \ref{top_c_funct_defn}) yields an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) given by
+\be\label{top_g_a_x_cat_eqn}
+\begin{split}
+	\mathfrak{S}_{C_0\left(p\right) } \bydef \\
+	\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+\end{split}
+\ee
+Both categories are equivalent to $\widehat  G$-{category} (cf. Definition \ref{top_g_category_defn})
+\end{empt}
+\begin{definition}\label{top_fin_cov_cat_defn}
+We say that both categories  \eqref{top_g_x_cat_eqn} and \eqref{top_g_a_x_cat_eqn} are the \textit{topological} $\overline \sX$-$\widehat  G$-\textit{category} and \textit{algebraic} $\overline \sX$-$\widehat  G$-\textit{category} respectively.
+\end{definition}
+
+	Let $\widetilde p : \widetilde \sX \to \sX$ be a transitive covering with connected,  locally compact, Hausdorff spaces $\sX$ and $\widetilde \sX$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let $\La$ be a $G\left(\left. \widetilde\sX~\right|\sX \right)$-set (cf. Definition \ref{top_g_category_defn}), and let $\left\{ G_\la\right\}_{\la \in \La}$ be a family of all finite factor groups of  $G\left(\left. \widetilde\sX~\right|\sX \right)$. According to the Definition \ref{top_g_category_defn} the set $\La$ is directed.
+If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}).  If $\sX_\la \bydef \widetilde \sX/ \ker\left( G\left(\left. \widetilde\sX~\right|\sX \right)\to G_\la\right)$ then there is an inverse limit $\widehat \sX = \varprojlim_{\la \in \La} \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}). There is a natural continuous map $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$. If we consider a  {final} {with respect to the family of maps} $\left\{g \circ \widehat p\right\}_{\widehat{G}}$ topology on $\widehat \sX$ (cf. Definition \ref{top_final_defn}) then we obtain a topological space $\overline \sX$.
 
 \begin{lemma}\label{top_disconnected_lem}
-	Under the above hypotheses  then following conditions hold.
+	Under the above hypotheses  the following conditions hold.
 \begin{enumerate}
 		\item[(i)] If $\left\{g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)\right\}_{\iota \in I}$   is  a set of all left cosets of $G\left(\left. \widetilde\sX~\right|\sX \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then there is a natural homeomorphism 
 \be\label{top_disconnected_eqn}
@@ -9779,8 +9814,8 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 	
 	\item[(ii)] The natural map $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$ yields a natural inclusion $\widetilde \sX \subset \overline \sX$ such that $\widetilde \sX$ is a quasi-component (cf. Definition \ref{top_quasi_component_defn}) of $\overline \sX$.
 	\item[(iii)] For any  a quasi-component $\widetilde \sX' \subset \overline \sX$ there is $g \in \widehat{G}$ such that $\widetilde \sX' = g \widetilde \sX$.
-	\item[(iv)]  For any $\la \in \La$ the natural surjective map $\widehat p_\la: \widehat \sX \to \sX_\la$ yields a covering  $\overline p_\la: \overline \sX \to \sX_\la$ such that $G\left(\left. \overline\sX~\right|\sX_\la  \right)= \ker \left(\widehat{G} \to G_\la \right)$. 
-	\item[(v)] There is a category $\mathfrak{S}_p$ such that 
+	\item[(iv)]  For any $\la \in \La$ the natural surjective map $\widehat p_\la: \widehat \sX \to \sX_\la$ yields a covering  $\overline p_\la: \overline \sX \to \sX_\la$ such that $\sX_\la\cong \overline\sX/ \ker \left(\widehat{G} \to G_\la \right)$ (cf. Theorem \ref{top_group_of_covering_transformations_thm}). 
+	\item[(v)] !!! CATEGORY REPLACE UP!!! There is a category $\mathfrak{S}_p$ such that 
 	\begin{itemize}
 		\item $\mathfrak{S}_p$-objects are spaces $\sX_\la$,
 		\item $\mathfrak{S}_p$-morphisms are transitive finite-fold coverings $p^\mu_\nu:\sX_\mu \to \sX_\nu$ such that $\mu , \nu \in \La$ with $\mu \ge \nu$ and $G\left(\left. \sX_\mu~\right|\sX_\nu \right)\cong G_\mu/G_\nu$,
@@ -9799,7 +9834,7 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 (ii) Follows from the proof of (i).\\
 (iii) Follows from the proof of (i).\\	
 (iv) Follows from (i).\\
-(v)	 The category $\mathfrak{S}_p$ is a subcategory of a {topological  pointed  finite covering category} of $\left( \sX, x_0\right)$ (cf. Definition \ref{top_fin_cov_p_defn}).\\
+(v)	 !!! CORRECT !!!The category $\mathfrak{S}_p$ is a subcategory of a {topological  pointed  finite covering category} of $\left( \sX, x_0\right)$ (cf. Definition \ref{top_fin_cov_p_defn}).\\
 (vi) For any $\le\in \La$ there is a covering $\overline \sX \to \sX_\la$ so from  $\widehat \sX \bydef \varprojlim_{\la \in \La} \sX_\la$ one has the unique continuous map $\overline{\widehat p }: \overline \sX \to \widehat{\sX}$. This map is bijective since  $\overline \sX$ coincides with $\widehat \sX$ as a set.
 \end{proof}
 
@@ -9839,7 +9874,7 @@ For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborho
 	{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
 \end{split}
 \ee	
-Then for every $\left(j,k\right) \in J$  there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is transitive (cf. Definition \ref{top_transitive_defn}) there is a nontrivial $g_{jk} \in G\left(\left.\overline\sX\right| \sX  \right)$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $G\left(\left.\overline\sX\right| \sX  \right)$ is residually finite (cf. Definition \ref{residually_finite_defn}) there is a homomorphism $h_{jk}:G\left(\left.\overline\sX\right| \sX  \right)\to G_{jk}$ such that:
+Then for every $\left(j,k\right) \in J$  there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is transitive (cf. Definition \ref{top_transitive_defn}) there is a nontrivial $g_{jk} \in \overline G$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $\overline G$ is residually finite (cf. Definition \ref{residually_finite_defn}) there is a homomorphism $h_{jk}:\overline G\to G_{jk}$ such that:
 \begin{itemize}
 	\item $G_{jk}$ is a finite group,
 	\item $h_{jk}\left(g_{jk} \right)\in G_{jk}$ is not trivial.
@@ -9878,12 +9913,12 @@ If we assume   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline
 =  \widetilde p_{jk}\left( 	\overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)\right) .
 \eean
 From the above equation it follows that there is $\widetilde x' \in \overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)$ such that $\widetilde p_{jk}\left( \widetilde x'\right) = \widetilde p_{jk}\left( \widetilde x\right)$. Taking into account \eqref{top_uiniu_eqn} one has $\widetilde x' \neq \widetilde x$, however it is impossible because the map $\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right)$ is bijective, i.e. there is a contradiction. So the assumption   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true and  
-\be\label{top_compactppp_eqn}	\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)= \emptyset.\ee  The group	$H_{jk}$ is a normal subgroup of $G\left(\left.\overline\sX\right| \sX  \right)$ for any pair $\left(j, k\right)\in J$,
-The index   $\left( G\left(\left.\overline\sX\right| \sX  \right) : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). The set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ is finite. If
+\be\label{top_compactppp_eqn}	\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)= \emptyset.\ee  The group	$H_{jk}$ is a normal subgroup of $\overline G$ for any pair $\left(j, k\right)\in J$,
+The index   $\left( \overline G : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). The set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ is finite. If
 $$
 H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
 $$
-then index   $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there  are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( G\left(\left.\overline\sX\right| \sX  \right): H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
+then index   $\left( \overline G: H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there  are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( \overline G: H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
 \be\label{top_compactpp_eqn}
 \overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
 \ee
@@ -9979,7 +10014,13 @@ If $\sX$ is a set then we denote by $D^*\left( \sX\right)$ a $C^*$-algebra of bo
 \end{notation}
 
 \begin{empt}\label{top_long_p_empt}
-!!!! CORRECT !!!	
+	Let $p: \overline \sX \to \sX$ be a covering  with an acting on $\overline \sX$ a residually finite (cf. Definition \ref{residually_finite_defn}) properly discontinuous group  $\widehat  G$ (cf. Definition \ref{top_prop_disc_grouop_defn})    such that $\sX \cong \overline \sX/ \overline G$. 
+Let $\left\{G_\la\right\}_{\la\in \La}$ be the indexed by a set $\La$ family of all finite factor groups of $\widehat  G$. If we define an order on $\La$ by the following way
+the
+
+	
+	For any finite factor group $G_\la = \overline G/ H_\la$ we define a space $\sX_\la \bydef \overline \sX/ H_\la$. We suppose that for all $\mu, \nu$ 
+	
 	Under the  hypotheses of the Lemma \ref{top_disconnected_lem} one has a transitive covering $\widetilde p: \widetilde\sX \to \sX$ given by \eqref{top_category_fin_eqn} category
 		\bean
 	\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
