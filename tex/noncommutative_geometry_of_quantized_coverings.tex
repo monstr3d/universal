@@ -17179,7 +17179,7 @@ However from the Exercise  \ref{foli_neigh_exer} it follows that $C^*_r\left(\ov
 
 
 \end{proof}
-\section{Linear foliation on torus}
+\section{Irrational rotations}
 \paragraph{}
 Here we consider a generalization of the Example \ref{fol_tor_exm}. Let $N \in \N$ and $n \bydef 2N$, and let $\th \in \R \setminus \Q$ be an irrational number.
 Consider a vector field $\widetilde{X}_\th$ on $\R^{2N}$ given by
@@ -17453,14 +17453,46 @@ then from the Definition \ref{algebraical_finite_covering_category_defn} it foll
 a_{\la_{\overline \sU}} = \desc_{\overline q_{\la_{\overline \sU}}}\left(\overline a' \overline a \overline a'' \right) \in C^*_r\left( \sU_{\la_{\overline \sU}}, \left.\F_{\th_{\la_{\overline \sU}}}\right|_{\sU_{\la_{\overline \sU}}} \right),\\
  \overline a' \overline a \overline a''= \lift^{\overline q_{\la_{\overline \sU}}}_{\overline\sU}\left(a_{\la_{\overline \sU}} \right)\in C^*_r\left(\overline\sY,\overline\F_\th  \right) 
 \eean 
-where both descent $\desc_{\overline q_{\la_{\overline \sU}}}$ and lift $\lift^{\overline q_{\la_{\overline \sU}}}_{\overline\sU}$ are given by the Definition \ref{blowing_lift_desc_defn}. Taking into account that $K\left( C^*_{r}\left(\overline \sY, \overline \F_\th \right)\right)$ is dense in $C^*_{r}\left(\overline \sY, \overline \F_\th \right)$ and the Lemma \ref{hered_bab_lem} we conclude that $C^*_{r}\left(\overline \sY, \overline \F_\th \right)$ is a hereditary $C^*$-algebra of $\overline A$. The spectrum of $C^*_{r}\left(\overline \sY, \overline \F_\th \right)\cong \cong \K\left( L^2\left( \R^N\right) \right)\otimes C_0\left( \overline \sZ\right)$ equals to $\R^N$ so from  the Proposition \ref{hered_spectrum_prop} it follows that there is an injective continuous map of the spectrum $C^*_{r}\left(\overline \sY, \overline \F_\th \right)$ into spectrum $\overline \sX$ of $\overline{A}$ i.e. 
+where both descent $\desc_{\overline q_{\la_{\overline \sU}}}$ and lift $\lift^{\overline q_{\la_{\overline \sU}}}_{\overline\sU}$ are given by the Definition \ref{blowing_lift_desc_defn}. Taking into account that $K\left( C^*_{r}\left(\overline \sY, \overline \F_\th \right)\right)$ is dense in $C^*_{r}\left(\overline \sY, \overline \F_\th \right)$ and the Lemma \ref{hered_bab_lem} we conclude that $C^*_{r}\left(\overline \sY, \overline \F_\th \right)$ is a hereditary $C^*$-algebra of $\overline A$. The spectrum of $C^*_{r}\left(\overline \sY, \overline \F_\th \right)\cong  \K\left( L^2\left( \R^N\right) \right)\otimes C_0\left( \overline \sZ\right)$ equals to $\R^N$ so from  the Proposition \ref{hered_spectrum_prop} it follows that there is an injective continuous map of the spectrum $C^*_{r}\left(\overline \sY, \overline \F_\th \right)$ into spectrum $\overline \sX$ of $\overline{A}$ i.e. 
 $$
 \overline \sY \hookto \overline \sX.
 $$
-From the Lemma \ref{infinite_faithful_nondegererate_lem} it follows that $\overline \sY$ is dense in $\overline \sX$. On the other hand $\overline{A}$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}). From the Theorem \ref{ctr_big_thm} it follows that there is an essential ideal $\overline I \subset \overline A$. The spectrum $\overline \sX_{\overline I }$ is dense Hausdorff subspace of $\overline \sX$.
-
+If $\overline \sY$ is not dense in $\overline \sX$ there is an open set $\overline\sV\subset \overline \sX$ such that $\overline\sV\cap \overline\sY = \emptyset$. If $\overline I\subset \overline A$ is corresponding to $\overline \sV$ ideal then
+$$
+\forall \overline{a}\in \overline I \setminus \{0\}\quad \forall \overline x \in \overline \sY \quad \rep_{\overline x}\left(\overline a\right) = 0
+$$
+But it is impossible since from the Lemma \ref{infinite_faithful_nondegererate_lem} it follows that the representation $\bigoplus_{\overline x \in \overline \sY} \rep_{\overline x}$ is faithful. If $\overline x \in\overline \sX \setminus \overline \sY$ and $\overline a \in K\left(  \overline A\right)_+$ a positive element is such that $\rep_{\overline x}\left(\overline a\right) \neq 0$ then there is an open neighborhood $\overline \sU'$ of $\overline x$ such that
+$$
+\forall \overline x' \in \overline \sU' \quad \rep_{\overline x'}\left(\overline a\right) \neq 0
+$$
+Since $\overline \sY$ is dense in $\overline\sX$ the set $\overline \sU\bydef \overline \sU'\cap \overline \sY$ is not compact. So the the support of 
+\bean
+\overline{f}\in C_b\left(\overline \sY \right),\\
+\overline x \mapsto \tr \circ  \rep_{\overline x}\left(\overline a\right)
+\eean
+is not compact.  
+If $\widehat \Z\subset \widehat \Z^2$ is a subgroup which trivially acts on $\overline{\mathcal \N}$ then the series
+$$
+\sum_{g \in \ker\left( \widehat \Z\to \Z_n\right) } g \overline a
+$$
+is convergent with respect to the strong topology of $M\left( \overline A\right)$. If 
+$$
+f_n \sum_{g \in \ker\left( \widehat \Z\to \Z_n\right) } g \overline f
+$$ 
+then
+$$
+\overline f = \lim f_n
+$$
+where point-wise limit is implied. From the Lemma \ref{ctr_intinite_dics_covering_lem} it follows that $\overline f\in C_c\left(\overline{\sY} \right)$.  One has a contradiction so $\overline \sX \setminus \overline \sY= \emptyset$ and $\overline \sX = \overline \sY$,
 \end{proof}
-
+\begin{theorem}
+!!!	Covering
+\end{theorem}
+\begin{theorem}
+	!!!FUNDAMENTAL GROUP
+\end{theorem}
+\subsection{Hurewicz homomorphism}
+!!!\cite{had:ntk,sudo:ntk}
 \chapter{Coverings of  noncommutative tori}\label{nt_chap} 
 \section{Basic constructions}
 \begin{empt}
@@ -29565,12 +29597,15 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 \bibitem{varilly_bondia} Jos\'e M. Gracia-Bondia, Joseph C. Varilly, Hector Figueroa, {\it Elements of Noncommutative Geometry}, Springer, 2001.
 
-\bibitem{green_schwarz_witten:superstring} {\it Superstring Theory: Volume 2, Loop Amplitudes, Anomalies and Phenomenology}. (Cambridge Monographs on Mathematical Physics)by Michael B. Green, John H. Schwarz, Edward Witten. 1988.
+\bibitem{green_schwarz_witten:superstring} {\it Superstring Theory: Volume 2, Loop Amplitudes, Anomalies and Phenomenology}. (Cambridge Monographs on Mathematical Physics) by Michael B. Green, John H. Schwarz, Edward Witten. 1988.
 
 
 %\bibitem{gross_gauge}David J. Gross. {\it Gauge Theory-Past, Present, and Future} Joseph Henry Luborutoties, Ainceton University, Princeton, NJ 08544, USA. (Received November 3,1992).
 
 %\bibitem{ful:gr_repr} Fulton William, Harris Joe. {\it Representation theory. A first course} Graduate Texts in Mathematics, Readings in Mathematics 129, New York: Springer-Verlag. 1991.
+
+\bibitem{had:ntk} Tom Hadfield. \textit{K-homology of the rotation algebras} $A_\th$. arXiv:math/0112235, 2001.
+
 
 \bibitem{hartshorne:ag} Robin Hartshorne. {\it Algebraic Geometry.} Graduate Texts in Mathematics, Volume 52, 1977.
 
@@ -29869,6 +29904,8 @@ J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
 
 \bibitem{spanier:at}
 E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+
+\bibitem{sudo:ntk} Takahiro Sudo. \textit{K-Homology of Continuous Fields of Noncommutative Tori} Nihonkai Math. J. Vol.19(2008), 1-19, 2008.
 
 \bibitem{sudo:k_ctr} Takahiro Sudo. \textit{$K$-theory of $C^*$-algebras of locally trivial continuous fields}. Commun. Korean Math. Soc. 2005 Vol. 20, No. 1, 79-92 Printed March 1, 2005.
 
