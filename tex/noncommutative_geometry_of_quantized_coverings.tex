@@ -1570,7 +1570,7 @@ hence one has
 \end{empt}
 
    \begin{definition}\label{fin_unital_defn}
-   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (resp. quasi-covering). Suppose that both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
+   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) (resp. quasi-covering  (cf. Definition \ref{fin_quasi_defn})). Suppose .that both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
    \end{definition}
    \begin{remark}
    	Above definition is motivated by the Theorem \ref{pavlov_troisky_thm}.
@@ -8583,6 +8583,107 @@ Prove that
 
 
 \subsection{Coverings of $C^*$-algebras}
+\begin{lemma}\label{comm_ccr_lem}
+	If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold quasi-covering (cf. Definition \ref{fin_unital_defn}).
+	If $\widetilde \sX$ is  the spectrum of $\widetilde{A}$  then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover  there is $N \in \N$ such that for any ${x} \in {\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
+	
+\end{lemma}
+
+\begin{proof}
+	From the Definitions \ref{principal_non_defn} and \ref{fin_quasi_defn}  it follows that $\pi \left(1_{C\left(\sX \right) }\right)= 1_{\widetilde A}$. On the other hand there are $\widetilde{a}_1, ..., \widetilde{a}_n \in \widetilde{A}$ such that
+	$$
+	\widetilde{A}= C\left(\sX \right) \widetilde{a}_1 +...+  C\left(\sX \right)\widetilde{a}_n
+	$$
+	(cf. Definition \ref{fin_unital_defn}).
+	It follows that
+	$$
+	\forall \widetilde x \in \widetilde \sX \quad \rep_{\widetilde x}\left(\widetilde A \right) = 	 \rep_{\widetilde x}\left(A \right) \rep_{\widetilde x}\left(\widetilde a_1 \right)+...+  \rep_{\widetilde x}\left(A \right) \rep_{\widetilde x}\left(\widetilde a_n \right)
+	$$
+	For any $x \in \sX$ and $a \in C\left(\sX\right)$ the $\rep_x\left(a \right)= a\left(x\right)  \rep_x\left(1_{C\left( x\right) } \right)$, so 
+	$$
+\forall 	\widetilde x \in \widetilde \sX\quad \rep_{\widetilde x}\left(\pi\left( a \right) \right)= a\left( p\left( \widetilde x\right) \right)  \rep_{\widetilde x}\left( 1_{{\widetilde A}}\right) 
+	$$
+where the map $p: \widetilde\sX \to \sX$ is given by the Proposition \ref{spectrum_coverig_finite_prop}.	 It turns out that
+	$$
+\forall 	\widetilde x \in \widetilde \sX \quad \forall \ka \in  \rep_{\widetilde x}\left(\widetilde A \right)\quad \exists k_1,..., k_n \in \C  \quad	\ka= k_1\rep_{\widetilde x}\left(\widetilde a_1 \right)+ k_n\rep_{\widetilde x}\left(\widetilde a_n \right),
+	$$
+	i.e. the $C^*$-algebra   $\rep_{\widetilde x}\left(\widetilde A \right)$ is a finite-dimensional $\C$-space. So for all $x \in \sX$ there is $m \in \N$ such that $\rep_x\left(\widetilde A \right)\approx \mathbb{M}_m\left(\C \right)$. A $\C$-dimension of $\mathbb{M}_m\left(\C \right)$ equals to $m^2$, so $m < N$ where $N \ge \sqrt{n}$.
+\end{proof}
+\begin{corollary}\label{comm_ccrp_cor}
+	If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold covering (cf. Definition \ref{fin_unital_defn}) then $\widetilde A$ is a commutative $C^*$-algebra.
+\end{corollary}
+\begin{proof}
+	If $\widetilde \sX$ is the spectrum of $\widetilde{A}$ then  from the Lemma \ref{comm_ccr_lem} it follows that there is $n\in \N$ such that the dimension of  $\rep_{\widetilde x}\left(\widetilde A \right)\le n$. 	
+Suppose that  $n> 1$.
+		From the Proposition \ref{less_n_pi_prop} it follows that there is an open subset $\widetilde \sU\subset \widetilde \sX$ having following properties:
+		\begin{itemize}
+			\item $\widetilde \sU'$ is Hausdorff,
+			\item $\forall \widetilde x \in \widetilde \sU'\quad \dim \dim \rep_{\widetilde x}\left( \widetilde A\right) = n$.
+		\end{itemize}
+		So the ideal $\left.\widetilde{A}\right|_{\widetilde{\sU}'}$ (cf. equation  \eqref{open_ideal_eqn}) is a homogeneous $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). From the Remark \ref{ctr_homo_rem} it turns out that there is an open subset $\widetilde \sU \subset \widetilde \sU'$ such that
+		$$
+	\left.\widetilde{A}\right|_{\widetilde{\sU}}\cong C_0\left( \widetilde\sU \right)\otimes \mathbb{M}_n\left(\C \right). 	
+		$$
+		From the Definitions \ref{principal_non_defn} and \ref{fin_quasi_defn}  it follows that $\pi \left(1_{C\left(\sX \right) }\right)= 1_{\widetilde A}$, so 
+	\be\label{top_a_rep_eqn}
+	\begin{split}
+	 \forall a \in C\left(\sX \right) \quad \widetilde x \in \widetilde \sU \quad \rep_{\widetilde x}\left(\pi\left(  \widetilde a\right) \right)= a\left(p\left(  \widetilde x\right)  \right) 1_{\rep_{\widetilde x}\left(\widetilde a \right) }=\\=\begin{pmatrix}
+	a\left(p\left(  \widetilde x\right)\right)   & 0 &\ldots & 0\\
+	0& a\left(p\left(  \widetilde x\right)\right)  &\ldots&0 \\
+	\vdots& \vdots &\ddots&\vdots\\
+	0& 0 & \ldots &a\left(p\left(  \widetilde x\right)\right)  
+\end{pmatrix}.
+	\end{split}
+	\ee	
+where the map $p: \widetilde\sX \to \sX$ is given by the Proposition \ref{spectrum_coverig_finite_prop}.	Any $\widetilde{a} \in \left.\widetilde{A}\right|_{  \widetilde \sU }$ can be represented by a continuous function $\widetilde \sU \to \mathbb{M}_N\left(\C \right)$. Let  $\psi, \vartheta :\widetilde \sU\to \mathbb{M}_n\left(\C \right)$ be given by
+\bean
+\psi\left( { x}\right) = 	
+\begin{pmatrix}
+	f\left( { x}\right) & 0 &\ldots & 0\\
+	0& 0 &\ldots&0 \\
+	\vdots& \vdots &\ddots&\vdots\\
+	0& 0 & \ldots &0
+\end{pmatrix},\\
+\vartheta\left( { x}\right) = 	
+\begin{pmatrix}
+	0 & 	f\left( { x}\right) &\ldots & 0\\
+	0& 0 &\ldots&0 \\
+	\vdots& \vdots &\ddots&\vdots\\
+	0& 0 & \ldots &0
+\end{pmatrix}.
+\eean
+Let both $\widetilde{p}^\parallel, \widetilde b \in  \left.\widetilde{A}\right|_{{   \widetilde \sU }}$ be represented by both $\psi, \vartheta$ respectively. From $\left.\widetilde{A}\right|_{{   \widetilde \sU }} \subset \widetilde{A}$ it turns out that  both $\widetilde{p}^\parallel$ and $\widetilde b$ can be regarded as elements of $\widetilde{A}$, i.e. $\widetilde{p}^\parallel, ~\widetilde b \in \widetilde{A}$. There are $\widetilde x_0 \in \widetilde\sU$ and a continuous positive $\varphi \in C_0\left( \widetilde\sU\right)_+$ such that $\varphi \left(\widetilde {x}_0 \right)  = 1$ and $\supp \varphi \subset {   \mathcal U }$. Denote by
+$\widetilde{p}^\perp \stackrel{\text{def}}{=} 1_{A }- \widetilde{p}^\parallel\in  \widetilde{A}$. 
+If $\epsilon \in \R$ and $\widetilde{u}_\epsilon \bydef p^\parallel e^{i\epsilon \varphi} + p^\perp\in   \widetilde{A}$ then for any ${x} \in {\mathcal U}$ following condition holds
+\be\label{top_rep_eqn}  
+\begin{split}
+\forall \widetilde{x}\in \widetilde{\sU}\quad 	\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon\right) = \left\{
+	\begin{array}{c l}
+		\begin{pmatrix}
+			e^{i\epsilon\varphi\left(\widetilde{x} \right)}  & 0 &\ldots & 0\\
+			0& 1 &\ldots&0 \\
+			\vdots& \vdots &\ddots&\vdots\\
+			0& 0 & \ldots &1
+		\end{pmatrix} &\widetilde x \in   \widetilde\sU \\ \\
+\rep_{\widetilde{x}}\left(1_{\widetilde A}\right)	 & \widetilde x \in \widetilde\sX \setminus  \widetilde\sU
+	\end{array}\right..\end{split}
+\ee
+!!!
+ Otherwise for any $\widetilde {x} \in \widetilde\sU$ one has $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) = \rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) \rep_{{x}}\left( \widetilde{u}_\epsilon  \right) = 1_{B\left(\H_{ \widetilde x} \right) }$ where $\H_{ \widetilde x}$ is a space of an irreducible representation $\rep_{ {x}}:\widetilde A\to B\left(\H_{ x}\right)$. It follows that $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) = \rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right) = 1_{B\left(\H_{ x} \right) }$ for any ${x} \in {\mathcal X}$.  Hence one has $\widetilde{u}_\epsilon^*\widetilde{u}_\epsilon= \widetilde{u}_\epsilon \widetilde{u}_\epsilon^*=  1_{  \widetilde{A} }$ i.e. $\widetilde{u}_\epsilon$ is unitary.  There is an internal *-automorphism $\chi_\epsilon \in \Aut\left(\widetilde{A} \right)$ given by $\widetilde{a}  \mapsto \widetilde{u}_\epsilon^*\widetilde{a}\widetilde{u}_\epsilon$.  From the equation \eqref{top_a_rep_eqn} it follows that 
+\bean
+\forall \widetilde x \in   \widetilde{\mathcal X} \quad \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( a\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{{x}}\left( a\right)
+\eean 
+  $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( a\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{{x}}\left( a\right)$ for every $\widetilde x \in   \widetilde{\mathcal X}$. It means that $\chi_{\epsilon}\left( a\right) = a$ for all $a \in C\left(\sX\right)$
+hence from \eqref{top_infe_eqn} it turns out that the  group
+\be\nonumber
+G \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ ga =  a\quad\forall \widetilde a \in C\left(\sX\right)\right\}
+\ee
+is not finite, i.e. one has the contradiction with (a) of the Definition \ref{fin_pre_defn}. From this contradiction it turns out that $\dim\rep_{ {x}}\left(\widetilde{A}\right)= 1$ for any ${x} \in {\sX}$, it means that $\widetilde{A}$ is commutative. It follows that $\pi$ is a $*$-isomorphism.
+	
+		
+		
+\end{proof}
+
 \begin{empt}
 Let $A\bydef C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
 Let  $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}), and let both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ respectively. Let \ref{reduced_alg_defn}
@@ -8649,28 +8750,6 @@ From the Remark \ref{proper_reduced_spectrum_remark} !!! DELETE !!! it follows t
 	(ii) The given by the equations  \eqref{top_regular_eqn} and \eqref{top_singular_eqn} quadruples coincide with \eqref{top_reg_sing_cover_eqn} ones.
 	
 \end{proof}
-\begin{lemma}\label{comm_ccr_lem}
-If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold quasi-covering (cf. Definition \ref{fin_unital_defn}) then such that the spectrum of $\widetilde{A}$ equals to $\sX$  then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover  there is $N \in \N$ such that for any ${x} \in {\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
-
-\end{lemma}
-
-\begin{proof}
-	From the Definitions \ref{fin_quasi_defn}  and \ref{principal_non_defn} it follows that $\pi \left(1_A\right)= 1_{\widetilde A}$. On the other hand there are $\widetilde{a}_1, ..., \widetilde{a}_n \in \widetilde{A}$ such that
-	$$
-	\widetilde{A}= C\left(\sX \right) \widetilde{a}_1 +...+  C\left(\sX \right)\widetilde{a}_n
-	$$
-	(cf. Definition \ref{fin_unital_defn}).
-	It follows that
-	$$
-\forall x \in \sX \quad \rep_x\left(\widetilde A \right) = 	\rep_x\left(A \right)\rep_x\left(\widetilde a_1 \right)+...+ \rep_x\left(A \right)\rep_x\left(\widetilde a_n \right)
-	$$
- For any $x \in \sX$ and $a \in C\left(\sX\right)$ the $\rep_x\left(a \right)= a\left(x\right)  \rep_x\left(1_A \right)$, it turns out that
-	$$
-\forall x \in \sX \quad \forall \ka \in  \rep_x\left(\widetilde A \right)\quad \exists k_1,..., k_n \in \C  \quad	\ka= k_1\rep_x\left(\widetilde a_1 \right)+ k_n\rep_x\left(\widetilde a_n \right),
-$$
-i.e. the $C^*$-algebra   $\rep_x\left(\widetilde A \right)$ is a finite-dimensional $\C$-space. So for all $x \in \sX$ there is $m \in \N$ such that $\rep_x\left(\widetilde A \right)\approx \mathbb{M}_m\left(\C \right)$. A $\C$-dimension of $\mathbb{M}_m\left(\C \right)$ equals to $m^2$, so $m < N$ where $N \ge \sqrt{n}$.
-\end{proof}
-
 \begin{corollary}\label{comm_ccr_cor}
 If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold covering   (cf. Definition \ref{fin_unital_defn}). If  the given by \ref{spectrum_cov_eqn} map  from the spectrum of $\widetilde{A}$ to the spectrum of $C\left( {\sX}\right)$ is a homeomorphism, then $\pi:C\left( {\sX}\right)\hookto\widetilde{A}$ is $*$-isomorphism. 
 \end{corollary}
@@ -23267,6 +23346,9 @@ Let $I$ be a closed ideal of $A$.
 \begin{definition}\label{ctr_homo_defn}\cite{fell:operator_fields} 
 	A $C^*$-algebra is \textit{homogeneous of order} $n$ if every irreducible *-representation is of the same finite dimension $n$.
 \end{definition}
+\begin{remark}\label{ctr_homo_rem}\cite{fell:operator_fields} 
+If $\sX$ is a spectrum of a {homogeneous of order} $n$ algebra $A$ then $A$ corresponds  some fibre bundle  with base space $\sX$,
+\end{remark}
 	\begin{proposition}\label{less_n_pi_prop}\cite{pedersen:ca_aut}
 		%4.4.10
 		The subset $_n\check{A}$ of $\check{A}$ corresponding to irreducible representations of $A$ with finite dimension less or equal to $n$ is closed. The set $_n\check{A}\setminus_{n-1}\check{A}$ of $n$-dimensional representations is a Hausdorff space in its relative topology.
