@@ -1753,7 +1753,7 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 	 
 \end{proof}
 \begin{corollary}\label{ind_mult_inv_cor}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is a natural  noncommutative finite-fold  quasi-covering $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \widetilde \pi \right)$  such that $\pi = \left.\widetilde \pi\right|_A$ and an action $G \times \widetilde A \to \widetilde{A}$ is a restriction of an action  $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$.
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is a natural  noncommutative finite-fold  quasi-covering $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, M\left(\pi \right) \right)$  such that $\pi = \left.\widetilde \pi\right|_A$ and an action $G \times \widetilde A \to \widetilde{A}$ is a restriction of an action  $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$.
 \end{corollary}
 
 \begin{lemma}\label{ind_gmult_act_lem}
@@ -2233,10 +2233,6 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
 	\ee
 	
 \end{proof}
-\begin{corollary}\label{cov_mult_fin_cor}
-If $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}) then there is  an 
-unital  noncommutative finite-fold quasi-covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, M\left( \pi\right)  \right)$ (cf. Definition \ref{fin_unital_defn}).
-\end{corollary}
 \begin{remark}\label{proj_decomp_rem}
 	If we consider the equation \eqref{projective_decomposition_eqn} then one has
 	\be\label{projective_decompositioneq_eqn}
@@ -2257,6 +2253,11 @@ unital  noncommutative finite-fold quasi-covering  $\left(M\left(A \right)  ,M\l
 	\ee
 	
 \end{remark}
+\begin{corollary}\label{cov_mult_fin_cor}
+If $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}) then the quadruple   $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, M\left( \pi\right)  \right)$
+unital  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_unital_defn}).
+\end{corollary}
+
 \begin{corollary}\label{cov_mult_fin_c_cor}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) then there is  an 
 	unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, M\left(\pi \right) \right)$ (cf. Definition \ref{fin_unital_defn}).
@@ -2269,6 +2270,32 @@ Since both $A \subset M\left(A \right)$ and $\widetilde{A}\subset M\left( \widet
 \eean
 It follows that $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Now this corollary follows from \ref{cov_mult_fin_cor} one.
 \end{proof}
+\begin{empt}\label{spectrum_ff_p_empt}
+	Under the hypotheses of the Corollary \ref{cov_mult_fin_c_cor} let both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ respectively then from the Remark \ref{unital_rem} one can deduce that $M\left(\pi \right)\left( C \right)\subset \widetilde C$, so there is an injective inclusion $C\subset \widetilde C$  of commutative $C^*$-algebras. If for both $A$ and $\widetilde A$ a prime spectrum coincides with primitive one (cf. Definition \ref{primitive_prime_spectrum_defn}) then from the Theorem \ref{dauns_hofmann_thm} it follows that  both $C$ and $\widetilde C$  are classes of bounded continuous on primitive spectra, then from the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is an action $G \times \widetilde C \to \widetilde C$ such that $\widetilde C^G = C$. Similarly to the Lemma \ref{fin_hilbert_mod_lem} $\widetilde C$ is a $C^*$-Hilbert $C$-module.
+\end{empt}
+\begin{lemma}\label{spectrum_ff_p_lem}
+Under the hypotheses of \ref{spectrum_ff_p_empt} $\widetilde C$ is a finitely generated $C$-module.
+\end{lemma}
+\begin{proof}
+If $\widetilde C$ is not a finitely generated $C$-module  then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
+$$
+\widetilde C = \sum_{\la\in \La} M_\la,
+$$
+of right $C$-modules, such that for any finite subset $\La_0 \subset \La$ one has
+$$
+\widetilde C \subsetneqq \sum_{\la\in \La_0} M_\la,
+$$
+One has an algebraic sum 
+$$
+M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
+$$
+of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+$$
+M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
+$$
+From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde A \right)$ is not finitely generated $M\left( A\right)$-module. This fact contradicts with hypotheses of this Lemma.
+\end{proof}
+
 \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_fin_defn}
@@ -2762,77 +2789,6 @@ where the map $	p:\widetilde{\sX} \to {\sX}$ is given by the Proposition \ref{sp
 The existence of $\varphi$ follows from the Proposition \ref{spectrum_coverig_finite_prop}. If $\varphi$ is not injective then a subgroup $H \bydef \ker\phi$ is not trivial. If $g \in H$ is not trivial there is $\widetilde x \in \widetilde\sX$ such that the action of $H$ on $\rep_{\widetilde x}\left( \widetilde A\right)$ is not trivial. So $\rep_{\widetilde x}\left( A\right)= \rep_{\widetilde x}\left( \widetilde A\right)^H \subsetneqq\rep_{\widetilde x}\left( \widetilde A\right)$ i.e. $\left(A, \widetilde{A}, G, \pi \right)$ is not reduced. From this contradiction we conclude that the group $H$ is trivial and the map $\varphi$ is injective.
 \end{proof}
 
-\begin{lemma}\label{ctr_ccr_sp_lem} 
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization.
-	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) such that the dimension of any irreducible representation of $A$ is not finite then $\widetilde{A}$ is a $\left(A, \widetilde{A}, G, \pi \right)$ is reduced. 
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{fin_unitization_defn} it turns out that
-	\begin{enumerate}
-		\item[(a)] 
-		There are unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
-		$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential ideal of $\widetilde{A}$ (resp. $\widetilde{B}$) and $A = B\bigcap \widetilde{A}$,
-		\item[(b)] There is a 
-		unital  noncommutative finite-fold covering $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
-	\end{enumerate}
-	Any irreducible representation  $\widetilde{\rho} : \widetilde{A}\to B\left(\widetilde{\H} \right)$ can be uniquely extended up to $\widetilde{\rho} : \widetilde{B}\to B\left(\widetilde{\H} \right)$. If $\widetilde \xi \in \widetilde{\H}$ then from the Theorem \ref{irred_thm} it follows that $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$. If $\H \bydef \widetilde \rho\left( B\right)\widetilde \xi$ then there is a representation $\rho : B \to B\left(\H\right)$ and taking into account the Proposition   \ref{spectrum_coverig_finite_prop} we conclude that the representation is irreducible. According to the
-	Definition \ref{fin_unital_defn} and the 	
-	Remark \ref{fin_cov_kasp_rem} $\widetilde{B}$ is finitely generated projective module $B$-module, i.e. 
-	$$
-	\widetilde{B}\cong p_{\widetilde{B}} B^n
-	$$
-	where $p_{\widetilde{B}}: B^n \to B^n$ is a projector. So from $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$ and $ \H = \widetilde \rho\left( B \right) \widetilde \xi$ it follows that 
-	$$
-	\widetilde{\H}\cong p_{\widetilde{\H}} \H^n
-	$$
-	where $p_{\widetilde{\H}}: \H^n \to \H^n$ is a projector.
-	There is a diagonal action $\rho': B \to B\left( \H^n\right)$ such that
-	$$
-	b \in B \quad \Rightarrow\quad \rho' \left( b\right) \bydef \begin{pmatrix}
-		\rho\left(b \right)  & 0 &\ldots & 0\\
-		0& \rho\left(b \right)   &\ldots&0 \\
-		\vdots& \vdots &\ddots&\vdots\\
-		0& 0 & \ldots &\rho\left(b \right) 
-	\end{pmatrix}. 
-	$$
-	and 
-	$\widetilde \rho \left( b\right) = p_{\widetilde{\H}}\rho'\left( b\right)p_{\widetilde{\H}}$. 
-	If $a \in A$ then $\rho\left(a \right)$ is compact (cf. Definition \ref{ccr_defn}). So  both operators  $\rho'\left(a \right)$ and $\widetilde \rho \left( a\right) = p_{\widetilde{\H}}\rho'\left( a\right)p_{\widetilde{\H}}$ are compact, i.e.
-	\bean
-	\forall a \in A \quad \widetilde \rho \left( a\right) \in \K\left( \widetilde\H\right), 
-	\eean
-	From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde B$ such that 
-	\be\label{ctr_i_comp_eqn}
-	\widetilde A = \widetilde b_1A + ... + \widetilde b_nA,
-	\ee 
-	hence one has
-	$$
-	\widetilde \rho \left(	\widetilde A \right) = \widetilde \rho \left(\widetilde b_1\right) \widetilde \rho \left(\widetilde A\right) + ... +\widetilde \rho \left( \widetilde b_n\right) \widetilde \rho \left(A\right)	
-	$$
-	and taking into account that 	
-	$\widetilde{\rho}\left(A \right) \subset \K\left( \widetilde{\H}\right)$ we conclude that $\widetilde{\rho}\left(\widetilde A \right) \subset \K\left( \widetilde{\H}\right)$. From the Corollary \ref{ctr_ccr_i_cor} and the Theorem \ref{ctr_hat_check_thm} it follows that $\widetilde{\rho}\left(A \right) = \K\left( \widetilde{\H}\right)$. From the Lemma \ref{quasi_hareditary_lem} it follows that the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ (cf. Definition \ref{hered_gen_defn}) equals to $\widetilde{\rho}\left(\widetilde A \right)$. If $\widetilde{\rho}\left(\pi\left( A \right) \right)\subsetneqq \widetilde{\rho}\left(\widetilde A \right)$ then there is a rank-one projector $\widetilde e \in \widetilde{\rho}\left(\widetilde A \right)\setminus \widetilde{\rho}\left(\pi\left( A \right) \right)$. If $\widetilde \H^\perp \subset \widetilde \H$ is an orthogonal to $\widetilde e \widetilde \H$ space then any 
-	$\widetilde{a}= \widetilde{b}'\widetilde{a}' \widetilde{b}''$ with $\widetilde{b}',\widetilde{b}''\in \widetilde{\rho}\left(\pi\left( A \right) \right)$ and $\widetilde a \in \widetilde{\rho}\left(\widetilde A \right)$ maps $\widetilde \H^\perp$ to  $\widetilde \H^\perp$ and taking into account that $\widetilde{\rho}\left(\pi\left( A \right) \right)$ is the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ we conclude that  $\widetilde \H^\perp$ is a non-trivial $\widetilde A$-subspaces for $\widetilde \rho$. This fact contradicts with (i) of the Theorem \ref{irred_thm} so the representation $\widetilde \rho$ is not irreducible. This contradiction proves that $\widetilde{\rho}\left(\pi\left( A \right) \right)= \widetilde{\rho}\left(\widetilde A \right)$, i.e. 
-\end{proof}
-\paragraph{!!!}
-\begin{theorem}\label{ctr_hat_check_thm!}\cite{pedersen:ca_aut}
-	% 6.6.5
-	Let $A$ be a $C^*$-algebra of type I. Then 
-	\begin{enumerate}
-		\item [(i)] $\K \subset \pi\left(A \right)$ for each irreducible representation $\pi: A \to B\left(\H \right)$  of $A$.
-		\item[(ii)] $\hat A = \check{A}$ (cf. Definition \ref{spectrum_prime_primtive_defn}).
-	\end{enumerate}
-\end{theorem}
-\begin{prop}\label{ctr_hered_prop}\cite{pedersen:ca_aut}
-	% 6.2.10. PROPOSITION. 
-	Each hereditary $C^*$-subalgebra and each quotient of a 
-	$C^*$-algebra which is of type $I_0$ or has continuous trace is of type $I_0$  or has 
-	continuous trace, respectively. 
-\end{prop}
-
-\begin{corollary}\label{ctr_ccr_i_cor!}\cite{pedersen:ca_aut}
-	Any $CCR$ $C^*$-algebra is of type I.
-\end{corollary}
-\paragraph{!!!}
 \begin{remark}
 	I do not know whether exists a noncommutative finite-fold  covering which is not reduced.
 \end{remark}
@@ -15228,6 +15184,58 @@ Our following constructions require an analog of the Dini's theorem.
 
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
+\subsubsection{Coverings of $CCR$-algebras}
+\begin{lemma}\label{ctr_ccr_sp_lem} 
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering with unitization.
+	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) then $\widetilde{A}$ is  a $CCR$-algebra. 
+\end{lemma}
+\begin{proof}
+	From the Definition \ref{fin_unitization_defn} it turns out that
+	\begin{enumerate}
+		\item[(a)] 
+		There are unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
+		$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential ideal of $\widetilde{A}$ (resp. $\widetilde{B}$) and $A = B\bigcap \widetilde{A}$,
+		\item[(b)] There is a 
+		unital  noncommutative finite-fold covering $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+	\end{enumerate}
+	Any irreducible representation  $\widetilde{\rho} : \widetilde{A}\to B\left(\widetilde{\H} \right)$ can be uniquely extended up to $\widetilde{\rho} : \widetilde{B}\to B\left(\widetilde{\H} \right)$. If $\widetilde \xi \in \widetilde{\H}$ then from the Theorem \ref{irred_thm} it follows that $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$. If $\H \bydef \widetilde \rho\left( B\right)\widetilde \xi$ then there is a representation $\rho : B \to B\left(\H\right)$ and taking into account the Proposition   \ref{spectrum_coverig_finite_prop} we conclude that the representation is irreducible. According to the
+	Definition \ref{fin_unital_defn} and the 	
+	Remark \ref{fin_cov_kasp_rem} $\widetilde{B}$ is finitely generated projective module $B$-module, i.e. 
+	$$
+	\widetilde{B}\cong p_{\widetilde{B}} B^n
+	$$
+	where $p_{\widetilde{B}}: B^n \to B^n$ is a projector. So from $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$ and $ \H = \widetilde \rho\left( B \right) \widetilde \xi$ it follows that 
+	$$
+	\widetilde{\H}\cong p_{\widetilde{\H}} \H^n
+	$$
+	where $p_{\widetilde{\H}}: \H^n \to \H^n$ is a projector.
+	There is a diagonal action $\rho': B \to B\left( \H^n\right)$ such that
+	$$
+	b \in B \quad \Rightarrow\quad \rho' \left( b\right) \bydef \begin{pmatrix}
+		\rho\left(b \right)  & 0 &\ldots & 0\\
+		0& \rho\left(b \right)   &\ldots&0 \\
+		\vdots& \vdots &\ddots&\vdots\\
+		0& 0 & \ldots &\rho\left(b \right) 
+	\end{pmatrix}. 
+	$$
+	and 
+	$\widetilde \rho \left( b\right) = p_{\widetilde{\H}}\rho'\left( b\right)p_{\widetilde{\H}}$. 
+	If $a \in A$ then $\rho\left(a \right)$ is compact (cf. Definition \ref{ccr_defn}). So  both operators  $\rho'\left(a \right)$ and $\widetilde \rho \left( a\right) = p_{\widetilde{\H}}\rho'\left( a\right)p_{\widetilde{\H}}$ are compact, i.e.
+	\bean
+	\forall a \in A \quad \widetilde \rho \left( a\right) \in \K\left( \widetilde\H\right), 
+	\eean
+	From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde B$ such that 
+	\be\label{ctr_i_comp_eqn}
+	\widetilde A = \widetilde b_1A + ... + \widetilde b_nA,
+	\ee 
+	hence one has
+	$$
+	\widetilde \rho \left(	\widetilde A \right) = \widetilde \rho \left(\widetilde b_1\right) \widetilde \rho \left(\widetilde A\right) + ... +\widetilde \rho \left( \widetilde b_n\right) \widetilde \rho \left(A\right)	
+	$$
+	and taking into account that 	
+	$\widetilde{\rho}\left(A \right) \subset \K\left( \widetilde{\H}\right)$ we conclude that $\widetilde{\rho}\left(\widetilde A \right) \subset \K\left( \widetilde{\H}\right)$. From the Corollary \ref{ctr_ccr_i_cor} and the Theorem \ref{ctr_hat_check_thm} it follows that $\widetilde{\rho}\left(A \right) = \K\left( \widetilde{\H}\right)$. 
+	%From the Lemma \ref{quasi_hareditary_lem} it follows that the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ (cf. Definition \ref{hered_gen_defn}) equals to $\widetilde{\rho}\left(\widetilde A \right)$. If $\widetilde{\rho}\left(\pi\left( A \right) \right)\subsetneqq \widetilde{\rho}\left(\widetilde A \right)$ then there is a rank-one projector $\widetilde e \in \widetilde{\rho}\left(\widetilde A \right)\setminus \widetilde{\rho}\left(\pi\left( A \right) \right)$. If $\widetilde \H^\perp \subset \widetilde \H$ is an orthogonal to $\widetilde e \widetilde \H$ space then any 	$\widetilde{a}= \widetilde{b}'\widetilde{a}' \widetilde{b}''$ with $\widetilde{b}',\widetilde{b}''\in \widetilde{\rho}\left(\pi\left( A \right) \right)$ and $\widetilde a \in \widetilde{\rho}\left(\widetilde A \right)$ maps $\widetilde \H^\perp$ to  $\widetilde \H^\perp$ and taking into account that $\widetilde{\rho}\left(\pi\left( A \right) \right)$ is the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ we conclude that  $\widetilde \H^\perp$ is a non-trivial $\widetilde A$-subspaces for $\widetilde \rho$. This fact contradicts with (i) of the Theorem \ref{irred_thm} so the representation $\widetilde \rho$ is not irreducible. This contradiction proves that $\widetilde{\rho}\left(\pi\left( A \right) \right)= \widetilde{\rho}\left(\widetilde A \right)$, i.e. 
+\end{proof}
 
 \subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
 
@@ -20796,7 +20804,7 @@ A real-valued function $f$, defined on a topological space $\sX$, is said to be 
 A real-valued function $f$, is said to be \textit{lower semi-continuous} (resp. \textit{upper semi-continuous} on $\sX$ if it is  {lower semi-continuous} (resp. {upper semi-continuous} at every point of $\sX$.
 \end{definition}
 \begin{theorem}\label{top_lower_semi_thm}\cite{bourbaki_sp:gt}
-	Let $f$ be a lower semi-continuous function on a non-empty quasi-compact space $\sX$. Then there is at least one point $a \in \sX$ such that $f\left(a \right) = \inf_{x \in \sX}$ (in other words, $f$ attains its greatest lower bound in $\sX$).
+	Let $f$ be a lower semi-continuous function on a non-empty quasi-compact space $\sX$. Then there is at least one point $a \in \sX$ such that $f\left(a \right) = \inf_{x \in \sX}f\left( x\right) $ (in other words, $f$ attains its greatest lower bound in $\sX$).
 \end{theorem}
 \begin{remark}\label{top_lower_semi_rem}
 There is inverted result about upper semi-continuous functions and supremums.
