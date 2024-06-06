@@ -860,12 +860,12 @@ Using the Theorems  \ref{ideal_spectrum_thm} and \ref{dauns_hofmann_thm} prove t
 	An injective $*$-homomorphism $\phi: A \hookto B$ of $C^*$-algebras is said to be \textit{unital} if it is unital in the sense of the Definition \ref{principal_defn} or can be uniquely extended up to the unital (in sense of the Definition \ref{principal_defn}) $*$-homomorphism $\phi^{\sim}: A^{\sim} \hookto B^{\sim}$ where $A^{\sim}\bydef A^+$ and $B^{\sim} \bydef B^+$ are minimal unitizations of $A$ and $B$ (cf. equation \eqref{unital_notation_eqn} and Definition \ref{multiplier_min_defn}).
 \end{definition}
 \begin{remark}
-	The Definition \ref{principal_non_defn} !!! CHECK !!! is a generalization of the Definition \ref{principal_defn}.
+	The Definition \ref{principal_non_defn}  is a generalization of the Definition \ref{principal_defn}.
 \end{remark}
 
 
 \begin{empt}\label{inductive_empt}
-	Let $\left\{A_\la\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an  directed set (cf. Definition \ref{directed_set_defn}). Suppose that for every $\mu, \nu$ with $\mu \le \nu$, there exists the unique unital (in sense of the Definition \ref{principal_non_defn} !!! CHECK !!!) injective $*$-homomorphism  $f_{\mu\nu}: A_\mu \hookto A_\nu$ satisfying
+	Let $\left\{A_\la\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an  directed set (cf. Definition \ref{directed_set_defn}). Suppose that for every $\mu, \nu$ with $\mu \le \nu$, there exists the unique unital (in sense of the Definition \ref{principal_non_defn}) injective $*$-homomorphism  $f_{\mu\nu}: A_\mu \hookto A_\nu$ satisfying
 	$
 	f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}$ {where} $\quad \mu < \la < \nu.
 	$
@@ -1060,7 +1060,164 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in the Exercise \ref{top_u_net_exer} net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho''\left(\chi_\sU \right)$. 
 \end{empt}
 
+\section{Transitive coverings}\label{top_transitive_section}
+\paragraph*{}
+The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering".
 
+\begin{definition}\label{top_transitive_defn}
+	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$ with connected $\widetilde\sX$  is said to be \textit{transitive}  
+	if there is a properly discontinuous  group $G$ of homeomorphisms of a topological space $\widetilde\sX$  (cf. Definition \ref{top_properly_disc_defn}) such that $\sX \cong \widetilde\sX/G$ and $p: \widetilde{\mathcal X}\to {\mathcal X}$ is naturally equivalent to the given by the Theorem \ref{top_group_of_covering_transformations_thm} covering $\widetilde{\mathcal X} \to \widetilde{\mathcal X}/G$.
+\end{definition}
+
+\begin{remark}
+	From the Theorem \ref{top_cov_fact_thm} and the Lemma \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
+\end{remark}
+
+\begin{lemma}\label{top_trans_tp_cov_lem}
+	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
+	$$
+	\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x.
+	$$
+\end{lemma}
+\begin{proof}
+	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$. There are open neighborhoods $\widetilde\sU'$ and $\widetilde\sU''$ of $\widetilde x$ and $g \widetilde x$ such that $\widetilde\sU'\cap \widetilde\sU'' = \emptyset$. Otherwise since $g$ is a homeomorphism there is open neighborhood $\widetilde\sV$ of $\widetilde x$ such that $g\widetilde\sV \subset \widetilde\sU''$. It follows that $g\widetilde x \neq \widetilde x$ for all $\widetilde x \in \widetilde \sU'\cap \widetilde\sV$. Hence the set
+	$$
+	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x \neq \widetilde x\right\}
+	$$
+	is open, or equivalently the set
+	$$
+	\widetilde{ \mathcal W}	=	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\}
+	$$
+	is closed.  Suppose that $\widetilde x \in \widetilde \sX$ is such that $\widetilde x = g \widetilde x$. There is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ such that a restriction  $\left.p\right|_{\widetilde\sU}$ is injective. On the other hand the restriction $\left.p\right|_{\widetilde\sU}$ can be regarded as a homeomorphism from ${\widetilde\sU}$ onto $p\left( {\widetilde\sU}\right)$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
+	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad g\widetilde x = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ g \left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so $\widetilde{ \mathcal W}$ is open.  From $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$ it turns out that $\widetilde{ \mathcal W}\neq \widetilde\sX$. On the other hand $\widetilde{ \mathcal W}$ is an open and closed subset of a connected set $\widetilde{    \sX }$, so one has $\widetilde{ \mathcal W}= \emptyset$. It means that
+	$$
+	\forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x \neq \widetilde x.
+	$$
+\end{proof}
+\begin{corollary}\label{top_trans_tp_cov_cor}
+	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
+	\bean 
+	G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
+	g \mapsto g\widetilde x_0. 
+	\eean
+	is bijective	then $p$ is a transitive covering.
+\end{corollary}
+
+\begin{corollary}\label{top_trans_cov_factor_cor}
+	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a {transitive} covering then there is the natural homeomorphism $\sX  \cong \widetilde{\mathcal X}/G\left(\left.\widetilde{\sX}~\right|\sX\right)$.
+\end{corollary}
+\begin{remark}
+	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
+\end{remark} 
+\begin{lemma}\label{top_covp_cat_lem}  !!! REPLACE THEOREM 	\ref{top_covp_cat_thm} !!!  !!!!
+	Consider a commutative triangle of connected topological spaces and  continuous maps
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	Suppose  $\sX$ is a  locally compact, locally connected,  Hausdorff space and $p_1$, $p_2$ are coverings. For all $g\in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ the following condition holds
+	$$
+	\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)= p\left( \widetilde x_1\right) . 
+	$$
+\end{lemma}
+\begin{proof}
+	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p\left(  g\widetilde x_1\right) \neq p\left( \widetilde x_1\right) $. There are open neighborhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x_1\right) $ and $p\left( \widetilde gx_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open neighborhood $\widetilde\sV_1$ of $\widetilde x_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde x \right) \neq p\left( \widetilde x\right)$ for all $\widetilde x \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
+	$$
+	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) \neq p\left( \widetilde x\right)\right\}
+	$$
+	is open, or equivalently the set
+	$$
+	\widetilde{ \mathcal W}_1	=	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) = p\left( \widetilde x\right)\right\}
+	$$
+	is closed.  Suppose that $\widetilde x_1 \in \widetilde \sX_1$ is such that $\widetilde x_1 = g \widetilde x_1$. There is an  open neighborhood $\widetilde \sU'_1$ of $\widetilde x_1$ such that $\left.p_1\right|_{\widetilde\sU'_1}$ is injective. There is an open neighborhood $\widetilde \sU'_2$ of $p\left( \widetilde x_1\right) $ such that $\left.p_2\right|_{\widetilde\sU'_2}$ is injective. Since $\sX$ is locally connected !!! \ref{top_consents_defn} !!!  !!! \ref{top_consents_defn} !!!there is a connected open neighborhood $\sU$ of $p_1\left(\widetilde x_1\right)$ such that $\sU\subset p_1\left(\widetilde \sU'_1\right)\cap p_2\left(\widetilde\sU'_2 \right)$. If $\widetilde\sU_1 = \widetilde\sU'_1
+	\cap p_1^{-1}\left(\sU\right)$ and  $\widetilde\sU_2 = \widetilde\sU'_2
+	\cap p_2^{-1}\left(\sU\right)$ then both $\left.p_1\right|_{\widetilde\sU_1}$ and $\left.p_2\right|_{\widetilde\sU_2}$ are injective and may be regarded as homeomorphisms from both $\widetilde\sU_1$ and $\widetilde\sU_2$ onto $\sU$. For any $\widetilde x \in \widetilde\sU_1$ one has
+	$$
+	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left(g\widetilde x \right).
+	$$
+	On the other hand from $g \in  G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ it follows that  $p_1\left(g \widetilde x \right) =  p_1\left( \widetilde x \right)$, hence the following condition holds
+	$$
+	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left( \widetilde x \right)=  p\left( \widetilde x \right).
+	$$
+	The above equation is true for all $\widetilde x \in \widetilde\sU_1$ so the set 	$\widetilde{ \mathcal W}_1$ is open.
+	From $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)$ it turns out that $\widetilde{ \mathcal W}_1 \neq \emptyset$ and taking into account that $\sX$ is connected we conclude that $\widetilde{ \mathcal W}_1 = \widetilde{ \mathcal X}_1$. It equivalently means that
+	$$
+	\forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)=p\left( \widetilde x_1\right) .
+	$$
+\end{proof}
+
+
+\begin{theorem}
+	\label{top_covp_cat_thm} 
+	Consider a commutative triangle of connected, Hausdorff topological spaces and  continuous maps
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	If both  $p_1$ and $p_2$ are transitive coverings (cf. Definition \ref{top_transitive_defn}) and the map $p$ is surjective then the map $p$ is a transitive covering and there is the natural exact sequence  
+	\be\label{top_covp_cat_eqn}
+	\{e\}\to G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\to 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\to\{e\}
+	\ee
+	of groups and homomorphisms.	
+	
+	
+\end{theorem}
+
+\begin{proof}
+	If   $\varphi : \widetilde{\sX}_1\xrightarrow{\approx }  \widetilde{\sX}_1$ is   a homeomorphism such that
+	$$
+	\forall \widetilde{x}_1\in \widetilde{\sX}_1\quad p\left( \widetilde{x}_1\right) = p\left( \varphi\left(\widetilde{x}_1\right)\right).
+	$$
+	then
+	$$
+	\forall \widetilde{x}_1\in \widetilde{\sX}_1\quad p_1\left( \widetilde{x}_1\right) = p_1\left( \varphi\left(\widetilde{x}_1\right)\right).
+	$$
+	so one has $\varphi \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. In result one has
+	
+	\bean 
+	G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) \bydef \left\{\left.g \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right) ~\right|\forall \widetilde x_1\in \widetilde\sX_1\quad p\left(  \widetilde x_1\right) = p\left(  g\widetilde x_1\right) \right\}
+	\eean
+	and there is an injective homomorphism of groups
+	\bean
+	G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\hookto 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right).
+	\eean
+	For any   $\widetilde x_1\in \widetilde{\sX}_1$
+	\be\label{top_guuu_eqn}
+	\forall g_2 \in G\left(  \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\quad \exists g_1 \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\quad  g_2 p\left(\widetilde x_1  \right)= p \left(g_1\widetilde x_1  \right)
+	\ee
+	and
+	\bean
+	\forall g', g'' \in G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\quad g_2 p\left(\widetilde x_1  \right)= p \left(g'g_1\widetilde x_1  \right)= p \left(g_1 g''\widetilde x_1  \right),\\
+	g_1G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)g_1,
+	\eean
+	or equivalently $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is a normal subgroup of $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. From \eqref{top_guuu_eqn} it follows that there ia a surjective homomorphism $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)$. From $\widetilde{\sX}_2= \widetilde{\sX}_1/G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ it follows that the covering $p$ is transitive.
+\end{proof}
+\begin{definition}\label{top_fin_cov_defn}
+	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
+	\begin{itemize}
+		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
+		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
+	\end{itemize}
+	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$. 	
+\end{definition}
+
+\
 \section{Miscellany}
 
 \paragraph{}
@@ -2270,32 +2427,6 @@ Since both $A \subset M\left(A \right)$ and $\widetilde{A}\subset M\left( \widet
 \eean
 It follows that $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Now this corollary follows from \ref{cov_mult_fin_cor} one.
 \end{proof}
-\begin{empt}\label{spectrum_ff_p_empt}
-	Under the hypotheses of the Corollary \ref{cov_mult_fin_c_cor} let both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ respectively then from the Remark \ref{unital_rem} one can deduce that $M\left(\pi \right)\left( C \right)\subset \widetilde C$, so there is an injective inclusion $C\subset \widetilde C$  of commutative $C^*$-algebras. If for both $A$ and $\widetilde A$ a prime spectrum coincides with primitive one (cf. Definition \ref{primitive_prime_spectrum_defn}) then from the Theorem \ref{dauns_hofmann_thm} it follows that  both $C$ and $\widetilde C$  are classes of bounded continuous functions on primitive spectra, then from the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is an action $G \times \widetilde C \to \widetilde C$ such that $\widetilde C^G = C$. Similarly to the Lemma \ref{fin_hilbert_mod_lem} $\widetilde C$ is a $C^*$-Hilbert $C$-module.
-\end{empt}
-\begin{lemma}\label{spectrum_ff_p_lem}
-Under the hypotheses of \ref{spectrum_ff_p_empt} $\widetilde C$ is a finitely generated $C$-module.
-\end{lemma}
-\begin{proof}
-If $\widetilde C$ is not a finitely generated $C$-module  then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
-$$
-\widetilde C = \sum_{\la\in \La} M_\la,
-$$
-of right $C$-modules, such that for any finite subset $\La_0 \subset \La$ one has
-$$
-\widetilde C \subsetneqq \sum_{\la\in \La_0} M_\la,
-$$
-One has an algebraic sum 
-$$
-M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
-$$
-of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
-$$
-M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
-$$
-From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde A \right)$ is not finitely generated $M\left( A\right)$-module. This fact contradicts with hypotheses of this Lemma.
-\end{proof}
-
 \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_fin_defn}
@@ -2778,14 +2909,15 @@ Moreover one has
 \end{definition}
 
 
-\begin{lemma}\label{reduced_covering_lem}
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be a   quasi-covering (cf. Definitions \ref{fin_quasi_defn}). If both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$  respectively then  $\left(A, \widetilde{A}, G, \pi \right)$ is reduced (cf. Definition \ref{fin_red_defn}) if and only if there is a natural injective homomorphism  
+\begin{lemma}\label{reduced_covering_lem}  !!! DELETE !!!! 
+Let $\left(A, \widetilde{A}, G, \pi \right)$ be a   quasi-covering (cf. Definitions \ref{fin_quasi_defn}), and let  $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$  respectively. Le   $	p:\widetilde{\sX} \to {\sX}$ be  the continuous map  given by the equation \ref{spectrum_cov_eqn}, and let 
 \be
-\varphi: G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right)  \right\}
+\varphi: G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right) \right\}
 \ee
-where the map $	p:\widetilde{\sX} \to {\sX}$ is given by the Proposition \ref{spectrum_coverig_finite_prop} (cf. equation \ref{spectrum_cov_eqn}). %Moreover if $\left(A, \widetilde{A}, G, \pi \right)$ is a pre-covering (cf. Definition \ref{fin_pre_defn}) then the map $\varphi$ is isomorphism.
+be the homomorphism given by (i) of the Proposition \ref{spectrum_coverig_finite_prop}. If $\varphi$ is injective then the quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$ is reduced (cf. Definition \ref{fin_red_defn}).
 \end{lemma}
 \begin{proof}
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is not reduced then there are $g \in G$ and $\widetilde x\in \widetilde \sX$ such that $g\widetilde x = \widetilde x$ and $g$ yields a nontrivial $*$-automorphism of $\rep_{\widetilde x}\left( \widetilde A\right)$. If $\varphi$ is
 The existence of $\varphi$ follows from the Proposition \ref{spectrum_coverig_finite_prop}. If $\varphi$ is not injective then a subgroup $H \bydef \ker\phi$ is not trivial. 
 
 If $g \in H$ is not trivial there is $\widetilde x \in \widetilde\sX$ such that the action of $H$ on $\rep_{\widetilde x}\left( \widetilde A\right)$ is not trivial. So $\rep_{\widetilde x}\left( A\right)= \rep_{\widetilde x}\left( \widetilde A\right)^H \subsetneqq\rep_{\widetilde x}\left( \widetilde A\right)$ i.e. $\left(A, \widetilde{A}, G, \pi \right)$ is not reduced. From this contradiction we conclude that the group $H$ is trivial and the map $\varphi$ is injective.
@@ -3006,6 +3138,116 @@ The  $C^*$-algebra $A$ is \textit{proper with respect to covering compositions} 
 	\eean
 	of noncommutative finite-fold coverings.
 \end{definition}
+
+\begin{empt}\label{spectrum_ff_p_empt}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}). If both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ respectively then from the Remark \ref{unital_rem} one can deduce that $M\left(\pi \right)\left( C \right)\subset \widetilde C$, so there is an injective inclusion $C\subset \widetilde C$  of commutative $C^*$-algebras. If for both $A$ and $\widetilde A$ a prime spectrum coincides with primitive one (cf. Definition \ref{primitive_prime_spectrum_defn}) then from the Theorem \ref{dauns_hofmann_thm} it follows that  both $C$ and $\widetilde C$  are classes of bounded continuous functions on primitive spectra. From the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is an action $G \times \widetilde C \to \widetilde C$ such that $\widetilde C^G = C$. Similarly to the Lemma \ref{fin_hilbert_mod_lem} $\widetilde C$ is a $C^*$-Hilbert $C$-module.
+\end{empt}
+\begin{lemma}\label{spectrum_ff_p_lem}
+	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}). If   both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ then  $\widetilde C$ is a finitely generated $C$-module.
+\end{lemma}
+\begin{proof}
+	If $\widetilde C$ is not a finitely generated $C$-module  then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
+	$$
+	\widetilde C = \sum_{\la\in \La} M_\la,
+	$$
+	of right $C$-modules, such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	\widetilde C \subsetneqq \sum_{\la\in \La_0} M_\la,
+	$$
+	One has an algebraic sum 
+	$$
+	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
+	$$
+	of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
+	$$
+	From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde A \right)$ is not finitely generated $M\left( A\right)$-module. This fact contradicts with hypotheses of this Lemma.
+\end{proof}
+\begin{corollary}\label{spectrum_ff_p_cor}
+	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}). If  the spectrum $\sX$ of $A$ is Hausdorff then one has:
+	\begin{enumerate}
+		\item[(i)] the spectrum $\widetilde \sX$ of $\widetilde A$ is also Hausdorff,
+		\item[(ii)] the given by the Proposition \ref{spectrum_coverig_finite_prop} map $p: \widetilde \sX \to \sX$ is a transitive finite-fold covering,
+		\item [(iii)] for any $\widetilde x \in \widetilde \sX$ there is an an equality of subgroups
+		$$
+		\left\{g \in G\left| g\widetilde x = \widetilde x\right.\right\}= \ker\left(  G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right) \right\}\right)
+		$$	
+		of $G$.
+	\end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+	If $C$ is the center of $M\left( \widetilde A\right)$ then $C\cong C_b\left( \sX\right) = C\left(\bt \sX \right)$ where $\bt  \sX$ is the  {Stone-\v{C}ech compactification} of $\sX$ (cf. Definition  \ref{sc_comp_defn}). If $\widetilde C$ is the center of  $M\left( \widetilde{A}\right)$ then there is a compact set $\widetilde \sY$ such that $\widetilde C\cong C\left(\widetilde\sY \right)$. From the Lemma \ref{spectrum_ff_p_lem} it follows that $C\left(\widetilde\sY \right)$ is finitely generated $C\left(\bt \sX \right)$-module, and taking into account the Lemma \ref{pavlov_troisky_thm} the inclusion $ C\left(\bt \sX \right)\subset C\left(\widetilde\sY \right)$ corresponds to a finite-fold covering $M\left( p\right) : \widetilde\sY\to \bt \sX$. \\
+	(i) If the spectrum  $\widetilde \sX$ is not Hausdorff then there are $\widetilde x', \widetilde x''\in \widetilde\sX$ such that  $\widetilde x'\neq \widetilde x''$ and
+	$$
+	\forall \widetilde f \in \widetilde C \quad \widetilde f\left(\widetilde x' \right) = \widetilde f\left(\widetilde x'' \right).
+	$$
+	If $\widetilde I =\left\{ \left.\widetilde f \in \widetilde C\right| f\left(\widetilde x' \right) = \widetilde f\left(\widetilde x' \right) = 0  \right\}$ then there is $\widetilde y_0 \in \widetilde\sY$ such that
+	$$
+	\widetilde I= \widetilde I_{\widetilde y_0}\bydef \left\{ \left.\widetilde f \in \widetilde C\right| f\left(\widetilde y_0 \right) = 0  \right\}.
+	$$
+	From the Proposition \ref{spectrum_coverig_finite_prop} it follows that $p\left( \widetilde x'\right) = p\left( \widetilde x''\right) =x_0 = M\left( p\right)\left(\widetilde y_0 \right)$.
+	If $g \in G$ is such that $g \widetilde y_0 \neq \widetilde y_0$ then $\widetilde x'' \neq g\widetilde x'$, i.e. $G\widetilde x'\neq G\widetilde x''$, so from the Proposition \ref{spectrum_coverig_finite_prop} it follows that $p\left( \widetilde x'\right) \neq p\left( \widetilde x''\right)$, i.e. there is a contradiction. So the spectrum $\widetilde \sX$ is Hausdorff.\\
+	(ii) There is an inclusion $\widetilde \sX \to \widetilde \sY$
+	$$
+	\widetilde x \mapsto  \widetilde y \quad \Leftrightarrow \quad \left( \forall  \widetilde f \in \widetilde S \quad  \widetilde f\left(\widetilde x \right) = 0  \quad \Rrightarrow \quad \widetilde f\left(\widetilde y \right) = 0 \right).
+	$$
+	such that $p = M(p)|_{\widetilde x}$ so $p$ is a finite-fold covering. From the homeomorphism \eqref{spectrum_homeo_eqn}  it follows that the covering is transitive.\\
+	(iii) Follows from Lemma \ref{top_trans_tp_cov_lem}.
+\end{proof}
+\begin{lemma}\label{ctr_ccr_sp_lem} 
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering with unitization.
+	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) then $\widetilde{A}$ is  a $CCR$-algebra. 
+\end{lemma}
+\begin{proof}
+	From the Definition \ref{fin_unitization_defn} it turns out that
+	\begin{enumerate}
+		\item[(a)] 
+		There are unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
+		$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential ideal of $\widetilde{A}$ (resp. $\widetilde{B}$) and $A = B\bigcap \widetilde{A}$,
+		\item[(b)] There is a 
+		unital  noncommutative finite-fold covering $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+	\end{enumerate}
+	Any irreducible representation  $\widetilde{\rho} : \widetilde{A}\to B\left(\widetilde{\H} \right)$ can be uniquely extended up to $\widetilde{\rho} : \widetilde{B}\to B\left(\widetilde{\H} \right)$. If $\widetilde \xi \in \widetilde{\H}$ then from the Theorem \ref{irred_thm} it follows that $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$. If $\H \bydef \widetilde \rho\left( B\right)\widetilde \xi$ then there is a representation $\rho : B \to B\left(\H\right)$ and taking into account the Proposition   \ref{spectrum_coverig_finite_prop} we conclude that the representation is irreducible. According to the
+	Definition \ref{fin_unital_defn} and the 	
+	Remark \ref{fin_cov_kasp_rem} $\widetilde{B}$ is finitely generated projective module $B$-module, i.e. 
+	$$
+	\widetilde{B}\cong p_{\widetilde{B}} B^n
+	$$
+	where $p_{\widetilde{B}}: B^n \to B^n$ is a projector. So from $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$ and $ \H = \widetilde \rho\left( B \right) \widetilde \xi$ it follows that 
+	$$
+	\widetilde{\H}\cong p_{\widetilde{\H}} \H^n
+	$$
+	where $p_{\widetilde{\H}}: \H^n \to \H^n$ is a projector.
+	There is a diagonal action $\rho': B \to B\left( \H^n\right)$ such that
+	$$
+	b \in B \quad \Rightarrow\quad \rho' \left( b\right) \bydef \begin{pmatrix}
+		\rho\left(b \right)  & 0 &\ldots & 0\\
+		0& \rho\left(b \right)   &\ldots&0 \\
+		\vdots& \vdots &\ddots&\vdots\\
+		0& 0 & \ldots &\rho\left(b \right) 
+	\end{pmatrix}. 
+	$$
+	and 
+	$\widetilde \rho \left( b\right) = p_{\widetilde{\H}}\rho'\left( b\right)p_{\widetilde{\H}}$. 
+	If $a \in A$ then $\rho\left(a \right)$ is compact (cf. Definition \ref{ccr_defn}). So  both operators  $\rho'\left(a \right)$ and $\widetilde \rho \left( a\right) = p_{\widetilde{\H}}\rho'\left( a\right)p_{\widetilde{\H}}$ are compact, i.e.
+	\bean
+	\forall a \in A \quad \widetilde \rho \left( a\right) \in \K\left( \widetilde\H\right), 
+	\eean
+	From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde B$ such that 
+	\be\label{ctr_i_comp_eqn}
+	\widetilde A = \widetilde b_1A + ... + \widetilde b_nA,
+	\ee 
+	hence one has
+	$$
+	\widetilde \rho \left(	\widetilde A \right) = \widetilde \rho \left(\widetilde b_1\right) \widetilde \rho \left(\widetilde A\right) + ... +\widetilde \rho \left( \widetilde b_n\right) \widetilde \rho \left(A\right)	
+	$$
+	and taking into account that 	
+	$\widetilde{\rho}\left(A \right) \subset \K\left( \widetilde{\H}\right)$ we conclude that $\widetilde{\rho}\left(\widetilde A \right) \subset \K\left( \widetilde{\H}\right)$. From the Corollary \ref{ctr_ccr_i_cor} and the Theorem \ref{ctr_hat_check_thm} it follows that $\widetilde{\rho}\left(A \right) = \K\left( \widetilde{\H}\right)$. 
+	%From the Lemma \ref{quasi_hareditary_lem} it follows that the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ (cf. Definition \ref{hered_gen_defn}) equals to $\widetilde{\rho}\left(\widetilde A \right)$. If $\widetilde{\rho}\left(\pi\left( A \right) \right)\subsetneqq \widetilde{\rho}\left(\widetilde A \right)$ then there is a rank-one projector $\widetilde e \in \widetilde{\rho}\left(\widetilde A \right)\setminus \widetilde{\rho}\left(\pi\left( A \right) \right)$. If $\widetilde \H^\perp \subset \widetilde \H$ is an orthogonal to $\widetilde e \widetilde \H$ space then any 	$\widetilde{a}= \widetilde{b}'\widetilde{a}' \widetilde{b}''$ with $\widetilde{b}',\widetilde{b}''\in \widetilde{\rho}\left(\pi\left( A \right) \right)$ and $\widetilde a \in \widetilde{\rho}\left(\widetilde A \right)$ maps $\widetilde \H^\perp$ to  $\widetilde \H^\perp$ and taking into account that $\widetilde{\rho}\left(\pi\left( A \right) \right)$ is the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ we conclude that  $\widetilde \H^\perp$ is a non-trivial $\widetilde A$-subspaces for $\widetilde \rho$. This fact contradicts with (i) of the Theorem \ref{irred_thm} so the representation $\widetilde \rho$ is not irreducible. This contradiction proves that $\widetilde{\rho}\left(\pi\left( A \right) \right)= \widetilde{\rho}\left(\widetilde A \right)$, i.e. 
+\end{proof}
 
 
 
@@ -5764,80 +6006,6 @@ If $f' \in C_c\left( \sX\right)$ is a covering sum of $\sY$ (cf. Definition \ref
 \end{proof}
 
 
-\section{Transitive coverings}\label{top_transitive_section}
-\paragraph*{}
-The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering".
-
-\begin{definition}\label{top_transitive_defn}
-	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$ with connected $\widetilde\sX$  is said to be \textit{transitive}  
-if there is a properly discontinuous  group $G$ of homeomorphisms of a topological space $\widetilde\sX$  (cf. Definition \ref{top_properly_disc_defn}) such that $\sX \cong \widetilde\sX/G$ and $p: \widetilde{\mathcal X}\to {\mathcal X}$ is naturally equivalent to the given by the Theorem \ref{top_group_of_covering_transformations_thm} covering $\widetilde{\mathcal X} \to \widetilde{\mathcal X}/G$.
-\end{definition}
-\begin{remark}
-	From the Theorem \ref{top_cov_fact_thm} and the Lemma \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
-\end{remark}
-
-\begin{theorem}
-	\label{top_covp_cat_thm} 
-	Consider a commutative triangle of connected, Hausdorff topological spaces and  continuous maps
-\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-		\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
-		& {\mathcal X}\\};
-	\path[-stealth]
-	(m-1-1) edge node [above] {$p$} (m-1-3)
-	(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
-	(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-\end{tikzpicture}
-\\
-If both  $p_1$ and $p_2$ are transitive coverings (cf. Definition \ref{top_transitive_defn}) and the map $p$ is surjective then the map $p$ is a transitive covering and there is the natural exact sequence  
-\be\label{top_covp_cat_eqn}
-\{e\}\to G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\to 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\to\{e\}
-\ee
-of groups and homomorphisms.	
-
-	 
-\end{theorem}
-
-\begin{proof}
-	If   $\varphi : \widetilde{\sX}_1\xrightarrow{\approx }  \widetilde{\sX}_1$ is   a homeomorphism such that
-	$$
-	\forall \widetilde{x}_1\in \widetilde{\sX}_1\quad p\left( \widetilde{x}_1\right) = p\left( \varphi\left(\widetilde{x}_1\right)\right).
-	$$
-	then
-	$$
-	\forall \widetilde{x}_1\in \widetilde{\sX}_1\quad p_1\left( \widetilde{x}_1\right) = p_1\left( \varphi\left(\widetilde{x}_1\right)\right).
-	$$
-	so one has $\varphi \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. In result one has
-
-\bean 
-G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) \bydef \left\{\left.g \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right) ~\right|\forall \widetilde x_1\in \widetilde\sX_1\quad p\left(  \widetilde x_1\right) = p\left(  g\widetilde x_1\right) \right\}
-\eean
-and there is an injective homomorphism of groups
-\bean
-G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\hookto 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right).
-\eean
-For any   $\widetilde x_1\in \widetilde{\sX}_1$
-\be\label{top_guuu_eqn}
-\forall g_2 \in G\left(  \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\quad \exists g_1 \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\quad  g_2 p\left(\widetilde x_1  \right)= p \left(g_1\widetilde x_1  \right)
-\ee
-and
-\bean
-\forall g', g'' \in G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\quad g_2 p\left(\widetilde x_1  \right)= p \left(g'g_1\widetilde x_1  \right)= p \left(g_1 g''\widetilde x_1  \right),\\
-g_1G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)g_1,
-\eean
-or equivalently $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is a normal subgroup of $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. From \eqref{top_guuu_eqn} it follows that there ia a surjective homomorphism $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)$. From $\widetilde{\sX}_2= \widetilde{\sX}_1/G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ it follows that the covering $p$ is transitive.
-\end{proof}
-\begin{definition}\label{top_fin_cov_defn}
-	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
-	\begin{itemize}
-		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
-		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
-	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$. 	
-\end{definition}
-
 \section{Weak fundamental groups}
 \paragraph{}
 The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied for more general connected spaces.
@@ -7858,7 +8026,7 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 	$$
 	p_2 =  p_1 \circ p^2_1
 	$$ 
-	and taking into account the Lemma \ref{top_covp_cat_lem} it turns out that $p^2_1$ is a transitive covering. From the our construction it turns out
+	and taking into account the Lemma \ref{top_covp_cat_lem}  !!! REPLACE THEOREM 	\ref{top_covp_cat_thm} !!!  !!!! it turns out that $p^2_1$ is a transitive covering. From the our construction it turns out
 	$$
 	\left.\pi^1_2\right|_{\left.\mathscr C_0\left(\widetilde \sX_2\right)\right|_{\widetilde\sU_2}}= \left.\mathscr C_0\left(p^2_1 \right) \right|_{\left.\mathscr C_0\left(\widetilde \sX_2\right)\right|_{\widetilde\sU_2}}.
 	$$
@@ -8629,6 +8797,39 @@ Prove that
 
 
 \subsection{Coverings of $C^*$-algebras}
+\begin{lemma}\label{top_comm_lem}
+Let $p: \widetilde\sX \to \sX$ be a transitive covering  $\widetilde\sX$ and $\sX$. If the $*$homomorphism  $C_0\left( p\right) : C_0\left( \sX\right)\hookto C_0\left( \widetilde\sX\right)$ is given by \eqref{top_c0p_eqn} 
+ then the quadruple $$\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right), C_0\left(p \right)   \right),$$ where  is a  noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).  
+\end{lemma}
+\begin{proof}
+There is a one to one correspondence between homeomorphisms of  $\widetilde\sX$ and $*$-automorphisms of $C\left( \widetilde\sX\right)$ it follows that
+$$
+\left\{ \left.g \in \Aut\left(C\left( \widetilde\sX\right) \right)~\right|\forall a \in C_0\left(p \right)  \left( C\left( \sX\right)\right) \quad ga = a\right\}\cong G\left(\left.\widetilde{\sX}~\right|\sX\right)
+$$
+i.e. the quadruple $\left(C\left( \sX\right),C\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right), C_0\left(p \right)   \right)$
+is an  noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). \end{proof}
+\begin{corollary}\label{top_comm_cor}
+If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold covering (cf. Definition \ref{fin_unital_defn}) and 
+\be\label{top_comm_eqn}
+H  \bydef \ker\left(  G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right) \right\}\right)
+\ee
+then one has:
+\begin{enumerate}
+	\item [(i)] the spectrum $\widetilde \sX$ of $\widetilde A$ is Hausdorff,
+	\item[(ii)] the given by the Proposition  \ref{spectrum_coverig_finite_prop} map $p : \widetilde \sX\to \sX$ is a transitive finite-fold covering with $G\left(\left.\widetilde{\sX}~\right|\sX\right)\cong G/H$.
+	\item[(iii)] The normal subgroup $H \subset G$ is $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn})
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+(i) Follows from the Corollary \ref{spectrum_ff_p_cor}.
+(ii) Follows from the equation \eqref{top_comm_eqn} and the Corollary \ref{spectrum_ff_p_cor}.\\
+(iii) From \ref{top_comm_eqn} it follows that $\widetilde{A}^H\cong \left(\widetilde\sX \right)$, however from the Lemma \ref{top_comm_lem} it follows that
+$$
+\left(C_0\left( \sX\right),\widetilde{A}^H, G/H, C_0\left(p \right)   \right)=\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),\pi^H  \right)
+$$
+is a {noncommutative finite-fold  pre-covering}.
+\end{proof}
+
 \begin{lemma}\label{comm_ccr_lem}
 	If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold quasi-covering (cf. Definition \ref{fin_unital_defn}).
 	If $\widetilde \sX$ is  the spectrum of $\widetilde{A}$  then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover  there is $N \in \N$ such that for any ${x} \in {\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
@@ -8636,7 +8837,7 @@ Prove that
 \end{lemma}
 
 \begin{proof}
-	From the Definitions \ref{principal_non_defn} !!! CHECK !!! and \ref{fin_quasi_defn}  it follows that $\pi \left(1_{C\left(\sX \right) }\right)= 1_{\widetilde A}$. On the other hand there are $\widetilde{a}_1, ..., \widetilde{a}_n \in \widetilde{A}$ such that
+	From the Definition \ref{principal_non_defn} and the  Remark \ref{unital_rem}  it follows that $\pi \left(1_{C\left(\sX \right) }\right)= 1_{\widetilde A}$. On the other hand there are $\widetilde{a}_1, ..., \widetilde{a}_n \in \widetilde{A}$ such that
 	$$
 	\widetilde{A}= C\left(\sX \right) \widetilde{a}_1 +...+  C\left(\sX \right)\widetilde{a}_n
 	$$
@@ -8655,29 +8856,34 @@ where the map $p: \widetilde\sX \to \sX$ is given by the Proposition \ref{spectr
 	$$
 	i.e. the $C^*$-algebra   $\rep_{\widetilde x}\left(\widetilde A \right)$ is a finite-dimensional $\C$-space. So for all $x \in \sX$ there is $m \in \N$ such that $\rep_x\left(\widetilde A \right)\approx \mathbb{M}_m\left(\C \right)$. A $\C$-dimension of $\mathbb{M}_m\left(\C \right)$ equals to $m^2$, so $m < N$ where $N \ge \sqrt{n}$.
 \end{proof}
-\begin{corollary}\label{comm_ccrp_cor}
-	If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold covering (cf. Definition \ref{fin_unital_defn}) then $\widetilde A$ is a commutative $C^*$-algebra.
+\begin{corollary}\label{comm_comm_cor}
+Let $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ be an unital noncommutative  finite-fold covering (cf. Definition \ref{fin_unital_defn}) and $p :  \widetilde \sX \to \sX$ be a given by the Proposition \ref{spectrum_coverig_finite_prop} map from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum of $A$. Then the space $\widetilde \sX$ is Hausdorff, the map $p$ is a finite-fold transitive covering and the quadruple  $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is equivalent to the $\left(C\left( \sX\right),C\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right), C_0\left(p \right)   \right)$ one  where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
 \end{corollary}
-\begin{proof}
-	If $\widetilde \sX$ is the spectrum of $\widetilde{A}$ then  from the Lemma \ref{comm_ccr_lem} it follows that there is $n\in \N$ such that the dimension of  $\rep_{\widetilde x}\left(\widetilde A \right)\le n$. 	
+\begin{proof}   	
+	If $\widetilde \sX$ is the spectrum of $\widetilde{A}$ and then from the Corollary  \ref{top_comm_cor} and the Lemma \ref{fin_composition_lem} it follows that if 
+	$$
+H  \bydef \ker\left(  G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right) \right\}\right)	
+	$$ then there are $H$-regular and $H$-singular unital noncommutative finite-fold coverings 
+	\bean
+	\left(C\left( \sX\right),\widetilde{A}^H, G/H, C_0\left(p \right)   \right)=\left(C\left( \sX\right),C\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),\pi^H  \right),\\
+	\left(C\left( \widetilde\sX\right), \widetilde A, H, \left.\Id_{\widetilde A}\right|_{C\left( \widetilde\sX\right)} \right) 
+	\eean   
+From the Lemma \ref{comm_ccr_lem} it follows that there is $n\in \N$ such that the dimension of  $\rep_{\widetilde x}\left(\widetilde A \right)\le n$. 	
 Suppose that  $n> 1$.
-		From the Proposition \ref{less_n_pi_prop} it follows that there is an open subset $\widetilde \sU\subset \widetilde \sX$ having following properties:
-		\begin{itemize}
-			\item $\widetilde \sU'$ is Hausdorff,
-			\item $\forall \widetilde x \in \widetilde \sU'\quad \dim \dim \rep_{\widetilde x}\left( \widetilde A\right) = n$.
-		\end{itemize}
+		From the Proposition \ref{less_n_pi_prop} it follows that there is an open subset $\widetilde \sU'\subset \widetilde \sX$ such that 
+			$\forall \widetilde x \in \widetilde \sU'\quad  \dim \rep_{\widetilde x}\left( \widetilde A\right) = n$.
 		So the ideal $\left.\widetilde{A}\right|_{\widetilde{\sU}'}$ (cf. equation  \eqref{open_ideal_eqn}) is a homogeneous $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). From the Remark \ref{ctr_homo_rem} it turns out that there is an open subset $\widetilde \sU \subset \widetilde \sU'$ such that
 		$$
 	\left.\widetilde{A}\right|_{\widetilde{\sU}}\cong C_0\left( \widetilde\sU \right)\otimes \mathbb{M}_n\left(\C \right). 	
 		$$
-		From the Definitions \ref{principal_non_defn} !!! CHECK !!! and \ref{fin_quasi_defn}  it follows that $\pi \left(1_{C\left(\sX \right) }\right)= 1_{\widetilde A}$, so 
+		From the Remark \ref{unital_rem} and the  Definition \ref{principal_non_defn}  it follows that $\pi \left(1_{C\left(\sX \right) }\right)= 1_{\widetilde A}$, so 
 	\be\label{top_a_rep_eqn}
 	\begin{split}
-	 \forall a \in C\left(\sX \right) \quad \widetilde x \in \widetilde \sU \quad \rep_{\widetilde x}\left(\pi\left(  \widetilde a\right) \right)= a\left(p\left(  \widetilde x\right)  \right) 1_{\rep_{\widetilde x}\left(\widetilde a \right) }=\\=\begin{pmatrix}
-	a\left(p\left(  \widetilde x\right)\right)   & 0 &\ldots & 0\\
-	0& a\left(p\left(  \widetilde x\right)\right)  &\ldots&0 \\
+	 \forall \widetilde h \in C\left(\widetilde \sX \right) \quad \widetilde x \in \widetilde \sU \quad \rep_{\widetilde x}\left(\widetilde h \right)= \widetilde h\left( \widetilde x  \right) 1_{\rep_{\widetilde x}\left(\widetilde A \right) }=\\=\begin{pmatrix}
+	\widetilde h\left(\widetilde x\right)   & 0 &\ldots & 0\\
+	0& \widetilde h\left(\widetilde x\right)  &\ldots&0 \\
 	\vdots& \vdots &\ddots&\vdots\\
-	0& 0 & \ldots &a\left(p\left(  \widetilde x\right)\right)  
+	0& 0 & \ldots &\widetilde h\left(\widetilde x\right)  
 \end{pmatrix}.
 	\end{split}
 	\ee	
@@ -8731,23 +8937,17 @@ If $\epsilon \in \R$ and $\widetilde{u}_\epsilon \bydef p^\parallel e^{i\epsilon
  \ee
  From the equation \eqref{top_a_rep_eqn} it follows that 
 \bean
-\forall \widetilde x \in   \widetilde{\mathcal X} \quad \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( a\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{\widetilde{x}}\left( a\right).
+\forall \widetilde h \in C\left(\widetilde \sX \right) \quad \forall \widetilde x \in   \widetilde{\mathcal X} \quad \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( \widetilde h\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{\widetilde{x}}\left( a\right).
 \eean 
  It means that $\chi_{\epsilon}\left( a\right) = a$ for all $a \in C\left(\sX\right)$
 hence from \eqref{top_infe_eqn} it turns out that the  group
 \be\nonumber
-G \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ ga =  a\quad\forall \widetilde a \in C\left(\sX\right)\right\}
+H = \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g \left.\Id_{\widetilde A}\right|_{C\left( \widetilde\sX\right)}\left( \widetilde h \right) =  \left.\Id_{\widetilde A}\right|_{C\left( \widetilde\sX\right)}\left( \widetilde h \right)\quad\forall\widetilde h \in C\left(\widetilde \sX\right)\right\}
 \ee
-is not finite, i.e. one has the contradiction with (a) of the Definition \ref{fin_pre_defn}. From this contradiction it turns out that $\dim\rep_{ {x}}\left(\widetilde{A}\right)= 1$ for any ${x} \in {\sX}$, it means that $\widetilde{A}$ is commutative. 
-	
-		
-		
+is not finite. So $G$ is also infinite  i.e. one has the contradiction with (a) of the Definition \ref{fin_pre_defn}. From this contradiction it turns out that $\dim\rep_{ {x}}\left(\widetilde{A}\right)= 1$ for any ${x} \in {\sX}$, it means that $\widetilde{A}$ is commutative. So $\widetilde{A} = C\left( \widetilde  \sX\right)$. 
 \end{proof}
 
-\begin{empt}
-Let $A\bydef C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
-Let  $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}), and let both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ respectively. Let \ref{reduced_alg_defn}
-\end{empt}
+
 %\begin{lemma}\label{comm_homo_cov_lem}
 %	Let $A$ be an unital {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}).	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_unital_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Lemma \ref{spectrum_coverig_finite_prop}  then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. 
 %\end{lemma}
@@ -8781,13 +8981,6 @@ Let  $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite
 %From the Theorem \ref{pavlov_troisky_thm} it turns out $p$ is a finite-fold topological covering. From the Lemmas \ref{spectrum_coverig_finite_prop}  and \ref{top_trans_cov_lem} it turns out that the covering $p$ is  transitive topological and $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$.
 %\end{proof}
 
-\begin{corollary}\label{comm_comm_cor}
-	Let $A\bydef C\left(\sX\right)$ be an unital commutative $C^*$-algebra. Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_unital_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Proposition \ref{spectrum_coverig_finite_prop}  then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \left.\widetilde{\mathcal X}~\right|~ {\mathcal X}\right)$. Moreover the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to $$\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right)$$ where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
-\end{corollary}
-
-\begin{proof}
-	From the Corollary  \ref{comm_ccrp_cor} it follows that $\widetilde{A}$ is a commutative $C^*$-algebra, i.e. $\widetilde{A} \cong C\left( \widetilde{\sX}\right)$ where  $\widetilde{\sX}$ is the spectrum of $\widetilde{A}$. From the Definition \ref{fin_unital_defn} it follows that $C\left( \widetilde{\sX}\right)$ is a finitely generated $C\left( \sX\right)$-module. From the Theorem \ref{pavlov_troisky_thm} $p$ is a finite-fold covering. From \eqref{spectrum_homeo_eqn} it follows that $\sX \cong \widetilde \sX/G$, so the covering $p$ is transitive and $G  \cong G\left( \left.\widetilde{\mathcal X}~\right|~ {\mathcal X}\right)$.
-\end{proof}
 The algebraic construction of nonunital finite-fold coverings requires the following definition.
 \begin{definition}\label{top_covering_compactification_defn}
 	A   covering $p: \widetilde{   \mathcal X } \to \mathcal X$ is said to be a \textit{ covering with compactification} if there are compactifications ${   \mathcal X } \hookto {   \mathcal Y }$ and $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ such that:
@@ -9037,7 +9230,7 @@ If $\mathscr C \bydef \left(\sX, \left\{\C_x\cong \C\right\}_{x \in \sX},  C_0\l
 	$$
 	\left(p:\widetilde{\sX} \to \sX \right) \mapsto 	C_0\left( p\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}\right)
 	$$
-	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}. If $p':\widetilde{\sX}' \to \sX$ and $p'':\widetilde{\sX}'' \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p: \widetilde{\sX}' \to \widetilde{\sX}''$ is a morphism of $\mathfrak{FinCov}$-$\sX$ then from the Lemma \ref{top_covp_cat_lem} it turns out that $p$ is a transitive finite-fold covering. From the equation \eqref{top_c0_p_eqn} it follows that $p$ corresponds to the injective $*$-homomorphism
+	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}. If $p':\widetilde{\sX}' \to \sX$ and $p'':\widetilde{\sX}'' \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p: \widetilde{\sX}' \to \widetilde{\sX}''$ is a morphism of $\mathfrak{FinCov}$-$\sX$ then from the Lemma \ref{top_covp_cat_lem}  !!! REPLACE THEOREM 	\ref{top_covp_cat_thm} !!!  !!!! it turns out that $p$ is a transitive finite-fold covering. From the equation \eqref{top_c0_p_eqn} it follows that $p$ corresponds to the injective $*$-homomorphism
 	\be\label{top_c_funct_lem_eqn}
  	C_0\left(p \right)\bydef \mathscr C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
@@ -10182,7 +10375,7 @@ This section supplies a purely algebraic  analog of the topological construction
 	\end{itemize}
 following conditions hold:
 	\begin{itemize}
-		\item [(i)] the spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La C_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn} !!! CHECK !!!) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}),
+		\item [(i)] the spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La C_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn} !!! CHECK Remark \ref{unital_rem} !!!) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}),
 		\item[(ii)] if $\overline \H_a$ is the space of the atomic representation $\overline{\pi}_a :C_0\left(\overline  \sX\right) \hookto B\left( \overline \H_a \right)$ (cf. Definition \ref{atomic_repr_defn}) and $\widehat \H_a$ is the space of the atomic representation $\widehat{\pi}_a : \widehat A \hookto B\left( \widehat \H_a \right)$ then there is the natural isomorphism
 		$$
 		\overline \H_a \cong \widehat \H_a,
@@ -12244,8 +12437,15 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	\eean
 	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
 \end{proof}
-
-
+\begin{lemma}\label{blowing_group_lem}
+	There is a natural isomorphism of groups
+	\be\label{blowing_group_action_eqn}
+	G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\bydef \widetilde A\right)  \right) \right| \forall a \in A \quad g \pi\left(a \right) = \pi\left(a \right) \right\}.
+	\ee
+\end{lemma}
+\begin{proof}
+!!!
+\end{proof}
 \paragraph{!!! NEW}
 
 \begin{empt}\label{blowing_uc_empt}
@@ -12281,7 +12481,7 @@ Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of co
 the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$. If $\widetilde a \in K\left(\widetilde A \right)_+$ is a positive element of the Pedersen's ideal of $\widetilde A$ then the sum $a \bydef\sum_{	g \in G\left( \left. \widetilde A\right| A\right) }  \widetilde a$ is  a positive element of the Pedersen's ideal $K\left(A \right)$ of $\widetilde A$
 \end{proof}
 \begin{proof}
-If a finite subset $\left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}\subset  \subset M\left( \widetilde A\right)_+$ satisfies to \eqref{fin_compp_eqn} then one has
+If a finite subset $\left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}  \subset M\left( \widetilde A\right)_+$ satisfies to \eqref{fin_compp_eqn} then one has
 \be\label{blowing_fin_compp_eqn}
  \widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n =  \widetilde{b}_1A+...+\widetilde{b}_n A.
 \ee
@@ -12506,7 +12706,8 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 \ee	
 (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
 		\item[(iii)] under the hypothesis (ii) a triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
-		\item[(iv)]  under the hypothesis (ii) if a triple $\left(A, \overline A, \widehat{G} \right)$ is {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}) then there is a natural inclusion $A_0\left(\overline\sY \right) \subset \overline A$ such that $A_0\left(\overline\sY \right)$ is a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}) of $\overline A$.
+		\item[(iv)]  under the hypothesis (ii) if a triple $\left(A, \overline A, \widehat{G} \right)$ is {pre}-{covering of algebraical finite covering category}	
+		$\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}) and $A_0\left(\overline\sY \right)$ is a $C^*$-subalgebra of $\overline A$ then $A_0\left(\overline\sY \right)$ is  a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}) of $\overline A$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}(i)
@@ -12526,36 +12727,27 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 	\sum_{	g \in \ker\left(\widehat{G}\to  G\left( \left.  \sY_\la\right| \sY\right) \right)  } g \overline a, \quad \overline a \in K\left( A_0\left( \overline \sY\right) \right)
 	$$ 
 	(cf. equation \ref{basic_cov_cl_eqn}). From the Lemma \ref{blowing_lift_composition_lem} it follows that for all $\mu, \nu \in \La$ such that $\mu\le\nu$ the natural inclusion $A_0\left(q^\nu_\mu \right): A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)$ is  is a {finite}-$q^\nu_\mu$-{lift}. From the Theorem \ref{blowing_axiomatic_thm} it follows that  $\left(A_0\left( \sY_\mu\right) , A_0\left( \sY_\nu\right), G\left( \left.  \sY_\nu\right| \sY_\mu\right), A_0\left(q^\nu_\mu \right)\right)$ is a noncommutative finite-fold covering. So from hypotheses of this lemma follows that hypotheses of the Definition \ref{algebraical_finite_covering_category_defn}  hold.\\
-	(iv) From the Lemma \ref{infinite_faithful_nondegererate_lem} it follows that there  if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_0\left( \sY_\la\right)  \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful \ref{faithful_representation_defn} then there are natural faithful representations $\overline \pi: \overline A \hookto  B\left(\widehat{\H}\right)$ and $\overline \pi_0:  A_0\left( \overline \sY\right)  \hookto  B\left(\widehat{\H}\right)$. Firstly we prove that $\overline \pi_0\left(A_0\left( \overline \sY\right) \right) \subset \overline \pi\left(\overline A \right)$
-	 If $\overline a \in K\left(A_0\left( \overline\sY  \right). \right)_+$ then for any $\la \in \La$ let
+	(iv) From the Lemma \ref{infinite_faithful_nondegererate_lem} it follows that there  if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_0\left( \sY_\la\right)  \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful \ref{faithful_representation_defn} then there are natural faithful representations $\overline \pi: \overline A \hookto  B\left(\widehat{\H}\right)$ and $\overline \pi_0:  A_0\left( \overline \sY\right)  \hookto  B\left(\widehat{\H}\right)$.  Under the hypotheses (iv) one has 
 	$$
-a_\la \bydef \bt\text{-}	\sum_{	g \in \ker\left(\widehat{G}\to  G\left( \left.  \sY_\la\right| \sY\right) \right)  } g \overline a \in K\left( A_0\left(  \sY_\la\right) \right)	
+\overline \pi_0\left(   A_0\left( \overline \sY\right)\right) \subset \overline \pi\left(  \overline A \hookto  B\left(\widehat{\H}\right)\right). 	
 	$$
-	and $B_\la$ is a generated by $a_\la$ hereditary subalgebra of $A_0\left(  \sY_\la\right)$. For any $\la \in \La$ if 
-$$
-\overline L_\la \bydef \bigcap \left\{\left.\overline L\right| \overline L\subset \overline A\quad\text{~is a closed left ideal such that }\quad \overline A a_\la \subset \overline L_\la\right\} 
-$$
-then there ia a hereditary $C^*$-subalgebra $\overline B_\la\subset \overline A$ (cf. Definition \ref{hered_defn})
-$$
-\overline B_\la \bydef \overline L_\la \cap \overline L^*_\la 
-$$	
-(cf. Lemma \ref{hered_ideal_lem}).	The intersection $\overline B\bydef  \bigcap_{\la \in \La} \overline B_\la$ is also a hereditary subalgebra of $\overline A$. From the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_supp_defn}) is compact
-
-// ==========//
-
-	If $\overline B \subset \overline A$ is a $C^*$-subalgebra 
+	Since Pedersen's ideal $K\left( A_0\left( \overline \sY\right) \right)$  of $C^*$-algebra $A_0\left( \overline \sY\right)$ is dense in $ A_0\left( \overline \sY\right)$ one should prove
 	$$
-\overline B \bydef 	\left\{\overline b\in \overline A\left|\forall \la\in \La\sum_{	g \in \ker\left(\widehat{G}\to  G\left( \left.  \sY_\la\right| \sY\right) \right)  } g \overline b \in B_\la \right.\right\}
+\forall \overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \forall \overline b \in  \overline A\quad \overline b \le \overline a \quad \Rightarrow \quad \overline b \in K\left( A_0\left( \overline \sY\right) \right) 	
 	$$
-	then for any  $b_\la \in K\left(  B_\la\right)$ there is $\overline b \in \overline B$ such that 
+	If $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_supp_defn}) if compact.
+	From the Theorem \ref{top_compact_thm} it follows that there is an open set $\overline \sU$ and $\la_{\overline \sU} \in \La$ such that:
+	\begin{itemize}
+		\item $\supp \overline a \subset  \overline \sU$,
+		\item If $\overline q_{\la_{\overline \sU}} : \overline \sY \to \sY_\la$ then $\overline \sU$ is mapped homeomorphically onto $\sU_\la \bydef \overline q_{\la_{\overline \sU}}\left(  \overline \sU\right)$. 
+	\end{itemize}
+	If $\overline b \in  \overline A$ is such that $\overline b \le \overline a$ and 
 	$$
-b_\la \bydef \bt\text{-}	\sum_{	g \in \ker\left(\widehat{G}\to  G\left( \left.  \sY_\la\right| \sY\right) \right)  } g \overline b	
+		\overline a_{\la_{\overline \sU}}	\bydef \sum_{	g \in \ker\left( \widehat{G}\to G_{\la_{\overline \sU}}\right) }g \overline a \in A_0\left(\sY_{\la_{\overline{   \mathcal U }}} \right) 
+		\overline b_{\la_{\overline \sU}}	\bydef \sum_{	g \in \ker\left( \widehat{G}\to G_{\la_{\overline \sU}}\right) }g \overline b \in A_0\left(\sY_{\la_{\overline{   \mathcal U }}} \right) 
 	$$
-	From the Lemma \ref{blowing_pedersen_compact_lem} the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_supp_defn}) is compact. From the Theorem \ref{top_compact_thm}
-	
-	
-
-	
+	then  $ b_{\la_{\overline \sU}} \le  a_{\la_{\overline \sU}}$
+	From $\overline b \le \overline a$ and $\overline a =\lift^{\overline q_{\la_{\overline \sU}}}_{\overline \sU}\left( 	\overline a_{\la_{\overline \sU}}\right) $ it follows that  $\overline b =\lift^{\overline q_{\la_{\overline \sU}}}_{\overline \sU}\left( 	\overline b_{\la_{\overline \sU}}\right)\in A_0\left( \overline \sY\right)$. Taking into account $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ and $\overline b \le \overline a$ one has $\overline b \in K\left( A_0\left( \overline \sY\right) \right)$
 \end{proof}
 
 
@@ -12563,23 +12755,6 @@ b_\la \bydef \bt\text{-}	\sum_{	g \in \ker\left(\widehat{G}\to  G\left( \left.  
 \begin{lemma}\label{blowing_category_lem}
 , 	Let $q : \widetilde \sY \to \sY$ be a transitive covering with connected $\widetilde \sY$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite (cf. Definition \ref{residually_finite_defn})
 \end{lemma}
-\paragraph{!!!}
-\begin{lemma}\label{blowing_base_point_lem}   !!! REPLACE \ref{blowing_category_lem}    !!!!
-	If we consider the situation \ref{blowing_inf_empt}
-	then there is the natural  !!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn})
-	\begin{equation}\label{blowing_base_point_eqn}
-		\begin{split}
-			\mathfrak{S}!!! pt DELETE !!!_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)= \\ = \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
-		\end{split}
-	\end{equation}
-	where $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is an {associated with Hausdorff blowing-up} $C_0\left( \sY\right) \hookto M\left(A \right)$  functor  (cf. Definition \ref{blowing_funct_defn}).
-\end{lemma}
-
-\begin{proof}
-	From the Theorem \ref{blowing_functor_ff_thm}  !!! \ref{blowing_functor_f_thm} !!!!!!  it follows that the  functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}). The category \ref{blowing_top_eqn} is skeletal (cf. Definition \ref{skeletal_defn}), so the category $\mathfrak{S}!!! pt DELETE !!!_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)$ is also skeletal.
-\end{proof}
-\
-\paragraph{!!!!}
 \begin{lemma}\label{blowing_disconnected_lem}
 	Let $C_0\left( \sY\right) \to A$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), such that $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!).
 	Let $q:\widetilde \sY \to \sY$ be a transitive covering with residually finite $G\left(\left.\widetilde \sY\right|\sY \right)$. Suppose that both $ \widetilde \sY $ is connected. If  	$A_b\left(q\right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
@@ -15256,61 +15431,33 @@ Our following constructions require an analog of the Dini's theorem.
 
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
-\subsubsection{Coverings of $CCR$-algebras}
-\begin{lemma}\label{ctr_ccr_sp_lem} 
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering with unitization.
-	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) then $\widetilde{A}$ is  a $CCR$-algebra. 
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{fin_unitization_defn} it turns out that
+
+
+\paragraph{!!!}
+\begin{corollary}\label{ctr_comm_cor}!!!
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative  finite-fold covering with unitization (cf. Definition \ref{fin_unital_defn}) 
+	\be\label{ctr_comm_eqn}
+	H  \bydef \ker\left(  G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right) \right\}\right)
+	\ee
+	where $p:  \widetilde\sX \to \sX$ is a given by the Proposition \ref{spectrum_coverig_finite_prop}  map from the spectrum $\widetilde\sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$.
+	If $A$ is a $CCR$-algebra and  $\sX$  is Hausdorff then one has:
 	\begin{enumerate}
-		\item[(a)] 
-		There are unital $C^*$-algebras $B$, $\widetilde{B}$  and inclusions 
-		$A \subset B$,  $\widetilde{A}\subset \widetilde{B}$ such that $A$ (resp. $B$) is an essential ideal of $\widetilde{A}$ (resp. $\widetilde{B}$) and $A = B\bigcap \widetilde{A}$,
-		\item[(b)] There is a 
-		unital  noncommutative finite-fold covering $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+		\item [(i)] the space $\widetilde \sX$  is Hausdorff,
+		\item[(ii)] the  map $p : \widetilde \sX\to \sX$ is a transitive finite-fold covering with $G\left(\left.\widetilde{\sX}~\right|\sX\right)\cong G/H$.
+		\item[(iii)] The normal subgroup $H \subset G$ is $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn})
 	\end{enumerate}
-	Any irreducible representation  $\widetilde{\rho} : \widetilde{A}\to B\left(\widetilde{\H} \right)$ can be uniquely extended up to $\widetilde{\rho} : \widetilde{B}\to B\left(\widetilde{\H} \right)$. If $\widetilde \xi \in \widetilde{\H}$ then from the Theorem \ref{irred_thm} it follows that $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$. If $\H \bydef \widetilde \rho\left( B\right)\widetilde \xi$ then there is a representation $\rho : B \to B\left(\H\right)$ and taking into account the Proposition   \ref{spectrum_coverig_finite_prop} we conclude that the representation is irreducible. According to the
-	Definition \ref{fin_unital_defn} and the 	
-	Remark \ref{fin_cov_kasp_rem} $\widetilde{B}$ is finitely generated projective module $B$-module, i.e. 
+\end{corollary}
+\begin{proof}
+	(i) Follows from the Corollary \ref{spectrum_ff_p_cor}.\\
+	(ii) Follows from the equation \eqref{ctr_comm_eqn} and the Corollary \ref{spectrum_ff_p_cor}.\\
+	(iii) From \ref{ctr_comm_eqn} it follows that $\widetilde{A}^H\cong C_0\left(\widetilde\sX \right)$, however from the Lemma \ref{blowing_group_lem} it follows that
 	$$
-	\widetilde{B}\cong p_{\widetilde{B}} B^n
+	\left(C_0\left( \sX\right),\widetilde{A}^H, G/H, C_0\left(p \right)   \right)=\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),\pi^H  \right)
 	$$
-	where $p_{\widetilde{B}}: B^n \to B^n$ is a projector. So from $\widetilde \H = \widetilde \rho\left(\widetilde B \right) \widetilde \xi$ and $ \H = \widetilde \rho\left( B \right) \widetilde \xi$ it follows that 
-	$$
-	\widetilde{\H}\cong p_{\widetilde{\H}} \H^n
-	$$
-	where $p_{\widetilde{\H}}: \H^n \to \H^n$ is a projector.
-	There is a diagonal action $\rho': B \to B\left( \H^n\right)$ such that
-	$$
-	b \in B \quad \Rightarrow\quad \rho' \left( b\right) \bydef \begin{pmatrix}
-		\rho\left(b \right)  & 0 &\ldots & 0\\
-		0& \rho\left(b \right)   &\ldots&0 \\
-		\vdots& \vdots &\ddots&\vdots\\
-		0& 0 & \ldots &\rho\left(b \right) 
-	\end{pmatrix}. 
-	$$
-	and 
-	$\widetilde \rho \left( b\right) = p_{\widetilde{\H}}\rho'\left( b\right)p_{\widetilde{\H}}$. 
-	If $a \in A$ then $\rho\left(a \right)$ is compact (cf. Definition \ref{ccr_defn}). So  both operators  $\rho'\left(a \right)$ and $\widetilde \rho \left( a\right) = p_{\widetilde{\H}}\rho'\left( a\right)p_{\widetilde{\H}}$ are compact, i.e.
-	\bean
-	\forall a \in A \quad \widetilde \rho \left( a\right) \in \K\left( \widetilde\H\right), 
-	\eean
-	From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde B$ such that 
-	\be\label{ctr_i_comp_eqn}
-	\widetilde A = \widetilde b_1A + ... + \widetilde b_nA,
-	\ee 
-	hence one has
-	$$
-	\widetilde \rho \left(	\widetilde A \right) = \widetilde \rho \left(\widetilde b_1\right) \widetilde \rho \left(\widetilde A\right) + ... +\widetilde \rho \left( \widetilde b_n\right) \widetilde \rho \left(A\right)	
-	$$
-	and taking into account that 	
-	$\widetilde{\rho}\left(A \right) \subset \K\left( \widetilde{\H}\right)$ we conclude that $\widetilde{\rho}\left(\widetilde A \right) \subset \K\left( \widetilde{\H}\right)$. From the Corollary \ref{ctr_ccr_i_cor} and the Theorem \ref{ctr_hat_check_thm} it follows that $\widetilde{\rho}\left(A \right) = \K\left( \widetilde{\H}\right)$. 
-	%From the Lemma \ref{quasi_hareditary_lem} it follows that the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ (cf. Definition \ref{hered_gen_defn}) equals to $\widetilde{\rho}\left(\widetilde A \right)$. If $\widetilde{\rho}\left(\pi\left( A \right) \right)\subsetneqq \widetilde{\rho}\left(\widetilde A \right)$ then there is a rank-one projector $\widetilde e \in \widetilde{\rho}\left(\widetilde A \right)\setminus \widetilde{\rho}\left(\pi\left( A \right) \right)$. If $\widetilde \H^\perp \subset \widetilde \H$ is an orthogonal to $\widetilde e \widetilde \H$ space then any 	$\widetilde{a}= \widetilde{b}'\widetilde{a}' \widetilde{b}''$ with $\widetilde{b}',\widetilde{b}''\in \widetilde{\rho}\left(\pi\left( A \right) \right)$ and $\widetilde a \in \widetilde{\rho}\left(\widetilde A \right)$ maps $\widetilde \H^\perp$ to  $\widetilde \H^\perp$ and taking into account that $\widetilde{\rho}\left(\pi\left( A \right) \right)$ is the generated by $\widetilde{\rho}\left(\pi\left( A \right) \right)$ hereditary subalgebra of $\widetilde{\rho}\left(\widetilde A \right)$ we conclude that  $\widetilde \H^\perp$ is a non-trivial $\widetilde A$-subspaces for $\widetilde \rho$. This fact contradicts with (i) of the Theorem \ref{irred_thm} so the representation $\widetilde \rho$ is not irreducible. This contradiction proves that $\widetilde{\rho}\left(\pi\left( A \right) \right)= \widetilde{\rho}\left(\widetilde A \right)$, i.e. 
+	is a {noncommutative finite-fold  pre-covering}.
 \end{proof}
 
-\subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
-
+\paragraph{!!!}
 \begin{lemma}\label{ctr_fin_inv_lem} 
 	Let  $A$ be a $C^*$-algebra, with Hausdorff spectrum $\sX$. If $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}) and $p: 	\widetilde \sX \to \sX$ is a finite-fold transitive covering then there is a noncommutative finite-fold covering 
 	$$
@@ -15366,8 +15513,37 @@ a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn})
 \begin{lemma}\label{ctr_fin_h_lem}
 Under the hypotheses of \ref{ctr_fin_empt} the quadruple $\left( A, \widetilde A, G, \pi\right)$ is a reduced noncommutative finite-fold covering with unitization  (cf. Definitions \ref{fin_unitization_defn} and \ref{fin_red_defn}).
 \end{lemma}
+\paragraph{!!!}
+\begin{empt}\label{spectrum_ff_p_empt!}
+	Under the hypotheses of the Corollary \ref{cov_mult_fin_c_cor} let both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ respectively then from the Remark \ref{unital_rem} one can deduce that $M\left(\pi \right)\left( C \right)\subset \widetilde C$, so there is an injective inclusion $C\subset \widetilde C$  of commutative $C^*$-algebras. If for both $A$ and $\widetilde A$ a prime spectrum coincides with primitive one (cf. Definition \ref{primitive_prime_spectrum_defn}) then from the Theorem \ref{dauns_hofmann_thm} it follows that  both $C$ and $\widetilde C$  are classes of bounded continuous functions on primitive spectra, then from the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is an action $G \times \widetilde C \to \widetilde C$ such that $\widetilde C^G = C$. Similarly to the Lemma \ref{fin_hilbert_mod_lem} $\widetilde C$ is a $C^*$-Hilbert $C$-module.
+\end{empt}
+\begin{lemma}\label{spectrum_ff_p_lem!}
+	Under the hypotheses of \ref{spectrum_ff_p_empt} $\widetilde C$ is a finitely generated $C$-module.
+\end{lemma}
 \begin{proof}
-	Suppose that the group $H$ is not trivial and for any $\widetilde a \in \widetilde A$ denote by
+	If $\widetilde C$ is not a finitely generated $C$-module  then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
+	$$
+	\widetilde C = \sum_{\la\in \La} M_\la,
+	$$
+	of right $C$-modules, such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	\widetilde C \subsetneqq \sum_{\la\in \La_0} M_\la,
+	$$
+	One has an algebraic sum 
+	$$
+	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
+	$$
+	of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
+	$$
+	From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde A \right)$ is not finitely generated $M\left( A\right)$-module. This fact contradicts with hypotheses of this Lemma.
+\end{proof}
+
+
+\paragraph{!!!}
+\begin{proof}
+	Suppose that the group $H\bydef \ker\left(G \to \mathrm{Homeo}\left(\widetilde \sX \right) \right)$ is not trivial and for any $\widetilde a \in \widetilde A$ denote by
 	\bean
 	\widetilde a^\parallel \bydef \frac{1}{\left|H \right| } \sum_{	g \in H}g \widetilde a,\\
 	\widetilde a^\perp \bydef \widetilde a-\widetilde a^\parallel,\\
@@ -15376,7 +15552,7 @@ Under the hypotheses of \ref{ctr_fin_empt} the quadruple $\left( A, \widetilde A
 	\forall \widetilde x \in \widetilde\sX \quad \rep_{ \widetilde{x}}\left(\widetilde{A}^\parallel \right)=\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right),\quad \rep_{ \widetilde{x}}\left(\widetilde{A}^\perp \right)\cap\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right)= \{0\}
 	\eean
 	where $\oplus$ means a direct sum of $A$-$A$-bimodules. 
-	If the quadruple $\left( A, \widetilde A, G, \pi\right)$ is not  reduced then the group $H$ is not trivial (cf. Lemma \ref{reduced_covering_lem}). From the Corollary \ref{ctr_ccr_i_cor} it turns out that $\widetilde A$ is a $C^*$-algebra is of type $I$. 	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential ideal $\widetilde I$ which is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_ess_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. If  $\widetilde x_0 \in \widetilde\sX$ is such that $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right) \subsetneq \rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)$ then $H$ non trivially acts of  $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. According to  the construction \ref{ctr_imprim_empt} there is a compact neighborhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset  \widetilde\sX_{\widetilde I}$ and  $\left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
+ From the Corollary \ref{ctr_ccr_i_cor} it turns out that $\widetilde A$ is a $C^*$-algebra is of type $I$. 	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential ideal $\widetilde I$ which is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_ess_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. If  $\widetilde x_0 \in \widetilde\sX$ is such that $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right) \subsetneq \rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)$ then $H$ non trivially acts of  $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. According to  the construction \ref{ctr_imprim_empt} there is a compact neighborhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset  \widetilde\sX_{\widetilde I}$ and  $\left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
 	is an $\left.\widetilde A\right|^{\widetilde\sV}-\left. \widetilde e\right|^{\widetilde\sV}\left.A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}\cong C\left({\widetilde\sV}\right)$-imprimitivity bimodule. If 	 We denote it by $X_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$ then from $\widetilde A = \widetilde A^\parallel \oplus \widetilde A^\perp$ it follows that three is a direct sum  $	X_{C\left( \widetilde\sV\right)}= 	X^\parallel_{C\left( \widetilde\sV\right)}\oplus 	X^\perp_{C\left( \widetilde\sV\right)}$ where
 	\bean
 	X^\parallel_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A^\parallel\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV},\\
@@ -16093,7 +16269,7 @@ Follows from the Theorem \ref{blowing_inf_cov_thm}
 \begin{lemma}\label{blowing_atomic_lem} Under the hypotheses  of the Lemma \ref{ctr_intinite_hausdorff_covering_lem} 
 	following conditions hold:
 	\begin{itemize}
-		\item [(i)] the spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn} !!! CHECK !!!) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}),
+		\item [(i)] the spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn} !!! CHECK Remark \ref{unital_rem} !!!) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}),
 		\item[(ii)] if $\overline \H_a$ is the space of the atomic representation $\overline{\pi}_a :A_0\left(\overline  \sX\right) \hookto B\left( \overline \H_a \right)$ (cf. Definition \ref{atomic_repr_defn}) and $\widehat \H_a$ is the space of the atomic representation $\widehat{\pi}_a : \widehat A \hookto B\left( \widehat \H_a \right)$ then there is the natural isomorphism
 		$$
 		\overline \H_a \cong \widehat \H_a,
@@ -19291,7 +19467,7 @@ This fact motivates usage of $A\otimes\K$ instead of $A$ in the Definition \ref{
 	This exercise is a manifestation of the Remark 	\ref{stab_non_iso_rem}.
 \end{exercise}
 \paragraph*{}
-The torus $\T^2$ can be regarded as a quotient $\T^2 = \R^2/\Z^2$. There is the natural infinite covering $\widetilde p : \R^2\to\T^2$. From the Lemma \ref{top_uni_exist_spa_lem} it follows that $\widetilde p$ is the universal covering such that $G\left(\left.\R^2\right|\T^2\right)\cong \Z^2$. Let us select base points $x_0\in \T^2$ and $\widetilde x_0 \in \R^2$ such that $\widetilde p: \left(\R^2, \widetilde x_0\right)\to \left(\T^2 x_0\right)$ is a !!! pointed  DELETE !!!map. Consider the family of all !!! pointed  DELETE !!!finite-fold coverings $\left\{p_\la:\left(\sX_\la, x^\la_0\right)\to \left(\T^2 ,x_0\right)\right\}_{\la\in \La}$ such that for any $\la\in \La$ there is a !!! pointed  DELETE !!!covering $\widetilde p_\la: \left(\R^2, \widetilde x_0\right)\to \left(\sX_\la, x^\la_0\right)$ which satisfies to the following condition $\widetilde p_\la\circ p_\la=\widetilde p$. The group $\Z^2$ is residually finite  (cf. Definition \ref{residually_finite_defn}), hence from the Lemma \ref{top_associded_lem} !!! CHECK !!! !!! \ref{top_associated_defn} CHECK DEFN !! it fo $\R^2$ is the topological inverse noncommutative limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category 
+The torus $\T^2$ can be regarded as a quotient $\T^2 = \R^2/\Z^2$. There is the natural infinite covering $\widetilde p : \R^2\to\T^2$. From the Lemma \ref{top_uni_exist_spa_lem} it follows that $\widetilde p$ is the universal covering such that $G\left(\left.\R^2\right|\T^2\right)\cong \Z^2$. Let us select base points $x_0\in \T^2$ and $\widetilde x_0 \in \R^2$ such that $\widetilde p: \left(\R^2, \widetilde x_0\right)\to \left(\T^2 x_0\right)$ is a !!! pointed  DELETE !!!map. Consider the family of all !!! pointed  DELETE !!!finite-fold coverings $\left\{p_\la:\left(\sX_\la, x^\la_0\right)\to \left(\T^2 ,x_0\right)\right\}_{\la\in \La}$ such that for any $\la\in \La$ there is a !!! pointed  DELETE !!!covering $\widetilde p_\la: \left(\R^2, \widetilde x_0\right)\to \left(\sX_\la, x^\la_0\right)$ which satisfies to the following condition $\widetilde p_\la\circ p_\la=\widetilde p$. The group $\Z^2$ is residually finite  (cf. Definition \ref{residually_finite_defn}), hence from the Lemma \ref{top_associded_lem} !!! CHECK Remark \ref{unital_rem} !!! !!! \ref{top_associated_defn} CHECK DEFN !! it fo $\R^2$ is the topological inverse noncommutative limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category 
 $
 \mathfrak{S}_{\left(\T^2, x_0\right)}\left\{p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \T^2, x_0\right)\right\}_{\la\in\La}.
 $
@@ -21329,7 +21505,7 @@ that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ \textit{acts
 		$$
 		is a covering projection onto some component of $\widetilde{\mathcal X}$.
 	\end{theorem}
-	%\begin{lemma}\label{top_covp_cat_lem}
+	%\begin{lemma}\label{top_covp_cat_lem}  !!! REPLACE THEOREM 	\ref{top_covp_cat_thm} !!!  !!!!
 	%In the {category of connected covering spaces} of a connected locally path-connected space every morphism is itself a covering projection.
 	%\end{lemma}
 	\begin{theorem}\label{top_conjugate_thm}\cite{spanier:at}
