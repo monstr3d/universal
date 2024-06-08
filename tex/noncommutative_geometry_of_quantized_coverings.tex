@@ -1109,51 +1109,6 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 \begin{remark}
 	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
 \end{remark} 
-\begin{lemma}\label{top_covp_cat_lem}  !!! REPLACE THEOREM 	\ref{top_covp_cat_thm} !!!  !!!!
-	Consider a commutative triangle of connected topological spaces and  continuous maps
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
-			& {\mathcal X}\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p$} (m-1-3)
-		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	Suppose  $\sX$ is a  locally compact, locally connected,  Hausdorff space and $p_1$, $p_2$ are coverings. For all $g\in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ the following condition holds
-	$$
-	\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)= p\left( \widetilde x_1\right) . 
-	$$
-\end{lemma}
-\begin{proof}
-	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p\left(  g\widetilde x_1\right) \neq p\left( \widetilde x_1\right) $. There are open neighborhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x_1\right) $ and $p\left( \widetilde gx_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open neighborhood $\widetilde\sV_1$ of $\widetilde x_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde x \right) \neq p\left( \widetilde x\right)$ for all $\widetilde x \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
-	$$
-	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) \neq p\left( \widetilde x\right)\right\}
-	$$
-	is open, or equivalently the set
-	$$
-	\widetilde{ \mathcal W}_1	=	\left\{\left.\widetilde x \in \widetilde \sX_1~\right| p\left(  g\widetilde x\right) = p\left( \widetilde x\right)\right\}
-	$$
-	is closed.  Suppose that $\widetilde x_1 \in \widetilde \sX_1$ is such that $\widetilde x_1 = g \widetilde x_1$. There is an  open neighborhood $\widetilde \sU'_1$ of $\widetilde x_1$ such that $\left.p_1\right|_{\widetilde\sU'_1}$ is injective. There is an open neighborhood $\widetilde \sU'_2$ of $p\left( \widetilde x_1\right) $ such that $\left.p_2\right|_{\widetilde\sU'_2}$ is injective. Since $\sX$ is locally connected !!! \ref{top_consents_defn} !!!  !!! \ref{top_consents_defn} !!!there is a connected open neighborhood $\sU$ of $p_1\left(\widetilde x_1\right)$ such that $\sU\subset p_1\left(\widetilde \sU'_1\right)\cap p_2\left(\widetilde\sU'_2 \right)$. If $\widetilde\sU_1 = \widetilde\sU'_1
-	\cap p_1^{-1}\left(\sU\right)$ and  $\widetilde\sU_2 = \widetilde\sU'_2
-	\cap p_2^{-1}\left(\sU\right)$ then both $\left.p_1\right|_{\widetilde\sU_1}$ and $\left.p_2\right|_{\widetilde\sU_2}$ are injective and may be regarded as homeomorphisms from both $\widetilde\sU_1$ and $\widetilde\sU_2$ onto $\sU$. For any $\widetilde x \in \widetilde\sU_1$ one has
-	$$
-	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left(g\widetilde x \right).
-	$$
-	On the other hand from $g \in  G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)$ it follows that  $p_1\left(g \widetilde x \right) =  p_1\left( \widetilde x \right)$, hence the following condition holds
-	$$
-	p\left(g \widetilde x \right)= \left( \left.p_2\right|_{\widetilde\sU_2}\right)^{-1}\circ p_1\left( \widetilde x \right)=  p\left( \widetilde x \right).
-	$$
-	The above equation is true for all $\widetilde x \in \widetilde\sU_1$ so the set 	$\widetilde{ \mathcal W}_1$ is open.
-	From $\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)$ it turns out that $\widetilde{ \mathcal W}_1 \neq \emptyset$ and taking into account that $\sX$ is connected we conclude that $\widetilde{ \mathcal W}_1 = \widetilde{ \mathcal X}_1$. It equivalently means that
-	$$
-	\forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)=p\left( \widetilde x_1\right) .
-	$$
-\end{proof}
-
 
 \begin{theorem}
 	\label{top_covp_cat_thm} 
@@ -1209,7 +1164,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	or equivalently $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is a normal subgroup of $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. From \eqref{top_guuu_eqn} it follows that there ia a surjective homomorphism $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)$. From $\widetilde{\sX}_2= \widetilde{\sX}_1/G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ it follows that the covering $p$ is transitive.
 \end{proof}
 \begin{definition}\label{top_fin_cov_defn}
-	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
+	Let $\sX$ be a connected, locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
 	\begin{itemize}
 		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
 		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
@@ -1956,7 +1911,7 @@ From the Lemma \ref{increasing_convergent_w_lem} it follows that there is a limi
 \end{remark}
 
 
-\begin{definition}\label{hereditary_proper_lift_defn} 
+\begin{definition}\label{strictly_proper_defn}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) such that $A$ is a connected $C^*$-algebra. 	Let $B\subset A$ 	
 	be a hereditary connected $C^*$-subalgebra (cf.  Definitions \ref{hered_defn}, \ref{connected_c_a_defn}), and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn}). We say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if one has a natural isomorphism 
 	\be\label{hered_proper_lift_eqn}	
@@ -1971,12 +1926,12 @@ From the Lemma \ref{increasing_convergent_w_lem} it follows that there is a limi
 \begin{lemma}\label{fin_composition_unihereditary_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold pre-covering   (cf. Definition \ref{fin_pre_defn}).  Let $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper normal subgroup (cf. Definition \ref{proper_subgroup_fin_defn}). Let $B\subset A$ be a  $\left(A, \widetilde{A}, G, \pi \right)$-hereditary subalgebra. Let both \\$\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
 	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$ are given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem}. 
-	 {noncommutative finite-fold  pre-coverings}. If a hereditary $C^*$-subalgebra $B\subset A$ is $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} (cf. Definition \ref{hereditary_proper_lift_defn}) and  $\widetilde B$ is a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn})	 
+	 {noncommutative finite-fold  pre-coverings}. If a hereditary $C^*$-subalgebra $B\subset A$ is $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} (cf. Definition \ref{strictly_proper_defn}) and  $\widetilde B$ is a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn})	 
 	 then following conditions hold:
 \begin{itemize}
-	\item[(i)] a $C^*$-algebra $\widetilde B^H$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-lift of $B$ (cf. Definition \ref{hereditary_proper_lift_defn});
+	\item[(i)] a $C^*$-algebra $\widetilde B^H$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-lift of $B$ (cf. Definition \ref{strictly_proper_defn});
 	\item[(ii)] a $C^*$-algebra $\widetilde B$ is a $\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$-lift of $\widetilde B^H$;
-	\item[(iii)] a hereditary $C^*$-subalgebra $B\subset A$  is $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper}, and a hereditary subalgebra $\widetilde B^H\subset \widetilde A^H$ is $\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}).
+	\item[(iii)] a hereditary $C^*$-subalgebra $B\subset A$  is $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper}, and a hereditary subalgebra $\widetilde B^H\subset \widetilde A^H$ is $\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$-strictly proper (cf. Definition \ref{strictly_proper_defn}).
 \end{itemize}	 
 \end{lemma}
 \begin{proof}
@@ -2004,7 +1959,7 @@ and from the Remark \ref{hered_lift_au_rem} it follows that $\widetilde{B}' = \w
 \end{proof}
 
 \begin{definition}\label{fin_defn}
-A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$    is said to be   a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family  $\left\{A_\la \subset A\right\}_{\la\in\La}$ of connected $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}) $C^*$-subalgebras such that following conditions hold:
+A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$    is said to be   a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family  $\left\{A_\la \subset A\right\}_{\la\in\La}$ of connected $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  (cf. the Definition \ref{strictly_proper_defn}) $C^*$-subalgebras such that following conditions hold:
 \begin{enumerate}
 	\item[(a)] 
 $$
@@ -2016,7 +1971,7 @@ $
 \bigcup_{\la\in\La} A_\la
 $
 is dense in $A$.
-%\item[(c)] for all $\la\in\La$ every connected component of $A_\la$ is strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}). 
+%\item[(c)] for all $\la\in\La$ every connected component of $A_\la$ is strictly proper  (cf. the Definition \ref{strictly_proper_defn}). 
 \end{enumerate}
   The group $G$ is said to be the \textit{finite covering transformation group} (of $\left(A, \widetilde{A},G, \pi\right)$ ) and we use the following notation
 \begin{equation}\label{group_cov_eqn}
@@ -2067,7 +2022,7 @@ On the other hand from the Definition \ref{hereditary_lift_defn} and the Lemma \
 	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$  given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} are noncommutative finite-fold coverings. 
 \end{lemma}
 \begin{proof}
-Let $\left\{A_\la \subset A\right\}_{\la\in\La}$  be the required by the Definition \ref{fin_defn} indexed by a directed set $\La$ family of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn}). From  (iii) of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $A_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper} hereditary $C^*$-subalgebra for all  $\la\in \La$. Taking into account that a union $\cup_{\la\in \La} A_\la$ is dense in $A$ one concludes that the quadruple $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ a noncommutative finite-fold covering.
+Let $\left\{A_\la \subset A\right\}_{\la\in\La}$  be the required by the Definition \ref{fin_defn} indexed by a directed set $\La$ family of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}). From  (iii) of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $A_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper} hereditary $C^*$-subalgebra for all  $\la\in \La$. Taking into account that a union $\cup_{\la\in \La} A_\la$ is dense in $A$ one concludes that the quadruple $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ a noncommutative finite-fold covering.
 
 If $\widetilde A^H_\la$ is a hereditary $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-lift of $A_\la$ (cf. Definition \ref{hereditary_lift_defn}) then from  the Lemma \ref{fin_def_lem} it turns out that the union $\cup_{\la\in \La} \widetilde A^H_\la$ is dense in $\widetilde A^H$. On the other hand from (iii) 
 of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $\widetilde{A}^H_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-strictly proper hereditary $C^*$-subalgebra. From the Definition \ref{fin_defn} it turns out that the quadruple 
@@ -7564,21 +7519,11 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 \end{empt}
 \begin{definition}\label{top_c_funct_defn}    
 	Consider the finite covering functor associated with $$A = \left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)$$ (cf. Definition \ref{top_cs_funct_defn}) from the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to be the \textit{finite covering algebraic functor}. We denote this functor by $C_0$. 
-	The restriction of $C_0$ on $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is also said to be the \textit{pointed  finite covering algebraic functor} and also denoted by $C_0$. For any finite fold covering $p: \widetilde \sX \to \sX$ the functor $C_0$ yields an injective $*$-homomorphism
+ For any finite fold covering $p: \widetilde \sX \to \sX$ the functor $C_0$ yields an injective $*$-homomorphism
 	\be\label{top_c0p_eqn}
 	C_0\left(p\right): 	C_0\left(\sX\right)\hookto	C_0\left(\widetilde\sX\right).
 	\ee
 \end{definition}
-\begin{remark}
-The Definition \ref{top_c_funct_defn}   is a specialization of the Definition \ref{top_cs_funct_defn}.
-\end{remark}
-\begin{remark}
-	If we use described in the Remark  \ref{top_fin_cov_rem} alternative notation then for any object  $p: \widetilde{\sX}  \to \sX$ of  $\mathfrak{FinCov}$-$\sX$ the value of $C_0$ coincides with $C_0\left( \widetilde{\sX} \right)$, i.e. this notation is tautological.  If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is a morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p^1_2$ is a continuous map $p: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p^1_2 \circ p_2 = p_1$ (cf. Definition \ref{top_fin_cov_defn}) then 
-	\be\label{top_c0_p_eqn}
-	C_0\left(p^1_2 \right)  : C_0\left(\widetilde \sX_2\right)\hookto  C_0\left(\widetilde \sX_1\right)
-	\ee
-	is the natural injective $*$-homomorphism.
-\end{remark}
 \begin{exercise}\label{top_act_exer}
 If  $p: \widetilde \sX \to \sX$ is a transitive covering of compact spaces. From the Theorem \ref{pavlov_troisky_thm} it follows that there is an action $C\left(\sX \right) \times C\left(\widetilde \sX \right)\to C\left(\widetilde \sX \right)$. Prove that if the covering is transitive, the action is given by
 $$
@@ -9085,7 +9030,7 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn
 	If   $\sX$ is a locally compact Hausdorff space, a quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Proposition \ref{spectrum_coverig_finite_prop}, continuous map then $p$ is a finite-fold transitive topological covering and $\widetilde{   \mathcal X }$ is a connected space. Moreover the quadruple   $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is equivalent to $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ one,  where   $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}). 
 \end{theorem}
 \begin{proof}
-	Let $\left\{A_\la \subset C_0\left\{\sX\right\}\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $C_0\left(\mathcal  X \right)$ from the Theorem \ref{gelfand-naimark_thm} and  Proposition \ref{hered_spectrum_prop} it follows that there is an open subset $\sU_\la\subset \sX$ such that $A_\la\cong C_0\left(\sU_\la\right)$. Let $\widetilde A_\la\subset \widetilde A$ be   a {hereditary} $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi \right)$-{lift} of $A_\la\cong C_0\left(\sU_\la\right)$ (cf. the Definition \ref{hereditary_lift_defn}). From the Definitions (\ref{hereditary_lift_defn} and \ref{hereditary_proper_lift_defn}) it follows that $\left(C_0\left(\mathcal  U_\la \right), \widetilde{A}_\la, G,    \pi|_{C_0\left(\mathcal  U_\la \right)}\right)$ is a noncommutative finite-fold covering with unitization. Let $\widetilde\sX$ is the spectrum of $\widetilde A$ and a map $p: \widetilde\sX \to\sX$ is given by the Proposition \ref{spectrum_coverig_finite_prop}.
+	Let $\left\{A_\la \subset C_0\left\{\sX\right\}\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $C_0\left(\mathcal  X \right)$ from the Theorem \ref{gelfand-naimark_thm} and  Proposition \ref{hered_spectrum_prop} it follows that there is an open subset $\sU_\la\subset \sX$ such that $A_\la\cong C_0\left(\sU_\la\right)$. Let $\widetilde A_\la\subset \widetilde A$ be   a {hereditary} $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi \right)$-{lift} of $A_\la\cong C_0\left(\sU_\la\right)$ (cf. the Definition \ref{hereditary_lift_defn}). From the Definitions (\ref{hereditary_lift_defn} and \ref{strictly_proper_defn}) it follows that $\left(C_0\left(\mathcal  U_\la \right), \widetilde{A}_\la, G,    \pi|_{C_0\left(\mathcal  U_\la \right)}\right)$ is a noncommutative finite-fold covering with unitization. Let $\widetilde\sX$ is the spectrum of $\widetilde A$ and a map $p: \widetilde\sX \to\sX$ is given by the Proposition \ref{spectrum_coverig_finite_prop}.
 	If  $\widetilde\sU_\la$ is the  spectra of  $\widetilde A_\la$ and 
 	then from the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{A}_\la$ is commutative, i.e. $\widetilde{A}_\la\cong C_0\left(\widetilde\sU_\la\right)$ and a restriction $\left.p\right|_{\widetilde\sU_\la}: \widetilde\sU_\la\to\sU_\la$ is a transitive finite-fold covering.  Moreover one has $\pi|_{C_0\left(\mathcal  U_\la \right)}= \left.C_0\left( p\right)\right|_{C_0\left(\mathcal  U_\la \right)}$.	
 	From the Definition \ref{fin_defn} and the Lemma \ref{fin_def_lem} it follows that both  unions $\cup {A}_\la \cong \cup  C_0\left(\sU_\la\right)$ and $\cup \widetilde{A}_\la \cong \cup  C_0\left(\widetilde\sU_\la\right)$ are  dense in $A = C_0\left(\sX\right)$ and $\widetilde A$. So from the Lemma \ref{top_ul_lem} it follows that $\sX = \cup_{\la\in\La}\sU_\la$ and $\widetilde\sX = \cup_{\la\in\La}\widetilde\sU_\la$. If $x_0\in \sX_0$ is any point then there is $\la_0\in\La$ such that  $x_0\in \sU_{\la_0}$. According to the Lemma \ref{comm_fin_lem} $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$, is a transitive finite-fold covering, so there is an open neighborhood $\sV$ of $x_0$ such that $\sV \subset \sU_{\la_0}$ and $\sV$ is evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{top_covering_defn}). Clearly $\sV$ is evenly covered by $p$, and $G$ transitively acts on $p^{-1}\left(x_0 \right)$. Since $\pi$ is injective, the map $p$ is surjective, so $p$ is a transitive covering. The following equation
@@ -9093,45 +9038,6 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn
 	G\left(\left. C_0\left( \widetilde{   \mathcal X }\right)  ~\right| C_0\left( {   \mathcal X }\right) \right)\cong  G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)
 	$$
 	is clear.  The $C^*$-algebra $C_0\left( \widetilde{   \mathcal X }\right)$ is connected (cf. Definition \ref{connected_c_a_defn}), so the space $\widetilde{   \mathcal X }$ is connected (cf. Exercise \ref{conn_comp_exer}).
-\end{proof}
-\begin{definition}\label{top_consents_defn}
-We say that a connected, locally compact, Hausdorff space $\sX$ \textit{consents with noncommutative coverings} if  for any finite-fold transitive covering $p: \widetilde\sX \to \sX$ a quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
-\end{definition}
-\begin{lemma}\label{top_consents_lem}
-A space $\sX$ consents with noncommutative coverings  (cf. the Definition \ref{top_consents_defn}) if and only if for any finite-fold transitive covering $p: \widetilde \sX \to \sX$ there is an indexed by directed set $\La$  a family $\left\{\sU_\la\subset \sX\right\}_{\la\in\La}$ of connected open subsets such that
-\begin{enumerate}
-	\item[(i)] for all $\la\in \La$ a quadruple 
-	\be\label{top_uuu_eqn}
-	\left(C_0\left(\sU_\la \right), C_0\left( \widetilde{\sU}_\la\bydef p^{-1}\left(\sU_\la \right) \right) ,  G\left(\left.\widetilde \sX\right|\sX \right), C_0\left( q\right)|_{C_0\left(\sU_\la \right)}  \right)
-	\ee is  a noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
-	\item[(ii)] ${\sX}= \bigcup_{\la\in\La} \sU_\la$.
-\end{enumerate}
-\end{lemma}
-\begin{proof}
-Suppose that 	$p: \widetilde \sX \to \sX$ is a transitive finite fold covering with a noncommutative finite-fold covering $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$. Let us prove conditions (i) and (ii).\\
-	(i)
- If $\left\{B_\la \subset C_0\left(\sY \right) \right\}_{\la \in \La}$ is a required by the Definition \ref{fin_defn} indexed by a directed set $\La$ family $\left\{C_\la\right\}_{\la\in \La}$   of connected $\left(C_0\left(\sY \right), C_0\left( \widetilde{\sY}\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)  \right)$-strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}) $C^*$-subalgebras of $C_0\left\{\sY\right)$ such that following conditions hold:
- \begin{enumerate}
- 	\item[(a)] 
- 	$$
- 	\forall \mu, \nu \in \La \quad \mu \le \nu \quad\Rightarrow\quad C_\mu \subset C_\nu;
- 	$$	
- 	\item[(b)]
- 	a union 
- 	$
- 	\bigcup_{\la\in\La} C_\la
- 	$
- 	is dense in $C_0\left\{\sX\right)$.
- \end{enumerate}
- Clearly for all $\la$ there is a connected open subset $\sU_\la$ such that $C_\la = C_0\left(\sU_\la \right)$,  and a {hereditary} $\left(C_0\left(\sY \right), C_0\left( \widetilde{\sY}\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)  \right)$-{lift} of  $C_0\left(\sU_\la \right)$ (cf. Definition \ref{hereditary_lift_defn}) equals to $C_0\left( q^{-1}\left(\widetilde \sU_\la\bydef  \sU_\la\right) \right)$. From the Definition \ref{hereditary_lift_defn} it turns out that $\left(C_0\left(\sU_\la \right), C_0\left( \widetilde{\sU}_\la\right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)|_{C_0\left(\sU_\la \right)}  \right)$ is a covering with unitization. \\
- (ii) If $x \in {\sX}\setminus \bigcup_{\la\in\La} \sU_\la$ then there is $f \in C_c\left( \sX\right)$ such that $f\left( x\right)= 1$. From 
- $$
-\forall f' \in  \bigcup_{\la\in\La} C_0\left(\sU_\la \right) \quad \left\| f'-f\right\|\ge 1. 
- $$  
- if follows that $\bigcup_{\la\in\La} C_0\left(\sU_\la \right)$ is not dense in $C_0\left( \right)$ however it contradicts with (b) of this lemma. \\
- 
- 
- Conversely if $p: \widetilde \sX \to \sX$ is a transitive finite fold covering which satisfies to conditions (i) and (ii)  then the equation \eqref{top_uuu_eqn} yields family $\left\{C_0\left(\sU_\la \right) \right\}_{\la\in \La}$ of hereditary $C^*$-subalgebras of $C_0\left( \sX\right) $. Moreover the quadruple $$\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$$ is noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). From the condition (i) it follows that $C_0\left(\sU_\la \right)$ for all $\la\in\La$ is  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$-proper (cf. Definition \ref{hereditary_proper_lift_defn}). From the condition (ii) it follows that the union $\bigcup_{\la\in \La}C_0\left(\sU_\la \right)$ is dense in $C_0\left(\sX \right)$. So  from the Definition \ref{fin_defn} it follows that $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$ is a noncommutative finite-fold covering.
 \end{proof}
 \begin{lemma}\label{top_conn_fam_lem}  
 	Let $p:\widetilde \sX \to \sX$ be a transitive finite-fold covering where both $\sX$ and $\widetilde \sX$ are connected, locally connected, locally compact, Hausdorff spaces. There is  $\left\{\sU_\la\subset \sX\right\}_{\la\in \La}$  a family of connected open subsets such that:
@@ -9165,7 +9071,11 @@ Suppose that 	$p: \widetilde \sX \to \sX$ is a transitive finite fold covering w
 
 
 \begin{theorem}\label{top_fin_sufficient_thm} 
-	Any connected, locally connected, locally compact, Hausdorff space $\sX$ consents with noncommutative finite-fold coverings (cf. Definition \ref{top_consents_defn}).
+	Let $\sX$ be  a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space. If $p: \widetilde \sX \to \sX$  is finite-fold transitive covering and a $*$-homomorphism  $C_0\left(p \right):  C_0\left(  {\sX }\right) \hookto C_0\left(  \widetilde{\sX }\right)$ is given by the equation  \ref{top_c0_eqn} then the quadruple
+	$$
+	\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX }\right) ,G\left(\left. \widetilde{   \mathcal X} ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)
+	$$
+is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
 If $\left\{\sU_\la\right\}_{\la\in\La}$ is a family of given by the Lemma \ref{top_conn_fam_lem} open subsets then one has:
@@ -9187,23 +9097,23 @@ If $\left\{\sU_\la\right\}_{\la\in\La}$ is a family of given by the Lemma \ref{t
  \end{itemize}
   	If $\sV_\la$ is the closure of $\sU_\la$ then the preimage $\widetilde \sV_\la \bydef p^{-1}\left(\sV_\la  \right)$ is compact  (cf. Lemma \ref{top_compact_preimage_lem}). There is a transitive covering $\widetilde \sV_\la\to  \sV_\la$, so $\widetilde \sU_\la\to \sU_\la$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}). From the Lemma \ref{comm_fin_lem} it follows that 
  $$
- \left(C_0\left(\mathcal  U_\la \right), C_0\left(  \widetilde{   \mathcal U_\la }\right) ,G\left(\left. \widetilde{   \mathcal X} ~\right| {   \mathcal X }\right),   \left.C_0\left(p \right)\right|_{C_0\left(\mathcal  U_\la \right)}\right) 	
+ \left(C_0\left(\mathcal  U_\la \right), C_0\left(  \widetilde{   \mathcal U}_\la \right) ,G\left(\left. \widetilde{   \mathcal X} ~\right| {   \mathcal X }\right),   \left.C_0\left(p \right)\right|_{C_0\left(\mathcal  U_\la \right)}\right) 	
  $$
- is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}). Now this Lemma is a consequence of \ref{top_consents_lem} one.
+ is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}), i.e. the hereditary subalgebra $C_0\left(\mathcal  U_\la \right)\subset C_0\left( \sX \right)$ is   
 \end{proof}
 
 \begin{corollary}\label{top_consents_comp_lem}
-	Let  $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) then the $C^*$-algebra $C_0\left(\sX \right)$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
+	Let  $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) then the $C^*$-algebra $C_0\left(\sX \right)$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
 \end{corollary}
 \begin{lemma}\label{top_consents_covering_lem}
-Let  $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space. If |$\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) and $p :\widetilde \sX \to \sX$ is a transitive finite-fold covering then $\widetilde\sX$ consents with noncommutative coverings. 
+Let  $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space. If |$\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) and $p :\widetilde \sX \to \sX$ is a transitive finite-fold covering then $\widetilde\sX$ consents with noncommutative coverings. 
 \end{lemma}
 \begin{remark}\label{comm_comm_rem}
 Both Theorems \ref{top_fin_necassary_thm}  and \ref{top_fin_sufficient_thm}  yield a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Theorem \ref{comm_uni_lim_thm}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
 \end{remark}
 
 \begin{lem}\label{top_functor_lem}
-	Let $\sX$ be a connected,  locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) then there is a  category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$ such that
+	Let $\sX$ be a connected,  locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) then there is a  category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$ such that
 	\begin{itemize}
 		\item  Objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$.
 		\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective $*$-homomorphism $\pi: C_0\left( \widetilde{\sX}' \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
@@ -9234,12 +9144,12 @@ If $\mathscr C \bydef \left(\sX, \left\{\C_x\cong \C\right\}_{x \in \sX},  C_0\l
 	\be\label{top_c_funct_lem_eqn}
  	C_0\left(p \right)\bydef \mathscr C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
-(cf. equation \eqref{top_c0_ob_eqn}).	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)\bydef \mathscr C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{comm_comply_lem} it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.
+(cf. equation \eqref{top_c0_ob_eqn}).	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)\bydef \mathscr C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{comm_comply_lem} it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.
 \end{proof}
 
 
 \begin{corollary}\label{top_fin_cor}
-	Let  $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$ and  $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering with connected $\widetilde \sX$. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn})  and $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
+	Let  $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$ and  $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering with connected $\widetilde \sX$. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!)  and $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
 	$$
 \left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \lift_p \right)
 	$$
@@ -9293,7 +9203,7 @@ where $\sV \subset\sX$ is a compact subset. So $Cont\left(\sX \right)$ is a pro-
 %	In the above situation we say that $\widetilde F$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  $*$-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
 %\end{definition}
 \begin{theorem}\label{top_pro_fin_thm}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}),  $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!),  $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
 	Cont\left(  p\right): Cont\left(\sX\right)\hookto Cont\left(\widetilde\sX\right)$ is given by the equation \eqref{top_pro_hom_eqn}  then the quadruple 
 	\be\label{top_pro_fin_eqn}
 	\left(Cont\left(\sX\right), Cont\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , Cont\left( p\right) \right)
@@ -9313,7 +9223,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \subsubsection{Coverings of bounded operator $*$-algebras}
 
 \begin{theorem}\label{top_oa_cov_thm} 
-	Let $\sX$ be a connected,  locally compact, paracompact, Hausdorff  space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) and $R \subset C_0\left(\sX\right)$ is a $c$-soft  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
+	Let $\sX$ be a connected,  locally compact, paracompact, Hausdorff  space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) and $R \subset C_0\left(\sX\right)$ is a $c$-soft  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
 	\begin{enumerate}
 		\item [(i)] if 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
 		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the equation \eqref{top_c0p_eqn},
@@ -9325,7 +9235,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \end{theorem}
 \begin{proof}
 	(i)
-	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{\sX}\right)$. Conditions $G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ follow from the construction \ref{fin_oa_empt}.\\
+	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{\sX}\right)$. Conditions $G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
 	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde \sX\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\widetilde a_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ where $\widetilde a_{\widetilde x_0}$ is the stalk at $\widetilde x_0$ (cf. Definition \ref{stalk_defn}). If $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ be an $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn}) then $\widetilde a_{\widetilde x_0}=\left(\widetilde f\widetilde a \right)_{\widetilde x_0}\notin p^{-1} \mathscr S^R_{\widetilde x_0}$.
 	One has 
@@ -9411,7 +9321,7 @@ The Lemma \ref{top_s_fin_lem} is a noncommutative counterpart of the Proposition
 \subsubsection{Coverings and unbounded operators on Hilbert modules}\label{top_fin_chull_sec}
 \paragraph{Algebras of unbounded functions}
 
-Let both $\sX$ be  and $\widetilde\sX$ be connected, locally compact Hausdorff space, connected , locally compact, Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}).
+Let both $\sX$ be  and $\widetilde\sX$ be connected, locally compact Hausdorff space, connected , locally compact, Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!).
 If both $A\bydef Cont\left( \sX\right) $ and $\widetilde A\bydef Cont\left(\widetilde  \sX\right)$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective $*$-homomorphism
 $$
 \pi_A : A\hookto \widetilde A.
@@ -9424,7 +9334,7 @@ B\bydef  C_0\left( \sX\right),\quad
 \mathfrak B\bydef  C_c\left( \sX\right),\quad
 \widetilde{\mathfrak B}\bydef  C_c\left( \widetilde\sX\right).
 \eean 
-then from the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}
+then from the Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!
  it turns out that
 $$
 \left( B, \widetilde B, G, \pi_B  \right) \bydef \left( C_0\left( \sX\right),  C_0\left( \widetilde\sX\right), G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right)  \right) 
@@ -9464,7 +9374,7 @@ In the above proof the ideals ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ 
 \end{remark}
 
 \paragraph{Polynomials in one variable} \label {top_fin_hull_sec}
-Let $\sX$ be a locally compact,  connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). Suppose $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}).
+Let $\sX$ be a locally compact,  connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). Suppose $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!).
 Let  $R\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. Clearly $R\left[t\right]$ is an $R$-module. Let $\mathscr S^{R\left[t\right]}$ be an $R\left[t\right]$-sheaf (cf. Definition \ref{top_x_sheaf_defn}).
  Let 
 \be\label{top_poly_a_defn}
@@ -9485,7 +9395,7 @@ $$
 If $\mathfrak B$ is the completion of $\mathfrak B'$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$ such that $\mathfrak B$ is a core (cf. Definition \ref{def:rep_Hilbert_module}).
  If  $p:\widetilde \sX \to \sX$ is a finite-fold transitive covering with connected $\widetilde \sX$ and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then there is the natural finite-fold transitive covering $\widetilde \sX\times\R \to \sX\times\R$ such that $G \cong  G\left(\left.\widetilde \sX\times\R \right| \sX \times\R \right)$. 
  From the 
- Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}
+ Theorem \ref{top_fin_necassary_thm} and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!
   it follows that one has a natural  {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$).
 If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft_c_exer} it turns out that
 an intersection $\widetilde R \bydef p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft *-subalgebra. We leave to the reader the proof of the natural isomorphism
@@ -9570,7 +9480,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 		\sX & \sX \text{ is compact}\\
 		\text{the one point compactification of } \sX & \sX \text{ is not compact}
 	\end{cases} 
-	\ee (cf. Definition \ref{top_comp_defn}). Suppose  $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}).
+	\ee (cf. Definition \ref{top_comp_defn}). Suppose  $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!).
 	From the Example \ref{op_real_exm} it turns out that he space $C\left(\sX^\sim, \R \right)$ of all real-valued continuous functions is a real operator space. If $C_0\left(\sX, \R \right)$ is an algebra of vanishing at infinity real-valued functions then the pair $$\left(C_0\left(\sX, \R \right), C\left(\sX^\sim, \R \right) \right)$$ is a sub-unital real operator space (cf. the Definitions \ref{op_su_space_defn}, \ref{op_su_r_space_defn} and the Example \ref{sub_alg_exm}). If $p: \widetilde{\sX} \to \sX$ is a finite-fold transitive covering then there are the following complexifications
 	\be\label{top_complex_eqn}
 	\begin{split}
@@ -9587,7 +9497,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 	\eean
 	respectively (cf. Remark \ref{op_su_env_rem}).
 	If $G \bydef G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ then 	
-	from the Theorem \ref{top_fin_necassary_thm} and the Definitions  \ref{fin_op_defn}, \ref{top_consents_defn}
+	from the Theorem \ref{top_fin_necassary_thm} and the Definitions  \ref{fin_op_defn}, \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!
 	 it follows that
 	$$
 	\left(\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right),\left(C_0\left(\sX \right), C\left(\sX^\sim \right)\right) , G, \left(\pi_{C_0\left(\sX \right)}, \pi_{C\left(\sX^\sim \right)} \right) \right)
@@ -9603,7 +9513,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 
 \paragraph*{} 
-Let  $\sX$ be a connected,  locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn})
+Let  $\sX$ be a connected,  locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!)
  and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times_\sX E \to \C$ (cf. Definitions \ref{top_vb_defn} and \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
 \bean
 	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right),\\
@@ -10636,7 +10546,7 @@ From the   Definition \ref{fundamental_group_nc_defn} it follows that the triple
 \end{proof}
 
 \begin{corollary}\label{comm_uni_lim_cor}
-	Let $\mathcal X$ be a connected, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), locally compact,  Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) and $\widetilde \sX_{\mathrm{res~fin}}$ is a given by the equation \eqref{top_x_fr_eqn} space, and   $\widetilde{p}:\widetilde{\sX}_{\mathrm{res~fin}}\to \mathcal X$ is the natural covering (cf. \eqref{top_fin_c_sec_eqn}) then one has:
+	Let $\mathcal X$ be a connected, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), locally compact,  Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) and $\widetilde \sX_{\mathrm{res~fin}}$ is a given by the equation \eqref{top_x_fr_eqn} space, and   $\widetilde{p}:\widetilde{\sX}_{\mathrm{res~fin}}\to \mathcal X$ is the natural covering (cf. \eqref{top_fin_c_sec_eqn}) then one has:
 	\begin{enumerate}
 		\item [(i)]  	a triple 
 		\be\label{comm_uni_lim_eqn!}
@@ -12311,6 +12221,46 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	\ee
 	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
 \end{definition}
+\begin{lemma}\label{blowing_proper_group_lem}
+	If the space $\sY$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) then	there is a natural isomorphism of groups
+	\be\label{blowing_group_action_eqn}
+	G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}.
+	\ee
+\end{lemma}
+\begin{proof}
+	Clearly there is the natural inclusion 
+	$$
+	G\left(\left.\widetilde \sY\right|\sY \right) \subset \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}.
+	$$
+	If $\widetilde \sU\subset \widetilde \sY$ is connected set  homeomorphically mapped onto $\sU\bydef q\left(\widetilde \sU \right)$ then any hereditary $C^*$-subalgebra of $A_0\left( \widetilde \sY\right)$ which is isomorphic to $_\sU A_\sU$ as 
+	$_\sU A_\sU-~_\sU A_\sU$-bimodule equals to $_{g'\widetilde \sU}A_0\left( \widetilde \sY\right)_{g'\widetilde \sU}$  where $g' \in G\left(\left.\widetilde \sY\right|\sY \right)$. For any 
+	$$
+	g \in  \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}
+	$$
+	denote by $g_{\widetilde \sU} \in  G\left(\left.\widetilde \sY\right|\sY \right)$ such that $g\left(  _{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}\right) = ~_{g_{\widetilde \sU}\widetilde \sU}A_0\left( \widetilde \sY\right)_{g_{\widetilde \sU}\widetilde \sU}$. If both $\widetilde \sU', \widetilde \sU'' \subset \widetilde \sY$ are  is connected set  homeomorphically mapped onto $ q\left(\widetilde \sU' \right)$ and $q\left(\widetilde \sU'' \right)$ sets  such that $\widetilde \sU'\cap \widetilde \sU'' \neq \emptyset$ then there are $\widetilde a' \in ~_{\widetilde \sU'}A_0\left( \widetilde \sY\right)_{\widetilde \sU'}$ and \\ $\widetilde a'' \in ~_{\widetilde \sU''}A_0\left( \widetilde \sY\right)_{\widetilde \sU''}$ with $\widetilde a'\widetilde a''\neq 0$.
+	Since $g$ is an automorphism 
+	$$
+	g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)\neq 0
+	$$
+	If $g_{\widetilde \sU'} \neq g_{\widetilde \sU''}$ then $g_{\widetilde \sU'}\widetilde \sU'\cap g_{\widetilde \sU''}\widetilde \sU''= \emptyset$ and $g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)= 0$. From this contradiction we conclude that $g_{\widetilde \sU'} = g_{\widetilde \sU''}$. The space $\widetilde\sY$ is connected and using the Theorem \ref{zorn_thm} we conclude that there is $g' \in G\left(\left.\widetilde \sY\right|\sY \right)$ such that  $g_{\widetilde \sU}= g'$ for any connected  $\widetilde \sU$ homeomorphically mapped onto $ q\left(\widetilde \sU \right)$. Using this fact one can prove that if $A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an explained in \ref{blowing_au_ua_empt} left ideal then  $g A_0\left( \widetilde \sY\right)_{\widetilde \sU} = g'A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a\in K\left( A_0\left( \widetilde \sY\right)\right)$ is an element of the Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then the support $\supp\widetilde a$ of $\widetilde a$ is compact. There is a finite family $\left\{\widetilde \sU_1, ..., \widetilde \sU_n\right\}$ of open connected subsets of $\widetilde \sY$ such that: 
+	\begin{enumerate}
+		\item $\supp\widetilde a\subset \bigcup_{j=1}^n \widetilde\sU_j$,
+		\item for each $j=1,...,n$ the set $\widetilde \sU_j \sY$ is  homeomorphically mapped onto $ q\left(\widetilde \sU_j \right)$.
+	\end{enumerate}
+	If $\widetilde f \bydef \sum_{j = 1}^n \widetilde f_j$ is a {dominated} by the family {covering sum} for $\supp\widetilde a$ (cf Definition \ref{top_covering_sum_defn}) then 
+	$$
+	\widetilde a = \widetilde a \widetilde f =\sum_{j = 1}^n  \widetilde a \widetilde f_j.
+	$$
+	From $ \widetilde a  \widetilde f_j\in A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ it follows that $g\left(  \widetilde a'\widetilde f_j\right) = g'\left(  \widetilde a'\widetilde f_j\right)$ and  
+	$$
+	g\widetilde a= g \left( \widetilde a \widetilde f\right)  = g' \widetilde a
+	$$
+	Since $K\left( A_0\left( \widetilde \sY\right)\right)$ is dense in $M\left( A_0\left( \widetilde \sY\right)\right)$ with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ (cf. Definition \ref{strict_topology_defn}) one has
+	$$
+	\forall \widetilde a \in M\left( A_0\left( \widetilde \sY\right)\right) \quad g\widetilde a= g' \widetilde a
+	$$
+\end{proof}
+
 
 \begin{lemma}\label{blowing_lift_composition_lem}
 	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
@@ -12437,42 +12387,6 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	\eean
 	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
 \end{proof}
-\begin{lemma}\label{blowing_group_lem}
-If $\sY$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) then	there is a natural isomorphism of groups
-	\be\label{blowing_group_action_eqn}
-	G\left(\left.\widetilde \sY\right|\sY \right) \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}.
-	\ee
-\end{lemma}
-\begin{proof}
-	Clearly there is the natural inclusion 
-	$$
-	G\left(\left.\widetilde \sY\right|\sY \right) \subset \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}.
-$$
-If $\widetilde \sU\subset \widetilde \sY$ is connected set  homeomorphically mapped onto $\sU\bydef q\left(\widetilde \sU \right)$ then any hereditary $C^*$-subalgebra of $A_0\left( \widetilde \sY\right)$ which is isomorphic to $_\sU A_\sU$ as 
-$_\sU A_\sU-~_\sU A_\sU$-bimodule equals to $_{g'\widetilde \sU}A_0\left( \widetilde \sY\right)_{g'\widetilde \sU}$  where $g' \in G\left(\left.\widetilde \sY\right|\sY \right)$. For any 
-$$
-g \in  \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}
-$$
-denote by $g_{\widetilde \sU} \in  G\left(\left.\widetilde \sY\right|\sY \right)$ such that $g\left(  _{\widetilde \sU}A_0\left( \widetilde \sY\right)_{\widetilde \sU}\right) = ~_{g_{\widetilde \sU}\widetilde \sU}A_0\left( \widetilde \sY\right)_{g_{\widetilde \sU}\widetilde \sU}$. If both $\widetilde \sU', \widetilde \sU'' \subset \widetilde \sY$ are  is connected set  homeomorphically mapped onto $ q\left(\widetilde \sU' \right)$ and $q\left(\widetilde \sU'' \right)$ sets  such that $\widetilde \sU'\cap \widetilde \sU'' \neq \emptyset$ then there are $\widetilde a' \in ~_{\widetilde \sU'}A_0\left( \widetilde \sY\right)_{\widetilde \sU'}$ and \\ $\widetilde a'' \in ~_{\widetilde \sU''}A_0\left( \widetilde \sY\right)_{\widetilde \sU''}$ with $\widetilde a'\widetilde a''\neq 0$.
-Since $g$ is an automorphism 
-$$
-g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)\neq 0
-$$
-If $g_{\widetilde \sU'} \neq g_{\widetilde \sU''}$ then $g_{\widetilde \sU'}\widetilde \sU'\cap g_{\widetilde \sU''}\widetilde \sU''= \emptyset$ and $g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)= 0$. From this contradiction we conclude that $g_{\widetilde \sU'} = g_{\widetilde \sU''}$. The space $\widetilde\sY$ is connected and using the Theorem \ref{zorn_thm} we conclude that there is $g' \in G\left(\left.\widetilde \sY\right|\sY \right)$ such that  $g_{\widetilde \sU}= g'$ for any connected  $\widetilde \sU$ homeomorphically mapped onto $ q\left(\widetilde \sU \right)$ using this fact one can prove that if $A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an explained in \ref{blowing_au_ua_empt} left ideal then  $g A_0\left( \widetilde \sY\right)_{\widetilde \sU} = g'A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a\in K\left( A_0\left( \widetilde \sY\right)\right)$ is an element of the Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then the support $\supp\widetilde a$ of $\widetilde a$ is compact. There is a finite family $\left\{\widetilde \sU_1, ..., \widetilde \sU_n\right\}$ of open connected subsets of $\widetilde \sY$ such that: 
-\begin{enumerate}
-	\item $\supp\widetilde a\subset \bigcup_{j=1}^n \widetilde\sU_j$,
-	\item for each $j=1,...,n$ the set $\widetilde \sU_j \sY$ is  homeomorphically mapped onto $ q\left(\widetilde \sU_j \right)$.
-\end{enumerate}
-If $\widetilde f \bydef \sum_{j = 1}^n \widetilde f_j$ is a {dominated} by the family {covering sum} for $\supp\widetilde a$ (cf Definition \ref{top_covering_sum_defn}) then 
-$$
-\widetilde a = \widetilde a \widetilde f = \sum_{j = 1}^n\sum_{j = 1}^n  \widetilde a \widetilde f_j.
-$$
-From $ \widetilde a  \widetilde f_j\in $
-
-
-\end{proof}
-\paragraph{!!! NEW}
-
 \begin{empt}\label{blowing_uc_empt}
 	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY \right)\hookto M\left( A\right) $ be Hausdorff blowing-up, and let
 	$\left(A, \widetilde A,  G\left(\left.\widetilde A\right|A \right), \pi \right)$ be a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is an unital noncommutative finite-fold covering $\left(M\left(A\right) , M\left(\widetilde{A}\right) , G\left(\left.\widetilde A\right|A \right),\widetilde \pi \right)$ (cf. Exercise \ref{ind_mult_inv_exer}  !!! \ref{cov_mult_fin_cor} \ref{cov_mult_fin_lem} \ref{cov_mult_fin_cor}). Suppose that if Hausdorff blowing-up $C_0\left( \sY'\right) \hookto M\left( \widetilde A\right)$ is induced by noncommutative covering (cf. Definition \ref{blowing_ext_defn}), then $\sY'\cong  \sY$.  There is the natural $*$-homomorphism $C_0\left(\sY \right)\hookto M\left( \widetilde A\right)$ and we leave to the reader the proof of that it is Hausdorff blowing-up.
@@ -12535,7 +12449,6 @@ On
 \end{split}
 \ee
 
-\paragraph{!!! END NEW}
 
 
 \subsection{Induced representations}
@@ -12599,11 +12512,11 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 
 \subsection{Finite-fold coverings}
 \begin{theorem}\label{blowing_axiomatic_thm}
-	Let $q: \widetilde\sY \to \sY$  be a finite-fold transitive covering, and let	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift}. If $\sY$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn})  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+	Let $q: \widetilde\sY \to \sY$  be a finite-fold transitive covering, and let	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift}. If the space $\sY$ is locally connected (cf. Definition \ref{top_locally_connected_defn})  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 
 \begin{proof}
-	From the Lemma \ref{blowing_group_lem} it follows that $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). From the Lemma \ref{top_consents_lem} it turns out that there is a family $\left\{\sU_\la\subset \sY\right\}_{\la\in\La}$ indexed by directed set $\La$ such that
+	From the Lemma \ref{blowing_proper_group_lem} it follows that $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). From the Lemma \ref{top_consents_lem} !!! REPLACE LOCALLY CONNECTED !!! it turns out that there is a family $\left\{\sU_\la\subset \sY\right\}_{\la\in\La}$ indexed by directed set $\La$ such that
 	\begin{enumerate}
 		\item[(i)] for all $\la\in \La$ a quadruple $$\left(C_0\left(\sU_\la \right), C_0\left( \widetilde{\sU}_\la\bydef p^{-1}\left(\sU_\la \right) \right) ,  G\left(\left.\widetilde \sY\right|\sY \right), C_0\left( q\right)|_{C_0\left(\sU_\la \right)}  \right)$$ is  a noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}),
 		\item[(ii)] ${\sY}= \bigcup_{\la\in\La} \sU_\la$.
@@ -12632,7 +12545,7 @@ $
 is an unital noncommutative finite-fold covering. Since both inclusions $A_\la \subset B_\la$ and $\widetilde A_\la \subset \widetilde B_\la$ are unitizations the quadruple $
 \left(A_\la, \widetilde{A}_\la,  G\left(\left.\widetilde \sY\right|\sY \right), \pi_{B_\la}|_{A_\la} \right) 
 $
-is  a  noncommutative finite-fold covering with unitization, so $A_\la$ is  $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-strictly proper  (cf. the Definition \ref{hereditary_proper_lift_defn}). 
+is  a  noncommutative finite-fold covering with unitization, so $A_\la$ is  $\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$-strictly proper  (cf. the Definition \ref{strictly_proper_defn}). 
 If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn})  then $\supp  a$ is compact. From ${\sY}= \bigcup_{\la\in\La} \sU_\la$ it follows that there is $\la_a \in \La$ such that $\supp  a\subset \sU_{\la_a}$ and $ a \in A_{\la_a}$. The union $\bigcup_{\la \in \La} A_\la$ is dense in $A$ because $K\left( A\right)$ is dense in $A$.
 \end{proof}
 \begin{empt}\label{blowing_ext_empt}
@@ -12692,7 +12605,7 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 	From the Theorems \ref{pavlov_troisky_thm} and  \ref{blowing_unitization_thm} it follows that there is a natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
 \end{remark}
 \begin{theorem}\label{blowing_functor_f_thm}  
-	If $A$ is a connected $C^*$-algebra and $C_0\left(\sY\right)\to M\left(A \right)$ is a  Hausdorff blowing-up and $\sY$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!) then  an {associated with Hausdorff blowing-up} $C_0\left( \sY\right) \hookto M\left(A \right)$ functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}).
+	If $A$ is a connected $C^*$-algebra and $C_0\left(\sY\right)\to M\left(A \right)$ is a  Hausdorff blowing-up and $\sY$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!!) then  an {associated with Hausdorff blowing-up} $C_0\left( \sY\right) \hookto M\left(A \right)$ functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}).
 \end{theorem}
 \begin{proof}
 	If both $q_1:\widetilde \sY_1 \to \sY$ and  $q_2:\widetilde \sY_2 \to \sY$ are $\mathfrak{FinCov}$-$\sY$-objects then any $\mathfrak{FinCov}$-$\sY$-arrow from $\widetilde \sY_1 \to \sY$ to  $\widetilde \sY_2 \to \sY$
@@ -12721,7 +12634,7 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 	Following conditions hold:
 	\begin{enumerate}
 		\item[(i)] there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn},
-		\item[(ii)] if $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) then a finite covering category
+		\item[(ii)] if $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) then a finite covering category
 		\be\label{blowing_category_fin_eqn}
 	\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 	\ee
@@ -12781,7 +12694,7 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 , 	Let $q : \widetilde \sY \to \sY$ be a transitive covering with connected $\widetilde \sY$ such that a group  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is residually finite (cf. Definition \ref{residually_finite_defn})
 \end{lemma}
 \begin{lemma}\label{blowing_disconnected_lem}
-	Let $C_0\left( \sY\right) \to A$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), such that $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn} !!! \ref{top_consents_defn} !!!).
+	Let $C_0\left( \sY\right) \to A$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), such that $\sY$ is  consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!!).
 	Let $q:\widetilde \sY \to \sY$ be a transitive covering with residually finite $G\left(\left.\widetilde \sY\right|\sY \right)$. Suppose that both $ \widetilde \sY $ is connected. If  	$A_b\left(q\right): A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$
 	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}), and $\overline q: \overline \sY  \to  \sY$  is {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) then there is a $\overline q$-{lift} 	$A_b\left(\overline q\right) A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn})
 \end{lemma}
@@ -12912,7 +12825,7 @@ Here we have a coverings  Hausdorff blowing-us and using them we will construct 
 \paragraph{}
 
 \begin{empt}\label{blowing_hilb_mod_empt}
-Let $\sY$ be a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering such that the covering  group $G\left(\left.\widetilde\sY \right|\sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then from  the Lemma \ref{comm_lift_desc_sum_lem} it follows that there is the following product
+Let $\sY$ be a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering such that the covering  group $G\left(\left.\widetilde\sY \right|\sY\right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}) then from  the Lemma \ref{comm_lift_desc_sum_lem} it follows that there is the following product
 \be\label{blowing_product_eqn}
 \begin{split}
 \left\langle \cdot, \cdot \right\rangle_{C_0\left(\sY \right)} : C_c\left(\widetilde\sY \right) \times  C_c\left(\widetilde\sY \right)\to C_0\left(\sY \right) ,\\
@@ -13447,7 +13360,7 @@ a  $\widetilde q_{\la_{\widetilde{   \mathcal U }}}$-$\widetilde{\sU}$-\textit{l
 \end{remark}
 
 \begin{lemma}\label{blowing_cov_inc_strict_lem}
-	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!). Suppose  $\sY$ is  a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset {covered} by $q$. Assume that  $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. If $\widetilde a \in A_0\left( \widetilde{\sY}\right)$ is such that $\supp  \widetilde a \subset \widetilde \sU$ (cf. Definition \ref{blowing_supp_defn}) 
+	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!). Suppose  $\sY$ is  a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!  !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset {covered} by $q$. Assume that  $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. If $\widetilde a \in A_0\left( \widetilde{\sY}\right)$ is such that $\supp  \widetilde a \subset \widetilde \sU$ (cf. Definition \ref{blowing_supp_defn}) 
 	then the series 	
 	\be\nonumber
 	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
@@ -13680,7 +13593,7 @@ which can be uniquely extended up to a linear map $\widetilde \H \to \widetilde 
 \end{itemize}
 \end{proof}
 \begin{lemma}\label{blowing_conn_fam_lem}
-		Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  \\$\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure, then a given by \eqref{blowing_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}).
+		Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  \\$\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure, then a given by \eqref{blowing_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{strictly_proper_defn}).
 \end{lemma}
 \begin{proof}
 From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the equation \ref{blowing_uau_eqn}  it follows that
@@ -13728,7 +13641,7 @@ From the above equation it follows that $G= G\left(\left.\widetilde \sY \right|\
 	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), and an injective  $*$-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{blowing_conn_fam_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{pedersens_ideal_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} !!! REPLACE \ref{blowing_pedersen_compact_lem} !!! it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
+	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{blowing_conn_fam_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{strictly_proper_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{pedersens_ideal_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} !!! REPLACE \ref{blowing_pedersen_compact_lem} !!! it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
 	$$
 	a \in A^{\text{prop}}_{\sU_{\la_0}}\subset ~_{\sU_{\la_0}}A_{\sU_{\la_0}}\subset \bigcup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}.
 	$$
@@ -13779,7 +13692,7 @@ is defined up to homeomorphism by a normal subgroup $H_{\text{top}} \subset G\le
 
 
 \begin{empt}\label{blowing_inf_empt}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!) such that the  $\sY$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!space.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!) such that the  $\sY$ is a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!  !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!space.
  Let  $\widetilde{q}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a !!! pointed  DELETE !!!transitive covering (cf. Definitions \ref{top_covering_defn} and \ref{top_transitive_defn}) such that a covering group  $G\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
 \be\label{blowing_top_eqn}
 \begin{split}
@@ -14656,7 +14569,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	
 	(i)
 	From the Lemma \ref{stable_pre_lem} it turns out that $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$ is a a noncommutative finite-fold  pre-covering.
-	From the Definition \ref{fin_defn} it turns out that if there is an indexed by a directed set $\La$ family $\left\{A_\la \subset A\right\}_{\la\in\La}$ of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn}) such that 
+	From the Definition \ref{fin_defn} it turns out that if there is an indexed by a directed set $\La$ family $\left\{A_\la \subset A\right\}_{\la\in\La}$ of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}) such that 
 	\begin{enumerate}
 		\item[(a)] 
 		$$
@@ -14669,7 +14582,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		$
 		is dense in $A$.
 	\end{enumerate}
-	We leave to the reader a proof of that  $A_\la \otimes \K$ is a $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebra (cf. the Definition \ref{hereditary_proper_lift_defn}). On the other hand one has:
+	We leave to the reader a proof of that  $A_\la \otimes \K$ is a $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebra (cf. the Definition \ref{strictly_proper_defn}). On the other hand one has:
 	\begin{enumerate}
 		\item[(a)] 
 		$$
@@ -15458,33 +15371,33 @@ Our following constructions require an analog of the Dini's theorem.
 \subsection{Coverings of $C^*$-algebras}
 
 
-\paragraph{!!!}
-\begin{corollary}\label{ctr_comm_cor}!!!
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative  finite-fold covering with unitization (cf. Definition \ref{fin_unital_defn}) 
+
+\begin{lemma}\label{ctr_comm_lem}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative  finite-fold covering with unitization (cf. Definition \ref{fin_unital_defn}), Let  
 	\be\label{ctr_comm_eqn}
 	H  \bydef \ker\left(  G \to \left\{\left.g \in \mathrm{Homeo}\left(\widetilde\sX \right)\right| \forall \widetilde x \in \widetilde\sX \quad p\left( \widetilde x\right)= p\left( g\widetilde x\right) \right\}\right)
 	\ee
 	where $p:  \widetilde\sX \to \sX$ is a given by the Proposition \ref{spectrum_coverig_finite_prop}  map from the spectrum $\widetilde\sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$.
-	If $A$ is a $CCR$-algebra and  $\sX$  is Hausdorff then one has:
+	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) and  $\sX$  is a  locally connected, Hausdorff space then one has:
 	\begin{enumerate}
 		\item [(i)] the space $\widetilde \sX$  is Hausdorff,
 		\item[(ii)] the  map $p : \widetilde \sX\to \sX$ is a transitive finite-fold covering with $G\left(\left.\widetilde{\sX}~\right|\sX\right)\cong G/H$.
 		\item[(iii)] The normal subgroup $H \subset G$ is $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn})
 	\end{enumerate}
-\end{corollary}
+\end{lemma}
 \begin{proof}
 	(i) Follows from the Corollary \ref{spectrum_ff_p_cor}.\\
 	(ii) Follows from the equation \eqref{ctr_comm_eqn} and the Corollary \ref{spectrum_ff_p_cor}.\\
-	(iii) From \ref{ctr_comm_eqn} it follows that $\widetilde{A}^H\cong C_0\left(\widetilde\sX \right)$, however from the Lemma \ref{blowing_group_lem} it follows that
+	(iii) From \ref{ctr_comm_eqn} it follows that $\widetilde{A}^H\cong C_0\left(\widetilde\sX \right)$, however from the Lemma \ref{blowing_proper_group_lem} it follows that
 	$$
 	\left(C_0\left( \sX\right),\widetilde{A}^H, G/H, C_0\left(p \right)   \right)=\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),\pi^H  \right)
 	$$
-	is a {noncommutative finite-fold  pre-covering}.
+	is a {noncommutative finite-fold  pre-covering}, i.e. the normal subgroup $H \subset G$ is $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$-proper
 \end{proof}
 
 \paragraph{!!!}
 \begin{lemma}\label{ctr_fin_inv_lem} 
-	Let  $A$ be a $C^*$-algebra, with Hausdorff spectrum $\sX$. If $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}) and $p: 	\widetilde \sX \to \sX$ is a finite-fold transitive covering then there is a noncommutative finite-fold covering 
+If   $A$ is a $C^*$-algebra, with locally compact, connected,  locally connected, Hausdorff   spectrum $\sX$, and $p: 	\widetilde \sX \to \sX$ is a finite-fold transitive covering then there is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn})
 	$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
@@ -15497,7 +15410,7 @@ Our following constructions require an analog of the Dini's theorem.
 
 
 \begin{lemma}\label{ctr_fin_red_lem}
-	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected space and $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}), and let the category $\mathfrak{FinCov}$-$\sX$ is a {finite covering category} of $\sX$ given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn} !!!DELETE !!!) then there is a full and faithful functor $A_0: \mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$.
+	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected space and $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!), and let the category $\mathfrak{FinCov}$-$\sX$ is a {finite covering category} of $\sX$ given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn} !!!DELETE !!!) then there is a full and faithful functor $A_0: \mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$.
 	\end{lemma}
 
 \begin{proof}
@@ -15885,7 +15798,7 @@ C\left(\bt \widetilde\sX \right)\subsetneqq \sum_{\la \in \La_0}M_\la M\left(\wi
 If $A$ is a continuous trace $C^*$-algebra  and $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering (cf. Definition \ref{fin_defn})  then the given by the Proposition \ref{spectrum_coverig_finite_prop} continuous map $p: \widetilde \sX\to \sX$ from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$ is a finite-fold transitive covering. Moreover one has $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$.
 \end{lemma}
 \begin{proof}
-  Let $\left\{A_\la \subset A\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(A, \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $A_\la$ from the Proposition \ref{hered_spectrum_prop} it turns out that the spectrum $\sX_\la$ of $A_\la$ is an open subset of $\sX$.  From the Proposition  \ref{ctr_hered_prop} it follows that $A_\la$ is a continuous trace $C^*$-algebra.  If  $\widetilde A_\la\subset \widetilde A$ is    a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of  (cf. the Definition \ref{hereditary_lift_defn}) then a quadruple  $\left(A_\la, \widetilde{A}_\la, G, \pi|_{A_\la} \right)$ is a noncommutative finite-fold covering with unitization. If $\widetilde \sX_\la$ is a spectrum of $A_\la$ then from the Corollary \ref{ctr_sp_cov_cor} it follows that the restriction $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a finite-fold transitive covering. If $\cup \sX_\la \neq \sX$ then there are  $x_0 \in \sX \setminus \cup \sX_\la$ and $a\in A$ such that $\left\| \rep_{x_0} \left(a \right)\right\| = 1$. So one has
+  Let $\left\{A_\la \subset A\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(A, \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $A_\la$ from the Proposition \ref{hered_spectrum_prop} it turns out that the spectrum $\sX_\la$ of $A_\la$ is an open subset of $\sX$.  From the Proposition  \ref{ctr_hered_prop} it follows that $A_\la$ is a continuous trace $C^*$-algebra.  If  $\widetilde A_\la\subset \widetilde A$ is    a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of  (cf. the Definition \ref{hereditary_lift_defn}) then a quadruple  $\left(A_\la, \widetilde{A}_\la, G, \pi|_{A_\la} \right)$ is a noncommutative finite-fold covering with unitization. If $\widetilde \sX_\la$ is a spectrum of $A_\la$ then from the Corollary \ref{ctr_sp_cov_cor} it follows that the restriction $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a finite-fold transitive covering. If $\cup \sX_\la \neq \sX$ then there are  $x_0 \in \sX \setminus \cup \sX_\la$ and $a\in A$ such that $\left\| \rep_{x_0} \left(a \right)\right\| = 1$. So one has
   $$
   \forall a^\cup  \in \cup A_\la  \quad \left\| a^\cup - a\right\|\ge \left\|\rep_{x_0}\left(  a^\cup - a\right)  \right\| = \left\|\rep_{x_0}\left(   a\right)  \right\|  = 1.
   $$
@@ -15912,7 +15825,7 @@ If $\sum_{j = 1}^n \widetilde f_j \in C_c\left( \widetilde \sX\right)$ is a subo
 From $\pi\left( a_j\right)\in \widetilde A$ and $\sqrt{\widetilde f_j}\in M\left(\widetilde A\right)$ it follows that $\sum_{j = 1}^n \widetilde f_j\widetilde a \in \widetilde A$. From  $\left\|\sum_{j = 1}^n \widetilde f_j\widetilde a -\widetilde a   \right\|< \eps$ it follows that $\widetilde a \in \widetilde A$, i.e. $ A_0\left( \widetilde \sX\right) \subset \widetilde A$. The proof of that there is a natural $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$ is left to the reader.
 \end{proof}
 \begin{corollary}
-Let $A$ be a continuous trace $C^*$-algebra, and let $\mathcal X$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).	If $\mathcal X$ is a locally compact, connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, Hausdorff space then the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
+Let $A$ be a continuous trace $C^*$-algebra, and let $\mathcal X$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).	If $\mathcal X$ is a locally compact, connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, Hausdorff space then the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
 \end{corollary}
 \begin{empt}\label{ctr_funct_empt}
 	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!! and the Lemma \ref{ctr_blowing_disint_lem} !!! MAY BE DELETE !!!). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn} !!!DELETE !!!  !!! DELETE !!!).  Similarly to \ref{top_functor_empt} !!! REPLACE \ref{top_functor_lem}we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
@@ -15993,7 +15906,7 @@ If the covering $p$ is finite-fold then there are the natural injective $*$-homo
  
 
 \begin{theorem}\label{ctr_fin_op_thm}
-Let us consider the given by \ref{ctr_fin_op_empt} situation. If $\sX$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!) then there is the natural 1-1 map from the set of finite-fold transitive coverings $p: \widetilde\sX \to\sX$ 
+Let us consider the given by \ref{ctr_fin_op_empt} situation. If $\sX$ is a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!) then there is the natural 1-1 map from the set of finite-fold transitive coverings $p: \widetilde\sX \to\sX$ 
 \eqref{fin_op_defn} and noncommutative  finite-fold  coverings of the subunital operator space $\left(X, Y\right)$ given by
 \bea\label{ctr_from_oa_eqn}
 \left(p: \widetilde\sX \to\sX \right) \mapsto \left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G\left(\left.\widetilde\sX \right|\sX\right), \left(\pi_X, \pi_Y \right) \right).
@@ -16083,7 +15996,7 @@ which is an analog of the representation \ref{ctr_a_eqn}.
 \subsection{Coverings of $*$-algebras}
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \paragraph{}
-Let $A$ be a connected continuous trace $C^*$-algebra such that the spectrum $\sX$ of $A$ is locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, paracompact, Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Theorem  \ref{sheaf_soft_m_thm}). If $p : \widetilde \sX \to \sX$ is a finite-fold transitive covering then there from the Lemma \ref{ctr_fin_inv_lem}   it follows that there is a noncommutative finite-fold covering 
+Let $A$ be a connected continuous trace $C^*$-algebra such that the spectrum $\sX$ of $A$ is locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, locally compact, paracompact, Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Theorem  \ref{sheaf_soft_m_thm}). If $p : \widetilde \sX \to \sX$ is a finite-fold transitive covering then there from the Lemma \ref{ctr_fin_inv_lem}   it follows that there is a noncommutative finite-fold covering 
 $$
 \left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 $$
@@ -16278,7 +16191,7 @@ The details of the proof are left to the reader.
 \subsection{Coverings of $C^*$-algebras}
 \subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
 \paragraph*{}
-Let $A$ be a $C^*$-algebra with Hausdorff spectrum $\sX$. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition\ref{top_consents_defn}) and let  $p:\widetilde{\sX} \to  \sX$ be a transitive covering with connected $\widetilde{\sX}$ and residually finite group, such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Exercise \ref{blowing_hausdorff_exer} it turns out that there is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}). 
+Let $A$ be a $C^*$-algebra with Hausdorff spectrum $\sX$. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition\ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) and let  $p:\widetilde{\sX} \to  \sX$ be a transitive covering with connected $\widetilde{\sX}$ and residually finite group, such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Exercise \ref{blowing_hausdorff_exer} it turns out that there is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}). 
 \begin{lemma}\label{ctr_intinite_hausdorff_covering_lem}
 Under described above hypotheses if $\overline p: \overline \sX  \to  \sX$  is {disconnected covering of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
 \bean
@@ -16495,7 +16408,7 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 \paragraph*{} Here we consider the generalization of the Theorem  \ref{ctr_main_thm}.
 \begin{empt}\label{ctr_op_main_empt}
 	Let $\left(X, Y\right)$ be a  {sub-unital subspace} having continuous trace (cf. Definition \ref{ctr_oa_defn}) and let $A \bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$.
-	From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Suppose that $\sX$ is a second-countable, connected and locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!set. Let	$\mathfrak{S}_{ C_0\left(\sX \right) } !!!= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}!!! pt DELETE !!!$ be a !!! pointed  DELETE !!!topological finite covering category such that for any $\mu > \nu$ there is the unique  !!! pointed  DELETE !!! covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. From the Lemma \ref{blowing_base_point_lem}   !!! REPLACE \ref{blowing_category_lem}    !!!!it turns out that is a {!!! pointed  DELETE !!!algebraical  finite covering category} (cf. Definition \ref{pointed_defn} ).
+	From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Suppose that $\sX$ is a second-countable, connected and locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!  !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!set. Let	$\mathfrak{S}_{ C_0\left(\sX \right) } !!!= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}!!! pt DELETE !!!$ be a !!! pointed  DELETE !!!topological finite covering category such that for any $\mu > \nu$ there is the unique  !!! pointed  DELETE !!! covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. From the Lemma \ref{blowing_base_point_lem}   !!! REPLACE \ref{blowing_category_lem}    !!!!it turns out that is a {!!! pointed  DELETE !!!algebraical  finite covering category} (cf. Definition \ref{pointed_defn} ).
 	\be\nonumber
 	\begin{split}
 		\mathfrak{S}_{A } = \\
@@ -16581,7 +16494,7 @@ If  $A$ is  a stable separable continuous-trace $C^*$-algebra with spectrum $\sX
 Following theorem gives universal  coverings of operator spaces with continuous trace. 
 \begin{theorem}\label{ctr_uni_lim_thm}
 	Let $A$ be a separable $C^*$-algebra with continuous trace, such that the spectrum $\mathcal X$ of 
-	$A$ is a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, second-countable, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), Hausdorff space. If $\widetilde \sX_{\mathrm{res~fin}}$ is given by the equation \eqref{top_x_fr_eqn} and   the  topological covering $\widetilde{p}:\widetilde \sX_{\mathrm{res~fin}}\to \mathcal X$ is given by the equation \eqref{top_fin_c_sec_eqn}  then the triple 	$$
+	$A$ is a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, locally compact, second-countable, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), Hausdorff space. If $\widetilde \sX_{\mathrm{res~fin}}$ is given by the equation \eqref{top_x_fr_eqn} and   the  topological covering $\widetilde{p}:\widetilde \sX_{\mathrm{res~fin}}\to \mathcal X$ is given by the equation \eqref{top_fin_c_sec_eqn}  then the triple 	$$
 	\left( A ,  A_0\left(\widetilde \sX_{\mathrm{res~fin}}\right), G\left( \left.\widetilde \sX_{\mathrm{res~fin}}~\right|\sX\right) \right)
 	$$ 
 	is the universal covering of $A$ (cf. Definition \ref{fundamental_group_nc_defn} !!! CHANGED !!! \end{theorem}
@@ -16601,7 +16514,7 @@ Following theorem gives universal  coverings of operator spaces with continuous 
 		(cf. Definition \ref{infinite_noncommutative_covering_defn}), and taking into account the Definition \ref{fundamental_group_nc_defn} !!! CHANGED !!!  one concludes that 	$\left( A,  A\left( \widetilde \sX_{\mathrm{res~fin}}\right), G\left( \left.\widetilde \sX_{\mathrm{res~fin}}~\right|\sX\right) \right)$ is the universal covering of $A$.
 \end{proof}
 \begin{cor}\label{ctr_fg_cor}
-	Let $A$ be a separable $C^*$-algebra, such that the spectrum $\mathcal X$ of 	$A$ is  a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, second-countable, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), Hausdorff space.
+	Let $A$ be a separable $C^*$-algebra, such that the spectrum $\mathcal X$ of 	$A$ is  a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, locally compact, second-countable, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), Hausdorff space.
 	If $\mathcal X$ is	a locally path connected semilocally 1-connected space, then one has
 	\begin{enumerate}
 		\item [(i)] $A$ {has the algebraical universal  covering} (cf. Definition \ref{fundamental_group_nc_defn} !!! CHANGED !!!),
@@ -16627,7 +16540,7 @@ G\left( \left.\widetilde \sX_{\mathrm{res~fin}}~\right|\sX\right)  \cong 	\mathf
 	Let $\left(X, Y \right) $ be sub-unital operator space with continuous trace (cf. Definition \ref{ctr_oa_defn}) $C^*$-algebra with continuous trace. From the Lemma \ref{ctr_oa_lem} it follows that the $C^*$-envelope $C_e\left(X, Y \right)$ has continuous  trace.
 \end{empt}
 \begin{theorem}\label{ctr_uni_os_lim_thm}
-	Consider the situation described in \ref{ctr_uni_os_lim_empt}, and suppose that the spectrum $\sX$ of $C_e\left(X, Y \right)$ a connected locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!  !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!locally compact second-countable, Hausdorff space.  If there is   the given by the equation \eqref{top_fin_c_sec_eqn}  topological covering $\widetilde{p}:\widetilde \sX_{\mathrm{res~fin}}\to \mathcal X$  then $C_0\left( \lift_{\widetilde  p}\left[X\right]\right)$ is the universal covering of  
+	Consider the situation described in \ref{ctr_uni_os_lim_empt}, and suppose that the spectrum $\sX$ of $C_e\left(X, Y \right)$ a connected locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!  !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!locally compact second-countable, Hausdorff space.  If there is   the given by the equation \eqref{top_fin_c_sec_eqn}  topological covering $\widetilde{p}:\widetilde \sX_{\mathrm{res~fin}}\to \mathcal X$  then $C_0\left( \lift_{\widetilde  p}\left[X\right]\right)$ is the universal covering of  
 	$\left(X, Y \right) $ (cf. Definition \ref{fg_bas_os_defn}).
 \end{theorem}
 \begin{proof}
@@ -16640,7 +16553,7 @@ G\left( \left.\widetilde \sX_{\mathrm{res~fin}}~\right|\sX\right)  \cong 	\mathf
 \end{proof}
 \begin{cor}\label{ctr_fg_oa_cor}
 	Consider the situation described in \ref{ctr_uni_os_lim_empt} and the Theorem \ref{ctr_uni_os_lim_thm}
-	If  $\mathcal X$  is is  a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, second-countable, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), Hausdorff space then
+	If  $\mathcal X$  is is  a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, locally compact, second-countable, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}), Hausdorff space then
 	$$
 	\pi_1\left( \left(X, Y \right), \left\{C^*_e\left( X,Y\right)_0\left(p^\mu_\nu \right)\right\}\right)\cong\mathfrak{ResFin}\left( 	\pi_1^{\mathrm{w}}\left( \sX, x_0\right)\right).	
 	$$
@@ -16675,7 +16588,7 @@ $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mat
 \subsection{Coverings of $*$-algebras}
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \paragraph{}
-Let $A$ be a connected continuous trace $C^*$-algebra such that the spectrum $\sX$ of $A$ is locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, locally compact, second-countable,  Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Theorem  \ref{sheaf_soft_m_thm}). Let 
+Let $A$ be a connected continuous trace $C^*$-algebra such that the spectrum $\sX$ of $A$ is locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, locally compact, second-countable,  Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Theorem  \ref{sheaf_soft_m_thm}). Let 
 \bean
 \mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La}
 \eean 
@@ -16831,7 +16744,7 @@ the following mapping.
 
 \section{Exercises}
 \begin{exercise}
-Let $\sX$ be a connected, locally connected !!! \ref{top_consents_defn} !!! \ref{top_consents_defn} !!! !!!, second-countable, locally compact, Hausdorff topological space and let $\left\{\H_x\right\}_{x \in \sX}$ be a family of infinite dimensional Hilbert spaces. Let  $\sF$ be a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}). If 
+Let $\sX$ be a connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, second-countable, locally compact, Hausdorff topological space and let $\left\{\H_x\right\}_{x \in \sX}$ be a family of infinite dimensional Hilbert spaces. Let  $\sF$ be a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}). If 
 \be\label{vf_x_eqn}
 X_{C_0\left(\sX\right)}  \bydef C_0\left(\sX, \left\{\H_x\right\}, \sF\right)
 \ee (cf. Definition \ref{top_cc_c0_defn}).
@@ -17172,7 +17085,7 @@ Here we apply the explained in the chapter \ref{blowing_chap} to the investigati
 
 
 \begin{theorem}\label{groupoid_fin_thm}
-	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite-fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}) the natural quadruple
+	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite-fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) the natural quadruple
 	\be\label{groupoid_fin_eqn}
 	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
 	\ee
@@ -17233,7 +17146,7 @@ If  $\rho: C_c\left( M, \mathcal{F}\right)\to B\left( \H\right)$ is a faithful r
 	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-The space $M$ is locally connected, so from \ref{top_fin_sufficient_thm} it follows that $M$  {consents with noncommutative coverings} (cf. Definition  \ref{top_consents_defn}). Hence this theorem is a specialization of \ref{groupoid_fin_thm} one.
+The space $M$ is locally connected, so from \ref{top_fin_sufficient_thm} it follows that $M$  {consents with noncommutative coverings} (cf. Definition  \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!). Hence this theorem is a specialization of \ref{groupoid_fin_thm} one.
 \end{proof}
 \subsection{Infinite coverings}
 \begin{empt}\label{groupoid_n_cov_foli_inf_empt}
