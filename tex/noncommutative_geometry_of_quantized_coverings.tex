@@ -3000,7 +3000,7 @@ Moreover  a natural representation
 is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
 
-\begin{definition}\label{fin_cat_defn} 
+\begin{definition}\label{fin_category_defn} 
 	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{category_defn}) such that following conditions hold:
 	\begin{itemize}
 		\item [(i)]  $\mathfrak{FinCov}$-$A$-objects  are  finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
@@ -5165,27 +5165,48 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 \paragraph{} Here a noncommutative generalization of the universal covering space (cf. Definition \ref{top_universal_covering_defn}) is discussed.
 
 \begin{definition}\label{fundamental_group_nc_defn} 
-Let $A$ be a connected $C^*$-algebra, and let 
+Let $A$ be a connected $C^*$-algebra. Suppose that the category $\mathfrak{FinCov}$-$A$
+of finite-fold coverings of $A$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{composable_cat_defn}) .
+The {infinite noncommutative covering} 
 $
 \left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
 $
-be the  {infinite noncommutative covering} (cf. Definition \ref{infinite_noncommutative_covering_defn}) of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ such that $A = A_{\la_{\mathrm{min}}}$.
-Suppose that $\mathfrak{S}$  and contains \textit{all} classes of isomorphisms of  noncommutative finite-fold coverings of $A$ (cf. Definition \ref{fin_defn}). Then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} 
+ of $\mathfrak{FinCov}\text{-}A$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) is said to be the \textit{universal  covering} 
 	of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} of $A$. We use the following notation
 	\be\label{fg_bas_eqn}
 	\pi_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
 	\ee
 \end{definition}
 
+\begin{exercise}\label{fundamental_group_mor_exer}
+	Consider the situation of the Definition \ref{fundamental_group_nc_defn}. 
+	Suppose that the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}). Prove following statements.
+	\begin{enumerate}
+		\item There is a natural functor (cf. Definition \ref{functor_defn}) $\pi_1$ from $\mathfrak{FinCov}$-$A$ to the category of groups.
+		\item  For any morphism $\pi: \widetilde{A}' \hookto \widetilde{A}''$ of the category $\mathfrak{FinCov}$-$A$ there is the natural isomorphism
+		$$
+		G\left( \left.\widetilde{A}'' \right|\widetilde{A}'\right) \cong \pi_1\left(\widetilde{A}' \right) / \pi_1\left(\pi \right)\left(\widetilde{A}'' \right).  
+		$$
+	\end{enumerate}
+	
+\end{exercise}
+\begin{remark}
+	The Exercise \ref{fundamental_group_mor_exer} can be regarded as a generalization of the Theorem \ref{top_fundamental_group_mor_thm}. (cf. also the Exercise \ref{top_fundamental_group_mor_exer}).
+\end{remark}
+
+
+
 \begin{definition}\label{fundamental_group_nc_p_defn} 
 	Let $P$ be a property of noncommutative finite-fold coverings.
-	Let $A$ be a $C^*$-algebra, and let 
-	$
-	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
-	$
-	be the  {infinite noncommutative covering} (cf. Definition \ref{infinite_noncommutative_covering_defn}) of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ such that $A = A_{\la_{\mathrm{min}}}$.
-	Suppose that $\mathfrak{S}$ contains \textit{all} classes of isomorphisms of noncommutative finite-fold coverings of $A$ (cf. Definition \ref{fin_defn}) which possesses the property $P$. Assume that $\pi^\mu_\nu : A_\mu \hookto A_\nu$ possesses the property $P$ for all $\mu, \nu \in \La$ such that $\mu \le \nu$. 
-	Then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the $P$-\textit{universal  covering} 
+Let $A$ be a connected $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$-$P$ is a subcategory of $\mathfrak{FinCov}$-$A$ such that any $\mathfrak{FinCov}$-$A$-$P$-object possesses the property $P$.
+ Suppose that the category $\mathfrak{FinCov}$-$A$-$P$
+ is composable (cf. Definition \ref{composable_cat_defn}) .
+The {infinite noncommutative covering} 
+$
+\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
+$
+of $\mathfrak{FinCov}\text{-}A$-$P$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) is said to be the $P$-\textit{universal  covering} 
+of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the $P$-\textit{fundamental group} of $A$. We use the following notation
 	of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the $P$-\textit{fundamental group} of $A$. We use the following notation
 	\be\label{fg_bas_p_eqn}
 	\pi^P_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
@@ -5194,23 +5215,6 @@ Suppose that $\mathfrak{S}$  and contains \textit{all} classes of isomorphisms o
 
 
 
-
-
-\begin{exercise}\label{fundamental_group_mor_exer}
-Consider the situation of the Definition \ref{fundamental_group_nc_defn}. 
-Suppose that the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}). Prove following statements.
-\begin{enumerate}
-	\item There is a natural functor (cf. Definition \ref{functor_defn}) $\pi_1$ from $\mathfrak{S}$ to the category of groups.
-	\item  For any morphism $\pi: \widetilde{A}' \hookto \widetilde{A}''$ of the category $\mathfrak{S}$ there is the natural isomorphism
-		$$
-		G\left( \left.\widetilde{A}'' \right|\widetilde{A}'\right) \cong \pi_1\left(\widetilde{A}' \right) / \pi_1\left(\pi \right)\left(\widetilde{A}'' \right).  
-		$$
-\end{enumerate}
-
-\end{exercise}
-\begin{remark}
-The Exercise \ref{fundamental_group_mor_exer} can be regarded as a generalization of the Theorem \ref{top_fundamental_group_mor_thm}. (cf. also the Exercise \ref{top_fundamental_group_mor_exer}).
-\end{remark}
 
 \begin{definition}\label{fundamental_group_nc_stable_defn} Similarly to \eqref{fundamental_group_nc_defn}  consider an  {algebraical  finite covering}  category
 \be\label{stable_fg_eqn}
@@ -7141,9 +7145,11 @@ $$
 
  \paragraph{}
  From the Lemma \ref{oa_haus_alg_lem} it follows that any $C^*$-algebra $A$ with Hausdorff spectrum $\sX$ is a full algebra of operator fields (cf. Definition \ref{full_al_defn}, i.e.
- $$
+\be\label{top_a_ax_eqn}
  A \cong C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right).
- $$
+\ee
+ where  $C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right)$ is the {converging to zero submodule} (cf. Definition \ref{top_cc_c0_defn})
+ 
  
 \begin{lemma} 
 	In the above situation   $C_b\left(\sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right)$ is a $C^*$-algebra.
@@ -7156,20 +7162,20 @@ $$
 \begin{lemma}\label{top_mult_inc_b_lem}
 	In the above there is the natural inclusion
 	$$
-	C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)  \hookto M\left(C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)\right) 
+	C_b\left(\sX, \left\{ A_{x}\right\}, A  \right)  \hookto M\left(C_0\left(\sX, \left\{ A_{x}\right\}, A \right)\right) 
 	$$
 	of $C^*$-algebras.
 \end{lemma}	
 \begin{proof}
-	If $a \in 	C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ and $b \in 	C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ then $ab  \in 	C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$. Form the Lemma
-	\ref{top_norm_c0cc_lem} it follows that $\text{norm}_a\in C_0\left(\sX \right)$ and from  the Lemma \ref{top_bounded_norm_lem} it follows that $\text{norm}_a, \text{norm}_{ab}\in C_b\left(\sX \right)$. Taking into account $\text{norm}_{ab} \le \text{norm}_{a}\text{norm}_{b}$ we conclude that  $\text{norm}_{ab}\in C_0\left(\sX \right)$, hence from the Lemma \ref{top_norm_c0cc_lem} one has $ab \in C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$. Similarly we prove that $ba \in C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$, so $b \in M\left(C_0\left(\sX, \left\{ A_{x}\right\}, \sF  \right)\right)$.
+	If $a \in 	C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)$ and $b \in 	C_b\left(\sX, \left\{ A_{x}\right\}, A  \right)$ then $ab  \in 	C_b\left(\sX, \left\{ A_{x}\right\}, A  \right)$. Form the Lemma
+	\ref{top_norm_c0cc_lem} it follows that $\text{norm}_a\in C_0\left(\sX \right)$ and from  the Lemma \ref{top_bounded_norm_lem} it follows that $\text{norm}_a, \text{norm}_{ab}\in C_b\left(\sX \right)$. Taking into account $\text{norm}_{ab} \le \text{norm}_{a}\text{norm}_{b}$ we conclude that  $\text{norm}_{ab}\in C_0\left(\sX \right)$, hence from the Lemma \ref{top_norm_c0cc_lem} one has $ab \in C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)$. Similarly we prove that $ba \in C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)$, so $b \in M\left(C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)\right)$.
 \end{proof}	
 
 \begin{empt}\label{top_a_res_rem}
 	If $A = C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)$ is a $C^*$-algebra with Hausdorff spectrum and $\sV\subset\sX$ is any subset then denote by $C_0\left(\sV, \left\{ A_{x}\right\}, A  \right)$ the $\sV$-{restriction} of $C_0\left(\sX, \left\{A_x\right\}, A \right)$ (cf. Definition \ref{ctr_restr_defn}). The space $C_0\left(\sV, \left\{ A_{x}\right\}, A  \right)$ has the natural structure  of *-algebra with $C^*$-norm. It is norm closed (cf. Remark \ref{top_cv_nc_rem}), so $C_0\left(\sV, \left\{ A_{x}\right\}, A  \right)$ is a $C^*$-algebra.
 \end{empt}
 \begin{lemma}\label{top_ax_sp_lem}
-Consider the above situation. If a subset   $\sY \subset \sX$ is compact then the following conditions hold.
+Under the hypotheses \ref{top_a_res_rem} if a subset   $\sY \subset \sX$ is compact then the following conditions hold.
 \begin{enumerate}
 	\item [(i)] If $\left.A\right|^\sY$ is given by the equation \eqref{closed_ideal_eqn} then there is the natural $*$-isomorphism $\left.A\right|^\sY\cong C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$  where  $C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$ is 
 	an $\sY$-restriction  of  $C_0\left(\sX, \left\{ A_{x}\right\}, A  \right)$   (cf. Definition \ref{ctr_restr_defn}).
@@ -7222,15 +7228,17 @@ Consider the above situation. If a subset   $\sY \subset \sX$ is compact then th
 \end{proof}
 
 \begin{empt}\label{top_cs_funct_empt}
-	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).
-	Denote by
-	\be\label{top_cstr_eqn}
-	\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right).
-	\ee
+!!!	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ then 
+	\bean
+	A \cong C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right).
+	\eean
+	(cf. equation \eqref{top_a_ax_eqn})
+	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. 
 	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{ctr_crooss_alg_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective $*$-homomorphism 
 	$$
 	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
 	$$
+	
 	of $C^*$-algebras. From the Lemma  \ref{top_lift_composition_lem} it follows  contravariant  functor $\mathscr C_0$ from  $\mathfrak{FinCov}$-$\sX$  to the category of $C^*$-algebras such that
 	\begin{itemize}
 		\item If $p:\widetilde\sX \to \sX$  is an object of the category  $\mathfrak{FinCov}$-$\sX$, i.e. $p$ is a transitive finite-fold covering then 
@@ -7771,21 +7779,14 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 		\end{enumerate}
 \end{exercise}
 
-\begin{definition}\label{comm_loc_triv_defn}
-	Let $\sX$ be a locally compact Hausdorff space and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). Suppose that $
-	\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$. Let
-\be\label{comm_loc_triv_eqn}
-	\mathscr C_0\left( \sX\right) \stackrel{\mathrm{def}}{=} C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)
-\ee
-	and let us consider the following closed ideal 
-	\be\label{comm_res_eqn}
-	\left.\mathscr C_0\left( \sX\right)\right|_{\sU} \stackrel{\mathrm{def}}{=}\left\{\left\{\left.a_x \in A_x \right\}_{x \in \sX}~\right| x \notin \sU \Rightarrow a_x = 0\right\}\subset \mathscr C_0\left( \sX\right).
-	\ee
-	We say that $\mathscr C$ is \textit{locally trivial} if for all $x \in \sX$ there is a fundamental system $\left\{\sU_\a\right\}$ of connected neighborhoods such that for any $\a$ the ideal $\left.\mathscr C_0\left( \sX\right)\right|_{\sU_\a}$ is not a direct sum of no more than one nontrivial $C^*$-algebras.
-\end{definition}
 
-\begin{lemma}\label{comm_comply_lem}
-	Suppose that $\mathscr C\stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$ is locally trivial (cf. Definition \ref{comm_loc_triv_defn}).
+
+\begin{lemma}\label{top_composable_lem}
+	Let  $A$ be a connected $C^*$-algebra  with locally connected, locally compact, Hausdorff spectrum $\sX$, i.e.
+$$
+	A \cong C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right).
+$$
+	(cf. equation \eqref{top_a_ax_eqn}).
 	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_1\to \sX$ are transitive coverings.
 	If  $\pi^1_2 : \mathscr C_0\left( \widetilde{\sX}_1\right)  \to \mathscr C_0\left( \widetilde{\sX}_2\right)$ is a $*$-homomorphism such that $\mathscr C_0\left( p_1\right) = \pi^1_2 \circ \mathscr C_0\left( p_2\right)$ (cf. Notation \eqref{top_c0_ob_eqn}) then following conditions hold:
 	\begin{enumerate}
@@ -7829,7 +7830,7 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 	
 \end{lemma}
 \begin{proof} (a)
-	Let us select $x^2_0\in \widetilde \sX_2$ and an open connected neighborhood  $\widetilde\sU_2$ of $x^2_0$ which is homeomorphically mapped onto  $\sU\subset \sX$. Suppose that  $\sU$ is evenly covered by  $p_1$ and suppose that the ideal $\left.\mathscr C_0\left( \sX\right)\right|_{\sU}$ is not a direct sum of no more than one nontrivial $C^*$-algebras (cf. Definition \ref{comm_loc_triv_defn}). There are   $\widetilde\sU_1\subset \widetilde \sX_1$ and  $\widetilde\sU_2\subset \widetilde \sX_2$ such that
+	Let us select $x^2_0\in \widetilde \sX_2$ and an open connected neighborhood  $\widetilde\sU_2$ of $x^2_0$ which is homeomorphically mapped onto  $\sU\subset \sX$. Suppose that  $\sU$ is evenly covered by  $p_1$ and suppose that the ideal $\left.\mathscr C_0\left( \sX\right)\right|_{\sU}$ is not a direct sum of no more than one nontrivial $C^*$-algebras (cf. Definition \ref{comm_loc_triv_defn}  !!! REPLACE LOCALLY CONNECTED !!!). There are   $\widetilde\sU_1\subset \widetilde \sX_1$ and  $\widetilde\sU_2\subset \widetilde \sX_2$ such that
 	\be\label{top_pm1_eqn}
 	\begin{split}
 		p_1^{-1}\left(\sU \right) = \bigsqcup_{g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right) } g_1\widetilde\sU_1,\\
@@ -9053,7 +9054,7 @@ The following lemma supplies the quantization of coverings with compactification
 \begin{theorem}\label{top_finite_covering_thm} 
 Following conditions hold.
 \begin{enumerate}
-	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_cat_defn}) is composable (cf. Definition \ref{composable_cat_defn})
+	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{composable_cat_defn})
 	\item[(ii)] The given by the Definition \ref{top_c_funct_defn}  finite covering algebraic functor   $C_0:\mathfrak{FinCov}$-$\sX \cong \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is the natural equivalence of the categories (cf. Definition \ref{category_equivalence_definition}).
 	
 \end{enumerate}
@@ -9068,7 +9069,7 @@ Following conditions hold.
 	\be\label{top_c_funct_lem_eqn}
  	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
-(cf. equation \eqref{top_c0_ob_eqn}).	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)\bydef \mathscr C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{comm_comply_lem} it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.
+(cf. equation \eqref{top_c0_ob_eqn}).	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)\bydef \mathscr C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{top_composable_lem} !!! CHECK !!! it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.
 \end{proof}
 \begin{remark}\label{comm_comm_rem}  !!! WHERE !!!
 	Both Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!!  and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!!   yield a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Theorem \ref{comm_uni_lim_thm}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
@@ -13585,7 +13586,7 @@ From the above equation it follows that $G= G\left(\left.\widetilde \sY \right|\
 
 
 \begin{empt}\label{blowing_funct_empt}
-Let  $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ is  disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!) then similarly to  \ref{top_functor_empt} !!! REPLACE \ref{top_finite_covering_thm} !!! THEOREM !!!there is a  functor (cf. Definitions \ref{functor_defn}) $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$  from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn} !!!DELETE !!!  !!! DELETE !!!).
+Let  $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ is  disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!!) then similarly to  \ref{top_functor_empt} !!! REPLACE \ref{top_finite_covering_thm} !!! THEOREM !!!there is a  functor (cf. Definitions \ref{functor_defn}) $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$  from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_category_defn} !!!DELETE !!!  !!! DELETE !!!).
 	\begin{itemize}
 	\item If $q: \widetilde \sY \to \sY$ is $\mathfrak{FinCov}$-$\sY$-object then 
 	\bean
@@ -13621,7 +13622,7 @@ is defined up to homeomorphism by a normal subgroup $H_{\text{top}} \subset G\le
  \bean
  \left(A_0\left( \widetilde{\sY}_2\right), A_0\left( \widetilde{\sY}_1\right), G\left(\left.  A_0\left( \widetilde{\sY}_1\right)\right| A_0\left( \widetilde{\sY}_2\right)\right), \pi\right)\cong\\\cong \left(A_0\left( \widetilde{\sY}_1\right)^{H_{\text{alg}}}, A_0\left( \widetilde{\sY}_1\right), H_{\text{alg}},\left. \Id_{A_0\left( \widetilde{\sY}_1\right)}\right|_{A_0\left( \widetilde{\sY}_2\right)}\right)
 \eean
-(cf. Definition \ref{fin_cat_defn} !!!DELETE !!!  !!! DELETE !!!). However there is an isomorphism $G\left(\left.A_0\left( \widetilde{\sY}_1\right) ~\right|A\right)\cong G\left(\left. \widetilde{\sY}_1 ~\right|\sY\right)$ so there is a 1-1 correspondence between groups $H_{\text{top}}$ and $H_{\text{alg}}$. It follows that there is 1-1 correspondence between $\mathfrak{FinCov}$-$\sY$-arrows from  $q_1:\widetilde \sY_1 \to \sY$ to  $q_2:\widetilde \sY_2 \to \sY$ and $\mathfrak{FinCov}$-$A$-arrows from $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$ to $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$.
+(cf. Definition \ref{fin_category_defn} !!!DELETE !!!  !!! DELETE !!!). However there is an isomorphism $G\left(\left.A_0\left( \widetilde{\sY}_1\right) ~\right|A\right)\cong G\left(\left. \widetilde{\sY}_1 ~\right|\sY\right)$ so there is a 1-1 correspondence between groups $H_{\text{top}}$ and $H_{\text{alg}}$. It follows that there is 1-1 correspondence between $\mathfrak{FinCov}$-$\sY$-arrows from  $q_1:\widetilde \sY_1 \to \sY$ to  $q_2:\widetilde \sY_2 \to \sY$ and $\mathfrak{FinCov}$-$A$-arrows from $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$ to $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$.
 \end{proof}
 
 
@@ -14545,7 +14546,7 @@ Let $A$ be a $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$ be e category
 \end{empt}
 
 \begin{corollary}\label{stable_functor_cor}
-	There is a  full functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definitions \ref{fin_cat_defn} !!!DELETE !!!  !!! DELETE !!!, \ref{functor_defn} and \ref{funct_full_faithfull_defn}).
+	There is a  full functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definitions \ref{fin_category_defn} !!!DELETE !!!  !!! DELETE !!!, \ref{functor_defn} and \ref{funct_full_faithfull_defn}).
 \end{corollary}
 \begin{proof}
 	Follows from the Lemma \ref{stable_pre_lem} and the Theorem \ref{stable_fin_cov_thm}.
@@ -15398,7 +15399,7 @@ Our following constructions require an analog of the Dini's theorem.
 
 
 \begin{lemma}\label{ctr_fin_red_lem}
-	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected space and $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!), and let the category $\mathfrak{FinCov}$-$\sX$ is a {finite covering category} of $\sX$ given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn} !!!DELETE !!!) then there is a full and faithful functor $A_0: \mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$.
+	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected space and $\sX$ {consents with noncommutative coverings} (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!), and let the category $\mathfrak{FinCov}$-$\sX$ is a {finite covering category} of $\sX$ given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_category_defn} !!!DELETE !!!) then there is a full and faithful functor $A_0: \mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$.
 \end{lemma}
 
 \begin{proof}
@@ -15818,7 +15819,7 @@ From $\pi\left( a_j\right)\in \widetilde A$ and $\sqrt{\widetilde f_j}\in M\left
 Let $A$ be a continuous trace $C^*$-algebra, and let $\mathcal X$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).	If $\mathcal X$ is a locally compact, connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, Hausdorff space then the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
 \end{corollary}
 \begin{empt}\label{ctr_funct_empt}
-	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!! and the Lemma \ref{ctr_blowing_disint_lem} !!! MAY BE DELETE !!!). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn} !!!DELETE !!!  !!! DELETE !!!).  Similarly to \ref{top_functor_empt} !!! REPLACE \ref{top_finite_covering_thm} !!! THEOREM !!!we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
+	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!! and the Lemma \ref{ctr_blowing_disint_lem} !!! MAY BE DELETE !!!). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_category_defn} !!!DELETE !!!  !!! DELETE !!!).  Similarly to \ref{top_functor_empt} !!! REPLACE \ref{top_finite_covering_thm} !!! THEOREM !!!we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
 	We define
