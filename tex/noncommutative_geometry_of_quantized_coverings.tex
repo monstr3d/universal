@@ -1074,25 +1074,24 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 \end{remark}
 
 \begin{lemma}\label{top_trans_tp_cov_lem}
-	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
+	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
 	$$
 	\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x = \widetilde x.
 	$$
 \end{lemma}
 \begin{proof}
-	The implication $\Leftarrow$ is evident. Suppose that $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$. There are open neighborhoods $\widetilde\sU'$ and $\widetilde\sU''$ of $\widetilde x$ and $g \widetilde x$ such that $\widetilde\sU'\cap \widetilde\sU'' = \emptyset$. Otherwise since $g$ is a homeomorphism there is open neighborhood $\widetilde\sV$ of $\widetilde x$ such that $g\widetilde\sV \subset \widetilde\sU''$. It follows that $g\widetilde x \neq \widetilde x$ for all $\widetilde x \in \widetilde \sU'\cap \widetilde\sV$. Hence the set
+	The implication $\Leftarrow$ is evident. 
+	If  $g\widetilde x= \widetilde x$ then there is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ which mapped homeomorphically onto $\sU \bydef p\left( \widetilde \sU\right)$. The restriction $\left.p\right|_{\widetilde\sU}$ is a homeomorphism from $\sU$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
+	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad g\widetilde x = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ g \left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so a set
 	$$
-	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x \neq \widetilde x\right\}
-	$$
-	is open, or equivalently the set
-	$$
-	\widetilde{ \mathcal W}	=	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\}
-	$$
-	is closed.  Suppose that $\widetilde x \in \widetilde \sX$ is such that $\widetilde x = g \widetilde x$. There is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ such that a restriction  $\left.p\right|_{\widetilde\sU}$ is injective. On the other hand the restriction $\left.p\right|_{\widetilde\sU}$ can be regarded as a homeomorphism from ${\widetilde\sU}$ onto $p\left( {\widetilde\sU}\right)$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $g\widetilde  \sV \subset \widetilde \sU$.
-	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad g\widetilde x = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ g \left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so $\widetilde{ \mathcal W}$ is open.  From $\exists  \widetilde x \in \widetilde\sX \quad  g\widetilde x\neq \widetilde x$ it turns out that $\widetilde{ \mathcal W}\neq \widetilde\sX$. On the other hand $\widetilde{ \mathcal W}$ is an open and closed subset of a connected set $\widetilde{    \sX }$, so one has $\widetilde{ \mathcal W}= \emptyset$. It means that
-	$$
-	\forall  \widetilde x \in \widetilde\sX \quad  g\widetilde x \neq \widetilde x.
-	$$
+\widetilde{ \mathcal W}	=	\left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\}
+$$
+is open. If $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}\neq \emptyset$ and  for any $\widetilde x \in \widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}$ there is and open neighborhood $\widetilde \sV$ such that $\widetilde{ \mathcal V}\subset\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}$ then the set $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}$ is open and $\widetilde\sX$ is a disjoint union of nontrivial open sets. It is impossible since the space $\widetilde{ \mathcal X}$ is connected. So there is $\widetilde x\in \widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}$ such then for any open neighborhood $\widetilde \sV$ of $\widetilde x$ one has $\widetilde \sV\cap \widetilde{ \mathcal W}\neq \emptyset$. From our previous proof it follows that
+\bean
+\widetilde{ \mathcal W}\subsetneqq \widetilde{ \mathcal W}\cup \widetilde \sV,\\
+\widetilde{ \mathcal W}\cup \widetilde \sV\subset \left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\},
+\eean
+so $\widetilde{ \mathcal W}\subsetneqq \widetilde{ \mathcal W}$. It is impossible so $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}=\emptyset$ and $\widetilde{ \mathcal X}=\widetilde{ \mathcal W}$.
 \end{proof}
 \begin{corollary}\label{top_trans_tp_cov_cor}
 	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
@@ -1110,8 +1109,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
 \end{remark} 
 
-\begin{theorem}
-	\label{top_covp_cat_thm} 
+\begin{theorem}\label{top_covp_cat_thm} 
 	Consider a commutative triangle of connected, Hausdorff topological spaces and  continuous maps
 	\newline
 	\begin{tikzpicture}
@@ -1125,16 +1123,34 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
 	\end{tikzpicture}
 	\\
-	If both  $p_1$ and $p_2$ are transitive coverings (cf. Definition \ref{top_transitive_defn}) and the map $p$ is surjective then the map $p$ is a transitive covering and there is the natural exact sequence  
+where the space $\sX$ is locally connected.	If   both  $p_1$ and $p_2$ are transitive coverings (cf. Definition \ref{top_transitive_defn}) and the map $p$ is surjective then the map $p$ is a transitive covering and there is the natural exact sequence  
 	\be\label{top_covp_cat_eqn}
 	\{e\}\to G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\to 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\to\{e\}
 	\ee
 	of groups and homomorphisms.	
-	
-	
 \end{theorem}
 
 \begin{proof}
+	From the Corollary \ref{top_cov_cat_cor} it follows that the map $p$ is a transitive covering. Let both $\widetilde{x}_1\in \widetilde{\sX}_1$ and $g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ are such that
+	$
+p_2\left(g \widetilde{x}_1\right) \neq p_2\left( \widetilde{x}_1\right)	
+	$. 
+There are connected open neighborhoods $\widetilde\sU'_2$ and $\widetilde\sU''_2$ of $p\left( \widetilde x_1\right) $ and $p\left( \widetilde gx_1\right)$ such that $\widetilde\sU'_2\cap \widetilde\sU''_2 = \emptyset$. Otherwise there is open connected neighborhood $\widetilde\sV_1$ of $\widetilde x_1$ such that $p\left( g\widetilde\sV_1\right)  \subset \widetilde\sU''_2$. It follows that $p\left(  g\widetilde y_1\right) \neq p\left( \widetilde y_1\right)$ for all $\widetilde y \in \widetilde \sU'_1\cap \widetilde\sV_1$. Hence the set
+$$
+\widetilde{ \mathcal W}_1\bydef \left\{\left.\widetilde y_1 \in \widetilde \sX_1~\right| p\left(  g\widetilde y_1\right) \neq p\left( \widetilde y_1\right)\right\}
+$$
+is open. If $\widetilde{ \mathcal X}_1\setminus \widetilde{ \mathcal W}_1\neq \emptyset$ and  for any $\widetilde x_1 \in \widetilde{ \mathcal X}_1\setminus \widetilde{ \mathcal W}_1$ there is and open neighborhood $\widetilde \sV_1$ such that $\widetilde{ \mathcal V}_1\subset\widetilde{ \mathcal X}_1\setminus \widetilde{ \mathcal W}_1$ then the set $\widetilde{ \mathcal X}_1\setminus \widetilde{ \mathcal W}_1$ is open and $\widetilde\sX_1$ is a disjoint union of nontrivial open sets. It is impossible since the space $\widetilde{ \mathcal X}_1$ is connected. So there is $\widetilde x'_1\in \widetilde{ \mathcal X}_1\setminus \widetilde{ \mathcal W}_1$ such then for any open neighborhood $\widetilde \sV_1$ of  $\widetilde x'_1$ one has $\widetilde \sV_1\cap \widetilde{ \mathcal W}_1\neq \emptyset$. From our previous proof it follows that
+\bean
+\widetilde{ \mathcal W}\subsetneqq \widetilde{ \mathcal W}\cup \widetilde \sV,\\
+\widetilde{ \mathcal W}\cup \widetilde \sV\subset \left\{\left.\widetilde x \in \widetilde \sX~\right| g\widetilde x= \widetilde x\right\},
+\eean
+so $\widetilde{ \mathcal W}_1\subsetneqq \widetilde{ \mathcal W}_1$. It is impossible so $\widetilde{ \mathcal X}_1\setminus \widetilde{ \mathcal W}_1=\emptyset$ and $\widetilde{ \mathcal X}_1=\widetilde{ \mathcal W}_1$. From our construction it follows that for any $g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ one has
+\be\label{top_free_act}
+\begin{split}
+	\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right) \neq p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)\neq p\left( \widetilde x_1\right),\\
+\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)  = p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)= p\left( \widetilde x_1\right) . 
+\end{split}
+\ee 
 	If   $\varphi : \widetilde{\sX}_1\xrightarrow{\approx }  \widetilde{\sX}_1$ is   a homeomorphism such that
 	$$
 	\forall \widetilde{x}_1\in \widetilde{\sX}_1\quad p\left( \widetilde{x}_1\right) = p\left( \varphi\left(\widetilde{x}_1\right)\right).
@@ -1161,18 +1177,22 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	\forall g', g'' \in G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\quad g_2 p\left(\widetilde x_1  \right)= p \left(g'g_1\widetilde x_1  \right)= p \left(g_1 g''\widetilde x_1  \right),\\
 	g_1G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)g_1,
 	\eean
-	or equivalently $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is a normal subgroup of $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. From \eqref{top_guuu_eqn} it follows that there ia a surjective homomorphism $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)$. From $\widetilde{\sX}_2= \widetilde{\sX}_1/G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ it follows that the covering $p$ is transitive.
+	or equivalently $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is a normal subgroup of $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. From \eqref{top_guuu_eqn} it follows that there ia a surjective homomorphism $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)$. From \eqref{top_free_act} it follows that  for any $\widetilde x_2\in \widetilde\sX_2$ one has $p^{-1}\left( \widetilde x_2\right)=G \left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$   where $\widetilde x_1 \in p^{-1}\left( \widetilde x_2\right)$.
+So one has $\widetilde{\sX}_2= \widetilde{\sX}_1/G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, it follows that the covering $p$ is transitive.
 \end{proof}
 \begin{definition}\label{top_fin_cov_defn}
-	Let $\sX$ be a connected, locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
 	\begin{itemize}
 		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
 		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
 	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$. 	
+	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$. 	From the Theorem \ref{top_covp_cat_thm} it follows that $p_{12}$ is a transitive covering.
 \end{definition}
 
-\
+\begin{remark}\label{top_fin_cov_rem}
+Sometimes   a $\mathfrak{FinCov}$-$\sX$-object  $\widetilde\sX \to \sX$ will be  denoted by $\widetilde\sX$.
+\end{remark}
+
 \section{Miscellany}
 
 \paragraph{}
@@ -1981,7 +2001,7 @@ is dense in $A$.
 \end{definition}
 
 \begin{remark}
-	The Definition \ref{fin_defn} is motivated by the Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!! .
+	The Definition \ref{fin_defn} is motivated by the Theorem \ref{top_finite_covering_thm}.
 \end{remark}
 \begin{remark}
 Roughly speaking the Definition \ref{fin_defn} is an approximation of any covering by coverings with compact spaces.
@@ -7142,7 +7162,7 @@ $$
 
 
  \section{Continuity structures and $C^*$-algebras}
-
+\subsection{Basic definitions}
  \paragraph{}
  From the Lemma \ref{oa_haus_alg_lem} it follows that any $C^*$-algebra $A$ with Hausdorff spectrum $\sX$ is a full algebra of operator fields (cf. Definition \ref{full_al_defn}, i.e.
 \be\label{top_a_ax_eqn}
@@ -7195,7 +7215,9 @@ Under the hypotheses \ref{top_a_res_rem} if a subset   $\sY \subset \sX$ is comp
 		\item[(ii)] the restriction  $$\left.\left.\lift\right._p\right|_{C_b\left(\sX, \left\{A_x\right\}, \sF \right)}:  C_b\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_b\left( \lift_p \left[\sX, \left\{A_x\right\}, \sF \right]\right)$$
 		is an injective  $*$-homomorphism of $C^*$-algebras,
 		\item[(iii)] if $p$ is a finite-fold covering then there is 	 an injective $*$-homomorphism of $C^*$-algebras
-		$$\left.\left.\lift\right._p\right|_{C_0\left(\sX, \left\{A_x\right\}, \sF \right)}:  C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left( \lift_p \left[\sX, \left\{A_x\right\}, \sF \right]\right).$$
+	\be\label{top_fin_lift_eqn}
+		\left.\left.\lift\right._p\right|_{C_0\left(\sX, \left\{A_x\right\}, \sF \right)}:  C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left( \lift_p \left[\sX, \left\{A_x\right\}, \sF \right]\right)
+		\ee
 	\end{enumerate}
 \end{lemma}
 \begin{proof}(i)
@@ -7226,114 +7248,6 @@ Under the hypotheses \ref{top_a_res_rem} if a subset   $\sY \subset \sX$ is comp
 	Follows from (i) and \eqref{top_glo_lift_bh_eqn}.\\
 	(iii) Follows from (i) and \eqref{top_compact_c0_eqn}.
 \end{proof}
-
-\begin{empt}\label{top_cs_funct_empt}
-!!!	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ then 
-	\bean
-	A \cong C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right).
-	\eean
-	(cf. equation \eqref{top_a_ax_eqn})
-	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. 
-	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{ctr_crooss_alg_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective $*$-homomorphism 
-	$$
-	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
-	$$
-	
-	of $C^*$-algebras. From the Lemma  \ref{top_lift_composition_lem} it follows  contravariant  functor $\mathscr C_0$ from  $\mathfrak{FinCov}$-$\sX$  to the category of $C^*$-algebras such that
-	\begin{itemize}
-		\item If $p:\widetilde\sX \to \sX$  is an object of the category  $\mathfrak{FinCov}$-$\sX$, i.e. $p$ is a transitive finite-fold covering then 
-		\be\label{top_c0_ob_eqn}
-		\mathscr C_0\left(p \right)   \stackrel{\mathrm{def}}{=}\left( 	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)\right) . 
-		\ee
-		We also write $ \mathscr C_0\left(\widetilde\sX\right)$ 	instead of $\mathscr  C_0\left(p\right)$  and use the notation
-		\be\label{top_c0i_ob_eqn}
-		\mathscr C_0\left(\widetilde\sX\right)   \stackrel{\mathrm{def}}{=}C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
-		\ee
-		which is alternative to \eqref{top_c0_ob_eqn} (cf. Remark \ref{top_fin_cov_rem}).
-		\item If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is  morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p_1 = p^1_2\circ p_2$, then
-		\be\label{top_c0p_ob_eqn}
-		\mathscr C_0\left(p^1_2 \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift_{p^1_2} \right.\right|_{\mathscr C_0\left(\widetilde\sX_2 \right)}	: \mathscr C_0\left(\widetilde\sX_2 \right) \hookto \mathscr C_0\left(\widetilde\sX_1 \right).
-		\ee	
-	\end{itemize}
-\end{empt}
-\begin{definition}\label{top_cs_funct_defn}
-	The described in \ref{top_cs_funct_empt} contravariant functor $\mathscr C_0$   is from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $\mathscr C = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$.
-\end{definition}
-\begin{definition}\label{top_cs_funct_b_defn}
-	Let $\sX$ be a locally compact Hausdorff space and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). Suppose that $
-	\mathscr C \stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)
-	$.
-	If $p: \widetilde{\sX} \to \sX$ is a transitive covering then we use the following notation for $C^*$-algebras and their injective $*$-homomorphisms:
-	\be\label{top_cb_defn_eqn}
-	\begin{split}
-		\mathscr C_b\left(\sX \right)\stackrel{\mathrm{def}}{=} C_b\left(\sX, \left\{A_x\right\}, \sF \right),
-		\\ 
-		\mathscr C_b\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_b\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right),
-		\\
-		\mathscr C_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{\mathscr C_0\left(\sX \right)} : \mathscr C_0\left(\sX \right)  \hookto \mathscr C_b\left(\widetilde{\sX} \right),
-		\\
-		\mathscr C_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{\mathscr C_b\left(\sX \right)} : \mathscr C_b\left(\sX \right)  \hookto \mathscr C_b\left(\widetilde{\sX} \right)
-	\end{split}
-	\ee
-	(cf. (ii) of the Lemma \ref{top_lift_c_alg_lem}). 
-\end{definition}
-
-
-\begin{empt}\label{top_cs_functa_empt}
-	If $A$ be a $C^*$-algebra with connected, locally connected, locally compact, Hausdorff spectrum $\sX$ then from the Lemma Lemma  \ref{oa_haus_alg_lem} it follows that
-	\be\label{top_cstra_eqn}
-	A\cong C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right).
-	\ee
-	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}.  If $p: \widetilde \sX\to \sX$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective *-homomorphism 
-	$$
-	C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right) \hookto C_0\left(\lift_p\left[C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right) \right] \right) 
-	$$
-	of $C^*$-algebras. From the Lemma  \ref{top_lift_composition_lem} it follows there is  a contravariant  functor  (cf. Definitions \ref{functor_defn} and \ref{functor_contravariant_defn}) $A_0$ from  $\mathfrak{FinCov}$-$\sX$  to the category of $C^*$-algebras such that
-	\begin{itemize}
-		\item If $p:\widetilde\sX \to \sX$  is an object of the category  $\mathfrak{FinCov}$-$\sX$, i.e. $p$ is a transitive finite-fold covering then 
-		\be\label{top_c0_oba_eqn}
-		\begin{split}
-			A_0\left(p \right)   \stackrel{\mathrm{def}}{=} A \hookto A_0\left(\widetilde\sX\right). 
-		\end{split}
-		\ee
-		where $A_0\left(\widetilde\sX\right)$ is given by
-		\be\label{top_c0i_oba_eqn}
-		A_0\left(\widetilde\sX\right)   \stackrel{\mathrm{def}}{=}C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right). 
-		\ee
-		\item If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is  morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p_1 = p^1_2\circ p_2$, then
-		\be\label{top_c0p_oba_eqn}
-		A_0\left(p^1_2 \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift_{p^1_2} \right.\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right).
-		\ee	
-	\end{itemize}
-	Sometimes we replace $A_0\left(p \right)$ with  $A_0\left(\widetilde\sX\right)$.
-\end{empt}
-\begin{definition}\label{top_cs_funcat_defn}
-	The described in \ref{top_cs_funct_empt} faithful contravariant functor $A_0$ (cf. Definitions \ref{functor_defn}, \ref{funct_full_faithfull_defn}  and \ref{functor_contravariant_defn})   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$-algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$.
-\end{definition}
-
-\begin{definition}\label{top_cs_functa_b_defn}
-	$A$ be a $C^*$-algebra with connected, locally connected, locally compact, Hausdorff spectrum $\sX$
-	If $p: \widetilde{\sX} \to \sX$ is a transitive covering then we use the following notation for $C^*$-algebras and their injective *-homomorphisms:
-	\be\label{top_cb_defna_eqn}
-	\begin{split}
-		A_c\left(\sX \right)\stackrel{\mathrm{def}}{=} C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),\\
-		A_0\left(\sX \right) \bydef A =C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),\\
-		A_b\left(\sX \right)\stackrel{\mathrm{def}}{=} C_b\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),
-		\\ 
-		A_c\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
-		\\
-		A_0\left(\widetilde{\sX} \right)\bydef C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
-		\\
-		A_b\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
-		\\
-		A_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{A_0\left(\sX \right)} : A_0\left(\sX \right)  \hookto A_b\left(\widetilde{\sX} \right),
-		\\
-		A_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{A_b\left(\sX \right)} : A_b\left(\sX \right)  \hookto A_b\left(\widetilde{\sX} \right)
-	\end{split}
-	\ee
-	(cf. (ii) of the Lemma \ref{top_lift_c_alg_lem}). 
-\end{definition}
-
 
 
 \begin{lemma}\label{top_lift_d_lem}
@@ -7433,46 +7347,6 @@ Under the hypotheses \ref{top_a_res_rem} if a subset   $\sY \subset \sX$ is comp
 	\right\}$ and taking into account that $g\widetilde{a}$ corresponds to $\left\{\widetilde{a}_{g\widetilde{x}}\right\}$ we conclude that $\left( g \widetilde{a}\right)^*=  g \widetilde{a}^*$. Thus $g$ is an automorphism of the involutive algebra $\lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]$, and taking into account  (i) of this Lemma we conclude that  $g$ is  an automorphism of the involutive algebras $C_c\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]\right)$, $C_0\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]\right)$ and $C_b\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]\right)$.
 \end{proof}
 
-
-
-
-\begin{remark}
-	If $A_x$ is a $C^*$-algebra for any $x \in \sX$ then for any $a, b \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\widetilde{a}, \widetilde{b} \in C_0\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ one has 
-	\begin{equation}\label{comm_lift_desc_hom_eqn}
-	\begin{split}
-	\supp \widetilde{a} \cap \supp \widetilde{b} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}\widetilde{b} \right) = \mathfrak{desc}_{p}\left( \widetilde{a} \right)\mathfrak{desc}_{p}\left( \widetilde{b} \right),\\
-	\supp a \cap \supp {b} \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(ab\right)=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(b\right),\\
-	\supp \widetilde{a} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}^* \right)= \mathfrak{desc}_{p}\left( \widetilde{a}\right)^*,\\
-	\supp a \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a^*\right)
-	=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)^*
-	\end{split}
-	\end{equation}	
-where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically mapped onto $\sU \bydef p\left(\widetilde \sU\right)$.
-\end{remark}
-\begin{empt} Consider a special case of 	
-	the Definition \ref{top_cs_funct_defn}.
-		Let $\sX$ be a locally compact Hausdorff space. If we consider a family $\left\{\C_x\right\}_{x \in \sX}$ of Banach spaces each of which is isomorphic to $\C$ then $C_0\left(\sX\right)$ is  a continuity structure  for $\sX$ {and the} $\left\{\C_x\right\}$. Moreover if $p: \widetilde{\sX} \to \sX$ is a finite fold covering then one has 
-\be\label{top_cocc_eqn}
-\begin{split}
-	C_b\left(\widetilde{\sX}\right) \cong C_b\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right),\\ C_0\left(\widetilde{\sX}\right) \cong C_0\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right).
-\end{split}
-\ee
- 
-\end{empt}
-\begin{definition}\label{top_c_funct_defn}    
-	Consider the finite covering functor associated with $$A = \left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)$$ (cf. Definition \ref{top_cs_funct_defn}) from the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to be the \textit{finite covering algebraic functor}. We denote this functor by $C_0$. 
- For any finite fold covering $p: \widetilde \sX \to \sX$ the functor $C_0$ yields an injective $*$-homomorphism
-	\be\label{top_c0p_eqn}
-	C_0\left(p\right): 	C_0\left(\sX\right)\hookto	C_0\left(\widetilde\sX\right).
-	\ee
-\end{definition}
-\begin{exercise}\label{top_act_exer}
-If  $p: \widetilde \sX \to \sX$ is a transitive covering of compact spaces. From the Theorem \ref{pavlov_troisky_thm} it follows that there is an action $C\left(\sX \right) \times C\left(\widetilde \sX \right)\to C\left(\widetilde \sX \right)$. Prove that if the covering is transitive, the action is given by
-$$
-\left(a,b \right)\mapsto C_0\left(p\right)\left(a\right)b.
-$$
-\end{exercise}
-
 \begin{lemma}\label{top_res_iso_lem}
 	Let $\sX$ be a connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let $p: \widetilde{\sX} \to \sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective and $\sU = p\left(\widetilde{\sU}\right)$. If the closure of $\sU$ is compact, both $\left.C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right|_{\sU}$ and $\left.C_0\left( \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right) \right|_{\widetilde{\sU}}$ are given by  \eqref{top_res_eqn} then there is a natural injective $*$-isomorphism
 	$$
@@ -7510,12 +7384,12 @@ $$
 	(i)
 	From the Theorem \ref{cross_mult_thm} it turns out than any $a \in M\left(A  \right)$ corresponds to the strictly continuous section $\left\{a_x \in M\left( \rep_x\left( A\right)\right)  \right\}_{x \in \sX}$ (cf. Definition \ref{ctr_crooss_alg_defn}). The section defines a section 
 	$$\left\{\widetilde a_{\widetilde x} = a_{p\left(\widetilde x\right)}\in  M\left(\rep_{\widetilde x}\left( \widetilde A\right) \right) = M\left(\rep_{p\left(\widetilde x\right) }\left(A \right)\right) \right\}_{\widetilde x \in \widetilde\sX}$$ . Let $\widetilde{x}_0 \in \widetilde \sX$
-	 be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
+	be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
 	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-stump (cf. Definition  \ref{top_stump_defn}) such that  there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{\rep_x\left( A\right) \right\}, A\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and an element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. If $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}) then
 	\bean
-\forall \widetilde x \in p^{-1}\left(  \mathcal V'\right)  \cap \widetilde{\sU}\quad	\left\|\widetilde c_{\widetilde x} \left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right)   \right\|+\left\|\left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right) \widetilde c_{\widetilde x}    \right\|=\\=\left\| c_{p(\widetilde x)} \left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)   \right\|+\left\|\left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)  c_{p(\widetilde x)}    \right\| < \eps,
-\eean
-i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \widetilde \sX}$ is strictly continuous (cf. Definition \ref{ctr_crooss_alg_defn}). From the  Theorem \ref{cross_mult_thm} it turns out that 
+	\forall \widetilde x \in p^{-1}\left(  \mathcal V'\right)  \cap \widetilde{\sU}\quad	\left\|\widetilde c_{\widetilde x} \left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right)   \right\|+\left\|\left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right) \widetilde c_{\widetilde x}    \right\|=\\=\left\| c_{p(\widetilde x)} \left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)   \right\|+\left\|\left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)  c_{p(\widetilde x)}    \right\| < \eps,
+	\eean
+	i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \widetilde \sX}$ is strictly continuous (cf. Definition \ref{ctr_crooss_alg_defn}). From the  Theorem \ref{cross_mult_thm} it turns out that 
 	$$
 	\widetilde a \bydef \left\{\widetilde a_{\widetilde x}\right\}\in M\left( C_0\left(\lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right) \right]\right)\right) \cong  M\left( A_0\left(\widetilde{\sX}\right)\right).
 	$$
@@ -7534,6 +7408,101 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 	However the $*$-homomorphism  $M\left( 	A_0\left(\sX \right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)$ is injective and $$M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}\subset M\left( A_0\left(\widetilde{\sX}\right)\right)$$ hence the map  $M\left( 	A_0\left(\sX \right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}$ is injective, so one has the $*$-isomorphism  $M\left( 	A_0\left(\sX \right)\right)  \cong M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}$.
 \end{proof}
 
+
+
+
+
+\subsection{Finite covering functor}\label{top_functor_sec}
+\begin{empt}\label{top_cs_funct_empt}
+If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ then 
+	\bean
+	A \cong C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right).
+	\eean
+	(cf. equation \eqref{top_a_ax_eqn})
+	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. 
+	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{ctr_crooss_alg_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective $*$-homomorphism 
+	$$
+	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
+	$$
+of $C^*$-algebras. Let $\mathfrak{FinCov}$-$\sX$ be the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). If $\widetilde \sX$ is $\mathfrak{FinCov}$-$\sX$-object (cf. Remark \ref{top_fin_cov_rem}) then we Denote by
+\be\label{top_c0_ob_eqn}
+A_0\left(\widetilde \sX  \right) \bydef C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)
+\ee
+ If $p: \widetilde\sX_1 \to \widetilde\sX_2$ is a $\mathfrak{FinCov}$-$\sX$ morphism, then
+		\be\label{top_c0p_ob_eqn}
+		\begin{split}
+		A_0\left(p \right) \stackrel{\mathrm{def}}{=} \left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right) 
+		\end{split}
+				\ee	
+			where $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ is given by the equation \ref{top_fin_lift_eqn}
+\end{empt}
+\begin{definition}\label{top_functor_c_algebra_defn}
+	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $A$.
+\end{definition}
+\begin{definition}\label{top_lift_a_f_defn}
+Under the hypotheses we say that  $A_0\left(\widetilde\sX  \right)$ is the $p$-\textit{lift} of $A$. If $\widetilde\sX$ is compact we write $A\left(\widetilde\sX  \right)$ instead of $A_0\left(\widetilde\sX  \right)$.
+\end{definition}
+\begin{definition}\label{top_cs_functa_b_defn}
+	$A$ be a $C^*$-algebra with connected, locally connected, locally compact, Hausdorff spectrum $\sX$
+	If $p: \widetilde{\sX} \to \sX$ is a transitive covering then we use the following notation for $C^*$-algebras and their injective *-homomorphisms:
+	\be\label{top_cb_defna_eqn}
+	\begin{split}
+		A_c\left(\sX \right)\stackrel{\mathrm{def}}{=} C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),\\
+		A_0\left(\sX \right) \bydef A =C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),\\
+		A_b\left(\sX \right)\stackrel{\mathrm{def}}{=} C_b\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),
+		\\ 
+		A_c\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
+		\\
+		A_0\left(\widetilde{\sX} \right)\bydef C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
+		\\
+		A_b\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
+		\\
+		A_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{A_0\left(\sX \right)} : A_0\left(\sX \right)  \hookto A_b\left(\widetilde{\sX} \right),
+		\\
+		A_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{A_b\left(\sX \right)} : A_b\left(\sX \right)  \hookto A_b\left(\widetilde{\sX} \right)
+	\end{split}
+	\ee
+	(cf. (ii) of the Lemma \ref{top_lift_c_alg_lem}). 
+\end{definition}
+
+
+\begin{remark}
+	If $A_x$ is a $C^*$-algebra for any $x \in \sX$ then for any $a, b \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\widetilde{a}, \widetilde{b} \in C_0\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ one has 
+	\begin{equation}\label{comm_lift_desc_hom_eqn}
+	\begin{split}
+	\supp \widetilde{a} \cap \supp \widetilde{b} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}\widetilde{b} \right) = \mathfrak{desc}_{p}\left( \widetilde{a} \right)\mathfrak{desc}_{p}\left( \widetilde{b} \right),\\
+	\supp a \cap \supp {b} \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(ab\right)=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(b\right),\\
+	\supp \widetilde{a} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}^* \right)= \mathfrak{desc}_{p}\left( \widetilde{a}\right)^*,\\
+	\supp a \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a^*\right)
+	=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)^*
+	\end{split}
+	\end{equation}	
+where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically mapped onto $\sU \bydef p\left(\widetilde \sU\right)$.
+\end{remark}
+\begin{empt} Consider a special case of 	
+	the Definition  \ref{top_functor_c_algebra_defn}
+		Let $\sX$ be a locally compact Hausdorff space. If we consider a family $\left\{\C_x\right\}_{x \in \sX}$ of Banach spaces each of which is isomorphic to $\C$ then $C_0\left(\sX\right)$ is  a continuity structure  for $\sX$ {and the} $\left\{\C_x\right\}$. Moreover if $p: \widetilde{\sX} \to \sX$ is a finite fold covering then one has 
+\be\label{top_cocc_eqn}
+\begin{split}
+	C_b\left(\widetilde{\sX}\right) \cong C_b\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right),\\ C_0\left(\widetilde{\sX}\right) \cong C_0\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right).
+\end{split}
+\ee
+ 
+\end{empt}
+\begin{definition}\label{top_c_funct_defn}    
+	Consider the finite covering functor associated with $$A = \left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)$$ (cf. Definition  \ref{top_functor_c_algebra_defn}) from the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to be the \textit{finite covering algebraic functor}. We denote this functor by $C_0$. 
+ For any finite fold covering $p: \widetilde \sX \to \sX$ the functor $C_0$ yields an injective $*$-homomorphism
+	\be\label{top_c0p_eqn}
+	C_0\left(p\right): 	C_0\left(\sX\right)\hookto	C_0\left(\widetilde\sX\right).
+	\ee
+\end{definition}
+\begin{exercise}\label{top_act_exer}
+If  $p: \widetilde \sX \to \sX$ is a transitive covering of compact spaces. From the Theorem \ref{pavlov_troisky_thm} it follows that there is an action $C\left(\sX \right) \times C\left(\widetilde \sX \right)\to C\left(\widetilde \sX \right)$. Prove that if the covering is transitive, the action is given by
+$$
+\left(a,b \right)\mapsto C_0\left(p\right)\left(a\right)b.
+$$
+\end{exercise}
+\subsection{Convergent series}
 
 \begin{lemma}\label{comm_lift_desc_sum_lem}
 	Let $\sX$ be,  locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $a \in C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$ be such that $\supp a \subset \sU$. If 	$\widetilde{a} = \mathfrak{lift}_{\widetilde{\mathcal U}}\left(a \right)$ 
@@ -7668,9 +7637,7 @@ where the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX, \left\{\r
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective $*$-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
-\begin{definition}\label{top_lift_a_f_defn}
-	In the above situation we say that  $A_0\left(\widetilde\sX  \right)$ is the $p$-\textit{lift} of $A$. If $\widetilde\sX$ is compact we write $A\left(\widetilde\sX  \right)$ instead of $A_0\left(\widetilde\sX  \right)$.
-\end{definition}
+
 
 \begin{lemma}\label{comm_lift_desc_sum_strong_lem}
 	Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $\widetilde a \in A_0\left(\widetilde\sX \right)$ be  an  element such that 
@@ -7779,7 +7746,7 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 		\end{enumerate}
 \end{exercise}
 
-
+\subsection{Lifts and composable categories}
 
 \begin{lemma}\label{top_composable_lem}
 	Let  $A$ be a connected $C^*$-algebra  with locally connected, locally compact, Hausdorff spectrum $\sX$, i.e.
@@ -9061,18 +9028,47 @@ Following conditions hold.
 \end{theorem}
 
 \begin{proof}
-	(i) From the Lemmas \ref{top_fin_necassary_lem}   and \ref{top_fin_sufficient_lem}  it follows that the functor $C_0$ yields a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
+	 From the Lemmas    \ref{top_fin_sufficient_lem} and \ref{top_fin_necassary_lem} it follows that the functor $C_0$ yields a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
 	$$
 	\left(p:\widetilde{\sX} \to \sX \right) \mapsto 	C_0\left( p\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}\right)
 	$$
-	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}. If $p':\widetilde{\sX}' \to \sX$ and $p'':\widetilde{\sX}'' \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p: \widetilde{\sX}' \to \widetilde{\sX}''$ is a morphism of $\mathfrak{FinCov}$-$\sX$ then from the Theorem 	\ref{top_covp_cat_thm} it turns out that $p$ is a transitive finite-fold covering. There is  the injective $*$-homomorphism
-	\be\label{top_c_funct_lem_eqn}
- 	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
-	\ee
-(cf. equation \eqref{top_c0_ob_eqn}).	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)\bydef \mathscr C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is an injective  $*$-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from (a) of the Lemma \ref{top_composable_lem} !!! CHECK !!! it follows that $\pi$ corresponds to a transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such that $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.
+	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}.\\
+	(i)  Any $\mathfrak{FinCov}$-$C_0\left(\sX \right)$-morphism from $C_0\left( p'\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}'\right)$ to $C_0\left( p''\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}''\right)$ is an injective $*$-homomorphism $\pi: C_0\left( \widetilde{\sX}''\right) \hookto C_0\left( \widetilde{\sX}'\right)$ 
+	such that the following diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			C_0\left( \widetilde{\sX}'\right)  & &C_0\left( \widetilde{\sX}''\right) \\ 
+			& C_0\left( {\sX}\right)  & \\};
+		\path[-stealth]
+		(m-1-3) edge node [above] {$\pi$} (m-1-1)
+		(m-2-2) edge node [left]  {$C_0\left( p'\right)~~$} (m-1-1)
+		(m-2-2) edge node [right] {$~~C_0\left( p''\right)$} (m-1-3);
+	\end{tikzpicture}
+	\\ 	
+	is commutative. Since $\pi$ is injective it corresponds to a continuous surjective map $p: \widetilde{\sX}'\to \widetilde{\sX}''$ such that the following diagram 
+		\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}' & &\widetilde{\mathcal X}''\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p'~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p''$} (m-2-2);
+	\end{tikzpicture}
+	\\
+From the Theorem \ref{top_covp_cat_thm}	it follows that the map $p$ is a transitive covering, and taking into account the Lemma \ref{top_fin_sufficient_lem} we conclude that the quadruple 
+	$$
+\left(C_0\left(\widetilde\sX'' \right), C_0\left(  \widetilde{\sX }'\right) ,G\left(\left. \widetilde\sX' ~\right| \widetilde\sX''\right),   C_0\left(p \right)\right)$$
+	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). It turns out that the category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ satisfies to the Definition \ref{composable_cat_defn} .\\
+	(ii) We already know that  the functor $C_0$ yields a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$. From the proof of (i) it follows that any $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ morphism yields $\mathfrak{FinCov}$-$\sX$-morphism. Conversely from the Lemma    \ref{top_fin_sufficient_lem} it turns out that any $\mathfrak{FinCov}$-$\sX$ morphism uniquely defines a $\mathfrak{FinCov}$-$C_0\left(\sX \right)$-morphism. These correspondences between morphisms of categories  $\mathfrak{FinCov}$-$\sX$ and $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are mutually inverse.
+
 \end{proof}
-\begin{remark}\label{comm_comm_rem}  !!! WHERE !!!
-	Both Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!!  and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!!   yield a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Theorem \ref{comm_uni_lim_thm}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
+\begin{remark}\label{comm_comm_rem}  
+The Theorem  \ref{top_finite_covering_thm}  yields a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Theorem \ref{comm_uni_lim_thm}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
 \end{remark}
 
 \begin{corollary}\label{top_consents_comp_lem} 
@@ -9081,7 +9077,7 @@ Following conditions hold.
 
 
 \begin{corollary}\label{top_fin_cor}
-	Let  $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$ and  $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering with connected $\widetilde \sX$. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!)  and $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
+	Let  $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$ and  $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering with connected $\widetilde \sX$. If the map  $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
 	$$
 \left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \lift_p \right)
 	$$
@@ -12052,19 +12048,13 @@ $$
 \left\|\sum_{g \in G'}\widetilde b\left( g \widetilde a \right)  =  \widetilde b a\right\| < \eps.
 $$
 \end{proof}
-\begin{exercise}
+\begin{exercise} !!! PROVE !!!
 	Under the hypotheses of the Definition \ref{blowing_lift_defn} prove following statements:
 	\begin{enumerate}
 		\item  The $q$-lift $A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right)$ (cf. \eqref{blowing_lift_eqn}) of $A$  can be uniquely extended up to an injective $*$-homomorphism
 			\be\label{blowing_lift_m_eqn}
 			M\left( A_b\left(q \right)\right)  : M\left( A\right)  \hookto M\left( A_0\left(\widetilde\sY\right)\right).
 			\ee 
-		\item There is the natural isomorphism of groups
-		\be
-		\begin{split}
-		 G\left(\left.\widetilde \sY\right|\sY \right) \cong\\ \cong \left\{\left.g \in \Aut\left(M\left( A_0\left(\widetilde\sY\right)\right) \right)\right| \forall \widetilde{a} \in  	M\left( A_b\left(q \right)\right)\left( A\right)\quad g \widetilde a = \widetilde a  \right\}
-		\end{split}
-		\ee
 				
 	\end{enumerate}
 \end{exercise}
@@ -12273,7 +12263,7 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	\left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)} \le \left\| \widetilde{f} \otimes a\right\|_{A},\\
 	\left\| \widetilde{f} \otimes a\right\|_{A}\le \left|G \right| \left\| \widetilde{f} \otimes a\right\|_{A_0\left(  \sY'\right)},
 	\eean 
-	so the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A}$ coincides with the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A_0\left(  \sY'\right)}$. Taking into account the product $\left\langle\cdot , \cdot  \right\rangle_{A_0\left(  \sY'\right)}$ we conclude that $\mathscr L^2\left(\widetilde \sY \right)_A$ is a $C^*$-Hilbert $A_0\left(  \sY'\right)$-module. From $A \subset A_0\left(  \sY'\right)$ it follows that the algebraically generated by elements 
+	so the completion of $\mathscr L^2\left(\widetilde \sY \right)_A$ with respect to the norm $\left\|\cdot\right\|_{A}$ coincides with the completion of $X$ with respect to the norm $\left\|\cdot\right\|_{A_0\left(  \sY'\right)}$. Taking into account the product $\left\langle\cdot , \cdot  \right\rangle_{A_0\left(  \sY'\right)}$ we conclude that $\mathscr L^2\left(\widetilde \sY \right)_A$ is a $C^*$-Hilbert $A_0\left(  \sY'\right)$-module. From $A \subset A_0\left(  \sY'\right)$ it follows that the algebraically generated by elements 
 	\be\label{blowing_far_eqn}
 	\widetilde f  a, \quad \widetilde f \in C_c \left( \widetilde \sY\right), \quad a \in  A
 	\ee
@@ -12379,8 +12369,55 @@ On
 	\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
 \end{split}
 \ee
+\subsection{Finite covering functor}
+\paragraph{}
+Here we consider a generalization of the functor $A_0$  described in the Section \ref{top_functor_sec}.
+\paragraph{!!!}
+
+\begin{lemma}\label{blowing_lift_composition_lem!}
+	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+	$
+	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}), and let $\phi: G\left(\left.\widetilde \sY\right|\sY \right)\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
+	$\sY' \bydef \widetilde \sY/ \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)$ then one has:
+	\begin{enumerate}
+		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
+		\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
+		%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
+		%\be\label{blowing_p_s_eqn}
+		%	\sum_{g \in \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)}g \widetilde a
+		%\ee
+		where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
+	\end{enumerate} 
+\end{lemma}
+\paragraph{!!!}
 
 
+\begin{empt}\label{bloqwig_cs_funct_empt}
+	If $A$ is a $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$. If  the transitive finite-fold covering  covering $q:\widetilde \sY\to \sY$ is $A$-regular (cf. Definition \ref{blowing_lift_constr_defn}), and $H\subset G\left(\left.\widetilde \sY\right|\sY \right)$ is a normal subgroup  then from the Lemma  \ref{blowing_lift_composition_lem} it follows that the natural transitive covering $\widetilde \sY/ H \to \sY$ is $A$-regular, and 
+	
+	
+	   
+	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. 
+	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{ctr_crooss_alg_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective $*$-homomorphism 
+	$$
+	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
+	$$
+	of $C^*$-algebras. Let $\mathfrak{FinCov}$-$\sX$ be the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). If $\widetilde \sX$ is $\mathfrak{FinCov}$-$\sX$-object (cf. Remark \ref{top_fin_cov_rem}) then we Denote by
+	\be\label{top_c0_ob_eqn}
+	A_0\left(\widetilde \sX  \right) \bydef C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)
+	\ee
+	If $p: \widetilde\sX_1 \to \widetilde\sX_2$ is a $\mathfrak{FinCov}$-$\sX$ morphism, then
+	\be\label{top_c0p_ob_eqn}
+	\begin{split}
+		A_0\left(p \right) \stackrel{\mathrm{def}}{=} \left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right) 
+	\end{split}
+	\ee	
+	where $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ is given by the equation \ref{top_fin_lift_eqn}
+\end{empt}
+\begin{definition}\label{top_functor_c_algebra_defn}
+	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $A$.
+\end{definition}
+\
 
 \subsection{Induced representations}
 
