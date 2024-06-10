@@ -2091,6 +2091,83 @@ We say that $\left(A, \widetilde{A}'', G, \pi \right)$ is a \textit{composition}
 	\end{enumerate}
 	If 	the $C^*$-algebra $\widetilde A$ is  (cf. Definition \ref{connected_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  is said to be   a \textit{ noncommutative finite-fold weak covering} or simply a \textit{noncommutative finite-fold weak covering}.
 \end{definition}
+
+\begin{definition}\label{fin_category_defn} 
+	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{category_defn}) such that following conditions hold:
+	\begin{itemize}
+		\item [(i)]  $\mathfrak{FinCov}$-$A$-objects  are  finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
+		\item[(ii)] A $\mathfrak{FinCov}$-$A$-morphism from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
+				\newline
+		\begin{tikzcd}
+\widetilde A'	& &\arrow[ll,  "\pi" {yshift=10pt}]\widetilde A'' \\
+& A \arrow[lu, "\pi'"] \arrow[ru, "\pi''" {xshift=12pt,yshift=-12pt}]&		
+\end{tikzcd}
+		\\ 	
+		
+		is commutative.
+		\item[(iii)] Compositions of morphisms come from compositions of *-homomorphisms.
+	\end{itemize}
+	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
+	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$. % Similarly we define the subcategories of \textit{reduced}  (cf. Definition \ref{fin_red_defn}) and \textit{free} (cf. Definition \ref{fin_free_defn}) finite-fold noncommutative coverings. We denote them by 	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. 
+\end{definition}
+
+\begin{definition}\label{fin_composable_cat_defn}
+	A full subcategory $\mathscr C\subseteqq\mathfrak{FinCov}$-$A$ (cf. Definition \ref{subcategory_defn}) of $\mathfrak{FinCov}$-$A$ is said to be \textit{composable} then for any $\mathscr C$-morphism $\pi: \widetilde A''\hookto \widetilde A'$ from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$  there is a $\left(A, \widetilde{A}', G', \pi' \right)$-proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
+	$$
+	\left(\widetilde A'', \widetilde A', G\left(\left.  \widetilde A'\right| \widetilde A''\right), \pi\right)\cong \left(\widetilde A'^H, \widetilde A', H, \Id_{\widetilde A'}|_{\widetilde A''}\right)
+	$$
+	(cf. Lemma \ref{fin_composition_covering_lem}).
+\end{definition}
+
+
+%\begin{lemma}\label{lift_unitization_lem}   Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $B\subset A$ is a connected hereditary subalgebra, $\widetilde B\subset\widetilde A $ is  a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn}) and
+%$$
+%H \bydef \left\{g\in G\left| \forall \widetilde b \in \widetilde B \quad g\widetilde b = \widetilde b\right.\right\}
+%$$
+% then a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
+%\end{lemma}
+%\begin{proof}
+%	If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then an induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$  representation  $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$ (cf. Definition \ref{induced_repr_fin_defn}) is faithful and nondegenerate (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). Moreover there is the natural action $G\times \widetilde \H \to \widetilde \H$ (cf. \ref{g_act_induced_empt}). There is a projection $\widetilde p \in B\left(\widetilde \H\right)$ such that
+%	\be\label{hered_paptcc_eqn} 
+%\forall a \in	\widetilde B \quad \widetilde p\widetilde \rho\left( \widetilde a\right)\widetilde p = \widetilde\rho\left(\widetilde a\right)
+%	\ee
+%(cf. \eqref{hered_pap_eqn})	and one has a natural representation
+%	\bean
+%	\widetilde B \hookto B\left(\widetilde p \widetilde \H \right) 
+%	\eean
+%	(cf. \eqref{hered_rept_eqn}) which is  faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).	The subalgebra  $B\subset \widetilde B$ is $G$-invariant it follows that $g \widetilde p = \widetilde p$. From the Definition \ref{multiplier_el_defn} it follows that $M\left( \widetilde A\right)\subset B\left(\widetilde \H \right)$ and    $M\left( \widetilde B\right)\subset B\left(p\widetilde \H \right)$. The quadruple 	$\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}, so from the Remark \ref{frame_l_rem}) it follows that there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left( \widetilde{A}\right)  $$ such that
+%	\be\label{unit_sum_eqn}
+%	\forall \widetilde{a} \in \widetilde{A}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j  a_j\quad \text{where} \quad a_j \bydef \left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right)\in \pi\left( A\right) .
+%\ee
+%If $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n, \widetilde{b}'_1, ..., \widetilde{b}'_n\right\}\bydef \left\{ \widetilde p \widetilde\rho\left( \widetilde{a}_1\right) \widetilde p, ..., \widetilde p\widetilde \rho\left( \widetilde{a}_n\right) \widetilde p, \widetilde p\widetilde\rho\left( \widetilde{b}_1\right) \widetilde p, ..., \widetilde p\widetilde \rho\left( \widetilde{b}_n\right) \widetilde p\right\}\in B\left(\widetilde p \widetilde \H \right)$ then from the equation \eqref{hered_paptcc_eqn} and the Definition \ref{multiplier_el_defn} it follows that $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n, \widetilde{b}'_1, ..., \widetilde{b}'_n\right\}\in M\left( \widetilde B\right)$. Moreover one has
+%\bean
+%\widetilde b \in \widetilde B \quad \Rightarrow \quad \widetilde \rho\left( \widetilde b\right)  = \sum_{j=1}^{n}\left( \rho\left( \widetilde{b}_j\right)   \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right)\right) =\\ = \sum_{j=1}^{n}\left( \widetilde p\rho\left( \widetilde{b}_j\right) \widetilde p  \sum_{g \in G} g\left(\widetilde \rho \left( \widetilde{a}^*_j\right)  \widetilde p \widetilde \rho\left( \widetilde{b}\right)  \widetilde p \right)\right) = \sum_{j=1}^{n}\left( \widetilde p\rho\left( \widetilde{b}_j\right) \widetilde p  \sum_{g \in G} g\widetilde p\left(\widetilde \rho \left( \widetilde{a}^*_j\right)  \widetilde p \widetilde \rho\left( \widetilde{b}\right)  \widetilde p \right)\right)=\\= \sum_{j=1}^{n}\left( \rho\left( \widetilde{b'}_j\right)   \sum_{g \in G} g\left(\widetilde{a'}^*_j\widetilde{b} \right)\right)\quad \Leftrightarrow \quad  \sum_{j=1}^{n} \widetilde{a'}_j\left\rangle \right\langle \widetilde{b'}_j = \Id_{M\left( \widetilde B\right) },
+%\eean 
+%and taking into account \eqref{hered_paptcc_eqn} one has
+%\bean
+%\widetilde a'_j \widetilde b =  \widetilde a_j \widetilde b,\\
+%\sum_{j=1}^{n}\widetilde{b}_j  a_j= \sum_{j=1}^{n}\widetilde{b}'_j  a'_j\quad \text{where} \quad a'_j \bydef \left(  \sum_{g \in G} g\left(\widetilde{a}'^*_j\widetilde{b} \right) \right)\in \widetilde A^G = \pi\left( A\right).
+%\eean
+%From \eqref{hered_paptcc_eqn} it follows that $\widetilde p a'_j  \widetilde p = a'_j$, i.e. $a'_j\in \pi\left(B \right)$.It follows that
+%$$
+%\widetilde B = \widetilde b'_1 B+ ...+\widetilde b'_n B
+%$$
+%Now similarly to the Corollary \ref{cov_mult_fin_cor} one can prove that a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
+%\end{proof}
+
+
+
+\begin{definition}\label{proper_composition_defn}
+	The  $C^*$-algebra $A$ is \textit{proper with respect to covering compositions} if for any noncommutative finite-fold coverings  $\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)$ and  
+	$\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)$ and there are a  noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$ and a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$-proper normal subgroup $H\subset G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there are following equivalences:
+	\bean
+	\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)\cong 	\left(A, \widetilde{A}^H, G\left(\left.\widetilde{A}~\right|{A}  \right)/H, \pi \right),\\
+	\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)\cong 	\left(\widetilde A^H, \widetilde{A},H,\left. \Id_{\widetilde A}\right|_{\widetilde A^H} \right)
+	\eean
+	of noncommutative finite-fold coverings.
+\end{definition}
+
+
    %\begin{remark}
    %	Any	unital noncommutative finite-fold  covering is a special case of a noncommutative finite-fold  covering.
    %\end{remark}
@@ -3019,87 +3096,6 @@ Moreover  a natural representation
 \ee
 is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
-
-\begin{definition}\label{fin_category_defn} 
-	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{category_defn}) such that following conditions hold:
-	\begin{itemize}
-		\item [(i)]  $\mathfrak{FinCov}$-$A$-objects  are  finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
-		\item[(ii)] A $\mathfrak{FinCov}$-$A$-morphism from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				\widetilde A'  & & A'' \\ 
-				& A  & \\};
-			\path[-stealth]
-			(m-1-3) edge node [above] {$\pi$} (m-1-1)
-			(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
-			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
-		\end{tikzpicture}
-		\\ 	
-		is commutative.
-		\item[(iii)] Compositions of morphisms come from compositions of *-homomorphisms.
-	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
-	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$. Similarly we define the subcategories of \textit{reduced}  (cf. Definition \ref{fin_red_defn}) and \textit{free} (cf. Definition \ref{fin_free_defn}) finite-fold noncommutative coverings. We denote them by 
-	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. 
-\end{definition}
-\begin{definition}\label{composable_cat_defn}
-A subcategory $\mathscr C$ of $\mathfrak{FinCov}$-$A$ is said to be \textit{composable} then for any $\mathscr C$-morphism $\pi: \widetilde A''\hookto \widetilde A'$ from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$  there is a $\left(A, \widetilde{A}', G', \pi' \right)$-proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
-$$
-\left(\widetilde A'', \widetilde A', G\left(\left.  \widetilde A'\right| \widetilde A''\right), \pi\right)\cong \left(\widetilde A'^H, \widetilde A', H, \Id_{\widetilde A'}|_{\widetilde A''}\right)
-$$
-(cf. Lemma \ref{fin_composition_covering_lem}).
-\end{definition}
-
-
-%\begin{lemma}\label{lift_unitization_lem}   Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $B\subset A$ is a connected hereditary subalgebra, $\widetilde B\subset\widetilde A $ is  a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn}) and
-%$$
-%H \bydef \left\{g\in G\left| \forall \widetilde b \in \widetilde B \quad g\widetilde b = \widetilde b\right.\right\}
-%$$
-% then a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
-%\end{lemma}
-%\begin{proof}
-%	If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then an induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$  representation  $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$ (cf. Definition \ref{induced_repr_fin_defn}) is faithful and nondegenerate (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). Moreover there is the natural action $G\times \widetilde \H \to \widetilde \H$ (cf. \ref{g_act_induced_empt}). There is a projection $\widetilde p \in B\left(\widetilde \H\right)$ such that
-%	\be\label{hered_paptcc_eqn} 
-%\forall a \in	\widetilde B \quad \widetilde p\widetilde \rho\left( \widetilde a\right)\widetilde p = \widetilde\rho\left(\widetilde a\right)
-%	\ee
-%(cf. \eqref{hered_pap_eqn})	and one has a natural representation
-%	\bean
-%	\widetilde B \hookto B\left(\widetilde p \widetilde \H \right) 
-%	\eean
-%	(cf. \eqref{hered_rept_eqn}) which is  faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).	The subalgebra  $B\subset \widetilde B$ is $G$-invariant it follows that $g \widetilde p = \widetilde p$. From the Definition \ref{multiplier_el_defn} it follows that $M\left( \widetilde A\right)\subset B\left(\widetilde \H \right)$ and    $M\left( \widetilde B\right)\subset B\left(p\widetilde \H \right)$. The quadruple 	$\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}, so from the Remark \ref{frame_l_rem}) it follows that there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left( \widetilde{A}\right)  $$ such that
-%	\be\label{unit_sum_eqn}
-%	\forall \widetilde{a} \in \widetilde{A}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j  a_j\quad \text{where} \quad a_j \bydef \left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right)\in \pi\left( A\right) .
-%\ee
-%If $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n, \widetilde{b}'_1, ..., \widetilde{b}'_n\right\}\bydef \left\{ \widetilde p \widetilde\rho\left( \widetilde{a}_1\right) \widetilde p, ..., \widetilde p\widetilde \rho\left( \widetilde{a}_n\right) \widetilde p, \widetilde p\widetilde\rho\left( \widetilde{b}_1\right) \widetilde p, ..., \widetilde p\widetilde \rho\left( \widetilde{b}_n\right) \widetilde p\right\}\in B\left(\widetilde p \widetilde \H \right)$ then from the equation \eqref{hered_paptcc_eqn} and the Definition \ref{multiplier_el_defn} it follows that $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n, \widetilde{b}'_1, ..., \widetilde{b}'_n\right\}\in M\left( \widetilde B\right)$. Moreover one has
-%\bean
-%\widetilde b \in \widetilde B \quad \Rightarrow \quad \widetilde \rho\left( \widetilde b\right)  = \sum_{j=1}^{n}\left( \rho\left( \widetilde{b}_j\right)   \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right)\right) =\\ = \sum_{j=1}^{n}\left( \widetilde p\rho\left( \widetilde{b}_j\right) \widetilde p  \sum_{g \in G} g\left(\widetilde \rho \left( \widetilde{a}^*_j\right)  \widetilde p \widetilde \rho\left( \widetilde{b}\right)  \widetilde p \right)\right) = \sum_{j=1}^{n}\left( \widetilde p\rho\left( \widetilde{b}_j\right) \widetilde p  \sum_{g \in G} g\widetilde p\left(\widetilde \rho \left( \widetilde{a}^*_j\right)  \widetilde p \widetilde \rho\left( \widetilde{b}\right)  \widetilde p \right)\right)=\\= \sum_{j=1}^{n}\left( \rho\left( \widetilde{b'}_j\right)   \sum_{g \in G} g\left(\widetilde{a'}^*_j\widetilde{b} \right)\right)\quad \Leftrightarrow \quad  \sum_{j=1}^{n} \widetilde{a'}_j\left\rangle \right\langle \widetilde{b'}_j = \Id_{M\left( \widetilde B\right) },
-%\eean 
-%and taking into account \eqref{hered_paptcc_eqn} one has
-%\bean
-%\widetilde a'_j \widetilde b =  \widetilde a_j \widetilde b,\\
-%\sum_{j=1}^{n}\widetilde{b}_j  a_j= \sum_{j=1}^{n}\widetilde{b}'_j  a'_j\quad \text{where} \quad a'_j \bydef \left(  \sum_{g \in G} g\left(\widetilde{a}'^*_j\widetilde{b} \right) \right)\in \widetilde A^G = \pi\left( A\right).
-%\eean
-%From \eqref{hered_paptcc_eqn} it follows that $\widetilde p a'_j  \widetilde p = a'_j$, i.e. $a'_j\in \pi\left(B \right)$.It follows that
-%$$
-%\widetilde B = \widetilde b'_1 B+ ...+\widetilde b'_n B
-%$$
-%Now similarly to the Corollary \ref{cov_mult_fin_cor} one can prove that a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
-%\end{proof}
-
-
-
-\begin{definition}\label{proper_composition_defn}
-The  $C^*$-algebra $A$ is \textit{proper with respect to covering compositions} if for any noncommutative finite-fold coverings  $\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)$ and  
-	$\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)$ and there are a  noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$ and a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$-proper normal subgroup $H\subset G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there are following equivalences:
-	\bean
-	\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)\cong 	\left(A, \widetilde{A}^H, G\left(\left.\widetilde{A}~\right|{A}  \right)/H, \pi \right),\\
-	\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)\cong 	\left(\widetilde A^H, \widetilde{A},H,\left. \Id_{\widetilde A}\right|_{\widetilde A^H} \right)
-	\eean
-	of noncommutative finite-fold coverings.
-\end{definition}
-
 \begin{empt}\label{spectrum_ff_p_empt}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}). If both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ respectively then from the Remark \ref{unital_rem} one can deduce that $M\left(\pi \right)\left( C \right)\subset \widetilde C$, so there is an injective inclusion $C\subset \widetilde C$  of commutative $C^*$-algebras. If for both $A$ and $\widetilde A$ a prime spectrum coincides with primitive one (cf. Definition \ref{primitive_prime_spectrum_defn}) then from the Theorem \ref{dauns_hofmann_thm} it follows that  both $C$ and $\widetilde C$  are classes of bounded continuous functions on primitive spectra. From the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is an action $G \times \widetilde C \to \widetilde C$ such that $\widetilde C^G = C$. Similarly to the Lemma \ref{fin_hilbert_mod_lem} $\widetilde C$ is a $C^*$-Hilbert $C$-module.
 \end{empt}
@@ -4180,7 +4176,7 @@ $$
  \ee
  (cf. \eqref{basic_cov_cl_eqn})
   where  $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
-  \item[(c)] $\mathfrak{S}$ is a composable  subcategory of  $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{composable_cat_defn}).
+  \item[(c)] $\mathfrak{S}$ is a composable  subcategory of  $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{fin_composable_cat_defn}).
  \end{enumerate}
 
 We write
@@ -5186,7 +5182,7 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 
 \begin{definition}\label{fundamental_group_nc_defn} 
 Let $A$ be a connected $C^*$-algebra. Suppose that the category $\mathfrak{FinCov}$-$A$
-of finite-fold coverings of $A$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{composable_cat_defn}) .
+of finite-fold coverings of $A$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{fin_composable_cat_defn}) .
 The {infinite noncommutative covering} 
 $
 \left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
@@ -5220,7 +5216,7 @@ $
 	Let $P$ be a property of noncommutative finite-fold coverings.
 Let $A$ be a connected $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$-$P$ is a subcategory of $\mathfrak{FinCov}$-$A$ such that any $\mathfrak{FinCov}$-$A$-$P$-object possesses the property $P$.
  Suppose that the category $\mathfrak{FinCov}$-$A$-$P$
- is composable (cf. Definition \ref{composable_cat_defn}) .
+ is composable (cf. Definition \ref{fin_composable_cat_defn}) .
 The {infinite noncommutative covering} 
 $
 \left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
@@ -9021,7 +9017,7 @@ The following lemma supplies the quantization of coverings with compactification
 \begin{theorem}\label{top_finite_covering_thm} 
 Following conditions hold.
 \begin{enumerate}
-	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{composable_cat_defn})
+	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{fin_composable_cat_defn})
 	\item[(ii)] The given by the Definition \ref{top_c_funct_defn}  finite covering algebraic functor   $C_0:\mathfrak{FinCov}$-$\sX \cong \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is the natural equivalence of the categories (cf. Definition \ref{category_equivalence_definition}).
 	
 \end{enumerate}
@@ -9063,7 +9059,7 @@ Following conditions hold.
 From the Theorem \ref{top_covp_cat_thm}	it follows that the map $p$ is a transitive covering, and taking into account the Lemma \ref{top_fin_sufficient_lem} we conclude that the quadruple 
 	$$
 \left(C_0\left(\widetilde\sX'' \right), C_0\left(  \widetilde{\sX }'\right) ,G\left(\left. \widetilde\sX' ~\right| \widetilde\sX''\right),   C_0\left(p \right)\right)$$
-	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). It turns out that the category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ satisfies to the Definition \ref{composable_cat_defn} .\\
+	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). It turns out that the category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ satisfies to the Definition \ref{fin_composable_cat_defn} .\\
 	(ii) We already know that  the functor $C_0$ yields a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$. From the proof of (i) it follows that any $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ morphism yields $\mathfrak{FinCov}$-$\sX$-morphism. Conversely from the Lemma    \ref{top_fin_sufficient_lem} it turns out that any $\mathfrak{FinCov}$-$\sX$ morphism uniquely defines a $\mathfrak{FinCov}$-$C_0\left(\sX \right)$-morphism. These correspondences between morphisms of categories  $\mathfrak{FinCov}$-$\sX$ and $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are mutually inverse.
 
 \end{proof}
@@ -12369,56 +12365,6 @@ On
 	\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
 \end{split}
 \ee
-\subsection{Finite covering functor}
-\paragraph{}
-Here we consider a generalization of the functor $A_0$  described in the Section \ref{top_functor_sec}.
-\paragraph{!!!}
-
-\begin{lemma}\label{blowing_lift_composition_lem!}
-	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
-	$
-	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}), and let $\phi: G\left(\left.\widetilde \sY\right|\sY \right)\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
-	$\sY' \bydef \widetilde \sY/ \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)$ then one has:
-	\begin{enumerate}
-		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
-		\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
-		%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
-		%\be\label{blowing_p_s_eqn}
-		%	\sum_{g \in \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)}g \widetilde a
-		%\ee
-		where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
-	\end{enumerate} 
-\end{lemma}
-\paragraph{!!!}
-
-
-\begin{empt}\label{bloqwig_cs_funct_empt}
-	If $A$ is a $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$. If  the transitive finite-fold covering  covering $q:\widetilde \sY\to \sY$ is $A$-regular (cf. Definition \ref{blowing_lift_constr_defn}), and $H\subset G\left(\left.\widetilde \sY\right|\sY \right)$ is a normal subgroup  then from the Lemma  \ref{blowing_lift_composition_lem} it follows that the natural transitive covering $\widetilde \sY/ H \to \sY$ is $A$-regular, and 
-	
-	
-	   
-	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. 
-	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{ctr_crooss_alg_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective $*$-homomorphism 
-	$$
-	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
-	$$
-	of $C^*$-algebras. Let $\mathfrak{FinCov}$-$\sX$ be the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). If $\widetilde \sX$ is $\mathfrak{FinCov}$-$\sX$-object (cf. Remark \ref{top_fin_cov_rem}) then we Denote by
-	\be\label{top_c0_ob_eqn}
-	A_0\left(\widetilde \sX  \right) \bydef C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)
-	\ee
-	If $p: \widetilde\sX_1 \to \widetilde\sX_2$ is a $\mathfrak{FinCov}$-$\sX$ morphism, then
-	\be\label{top_c0p_ob_eqn}
-	\begin{split}
-		A_0\left(p \right) \stackrel{\mathrm{def}}{=} \left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right) 
-	\end{split}
-	\ee	
-	where $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ is given by the equation \ref{top_fin_lift_eqn}
-\end{empt}
-\begin{definition}\label{top_functor_c_algebra_defn}
-	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $A$.
-\end{definition}
-\
-
 \subsection{Induced representations}
 
 \paragraph{}
@@ -12477,6 +12423,7 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 
 
 \end{proof}	
+
 
 \subsection{Finite-fold coverings}
 \begin{theorem}\label{blowing_sufficient_covering_thm}
@@ -12593,6 +12540,104 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 	\eean
 	 However there is an isomorphism $G\left(\left.A_0\left( \widetilde{\sY}_1\right) ~\right|A\right)\cong G\left(\left. \widetilde{\sY}_1 ~\right|\sY\right)$ so there is a 1-1 correspondence between groups $H_{\text{top}}$ and $H_{\text{alg}}$. It follows that there is 1-1 correspondence between $\mathfrak{FinCov}$-$\sY$-arrows from  $q_1:\widetilde \sY_1 \to \sY$ to  $q_2:\widetilde \sY_2 \to \sY$ and $\mathfrak{FinCov}$-$A$-arrows from $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$ to $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$.
 \end{proof}
+
+\subsection{Finite covering functor}
+
+\paragraph{}
+Here we consider a generalization of the functor $A_0$  described in the Section \ref{top_functor_sec}.
+\begin{definition}\label{blowing_reg_cov_cat_defn}
+	If $A$ is a connected $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$ then we consider a full subcategory $\mathfrak{FinCov}\text{-}\sY\text{-}A\subseteqq \mathfrak{FinCov}\text{-}\sY$ (cf. Definition \ref{subcategory_defn}) {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn}), such that any $\mathfrak{FinCov}\text{-}\sY\text{-}A$ object is $A$-regular. We say that $\mathfrak{FinCov}\text{-}\sY\text{-}A$ is the $A$-\textit{regular finite covering category} of $\sY$.
+\end{definition}	
+\begin{remark}\label{blowigg_fin_cov_rem}
+	Sometimes   a $\mathfrak{FinCov}\text{-}\sY\text{-}A$-object  $\widetilde\sY \to \sY$ will be  denoted by $\widetilde\sY$.
+\end{remark}
+
+
+\begin{definition}\label{fin_category_defn!} !!!
+	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{category_defn}) such that following conditions hold:
+	\begin{itemize}
+		\item [(i)]  $\mathfrak{FinCov}$-$A$-objects  are  finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
+		\item[(ii)] A $\mathfrak{FinCov}$-$A$-morphism from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
+		\newline
+		\begin{tikzcd}
+			\widetilde A'	& &\arrow[ll,  "\pi" {yshift=10pt}]\widetilde A'' \\
+			& A \arrow[lu, "\pi'"] \arrow[ru, "\pi''" {xshift=12pt,yshift=-12pt}]&		
+		\end{tikzcd}
+		\\ 	
+		
+		is commutative.
+		\item[(iii)] Compositions of morphisms come from compositions of *-homomorphisms.
+	\end{itemize}
+	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
+	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$. % Similarly we define the subcategories of \textit{reduced}  (cf. Definition \ref{fin_red_defn}) and \textit{free} (cf. Definition \ref{fin_free_defn}) finite-fold noncommutative coverings. We denote them by 	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. 
+\end{definition}
+
+
+
+\begin{definition}\label{blowing_alg_reg_cov_cat_defn}
+Let $A$ be a connected $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$. Consider a category $\mathfrak{FinCov}\text{-}A\text{-}\sY$ such that 
+\begin{itemize}
+	\item any $\mathfrak{FinCov}\text{-}A\text{-}\sY$-object is
+	a {finite}-$q$-{lift} $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ of $A$ (cf. Definition \ref{blowing_lift_fin_defn})
+	\item  any $\mathfrak{FinCov}\text{-}A\text{-}\sY$-morphism from   $A_0\left(q'\right) : A \hookto	 A_0\left( \widetilde \sY'\right)$ to  $A_0\left(q''\right) : A \hookto	 A_0\left( \widetilde \sY''\right)$ is an injective $*$-homomorphism $\pi: A_0\left( \widetilde \sY''\right)\hookto A_0\left( \widetilde \sY'\right)$ such that the following diagram
+				\newline
+\begin{tikzcd}
+	 A_0\left( \widetilde \sY'\right)	& &\arrow[ll,  "\pi" {yshift=10pt}] A_0\left( \widetilde \sY''\right) \\
+	& A \arrow[lu, "A_0\left(q'\right)"] \arrow[ru, "A_0\left(q''\right)" {xshift=30pt,yshift=-12pt}]&		
+\end{tikzcd}
+\\ 	
+
+is commutative.
+		\item Compositions of morphisms come from compositions of *-homomorphisms.
+
+\end{itemize}
+!!!!	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$.
+\end{definition}	
+
+
+\begin{empt}\label{blowing_reg_cov_cat_empt}
+	If $A$ is a $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$. If  the transitive finite-fold covering  covering $q:\widetilde \sY\to \sY$ is $A$-regular (cf. Definition \ref{blowing_lift_constr_defn}), and $H\subset G\left(\left.\widetilde \sY\right|\sY \right)$ is a normal subgroup  then from the Lemma  \ref{blowing_lift_composition_lem} it follows that the natural transitive covering $\widetilde \sY/ H \to \sY$ is $A$-regular. Moreover from the Lemma  \ref{blowing_lift_composition_lem} it turns out that that the covering $\widetilde \sY\to \widetilde \sY/ H$ is $A_0\left(\widetilde \sY/ H \right)$ regular.
+	\end{empt} 
+
+\begin{empt}	
+	Let $\sX$ be a locally compact,  Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. 
+	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{ctr_crooss_alg_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective $*$-homomorphism 
+	$$
+	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
+	$$
+	of $C^*$-algebras. Let $\mathfrak{FinCov}$-$\sX$ be the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). If $\widetilde \sX$ is $\mathfrak{FinCov}$-$\sX$-object (cf. Remark \ref{top_fin_cov_rem}) then we Denote by
+	\be\label{top_c0_ob_eqn}
+	A_0\left(\widetilde \sX  \right) \bydef C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)
+	\ee
+	If $p: \widetilde\sX_1 \to \widetilde\sX_2$ is a $\mathfrak{FinCov}$-$\sX$ morphism, then
+	\be\label{top_c0p_ob_eqn}
+	\begin{split}
+		A_0\left(p \right) \stackrel{\mathrm{def}}{=} \left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right) 
+	\end{split}
+	\ee	
+	where $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ is given by the equation \ref{top_fin_lift_eqn}
+\end{empt}
+\begin{definition}\label{top_functor_c_algebra_defn}
+	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $A$.
+\end{definition}
+\paragraph{!!!}
+
+\begin{lemma}\label{blowing_lift_composition_lem!}
+	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
+	$
+	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}), and let $\phi: G\left(\left.\widetilde \sY\right|\sY \right)\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
+	$\sY' \bydef \widetilde \sY/ \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)$ then one has:
+	\begin{enumerate}
+		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
+		\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
+		%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
+		%\be\label{blowing_p_s_eqn}
+		%	\sum_{g \in \ker\left(G\left(\left.\widetilde \sY\right|\sY \right)\to G \right)}g \widetilde a
+		%\ee
+		where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
+	\end{enumerate} 
+\end{lemma}
+\paragraph{!!!}
 
 
 \subsection{Infinite coverings}
@@ -20265,15 +20310,15 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 	%	Axiomatic Definition of a Category. 
 	A \textit{category} $\mathscr C$ comprises 
 	\begin{itemize}
-		\item[(1)] 	 a collection of things called $\mathscr C$-\textit{objects}; 
-	\item[(2)] a collection of things called $\mathscr C$-\textit{arrows}  or $\mathscr C$-\textit{morphisms}; 
-	\item[(3)] operations assigning to each  $\mathscr C$-arrow $f$  $\mathscr C$-object $\mathrm{dom}f$ (the 
+		\item[(a)] 	 a collection of things called $\mathscr C$-\textit{objects}; 
+	\item[(b)] a collection of things called $\mathscr C$-\textit{arrows}  or $\mathscr C$-\textit{morphisms}; 
+	\item[(c)] operations assigning to each  $\mathscr C$-arrow $f$  $\mathscr C$-object $\mathrm{dom}f$ (the 
 		"domain" of $f$) and a $\mathscr C$-object $\mathrm{cod}f$ (the "codomain" of $f$). If $a =\mathrm{dom} f$  
 		and $b =\mathrm{cod} f$ we display this as 
 		\bean
 		f: a \to b\quad \text{or}\quad  a \xrightarrow{f} b;
 		\eean
-		\item[(4)] an operation assigning to each pair $\left(g, f\right)$ of $\mathscr C$-arrows with $\mathrm{dom}g = \mathrm{cod} f$.
+		\item[(d)] an operation assigning to each pair $\left(g, f\right)$ of $\mathscr C$-arrows with $\mathrm{dom}g = \mathrm{cod} f$.
 		 A $\mathscr{C}$-arrow  $g\circ f$, the \textit{composite of f and g}, having $\mathrm{dom}g\circ f= \mathrm{dom}f$ and  $\mathrm{cod }g\circ f= \mathrm{cod}g$, i.e. $g\circ f:  \mathrm{dom}f \to \mathrm{cod}g$  such that the following condition obtains:
 		 
 		 \textit{	Associative Law}: Given the configuration 
@@ -20281,7 +20326,7 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 		a \xrightarrow{f}	b \xrightarrow{g}	c \xrightarrow{h}d
 		$$ 
 		of  $\mathscr{C}$-objects and $\mathscr{C}$-arrows  then $h \circ \left(g \circ f\right)= \left(h \circ g\right)\circ f$;
-				\item[(5)] an assignment to each $\mathscr{C}$-object $b$ of a $\mathscr{C}$-arrow $\mathbb{1}_b : b \to b$, called the \textit{identity arrow} on $b$, such that 
+				\item[(e)] an assignment to each $\mathscr{C}$-object $b$ of a $\mathscr{C}$-arrow $\mathbb{1}_b : b \to b$, called the \textit{identity arrow} on $b$, such that 
 				
 				\textit{Identity Law}: For any $\mathscr{C}$-arrows $f: a \to b$ and $g : b \to c$ one has
 				\bean
@@ -20291,9 +20336,23 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 
 	\end{definition}
 
-\begin{notation}\label{category_not}
-If $a, b$ are  $\mathscr{C}$-objects then we denote by  $\mathscr{C}\left(a, b \right)$  a family of all arrows from $a$ to $b$.
-\end{notation}
+\begin{definition}\label{subcategory_defn}\cite{goldblatt:topoi}
+If $\mathscr{C}$ is a category, and $a$ and $b$ are $\mathscr{C}$-objects, 
+we introduce the symbol $\mathscr{C}\left( a, b\right) $ to denote the collection of all $\mathscr{C}$-arrows 
+with $\mathrm{dom} = a$ and $\mathrm{cod} = b$, i.e. 
+\be\label{category_not_eqn}
+\mathscr{C}\left( a, b\right) \bydef \left\{f| f \text{ is } \mathscr{C} \text{arrow and } a \xrightarrow{f}b\right\}.
+\ee
+$\mathscr{C}$ is said to be a \textit{subcategory} of category $\mathscr{D}$, denoted $\mathscr{C}\subseteqq\mathscr{D}$, if
+\begin{enumerate}
+	\item[(i)] every $\mathscr{C}$-object is a $\mathscr{D}$-object, and 
+	\item[(ii)] if $a$ and $b$ are any two $\mathscr{C}$-objects, then $\mathscr{C}\left( a, b\right)\subseteqq\mathscr{D}\left( a, b\right)$, i.e. all the 	$\mathscr{C}$-arrows $a \to b$ are present in $\mathscr{D}$. \\$\mathscr{C}$ is a \textit{full subcategory} of $\mathscr{D}$ if  $\mathscr{C}\subseteqq\mathscr{D}$, and 
+	
+	\item[(iii)] for any $\mathscr{C}$-objects $a$ and $b$, $\mathscr{D}\left( a, b\right)=\mathscr{C}\left( a, b\right)$, i.e. $\mathscr{D}$ has no arrows 
+$a \to b$ other than the ones already in $\mathscr{C}$. 
+\end{enumerate} 
+
+\end{definition}
 	\begin{definition}\label{dual_cat_defn}\cite{goldblatt:topoi}
 	If  $\mathscr C$ is a category then its \textit{dual} or \textit{opposite} category $\mathscr C^{\mathrm{op}}$ is constructed as follows: 
 	\begin{itemize}
@@ -20426,7 +20485,7 @@ If $a$ and $b$ are  $\mathscr{C}$-objects then a functor $\mathscr{C}\xrightarro
 \be\label{f_ab_funct_eqn}
 F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\left(b\right)\right)  
 \ee
-(cf. Notation \ref{category_not}).
+(cf. Notation \eqref{category_not_eqn}).
 \begin{definition}\label{funct_full_faithfull_defn}\cite{bass}
 A functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is said to be \textit{faithful} (resp. \textit{full}) if the given by \eqref{f_ab_funct_eqn} map is injective (resp. surjective).
 \end{definition}
