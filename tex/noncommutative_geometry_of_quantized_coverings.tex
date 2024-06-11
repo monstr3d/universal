@@ -6422,9 +6422,9 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	Following conditions hold
 	\bea
 	\label{top_ccn_eqn}
-	C_c\left(A \right) = \left\{\left.a \in 	C_b\left(A \right)~\right| ~\mathrm{norm}_a \in 	C_c\left(\sX\right)\right\},\\
+C_c\left(\sX, \left\{A_x\right\}, A \right)= \left\{\left.a \in 	C_b\left(A \right)~\right| ~\mathrm{norm}_a \in 	C_c\left(\sX\right)\right\},\\
 	\label{top_cc0_eqn}
-	C_0\left(A \right) = \left\{\left.a \in 	C_b\left(A \right)~\right| ~\mathrm{norm}_a \in 	C_0\left(\sX\right)\right\}
+C_0\left(\sX, \left\{A_x\right\}, A \right) = \left\{\left.a \in 	C_b\left(A \right)~\right| ~\mathrm{norm}_a \in 	C_0\left(\sX\right)\right\}
 	\eea
 	(cf. equations \eqref{top_norm_a_eqn}, \eqref{top_c0_eqn},  \eqref{top_cb_eqn}).
 \end{lemma}
@@ -6878,8 +6878,8 @@ The following Lemma is evident.
 	If $p: \widetilde{\sX} \to \sX$ is a finite-fold covering then one has
 	\be\label{top_compact_c0_eqn}
 	\begin{split}
-		C_c\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)=\\= C_c\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right), \\
-		C_0\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_0\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)=\\= C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right). \\
+		\lift_p\left( C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right)  \subset C_c\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)=\\= C_c\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right), \\
+	\lift_p\left( 	C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right)  \subset C_0\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)=\\= C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right). \\
 	\end{split}
 	\ee
 \end{lemma}
@@ -14001,9 +14001,9 @@ Our following constructions require an analog of the Dini's theorem.
 		\item [(i)] the space $\widetilde \sX$  is Hausdorff,
 		\item[(ii)] the  map $p : \widetilde \sX\to \sX$ is a transitive finite-fold covering with $G\left(\left.\widetilde{\sX}~\right|\sX\right)\cong G/H$,
 		\item[(iii)] there is a finite-fold covering with unitization given by
-		$$
+	\be\label{ctr_comm_e_eqn}
 \left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)\cong 	\left(A,\widetilde{A}^H, G/H, \pi^H    \right)
-		$$
+	\ee
 		\item[(iv)] the normal subgroup $H \subset G$ is $\left(A, \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn})
 	\end{enumerate}
 \end{lemma}
@@ -14016,24 +14016,53 @@ Our following constructions require an analog of the Dini's theorem.
 	$$
 	and from the Corollary \ref{spectrum_ff_p_cor} it follows that
 	$$
-\forall \widetilde x \in \widetilde \sX \quad \rep_{  \widetilde{x }}\left( \widetilde{a}^H\right) = 	\rep_{  \widetilde{x }}\left(\pi\left(  A\right) \right). 
+\forall \widetilde x \in \widetilde \sX \quad \rep_{  \widetilde{x }}\left( \widetilde{A}^H\right) = 	\rep_{  \widetilde{x }}\left(\pi^H\left(  A\right) \right). 
 	$$
-	From the Lemma \ref{ctr_rep_eq_lem} it follows that both $\widetilde{A}^H$ and $\pi\left( A\right)$ are continuity structure for  $\widetilde \sX$ and the	$\left\{\rep_{  \widetilde{x }}\left( \pi\left(  A\right)\right)\right\}_{\widetilde x \in \widetilde \sX }$. From the Lemma \ref{top_cs_nc_lem} it follows that the space  $C_0\left(\widetilde\sX \right)A$ is dense in 	$$C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi\left( A\right) \right)\right\}, A \right)$$. 
-	
-	
-	
-	
-	On the other hand $C_0\left(\widetilde \sX \right)  \widetilde{A}^H$ is dense in
+	From the Lemma \ref{ctr_rep_eq_lem} it follows that  $\pi^H\left( A\right)$ are continuity structure for  $\widetilde \sX$ and the	$\left\{\rep_{  \widetilde{x }}\left( \pi^H\left(  A\right)\right)\right\}_{\widetilde x \in \widetilde \sX }$ (cf. Definition \ref{op_fields_defn}). Let  $\widetilde a^H\in \widetilde{A}^H$ and $\widetilde x_0 \in \widetilde \sX$. If  $\widetilde f_{\widetilde x_0}\in C_0\left(\widetilde\sX \right)$ is  a $\widetilde x_0$-stump (cf. Definition \ref{top_stump_defn}) such that $\supp \widetilde f_{\widetilde x_0}$ is homeomorphically mapped onto $p\left( \supp \widetilde f_{\widetilde x_0}\right)$ and there is an open neighborhood $\widetilde \sU$ of $\widetilde x_0$ such that $\widetilde f_{\widetilde x_0}\left(\widetilde \sU \right)  = \{1\}$. If $\left\{g_1, ..., g_n\right\}\subset G$ is a set of representatives of $G/H$ then the element $\widetilde a' \bydef \sum_{g \in \left\{g_1, ..., g_n\right\}} g\left( f_{\widetilde x_0}\widetilde a^H\right) $ is $G$-invariant, i.e. $\widetilde a' \in \widetilde A^G = \pi\left(A \right)$. If $a \bydef \pi^{-1}\left(\widetilde a' \right)$ then
 	$$
-C_0\left(\widetilde \sX, \left\{\rep_{  \widetilde{x }}\left( \pi\left(  A\right)\right)\right\}_{\widetilde x \in \widetilde \sX }, A \right) = 	C_0\left(\widetilde \sX, \left\{\rep_{  \widetilde{x }}\left( \pi\left(  \pi\left( A\right) \right)\right)\right\}_{\widetilde x \in \widetilde \sX }, \widetilde{A}^H \right).
+\forall \widetilde x \in \widetilde\sU \quad \rep_{  \widetilde{x }} \left( \widetilde{a}^H\right) = 	\rep_{  \widetilde{x }}\left(\pi^H\left(  a\right) \right)	
 	$$
- From the Lemma \ref{top_cs_nc_lem} it follows that the space  $C_0\left(\widetilde\sX \right)A$ is dense in 	$$C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi\left( A\right) \right)\right\}, A \right)$$
-	
-
-	From \ref{ctr_comm_eqn} it follows that $\widetilde{A}^H\cong A_0\left(\widetilde\sX \right)$, however from the Lemma \ref{blowing_proper_group_lem} it follows that
+	i.e. the vector field $\left\{\rep_{  \widetilde{x }} \left( \widetilde{a}^H\right)\right\}_{\widetilde x \in \widetilde \sX}$ continuous with respect to $\pi^H\left( A\right) $ at $x_0$ (cf. Definition \ref{op_cont_fields_defn}). Since the point $\widetilde x_0$ is arbitrary the vector field $\left\{\rep_{  \widetilde{x }} \left( \widetilde{a}^H\right)\right\}_{\widetilde x \in \widetilde \sX}$  is {continuous} on $\widetilde \sX$, i.e. one has a natural inclusion 
+$$
+\phi: \widetilde{A}^H \hookto C\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left( A\right) \right)
+$$
+(cf. equation \eqref{top_c_sec_eqn}). From the  Lemma \ref{ctr_rep_eq_lem} it follows that for all $\widetilde{a}^H\in \widetilde{A}^H$ the map
+\bean
+\mathrm{norm}_{\widetilde{a}^H} :\widetilde \sX \to \left[0,  \left\|\widetilde{a}^H\right\|  \right],\\
+\widetilde x \mapsto \left\|  \rep_{  \widetilde{x }}\left(   \widetilde{a}^H\right)\right\| 
+\eean
+lies in $C_0\left(\widetilde \sX \right)$ it follows that
+$$
+\phi\left(  \widetilde{A}^H \right) \subset  C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left( A\right) \right)
+$$  
+(cf. equation \eqref{top_cc0_eqn}).  From the Lemma \ref{top_cs_nc_lem} it follows that the space  $C_0\left(\widetilde\sX \right)\pi^H\left(A \right) $ is dense in 	$C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left(A \right) \right)$. From $C_0\left(\widetilde\sX \right)\pi^H\left(A \right)\subset \widetilde{A}^H$ we conclude that $\phi\left(  \widetilde{A}^H \right)$ is dense in $C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left( A\right) \right)$ and taking into account that $\widetilde{A}^H$ is norm closed we conclude that $\phi\left(  \widetilde{A}^H \right)= C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left( A\right) \right)$, i.e. there is a natural isomorphism.
+$$
+\varphi: \widetilde{A}^H \xrightarrow{\cong} C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left( A\right) \right)
+$$
+On the other hand from the Lemma \ref{top_compact_c0_lem} it turns out that 
+$$
+C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}, \pi^H\left( A\right) \right) = C_0\left(\lift_p\left[ C\left(\sX, \left\{\rep_x\left(A \right) \right\}_{x\in \sX},  A \right) \right] \right).
+$$
+Moreover $A = C_0\left(\sX, \left\{\rep_x\left(A \right) \right\}_{x\in \sX},  A \right)$ and from
+$$
+\forall a \in A \quad \rep_{\widetilde{x }}\left(   \pi^H\left( a\right)\right) =\rep_{p\left( \widetilde{x }\right) }\left(   a\right) 
+$$
+it follows that the homomorphism $\pi^H: A \to \widetilde A^H$ is equivalent to
+\be\label{top_lift_a0_eqn}
+\begin{split}
+\lift_p|_{C_0\left(\sX, \left\{\rep_x\left(A \right) \right\}_{x \in \sX},  A \right)}:  C_0\left(\sX, \left\{\rep_x\left(A \right) \right\}_{x \in \sX},  A \right)\hookto\\
+\hookto C_0\left(\widetilde\sX, \left\{\rep_{  \widetilde{x }}\left(   \pi^H\left( A\right) \right)\right\}_{\widetilde x \in \widetilde \sX}, \pi^H\left( A\right) \right).
+\end{split}
+\ee
+(cf. Lemma \ref{top_compact_c0_lem}).
+However the $*$-homomorphism \eqref{top_lift_a0_eqn} is equivalent to $A_0\left(p \right): A \hookto A_0\left( \widetilde\sX\right)$ (cf. equations \eqref{top_c0_ob_eqn}  and \eqref{top_c0p_ob_eqn}, i.e. $\pi^H: A \to \widetilde A^H$ is equivalent to $A_0\left(p \right): A \hookto A_0\left( \widetilde\sX\right)$, so one has
 	$$
+\left(A,\widetilde{A}^H, G/H, \pi^H A_0\left(p \right)   \right)\cong\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)
+$$
+(iv)	From (iii) it follows that the quadruple  $\left(A,\widetilde{A}^H, G/H, \pi^H A_0\left(p \right)   \right)$ is equivalent to $\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)$ one. However from the Lemma \ref{blowing_proper_group_lem} it follows that
+	$
 	\left(A,\widetilde{A}^H, G/H, \pi^H A_0\left(p \right)   \right)=\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)
-	$$
+	$
 	is a {noncommutative finite-fold  pre-covering}, i.e. the normal subgroup $H \subset G$ is $\left(A, \widetilde{A}, G, \pi \right)$-proper.
 \end{proof}
 
@@ -14103,7 +14132,7 @@ C_0\left(\widetilde \sX, \left\{\rep_{  \widetilde{x }}\left( \pi\left(  A\right
 
 
 \begin{empt}\label{ctr_fin_empt}
-	If $A$ is a   $C^*$-algebra  with Hausdorff spectrum $\sX$, and suppose that $A$ is $CCR$ (cf. Definition \ref{ccr_defn}). If $\left( A, \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering with unitization  (cf. Definition \ref{fin_unitization_defn}) then from the Lemma \ref{ctr_ccr_sp_lem} it follows that the $C^*$-algebra $\widetilde A$ is $CCR$. If $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is a natural homomorphism
+	Let $A$ be a   $C^*$-algebra  with Hausdorff spectrum $\sX$, and suppose that $A$ is $CCR$ (cf. Definition \ref{ccr_defn}). If $\left( A, \widetilde A, G, \pi\right)$ is a noncommutative finite-fold covering with unitization  (cf. Definition \ref{fin_unitization_defn}) then from the Lemma \ref{ctr_ccr_sp_lem} it follows that the $C^*$-algebra $\widetilde A$ is $CCR$. If $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Proposition \ref{spectrum_coverig_finite_prop} it follows that there is a natural homomorphism
 	$$
 	\phi: G \to \mathrm{Homeo}\left(\widetilde \sX \right).  
 	$$
@@ -14123,7 +14152,7 @@ C_0\left(\widetilde \sX, \left\{\rep_{  \widetilde{x }}\left( \pi\left(  A\right
 \end{empt}
 
 \begin{lemma}\label{ctr_fin_h_lem}
-Under the hypotheses of \ref{ctr_fin_empt} the quadruple $\left( A, \widetilde A, G, \pi\right)$ is a reduced noncommutative finite-fold covering with unitization  (cf. Definitions \ref{fin_unitization_defn} and \ref{fin_red_defn}).
+Under the hypotheses of \ref{ctr_fin_empt} the quadruple $\left( A, \widetilde A, G, \pi\right)$ is equivalent to $\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)$ one.
 \end{lemma}
 \begin{proof}
 	Suppose that the group $H\bydef \ker\left(G \to \mathrm{Homeo}\left(\widetilde \sX \right) \right)$ is not trivial and for any $\widetilde a \in \widetilde A$ denote by
@@ -14191,10 +14220,27 @@ There the natural inclusion $\left.\widetilde A\right|_{\widetilde\sU}\subset \l
 $$
 	\forall \widetilde x \in \widetilde\sX \rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)=\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)
 $$
-and $H$ is a trivial group.
-	
+and $H$ is a trivial group so $\left(A,\widetilde{A}, G, \pi    \right)\cong 	\left(A,\widetilde{A}^H, G/H, \pi^H    \right)
+$. 
+On the other hand from the equation \eqref{ctr_comm_e_eqn} it follows that 
+\bean
+\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)\cong 	\left(A,\widetilde{A}^H, G/H, \pi^H    \right)\cong \left(A,\widetilde{A}, G, \pi    \right).
+\eean
 \end{proof}
-
+\begin{lemma}
+	Let $A$ be a connected   $C^*$-algebra  with Hausdorff spectrum, locally compact, locally connected spectrum $\sX$, and suppose that $A$ is $CCR$ (cf. Definition \ref{ccr_defn}). If $\left(A,\widetilde{A}, G, \pi    \right)$ is a noncommutative finite-covering (cf. Definition \ref{fin_defn}) and $p: \widetilde \sX \to \sX$ is a given by the Proposition \ref{spectrum_coverig_finite_prop} map form the spectrum $\widetilde \sX$ to the spectrum of $A$, then one has:
+	\begin{enumerate}
+		\item[(i)] the space $\widetilde \sX$ is Hausdorff,'
+		\item[(ii)] the map $p: \widetilde \sX \to \sX$ is a transitive covering,
+		\item[(iii)] the quadruple $\left(A,\widetilde{A}, G, \pi    \right)$ is equivalent to the given by the Lemma \ref{ctr_fin_inv_lem} noncommutative finite-fold covering 
+		$
+		\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
+		$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+!!!	Let $\left\{A_\la \subset C_0\left\{\sX\right\}\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn})
+\end{proof}
 
 
 
@@ -22423,7 +22469,7 @@ The equivalence
 	\hat x\left(t \right) =\tr\left( \pi\left(x \right) \right) 
 \end{split}
 \ee
-where $\hat A$ is the spectrum of $A$ (the space of equivalence classes of irreducible representations) and $\tr$ is the trace of the operator. From the Proposition 4.4.9 \cite{pedersen:ca_aut} it follows that $\hat x$ is lower semicontinuous function  in the Jacobson topology (cf. Definition \ref{jtop_defn}).
+where $\hat A$ is the spectrum of $A$ (the space of equivalence classes of irreducible representations) and $\tr$ is the trace of the operator. From the Proposition 4.4.9 \cite{pedersen:ca_aut} it follows that $\hat x$ is lower semi-continuous function  in the Jacobson topology (cf. Definition \ref{jtop_defn}).
 
 
 
