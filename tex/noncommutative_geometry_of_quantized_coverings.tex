@@ -14250,322 +14250,34 @@ $$
 i.e. the intersection $ \bigcup_{\la\in \La} A_\la$ is not dense in $A$. It contradicts with the Definition \ref{fin_defn}, so $\sX \setminus \bigcup_{\la\in \La}\sX_\la = \emptyset$ and $\sX = \bigcup_{\la\in \La}\sX_\la$. If $\widetilde A_\la$ is a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $A_\la$ (cf. Definition \ref{hereditary_lift_defn}) then from the Definition \ref{strictly_proper_defn} it follows that there is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) $\left(A_\la,\widetilde{A}_\la, G, \pi|_{A_\la}    \right)$. Similarly to above proof the spectrum $\widetilde\sX_\la$ of $\widetilde A_\la$ is an open subset of $\widetilde \sX$. Applying the Lemma \ref{fin_def_lem} we conclude that a union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$, and similarly to the above proof we conclude that $\widetilde \sX= \bigcup_{\la\in \La}\widetilde\sX_\la$.\\
 (i) From the Lemma  \ref{ctr_fin_h_lem} it follows that for all $\la \in \La$ the set $\widetilde \sX_\la$ is Hausdorff. Applying the Theorem \ref{zorn_thm} we can prove that the space  $\widetilde \sX$ is Hausdorff.\\
 (ii) For all $\la \in \La$ the restriction $p_{ \widetilde \sX_\la}: \widetilde \sX_\la\to \sX_\la$ is a transitive finite-fold covering (cf. Lemma \ref{ctr_fin_h_lem}), so from $ \sX= \bigcup_{\la\in \La}\sX_\la$ and $\widetilde \sX= \bigcup_{\la\in \La}\widetilde\sX_\la$ we conclude that the map $p : \widetilde \sX \to  \sX$  is a transitive finite-fold covering.\\
-(iii) !!!!
+(iii) For any $\la \in \La$ there is an inclusion $A_\la \subset A|_{\sX_\la}=A_{\sX_\la}=~_{\sX_\la} A= ~_{\sX_\la} A_{\sX_\la}$ (cf. \ref{blowing_au_ua_empt} and equations \eqref{blowing_sue3_eqn}, \eqref{open_ideal_eqn}). From this fact one can deduce that $\widetilde A_\la \left.\subset A_0\left( \widetilde{\sX }\right)\right|_{\widetilde \sX_\la}\subset A_0\left( \widetilde{\sX }\right)$, and $\pi|_{A_\la} = \left.A_0\left(p\right)\right|_{A_\la}$. If $\widetilde a \in A_0\left( \widetilde \sX\right)$ then for each $\eps > 0$ there is a compact set  $\widetilde \sY$ such that
+$$
+\forall\widetilde x \in \widetilde \sX \setminus \widetilde\sY \quad  \left\| \rep_{\widetilde x}\left(\widetilde a\right)\right\| < \frac{\eps}{2}.
+$$
+There is a {covering sum} $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde\sY$ (cf. Definition \ref{top_covering_sum_defn}) such that the set
+$$
+\widetilde\sU_j \bydef \left\{\left.\widetilde x \in \widetilde\sX\right| \widetilde f\left( \widetilde x\right)\neq 0 \right\}
+$$
+is mapped homeomorphically onto $p\left(\widetilde\sU_j  \right)$.  If $a_j \bydef \pi^{-1}\left(\sum_{	g \in G}g \left( \sqrt{\widetilde f_j} \widetilde a \right)  \right)$ then there is $\la_j \in \La$ and $a_{\la_j}\in A_{\la_j}$ such that
+$$
+\left\| a_{\la_j}- a_j\right\|< \frac{\eps}{2n}.
+$$
+From our construction it follows that
+\be\label{ctr_ee_eqn}
+\left\| \widetilde a - \sum_{j=1}^n\pi\left( a_{\la_j}\right) \sqrt{\widetilde f_j}  \right\|< \eps.
+\ee
+If $\la \in \La$ is such that $\la \ge \la_j$ for every $j = 1,...,n$ then $\sum_{j=1}^n\pi\left( a_{\la_j}\right) \sqrt{\widetilde f_j}\in \widetilde A_\la$. From \eqref{ctr_ee_eqn} it follows that the union $\bigcup_{\la\in \La} \widetilde A_\la$ is dense in $ A_0\left( \widetilde{\sX }\right)$ so $\widetilde A \cong A_0\left( \widetilde{\sX }\right)$ (cf. Lemma \ref{fin_def_lem}). From $\pi|_{A_\la} = \left.A_0\left(p\right)\right|_{A_\la}$ and taking into account that the union $\bigcup_{\la\in \La}A_\la$ is dense in $A$ we conclude that $\pi =A_0\left(p\right)$.
 \end{proof}
+
+
 \begin{thm}
-	Let $A$ be a connected   $C^*$-algebra  with Hausdorff spectrum, locally compact, locally connected spectrum $\sX$, and suppose that $A$ is $CCR$ (cf. Definition \ref{ccr_defn}). The  given by the Definition \ref{blowing_functor_defn} $\sX$-$A$-functor $A_0$ is an equivalence between the {category of finite-fold coverings} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}) and {category of finite-fold coverings} of $A$ (cf. Definition \ref{fin_category_defn}), i.e.
+	Let $A$ be a connected   $C^*$-algebra  with Hausdorff spectrum, locally compact, locally connected spectrum $\sX$, and suppose that $A$ is $CCR$ (cf. Definition \ref{ccr_defn}). The  given by the Definition \ref{blowing_functor_defn} $\sX$-$A$-functor $A_0$ is an equivalence between the {category of finite-fold coverings} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}) and the {category of finite-fold coverings} of $A$ (cf. Definition \ref{fin_category_defn}), i.e.
 	$$
 	\mathfrak{FinCov}\text{-}\sX \xrightarrow[\cong]{A_0} \mathfrak{FinCov}\text{-}A. 
 	$$
 \end{thm}
 \begin{proof}
 	Follows from the Lemmas \ref{ctr_sufficient_lem} and \ref{ctr_necessary_lem}.
-\end{proof}
-
-\subsubsection{Coverings of continuous trace  $C^*$-algebras}
-
-\begin{lemma}\label{ctr_pre_red_lem}
-Let $A$ be a $CCR$-algebra (cf. Definition \ref{ccr_defn}), and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $\widetilde{A}_{\mathrm{red}}$ is a reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) and  there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
- $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right) \subsetneqq \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde \sU$ then the group
-$$
-\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
-$$
-is not finite.
-\end{lemma}
-
-\begin{proof}
-	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential ideal $\widetilde I$ which is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_ess_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. It follows that $\widetilde I= \left.\widetilde A\right|_{\widetilde\sX_{\widetilde I}}$.
-	 The set $\widetilde\sX_{\widetilde I}$ is open and dense in $\widetilde\sX$, hence $\widetilde \sU'\bydef \widetilde \sU\cap \widetilde\sX_{\widetilde I}$ is open and it is not empty. The set $\widetilde \sU'$ is Hausdorff since $\widetilde\sX_{\widetilde I}$ is Hausdorff.
-	 The $C^*$-algebra  $\left.\widetilde A\right|_{\widetilde \sU'}$ is a closed two sided ideal of the continuous trace $C^*$-algebra $\widetilde I$, so from the Proposition  \ref{ctr_hered_prop} it follows that $\left.\widetilde A\right|_{\widetilde \sU'}$  is  a continuous trace $C^*$-algebra. If for  $\widetilde x \in \widetilde \sX$ denote by 
-	$$
-	G_{\widetilde x }\bydef \left\{\left.g \in G\right| g \widetilde x = \widetilde{x} \right\}.
-	$$ 
-	If a group $G_{\widetilde x }$ is trivial, or, equivalently  $\left|G_{\widetilde x }\right|= 1$ then 
-	$\rep_{ \widetilde{x}}\left(A\right)= \rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right) = \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$, so one has
-	$$
-	\forall \widetilde{x} \in \widetilde\sU' \quad \left|G_{\widetilde x }\right|> 1.
-	$$
-	Let $\widetilde{x}_0 \in \widetilde\sU$ be such that
-	$$
-	\left|G_{\widetilde x_0 }\right|= \max_{\widetilde{x} \in \widetilde\sU'}\left|G_{\widetilde x }\right|> 1.
-$$
-The subgroup $G_{\widetilde x_0 }\subset G$ is normal (cf. Definition \ref{normal_subgroup_defn}).
-If $\left\{g_1, ..., g_n\right\}\subset G$ is a set of representatives of $G/G_{\widetilde x_0 }$ then one has
-$$
-\forall g', g'' \in \left\{g_1, ..., g_n\right\}\quad g'\neq g'' \quad \Rightarrow \quad  g'\widetilde x_0\neq g''\widetilde x_0.
-$$
-There is an open neighborhood $\widetilde \sU''$ of $\widetilde x_0$, such that
-\bean
-\widetilde \sU''\subset \widetilde \sU',\\
-\forall \widetilde x \in \widetilde \sU''\quad \forall g', g'' \in \left\{g_1, ..., g_n\right\}\quad g'\neq g'' \quad \Rightarrow \quad  g'\widetilde x\neq g''\widetilde x,\\
-\forall \widetilde x \in \widetilde \sU''\quad G_{\widetilde x }= G_{\widetilde x_0 }
-\eean 
-There is an Abelian element $\widetilde e  \in  \left.\widetilde A\right|_{\widetilde \sU''}$ such that  $\rep_{ \widetilde{x}}\left(\widetilde e\right)\neq 0$ (cf. Proposition \ref{continuous_trace_c_a_proposition}). According to  the construction \ref{ctr_imprim_empt} there is a compact neighborhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset \widetilde\sU'$ and  $\left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
-	is an $\left.\widetilde A\right|^{\widetilde\sV}-\left. \widetilde e\right|^{\widetilde\sV}\left.A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}\cong C\left({\widetilde\sV}\right)$-imprimitivity bimodule. We denote it by $X_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$. From the condition (b) of the Definition \ref{strong_morita_defn} !!! it turns out that $\left.\widetilde A\right|^{\widetilde\sV}\cong \K\left( X_{C\left( \widetilde\sV\right)}\right)$. From $\widetilde{A}_{\mathrm{red}} \subsetneqq \widetilde{A}$ 
-	it turns out that there is a Hilbert submodule  $X^\parallel_{C\left( \widetilde\sV\right)} \bydef \left.A_{\mathrm{red}}\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$. From the equation \eqref{fin_red_eqn} it follows that 
-	\bean
-	\widetilde{a} \in \widetilde{A}\quad \Rightarrow \quad  \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) = \rep_{ \widetilde{x}}\left(\pi\left( A\right)\right) 
-	\eean
-	so for any $\widetilde{x}\in \widetilde\sV$ one has 
-	$$\forall \widetilde a\in  \widetilde{A}\quad 	\rep_{ \widetilde{x}}\left( \sum_{	g \in G_{\widetilde x_0 }}\widetilde{a}\right) \in \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)
-	$$
-	If $\widetilde{a}^\parallel\bydef \frac{1}{\left|G_{\widetilde x_0 }\right|}\sum_{	g \in G_{\widetilde x_0 }}g \widetilde{a}$ and $\widetilde{a}^\perp\bydef \widetilde{a}-\widetilde{a}^\parallel$ then $	\rep_{ \widetilde{x}}\left( \widetilde{a}^\parallel\right) \in  \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)$ and\\ $\rep_{ \widetilde{x}}\left( \sum_{	g \in G_{\widetilde x_0 }}g \widetilde{a}^\perp\right)=0$ for all $\widetilde{x}\in \widetilde\sV$. The natural decomposition $\widetilde{a}=\widetilde{a}^\parallel+ \widetilde{a}^\perp$ yields the direct sum $\left.\widetilde A\right|^{\widetilde\sV}=\left.\widetilde A_{\text{red}}\right|^{\widetilde\sV}\oplus \left.\widetilde A\right|_\perp^{\widetilde\sV}$ which naturally induces the direct sum 
-	$X_{C\left( \widetilde\sV\right)}=X^\parallel_{C\left( \widetilde\sV\right)}\oplus X^\perp_{C\left( \widetilde\sV\right)}$ of Hilbert modules. Let $\widetilde f_{\widetilde x_0}:  \widetilde \sX\to[0,1]$ be a continuous map such that $\supp  \widetilde f_{\widetilde x_0}\subset \widetilde\sU''$ and there is an open neighborhood $\widetilde\sU_0$ which satisfies to the condition $\widetilde f_{\widetilde x_0}\left(\widetilde\sU_0 \right) = \{1\}$ (cf. Lemma \ref{top_a_u_lem}).
-	There is a continuous map  $\varphi: \widetilde\sX \to [0,1]$ such that $\varphi\left(\widetilde x_0  \right) = 1$ and $\supp \varphi\subset \widetilde\sU_0$. For any $\epsilon \in \left(0, 2\pi \right)$ denote by  
-	\bean
-	\varphi_{\epsilon}\in C_b\left( \widetilde\sX\right) ,\\
-	\widetilde x \mapsto e^{i\eps \varphi\left( \widetilde x\right) }.
-	\eean	
-	There is the automorphism $\chi_\varepsilon\in \End^*_{C_0\left((\widetilde\sV \right) }\left(X_{C_0\left(\widetilde\sV \right)} \right) $ of the Hilbert $C_0\left(\widetilde\sV \right)$-module $X_{C_0\left(\widetilde\sV \right)}$ given by $\widetilde\xi^\parallel + \widetilde\xi^\perp\mapsto \widetilde\xi^\parallel + \varphi_{\epsilon}\widetilde\xi^\perp$. This automorphism yields the *-automorphism $\psi_\epsilon \in \Aut\left(\K\left(X_{C_0\left(\widetilde\sV \right)} \right)\right)\cong \Aut\left( \left.\widetilde A\right|^{\widetilde\sV}\right) $ given by
-	$$
-	\sum_{j = 0}^\infty \widetilde\xi_j \left\rangle \right\langle\widetilde \eta_j \mapsto \sum_{j = 0}^\infty \chi_\varepsilon\left( \widetilde\xi_j\right)  \left\rangle \right\langle \chi_\varepsilon\left( \widetilde\eta_j\right).
-	$$
-	If $\widetilde \sU'' \bydef \left\{\left. \widetilde x\in \widetilde\sV \right|\widetilde f_{\widetilde x_0}\left(\widetilde x\right)> 0\right\}$ then there the natural inclusion $\left.\widetilde A\right|_{\widetilde\sU''}\subset \left.\widetilde A\right|^{\widetilde\sV}$ such that for all $\epsilon$ the *-automorphism  $\psi_{\epsilon}$ corresponds to the *-automorphism $\theta_\epsilon \in \Aut\left(\left.\widetilde A\right|_{\widetilde\sU''}\right)$. Moreover 
-	If $\epsilon_1\neq \epsilon_2$ then $\th_{\epsilon_1}\neq \th_{\epsilon_2}$.  For any  $\epsilon \in \left(0, 2\pi \right)$ there is a bijective $\C$-linear map $g_\epsilon: \widetilde A\xrightarrow{\approx} \widetilde A$ given by
-	$$
-	\widetilde a \mapsto \left(1-\widetilde f_{\widetilde x_0} \right) \widetilde a + \th_{\epsilon}\left(\widetilde f_{\widetilde x_0}\widetilde a \right) .
-	$$
-	Since for any $\widetilde x \in \widetilde\sX$ the map 
-	\bean
-	\rep_{ \widetilde{x}}\left(\widetilde A\right)  \to \rep_{ \widetilde{x}}\left(\widetilde A\right),\\
-	\rep_{ \widetilde{x}}\left(\widetilde a\right)  \to \rep_{ \widetilde{x}}\left(g_{\epsilon}\left( \widetilde a\right) \right)\quad\forall  \widetilde a\in  \widetilde A
-	\eean 
-	is *-automorphism, the  map $g_\epsilon$ is $*$-automorphism.
-	For any $\widetilde x \in \widetilde\sX$ consider the irreducible representation $\rep_{ \widetilde{x}}: \widetilde{A}\to B\left( \H_{ \widetilde{x}}\right)$ and   $\xi_{\widetilde{x}}\in B\left(\H_{\widetilde{x}}\right)$. From the Theorem \ref{irred_thm}   it follows that $ \H_{ \widetilde{x}}= \rep_{ \widetilde{x}}: \left( \widetilde{A}\right)\xi_{\widetilde{x}}$.  Denote by $\H^\parallel_{ \widetilde{x}}\bydef \rep_{ \widetilde{x}} \left( \widetilde{A}_{\text{red}}\right)\xi_{\widetilde{x}}$ and by  $\H^\perp_{ \widetilde{x}}$ the orthogonal complement of $\H^\parallel_{ \widetilde{x}}$, i.e. $\H_{ \widetilde{x}}=\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}}$. There is a family of Banach spaces $\left\{\rep_{ \widetilde{x}}: \left( \widetilde{A}\subset  B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right) \right)\right\}_{\widetilde x \in \widetilde\sX}$. The space $\widetilde\sX$ is Hausdorff so from the Theorem \ref{ctr_rep_eq_lem} it follows that 		$\widetilde{A}$ is a continuity structure for $\widetilde\sX$ and the family $\left\{\rep_{ \widetilde{x}}: \left( \widetilde{A} \right)\right\}_{\widetilde x \in \widetilde\sX}$ (cf. Definition \ref{op_fields_defn}). Any $\widetilde a \in \widetilde{A}$ corresponds to a family
-	$$
-	\left\{\widetilde a_{ \widetilde{x}} \in B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right)\right\}= \left\{\begin{pmatrix}
-	\a\left(\widetilde a_{ \widetilde{x}} \right) & \bt\left(\widetilde a_{ \widetilde{x}} \right)\\
-	\ga\left(\widetilde a_{ \widetilde{x}} \right) & \delta\left(\widetilde a_{ \widetilde{x}} \right)  
-	\end{pmatrix} \in B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right) \right\}
-	$$ 
-	where 	 $\a\left(\widetilde a_{ \widetilde{x}} \right)\in  B\left(\H^\parallel_{ \widetilde{x}} \right)$, $\bt\left(\widetilde a_{ \widetilde{x}} \right)\in  B\left(\H^\perp_{ \widetilde{x}}, \H^\parallel_{ \widetilde{x}} \right)$, $\ga\left(\widetilde a_{ \widetilde{x}} \right)\in  B\left(\H^\parallel_{ \widetilde{x}}, \H^\perp_{ \widetilde{x}} \right)$, $\delta\left(\widetilde a_{ \widetilde{x}} \right)\in  B\left( \H^\perp_{ \widetilde{x}} \right)$. If $\widetilde a_{\text{red}}\bydef\frac{1}{\left|G_{\text{red}}\right|}\sum_{g\in G_{\text{red}}}g \widetilde a$  then $\widetilde a_{\text{red}} \in \widetilde A_{\text{red}}$ and from the equation \eqref{al_eqn} it follows that $\widetilde a_{\text{red}}$ corresponds to a family
-	\be\label{ctr_red_m_eqn}
-	\left\{\begin{pmatrix}
-		\a\left(\widetilde a_{ \widetilde{x}} \right) & 0\\
-		0 & \delta\left(\widetilde a_{ \widetilde{x}} \right)  
-	\end{pmatrix} \in B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right) \right\}_{ \widetilde{x}\in \widetilde\sX }.
-	\ee
-	The automorphism $g_\varepsilon$ is such that $\widetilde a$ corresponds to a family
-\be\label{ctr_inf_eqn}
-	\left\{\begin{pmatrix}
-	\a\left(\widetilde a_{ \widetilde{x}} \right) & \varphi_\epsilon\left(\widetilde{x} \right)  \bt\left(\widetilde a_{ \widetilde{x}} \right)\\ 
-	\overline{\varphi_\epsilon\left(\widetilde{x} \right)}\ga\left(\widetilde a_{ \widetilde{x}} \right) & \delta\left(\widetilde a_{ \widetilde{x}} \right)  
-	\end{pmatrix}   \right\}_{ \widetilde{x}\in \widetilde\sX },
-\ee 
-so from the equation \eqref{ctr_red_m_eqn} it follows that $g_\epsilon\left(\widetilde a_{\text{red}} \right)  = \widetilde a_{\text{red}}$, i.e. $g_\epsilon\in G_{\text{red}}$.  Otherwise from 
-$$
-\forall\epsilon_1,\epsilon_2 \in \left(0, 2\pi \right)\quad  \epsilon_1,\neq\epsilon_2\quad \Rightarrow\quad \varphi_{\epsilon_1}\left(\widetilde x_0 \right) \neq \varphi_{\epsilon_2}\left(\widetilde x_0 \right) 
-$$
-and taking into account \eqref{ctr_inf_eqn} one has infinitely many different automorphisms $g_\eps$.
-	Thus the group $\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}$ is not finite.
-\end{proof}
-
-\begin{corollary}\label{ctr_dense_cor}
-	Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold pre-covering.  If  $\widetilde\sX$ is the spectrum of  $\widetilde{A}$ and $\widetilde{A}_{\mathrm{red}}$ is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) then the set
-	\be\label{ctr_par_eqn}
-	\widetilde{\sX}^\parallel\bydef \left\{ \left. \widetilde x\in \widetilde\sX\right| \rep_{ \widehat{x}}\left(\widetilde{A}_{\mathrm{red}} \right) = \rep_{ \widehat{x}}\left(\widetilde{A} \right)\right\}
-	\ee
-	is dense in $\widetilde\sX$
-\end{corollary}
-\begin{proof}
-	If $\widetilde{\sX}^\parallel$
-	is not dense in $\widetilde\sX$ then there is nonempty open subset $\widetilde\sU\subset \widetilde{\sX}\setminus\widetilde{\sX}^\parallel$. For any $\widetilde x \in \widetilde\sU$ denote by $G_{\widetilde x}\bydef \left\{\left.g\in G\right| g\widetilde x = x\right\}$. From the Corollary  \ref{ctr_sp_cov_cor} it turns that there is $n \in \N$ such that $\left|G_{\widetilde x}\right|= n$ for all ${\widetilde x}\in {\widetilde \sX}$. If   $G' \bydef G\setminus G_{\widetilde x_0}$ then for any $g \in G'$ there is an open neighborhood $ \widetilde\sU_g$ such that $\widetilde\sU_g\cap g \sU_g= \emptyset$. The set $\widetilde\sU_{\widetilde x_0}\subset \cap_{g\in G'} \widetilde\sU_g$ is an open neighborhood of $\widetilde x_0$ such that $g \widetilde x\neq \widetilde x$ for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$ and $g \in G'$.
-	It follows for each $\widetilde x\in \widetilde\sU_{\widetilde x_0}$  one has
-	\begin{itemize}
-		\item $G_{\widetilde x}= G_{\widetilde x_0}$.
-		\item $\rep_{ \widehat{x}}\left(\widetilde{A}_{\mathrm{red}} \right) \subsetneqq \rep_{ \widehat{x}}\left(\widetilde{A} \right)$
-	\end{itemize} 
-	It is easy check that 	$$
-	\left\{\left.\rep_{ \widetilde{x}}\left(\sum_{	g \in G'}g  \widetilde a\right) \right|\widetilde a\in \widetilde A\right\}=	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right)
-	$$
-	for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$. From the Lemma \ref{ctr_pre_red_lem} it follows that 
-	$$
-	\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
-	$$
-	is not finite, it contradicts with the Condition (a) of the Definition \ref{fin_pre_defn}. So the set $ \widetilde{\sU_n}$ is not open. The contradiction proves this lemma.
-	
-\end{proof}
-
-\begin{corollary}\label{ctr_red_cor} Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ by a  noncommutative finite-fold pre-covering. Then for any Abelian element $a \in A$ the generated by $\pi\left( a\right)$ hereditary subalgebra $\widetilde{A}_a$ of $\widetilde{A}$ is commutative. 
-\end{corollary}
-\begin{proof}
-	
-	If $\widetilde{\sX}$ the spectrum of $\widetilde{A}$ and 	 $\widetilde{\sX}^\parallel$ is given by the equation \ref{ctr_par_eqn} then $\widetilde{\sX}^\parallel$ is a dense subset of $\widetilde{\sX}$ (cf. Corollary \ref{ctr_dense_cor}).  Otherwise from the equation \ref{fin_red_eqn} it follows that $\dim \rep_{ \widetilde{x}}\left(\widetilde{A}_a \right) \le 1$ for all $\widetilde{x}\in \widetilde{\sX}^\parallel$. From the Proposition \ref{less_n_pi_prop} it follows that the set
-	$$
-	\widetilde{\sX}_{1}\bydef\left\{\left.\widetilde x\in \widetilde\sX\right| \dim \rep_{ \widetilde{x}}\left(\widetilde{A}_a \right) \le 1\right\}$$ contains the closure of $\widetilde{\sX}^\parallel$ which coincides with $\widetilde{\sX}$, i.e. $\widetilde{\sX}_{1}= \widetilde{\sX}$ hence $\widetilde{A}_a$ is commutative. 
-\end{proof}
-\begin{corollary}\label{ctr_ctr_cov_lem}
-	Let $A$ be a continuous trace $C^*$-algebra, and let be $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering with unitization then $\widetilde{A}$  is a  {continuous-trace} $C^*$-{algebra}.
-\end{corollary}
-
-\begin{proof}
-	Let $\widetilde \sX$ be the spectrum of $\widetilde{A}$ and let $\widetilde x\in \widetilde{\sX}$ be a point. Let $p: \widetilde \sX \to \sX$ be the given by the Proposition \ref{spectrum_coverig_finite_prop} map from the spectrum of $\widetilde{A}$ to the spectrum of $A$. If $a \in A$   is an Abelian element such that $\rep_{p\left( \widetilde x\right)}\left(a\right)\neq 0$ (cf. Definition \ref{continuous_trace_c_alt_defn}) then from the Corollary \ref{ctr_red_cor} it follows that $\pi\left( a\right)$ is Abelian such that $\rep_{ \widetilde x}\left(\pi\left( a\right)\right)\neq 0$. From the Definition \ref{continuous_trace_c_alt_defn} it follows that  $\widetilde{A}$  is a  {continuous-trace} $C^*$-{algebra}.
-\end{proof}
-\begin{corollary}\label{ctr_sp_cov_red_cor}
-	If $A$ is a continuous trace $C^*$-algebra  and $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a reduced quasi-covering (cf. Definition \ref{fin_red_defn}).
-\end{corollary}
-\begin{proof}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is not a reduced noncommutative finite-fold quasi-covering and if 
- $\widetilde \sX$ is a spectrum of $\widetilde A$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\rep_{ \widetilde{x}_0}\left( \pi\left(  A\right) \right)  \subsetneqq\rep_{ \widetilde{x}_0}\left( \widetilde A\right)$. If $p : \widetilde \sX \to \sX$ is given by the equation  \ref{spectrum_cov_eqn} map then 
- using the equation \ref{red_incl_eqn} one can find an Abelian element $a \in A$ such that $\rank \rep_{ \widetilde{x}_0}\left(\pi\left( a \right) \right)> 1$. Otherwise if $\widetilde{\sX}^\parallel$ is a given by the equation \ref{ctr_par_eqn} then $\widetilde{\sX}^\parallel$ is a dense subset of $\widetilde{\sX}$ (cf. Corollary \ref{ctr_dense_cor}), such that 
- \bean
- \forall \widetilde x \in \widetilde{\sX}^\parallel \quad \rep_{  \widetilde{x }}\left( \widetilde A\right) = \rep_{  \widetilde{x }}\left(  A\right)
-\quad\Rightarrow \quad  \rank \rep_{  \widetilde{x }}\left( \pi\left( A_a\right) \right)\le 1.
- \eean
- where $A_a$ is a generated by $a$ hereditary subalgebra of $a$. From the Proposition \ref{less_n_pi_prop} it follows that the set
- $$
- \widetilde{\sX}_{1}\bydef\left\{\left.\widetilde x\in \widetilde\sX\right| \dim \rep_{ \widetilde{x}}\left(\widetilde{A}_a \right) \le 1\right\}$$ contains the closure of $\widetilde{\sX}^\parallel$ which coincides with $\widetilde{\sX}$, i.e. $\widetilde{\sX}_{1}= \widetilde{\sX}$, so one has
- $$
-\forall  \widetilde{x} \in \widetilde{\sX}\quad \rank \rep_{ \widetilde{x}}\left(\pi\left( a \right) \right)\le 1.
- $$
- This fact contradicts with $\rank \rep_{ \widetilde{x}_0}\left(\pi\left( a \right) \right)> 1$
-\end{proof}
-
-
-\begin{corollary}\label{ctr_sp_cov_cor}	If $A$ is a continuous trace $C^*$-algebra  and \\$\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then following conditions hold:
-	\begin{itemize}
-		\item[(i)] the spectrum $\widetilde\sX$ of $\widetilde A$ is a locally compact Hausdorff space,
-		\item[(ii)] the given by the equation  \eqref{spectrum_cov_eqn} map $p: \widetilde\sX\to\sX$ is a transitive finite-fold covering such that there is a natural isomorphism $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$. 
-	\end{itemize}
-\end{corollary}
-\begin{proof}(i) From the Lemma \ref{ctr_ctr_cov_lem} it follow that $\widetilde A$ is a continuous trace $C^*$-algebra. From the Proposition \ref{continuous_trace_c_a_proposition} it follows that the spectrum of $\widetilde A$ is locally compact Hausdorff space.\\
-	(ii)  From the Corollary \ref{cov_mult_fin_cor} it follows that  a quadruple  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, M\left(\pi\right) \right)$ is  an 
-	unital  noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}). From the Proposition \ref{continuous_trace_c_a_proposition} and the Theorems \ref{ctr_hat_check_thm},  \ref{dauns_hofmann_thm} it turns out that there are natural inclusions:
-\bean
-	C_b\left( \sX\right)\hookto M\left( {A}\right),\\
-	C_b\left(\widetilde \sX\right)\hookto M\left( \widetilde{A}\right),
-\eean
-or equivalently
-\bean
-	C\left(\bt \sX\right)\hookto M\left( {A}\right),\\
-C\left(\bt\widetilde \sX\right)\hookto M\left( \widetilde{A}\right),
-\eean
-where both  $\bt \sX$ and $\bt\widetilde \sX$ are {Stone-\v{C}ech compactifications} (cf. Definition  \ref{sc_comp_defn}) of $\sX$ and $\widetilde \sX$ respectively. According to the Theorem \ref{top_sc_to_compact_thm} the continuous map $p$ can be uniquely extended up to a continuous map $\bt p:  \bt\widetilde \sX\to   \bt\sX$. The map $\bt p$ yields a $*$-homomorphism $C\left(\bt\sX\right)\to C\left(\bt\widetilde\sX\right)$.	If $C\left(\bt\widetilde\sX\right)$ is not  a finitely generated right $C\left(\bt\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\bt \sX \right)$-submodules of $C\left(\bt\widetilde{\sX}\right)$ such that 
-	$$
-	C\left(\bt\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
-	$$
-	and 
-	$$
-C\left(\bt\widetilde{\sX}\right) \neq \sum_{\la \in \La_0} M_\la.
-$$
-for any finite subset $\La_0\subset \La$.
-	For any $\la\in \La$ the linear span of  $M_\la	C\left(\bt\widetilde{\sX}\right)$ is a right $	C\left(\bt{\sX}\right)$-submodule of $	C\left(\bt\widetilde{\sX}\right)$. 
-	From 
-	$$
-	\forall \widetilde a \in M\left(\widetilde A \right)\quad 1_{C\left(\bt\widetilde{\sX}\right)}\widetilde a = \widetilde{a}
-	$$
-	it follows that  $C\left(\bt\widetilde{\sX}\right) M\left(\widetilde A \right)=  M\left(\widetilde A \right)$.
-	So one has 
-	$$
-M\left(\widetilde A \right)=\sum_{\la \in \La}M_\la M\left(\widetilde A \right) 
-$$
-and
-	$$
-M\left(\widetilde A \right)\neq\sum_{\la \in \La_0}M_\la M\left(\widetilde A \right).
-$$
-for any finite subset $\La_0\subset \La$
-	because 
-	\bean
-\left(   \sum_{\la \in \La_0}M_\la M\left(\widetilde A \right) \right) \cap C\left(\bt \widetilde\sX \right)	= \sum_{\la \in \La_0}M_\la \neq  C\left(\bt \widetilde\sX \right),\\
-C\left(\bt \widetilde\sX \right)\subsetneqq \sum_{\la \in \La_0}M_\la M\left(\widetilde A \right)\quad \Rightarrow\quad  M\left(\widetilde A \right) \subsetneqq \sum_{\la \in \La_0}M_\la M\left(\widetilde A \right).
-\eean
-	From the Theorem \ref{fin_gen_thm} it follows $ M\left(\widetilde A \right)$ is not a finitely generated $ M\left( A \right)$-module, it contradicts with the Definition \ref{fin_unital_defn}. So $C\left(\bt\widetilde\sX\right)$ is   a finitely generated $C\left(\bt\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $\bt p$ is a finite fold covering. On the other hand $p$ is a restriction of $\bt p$ so $p$ is also a covering.  From the Lemma \ref{ctr_sp_cov_red_cor} it follows that $\left(A, \widetilde{A}, G, \pi \right)$ is reduced quasi-covering and taking into account the equation  \ref{quasi_red_eqn} one concludes that the covering $p$ is transitive and there is the natural isomorphism $G \cong G\left(\left.\widetilde\sX\right|\sX\right)
-	$.
-\end{proof}
-\begin{lemma}\label{ctr_fin_lem}
-If $A$ is a continuous trace $C^*$-algebra  and $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering (cf. Definition \ref{fin_defn})  then the given by the Proposition \ref{spectrum_coverig_finite_prop} continuous map $p: \widetilde \sX\to \sX$ from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$ is a finite-fold transitive covering. Moreover one has $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$.
-\end{lemma}
-\begin{proof}
-  Let $\left\{A_\la \subset A\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(A, \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $A_\la$ from the Proposition \ref{hered_spectrum_prop} it turns out that the spectrum $\sX_\la$ of $A_\la$ is an open subset of $\sX$.  From the Proposition  \ref{ctr_hered_prop} it follows that $A_\la$ is a continuous trace $C^*$-algebra.  If  $\widetilde A_\la\subset \widetilde A$ is    a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of  (cf. the Definition \ref{hereditary_lift_defn}) then a quadruple  $\left(A_\la, \widetilde{A}_\la, G, \pi|_{A_\la} \right)$ is a noncommutative finite-fold covering with unitization. If $\widetilde \sX_\la$ is a spectrum of $A_\la$ then from the Corollary \ref{ctr_sp_cov_cor} it follows that the restriction $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a finite-fold transitive covering. If $\cup \sX_\la \neq \sX$ then there are  $x_0 \in \sX \setminus \cup \sX_\la$ and $a\in A$ such that $\left\| \rep_{x_0} \left(a \right)\right\| = 1$. So one has
-  $$
-  \forall a^\cup  \in \cup A_\la  \quad \left\| a^\cup - a\right\|\ge \left\|\rep_{x_0}\left(  a^\cup - a\right)  \right\| = \left\|\rep_{x_0}\left(   a\right)  \right\|  = 1.
-  $$
-  From the above equation it follows that  a union $\cup A_\la$ is not dense in $A$. It is contradiction with the definition \ref{fin_defn}, so our assumption $\cup \sX_\la \neq \sX$ is not true and $\cup \sX_\la \neq \sX$. Since $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a covering for any $\la\in \La$ the map $p$ is a covering. From $G\left(\left.\widetilde\sX_\la\right|\sX_\la\right)\cong G$ it follows that  $G\left(\left.\widetilde\sX\right|\sX\right)\cong G$.
-\end{proof}
-\begin{theorem}\label{ctr_fin_cov_thm}
-	Let  $A$ is a continuous trace $C^*$-algebra,  and let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If $\sX$ is a spectrum of $A$ then there is a finite-fold transitive covering $p: 	\widetilde \sX \to \sX$ such that 
-	$\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to
-	$$
-\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
-	$$
-where $A_0\left( \widetilde{\sX }\right)$ is given by the Definitions  \ref{top_lift_a_f_defn}  or \ref{blowing_lift_a_f_defn} $p$-lift of $A$, and $*$-homomorphism  $A_0\left(p\right)$ is given by the equation   \eqref{blowing_a0q_eqn} one.
-\end{theorem}
-\begin{proof}
-Let us use the notation of the proof of the Lemma \ref{ctr_fin_lem}. From the Lemma \ref{fin_def_lem} it follows that $\widetilde{A}$ is a $C^*$-norm closure of the union $\cup \widetilde{A}_\la$. On the other hand if $A_0\left( \widetilde{\sX}_\la\right)$ is a $p_{\sX_\la}$-lift of a given by \eqref{open_ideal_eqn} ideal $A|_{\sX_\la}$  then from $\widetilde A_\la \subset A_0\left( \widetilde{\sX}_\la\right)$  $A_0\left( \widetilde{\sX}_\la\right) \subset A_0\left( \widetilde{\sX}\right)$ it follows that  $\widetilde{A}\subset A_0\left( \widetilde{\sX}\right)$. If $\eps > 0$ and $\widetilde a \in A_0\left( \widetilde{\sX}\right)$ then there is a compact subset $\widetilde \sV \subset \widetilde \sX$, such that
-$$
-\forall \widetilde x \in \widetilde \sX \setminus \widetilde \sY \quad \left\|\rep_{  \widehat{x }}\left(\widetilde a \right)  \right\|< \eps. 
-$$
-If $\sum_{j = 1}^n \widetilde f_j \in C_c\left( \widetilde \sX\right)$ is a subordinated to $p$   covering sum of $\widetilde \sV$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) then
-\bean
- \left\|\sum_{j = 1}^n \widetilde f_j\widetilde a -\widetilde a   \right\|< \eps,\\
-\sum_{j = 1}^n \widetilde f_j\widetilde a = \sum_{j = 1}^n \sqrt{\widetilde f_j}\pi\left( a_j \right) \text{ where } \pi\left( a_j\right)  \bydef \sum_{g\in G}g \left( \widetilde a \sqrt{\widetilde f_j}\right) \in \widetilde A^G = \pi\left(A \right) . 
-\eean
-From $\pi\left( a_j\right)\in \widetilde A$ and $\sqrt{\widetilde f_j}\in M\left(\widetilde A\right)$ it follows that $\sum_{j = 1}^n \widetilde f_j\widetilde a \in \widetilde A$. From  $\left\|\sum_{j = 1}^n \widetilde f_j\widetilde a -\widetilde a   \right\|< \eps$ it follows that $\widetilde a \in \widetilde A$, i.e. $ A_0\left( \widetilde \sX\right) \subset \widetilde A$. The proof of that there is a natural $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$ is left to the reader.
-\end{proof}
-\begin{corollary}
-Let $A$ be a continuous trace $C^*$-algebra, and let $\mathcal X$ be the spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}).	If $\mathcal X$ is a locally compact, connected, locally connected !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!! !!! !!!, Hausdorff space then the $C^*$-algebra $A$ is {proper with respect to covering compositions} (cf. Definition \ref{proper_composition_defn}).
-\end{corollary}
-\begin{empt}\label{ctr_funct_empt}
-	If $A$ is a connected continuous trace $C^*$-algebra and $\sX$ is a primitive spectrum of $A$ (cf. Definition \ref{spectrum_prime_primtive_defn}) then the Theorem \ref{dauns_hofmann_thm} yields disintegrable  Hausdorff blowing-up $C_0\left(\sX\right)\to M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}  !!! MAY BE DELETE !!! and the Lemma \ref{ctr_blowing_disint_lem} !!! MAY BE DELETE !!!). So there is an  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_category_defn} !!! REPLACE finite covering category !!! !!!DELETE !!!  !!! DELETE !!!).  Similarly to \ref{top_functor_empt} !!! REPLACE \ref{top_finite_covering_thm} !!! THEOREM !!!we construct a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$A\to \mathfrak{FinCov}$-$\sX$. From the Lemma \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that any $\mathfrak{FinCov}$-$A$ object is equivalent to 		$$
-	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
-	$$
-	We define
-	$$
-	\mathrm{Spe}\left( 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)\right) \bydef \left(\widetilde\sX\to\sX\right)
-	$$
-Any 	$\mathfrak{FinCov}$-$A$-arrow from  $\left(A,  \widetilde{  A}_1 ,G\left(\left. \widetilde{ A }_1 ~\right|   A\right) ,  \pi_1\right)$  to 
- $\left(A,  \widetilde{  A}_2 ,G\left(\left. \widetilde{ A }_2 ~\right|   A\right)  ,  \pi_2\right)$ is a  
-noncommutative finite-fold covering  $\left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right)$ (cf. Definition \ref{fin_defn}), such that there is a normal subgroup $H \subset G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right)$ which satisfies to following conditions:
-\begin{itemize}
-	\item $H \cong G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A }_2\right)$,
-	\item $ \widetilde{   A }_2\cong   \widetilde{   A }_1^H$, 
-	\item $\pi^1_2$ is equivalent to the natural inclusion $ \widetilde{   A }_1^H\hookto \widetilde{   A }_1$.   
-\end{itemize} 
-From the Corollary \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that $\widetilde A_1\cong A_0\left( \widetilde \sX_1\right)$ and $\widetilde A_2\cong A_0\left( \widetilde \sX_2\right)$ where both $\widetilde \sX_1$ and $\widetilde \sX_2$ are spectra of $\widetilde A_1$ and $\widetilde A_2$ respectively. If $p^1_2: \widetilde \sX_1\to \widetilde \sX_2$ is given by the Proposition \ref{spectrum_coverig_finite_prop} map then from the Corollary \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!! it follows that $p^1_2$ is a finite-fold transitive covering. We put 
-\bean
-\mathrm{Spe}\left(\left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right)\right)\bydef\left(p^1_2: \widetilde \sX_1 \to \widetilde\sX_2 \right).  
-\eean 
-
-\end{empt}
-
-\begin{theorem}\label{ctr_fin_thm}
-	Let  $A$ is a connected continuous trace $C^*$-algebra, such that the primitive spectrum $\sX$ (cf. Definition \ref{spectrum_prime_primtive_defn}) consents with noncommutative coverings. The  {associated with Hausdorff blowing-up} $C_0\left( \sX\right) \hookto M\left(A \right)$  functor $A_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$A$   (cf. Definition \ref{blowing_funct_defn}) is an equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
-\end{theorem}
-\begin{proof}
-According to the Definition \ref{category_equivalence_definition} one should  construct  natural isomorphisms $\tau : \mathbb{1}_{\mathfrak{FinCov}\text{-}A} \cong A_0 \circ 	\mathrm{Spe}$, and $\sigma : \mathbb{1}_{\mathfrak{FinCov}\text{-}\sX}\cong \mathrm{Spe} \circ A_0$. If $\left(A,  \widetilde{  A} ,G\left(\left. \widetilde{ A } ~\right|   A\right) ,  \pi\right)$ is a $\mathfrak{FinCov}\text{-}A$-object then it is equivalent to 
-	$
-	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
-	$
-(cf. Corollary \ref{ctr_fin_cor} !!! REPLACE \ref{ctr_fin_cov_thm} !!!). One has 
-$$
-\mathrm{Spe}\left(\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right) \right) = \left(p:\widetilde\sX\to\sX \right).
-$$
-On the other hand from the Lemma \ref{ctr_sufficient_lem} it follows that
-$$
-A_0\left(\left(p:\widetilde\sX\to\sX \right) \right) = \left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right),
-$$
-i.e.
-$$
-A_0\circ \mathrm{Spe}\left(\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right) \right)\cong \left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right).
-$$
-The above equation yields a natural isomorphism
-\bean
-\tau_{\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)}: \left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)\cong \\
-\cong A_0\circ \mathrm{Spe}\left(\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right) \right).
-\eean 
-Similarly for any $\mathfrak{FinCov}\text{-}\sX$-object one can construct an isomorphism
-$$
-\sigma_{\left(p: \widetilde\sX \to \sX\right)}: \left(p: \widetilde\sX \to \sX\right)\cong  \mathrm{Spe}\circ A_0\left(p: \widetilde\sX \to \sX \right) 
-$$
-We leave to the reader a proof of the following equations
-\bean
-\tau_{\left(A ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  A}\right),  \pi_1 \right)}\circ  \mathbb{1}_{\mathfrak{FinCov}\text{-}A}\left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right) =\\=
- \left( A_0\circ\mathrm{Spe} \left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right)\right)\circ \tau_{\left(A ,   \widetilde{   A }_2 ,G\left(\left. \widetilde{   A }_2 ~\right| {  A}\right),  \pi_2 \right)};
- \\
- \sigma_{\left( p_1: \widetilde \sX_1 \to \sX\right) }\circ  \mathbb{1}_{\mathfrak{FinCov}\text{-}\sX}\left(p^1_2:\widetilde \sX_1\to \widetilde \sX_2 \right)  =\\=
- \left( \mathrm{Spe} \circ A_0\left(p^1_2:\widetilde \sX_1\to \widetilde \sX_2 \right)\right) \circ \sigma_{\left( p_2: \widetilde \sX_2 \to \sX\right) }.\\
- \eean 
-
 \end{proof}
 
 \subsection{Coverings of operator spaces}
@@ -20858,16 +20570,15 @@ A group which is an inverse limit of finite groups is called \textit{profinite}.
 	\begin{remark}\label{weak_convergence_rem}\cite{rudin:fa}
 		In the above situation the net $\left\{x_\a\right\}_{\a\in \mathscr A}\in X$ is convergent with respect to weak topology if the net $\left\{\La x_\a\right\}\in \C$ is convergent for all $\La \in X^*$. Similarly the net $\left\{\La_\a\right\}_{\a\in \mathscr A}\in X^*$ is convergent with respect to weak*-topology if the net $\left\{\La_\a x\right\}\in \C$ is convergent for all $x\in X$.
 	\end{remark}
-	\begin{definition}\label{convex_hull_defn}\cite{conway:fa}
+%	\begin{definition}\label{convex_hull_defn}\cite{conway:fa}
 	%1.10. Definition. 
-If $A\subset X$, the \textit{convex hull} of $A$, is the 
-intersection of all convex sets that contain $A$.		
-\end{definition}
-	\begin{theorem}\label{convex_compact_thm} \cite{conway:fa}
-%Krein-Smulian Theorem:[2] Ñ 
-\textit{Krein-Smulian Theorem}. If $X$ is a Banach space and $K$ is a weakly 
-compact subset of $X$, then the convex hull of $K$ is weakly compact. 
-	\end{theorem}
+%If $A\subset X$, the \textit{convex hull} of $A$, is the 
+%intersection of all convex sets that contain $A$.	%\end{definition}
+%	\begin{theorem}\label{convex_compact_thm} \cite{conway:fa}
+%%Krein-Smulian Theorem:[2] Ñ 
+%\textit{Krein-Smulian Theorem}. If $X$ is a Banach space and $K$ is a weakly 
+%compact subset of $X$, then the convex hull of $K$ is weakly compact. 
+%	\end{theorem}
 	\section{Unbounded operators}
 	
 	\begin{definition}\label{unb_defn}(cf. \cite{kreyszig:fa})
@@ -28310,11 +28021,11 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 
 \bibitem{connes_landi:isospectral} Alain Connes, Giovanni Landi. {\it Noncommutative Manifolds the Instanton Algebra and Isospectral Deformations}, arXiv:math/0011194, 2001.
 
-\bibitem{connes_lott:particle} Connes, Alain, Lott, John. \textit{Particle models and noncommutative geometry.} Nuclear Physics B - Proceedings Supplements (1991/01) 18(2): 29-47, 1991
+\bibitem{connes_lott:particle} Connes, Alain, Lott, John. \textit{Particle models and noncommutative geometry}, Nuclear Physics B - Proceedings Supplements (1991/01) 18(2): 29-47, 1991
 
-\bibitem{connes_rieffel:nc_ym}A. Connes, Marc A. Rieffel \textit{Yang-Mills for noncommutative two-tori}. 1987 30 pages Published in: Contemp.Math. 62 (1987) 237-266, In *Li, M. (ed.) et al.: Physics in non-commutative world, vol. 1* 46-62. 1987.
+\bibitem{connes_rieffel:nc_ym}A. Connes, Marc A. Rieffel \textit{Yang-Mills for noncommutative two-tori}. 1987 30 pages Published in: Contemp. Math. 62 (1987) 237-266, In *Li, M. (ed.) et al.: Physics in non-commutative world, vol. 1* 46-62. 1987.
 
-\bibitem{conway:fa}Conway, John B. (1990). \textit{A Course in Functional Analysis}. Graduate Texts in Mathematics. Vol. 96 (2nd ed.). New York: Springer-Verlag. ISBN 978-0-387-97245-9. OCLC 21195908. 1990.
+%\bibitem{conway:fa}Conway, John B. (1990). \textit{A Course in Functional Analysis}. Graduate Texts in Mathematics. Vol. 96 (2nd ed.). New York: Springer-Verlag. ISBN 978-0-387-97245-9. OCLC 21195908. 1990.
 
 \bibitem{cra_moe:nhaus} M. Crainic and I. Moerdijk. \textit{A remark on sheaf  theory for non-Hausdorff manifolds}. Tech. Report 1119, Utrecht University, 1999.
 
