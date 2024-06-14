@@ -4184,7 +4184,159 @@ We write
  \begin{remark}
 The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) is a subcategory of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{subcategory_defn}) of (cf. Definition \ref{fin_category_defn}).
  \end{remark}
+  \begin{lemma}\label{bt_lim_lem}
+ 	Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn}  one has
+ 	\be\label{bt_lim_eqn}
+ 	\forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
+ 	\ee
+ 	where $a_\la$ is given by \eqref{basic_cov_cl_eqn} $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).
+ \end{lemma}
+ \begin{proof}
+ 	If $\la = \la_{\min}$ then from \eqref{basic_cov_cl_eqn} it follows that there is $a \in A = A_{\la_{\min}}$ such that
+ 	$$
+ 	a  = \bt\text{-}\sum_{g \in \widehat{G}}g \overline a
+ 	$$
+ 	If $\overline b \in \overline A$ and $e \in \widehat{G}$ is a unity of  $\widehat{G}$  then for any $\eps > 0$ there is a finite subset $G_0\subset  \widehat{G}$ with $e \in G_0$ such that for any finite set $G \subset \widehat G$ with $G_0\subset G$ following condition holds
+ 	$$
+ 	\left\| \sum_{g \in G}\left( g \overline a \right) \overline b - a \overline b \right\| <\eps.
+ 	$$
+ 	It turns out that 
+ 	for any finite set $G'\subset  \widehat{G} \setminus G_0$ one has
+ 	$$
+ 	\left\| \sum_{g \in G'}\left( g \overline a\right)  \overline b \right\| <\eps.
+ 	$$
+ 	Since the set $G'$ is finite there is $\la_\eps\in \La$ such that 
+ 	$$
+ 	\ker\left(\widehat{G}\to G_{\la_e}\right)\cap G' = \{e\}
+ 	$$
+ 	It follows that
+ 	$$
+ 	\forall \la \ge \la_\eps \quad \left\| a_\la \overline b - \overline a \overline b\right\| < \eps.
+ 	$$
+ 	The above equation means the following
+ 	$$
+ 	\lim_{\la\in \La} a_\la \overline b - \overline a \overline b
+ 	$$
+ 	where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in \La} \overline b a_\la - \overline b \overline a$, so one has \eqref{bt_lim_eqn}.
+ 	
+ \end{proof}
+ \begin{corollary}\label{inf_mult_cor}
+ 		Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} the inclusion $A \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  $M\left(A \right)  \hookto M\left( \overline A\right)$.
+ \end{corollary}
+ \begin{proof}
+ 	
+ 	
+ 	
+ 	Let $\left\{u_\a\right\}_{\a \in \mathscr A\subset A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}).
+ \bean
+ \left\|   a_\la \overline b   -  \overline a\overline b \right\|\le \frac{\eps}{3}
+ \eean 	
+ \bean
+\left\| u_\a  a_\la   - a_\la \right\|\le \frac{\eps}{3\left\| \overline b \right\|}
+\eean 	
+ \bean
+\left\| u_\a  a_\la \overline b   - a_\la\overline b \right\|\le \frac{\eps}{3}
+\eean 	
+  \bean
+ \left\| u_\a \overline a \overline b - u_\a a_\la \overline b \right\|\le \left\| u_\a  \right\|\left\|   a_\la \overline b   -  \overline a\overline b \right\|\le \frac{\eps}{3}
+ \eean 	
  
+ 
+ \bean
+ \left\| u_\a \overline a \overline b - \overline a \overline b \right\|\le\left\| u_\a \overline a \overline b - u_\a a_\la \overline b \right\|+ \left\| u_\a  a_\la \overline b   - a_\la \overline b \right\|+ \left\|   a_\la \overline b   -  \overline a\overline b \right\|
+ \eean 
+ If $\overline a \in K\left(\overline A\right)_+$ then  one has
+ \bean
+ \forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
+ \eean
+ If $\overline b \in \overline A$ then for any $\eps > 0$ there is $\la_\eps \in \La$ such that
+ $$
+ \forall \la\in \La \quad \la \ge \la_\eps \quad \left\|\left(a_\la  -\overline a\right) \overline b  \right\| < \frac{\eps }{2}
+ $$
+ on the other hand there is $\a_\eps\in  \mathscr A$ such that 
+ $$
+\forall \a\in  \mathscr A\quad \a \ge \a_\eps \quad \left\|a_{\la_\eps} - u_\a a_{\la_\eps}   \right\|<\frac{\eps }{2\left\| \overline b\right\| }, \quad \left\| a_{\la_\eps}  - a_{\la_\eps} u_\a  \right\|< \frac{\eps }{2\left\| \overline b\right\| }.
+$$
+For any $\la \ge \la_\eps$ from $ a_{\la_\eps}- \overline a \ge  a_{\la}- \overline a$ it follows that 
+$$
+\left(a_\la  -\overline a\right)\overline b~ \overline b^* \left(a_\la  -\overline a\right) \le \left(a_{\la_\eps}  -\overline a\right)\overline b~ \overline b^* \left(a_\la  -\overline a_{\la_\eps}\right)
+$$
+On the other hand from 
+\bean
+ \forall \a', \a'' \in  \mathscr A \quad \a' \le \a'' \quad \Rightarrow\\  \forall \la', \la'' \quad  \la' \le \la''\quad \Rightarrow \quad u_{\a'}\left( a_{\la'}  -\overline a\right)\overline b~ \overline b^* \left(a_{\la'}  -\overline a\right)u_{\a'}\ge \\  \ge u_{\a''}\left( a_{\la''}  -\overline a\right)\overline b~ \overline b^* \left(a_{\la''}  -\overline a\right)u_{\a''} 
+\eean 
+it follows that 
+\bean
+\forall \a', \a'' \in  \mathscr A \quad \a' \le \a'' \quad \Rightarrow\\  \forall \la', \la'' \quad  \la' \le \la''\quad \Rightarrow \quad\left\|  u_{\a'}\left( a_{\la'}  -\overline a\right)\overline b\right\| \ge \left\|  u_{\a''}\left( a_{\la''}  -\overline a\right)\overline b\right\| 
+\eean 
+It follows that
+\bean
+\forall\a \in \mathscr A \quad \a \ge \a_\eps \quad \Rightarrow \quad \left\|  u_{\a}a_{\la_\eps}\overline b- a_{\la_\eps} \overline b\right\|\le  \left\|  \left( a_{\la_\eps} - \overline a \right) \overline b\right\|+ \left\| u_{\a} \overline a\overline b \right\|
+\eean 
+
+
+
+ (cf. the equation \eqref{bt_lim_eqn}). Let us prove that for any $a\in M\left(A \right)$ the net $\left\{a a_\la \right\}_{\la\in\La}$ is convergent with respect to the strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}). If $\overline b \in \overline A$ then for any $\eps > 0$ there is $\la_\eps \in \La$ such that
+ $$
+ \forall \la\in \La \quad \la \ge \la_\eps \quad \left\|\left(a_{\la_\eps} - a_\la  \right) \overline b  \right\| < \frac{\eps}{\left\|a\right\|}\quad \Rightarrow \quad \left\|\left(aa_{\la_\eps} - aa_\la  \right) \overline b  \right\| <\eps
+ $$
+ Similarly there is $\la'_\eps \in \La$ such that
+\bean
+ \forall \la\in \La \quad \la \ge \la'_\eps \quad \left\|\left(a^*_{\la'_\eps} - a^*_\la  \right) \overline b^*  \right\| < \frac{\eps}{\left\|a\right\|}\quad \Rightarrow \quad \left\|\left(a^*a^*_{\la'_\eps} - a^*a^*_\la  \right) \overline b^*  \right\| <\eps\quad  \Rightarrow\\
+ \Rightarrow \left\| \overline b \left(aa_{\la_\eps} - aa_\la  \right)  \right\|= \left\|\left(a^*a^*_{\la'_\eps} - a^*a^*_\la  \right) \overline b^*  \right\|
+ \eean
+ 	
+ For any $a\in A$ we define a map $L_a: K\left( \right) \to  K\left(\overline A\right)$
+ \end{proof}
+ \paragraph{!!!}
+ 	\begin{theorem}\label{it_lim_thm}\cite{kelley:gt}
+ 	\textit{Theorem on iterated limits}. Let $D$ be a directed set, let $E_m$ be a directed set for each $m$ in $D$, let $F$ be the product $D\times \prod_{m \in D}  E_m$, and for $(m,f)$ in $F$ let $R(m,f) = (m, f(m))$. If $S(m,n)$ is 
+ 	a member of a topological space for each m in $D$ and each $n$ in $E_n$, 
+ 	then $S\circ R$ converges to $\lim_m \lim_nS(m,n)$ whenever this iterated limit 
+ 	exists.
+ \end{theorem}
+ %
+ \begin{lemma}\label{multiplier_al_lem}\cite{matro:hcm}
+ 	The set $M\left(A\right)$ is an unital $C^*$-algebra 
+ 	$$
+ 	A \subset M\left( A\right) \subset A^{**}
+ 	$$	
+ 	and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$. 
+ \end{lemma}
+ \begin{definition}\label{double_centralizer_defn}\cite{matro:hcm}
+ 	A pair $\left(L, R\right)$ of maps
+ 	\be\label{dc_eqn}
+ 	L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
+ 	\ee
+ 	is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
+ \end{definition}
+ 
+ \begin{proposition}\label{dc_prop}\cite{matro:hcm}
+ 	If $\left(L, R\right)\in \mathbf{DC}\left(A \right)$ then
+ 	\begin{enumerate}
+ 		\item [(i)] $L\left( ab\right) = L\left( a\right)b$ and $R\left( ab\right) = aR\left( b\right)$;
+ 		\item [(ii)] $L$ and $R$ are linear;
+ 		\item [(iii)] $L$ and $R$ are bounded and $\left\|L \right\|= \left\|R \right\|$;
+ 	\end{enumerate}
+ 	The set $\mathbf{DC}\left(A \right) $ with operations
+ 	\bean
+ 	\left(L_1, R_1\right) + \left(L_2, R_2\right)\bydef \left(L_1 + L_2, R_1+R_2\right),\quad z\left(L,R\right)\bydef \left(zL, zR\right) \quad \forall z \in \C,\\
+ 	\left(L_1, R_1\right)  \left(L_2, R_2\right)\bydef \left(L_1  L_2, R_2R_2\right),\\
+ 	\left(L, R\right)^*\bydef \left(R^*, L^*\right),\\
+ 	L^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*, \quad R^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*\quad \forall a \in A.
+ 	\eean 
+ 	is a normed involutive algebra with respect to the norm
+ 	$$
+ 	\left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
+ 	$$
+ \end{proposition}
+ \begin{remark}\label{double_centralizer_rem}
+ 	In \cite{matro:hcm} it is proven  there is a natural $*$-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
+ \end{remark}
+ 
+ 
+ 
+ \paragraph{!!!}
  
  \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
 \begin{itemize}
@@ -4204,42 +4356,6 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
  \ee
  \end{definition}
  
- \begin{lemma}\label{bt_lim_lem}
-Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_eqn}  one has
-\be\label{bt_lim_eqn}
-\forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
-\ee
-where $a_\la$ is given by \eqref{basic_cov_cl_eqn} $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).
-\end{lemma}
-\begin{proof}
-If $\la = \la_{\min}$ then from \eqref{basic_cov_cl_eqn} it follows that there is $a \in A = A_{\la_{\min}}$ such that
-$$
-a  = \bt\text{-}\sum_{g \in \widehat{G}}g \overline a
-$$
-If $\overline b \in \overline A$ and $e \in \widehat{G}$ is a unity of  $\widehat{G}$  then for any $\eps > 0$ there is a finite subset $G_0\subset  \widehat{G}$ with $e \in G_0$ such that for any finite set $G \subset \widehat G$ with $G_0\subset G$ following condition holds
-$$
-\left\| \sum_{g \in G}\left( g \overline a \right) \overline b - a \overline b \right\| <\eps.
-$$
-It turns out that 
-for any finite set $G'\subset  \widehat{G} \setminus G_0$ one has
-$$
- \left\| \sum_{g \in G'}\left( g \overline a\right)  \overline b \right\| <\eps.
-$$
-Since the set $G'$ is finite there is $\la_\eps\in \La$ such that 
-$$
-\ker\left(\widehat{G}\to G_{\la_e}\right)\cap G' = \{e\}
-$$
-It follows that
-$$
-\forall \la \ge \la_\eps \quad \left\| a_\la \overline b - \overline a \overline b\right\| < \eps.
-$$
-The above equation means the following
-$$
-\lim_{\la\in \La} a_\la \overline b - \overline a \overline b
-$$
-where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in \La} \overline b a_\la - \overline b \overline a$, so one has \eqref{bt_lim_eqn}.
-
-\end{proof}
 \begin{remark}\label{ininite_covering_inductive_rem}
 	Since the set $\La$ is directed there is a $C^*$-inductive limit 
 	\bean
@@ -7935,7 +8051,7 @@ of Abelian groups.
 \begin{exercise}\label{top_sheaf_lift_exer}
 	Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_covering_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements:
 	\begin{enumerate}
-		\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
+		\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{sheaf_stalk_defn})
 		\be\label{top_st_iso_eqn}
 		p_{\widetilde x}:	\mathscr  F_{p\left( \widetilde x\right) }\cong p^{-1}\mathscr  F_{\widetilde x}.
 		\ee
@@ -8412,7 +8528,7 @@ Consider the situation of the Lemma \ref{top_diff*_lem}. Let $p: \widetilde M\to
 Prove following statements:
 \begin{enumerate}
 	\item $\widetilde E$ has a natural structure of a smooth bundle (cf. Definition \ref{top_sm_bundle_defn}).
-	\item If $\mathscr S^{ D^*\left( M,  E\right)}_x$ is a space of stalks at $x$ (cf. Definition \ref{stalk_defn}) then there is a natural involution
+	\item If $\mathscr S^{ D^*\left( M,  E\right)}_x$ is a space of stalks at $x$ (cf. Definition \ref{sheaf_stalk_defn}) then there is a natural involution
 	$$
 	* : \mathscr S^{ D^*\left( M,  E\right)}_x\xrightarrow{\approx}\mathscr S^{ D^*\left( M,  E\right)}_x.
 	$$
@@ -9184,7 +9300,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 	(i)
 	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{\sX}\right)$. Conditions $G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
-	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde \sX\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\widetilde a_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ where $\widetilde a_{\widetilde x_0}$ is the stalk at $\widetilde x_0$ (cf. Definition \ref{stalk_defn}). If $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ be an $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn}) then $\widetilde a_{\widetilde x_0}=\left(\widetilde f\widetilde a \right)_{\widetilde x_0}\notin p^{-1} \mathscr S^R_{\widetilde x_0}$.
+	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde \sX\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\widetilde a_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ where $\widetilde a_{\widetilde x_0}$ is the stalk at $\widetilde x_0$ (cf. Definition \ref{sheaf_stalk_defn}). If $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ be an $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn}) then $\widetilde a_{\widetilde x_0}=\left(\widetilde f\widetilde a \right)_{\widetilde x_0}\notin p^{-1} \mathscr S^R_{\widetilde x_0}$.
 	One has 
 \bean
 a \bydef \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left(\sX\right),\\
@@ -10626,7 +10742,7 @@ $$
 \end{lemma}
 
 \begin{proof}
-	Algebra $\widetilde A$ contains continuous maps only, it turns out that $\mathscr S^{\widetilde A}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$ where $\mathscr S^{\widetilde A}_{\widetilde x}$ means the space of stalks at $\widetilde x$ (cf. Definitions \ref{stalk_defn} and \ref{top_x_sheaf_defn}). On the other hand 
+	Algebra $\widetilde A$ contains continuous maps only, it turns out that $\mathscr S^{\widetilde A}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$ where $\mathscr S^{\widetilde A}_{\widetilde x}$ means the space of stalks at $\widetilde x$ (cf. Definitions \ref{sheaf_stalk_defn} and \ref{top_x_sheaf_defn}). On the other hand 
 	from $\widetilde R \subset C_0\left( \widetilde \sX\right)$ it follows  that $\mathscr S^{\widetilde R}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. We would like prove that 
 	\be\label{top_ra_sh_eqn}
 	\forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} \subset \mathscr S^{\widetilde R}_{\widetilde x}
@@ -14705,9 +14821,9 @@ The details of the proof are left to the reader.
 \subsection{Coverings of $C^*$-algebras}
 \paragraph*{}
 Here we prove that any infinite covering of $C^*$-algebra with Hausdorff spectrum $\sX$ corresponds to a transitive covering of $\sX$.
-\begin{lemma}
+\begin{lemma}\label{ctr_fin_lem}
 	Let $\left\{a_\la\right\}_{\la\in \La} \subset \K\left(\H\right)_+$ be a family of positive compact operators such that for any $\dl > 0$ there is a convergent with respect to the strict topology of $M\left(\K\left(\H\right) \right)$ series  $$\bt\text{-}\sum_{\la\in \La} f_\dl\left(a_\la  \right)$$ where $f_\dl$ is given by \eqref{f_eps_eqn}. Then for any $\eps > 0$ the set
-	$\Xi\bydef \left\{\la \in \La | f_\eps\left(a_\la \right)  \right\}\neq 0$ is finite.
+	$\Xi\bydef \left\{\la \in \La | f_\eps\left(a_\la \right) \neq 0 \right\}$ is finite.
 \end{lemma}
 \begin{proof}
 If $a' \bydef \bt\text{-}\sum_{\la\in \La} f_{\eps / 3}\left(a_\la  \right)$ then from $a' \in \K\left(\H\right)$
@@ -14734,7 +14850,7 @@ Under the hypotheses \ref{ctr_inf_empt} the spectrum $ \overline\sX'$ of $ \over
 \begin{proof}
 If both $\overline x_1, \overline x_2\in \overline\sX'$ are such that $\overline x_1\neq \overline x_2$ then $\phi_{\overline{   \mathcal X }}\left(\overline x_1 \right) \neq \phi_{\overline{   \mathcal X }} \left(\overline x_2 \right)$. There is $\la \in \La$ such that $x_1 \bydef \overline{p}_\la\left(\phi_{\overline{   \mathcal X }} \left(\overline x_1 \right) \right)\neq x_2\bydef \overline{p}_\la\left(\phi_{\overline{   \mathcal X }} \left(\overline x_2 \right) \right)$ where $\overline{p}_\la: \overline{\sX}\to \sX_\la$ is a natural covering. The space  $\sX_\la$ is Hausdorff so there are open neighborhoods $\sU_1$ and $\sU_2$ of  $x_1$ and $x_2$ such that $\sU_1\cap \sU_2= \emptyset$. These sets corresponds to the given by the equation \ref{open_ideal_eqn} closed ideals $I_1 \bydef \left. A_0\left(\sX_\la \right) \right|_{\sU_1}$ and $I_2 \bydef \left. A_0\left(\sX_\la \right) \right|_{\sU_2}$ (cf. equation \ref{open_ideal_eqn}). From $\sU_1\cap \sU_2= \emptyset$ it turns out that $I_1 \cap I_2 = \{0\}$. From the equation \eqref{ininite_covering_inductive_eqn}  it follows that there is an inclusion $A_0\left(\sX_\la \right)\subset M\left(\overline A \right)$. So there are closed ideals $\overline I_1\bydef I_1 \overline A$ and  $\overline I_2\bydef I_2 \overline A$ of $\overline A$ which corresponds to the sets $\overline \sU_1\bydef \phi^{-1}_{\overline{   \mathcal X }}\left(\overline{p}~^{-1}_\la\left(\sU_1 \right)  \right) $ and $\overline \sU_2\bydef\phi^{-1}_{\overline{   \mathcal X }}\left(\overline{p}~^{-1}_\la\left(\sU_1 \right)  \right)$. However closed ideals correspond to open sets of $\overline{   \mathcal X }'$ (cf. Definition \ref{jtop_defn}). So there are open neighborhoods $\overline \sU_1$ and  $\overline \sU_2$ of $\overline x_1$ and  $\overline x_2$ with $\overline \sU_1\cap \overline \sU_2= \emptyset$.
 \end{proof}
-\begin{empt}
+\begin{empt}\label{ctr_hausd_empt}
 Both  $\overline a' \in K\left( \overline A\right)$ and $\overline a \in K\left( A_0\left( \overline \sX\right) \right)$ yield the families
 $
 \left\{\rep_{\phi^{-1}_{\overline{   \mathcal X }}}\left(\overline x \right)\left( \overline a' \right)  \right\}_{\overline x \in \overline \sX}
@@ -14756,8 +14872,46 @@ and $
 $
 \end{empt}
 \begin{lemma}\label{ctr_sheaf_lem}
-	!!!
+Under the hypotheses \ref{ctr_hausd_empt} if both $\mathscr  F$ and  $\mathscr  F'$  are associated with  $\mathscr  G$ and  $\mathscr  G'$ sheaves (cf. Proposition and Definition \ref{sheaf_prdf}) then the map \eqref{ctr_spectrum_x_map} yields a natural isomorphism $\mathscr  F\cong \mathscr  F'$.
 \end{lemma}
+\begin{proof}
+	Form the \eqref{four_decompositon_eqn} it follows that any $s \in \mathscr  F$ can be represented by $s = s_1 - s_2 + is_3 -is_4$, where $s_1, s_2, s_3, s_4$ come from the positive cone $A_0\left(\overline\sX \right)_+$.  A  stalk  (cf. Definition \ref{sheaf_stalk_defn}) of $\mathscr  F_{\overline x}$ at $\overline x$ is said to be \textit{positive} if it can be represented by a positive element of $A_0\left(\overline\sX \right)$. 
+For any $\overline x\in \overline\sX$ every positive stalk   $s \in \mathscr  F_{\overline x}$ at $\overline x$ can be represented by $f_\eps\left(\overline a \right)$  such that:
+\begin{itemize}
+	\item the element $\overline a$ is positive,
+	\item there is an open connected neighborhood $\overline \sU$ of $\overline x$ with $\overline a  \in \left.  A_0\left(\overline\sX \right)\right|_{\overline \sU}$ (cf. equation \ref{open_ideal_eqn}),
+	\item The set $\overline \sU$ is mapped homeomorphically onto $\sU \bydef p\left( \overline \sU\right)$.
+\end{itemize}
+If $a' = \desc_p\left( f_{\eps/2}\left(\overline a \right)\right)\in K\left( A\right)_+ $ where  $\desc_p$ is given by the Definition \ref{top_lift_desc_defn} and/or the Definition \ref{blowing_descent_defn} then from the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn} it turns out that there is $\overline a' \in K\left( \overline A\right) $ such that
+$$
+a' = \bt\text{-}\sum_{	g \in  \widehat{G} }g \overline a'
+$$
+where the sum of the series implies the strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).From the Lemma \ref{ctr_fin_lem} it follows that the set
+$
+G_0 \bydef \left\{\left.g \in \widehat{G}\right| \rep_{\phi_{\overline{   \mathcal X }}\left( g\overline x\right) }\left( \overline a' \right) \neq 0\right\}
+$
+is finite. If 
+$$
+a'' \bydef \bt\text{-}\sum_{	g \in  \widehat{G}\setminus G_0 }g \overline a'
+$$
+and $x \bydef p\left(\overline x \right)$ then  $\rep_{x}\left(a'' \right)  = 0$. If $a''' = \bydef f_{\eps/2} \left(a'' \right)$ then there is an open neighborhood $\sU'''$ of $x$ such that
+$$
+\forall x \in \sU''' \quad \rep_{x}\left(a''' \right) = 0.
+$$ 
+From $$
+a''' \ge\bt\text{-}\sum_{	g \in  \widehat{G}\setminus G_0 }g f_{\eps/2} \left( \overline a'\right) 
+$$
+if follows that 
+$$
+\forall \forall x \in \sU''' \quad \rep_{x}\left(a''' \right) = 0
+$$ 
+
+\end{proof}
+\begin{lemma}\label{ctr_fin_lem!}
+	Let $\left\{a_\la\right\}_{\la\in \La} \subset \K\left(\H\right)_+$ be a family of positive compact operators such that for any $\dl > 0$ there is a convergent with respect to the strict topology of $M\left(\K\left(\H\right) \right)$ series  $$\bt\text{-}\sum_{\la\in \La} f_\dl\left(a_\la  \right)$$ where $f_\dl$ is given by \eqref{f_eps_eqn}. Then for any $\eps > 0$ the set
+	$\Xi\bydef \left\{\la \in \La | f_\eps\left(a_\la \right)  \right\}\neq 0$ is finite.
+\end{lemma}
+
 
 
 \begin{lemma}\label{blowing_atomic_lem} Under the hypotheses  of the Lemma \ref{ctr_sufficient_inf_lem} 
@@ -25230,9 +25384,10 @@ A^{\infty}$.
 %\begin{definition}
 %	A presheaf \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
 %\end{definition}
-\begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
+\begin{definition}\label{sheaf_stalk_defn}\cite{hartshorne:ag}%{stalk_defn}
 	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
 \end{definition}
+
 
 \begin{definition}\cite{hartshorne:ag}
 If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
