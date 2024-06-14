@@ -4224,10 +4224,45 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
  		Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} the inclusion $A \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  $M\left(A \right)  \hookto M\left( \overline A\right)$.
  \end{corollary}
  \begin{proof}
- 	
- 	
- 	
- 	Let $\left\{u_\a\right\}_{\a \in \mathscr A\subset A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}).
+ If $\overline{a}	\in \K\left(  \overline A\right)_+ $ is a positive then $\overline{b}\bydef \sqrt{\overline{a}}	\in \K\left(  \overline A\right)$. From the Lemma \ref{bt_lim_lem} it follows that if 
+ $$
+ b_\la \bydef  \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline b\in K\left(A_\la \right) 
+$$
+where $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$. then there is the $C^*$-norm limit.
+$$
+\overline{a} = \lim_{\la\in \La}b_\la \overline{b}.
+$$
+From
+$$
+\forall \la', \la'' \quad  \la' \le \la''\quad b_{\la'} - \overline b\ge \overline b _{\la''} - \overline b 
+$$
+it follows that
+\bean 
+\overline{b}\left(  b_{\la'} - \overline b\right) \left(  b_{\la'} - \overline b\right)\overline{b}\ge \overline{b}\left(  b_{\la''} -  \overline b\right) \left(  b_{\la''} - \overline b\right)\overline{b}\quad \Rightarrow \\ \Rightarrow\left\|   \left(  b_{\la'} - \overline b\right)\overline{b} \right\|\ge \left\|   \left(  b_{\la''} - \overline b\right)\overline{b} \right\|
+\eean
+If $\eps > 0$ then there is $\la_\eps \in \La$ such that 
+$$
+\forall\la \in \La \quad  \la \ge \la_\eps \quad  \left\|  b_\la \overline b   -  \overline b\overline b \right\|\le \frac{\eps}{3}
+$$
+ If  $\left\{u_\a\right\}_{\a \in \mathscr A\subset A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}), then one has
+ $$
+ \forall \a', \a''\in  \mathscr A \quad \a' \le \a'' \Rightarrow u_{\a'} < u_{\a''}
+ $$
+ and
+ \bean
+ \forall\la \in \La \quad  \forall \a', \a''\in  \mathscr A \quad \a' \le \a''\quad \Rightarrow \quad u_{\a'}b_\la b_\la  u_{\a'}\le u_{\a''}b_\la b_\la  u_{\a''}\le b_\la b_\la\quad \Rightarrow\\
+ \Rightarrow \left\| u_{\a''}b_\la - b_\la   \right\| \le \left\| u_{\a'}b_\la - b_\la   \right\|
+\eean 
+There is $\a_\eps \in \mathscr A$ such that
+$$
+\left\| u_{\a_\eps}  b_{\la_\eps}   - b_{\la_\eps} \right\|\le \frac{\eps}{3\left\| \overline b \right\|}\quad \Rightarrow \quad \left\| u_{\a_\eps}  b_{\la_\eps}\overline b     - b_{\la_\eps}\overline b   \right\|\le \frac{\eps}{3}
+$$
+ \bean
+\left\| u_{\a_\eps} \overline a \overline b - \overline a \overline b \right\|\le\left\| u_\a \overline a \overline b - u_\a a_\la \overline b \right\|+ \left\| u_\a  a_\la \overline b   - a_\la \overline b \right\|+ \left\|   a_\la \overline b   -  \overline a\overline b \right\|
+\eean  
+ 
+ 
+ 
  \bean
  \left\|   a_\la \overline b   -  \overline a\overline b \right\|\le \frac{\eps}{3}
  \eean 	
