@@ -4221,157 +4221,102 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
  	
  \end{proof}
  \begin{corollary}\label{inf_mult_cor}
- 		Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} the inclusion $A \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  $M\left(A \right)  \hookto M\left( \overline A\right)$.
+ 		Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} for all $\la\in \La$ the inclusion $A_\la \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  $M\left(A_\la \right)  \hookto M\left( \overline A\right)$.
  \end{corollary}
  \begin{proof}
- If $\overline{a}	\in \K\left(  \overline A\right)_+ $ is a positive then $\overline{b}\bydef \sqrt{\overline{a}}	\in \K\left(  \overline A\right)$. From the Lemma \ref{bt_lim_lem} it follows that if 
+ If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in \K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that if 
  $$
  b_\la \bydef  \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline b\in K\left(A_\la \right) 
 $$
-where $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$. then there is the $C^*$-norm limit.
+where $\bt\text{-} \sum$ means the convergence  with respect to the strict topology of $M\left(\overline A\right)$. So there is the $C^*$-norm limit.
 $$
 \overline{a} = \lim_{\la\in \La}b_\la \overline{b}.
 $$
-From
-$$
-\forall \la', \la'' \quad  \la' \le \la''\quad b_{\la'} - \overline b\ge \overline b _{\la''} - \overline b 
-$$
-it follows that
-\bean 
-\overline{b}\left(  b_{\la'} - \overline b\right) \left(  b_{\la'} - \overline b\right)\overline{b}\ge \overline{b}\left(  b_{\la''} -  \overline b\right) \left(  b_{\la''} - \overline b\right)\overline{b}\quad \Rightarrow \\ \Rightarrow\left\|   \left(  b_{\la'} - \overline b\right)\overline{b} \right\|\ge \left\|   \left(  b_{\la''} - \overline b\right)\overline{b} \right\|
+One has
+\be \label{inf_la_conv_eqn}
+\begin{split}
+\forall \la', \la'' \quad  \la' \le \la''	\left(  b_{\la'} - \overline b\right) \overline{b}^2\left(  b_{\la'} - \overline b\right)\ge \left(  b_{\la''} -  \overline b\right) \overline{b}^2\left(  b_{\la''} - \overline b\right)\quad \Rightarrow \\ \Rightarrow\left\|   \left(  b_{\la'} - \overline b\right)\overline{b} \right\|\ge \left\|   \left(  b_{\la''} - \overline b\right)\overline{b} \right\|.
+\end{split}
+\ee
+If $\eps > 0$ then there is $\la_\eps \in \La$ such that $\left\|  b_{\la_\eps} \overline b   -  \overline b\overline b \right\|\le {\eps}/{3}$ end taking into account \eqref{inf_la_conv_eqn} we conclude that
+\be\label{inf_la_bb_eqn}
+\forall\la \in \La \quad  \la \ge \la_\eps \quad  \left\|  b_\la \overline b   -  \overline b\overline b \right\|\le \frac{\eps}{3}.
+\ee
+If  $\left\{u_\a\right\}_{\a \in \mathscr A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}), then from 
+\bean
+\forall \la', \la'' \quad  \la' \le \la''\quad b_{\la'} - \overline b\ge \overline b _{\la''} - \overline b \\
+\forall \a', \a''\in  \mathscr A  \quad \a' \le \a'' \quad \left(  1_{M\left( \overline A\right) }-u_{\a'}\right) \le \left(  1_{M\left( \overline A\right) }-u_{\a''}\right)
 \eean
-If $\eps > 0$ then there is $\la_\eps \in \La$ such that 
-$$
-\forall\la \in \La \quad  \la \ge \la_\eps \quad  \left\|  b_\la \overline b   -  \overline b\overline b \right\|\le \frac{\eps}{3}
-$$
- If  $\left\{u_\a\right\}_{\a \in \mathscr A\subset A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}), then one has
- $$
- \forall \a', \a''\in  \mathscr A \quad \a' \le \a'' \Rightarrow u_{\a'} < u_{\a''}
- $$
- and
- \bean
- \forall\la \in \La \quad  \forall \a', \a''\in  \mathscr A \quad \a' \le \a''\quad \Rightarrow \quad u_{\a'}b_\la b_\la  u_{\a'}\le u_{\a''}b_\la b_\la  u_{\a''}\le b_\la b_\la\quad \Rightarrow\\
- \Rightarrow \left\| u_{\a''}b_\la - b_\la   \right\| \le \left\| u_{\a'}b_\la - b_\la   \right\|
-\eean 
-There is $\a_\eps \in \mathscr A$ such that
-$$
-\left\| u_{\a_\eps}  b_{\la_\eps}   - b_{\la_\eps} \right\|\le \frac{\eps}{3\left\| \overline b \right\|}\quad \Rightarrow \quad \left\| u_{\a_\eps}  b_{\la_\eps}\overline b     - b_{\la_\eps}\overline b   \right\|\le \frac{\eps}{3}
-$$
- \bean
-\left\| u_{\a_\eps} \overline a \overline b - \overline a \overline b \right\|\le\left\| u_\a \overline a \overline b - u_\a a_\la \overline b \right\|+ \left\| u_\a  a_\la \overline b   - a_\la \overline b \right\|+ \left\|   a_\la \overline b   -  \overline a\overline b \right\|
-\eean  
- 
- 
- 
- \bean
- \left\|   a_\la \overline b   -  \overline a\overline b \right\|\le \frac{\eps}{3}
- \eean 	
- \bean
-\left\| u_\a  a_\la   - a_\la \right\|\le \frac{\eps}{3\left\| \overline b \right\|}
-\eean 	
- \bean
-\left\| u_\a  a_\la \overline b   - a_\la\overline b \right\|\le \frac{\eps}{3}
-\eean 	
-  \bean
- \left\| u_\a \overline a \overline b - u_\a a_\la \overline b \right\|\le \left\| u_\a  \right\|\left\|   a_\la \overline b   -  \overline a\overline b \right\|\le \frac{\eps}{3}
- \eean 	
- 
- 
- \bean
- \left\| u_\a \overline a \overline b - \overline a \overline b \right\|\le\left\| u_\a \overline a \overline b - u_\a a_\la \overline b \right\|+ \left\| u_\a  a_\la \overline b   - a_\la \overline b \right\|+ \left\|   a_\la \overline b   -  \overline a\overline b \right\|
- \eean 
- If $\overline a \in K\left(\overline A\right)_+$ then  one has
- \bean
- \forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
- \eean
- If $\overline b \in \overline A$ then for any $\eps > 0$ there is $\la_\eps \in \La$ such that
- $$
- \forall \la\in \La \quad \la \ge \la_\eps \quad \left\|\left(a_\la  -\overline a\right) \overline b  \right\| < \frac{\eps }{2}
- $$
- on the other hand there is $\a_\eps\in  \mathscr A$ such that 
- $$
-\forall \a\in  \mathscr A\quad \a \ge \a_\eps \quad \left\|a_{\la_\eps} - u_\a a_{\la_\eps}   \right\|<\frac{\eps }{2\left\| \overline b\right\| }, \quad \left\| a_{\la_\eps}  - a_{\la_\eps} u_\a  \right\|< \frac{\eps }{2\left\| \overline b\right\| }.
-$$
-For any $\la \ge \la_\eps$ from $ a_{\la_\eps}- \overline a \ge  a_{\la}- \overline a$ it follows that 
-$$
-\left(a_\la  -\overline a\right)\overline b~ \overline b^* \left(a_\la  -\overline a\right) \le \left(a_{\la_\eps}  -\overline a\right)\overline b~ \overline b^* \left(a_\la  -\overline a_{\la_\eps}\right)
-$$
-On the other hand from 
+it follows that
 \bean
- \forall \a', \a'' \in  \mathscr A \quad \a' \le \a'' \quad \Rightarrow\\  \forall \la', \la'' \quad  \la' \le \la''\quad \Rightarrow \quad u_{\a'}\left( a_{\la'}  -\overline a\right)\overline b~ \overline b^* \left(a_{\la'}  -\overline a\right)u_{\a'}\ge \\  \ge u_{\a''}\left( a_{\la''}  -\overline a\right)\overline b~ \overline b^* \left(a_{\la''}  -\overline a\right)u_{\a''} 
-\eean 
-it follows that 
-\bean
-\forall \a', \a'' \in  \mathscr A \quad \a' \le \a'' \quad \Rightarrow\\  \forall \la', \la'' \quad  \la' \le \la''\quad \Rightarrow \quad\left\|  u_{\a'}\left( a_{\la'}  -\overline a\right)\overline b\right\| \ge \left\|  u_{\a''}\left( a_{\la''}  -\overline a\right)\overline b\right\| 
-\eean 
-It follows that
-\bean
-\forall\a \in \mathscr A \quad \a \ge \a_\eps \quad \Rightarrow \quad \left\|  u_{\a}a_{\la_\eps}\overline b- a_{\la_\eps} \overline b\right\|\le  \left\|  \left( a_{\la_\eps} - \overline a \right) \overline b\right\|+ \left\| u_{\a} \overline a\overline b \right\|
-\eean 
+	\forall \la', \la'' \quad  \la' \le \la''\quad\Rightarrow\quad  \forall \a', \a''\in  \mathscr A  \quad \a' \le \a''\quad \Rightarrow\\
+\Rightarrow\quad  \left(  1_{M\left( \overline A\right) }-u_{\a'}\right)\left(  b_{\la'} - \overline b\right) \overline{b}^2\left(  b_{\la'} - \overline b\right)\left(  1_{M\left( \overline A\right) }-u_{\a'}\right)\ge\\
+\ge \left(  1_{M\left( \overline A\right) }-u_{\a''}\right)\left(  b_{\la''} - \overline b\right) \overline{b}^2\left(  b_{\la''} - \overline b\right)\left(  1_{M\left( \overline A\right) }-u_{\a''}\right).
+\eean
+So one has 
+\be \label{inf_in_eqn}
+\begin{split}
+\forall \la', \la'' \in \La\quad  \la' \le \la''\quad\Rightarrow\quad  \forall \a', \a''\in  \mathscr A  \quad \a' \le \a''\quad \Rightarrow\\
+\Rightarrow\quad \left\| \left(  1_{M\left( \overline A\right) }-u_{\a''}\right)\left(  b_{\la''} - \overline b\right) \overline{b}\right\|\le \left\| \left(  1_{M\left( \overline A\right) }-u_{\a'}\right)\left(  b_{\la'} - \overline b\right) \overline{b}\right\|\quad \Leftrightarrow\\
+% \Leftrightarrow\quad \left\|\left(  u_{\a''}\overline{b}^2- \overline{b}^2\right)+ \left( b_{\la''} \overline{b} - u_{\a''}b_{\la''} \overline{b}\right)  \right\|\le\\\le \left\|\left(  u_{\a'}\overline{b}^2- \overline{b}^2\right)+ \left( b_{\la'} \overline{b} - u_{\a'}b_{\la'} \overline{b}\right)  \right\|\quad \Leftrightarrow\\
+\Leftrightarrow \left\| u_{\a''}\left(\overline b^2-b_{\la''}\overline b \right)-\left(\overline b^2-b_{\la''}\overline b \right)   \right\|\le  \left\| u_{\a'}\left(\overline b^2-b_{\la'}\overline b \right)-\left(\overline b^2-b_{\la'}\overline b \right)   \right\|
+\end{split}
+\ee
+Similarly one can proof 
+\be \label{inf_inn_eqn}
+\begin{split}
+	\forall \la\in\La \quad   \forall \a', \a''\in  \mathscr A  \quad \a' \le \a''\quad\Rightarrow\quad \left\| u_{\a''}\left(b_{\la}-\overline b \right)  \right\|\le \left\| u_{\a'}\left(\overline b-b_{\la} \right)  \right\|
+	 \end{split}
+\ee
+There is $\a_\eps \in \mathscr A$ such that 
+$$
+\left\| u_{\a_\eps}  b_{\la_\eps } \overline b   -   b_{\la_\eps } \overline b  \right\| \le \frac{\eps}{3\left\| \overline b \right\|}\quad\Rightarrow \quad \left\| u_{\a_\eps}  b_{\la_\eps } \overline b   -   b_{\la_\eps } \overline b  \right\| \le \frac{\eps}{3}
+$$
+From the equations \eqref{inf_la_conv_eqn} and \eqref{inf_inn_eqn} it follows that 
+\be\label{inf_bb_eqn}
+\forall\la \in \La \quad  \la \ge \la_\eps \quad\Rightarrow\quad  \forall \a\in  \mathscr A  \quad \a\ge  \a_{\eps} \quad\Rightarrow\quad\left\| u_{\a}  b_{\la } \overline b   -   b_{\la } \overline b  \right\|\le \frac{\eps}{3}
+\ee
 
+From \eqref{inf_in_eqn} it follows that 
 
-
- (cf. the equation \eqref{bt_lim_eqn}). Let us prove that for any $a\in M\left(A \right)$ the net $\left\{a a_\la \right\}_{\la\in\La}$ is convergent with respect to the strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}). If $\overline b \in \overline A$ then for any $\eps > 0$ there is $\la_\eps \in \La$ such that
- $$
- \forall \la\in \La \quad \la \ge \la_\eps \quad \left\|\left(a_{\la_\eps} - a_\la  \right) \overline b  \right\| < \frac{\eps}{\left\|a\right\|}\quad \Rightarrow \quad \left\|\left(aa_{\la_\eps} - aa_\la  \right) \overline b  \right\| <\eps
- $$
- Similarly there is $\la'_\eps \in \La$ such that
+\be\label{inf_mn_eqn}
+\begin{split}
+	\forall \la\in \La \quad  \la_\eps \le \la\quad\Rightarrow\quad  \forall \a\in  \mathscr A  \quad \a_\eps  \le \a\quad \Rightarrow\\
+	\Rightarrow \left\| u_{\a}\left(\overline b^2-b_{\la}\overline b \right)-\left(\overline b^2-b_{\la}\overline b \right)   \right\|\le  \left\| u_{\a_\eps}\left(\overline b^2-b_{\la_\eps}\overline b \right)-\left(\overline b^2-b_{\la_\eps}\overline b \right)   \right\|\Rightarrow\\
+	\Rightarrow \left\| u_{\a}\left(\overline b^2-b_{\la}\overline b \right)-\left(\overline b^2-b_{\la}\overline b \right)   \right\|\le\\ \le \left\| u_{\a_\eps}\right\| \left\| \overline b^2-b_{\la_\eps}\overline b   \right\|+\left\| \overline b^2-b_{\la_\eps}\overline b   \right\|\le \frac{2}{3}
+\end{split}
+\ee
+From the triangle inequality it follows that
 \bean
- \forall \la\in \La \quad \la \ge \la'_\eps \quad \left\|\left(a^*_{\la'_\eps} - a^*_\la  \right) \overline b^*  \right\| < \frac{\eps}{\left\|a\right\|}\quad \Rightarrow \quad \left\|\left(a^*a^*_{\la'_\eps} - a^*a^*_\la  \right) \overline b^*  \right\| <\eps\quad  \Rightarrow\\
- \Rightarrow \left\| \overline b \left(aa_{\la_\eps} - aa_\la  \right)  \right\|= \left\|\left(a^*a^*_{\la'_\eps} - a^*a^*_\la  \right) \overline b^*  \right\|
- \eean
- 	
- For any $a\in A$ we define a map $L_a: K\left( \right) \to  K\left(\overline A\right)$
- \end{proof}
- \paragraph{!!!}
- 	\begin{theorem}\label{it_lim_thm}\cite{kelley:gt}
- 	\textit{Theorem on iterated limits}. Let $D$ be a directed set, let $E_m$ be a directed set for each $m$ in $D$, let $F$ be the product $D\times \prod_{m \in D}  E_m$, and for $(m,f)$ in $F$ let $R(m,f) = (m, f(m))$. If $S(m,n)$ is 
- 	a member of a topological space for each m in $D$ and each $n$ in $E_n$, 
- 	then $S\circ R$ converges to $\lim_m \lim_nS(m,n)$ whenever this iterated limit 
- 	exists.
- \end{theorem}
- %
- \begin{lemma}\label{multiplier_al_lem}\cite{matro:hcm}
- 	The set $M\left(A\right)$ is an unital $C^*$-algebra 
- 	$$
- 	A \subset M\left( A\right) \subset A^{**}
- 	$$	
- 	and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$. 
- \end{lemma}
- \begin{definition}\label{double_centralizer_defn}\cite{matro:hcm}
- 	A pair $\left(L, R\right)$ of maps
- 	\be\label{dc_eqn}
- 	L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
- 	\ee
- 	is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
- \end{definition}
- 
- \begin{proposition}\label{dc_prop}\cite{matro:hcm}
- 	If $\left(L, R\right)\in \mathbf{DC}\left(A \right)$ then
- 	\begin{enumerate}
- 		\item [(i)] $L\left( ab\right) = L\left( a\right)b$ and $R\left( ab\right) = aR\left( b\right)$;
- 		\item [(ii)] $L$ and $R$ are linear;
- 		\item [(iii)] $L$ and $R$ are bounded and $\left\|L \right\|= \left\|R \right\|$;
- 	\end{enumerate}
- 	The set $\mathbf{DC}\left(A \right) $ with operations
- 	\bean
- 	\left(L_1, R_1\right) + \left(L_2, R_2\right)\bydef \left(L_1 + L_2, R_1+R_2\right),\quad z\left(L,R\right)\bydef \left(zL, zR\right) \quad \forall z \in \C,\\
- 	\left(L_1, R_1\right)  \left(L_2, R_2\right)\bydef \left(L_1  L_2, R_2R_2\right),\\
- 	\left(L, R\right)^*\bydef \left(R^*, L^*\right),\\
- 	L^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*, \quad R^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*\quad \forall a \in A.
- 	\eean 
- 	is a normed involutive algebra with respect to the norm
- 	$$
- 	\left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
- 	$$
- \end{proposition}
- \begin{remark}\label{double_centralizer_rem}
- 	In \cite{matro:hcm} it is proven  there is a natural $*$-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
- \end{remark}
- 
- 
- 
- \paragraph{!!!}
+\forall\la \in \La \quad    \forall \a\in  \mathscr A\quad  \left\|  u_{\a}\overline{b}^2- \overline{b}^2 \right\|\le \\
+\left\|\left(  u_{\a}\overline{b}^2- \overline{b}^2\right)+ \left( b_{\la}  \overline{b} - u_{\a}b_{\la} \overline{b}\right)  \right\|+ \left\| b_{\la} \overline{b} - u_{\a}b_{\la} \overline{b}  \right\|,
+\eean
+and taking into account the equations \eqref{inf_bb_eqn} \eqref{inf_mn_eqn} one has
+$$
+\forall \a\in  \mathscr A  \quad \a_\eps  \le \a\quad \Rightarrow \left\|  u_{\a}\overline{b}^2- \overline{b}^2 \right\| < \eps.
+$$
+Taking into account that $\overline{a}=\overline{b}^2$ we conclude that 
+$$
+\lim_{\a \in \mathscr A}\left\|  u_{\a}\overline{a}- \overline{a} \right\|= 0.
+$$ 
+Since Pedersen's ideal $K\left(\overline A\right)$ is dense in $\overline A$ one has
+$$
+\forall \overline a \in \overline A_+\quad \lim_{\a \in \mathscr A}\left\|  u_{\a}\overline{a}- \overline{a} \right\|= 0,
+$$
+and taking into account \eqref{four_decompositon_eqn} we conclude
+$$
+\forall \overline a \in \overline A\quad \lim_{\a \in \mathscr A}\left\|  u_{\a}\overline{a}- \overline{a} \right\|= 0,
+$$
+or equivalently
+$$
+\forall \overline a \in \overline A\quad\forall\la \in \La\quad  \lim_{\a \in \mathscr A}\left\| \pi_\la\left(  u_{\a}\right) \overline{a}- \overline{a} \right\|= 0
+$$
+where $\pi_\la: A \hookto A_\la$ is the natural injective $*$-homomorphism. Similarly one can prove that
+$$
+\forall \overline a \in \overline A\quad\forall\la \in \La \quad \lim_{\a \in \mathscr A}\left\|\overline{a} \pi_\la\left(  u_{\a}\right) - \overline{a} \right\|= 0
+$$
+From the Lemma \ref{quasi_approximate_unit_lem}!!!
+\end{proof}
  
  \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
 \begin{itemize}
