@@ -4180,7 +4180,13 @@ We write
  \ee
  If $\left( \overline A, \widehat{G}\right)$ is the explained in \ref{infinite_covering_basic_empt} pair then we say that a triple  $\left(A, \overline A, \widehat{G}\right)$ is a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
  \end{definition}
- 
+\begin{remark}
+The condition (b) of the Definition \ref{algebraical_finite_covering_category_defn} for each $\la\in \La$ naturally yields injective $*$-homomorphism $K\left(A_\la \right)\hookto M\left( \overline A\right)$ which can be uniquely extended up to the injective  $*$-homomorphism   
+\be\label{inf_mult_hom_eqn}
+\overline \pi_\la: A_\la \hookto M\left( \overline A\right),
+\ee
+since the Pedersen's ideal $K\left(A_\la \right)$ is dense in $A_\la$.
+\end{remark} 
  \begin{remark}
 The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) is a subcategory of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{subcategory_defn}) of (cf. Definition \ref{fin_category_defn}).
  \end{remark}
@@ -4221,21 +4227,24 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
  	
  \end{proof}
  \begin{corollary}\label{inf_mult_cor}
- 		Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} for all $\la\in \La$ the inclusion $A_\la \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  $M\left(A_\la \right)  \hookto M\left( \overline A\right)$.
+ 		Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} for all $\la\in \La$ the given by \eqref{inf_mult_hom_eqn} inclusion $\overline \pi_\la :A_\la \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  
+ 		\be\label{inf_mult_mult_hom_eqn}
+ 	M\left(\overline \pi_\la \right) :	M\left(A_\la \right)  \hookto M\left( \overline A\right).
+ 		\ee
  \end{corollary}
  \begin{proof}
  If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in \K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that if 
  $$
- b_\la \bydef  \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline b\in K\left(A_\la \right) 
+ b_\la \bydef  \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline b\in K\left(A_\la \right)_+ 
 $$
-where $\bt\text{-} \sum$ means the convergence  with respect to the strict topology of $M\left(\overline A\right)$. So there is the $C^*$-norm limit.
+where $\bt\text{-} \sum$ means the convergence  with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}). So there is the $C^*$-norm limit.
 $$
 \overline{a} = \lim_{\la\in \La}b_\la \overline{b}.
 $$
 One has
 \be \label{inf_la_conv_eqn}
 \begin{split}
-\forall \la', \la'' \quad  \la' \le \la''	\left(  b_{\la'} - \overline b\right) \overline{b}^2\left(  b_{\la'} - \overline b\right)\ge \left(  b_{\la''} -  \overline b\right) \overline{b}^2\left(  b_{\la''} - \overline b\right)\quad \Rightarrow \\ \Rightarrow\left\|   \left(  b_{\la'} - \overline b\right)\overline{b} \right\|\ge \left\|   \left(  b_{\la''} - \overline b\right)\overline{b} \right\|.
+\forall \la', \la'' \quad  \la' \le \la''\quad 	\left(  b_{\la'} - \overline b\right) \overline{b}^2\left(  b_{\la'} - \overline b\right)\ge \left(  b_{\la''} -  \overline b\right) \overline{b}^2\left(  b_{\la''} - \overline b\right)\quad \Rightarrow \\ \Rightarrow\left\|   \left(  b_{\la'} - \overline b\right)\overline{b} \right\|\ge \left\|   \left(  b_{\la''} - \overline b\right)\overline{b} \right\|.
 \end{split}
 \ee
 If $\eps > 0$ then there is $\la_\eps \in \La$ such that $\left\|  b_{\la_\eps} \overline b   -  \overline b\overline b \right\|\le {\eps}/{3}$ end taking into account \eqref{inf_la_conv_eqn} we conclude that
@@ -4272,18 +4281,19 @@ There is $\a_\eps \in \mathscr A$ such that
 $$
 \left\| u_{\a_\eps}  b_{\la_\eps } \overline b   -   b_{\la_\eps } \overline b  \right\| \le \frac{\eps}{3\left\| \overline b \right\|}\quad\Rightarrow \quad \left\| u_{\a_\eps}  b_{\la_\eps } \overline b   -   b_{\la_\eps } \overline b  \right\| \le \frac{\eps}{3}
 $$
+
 From the equations \eqref{inf_la_conv_eqn} and \eqref{inf_inn_eqn} it follows that 
 \be\label{inf_bb_eqn}
 \forall\la \in \La \quad  \la \ge \la_\eps \quad\Rightarrow\quad  \forall \a\in  \mathscr A  \quad \a\ge  \a_{\eps} \quad\Rightarrow\quad\left\| u_{\a}  b_{\la } \overline b   -   b_{\la } \overline b  \right\|\le \frac{\eps}{3}
 \ee
 
-From \eqref{inf_in_eqn} it follows that 
+From both \eqref{inf_la_bb_eqn} and \eqref{inf_in_eqn} it follows that 
 
 \be\label{inf_mn_eqn}
 \begin{split}
 	\forall \la\in \La \quad  \la_\eps \le \la\quad\Rightarrow\quad  \forall \a\in  \mathscr A  \quad \a_\eps  \le \a\quad \Rightarrow\\
 	\Rightarrow \left\| u_{\a}\left(\overline b^2-b_{\la}\overline b \right)-\left(\overline b^2-b_{\la}\overline b \right)   \right\|\le  \left\| u_{\a_\eps}\left(\overline b^2-b_{\la_\eps}\overline b \right)-\left(\overline b^2-b_{\la_\eps}\overline b \right)   \right\|\Rightarrow\\
-	\Rightarrow \left\| u_{\a}\left(\overline b^2-b_{\la}\overline b \right)-\left(\overline b^2-b_{\la}\overline b \right)   \right\|\le\\ \le \left\| u_{\a_\eps}\right\| \left\| \overline b^2-b_{\la_\eps}\overline b   \right\|+\left\| \overline b^2-b_{\la_\eps}\overline b   \right\|\le \frac{2}{3}
+	\Rightarrow \left\| u_{\a}\left(\overline b^2-b_{\la}\overline b \right)-\left(\overline b^2-b_{\la}\overline b \right)   \right\|\le\\ \le \left\| u_{\a_\eps}\right\| \left\| \overline b^2-b_{\la_\eps}\overline b   \right\|+\left\| \overline b^2-b_{\la_\eps}\overline b   \right\|\le \frac{2}{3}.
 \end{split}
 \ee
 From the triangle inequality it follows that
@@ -4305,20 +4315,35 @@ $$
 $$
 and taking into account \eqref{four_decompositon_eqn} we conclude
 $$
-\forall \overline a \in \overline A\quad \lim_{\a \in \mathscr A}\left\|  u_{\a}\overline{a}- \overline{a} \right\|= 0,
+\forall \overline a \in \overline A\quad \lim_{\a \in \mathscr A}\left\|  u_{\a}\overline{a}- \overline{a} \right\|= 0.
 $$
-or equivalently
+From the above equation  it turns out that for any $a \in M\left( A_\la\right)$ and any $\overline a$ the net $\left\{\overline{\pi}_\la \left( a u_\a\right)  \overline a\right\}_{\a \in \mathscr A }$ is $C^*$-norm convergent, so there is a map
+\bean
+R_a : \overline A \to \overline A,\\
+\overline a \mapsto  \lim_{\a \in \mathscr A }\overline{\pi}_\la \left( a u_\a\right)  \overline a\
+\eean
+where the $C^*$-norm limit is implied. Similarly to the above prove one has
+
 $$
-\forall \overline a \in \overline A\quad\forall\la \in \La\quad  \lim_{\a \in \mathscr A}\left\| \pi_\la\left(  u_{\a}\right) \overline{a}- \overline{a} \right\|= 0
+\forall \overline a \in \overline A\quad\forall\la \in \La\quad  \lim_{\a \in \mathscr A}\left\|  \overline{a}u_{\a}- \overline{a} \right\|= 0
 $$
-where $\pi_\la: A \hookto A_\la$ is the natural injective $*$-homomorphism. Similarly one can prove that
+and there is a map 
+\bean
+L_a : \overline A \to \overline A,\\
+\overline a \mapsto  \lim_{\a \in \mathscr A }\overline a~\overline{\pi}_\la \left( u_\a a \right)  
+\eean
+From 
 $$
-\forall \overline a \in \overline A\quad\forall\la \in \La \quad \lim_{\a \in \mathscr A}\left\|\overline{a} \pi_\la\left(  u_{\a}\right) - \overline{a} \right\|= 0
+\forall \overline{a}, \overline{b} \in \overline{A}\quad \left( \overline a \overline{\pi}_\la \left( u_\a a \right)\right)  \overline b=\overline a \left( \overline{\pi}_\la \left( u_\a a \right) \overline b\right) 
 $$
-From the Lemma \ref{quasi_approximate_unit_lem}!!!
+one can deduce that a pair $\left( L_a, R_a\right)$ satisfies to  the equation \eqref{double_centralizer_eqn}, i.e.  $\left( L_a, R_a\right)$ is  a {double centralizer} (cf. Definition \ref{double_centralizer_defn}). From the Remark \ref{double_centralizer_rem} it follows that $\left( L_a, R_a\right)$ yields an element of $M\left( \overline{A}\right)$ thus one has a natural map $	M\left(\overline \pi_\la \right) :	M\left(A_\la \right)  \to M\left( \overline A\right)$. We leave to the reader the proof of the following statements:
+\begin{itemize}
+	\item the map $M\left(\overline \pi_\la \right)$ is an injective $*$-homomorphism,
+	\item the map $M\left(\overline \pi_\la \right)$ is the unique extension of $\overline \pi_\la: A_\la\hookto M\left( \overline A\right)$.
+\end{itemize}
+
 \end{proof}
- 
- \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
+\begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
 \begin{itemize}
 	\item $\mathfrak{Cov}\left(\mathfrak{S} \right)$-objects are pre-coverings of $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}),
 	\item A $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism from $\left(A, \overline A', \widehat{G}\right)$ to  $\left( A, \overline A'', \widehat{G}\right)$ is an injective *-homomorphism $\phi: \overline A' \hookto  \overline A''$  such that
@@ -11913,7 +11938,7 @@ Consider the situation of  \ref{blowing_strict_empt} and suppose than both repre
 	C_b\left(\sU\right)\times~ _\sU A_\sU\to~ _\sU A_\sU,\\
 	(f, a)\mapsto fa \bydef \lim_{\la \in \La} fu_\la a.
 	\eean
-	Similarly to the equation \eqref{dc_eqn} there is a map
+	Similarly to the equation \eqref{double_centralizer_eqn} there is a map
 	\bean 
 L: ~	_\sU A_\sU \to ~_\sU A_\sU,\\
 a \mapsto fa.
@@ -21104,7 +21129,7 @@ We also use an alternative equivalent definition of the multiplier algebra.
 \end{lemma}
 \begin{definition}\label{double_centralizer_defn}\cite{matro:hcm}
 A pair $\left(L, R\right)$ of maps
-\be\label{dc_eqn}
+\be\label{double_centralizer_eqn}
 L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
 \ee
 is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
