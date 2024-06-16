@@ -1975,7 +1975,7 @@ and from the Remark \ref{hered_lift_au_rem} it follows that $\widetilde{B}' = \w
 \end{proof}
 
 \begin{definition}\label{fin_defn}
-A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$    is said to be   a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family  $\left\{A_\la \subset A\right\}_{\la\in\La}$ of connected $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  (cf. the Definition \ref{strictly_proper_defn}) $C^*$-subalgebras such that following conditions hold:
+Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering   (cf. Definition \ref{fin_pre_defn}). The triple $\left(A, \widetilde{A}, G, \pi \right)$ and/or the injective $*$-homomorphism $\pi: A\hookto \widetilde{A}$ is  a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family  $\left\{A_\la \subset A\right\}_{\la\in\La}$ of connected $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  (cf. the Definition \ref{strictly_proper_defn}) hereditary $C^*$-subalgebras such that following conditions hold:
 \begin{enumerate}
 	\item[(a)] 
 $$
@@ -1993,6 +1993,7 @@ is dense in $A$.
 \begin{equation}\label{group_cov_eqn}
 	G\left(\left.\widetilde{A}~~\right|~A \right) \stackrel{\mathrm{def}}{=} G.
 \end{equation}
+
 %We say that  $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{connected} if $\widetilde A$ is connected.
 \end{definition}
 
@@ -4190,6 +4191,11 @@ since the Pedersen's ideal $K\left(A_\la \right)$ is dense in $A_\la$.
  \begin{remark}
 The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) is a subcategory of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{subcategory_defn}) of (cf. Definition \ref{fin_category_defn}).
  \end{remark}
+  \begin{definition}\label{algebraical_reduced_finite_covering_category_defn}
+ An given by the equation \eqref{algebraical_finite_covering_category_eqn}  algebraical finite covering category 	(cf. Definition \ref{algebraical_finite_covering_category_defn} is \textit{reduced} if for  any $\la\in \La$ the given by \eqref{inf_cat_not_pi_eqn} injective $*$-homomorphism $
+  	\pi_\la : A \hookto A_\la$ is a reduced (cf. Definition \ref{fin_red_defn}) noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+ \end{definition}
+
   \begin{lemma}\label{bt_lim_lem}
  	Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn}  one has
  	\be\label{bt_lim_eqn}
@@ -4544,7 +4550,7 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
 	\eean
 (cf. Definition \ref{algebraical_finite_covering_category_defn}) then one has:
 \begin{enumerate}
-	\item[(i)] the  spectrum of $\widehat A\widehat C^*$-$\varinjlim_{\la \in \La}A_\la$ (cf. Definition \ref{spectrum_prime_primtive_defn}) is the inverse limit  (cf. Definition \ref{top_inverse_limit_defn}) of spectra of $A_\la$.
+	\item[(i)] the  spectrum of $\widehat A\bydef \widehat C^*$-$\varinjlim_{\la \in \La}A_\la$ (cf. Definition \ref{spectrum_prime_primtive_defn}) is the inverse limit  (cf. Definition \ref{top_inverse_limit_defn}) of spectra of $A_\la$.
 	\item[(ii)] there is the natural one-to-one map between spectra of $\overline A$ and $\widehat A$.
 \end{enumerate}	
   \end{proposition}
@@ -4648,6 +4654,11 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  \end{proof}
 
  \begin{lemma}\label{inverse_lim_h_lem}
+ 	Let 	If $\left(A, \overline A, \widehat{G}\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  
+ 	\bean
+ 	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+ 	\eean
+ 	!!!!
  	Consider the hypotheses  of the Proposition \ref{inverse_spectrum_limit_prop}. Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural continuous map from the spectrum of the inverse limit to the spectrum of $A$ (cf. Definition \ref{top_inverse_limit_defn}). Suppose that for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_\la$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn}). 
  	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there are natural isomorphisms  
  	\be\label{inverse_lim_hs_eqn}
@@ -4672,14 +4683,34 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  \end{proof}
  
  \begin{corollary}\label{inverse_lim_h_cor}
- 	Under the hypotheses of the Lemma \ref{inverse_lim_h_lem} the Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn})  of both $\widehat A$ and $\overline \sX$ is the Hilbert norm completion of the given by
+ 	Under the hypotheses of the Lemma \ref{inverse_lim_h_lem} the Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn})  of both $\widehat A$ and $\overline A$ is the Hilbert norm completion of the given by
  	\be\label{inverse_lim_h_eqn}
  	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{x }}\cong 	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{p} \left( \widehat{x }\right)}
  	\ee 
  	algebraic direct sum.
  \end{corollary}
+  \begin{corollary}\label{inverse_atomic_lim_h_cor}
+ 	Under the hypotheses of the Lemmas \ref{bt_lim_lem} and \ref{inverse_lim_h_lem} if $\pi_a\left( \overline A\right) \hookto B\left(\overline \H_a \right)$ is the atomic representation  and $\overline a \in K\left(\overline A \right)_+$ is given by the equation \eqref{bt_lim_eqn}, i.e.
+ 	  	\bean
+ 	\overline a =\bt\text{-}\lim_{\la \in \La} a_\la\quad a_\la \in K\left(A_\la \right)_+ 
+ 	 \eean 
+ 	 (cf. equation \eqref{bt_lim_eqn})
+ 	 then one has
+ 	 \be\label{inverse_atomic_lim_h_eqn}
+ 	 \pi_a \left(\overline a  \right) = s\text{-}\lim_{{\la \in \La}}\pi_a\left(a_\la \right) 
+ 	 \ee
+ 	 where $s\text{-}\lim_{{\la \in \La}}$ means the convergence with respect to the strong topology of $B\left(\overline\H_a \right)$ (cf. Definition \ref{strong_topology_defn}). 
+ \end{corollary}
+ \begin{proof}
+ 	From the Lemma  \ref{increasing_convergent_w_lem} it follows that the decreasing net $\left\{\pi_a\left(a_\la \right) \right\}_{\la \in \La}$ is convergent with respect to the strong topology of $B\left(\overline\H_a \right)$.
+If   $\eps > 0$ and $\overline{\xi}\in \overline\H_a$ then since the atomic representation is nondegenerate  there are $\overline b \in \overline A$ and $\overline{\eta}\in \overline\H_a$ such that $$\left\|\pi_a \left(\overline b  \right)\overline{\eta}- \overline{\xi} \right\| <\frac{\eps}{\left\|a\right\|} $$ where $a \bydef a_{\la_{\text{min}}}$ and $\la_{\text{min}}$ is the minimal element of $\La$. On the other hand there is $\la_0 \in \La$ such that
+$$
+\forall \la \in \La \quad \la \ge \la_0 \quad \left\|\left( \overline a - a_\la \right)\overline b  \right\| \le \frac{\eps }{\left\|\pi_a \left(\overline b  \right)\overline{\eta}  \right\|}.
+$$
+Now from the triangle identity it turns out that $\left\|\left( \overline a - a_\la \right)\overline \xi  \right\| \le\eps$.
+ \end{proof}
  
- \begin{lemma}\label{sum_hilb_rep_lem}
+ \begin{lemma}\label{sum_hilb_rep_lem} 
  	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. The bounded net $\left\{a_\a\right\}_{\a\in \mathscr A} \in B\left( \H\right)$ is strongly convergent (cf. Definition \ref{strong_topology_defn}) if and only if for all $\la\in\La$ and  $\zeta \in \H$ given by
  	$$
  	\zeta =\left(0,...~, \underbrace{\zeta_\la}_ {{\la}^{\text{th}}-\mathrm{place}} ,~...,0\right)\in \bigoplus_{\la\in\La}\H_\la
@@ -10345,6 +10376,102 @@ Let
 \paragraph*{}
 %\chapter{Algebraic constructions of topological inverse limits}
 This section supplies a purely algebraic  analog of the topological construction given by the Subsection \ref{top_inf_to_sec}.
+\begin{lemma}\label{ctr_fin_lem}
+	Let $\left\{a_\a\right\}_{\a\in \mathscr A} \subset \K\left(\H\right)_+$ be an infinite family of positive compact operators such that for any $\dl > 0$ there is a convergent with respect to the strict topology of $M\left(\K\left(\H\right) \right)$ series  $$\bt\text{-}\sum_{\a\in \mathscr A} f_\dl\left(a_\a  \right)$$ where $f_\dl$ is given by \eqref{f_eps_eqn}. Then for any $\eps > 0$ the set
+	$\Xi\bydef \left\{\a \in \mathscr A | f_\eps\left(a_\a \right) \neq 0 \right\}$ is finite.
+\end{lemma}
+\begin{proof}
+	If $a' \bydef \bt\text{-}\sum_{\a\in \mathscr A} f_{\eps / 3}\left(a_\a  \right)$ then from $a' \in \K\left(\H\right)$
+	and the Lemma \ref{pedersen_eps_lem} it follows that 
+	$f_{\eps / 3}\left(a' \right)\in K\left( \K\left(\H\right)\right)$. It follows that  there is $n \in \N$ and an $n$-dimensional subspace $V\subset \sH$ such that $f_{\eps / 3}\left(a' \right)\H \subset V$ (cf. the equation \eqref{peder_k_eqn}). If $a'' \bydef \bydef \bt\text{-}\sum_{\a\in \mathscr A} f_{2\eps / 3}\left(a_\a  \right)$ then from $a'' \le f_{\eps / 3}\left(a' \right)$ it follows that $a'' $. For any $\a\in \Xi$ one has $\tr\left( f_{2\eps / 3}\left(a_\a  \right)\right)> \eps$. It follows that the trace $\tr\left( a''\right)$ of $a''$ is infinite. It is impossible since $\left\|a'' \right\|\ge \frac{\tr\left( a''\right)}{n}$.  
+\end{proof}
+
+
+\begin{empt}\label{ctr_inf_empt}
+	Let $A$ be a $C^*$-algebra with  locally connected (cf. Definition \ref{top_locally_connected_defn}), Hausdorff spectrum $\sX$ and let $p: \widetilde \sX\to \sX$ a  be a covering with a group action $\widetilde{G} \times \widetilde \sX$ such that there is the natural homeomorphism $\sX = \widetilde\sX /  \widetilde G$. Suppose   $\widetilde{G}$ is residually finite and suppose that $\left\{G_\la\right\}_{\la \in \La}$ is a indexed by a directed set family of finite factor-groups of  $\widetilde G$ such that for all $\mu, \nu \in \La$ one has $\mu \ge \nu$ if and only if there is a following natural commutative diagram
+	\newline
+\begin{tikzcd}
+\widetilde G \arrow[rr]\arrow[rd] & & G_\nu\\
+& G_\mu\arrow[ru] &
+\end{tikzcd}
+\\
+of groups and surjective homomorphisms.	For any $\la\in \La$ denote by $\sX_\la \bydef \widetilde \sX / \ker \left(\widetilde G\to G_\la \right)$. For any $\la\in \La$ there is a finite-fold 
+	
+	Let $A$ be a $C^*$-algebra with connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), Hausdorff spectrum $\sX$. Let  $p:\widetilde{\sX} \to  \sX$ be a transitive covering with connected $\widetilde{\sX}$, such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Exercise \ref{blowing_hausdorff_exer} it turns out that there is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}). If $\overline p: \overline \sX  \to  \sX$  is {disconnected covering of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
+	\bean
+	\mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\left\{A_0\left( \sX_\a\right) \right\}_{\a\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+	\eean
+	is given by \eqref{blowing_algebraical_finite_covering_category_eqn} then from the Theorem \ref{blowing_sufficient_covering_inf_thm} a triple $\left(A, A_0\left(\overline\sX \right), G\left(\left. \overline\sX~\right|\sX \right) \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(p \right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn}). If a triple a triple $\left(A, \overline A, G\left(\left. \overline\sX~\right|\sX \right) \right)$ is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(p \right)}$From the Proposition \ref{inverse_spectrum_limit_prop} it follows that the spectrum $ \overline\sX'$ of $ \overline A$ equals to the set theoretic inverse limit (cf. Definition \ref{inverse_limit_defn})  $\varprojlim_{\a\in \La} \sX_\a$. From (v) of the Lemma \ref{top_disconnected_lem} $\varprojlim_{\a\in \La} \sX_\a$ equals to $ \overline\sX$ as a set, so one has a bijective map
+	\be\label{ctr_spectrum_map}
+	\phi_{\overline{   \mathcal X }}: \overline\sX' \cong \overline\sX.
+	\ee
+	From the 
+	Corollary \ref{inverse_lim_h_cor} it follows that the Hilbert  space $\overline  \H$ of the atomic representation of $\pi_a : \overline A : \hookto B\left( \widehat \H\right)$ can be naturally regarded as a space of   the atomic representation of $\overline\pi_a : A_0\left(\overline\sX \right) : \hookto B\left( \widehat \H\right)$.
+\end{empt}
+
+\begin{lemma}\label{ctr_hausd_lem}
+	Under the hypotheses \ref{ctr_inf_empt} the spectrum $ \overline\sX'$ of $ \overline A$ is Hausdorff.
+\end{lemma}
+\begin{proof}
+	If both $\overline x_1, \overline x_2\in \overline\sX'$ are such that $\overline x_1\neq \overline x_2$ then $\phi_{\overline{   \mathcal X }}\left(\overline x_1 \right) \neq \phi_{\overline{   \mathcal X }} \left(\overline x_2 \right)$. There is $\la \in \La$ such that $x_1 \bydef \overline{p}_\la\left(\phi_{\overline{   \mathcal X }} \left(\overline x_1 \right) \right)\neq x_2\bydef \overline{p}_\la\left(\phi_{\overline{   \mathcal X }} \left(\overline x_2 \right) \right)$ where $\overline{p}_\la: \overline{\sX}\to \sX_\la$ is a natural covering. The space  $\sX_\la$ is Hausdorff so there are open neighborhoods $\sU_1$ and $\sU_2$ of  $x_1$ and $x_2$ such that $\sU_1\cap \sU_2= \emptyset$. These sets corresponds to the given by the equation \ref{open_ideal_eqn} closed ideals $I_1 \bydef \left. A_0\left(\sX_\la \right) \right|_{\sU_1}$ and $I_2 \bydef \left. A_0\left(\sX_\la \right) \right|_{\sU_2}$ (cf. equation \ref{open_ideal_eqn}). From $\sU_1\cap \sU_2= \emptyset$ it turns out that $I_1 \cap I_2 = \{0\}$. From the equation \eqref{ininite_covering_inductive_eqn}  it follows that there is an inclusion $A_0\left(\sX_\la \right)\subset M\left(\overline A \right)$. So there are closed ideals $\overline I_1\bydef I_1 \overline A$ and  $\overline I_2\bydef I_2 \overline A$ of $\overline A$ which corresponds to the sets $\overline \sU_1\bydef \phi^{-1}_{\overline{   \mathcal X }}\left(\overline{p}~^{-1}_\la\left(\sU_1 \right)  \right) $ and $\overline \sU_2\bydef\phi^{-1}_{\overline{   \mathcal X }}\left(\overline{p}~^{-1}_\la\left(\sU_1 \right)  \right)$. However closed ideals correspond to open sets of $\overline{   \mathcal X }'$ (cf. Definition \ref{jtop_defn}). So there are open neighborhoods $\overline \sU_1$ and  $\overline \sU_2$ of $\overline x_1$ and  $\overline x_2$ with $\overline \sU_1\cap \overline \sU_2= \emptyset$.
+\end{proof}
+\begin{empt}\label{ctr_hausd_empt}
+	Both  $\overline a' \in K\left( \overline A\right)$ and $\overline a \in K\left( A_0\left( \overline \sX\right) \right)$ yield the families
+	$
+	\left\{\rep_{\phi^{-1}_{\overline{   \mathcal X }}}\left(\overline x \right)\left( \overline a' \right)  \right\}_{\overline x \in \overline \sX}
+	$ and $\left\{\rep_{\overline x }\left( \overline a \right)  \right\}_{\overline x \in \overline \sX}$. On the other hand from the equation \eqref{inverse_lim_hs_eqn} it follows that for any $\overline x \in \overline \sX$ there is a natural $*$-isomorphism 
+	\be\label{ctr_spectrum_x_map}
+	\phi_{\overline x}: \rep_{\phi^{-1}_{\overline{   \mathcal X }}}\left(\overline x \right)\left( \overline A' \right) \cong \rep_{\overline x }\left(A_0\left(\overline\sX \right) \right).
+	\ee
+	For any open subset $\overline \sU \subset \sX$ we define equivalence relations \ref{equivalence_relation_defn} $\sim_{\overline \sU}$ and $\sim_{\overline \sU}'$ on $\overline A$ and $A_0\left( \overline \sX\right)$ such that
+	\bean
+	\forall \overline a_1 , \overline a_2 \in A_0\left(\overline\sX \right)\quad \left( \overline a_1 \sim_{\overline \sU} \overline a_2 \quad \Leftrightarrow \quad \forall \overline x \in \overline \sU \quad \rep_{\overline x }\left( \overline a_1\right)=\rep_{\overline x }\left( \overline a_2\right)  \right),\\
+	\forall \overline a'_1 , \overline a'_2 \in \overline A\quad \left( \overline a'_1 \sim_{\overline \sU}' \overline a'_2 \quad \Leftrightarrow \quad \forall \overline x \in \overline \sU \quad \rep_{\phi^{-1}_{\overline{   \mathcal X }}\left(\overline x \right)  }\left( \overline a'_1\right)=\rep_{\phi^{-1}_{\overline{   \mathcal X }}\left(\overline x \right)  }\left( \overline a'_1\right)  \right). 
+	\eean
+	There are presheaves $\mathscr  G$ and $\mathscr  G'$ of Abelian groups on $\overline \sX$ (cf. Definition \ref{presheaf_defn})  such that 
+	$
+	\mathscr  G \left(  \overline \sU\right) \bydef    A_0\left(\overline\sX \right)/ \sim_{\overline \sU}
+	$ 
+	and $
+	\mathscr  G' \left(  \overline \sU\right) \bydef   \overline A/ \sim'_{\overline \sU}.
+	$
+\end{empt}
+\begin{lemma}\label{ctr_sheaf_lem}
+	Under the hypotheses \ref{ctr_hausd_empt} if both $\mathscr  F$ and  $\mathscr  F'$  are associated with  $\mathscr  G$ and  $\mathscr  G'$ sheaves (cf. Proposition and Definition \ref{sheaf_prdf}) then the map \eqref{ctr_spectrum_x_map} yields a natural isomorphism $\mathscr  F\cong \mathscr  F'$.
+\end{lemma}
+\begin{proof}
+	Form the \eqref{four_decompositon_eqn} it follows that any $s \in \mathscr  F$ can be represented by $s = s_1 - s_2 + is_3 -is_4$, where $s_1, s_2, s_3, s_4$ come from the positive cone $A_0\left(\overline\sX \right)_+$.  A  stalk  (cf. Definition \ref{sheaf_stalk_defn}) of $\mathscr  F_{\overline x}$ at $\overline x$ is said to be \textit{positive} if it can be represented by a positive element of $A_0\left(\overline\sX \right)$. 
+	For any $\overline x\in \overline\sX$ every positive stalk   $s \in \mathscr  F_{\overline x}$ at $\overline x$ can be represented by $f_\eps\left(\overline a \right)$  such that:
+	\begin{itemize}
+		\item the element $\overline a$ is positive,
+		\item there is an open connected neighborhood $\overline \sU$ of $\overline x$ with $\overline a  \in \left.  A_0\left(\overline\sX \right)\right|_{\overline \sU}$ (cf. equation \ref{open_ideal_eqn}),
+		\item The set $\overline \sU$ is mapped homeomorphically onto $\sU \bydef p\left( \overline \sU\right)$.
+	\end{itemize}
+	If $a' = \desc_p\left( f_{\eps/2}\left(\overline a \right)\right)\in K\left( A\right)_+ $ where  $\desc_p$ is given by the Definition \ref{top_lift_desc_defn} and/or the Definition \ref{blowing_descent_defn} then from the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn} it turns out that there is $\overline a' \in K\left( \overline A\right) $ such that
+	$$
+	a' = \bt\text{-}\sum_{	g \in  \widehat{G} }g \overline a'
+	$$
+	where the sum of the series implies the strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).From the Lemma \ref{ctr_fin_lem} it follows that the set
+	$
+	G_0 \bydef \left\{\left.g \in \widehat{G}\right| \rep_{\phi_{\overline{   \mathcal X }}\left( g\overline x\right) }\left( \overline a' \right) \neq 0\right\}
+	$
+	is finite. If 
+	$$
+	a'' \bydef \bt\text{-}\sum_{	g \in  \widehat{G}\setminus G_0 }g \overline a'
+	$$
+	and $x \bydef p\left(\overline x \right)$ then  $\rep_{x}\left(a'' \right)  = 0$. If $a''' = \bydef f_{\eps/2} \left(a'' \right)$ then there is an open neighborhood $\sU'''$ of $x$ such that
+	$$
+	\forall x \in \sU''' \quad \rep_{x}\left(a''' \right) = 0.
+	$$ 
+	From $$
+	a''' \ge\bt\text{-}\sum_{	g \in  \widehat{G}\setminus G_0 }g f_{\eps/2} \left( \overline a'\right) 
+	$$
+	if follows that 
+	$$
+ \forall x \in \sU''' \quad \rep_{x}\left(a''' \right) = 0
+	$$ 
+	
+\end{proof}
 
 
 \begin{lemma}\label{top_atomic_lem} Under the hypotheses  of the Definition \ref{top_disconnected_defn} which include
@@ -14826,92 +14953,6 @@ The details of the proof are left to the reader.
 \subsection{Coverings of $C^*$-algebras}
 \paragraph*{}
 Here we prove that any infinite covering of $C^*$-algebra with Hausdorff spectrum $\sX$ corresponds to a transitive covering of $\sX$.
-\begin{lemma}\label{ctr_fin_lem}
-	Let $\left\{a_\la\right\}_{\la\in \La} \subset \K\left(\H\right)_+$ be a family of positive compact operators such that for any $\dl > 0$ there is a convergent with respect to the strict topology of $M\left(\K\left(\H\right) \right)$ series  $$\bt\text{-}\sum_{\la\in \La} f_\dl\left(a_\la  \right)$$ where $f_\dl$ is given by \eqref{f_eps_eqn}. Then for any $\eps > 0$ the set
-	$\Xi\bydef \left\{\la \in \La | f_\eps\left(a_\la \right) \neq 0 \right\}$ is finite.
-\end{lemma}
-\begin{proof}
-If $a' \bydef \bt\text{-}\sum_{\la\in \La} f_{\eps / 3}\left(a_\la  \right)$ then from $a' \in \K\left(\H\right)$
-and the Lemma \ref{pedersen_eps_lem} it follows that 
-$f_{\eps / 3}\left(a' \right)\in K\left( \K\left(\H\right)\right)$. It follows that  there is $n \in \N$ and an $n$-dimensional subspace $V\subset \sH$ such that $f_{\eps / 3}\left(a' \right)\H \subset V$ (cf. the equation \eqref{peder_k_eqn}). If $a'' \bydef \bydef \bt\text{-}\sum_{\la\in \La} f_{2\eps / 3}\left(a_\la  \right)$ then from $a'' \le f_{\eps / 3}\left(a' \right)$ it follows that $a'' $. For any $\la\in \Xi$ one has $\tr\left( f_{2\eps / 3}\left(a_\la  \right)\right)> \eps$. It follows that the trace $\tr\left( a''\right)$ of $a''$ is infinite. It is impossible since $\left\|a'' \right\|\ge \frac{\tr\left( a''\right)}{n}$.  
-\end{proof}
-
-\begin{empt}\label{ctr_inf_empt}
-Let $A$ be a $C^*$-algebra with connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), Hausdorff spectrum $\sX$. Let  $p:\widetilde{\sX} \to  \sX$ be a transitive covering with connected $\widetilde{\sX}$, such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Exercise \ref{blowing_hausdorff_exer} it turns out that there is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}). If $\overline p: \overline \sX  \to  \sX$  is {disconnected covering of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
-\bean
-\mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\left\{A_0\left( \sX_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
-\eean
-is given by \eqref{blowing_algebraical_finite_covering_category_eqn} then from the Theorem \ref{blowing_sufficient_covering_inf_thm} a triple $\left(A, A_0\left(\overline\sX \right), G\left(\left. \overline\sX~\right|\sX \right) \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(p \right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn}). If a triple a triple $\left(A, \overline A, G\left(\left. \overline\sX~\right|\sX \right) \right)$ is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(p \right)}$From the Proposition \ref{inverse_spectrum_limit_prop} it follows that the spectrum $ \overline\sX'$ of $ \overline A$ equals to the set theoretic inverse limit (cf. Definition \ref{inverse_limit_defn})  $\varprojlim_{\la\in \La} \sX_\la$. From (v) of the Lemma \ref{top_disconnected_lem} $\varprojlim_{\la\in \La} \sX_\la$ equals to $ \overline\sX$ as a set, so one has a bijective map
-\be\label{ctr_spectrum_map}
-\phi_{\overline{   \mathcal X }}: \overline\sX' \cong \overline\sX.
-\ee
- From the 
-Corollary \ref{inverse_lim_h_cor} it follows that the Hilbert  space $\overline  \H$ of the atomic representation of $\pi_a : \overline A : \hookto B\left( \widehat \H\right)$ can be naturally regarded as a space of   the atomic representation of $\overline\pi_a : A_0\left(\overline\sX \right) : \hookto B\left( \widehat \H\right)$.
-\end{empt}
-	
-\begin{lemma}\label{ctr_hausd_lem}
-Under the hypotheses \ref{ctr_inf_empt} the spectrum $ \overline\sX'$ of $ \overline A$ is Hausdorff.
-\end{lemma}
-\begin{proof}
-If both $\overline x_1, \overline x_2\in \overline\sX'$ are such that $\overline x_1\neq \overline x_2$ then $\phi_{\overline{   \mathcal X }}\left(\overline x_1 \right) \neq \phi_{\overline{   \mathcal X }} \left(\overline x_2 \right)$. There is $\la \in \La$ such that $x_1 \bydef \overline{p}_\la\left(\phi_{\overline{   \mathcal X }} \left(\overline x_1 \right) \right)\neq x_2\bydef \overline{p}_\la\left(\phi_{\overline{   \mathcal X }} \left(\overline x_2 \right) \right)$ where $\overline{p}_\la: \overline{\sX}\to \sX_\la$ is a natural covering. The space  $\sX_\la$ is Hausdorff so there are open neighborhoods $\sU_1$ and $\sU_2$ of  $x_1$ and $x_2$ such that $\sU_1\cap \sU_2= \emptyset$. These sets corresponds to the given by the equation \ref{open_ideal_eqn} closed ideals $I_1 \bydef \left. A_0\left(\sX_\la \right) \right|_{\sU_1}$ and $I_2 \bydef \left. A_0\left(\sX_\la \right) \right|_{\sU_2}$ (cf. equation \ref{open_ideal_eqn}). From $\sU_1\cap \sU_2= \emptyset$ it turns out that $I_1 \cap I_2 = \{0\}$. From the equation \eqref{ininite_covering_inductive_eqn}  it follows that there is an inclusion $A_0\left(\sX_\la \right)\subset M\left(\overline A \right)$. So there are closed ideals $\overline I_1\bydef I_1 \overline A$ and  $\overline I_2\bydef I_2 \overline A$ of $\overline A$ which corresponds to the sets $\overline \sU_1\bydef \phi^{-1}_{\overline{   \mathcal X }}\left(\overline{p}~^{-1}_\la\left(\sU_1 \right)  \right) $ and $\overline \sU_2\bydef\phi^{-1}_{\overline{   \mathcal X }}\left(\overline{p}~^{-1}_\la\left(\sU_1 \right)  \right)$. However closed ideals correspond to open sets of $\overline{   \mathcal X }'$ (cf. Definition \ref{jtop_defn}). So there are open neighborhoods $\overline \sU_1$ and  $\overline \sU_2$ of $\overline x_1$ and  $\overline x_2$ with $\overline \sU_1\cap \overline \sU_2= \emptyset$.
-\end{proof}
-\begin{empt}\label{ctr_hausd_empt}
-Both  $\overline a' \in K\left( \overline A\right)$ and $\overline a \in K\left( A_0\left( \overline \sX\right) \right)$ yield the families
-$
-\left\{\rep_{\phi^{-1}_{\overline{   \mathcal X }}}\left(\overline x \right)\left( \overline a' \right)  \right\}_{\overline x \in \overline \sX}
-$ and $\left\{\rep_{\overline x }\left( \overline a \right)  \right\}_{\overline x \in \overline \sX}$. On the other hand from the equation \eqref{inverse_lim_hs_eqn} it follows that for any $\overline x \in \overline \sX$ there is a natural $*$-isomorphism 
-\be\label{ctr_spectrum_x_map}
-\phi_{\overline x}: \rep_{\phi^{-1}_{\overline{   \mathcal X }}}\left(\overline x \right)\left( \overline A' \right) \cong \rep_{\overline x }\left(A_0\left(\overline\sX \right) \right).
-\ee
-For any open subset $\overline \sU \subset \sX$ we define equivalence relations \ref{equivalence_relation_defn} $\sim_{\overline \sU}$ and $\sim_{\overline \sU}'$ on $\overline A$ and $A_0\left( \overline \sX\right)$ such that
-\bean
-\forall \overline a_1 , \overline a_2 \in A_0\left(\overline\sX \right)\quad \left( \overline a_1 \sim_{\overline \sU} \overline a_2 \quad \Leftrightarrow \quad \forall \overline x \in \overline \sU \quad \rep_{\overline x }\left( \overline a_1\right)=\rep_{\overline x }\left( \overline a_2\right)  \right),\\
-\forall \overline a'_1 , \overline a'_2 \in \overline A\quad \left( \overline a'_1 \sim_{\overline \sU}' \overline a'_2 \quad \Leftrightarrow \quad \forall \overline x \in \overline \sU \quad \rep_{\phi^{-1}_{\overline{   \mathcal X }}\left(\overline x \right)  }\left( \overline a'_1\right)=\rep_{\phi^{-1}_{\overline{   \mathcal X }}\left(\overline x \right)  }\left( \overline a'_1\right)  \right). 
-\eean
-There are presheaves $\mathscr  G$ and $\mathscr  G'$ of Abelian groups on $\overline \sX$ (cf. Definition \ref{presheaf_defn})  such that 
-$
-\mathscr  G \left(  \overline \sU\right) \bydef    A_0\left(\overline\sX \right)/ \sim_{\overline \sU}
-$ 
-and $
-\mathscr  G' \left(  \overline \sU\right) \bydef   \overline A/ \sim'_{\overline \sU}.
-$
-\end{empt}
-\begin{lemma}\label{ctr_sheaf_lem}
-Under the hypotheses \ref{ctr_hausd_empt} if both $\mathscr  F$ and  $\mathscr  F'$  are associated with  $\mathscr  G$ and  $\mathscr  G'$ sheaves (cf. Proposition and Definition \ref{sheaf_prdf}) then the map \eqref{ctr_spectrum_x_map} yields a natural isomorphism $\mathscr  F\cong \mathscr  F'$.
-\end{lemma}
-\begin{proof}
-	Form the \eqref{four_decompositon_eqn} it follows that any $s \in \mathscr  F$ can be represented by $s = s_1 - s_2 + is_3 -is_4$, where $s_1, s_2, s_3, s_4$ come from the positive cone $A_0\left(\overline\sX \right)_+$.  A  stalk  (cf. Definition \ref{sheaf_stalk_defn}) of $\mathscr  F_{\overline x}$ at $\overline x$ is said to be \textit{positive} if it can be represented by a positive element of $A_0\left(\overline\sX \right)$. 
-For any $\overline x\in \overline\sX$ every positive stalk   $s \in \mathscr  F_{\overline x}$ at $\overline x$ can be represented by $f_\eps\left(\overline a \right)$  such that:
-\begin{itemize}
-	\item the element $\overline a$ is positive,
-	\item there is an open connected neighborhood $\overline \sU$ of $\overline x$ with $\overline a  \in \left.  A_0\left(\overline\sX \right)\right|_{\overline \sU}$ (cf. equation \ref{open_ideal_eqn}),
-	\item The set $\overline \sU$ is mapped homeomorphically onto $\sU \bydef p\left( \overline \sU\right)$.
-\end{itemize}
-If $a' = \desc_p\left( f_{\eps/2}\left(\overline a \right)\right)\in K\left( A\right)_+ $ where  $\desc_p$ is given by the Definition \ref{top_lift_desc_defn} and/or the Definition \ref{blowing_descent_defn} then from the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn} it turns out that there is $\overline a' \in K\left( \overline A\right) $ such that
-$$
-a' = \bt\text{-}\sum_{	g \in  \widehat{G} }g \overline a'
-$$
-where the sum of the series implies the strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}).From the Lemma \ref{ctr_fin_lem} it follows that the set
-$
-G_0 \bydef \left\{\left.g \in \widehat{G}\right| \rep_{\phi_{\overline{   \mathcal X }}\left( g\overline x\right) }\left( \overline a' \right) \neq 0\right\}
-$
-is finite. If 
-$$
-a'' \bydef \bt\text{-}\sum_{	g \in  \widehat{G}\setminus G_0 }g \overline a'
-$$
-and $x \bydef p\left(\overline x \right)$ then  $\rep_{x}\left(a'' \right)  = 0$. If $a''' = \bydef f_{\eps/2} \left(a'' \right)$ then there is an open neighborhood $\sU'''$ of $x$ such that
-$$
-\forall x \in \sU''' \quad \rep_{x}\left(a''' \right) = 0.
-$$ 
-From $$
-a''' \ge\bt\text{-}\sum_{	g \in  \widehat{G}\setminus G_0 }g f_{\eps/2} \left( \overline a'\right) 
-$$
-if follows that 
-$$
-\forall \forall x \in \sU''' \quad \rep_{x}\left(a''' \right) = 0
-$$ 
-
-\end{proof}
 \begin{lemma}\label{ctr_fin_lem!}
 	Let $\left\{a_\la\right\}_{\la\in \La} \subset \K\left(\H\right)_+$ be a family of positive compact operators such that for any $\dl > 0$ there is a convergent with respect to the strict topology of $M\left(\K\left(\H\right) \right)$ series  $$\bt\text{-}\sum_{\la\in \La} f_\dl\left(a_\la  \right)$$ where $f_\dl$ is given by \eqref{f_eps_eqn}. Then for any $\eps > 0$ the set
 	$\Xi\bydef \left\{\la \in \La | f_\eps\left(a_\la \right)  \right\}\neq 0$ is finite.
