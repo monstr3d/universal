@@ -1438,7 +1438,7 @@ then one has
 	\label{kp_ped_e_eqn}
 		K\left( A \right)_+ = \left\{a \in A_+ \left|a \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\quad j=1,...,n\right.\right\}~~
 \eea
-where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{peder_k0_eqn} and \eqref{peder_k_plus_eqn} respectively
+where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{pedersen_k0_eqn} and \eqref{pedersen_k_plus_eqn} respectively
 \end{lemma}
 \begin{proof}
 	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by 
@@ -1451,7 +1451,7 @@ where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equati
 	0 & x \ge 2 \left\| a\right\| -\eps\\
 		\end{array}\right.
 	\eean
-It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $a \in	K\left( A \right)_0$ then from \eqref{peder_k0_eqn} it turns out that there is $b' \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b'\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
+It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $a \in	K\left( A \right)_0$ then from \eqref{pedersen_k0_eqn} it turns out that there is $b' \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b'\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
  		\bean
  \psi\left( x\right)  =\left\{
  \begin{array}{c l}
@@ -1462,7 +1462,7 @@ It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $
  0 & x \ge c + \eps
  \end{array}\right.
  \eean
- then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b \right)$ where $b \bydef \psi\left(b'\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{peder_k_plus_eqn} ones.
+ then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b \right)$ where $b \bydef \psi\left(b'\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{pedersen_k_plus_eqn} ones.
  
 \end{proof}
 
@@ -1551,7 +1551,7 @@ is a surjective homomorphism of $A$-$A$ bimodules.
 \end{lemma}
 \begin{proof}
 	From  $a' \bydef \sum_{	g \in G}g \widetilde a'\in \widetilde A^G$ it follows that $a' \in \pi\left(A\right)$.
-If $\widetilde a \in K\left(\widetilde{A}\right)_0$ (cf. equation \eqref{peder_k0_eqn})  then from the Lemma \ref{pedersen_eps_lem} it follows that there is a positive $\widetilde b \in \widetilde A_+$ and $\eps > 0$  such that $\widetilde a = f_\eps\left(\widetilde b\right)$ where $\eps > 0$ and $f_\eps$ is given by \eqref{f_eps_eqn}. If $b \bydef \pi^{-1}\left( \sum_{	g \in G}g \widetilde b\right) $ then one has: 
+If $\widetilde a \in K\left(\widetilde{A}\right)_0$ (cf. equation \eqref{pedersen_k0_eqn})  then from the Lemma \ref{pedersen_eps_lem} it follows that there is a positive $\widetilde b \in \widetilde A_+$ and $\eps > 0$  such that $\widetilde a = f_\eps\left(\widetilde b\right)$ where $\eps > 0$ and $f_\eps$ is given by \eqref{f_eps_eqn}. If $b \bydef \pi^{-1}\left( \sum_{	g \in G}g \widetilde b\right) $ then one has: 
 \begin{itemize}
 	\item $f_\eps \left(b \right) \in  \pi\left( K\left( A\right)\right)_0$,
 	\item $ f_\eps  \left(b \right)  \ge a \bydef  \pi^{-1}\left(\sum_{	g \in G}g f_\eps\left(  \widetilde a\right)  \right) $.
@@ -4085,7 +4085,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  This section contains  noncommutative generalizations of infinite coverings.
  \begin{empt}\label{infinite_covering_basic_empt}
  	If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. We suppose that $\la_{\text{min}} \in \La$ corresponds to the minimal group.
- 	Let $\overline{A}$ be a $C^*$-algebra with an action $\widehat{G}\times \overline{A} \to \overline{A}$. Suppose that for any element $\overline a \in K\left(\overline A \right)_0$ of the Pedersen's ideal of $\overline A$ (cf. Definition \ref{pedersens_ideal_defn} and  \eqref{peder_k0_eqn}) a series 
+ 	Let $\overline{A}$ be a $C^*$-algebra with an action $\widehat{G}\times \overline{A} \to \overline{A}$. Suppose that for any element $\overline a \in K\left(\overline A \right)_0$ of the Pedersen's ideal of $\overline A$ (cf. Definition \ref{pedersens_ideal_defn} and  \eqref{pedersen_k0_eqn}) a series 
  	\be\label{infinite_covering_basic_eqn}
  	\sum_{	g \in \widehat{G}}g \overline a
  	\ee
@@ -10495,7 +10495,7 @@ Under the hypotheses of the Definition \ref{ctr_inf_defn} there are natural incl
 \be\label{top_ffs_inc_eqn}
 \begin{split}
 \phi: K\left( A_0\left(\widetilde\sX \right)\right) \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right),\\
-\phi': K\left( \widetilde A'\right) \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+\phi': K\left( \widetilde A'\right) \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)
 \end{split}
 \ee  
 \end{empt}
@@ -12068,7 +12068,7 @@ It follows that the set of elements with compact support is dense in $A$.
 If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_supp_defn}) is compact.
 \end{lemma}
 \begin{proof}
-If $a \in K\left(A\right)_0$ (cf \eqref{peder_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Remark \ref{blowing_compact_rem}).
+If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Remark \ref{blowing_compact_rem}).
  If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn}) then there is $\xi \in \H$ such that
 \bean\label{blowing_ac_eqn}
 \forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
@@ -21468,16 +21468,16 @@ representation.
 	\begin{proof}
 		Let $K(]0, \infty [)$ denote the set of continuous functions on $]0, \infty [$ with 
 		compact support and define 
-		\be\label{peder_k0_eqn}
+		\be\label{pedersen_k0_eqn}
 		K\left( A \right)_0 \bydef \left\{f\left(x\right) \left|x \in A_+, \quad f \in K(]0, \infty [) \right.\right\}.
 		\ee
 		Let 
-		\be\label{peder_k_plus_eqn}
+		\be\label{pedersen_k_plus_eqn}
 		K\left( A \right)_+ \bydef \left\{x \in A_+ \left|x \le \sum_{j = 1}^nx_j, \quad x_j \in  	K\left( A \right)_0\right.\right\}, 	
 		\ee
 	so that $	K\left( A \right)_+$ is the smallest hereditary cone  containing $K\left( A \right)_0$. If $K(A)$ 
-		is  the $\C$-linear span of $K(A)_+$ then $K(A)$,
-		which is minimal among dense ideals. More details of the proof are described in \cite{pedersen:ca_aut}.
+		is  the algebraic  $\C$-linear span of $K(A)_+$ then $K(A)$,
+		which is minimal among dense ideals. The full  proof is  described in \cite{pedersen:ca_aut}.
 			\end{proof}
 			
 	\begin{defn}\label{pedersens_ideal_defn}\cite{blackadar:ko}
