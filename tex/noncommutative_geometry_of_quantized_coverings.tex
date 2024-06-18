@@ -4084,7 +4084,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \paragraph*{}
  This section contains  noncommutative generalizations of infinite coverings.
  \begin{empt}\label{infinite_covering_basic_empt}
- 	If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. We suppose that $\la_{\text{min}} \in \La$ corresponds to the minimal group.
+ 	If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. We suppose that $\la_{\text{min}} \in \La$ is a minimal element which corresponds to the trivial factor-group.
  	Let $\overline{A}$ be a $C^*$-algebra with an action $\widehat{G}\times \overline{A} \to \overline{A}$. Suppose that for any element $\overline a \in K\left(\overline A \right)_0$ of the Pedersen's ideal of $\overline A$ (cf. Definition \ref{pedersens_ideal_defn} and  \eqref{pedersen_k0_eqn}) a series 
  	\be\label{infinite_covering_basic_eqn}
  	\sum_{	g \in \widehat{G}}g \overline a
@@ -4187,7 +4187,7 @@ We write
  If $\left( \overline A, \widehat{G}\right)$ is the explained in \ref{infinite_covering_basic_empt} pair then we say that a triple  $\left(A, \overline A, \widehat{G}\right)$ is a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
  \end{definition}
 \begin{remark}
-The condition (b)  of the Definition \ref{algebraical_finite_covering_category_defn} for each $\la\in \La$ naturally yields injective $*$-homomorphism $K\left(A_\la \right)\hookto M\left( \overline A\right)$ which can be uniquely extended up to the injective  $*$-homomorphism   
+The condition (c)  of the Definition \ref{algebraical_finite_covering_category_defn} for each $\la\in \La$ naturally yields injective $*$-homomorphism $K\left(A_\la \right)\hookto M\left( \overline A\right)$ which can be uniquely extended up to the injective  $*$-homomorphism   
 \be\label{inf_mult_hom_eqn}
 \overline \pi_\la: A_\la \hookto M\left( \overline A\right),
 \ee
@@ -4200,7 +4200,7 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
 Under the hypotheses of the Definition \ref{algebraical_finite_covering_category_defn} 	from the Definition \ref{pedersens_ideal_defn}  it follows that for all $\la\in \La$ there is a natural  surjective map
  	\be\label{inf_desc_eqn}
  	\begin{split}
- 		\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right),\\
+ 		\desc_{\la} : K\left(\overline A \right)_0 \to K\left(A_\la \right)_0,\\
  		\overline a \mapsto\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
  	\end{split}
  	\ee
@@ -4214,7 +4214,7 @@ Under the hypotheses of the Definition \ref{algebraical_finite_covering_category
   \begin{lemma}\label{bt_lim_lem}
  	Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn}  one has
  	\be\label{bt_lim_eqn}
- 	\forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La}  \desc_{\la}\left(\overline a \right) 
+ 	\forall \overline a \in K\left( \overline A\right)_0  \quad \overline a =\bt\text{-}\lim_{\la \in \La}  \desc_{\la}\left(\overline a \right) 
  	\ee
  	where $\desc_{\la}\left(\overline a \right)$ is the $\la$-descent (cf. Definition \ref{inf_desc_defn}) and  $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).
  \end{lemma}
@@ -4254,9 +4254,9 @@ Under the hypotheses of the Definition \ref{algebraical_finite_covering_category
  		\ee
  \end{corollary}
  \begin{proof}
- If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in \K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that if 
+ If $\overline{a}	\in K\left(  \overline A\right)_0 $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in K\left(  \overline A\right)_0$. From the Lemma \ref{bt_lim_lem} it follows that if 
  $$
- b_\la \bydef  \desc_{\la}\left(\overline a \right) K\left(A_\la \right)_+ 
+ b_\la \bydef  \desc_{\la}\left(\overline a \right) K\left(A_\la \right)_0 
 $$
 where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{inf_desc_defn}). So there is the $C^*$-norm limit.
 $$
@@ -4338,17 +4338,17 @@ and taking into account \eqref{four_decompositon_eqn} we conclude
 $$
 \forall \overline a \in \overline A\quad \lim_{\a \in \mathscr A}\left\|  u_{\a}\overline{a}- \overline{a} \right\|= 0.
 $$
-From the above equation  it turns out that for any $a \in M\left( A_\la\right)$ and any $\overline a$ the net $\left\{\overline{\pi}_\la \left( a u_\a\right)  \overline a\right\}_{\a \in \mathscr A }$ is $C^*$-norm convergent, so there is a map
+Similarly one can prove that
+$$
+\forall \overline a \in \overline A\quad\forall\la \in \La\quad  \lim_{\a \in \mathscr A}\left\|  \overline{a}u_{\a}- \overline{a} \right\|= 0.
+$$
+From the above equation  it turns out that for any $a \in M\left( A_\la\right)$ and any $\overline a$ both  nets  $\left\{\overline{\pi}_\la \left( a u_\a\right)  \overline a\right\}_{\a \in \mathscr A }$ and $\left\{\overline{\pi}_\la \left(u_\a a u_\a\right)  \overline a\right\}_{\a \in \mathscr A }$ are $C^*$-norm convergent, so there is a map
 \bean
 R_a : \overline A \to \overline A,\\
 \overline a \mapsto  \lim_{\a \in \mathscr A }\overline{\pi}_\la \left( a u_\a\right)  \overline a = \lim_{\a \in \mathscr A }\overline{\pi}_\la \left(u_\a a u_\a\right)  \overline a
 \eean
-where the $C^*$-norm limit is implied. Similarly to the above prove one has
-
-$$
-\forall \overline a \in \overline A\quad\forall\la \in \La\quad  \lim_{\a \in \mathscr A}\left\|  \overline{a}u_{\a}- \overline{a} \right\|= 0
-$$
-and there is a map 
+where the $C^*$-norm limit is implied. Similarly
+there is a map 
 \bean
 L_a : \overline A \to \overline A,\\
 \overline a \mapsto  \lim_{\a \in \mathscr A }\overline a~\overline{\pi}_\la \left( u_\a a \right) = \lim_{\a \in \mathscr A }\overline a~\overline{\pi}_\la \left( u_\a a u_\a\right).  
@@ -4370,7 +4370,7 @@ one can deduce that a pair $\left( L_a, R_a\right)$ satisfies to  the equation \
 	\item a $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism from $\left(A, \overline A', \widehat{G}\right)$ to  $\left( A, \overline A'', \widehat{G}\right)$ is an injective\\ *-homomorphism $\phi: \overline A' \hookto  \overline A''$  satisfying to 
 	\bea\label{infinite_covering_g_eqn}
 \forall	\overline a' \in \overline A'\quad \forall g \in \widehat{G}\quad g\phi\left( \overline a'\right) = \phi\left(g \overline a'\right),~~~\\
-\label{infinite_covering_eqn}\forall	\overline a' \in \overline K\left(\overline A'\right) \quad \forall \la\in \La \quad \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \overline a'= \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \phi\left( \overline a'\right)~~ 
+\label{infinite_covering_eqn}\forall	\overline a' \in \overline K\left(\overline A'\right)_0 \quad \forall \la\in \La \quad \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \overline a'= \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \phi\left( \overline a'\right)~~ 
 	\eea
 \end{itemize}
 is  the \textit{category of pre-coverings of} $\mathfrak{S}$.  
@@ -4457,7 +4457,7 @@ If a disconnected infinite noncommutative covering (cf. Definition \ref{disconne
  i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are $*$-isomorphisms.
  \end{proof}
  \begin{empt}
- 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \overline A \oplus \widetilde A^\perp$, and
+ 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A\subset \overline A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
  	\be\label{infinite_covering_transformation_group_eqn}
  	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
  	\left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
@@ -4482,14 +4482,14 @@ If a disconnected infinite noncommutative covering (cf. Definition \ref{disconne
  \end{remark}
  
 \begin{definition}\label{good_defn}
-	$\left(A, \overline{A},\widehat{G}\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold.
+	$\left(A, \overline{A},\widehat{G}\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold:
  	\begin{enumerate}
- 		\item[(a)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in \widehat{G}$ such that $g \widetilde{A}'= \widetilde{A}''$.
- 		\item [(b)] If $\widetilde A$ is a   connected component of $\overline{A}$ if  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{infinite_covering_transformation_group_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
+ 		\item[(a)] ff both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in \widehat{G}$ such that $g \widetilde{A}'= \widetilde{A}''$,
+ 		\item [(b)] if $\widetilde A$ is a   connected component of $\overline{A}$ if  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{infinite_covering_transformation_group_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
  	\end{enumerate}
  \end{definition}
  \begin{remark}\label{cond_b_ref_rem}
- 	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) !!! CHECK !!! of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {quasi-components} of $\overline \sX$  (cf. Definition \ref{top_quasi_component_defn}) then there is  $g \in \widehat{G}$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
+ 	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {quasi-components} of $\overline \sX$  (cf. Definition \ref{top_quasi_component_defn}) then there is  $g \in \widehat{G}$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
  \end{remark}
  \begin{lemma}
  	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both given by  	\eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} $*$-homomorphisms are injective.
@@ -4647,7 +4647,7 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  	\widehat \tau'' \preceq \widehat \tau.
  	\eean
  	From the above equation it turns out that the state $\widehat \tau$ is not pure however it contradicts with our assumption. So $y_\la$ corresponds to a pure state for all $\la\in\La$.\\
- 	  	(ii) If $\overline \rho: \overline A \to B\left(\H \right)$ is irreducible representation  then from the inclusion $A_\la \subset M\left(\overline A \right)$ and the Definition \ref{multiplier_el_defn} one has a natural representation $\rho_\la : A_\la \to B\left(\H \right)$. From the condition (b) !!! CHECK !!! of the Definition \ref{algebraical_finite_covering_category_defn} it follows that $\rho_\la$ is not trivial. If $\rho_{\la_0} : A_\la \to B\left(\H_\la \right)$ is not irreducible there are two irreducible representations $\rho'_{\la_0} : A_\la \to B\left(\H'_{\la_0} \right)$   and $\rho''_{\la_0} : A_\la \to B\left(\H''_{\la_0} \right)$ such that $\rho'_{\la_0} \perp \rho''_{\la_0}$ and $\rho'_{\la_0}, \rho''_{\la_0}\preceq \rho_{\la_0}$. If $\la \ge \la_0$ and $p: \sX_\la \to \sX_{\la_0}$ is a given by the Proposition \ref{spectrum_covering_finite_prop} and then there are are two irreducible representations $\rho'_{\la} : A_\la \to B\left(\H'_\la \right)$   and $\rho''_{\la} : A_\la \to B\left(\H''_\la \right)$ such that $\rho'_{\la} \perp \rho''_{\la}$ and $\rho'_{\la}, \rho''_{\la}\preceq \rho_{\la}$ and \bean 
+ 	  	(ii) If $\overline \rho: \overline A \to B\left(\H \right)$ is irreducible representation  then from the inclusion $A_\la \subset M\left(\overline A \right)$ and the Definition \ref{multiplier_el_defn} one has a natural representation $\rho_\la : A_\la \to B\left(\H \right)$. From the condition (c)  of the Definition \ref{algebraical_finite_covering_category_defn} it follows that $\rho_\la$ is not trivial. If $\rho_{\la_0} : A_\la \to B\left(\H_\la \right)$ is not irreducible there are two irreducible representations $\rho'_{\la_0} : A_\la \to B\left(\H'_{\la_0} \right)$   and $\rho''_{\la_0} : A_\la \to B\left(\H''_{\la_0} \right)$ such that $\rho'_{\la_0} \perp \rho''_{\la_0}$ and $\rho'_{\la_0}, \rho''_{\la_0}\preceq \rho_{\la_0}$. If $\la \ge \la_0$ and $p: \sX_\la \to \sX_{\la_0}$ is a given by the Proposition \ref{spectrum_covering_finite_prop} and then there are are two irreducible representations $\rho'_{\la} : A_\la \to B\left(\H'_\la \right)$   and $\rho''_{\la} : A_\la \to B\left(\H''_\la \right)$ such that $\rho'_{\la} \perp \rho''_{\la}$ and $\rho'_{\la}, \rho''_{\la}\preceq \rho_{\la}$ and \bean 
  	  	p\left(\rho'_{\la} \right)= \rho'_{\la_0},\\
  	  	 p\left(\rho''_{\la} \right)= \rho''_{\la_0}
  	  	\eean
@@ -5094,7 +5094,7 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 	\begin{enumerate}
 		\item [(a)] any object of $\mathfrak{S}$ corresponds to a class of isomorphic objects of $\mathfrak{S}$,
 		\item[(b)]  for any $\nu, \mu\in \La$ such that $\nu >\mu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\mu_\nu:  A_{\mu}\hookto A_\nu$ of  $O^*$-algebras  such that $\pi_\nu =\pi^\mu_\nu \circ \pi_\mu$,
-		\item[(c)] all morphisms of   $\mathfrak{S}$ are described in (b) !!! CHECK !!!.
+		\item[(c)] all morphisms of   $\mathfrak{S}$ are described in (b).
 	\end{enumerate}
 We say that $\mathfrak{S}$ is an \textit{algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S} \in  O^*$-$ \mathfrak{FinAlg}$, and use the following notation
 \be\label{comp_pt_o*_eqn}
@@ -6378,7 +6378,7 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 If $\sX$ is a connected,  weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}) space then a family of sets given by the equation \eqref{top_u_path_eqn} a {basis} for a topology on $\widetilde\sX$. 
 \end{lemma}
 \begin{proof}
-One needs check conditions (a) and (b) !!! CHECK !!! of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b) !!! CHECK !!!. Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From 
+One needs check conditions (a) and (b) of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From 
 \eqref{top_u_path_eqn} it turns out that
 \be\label{top_up_path_eqn}
 \left[\mathfrak p'\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}= \left[\mathfrak p''\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}
@@ -6719,7 +6719,7 @@ from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{
 	x \mapsto \left\| u\left(x \right)\right\| 
 	\eean 
 	are continuous. Since a point $x_0$ is arbitrary the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
-	(b) !!! CHECK !!! If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
+	(b) If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
 	\bean
 	s|_\sU : \sU \to \sU\times E_{x_0},\\
 	x \mapsto\left(x, e_{x_0} \right),
@@ -6861,10 +6861,10 @@ The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
 	\ee
 \end{empt}
 \begin{lemma}
-	A collection of given by the equation \eqref{top_cs_neigh_eqn} subsets satisfies to (a) and (b) !!! CHECK !!! of the Definition \ref{top_base_defn}.
+	A collection of given by the equation \eqref{top_cs_neigh_eqn} subsets satisfies to (a) and (b) of the Definition \ref{top_base_defn}.
 \end{lemma}
 \begin{proof}
-	Condition (a) is evident, let us proof (b) !!! CHECK !!!. If $a^0_{x_0} \in \widehat{\left\{A_x\right\}}$, and  
+	Condition (a) is evident, let us proof (b). If $a^0_{x_0} \in \widehat{\left\{A_x\right\}}$, and  
 	$$\mathfrak{O}\left(\sU', s', \eps' \right), \mathfrak{O}\left(\sU'', s'', \eps'' \right)\subset \widehat{\left\{A_x\right\}}$$ 
 	are given by \eqref{top_cs_neigh_eqn} sets such that $a^0_{x_0}\in \mathfrak{O}\left(\sU', s', \eps' \right)\cap\mathfrak{O}\left(\sU'', s'', \eps'' \right)$ then one has
 	\bean
@@ -6918,9 +6918,9 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \end{lemma}
 
 \begin{proof}
-	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) !!! CHECK !!! of the Definition \ref{operator_fields_continuity_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighborhood of $x_0$ then 
+	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighborhood of $x_0$ then 
 	from $j\left( x_0\right) \in \mathfrak{O}\left(\sU', a, \eps \right)$, and since $j$ is continuous it follows that $\sU\bydef j^{-1} \left(  \mathfrak{O}\left(\sU', a, \eps \right)\right)$ is open. So for all $x\in \sU$ one has $\left\| a_{x}- j\left( x\right) \right\|< \eps$, i.e. the family $\left\{j\left(x\right)\right\}$ is continuous (cf. Definition \ref{op_cont_fields_defn}).\\
-	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. From the condition (b) !!! CHECK !!! of the Definition \ref{operator_fields_continuity_defn} it follows that there is a $b \in \sF$   such that $\left\| a_{x_0}- b_{x_0} \right\| < \eps$, i.e. $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\cap \sU'\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
+	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. From the condition (b) of the Definition \ref{operator_fields_continuity_defn} it follows that there is a $b \in \sF$   such that $\left\| a_{x_0}- b_{x_0} \right\| < \eps$, i.e. $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\cap \sU'\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
 \end{proof}
 \begin{definition}\label{ctr_restr_defn}
 	For any subset $\sV\subset \sX$ 
@@ -7056,7 +7056,7 @@ Below in this section we assume that all topological spaces are  connected and l
 	(a) For every  $\widetilde x_0 \in \widetilde \sX$ there is an open neighborhood $\widetilde \sU$ such that the restriction $\left.p\right|_{\widetilde\sU}$ is injective.	 For any $a \in C\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)$ the function $\text{norm}_a$ is continuous at $x_0= p\left(\widetilde x_0\right)$. Otherwise for all $\widetilde x \in \widetilde\sU$ one has
 	$
 	\text{norm}_{\lift_p\left(a \right) }\left( \widetilde x\right)= \text{norm}_a\left(p\left( \widetilde x\right)  \right)$, hence  $\text{norm}_{\lift_p\left(a \right) }$ is  continuous at $\widetilde{x}_0$.\\
-	(b) !!! CHECK !!! The subspace 
+	(b) The subspace 
 	$$
 	\left\{\left. a_{x_0} \in A_{x_0}~\right|~ a \in C\left(\sX, \left\{A_x\right\}, \sF  \right) \right\}
 	$$
@@ -7144,7 +7144,7 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 	Denote by $B_x$ the norm closure of $\mathring{B}_x$ and suppose $B_x \neq \{0\}$ for any $x \in \sX$.  
 \end{empt}
 \begin{lemma}\label{top_norm_sub_lem} 
-Under the hypotheses \ref{top_norm_sub_empt} the $\C$-space $B$ satisfies to the conditions  (a),(b) !!! CHECK !!! of the Definition \ref{operator_fields_continuity_defn}.
+Under the hypotheses \ref{top_norm_sub_empt} the $\C$-space $B$ satisfies to the conditions  (a),(b) of the Definition \ref{operator_fields_continuity_defn}.
 \end{lemma}
 \begin{proof}
 	
@@ -8112,7 +8112,7 @@ $$
 	\be\label{ctr_pic0_eqn}
 	\pi^1_2=\mathscr C_0\left(p^2_1 \right).
 	\ee
-	(b) !!! CHECK !!! If $g_j \in G_j$ then from (a) of this lemma it follows that there is a covering $q_j : \widetilde{\sX}_j \to \widetilde{\sX}_j$ such that $q_j = p_j \circ q_j$ and $\mathscr C_0\left(q_j \right) = g$. From the Definition  \ref{top_group_of_covering_transformations_defn} it turns out that $q_j \in  G\left(\left.\widetilde \sX_j~\right|\sX \right)$ and one has the isomorphism
+	(b)  If $g_j \in G_j$ then from (a) of this lemma it follows that there is a covering $q_j : \widetilde{\sX}_j \to \widetilde{\sX}_j$ such that $q_j = p_j \circ q_j$ and $\mathscr C_0\left(q_j \right) = g$. From the Definition  \ref{top_group_of_covering_transformations_defn} it turns out that $q_j \in  G\left(\left.\widetilde \sX_j~\right|\sX \right)$ and one has the isomorphism
 	\bean
 	G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right),\\
 	g_j \mapsto q_j.
@@ -9102,7 +9102,7 @@ The following lemma supplies the quantization of coverings with compactification
 	Both $C_0\left(\mathcal  X \right)$ and $C_0\left(\widetilde \sX\right)$ are essential ideals, of $C\left(\mathcal  Y \right)$ and $\widetilde C\left(\widetilde \sY\right)$, hence from the Example \ref{comm_ess_exm} it follows that both $\sX$ and $\widetilde \sX$ are open dense subsets of both $\sX$ and $\widetilde \sX$. It means that both  inclusions $\sX\hookto\sX$ and $\widetilde \sX\hookto \widetilde \sX$ are compactifications. 
 	From $\pi = \widetilde{\pi}|_{C_0\left(\mathcal  X \right)}$  it follows that $\widetilde{p}^{-1}\left({\sX}\right) = \widetilde{\sX}$ so $p = \left.\widetilde{p}\right|_{\widetilde{\sX}}: \widetilde{\sX}\to \sX$ is a covering. From transitivity of action  $G \times \widetilde{\mathcal Y} \to \widetilde{\mathcal Y}$ and the condition $G \times C_0\left( \widetilde{\mathcal X}\right)=  C_0\left( \widetilde{\mathcal X}\right)$ it turns out that the action  $G \times \widetilde{\mathcal X} \to \widetilde{\mathcal X}$ is transitive. From $p = \left.\widetilde{p}\right|_{\widetilde{\sX}}$ it follows that $p$ is a covering with compactification.\\
 	(ii)$\Rightarrow$(i)
-	The map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification, hence there are compactifications $\sX \hookto \sX$,  $\widetilde{\mathcal X} \hookto \widetilde{\mathcal Y}$ and the transitive finite-fold covering $\widetilde{p}:\widetilde{\mathcal Y}\to \sX$ such that $p = \left.\widetilde{p}\right|_{\widetilde{\mathcal X}}$.  Firstly we prove that the quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$ is a finite-fold noncommutative pre-covering, i.e. it satisfies to the conditions  (a)  and (b) !!! CHECK !!! of the Definition \ref{fin_pre_defn}.
+	The map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification, hence there are compactifications $\sX \hookto \sX$,  $\widetilde{\mathcal X} \hookto \widetilde{\mathcal Y}$ and the transitive finite-fold covering $\widetilde{p}:\widetilde{\mathcal Y}\to \sX$ such that $p = \left.\widetilde{p}\right|_{\widetilde{\mathcal X}}$.  Firstly we prove that the quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$ is a finite-fold noncommutative pre-covering, i.e. it satisfies to the conditions  (a)  and (b)  of the Definition \ref{fin_pre_defn}.
 	\begin{enumerate}
 		\item[(a)]
 		From 
@@ -9114,7 +9114,7 @@ The following lemma supplies the quantization of coverings with compactification
 	\end{enumerate}
 	Secondly we prove that 
 	$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$
-	satisfies to the conditions (a), (b) !!! CHECK !!! of the Definition \ref{fin_unitization_defn}.
+	satisfies to the conditions (a), (b) of the Definition \ref{fin_unitization_defn}.
 	\begin{enumerate}
 		\item [(a)] Both maps $\sX \hookto \sY$,  $\widetilde{\mathcal X} \hookto \widetilde{\mathcal Y}$ are compactifications, hence both inclusions  $C_0\left(\sX \right)\hookto C\left(\sY \right)$ and   $C_0\left( \widetilde{\mathcal X}\right) \hookto C\left( \widetilde{\mathcal Y}\right) $ correspond to essential ideals (cf. Example \ref{comm_ess_exm}). It means that the inclusions are unitizations.
 		\item[(b)] From the Theorem \ref{pavlov_troisky_thm} it follows that $C_0\left( \widetilde{\mathcal Y}\right)$ is a finitely generated projective module, it follows that the quadruple
@@ -9315,7 +9315,7 @@ The Theorem  \ref{top_finite_covering_thm}  yields a pure algebraic definition o
 is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}).
 \end{corollary}
 \begin{proof}
-	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) !!! CHECK !!! and (c) of the Definition \ref{fin_weak_defn} is left to the reader.
+	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) and (c) of the Definition \ref{fin_weak_defn} is left to the reader.
 \end{proof}
 
 
@@ -9402,7 +9402,7 @@ a \bydef \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)} g\left(\wi
 a = \desc_p\left( \widetilde f\widetilde a\right)\in \widetilde A'^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}
 \eean	
 where $\desc_p$ is given by the Definitions \ref{top_lift_desc_defn}, \ref{top_lift_sh_desc_defn}. From the isomorphism \eqref{top_st_iso_eqn} and $\left( \widetilde f\widetilde a\right)_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ it turns out that
-	 $a_{p\left( \widetilde x_0\right)}  \notin \mathscr S^R_{p\left( \widetilde x_0\right) }$, i.e. $a \notin R$. On the other hand from \ref{fin_oa_empt} it follows that $$\left(R, \widetilde A', G, \pi\right)$$ is a noncommutative finite-fold  pre-covering of *-algebras, and taking into account the condition  (b) !!! CHECK !!!  of the Definition \ref{fin_pre*_defn} one has $A'^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}=R$ so   $a \in R$. From this contradiction it turns out that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is a maximal admissible algebra.
+	 $a_{p\left( \widetilde x_0\right)}  \notin \mathscr S^R_{p\left( \widetilde x_0\right) }$, i.e. $a \notin R$. On the other hand from \ref{fin_oa_empt} it follows that $$\left(R, \widetilde A', G, \pi\right)$$ is a noncommutative finite-fold  pre-covering of *-algebras, and taking into account the condition  (b) of the Definition \ref{fin_pre*_defn} one has $A'^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}=R$ so   $a \in R$. From this contradiction it turns out that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is a maximal admissible algebra.
 \end{proof}
 
 \subsubsection{Coverings of $O^*$-algebras}\label{top_pd_fin_sec}
@@ -9507,7 +9507,7 @@ is a connected {noncommutative finite-fold  covering} (cf. Definition \ref{fin_d
 	\forall a \in Cont\left( \sX\right)\quad \forall b \in C_c\left( \sX\right) \quad a b \in C_c\left( \sX\right)
 	$$
 	it follows that there is an action $Cont\left( \sX\right)\times  C_c\left( \sX\right)\to C_c\left( \sX\right)$ or using the above notation one has $A\times \mathfrak B\to\mathfrak B$. This action is equivalent to an inclusion  $\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)$  of *-algebras.\\
-	(b) !!! CHECK !!! Similarly to (a) one has a dense right ideal $\widetilde{\mathfrak{B}}\bydef C_c\left( \widetilde \sX\right) \subset \widetilde B\bydef C_0\left( \widetilde \sX\right)$. Any homeomorphism of $\widetilde \sX$ maps compact subsets of $\widetilde \sX$ onto compact ones. It turns out that $G\left(\left.\widetilde \sX~\right|\sX \right)C_c\left( \widetilde \sX\right) = C_c\left( \widetilde \sX\right)$, or using the above notation  one has $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$. Any $G\left(\left.\widetilde \sX~\right|\sX \right)$-invariant element of $C_c\left( \widetilde \sX\right)$ lies in $C_c\left(\sX \right)$ and vice versa, it turns out that
+	(b) Similarly to (a) one has a dense right ideal $\widetilde{\mathfrak{B}}\bydef C_c\left( \widetilde \sX\right) \subset \widetilde B\bydef C_0\left( \widetilde \sX\right)$. Any homeomorphism of $\widetilde \sX$ maps compact subsets of $\widetilde \sX$ onto compact ones. It turns out that $G\left(\left.\widetilde \sX~\right|\sX \right)C_c\left( \widetilde \sX\right) = C_c\left( \widetilde \sX\right)$, or using the above notation  one has $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$. Any $G\left(\left.\widetilde \sX~\right|\sX \right)$-invariant element of $C_c\left( \widetilde \sX\right)$ lies in $C_c\left(\sX \right)$ and vice versa, it turns out that
 	$$
 	C_c\left(\sX \right)= C_c\left( \widetilde{\sX}\right) ^{G\left(\left.\widetilde \sX~\right|\sX \right)} \bydef \left\{\left. \widetilde{b}\in C_c\left( \widetilde{\sX}\right) \right| \forall g \in G\left(\left.\widetilde \sX~\right|\sX \right)\quad g \widetilde b = \widetilde b\right\}.
 	$$
@@ -9520,7 +9520,7 @@ In the above situation  the quadruple $\left(  A ,\widetilde{ A}, G \bydef G\lef
 	an associated with $\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right) ,G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right) \right) $  noncommutative finite-fold covering of *-algebras in the sense of the  Definition \ref{fin_chull_defn}.
 	\end{theorem}
 \begin{proof}
-The construction \ref{top_fin_hilb_empt} is a specialization of  \ref{fin_chull_empt} one. We leave to the reader prove of conditions (a) and (b) !!! CHECK !!! of the Definition \ref{fin_chull_defn}.
+The construction \ref{top_fin_hilb_empt} is a specialization of  \ref{fin_chull_empt} one. We leave to the reader prove of conditions (a) and (b)  of the Definition \ref{fin_chull_defn}.
 \end{proof}
 \begin{remark}
 There    are completions of  ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by norms
@@ -10657,11 +10657,25 @@ From the Lemma \ref{ctr_sheaf_lem} it turns out that for any $\widetilde{x}$ in 
 $$
 \forall \widetilde x' \in \widetilde{ {\sV}}_{\widetilde x}\quad \rep_{  \widetilde{x }'}\left( \widetilde a_{\widetilde{x }}\right)= \rep_{  \widetilde{x }'}\left( \widetilde a'\right)
 $$
-For any $x \in \supp a$ the set $\sU_x \bydef \sU''_x \cap \left( \bigcap_{\widetilde x\in \sV_x}p\left( \right)  \right) 
+For any $x \in \supp a$ the finite intersection  $\sU_x \bydef \sU''_x \cap \left( \bigcap_{\widetilde x\in \sV_x}p\left(\widetilde{ {\sV}}_{\widetilde x} \right)  \right)$ is an open neighborhood of $x$. From $\supp a  \subset  \bigcap_{x \in \supp a }\sU_x$ and taking into account that the support $\supp a$ is compact there is a finite set $\left\{x_1, ..., x_n\right\}\in \supp a$ such that $\supp a \subset \bigcup_{j=1}^n \sU_{x_j}$. If $f \bydef \sum_{j=1}^n f_j$ is a dominated by the family $\left\{\sU_{x_j}\right\}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then 
+$$
+f \widetilde a' = \widetilde{a}'
+$$
+There is a finite sum
+$$
+\widetilde a = \sum_{j = 1}^n f_j \left(\sum_{\widetilde x \in \sV_{x_j}} \widetilde a_{\widetilde x} \right) 
+$$
+then $\widetilde a \in A_0\left(\widetilde \sX \right)$ since every term of the sum  is an element of   $A_0\left(\widetilde \sX \right)$. From our construction it follows that
+$$
+\forall \widetilde x \in \widetilde \sX \quad \rep_{\widetilde x}\left( \widetilde a'\right) = \rep_{\widetilde x}\left( \widetilde a\right)
+$$ 
+or $ \phi'\left( \widetilde a'\right)  =  \phi\left( \widetilde a\right)$ where both $\phi'$ and $\phi$ are given by the equation \eqref{top_kffs_inc_eqn}.  Thus the map $\widetilde a' \mapsto \widetilde a$ is an injective $*$-homomorphism $\widetilde A \hookto A_0\left(\widetilde \sX \right)$. Similarly on can construct the natural inverse $*$-homomorphism $ A_0\left(\widetilde \sX \right)\hookto \widetilde A$.
+
+
 \end{proof}
 
 
-\begin{lemma}\label{top_atomic_lem} Under the hypotheses  of the Definition \ref{top_disconnected_defn} which include
+\begin{lemma}\label{top_atomic_lem} !!! DELETE !!! Under the hypotheses  of the Definition \ref{top_disconnected_defn} which include
 	\begin{itemize}
 		\item the {disconnected  $\overline p: \overline \sX  \to  \sX$ covering of} $p : \widetilde \sX \to \sX$,
 		\item the finite covering category 	$\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}\right\}$ of $p : \widetilde \sX \to \sX$,
@@ -10915,7 +10929,7 @@ then one has:
 
 \begin{proof}
 	(i) Denote by $p: : \widetilde \sX_{\mathrm{res~fin}}\to \sX$ the natural covering.
-	From the construction \ref{top_fin_sec_empt} it follows that the group $G\left( \left.{\widetilde{\sX}}_{\mathrm{res~fin}}~\right|\sX\right)$ is residually finite (cf. the equation \eqref{top_x_fr_eqn} and the Definition \ref{residually_finite_defn}).  From the hypothesis (b) !!! CHECK !!! of this theorem it turns out that for any transitive finite-fold covering $p': \sX' \to \sX$ there is a transitive covering $\widetilde p'_{\text{fin}}: \widetilde \sX_{\mathrm{res~fin}} \to \sX'$  with $ p= p'\circ \widetilde p'$. From the Lemma \ref{top_associded_lem} it follows that 
+	From the construction \ref{top_fin_sec_empt} it follows that the group $G\left( \left.{\widetilde{\sX}}_{\mathrm{res~fin}}~\right|\sX\right)$ is residually finite (cf. the equation \eqref{top_x_fr_eqn} and the Definition \ref{residually_finite_defn}).  From the hypothesis (b) of this theorem it turns out that for any transitive finite-fold covering $p': \sX' \to \sX$ there is a transitive covering $\widetilde p'_{\text{fin}}: \widetilde \sX_{\mathrm{res~fin}} \to \sX'$  with $ p= p'\circ \widetilde p'$. From the Lemma \ref{top_associded_lem} it follows that 
 	 the natural covering $\widetilde{\sX}_{\mathrm{res~fin}}\to   {\sX};$ is the {covering inverse limit of} 
 		of the category
 		\bean
@@ -11502,7 +11516,7 @@ The above equation is equivalent to \eqref{top_inv_qo*_rlimp_eqn} one.
 If a $C^*$-Hilbert ${C_0\left({\sX}\right)}$-module $\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right) _{C_0\left({\sX}\right)}$ corresponds (cf. Definition \ref{infinite_hilb_mod_defn}) to a given by the Theorem \ref{top_main_thm}
 infinite noncommutative covering (cf. Definition \ref{infinite_noncommutative_covering_defn})
 then  $\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left({\sX}\right)}$ satisfies to the 
-conditions (a), (b) !!! CHECK !!!  of the Section \ref{inf_mor_sec}.
+conditions (a), (b)  of the Section \ref{inf_mor_sec}.
 \end{lemma}
 \begin{proof}
 (a) Let $\left(\widetilde{a}, g\right) \in C_0\left(\mathcal{X}\right)\times G\left(\widetilde{\sX}~|~ \mathcal X\right)$ and let $h_{\widetilde{a}, g}\in \End^*_{C_0\left(\sX \right) }\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right) \right)$ is given by \eqref{hm_inc_eqn} i.e. 
@@ -11528,7 +11542,7 @@ From the above equation it turns out that
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
 The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{compact_a_operator_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
 $h_{\widetilde{a}, g}\in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) }  \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$.\\
-(b) !!! CHECK !!! If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
+(b)  If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
 $$
 G_j \bydef \left\{\left. g \in G\left(\widetilde{\sX}~|~ \mathcal X\right) \right| g\supp f_j \cap \supp \widetilde b\neq \emptyset \right\}
@@ -11712,7 +11726,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 \end{lemma}
 \begin{proof}
 	(a) Follows from \eqref{comm_ind_l2_lc_eqn},\\
-	(b) !!! CHECK !!! From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C_c\left(\widetilde M\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, E, \mu\right) \xrightarrow{\approx} L^2\left(\widetilde{\sX}, \widetilde{E}, \widetilde \mu \right)$ is the homomorphism of $C_0\left(\widetilde \sX\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C_0\left(\widetilde \sX\right)$-action coincides with the $C_0\left(\widetilde \sX\right)$-action  the given by \eqref{comp_hilb_actf_eqn}.
+	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C_c\left(\widetilde M\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, E, \mu\right) \xrightarrow{\approx} L^2\left(\widetilde{\sX}, \widetilde{E}, \widetilde \mu \right)$ is the homomorphism of $C_0\left(\widetilde \sX\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C_0\left(\widetilde \sX\right)$-action coincides with the $C_0\left(\widetilde \sX\right)$-action  the given by \eqref{comp_hilb_actf_eqn}.
 \end{proof}
 
 
@@ -11758,7 +11772,7 @@ The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\le
 \begin{proof}
 One needs check that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ satisfies to conditions (a)-(d) of the Definition \ref{spectral_triple_weakly_coh_defn}.\\
 	(a) Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
-	(b) !!! CHECK !!! $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$ for all $\la\in\La$.\\
+	(b)  $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$ for all $\la\in\La$.\\
 	(c)	 From the Theorem \ref{top_main_thm} it turns out that the if  $\widehat \pi: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la\right)  \hookto B\left(\widehat \H\right) $ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) it turns out  that an {algebraical  finite covering category} $
 	\mathfrak{S}_{C\left(M\right)}=
 	\left\{C(M)\hookto C(M_\la)\right\}_{\la \in \La}
@@ -11782,7 +11796,7 @@ One needs check that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left(
 	$$ (cf. Lemma \ref{top_hilb_inf_lem}).
 \end{empt}
 \begin{empt}\label{top_smooth_a_empt}
-	If   $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$ then $\widetilde a$ satisfies to the condition (b) !!! CHECK !!!    of the Definition \ref{smooth_el_defn} then
+	If   $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$ then $\widetilde a$ satisfies to the condition (b)    of the Definition \ref{smooth_el_defn} then
 from  the Lemma \ref{top_compact_la_lem}  there are an open subset $\widetilde{   \mathcal U }$ of $\widetilde M$ and $\la_{\widetilde \sU} \in \La$
 	  such that
 	\begin{itemize}
@@ -11792,7 +11806,7 @@ from  the Lemma \ref{top_compact_la_lem}  there are an open subset $\widetilde{ 
 	\end{itemize}
 \end{empt}
 \begin{lemma}\label{top_smooth_a_lem}
-	Under the hypotheses \ref{top_smooth_a_empt} the element $\widetilde a$ satisfies to the condition (b) !!! CHECK !!! of the Definition \ref{smooth_el_defn} if and only if $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$.
+	Under the hypotheses \ref{top_smooth_a_empt} the element $\widetilde a$ satisfies to the condition (b) of the Definition \ref{smooth_el_defn} if and only if $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$.
 \end{lemma}	
 \begin{proof}
 If $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ then from the Lemma \ref{comm_lift_desc_sum_lem} one has
@@ -13173,7 +13187,7 @@ where   $\desc_q$ is    $q$-descent (cf. Definition \ref{blowing_descent_defn}) 
 f\bydef  \desc_q\left( \overline c\right) \in C \cong C_0\left( \sX\right) 	
 	$$
 	where $\desc_q$ is compactly supported  $q$-descent (cf. Definition \ref{blowing_descent_defn}). 
-From (b) !!! CHECK !!! of the Definition \ref{algebraical_finite_covering_category_defn} it turns out that there is a positive   $\overline a' \in K\left(\overline A \right)_+$ such that
+From (c) of the Definition \ref{algebraical_finite_covering_category_defn} it turns out that there is a positive   $\overline a' \in K\left(\overline A \right)_0$ such that
 	\be\label{blowing_a'_eqn}
 	\begin{split}
 	f = \bt\text{-}\sum_{	g \in  \widehat{G} }g \overline a',\\
@@ -13362,7 +13376,7 @@ If we consider the situation of the Lemma \ref{blowing_weak_inf_cov_lem} then fo
 \end{theorem}
 
 \begin{proof}
-	(i)	One needs check conditions (a) and (b) !!! CHECK !!! of the Definition \ref{good_defn}. 
+	(i)	One needs check conditions (a) and (b) of the Definition \ref{good_defn}. 
 	\begin{enumerate}
 		\item[(a)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then from \ref{blowing_conn_comp_eqn} it follows that there are connected components $\widetilde\sY'$ and $\widetilde \sY''$  such that $\widetilde A' = A_0\left(\widetilde\sY'\right)$ and $\widetilde A'' = A_0\left(\widetilde\sY''\right)$. From the Lemma \ref{top_gxx_lem} it follows that there is $g \in G\left(\left.\overline{\sY} \right|\sY\right)$ such that $\widetilde{\mathcal Y}''= g\widetilde{\mathcal Y}'$. So one has $A_0\left(\widetilde{\sY}'' \right) = gA_0\left(\widetilde{\sY}' \right)$.
 		\item[(b)] For all $\la\in\La$ a homomorphism $ G\left(\left. A_0\left( \widetilde \sY\right) ~\right|~A \right)\to G\left(\left. A_0\left( \sY_\la\right) ~\right|~A \right)$ is naturally equivalent to an epimorphism $ G\left(\left. \widetilde \sY ~\right|~\sY \right)\to G\left(\left. \sY_\la ~\right|~\sY \right)$.
@@ -13695,10 +13709,10 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\item[(b)] There is an %(strong) 
 		unital  noncommutative finite-fold covering (resp. unital  noncommutative finite-fold quasi-covering)	$\left(B ,\widetilde{B}, G,\widetilde{\pi} \right)$ such that $\pi =\widetilde{\pi}|_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
 	\end{enumerate}
-	We need prove that the quadruple $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)$ satisfies to conditions (a), (b) !!! CHECK !!! the Definition \ref{fin_unitization_defn}.\\
+	We need prove that the quadruple $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)$ satisfies to conditions (a), (b) the Definition \ref{fin_unitization_defn}.\\
 	(a)
-	Let $\mathcal K^+$ be the  unitisation given by \ref{stab_uni_empt}. Algebra $A \otimes \mathcal K$ (resp. $\widetilde{A} \otimes \mathcal K$) is an essential ideal of $B \otimes \mathcal K^+$ (resp. $\widetilde{B} \otimes \mathcal K^+$), i.e. both ${A} \otimes \mathcal K \hookto B \otimes \mathcal K^+$ and $\widetilde{A} \otimes \mathcal K \hookto \widetilde{B} \otimes \mathcal K^+$ are unitizations. \\
-	(b) !!! CHECK !!! The quadruple 
+	Let $\mathcal K^+$ be the  unitization given by \ref{stab_uni_empt}. Algebra $A \otimes \mathcal K$ (resp. $\widetilde{A} \otimes \mathcal K$) is an essential ideal of $B \otimes \mathcal K^+$ (resp. $\widetilde{B} \otimes \mathcal K^+$), i.e. both ${A} \otimes \mathcal K \hookto B \otimes \mathcal K^+$ and $\widetilde{A} \otimes \mathcal K \hookto \widetilde{B} \otimes \mathcal K^+$ are unitizations. \\
+	(b) The quadruple 
 	$\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering, hence $\left( B \otimes \K^+, \widetilde{B}  \otimes \K^+, G, \widetilde{\pi}  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering. 
 	Since $\left(B ,\widetilde{B}, G \right)$ is an unital  noncommutative finite-fold covering the algebra $\widetilde{B}$ is a finitely generated $B$ module, i.e. there are $\widetilde{b}_1, \dots , \widetilde{b}_n \in \widetilde{B}$ such that any $\widetilde{b} \in\widetilde{B}$ is given by
 	$$
@@ -14447,7 +14461,7 @@ Let $\left(X, Y\right)$ be a sub-unital operator space (cf. Definition \ref{op_s
 	Under the hypotheses of the Definition \ref{ctr_oa_defn} the $C^*$-algebra $A$ is the $C^*$-envelope of $\left(X, Y \right)$ (cf. Definition \ref{op_su_env_defn}), i.e. $A = C^*_e\left(X, Y \right)$. 
 \end{lemma}
 \begin{proof}
-	Firstly we prove that the minimal unitization $A^+$ (cf. Definition \ref{multiplier_min_defn}) of $A$  is the $C^*$-envelope of $Y$ (cf. Definition \ref{c_env_sp_defn}).  Denote by $k: Y \hookto A^+$ the natural inclusion. If $\left( C^*_e\left(Y\right) , j\right)$ is the $C^*$-envelope of $Y$ then from the Definition  \ref{c_env_sp_defn} it follows that there is the surjective unital $*$-homomorphism  $\pi: A^+ \to  C^*_e\left(Y\right)$ such that $j = \pi\circ k$. If we represent $A^+ = \C~ 1_{A^+} \oplus A$ then clearly $\ker \pi \subset 0 \oplus A \cong A$. If $\ker\pi \neq \{0\}$ then $\ker \pi$ is a closed ideal which corresponds to an a nonempty open subset $\sU \subset \sX$ where $\sX$ is the spectrum of $A$ (cf. Theorem  \ref{jtop_thm}). If $x_0 \in \sU$ is any point then from (b) !!! CHECK !!! of the Definition \ref{ctr_oa_defn} there is $a \in X$ such that $\rep_{x_0} \left( a\right)\neq 0$. Since the space $\sX$ is Hausdorff there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$ and $\supp f \subset \sU$. Clearly $fa \neq 0$. From (a) of the Definition \ref{ctr_oa_defn} it follows that $fa \in Y$, otherwise one has $k\left( fa\right)  \in \ker \pi$. Hence $\pi \circ k$ is not injective, so there is a contradiction. It turns out that $\ker \pi =  \{0\}$, i.e. $\pi$ is injective. Otherwise $\pi$ is surjective  the Definition  \ref{c_env_sp_defn}, hence $\pi: A^+ \cong   C^*_e\left(Y\right)$ is an isomorphism.
+	Firstly we prove that the minimal unitization $A^+$ (cf. Definition \ref{multiplier_min_defn}) of $A$  is the $C^*$-envelope of $Y$ (cf. Definition \ref{c_env_sp_defn}).  Denote by $k: Y \hookto A^+$ the natural inclusion. If $\left( C^*_e\left(Y\right) , j\right)$ is the $C^*$-envelope of $Y$ then from the Definition  \ref{c_env_sp_defn} it follows that there is the surjective unital $*$-homomorphism  $\pi: A^+ \to  C^*_e\left(Y\right)$ such that $j = \pi\circ k$. If we represent $A^+ = \C~ 1_{A^+} \oplus A$ then clearly $\ker \pi \subset 0 \oplus A \cong A$. If $\ker\pi \neq \{0\}$ then $\ker \pi$ is a closed ideal which corresponds to an a nonempty open subset $\sU \subset \sX$ where $\sX$ is the spectrum of $A$ (cf. Theorem  \ref{jtop_thm}). If $x_0 \in \sU$ is any point then from (b) of the Definition \ref{ctr_oa_defn} there is $a \in X$ such that $\rep_{x_0} \left( a\right)\neq 0$. Since the space $\sX$ is Hausdorff there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$ and $\supp f \subset \sU$. Clearly $fa \neq 0$. From (a) of the Definition \ref{ctr_oa_defn} it follows that $fa \in Y$, otherwise one has $k\left( fa\right)  \in \ker \pi$. Hence $\pi \circ k$ is not injective, so there is a contradiction. It turns out that $\ker \pi =  \{0\}$, i.e. $\pi$ is injective. Otherwise $\pi$ is surjective  the Definition  \ref{c_env_sp_defn}, hence $\pi: A^+ \cong   C^*_e\left(Y\right)$ is an isomorphism.
 	
 	 Secondly we prove that $A = C^*_e\left(X, Y \right)$. Denote by $A' \stackrel{\text{def}}{=} C^*_e\left(X, Y \right) \subset  C^*_e\left(Y \right)$. Let us prove that $A'$ is a $C_0\left(\sX\right)$-module. Select $f \in C_0\left( \sX\right)$. 	 
 	For any $a' \in A'$ and $\eps > 0$ there is a polynomial
@@ -14515,7 +14529,7 @@ Our following constructions require an analog of the Dini's theorem.
 \end{lemma}
 \begin{proof}
 	Put $b_\la\bydef a-a_\la\in A$. We have to prove that $b_\la \to 0$ with respect to the $C^*$-norm topology.
-	Let $\eps> 0$ be given. From (b) !!! CHECK !!! of the Lemma \ref{hausdorff_spectrum_lem} it turns out that for all $\la\in \La$ the map
+	Let $\eps> 0$ be given. From (b) of the Lemma \ref{hausdorff_spectrum_lem} it turns out that for all $\la\in \La$ the map
 	$$
 	x\mapsto \left\|  \rep_x\left(b_\la\right)\right\|
 	$$
@@ -14862,13 +14876,13 @@ Let us consider the given by \ref{ctr_fin_op_empt} situation. If $\sX$ is a conn
 \eea 
 \end{theorem}
 \begin{proof}
-	Firstly we proof that $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G\left(\left.\widetilde\sX \right|\sX\right), \left(\pi_X, \pi_Y \right) \right)$ is a finite-fold  covering  for each transitive finite-fold covering $p: \widetilde\sX \to\sX$. One needs check (a) and (b) !!! CHECK !!! of the Definition \ref{fin_op_defn}.\\
+	Firstly we proof that $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G\left(\left.\widetilde\sX \right|\sX\right), \left(\pi_X, \pi_Y \right) \right)$ is a finite-fold  covering  for each transitive finite-fold covering $p: \widetilde\sX \to\sX$. One needs check (a) and (b) of the Definition \ref{fin_op_defn}.\\
 (a)	From the Theorem \ref{ctr_fin_thm} it turns out that
 	$$
 	\left( C^*_e\left( X,  Y \right), \widetilde{A}, G\left(\left.\widetilde\sX \right|\sX\right), C_0\left(p \right)  \right)
 	$$  a finite-fold  noncommutative covering. From $X_x \subset A_x$ for any $x \in \sX$, $\widetilde X_{\widetilde x}\cong X_{p\left( \widetilde x\right) }$ and $\widetilde A_{\widetilde x}\cong A_{p\left( \widetilde x\right) }$ it follows that $C_0\left(\widetilde X_{\widetilde x}, \widetilde Y_{\widetilde x} \right) = \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde{\sX}$ (cf. notation of the Definition \ref{ctr_oa_defn}).
 	Applying  the Lemma \ref{ctr_oa_lem} one has $\widetilde A = C^*_e\left(\widetilde X, \widetilde Y \right)$, clearly the following condition holds $\pi_Y = \left.\rho\right|_Y$, $\pi_X = \left.\rho\right|_X$.\\
-(b) !!! CHECK !!!
+(b)
 If $\widetilde X' \subset C^*_e\left(\widetilde X, \widetilde Y \right)$ is a $\C$-linear space  such that $X = \widetilde X' \cap  C^*_e\left( X,  Y \right)$ and $G\widetilde X'= \widetilde X'$ then from $\widetilde X_{ \widetilde x }\cong X_{p\left( \widetilde x\right) }$ it follows that $\widetilde X'_{ \widetilde x }\subset \widetilde X_{ \widetilde x }$ for all $ \widetilde x \in \widetilde \sX$.  From the Lemma \ref{top_sub_eq_lem} it follows that $\widetilde X' \subset\widetilde X$.
 
 Secondly  we proof that any noncommutative finite-fold  covering $$\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\pi_X, \pi_Y \right) \right)$$  of the subunital operator space $\left(X, Y\right)$ yields  the transitive finite-fold covering $p: \widetilde\sX \to\sX$. From  (a) of the Definition \ref{fin_op_defn} it follows that $$\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\pi_X, \pi_Y \right) \right)$$ corresponds to noncommutative covering $\left( C^*_e\left( X,  Y \right), C^*_e\left(\widetilde X, \widetilde Y \right), G, \rho \right)$ of $C^*$-algebras. However  $C^*_e\left( X,  Y \right)$ has continuous trace, so and taking into account the Theorem \ref{ctr_fin_thm} on can find required covering $p: \widetilde \sX\to \sX$.
@@ -15140,33 +15154,16 @@ The details of the proof are left to the reader.
 \subsection{Coverings of $C^*$-algebras}
 \paragraph*{}
 Here we prove that any infinite covering of $C^*$-algebra with Hausdorff spectrum $\sX$ corresponds to a transitive covering of $\sX$.
+\begin{empt}
+!!!
+\end{empt}
+\begin{theorem}
+!!!
+\end{theorem}
 
 
 
-\begin{lemma}\label{blowing_atomic_lem} Under the hypotheses  of the Lemma \ref{ctr_sufficient_inf_lem} 
-	following conditions hold:
-	\begin{itemize}
-		\item [(i)] the spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn} !!! CHECK Remark \ref{unital_rem} !!!) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inverse_limit_defn}),
-		\item[(ii)] if $\overline \H_a$ is the space of the atomic representation $\overline{\pi}_a :A_0\left(\overline  \sX\right) \hookto B\left( \overline \H_a \right)$ (cf. Definition \ref{atomic_repr_defn}) and $\widehat \H_a$ is the space of the atomic representation $\widehat{\pi}_a : \widehat A \hookto B\left( \widehat \H_a \right)$ then there is the natural isomorphism
-		$$
-		\overline \H_a \cong \widehat \H_a,
-		$$.*
-		\item[(iii)] if $\left\{a_\la \in \widehat A\right\}_{\la \in \La}$ is a bounded strongly convergent in $B\left( \widehat \H_a \right)$ net then the strong limit $\overline a= \lim \widehat\pi_a\left(a_\la \right)$ is given by
-		\be\label{blowing_strong_eqn}
-		\begin{split}
-			\overline a\xi=\overline a \left(...~, \underbrace{ \xi_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right)= \left(...~, \underbrace{ \overline a_{\widehat x}\xi_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right); \\
-			\xi=\left(...~, \underbrace{ \xi_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right) \in {\widehat \H}_{a} =\bigoplus_{\widehat x\in \widehat \sX} \widehat\H_{ \widehat x}
-		\end{split}
-		\ee
-		where $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is the strong limit
-		\be\label{blowing_atomic_eqn}
-		a_{\widehat x}  = \lim_{\la \in \La }\rep_{ \widehat{x}}\left( a_\la\right).
-		\ee 
-	\end{itemize}
-\end{lemma}
-\begin{proof}
-The proof ot this lemma is similar to \ref{top_atomic_lem} one.
-\end{proof}
+
 \subsection{Coverings of operator spaces}
 \paragraph*{} Here we consider the generalization of the Theorem  \ref{ctr_main_thm}.
 \begin{empt}\label{ctr_op_main_empt}
@@ -16027,7 +16024,7 @@ $$
 \overline a \in \sum_{g\in G_0}\overline a_g \quad \overline a_g\in 
  g C^*_r\left(\overline M|_{\overline \sU}, \overline \F|_{\overline \sU} \right) 
 $$
-There is $g'\in G_0$ such that $\overline a'_{g'}$ is represented by $f_{\overline a_{g'}}: g'\overline \sZ \to \K\left( L^2\left( \mathcal N\right)\right)$ such that $f_{\overline a_{g'}}\left( g'\overline z\right) \neq 0$. If $\overline a'' \bydef g'^{-1}\overline a'$ and $e \in \widehat{G}$ is the unity of group then $\overline a''_{e}$  represented by $f_{\overline a''_{e}}: \overline \sZ \to \K\left( L^2\left( \mathcal N\right)\right)$ such that $f_{\overline a''_{e}}\left(\overline z \right)\neq 0$. If $g' \left( G_0\setminus \{e\}\right)  = \left\{g_1,...,g_n \right\}$ then there is $\la_0\in \La$ such that  $g_j \notin \ker\left( \widehat{G}\to  G\left(\left.M_{\la_0}\right| M\right) \right)$ for all $j\in 1,..., n$. If $a_\la \bydef \lift^{t_\la}_{\overline p_\la\left(\overline \sZ \right) }\left(a \right) \in A_\la$ and taking into account $ A_\la\subset M\left(\overline A' \right)$ (cf. (b) !!! CHECK !!! of the Definition \ref{algebraical_finite_covering_category_defn}) one has  $\overline a \bydef a_\la\overline a'' \in \overline A'$. Moreover $\overline a\in  C^*_r\left(\overline M|_{\overline \sU}, \overline \F|_{\overline \sU} \right)$ From our construction it follows that
+There is $g'\in G_0$ such that $\overline a'_{g'}$ is represented by $f_{\overline a_{g'}}: g'\overline \sZ \to \K\left( L^2\left( \mathcal N\right)\right)$ such that $f_{\overline a_{g'}}\left( g'\overline z\right) \neq 0$. If $\overline a'' \bydef g'^{-1}\overline a'$ and $e \in \widehat{G}$ is the unity of group then $\overline a''_{e}$  represented by $f_{\overline a''_{e}}: \overline \sZ \to \K\left( L^2\left( \mathcal N\right)\right)$ such that $f_{\overline a''_{e}}\left(\overline z \right)\neq 0$. If $g' \left( G_0\setminus \{e\}\right)  = \left\{g_1,...,g_n \right\}$ then there is $\la_0\in \La$ such that  $g_j \notin \ker\left( \widehat{G}\to  G\left(\left.M_{\la_0}\right| M\right) \right)$ for all $j\in 1,..., n$. If $a_\la \bydef \lift^{t_\la}_{\overline p_\la\left(\overline \sZ \right) }\left(a \right) \in A_\la$ and taking into account $ A_\la\subset M\left(\overline A' \right)$ (cf. (b) !!! !!CHECK !!! of the Definition \ref{algebraical_finite_covering_category_defn}) one has  $\overline a \bydef a_\la\overline a'' \in \overline A'$. Moreover $\overline a\in  C^*_r\left(\overline M|_{\overline \sU}, \overline \F|_{\overline \sU} \right)$ From our construction it follows that
 \begin{enumerate}
 	\item $\overline a \in C^*_r\left(\overline M|_{\overline \sU}, \overline \F|_{\overline \sU} \right)$,
 	\item $\overline a$ is represented by $f_{\overline a}: \overline \sZ \to \K\left( L^2\left( \mathcal N\right)\right)$ such that $f_{\overline a}\left( z\right)\neq 0$. 
@@ -16585,7 +16582,7 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 		\item[(i)] The quadruple $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ is a {noncommutative finite-fold  pre-covering}. (cf. Definition \ref{fin_pre_defn}).
 		\item[(ii)] $C\left(\T^{n}_{\widetilde{\Th}} \right)$ is a finitely generated $C\left(\T^{n}_{{\Th}} \right)$-module.
 	\end{enumerate}
-	(i) One needs check (a), (b) !!! CHECK !!!  of the Definition \ref{fin_pre_defn}.
+	(i) One needs check (a), (b)  of the Definition \ref{fin_pre_defn}.
 	\begin{enumerate}
 		\item[(a)] Follows from the Lemma \ref{nt_fin_cov_gr_lem}.
 		\item[(b)] Suppose
@@ -17874,7 +17871,7 @@ taking into account $\left\|P\right\|=\left\|gP\right\|$  one has
 \end{lem}
 \begin{proof}
 	Clearly $\overline{a}$ is a rank-one operator in $B\left( L^2\left( \R^{2N}\right)_\parallel\right) $.	Let $j_0 \in \N$, $\eps > 0$ and  $z \in  C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$. 	Denote by $G_j\bydef \ker\left(  \widehat G\to  \Z^{2N}_{m_j}\right)$.
-	One needs check conditions (a)  and (b) !!! CHECK !!! of the Definition \ref{special_element_defn}.\\ 
+	One needs check conditions (a)  and (b) of the Definition \ref{special_element_defn}.\\ 
 	(a)  From the Lemma \ref{nt_w*_lem} if follows that for any $j \in \N$ there is $a'_j \in C\left( \T^{2N}_{\th/m_j^2}\right)$ such that
 	\be\label{nt_w_spec_eqn}
 	\sum_{g\in G_j } g \overline a   = \pi^\oplus\left(a_j \right) 
@@ -17899,7 +17896,7 @@ taking into account $\left\|P\right\|=\left\|gP\right\|$  one has
 	\end{split}
 	\ee
 	are strongly convergent. The equations \eqref{nt_s1_eqn} and \eqref{nt_s3_eqn} are specializations of the equations \eqref{spec_a_eps_eqn}.\\	
-	(b) !!! CHECK !!!  Select $\eps > 0$, $j_0 \in \N$ and
+	(b) !!! !!CHECK !!!  Select $\eps > 0$, $j_0 \in \N$ and
 	for every $z \in C\left( \T^{2N}_{\th/m_j^2}\right)$. Let  $a_{j_0} \in C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ is given by \eqref{nt_w_spec_eqn} and denote by $C \bydef \left\|a_{j_0} \right\|$. There is $\delta > 0$ such that $\delta^2 + 2C\delta < \eps/ 2$. Since $\Coo\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ is dense in $C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ there is $y \in \Coo\left( \T^{2N}_{\th/m_{j_0}^2}\right)$ such that $\left\| y - z\right\| < \delta$. From $y^*\overline a y \in \SS\left(\R^{2N}_\th\right)$ and the Lemma \ref{nt_w_spec_p_lem} it follows that there is $k > j_0$ such that
 	
 	\bean
@@ -18955,7 +18952,7 @@ In the above situation the triple $\left( B, \widetilde B, \Z_k\right)$ is a non
  \be\label{qg_c_eqn}
  C \bydef \widetilde C^{\Z_k} \bydef \left\{\left.  \widetilde c \in  \widetilde B \right| \forall g \in \Z_k\quad g  \widetilde c = \widetilde c\right\}
  \ee
- then the inclusion $B\subset C$ is also unitization, i.e. the condition (a) of the Definition \ref{fin_unitization_defn} holds. Let us prove (b) !!! CHECK !!!, i.e. $\left(C, \widetilde{C}, G, \pi_C \right)$ is  a %(strong) 
+ then the inclusion $B\subset C$ is also unitization, i.e. the condition (a) of the Definition \ref{fin_unitization_defn} holds. Let us prove (b), i.e. $\left(C, \widetilde{C}, G, \pi_C \right)$ is  a %(strong) 
  unital  noncommutative finite-fold quasi-covering. From \eqref{qg_c_eqn}  it follows that $\left(C, \widetilde{C}, G, \pi_C \right)$ is  noncommutative finite-fold quasi-covering \ref{fin_quasi_defn}
   For any $t\in \Z$ denote by $\widetilde c_t \bydef 1_{C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+}~u_t$ (cf equation \eqref{discr_cr_prod_cc_eqn}). We leave to the reader the proof of the following equation
  $$
@@ -19154,7 +19151,7 @@ A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is 
 \begin{enumerate}
 	\item [(i)]
  to each $\mathscr{C}$-object $a$, a $\mathscr{D}$-object $F(a)$; 
-\item[(ii)] to each $\mathscr{C}$-arrow $f:a \to b$ a $\mathscr{D}$-arrow $F(f): F(a) \to F(b) !!! CHECK !!!$, 
+\item[(ii)] to each $\mathscr{C}$-arrow $f:a \to b$ a $\mathscr{D}$-arrow $F(f): F(a) \to F(b)$, 
 such that 
 \begin{enumerate}
 	\item[(a)]  $F\left(\mathbb 1_a\right) = \mathbb 1_{F\left(a\right)}$ for all  $\mathscr{C}$-objects $a$, i.e. the identity arrow on $a$ is assigned 
@@ -19183,7 +19180,7 @@ A functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is said to be \textit{faithfu
 A \textit{contravariant} functor is one that reverses direction by mapping domains 
 to codomains and vice versa. 
 Thus $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is a contravariant functor if it assigns to $f: a\to b$ an 
-arrow $F(f):F(b) !!! CHECK !!!\to F(a)$, so that $F\left(\mathbb{1}_a\right)= \mathbb{1}_{F(a)}$ as before, but now 
+arrow $F(f):F(b)\to F(a)$, so that $F\left(\mathbb{1}_a\right)= \mathbb{1}_{F(a)}$ as before, but now 
 $$
 F\left( g\circ f\right) = F\left( f\right)\circ  F\left( g\right). 
 $$
@@ -19214,7 +19211,7 @@ $F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$ be two functors.
 \end{tikzpicture}
 \\ 	
 that commutes.
-%a F(a) Ta > G(a) Ftf)  F(b) !!! CHECK !!! T"  G(b) !!! CHECK !!! that commutes. Thus  and provide a categorical way of turning the F-picture of f:a-*b into its G-picture. 
+%a F(a) Ta > G(a) Ftf)  F(b) T"  G(b) that commutes. Thus  and provide a categorical way of turning the F-picture of f:a-*b into its G-picture. 
 In summary then, a \textit{natural transformation} from functor $F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$  to functor $F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$  is an assignment $\tau$ that provides, for each $\mathscr C$-object $\mathscr D$-arrow $\tau_a :F(a) \to G(a)$, such that for any $\mathscr C$-arrow $f:a\to b$, the above diagram commutes in $\mathscr D$, i.e. $\tau_b \circ F(f)= G(f)\circ \tau_a$. We use the symbolism $\tau: F\to G$, or $F \xrightarrow{\tau}G$, to denote that $\tau$ is a natural transformation from $F$ to $G$. The arrows $\tau_a$ are called the \textit{components} of $a$. Now if each component $\tau_a$ of $a$ is an iso arrow in $\mathscr D$ then  case we call $\tau$ a \textit{natural isomorphism}. Each $\tau_a: F(a)\to G(a)$ then has an inverse $\tau_a^{-1}: G(a) \to F(a)$, and these $\tau^{-1}_a$'s form the components of a natural isomorphism $\tau^{-1}: G \to F$. We denote natural isomorphism by $\tau: F \cong G$. 
 \begin{example}
 The identity natural transformation $\mathbb{1}_F :F\to F$ assigns to each object $a$, the identity arrow $\mathbb{1}_{F(a)}:F(a)\to F(a)$. This is clearly a natural isomorphism. 
@@ -19370,7 +19367,7 @@ maps, and topological *-algebras over $\C$ and continuous $*$-homomorphisms. (Th
 %		(m-1-2) edge node [right] {$f_x$} (m-2-2);
 %	\end{tikzpicture}
 %	\\
-%		of $f_x$ along $g$ exists, and 	$\left\{\left.	b\times_a a_x \xrightarrow{g_x} b \right| x\in X\right\}\in Cov(b) !!! CHECK !!!$.
+%		of $f_x$ along $g$ exists, and 	$\left\{\left.	b\times_a a_x \xrightarrow{g_x} b \right| x\in X\right\}\in Cov(b)$.
 %\end{enumerate}
 %The pair $\left(\mathscr C, Cov\right)$ of the category $\mathscr C$ with the Grothendieck topology $Cov$ is called a \textit{site}. 
 
@@ -19557,7 +19554,7 @@ connected.
 \begin{definition}\label{top_path_connected_defn}\cite{munkres:topology}
 %Definition. 
 Given points $x$ and $y$ of the space $\sX$, a \textit{path} in $\sX$ from $x$ to $y$ is a continuous map $f: \left[a, b\right]\to \sX$ of some closed interval in the real line into $\sX$, such
-that $f(a) = x$ and $f(b) !!! CHECK !!! = y$. A space $\sX$ is said to be \textit{path connected} if every pair of
+that $f(a) = x$ and $f(b) = y$. A space $\sX$ is said to be \textit{path connected} if every pair of
 points of $\sX$ can be joined by a path in $\sX$.
 \end{definition}
 
@@ -19934,7 +19931,7 @@ Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_def
 \end{definition}
 
 \begin{remark}\label{triangle_ineq_rem}
-	The condition (b) !!! CHECK !!! of the Definition \ref{metric_space_defn} is said to be the \textit{triangle inequality}. If $Y$ is a normed vector space then there is a distance function on $Y$ such that
+	The condition (b) of the Definition \ref{metric_space_defn} is said to be the \textit{triangle inequality}. If $Y$ is a normed vector space then there is a distance function on $Y$ such that
 	$$
 	d(x, y)\bydef \left\|x - y \right\| \quad \forall x, y \in Y.
 	$$
@@ -23926,7 +23923,7 @@ homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 		\textit{abstract local operator space}. %  We claim that local space should be a closed subspace of multinormed *-algebra $A$ such that matrix seminorms of $E$ come from the natural matrix seminorms of $A$.
 	\end{definition}
 \begin{definition}\label{multinormed_a_defn}\cite{dosi:multi}
-A seminorm $p$ on a unital associative algebra $A$ is called a \textit{multiplicative seminorm} if $p(1_A) = 1$ and $p(ab) \le p(a)p(b) !!! CHECK !!!$ for all $a, b \in A$. A multiplicative seminorm on an
+A seminorm $p$ on a unital associative algebra $A$ is called a \textit{multiplicative seminorm} if $p(1_A) = 1$ and $p(ab) \le p(a)p(b)$ for all $a, b \in A$. A multiplicative seminorm on an
 associative *-algebra A is said to be a \textit{$C^*$-seminorm} if $p\left(a^*\right)= p(a)$ and $p\left(a^*a\right)= p(a)^2$ for
 all $p\in A$. A complete polynormed  algebra with a defining family of multiplicative seminorms (respectively, $C^*$-seminorms) is called an \textit{Arens–Michael algebra} (respectively, \textit{multinormed
 $C^*$-algebra}).
@@ -24165,7 +24162,7 @@ $C^*$-algebra}).
 	
 	We recall that an unbounded $C^*$-seminorm $p$ on a partial *-algebra $\mathfrak{A}$ is a seminorm defined on a partial $*$-subalgebra $D(p)$ of $\mathfrak{A}$, the domain of $p$, with the properties:
 	\begin{itemize}
-		\item $p(ab) ≤ p(a)p(b) !!! CHECK !!!$, whenever $ab$ is well-defined;
+		\item $p(ab) ≤ p(a)p(b)$, whenever $ab$ is well-defined;
 		\item $p\left(a^*a \right) = p\left(a \right)^2$  whenever $a^*a$ is well-defined
 	\end{itemize}
 	
@@ -25248,11 +25245,11 @@ and~$\overline\E$ also gives an obvious way to extend $J$ to~$\widetilde\H$:
 Let $\B \bydef \End_\A \E$, and recall that $\E$ is a left $\B$-module.
 Then
 \be\label{st_left_eqn}
-\rho(b) !!! CHECK !!! : s \ox \xi \ox \bar t \longmapsto b\,s \ox \xi \ox \bar t
+\rho(b) : s \ox \xi \ox \bar t \longmapsto b\,s \ox \xi \ox \bar t
 \ee
 yields a representation $\rho$ of $\B$ on~$\widetilde\H$, satisfying
 \be\label{st_right_eqn}
-\rho^0(b) !!! CHECK !!! \bydef \widetilde J \rho(b^*) \widetilde J^\7
+\rho^0(b) \bydef \widetilde J \rho(b^*) \widetilde J^\7
 : s \ox \xi \ox \bar t \longmapsto s \ox \xi \ox \bar t\,b,
 \ee
 where $\bar t\,b \bydef \overline{b^*t}$, of course. 
@@ -25384,7 +25381,7 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 		A {\it one-parameter group of automorphisms} of $A$ is a map
 		$\varphi: \mathbb{R} \times A \to A\,,~(\tau,a) \mapsto \varphi(\tau,a) =\varphi_\tau(a)$, such that
 		\begin{itemize}
-			\item[(i)] $\varphi_\tau(a\,b) = \varphi_\tau(a) \,\varphi_\tau(b) !!! CHECK !!!$, for all $\tau\in\mathbb{R}$ and $a,b\in A$
+			\item[(i)] $\varphi_\tau(a\,b) = \varphi_\tau(a) \,\varphi_\tau(b)$, for all $\tau\in\mathbb{R}$ and $a,b\in A$
 			\item[(ii)] $\varphi_0 =\mathrm{id}_A$
 			\item[(iii)] $\varphi_{\tau+\sigma} = \varphi_\tau\circ\varphi_\sigma$, for all $\tau,\sigma\in\mathbb{R}$
 		\end{itemize}
