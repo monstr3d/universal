@@ -12189,15 +12189,16 @@ From \eqref{blowing_su_eqn} it follows that
 	The Definition \ref{blowing_supp_defn} complies with the Definition  \ref{top_support_defn} (cf. Example \ref{blowing_hausdorff_exm}).
 \end{remark}
 
-\begin{remark}\label{blowing_compact_rem}
-	From the Lemma \ref{blowing_compact_lem}
-It follows that the set of elements with compact support is dense in $A$.
-\end{remark}
+
 \begin{lemma}\label{blowing_pedersen_compact_lem}
-If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_supp_defn}) is compact.
+If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_supp_defn}) is compact, i.e.
+\be\label{blowing_pedersen_compact_eqn}
+K\left(A \right)\subset A_c
+\ee 
+where $A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn}).
 \end{lemma}
 \begin{proof}
-If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Remark \ref{blowing_compact_rem}).
+If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).
  If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn}) then there is $\xi \in \H$ such that
 \bean\label{blowing_ac_eqn}
 \forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
@@ -12219,11 +12220,6 @@ $$
 \left( \xi, \rho\left( c \right) \xi\right)- \left( \xi, \rho\left( a \right) \xi\right)> \frac{\eps}{2}
 $$
 Above condition contradicts with \eqref{blowing_ac_eqn} so $a \le c$.
-From $a, c > 0$ it follows that
-\bean
-s\text{-}\supp a = r\text{-}\supp a = \supp a,\\
-s\text{-}\supp c = r\text{-}\supp c = \supp c
-\eean
 If $\supp a \subsetneqq \supp c$ then there is a nonempty  open set  $\sU \subset \supp a\setminus \supp c$. For any $f \in C_0\left(\sU \right)\setminus \{0\}$ one has
 \bean
 faf^* > 0,\\
@@ -12235,9 +12231,6 @@ However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is no
 	The Lemma \ref{blowing_pedersen_compact_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
 \end{remark}
 
-\begin{remark}\label{blowing_compact_pedersen_rem}
-	From the Lemma \ref{blowing_pedersen_compact_lem} it  follows that $K\left( A\right) \subset A_c$ where $A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn})
-\end{remark}
 
 \begin{empt}\label{blowing_strict_empt} 
 	Suppose that $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sU\right)}$ where $\Xi\left( \sU\right)$ is given by the Exercise \ref{top_u_net_exer} net and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
@@ -12316,17 +12309,28 @@ i.e. $_\sU A_\sU = A_1$. If	$\sU$ is not connected then there is a disjoint unio
 
 
 \begin{lemma}\label{blowing_ajk_defn}
-	Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$. If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ then any element $a \in K\left(A \right)$ of the Pedersen's ideal of $A$ is given by
+	Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$. If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ then any element $a \in A_c$ of  {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn}) is given by
 \be\label{blowing_ajk_eqn}
 a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \exists \a \in \mathscr A\quad \supp f_j \subset \sU_\a
 \ee
 \end{lemma}
+$A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn})
 \begin{proof}
-From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_supp_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
+From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_supp_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
 $$
 a = faf = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
 $$
 \end{proof}
+\begin{empt}\label{blowing_pedersen_decomp_empt}
+	If $A$ is  a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$, $b \in A_+$  and $f_{\eps/2}\left(b \right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} then $c \in K\left(A \right)_0$ (cf. the Lemma \ref{pedersen_eps_lem}), so $c\in A_c$ (cf. the equation  \ref{blowing_pedersen_compact_eqn}). If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ and $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $f_{\eps/2}\left(b \right)$ then 
+	$$
+	f_{\eps/2}\left(b \right)= f f_{\eps/2}\left(b \right) f=  \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
+	$$
+	From the above equation it follows that
+	\be\label{blowing_pedersen_decomp_eqn}
+	f_\eps\left(b \right) = 	f_{\eps/2}\left(b \right)\circ 	f_{\eps/2}\left(b \right)= f 	f_\eps\left(b \right) f= \sum_{\substack{j=1\\ k = 1}}^n f_jf_\eps\left(b \right) f_k
+	\ee 
+\end{empt}
 
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
@@ -12410,7 +12414,7 @@ Suppose that the condition \ref{blowing_lift_eq_eqn} holds and let $\widetilde a
  $$
  \widetilde a = \widetilde a \varphi_C\left(\widetilde f' \right)= \varphi_C\left(\widetilde f \right)\varphi_A\left( a\right) \varphi_C\left(\widetilde f' \right)
  $$
- If $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ is an explained in \ref{blowing_cov_empt} family then from the Lemma \ref{blowing_ajk_defn} it follows that 
+ If $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ is an explained in \ref{blowing_cov_empt} family then from the Lemma \ref{blowing_ajk_defn} !!! CHECK !!! it follows that 
  \bean
  a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \exists \a \in \mathscr A\quad \supp f_j \subset \sU_\a
  \eean
@@ -12459,7 +12463,7 @@ Under the hypotheses of the Definition \ref{blowing_a_regular_defn} one has:
 	\item [(i)] the natural inclusion $C_0\left(\widetilde \sY\right) \to M\left(A_0\left(\widetilde\sY\right)\right)$ is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}),
 	\item[(ii)] if 
 	\be\label{blowing_com_eqn}
-	A_c\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
+	\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
 	\ee
 	then there is a natural inclusion
 	$ K\left( A_0\left(\widetilde\sY \right)\right)  \subset A_c\left(\widetilde\sY \right)
@@ -12489,7 +12493,7 @@ $ is dense in $A_0\left(\widetilde\sY\right)$.\\
 (iii) Can be proven similarly to the equation \eqref{blowing_tajk_eqn}.
 \end{proof}
 \begin{definition}\label{blowing_descent_compactly_supported_defn} %{blowing_compactly_supported_descent_defn!}
-A given by \eqref{blowing_tajkc_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{lift} of $A$.  An $A$-module homomorphism 
+A given by \eqref{blowing_com_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{lift} of $A$.  An $A$-$A$-bimodule homomorphism 
 \be\label{blowing_compactly_supported_descent_eqn}
 \begin{split}
 \desc^c_q : A_c\left(\widetilde\sY \right)\to A,\\
@@ -12499,10 +12503,10 @@ A given by \eqref{blowing_tajkc_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)
 where $\desc^c_q\left(\widetilde f'_j \right)$ and $\desc^c_q\left(\widetilde f''_k \right)$ are given by the Definition \eqref{top_compactly_supported_descent_defn} is said to be \textit{compactly supported $q$-descent}.
 \end{definition}
 \begin{definition}\label{blowing_descent_defn}
-If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then similarly to the Definition \ref{blowing_compactly_supported_descent_eqn} we define $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$.
+If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then we say that $\desc^c_q\left(\widetilde a\right)$ is  $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$.
 \end{definition}
 \begin{remark}
-The Definition \ref{blowing_descent_defn} is a generalization of \ref{top_lift_desc_defn} one.
+Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowing_descent_defn} are generalizations  of \ref{top_compactly_supported_descent_defn} and \ref{top_lift_desc_defn} ones.
 \end{remark}
 
 \begin{exercise}\label{blowing_hausdorff_exer}
@@ -12513,12 +12517,32 @@ The Definition \ref{blowing_descent_defn} is a generalization of \ref{top_lift_d
 		\item The Definition \ref{top_compactly_supported_descent_defn} is a specialization of the  \ref{blowing_descent_compactly_supported_defn}.
 	\end{enumerate}
 \end{exercise}
+\begin{lemma}
+!!! ADD !!! If $\desc^c_q : A_c\left(\widetilde\sY \right)\to A$ is said to be {compactly supported $q$-descent}	(cf. Definition \ref{blowing_descent_compactly_supported_defn}) then one has
+$$
+\desc^c_q : K \left( A_0\left(\widetilde\sY \right)\right) = K\left( A\right) 
+$$
+\end{lemma}
+\begin{proof}
+!!!
+\end{proof}
+\begin{empt}\label{blowing_pedersen_decomp_empt!} !!!
+	If $A$ is  a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$, $b \in A_+$  and $f_{\eps/2}\left(b \right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} then $c \in K\left(A \right)_0$ (cf. the Lemma \ref{pedersen_eps_lem}), so $c\in A_c$ (cf. the equation  \ref{blowing_pedersen_compact_eqn}). If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ and $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $f_{\eps/2}\left(b \right)$ then 
+	$$
+	f_{\eps/2}\left(b \right)= f f_{\eps/2}\left(b \right) f=  \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
+	$$
+	From the above equation it follows that
+	\be\label{blowing_pedersen_decomp_eqn}
+	f_\eps\left(b \right) = 	f_{\eps/2}\left(b \right)\circ 	f_{\eps/2}\left(b \right)= f 	f_\eps\left(b \right) f= \sum_{\substack{j=1\\ k = 1}}^n f_jf_\eps\left(b \right) f_k
+	\ee 
+\end{empt}
 \begin{lemma}\label{blowing_series_lem}
-Under the hypotheses of the Definition \ref{blowing_descent_compactly_supported_defn} one has
+If $C_0\left( \sY\right)\hookto M\left( A\right)$ is a Hausdorff blowing-up,  and   $q: \widetilde{\sY}\to \sY$ is  an $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}).
+then one has
 \be
 \forall \widetilde a\in  A_c\left(\widetilde\sY \right)\quad \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = \desc^c_q\left(\widetilde a \right) 
 \ee
-where the sum of the series implies the strict topology of $M\left( A_c\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}).
+where the sum of the series implies the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}),  $A_c\left(\widetilde\sY \right)$ is given by the equation \eqref{blowing_com_eqn}. and $\desc^c_q\left(\widetilde a \right)$ is the compactly supported $q$-descent (cf. Definition  \ref{blowing_descent_compactly_supported_defn}).
 \end{lemma}
 \begin{proof}
 Suppose that $\widetilde a$ is positive and $a \bydef \desc^c_q\left(\widetilde a \right)$.  If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then for all $\eps> 0$  there is $\widetilde b' \in A_c\left(\widetilde\sY \right)$ such that
@@ -12543,6 +12567,15 @@ $$
 \left\|\sum_{g \in G'}\widetilde b\left( g \widetilde a \right)  =  \widetilde b a\right\| < \eps.
 $$
 \end{proof}
+\begin{lemma}\label{blowing_series_compact_lem} !!! MAY BE DELETE !!!
+	If $C_0\left( \sY\right)\hookto M\left( A\right)$ is a Hausdorff blowing-up,  and   $q: \widetilde{\sY}\to \sY$ is  an $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}), then for any $a \in K\left(A \right)$ there is $\widetilde{a}\in K\left(A_0\left(\widetilde\sY \right) \right)$ 
+	then one has
+	\be
+	a=  \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = \desc^c_q\left(\widetilde a \right) 
+	\ee
+	where the sum of the series implies the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_q\left(\widetilde a \right)$ is the compactly supported $q$-descent (cf. Definition  \ref{blowing_descent_compactly_supported_defn}).
+\end{lemma}
+
 \begin{exercise} !!! PROVE !!!
 	Under the hypotheses of the Definition \ref{blowing_lift_defn} prove following statements:
 	\begin{enumerate}
@@ -12808,23 +12841,10 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	$\left(A, \widetilde A,  G\left(\left.\widetilde A\right|A \right), \pi \right)$ be a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is an unital noncommutative finite-fold covering $\left(M\left(A\right) , M\left(\widetilde{A}\right) , G\left(\left.\widetilde A\right|A \right),\widetilde \pi \right)$ (cf. Corollary \ref{cov_mult_fin_cor}). Suppose that if Hausdorff blowing-up $C_0\left( \sY'\right) \hookto M\left( \widetilde A\right)$ is induced by noncommutative covering (cf. Definition \ref{blowing_ext_defn}), then $\sY'\cong  \sY$.  There is the natural $*$-homomorphism $C_0\left(\sY \right)\hookto M\left( \widetilde A\right)$ and we leave to the reader the proof of that it is Hausdorff blowing-up.
 	If  $q: \widetilde \sY \to \sY$ is a   transitive covering  with $q$-lift $A_b\left(q \right)  : A \hookto M\left( A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{blowing_lift_defn}). Then similarly to \ref{blowing_lift_empt} there is an $C^*$-Hilbert $\widetilde A$-module $\mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}$ which is a completion  which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} \widetilde A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm.
 \end{empt}
-\begin{lemma}\label{blowing_uc_lem}
+\begin{lemma}\label{blowing_uc_lem} !!! MAY BE DELETE !!!
 Under the hypotheses \ref{blowing_uc_empt} the covering $q: \widetilde{\sY}\to \sY$ is $\widetilde A$-{regular} (cf. Definition \ref{blowing_a_regular_defn}).
 \end{lemma}
-\begin{lemma}\label{blowing_lift_eq_lem!}  !!!! USE IT BELOW !!!
-	The covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} if and only if for any $\widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ there is $\widetilde f \in C_c\left(\widetilde\sY\right)$ such that
-	\be\label{blowing_lift_eq_eqn!}
-	\forall \widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right) \quad \exists  \widetilde f \in C_c\left(\widetilde\sY\right) \quad  \widetilde a = \widetilde a \varphi_C\left(\widetilde f \right). 
-	\ee 
-\end{lemma}
-\
-\begin{proof}
-If  $\widetilde b \in K\left(\widetilde A\right)_+$ then  
-$$
-\sum_{	g \in G} g \widetilde b \in K\left(\A\right)_+
-$$
-From the 
-\end{proof}
+
 
 \begin{proof}
 Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are:
@@ -12858,12 +12878,7 @@ On
 
 \end{proof}
 
-	\be\label{blowing_tensor_eqn!}
-\begin{split}
-	\varphi: C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
-	\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
-\end{split}
-\ee
+
 \subsection{Induced representations}
 
 \paragraph{}
@@ -13121,31 +13136,7 @@ $$
 	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}.\\
 	\paragraph{!!!}
 	
-	 
-	\begin{definition}\label{algebraical_finite_covering_category_defn!}
-		The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if  following conditions hold:
-		\begin{enumerate}
-			\item[(a)]  any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),
-			\item[(b)] for any  $\overline a \in K\left(\overline A \right)_0$ one has
-			\be\label{basic_cov_cl_df_eqn!}
-			a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a\in K\left( A_\la\right)_0
-			\ee
-			(cf. \eqref{basic_cov_cl_eqn})
-			where  $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}) and $\overline a \in K\left(\overline A \right)_0$,
-			\item[(c)] for  any $a_\la \in K\left( A_\la\right)_0 $  there is $\overline a \in K\left(\overline A \right)_0$ such that
-			\bean
-			a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a.
-			\eean
-			(cf. the equation \eqref{basic_cov_cl_df_eqn})
-		\end{enumerate}
-		
-		We write
-		\be\label{algebraical_finite_covering_category_eqn!}
-		\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
-		\ee
-		If $\left( \overline A, \widehat{G}\right)$ is the explained in \ref{infinite_covering_basic_empt} pair then we say that a triple  $\left(A, \overline A, \widehat{G}\right)$ is a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
-	\end{definition}
-	\
+
  \begin{empt}\label{infinite_covering_basic_empt!}
 	If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}) then the group  $\widehat{G}$ is profinite (cf. Example \ref{profinite_exm}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. We suppose that $\la_{\text{min}} \in \La$ is a minimal element which corresponds to the trivial factor-group.
 	Let $\overline{A}$ be a $C^*$-algebra with an action $\widehat{G}\times \overline{A} \to \overline{A}$. Suppose that for any element $\overline a \in K\left(\overline A \right)_0$ of the Pedersen's ideal of $\overline A$ (cf. Definition \ref{pedersens_ideal_defn} and  \eqref{pedersen_k0_eqn}) a series 
