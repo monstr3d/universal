@@ -15060,51 +15060,48 @@ $$
 		and for any $j=1,..., n$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. 
 	From this fact and \eqref{ctr_k_inc_eqn} one can suppose that
 	$$
-	f_ja  \in \K\left( \ell^2\left( C\left( \sV_a\right)\right)\right)\cong C\left( \sV_a\right)\otimes \K.
+	f_ja  \in \K\left( \ell^2\left( C\left( \sV_{\a_j}\right)\right)\right)\cong C\left( \sV_{\a_j}\right)\otimes \K.
 	$$
-Let  $\eps > 0$ and $\dl$ is such that  $\dl+ 2 \sqrt{\dl\left\| a	 \right\|}< \eps/n$. From the Lemmas \ref{c_misch_g_lem} it follows that there if $N_j \in \N$ such that
+Let us fix $j \in \{1,...,n\}$. If $\eps > 0$ then from the Lemma \ref{c_misch_g_lem} it follows that there is $N \in \N$ such that
+\be\label{ctr_pfp_eqn}
+\forall k \ge N  \quad \left\|\left(  \sum_{l = 1}^{k}   p_{l}\right) f_ja\left(  \sum_{l = 1}^{k}   p_{l}\right)  - f_ja\right\| < \frac{\eps}{n} 
+\ee
+where $p_{l} \bydef 1_{C\left(\sV_{\a_j} \right) }\otimes \mathfrak{e}_{ll}$ and $ \mathfrak{e}_{ll}$ is $l,l$-{elementary} matrix (cf. Definition \ref{elementary_defn}).
+From the equation \eqref{ctr_pfp_eqn} it follows that
+\be
+\forall l \ge N\quad p_l  f_j f_{\eps/n} \left(a \right)p_l  = 0
+\ee
+where $f_{\eps/n}$ is given by the equation \eqref{f_eps_eqn}.
+For any $\la \in \La$ and $l \in \N$ there is 
+\bean
+\widetilde f^l_\la \in C_b\left(\widetilde \sX\right), \\
+\widetilde x \mapsto \tr\left( \rho^\la_{\widetilde{x}}\left(p_l f_j f_{\eps/n} \left( a_\la \right)p_l \right) \right) = \left\|\rho^\la_{\widetilde{x}}\left(p_l  f_jf_{\eps/n} \left( a_\la \right)p_l \right) \right\| 
+\eean
+From the Lemma \ref{top_disc_p_lem} it follows that
 $$
-\forall k_j \ge N \quad \forall j = 1,..., n \quad \left\| \sum_{l = 1}^{k_j}   p_{lj}f_jap_{lj} - f_ja\right\| < \dl 
+\widetilde f^l \bydef s\text{-}\lim_{{\la \in \La}} f^l_\la\in C_c\left( \widetilde \sX\right) 
 $$
-where $p_{lj} \bydef 1_{C\left(\sV_j \right) }\otimes \mathfrak{e}_{ll}$ and $ \mathfrak{e}_{ll}$ is $l,l$-{elementary} matrix (cf. Definition \ref{elementary_defn}). For any $\la \in \La$ let $a_\la \in A\left( \sX_\la\right)$ be such that
+where $\tr$ is the trace of operator and $s\text{-}\lim$ means the pointwise limit.
+A finite union  $\widetilde{\sV}_l\bydef \bigcup_{l=1}^N \supp \widetilde f^l$ of compact sets is compact, so from the Theorem \ref{top_compact_thm}  it follows that there is $\la_0\in \La$ such that $\widetilde{\sV}$ is mapped homeomorphically onto $\widetilde{p}_{\la_0}\left( \widetilde{\sV}\right)$ where  $\widetilde{p}_{\la_0}:\widetilde\sX \to \sX_{ \la_0}$ is the natural covering. On the other hand 
 $$
-		\forall \widetilde x \in \widetilde\sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left.\widetilde \sX\right|\sX_\la \right)\right) }\rep_{\widetilde x}\left( g \widetilde a'\right)  = \rho^\la_{\widetilde x}\left(a_\la \right)
+\forall l \in \N\quad \forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad \widetilde f^l = 0,
+$$ 
+so one has
 $$
-(cf. condition (c) of the Definition \ref{ctr_inf_defn}) then for any !!!
-  
+\forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad f_j \rep_{  \widetilde{x }}\left(  f_{\eps/n}\left(\widetilde a' \right) \right) = 0.
+$$
+It follows that 
+$$
+f_j   f_{\eps/n}\left(\widetilde a' \right)= f_j \lift^{\widetilde{p}_{\la_0}}_{\widetilde\sV}\left( f_{\eps/n}\left( a_\la \right)\right) \in A_0\left(\widetilde\sX \right).
+$$
+On the other hand
+$$
+\left\| f_j   f_{\eps/n}\left(\widetilde a' \right) - f_j \widetilde a  \right\| < \frac{\eps}{n},
+$$
+i.e. for any $j = 1,..., n$ there is $\widetilde a_j \in A_0\left(\widetilde\sX \right)$ such that $\left\|  f_j \widetilde a  - \widetilde a_j\right\| < \eps / n$.
+If $\widetilde a \bydef \widetilde a_1 + ... + \widetilde a_n \in A_0\left(\widetilde\sX \right)$ then $\left\|  \widetilde a  - \widetilde a'\right\|< \eps$, so $\widetilde a \in A_0\left(\widetilde\sX \right)$ since $A_0\left(\widetilde\sX \right)$ is $C^*$-norm closed.
 \end{proof}
-\paragraph{!!!}
 
-\begin{lemma}\label{positive_ineq_lem!}
-	Let both $\H'$ and $\H''$ be Hilbert spaces. If
-	$$
-	a \bydef		\begin{pmatrix}
-		b & c\\
-		c^*&d
-	\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
-	$$
-	is a positive bounded operator then one has
-	\be\label{positive_ineq_eqn}
-	\left\|a - 	\begin{pmatrix}
-		b & 0\\
-		0&0
-	\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
-	\ee
-\end{lemma}
-\
-\begin{definition}\label{ctr_inf_defn!} 
-	Under the hypotheses \ref{ctr_inf_empt} a $C^*$-subalgebra \\$\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is \textit{admissible} if for any $\la \in \La$ one has:
-	\begin{enumerate}
-		\item[(a)] $\widetilde{G}\times \widetilde A' = \widetilde A'$.
-		\item [(b)] $C_b\left( \sX_\la \right) \widetilde A'= \widetilde A'$ where the action \eqref{ctr_inf_a_eqn} is implied, 
-		\item[(c)] for any  $\widetilde{a}\in K\left( \widetilde A'\right)$  there is $a_\la\in K\left(  A_0\left(\sX_\la \right)\right)$ (cf. equation \eqref{peder_c0_eqn}) such that
-		$$
-		\forall \widetilde x \in \widetilde\sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left.\widetilde \sX\right|\sX_\la \right)\right) }\rep_{\widetilde x}\left( g \widetilde a'\right)  = \rho^\la_{\widetilde x}\left(a_\la \right)
-		$$
-		where $\rho^\la_{\widetilde x}$ is given by \eqref{ctr_inf_rho_defn} and  $s\text{-}\sum$ means the convergence with respect to the strong topology of  $B\left(\widetilde \H_{ \widetilde x} \right)$ (cf. Definition \ref{strong_topology_defn}),
-	\end{enumerate}
-\end{definition}
-\paragraph{!!!}
 \subsection{Coverings of $C^*$-algebras}
 \paragraph*{}
 Here we prove that any infinite covering of $C^*$-algebra with Hausdorff spectrum $\sX$ corresponds to a transitive covering of $\sX$.
