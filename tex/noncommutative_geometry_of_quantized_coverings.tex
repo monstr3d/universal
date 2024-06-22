@@ -1561,13 +1561,6 @@ $$
 	\eean  
 	i.e. there is a contradiction $\left\| \zeta  \right\|< \left\| \zeta  \right\|$. From this contradiction it turns out that $\zeta = 0$ and the equality \eqref{srict_strong_eqn} is true.
 \end{proof}
-\begin{proof}!!!
-	If $b \bydef s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)\in B\left( \H\right)$ then for any $\xi\in \H$ and  $\eps > 0$ there is $\la_\eps \in \La$ such that
-	$$
-\forall \la \in \La \quad \la \ge \la_\eps 	\quad \left\| b \xi - b_\la \xi  \right\| < \eps.
-	$$
-	On the other hand there is $c \in A$ and $\eta \in \H$ such that $\left\| c \eta - - \xi  \right\| < \eps$
-\end{proof}
 
 
 
@@ -4252,7 +4245,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \end{proof}
  
  
- \begin{definition}\label{inf_desc_defn}
+ \begin{definition}\label{infinite_desc_defn}
  	Under the hypotheses of the Definition \ref{algebraical_finite_covering_category_defn} for all $\la\in\La$ there is a  natural   homomorphism of $A_\la$-$A_\la$-bimodules given by
  	\be\label{inf_desc_eqn}
  	\begin{split}
@@ -4306,7 +4299,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are $*$-isomorphisms.
  \end{proof}
- \
+
  \begin{lemma}\label{bt_lim_lem}
  	Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_eqn}  one has
  	\be\label{bt_lim_eqn}
@@ -4354,7 +4347,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	b_\la \bydef  \desc_{\la}\left(\overline a \right) \in K\left(A_\la \right)_+ 
  	$$
- 	where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{inf_desc_defn}). So there is the $C^*$-norm limit.
+ 	where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn}). So there is the $C^*$-norm limit.
  	$$
  	\overline{a} = \lim_{\la\in \La}b_\la \overline{b}.
  	$$
@@ -4795,6 +4788,22 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
  \begin{proof} 
  	From the Lemma  \ref{increasing_convergent_w_lem} it follows that the decreasing net $\left\{\pi\left(a_\la \right) \right\}_{\la \in \La}$ is convergent with respect to the strong topology of $B\left(\overline\H \right)$. Now this lemma follows from the \ref{srict_strong_lem} one.
  \end{proof}
+ \begin{remark}
+	If 	 $\left(A, \overline A, \widehat{G}\right)$ be a reduced  {pre}-{covering of the algebraical finite covering category}  
+\bean
+\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\eean
+(cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}) and $\pi_a : \overline A\hookto B\left(\overline \H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{inverse_lim_h_cor} and the Lemma \ref{inverse_faithful_nondegenetate_lem} it follows that any $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism $\phi: \overline A' \hookto  \overline A''$ (cf. \ref{infinite_covering_empt}) can be include into the following commutative diagram
+\newline
+\begin{tikzcd}
+\overline A'\arrow[rr, "\phi"] \arrow[rd, "\pi_{\overline A'}"]&& \overline A''\arrow[ld, "\pi_{\overline A''}"]\\
+& B\left(\overline \H_a \right) &
+\end{tikzcd}
+\\
+where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representations of $\overline A'$ and $\overline A''$ respectively.
+ \end{remark}
+ 
+
 % \begin{theorem}\label{inf_unique_thm}
 % 	If  	 $\left(A, \overline A, \widehat{G}\right)$ is  a reduced  {pre}-{covering of the algebraical finite covering category}  
 %\bean
@@ -10594,7 +10603,7 @@ is convergent with respect to the strict topology of $M\left(C_0\left(\overline\
 \be\label{top_a_l_eqn}
 \desc_{\la}\left(\overline a \right)  = \desc^c_{\overline p_\la}\left(\overline a \right)
 \ee
-where $\desc_\la$ is  $\desc_{\la}$ is the $\la$-{descent} (cf. Definition \ref{inf_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn})
+where $\desc_\la$ is  $\desc_{\la}$ is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn})
  From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering i.e. under hypotheses of this lemma conditions of the Definition \ref{algebraical_finite_covering_category_defn} are satisfied.
 \end{proof}
 
@@ -12345,7 +12354,7 @@ a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \varphi' \left( \widetilde f_\a\ot
 \ee
 is a $q$-\textit{lift} of $A$.
 \end{definition}
-\begin{exercise}
+\begin{exercise}\label{blowing_disitegrable_exer}
 !!! ADD !!!
 Let $q: \widetilde{\sY}\to \sY$ be an  $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let  both   $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ and $ \left\{\widetilde \sU_{\widetilde \a}\subset \widetilde\sY\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ be explained in \ref{blowing_cov_empt} families of open sets. Prove that  if $A$ is \textit{disintegrable with respect to the family}  $\left\{\sU_\a\right\}$ (cf. Definition \ref{blowing_disintegrable_defn}) then $A_0\left( \widetilde{\sY}\right)$ is \textit{disintegrable with respect to the family} $\left\{\widetilde \sU_{\widetilde \a}\right\}$.
 \end{exercise}
@@ -12416,7 +12425,7 @@ Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowi
 If $C_0\left( \sY\right)\hookto M\left( A\right)$ is a Hausdorff blowing-up,  and   $q: \widetilde{\sY}\to \sY$ is  an $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}).
 then one has
 \be\label{blowing_series_eqn}
-\forall \widetilde a\in  A_c\left(\widetilde\sY \right)\quad \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = \desc^c_q\left(\widetilde a \right) 
+\forall \widetilde a\in  A_c\left(\widetilde\sY \right)\quad \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = A_b\left(q \right) \desc^c_q\left(\widetilde a \right) 
 \ee
 where the sum of the series implies the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}),  $A_c\left(\widetilde\sY \right)$ is given by the equation \eqref{blowing_com_eqn}. and $\desc^c_q\left(\widetilde a \right)$ is the compactly supported $q$-descent (cf. Definition  \ref{blowing_descent_compactly_supported_defn}).
 \end{lemma}
@@ -12580,6 +12589,8 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 
 
 \begin{lemma}\label{blowing_lift_composition_lem}
+	
+	!!! ADD REGULAR !!!
 	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	$
 	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}), and let $\phi: G\left(\left.\widetilde \sY\right|\sY \right)\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
@@ -12975,7 +12986,7 @@ $$
 
 \subsection{Infinite coverings}
 \begin{theorem}\label{blowing_sufficient_covering_inf_thm} % {blowing_inf_cov_thm}
-	Let $C_0\left( \sY\right) \hookto M\left( A\right) $ be disintegrable   Hausdorff blowing-up (cf. the Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn!}), and
+	Let $C_0\left( \sY\right) \hookto M\left( A\right) $ be disintegrable   Hausdorff blowing-up (cf. the Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and
 	let $q:\widetilde \sY \to \sY$ be an $A$-regular (cf. Definition \ref{blowing_a_regular_defn})  transitive covering with connected $\widetilde \sY$ and residually finite group  $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations.  If  $\overline q: \overline \sY  \to  \sY$  is {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) then 	following conditions hold:
 	\begin{enumerate}
 		\item[(i)] the covering  $\overline q$ is $A$-regular (cf. Definition \ref{blowing_a_regular_defn}, i.e. there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn},
@@ -13002,12 +13013,15 @@ $$
 	$$
 	then there is  natural Hausdorff blowing-up $C_0\left(\overline \sY \right) \hookto \overline A$.
 	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}.\\
-		(ii) If $\widetilde a \in K\left(A_c\left(\overline \sY \right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follow that  $\widetilde a \in A_c\left(\overline \sY \right)$ where   $A_c\left(\overline \sY \right)$ is given by  $A_c\left(\widetilde\sY \right)$ is given by the equation \eqref{blowing_com_eqn}. From the Lemma \ref{blowing_series_lem} it follows that for all $\la\in \La$ one has
-	\bean
- \bt\text{-}\sum_{g \in\ker\left(\widehat G \to  G\left(\left. \sY_\la\right|\sY \right)\right) }g \widetilde a = \desc^c_{q_{\la}}\left(\widetilde a \right) \subset A_0\left( \sY_\la \right) 
-	\eean 
-	where the sum of the series implies the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}), and $\desc^c_q\left(\widetilde a \right)$ is the compactly supported $q$-descent (cf. Definition  \ref{blowing_descent_compactly_supported_defn}). !!! USE DISINTEGRABLE \ref{blowing_disintegrable_defn} \ref{blowing_disintegrable_defn!} So the hypotheses  
-	!!! DENSE !!!	!!! USE LEMMA \ref{blowing_lift_composition_lem} !!!\\
+(ii)!!! CHECK !!!	Firstly we prove that  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. If  $\la \in \La$ and $\overline q_\la \overline \sY\to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it turns out the $\overline q_\la$ is $A_0\left( \sY_\la\right)$-regular and there is   $\overline q_\la$-{lift} 	$A_b\left(\overline q_\la\right): A\left(\sX_\la \right)  \hookto	M\left( A_0\left( \overline \sY\right)\right)$. From the Lemma \ref{blowing_series_lem}
+it follows that for any $\overline a \in K\left(\overline A \right)$ one has
+$$
+\desc_{\la} \overline a  = \bt\text{-}\sum_{g \in \ker\left( \widehat G \to G\left(\left. \sY_\la \right|\sY \right)\right) }g \overline a = A_b\left(\overline q_\la \right) \circ \desc^c_q\left(\overline a \right) \in A_b\left(\overline q_\la \right)\left(A_0\left(\sX_\la \right)  \right) 
+$$ 
+where $\desc_{\la}$ is the  $\la$-descent (cf. Definition \ref{infinite_desc_defn}) !!!!
+From the Exercise \ref{blowing_disitegrable_exer} it turns out that that $C^*$-algebra the generated by $\desc_{\la}\left(K\left(\overline A \right) \right) $ equals to $A_b\left(\overline q_\la \right)\left(A_0\left(\sX_\la \right)  \right)$, i.e. the triple  $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$ is an infinite quasi-covering (cf. Definition \ref{infinite_quasicovering_defn})
+
+	From the Theorem \ref{blowing_sufficient_covering_thm} it follows that any $*$-homomorphism $ A_0\left( q^\mu_\nu\right)  :C_0\left( \mathcal{Y}_\mu\right)  \hookto A_0\left( \mathcal{Y}_\nu\right)$ is a noncommutative finite-fold covering, i.e. under hypotheses of this lemma conditions of the Definition \ref{algebraical_finite_covering_category_defn} are satisfied.\\
 	(iii) From the Lemma \ref{infinite_faithful_nondegererate_lem} it follows that there  if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_0\left( \sY_\la\right)  \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful \ref{faithful_representation_defn} then there are natural faithful representations $\overline \pi: \overline A \hookto  B\left(\widehat{\H}\right)$ and $\overline \pi_0:  A_0\left( \overline \sY\right)  \hookto  B\left(\widehat{\H}\right)$.  Under the hypotheses (iv) one has 
 $$
 \overline \pi_0\left(   A_0\left( \overline \sY\right)\right) \subset \overline \pi\left(  \overline A \hookto  B\left(\widehat{\H}\right)\right). 	
