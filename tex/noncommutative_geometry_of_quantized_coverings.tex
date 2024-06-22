@@ -1525,6 +1525,51 @@ We leave to the reader the proof of that $M\left(\pi \right)$ is an injective *-
 
 \end{proof}
 
+  \begin{lemma}\label{srict_strong_lem}
+  Let $\pi: A \to B\left(\H \right)$ be a faithful nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}), and let  $\left\{a_\la\right\}_{\la \in \La} \subset M\left(A\right)$ be a bounded net i.e. 
+  $$
+  \exists C \in \R_+ \quad \forall \la\in \La \quad \left\| a_\la  \right\|< C. 
+  $$
+  If the net $\left\{a_\la\right\}_{\la \in \La} \subset M\left(A\right)$ is convergent with respect to the strict topology of $M\left( A\right)$ (cf. Definition \ref{strict_topology_defn})   and a net $\left\{\pi\left( a_\la\right) \right\}_{\la \in \La}\in  B\left(\H \right)$ is convergent with respect to the strong topology of $B\left( \H\right)$ (cf. Definition \ref{strict_topology_defn}) then one has
+  \be\label{srict_strong_eqn}
+  \pi\left(\bt\text{-}\lim_{\la\in \La} a_\la \right)= s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)  
+  \ee 
+  where both  $\bt\text{-}\lim_{\la\in \La}$ and $s\text{-}\lim_{\la\in \La}$ are strict and strong limits respectively.
+\end{lemma}
+\begin{proof}
+	Denote by $a^\bt \bydef  \bt\text{-}\lim_{\la\in \La} a_\la$ and $a^s  \bydef s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)\in B\left( \H\right)$.
+If the equation \eqref{srict_strong_eqn} is not true then there is $\xi \in \H$ such that
+$$
+\zeta \bydef\pi\left(a_\bt \right)\xi -  a^s\xi\neq 0.
+$$ 
+There is $\la_s \in \La$ such that 
+$$
+\forall \la \in \La \quad \la \ge \la_s \quad \left\| a^s \xi - \pi\left( a_\la\right) \xi  \right\|< \frac{\left\| \zeta  \right\|}{4}.
+$$
+	On the other hand there are $b \in A$, $\la_\bt \in \La$ and $\eta \in \H$ such that 
+	\bean
+	\left\| b \eta  - \xi  \right\| <  \frac{\left\| \zeta  \right\|}{4\max\left(  C, \left\| a^\bt  \right\|\right)  },\\
+	\forall \la \in \La \quad \la \ge \la_\bt\quad  \left\| a^\bt b - a_\la b   \right\| <  \frac{\left\| \zeta  \right\|}{4 \left\| \eta\right\|}
+	\eean
+	If $\la_0\in \La$ is such that $\la_0 \ge \la_\bt$ and $\la\ge \la_s$ from the triangle identity it follows that
+	\bean
+	\left\| \pi\left(a_{\la_0}\right)\xi -  \pi\left(a^\bt\right)\xi  \right\|\le\\\le \left\| \pi\left(a_{\la_0}\right)\xi -  \pi\left(a_{\la_0}b\right)\eta\right\|+ \left\|  \pi\left(a_{\la_0}b\right)\eta- \pi\left(a^\bt b\right)\eta\right\|+\\ 
++ \left\|   \pi\left(a^\bt b\right)\eta- \pi\left(a^\bt \right)\xi\right\|	< 
+	\frac{\left\| \zeta  \right\|}{4}+ \frac{\left\| \zeta  \right\|}{4}+\frac{\left\| \zeta  \right\|}{4}=\frac{3\left\| \zeta  \right\|}{4};\\
+	\left\| \zeta  \right\| =  \left\| \pi\left(a^\bt \right)\xi -  a^s\xi  \right\|\le\\\le 
+	 \left\| \pi\left(a_{\la_0}\right)\xi -  a^s\xi  \right\|+ \left\| \pi\left(a_{\la_0}\right)\xi -  \pi\left(a^\bt\right)\xi  \right\|< \frac{\left\| \zeta  \right\|}{4}+ \frac{3\left\| \zeta  \right\|}{4} = \left\| \zeta  \right\|,
+	\eean  
+	i.e. there is a contradiction $\left\| \zeta  \right\|< \left\| \zeta  \right\|$. From this contradiction it turns out that $\zeta = 0$ and the equality \eqref{srict_strong_eqn} is true.
+\end{proof}
+\begin{proof}!!!
+	If $b \bydef s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)\in B\left( \H\right)$ then for any $\xi\in \H$ and  $\eps > 0$ there is $\la_\eps \in \La$ such that
+	$$
+\forall \la \in \La \quad \la \ge \la_\eps 	\quad \left\| b \xi - b_\la \xi  \right\| < \eps.
+	$$
+	On the other hand there is $c \in A$ and $\eta \in \H$ such that $\left\| c \eta - - \xi  \right\| < \eps$
+\end{proof}
+
+
 
 \begin{definition}\label{natural_defn}
 	If $ \A$ is  category then a related to $ \A$ construction is said to be \textit{natural} or \textit{functorial} if it is invariant with respect to isomorphisms of $ \A$.
@@ -4747,12 +4792,8 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
  	 \ee
  	 where $s\text{-}\lim_{{\la \in \La}}$ means the convergence with respect to the strong topology of $B\left(\overline\H \right)$ (cf. Definition \ref{strong_topology_defn}). 
  \end{lemma}
- \begin{proof}
- 	From the Lemma  \ref{increasing_convergent_w_lem} it follows that the decreasing net $\left\{\pi\left(a_\la \right) \right\}_{\la \in \La}$ is convergent with respect to the strong topology of $B\left(\overline\H \right)$. If   $\eps > 0$ and $\overline{\xi}\in \overline\H$ then since the atomic representation is nondegenerate  there are $\overline b \in \overline A$ and $\overline{\eta}\in \overline\H$ such that $$\left\|\pi \left(\overline b  \right)\overline{\eta}- \overline{\xi} \right\| <\frac{\eps}{\left\|a_{\la_{\text{min}}}\right\|} $$ where $\la_{\text{min}}$ is the minimal element of $\La$ with $a_{\la_{\text{min}}}\ge a_\la$ for all $\la\in\La$. On the other hand for any $\la'\in \La$ there is $\la_0 \in \La$ such that $\la_0\ge\la'$ and
-$$
-\forall \la \in \La \quad \la \ge \la_0 \quad \left\|\left( \overline a - a_\la \right)\overline b  \right\| \le \frac{\eps }{\left\|\pi\left(\overline b  \right)\overline{\eta}  \right\|}.
-$$
-Now from the triangle identity it turns out that $\left\|\left( \overline a - a_\la \right)\overline \xi  \right\| \le\eps$ for all $\la \ge \la_0$.
+ \begin{proof} 
+ 	From the Lemma  \ref{increasing_convergent_w_lem} it follows that the decreasing net $\left\{\pi\left(a_\la \right) \right\}_{\la \in \La}$ is convergent with respect to the strong topology of $B\left(\overline\H \right)$. Now this lemma follows from the \ref{srict_strong_lem} one.
  \end{proof}
 % \begin{theorem}\label{inf_unique_thm}
 % 	If  	 $\left(A, \overline A, \widehat{G}\right)$ is  a reduced  {pre}-{covering of the algebraical finite covering category}  
@@ -12402,14 +12443,6 @@ $$
 \left\|\sum_{g \in G'}\widetilde b\left( g \widetilde a \right)  =  \widetilde b a\right\| < \eps.
 $$
 \end{proof}
-\begin{lemma}\label{blowing_series_compact_lem} !!! MAY BE DELETE !!!
-	If $C_0\left( \sY\right)\hookto M\left( A\right)$ is a Hausdorff blowing-up,  and   $q: \widetilde{\sY}\to \sY$ is  an $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}), then for any $a \in K\left(A \right)$ there is $\widetilde{a}\in K\left(A_0\left(\widetilde\sY \right) \right)$ 
-	then one has
-	\be
-	a=  \bt\text{-}\sum_{g \in G\left(\left.\widetilde \sY\right|\sY \right)}g \widetilde a = \desc^c_q\left(\widetilde a \right) 
-	\ee
-	where the sum of the series implies the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_q\left(\widetilde a \right)$ is the compactly supported $q$-descent (cf. Definition  \ref{blowing_descent_compactly_supported_defn}).
-\end{lemma}
 
 \begin{exercise} !!! PROVE !!!
 	Under the hypotheses of the Definition \ref{blowing_lift_defn} prove following statements:
@@ -15030,7 +15063,7 @@ If $A$ is a continuous trace $C^*$ algebra, with the locally connected spectrum 
 given by \eqref{top_category_fin_a0_eqn}
 is the \textit{algebraic} $A$-$\widetilde \sX$-$  G$-\textit{category} (cf. Definition \ref{top_fin_cov_a_cat_defn}). If $\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is an admissible subalgebra (cf. Definition \ref{ctr_inf_defn}) then there is the natural inclusion
 $$
-\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)
+\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
 $$
 
 \end{lemma}
