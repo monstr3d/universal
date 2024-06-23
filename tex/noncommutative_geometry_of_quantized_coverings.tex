@@ -140,7 +140,7 @@
 %%% Roman letters:
 \newcommand{\id}{\mathrm{id}}                %% identity map
 \newcommand{\Id}{\mathrm{Id}}                %% identity map
-\newcommand{\pt}{\mathrm{pt !!!}}                %% a point
+\newcommand{\pt}{\mathrm{pt ???}}                %% a point
 \newcommand{\const}{\mathrm{const}}          %% a constant
 \newcommand{\codim}{\mathrm{codim}}          %% codimension
 \newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
@@ -1523,7 +1523,7 @@ We leave to the reader the proof of that $M\left(\pi \right)$ is an injective *-
 
 \end{proof}
 
-  \begin{lemma}\label{srict_strong_lem}
+  \begin{lemma}\label{strict_strong_lem}
   Let $\pi: A \to B\left(\H \right)$ be a faithful nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}), and let  $\left\{a_\la\right\}_{\la \in \La} \subset M\left(A\right)$ be a bounded net i.e. 
   $$
   \exists C \in \R_+ \quad \forall \la\in \La \quad \left\| a_\la  \right\|< C. 
@@ -4431,7 +4431,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	Now this corollary follows from the Lemma \ref{lift_mult_lem}.
  \end{proof}
- !!! FINISH CHEKING !!!
+
 \begin{remark}\label{ininite_covering_inductive_rem}
  	Since the set $\La$ is directed there is a $C^*$-inductive limit 
  	\bean
@@ -4491,22 +4491,25 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
  	\ee
  	then there is a natural action
- 	\be\label{gta_act_eqn}
+ 	\be\label{gta_act_eqn} 
  	G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
  	\ee
- 	The natural injective $*$-homomorphism $A \hookto M\left(\overline A \right)$ induces a $*$-homomorphism
+ 	The $\la_{\min}$-lift  $\la_{\min}: A \hookto M\left(\overline A \right)$ (cf. Definition \ref{infinite_quasicovering_defn}) induces a $*$-homomorphism
  	\be\label{inj_to_m_eqn}
- 	\widetilde m : A \to M\left(\widetilde A \right)
+ 	\widetilde{\lift} : A \to M\left(\widetilde A \right)
  	\ee
  	Similarly for all $\la\in \La$ one can obtain a natural $*$-homomorphism
  	\be\label{inj_to_ml_eqn}
- 	\widetilde m _\la: A_\la \to M\left(\widetilde A \right)
+ 		\widetilde{\lift}_\la: A_\la \to M\left(\widetilde A \right)
  	\ee
  	
  	
  \end{empt}
+ \begin{definition}\label{infinite_lift_defn}
+ The given by the equations \eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} injective *-homomorphisms are  \textit{lift} and $\la$-\textit{lift} respectively.
+ \end{definition}
  \begin{remark}\label{dense_inf_rem} 
- 	If the   maps  $\widetilde m : A \to M\left(\widetilde A \right)$, $~\widetilde m_\la : A_\la \to M\left(\widetilde A \right)$ are given by \eqref{inj_to_m_eqn}  then form the Corollary \ref{bt_lim_a_cor} it follows that the subsets $\widetilde m\left( A\right) \widetilde A$, $~\widetilde A\widetilde m\left( A\right)$, $~\widetilde m_\la\left( A_\la\right) \widetilde A$ and $\widetilde A\widetilde m_\la\left( A_\la\right)$ are dense in $\widetilde A$.
+ Form the Corollary \ref{bt_lim_a_cor} it follows that the subsets $\widetilde {\lift}\left( A\right) \widetilde A$, $~\widetilde A\widetilde {\lift}\left( A\right)$, $~\widetilde {\lift}_\la\left( A_\la\right) \widetilde A$ and $\widetilde A\widetilde {\lift}_\la\left( A_\la\right)$ are dense in $\widetilde A$.
  \end{remark}
  
  
@@ -4516,9 +4519,9 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
  \end{remark}
  
 \begin{definition}\label{good_defn}
-	$\left(A, \overline{A},\widehat{G}\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold:
+A  disconnected infinite noncommutative covering 	$\left(A, \overline{A},\widehat{G}\right)$ be of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold:
  	\begin{enumerate}
- 		\item[(a)] ff both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in \widehat{G}$ such that $g \widetilde{A}'= \widetilde{A}''$,
+ 		\item[(a)] if both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in \widehat{G}$ such that $g \widetilde{A}'= \widetilde{A}''$,
  		\item [(b)] if $\widetilde A$ is a   connected component of $\overline{A}$ if  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{infinite_covering_transformation_group_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
  	\end{enumerate}
  \end{definition}
@@ -4526,10 +4529,10 @@ The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finit
  	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {quasi-components} of $\overline \sX$  (cf. Definition \ref{top_quasi_component_defn}) then there is  $g \in \widehat{G}$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
  \end{remark}
  \begin{lemma}
- 	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both given by  	\eqref{inj_to_m_eqn} and \eqref{inj_to_ml_eqn} $*$-homomorphisms are injective.
+ 	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both  given by  	 \ref{infinite_lift_defn}  lift and $\la$-lift are injective.
 \end{lemma}
 \begin{proof}
-Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{inj_to_m_eqn} $*$-homomorphism. If $\widetilde m$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde m\left( a\right)  \widetilde A = \{0\}$. For any $g \in \widehat G$ from $g\left(\widetilde m\left( a\right)\widetilde A \right)= \widetilde m\left( a\right)g \widetilde A $  it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ . Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde m\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $a  \overline A = \{0\}$, however it contradicts with the inclusion $a \subset M\left(\overline A \right)$. So $\widetilde m$ is injective. Similarly one can prove that the given by  \eqref{inj_to_ml_eqn} $*$-homomorphisms is also injective.
+Let	$\widetilde {\lift} : A \to M\left(\widetilde A \right)$ be the given by the Definition  \ref{infinite_lift_defn} lift. If $\widetilde {\lift}$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde {\lift}\left( a\right)  \widetilde A = \{0\}$. For any $g \in \widehat G$ from $g\left(\widetilde {\lift}\left( a\right)\widetilde A \right)= \widetilde {\lift}\left( a\right)g \widetilde A $  it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ . Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde {\lift}\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $a  \overline A = \{0\}$, however it contradicts with the inclusion $a \subset M\left(\overline A \right)$. So $\widetilde {\lift}$ is injective. Similarly one can prove that $\la$-lift (cf. Definition \ref{infinite_lift_defn})  is also injective.
 \end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
@@ -4549,7 +4552,7 @@ Let	$\widetilde m : A \to M\left(\widetilde A \right)$ be the given by \eqref{in
 The motivation of the Definition \ref{infinite_noncommutative_covering_defn} is the Theorem \ref{top_main_thm}.
 \end{remark}
 \begin{definition}\label{equivariant_representation_defn}
-If $\widehat{A}\bydef C^*\text{-}\varinjlim_{\la \in \La} A_\la$ (cf. Remark \ref{ininite_covering_inductive_rem}) then faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ (cf. Definition \ref{faithful_representation_defn}) is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
+If $\widehat{A}\bydef C^*\text{-}\varinjlim_{\la \in \La} A_\la$ (cf. Remark \ref{ininite_covering_inductive_rem}) then a faithful (cf. Definition \ref{faithful_representation_defn}) and nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ (cf. Definition \ref{faithful_representation_defn}) is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
 	\be\label{equivt_eqn}
 	g \left(\widehat{a}{\xi} \right) = \left(g\widehat{a} \right) \left(g{\xi} \right); \quad \forall g \in \widehat{G},~ \widehat{a} \in \widehat{A},~ {\xi}\in {\H}.
 	\ee
@@ -4594,7 +4597,7 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
 \end{proof}
 
 \begin{proposition}\label{inverse_spectrum_limit_prop} 
-	If $\left(A, \overline A, \widehat{G}\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  
+	If $\left(A, \overline A, \widehat{G}\right)$ is a {pre}-{covering of the algebraical finite covering category}  
 		\bean
 	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 	\eean
@@ -4761,10 +4764,10 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
  	 where $s\text{-}\lim_{{\la \in \La}}$ means the convergence with respect to the strong topology of $B\left(\overline\H \right)$ (cf. Definition \ref{strong_topology_defn}). 
  \end{lemma}
  \begin{proof} 
- 	From the Lemma  \ref{increasing_convergent_w_lem} it follows that the decreasing net $\left\{\pi\left(a_\la \right) \right\}_{\la \in \La}$ is convergent with respect to the strong topology of $B\left(\overline\H \right)$. Now this lemma follows from the \ref{srict_strong_lem} one.
+ 	From the Lemma  \ref{increasing_convergent_w_lem} it follows that the decreasing net $\left\{\pi\left(a_\la \right) \right\}_{\la \in \La}$ is convergent with respect to the strong topology of $B\left(\overline\H \right)$. Now this lemma follows from the \ref{strict_strong_lem} one.
  \end{proof}
  \begin{remark}
-	If 	 $\left(A, \overline A, \widehat{G}\right)$ be a reduced  {pre}-{covering of the algebraical finite covering category}  
+	If 	 $\left(A, \overline A, \widehat{G}\right)$ is a reduced  {pre}-{covering of the algebraical finite covering category}  
 \bean
 \mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \eean
@@ -4802,8 +4805,6 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
 % \eean 
 % On the other hand from \eqref{inf_same_eqn} it follows that 
 % \end{proof}
- 
- 
  
  \begin{lemma}\label{sum_hilb_rep_lem} 
  	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. The bounded net $\left\{a_\a\right\}_{\a\in \mathscr A} \in B\left( \H\right)$ is strongly convergent (cf. Definition \ref{strong_topology_defn}) if and only if for all $\la\in\La$ and  $\zeta \in \H$ given by
@@ -4854,7 +4855,7 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
  	where the strong limit  $\lim_{\a \in \mathscr A } a_\a$ is implied (cf. Definition \ref{strong_topology_defn}).
  \end{lemma}\label{sum_act_repr_lem}
  \begin{proof}
- 	From the Lemma \ref{sum_hilb_rep_lem} it follows that $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$. If $\xi= \left(\xi_\la\right)_{\la\in \La} \in \H$ 
+ 	From the Lemma \ref{sum_hilb_rep_lem}  it follows that $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$. If $\xi= \left(\xi_\la\right)_{\la\in \La} \in \H$ 
  	and $\eps > 0$ then there is a finite subset   $\La_0\subset \La$ and  $\eta \in \oplus_{\la\in\La}\H_\la$ such that
  	\be\label{cunv_unp_eqn}
  	\eta_{\la}= \begin{cases}
@@ -4872,35 +4873,36 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
  	\eean
   	If  $\eta =\left\lbrace\eta_\la \right\rbrace  = \left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ then from  $a_\a \H_\la \subset \H_\la$ it follows that $a_\a \xi_\la = a_\a|_{\H_\la} \xi_{\la}\in \H_{\la}$ and $\eta_\la =  \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}$.
  \end{proof}
-\begin{empt}\label{atomic_faithful_empt}
-  Under the situation of  the situation of the Definition  \ref{algebraical_finite_covering_category_eqn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be a representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in K\left( \overline A\right) $ is given by
-   $$
- \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
-  $$
-  where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).	If 
- $a_\la = a^1_\la - a^2_\la + ia^3_\la -i a^4_\la$ where $a^1_\la, a^2_\la, a^3_\la, a^4_\la \in A_\la$ are positive elements (cf. \eqref{four_decompositon_eqn}, then for $j = 1,..., 4$ one has a decreasing net $\left\{\widehat\pi\left( a^j_\la\right)\right\} $. From the Proposition \ref{increasing_convergent_w_lem} all these  nets are convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). It follows the net $\{\widehat\pi\left( a_\la\right) \}$ is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$.
- We define a map
-\be\label{ext_repr_eqn}
-\begin{split}
- ext(\widehat \pi) : K\left( \overline{A}\right) \to B \left(\widehat \H\right),\\
-\overline a \mapsto s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)
-\end{split}
-\ee
-where $ s\text{-}\lim$ means the limit with respect to the strong topology of $B\left(\widehat{\H}\right)$.
-From the equations 
-\bean
- \bt\textit{-}\lim_{\la\in\La}\left(  a'_\la + a''_\la\right)  =\left(\bt\textit{-}\lim_{\la\in\La} a'_\la \right)+\left(\bt\textit{-}\lim_{\la\in\La} a''_\la \right),\\
-s\text{-}\lim_{\la\in\La}\left( \widehat\pi\left( a'_\la\right)+\widehat\pi\left( a''_\la\right)\right) =\left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\right)+ \left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a''_\la\right)\right) ,\\
- \bt\textit{-}\lim_{\la\in\La} a'_\la a''_\la =\left(\bt\textit{-}\lim_{\la\in\La} a'_\la \right)\left(\bt\textit{-}\lim_{\la\in\La} a''_\la \right),\\
-s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\widehat\pi\left( a''_\la\right)=\left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\right) \left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a''_\la\right)\right) ,\\
-\left( \bt\textit{-}\lim_{\la\in\La} a_\la\right)^* = \bt\textit{-}\lim_{\la\in\La} a^*_\la ,\\
-\left(s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)\right)^* = s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)^*
-\eean
-It follows that the map \eqref{ext_repr_eqn} is a $*$-homomorphism. Since $ K\left( \overline A\right)$ is dense in $\overline A$ one has a representation
-\be\label{ext_repro_eqn}
-ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
-\ee
-\end{empt}
+ \begin{empt}\label{atomic_faithful_empt}
+ 	Under the situation of  the situation of the Definition  \ref{algebraical_finite_covering_category_eqn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be a representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in K\left( \overline A\right) $ is given by
+ 	$$
+ 	\overline a =\bt\text{-}\lim_{\la \in \La} a_\la
+ 	$$
+ 	where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).	If 
+ 	$a_\la = a^1_\la - a^2_\la + ia^3_\la -i a^4_\la$ where $a^1_\la, a^2_\la, a^3_\la, a^4_\la \in A_\la$ are positive elements (cf. \eqref{four_decompositon_eqn}, then for $j = 1,..., 4$ one has a decreasing net $\left\{\widehat\pi\left( a^j_\la\right)\right\} $. From the Proposition \ref{increasing_convergent_w_lem} all these  nets are convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). It follows the net $\{\widehat\pi\left( a_\la\right) \}$ is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$.
+ 	We define a map
+ 	\be\label{ext_repr_eqn}
+ 	\begin{split}
+ 		ext(\widehat \pi) : K\left( \overline{A}\right) \to B \left(\widehat \H\right),\\
+ 		\overline a \mapsto s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)
+ 	\end{split}
+ 	\ee
+ 	where $ s\text{-}\lim$ means the limit with respect to the strong topology of $B\left(\widehat{\H}\right)$.
+ 	From the equations 
+ 	\bean
+ 	\bt\textit{-}\lim_{\la\in\La}\left(  a'_\la + a''_\la\right)  =\left(\bt\textit{-}\lim_{\la\in\La} a'_\la \right)+\left(\bt\textit{-}\lim_{\la\in\La} a''_\la \right),\\
+ 	s\text{-}\lim_{\la\in\La}\left( \widehat\pi\left( a'_\la\right)+\widehat\pi\left( a''_\la\right)\right) =\left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\right)+ \left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a''_\la\right)\right) ,\\
+ 	\bt\textit{-}\lim_{\la\in\La} a'_\la a''_\la =\left(\bt\textit{-}\lim_{\la\in\La} a'_\la \right)\left(\bt\textit{-}\lim_{\la\in\La} a''_\la \right),\\
+ 	s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\widehat\pi\left( a''_\la\right)=\left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\right) \left(  s\text{-}\lim_{\la\in\La}\widehat\pi\left( a''_\la\right)\right) ,\\
+ 	\left( \bt\textit{-}\lim_{\la\in\La} a_\la\right)^* = \bt\textit{-}\lim_{\la\in\La} a^*_\la ,\\
+ 	\left(s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)\right)^* = s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)^*
+ 	\eean
+ 	It follows that the map \eqref{ext_repr_eqn} is a $*$-homomorphism. Since $ K\left( \overline A\right)$ is dense in $\overline A$ one has a representation
+ 	\be\label{ext_repro_eqn}
+ 	ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
+ 	\ee
+ \end{empt}
+ 
 \begin{lemma}\label{infinite_faithful_nondegererate_lem}
 Under the situation of the Definition \ref{algebraical_finite_covering_category_defn} if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_\la \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful and non-degenerate (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerate.
 \end{lemma}
@@ -4908,11 +4910,11 @@ Under the situation of the Definition \ref{algebraical_finite_covering_category_
 The notation of the Definition  \ref{algebraical_finite_covering_category_eqn} is used. If $\overline a \in  K\left( \overline A\right)$ then there and 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a \in  K\left( A\right)$ then there is $b \in A$ such that $ab\neq 0$. From 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a$ it follows that there is a finite subset $G_0\subset  \widehat{G}$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) b \neq 0$.  Moreover there is $g \in G_0$ such that $ (g\overline a)b \neq 0$. The representation $\widehat \pi$ is faithful, so there is $\xi \in \widehat{\H}$ such that $(g\overline a)b \xi \neq 0$, so one has $g^{-1}\left((g\overline a)b \xi  \right) = \overline a b g^{-1}\xi \neq 0$ (cf. equations \eqref{equivt_eqn} and \eqref{equivt_eqn}). It turns out that $\overline a \widehat{\H} \neq \{0\}$. But $K\left( \overline A\right) $ is dense in $\overline A$, so  $\overline a \widehat{\H} \neq \{0\}$ for all  $\overline a \in \overline A$, i.e. the given by \eqref{ext_repro_eqn} representation is faithful. Since $A_\la$ is generated by given by \eqref{basic_cov_cl_eqn} elements
   	\bean
 a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
-\eean there is  $\overline a \in K\left( \overline A\right) $ such that $\left( \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\right) \xi \neq 0$. It turns out that there is a finite subset $G_0\subset  \ker\left(\widehat{G}\to G_\la\right)$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) \xi \neq 0$, and one has $g \in G_0$ satisfying $g \overline a \xi \neq 0$, i.e. $K\left( \overline A\right)\xi \neq 0$. So the given by \eqref{ext_repro_eqn} representation is non-degenerate.
+\eean there is  $\overline a \in K\left( \overline A\right) $ such that $\left( \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\right) \xi \neq 0$. It turns out that there is a finite subset $G_0\subset  \ker\left(\widehat{G}\to G_\la\right)$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) \xi \neq 0$, and one has $g \in G_0$ satisfying $g \overline a \xi \neq 0$, i.e. $K\left( \overline A\right)\xi \neq 0$. So the given by \eqref{ext_repro_eqn} representation is nondegenerate.
 \end{proof}
 
 \begin{lemma}\label{strict_strong_1_lem}
-Let	$\left( \overline A, \widehat{G}\right)$ be a {pre}-{covering} of the category $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}). If  $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ is a faithful (cf. Definition \ref{faithful_representation_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation. If  $\overline{a}\in K\left( \overline{A}\right) $,  $\la \in \La$ and  $a_\la$ is the sum of convergent with respect  to to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}) series 
+Let	$\left( A, \overline A, \widehat{G}\right)$ be a {pre}-{covering} of the category $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}). If  $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ is a faithful (cf. Definition \ref{faithful_representation_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation. If  $\overline{a}\in K\left( \overline{A}\right) $,  $\la \in \La$ and  $a_\la$ is the sum of convergent with respect  to to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}) series 
 	$$
 \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a  	
 $$
@@ -4923,14 +4925,8 @@ s\text{-}	\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}\overline\pi\left( g
 	$$
 \end{lemma}
 \begin{proof}
- If $\eps > 0$ then from the Lemma \ref{nondegenerate_repr_lem} it follows that for any $\xi \in \overline \H$ there is $\eta \in \overline \H$ and $\overline b \in  \overline A$ such that $\left\|\overline b \eta - \xi  \right\| < \eps / 2$. On the other hand there is a finite subgroup $G_0 \subset \ker\left(\widehat{G}\to G_\la\right)$ such that
-$$
-G_0\subset G\subset  \ker\left(\widehat{G}\to G_\la\right) \quad \Rightarrow \quad \left\| \sum_{g \in G}g \overline a \overline b - a_\la \overline b\right\| < \frac{\eps}{2\left\| \eta\right\| }.
-$$
-Using the triangle identity one has
-$$
-\left\| \sum_{g \in G}g \overline a \xi - a_\la\xi\right\| <\eps.
-$$
+	If $\overline a \in K\left( \overline A\right)_+$ is positive then this Lemma follows from the \ref{strict_strong_lem} one. General case is a consequence of the equation \eqref{four_decompositon_eqn}.
+
 \end{proof}
 \begin{lemma}\label{strict_strong_2_lem}
 Let	$\left( A,\overline A, \widehat{G}\right)$ be a {pre}-{covering} of the category $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}). If $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_representation_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation.  Under the hypotheses of the Lemma \ref{bt_lim_lem} if one has a given by \eqref{bt_lim_eqn} strict limit
@@ -5010,7 +5006,7 @@ Similarly to \eqref{mult_adj_eqn} one has an injective $*$-homomorphism
 	\ee
 \end{remark}
 
-
+!!! CHECK FINISHED !!!
 \subsection{Coverings of *-algebras}
 
 \subsubsection{Coverings of pro-$C^*$-algebras}
@@ -5044,12 +5040,11 @@ Assume that for each $\la\in \La$ a $C^*$-algebra  $B_\la \subset b\left(A_\la \
 	We write $\mathfrak{S} \in$ pro-$\mathfrak{FinAlg}$.
 \end{definition}
 \begin{empt}\label{inv_pro_lim_empt}
-Let $\mathfrak{S}$ algebraical  finite covering category of pro-$C^*$-algebras, and let 
-	$\mathfrak{S}_B$ be a given by \eqref{comp_pro_eqn}  { algebraical  finite covering category}. 	
-	For any $\la \in \La$ there is a given by \eqref{inj_to_ml_eqn} inclusion
-		$\widetilde m_\la :B_\la \to M\left( \widetilde{B} \right) $. For all $\la\in \La$  any seminorm $p_\a: M\left( \widetilde{B} \right)\to\R$ induces a seminorm
+Let $\mathfrak{S}$ algebraical  finite covering category of pro-$C^*$-algebras, and let $\mathfrak{S}_B$ be a given by \eqref{comp_pro_eqn}  { algebraical  finite covering category}. 	
+	For any $\la \in \La$ there is a given by the Definition  \ref{infinite_lift_defn} $\la$-lift
+		$\widetilde{\lift}_\la :B_\la \to M\left( \widetilde{B} \right) $. For all $\la\in \La$  any seminorm $p_\a: M\left( \widetilde{B} \right)\to\R$ induces a seminorm
 		\be\label{pro_ind_semi_eqn}
-		 p^\la_\a\bydef p_\a \circ \widetilde m_\la: B_\la \to\R
+		 p^\la_\a\bydef p_\a \circ \widetilde{\lift}_\la: B_\la \to\R
 		 \ee
 		 A $\widetilde G$-invariant  family $\left\{p_\a\right\}_{\a \in \mathscr A}$  of $C^*$-seminorms on $ M\left( \widetilde{B} \right)$ is said to be \textit{admissible} if for all $\la\in \La$ a pro-$C^*$ algebra $A_\la$  is a completion of $B_\la$  with respect to the family of given by \eqref{pro_ind_semi_eqn} $C^*$-seminorms. For example the equation  \eqref{seminorms_inv_lim} yields an admissible family of $C^*$-seminorms. A completion of $\widetilde B$ with respect to an admissible family of seminorms is said to be an \textit{admissible} pro-$C^*$-algebra.
 \end{empt}
@@ -5089,12 +5084,12 @@ $\left(A, \widetilde{A}, G\right)$ is an
 	Under the hypotheses \ref{inf_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
-\widetilde m_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
-	\label{inf_cov_oa_sub2_eqn}		\widetilde A'\widetilde m_\la\left( 	A_\la\right)\subset \widetilde A',\\
+\widetilde{\lift}_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
+	\label{inf_cov_oa_sub2_eqn}		\widetilde A'\widetilde{\lift}_\la\left( 	A_\la\right)\subset \widetilde A',\\
 	\label{inf_cov_oa_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B \right)
-	\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} \widetilde m_\la\left( 	A_\la\right)\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
+	\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} \widetilde{\lift}_\la\left( 	A_\la\right)\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
 	\eea
-	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersen_ideal_defn}) and $\widetilde m_\la$ is given by \eqref{inj_to_ml_eqn}.
+	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersen_ideal_defn}) and $\widetilde{\lift}_\la$ is the $\la$-lift (cf. Definition \ref{infinite_lift_defn}).
 \end{definition}
 \begin{remark}\label{inf_cov_oa_sub_rem}
 The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
@@ -5664,7 +5659,7 @@ Under the hypotheses of the Definition \ref{induced_repr_inf_defn}	if  the repre
 
  \begin{empt}\label{hurewicz_n_to_h_constr_empt}
  	Let us fix $\la\in \La$, and 
-let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  the Remark \ref{dense_inf_rem} it follows that both  $ \widetilde m_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde m_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
+let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  the Remark \ref{dense_inf_rem} it follows that both  $ \widetilde{\lift}_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde{\lift}_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
 a natural inclusion of pre-Hilbert spaces
  	\begin{equation}\label{tensor_n_eqn}
  		\begin{split}
@@ -7911,75 +7906,6 @@ where the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX, \left\{\r
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective $*$-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
-
-
-\begin{lemma}\label{comm_lift_desc_sum_strong_lem}
-	Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $\widetilde a \in A_0\left(\widetilde\sX \right)$ be  an  element such that 
-	$\supp \widetilde a \subset \widetilde \sU$. The following conditions hold:
-	\begin{enumerate}
-		\item [(i)] the series 	
-		\be\label{comm_lift_desc_sum_strong_eqn}
-		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right),
-		\ee 
-		is convergent in the strong  topology of $B\left(\H_a\right)$  (cf. Definition \ref{strong_topology_defn} ),
-		\item[(ii)] 
-		\be\label{comm_desc_sum_strong_eqn}
-		\begin{split}
-			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right)  = \pi_a\left(  \desc_p\left( \widetilde{a}\right)\right)
-		\end{split}
-		\ee
-	\end{enumerate}
-	where $\desc_p\left( \widetilde{a}\right) \in A$ is the $p$-descend  of $\widetilde{a}$ (cf. Definition \ref{top_lift_desc_defn})  and $A$ is regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$ (cf. Lemma \ref{comm_lift_desc_sum_lem}).
-\end{lemma}
-
-
-\begin{proof}
-	(i) Since $\H_a$ is the Hilbert completion of the algebraic direct sum $\bigoplus_{\widetilde x\in\widetilde\sX}\H_{\widetilde{x}}$ one can apply the Lemma \ref{sum_hilb_rep_lem}. If  
-	$$
-	\zeta =\left(0,...~, \underbrace{ \zeta_{\widetilde{x}}}_{\widetilde{x}^{\text{th}}-\text{place}} ,~...,0\right)
-	$$
-	For all  $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ one has 
-	\bean
-	\left(g \widetilde a \right)\zeta = \begin{cases}
-		0 & \widetilde{x}\notin g\widetilde \sU\\
-		\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in g\widetilde \sU
-	\end{cases} ,
-	\eean
-	hence for each finite subset $G \subset G\left(\left.\widetilde{\sX}~\right|\sX\right)$ the following condition holds
-	\be\label{commp_lift_desc_sum_strong_eqn}
-	\left( \sum_{	g \in G}g\widetilde a\right) \zeta = \begin{cases}
-		0 & \widetilde{x}\notin \cup_{g\in G}g\widetilde \sU\\
-		\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in \cup_{g\in G} g\widetilde \sU
-	\end{cases} 
-	\ee	
-	From the equation \eqref{commp_lift_desc_sum_strong_eqn} it follows that the series $
-	\left( \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}g\widetilde a\right) \zeta$ is norm convergent. From the Lemma \ref{sum_hilb_rep_lem} it turns out that the series \ref{comm_lift_desc_sum_strong_eqn}	
-	is convergent in the strong  topology of $B\left(\H_a\right)$.\\
-	(ii) Follows from the equation \eqref{commp_lift_desc_sum_strong_eqn}.
-\end{proof}
-
-\begin{corollary}\label{comm_lift_desc_strond_sum_cor} 
-Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering such that the group $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\widetilde a \in C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)$
-	then following conditions hold:
-The following conditions hold:
-\begin{enumerate}
-	\item [(i)] the series 	
-	\be\label{comm_lift_desc_sum_strong_c_eqn}
-	\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right),
-	\ee 
-	is convergent in the strong  topology of $B\left(\H_a\right)$  (cf. Definition \ref{strong_topology_defn} ),
-	\item[(ii)] 
-	\be\label{comm_desc_sum_strong_c_eqn}
-	\begin{split}
-		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right)  = \pi_a\left(  \desc^c_p\left( \widetilde{a}\right)\right)
-	\end{split}
-	\ee
-\end{enumerate}
-where $\desc^c_p\left( \widetilde{a}\right) \in A$ is the \textit{compactly supported} $p$-\textit{descent} of $\widetilde{a}$ (cf. Definition \ref{top_compactly_supported_descent_defn})  and $A$ is regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$ (cf. Lemma \ref{comm_lift_desc_sum_lem}).
-\end{corollary}
-\begin{proof}
-This corollary follows from the Lemma \ref{comm_lift_desc_sum_strong_lem}. The method of proof is similar to the method of proof of the Corollary \ref{comm_lift_desc_sum_cor}.
-\end{proof}
 \begin{exercise}\label{comm_lift_desc_sum_exer}
 	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
 	\begin{enumerate}
@@ -10537,6 +10463,89 @@ it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( 
 	(cf. Equation \eqref{top_ser_eqn}) so from the Definition \ref{c_c_closure_defn} it follows that $ \widetilde a \in C_0\left(  \widetilde \sX\right)$.
 \end{proof}
 
+\begin{lemma}\label{ctr_infinite_lem}
+	If $A$ is a continuous trace $C^*$ algebra, with the locally connected spectrum $\sX$. Let $p: \widetilde \sX \to \sX$ is a covering such that $\sX \bydef \widetilde \sX/G$ with residually finite group $G$ and 	\bean
+	\begin{split}
+		\mathfrak{S}_{A_0\left(p\right) } \bydef \\
+		\left\{ \left\{ A_0\left( p_\la\right)  :A_0\left( \mathcal{X}\right)  \hookto A_0\left( \mathcal{X}_\la\right) \right\}, \left\{A_0\left( p^\mu_\nu\right)  :A_0\left( \mathcal{X}_\mu\right)  \hookto A_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+	\eean
+	given by \eqref{top_category_fin_a0_eqn}
+	is the \textit{algebraic} $A$-$\widetilde \sX$-$  G$-\textit{category} (cf. Definition \ref{top_fin_cov_a_cat_defn}). If $\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is an admissible subalgebra (cf. Definition \ref{ctr_inf_defn}) then there is the natural inclusion
+	$$
+	\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+	$$
+\end{lemma}
+\begin{proof}
+	One can construct a family $\left\{\sU_\a\right\}_{\a\in\mathscr A}$ of connected open subsets  of $\sX$ with compact closures,  such that $\sX = \bigcup_{\a \in \mathscr A}\sU_\a$ and for any $\a \in \mathscr A$ one has:
+	\begin{itemize}
+		\item $\sU_\a$ is evenly covered by $p$,
+		\item if $\sV_\a$ is the closure of $\sU_\a$ then there is an Abelian element $e_\a \in A$ (cf. equation \eqref{closed_ideal_eqn}) such that $X_{C\left( \sV_a\right) } \bydef e|^{\sV_\a}$ is an $\left. A\right|^{\sV_\a}-\left.  e\right|^{\sV_\a}\left.A\right|^{\sV}\left. e\right|^{\sV_\a}\cong C\left({\sV_\a}\right)$-imprimitivity bimodule (cf. construction \ref{ctr_imprim_empt}) and
+		$$
+		\left. A\right|^{\sV_\a}= \K\left( X_{C\left( \sV_a\right) }\right), 
+		$$
+	\end{itemize}
+	From Theorem \ref{kasparov_stab_thm} for any $\a \in \mathscr A$ one has  inclusions 	$X_{C\left( \sV_a\right) }\subset \ell^2\left( C\left( \sV_a\right) \right)$
+	\be\label{ctr_k_inc_eqn}
+	\K\left( X_{C\left( \sV_a\right) }\right) \subset \K\left( \ell^2\left( C\left( \sV_a\right)\cong C\left( \sV_a\right)\otimes \K. \right)\right) 
+	\ee
+	If $\widetilde a \in K\left({{\widetilde A}} \right)_+$ is a positive element then from the condition (c) of the Definition  \ref{ctr_inf_defn} there is $a \in K\left(A \right)_+$ 
+	such that  
+	$$
+	\forall  x \in \sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left. \sX\right|\sX_\la \right)\right) }\rep_{ x}\left( g  a'\right)  = \rho^\la_{ x}\left(a_\la \right)
+	$$
+	From \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a\subset \sX$ is compact. If $f \bydef \sum^n_{j=1} f_j$ is a subordinated to the family $\left\{\sU_\a\right\}$ covering sum (cf. Definition  \ref{top_covering_sum_defn}) then
+	\bean
+	f a = a,\\
+	f \widetilde{a}' = \widetilde{a}'
+	\eean 
+	and for any $j=1,..., n$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. 
+	From this fact and \eqref{ctr_k_inc_eqn} one can suppose that
+	$$
+	f_ja  \in \K\left( \ell^2\left( C\left( \sV_{\a_j}\right)\right)\right)\cong C\left( \sV_{\a_j}\right)\otimes \K.
+	$$
+	Let us fix $j \in \{1,...,n\}$. If $\eps > 0$ then from the Lemma \ref{c_misch_g_lem} it follows that there is $N \in \N$ such that
+	\be\label{ctr_pfp_eqn}
+	\forall k \ge N  \quad \left\|\left(  \sum_{l = 1}^{k}   p_{l}\right) f_ja\left(  \sum_{l = 1}^{k}   p_{l}\right)  - f_ja\right\| < \frac{\eps}{n} 
+	\ee
+	where $p_{l} \bydef 1_{C\left(\sV_{\a_j} \right) }\otimes \mathfrak{e}_{ll}$ and $ \mathfrak{e}_{ll}$ is $l,l$-{elementary} matrix (cf. Definition \ref{elementary_defn}).
+	From the equation \eqref{ctr_pfp_eqn} it follows that
+	\be
+	\forall l \ge N\quad p_l  f_j f_{\eps/n} \left(a \right)p_l  = 0
+	\ee
+	where $f_{\eps/n}$ is given by the equation \eqref{f_eps_eqn}.
+	For any $\la \in \La$ and $l \in \N$ there is 
+	\bean
+	\widetilde f^l_\la \in C_b\left(\widetilde \sX\right), \\
+	\widetilde x \mapsto \tr\left( \rho^\la_{\widetilde{x}}\left(p_l f_j f_{\eps/n} \left( a_\la \right)p_l \right) \right) = \left\|\rho^\la_{\widetilde{x}}\left(p_l  f_jf_{\eps/n} \left( a_\la \right)p_l \right) \right\| 
+	\eean
+	From the Lemma \ref{top_disc_p_lem} it follows that
+	$$
+	\widetilde f^l \bydef s\text{-}\lim_{{\la \in \La}} f^l_\la\in C_c\left( \widetilde \sX\right) 
+	$$
+	where $\tr$ is the trace of operator and $s\text{-}\lim$ means the pointwise limit.
+	A finite union  $\widetilde{\sV}_l\bydef \bigcup_{l=1}^N \supp \widetilde f^l$ of compact sets is compact, so from the Theorem \ref{top_compact_thm}  it follows that there is $\la_0\in \La$ such that $\widetilde{\sV}$ is mapped homeomorphically onto $\widetilde{p}_{\la_0}\left( \widetilde{\sV}\right)$ where  $\widetilde{p}_{\la_0}:\widetilde\sX \to \sX_{ \la_0}$ is the natural covering. On the other hand 
+	$$
+	\forall l \in \N\quad \forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad \widetilde f^l = 0,
+	$$ 
+	so one has
+	$$
+	\forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad f_j \rep_{  \widetilde{x }}\left(  f_{\eps/n}\left(\widetilde a' \right) \right) = 0.
+	$$
+	It follows that 
+	$$
+	f_j   f_{\eps/n}\left(\widetilde a' \right)= f_j \lift^{\widetilde{p}_{\la_0}}_{\widetilde\sV}\left( f_{\eps/n}\left( a_\la \right)\right) \in A_0\left(\widetilde\sX \right).
+	$$
+	On the other hand
+	$$
+	\left\| f_j   f_{\eps/n}\left(\widetilde a' \right) - f_j \widetilde a  \right\| < \frac{\eps}{n},
+	$$
+	i.e. for any $j = 1,..., n$ there is $\widetilde a_j \in A_0\left(\widetilde\sX \right)$ such that $\left\|  f_j \widetilde a  - \widetilde a_j\right\| < \eps / n$.
+	If $\widetilde a \bydef \widetilde a_1 + ... + \widetilde a_n \in A_0\left(\widetilde\sX \right)$ then $\left\|  \widetilde a  - \widetilde a'\right\|< \eps$, so $\widetilde a \in A_0\left(\widetilde\sX \right)$ since $A_0\left(\widetilde\sX \right)$ is $C^*$-norm closed.
+\end{proof}
+
+
+
 \subsection{Coverings $C^*$-algebras and operator spaces}
 
 \paragraph*{}
@@ -10592,7 +10601,7 @@ $$
 \phi_{\overline A'}: \overline A' \hookto C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)	\subset B\left( \overline \H_a\right) 
 $$
 	where $C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)$ is the {discontinuous extension of} $C_0\left( \overline \sX\right)$ (cf. Definition \ref{top_discr_defn}), and
-where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) $C^*$-$\varinjlim_{\la \in \La} C_0\left(\sX_\la \right) \hookto  B\left( \overline \H_a\right)$ of the inductive limit in the sense of the Definition \ref{inductive_lim_non_defn}. From the Lemmas \ref{inverse_faithful_nondegenetate_lem}  and \ref{sum_hilb_rep_lem} one can deduce that $\overline A'$ is admissible (cf. Definition \ref{ctr_inf_defn}). From the Lemma \ref{top_disc_p_lem} it follows that there is the natural injective *-homomorphism $\phi: \overline A\subset C_0\left( \overline \sX\right)$ where the natural inclusion $  C_0\left( \overline \sX\right)\hookto C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)$  is implied. One can prove that $\phi$ satisfies to the equations \eqref{infinite_covering_g_eqn} and \eqref{infinite_covering_eqn}, and taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is the terminal object  (cf. Definition \ref{terminal_object_defn}) of the explained in \ref{infinite_covering_empt} category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$.
+where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) $C^*$-$\varinjlim_{\la \in \La} C_0\left(\sX_\la \right) \hookto  B\left( \overline \H_a\right)$ of the inductive limit in the sense of the Definition \ref{inductive_lim_non_defn}. From the Lemmas \ref{inverse_faithful_nondegenetate_lem}  and \ref{sum_hilb_rep_lem} !!! MAY BE REPLACE \ref{direct_sum_strong_lim_lem} !!! one can deduce that $\overline A'$ is admissible (cf. Definition \ref{ctr_inf_defn}). From the Lemma \ref{top_disc_p_lem} it follows that there is the natural injective *-homomorphism $\phi: \overline A\subset C_0\left( \overline \sX\right)$ where the natural inclusion $  C_0\left( \overline \sX\right)\hookto C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)$  is implied. One can prove that $\phi$ satisfies to the equations \eqref{infinite_covering_g_eqn} and \eqref{infinite_covering_eqn}, and taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is the terminal object  (cf. Definition \ref{terminal_object_defn}) of the explained in \ref{infinite_covering_empt} category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$.
 \end{proof}
  	\begin{empt}\label{comm_transitive_empt} 
  		
@@ -13030,95 +13039,35 @@ let $q:\widetilde \sY \to \sY$ be an $A$-regular (cf. Definition \ref{blowing_a_
 \sU_\la \bydef p^{-1} \left( \sU^0_\la\right)= \bigsqcup_{g \in G_\la} \sU^0_\la
 \end{split}
 \ee
-     Let   $\overline C^0$ be a commutative $C^*$-subalgebra of $_{\overline\sU} A_0\left( \overline \sY\right)_{\overline\sU}$ (cf. \ref{blowing_ideals_au_ua_empt}). Let
+\ref{blowing_ideals_au_ua_empt}). Let
 		\bean
 \mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \eean 	
 be given by \eqref{blowing_algebraical_finite_covering_category_eqn} algebraical finite covering category 
 (cf. Definition \ref{algebraical_finite_covering_category_defn}) and let a triple $\left(A, \overline A, \widehat{G} \right)$ is {pre}-{covering of algebraical finite covering category}	
-$\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+$\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}). IMPRIMITIVITY 
 \end{empt}
-\begin{lemma}\label{blowing_commutative_lem}
-Under the hypotheses \ref{blowing_commutative_empt} there is the natural inclusion  $\phi:\overline C^0 \hookto \overline A$.
+\paragraph{!!!}
+\begin{lemma}\label{ctr_infinite_lem!} !!!
+	If $A$ is a continuous trace $C^*$ algebra, with the locally connected spectrum $\sX$. Let $p: \widetilde \sX \to \sX$ is a covering such that $\sX \bydef \widetilde \sX/G$ with residually finite group $G$ and 	\bean
+	\begin{split}
+		\mathfrak{S}_{A_0\left(p\right) } \bydef \\
+		\left\{ \left\{ A_0\left( p_\la\right)  :A_0\left( \mathcal{X}\right)  \hookto A_0\left( \mathcal{X}_\la\right) \right\}, \left\{A_0\left( p^\mu_\nu\right)  :A_0\left( \mathcal{X}_\mu\right)  \hookto A_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+	\eean
+	given by \eqref{top_category_fin_a0_eqn}
+	is the \textit{algebraic} $A$-$\widetilde \sX$-$  G$-\textit{category} (cf. Definition \ref{top_fin_cov_a_cat_defn}). If $\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is an admissible subalgebra (cf. Definition \ref{ctr_inf_defn}) then there is the natural inclusion
+	$$
+	\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+	$$
+\end{lemma}
+\paragraph{!!!}
+\begin{lemma}\label{blowing_ctr_lem}
+Under the hypotheses \ref{blowing_commutative_empt} if  $_{\overline\sU} A_0\left( \overline \sY\right)_{\overline\sU}$ is a continuous trace $C^*$-algebra then there is the natural inclusion  $\phi:_{\overline\sU} A_0\left( \overline \sY\right)_{\overline\sU}\hookto \overline A$.
 \end{lemma}
 \begin{proof}
-If $C\subset ~_\sU A_\sU$ is given by
-$$
-C\bydef \left\{c \in  ~_\sU A_\sU\left| \exists \overline c^0 \in \overline C^0\quad c = \desc_{\overline q}\left( \overline c^0 \right)\right. \right\}
-$$
-where   $\desc_q$ is    $q$-descent (cf. Definition \ref{blowing_descent_defn}) then there is the natural $*$-isomorphism
-	\bean
-\overline C^0 \cong C,\\
-\overline c^0_\la \mapsto =\desc_{q_\la}\left( \overline c^0\right)  
-\eean 
-
-	
-	For any $\la\in \La$ let
-	$$
-	A_\la \bydef \left\{a_\la \in  A_0\left( \sY_\la\right)_+\left| \sum_{	g \in G\left( \left. \sY_\la\right| \sY\right)} g a_\la \in C \right.\right\},	
-	$$
-	and let $C_\la\subset A_0\left( \sY_\la\right)$ be a $C^*$-algebra generated by $A_\la$.  If $C^0_\la \bydef C_\la \cap~_{\sU^0_\la} A_0\left( \sY_\la\right)_{\sU^0_\la}$ then there is the natural $*$- isomorphism 
-	\bean
-	C^0_\la \cong C,\\
-	c^0_\la \mapsto \sum_{	g \in G\left( \left. \sY_\la\right| \sY\right)} g c^0_\la=\desc_{q_\la}\left( c^0_\la\right)  
-	\eean 
-	Moreover one has $	C^0_\la= \bigoplus_{	g \in G\left( \left. \sY_\la\right| \sY\right)}g C^0_\la$. If $\sX$ is the spectrum of $C$ and $\sX_\la$ is the spectrum of $C_\la$ then one has
-	\bean
-	\sX_\la = \bigsqcup_{	g \in G\left( \left. \sY_\la\right| \sY\right)}g \sX^0_\la,\\
-\sX^0_\la \cong 	\sX 
-	\eean 
-	where $\sX^0_\la$ is a spectrum of  $C^0_\la$. If
-	$\overline C\subset A_0\left(\overline\sY  \right) $ is the $C^*$-norm completion of an algebraic direct sum
-	$$
-\bigoplus_{g \in \widehat G} g 	\overline C^0\subset A_0\left(\overline\sY  \right)
-	$$ 
-	and both  $\overline \sX^0$,  $\overline \sX$ are  spectra of $\overline C^0$ and $\overline C$ respectively then $\overline \sX = \bigsqcup_{g \in \widehat G} g 	\overline \sX^0$. Let $\overline f \in \overline C \cap K\left(A_0\left( \overline \sY\right) \right)$ and let
-	$$
-f\bydef  \desc_q\left( \overline c\right) \in C \cong C_0\left( \sX\right) 	
-	$$
-	where $\desc_q$ is compactly supported  $q$-descent (cf. Definition \ref{blowing_descent_defn}). 
-From (c) of the Definition \ref{algebraical_finite_covering_category_defn} it turns out that there is a positive   $\overline a' \in K\left(\overline A \right)_0$ such that
-	\be\label{blowing_a'_eqn}
-	\begin{split}
-	f = \bt\text{-}\sum_{	g \in  \widehat{G} }g \overline a',\\
-\forall \la\in \La \quad f_\la \bydef\bt\text{-}\sum_{	g \in\ker\left(   \widehat{G} \to G\left( \left. \sY_\la\right| \sY\right)\right)  }g \overline a' \in C_\la\cong C_0\left(\sX_\la \right).
-	\end{split}
-	\ee
-	For any $\la\in \La$ there is a covering $\overline p_\la:  \overline \sX \to \sX_\la$, and there is a decreasing family
-	$$
-\left\{\overline f_\la \bydef\lift_{ \overline p_\la}\left(f_\la \right) \right\}_{\la\in\La}	\subset C_b\left(\overline \sX \right) 
-	$$
-	where $\lift_{ \overline p_\la}$ is given by the Definition \ref{top_lift_defn} $ \overline p_\la$ lift. There is a pointwise limit
-	$$
-	\overline{f}'\bydef s\text{-}\lim_{\la \in \La}\overline f_\la \in D^*\left(\overline \sX\right)
-	$$
-	where $D^*\left(\overline \sX\right)$ a $C^*$-algebra of bounded maps from $\overline\sX$ to $\C$ (cf. Notation \ref{top_discontinuous_not}  !!! REPLACE DISTR !!!). From  the Definition \ref{algebraical_finite_covering_category_defn} we can deduce that the net $\left\{\overline f_\la  \right\}_{\la\in\La}$ satisfies to hypotheses of the Lemma \ref{top_disc_p_lem}, so 	$\overline{f}'\in C_c\left( \overline\sX\right)$. Since $\supp \overline f$ is compact there is a finite subset $\left\{g_1, ..., g_n\right\} \in \widehat G$ such that 
-\bean
-\overline f' \in \bigoplus_{j = 1}^n g_j C_c\left( \overline \sX^0\right),\\
-\overline f' = \sum_{j = 1}^n \overline f_j \quad \overline f_j\in g_j C_c\left( \overline \sX^0\right).	
-\eean
-	For any $j=1,..., n$ there is $\la_j \in \La$ such that the image of $g_j$ in $g \in G\left( \left. \sY_{\la_j}\right| \sY\right)$ is not trivial. Let $\la_0\in \La$ be such that $\la_0\ge \la_j$ and let $h_{\la_0} : \widehat{G}\to G\left(\left.\overline \sY\right|\sY_{\la_0} \right)$ be natural surjective homomorphism. If  any $j =1,...,n$ the net  $\left\{u^\a_j\right\}_{\a\in \mathscr A}$ is approximate unit (cf. Definition \ref{approximate_unit_defn}) of
-	$h_{\la_0}\left(g_j \right)~_{\sU_{{\la_0}}} A_0\left( \sY_{\la_0}\right) _{\sU_{{\la_0}}}$ then from $A_0\left( \sY_{\la_0}\right)\subset M\left(\overline A \right)$ it follows that 
-	$$
-\forall j = 1,..., n \quad \forall \a\in \mathscr A\quad 	u^\a_j\overline a' u^a_j\in \overline A.
-	$$ 
-According to our construction $\overline f$ corresponds to $\overline a' \in \overline A$, so $u^\a_j\overline f' u^a_j$ corresponds to  $u^\a_j\overline a' u^a_j$, For any $j =1,..., n$ there is $C^*$-norm limit
-$$
-\overline a_j \bydef \lim_{\a \in \mathscr A} u^\a_j\overline a' u^a_j\in \overline A.
-$$
-and this limit corresponds to $\overline f_j$. If 
-$$
-\overline{f}'\bydef \sum_{j = 1}^n g^{-1}_{j} \overline f_j
-$$
-then $\overline{f} \in \overline C_0$. We define 
-\bean
-\phi:\overline C^0 \hookto \overline A,\\
-\overline{f} \mapsto \sum^n_{j=1} \overline a_j= \lift^p_{\overline\sU}\left(c \right). 
-\eean
-where $\lift^p_{\overline\sU}$ is $p$-$\overline{\sU}$-{lift} of $f$ (cf. Definition \ref{top_lift_desc_defn}).
+!!!!
 \end{proof}
-
-
 
 
 \begin{lemma}\label{blowing_disconnected_lem}
@@ -15041,89 +14990,6 @@ The details of the proof are left to the reader.
 \end{proof}
 
 \section{Infinite coverings}\label{ctr_case_sec}
-\subsection{Infinite coverings and algebraic constructions}
-\begin{lemma}
-If $A$ is a continuous trace $C^*$ algebra, with the locally connected spectrum $\sX$. Let $p: \widetilde \sX \to \sX$ is a covering such that $\sX \bydef \widetilde \sX/G$ with residually finite group $G$ and 	\bean
-\begin{split}
-	\mathfrak{S}_{A_0\left(p\right) } \bydef \\
-	\left\{ \left\{ A_0\left( p_\la\right)  :A_0\left( \mathcal{X}\right)  \hookto A_0\left( \mathcal{X}_\la\right) \right\}, \left\{A_0\left( p^\mu_\nu\right)  :A_0\left( \mathcal{X}_\mu\right)  \hookto A_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
-\end{split}
-\eean
-given by \eqref{top_category_fin_a0_eqn}
-is the \textit{algebraic} $A$-$\widetilde \sX$-$  G$-\textit{category} (cf. Definition \ref{top_fin_cov_a_cat_defn}). If $\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is an admissible subalgebra (cf. Definition \ref{ctr_inf_defn}) then there is the natural inclusion
-$$
-\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
-$$
-
-\end{lemma}
-\begin{proof}
-  One can construct a family $\left\{\sU_\a\right\}_{\a\in\mathscr A}$ of connected open subsets  of $\sX$ with compact closures,  such that $\sX = \bigcup_{\a \in \mathscr A}\sU_\a$ and for any $\a \in \mathscr A$ one has:
-	\begin{itemize}
-		\item $\sU_\a$ is evenly covered by $p$,
-		\item if $\sV_\a$ is the closure of $\sU_\a$ then there is an Abelian element $e_\a \in A$ (cf. equation \eqref{closed_ideal_eqn}) such that $X_{C\left( \sV_a\right) } \bydef e|^{\sV_\a}$ is an $\left. A\right|^{\sV_\a}-\left.  e\right|^{\sV_\a}\left.A\right|^{\sV}\left. e\right|^{\sV_\a}\cong C\left({\sV_\a}\right)$-imprimitivity bimodule (cf. construction \ref{ctr_imprim_empt}) and
-		$$
-	\left. A\right|^{\sV_\a}= \K\left( X_{C\left( \sV_a\right) }\right), 
-		$$
-	\end{itemize}
-	From Theorem \ref{kasparov_stab_thm} for any $\a \in \mathscr A$ one has  inclusions 	$X_{C\left( \sV_a\right) }\subset \ell^2\left( C\left( \sV_a\right) \right)$
-	\be\label{ctr_k_inc_eqn}
-	\K\left( X_{C\left( \sV_a\right) }\right) \subset \K\left( \ell^2\left( C\left( \sV_a\right)\cong C\left( \sV_a\right)\otimes \K. \right)\right) 
-	\ee
-		If $\widetilde a \in K\left({{\widetilde A}} \right)_+$ is a positive element then from the condition (c) of the Definition  \ref{ctr_inf_defn} there is $a \in K\left(A \right)_+$ 
-	such that  
-	$$
-	\forall  x \in \sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left. \sX\right|\sX_\la \right)\right) }\rep_{ x}\left( g  a'\right)  = \rho^\la_{ x}\left(a_\la \right)
-	$$
-		From \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a\subset \sX$ is compact. If $f \bydef \sum^n_{j=1} f_j$ is a subordinated to the family $\left\{\sU_\a\right\}$ covering sum (cf. Definition  \ref{top_covering_sum_defn}) then
-		\bean
-		f a = a,\\
-		f \widetilde{a}' = \widetilde{a}'
-		\eean 
-		and for any $j=1,..., n$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. 
-	From this fact and \eqref{ctr_k_inc_eqn} one can suppose that
-	$$
-	f_ja  \in \K\left( \ell^2\left( C\left( \sV_{\a_j}\right)\right)\right)\cong C\left( \sV_{\a_j}\right)\otimes \K.
-	$$
-Let us fix $j \in \{1,...,n\}$. If $\eps > 0$ then from the Lemma \ref{c_misch_g_lem} it follows that there is $N \in \N$ such that
-\be\label{ctr_pfp_eqn}
-\forall k \ge N  \quad \left\|\left(  \sum_{l = 1}^{k}   p_{l}\right) f_ja\left(  \sum_{l = 1}^{k}   p_{l}\right)  - f_ja\right\| < \frac{\eps}{n} 
-\ee
-where $p_{l} \bydef 1_{C\left(\sV_{\a_j} \right) }\otimes \mathfrak{e}_{ll}$ and $ \mathfrak{e}_{ll}$ is $l,l$-{elementary} matrix (cf. Definition \ref{elementary_defn}).
-From the equation \eqref{ctr_pfp_eqn} it follows that
-\be
-\forall l \ge N\quad p_l  f_j f_{\eps/n} \left(a \right)p_l  = 0
-\ee
-where $f_{\eps/n}$ is given by the equation \eqref{f_eps_eqn}.
-For any $\la \in \La$ and $l \in \N$ there is 
-\bean
-\widetilde f^l_\la \in C_b\left(\widetilde \sX\right), \\
-\widetilde x \mapsto \tr\left( \rho^\la_{\widetilde{x}}\left(p_l f_j f_{\eps/n} \left( a_\la \right)p_l \right) \right) = \left\|\rho^\la_{\widetilde{x}}\left(p_l  f_jf_{\eps/n} \left( a_\la \right)p_l \right) \right\| 
-\eean
-From the Lemma \ref{top_disc_p_lem} it follows that
-$$
-\widetilde f^l \bydef s\text{-}\lim_{{\la \in \La}} f^l_\la\in C_c\left( \widetilde \sX\right) 
-$$
-where $\tr$ is the trace of operator and $s\text{-}\lim$ means the pointwise limit.
-A finite union  $\widetilde{\sV}_l\bydef \bigcup_{l=1}^N \supp \widetilde f^l$ of compact sets is compact, so from the Theorem \ref{top_compact_thm}  it follows that there is $\la_0\in \La$ such that $\widetilde{\sV}$ is mapped homeomorphically onto $\widetilde{p}_{\la_0}\left( \widetilde{\sV}\right)$ where  $\widetilde{p}_{\la_0}:\widetilde\sX \to \sX_{ \la_0}$ is the natural covering. On the other hand 
-$$
-\forall l \in \N\quad \forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad \widetilde f^l = 0,
-$$ 
-so one has
-$$
-\forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad f_j \rep_{  \widetilde{x }}\left(  f_{\eps/n}\left(\widetilde a' \right) \right) = 0.
-$$
-It follows that 
-$$
-f_j   f_{\eps/n}\left(\widetilde a' \right)= f_j \lift^{\widetilde{p}_{\la_0}}_{\widetilde\sV}\left( f_{\eps/n}\left( a_\la \right)\right) \in A_0\left(\widetilde\sX \right).
-$$
-On the other hand
-$$
-\left\| f_j   f_{\eps/n}\left(\widetilde a' \right) - f_j \widetilde a  \right\| < \frac{\eps}{n},
-$$
-i.e. for any $j = 1,..., n$ there is $\widetilde a_j \in A_0\left(\widetilde\sX \right)$ such that $\left\|  f_j \widetilde a  - \widetilde a_j\right\| < \eps / n$.
-If $\widetilde a \bydef \widetilde a_1 + ... + \widetilde a_n \in A_0\left(\widetilde\sX \right)$ then $\left\|  \widetilde a  - \widetilde a'\right\|< \eps$, so $\widetilde a \in A_0\left(\widetilde\sX \right)$ since $A_0\left(\widetilde\sX \right)$ is $C^*$-norm closed.
-\end{proof}
-
 \subsection{Coverings of $C^*$-algebras}
 \paragraph*{}
 Here we prove that any infinite covering of $C^*$-algebra with Hausdorff spectrum $\sX$ corresponds to a transitive covering of $\sX$.
