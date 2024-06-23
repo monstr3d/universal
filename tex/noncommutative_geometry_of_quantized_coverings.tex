@@ -902,7 +902,7 @@ Prove a related to nonunital commutative $C^*$-algebras generalization of the Co
 
 \section{Ext-functor and characters}\label{ext_char_sec}
 \paragraph*{}
-Let $A \bydef \Z^n /\Gamma$ be a finite Abelian group where $\Gamma\subset \Z^n \subset \Q^n$. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
+Let $A \bydef \Z^n /\Gamma$ be a finite Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
 $$
  \Hom \left(\Z^n, \Z \right)\to \Hom \left(\Ga, \Z\right)
 $$
@@ -1310,45 +1310,43 @@ Follows from the Definition \ref{approximate_unit_defn}  and the Lemma \ref{c_mi
 %	From (ii) of the Lemma \ref{c_misch_lem} it follows that 	$\lim_{n \to \infty}\left\|Kp_n - K \right\|= 0$, hence from $\left\|p_n\right\|= 1$ it follows that $$\lim_{n \to \infty}\left\|p_n\left( Kp_n - K\right)  \right\|= \lim_{n \to \infty}\left\|p_nKp_n - p_nK \right\|=0.$$	Otherwise from (iii) of the Lemma \ref{c_misch_lem} it follows that $\lim_{n \to \infty}\left\|p_n K - K \right\| = 0$ and taking into account the triangle identity one has	$\lim_{n \to \infty}\left\|p_n K p_n- K \right\| = 0$.	
 %\end{proof}
 
-\begin{lemma}\label{positive_ineq_lem}
-		Let both $\H'$ and $\H''$ be Hilbert spaces. If
-		$$
-a \bydef		\begin{pmatrix}
-	b & c\\
-	c^*&d
-		\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
-		$$
-		is a positive bounded operator then one has
-\be\label{positive_ineq_eqn}
-\left\|a - 	\begin{pmatrix}
-	b & 0\\
-	0&0
-\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
-\ee
-	\end{lemma}
-	\begin{proof}
-		If $\H \bydef \H'\oplus \H''$, $x'\in \H'$, $y''\in \H''$, $x \bydef\left(x', 0 \right) \in \H'\oplus\H''$ and $y \bydef\left(0, y'' \right) \in \H'\oplus\H''$ then from then from the CauchyÐSchwarz inequality it follows that
-	\be\label{cs_xy_eqn}
-		\left|	\left(x, a y \right)_\H \right|\le \sqrt{\left(x, a x\right)_\H } \sqrt{\left(y, ay\right)_\H }= \sqrt{\left(x', b x'\right)_{\H'} } \sqrt{\left(y'', dy''\right)_{\H''} }.
-		\ee
-		On the other hand from
-		$$
-		\left\|c\right\|= \left\|c^*\right\|= \sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}}\left|	\left(x',cy'' \right)_{\H'} \right|=\sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}} \left|	\left(\left(x', 0 \right), a \left(0, y'' \right) \right)_\H \right|,
-		$$
-		and taking into account \eqref{cs_xy_eqn} one has
-			$\left\|c\right\|\le \sqrt{\left\| b\right\|} \sqrt{\left\| d\right\|}$.
-		Otherwise from the triangle inequality one has
-			\bean
-			\left\|a - 	\begin{pmatrix}
-				b & 0\\
-				0&0
-			\end{pmatrix} \right\| = 	\left\|\begin{pmatrix}
-			0 & c\\
-			c^*&d
-		\end{pmatrix} \right\|\le  \left\| d	 \right\|+ 2 \left\| c	 \right\|\le\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}.
-			\eean 
-		From $\left\| b	 \right\|\le \left\| a	 \right\|$ it follows that $\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|} $.
-	\end{proof}
+%\begin{lemma}\label{positive_ineq_lem}
+%		Let both $\H'$ and $\H''$ be Hilbert spaces. If
+%		$$
+%a \bydef		\begin{pmatrix}
+%	b & c\\
+%	c^*&d
+%		\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
+%		$$
+%		is a positive bounded operator then one has
+%\be\label{positive_ineq_eqn}
+%\left\|a - 	\begin{pmatrix}
+%	b & 0\\
+%	0&0
+%\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
+%\ee
+%	\end{lemma}
+%	\begin{proof}???? CHECK
+%		If $\H \bydef \H'\oplus \H''$, $x'\in \H'$, $y''\in \H''$, $x \bydef\left(x', 0 \right) \in \H'\oplus\H''$ and $y \bydef\left(0, y'' \right) \in \H'\oplus\H''$ then from then from the CauchyÐSchwarz inequality it follows that
+%	\be\label{cs_xy_eqn}
+%		\left|	\left(x, a y \right)_\H \right|\le \sqrt{\left(x, a x\right)_\H } \sqrt{\left(y, ay\right)_\H }= \sqrt{\left(x', b x'\right)_{\H'} } \sqrt{\left(y'', dy''\right)_{\H''} }.
+%		\ee
+%		On the other hand from
+%		$$
+%		\left\|c\right\|= \left\|c^*\right\|= \sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}}\left|	\left(x',cy'' \right)_{\H'} \right|=\sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}} \left|	\left(\left(x', 0 \right), a \left(0, y'' \right) \right)_\H \right|,
+%		$$
+%		and taking into account \eqref{cs_xy_eqn} one has			$\left\|c\right\|\le \sqrt{\left\| b\right\|} \sqrt{\left\| d\right\|}$.		Otherwise from the triangle inequality one has
+%			\bean
+%			\left\|a - 	\begin{pmatrix}
+%				b & 0\\
+%				0&0
+%			\end{pmatrix} \right\| = 	\left\|\begin{pmatrix}
+%			0 & c\\
+%			c^*&d
+%		\end{pmatrix} \right\|\le  \left\| d	 \right\|+ 2 \left\| c	 \right\|\le\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}.
+%			\eean 
+%		From $\left\| b	 \right\|\le \left\| a	 \right\|$ it follows that $\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|} $.
+%	\end{proof}
 
 \begin{definition}\label{def:rep_Hilbert_module_uni}
 Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hilbert $D$-module, and let $A^\sim$ is given by \eqref{unital_notation_eqn}, A \emph{representation} of $A $ on $\mathcal{E} $ is a {representation} of $A^\sim$ on $\mathcal{E}$ in the sense of the Definition \ref{def:rep_Hilbert_module}.
@@ -1441,9 +1439,9 @@ then one has
 where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{pedersen_k0_eqn} and \eqref{pedersen_k_plus_eqn} respectively
 \end{lemma}
 \begin{proof}
-	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by 
+	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi_\eps \in K(]0, \infty [$ is given by 
 		\bean
-		\phi\left( x\right)  =\left\{
+		\phi_\eps\left( x\right)  =\left\{
 		\begin{array}{c l}
 			0 &x \le \eps \\
 			x - \eps &  \eps \le x \le \left\| a\right\|\\
@@ -1493,7 +1491,7 @@ It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely  if $
 
 
 \begin{lemma}\label{lift_mult_lem}
-Let $\pi: A \hookto M\left( \widetilde A\right)$ is an injective *-homomorphism of $C^*$-algebras, and let $\left\{u_\a\right\}_{\a \in \mathscr A}\subset A$ be an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}). If
+Let $\pi: A \hookto M\left( \widetilde A\right)$ be an injective *-homomorphism of $C^*$-algebras, and let $\left\{u_\a\right\}_{\a \in \mathscr A}\subset A$ be an approximate unit for $A$ (cf. Definition \ref{approximate_unit_defn}). If
 \be\label{lift_mult_norm_eqn}
 \forall \widetilde a \in \widetilde A \quad \lim_{\a \in \mathscr A}\left\| \widetilde a - \pi\left( u_\a\right)  \widetilde a \right\| = \lim_{\a \in \mathscr A}\left\| \widetilde a -  \widetilde a \pi\left( u_\a\right)\right\| = 0
 \ee
@@ -1520,7 +1518,7 @@ where $\bt\text{-}\lim_{\a \in \mathscr A}$ means the limit with respect to the 
 	$$
 	\forall \widetilde{a}, \widetilde{b} \in \widetilde{A}\quad \left( \widetilde a \pi \left( u_\a a \right)\right)  \widetilde b=\widetilde a \left( \pi \left( u_\a a \right) \widetilde b\right) 
 	$$
-	one can deduce that a pair $\left( L_a, R_a\right)$ satisfies to  the equation \eqref{double_centralizer_eqn}, i.e.  $\left( L_a, R_a\right)$ is  a {double centralizer} (cf. Definition \ref{double_centralizer_defn}). From the Remark \ref{double_centralizer_rem} it follows that $\left( L_a, R_a\right)$ yields an element of $M\left( \widetilde{A}\right)$ thus one has a natural map $	M\left(\widetilde \pi \right) :	M\left(A \right)  \to M\left( \widetilde A\right)$. 
+	one can deduce that a pair $\left( L_a, R_a\right)$ satisfies to  the equation \eqref{double_centralizer_eqn}, i.e.  $\left( L_a, R_a\right)$ is  a {double centralizer} (cf. Definition \ref{double_centralizer_defn}). From the Remark \ref{double_centralizer_rem} it follows that $\left( L_a, R_a\right)$ yields an element of $M\left( \widetilde{A}\right)$, so one has a natural map $	M\left(\widetilde \pi \right) :	M\left(A \right)  \to M\left( \widetilde A\right)$. 
 We leave to the reader the proof of that $M\left(\pi \right)$ is an injective *-homomorphisms  and $M\left(\pi \right)$ is an extension of  $\pi$.
 
 \end{proof}
@@ -1546,7 +1544,7 @@ There is $\la_s \in \La$ such that
 $$
 \forall \la \in \La \quad \la \ge \la_s \quad \left\| a^s \xi - \pi\left( a_\la\right) \xi  \right\|< \frac{\left\| \zeta  \right\|}{4}.
 $$
-	On the other hand there are $b \in A$, $\la_\bt \in \La$ and $\eta \in \H$ such that 
+	On the other hand from the Definition \ref{strict_topology_eqn} and the Lemma \ref{nondegenerate_repr_lem} it turns out that there are $b \in A$, $\la_\bt \in \La$ and $\eta \in \H$ such that 
 	\bean
 	\left\| b \eta  - \xi  \right\| <  \frac{\left\| \zeta  \right\|}{4\max\left(  C, \left\| a^\bt  \right\|\right)  },\\
 	\forall \la \in \La \quad \la \ge \la_\bt\quad  \left\| a^\bt b - a_\la b   \right\| <  \frac{\left\| \zeta  \right\|}{4 \left\| \eta\right\|}
@@ -1711,7 +1709,7 @@ Any noncommutative finite-fold  pre-covering is a noncommutative finite-fold qua
 	From the Lemma \ref{quasi_approximate_unit_lem} it follows that the homomorphism $\pi$ in Definitions \ref{fin_quasi_defn} and \ref{fin_pre_defn} is unital in the sense of the Definition \ref{principal_non_defn}.
 \end{remark}
 \begin{remark}
-Indeed conditions (a), (b) !!! CHECK !!! of the Definition \ref{fin_pre_defn} state an isomorphism between ordered sets  of groups  and $C^*$-algebras  and it is an analog the fundamental
+Indeed conditions (a), (b) of the Definition \ref{fin_pre_defn} state an isomorphism between ordered sets  of groups  and $C^*$-algebras  and it is an analog the fundamental
 theorem of Galois theory. (cf. \cite{kurosh:lga} Chapter Six, \S~6 for details).
 \end{remark}
 \begin{definition}\label{proper_subgroup_fin_defn}
@@ -2106,7 +2104,7 @@ of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $\widetilde
 
 
 \begin{remark}
-	The Definition \ref{fin_defn}  is motivated by the Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!! .
+	The Definition \ref{fin_defn}  is motivated by the Lemmas  \ref{top_fin_necassary_lem} and \ref{top_fin_sufficient_lem} .
 \end{remark}
 
 
@@ -2425,7 +2423,7 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
  	\ee
  \end{remark}
  \begin{remark}\label{frame_l_rem}
- 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization}. If $\left(B, \widetilde{B}, G, \phi \right)$ is an unital noncommutative finite-fold covering which satisfies to conditions (a), (b) !!! CHECK !!! of the Definition \ref{fin_unitization_defn} then 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
+ 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization}. If $\left(B, \widetilde{B}, G, \phi \right)$ is an unital noncommutative finite-fold covering which satisfies to conditions (a), (b) of the Definition \ref{fin_unitization_defn} then 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
  	\be\nonumber
 \forall \widetilde{b} \in \widetilde{B}\quad \widetilde{b}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right)
 	\ee
@@ -2460,7 +2458,7 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
 
 \begin{lemma}\label{cov_mult_fin_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. 	Let $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ be an 
-	unital  noncommutative finite-fold quasi-covering which satisfies to conditions  (a), (b) !!! CHECK !!! of the Definition \ref{fin_unitization_defn}. Then there is $\left\{  \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$ such that 
+	unital  noncommutative finite-fold quasi-covering which satisfies to conditions  (a), (b) of the Definition \ref{fin_unitization_defn}. Then there is $\left\{  \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$ such that 
 	\be\label{ma_fin_eqn}
 	M\left(\widetilde{A} \right) = \widetilde{b}_1 M\left(A \right) + ... + \widetilde{b}_n M\left(A \right).
 	\ee
@@ -2866,7 +2864,7 @@ $\widetilde q = \sum_{g \in H} b_g \left(g \widetilde{\tau} \right)$ where  $b_g
 	\be\label{ideal_preimage_eqn}
 	\widetilde{I}_I= \bigcap_{\substack{\widetilde{x} \in\widetilde{\mathcal X}\\\rep_{\widetilde{x}}\left( I\right) =0}}\ker \rep_{\widetilde{x}},
 	\ee 
-	so the preimage of   $\mathcal U$, is closed, it turns out that $p$ is continuous. From the Proposition \ref{state_prop} it turns out that $p$ is a surjective map. From the condition (b) !!! CHECK !!! of the Definition \ref{fin_pre_defn} it turns out that $ga=a$ for any $a \in A$ and $g \in G$, so one has $\left(g\widetilde{\rho} \right)\left( a\right)= \widetilde{\rho}\left(a \right)$ for any $\widetilde{\rho} \in \widetilde{\mathcal X}$. It follows that $p \circ g = p;~~ \forall g \in G$.
+	so the preimage of   $\mathcal U$, is closed, it turns out that $p$ is continuous. From the Proposition \ref{state_prop} it turns out that $p$ is a surjective map. From the condition (b) of the Definition \ref{fin_pre_defn} it turns out that $ga=a$ for any $a \in A$ and $g \in G$, so one has $\left(g\widetilde{\rho} \right)\left( a\right)= \widetilde{\rho}\left(a \right)$ for any $\widetilde{\rho} \in \widetilde{\mathcal X}$. It follows that $p \circ g = p;~~ \forall g \in G$.
 	From the Lemma \ref{state_cov_11_lem} it turns out that $p$ is a bijective map.  \\
 	(iii) Any pure state $\phi : A \to \C$ uniquely defines the given by \eqref{state_down_eqn} invariant state $\widetilde{\phi}$. Otherwise $\widetilde{\phi}$  uniquely depends on the $G$-orbit of any pure state $\widetilde{\psi}:\widetilde A \to \C$ such that $\left.\widetilde{\psi}\right|_A = \phi$. So the map $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$ is bijective. Open subsets of $\widetilde{\mathcal X}/G$ correspond to open subsets $\widetilde\sU\subset \widetilde\sY$ such that $G\widetilde\sU=\widetilde\sU$. Otherwise such open subset corresponds to the closed two-sided  $G$-invariant  ideal $\widetilde I$, i.e. $G\widetilde I=\widetilde I$. If $I\bydef A\cap \pi^{-1}\left( \widetilde I\right) $ then $\widetilde I$ is the generated by $\pi\left( I\right)$ ideal. There are mutually inverse maps between closed two sided ideals of $A$  an closed two-sided  $G$-invariant  ideals $\widetilde A$ given by
 	\bean
@@ -3387,15 +3385,6 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  0 & g' \neq g
  \end{array}\right..
  \end{equation}
- %\begin{empt}
-%  Let $\left(A, \widetilde{A}, G \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let $\left(B ,\widetilde{B}, G \right)$ be the unital  noncommutative finite-fold covering from the condition (b) !!! CHECK !!! of the Definition \ref{fin_unitization_defn}. From $\left(\widetilde{B} \rtimes G \right) \widetilde{A} =  \widetilde{A} \left(\widetilde{B} \rtimes G \right) = \widetilde{A}$ it follows that there are  the natural left and right actions of $\widetilde{B} \rtimes G$ on $\widetilde{A}$
-%\end{empt}
- %\begin{definition}
- %Let $\left(A, \widetilde{A}, G \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let $\left(B ,\widetilde{B}, G \right)$ be the unital  noncommutative finite-fold covering from the condition (b) !!! CHECK !!! of the Definition \ref{fin_unitization_defn}. The natural left and right action of $A$ on $\widetilde{B}$ induces  actions of $A$ on $\widetilde{B} \rtimes G$. 
- %The $C^*$-algebra 
- %$$\widetilde{A} \rtimes G \stackrel{\text{def}}{=} A \left(\widetilde{B} \rtimes G \right) A$$ 
- %is said to be the \textit{crossed product} of $\widetilde{A}$ and $G$. The restrictions of left and right actions of $\widetilde{B} \rtimes G$ on $\widetilde{A}$ yield left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$
-% \end{definition}
 
 \begin{corollary}\label{tens_inv_cor}
 $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. The given by  \ref{herm_functor_empt} functor $_A\widetilde{A}_{\widetilde{A}\rtimes G} \otimes_{\widetilde{A}\rtimes G}\left( -\right): \mathbf{Herm}_{\widetilde{A}\rtimes G} \to \mathbf{Herm}_A$ is equivalent to the functor of invariant submodule 
@@ -3482,7 +3471,7 @@ It turns out that  ${\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A 
  	\end{split}
  	\end{equation}
  	for any $\la\in \La$.
- 	The union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subset of $\widetilde{A}$ and $\bigcup_{\la \in \La} \widetilde{A}_\la \bigcap A$ is a dense subset of $A$. So domains of products  $\left\langle -, - \right\rangle_{\widetilde{A}_\la \rtimes G}~$, $~~\left\langle -, - \right\rangle_{A_\la}$ can be extended up to $\widetilde{A} \times \widetilde{A}$ and resulting products satisfy to  (a) of the Definition \ref{strong_morita_defn}. From \eqref{ia_eqn} it turns out that $\left\langle \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ \widetilde{A}  \rtimes G}$ (resp. $\left\langle  \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ A}$) is a dense subset of  $\widetilde{A} \rtimes G$ (resp. $A$), i.e. the condition (b) !!! CHECK !!! of the Definition \ref{strong_morita_defn} holds.
+ 	The union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subset of $\widetilde{A}$ and $\bigcup_{\la \in \La} \widetilde{A}_\la \bigcap A$ is a dense subset of $A$. So domains of products  $\left\langle -, - \right\rangle_{\widetilde{A}_\la \rtimes G}~$, $~~\left\langle -, - \right\rangle_{A_\la}$ can be extended up to $\widetilde{A} \times \widetilde{A}$ and resulting products satisfy to  (a) of the Definition \ref{strong_morita_defn}. From \eqref{ia_eqn} it turns out that $\left\langle \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ \widetilde{A}  \rtimes G}$ (resp. $\left\langle  \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ A}$) is a dense subset of  $\widetilde{A} \rtimes G$ (resp. $A$), i.e. the condition (b) of the Definition \ref{strong_morita_defn} holds.
  \end{proof}
 
 
@@ -3692,7 +3681,7 @@ then the $C^*$-{envelope}  of $\left(A,A^\sim \right)$ is $A$, i.e. $C^*_e\left(
 We  say that  $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\pi_X, \pi_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering} of the {sub-unital} operator space $\left(X, Y\right)$.
 \end{definition}
 \begin{remark}\label{fin_op_g_rem}
-The action $G \times C^*_e\left(\widetilde X, \widetilde Y \right) \to C^*_e\left(\widetilde X, \widetilde Y \right)$ is trivial on $C^*_e\left( X,  Y \right)$, so from (b) !!! CHECK !!! of the Definition \ref{fin_op_defn} it follows that there is the natural action $G\times \widetilde X \to \widetilde X$ which is trivial on $X$.
+The action $G \times C^*_e\left(\widetilde X, \widetilde Y \right) \to C^*_e\left(\widetilde X, \widetilde Y \right)$ is trivial on $C^*_e\left( X,  Y \right)$, so from (b) of the Definition \ref{fin_op_defn} it follows that there is the natural action $G\times \widetilde X \to \widetilde X$ which is trivial on $X$.
 \end{remark}
 \begin{definition}\label{op_su_r_space_defn}
 	Let $Y$ be a  real operator space (cf. Definitions \ref{real_os_defn}), and let $X\subset Y$ is its subspace. Let both $\C X$ and $\C Y$ are complexifications  (cf. \ref{complexification_empt}) of $X$ and $Y$ respectively.
@@ -4147,26 +4136,27 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		& G_\mu\arrow[ru] &
  	\end{tikzcd}
  	\\
- 	then $\La$ becomes an directed set (cf. Definition \ref{directed_set_defn}). We say that $\La$ is $  G$-\textit{set} and the given by $\La$ pre-ordering category (cf. Definition \ref{preordercat_defn}) is $  G$-\textit{category}. We denote  $  G$-{category} $\La_{ G }$
- 	There is the natural functor from $\La_{ G }$ to the category of groups and surjective homomorphisms. The element $\la_{\min }\in \La$ which corresponds to the trivial factor-group $G_{\la_{\min}}= \{e\}$ is said to be \textit{minimal}.
+ 	then $\La$ becomes an directed set (cf. Definition \ref{directed_set_defn}). We say that the set $\La$ is $  G$-\textit{set} and the given by $\La$ pre-ordering category (cf. Definition \ref{preordercat_defn}) is $  G$-\textit{category}  $  G$-{category} denoted by $\La_{ G }$.
+ 	There is the natural functor from $\La_{ G }$ to the category of finite groups and surjective homomorphisms. The element $\la_{\min }\in \La$ which corresponds to the trivial factor-group $G_{\la_{\min}}= \{e\}$ is said to be \textit{minimal}.
  \end{definition}
  \begin{remark}\label{g_category_rem}
- If $ G$ is a residually finite group (cf. Definition \ref{residually_finite_defn}) and $\widehat{G}\bydef \varprojlim_{\la\in \La}G_\la$ is its profinite completion (cf. Example \ref{profinite_exm}) then $\widehat{G}$-category $\La_{\widehat G }$ is naturally equivalent to $G$-category $\La_{ G }$.
+ If $ G$ is a residually finite group (cf. Definition \ref{residually_finite_defn}) and $\widehat{G}\bydef \varprojlim_{\la\in \La}G_\la$ is its profinite completion (cf. Example \ref{profinite_exm}) then ${G}$-category $\La_{ G }$ is naturally equivalent to $\widehat G$-category $\La_{ \widehat G }$.
  \end{remark}
  
  \begin{empt}\label{infinite_quasicovering_empt}
- 	If  $\widehat{G}$ is a profinite group(cf. Example \ref{profinite_exm})  then 
- 	  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. Indeed $\La$ is the $\widehat{G}$-set (cf. Definition \ref{g_category_defn}). Suppose that for any element $\overline a \in K\left(\overline A \right)$ of the Pedersen's ideal of $\overline A$ (cf. Definition \ref{pedersen_ideal_defn}) a series 
+ 	If  $\widehat{G}$ is a profinite group (cf. Example \ref{profinite_exm})  then 
+ 	  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of finite groups (cf. Definition \ref{group_inv_lim_defn}). According to the Definition \ref{inverse_limit_defn} the set $\La$ is directed. Indeed $\La$ is the $\widehat{G}$-set (cf. Definition \ref{g_category_defn}). Let $\overline A$ be a $C^*$-algebra with an action $\widehat{G}\times \overline A\to \overline A$ such that any $ g \in \widehat G$ yields an $*$-automorphism of $\overline A$.	  
+ 	  Suppose that for any element $\overline a \in K\left(\overline A \right)$ of the Pedersen's ideal of $\overline A$ (cf. Definition \ref{pedersen_ideal_defn}) a series 
  	\be\label{infinite_covering_basic_eqn}
  	\sum_{	g \in \widehat{G}}g \overline a
  	\ee
- 	is convergent with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}). For any subset $G \subset \widehat{G}$ a series is $	\sum_{	g \in \widehat{G}}g \overline a$ is also convergent with respect to the strict topology of $M\left(\overline A\right)$. For any $\la \in \La$ denote by $A_\la$ generated by elements
+ 	is convergent with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}). For any subset $G \subset \widehat{G}$ a series is $	\sum_{	g \in {G}}g \overline a$ is also convergent with respect to the strict topology of $M\left(\overline A\right)$. For any $\la \in \La$ denote by $A_\la$ a generated by elements
  	\be\label{basic_cov_cl_eqn}
  	a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
  	\ee
- 	$C^*$-subalgebra where  $\bt\text{-} \sum$ means limit with respect to the strict topology of $M\left(\overline A\right)$. 
+ 	$C^*$-subalgebra of $M\left(\overline A\right)$, where  $\bt\text{-} \sum$ means a convergence  with respect to the strict topology of $M\left(\overline A\right)$. 
  \end{empt}
- \begin{definition}\label{infinite_quasicovering_defn} 	Under the hypotheses  \ref{infinite_quasicovering_empt}  $\la_{\mathrm{min}}\in \La$ is the minimal element and $A\bydef A_{\la_{\min}}$ (cf. Definition \ref{g_category_defn} then we say that the triple $\left( A, \overline A, \widehat G\right)$ is an  \textit{infinite quasi-covering}. We say that $A_\la$ is the $\la$-\textit{descent} of $\overline A$.
+ \begin{definition}\label{infinite_quasicovering_defn} 	Under the hypotheses  \ref{infinite_quasicovering_empt}  $\la_{\mathrm{min}}\in \La$ is the minimal element and $A\bydef A_{\la_{\min}}$ (cf. Definition \ref{g_category_defn} then we say that the triple $\left( A, \overline A, \widehat G\right)$ is an  \textit{infinite quasi-covering}. We say that $A_\la$ is the $\la$-\textit{descent of} $\overline A$. The natural injective $*$-homomorphism $\lift_\la: A_\la \hookto M\left(\overline A \right)$ is the $\la$-\textit{lift}.
  \end{definition}
  
  \begin{lemma}\label{infinie_quasi_covering_lem}
@@ -4191,7 +4181,15 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	Under the hypotheses  of the Lemma \ref{infinie_quasi_covering_lem} there is a category $\mathfrak{S}$ such that
  	\begin{itemize}
  		\item $\mathfrak{S}$-objects are $C^*$-algebras $A_\la$ where $\la\in \La$,
- 		\item $\mathfrak{S}$-morphisms are injective $*$-homomorphisms $\pi^\mu_\nu : A_\mu \hookto A_\nu$.
+ 		\item $\mathfrak{S}$-morphisms are natural injective $*$-homomorphisms $\pi^\mu_\nu : A_\mu \hookto A_\nu$
+ 		such that the diagram
+ 		\\
+ 		\begin{tikzcd}
+ 		A_\mu \arrow[rr, "\pi_{\mu\nu}"] \arrow[rd, "\desc_{\mu}"]&& A_\nu\arrow[ld, "\desc_\nu"]\\
+ 		& M\left( \overline A\right) &
+ 		\end{tikzcd}
+ 		\\
+ 		is commutative.
  	\end{itemize}
  	
  \end{empt}
@@ -4255,11 +4253,11 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\ee
  	where  $\bt\text{-} \sum$ means the convergence with respect to the strict topology of $M\left(\overline A\right)$ (cf. Definition \ref{strict_topology_defn}).
  	The given by the equation  \eqref{inf_desc_eqn}
- 	homomorphism  $\desc_{\la}$ is the $\la$-\textit{descent}.
+ 	homomorphism   $\desc_{\la}$ of $A_\la$-$A_\la$-bimodules is the $\la$-\textit{descent}.
  \end{definition}
  \begin{definition}\label{algebraical_reduced_finite_covering_category_defn}
- 	An given by the equation \eqref{algebraical_finite_covering_category_eqn}  algebraical finite covering category 	(cf. Definition \ref{algebraical_finite_covering_category_defn} is \textit{reduced} if for  any $\la\in \La$ the given by \eqref{inf_cat_not_pi_eqn} injective $*$-homomorphism $
- 	\pi_\la : A \hookto A_\la$ is a reduced (cf. Definition \ref{fin_red_defn}) noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+ 	A given by the equation \eqref{algebraical_finite_covering_category_eqn}  algebraical finite covering category 	(cf. Definition \ref{algebraical_finite_covering_category_defn} is \textit{reduced} if for  any $\la\in \La$ the given by \eqref{inf_cat_not_pi_eqn} injective $*$-homomorphism $
+ 	\pi_\la : A \hookto A_\la$ is a reduced  noncommutative finite-fold covering (cf. Definitions  \ref{fin_defn} and \ref{fin_red_defn}).
  \end{definition}
  \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
  	\begin{itemize}
@@ -4272,10 +4270,10 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\end{itemize} 
  \end{empt}
  \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
- 	The terminal object $\left(A, \overline A, \widehat{G}\right)$ (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is a  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$. 
+ 	The terminal object $\left(A, \overline A, \widehat{G}\right)$ (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is the  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$. 
  	We also  denote it by the triple
  	\be\label{disconnected_infinite_noncommutative_covering_eqn}
- 	\left(A\bydef A_{\la_{\text{min}}}, \overline{A},  \widehat{G}\right).
+ 	\left(A, \overline{A},  \widehat{G}\right).
  	\ee
  \end{definition}
   \begin{lemma}\label{uni_dicsonnected_lem}
@@ -4301,7 +4299,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \end{proof}
 
  \begin{lemma}\label{bt_lim_lem}
- 	Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_eqn}  one has
+ 	Under the hypotheses of the Definition  \ref{infinite_quasicovering_defn}  one has
  	\be\label{bt_lim_eqn}
  	\forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
  	\ee
@@ -4337,9 +4335,9 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	
  \end{proof}
   \begin{corollary}\label{infinite_multiplier_cor}
- 	Under the hypotheses of the Definition  \ref{algebraical_finite_covering_category_defn} for all $\la\in \La$ the given by \eqref{inf_mult_hom_eqn} inclusion $\overline \pi_\la :A_\la \hookto M\left( \overline A\right)$   can be uniquely extended up to the natural  inclusion  
+ 	Under the hypotheses of the Definition  \ref{infinite_quasicovering_defn} for all $\la\in \La$  the $\la$-lift $\lift_\la: A_\la \hookto M\left(\overline A \right)$  (cf. Definition \ref{infinite_quasicovering_defn})    can be uniquely extended up to the natural injective $*$-homomorphism  
  	\be\label{inf_mult_mult_hom_eqn}
- 	M\left(\overline \pi_\la \right) :	M\left(A_\la \right)  \hookto M\left( \overline A\right).
+ 	M\left( \lift_\la \right) :	M\left(A_\la \right)  \hookto M\left( \overline A\right).
  	\ee
  \end{corollary}
  \begin{proof}
@@ -4433,6 +4431,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	Now this corollary follows from the Lemma \ref{lift_mult_lem}.
  \end{proof}
+ !!! FINISH CHEKING !!!
 \begin{remark}\label{ininite_covering_inductive_rem}
  	Since the set $\La$ is directed there is a $C^*$-inductive limit 
  	\bean
@@ -4511,34 +4510,10 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \end{remark}
  
  
- \begin{remark}
-The condition (b)  of the Definition \ref{algebraical_finite_covering_category_defn} for each $\la\in \La$ naturally yields injective $*$-homomorphism $K\left(A_\la \right)\hookto M\left( \overline A\right)$ which can be uniquely extended up to the injective  $*$-homomorphism   
-\be\label{inf_mult_hom_eqn}
-\overline \pi_\la: A_\la \hookto M\left( \overline A\right),
-\ee
-since the Pedersen's ideal $K\left(A_\la \right)$ is dense in $A_\la$.
-\end{remark} 
+ 
  \begin{remark}
 The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) is a subcategory of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{subcategory_defn}) of (cf. Definition \ref{fin_category_defn}).
  \end{remark}
- 
- MAY BE DELETE !!!! If both $\overline{A}'$ and $\overline{A}''$ are disconnected infinite noncommutative coverings then there are injective $*$-homomorphism $\phi' : \overline{A}'\hookto\overline{A}''$ and $\phi'': \overline{A}''\hookto \overline{A}'$. From the Lemma \ref{bt_lim_lem} it follows that any $\overline a' \in \overline A'$ is given by
- $$
-  \overline a' =\bt\text{-}\lim_{\la \in \La} a'_\la
- $$
- where 
- $$
- 	a'_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a' \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 
- $$
- where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. \eqref{bt_lim_eqn}). On the other hand from \eqref{bt_lim_eqn} it follows that $$
- \phi'\left(\overline a' \right)= \bt\text{-}\lim_{\la \in \La} a'_\la.
- $$ 
- Similarly one can prove that
- $$
- \phi'' \circ \phi'\left( \overline a'\right) = \bt\text{-}\lim_{\la \in \La} a'_\la =  \overline a',
- $$
- i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are $*$-isomorphisms.
-
  
 \begin{definition}\label{good_defn}
 	$\left(A, \overline{A},\widehat{G}\right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold:
@@ -6327,7 +6302,7 @@ A connected space $\sX$ is said to be \textit{weakly simply connected} if for an
 Any connected, path connected, simply connected  space is weakly simply connected.
 \end{remark}
 \begin{remark}
-The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!!  below).
+The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem  \ref{top_finite_covering_thm}  below).
 \end{remark}
 
 	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
