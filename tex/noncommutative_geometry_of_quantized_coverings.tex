@@ -1821,7 +1821,7 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
    	So any unital noncommutative finite-fold covering is a finite-fold covering with unitization with unitization (cf. Definition \ref{fin_unitization_defn}) 
    	   \end{remark}
    
-\begin{lemma}\label{fin_composition_uni_lem}
+\begin{lemma}\label{fin_composition_unitization_lem}
 		Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). If  $H \subset G$ is a subgroup then 
 	\be
 	\label{fin_composition_uni_2_eqn}
@@ -2023,7 +2023,7 @@ So from the Remark \ref{hered_lift_rem} it follows that $\widetilde B^H$ is a $\
 \widetilde B'= \left\{\left.\widetilde b \in \widetilde B~\right|\widetilde b= \lim_{\la \in \La} \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H}\circ\pi^H\left(u_\la \right)\widetilde b \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H}\circ\pi^H\left(u_\la \right)\right\}=\\=\left\{\left.\widetilde b \in \widetilde A\right|\widetilde b=\lim_{\la \in \La} \pi\left( u_\la\right)\widetilde b\pi\left( u_\la\right) \right\}
 \eean
 and from the Remark \ref{hered_lift_au_rem} it follows that $\widetilde{B}' = \widetilde B$.\\
-(iii) Follows from the Lemma \ref{fin_composition_uni_lem}.
+(iii) Follows from the Lemma \ref{fin_composition_unitization_lem}.
 \end{proof}
 
 \begin{definition}\label{fin_defn}
@@ -5872,7 +5872,7 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 %\section{Basic constructions}
 %\paragraph*{}
 \section{Partitions of unity and compact subsets}
-!!! FINISH CHECK !!!
+!!! LAST CHECK !!!
 \begin{lemma}\label{top_a_u_lem}
 	If $\mathcal X$  is a locally compact, 
 	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$  there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
@@ -7862,161 +7862,6 @@ where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{des
 
 
 
-\begin{lemma}\label{top_composable_lem}
-	Let  $A$ be a connected $C^*$-algebra  with locally connected, locally compact, Hausdorff spectrum $\sX$, i.e.
-$$
-	A \cong C_0\left( \sX, \left\{\rep_x  \left(  A\right) \right\}_{x\in \sX}, A \right).
-$$
-	(cf. equation \eqref{top_a_ax_eqn}).
-	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_1\to \sX$ are transitive coverings.
-	If  $\pi^1_2 : \mathscr C_0\left( \widetilde{\sX}_1\right)  \to \mathscr C_0\left( \widetilde{\sX}_2\right)$ is a $*$-homomorphism such that $\mathscr C_0\left( p_1\right) = \pi^1_2 \circ \mathscr C_0\left( p_2\right)$ (cf. Notation \eqref{top_c0_ob_eqn}) then following conditions hold:
-	\begin{enumerate}
-		\item[(a)] There is the transitive covering $p^2_1:\widetilde \sX_2 \to  \widetilde \sX_1$  such that  $\pi^1_2 = \mathscr C_0\left(p^2_1\right)$ and the following diagram	\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				\widetilde{\mathcal X}_2 & &\widetilde{\mathcal X}_1\\ 
-				& {\mathcal X}\\};
-			\path[-stealth]
-			(m-1-1) edge node [above] {$p^2_1$} (m-1-3)
-			(m-1-1) edge node [left]  {$p_2~~$} (m-2-2)
-			(m-1-3) edge node [right] {$~~p_1$} (m-2-2);
-		\end{tikzpicture}
-		\\
-	is  commutative.	
-		
-		\item[(b)] If
-		\be\label{com_gr_iso_alg_eqn}
-		G_j = \left\{\left. g \in \Aut\left( \mathscr C_0\left( \widetilde{\sX}_j\right) \right)~\right|~ ga = a \quad \forall a \in  \mathscr C_0\left( \sX\right)\right\}, \quad j=1,2
-		\ee
-		then for  there are the natural isomorphisms 
-		\be\label{com_gr_iso_eqn}
-		G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right), \quad j=1,2.
-		\ee
-		Moreover  one has
-		\be\nonumber
-		G_2\pi^1_2\left( \mathscr C_0\left( \widetilde{\sX}_1\right)\right)=  \pi^1_2\left(\mathscr C_0\left( \widetilde{\sX}_1\right)\right).
-		\ee 
-		
-		\item[(c)] The natural homomorphism $h: G_2\to 	G_1$ such that 
-		\be\nonumber
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right), \quad \forall a_1 \in  \mathscr C_0\left( \widetilde{\sX}_1\right) 
-		\ee 
-		is surjective. 
-		\item[(d)] If  $\rho:  \mathscr C_0\left( \widetilde{\sX}_1\right)  \to  \mathscr C_0\left( \widetilde{\sX}_2\right) $ is any $*$-homomorphism  such that $ \mathscr C_0\left( p_2\right) = \rho \circ  \mathscr C_0\left( p_1\right)$ then there is the unique $g \in 	G_1$ such that 
-		\be\nonumber
-		\rho =  \pi^1_2 \circ g.
-		\ee
-	\end{enumerate}
-	
-\end{lemma}
-\begin{proof} (a)
-	Let us select $x^2_0\in \widetilde \sX_2$ and an open connected neighborhood  $\widetilde\sU_2$ of $x^2_0$ which is homeomorphically mapped onto  $\sU\subset \sX$. Suppose that  $\sU$ is evenly covered by  $p_1$ and suppose that the ideal $\left.\mathscr C_0\left( \sX\right)\right|_{\sU}$ is not a direct sum of no more than one nontrivial $C^*$-algebras (cf. Definition \ref{comm_loc_triv_defn}  !!! REPLACE LOCALLY CONNECTED !!!). There are   $\widetilde\sU_1\subset \widetilde \sX_1$ and  $\widetilde\sU_2\subset \widetilde \sX_2$ such that
-	\be\label{top_pm1_eqn}
-	\begin{split}
-		p_1^{-1}\left(\sU \right) = \bigsqcup_{g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right) } g_1\widetilde\sU_1,\\
-		p_2^{-1}\left(\sU \right) = \bigsqcup_{g_2 \in G\left(\left.\widetilde \sX_2\right|\sX\right) } g_2\widetilde\sU_2.
-	\end{split}
-	\ee	
-	From the  \eqref{top_pm1_eqn} it turns out that the restrictions $\left.\mathscr C_0\left( p_1\right)\right|_{\left.\mathscr C_0\left( \sX\right)\right|_{\sU}}$ , $\left.\mathscr C_0\left( p_2\right)\right|_{\left.\mathscr C_0\left( \sX\right)\right|_{\sU}}$ can be regarded as following injective $*$-homomorphisms
-	\be\label{ctr_au_diag_eqn}
-	\begin{split}
-		\left.\mathscr C_0\left( p_1\right)\right|_{\left.C_0\left( \sX\right)\right|_{\sU}} : \left.\mathscr C_0\left( \sX\right)\right|_{\sU}\hookto   \bigoplus_{g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right) }  \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1},\\
-		\left.\mathscr C_0\left( p_2\right)\right|_{\left.C_0\left( \sX\right)\right|_{\sU}} : \left.\mathscr C_0\left( \sX\right)\right|_{\sU}\hookto   \bigoplus_{g_2 \in G\left(\left.\widetilde \sX_2\right|\sX\right) }  \left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{g_2\widetilde\sU_2}
-	\end{split}
-	\ee
-	such that $\left.\mathscr C_0\left( \sX\right)\right|_{\sU} \cong \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1} \cong \left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{g_2\widetilde\sU_2}$ for all $g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right)$ and $g_2 \in G\left(\left.\widetilde \sX_2\right|\sX\right)$. Indeed both given by \eqref{ctr_au_diag_eqn} maps are diagonal, i.e.
-	\bean
-	\left.\mathscr C_0\left( p_1\right)\right|_{\left.\mathscr C_0\left( \sX\right)\right|_{\sU}}\left(a \right) =\left(\underbrace{a~,...,~a}_{\left|G\left(\left.\widetilde \sX_1\right|\sX\right) \right| -\text{times}}\right), \quad \left.\mathscr C_0\left( p_2\right)\right|_{\left.\mathscr C_0\left( \sX\right)\right|_{\sU}}\left(a \right)=  \left(\underbrace{a~,...,~a}_{\left|G\left(\left.\widetilde \sX_2\right|\sX\right) \right| -\text{times}}\right);
-	\eean
-	for all  $a \in \left.\mathscr C_0\left( \sX\right)\right|_{\sU}$. Hence  the homomorphism $\left.\mathscr C_0\left( p_2\right)\right|_{\left.C_0\left( \sX\right)\right|_{\sU}}$ induces the $*$-isomorphism.
-	$$
-	\pi_{\widetilde\sU_2} : \left.\mathscr C_0\left( \sX\right)\right|_{\sU} \xrightarrow{\approx} \left.\mathscr  C_0\left(\widetilde\sX_2\right)\right|_{g_2\widetilde\sU_2}.
-	$$
-	The $*$-homomorphism $\pi:	\mathscr C_0\left( 	\widetilde{\sX}_1\right)  \to \mathscr C_0\left( 	\widetilde{\sX}_2\right)$ induces the  $*$-homomorphism
-	\be\label{ctr_ss_eqn}
-	\begin{split}
-		\left.\pi\right|_{\bigoplus_{g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right) }  \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1}}: \bigoplus_{g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right) }  \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1}\to 
-		\\
-		\to \bigoplus_{g_2 \in G\left(\left.\widetilde \sX_2\right|\sX\right) }  \left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{g_2\widetilde\sU_2}
-	\end{split}
-	\ee
-	it follows that there is the  $*$-homomorphism
-	$$
-	\pi^1_{\widetilde\sU_2} : \bigoplus_{g_1 \in G\left(\left.\widetilde \sX_1\right|\sX\right) }  \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1} \to \left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{\widetilde\sU_2}.
-	$$
-	Since $\pi_{\widetilde\sU_2}$ is surjective, $\pi^1_{\widetilde\sU_2}$ is also surjective. 
-	But  $\widetilde\sU_2$ is connected, so $\left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{\widetilde\sU_2}$ cannot be represented by a direct sum of more than one nontrivial algebras. So from the Lemma
-	\ref{connected_analog_lem} it turns out that  there is $g_1^{\widetilde\sU_2} \in G\left(\left.\widetilde \sX_1\right|\sX\right)$ such that 
-	\bean
-	\pi_{\widetilde\sU_2}\left( \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1}\right) = \left\{
-	\begin{array}{c l}
-		\left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{\widetilde\sU_2}  & g_1 = g_1^{\widetilde\sU_2} \\
-		\{	0\} & g_1\neq g_1^{\widetilde\sU_2}
-	\end{array}\right.
-	\eean
-	From the homeomorphisms $\widetilde\sU_2\cong \sU$ and $\sU \cong g_1^{\widetilde\sU_2}\widetilde\sU_1$ one can establish the homeomorphism $\left.p\right._{\widetilde\sU_2}: \widetilde\sU_2 \cong   g_1^{\widetilde\sU_2}\widetilde\sU_1$. 
-	Consider another connected open subset $\widetilde\sU'_2 \subset \widetilde\sX_2$ such that $\widetilde\sU'_2\cap \widetilde\sU_2\neq \emptyset$ such that there are homeomorphisms
-	$\left.p_2\right|_{\widetilde\sU'_2}\left( \widetilde\sU'_2\right) \xrightarrow{\approx} \sU' = p_2\left( \widetilde\sU'_2\right)$ and $\left.p_1\right|_{\widetilde\sU'_1}\left( \widetilde\sU'_1\right) \xrightarrow{\approx} \sU' = p_1\left( \widetilde\sU'_1\right)$ where $\widetilde\sU'_1 \in \widetilde\sX_1$ is an open connected subset. Since $\sU \cap \sU'\neq \emptyset$ one can select $\widetilde\sU'_1$ such that $\widetilde\sU'_1\cap \widetilde\sU_1\neq \emptyset$. It turns out that $g_1^{\widetilde\sU_2}\widetilde\sU'_1\cap g_1^{\widetilde\sU_2}\widetilde\sU_1\neq \emptyset$.
-	From the inclusion $g_1^{\widetilde\sU_2}\widetilde\sU_1\cap g_1^{\widetilde\sU_2}\widetilde\sU'_1\subset g_1^{\widetilde\sU_2}\widetilde\sU_1$ it turns out that there is the inclusion
-	$$
-	\left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1\cap g_1\widetilde\sU'_1}\subset \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1}
-	$$
-	it turns out that
-	$$
-	\pi_{\widetilde\sU_2}\left( \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1\cap g_1\widetilde\sU'_1}\right) \neq \{0\}.
-	$$
-	Reproducing of the above construction gives the following 
-	$$
-	\pi_{\widetilde\sU'_2}\left( \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU'_1}\right) = 
-	\left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{\widetilde\sU'_2}.
-	$$
-	One can construct $\left.p\right._{\widetilde\sU'_2}: \widetilde\sU'_2 \cong   g_1^{\widetilde\sU'_2}\widetilde\sU'_1$. From the our above construction it follows that
-	\be\label{ctr_glu_eqn}
-	\left.\left.p\right._{\widetilde\sU_2}\right|_{g_1^{\widetilde\sU_2}\widetilde\sU_1\cap g_1^{\widetilde\sU_2}\widetilde\sU'_1}= \left.\left.p\right._{\widetilde\sU'_2}\right|_{g_1^{\widetilde\sU_2}\widetilde\sU_1\cap g_1^{\widetilde\sU_2}\widetilde\sU'_1}
-	\ee
-	From the equation \eqref{ctr_glu_eqn} it turns out that there is the unique map $p^2_1 :\widetilde\sX_2\to \widetilde\sX_1$ which is the gluing of the maps $\left.p\right._{\widetilde\sU_2}$. It means that for any open $\widetilde\sV_2$ and $\left.p\right._{\widetilde\sV_2}$ having similar to  $\widetilde\sU_2$ and $\left.p\right._{\widetilde\sU_2}$ properties one has
-	$$
-	\left.p^2_1\right|_{\widetilde\sV_2}= \left.p\right._{\widetilde\sV_2}.
-	$$
-	Clearly one has
-	$$
-	\left(p^2_1 \right) ^{-1}\left(  g_1\widetilde\sU_1\right) = \bigsqcup_{\substack{ g_2 \in G\left(\left.\widetilde \sX_1\right|\sX\right)\\ \pi_1^{\widetilde\sU_2}\left( \left.\mathscr C_0\left(\widetilde\sX_1\right)\right|_{g_1\widetilde\sU_1}\right) = \left.\mathscr C_0\left(\widetilde\sX_2\right)\right|_{\widetilde\sU_2}}}g_2{\widetilde\sU_2}
-	$$
-	it follows that $g_1\widetilde\sU_1$ is evenly covered by $p^2_1$, so $p^2_1$ is a covering. From the natural homeomorphisms $\left.p_1\right|_{g_1^{\widetilde\sU_2}\widetilde\sU_1} \cong \sU$, $\left.p_2\right|_{\widetilde\sU_2} \cong \sU$ and $\left.p^2_1\right|_{\widetilde\sU_2} \cong g_1^{\widetilde\sU_2}\widetilde\sU_1$, it follows that
-	$$
-	p_2 =  p_1 \circ p^2_1
-	$$ 
-	and taking into account the Lemma \ref{top_covp_cat_lem}  !!! REPLACE THEOREM 	\ref{top_covp_cat_thm} !!!  !!!! it turns out that $p^2_1$ is a transitive covering. From the our construction it turns out
-	$$
-	\left.\pi^1_2\right|_{\left.\mathscr C_0\left(\widetilde \sX_2\right)\right|_{\widetilde\sU_2}}= \left.\mathscr C_0\left(p^2_1 \right) \right|_{\left.\mathscr C_0\left(\widetilde \sX_2\right)\right|_{\widetilde\sU_2}}.
-	$$
-	On the other hand the linear span of ideals $\left.\mathscr C_0\left(\widetilde \sX_2\right)\right|_{\widetilde\sU_2}$ is dense in $\mathscr C_0\left(\widetilde \sX_2\right)$ so one has
-	\be\label{ctr_pic0_eqn}
-	\pi^1_2=\mathscr C_0\left(p^2_1 \right).
-	\ee
-	(b)  If $g_j \in G_j$ then from (a) of this lemma it follows that there is a covering $q_j : \widetilde{\sX}_j \to \widetilde{\sX}_j$ such that $q_j = p_j \circ q_j$ and $\mathscr C_0\left(q_j \right) = g$. From the Definition  \ref{top_group_of_covering_transformations_defn} it turns out that $q_j \in  G\left(\left.\widetilde \sX_j~\right|\sX \right)$ and one has the isomorphism
-	\bean
-	G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right),\\
-	g_j \mapsto q_j.
-	\eean
-	The equation 
-	\be\nonumber
-	G_2\pi^1_2\left( \mathscr C_0\left( \widetilde{\sX}_1\right)\right)=  \pi^1_2\left(\mathscr C_0\left( \widetilde{\sX}_1\right)\right).
-	\ee 
-	follows from \eqref{top_g_c0_inv_eqn} and the isomorphism $G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right)$.\\
-	(c) Follows from \eqref{com_gr_iso_eqn} and the natural surjective homomorphism $ G\left(\left.\widetilde \sX_2~\right|\sX \right)\to  G\left(\left.\widetilde \sX_1~\right|\sX \right).$\\
-	(d)
-	If  $\rho:  \mathscr C_0\left( \widetilde{\sX}_1\right)  \to  \mathscr C_0\left( \widetilde{\sX}_2\right) $ is any $*$-homomorphism  then from (a) of this lemma it turns out that there is a covering $q : \widetilde{\sX}_2 \to \widetilde{\sX}_1$ such that $p_1 \circ q = p_2$. Taking into account that $p_1 \circ p^2_1 = p_2$ one has that there is $g \in  G\left(\left.\widetilde \sX_1~\right|\sX \right)$ such that $q = g \circ p^2_1$ it turns out that $\mathscr C_0\left( q\right)= \mathscr C_0\left( p^2_1\right) \circ g$ where means the element of $G_1$ (cf. \eqref{com_gr_iso_eqn}).
-	The equation $\mathscr C_0\left(q\right)= \mathscr C_0\left( p^2_1\right) \circ g$ is equivalent to
-	\be\nonumber
-	\rho =  \pi^1_2 \circ g.
-	\ee
-\end{proof}
-
-
-
-
 \section{Sheaves lift and descent}
 \subsection{Inverse images lift and descent}
 \paragraph*{}
@@ -9063,7 +8908,7 @@ The following lemma supplies the quantization of coverings with compactification
 		\eean
 		\item For each $\la\in \La$ both sets $\sU_\la$ and if $\widetilde \sU_\la\bydef p^{-1}\left(\sU_\la\right)$ are connected (cf. Definition \ref{top_connected_defn}), so both $C^*$-algebras $C_0\left(\sU_\la\right)$ and $C_0\left(\sU_\la\right)$ are connected $C^*$-algebras (cf. Definition \ref{connected_c_a_defn}).
 	\end{itemize}
-	If $\sV_\la$ is the closure of $\sU_\la$ then the preimage $\widetilde \sV_\la \bydef p^{-1}\left(\sV_\la  \right)$ is compact  (cf. Lemma \ref{top_compact_preimage_lem}). There is a transitive covering $\widetilde \sV_\la\to  \sV_\la$, so $\widetilde \sU_\la\to \sU_\la$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}). From the Lemma \ref{comm_fin_lem} !!! REPLACE \ref{comm_fin_thm} it follows that 
+	If $\sV_\la$ is the closure of $\sU_\la$ then the preimage $\widetilde \sV_\la \bydef p^{-1}\left(\sV_\la  \right)$ is compact  (cf. Lemma \ref{top_compact_preimage_lem}). There is a transitive covering $\widetilde \sV_\la\to  \sV_\la$, so $\widetilde \sU_\la\to \sU_\la$ is a covering with compactification (cf. Definition \ref{top_covering_compactification_defn}). From the Lemma \ref{comm_fin_lem}  it follows that 
 	$$
 	\left(C_0\left(\mathcal  U_\la \right), C_0\left(  \widetilde{   \mathcal U}_\la \right) ,G\left(\left. \widetilde{   \mathcal X} ~\right| {   \mathcal X }\right),   \left.C_0\left(p \right)\right|_{C_0\left(\mathcal  U_\la \right)}\right) 	
 	$$
@@ -9106,7 +8951,7 @@ The following lemma supplies the quantization of coverings with compactification
 %\be\label{ctr_rep_more_1_eqn}
 %\sum_{j=1}^n \widetilde{a}_j\left\rangle \right\langle \widetilde{a}_j = 1_{\widetilde{A}}
 %\ee
-%where operators $\widetilde{a}_j\left\rangle \right\langle \widetilde{a}_j$ are compliant with structure of the  $C^*$-Hilbert $A$-module $\widetilde{A}_A$ (cf. \ref{hilbert_product_defn} !!! QUASI !!!, \ref{fin_hilbert_mod_lem}). Otherwise from the Lemma \ref{hausdorff_spectrum_lem} it turns out that for any $j = 1,..., n$ the function $$\widetilde{f}'_j: \widetilde{\mathcal X} \to \C; ~ \widetilde{x} \mapsto  \left\| \rep_{\widetilde{x}}\left( \widetilde{a}_j\right)\right\|$$  is continuous, i.e.  $\widetilde{f}'_j\in C\left(\widetilde{\mathcal X} \right)$. Taking into account \ref{ctr_rep_more_1_eqn} one has
+%where operators $\widetilde{a}_j\left\rangle \right\langle \widetilde{a}_j$ are compliant with structure of the  $C^*$-Hilbert $A$-module $\widetilde{A}_A$ (cf. \ref{hilbert_product_defn}??? QUASI ???, \ref{fin_hilbert_mod_lem}). Otherwise from the Lemma \ref{hausdorff_spectrum_lem} it turns out that for any $j = 1,..., n$ the function $$\widetilde{f}'_j: \widetilde{\mathcal X} \to \C; ~ \widetilde{x} \mapsto  \left\| \rep_{\widetilde{x}}\left( \widetilde{a}_j\right)\right\|$$  is continuous, i.e.  $\widetilde{f}'_j\in C\left(\widetilde{\mathcal X} \right)$. Taking into account \ref{ctr_rep_more_1_eqn} one has
 %\be\nonumber
 %\sum_{j=1}^n \widetilde{f}'_j1_{\widetilde{A}}\left\rangle \right\langle \widetilde{f}'_j1_{\widetilde{A}}= \widetilde{f} 1_{\widetilde{A}} \ge 1_{\widetilde{A}}; \text{ where }  \widetilde{f} = \sum_{j=1}^n \widetilde{f}'^2_j \in C\left(\widetilde{\mathcal X} \right)
 %\ee
@@ -9135,7 +8980,7 @@ The following lemma supplies the quantization of coverings with compactification
 \begin{theorem}\label{top_finite_covering_thm} 
 Following conditions hold.
 \begin{enumerate}
-	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn} !!! REPLACE finite covering category !!!) is composable (cf. Definition \ref{fin_composable_cat_defn})
+	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{fin_composable_cat_defn})
 	\item[(ii)] The given by the Definition \ref{top_c_funct_defn}  finite covering algebraic functor   $C_0:\mathfrak{FinCov}$-$\sX \cong \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is the natural equivalence of the categories (cf. Definition \ref{category_equivalence_definition}).
 	
 \end{enumerate}
@@ -9244,7 +9089,7 @@ where $\sV \subset\sX$ is a compact subset. So $Cont\left(\sX \right)$ is a pro-
 %	In the above situation we say that $\widetilde F$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  $*$-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
 %\end{definition}
 \begin{theorem}\label{top_pro_fin_thm}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!),  $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings,  $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
 	Cont\left(  p\right): Cont\left(\sX\right)\hookto Cont\left(\widetilde\sX\right)$ is given by the equation \eqref{top_pro_hom_eqn}  then the quadruple 
 	\be\label{top_pro_fin_eqn}
 	\left(Cont\left(\sX\right), Cont\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , Cont\left( p\right) \right)
@@ -9264,7 +9109,7 @@ is a connected noncommutative  finite-fold weak covering (cf. Definition \ref{fi
 \subsubsection{Coverings of bounded operator $*$-algebras}
 
 \begin{theorem}\label{top_oa_cov_thm} 
-	Let $\sX$ be a connected,  locally compact, paracompact, Hausdorff  space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) and $R \subset C_0\left(\sX\right)$ is a $c$-soft  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
+	Let $\sX$ be a connected, locally connected,  locally compact, paracompact, Hausdorff  space. If $\sX$ consents with noncommutative coverings and $R \subset C_0\left(\sX\right)$ is a $c$-soft  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
 	\begin{enumerate}
 		\item [(i)] if 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
 		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the equation \eqref{top_c0p_eqn},
@@ -9276,7 +9121,7 @@ is a connected noncommutative  finite-fold weak covering (cf. Definition \ref{fi
 \end{theorem}
 \begin{proof}
 	(i)
-	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{\sX}\right)$. Conditions $G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ follow from the construction \ref{fin_oa_empt}.\\
+	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. the Theorem \ref{top_fin_necassary_lem}. On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{\sX}\right)$. Conditions $G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
 	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde \sX\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\widetilde a_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ where $\widetilde a_{\widetilde x_0}$ is the stalk at $\widetilde x_0$ (cf. Definition \ref{sheaf_stalk_defn}). If $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ be an $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn}) then $\widetilde a_{\widetilde x_0}=\left(\widetilde f\widetilde a \right)_{\widetilde x_0}\notin p^{-1} \mathscr S^R_{\widetilde x_0}$.
 	One has 
@@ -9300,7 +9145,7 @@ one can define a sesquilinear map   $T\times_M T \to \C$  (cf. Definition \ref{t
 	\bean
 \rho :C_0\left( M \right) \hookto B\left( L^2\left(M, T,  \mu\right)\right).
 \eean
-If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering with connected  $\widetilde M$  then the space  $\widetilde M$ has a natural structure of smooth manifold given by the Proposition \ref{top_cov_mani_prop}. From the Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!!  it follows that $$
+If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering with connected  $\widetilde M$  then the space  $\widetilde M$ has a natural structure of smooth manifold given by the Proposition \ref{top_cov_mani_prop}. From the Theorems \ref{top_fin_necassary_lem} and \ref{top_fin_sufficient_lem}  it follows that $$
 \left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   C_0\left(p \right)  \right)
 $$
 the connected  noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If a representation $\widetilde \rho: C_0\left(  \widetilde{   M }\right) \to B\left(\widetilde \H \right)$ is induced be the pair  $$\left(\rho,\left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   C_0\left(p \right)  \right)  \right)$$ (cf. Definition \ref{induced_repr_fin_defn}) then it is faithful (cf. Lemma \ref{induced_faithful_lem}) and equivariant (cf. equation \eqref{induced_equiv_eqn}).
@@ -9362,7 +9207,7 @@ The Lemma \ref{top_s_fin_lem} is a noncommutative counterpart of the Proposition
 \subsubsection{Coverings and unbounded operators on Hilbert modules}\label{top_fin_chull_sec}
 \paragraph{Algebras of unbounded functions}
 
-Let both $\sX$ be  and $\widetilde\sX$ be connected, locally compact Hausdorff space, connected , locally compact, Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. Suppose that $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!).
+Let both $\sX$ be  and $\widetilde\sX$ be connected, locally connected, locally compact, H Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. Suppose that $\sX$ consents with noncommutative coverings.
 If both $A\bydef Cont\left( \sX\right) $ and $\widetilde A\bydef Cont\left(\widetilde  \sX\right)$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective $*$-homomorphism
 $$
 \pi_A : A\hookto \widetilde A.
@@ -9375,7 +9220,7 @@ B\bydef  C_0\left( \sX\right),\quad
 \mathfrak B\bydef  C_c\left( \sX\right),\quad
 \widetilde{\mathfrak B}\bydef  C_c\left( \widetilde\sX\right).
 \eean 
-then from the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!
+then from the Lemma \ref{top_fin_necassary_lem}
  it turns out that
 $$
 \left( B, \widetilde B, G, \pi_B  \right) \bydef \left( C_0\left( \sX\right),  C_0\left( \widetilde\sX\right), G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right)  \right) 
@@ -9415,7 +9260,7 @@ In the above proof the ideals ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ 
 \end{remark}
 
 \paragraph{Polynomials in one variable} \label {top_fin_hull_sec}
-Let $\sX$ be a locally compact,  connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). Suppose $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!).
+Let $\sX$ be a locally compact,  connected, locally connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). 
 Let  $R\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. Clearly $R\left[t\right]$ is an $R$-module. Let $\mathscr S^{R\left[t\right]}$ be an $R\left[t\right]$-sheaf (cf. Definition \ref{top_x_sheaf_defn}).
  Let 
 \be\label{top_poly_a_defn}
@@ -9436,7 +9281,7 @@ $$
 If $\mathfrak B$ is the completion of $\mathfrak B'$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$ such that $\mathfrak B$ is a core (cf. Definition \ref{def:rep_Hilbert_module}).
  If  $p:\widetilde \sX \to \sX$ is a finite-fold transitive covering with connected $\widetilde \sX$ and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then there is the natural finite-fold transitive covering $\widetilde \sX\times\R \to \sX\times\R$ such that $G \cong  G\left(\left.\widetilde \sX\times\R \right| \sX \times\R \right)$. 
  From the 
- Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!
+ Lemma \ref{top_fin_necassary_lem} 
   it follows that one has a natural  {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$).
 If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft_c_exer} it turns out that
 an intersection $\widetilde R \bydef p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft *-subalgebra. We leave to the reader the proof of the natural isomorphism
@@ -9515,13 +9360,13 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 
 \subsection{Coverings of operator spaces}
 \begin{empt}\label{top_r_fin_empt}
-	Let $\sX$ be a connected,  locally compact, Hausdorff space, and let
+	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space, and let
 	\be\label{top_sim_eqn}
 	\sX^\sim \bydef \begin{cases}
 		\sX & \sX \text{ is compact}\\
 		\text{the one point compactification of } \sX & \sX \text{ is not compact}
 	\end{cases} 
-	\ee (cf. Definition \ref{top_comp_defn}). Suppose  $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!).
+	\ee (cf. Definition \ref{top_comp_defn}). Suppose  $\sX$ is locally connected.
 	From the Example \ref{op_real_exm} it turns out that he space $C\left(\sX^\sim, \R \right)$ of all real-valued continuous functions is a real operator space. If $C_0\left(\sX, \R \right)$ is an algebra of vanishing at infinity real-valued functions then the pair $$\left(C_0\left(\sX, \R \right), C\left(\sX^\sim, \R \right) \right)$$ is a sub-unital real operator space (cf. the Definitions \ref{op_su_space_defn}, \ref{op_su_r_space_defn} and the Example \ref{sub_alg_exm}). If $p: \widetilde{\sX} \to \sX$ is a finite-fold transitive covering then there are the following complexifications
 	\be\label{top_complex_eqn}
 	\begin{split}
@@ -9538,7 +9383,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 	\eean
 	respectively (cf. Remark \ref{op_su_env_rem}).
 	If $G \bydef G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ then 	
-	from the Theorem \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!! and the Definitions  \ref{fin_op_defn}, \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!
+	from the Lemma \ref{top_fin_necassary_lem}
 	 it follows that
 	$$
 	\left(\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right),\left(C_0\left(\sX \right), C\left(\sX^\sim \right)\right) , G, \left(\pi_{C_0\left(\sX \right)}, \pi_{C\left(\sX^\sim \right)} \right) \right)
@@ -9554,7 +9399,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 
 \paragraph*{} 
-Let  $\sX$ be a connected,  locally compact, Hausdorff space. If $\sX$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!)
+Let  $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If 
  and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times_\sX E \to \C$ (cf. Definitions \ref{top_vb_defn} and \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
 \bean
 	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right),\\
@@ -9693,7 +9538,7 @@ The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\te
 
 \subsection{Coverings of spectral triples}\label{comm_d_sec}
 \paragraph*{}
-Consider the situation of the Section \ref{comm_induced_finite_sec}. Moreover assume  that $\sX = M$ where $M$ is a compact Riemannian manifold and $E= S$ is a smooth spinor bundle (cf. Section \ref{spin_mani_sec}). Let  $\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D , J\right)$ be an explained in the Appendix \ref{comm_sp_tr_sec} commutative spectral triple. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Theorems \ref{top_fin_necassary_lem} !!! REPLACE LEMMA !!!  and \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!!  it follows that the quadruple
+Consider the situation of the Section \ref{comm_induced_finite_sec}. Moreover assume  that $\sX = M$ where $M$ is a compact Riemannian manifold and $E= S$ is a smooth spinor bundle (cf. Section \ref{spin_mani_sec}). Let  $\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D , J\right)$ be an explained in the Appendix \ref{comm_sp_tr_sec} commutative spectral triple. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Lemmas \ref{top_fin_necassary_lem}   and \ref{top_fin_sufficient_lem}   it follows that the quadruple
 \be\label{top_am_eqn}
 \left(A, \widetilde A   , G\left(\left. \widetilde A \right|A \right) , \pi \right)\bydef \left(C\left(M \right), C\left(\widetilde M \right)   , G\left(\left. \widetilde M \right|M \right) , C\left(p \right) \right)  
 \ee
@@ -10501,7 +10346,7 @@ is convergent with respect to the strict topology of $M\left(C_0\left(\overline\
 \be\label{top_a_l_eqn}
 \desc_{\la}\left(\overline a \right)  = \desc^c_{\overline p_\la}\left(\overline a \right)
 \ee
-where $\desc_\la$ is  $\desc_{\la}$ is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn})
+where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn})
  From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering i.e. under hypotheses of this lemma conditions of the Definition \ref{algebraical_finite_covering_category_defn} are satisfied.
 \end{proof}
 
@@ -11948,7 +11793,7 @@ From \eqref{blowing_su_eqn} it follows that
 \ee
 \end{empt}
 
-\begin{definition}\label{blowing_supp_defn}
+\begin{definition}\label{blowing_support_defn}
  	If $C_0\left( \sY\right) \subset M\left(A \right)$ is    {Hausdorff blowing-up} of $A$  (cf. Definition \ref{blowing_defn}),  $a \in A$ and
 	$
 	\sU_a \bydef\bigcap 
@@ -11957,12 +11802,12 @@ From \eqref{blowing_su_eqn} it follows that
 	then the  closure $\sV_a$  of $\sU_a$ is said to be the \textit{support} of $a$. We write $\supp a \bydef \sV_a$.
 \end{definition}
 \begin{remark}
-	The Definition \ref{blowing_supp_defn} complies with the Definition  \ref{top_support_defn} (cf. Example \ref{blowing_hausdorff_exm}).
+	The Definition \ref{blowing_support_defn} complies with the Definition  \ref{top_support_defn} (cf. Example \ref{blowing_hausdorff_exm}).
 \end{remark}
 
 
 \begin{lemma}\label{blowing_pedersen_compact_lem}
-If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_supp_defn}) is compact, i.e.
+If  $C_0\left( \sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $a\in A$ belongs to the Pedersen's ideal $K\left(A \right)$ (cf. Definition \ref{pedersen_ideal_defn}) then the support of $a$ (cf. Definition \ref{blowing_support_defn}) is compact, i.e.
 \be\label{blowing_pedersen_compact_eqn}
 K\left(A \right)\subset A_c
 \ee 
@@ -12087,7 +11932,7 @@ a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \ex
 \end{lemma}
 $A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn})
 \begin{proof}
-From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_supp_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
+From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_support_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
 $$
 a = faf = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
 $$
@@ -12791,9 +12636,10 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 	\ee
 \end{empt}
 
-\begin{theorem}\label{blowing_unitization_thm}
+
+\begin{lemma}\label{blowing_unitization_lem} 
 	Let  $\left(A, \widetilde{A}, G, \pi \right)$  be noncommutative finite-fold covering with unitization (cf. Definition  \ref{fin_unitization_defn}), and let $C\left(\sY\right)\to M\left( A\right)$ be Hausdorff blowing-up with compact $\sY$. Let $\rho: C\left( \sY\right) \hookto C\left( \widetilde \sY\right)$  be given by the equation \eqref{blowing_cb_eqn}. The action $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$ induces an action  $G\times C\left(\widetilde \sY \right) \to C\left(\widetilde \sY \right)$. Then $C\left(\widetilde \sY \right)$ is a finitely generated $C\left(\sY \right)$-module. 
-\end{theorem}
+\end{lemma}
 \begin{proof}
 	From the Corollary \ref{cov_mult_fin_c_cor} it follows that there is  an 
 	unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}). If $C\left(\widetilde \sY \right)$ is not a finitely generated $C\left(\sY \right)$ then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
@@ -12814,7 +12660,7 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 	$$
 \end{proof}
 \begin{remark}\label{blowing_unitization_rem}
-	From the Theorems \ref{pavlov_troisky_thm} and  \ref{blowing_unitization_thm} it follows that there is a natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
+	From the Theorem \ref{pavlov_troisky_thm} and the Lemma  \ref{blowing_unitization_lem}  it follows that there is a natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
 \end{remark}
 
 \subsection{Finite covering functor}
@@ -12928,7 +12774,7 @@ From the Exercise \ref{blowing_disitegrable_exer} it turns out that that $C^*$-a
 %$$
 %\forall \overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \forall \overline b \in  \overline A\quad \overline b \le \overline a \quad \Rightarrow \quad \overline b \in K\left( A_0\left( \overline \sY\right) \right) 	
 %$$
-%If $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_supp_defn}) if compact.
+%If $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_support_defn}) if compact.
 %From the Theorem \ref{top_compact_thm} it follows that there is an open set $\overline \sU$ and $\la_{\overline \sU} \in \La$ such that:
 %\begin{itemize}
 %	\item $\supp \overline a \subset  \overline \sU$,
@@ -14739,7 +14585,7 @@ is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definitio
 	$$
 	\forall \overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \forall \overline b \in  \overline A\quad \overline b \le \overline a \quad \Rightarrow \quad \overline b \in K\left( A_0\left( \overline \sY\right) \right) 	
 	$$
-	If $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_supp_defn}) if compact.
+	If $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_support_defn}) if compact.
 	From the Theorem \ref{top_compact_thm} it follows that there is an open set $\overline \sU$ and $\la_{\overline \sU} \in \La$ such that:
 	\begin{itemize}
 		\item $\supp \overline a \subset  \overline \sU$,
@@ -15238,12 +15084,52 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 \begin{definition}\label{groupoid_rho_defn}
 	Under the hypotheses \ref{groupoid_rho_empt} we say that the $C^*$-algebra $C^*_\rho\left(\G , \sigma \right)$ is the $\rho$-\textit{completion} of  $C_c\left(\G , \sigma \right)$.
 \end{definition}
-\begin{remark}\label{blowing_haudorff_rem}
+\begin{remark}\label{groupoid_blowing_rem}
 	From the Lemma \ref{groupoid_mult_repr_lem} it follows that there is  natural Hausdorff blowing-up (cf. Definition \ref{blowing_defn})
 	\be\label{groupoid_blowing_eqn}
 	C_0\left(\G^0 \right)\hookto M\left( C^*_\rho\left(\G , \sigma \right)\right)  
 	\ee
 \end{remark}
+\begin{definition}\label{groupoid_support_defn}
+	Let $\G$ be a Hausdorff groupoid.
+If   $C^*_\rho\left(\G , \sigma \right)$ is the $\rho$-{completion} of  $C_c\left(\G , \sigma \right)_+$ (cf. Definition \ref{groupoid_rho_defn}), and  $a \in C^*_\rho\left(\G , \sigma \right)$ then we say that a set $\sU\subset \G$ is \textit{orthogonal} to $a$ if one has
+$$
+\forall b \in C_c\left(\G , \sigma \right)_+\quad \supp b \in \sU \quad \Rightarrow \quad ab = ba = 0.
+$$
+The \textit{support} of $a$ is the closure of the set
+$$
+\G \setminus \bigcup \left\{\left.\sU \subset \G~ \right| ~\sU  \text{ is orthogonal to }  a\right\}
+$$
+We denote it by $\supp a$.
+\end{definition}
+\begin{remark}
+The difference between both notions  supports given by the Definitions \ref{blowing_support_defn} and \ref{groupoid_support_defn} will be explained as we go along.
+\end{remark}
+\begin{remark}
+	For any $a', a'' \in C^*_\rho\left(\G , \sigma \right)$ one has
+	\be\label{groupoid_support_supp_eqn}
+	\supp \left( a' + a'' \right) = \supp a' \cup \supp a''.
+	\ee
+\end{remark}
+\begin{lemma}\label{groupoid_support_lem}
+		If $\G$ be a Hausdorff groupoid, $C^*_\rho\left(\G , \sigma \right)$ is the $\rho$-{completion} of  $C_c\left(\G , \sigma \right)$ then the support of any  positive element $a \in K\left(C^*_\rho\left(\G , \sigma \right) \right)_+$ of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_eqn})  is compact.
+\end{lemma}
+\begin{proof}
+	Firstly we prove that
+	\be\label{groupoid_support_eqn}
+	\forall a', a'' \in C^*_\rho\left(\G , \sigma \right)\quad a' \le a'' \quad \Rightarrow \quad  \supp a' \subset \supp a''.
+	\ee
+If not then there is positive  $b \in C_c\left(\G , \sigma \right)_+$ such that $\supp b \in \supp a'\setminus \supp a''$ such that $a'b \neq 0$ and  $a''b = 0$. But it is impossible because $b a'b \neq 0$ and 
+$$
+a' \le a'' \quad \Rightarrow \quad b a'b \le b a'' b = 0.
+$$
+If $a \in K\left( C^*_\rho\left(\G , \sigma \right)\right)_0$ (cf. the equation \eqref{pedersen_ideal_eqn}) then from the Lemma \ref{pedersen_eps_lem} it follows that there is a positive element  $b \in  C^*_\rho\left(\G , \sigma \right)$ and $\eps > 0$ such that $a = f_\eps\left( b\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn}.   On the other hand from the Definition \ref{groupoid_rho_defn} it follows that there is $a' \in C_c\left(\G , \sigma \right)_+$ such that $$
+\left\|a' - b \right\| < \frac{\eps}{2}$$. It follows that $a' > a$ so from  the equation \eqref{groupoid_support_eqn} it turns out that
+$$
+\supp a \subset \supp a'.
+$$
+Otherwise $\supp a'$ is compact since $a'\in C_c\left(\G , \sigma \right)_+$. The general case $a \in K\left( C^*_\rho\left(\G , \sigma \right)\right)_+$ follows from the equation \eqref{groupoid_support_supp_eqn}	and the Definition \ref{pedersen_ideal_defn}.
+\end{proof}
 
 \begin{empt}\label{groupoid_decomp_empt}
 Any $a \in  C_c\left( \G, \sigma \right)$ equals to a finite sum $a = \sum_{j=1}^n a_j$ such that for all $j=1,..., n$  there is an open Hausdorff subset $\sV_j \subset \G$  and $a_j$ is represented by $f_{a_j}\in C_c\left( \sV_j\right)$.
@@ -15471,47 +15357,155 @@ Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	
 	Follows from the Theorem \ref{blowing_sufficient_covering_inf_thm}
 \end{proof}
 \section{Coverings  of foliations}
+\subsection{General construction}
 \paragraph{}
-Any foliated manifold $\left(M, \F\right)$ yields a holonomy groupoid $\G\left(M, \F\right)$ (cf. Definition \ref{foli_defn}) (cf. Definition \ref{foli_graph_defn}). 
-\begin{empt}\label{groupoid_foli_empt}
-	If $\left(M, \F\right)$  is a foliated manifold,  and  $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ be a   regular covering (cf. Definition \ref{foli_reg_cov_defn}) then one has
+Any foliated manifold $\left(M, \F\right)$ yields a holonomy groupoid $\G\left(M, \F\right)$ (cf. Definition \ref{foliated_manifold}) (cf. Definition \ref{foli_graph_defn}). 
+
+	If $\left(M, \F\right)$  is a foliated manifold then one has
 	\bean
 	\G\left( M, \mathcal{F}\right)^0 = M,\\ 
-	\G\left( \widetilde M,\widetilde \F\right) ^0 = \widetilde M
 	\eean
-	where the notation of the Definition \ref{groupoid_defn} is used. Suppose that both $\sigma\in Z^2\left(\G\left( M, \mathcal{F}\right) , \T^2 \right) $ and $\widetilde \sigma\in Z^2\left(\G\left( \widetilde M,\widetilde \F\right), \T^2 \right) $ are trivial 2-cocycles on $\G\left( M, \mathcal{F}\right)$ and $\G\left(\widetilde M, \widetilde \F\right)$ (cf. Definition \ref{groupoid_cocycle_defn}), and define
-	\bean
+	where the notation of the Definition \ref{groupoid_defn} is used. Suppose that both $\sigma\in Z^2\left(\G\left( M, \mathcal{F}\right) , \T^2 \right) $ is the  trivial 2-cocycle on $\G\left( M, \mathcal{F}\right)$, and define
+	\be
 	C_c\left( M, \mathcal{F}\right) \bydef C_c\left(\G\left( M, \mathcal{F}\right), \sigma \right),\\
-	C_c\left( \widetilde M,\widetilde \F\right) \bydef C_c\left(\G\left( \widetilde M,\widetilde \F\right), \widetilde\sigma \right).  
-	\eean
-	If  $\rho: C_c\left( M, \mathcal{F}\right)\to B\left( \H\right)$ is a faithful representation in the sense of the Definition  \ref{groupoid_representation_defn} then there is $\rho$-{completion} $C^*_\rho\left( M, \mathcal{F}\right)$  of  $C_c\left( M, \mathcal{F}\right)$ (cf. Definition \ref{groupoid_rho_defn}).  There is Hausdorff blowing-up $C_0\left(M\right)\hookto M\left( C^*_\rho\left( M, \mathcal{F}\right)\right) $ (cf. \eqref{groupoid_blowing_eqn}). 
-\end{empt}
+	\ee
+	If  $\rho: C_c\left( M, \mathcal{F}\right)\to B\left( \H\right)$ is a faithful representation in the sense of the Definition  \ref{groupoid_representation_defn} then there is $\rho$-{completion} $C^*_\rho\left( M, \mathcal{F}\right)$  of  $C_c\left( M, \mathcal{F}\right)$ (cf. Definition \ref{groupoid_rho_defn}).  There is Hausdorff blowing-up 
+	\be
+	C_0\left(M\right)\hookto M\left( C^*_\rho\left( M, \mathcal{F}\right)\right) 
+	\ee 
+	(cf. Remark \eqref{groupoid_blowing_rem}). 
 
 
-\begin{lemma}
-	COMPACT SUPPORT OF PEDERESEN 
-\end{lemma}
+
 \subsection{Finite-fold coverings}
 
 \begin{exercise}
-Prove that for any foliated manifold $\left(M, \F\right)$  that any   regular covering $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ (cf. Definition \ref{foli_reg_cov_defn}) is $\G\left(M, \F\right)$-regular (cf. Definition \ref{groupoid_lift_defn}) and vice versa.
+Prove that for any foliated manifold $\left(M, \F\right)$ (cf. Definition \ref{foliated_manifold})   that any   regular covering $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ (cf. Definition \ref{foli_reg_cov_defn}) is $\G\left(M, \F\right)$-regular (cf. Definition \ref{groupoid_lift_defn}) and vice versa.
 \end{exercise}
 
-\begin{definition}
-	TRIVIALIZATION
+\begin{definition}\label{foli_trivialization_defn}
+	If $\left(M, \F\right)$ is a foliated manifold then a regular covering  $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ (cf. Definition \ref{foli_reg_cov_defn}) is a \textit{trivialization} of $\left(M, \F\right)$ if the foliation is trivial (cf. Example \ref{foli_trivial_exm}), i.e. $\widetilde M = N\times Z$
 \end{definition}
 
 
 \begin{theorem}\label{groupoid_foli_fin_thm}
-	Under the hypothesis \ref{groupoid_foli_empt}  suppose that the covering $q$ is finite-fold. If $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}) the natural quadruple
+If $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is a 	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}), and an injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}) then the natural quadruple
 	\be\label{groupoid_foli_fin_eqn}
 	\left(C^*_{\rho}\left( M, \mathcal{F}\right),  C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right) , 	G\left(\left.\widetilde{M}~~\right|~M \right), C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right)   \right)  
 	\ee
 	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-The space $M$ is locally connected, so from \ref{top_fin_sufficient_lem} !!! REPLACE LEMMA !!!  it follows that $M$  {consents with noncommutative coverings} (cf. Definition  \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!). Hence this theorem is a specialization of \ref{groupoid_fin_thm} one.
+The space $M$ is locally connected, hence  this theorem is a specialization of \ref{groupoid_fin_thm} one.
 \end{proof}
+\begin{theorem}
+	Let $\left({M},~ {\mathcal F} \right)$  be a foliated manifold with compact $M$, and let  $C^*_\rho\left( M, \mathcal{F}\right)$ be the $\rho$-{completion}  of  $C_c\left( M, \mathcal{F}\right)$ (cf. Definition \ref{groupoid_rho_defn})  If there is a trivialization $\overline q:\left(\overline{M},~ \overline{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ such that $\overline M = \overline N \times \overline Z$ with residually finite (cf. Definition \ref{residually_finite_defn}) covering group (cf. Definition \ref{top_group_of_covering_transformations_defn}) and simply connected $\overline Z$ then any noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn})  is given by
+	\be\label{groupoid_folis_fin_eqn}
+\left(C^*_{\rho}\left( M, \mathcal{F}\right),  C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right) , 	G\left(\left.\widetilde{M}~~\right|~M \right), C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right)   \right)  
+\ee
+where $q: $ is a	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}) and the  injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn})	
+\end{theorem}
+\begin{proof}
+	If $\left(C^*_{\rho}\left( M, \mathcal{F}\right),   \widetilde A, 	G, \pi   \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then from  the Lemma \ref{blowing_unitization_lem} it follows that there is a regular transitive finite-fold covering $\widetilde q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ such that there is the natural inclusion $C\left( \widetilde M\right) \subset M\left( \widetilde A\right)$ (cf. the construction \ref{blowing_ext_empt}). From the Definition \ref{blowing_lift_defn}  and taking into account that $C\left( \widetilde M\right)$ is an unital $C^*$-algebra we conclude that $C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)=C^*_{\rho}\left( M, \mathcal{F}\right)_0\left(\widetilde M \right)$ is an algebraic  $\C$-linear span of a set
+	$$
+	C\left(\widetilde \sY \right) A \bydef \left\{\left. \widetilde f a \right| \widetilde f \in C\left(\widetilde\sY  \right)\quad a \in A \right\}
+	$$
+	Using both  $*$-homomorphisms $\pi: C^*_{\rho}\left( M, \mathcal{F}\right)\hookto   \widetilde A$ and  $C\left( \widetilde M\right) \subset M\left( \widetilde A\right)$ we obtain an inclusion $\phi: C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right) \hookto \widetilde A$. If 
+	$$
+	H \bydef \left\{\left. g \in G \right| \forall  a \in \phi\left( C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)\right)  \quad ga = a  \right\}
+	$$
+	then from the Lemma \ref{fin_composition_unitization_lem} it follows that there is a is a finite-fold noncommutative covering with unitization 	
+	$$
+	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
+	$$
+	
+	is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+
+!!! USE \ref{blowing_lift_eq_lem}
+the $C^*$-algebra 
+
+
+		Let  $\left(A, \widetilde{A}, G, \pi \right)$  be noncommutative finite-fold covering with unitization (cf. Definition  \ref{fin_unitization_defn}), and let $C\left(\sY\right)\to M\left( A\right)$ be Hausdorff blowing-up with compact $\sY$. Let $\rho: C\left( \sY\right) \hookto C\left( \widetilde \sY\right)$  be given by the equation \eqref{blowing_cb_eqn}. The action $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$ induces an action  $G\times C\left(\widetilde \sY \right) \to C\left(\widetilde \sY \right)$. Then $C\left(\widetilde \sY \right)$ is a finitely generated $C\left(\sY \right)$-module. 
+
+	From the Lemma \ref{groupoid_tar_lem} it follows that
+$$
+\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)\subset  \End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right)	
+$$
+is a $*$- subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right)$ and there is a dense inclusion
+\be \label{groupoid_antn_eqn}
+\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)\subset \widetilde  A\left(\R^{2N} \right) 
+\ee
+where the notation  $\widetilde A\left(\R^{2N} \right)$  is explained in \ref{blowing_lift_constr_empt} the Definition \ref{blowing_lift_defn}.
+Similarly there is a dense inclusion 
+\be\label{groupoid_antnn_eqn}
+\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)\right) \right)\subset  \C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)_0\left(\R^{2N} \right) .
+\ee	
+One the other hand there is a faithful representation $\widetilde{\widetilde\rho}: C_c\left( \R^{2N}, \F_\th\right)\hookto B\left(\widetilde{\widetilde\H} \right) $ such that 
+$$
+C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)_0\left(\R^{2N} \right) = C^*_{\widetilde{\widetilde\rho}}\left( \R^{2N}, \mathcal{F}_{\th}\right)
+$$
+One the other hand 
+$$
+\forall a \in C_c\left( \R^{2N}, \mathcal{F}_{\th}\right)\quad \left\| a\right\|_r \le \left\|\widetilde{\widetilde\rho}\left(  a\right) \right\| \le \left\| a\right\|_f
+$$
+where both $C^*$-norms  $\left\| a\right\|_r$ and $\left\| a\right\|_f$ are given by the equations \eqref{foli_groupoid_red_defn} and \eqref{foli_full_defn}. It turns out that there a surjective $*$-homomorphisms 
+\be\label{groupoid_sur_eqn}
+C^*\left( \R^{2N}, \mathcal{F}_{\th}\right)\to C^*_{\widetilde{\widetilde\rho}}\left( \R^{2N}, \mathcal{F}_{\th}\right)\to C^*_{r}\left( \R^{2N}, \mathcal{F}_{\th}\right)
+\ee
+where both $C^*\left( \R^{2N}, \mathcal{F}_{\th}\right)$ and $C^*_r\left( \R^{2N}, \mathcal{F}_{\th}\right)$ are {full} and reduced  $C^*$-algebra of the foliated space $\left( \R^{2N}, \mathcal{F}_{\th}\right)$ given by Definitions \ref{foli_groupoid_red_defn} and \ref{foli_full_defn} respectively. However from the Proposition \ref{foli_tens_comp_prop} and the Corollary \ref{foli_tens_comp_cor} it follows that 
+$$
+C^*\left( \R^{2N}, \mathcal{F}_{\th}\right) \cong \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right)\cong C_r^*\left( \R^{2N}, \mathcal{F}_{\th}\right),
+$$
+and taking into account surjective $*$-homomorphisms \eqref{groupoid_sur_eqn} one has
+\bean
+C^*_{\widetilde{\widetilde\rho}}\left( \R^{2N}, \mathcal{F}_{\th}\right)\cong \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right).
+\eean
+From the dense inclusion \eqref{groupoid_antn_eqn} we obtain a dense inclusion
+\be\label{groupoid_antnnn_eqn}
+\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)\right) \right)\subset  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) .
+\ee
+
+\end{proof}
+\paragraph{!!! BEGIN}
+
+\begin{lemma}\label{fin_composition_unitization_lem!}!!!
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). If  $H \subset G$ is a subgroup then 
+	\be
+	\label{fin_composition_uni_2_eqn}
+	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
+	\ee
+	is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there is a following  finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	\be\label{fin_composition_uni_1_eqn}
+	\left(A, \widetilde{A}^H, G/H, \rho \right).
+	\ee
+	
+\end{lemma}
+\begin{lemma}\label{blowing_unitization_lem!} !!!
+	Let  $\left(A, \widetilde{A}, G, \pi \right)$  be noncommutative finite-fold covering with unitization (cf. Definition  \ref{fin_unitization_defn}), and let $C\left(\sY\right)\to M\left( A\right)$ be Hausdorff blowing-up with compact $\sY$. Let $\rho: C\left( \sY\right) \hookto C\left( \widetilde \sY\right)$  be given by the equation \eqref{blowing_cb_eqn}. The action $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$ induces an action  $G\times C\left(\widetilde \sY \right) \to C\left(\widetilde \sY \right)$. Then $C\left(\widetilde \sY \right)$ is a finitely generated $C\left(\sY \right)$-module. 
+\end{lemma}
+\begin{proof}
+	From the Corollary \ref{cov_mult_fin_c_cor} it follows that there is  an 
+	unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}). If $C\left(\widetilde \sY \right)$ is not a finitely generated $C\left(\sY \right)$ then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
+	$$
+	C\left(\widetilde \sY \right) = \sum_{\la\in \La} M_\la,
+	$$
+	of right $C\left(\sY \right)$-modules, such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	C\left(\widetilde \sY \right) \neq \sum_{\la\in \La_0} M_\la,
+	$$
+	One has an algebraic sum 
+	$$
+	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
+	$$
+	of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
+	$$
+\end{proof}
+\begin{remark}\label{blowing_unitization_rem!} !!!
+	From the Theorem \ref{pavlov_troisky_thm} and the Lemma  \ref{blowing_unitization_lem}  it follows that there is a natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
+\end{remark}
+\paragraph{!!! END}
 \subsection{Infinite coverings}
 \begin{empt}\label{groupoid_n_cov_foli_inf_empt}
 	Under the hypotheses \ref{groupoid_foli_empt} suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From  \ref{groupoid_n_cov_inf_empt} and the Theorem \ref{groupoid_foli_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
@@ -15523,6 +15517,10 @@ The space $M$ is locally connected, so from \ref{top_fin_sufficient_lem} !!! REP
 	\ee	
 	which is a specialization of \ref{groupoid_algebraical_finite_covering_category_eqn} one.
 \end{empt}
+
+
+
+
 \begin{theorem}\label{grupoid_foli_intinite_covering_thm}
 	Under  hypotheses \ref{groupoid_foli_empt} and \ref{groupoid_n_cov_foli_inf_empt} if $\overline q: \overline M  \to  \M$  is {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
 	$
@@ -15690,7 +15688,7 @@ If there  is a noncommutative finite-fold covering with unitization (cf. Definit
 \be\label{groupoid_nt_eqn}
 \left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)
 \ee 
- then from the Theorem \ref{blowing_unitization_thm} and the Remark \ref{blowing_unitization_rem} it follows that there is a finite-fold covering $q: \widetilde{\sY}\to \T^2$ with Hausdorff blowing-up $C\left( \widetilde{\sY} \right) \hookto M\left( \widetilde A\right)$. Any finite-fold coverings of $\T^2$ are well known and $\widetilde{\sY}$ is homeomorphic to $\T^{2N}$, we denote $\widetilde{\T}^{2N} \bydef\widetilde{\sY}$. From the Theorem \ref{blowing_compact_unitization_thm} it follows that  the quadruple 
+ then from the Theorem \ref{blowing_unitization_lem} !!! LEMMA !!! and the Remark \ref{blowing_unitization_rem} it follows that there is a finite-fold covering $q: \widetilde{\sY}\to \T^2$ with Hausdorff blowing-up $C\left( \widetilde{\sY} \right) \hookto M\left( \widetilde A\right)$. Any finite-fold coverings of $\T^2$ are well known and $\widetilde{\sY}$ is homeomorphic to $\T^{2N}$, we denote $\widetilde{\T}^{2N} \bydef\widetilde{\sY}$. From the Theorem \ref{blowing_compact_unitization_thm} it follows that  the quadruple 
 \be\label{groupoid_nt_fin_eqn}
 \left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left( \widetilde{\T}^2\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right) , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right)
 \ee
@@ -15732,61 +15730,10 @@ It follows that there is Hausdorff blowing-up $C\left( \widetilde\sY\right)  \ho
 Under hypotheses \ref{groupoid_lift_constr_empt} the covering $\widetilde q : \R^{2N}\to \widetilde \T^{2N} $ is $\widetilde A$-regular (cf. Definition \ref{blowing_a_regular_defn}).
 \end{lemma}
 \begin{proof}
-	!!! REPLACE BY !!!
-	Similarly to the map \eqref{blowing_prods_eqn} there is a map
-	$$
-\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)\subset  \End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right).	
-	$$
-	If $a \in K\left(\widetilde A \right)_+$ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then there is $b \in C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)$ such that  $\sum_{g \in H} g a = \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\left( b\right)$.  On the other hand the covering $\widetilde q : \R^{2N}\to \widetilde \T^{2N} $ is $A$-regular, so from the Lemma \ref{blowing_lift_eq_lem} it follows that
-\bean
-\forall \widetilde f \in C_c\left( \R^{2N}\right)\quad \exists \widetilde f' \in C_c\left( \R^{2N}\right)\quad \varphi \left(\widetilde f' \otimes b \right) = \varphi \left(\widetilde f \otimes b \right) \varphi_C\left(\widetilde f' \right)\quad \Rightarrow	\\
-\widetilde \varphi \left(\widetilde f' \otimes b \right) = \widetilde \varphi \left(\widetilde f \otimes b \right) \varphi_C\left(\widetilde f' \right).	
-\eean 
-From the above equation one can deduce that 
-	\bean
-\forall \widetilde a \in \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left( \widetilde A\right) \right) \quad \exists  \widetilde f' \in C_c\left(\R^{2N}\right) \quad  \widetilde a = \widetilde a \varphi_C\left(\widetilde f' \right),
-\eean 
-and taking into account the Lemma \ref{blowing_lift_eq_lem} we conclude that $\widetilde q : \R^{2N}\to \widetilde \T^{2N} $ is $\widetilde A$-regular.
+	!!! DELETE !!!
 \end{proof}
 
 \begin{empt}
-	From the Lemma \ref{groupoid_tar_lem} it follows that
-	$$
-\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)\subset  \End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right)	
-	$$
-	is a $*$- subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right)$ and there is a dense inclusion
-	\be \label{groupoid_antn_eqn}
-	\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)\subset \widetilde  A\left(\R^{2N} \right) 
-	\ee
-	where the notation  $\widetilde A\left(\R^{2N} \right)$  is explained in \ref{blowing_lift_constr_empt} the Definition \ref{blowing_lift_defn}.
-	Similarly there is a dense inclusion 
-\be\label{groupoid_antnn_eqn}
-\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)\right) \right)\subset  \C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)_0\left(\R^{2N} \right) .
-\ee	
-One the other hand there is a faithful representation $\widetilde{\widetilde\rho}: C_c\left( \R^{2N}, \F_\th\right)\hookto B\left(\widetilde{\widetilde\H} \right) $ such that 
-$$
-C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)_0\left(\R^{2N} \right) = C^*_{\widetilde{\widetilde\rho}}\left( \R^{2N}, \mathcal{F}_{\th}\right)
-$$
-One the other hand 
-$$
-\forall a \in C_c\left( \R^{2N}, \mathcal{F}_{\th}\right)\quad \left\| a\right\|_r \le \left\|\widetilde{\widetilde\rho}\left(  a\right) \right\| \le \left\| a\right\|_f
-$$
-where both $C^*$-norms  $\left\| a\right\|_r$ and $\left\| a\right\|_f$ are given by the equations \eqref{foli_groupoid_red_defn} and \eqref{foli_full_defn}. It turns out that there a surjective $*$-homomorphisms 
-\be\label{groupoid_sur_eqn}
-C^*\left( \R^{2N}, \mathcal{F}_{\th}\right)\to C^*_{\widetilde{\widetilde\rho}}\left( \R^{2N}, \mathcal{F}_{\th}\right)\to C^*_{r}\left( \R^{2N}, \mathcal{F}_{\th}\right)
-\ee
-where both $C^*\left( \R^{2N}, \mathcal{F}_{\th}\right)$ and $C^*_r\left( \R^{2N}, \mathcal{F}_{\th}\right)$ are {full} and reduced  $C^*$-algebra of the foliated space $\left( \R^{2N}, \mathcal{F}_{\th}\right)$ given by Definitions \ref{foli_groupoid_red_defn} and \ref{foli_full_defn} respectively. However from the Proposition \ref{foli_tens_comp_prop} and the Corollary \ref{foli_tens_comp_cor} it follows that 
-$$
-C^*\left( \R^{2N}, \mathcal{F}_{\th}\right) \cong \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right)\cong C_r^*\left( \R^{2N}, \mathcal{F}_{\th}\right),
-$$
-and taking into account surjective $*$-homomorphisms \eqref{groupoid_sur_eqn} one has
-\bean
-C^*_{\widetilde{\widetilde\rho}}\left( \R^{2N}, \mathcal{F}_{\th}\right)\cong \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right).
-\eean
-From the dense inclusion \eqref{groupoid_antn_eqn} we obtain a dense inclusion
-\be\label{groupoid_antnnn_eqn}
-\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)\right) \right)\subset  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) .
-\ee
 \end{empt}
 \begin{theorem}
 For any reduced noncommutative finite-fold covering with unitization 
@@ -24768,7 +24715,7 @@ open subset.
 		Let $M$ be an $n$-manifold. A \textit{foliated chart} on $M$ of codimension $q$ is a pair $\left(\sU, \varphi)\right)$, where $\sU\subset M$ is open and $\varphi : \sU \xrightarrow{\approx} B_\tau\times B_\pitchfork$ is a diffeomorphism, $B_\pitchfork$ being a rectangular neighborhood in $\mathbb{F}^q$ and $B_\tau$ a rectangular neighborhood in $\mathbb{F}^{n-q}$. The set $P_y = \varphi^{-1}\left(B_\tau \times \left\{y\right\} \right)$ , where $y \in B_\pitchfork$, is called a \textit{plaque} of this foliated chart. For each $x \in B_\tau$, the set  $S_x=\varphi^{-1}\left(\left\{x\right\} \times B_\pitchfork \right)$  is called a \textit{transversal} of the foliated chart. The set $\partial_{\tau}\sU = \varphi^{-1}\left(B_\tau \times \left(\partial B_\pitchfork \right)  \right)$ is called the \textit{tangential boundary} of $\sU$ and $\partial_{\pitchfork}\sU = \varphi^{-1}\left(\partial \left( B_\tau\right)  \times \partial B_\pitchfork \right)$ is called the \textit{transverse boundary} of $\sU$.
 	\end{definition}
 	
-	\begin{definition}\label{foli_defn}\cite{candel:foliI}
+	\begin{definition}\label{foliated_manifold}\cite{candel:foliI}
 		Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$ l is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
 	\end{definition}
 	\begin{definition}\label{fol_res_defn}\cite{candel:foliI}
