@@ -148,7 +148,7 @@
 \newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
 \newcommand{\proj}{\mathrm{proj}}                %% a projection
 \newcommand*{\braket}[2]{\langle#1 {,~} #2\rangle}% right inner products
-\newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left inner products
+\newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left !!! CHECK !!inner products
 
 \newcommand*{\Mult}{\mathcal M}% multiplier algebra
 \newcommand{\Lt}{\mathcal{L}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
@@ -189,7 +189,7 @@
 \renewcommand{\L}{\mathcal{L}}               %% operator algebra
 \newcommand{\La}{\Lambda}                    %% short for \Lambda
 \newcommand{\la}{\lambda}                    %% short for \lambda
-\newcommand{\lf}{L_f^\theta}                 %% left mult operator
+\newcommand{\lf}{L_f^\theta}                 %% left  mult operator
 \newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
 \newcommand{\Lb}{\mathcal{L}}                 %% Moyal multplr algebra
 \newcommand{\mm}{\mathcal{M}^\theta}
@@ -398,7 +398,7 @@
 	\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
 	\newcommand{\downto}{\downarrow}    %% right hand limit
 	\newcommand{\isom}{\cong}          %% isomorphism
-	\newcommand{\lt}{\triangleright}    %% a left action
+	\newcommand{\lt}{\triangleright}    %% a left  action
 	\newcommand{\otto}{\leftrightarrow} %% bijection
 	\newcommand{\rt}{\triangleleft}     %% a right action
 	\newcommand{\semi}{\rtimes}         %% crossed product
@@ -406,7 +406,7 @@
 	\newcommand{\cotensor}{\square}       %% cotensor product
 	\newcommand{\trans}{\pitchfork}     %% transverse
 	\newcommand{\ul}{\underline}        %% for sheaves
-	\newcommand{\upto}{\uparrow}        %% left hand limit
+	\newcommand{\upto}{\uparrow}        %% left  hand limit
 	\renewcommand{\:}{\colon}           %% colon in  f: A -> B
 	\newcommand{\blt}{\ast}
 	\newcommand{\Co}{C_{\bullet}}
@@ -1093,6 +1093,26 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	We leave to the reader the proof of that $M\left(\pi \right)$ is an injective *-homomorphisms  and $M\left(\pi \right)$ is an extension of  $\pi$.
 	
 \end{proof}
+\begin{definition}\label{left_desc_defn}
+Let 	$\pi: A \hookto \widetilde A$ be an injective $*$-homomorphism of $C^*$-algebras and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}) . Let $\left\{\widetilde u_\la\right\}_{\La \in \La}\subset \widetilde L$ be a given by the Theorem \ref{left_ideal_thm} net. Let $L$  be a closed left ideal in ${A}$ such that a map
+\be
+\begin{split}
+\pi_{\widetilde L}: L \xrightarrow{\cong} \widetilde L,\\
+a \mapsto \lim_{{\la \in \La}}\widetilde u_\la \pi\left( a\right) 
+\end{split}
+\ee
+ $C^*$-norm preserving isomorphism of left $A$-modules. We say that
+\be\label{left_desc_eqn}
+\desc_{\widetilde L}\bydef \pi_{\widetilde L}^{-1}: \widetilde L \xrightarrow{\cong}  L
+\ee 
+is a \textit{left} $\widetilde L$-\textit{descent}. We imply the $C^*$-norm convergence in \ref{left_desc_eqn}. Similarly we define a  \textit{right} $\widetilde R$-\textit{descent}
+\be
+\desc^*_{\widetilde R}: \widetilde R \xrightarrow{\cong}  R
+\ee 
+for a closed right ideal in $\widetilde A$.
+\end{definition}
+
+
 
 \begin{lemma}\label{strict_strong_lem}
 	Let $\pi: A \to B\left(\H \right)$ be a faithful nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}), and let  $\left\{a_\la\right\}_{\la \in \La} \subset M\left(A\right)$ be a bounded net i.e. 
@@ -1750,7 +1770,7 @@ a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn})
 
 
 \begin{empt}
-Let $A \subset \widetilde A$ be an inclusion of $C^*$-algebras such that $\widetilde A$ is a finitely generated left $A$-module, i.e.
+Let $A \subset \widetilde A$ be an inclusion of $C^*$-algebras such that $\widetilde A$ is a finitely generated left  $A$-module, i.e.
 $$
 \exists \widetilde a_1, ... \widetilde a_n \quad \widetilde A = A\widetilde a_1 + ...  + A \widetilde a_n.
 $$
@@ -1761,20 +1781,20 @@ $$
 hence one has
 \be\label{left_right_eqv_equ}
 \begin{split}
-\widetilde A \text{ is a finitely generated left }A \text{-module} \quad \Leftrightarrow \\
+\widetilde A \text{ is a finitely generated left  }A \text{-module} \quad \Leftrightarrow \\
 \Leftrightarrow\quad \widetilde A \text{ is a finitely generated right }A\text{-module}.
 \end{split}
 \ee
 \end{empt}
 
    \begin{definition}\label{fin_unital_defn}
-   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) (resp. quasi-covering  (cf. Definition \ref{fin_quasi_defn})). Suppose .that both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
+   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) (resp. quasi-covering  (cf. Definition \ref{fin_quasi_defn})). Suppose .that both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left  and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
    \end{definition}
    \begin{remark}
    	Above definition is motivated by the Theorem \ref{pavlov_troisky_thm}.
    \end{remark}
 \begin{remark}
-	From the equation \eqref{left_right_eqv_equ} it follows that the usage of left $A$-modules in the Definition \ref{fin_unital_defn} is equivalent to the usage of right ones.
+	From the equation \eqref{left_right_eqv_equ} it follows that the usage of left  $A$-modules in the Definition \ref{fin_unital_defn} is equivalent to the usage of right ones.
 \end{remark}
 \begin{remark}\label{fin_cov_kasp_rem}
 	From the Lemma \ref{fin_hilbert_mod_lem} and the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
@@ -1951,7 +1971,7 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 	$$
 	g \bt\text{-}\lim_\la \widetilde a_\la\bydef \bt\text{-}\lim_\la g\widetilde a_\la 
 	$$
-	Other details of the proof are left to the reader.
+	Other details of the proof are left  to the reader.
 \end{proof}
 \begin{definition}\label{hereditary_lift_defn}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}). Let $B$ be a hereditary $C^*$-subalgebra of $A$ (cf. Definition \ref{hered_defn}). A generated by $\pi\left( B\right)$ hereditary $C^*$-subalgebra  $\widetilde B$ of  $\widetilde A$ (cf. Definition \ref{hered_gen_defn}) is said to be a \textit{hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-\textit{lift} of $B$. 
@@ -2409,12 +2429,12 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
 %\begin{exercise}\label{eps_deformation_exer}
 %Let $A$ be an unital  $C^*$-algebra and let $\left(A, \widetilde A, G, \pi\right)$ be an unital finite-fold quasi-covering (cf. Definition \ref{fin_unital_defn}).  Prove following statements:
 %\begin{enumerate}
-%\item If $\widetilde A$ is a left $A$-module  generated by $\left\{ \widetilde{a}_1, ..., \widetilde{a}_n\right\}\subset \widetilde A$ then there is $\eps > 0$ such that for any $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n\right\}\subset \widetilde A$ one has
+%\item If $\widetilde A$ is a left  $A$-module  generated by $\left\{ \widetilde{a}_1, ..., \widetilde{a}_n\right\}\subset \widetilde A$ then there is $\eps > 0$ such that for any $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n\right\}\subset \widetilde A$ one has
 %$$
-%\forall j = 1,..., n\quad \left\| \widetilde{a}'_1- \widetilde{a}_1 \right\|< \eps \Rightarrow \widetilde A \text { is a left } A\text{-module  generated by }\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n\right\}; 
+%\forall j = 1,..., n\quad \left\| \widetilde{a}'_1- \widetilde{a}_1 \right\|< \eps \Rightarrow \widetilde A \text { is a left  } A\text{-module  generated by }\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n\right\}; 
 %$$
 %\item  There is a finite set $\left\{a_1,...,a_n\right\}\in A$ such that
-% $\widetilde A$ is a left $A$-module  generated by $\left\{ a_1\widetilde{a}_1a_1, ..., a_n\widetilde{a}_n a_n\right\}$.
+% $\widetilde A$ is a left  $A$-module  generated by $\left\{ a_1\widetilde{a}_1a_1, ..., a_n\widetilde{a}_n a_n\right\}$.
 
 %\end{enumerate}
 
@@ -3164,7 +3184,7 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 	$$
 	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
 	$$
-	of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	of left  $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
 	$$
 	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
 	$$
@@ -3303,14 +3323,14 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
  \end{split}
  \end{equation}
  (cf. Equations \eqref{discr_cr_prod_op_eqn}). 
- Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. The left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
+ Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. The left  and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
  
  \begin{equation}\label{morita_ta_act_eqn}
  \begin{split}
   \forall \widetilde{a}\in \widetilde{A}\quad \forall a \in \widetilde{A} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
  \widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
  \end{equation}
-The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp. right) multiplication by $A$.
+The left  (resp. right) action of $A$ on $\widetilde{A}$ we define as left  (resp. right) multiplication by $A$.
  Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ bilinear maps such that
  \begin{equation}\label{mor_pp_fin_eqn}
  \begin{split}
@@ -3973,7 +3993,7 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
 
  \subsection{Basic construction}\label{nc_flat_sec}
  \paragraph*{}
- Let $\left( \A, \H, D\right)$ be a spectral triple, let  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ be the $\left(A, \widetilde{A}, G \right)$-lift of $\left( \A, \H, D \right)$ (cf. Definition \ref{spectral_triple_fin_lift_defn}). Let $V = \C^n$ and with left action of $G$, i.e. there is a linear representation $\rho: G \to GL\left(\C,n\right)$. Let $\widetilde{\mathcal E} \bydef  \widetilde\A \otimes \C^{n} \approx \widetilde{\A}^n$ be a free module over $\widetilde{\A}$, so $\widetilde{\mathcal E}$ is a projective finitely generated $\A$-module (because $\widetilde{ \A}$ is a finitely generated projective $\A$-module). Let $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ be the trivial flat connection (cf. Definition \ref{triv_conn_defn} and Remark \ref{triv_conn_rem}). 
+ Let $\left( \A, \H, D\right)$ be a spectral triple, let  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ be the $\left(A, \widetilde{A}, G \right)$-lift of $\left( \A, \H, D \right)$ (cf. Definition \ref{spectral_triple_fin_lift_defn}). Let $V = \C^n$ and with left  action of $G$, i.e. there is a linear representation $\rho: G \to GL\left(\C,n\right)$. Let $\widetilde{\mathcal E} \bydef  \widetilde\A \otimes \C^{n} \approx \widetilde{\A}^n$ be a free module over $\widetilde{\A}$, so $\widetilde{\mathcal E}$ is a projective finitely generated $\A$-module (because $\widetilde{ \A}$ is a finitely generated projective $\A$-module). Let $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ be the trivial flat connection (cf. Definition \ref{triv_conn_defn} and Remark \ref{triv_conn_rem}). 
  From \eqref{dirac_om_fin_lift_eqn} it turns out that $\Om^1_{\widetilde{D}} = \widetilde{\A}\otimes_{\A}\Om^1_{D}$. therefore  the connection $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ can be regarded as a map $\nabla':\widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \widetilde{\A} \otimes_{\A} \Om^1_{\widetilde{D}}= \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$, i.e. one has a connection
  \be\nonumber
  \nabla':\widetilde{\mathcal E} \to  \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}.
@@ -4181,7 +4201,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\pi\left(A_\mu\right) = A_\nu^{ G_\nu/ G_\mu}\stackrel{\text{def}}{=}\left\{
  	\left.a\in A_\nu~\right|~ a = g a;\quad \forall g \in  G_\nu/ G_\mu\right\}
  	$$
- 	is left to the reader. 
+ 	is left  to the reader. 
  \end{proof}
  \begin{empt}\label{inf_cat_empt}
  	Under the hypotheses  of the Lemma \ref{infinie_quasi_covering_lem} there is a category $\mathfrak{S}$ such that
@@ -5205,7 +5225,7 @@ $\left(A, \widetilde{A}, G\right)$ is an
 
 
 \begin{definition}\label{inf_cov_oa_sub_defn}
-	Under the hypotheses \ref{inf_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}$ if for all $
+	Under the hypotheses \ref{inf_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated  !!! dominated !!!to}  $\mathfrak{S}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
 \widetilde{\lift}_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
@@ -5224,19 +5244,19 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 \end{remark}
 
 \begin{remark}
-	Any union of simply ordered by inclusion  set of { subordinated to}  $\mathfrak{S}$ *-subalgebras is a { subordinated to}  $\mathfrak{S}$ *-subalgebra.	 From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  \ref{spec_loc_lim_defn} maximal  {subordinated to}  $\mathfrak{S}$ *-subalgebras. 
+	Any union of simply ordered by inclusion  set of { subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebras is a { subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebra.	 From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  \ref{spec_loc_lim_defn} maximal  {subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebras. 
 \end{remark}	 
 
 
 \begin{definition}\label{inf_cov_oa_defn}
 	Consider the situation of the Definition \ref{inf_cov_oa_sub_defn}.
-	If $\widetilde A\subset \widetilde B$  is a maximal {subordinated to}  $\mathfrak{S}$ *-subalgebra then
+	If $\widetilde A\subset \widetilde B$  is a maximal {subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebra then
 	we say that the triple
 	$
 	\left(A,  \widetilde A, G \right)$ is the  \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}$.
 \end{definition}
 \begin{remark}\label{inf_cov_oa_rem}
-	The set of maximal  {subordinated to}  $\mathfrak{S}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn}  should not be unique.
+	The set of maximal  {subordinated  !!! dominated !!!to}  $\mathfrak{S}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn}  should not be unique.
 \end{remark}
 
 
@@ -5700,7 +5720,7 @@ $$
 \forall a \in C_c\left(G, \widetilde{A}\right)\quad \left\| a\right\|\bydef   \left\| \ka\left(a \right)\right\|
 $$
 where $\ka: C_c\left(G, \widetilde{A}\right)\hookto \K\left( \mathscr L^2\left( \widetilde{A}\right)_A \right)$ is the natural inclusion.
-There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times  \mathscr L^2\left( \widetilde{A}\right)_A\to  \mathscr L^2\left( \widetilde{A}\right)_A$. 
+There is the natural left  action $\left( \widetilde A\rtimes_cG\right) \times  \mathscr L^2\left( \widetilde{A}\right)_A\to  \mathscr L^2\left( \widetilde{A}\right)_A$. 
 \begin{definition}\label{cross_cov_defn}
 	In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
@@ -5834,7 +5854,7 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 		%	$$
 		%	\lim_{\la\in \La} \left[D_\la, a_\la\right] \in \mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
 		%	$$
-		%	where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $\mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset \widetilde{A} \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
+		%	where left  part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $\mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset \widetilde{A} \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
 	\end{enumerate}
 	Denote by 
 	\be\label{a_s_eqn}	
@@ -5991,7 +6011,7 @@ where $\mathscr A$ is a finite set.
 
 
 \begin{definition}\label{top_covering_sum_subordinated_defn}
-	Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
+	Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated  !!! dominated !!!to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated  !!! dominated !!!to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
 
 
@@ -6003,7 +6023,7 @@ where $\mathscr A$ is a finite set.
 	\be\nonumber
 	1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}\quad \widetilde{a}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)_+
 	\ee
-	be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_subordinated_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)_+$ then one has
+	be a subordinated  !!! dominated !!!to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_subordinated_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)_+$ then one has
 	\be\label{top_ea_eqn}
 	\begin{split}
 		1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}},\\
@@ -7976,7 +7996,7 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 
 \subsection{Modules and sheaves}
 \paragraph*{}
-	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. Let $A$ be a left $R$-module such that
+	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. Let $A$ be a left  $R$-module such that
 	$$
 \forall a \in A \quad a = 0 \quad \Leftrightarrow \quad \left\{r \in R | ra = 0\right\}	= \{0\}.
 	$$
@@ -8372,7 +8392,7 @@ $$
 \be\label{top_diff_*alg_lift_eqn}
 D^*\left(p, E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widetilde E\right).
 \ee 
-The proof of that $D^*\left(p, E \right)$ is a $*$-homomorphism is left to the reader.  
+The proof of that $D^*\left(p, E \right)$ is a $*$-homomorphism is left  to the reader.  
 \end{empt}
 
 \begin{example}\label{top_spinor_smooth_exm}
@@ -8444,7 +8464,7 @@ If $M$ be a smooth manifold then   a space of distribution densities  $\Coo_c\le
 		where  $ \widetilde a_j\in A_c\left( \widetilde{   \mathcal X }\right)$ and the set $\widetilde \sU_j = \left\{\left.\widetilde x \in \widetilde{   \mathcal X}\right|\widetilde a_j\left(\widetilde x\right)\neq 0 \right\}$ is homeomorphically mapped onto $p\left( \widetilde \sU_j\right)$   for all $j = 1,..., m$. Moreover if	$\widetilde a$ is positive then one can select positive $\widetilde a_1,..., \widetilde a_m$. 
 \end{lemma}
 \begin{proof}
-If $\sum_{j=1}^m\widetilde f_j$ is  a subordinated to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_covering_sum_defn}  and  \ref{top_covering_sum_subordinated_defn}) then one has
+If $\sum_{j=1}^m\widetilde f_j$ is  a subordinated  !!! dominated !!!to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_covering_sum_defn}  and  \ref{top_covering_sum_subordinated_defn}) then one has
 $$
 	\widetilde a =  \widetilde f_{1}	\widetilde a 	  + ... +  \widetilde f_{m}	\widetilde a 
 $$
@@ -8456,7 +8476,7 @@ $$
 \end{proof}
 	\begin{empt}
 	Let $\sX$ be a locally compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ and $\left\{A_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}). If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module.  Let $\widetilde f \in C_c\left( \widetilde \sX\right)$ and let 
-	$\sum_{l=1}^m \widetilde a_l$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
+	$\sum_{l=1}^m \widetilde a_l$ be a subordinated  !!! dominated !!!to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
 	\left\{A_x\right\}, \sF \right)\right]\right)$ then we define
 \be\label{top_xi_eqn}
 \widetilde \xi \bydef \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right) 
@@ -8483,7 +8503,7 @@ The reader can easily state that $\varphi\left( \widetilde ff, \xi\right) = \var
 \end{empt}
 
 \begin{lemma}\label{top_tensor_lcompact_lem}
-	The given by \eqref{top_tensor_lccompact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
+	The given by \eqref{top_tensor_lccompact_iso_eqn} map $\phi$ is the isomorphism of left  $C_0\left(\widetilde \sX\right)$-modules.
 \end{lemma}
 \begin{proof}  
 If $\left(\widetilde f, \xi \right) \in C_c\left(\widetilde \sX\right)\times C\left(\sX, 
@@ -8496,12 +8516,12 @@ where $\lift^p_{\widetilde{\sU}_l}$ is $p$-$\widetilde{\sU}_l$-{lift} (cf. Defin
 \phi\left(\widetilde a\left( \widetilde f\otimes \xi \right) \right)= \sum_{l=1}^m \widetilde a\widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right)=\\
   =\widetilde a \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right)= \widetilde a\phi\left( \widetilde f\otimes \xi \right),
  \eean
-i.e. $\phi$ is a homomorphism of left $C_0\left(\widetilde \sX\right)$-modules because \\ $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+i.e. $\phi$ is a homomorphism of left  $C_0\left(\widetilde \sX\right)$-modules because \\ $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
 \left\{A_x\right\}, \sF \right)$ is a generated by elements $\widetilde f\otimes \xi$ Abelian group.\\ 
 Let $\sum_{j =1}^n \widetilde f_j \otimes \xi_j$ be any element in  $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
 \left\{A_x\right\}, \sF \right)$. 
 The finite union $\widetilde \sY \bydef \cup_{j=1}^n \supp \widetilde f_j$ of compact sets is compact. Let 
-$\sum_{l=1}^m \widetilde a_m$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
+$\sum_{l=1}^m \widetilde a_m$ be a subordinated  !!! dominated !!!to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
 From the  equation \eqref{top_xi_eqn} it turns out that
 	\be\label{top_tensore_lcfam_eqn}
 	\begin{split}
@@ -8529,7 +8549,7 @@ It turns out that the map $\phi$ is injective.
 	\left\{A_x\right\}, \sF \right)\right]\right)$ the set $\supp \widetilde \xi$ is compact. If  $
 	\sum_{l=1 }^k\widetilde{a}'_l
 	$
-	is a subordinated to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_covering_sum_defn} and  \ref{top_covering_sum_subordinated_defn}) then one has
+	is a subordinated  !!! dominated !!!to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_covering_sum_defn} and  \ref{top_covering_sum_subordinated_defn}) then one has
 	$$
 	\widetilde \xi= \sum_{l=1 }^k\widetilde{a}'_l \widetilde \xi= \sum_{l=1 }^k\widetilde{e}'_l\widetilde{e}'_l \widetilde \xi=\sum_{l=1 }^k\widetilde{e}'_l\desc_p\left( \widetilde{e}'_l  \widetilde \xi \right).
 	$$
@@ -9043,7 +9063,7 @@ The Theorem  \ref{top_finite_covering_thm}  yields a pure algebraic definition o
 is a connected noncommutative  finite-fold weak covering (cf. Definition \ref{fin_weak_defn}).
 \end{corollary}
 \begin{proof}
-	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) and (c) of the Definition \ref{fin_weak_defn} is left to the reader.
+	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) and (c) of the Definition \ref{fin_weak_defn} is left  to the reader.
 \end{proof}
 
 
@@ -9452,7 +9472,7 @@ C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde 
 		$$
 	\varphi:	C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right) \hookto L^2\left(\widetilde{\sX}, \widetilde{E} \right)
 		$$
-		of left $C_0\left(\widetilde\sX\right)$-modules,
+		of left  $C_0\left(\widetilde\sX\right)$-modules,
 		\item[(ii)] the image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
 	\end{itemize}
 \end{lemma}
@@ -9494,7 +9514,7 @@ From the above equation it follows that the net $\left\{\overline \phi\left(\sum
 \begin{remark}
 	Indeed if $\widetilde \sX$ is compact then $C_0\left(\widetilde \sX\right)\cong C\left(\widetilde \sX\right)$ and the image of $C\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ coincides with $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. However this fact is not used here.
 \end{remark}
-If $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold covering the set\\ $\widetilde \sV\bydef  p^{-1}\left(\supp \xi \cup \supp\eta  \right)$ is compact.  Let    $\sum_{\a \in \mathscr A} \widetilde a_\a$ is a covering sum for $\widetilde \sV$  {subordinated to} $p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}), and $\widetilde e_\a \bydef \sqrt {\widetilde a_\a}$. Denote by $\widetilde \sU_\a$ an open set such that $ \supp\widetilde a_\a\subset \widetilde\sU_\a$ and the restriction $p|_{\widetilde \sU_\a}: \widetilde \sU_\a \to p\left(\widetilde \sU_\a\right)$ is a homeomorphism. Let $e_\a \bydef \desc_p\left( \widetilde e_\a\right)$ (cf. Definition \ref{top_lift_desc_defn}). The specialization of the  given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C_0\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{E}, \mu\right)$ satisfies to the following equation 
+If $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold covering the set\\ $\widetilde \sV\bydef  p^{-1}\left(\supp \xi \cup \supp\eta  \right)$ is compact.  Let    $\sum_{\a \in \mathscr A} \widetilde a_\a$ is a covering sum for $\widetilde \sV$  {subordinated  !!! dominated !!!to} $p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}), and $\widetilde e_\a \bydef \sqrt {\widetilde a_\a}$. Denote by $\widetilde \sU_\a$ an open set such that $ \supp\widetilde a_\a\subset \widetilde\sU_\a$ and the restriction $p|_{\widetilde \sU_\a}: \widetilde \sU_\a \to p\left(\widetilde \sU_\a\right)$ is a homeomorphism. Let $e_\a \bydef \desc_p\left( \widetilde e_\a\right)$ (cf. Definition \ref{top_lift_desc_defn}). The specialization of the  given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C_0\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{E}, \mu\right)$ satisfies to the following equation 
 \begin{equation}\label{comm_ind_l2l_eqn}
 	\begin{split}
 		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{\sX} \right) } \eta \right)_{L^2\left({\sX},{E} \right)}=\\=\sum_{\a\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\a}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{\sX} \right) } \eta \right)_{L^2\left({\sX},{E} \right)}
@@ -9589,7 +9609,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	\left(\A, \widetilde \A   , G\left(\left. \widetilde \A \right|\A \right) , \pi \right)\bydef  \left(\Coo\left(M\right), \Coo\left(\widetilde M \right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{\Coo\left(M\right)}\right)
 	$$
 	is a finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).	 
-	We leave to the reader the proof of that   $\widetilde \A$ is a left and right finitely generated projective $\A$-module.  Both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ respectively, so from the Definition  \ref{fin_oa_defn} it follows that there is  an unital connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn} and the equation \eqref{top_am_eqn}) such that $\pi= \widetilde\pi|_{\A}$. If 
+	We leave to the reader the proof of that   $\widetilde \A$ is a left  and right finitely generated projective $\A$-module.  Both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ respectively, so from the Definition  \ref{fin_oa_defn} it follows that there is  an unital connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn} and the equation \eqref{top_am_eqn}) such that $\pi= \widetilde\pi|_{\A}$. If 
 	$$
 	\left(  \rho : A \to B\left(\H \right)\right) \bydef \left(C\left( M\right)\to B\left(L^2\left( M, S\right) \right)  \right) 
 	$$
@@ -9597,7 +9617,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	$$
 	\widetilde \rho :C\left(\widetilde M \right)\hookto B\left( L^2\left(\widetilde{M},\widetilde{S} \right)\right).    
 	$$
-	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $\widetilde M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_subordinated_defn}).
+	The space $M$ is compact so there is is a subordinated  !!! dominated !!!to  $p:\widetilde{M}\to{M}$ covering sum for $\widetilde M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_subordinated_defn}).
 	\be\label{top_ta_eqn}
 	\sum_{\widetilde \a \in \widetilde {\mathscr A}  } \widetilde{a}_{\widetilde\a} = 1_{C\left(\widetilde{M} \right) }.
 	\ee
@@ -9835,7 +9855,7 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 \begin{lemma}\label{top_disconnected_lem}
 	Under the above hypotheses  the following conditions hold.
 \begin{enumerate}
-		\item[(i)] If $\left\{g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)\right\}_{\iota \in I}$   is  a set of all left cosets of $G\left(\left. \widetilde\sX~\right|\sX \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then there is a natural homeomorphism 
+		\item[(i)] If $\left\{g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \widetilde\sX~\right|\sX \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then there is a natural homeomorphism 
 \be\label{top_disconnected_eqn}
 	\overline \sX \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\sX.
 \ee
@@ -9849,7 +9869,7 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 
 \begin{proof}(i)
 	From the Definition \ref{top_inverse_limit_defn} it follows that there is the natural continuous map  $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$.
-	For any $\widehat x \in \widehat \sX$ there is $\widetilde x \in \widetilde{\sX}$ such that $\widetilde p\left(\widetilde x \right) = \widehat p \left( \widehat x\right)$. So there is $g \in  \widehat{G}$ such that $\widehat x = g \widetilde{\widehat p}\left(\widetilde x \right) $. There is a left coset $g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)$ such that $g \in g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)$. If $\widetilde x' \in \widetilde{\sX}$ such that $\widetilde p\left(\widetilde x' \right) = \widehat p \left( \widehat x\right)=\widetilde p\left(\widetilde x \right)$ then there is $g' \in G\left(\left. \widetilde\sX~\right|\sX \right)$ such that $\widetilde x = g'\widetilde x'$ and $\widehat x = g g' \widetilde{\widehat p}\left(\widetilde x' \right)$ where  $g g' \in g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)$. So any $\widehat x \in \widehat \sX$ uniquely defines a left coset. From this fact one has a set theoretic disjoint union
+	For any $\widehat x \in \widehat \sX$ there is $\widetilde x \in \widetilde{\sX}$ such that $\widetilde p\left(\widetilde x \right) = \widehat p \left( \widehat x\right)$. So there is $g \in  \widehat{G}$ such that $\widehat x = g \widetilde{\widehat p}\left(\widetilde x \right) $. There is a left  coset $g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)$ such that $g \in g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)$. If $\widetilde x' \in \widetilde{\sX}$ such that $\widetilde p\left(\widetilde x' \right) = \widehat p \left( \widehat x\right)=\widetilde p\left(\widetilde x \right)$ then there is $g' \in G\left(\left. \widetilde\sX~\right|\sX \right)$ such that $\widetilde x = g'\widetilde x'$ and $\widehat x = g g' \widetilde{\widehat p}\left(\widetilde x' \right)$ where  $g g' \in g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)$. So any $\widehat x \in \widehat \sX$ uniquely defines a left  coset. From this fact one has a set theoretic disjoint union
 	$$
  \overline \sX = \bigsqcup_{\iota \in I}	g_\iota \widetilde{\widehat p}\left(  \widetilde \sX\right).
 	$$
@@ -10253,7 +10273,7 @@ it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( 
 	$$
 	\forall  x \in \sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left. \sX\right|\sX_\la \right)\right) }\rep_{ x}\left( g  a'\right)  = \rho^\la_{ x}\left(a_\la \right)
 	$$
-	From \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a\subset \sX$ is compact. If $f \bydef \sum^n_{j=1} f_j$ is a subordinated to the family $\left\{\sU_\a\right\}$ covering sum (cf. Definition  \ref{top_covering_sum_defn}) then
+	From \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a\subset \sX$ is compact. If $f \bydef \sum^n_{j=1} f_j$ is a subordinated  !!! dominated !!!to the family $\left\{\sU_\a\right\}$ covering sum (cf. Definition  \ref{top_covering_sum_defn}) then
 	\bean
 	f a = a,\\
 	f \widetilde{a}' = \widetilde{a}'
@@ -10751,7 +10771,7 @@ $$
 \end{theorem}
 
 \begin{proof}
-	Firstly we prove that $\widetilde R$   {is subordinated to}  $	\mathfrak{S}_{R} $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
+	Firstly we prove that $\widetilde R$   {is subordinated  !!! dominated !!!to}  $	\mathfrak{S}_{R} $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
 	\bean
 	\left( 	p^{-1}_\la \mathscr S^{R}\right)\left(\sX_\la\right) \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( \widetilde \sX\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) ,\\
 	\left( \widetilde p^{-1} \mathscr S^{R}\right)\left( \widetilde \sX\right)\left( 	p^{-1}_\la \mathscr S^{R}\right)\left( \sX_\la\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) 
@@ -10769,8 +10789,8 @@ $$
 	$$
 	\widetilde a \widetilde b = \widetilde b \widetilde a^\cup = a\widetilde b = \widetilde ba^\cup.
 	$$
-	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, it follows that $\widetilde R$ is {subordinated to}  $\mathfrak{S}_R$ (cf. Definition \ref{inf_cov_oa_sub_defn}). On the other hand from the Lemma \ref{top_inf_cov_oa_lem}
-	it turns out that any {subordinated to}  $\mathfrak{S}_R$ *-algebra is a *-subalgebra of $\widetilde R$, i.e. $\widetilde R$ is the unique maximal {subordinated to}  $\mathfrak{S}_R$ *-algebra.
+	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, it follows that $\widetilde R$ is {subordinated  !!! dominated !!!to}  $\mathfrak{S}_R$ (cf. Definition \ref{inf_cov_oa_sub_defn}). On the other hand from the Lemma \ref{top_inf_cov_oa_lem}
+	it turns out that any {subordinated  !!! dominated !!!to}  $\mathfrak{S}_R$ *-algebra is a *-subalgebra of $\widetilde R$, i.e. $\widetilde R$ is the unique maximal {subordinated  !!! dominated !!!to}  $\mathfrak{S}_R$ *-algebra.
 \end{proof}
 
 \subsubsection{Coverings of $O^*$-algebras}\label{top_inf_o_sec}
@@ -10875,7 +10895,7 @@ one can proof the following Theorem
 	${\pi}|_{\bigcup_{\la \in \La}\Coo\left( M_\la \right)}$-\textit{ inverse noncommutative limit of $\mathfrak{S}_{\Coo\left(M \right) }$} an {algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
 	\eqref{top_comps_pt_o*_eqn}
 \end{theorem}
-The proof of the Theorem \ref{top_inf_o*_m_thm} is left to the reader.
+The proof of the Theorem \ref{top_inf_o*_m_thm} is left  to the reader.
 \begin{remark}
 	The Theorem \ref{top_inf_o*_m_thm} is a noncommutative counterpart of the Proposition \ref{top_cov_mani_prop}. 
 \end{remark}
@@ -11166,7 +11186,7 @@ $$
 \widetilde\sY\bydef \left\{ \widetilde x\in \widetilde\sX \left|\left| \widetilde a\left(\widetilde x\right) \right|\ge \frac{\eps}{2} \right.\right\}
 $$
 is compact.
-If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}). then one has
+If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated  !!! dominated !!!to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}). then one has
 $$
 \left\|  \widetilde a -  \widetilde a\sum_{j = 1}^n f_j\right\| < \eps.
 $$
@@ -11177,7 +11197,7 @@ From the above equation it turns out that
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
 The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{compact_a_operator_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
 $h_{\widetilde{a}, g}\in \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) }  \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(\mathscr L^2\left(C_0\left( \widetilde \sX\right)  \right)_{C_0\left( \sX\right) } \right)$.\\
-(b)  If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
+(b)  If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated  !!! dominated !!!to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
 $$
 G_j \bydef \left\{\left. g \in G\left(\widetilde{\sX}~|~ \mathcal X\right) \right| g\supp f_j \cap \supp \widetilde b\neq \emptyset \right\}
@@ -11290,11 +11310,11 @@ then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the g
 $$
 C_c\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)}\Ga\left(\sX,E \right) \xrightarrow{\approx}\Ga_c\left(\widetilde \sX, \widetilde E \right)
 $$
-of left $C_0\left(\widetilde \sX \right)$-modules. On the other hand  there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde \sX, \widetilde E \right)\subset L^2\left(\widetilde \sX, \widetilde E \right)$, hence there is  the homomorphism
+of left  $C_0\left(\widetilde \sX \right)$-modules. On the other hand  there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde \sX, \widetilde E \right)\subset L^2\left(\widetilde \sX, \widetilde E \right)$, hence there is  the homomorphism
 \be\label{top_lift_g_inf_eqn}
 \phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)}\Ga\left(\sX,E \right) \to L^2\left(\widetilde \sX, \widetilde E\right)
 \ee
-of left $C_0\left(\widetilde \sX \right)$-modules.
+of left  $C_0\left(\widetilde \sX \right)$-modules.
 \begin{lemma}\label{top_hilb_inf_lem}
 	Following conditions hold:
 	\begin{itemize}
@@ -11302,7 +11322,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 		$$
 		C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right) \xrightarrow{\approx} L^2\left(\widetilde{\sX}, \widetilde{E} \right)
 		$$
-		of left $C_0\left(\widetilde M\right)$-modules.
+		of left  $C_0\left(\widetilde M\right)$-modules.
 		\item[(ii)] The image of $C_c\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
 	\end{itemize}
 \end{lemma}
@@ -11320,7 +11340,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 \end{proof}
 
 \begin{empt} 
-	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{\sX} \right) \otimes_{C\left(\sX \right) } \Ga\left( \sX, E\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} $	\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}$ for $\supp \widetilde{a}$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}) 
+	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{\sX} \right) \otimes_{C\left(\sX \right) } \Ga\left( \sX, E\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated  !!! dominated !!!to $\widetilde p$ {covering sum} $	\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}$ for $\supp \widetilde{a}$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}) 
 	where a given by \eqref{top_cfsa_eqn} notation  is used. If $\widetilde e_\a \bydef \sqrt{\widetilde a_\a}$ and $e_\a = \desc_{\widetilde p}\left( \widetilde e_\a\right) $ means $\widetilde p$-descent (cf. Definition \ref{top_lift_desc_defn}) then from \eqref{top_desc_fin_eqn} it turns out that
 	$$
 	\forall\a\in \mathscr A \quad \widetilde a_\a = \widetilde e_\a e_\a.
@@ -11683,7 +11703,7 @@ C \hookto M\left( A\right),\\
 where the notation of \ref{spectrum_ff_p_empt} is used.
 \end{example}
 \begin{empt}\label{blowing_ideals_au_ua_empt}
-Let  $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$. If $\sU \subset \sY$ is an open subset then there are following right and left closed ideals $_\sU A$  and $A_\sU$ generated by sets
+Let  $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$. If $\sU \subset \sY$ is an open subset then there are following right and left  closed ideals $_\sU A$  and $A_\sU$ generated by sets
 $C_0\left( \sU\right) A$ and $AC_0\left( \sU\right)$ respectively where the natural $C_0\left(\sU \right)  \subset C_0\left(\sY \right)$ is implied. 	If $\rho: A \to B\left( \H\right)$ is a faithful, nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the Definition \ref{multiplier_el_defn} yields a natural representation
 \be\label{blowing_y_rep_eqn} 
 \pi_\sY : C_0\left( \sY\right) \to B\left( \H\right).
@@ -11931,13 +11951,13 @@ a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \ex
 \ee
 \end{lemma}
 \begin{proof}
-From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_support_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
+From the lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a$ (cf. Definition \ref{blowing_support_defn}) of $a$ is compact. If $f \bydef \sum_{j=1}^n f_j$ is a subordinated  !!! dominated !!!to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $\supp a$ (cf. Definition \ref{top_covering_sum_defn}) then one has
 $$
 a = faf = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
 $$
 \end{proof}
 \begin{empt}\label{blowing_pedersen_decomp_empt}
-	If $A$ is  a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$, $b \in A_+$  and $f_{\eps/2}\left(b \right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} then $c \in K\left(A \right)_0$ (cf. the Lemma \ref{pedersen_eps_lem}), so $c\in A_c$ (cf. the equation  \ref{blowing_pedersen_compact_eqn}). If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ and $f \bydef \sum_{j=1}^n f_j$ is a subordinated to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $f_{\eps/2}\left(b \right)$ then 
+	If $A$ is  a $C^*$-algebra with Hausdorff blowing-up $C_0\left(\sY\right)\to M\left(A \right)$, $b \in A_+$  and $f_{\eps/2}\left(b \right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} then $c \in K\left(A \right)_0$ (cf. the Lemma \ref{pedersen_eps_lem}), so $c\in A_c$ (cf. the equation  \ref{blowing_pedersen_compact_eqn}). If a family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sY$ is such that $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$ and $f \bydef \sum_{j=1}^n f_j$ is a subordinated  !!! dominated !!!to the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ covering sum for $f_{\eps/2}\left(b \right)$ then 
 	$$
 	f_{\eps/2}\left(b \right)= f f_{\eps/2}\left(b \right) f=  \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k.
 	$$
@@ -11984,7 +12004,7 @@ Here we suppose that we have Hausdorff blowing-us and investigate conditions whe
 	\left\langle\cdot, \cdot  \right\rangle: \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right)\times \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right) \to A,\\
 	\left(\left(\widetilde f \otimes a \right) , \left(\widetilde g  \otimes b \right)  \right) \mapsto a^*\left\langle\widetilde f, \widetilde g \right\rangle_{C_0\left(\sY \right)} b.
 	\eean
-	so $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ becomes a pre-Hilbert $A$-module. We denote by $\mathscr L^2\left(\widetilde \sY \right) _A$ the $C^*$-Hilbert $A$-module which is a completion  of  $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm. There are both a left action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of $C^*$-algebras
+	so $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ becomes a pre-Hilbert $A$-module. We denote by $\mathscr L^2\left(\widetilde \sY \right) _A$ the $C^*$-Hilbert $A$-module which is a completion  of  $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm. There are both a left  action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of $C^*$-algebras
 	\bea\label{blowing_a_h_eqn}
 	\varphi_A : A \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right), \\
 	\label{blowing_c_h_eqn}
@@ -12035,7 +12055,7 @@ If $\widetilde a \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\l
 The finite union $\widetilde \sV \bydef \bigcup_{j = 1}^n \supp \widetilde f_j$ is compact. If $\widetilde f\in C_c\left(\widetilde\sY \right) $ is a covering sum for $\widetilde \sV$ (cf. Definition \ref{top_covering_sum_defn}) then $\varphi_A\left(  \widetilde a\right) = \varphi_A\left(  \widetilde a\right) \varphi_C\left(f \right)$.
 \end{proof}
 \begin{definition}\label{blowing_lift_defn}
-	If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_eqn}), and   $q: \widetilde{\sY}\to \sY$ is a  transitive, $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}), then the $C^*$-norm completion $A_0\left(\widetilde\sY\right)$ of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ (cf. equation \eqref{blowing_prods_eqn}) is the $q$-\textit{lift of} $A$.
+	If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}), then the $C^*$-norm completion $A_0\left(\widetilde\sY\right)$ of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ (cf. equation \eqref{blowing_prods_eqn}) is the $q$-\textit{lift of} $A$.
 \end{definition}
 \begin{lemma}\label{blowing_lift_constr_lem}
 	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_eqn}), and let   $q: \widetilde{\sY}\to \sY$ be a  transitive, $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). If $A_0\left(\widetilde\sY\right)$ is the  $q$-\textit{lift of} $A$ (cf. Definition \ref{blowing_lift_defn}) then there is a natural injective $*$-homomorphism
@@ -12099,21 +12119,47 @@ We leave to the reader an elementary proof of that the map is an injective $*$-h
 	
 	
 	
-\begin{definition}\label{blowing_lift_hom_defn} !!! CHECK !!!
-	If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_eqn}), and let  $q: \widetilde{\sY}\to \sY$ is an  $A$-{regular} (cf. Definition \ref{blowing_a_regular_defn}) a transitive covering
-	Under the hypotheses \ref{blowing_lift_constr_lem} !!! REPLACE LEMMA  we say that the $C^*$ algebra $A_0\left( \widetilde \sY\right)$ is a $q$-\textit{lift} of $A$. As well the $*$-homomorphism $	A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right)$ given by the Lemma  \eqref{blowing_lift_constr_lem}
-	\be\label{blowing_lift_eqn111}
+\begin{definition}\label{blowing_lift_hom_defn}  If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and    $q: \widetilde{\sY}\to \sY$ is an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then the given by the Lemma \eqref{blowing_lift_constr_lem} $*$-homomorphism $	A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right)$
+	is the  $q$-\textit{lift} of $A$. The difference between both  Definitions  \ref{blowing_lift_defn} and \ref{blowing_lift_hom_defn} of $q$-lift will be explained as we go along.
+\end{definition}
+\begin{lemma}
+	If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and    $q: \widetilde{\sY}\to \sY$ is an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then the  $q$-{lift} $	A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_hom_defn}) can be uniquely extended up to an injective $*$-homomorphism
+		\be\label{blowing_lift_m_eqn}
+		M\left( A_b\left(q \right)\right)  : M\left( A\right)  \hookto M\left( A_0\left(\widetilde\sY\right)\right).
+		\ee 
+\end{lemma}
+\paragraph{!!!}
+\begin{definition}\label{left_desc_defn!!} !!! TEMP !!!
+	Let 	$\pi: A \hookto \widetilde A$ be an injective $*$-homomorphism of $C^*$-algebras and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}) . Let $\left\{\widetilde u_\la\right\}_{\La \in \La}\subset \widetilde L$ be a given by the Theorem \ref{left_ideal_thm} net. Let $L$  be a closed left ideal in ${A}$ such that a map
+	\be
 	\begin{split}
-		A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right),\\
-		a \mapsto \bt\text{-}\lim_{\a \in \mathscr A} \varphi' \left( \widetilde f_\a\otimes a\right) 
+		\pi_{\widetilde L}: L \xrightarrow{\cong} \widetilde L,\\
+		a \mapsto \lim_{{\la \in \La}}\widetilde u_\la \pi\left( a\right) 
 	\end{split}
 	\ee
-	is a $q$-\textit{lift} of $A$. The difference between both  Definitions  \ref{blowing_lift_defn} and \ref{blowing_lift_hom_defn} will be explained as we go along.
+	$C^*$-norm preserving isomorphism of left $A$-modules. We say that
+	\be\label{left_desc_eqn!}
+	\desc_{\widetilde L}\bydef \pi_{\widetilde L}^{-1}: \widetilde L \xrightarrow{\cong}  L
+	\ee 
+	is a \textit{left} $\widetilde L$-\textit{descent}. We imply the $C^*$-norm convergence in \ref{left_desc_eqn}. Similarly we define a  \textit{right} $\widetilde R$-\textit{descent}
+	\be
+	\desc^*_{\widetilde R}: \widetilde R \xrightarrow{\cong}  R
+	\ee 
+	for a closed right ideal in $\widetilde A$.
 \end{definition}
 
+\paragraph{!!!}
+\begin{proof}
+	!!!! Let $\left\{u_\a\right\}_{\a \in \mathscr A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn})
+\end{proof}
+\begin{lemma}
+	Let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and  let  $q: \widetilde{\sY}\to \sY$ be an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). If $\widetilde \sU$ is a connected open set. 
+\end{lemma}
+
+
 \begin{empt}\label{blowing_cov_empt}
-	Under the hypotheses of the Definition \ref{blowing_a_regular_defn} 
-	let $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ be a family of  open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$ with compact closure which is mapped homeomorphically onto $\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\times  \mathscr A$ then there are:
+Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and  let $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). 
+	Let $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ be a family of  open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$ with compact closure which is mapped homeomorphically onto $\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\times  \mathscr A$ then there are:
 	\begin{itemize}
 		\item  the natural action $G\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
 		\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
@@ -12134,8 +12180,7 @@ We leave to the reader an elementary proof of that the map is an injective $*$-h
 \begin{definition}\label{blowing_cov_defn}
 Under the hypotheses \ref{blowing_cov_empt} we say that a pair $$\left(\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}, \left\{\widetilde \sU_{\widetilde \a}\subset \widetilde \sY\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ is a $q$-\textit{covering}. Both the action \eqref{blowing_action_eqn} and the map \eqref{blowing_map_eqn} are $q$-\textit{action} and $q$-\textit{projection} respectively.
 \end{definition}
-
-Under hypotheses of the Definition  \ref{blowing_cov_defn}  if $$\widetilde a \bydef \varphi\left(\widetilde f \otimes a \right) \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$$ then from the Lemma \ref{blowing_lift_eq_lem} it turns out that  there is $\widetilde f'\in  C_c\left( \widetilde \sY \right)$ such that
+Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and  let $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let  $$\left(\left\{{\sU}_\a\right\}_{\a\in \mathscr A}, \left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ be  a $q$-{covering} (cf. Definition \ref{blowing_cov_defn}).  If $$\widetilde a \bydef \varphi\left(\widetilde f \otimes a \right) \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$$ then from the Lemma \ref{blowing_lift_eq_lem} it turns out that  there is $\widetilde f'\in  C_c\left( \widetilde \sY \right)$ such that
  $$
  \widetilde a = \widetilde a \varphi_C\left(\widetilde f' \right)= \varphi_C\left(\widetilde f \right)\varphi_A\left( a\right) \varphi_C\left(\widetilde f' \right)
  $$
@@ -12143,41 +12188,26 @@ From the Lemma \ref{blowing_ajk_lem}  it follows that
  \bean
  a = \sum_{\substack{j=1\\ k = 1}}^n f_ja f_k \quad \forall j = 1,..., n\quad \exists \a \in \mathscr A\quad \supp f_j \subset \sU_\a
  \eean
- Select $j \in \left\{1,..., n\right\}$ and  $\a_j\in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. Under the hypotheses of \ref{blowing_cov_empt} select $\widetilde \a_j\in\widetilde{\mathscr A}$ such that $p\left(\widetilde\a_j \right) = \a_j$. The set
+ Select $j \in \left\{1,..., n\right\}$ and  $\a_j\in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. Under the hypotheses of \ref{blowing_cov_empt} select $\widetilde \a_j\in\widetilde{\mathscr A}$ such that $p_q\left(\widetilde\a_j \right) = \a_j$. The set
  $$
  G_j \bydef \left\{\left.g \in G\right| g \widetilde \sU_{\widetilde a_j} \cap \left( \supp \widetilde f\cup \supp  \widetilde f'   \right)\neq \emptyset  \right\}
 . $$
  is finite since the union $\supp \widetilde f\cup \supp  \widetilde f'$ is compact. From our construction it follows that
 \be\label{blowing_lift_eqp_eqn}
- \widetilde a = \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\sum_{g' \in G_j} \lift^q_{g' \widetilde \sU_{\widetilde a_j} }\left(f_j \right) \widetilde f \right) a \varphi_C\left(\sum_{g'' \in G_k} \lift^q_{g'' \widetilde \sU_{\widetilde a_k} }\left(f_k \right)\widetilde f'\right) 
+ \widetilde a = \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\sum_{g' \in G_j} \lift^q_{g' \widetilde \sU_{\widetilde a_j} }\left(f_j \right) \widetilde f \right) \varphi_A\left( a\right)  \varphi_C\left(\sum_{g'' \in G_k} \lift^q_{g'' \widetilde \sU_{\widetilde a_k} }\left(f_k \right)\widetilde f'\right) 
 \ee
 where $\lift^q_{\widetilde \sU}$ is a $q$-$\widetilde \sU$-lift (cf. Definition \ref{top_lift_desc_defn}). From \eqref{blowing_lift_eqp_eqn} one can deduce that any element of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ can be represented by following finite sum
 \be\label{blowing_tajk_eqn}
 \begin{split}
- \sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a_{jk} \in K\left( A\right), \\ 
- \exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
+ \sum_{\substack{j=1\\ k = 1}}^m\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a_{jk} \in K\left( A\right), \\ 
+ \forall j,k \in \left\{1,...,m\right\}\quad \exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
  \end{split}
 \ee
-Now one should prove that the given by \eqref{blowing_tajk_eqn} set is a $*$-algebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$. From
-\bean
-\left( \varphi_C\left(\widetilde f' \right) \varphi_A\left(a\right)\varphi_C\left(\widetilde f'' \right)\right) \left( \varphi_C\left(\widetilde g' \right) \varphi_A\left(b\right)\varphi_C\left(\widetilde g'' \right)\right)=\\=
-\varphi_C\left(\widetilde f' \right)\phi_A\left(a \desc_q\left(\widetilde f'' \widetilde g' \right)  \right) \varphi_C\left(\widetilde g' \right)
-\eean 
-where $\desc_q$ is given by the Definition \ref{top_lift_desc_defn} it turns out that the set \eqref{blowing_tajk_eqn} is closed under multiplication. From
-$$
-\left( \varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\right)^*= \varphi_C\left(\widetilde f''^*_k \right) \varphi_A\left(a^*_{jk}\right)\varphi_C\left(\widetilde f'^*_j \right) 
-$$
-it follows that the set \eqref{blowing_tajk_eqn} is closed under the involution.
-
-%\begin{exercise}\label{blowing_disitegrable_exer}
-%??? ADD ???
-%Let $q: \widetilde{\sY}\to \sY$ be an  $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let  both   $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ and $ \left\{\widetilde \sU_{\widetilde \a}\subset \widetilde\sY\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ be explained in \ref{blowing_cov_empt} families of open sets. Prove that  if $A$ is \textit{disintegrable with respect to the family}  $\left\{\sU_\a\right\}$ (cf. Definition \ref{blowing_disintegrable_defn}) then $A_0\left( \widetilde{\sY}\right)$ is \textit{disintegrable with respect to the family} $\left\{\widetilde \sU_{\widetilde \a}\right\}$.
-%\end{exercise}
 
 \begin{lemma}
-Under the hypotheses of the Definition \ref{blowing_a_regular_defn} one has:
+If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has:
 \begin{enumerate}
-	\item [(i)] the natural inclusion $C_0\left(\widetilde \sY\right) \to M\left(A_0\left(\widetilde\sY\right)\right)$ is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}),
+	\item [(i)] there is a natural Hausdorff blowing-up $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$ (cf. Definition \ref{blowing_defn}) (cf. Definition \ref{blowing_defn}),
 	\item[(ii)] if 
 	\be\label{blowing_com_eqn}
 	A_c\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
@@ -12185,32 +12215,80 @@ Under the hypotheses of the Definition \ref{blowing_a_regular_defn} one has:
 	then there is a natural inclusion
 	$ K\left( A_0\left(\widetilde\sY \right)\right)  \subset A_c\left(\widetilde\sY \right)
 	$ of $*$-algebras.
-	\item[(iii)]
+	\item[(iii)] if a pair $\left(\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}, \left\{\widetilde \sU_{\widetilde \a}\subset \widetilde \sY\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ is a  $q$-{covering} (cf. Definition \ref{blowing_cov_defn}) then 
 \be\label{blowing_tajkc_eqn}
 \begin{split}
-\forall\widetilde a \in A_c\left(\widetilde\sY \right)\quad \widetilde a=	\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\quad a_{jk} \in K\left( A\right), \\ 
-	\exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
+\forall\widetilde a \in A_c\left(\widetilde\sY \right)\quad \widetilde a=	\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f_k \right)\quad a_{jk} \in  A, \\ 
+	\exists \widetilde \sU_j , \widetilde \sU_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f_j\in \widetilde \sU_j \quad \supp \widetilde f_k\in \widetilde \sU_k.
 \end{split}
 \ee
 where the notation of 	\ref{blowing_cov_empt} is implied,
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(i) From \ref{blowing_lift_constr_lem} !!! REPLACE LEMMA  it follows that $A_0\left(\widetilde \sY\right)$ is the $C^*$-norm completion of 
+(i) There a the natural action 
+\bean
+C_0\left( 	\widetilde{\sY}\right) \times \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\to \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right),\\
+\left(\widetilde f,\varphi\left(  \widetilde f' \otimes a\right)  \right) \mapsto \varphi\left( \widetilde f \widetilde f' \otimes a\right).
+\eean
+This action can be naturally extended up to an action $C_0\left( 	\widetilde{\sY}\right) \times A_0\left(\widetilde\sY\right)\to A_0\left(\widetilde\sY\right)$ since $A_0\left(\widetilde\sY\right)$ is the $C^*$-norm completion of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$. Using the Lemma \ref{blowing_lift_eq_lem} one can prove that the action $C_0\left( 	\widetilde{\sY}\right) \times A_0\left(\widetilde\sY\right)\to A_0\left(\widetilde\sY\right)$ yields an inclusion $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$. Since $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ is dense in  $A_0\left(\widetilde\sY\right)$ and taking into account 
 $$
-\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right) \
-$$ so the set 
-$
-	C_c\left(\widetilde \sY\right)A \bydef \left\{\left.\widetilde fa\right| \widetilde f \in C_c\left( \widetilde \sY\right)\quad a \in A \right\}
-$ (cf. \eqref{blowing_eqn}) is dense in $A_0\left(\widetilde\sY\right)$. From the Remark \ref{blowing_rem} it turns out that the set 
-$
-AC_c\left(\widetilde \sY\right) \bydef \left\{\left.a\widetilde f\right| \widetilde f \in C_c\left( \widetilde \sY\right)\quad a \in A \right\},\\
-$ is dense in $A_0\left(\widetilde\sY\right)$.\\
+\forall \widetilde f' \otimes a \in C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \quad \exists \widetilde f\in C_c\left( \widetilde \sY \right)\quad \widetilde f' \otimes a= \widetilde f\widetilde f'\otimes a
+$$
+we conclude that the set 
+$$	
+C_c\left( \widetilde \sY \right)A_0\left(\widetilde\sY\right) \bydef \left\{\left.\widetilde f\widetilde a\right| \widetilde f\in C_c\left( \widetilde \sY \right)\quad  \widetilde a \in )A_0\left(\widetilde\sY\right)\right\}
+$$	
+is dense in $A_0\left(\widetilde\sY\right)$. Taking into account the Remark \ref{blowing_rem}
+one concludes that the inclusion $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$ satisfies to the Definition \ref{blowing_defn}, i.e. it is Hausdorff blowing-up.
+\\
 (ii) Follows from (i) and the Lemma \ref{blowing_pedersen_compact_lem}.\\
-(iii) Can be proven similarly to the equation \eqref{blowing_tajk_eqn}.
+(iii) If $\widetilde{a}\in A_c\left(\widetilde \sY \right)_+$ is a positive element  then there is a covering sum $\widetilde f =\sum_{j=1}^n \widetilde{f}'_j$ for  $\supp \widetilde{a}$ dominated by the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). One has
+\be\label{blowing_convt_eqn}
+\widetilde a = \widetilde f\widetilde a\widetilde f = \sum_{\substack{j=1\\ k = 1}}^n \widetilde f^2_j \widetilde a \widetilde f^2_k
+\ee
+where $\widetilde f_j \bydef \sqrt{\widetilde f'_j}$ for any $j'\in 1,...,n$.
+On the other hand for any $\eps > 0$ there is
+$$
+\widetilde a_\eps = \sum_{l = 1}^m \varphi_C\left( {\widetilde f'_l}\right)\varphi_A\left( a_l\right)\varphi_C\left( {\widetilde f''_l}\right)\in    \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)
+$$
+such that
+$$
+\left\| \widetilde{a} - \widetilde{b}_\eps\right\|< \eps.
+$$
+There is an increasing  net $\left\{\widetilde a_\a\in A_c\left(\widetilde \sY \right)_+\right\}_{\a \in \mathscr{ A}}$ such that one has the following $C^*$-norm limit.
+For any $j =1,...,n$ let $\widetilde f_j \bydef \sqrt{\widetilde f'_j}$.
+Let us prove that is for any $j,k \in \left\{1,..., n\right\}$ the series 
+\be\label{blowing_conv_eqn}
+a_{jk}\bydef \bt\text{-}\sum_{	g \in  \widetilde{G}} g\left(  \widetilde f_j \widetilde a \widetilde f_k\right) 
+\ee
+is convergent with respect to the strict topology of $M\left(A_0\left(\widetilde\sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}).
+If $\widetilde{b}\in A_0\left(\widetilde\sY\right)$ then for any $\eps > 0$ there is $\widetilde{b}_c\in A_c\left(\widetilde\sY\right)$ such that 
+\be\label{blowing_bcb_eqn}
+\left\| \widetilde{b} - \widetilde{b}_c\right\| < \frac{\eps}{\left\| \widetilde{a} \right\|}.
+\ee
+The support $\supp  \widetilde{b}_c$ is compact, so a set
+$$
+\widetilde G_0 \left\{\left. g \in \widetilde G\right| g \supp \widetilde f_k \cap \supp  \widetilde{b}_c \neq \emptyset\right\}
+$$
+is finite. For any $g \in \widetilde G \setminus \widetilde G_0$ one has $ g\left(  \widetilde f_j \widetilde a \widetilde f_k\right)\widetilde b_c = 0$ and taking into account \eqref{blowing_bcb_eqn} one has that for any finite set $\widetilde G' \subset  \widetilde G$ one has
+\be\label{blowing_conv1_eqn}
+\begin{split}
+\widetilde G_0\subset \widetilde G'\quad \Rightarrow \quad \left\| \sum_{	g \in  \widetilde{G}'}g\left(  \widetilde f_j \widetilde a \widetilde f_k\right)\widetilde{b} - \sum_{	g \in  \widetilde{G}_0}g\left(  \widetilde f_j \widetilde a \widetilde f_k\right) \widetilde{b}\right\|=\\= \left\| \sum_{	g \in  \widetilde{G}'\setminus \widetilde{G}_0}g\left(  \widetilde f_j \widetilde a \widetilde f_k\right)\widetilde{b}\right\| < \eps. 
+\end{split}
+\ee
+Similarly one can prove that there is a finite set $\widetilde G'_0 \subset \widetilde G$ such that for any finite set $\widetilde G''\subset \widetilde G''$ one has
+\be\label{blowing_conv2_eqn}
+\widetilde G'_0\subset \widetilde G''\quad \Rightarrow \quad \left\| \sum_{	g \in  \widetilde{G}''}\widetilde{b}g\left(  \widetilde f_j \widetilde a \widetilde f_k\right) \right\| < \eps.
+\ee
+From the equations \eqref{blowing_conv1_eqn} and \eqref{blowing_conv2_eqn} it follows that the series \eqref{blowing_conv_eqn} is convergent with respect to the strict topology of $M\left(A_0\left(\widetilde\sY\right) \right)$.
+Suppose that $a_{jk}\notin A_b\left(q \right)\left(A \right)$
+!!!  
+
 \end{proof}
+
 \begin{definition}\label{blowing_descent_compactly_supported_defn} %{blowing_compactly_supported_descent_defn!}
-A given by \eqref{blowing_com_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{lift} of $A$.  An $A$-$A$-bimodule homomorphism 
+!!! CORRECT !!!A given by \eqref{blowing_com_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{descent} of $A$.  An $A$-$A$-bimodule homomorphism 
 \be\label{blowing_compactly_supported_descent_eqn}
 \begin{split}
 \desc^c_q : A_c\left(\widetilde\sY \right)\to A_c,\\
@@ -12240,8 +12318,8 @@ Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowi
 \begin{exercise}\label{blowing_hausdorff_exer}
 	Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_0\left( \sX\right)\subset M\left(A \right)$ be Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). Let $p: \widetilde{\sX}\to \sX$ be a transitive covering with residually finite group $G\left(\left.\widetilde \sX\right|\sX \right)$ of covering transformations. Prove following statements.
 	\begin{enumerate}
-		\item There is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!).
-		\item The $C^*$-algebra    $A_0\left( \widetilde \sX\right)$ given by the Definition \ref{top_cs_functa_b_defn} is a specialization of   given by the Definition \ref{blowing_lift_defn} !!! CHECK !!! one.
+		\item There is $p$-lift $A_b\left(p\right)\bydef \pi : A \hookto	M\left( A_0\left( \widetilde \sX\right)\right)$ (cf. Definition \ref{blowing_lift_defn}  ).
+		\item The $C^*$-algebra    $A_0\left( \widetilde \sX\right)$ given by the Definition \ref{top_cs_functa_b_defn} is a specialization of   given by the Definition \ref{blowing_lift_defn}   one.
 		\item The Definition \ref{top_compactly_supported_descent_defn} is a specialization of the  \ref{blowing_descent_compactly_supported_defn}.
 	\end{enumerate}
 \end{exercise}
@@ -12279,23 +12357,14 @@ $$
 $$
 \end{proof}
 
-\begin{exercise} !!! PROVE !!!
-	Under the hypotheses of the Definition \ref{blowing_lift_defn} !!! CHECK !!! prove following statements:
-	\begin{enumerate}
-		\item  The $q$-lift $A_b\left(q \right) : A \hookto M\left( A_0\left(\widetilde\sY\right)\right)$ (cf. \eqref{blowing_lift_eqn}) of $A$  can be uniquely extended up to an injective $*$-homomorphism
-			\be\label{blowing_lift_m_eqn}
-			M\left( A_b\left(q \right)\right)  : M\left( A\right)  \hookto M\left( A_0\left(\widetilde\sY\right)\right).
-			\ee 
-				
-	\end{enumerate}
-\end{exercise}
+
 
 \begin{empt}
 	The Lemmas \ref{blowing_pedersen_compact_lem} and  \ref{blowing_series_lem} yield a sesquilinear pairing 
 	\be\label{blowing_pa_eqn}
 	\begin{split}
 		\left\langle\cdot, \cdot \right\rangle : K\left(A_0\left( \widetilde \sY\right) \right)\times K\left(A_0\left( \widetilde \sY\right) \right) \to A,\\
-		\left\langle \widetilde a, \widetilde b \right\rangle \bydef \bt\text{-}	\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }g \left( \widetilde a \widetilde b\right) 
+		\left\langle \widetilde a, \widetilde b \right\rangle \bydef \bt\text{-}	\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }g \left( \widetilde a^* \widetilde b\right) 
 	\end{split}
 	\ee
 	where the convergence with respect to the strict topology of $M\left(A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}) is implied. Thus $K\left(A_0\left( \widetilde \sY\right)\right)$ becomes a pre-Hilbert $A$-module (cf. Definition \ref{hilbert_module_defn}).
@@ -12344,7 +12413,7 @@ $$
 	\be\label{blowing_fin_eqn}
 	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	\ee
-	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
+	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}  ) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
 \end{lemma}
 \begin{proof}
 According to  \ref{blowing_lift_constr_lem} !!! REPLACE LEMMA  it follows that $A_0\left( \widetilde \sY\right)$ is the $C^*$-norm completion of 
@@ -12394,7 +12463,7 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	$$
 	g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)\neq 0
 	$$
-	If $g_{\widetilde \sU'} \neq g_{\widetilde \sU''}$ then $g_{\widetilde \sU'}\widetilde \sU'\cap g_{\widetilde \sU''}\widetilde \sU''= \emptyset$ and $g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)= 0$. From this contradiction we conclude that $g_{\widetilde \sU'} = g_{\widetilde \sU''}$. The space $\widetilde\sY$ is connected and using the Theorem \ref{zorn_thm} we conclude that there is $g' \in G$ such that  $g_{\widetilde \sU}= g'$ for any connected  $\widetilde \sU$ homeomorphically mapped onto $ q\left(\widetilde \sU \right)$. Using this fact one can prove that if $A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an explained in \ref{blowing_ideals_au_ua_empt} left ideal then  $g A_0\left( \widetilde \sY\right)_{\widetilde \sU} = g'A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a\in K\left( A_0\left( \widetilde \sY\right)\right)$ is an element of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then the support $\supp\widetilde a$ of $\widetilde a$ is compact. There is a finite family $\left\{\widetilde \sU_1, ..., \widetilde \sU_n\right\}$ of open connected subsets of $\widetilde \sY$ such that: 
+	If $g_{\widetilde \sU'} \neq g_{\widetilde \sU''}$ then $g_{\widetilde \sU'}\widetilde \sU'\cap g_{\widetilde \sU''}\widetilde \sU''= \emptyset$ and $g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)= 0$. From this contradiction we conclude that $g_{\widetilde \sU'} = g_{\widetilde \sU''}$. The space $\widetilde\sY$ is connected and using the Theorem \ref{zorn_thm} we conclude that there is $g' \in G$ such that  $g_{\widetilde \sU}= g'$ for any connected  $\widetilde \sU$ homeomorphically mapped onto $ q\left(\widetilde \sU \right)$. Using this fact one can prove that if $A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an explained in \ref{blowing_ideals_au_ua_empt} left !!! CHECK !!ideal then  $g A_0\left( \widetilde \sY\right)_{\widetilde \sU} = g'A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a\in K\left( A_0\left( \widetilde \sY\right)\right)$ is an element of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then the support $\supp\widetilde a$ of $\widetilde a$ is compact. There is a finite family $\left\{\widetilde \sU_1, ..., \widetilde \sU_n\right\}$ of open connected subsets of $\widetilde \sY$ such that: 
 	\begin{enumerate}
 		\item $\supp\widetilde a\subset \bigcup_{j=1}^n \widetilde\sU_j$,
 		\item for each $j=1,...,n$ the set $\widetilde \sU_j \sY$ is  homeomorphically mapped onto $ q\left(\widetilde \sU_j \right)$.
@@ -12419,7 +12488,7 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	!!! ADD REGULAR !!!
 	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	$
-	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!), and let $\phi: G\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
+	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}  ), and let $\phi: G\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
 	$\sY' \bydef \widetilde \sY/ \ker\left(G\to G \right)$ then one has:
 	\begin{enumerate}
 		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
@@ -12527,7 +12596,7 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 		is given by \eqref{induced_representation_eqn}, i.e. $\widetilde{\rho}$
 		is the induced representation (cf. Definition \ref{induced_representation_defn}). 
 \begin{lemma}\label{blowing_induced_representation_lem}
-	If  $A_b\left(q \right) :A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ is $q$-lift (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!) and $\rho : A\to B\left( \H\right)$ is a faithful, nondegenerate  representation (cf. Definitions  \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{blowing_induced_eqn} induced representation $\widetilde{\rho}: A_0\left(\widetilde\sY \right)\to B\left(\widetilde{\H} \right)$ if faithful.
+	If  $A_b\left(q \right) :A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ is $q$-lift (cf. Definition \ref{blowing_lift_defn}  ) and $\rho : A\to B\left( \H\right)$ is a faithful, nondegenerate  representation (cf. Definitions  \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{blowing_induced_eqn} induced representation $\widetilde{\rho}: A_0\left(\widetilde\sY \right)\to B\left(\widetilde{\H} \right)$ if faithful.
 \end{lemma}
 \begin{proof}
 If $\widetilde{\rho}$ is  faithful if and only if for any positive element $\widetilde a \in K\left( A_0\left(\widetilde\sY \right)\right)_+$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) of  $A_0\left(\widetilde\sY \right)$ one has $\widetilde{\rho}\left( \widetilde{a}\right) \neq 0$. From the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \widetilde a$ is compact. If $\sum_{j = 1}^n \widetilde f_j$ is a covering sum for $\supp \widetilde a$   {subordinated to} $q$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) then one has
@@ -12672,7 +12741,7 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 	$$
 	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
 	$$
-	of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	of left  $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
 	$$
 	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
 	$$
@@ -12706,7 +12775,7 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 \begin{empt}\label{blowing_uc_empt} !!! MAY BE DELETE !!!
 	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY \right)\hookto M\left( A\right) $ be Hausdorff blowing-up, and let
 	$\left(A, \widetilde A,  G\left(\left.\widetilde A\right|A \right), \pi \right)$ be a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is an unital noncommutative finite-fold covering $\left(M\left(A\right) , M\left(\widetilde{A}\right) , G\left(\left.\widetilde A\right|A \right),\widetilde \pi \right)$ (cf. Corollary \ref{cov_mult_fin_cor}). Suppose that if Hausdorff blowing-up $C_0\left( \sY'\right) \hookto M\left( \widetilde A\right)$ is induced by noncommutative covering (cf. Definition \ref{blowing_ext_defn}), then $\sY'\cong  \sY$.  There is the natural $*$-homomorphism $C_0\left(\sY \right)\hookto M\left( \widetilde A\right)$ and we leave to the reader the proof of that it is Hausdorff blowing-up.
-	If  $q: \widetilde \sY \to \sY$ is a   transitive covering  with $q$-lift $A_b\left(q \right)  : A \hookto M\left( A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!). Then similarly to \ref{blowing_lift_empt} there is an $C^*$-Hilbert $\widetilde A$-module $\mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}$ which is a completion  which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} \widetilde A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm.
+	If  $q: \widetilde \sY \to \sY$ is a   transitive covering  with $q$-lift $A_b\left(q \right)  : A \hookto M\left( A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{blowing_lift_defn}  ). Then similarly to \ref{blowing_lift_empt} there is an $C^*$-Hilbert $\widetilde A$-module $\mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}$ which is a completion  which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} \widetilde A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm.
 \end{empt}
 \begin{lemma}\label{blowing_uc_lem} !!! MAY BE DELETE !!!
 	Under the hypotheses \ref{blowing_uc_empt} the covering $q: \widetilde{\sY}\to \sY$ is $\widetilde A$-{regular} (cf. Definition \ref{blowing_a_regular_defn}).
@@ -12817,7 +12886,7 @@ $$
 	Let $C_0\left( \sY\right) \hookto M\left( A\right) $ be    Hausdorff blowing-up (cf. the Definition \ref{blowing_defn}), and
 	let $q:\widetilde \sY \to \sY$ be an $A$-regular (cf. Definition \ref{blowing_a_regular_defn})  transitive covering with connected $\widetilde \sY$ and residually finite group  $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations.  If  $\overline q: \overline \sY  \to  \sY$  is {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) then 	following conditions hold:
 	\begin{enumerate}
-		\item[(i)] the covering  $\overline q$ is $A$-regular (cf. Definition \ref{blowing_a_regular_defn}, i.e. there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!,
+		\item[(i)] the covering  $\overline q$ is $A$-regular (cf. Definition \ref{blowing_a_regular_defn}, i.e. there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn}  ,
 		\item[(ii)] if the space if $\sY$ is  locally connected $\sY$ (cf. Definition \ref{top_locally_connected_defn}) the {finite covering category of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) given by
 		\be\label{blowing_category_fin_eqn}
 	\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
@@ -12831,7 +12900,7 @@ $$
 	\end{enumerate}
 \end{theorem}
 \begin{proof}(i)
-	According to the construction of the Section \ref{top_inf_to_sec} one has $G\left(\left.\overline \sY\right|\sY \right)= \varprojlim_{\la \in \La} G_\la$ where $\left\{G_\la\right\}_{\la \in \La}$ is a set of all finite factor-groups of $G\left(\left.\widetilde \sY\right|\sY \right)$, i.e. the group $G\left(\left.\widetilde \sY\right|\sY \right)$ is profinite (cf. Example \ref{profinite_exm}). From the Lemma \ref{top_disconnected_lem} it follows that if  $\left\{g_\iota G\left(\left. \widetilde\sY~\right|\sY \right)\right\}_{\iota \in I}$   is  a set of all left cosets of $G\left(\left. \widetilde\sY~\right|\sY \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then t here is a natural homeomorphism 
+	According to the construction of the Section \ref{top_inf_to_sec} one has $G\left(\left.\overline \sY\right|\sY \right)= \varprojlim_{\la \in \La} G_\la$ where $\left\{G_\la\right\}_{\la \in \La}$ is a set of all finite factor-groups of $G\left(\left.\widetilde \sY\right|\sY \right)$, i.e. the group $G\left(\left.\widetilde \sY\right|\sY \right)$ is profinite (cf. Example \ref{profinite_exm}). From the Lemma \ref{top_disconnected_lem} it follows that if  $\left\{g_\iota G\left(\left. \widetilde\sY~\right|\sY \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \widetilde\sY~\right|\sY \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then t here is a natural homeomorphism 
 	\be\label{blowing_disconnected_eqn!}
 	\overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\sY.
 	\ee
@@ -12840,8 +12909,8 @@ $$
 	\bigsqcup_{\iota\in I} A_0\left( g_\iota \widetilde\sY\right) 
 	$$
 	then there is  natural Hausdorff blowing-up $C_0\left(\overline \sY \right) \hookto \overline A$.
-	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn} !!! CHECK !!!.\\
-(ii)!!! CHECK !!!	Firstly we prove that  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. If  $\la \in \La$ and $\overline q_\la \overline \sY\to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it turns out the $\overline q_\la$ is $A_0\left( \sY_\la\right)$-regular and there is   $\overline q_\la$-{lift} 	$A_b\left(\overline q_\la\right): A\left(\sX_\la \right)  \hookto	M\left( A_0\left( \overline \sY\right)\right)$. From the Lemma \ref{blowing_series_lem}
+	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}  .\\
+(ii) 	Firstly we prove that  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. If  $\la \in \La$ and $\overline q_\la \overline \sY\to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it turns out the $\overline q_\la$ is $A_0\left( \sY_\la\right)$-regular and there is   $\overline q_\la$-{lift} 	$A_b\left(\overline q_\la\right): A\left(\sX_\la \right)  \hookto	M\left( A_0\left( \overline \sY\right)\right)$. From the Lemma \ref{blowing_series_lem}
 it follows that for any $\overline a \in K\left(\overline A \right)$ one has
 $$
 \desc_{\la} \overline a  = \bt\text{-}\sum_{g \in \ker\left( \widehat G \to G\left(\left. \sY_\la \right|\sY \right)\right) }g \overline a = A_b\left(\overline q_\la \right) \circ \desc^c_q\left(\overline a \right) \in A_b\left(\overline q_\la \right)\left(A_0\left(\sX_\la \right)  \right) 
@@ -13373,7 +13442,7 @@ if one has
 \end{definition}
 
 \begin{empt}
-	Let $\left\{\mathfrak e_j\right\}_{j \in \N}$ be a basis of the Hilbert space $\ell^2\left(\N \right)$, and let  $\mathfrak{e}_{j,k}\in \K\bydef \K\left\{\ell^2\left(\N \right)\right\}$ be $j,k$-elementary matrix (cf. Definition   \ref{elementary_defn}). Suppose that $\overline A^\K$ is a $C^*$-algebra subordinated (cf. Definition \ref{subordinated_defn} !!! REPLACE  \ref{infinite_pre_covering_defn} !!! REPLACE \ref{algebraical_finite_covering_category_eqn} !!!) to the given by \eqref{stable_rep_eqn} !!! pointed  DELETE !!!!!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{pointed_defn}). There is a hereditary subalgebra 
+	Let $\left\{\mathfrak e_j\right\}_{j \in \N}$ be a basis of the Hilbert space $\ell^2\left(\N \right)$, and let  $\mathfrak{e}_{j,k}\in \K\bydef \K\left\{\ell^2\left(\N \right)\right\}$ be $j,k$-elementary matrix (cf. Definition   \ref{elementary_defn}). Suppose that $\overline A^\K$ is a $C^*$-algebra subordinated  !!! dominated !!!(cf. Definition \ref{subordinated_defn} !!! REPLACE  \ref{infinite_pre_covering_defn} !!! REPLACE \ref{algebraical_finite_covering_category_eqn} !!!) to the given by \eqref{stable_rep_eqn} !!! pointed  DELETE !!!!!! pointed  DELETE !!!algebraical  finite covering category (cf. Definition \ref{pointed_defn}). There is a hereditary subalgebra 
 	$$
 	\overline A \bydef \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) \overline A^\K \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) \subset  \overline A^\K
 	$$
@@ -13414,12 +13483,12 @@ If $\overline a \in \overline A \cap \K\left(\overline A \otimes \K \right)$ the
 \bean
 a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  \widehat{G}  !!! REPLACE  !!!\right)}g \overline a \in \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right) K\left(A_\la \otimes \K \right)  \left(1_{M\left( A\right) } \otimes \mathfrak{e}_{1,1}\right)\in \\\in  K\left(A_\la \otimes \K \right)\cong K\left( A_\la\right) .
 \eean 
-If we compare the above equation with \eqref{a_laa_eqn} we conclude that $\overline A$ is subordinated to $\mathfrak{S}_A$ given by \eqref{stable_repa_eqn}. In result one has the following lemma.
+If we compare the above equation with \eqref{a_laa_eqn} we conclude that $\overline A$ is subordinated  !!! dominated !!!to $\mathfrak{S}_A$ given by \eqref{stable_repa_eqn}. In result one has the following lemma.
 \end{empt}
 \begin{lemma}
 In the above situation following conditions hold:
 \begin{enumerate}
-	\item[(i)] if $C^*$-algebra $\overline A^\K$ is subordinated to $\mathfrak{S}_{A\otimes K }$ (cf, Definition \ref{subordinated_defn} !!! REPLACE  \ref{infinite_pre_covering_defn} !!! REPLACE \ref{algebraical_finite_covering_category_eqn} !!!) then there is a If $C^*$-algebra $\overline A$  subordinated  to $ \mathfrak{S}_A$ such that $\overline A^\K\cong \overline A\otimes \K$,
+	\item[(i)] if $C^*$-algebra $\overline A^\K$ is subordinated  !!! dominated !!!to $\mathfrak{S}_{A\otimes K }$ (cf, Definition \ref{subordinated_defn} !!! REPLACE  \ref{infinite_pre_covering_defn} !!! REPLACE \ref{algebraical_finite_covering_category_eqn} !!!) then there is a If $C^*$-algebra $\overline A$  subordinated  !!! dominated !!! to $ \mathfrak{S}_A$ such that $\overline A^\K\cong \overline A\otimes \K$,
 	\item[(ii)] if both $\overline A$ and $\overline A$ are disconnected {disconnected infinite noncommutative coverings} (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! NEW DEFINITION !!!) of $\mathfrak{S}_A$ and $\mathfrak{S}_{A\otimes\K}$ respectively, then one has
 	\be
 	\overline A^\K\subset \overline A\otimes \K
@@ -13438,8 +13507,8 @@ If a !!! pointed  DELETE !!!algebraical  finite covering category
 \eean
 (cf. Definition \ref{stable_rep_defn}) then one has:
 \begin{enumerate}
-	\item [(i)] any $C^*$-algebra  $\overline A^ \K$ subordinated to $\mathfrak{S}!!! pt DELETE !!!_{A\otimes \K}$ (cf. Definition \ref{subordinated_defn} !!! REPLACE  \ref{infinite_pre_covering_defn} !!! REPLACE \ref{algebraical_finite_covering_category_eqn} !!!) is naturally isomorphic to $\overline A\otimes \K$ where $\overline A$ is subordinated to $\mathfrak{S}!!! pt DELETE !!!_{A}$,
-	\item[(ii)] for any $C^*$-algebra $\overline A$  subordinated to $\mathfrak{S}!!! pt DELETE !!!_{A}$ the $C^*$-algebra $\overline A\otimes \K$  subordinated to $\mathfrak{S}!!! pt DELETE !!!_{A\otimes \K}$
+	\item [(i)] any $C^*$-algebra  $\overline A^ \K$ subordinated  !!! dominated !!!to $\mathfrak{S}!!! pt DELETE !!!_{A\otimes \K}$ (cf. Definition \ref{subordinated_defn} !!! REPLACE  \ref{infinite_pre_covering_defn} !!! REPLACE \ref{algebraical_finite_covering_category_eqn} !!!) is naturally isomorphic to $\overline A\otimes \K$ where $\overline A$ is subordinated  !!! dominated !!!to $\mathfrak{S}!!! pt DELETE !!!_{A}$,
+	\item[(ii)] for any $C^*$-algebra $\overline A$  subordinated  !!! dominated !!!to $\mathfrak{S}!!! pt DELETE !!!_{A}$ the $C^*$-algebra $\overline A\otimes \K$  subordinated  !!! dominated !!!to $\mathfrak{S}!!! pt DELETE !!!_{A\otimes \K}$
 \end{enumerate}
 
 \end{lem}
@@ -14602,7 +14671,7 @@ In the described above situation there is the given by
 	\\
 	\\
 	\\
-The details of the proof are left to the reader.
+The details of the proof are left  to the reader.
 \end{proof}
 
 \section{Infinite coverings}\label{ctr_case_sec}
@@ -14629,7 +14698,7 @@ is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definitio
 	Let $C_0\left( \sY\right) \hookto M\left( A\right) $ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and
 	let $q:\widetilde \sY \to \sY$ be an $A$-regular (cf. Definition \ref{blowing_a_regular_defn})  transitive covering with connected $\widetilde \sY$ and residually finite group  $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations.  If  $\overline q: \overline \sY  \to  \sY$  is {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) then 	following conditions hold:
 	\begin{enumerate}
-		\item[(i)] the covering  $\overline q$ is $A$-regular (cf. Definition \ref{blowing_a_regular_defn}, i.e. there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn} !!! CHECK !!!,
+		\item[(i)] the covering  $\overline q$ is $A$-regular (cf. Definition \ref{blowing_a_regular_defn}, i.e. there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn}  ,
 		\item[(ii)] if the space if $\sY$ is  locally connected $\sY$ (cf. Definition \ref{top_locally_connected_defn}) the {finite covering category of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) given by
 		\be\label{blowing_category_fin_eqn!}
 		\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
@@ -14645,7 +14714,7 @@ is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definitio
 	\end{enumerate}
 \end{theorem}
 \begin{proof}(i)
-	According to the construction of the Section \ref{top_inf_to_sec} one has $G\left(\left.\overline \sY\right|\sY \right)= \varprojlim_{\la \in \La} G_\la$ where $\left\{G_\la\right\}_{\la \in \La}$ is a set of all finite factor-groups of $G\left(\left.\widetilde \sY\right|\sY \right)$, i.e. the group $G\left(\left.\widetilde \sY\right|\sY \right)$ is profinite (cf. Example \ref{profinite_exm}). From the Lemma \ref{top_disconnected_lem} it follows that if  $\left\{g_\iota G\left(\left. \widetilde\sY~\right|\sY \right)\right\}_{\iota \in I}$   is  a set of all left cosets of $G\left(\left. \widetilde\sY~\right|\sY \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then t here is a natural homeomorphism 
+	According to the construction of the Section \ref{top_inf_to_sec} one has $G\left(\left.\overline \sY\right|\sY \right)= \varprojlim_{\la \in \La} G_\la$ where $\left\{G_\la\right\}_{\la \in \La}$ is a set of all finite factor-groups of $G\left(\left.\widetilde \sY\right|\sY \right)$, i.e. the group $G\left(\left.\widetilde \sY\right|\sY \right)$ is profinite (cf. Example \ref{profinite_exm}). From the Lemma \ref{top_disconnected_lem} it follows that if  $\left\{g_\iota G\left(\left. \widetilde\sY~\right|\sY \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \widetilde\sY~\right|\sY \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then t here is a natural homeomorphism 
 	\be\label{blowing_disconnected_eqn}
 	\overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\sY.
 	\ee
@@ -14654,7 +14723,7 @@ is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definitio
 	\bigsqcup_{\iota\in I} A_0\left( g_\iota \widetilde\sY\right) 
 	$$
 	then there is  natural Hausdorff blowing-up $C_0\left(\overline \sY \right) \hookto \overline A$.
-	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn} !!! CHECK !!!.\\
+	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}  .\\
 	(ii) and (iii). Firstly one should check hypotheses of \ref{infinite_quasicovering_empt} and the Definition  \ref{algebraical_finite_covering_category_defn}. We already know that the group $G\left(\left.\overline \sY\right|\sY \right)$ is an inverse limit of finite groups. The convergence of the sum \eqref{infinite_covering_basic_eqn} follows from the Lemma \ref{blowing_lift_desc_sum_lem}. From the Lemma \ref{top_consents_lift_lem} it follows that  $\sY_\la$ consents with noncommutative finite-fold coverings for each $\la\in\La$. From the Lemma \ref{blowing_lift_composition_lem} it follows that
 	for all $\la\in \La$ the $C^*$-algebra $A_0\left(\sY_\la \right)\subset M\left( A_0\left( \overline \sY\right) \right) $ is generated by sums of series
 	$$
@@ -15116,17 +15185,17 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 %	\ee
 %\end{remark}
 \begin{empt}\label{groupoid_haar_lift_empt}
-	Let $\G$ be a locally compact groupoid, and let   $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} covering. If  $\widetilde\G$ is  the $p$-{lift} of $\G$  then $\widetilde\G$ is locally compact (cf. Exercise \ref{groupoid_loc_comp_lift_exer}). Let $\left\{\la^u \left| u \in \G^0\right.\right\}$ be a left Haar system (cf. Definition \ref{groupoid_haar_defn}) for $\G$. For any $\widetilde u \in \widetilde\G^0$ there is a homeomorphism $\widetilde \G^{\widetilde u} \cong \G^{p\left(\widetilde u \right) }$. Using it  for any $\widetilde u$ one can  naturally construct a measure $\widetilde  \la^{\widetilde u}$ on $\widetilde \G$. From the conditions (a)-(c) of the Definition \ref{groupoid_haar_defn} it follows that
+	Let $\G$ be a locally compact groupoid, and let   $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} covering. If  $\widetilde\G$ is  the $p$-{lift} of $\G$  then $\widetilde\G$ is locally compact (cf. Exercise \ref{groupoid_loc_comp_lift_exer}). Let $\left\{\la^u \left| u \in \G^0\right.\right\}$ be a left  Haar system (cf. Definition \ref{groupoid_haar_defn}) for $\G$. For any $\widetilde u \in \widetilde\G^0$ there is a homeomorphism $\widetilde \G^{\widetilde u} \cong \G^{p\left(\widetilde u \right) }$. Using it  for any $\widetilde u$ one can  naturally construct a measure $\widetilde  \la^{\widetilde u}$ on $\widetilde \G$. From the conditions (a)-(c) of the Definition \ref{groupoid_haar_defn} it follows that
 	\begin{enumerate}
 		\item [(a)] the support $\supp \widetilde  \la^{\widetilde u}$ of the measure $\widetilde  \la^{\widetilde u}$ is $\widetilde \G^{\widetilde u}$,
 		\item [(b)]  (continuity) for any $\widetilde f \in C_c\left(\widetilde \G\right)$, $\widetilde u \mapsto \widetilde\la(\widetilde f)\left( \widetilde u\right)  = \int \widetilde f \widetilde d\la^{\widetilde u}$ is continuous, and
-		\item [(c)]  (left invariance) for any $\widetilde x\in \widetilde \G$ and any $\widetilde f \in  C_c(\widetilde \G )$, $\int \widetilde  f \left(  \widetilde x \widetilde y \right)  d\la^{s(\widetilde x)}\left( \widetilde y\right)  =
+		\item [(c)]  (left !!! CHECK !!invariance) for any $\widetilde x\in \widetilde \G$ and any $\widetilde f \in  C_c(\widetilde \G )$, $\int \widetilde  f \left(  \widetilde x \widetilde y \right)  d\la^{s(\widetilde x)}\left( \widetilde y\right)  =
 		\int \widetilde f\left( \widetilde y\right) d\la^{d\left( \widetilde x\right) }\left( \widetilde y\right) $.
 	\end{enumerate}
-	From these circumstances it turns out that $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is a left Haar system for $\widetilde{\G}$.
+	From these circumstances it turns out that $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is a left  Haar system for $\widetilde{\G}$.
 \end{empt}
 \begin{definition}\label{groupoid_haar_lift_defn}
-	Under the hypotheses \ref{groupoid_haar_lift_empt} we say that the left Haar system $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is the $p$-\textit{lift} of $\left\{\la^u \left| u \in \G^0\right.\right\}$.
+	Under the hypotheses \ref{groupoid_haar_lift_empt} we say that the left  Haar system $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is the $p$-\textit{lift} of $\left\{\la^u \left| u \in \G^0\right.\right\}$.
 \end{definition}
 
 
@@ -15155,7 +15224,7 @@ One can find obstructions of fundamental group $\pi_1\left( \G^u_u, u \right)$. 
 
 \section{Algebraic construction}
 \begin{empt}\label{groupoid_rho_empt}
-	If $\G$ is locally compact groupoid with a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) and a left Haar system $\left\{\la^u\left| u \in \G^0\right.\right\}$  (cf. Definition \ref{groupoid_haar_defn}) then there is a $*$-algebra $C_c\left(\G, \sigma \right)$ with given by \eqref{groupoid_*_c_eqn} operations.
+	If $\G$ is locally compact groupoid with a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) and a left  Haar system $\left\{\la^u\left| u \in \G^0\right.\right\}$  (cf. Definition \ref{groupoid_haar_defn}) then there is a $*$-algebra $C_c\left(\G, \sigma \right)$ with given by \eqref{groupoid_*_c_eqn} operations.
 	If  $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ is a representation in the sense of the Definition \ref{groupoid_representation_defn} then there is a $C^*$-seminorm 
 	\be\label{groupoid_semin_eqn}
 	\begin{split}
@@ -15240,7 +15309,7 @@ Any $a \in  C_c\left( \G, \sigma \right)$ equals to a finite sum $a = \sum_{j=1}
 		where there are open subsets $\widetilde \sU'_j, \widetilde\sU''_k \in \left\{{\widetilde\sU}_{\widetilde\a}\right\}_{{\widetilde\a}\in \widetilde{\mathscr A}}$ such that $\supp \widetilde f_j \subset \widetilde\sU'_j$ and $\supp \widetilde f_k \subset \widetilde\sU'_k$.
 	\end{itemize}
 Below 	for any $a \in C_c\left(\G , \sigma \right)$ and $\widetilde f \in C_c\left( \widetilde \G^0\right)$ we will define a product $\widetilde f a \in C_c\left(\widetilde \G, \widetilde\sigma \right)$. 
- Using the decomposition  \ref{groupoid_decomp_empt} one can assume that there is an open Hausdorff subset $\sV \subset \G$ such that $a$ is represented by $f_{a}\in C_c\left( \sV\right)$. There is a subordinated to the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ covering sum of $\supp \widetilde f$ (cf. Definition \ref{top_covering_sum_defn}), i.e.
+ Using the decomposition  \ref{groupoid_decomp_empt} one can assume that there is an open Hausdorff subset $\sV \subset \G$ such that $a$ is represented by $f_{a}\in C_c\left( \sV\right)$. There is a subordinated  !!! dominated !!!to the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ covering sum of $\supp \widetilde f$ (cf. Definition \ref{top_covering_sum_defn}), i.e.
 	$$
 	\widetilde f = \sum_{j=1}^m \widetilde f_j,
 	$$
@@ -15266,7 +15335,7 @@ If a covering  $q: \widetilde \G^0 \to \G^0$ be $\G$-{regular}  (cf. Definition 
 		\phi:	C_c\left(\widetilde \G^0 \right)\otimes_{C_0\left(\G^0 \right) }C_c\left( \G, \sigma \right)\xrightarrow{\approx} C_c\left(\widetilde \G, \widetilde\sigma \right)
 		\ee
 		where an algebraic tensor product is implied.
-		\item[(ii)] There are natural  right and left actions 
+		\item[(ii)] There are natural  right and left  actions 
 		\bean
 		C_c\left(\widetilde \G, \widetilde\sigma \right)\times C_c\left( \G, \sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right),\\
 		C_c\left( \G, \sigma \right)\times  C_c\left(\widetilde \G, \widetilde\sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right).
@@ -15287,7 +15356,7 @@ If a covering  $q: \widetilde \G^0 \to \G^0$ be $\G$-{regular}  (cf. Definition 
 	$$
 	\widetilde a a\bydef \phi\left( \sum_{j = 1}^n \widetilde f_j \otimes a_ja\right)
 	$$
-	so one has a right  action  $C_c\left(\widetilde \G, \widetilde\sigma \right)\times C_c\left( \G, \sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right)$. An application of $*$-operation yields the left action $C_c\left( \G, \sigma \right)\times  C_c\left(\widetilde \G, \widetilde\sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right)$.
+	so one has a right  action  $C_c\left(\widetilde \G, \widetilde\sigma \right)\times C_c\left( \G, \sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right)$. An application of $*$-operation yields the left  action $C_c\left( \G, \sigma \right)\times  C_c\left(\widetilde \G, \widetilde\sigma \right)\to  C_c\left(\widetilde \G, \widetilde\sigma \right)$.
 \end{proof}
 
 \begin{corollary}\label{groupoid_tens_cor}
@@ -15347,7 +15416,7 @@ where $C^*_\rho\left(\G , \sigma \right)_0\left(\widetilde\G^0 \right)$ is expla
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-(i) From the Lemma \ref{blowing_induced_representation_lem} it follows that $\widetilde{\rho}_c$ is nondegenerate. If $\widetilde \sZ \subset \widetilde \G$ is compact then from the Theorem \ref{top_compact_img_thm}  it follows that both $\widetilde \sV' \bydef s\left(\widetilde \sZ \right)$ and $\widetilde \sV'' \bydef r\left(\widetilde \sZ \right)$ are compact. Both maps $s: \widetilde \G\to \widetilde G^0$ and $r: \widetilde \G\to \widetilde G^0$  induce  right and left actions
+(i) From the Lemma \ref{blowing_induced_representation_lem} it follows that $\widetilde{\rho}_c$ is nondegenerate. If $\widetilde \sZ \subset \widetilde \G$ is compact then from the Theorem \ref{top_compact_img_thm}  it follows that both $\widetilde \sV' \bydef s\left(\widetilde \sZ \right)$ and $\widetilde \sV'' \bydef r\left(\widetilde \sZ \right)$ are compact. Both maps $s: \widetilde \G\to \widetilde G^0$ and $r: \widetilde \G\to \widetilde G^0$  induce  right and left  actions
 \bean
  C_0\left( \widetilde\sZ\right)\times C\left( \widetilde\sV'\right) \to C_0\left( \widetilde\sZ\right),\\
 C\left( \widetilde\sV''\right) \times C_0\left( \widetilde\sZ\right)\to C_0\left( \widetilde\sZ\right).
@@ -15395,7 +15464,7 @@ Here we apply the explained in the chapter \ref{blowing_chap} to the investigati
 	Suppose that there are following ingredients:
 \begin{itemize}
 	\item a connected locally compact groupoid $\G$,
-	\item a left Haar system $\left\{\left.\la^u \right| u \in \G^0\right\}$ for $\G$ (cf. Definition \ref{groupoid_haar_defn}),
+	\item a left  Haar system $\left\{\left.\la^u \right| u \in \G^0\right\}$ for $\G$ (cf. Definition \ref{groupoid_haar_defn}),
 	\item a continuous 2-cocycle in $\sigma \in Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}).
 	\item $*$-algebra $C_c\left(\G, \sigma \right)$ with given by \eqref{groupoid_*_c_eqn} operations,
 	\item a full   representation $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ in the sense of the Definition \ref{groupoid_representation_defn} (cf. \ref{groupoid_rho_empt}), 
@@ -15490,7 +15559,7 @@ The space $M$ is locally connected, hence  this theorem is a specialization of \
 where $q: $ is a	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}) and the  injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn})	
 \end{theorem}
 \begin{proof}
-	If $\left(C^*_{\rho}\left( M, \mathcal{F}\right),   \widetilde A, 	G, \pi   \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then from  the Lemma \ref{blowing_unitization_lem} it follows that there is a regular transitive finite-fold covering $\widetilde q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ such that there is the natural inclusion $C\left( \widetilde M\right) \subset M\left( \widetilde A\right)$ (cf. the construction \ref{blowing_ext_empt}). From the Definition \ref{blowing_lift_defn} !!! CHECK !!!  and taking into account that $C\left( \widetilde M\right)$ is an unital $C^*$-algebra we conclude that $C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)=C^*_{\rho}\left( M, \mathcal{F}\right)_0\left(\widetilde M \right)$ is an algebraic  $\C$-linear span of a set
+	If $\left(C^*_{\rho}\left( M, \mathcal{F}\right),   \widetilde A, 	G, \pi   \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then from  the Lemma \ref{blowing_unitization_lem} it follows that there is a regular transitive finite-fold covering $\widetilde q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ such that there is the natural inclusion $C\left( \widetilde M\right) \subset M\left( \widetilde A\right)$ (cf. the construction \ref{blowing_ext_empt}). From the Definition \ref{blowing_lift_defn}    and taking into account that $C\left( \widetilde M\right)$ is an unital $C^*$-algebra we conclude that $C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)=C^*_{\rho}\left( M, \mathcal{F}\right)_0\left(\widetilde M \right)$ is an algebraic  $\C$-linear span of a set
 	$$
 	C\left(\widetilde \sY \right) A \bydef \left\{\left. \widetilde f a \right| \widetilde f \in C\left(\widetilde\sY  \right)\quad a \in A \right\}
 	$$
@@ -15519,7 +15588,7 @@ is a $*$- subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \
 \be \label{groupoid_antn_eqn}
 \widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)\subset \widetilde  A\left(\R^{2N} \right) 
 \ee
-where the notation  $\widetilde A\left(\R^{2N} \right)$  is explained in \ref{blowing_lift_constr_lem} !!! REPLACE LEMMA  the Definition \ref{blowing_lift_defn} !!! CHECK !!!.
+where the notation  $\widetilde A\left(\R^{2N} \right)$  is explained in \ref{blowing_lift_constr_lem} !!! REPLACE LEMMA  the Definition \ref{blowing_lift_defn}  .
 Similarly there is a dense inclusion 
 \be\label{groupoid_antnn_eqn}
 \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)\right) \right)\subset  \C^*_{\widetilde \rho}\left( \widetilde\T^{2N}, \mathcal{F}_{\widetilde\th}\right)_0\left(\R^{2N} \right) .
@@ -15581,7 +15650,7 @@ From the dense inclusion \eqref{groupoid_antn_eqn} we obtain a dense inclusion
 	$$
 	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
 	$$
-	of left $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	of left  $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
 	$$
 	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
 	$$
@@ -15884,7 +15953,7 @@ However any covering $p: \widetilde \sX \to \R^{2N}$ is trivial, so
 \end{proof}
 \subsection{Infinite coverings}
 \paragraph{}
-It is well known that that there is the universal covering $q: \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_universal_covering_defn}) and the covering group $G\left(\left.\R^{2N}~\right|\T^{2N}\right)\cong \Z^{2N}$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite. If $\overline q: \overline \sY  \to  \T^{2N}$   is {disconnected covering of} $q : \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_disconnected_defn}) and $\left\{g_\iota G\left(\left. \R^{2N}~\right|\T^{2N} \right)\right\}_{\iota \in I}$   is  a set of all left cosets of $G\left(\left. \R^{2N}~\right|\T^{2N} \right)$ in $\G\left(\left. \overline \sY~\right|\T^{2N} \right)$ (cf. Definition \ref{group_coset_defn}) then  here is a natural homeomorphism 
+It is well known that that there is the universal covering $q: \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_universal_covering_defn}) and the covering group $G\left(\left.\R^{2N}~\right|\T^{2N}\right)\cong \Z^{2N}$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite. If $\overline q: \overline \sY  \to  \T^{2N}$   is {disconnected covering of} $q : \R^{2N} \to \T^{2N}$ (cf. Definition \ref{top_disconnected_defn}) and $\left\{g_\iota G\left(\left. \R^{2N}~\right|\T^{2N} \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \R^{2N}~\right|\T^{2N} \right)$ in $\G\left(\left. \overline \sY~\right|\T^{2N} \right)$ (cf. Definition \ref{group_coset_defn}) then  here is a natural homeomorphism 
 \be\label{groupoid_disconnected_eqn}
 \overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\R^{2N}.
 \ee
@@ -15925,7 +15994,7 @@ is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^
 $
 C^*_{\overline \rho}\left(\overline \sY, \overline \F_\th \right)\subset \overline A.
 $
-If $\left\{g_\iota \Z^{2N}\right\}_{\iota \in I}$   is  a set of all left cosets of $ \Z^{2N}$ in $\widehat{\Z}^{2N}$ (cf. Definition \ref{group_coset_defn}) then from the Lemma \ref{top_disconnected_lem} it follows that there is a natural homeomorphism  
+If $\left\{g_\iota \Z^{2N}\right\}_{\iota \in I}$   is  a set of all left  cosets of $ \Z^{2N}$ in $\widehat{\Z}^{2N}$ (cf. Definition \ref{group_coset_defn}) then from the Lemma \ref{top_disconnected_lem} it follows that there is a natural homeomorphism  
 \bean
 \overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \R^{2N}.
 \eean
@@ -16246,7 +16315,7 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	\be\label{nt_bjn_eqn}
 	\sum_{j = 1}^n b_j \widetilde{U}_{\widetilde x_j} = \sum_{\widetilde x \in \Z^n} \widetilde{c}_{\widetilde x} \widetilde{U}_{\widetilde x} = \widetilde a
 	\ee
-	The equation \eqref{nt_bjn_eqn} means that $C\left(\T^{n}_{\widetilde{\Th}} \right)$ is a left  $C\left(\T^{n}_{{\Th}} \right)$-module generated by the finite set $\left\{\widetilde{U}_{\widetilde x_j}\right\}$.
+	The equation \eqref{nt_bjn_eqn} means that $C\left(\T^{n}_{\widetilde{\Th}} \right)$ is a left   $C\left(\T^{n}_{{\Th}} \right)$-module generated by the finite set $\left\{\widetilde{U}_{\widetilde x_j}\right\}$.
 \end{proof}
 
 
@@ -16889,7 +16958,7 @@ Above equation will be rewritten as
 \be\label{isospectral_p_eqn}
 M/\T^2 = \bigcup_{\iota \in I} \mathcal V_{\iota}
 \ee
-where $\iota$ is just an element of the  finite set $I$ and we denote corresponding transversal submanifold by $\mathcal{U}_\iota$. There is a smooth partition of unity subordinated to \eqref{isospectral_p_eqn}, i.e. there is a set $\left\{a_\iota \in \Coo\left(M /\T^2\right)  \right\}_{\iota \in I}$ of positive elements such that
+where $\iota$ is just an element of the  finite set $I$ and we denote corresponding transversal submanifold by $\mathcal{U}_\iota$. There is a smooth partition of unity subordinated  !!! dominated !!!to \eqref{isospectral_p_eqn}, i.e. there is a set $\left\{a_\iota \in \Coo\left(M /\T^2\right)  \right\}_{\iota \in I}$ of positive elements such that
 \be\label{isospectral_part_eqn}
 1_{C\left(M /\T^2\right) }= \sum_{\iota \in I} a_\iota~,\\
 \ee
@@ -17298,7 +17367,7 @@ g\left( \al^k\bt^n\bt^{*m}\right) = \left( -1\right)^{k+m+n}  \al^k\bt^n\bt^{*m}
 	$$
 	\widetilde{a} = a \al\text{ or } \widetilde{a} = a \al^* \text{ or } \widetilde{a} = a \bt \text{ or } \widetilde{a} = a \bt^*   \text{ where } a \in A_f^{\Z_2}.
 	$$
-	From the above equations it turns out that $A_f$ is a left $A_f^{\Z_2}$-module generated by $\al, \al^*, \bt, \bt^*$. Algebra $A_f^{\Z_2}$ (resp. $A_f$) is dense in $ C\left( 	SO_q\left(3 \right) \right) $ (resp.  $C\left( 	SU_q\left(2 \right) \right)$ ) it follows that  $C\left( 	SU_q\left(2 \right) \right)$ is a left $C\left( 	SO_q\left(3 \right) \right)$-module generated by $\al, \al^*, \bt, \bt^*$. From the Remark !!! arov stabilization theorem it turns out that $C\left( SU_q\left(2\right)\right)$ is a finitely generated projective $C\left( 	SO_q\left(3 \right) \right)$ module.
+	From the above equations it turns out that $A_f$ is a left  $A_f^{\Z_2}$-module generated by $\al, \al^*, \bt, \bt^*$. Algebra $A_f^{\Z_2}$ (resp. $A_f$) is dense in $ C\left( 	SO_q\left(3 \right) \right) $ (resp.  $C\left( 	SU_q\left(2 \right) \right)$ ) it follows that  $C\left( 	SU_q\left(2 \right) \right)$ is a left  $C\left( 	SO_q\left(3 \right) \right)$-module generated by $\al, \al^*, \bt, \bt^*$. From the Remark !!! arov stabilization theorem it turns out that $C\left( SU_q\left(2\right)\right)$ is a finitely generated projective $C\left( 	SO_q\left(3 \right) \right)$ module.
 	
 \end{proof}
 \begin{corollary}
@@ -17868,7 +17937,7 @@ maps, and topological *-algebras over $\C$ and continuous $*$-homomorphisms. (Th
 	the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
 	A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
 	\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
-	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left exact} if it is 
+	Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left  exact} if it is 
 	additive and for every short exact sequence 
 	$$
 	0 \to A' \to A \to A'' \to 0 
@@ -17879,10 +17948,10 @@ maps, and topological *-algebras over $\C$ and continuous $*$-homomorphisms. (Th
 	0 \to FA' \to FA \to FA''
 	$$
 	is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
-	\textit{right exact}. If it is both left and right exact, we say it is \textit{exact}. If only the 
+	\textit{right exact}. If it is both left  and right exact, we say it is \textit{exact}. If only the 
 	middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
 	For a contravariant functor we make analogous definitions. For example, 
-	$F: \mathfrak{A} \to \mathfrak{B}$ is left exact if it is additive, and for every short exact sequence as 
+	$F: \mathfrak{A} \to \mathfrak{B}$ is left  exact if it is additive, and for every short exact sequence as 
 	above, the sequence 
 	$$
 	0 \to F A'' \to F A \to F A'
@@ -17901,13 +17970,13 @@ maps, and topological *-algebras over $\C$ and continuous $*$-homomorphisms. (Th
 	object has an injective resolution. Furthermore, a well-known lemma states 
 	that any two injective resolutions are homotopy equivalent. 
 	Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
-	be a covariant left exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
+	be a covariant left  exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
 	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
 \end{empt}
 \begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
 	%			Theorem 1.1 A. 
 	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
-	$F: \mathfrak A \to  \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
+	$F: \mathfrak A \to  \mathfrak B$ be a covariant left  exact functor to another Abelian category $\mathfrak B$. 
 	Then 
 	\begin{enumerate}
 		\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
@@ -18429,7 +18498,7 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 \end{definition}
 \begin{definition}\label{top_vb_cs_defn}\cite{karoubi:k}	
 %	5.1. Definition.
-	 Let $\xi \bydef \left( E, \pi, \mathcal X\right)$ be a vector bundle. Then a \textit{section} of $\xi$ is a map $s: \sX \to E$ such that $\pi \times s = \Id_{\sX}$. A section $s$ is called \textit{continuous} if $s$ is a continuous. The space $\Ga\left({\mathcal X}, {E}\right)$, of continuous sections can be regarded as both left and right $C_b\left(\mathcal{X} \right)$-module.
+	 Let $\xi \bydef \left( E, \pi, \mathcal X\right)$ be a vector bundle. Then a \textit{section} of $\xi$ is a map $s: \sX \to E$ such that $\pi \times s = \Id_{\sX}$. A section $s$ is called \textit{continuous} if $s$ is a continuous. The space $\Ga\left({\mathcal X}, {E}\right)$, of continuous sections can be regarded as both left  and right $C_b\left(\mathcal{X} \right)$-module.
 \end{definition}
 \begin{notation}\label{top_sec_notn}
 	We denote by $\Ga\left( M, E\right)$ the $\C$-space of continuous sections. Both  $\Ga_0\left( M, E\right)$ and $\Ga_c\left( M, E\right)$ are subspaces of  sections tending to zero at infinity and having compact support.
@@ -19183,7 +19252,7 @@ If $\Ga$ is flat then from the Proposition (II 9.3 \cite{kobayashi_nomizu:diff_g
 	If $\pi_1\left(M, x_0 \right)$ is the fundamental group \cite{spanier:at} then there is the canonical surjective homomorphism $\pi_1\left(M, x_0 \right) \to G\left( \left.\widetilde{M}~\right|M\right)$. So there exist the composition $\pi_1\left(M, x_0 \right) \to G\left( \left.\widetilde{M}~\right|M\right) \to G$. It follows that any flat connection comes from the homomorphisms $\pi_1\left(M, x_0 \right) \to G$. 
 \end{remark} 
 \paragraph*{}
-Suppose that there is the right action of $G$ on $P$ and suppose that $F$ is a manifold with the left action of $G$. There is an action of $G$ on $P \times F$ given by $a\left( u, \xi\right) = \left(u a, a^{-1}\xi \right)$ for any $a \in G$ and $\left( u, \xi\right) \in P\times F$. The quotient space $P \times_G F = \left(P \times F \right)/G$ has the natural structure of a manifold and if $E =  P \times_G F$ then\\ $E\left(M, F, G, P \right)$ is said to be the \textit{fibre bundle over the base $M$, with (standard) fibre $F$, and (structure) group G which is associated with the principal bundle P} (cf. \cite{kobayashi_nomizu:diff_geom}). If $P = M \times G$ is the trivial bundle then $E$ is also trivial, that is, $E = M \times F$. If $F = \C^n$ is a vector space and the action of $G$ on $\C^n$ is a linear representation of the group then $E$ is the linear bundle. Denote by $T\left(M \right)$ (resp. $T^*\left(M \right)$) the tangent  (resp. contangent) bundle, and denote by $\Ga\left( E\right)$, $\Ga\left(T\left(M \right)\right)$, $\Ga\left(T^*\left(M \right)\right)$ the spaces of sections of $E$, $T\left(M \right)$, $T^*\left(M \right)$ respectively. Any connection $\Ga$ on $P$ gives a covariant derivative  on $E$, that is,
+Suppose that there is the right action of $G$ on $P$ and suppose that $F$ is a manifold with the left  action of $G$. There is an action of $G$ on $P \times F$ given by $a\left( u, \xi\right) = \left(u a, a^{-1}\xi \right)$ for any $a \in G$ and $\left( u, \xi\right) \in P\times F$. The quotient space $P \times_G F = \left(P \times F \right)/G$ has the natural structure of a manifold and if $E =  P \times_G F$ then\\ $E\left(M, F, G, P \right)$ is said to be the \textit{fibre bundle over the base $M$, with (standard) fibre $F$, and (structure) group G which is associated with the principal bundle P} (cf. \cite{kobayashi_nomizu:diff_geom}). If $P = M \times G$ is the trivial bundle then $E$ is also trivial, that is, $E = M \times F$. If $F = \C^n$ is a vector space and the action of $G$ on $\C^n$ is a linear representation of the group then $E$ is the linear bundle. Denote by $T\left(M \right)$ (resp. $T^*\left(M \right)$) the tangent  (resp. contangent) bundle, and denote by $\Ga\left( E\right)$, $\Ga\left(T\left(M \right)\right)$, $\Ga\left(T^*\left(M \right)\right)$ the spaces of sections of $E$, $T\left(M \right)$, $T^*\left(M \right)$ respectively. Any connection $\Ga$ on $P$ gives a covariant derivative  on $E$, that is,
 for any section  $X \in \Ga\left( T\left(M \right)\right) $ and any section $\xi \in \Ga\left( E\right)$ there is the derivative given by
 \be\nonumber
 \nabla_X\left( \xi\right) \in \Ga\left( E\right).
@@ -19206,10 +19275,10 @@ where the pairing $\left(\cdot, \cdot\right) : \Ga\left( E \otimes T^*\left( M\r
 \section{Groups}\label{grops_sec}
 \paragraph{}
 We suppose that the reader is familiar  with the notion of group. Here I follow to \cite{lang}.
-Let $G$ be a group and $H$ a subgroup. A \textit{left coset} of $H$ in $G$ is a subset of 
+Let $G$ be a group and $H$ a subgroup. A \textit{left  coset} of $H$ in $G$ is a subset of 
 $G$ of type $aH$, for some element $a \in G$. 
-$G$ is the disjoint union of the left cosets of $H$. A similar 
-remark applies to right cosets (i.e. subsets of $G$ of type $Ha$). The number of left 
+$G$ is the disjoint union of the left  cosets of $H$. A similar 
+remark applies to right cosets (i.e. subsets of $G$ of type $Ha$). The number of left  
 cosets of $H$ in $G$ is denoted by $(G : H)$, and is called the \textit{(left) index} of $H$ in $G$. The kernel of a group-homomorphism is a 
 subgroup. We now wish to characterize such subgroups. 
 Let $f: G' \to G$ be a group-homomorphism, and let $H$ be its kernel. If $x$ is an 
@@ -19231,9 +19300,9 @@ $xH = Hx$ .
 	Thus we can speak simply of \textit{the partition of the group} $G$ \textit{with
 		respect to the normal subgroup} $H$.
 \end{definition}
-The left index of any normal subgroup coincides with the right one.
+The left !!! CHECK !!index of any normal subgroup coincides with the right one.
 \begin{definition}\label{group_coset_defn}\cite{lang}
-Let $A$ be a group and $H$ a subgroup. A \textit{left coset} of $H$ in $G$ is a subset of $G$ of type $aH$ for some $a\in G$. An element of $aH$ is called a \textit{coset representative} of $aH$. Similarly we define \textit{right cosets} $Ha$.
+Let $A$ be a group and $H$ a subgroup. A \textit{left  coset} of $H$ in $G$ is a subset of $G$ of type $aH$ for some $a\in G$. An element of $aH$ is called a \textit{coset representative} of $aH$. Similarly we define \textit{right cosets} $Ha$.
 \end{definition}
 \begin{definition}\label{group_inv_lim_defn}\cite{spanier:at}
 If $\left\{G_\a\right\}$ is an inverse system of
@@ -19281,10 +19350,10 @@ A group which is an inverse limit of finite groups is called \textit{profinite}.
 	
 	% \begin{cordefn}\label{invert_mod_defn}\cite{bass}
 	% 	Let $R$ be a commutative ring, and let $A$, $B$ be $R$-algebras
-	% 	We call a left $A\otimes_RB^\circ$ module $M$ \textit{invertible} if it satisfies to the following conditions, which are equivalent:
+	% 	We call a left  $A\otimes_RB^\circ$ module $M$ \textit{invertible} if it satisfies to the following conditions, which are equivalent:
 	% 	\begin{enumerate}
 	% 		\item [(a)] $\otimes_{A}M:~ mod$-$A \xrightarrow{\approx} mod$-$B$ is an equivalence.
-	% 		\item[(b)] There is a left left $B\otimes_RA^\circ$ module $N$ such that $M\otimes_BN \cong A$ and $N\otimes_AM \cong B$ as bimodules.
+	% 		\item[(b)] There is a left  left  $B\otimes_RA^\circ$ module $N$ such that $M\otimes_BN \cong A$ and $N\otimes_AM \cong B$ as bimodules.
 	% 		\item [(c)] $M\otimes_{B}:~B$-$mod \xrightarrow{\approx} ~B$-$mod$ is an equivalence.
 	% 	\end{enumerate}
 	%\end{cordefn}
@@ -19304,7 +19373,7 @@ A group which is an inverse limit of finite groups is called \textit{profinite}.
 	% 		$$
 	% 		_{\Id_A} A_{\al} \cong _{\Id_A}A_{\Id_A} \Leftrightarrow \al \mathrm{~is~an~inner~automorphism}.
 	% 		$$
-	%		\item[(iv)] If $P \in \mathbf{Pic}_R\left(A \right)$ and if $P\cong A$ as left $A$-modules then $P\cong _{\Id_A} A_{\al}$ as bimodules for some $\al \in  \Aut_{R\mathrm{-alg}}\left(A \right)$.
+	%		\item[(iv)] If $P \in \mathbf{Pic}_R\left(A \right)$ and if $P\cong A$ as left  $A$-modules then $P\cong _{\Id_A} A_{\al}$ as bimodules for some $\al \in  \Aut_{R\mathrm{-alg}}\left(A \right)$.
 	% 	\end{enumerate}
 	% \end{proposition}
 	
@@ -19697,6 +19766,13 @@ In \cite{bogachev_measure_v2} the space of $C_c\left( \sX\right)$ is denoted by 
 		%	2.1.3. Ezample. 
 		If $\H$ is a Hilbert space, then the algebra of bounded operators $B\left(\H\right)$ is a $C^*$-algebra. %We 		shall see that every C*-algebra can be thought of as a C*-subalgebra of 		some B(H) 
 	\end{example}
+	\begin{definition}\label{ideal_left_right_defn}\cite{murphy}
+A \textit{left} (respectively, \textit{right}) \textit{ideal} in an algebra $A$ is a vector subspace $I$
+of $A$ such that
+$$
+\forall a \in A\quad \forall b \in I \quad ab \in I\quad \text{(respectively } ba \in I \text{)}.
+$$
+	\end{definition}
 \begin{definition}\label{opposite_algebra_defn}
 If $A$ is an associative algebra then an \textit{	opposite algebra} $A^\opp$, consisting of elements
 $
@@ -19855,13 +19931,13 @@ $L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 	\begin{lemma}\label{hered_ideal_lem}\cite{murphy}
 		Let $A$ be a $C^*$-algebra.
 		\begin{enumerate}
-			\item[(i)] If $L$ is a closed left ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left ideals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
-			\item[(ii)] If $L_1, L_2$ are closed left ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
+			\item[(i)] If $L$ is a closed left !!! CHECK !!ideal in $A$ then $L\cap L^*$ is a hereditary $C^*$-subalgebra of $A$. The map $L \mapsto L\cap L^*$ is the bijection from the set of closed left !!! CHECK !!ideals of $A$ onto the the set of hereditary $C^*$-subalgebras of $A$.
+			\item[(ii)] If $L_1, L_2$ are closed left !!! CHECK !!ideals, then $L_1 \subseteq L_2$ is and only if $L_1\cap L_1^* \subset L_2\cap L_2^*$.
 			\item[(iii)] If $B$ is a hereditary $C^*$-subalgebra of $A$, then the set 
 			$$
 			L\left(B \right) = \left\{\left.a \in A~\right| a^*a \in B \right\}
 			$$
-			is the unique closed left ideal of $A$ corresponding to $B$.
+			is the unique closed left !!! CHECK !!ideal of $A$ corresponding to $B$.
 		\end{enumerate}
 	\end{lemma}
 \begin{remark}\cite{murphy}
@@ -20209,7 +20285,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\be\label{tau_ideal_eqn}
 	\mathcal{I}_\tau\bydef\left\{\left.a \in A \ \right| \ \tau(a^*a)=0\right\}
 	\ee 
-	So $A/\mathcal{I}_\tau$ is a pre-Hilbert space. Denote by $L^2\left(A, \tau\right)$ the Hilbert  completion of $A/\mathcal{I}_\tau$.  The Hilbert space  $L^2\left(A, \tau\right)$ is a space of a  GNS representation  $A\to B\left(L^2\left(A, \tau\right) \right)$ (or equivalently $A\times L^2\left(A, \tau\right)\to L^2\left(A, \tau\right) $) which comes from the Hilbert norm completion of the natural action $A \times A/\mathcal{I}_\tau \to A/\mathcal{I}_\tau$. The natural map  $A \to A/\mathcal{I}_\tau$ induces the homomorphism of left $A$-modules
+	So $A/\mathcal{I}_\tau$ is a pre-Hilbert space. Denote by $L^2\left(A, \tau\right)$ the Hilbert  completion of $A/\mathcal{I}_\tau$.  The Hilbert space  $L^2\left(A, \tau\right)$ is a space of a  GNS representation  $A\to B\left(L^2\left(A, \tau\right) \right)$ (or equivalently $A\times L^2\left(A, \tau\right)\to L^2\left(A, \tau\right) $) which comes from the Hilbert norm completion of the natural action $A \times A/\mathcal{I}_\tau \to A/\mathcal{I}_\tau$. The natural map  $A \to A/\mathcal{I}_\tau$ induces the homomorphism of left  $A$-modules
 	\be\label{from_a_to_l2_eqn}
 	\begin{split}
 		f_\tau : A \to L^2\left(A, \tau\right),\\
@@ -20575,7 +20651,7 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 		\section{Hilbert modules and compact operators}\label{hilbert_modules_chap}
 	%\paragraph{} We refer to \cite{blackadar:ko} for definition of Hilbert $C^*$-modules, or simply Hilbert modules.
 	\begin{definition}\label{banach_non_defn}\cite{rae:ctr_morita}
-		A left $A$-module $X$ \textit{Banach} $A$-\textit{module} if $X$ is a Banach space and $\left\| a \cdot x\right\| \le \left\|a \right\| \left\| x\right\|$ for all $a\in A$ and $x\in\sX$.
+		A left  $A$-module $X$ \textit{Banach} $A$-\textit{module} if $X$ is a Banach space and $\left\| a \cdot x\right\| \le \left\|a \right\| \left\| x\right\|$ for all $a\in A$ and $x\in\sX$.
 		A  \textit{Banach} $A$-{module} is \textit{nondegenerate}  
 		is nondegenerate if $\text{span}\left\{\left.a \cdot x\right|a\in A\quad x\in \sX\right\}$
 		is dense in $X$. We then have \\$a_\la\cdot x \to x$
@@ -20634,7 +20710,7 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 		This Hilbert module is full. Similarly, $pA$ 
 		is a Hilbert $A$-module which is full over the ideal $\overline{ApA}\bydef \overline{\text{span}}\left\{\left.a p b\right| a,b \in A\right\}$
 		generated by $p$, and $Ap$ 
-		is itself a full left Hilbert $\overline{ApA}$-module. 
+		is itself a full left  Hilbert $\overline{ApA}$-module. 
 	\end{remark}
 	
 	
@@ -20809,7 +20885,7 @@ $A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ 
 	
 	
 	\begin{defn}\label{corr_defn}\cite{rieffel_morita}
-		Let $A$ and $B$ be $C^*$-algebras. By a {\it Hermitian  $B$-rigged $A$-module} we mean a $C^*$-Hilbert $B$ module, which is a left $A$-module by means of $*$-homomorphism of $A$ into $\mathcal{L}_B(X)$.
+		Let $A$ and $B$ be $C^*$-algebras. By a {\it Hermitian  $B$-rigged $A$-module} we mean a $C^*$-Hilbert $B$ module, which is a left  $A$-module by means of $*$-homomorphism of $A$ into $\mathcal{L}_B(X)$.
 	\end{defn}
 	
 	\begin{empt}\label{herm_functor_empt}
@@ -20891,7 +20967,7 @@ Here I follow to \cite{uni_groupoid_ca}.
 \left\langle \xi_1\ox \eta_1, \xi_2\ox \eta_1 \right\rangle\bydef  \left\langle \eta_1, \varphi\left(\xi_1, \xi_2 \right) \right\rangle 
 $$
 	where $\varphi\colon B\to \mathbb{B}\left(\F \right)$  is the underlying
-	homomorphism that gives the left $B$-module structure of~$\F$;
+	homomorphism that gives the left  $B$-module structure of~$\F$;
 	the notation $\E \ox_\varphi \F$ is used instead of
 $\E \ox_B \F$ to highlight~$\varphi$.
 	
@@ -20906,7 +20982,7 @@ $\E \ox_B \F$ to highlight~$\varphi$.
 			bimodule} (or \emph{$A$-$B$-imprimitivity
 			bimodule}) we mean an $\left(B,A\right)$-bimodule which is equipped with $A$- and
 		$B$-valued inner products with respect to which~$X$ is a right Hilbert
-		$A$-module and a left Hilbert $B$-module such that
+		$A$-module and a left  Hilbert $B$-module such that
 		\begin{enumerate}
 			\item[(a)] $\left\langle{x},{y}\right\rangle_B z = x\left\langle{y},{z}\right\rangle_A$ for all $x,y,z\in X$;
 			\item[(b)] $\left\langle{X},{X}\right\rangle_A$ spans a dense subset of~$A$ and $\left\langle{X},{X}\right\rangle_B$ spans a dense
@@ -20920,7 +20996,7 @@ $\E \ox_B \F$ to highlight~$\varphi$.
 		%Example 3.6.
 		Let $p$ be a projection in $M 
 		(A)$. We saw in the Remark \ref{full_hilb_rem} that $Ap$
-		is a full right Hilbert $pAp$-module and a full left Hilbert $\overline{ApA}$-module. (Recall that 
+		is a full right Hilbert $pAp$-module and a full left  Hilbert $\overline{ApA}$-module. (Recall that 
 		$\overline{ApA}$
 		denotes the ideal generated by $p$, which is the closed span of the set $ApA$.) 
 		%The 	actions and inner products are the restrictions of those in the previous example, so 	all the algebraic properties are trivially true, and 
@@ -21117,7 +21193,7 @@ surjection of $K\left(A \right)$ onto  $K\left(\hat A \right)$.
 %Suppose that $\sX$ is a locally compact Hausdorff space, and that $A$ and $B$ are $C^*$-algebras whose spectra have both been identified with $\sX$. (Strictly speaking, we are supposing that we have been given homeomorphisms of $\hat A$ and $\hat B$ onto $\sX$ .) We shall say that $_AX_B$ is an \textit{imprimitivity bimodule over} $\sX$, or an $A-_\sX B$ -\textit{imprimitivity bimodule}, if the Rieffel homeomorphism $h_X$ is the identity on $\sX$. If there is such a bimodule, we say $A$ and $B$are \textit{Morita equivalent over} $\sX$, or that the Morita equivalence is \textit{spectrum preserving}. 
 %\end{definition}
 %\begin{empt}\label{foli_ot_empt}
-%There is another way of characterizing the $A-_\sX B$ -{imprimitivity bimodules}. For any imprimitivity bimodule $A-_\sX B$, the actions of $A$ and $B$ extend to actions of $M(A)= \sL(X_B)$ and $M(B)= \sL(A_X)$. The Dauns-Hofmann Theorem gives embeddings of $C_b(\mathrm{Prim} A)$ as $ZM(A)$ and $C_b(\mathrm{Prim} B)$ as $ZM(B)$, and hence we have actions of $C_b(\mathrm{Prim} A)$ on the left of $X$ and $C_b(\mathrm{Prim} B)$ on the right. If we write $x(P )$  for the image of $x\in X$ in the quotient $X(P)\bydef X/(P\cdot X)$, then the characterization of the actions in Dauns-Hofmann Theorem implies that 
+%There is another way of characterizing the $A-_\sX B$ -{imprimitivity bimodules}. For any imprimitivity bimodule $A-_\sX B$, the actions of $A$ and $B$ extend to actions of $M(A)= \sL(X_B)$ and $M(B)= \sL(A_X)$. The Dauns-Hofmann Theorem gives embeddings of $C_b(\mathrm{Prim} A)$ as $ZM(A)$ and $C_b(\mathrm{Prim} B)$ as $ZM(B)$, and hence we have actions of $C_b(\mathrm{Prim} A)$ on the left  of $X$ and $C_b(\mathrm{Prim} B)$ on the right. If we write $x(P )$  for the image of $x\in X$ in the quotient $X(P)\bydef X/(P\cdot X)$, then the characterization of the actions in Dauns-Hofmann Theorem implies that 
 %\be\label{foli_fp_eqn}
 %(f \cdot x)(P )= f(P)x(P)\quad \text{AND}\quad (x \cdot f)(Q)= x(Q)f(Q) %(5.1)
 %\ee
@@ -21164,7 +21240,7 @@ surjection of $K\left(A \right)$ onto  $K\left(\hat A \right)$.
 	$$
 	Since $\hat A$ is Hausdorff, for fixed $y$ the right-hand side is a continuous function of $x$ by Lemma \ref{lower_norm_thm}; since it vanishes at $y$, the left-hand side goes to 0 as $x\to y$ In other words, $f_a$ 
 	is continuous, as claimed, and $\left.A\right|^\sV\left.p\right|^\sV$ 
-	is an $\left.A\right|^\sV$-$C(\sV)$-imprimitivity $\sV$-bimodule. Because the actions of $C\left(\sV\right)$ on the left and right of $\left.A\right|^\sV\left.p\right|^\sV$ coincide, it 
+	is an $\left.A\right|^\sV$-$C(\sV)$-imprimitivity $\sV$-bimodule. Because the actions of $C\left(\sV\right)$ on the left  and right of $\left.A\right|^\sV\left.p\right|^\sV$ coincide, it 
 	is actually an $\left.A\right|^\sV$-$C(\sV)$-imprimitivity bimodule by Proposition \ref{foli_ot_prop}. % Lemma 5.7. 
 \end{empt}
 \begin{proposition}\label{ctr_loc_morita_prop}\cite{rae:ctr_morita}	  % Proposition 5.24. 
@@ -22320,10 +22396,10 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		identified with $\{\zeta \in \mathbb{C}:|\zeta| = 1\}$. (Note that $ev_1$ makes sense as a homomorphism
 		to $\mathbb{C}$ since $f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$). We also denote by $\left(\Sigma A, ev_1 \right)$ the corresponding !!! pointed  DELETE !!!pro-$C^*$-algebra.   
 	\end{defn}
-	Note that $\Sigma(A^+) = (S A)^+$ , where $SA$ is the conventional suspension $C_0(\mathbb{R} \otimes A$. A left adjoint for $\Sigma$ in the !!! pointed  DELETE !!!category immediately gives a left
+	Note that $\Sigma(A^+) = (S A)^+$ , where $SA$ is the conventional suspension $C_0(\mathbb{R} \otimes A$. A left  adjoint for $\Sigma$ in the !!! pointed  DELETE !!!category immediately gives a left
 	adjoint for $\Sigma$ in the category of pro-$C^*$-algebras and arbitrary homomoprhisms,
 	simply by taking the kernel of the homomorphism to $\mathbb{C}$ which comes with the
-	!!! pointed  DELETE !!!pro-$C^*$-algebra. %It is a left adjoint for S that Rosenberg really had in	mind, since what he calls $\Sigma$ we call $S$. However, our approach more closely matches the topologists' conventions.
+	!!! pointed  DELETE !!!pro-$C^*$-algebra. %It is a left  adjoint for S that Rosenberg really had in	mind, since what he calls $\Sigma$ we call $S$. However, our approach more closely matches the topologists' conventions.
 	\begin{defn}\label{pointed_noncommutative_loop_defn}\cite{phillips:inv_lim_app}
 		Let $(A, \alpha)$ be a !!! pointed  DELETE !!!pro-$C^*$-algebra. We
 		construct a !!! pointed  DELETE !!!pro-$C^*$-algebra $\Omega A$ in terms of generators and relations as
@@ -22338,7 +22414,7 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		Then set $\Omega A\bydef C^*(G, R)$. The required homomorphism from  $\om_1: \Omega A\to\C$ is given by $z(a, \zeta) \mapsto \alpha(a)$  for $a \in A$ and $\zeta \in S^1$. We say that the pair $\left(\Omega A, \om_1\right)$ is the \textit{!!! pointed  DELETE !!!loop algebra} of $(A, \alpha)$.
 	\end{defn}
 	\begin{thm}\label{nc_s_loop_iso}\cite{phillips:inv_lim_app}
-		The map $\Phi : \Hom_+(\Omega A, B) \to \Hom_+(A, \Sigma B)$ defined by $\Phi(\varphi)(a)(\zeta) = \varphi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left adjoint for the functor
+		The map $\Phi : \Hom_+(\Omega A, B) \to \Hom_+(A, \Sigma B)$ defined by $\Phi(\varphi)(a)(\zeta) = \varphi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left  adjoint for the functor
 		$\Sigma$.
 	\end{thm}
 %	\begin{proof}
@@ -22497,7 +22573,7 @@ $C^*$-algebra}).
 	have 
 	the following
 	\begin{proposition}\cite{antoine:part_o}
-		$\L^\dagger\left(\D, \H \right)$ is a partial *-algebra with respect to the following operations: the sum $X + Y$, the scalar multiplication $\la X$, the involution $X\mapsto X^\dagger\bydef X^*|_\D$  and the (weak) partial multiplication $X\Hsquare Y\bydef X^{\dagger *} Y$, defined whenever $X$ is a left multiplier of $Y$, ($X \in L^{\mathrm{w}}\left(Y \right)$ or $Y \in R^{\mathrm{w}}\left(X \right)$), that is, iff $Y\D\subset\D\left(X^{\dagger *} \right)$ and $X^\dagger\D\subset \D\left( Y^*\right)$. $\L^\dagger\left(\D\right)$ is a *-algebra 
+		$\L^\dagger\left(\D, \H \right)$ is a partial *-algebra with respect to the following operations: the sum $X + Y$, the scalar multiplication $\la X$, the involution $X\mapsto X^\dagger\bydef X^*|_\D$  and the (weak) partial multiplication $X\Hsquare Y\bydef X^{\dagger *} Y$, defined whenever $X$ is a left  multiplier of $Y$, ($X \in L^{\mathrm{w}}\left(Y \right)$ or $Y \in R^{\mathrm{w}}\left(X \right)$), that is, iff $Y\D\subset\D\left(X^{\dagger *} \right)$ and $X^\dagger\D\subset \D\left( Y^*\right)$. $\L^\dagger\left(\D\right)$ is a *-algebra 
 		with the usual multiplication $XY$ (which here coincides with the weak multiplication $\Hsquare$) and the involution $X \mapsto X^\dagger$.
 	\end{proposition} 
 	\begin{remark}\label{o*b_rem}
@@ -22823,7 +22899,7 @@ $C^*$-algebras $D $.
 	tacitly assumed nondegenerate).  An \emph{isometric intertwiner}
 	between two correspondences from $D_1 $ to $D_2 $ is an
 	isometric map on the underlying Hilbert  $D_2 $-modules that
-	intertwines the left  $D_1 $-actions.  Let  $\mathrm{Rep}(D_1,D_2) $
+	intertwines the left   $D_1 $-actions.  Let  $\mathrm{Rep}(D_1,D_2) $
 	denote the category of correspondences from $D_1 $ to $D_2 $
 	with isometric intertwiners as arrows and the usual composition.
 \end{definition}
@@ -22842,7 +22918,7 @@ $D_2 $-module, using the inner product
 We may use the balanced tensor product
 $\mathcal{E}\odot_{D_1} \F $ instead of  $\mathcal{E}\odot \F $
 because the inner product~\eqref{eq:interior_tensor} descends to this
-quotient.  If we want to emphasise the left action  $\varphi\colon
+quotient.  If we want to emphasise the left  action  $\varphi\colon
 D_1\to\mathbb{B}(\F) $ in the
 $C^*$-correspondence $\F $, we write  $\mathcal{E}\otimes_\varphi
 \F $ for  $\mathcal{E}\otimes_{D_1} \F $.
@@ -23062,11 +23138,11 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		(Finiteness)
 		The subspace of smooth vectors
 		$\sH^\infty \bydef \bigcap_{k\in\bN} \Dom D^k$ is a \emph{finitely
-			generated projective} left $\sA$-module.
+			generated projective} left  $\sA$-module.
 		
 		This is equivalent to saying that, for some $N \in \bN$, there is a 
 		projector $p = p^2 = p^*$ in~$M_N(\sA)$ such that 
-		$\sH^\infty \isom \sA^N p$ as left $\sA$-modules. 
+		$\sH^\infty \isom \sA^N p$ as left  $\sA$-modules. 
 	\end{axiom}
 	\begin{axiom}[Real structure]
 		The antiunitary operator $J : \sH \to \sH$ satisfying
@@ -23466,7 +23542,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	
 	What is this equivalence bimodule~$\SS$? By the Serre-Swan theorem  \ref{serre_swan_thm}, it
 	is of the form $\Ga(M, S)$ for some complex vector bundle $S \to M$ that also
-	carries an irreducible left action of the Clifford algebra bundle
+	carries an irreducible left  action of the Clifford algebra bundle
 	$\C\ell(M)$. This is the \textit{spinor bundle} whose existence displays
 	the Spin$^c$ structure in the conventional picture. We call
 	$\Ga^\infty(M,S)$ the \textit{spinor module}; it is an irreducible
@@ -23565,7 +23641,7 @@ is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
 \end{split}
 \ee
 	satisfying two Leibniz rules, one for the right action of~$\A$ and the
-	other, involving the Levi-Civita connection, for the left action of
+	other, involving the Levi-Civita connection, for the left  action of
 	the Clifford algebra:
 	\be\label{spin_conn_eqn}
 	\begin{split}
@@ -23691,7 +23767,7 @@ and~$\overline\E$ also gives an obvious way to extend $J$ to~$\widetilde\H$:
 \widetilde J(s \ox \xi \ox \bar t\,) \bydef t \ox J\xi \ox \bar s.
 %\eqno (7.3)
 \ee
-Let $\B \bydef \End_\A \E$, and recall that $\E$ is a left $\B$-module.
+Let $\B \bydef \End_\A \E$, and recall that $\E$ is a left  $\B$-module.
 Then
 \be\label{st_left_eqn}
 \rho(b) : s \ox \xi \ox \bar t \longmapsto b\,s \ox \xi \ox \bar t
@@ -24456,7 +24532,7 @@ $$
 \begin{empt}\label{groupoig_gn_empt}
 Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
 us first define $\G^n$ for any $n\in\N$. The sets $\H^0$ , $\G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
-j = 1 , . . . , n - 1$ , $\quad x_j$ is composable with its left neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
+j = 1 , . . . , n - 1$ , $\quad x_j$ is composable with its left  neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
 \begin{enumerate}
 	\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = d(x_0)$ and
 	\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
@@ -24500,12 +24576,12 @@ $Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
 	\end{itemize}
 	\end{remark}
 	\begin{definition}\label{groupoid_haar_defn}\cite{renault:gropoid_ca}
- Let $\G$ be a locally compact groupoid. A \textit{left Haar system} for $\G$
+ Let $\G$ be a locally compact groupoid. A \textit{left  Haar system} for $\G$
 consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ such that
 \begin{enumerate}
 	\item [(a)] the support $\supp\la^u$ of the measure $\la^u$ is $\G^u$,
 	\item [(b)]  (continuity) for any $f \in C_c\left(\G\right)$, $u \mapsto \la(f)(u) = \int f d\la^u$ is continuous, and
-	\item [(c)]  (left invariance) for any $x\in \G$ and any $f \in  C_c(\G )$, $\int  f ( x y ) d\la^{s(x)}(y) =
+	\item [(c)]  (left !!! CHECK !!invariance) for any $x\in \G$ and any $f \in  C_c(\G )$, $\int  f ( x y ) d\la^{s(x)}(y) =
 \int f(y)d\la^{r(x)}(y)$.
 
 \end{enumerate}
@@ -24559,7 +24635,7 @@ There are following motivations this definition:
 
 \section{Groupoid $C^*$-algebras}
 \paragraph{}
-	Let $\G$ be a locally compact Hausdorff groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
+	Let $\G$ be a locally compact Hausdorff groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
 \be\label{groupoid_*_c_eqn}
 \begin{split}
 	f * g \left(x\right)\bydef 
@@ -24578,7 +24654,7 @@ In particular is $\sigma$ is trivial then one has a *-algebra
 which is a specialization of \eqref{groupoid_*_c_eqn}
 	
 \begin{empt} % !!! DEFINE NORM !!!
-Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
+Let $\G$ be a locally compact groupoid with left  Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
 \be\label{groupoid_*__defn}
 \begin{split}
 f * g \left(x\right)\bydef 
@@ -24643,7 +24719,7 @@ such that
 \begin{definition}\label{groupoid_equiv_defn}\cite{renault:gropoid_equiv}
 	Let $\G$ and $\H$ be locally compact groupoids. We say that a locally compact space $\sZ$ is a $(\G,\H)$-\textit{equivalence} if
 	\begin{enumerate}
-		\item [(a)] $\sZ$ is a left principal $\G$-space,
+		\item [(a)] $\sZ$ is a left  principal $\G$-space,
 		\item [(b)] $\sZ$ is a right principal $\H$-space,
 		\item [(c)] the $\G$ and $\H$ actions commute.
 		\item [(d)] the map $\rho$ induces a bijection of $\sZ/\H$ onto $\G^0$, and
@@ -24651,14 +24727,14 @@ such that
 	\end{enumerate}
 \end{definition}
 \begin{example}\cite{renault:gropoid_equiv}
-Let $\G$ be locally compact Hausdorff groupoid and let $N$ be a closed subset of $\G^0$ that meets each orbit in $\G^0$. Then as easy to see, $\G_N$ is a principal left $\G$-space and a principal right $\G^N_N$-space. The maps $\sigma\bydef  s|_{\G_N}$ and $\rho\bydef  r|_{\G_N}$ satisfy to (d) and (e) of Definition \ref{groupoid_equiv_defn}, so if they are open then $\G_N$ is a $\left(\G,\G^N_N \right)$-equivalence.
+Let $\G$ be locally compact Hausdorff groupoid and let $N$ be a closed subset of $\G^0$ that meets each orbit in $\G^0$. Then as easy to see, $\G_N$ is a principal left  $\G$-space and a principal right $\G^N_N$-space. The maps $\sigma\bydef  s|_{\G_N}$ and $\rho\bydef  r|_{\G_N}$ satisfy to (d) and (e) of Definition \ref{groupoid_equiv_defn}, so if they are open then $\G_N$ is a $\left(\G,\G^N_N \right)$-equivalence.
 \end{example}
 \begin{theorem}\label{groupoid_morita_defn}\cite{renault:gropoid_equiv}
 Suppose that $(\G, \la)$ and $\left(\H, \bt\right)$ are second countable !!!, locally compact groupoids with Haar systems $\la$ and $\bt$. Then for any $\left(\G, \H\right)$-equivalence $\sZ$, $C_c\left(\sZ\right)$ can naturally be completed into $C^*(\G, \la)$-$C^*\left(\H, \bt\right)$ imprimitivity bimodule. In particular $C^*(\G, \la)$ and $C^*\left(\H, \bt\right)$ are strongly Morita equivalent.
 \end{theorem}	
 	
 	\begin{lemma}\cite{renault:gropoid_equiv}
-		Let $\Om$ be a principal left $\G$-space.
+		Let $\Om$ be a principal left  $\G$-space.
 		\begin{enumerate}
 			\item [(i)] If $F \in C_c\left(\Om\times \G\right)$ then
 			$$
@@ -24673,7 +24749,7 @@ Suppose that $(\G, \la)$ and $\left(\H, \bt\right)$ are second countable !!!, lo
 		\end{enumerate}
 	\end{lemma}
 \begin{empt}
-There are two pre-$C^*$-algebras $A \bydef C_c(\G, \la)$ and $B \bydef C_c\left(\H, \bt\right)$. We define the left $A$-action and the right $B$-action as follows:
+There are two pre-$C^*$-algebras $A \bydef C_c(\G, \la)$ and $B \bydef C_c\left(\H, \bt\right)$. We define the left  $A$-action and the right $B$-action as follows:
 \bean
 f \cdot \varphi(z)\bydef\int_{\G}f(\ga)\varphi\left(\ga^{-1}\cdot z\right)d\la^{\rho(z)}(\ga),\\
 \varphi \cdot g(z)\bydef\int_{\G}\varphi(z\cdot \eta)g \left(\eta^{-1}\right)d\bt^{\sigma(z)}(\eta)
@@ -25758,7 +25834,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		star product on~$\SS\left(\R^{2N}\right)$. Also, the involution is extended to  by
 		$\<T^*,g> \stackrel{\mathrm{def}}{=} \overline{\<T,g^*>}$.	
 		%	We shall soon argue~\cite{varilly_bondia:phobos} that if $T \in \SS'\left(\R^{2N}\right)$ and	$f \in \SS\left(\R^{2N}\right)$, then $T \star_{\theta} f,\,f \star_{\theta} T \in C^\infty(\R^{2N})$.
-		Consider the left and right multiplier algebras:
+		Consider the left  and right multiplier algebras:
 		\begin{equation}\label{mp_multi_eqn}
 			\begin{split}
 				\M_L^\th
@@ -26357,7 +26433,7 @@ From the above equation if follows that $\C_{\left( \mu\right) }\subset C_c\left
 	rapid decay in $(n_1,n_2)$.
 	Let $\lambda = \exp(2 \pi i \theta)$. For any operator $T$ in $\H$ of
 	class $C^\infty$ we define
-	its left twist $l(T)$ by
+	its left  twist $l(T)$ by
 	\begin{equation}\label{l_defn}
 		l(T) = \sum_{n_1,n_2} \, \widehat{T}_{n_1,n_2} \, \lambda^{n_2 p_1} \, ,
 	\end{equation}
@@ -27126,7 +27202,7 @@ Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for grou
 
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
-\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left cancellative monoids}. M\"unster J. of Math. 16 (2023), 147Ð175, 2023.
+\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left  cancellative monoids}. M\"unster J. of Math. 16 (2023), 147Ð175, 2023.
 
 \bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 \bibitem{Paschke:73}
