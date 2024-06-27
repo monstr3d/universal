@@ -148,7 +148,7 @@
 \newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
 \newcommand{\proj}{\mathrm{proj}}                %% a projection
 \newcommand*{\braket}[2]{\langle#1 {,~} #2\rangle}% right inner products
-\newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left !!! CHECK !!inner products
+\newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left inner products
 
 \newcommand*{\Mult}{\mathcal M}% multiplier algebra
 \newcommand{\Lt}{\mathcal{L}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
@@ -1093,12 +1093,12 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	We leave to the reader the proof of that $M\left(\pi \right)$ is an injective *-homomorphisms  and $M\left(\pi \right)$ is an extension of  $\pi$.
 	
 \end{proof}
-\begin{definition}\label{left_desc_defn}
-Let 	$\pi: A \hookto \widetilde A$ be an injective $*$-homomorphism of $C^*$-algebras and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}) . Let $\left\{\widetilde u_\la\right\}_{\La \in \La}\subset \widetilde L$ be a given by the Theorem \ref{left_ideal_thm} net. Let $L$  be a closed left ideal in ${A}$ such that a map
-\be
+\begin{definition}\label{ideal_desc_defn}
+Let 	$\pi: A \hookto M\left( \widetilde A\right) $ be an injective $*$-homomorphism of $C^*$-algebras and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}) . Let $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}\subset \widetilde L$ be a given by the Theorem \ref{left_ideal_thm} net. Let $L$  be a closed left ideal in ${A}$ such that a map
+\be\label{ideal_desc_l_eqn}
 \begin{split}
 \pi_{\widetilde L}: L \xrightarrow{\cong} \widetilde L,\\
-a \mapsto \lim_{{\la \in \La}}\widetilde u_\la \pi\left( a\right) 
+a \mapsto \lim_{{\a \in \mathscr A}}\widetilde u_\a \pi\left( a\right) 
 \end{split}
 \ee
  $C^*$-norm preserving isomorphism of left $A$-modules. We say that
@@ -1106,10 +1106,23 @@ a \mapsto \lim_{{\la \in \La}}\widetilde u_\la \pi\left( a\right)
 \desc_{\widetilde L}\bydef \pi_{\widetilde L}^{-1}: \widetilde L \xrightarrow{\cong}  L
 \ee 
 is a \textit{left} $\widetilde L$-\textit{descent}. We imply the $C^*$-norm convergence in \ref{left_desc_eqn}. Similarly we define a  \textit{right} $\widetilde R$-\textit{descent}
-\be
-\desc^*_{\widetilde R}: \widetilde R \xrightarrow{\cong}  R
+\be\label{right_desc_eqn}
+\begin{split}
+\pi_{\widetilde R}: R \xrightarrow{\cong} \widetilde R,\\
+a \mapsto \lim_{{\b \in \mathscr B}} \pi\left( a\right)\widetilde v_\b;\\
+\desc_{\widetilde R}\bydef \pi_{\widetilde R}^{-1}: \widetilde R \xrightarrow{\cong} R
+\end{split}
 \ee 
-for a closed right ideal in $\widetilde A$.
+for a closed right $\widetilde R$ ideal in $\widetilde A$.
+Also we define a \textit{bidirectional} $ \widetilde L\cap \widetilde R$-\textit{descent} as a bijection
+\be\label{ideal_desc_eqn}
+\begin{split}
+	\pi_{\widetilde L\cap \widetilde R}: L\cap R \xrightarrow{\cong}\widetilde L\cap  \widetilde R,\\
+	a \mapsto \lim_{{\a \in \mathscr A}}\lim_{{\b \in \mathscr B}} \widetilde u_\a\pi\left( a\right)\widetilde v_\b;\\
+	\desc_{\widetilde L\cap \widetilde R}\bydef \pi_{\widetilde L\cap \widetilde R}^{-1}: \widetilde L\cap \widetilde R \xrightarrow{\cong} L\cap R
+\end{split}
+\ee 
+where the iterated $C^*$-norm limit  $\lim_{{\a \in \mathscr A}}\lim_{{\b \in \mathscr B}}$ is explained in the Theorem \ref{it_lim_thm}. 
 \end{definition}
 
 
@@ -5225,7 +5238,7 @@ $\left(A, \widetilde{A}, G\right)$ is an
 
 
 \begin{definition}\label{inf_cov_oa_sub_defn}
-	Under the hypotheses \ref{inf_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated  !!! dominated !!!to}  $\mathfrak{S}$ if for all $
+	Under the hypotheses \ref{inf_oa_empt} we say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated  to}  $\mathfrak{S}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
 \widetilde{\lift}_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
@@ -5244,19 +5257,19 @@ The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
 \end{remark}
 
 \begin{remark}
-	Any union of simply ordered by inclusion  set of { subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebras is a { subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebra.	 From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  \ref{spec_loc_lim_defn} maximal  {subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebras. 
+	Any union of simply ordered by inclusion  set of { subordinated   to}  $\mathfrak{S}$ *-subalgebras is a { subordinated   to}  $\mathfrak{S}$ *-subalgebra.	 From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  \ref{spec_loc_lim_defn} maximal  {subordinated   to}  $\mathfrak{S}$ *-subalgebras. 
 \end{remark}	 
 
 
 \begin{definition}\label{inf_cov_oa_defn}
 	Consider the situation of the Definition \ref{inf_cov_oa_sub_defn}.
-	If $\widetilde A\subset \widetilde B$  is a maximal {subordinated  !!! dominated !!!to}  $\mathfrak{S}$ *-subalgebra then
+	If $\widetilde A\subset \widetilde B$  is a maximal {subordinated   to}  $\mathfrak{S}$ *-subalgebra then
 	we say that the triple
 	$
 	\left(A,  \widetilde A, G \right)$ is the  \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}$.
 \end{definition}
 \begin{remark}\label{inf_cov_oa_rem}
-	The set of maximal  {subordinated  !!! dominated !!!to}  $\mathfrak{S}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn}  should not be unique.
+	The set of maximal  {subordinated   to}  $\mathfrak{S}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn}  should not be unique.
 \end{remark}
 
 
@@ -12129,25 +12142,42 @@ We leave to the reader an elementary proof of that the map is an injective $*$-h
 		\ee 
 \end{lemma}
 \paragraph{!!!}
-\begin{definition}\label{left_desc_defn!!} !!! TEMP !!!
-	Let 	$\pi: A \hookto \widetilde A$ be an injective $*$-homomorphism of $C^*$-algebras and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}) . Let $\left\{\widetilde u_\la\right\}_{\La \in \La}\subset \widetilde L$ be a given by the Theorem \ref{left_ideal_thm} net. Let $L$  be a closed left ideal in ${A}$ such that a map
-	\be
+\ref{ideal_desc_defn}
+\begin{definition}\label{ideal_desc_defn!} !!! TEMP !!!
+	Let 	$\pi: A \hookto M\left( \widetilde A\right) $ be an injective $*$-homomorphism of $C^*$-algebras and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}) . Let $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}\subset \widetilde L$ be a given by the Theorem \ref{left_ideal_thm} net. Let $L$  be a closed left ideal in ${A}$ such that a map
+	\be\label{ideal_desc_l_eqn}
 	\begin{split}
 		\pi_{\widetilde L}: L \xrightarrow{\cong} \widetilde L,\\
-		a \mapsto \lim_{{\la \in \La}}\widetilde u_\la \pi\left( a\right) 
+		a \mapsto \lim_{{\a \in \mathscr A}}\widetilde u_\a \pi\left( a\right) 
 	\end{split}
 	\ee
 	$C^*$-norm preserving isomorphism of left $A$-modules. We say that
-	\be\label{left_desc_eqn!}
+	\be\label{left_desc_eqn}
 	\desc_{\widetilde L}\bydef \pi_{\widetilde L}^{-1}: \widetilde L \xrightarrow{\cong}  L
 	\ee 
 	is a \textit{left} $\widetilde L$-\textit{descent}. We imply the $C^*$-norm convergence in \ref{left_desc_eqn}. Similarly we define a  \textit{right} $\widetilde R$-\textit{descent}
-	\be
-	\desc^*_{\widetilde R}: \widetilde R \xrightarrow{\cong}  R
+	\be\label{right_desc_eqn}
+	\begin{split}
+		\pi_{\widetilde R}: R \xrightarrow{\cong} \widetilde R,\\
+		a \mapsto \lim_{{\b \in \mathscr B}} \pi\left( a\right)\widetilde v_\b;\\
+		\desc_{\widetilde R}\bydef \pi_{\widetilde R}^{-1}: \widetilde R \xrightarrow{\cong} R
+	\end{split}
 	\ee 
-	for a closed right ideal in $\widetilde A$.
+	for a closed right $\widetilde R$ ideal in $\widetilde A$.
+	Also we define a \textit{bidirectional} $ \widetilde L\cap \widetilde R$-\textit{descent} as a bijection
+	\be\label{ideal_desc_eqn}
+	\begin{split}
+		\pi_{\widetilde L\cap \widetilde R}: L\cap R \xrightarrow{\cong}\widetilde L\cap  \widetilde R,\\
+		a \mapsto \lim_{{\a \in \mathscr A}}\lim_{{\b \in \mathscr B}} \widetilde u_\a\pi\left( a\right)\widetilde v_\b;\\
+		\desc_{\widetilde L\cap \widetilde R}\bydef \pi_{\widetilde L\cap \widetilde R}^{-1}: \widetilde L\cap \widetilde R \xrightarrow{\cong} L\cap R
+	\end{split}
+	\ee 
+	where the iterated $C^*$-norm limit  $\lim_{{\a \in \mathscr A}}\lim_{{\b \in \mathscr B}}$ is explained in the Theorem \ref{it_lim_thm}. 
 \end{definition}
 
+
+
+\
 \paragraph{!!!}
 \begin{proof}
 	!!!! Let $\left\{u_\a\right\}_{\a \in \mathscr A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn})
