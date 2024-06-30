@@ -1093,26 +1093,26 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	We leave to the reader the proof of that $M\left(\pi \right)$ is an injective *-homomorphisms  and $M\left(\pi \right)$ is an extension of  $\pi$.
 	
 \end{proof}
-\begin{definition}\label{ideal_desc_defn}
-Let 	$\pi: A \hookto M\left( \widetilde A\right) $ be an injective $*$-homomorphism of $C^*$-algebras, and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}).  Let $L$  be a closed left ideal in ${A}$ such that there is  isomorphism of left $A$-modules, i.e.
-\be\label{ideal_desc_l_eqn}
-\begin{split}
-	\pi_{\widetilde L}: L \xrightarrow{\cong} \widetilde L,\\
-\forall b \in L\quad \forall a \in A \quad \pi_{\widetilde L}\left(ab\right)= \pi\left(a \right)\pi_{\widetilde L}\left( b \right). 
-\end{split}
-\ee
- We say that the inverse isomorphism 
-\be\label{left_desc_eqn}
-\desc_{\widetilde L}\bydef \pi_{\widetilde L}^{-1}: \widetilde L \xrightarrow{\cong}  L
-\ee 
-is a \textit{left} $\widetilde L$-\textit{descent}.  Similarly we define a  \textit{right} $\widetilde R$-\textit{descent}
-\be\label{right_desc_eqn}
-\begin{split}
-\pi_{\widetilde R}: R \xrightarrow{\cong} \widetilde R,\\
-\forall b \in R\quad \forall a \in A \quad \pi_{\widetilde R}\left(ba\right)= \pi_{\widetilde L}\left( b \right)\pi\left(a \right);\\
-\desc_{\widetilde R}\bydef \pi_{\widetilde R}^{-1}: \widetilde R \xrightarrow{\cong} R
-\end{split}
-\ee 
+%\begin{definition}\label{ideal_desc_defn}
+%Let 	$\pi: A \hookto M\left( \widetilde A\right) $ be an injective $*$-homomorphism of $C^*$-algebras, and let $\widetilde L\subset \widetilde A$ be a closed left ideal in $\widetilde{A}$ (cf. Definition \ref{ideal_left_right_defn}).  Let $L$  be a closed left ideal in ${A}$ such that there is  isomorphism of left $A$-modules, i.e.
+%\be\label{ideal_desc_l_eqn}
+%\begin{split}
+%	\pi_{\widetilde L}: L \xrightarrow{\cong} \widetilde L,\\
+%\forall b \in L\quad \forall a \in A \quad \pi_{\widetilde L}\left(ab\right)= \pi\left(a \right)\pi_{\widetilde L}\left( b \right). 
+%\end{split}
+%\ee
+% We say that the inverse isomorphism 
+%\be\label{left_desc_eqn}
+%\desc_{\widetilde L}\bydef \pi_{\widetilde L}^{-1}: \widetilde L \xrightarrow{\cong}  L
+%\ee 
+%is a \textit{left} $\widetilde L$-\textit{descent}.  Similarly we define a  \textit{right} $\widetilde R$-\textit{descent}
+%\be\label{right_desc_eqn}
+%\begin{split}
+%\pi_{\widetilde R}: R \xrightarrow{\cong} \widetilde R,\\
+%\forall b \in R\quad \forall a \in A \quad \pi_{\widetilde R}\left(ba\right)= \pi_{\widetilde L}\left( b \right)\pi\left(a \right);\\
+%\desc_{\widetilde R}\bydef \pi_{\widetilde R}^{-1}: \widetilde R \xrightarrow{\cong} R
+%\end{split}
+%\ee 
 %for a closed right $\widetilde R$ ideal in $\widetilde A$.
 %Also we define a \textit{bidirectional} $ \widetilde L\cap \widetilde R$-\textit{descent} as a bijection
 %\be\label{ideal_desc_eqn}
@@ -1123,7 +1123,7 @@ is a \textit{left} $\widetilde L$-\textit{descent}.  Similarly we define a  \tex
 %\end{split}
 %\ee 
 %where the iterated $C^*$-norm limit  $\lim_{{\a \in \mathscr A}}\lim_{{\b \in \mathscr B}}$ is explained in the Theorem \ref{it_lim_thm}. 
-\end{definition}
+%\end{definition}
 
 
 
@@ -4260,26 +4260,32 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\ee
  \end{lemma}
  \begin{proof}
- 	If $\overline a \in K\left( \overline A\right)_0$ then from the Lemma \ref{pedersen_eps_lem} it follows that there is a positive element   $\overline b \in \overline A_+$ and $\eps > 0$ such that  $\overline a = f_\eps\left( \overline b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. If $\overline c \bydef f_{\eps/2}\left( \overline b\right)$ then  $\overline a = f_{\eps/2}\left( \overline c\right)$. Let denote
+ 	If $\overline a \in K\left( \overline A\right)_+$ then $\overline a \le \sum_{j = 1}^n\overline a_j$ where  $\overline a_j \in  K\left( \overline A\right)_0$ for any $j = 1, ..., n$. From the Lemma \ref{pedersen_eps_lem} it follows that there is a positive element   $\overline b_j \in \overline A_+$ and $\eps_j > 0$ such that  $\overline a = f_{\eps_j}\left( \overline b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. If $\overline c_j \bydef f_{\eps_j/2}\left( \overline b_j\right)$ then  $\overline a_j = f_{\eps_j/2}\left( \overline c_j\right)$. Let denote
  	\bean
- 	c_\la \bydef \bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to   G_\la \right)}g \overline c 
+ 		a^j_\la \bydef \bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to   G_\la \right)}g \overline a_j, \\
+ 	c^j_\la \bydef \bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to   G_\la \right)}g \overline c_j 
  	\eean
- 	and let us prove that $a_\la \le f_{\eps/2}\left( c_\la\right)$. If we consider a faithful representation then $\overline A \to B\left( \overline \H\right)$ then for any $\overline \xi \in \overline \H$ such that $\left\| \overline \xi\right\|= 1$ one has
+ 	and let us prove that $a^j_\la \le f_{\eps_j/2}\left( c^j_\la\right)$. If we consider a faithful representation then $\overline A \to B\left( \overline \H\right)$ then for any $\overline \xi \in \overline \H$ such that $\left\| \overline \xi\right\|= 1$ one has
  	\bea\label{subordinated_1_eqn}
- 	\left(\overline \xi, f_{\eps/2}\left( \overline c\right)\overline \xi \right) = \max\left(0,  \left(\overline \xi, \overline c\overline \xi \right)- \frac{\eps}{2} \right),\\\label{subordinated_2_eqn}
- 	\left(\overline \xi, c_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \left(\overline \xi,\left(  g \overline c\right) \overline \xi \right),\\
- 	\label{subordinated_3_eqn} \left(\overline \xi, a_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right) 
+ 	\left(\overline \xi, f_{\eps_j/2}\left( \overline c_j\right)\overline \xi \right) = \max\left(0,  \left(\overline \xi, \overline c_j\overline \xi \right)- \frac{\eps_j}{2} \right),\\\label{subordinated_2_eqn}
+ 	\left(\overline \xi, c^j_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \left(\overline \xi,\left(  g \overline c_j\right) \overline \xi \right),\\
+ 	\label{subordinated_3_eqn} \left(\overline \xi, a^j_\la \overline \xi \right)= \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c_j\right) \overline \xi \right)- \frac{\eps_j}{2} \right) 
  	\eea
  	From 
  	\bean
- 	\max\left(0, \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)\ge \\\ge\sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c\right) \overline \xi \right)- \frac{\eps}{2} \right)
+ 	\max\left(0, \sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \left(\overline \xi,\left(g  \overline c_j\right) \overline \xi \right)- \frac{\eps_j}{2} \right)\ge \\\ge\sum_{ g \in \ker\left(\widehat{G}\to   G_\la\right)} \max\left(0,  \left(\overline \xi,\left(g  \overline c_j\right) \overline \xi \right)- \frac{\eps_j}{2} \right)
  	\eean
  	and taking into account \eqref{subordinated_1_eqn}-\eqref{subordinated_3_eqn} one has
  	$$
- 	\left(\overline \xi, a_\la \overline \xi \right)\le \left(\overline \xi, f_{\eps/2}\left( \overline c\right) \overline \xi \right)
+ 	\left(\overline \xi, a^j_\la \overline \xi \right)\le \left(\overline \xi, f_{\eps_j/2}\left(  c^j_\la\right) \overline \xi \right)
  	$$
- 	So $a_\la \le f_{\eps/2}\left( c_\la\right)$ and taking into account $f_{\eps/2}\left(c_\la\right)\in K\left(A_\la \right)_0$ we conclude that $a_\la\in K\left(A_\la \right)$. Using the Definition \ref{pedersen_ideal_defn} one can prove this Lemma for all $\overline a \in K\left( \overline A\right)$.
+ 	So $a^j_\la \le f_{\eps_j/2}\left( c^j_\la\right)$ and taking into account $f_{\eps_j/2}\left(c^j_\la\right)\in K\left(A_\la \right)_0$ we conclude that $a^j_\la\in K\left(A_\la \right)_+$. Using the Definition \ref{pedersen_ideal_defn} one can prove this Lemma for all $\overline a \in K\left( \overline A\right)$.
  \end{proof}
+ 
+ 
+ 
+ 
+ 
  
  
  \begin{definition}\label{infinite_desc_defn}
@@ -12351,8 +12357,48 @@ a^*a = \b\text{-}\sum_{g \in G} \widetilde b\left( g \widetilde a^*\widetilde a\
 $$
 where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$.  !!! CORRECT !!!
 \end{proof}
+\begin{definition}\label{blowing_descent_compactly_supported_defn} %{blowing_compactly_supported_descent_defn!}
+	!!! CORRECT !!!A given by \eqref{blowing_com_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{descent} of $A$.  An $A$-$A$-bimodule homomorphism 
+	\be\label{blowing_compactly_supported_descent_eqn}
+	\begin{split}
+		\desc^c_q : A_c\left(\widetilde\sY \right)\to A_c,\\
+		\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\mapsto \sum_{\substack{j=1\\ k = 1}}^n \desc^c_q\left(\widetilde f'_j \right) a_{jk}\desc^c_q\left(\widetilde f''_k \right)
+	\end{split} 
+	\ee
+	where $\desc^c_q\left(\widetilde f'_j \right)$ and $\desc^c_q\left(\widetilde f''_k \right)$ are given by the Definition \eqref{top_compactly_supported_descent_defn} is said to be \textit{compactly supported $q$-descent}.
+\end{definition}
+\begin{definition}\label{blowing_descent_defn}
+	If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then we say that $\desc^c_q\left(\widetilde a\right)$ is  $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$.
+\end{definition}
+\begin{remark}
+	Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowing_descent_defn} are generalizations  of \ref{top_compactly_supported_descent_defn} and \ref{top_lift_desc_defn} ones.
+\end{remark}
+\begin{lemma}\label{blowing_descent_lem}
+	Under the hypotheses of the Definition \ref{blowing_descent_compactly_supported_defn} the given by \eqref{blowing_compactly_supported_descent_eqn} homomorphism surjective. 
+	Moreover one has
+	\be\label{blowing_compactly_supported_descen_oedersen_eqn}
+	\begin{split}
+		\desc^c_q : K\left( A_0\left(\widetilde\sY \right)\right)  = K\left(A \right) 
+	\end{split} 
+	\ee	
+\end{lemma}
+\begin{proof}
+If  $a \in K\left(A \right)$ then  $\supp a $ is compact. 	If a pair \\
+$
+\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ 
+is   a $q$-{covering} (cf. Definition \ref{top_cov_defn})
+then there is a covering sum $ f =\sum_{j=1}^n {f}_j$ for  $\supp \widetilde{a}$ dominated by the family $\left\{ \sU_{ \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
+\be\label{blowing_convlt_eqn}
+a =\widetilde af  = \sum_{j=1}^n a f_j.
+\ee 
+For any $j = 1,...,n$ one has $b \bydef  a f_j\in K\left(A \right)$. From the Definition \ref{pedersen_ideal_defn} it follows that
+$$
+b = \sum_{l = 1}^m c_l b_l
+$$
+where $b_l \in K\left( A\right)_+$ and $c_j \in \left\{1, i, -1, -i\right\}$ 
+\end{proof}
 
-\begin{lemma}
+\begin{lemma}!!! MAY BE DELETE !!!
 If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has:
 \begin{enumerate}
 	\item [(i)] there is a natural Hausdorff blowing-up $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$ (cf. Definition \ref{blowing_defn}) (cf. Definition \ref{blowing_defn}),
@@ -12393,34 +12439,6 @@ one concludes that the inclusion $C_0\left(\widetilde \sY \right) \hookto M\left
 
 \end{proof}
 
-\begin{definition}\label{blowing_descent_compactly_supported_defn} %{blowing_compactly_supported_descent_defn!}
-!!! CORRECT !!!A given by \eqref{blowing_com_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{descent} of $A$.  An $A$-$A$-bimodule homomorphism 
-\be\label{blowing_compactly_supported_descent_eqn}
-\begin{split}
-\desc^c_q : A_c\left(\widetilde\sY \right)\to A_c,\\
-\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f'_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f''_k \right)\mapsto \sum_{\substack{j=1\\ k = 1}}^n \desc^c_q\left(\widetilde f'_j \right) a_{jk}\desc^c_q\left(\widetilde f''_k \right)
-\end{split} 
-\ee
-where $\desc^c_q\left(\widetilde f'_j \right)$ and $\desc^c_q\left(\widetilde f''_k \right)$ are given by the Definition \eqref{top_compactly_supported_descent_defn} is said to be \textit{compactly supported $q$-descent}.
-\end{definition}
-\begin{definition}\label{blowing_descent_defn}
-If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then we say that $\desc^c_q\left(\widetilde a\right)$ is  $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$.
-\end{definition}
-\begin{remark}
-Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowing_descent_defn} are generalizations  of \ref{top_compactly_supported_descent_defn} and \ref{top_lift_desc_defn} ones.
-\end{remark}
-\begin{lemma}\label{blowing_descent_lem}
-	Under the hypotheses of the Definition \ref{blowing_descent_compactly_supported_defn} the given by \eqref{blowing_compactly_supported_descent_eqn} homomorphism surjective. 
-	Moreover one has
-\be\label{blowing_compactly_supported_descen_oedersen_eqn}
-\begin{split}
-	\desc^c_q : K\left( A_0\left(\widetilde\sY \right)\right)  = K\left(A \right) 
-\end{split} 
-\ee	
-\end{lemma}
-\begin{proof}
-	!!!!
-	\end{proof}
 \begin{exercise}\label{blowing_hausdorff_exer}
 	Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_0\left( \sX\right)\subset M\left(A \right)$ be Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). Let $p: \widetilde{\sX}\to \sX$ be a transitive covering with residually finite group $G\left(\left.\widetilde \sX\right|\sX \right)$ of covering transformations. Prove following statements.
 	\begin{enumerate}
@@ -20223,8 +20241,8 @@ representation.
 		K\left(A \right)_+  \bydef \left\{\left. a \in A_+ \right|\exists a_j \in K\left( A\right)_0 , ~ j = 1,...,n, ~ a \le \sum a_j \right\}.
 	\end{split}
 	\ee
-	$K^+_0\left(A \right)$ is a set of operators in $A_+$ with majorized supports, and $K^+\left(A \right)$ is the smallest ideal containing $K^+_0\left(A \right)$. The definition of $K^+_0\left(A \right)$ may be rephrased without reference to $A''$ as follows: $a \in K^+_0\left(A \right)$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
-Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K^+\left(A \right)$.
+	$K\left(A \right)_0$ is a set of operators in $A_+$ with majorized supports, and $K\left(A \right)_+$ is the smallest ideal containing $K\left(A \right)_0$. The definition of $K\left(A \right)_0$ may be rephrased without reference to $A''$ as follows: $a \in K\left(A \right)_0$ if there exists $b\in A_+$ such that for all functions $\varphi$ continuous functions on the spectrum of $a$, $~0\le\varphi\le 1$ we have $\varphi\left( a\right) \le b$.
+Pedersen's ideal $K\left(A\right)$ is the $\C$-linear span of $K\left(A \right)_0$.
 	\end{remark}
 	
 	
