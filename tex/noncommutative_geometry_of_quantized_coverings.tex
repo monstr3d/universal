@@ -12237,36 +12237,24 @@ where $\lift^q_{\widetilde \sU}$ is a $q$-$\widetilde \sU$-lift (cf. Definition 
  \forall j,k \in \left\{1,...,m\right\}\quad \exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
  \end{split}
 \ee
-\begin{lemma}\label{blowing_descent_lem}
-	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). If $G$ is a properly discontinuous group of homeomorphisms \ref{top_properly_disc_group_defn} with $\sY \cong \widetilde \sY/G$, and 
-		\be\label{blowing_com_eqn}
-	A_c\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
-	\ee
-	is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn}) then for any $\widetilde a \in  A_c\left(\widetilde\sY \right)$ the series 
-	$$
-a  \bydef 	\bt\text{-} \sum_{	g \in {G}}\widetilde a
-	$$
-	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $a \in A_0\left(\sY \right)$ 
-\end{lemma}	
-\begin{proof}
-	If a pair 
-	$
-	\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ 
-	is   a $q$-{covering} (cf. Definition \ref{top_cov_defn})
-  then there is a covering sum $\widetilde f =\sum_{j=1}^n \widetilde{f}_j$ for  $\supp \widetilde{a}$ dominated by the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
-   
- \be\label{blowing_convt_eqn}
- \widetilde a =\widetilde a\pi_C\left(  \widetilde f\right)  = \sum_{j=1}^n \widetilde a\pi_C\left(  \widetilde f_j\right) 
- \ee 
- Suppose that $\supp \widetilde f_j \subset \widetilde \sU_{\widetilde\a_j}$ where $ \widetilde \sU_{\widetilde\a_j} \in \left\{\widetilde \sU_{\widetilde\a}\right\}$. Let   $\sU_{\a_j} \bydef q\left(\widetilde \sU_{\widetilde\a_j} \right) \in \left\{ \sU_{\a}\right\}$, and let
- both $A_{\sU_{\a_j}}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$ are left ${\sU_{\a_j}}$- and $\widetilde \sU_{\widetilde\a_j}$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}).
- There is homomorphism
-\bean
-\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}:  A_{\sU_{\a_j}}\to A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}\\
-	a \mapsto A_0\left(q \right)\left(   a \right) \widetilde s_{\widetilde\a_j}
-\eean
-of left $A$-modules.
-If $a\in A_{\sU_{\a_j}}$ and $\widetilde a \bydef \pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}\left(a \right) \in  A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$ then $a^*a \in  ~_{\sU_{\a_j}}A_{\sU_{\a_j}}$ and $\widetilde a^*\widetilde{a} \in ~_{\widetilde \sU_{\widetilde\a_j}}A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$ where the notation of the Definition \ref{blowing_ideals_au_ua_defn} is used. If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then from the Lemma \ref{blowing_blowing_lem} and the Definition \ref{blowing_a_h_eqn} it follows that for any $\eps > 0$ there is $\widetilde f_\eps \in C_c\left(\widetilde \sY \right)$ such that
+\begin{lemma}\label{blowing_left_ideal_lem}
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let $\widetilde \sU, \widetilde \sV\subset \widetilde \sY$ be a pair open subsets such that:
+	\begin{itemize}
+		\item $\widetilde \sV$ is connected an homeomorphically onto $q\left( \widetilde \sV\right)$,
+		\item  there is $\widetilde f \in C_c\left(\widetilde \sY \right)$ with $\supp \widetilde f \subset \widetilde \sV$ and $\widetilde f\left( \widetilde \sU\right)= \{1\}$.  
+	\end{itemize}
+	Then there is a natural isomorphism of left $A$-modules
+	\be
+	\begin{split}
+		\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}:  A_{\sU}\xrightarrow{\cong} A_0\left(\widetilde\sY \right)_{\widetilde \sU}\\
+			a \mapsto A_0\left(q \right)\left(   a \right) \widetilde f
+		\end{split} 
+		\ee
+		where	 both $A_{\sU}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ are left ${\sU}$- and $\widetilde \sU$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}). The isomorphism $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}$ preserves $C^*$-norm.
+	\end{lemma}
+	\begin{proof}
+		!!! CORRECT !!!
+If $a\in A_{\sU}$ and $\widetilde a \bydef \pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}\left(a \right) \in  A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$ then $a^*a \in  ~_{\sU_{\a_j}}A_{\sU_{\a_j}}$ and $\widetilde a^*\widetilde{a} \in ~_{\widetilde \sU_{\widetilde\a_j}}A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$ where the notation of the Definition \ref{blowing_ideals_au_ua_defn} is used. If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then from the Lemma \ref{blowing_blowing_lem} and the Definition \ref{blowing_a_h_eqn} it follows that for any $\eps > 0$ there is $\widetilde f_\eps \in C_c\left(\widetilde \sY \right)$ such that
 $$
 \left\|\widetilde b -  \widetilde f_\eps \widetilde b \right\| < \frac{\eps}{2\left\|a^*a \right\|}
 $$
@@ -12288,8 +12276,8 @@ a^*a = \b\text{-}\sum_{g \in G} \widetilde b\left( g \widetilde a^*\widetilde a\
 $$
 where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$. So $\left\|a^*a \right\| > 0 \quad \Rightarrow \quad \left\|\widetilde a^*\widetilde a \right\|> 0$ and $a \neq 0\quad  \Rightarrow  \quad \widetilde a = 0$, i.e. the homomorphism $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}$ is injective. If $\widetilde \pi: A_0\left(\widetilde\sY \right)\hookto B\left( \widetilde \H\right) $ is a faithful, nondegenerate, $G$-equivariant  representation  (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn} and \ref{equivariant_representation_defn}) and $\chi$ is a characteristic function of $\widetilde \sU_{\widetilde\a_j}$ (cf. Definition \ref{top_char_f_defn}) then $\chi$ naturally yields a projector $p_\chi \in B\left(\widetilde{   \H} \right)$. Moreover 
 \bean
- \widetilde \pi \left(a^* a\right) \left( \widetilde \H \ominus \left(\bigoplus_{g\in G} g p_\chi \widetilde \H\right) \right) = \{0\},\\
- \forall g \in G \quad \widetilde \pi \left( a\right) g p_\chi \widetilde \H\subset g p_\chi \widetilde \H
+\widetilde \pi \left(a^* a\right) \left( \widetilde \H \ominus \left(\bigoplus_{g\in G} g p_\chi \widetilde \H\right) \right) = \{0\},\\
+\forall g \in G \quad \widetilde \pi \left( a\right) g p_\chi \widetilde \H\subset g p_\chi \widetilde \H
 \eean
 where $\bigoplus$ is the norm completion of the algebraic direct sum. For any $\eps > 0$ there is
 $$
@@ -12327,7 +12315,41 @@ where $\desc_q$ is $q$-descent (cf. Definition \ref{top_lift_desc_defn}) then
 a \in  A_{\sU_{\a_j}},\\
 \sum_{j=1}^m \varphi_A\left( a_j\right)\varphi_C\left( \widetilde f'_j\right)\widetilde u_\a= \pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}.
 \eean 
-So the image $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}\left( A_{\sU_{\a_j}}\right)$ is dense in $A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$, taking into account that  $A_{\sU_{\a_j}}$ is $C^*$-norm closed we conclude that the homomorphism $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}$ is bijective. If $\widetilde a \in A_0\left(\widetilde\sY \right)$ then similarly to \eqref{blowing_convt_eqn} one has
+So the image $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}\left( A_{\sU_{\a_j}}\right)$ is dense in $A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$, taking into account that  $A_{\sU_{\a_j}}$ is $C^*$-norm closed we conclude that the homomorphism $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}$ is bijective.
+
+
+	\end{proof}
+
+\begin{lemma}\label{blowing_descent_lem}
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). If $G$ is a properly discontinuous group of homeomorphisms \ref{top_properly_disc_group_defn} with $\sY \cong \widetilde \sY/G$, and 
+		\be\label{blowing_com_eqn}
+	A_c\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
+	\ee
+	is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn}) then for any $\widetilde a \in  A_c\left(\widetilde\sY \right)$ the series 
+	$$
+a  \bydef 	\bt\text{-} \sum_{	g \in {G}}\widetilde a
+	$$
+	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $a \in A_0\left(\sY \right)$ 
+\end{lemma}	
+\begin{proof}
+	If a pair 
+	$
+	\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ 
+	is   a $q$-{covering} (cf. Definition \ref{top_cov_defn})
+  then there is a covering sum $\widetilde f =\sum_{j=1}^n \widetilde{f}_j$ for  $\supp \widetilde{a}$ dominated by the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
+   
+ \be\label{blowing_convt_eqn}
+ \widetilde a =\widetilde a\pi_C\left(  \widetilde f\right)  = \sum_{j=1}^n \widetilde a\pi_C\left(  \widetilde f_j\right) 
+ \ee 
+ Suppose that $\supp \widetilde f_j \subset \widetilde \sU_{\widetilde\a_j}$ where $ \widetilde \sU_{\widetilde\a_j} \in \left\{\widetilde \sU_{\widetilde\a}\right\}$. Let   $\sU_{\a_j} \bydef q\left(\widetilde \sU_{\widetilde\a_j} \right) \in \left\{ \sU_{\a}\right\}$, and let
+ both $A_{\sU_{\a_j}}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}$ are left ${\sU_{\a_j}}$- and $\widetilde \sU_{\widetilde\a_j}$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}).
+ There is homomorphism !!! REPLACE !! GIVEN BY
+\bean
+\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}}:  A_{\sU_{\a_j}}\to A_0\left(\widetilde\sY \right)_{\widetilde \sU_{\widetilde\a_j}}\\
+	a \mapsto A_0\left(q \right)\left(   a \right) \widetilde s_{\widetilde\a_j}
+\eean
+of left $A$-modules.
+If $\widetilde a \in A_0\left(\widetilde\sY \right)$ then similarly to \eqref{blowing_convt_eqn} one has
  \be\label{blowing_convtt_eqn}
 \widetilde a =\pi_C\left(  \widetilde f\right) \widetilde a\pi_C\left(  \widetilde f\right)  =  \sum_{\substack{j=1\\k=1}}^n \widetilde  a_{kj}\quad \text{where}\quad  \widetilde  a_{kj} \bydef  \pi_C\left(  \widetilde f_k\right)\widetilde  a\pi_C\left(  \widetilde f_j\right) 
 \ee 
@@ -12374,8 +12396,7 @@ where the sum of the series implies the strict topology of $A_0\left(\widetilde\
 	Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowing_descent_defn} are generalizations  of \ref{top_compactly_supported_descent_defn} and \ref{top_lift_desc_defn} ones.
 \end{remark}
 \begin{lemma}\label{blowing_descent_pedersen_lem} 
-	Under the hypotheses of the Definition \ref{blowing_descent_compactly_supported_defn} the given by \eqref{blowing_compactly_supported_descent_eqn} homomorphism surjective. 
-	Moreover one has
+If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has
 	\be\label{blowing_compactly_supported_descen_oedersen_eqn}
 	\begin{split}
 	 K\left(A \right) \subset 	\desc^c_q \left(  K\left( A_0\left(\widetilde\sY \right)\right)\right) 
@@ -12394,46 +12415,6 @@ a =\widetilde af  = \sum_{j=1}^n a f_j.
 For any $j = 1,...,n$ one has $b_j \bydef  a f_j\in K\left(A \right)$. Let $\supp f_j \subset \sU_{\a_j}$ where $\a_j\in \mathscr A$, and  let $\widetilde  \a_j \in \widetilde{\mathscr A}$ is such that $q\left( \sU_{\widetilde\a_j}\right) = \sU_{\a_j}$. If $\widetilde b_j =\varphi_A\left(b_j \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ then from the proof of the Lemma \ref{blowing_descent_lem} it follows that $b_j = \desc^c_p\left(\widetilde b_j\right)$. If  $b_j\in K\left( A\right)_+$ then  $b_j \le  \sum_{l= 1} f_{\eps_l}\left(b^l_j \right)$ where $b^l_j \in  A_+$ (cf. Lemma \ref{pedersen_eps_lem}). We can suppose that $b^l_j=b^l_js_{\a_j}$. If $\widetilde b^l_j\bydef \varphi_A\left(b_j \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ then $f_{\eps_j}\left( \widetilde b^l_j\right) = \varphi_A\left(f_{\eps_j}\left( b^l_j \right) \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ and $\widetilde b_j \le\sum_{l= 1}^m f_{\eps_l}\left(\widetilde b^l_j \right)$, i.e. $\widetilde b_j \in  K\left( A_0\left(\widetilde\sY \right)\right)$. The  completion of the proof is left to the reader.
 \end{proof}
 
-\begin{lemma}!!! MAY BE DELETE !!!
-If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has:
-\begin{enumerate}
-	\item [(i)] there is a natural Hausdorff blowing-up $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$ (cf. Definition \ref{blowing_defn}) (cf. Definition \ref{blowing_defn}),
-	\item[(ii)] if 
-	then there is a natural inclusion
-	$ K\left( A_0\left(\widetilde\sY \right)\right)  \subset A_c\left(\widetilde\sY \right)
-	$ of $*$-algebras.
-	\item[(iii)] if a pair $\left(\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}, \left\{\widetilde \sU_{\widetilde \a}\subset \widetilde \sY\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ is a  $q$-{covering} (cf. Definition \ref{blowing_cov_defn}) then 
-\be\label{blowing_tajkc_eqn}
-\begin{split}
-\forall\widetilde a \in A_c\left(\widetilde\sY \right)\quad \widetilde a=	\sum_{\substack{j=1\\ k = 1}}^n\varphi_C\left(\widetilde f_j \right) \varphi_A\left(a_{jk}\right)\varphi_C\left(\widetilde f_k \right)\quad a_{jk} \in  A, \\ 
-	\exists \widetilde \sU_j , \widetilde \sU_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f_j\in \widetilde \sU_j \quad \supp \widetilde f_k\in \widetilde \sU_k.
-\end{split}
-\ee
-where the notation of 	\ref{blowing_cov_empt} is implied,
-\end{enumerate}
-\end{lemma}
-\begin{proof}
-(i) There a the natural action 
-\bean
-C_0\left( 	\widetilde{\sY}\right) \times \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\to \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right),\\
-\left(\widetilde f,\varphi\left(  \widetilde f' \otimes a\right)  \right) \mapsto \varphi\left( \widetilde f \widetilde f' \otimes a\right).
-\eean
-This action can be naturally extended up to an action $C_0\left( 	\widetilde{\sY}\right) \times A_0\left(\widetilde\sY\right)\to A_0\left(\widetilde\sY\right)$ since $A_0\left(\widetilde\sY\right)$ is the $C^*$-norm completion of $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$. Using the Lemma \ref{blowing_lift_eq_lem} one can prove that the action $C_0\left( 	\widetilde{\sY}\right) \times A_0\left(\widetilde\sY\right)\to A_0\left(\widetilde\sY\right)$ yields an inclusion $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$. Since $\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ is dense in  $A_0\left(\widetilde\sY\right)$ and taking into account 
-$$
-\forall \widetilde f' \otimes a \in C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \quad \exists \widetilde f\in C_c\left( \widetilde \sY \right)\quad \widetilde f' \otimes a= \widetilde f\widetilde f'\otimes a
-$$
-we conclude that the set 
-$$	
-C_c\left( \widetilde \sY \right)A_0\left(\widetilde\sY\right) \bydef \left\{\left.\widetilde f\widetilde a\right| \widetilde f\in C_c\left( \widetilde \sY \right)\quad  \widetilde a \in )A_0\left(\widetilde\sY\right)\right\}
-$$	
-is dense in $A_0\left(\widetilde\sY\right)$. Taking into account the Remark \ref{blowing_rem}
-one concludes that the inclusion $C_0\left(\widetilde \sY \right) \hookto M\left(A_0\left(\widetilde\sY\right) \right)$ satisfies to the Definition \ref{blowing_defn}, i.e. it is Hausdorff blowing-up.
-\\
-(ii) Follows from (i) and the Lemma \ref{blowing_pedersen_compact_lem}.\\
-(iii) e that $a_{jk}\notin A_b\left(q \right)\left(A \right)$
-!!!  
-
-\end{proof}
 
 \begin{exercise}\label{blowing_hausdorff_exer}
 	Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_0\left( \sX\right)\subset M\left(A \right)$ be Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). Let $p: \widetilde{\sX}\to \sX$ be a transitive covering with residually finite group $G\left(\left.\widetilde \sX\right|\sX \right)$ of covering transformations. Prove following statements.
@@ -12445,42 +12426,9 @@ one concludes that the inclusion $C_0\left(\widetilde \sY \right) \hookto M\left
 \end{exercise}
 
 
-\begin{lemma}\label{blowing_series_lem}
-If $C_0\left( \sY\right)\hookto M\left( A\right)$ is a Hausdorff blowing-up,  and   $q: \widetilde{\sY}\to \sY$ is  an $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}).
-then one has
-\be\label{blowing_series_eqn}
-\forall \widetilde a\in  A_c\left(\widetilde\sY \right)\quad \bt\text{-}\sum_{g \in G}g \widetilde a = A_b\left(q \right) \desc^c_q\left(\widetilde a \right) 
-\ee
-where the sum of the series implies the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}),  $A_c\left(\widetilde\sY \right)$ is given by the equation \eqref{blowing_com_eqn}. and $\desc^c_q\left(\widetilde a \right)$ is the compactly supported $q$-descent (cf. Definition  \ref{blowing_descent_compactly_supported_defn}).
-\end{lemma}
-\begin{proof}
-Suppose that $\widetilde a$ is positive and $a \bydef \desc^c_q\left(\widetilde a \right)$.  If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then for all $\eps> 0$  there is $\widetilde b' \in A_c\left(\widetilde\sY \right)$ such that
-$$
-\left\|\widetilde b - \widetilde b' \right\| < \frac{\eps}{\left\|a\right\|}.
-$$
-Both sets $\supp \widetilde a$ and $\supp \widetilde b'$ are compact so the set 
-$$
-G_0 \bydef \left\{\left. g \in G  \right|g\widetilde a\cap \widetilde b'\neq\emptyset\right\}
-$$
-is finite.
-From 
-$$
-\sum_{g \in G_0}\left( g \widetilde a \right) \widetilde b' = a \widetilde b'
-$$
-and $\left\|\widetilde b - \widetilde b' \right\|< \eps/\left\|a\right\|$ it follows that for any $G_0 \subset G \subset  G\left(\left.\widetilde \sY\right|\sY \right)$
-$$
-\left\|\sum_{g \in G}\left( g \widetilde a \right) \widetilde b = a \widetilde b \right\| < \eps.
-$$
-Similarly one can find a finite set $G'_0$ such that that for any $G'_0 \subset G' \subset  G\left(\left.\widetilde \sY\right|\sY \right)$
-$$
-\left\|\sum_{g \in G'}\widetilde b\left( g \widetilde a \right)  =  \widetilde b a\right\| < \eps.
-$$
-\end{proof}
-
-
 
 \begin{empt}
-	The Lemmas \ref{blowing_pedersen_compact_lem} and  \ref{blowing_series_lem} yield a sesquilinear pairing 
+	Both Lemmas \ref{blowing_pedersen_compact_lem} and  \ref{blowing_descent_lem}  \ref{foli_fibration_exm} yield a sesquilinear pairing 
 	\be\label{blowing_pa_eqn}
 	\begin{split}
 		\left\langle\cdot, \cdot \right\rangle : K\left(A_0\left( \widetilde \sY\right) \right)\times K\left(A_0\left( \widetilde \sY\right) \right) \to A,\\
@@ -12497,7 +12445,7 @@ $$
 	(cf. \ref{hilbert_module_norm_eqn})  we denote by $\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)$. 
 \end{definition}
 \begin{lemma}\label{blowing_hilb_iso_lem}
-	Under the hypotheses of the Definition \ref{blowing_hilb_defn} there is a natural isomorphism 
+If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then there is a natural isomorphism 
 	\be\label{blowing_hilb_iso_eqn}
 	\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A
 	\ee
@@ -12528,15 +12476,14 @@ $$
 \end{proof}
 
 \begin{lemma}\label{blowing_fin_lem}
-	
-	If  $q: \widetilde \sY\to \sY$ is finite-fold transitive covering and 
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). If  $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular}  (cf. Definition \ref{blowing_a_regular_defn}) finite-fold  transitive covering and 
 	\be\label{blowing_fin_eqn}
 	A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	\ee
 	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}  ) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
 \end{lemma}
 \begin{proof}
-According to  \ref{blowing_lift_constr_lem} !!! REPLACE LEMMA  it follows that $A_0\left( \widetilde \sY\right)$ is the $C^*$-norm completion of 
+According to   the Lemma \ref{blowing_lift_constr_lem}   it follows that $A_0\left( \widetilde \sY\right)$ is the $C^*$-norm completion of 
 $$
 \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)
 $$
@@ -12555,7 +12502,7 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 
 
 
-\begin{definition}\label{blowing_lift_fin_defn}
+\begin{definition}\label{blowing_finite_lift_defn}
 	The given by the Lemma \ref{blowing_fin_lem} injective $*$-homomorphism
 	\be	\label{blowing_lift_fin_eqn}
 	A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
@@ -12563,7 +12510,8 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
 \end{definition}
 \begin{lemma}\label{blowing_proper_group_lem}
-	If the space $\sY$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) then	there is a natural isomorphism of groups
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}).
+	If the space $\sY$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) and $\widetilde \sY$ is connected then	there is a natural isomorphism of groups
 	\be\label{blowing_group_action_eqn}
 	G \cong \left\{\left. g \in \Aut\left( M\left( A_0\left( \widetilde \sY\right)\right)  \right) \right| \forall a \in A_b\left(q \right) \left(A \right)  \quad g a = a \right\}.
 	\ee
@@ -12583,11 +12531,11 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	$$
 	g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)\neq 0
 	$$
-	If $g_{\widetilde \sU'} \neq g_{\widetilde \sU''}$ then $g_{\widetilde \sU'}\widetilde \sU'\cap g_{\widetilde \sU''}\widetilde \sU''= \emptyset$ and $g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)= 0$. From this contradiction we conclude that $g_{\widetilde \sU'} = g_{\widetilde \sU''}$. The space $\widetilde\sY$ is connected and using the Theorem \ref{zorn_thm} we conclude that there is $g' \in G$ such that  $g_{\widetilde \sU}= g'$ for any connected  $\widetilde \sU$ homeomorphically mapped onto $ q\left(\widetilde \sU \right)$. Using this fact one can prove that if $A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an explained in \ref{blowing_ideals_au_ua_empt} left !!! CHECK !!ideal then  $g A_0\left( \widetilde \sY\right)_{\widetilde \sU} = g'A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a\in K\left( A_0\left( \widetilde \sY\right)\right)$ is an element of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then the support $\supp\widetilde a$ of $\widetilde a$ is compact. There is a finite family $\left\{\widetilde \sU_1, ..., \widetilde \sU_n\right\}$ of open connected subsets of $\widetilde \sY$ such that: 
-	\begin{enumerate}
+	If $g_{\widetilde \sU'} \neq g_{\widetilde \sU''}$ then $g_{\widetilde \sU'}\widetilde \sU'\cap g_{\widetilde \sU''}\widetilde \sU''= \emptyset$ and $g \left(\widetilde a'\widetilde a'' \right)= \left( g_{\widetilde \sU'}\widetilde a'\right) \left( g_{\widetilde \sU''}\widetilde a''\right)= 0$. From this contradiction we conclude that $g_{\widetilde \sU'} = g_{\widetilde \sU''}$. The space $\widetilde\sY$ is connected and using the Theorem \ref{zorn_thm} we conclude that there is $g' \in G$ such that  $g_{\widetilde \sU}= g'$ for any connected  $\widetilde \sU$ homeomorphically mapped onto $ q\left(\widetilde \sU \right)$. Using this fact one can prove that if $A_0\left( \widetilde \sY\right)_{\widetilde \sU}$ is an explained in \ref{blowing_ideals_au_ua_} left !!! CHECK !!ideal then  $g A_0\left( \widetilde \sY\right)_{\widetilde \sU} = g'A_0\left( \widetilde \sY\right)_{\widetilde \sU}$. If $\widetilde a\in K\left( A_0\left( \widetilde \sY\right)\right)$ is an element of the Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then the support $\supp\widetilde a$ of $\widetilde a$ is compact. There is a finite family $\left\{\widetilde \sU_1, ..., \widetilde \sU_n\right\}$ of open connected subsets of $\widetilde \sY$ such that: 
+	\begin{itemize}
 		\item $\supp\widetilde a\subset \bigcup_{j=1}^n \widetilde\sU_j$,
 		\item for each $j=1,...,n$ the set $\widetilde \sU_j \sY$ is  homeomorphically mapped onto $ q\left(\widetilde \sU_j \right)$.
-	\end{enumerate}
+	\end{itemize}
 	If $\widetilde f \bydef \sum_{j = 1}^n \widetilde f_j$ is a {dominated} by the family {covering sum} for $\supp\widetilde a$ (cf Definition \ref{top_covering_sum_defn}) then 
 	$$
 	\widetilde a = \widetilde a \widetilde f =\sum_{j = 1}^n  \widetilde a \widetilde f_j.
@@ -12604,14 +12552,13 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 
 
 \begin{lemma}\label{blowing_lift_composition_lem}
-	
-	!!! ADD REGULAR !!!
+Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Suppose that  $\widetilde G$ is a {properly discontinuous} \ref{top_properly_disc_group_defn} group of homeomorphisms of $\widetilde \sY$ such that $\sY \cong \widetilde \sY / \widetilde G$.
 	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	$
-	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}  ), and let $\phi: G\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
-	$\sY' \bydef \widetilde \sY/ \ker\left(G\to G \right)$ then one has:
+	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}  ), and let $\phi:\widetilde G\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
+	$\sY' \bydef \widetilde \sY/ \ker\left( \widetilde G\to G \right)$ then one has:
 	\begin{enumerate}
-		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_lift_fin_defn}),
+		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_finite_lift_defn}),
 		\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
 		%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
 		%\be\label{blowing_p_s_eqn}
@@ -12770,7 +12717,7 @@ The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes 
 Here we establish correspondence between noncommutative finite-fold covering and coverings of Hausdorff blowing-ups.
 \begin{theorem}\label{blowing_sufficient_covering_thm}
 	Let $C_0\left(\sY \right) \hookto M\left(A \right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) with  locally connected $\sY$, and let 
-	 $q: \widetilde\sY \to \sY$  be a finite-fold transitive $A$-regular covering (cf. Definition \ref{blowing_a_regular_defn}). If	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} (cf. Definition \ref{blowing_lift_fin_defn})  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+	 $q: \widetilde\sY \to \sY$  be a finite-fold transitive $A$-regular covering (cf. Definition \ref{blowing_a_regular_defn}) with connected $\widetilde \sY$. If	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} (cf. Definition \ref{blowing_finite_lift_defn})  then the quadruple $$\left(A,	 A_0\left( \widetilde \sY\right), G\left(\left.\widetilde \sY\right|\sY \right), A_0\left(q\right)\right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 
 \begin{proof}
@@ -12810,7 +12757,7 @@ If $ a \in K\left( A\right) $ is an element of Pedersen's ideal (cf. Definition 
 Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm} 
 \end{empt}
 \begin{empt}\label{blowing_ext_empt}
-	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sY$ be a spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
+	Let $\pi: M\left( A\right)   \hookto M\left( \widetilde A\right) $ be an injective $*$- homomorphism, and let $C_0\left( \sY\right) \subset M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $\widetilde \sX$ be the spectrum of   $\widetilde A$.  For any $\widetilde x \in\widetilde \sX$ the $C^*$-algebra 
 	$$
 	\widetilde{C}_{\widetilde{x}}\bydef \left\{c = \rep_{  \widetilde{x }}\left( a\right)\left|  a \in C_0\left(\sY \right)\right. \right\}\subset \rep_{  \widetilde{x }}\left(M\left( \widetilde A\right) \right)  
 	$$
@@ -12837,6 +12784,7 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 	\be\label{blowing_cb_eqn}
 	C_b\left( \sY\right) \hookto C_b\left( \widetilde \sY\right) 
 	\ee
+	!!! MAY BE CORRECT !!!
 \end{empt}
 
 \begin{definition}\label{blowing_ext_defn}
@@ -12871,19 +12819,19 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 \end{remark}
 
 
-\begin{theorem}\label{blowing_compact_unitization_thm} 
-	!!!	ANY !!!
-	Let both $\sY$ and $\widetilde \sY$ are compact Hausdorff spaces, and 
-	let $q: \widetilde \sY \to  \sY$ be a transitive finite-fold covering.
-	If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} then the quadruple
+\begin{lemma}\label{blowing_compact_unitization_lem}
+		Let $C\left(\sY \right) \hookto M\left(A \right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) with compact, locally connected space $\sY$, and let 
+	$q: \widetilde\sY \to \sY$  be a finite-fold  $A$-regular covering (cf. Definition \ref{blowing_a_regular_defn})
+	Let   both $\sY$ and $\widetilde \sY$ are connected, compact, Hausdorff spaces.
+	If $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ is a {finite}-$q$-{lift} (cf. Definition \ref{blowing_finite_lift_defn}) then the quadruple
 	\be\label{blowing_pre_eqn}
 	\left(A,	 A_0\left( \widetilde \sY\right), A_0\left(q\right), G\left(\left.\widetilde \sY\right|\sY \right) \right)
 	\ee
 	is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
-	The quadruple \eqref{blowing_pre_eqn} a noncommutative finite-fold pre-covering  (cf. Definition \ref{fin_pre_defn} and the Remark \ref{blowing_pre_rem}). There is a given by the equation \eqref{mult_map_eqn} injective $*$-homomorphism $M\left(\pi\right): M\left(A \right) \hookto M\left( A_0\left( \widetilde \sY\right)\right)$. 
+	From the Theorem \ref{blowing_sufficient_covering_thm} it follows that the quadruple \eqref{blowing_pre_eqn} a noncommutative finite-fold pre-covering  (cf. Definition \ref{fin_pre_defn}). There is a given by the equation \eqref{mult_map_eqn} injective $*$-homomorphism $M\left(\pi\right): M\left(A \right) \hookto M\left( A_0\left( \widetilde \sY\right)\right)$. 
 	If both $B$ and $\widetilde B$ are generated by $A \cup C\left( \sY\right)$ and $\widetilde A \cup C\left( \widetilde \sY\right)$ subalgebras of $M\left(A \right)$ and $M\left(A_0\left( \widetilde \sY\right) \right)$ then the triple $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$  is a noncommutative finite-fold   pre-covering.
 	If  $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sY \right)_+$ satisfies to \eqref{top_finite_covering_basis_eqn} then one has
 	\bean
@@ -12892,47 +12840,107 @@ Under the conditions of the Theorem \ref{blowing_sufficient_covering_thm}
 	\eean
 	i.e.  $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B, G, M\left(\pi \right)|_B  \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).
 \end{proof}
-\begin{empt}\label{blowing_uc_empt} !!! MAY BE DELETE !!!
-	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY \right)\hookto M\left( A\right) $ be Hausdorff blowing-up, and let
-	$\left(A, \widetilde A,  G\left(\left.\widetilde A\right|A \right), \pi \right)$ be a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is an unital noncommutative finite-fold covering $\left(M\left(A\right) , M\left(\widetilde{A}\right) , G\left(\left.\widetilde A\right|A \right),\widetilde \pi \right)$ (cf. Corollary \ref{cov_mult_fin_cor}). Suppose that if Hausdorff blowing-up $C_0\left( \sY'\right) \hookto M\left( \widetilde A\right)$ is induced by noncommutative covering (cf. Definition \ref{blowing_ext_defn}), then $\sY'\cong  \sY$.  There is the natural $*$-homomorphism $C_0\left(\sY \right)\hookto M\left( \widetilde A\right)$ and we leave to the reader the proof of that it is Hausdorff blowing-up.
-	If  $q: \widetilde \sY \to \sY$ is a   transitive covering  with $q$-lift $A_b\left(q \right)  : A \hookto M\left( A_0\left( \widetilde \sY\right) \right)$ (cf. Definition \ref{blowing_lift_defn}  ). Then similarly to \ref{blowing_lift_empt} there is an $C^*$-Hilbert $\widetilde A$-module $\mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}$ which is a completion  which is a completion  of  $\mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} \widetilde A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm.
-\end{empt}
-\begin{lemma}\label{blowing_uc_lem} !!! MAY BE DELETE !!!
-	Under the hypotheses \ref{blowing_uc_empt} the covering $q: \widetilde{\sY}\to \sY$ is $\widetilde A$-{regular} (cf. Definition \ref{blowing_a_regular_defn}).
-\end{lemma}
 
+\paragraph{!!! TORUS BEGIN  !!!}
+	Let $C\left(\sY \right) \hookto M\left(A \right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) with compact,  locally connected $\sY$.
+If $\left(A, \widetilde A,  G, \pi\right)$  is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) 
+then from the Lemma  \ref{blowing_unitization_lem}  and the Remark \ref{blowing_unitization_rem} it follows that there is a finite-fold covering $q: \widetilde{\sY}\to \sY$ with Hausdorff blowing-up $C\left( \widetilde{\sY} \right) \hookto M\left( \widetilde A\right)$. From the Lemma \ref{blowing_compact_unitization_lem}  it follows that  the quadruple 
+\be\label{blowing_c_fin_eqn}
+\left(A, A_0\left(\widetilde\sY \right) , G\left(\left.\widetilde\sY \right|\sY \right) , A_0\left(q \right) \right)
+\ee
 
-\begin{proof}
-	Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\left(\left.\widetilde \sY\right|\sY \right)\times  \mathscr A$ then there are:
-	\begin{itemize}
-		\item  the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$,
-		\item the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$,
-		\item the family $\left\{\widetilde \sU_{\widetilde \a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ of open subsets of $\widetilde \sY$ such that  $\widetilde \sY = \bigcup_{\widetilde \a \in \widetilde{\mathscr A}} \widetilde \sU_{\widetilde \a}$.
-	\end{itemize}
-	the natural action $G\left(\left.\widetilde \sY\right|\sY \right)\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$. If $\widetilde a \in K\left(\widetilde A \right)_+$ is a positive element of the Pedersen's ideal of $\widetilde A$ then the sum $a \bydef\sum_{	g \in G\left( \left. \widetilde A\right| A\right) }  \widetilde a$ is  a positive element of the Pedersen's ideal $K\left(A \right)$ of $\widetilde A$
-\end{proof}
-\begin{proof}
-	If a finite subset $\left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}  \subset M\left( \widetilde A\right)_+$ satisfies to \eqref{fin_compp_eqn} then one has
-	\be\label{blowing_fin_compp_eqn}
-	\widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n =  \widetilde{b}_1A+...+\widetilde{b}_n A.
-	\ee
-	One should prove that the  $C^*$-norm completion of the 	right $\widetilde{A}$-module
+	If under above hypotheses the noncommutative finite-fold covering \eqref{groupoid_nt_eqn} is reduced then from the Corollary \ref{red_proper_cor} !!! DELETE !!! it turns out that
+	the group
 	\bean
-	\varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left(\widetilde A\right) \right)\in \End^*_{\widetilde A}\left( \mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}\right)
-	\eean	
-	(cf. equation \eqref{blowing_tensor_eqn}) is a $C^*$-subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\widetilde \sY \right)_{\widetilde A}\right)$. If  $\widetilde{b} \in \left\{\widetilde{b}_1, ..., \widetilde{b}_n\right\}$, $~a\in A$ and $\widetilde f\in C_c\left(\widetilde\sY\right)$, $~\widetilde f\otimes \widetilde{b} a\in C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left(\widetilde A\right)$ then 
-	\bean
-	\varphi\left(\widetilde f\otimes a\widetilde{b}  \right) = 	\varphi_C\left( \widetilde f\right) \varphi_A\left(a\widetilde{b}  \right)\quad \Rightarrow \quad \varphi\left( a\widetilde{b} \otimes   \widetilde f\right)^* =\varphi_A\left(a\widetilde{b}  \right)^* \varphi_C\left( \widetilde f\right)^*=\\=\varphi_A\left(\widetilde{b}  a^*\right) \varphi_C\left( \widetilde f^*\right)\\
-	= \sum_{j=1}^n \varphi_A \left(  \widetilde{b}_j a_j\right) \varphi_C\left( \widetilde f\right)^*
-	\eean 
-	where $\sum_{j=1}^n   \widetilde{b}_j a_j= \left(\widetilde{b} a \right)^*$ (cf. \eqref{blowing_fin_compp_eqn}). On the other hand since the covering $q: \widetilde{\sY}\to \sY$ is $A$-{regular} for any $\eps > 0$ there is $\sum_{k=1}^m \widetilde f'_k \otimes a'_k \in C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)$ such that
-	\bean
-	\left\|\varphi \left( \sum_{k=1}^m \widetilde f'_k \otimes a'_k\right) - \varphi_A \left(  a_j\right) \varphi_C\left( \widetilde f\right)^* \right\| < \frac{\eps}{\left\| \widetilde{b}_j\right\|},\\
-	\left\|\varphi_A\left(\widetilde b_j \right) \varphi \left( \sum_{k=1}^m \widetilde f'_k \otimes a'_k\right) - \varphi_A \left( \widetilde b_j  a_j\right) \varphi_C\left( \widetilde f\right)^* \right\|< \eps
+	H \bydef \left\{\left. g \in G \right| \forall a \in  A_0\left(q \right)\left( A\right) \quad ga=a \right\}
 	\eean
+	is $\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn}). From the Lemma \ref{fin_composition_covering_lem} it follows that there are $H$-{regular}  $H$-{singular} noncommutative finite-fold coverings 
+	\be\label{groupoid_reg_sing_eqn}
+	\begin{split}
+		\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right) , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right),\\
+		\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), \widetilde A, G/H, \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\right)
+	\end{split}
+	\ee
+	(cf. Definition \ref{fin_composition_covering_defn}). If both $\widetilde \sX$ and $\sX$ are spectra of   $\widetilde A$ and $C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)$ and $p: \widetilde{\sX} \to \sX$ is given by the Proposition \ref{spectrum_covering_finite_prop} then form our construction it follows that there is the natural $*$-isomorphism
+	$$
+	C\left( \widetilde\T^{2N}\right) \cong \left\{ \left. \widetilde a \in M\left( \widetilde A\right) \right| \forall \widetilde x \in \widetilde\sX \quad \rho_{\widetilde x}\left( \widetilde a \right)\in  \rho_{p\left( \widetilde x\right) }\left(C\left( \widetilde\sY\right)  \right) \right\}
+	$$
+	It follows that there is Hausdorff blowing-up $C\left( \widetilde\sY\right)  \hookto M\left(\widetilde A\right)$. Taking into account a transitive covering $\widetilde q : \R^{2N}\to \widetilde \T^{2N} $  one has a  the $\R^{2N}$-$\widetilde A$-{module} $\mathscr L^2\left(\R^{2N} \right)_{\widetilde A}$(cf. Definition \ref{blowing_lift_hm_defn}).
+
+
+\begin{lemma}!!! \label{groupoid_tar_lem}
+	Under hypotheses \ref{groupoid_lift_constr_empt} the covering $\widetilde q : \R^{2N}\to \widetilde \T^{2N} $ is $\widetilde A$-regular (cf. Definition \ref{blowing_a_regular_defn}).
+\end{lemma}
+\begin{proof}
+	!!! DELETE !!!
+\end{proof}
+
+\begin{empt}
+\end{empt}
+\begin{theorem}
+	For any reduced noncommutative finite-fold covering with unitization 
+	\be\label{groupoid_a_he_eqn}
+	\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)
+	\ee	
+	(cf. Definitions \ref{fin_unital_defn} and \ref{fin_red_defn}) there is a covering $q: \widetilde \T^{2N}\to \T^{2N}$ such that the quadruple  $\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)$ is equivalent to 
+	\be\label{groupoid_a_ce_eqn}
+	\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right) , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right) 	
+	\ee
+	one.
+\end{theorem}
+\begin{proof}
+	From the construction \ref{groupoid_lift_constr_empt} it follows that there are given by \eqref{groupoid_reg_sing_eqn} $H$-{regular} and  $H$-{singular} noncommutative finite-fold coverings with unitization
+	\bean
+	\begin{split}
+		\left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right)\cong G/H , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right),\\
+		\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), \widetilde A,H, \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\right)
+	\end{split}
+	\eean
+	(cf. Definition \ref{fin_unitization_defn}). The quadruples \ref{groupoid_a_he_eqn} and 
+	\ref{groupoid_a_ce_eqn} are equivalent if and only if the  $H$-{singular} noncommutative finite-fold covering $$\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right), \widetilde A,H, \Id_{\widetilde A}|_{C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)}\right)$$ is trivial.  From the Definition \ref{fin_unitization_defn} it follows that there is a finite subset $\left\{\widetilde b_1,...,\widetilde b_n\right\}\in M\left( \widetilde A\right)$ such that
+	\be\label{groupoid_sum_defn}
+	\begin{split}
+		\widetilde A = C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)\widetilde b_1+...+C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)\widetilde b_n =\\=
+		C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\widetilde b_1+...+C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\widetilde b_n
+	\end{split}
+	\ee
+	The universal covering $\widetilde q: \R^{2N}\to \widetilde \T^{2N}$ is $\G\left(\widetilde \T^{2N}, \F_{\widetilde \th} \right)$-regular (cf. Definition \ref{groupoid_lift_defn}), so 
+	from the Lemma \ref{groupoid_tar_lem} it follows that 
+	$$
+	\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right)	
+	$$
+	is a $*$-subalgebra of $\End^*_{\widetilde A}\left( \mathscr L^2\left(\R^{2N} \right)_{\widetilde A}\right)$. However from it follows that
+	\bean
+	\widetilde\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(\widetilde  A\right) \right) =\\
+	\varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\right) \right)\widetilde M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_1\right)+ ...\\... + \varphi\left(C_c\left( \R^{2N} \right)\otimes_{C_0\left(\widetilde \T^{2N}\right) } K\left(C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)\right) \right)M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_n\right). 
+	\eean
+	where $M\left(A_b\left(\widetilde q \right)\right) $ is given by \eqref{blowing_lift_m_eqn}.
+	Using dense inclusions \eqref{groupoid_antn_eqn} and  \eqref{groupoid_antnnn_eqn} we obtain the following
+	\be\label{groupoid_fing_eqn}
+	\begin{split}
+		\widetilde  A\left(\R^{2N} \right)= \left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right) M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_1\right)   + ...\\
+		... + \left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right) M\left(A_b\left(\widetilde q \right)  \right)\left(  \widetilde b_n\right),
+	\end{split}
+	\ee
+	and there is an injective $*$-homomorphism $\widetilde \pi: \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right)\hookto \widetilde  A\left(\R^{2N} \right)$.
+	From 
+	\bean
+	H\cong \left\{\left.g \in \Aut\left(\widetilde A \right)\right| \forall a \in C^*_{\widetilde\rho}\left( \widetilde\T^{2N}, \widetilde{\mathcal{F}}_{\widetilde\th}\right)_0\left(q \right)(A) \quad ga = a \right\}\cong \\
+	\cong \left\{\left.g \in \Aut\left(\widetilde A\left(\R^{2N} \right)  \right)\right| \forall a \in \widetilde \pi\left(  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right)\right)  \quad ga = a \right\}
+	\eean
+	it follows that a quadruple
+	\be\label{groupoid_pre_eqn}
+	\left(  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right),\widetilde  A\left(\R^{2N} \right), H, \widetilde \pi  \right) 
+	\ee
+	is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Since \eqref{groupoid_fing_eqn} is a specialization of \eqref{fin_comp*_eqn} we conclude that the triple \eqref{groupoid_pre_eqn} is a covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	From the Theorem \ref{ctr_fin_cov_thm} it follows that there is a finite-fold transitive covering $p: \widetilde \sX \to \R^{2N}$ with connected $\widetilde \sX$ such that the quadruple  \eqref{groupoid_pre_eqn} is equivalent to 
+	$$
+	\left(  \K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right),\left(\K\left(L^2\left(R^N \right)  \right) \otimes C_0\left(\R^N\right) \right)_0\left(\widetilde \sX \right) , H, \widetilde \pi'  \right)
+	$$
+	However any covering $p: \widetilde \sX \to \R^{2N}$ is trivial, so 
 	
 \end{proof}
-
+\paragraph{!!! END TORUS !!!}
 
 
 
@@ -12950,7 +12958,7 @@ Here we consider a generalization of the functor $A_0$  described in the Section
 Let $A$ be a connected $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$. Consider a category $\mathfrak{FinCov}\text{-}A\text{-}\sY$ such that 
 \begin{itemize}
 	\item any $\mathfrak{FinCov}\text{-}A\text{-}\sY$-object is
-	a {finite}-$q$-{lift} $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ of $A$ (cf. Definition \ref{blowing_lift_fin_defn})
+	a {finite}-$q$-{lift} $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$ of $A$ (cf. Definition \ref{blowing_finite_lift_defn})
 	\item  any $\mathfrak{FinCov}\text{-}A\text{-}\sY$-morphism from   $A_0\left(q'\right) : A \hookto	 A_0\left( \widetilde \sY'\right)$ to  $A_0\left(q''\right) : A \hookto	 A_0\left( \widetilde \sY''\right)$ is an injective $*$-homomorphism $\pi: A_0\left( \widetilde \sY''\right)\hookto A_0\left( \widetilde \sY'\right)$ such that the following diagram
 				\newline
 \begin{tikzcd}
@@ -12970,7 +12978,7 @@ is commutative.
 	If $A$ is a connected $C^*$-algebra with  Hausdorff blowing-up and $C_0\left(\sY \right)\hookto M\left(A \right)$ such that the space $\sY$ is locally connected, then one has:
 	\begin{enumerate}
 		\item [(i)]  the {category $\mathfrak{FinCov}$-$A$-$\sY$ of finite-fold} $\sY$-{coverings} of $A$ (cf. Definition \ref{blowing_alg_reg_cov_cat_defn}) is a subcategory (cf. Definition \ref{subcategory_defn}) of    the {category $\mathfrak{FinCov}$-$A$ of finite-fold coverings} of $A$ (cf. Definition \ref{fin_category_defn} !!! REPLACE finite covering category !!!),
-		\item[(ii)]the given by the  \ref{blowing_lift_fin_defn} 	{finite}-$q$-{lifts} (e.g. $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$) of $A$  yield a full functor (cf. Definition \ref{funct_full_faithfull_defn})
+		\item[(ii)]the given by the  \ref{blowing_finite_lift_defn} 	{finite}-$q$-{lifts} (e.g. $A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)$) of $A$  yield a full functor (cf. Definition \ref{funct_full_faithfull_defn})
 		\be\label{blowing_functor_y_eqn}
 				\mathfrak{FinCov}\text{-}\sY\text{-}A\xrightarrow{A_0}\mathfrak{FinCov}\text{-}A\text{-}\sY
 		\ee
@@ -13030,7 +13038,7 @@ $$
 	$$
 	then there is  natural Hausdorff blowing-up $C_0\left(\overline \sY \right) \hookto \overline A$.
 	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}  .\\
-(ii) 	Firstly we prove that  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. If  $\la \in \La$ and $\overline q_\la \overline \sY\to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it turns out the $\overline q_\la$ is $A_0\left( \sY_\la\right)$-regular and there is   $\overline q_\la$-{lift} 	$A_b\left(\overline q_\la\right): A\left(\sX_\la \right)  \hookto	M\left( A_0\left( \overline \sY\right)\right)$. From the Lemma \ref{blowing_series_lem}
+(ii) 	Firstly we prove that  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. If  $\la \in \La$ and $\overline q_\la \overline \sY\to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it turns out the $\overline q_\la$ is $A_0\left( \sY_\la\right)$-regular and there is   $\overline q_\la$-{lift} 	$A_b\left(\overline q_\la\right): A\left(\sX_\la \right)  \hookto	M\left( A_0\left( \overline \sY\right)\right)$. From the Lemma \ref{blowing_series_lem} !!!\ref{blowing_descent_lem} !!! \ref{foli_fibration_exm}
 it follows that for any $\overline a \in K\left(\overline A \right)$ one has
 $$
 \desc_{\la} \overline a  = \bt\text{-}\sum_{g \in \ker\left( \widehat G \to G\left(\left. \sY_\la \right|\sY \right)\right) }g \overline a = A_b\left(\overline q_\la \right) \circ \desc^c_q\left(\overline a \right) \in A_b\left(\overline q_\la \right)\left(A_0\left(\sX_\la \right)  \right) 
@@ -14202,7 +14210,7 @@ Our following constructions require an analog of the Dini's theorem.
 	$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
-	where $A_0\left( \widetilde{\sX }\right)$ is given by the Definitions  \ref{top_lift_a_f_defn} and/or \ref{blowing_lift_fin_defn} $p$-lift of $A$, and $*$-homomorphism  $A_0\left(p\right)$ is given by the equations \eqref{top_c0_ob_eqn} and/or \eqref{blowing_lift_fin_eqn}.
+	where $A_0\left( \widetilde{\sX }\right)$ is given by the Definitions  \ref{top_lift_a_f_defn} and/or \ref{blowing_finite_lift_defn} $p$-lift of $A$, and $*$-homomorphism  $A_0\left(p\right)$ is given by the equations \eqref{top_c0_ob_eqn} and/or \eqref{blowing_lift_fin_eqn}.
 \end{lemma}
 \begin{proof}
 	This lemma follows from the Example \ref{blowing_hausdorff_exm} and the Theorem \ref{blowing_sufficient_covering_thm}.
@@ -15597,7 +15605,7 @@ Here we apply the explained in the chapter \ref{blowing_chap} to the investigati
 
 
 \begin{theorem}\label{groupoid_fin_thm}
-	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite-fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) the natural quadruple
+	Under the hypothesis \ref{groupoid_n_cov_empt}  suppose that the covering $q$ is finite-fold and $C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) : C^*_{\rho}\left( \G ,  \sigma \right)\hookto C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right)$ is the finite-fold $q$-lift (cf. Definition \ref{blowing_finite_lift_defn}). If the space $\G^0$ consents with noncommutative coverings (cf. Definition \ref{top_consents_defn}  !!! REPLACE LOCALLY CONNECTED !!!) the natural quadruple
 	\be\label{groupoid_fin_eqn}
 	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\widetilde \G , \widetilde \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \widetilde{\G}^0\right) , 	G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right), C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right)   \right)  
 	\ee
@@ -15662,7 +15670,7 @@ Prove that for any foliated manifold $\left(M, \F\right)$ (cf. Definition \ref{f
 
 
 \begin{theorem}\label{groupoid_foli_fin_thm}
-If $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is a 	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}), and an injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn}) then the natural quadruple
+If $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is a 	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}), and an injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_finite_lift_defn}) then the natural quadruple
 	\be\label{groupoid_foli_fin_eqn}
 	\left(C^*_{\rho}\left( M, \mathcal{F}\right),  C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right) , 	G\left(\left.\widetilde{M}~~\right|~M \right), C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right)   \right)  
 	\ee
@@ -15676,7 +15684,7 @@ The space $M$ is locally connected, hence  this theorem is a specialization of \
 	\be\label{groupoid_folis_fin_eqn}
 \left(C^*_{\rho}\left( M, \mathcal{F}\right),  C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right) , 	G\left(\left.\widetilde{M}~~\right|~M \right), C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right)   \right)  
 \ee
-where $q: $ is a	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}) and the  injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_lift_fin_defn})	
+where $q: $ is a	regular covering of foliated manifolds (cf. Definition \ref{foli_reg_cov_defn}) and the  injective $*$-homomorphism $C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( q\right) : C^*_{\rho}\left( M, \mathcal{F}\right)\hookto C^*_{\rho}\left( M, \mathcal{F}\right)_0\left( \widetilde{M}\right)\cong 	C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)$ (cf. equation \eqref{groupoid_blowing_fin_eqn}) is the finite-fold $q$-lift (cf. Definition \ref{blowing_finite_lift_defn})	
 \end{theorem}
 \begin{proof}
 	If $\left(C^*_{\rho}\left( M, \mathcal{F}\right),   \widetilde A, 	G, \pi   \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then from  the Lemma \ref{blowing_unitization_lem} it follows that there is a regular transitive finite-fold covering $\widetilde q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ such that there is the natural inclusion $C\left( \widetilde M\right) \subset M\left( \widetilde A\right)$ (cf. the construction \ref{blowing_ext_empt}). From the Definition \ref{blowing_lift_defn}    and taking into account that $C\left( \widetilde M\right)$ is an unital $C^*$-algebra we conclude that $C^*_{\widetilde \rho}\left( \widetilde M,\widetilde \F\right)=C^*_{\rho}\left( M, \mathcal{F}\right)_0\left(\widetilde M \right)$ is an algebraic  $\C$-linear span of a set
@@ -15961,7 +15969,7 @@ If there  is a noncommutative finite-fold covering with unitization (cf. Definit
 \be\label{groupoid_nt_eqn}
 \left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), \widetilde A, G, \pi\right)
 \ee 
- then from the Theorem \ref{blowing_unitization_lem} !!! LEMMA !!! and the Remark \ref{blowing_unitization_rem} it follows that there is a finite-fold covering $q: \widetilde{\sY}\to \T^2$ with Hausdorff blowing-up $C\left( \widetilde{\sY} \right) \hookto M\left( \widetilde A\right)$. Any finite-fold coverings of $\T^2$ are well known and $\widetilde{\sY}$ is homeomorphic to $\T^{2N}$, we denote $\widetilde{\T}^{2N} \bydef\widetilde{\sY}$. From the Theorem \ref{blowing_compact_unitization_thm} it follows that  the quadruple 
+ then from the Theorem \ref{blowing_unitization_lem} !!! LEMMA !!! and the Remark \ref{blowing_unitization_rem} it follows that there is a finite-fold covering $q: \widetilde{\sY}\to \T^2$ with Hausdorff blowing-up $C\left( \widetilde{\sY} \right) \hookto M\left( \widetilde A\right)$. Any finite-fold coverings of $\T^2$ are well known and $\widetilde{\sY}$ is homeomorphic to $\T^{2N}$, we denote $\widetilde{\T}^{2N} \bydef\widetilde{\sY}$. From the Theorem \ref{blowing_compact_unitization_lem} !!! REPLACE LEMMA !!! it follows that  the quadruple 
 \be\label{groupoid_nt_fin_eqn}
 \left(C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right), C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left( \widetilde{\T}^2\right), G\left(\left.\widetilde{\T}^{2N} \right|\T^{2N} \right) , C^*_\rho\left( \T^{2N}, \mathcal{F}_\th\right)_0\left(q \right) \right)
 \ee
@@ -26389,7 +26397,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		SO\left(3 \right) \cong SU\left(2\right)/\Z_2,\\
 		g\begin{pmatrix} \al & -\overline{\bt}\\
 			\bt & \overline{\al}\end{pmatrix}= \begin{pmatrix} -\al & \overline{\bt}\\
-			-\bt & -\overline{\al}\end{pmatrix};~ \forall \begin{pmatrix} \al & -\overline{\bt}\\
+			-\bt & -\overline{\al}\end{pmatrix};\quad \forall \begin{pmatrix} \al & -\overline{\bt}\\
 			\bt & \overline{\al}\end{pmatrix}\in SU\left(2\right).
 	\end{split}
 	\ee	
@@ -26440,7 +26448,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 	
 \subsection{The group of motions of the Euclidean quantum plane}
 
-The group of motions of the Euclidean quantum plane if represented by a *-algebra of unfounded operators. Here I follow to \cite{woronowicz:unb_affil}. Let us fix a real number $\mu$ such that $\left|\mu \right| > 1$; $\mu=1$ corresponds to the classical (i.e. non-quantum) case. In \cite{woronowicz:unb_affil} the quantum group $G_\mu$ is introduced. Let $A_\mu$  be the $*$-algebra generated by two elements $u$ and $n$ such that
+\paragraph{}The group of motions of the Euclidean quantum plane is represented by a *-algebra of unfounded operators. Here I follow to \cite{woronowicz:unb_affil}. Let us fix a real number $\mu$ such that $\left|\mu \right| > 1$; $\mu=1$ corresponds to the classical (i.e. non-quantum) case. In \cite{woronowicz:unb_affil} the quantum group $G_\mu$ is introduced. Let $A_\mu$  be the $*$-algebra generated by two elements $u$ and $n$ such that
 \be\label{em_eqn}
 \begin{split}
 	v^*v = vv^* = 1_{A_\mu},\\
