@@ -2558,6 +2558,16 @@ Since both $A \subset M\left(A \right)$ and $\widetilde{A}\subset M\left( \widet
 \eean
 It follows that $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Now this corollary follows from \ref{cov_mult_fin_cor} one.
 \end{proof}
+\begin{remark}
+From the Corollary \ref{cov_mult_fin_c_cor} and the equation \eqref{frame_rem_eqn} it follows that if  $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) then one has
+
+\be\label{cov_mult_fin_c_eqn}
+\begin{split}
+\exists \left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset   M\left(  \widetilde{A}\right) \quad \forall \widetilde{a} \in M\left( \widetilde{A}\right) \quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j a_j \\
+\text{where} \quad \forall j\in \left\{1,...,n\right\}\quad a_j\bydef  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in M\left(\pi \right) \left(  M\left( A\right) \right) .
+\end{split}
+\ee
+\end{remark}
 \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_fin_defn}
@@ -12043,7 +12053,7 @@ Here we suppose that we have Hausdorff blowing-us and investigate conditions whe
 	\be\label{blowing_tensor_eqn}
 	\begin{split}
 		\varphi: C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
-		\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
+		\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\sum_{j=1}^n 	\varphi_C\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
 	\end{split}
 	\ee
 	of right $C_0\left( \widetilde\sY\right)$-$A$-bimodules, where 	$\varphi_A, ~	\varphi_C$ are given by  \eqref{blowing_a_h_eqn}, \eqref{blowing_c_h_eqn} and the algebraic tensor product is implied. Since both $C_c\left(\widetilde \sY \right)$ and   $K\left(A \right)$ are dense in $C_0\left(\widetilde \sY \right)$ and  $A$ respectively the -homomorphism \eqref{blowing_tensor_eqn} can be uniquely extended up to a  $C_0\left( \widetilde\sX\right)$-$A$-bimodule homomorphism 
@@ -12056,7 +12066,7 @@ Here we suppose that we have Hausdorff blowing-us and investigate conditions whe
 \end{empt}
 
 \begin{definition}\label{blowing_lift_hm_defn}
-	Under the hypotheses \ref{blowing_lift_empt} and ???\ref{top_cov_empt} we say that the $C^*$-Hilbert $A$-module  $\mathscr L^2\left(\widetilde \sY \right)_A$ is the $\widetilde \sY$-$A$-\textit{module}.
+	Under the hypotheses \ref{blowing_lift_empt}  we say that the $C^*$-Hilbert $A$-module  $\mathscr L^2\left(\widetilde \sY \right)_A$ is the $\widetilde \sY$-$A$-\textit{module}.
 \end{definition}
 \begin{definition}\label{blowing_a_regular_defn}
 	Under the hypotheses  \ref{blowing_lift_empt}
@@ -12890,20 +12900,20 @@ From the Lemma \ref{blowing_compact_unitization_lem} it follows that
 	H \bydef \left\{\left. g \in G \right| \forall a \in  A_0\left(q \right)\left( A\right) \quad ga=a \right\}
 	\eean
 	is $\left(A,  \widetilde A, G, \pi\right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn}). From the Lemma \ref{fin_composition_unitization_lem} it follows that there are $H$-{regular}  $H$-{singular} noncommutative finite-fold coverings with unitization (cf. Definition \ref{fin_unitization_defn})
-	\be\label{blowing_reg_sing_eqn}
+	\bea\label{blowing_reg_sing_m_eqn}
+	\left(A, A_0\left(\widetilde\sY \right) , G\left(\left.\widetilde\sY \right|\sY \right) \cong G/H, A_0\left(q \right) \right),\\
+	\label{blowing_reg_sing_eqn}
+	\left( A_0\left(\widetilde\sY \right)\cong \widetilde A^H , \widetilde A,H ,\left.\Id_{\widetilde A} \right|_{ A_0\left(\widetilde\sY \right)}\right) 	
+	\eea
+	(cf. Definition \ref{fin_composition_covering_defn}).  From the Corollary \ref{cov_mult_fin_c_cor} it follows that 		
+	\be\label{blowing_frame_l_eqn}
 	\begin{split}
-	\left(A, A_0\left(\widetilde\sY \right) , G\left(\left.\widetilde\sY \right|\sY \right) , A_0\left(q \right) \right),\\
-	\left( A_0\left(\widetilde\sY \right)\cong \widetilde A^H , \widetilde A, G ,\left.\Id_{\widetilde A} \right|_{\widetilde A^H}\right) 	\end{split}
+		\exists \left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset   M\left(  \widetilde{A}\right) \quad \forall \widetilde{a} \in \widetilde{A}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j a_j \\
+		\forall j\in \left\{1,...,n\right\}\quad a_j\bydef  \sum_{g \in H} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in M\left( \left.\Id_{\widetilde A} \right|_{ A_0\left(\widetilde\sY \right)}\right) M\left(  A_0\left(\widetilde\sY \right)\right) .
+	\end{split}
 	\ee
-	(cf. Definition \ref{fin_composition_covering_defn}). From the construction \ref{frame_l_empt} it follows that there is a finite subset 
-\be\label{blowing_frame_lb_eqn}
-	\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left( \widetilde{A}\right) 
-\ee
-	such that
-	 	\be\label{blowing_frame_l_eqn}
-	\forall \widetilde{a} \in \widetilde A	\quad	\widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_ja_j\quad \text{ where }\quad a_j\bydef  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in \left.\Id_{\widetilde A} \right|_{\widetilde A^H}\left( A_0\left(\widetilde\sY \right)\right)	
-	\ee
-(cf. the equation \eqref{frame_l_eqn}).	
+	(cf. the equation \eqref{cov_mult_fin_c_eqn})	
+	
 	 There are Hausdorff blowing-up  $C\left( \widetilde\sY\right)  \subset  M\left(A_0\left(\widetilde \sY\right) \right)$ and $C\left( \widetilde\sY\right)  \subset M\left(\widetilde A\right)$  one.
 \begin{lemma}
 	Under the above hypotheses if a transitive covering $q': \widetilde\sY' \to \widetilde\sY$ is $A_0\left(\widetilde \sY\right)$-regular then it is  $\widetilde A$-regular.
@@ -12911,15 +12921,15 @@ From the Lemma \ref{blowing_compact_unitization_lem} it follows that
 \begin{proof}
 	Similarly to \eqref{blowing_tensor_eqn} there are homomorphisms 
 	\bean
-		\varphi': C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\left(  A_0\left(\widetilde \sY \right)_0\left(  \widetilde \sY'\right)\right)_0\right)  \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY' \right)_{\left(  A_0\left(\widetilde \sY \right)_0\left(  \widetilde \sY'\right)\right)_0}\right),\\
-		\varphi'': C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY' \right)_{\widetilde A}\right)
+		\phi': C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(  A_0\left(\widetilde \sY \right)\right)   \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY' \right)_{\left(  A_0\left(\widetilde \sY \right)\right)_0 \left(  \widetilde \sY'\right)}\right),\\
+		\phi'': C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY' \right)_{\widetilde A}\right)
 	\eean 
 	of right $C_0\left( \widetilde \sY' \right)$-modules.
 	If $$
-	\widetilde a \in\varphi''\left(  C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right) 
+	\widetilde a \in\phi''\left(  C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right) 
 	$$ is a positive then $\widetilde a^\oplus  \bydef \sum_{	g \in {H}}\widetilde a\in K\left( A_0\left(\widetilde \sY\right)\right)$ is also positive. Since $\widetilde a^\oplus$ is $H$-invariant one can suppose that 
 	$$
-\widetilde a^\oplus\in \varphi'\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\left(  A_0\left(\widetilde \sY \right)_0\left(  \widetilde \sY'\right)\right)_0\right) \right).
+\widetilde a^\oplus\in \phi'\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\left(  A_0\left(\widetilde \sY \right)_0\left(  \widetilde \sY'\right)\right)_0\right) \right).
 $$	
 From the Lemma \ref{blowing_lift_eq_lem} it follows that there is a positive $\widetilde f' \in C_c \left( \widetilde \sY'\right)$  such that
 $$
@@ -12931,46 +12941,114 @@ $$
 $$
 Now from the Lemma \ref{blowing_lift_eq_lem} it follows that  $q': \widetilde\sY' \to \widetilde\sY$ is $A_0\left(\widetilde \sY\right)$-regular then it is  $\widetilde A$-regular.
 \end{proof}
-From the Lemma \ref{blowing_mult_iclusion_lem} it follows that there are natural inclusions
+\begin{lemma}\label{blowing_h_act_lem}
+Under the above hypotheses the natural action 
 \bean
-M\left( \widetilde A_0\left(\widetilde \sY\right)\right) \subset M\left( \widetilde A_0\left(\widetilde \sY'\right)\right) ,\\
-M\left( \widetilde A\right) \subset M\left( \widetilde A_0\left(\widetilde \sY'\right) \right).
+\begin{split}
+	H \times \phi''\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right) \to\phi''\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right),\\
+	\left(g, \phi''\left( \widetilde f \otimes a \right) \right) \mapsto \phi''\left( \widetilde f \otimes a \right).
+\end{split}
+\eean
+yields an action 
+\be\label{blowing_h_act_eqn}
+	H \times \widetilde A_0\left(\widetilde \sY'\right) \to \widetilde A_0\left(\widetilde \sY'\right)
+\ee
+such that any $g \in H$ is a $*$-automorphism.
+\end{lemma}
+\begin{proof}
+If $\widetilde a \in \phi''\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right)$ then from the equation \eqref{blowing_tensor_eqn} one has
+$$
+\widetilde a = 	\sum_{j=1}^n  	\varphi_C\left( \widetilde f'_j\right) \varphi_A\left(a_j \right)
+$$
+and
+$$
+\forall g \in H \quad g \widetilde a = \sum_{j=1}^n  	\varphi_C\left( \widetilde f'_j\right) \varphi_A\left(g a_j \right)
+$$
+If $\widetilde b \in \phi''\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right)$ from the Lemma \ref{blowing_lift_eq_eqn} one can deduce that 
+$$
+\widetilde b = 	\sum_{l=1}^m  	 \varphi_A\left(b_l \right) \varphi_C\left( \widetilde f''_l\right)
+$$
+and
+$$
+\forall g \in H \quad g \widetilde b = \sum_{l=1}^m  	 \varphi_A\left(g b_l \right) \varphi_C\left( \widetilde f''_l\right).
+$$
+From the above equations one has
+\bean
+ \left( g  \widetilde a\right)  \left( g \widetilde b\right) = \sum_{\substack{j=1\\l=1}}^{\substack{j=n\\l=m}}\varphi_C\left( \widetilde f'_j\right) \varphi_A\left(ga_j \right) \varphi_A\left(g b_l \right) \varphi_C\left( \widetilde f''_l\right)=\\= \sum_{\substack{j=1\\l=1}}^{\substack{j=n\\l=m}}\varphi_C\left( \widetilde f'_j\right) \varphi_A\left(g\left( a_j  b_l\right)  \right) \varphi_C\left( \widetilde f''_l\right)= g\left(  \widetilde a\widetilde b\right). 
 \eean 
+Similarly one can prove that  for each $\widetilde a,  \widetilde b\in \phi''\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right)$ one has
+\bean
+g \widetilde a^* = \left(g \widetilde a \right)^*,\\
+g \widetilde a + g \widetilde b = g\left( \widetilde a\widetilde b\right).
+\eean 
+Since $\phi''\left( C_0\left( \widetilde \sY' \right)\otimes_{C_0\left(\widetilde \sY\right) } K\left(\widetilde A\right)\right)$ id dense in $\widetilde A_0\left(\widetilde \sY'\right)$ we obtain the action \eqref{blowing_h_act_eqn}.
+
+\end{proof}
+From the Lemma \ref{blowing_h_act_lem} it follows that $A_0\left(\widetilde \sY'\right) = \widetilde A_0\left(\widetilde \sY'\right)^H$, a noncommutative finite-fold quasi-covering
+\be\label{blowing_inf_eqn}
+\left(A_0\left(\widetilde\sY' \right), \widetilde A_0\left(\widetilde\sY' \right), H, \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)} \right) 
+\ee
+(cf. Definition \ref{fin_quasi_defn})
+ which can be naturally extended uo to an injective $*$-homomorphism 
+$$
+M\left( \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)}\right)  : M\left(  A_0\left(\widetilde \sY'\right)\right)\hookto M\left( \widetilde A_0\left(\widetilde \sY'\right)\right).
+$$
+(cf. Lemma \ref{fin_multilier_lem}). From the Lemma \ref{blowing_mult_iclusion_lem} it follows that there are natural inclusions
+\bean
+\varphi' : M\left(  A_0\left(\widetilde \sY\right)\right) \hookto M\left(  A_0\left(\widetilde \sY'\right)\right) ,\\
+\varphi'': M\left( \widetilde A\right) \hookto M\left( \widetilde A_0\left(\widetilde \sY'\right) \right).
+\eean 
+
+(cf. the equations \ref{blowing_reg_sing_eqn})
 Otherwise the Lemma \ref{fin_multilier_lem} yields an inclusion 
 \bean
-M\left( \widetilde A_0\left(\widetilde \sY\right)\right) \subset M\left(  \widetilde A\right) 
+M\left(\left.\Id_{\widetilde A} \right|_{ A_0\left(\widetilde\sY \right)} \right)  : M\left(  A_0\left(\widetilde \sY\right)\right) \hookto M\left(  \widetilde A\right) 
 \eean
 such that a following diagram
 \\
 \begin{tikzcd}
-M\left( \widetilde A_0\left(\widetilde \sY\right)\right) \arrow[rr]\arrow[rd]&& M\left(  \widetilde A\right)\arrow[ld]\\
-&M\left( \widetilde A_0\left(\widetilde \sY'\right)\right)  &
+M\left(  A_0\left(\widetilde \sY\right)\right) \arrow[rrrr, "M\left(\left.\Id_{\widetilde A} \right|_{ A_0\left(\widetilde\sY \right)}\right)"]\arrow[d , "\varphi'"]&&&& M\left(  \widetilde A\right)\arrow[d, "\varphi''"]\\
+M\left(  A_0\left(\widetilde \sY'\right)\right)\arrow[rrrr, "M\left( \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)}\right)  "]  &&&&M\left( \widetilde A_0\left(\widetilde \sY'\right)\right)  
 \end{tikzcd}
 \\
-is commutative. Using these inclusions one can implicitly suppose that the given by the equation \eqref{blowing_frame_lb_eqn}  set $\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left( \widetilde{A}\right)$  is a subset of $M\left( \widetilde A_0\left(\widetilde \sY'\right)\right)$, i.e.
-$$
-\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left( \widetilde A_0\left(\widetilde \sY'\right)\right)
-$$.
-From the equation \eqref{blowing_frame_l_eqn} it follows that
+is commutative. If $\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left( \widetilde{A}\right)$ is the  given by the equation \eqref{blowing_frame_l_eqn}  set then
+from the equation \eqref{blowing_frame_l_eqn} it follows that
 \be\label{blowing_frame_ll_eqn}
-\forall \widetilde{a} \in \widetilde A_0\left(\widetilde \sY'\right)	\quad	\widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_ja_j\quad  \text{ where }\quad  a_j\bydef  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in A_0\left(\widetilde\sY \right)	
+\begin{split}
+\forall \widetilde{a} \in M\left( \widetilde A_0\left(\widetilde \sY'\right)\right) 	\quad	\widetilde{a}=	\sum_{j=1}^{n}\varphi''\left( \widetilde{b}_j\right) a_j\\ \text{ where }  a_j\bydef  \sum_{g \in G} g\left(\varphi''\left( \widetilde{a}^*_j\right) \widetilde{a} \right)\in M\left( \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)}\right)\left( M\left(  A_0\left(\widetilde\sY \right)	\right) \right).
+\end{split}
 \ee
 where the natural inclusion $ A_0\left(\widetilde\sY \right)	\subset  A_0\left(\widetilde\sY' \right)$ is implied 
 	
-\begin{lemma}
-Under the  above hypotheses if $\phi: A_0\left(\widetilde\sY \right)\hookto A_0\left(\widetilde\sY' \right)$ is the natural inclusion then the triple 
-$$
-\left(A_0\left(\widetilde\sY \right), A_0\left(\widetilde\sY' \right), H, \phi \right) 
-$$
-is a noncommutative finite-fold covering with unitization.
+\begin{lemma}\label{blowing_inf_lem}
+Under the  above hypotheses the given by \eqref{blowing_inf_eqn} noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}) 
+is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}).
 \end{lemma}
 \begin{proof}
-!!! PRECOVERING
+ From the Corollary \ref{ind_mult_inv_cor} it follows that 
+\be\label{fin_quasi_m_defn}
+ \left(M\left( A_0\left(\widetilde\sY' \right)\right) ,M\left(  \widetilde A_0\left(\widetilde\sY' \right)\right) , H, M\left( \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)}\right)  \right) 
+\ee
+ is noncommutative finite-fold quasi-covering. If $\left\{\widetilde u_\la\right\}_{\la\in \La}\subset C_0\left( \widetilde\sY\right)$ is an approximate unit for $ C_0\left( \widetilde\sY\right)$ (cf. Definition \ref{approximate_unit_defn}) then
+\bean
+  \varphi''\left( M\left(  \widetilde A\right)\right)= \left\{\left.a \in  M\left(  \widetilde A_0\left(\widetilde\sY' \right)\right)\right| a = \b\text{-}\lim  a\varphi_C\left( \widetilde u_\la\right) \right\}
+\eean
+ where $\bt$-$\lim$ implies the convergence with respect to the strict topology of $M\left(  \widetilde A_0\left(\widetilde\sY' \right)\right)$ (cf. Definition \ref{strict_topology_defn}).
+ If 
+ \bean
+H' \bydef\\ \left\{g \in \Aut\left(M\left(  \widetilde A_0\left(\widetilde\sY' \right)\right) \right)  \left| \forall a\in  M\left( \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)}\right)\left( M\left(  A_0\left(\widetilde\sY \right)	\right) \right) ~ ga = a\right.\right\} 
+\eean
+then
+\bean
+\forall a \in \varphi''\left( M\left(  \widetilde A\right)\right) \quad \forall g \in H' \quad ga =  g\left(  \b\text{-}\lim  a\varphi_C\left( \widetilde u_\la\right)\right)=\\ \left( ga\right) \b\text{-}\lim  \varphi_C\left( \widetilde u_\la\right) \in  \varphi''\left( M\left(  \widetilde A\right)\right).
+\eean 
+or equivalently
+$$
+H' \varphi''\left( M\left(  \widetilde A\right)\right) =  \varphi''\left( M\left(  \widetilde A\right)\right).
+$$
+It follows that there is the natural action $H' \times  M\left(  \widetilde A\right)\to  M\left(  \widetilde A\right)$ such that for all $ga = a$ for any $a \in M\left(A_0\left(\widetilde \sY \right)  \right)$. Since the quadruple  \eqref{blowing_reg_sing_eqn} is a noncommutative finite-fold covering with unitization one has $H' \cong H$, i.e. the quadruple is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn})
+From the equation \eqref{blowing_frame_ll_eqn} it follows that $M\left( \widetilde A_0\left(\widetilde \sY'\right)\right)$ is a finitely generated  $M\left(  A_0\left(\widetilde \sY'\right)\right)$-module. So the quadruple \eqref{fin_quasi_m_defn} is an unital noncommutative finite-fold covering (cf, Definition \ref{fin_unital_defn}), and the quadruple \eqref{blowing_inf_eqn} is   a noncommutative finite-fold covering with unitization
 
-From the equation \eqref{blowing_frame_ll_eqn} it follows that
-$$
-A_0\left(\widetilde\sY' \right)= \widetilde b_1 A_0\left(\widetilde\sY \right)+...+\widetilde b_n A_0\left(\widetilde\sY \right)
-$$
 \end{proof}
 \begin{theorem}\label{blowing_sufficient_fin_thm}
 	Let $C\left(\sY \right) \hookto M\left(A \right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) with compact, locally connected space $\sY$, and let 
