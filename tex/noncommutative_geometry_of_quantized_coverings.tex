@@ -1416,43 +1416,46 @@ Follows from the Definition \ref{approximate_unit_defn}  and the Lemma \ref{c_mi
 %	From (ii) of the Lemma \ref{c_misch_lem} it follows that 	$\lim_{n \to \infty}\left\|Kp_n - K \right\|= 0$, hence from $\left\|p_n\right\|= 1$ it follows that $$\lim_{n \to \infty}\left\|p_n\left( Kp_n - K\right)  \right\|= \lim_{n \to \infty}\left\|p_nKp_n - p_nK \right\|=0.$$	Otherwise from (iii) of the Lemma \ref{c_misch_lem} it follows that $\lim_{n \to \infty}\left\|p_n K - K \right\| = 0$ and taking into account the triangle identity one has	$\lim_{n \to \infty}\left\|p_n K p_n- K \right\| = 0$.	
 %\end{proof}
 
-%\begin{lemma}\label{positive_ineq_lem}
-%		Let both $\H'$ and $\H''$ be Hilbert spaces. If
-%		$$
-%a \bydef		\begin{pmatrix}
-%	b & c\\
-%	c^*&d
-%		\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
-%		$$
-%		is a positive bounded operator then one has
-%\be\label{positive_ineq_eqn}
-%\left\|a - 	\begin{pmatrix}
-%	b & 0\\
-%	0&0
-%\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
-%\ee
-%	\end{lemma}
-%	\begin{proof}???? CHECK
-%		If $\H \bydef \H'\oplus \H''$, $x'\in \H'$, $y''\in \H''$, $x \bydef\left(x', 0 \right) \in \H'\oplus\H''$ and $y \bydef\left(0, y'' \right) \in \H'\oplus\H''$ then from then from the Cauchy–Schwarz inequality it follows that
-%	\be\label{cs_xy_eqn}
-%		\left|	\left(x, a y \right)_\H \right|\le \sqrt{\left(x, a x\right)_\H } \sqrt{\left(y, ay\right)_\H }= \sqrt{\left(x', b x'\right)_{\H'} } \sqrt{\left(y'', dy''\right)_{\H''} }.
-%		\ee
-%		On the other hand from
-%		$$
-%		\left\|c\right\|= \left\|c^*\right\|= \sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}}\left|	\left(x',cy'' \right)_{\H'} \right|=\sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}} \left|	\left(\left(x', 0 \right), a \left(0, y'' \right) \right)_\H \right|,
-%		$$
-%		and taking into account \eqref{cs_xy_eqn} one has			$\left\|c\right\|\le \sqrt{\left\| b\right\|} \sqrt{\left\| d\right\|}$.		Otherwise from the triangle inequality one has
-%			\bean
-%			\left\|a - 	\begin{pmatrix}
-%				b & 0\\
-%				0&0
-%			\end{pmatrix} \right\| = 	\left\|\begin{pmatrix}
-%			0 & c\\
-%			c^*&d
-%		\end{pmatrix} \right\|\le  \left\| d	 \right\|+ 2 \left\| c	 \right\|\le\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}.
-%			\eean 
-%		From $\left\| b	 \right\|\le \left\| a	 \right\|$ it follows that $\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|} $.
-%	\end{proof}
+\begin{lemma}\label{positive_ineq_lem}
+		Let both $\H'$ and $\H''$ be Hilbert spaces. If
+		$$
+a \bydef		\begin{pmatrix}
+	b & c\\
+	c^*&d
+		\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
+		$$
+		is a positive bounded operator then one has
+\be\label{positive_ineq_eqn}
+\left\|a - 	\begin{pmatrix}
+	b & 0\\
+	0&0
+\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
+\ee
+	\end{lemma}
+	\begin{proof}
+		If $\H \bydef \H'\oplus \H''$, $x'\in \H'$, $y''\in \H''$, $x \bydef\left(x', 0 \right) \in \H'\oplus\H''$ and $y \bydef\left(0, y'' \right) \in \H'\oplus\H''$ then from then from the Cauchy–Schwarz inequality it follows that
+	\be\label{cs_xy_eqn}
+	\begin{split}
+		\left|	\left(x, a y \right)_\H \right|=	\left|	\left(\sqrt{a} x, \sqrt{a} y \right)_\H \right|\le \left\|\sqrt{a} x \right\| \left\|\sqrt{a} y \right\| =\\= \sqrt{\left(\sqrt{a} x, \sqrt{a} x\right)_\H } \sqrt{\left(\sqrt{a} y, \sqrt{a} y\right)_\H  }
+=	\sqrt{\left(x, a x\right)_\H } \sqrt{\left(y, ay\right)_\H  }=\\= \sqrt{\left(x', b x'\right)_{\H'} } \sqrt{\left(y'', dy''\right)_{\H''} }.
+	\end{split}
+		\ee
+		On the other hand from
+		$$
+		\left\|c\right\|= \left\|c^*\right\|= \sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}}\left|	\left(x',cy'' \right)_{\H'} \right|=\sup_{\substack{\left\| x'\right\|= 1\\\left\| y''\right\|= 1}} \left|	\left(\left(x', 0 \right), a \left(0, y'' \right) \right)_\H \right|,
+		$$
+		and taking into account \eqref{cs_xy_eqn} one has			$\left\|c\right\|\le \sqrt{\left\| b\right\|} \sqrt{\left\| d\right\|}$.		Otherwise from the triangle inequality one has
+			\bean
+			\left\|a - 	\begin{pmatrix}
+				b & 0\\
+				0&0
+			\end{pmatrix} \right\| = 	\left\|\begin{pmatrix}
+			0 & c\\
+			c^*&d
+		\end{pmatrix} \right\|\le  \left\| d	 \right\|+ 2 \left\| c	 \right\|\le\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}.
+			\eean 
+		From $\left\| b	 \right\|\le \left\| a	 \right\|$ it follows that $\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|} $.
+	\end{proof}
 
 \begin{definition}\label{def:rep_Hilbert_module_uni}
 Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hilbert $D$-module, and let $A^\sim$ is given by \eqref{unital_notation_eqn}, A \emph{representation} of $A $ on $\mathcal{E} $ is a {representation} of $A^\sim$ on $\mathcal{E}$ in the sense of the Definition \ref{def:rep_Hilbert_module}.
@@ -12386,7 +12389,7 @@ a^*a = \b\text{-}\sum_{g \in G} \widetilde b\left( g \widetilde a^*\widetilde a\
 $$
 where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$.  !!! CORRECT !!!
 \end{proof}
-\begin{definition}\label{blowing_descent_compactly_supported_defn} %{blowing_compactly_supported_descent_defn!}
+\begin{definition}\label{blowing_descent_compactly_supported_defn} 
 	!!! CORRECT !!!A given by \eqref{blowing_com_eqn} $*$-algebra $A_c\left(\widetilde\sY \right)$ is said to be \textit{compactly  supported} $q$-\textit{descent} of $A$.  An $A$-$A$-bimodule homomorphism 
 	\be\label{blowing_compactly_supported_descent_eqn}
 	\begin{split}
@@ -12565,8 +12568,8 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}  ), and let $\phi:\widetilde G\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
 	$\sY' \bydef \widetilde \sY/ \ker\left( \widetilde G\to G \right)$ then one has:
 	\begin{enumerate}
-		\item [(i)] there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_finite_lift_defn}),
-		\item[(ii)] there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
+		\item [(i)] !!! REGULAR CHANGE !!! there is a {finite}-$q'$-{lift} 	$A_0\left(q'\right) : A \hookto	 A_0\left(  \sY'\right)$ (cf. Definition \ref{blowing_finite_lift_defn}),
+		\item[(ii)]  !!! REGULAR CHANGE !!! there is a $\widetilde q'$-{lift} 	$A_b\left(\widetilde q'\right) : A_0\left(  \sY'\right)\hookto	M\left(  A_0\left( \widetilde \sY\right)\right) $,
 		%	\item [(iii)] $A_0\left(  \sY'\right)$ is a $C^*$-subalgebra of $	M\left( A_0\left( \widetilde \sY\right)\right)$ generated by sums of series
 		%\be\label{blowing_p_s_eqn}
 		%	\sum_{g \in \ker\left(G\to G \right)}g \widetilde a
@@ -12861,11 +12864,11 @@ then from the Lemma  \ref{blowing_unitization_lem}  and the Remark \ref{blowing_
 \ee
 is a noncommutative finite-fold covering with unitization.
 
-\begin{lemma}
+\begin{lemma}\label{blowing_ah_lem}
 Under the above hypotheses if 
-	\bean
+	\be\label{blowing_ah_eqn}
 H \bydef \left\{ g \in G \left| \forall \widetilde a \in  A_0\left(\widetilde \sY \right) \quad g\widetilde a=\widetilde a \right.\right\}
-\eean
+\ee
 then $\widetilde A^H = A_0\left(\widetilde \sY \right)$. 
 \end{lemma}
 \begin{proof}
@@ -12894,6 +12897,8 @@ then $\widetilde A^H = A_0\left(\widetilde \sY \right)$.
 	This contradiction proves that $\widetilde a_j = \widetilde a\widetilde f_j$ and $\widetilde a = \widetilde a_1+...+\widetilde a_n \in A_0\left( \widetilde\sY\right) $.
 
 \end{proof}
+\begin{empt}
+
 From the Lemma \ref{blowing_compact_unitization_lem} it follows that 
 	the group
 	\bean
@@ -12915,6 +12920,9 @@ From the Lemma \ref{blowing_compact_unitization_lem} it follows that
 	(cf. the equation \eqref{cov_mult_fin_c_eqn})	
 	
 	 There are Hausdorff blowing-up  $C\left( \widetilde\sY\right)  \subset  M\left(A_0\left(\widetilde \sY\right) \right)$ and $C\left( \widetilde\sY\right)  \subset M\left(\widetilde A\right)$  one.
+	 
+
+\end{empt}
 \begin{lemma}
 	Under the above hypotheses if a transitive covering $q': \widetilde\sY' \to \widetilde\sY$ is $A_0\left(\widetilde \sY\right)$-regular then it is  $\widetilde A$-regular.
 \end{lemma}
@@ -13052,19 +13060,28 @@ From the equation \eqref{blowing_frame_ll_eqn} it follows that $M\left( \widetil
 \end{proof}
 \begin{theorem}\label{blowing_sufficient_fin_thm}
 	Let $C\left(\sY \right) \hookto M\left(A \right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) with compact, locally connected space $\sY$, and let 
-$q: \widetilde\sY \to \sY$  be an  $A$-regular covering (cf. Definition \ref{blowing_a_regular_defn}), with connected $\widetilde \sY$. If the $q$-lift $A_0\left( \widetilde\sY\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn}) is simply connected (cf. Definition \ref{simply_connected_defn}) then for any finite-fold covering with unitization 
+$q': \widetilde\sY' \to \sY$  be an  $A$-regular covering (cf. Definition \ref{blowing_a_regular_defn}), with connected $\widetilde \sY'$. If the $q'$-lift $A_0\left( \widetilde\sY'\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn}) is simply connected (cf. Definition \ref{simply_connected_defn}) then for any finite-fold covering with unitization 
 \be\label{blowing_sufficient_fin_eqn}
 \left(A, \widetilde A, G, \pi \right) 
 \ee
-there is an $A$-regular  finite-fold covering $q' : \widetilde \sY' \to \sY$ such that that the triple \eqref{blowing_sufficient_fin_eqn} is equivalent to a
+there is an $A$-regular  finite-fold covering $q : \widetilde \sY \to \sY$ such that that the triple \eqref{blowing_sufficient_fin_eqn} is equivalent to a
 $$
-\left(A, A_0\left( \widetilde\sY'\right) , G\left(\left.\widetilde \sY \right| \sY\right) , A_0\left(q' \right) \right)
+\left(A, A_0\left( \widetilde\sY\right) , G\left(\left.\widetilde \sY \right| \sY\right) , A_0\left(q \right) \right)
 $$
 one.
 
 \end{theorem}
 \begin{proof}
-!!!
+From the Lemma \ref{blowing_ah_lem} it follows that there is a given by \eqref{blowing_ah_eqn} normal subgroup $H\subset G$ such that there given by the equations \eqref{blowing_reg_sing_m_eqn}, \eqref{blowing_reg_sing_eqn} regular and singular noncommutative finite-fold coverings
+\bean
+\left(A, A_0\left(\widetilde\sY \right) , G\left(\left.\widetilde\sY \right|\sY \right) \cong G/H, A_0\left(q \right) \right),\\
+\left( A_0\left(\widetilde\sY \right)\cong \widetilde A^H , \widetilde A,H ,\left.\Id_{\widetilde A} \right|_{ A_0\left(\widetilde\sY \right)}\right) 	
+\eean
+If $H$ is not trivial then the Lemma \ref{blowing_inf_lem} yields a nontrivial noncommutative finite-fold covering 
+\bean
+\left(A_0\left(\widetilde\sY' \right), \widetilde A_0\left(\widetilde\sY' \right), H, \left.\Id_{\widetilde A_0\left(\widetilde\sY' \right)} \right|_{ A_0\left(\widetilde\sY' \right)} \right) 
+\eean
+(cf. the equation \eqref{blowing_inf_eqn}). Under the hypothesis of this theorem it is impossible, since $A_0\left(\widetilde\sY' \right)$ is simply connected. So the group $H$ is trivial,  and the quadruple \eqref{blowing_sufficient_fin_eqn} is equivalent to the $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left.\widetilde \sY \right| \sY\right) , A_0\left(q \right) \right)$ one.
 \end{proof}
 
 
@@ -13142,18 +13159,20 @@ $$
 		\item[(i)] the covering  $\overline q$ is $A$-regular (cf. Definition \ref{blowing_a_regular_defn}, i.e. there is a $\overline q$-{lift} 	$A_b\left(\overline q\right): A \hookto	M\left( A_0\left( \overline \sY\right)\right)$ of $A$ (cf. Definition \ref{blowing_lift_defn}  ,
 		\item[(ii)] if the space if $\sY$ is  locally connected $\sY$ (cf. Definition \ref{top_locally_connected_defn}) the {finite covering category of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}) given by
 		\be\label{blowing_category_fin_eqn}
-	\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+	\mathfrak{S}_p \bydef \left\{\left\{\sY_\la\right\}_{\la \in \La}, \left\{q^\mu_\nu:\sY_\mu\to \sY_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}
 	\ee
  yields an algebraical finite covering category 
 \be\label{blowing_algebraical_finite_covering_category_eqn}
 \mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
-\ee and	a triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}),
+\ee
+(cf. Definition \ref{algebraical_finite_covering_category_defn}),
+	\item[(iii)] if $\widehat{G}$ is the profinite completion of  $G\left(\left.\widetilde \sY\right|\sY \right)$ (cf. Example \ref{profinite_exm}) then 	a triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
 %	\item[(iii)]  under hypotheses (ii)  if a triple $\left(A, \overline A, \widehat{G} \right)$ is {pre}-{covering of algebraical finite covering category}	
 %		$\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}) and $A_0\left(\overline\sY \right)$ is a $C^*$-subalgebra of $\overline A$ then $A_0\left(\overline\sY \right)$ is  a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}) of $\overline A$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}(i)
-	According to the construction of the Section \ref{top_inf_to_sec} one has $G\left(\left.\overline \sY\right|\sY \right)= \varprojlim_{\la \in \La} G_\la$ where $\left\{G_\la\right\}_{\la \in \La}$ is a set of all finite factor-groups of $G\left(\left.\widetilde \sY\right|\sY \right)$, i.e. the group $G\left(\left.\widetilde \sY\right|\sY \right)$ is profinite (cf. Example \ref{profinite_exm}). From the Lemma \ref{top_disconnected_lem} it follows that if  $\left\{g_\iota G\left(\left. \widetilde\sY~\right|\sY \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \widetilde\sY~\right|\sY \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then t here is a natural homeomorphism 
+	According to the construction of the Section \ref{top_inf_to_sec} one has $\overline G= \varprojlim_{\la \in \La} G_\la$ where $\left\{G_\la\right\}_{\la \in \La}$ is a set of all finite factor-groups of $G\left(\left.\widetilde \sY\right|\sY \right)$, i.e. the group $G\left(\left.\widetilde \sY\right|\sY \right)$ is profinite (cf. Example \ref{profinite_exm}). From the Lemma \ref{top_disconnected_lem} it follows that if  $\left\{g_\iota G\left(\left. \widetilde\sY~\right|\sY \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \widetilde\sY~\right|\sY \right)$ in $\widehat{G}$ (cf. Definition \ref{group_coset_defn}) then t here is a natural homeomorphism 
 	\be\label{blowing_disconnected_eqn!}
 	\overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\sY.
 	\ee
@@ -13162,37 +13181,22 @@ $$
 	\bigsqcup_{\iota\in I} A_0\left( g_\iota \widetilde\sY\right) 
 	$$
 	then there is  natural Hausdorff blowing-up $C_0\left(\overline \sY \right) \hookto \overline A$.
-	An action $G\left(\left.\overline \sY\right|\sY \right)\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}  .\\
-(ii) 	Firstly we prove that  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. If  $\la \in \La$ and $\overline q_\la \overline \sY\to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it turns out the $\overline q_\la$ is $A_0\left( \sY_\la\right)$-regular and there is   $\overline q_\la$-{lift} 	$A_b\left(\overline q_\la\right): A\left(\sX_\la \right)  \hookto	M\left( A_0\left( \overline \sY\right)\right)$. From the Lemma \ref{blowing_series_lem} !!!\ref{blowing_descent_lem} !!! \ref{foli_fibration_exm}
-it follows that for any $\overline a \in K\left(\overline A \right)$ one has
+	An action $\overline G\times \overline \sY\to \overline \sY$ yields an action $G\left(\left.\overline \sY\right|\sY \right)\times \overline A\to \overline A$. We leave to the reader that the natural $*$-homomorphism $A \hookto M\left( \overline A\right)$ satisfies to the Definition \ref{blowing_lift_defn}  .\\
+(ii) and (iii)	
+Firstly we prove that the triple  $\left( A ,  A_0\left(\overline\sY \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}). If $\overline a \in K\left(A_0\left( \overline \sY\right)  \right)$ then from the  Lemmas \ref{blowing_blowing_lem} and \ref{blowing_pedersen_compact_lem} it follows that $\overline a \in A_c\left( \overline \sY\right)$ where $A_c\left(\widetilde\sY \right)$  is given by the equation \eqref{blowing_com_eqn}. If $\overline q_\la: \overline \sY \to \sY_\la$ is the natural covering then from the Lemma \ref{blowing_lift_composition_lem} it follows that $\overline q_\la$ is $A_0\left(\sY_\la \right)$-regular.
+From the Lemma \ref{blowing_descent_lem} it follows that 
+\be\label{blowing_al_en}
+a_\la \bydef \bt\text{-}\sum_{	g \in \ker\left( \widehat{G}\to G\left(\widetilde \sY, \sY_\la \right)\right)  }g\overline a = A_b\left(\overline q_\la \right)  \circ \desc^c_{\overline q_\la}\left(\overline a\right) \in A_b\left(\overline q_\la \right) \left(A_\la \right) 
+\ee
+where $\bt\text{-}\sum$ implies the strict topology of $M\left(A_0\left(\overline \sY \right) \right)$ (cf. Definition \ref{strict_topology_defn}), $~\desc^c_{\overline q_\la}$ is the  {compactly supported $\overline q_\la$-descent} (cf. Definition \ref{blowing_descent_compactly_supported_defn}) and $ A_b\left(\overline q_\la \right): A_\la \hookto M\left(A_0\left( \overline \sY\right)  \right)$ is the $\overline q_\la$-lift (cf. Definition \ref{blowing_lift_hom_defn}). From the Lemma \ref{blowing_descent_pedersen_lem} it follows that 
+if  $\overline A'\subset A_b\left(\overline q_\la \right) \left(A_\la \right)$ is a set of given by \eqref{blowing_al_en} elements then
 $$
-\desc_{\la} \overline a  = \bt\text{-}\sum_{g \in \ker\left( \widehat G \to G\left(\left. \sY_\la \right|\sY \right)\right) }g \overline a = A_b\left(\overline q_\la \right) \circ \desc^c_q\left(\overline a \right) \in A_b\left(\overline q_\la \right)\left(A_0\left(\sX_\la \right)  \right) 
-$$ 
-where $\desc_{\la}$ is the  $\la$-descent (cf. Definition \ref{infinite_desc_defn}) !!!!
-From the equation!!! CHECK !!! \eqref{blowing_descent_lem} it follows $C^*$-algebra the generated by $\desc^c_{\la}\left(K\left(\overline A \right) \right)=  $ equals to $A_b\left(\overline q_\la \right)\left(A_0\left(\sX_\la \right)  \right)$, i.e. the triple  $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$ is an infinite quasi-covering (cf. Definition \ref{infinite_quasicovering_defn})
+A_b\left(\overline q_\la \right)\left(K\left( A\left( \sY_\la\right)  \right) \right)\subset \overline A'
+$$
+Since $K\left( A\left( \sY_\la\right)\right) $ is dense in $ A\left( \sY_\la\right)$ the closure of $\overline A'$ equals to  $A_b\left(\overline q_\la \right)\left(  A\left( \sY_\la\right)\right)$, so the conditions of the Definition \ref{infinite_quasicovering_defn} are satisfied.
 
-	From the Theorem \ref{blowing_sufficient_covering_thm} it follows that any $*$-homomorphism $ A_0\left( q^\mu_\nu\right)  :A_0\left( \mathcal{Y}_\mu\right)  \hookto A_0\left( \mathcal{Y}_\nu\right)$ is a noncommutative finite-fold covering, i.e. under hypotheses of this lemma conditions of the Definition \ref{algebraical_finite_covering_category_defn} are satisfied.\\
-%	(iii) From the Lemma \ref{infinite_faithful_nondegererate_lem} it follows that there  if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_0\left( \sY_\la\right)  \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful \ref{faithful_representation_defn} then there are natural faithful representations $\overline \pi: \overline A \hookto  B\left(\widehat{\H}\right)$ and $\overline \pi_0:  A_0\left( \overline \sY\right)  \hookto  B\left(\widehat{\H}\right)$.  Under the hypotheses (iv) one has 
-%$$
-%\overline \pi_0\left(   A_0\left( \overline \sY\right)\right) \subset \overline \pi\left(  \overline A \hookto  B\left(\widehat{\H}\right)\right). 	
-%$$
-%Since Pedersen's ideal $K\left( A_0\left( \overline \sY\right) \right)$  of $C^*$-algebra $A_0\left( \overline \sY\right)$ is dense in $ A_0\left( \overline \sY\right)$ one should prove
-%$$
-%\forall \overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \forall \overline b \in  \overline A\quad \overline b \le \overline a \quad \Rightarrow \quad \overline b \in K\left( A_0\left( \overline \sY\right) \right) 	
-%$$
-%If $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ then from the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \overline a$ of $\overline a$ (cf. Definition \ref{blowing_support_defn}) if compact.
-%From the Theorem \ref{top_compact_thm} it follows that there is an open set $\overline \sU$ and $\la_{\overline \sU} \in \La$ such that:
-%\begin{itemize}
-%	\item $\supp \overline a \subset  \overline \sU$,
-%	\item If $\overline q_{\la_{\overline \sU}} : \overline \sY \to \sY_\la$ then $\overline \sU$ is mapped homeomorphically onto $\sU_\la \bydef \overline q_{\la_{\overline \sU}}\left(  \overline \sU\right)$. 
-%\end{itemize}
-%If $\overline b \in  \overline A$ is such that $\overline b \le \overline a$ and 
-%$$
-%\overline a_{\la_{\overline \sU}}	\bydef \sum_{	g \in \ker\left( \widehat{G}\to G_{\la_{\overline \sU}}\right) }g \overline a \in A_0\left(\sY_{\la_{\overline{   \mathcal U }}} \right) 
-%\overline b_{\la_{\overline \sU}}	\bydef \sum_{	g \in \ker\left( \widehat{G}\to G_{\la_{\overline \sU}}\right) }g \overline b \in A_0\left(\sY_{\la_{\overline{   \mathcal U }}} \right) 
-%$$
-%then  $ b_{\la_{\overline \sU}} \le  a_{\la_{\overline \sU}}$From $\overline b \le \overline a$ and $\overline a =\lift^{\overline q_{\la_{\overline \sU}}}_{\overline \sU}\left( 	\overline a_{\la_{\overline \sU}}\right) $ it follows that  $\overline b =\lift^{\overline q_{\la_{\overline \sU}}}_{\overline \sU}\left( 	\overline b_{\la_{\overline \sU}}\right)\in A_0\left( \overline \sY\right)$. Taking into account $\overline a \in K\left( A_0\left( \overline \sY\right) \right)$ and $\overline b \le \overline a$ one has $\overline b \in K\left( A_0\left( \overline \sY\right) \right)$
-		
+Any morphism of the category $\mathfrak{S}_{A_0\left(q \right) }$ equals to 
+$A_0\left( q^\nu_\mu\right): A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)$, from the Theorem \ref{blowing_sufficient_covering_thm} it follows that $A_0\left( q^\nu_\mu\right)$ is a noncommutative finite-fold covering, i.e. the conditions of the Definition \ref{algebraical_finite_covering_category_defn} are satisfied.
 \end{proof}
 
 \chapter{Towards noncommutative homotopy theory}\label{hurewicz_gr_chap}
