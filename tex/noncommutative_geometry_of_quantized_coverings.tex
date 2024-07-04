@@ -1164,7 +1164,22 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	i.e. there is a contradiction $\left\| \zeta  \right\|< \left\| \zeta  \right\|$. From this contradiction it turns out that $\zeta = 0$ and the equality \eqref{srict_strong_eqn} is true.
 \end{proof}
 
-
+\begin{lemma}\label{left_ideal_lem}
+Let $A$ be a $C^*$-algebra, and let $L$-be a closed left ideal of $A$ (cf. Definition \ref{ideal_left_right_defn}). If $B \bydef L\cap L^*$ is given by the Lemma \ref{hered_ideal_lem} hereditary subalgebra of $A$ and $\left\{u_\la\right\}_{\la \in \La}\subset A_+$ is a net of positive elements such that
+$$
+\forall b \in B \quad \lim_{\la\in \La}\left\|u_\la b \right\| =  \lim_{\la\in \La}\left\|b u_\la \right\|= 0 
+$$
+then one has
+$$
+\forall l \in L \quad \lim_{\la\in \La}\left\|l u_\la \right\|= 0 
+$$
+\end{lemma}
+\begin{proof}
+The proof of this Lemma is similar to the proof of the Theorem \ref{left_ideal_thm}.
+\end{proof}
+\begin{remark}
+The Lemma \ref{left_ideal_lem} is a generalization of the Theorem \ref{left_ideal_thm}.
+\end{remark}
 
 \section{Transitive coverings}\label{top_transitive_section}
 \paragraph*{}
@@ -15775,13 +15790,13 @@ Any foliated manifold $\left(M, \F\right)$ yields a holonomy groupoid $\G\left(M
 	\bean
 	\G\left( M, \mathcal{F}\right)^0 = M,\\ 
 	\eean
-	where the notation of the Definition \ref{groupoid_defn} is used. Suppose that both $\sigma\in Z^2\left(\G\left( M, \mathcal{F}\right) , \T^2 \right) $ is the  trivial 2-cocycle on $\G\left( M, \mathcal{F}\right)$, and define
+	where the notation of the Definition \ref{groupoid_defn} is used. Suppose that  $\sigma\in Z^2\left(\G\left( M, \mathcal{F}\right) , \T^2 \right) $ is the   2-cocycle on $\G\left( M, \mathcal{F}\right)$, and define
 	\be
-	C_c\left( M, \mathcal{F}\right) \bydef C_c\left(\G\left( M, \mathcal{F}\right), \sigma \right),\\
+	C_c\left( M, \mathcal{F}, \sigma\right) \bydef C_c\left(\G\left( M, \mathcal{F}\right), \sigma \right),\\
 	\ee
-	If  $\rho: C_c\left( M, \mathcal{F}\right)\to B\left( \H\right)$ is a faithful representation in the sense of the Definition  \ref{groupoid_representation_defn} then there is $\rho$-{completion} $C^*_\rho\left( M, \mathcal{F}\right)$  of  $C_c\left( M, \mathcal{F}\right)$ (cf. Definition \ref{groupoid_rho_defn}).  There is Hausdorff blowing-up 
+	If  $\rho: C_c\left( M, \mathcal{F}, \sigma \right)\to B\left( \H\right)$ is a faithful representation in the sense of the Definition  \ref{groupoid_representation_defn} then there is $\rho$-{completion} $C^*_\rho\left( M, \mathcal{F}, \sigma \right)$  of  $C_c\left( M, \mathcal{F},\sigma \right)$ (cf. Definition \ref{groupoid_rho_defn}).  There is Hausdorff blowing-up 
 	\be
-	C_0\left(M\right)\hookto M\left( C^*_\rho\left( M, \mathcal{F}\right)\right) 
+	C_0\left(M\right)\hookto M\left( C^*_\rho\left( M, \mathcal{F}, \sigma \right)\right) 
 	\ee 
 	(cf. Remark \eqref{groupoid_blowing_rem}). 
 
@@ -15876,46 +15891,7 @@ From the dense inclusion \eqref{groupoid_antn_eqn} we obtain a dense inclusion
 \ee
 
 \end{proof}
-\paragraph{!!! BEGIN}
 
-\begin{lemma}\label{fin_composition_unitization_lem!}!!!
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). If  $H \subset G$ is a subgroup then 
-	\be
-	\label{fin_composition_uni_2_eqn!}
-	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
-	\ee
-	is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there is a following  finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
-	\be\label{fin_composition_uni_1_eqn!}
-	\left(A, \widetilde{A}^H, G/H, \rho \right).
-	\ee
-	
-\end{lemma}
-\begin{lemma}\label{blowing_unitization_lem!} !!!
-	Let  $\left(A, \widetilde{A}, G, \pi \right)$  be noncommutative finite-fold covering with unitization (cf. Definition  \ref{fin_unitization_defn}), and let $C\left(\sY\right)\to M\left( A\right)$ be Hausdorff blowing-up with compact $\sY$. Let $\rho: C\left( \sY\right) \hookto C\left( \widetilde \sY\right)$  be given by the equation \eqref{blowing_cb_eqn}. The action $G \times M\left( \widetilde{A}\right) \to M\left( \widetilde{A}\right)$ induces an action  $G\times C\left(\widetilde \sY \right) \to C\left(\widetilde \sY \right)$. Then $C\left(\widetilde \sY \right)$ is a finitely generated $C\left(\sY \right)$-module. 
-\end{lemma}
-\begin{proof}
-	From the Corollary \ref{cov_mult_fin_c_cor} it follows that there is  an 
-	unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}). If $C\left(\widetilde \sY \right)$ is not a finitely generated $C\left(\sY \right)$ then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
-	$$
-	C\left(\widetilde \sY \right) = \sum_{\la\in \La} M_\la,
-	$$
-	of right $C\left(\sY \right)$-modules, such that for any finite subset $\La_0 \subset \La$ one has
-	$$
-	C\left(\widetilde \sY \right) \neq \sum_{\la\in \La_0} M_\la,
-	$$
-	One has an algebraic sum 
-	$$
-	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
-	$$
-	of left  $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
-	$$
-	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
-	$$
-\end{proof}
-\begin{remark}\label{blowing_unitization_rem!} !!!
-	From the Theorem \ref{pavlov_troisky_thm} and the Lemma  \ref{blowing_unitization_lem}  it follows that there is a natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
-\end{remark}
-\paragraph{!!! END}
 \subsection{Infinite coverings}
 \begin{empt}\label{groupoid_n_cov_foli_inf_empt}
 	Under the hypotheses \ref{groupoid_foli_empt} suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From  \ref{groupoid_n_cov_inf_empt} and the Theorem \ref{groupoid_foli_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
