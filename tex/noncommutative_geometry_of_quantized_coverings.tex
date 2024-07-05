@@ -1165,21 +1165,19 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 \end{proof}
 
 \begin{lemma}\label{left_ideal_lem}
-Let $A$ be a $C^*$-algebra, and let $L$-be a closed left ideal of $A$ (cf. Definition \ref{ideal_left_right_defn}). If $B \bydef L\cap L^*$ is given by the Lemma \ref{hered_ideal_lem} hereditary subalgebra of $A$ and $\left\{u_\la\right\}_{\la \in \La}\subset A_+$ is a net of positive elements such that
+Let $A$ be a $C^*$-algebra, and let  $a \in A$.   If $\left\{u_\la\right\}_{\la \in \La}\subset A_+$ is a net of positive elements such that
 $$
-\forall b \in B \quad \lim_{\la\in \La}\left\|u_\la b \right\| =  \lim_{\la\in \La}\left\|b u_\la \right\|= 0 
+\lim_{\la\in \La}\left\|u_\la a^*a \right\| =  \lim_{\la\in \La}\left\|a^*a u_\la \right\|= 0 
 $$
 then one has
 $$
-\forall l \in L \quad \lim_{\la\in \La}\left\|l u_\la \right\|= 0. 
+ \lim_{\la\in \La}\left\|a u_\la \right\|= 0. 
 $$
 \end{lemma}
 \begin{proof}
 The proof of this lemma is similar to the proof of the Theorem \ref{left_ideal_thm}.
 \end{proof}
-\begin{remark}
-The Lemma \ref{left_ideal_lem} is a generalization of the Theorem \ref{left_ideal_thm}.
-\end{remark}
+
 
 \section{Transitive coverings}\label{top_transitive_section}
 \paragraph*{}
@@ -14946,6 +14944,92 @@ The details of the proof are left  to the reader.
 
 \section{Infinite coverings}\label{ctr_case_sec}
 \subsection{Coverings of $C^*$-algebras}
+
+\paragraph{!!! BEGIN INSERT !!!}
+
+\begin{lemma}\label{ctr_infinite_lem}
+	If $A$ is a continuous trace $C^*$ algebra, with the locally connected spectrum $\sX$. Let $p: \widetilde \sX \to \sX$ is a covering such that $\sX \bydef \widetilde \sX/G$ with residually finite group $G$ and 	\bean
+	\begin{split}
+		\mathfrak{S}_{A_0\left(p\right) } \bydef \\
+		\left\{ \left\{ A_0\left( p_\la\right)  :A_0\left( \mathcal{X}\right)  \hookto A_0\left( \mathcal{X}_\la\right) \right\}, \left\{A_0\left( p^\mu_\nu\right)  :A_0\left( \mathcal{X}_\mu\right)  \hookto A_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+	\eean
+	given by \eqref{top_category_fin_a0_eqn}
+	is the \textit{algebraic} $A$-$\widetilde \sX$-$  G$-\textit{category} (cf. Definition \ref{top_fin_cov_a_cat_defn}). If $\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is an admissible subalgebra (cf. Definition \ref{ctr_inf_defn}) then there is the natural inclusion
+	$$
+	\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+	$$
+\end{lemma}
+\begin{proof}
+	One can construct a family $\left\{\sU_\a\right\}_{\a\in\mathscr A}$ of connected open subsets  of $\sX$ with compact closures,  such that $\sX = \bigcup_{\a \in \mathscr A}\sU_\a$ and for any $\a \in \mathscr A$ one has:
+	\begin{itemize}
+		\item $\sU_\a$ is evenly covered by $p$,
+		\item if $\sV_\a$ is the closure of $\sU_\a$ then there is an Abelian element $e_\a \in A$ (cf. equation \eqref{closed_ideal_eqn}) such that $X_{C\left( \sV_a\right) } \bydef e|^{\sV_\a}$ is an $\left. A\right|^{\sV_\a}-\left.  e\right|^{\sV_\a}\left.A\right|^{\sV}\left. e\right|^{\sV_\a}\cong C\left({\sV_\a}\right)$-imprimitivity bimodule (cf. construction \ref{ctr_imprim_empt}) and
+		$$
+		\left. A\right|^{\sV_\a}= \K\left( X_{C\left( \sV_a\right) }\right), 
+		$$
+	\end{itemize}
+	From Theorem \ref{kasparov_stab_thm} for any $\a \in \mathscr A$ one has  inclusions 	$X_{C\left( \sV_a\right) }\subset \ell^2\left( C\left( \sV_a\right) \right)$
+	\be\label{ctr_k_inc_eqn}
+	\K\left( X_{C\left( \sV_a\right) }\right) \subset \K\left( \ell^2\left( C\left( \sV_a\right)\cong C\left( \sV_a\right)\otimes \K. \right)\right) 
+	\ee
+	If $\widetilde a \in K\left({{\widetilde A}} \right)_+$ is a positive element then from the condition (c) of the Definition  \ref{ctr_inf_defn} there is $a \in K\left(A \right)_+$ 
+	such that  
+	$$
+	\forall  x \in \sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left. \sX\right|\sX_\la \right)\right) }\rep_{ x}\left( g  a'\right)  = \rho^\la_{ x}\left(a_\la \right)
+	$$
+	From \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a\subset \sX$ is compact. If $f \bydef \sum^n_{j=1} f_j$ is a subordinated  !!! dominated !!!to the family $\left\{\sU_\a\right\}$ covering sum (cf. Definition  \ref{top_covering_sum_defn}) then
+	\bean
+	f a = a,\\
+	f \widetilde{a}' = \widetilde{a}'
+	\eean 
+	and for any $j=1,..., n$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. 
+	From this fact and \eqref{ctr_k_inc_eqn} one can suppose that
+	$$
+	f_ja  \in \K\left( \ell^2\left( C\left( \sV_{\a_j}\right)\right)\right)\cong C\left( \sV_{\a_j}\right)\otimes \K.
+	$$
+	Let us fix $j \in \{1,...,n\}$. If $\eps > 0$ then from the Lemma \ref{c_misch_g_lem} it follows that there is $N \in \N$ such that
+	\be\label{ctr_pfp_eqn}
+	\forall k \ge N  \quad \left\|\left(  \sum_{l = 1}^{k}   p_{l}\right) f_ja\left(  \sum_{l = 1}^{k}   p_{l}\right)  - f_ja\right\| < \frac{\eps}{n} 
+	\ee
+	where $p_{l} \bydef 1_{C\left(\sV_{\a_j} \right) }\otimes \mathfrak{e}_{ll}$ and $ \mathfrak{e}_{ll}$ is $l,l$-{elementary} matrix (cf. Definition \ref{elementary_defn}).
+	From the equation \eqref{ctr_pfp_eqn} it follows that
+	\be
+	\forall l \ge N\quad p_l  f_j f_{\eps/n} \left(a \right)p_l  = 0
+	\ee
+	where $f_{\eps/n}$ is given by the equation \eqref{f_eps_eqn}.
+	For any $\la \in \La$ and $l \in \N$ there is 
+	\bean
+	\widetilde f^l_\la \in C_b\left(\widetilde \sX\right), \\
+	\widetilde x \mapsto \tr\left( \rho^\la_{\widetilde{x}}\left(p_l f_j f_{\eps/n} \left( a_\la \right)p_l \right) \right) = \left\|\rho^\la_{\widetilde{x}}\left(p_l  f_jf_{\eps/n} \left( a_\la \right)p_l \right) \right\| 
+	\eean
+	From the Lemma \ref{top_disc_p_lem} it follows that
+	$$
+	\widetilde f^l \bydef s\text{-}\lim_{{\la \in \La}} f^l_\la\in C_c\left( \widetilde \sX\right) 
+	$$
+	where $\tr$ is the trace of operator and $s\text{-}\lim$ means the pointwise limit.
+	A finite union  $\widetilde{\sV}_l\bydef \bigcup_{l=1}^N \supp \widetilde f^l$ of compact sets is compact, so from the Theorem \ref{top_compact_thm}  it follows that there is $\la_0\in \La$ such that $\widetilde{\sV}$ is mapped homeomorphically onto $\widetilde{p}_{\la_0}\left( \widetilde{\sV}\right)$ where  $\widetilde{p}_{\la_0}:\widetilde\sX \to \sX_{ \la_0}$ is the natural covering. On the other hand 
+	$$
+	\forall l \in \N\quad \forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad \widetilde f^l = 0,
+	$$ 
+	so one has
+	$$
+	\forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad f_j \rep_{  \widetilde{x }}\left(  f_{\eps/n}\left(\widetilde a' \right) \right) = 0.
+	$$
+	It follows that 
+	$$
+	f_j   f_{\eps/n}\left(\widetilde a' \right)= f_j \lift^{\widetilde{p}_{\la_0}}_{\widetilde\sV}\left( f_{\eps/n}\left( a_\la \right)\right) \in A_0\left(\widetilde\sX \right).
+	$$
+	On the other hand
+	$$
+	\left\| f_j   f_{\eps/n}\left(\widetilde a' \right) - f_j \widetilde a  \right\| < \frac{\eps}{n},
+	$$
+	i.e. for any $j = 1,..., n$ there is $\widetilde a_j \in A_0\left(\widetilde\sX \right)$ such that $\left\|  f_j \widetilde a  - \widetilde a_j\right\| < \eps / n$.
+	If $\widetilde a \bydef \widetilde a_1 + ... + \widetilde a_n \in A_0\left(\widetilde\sX \right)$ then $\left\|  \widetilde a  - \widetilde a'\right\|< \eps$, so $\widetilde a \in A_0\left(\widetilde\sX \right)$ since $A_0\left(\widetilde\sX \right)$ is $C^*$-norm closed.
+\end{proof}
+
+\paragraph{!!! END INSERT !!!}
+
 \paragraph*{}
 Here we prove that any infinite covering of $C^*$-algebra with Hausdorff spectrum $\sX$ corresponds to a transitive covering of $\sX$.
 \begin{empt}
@@ -14959,10 +15043,7 @@ is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definitio
 \ee		
 (cf. Definition \ref{algebraical_finite_covering_category_defn}).
 \end{empt}
-\paragraph{!!!}
 
-
-\paragraph{!!!}
 
 \begin{theorem}\label{hausdorff_covering_inf_thm} !!!
 	Let $C_0\left( \sY\right) \hookto M\left( A\right) $ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and
@@ -15845,27 +15926,27 @@ Suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ 
  \quad A_\la \bydef C^*_{\rho_\la}\left( M_\la ,  \F_\la, \sigma_\la \right),\quad \pi^\mu_\nu \bydef C^*_{\rho}\left( M ,  \F, \sigma \right)_0\left( q^\nu_\mu\right): A_\mu \hookto A_\mu
 	\end{split}
 	\ee	
-	which is a specialization of \ref{groupoid_algebraical_finite_covering_category_eqn} one.
+	which is a specialization of \ref{groupoid_algebraical_finite_covering_category_eqn} one. Let $\widehat{G}$ be the profinite completion of $G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{profinite_exm}).
 \end{empt}
 
 
 
 
-\begin{theorem}\label{grupoid_foli_intinite_covering_thm}
+\begin{lemma}\label{grupoid_foli_intinite_covering_lem}
 	Under  hypotheses \ref{groupoid_foli_empt}  if $\overline q: \overline M  \to  M$  is the {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}) and an algebraical finite covering category 
 	$
 	\mathfrak{S}_{C^*_{\rho}\left( M ,  \F \right)_0\left( q\right) }$
 	is given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then a triple
 	\be\label{groupoid_foli_inf_eqn}
-	\left(C^*_{\rho}\left( M ,  \F \right), C^*_{\overline\rho}\left(\overline M , \overline \F, \overline \sigma \right) , 	G\left(\left.\overline{M}~~\right|~M \right)   \right)  
+	\left(C^*_{\rho}\left( M ,  \F, \sigma \right), C^*_{\overline\rho}\left(\overline M , \overline \F, \overline \sigma \right) , 	\widehat{G}  \right)  
 	\ee 
-	is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
-\end{theorem}
+	is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F, \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
+\end{lemma}
 \begin{proof}
 This theorem is a specialization of \ref{grupoid_intinite_covering_thm} one.
 \end{proof}
 \begin{empt}
-Under the hypotheses	\ref{groupoid_foli_empt} set $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La} A_\la$, where $C^*$-$\varinjlim$ is the given by the Definition \ref{inductive_lim_non_defn} $C^*$-inductive limit. If $\widehat A\hookto B\left(\widehat \H \right)$ is a faithful, nondegenerate representation, and a triple  $\left(C^*_{\rho}\left( M, \F \right), \overline A', G\left(\left.\overline{M}~~\right|~M \right)\right)$ is a {pre}-{covering of the algebraical finite covering category} of algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) $\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }$ given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then 
+Under the hypotheses	\ref{groupoid_foli_empt} set $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La} A_\la$, where $C^*$-$\varinjlim$ is the given by the Definition \ref{inductive_lim_non_defn} $C^*$-inductive limit. If $\widehat A\hookto B\left(\widehat \H \right)$ is a faithful, nondegenerate representation, and a triple  $\left(C^*_{\rho}\left( M, \F \right), \overline A', \widehat{G} \right)$ is a {pre}-{covering of the algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) $\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }$ given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then 
 from Lemma \ref{infinite_faithful_nondegererate_lem}  it follows that   there is a faithful, nondegenerate representation
 \be\label{groupoid_folia_eqn}
 \pi_{\overline A'} : \overline A' \hookto B\left(\widehat  \H \right). 
@@ -15882,18 +15963,6 @@ be  a $\overline q$-{covering} (cf. Definition \ref{top_cov_defn}), such that
 	\item for all $\a \in \mathscr A$ both $\sU_\a$ and $\sV_\a$ are foliation charts,
 		\item for all $\overline \a \in \overline{\mathscr A} $ both $\overline \sU_{\overline{\a}}$ and  $\overline \sV_{\overline\a}$ are foliation charts.
 \end{itemize}
-If $a \in K\left( C^*_{\overline\rho}\left(\overline M , \overline \F, \overline \sigma \right)\right)_+$ then the support  $\supp a\subset M$ of $a$  is compact (cf. Definition \ref{blowing_support_defn} and the Lemma \ref{blowing_pedersen_compact_lem}). If $f \bydef \sum_{j=1}^n f_j$ is covering sum for $\supp a$   dominated by the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_covering_sum_defn}) then for any $j \in \left\{1,...,n\right\}$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. One has
-$$
-a = \sum_{\substack{ j=1 \\ k =1}}^{\substack{ j=n \\ k =n}} f_j a f_k.
-$$
-If $a_{jk}\bydef f_j a f_k$ then then there is a given by \eqref{groupoid_support_dec_eqn} $C^*$-norm convergent series
-$$
-a_{jk} = \sum_{\iota \in I} a_{jk\iota} 
-$$
-where for any $l = 1,...,n$ the groupoid support $\G$-$\supp a_{jkl}$ of $a_{jkl}$ (cf. Definition \ref{groupoid_support_defn}) a quasi-component of (cf. Definition \ref{top_quasi_component_defn})  $\G$-$\supp a_{jk}$. Fix $l \in \left\{1, ...m\right\}$. One has
-$$
-a^*_{jk\iota}a_{jk\iota}\in C_\rho \left(\sU_{\a_j}, \sF|_{\sU_{\a_j}} \right) 
-$$
 From the Definition \ref{foli_chart_defn} there is a homeomorphism
 $$
 \sV_{\a_j} \cong \left(0, 1 \right)^{\dim \sF} \times \left(0, 1 \right)^{\codim \sF} 
@@ -15908,20 +15977,289 @@ On the other hand one has
 \eean 
 If for any  $\kappa  \in \N$ 
 $$
-p'_\kappa = \mathfrak{e}_{\kappa\kappa}\otimes1_{ C\left( \left[0,1\right]^{\codim \sF} \right)}\otimes 
+p_\kappa = \mathfrak{e}_{\kappa\kappa}\otimes1_{ C\left( \left[0,1\right]^{\codim \sF} \right)}\otimes 
 $$
 where $\mathfrak{e}_{\kappa\kappa}\in $ is $\kappa,\kappa$-{elementary} matrix (cf. Definition \ref{elementary_defn}) then from the Lemma \ref{c_misch_lem} one can deduce that for any $b \in  \K\left( L^2\left( \left(0, 1 \right)^{\dim \sF}\right) \right)\otimes C_0\left( \left(0, 1 \right)^{\codim \sF} \right)$ one has
-\bean
-\lim_{N\to \infty} \left\| \left(\sum_{\kappa =1}^N p_\kappa \right) a - a \right\| = \lim_{N\to \infty} \left\| a -\left(\sum_{\kappa =1}^N p_\kappa \right) a  \right\|= 0.
-\eean
+\be\label{blowing_misch_eqn}
+\lim_{N\to \infty} \left\| \left(\sum_{\kappa =1}^N p_\kappa \right) b - b \right\| = \lim_{N\to \infty} \left\| b -\left(\sum_{\kappa =1}^N p_\kappa \right) b  \right\|= 0.
+\ee
 The homomorphism $\phi_j$ yields an injective $*$-homomorphism 
 $$
-\overline \phi_j : \K\left( \ell^2\left( \N\right) \right)\otimes C\left( \left[0,1\right]^{\codim \sF} \right)\hookto C_\rho \left(\sV_{\a_j}, \sF|_{\sV_{\a_j}}, \sigma \right)
+\overline \phi_j : \K\left( \ell^2\left( \N\right) \right)\otimes C\left( \left[0,1\right]^{\codim \sF} \right)\hookto M\left( C_\rho \left(\sV_{\a_j}, \sF|_{\sV_{\a_j}}, \sigma \right)\right) 
 $$
 such that
-
+\bean
+\forall b \in \K\left( \ell^2\left( \N\right) \right)\otimes C\left( \left[0,1\right]^{\codim \sF} \right)\quad  s_{a_j}\overline \phi_j\left(b \right) s_{a_j}\in  C_\rho \left(\sV_{\a_j}, \sF|_{\sV_{\a_j}}, \sigma \right).
+\eean
+If 
+\bean
+p_{j\kappa}\bydef s_{a_j}\overline \phi_j\left(p_\kappa \right) s_{a_j}\in \in  C_\rho \left(\sV_{\a_j}, \sF|_{\sV_{\a_j}}, \sigma \right),\\
+P_{jN}\bydef \sum_{\kappa = 1}^N p_{j\kappa}
+\eean 
+then from $s_{a_j}\left(\sU_{a_j} \right)= \{1\}$ and  the equation \eqref{blowing_misch_eqn} it turns out that 
+\be\label{blowing_misch_f_eqn}
+\forall a \in C_\rho \left(\sU_{\a_j}, \sF|_{\sU_{\a_j}}, \sigma \right)\quad \lim_{N\to \infty} \left\|a - P_{jN}a\right\| =   \lim_{N\to \infty} \left\|a - aP_{jN}\right\| = 0.
+\ee
+If $a \in K\left( C^*_{\overline\rho}\left(\overline M , \overline \F, \overline \sigma \right)\right)_+$ then the support  $\supp a\subset M$ of $a$  is compact (cf. Definition \ref{blowing_support_defn} and the Lemma \ref{blowing_pedersen_compact_lem}). If $f \bydef \sum_{j=1}^n f_j$ is covering sum for $\supp a$   dominated by the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_covering_sum_defn}) then for any $j \in \left\{1,...,n\right\}$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. One has
+$$
+a = \sum_{\substack{ j=1 \\ k =1}}^{\substack{ j=n \\ k =n}} f_k a f_j.
+$$
+If $a_{kj}\bydef f_k a f_j$ then then there is a given by \eqref{groupoid_support_dec_eqn} $C^*$-norm convergent series
+$$
+a_{kj} = \sum_{\iota \in I} a_{kj\iota} 
+$$
+where for any $\iota \in I$ the groupoid support $\G$-$\supp a_{kjl}$ of $a_{kjl}$ (cf. Definition \ref{groupoid_support_defn}) a quasi-component of (cf. Definition \ref{top_quasi_component_defn})  $\G$-$\supp a_{kj}$.  One has
+$$
+a^*_{kj\iota}a_{kj\iota}\in C_\rho \left(\sU_{\a_j}, \sF|_{\sU_{\a_j}} \right) 
+$$
+From the equation \eqref{blowing_misch_f_eqn} and the Lemma \ref{left_ideal_lem}
+it follows that 
+$$
+  \lim_{N\to \infty}\left\|a_{kj\iota}  - a_{kj\iota} P_{N_j} \right\|= 0.
+$$
+The series $a_{kj} = \sum_{\iota \in I} a_{kj\iota}$ is $C^*$-norm convergent, so one has
+\be
+\lim_{N\to \infty}\left\|a_{kj} - a_{kj} P_{N_j} \right\|= 0.
+\ee
+Similarly one can prove that
+\be
+\lim_{N\to \infty}\left\|a_{kj}- P_{N_k}a_{kj} \right\|= 0.
+\ee
+If $\eps > 0$ then there is $N_\eps  \in \N$ such that
+\bean
+\forall N \ge N_\eps \quad \left\|a_{kj} - a_{kj} P_{N_j} \right\|\le \frac{\eps}{2}, \quad  \left\|a_{kj}- P_{N_k}a_{kj} \right\|\le \frac{\eps}{2}
+\eean 
+and
+\be
+\begin{split}
+\left\|a_{kj} - P_{N_k} a_{kj} P_{N_j} \right\| \le \left\|a_{kj} - a_{kj} P_{N_j} \right\| + \left\|a_{kj} P_{N_j} - P_{N_k} a_{kj} P_{N_j} \right\| <\\< \frac{\eps}{2} + \left\| P_{N_j} \right\|\frac{\eps}{2}= \eps.
+\end{split}
+\ee
+For any $j =1,..., n$ there is a given by \eqref{groupoid_support_dec_eqn} $C^*$-norm convergent series
+$$
+a_{jj} = \sum_{\iota \in I} a_{jj\iota} 
+$$
+where for any $\iota \in I$ the groupoid support $\G$-$\supp a_{kjl}$ of $a_{kjl}$ (cf. Definition \ref{groupoid_support_defn}) a quasi-component of (cf. Definition \ref{top_quasi_component_defn})  $\G$-$\supp a_{kj}$. Denote by $\iota_0$ a quasi-component of constant element $\ga= \ga^{-1} \in \G\left(M, \F \right)$ such that $s\left(\ga \right)  = r\left(\ga \right)\in \sU_{{\a_j}}$. According to the explained in  \ref{foli_topology_empt} topology the set
+\bean
+ a_{jj\iota_0}\in C^*_\rho \left( \sU_{{\a_j}}, \F|_{ \sU_{{\a_j}}}, \sigma \right) \cong  C^*_r \left( \sU_{{\a_j}}, \F|_{ \sU_{{\a_j}}}\right)\cong C^*\left( \sU_{{\a_j}}, \F|_{ \sU_{{\a_j}}}\right)\cong\\ \cong \K\left( \ell^2\left( \N\right)  \right)\otimes C_0\left( \left(0, 1 \right)^{\codim \sF} \right)
+\eean
+WHERE !!!
 
 \end{empt}
+\begin{theorem}\label{grupoid_foli_intinite_covering_thm}
+	Under  hypotheses \ref{groupoid_foli_empt}  if $\overline q: \overline M  \to  M$  is the {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}) and an algebraical finite covering category 
+	$
+	\mathfrak{S}_{C^*_{\rho}\left( M ,  \F \right)_0\left( q\right) }$
+	is given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then a triple
+	\be\label{groupoid_foli_inf_thm_eqn}
+	\left(C^*_{\rho}\left( M ,  \F \right), C^*_{\overline\rho}\left(\overline M , \overline \F, \overline \sigma \right) , 	\widehat{G}   \right)  
+	\ee 
+	is a disconnected infinite noncommutative covering of  $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F, \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).	
+\end{theorem}
+\begin{proof}
+	Let 
+	$$
+	\left(C^*_{\rho}\left( M ,  \F, \sigma \right), \overline A', 	\widehat{G}   \right)
+	$$  
+{pre}-{covering of the algebraical finite covering category} $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}). and let $\overline a \in K\left(\overline A' \right)_0$ (cf. the equation \eqref{pedersen_k0_eqn}). From the Lemma \ref{pedersen_eps_lem} it follows that there is a positive element $\overline b\in \overline A'_+$ and $\eps > 0$ such that $\overline a = f_\eps\left(\overline b\right)$  where $f_\eps$ is given by the equation \eqref{f_eps_eqn}. If $\overline a' \bydef  f_{\eps/2}\left(\overline b\right)$ then $\overline a' \in K\left(\overline A' \right)_0$. From the Lemma \ref{infinite_pre_covering_lem} it follows that if 
+$$
+\forall \la \in \La \quad a_\la \bydef  	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G_\la \right)}g \overline a; \quad a'_\la \bydef  	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G_\la \right)}g \overline a'
+$$
+then $a_\la, a'_\la\in K\left(A_\la \right)$. In particular if
+$$
+ a \bydef  	\bt~\text{-}\sum_{g \in \widehat{G}}g \overline a; \quad  a' \bydef  	\bt~\text{-}\sum_{g \in \widehat{G}}g \overline a';
+ $$
+ then $a, a' \in K\left( A\right) = K\left( \right)$ 
+\end{proof}
+
+\paragraph{!!! BEGIN INSERT !!!}
+\begin{empt}\label{top_long_p_empt}
+	Under the hypotheses of the Definition \ref{ctr_inf_defn} suppose 	that $A \bydef C_0\left( \sX\right)$. 
+	There is a category
+	\be\label{top_category_fin_c0_eqn}
+	\begin{split}
+		\mathfrak{S}_{C_0\left(p\right) } \bydef \\
+		\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+	\ee
+	which is a specialization of \eqref{top_category_fin_a0_eqn} one. An admissible 	$C^*$-algebra (cf. Definition \ref{ctr_inf_defn}) $\widetilde A' \subset  C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is a  subalgebra of commutative $C^*$-algebra of bounded complex-valued maps. If   $\widetilde a\in  K\left( \widetilde A\right) _+$ is  a positive element then from (c) of the Definition \ref{ctr_inf_defn} of follows that all $\la \in \La$ one has
+	\be\label{top_atomic_cc_eqn}
+	a_\la \bydef s\text{-}	\sum_{g \in \ker\left(\widehat{G}\to  G\left( \left.\sX_\la~\right|\sX\right)\right) }g \widetilde a \in  C_c\left(\sX_\la\right)
+	\ee 
+	where point-wise convergence of the series is implied and $C_c\left(\sX_\la\right)$ is regarded as a $C^*$-subalgebra of $C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$.
+	Denote by $\widetilde b^1 \bydef \widetilde a$. Let $\widetilde x_0\in \widetilde \sX$ be such that $\frac{2}{3}\left\| a\right\|<  \widetilde a \left( \widetilde x_0\right) \le \left\| a\right\|$. From  the equation \eqref{top_atomic_cc_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left( \widetilde x_0\right)  \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$ where $b^1_{\la_0}=s\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde b^1\in   C_c\left(\sX_{\la_0}\right)$ and the point-wise convergence of the series is implied. There is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that $\frac{2}{3}\left\|  \widetilde b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \widetilde b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\widetilde{a}^1 \bydef f_\eps \left(\widetilde{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \widetilde b^1\right\|$. If $a^1_{\la_0}= \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde a^1\in K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \widetilde b^1\right\| >\widetilde a^1 \left( \widetilde x_0\right)$ it follows that
+	$0<  \widetilde a^1 \left( \widetilde x_0\right)< \frac{1}{3}\left\|  \widetilde b^1\right\|$ and 
+	$0< a^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right)  \right)< b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right) \right) - \frac{2}{3}\left\| \widetilde b^1\right\|< \frac{2}{3}\left\| \widetilde b^1\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \widetilde b^1\right\|$ 
+	for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ be such that $\mu > \la_0$ and  $a^1_{\mu}=\sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \widetilde a^1$ then one has
+	$$
+	a^1_{\la_0} = \sum_{	g \in G\left( \left. \sX_\mu\right| \sX_{\la_0}\right) } a^1_{\mu}
+	$$
+	From the above equation it follows that
+	\bean
+	p^\mu_{ \la_0}\left(\left\{x_\mu \in \sX_{\mu} |  a^1_{\mu}\left(x_\mu \right)  > 0\right\} \right) = \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0} > 0\right\}, 
+	\eean
+	so if $\sU_{\la_0} \bydef \sU'_{\la_0}\cap  \sU''_{\la_0}\cap \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0} > 0\right\}$ and $$\sU_\mu \bydef \left\{x_\mu \in \sX_{\mu} |  a^1_{\mu} > 0\right\}\cap \left( p^\mu_{ \la_0}\right)^{-1}\left(\sU_{\la_0}\right)$$
+	then $p^\mu_{ \la_0}\left(\sU_\mu  \right)= \sU_{\la_0}$, i.e. one has a surjective continuous map
+	$$
+	\th\bydef \left.p^\mu_{ \la_0} \right|_{\sU_\mu}:\sU_\mu\to \sU_{\la_0}
+	$$
+	If $\th$ is not a one to one map then there are $x^1_\mu, x^2_\mu\in \sU_\mu$ such that $x^1_\mu\neq x^2_\mu$ and $ p^\mu_{ \la_0}\left(x^1_\mu\right)=  p^\mu_{ \la_0}\left(x^2_\mu\right)$. From $a^1_{ \la_0}\left(x^1_\mu \right) , a^1_{ \la_0}\left(x^2_\mu \right) > 0$ it follows that there are $\widetilde{x}_1, \widetilde{x}_2 \in \widetilde{\sX}$ such that $\widetilde a^1 \left(\widetilde{x}_1\right),  \widetilde a^1 \left(\widetilde{x}_2\right) > 0$, so one has $ \widetilde b^1 \left(\widetilde{x}_1\right), \widetilde b^1 \left(\widetilde{x}_2\right) > \frac{2}{3}\left\| \widetilde b^1\right\|$.
+	It follows that $b^1_\mu\left(x^1_\mu \right), b^1_\mu\left(x^2_\mu \right)  > \frac{2}{3}\left\| b^1\right\|$ so $b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right)  > b^1_\mu\left(x^1_\mu \right)+ b^1_\mu\left(x^2_\mu \right) > \frac{4}{3}\left\| \widetilde b^1\right\|$. It contradicts with $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$. From this contradiction turns out that a map $\th$ is one to one. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism. From this fact it follows that
+	\be\label{top_a_desc}
+	\forall x_\mu \in \sU_\mu\quad a^1_{\mu }\left( x_\mu\right) = a^1_{\la_0 }\left( p^\mu_{ \la_0\left(x_\mu \right) }\right). 
+	\ee
+	If $\widetilde{\sU}\subset \widetilde \sX$ is a connected component of $\widetilde{p}^{-1}_{\la_0}\left(\sU_{{\la_0}} \right)$ such that $\widetilde x_0 \in \widetilde\sU$ then from the equations \eqref{top_atomic_eqn} and \eqref{top_a_desc} it follows that
+	\be\label{top_lift_al_eqn}
+	\begin{split}
+		\forall \widetilde x \in \widetilde \sU\quad  \widetilde a^1\left( \widetilde x\right) = a^1_{\la_0 }\left(\widetilde p_{ \la_0\left(\widetilde x\right) }\right),\\
+		\left.\widetilde a^1\right|_{\widetilde\sU} = \lift^{ \widetilde{p}_{\la_0}}_{\widetilde{\sU}}\left( a^1_{\la_0 }\right) 
+	\end{split}
+	\ee
+	where $\lift^{ \widetilde{p}_{\la_0}}_{\widetilde{\sU}}$ is given by the Definition \ref{top_lift_desc_defn} $\widetilde{p}_{\la_0}$-${\widetilde{\sU}}$-lift.
+	So the restriction $\left. \widetilde a^1_{\la_0 }\right|_{\widetilde \sU}$ is continuous, i.e.  $\widetilde a^1$ is continuous at $\widetilde{x}_0$. Since a point $\widetilde x_0$ is arbitrary one has  $\widetilde a^1\in C_b\left( \widetilde{\sX}\right) $. One has $\left\|\widetilde{a}^1 \right\| =   \frac{1}{3}\left\|\widetilde{a}\right\|$.
+	If $\widetilde{b}^2 \bydef \widetilde{b}^1 - \widetilde{a}^1$ then one can proof following:
+	\bean
+	\widetilde{b}^2 \ge 0,\\
+	\left\|\widetilde{b}^2 \right\| \le   \frac{2}{3}\left\|\widetilde{a}\right\| 
+	\eean 
+	So if $\eps' =\left( \frac{2}{3}\right)^2\left\|\widetilde{a}\right\| $ and $\widetilde{a}^2= f_{\eps'}\left( \widetilde{b}_2\right)$ then similarly to the above constriction one has $\widetilde a^2 \in C_b\left( \widetilde{\sX}\right)$ and
+	$\left\|\widetilde{a}^2 \right\| =    \frac{2}{3}\frac{1}{3}\left\|\widetilde{a}\right\|$. Going on one has a sequence $\widetilde{a}^1,..., \widetilde{a}^n, ... $ such that $ \widetilde a^n \in C_b\left( \widetilde{\sX}\right)$ and $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\widetilde{a}\right\|$.
+	From  $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\widetilde{a}\right\|$ if follows than one has $C^*$-norm convergent series
+	\be\label{top_ser_eqn}
+	\widetilde{a}' \bydef	\sum_{n = 1}^\infty \widetilde  a^n.
+	\ee
+	the sum of the series lies in $C_b\left( \widetilde{\sX}\right)$
+	On the other hand from
+	$$ 
+	\forall n \in \N \quad \left\|\widetilde{a}- \widetilde{a}^n\right\|\le \frac{1}{3}\left\|\widetilde{a}\right\|  \left( \frac{2}{3}\right)^{n-1}
+	$$	
+	it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( \widetilde{\sX}\right)\subset   C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$.
+\end{empt}
+
+\begin{lemma}\label{top_disc_p_lem}
+	Under the hypotheses \ref{top_long_p_empt} then has $\widetilde{a}\in C_0\left( \widetilde{\sX}\right)$.
+\end{lemma}
+\begin{proof}
+	Let
+	$$
+	a \bydef \sum_{g\in \widehat G} g \widetilde a\in C_c\left( \sX\right) 
+	$$
+	Let $\widetilde a^1 \bydef f_\eps\left( \widetilde a\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn} and $\eps \bydef \frac{2}{3}\lVert \widetilde a\rVert$ and denote by $a^1 \bydef \sum_{g\in \widehat G} \widetilde a^1\in C_c\left( \sX\right)$. For any $\widetilde x \in \supp \widetilde a^1$ we select an open neighborhood $\widetilde \sU_{\widetilde x}\subset \widetilde \sX$ such that:
+	\begin{itemize}
+		\item $\widetilde \sU_{\widetilde x}$ is mapped homeomorphically onto $ \sU_{\widetilde x}\bydef \widetilde p\left(\widetilde \sU_{\widetilde x} \right)$,
+		\item there is $\la_{\widetilde x} \in \La$ such that  
+		\be\label{top_cond_eqn}
+		\widetilde x \in \widetilde \sU_{\widetilde x}\quad \widetilde a^1\left(\widetilde x \right) = a_{\la_{\widetilde x}} \left( \widetilde p_{\la_{\widetilde x}}\left(\widetilde x \right)  \right) 	
+		\ee 
+		where 
+		$$
+		a_{\la_{\widetilde x}} \bydef  \sum_{g\in \ker \left( \widehat G \to G\left( \sX_{\la{\widetilde x}}| \sX\right)\right)  } \widetilde a^1.	
+		$$
+	\end{itemize}
+	The existence of $\widetilde \sU_{\widetilde x}$ follows from the equation \eqref{top_lift_al_eqn}. Clearly $\supp a^1 = \widetilde p \left(\supp \widetilde a^1 \right)$. On the other similarly to the Lemma \ref{top_disc_p_lem} one can prove  that $a^1 \in K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right)$ so a set $\supp a^1$ is compact. From this fact and taking into account that $\supp a^1\subset \bigcup_{\widetilde x \in \supp \widetilde a^1}\sU_{\widetilde x}$ we conclude that there is a finite set $\left\{\widetilde x_1, ..., \widetilde x_n \right\}\subset \supp \widetilde a^1$ such that
+	$$
+	\supp a^1 \subset  \sU_{\widetilde x_1}\cup ...\cup \sU_{\widetilde x_n}.
+	$$
+	The set $\La$ is directed, so there is $\widetilde \la \in \La$ such that for any $\widetilde x_j \in \left\{\widetilde x_1, ..., \widetilde x_n \right\}$ one has $\widetilde \la\ge \la_{\widetilde x_j}$. If $x_{\widetilde \la} \in \widetilde p_{\widetilde \la}\left(\supp \widetilde a^1 \right)$ then $p_{\widetilde \la  }\left( x_{\widetilde \la} \right)\in \supp a^1$. For any  $x_{\widetilde \la} \in \widetilde p_{\widetilde \la}\left(\supp \widetilde a^1 \right)$ there is $\widetilde x_j \in \left\{\widetilde x_1, ..., \widetilde x_n \right\}$ such that $p_{\widetilde \la  }\left( x_{\widetilde \la} \right)\in \sU_{\widetilde x_j}$. If $x_{\la_{\widetilde x_j}}\bydef p^{\widetilde \la}_{\la_{\widetilde x_j}}\left(  x_{\widetilde \la}\right)$ then from \eqref{top_cond_eqn} it follows that there is the unique $\widetilde x \in \supp \widetilde a^1$ such that $\widetilde p_{\la_{\widetilde x_j}}\left(\widetilde x  \right) = x_{\la_{\widetilde x_j}}$. Thus there is   the unique point  $\widetilde x\in\supp \widetilde a^1$ such that $\widetilde p_{\widetilde \la}\left(\widetilde x  \right) = x_{\widetilde\la}$, so the restriction $\widetilde p_{\widetilde \la}|_{\supp \widetilde a^1}: \supp \widetilde a^1 \to \widetilde p_{\widetilde \la}\left(\supp \widetilde a^1 \right)$ is a bijective map.
+	From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} and  the Theorem \ref{top_bicont_thm} it follows that the restriction is a homeomorphism. On the other hand 
+	\bean
+	p_{\widetilde \la}\left(\supp \widetilde a^1 \right)= \supp a^1_{\widetilde \la},\\
+	\text{where} \quad 	
+	a_{\widetilde\la} \bydef  \sum_{g\in \ker \left( \widehat G \to G\left( \sX_{\widetilde \la}| \sX\right)\right)  } \widetilde a^1.	
+	\eean 
+	From \eqref{a_la_eqn} it follows that $ a^1_{\widetilde \la} \in K\left(C_0\left(\sX_{\widetilde \la} \right)  \right) = C_c\left(\sX_{\widetilde \la} \right)$ 
+	so the set $\supp a^1_{\widetilde \la}$ is compact. It turns out that the set $\supp \widetilde a^1$ is compact 
+	and $\widetilde{a}^1\in C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}^2, ..., \widetilde{a}^n, ...$ are explained in \ref{top_long_p_empt} elements then similarly to the above proof one has $\widetilde{a}^n \in  C_c\left(\widetilde{\sX} \right)$. On the other hand one has a $C^*$-norm convergent series
+	\bean
+	\widetilde a= \sum_{n = 1}^\infty  \widetilde a^n
+	\eean
+	(cf. Equation \eqref{top_ser_eqn}) so from the Definition \ref{c_c_closure_defn} it follows that $ \widetilde a \in C_0\left(  \widetilde \sX\right)$.
+\end{proof}
+
+
+\begin{lemma}\label{ctr_infinite_lem}
+	If $A$ is a continuous trace $C^*$ algebra, with the locally connected spectrum $\sX$. Let $p: \widetilde \sX \to \sX$ is a covering such that $\sX \bydef \widetilde \sX/G$ with residually finite group $G$ and 	\bean
+	\begin{split}
+		\mathfrak{S}_{A_0\left(p\right) } \bydef \\
+		\left\{ \left\{ A_0\left( p_\la\right)  :A_0\left( \mathcal{X}\right)  \hookto A_0\left( \mathcal{X}_\la\right) \right\}, \left\{A_0\left( p^\mu_\nu\right)  :A_0\left( \mathcal{X}_\mu\right)  \hookto A_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+	\eean
+	given by \eqref{top_category_fin_a0_eqn}
+	is the \textit{algebraic} $A$-$\widetilde \sX$-$  G$-\textit{category} (cf. Definition \ref{top_fin_cov_a_cat_defn}). If $\widetilde A' \subset   A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is an admissible subalgebra (cf. Definition \ref{ctr_inf_defn}) then there is the natural inclusion
+	$$
+	\widetilde A' \subset A_0\left(\widetilde \sX \right)  \subset A_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+	$$
+\end{lemma}
+\begin{proof}
+	One can construct a family $\left\{\sU_\a\right\}_{\a\in\mathscr A}$ of connected open subsets  of $\sX$ with compact closures,  such that $\sX = \bigcup_{\a \in \mathscr A}\sU_\a$ and for any $\a \in \mathscr A$ one has:
+	\begin{itemize}
+		\item $\sU_\a$ is evenly covered by $p$,
+		\item if $\sV_\a$ is the closure of $\sU_\a$ then there is an Abelian element $e_\a \in A$ (cf. equation \eqref{closed_ideal_eqn}) such that $X_{C\left( \sV_a\right) } \bydef e|^{\sV_\a}$ is an $\left. A\right|^{\sV_\a}-\left.  e\right|^{\sV_\a}\left.A\right|^{\sV}\left. e\right|^{\sV_\a}\cong C\left({\sV_\a}\right)$-imprimitivity bimodule (cf. construction \ref{ctr_imprim_empt}) and
+		$$
+		\left. A\right|^{\sV_\a}= \K\left( X_{C\left( \sV_a\right) }\right), 
+		$$
+	\end{itemize}
+	From Theorem \ref{kasparov_stab_thm} for any $\a \in \mathscr A$ one has  inclusions 	$X_{C\left( \sV_a\right) }\subset \ell^2\left( C\left( \sV_a\right) \right)$
+	\be\label{ctr_k_inc_eqn}
+	\K\left( X_{C\left( \sV_a\right) }\right) \subset \K\left( \ell^2\left( C\left( \sV_a\right)\cong C\left( \sV_a\right)\otimes \K. \right)\right) 
+	\ee
+	If $\widetilde a \in K\left({{\widetilde A}} \right)_+$ is a positive element then from the condition (c) of the Definition  \ref{ctr_inf_defn} there is $a \in K\left(A \right)_+$ 
+	such that  
+	$$
+	\forall  x \in \sX \quad s\text{-}\sum_{	g \in \ker\left(\widehat G\to   G\left(\left. \sX\right|\sX_\la \right)\right) }\rep_{ x}\left( g  a'\right)  = \rho^\la_{ x}\left(a_\la \right)
+	$$
+	From \ref{blowing_pedersen_compact_lem} it follows that the support $\supp a\subset \sX$ is compact. If $f \bydef \sum^n_{j=1} f_j$ is a subordinated  !!! dominated !!!to the family $\left\{\sU_\a\right\}$ covering sum (cf. Definition  \ref{top_covering_sum_defn}) then
+	\bean
+	f a = a,\\
+	f \widetilde{a}' = \widetilde{a}'
+	\eean 
+	and for any $j=1,..., n$ there is $\a_j \in \mathscr A$ such that $\supp f_j \subset \sU_{\a_j}$. 
+	From this fact and \eqref{ctr_k_inc_eqn} one can suppose that
+	$$
+	f_ja  \in \K\left( \ell^2\left( C\left( \sV_{\a_j}\right)\right)\right)\cong C\left( \sV_{\a_j}\right)\otimes \K.
+	$$
+	Let us fix $j \in \{1,...,n\}$. If $\eps > 0$ then from the Lemma \ref{c_misch_g_lem} it follows that there is $N \in \N$ such that
+	\be\label{ctr_pfp_eqn}
+	\forall k \ge N  \quad \left\|\left(  \sum_{l = 1}^{k}   p_{l}\right) f_ja\left(  \sum_{l = 1}^{k}   p_{l}\right)  - f_ja\right\| < \frac{\eps}{n} 
+	\ee
+	where $p_{l} \bydef 1_{C\left(\sV_{\a_j} \right) }\otimes \mathfrak{e}_{ll}$ and $ \mathfrak{e}_{ll}$ is $l,l$-{elementary} matrix (cf. Definition \ref{elementary_defn}).
+	From the equation \eqref{ctr_pfp_eqn} it follows that
+	\be
+	\forall l \ge N\quad p_l  f_j f_{\eps/n} \left(a \right)p_l  = 0
+	\ee
+	where $f_{\eps/n}$ is given by the equation \eqref{f_eps_eqn}.
+	For any $\la \in \La$ and $l \in \N$ there is 
+	\bean
+	\widetilde f^l_\la \in C_b\left(\widetilde \sX\right), \\
+	\widetilde x \mapsto \tr\left( \rho^\la_{\widetilde{x}}\left(p_l f_j f_{\eps/n} \left( a_\la \right)p_l \right) \right) = \left\|\rho^\la_{\widetilde{x}}\left(p_l  f_jf_{\eps/n} \left( a_\la \right)p_l \right) \right\| 
+	\eean
+	From the Lemma \ref{top_disc_p_lem} it follows that
+	$$
+	\widetilde f^l \bydef s\text{-}\lim_{{\la \in \La}} f^l_\la\in C_c\left( \widetilde \sX\right) 
+	$$
+	where $\tr$ is the trace of operator and $s\text{-}\lim$ means the pointwise limit.
+	A finite union  $\widetilde{\sV}_l\bydef \bigcup_{l=1}^N \supp \widetilde f^l$ of compact sets is compact, so from the Theorem \ref{top_compact_thm}  it follows that there is $\la_0\in \La$ such that $\widetilde{\sV}$ is mapped homeomorphically onto $\widetilde{p}_{\la_0}\left( \widetilde{\sV}\right)$ where  $\widetilde{p}_{\la_0}:\widetilde\sX \to \sX_{ \la_0}$ is the natural covering. On the other hand 
+	$$
+	\forall l \in \N\quad \forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad \widetilde f^l = 0,
+	$$ 
+	so one has
+	$$
+	\forall \widetilde x \in \widetilde\sX\setminus  \widetilde{\sV}\quad f_j \rep_{  \widetilde{x }}\left(  f_{\eps/n}\left(\widetilde a' \right) \right) = 0.
+	$$
+	It follows that 
+	$$
+	f_j   f_{\eps/n}\left(\widetilde a' \right)= f_j \lift^{\widetilde{p}_{\la_0}}_{\widetilde\sV}\left( f_{\eps/n}\left( a_\la \right)\right) \in A_0\left(\widetilde\sX \right).
+	$$
+	On the other hand
+	$$
+	\left\| f_j   f_{\eps/n}\left(\widetilde a' \right) - f_j \widetilde a  \right\| < \frac{\eps}{n},
+	$$
+	i.e. for any $j = 1,..., n$ there is $\widetilde a_j \in A_0\left(\widetilde\sX \right)$ such that $\left\|  f_j \widetilde a  - \widetilde a_j\right\| < \eps / n$.
+	If $\widetilde a \bydef \widetilde a_1 + ... + \widetilde a_n \in A_0\left(\widetilde\sX \right)$ then $\left\|  \widetilde a  - \widetilde a'\right\|< \eps$, so $\widetilde a \in A_0\left(\widetilde\sX \right)$ since $A_0\left(\widetilde\sX \right)$ is $C^*$-norm closed.
+\end{proof}
+
+\paragraph{!!! END INSERT !!!}
+
 \begin{exercise}\label{foli_neigh_exer}
 !!!!NNEIGHNORHOOD!!!
 \end{exercise}
@@ -24770,7 +25108,7 @@ open subset.
 	\begin{defn}\label{foli_max_defn}\cite{candel:foliI}
 		A \textit{foliation of codimension} $q$ and class $C^r$ on $M$ is a maximal foliated $C^r$-atlas of codimension $q$ on $M$.
 	\end{defn}
-	\begin{empt}\cite{candel:foliII}
+	\begin{empt}\label{foli_topology_empt}\cite{candel:foliII}
 		CORRECT !!!
 	We construct a topology for $\G = \G\left( M, \F\right)$  as follows.
 	Let $\ga \in \G$ be an element with $s\left(\ga\right)= x$ and $r\left(\ga\right)= x$ in the leaf
@@ -27375,8 +27713,6 @@ Mathematical Surveys and Monographs, vol. 134, American Mathematical Society, Pr
 
 
 \end{thebibliography}
-
-
 
  \end{document}
 
