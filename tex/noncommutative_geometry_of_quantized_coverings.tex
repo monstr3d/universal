@@ -1164,19 +1164,19 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	i.e. there is a contradiction $\left\| \zeta  \right\|< \left\| \zeta  \right\|$. From this contradiction it turns out that $\zeta = 0$ and the equality \eqref{srict_strong_eqn} is true.
 \end{proof}
 
-\begin{lemma}\label{left_ideal_lem}
-Let $A$ be a $C^*$-algebra, and let  $a \in A$.   If $\left\{u_\la\right\}_{\la \in \La}\subset A_+$ is a net of positive elements such that
-$$
-\lim_{\la\in \La}\left\|u_\la a^*a \right\| =  \lim_{\la\in \La}\left\|a^*a u_\la \right\|= 0 
-$$
-then one has
-$$
- \lim_{\la\in \La}\left\|a u_\la \right\|= 0. 
-$$
-\end{lemma}
-\begin{proof}
-The proof of this lemma is similar to the proof of the Theorem \ref{left_ideal_thm}.
-\end{proof}
+%\begin{lemma}\label{left_ideal_lem}
+%Let $A$ be a $C^*$-algebra, and let  $a \in A$.   If $\left\{u_\la\right\}_{\la \in \La}\subset A_+$ is a net of positive elements such that
+%$$
+%\lim_{\la\in \La}\left\|u_\la a^*a \right\| =  \lim_{\la\in \La}\left\|a^*a u_\la \right\|= 0 
+%$$
+%then one has
+%$$
+% \lim_{\la\in \La}\left\|a u_\la \right\|= 0. 
+%$$
+%\end{lemma}
+%\begin{proof}
+%The proof of this lemma is similar to the proof of the Theorem \ref{left_ideal_thm}.
+%\end{proof}
 
 
 \section{Transitive coverings}\label{top_transitive_section}
@@ -4186,7 +4186,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  
  \subsection{Basic constructions}
  \begin{definition}\label{g_category_defn}
- 	Let $ G$ be residually finite group (cf. Definition \ref{residually_finite_defn}). 
+ 	Let $ G$ be a residually finite group (cf. Definition \ref{residually_finite_defn}). 
  	Let $\left\{G_\la\right\}_{\la\in \La}$ be the indexed by a set $\La$ family of all finite factor groups of $ G$. If we define an order on $\La$ by the following way
  	\be\label{top_group_order_eqn}
  	\mu \ge \nu \quad \Leftrightarrow \quad \text{there is the natural homomorphism} \quad G_\mu \to G_\nu
@@ -4298,7 +4298,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  
  
  \begin{definition}\label{infinite_desc_defn}
- 	Under the hypotheses of the Definition \ref{algebraical_finite_covering_category_defn}   !!! CHECK (a) (b) !!! for all $\la\in\La$ there is a  natural   homomorphism of $A_\la$-$A_\la$-bimodules given by
+ 	Under the hypotheses of the Lemma \ref{infinite_pre_covering_lem}  for all $\la\in\La$ there is a  natural   homomorphism of $A_\la$-$A_\la$-bimodules given by
  	\be\label{inf_desc_eqn}
  	\begin{split}
  		\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right),\\
@@ -4319,7 +4319,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\begin{enumerate}
  		\item [(a)] 
  		any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),
- 		\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$ and $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
+ 		\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$. Moreover we require that $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
  	\end{enumerate}
  		
  	We write
@@ -4336,7 +4336,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
  	\begin{itemize}
  		\item $\mathfrak{Cov}\left(\mathfrak{S} \right)$-objects are pre-coverings of $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}),
- 		\item A $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism from $\left(A, \overline A', \widehat{G}\right)$ to  $\left( A, \overline A'', \widehat{G}\right)$ is an injective \\*-homomorphism $\phi: \overline A' \hookto  \overline A''$  such that
+ 		\item A $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism from $\left(A, \overline A', \widehat{G}\right)$ to  $\left( A, \overline A'', \widehat{G}\right)$ is an injective \\$*$-homomorphism $\phi: \overline A' \hookto  \overline A''$  such that
  		\bea\label{infinite_covering_g_eqn}
  		\forall	\overline a' \in \overline A'\quad \forall g \in \widehat{G}\quad g\phi\left( \overline a'\right) = \phi\left(g \overline a'\right),~~~\\
  		\label{infinite_covering_eqn}\forall	\overline a' \in \overline K\left(\overline A'\right) \quad \forall \la\in \La \quad \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \overline a'= \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \phi\left( \overline a'\right).~~~ 
@@ -4375,8 +4375,9 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \begin{lemma}\label{bt_lim_lem}
  	Under the hypotheses of the Definition  \ref{infinite_quasicovering_defn}  one has
  	\be\label{bt_lim_eqn}
- 	\forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
+ 	\forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la= \desc_\la\left(\overline a \right) 
  	\ee
+ 	(cf. )
  	where $a_\la$ is given by \eqref{basic_cov_cl_eqn} $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).
  \end{lemma}
  \begin{proof}
@@ -4415,14 +4416,15 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\ee
  \end{corollary}
  \begin{proof}
- 	If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that if 
+ 	If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that is
  	$$
- 	b_\la \bydef  \desc_{\la}\left(\overline a \right) \in K\left(A_\la \right)_+ 
+ 	b_\la \bydef  \desc_{\la}\left(\overline b \right) \in K\left(A_\la \right)_+ 
  	$$
- 	where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn}). So there is the $C^*$-norm limit.
+ (cf. Definition \ref{infinite_desc_defn})	then there is the $C^*$-norm limit.
  	$$
  	\overline{a} = \lim_{\la\in \La}b_\la \overline{b}.
  	$$
+ 	where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn}). 
  	One has
  	\be \label{inf_la_conv_eqn}
  	\begin{split}
@@ -4559,7 +4561,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  
  
 \begin{empt}
- 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \overline A \oplus \widetilde A^\perp$, and
+ 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
  	\be\label{infinite_covering_transformation_group_eqn}
  	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
  	\left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
@@ -4606,7 +4608,7 @@ A  disconnected infinite noncommutative covering 	$\left(A, \overline{A},\wideha
  	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both  given by  	 \ref{infinite_lift_defn}  lift and $\la$-lift are injective.
 \end{lemma}
 \begin{proof}
-Let	$\widetilde {\lift} : A \to M\left(\widetilde A \right)$ be the given by the Definition  \ref{infinite_lift_defn} lift. If $\widetilde {\lift}$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde {\lift}\left( a\right)  \widetilde A = \{0\}$. For any $g \in \widehat G$ from $g\left(\widetilde {\lift}\left( a\right)\widetilde A \right)= \widetilde {\lift}\left( a\right)g \widetilde A $  it follows that $\widetilde m\left( a\right) \left( g  \widetilde A \right) = \{0\}$ . Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde {\lift}\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $a  \overline A = \{0\}$, however it contradicts with the inclusion $a \subset M\left(\overline A \right)$. So $\widetilde {\lift}$ is injective. Similarly one can prove that $\la$-lift (cf. Definition \ref{infinite_lift_defn})  is also injective.
+Let	$\widetilde {\lift} : A \to M\left(\widetilde A \right)$ be the given by the Definition  \ref{infinite_lift_defn} lift. If $\widetilde {\lift}$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde {\lift}\left( a\right)  \widetilde A = \{0\}$. For any $g \in \widehat G$ from $g\left(\widetilde {\lift}\left( a\right)\widetilde A \right)= \widetilde {\lift}\left( a\right)g \widetilde A $  it follows that $\widetilde {\lift}\left( a\right) \left( g  \widetilde A \right) = \{0\}$ . Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde {\lift}\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $a  \overline A = \{0\}$, however it contradicts with the inclusion $a \subset M\left(\overline A \right)$. So $\widetilde {\lift}$ is injective. Similarly one can prove that $\la$-lift (cf. Definition \ref{infinite_lift_defn})  is also injective.
 \end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
@@ -4847,7 +4849,7 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
 \bean
 \mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \eean
-(cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}) and $\pi_a : \overline A\hookto B\left(\overline \H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{inverse_lim_h_cor} and the Lemma \ref{inverse_faithful_nondegenetate_lem} it follows that any $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism $\phi: \overline A' \hookto  \overline A''$ (cf. \ref{infinite_covering_empt}) can be include into the following commutative diagram
+(cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}) and $\pi_a : \overline A\hookto B\left(\overline \H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{inverse_lim_h_cor} and the Lemma \ref{inverse_faithful_nondegenetate_lem} it follows that any $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism $\phi: \overline A' \hookto  \overline A''$ (cf. \ref{infinite_covering_empt}) can be included into the following commutative diagram
 \newline
 \begin{tikzcd}
 \overline A'\arrow[rr, "\phi"] \arrow[rd, "\pi_{\overline A'}"]&& \overline A''\arrow[ld, "\pi_{\overline A''}"]\\
@@ -4988,7 +4990,7 @@ The notation of the Definition  \ref{algebraical_finite_covering_category_eqn} i
 a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
 \eean there is  $\overline a \in K\left( \overline A\right) $ such that $\left( \bt\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\right) \xi \neq 0$. It turns out that there is a finite subset $G_0\subset  \ker\left(\widehat{G}\to G_\la\right)$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) \xi \neq 0$, and one has $g \in G_0$ satisfying $g \overline a \xi \neq 0$, i.e. $K\left( \overline A\right)\xi \neq 0$. So the given by \eqref{ext_repro_eqn} representation is nondegenerate.
 \end{proof}
-
+!!! FINISH !!!
 \begin{lemma}\label{strict_strong_1_lem}
 Let	$\left( A, \overline A, \widehat{G}\right)$ be a {pre}-{covering} of the category $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}). If  $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ is a faithful (cf. Definition \ref{faithful_representation_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation. If  $\overline{a}\in K\left( \overline{A}\right) $,  $\la \in \La$ and  $a_\la$ is the sum of convergent with respect  to to strict topology of $M\left( \overline A\right)$ (cf. Definition \ref{strict_topology_defn}) series 
 	$$
