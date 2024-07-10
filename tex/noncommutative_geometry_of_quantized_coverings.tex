@@ -10153,19 +10153,6 @@ Here we explain  general algebraic constructions which can be applied to the cov
 %\begin{proof}
 %	If $a' \bydef \bt\text{-}\sum_{\a\in \mathscr A} f_{\eps / 3}\left(a_\a  \right)$ then from $a' \in \K\left(\H\right)$	and the Lemma \ref{pedersen_eps_lem} it follows that 	$f_{\eps / 3}\left(a' \right)\in K\left( \K\left(\H\right)\right)$. It follows that  there is $n \in \N$ and an $n$-dimensional subspace $V\subset \sH$ such that $f_{\eps / 3}\left(a' \right)\H \subset V$ (cf. the equation \eqref{peder_k_eqn}). If $a'' \bydef \bydef \bt\text{-}\sum_{\a\in \mathscr A} f_{2\eps / 3}\left(a_\a  \right)$ then from $a'' \le f_{\eps / 3}\left(a' \right)$ it follows that $a'' $. For any $\a\in \Xi$ one has $\tr\left( f_{2\eps / 3}\left(a_\a  \right)\right)> \eps$. It follows that the trace $\tr\left( a''\right)$ of $a''$ is infinite. It is impossible since $\left\|a'' \right\|\ge \frac{\tr\left( a''\right)}{n}$.  
 %\end{proof}
-\begin{empt}\label{top_discr_empt}
-	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ then from the Lemma \ref{hausdorff_spectrum_lem} it follows that  $A$ is a {continuity structure for} $\left\{\rep_{ x}\left( A\right)\right\}_{x\in \sX}$ and $\sX$ (cf. Definition \ref{operator_fields_continuity_defn}). 
-	If  $\widetilde \sX_{\mathrm{discr}}$ is a discrete topological space  which coincides with $\widetilde \sX$ as a set then the linear space of all operator fields $\left\{\widetilde a_{\widetilde x} \right\}$ with values in the $\left\{\rep_x\left(A \right) \right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_defn}) is {continuity structure for} $\sX_{\mathrm{discr}}$ {and the} $\left\{\rep_{\widetilde x}\left( A\right)\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}). If  $A\left( \sX_{\mathrm{discr}}\right)$ is the full algebra of operator fields on $\sX_{\mathrm{discr}}$ (cf. Definition \ref{full_algebra_operator_fields_defn}) then there are following natural inclusions 
-	\be\label{top_discr_eqn}
-	A\subset A_b\left( \sX\right) \subset A\left( \sX_{\mathrm{discr}}\right)
-	\ee
-	where $A_b\left( \sX\right)$ is given by the Definition   \eqref{top_cs_functa_b_defn}.
-\end{empt}
-
-\begin{definition}\label{top_discr_defn}
-	Under the hypotheses \ref{top_discr_empt} $A\left( \sX_{\mathrm{discr}}\right)$ is the \textit{discontinuous extension of} $A$.
-\end{definition}
-\begin{empt}\label{ctr_inf_empt}
 Let  $\sX$ be a connected, locally coconnected,  locally compact, Hausdorff space, and let $p: \widetilde \sX\to \sX$ a  be a covering.  Suppose that  $\widetilde{G}$ is a residually finite group (cf. Definition \ref{residually_finite_defn})  of properly discontinuous homeomorphisms of $\widetilde \sX$  (cf. Definition \ref{top_properly_disc_group_defn}) such that there is the natural homeomorphism $\sX = \widetilde\sX /  \widetilde G$. Suppose   $\widetilde{G}$ is residually finite and suppose that $\left\{G_\la\right\}_{\la \in \La}$ is a indexed by a directed set family of finite factor-groups of  $\widetilde G$ such that for all $\mu, \nu \in \La$ one has $\mu \ge \nu$ if and only if there is a following natural commutative diagram
 	\newline
 	\begin{tikzcd}
@@ -10186,89 +10173,82 @@ Let  $\sX$ be a connected, locally coconnected,  locally compact, Hausdorff spac
 	$$
 	This action can be naturally extended up to the action
 	$$
-	C_b\left(\widetilde \sX \right) \times C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right) \to C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+	C_b\left(\widetilde \sX \right) \times C\left(\widetilde\sX_{\mathrm{discr}} \right) \to C\left(\widetilde\sX_{\mathrm{discr}} \right).
 	$$
+	where $\widetilde\sX_{\mathrm{discr}}$ equals to $\widetilde\sX$ but the topology of $\widetilde\sX_{\mathrm{discr}}$ is discrete.
 	For any $\la\in \La$ there is the natural inclusion $C_b\left( \sX_\la\right) \subset C_b\left(\widetilde \sX \right)$ so there is the natural action
 	\be\label{ctr_inf_a_eqn}
-	C_b\left( \sX_\la \right) \times C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right) \to C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right).
+	C_b\left( \sX_\la \right) \times C\left(\widetilde\sX_{\mathrm{discr}} \right) \to C\left(\widetilde\sX_{\mathrm{discr}} \right).
 	\ee
-	For any $\la\in\La$ there is  the given by \eqref{top_cb_defna_eqn} inclusion 	$A_b\left(\widetilde p_\la \right): C_0\left(\sX_\la \right)  \hookto A_b\left(\widetilde{\sX} \right)$ it follows that for any $\widetilde{x}\in \widetilde \sX$ there is a $*$-homomorphism 
+	For any $\la\in\La$ there is  the given by \eqref{top_cb_defna_eqn} inclusion 	$C_b\left(\widetilde p_\la \right): C_0\left(\sX_\la \right)  \hookto C_b\left(\widetilde{\sX} \right)$ it follows that for any $\widetilde{x}\in \widetilde \sX$ there is a $*$-homomorphism 
 	\be\label{ctr_inf_rho_defn}
-	\rho^\la_{\widetilde x} : A_\la \to \rep_{  \widetilde{x }}\left(  A_0\left(\widetilde\sX \right)\right)\subset B\left(\widetilde \H_{ \widetilde x} \right)
+	\rho^\la_{\widetilde x} : C_0\left(\sX_\la \right) \to \rep_{  \widetilde{x }}\left(  C_0\left(\widetilde\sX \right)\right)\cong \C
 	\ee 
-	where $\H_{ \widetilde x}$ is the Hilbert space of the representation $ \rep_{  \widetilde{x }}$.
-\end{empt}
+	where $\H_{ \widetilde x}\cong \C$ is the Hilbert space of the representation $ \rep_{  \widetilde{x }}$.
 
 \begin{empt}\label{top_long_p_empt}
-Under the hypotheses of the Definition \ref{ctr_inf_defn} suppose 	that $A \bydef C_0\left( \sX\right)$. 
-	There is a category
-	\be\label{top_category_fin_c0_eqn}
-	\begin{split}
-		\mathfrak{S}_{C_0\left(p\right) } \bydef \\
-		\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
-	\end{split}
-	\ee
-which is a specialization of \eqref{top_category_fin_a0_eqn} one. An admissible 	$C^*$-algebra (cf. Definition \ref{ctr_inf_defn}) $\widetilde A' \subset  C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$ is a  subalgebra of commutative $C^*$-algebra of bounded complex-valued maps. If   $\widetilde a\in  K\left( \widetilde A\right) _+$ is  a positive element then from (c) of the Definition \ref{ctr_inf_defn} of follows that all $\la \in \La$ one has
-	\be\label{top_atomic_cc_eqn}
+Suppose that  $\widetilde a\in  K\left( C\left(\widetilde \sX_{\mathrm{discr}} \right) \right) _+$ is  a positive element such that
+\be\label{top_atomic_cc_eqn}
 a_\la \bydef s\text{-}	\sum_{g \in \ker\left(\widehat{G}\to  G\left( \left.\sX_\la~\right|\sX\right)\right) }g \widetilde a \in  C_c\left(\sX_\la\right)
-	\ee 
-	where point-wise convergence of the series is implied and $C_c\left(\sX_\la\right)$ is regarded as a $C^*$-subalgebra of $C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$.
-	Denote by $\widetilde b^1 \bydef \widetilde a$. Let $\widetilde x_0\in \widetilde \sX$ be such that $\frac{2}{3}\left\| a\right\|<  \widetilde a \left( \widetilde x_0\right) \le \left\| a\right\|$. From  the equation \eqref{top_atomic_cc_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left( \widetilde x_0\right)  \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$ where $b^1_{\la_0}=s\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde b^1\in   C_c\left(\sX_{\la_0}\right)$ and the point-wise convergence of the series is implied. There is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that $\frac{2}{3}\left\|  \widetilde b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \widetilde b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\widetilde{a}^1 \bydef f_\eps \left(\widetilde{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \widetilde b^1\right\|$. If $a^1_{\la_0}= \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde a^1\in K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \widetilde b^1\right\| >\widetilde a^1 \left( \widetilde x_0\right)$ it follows that
-	$0<  \widetilde a^1 \left( \widetilde x_0\right)< \frac{1}{3}\left\|  \widetilde b^1\right\|$ and 
-	$0< a^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right)  \right)< b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right) \right) - \frac{2}{3}\left\| \widetilde b^1\right\|< \frac{2}{3}\left\| \widetilde b^1\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \widetilde b^1\right\|$ 
-	for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ be such that $\mu > \la_0$ and  $a^1_{\mu}=\sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \widetilde a^1$ then one has
-	$$
-	a^1_{\la_0} = \sum_{	g \in G\left( \left. \sX_\mu\right| \sX_{\la_0}\right) } a^1_{\mu}
-	$$
-	From the above equation it follows that
-	\bean
-	p^\mu_{ \la_0}\left(\left\{x_\mu \in \sX_{\mu} |  a^1_{\mu}\left(x_\mu \right)  > 0\right\} \right) = \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0} > 0\right\}, 
-	\eean
-	so if $\sU_{\la_0} \bydef \sU'_{\la_0}\cap  \sU''_{\la_0}\cap \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0} > 0\right\}$ and $$\sU_\mu \bydef \left\{x_\mu \in \sX_{\mu} |  a^1_{\mu} > 0\right\}\cap \left( p^\mu_{ \la_0}\right)^{-1}\left(\sU_{\la_0}\right)$$
-	then $p^\mu_{ \la_0}\left(\sU_\mu  \right)= \sU_{\la_0}$, i.e. one has a surjective continuous map
-	$$
-	\th\bydef \left.p^\mu_{ \la_0} \right|_{\sU_\mu}:\sU_\mu\to \sU_{\la_0}
-	$$
-	If $\th$ is not a one to one map then there are $x^1_\mu, x^2_\mu\in \sU_\mu$ such that $x^1_\mu\neq x^2_\mu$ and $ p^\mu_{ \la_0}\left(x^1_\mu\right)=  p^\mu_{ \la_0}\left(x^2_\mu\right)$. From $a^1_{ \la_0}\left(x^1_\mu \right) , a^1_{ \la_0}\left(x^2_\mu \right) > 0$ it follows that there are $\widetilde{x}_1, \widetilde{x}_2 \in \widetilde{\sX}$ such that $\widetilde a^1 \left(\widetilde{x}_1\right),  \widetilde a^1 \left(\widetilde{x}_2\right) > 0$, so one has $ \widetilde b^1 \left(\widetilde{x}_1\right), \widetilde b^1 \left(\widetilde{x}_2\right) > \frac{2}{3}\left\| \widetilde b^1\right\|$.
-	It follows that $b^1_\mu\left(x^1_\mu \right), b^1_\mu\left(x^2_\mu \right)  > \frac{2}{3}\left\| b^1\right\|$ so $b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right)  > b^1_\mu\left(x^1_\mu \right)+ b^1_\mu\left(x^2_\mu \right) > \frac{4}{3}\left\| \widetilde b^1\right\|$. It contradicts with $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$. From this contradiction turns out that a map $\th$ is one to one. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism. From this fact it follows that
-	\be\label{top_a_desc}
-	\forall x_\mu \in \sU_\mu\quad a^1_{\mu }\left( x_\mu\right) = a^1_{\la_0 }\left( p^\mu_{ \la_0\left(x_\mu \right) }\right). 
-	\ee
-	If $\widetilde{\sU}\subset \widetilde \sX$ is a connected component of $\widetilde{p}^{-1}_{\la_0}\left(\sU_{{\la_0}} \right)$ such that $\widetilde x_0 \in \widetilde\sU$ then from the equations \eqref{top_atomic_eqn} and \eqref{top_a_desc} it follows that
-	\be\label{top_lift_al_eqn}
-	\begin{split}
-		\forall \widetilde x \in \widetilde \sU\quad  \widetilde a^1\left( \widetilde x\right) = a^1_{\la_0 }\left(\widetilde p_{ \la_0\left(\widetilde x\right) }\right),\\
-		\left.\widetilde a^1\right|_{\widetilde\sU} = \lift^{ \widetilde{p}_{\la_0}}_{\widetilde{\sU}}\left( a^1_{\la_0 }\right) 
-	\end{split}
-	\ee
-	where $\lift^{ \widetilde{p}_{\la_0}}_{\widetilde{\sU}}$ is given by the Definition \ref{top_lift_desc_defn} $\widetilde{p}_{\la_0}$-${\widetilde{\sU}}$-lift.
-	So the restriction $\left. \widetilde a^1_{\la_0 }\right|_{\widetilde \sU}$ is continuous, i.e.  $\widetilde a^1$ is continuous at $\widetilde{x}_0$. Since a point $\widetilde x_0$ is arbitrary one has  $\widetilde a^1\in C_b\left( \widetilde{\sX}\right) $. One has $\left\|\widetilde{a}^1 \right\| =   \frac{1}{3}\left\|\widetilde{a}\right\|$.
-	If $\widetilde{b}^2 \bydef \widetilde{b}^1 - \widetilde{a}^1$ then one can proof following:
-	\bean
-	\widetilde{b}^2 \ge 0,\\
-	\left\|\widetilde{b}^2 \right\| \le   \frac{2}{3}\left\|\widetilde{a}\right\| 
-	\eean 
-	So if $\eps' =\left( \frac{2}{3}\right)^2\left\|\widetilde{a}\right\| $ and $\widetilde{a}^2= f_{\eps'}\left( \widetilde{b}_2\right)$ then similarly to the above constriction one has $\widetilde a^2 \in C_b\left( \widetilde{\sX}\right)$ and
-	$\left\|\widetilde{a}^2 \right\| =    \frac{2}{3}\frac{1}{3}\left\|\widetilde{a}\right\|$. Going on one has a sequence $\widetilde{a}^1,..., \widetilde{a}^n, ... $ such that $ \widetilde a^n \in C_b\left( \widetilde{\sX}\right)$ and $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\widetilde{a}\right\|$.
-	From  $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\widetilde{a}\right\|$ if follows than one has $C^*$-norm convergent series
-	\be\label{top_ser_eqn}
+\ee 
+where the point-wise convergence of the series is implied and $C_c\left(\sX_\la\right)$ is regarded as a $C^*$-subalgebra of $C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
+Denote by $\widetilde b^1 \bydef \widetilde a$. Let $\widetilde x_0\in \widetilde \sX$ be such that $\frac{2}{3}\left\|\widetilde a\right\|<  \widetilde a \left( \widetilde x_0\right) \le \left\| \widetilde a\right\|$. From  the equation \eqref{top_atomic_cc_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left( \widetilde x_0\right)  \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$ where $b^1_{\la_0}=s\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde b^1\in   C_c\left(\sX_{\la_0}\right)$ and the point-wise convergence of the series is implied. There is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that $\frac{2}{3}\left\|  \widetilde b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \widetilde b^1\right\|$ for all  $ x_{\la_0}\in  \sU'_{\la_0}$. Let $\widetilde{a}^1 \bydef f_\eps \left(\widetilde{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \widetilde b^1\right\|$. If $a^1_{\la_0}= \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \widetilde a^1\in K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \widetilde b^1\right\| >\widetilde a^1 \left( \widetilde x_0\right)$ it follows that
+$0<  \widetilde a^1 \left( \widetilde x_0\right)< \frac{1}{3}\left\|  \widetilde b^1\right\|$ and 
+$0< a^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right)  \right)< b^1_{\la_0}\left(\widetilde{p}_{\la_0}\left(\widetilde x_0 \right) \right) - \frac{2}{3}\left\| \widetilde b^1\right\|< \frac{2}{3}\left\| \widetilde b^1\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\widetilde{p}_{\la_0}\left( \widetilde x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \widetilde b^1\right\|$ 
+for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ is such that $\mu > \la_0$ and  $a^1_{\mu}=\sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \widetilde a^1$ then one has
+$$
+a^1_{\la_0} = \sum_{	g \in G\left( \left. \sX_\mu\right| \sX_{\la_0}\right) } a^1_{\mu}
+$$
+From the above equation it follows that
+\bean
+p^\mu_{ \la_0}\left(\left\{x_\mu \in \sX_{\mu} |  a^1_{\mu}\left(x_\mu \right)  > 0\right\} \right) = \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0}\left( x_{\la_0}\right)  > 0\right\}, 
+\eean
+so if $\sU_{\la_0} \bydef \sU'_{\la_0}\cap  \sU''_{\la_0}\cap \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0}\left( x_{\la_0}\right) > 0\right\}$ and $$\sU_\mu \bydef \left\{\left.x_\mu \in \sX_{\mu} \right|  a^1_{\mu}\left( x_\mu\right)  > 0\right\}\cap \left( p^\mu_{ \la_0}\right)^{-1}\left(\sU_{\la_0}\right)$$
+then $p^\mu_{ \la_0}\left(\sU_\mu  \right)= \sU_{\la_0}$, i.e. one has a surjective continuous map
+$$
+\th\bydef \left.p^\mu_{ \la_0} \right|_{\sU_\mu}:\sU_\mu\to \sU_{\la_0}
+$$
+If $\th$ is not a one to one map then there are $x^1_\mu, x^2_\mu\in \sU_\mu$ such that $x^1_\mu\neq x^2_\mu$ and $ p^\mu_{ \la_0}\left(x^1_\mu\right)=  p^\mu_{ \la_0}\left(x^2_\mu\right)$. From $a^1_{ \la_0}\left(x^1_\mu \right) , a^1_{ \la_0}\left(x^2_\mu \right) > 0$ it follows that there are $\widetilde{x}_1, \widetilde{x}_2 \in \widetilde{\sX}$ such that $\widetilde a^1 \left(\widetilde{x}_1\right),  \widetilde a^1 \left(\widetilde{x}_2\right) > 0$, so one has $ \widetilde b^1 \left(\widetilde{x}_1\right), \widetilde b^1 \left(\widetilde{x}_2\right) > \frac{2}{3}\left\| \widetilde b^1\right\|$.
+It follows that $b^1_\mu\left(x^1_\mu \right), b^1_\mu\left(x^2_\mu \right)  > \frac{2}{3}\left\| b^1\right\|$ so $b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right)  > b^1_\mu\left(x^1_\mu \right)+ b^1_\mu\left(x^2_\mu \right) > \frac{4}{3}\left\| \widetilde b^1\right\|$. It contradicts with $\frac{2}{3}\left\| \widetilde b^1\right\|<b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right) < \frac{4}{3}\left\| \widetilde b^1\right\|$. From this contradiction turns out that a map $\th$ is one to one. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism. From this fact it follows that
+\be\label{top_a_desc}
+\forall x_\mu \in \sU_\mu\quad a^1_{\mu }\left( x_\mu\right) = a^1_{\la_0 }\left( p^\mu_{ \la_0\left(x_\mu \right) }\right). 
+\ee
+If $\widetilde{\sU}\subset \widetilde \sX$ is a connected component of $\widetilde{p}^{-1}_{\la_0}\left(\sU_{{\la_0}} \right)$ such that $\widetilde x_0 \in \widetilde\sU$ then from the equation \eqref{top_a_desc} it follows that
+\be\label{top_lift_al_eqn}
+\begin{split}
+	\forall \widetilde x \in \widetilde \sU\quad  \widetilde a^1\left( \widetilde x\right) = a^1_{\la_0 }\left(\widetilde p_{ \la_0\left(\widetilde x\right) }\right),\\
+	\left.\widetilde a^1\right|_{\widetilde\sU} = \lift^{ \widetilde{p}_{\la_0}}_{\widetilde{\sU}}\left( a^1_{\la_0 }\right) 
+\end{split}
+\ee
+where $\lift^{ \widetilde{p}_{\la_0}}_{\widetilde{\sU}}$ is given by the Definition \ref{top_lift_desc_defn} $\widetilde{p}_{\la_0}$-${\widetilde{\sU}}$-lift.
+So the restriction $\left. \widetilde a^1_{\la_0 }\right|_{\widetilde \sU}$ is continuous, i.e.  $\widetilde a^1$ is continuous at $\widetilde{x}_0$. Since a point $\widetilde x_0$ is arbitrary one has  $\widetilde a^1\in C_b\left( \widetilde{\sX}\right) $. One has $\left\|\widetilde{a}^1 \right\| =   \frac{1}{3}\left\|\widetilde{a}\right\|$.
+If $\widetilde{b}^2 \bydef \widetilde{b}^1 - \widetilde{a}^1$ then one can proof following:
+\bean
+\widetilde{b}^2 \ge 0,\\
+\left\|\widetilde{b}^2 \right\| \le   \frac{2}{3}\left\|\widetilde{a}\right\|. 
+\eean 
+So if $\eps' =\left( \frac{2}{3}\right)^2\left\|\widetilde{a}\right\| $ and $\widetilde{a}^2= f_{\eps'}\left( \widetilde{b}_2\right)$ then similarly to the above constriction one has $\widetilde a^2 \in C_b\left( \widetilde{\sX}\right)$ and
+$\left\|\widetilde{a}^2 \right\| =    \frac{2}{3}\frac{1}{3}\left\|\widetilde{a}\right\|$. Going on one has a sequence $\widetilde{a}^1,..., \widetilde{a}^n, ... $ such that $ \widetilde a^n \in C_b\left( \widetilde{\sX}\right)$ and $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\widetilde{a}\right\|$.
+From  $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\widetilde{a}\right\|$ if follows than one has $C^*$-norm convergent series
+\be\label{top_ser_eqn}
 \widetilde{a}' \bydef	\sum_{n = 1}^\infty \widetilde  a^n.
-	\ee
-		the sum of the series lies in $C_b\left( \widetilde{\sX}\right)$
-	On the other hand from
-	$$ 
+\ee
+the sum of the series lies in $C_b\left( \widetilde{\sX}\right)$
+On the other hand from
+$$ 
 \forall n \in \N \quad \left\|\widetilde{a}- \widetilde{a}^n\right\|\le \frac{1}{3}\left\|\widetilde{a}\right\|  \left( \frac{2}{3}\right)^{n-1}
 $$	
-it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( \widetilde{\sX}\right)\subset   C_0\left(\widetilde\sX \right)\left(\widetilde\sX_{\mathrm{discr}} \right)$.
-\end{empt}
+it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( \widetilde{\sX}\right)\subset   C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
 
+\end{empt}
 \begin{thm}\label{top_discrete_p_thm}
-	Under the hypotheses \ref{top_long_p_empt} then has $\widetilde{a}\in C_0\left( \widetilde{\sX}\right)$. !!! CORRECT $C_c$ !!!
+	Under the hypotheses \ref{top_long_p_empt} then has $\widetilde{a}\in C_c\left( \widetilde{\sX}\right)$.
 \end{thm}
 \begin{proof}
+	From the Lemma \ref{pedersen_eps_lem} and the equality \eqref{four_decompositon_eqn} we can suppose that there is $\dl > 0$ such $\widetilde a = f_\dl \left( \widetilde b\right)$ where $\widetilde b \in C_b\left(\widetilde \sX \right)_+$ and $f_\dl$ is given by   the equation \eqref{f_eps_eqn}. If $\widetilde a' \bydef f_{\dl/2}\left( \widetilde b\right)$ then  $\widetilde a \bydef f_{\dl/2}\left( \widetilde a'\right)$. 
 	Let
 	$$
-	a \bydef \sum_{g\in \widehat G} g \widetilde a\in C_c\left( \sX\right) 
+	a \bydef \sum_{g\in \widehat G} g \widetilde a'\in C_c\left( \sX\right) 
 	$$
 	Let $\widetilde a^1 \bydef f_\eps\left( \widetilde a\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn} and $\eps \bydef \frac{2}{3}\lVert \widetilde a\rVert$ and denote by $a^1 \bydef \sum_{g\in \widehat G} \widetilde a^1\in C_c\left( \sX\right)$. For any $\widetilde x \in \supp \widetilde a^1$ we select an open neighborhood $\widetilde \sU_{\widetilde x}\subset \widetilde \sX$ such that:
 	\begin{itemize}
@@ -10282,7 +10262,7 @@ it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( 
 		a_{\la_{\widetilde x}} \bydef  \sum_{g\in \ker \left( \widehat G \to G\left( \sX_{\la{\widetilde x}}| \sX\right)\right)  } \widetilde a^1.	
 		$$
 	\end{itemize}
-	The existence of $\widetilde \sU_{\widetilde x}$ follows from the equation \eqref{top_lift_al_eqn}. Clearly $\supp a^1 = \widetilde p \left(\supp \widetilde a^1 \right)$. On the other similarly to the Theorem \ref{top_discrete_p_thm} one can prove  that $a^1 \in K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right)$ so a set $\supp a^1$ is compact. From this fact and taking into account that $\supp a^1\subset \bigcup_{\widetilde x \in \supp \widetilde a^1}\sU_{\widetilde x}$ we conclude that there is a finite set $\left\{\widetilde x_1, ..., \widetilde x_n \right\}\subset \supp \widetilde a^1$ such that
+	The existence of $\widetilde \sU_{\widetilde x}$ follows from the equation \eqref{top_lift_al_eqn}. Clearly $\supp a^1 = \widetilde p \left(\supp \widetilde a^1 \right)$. On the other similarly to the Theorem \ref{top_discrete_p_thm} !!! THE SAME THEOREM !!!! one can prove  that $a^1 \in K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right)$ so a set $\supp a^1$ is compact. From this fact and taking into account that $\supp a^1\subset \bigcup_{\widetilde x \in \supp \widetilde a^1}\sU_{\widetilde x}$ we conclude that there is a finite set $\left\{\widetilde x_1, ..., \widetilde x_n \right\}\subset \supp \widetilde a^1$ such that
 	$$
 	\supp a^1 \subset  \sU_{\widetilde x_1}\cup ...\cup \sU_{\widetilde x_n}.
 	$$
