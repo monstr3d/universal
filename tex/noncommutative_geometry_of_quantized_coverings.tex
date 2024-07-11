@@ -4323,8 +4323,8 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if one has:
  	\begin{enumerate}
  		\item [(a)] 
- 		any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),
- 		\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$. Moreover we require that $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
+ 		any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn});
+ 		\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$, moreover we require that $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
  	\end{enumerate}
  		
  	We write
@@ -6319,8 +6319,19 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 \ee
 
 \end{defn}
+\begin{definition}\label{top_lconn_defn}
+	In the above situation we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
+	$\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is the $p$-\textit{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. We say that  family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with coverings} if it is complaint with any finite-fold covering of $\sX$.
+\end{definition}
+\begin{remark}\label{top_lconn_rem}
+	Sometimes we denote by $\widetilde{ \mathscr A}\bydef G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A$ and
+	\be\label{top_lconn_eqn}	
+	\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{ \mathscr A}}\bydef \left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}.
+	\ee
+\end{remark}
+
 \begin{empt}\label{top_path_comp_empt}
-	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed  covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected !!! \ref{top_consents_defn} !!!, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure, and let $\widetilde{\mathfrak A}$ be a $p$-lift of $\mathfrak A$ (cf. Definition \ref{top_lconn_defn}). Select $\widetilde\sU_0 \in \widetilde{\mathfrak A}$ such that $\widetilde x_0\in \widetilde\sU_0$. Let $\sU_0 = p\left(\widetilde\sU_0 \right)$. From the Lemma \ref{top_gen_path_lem} it follows that for all $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ there is a $\widetilde{\mathfrak A}$-path $\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ such that
+	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed  covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure, and let $\widetilde{\mathfrak A}$ be a $p$-lift of $\mathfrak A$ (cf. Definition \ref{top_lconn_defn}). Select $\widetilde\sU_0 \in \widetilde{\mathfrak A}$ such that $\widetilde x_0\in \widetilde\sU_0$. Let $\sU_0 = p\left(\widetilde\sU_0 \right)$. From the Lemma \ref{top_gen_path_lem} it follows that for all $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ there is a $\widetilde{\mathfrak A}$-path $\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ such that
 	\be\label{top_path_compl_eqn}
 	\widetilde\sU_{\widetilde\a_1}= \widetilde\sU_{0}; \quad g \widetilde x_0 \in  \widetilde\sU_{\widetilde\a_n}.
 	\ee
@@ -6542,7 +6553,7 @@ Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 
 
 \section{Vector bundles and spaces of sections}
-\paragraph*{} This chapter is not exclusively devoted to commutative $C^*$-algebras. It contains a more general theory, where $C^*$-algebras are represented by locally trivial  bundles. Homogeneous $C^*$-algebras and $C^*$-algebras with continuous trace !!!continuous trace CHECK !!!  can be represented as locally trivial bundles. Any commutative $C^*$-algebra is also a vector bundle with one-dimensional fibers. So this theory is used in this chapter and the chapters \ref{ctr_chap},  \ref{foliations_chap}. 
+\paragraph*{} This chapter is not exclusively devoted to commutative $C^*$-algebras. It contains a more general theory, where $C^*$-algebras are represented by locally trivial  bundles. Homogeneous $C^*$-algebras and $C^*$-algebras with continuous trace   can be represented as locally trivial bundles. Any commutative $C^*$-algebra is also a vector bundle with one-dimensional fibers. So this theory is used in this chapter and the chapters \ref{ctr_chap},  \ref{foliations_chap}. 
 \begin{remark}\label{com_inf_rem}
 	The section \ref{top_vb_sub_sub} describes the theory of vector bundles with  finite-dimensional fibers. However many results of the theory can be applied to  vector bundles where any fiber is a more general Banach space. Below the word \textit{vector bundle} means that a fiber may be arbitrary Banach space. 
 \end{remark} 
@@ -10185,7 +10196,9 @@ Let  $\sX$ be a connected, locally coconnected,  locally compact, Hausdorff spac
 	\rho^\la_{\widetilde x} : C_0\left(\sX_\la \right) \to \rep_{  \widetilde{x }}\left(  C_0\left(\widetilde\sX \right)\right)\cong \C
 	\ee 
 	where $\H_{ \widetilde x}\cong \C$ is the Hilbert space of the representation $ \rep_{  \widetilde{x }}$.
-
+\begin{definition}\label{top_discr_defn}
+!!!!	We say that {discontinuous extension of} $C_0\left(  \sX\right)$ (cf. Definition \ref{top_discr_defn}
+\end{definition}
 \begin{empt}\label{top_long_p_empt}
 Suppose that  $\widetilde a\in  K\left( C\left(\widetilde \sX_{\mathrm{discr}} \right) \right) _+$ is  a positive element such that
 \be\label{top_atomic_cc_eqn}
@@ -10241,6 +10254,7 @@ $$
 it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( \widetilde{\sX}\right)\subset   C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
 
 \end{empt}
+
 \begin{thm}\label{top_discrete_p_thm}
 	Under the hypotheses \ref{top_long_p_empt} one has $\widetilde{a}\in C_c\left( \widetilde{\sX}\right)$.
 \end{thm}
@@ -10349,7 +10363,7 @@ If $\widehat G \bydef \varprojlim G_\la$ is the profinite completion (cf. Exampl
  $\mathfrak{S}_{C_0\left(p\right)}$ {algebraic} $\overline \sX$-$ \widehat G$-{category}
 \end{empt}
 \begin{lemma}\label{top_inf_sufficienf_lem}
-Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn}   !!! CHECK (a) !!! (b) !!!).
+Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
 \end{lemma}
 \begin{proof}
 Firstly we prove that  $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. From the Corollary \ref{comm_lift_desc_sum_cor} it follow that for any $\la \in \La$ and $\overline{a }\in K\left(C_0\left(\overline\sX \right) \right)= C_c\left(\overline\sX \right)$ a series 
@@ -10361,19 +10375,19 @@ is convergent with respect to the strict topology of $M\left(C_0\left(\overline\
 \desc_{\la}\left(\overline a \right)  = \desc^c_{\overline p_\la}\left(\overline a \right)
 \ee
 where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn})
- From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering i.e. under hypotheses of this lemma conditions of the Definition \ref{algebraical_finite_covering_category_defn}   !!! CHECK (a) !!!! (b) !!! are satisfied.
+ From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering i.e. under hypotheses of this lemma the condition (a) of the Definition \ref{algebraical_finite_covering_category_defn}   is  satisfied. We leave to the reader an elementary  proof of that the   triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ satisfies to the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn} 
 \end{proof}
 
 \begin{lemma}\label{top_discontinuous_lem}
 	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {disconnected infinite noncommutative covering}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
 \end{lemma}
-\begin{proof}
+\begin{proof}!!!
 If 	$\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is a  {pre}-{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$
 then from the Corollary \ref{inverse_lim_h_cor} one can deduce that there is the natural inclusion
 $$
-\phi_{\overline A'}: \overline A' \hookto C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)	\subset B\left( \overline \H_a\right) 
+a%\phi_{\overline A'}: \overline A' \hookto C_0\\left( \sX_{\mathrm{discr}}\right)	\subset B\left( \overline \H_a\right) 
 $$
-	where $C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)$ is the {discontinuous extension of} $C_0\left( \overline \sX\right)$ (cf. Definition \ref{top_discr_defn}), and
+	where $C \left( \sX_{\mathrm{discr}}\right)$ is the {discontinuous extension of} $C_0\left( \overline \sX\right)$ (cf. Definition \ref{top_discr_defn}, and
 where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) $C^*$-$\varinjlim_{\la \in \La} C_0\left(\sX_\la \right) \hookto  B\left( \overline \H_a\right)$ of the inductive limit in the sense of the Definition \ref{inductive_lim_non_defn}. From the Lemmas \ref{inverse_faithful_nondegenetate_lem}  and \ref{sum_hilb_rep_lem} !!! MAY BE REPLACE \ref{direct_sum_strong_lim_lem} !!! one can deduce that $\overline A'$ is admissible (cf. Definition \ref{ctr_inf_defn}). From the Lemma \ref{top_discrete_p_thm} !!! THEOREM !!! it follows that there is the natural injective *-homomorphism $\phi: \overline A\subset C_0\left( \overline \sX\right)$ where the natural inclusion $  C_0\left( \overline \sX\right)\hookto C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)$  is implied. One can prove that $\phi$ satisfies to the equations \eqref{infinite_covering_g_eqn} and \eqref{infinite_covering_eqn}, and taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is the terminal object  (cf. Definition \ref{terminal_object_defn}) of the explained in \ref{infinite_covering_empt} category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$.
 \end{proof}
  	\begin{empt}\label{comm_transitive_empt} 
