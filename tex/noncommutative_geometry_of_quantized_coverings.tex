@@ -5947,7 +5947,7 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
   
 
 \section{Partitions of unity and compact subsets}
-!!! LAST CHECK !!!
+
 \begin{lemma}\label{top_a_u_lem}
 	If $\mathcal X$  is a locally compact, 
 	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$  there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
@@ -10067,10 +10067,21 @@ Let $\overline y', \overline y'' \in \overline \sY$ be such that $\overline p\le
 If $\overline y' \in \overline \sU_j$ and $\overline y'' \in \overline \sU_k$  then from \eqref{top_compactpp_eqn} it follows that $\overline y',\overline y''\in \overline \sU_j\cap \overline \sU_k$, so  $\overline y'= \overline y''$, i.e. $\overline p$ yields a bijective map  
 $\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
 \end{proof}
+\begin{definition}\label{top_coveing_triple_defn!!!} !!!
+	Let $p:\widetilde\sX \to \sX$ be a covering. Suppose that there are connected open subsets $\widetilde \sU, \widetilde \sV \subset \widetilde \sX$, and a continuous map $\widetilde{s}: \widetilde \sX \to \left[0,1\right]$ such that
+	\begin{enumerate}
+		\item[(a)] the closure of $\widetilde \sV$ is compact,
+		\item[(b)] $\widetilde{   \mathcal V}$ is mapped homeomorphically onto $\sV \bydef p\left(\widetilde{   \mathcal V} \right)$,
+		\item[(c)] $\supp \widetilde s \subset \widetilde{   \mathcal V}$,
+		\item[(d)] $\widetilde s\left(\widetilde \sU \right) = \{1\}$.
+	\end{enumerate}
+	We say that $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$ is a \textit{covering triple for} $p$.
+\end{definition}
 
 \begin{lemma}\label{top_compact_la_lem}
+Let $p:\widetilde\sX \to \sX$ be a transitive covering, and let $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$ is a {covering triple for} $p$ (cf. Definition \ref{top_coveing_triple_defn})
 Under the hypotheses of the Theorem \ref{top_compact_thm}
-for any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal Y }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal Y }} \in \La$ such that  the set $\overline{   \mathcal Y }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal Y } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. 
+for any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ there is $\la_{\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal Y }} \in \La$ such that  the closure of  $\widetilde \sV$ is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal Y } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. 
 \end{lemma}
 \begin{proof}
 The proof of this lemma can be obtained from the Theorem \ref{top_compact_thm}.
@@ -10171,23 +10182,28 @@ Let  $\sX$ be a connected, locally coconnected,  locally compact, Hausdorff spac
 		& G_\mu\arrow[ru] &
 	\end{tikzcd}
 	\\
-	of groups and surjective homomorphisms.	For any $\la\in \La$ denote by $\sX_\la \bydef \widetilde \sX / \ker \left(\widetilde G\to G_\la \right)$. For any $\la\in \La$ there are natural coverings   $p_\la: \sX_\la \to \sX$ and $\widetilde p_\la: \widetilde \sX \to \sX$ such that $p_\la$ is finite-fold. For any $\la\in \La$ there are  the $p$-lift  $C_0\left( p_\la\right): C_0\left( \sX\right) \hookto C_0\left(\sX_\la \right)$ (cf. Definition \ref{top_lift_a_f_defn}) and the given by the Definition \ref{top_cs_functa_b_defn} injective $*$-homomorphism $C_b\left(\widetilde p_\la\right):  C_0\left(\sX_\la \right)\hookto C_b\left(\widetilde \sX \right)$. There is a category
+	of groups and surjective homomorphisms.	For any $\la\in \La$ denote by $\sX_\la \bydef \widetilde \sX / \ker \left(\widetilde G\to G_\la \right)$. For any $\la\in \La$ there are natural coverings   $p_\la: \sX_\la \to \sX$ and $\widetilde p_\la: \widetilde \sX \to \sX$ such that $p_\la$ is finite-fold. For any $\la\in \La$ there are  the $p$-lift  $C_0\left( p_\la\right): C_0\left( \sX\right) \hookto C_0\left(\sX_\la \right)$ (cf. Definition \ref{top_lift_a_f_defn}) and the given by the Definition \ref{top_cs_functa_b_defn} injective $*$-homomorphism $C_b\left(\widetilde p_\la\right):  C_0\left(\sX_\la \right)\hookto C_b\left(\widetilde \sX \right)$. There is an  {algebraic} $\overline  \sX$-$  \widehat G$-{category} 
 		\be\label{top_category_fin_a0_eqn}
 	\begin{split}
 		\mathfrak{S}_{C_0\left(p\right) } \bydef \\
 		\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
 	\end{split}
 	\ee
+	(cf. Definition \ref{top_fin_cov_cat_defn})
+	
+\begin{definition}\label{top_discr_defn}
+	If $\sX$ is a topological space, and  $\sX_{\mathrm{discr}}$ equals to $\sX$ as a set but the topology of $\sX_{\mathrm{discr}}$ is discrete
+	then the $C^*$-algebra $C\left(\sX_{\mathrm{discr}} \right)$ is the \textit{discontinuous extension of} $C_0\left(  \sX\right)$
+\end{definition}
 	If  $C_0\left(\widetilde\sX \right)$ be given by the Definition \ref{top_cs_functa_b_defn} then from the Theorem \ref{dauns_hofmann_thm} it follows that there is an action
 	$$
 	C_b\left(\widetilde \sX \right) \times C_0\left(\widetilde\sX \right) \to C_0\left(\widetilde\sX \right).
 	$$
 	This action can be naturally extended up to the action
 	$$
-	C_b\left(\widetilde \sX \right) \times C\left(\widetilde\sX_{\mathrm{discr}} \right) \to C\left(\widetilde\sX_{\mathrm{discr}} \right).
+	C_b\left(\widetilde \sX \right) \times C\left(\widetilde\sX_{\mathrm{discr}} \right) \to C\left(\widetilde\sX_{\mathrm{discr}} \right)
 	$$
-	where $\widetilde\sX_{\mathrm{discr}}$ equals to $\widetilde\sX$ but the topology of $\widetilde\sX_{\mathrm{discr}}$ is discrete.
-	For any $\la\in \La$ there is the natural inclusion $C_b\left( \sX_\la\right) \subset C_b\left(\widetilde \sX \right)$ so there is the natural action
+	where $C\left(\widetilde\sX_{\mathrm{discr}}\right) $ is the \textit{discontinuous extension of} $C_0\left(\widetilde  \sX\right)$.	For any $\la\in \La$ there is the natural inclusion $C_b\left( \sX_\la\right) \subset C_b\left(\widetilde \sX \right)$ so there is the natural action
 	\be\label{ctr_inf_a_eqn}
 	C_b\left( \sX_\la \right) \times C\left(\widetilde\sX_{\mathrm{discr}} \right) \to C\left(\widetilde\sX_{\mathrm{discr}} \right).
 	\ee
@@ -10196,9 +10212,7 @@ Let  $\sX$ be a connected, locally coconnected,  locally compact, Hausdorff spac
 	\rho^\la_{\widetilde x} : C_0\left(\sX_\la \right) \to \rep_{  \widetilde{x }}\left(  C_0\left(\widetilde\sX \right)\right)\cong \C
 	\ee 
 	where $\H_{ \widetilde x}\cong \C$ is the Hilbert space of the representation $ \rep_{  \widetilde{x }}$.
-\begin{definition}\label{top_discr_defn}
-!!!!	We say that {discontinuous extension of} $C_0\left(  \sX\right)$ (cf. Definition \ref{top_discr_defn}
-\end{definition}
+
 \begin{empt}\label{top_long_p_empt}
 Suppose that  $\widetilde a\in  K\left( C\left(\widetilde \sX_{\mathrm{discr}} \right) \right) _+$ is  a positive element such that
 \be\label{top_atomic_cc_eqn}
@@ -10353,13 +10367,13 @@ Let $\left\{G_\la\right\}_{\la\in \La}$ be the indexed by the directed set $\La$
 	{finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}). 
  
  
-\bean		\begin{split}
+\be\label{top_x_g_eqn}		\begin{split}
 		\mathfrak{S}_{C_0\left(p\right) } \bydef \\
 		\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
 	\end{split}
-	\eean 
+	\ee 
 be the 	{algebraic} $\widetilde \sX$-$  G$-{category} (cf. Definition \ref{top_fin_cov_cat_defn}).
-If $\widehat G \bydef \varprojlim G_\la$ is the profinite completion (cf. Example \ref{profinite_exm}) then
+ If $\widehat G \bydef \varprojlim G_\la$ is the profinite completion (cf. Example \ref{profinite_exm}) then
  $\mathfrak{S}_{C_0\left(p\right)}$ {algebraic} $\overline \sX$-$ \widehat G$-{category}
 \end{empt}
 \begin{lemma}\label{top_inf_sufficienf_lem}
@@ -10379,32 +10393,34 @@ where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_def
 \end{proof}
 
 \begin{lemma}\label{top_discontinuous_lem}
-	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {disconnected infinite noncommutative covering}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
+	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of the given by \eqref{top_x_g_eqn} algebraical finite covering category $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{disconnected_infinite_noncommutative_covering_defn}).
 \end{lemma}
-\begin{proof}!!!
+\begin{proof}
 If 	$\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is a  {pre}-{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$
 then from the Corollary \ref{inverse_lim_h_cor} one can deduce that there is the natural inclusion
 $$
-a%\phi_{\overline A'}: \overline A' \hookto C_0\\left( \sX_{\mathrm{discr}}\right)	\subset B\left( \overline \H_a\right) 
+\phi_{\overline A'}: \overline A' \hookto C\left(\overline \sX_{\mathrm{discr}}\right)	\subset B\left( \overline \H_a\right) 
 $$
 	where $C \left( \sX_{\mathrm{discr}}\right)$ is the {discontinuous extension of} $C_0\left( \overline \sX\right)$ (cf. Definition \ref{top_discr_defn}, and
-where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) $C^*$-$\varinjlim_{\la \in \La} C_0\left(\sX_\la \right) \hookto  B\left( \overline \H_a\right)$ of the inductive limit in the sense of the Definition \ref{inductive_lim_non_defn}. From the Lemmas \ref{inverse_faithful_nondegenetate_lem}  and \ref{sum_hilb_rep_lem} !!! MAY BE REPLACE \ref{direct_sum_strong_lim_lem} !!! one can deduce that $\overline A'$ is admissible (cf. Definition \ref{ctr_inf_defn}). From the Lemma \ref{top_discrete_p_thm} !!! THEOREM !!! it follows that there is the natural injective *-homomorphism $\phi: \overline A\subset C_0\left( \overline \sX\right)$ where the natural inclusion $  C_0\left( \overline \sX\right)\hookto C_0\left( \overline \sX\right) \left( \sX_{\mathrm{discr}}\right)$  is implied. One can prove that $\phi$ satisfies to the equations \eqref{infinite_covering_g_eqn} and \eqref{infinite_covering_eqn}, and taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is the terminal object  (cf. Definition \ref{terminal_object_defn}) of the explained in \ref{infinite_covering_empt} category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$.
+where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) $C^*$-$\varinjlim_{\la \in \La} C_0\left(\sX_\la \right) \hookto  B\left( \overline \H_a\right)$ of the inductive limit in the sense of the Definition \ref{inductive_lim_non_defn}. From the Theorem \ref{top_discrete_p_thm} it follows that
+$$
+\forall \overline a \in \overline A'\quad \phi_{\overline A'}\left( \overline a\right) \in C_c\left(\overline \sX\right)
+$$
+From this circumstance it follows that $\overline A'\subset C_0\left( \overline \sX\right)$.  Taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the terminal object of the category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}), i.e. $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(p\right)}$.
 \end{proof}
+
+
  	\begin{empt}\label{comm_transitive_empt} 
- 		
- 		!!!
- 	CORRECT	
- 		
  		From the Lemma \ref{top_discontinuous_lem}	 it follows that  the disconnected infinite noncommutative covering of $	\mathfrak{S}_p$  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
 		From (iv)  of the Lemma \eqref{top_disconnected_lem} one has
 	\be\nonumber
-	G\left(\left.\overline \sX \right|\sX\right)= \varprojlim_{\la \in \La} G\left(\left.\sX_\la \right|\sX\right)
+\widehat G= \varprojlim_{\la \in \La} G\left(\left.\sX_\la \right|\sX\right)
 	\ee
 	and taking into account $G\left(\left.C_0\left(\sX_\la\right) \right|C_0\left(\sX\right)\right) \cong G\left(\left. \sX_\la \right| \sX\right)$  we conclude that
 	\be\label{comm_ag_eqn}
-	G\left(\left.C_0\left(\overline \sX\right) \right|C_0\left(\sX\right)\right)\cong G\left(\left.\overline \sX \right| \sX\right). 
+	G\left(\left.C_0\left(\overline \sX\right) \right|C_0\left(\sX\right)\right)\cong G\left(\left.\overline \sX !!! \right| \sX\right). 
 	\ee
-	The given by the Definition  \ref{algebraical_finite_covering_category_defn}   !!! CHECK (a) !!! (b) !!!     action $G\left(\left. C_0\left(\overline \sX\right)\right|C_0\left(\sX \right) \right)\times C_0\left(\overline \sX\right)\to C_0\left(\overline \sX\right)$ is equivalent to the natural action $G\left(\left.\overline \sX \right| \sX\right)\times C_0\left(\overline \sX\right)\to C_0\left(\overline \sX\right)$. From the equation \eqref{top_disconnected_eqn} it follows that any quasi-component of $\overline \sX$ is homeomorphic to $\widetilde{\mathcal X}$. 
+	The given by the Definition  \ref{algebraical_finite_covering_category_defn}     action $G\left(\left. C_0\left(\overline \sX\right)\right|C_0\left(\sX \right) \right)\times C_0\left(\overline \sX\right)\to C_0\left(\overline \sX\right)$ is equivalent to the natural action $\widehat G\times C_0\left(\overline \sX\right)\to C_0\left(\overline \sX\right)$. From the equation \eqref{top_disconnected_eqn} it follows that any quasi-component of $\overline \sX$ is homeomorphic to $\widetilde{\mathcal X}$. 
 	If $\widetilde A \subset C_0\left(\overline{\mathcal X}\right)$ is a connected component of $C_0\left(\overline{\mathcal X}\right)$ (cf. Definition \ref{connected_comp_defn}) then from the Exercise \ref{conn_comp_exer} it turns out that
  $$
 \widetilde A \cong  C_0\left(\widetilde{\mathcal X}\right)\cong \left\{\left.\widetilde a \in C_0\left(\overline{\mathcal X}\right)\right|\widetilde a\left( \overline \sX \setminus \widetilde\sX' \right)= \{0\}  \right\}.
@@ -10414,15 +10430,15 @@ Moreover one has $C_0\left(\overline{\mathcal X}\right)= C_0\left(\widetilde {\m
 	
 \be\label{top_conn_group_eqn}
 \begin{split}
-G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\bydef \\\bydef\left\{\left.g \in  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\right| g \widetilde a^\perp = \widetilde a^\perp\quad  \forall \widetilde a^\perp \in C_0\left( \widetilde {\mathcal X}^\perp\right)  \right\}\subset\\\subset  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)
+G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\bydef \\\bydef\left\{\left.g \in  \widehat G~\right| g \widetilde a^\perp = \widetilde a^\perp\quad  \forall \widetilde a^\perp \in C_0\left( \widetilde {\mathcal X}^\perp\right)  \right\}\subset\\\subset  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)
 \end{split}
 \ee	
 From \eqref{comm_ag_eqn} it follows that 
 \bean
 G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\cong \\
-\cong \left\{\left.g\in  G\left(\left.\overline \sX \right| \sX\right)\right| g \widetilde x^\perp = \widetilde x^\perp\quad  \forall \widetilde x^\perp \in \widetilde {\mathcal X}^\perp \right\}
+\cong \left\{\left.g\in  \widehat G\right| g \widetilde x^\perp = \widetilde x^\perp\quad  \forall \widetilde x^\perp \in \widetilde {\mathcal X}^\perp \right\}
 \eean
-and taking into account \eqref{top_gt_eqn} !!! REPLACE OVERLILINE !!! one has
+and taking into account $\widetilde {\mathcal X} = \widetilde {\mathcal X}\sqcup \bydef \overline{\mathcal X}^\perp$   one has
 	\be\label{top_tga_eqn}
 G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)	\cong  G\left(\left. \widetilde\sX~\right|\sX \right).
 \ee
@@ -12202,12 +12218,9 @@ where $\lift^q_{\widetilde \sU}$ is a $q$-$\widetilde \sU$-lift (cf. Definition 
  \forall j,k \in \left\{1,...,m\right\}\quad \exists \widetilde \sU'_j , \widetilde \sU''_k \in \left\{\widetilde \sU_{\widetilde \a}\right\}\quad \supp \widetilde f'_j\in \widetilde \sU'_j \quad \supp \widetilde f''_k\in \widetilde \sU''_k.
  \end{split}
 \ee
+
 \begin{lemma}\label{blowing_left_ideal_lem}
-	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let $\widetilde \sU, \widetilde \sV\subset \widetilde \sY$ be a pair open subsets such that:
-	\begin{itemize}
-		\item $\widetilde \sV$ is connected an homeomorphically onto $q\left( \widetilde \sV\right)$,
-		\item  there is $\widetilde f \in C_c\left(\widetilde \sY \right)$ with $\supp \widetilde f \subset \widetilde \sV$ and $\widetilde f\left( \widetilde \sU\right)= \{1\}$.  
-	\end{itemize}
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$ be  a {covering triple for} $q$ (cf. Definition \ref{top_coveing_triple_defn}), and let $\sU \bydef q\left(\widetilde\sU \right)$. 
 	Then there is a natural isomorphism of left $A$-modules
 	\be
 	\begin{split}
@@ -13270,7 +13283,7 @@ where $\lift_{ \widetilde{p}_{\la}}$ is given by the Definition \ref{top_lift_de
 $$
 \overline c' \bydef s\text{-}\lim_{{\la \in \La}}\overline c_\la \in C\left( \overline \sX^\oplus_{\text{discr}}\right) 
 $$
-where   $\overline \sX^\oplus_{\text{discr}}$ is a discrete topological space  which coincides with $\overline \sX^\oplus$ as a set (cf. \ref{top_discr_empt}). From the Theorem \ref{top_discrete_p_thm} it follows that $\overline c \in C_c\left( \overline \sX^\oplus\right)$. Since the support  $\supp \overline c'$ is compact the set
+where   $\overline \sX^\oplus_{\text{discr}}$ !!!! is a discrete topological space  which coincides with $\overline \sX^\oplus$ as a set (cf. \ref{top_discr_empt}). From the Theorem \ref{top_discrete_p_thm} it follows that $\overline c \in C_c\left( \overline \sX^\oplus\right)$. Since the support  $\supp \overline c'$ is compact the set
 $$
 \widehat G_0 \bydef \left\{\left. \widehat g \in \widehat{G}\right| \widehat g \overline \sX  \cap\supp \overline c'\neq \emptyset\right\} 
 $$
