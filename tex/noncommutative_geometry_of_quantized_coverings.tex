@@ -6343,10 +6343,75 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 	\ee
 	If $g', g'' \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then from \eqref{top_path_comp_lem_eqn} it follows that there is the composition $\desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}$ (cf. Definition \ref{top_path_comp_defn}).
 \end{empt}
+\begin{rem}\label{top_inv_path_rem}
+	If a weak path $\widetilde{\mathfrak p}$ {corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then its involution $\widetilde{\mathfrak p}^*$ {corresponds to} $g^{-1} \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+\end{rem}
 
 \begin{definition}\label{top_closed_path_corr_defn}
 	Under the hypotheses  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be $p$-\textit{contractible} if it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
 \end{definition}
+\begin{lemma}\label{top_lift_comp_lem}
+	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$. If
+	\bean
+	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
+	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
+	\eean
+	then $ \widetilde\sU_{\widetilde\a_{k + l}}= g'g''\widetilde \sU_0$.
+\end{lemma}
+\begin{proof}
+	From $\widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$ it follows that
+	$$
+	\widetilde{\mathfrak p} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_1},..., g'\widetilde\sU_{\widetilde\a''_l}\right)
+	$$
+	and taking into account $g'\widetilde\sU_{\widetilde\a''_1}= \widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$, $\quad\widetilde\sU_{\widetilde\a''_l}=g''\widetilde\sU_0$ one has $ \widetilde\sU_{\widetilde\a_{k + l }}= g'g''\widetilde \sU_0$.
+\end{proof}
+
+\begin{empt}\label{top_g_homo_empt}
+	In the situation  \ref{top_path_comp_empt}	consider a commutative triangle of connected topological spaces and  transitive coverings.
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde{\mathcal X}' & &\widetilde{\mathcal X}''\\ 
+			& {\mathcal X}\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p$} (m-1-3)
+		(m-1-1) edge node [left]  {$p'~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p''$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	Suppose that $\sX$ is a  locally connected, locally compact, Hausdorff space. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Let both  $\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~$, $\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ respectively (cf. Definition \ref{top_lconn_defn} and equation \eqref{top_lconn_eqn}). Let $\widetilde \sU'_0 \in \left\{\widetilde \sU_{\widetilde \a' }\right\}$, and $\widetilde x_0 \in \widetilde \sU'_0$. Denote by $ \widetilde \sU''_0\bydef p\left(\widetilde \sU'_0\right)\subset \widetilde \sX''$, $  \sU_0\bydef p'\left(\widetilde \sU'_0\right)\subset \sX$, $\widetilde x''_0\bydef p\left(\widetilde x'_0\right)\subset \widetilde \sU''_0$, $  x_0\bydef p'\left(\widetilde x'_0\right)\subset \sU_0$. Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijecive maps
+	\bean 
+	G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)\xrightarrow{\approx}p'^{-1}p'\left(\widetilde x'_0 \right),\\
+	g \mapsto g\widetilde x'_0;\\
+	G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X } \right)\xrightarrow{\approx}p''^{-1}p''\left(\widetilde x''_0 \right),\\
+	g \mapsto g\widetilde x''_0. 
+	\eean
+	On the other hand the map $p$ induces the surjective map $p'^{-1}p'\left(\widetilde x'_0 \right)\to p''^{-1}p''\left(\widetilde x''_0 \right)$ so one has the surjective map
+	\be\label{top_g_homo_eqn}
+	h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)
+	\ee
+\end{empt}
+\begin{definition}\label{top_path_corr_defn}
+	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be \textit{contractible} if it corresponds to trivial element of  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to a trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+\end{definition}
+
+\begin{lemma}\label{top_homo_lem}
+	In the situation \ref{top_g_homo_empt} following condition holds:
+	\begin{itemize}
+		\item [(i)] 	The given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ is a homomorphism of groups.
+		\item[(ii)] If we consider the natural inclusion $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)\subset  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ then $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)$ is a normal subgroup of $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ (cf. Definition \ref{normal_subgroup_defn}).
+	\end{itemize}
+\end{lemma}
+\begin{proof} (i)
+	Let $g_1, g_2 \in G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\left\{\widetilde \sU_{\widetilde \a'' }\right\}$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
+	\bean
+	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde\sU'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
+	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde\sU''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
+	\eean
+	are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$ and $\left\{\widetilde \sU''_{\widetilde \a'' }\right\}$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
+	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
+\end{proof}
 
 
 \begin{definition}\label{top_contactible_path_defn}
