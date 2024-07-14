@@ -6229,7 +6229,7 @@ then $\mathfrak p\bydef \left(p\left( \widetilde\sU_1\right) , ..., p\left( \wid
 
 
 \begin{lemma}\label{top_gen_path_lem}
-	Consider the situation of the Definition \ref{top_u_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
+Under hypotheses  of the Definition \ref{top_u_path_defn}, for any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
 \end{lemma}
 
 \begin{proof}
@@ -6299,9 +6299,9 @@ A connected space $\sX$ is said to be \textit{weakly simply connected} if for an
 Any connected, path connected, simply connected  space is weakly simply connected.
 \end{remark}
 
-	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
+	\begin{defn}\label{top_weakly_semi1_defn}
 		An open connected subset $\sU\subset \sX$ of a topological space is said to be \textit{semilocally proper} if it is evenly covered by any transitive covering $\widetilde{\sX}\to\sX$ (cf. Definition \ref{top_covering_defn}).
-	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x\in \sX$ there is a semilocally proper neighborhood. A weak path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn}) is \textit{semilocally 1-connected} if $\sU_j$ is semilocally proper for every $j = 1,..., n$.
+	A space $\sX$ is said to be \textit{weakly semilocally 1-connected} if for  every point $x\in \sX$ there is a semilocally proper neighborhood. A weak path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn}) is \textit{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for every $j = 1,..., n$.
 \end{defn} 
 \begin{exercise}
 	Prove that any connected, path connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  space is weakly semilocally 1-connected.
@@ -6319,8 +6319,22 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 \ee
 
 \end{defn}
+\begin{empt}\label{top_lconn_part}
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
+	\begin{itemize}
+		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
+		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
+		\item $\sU_\a$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}).
+	\end{itemize}
+	For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$. One has
+	$$
+	\widetilde \sX=\bigcup_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A} 	g \widetilde \sU_\a
+	$$
+\end{empt}
+
 \begin{definition}\label{top_lconn_defn}
-	In the above situation we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
+	
+	Under hypotheses \ref{top_lconn_part} we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
 	$\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is the $p$-\textit{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. We say that  family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with coverings} if it is complaint with any finite-fold covering of $\sX$.
 \end{definition}
 \begin{remark}\label{top_lconn_rem}
@@ -6343,15 +6357,16 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 	\ee
 	If $g', g'' \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then from \eqref{top_path_comp_lem_eqn} it follows that there is the composition $\desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}$ (cf. Definition \ref{top_path_comp_defn}).
 \end{empt}
+\begin{definition}\label{top_closed_path_corr_defn}
+	Under the hypotheses  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be $p$-\textit{contractible} if it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+\end{definition}
 \begin{rem}\label{top_inv_path_rem}
 	If a weak path $\widetilde{\mathfrak p}$ {corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then its involution $\widetilde{\mathfrak p}^*$ {corresponds to} $g^{-1} \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
 \end{rem}
 
-\begin{definition}\label{top_closed_path_corr_defn}
-	Under the hypotheses  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be $p$-\textit{contractible} if it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
-\end{definition}
+
 \begin{lemma}\label{top_lift_comp_lem}
-	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$. If
+Under hypotheses \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$. If
 	\bean
 	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
 	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
@@ -6365,18 +6380,6 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 	$$
 	and taking into account $g'\widetilde\sU_{\widetilde\a''_1}= \widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$, $\quad\widetilde\sU_{\widetilde\a''_l}=g''\widetilde\sU_0$ one has $ \widetilde\sU_{\widetilde\a_{k + l }}= g'g''\widetilde \sU_0$.
 \end{proof}
-\begin{empt}\label{top_lconn_part}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
-	\begin{itemize}
-		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
-		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
-		\item $\sU_\a$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}).
-	\end{itemize}
-	For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$. One has
-	$$
-	\widetilde \sX=\bigcup_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A} 	g \widetilde \sU_\a
-	$$
-\end{empt}
 
 
 \begin{empt}\label{top_g_homo_empt}
@@ -6406,11 +6409,11 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 	\ee
 \end{empt}
 \begin{definition}\label{top_path_corr_defn}
-	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be \textit{contractible} if it corresponds to trivial element of  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to a trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+	Under hypotheses  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. 
 \end{definition}
 
 \begin{lemma}\label{top_homo_lem}
-	In the situation \ref{top_g_homo_empt} following condition holds:
+Under hypotheses \ref{top_g_homo_empt} following condition holds:
 	\begin{itemize}
 		\item [(i)] 	The given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ is a homomorphism of groups.
 		\item[(ii)] If we consider the natural inclusion $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)\subset  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ then $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X }'' \right)$ is a normal subgroup of $ G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ (cf. Definition \ref{normal_subgroup_defn}).
@@ -6425,7 +6428,9 @@ An $x_0$-{path} $\left(\sU_1, ..., \sU_n\right)$ is \textit{closed} if $x_0\in \
 	are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$ and $\left\{\widetilde \sU''_{\widetilde \a'' }\right\}$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
 	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
 \end{proof}
-
+\begin{rem}
+The proof of the Lemma \ref{top_homo_lem} is an alternative version of the proof of the Theorem \ref{top_covp_cat_thm}.
+\end{rem}
 
 \begin{definition}\label{top_contactible_path_defn}
 Let 
@@ -14450,6 +14455,7 @@ If $\la \in \La$ is such that $\la \ge \la_j$ for every $j = 1,...,n$ then $\sum
 	Follows from the Lemmas \ref{ctr_sufficient_lem} and \ref{ctr_necessary_lem}.
 \end{proof}
 
+
 \subsection{Coverings of operator spaces}
 \begin{empt}\label{ctr_fin_op_empt}
 Let $\left(X, Y\right)$ be a  {sub-unital operator space} with Hausdorff spectrum (cf. Definition \ref{ctr_oa_defn}) and let $A\bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$ (cf. Definition \ref{operator_space_envelope_defn}). Suppose that $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}), hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Let $p: \widetilde \sX \to \sX$ be a transitive covering, denote by
@@ -14520,6 +14526,38 @@ which is an analog of the representation \ref{ctr_a_eqn}.
 \begin{exercise}
 	Prove that $\rho_{\widetilde\tau}:\widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right)$  {is induced by the pair} $\left(\rho_{\tau},\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_fin_defn}).
 \end{exercise}
+\begin{exercise}\label{ctr_hilbert_exer}
+	Prove following statements:
+	\begin{enumerate}
+		\item There are natural representations
+		\be
+		\begin{split}
+			\pi: C^*\text{-}\varinjlim_{\la\in\La} A_0\left(\sX_\la \right)\hookto B\left(L^2\left(A_0\left( \overline\sX\right), \tr_{\overline\tau}  \right) \right) ,\\
+			\overline \pi: A_0\left( \overline\sX\right)\hookto B\left(L^2\left( A_0\left( \overline\sX\right), \tr_{\overline\tau}  \right) \right).
+		\end{split}
+		\ee	
+		\item The representation $\pi$ is equivariant (cf. Definition \ref{equivariant_representation_defn}).
+		\item Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal X}$. If $\overline a \in A_0\left(\overline\sX \right)$ is  an  element such that 
+		$\supp \overline a \subset \overline \sU$ then the following conditions hold:
+		\begin{enumerate}
+			\item [(i)] The series 	
+			\be\nonumber
+			\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \overline \pi\left( g\overline{a}\right)
+			\ee 
+			is convergent in the strong  topology of $B\left(L^2\left(A_0\left( \overline\sX\right), \tr_{\overline\tau}  \right) \right)$  (cf. Definition \ref{strong_topology_defn}).
+			\item[(ii)] 
+			\be\nonumber
+			\begin{split}
+				\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \overline \pi\left( g\overline{a}\right)  = \pi\left(  \desc_{\overline p}\left( \overline{a}\right)\right)
+			\end{split}
+			\ee
+			where $\desc_{\overline p}$ means the descent (cf. Definition \ref{top_lift_desc_defn}).
+		\end{enumerate}
+		\item A pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{A }$ is $\pi$-good (cf. Definition \ref{good_defn}).
+	\end{enumerate}
+	\end{exercise}
+
+
 \begin{empt}\label{str_spin_c_empt}
 	Suppose that $A$ is a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}), and $E \to \sX$ is a   vector bundle with a sesquilinear form (cf. Definition \ref{top_herm_bundle_form_defn}). Assume that for any $x \in \sX$ there is an action
 	\be\label{top_repxs_eqn}
@@ -15034,60 +15072,21 @@ $$ is an {infinite noncommutative covering}  of $\mathfrak{S}_{\A_0\left( p\righ
 \subsubsection{Coverings of $O^*$-algebras}
 \paragraph*{}
 Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_inf_o_sec}.
-\begin{empt}\label{ctr_mu_empt}
-	
-	Denote by 	
-	\bean
-	\begin{split}
-		\mathfrak{S}_{A} = \\
-		=\left(\left\{ C_0\left( p_\la\right) :  A_0\left(\sX \right)  \hookto  A_0\left(\sX_\la \right)\right\}, \left\{ A_0\left( p_\nu^\mu\right) :  A_0\left(\sX_\nu \right) \hookto  A_0\left(\sX_\mu \right)\right\}\right)
-	\end{split}
-	\eean
-	the given by the Theorem  \ref{blowing_sufficient_covering_inf_thm}
-	{algebraical  finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}).
-	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
-	measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
-	\be\label{ctr_meafuncc_eqn}
-	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
-	\ee
-	Let  $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) such that $\sX$ is the spectrum of $A$.
-	there is a given by \eqref{ctr_ka_t_eqn} functional 
-	\be\label{ctr_tauc_eqn}
-	\begin{split}
-		\tr_\tau : K\left( A\right)\to \C,\\
-		a \mapsto \tau\left(\tr_a \right).  
-	\end{split} 
-	\ee
-	where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) and  $\tr\left( a\right)  \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. There is $\C$-valued product
-	\be
-	\begin{split}
-		\left(\cdot, \cdot\right): K\left( A\right)\times  K\left( A\right)\to\C,\\
-		\left(a, b\right)\mapsto \tr_\tau\left( a^*b\right). 
-	\end{split}
-	\ee
-	Denote by $L^2\left( A, \tr_\tau  \right)$ the Hilbert norm completion of $ K\left( A\right)$.	
-	Denote by $L^2\left(  A_0\left( \overline\sX\right) , \tr_{\overline\tau}  \right)$ the Hilbert norm completion of $ K\left( \overline A\right)$. Let
-	$$
-	\mathfrak{S}_{A_0\left(p \right)  } 
-	=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
-	$$
-	is the given by the Lemma \ref{blowing_sufficient_covering_inf_thm} algebraical  finite covering category then (cf. Definition \ref{algebraical_finite_covering_category_defn}). !!! CHECK !!!
-\end{empt}
 \begin{empt}
 	Similarly to \ref{ctr_fin_o_empt} 	let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) such that  $M$ is the spectrum of $A$. There is a linear bundle $\left(E, q, M\right)  $ with fibers $\C^{n^2}$ such that there is $C_b\left( M\right)$-linear isomorphism $A \cong 
-	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  If $p: \widetilde M\to M$ is a transitive covering with residually finite (cf. Definition \ref{residually_finite_defn}) covering group $G\left(\left.\widetilde M\right| M \right)$  (cf. Definition \ref{top_group_of_covering_transformations_defn}) then the Theorem \ref{blowing_sufficient_covering_inf_thm} yields  an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) given by 		
+	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  Let $p: \widetilde M \to M$ be a transitive  covering with a residually finite covering group $G\left(\left. \widetilde M \right| M \right)$ of  (cf. Definitions \ref{residually_finite_defn} and \ref{top_group_of_covering_transformations_defn}). The Theorem  \ref{blowing_sufficient_covering_inf_thm} yields  an  algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) given by 		
 	\be\label{ctr_bases_point_eqn}
 	\begin{split}
 		\mathfrak{S}_{A_0\left( p\right)  } = \\
 		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(M_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(M_\nu \right) \hookto A_0\left(M_\mu \right)\right\}.
 	\end{split}
 	\ee
-	 From the Proposition \ref{top_cov_mani_prop} it follows that $\overline M$ has a (unique) structure of smooth manifold such that $\overline p$ is smooth. If $\left(\overline E, \overline q,  \overline M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive  covering  $\overline E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\overline E$ such that map $\overline E\to E$ is smooth. So there is a *-algebra $\Ga^\infty\left(\overline M, \overline E \right)$. 
+	If $\overline p: \overline M\to M$ is the  disconnected covering of $p: \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}) then there the natural covering $\overline p: \overline M \to M$. From the Proposition \ref{top_cov_mani_prop} it follows that $\overline M$ has a (unique) structure of smooth manifold such that $\overline p$ is smooth. If $\left(\overline E, \overline q,  \overline M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive  covering  $\overline E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\overline E$ such that map $\overline E\to E$ is smooth. So there is a *-algebra $\Ga^\infty\left(\overline M, \overline E \right)$. 
 	If $\tau: C_c\left( M\right) \to \C$ is a functional
 	$$
 	a \mapsto \int_M a ~d\mu. 
 	$$
-	such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0$ then similarly to \ref{ctr_mu_empt} one can define Hilbert spaces $L^2\left(  A , \tr_{\tau}  \right)$  and $L^2\left(  A_0\left( \overline M\right) , \tr_{\overline\tau}  \right)$. If
+	such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0$ then similarly to \eqref{ctr_a_eqn} one can define Hilbert spaces $L^2\left(  A , \tr_{\tau}  \right)$  and $L^2\left(  A_0\left( \overline M\right) , \tr_{\overline\tau}  \right)$. If
 	\bean
 	\D \bydef \Ga^\infty_c\left( M,  E \right),\\
 	\widehat \D \bydef \Ga^\infty_c\left(\overline M, \overline E \right),
@@ -15107,10 +15106,10 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 	\forall \mu,\nu\in\La \quad \nu \le\mu \quad\Rightarrow\quad  \Ga^\infty \left( M_\nu,   E_\nu \right)\subset \Ga^\infty \left( M_\mu,   E_\mu \right) \text{ AND }\\
 	\text{ AND } D \left( M_\nu,   E_\nu \right)\subset D \left( M_\mu,   E_\mu \right)
 	\eean
-	There are   algebraic finite covering categories of $O^*$-algebras given by
+	There are pointed algebraic finite covering categories of $O^*$-algebras given by
 	\bean
-	\mathfrak{S}_{D\left( M,   E \right)}\bydef \left(\left\{\pi_\la: D\left( M,   E \right) \hookto D\left( M_\la,   E_\la \right) \right\}, \left\{\pi^\mu_\nu\right\}\right),\\
-	\mathfrak{S}_{\Ga^\infty\left( M,   E \right)} = \left(\left\{\left.\pi_\la\right|_{\Ga^\infty\left( M,   E \right)}: \Ga^\infty\left( M,   E \right) \hookto \Ga^\infty\left( M_\la,   E_\la \right) \right\}, \left\{\left.\pi^\mu_\nu\right|_{\Ga^\infty\left( M_\mu,   E_\mu \right)}\right\}\right).
+	\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}\bydef \left(\left\{\pi_\la: D\left( M,   E \right) \hookto D\left( M_\la,   E_\la \right) \right\}, \left\{\pi^\mu_\nu\right\}\right),\\
+	\mathfrak{S}^{\text{pt}}_{\Ga^\infty\left( M,   E \right)} = \left(\left\{\left.\pi_\la\right|_{\Ga^\infty\left( M,   E \right)}: \Ga^\infty\left( M,   E \right) \hookto \Ga^\infty\left( M_\la,   E_\la \right) \right\}, \left\{\left.\pi^\mu_\nu\right|_{\Ga^\infty\left( M_\mu,   E_\mu \right)}\right\}\right).
 	\eean
 	(cf. Definition \ref{comp_o*_defn}).
 	There is the natural inclusion
@@ -15120,7 +15119,19 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 	
 	
 \end{empt}
-
+%
+	%\begin{exercise}
+	%Formulate and prove a related to the given by \eqref{ctr_bases_point_eqn} pointed topological finite 	analog of the Exercise \ref{ctr_hilbert_exer}
+	%\end{exercise}
+	
+	\begin{exercise}
+ 	Using the Exercise \ref{ctr_hilbert_exer}
+	prove following statements:
+	\begin{enumerate}
+		\item The triple $\left(D\left( M,   E \right),D\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}$ (cf. Definition \ref{inv_o*_lim_defn}).
+		\item The triple $\left(\Ga^\infty\left( M,   E \right),\Ga^\infty\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the  $\left.\pi\right|_{\cup_{\la \in \La} \Ga^\infty \left( M_\la,   E_\la \right)}$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{\Ga^\infty\left( M_\la,   E_\la \right)}$.
+	\end{enumerate}
+	\end{exercise}
 
 \begin{empt}\label{str_spinc_infc_empt}
 	Suppose that  $\left( E, r, M\right)$ is a vector  bundle with a sesquilinear form (cf. Definition \ref{top_herm_bundle_form_defn}). If both $\widetilde  E$ and $\overline  E$ are {inverse images} of $ES$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  ES$ and $\overline  E$ are  smooth manifolds such that both maps $\widetilde E \to \widetilde M$ and $\overline E \to overline M$ are smooth (cf. Proposition \ref{top_cov_mani_prop}). Similarly to \eqref{ctr_gac_prod} there are $\C$-valued products 
