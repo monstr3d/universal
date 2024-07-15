@@ -596,7 +596,7 @@
 There are theories of coverings of $C^*$-algebras which can be included into a following list:
 \begin{itemize}
 	\item coverings of commutative $C^*$-algebras  \cite{clarisson:phd,pavlov_troisky:cov},
-	\item coverings of $C^*$-algebras of foliations  \cite{ouchi:cov_fol,xiaolu:foli_cov}),
+	\item coverings of $C^*$-algebras of groupoids and foliations  \cite{ouchi:cov_fol,xiaolu:foli_cov,zhi:cov_group}),
 	\item  coverings of noncommutative tori \cite{clarisson:phd,schwieger:nt_cov},
 	\item {the double covering of the quantum group $SO_q(3)$} \cite{dijkhuizen:so_doublecov,podles:so_su}. 
 \end{itemize}
@@ -644,9 +644,9 @@ In this book we continue development of the noncommutative geometry, this book c
 	&\\
 	Fundamental group of a space $\pi_1\left(\mathcal X \right)$  & Fundamental group of a $C^*$-algebra $\pi_1\left(A \right)$  \\
 	& \\
-$n^{\text{th}}$ {homotopy group} $\pi_n\left(\sX, x_0 \right)$&$n^{\text{th}}$ {homotopy group} $\pi_n\left(A, \a \right)$ 
-	\\ of a  pointed space $\left(\sX, x_0 \right)$ & of a  pointed  $C^*$-algebra $\left(A, \a \right)$\\
-	&\\
+%$n^{\text{th}}$ {homotopy group} $\pi_n\left(\sX, x_0 \right)$&$n^{\text{th}}$ {homotopy group} $\pi_n\left(A, \a \right)$ 
+%	\\ of a  pointed space $\left(\sX, x_0 \right)$ & of a  pointed  $C^*$-algebra $\left(A, \a \right)$\\
+%	&\\
 	Hurewicz homomorphism &  Noncommutative	Hurewicz 
 	\\ $\pi_1\left(\sX, x_0 \right)\to K_1\left( \sX\right)  $ & homomorphism $\pi_1\left(A \right)\to K_1\left(A\right)  $\\
 	&\\
@@ -13603,6 +13603,31 @@ Let $A$ be a $C^*$-algebra, and let $\mathfrak{FinCov}$-$A$ be e category
 \begin{remark}\label{stab_non_iso_rem}
 	From the Example \ref{nt_stable_exm}  it follows that the functor $-\otimes \K$ is not always faithful (cf. Definition \ref{funct_full_faithfull_defn}).
 \end{remark}
+
+\section{Infinite coverings}
+
+\paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
+
+
+\begin{definition}\label{stable_rep_defn}  
+	Let 
+	\be\label{stable_rep_eqn}  
+	\mathfrak{S}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+	\ee
+	be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). We say that 
+	$	\mathfrak{S}_{A\otimes \K}$ is \textit{represented by} an algebraical  finite covering category
+	\bean
+	\mathfrak{S}_{A} \bydef   \left(\left\{\pi_\la: A\hookto A_\la\right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+	\eean
+	if one has
+	\bean
+	\forall \la\in \La \quad A_\la^\K \cong A_\la\otimes\K \quad \widetilde\pi_\la = \widetilde\pi_\la \otimes 1_{\K^+},\\
+	\forall\mu, \nu \in \La \quad \nu \ge \mu\quad\Rightarrow\quad \widetilde\pi^\mu_\nu = \pi^\mu_\nu \otimes 1_{\K^+}
+	\eean
+\end{definition}
+
+
+
 \chapter{Hurewicz homomorphism. A sketch}\label{h_chap}
 \section{Preliminaries}\label{h_prel}
 \paragraph{}
