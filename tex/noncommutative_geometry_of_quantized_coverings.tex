@@ -13430,6 +13430,16 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\ee
 	Any  involutive action of $G$ on $A$ uniquely induces a involutive action  of $G$ on $A\otimes \mathcal K$.
 \end{empt}
+	\begin{empt}\label{stable_ap_empt}
+	Note that for any $C^*$-algebra $A$ there is a natural inclusion $\K \subset M\left(A \otimes \K \right)$. If $p \in \K$ is a rank-one projector and
+	\be\label{stable_ap_eqn}
+	A^p \bydef \left\{ a \otimes p | a \in A\right\}\subset A \otimes  \K	
+	\ee
+	then $A^p$ is a hereditary $C^*$-subalgebra of $A \otimes  \K$ with the natural $*$-isomorphism
+	\be\label{stable_app_eqn}
+	A^p\cong A.
+	\ee
+\end{empt}
 \begin{lemma}\label{stable_pre_lem}
 	Following conditions hold:
 	\begin{enumerate}
@@ -13442,12 +13452,10 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
 		$-{proper}.
 	\end{enumerate}
-	
-	
 \end{lemma}
 \begin{proof}
 	
-	(i) $G_{\K}\stackrel{\mathrm{def}}{=}\left\{ g_{\K} \in \Aut\left(\widetilde{A}  \otimes \K\right)~|~ g_{\K}a = a;~~\forall a \in A  \otimes \K\right\}$. If  $\mathfrak{e}_{1,1}$ is an elementary matrix (cf. Definition \ref{elementary_defn}) $1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}$ is a multiplicator of both $A \otimes \K$ and $\widetilde{A} \otimes \K$. Any *-automorphism of $\widetilde{A}\otimes \K$ can be uniquely extended to *-automorphism of $M\left( \widetilde{A}\otimes \K\right)$. If $\widetilde{a}_\K \in \widetilde{A}  \otimes  \mathfrak{e}_{1,1}$ then  $$\widetilde{a}_\K = \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right) \widetilde{a}_\K \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right).$$
+	(i) $G_{\K}\stackrel{\mathrm{def}}{=}\left\{ g_{\K} \in \Aut\left(\widetilde{A}  \otimes \K\right)~|~ g_{\K}a = a;~~\forall a \in A  \otimes \K\right\}$. If  $\mathfrak{e}_{1,1}$ is an elementary matrix (cf. Definition \ref{elementary_defn}) $1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}$ is a multiplier of both $A \otimes \K$ and $\widetilde{A} \otimes \K$. Any *-automorphism of $\widetilde{A}\otimes \K$ can be uniquely extended to *-automorphism of $M\left( \widetilde{A}\otimes \K\right)$. If $\widetilde{a}_\K \in \widetilde{A}  \otimes  \mathfrak{e}_{1,1}$ then  $$\widetilde{a}_\K = \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right) \widetilde{a}_\K \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right).$$
 	Hence for any $g_\K \in G_\K$ one has 
 	\be\label{stab_g_act_eqn}
 	\begin{split}
@@ -13486,13 +13494,48 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\end{enumerate}
 	
 \end{proof}
-\begin{lemma}\label{stable_fin_cov_comp_lem}
- If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} with unitization then  
+\begin{lemma}\label{stable_pre_inv_lem}
+Let $\left( A, \widetilde{A}, G, \pi\right)$ be a {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}).
+	\begin{enumerate}
+		\item [(i)] If a  quadruple $\left( A\otimes\K, \widetilde{A}\otimes\K, G, \pi\otimes \Id_\K\right)$ is a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}) then  
 		$$
-		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
+		\left( A , \widetilde{A}  , G, \pi   \right)
 		$$
-		is a  {noncommutative finite-fold  covering} with unitization (cf. Definition \ref{fin_unitization_defn}).
+		is a {noncommutative finite-fold  pre-covering}.
+		\item[(ii)] If a normal subgroup $H\subset G$ is   $\left( A\otimes\K, \widetilde{A}\otimes\K, G, \pi\otimes \Id_\K\right)$-{proper} (cf.Definition \ref{proper_subgroup_fin_defn}) then $H$ is $
+		\left( A , \widetilde{A} , G, \pi   \right)
+		$-{proper}.
+	\end{enumerate}
 \end{lemma}
+\begin{proof}(i)
+If $g$ is a $*$-automorphism of $\widetilde{A}$ such that $\forall a \in \pi\left(A \right) \quad g a = a$ then there is  $*$-automorphism of $\widetilde{A}\otimes \K$ such that
+$$
+g_\K \left(\widetilde a \otimes x \right) \bydef g \left(\widetilde a  \right)\otimes x
+$$
+such that $g_\K \left( a \otimes x\right) = \left( a \otimes x\right)$ for all $a \otimes x \in \left( \pi\otimes \Id_\K\right) \left(A \otimes \K \right)$. If $g_\K$  does not correspond to an element $g \in G$ then the  quadruple $\left( A\otimes\K, \widetilde{A}\otimes\K, G, \pi\otimes \Id_\K\right)$ is not a {noncommutative finite-fold  pre-covering}, so one has
+$$
+\left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \pi \left( A\right) \quad ga = a\right\}\cong G
+$$
+(ii) Similarly to proof of (i) one can prove that
+$$
+\left\{\left.g \in \Aut\left(\widetilde{A}^H \right)~\right| \forall a \in \pi \left( A\right) \quad g a = a  \right\}\cong G/ H.
+$$
+\end{proof}
+\begin{lemma}\label{stable_fin_cov_comp_lem}
+ If a  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}) then one has:
+ \begin{enumerate}
+ 	\item [(i)] if  $\left( A, \widetilde{A}, G, \pi\right)$ is a finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then  
+ 	$$
+ 	\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
+ 	$$
+ 	is a  {noncommutative finite-fold  covering} with unitization,
+ 	\item[(ii)] conversely if  $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)$ is a finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then  
+ 	$$
+ 	\left( A, \widetilde{A}, G, \pi\right)
+ 	$$
+ 	is a  {noncommutative finite-fold  covering} with unitization
+ \end{enumerate}
+ \end{lemma}
 \begin{proof}
 	
 	(i)	From the Lemma \ref{stable_pre_lem} it turns out that the quadruple
@@ -13537,15 +13580,48 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	$$
 	\left({B} \otimes \mathcal K^+,\widetilde{B} \otimes \mathcal K^+, G, \widetilde{   \pi} \otimes \Id_\K\right) 
 	$$
-	is an unital  noncommutative finite-fold covering. 
+	is an unital  noncommutative finite-fold covering. \\
+	(ii) Let $\left\{ \widetilde{a}^\K_1, ..., \widetilde{a}^\K_n, \widetilde{b}^\K_1, ..., \widetilde{b}^\K_n\right\} \subset   M\left(  \widetilde{A}\otimes \K\right)$ be a set satisfying to the equation \eqref{cov_mult_fin_c_eqn}. If $p \in \K$ is a rank-one projector then $A^p \cong A$ and $\widetilde A^p \cong \widetilde A$ (cf. \eqref{stable_app_eqn}).
+	For any $j \in \left\{1,..., n\right\}$ Let
+	\bean
+	L_{a_j} \widetilde A^p \to \widetilde A^p,\\
+	\widetilde a \mapsto p \widetilde{a}^\K_1 p 	\widetilde a;\\
+		R_{a_j} \widetilde A^p \to \widetilde A^p,\\
+	\widetilde a \mapsto p \widetilde{a}^\K_1 p 	\widetilde a;\\
+		L_{b_j} \widetilde A^p \to \widetilde A^p,\\
+	\widetilde a \mapsto p \widetilde{b}^\K_1 p 	\widetilde a;\\
+	R_{b_j} \widetilde A^p \to \widetilde A^p,\\
+	\widetilde a \mapsto p \widetilde{b}^\K_1 p 	\widetilde a;\\
+	\eean
+	where the $p \in M\left(\widetilde A \otimes \K\right)$ is implied.
+For any $j \in \left\{1,..., n\right\}$ a pair $\left( 	L_{a_j} , 	R_{a_j} \right)$ resp $\left( 	L_{b_j} , 	R_{b_j} \right)$ is a double centralizer (cf. Definition \ref{double_centralizer_defn}). From the Remark \ref{double_centralizer_rem} it follows that 
+$$
+\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset   M\left(  \widetilde{A}^p\right)
+$$
+From the equation \eqref{cov_mult_fin_c_eqn} one can deduce
+\bean
+\forall \widetilde{a} \in M\left( \widetilde{A}^p\right) \quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j a_j \\
+\text{where} \quad \forall j\in \left\{1,...,n\right\}\quad a_j\bydef  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in M\left(\pi \right) \left(  M\left( A^p\right) \right) 
+\eean 
+
 \end{proof}
 
 \begin{theorem}\label{stable_fin_cov_thm}
- If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} then  
+	If a  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}) then one has:
+	\begin{enumerate}
+		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering}(cf. Definition \ref{fin_defn}) then  
 		$$
 		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)
 		$$
 		is a  {noncommutative finite-fold  covering}.
+		\item [(ii)] If the  quadruple $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)$ is a  {noncommutative finite-fold  covering} then  
+$$
+\left( A, \widetilde{A}, G, \pi\right)
+$$
+is a  {noncommutative finite-fold  covering}.
+		
+	\end{enumerate}
+ 
 
 \end{theorem}
 
@@ -13580,6 +13656,12 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		is dense in $A\otimes\K$.
 	\end{enumerate}	
 	for all $\la\in \La$.\\
+	(ii) 	From the Definition \ref{fin_defn} it turns out that if there is an indexed by a directed set $\La$ family $\left\{A^\K_\la \subset A\otimes \K \right\}_{\la\in\La}$ of $\left(A\otimes \K, \widetilde{A}\otimes \K , G, \pi\otimes \Id_\K \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}).
+If
+	$$
+\La' \bydef \left\{\la \in \La \left|A^\K_\la\cap A^p \neq \{0\} \right.\right\}	
+	$$
+	then there is a family $\left\{A^p_\la\bydef A^\K_\la\cap A^p  \right\}_{\la\in \La'}$ of hereditary subalgebras of $A^p$. From (ii) of the Lemma \ref{stable_fin_cov_comp_lem} one can deduce that $A^p_\la$ is a $\left(A^p, \widetilde{A}^p, G, \pi^p \right)$-{strictly proper} hereditary $C^*$-subalgebra (cf. the Definition \ref{strictly_proper_defn}) for any $\la \in \La'$. The union $\bigcup_{\la\in \La} A^\K_\la$ is dense in $A\otimes \K$ it follows that the union  $\bigcup_{\la\in \La'} A^p\la$ is dense in $A^p$.
 \end{proof}
 \begin{exercise}\label{stable_fin_cov_exer}
 	Proof that under the hypotheses of the Theorem \ref{stable_fin_cov_thm} if  a  {noncommutative finite-fold  covering} $\left( A, \widetilde{A}, G, \pi\right)$  is reduced (cf. Definition \ref{fin_red_defn}) then a  {noncommutative finite-fold  covering}
@@ -13659,24 +13741,17 @@ Under hypotheses \ref{stable_empt} one has:
 	\item[(iv)] if the  triple $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is the {disconnected infinite noncommutative covering} of $\mathfrak{S}^\K$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) then the  triple  $\left( A, \overline A, \widehat G\right)$ is the {disconnected infinite noncommutative covering} $\mathfrak{S}$,
 
 \item[(v)] if a disconnected infinite noncommutative covering  $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is {good} (cf. Definition \ref{good_defn}) then $\left( A, \overline A, \widehat G\right)$ is good, 
-\item[(vi)] if the triple $\left(A\otimes \K, \widetilde{A}\otimes , G\left(\left.\widetilde{A}\otimes \K~\right| A\otimes \K\right)\right)$
-is  the  {infinite noncommutative covering} of $\mathfrak S^\K$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$
+\item[(vi)] if the triple $\left(A\otimes \K, \widetilde{A}\otimes\K , G\left(\left.\widetilde{A}\otimes \K~\right| A\otimes \K\right)\right)$
+is  the  {infinite noncommutative covering} of $\mathfrak S^\K$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) then the triple $$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\cong G\left(\left.\widetilde{A}\otimes \K~\right| A\otimes \K\right)\right)$$
 is  the  {infinite noncommutative covering} of $\mathfrak S$.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-	Note that for any $C^*$-algebra $A$ there is a natural inclusion $\K \subset M\left(A \otimes \K \right)$. If $p \in \K$ is a rank-one projector and
-	\be\label{stable_ap_eqn}
-A^p \bydef \left\{ a \otimes p | a \in A\right\}\subset A \otimes  \K	
-\ee
-	then $A^p$ is a hereditary $C^*$-subalgebra of $A \otimes  \K$ with the natural $*$-isomorphism
-\be\label{stable_app_eqn}
-	A^p\cong A.
-\ee
 	From the Lemma \ref{stable_lem} one can deduce that any $a^\K\in K\left(A \otimes K \right)$ can be represented by the following finite sum:
 \be\label{stable_bab_eqn}
-	a^\K = \sum_{j=1}^n b'_j a_j b''_j; \quad \forall j \in \left\{1,...,n\right\}\quad a_j \in K\left(A^p \right)  \quad b'_j, b''_j \in K\left(\K \right).
+a^\K = \sum_{j=1}^n b'_j a_j b''_j; \quad \forall j \in \left\{1,...,n\right\}\quad a_j \in K\left(A^p \right)  \quad b'_j, b''_j \in K\left(\K \right).
 \ee
+where $A^p$ is given by the equation \eqref{stable_ap_eqn}.
 (i) For any $\la\in \La$ we denote by $A_\la\subset A_\la^\K$ the $C^*$-algebra generated by elements 
 $$
 a^p_\la \bydef \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a^p\quad \in \overline A^p\quad \text{(cf. \eqref{stable_ap_eqn})}.
@@ -13687,12 +13762,27 @@ A^\K_\la \cong A_\la \otimes \K$.\\
 (ii) and (iii) One should proof that the category $\mathfrak S$ satisfies to the conditions of the Definition \ref{algebraical_finite_covering_category_eqn}.
 	\begin{enumerate}
 	\item [(a)] 
-	any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn});
-	\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$, moreover we require that $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
+Follows from (ii) of the Theorem \ref{stable_fin_cov_thm}
+	\item[(b)] If $a \in  K\left( A^p \right)_+$ then from the Definition \ref{algebraical_finite_covering_category_defn}  it follows that there is $\widetilde a \in K\left( \overline A \otimes \K\right)_+$ such that $a =  \desc_{\la}\left(\widetilde a  \right)$. If $\widetilde a^p  \bydef p \widetilde a p$ then $$a =  \desc_{\la}\left(\widetilde a^p  \right).$$
 \end{enumerate}
-
+(iv) If $\phi: \overline A' \hookto  \overline A''$ is a $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism (cf. \ref{infinite_covering_empt}) then
+$$
+\phi \otimes \Id_\K : \overline A' \otimes\K \hookto\overline A'' \otimes\K
+$$
+is a $\mathfrak{Cov}\left(\mathfrak{S}^K \right)$-morphism. So a terminal object of the category $\mathfrak{Cov}\left(\mathfrak{S}^K \right)$ corresponds to the terminal object of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$.\\
+(v) One needs check (a) and (b) of the Definition \ref{good_defn}.
+\begin{enumerate}
+	\item[(a)] If $\widetilde A^K$ is a connected component of $\overline A\otimes \K$ then $\widetilde A^K\cap  \overline A^p*\cong \widetilde A$ and $\widetilde A^K \cong \widetilde A\otimes \K$. If both $\widetilde A_1$ and $ \widetilde A_2$ are connected components of $\overline A$ then both $\widetilde A_1\otimes \K$ and $ \widetilde A_2\otimes \K$ are connected component of $\overline A\otimes \K$. From (a) of the Definition \ref{good_defn} it follows that there is $g \in \widehat g$ such that $\widetilde A_1\otimes \K = g\left(\widetilde A_2\otimes \K \right)$. From this circumstance  one has $\widetilde A_1 = g\widetilde A_2$.
+	\item[(b)] From the above construction one has 
+	\bean
+	\overline{A} = \widetilde A \oplus \widetilde A^\perp,\\
+		\overline{A}\otimes \K = \widetilde A \otimes \K \oplus \widetilde A^\perp\otimes \K;\\
+		 	G\left(\left.\widetilde{A}~\right| A\right)\bydef		\left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}\cong\\\cong  \left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp\otimes \K \quad g \widetilde a^\perp= \widetilde a^\perp\right\}= 	G\left(\left.\widetilde{A}\otimes \K~\right| A\otimes \K\right)
+		\eean 
+(cf. equation \eqref{infinite_covering_transformation_group_eqn}). For any $\la \in \La$ the natural homomorphism 	$G\left(\left.\widetilde{A}\otimes \K~\right| A\otimes \K\right)\to G_\la$ is surjective, so the homomorphism $G\left(\left.\widetilde{A}~\right| A\right)\to G_\la$ is surjective.
+\end{enumerate}
+(vi) An ideal  $\widetilde{A}\subset \overline A$ is a connected component of  $\overline A$ if and only if an ideal  $\widetilde{A}\otimes \K\subset \overline A\otimes \K$ is a connected component of  $\overline A\otimes \K$.
 \end{proof}
-
 
 
 %\begin{definition}\label{stable_defn}  
