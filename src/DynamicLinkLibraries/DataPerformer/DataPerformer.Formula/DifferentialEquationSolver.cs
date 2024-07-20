@@ -794,21 +794,25 @@ namespace DataPerformer.Formula
                 {
                     if (pars[c] != null)
                     {
-                        VariableMeasurement v = parameters[c];
-                        IMeasurement m = v.Measurement;
-                        object t = m.Type;
-                        if (t is IOneVariableFunction)
+                        if (parameters.ContainsKey(c))
                         {
-                            proh += c;
-                            table[c] = m.Parameter();
-                        }
-                        else
-                        {
-                            table[c] = t;
-                        }
-                        if (!acc.ContainsKey(c + ""))
-                        {
-                            acc[c + ""] = dataPerformerFormula.Create(c, m, this);
+
+                            VariableMeasurement v = parameters[c];
+                            IMeasurement m = v.Measurement;
+                            object t = m.Type;
+                            if (t is IOneVariableFunction)
+                            {
+                                proh += c;
+                                table[c] = m.Parameter();
+                            }
+                            else
+                            {
+                                table[c] = t;
+                            }
+                            if (!acc.ContainsKey(c + ""))
+                            {
+                                acc[c + ""] = dataPerformerFormula.Create(c, m, this);
+                            }
                         }
                     }
                 }
