@@ -1,0 +1,1466 @@
+\documentclass[10]{article}
+%\documentclass[11pt]{book}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
+\usepackage{lmodern, mathtools}
+\usepackage{old-arrows} 
+\usepackage{graphicx}
+\usepackage[toc,page]{appendix}
+\usepackage{nicefrac}
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+\usepackage{amssymb, euscript}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+%\usepackage{tikz-cd}
+
+\usetikzlibrary{cd}
+
+%\usepackage{mathtools}
+
+\usetikzlibrary{matrix}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,cite}
+\usepackage{graphicx}
+
+%% \usepackage[francais]{babel}
+\usepackage[applemac]{inputenc}
+
+
+\usepackage[sc]{mathpazo}
+\usepackage{environ}
+
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+
+%\usepackage[usenames]{color}
+
+
+
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{1.8 <-> pzcmi8t}{}
+\DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+% the command for it is \mathpzc
+
+\textwidth=140mm
+
+
+% % % % % % % % % % % % % % % % % % % %
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{prdf}[prop]{Proposition and Definition}
+\newtheorem{lem}[prop]{Lemma}%[section]
+\newtheorem{cor}[prop]{Corollary}%[section]
+\newtheorem{thm}[prop]{Theorem}%[section]
+\newtheorem{theorem}[prop]{Theorem}
+\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{proposition}[prop]{Proposition}
+\newtheorem{corollary}[prop]{Corollary}
+\newtheorem{statement}[prop]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}%[section]
+\newtheorem{cordefn}[prop]{Corollary and Definition}%[section]
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{exm}[prop]{Example}%[section]
+\newtheorem{rem}[prop]{Remark}%[section]
+\newtheorem{prob}[prop]{Problem}
+\newtheorem{conj}{Conjecture}       %% Hypothesis 1
+\newtheorem{cond}{Condition}        %% Condition 1
+%\newtheorem{axiom}[thm]{Axiom}           %% Axiom 1 modified
+\newtheorem{fact}[prop]{Fact}
+\newtheorem{ques}{Question}         %% Question 1
+\newtheorem{answ}{Answer}           %% Answer 1
+\newtheorem{notn}{Notation}        %% Notations are not numbered
+
+\theoremstyle{definition}
+\newtheorem{notation}[prop]{Notation}
+\newtheorem{definition}[prop]{Definition}
+\newtheorem{example}[prop]{Example}
+\newtheorem{exercise}[prop]{Exercise}
+\newtheorem{conclusion}[prop]{Conclusion}
+\newtheorem{conjecture}[prop]{Conjecture}
+\newtheorem{criterion}[prop]{Criterion}
+\newtheorem{summary}[prop]{Summary}
+\newtheorem{axiom}[prop]{Axiom}
+\newtheorem{problem}[prop]{Problem}
+%\theoremstyle{remark}
+\newtheorem{remark}[prop]{Remark}
+
+\numberwithin{equation}{section}
+\newtheorem*{claim}{Claim}
+\DeclareMathOperator{\Dom}{Dom}              %% domain of an operator
+\newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
+
+
+%\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+		\right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\Ga}{\Gamma}  
+\newcommand{\coker}{\mathrm{coker}}                   %% short for  \Gamma
+\newcommand{\Coo}{C^\infty}                  %% smooth functions
+% % % % % % % % % % % % % % % % % % % %
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle\int$}
+\setbox\ncintdbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.125em \box2\relax\hfil}}\box0\kern.1em}
+\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+\setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
+		to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
+
+\newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
+		{\copy\ncinttbox}{\copy\ncinttbox}%
+		{\copy\ncinttbox}}\nolimits}  %% NC integral
+
+%%% Repeated relations:
+\newcommand{\xyx}{\times\cdots\times}      %% repeated product
+\newcommand{\opyop}{\oplus\cdots\oplus}    %% repeated direct sum
+\newcommand{\oxyox}{\otimes\cdots\otimes}  %% repeated tensor product
+\newcommand{\wyw}{\wedge\cdots\wedge}      %% repeated exterior product
+\newcommand{\subysub}{\subset\hdots\subset}      %% repeated subset
+\newcommand{\supysup}{\supset\hdots\supset}      %% repeated supset
+\newcommand{\rep}{\mathfrak{rep}}
+\newcommand{\lift}{\mathfrak{lift}}
+\newcommand{\desc}{\mathfrak{desc}}
+%%% Roman letters:
+\newcommand{\id}{\mathrm{id}}                %% identity map
+\newcommand{\Id}{\mathrm{Id}}                %% identity map
+\newcommand{\pt}{\mathrm{pt}}                %% a point
+\newcommand{\const}{\mathrm{const}}          %% a constant
+\newcommand{\codim}{\mathrm{codim}}          %% codimension
+\newcommand{\cyc}{\mathrm{cyclic}}  %% cyclic sum
+\renewcommand{\d}{\mathrm{d}}       %% commutative differential
+\newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
+\newcommand{\proj}{\mathrm{proj}}                %% a projection
+
+
+
+\newcommand*{\Mult}{\mathcal M}% multiplier algebra
+
+\newcommand{\A}{\mathcal{A}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
+\newcommand{\units}{G^{(0)}}
+\newcommand{\haars}{\{\lambda^{u}\}_{u\in\units}}
+\newcommand{\shaars}{\{\lambda_{u}\}_{u\in\units}}
+\newcommand{\haarsv}[2]{\{\lambda^{#2}_{#1}\}_{#2\in\unitsv{#1}}}
+\newcommand{\haarv}[2]{\lambda^{#2}_{#1}}
+
+\renewcommand{\a}{\alpha}                    %% short for  \alphapha
+\DeclareMathOperator{\ad}{ad}                %% infml adjoint repn
+\newcommand{\as}{\quad\mbox{as}\enspace}     %% `as' with spacing
+\newcommand{\Aun}{\widetilde{\mathcal{A}}}   %% unital algebra
+\newcommand{\B}{\mathcal{B}}                 %% space of distributions
+\newcommand{\E}{\mathcal{E}}                 %% space of distributions
+\renewcommand{\b}{\beta}                     %% short for \beta
+\newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
+\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
+\newcommand{\C}{\mathbb{C}}                  %% complex numbers
+\newcommand{\CC}{\mathcal{C}}                %% space of distributions
+\newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
+\DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
+\newcommand{\F}{\mathcal{F}}                 %% space of test functions
+\newcommand{\G}{\mathcal{G}}                 %% 
+\newcommand{\D}{\mathcal{D}}                 %% Moyal L^2-filtration
+\renewcommand{\H}{\mathcal{H}}               %% Hilbert space
+\newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
+\newcommand{\hh}{\mathcal{H}}                %% Hilbert space
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+\newcommand{\Ht}{{\widetilde{\mathcal{H}}}}  %% Hilbert space of forms
+\newcommand{\I}{\mathcal{I}}                 %% tracelike functions
+\DeclareMathOperator{\Junk}{Junk}            %% the junk DGA ideal
+\newcommand{\K}{\mathcal{K}}                 %% compact operators
+\newcommand{\ket}[1]{|#1\rangle}             %% ket vector
+\newcommand{\ketbra}[2]{|#1\rangle\langle#2|} %% rank one operator
+\renewcommand{\L}{\mathcal{L}}               %% operator algebra
+\newcommand{\La}{\Lambda}                    %% short for \Lambda
+\newcommand{\la}{\lambda}                    %% short for \lambda
+\newcommand{\lf}{L_f^\theta}                 %% left mult operator
+\newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
+\newcommand{\mm}{\mathcal{M}^\theta}
+%\newcommand{{{\star_{\theta}}}{{\mathchoice{\mathbin{\;|\;ar_{_\theta}}}
+			%            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
+			%            {{\;|\;ar_\theta}}{{\;|\;ar_\theta}}}}    %% product
+	\newcommand{\N}{\mathbb{N}}                  %% nonnegative integers
+	\newcommand{\NN}{\mathcal{N}}                %% a Moyal algebra
+	\newcommand{\nb}{\nabla}                     %% gradient
+	\newcommand{\Oh}{\mathcal{O}}                %% comm multiplier alg
+	\newcommand{\om}{\omega}                     %% short for \omega
+	\newcommand{\opp}{{\mathrm{op}}}             %% opposite algebra
+	\newcommand{\ox}{\otimes}                    %% tensor product
+	\newcommand{\eps}{\varepsilon}                    %% tensor product
+	\newcommand{\otimesyox}{\otimes\cdots\otimes}    %% repeated tensor product
+	\newcommand{\pa}{\partial}                   %% short for \partial
+	\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}%% partial derivative
+	\newcommand{\piso}[1]{\lfloor#1\rfloor}      %% integer part
+	\newcommand{\PsiDO}{\Psi~\mathrm{DO}}         %% pseudodiffl operators
+	\newcommand{\Q}{\mathbb{Q}}                  %% rational numbers
+	\newcommand{\R}{\mathbb{R}}                  %% real numbers
+	\newcommand{\rdl}{R_\Dslash(\lambda)}        %% resolvent
+	\newcommand{\roundbraket}[2]{(#1\mathbin|#2)} %% (w|z)
+	\newcommand{\row}[3]{{#1}_{#2},\dots,{#1}_{#3}} %% list: a_1,...,a_n
+	\newcommand{\sepword}[1]{\quad\mbox{#1}\quad} %% well-spaced words
+	\newcommand{\set}[1]{\{\,#1\,\}}             %% set notation
+	\newcommand{\Sf}{\mathbb{S}}                 %% sphere
+	\newcommand{\uhor}[1]{\Omega^1_{hor}#1}
+	\newcommand{\sco}[1]{{\sp{(#1)}}}
+	\newcommand{\sw}[1]{{\sb{(#1)}}}
+	\DeclareMathOperator{\spec}{sp}              %% spectrum
+	\renewcommand{\SS}{\mathcal{S}}              %% Schwartz space
+	\newcommand{\sss}{\mathcal{S}}               %% Schwartz space
+	\DeclareMathOperator{\supp}{\mathfrak{supp}}            %% support
+	\DeclareMathOperator{\cosupp}{\mathfrak{cosupp}}            %% support
+	\newcommand{\T}{\mathbb{T}}                  %% circle as a group
+	\renewcommand{\th}{\theta}                   %% short for \theta
+	\newcommand{\thalf}{\tfrac{1}{2}}            %% small* fraction 1/2
+	\newcommand{\tihalf}{\tfrac{i}{2}}           %% small* fraction i/2
+	\newcommand{\tpi}{{\tilde\pi}}               %% extended representation
+	\DeclareMathOperator{\Tr}{Tr}                %% trace of operator
+	\DeclareMathOperator{\tr}{tr}                %% trace of matrix
+	\newcommand{\del}{\partial}                  %% short for  \partial
+	\DeclareMathOperator{\tsum}{{\textstyle\sum}} %% small sum in display
+	\newcommand{\V}{\mathcal{V}}                 %% test function space
+	\newcommand{\vac}{\ket{0}}                   %% vacuum ket vector
+	\newcommand{\vf}{\varphi}                    %% scalar field
+	\newcommand{\w}{\wedge}                      %% exterior product
+	\DeclareMathOperator{\wres}{wres}            %% density of Wresidue
+	\newcommand{\x}{\times}                      %% cross
+	\newcommand{\Z}{\mathbb{Z}}                  %% integers
+	\newcommand{\7}{\dagger}                     %% short for + symbol
+	\newcommand{\8}{\bullet}                     %% anonymous degree
+	\renewcommand{\.}{\cdot}                     %% anonymous variable
+	\renewcommand{\:}{\colon}                    %% colon in  f: A -> B
+	
+	%\newcommand{\sA}{\mathscr{A}}       %%
+	\newcommand{\sA}{\mathcal{A}} 
+	\newcommand{\sB}{\mathcal{B}}       %%
+	\newcommand{\sC}{\mathcal{C}}       %%
+	\newcommand{\sD}{\mathcal{D}}       %%
+	\newcommand{\sE}{\mathcal{E}}       %%
+	\newcommand{\sF}{\mathcal{F}}       %%
+	\newcommand{\sG}{\mathcal{G}}       %%
+	\newcommand{\sH}{\mathcal{H}}       %%
+	\newcommand{\sI}{\mathcal{I}}       %%
+	\newcommand{\sJ}{\mathcal{J}}       %%
+	\newcommand{\sK}{\mathcal{K}}       %%
+	\newcommand{\sL}{\mathcal{L}}       %%
+	\newcommand{\sM}{\mathcal{M}}       %%
+	\newcommand{\sN}{\mathcal{N}}       %%
+	\newcommand{\sO}{\mathcal{O}}       %%
+	\newcommand{\sP}{\mathcal{P}}       %%
+	\newcommand{\sQ}{\mathcal{Q}}       %%
+	\newcommand{\sR}{\mathcal{R}}       %%
+	\newcommand{\sS}{\mathcal{S}}       %%
+	\newcommand{\sT}{\mathcal{T}}       %%
+	\newcommand{\sU}{\mathcal{U}}       %%
+	\newcommand{\sV}{\mathcal{V}}       %%
+	\newcommand{\sX}{\mathcal{X}}       %%
+	\newcommand{\sY}{\mathcal{Y}}       %%
+	\newcommand{\sZ}{\mathcal{Z}}       %%
+	
+	\newcommand{\Om}{\Omega}       %%
+	
+	
+	\DeclareMathOperator{\ptr}{ptr}     %% Poisson trace
+	\DeclareMathOperator{\Trw}{Tr_\omega} %% Dixmier trace
+	\DeclareMathOperator{\vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Vol}{Vol}     %% total volume
+	\DeclareMathOperator{\Area}{Area}   %% area of a surface
+	\DeclareMathOperator{\Wres}{Wres}   %% (Wodzicki) residue
+	
+	\newcommand{\dd}[1]{\frac{\partial}{\partial#1}}   %% partial derivation
+	\newcommand{\ddt}[1]{\frac{d}{d#1}}                %% derivative
+	\newcommand{\inv}[1]{\frac{1}{#1}}                 %% inverse
+	\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}} %% tiny fraction
+	
+	\newcommand{\bA}{\mathbb{A}}       %%
+	\newcommand{\bB}{\mathbb{B}}       %%
+	\newcommand{\bC}{\mathbb{C}}       %%
+	\newcommand{\bCP}{\mathbb{C}P}     %%
+	\newcommand{\bD}{\mathbb{D}}       %%
+	\newcommand{\bE}{\mathbb{E}}       %%
+	\newcommand{\bF}{\mathbb{F}}       %%
+	\newcommand{\bG}{\mathbb{G}}       %%
+	\newcommand{\bH}{\mathbb{H}}       %%
+	\newcommand{\bHP}{\mathbb{H}P}     %%
+	\newcommand{\bI}{\mathbb{I}}       %%
+	\newcommand{\bJ}{\mathbb{J}}       %%
+	\newcommand{\bK}{\mathbb{K}}       %%
+	\newcommand{\bL}{\mathbb{L}}       %%
+	\newcommand{\bM}{\mathbb{M}}       %%
+	\newcommand{\bN}{\mathbb{N}}       %%
+	\newcommand{\bO}{\mathbb{O}}       %%
+	\newcommand{\bOP}{\mathbb{O}P}     %%
+	\newcommand{\bP}{\mathbb{P}}       %%
+	\newcommand{\bQ}{\mathbb{Q}}       %%
+	\newcommand{\bR}{\mathbb{R}}       %%
+	\newcommand{\bRP}{\mathbb{R}P}     %%
+	\newcommand{\bS}{\mathbb{S}}       %%
+	\newcommand{\bT}{\mathbb{T}}       %%
+	\newcommand{\bU}{\mathbb{U}}       %%
+	\newcommand{\bV}{\mathbb{V}}       %%
+	\newcommand{\bX}{\mathbb{X}}       %%
+	\newcommand{\bY}{\mathbb{Y}}       %%
+	\newcommand{\bZ}{\mathbb{Z}}       %%
+	
+	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
+	
+	
+	\newcommand{\al}{\alpha}          %% short for  \alpha
+	\newcommand{\bt}{\beta}           %% short for  \beta
+	\newcommand{\Dl}{\Delta}          %% short for  \Delta
+	\newcommand{\dl}{\delta}          %% short for  \delta
+	\newcommand{\ga}{\gamma}          %% short for  \gamma
+	\newcommand{\ka}{\kappa}          %% short for  \kappa
+	\newcommand{\sg}{\sigma}          %% short for  \sigma
+	\newcommand{\Sg}{\Sigma}          %% short for  \Sigma
+	\newcommand{\Th}{\Theta}          %% short for  \Theta
+	\renewcommand{\th}{\theta}        %% short for  \theta
+	\newcommand{\vth}{\vartheta}      %% short for  \vartheta
+	\newcommand{\ze}{\zeta}           %% short for  \zeta
+	
+	\DeclareMathOperator{\ord}{ord}     %% order of a PsiDO
+	\DeclareMathOperator{\rank}{rank}   %% rank of a vector bundle
+	\DeclareMathOperator{\sign}{sign}   %%
+	\DeclareMathOperator{\sgn}{sgn}   %%
+	\DeclareMathOperator{\chr}{char}   %%
+	\DeclareMathOperator{\ev}{ev}       %% evaluation
+	
+	
+	\newcommand{\Op}{\mathbf{Op}}
+	\newcommand{\As}{\mathbf{As}}
+	\newcommand{\Com}{\mathbf{Com}}
+	\newcommand{\LLie}{\mathbf{Lie}}
+	\newcommand{\Leib}{\mathbf{Leib}}
+	\newcommand{\Zinb}{\mathbf{Zinb}}
+	\newcommand{\Poiss}{\mathbf{Poiss}}
+	
+	\newcommand{\gX}{\mathfrak{X}}      %% vector fields
+	\newcommand{\sol}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gm}{\mathfrak{m}}      %% maximal ideal
+	
+	
+	\DeclareMathOperator{\Res}{Res}
+	\DeclareMathOperator{\NCRes}{NCRes}
+	\DeclareMathOperator{\Ind}{Ind}
+	%% co/homology theories
+	\DeclareMathOperator{\rH}{H}        %% any co/homology
+	\DeclareMathOperator{\rC}{C}        %%  any co/chains
+	\DeclareMathOperator{\rZ}{Z}        %% cycles
+	\DeclareMathOperator{\rB}{B}        %% boundaries
+	\DeclareMathOperator{\rF}{F}        %% filtration
+	\DeclareMathOperator{\Gr}{gr}        %% associated graded object
+	\DeclareMathOperator{\rHc}{H_{\mathrm{c}}}   %% co/homology with compact support
+	\DeclareMathOperator{\drH}{H_{\mathrm{dR}}}  %% de Rham co/homology
+	\DeclareMathOperator{\cechH}{\check{H}}    %% Cech co/homology
+	\DeclareMathOperator{\rK}{K}        %% K-groups
+	\DeclareMathOperator{\rKO}{KO}        %% real K-groups
+	\DeclareMathOperator{\rKU}{KU}        %% unitary K-groups
+	\DeclareMathOperator{\rKSp}{KSp}        %% symplectic K-groups
+	\DeclareMathOperator{\rR}{R}        %% representation ring
+	\DeclareMathOperator{\rI}{I}        %% augmentation ideal
+	\DeclareMathOperator{\HH}{HH}       %% Hochschild co/homology
+	\DeclareMathOperator{\HC}{HC}       %% cyclic co/homology
+	\DeclareMathOperator{\HP}{HP}       %% periodic cyclic co/homology
+	\DeclareMathOperator{\HN}{HN}       %% negative cyclic co/homology
+	\DeclareMathOperator{\HL}{HL}       %% Leibniz co/homology
+	\DeclareMathOperator{\KK}{KK}       %% KK-theory
+	\DeclareMathOperator{\KKK}{\mathbf{KK}}       %% KK-theory as a category
+	\DeclareMathOperator{\Ell}{Ell}       %% Abstract elliptic operators
+	\DeclareMathOperator{\cd}{cd}       %% cohomological dimension
+	\DeclareMathOperator{\spn}{span}       %% span
+	\DeclareMathOperator{\linspan}{span} %% linear span (can't use \span)
+	\newcommand{\blank}{-}   
+	
+	
+	
+	\newcommand{\twobytwo}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+	\newcommand{\CGq}[6]{C_q\!\begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+	%% q-Clebsch--Gordan coefficients
+	\newcommand{\cz}{{\bullet}}         %% anonymous degree
+	\newcommand{\nic}{{\vphantom{\dagger}}} %% invisible dagger
+	\newcommand{\ep}{{\dagger}}         %% abbreviation for + symbol
+	\newcommand{\downto}{\downarrow}    %% right hand limit
+	\newcommand{\isom}{\cong}          %% isomorphism
+	\newcommand{\lt}{\triangleright}    %% a left action
+	\newcommand{\otto}{\leftrightarrow} %% bijection
+	\newcommand{\rt}{\triangleleft}     %% a right action
+	\newcommand{\semi}{\rtimes}         %% crossed product
+	\newcommand{\tensor}{\otimes}       %% tensor product
+	\newcommand{\cotensor}{\square}       %% cotensor product
+	\newcommand{\trans}{\pitchfork}     %% transverse
+	\newcommand{\ul}{\underline}        %% for sheaves
+	\newcommand{\upto}{\uparrow}        %% left hand limit
+	\renewcommand{\:}{\colon}           %% colon in  f: A -> B
+	\newcommand{\blt}{\ast}
+	\newcommand{\Co}{C_{\bullet}}
+	\newcommand{\cCo}{C^{\bullet}}
+	\newcommand{\nbs}{\nabla^S}         %% spin connection
+	\newcommand{\up}{{\mathord{\uparrow}}} %% `up' spinors
+	\newcommand{\dn}{{\mathord{\downarrow}}} %% `down' spinors
+	\newcommand{\updn}{{\mathord{\updownarrow}}} %% up or down
+	
+	%%% Bilinear enclosures:
+	
+	\newcommand{\bbraket}[2]{\langle\!\langle#1\stroke#2\rangle\!\rangle}
+	%% <<w|z>>
+	\newcommand{\bracket}[2]{\langle#1,\, #2\rangle} %% <w,z>
+	\newcommand{\scalar}[2]{\langle#1,\,#2\rangle} %% <w,z>
+	\newcommand{\poiss}[2]{\{#1,\,#2\}} %% {w,z}
+	\newcommand{\dst}[2]{\langle#1,#2\rangle} %% distributions <u,\phi>
+	\newcommand{\pairing}[2]{(#1\stroke #2)} %% right-linear pairing
+	\def\<#1|#2>{\langle#1\stroke#2\rangle} %% \braket (Dirac notation)
+	\def\?#1|#2?{\{#1\stroke#2\}}        %% left-linear pairing
+	
+	%%% Accent-like macros:
+	
+	\renewcommand{\Bar}[1]{\overline{#1}} %% closure operator
+	\renewcommand{\Hat}[1]{\widehat{#1}}  %% short for \widehat
+	\renewcommand{\Tilde}[1]{\widetilde{#1}} %% short for \widetilde
+	
+	
+	\DeclareMathOperator{\bCl}{\bC l}   %% complex Clifford algebra
+	
+	%%% Small fractions in displays:
+	
+	\newcommand{\ihalf}{\tfrac{i}{2}}   %% small fraction  i/2
+	\newcommand{\quarter}{\tfrac{1}{4}} %% small fraction  1/4
+	\newcommand{\shalf}{{\scriptstyle\frac{1}{2}}}  %% tiny fraction  1/2
+	\newcommand{\third}{\tfrac{1}{3}}   %% small fraction  1/3
+	\newcommand{\ssesq}{{\scriptstyle\frac{3}{2}}} %% tiny fraction  3/2
+	\newcommand{\sesq}{{\mathchoice{\tsesq}{\tsesq}{\ssesq}{\ssesq}}} %% 3/2
+	\newcommand{\tsesq}{\tfrac{3}{2}}   %% small fraction  3/2
+	
+	
+	%\newcommand\eqdef{\overset{\mathclap{\normalfont\mbox{def}}}{=}}
+	\newcommand\eqdef{\overset{\mathrm{def}}{=}}
+	
+	
+	%+++++++++++++++++++++++++++++++++++
+	
+	\newcommand{\word}[1]{\quad\text{#1}\enspace} %% well-spaced words
+	\newcommand{\words}[1]{\quad\text{#1}\quad} %% better-spaced words
+	\newcommand{\su}[1]{{\sp{[#1]}}}
+	
+	\def\<#1,#2>{\langle#1,#2\rangle}            %% bilinear pairing
+	\def\ee_#1{e_{{\scriptscriptstyle#1}}}       %% basis projector
+	\def\wick:#1:{\mathopen:#1\mathclose:}       %% Wick-ordered operator
+	
+	\newcommand{\opname}[1]{\mathop{\mathrm{#1}}\nolimits}
+	
+	\newcommand{\hideqed}{\renewcommand{\qed}{}} %% to suppress `\qed'
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% 2. Some internal machinery
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
+	\setbox0=\hbox{$-$}
+	\setbox2=\hbox{$\displaystyle\int$}
+	\setbox\ncintdbox=\hbox{\rlap{\hbox
+			to \wd2{\box2\relax\hfil}}\box0\kern.1em}
+	\setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
+	\setbox2=\hbox{$\textstyle\int$}
+	\setbox\ncinttbox=\hbox{\rlap{\hbox
+			to \wd2{\hskip-.05em\box2\relax\hfil}}\box0\kern.1em}
+	
+	\newcommand{\disp}{\displaystyle} %% short for  \displaystyle
+	
+	%\newcommand{\hideqed}{\renewcommand{\qed}{}} %% no `\qed' at end-proof
+	
+	\newcommand{\stroke}{\mathbin|}   %% (for `\bbraket' and such)
+	\newcommand{\tribar}{|\mkern-2mu|\mkern-2mu|} %% norm bars: |||
+	
+	%%% Enclose one argument with delimiters:
+	
+	\newcommand{\bra}[1]{\langle{#1}\rvert} %% bra vector <w|
+	\newcommand{\kett}[1]{\lvert#1\rangle\!\rangle} %% ket 2-vector |y>>
+	\newcommand{\snorm}[1]{\mathopen{\tribar}{#1}%
+		\mathclose{\tribar}}                 %% norm |||x|||
+	
+	
+	\newcommand{\End}{\mathrm{End}}       %%
+	\newcommand{\Ext}{\mathrm{Ext}}       %%
+	\newcommand{\Hom}{\mathrm{Hom}}       %%
+	\newcommand{\Mrt}{\mathrm{Mrt}}       %%
+	\newcommand{\grad}{\mathrm{grad}}       %%
+	\newcommand{\Spin}{\mathrm{Spin}}       %%
+	\newcommand{\Ad}{\mathrm{Ad}}       %%
+	\newcommand{\Pic}{\mathrm{Pic}}       %%
+	\newcommand{\Aut}{\mathrm{Aut}}       %%
+	\newcommand{\Inn}{\mathrm{Inn}}       %%
+	\newcommand{\Out}{\mathrm{Out}}       %%
+	\newcommand{\Homeo}{\mathrm{Homeo}}       %%
+	\newcommand{\Diff}{\mathrm{Diff}}       %%
+	\newcommand{\im}{\mathrm{im}}       %%
+	
+	
+	\newcommand{\SO}{\mathrm{SO}}       %%
+	\newcommand{\SU}{SU}       %%
+	\newcommand{\gso}{\mathfrak{so}}    %% special orthogonal Lie algebra
+	\newcommand{\gero}{\mathfrak{o}}    %% orthogonal Lie algebra
+	\newcommand{\gspin}{\mathfrak{spin}} %% spin Lie algebra
+	\newcommand{\gu}{\mathfrak{u}}      %% unitary Lie algebra
+	\newcommand{\gsu}{\mathfrak{su}}    %% special unitary Lie algebra
+	\newcommand{\gsl}{\mathfrak{sl}}    %% special linear Lie algebra
+	\newcommand{\gsp}{\mathfrak{sp}}    %% symplectic linear Lie algebra
+	
+	%\newcommand{\bes}{\begin{equation}\begin{split}}
+			%\newcommand{\ees}{\end{split}\end{equation}}
+	%\NewEnviron{split.enviro}{%
+		%	\begin{equation}\begin{split}
+				%	\BODY
+				%	\end{split}\end{equation}
+		%$}
+	\newenvironment{splitequation}{\begin{equation}\begin{split}}{\end{split}\end{equation}}
+	
+	%Begin equation split: Begin equation split = bes
+	\newcommand{\bs}{\begin{split}}
+		\newcommand{\es}{\end{split}}
+	\newcommand{\be}{\begin{equation}}
+		\renewcommand{\ee}{\end{equation}}
+	\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	\newcommand{\bean}{\begin{eqnarray*}}
+		\newcommand{\eean}{\end{eqnarray*}}
+	\newcommand{\brray}{\begin{array}}
+		\newcommand{\erray}{\end{array}}
+	\newenvironment{equations}
+	{\begin{equation}
+			\begin{split}}
+			{\end{split}
+	\end{equation}}
+	\newcommand{\Hsquare}{%
+		\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
+	}
+	\makeatletter
+	\newcommand{\xdbheadrightarrow}[2][]{%
+		\ext@arrow 0099\xdbheadfill@{#1}{#2}}%
+	\newcommand{\xdbheadfill@}{%
+		\arrowfill@\relbar\relbar{\mathrel{\vphantom{\rightarrow}\smash{\twoheadrightarrow}}}}
+	\makeatother
+	
+	%\xdbheadrightarrow
+	
+	\title{Grothendieck topology of  $C^*$-algebras}
+	
+	\author
+	{\textbf{Petr R. Ivankov*}\\
+		e-mail: * monster.ivankov@gmail.com \\
+	}
+	
+	\begin{document}
+
+\maketitle  %\setlength{\parindent}{0pt}
+\pagestyle{plain}
+
+
+%\vspace{1 in}
+
+
+%\noindent
+
+\begin{abstract}
+For any topological space there is a sheaf cohomology. A Grothendieck topology  is a generalization  of the  classical topology such that  it also possesses a sheaf cohomology. On the other hand any noncommutative $C^*$-algebra is a generalization of a locally compact Hausdorff space. Here we define a Grothendieck topology arising from  $C^*$-algebras which is a generalization of the topology of the spectra of commutative $C^*$-algebras. This construction yields a noncommutative generalization of the sheaf cohomology of topological spaces.  The presented here theory gives a unified approach to  the  Gelfand duality and the duality between the commutative von Neumann algebras and measure locales.  The generalization of the  Dixmier-Douady theory  concerning $C^*$-algebras of foliations is also discussed.  
+
+\end{abstract}
+
+
+%\end{abstract}
+
+\section{Generalized Dixmier-Douady duality}
+
+\paragraph*{}
+Here we consider an analog of the described in the Appendix \ref{dd_dual_sec} duality.
+\subsection{General theory}
+
+\begin{empt}\label{dd_dual_empt}
+	Let $A, A', A'', \widetilde{A}$ be $C^*$-algebras, and let
+	\be\label{dd_bimodule_eqn}
+	\begin{split}
+A \xhookrightarrow{\phi} M\left(A' \right),\\
+A  \xhookrightarrow{\psi} M\left(A'' \right),\\
+A'  \xhookrightarrow{\widetilde \phi} \mathbf{LC}\left(\widetilde A \right),\\
+A'' \xhookrightarrow{\widetilde \psi} \mathbf{RC}\left(\widetilde A \right),\\
+A \xhookrightarrow{\widetilde \varphi} M\left(\widetilde A \right)
+	\end{split}
+	\ee
+ homomorphisms of $\C$-algebras such that either of  $\phi, ~\psi$ and $\widetilde \varphi$  is a *-homomorphism. Suppose that following conditions hold:
+		\bea\label{dd_bimod_eqn}
+		\text{The pair } \left( \widetilde \phi, \widetilde \psi\right)\quad \text{yields a } A'\text{-}A'' \text{ bimodule structure for } \widetilde A,\\
+		\label{dd_phi_eqn}
+	\varphi = \widetilde \phi\circ \phi =  \widetilde \psi\circ \psi. 
+		\eea
+		 If $\widetilde \pi:\widetilde A \to B\left( \widetilde \H\right)$ is a  faithful nondegenerate representation then left and right centralizers can be replaced with left and right multipliers respectively (cf. Proposition \ref{lrc_lem}), i.e. there are homomorphisms
+		 \bean
+		 \pi': A' \hookto B\left( \widetilde{ \H}\right),\\
+		 \pi'': A'' \hookto B\left( \widetilde{ \H}\right). 
+		 \eean
+ If we define a pairing
+\be\label{dd_pair_eqn}
+\begin{split}
+p: A' \times A''\to B\left( \widetilde \H\right) ,\\
+\left(a', a'' \right)\mapsto \widetilde \pi' \left(a' \right)  \widetilde \pi'' \left(a'' \right)
+\end{split}
+\ee
+then from the bimodule condition \eqref{dd_bimod_eqn}  one has a map
+\bean
+P: A' \otimes_A A'' \to B\left( \widetilde \H\right),\\
+a'\otimes  a'' \mapsto \pi'\left( a'\right) \pi''\left( a''\right). 
+\eean
+\end{empt}
+
+\begin{definition}\label{dd_dual_defn}
+If in the situation \ref{dd_dual_empt} one has
+	\bea\label{dd_in_eqn}
+P\left(  A' \otimes_A A''\right)\quad \text{is a dense subspace of } \quad \widetilde \pi\left( \widetilde A\right).	
+\eea
+then a natural map  
+	\bea\label{dd_dd_eqn}
+	d:  A' \otimes_A A'' \hookto \widetilde A 
+\eea
+is said to be a \textit{(generalized) Dixmier-Douady duality}.
+\end{definition}
+\begin{empt}\label{dd_hh_empt}
+	Let $A,~ A', ~A''$ be $C^*$-algebras with inclusions $\phi: A \hookto M\left( A'\right)$ and   $\psi : A \hookto M\left( A''\right)$. If both $\pi': A' \to B\left(\H'\right)$ and  $\pi'': A'' \to B\left(\H''\right)$ are faithful nondegenerate representations then from the Definition \ref{multiplier_el_defn} it follows that there are actions $A \times \H' \to \H'$ and $A \times \H'' \to \H''$. There is a right action
+	\bean
+	\H' \times A \to \H',\\
+	\left(\xi', a\right)\mapsto a\xi'
+	\eean
+	and  the natural injective map 
+	\be\label{di_defn_eqn}
+	\begin{split}
+		P: A'\otimes_A A'' \to B\left(\H'\ox_{A} \H'' \right),\\
+		a' \otimes a'' \mapsto \pi'\left(a'\right)\otimes \pi''\left(a''\right).
+	\end{split}
+	\ee
+\end{empt}
+\begin{lemma}\label{dd_hh_lem}
+	Consider the situation \ref{dd_hh_empt}.
+	Let  $\widetilde \H$ be the norm completion of the pre-Hilbert space $\H' \otimes_A  \H''$, and let
+	$\widetilde A\subset  B\left(\widetilde\H \right) $ be the $C^*$-norm closure of $P\left(A'\otimes_A A'' \right)\subset B\left(\H'\ox_{A} \H'' \right)\subset B\left(\widetilde\H \right)$. If $\widetilde A$ is a $C^*$-subalgebra of $B\left(\widetilde\H \right)$ and the inclusion $\widetilde \pi: \widetilde A\subset B\left(\widetilde\H \right)$ is a faithful nondegenerate representation then the map  \eqref{di_defn_eqn} yields a {Dixmier-Douady duality} $d: A'\otimes_A A''\to \widetilde A$  (cf. Definition \ref{dd_dual_defn}).
+\end{lemma}
+\begin{proof}
+The maps
+	\bean
+	A' \to \widetilde \pi\left( \mathbf{LM} \left( \widetilde A \right) \right),\\
+	\forall b' \in A' \quad b' \mapsto \left( \pi'\left(a' \right) \otimes \pi'\left(a' \right)\right)  \mapsto \left( \pi'\left(b'a' \right) \otimes \pi'\left(a' \right)\right),\\
+	A'' \to \widetilde \pi\left(  \mathbf{RM}\left(  \widetilde A \right) \right),\\
+	\forall b'' \in A'' \quad b'' \mapsto \left( \pi'\left(a' \right) \otimes \pi''\left(a'' \right)\right)  \mapsto \left( \pi'\left(a' \right) \otimes \pi''\left(a''b'' \right)\right),
+	\eean 
+and the Proposition \ref{lrc_prop}	yield homomorphisms:
+	\be\nonumber
+	\begin{split}
+		A'  \xhookrightarrow{\widetilde \phi} \mathbf{LC}\left(\widetilde A \right),\\
+		A'' \xhookrightarrow{\widetilde \psi} \mathbf{RC}\left(\widetilde A \right).
+	\end{split}
+	\ee
+If $
+\varphi \bydef \widetilde \phi\circ \phi =  \widetilde \psi\circ \psi : A \hookto M\left(\widetilde A \right)$	then one has all homomorphisms described by the equations \eqref{dd_bimodule_eqn} satisfying to the conditions \eqref{dd_bimod_eqn} and \eqref{dd_phi_eqn}.  On the other hand $P\left(  A'\ox_A A''\right)$ is a dense subspace of $\widetilde{\pi}\left( \widetilde A\right)$.
+\end{proof}
+
+
+
+
+
+\subsection{Dixmier-Douady theory for continuous trace $C^*$-algebras}
+
+\paragraph*{}
+
+If  $\sX$ is  a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
+continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$ (cf. Appendix \ref{ctr_not}) then from the  the Proposition \ref{ctr_d_prop} it follows that
+\bean
+\varphi_{\dl \rho}	:CT\left(\sX, \dl \right)\times_\sX CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
+\eean
+The above equation is equivalent to the following one
+\be\label{ctr_dd_eqn}
+\Phi_{\dl \rho}:CT\left(\sX, \dl \right)\otimes_{C_0\left(\sX \right) } CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
+\ee
+\begin{lemma}\label{ctr_dd_lem}
+The given by \ref{ctr_dd_eqn} map is a generalized Dixmier-Douady duality in the sense of the Definition \ref{dd_dual_defn}
+\end{lemma}
+
+\begin{proof}
+	If for any $x \in \sX$ both *-homomorphisms  $\pi_x^\dl: CT\left(\sX, \dl \right)\to B\left( \H^\dl_x\right)$ and  $\pi_x^\rho: CT\left(\sX, \rho \right)\to B\left( \H^\dl_x\right)$ are corresponding to $x$ irreducible representations and both $\pi_a^\dl: CT\left(\sX, \dl \right)\hookto B\left( \H^\dl_a\right)$ and $\pi_a^\rho: CT\left(\sX, \rho \right)\hookto B\left( \H^\rho_a\right)$ are atomic representations (cf. Definition \ref{atomic_repr_defn}) then both $\H^\dl_a$ and $\H^\rho_a$ are completions of algebraic direct sums $\bigoplus_{x \in \sX}\H^\dl_x$ and $\bigoplus_{x \in \sX}\H^\dl_x$ respectively. The reader  can easily proof that the norm completion of $ \H^\dl_a\ox_{C_0\left(\sX\right)}\H^\rho_a$ is a norm completion of an algebraic direct sum
+	$$
+	\bigoplus_{x \in \sX} \H^\dl_x\ox_{\C}\H^\rho_x\cong \bigoplus_{x \in \sX} \H^{\dl + \rho}_x.	
+	$$
+	If $a^\dl \in CT\left(\sX, \dl \right)$ and $a^\rho \in CT\left(\sX, \rho \right)$  then $\pi^\dl_a\left( a^\dl\right) \otimes \pi^\rho_a\left( a^\rho\right)\in B\left( \H^\dl_a\ox_{C_0\left( \sX\right) }\H^\rho_a\right) $ corresponds to a family
+	\be\label{ctr_tensor_fam_eqn}
+	\left\{\pi^\dl_x\left( a^\dl\right) \otimes \pi^\rho_x\left( a^\rho\right)\in B\left( \H^\dl_x\ox_{\C}\H^\rho_x\right)  \right\}_{x \in \sX}.
+	\ee
+Similarly to the equation \eqref{di_defn_eqn} we define a map 
+\bean
+P: CT\left(\sX, \dl \right)\otimes_{C_0\left( M\right) }CT\left(\sX, \rho \right)\to B\left( \H^\dl_a\ox_{C_0\left( M\right)}\H^\rho_a\right) ,\\
+a^\dl \otimes a^\rho \mapsto \pi^\dl_a\left( a^\dl\right) \otimes \pi^\rho_a\left( a^\rho\right)\cong \left\{\pi^\dl_x\left( a^\dl\right) \otimes \pi^\rho_x\left( a^\rho\right)\in B\left( \H^\dl_x\ox_{\C}\H^\rho_x\right)  \right\}_{x \in \sX}.
+\eean	
+From the proof of the Proposition \ref{ctr_d_prop} it follows that the family \eqref{ctr_tensor_fam_eqn} corresponds to the family
+\bean
+	\left\{\pi^{\dl+\rho}_x\left( \Phi_{\dl \rho}\left( a^\dl\otimes a^\rho\right) \right)\in B\left(\H^{\dl + \rho}_x \right)   \right\}_{x \in \sX}.
+\eean
+The map $\Phi_{\dl \rho}$ is bijective it turns out that
+$$
+P\left(CT\left(\sX, \dl \right)\otimes_{C_0\left( M\right) }CT\left(\sX, \rho \right) \right) = \pi^{\dl + \rho}_a\left((CT\left(\sX, \dl+ \rho \right) \right). 
+$$
+Now this lemma follows from the \ref{dd_hh_lem} one.
+\end{proof}
+
+
+
+
+\subsection{Dixmier-Douady theory for $C^*$-algebras of foliations}
+
+\paragraph*{}
+If $\left(M, \F\right)$ is a foliated manifold (cf. Definition \ref{foli_manifold_defn}) then there is a foliation groupoid $\G\left(M, \sF\right)$ (cf. Definitions \ref{foli_graph_defn} and the Theorem \ref{foli_graph_thm}). The equation \eqref{foli_prod_eqn} is a specialization of the \eqref{groupoid_*_c_eqn} one where a trivial cocycle $\sigma^0 \in H^2\left(\G\left(M, \sF\right), \T \right)$ is implied (cf. Appendix \ref{cycle_empt}). So there for any 2-cocycle $\sigma \in H^2\left(\G\left(M, \sF\right), \T \right)$ one has a \textit{twisted product} and an involution given by
+\bea\label{foli_a_prod_eqn}
+\left( f *_\sigma g\right)  (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
+f(\gamma_1) \, g(\gamma_2) \, \sigma\left(\ga_1, \ga_2 \right),\\ 
+\label{foli_a_inv_eqn}
+	f^* ( \ga ) \bydef \overline{f ( \ga^{ -1})}~\overline{\sigma\left(\ga, \ga^{-1} \right)}
+\eea
+where $f, g \in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$ (cf. Appendix \ref{foli_alg_subsec}). Similarly to \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} the equations  \eqref{foli_a_prod_eqn}, \eqref{foli_a_inv_eqn} yield a *-algebra, we denote it by  $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. 
+\begin{remark}\label{foli_irred_hol_rem}
+	Similarly to  \ref{foli_irred_hol_empt} one can prove that in fact the set of all irreducible representations is a set of leaves of $\left(M, \sF\right)$ which have no holonomy. The Hilbert space of the representation which corresponds to a leaf $\L$ is $L^2\left( \L\right)$. 
+\end{remark}
+\begin{definition}\label{foli_s_red_defn}
+	The completion of 	$\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm \eqref{groupoid_norm_eqn} is said to be the $\sigma$-\textit{twisted reduced} $C^*$-\textit{algebra of the foliated space} $\left(M,\sF\right)$. We denote it by $C^*_r\left(M,\sF, \sigma\right)$. 
+\end{definition}
+Henceforth we suppose that any leaf $\L$ of $\F$ is simply connected.
+If we select a measure $\mu_\L$ on $\L$ then the equation \eqref{foli_a_prod_eqn} corresponds to the following one
+\be\label{foli_l_m_eqn}
+\left( f_\L *_\sigma g_\L\right)  (x, y) \bydef \int
+f_\L(x, z) \, g_\L(z, y) \, \sigma_\L\left(x, y, z \right)\d \mu^{z}_\L
+\ee
+where $f_\L\in C_c^\infty\left(\L\times \L \right) $,  $~g_\L\in C_c^\infty\left(\L\times\L \right)$ and $\sigma_\L: \L\times\L\times\L \to \T$ correspond to $f$, $g$ and $\sigma$. The multiplication \eqref{foli_l_m_eqn} corresponds to the action
+\be\label{foli_act_egn}
+\begin{split}
+\bullet_{\sigma} :C_c^\infty\left(\L\times\L \right)\times C_c^\infty\left(\L \right)\to C_c^\infty\left(\L \right),\\
+\left(f_\L \bullet_{\sigma} u_\L \right) \left(x \right)\bydef \int
+f_\L(x, y) \, u_\L(y) \, \sigma_\L\left(x, y, y \right)\d \mu^{y}_\L.
+\end{split}
+\ee
+The space $C_c^\infty\left(\L \right)$ is dense in $L^2\left(\L \right)= L^2\left(\L, \mu_\L \right)$, so the action \eqref{foli_act_egn} can be uniquely extended up to
+\be\label{foli_act_l2_egn}
+\begin{split}
+	\bullet_{\sigma} :C_c^\infty\left(\L\times \L \right)\times L^2\left(\L \right)\to L^2\left(\L \right).
+\end{split}
+\ee
+There is an alternative description of the action \eqref{foli_act_l2_egn}. An element $u \in L^2\left(\L \right)$ is a \textit{step function} if following conditions hold:
+\begin{enumerate}
+	\item [(a)] There is a finite family $\left\{\sU_\a\right\}_{\a \in \mathscr{A}}$ of open sunsets of $\L$ with $\a' \neq a'' \Rightarrow \sU_{   \a'}\cap \sU_{   \a''}= \emptyset$ such that $\bigcup_{\a \in \mathscr{A}}\sU_\a$ is dense in $\L$.
+	\item[(b)] 
+	\be\label{foli_step}
+	u = \sum_{\a \in \mathscr{A}} c_\a \chi_{\sU_\a}
+	\ee
+	where $c_\a \in \C$ and
+\bean
+\chi_{\sU_\a}: \L \to \left\{\{0\}, \{1\}\right\},\\
+x \mapsto\begin{cases}
+	1 & x \in \sU_\a\\ 
+	0 & x \in \L \setminus \sU_\a.
+\end{cases}
+\eean
+\end{enumerate}
+If $\mathfrak{Step}(\L)$ is a space of step functions then $f_\L \in \Coo_c\left(\L \right)$ yields a map 
+\be\label{foli_sum_eqn}
+\begin{split}
+\mathfrak{Step}(\L) \to \mathfrak{Step}(\L),\\
+\sum_{\a \in \mathscr{A}} c_\a \chi_{\sU_\a} \mapsto \sum_{\a', \a'' \in \mathscr{A}} c_{\a'}f_\L\left(x_{a''}, x_{\a'}\right) \chi_{\sU_{\a''}};\quad x_{\a'}\in \sU_{\a'}, \quad x_{\a''}\in \sU_{\a''}.
+\end{split}
+\ee
+The above map is not uniquely defined since it depends on choice of points $x_{\a'}\in \sU_{\a'}, ~ x_{\a''}\in \sU_{\a''}$. However  any family $\left\{\sU_\a\right\}_{\a \in \mathscr{A}}$ can by refined. Using refinements and the limit one obtains the uniquely defined map.
+If $\pi_a: C^*_r\left(M,\sF, \sigma\right)\hookto B\left(\H_a \right) $ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then $C^*_r\left(M,\sF, \sigma\right)$ is the completion of $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$ with respect to the norm $a \mapsto \left\|\pi_a\left(a \right)  \right\|$.
+From  the Statement \ref{gropoid_mult_lem} there is an inclusion
+$$
+C_0\left( M\right)\hookto M\left( C^*_r\left(M,\sF, \sigma\right)\right). 
+$$
+If both $\dl, \rho \in H^2\left(\G\left(M, \sF\right), \T \right)$ are cocycles, and both $\pi^\dl_a: C^*_r\left(M,\sF, \dl\right)\hookto B\left(\H^\dl_a \right)$, $~\pi^\rho_a: C^*_r\left(M,\sF, \rho\right)\hookto B\left(\H^\rho_a \right)$  are atomic representations then one can consider a specialization of the given by \eqref{di_defn_eqn} map
+\be\label{foli_dl_eqn}
+\begin{split}
+	P: C^*_r\left(M,\sF, \dl\right)\otimes_{C_0\left( M\right) }C^*_r\left(M,\sF, \rho\right) \to B\left(\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a \right),\\
+	a^\dl \otimes a^\rho \mapsto \pi^\dl_a\left(a^\dl\right)\otimes \pi^\rho_a\left(a^\rho\right).
+\end{split}
+\ee
+If $\mathfrak{Leasves}\left(M, \F \right)$ is a set of leaves of $\left(M, \sF \right)$ then both $\H^\dl_a$ and $\H^\rho_a$ are naturally isomorphic to the norm completion $\H_a$ of an algebraic direct sum 
+\be\label{foli_h_eqn}
+\bigoplus_{\L\in \mathfrak{Leasves}\left(M, \F \right)}L^2\left(\L\right).
+\ee  
+\begin{lemma}
+There is the natural isomorphism $\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a \cong \H_a$.
+\end{lemma}
+\begin{proof}
+From the equation \ref{foli_h_eqn} it follows that $\H^\dl_a\ox_{C_0\left( M\right)} \H^\rho_a$ isomorphic to the norm completion of an algebraic direct sum 
+\be\nonumber
+\bigoplus_{\L\in \mathfrak{Leasves}\left(M, \F \right)}L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right).
+\ee
+so  one needs proof that   $L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right) \cong  L^2\left(\L\right)$. If $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ is a foliated atlas associated to $\F$ (cf. Definition \ref{foli_manifold_defn}) then $L^2\left(\L\right)$ and $L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)$ are the norm completion of  algebraic sums
+\be\label{foli_sums_eqn}
+\begin{split}
+\sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right), \\
+\sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right).
+\end{split}
+\ee
+On the other had $C_0\left( \sU_\a\right)L^2\left(\L\right)$ is the completion of $C_0\left( \sU_\a\right)C_0\left(\L\right)$ with respect to the norm of the Hilbert space  $C_0\left( \sU_\a\right)L^2\left(\L\right)$. Similarly $C_0\left(\sU_\a \right) L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)$ is the norm completion of $C_0\left( \sU_\a\right)C_0\left(\L\right)\ox_{C_0\left( \sU_\a\right) }C_0\left( \sU_\a\right)C_0\left(\L\right)$. From $$
+C_0\left( \sU_\a\right)C_0\left(\L\right)\ox_{C_0\left( \sU_\a\right) }C_0\left( \sU_\a\right)C_0\left(\L\right)\cong C_0\left( \sU_\a\right)C_0\left(\L\right)$$  it follows that
+$$
+C_0\left( \sU_\a\right)L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)\cong C_0\left( \sU_\a\right)L^2\left(\L\right).
+$$
+and taking into account \eqref{foli_sums_eqn} one has
+\be\label{foli_comp_eqn}
+\sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right)= \sum_{\a \in \mathfrak A} C_0\left( \sU_\a\right)L^2\left(\L\right).
+\ee
+Norm completions of left and right parts of \eqref{foli_comp_eqn} yield the required isomorphism 
+$$L^2\left(\L\right)\otimes_{C_0\left(M \right) } L^2\left(\L\right) \cong  L^2\left(\L\right).$$
+\end{proof}
+For any leaf $\L$ the natural map 
+\be\label{foli_dll_eqn}
+P_\L : L^2\left(\L\right) \ox_{C_0\left( M\right)}  L^2\left(\L\right)\cong L^2\left(\L\right)
+\ee
+can be described by the following way. If $\xi, \eta \in L^2\left(\L\right)$ then there are nets $\left\{u_\la\right\}_{\la \in\la }\subset \Coo_c\left(\L \right)$  and $\left\{v_\la\right\}_{\la \in\la }\subset \Coo_c\left(\L \right)$ such that
+\bean
+\xi = \lim_{\la\in \La} u_\la,\\
+\eta = \lim_{\la\in \La} v_\la
+\eean
+where the limits imply  the topology of $L^2\left(\L\right)$. Since  $u_\la v_\la \in \Coo_c\left(\L \right)$ the map $d_\L$ is given by
+$$
+\left(\xi, \eta\right)\mapsto \lim_{\la\in \La}u_\la v_\la  \in L^2\left(\L \right).
+$$
+If  $a^\dl\in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$, and $a^\rho\in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then for any leaf $\L$ there are $a^\dl_\L \in C_c\left(\L\times \L \right)$ and  $a^\rho_\L \in C_c\left(\L\times \L \right)$ such that for any $u \in \Coo_c\left(\L\right)$ one has
+\bean
+a^\dl_\L \bullet_\dl u\left( x\right)  = \int a^\dl \left(x, y\right) \dl\left(x, y, y \right)  u\left(y \right) ~\d\mu^y,\\
+a^\rho_\L \bullet_\rho u\left( x\right)  = \int a^\rho \left(x, y\right) \rho\left(x, y, y \right)  u\left(y \right) ~\d\mu^y
+\eean
+From the equation \eqref{foli_sum_eqn} one can deduce that
+\be\label{foli_m_m_eqn}
+\begin{split}
+P_L\left(a^\dl_\L \bullet_\dl u\otimes a^\rho_\L \bullet_\rho u \right)(x) = \int a^\dl_\L \left(x, y\right) \dl\left(x, y, y \right)_\L a^\rho_\L \left(x, y\right) \rho_\L\left(x, y, y \right)u(u) ~\d\mu^y=\\
+=  \int \left( a^\dl_\L \left(x, y\right) a^\rho_\L \left(x, y\right)\right)  \left(\dl + \rho \right)_\L \left(x, y, y \right)u(u) ~\d\mu^y=\left( a^{\dl + \rho}\right) \bullet_{\dl + \rho}u\\
+\text{where} \quad  a^{\dl + \rho}(x, y)= a^{\dl}(x, y) a^{ \rho}(x, y)\quad \forall x, y \in \L.
+\end{split}
+\ee
+If any leaf of $\F$ is simply connected then the space $\G\left( \G\left(M, \F \right) \right)$ is Hausdorff and there is a $\C$-linear isomorphism $\Coo\left( \G\left(M, \F \right) \right)\cong  \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \sigma \right)$. So there is a commutative multiplication
+\be\label{foli_comm_eqn}
+*_{\mathrm{comm}} : \Coo\left( \G\left(M, \F \right) \right)\times \Coo\left( \G\left(M, \F \right) \right) \to \Coo\left( \G\left(M, \F \right) \right)
+\ee
+\begin{lemma}
+	One has a {Dixmier-Douady duality} $$d: C^*_r\left(M,\sF, \dl\right)\otimes_{C_0\left( M\right) }C^*_r\left(M,\sF, \rho\right)\to C^*_r\left(M,\sF, \dl + \rho\right).$$
+\end{lemma}
+\begin{proof}
+	If $a^\dl \in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)$ and $a^\rho \in \Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)$ then from \eqref{foli_m_m_eqn} it follows that
+	$$
+\pi^\dl_a\left(a^\dl \right)\otimes \pi^\rho_a\left(a^\rho \right)= \pi^{\dl + \rho}\left( a^\dl*_{\mathrm{comm}}a^\rho\right) 
+	$$
+	where $*_{\mathrm{comm}}$ is given by \eqref{foli_comm_eqn} and $a^\dl*_{\mathrm{comm}}a^\rho$ is regarded as an element of \\$\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl +\rho \right)$. Since both $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl \right)\subset C^*_r\left( M. \F. \dl\right)$ and \\ $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \rho \right)\subset C^*_r\left( M. \F. \rho\right)$ are dense subspaces one has
+	$$
+\forall a^\dl \in C^*_r\left( M, \F. \dl\right)\quad  \forall a^\rho \in C^*_r\left( M, \F. \rho\right)\quad  \pi^\dl_a\left(a^\dl \right)\otimes \pi^\rho_a\left(a^\rho \right)\in  \pi^{\dl + \rho}\left( C^*_r\left( M, \F. \dl+\rho\right)\right). 
+$$
+Since the map \eqref{foli_comm_eqn} is surjective and $\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2} , \dl+\rho \right)\subset C^*_r\left( M. \F. \dl + \rho\right)$ is a dense subspace the set
+$$
+\pi^\dl_a\left( C^*_r\left( M, \F, \dl\right) \right)\otimes_{C_0\left(M \right) } \pi^\rho_a\left( C^*_r\left( M, \F, \rho\right) \right)\subset B\left(\H^\dl_a \ox_{C_0\left(M \right)} \H^\rho_a \right) \subset B\left(\H^{\rho + \dl} \right) 
+$$
+is dense in $\pi_a^{\dl + \rho}\left( C^*_r\left( M, \F, \dl+\rho\right)\right)$. On the other hand the representation 	$\pi_a^{\dl + \rho}: C^*_r\left( M, \F. \dl+\rho\right)\hookto B\left(\widetilde \H_a \right)$ is atomic (cf. Definition \ref{atomic_repr_defn})  so it is faithful and nondegenerate. Taking into account the Lemma \ref{dd_hh_lem} one has a required Dixmier-Douady duality.
+\end{proof}
+
+\begin{appendices}
+	
+	\section{$C^*$-algebras}
+	\subsection{Representations}
+		
+	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
+		Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
+		\begin{enumerate}
+			\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
+			\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
+			\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
+			\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
+			\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
+			\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
+		\end{enumerate} 
+	\end{theorem}
+	\begin{definition}\label{irred_defn}\cite{pedersen:ca_aut}
+		Let $A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The representation is said to be \textit{irreducible} if it satisfies to the Theorem \ref{irred_thm}.
+	\end{definition}
+	\begin{definition}\label{equiv_repr_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra.
+	We say that two representations $\pi_1: A \to B\left( \H_1\right)$ and $\pi_2: A \to B\left( \H_2\right)$  are \textit{spatially equivalent} (or \textit{unitary equivalent}) if there is an isometry $u$ of $\H_1$ onto $\H_2$ such that $u\pi_1\left(a \right)u^*=\pi_2\left(a \right)$ for all $a \in A$. By the \textit{spectrum} or  of $A$ we understand the set $\hat A$ of spatially equivalence classes of irreducible representations. For any $x \in \hat A$ we denote by
+	\be\label{rep_x_eqn}
+	\begin{split}
+		\rep_x : A \to B\left( \H\right) \quad \text{OR} \quad 	\rep^A_x : A \to B\left( \H\right)
+	\end{split}
+	\ee
+	a representation which corresponds to $x$.  Sometimes we use alternative notation of the spectrum $A\hat~\stackrel{\text{def}}{=}\hat A$.
+\end{definition}
+	
+	
+	
+\begin{definition}\label{faithful_repr_defn}\cite{murphy}
+	A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if the *-homomorphism $\rho$ is injective.
+\end{definition}
+
+\begin{definition}\label{nondegenerate_repr_defn}\cite{matro:hcm}
+	A representation $\rho : A\to B\left( \H\right)$ is called \textit{nondegenerate} if for any $\xi \in \H$  there exists an element $a \in A$ such that $\rho\left(a \right)\xi \neq 0$. 
+\end{definition}
+\begin{lemma}\label{nondegenerate_repr_lem}\cite{matro:hcm}
+	A representation $A\to B\left( \H\right)$ is {nondegenerate} if $\rho\left(A\right)\H$ is dense in $\sH$. 
+\end{lemma}
+
+\begin{definition}\label{atomic_repr_defn}\cite{pedersen:ca_aut}
+	Let $A$ be a $C^*$-algebra with the spectrum $\hat A$. We choose for any $t \in \hat A$ a pure state $\phi_t$ and  associated representation $\pi_t: A \to B\left(\H_t\right)$.
+	The representation 
+	\be
+	\pi_a = \bigoplus_{t \in \hat A} \pi_t \quad \text{on the closure } \H_a \text{ of an algebraic direct sum}\quad  \bigoplus_{t \in \hat A} \H_t
+	\ee
+	is called the (reduced) \textit{atomic representation} of $A$. Any two atomic representations are unitary equivalent and any atomic representation of $A$ is faithful and nondegenerate  (cf.  Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \cite{pedersen:ca_aut}).
+\end{definition}
+\begin{definition}\label{multiplier_el_defn}\cite{matro:hcm}
+	Let $\rho: A\hookto B\left( \H\right)$ be a faithful {nondegenerate} (cf. Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn}) representation, so we assume $A \subset B\left( \H\right)$. An operator $x \in B\left(\H\right)$ is called (two-sided) \textit{multiplier} if 
+	\be\label{multiplier_el_eqn}
+	xa \in A, \quad ax\in A
+	\ee
+	for each $a\in A$. Denote by $M\left(A\right)$ the set of all multipliers. It is easy to see that $M\left(A\right)$ is an involutive unital algebra.
+\end{definition}
+	\begin{definition}\label{lrm_defn}\cite{matro:hcm}
+	Let $A\to B\left(\H \right)$ be a faithful nondegenerate representation. An operator $x\in  B\left(\H \right)$ is said to be a \textit{left multiplier} of $A$ if
+	$$
+	xa\in A
+	$$
+	for any $a \in A$. Denote by $\mathbf{LM}(A)$ the set of all left multipliers. Similarly one can define \textit{right multipliers} $\mathbf{RM}(A)$.
+\end{definition}
+
+
+\begin{definition}\label{lrc_defn}\cite{matro:hcm}
+	If $A$ is a $C^*$-algebra then a linear map $\la: A\to A$ is said to be a \textit{left centralizer} if
+	\be
+	\la\left(ab\right)= 	\la\left(a\right) b \quad \forall a, b \in A.
+	\ee
+	Similarly one defines a \textit{right} centralizer. Denote the spaces of left and right centralizers by $\mathbf{LC}(A)$ and  $\mathbf{RC}(A)$.
+\end{definition}
+\begin{lem}
+	If $\rho\in  \mathbf{RC}(A)$ then $\rho^*\in  \mathbf{LC}(A)$ where $\rho^*\left(a \right)\bydef \left(\rho\left( a^* \right) \right)^*$. 
+\end{lem}
+
+
+\begin{lem}\label{lrc_lem}\cite{matro:hcm}
+	Each left centralizer, and each right centralizer is bounded.
+\end{lem}
+\begin{proposition}\label{lrc_prop}\cite{matro:hcm}
+	Let $A\to B\left(\H \right)$ be a faithful nondegenerate representation. Then there exists a one-to-one isometric correspondence between left, right multipliers and  left, right centralizers respectively.
+\end{proposition}
+
+
+
+
+\subsection{$C^*$-algebras of type I}
+	
+	\begin{definition}\label{type_i0_defn}\cite{pedersen:ca_aut}
+		% 6.1
+		A positive element $a$ in a $C^*$-algebra $A$ is \textit{Abelian} if 
+		the hereditary $C^*$-subalgebra generated by $a$, i.e. the norm closure of $aAa$, is 
+		commutative. If $A$ is  generated (as a $C^*$-algebra) 
+		by its Abelian elements we say that it is of \textit{type} $I_0$. We say that a C*-algebra A is of \textit{type} $I$ if each non-zero quotient of A 
+		contains a non-zero Abelian element.
+	\end{definition}
+	\begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
+		%Definition 5.13. 
+		A \textit{continuous-trace} $C^*$-\textit{algebra} is a $C^*$-algebra $A$ with Hausdorff
+		spectrum $\sX$ such that, for each $x_0\in\sX$ there are a neighborhood $\sU$ of $x_0$ and $a\in A$ such that $\rho_{ x}\left( a\right) $ is a rank-one projection for all $x \in \sU$, where $\rho_{ x}: A \to B\left(\H_x\right)$ is a corresponding to $x$ irreducible representation.
+	\end{definition}
+	\begin{remark}\label{ctr_gen_rem}\cite{pedersen:ca_aut}
+		Any {continuous-trace} $C^*$-{algebra}  $A$ is of type $I_0$.
+	\end{remark}
+	
+	\begin{lemma}\label{ctr_rep_eq_lem}\cite{rae:ctr_morita}
+	Suppose $A$ is a $C^*$-algebra with Hausdorff spectrum $\mathcal{X}$.
+\begin{itemize}
+	\item [(i)] If $a, b \in A$ and $\mathfrak{rep}_x\left(a \right)=  \mathfrak{rep}_x\left(b \right)$ for every $x \in  \mathcal{X}$, then $a = b$.
+	\item[(ii)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
+\end{itemize}
+	\end{lemma}
+%	\begin{rem}\label{ctr_spe_rem}
+%		From the Lemma \ref{hered_repr_lem} it follows that if $A$ 	 has continuous trace and $\sX$ is a spectrum of $A$ then a spectrum $\sX_B$ of any hereditary subalgebra $B$ is an open subset of $\sX$ (cf.  \cite{pedersen:ca_aut} for details).
+%	\end{rem}
+
+\begin{defn}\label{ccr_defn}\cite{pedersen:ca_aut}
+	A $C^*$-algebra is called \textit{liminaly} (or $CCR$) if $\rho\left( A\right)= \K$ for each irreducible representation $\rho: A \to B\left( \H\right)$.  
+\end{defn}
+\begin{lemma}\label{ctr_sep_haus_lem}\cite{chun-yen:separability}
+	%Corollary 2.6. 
+	Let $A$ be a separable C*-algebra. Then its spectrum $\sX$
+	is metrizable if and only if $\sX$ is Hausdorff. In this case, A is a $CCR$.
+\end{lemma}
+
+	\begin{empt} \cite{rae:ctr_morita}
+	Let $\hat A$ be the space of primitive ideals of $A$.
+	The topology on $\hat A$ always determines the ideal structure of $A$: the open
+	sets $\sU$ in $\mathrm{Prim}~ A$ are in one-to-one correspondence with the ideals
+	\be\label{open_ideal_eqn}
+	\left.A\right|_\sU \stackrel{\mathrm{def}}{=} \bigcap \left\{\left.P\in \hat A~\right| P \notin \sU\right\}
+	\ee
+	and there are natural homeomorphisms $P \mapsto P\cap \sU$ of $\sU$ onto the set of primitive ideals of  $ \left.A\right|_\sU$, and
+	$P \mapsto P/A_\sU$ of $\hat A \setminus \sU$ onto  the set of primitive ideals of  $A/A_\sU$. %(Proposition A.27). 
+	When $\hat A$
+	is a (locally compact) Hausdorff space $T$, we can localize at a point $t$ ‚ that is,
+	examine behavior in a neighborhood of $t$ ‚ either by looking at the ideal $A_\sU$
+	corresponding to an open neighborhood $\sU$ of $t$, or by passing to the quotient
+	\be\label{closed_ideal_eqn}
+	\left.A\right|^F \stackrel{\text{def}}{=} A/\left( 
+	\left.A\right|_{\hat A \setminus F} \right) 
+	\ee
+	corresponding to a compact neighborhood $F$ of $t$. 
+	%Since	life seems to be technically less complicated this way, we have chosen the $A \mapsto A^F$	option.
+	%We shall need two lemmas about localization. The first is a corollary of the Dauns-Hofmann Theorem,and the second says that localizing A-B imprimitivity bimodules gives AF-F BF imprimitivity bimodules.
+\end{empt}
+\
+	
+		\section{ Dixmier-Douady duality}\label{dd_dual_sec}
+%	\begin{proposition}\label{ctr_lt_prop}\cite{cuntz_meyer_ros:bivariant}
+		%Proposition 9.3. 
+%		Let $\H$ be a Hilbert space, and let $\K \bydef \K\left(\H \right)$  be the algebra of		compact operators on $\H$. Then every irreducible *-representation of $\K$ is unitary		equivalent to the standard representation of $\K$ on $\sH$, and every $*$-automorphism		of $\K$ is given by conjugation by a unitary operator on $\H$. The *-automorphism		group of $\K$ can be identified with the topological group $PU\bydef U/\T$ the		projective unitary group of $\H$, with the quotient topology from the strong operator		topology on $U\left(\H\right)$.
+%	\end{proposition}
+	
+	\begin{proposition}\label{ctr_bundle_prop}\cite{cuntz_meyer_ros:bivariant}
+		%Proposition 5.59. 
+		%Theorem 9.9 
+		(Dixmier–Douady). 
+		Any stable separable algebra A of continuous
+		trace over a second-countable locally compact Hausdorff space $\sX$ is isomorphic to
+		$\Ga_0\left( \sX, \A\right)$ , the sections vanishing at infinity of a locally trivial bundle of algebras
+		over $\sX$, with fibres $\K$ and structure group $\Aut(\K) = PU = U/\T$. Classes of
+		such bundles are in natural bijection with the \v{C}ech cohomology group $\check{H}^3\left(\sX, \Z \right)$.
+		The 3-cohomology class $\dl\left( A\right)$  attached to (the stabilization of) a continuous-trace
+		algebra A is called its Dixmier–Douady class.
+	\end{proposition}
+	\begin{proof}
+		Principal $PU$-bundles over $\sU$ are thus classified by
+		$\left[\sX, BPU\right] = \left[\sX, K\left( \Z, 3\right) \right] = H^3\left(\sX, \Z \right)$. 
+		The details of the proof are presented in \cite{cuntz_meyer_ros:bivariant}.
+	\end{proof}
+	
+	\begin{proposition}\label{ctr_d_prop}\cite{cuntz_meyer_ros:bivariant}
+		%Proposition 9.11 (P. Green [51,96,104]). 
+		Let $\sX$ be a second-countable locally compact
+		Hausdorff space, and let $A$ and $B$ be stable algebras of continuous trace over $\sX$.
+		Then $A \times_\sX B$ is also a stable continuous-trace algebra over $\sX$, and the Dixmier–Douady class $\dl \left(A \otimes_\sX B \right)$  of $A \times_\sX B$ is given by $\dl(A) + \dl(B)$. The Dixmier–Douady class of the opposite algebra $A^{\mathrm{op}}$ is given by $\dl\left( A^{\mathrm{op}}\right)=$ - $\dl\left( A\right)$ , so that
+		$A\times_\sX  A^{\mathrm{op}}= C_0\left(\sX, \K\right)$.
+	\end{proposition}
+	\begin{proof}
+		Here a fragment of the proof is presented.
+From the proposition it follows that that if $A =\Ga_0\left( \sX, \A\right)$ and $B = \Ga_0\left( \sX, \B\right)$, where $\A$ and B are locally trivial bundles of $C^*$-algebras over $\sX$ with fibres isomorphic	to $\K$ then $A\times_\sX B = \Ga_0\left( \sX, \A\otimes B\right)$ where $\A\otimes \B$, where  is the locally trivial bundle with
+	fibre $\A_x\widehat \otimes \B_x$ over $x\in \sX$.  It is proven in \ref{ctr_d_prop} that $\dl \left(A \otimes_\sX B \right)= \dl  \left(A  \right)+\left(B \right)$.
+	
+		\end{proof}
+	\begin{notation}\label{ctr_not}
+		If $\sX$ is a locally compact Hausdorff space then we denote by $CT\left(\sX, \dl \right)$ the stable
+		continuous-trace algebra  with Dixmier–Douady class $\delta \in \check{H}^3\left(\sX,\Z \right)$. From the Proposition \ref{ctr_d_prop} it follows that
+		\be\label{bundle_prod_iso}
+		\varphi_{\dl \rho}	:CT\left(\sX, \dl \right)\times_\sX CT\left(\sX, \rho \right)\cong CT\left(\sX, \dl +\rho\right).
+		\ee
+	\end{notation}
+	\begin{proposition}\label{ctr_cup_prop}\cite{cuntz_meyer_ros:bivariant}
+		%Proposition 9.17.
+		There are natural homomorphisms
+		\bea\label{ka_eqn}
+		K_\bullet\left( CT\left(\sX, \dl \right)\right)\otimes_\Z K_\bullet\left( CT\left(\sX, \rho \right)\right) \to K_\bullet\left( CT\left(\sX, \dl + \rho\right)\right),\\
+		\label{kx_eqn}
+		K_\bullet\left( CT\left(\sX, 0 \right)\right)\cong K^\bullet\left( \sX\right),
+		\eea
+		where $K_\bullet\left( CT\left(\sX, \dl \right)\right)$ means $K$-theoretic groups of $C^*$-algebra $ CT\left(\sX, \dl \right)$ and $K^\bullet\left( \sX\right)$ means $K$-theoretic groups of the space $\sX$.
+	\end{proposition}
+	\section{Groupoids, foliations,  and $C^*$-algebras}\label{foliations_sec}
+	\subsection{Groupoids and their $C^*$-algebras}
+	\paragraph*{}
+	A groupoid is a small category with inverses, or more explicitly:
+	\begin{definition}\label{groupoid_defn}\cite{renault:gropoid_ca}
+		% 104
+		A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^0\subset\G$, two maps
+		$r, s : \G\to \G^0$ and a law of composition
+		$$
+		\circ: \G^2\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
+		$$
+		such that
+		\begin{enumerate}
+			\item $s\left(\ga_1\circ\ga_2\right)=s\left(\ga_2\right), \quad r\left(\ga_1\circ\ga_2\right)=r\left(\ga_1\right)\quad \forall\left(\ga_1, \ga_2 \right) \in \G$
+			\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^0$
+			\item $\ga\circ s\left(\ga\right)= r\left(\ga\right)\circ\ga = \ga\quad \forall\ga\in\G$
+			\item $\left( \ga_1\circ\ga_2\right) \circ\ga_3=\ga_1\circ\left( \ga_2\circ\ga_3\right) $
+			\item Each $\ga \in\G$ has a two-sided inverse $\ga^{-1}$, with $\ga\circ\ga^{-1}=r\left(\ga\right)$, $\ga^{-1}\circ\ga=r\left(\ga\right)$.
+		\end{enumerate}
+		The maps $r$, $s$ are called the \textit{range} and \textit{source} maps.
+	\end{definition}
+	
+	\begin{empt}\label{cycle_empt}\cite{renault:gropoid_ca}
+		The notion of \textit{topological groupoid} is explained in \cite{renault:gropoid_ca}. 
+		If $F$ is an Abelian group then then for all $r \ge 0$ there is $r^{\text{th}}$ \textit{cohomology group} $H^r\left( \G, F\right)$. Any element of $H^2\left( \G, F\right)$ can be represented  by a 2-\text{cycle} $\a \in Z^2\left(\G, F \right)$. Note that a 2-cycle $\a$ is a map   $\G^2 \to F$. If $\G$ is a topological groupoid and  $F$ is a topological group then we assume that the map $\a$ is continuous. We write $\left[\a\right]\in H^r\left( \G, F\right)$.
+	\end{empt}
+	\begin{remark}\label{hoto_rem}
+		If both $\a', \a''\in \Z^2\left(\G, F \right)$ are homotopic 2-cocycles  then  $\left[\a'\right]= \left[\a''\right]\in H^2\left( \G, F\right)$.
+	\end{remark}
+	!!! REPRESENTATION !!!
+	\begin{empt}\label{groupoid_haar_empt}\cite{renault:gropoid_ca}
+		The notion of  \textit{left Haar system} on locally compact groupoid is explained in \cite{renault:gropoid_ca}. Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$ and let $\a$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G )$, let us define
+		\bea\label{groupoid_*_c_eqn}
+		f * g \left(x\right)\bydef 
+		\int f ( x y ) g \left( y^{-1}\right)\a\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
+		\label{groupoid_inv_c_eqn}
+		f^* ( x ) \bydef \overline{f ( x^{ -1})}~\overline{\a\left(x, x^{-1} \right)}, 	
+		\eea
+		so $ C_c(\G )$ becomes a *-algebra, we denote it by $C_c\left( \G, \a\right)$. Denote by $C^*_r\left( \G, \a\right)$ a completion of  $C_c\left(\G, \a\right)$ with respect to the following $C^*$-norm
+		\be\label{groupoid_norm_eqn}
+		\left\|a \right\| \bydef \sup_{\pi \in \text{Irr}\left(C_c\left(\G\right)\right)} \left\|\pi\left( a\right)  \right\| 
+		\ee
+		where $\text{Irr}\left(C_c\left(\G\right)\right)$ is a set of all irreducible representations of $C_c\left(\G\right)$.
+	\end{empt}
+	\begin{proposition}\label{cohom_groupoid_prop}\cite{renault:gropoid_ca}
+		%1.2. Proposition : 
+		If $\a$ and $\a'$ are cohomologous, then $C_c\left( \G, \a\right)$  and $C_c\left( \G, \a'\right)$ are
+		isomorphic.
+	\end{proposition}
+	\begin{statement}\label{gropoid_mult_lem}\cite{renault:gropoid_ca}
+If $C^*_r\left( \G, \a\right)$ is a completion of $C_c\left( \G, \a\right)$ with respect to the norm \eqref{groupoid_norm_eqn}, then there is the natural inclusion $C_0\left(\G^0 \right) \hookto M\left( C^*_r\left( \G, \a\right)\right)$.
+	\end{statement}
+	
+	\subsection{Foliations}
+	\begin{definition}\label{foli_rect_defn}\cite{candel:foliI}	% 	Definition 1.1.16 \\
+		A rectangular neighborhood in $\mathbb{F}^n$ is an open subset of the form $B = J_1\times...\times J_n$, where each $J_j$ is a (possibly unbounded) relatively open interval in the $j^{\text{th}}$ coordinate axis. If $J_1$ is of the form $\left( a,0\right]$, we say that $B$ has boundary $\partial B\left\{\left(0, x_2,..., x_n \right)\right\}\subset B$.	%In the following, we will consider coordinate charts that have values in F" x F", allowing the possibility of manifolds with boundary and (convex) COI'Ile1'S.
+	\end{definition}
+	\begin{definition}\label{foli_chart_defn}\cite{candel:foliI}
+		% 	Definition 1.1.17 \\
+		Let $M$ be an $n$-manifold. A \textit{foliated chart} on $M$ of codimension $q$ is a pair $\left(\sU, \varphi)\right)$, where $\sU\subset M$ is open and $\varphi : \sU \xrightarrow{\approx} B_\tau\times B_\pitchfork$ is a diffeomorphism, $B_\pitchfork$ being a rectangular neighborhood in $\mathbb{F}^q$ and $B_\tau$ a rectangular neighborhood in $\mathbb{F}^{n-q}$. The set $P_y = \varphi^{-1}\left(B_\tau \times \left\{y\right\} \right)$ , where $y \in B_\pitchfork$, is called a \textit{plaque} of this foliated chart. For each $x \in B_\tau$, the set  $S_x=\varphi^{-1}\left(\left\{x\right\} \times B_\pitchfork \right)$  is called a \textit{transversal} of the foliated chart. The set $\partial_{\tau}\sU = \varphi^{-1}\left(B_\tau \times \left(\partial B_\pitchfork \right)  \right)$ is called the \textit{tangential boundary} of $\sU$ and $\partial_{\pitchfork}\sU = \varphi^{-1}\left(\partial \left( B_\tau\right)  \times \partial B_\pitchfork \right)$ is called the \textit{transverse boundary} of $\sU$.
+	\end{definition}
+	
+	
+	\begin{definition}\label{foli_trans_defn}\cite{candel:foliI}
+		Let $N \subset M$ be a smooth submanifold. We say that $\sF$ is \textit{transverse} to $N$ (and write $\sF\pitchfork N$) if, for each leaf $L$ of $\sF$ and each point $x \in L\cap N$, $T_x\left(L \right)$ ans $T_x\left(N \right)$ together span $T_x\left( M\right)$. At the other extreme At the other extreme, we say that $\sF$ is tangent to $N$ if, for each leaf $L$ of $\sF$, either $L \cap N = \emptyset$ or $L \subset N$.
+	\end{definition}
+	The symbol $\mathbb{F}^p$ denotes either the full Euclidean space $\R^p$ or Euclidean half space $\mathbb{H}^p = \left\{\left.\left(x_1,..., x_n \right) \in \mathbb{R}^p\right| x_1 \le 0 \right\}$.
+	\begin{definition}\label{foli_manifold_defn}\cite{candel:foliI}
+		% Definition 1.1.18
+		Let $M$ be an $n$-manifold, possibly with boundary and corners, and let $\sF= \left\{L_\la\right\}_{\la \in \La}$ be a decomposition  of $M$ into connected, topologically immersed submanifolds of dimension $k=n-q$. Suppose that $M$ admits an atlas $\left\{\sU_\a \right\}_{\a \in \mathfrak A}$ of foliated charts of codimension $q$ such that, for each $\a \in \mathscr A$ and each $\la \in \La$, $L_\la \cap \sU_\a$ is a union of plaques. Then $\sF$ is said to be a \textit{foliation} of $M$ of codimension $q$ (and dimension $k$) and $\left\{\sU_\a \right\}_{\a \in \mathscr A}$  is called a \textit{foliated atlas} associated to $\sF$. Each $L_x$ is called a leaf of the foliation and the pair $\left(M, \sF \right)$  is called a \textit{foliated manifold}. If the foliated atlas is of class $C^r$ ($0 \le r \le \infty$ or $r=\om$), then the foliation $\sF$ and the foliated manifold $\left(M, \sF \right)$. is said to be \textit{of class} $C^r$.
+	\end{definition}
+	\begin{definition}\label{foli_atlas_defn}
+		A \textit{foliated atlas} of codimension $q$ and class $C^r$ on the $n$-manifold $M$ is a $C^r$-atlas $\mathfrak{A}\bydef\left\{\sU_\a \right\}_{\a \in \mathscr A}$  of foliated charts of codimension $q$ which are \textit{coherently foliated} in the sense that, whenever $P$ and $Q$ are plaques in distinct charts of $\mathfrak{A}$, then $P\cap Q$ is open both in $P$ and $Q$. 
+	\end{definition}
+	\begin{definition}\label{foli_coh_atlas_defn}
+		Two foliated atlases lt and $\mathfrak{A}$ on $\mathfrak{A}'$ of the same codimension and smoothness class $C^r$ are \textit{coherent} ($\mathfrak{A}\approx\mathfrak{A}'$) if $\mathfrak{A}\cup\mathfrak{A}'$ is a foliated $C^*$-atlas.
+	\end{definition}
+	\begin{lemma}\label{foli_coh_atlas_eq_lem}
+		Coherence of foliated atlases is an equivalence relation.
+	\end{lemma}
+	\begin{lemma}\label{foli_coh_atlas_ass_lem}
+		Let  $\mathfrak{A}$ and $\mathfrak{A}'$ be foliated atlases on $M$ and suppose that $\mathfrak{A}$ is associated to a foliation $\sF$. Then $\mathfrak{A}$ and $\mathfrak{A}'$ are coherent if and only if $\mathfrak{A}'$ is also associated to $\sF$.
+	\end{lemma}
+	\begin{definition}\label{foli_reg_atlas_defn}
+		A foliated atlas $\mathfrak{A}\bydef\left\{\sU_\a \right\}_{\a \in \mathscr A}$ of class $C^r$ is said to be \textit{regular} if
+		\begin{enumerate}
+			\item [(a)] For each $\al \in \mathscr A$, the closure $\overline{\sU}_\al$ of $\sU_\al$ is a compact subset of a foliated chart  $\left\{\sV_\a \right\}$ and $\varphi_\a = \psi|_{\sU_\a }$.
+			\item[(b)] The cover $\left\{\sU_\a \right\}$ is locally finite.
+			\item[(c)] if $\sU_\a$ and $\sU_\bt$ are elements of $\mathfrak{A}$, then the interior of each closed plaque $P \in \overline \sU_\a$ meets at most one plaque in $\overline \sU_\bt$.
+		\end{enumerate}
+	\end{definition}
+	\begin{lemma}\label{foli_reg_atlas_ref_lem}
+		Every foliated atlas has a coherent refinement that is regular.
+	\end{lemma}
+	\begin{thm}\label{foli_thm}
+		The correspondence between foliations on $M$ and their associated foliated atlases induces a one-to-one correspondence between the set of foliations on $M$.
+	\end{thm}
+	
+	We now have an alternative definition of the term "foliation". 
+	\begin{defn}\label{foli_alt_defn}
+		A \textit{foliation} $\sF$ of codimension $q$ and class $C^r$ on $M$ is a coherence class of foliated atlases of codimension $q$ and class $C^r$ on $M$.
+	\end{defn}
+	
+	\begin{defn}\label{foli_max_defn}
+		A \textit{foliation of codimension} $q$ and class $C^r$ on $M$ is a maximal foliated $C^r$-atlas of codimension $q$ on $M$.
+	\end{defn}
+	
+	\begin{empt}\label{foli_graph_empt}
+		Let  $\Pi\left( M,\sF\right)$ be the space of paths on leaves, that is, maps $\a : [0,1] \to M$ that are continuous with respect to the leaf topology on $M$. For such a path  let $s\left(\a \right) = \a\left( 0\right)$  be its source or initial point and let  $r\left(\a \right) = \a\left( 1\right)$ be its range or terminal point. The space $\Pi\left( M,\sF\right)$ has a partially defined multiplication: the product $\a\cdot \bt$ of two elements $\a$ and $\bt$ is defined if the terminal point of $\bt$ is the initial point of $\a$, and the result is the path $\bt$ followed by the path $\a$. (Note that this is the opposite to the usual composition of paths  $\al\#\bt = \bt \cdot \a$ used in defining the fundamental group of a space.)
+	\end{empt}
+	\begin{definition}\label{foli_path_space_defn}
+		In the situation of \ref{foli_graph_empt} we say that the topological space $\Pi\left( M,\sF\right)$ is the \textit{space of path on leaves}.
+	\end{definition}
+	\begin{definition}\label{foli_groupoid_defn}\cite{candel:foliI}
+		%Definition 2.3.3.
+		A groupoid $\G$ on a set $\sX$ is a category with inverses, having $\sX$ as its set of objects. For $y,z \in \sX$ the set of morphisms of $\G$ from $y$ to $z$ is denoted by $\G^z_y$.
+	\end{definition}
+	\begin{defn}\label{foli_graph_defn}\cite{candel:foliII}
+		%	Definition 1.3.1
+		The \textit{graph}, or \textit{my groupoid}, of the foliated space $\left( M,\sF\right)$  is the quotient space of $\Pi\left( M,\sF\right)$ by the equivalence relation that identifies two paths $\a$ and $\bt$ if they have the same initial and terminal points, and the loop $\a \cdot \bt$ has trivial germinal holonomy.
+		The graph of $\left( M,\sF\right)$ will be denoted by $\G\left(M, \sF\right)$, or simply by  $\G\left( M\right)$ or by $\G$ when all other variables are understood.
+	\end{defn}
+	\begin{theorem}\label{foli_graph_thm}
+		The graph $\G$ of $\left( M,\sF\right)$ is a groupoid with unit space $\G_0 = M$, and this algebraic structure is compatible with a foliated structure on $\G$ and $M$. Furthermore, the following properties hold.
+		\begin{enumerate}
+			\item [(i)] The range and source maps $r, s : \G \to M$ are topological submersions. 
+			\item[(ii)] The inclusion of the unit space $M \to\G$ is a smooth map. 
+			\item[(iii)] The product map $\G\times_M \G \to G$, given by $\left( \ga_1 , \ga_2\right) \mapsto\ga_1 \cdot \ga_2$, is smooth.
+			\item[(iv)]  There is an involution $j: \G \to \G$, given by $j\left( \ga\right) = \ga^{-1}$, which is a diffeomorphism of $\G$, sends each leaf to itself, and exchanges the foliations given by the range. 
+		\end{enumerate}
+		
+	\end{theorem}
+	
+	Above definitions refines the equivalence relation coming from
+	the partition of $M$ in leaves $M = \cup L_{\alpha}$. 
+	An element $\gamma$ of $\mathcal G$ is given by two points $x = s(\gamma)$,
+	$y = r(\gamma)$ of $M$ together with an equivalence class of smooth
+	paths: $\gamma (t)\in M$, $t \in [0,1]$; $\gamma (0) = x$, $\gamma
+	(1) = y$, tangent to the bundle $\mathcal{F}$ ( i.e. with $\dot\gamma (t)
+	\in \mathcal{F}_{\gamma (t)}$, $\forall \, t \in {\mathbb R}$) up to the
+	following equivalence: $\gamma_1$ and $\gamma_2$ are equivalent if and only if
+	the {\it my} of the path $\gamma_2 \circ \gamma_1^{-1}$ at the
+	point $x$ is the {\it identity}. The graph $\mathcal G$ has an obvious
+	composition law. For $\gamma , \gamma' \in G$, the composition
+	$\gamma \circ \gamma'$ makes sense if $s(\gamma) = r(\gamma')$. If
+	the leaf $L$ which contains both $x$ and $y$ has no my, then
+	the class in $\mathcal G$ of the path $\gamma (t)$ only depends on the pair
+	$(y,x)$. In general, if one fixes $x = s(\gamma)$, the map from $\mathcal G_x
+	= \{ \gamma , s(\gamma) = x \}$ to the leaf $L$ through $x$, given
+	by $\gamma \in \mathcal G_x \mapsto y = r(\gamma)$, is the my covering
+	of $L$.
+	Both maps $r$ and $s$ from the manifold $\mathcal G$ to $M$ are smooth
+	submersions and the map $(r,s)$ to $M \times M$ is an immersion
+	whose image in $M \times M$ is the (often singular) subset
+	\begin{equation*}\label{subset}
+		\{ (y,x)\in M \times M: \, \text{ $y$ and $x$ are on the same leaf}\}.
+	\end{equation*}
+	% We assume, for notational convenience, that the manifold $\mathcal G$ is Hausdorff, but as this fails to be the case in very interesting examples I shall refer to \cite{connes:foli_survey} for the removal of this hypothesis.  
+	For
+	$x\in M$ one lets $\Omega_x^{1/2}$ be the one dimensional complex
+	vector space of maps from the exterior power $\wedge^k \,  \mathcal{F}_x$, $k =
+	\dim F$, to ${\mathbb C}$ such that
+	$$
+	\rho \, (\lambda \, v) = \vert \lambda \vert^{1/2} \, \rho \, (v)
+	\qquad \forall \, v \in \wedge^k \,  \mathcal{F}_x \, , \quad \forall \,
+	\lambda \in {\mathbb R} \, .
+	$$
+	Then, for $\gamma \in\mathcal G$, one can identify $\Omega_{\gamma}^{1/2}$ with the one
+	dimensional complex vector space $\Omega_y^{1/2} \otimes
+	\Omega_x^{1/2}$, where $\gamma : x \to y$. In other words
+	\be\label{foli_om_g_eqn}
+	\Omega_{\mathcal G}^{1/2}=\, r^*(\Omega_M^{1/2})\otimes s^*(\Omega_M^{1/2})\,.
+	\ee
+	
+	
+	
+	\begin{empt}\label{foli_sc_haus_empt}\cite{candel:foliII}
+		The  groupoid of a foliated space all leaves of which are simply connected is Hausdorff.
+	\end{empt}
+	
+
+	
+	
+	%	\begin{definition}\label{foli_graph_defn1}
+		%		The  manifold $\mathcal G$ called the \textit{graph} (or \textit{my groupoid})
+		%		of the foliation  $\left(M, \mathcal{F}\right)$  Denote by $\mathcal G\left(M, \mathcal{F}\right)$ the graph of  $\left(M, \mathcal{F}\right)$.
+		%	\end{definition}
+	
+	\subsection{Operator algebras of foliations}\label{foli_alg_subsec}
+	\paragraph*{}
+	Here I follow to \cite{candel:foliII}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allows us to identify \\$\Ga^\infty_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
+	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its  resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga^\infty_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then there is a well defined homomorphism $\Ga^\infty_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga^\infty_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga^\infty_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$  it follows that there is the inclusion
+	\be\label{foli_incc_eqn}
+	\Ga^\infty_c\left(\mathcal W, \A \right) \hookto \Ga^\infty_c\left(\mathcal U, \A \right).
+	\ee
+	Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_M^{1/2}$ is trivial on $M$, and we
+	could choose once and for all  a trivialisation $\nu$ turning
+	elements of $\Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ into functions.
+	Let us
+	however stress that the usage of half densities makes all the
+	construction completely canonical.
+	For $f,g \in \Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$, the convolution
+	product $f * g$ is defined by the equality
+	\be\label{foli_prod_eqn}
+	(f * g) (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
+	f(\gamma_1) \, g(\gamma_2) \, .
+	\ee
+	This makes sense because, for fixed $\gamma : x \to y$ and fixing $v_x
+	\in \wedge^k \,  \mathcal{F}_x$ and $v_y \in \wedge^k \,  \mathcal{F}_y$, the product
+	$f(\gamma_1) \, g(\gamma_1^{-1} \gamma)$ defines a $1$-density on
+	$G^y = \{ \gamma_1 \in G , \, r (\gamma_1) = y \}$, which is smooth
+	with compact support (it vanishes if $\gamma_1 \notin\supp f$),
+	and hence can be integrated over $G^y$ to give a scalar, namely $(f * g)
+	(\gamma)$ evaluated on $v_x , v_y$.
+	The $*$ operation is defined by $f^* (\gamma) =
+	\overline{f(\gamma^{-1})}$,  i.e. if $\gamma : x \to y$ and
+	$v_x \in \wedge^k \, \mathcal{F}_x$, $v_y \in \wedge^k \, \mathcal{F}_y$ then $f^*
+	(\gamma)$ evaluated on $v_x , v_y$ is equal to
+	$\overline{f(\gamma^{-1})}$ evaluated on $v_y , v_x$. We thus get a
+	$*$-algebra $\Ga^\infty_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$. 
+	where $\xi$ is a square integrable half density on $\mathcal G_x$. 
+	For each leaf $L$ of
+	$\left(M, \mathcal{F}\right)$ one has a natural representation of this $*$-algebra on the
+	$L^2$ space of the my covering $\tilde L$ of $L$. Fixing a
+	base point $x \in L$, one identifies $\tilde L$ with $\mathcal G_x = \{
+	\gamma , s(\gamma) = x \}$ and defines
+	\begin{equation}\label{foli_repr_eqn}
+		(\rho_x (f) \, \xi) \, (\gamma) = \int_{\gamma_1 \circ \gamma_2 =
+			\gamma} f(\gamma_1) \, \xi (\gamma_2) \qquad \forall \, \xi \in L^2
+		(\mathcal G_x),\
+	\end{equation}
+	
+	
+	Given
+	$\gamma : x \to y$ one has a natural isometry of $L^2 (\mathcal G_x)$ on $L^2
+	(G_y)$ which transforms the representation $\rho_x$ in $\rho_y$.
+	\begin{lemma}
+		%	Lemma 1.4.1. \\
+		If $f_1 \in \Ga^\infty_c\left(\sU_{   \a_1},\Om^{1/2} \right)$ and $f_2 \in \Ga^\infty_c\left(\sU_{   \a_2},\Om^{1/2} \right)$ then their convolution is a well-defined element $f_1*f_2 \in \Ga^\infty_c\left(\sU_{   \a_1}\cdot\sU_{   \a_2},\Om^{1/2} \right)$
+	\end{lemma}
+	%page 24.
+	%Let $\Ga^\infty_c\left( \G,\Om^{1/2}\right)$  be the space of compactly supported smooth sections of $\Om^{1/2}$ over $\G$; its elements are the compactly supported half-densities on G. When G is not Hausdorff, the meaning of c (G,D1/2) is that which was described in Section 1.2. This space will now be given the structure of an algebra with involution. This structure is first described when G is Hausdorff, and the details will then be given when G is arbitrary.
+	
+	\begin{proposition}\label{foli_repr_prop}
+		%Proposition 1.4.5. \\
+		If $\sV \subset \G$ is a foliated chart for the graph of $\left(M, \sF\right)$ and $f \in \Ga^\infty_c\left(\sV, \Om^{1/2}\right)$ , then $\rho_x\left( f\right)$, given by \eqref{foli_repr_eqn}, is a bounded integral operator on $L^2\left(\G_x \right)$.
+	\end{proposition}
+	\begin{empt}
+		The space of compactly supported half-densities on $\G$ is taken as given by the exact sequence 
+		\be\label{foli_ga_p_eqn}
+		\bigoplus_{\a_0\a_1}\Ga^\infty_c\left(\sU_{   \a_0\a_1}, \Om^{1/2} \right) \to \bigoplus_{\a_0}\Ga^\infty_c\left(\sU_{   \a_0},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga^\infty_c\left(\G,\Om^{1/2}\right) 
+		\ee
+		associated to a regular cover for $\left((M, \sF)\right)$ as above. The first step for defining a convolution is to do it at the level of $\bigoplus_{\a_0}\Ga^\infty_c\left(\sU_{   \a_0}\Om^{1/2} \right)$, as the following lemma indicates. 
+	\end{empt}
+	
+	
+	
+	
+	\begin{defn}\label{foli_red_defn}\cite{candel:foliII}
+		% 	Definition 1.4.7.\\
+		The \textit{reduced} $C^*$-algebra of the foliated space $\left(M,\sF\right)$ is the completion of $\Ga^\infty_c\left( \G,\Om^{1/2}\right)$ with respect to the pseudonorm \be\label{foli_pseudo_norm_eqn}
+		\left\|f \right\| =\sup_{x \in M}\left\|  \rho_x\left(f\right)\right\|
+		\ee where $\rho_x$ is given by  \eqref{foli_repr_eqn}.
+		This $C^*$-algebra is denoted by $C^*_r\left(M,\sF\right)$.
+	\end{defn}
+	\begin{empt}\label{foli_res_inc_empt}\cite{candel:foliII}
+		%	page 29-30.
+		Let $\left(M,\sF\right)$ be an arbitrary foliated space and let $\sU\subset  M$ be an open subset.  Then $\left(\sU,\sF|_\sU\right)$ is a foliated space and the inclusion  $\sU\hookto  M$ induces a homomorphism of groupoids $\G\left(\sU \right)\hookto \G$ , hence a mapping
+		\be\label{foli_inc_gc_eqn}
+		j_\sU : \Ga^\infty_c\left(  \G\left(\sU \right) ,\Om^{1/2}\right)  \hookto \Ga^\infty_c\left( \G\left( M\right) ,\Om^{1/2}\right)
+		\ee
+		that is an injective homomorphism of involutive algebras. 
+		%	It is proven in \cite{candel:foliII,connes:foli_survey} that any restriction of foliation induces an injective *-homomorphism 
+		%	\begin{equation}\label{fol_res_hom_eqn}
+			%	C^*_r\left(\mathcal{U},\mathcal F|_{\mathcal{U}} \right)\hookto C^*_r\left(M,\mathcal F \right).
+			%	\end{equation}
+	\end{empt}
+	
+	An obvious consequence of the construction of 
+	$C^*_r\left(M,\sF\right)$ is the following. 
+	
+	\begin{cor}\label{foli_cov_alg_cor}\cite{candel:foliII}
+		%	Corollary 1.4.8.
+		Let $M$ be a foliated space and let $\mathfrak{A}$ be a regular cover by foliated charts. Then the algebra generated by the convolution algebras $\Ga^\infty_c\left( \G\left(\sU \right), \Om^{1/2}\right)$, $~\sU\in\mathfrak{A}$ is dense in  $C^*_r\left(M,\sF\right)$.
+	\end{cor}
+	\begin{prop}\label{foli_res_inc_prop}\cite{candel:foliII} %	Proposition 1.5.5. 
+		Let $\sU$ be an open subset of the foliated space $M$. Then the inclusion $\sU \hookto M$ induces an isometry of $C^*_r\left(\sU,\sF|_\sU\right)$  into $C^*_r\left(M,\sF\right)$.
+	\end{prop}
+	
+	\begin{lem}\label{foli_point_lem}\cite{candel:foliII}
+		%Lemma 1.4.10. 
+		If $f \in \Ga^\infty_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
+	\end{lem}
+	
+	\begin{definition}\label{foli_fibration_defn}\cite{candel:foliI}
+		A foliated space $\left(M, \sF\right)$ is a \textit{fibration} if for any $x$ there is an open transversal $N$ such that $x\in N$ and for every  leaf $L$ of $\left(M, \sF\right)$ the intersection $L\cap  N$ contains no more then one point.
+	\end{definition}
+	
+	
+	
+	\begin{prop}\label{foli_tens_comp_prop}\cite{candel:foliII}
+		% Proposition 1.5.4. \\
+		The reduced  $C^*$-algebra $C^*_r\left(\mathcal N\times \mathcal Z \right)$ of the trivial foliated space $\mathcal N \times \mathcal Z$ is the tensor product $\K\otimes C_0\left(\mathcal Z\right)$, where $\K$ is the algebra of compact operators on $L^2\left(\mathcal N \right)$  and $ C_0\left(\mathcal Z\right)$ is the space of continuous functions on $\mathcal Z$ that vanish at infinity.
+	\end{prop}
+	
+	
+	%\begin{definition}\label{foli_pseudo_a_defn}\cite{candel:foliII}
+	%Definition 1.3.6.\\ 
+	%The my pseudogroup of a foliated space is \textit{pseudo analytic} if the following holds. If $h: Z\to Z'$ is a my transformation between two transversals $Z$ and $Z'$, with $Z\subset Z'$, and $W \subset Z$ is an open subset such that $\left.h\right|_W = \Id$, and if $x \in \overline{W}$ is such that $h(x) = x$, then $h = \Id$ on a neighborhood of x. 
+	%\end{definition}
+	
+	%\begin{proposition}\label{foli_pseudo_a_prop}\cite{candel:foliII}
+	%Proposition 1.3.7. \\
+	%Let M be a foliated space. Then the graph of M is Hausdorff if and only if the my pseudogroup of M is pseudo-analytic.
+	%\end{proposition}
+%	\begin{theorem}\label{foli_irred_hol_thm} \cite{candel:foliII}
+		%Theorem 1.4.11. 
+%		Let $(M,\sF)$ be a foliated space and let $x \in M$. Then the representation $\rho_x$ is irreducible if and only if the leaf through $x$ has no holonomy.
+%	\end{theorem}
+	
+	
+	\begin{empt}\label{foli_irred_hol_empt}\cite{candel:foliII}
+	Let $(M,\sF)$ be a foliated space. Any irreducible representation of $C^*_r(M,\sF)$ corresponds to a leaf $\L$ of  $(M,\sF)$ such that $\L$ has no holonomy. The Hilbert space of the representation is $L^2\left( \L\right)$. 
+	\end{empt}
+	
+%			\begin{empt}\label{foli_haar_empt}
+%		If $\a$ be a continuous 2-cocycle in $Z^2\left(\G\left(M, \F \right) , \T\right)$ then similarly to \ref{groupoid_haar_empt} one can define a *-algebra
+%		$$
+%		C_c\left(M, \F, \a \right) \bydef C_c\left(\G\left(M, \F \right) , \a \right) 
+%		$$
+%		with the given by the equations \eqref{groupoid_*_c_eqn} and \eqref{groupoid_inv_c_eqn} operations. Let $C^*_r\left(M, \F, \a \right)$ be the completion of $C_c\left(M, \F, \a \right)$ with respect to the norm \eqref{groupoid_norm_eqn}. From the Statement \ref{gropoid_mult_lem}  there is the natural inclusion 		$C_0\left(M \right) \hookto M\left( C^*_r\left(M, \F, \a\right)\right)$.
+%	\end{empt}
+\end{appendices}
+
+
+ 
+ \begin{thebibliography}{10}
+ 	
+ 		\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
+ 	
+ 	
+ 	
+ \bibitem{bass} H. Bass. {\it Algebraic K-theory.} W.A. Benjamin, Inc. 1968. 
+ 
+ 
+
+
+\bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
+
+
+
+
+\bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
+
+\bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
+Translations of Mathematical Monographs, vol. 226, 2005.
+
+
+\bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
+
+
+
+
+
+
+\bibitem{pedersen:ca_aut}Gert Kjærgård Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+
+
+\bibitem{rae:ctr_morita} Iain Raeburn, Dana P. Williams. \textit{Morita Equivalence and Continuous-trace $C^*$-algebras}. American Mathematical Soc., 1998.
+
+\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
+
+\bibitem{spanier:at}
+E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
+
+
+
+
+\end{thebibliography}
+
+
+
+
+ \end{document}
+
+
