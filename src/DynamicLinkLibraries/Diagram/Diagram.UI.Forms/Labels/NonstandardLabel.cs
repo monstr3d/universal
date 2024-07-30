@@ -425,7 +425,7 @@ namespace Diagram.UI.Labels
             }
             if (post != null)
             {
-                post();
+              // !!! POST DELETE !!!  post();
             }
             init();
             if (resize != null)

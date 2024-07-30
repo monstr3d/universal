@@ -1,6 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
@@ -96,6 +97,7 @@
     </ProjectReference>
     <ProjectReference Include="..\DataPerformer.Portable\DataPerformer.Portable.csproj">
     </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.UI.Wpf\DataPerformer.UI.Wpf.csproj" />
     <ProjectReference Include="..\DataPerformer\DataPerformer.csproj">
     </ProjectReference>
   </ItemGroup>
@@ -446,7 +448,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserControls\Wpf\" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="ResourceFilters.Designer.cs">
@@ -454,5 +456,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceFilters.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="UserControls\Wpf\UserControlWpfChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\Wpf\" />
   </ItemGroup>
 </Project>

@@ -14,6 +14,7 @@ using Event.Portable.Interfaces;
 
 
 using WindowsExtensions;
+using System.Windows.Forms.Integration;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -26,6 +27,8 @@ namespace DataPerformer.UI.UserControls
         #region Fields
 
         string calculationReason = "";
+
+        UI.Wpf.UserControlWpfChart performer = null;
 
         private Dictionary<string, object> dObject = new Dictionary<string, object>();
 
@@ -137,8 +140,15 @@ namespace DataPerformer.UI.UserControls
                 userControlRealtimeList.Set(measurementsList);
                 Labels.GraphLabel lab = this.FindParent<Labels.GraphLabel>();
                 lab.data.Item6[0] = realtime;
+                var  cp = System.Windows.Media.Color.FromRgb(cw.R, cw.G, cw.B);
+
+                var tp =
+                      new Tuple<System.Windows.Media.Color, bool, double[], Func<object, double>>(
+                        cp, t.Item2.Item2, t.Item2.Item3, f);
                 UserControlGraph uc = this.FindParent<UserControlGraph>();
+                performer[na] = tp;
             }
+            performer.Reset();
         }
 
 
@@ -265,7 +275,7 @@ namespace DataPerformer.UI.UserControls
             userControlRealtimeMeasurements.FillMeasurements();
         }
 
-       
+
 
         #endregion
 
@@ -300,7 +310,11 @@ namespace DataPerformer.UI.UserControls
                 dObject[key] = o;
             }
             double time = realTime.Time;
-    //        performer.Write(dObject, time);
+            if (performer != null)
+            {
+
+                performer.Write(dObject, time);
+            }
             this.InvokeIfNeeded(ShowTime, time);
         }
 
@@ -316,6 +330,17 @@ namespace DataPerformer.UI.UserControls
 
         private void panelChart_Resize(object sender, EventArgs e)
         {
+            if (panelChart != null)
+            {
+                performer = new Wpf.UserControlWpfChart();
+                var host = new ElementHost();
+                host.BackColor = Color.Black;
+                host.Dock = DockStyle.Fill;
+                panelChart.Controls.Add(host);
+                host.Child = performer;
+
+            }
+    
         }
 
         #endregion

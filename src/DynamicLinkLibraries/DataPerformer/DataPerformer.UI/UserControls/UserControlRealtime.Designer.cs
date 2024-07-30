@@ -32,547 +32,593 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelCenterMain = new System.Windows.Forms.Panel();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPageDigital = new System.Windows.Forms.TabPage();
-            this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.panelCenterSettings = new System.Windows.Forms.Panel();
-            this.panelCenterS = new System.Windows.Forms.Panel();
-            this.panelRightInterval = new System.Windows.Forms.Panel();
-            this.panelLeftS = new System.Windows.Forms.Panel();
-            this.panelTopS = new System.Windows.Forms.Panel();
-            this.panelBottomS = new System.Windows.Forms.Panel();
-            this.panelRightSettings = new System.Windows.Forms.Panel();
-            this.panelLeftSettings = new System.Windows.Forms.Panel();
-            this.panelTopSettings = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panelBottomSettings = new System.Windows.Forms.Panel();
-            this.panelCenterDigital = new System.Windows.Forms.Panel();
-            this.panelCenterList = new System.Windows.Forms.Panel();
-            this.panelList = new System.Windows.Forms.Panel();
-            this.panelLeftList = new System.Windows.Forms.Panel();
-            this.panelTopList = new System.Windows.Forms.Panel();
-            this.panelBottomList = new System.Windows.Forms.Panel();
-            this.panelRightDigital = new System.Windows.Forms.Panel();
-            this.panelLeftDigital = new System.Windows.Forms.Panel();
-            this.panelTopDigital = new System.Windows.Forms.Panel();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelBottomDigital = new System.Windows.Forms.Panel();
-            this.tabPageChart = new System.Windows.Forms.TabPage();
-            this.panelCenterChart = new System.Windows.Forms.Panel();
-            this.panelChart = new System.Windows.Forms.Panel();
-            this.panelChartRight = new System.Windows.Forms.Panel();
-            this.panelLeftChart = new System.Windows.Forms.Panel();
-            this.panelTopChart = new System.Windows.Forms.Panel();
-            this.panelBottomChart = new System.Windows.Forms.Panel();
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.textBoxChartInterval = new System.Windows.Forms.TextBox();
-            this.panelItntervalRight = new System.Windows.Forms.Panel();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panelTopInterval = new System.Windows.Forms.Panel();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.panelRightMain = new System.Windows.Forms.Panel();
-            this.panelLeftMain = new System.Windows.Forms.Panel();
-            this.panelTopMain = new System.Windows.Forms.Panel();
-            this.panelBottomMain = new System.Windows.Forms.Panel();
-            this.userControlRealtimeMeasurements = new DataPerformer.UI.UserControls.UserControlRealtimeMeasurements();
-            this.userControlRealtimeList = new DataPerformer.UI.UserControls.UserControlRealtimeList();
-            this.panelCenterMain.SuspendLayout();
-            this.tabControl.SuspendLayout();
-            this.tabPageDigital.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
-            this.splitContainer.Panel1.SuspendLayout();
-            this.splitContainer.Panel2.SuspendLayout();
-            this.splitContainer.SuspendLayout();
-            this.panelCenterSettings.SuspendLayout();
-            this.panelTopS.SuspendLayout();
-            this.panelTopSettings.SuspendLayout();
-            this.panelCenterDigital.SuspendLayout();
-            this.panelCenterList.SuspendLayout();
-            this.panelTopDigital.SuspendLayout();
-            this.tabPageChart.SuspendLayout();
-            this.panelCenterChart.SuspendLayout();
-            this.panelChart.SuspendLayout();
-            this.panelBottomChart.SuspendLayout();
-            this.panelCenter.SuspendLayout();
-            this.panelLeft.SuspendLayout();
-            this.SuspendLayout();
+            panelCenterMain = new System.Windows.Forms.Panel();
+            tabControl = new System.Windows.Forms.TabControl();
+            tabPageDigital = new System.Windows.Forms.TabPage();
+            splitContainer = new System.Windows.Forms.SplitContainer();
+            panelCenterSettings = new System.Windows.Forms.Panel();
+            panelCenterS = new System.Windows.Forms.Panel();
+            panelRightInterval = new System.Windows.Forms.Panel();
+            panelLeftS = new System.Windows.Forms.Panel();
+            panelTopS = new System.Windows.Forms.Panel();
+            userControlRealtimeMeasurements = new UserControlRealtimeMeasurements();
+            panelBottomS = new System.Windows.Forms.Panel();
+            panelRightSettings = new System.Windows.Forms.Panel();
+            panelLeftSettings = new System.Windows.Forms.Panel();
+            panelTopSettings = new System.Windows.Forms.Panel();
+            label5 = new System.Windows.Forms.Label();
+            panelBottomSettings = new System.Windows.Forms.Panel();
+            panelCenterDigital = new System.Windows.Forms.Panel();
+            panelCenterList = new System.Windows.Forms.Panel();
+            userControlRealtimeList = new UserControlRealtimeList();
+            panelList = new System.Windows.Forms.Panel();
+            panelLeftList = new System.Windows.Forms.Panel();
+            panelTopList = new System.Windows.Forms.Panel();
+            panelBottomList = new System.Windows.Forms.Panel();
+            panelRightDigital = new System.Windows.Forms.Panel();
+            panelLeftDigital = new System.Windows.Forms.Panel();
+            panelTopDigital = new System.Windows.Forms.Panel();
+            labelTime = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            panelBottomDigital = new System.Windows.Forms.Panel();
+            tabPageChart = new System.Windows.Forms.TabPage();
+            panelCenterChart = new System.Windows.Forms.Panel();
+            panelChart = new System.Windows.Forms.Panel();
+            panelChartRight = new System.Windows.Forms.Panel();
+            panelLeftChart = new System.Windows.Forms.Panel();
+            panelTopChart = new System.Windows.Forms.Panel();
+            panelBottomChart = new System.Windows.Forms.Panel();
+            panelCenter = new System.Windows.Forms.Panel();
+            textBoxChartInterval = new System.Windows.Forms.TextBox();
+            panelItntervalRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            label2 = new System.Windows.Forms.Label();
+            panelTopInterval = new System.Windows.Forms.Panel();
+            panelBottom = new System.Windows.Forms.Panel();
+            panelRightMain = new System.Windows.Forms.Panel();
+            panelLeftMain = new System.Windows.Forms.Panel();
+            panelTopMain = new System.Windows.Forms.Panel();
+            panelBottomMain = new System.Windows.Forms.Panel();
+            panelCenterMain.SuspendLayout();
+            tabControl.SuspendLayout();
+            tabPageDigital.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+            splitContainer.Panel1.SuspendLayout();
+            splitContainer.Panel2.SuspendLayout();
+            splitContainer.SuspendLayout();
+            panelCenterSettings.SuspendLayout();
+            panelTopS.SuspendLayout();
+            panelTopSettings.SuspendLayout();
+            panelCenterDigital.SuspendLayout();
+            panelCenterList.SuspendLayout();
+            panelTopDigital.SuspendLayout();
+            tabPageChart.SuspendLayout();
+            panelCenterChart.SuspendLayout();
+            panelBottomChart.SuspendLayout();
+            panelCenter.SuspendLayout();
+            panelLeft.SuspendLayout();
+            SuspendLayout();
             // 
             // panelCenterMain
             // 
-            this.panelCenterMain.Controls.Add(this.tabControl);
-            this.panelCenterMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenterMain.Location = new System.Drawing.Point(0, 0);
-            this.panelCenterMain.Name = "panelCenterMain";
-            this.panelCenterMain.Size = new System.Drawing.Size(440, 305);
-            this.panelCenterMain.TabIndex = 20;
+            panelCenterMain.Controls.Add(tabControl);
+            panelCenterMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenterMain.Location = new System.Drawing.Point(0, 0);
+            panelCenterMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenterMain.Name = "panelCenterMain";
+            panelCenterMain.Size = new System.Drawing.Size(513, 352);
+            panelCenterMain.TabIndex = 20;
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPageDigital);
-            this.tabControl.Controls.Add(this.tabPageChart);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(440, 305);
-            this.tabControl.TabIndex = 0;
+            tabControl.Controls.Add(tabPageDigital);
+            tabControl.Controls.Add(tabPageChart);
+            tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControl.Location = new System.Drawing.Point(0, 0);
+            tabControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new System.Drawing.Size(513, 352);
+            tabControl.TabIndex = 0;
             // 
             // tabPageDigital
             // 
-            this.tabPageDigital.Controls.Add(this.splitContainer);
-            this.tabPageDigital.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDigital.Name = "tabPageDigital";
-            this.tabPageDigital.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDigital.Size = new System.Drawing.Size(432, 279);
-            this.tabPageDigital.TabIndex = 0;
-            this.tabPageDigital.Text = "Digital values";
-            this.tabPageDigital.UseVisualStyleBackColor = true;
+            tabPageDigital.Controls.Add(splitContainer);
+            tabPageDigital.Location = new System.Drawing.Point(4, 24);
+            tabPageDigital.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPageDigital.Name = "tabPageDigital";
+            tabPageDigital.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPageDigital.Size = new System.Drawing.Size(505, 324);
+            tabPageDigital.TabIndex = 0;
+            tabPageDigital.Text = "Digital values";
+            tabPageDigital.UseVisualStyleBackColor = true;
             // 
             // splitContainer
             // 
-            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer.Name = "splitContainer";
+            splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainer.Location = new System.Drawing.Point(4, 3);
+            splitContainer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
             // 
-            this.splitContainer.Panel1.Controls.Add(this.panelCenterSettings);
-            this.splitContainer.Panel1.Controls.Add(this.panelRightSettings);
-            this.splitContainer.Panel1.Controls.Add(this.panelLeftSettings);
-            this.splitContainer.Panel1.Controls.Add(this.panelTopSettings);
-            this.splitContainer.Panel1.Controls.Add(this.panelBottomSettings);
+            splitContainer.Panel1.Controls.Add(panelCenterSettings);
+            splitContainer.Panel1.Controls.Add(panelRightSettings);
+            splitContainer.Panel1.Controls.Add(panelLeftSettings);
+            splitContainer.Panel1.Controls.Add(panelTopSettings);
+            splitContainer.Panel1.Controls.Add(panelBottomSettings);
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.panelCenterDigital);
-            this.splitContainer.Panel2.Controls.Add(this.panelRightDigital);
-            this.splitContainer.Panel2.Controls.Add(this.panelLeftDigital);
-            this.splitContainer.Panel2.Controls.Add(this.panelTopDigital);
-            this.splitContainer.Panel2.Controls.Add(this.panelBottomDigital);
-            this.splitContainer.Size = new System.Drawing.Size(426, 273);
-            this.splitContainer.SplitterDistance = 172;
-            this.splitContainer.TabIndex = 0;
+            splitContainer.Panel2.Controls.Add(panelCenterDigital);
+            splitContainer.Panel2.Controls.Add(panelRightDigital);
+            splitContainer.Panel2.Controls.Add(panelLeftDigital);
+            splitContainer.Panel2.Controls.Add(panelTopDigital);
+            splitContainer.Panel2.Controls.Add(panelBottomDigital);
+            splitContainer.Size = new System.Drawing.Size(497, 318);
+            splitContainer.SplitterDistance = 200;
+            splitContainer.SplitterWidth = 5;
+            splitContainer.TabIndex = 0;
             // 
             // panelCenterSettings
             // 
-            this.panelCenterSettings.AutoScroll = true;
-            this.panelCenterSettings.Controls.Add(this.panelCenterS);
-            this.panelCenterSettings.Controls.Add(this.panelRightInterval);
-            this.panelCenterSettings.Controls.Add(this.panelLeftS);
-            this.panelCenterSettings.Controls.Add(this.panelTopS);
-            this.panelCenterSettings.Controls.Add(this.panelBottomS);
-            this.panelCenterSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenterSettings.Location = new System.Drawing.Point(0, 27);
-            this.panelCenterSettings.Name = "panelCenterSettings";
-            this.panelCenterSettings.Size = new System.Drawing.Size(172, 246);
-            this.panelCenterSettings.TabIndex = 20;
+            panelCenterSettings.AutoScroll = true;
+            panelCenterSettings.Controls.Add(panelCenterS);
+            panelCenterSettings.Controls.Add(panelRightInterval);
+            panelCenterSettings.Controls.Add(panelLeftS);
+            panelCenterSettings.Controls.Add(panelTopS);
+            panelCenterSettings.Controls.Add(panelBottomS);
+            panelCenterSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenterSettings.Location = new System.Drawing.Point(0, 31);
+            panelCenterSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenterSettings.Name = "panelCenterSettings";
+            panelCenterSettings.Size = new System.Drawing.Size(200, 287);
+            panelCenterSettings.TabIndex = 20;
             // 
             // panelCenterS
             // 
-            this.panelCenterS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenterS.Location = new System.Drawing.Point(0, 86);
-            this.panelCenterS.Name = "panelCenterS";
-            this.panelCenterS.Size = new System.Drawing.Size(172, 160);
-            this.panelCenterS.TabIndex = 20;
+            panelCenterS.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenterS.Location = new System.Drawing.Point(0, 99);
+            panelCenterS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenterS.Name = "panelCenterS";
+            panelCenterS.Size = new System.Drawing.Size(200, 188);
+            panelCenterS.TabIndex = 20;
             // 
             // panelRightInterval
             // 
-            this.panelRightInterval.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightInterval.Location = new System.Drawing.Point(172, 86);
-            this.panelRightInterval.Name = "panelRightInterval";
-            this.panelRightInterval.Size = new System.Drawing.Size(0, 160);
-            this.panelRightInterval.TabIndex = 18;
+            panelRightInterval.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRightInterval.Location = new System.Drawing.Point(200, 99);
+            panelRightInterval.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightInterval.Name = "panelRightInterval";
+            panelRightInterval.Size = new System.Drawing.Size(0, 188);
+            panelRightInterval.TabIndex = 18;
             // 
             // panelLeftS
             // 
-            this.panelLeftS.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftS.Location = new System.Drawing.Point(0, 86);
-            this.panelLeftS.Name = "panelLeftS";
-            this.panelLeftS.Size = new System.Drawing.Size(0, 160);
-            this.panelLeftS.TabIndex = 17;
+            panelLeftS.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeftS.Location = new System.Drawing.Point(0, 99);
+            panelLeftS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeftS.Name = "panelLeftS";
+            panelLeftS.Size = new System.Drawing.Size(0, 188);
+            panelLeftS.TabIndex = 17;
             // 
             // panelTopS
             // 
-            this.panelTopS.AutoSize = true;
-            this.panelTopS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTopS.Controls.Add(this.userControlRealtimeMeasurements);
-            this.panelTopS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopS.Location = new System.Drawing.Point(0, 0);
-            this.panelTopS.Name = "panelTopS";
-            this.panelTopS.Size = new System.Drawing.Size(172, 86);
-            this.panelTopS.TabIndex = 16;
-            // 
-            // panelBottomS
-            // 
-            this.panelBottomS.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomS.Location = new System.Drawing.Point(0, 246);
-            this.panelBottomS.Name = "panelBottomS";
-            this.panelBottomS.Size = new System.Drawing.Size(172, 0);
-            this.panelBottomS.TabIndex = 19;
-            // 
-            // panelRightSettings
-            // 
-            this.panelRightSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightSettings.Location = new System.Drawing.Point(172, 27);
-            this.panelRightSettings.Name = "panelRightSettings";
-            this.panelRightSettings.Size = new System.Drawing.Size(0, 246);
-            this.panelRightSettings.TabIndex = 18;
-            // 
-            // panelLeftSettings
-            // 
-            this.panelLeftSettings.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftSettings.Location = new System.Drawing.Point(0, 27);
-            this.panelLeftSettings.Name = "panelLeftSettings";
-            this.panelLeftSettings.Size = new System.Drawing.Size(0, 246);
-            this.panelLeftSettings.TabIndex = 17;
-            // 
-            // panelTopSettings
-            // 
-            this.panelTopSettings.Controls.Add(this.label5);
-            this.panelTopSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopSettings.Location = new System.Drawing.Point(0, 0);
-            this.panelTopSettings.Name = "panelTopSettings";
-            this.panelTopSettings.Size = new System.Drawing.Size(172, 27);
-            this.panelTopSettings.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(2, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 32);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Data sources";
-            // 
-            // panelBottomSettings
-            // 
-            this.panelBottomSettings.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomSettings.Location = new System.Drawing.Point(0, 273);
-            this.panelBottomSettings.Name = "panelBottomSettings";
-            this.panelBottomSettings.Size = new System.Drawing.Size(172, 0);
-            this.panelBottomSettings.TabIndex = 19;
-            // 
-            // panelCenterDigital
-            // 
-            this.panelCenterDigital.Controls.Add(this.panelCenterList);
-            this.panelCenterDigital.Controls.Add(this.panelList);
-            this.panelCenterDigital.Controls.Add(this.panelLeftList);
-            this.panelCenterDigital.Controls.Add(this.panelTopList);
-            this.panelCenterDigital.Controls.Add(this.panelBottomList);
-            this.panelCenterDigital.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenterDigital.Location = new System.Drawing.Point(0, 27);
-            this.panelCenterDigital.Name = "panelCenterDigital";
-            this.panelCenterDigital.Size = new System.Drawing.Size(250, 246);
-            this.panelCenterDigital.TabIndex = 20;
-            // 
-            // panelCenterList
-            // 
-            this.panelCenterList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCenterList.Controls.Add(this.userControlRealtimeList);
-            this.panelCenterList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenterList.Location = new System.Drawing.Point(0, 0);
-            this.panelCenterList.Name = "panelCenterList";
-            this.panelCenterList.Size = new System.Drawing.Size(250, 246);
-            this.panelCenterList.TabIndex = 20;
-            // 
-            // panelList
-            // 
-            this.panelList.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelList.Location = new System.Drawing.Point(250, 0);
-            this.panelList.Name = "panelList";
-            this.panelList.Size = new System.Drawing.Size(0, 246);
-            this.panelList.TabIndex = 18;
-            // 
-            // panelLeftList
-            // 
-            this.panelLeftList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftList.Location = new System.Drawing.Point(0, 0);
-            this.panelLeftList.Name = "panelLeftList";
-            this.panelLeftList.Size = new System.Drawing.Size(0, 246);
-            this.panelLeftList.TabIndex = 17;
-            // 
-            // panelTopList
-            // 
-            this.panelTopList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopList.Location = new System.Drawing.Point(0, 0);
-            this.panelTopList.Name = "panelTopList";
-            this.panelTopList.Size = new System.Drawing.Size(250, 0);
-            this.panelTopList.TabIndex = 16;
-            // 
-            // panelBottomList
-            // 
-            this.panelBottomList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomList.Location = new System.Drawing.Point(0, 246);
-            this.panelBottomList.Name = "panelBottomList";
-            this.panelBottomList.Size = new System.Drawing.Size(250, 0);
-            this.panelBottomList.TabIndex = 19;
-            // 
-            // panelRightDigital
-            // 
-            this.panelRightDigital.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightDigital.Location = new System.Drawing.Point(250, 27);
-            this.panelRightDigital.Name = "panelRightDigital";
-            this.panelRightDigital.Size = new System.Drawing.Size(0, 246);
-            this.panelRightDigital.TabIndex = 18;
-            // 
-            // panelLeftDigital
-            // 
-            this.panelLeftDigital.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftDigital.Location = new System.Drawing.Point(0, 27);
-            this.panelLeftDigital.Name = "panelLeftDigital";
-            this.panelLeftDigital.Size = new System.Drawing.Size(0, 246);
-            this.panelLeftDigital.TabIndex = 17;
-            // 
-            // panelTopDigital
-            // 
-            this.panelTopDigital.Controls.Add(this.labelTime);
-            this.panelTopDigital.Controls.Add(this.label1);
-            this.panelTopDigital.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopDigital.Location = new System.Drawing.Point(0, 0);
-            this.panelTopDigital.Name = "panelTopDigital";
-            this.panelTopDigital.Size = new System.Drawing.Size(250, 27);
-            this.panelTopDigital.TabIndex = 16;
-            // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(63, 4);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(0, 13);
-            this.labelTime.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Time";
-            // 
-            // panelBottomDigital
-            // 
-            this.panelBottomDigital.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomDigital.Location = new System.Drawing.Point(0, 273);
-            this.panelBottomDigital.Name = "panelBottomDigital";
-            this.panelBottomDigital.Size = new System.Drawing.Size(250, 0);
-            this.panelBottomDigital.TabIndex = 19;
-            // 
-            // tabPageChart
-            // 
-            this.tabPageChart.Controls.Add(this.panelCenterChart);
-            this.tabPageChart.Controls.Add(this.panelChartRight);
-            this.tabPageChart.Controls.Add(this.panelLeftChart);
-            this.tabPageChart.Controls.Add(this.panelTopChart);
-            this.tabPageChart.Controls.Add(this.panelBottomChart);
-            this.tabPageChart.Location = new System.Drawing.Point(4, 22);
-            this.tabPageChart.Name = "tabPageChart";
-            this.tabPageChart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageChart.Size = new System.Drawing.Size(432, 279);
-            this.tabPageChart.TabIndex = 1;
-            this.tabPageChart.Text = "Chart";
-            this.tabPageChart.UseVisualStyleBackColor = true;
-            // 
-            // panelCenterChart
-            // 
-            this.panelCenterChart.Controls.Add(this.panelChart);
-            this.panelCenterChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenterChart.Location = new System.Drawing.Point(3, 3);
-            this.panelCenterChart.Name = "panelCenterChart";
-            this.panelCenterChart.Size = new System.Drawing.Size(426, 248);
-            this.panelCenterChart.TabIndex = 20;
-            // 
-            // panelChart
-            // 
-            this.panelChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChart.Location = new System.Drawing.Point(0, 0);
-            this.panelChart.Name = "panelChart";
-            this.panelChart.Size = new System.Drawing.Size(426, 248);
-            this.panelChart.TabIndex = 0;
-            this.panelChart.Resize += new System.EventHandler(this.panelChart_Resize);
-            // 
-            // panelChartRight
-            // 
-            this.panelChartRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelChartRight.Location = new System.Drawing.Point(429, 3);
-            this.panelChartRight.Name = "panelChartRight";
-            this.panelChartRight.Size = new System.Drawing.Size(0, 248);
-            this.panelChartRight.TabIndex = 18;
-            // 
-            // panelLeftChart
-            // 
-            this.panelLeftChart.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftChart.Location = new System.Drawing.Point(3, 3);
-            this.panelLeftChart.Name = "panelLeftChart";
-            this.panelLeftChart.Size = new System.Drawing.Size(0, 248);
-            this.panelLeftChart.TabIndex = 17;
-            // 
-            // panelTopChart
-            // 
-            this.panelTopChart.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopChart.Location = new System.Drawing.Point(3, 3);
-            this.panelTopChart.Name = "panelTopChart";
-            this.panelTopChart.Size = new System.Drawing.Size(426, 0);
-            this.panelTopChart.TabIndex = 16;
-            // 
-            // panelBottomChart
-            // 
-            this.panelBottomChart.Controls.Add(this.panelCenter);
-            this.panelBottomChart.Controls.Add(this.panelItntervalRight);
-            this.panelBottomChart.Controls.Add(this.panelLeft);
-            this.panelBottomChart.Controls.Add(this.panelTopInterval);
-            this.panelBottomChart.Controls.Add(this.panelBottom);
-            this.panelBottomChart.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomChart.Location = new System.Drawing.Point(3, 251);
-            this.panelBottomChart.Name = "panelBottomChart";
-            this.panelBottomChart.Size = new System.Drawing.Size(426, 25);
-            this.panelBottomChart.TabIndex = 19;
-            // 
-            // panelCenter
-            // 
-            this.panelCenter.Controls.Add(this.textBoxChartInterval);
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(123, 0);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(285, 25);
-            this.panelCenter.TabIndex = 20;
-            // 
-            // textBoxChartInterval
-            // 
-            this.textBoxChartInterval.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxChartInterval.Location = new System.Drawing.Point(0, 0);
-            this.textBoxChartInterval.Name = "textBoxChartInterval";
-            this.textBoxChartInterval.Size = new System.Drawing.Size(285, 20);
-            this.textBoxChartInterval.TabIndex = 0;
-            // 
-            // panelItntervalRight
-            // 
-            this.panelItntervalRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelItntervalRight.Location = new System.Drawing.Point(408, 0);
-            this.panelItntervalRight.Name = "panelItntervalRight";
-            this.panelItntervalRight.Size = new System.Drawing.Size(18, 25);
-            this.panelItntervalRight.TabIndex = 18;
-            // 
-            // panelLeft
-            // 
-            this.panelLeft.Controls.Add(this.label2);
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(123, 25);
-            this.panelLeft.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Chart Interval, s";
-            // 
-            // panelTopInterval
-            // 
-            this.panelTopInterval.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopInterval.Location = new System.Drawing.Point(0, 0);
-            this.panelTopInterval.Name = "panelTopInterval";
-            this.panelTopInterval.Size = new System.Drawing.Size(426, 0);
-            this.panelTopInterval.TabIndex = 16;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 25);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(426, 0);
-            this.panelBottom.TabIndex = 19;
-            // 
-            // panelRightMain
-            // 
-            this.panelRightMain.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightMain.Location = new System.Drawing.Point(440, 0);
-            this.panelRightMain.Name = "panelRightMain";
-            this.panelRightMain.Size = new System.Drawing.Size(0, 305);
-            this.panelRightMain.TabIndex = 18;
-            // 
-            // panelLeftMain
-            // 
-            this.panelLeftMain.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftMain.Location = new System.Drawing.Point(0, 0);
-            this.panelLeftMain.Name = "panelLeftMain";
-            this.panelLeftMain.Size = new System.Drawing.Size(0, 305);
-            this.panelLeftMain.TabIndex = 17;
-            // 
-            // panelTopMain
-            // 
-            this.panelTopMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopMain.Location = new System.Drawing.Point(0, 0);
-            this.panelTopMain.Name = "panelTopMain";
-            this.panelTopMain.Size = new System.Drawing.Size(440, 0);
-            this.panelTopMain.TabIndex = 16;
-            // 
-            // panelBottomMain
-            // 
-            this.panelBottomMain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomMain.Location = new System.Drawing.Point(0, 305);
-            this.panelBottomMain.Name = "panelBottomMain";
-            this.panelBottomMain.Size = new System.Drawing.Size(440, 0);
-            this.panelBottomMain.TabIndex = 19;
+            panelTopS.AutoSize = true;
+            panelTopS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelTopS.Controls.Add(userControlRealtimeMeasurements);
+            panelTopS.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopS.Location = new System.Drawing.Point(0, 0);
+            panelTopS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopS.Name = "panelTopS";
+            panelTopS.Size = new System.Drawing.Size(200, 99);
+            panelTopS.TabIndex = 16;
             // 
             // userControlRealtimeMeasurements
             // 
-            this.userControlRealtimeMeasurements.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userControlRealtimeMeasurements.Location = new System.Drawing.Point(0, 0);
-            this.userControlRealtimeMeasurements.Name = "userControlRealtimeMeasurements";
-            this.userControlRealtimeMeasurements.Size = new System.Drawing.Size(170, 84);
-            this.userControlRealtimeMeasurements.TabIndex = 0;
+            userControlRealtimeMeasurements.Dock = System.Windows.Forms.DockStyle.Top;
+            userControlRealtimeMeasurements.Location = new System.Drawing.Point(0, 0);
+            userControlRealtimeMeasurements.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            userControlRealtimeMeasurements.Name = "userControlRealtimeMeasurements";
+            userControlRealtimeMeasurements.Size = new System.Drawing.Size(198, 97);
+            userControlRealtimeMeasurements.TabIndex = 0;
+            // 
+            // panelBottomS
+            // 
+            panelBottomS.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottomS.Location = new System.Drawing.Point(0, 287);
+            panelBottomS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottomS.Name = "panelBottomS";
+            panelBottomS.Size = new System.Drawing.Size(200, 0);
+            panelBottomS.TabIndex = 19;
+            // 
+            // panelRightSettings
+            // 
+            panelRightSettings.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRightSettings.Location = new System.Drawing.Point(200, 31);
+            panelRightSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightSettings.Name = "panelRightSettings";
+            panelRightSettings.Size = new System.Drawing.Size(0, 287);
+            panelRightSettings.TabIndex = 18;
+            // 
+            // panelLeftSettings
+            // 
+            panelLeftSettings.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeftSettings.Location = new System.Drawing.Point(0, 31);
+            panelLeftSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeftSettings.Name = "panelLeftSettings";
+            panelLeftSettings.Size = new System.Drawing.Size(0, 287);
+            panelLeftSettings.TabIndex = 17;
+            // 
+            // panelTopSettings
+            // 
+            panelTopSettings.Controls.Add(label5);
+            panelTopSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopSettings.Location = new System.Drawing.Point(0, 0);
+            panelTopSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopSettings.Name = "panelTopSettings";
+            panelTopSettings.Size = new System.Drawing.Size(200, 31);
+            panelTopSettings.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.Location = new System.Drawing.Point(2, 3);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(197, 37);
+            label5.TabIndex = 22;
+            label5.Text = "Data sources";
+            // 
+            // panelBottomSettings
+            // 
+            panelBottomSettings.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottomSettings.Location = new System.Drawing.Point(0, 318);
+            panelBottomSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottomSettings.Name = "panelBottomSettings";
+            panelBottomSettings.Size = new System.Drawing.Size(200, 0);
+            panelBottomSettings.TabIndex = 19;
+            // 
+            // panelCenterDigital
+            // 
+            panelCenterDigital.Controls.Add(panelCenterList);
+            panelCenterDigital.Controls.Add(panelList);
+            panelCenterDigital.Controls.Add(panelLeftList);
+            panelCenterDigital.Controls.Add(panelTopList);
+            panelCenterDigital.Controls.Add(panelBottomList);
+            panelCenterDigital.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenterDigital.Location = new System.Drawing.Point(0, 31);
+            panelCenterDigital.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenterDigital.Name = "panelCenterDigital";
+            panelCenterDigital.Size = new System.Drawing.Size(292, 287);
+            panelCenterDigital.TabIndex = 20;
+            // 
+            // panelCenterList
+            // 
+            panelCenterList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelCenterList.Controls.Add(userControlRealtimeList);
+            panelCenterList.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenterList.Location = new System.Drawing.Point(0, 0);
+            panelCenterList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenterList.Name = "panelCenterList";
+            panelCenterList.Size = new System.Drawing.Size(292, 287);
+            panelCenterList.TabIndex = 20;
             // 
             // userControlRealtimeList
             // 
-            this.userControlRealtimeList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlRealtimeList.Location = new System.Drawing.Point(0, 0);
-            this.userControlRealtimeList.Name = "userControlRealtimeList";
-            this.userControlRealtimeList.Size = new System.Drawing.Size(248, 244);
-            this.userControlRealtimeList.TabIndex = 0;
-             // 
+            userControlRealtimeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlRealtimeList.Location = new System.Drawing.Point(0, 0);
+            userControlRealtimeList.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            userControlRealtimeList.Name = "userControlRealtimeList";
+            userControlRealtimeList.Size = new System.Drawing.Size(290, 285);
+            userControlRealtimeList.TabIndex = 0;
+            // 
+            // panelList
+            // 
+            panelList.Dock = System.Windows.Forms.DockStyle.Right;
+            panelList.Location = new System.Drawing.Point(292, 0);
+            panelList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelList.Name = "panelList";
+            panelList.Size = new System.Drawing.Size(0, 287);
+            panelList.TabIndex = 18;
+            // 
+            // panelLeftList
+            // 
+            panelLeftList.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeftList.Location = new System.Drawing.Point(0, 0);
+            panelLeftList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeftList.Name = "panelLeftList";
+            panelLeftList.Size = new System.Drawing.Size(0, 287);
+            panelLeftList.TabIndex = 17;
+            // 
+            // panelTopList
+            // 
+            panelTopList.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopList.Location = new System.Drawing.Point(0, 0);
+            panelTopList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopList.Name = "panelTopList";
+            panelTopList.Size = new System.Drawing.Size(292, 0);
+            panelTopList.TabIndex = 16;
+            // 
+            // panelBottomList
+            // 
+            panelBottomList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottomList.Location = new System.Drawing.Point(0, 287);
+            panelBottomList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottomList.Name = "panelBottomList";
+            panelBottomList.Size = new System.Drawing.Size(292, 0);
+            panelBottomList.TabIndex = 19;
+            // 
+            // panelRightDigital
+            // 
+            panelRightDigital.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRightDigital.Location = new System.Drawing.Point(292, 31);
+            panelRightDigital.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightDigital.Name = "panelRightDigital";
+            panelRightDigital.Size = new System.Drawing.Size(0, 287);
+            panelRightDigital.TabIndex = 18;
+            // 
+            // panelLeftDigital
+            // 
+            panelLeftDigital.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeftDigital.Location = new System.Drawing.Point(0, 31);
+            panelLeftDigital.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeftDigital.Name = "panelLeftDigital";
+            panelLeftDigital.Size = new System.Drawing.Size(0, 287);
+            panelLeftDigital.TabIndex = 17;
+            // 
+            // panelTopDigital
+            // 
+            panelTopDigital.Controls.Add(labelTime);
+            panelTopDigital.Controls.Add(label1);
+            panelTopDigital.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopDigital.Location = new System.Drawing.Point(0, 0);
+            panelTopDigital.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopDigital.Name = "panelTopDigital";
+            panelTopDigital.Size = new System.Drawing.Size(292, 31);
+            panelTopDigital.TabIndex = 16;
+            // 
+            // labelTime
+            // 
+            labelTime.AutoSize = true;
+            labelTime.Location = new System.Drawing.Point(74, 5);
+            labelTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labelTime.Name = "labelTime";
+            labelTime.Size = new System.Drawing.Size(0, 15);
+            labelTime.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(18, 5);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(33, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Time";
+            // 
+            // panelBottomDigital
+            // 
+            panelBottomDigital.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottomDigital.Location = new System.Drawing.Point(0, 318);
+            panelBottomDigital.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottomDigital.Name = "panelBottomDigital";
+            panelBottomDigital.Size = new System.Drawing.Size(292, 0);
+            panelBottomDigital.TabIndex = 19;
+            // 
+            // tabPageChart
+            // 
+            tabPageChart.Controls.Add(panelCenterChart);
+            tabPageChart.Controls.Add(panelChartRight);
+            tabPageChart.Controls.Add(panelLeftChart);
+            tabPageChart.Controls.Add(panelTopChart);
+            tabPageChart.Controls.Add(panelBottomChart);
+            tabPageChart.Location = new System.Drawing.Point(4, 24);
+            tabPageChart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPageChart.Name = "tabPageChart";
+            tabPageChart.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPageChart.Size = new System.Drawing.Size(505, 324);
+            tabPageChart.TabIndex = 1;
+            tabPageChart.Text = "Chart";
+            tabPageChart.UseVisualStyleBackColor = true;
+            // 
+            // panelCenterChart
+            // 
+            panelCenterChart.Controls.Add(panelChart);
+            panelCenterChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenterChart.Location = new System.Drawing.Point(4, 3);
+            panelCenterChart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenterChart.Name = "panelCenterChart";
+            panelCenterChart.Size = new System.Drawing.Size(497, 289);
+            panelCenterChart.TabIndex = 20;
+            // 
+            // panelChart
+            // 
+            panelChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelChart.Location = new System.Drawing.Point(0, 0);
+            panelChart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelChart.Name = "panelChart";
+            panelChart.Size = new System.Drawing.Size(497, 289);
+            panelChart.TabIndex = 0;
+            panelChart.Resize += panelChart_Resize;
+            // 
+            // panelChartRight
+            // 
+            panelChartRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelChartRight.Location = new System.Drawing.Point(501, 3);
+            panelChartRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelChartRight.Name = "panelChartRight";
+            panelChartRight.Size = new System.Drawing.Size(0, 289);
+            panelChartRight.TabIndex = 18;
+            // 
+            // panelLeftChart
+            // 
+            panelLeftChart.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeftChart.Location = new System.Drawing.Point(4, 3);
+            panelLeftChart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeftChart.Name = "panelLeftChart";
+            panelLeftChart.Size = new System.Drawing.Size(0, 289);
+            panelLeftChart.TabIndex = 17;
+            // 
+            // panelTopChart
+            // 
+            panelTopChart.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopChart.Location = new System.Drawing.Point(4, 3);
+            panelTopChart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopChart.Name = "panelTopChart";
+            panelTopChart.Size = new System.Drawing.Size(497, 0);
+            panelTopChart.TabIndex = 16;
+            // 
+            // panelBottomChart
+            // 
+            panelBottomChart.Controls.Add(panelCenter);
+            panelBottomChart.Controls.Add(panelItntervalRight);
+            panelBottomChart.Controls.Add(panelLeft);
+            panelBottomChart.Controls.Add(panelTopInterval);
+            panelBottomChart.Controls.Add(panelBottom);
+            panelBottomChart.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottomChart.Location = new System.Drawing.Point(4, 292);
+            panelBottomChart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottomChart.Name = "panelBottomChart";
+            panelBottomChart.Size = new System.Drawing.Size(497, 29);
+            panelBottomChart.TabIndex = 19;
+            // 
+            // panelCenter
+            // 
+            panelCenter.Controls.Add(textBoxChartInterval);
+            panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenter.Location = new System.Drawing.Point(144, 0);
+            panelCenter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelCenter.Name = "panelCenter";
+            panelCenter.Size = new System.Drawing.Size(332, 29);
+            panelCenter.TabIndex = 20;
+            // 
+            // textBoxChartInterval
+            // 
+            textBoxChartInterval.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBoxChartInterval.Location = new System.Drawing.Point(0, 0);
+            textBoxChartInterval.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBoxChartInterval.Name = "textBoxChartInterval";
+            textBoxChartInterval.Size = new System.Drawing.Size(332, 23);
+            textBoxChartInterval.TabIndex = 0;
+            // 
+            // panelItntervalRight
+            // 
+            panelItntervalRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelItntervalRight.Location = new System.Drawing.Point(476, 0);
+            panelItntervalRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelItntervalRight.Name = "panelItntervalRight";
+            panelItntervalRight.Size = new System.Drawing.Size(21, 29);
+            panelItntervalRight.TabIndex = 18;
+            // 
+            // panelLeft
+            // 
+            panelLeft.Controls.Add(label2);
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 0);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(144, 29);
+            panelLeft.TabIndex = 17;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(4, 10);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(89, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Chart Interval, s";
+            // 
+            // panelTopInterval
+            // 
+            panelTopInterval.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopInterval.Location = new System.Drawing.Point(0, 0);
+            panelTopInterval.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopInterval.Name = "panelTopInterval";
+            panelTopInterval.Size = new System.Drawing.Size(497, 0);
+            panelTopInterval.TabIndex = 16;
+            // 
+            // panelBottom
+            // 
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 29);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(497, 0);
+            panelBottom.TabIndex = 19;
+            // 
+            // panelRightMain
+            // 
+            panelRightMain.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRightMain.Location = new System.Drawing.Point(513, 0);
+            panelRightMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightMain.Name = "panelRightMain";
+            panelRightMain.Size = new System.Drawing.Size(0, 352);
+            panelRightMain.TabIndex = 18;
+            // 
+            // panelLeftMain
+            // 
+            panelLeftMain.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeftMain.Location = new System.Drawing.Point(0, 0);
+            panelLeftMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeftMain.Name = "panelLeftMain";
+            panelLeftMain.Size = new System.Drawing.Size(0, 352);
+            panelLeftMain.TabIndex = 17;
+            // 
+            // panelTopMain
+            // 
+            panelTopMain.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTopMain.Location = new System.Drawing.Point(0, 0);
+            panelTopMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTopMain.Name = "panelTopMain";
+            panelTopMain.Size = new System.Drawing.Size(513, 0);
+            panelTopMain.TabIndex = 16;
+            // 
+            // panelBottomMain
+            // 
+            panelBottomMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottomMain.Location = new System.Drawing.Point(0, 352);
+            panelBottomMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottomMain.Name = "panelBottomMain";
+            panelBottomMain.Size = new System.Drawing.Size(513, 0);
+            panelBottomMain.TabIndex = 19;
+            // 
             // UserControlRealtime
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelCenterMain);
-            this.Controls.Add(this.panelRightMain);
-            this.Controls.Add(this.panelLeftMain);
-            this.Controls.Add(this.panelTopMain);
-            this.Controls.Add(this.panelBottomMain);
-            this.Name = "UserControlRealtime";
-            this.Size = new System.Drawing.Size(440, 305);
-            this.panelCenterMain.ResumeLayout(false);
-            this.tabControl.ResumeLayout(false);
-            this.tabPageDigital.ResumeLayout(false);
-            this.splitContainer.Panel1.ResumeLayout(false);
-            this.splitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
-            this.splitContainer.ResumeLayout(false);
-            this.panelCenterSettings.ResumeLayout(false);
-            this.panelCenterSettings.PerformLayout();
-            this.panelTopS.ResumeLayout(false);
-            this.panelTopSettings.ResumeLayout(false);
-            this.panelCenterDigital.ResumeLayout(false);
-            this.panelCenterList.ResumeLayout(false);
-            this.panelTopDigital.ResumeLayout(false);
-            this.panelTopDigital.PerformLayout();
-            this.tabPageChart.ResumeLayout(false);
-            this.panelCenterChart.ResumeLayout(false);
-            this.panelChart.ResumeLayout(false);
-            this.panelBottomChart.ResumeLayout(false);
-            this.panelCenter.ResumeLayout(false);
-            this.panelCenter.PerformLayout();
-            this.panelLeft.ResumeLayout(false);
-            this.panelLeft.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(panelCenterMain);
+            Controls.Add(panelRightMain);
+            Controls.Add(panelLeftMain);
+            Controls.Add(panelTopMain);
+            Controls.Add(panelBottomMain);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "UserControlRealtime";
+            Size = new System.Drawing.Size(513, 352);
+            panelCenterMain.ResumeLayout(false);
+            tabControl.ResumeLayout(false);
+            tabPageDigital.ResumeLayout(false);
+            splitContainer.Panel1.ResumeLayout(false);
+            splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
+            splitContainer.ResumeLayout(false);
+            panelCenterSettings.ResumeLayout(false);
+            panelCenterSettings.PerformLayout();
+            panelTopS.ResumeLayout(false);
+            panelTopSettings.ResumeLayout(false);
+            panelCenterDigital.ResumeLayout(false);
+            panelCenterList.ResumeLayout(false);
+            panelTopDigital.ResumeLayout(false);
+            panelTopDigital.PerformLayout();
+            tabPageChart.ResumeLayout(false);
+            panelCenterChart.ResumeLayout(false);
+            panelBottomChart.ResumeLayout(false);
+            panelCenter.ResumeLayout(false);
+            panelCenter.PerformLayout();
+            panelLeft.ResumeLayout(false);
+            panelLeft.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
