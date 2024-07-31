@@ -75,12 +75,12 @@ namespace Scada.Windows.UI.UserControls
             resize();
         }
 
-        [DefaultValue("")]
+   /*     [DefaultValue("")]
         [Editor(typeof(ListGridComboBox), typeof(UITypeEditor))]
         [DataList("GetInputs")]
         [TypeConverter(typeof(ListExpandableConverter))]
-        [Category("SCADA"), Description("Input name"), DisplayName("Input")]
-        public string Output
+        [Category("SCADA"), Description("Input name"), DisplayName("Input")]*/
+        public string Input
         {
             get
             {
@@ -96,6 +96,8 @@ namespace Scada.Windows.UI.UserControls
         {
             return StaticExtensionWindowsUI.Scada.GetRealList(true);
         }
+
+    
 
 
         public void Reset(float max, float min, float step)

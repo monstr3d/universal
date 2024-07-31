@@ -104,11 +104,11 @@ namespace Scada.Windows.UI.UserControls
         /// <summary>
         /// Event string
         /// </summary>
-        [DefaultValue("")]
+    /*    [DefaultValue("")]
         [Editor(typeof(ListGridComboBox), typeof(UITypeEditor))]
         [DataList("GetEvents")]
         [TypeConverter(typeof(ListExpandableConverter))]
-        [Category("SCADA"), Description("Event name"), DisplayName("Event")]
+        [Category("SCADA"), Description("Event name"), DisplayName("Event")]*/
         public string Event
         {
             get
@@ -124,11 +124,11 @@ namespace Scada.Windows.UI.UserControls
         /// <summary>
         /// Output string
         /// </summary>
-        [DefaultValue("")]
+    /*    [DefaultValue("")]
         [Editor(typeof(ListGridComboBox), typeof(UITypeEditor))]
         [DataList("GetOutputs")]
         [TypeConverter(typeof(ListExpandableConverter))]
-        [Category("SCADA"), Description("Output name"), DisplayName("Output")]
+        [Category("SCADA"), Description("Output name"), DisplayName("Output")]*/
         public string Output
         {
             get

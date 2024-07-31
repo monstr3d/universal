@@ -176,7 +176,7 @@ namespace Scada.Interfaces
         /// <param name="scada"></param>
         static public void EnableChange(this IScadaInterface scada)
         {
-            onScadaIsEnabled(scada);
+            onScadaIsEnabled?.Invoke(scada);
         }
 
         /// <summary>

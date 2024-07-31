@@ -256,12 +256,12 @@ namespace Scada.Desktop
                      collection.StartRealtime(timeUnit, isAbsoluteTime, 
                         realtimeStep, dataConsumer, null, "Realtime", 
                         timeMeasurementProviderFactory, true);
-                    onStart();
+                    onStart?.Invoke();
                 }
                 else
                 {
                     StaticExtensionEventPortable.StopRealTime();
-                    onStop();
+                    onStop.Invoke();
                 }
                 this.EnableChange();
             }
@@ -335,7 +335,7 @@ namespace Scada.Desktop
             }
             );
 
-         /*  FOR LATER EVENTS WITH ARGUMENTS collection.ForAll((Event.Interfaces.IEventOutput ev) =>
+         /* !!!  FOR LATER EVENTS WITH ARGUMENTS collection.ForAll((Event.Interfaces.IEventOutput ev) =>
             {
                 string s = (ev as IAssociatedObject).GetRootName();
                 events.Add(s);

@@ -23,7 +23,7 @@ namespace Scada.Interfaces
 
         protected List<string> events = new List<string>();
 
-        //  FOR LATER EVENTS WITH ARGUMENTS   protected List<string> eventOutputs = new List<string>();
+        //  !!! FOR LATER EVENTS WITH ARGUMENTS   protected List<string> eventOutputs = new List<string>();
 
         protected Dictionary<string, Action<object>> dInput = new Dictionary<string, Action<object>>();
 
@@ -48,12 +48,12 @@ namespace Scada.Interfaces
         /// <summary>
         /// On start event
         /// </summary>
-        protected Action onStart = () => { };
+        protected Action onStart;
 
         /// <summary>
         /// On Stop event
         /// </summary>
-        protected Action onStop = () => { };
+        protected Action onStop;
 
 
         #endregion
@@ -83,7 +83,7 @@ namespace Scada.Interfaces
             get { return events; }
         }
 
-        /*  FOR LATER EVENTS WITH ARGUMENTS 
+        /* !!! FOR LATER EVENTS WITH ARGUMENTS 
            List<string> IScadaInterface.EventOutputs
            {
                get { return eventOutputs; }
@@ -155,7 +155,7 @@ namespace Scada.Interfaces
             get { return dEvents[name]; }
         }
 
-        /*  FOR LATER EVENTS WITH ARGUMENTS 
+        /*  !!! FOR LATER EVENTS WITH ARGUMENTS 
            IEventOutput IScadaInterface.GetEvent(string name)
            {
              return dEventOutputs[name]; 

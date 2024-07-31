@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Diagram.UI.Interfaces;
-using Diagram.UI;
+﻿using Diagram.UI.Interfaces;
 
 namespace Motion6D
 {

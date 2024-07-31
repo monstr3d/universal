@@ -61,7 +61,7 @@ namespace Scada.Interfaces
             get;
         }
 
-        /*  FOR LATER EVENTS WITH ARGUMENTS 
+        /*  !!! FOR LATER EVENTS WITH ARGUMENTS 
          *  /// <summary>
           /// Events with outputs
           /// </summary>
@@ -124,7 +124,7 @@ namespace Scada.Interfaces
           {
               get;
           }
-       /*  FOR LATER EVENTS WITH ARGUMENTS 
+       /* !!! FOR LATER EVENTS WITH ARGUMENTS 
           /// <summary>
           /// Gets event output
           /// </summary>
