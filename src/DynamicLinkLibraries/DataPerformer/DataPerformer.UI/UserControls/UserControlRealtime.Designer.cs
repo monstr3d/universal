@@ -439,7 +439,6 @@
             panelChart.Name = "panelChart";
             panelChart.Size = new System.Drawing.Size(497, 289);
             panelChart.TabIndex = 0;
-            panelChart.Resize += panelChart_Resize;
             // 
             // panelChartRight
             // 

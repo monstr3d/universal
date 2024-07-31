@@ -25,135 +25,135 @@ namespace Scada.Interfaces
 
         //  FOR LATER EVENTS WITH ARGUMENTS   protected List<string> eventOutputs = new List<string>();
 
-     protected Dictionary<string, Action<object>> dInput = new Dictionary<string, Action<object>>();
+        protected Dictionary<string, Action<object>> dInput = new Dictionary<string, Action<object>>();
 
-     protected Dictionary<string, Action<object>> dConstant = new Dictionary<string, Action<object>>();
+        protected Dictionary<string, Action<object>> dConstant = new Dictionary<string, Action<object>>();
 
-     protected Dictionary<string, Func<object>> fConstant = new Dictionary<string, Func<object>>();
+        protected Dictionary<string, Func<object>> fConstant = new Dictionary<string, Func<object>>();
 
-     protected Dictionary<string, Func<object>> dOutput = new Dictionary<string, Func<object>>();
+        protected Dictionary<string, Func<object>> dOutput = new Dictionary<string, Func<object>>();
 
-     protected Dictionary<string, IEvent> dEvents = new Dictionary<string, IEvent>();
+        protected Dictionary<string, IEvent> dEvents = new Dictionary<string, IEvent>();
 
-     protected Dictionary<string, IEventOutput> dEventOutputs = new Dictionary<string, IEventOutput>();
+        protected Dictionary<string, IEventOutput> dEventOutputs = new Dictionary<string, IEventOutput>();
 
-     protected Dictionary<string, List<string>> objects = new Dictionary<string, List<string>>();
+        protected Dictionary<string, List<string>> objects = new Dictionary<string, List<string>>();
 
-     /// <summary>
-     /// Create XML event
-     /// </summary>
-     protected Action<XElement> onCreateXml = (XElement document) => { };
-
-
-     /// <summary>
-     /// On start event
-     /// </summary>
-     protected Action onStart = () => { };
-
-     /// <summary>
-     /// On Stop event
-     /// </summary>
-     protected Action onStop = () => { };
+        /// <summary>
+        /// Create XML event
+        /// </summary>
+        protected Action<XElement> onCreateXml = (XElement document) => { };
 
 
-     #endregion
+        /// <summary>
+        /// On start event
+        /// </summary>
+        protected Action onStart = () => { };
 
-     #region IScadaInterface Members
+        /// <summary>
+        /// On Stop event
+        /// </summary>
+        protected Action onStop = () => { };
 
-     Dictionary<string, object> IScadaInterface.Inputs
-     {
-         get { return inputs; }
-     }
 
-     Dictionary<string, object> IScadaInterface.Outputs
-     {
-         get { return outputs; }
-     }
+        #endregion
 
-     Dictionary<string, object> IScadaInterface.Constants
-     {
-         get
-         {
-             return constants;
-         }
-     }
+        #region IScadaInterface Members
 
-     List<string> IScadaInterface.Events
-     {
-         get { return events; }
-     }
-
-     /*  FOR LATER EVENTS WITH ARGUMENTS 
-        List<string> IScadaInterface.EventOutputs
+        Dictionary<string, object> IScadaInterface.Inputs
         {
-            get { return eventOutputs; }
+            get { return inputs; }
         }
-*/
+
+        Dictionary<string, object> IScadaInterface.Outputs
+        {
+            get { return outputs; }
+        }
+
+        Dictionary<string, object> IScadaInterface.Constants
+        {
+            get
+            {
+                return constants;
+            }
+        }
+
+        List<string> IScadaInterface.Events
+        {
+            get { return events; }
+        }
+
+        /*  FOR LATER EVENTS WITH ARGUMENTS 
+           List<string> IScadaInterface.EventOutputs
+           {
+               get { return eventOutputs; }
+           }
+   */
 
         Action<object> IScadaInterface.GetInput(string name)
-           {
-               return dInput[name];
-           }
+        {
+            return dInput[name];
+        }
 
-           /// <summary>
-           /// All objects with types
-           /// </summary>
-           Dictionary<string, List<string>> IScadaInterface.Objects
-           {
-               get
-               {
-                   return objects;
-               }
-           }
+        /// <summary>
+        /// All objects with types
+        /// </summary>
+        Dictionary<string, List<string>> IScadaInterface.Objects
+        {
+            get
+            {
+                return objects;
+            }
+        }
 
-           /// <summary>
-           /// Gets object
-           /// </summary>
-           /// <typeparam name="T">Type of object</typeparam>
-           /// <param name="">Name</param>
-           /// <returns>The object</returns>
-           public abstract T GetObject<T>(string name) where T : class;
+        /// <summary>
+        /// Gets object
+        /// </summary>
+        /// <typeparam name="T">Type of object</typeparam>
+        /// <param name="">Name</param>
+        /// <returns>The object</returns>
+        public abstract T GetObject<T>(string name) where T : class;
 
-           /// <summary>
-           /// Sets a constant
-           /// </summary>
-           /// <param name="name">Constant name</param>
-           /// <param name="constant">Constant value</param>
-           void IScadaInterface.SetConstant(string name, object constant)
-           {
-                Action<object> act = dConstant[name];
-                act(constant);
-           }
+        /// <summary>
+        /// Sets a constant
+        /// </summary>
+        /// <param name="name">Constant name</param>
+        /// <param name="constant">Constant value</param>
+        void IScadaInterface.SetConstant(string name, object constant)
+        {
+            Action<object> act = dConstant[name];
+            act(constant);
+        }
 
-           /// <summary>
-           /// Gets inputs
-           /// </summary>
-           /// <param name="names">Input names</param>
-           /// <returns>Input names</returns>
-           public abstract Action<object[]> GetInput(string[] name);
+        /// <summary>
+        /// Gets inputs
+        /// </summary>
+        /// <param name="names">Input names</param>
+        /// <returns>Input names</returns>
+        public abstract Action<object[]> GetInput(string[] name);
 
 
-           Func<object> IScadaInterface.GetOutput(string name)
-           {
-               return dOutput[name];
-           }
+        Func<object> IScadaInterface.GetOutput(string name)
+        {
+            return dOutput[name];
+        }
 
-           /// <summary>
-           /// Gets outputs
-           /// </summary>
-           /// <param name="names">Names</param>
-           /// <returns>Outputs</returns>
-           public abstract Func<object[]> GetOutput(string[] names);
+        /// <summary>
+        /// Gets outputs
+        /// </summary>
+        /// <param name="names">Names</param>
+        /// <returns>Outputs</returns>
+        public abstract Func<object[]> GetOutput(string[] names);
 
-           Action<object> IScadaInterface.GetConstant(string name)
-           {
-               return dConstant[name];
-           }
+        Action<object> IScadaInterface.GetConstant(string name)
+        {
+            return dConstant[name];
+        }
 
-           IEvent IScadaInterface.this[string name]
-           {
-               get { return dEvents[name]; }
-           }
+        IEvent IScadaInterface.this[string name]
+        {
+            get { return dEvents[name]; }
+        }
 
         /*  FOR LATER EVENTS WITH ARGUMENTS 
            IEventOutput IScadaInterface.GetEvent(string name)
@@ -176,8 +176,8 @@ namespace Scada.Interfaces
         /// </summary>
         event Action IScadaInterface.OnStart
         {
-            add {onStart += value;}
-            remove {onStart -= value;}
+            add { onStart += value; }
+            remove { onStart -= value; }
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace Scada.Interfaces
         {
             add { onCreateXml += value; }
             remove { onCreateXml -= value; }
-  
+
         }
 
         /// <summary>

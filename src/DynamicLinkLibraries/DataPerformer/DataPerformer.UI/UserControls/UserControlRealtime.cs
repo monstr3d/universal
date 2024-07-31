@@ -28,7 +28,7 @@ namespace DataPerformer.UI.UserControls
 
         string calculationReason = "";
 
-        UI.Wpf.UserControlWpfChart performer = null;
+        Wpf.UserControlWpfChart performer = new Wpf.UserControlWpfChart();
 
         private Dictionary<string, object> dObject = new Dictionary<string, object>();
 
@@ -62,6 +62,7 @@ namespace DataPerformer.UI.UserControls
         public UserControlRealtime()
         {
             InitializeComponent();
+            CreateChart();
         }
 
         #endregion
@@ -324,24 +325,23 @@ namespace DataPerformer.UI.UserControls
             labelTime.Text = time + "";
         }
 
+        void CreateChart()
+        {
+            //performer = new Wpf.UserControlWpfChart();
+            var host = new ElementHost();
+            host.BackColor = Color.Black;
+            host.Dock = DockStyle.Fill;
+            panelChart.Controls.Add(host);
+            host.Child = performer;
+
+        }
+
+
         #endregion
 
         #region Event Handlers
 
-        private void panelChart_Resize(object sender, EventArgs e)
-        {
-            if (panelChart != null)
-            {
-                performer = new Wpf.UserControlWpfChart();
-                var host = new ElementHost();
-                host.BackColor = Color.Black;
-                host.Dock = DockStyle.Fill;
-                panelChart.Controls.Add(host);
-                host.Child = performer;
-
-            }
-    
-        }
+ 
 
         #endregion
     }

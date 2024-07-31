@@ -153,7 +153,7 @@ namespace DataPerformer.UI.Wpf
             currentTime = time;
             foreach (string key in dictionary.Keys)
             {
-                Tuple<Color, bool, double[], Func<object, double>> t = dictionary[key];
+                var t = dictionary[key];
                 double[] s = t.Item3;
                 double x = t.Item4(d[key]);
                 last[key] = GetY(x, s);
@@ -168,7 +168,7 @@ namespace DataPerformer.UI.Wpf
             double delta = next - current;
             foreach (string key in d.Keys)
             {
-                Tuple<System.Windows.Media.Color, bool, double[], Func<object, double>> t = dictionary[key];
+                var t = dictionary[key];
                 double[] s = t.Item3;
                 double x = t.Item4(d[key]);
                 x = GetY(x, s);
