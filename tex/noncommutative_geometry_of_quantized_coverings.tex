@@ -4575,7 +4575,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\be\label{gta_act_eqn} 
  	G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
  	\ee
- 	The $\la_{\min}$-lift  $\la_{\min}: A \hookto M\left(\overline A \right)$ (cf. Definition \ref{infinite_quasicovering_defn}) induces a $*$-homomorphism
+ 	The $\la_{\min}$-lift  $\lift_{\la_{\min}}: A \hookto M\left(\overline A \right)$ (cf. Definition \ref{infinite_quasicovering_defn}) induces a $*$-homomorphism
  	\be\label{inj_to_m_eqn}
  	\widetilde{\lift} : A \to M\left(\widetilde A \right)
  	\ee
@@ -4767,7 +4767,15 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  	\widehat \tau'' \preceq \widehat \tau.
  	\eean
  	From the above equation it turns out that the state $\widehat \tau$ is not pure however it contradicts with our assumption. So $y_\la$ corresponds to a pure state for all $\la\in\La$.\\
- 	  	(ii) If $\overline \rho: \overline A \to B\left(\H \right)$ is irreducible representation  then from the inclusion $A_\la \subset M\left(\overline A \right)$ and the Definition \ref{multiplier_el_defn} one has a natural representation $\rho_\la : A_\la \to B\left(\H \right)$. From the condition (c) !!! CORRECT !!!  of the Definition \ref{algebraical_finite_covering_category_defn}  it follows that $\rho_\la$ is not trivial. If $\rho_{\la_0} : A_\la \to B\left(\H_\la \right)$ is not irreducible there are two irreducible representations $\rho'_{\la_0} : A_\la \to B\left(\H'_{\la_0} \right)$   and $\rho''_{\la_0} : A_\la \to B\left(\H''_{\la_0} \right)$ such that $\rho'_{\la_0} \perp \rho''_{\la_0}$ and $\rho'_{\la_0}, \rho''_{\la_0}\preceq \rho_{\la_0}$. If $\la \ge \la_0$ and $p: \sX_\la \to \sX_{\la_0}$ is a given by the Proposition \ref{spectrum_covering_finite_prop} and then there are are two irreducible representations $\rho'_{\la} : A_\la \to B\left(\H'_\la \right)$   and $\rho''_{\la} : A_\la \to B\left(\H''_\la \right)$ such that $\rho'_{\la} \perp \rho''_{\la}$ and $\rho'_{\la}, \rho''_{\la}\preceq \rho_{\la}$ and \bean 
+ 	  	(ii) If $\overline \rho: \overline A \to B\left(\H \right)$ is irreducible representation  then from the inclusion $A_\la \subset M\left(\overline A \right)$ and the Definition \ref{multiplier_el_defn} one has a natural representation $\rho_\la : A_\la \to B\left(\H \right)$. If $\tau: \overline A \to \C$ is a state (cf. the  Definition \ref{state_defn} and the Theorem \ref{state_repr_thm}) which corresponds to $\overline \rho$ then there is $\overline{a}\in K\left(\overline A \right)_+$ such that $\tau\left(\overline a \right) > 0$.  If 
+ 	  	$$
+ 	  	a_\la = \desc_{\la} \left( \overline a\right)  \bydef \sum_{g \in \ker \left(\widehat G \to G_\la \right)} g \overline a \in \lift_\la \left( K\left( A_\la\right) \right) 
+ 	  	$$
+ 	  	(cf. Definition \ref{infinite_quasicovering_defn}) then
+ 	  	$$
+ 	  	\tau\left(a_\la \right) \ge \tau\left( \overline a\right) > 0.
+ 	  	$$
+ 	It follows that $\rho_\la$ is not trivial. If $\rho_{\la_0} : A_\la \to B\left(\H_{\la} \bydef \H\right)$ is not irreducible there are two irreducible representations $\rho'_{\la_0} : A_{\la_0} \to B\left(\H'_{\la_0} \right)$   and $\rho''_{\la_0} : A_\la \to B\left(\H''_{\la_0} \right)$ such that $\rho'_{\la_0} \perp \rho''_{\la_0}$ and $\rho'_{\la_0}, \rho''_{\la_0}\preceq \rho_{\la_0}$. If $\la \ge \la_0$ and $p: \sX_\la \to \sX_{\la_0}$ is a given by the Proposition \ref{spectrum_covering_finite_prop} and then there are are two irreducible representations $\rho'_{\la} : A_\la \to B\left(\H'_\la \right)$   and $\rho''_{\la} : A_\la \to B\left(\H''_\la \right)$ such that $\rho'_{\la} \perp \rho''_{\la}$ and $\rho'_{\la}, \rho''_{\la}\preceq \rho_{\la}$ and \bean 
  	  	p\left(\rho'_{\la} \right)= \rho'_{\la_0},\\
  	  	 p\left(\rho''_{\la} \right)= \rho''_{\la_0}
  	  	\eean
@@ -20274,7 +20282,7 @@ A representation of a $C^*$-algebra $A$ is a *- homomorphism  consisting $\pi : 
 We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: A \to B\left( \H_2\right)$ of a $C^*$-algebra $A$ are \textit{spatially equivalent} (or \textit{unitarily equivalent}) if there is an isometry $u$ of $\H_1$ 	onto $\H_2$ such that $u\pi_1\left(x \right)u^*  = \pi_2\left(x \right)$  for all $x$ in $A$. We say that the representations are \textit{equivalent} (or \textit{quasi-equivalent}) if there is an isomorphism $\rho$ of	$\pi_1\left( A\right)''$ onto 	$\pi_2\left( A\right)''$ such that $\rho\left(  \pi_1\left( x\right)\right) =\pi_2\left( x\right)$ for all $x$ in $A$. % Note that spatial 	equivalence implies equivalence since the map p:a^>uau* of B(H{) onto 		B(H2) is strongly continuous and takes n^A) onto7T2(^4), wherefore p gives an		isomorphism of n^Af onto 
 	\end{definition}
 	\begin{definition}\label{state_defn}\cite{pedersen:ca_aut}
-		A state of a $C^*$ -algebra $A$ is a positive functional of norm one. The set of 
+		A \textit{state} of a $C^*$ -algebra $A$ is a positive functional of norm one. The set of 
 		states of $A$ is denoted by $SA$ (or just $S$ if no confusion can arise).
 	\end{definition}
 	\begin{definition}\label{ps_defn}\cite{murphy}
