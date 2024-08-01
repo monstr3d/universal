@@ -907,9 +907,9 @@ namespace DataPerformer.Formula
             }
         }
 
+        // !!! MAY BE DELETE !!!
         private void SetParameter()
         {
-  //          Prepare();
             DynamicalParameter parameter = new DynamicalParameter();
             foreach (IMeasurements measurements in measurementsData)
             {

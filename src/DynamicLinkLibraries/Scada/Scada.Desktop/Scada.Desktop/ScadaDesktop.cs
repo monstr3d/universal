@@ -261,7 +261,7 @@ namespace Scada.Desktop
                 else
                 {
                     StaticExtensionEventPortable.StopRealTime();
-                    onStop.Invoke();
+                    onStop?.Invoke();
                 }
                 this.EnableChange();
             }
