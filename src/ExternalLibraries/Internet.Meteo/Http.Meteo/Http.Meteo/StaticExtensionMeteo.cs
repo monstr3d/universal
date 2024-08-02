@@ -10,21 +10,7 @@ namespace Http.Meteo
 {
     public static class StaticExtensionMeteo
     {
-        internal static double ToDouble(this string str)
-        {
-            try
-            {
-                return double.Parse(
-                str.Replace(".",
-                System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
-            }
-            catch (Exception)
-            {
-                ("Illegal double value: " + str).Show(); 
-            }
-            return 0;
-        }
-
+    
         internal static string Substring(this string str, string sub)
         {
             return str.Substring(str.ToLower().IndexOf(sub) + sub.Length);

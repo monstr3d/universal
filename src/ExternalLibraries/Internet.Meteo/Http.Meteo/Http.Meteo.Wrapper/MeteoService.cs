@@ -1,5 +1,6 @@
 ﻿using CategoryTheory;
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Measurements;
 using Diagram.UI;
 using System.Linq;
 
@@ -70,7 +71,7 @@ namespace Http.Meteo.Wrapper
 
         }
 
-        void CreateMeasurements()
+        protected void CreateMeasurements()
         {
             List<IMeasurement> l = new List<IMeasurement>();
             for (int i = 0; i < types.Length; i++)
@@ -83,39 +84,30 @@ namespace Http.Meteo.Wrapper
         }
 
 
-
-        protected override void UpdateText()
+        protected override void Process(ref int i, ref int j)
         {
-
-            enumerable.MoveNext();
-            try
+            foreach (IMeasurement m in measurements)
             {
-                int i = 0;
-                int j = 2;
-                foreach (IMeasurement m in measurements)
+                if (m.Name.Equals(names[6]))
                 {
-                    if (m.Name.Equals(names[6]))
-                    {
-                        ++j;
-                        continue;
-                    }
-                    if (!Find(tags[i]))
-                    {
-                        return;
-                    }
-                    object t = m.Type;
-                    Func<IEnumerator<string>, object> f = df[t];
-                    values[i + j] = f(enumerable);
-                    ++i;
+                    ++j;
+                    continue;
                 }
-                SetWindAngle();
-                nextTime = DateTime.Now + TimeSpan;
+                if (!Find(tags[i]))
+                {
+                    return;
+                }
+                object t = m.Type;
+                Func<IEnumerator<string>, object> f = df[t];
+                values[i + j] = f(enumerable);
+                ++i;
             }
-            catch (Exception ex)
-            {
-                ("Http Error: url=" + Url + " Error code: " + ex.Message + "").Show();
-            }
+
         }
+
+
+
+
 
         protected override void ShowMessage(string msg)
         {

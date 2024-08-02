@@ -174,7 +174,7 @@ namespace Http.Meteo
 
         #region Private Members 
 
-        bool Find(string str)
+        protected bool Find(string str)
         {
             string sp = "";
             while (true)
@@ -206,8 +206,17 @@ namespace Http.Meteo
             {
                 s = s.Substring("<b>");
             }
-            return s.Limit().ToDouble();
+            return ToDouble(s.Limit());
         }
+
+        static double ToDouble(string str)
+        {
+            return Double.Parse(
+            str.Replace(".",
+            System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+        }
+
+
 
         static object GetDouble(IEnumerator<string> enu)
         {
@@ -251,14 +260,33 @@ namespace Http.Meteo
         }
 
 
-        static private readonly Dictionary<object, Func<IEnumerator<string>, object>> df =
+         protected static  Dictionary<object, Func<IEnumerator<string>, object>> df =
             new Dictionary<object, Func<IEnumerator<string>, object>>()
         {
             { (double)0, GetDouble},
             {"", GetString}
         };
 
-        protected abstract void UpdateText();
+        abstract protected void Process(ref int i, ref int j);
+
+        
+        void UpdateText()
+        {
+
+            enumerable.MoveNext();
+            try
+            {
+                int i = 0;
+                int j = 2;
+                Process(ref i, ref j);
+                SetWindAngle();
+                nextTime = DateTime.Now + TimeSpan;
+            }
+            catch (Exception ex)
+            {
+               ShowMessage("Http Error: url=" + Url + " Error code: " + ex.Message + "");
+            }
+        }
 
         protected void Update()
         {
@@ -304,7 +332,7 @@ namespace Http.Meteo
 
         void ProcessCallback()
         {
-            action();
+            action?.Invoke();
         }
 
 
