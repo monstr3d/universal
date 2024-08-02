@@ -1815,13 +1815,13 @@ Func<bool> stop)
 
         private void PerformFixed()
         {
-            
+
             try
             {
                 ctx = new();
                 DataConsumer dc = consumer as DataConsumer;
-               dicto =
-                    dc.PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);
+                dicto =
+                     dc.PerformFixed(globalArg, globalFunc, stop, measurementsWrapperDictionary);
             }
             catch (Exception ex)
             {

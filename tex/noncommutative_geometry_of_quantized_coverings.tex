@@ -1138,7 +1138,7 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	\be\label{srict_strong_eqn}
 	\pi\left(\bt\text{-}\lim_{\la\in \La} a_\la \right)= s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)  
 	\ee 
-	where both  $\bt\text{-}\lim_{\la\in \La}$ and $s\text{-}\lim_{\la\in \La}$ are strict and strong limits respectively.
+	where both  $\bt\text{-}\lim_{\la\in \La}$ and $s\text{-}\lim_{\la\in \La}$ are strict and strong limits respectively (cf. Definitions \ref{strict_topology_defn} and \ref{strong_topology_defn}).
 \end{lemma}
 \begin{proof}
 	Denote by $a^\bt \bydef  \bt\text{-}\lim_{\la\in \La} a_\la$ and $a^s  \bydef s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)\in B\left( \H\right)$.
@@ -1165,6 +1165,7 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	\eean  
 	i.e. there is a contradiction $\left\| \zeta  \right\|< \left\| \zeta  \right\|$. From this contradiction it turns out that $\zeta = 0$ and the equality \eqref{srict_strong_eqn} is true.
 \end{proof}
+
 
 %\begin{lemma}\label{left_ideal_lem}
 %Let $A$ be a $C^*$-algebra, and let  $a \in A$.   If $\left\{u_\la\right\}_{\la \in \La}\subset A_+$ is a net of positive elements such that
@@ -4326,8 +4327,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn});
  		\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.%, moreover we require that $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
  	\end{enumerate}
- 		
- 	We write
+ 			We write
  	\be\label{algebraical_finite_covering_category_eqn}
  	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
  	\ee
@@ -6089,8 +6089,6 @@ where $\mathscr A$ is a finite set.
 \begin{remark}\label{top_covering_sum_subordinated_rem}
 From the Lemma \ref{top_a_u_lem} it follows that if the space $\sX$ is Hausdorff, locally compact, and locally connected then for any  $\widetilde x \in \widetilde\sX$ there is a {covering triple $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$  for} $p$ such that $\widetilde x \in \widetilde \sX$.
 \end{remark}
-
-
 
 
 
@@ -10478,9 +10476,26 @@ is convergent with respect to the strict topology of $M\left(C_0\left(\overline\
 \be\label{top_a_l_eqn}
 \desc_{\la}\left(\overline a \right)  = \desc^c_{\overline p_\la}\left(\overline a \right)
 \ee
-where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn})
- From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering i.e. under hypotheses of this lemma the condition (a) of the Definition \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!!  is  satisfied. We leave to the reader an elementary  proof of that the   triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ satisfies to the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn}.
+where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. 
+From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn}).
+Now one needs check conditions (a) and (b) of the Definition \ref{algebraical_finite_covering_category_defn}.
+\begin{enumerate}
+	\item [(a)] From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering.
+	\item[(b)] Let $\la\in \La$ and let $\overline p_\la : \overline \sX \to \sX_\la$ be a natural covering. From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left( \sX_\la\right)  \right) = C_c\left( \sX_\la\right)$. If $a_\la \in C_c\left( \sX_\la\right)$ then the set $\supp a_\la$ is compact. If $\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\overline \sU_{\overline\a}, \overline \sV_{\overline\a}, \overline s_{\overline\a}\right)\right\}_{\overline \a \in \overline{\mathscr A}} \right)$ is a $\overline p_\la$-covering (cf. Definition \ref{top_cov_defn}) then there is a dominated by the family $\left\{\sU_{\overline{a}}\right\}$ covering sum $\sum^n_{j=1} f_j$ for $a_\la$ (cf. Definition \ref{top_covering_sum_defn}). One has
+	\bean
+	a_\la = a_\la \sum^n_{j=1} f_j,\\
+	\forall j \in \{1,...,n\}\quad \exists \a_j \in \mathscr A \quad \supp f_j \subset \sU_{{\a_j}}
+	\eean 
+	For any $j \in \{1,...,n\}$ one can select $\overline a_j \in \overline{\mathscr A}$ such that $\overline p_\la\left( \overline \sU_{\overline \a_j}\right)= \sU_{\a_j}$. 
+	Let $\overline a \bydef \sum^n_{j=1} \lift_{\overline\sU_{\overline \a_j}}^{\overline p_\la}\left(f_j a_\la \right)$ where $\lift_{\sU_{\overline \a_j}}^{\overline p_\la}$ is the  $\overline p_\la$-$\overline\sU_{\overline \a_j}$-{lift} (cf. Definition \ref{top_lift_desc_defn}). We leave to the reader the proof of the following equation
+	$$
+a_\la = \desc_{\la}\left( \overline a\right) 	= \bt\text{-}\sum_{g \in \ker\left(\widehat G \to G\left( \left. \sX_\la \right| \sX \right) \right)} g \overline{a}
+	$$
+	where $\bt\text{-}\sum$ means a convergence of the series with respect to the strict topology of $M\left(C_0\left(\overline \sX \right)  \right)$ (cf. Definition \ref{strict_topology_defn}), i.e. the map $\desc_{\la}$ is surjective.
+\end{enumerate}
 \end{proof}
+
+
 
 \begin{lemma}\label{top_discontinuous_lem}
 	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of the given by \eqref{top_x_g_eqn} algebraical finite covering category $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definitions \ref{algebraical_finite_covering_category_defn}  !!!CHECK !!!and \ref{disconnected_infinite_noncommutative_covering_defn}).
