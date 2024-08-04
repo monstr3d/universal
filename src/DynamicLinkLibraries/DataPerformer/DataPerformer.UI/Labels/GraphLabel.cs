@@ -17,6 +17,7 @@ using BaseTypes.Attributes;
 using DataPerformer.UI.UserControls;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls.Graph;
+using Diagram.UI.Forms.Interfaces;
 
 
 namespace DataPerformer.UI.Labels
@@ -26,7 +27,7 @@ namespace DataPerformer.UI.Labels
     /// </summary>
     [Serializable()]
     public partial class GraphLabel : UserControlBaseLabel, IBlocking,
-       INonstandardLabel, IStartStop, IStartStopConsumer, IGraphLabel, IPostLoadDesktop
+       INonstandardLabel, IStartStop, IStartStopConsumer, IGraphLabel, IPostLoadControl
     {
 
         #region Specific Fields
@@ -241,9 +242,9 @@ namespace DataPerformer.UI.Labels
 
         #endregion
 
-        #region IPostLoadDesktop Members
+        #region IPostLoadControl Members
 
-        void IPostLoadDesktop.PostLoad()
+        void IPostLoadControl.PostLoad()
         {
             PostLoadDesktop();
         }

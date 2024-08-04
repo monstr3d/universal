@@ -34,7 +34,7 @@ namespace Http.Meteo.UI.UserControls
         public UserControlMeteo()
         {
             InitializeComponent();
-
+            webBrowser.Navigate("http://www.google.com/");
         }
 
         #endregion
@@ -83,6 +83,7 @@ namespace Http.Meteo.UI.UserControls
             {
                 return;
             }
+            webBrowser.Navigate(webBrowser.Url);
             string html = webBrowser.Document.Body.InnerHtml;
             pin.SetValue(obj, html, null);
             Url = s;

@@ -28,104 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.webBrowser = new System.Windows.Forms.WebBrowser();
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.textBoxInterval = new System.Windows.Forms.TextBox();
-            this.labelInt = new System.Windows.Forms.Label();
-            this.panelCenter.SuspendLayout();
-            this.panelTop.SuspendLayout();
-            this.SuspendLayout();
+            panelCenter = new Panel();
+            webBrowser = new WebBrowser();
+            panelRight = new Panel();
+            panelLeft = new Panel();
+            panelTop = new Panel();
+            labelInt = new Label();
+            textBoxInterval = new TextBox();
+            panelBottom = new Panel();
+            panelCenter.SuspendLayout();
+            panelTop.SuspendLayout();
+            SuspendLayout();
             // 
             // panelCenter
             // 
-            this.panelCenter.Controls.Add(this.webBrowser);
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 24);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(469, 307);
-            this.panelCenter.TabIndex = 20;
+            panelCenter.Controls.Add(webBrowser);
+            panelCenter.Dock = DockStyle.Fill;
+            panelCenter.Location = new Point(0, 28);
+            panelCenter.Margin = new Padding(4, 3, 4, 3);
+            panelCenter.Name = "panelCenter";
+            panelCenter.Size = new Size(547, 354);
+            panelCenter.TabIndex = 20;
             // 
             // webBrowser
             // 
-            this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(469, 307);
-            this.webBrowser.TabIndex = 0;
-            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
+            webBrowser.Dock = DockStyle.Fill;
+            webBrowser.Location = new Point(0, 0);
+            webBrowser.Margin = new Padding(4, 3, 4, 3);
+            webBrowser.MinimumSize = new Size(23, 23);
+            webBrowser.Name = "webBrowser";
+            webBrowser.ScriptErrorsSuppressed = true;
+            webBrowser.Size = new Size(547, 354);
+            webBrowser.TabIndex = 0;
+            webBrowser.DocumentCompleted += webBrowser_DocumentCompleted;
             // 
             // panelRight
             // 
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(469, 24);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(0, 307);
-            this.panelRight.TabIndex = 18;
+            panelRight.Dock = DockStyle.Right;
+            panelRight.Location = new Point(547, 28);
+            panelRight.Margin = new Padding(4, 3, 4, 3);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new Size(0, 354);
+            panelRight.TabIndex = 18;
             // 
             // panelLeft
             // 
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 24);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(0, 307);
-            this.panelLeft.TabIndex = 17;
+            panelLeft.Dock = DockStyle.Left;
+            panelLeft.Location = new Point(0, 28);
+            panelLeft.Margin = new Padding(4, 3, 4, 3);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new Size(0, 354);
+            panelLeft.TabIndex = 17;
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.labelInt);
-            this.panelTop.Controls.Add(this.textBoxInterval);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(469, 24);
-            this.panelTop.TabIndex = 16;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 331);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(469, 0);
-            this.panelBottom.TabIndex = 19;
-            // 
-            // textBoxInterval
-            // 
-            this.textBoxInterval.Location = new System.Drawing.Point(103, 3);
-            this.textBoxInterval.Name = "textBoxInterval";
-            this.textBoxInterval.Size = new System.Drawing.Size(100, 20);
-            this.textBoxInterval.TabIndex = 0;
-            this.textBoxInterval.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxInterval_KeyUp);
+            panelTop.Controls.Add(labelInt);
+            panelTop.Controls.Add(textBoxInterval);
+            panelTop.Dock = DockStyle.Top;
+            panelTop.Location = new Point(0, 0);
+            panelTop.Margin = new Padding(4, 3, 4, 3);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new Size(547, 28);
+            panelTop.TabIndex = 16;
             // 
             // labelInt
             // 
-            this.labelInt.AutoSize = true;
-            this.labelInt.Location = new System.Drawing.Point(16, 4);
-            this.labelInt.Name = "labelInt";
-            this.labelInt.Size = new System.Drawing.Size(79, 13);
-            this.labelInt.TabIndex = 1;
-            this.labelInt.Text = "Update interval";
+            labelInt.AutoSize = true;
+            labelInt.Location = new Point(19, 5);
+            labelInt.Margin = new Padding(4, 0, 4, 0);
+            labelInt.Name = "labelInt";
+            labelInt.Size = new Size(87, 15);
+            labelInt.TabIndex = 1;
+            labelInt.Text = "Update interval";
+            // 
+            // textBoxInterval
+            // 
+            textBoxInterval.Location = new Point(120, 3);
+            textBoxInterval.Margin = new Padding(4, 3, 4, 3);
+            textBoxInterval.Name = "textBoxInterval";
+            textBoxInterval.Size = new Size(116, 23);
+            textBoxInterval.TabIndex = 0;
+            textBoxInterval.KeyUp += textBoxInterval_KeyUp;
+            // 
+            // panelBottom
+            // 
+            panelBottom.Dock = DockStyle.Bottom;
+            panelBottom.Location = new Point(0, 382);
+            panelBottom.Margin = new Padding(4, 3, 4, 3);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new Size(547, 0);
+            panelBottom.TabIndex = 19;
             // 
             // UserControlMeteo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelCenter);
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelTop);
-            this.Controls.Add(this.panelBottom);
-            this.Name = "UserControlMeteo";
-            this.Size = new System.Drawing.Size(469, 331);
-            this.panelCenter.ResumeLayout(false);
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panelCenter);
+            Controls.Add(panelRight);
+            Controls.Add(panelLeft);
+            Controls.Add(panelTop);
+            Controls.Add(panelBottom);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "UserControlMeteo";
+            Size = new Size(547, 382);
+            panelCenter.ResumeLayout(false);
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

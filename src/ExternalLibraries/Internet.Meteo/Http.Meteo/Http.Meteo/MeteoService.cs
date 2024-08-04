@@ -293,9 +293,9 @@ namespace Http.Meteo
             try
             {
                 WebRequest req = WebRequest.Create(Url);
-                //   req.Proxy.Credentials =
-                //       new NetworkCredential(Properties.Settings.Default.username,
-                //       Properties.Settings.Default.password, Properties.Settings.Default.domain);
+                   req.Proxy.Credentials =
+                    new NetworkCredential(Properties.Resources.username,
+                      Properties.Resources.password, Properties.Resources.domain);
                 req.Timeout = 10000;
                 WebResponse rs = req.GetResponse();
                 enumerable = new StreamReader(rs.GetResponseStream(), Encoding.GetEncoding(1251), true).ToEnumerabe().GetEnumerator();

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Http.Meteo.UI.Properties {
+namespace Http.Meteo.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Http.Meteo.UI.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Http.Meteo.UI.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Http.Meteo.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,22 +61,29 @@ namespace Http.Meteo.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized string similar to dinamika.
         /// </summary>
-        internal static System.Drawing.Icon AtmosphereWeb {
+        internal static string domain {
             get {
-                object obj = ResourceManager.GetObject("AtmosphereWeb", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("domain", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized string similar to Aaaa123456.
         /// </summary>
-        internal static System.Drawing.Icon AtmosphereWebChild {
+        internal static string password {
             get {
-                object obj = ResourceManager.GetObject("AtmosphereWebChild", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ivankov.
+        /// </summary>
+        internal static string username {
+            get {
+                return ResourceManager.GetString("username", resourceCulture);
             }
         }
     }

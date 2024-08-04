@@ -1048,9 +1048,9 @@ namespace DataPerformer.UI
 
         static void PostLoad(IDesktop desktop)
         {
-            try
+     try
             {
-                desktop.ForEach((IAssociatedObject ao) =>
+     /*!!! DELETE            desktop.ForEach((IAssociatedObject ao) =>
                 {
                     object o = ao.Object;
                     if (o is Control)
@@ -1062,7 +1062,7 @@ namespace DataPerformer.UI
                             p.PostLoad();
                         }
                     }
-               });
+               });*/
             }
             catch (Exception exception)
             {

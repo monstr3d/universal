@@ -190,7 +190,7 @@ namespace Motion6D.Portable.CoreCreators
             quaternion.ToCodeCreator(l);
             l.Add("\t\t};");
             l.Add("");
-            l.Add("\t\tisSerialized = true;");
+           // !!! DELETE  l.Add("\t\tisSerialized = true;");
             l.Add("\t\tInit();");
             l.Add("\t}");
             l.Add("");

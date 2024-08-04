@@ -12,6 +12,7 @@ using System.Reflection;
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
+using Diagram.UI.Forms.Interfaces;
 
 namespace Diagram.UI.Labels
 {
@@ -20,7 +21,7 @@ namespace Diagram.UI.Labels
     /// </summary>
     [Serializable()]
     public abstract partial class UserControlBaseLabel : UserControl,
-        ISerializable, IObjectLabel, INonstandardLabel, IEnabled
+        ISerializable, IObjectLabel, INonstandardLabel, IEnabled, IPostLoadControl
     {
         #region Fields
 
@@ -331,6 +332,15 @@ namespace Diagram.UI.Labels
 
         #endregion
 
+        #region IPostLoadControl Members
+
+        void IPostLoadControl.PostLoad()
+        {
+            Post();
+        }
+
+        #endregion
+
         #region INonstandardLabel Members
 
         /// <summary>
@@ -361,6 +371,7 @@ namespace Diagram.UI.Labels
         public virtual void CreateForm()
         {
         }
+
 
         /// <summary>
         /// Associated form
