@@ -57,6 +57,9 @@ namespace Aviation.Light
 
         static void TestType()
         {
+            Type t = typeof(Http.Meteo.Serializable.MeteoService);
+            string st = t.FullName + "," + t.Assembly; //*/
+            new Gravity_36_36.Gravity();
             var gv = new Gravity_36_36.Wrapper.Serializable.Gravity();
             var b = gv is Gravity_36_36.Wrapper.Gravity;
             var ggg = (Gravity_36_36.Wrapper.Gravity)gv;
@@ -87,10 +90,7 @@ namespace Aviation.Light
 
 
             string filename = "";
-            /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
-                     string st = t.FullName + "," + t.Assembly; //*/
-            //           new Gravity_36_36.Gravity();
-            TextWriter logWriter = null;
+                    TextWriter logWriter = null;
             if (args != null)
             {
                 if (args.Length == 1)

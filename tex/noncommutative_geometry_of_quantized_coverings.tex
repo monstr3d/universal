@@ -7446,7 +7446,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 		a \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{a}  \right)  \text{ or simply } a \stackrel{\text{def}}{=} \desc \left(\widetilde{a}  \right).
 	\end{split}
 	\ee
-	If $\widetilde{\sV}$ is the closure of $\widetilde{\sU}$ then we define  the \textit{closed}-$p$-$\widetilde{\sU}$-\textit{lift}   of $a$ by the following way
+	If $\widetilde{\sV}$ is the closure of $\widetilde{\sU}$ then we define  the \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}   of $a$ by the following way
 	\be\label{top_lift_desc_closed_eqn}
 \begin{split}
 \lift^p_{\widetilde{\sV}}\left(a \right)  \bydef \lift^p_{\widetilde{\sU}}\left(a \right).
@@ -12303,10 +12303,10 @@ where $\lift^q_{\widetilde \sU}$ is a $q$-$\widetilde \sU$-lift (cf. Definition 
 	\be
 	\begin{split}
 		\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}:  A_{\sU}\xrightarrow{\cong} A_0\left(\widetilde\sY \right)_{\widetilde \sU}\\
-			a \mapsto A_0\left(q \right)\left(   a \right) \widetilde s
+			a \mapsto A_0\left(q \right)\left(   a \right) \widetilde s= \varphi \left(\widetilde s\otimes a \right) 
 		\end{split} 
 		\ee
-		where	 both $A_{\sU}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ are left ${\sU}$- and $\widetilde \sU$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}). The isomorphism $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}$ preserves $C^*$-norm.
+		where	 both $A_{\sU}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ are left ${\sU}$- and $\widetilde \sU$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}) and $\varphi$ is given by \eqref{blowing_prods_eqn} map. The isomorphism $\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}$ preserves $C^*$-norm.
 	\end{lemma}
 	\begin{proof}
 If $a\in A_{\sU}$ and $\widetilde a \bydef \pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}\left(a \right) \in  A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ then $a^*a \in  ~_{\sU}A_{\sU}$ and $\widetilde a^*\widetilde{a} \in ~_{\widetilde \sU}A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ where the notation of the Definition \ref{blowing_ideals_au_ua_defn} is used. If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then from the Lemma \ref{blowing_blowing_lem} and the Definition \ref{blowing_a_h_eqn} it follows that for any $\eps > 0$ there is $\widetilde \varphi_\eps \in C_c\left(\widetilde \sY \right)$ such that
@@ -12352,9 +12352,9 @@ there are sets $\left\{\widetilde f'_1,..., \widetilde f'_m\right\}\in C_c\left(
 $$
 \left\|  \widetilde a-\sum_{j=1}^m \varphi_A\left( a_j\right)\varphi_C\left( \widetilde f'_j\right)  \right\|< \frac{\eps}{2}.
 $$
-If $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}$ id sn approximate unit for $C_0\left( \widetilde \sU\right)$  then there is $\a_\eps \in \mathscr A$ such that
+If $\left\{\widetilde u_\a\right\}_{\a \in \mathscr A}$ is an approximate unit for $C_0\left( \widetilde \sU\right)$  then there is $\a_\eps \in \mathscr A$ such that
 $$
-\left\|  \widetilde a-\widetilde a \widetilde u_\a   \right\|< \frac{\eps}{2}
+\forall \a \ge \a_\eps \quad \left\|  \widetilde a-\widetilde a \widetilde u_\a   \right\|< \frac{\eps}{2}
 $$.
 One has 
 \bean
@@ -12446,31 +12446,18 @@ where the sum of the series implies the strict topology of $A_0\left(\widetilde\
  is the \textit{compactly supported $q$-descent}.
 \end{definition}
 \begin{definition}\label{blowing_descent_defn}
-	If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then we say that $\desc^c_q\left(\widetilde a\right)$ is  $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$.
+	If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then we say that $\desc^c_q\left(\widetilde a\right)$ is  $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$. Moreover if $\widetilde \sU\subset \widetilde \sU$ is such that
+	\begin{itemize}
+		\item $\supp \widetilde a \subset \widetilde \sU$,
+		\item $\widetilde{\sU}$ is mapped homeomorphically onto $q\left(\widetilde\sU \right)$ 
+	\end{itemize}
+ then we say that $\widetilde a$ is a $q$-$\widetilde{\sU}$-\textit{lift}. We write $\widetilde a = \lift^q_{\widetilde \sU}\left( a\right)$. Similarly to the Definition \ref{top_lift_desc_defn} we define a \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}.
 \end{definition}
+
+
 \begin{remark}
 	Both  Definitions \ref{blowing_descent_compactly_supported_defn} and  \ref{blowing_descent_defn} are generalizations  of \ref{top_compactly_supported_descent_defn} and \ref{top_lift_desc_defn} ones.
 \end{remark}
-\begin{lemma}\label{blowing_descent_pedersen_lem} 
-If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has
-	\be\label{blowing_compactly_supported_descen_oedersen_eqn}
-	\begin{split}
-	 	 K\left(A \right)_+ \subset 	\desc^c_q \left(  K\left( A_0\left(\widetilde\sY \right)\right)_+\right). 
-	\end{split} 
-	\ee	
-\end{lemma}
-\begin{proof} !!! CORRECT !!!
-If  $a \in K\left(A \right)_+$ then  $\supp a $ is compact. 	If a pair \\
-$
-\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ 
-is   a $q$-{covering} (cf. Definition \ref{top_cov_defn})
-then there is a covering sum $ f =\sum_{j=1}^n {f}_j$ for  $\supp {a}$ dominated by the family $\left\{ \sU_{ \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
-\be\label{blowing_convlt_eqn}
-a = af  = \sum_{j=1}^n a f_j.
-\ee 
-For any $j = 1,...,n$ one has $b_j \bydef  a f_j\in K\left(A \right)$. Let $\supp f_j \subset \sU_{\a_j}$ where $\a_j\in \mathscr A$, and  let $\widetilde  \a_j \in \widetilde{\mathscr A}$ is such that $q\left( \sU_{\widetilde\a_j}\right) = \sU_{\a_j}$. If $\widetilde b_j =\varphi_A\left(b_j \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ then from the proof of the Lemma \ref{blowing_descent_lem} it follows that $b_j = \desc^c_p\left(\widetilde b_j\right)$. If  $b_j\in K\left( A\right)_+$ then  $b_j \le  \sum_{l= 1} f_{\eps_l}\left(b^l_j \right)$ where $b^l_j \in  A_+$ (cf. Lemma \ref{pedersen_eps_lem}). We can suppose that $b^l_j=b^l_js_{\a_j}$. If $\widetilde b^l_j\bydef \varphi_A\left(b_j \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ then $f_{\eps_j}\left( \widetilde b^l_j\right) = \varphi_A\left(f_{\eps_j}\left( b^l_j \right) \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ and $\widetilde b_j \le\sum_{l= 1}^m f_{\eps_l}\left(\widetilde b^l_j \right)$, i.e. $\widetilde b_j \in  K\left( A_0\left(\widetilde\sY \right)\right)$. The  completion of the proof is left to the reader.
-\end{proof}
-
 
 \begin{exercise}\label{blowing_hausdorff_exer}
 	Let $A$ be a $C^*$-algebra with Hausdorff, connected spectrum $\sX$, and let $C_0\left( \sX\right)\subset M\left(A \right)$ be Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). Let $p: \widetilde{\sX}\to \sX$ be a transitive covering with residually finite group $G\left(\left.\widetilde \sX\right|\sX \right)$ of covering transformations. Prove following statements.
@@ -12565,6 +12552,33 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	\ee
 	is a \textit{finite}-$q$-\textit{lift} or simply a $q$-\textit{lift} of $A$. 	
 \end{definition}
+\begin{lemma}\label{blowing_pederesen_fin_lem}
+	If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) and  $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular}  (cf. Definition \ref{blowing_a_regular_defn}) finite-fold  transitive covering then Pedersen's ideal $K\left(A_0\left( \widetilde \sY\right) \right)$ equals to 
+	$$
+	K\left(A_0\left( \widetilde \sY\right) \right) =\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  
+	$$
+	where $A_0\left( \widetilde \sY\right)$ is the $q$-lift of $A$ (cf. Definition \ref{blowing_lift_defn}), and $\varphi$ is given by the equation \eqref{blowing_tensor_eqn}
+\end{lemma}
+\begin{proof}
+	If 	
+	$A_0\left(q\right) : A \hookto	 A_0\left( \widetilde \sY\right)  
+	$
+	is a {finite}-$q$-{lift} and $f_\eps$ is given by \eqref{f_eps_eqn} then from
+	$$
+\forall a \in A_+\quad \forall \eps > 0	\quad f_\eps \left( 	A_0\left(q\right) \left( a\right) \right) = A_0\left(q\right) \left(f_\eps \left(  a\right) \right)
+	$$
+	one can deduce that $A_0\left(q\right) \left(K \left( A\right) \right)\cong \varphi_A \left( A\right) \subset 	K\left(A_0\left( \widetilde \sY\right) \right)$ where $\varphi_A$ is given by \eqref{blowing_a_h_eqn}. Taking into  \eqref{blowing_tensor_eqn} and that $K\left(A_0\left( \widetilde \sY\right)\right) $ is a two sided one has
+	$$
+\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  \subset 	K\left(A_0\left( \widetilde \sY\right) \right)
+	$$
+	Otherwise from the Definition \ref{blowing_lift_defn} if follows that $\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ is dense in $A_0\left( \widetilde \sY\right)$. On the other hand $K\left(A_0\left( \widetilde \sY\right) \right)$ is  the minimal dense ideal of $A_0\left( \widetilde \sY\right)$ (cf. the Theorem \ref{pedersen_ideal_thm}), so one has 
+	$$
+K\left(A_0\left( \widetilde \sY\right) \right) =\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  
+$$
+	
+\end{proof}
+
+
 \begin{lemma}\label{blowing_proper_group_lem}
 	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}).
 	If the space $\sY$ is locally connected (cf. Definition \ref{top_locally_connected_defn}) and $\widetilde \sY$ is connected then	there is a natural isomorphism of groups
@@ -12707,6 +12721,71 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 	\ee
 	Since $\sum_{j=1}^n \widetilde ff'_j a_j$ belongs to generated by elements \eqref{blowing_far_eqn} module one has $\sum_{j=1}^n \widetilde ff'_j a_j\in A_0\left(\widetilde \sY \right)$ and taking into account \eqref{blowing_farr_eqn} one has $\widetilde f a'\in A_0\left(\widetilde \sY \right)$. So the closure of generated by \eqref{blowing_farf_eqn} module equals to  $A_0\left(\widetilde \sY \right)$. So the covering $\widetilde q': \widetilde{\sY}\to \sY'$ is $A_0\left( \sY' \right)$-{regular} (cf. Definition \ref{blowing_a_regular_defn}). From  the Lemma \ref{blowing_lift_constr_lem}  it follows that there is a  $\widetilde q'$-lift  $	A_b\left(\widetilde q'\right) :A_0\left( \sY' \right) \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$.
 \end{proof}
+\begin{lemma}\label{blowing_pederesen_inf_lem}
+	If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) and  $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular}  (cf. Definition \ref{blowing_a_regular_defn})  transitive covering then Pedersen's ideal $K\left(A_0\left( \widetilde \sY\right) \right)$ equals to 
+	$$
+	K\left(A_0\left( \widetilde \sY\right) \right) =\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  
+	$$
+	where $A_0\left( \widetilde \sY\right)$ is the $q$-lift of $A$ (cf. Definition \ref{blowing_lift_defn}), and $\varphi$ is given by the equation \eqref{blowing_tensor_eqn}
+\end{lemma}
+\begin{proof}
+	If the covering $q: \widetilde{\sY}\to \sY$ is finite-fold then this Lemma follows from the \ref{blowing_pederesen_fin_lem} one. If $\widetilde a \in K\left(A_0\left( \widetilde \sY\right) \right)$ then $\supp \widetilde a$ is compact (cf. Lemma \ref{blowing_pedersen_compact_lem}). If $\widetilde f\in C_c\left( \widetilde \sY\right) $ is a covering sum for $\supp \widetilde a$ then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that
+	\begin{itemize}
+		\item $q = q' \circ \widetilde q$,
+		\item the covering $q'$ is finite-fold,
+		\item the set $\supp \widetilde f$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f \right)$.
+	\end{itemize}
+If $\widetilde \sV\bydef\left\{\left.\widetilde y \in \widetilde \sY\right| \widetilde f\left( \widetilde{y}\right)> 0 \right\}$  then $\widetilde{a} \in~ _{\widetilde\sV}A_0\left( \widetilde \sY\right)_{\widetilde\sV}$ where $_{\widetilde\sU}A_0\left( \widetilde \sY\right)_{\widetilde\sU}$ is the ${\widetilde\sV}$-subalgebra (cf. Definition \ref{blowing_ideals_au_ua_defn}). There is $\widetilde a' \in ~_{\widetilde q\left( \widetilde\sV\right) }A_0\left( \widetilde \sY'\right)_{\widetilde q\left( \widetilde\sV\right) }$ such that $\widetilde a = \lift_{\widetilde \sV}^{\widetilde q}\left(\widetilde a' \right)$ where $\lift_{\widetilde \sU}^{\widetilde q}$ is  the $q$-$\widetilde \sV$-lift (cf. Definition \ref{blowing_descent_defn}). If $f_\eps$ is given by \eqref{f_eps_eqn} then one can proof that
+$$
+\forall \widetilde b'  \in ~_{\widetilde q\left( \widetilde\sV\right) }A_0\left( \widetilde \sY'\right)_{\widetilde q\left( \widetilde\sV\right) }\quad f_\eps \left(  \lift_{\widetilde \sV}^{\widetilde q}\left( \widetilde b'\right) \right) = \lift_{\widetilde \sV}^{\widetilde q}\left( f_\eps \left( \widetilde b'\right) \right).
+$$
+Using this fact, the Lemma \ref{pedersen_eps_lem} and the Definition \ref{pedersen_ideal_eqn} one can prove that $\widetilde a' \in K\left(A_0\left( \widetilde \sY'\right) \right)$. If 
+$$
+\varphi' : C_c\left(\widetilde\sY' \right)\otimes _{C_0\left( \sY \right) } A \to A_0\left(\widetilde\sY' \right)
+$$
+is given by \eqref{blowing_tensor_eqn} then from the Lemma \ref{blowing_pederesen_inf_lem} it follows that there is
+$$
+\sum_{j= 1}^n \widetilde f_j \otimes a_j \in C_c\left(\widetilde\sY' \right)\otimes _{C_0\left( \sY \right) } A \to A_0\left(\widetilde\sY' \right)
+$$
+such that $\widetilde a'= \varphi'\left( \sum_{j= 1}^n \widetilde f_j \otimes a_j\right)$. 
+Using this fact one can prove that
+$$
+\widetilde a = \varphi \left(\sum_{j= 1}^n \widetilde f \lift_{\widetilde{q}}\left( \widetilde f'_j\right)  \otimes a_j \right) 
+$$
+where $\lift_{\widetilde{q}}: C_0\left(\widetilde \sY' \right) \hookto C_b\left(\widetilde \sY \right)$ is  the $\widetilde{q}$-lift (cf. Definition \ref{top_lift_defn}).
+	.\end{proof}
+\begin{lemma}\label{blowing_descent_pedersen_lem} 
+	If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has
+	\be\label{blowing_compactly_supported_descen_oedersen_eqn}
+	\begin{split}
+		K\left(A \right) \subset 	\desc^c_q \left(  K\left( A_0\left(\widetilde\sY \right)\right)\right). 
+	\end{split} 
+	\ee	
+\end{lemma}
+\begin{proof}
+	If  $a \in K\left(A \right)$ then  $\supp a $ is compact. 	If a pair
+	$$
+	\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ 
+	is   a $q$-{covering} (cf. Definition \ref{top_cov_defn})
+	then there is a covering sum $ f =\sum_{j=1}^n {f}_j$ for  $\supp {a}$ dominated by the family $\left\{ \sU_{ \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
+	\be\label{blowing_convlt_eqn}
+	\begin{split}
+	a = af  = \sum_{j=1}^n a f_j,\\
+	\forall j = 1,..., n \quad \exists \a_j \in \mathscr A \quad \supp f_j \in \sU_{\a_j}
+	\end{split}
+	\ee 
+	For any $j = 1,...,n$ one has $a f_j\in K\left(A \right)$. If $\widetilde  \a_j \in \widetilde{\mathscr A}$ is such that $q\left( \widetilde \sU_{\widetilde\a_j}\right) = \sU_{\a_j}$ then from the Lemma \ref{blowing_pederesen_inf_lem} it follows that 
+	$$
+\forall j = 1,...,n \quad 	\widetilde a_j \bydef \varphi\left(  \widetilde s_{\widetilde a_j}\otimes  af_j\right)\in K\left( A\left(\widetilde \sY \right) \right).  
+	$$
+	On the other hand from the 
+	
+	
+	
+	. If $\widetilde b_j =\varphi_A\left(b_j \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ then from the proof of the Lemma \ref{blowing_descent_lem} it follows that $b_j = \desc^c_p\left(\widetilde b_j\right)$. If  $b_j\in K\left( A\right)_+$ then  $b_j \le  \sum_{l= 1} f_{\eps_l}\left(b^l_j \right)$ where $b^l_j \in  A_+$ (cf. Lemma \ref{pedersen_eps_lem}). We can suppose that $b^l_j=b^l_js_{\a_j}$. If $\widetilde b^l_j\bydef \varphi_A\left(b_j \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ then $f_{\eps_j}\left( \widetilde b^l_j\right) = \varphi_A\left(f_{\eps_j}\left( b^l_j \right) \right)  \varphi_C\left( \widetilde s_{\widetilde\a_j}\right)$ and $\widetilde b_j \le\sum_{l= 1}^m f_{\eps_l}\left(\widetilde b^l_j \right)$, i.e. $\widetilde b_j \in  K\left( A_0\left(\widetilde\sY \right)\right)$. The  completion of the proof is left to the reader.
+\end{proof}
+
+
 
 \subsection{Induced representations}
 
@@ -13222,7 +13301,6 @@ $$
 \be\label{blowing_disconnected_eqn}
 \overline \sY \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\sY.
 \ee
-
 	(i)
 	If $\overline A$ is a $C^*$-norm completion of an algebraic direct sum 
 	$$

@@ -1,22 +1,25 @@
 ﻿using System.Runtime.Serialization;
 
-using DataPerformer.Interfaces;
-using DataPerformer.Portable.Measurements;
-using Diagram.UI;
 using SerializationInterface;
 
 namespace Http.Meteo.Serializable
 {
+    /// <summary>
+    /// Meteorological service
+    /// </summary>
+    [Serializable]
     public class  MeteoService : Wrapper.MeteoService, ISerializable
     {
-        #region ISerializable Members
 
-        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.Serialize<object[]>("Properties", values);
+        #region Ctor
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public MeteoService() 
+        { 
+        
         }
-
-        #endregion
 
         /// <summary>
         /// Deserilaization constructor
@@ -32,13 +35,14 @@ namespace Http.Meteo.Serializable
         }
 
 
-        #region Members
+        #endregion
 
-  
+        #region ISerializable Members
 
-      
-
-
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.Serialize<object[]>("Properties", values);
+        }
 
         #endregion
 

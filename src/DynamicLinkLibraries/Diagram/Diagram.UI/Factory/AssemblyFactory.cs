@@ -123,7 +123,7 @@ namespace Diagram.UI.Factory
                         }
                         return of[kind];
                     }
-                    ConstructorInfo cons = t.GetConstructor(new System.Type[0]);
+                    ConstructorInfo cons = t.GetConstructor(new Type[0]);
                     if (cons != null)
                     {
                         ICategoryObject ob = cons.Invoke(null) as ICategoryObject;

@@ -1,11 +1,15 @@
 ﻿using CategoryTheory;
+
+using Diagram.UI;
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
-using Diagram.UI;
-using System.Linq;
 
 namespace Http.Meteo.Wrapper
 {
+    /// <summary>
+    /// Meteorological service
+    /// </summary>
     public class MeteoService : Meteo.MeteoService, ICategoryObject,
          IMeasurements
     {

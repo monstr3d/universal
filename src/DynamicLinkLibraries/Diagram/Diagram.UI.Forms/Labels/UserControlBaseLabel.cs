@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Reflection;
@@ -54,6 +50,11 @@ namespace Diagram.UI.Labels
         /// Error message
         /// </summary>
         public const string IllegalParent = "You should not set parent to UI component";
+
+        /// <summary>
+        /// Firswt load sign
+        /// </summary>
+        bool firslLoad = true;
 
         #endregion
 
@@ -336,6 +337,11 @@ namespace Diagram.UI.Labels
 
         void IPostLoadControl.PostLoad()
         {
+            if (!firslLoad)
+            {
+                return;
+            }
+            firslLoad = false;
             Post();
         }
 

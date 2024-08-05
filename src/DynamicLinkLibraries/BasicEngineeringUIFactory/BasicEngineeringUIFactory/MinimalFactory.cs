@@ -189,7 +189,7 @@ namespace BasicEngineering.UI.Factory
 
         public override IObjectLabelUI CreateObjectLabel(IPaletteButton button)
         {
-            return CreateObjectLabel(button.ReflectionType, button.Kind, button.ButtonImage as System.Drawing.Image);
+            return CreateObjectLabel(button.ReflectionType, button.Kind, button.ButtonImage as Image);
         }
 
  
@@ -274,7 +274,7 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
-        private IObjectLabelUI CreateObjectLabel(Type t, string kind, System.Drawing.Image image)
+        private IObjectLabelUI CreateObjectLabel(Type t, string kind, Image image)
         {
             if (t == null)
             {

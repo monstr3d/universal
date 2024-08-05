@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Http.Meteo.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace Http.Meteo.Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            StaticExtensionHttpMeteoUI.Init();
 
             Application.Run(new UI.Forms.FormMeteo(new Wrapper.MeteoService()));
         }
