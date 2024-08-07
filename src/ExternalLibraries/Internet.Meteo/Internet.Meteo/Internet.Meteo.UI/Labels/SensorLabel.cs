@@ -1,10 +1,13 @@
-﻿using Diagram.UI.Labels;
+﻿using CategoryTheory;
+using Diagram.UI.Labels;
+using Internet.Meteo.UI.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Internet.Meteo.UI.Labels
 {
@@ -12,41 +15,45 @@ namespace Internet.Meteo.UI.Labels
     public class SensorLabel : UserControlBaseLabel
     {
         /// <summary>
- 
-            #region Fields
-  
-            Form form;
 
-            #endregion
+        #region Fields
 
-            #region Ctor
+        Form form;
 
-            /// <summary>
-            /// Default constructor
-            /// </summary>
-            public SensorLabel()
-                : base(typeof(Internet.Meteo.), "", ResourceImage.Series.ToBitmap())
+        Wrapper.Sensor sensor;
+
+        UserControlTemperature uc;
+
+        #endregion
+
+        #region Ctor
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public SensorLabel()
+            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.thermometer)
+        {
+
+        }
+
+
+        /// <summary>
+        /// Deserialization constructor
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        protected SensorLabel(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+            try
             {
-
+                //formula = info.GetString("Formula");
             }
-
-
-            /// <summary>
-            /// Deserialization constructor
-            /// </summary>
-            /// <param name="info">Serialization info</param>
-            /// <param name="context">Streaming context</param>
-            protected SensorLabel(SerializationInfo info, StreamingContext context)
-                : base(info, context)
+            catch (Exception)
             {
-                try
-                {
-                    //formula = info.GetString("Formula");
-                }
-                catch (Exception)
-                {
-                }
             }
+        }
 
         #endregion
 
@@ -61,130 +68,89 @@ namespace Internet.Meteo.UI.Labels
         {
         }
 
-            #endregion
+        #endregion
 
-            #region IObjectLabel Members
+        #region IObjectLabel Members
 
-            /// <summary>
-            /// Object
-            /// </summary>
-            public override ICategoryObject Object
+        /// <summary>
+        /// Object
+        /// </summary>
+        public override ICategoryObject Object
+        {
+            get
             {
-                get
-                {
-                    return series;
-                }
-                set
-                {
-                    if (!(value is Series))
-                    {
-                        CategoryException.ThrowIllegalSourceException();
-                    }
-                    series = value as Series;
-                    value.Object = this;
-                    ucs.Series = series;
-                }
+                return sensor;
             }
-
-            #endregion
-
-            #region IPostSet Members
-
-            void IPostSet.Post()
+            set
             {
-                ucs.ShowStrip(true, array);
-                ucs.ShowInternal();
+                if (!(value is Sensor))
+                {
+                    CategoryException.ThrowIllegalSourceException();
+                }
+                sensor = value as Wrapper.Sensor;
+                value.Object = this;
+                uc.Sensor = sensor;
             }
-
-            #endregion
-
-            #region Overriden Members
-
-
-            /// <summary>
-            /// Post operation
-            /// </summary>
-            public override void Post()
-            {
-                try
-                {
-                }
-                catch (Exception ex)
-                {
-
-                }
-            }
-
-            /// <summary>
-            /// Associated form
-            /// </summary>
-            public override object Form
-            {
-                get
-                {
-                    form = new Forms.FormSeries(this, array);
-                    return form;
-                }
-            }
-
-            /// <summary>
-            /// Load operation
-            /// </summary>
-            /// <param name="info">Serialization info</param>
-            /// <param name="context">Streaming context</param>
-            protected override void Load(SerializationInfo info, StreamingContext context)
-            {
-                base.Load(info, context);
-                try
-                {
-                    if (type == null)
-                    {
-                        type = typeof(DataPerformer.Series);
-                    }
-                    array = info.GetValue("Array", typeof(object[])) as object[];
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-
-            /// <summary>
-            /// Internal control
-            /// </summary>
-            protected override UserControl Control
-            {
-                get
-                {
-                    ucs = new UserControlSeries();
-                    return ucs;
-                }
-            }
-
-
-
-            #endregion
-
-            #region Specific Members
-
-            internal string Formula
-            {
-                get
-                {
-                    if (formula.Length == 0)
-                    {
-                        return ResourceFormula.ZeroFormula;
-                    }
-                    return formula;
-                }
-                set
-                {
-                    this.formula = value;
-                }
-            }
-
-            #endregion
-
-
         }
+
+        #endregion
+
+        #region Overriden Members
+
+
+        /// <summary>
+        /// Post operation
+        /// </summary>
+        public override void Post()
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Associated form
+        /// </summary>
+        public override object Form
+        {
+            get => null;
+        }
+
+        /// <summary>
+        /// Load operation
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        protected override void Load(SerializationInfo info, StreamingContext context)
+        {
+            base.Load(info, context);
+        }
+
+        /// <summary>
+        /// Internal control
+        /// </summary>
+        protected override UserControl Control
+        {
+            get
+            {
+                uc = new UserControlTemperature();
+                return uc;
+            }
+        }
+
+
+
+        #endregion
+
+        #region Specific Members
+
+        #endregion
+
+
     }
+}
+

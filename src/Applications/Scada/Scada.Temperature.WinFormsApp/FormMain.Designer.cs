@@ -28,27 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            termometer = new Windows.UI.UserControls.Term();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            thermometer = new Windows.UI.UserControls.Term();
             control = new Windows.UI.UserControls.Slider();
             SuspendLayout();
             // 
-            // termometer
+            // thermometer
             // 
-            termometer.Event = "Combination";
-            termometer.Location = new Point(165, 46);
-            termometer.Max = 100F;
-            termometer.Min = 0F;
-            termometer.Name = "termometer";
-            termometer.Output = "ODE.x";
-            termometer.Size = new Size(80, 140);
-            termometer.TabIndex = 3;
+            thermometer.Event = "Combination";
+            thermometer.Location = new Point(165, 46);
+            thermometer.Name = "thermometer";
+            thermometer.Output = "ODE.x";
+            thermometer.Size = new Size(80, 140);
+            thermometer.TabIndex = 3;
             // 
             // control
             // 
             control.Input = "Control.Value";
             control.Location = new Point(31, 46);
-            control.Max = 100F;
-            control.Min = 0F;
             control.Name = "control";
             control.Size = new Size(90, 140);
             control.TabIndex = 2;
@@ -58,16 +55,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(277, 233);
-            Controls.Add(termometer);
+            Controls.Add(thermometer);
             Controls.Add(control);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormMain";
-            Text = "FormMain";
+            Text = "Temperatue control";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Windows.UI.UserControls.Term termometer;
+        private Windows.UI.UserControls.Term thermometer;
         private Windows.UI.UserControls.Slider control;
     }
 }

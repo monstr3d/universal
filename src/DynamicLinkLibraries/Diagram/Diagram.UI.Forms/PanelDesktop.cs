@@ -13,6 +13,7 @@ using CategoryTheory;
 
 using MathGraph;
 
+using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
@@ -808,6 +809,7 @@ namespace Diagram.UI
         /// </summary>
         public void RemoveAll()
         {
+            this.DisposeObjectsAndArrows();
             foreach (Control c in Controls)
             {
                 c.PreRemove();

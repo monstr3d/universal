@@ -57,7 +57,7 @@ namespace Aviation.Light
 
         static void TestType()
         {
-            Type t = typeof(Http.Meteo.Serializable.MeteoService);
+            Type t = typeof(Internet.Meteo.Wrapper.Serializable.Sensor);
             string st = t.FullName + "," + t.Assembly; //*/
             new Gravity_36_36.Gravity();
             var gv = new Gravity_36_36.Wrapper.Serializable.Gravity();

@@ -153,15 +153,15 @@ namespace Database.UI.Factory
 
             if (t.Equals(typeof(DataSetService.StatementWrapper)))
             {
-                return (new Labels.QueryLabel()).CreateLabelUI(image, false);
+                return (new QueryLabel()).CreateLabelUI(image, false);
             }
             if (t.Equals(typeof(DataSetService.SavedDataProvider)))
             {
-                return (new Labels.SavedDataLabel()).CreateLabelUI(image, false);
+                return (new SavedDataLabel()).CreateLabelUI(image, false);
             }
             if (t.Equals(typeof(DataSetService.ExternalDataSetProvider)))
             {
-                return (new Labels.SavedDataLabel()).CreateLabelUI(image, false);
+                return (new SavedDataLabel()).CreateLabelUI(image, false);
              }
             return null;
         }

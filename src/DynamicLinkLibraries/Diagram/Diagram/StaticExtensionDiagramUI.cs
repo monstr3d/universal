@@ -15,6 +15,7 @@ using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 
 using AssemblyService;
+
 using System.Data;
 
 namespace Diagram.UI
@@ -76,6 +77,22 @@ namespace Diagram.UI
 
         #region Public Memberes
 
+        /// <summary>
+        /// Disposes a collection of components
+        /// </summary>
+        /// <param name="components">The collection of components</param>
+        public static void DisposeObjectsAndArrows(this IComponentCollection components)
+        {
+            var action = (object o) =>
+            {
+                if (o is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+            };
+            components.ForAll<ICategoryObject>(action);
+            components.ForAll<ICategoryArrow>(action);
+        }
         /// <summary>
         /// Creates data table
         /// </summary>
