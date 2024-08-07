@@ -5,6 +5,9 @@
 
         #region Fields
 
+
+        protected string kind;
+
         double value;
 
         object block = new object();
@@ -59,14 +62,35 @@
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="kind">Kind</param>
+        public Sensor(string kind)
+        {
+            Set(kind);
+        }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        protected Sensor()
+        {
+
+        }
+
+  
         #endregion
-
 
 
         void IDisposable.Dispose()
         {
             KillTask();
+        }
+
+        protected void Set(string kind)
+        {
+            this.kind = kind;
         }
 
         void DoWork()
