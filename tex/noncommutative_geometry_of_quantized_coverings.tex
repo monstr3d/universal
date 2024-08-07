@@ -12742,7 +12742,7 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 	where $A_0\left( \widetilde \sY\right)$ is the $q$-lift of $A$ (cf. Definition \ref{blowing_lift_defn}), and $\varphi^{\widetilde \sY}_A$ is given by the equation \eqref{blowing_tensor_eqn}.
 \end{lemma}
 \begin{proof}
-	If the covering $q: \widetilde{\sY}\to \sY$ is finite-fold then this Lemma follows from the \ref{blowing_pederesen_fin_lem} one. 
+	If the covering $q: \widetilde{\sY}\to \sY$ is finite-fold then this lemma follows from the \ref{blowing_pederesen_fin_lem} one. 
 	
 	If $\widetilde a \in K\left(A_0\left( \widetilde \sY\right) \right)_+$ then there is a finite set $\left\{\widetilde a_1,..., \widetilde a_n\right\}\in K\left(A_0\left( \widetilde \sY\right) \right)_0$ such that $\widetilde a \le \sum_{j=1}^n \widetilde a_j$ (cf. the equation  \eqref{pedersen_k_plus_eqn}). From the Lemma \ref{pedersen_eps_lem} it follows that for any $j \in \left\{1, ,,,, n\right\}$ there is $\widetilde b_j \in A_0\left( \widetilde \sY\right)_+$ and $\eps_j > 0$ such that $\widetilde a_j = f_{\eps_j}\left( \widetilde b_j\right)$ where $f_{\eps_j}$ is given by \eqref{f_eps_eqn}. From $ f_{\eps_j}= f_{\eps_j/2}\circ f_{\eps_j/2}$ it follows that $\widetilde a_j = f_{\eps_j/2}\circ f_{\eps_j/2}\left(\widetilde b_j \right)$. On the other hand from the Lemma \ref{pedersen_eps_lem} and the Theorem \ref{blowing_pedersen_compact_lem} it follows that the for each $j\in \left\{1, ..., n\right\}$ the set $\supp f_{\eps_j/2}\left(\widetilde b_j \right)$  is compact, so the finite union $\bigcup_{j=1}^n \supp f_{\eps_j/2}\left(\widetilde b_j \right)$ is also compact.
 	 If $\widetilde f\in C_c\left( \widetilde \sY\right) $ is a covering sum for $\bigcup_{j=1}^n \supp f_{\eps_j/2}\left(\widetilde b_j \right)$ then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
@@ -12768,14 +12768,27 @@ $$
 $$
 where $\lift_{\widetilde{q}}: C_0\left(\widetilde \sY' \right) \hookto C_b\left(\widetilde \sY \right)$ is  the $\widetilde{q}$-lift (cf. Definition \ref{top_lift_defn}). Since $K\left(A_0\left(\widetilde \sY \right)  \right)$ is the algebraic $\C$-linear span of $K\left(A_0\left(\widetilde \sY \right)  \right)_+$ one can conclude that any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right)  \right)$ satisfies to the conditions (a) and (b).
 
-Conversely suppose that $\widetilde a \in A_0\left(\widetilde \sY \right)$ satisfies to the conditions (a) and (b). If $\widetilde f$ is a covering sum of $\supp \widetilde a$ then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
+Conversely suppose that $\widetilde a \in A_0\left(\widetilde \sY \right)$ satisfies to the conditions (a) and (b). If $\widetilde f\in C_c\left(\widetilde \sY \right) $ is a covering sum of $\supp \widetilde a$,  $~\widetilde f'\in C_c\left(\widetilde \sY \right)$  is a covering sum for $\supp \widetilde f$ and $~\widetilde f''\in C_c\left(\widetilde \sY \right)$  is a covering sum for $\supp \widetilde f'$ (cf. Definition \ref{top_covering_sum_defn}) then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
 \begin{itemize}
 	\item $q = q' \circ \widetilde q$,
 	\item the covering $q'$ is finite-fold,
-	\item the set $\supp \widetilde f$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f \right)$.
+	\item the set $\supp \widetilde f''$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f'' \right)$.
 \end{itemize}
-From the condition (b) it follows that there is $\sum_{j=1}^n \widetilde f_j \otimes a_j$ such that $\widetilde a =$ 
-!!! CONTINUE !!!
+From the condition (b) it follows that there is $\sum_{j=1}^n \widetilde f_j \otimes a_j\in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }\otimes A$ such that $\widetilde a =\varphi^{\widetilde \sY}_A\left( \sum_{j=1}^n \widetilde f_j \otimes a_j\right)$. Since $\widetilde f$ is a covering sum of $\widetilde a$ one has
+\bean
+\widetilde a = \widetilde f'\widetilde f \widetilde a \widetilde f \widetilde f' = \sum^n_{j=1} \varphi_{\widetilde \sY} \left(\widetilde f' \widetilde f \widetilde f_j\right) \varphi_A\left( a_j\right)\varphi_{\widetilde \sY} \left( \widetilde f\widetilde f' \right)=\\= 
+\sum^n_{j=1} \varphi_{\widetilde \sY} \left( {\widetilde f'} \right)\varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right) \times \\ \times  \varphi_{\widetilde \sY} \left( {\widetilde f}' \right) = \varphi_{\widetilde \sY} \left( {\widetilde f}' \right)\times \\ \times 
+\left(\sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\right)   \varphi_{\widetilde \sY} \left( {\widetilde f}' \right)
+\eean 
+From the Lemma \ref{blowing_pederesen_fin_lem} it follows that
+$$
+\widetilde a' \bydef \sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\in K\left( A_0\left( \widetilde \sY'\right) \right),
+$$
+so one has
+$$
+\widetilde a = \varphi_{\widetilde \sY} \left( {\widetilde f}\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde a'\right) \varphi_{\widetilde \sY} \left( \widetilde f\right)
+$$
+!!!
 \end{proof}
 \begin{lemma}\label{blowing_descent_pedersen_lem} 
 	If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has
