@@ -4,11 +4,17 @@ namespace Internet.Meteo.Wrapper
 {
     public class Sensor : Meteo.Sensor, ICategoryObject
     {
+        #region Fields
 
-        object obj;
+ 
+        #endregion
+
+        #region IAssociatedObject members
 
         object IAssociatedObject.Object
-        { get => obj; set => obj = value; }
+        { get; set; }
+
+        #endregion
 
         #region Ctor
 

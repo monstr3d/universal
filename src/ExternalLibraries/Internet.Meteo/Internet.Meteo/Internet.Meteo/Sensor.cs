@@ -14,20 +14,61 @@
 
         Task task;
 
-        Func<string, string> request;
+        Dictionary<string, Func<string, string>> requests; 
+
+
+        string request;
+
+
+        public event Action<float> OnValueChange;
+
+        private string key;
+
+
+        #endregion
+
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="kind">Kind</param>
+        public Sensor(string kind) : this()
+        {
+            Set(kind);
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        protected Sensor()
+        {
+            requests = new Dictionary<string, Func<string, string>>()
+            {
+                {"thermometer", currentTemperature }
+            };
+        }
 
         #endregion
 
         #region Public Members
 
-        public string Key { get; set; }
+        public string Key 
+        {
+            get => key;
+            set
+            {
+                key = value;
+                request = requests[kind](key);
+            }
+        }
 
         public string Posiition { get; set; }
 
 
         public int Interval { get; set; }
 
-    
+
         public double GetValue()
         {
             lock (block)
@@ -52,7 +93,6 @@
                 }
                 if (task != null)
                 {
-                    task.Dispose();
                     task = null;
                 }
             }
@@ -60,33 +100,17 @@
 
         #endregion
 
-        #region Ctor
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="kind">Kind</param>
-        public Sensor(string kind)
-        {
-            Set(kind);
-        }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        protected Sensor()
-        {
-
-        }
-
-  
-        #endregion
-
+        #region IDisposable members
 
         void IDisposable.Dispose()
         {
             KillTask();
         }
+
+        #endregion
+
+        #region Protected Members
 
         protected void Set(string kind)
         {
@@ -94,9 +118,19 @@
         }
 
         void DoWork()
-        { 
-        
+        {
+
         }
+
+        #endregion
+
+        #region Private Members
+
+        string currentTemperature(string key)
+        {
+            return "";
+        }
+
 
         void KillTask()
         {
@@ -105,6 +139,8 @@
                 task.Dispose();
             }
         }
+
+        #endregion
 
     }
 }

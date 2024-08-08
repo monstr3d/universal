@@ -14,9 +14,14 @@ namespace Internet.Meteo.UI.UserControls
     {
 
         Wrapper.Sensor sensor;
-        public UserControlTemperature()
+
+        float min, max, step;
+        public UserControlTemperature(float min, float max, float step)
         {
             InitializeComponent();
+            this.min = min;
+            this.max = max;
+            this.step = step;
         }
 
 
@@ -26,5 +31,6 @@ namespace Internet.Meteo.UI.UserControls
             set => sensor = value;
 
         }
+
     }
 }

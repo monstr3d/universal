@@ -1042,7 +1042,7 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 
 
 
-\begin{definition}\label{top_char_f_defn}
+\begin{definition}\label{top_characteristic_function_defn}
 	If $\sX$ is a set and $\sU \subset \sX$  then a map 
 	\be\label{top_char_f_eqn}
 	\begin{split}
@@ -1058,7 +1058,7 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 
 
 \begin{empt}\label{top_u_net_rep_empt}
-	Let $\sX$ be a locally compact, Hausdorff space, and let $\rho: C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation, and let $C_0\left(\sX\right)''\subset  B\left(\H \right)$ be a bicommutant (cf. There is an inclusion $C_0\left(\sX\right)\subset C_0\left(\sX\right)''$ such that the representation $\rho$ can be extended up to $\rho'': C_0\left(\sX\right)''\hookto B\left(\sH\right)$. If $\chi_\sU$ is a characteristic function of a Borel set $\sU$ (cf. Definition \ref{top_char_f_defn}) then one can suppose that $\chi_\sU\in C_0\left(\sX\right)''$.
+	Let $\sX$ be a locally compact, Hausdorff space, and let $\rho: C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation, and let $C_0\left(\sX\right)''\subset  B\left(\H \right)$ be a bicommutant (cf. There is an inclusion $C_0\left(\sX\right)\subset C_0\left(\sX\right)''$ such that the representation $\rho$ can be extended up to $\rho'': C_0\left(\sX\right)''\hookto B\left(\sH\right)$. If $\chi_\sU$ is a characteristic function of a Borel set $\sU$ (cf. Definition \ref{top_characteristic_function_defn}) then one can suppose that $\chi_\sU\in C_0\left(\sX\right)''$.
 	Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in the Exercise \ref{top_u_net_exer} net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho''\left(\chi_\sU \right)$. 
 \end{empt}
 \section{Strict and strong limits}
@@ -11635,7 +11635,7 @@ An element $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong
 		$$
 	\left\| \widetilde \xi \right\|^2= \sum_{g \in G_{\la{\supp \widetilde a}}}
 \left\|\chi_{\supp g \widetilde a} \widetilde \xi \right\|^2$$
-where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\widetilde a$  (cf. Definition \ref{top_char_f_defn}).  If $e\in G\left(\left.\widetilde M\right| M\right)$  is the  neutral  element then for any $\delta > 0$ there is a finite subset $S'\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
+where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\widetilde a$  (cf. Definition \ref{top_characteristic_function_defn}).  If $e\in G\left(\left.\widetilde M\right| M\right)$  is the  neutral  element then for any $\delta > 0$ there is a finite subset $S'\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
  $$
  \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S' \cup \{e\}\right)}
  \left\| \chi_{\supp g\widetilde a} \widetilde \xi \right\|^2 < \delta.
@@ -11979,7 +11979,32 @@ However it is impossible since $a \le c$, so $\supp a \subsetneqq \supp c$ is no
 \begin{remark}
 	The Lemma \ref{blowing_pedersen_compact_lem} can be regarded as a generalization of the equation  \eqref{peder_c0_eqn}.
 \end{remark}
-
+\begin{lemma}\label{blowing_faf_lem}
+Let $C_0\left( \sY\right)\to M\left(A \right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let $a \in A_+$ be a positive element. If $f \in C_c\left(\sY\right)$ is such that:
+\begin{itemize}
+	\item $f\left(\sY \right)= \left[0,1\right]$,
+	\item $f\left(\supp f_\eps\left( a\right)  \right) = \{1\}$ where $\eps > 0$ and $f_\ep$ is given by the equation \eqref{f_eps_eqn} 
+\end{itemize}
+then one has
+\be\label{blowing_faf_eqn}
+f_\eps\left(a \right) = f_\eps\left(fa f\right)
+\ee
+\end{lemma}
+\begin{proof}
+	Let $\pi: A \to B\left(\H \right)$ be a faithful nondegenerate representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). The characteristic function $\chi_{\supp f_\eps\left(a \right)}$ of $\supp f_\eps\left(a \right)$ (cf. Definition \ref{top_characteristic_function_defn}) yields a projector $p \in B\left( \H\right)$ such that 
+\bean
+\dl \ge \eps\quad \Rightarrow \quad\pi\left(f_\dl\left(a \right)\right)  =  p\pi\left(f_\dl\left(a \right)  \right) p= f_\dl\left(p\pi\left( a\right) p\right). 
+\eean
+	On the other hand
+\be\label{blowing_pap_eqn}
+\pi\left(  f_\eps \left(a \right)\right) = \lim_{\substack{\dl \to \eps\\ \dl > \eps}} \pi\left(f_\dl\left( a\right)\right)    =  \lim_{\substack{\dl \to \eps\\ \dl > \eps}}  f_\dl\left(p\pi\left( a\right) p\right)= f_\eps\left(p\pi\left( a\right) p\right).		
+\ee
+From $p <\pi\left(f \right) < 1_{B\left(\H \right) }$ it follows that
+$$
+f_\eps\left(p\pi\left( a\right) p\right) \le f_\eps\left(\pi\left(f af \right) \right)\le f_\eps\left(\pi\left(  a\right) \right)   
+$$ 
+and taking into account \eqref{blowing_pap_eqn} one has $f_\eps\left(\pi\left(f af \right) \right)= f_\eps\left(\pi\left(  a\right) \right)$. The representation $\pi$ is faithful, it follows that   \eqref{blowing_faf_eqn} holds.
+\end{proof}
 
 \begin{empt}\label{blowing_strict_empt} 
 	Suppose that $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sU\right)}$ where $\Xi\left( \sU\right)$ is given by the Exercise \ref{top_u_net_exer} net and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
@@ -12329,7 +12354,7 @@ So the series $\sum_{g \in G} \left( g \widetilde a\widetilde a^*\right) \wideti
 $$
 aa^* = \b\text{-}\sum_{g \in G} \widetilde b\left( g \widetilde a\widetilde a^*\right)
 $$
-where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$. So $\left\|aa^* \right\| > 0 \quad \Rightarrow \quad \left\|\widetilde a\widetilde a^* \right\|> 0$ and $a \neq 0\quad  \Rightarrow  \quad \widetilde a = 0$, i.e. the homomorphism $	_{\widetilde \sU}\lift^q$ is injective. If $\widetilde \pi: A_0\left(\widetilde\sY \right)\hookto B\left( \widetilde \H\right) $ is a faithful, nondegenerate, $G$-equivariant  representation  (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn} and \ref{equivariant_representation_defn}) and $\chi$ is a characteristic function of $\widetilde \sU$ (cf. Definition \ref{top_char_f_defn}) then $\chi$ naturally yields a projector $p_\chi \in B\left(\widetilde{   \H} \right)$. Moreover 
+where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$. So $\left\|aa^* \right\| > 0 \quad \Rightarrow \quad \left\|\widetilde a\widetilde a^* \right\|> 0$ and $a \neq 0\quad  \Rightarrow  \quad \widetilde a = 0$, i.e. the homomorphism $	_{\widetilde \sU}\lift^q$ is injective. If $\widetilde \pi: A_0\left(\widetilde\sY \right)\hookto B\left( \widetilde \H\right) $ is a faithful, nondegenerate, $G$-equivariant  representation  (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn} and \ref{equivariant_representation_defn}) and $\chi$ is a characteristic function of $\widetilde \sU$ (cf. Definition \ref{top_characteristic_function_defn}) then $\chi$ naturally yields a projector $p_\chi \in B\left(\widetilde{   \H} \right)$. Moreover 
 \bean
 \widetilde \pi \left(a a^*\right) \left( \widetilde \H \ominus \left(\bigoplus_{g\in G} g p_\chi \widetilde \H\right) \right) = \{0\},\\
 \forall g \in G \quad \widetilde \pi \left( a\right) g p_\chi \widetilde \H\subset g p_\chi \widetilde \H
@@ -12768,17 +12793,17 @@ $$
 $$
 where $\lift_{\widetilde{q}}: C_0\left(\widetilde \sY' \right) \hookto C_b\left(\widetilde \sY \right)$ is  the $\widetilde{q}$-lift (cf. Definition \ref{top_lift_defn}). Since $K\left(A_0\left(\widetilde \sY \right)  \right)$ is the algebraic $\C$-linear span of $K\left(A_0\left(\widetilde \sY \right)  \right)_+$ one can conclude that any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right)  \right)$ satisfies to the conditions (a) and (b).
 
-Conversely suppose that $\widetilde a \in A_0\left(\widetilde \sY \right)$ satisfies to the conditions (a) and (b). If $\widetilde f\in C_c\left(\widetilde \sY \right) $ is a covering sum of $\supp \widetilde a$,  $~\widetilde f'\in C_c\left(\widetilde \sY \right)$  is a covering sum for $\supp \widetilde f$ and $~\widetilde f''\in C_c\left(\widetilde \sY \right)$  is a covering sum for $\supp \widetilde f'$ (cf. Definition \ref{top_covering_sum_defn}) then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
+Conversely suppose that $\widetilde a \in A_0\left(\widetilde \sY \right)$ satisfies to the conditions (a) and (b). If $\widetilde f\in C_c\left(\widetilde \sY \right) $ is a covering sum of $\supp \widetilde a$ (cf. Definition \ref{top_covering_sum_defn}) then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
 \begin{itemize}
 	\item $q = q' \circ \widetilde q$,
 	\item the covering $q'$ is finite-fold,
-	\item the set $\supp \widetilde f''$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f'' \right)$.
+	\item the set $\supp \widetilde f$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f \right)$.
 \end{itemize}
 From the condition (b) it follows that there is $\sum_{j=1}^n \widetilde f_j \otimes a_j\in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }\otimes A$ such that $\widetilde a =\varphi^{\widetilde \sY}_A\left( \sum_{j=1}^n \widetilde f_j \otimes a_j\right)$. Since $\widetilde f$ is a covering sum of $\widetilde a$ one has
 \bean
-\widetilde a = \widetilde f'\widetilde f \widetilde a \widetilde f \widetilde f' = \sum^n_{j=1} \varphi_{\widetilde \sY} \left(\widetilde f' \widetilde f \widetilde f_j\right) \varphi_A\left( a_j\right)\varphi_{\widetilde \sY} \left( \widetilde f\widetilde f' \right)=\\= 
-\sum^n_{j=1} \varphi_{\widetilde \sY} \left( {\widetilde f'} \right)\varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right) \times \\ \times  \varphi_{\widetilde \sY} \left( {\widetilde f}' \right) = \varphi_{\widetilde \sY} \left( {\widetilde f}' \right)\times \\ \times 
-\left(\sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\right)   \varphi_{\widetilde \sY} \left( {\widetilde f}' \right)
+\widetilde a = \widetilde f^2 \widetilde a \widetilde f^2 = \sum^n_{j=1} \varphi_{\widetilde \sY} \left(\widetilde f^2 \widetilde f_j\right) \varphi_A\left( a_j\right)\varphi_{\widetilde \sY} \left( \widetilde f^2 \right)=\\= 
+\sum^n_{j=1} \varphi_{\widetilde \sY} \left( {\widetilde f} \right)\varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right) \times \\ \times  \varphi_{\widetilde \sY} \left( {\widetilde f} \right) = \varphi_{\widetilde \sY} \left( {\widetilde f} \right)\times \\ \times 
+\left(\sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\right)   \varphi_{\widetilde \sY} \left( {\widetilde f} \right)
 \eean 
 From the Lemma \ref{blowing_pederesen_fin_lem} it follows that
 $$
@@ -12788,7 +12813,20 @@ so one has
 $$
 \widetilde a = \varphi_{\widetilde \sY} \left( {\widetilde f}\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde a'\right) \varphi_{\widetilde \sY} \left( \widetilde f\right)
 $$
-!!!
+If $\widetilde a' \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$ then from \eqref{pedersen_k_plus_eqn} and the Lemma \ref{pedersen_eps_lem} it follows that 
+$$
+\widetilde a' \le \sum_{j = 1}^m f_{\eps_j}\left( \widetilde b'_j\right) 
+$$
+where  $\eps_j > 0$ and $\widetilde b'_j \in  A_0\left( \widetilde \sY'\right)_+$ for every $j = 1,..., m$ the functions $f_{\eps_j}$ are given by \eqref{f_eps_eqn}. From the Lemma \ref{blowing_faf_lem} it follows that if $\widetilde c'_j \bydef \desc_{\widetilde q}\left( {\widetilde f}\right) \widetilde b'_j\desc_{\widetilde q}\left( {\widetilde f}\right)$ then  $f_{\eps_j}\left( \widetilde b'_j\right)$ = $f_{\eps_j}\left( \widetilde c'_j\right)$. If follows that
+$$
+\widetilde a \le \sum_{j=1}^n \varphi_{\widetilde \sY} \left( \widetilde f\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( f_{\eps_j}\left(\widetilde{c}'_j \right) \right) \varphi_{\widetilde \sY} \left( \widetilde f\right),
+$$ 
+and taking into account the Lemma \ref{blowing_faf_lem} one has
+$$
+\widetilde a \le \sum_{j=1}^n f_{\eps_j}\left(   \varphi_{\widetilde \sY} \left( \widetilde f\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde{c}'_j \right)  \varphi_{\widetilde \sY} \left( \widetilde f\right)\right) 
+$$
+From  \eqref{pedersen_k_plus_eqn} and the Lemma \ref{pedersen_eps_lem} it follows that
+$\widetilde a \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$. Since $ K\left( A_0\left( \widetilde \sY'\right) \right)$ is an algebraic $\C$-linear span of $K\left( A_0\left( \widetilde \sY'\right) \right)_+$, one can proof that $\widetilde a \in K\left( A_0\left( \widetilde \sY\right) \right)$ for any  $\widetilde a' \in K\left( A_0\left( \widetilde \sY'\right) \right)$.
 \end{proof}
 \begin{lemma}\label{blowing_descent_pedersen_lem} 
 	If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has
@@ -20747,7 +20785,7 @@ If $\sX$ is a spectrum of a {homogeneous of order} $n$ algebra $A$ then $A$ corr
 	\end{proposition}
 
 	\begin{defn}\label{spectral_proj_defn}\cite{reed_simon:mp_1}
-		Let $A$ be a bounded self-adjoint operator and $\Om$ a Borel set of $\mathbb{R}$. If $\chi_\Om$ is the characteristic function of $\Om$ (cf. Definition \ref{top_char_f_defn}) then $P_\Om=\chi_\Om\left(A\right)$ is called the \textit{spectral projection} of $A$.
+		Let $A$ be a bounded self-adjoint operator and $\Om$ a Borel set of $\mathbb{R}$. If $\chi_\Om$ is the characteristic function of $\Om$ (cf. Definition \ref{top_characteristic_function_defn}) then $P_\Om=\chi_\Om\left(A\right)$ is called the \textit{spectral projection} of $A$.
 	\end{defn}
 	
 	\begin{empt} \cite{rae:ctr_morita}

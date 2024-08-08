@@ -22,6 +22,8 @@ namespace Internet.Meteo.UI.Labels
 
         Wrapper.Sensor sensor;
 
+        
+
         UserControlTemperature uc;
 
         #endregion
@@ -46,13 +48,7 @@ namespace Internet.Meteo.UI.Labels
         protected SensorLabel(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            try
-            {
-                //formula = info.GetString("Formula");
-            }
-            catch (Exception)
-            {
-            }
+
         }
 
         #endregion
@@ -66,6 +62,10 @@ namespace Internet.Meteo.UI.Labels
         /// <param name="context">Streaming context</param>
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
+            base.GetObjectData(info, context);
+            info.AddValue("Min", Min);
+            info.AddValue("Max", Max);
+            info.AddValue("Step", Step);
         }
 
         #endregion
@@ -96,6 +96,8 @@ namespace Internet.Meteo.UI.Labels
         #endregion
 
         #region Overriden Members
+
+       
 
 
         /// <summary>
@@ -128,6 +130,9 @@ namespace Internet.Meteo.UI.Labels
         protected override void Load(SerializationInfo info, StreamingContext context)
         {
             base.Load(info, context);
+            Min = info.GetSingle("Min");
+            Max = info.GetSingle("Max");
+            Step = info.GetSingle("Step");
         }
 
         /// <summary>
@@ -137,7 +142,7 @@ namespace Internet.Meteo.UI.Labels
         {
             get
             {
-                uc = new UserControlTemperature();
+                uc = new UserControlTemperature(Min, Max, Step);
                 return uc;
             }
         }
@@ -147,6 +152,22 @@ namespace Internet.Meteo.UI.Labels
         #endregion
 
         #region Specific Members
+
+        // Minimum
+        public float Min
+        { get; set; } = 0;
+
+        /// <summary>
+        /// Maximum
+        /// </summary>
+        public float Max
+        { get; set; } = 100;
+
+        /// <summary>
+        /// Step
+        /// </summary>
+        public float Step
+        { get; set; } = 1;
 
         #endregion
 
