@@ -93,6 +93,7 @@ namespace Diagram.UI
             components.ForAll<ICategoryObject>(action);
             components.ForAll<ICategoryArrow>(action);
         }
+
         /// <summary>
         /// Creates data table
         /// </summary>
@@ -102,7 +103,6 @@ namespace Diagram.UI
         {
             return extension.Create(strings, dic);
         }
-
 
         /// <summary>
         /// Fills Dictionary from data table
@@ -166,15 +166,6 @@ namespace Diagram.UI
             }
             x = l.ToArray();
         }
-
-        public static void LoadFromString(this string s, out double[,] x)
-        {
-            x = null;
-            throw new NotImplementedException("LoadFromString");
-        }
-
-
-
 
         /// <summary>
         /// Checks whether a code should be created

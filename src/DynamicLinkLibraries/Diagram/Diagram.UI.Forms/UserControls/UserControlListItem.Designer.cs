@@ -28,81 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.labelText = new System.Windows.Forms.Label();
-            this.comboBox = new System.Windows.Forms.ComboBox();
-            this.panelTop.SuspendLayout();
-            this.SuspendLayout();
+            panelRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            panelTop = new System.Windows.Forms.Panel();
+            labelText = new System.Windows.Forms.Label();
+            panelBottom = new System.Windows.Forms.Panel();
+            panelCenter = new System.Windows.Forms.Panel();
+            comboBox = new System.Windows.Forms.ComboBox();
+            panelTop.SuspendLayout();
+            panelCenter.SuspendLayout();
+            SuspendLayout();
             // 
             // panelRight
             // 
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(140, 20);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(10, 23);
-            this.panelRight.TabIndex = 12;
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(180, 23);
+            panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(12, 28);
+            panelRight.TabIndex = 12;
             // 
             // panelLeft
             // 
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 20);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(10, 23);
-            this.panelLeft.TabIndex = 11;
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 23);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(12, 28);
+            panelLeft.TabIndex = 11;
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.labelText);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(150, 20);
-            this.panelTop.TabIndex = 10;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 43);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(150, 0);
-            this.panelBottom.TabIndex = 13;
+            panelTop.Controls.Add(labelText);
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(192, 23);
+            panelTop.TabIndex = 10;
             // 
             // labelText
             // 
-            this.labelText.AutoSize = true;
-            this.labelText.Location = new System.Drawing.Point(3, 4);
-            this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(28, 13);
-            this.labelText.TabIndex = 0;
-            this.labelText.Text = "Text";
+            labelText.AutoSize = true;
+            labelText.Location = new System.Drawing.Point(4, 5);
+            labelText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labelText.Name = "labelText";
+            labelText.Size = new System.Drawing.Size(28, 15);
+            labelText.TabIndex = 0;
+            labelText.Text = "Text";
+            // 
+            // panelBottom
+            // 
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 51);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(192, 0);
+            panelBottom.TabIndex = 13;
+            // 
+            // panelCenter
+            // 
+            panelCenter.Controls.Add(comboBox);
+            panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenter.Location = new System.Drawing.Point(12, 23);
+            panelCenter.Name = "panelCenter";
+            panelCenter.Size = new System.Drawing.Size(168, 28);
+            panelCenter.TabIndex = 14;
             // 
             // comboBox
             // 
-            this.comboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(10, 20);
-            this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(130, 21);
-            this.comboBox.TabIndex = 14;
+            comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            comboBox.FormattingEnabled = true;
+            comboBox.Location = new System.Drawing.Point(0, 0);
+            comboBox.Name = "comboBox";
+            comboBox.Size = new System.Drawing.Size(168, 23);
+            comboBox.TabIndex = 0;
             // 
             // UserControlListItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox);
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelTop);
-            this.Controls.Add(this.panelBottom);
-            this.Name = "UserControlListItem";
-            this.Size = new System.Drawing.Size(150, 43);
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(panelCenter);
+            Controls.Add(panelRight);
+            Controls.Add(panelLeft);
+            Controls.Add(panelTop);
+            Controls.Add(panelBottom);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "UserControlListItem";
+            Size = new System.Drawing.Size(192, 51);
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
+            panelCenter.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -112,6 +129,7 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label labelText;
         private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Panel panelCenter;
         private System.Windows.Forms.ComboBox comboBox;
     }
 }

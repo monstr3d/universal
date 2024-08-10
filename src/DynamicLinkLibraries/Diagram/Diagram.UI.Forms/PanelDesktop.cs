@@ -13,18 +13,17 @@ using CategoryTheory;
 
 using MathGraph;
 
-using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
+using Diagram.UI.Forms.Interfaces;
 
 using SerializationInterface;
 
 using Common.UI;
 
 using ToolBox;
-using Diagram.UI.Forms.Interfaces;
 
 
 namespace Diagram.UI

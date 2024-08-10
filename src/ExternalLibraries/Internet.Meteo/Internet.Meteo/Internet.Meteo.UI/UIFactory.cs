@@ -41,10 +41,12 @@ namespace Internet.Meteo.UI
             var type = button.ReflectionType;
             var kind = button.Kind;
             var image = button.ButtonImage;
-            if (type == typeof(Internet.Meteo.Wrapper.Serializable.Sensor))
+            if (type == typeof(Wrapper.Serializable.Sensor))
             {
-                if (kind == "Termometer")
-                return (new SensorLabel()).CreateLabelUI(image, false);
+                if (kind == "thermometer")
+                {
+                    return (new SensorLabel()).CreateLabelUI(image, false);
+                }
             }
 
             return null;

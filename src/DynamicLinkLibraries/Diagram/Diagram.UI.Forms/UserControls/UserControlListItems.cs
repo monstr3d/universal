@@ -18,8 +18,6 @@ namespace Diagram.UI.UserControls
 
         List<UserControlListItem> l = new List<UserControlListItem>();
 
-        List<ComboBox> boxes = new List<ComboBox>();
-
         #endregion
 
 
@@ -37,7 +35,7 @@ namespace Diagram.UI.UserControls
    
         #endregion
 
-        #region Members
+        #region Public members
 
         /// <summary>
         /// Count of comboboxes
@@ -55,7 +53,6 @@ namespace Diagram.UI.UserControls
                     return;
                 }
                 l.Clear();
-                boxes.Clear();
                 Controls.Clear();
                 int y = 0;
                 for (int i = 0; i < value; i++)
@@ -65,10 +62,36 @@ namespace Diagram.UI.UserControls
                     Controls.Add(it);
                     y = it.Bottom;
                     l.Add(it);
-                    boxes.Add(it.Box);
                 }
                 Height = y + 1;
                 ResizeC();
+            }
+        }
+
+        /// <summary>
+        /// Children
+        /// </summary>
+        public Control[] Children
+        {
+            get
+            {
+                var lc = new List<Control>();
+                foreach (var c in l)
+                {
+                    lc.Add(c.Control);
+                }
+                return lc.ToArray();
+            }
+            set
+            {
+                if (value ==  null)
+                {
+                    return;
+                }
+                for (int i = 0; i < value.Length; i++)
+                {
+                    l[i].Control = value[i];
+                }
             }
         }
 
@@ -99,17 +122,7 @@ namespace Diagram.UI.UserControls
             }
         }
 
-        /// <summary>
-        /// Boxes
-        /// </summary>
-        public List<ComboBox> Boxes
-        {
-            get
-            {
-                return boxes;
-            }
-        }
-
+  
         #region Private
 
         void ResizeC()

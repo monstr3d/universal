@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Diagram.UI.UserControls
 {
@@ -14,13 +7,31 @@ namespace Diagram.UI.UserControls
     /// </summary>
     public partial class UserControlListItem : UserControl
     {
+
+        #region Fields
+
+
+        /// <summary>
+        /// Control
+        /// </summary>
+        Control control;
+
+        #endregion
+
+        #region Ctor
+
         /// <summary>
         /// Constructor
         /// </summary>
         public UserControlListItem()
         {
             InitializeComponent();
+            control = comboBox;
         }
+
+        #endregion
+
+        #region Public members
 
 
         /// <summary>
@@ -39,14 +50,25 @@ namespace Diagram.UI.UserControls
         }
 
         /// <summary>
-        /// Box
+        /// Control
         /// </summary>
-        public ComboBox Box
+        public Control Control
         {
-            get
+            get => control;
+            set
             {
-                return comboBox;
+                var p = control.Parent;
+                value.Top = control.Top;
+                value.Left= control.Left;
+                value.Width = control.Width;
+                value.Height = control.Height;
+                p.Controls.Remove(control);
+                control = value;
+                p.Controls.Add(control);
+                control.Dock = DockStyle.Fill;
             }
         }
+
+        #endregion
     }
 }

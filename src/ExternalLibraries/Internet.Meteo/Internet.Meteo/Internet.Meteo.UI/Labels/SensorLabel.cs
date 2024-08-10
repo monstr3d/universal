@@ -1,5 +1,6 @@
 ﻿using CategoryTheory;
 using Diagram.UI.Labels;
+using Internet.Meteo.UI.Forms;
 using Internet.Meteo.UI.UserControls;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Internet.Meteo.UI.Labels
 
         #region Fields
 
-        Form form;
+        FormTemperature form;
 
         Wrapper.Sensor sensor;
 
@@ -34,7 +35,7 @@ namespace Internet.Meteo.UI.Labels
         /// Default constructor
         /// </summary>
         public SensorLabel()
-            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.thermometer)
+            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.thermometer.ToBitmap())
         {
 
         }
@@ -119,7 +120,7 @@ namespace Internet.Meteo.UI.Labels
         /// </summary>
         public override object Form
         {
-            get => null;
+            get => CreareForm();
         }
 
         /// <summary>
@@ -153,6 +154,8 @@ namespace Internet.Meteo.UI.Labels
 
         #region Specific Members
 
+        #region Public
+
         // Minimum
         public float Min
         { get; set; } = 0;
@@ -168,6 +171,26 @@ namespace Internet.Meteo.UI.Labels
         /// </summary>
         public float Step
         { get; set; } = 1;
+
+
+        #endregion
+
+        #region Private
+
+        FormTemperature CreareForm()
+        {
+            if (form != null)
+            {
+                if (!form.IsDisposed)
+                {
+                    return form;
+                }
+            }
+            form = new FormTemperature();
+            return form;
+        }
+
+        #endregion
 
         #endregion
 

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
+
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces.Labels;
 
