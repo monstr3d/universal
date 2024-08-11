@@ -2,11 +2,28 @@
 {
     using Diagram.UI;
     using Newtonsoft.Json;
- 
+
+
+    public enum FahrenheitCelsius
+    {
+        Fahrenheit,
+        Celsius
+    }
+
     public class Sensor : IDisposable
     {
 
+
         #region Fields
+
+        FahrenheitCelsius fahrenheitCelsius;
+
+
+        // 21.5 degrees Celsius is equal to 70.7 degrees Fahrenheit.
+
+        const double cf = 21.5 / 70.7;
+
+        double coefficient = 1;
 
         HttpClient client = new HttpClient();
 
@@ -19,12 +36,12 @@
         Task task;
 
         Dictionary<string, Func<string>> requests;
+        
+        Dictionary<string, Func<double>> results;
 
         AutoResetEvent ev;
 
         dynamic weather;
-
-
 
         Func<string> requestf;
 
@@ -61,14 +78,30 @@
         {
             requests = new Dictionary<string, Func<string>>()
             {
-                {"thermometer", currentTemperature }
+                {"thermometer", DayForecast }
             };
-            
+
+            results = new Dictionary<string, Func<double>>()
+            {
+                {"thermometer", GetTemperature }
+            };
         }
 
         #endregion
 
         #region Public Members
+
+
+        public FahrenheitCelsius FahrenheitCelsius
+        {
+            get => fahrenheitCelsius;
+            set
+            {
+                fahrenheitCelsius = value;
+                coefficient = (value == FahrenheitCelsius.Fahrenheit) ? 1 : cf;
+            }
+        }
+
 
         public string Key
         { get; set; } = "";
@@ -80,11 +113,7 @@
         {
             lock (block)
             {
-                var dt = DateTime.Now;
-                var h = weather.hours[dt.Hour];
-                var m = dt.Minute;
-
-                return value;
+                return Get();
             }
         }
 
@@ -136,6 +165,7 @@
         {
             this.kind = kind;
             requestf = requests[kind];
+            Get = results[kind];
         }
 
         async void Request()
@@ -156,7 +186,10 @@
                     weather = JsonConvert.DeserializeObject(body);
                     weather = weather.days[0];
                 }
-                ev.Set();
+                if (ev != null)
+                {
+                    ev.Set();
+                }
             }
             catch (Exception ex)
             {
@@ -203,8 +236,20 @@
 
         #region Private Members
 
+        Func<double> Get;
 
-        string currentTemperature()
+        double GetTemperature()
+        {
+            var dt = DateTime.Now;
+            var h = dt.Hour;
+       //     var h = weather.hours[dt.Hour];
+            var m = dt.Minute;
+
+            return value;
+        }
+
+
+        string DayForecast()
         {
             var s = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
             return s + Position + "?key=" + Key;

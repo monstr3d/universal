@@ -47,7 +47,7 @@
             panelCenter.Location = new System.Drawing.Point(0, 0);
             panelCenter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             panelCenter.Name = "panelCenter";
-            panelCenter.Size = new System.Drawing.Size(392, 252);
+            panelCenter.Size = new System.Drawing.Size(392, 327);
             panelCenter.TabIndex = 20;
             // 
             // userControlTemperatureFull
@@ -55,7 +55,7 @@
             userControlTemperatureFull.Dock = System.Windows.Forms.DockStyle.Fill;
             userControlTemperatureFull.Location = new System.Drawing.Point(0, 0);
             userControlTemperatureFull.Name = "userControlTemperatureFull";
-            userControlTemperatureFull.Size = new System.Drawing.Size(392, 252);
+            userControlTemperatureFull.Size = new System.Drawing.Size(392, 327);
             userControlTemperatureFull.TabIndex = 0;
             // 
             // panelRight
@@ -64,7 +64,7 @@
             panelRight.Location = new System.Drawing.Point(392, 0);
             panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(0, 252);
+            panelRight.Size = new System.Drawing.Size(0, 327);
             panelRight.TabIndex = 18;
             // 
             // panelLeft
@@ -73,7 +73,7 @@
             panelLeft.Location = new System.Drawing.Point(0, 0);
             panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(0, 252);
+            panelLeft.Size = new System.Drawing.Size(0, 327);
             panelLeft.TabIndex = 17;
             // 
             // panelTop
@@ -89,7 +89,7 @@
             // 
             panelBottom.Controls.Add(buttonOK);
             panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 252);
+            panelBottom.Location = new System.Drawing.Point(0, 327);
             panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             panelBottom.Name = "panelBottom";
             panelBottom.Size = new System.Drawing.Size(392, 36);
@@ -109,7 +109,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(392, 288);
+            ClientSize = new System.Drawing.Size(392, 363);
             Controls.Add(panelCenter);
             Controls.Add(panelRight);
             Controls.Add(panelLeft);

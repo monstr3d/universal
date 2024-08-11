@@ -1,14 +1,11 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Windows.Forms;
+
+using CategoryTheory;
 using Diagram.UI.Labels;
 using Internet.Meteo.UI.Forms;
 using Internet.Meteo.UI.UserControls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Internet.Meteo.UI.Labels
 {

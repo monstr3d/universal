@@ -23,11 +23,13 @@ namespace Internet.Meteo.Wrapper.Serializable
         /// <summary>
         /// Constructor
         /// </summary>
-        private  Sensor(SerializationInfo info, StreamingContext context)
+        private Sensor(SerializationInfo info, StreamingContext context)
         {
             Key = info.GetString("Key");
             Position = info.GetString("Position");
             Set(info.GetString("Kind"));
+            FahrenheitCelsius = (FahrenheitCelsius)info.GetValue("FahrenheitCelsius",
+               typeof(FahrenheitCelsius));
             Create();
         }
 
@@ -40,6 +42,7 @@ namespace Internet.Meteo.Wrapper.Serializable
             info.AddValue("Kind", kind);
             info.AddValue("Key", Key);
             info.AddValue("Position", Position);
+            info.AddValue("FahrenheitCelsius", FahrenheitCelsius, typeof(FahrenheitCelsius));
         }
 
         #endregion

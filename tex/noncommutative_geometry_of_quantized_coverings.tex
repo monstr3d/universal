@@ -871,7 +871,7 @@ Using the Theorems  \ref{ideal_spectrum_thm} and \ref{dauns_hofmann_thm} prove t
 	$
 	f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}$ {where} $\quad \mu < \la < \nu.
 	$
-	If $C^*$-algebras $A_\la$ are  not unital 	then there are natural unital  (in sense of the Definition \ref{principal_defn}) unique injective $*$-homomorphisms  $f^{\sim}_{\mu\nu}: A^{\sim}_\mu \to A^{\sim}_\nu$ of minimal unitizations (cf. equation \eqref{unital_notation_eqn}). From the Theorem \ref{inductive_lim_thm} it turns out that $C^*$-{inductive limit}  $C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}_{\la\in\La}$. 
+	If $C^*$-algebras $A_\la$ are  not unital 	then there are natural unital  (in sense of the Definition \ref{principal_defn}) unique injective $*$-homomorphisms  $f^{\sim}_{\mu\nu}: A^{\sim}_\mu \to A^{\sim}_\nu$ of minimal unitizations (cf. equation \eqref{unital_notation_eqn}). From the Theorem \ref{inductive_lim_thm} it turns out that there is the $C^*$-{inductive limit}  $C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}_{\la\in\La}$. 
 \end{empt}
 \begin{definition}\label{inductive_lim_non_defn}
 	In the situation of \ref{inductive_empt} consider injective $*$-homomorphisms $A_\la \hookto C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ which are compositions $A_\la \hookto  A_\la^\sim\hookto  C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$.	The $C^*$-norm completion of the union  $\cup_{\la \in \La}A_\la\subset C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$  is said to be the $C^*$-\textit{inductive limit} of $\left\{A_\la \right\}$. It is denoted by $C^*\text{-}\varinjlim_{\la\in\La} A_\la$ or  $C^*\text{-}\varinjlim A_\la$.
@@ -897,9 +897,9 @@ Using the Theorems  \ref{ideal_spectrum_thm} and \ref{dauns_hofmann_thm} prove t
 \begin{proof}
 	Let us consider unital  injective $*$-homomorphisms  $f^+_{\mu\nu}: A^+_\mu \to A^+_\nu$ (in the sense of the Definition \ref{principal_defn})  of the minimal unitizations and let $\widehat{A}^+$ be a $C^*$-inductive limit (in sense of the Definition \ref{inductive_lim_non_defn}) of $\left\{A^+_\la\right\}$. From the Theorem \ref{inductive_lim_state_thm} it follows that the state space $\Om_{\widehat{A}^+}$ is the projective limit $\Om^+_\la$ of $A^+_\la$. From the Lemma \ref{state_un_lem} it turns that $\Om_{\widehat{A}} \subset \Om_{\widehat{A}^+}$ and  $\Om_\la \subset \Om^+_\la$ and for any $\la\in \La$. Moreover every state $\widehat{\tau} \in \Om_{\widehat{A}}$ is mapped onto $\tau_\la \in \Om_\la$. It follows that $\Om$ is homeomorphic to the projective limit of the state spaces $\Om_\la$.
 \end{proof}
-\begin{exercise}\label{inductive_lim_state_exer}
-Prove a related to nonunital commutative $C^*$-algebras generalization of the Corollary \ref{inductive_lim_state_cor}.
-\end{exercise}
+\begin{remark}\label{inductive_lim_state_rem}
+The Corollary \ref{inductive_lim_state_nor_cor} is a generalization of the Theorem \ref{inductive_lim_state_thm}.
+\end{remark}
 
 
 \section{Ext-functor and characters}\label{ext_char_sec}
@@ -933,7 +933,7 @@ The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\
 
 
 \begin{empt}\label{hered_repr_p_empt}
-	If $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation then there is a $C^*$-algebra $A''$ such that
+	If $\rho: A\hookto B\left(\H \right)$ is a faithful nondegenerate representation then there is a $C^*$-algebra $A''$ such that
 	\begin{itemize}
 		\item $A''$ is isomorphic to the bicommutant $\rho\left( A\right)''$ in $B\left(\H\right)$ (cf. Definition \ref{commutant_defn}) of $A$,
 		\item there is the natural inclusion $A \subset A''$,
@@ -984,6 +984,7 @@ Under the hypotheses \ref{hered_repr_p_empt} the representation \eqref{hered_rep
 Under the hypotheses \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
 \end{lemma}
 \begin{proof}
+Let 	 $\left\{u_\la \right\}_{\la\in \La}\subset B$ be an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}).
 	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From the equation \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$, it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
 	\bean
 	\left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
@@ -1183,6 +1184,7 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 
 
 \section{Transitive coverings}\label{top_transitive_section}
+!!! FINISH !!!
 \paragraph*{}
 The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So  the "regular covering" term  will be replaced by "transitive covering".
 
@@ -9201,10 +9203,10 @@ The following lemma supplies the quantization of coverings with compactification
 
 
 \begin{theorem}\label{top_finite_covering_thm} 
-Following conditions hold.
+Following conditions hold:
 \begin{enumerate}
-	\item [(i)] 	If $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{fin_composable_cat_defn})
-	\item[(ii)] The given by the Definition \ref{top_c_funct_defn}  finite covering algebraic functor   $C_0:\mathfrak{FinCov}$-$\sX \cong \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is the natural equivalence of the categories (cf. Definition \ref{category_equivalence_definition}).
+	\item [(i)] 	if $\sX$ is a connected, locally connected (cf. Definition \ref{top_locally_connected_defn}), locally compact, Hausdorff space,  then    the {category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ of finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_category_defn}) is composable (cf. Definition \ref{fin_composable_cat_defn}),
+	\item[(ii)] the given by the Definition \ref{top_c_funct_defn}  finite covering algebraic functor   $C_0:\mathfrak{FinCov}$-$\sX \cong \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is the natural equivalence of the categories (cf. Definition \ref{category_equivalence_definition}).
 	
 \end{enumerate}
 \end{theorem}
@@ -15593,9 +15595,8 @@ and let $\widetilde \G^0\times_{\G^0}\G$ be pullback where the map $s : \G \to \
 \be\label{groupoid_lift_eqn}
 q_\G: \widetilde \G \to \G
 \ee
- is a covering (cf. Definition \ref{covering_groupoid_defn}). The groupoid $\widetilde \G$ is the $q$-\textit{lift} of $\G$. 	A $p$-\textit{topology} on $\widetilde\G$ is such that both maps $q_\G$ and $s:  \widetilde\G \to \widetilde\G^0$ are continuous.
+ is a covering (cf. Definition \ref{groupoid_covering_defn}). The groupoid $\widetilde \G$ is the $q$-\textit{lift} of $\G$. 	A $p$-\textit{topology} on $\widetilde\G$ is such that both maps $q_\G$ and $s:  \widetilde\G \to \widetilde\G^0$ are continuous.
 \end{definition}
-
 
 \begin{remark}\label{groupoid_lift_rem}
  From the  Theorem \ref{covering_groupoid_thm} it follows that the given by the  the Definition \ref{groupoid_lift_defn} groupoid is unique.
@@ -15985,19 +15986,34 @@ Here we apply the explained in the chapter \ref{blowing_chap} to the investigati
 	\ee
 	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
+\begin{definition}\label{gropoid_trivial_defn}
+	Let $\sX$ be a locally compact, Hausdorff topological space. There is a topological groupoid $\G$ such that there are homeomorphisms
+	\bean
+	p: \G \cong \sX,\\
+	p^0 :\G^0\cong  \sX
+	\eean
+	satisfying to the following condition
+	\bean
+	\forall x \in \sX \quad s\left(p^{-1}\left(x\right)  \right)=  r\left(p^{-1}\left(x\right)  \right)= p^0\left( x\right).
+	\eean
+	(cf. Definition \ref{groupoid_defn}). We say that $\G$ is the $\sX$-\textit{groupoid}.
+\end{definition}
+\begin{remark}\label{groupoid_top_fin_rem}
+From the Definition \ref{gropoid_trivial_defn}	it follows that any covering $\widetilde \sX \to \sX$ of topological spaces (cf. Definition \ref{top_covering_defn}) corresponds to  a covering  groupoids (cf. Definition \ref{groupoid_covering_defn}). The Theorem \ref{groupoid_fin_thm} is a generalization of the \ref{top_finite_covering_thm} one.
+\end{remark}
 \begin{empt}\label{groupoid_n_cov_inf_empt}
 Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	$G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the equation \eqref{groupoid_blowing_fin_eqn} and the Theorems \ref{blowing_sufficient_covering_inf_thm} and \ref{groupoid_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
 \be\label{groupoid_algebraical_finite_covering_category_eqn}
 \begin{split}
 \mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left(q \right) }\bydef \\
-\left\{\left\{C^*_{\rho_\la}\left( \G_\la ,  \sigma_\la \right) \right\}_{\la}, \left\{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q^\nu_\mu\right)  :C^*_{\rho_\mu}\left( \G_\mu ,  \sigma_\mu \right)\hookto C^*_{\rho_\nu}\left( \G_\nu ,  \sigma_\nu \right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\left\{\left\{C^*_{\rho_\la}\left( \G_\la ,  \sigma_\la \right) \right\}_{\la}, \left\{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q^\nu_\mu\right)  :C^*_{\rho_\mu}\left( \G_\mu ,  \sigma_\mu \right)\hookto C^*_{\rho_\nu}\left( \G_\nu ,  \sigma_\nu \right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}.
 \end{split}
 \ee	
 \end{empt}
 
 
 
-\begin{theorem}\label{grupoid_intinite_covering_thm}
+\begin{theorem}\label{groupoid_intinite_covering_thm}
 	Under  hypotheses \ref{groupoid_n_cov_empt} and \ref{groupoid_n_cov_inf_empt} if $\overline q: \overline \G^0  \to  \G^0$  is {disconnected covering of} $q : \widetilde \G^0 \to \G^0$ (cf. Definition \ref{top_disconnected_defn}) and algebraical finite covering category 
 	$
 	\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$
@@ -16011,6 +16027,9 @@ Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	
 \begin{proof}
 	Follows from the Theorem \ref{blowing_sufficient_covering_inf_thm}
 \end{proof}
+\begin{remark}\label{groupoid_top_inf_rem}
+	Similarly to the Remark \ref{groupoid_top_fin_rem} the Theorem \ref{groupoid_intinite_covering_thm} is a generalization of the \ref{top_main_thm} one.
+\end{remark}
 \section{Coverings  of foliations}
 \subsection{Basic constructions}
 \paragraph{}
@@ -16061,10 +16080,11 @@ If $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathc
 \begin{proof}
 FOLLOWS FROM THE THEOREM \ref{blowing_sufficient_covering_thm}.
 \end{proof}
+
 \subsection{Infinite coverings}
 \begin{empt}\label{groupoid_foli_empt}
 	Let $\left(M, \F\right)$  is a foliated manifold (cf. Definition \ref{foliated_manifold_defn}),  and  $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ be a   regular covering (cf. Definition \ref{foli_reg_cov_defn}), 
-Suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  Let $\widehat{G}$ be the profinite completion of $G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{profinite_exm}). if $\overline q: \overline M  \to  M$  is the {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}From the Theorem \ref{grupoid_intinite_covering_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+Suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  Let $\widehat{G}$ be the profinite completion of $G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{profinite_exm}). if $\overline q: \overline M  \to  M$  is the {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}From the Theorem \ref{groupoid_intinite_covering_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}).
 	\be\label{groupoid_foli_algebraical_finite_covering_category_eqn}
 	\begin{split}
 		\mathfrak{S}_{C^*_{\rho}\left( M, \F, \sigma \right)_0\left(q \right) }\bydef 
@@ -24799,7 +24819,7 @@ f \in S \text{ and the composite } fh \text{ is defined implies} fh \in S.
 \eean
 Since $x \in \G$ is invertible, then every nonempty sieve on $\G$ coincides with $G^u$.
 %We call the maximal sieve t(G) as a neighborhood of G in the groupoid G.
-\begin{definition}\label{covering_groupoid_defn}\cite{zhi:cov_group}
+\begin{definition}\label{groupoid_covering_defn}\cite{zhi:cov_group}
  Let $p : \widetilde{\G}\to G$ be a morphism of groupoids. An ordered pair
 $\left( \widetilde{\G}, p\right)$ is a \text{covering groupoid} if for each object $\widetilde u \in \widetilde{\G}$ the restriction of $p$
 $$

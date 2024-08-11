@@ -42,6 +42,14 @@ namespace Internet.Meteo.UI.UserControls
             children[2].Text = sensorLabel.Min + "";
             children[3].Text = sensorLabel.Max + "";
             children[4].Text = sensorLabel.Step + "";
+            if (sensor.FahrenheitCelsius == FahrenheitCelsius.Fahrenheit)
+            {
+                radioButtonFahrenheit.Checked = true;
+            }
+            else
+            {
+                radioButtonCelsius.Checked = true;
+            }
         }
 
         internal void Set()
@@ -61,6 +69,8 @@ namespace Internet.Meteo.UI.UserControls
             {
                 sensorLabel.Step = a;
             }
+            sensor.FahrenheitCelsius = radioButtonFahrenheit.Checked ? 
+                FahrenheitCelsius.Fahrenheit : FahrenheitCelsius.Celsius;
          }
     }
 }
