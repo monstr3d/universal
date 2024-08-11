@@ -30,25 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTemperature));
             panelCenter = new System.Windows.Forms.Panel();
+            userControlTemperatureFull = new UserControls.UserControlTemperatureFull();
             panelRight = new System.Windows.Forms.Panel();
             panelLeft = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
             panelBottom = new System.Windows.Forms.Panel();
             buttonOK = new System.Windows.Forms.Button();
-            userControlTemperatureFull1 = new UserControls.UserControlTemperatureFull();
             panelCenter.SuspendLayout();
             panelBottom.SuspendLayout();
             SuspendLayout();
             // 
             // panelCenter
             // 
-            panelCenter.Controls.Add(userControlTemperatureFull1);
+            panelCenter.Controls.Add(userControlTemperatureFull);
             panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             panelCenter.Location = new System.Drawing.Point(0, 0);
             panelCenter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             panelCenter.Name = "panelCenter";
             panelCenter.Size = new System.Drawing.Size(392, 252);
             panelCenter.TabIndex = 20;
+            // 
+            // userControlTemperatureFull
+            // 
+            userControlTemperatureFull.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlTemperatureFull.Location = new System.Drawing.Point(0, 0);
+            userControlTemperatureFull.Name = "userControlTemperatureFull";
+            userControlTemperatureFull.Size = new System.Drawing.Size(392, 252);
+            userControlTemperatureFull.TabIndex = 0;
             // 
             // panelRight
             // 
@@ -95,14 +103,7 @@
             buttonOK.TabIndex = 0;
             buttonOK.Text = "OK";
             buttonOK.UseVisualStyleBackColor = true;
-            // 
-            // userControlTemperatureFull1
-            // 
-            userControlTemperatureFull1.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlTemperatureFull1.Location = new System.Drawing.Point(0, 0);
-            userControlTemperatureFull1.Name = "userControlTemperatureFull1";
-            userControlTemperatureFull1.Size = new System.Drawing.Size(392, 252);
-            userControlTemperatureFull1.TabIndex = 0;
+            buttonOK.Click += buttonOK_Click;
             // 
             // FormTemperature
             // 
@@ -130,6 +131,6 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Button buttonOK;
-        private UserControls.UserControlTemperatureFull userControlTemperatureFull1;
+        private UserControls.UserControlTemperatureFull userControlTemperatureFull;
     }
 }

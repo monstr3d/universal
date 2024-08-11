@@ -808,7 +808,6 @@ namespace Diagram.UI
         /// </summary>
         public void RemoveAll()
         {
-            this.DisposeObjectsAndArrows();
             foreach (Control c in Controls)
             {
                 c.PreRemove();

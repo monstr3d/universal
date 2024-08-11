@@ -35,7 +35,7 @@ namespace Internet.Meteo.UI.Labels
         /// Default constructor
         /// </summary>
         public SensorLabel()
-            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.thermometer.ToBitmap())
+            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.thermometerp)
         {
 
         }
@@ -186,7 +186,7 @@ namespace Internet.Meteo.UI.Labels
                     return form;
                 }
             }
-            form = new FormTemperature();
+            form = new FormTemperature(this);
             return form;
         }
 

@@ -59,7 +59,7 @@
             userControlListItems.Texts = new string[]
     {
     "Key",
-    "Period",
+    "Position",
     "Min",
     "Max",
     "Step"

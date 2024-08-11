@@ -1014,9 +1014,8 @@ namespace Diagram.UI.Labels
             UserControlLabel l = new UserControlLabel();
             if (changeSize)
             {
-                if (label is Control)
+                if (label is Control c)
                 {
-                    Control c = label as Control;
                     if (c.Width > l.panelCenter.Width)
                     {
                         l.Width += c.Width - l.panelCenter.Width;
@@ -1030,9 +1029,8 @@ namespace Diagram.UI.Labels
             Image ic = icon as Image;
             if (ic == null)
             {
-                if (label is INonstandardLabel)
+                if (label is INonstandardLabel nl)
                 {
-                    INonstandardLabel nl = label as INonstandardLabel;
                     ic = nl.Image as Image;
                 }
             }

@@ -45,7 +45,7 @@ namespace Internet.Meteo.UI
             {
                 if (kind == "thermometer")
                 {
-                    return (new SensorLabel()).CreateLabelUI(image, false);
+                    return (new SensorLabel()).CreateLabelUI(Properties.Resources.thermometerp, true);
                 }
             }
 

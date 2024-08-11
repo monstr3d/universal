@@ -18,6 +18,8 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            sensor.OnValueChange -= Sensor_OnValueChange;
+            sensor.OnEnabledChange -= Sensor_OnEnabledChange;
         }
 
         #region Component Designer generated code
@@ -28,321 +30,148 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panelT = new System.Windows.Forms.Panel();
             panelCenter = new System.Windows.Forms.Panel();
+            textBox = new System.Windows.Forms.TextBox();
             panelRight = new System.Windows.Forms.Panel();
             panelLeft = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
-            panel1 = new System.Windows.Forms.Panel();
-            textBox = new System.Windows.Forms.TextBox();
-            panel2 = new System.Windows.Forms.Panel();
-            Interval = new System.Windows.Forms.Label();
-            panel3 = new System.Windows.Forms.Panel();
-            panel4 = new System.Windows.Forms.Panel();
-            panel5 = new System.Windows.Forms.Panel();
-            panel6 = new System.Windows.Forms.Panel();
-            labelT = new System.Windows.Forms.Label();
-            panel7 = new System.Windows.Forms.Panel();
-            panel8 = new System.Windows.Forms.Panel();
-            panel9 = new System.Windows.Forms.Panel();
-            panel10 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
             panelBottom = new System.Windows.Forms.Panel();
-            panel11 = new System.Windows.Forms.Panel();
-            panel12 = new System.Windows.Forms.Panel();
-            panel13 = new System.Windows.Forms.Panel();
-            term1 = new ScadaForms.Term();
-            panel14 = new System.Windows.Forms.Panel();
-            panel15 = new System.Windows.Forms.Panel();
+            labelTemperature = new System.Windows.Forms.Label();
+            term = new ScadaForms.Term();
+            panelT.SuspendLayout();
+            panelCenter.SuspendLayout();
             panelTop.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
             panelBottom.SuspendLayout();
-            panel13.SuspendLayout();
             SuspendLayout();
+            // 
+            // panelT
+            // 
+            panelT.Controls.Add(panelCenter);
+            panelT.Controls.Add(panelRight);
+            panelT.Controls.Add(panelLeft);
+            panelT.Controls.Add(panelTop);
+            panelT.Controls.Add(panelBottom);
+            panelT.Dock = System.Windows.Forms.DockStyle.Top;
+            panelT.Location = new System.Drawing.Point(0, 0);
+            panelT.Name = "panelT";
+            panelT.Size = new System.Drawing.Size(166, 224);
+            panelT.TabIndex = 0;
             // 
             // panelCenter
             // 
+            panelCenter.Controls.Add(textBox);
             panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelCenter.Location = new System.Drawing.Point(0, 98);
-            panelCenter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelCenter.Location = new System.Drawing.Point(5, 30);
+            panelCenter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelCenter.Name = "panelCenter";
-            panelCenter.Size = new System.Drawing.Size(245, 4);
-            panelCenter.TabIndex = 20;
-            // 
-            // panelRight
-            // 
-            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelRight.Location = new System.Drawing.Point(245, 98);
-            panelRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(0, 4);
-            panelRight.TabIndex = 18;
-            // 
-            // panelLeft
-            // 
-            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelLeft.Location = new System.Drawing.Point(0, 98);
-            panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(0, 4);
-            panelLeft.TabIndex = 17;
-            // 
-            // panelTop
-            // 
-            panelTop.Controls.Add(panel1);
-            panelTop.Controls.Add(panel2);
-            panelTop.Controls.Add(panel3);
-            panelTop.Controls.Add(panel4);
-            panelTop.Controls.Add(panel5);
-            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            panelTop.Location = new System.Drawing.Point(0, 0);
-            panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(245, 98);
-            panelTop.TabIndex = 16;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(textBox);
-            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.Location = new System.Drawing.Point(5, 32);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(235, 21);
-            panel1.TabIndex = 25;
+            panelCenter.Size = new System.Drawing.Size(156, 23);
+            panelCenter.TabIndex = 25;
             // 
             // textBox
             // 
+            textBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox.Location = new System.Drawing.Point(0, 0);
             textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox.Name = "textBox";
-            textBox.Size = new System.Drawing.Size(235, 23);
+            textBox.Size = new System.Drawing.Size(156, 23);
             textBox.TabIndex = 0;
+            textBox.TextChanged += textBox_TextChanged;
             // 
-            // panel2
+            // panelRight
             // 
-            panel2.Controls.Add(Interval);
-            panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            panel2.Location = new System.Drawing.Point(5, 0);
-            panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(235, 32);
-            panel2.TabIndex = 21;
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(161, 30);
+            panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(5, 23);
+            panelRight.TabIndex = 23;
             // 
-            // Interval
+            // panelLeft
             // 
-            Interval.AutoSize = true;
-            Interval.Location = new System.Drawing.Point(28, 10);
-            Interval.Name = "Interval";
-            Interval.Size = new System.Drawing.Size(118, 15);
-            Interval.TabIndex = 0;
-            Interval.Text = "Update interval, hour";
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 30);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(5, 23);
+            panelLeft.TabIndex = 22;
             // 
-            // panel3
+            // panelTop
             // 
-            panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            panel3.Location = new System.Drawing.Point(240, 0);
-            panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(5, 53);
-            panel3.TabIndex = 23;
+            panelTop.Controls.Add(label1);
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(166, 30);
+            panelTop.TabIndex = 21;
             // 
-            // panel4
+            // label1
             // 
-            panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            panel4.Location = new System.Drawing.Point(0, 0);
-            panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new System.Drawing.Size(5, 53);
-            panel4.TabIndex = 22;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(panel6);
-            panel5.Controls.Add(panel7);
-            panel5.Controls.Add(panel8);
-            panel5.Controls.Add(panel9);
-            panel5.Controls.Add(panel10);
-            panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel5.Location = new System.Drawing.Point(0, 53);
-            panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new System.Drawing.Size(245, 45);
-            panel5.TabIndex = 24;
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(labelT);
-            panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel6.Location = new System.Drawing.Point(10, 10);
-            panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel6.Name = "panel6";
-            panel6.Size = new System.Drawing.Size(186, 19);
-            panel6.TabIndex = 25;
-            // 
-            // labelT
-            // 
-            labelT.Dock = System.Windows.Forms.DockStyle.Fill;
-            labelT.Location = new System.Drawing.Point(0, 0);
-            labelT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            labelT.Name = "labelT";
-            labelT.Size = new System.Drawing.Size(186, 19);
-            labelT.TabIndex = 0;
-            labelT.Text = "Temperature";
-            // 
-            // panel7
-            // 
-            panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            panel7.Location = new System.Drawing.Point(196, 10);
-            panel7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new System.Drawing.Size(49, 19);
-            panel7.TabIndex = 23;
-            // 
-            // panel8
-            // 
-            panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            panel8.Location = new System.Drawing.Point(0, 10);
-            panel8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel8.Name = "panel8";
-            panel8.Size = new System.Drawing.Size(10, 19);
-            panel8.TabIndex = 22;
-            // 
-            // panel9
-            // 
-            panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            panel9.Location = new System.Drawing.Point(0, 0);
-            panel9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel9.Name = "panel9";
-            panel9.Size = new System.Drawing.Size(245, 10);
-            panel9.TabIndex = 21;
-            // 
-            // panel10
-            // 
-            panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel10.Location = new System.Drawing.Point(0, 29);
-            panel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel10.Name = "panel10";
-            panel10.Size = new System.Drawing.Size(245, 16);
-            panel10.TabIndex = 24;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(15, 6);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(50, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Position";
             // 
             // panelBottom
             // 
-            panelBottom.Controls.Add(panel11);
-            panelBottom.Controls.Add(panel12);
-            panelBottom.Controls.Add(panel13);
-            panelBottom.Controls.Add(panel14);
-            panelBottom.Controls.Add(panel15);
+            panelBottom.Controls.Add(labelTemperature);
+            panelBottom.Controls.Add(term);
             panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 102);
-            panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panelBottom.Location = new System.Drawing.Point(0, 53);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(245, 145);
-            panelBottom.TabIndex = 19;
+            panelBottom.Size = new System.Drawing.Size(166, 171);
+            panelBottom.TabIndex = 24;
             // 
-            // panel11
+            // labelTemperature
             // 
-            panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel11.Location = new System.Drawing.Point(92, 1);
-            panel11.Name = "panel11";
-            panel11.Size = new System.Drawing.Size(143, 143);
-            panel11.TabIndex = 15;
+            labelTemperature.AutoSize = true;
+            labelTemperature.Location = new System.Drawing.Point(8, 2);
+            labelTemperature.Name = "labelTemperature";
+            labelTemperature.Size = new System.Drawing.Size(73, 15);
+            labelTemperature.TabIndex = 1;
+            labelTemperature.Text = "Temperature";
             // 
-            // panel12
+            // term
             // 
-            panel12.Dock = System.Windows.Forms.DockStyle.Right;
-            panel12.Location = new System.Drawing.Point(235, 1);
-            panel12.Margin = new System.Windows.Forms.Padding(4);
-            panel12.Name = "panel12";
-            panel12.Size = new System.Drawing.Size(10, 143);
-            panel12.TabIndex = 13;
-            // 
-            // panel13
-            // 
-            panel13.Controls.Add(term1);
-            panel13.Dock = System.Windows.Forms.DockStyle.Left;
-            panel13.Location = new System.Drawing.Point(0, 1);
-            panel13.Margin = new System.Windows.Forms.Padding(4);
-            panel13.Name = "panel13";
-            panel13.Size = new System.Drawing.Size(92, 143);
-            panel13.TabIndex = 12;
-            // 
-            // term1
-            // 
-            term1.Dock = System.Windows.Forms.DockStyle.Fill;
-            term1.Location = new System.Drawing.Point(0, 0);
-            term1.Name = "term1";
-            term1.Size = new System.Drawing.Size(92, 143);
-            term1.TabIndex = 0;
-            // 
-            // panel14
-            // 
-            panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            panel14.Location = new System.Drawing.Point(0, 0);
-            panel14.Margin = new System.Windows.Forms.Padding(4);
-            panel14.Name = "panel14";
-            panel14.Size = new System.Drawing.Size(245, 1);
-            panel14.TabIndex = 11;
-            // 
-            // panel15
-            // 
-            panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel15.Location = new System.Drawing.Point(0, 144);
-            panel15.Margin = new System.Windows.Forms.Padding(4);
-            panel15.Name = "panel15";
-            panel15.Size = new System.Drawing.Size(245, 1);
-            panel15.TabIndex = 14;
+            term.Location = new System.Drawing.Point(3, 20);
+            term.Name = "term";
+            term.Size = new System.Drawing.Size(80, 140);
+            term.TabIndex = 0;
             // 
             // UserControlTemperature
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(panelCenter);
-            Controls.Add(panelRight);
-            Controls.Add(panelLeft);
-            Controls.Add(panelTop);
-            Controls.Add(panelBottom);
+            Controls.Add(panelT);
             Name = "UserControlTemperature";
-            Size = new System.Drawing.Size(245, 247);
+            Size = new System.Drawing.Size(166, 223);
+            panelT.ResumeLayout(false);
+            panelCenter.ResumeLayout(false);
+            panelCenter.PerformLayout();
             panelTop.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
+            panelTop.PerformLayout();
             panelBottom.ResumeLayout(false);
-            panel13.ResumeLayout(false);
+            panelBottom.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panelT;
         private System.Windows.Forms.Panel panelCenter;
+        private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label Interval;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label labelT;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel15;
-        private ScadaForms.Term term1;
+        private ScadaForms.Term term;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTemperature;
     }
 }

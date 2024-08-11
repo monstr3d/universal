@@ -78,23 +78,6 @@ namespace Diagram.UI
         #region Public Memberes
 
         /// <summary>
-        /// Disposes a collection of components
-        /// </summary>
-        /// <param name="components">The collection of components</param>
-        public static void DisposeObjectsAndArrows(this IComponentCollection components)
-        {
-            var action = (object o) =>
-            {
-                if (o is IDisposable disposable)
-                {
-                    disposable.Dispose();
-                }
-            };
-            components.ForAll<ICategoryObject>(action);
-            components.ForAll<ICategoryArrow>(action);
-        }
-
-        /// <summary>
         /// Creates data table
         /// </summary>
         /// <param name="strings">Strings</param>
@@ -1478,37 +1461,32 @@ namespace Diagram.UI
             {
                 return;
             }
-            if (o is IChildrenObject)
+            if (o is IChildrenObject ch)
             {
-                IChildrenObject ch = o as IChildrenObject;
-                IAssociatedObject[] aoa = ch.Children;
+                var aoa = ch.Children;
                 if (aoa != null)
                 {
-                    foreach (IAssociatedObject ao in aoa)
+                    foreach (var ao in aoa)
                     {
                         RemoveObject(ao);
                     }
                 }
             }
-            if (o is IRemovableObject)
+            if (o is IRemovableObject ro)
             {
-                IRemovableObject ro = o as IRemovableObject;
                 ro.RemoveObject();
             }
-            if (o is IObjectLabel)
+            if (o is IObjectLabel ol)
             {
-                IObjectLabel ol = o as IObjectLabel;
                 RemoveObject(ol.Object);
             }
-            if (o is IArrowLabel)
+            if (o is IArrowLabel al)
             {
-                IArrowLabel al = o as IArrowLabel;
                 RemoveObject(al.Arrow);
             }
-            if (o is IDisposable)
+            if (o is IDisposable disposable)
             {
-                IDisposable d = o as IDisposable;
-                d.Dispose();
+                disposable.Dispose();
             }
         }
 

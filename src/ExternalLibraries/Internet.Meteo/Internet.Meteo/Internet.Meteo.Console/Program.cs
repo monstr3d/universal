@@ -23,7 +23,10 @@ internal class Program
         {
             var client = new HttpClient();
 
-            var s = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Paris?key=Q3722KCAVZH2FHZZ95NHP5M75";
+            var s = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
+                          "/London,UK?2024-08-10/2024-08-11?unitGroup=us&key=Q3722KCAVZH2FHZZ95NHP5M75&include=days&forecastBasisDate=2024-08-10";
+
+            s = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Paris?key=Q3722KCAVZH2FHZZ95NHP5M75";
 
 
             var request = new HttpRequestMessage(HttpMethod.Get, s);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsExtensions;
 
 namespace Internet.Meteo.UI.UserControls
 {
@@ -14,6 +15,9 @@ namespace Internet.Meteo.UI.UserControls
     {
 
         Wrapper.Sensor sensor;
+
+
+        bool changing = false;
 
         float min, max, step;
         public UserControlTemperature(float min, float max, float step)
@@ -28,9 +32,43 @@ namespace Internet.Meteo.UI.UserControls
         internal Wrapper.Sensor Sensor
         {
             get => sensor;
-            set => sensor = value;
+            set
+            {
+                sensor = value;
+                textBox.Text = sensor.Position;
+                sensor.OnValueChange += Sensor_OnValueChange;
+                sensor.OnEnabledChange += Sensor_OnEnabledChange;
+            }
 
         }
 
+        private void Sensor_OnEnabledChange(bool obj)
+        {
+            textBox.Enabled = !obj;
+        }
+
+
+        private void Sensor_OnValueChange(double obj)
+        {
+            this.InvokeIfNeeded(ChangeValue, obj);
+        }
+
+        private void ChangeValue(double value)
+        {
+            term.Set((float)value);
+        }
+
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (changing)
+            {
+                return;
+            }
+            int i = 0;
+            sensor.Position = textBox.Text;
+            changing = true;
+            changing = false;
+        }
     }
 }
