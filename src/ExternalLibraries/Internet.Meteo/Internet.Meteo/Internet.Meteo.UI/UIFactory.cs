@@ -43,9 +43,12 @@ namespace Internet.Meteo.UI
             var image = button.ButtonImage;
             if (type == typeof(Wrapper.Serializable.Sensor))
             {
-                if (kind == "thermometer")
+                switch (kind)
                 {
-                    return (new SensorLabel()).CreateLabelUI(Properties.Resources.thermometerp, true);
+                    case "thermometer":
+                        return (new SensorLabel()).CreateLabelUI(Properties.Resources.thermometerp, true);
+                    case "all":
+                        return (new SensorFullLabel()).CreateLabelUI(Properties.Resources.AtmosphereWeb, true);
                 }
             }
 

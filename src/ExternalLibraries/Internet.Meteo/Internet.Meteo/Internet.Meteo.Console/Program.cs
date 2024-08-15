@@ -10,10 +10,9 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
-      Task t =  new Task(Test);
+        Task t = new Task(Test);
         t.Start();
         Console.ReadKey();
-
     }
 
 

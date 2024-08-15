@@ -1,6 +1,5 @@
 ﻿namespace Internet.Meteo
 {
-    using Diagram.UI;
     using Newtonsoft.Json;
 
 
@@ -10,11 +9,51 @@
         Celsius
     }
 
-    public class Sensor : IDisposable
+    /// <summary>
+    /// Base class for the weather sensor
+    /// </summary>
+    public abstract class Sensor : IDisposable
     {
 
 
         #region Fields
+
+   
+        public readonly Dictionary<string, object> Types = new Dictionary<string, object>()
+        {
+            { "temp", (double)0 },
+            {"feelslike", (double)0},
+            {"humidity", (double)0},
+          {  "dew", (double)0 },
+            {"precip", (double)0 },
+            {"precipprob", (double)0 },
+           { "snow", (double)0 },
+           { "snowdepth", (double)0 },
+            {"preciptype", (double)0 },
+           { "windgust", (double)0 },
+           { "windspeed", (double)0 },
+            {"winddir", (double)0 },
+            {"pressure", (double)0 },
+            {"visibility", (double)0 },
+            {"cloudcover", (double)0 },
+            {"solarradiation", (double)0 },
+           { "solarenergy", (double)0 },
+            {"uvindex", (double)0 } ,
+           { "conditions", "" },
+           { "icon","" }
+
+        };
+
+        public readonly Dictionary<string, string[]> names = new Dictionary<string, string[]>()
+        {
+            {"thermometer", ["temp"] },
+            {"all", ["temp", "feelslike", "humidity", "dew", "precip", "precipprob", "snow", 
+                "snowdepth", "preciptype",  "windgust",
+            "windspeed", "winddir","pressure","visibility", "cloudcover", "solarradiation",
+                 "solarenergy", "uvindex",  "conditions", "icon"] }
+
+        };
+
 
         FahrenheitCelsius fahrenheitCelsius;
 
@@ -29,15 +68,20 @@
 
         protected string kind;
 
-        protected double value = 0;
+        protected object[] values;
+
+        protected string[] currentNames;
+
 
         object block = new object();
 
         Task task;
 
-        Dictionary<string, Func<string>> requests;
+        Dictionary<string, Tuple< Func<string>, Action>> requests;
+
+        double cm1, cm2;
         
-        Dictionary<string, Func<double>> results;
+      
 
         AutoResetEvent ev;
 
@@ -46,7 +90,7 @@
         Func<string> requestf;
 
 
-        public event Action<double> OnValueChange;
+        public event Action<object[]> OnValueChange;
 
         public Action<bool> OnEnabledChange;
 
@@ -55,7 +99,9 @@
 
         TimeSpan span;
 
-        string body = "";
+        Action Get;
+
+        Action Init;
 
 
         #endregion
@@ -76,16 +122,18 @@
         /// </summary>
         protected Sensor()
         {
-            requests = new Dictionary<string, Func<string>>()
+            requests = new Dictionary<string, Tuple<Func<string>, Action>>()
             {
-                {"thermometer", DayForecast }
+                {"thermometer",  new Tuple<Func<string>, Action>
+                ( DayForecast, GetTemperature)
+                },
+                {"all",  new Tuple<Func<string>, Action>
+                (DayForecast, GetAll)
+                }
             };
 
-            results = new Dictionary<string, Func<double>>()
-            {
-                {"thermometer", GetTemperature }
-            };
-        }
+         }
+
 
         #endregion
 
@@ -109,14 +157,16 @@
         public string Position 
         { get; set; } = "";
 
-        public double GetValue()
+        public void Update()
         {
             lock (block)
             {
-                return Get();
+                Get();
             }
+            OnValueChange?.Invoke(values);
         }
 
+    
         public bool IsEnabled
         {
             get => task != null;
@@ -161,12 +211,32 @@
 
         #region Protected Members
 
-        protected void Set(string kind)
+        protected virtual void Set(string kind)
         {
             this.kind = kind;
-            requestf = requests[kind];
-            Get = results[kind];
+            var tuple = requests[kind];
+            requestf = tuple.Item1;
+            Get = tuple.Item2;
+            currentNames = names[kind];
+            values = new object[currentNames.Length];
         }
+
+        /// <summary>
+        /// Shows message
+        /// </summary>
+        /// <param name="message">The message</param>
+        protected abstract void ShowMessage(string message);
+
+        /// <summary>
+        /// Shows error
+        /// </summary>
+        /// <param name="exception">The exception</param>
+        protected abstract void  ShowError(Exception exception);
+
+        #endregion
+
+        #region Private Members
+
 
         async void Request()
         {
@@ -193,7 +263,7 @@
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ShowError(ex);
             }
         }
 
@@ -229,28 +299,103 @@
                 }
             }
         }
+  
+        void SetDouble(int i, dynamic value)
+        {
+            object v = value.Value;
+            if (v == null)
+            {
+                values[i] = null;
+            }
+            else
+            {
+                values[i] = (double)v;
+            }
+        }
+
+        void SetDoubleDouble(int i, dynamic value)
+        {
+            object v = value.Value;
+            if (v == null | v == null)
+            {
+                values[i] = null;
+                return;
+            }
+            var a = (double)values[i];
+            var b = (double)v;
+            values[i] = cm1 * a + cm2 * b;  
+        }
 
 
-
-        #endregion
-
-        #region Private Members
-
-        Func<double> Get;
-
-        double GetTemperature()
+        void GetAll()
         {
             var dt = DateTime.Now;
             var h = dt.Hour;
-       //     var h = weather.hours[dt.Hour];
-            var m = dt.Minute;
+            var hh = weather.hours[h];
+            values[0] = coefficient * (double)hh.temp.Value;
+            SetDouble(1, hh.feelslike);
+            SetDouble(2, hh.humidity);
+            SetDouble(3, hh.dew);
+            SetDouble(4, hh.precip);
+            SetDouble(5, hh.snow);
+            SetDouble(6, hh.snowdepth);
+            SetDouble(8, hh.windspeed);
+            SetDouble(9, hh.windgust);
+            SetDouble(10, hh.winddir);
+            SetDouble(11, hh.pressure);
+            SetDouble(12, hh.visibility);
+            SetDouble(13, hh.cloudcover);
+            SetDouble(14, hh.solarradiation);
+            SetDouble(15, hh.solarenergy);
+            SetDouble(16, hh.solarradiation);
+            SetDouble(17, hh.uvindex);
+            values[18] = hh.conditions.Value;
+            values[19] = hh.icon.Value;
+            if (h == 23)
+            {
+                return;
+            }
+            cm1 = (double)dt.Minute / 60;
+            cm2 = 1 - cm1;
+            hh = weather.hours[h + 1];
+            SetDoubleDouble(1, hh.feelslike);
+            SetDoubleDouble(2, hh.humidity);
+            SetDoubleDouble(3, hh.dew);
+            SetDoubleDouble(4, hh.precip);
+            SetDoubleDouble(5, hh.snow);
+            SetDoubleDouble(6, hh.snowdepth);
+            SetDoubleDouble(8, hh.windspeed);
+            SetDoubleDouble(9, hh.windgust);
+            SetDoubleDouble(10, hh.winddir);
+            SetDoubleDouble(11, hh.pressure);
+            SetDoubleDouble(12, hh.visibility);
+            SetDoubleDouble(13, hh.cloudcover);
+            SetDoubleDouble(14, hh.solarradiation);
+            SetDoubleDouble(15, hh.solarenergy);
+            SetDoubleDouble(16, hh.solarradiation);
+            SetDoubleDouble(17, hh.uvindex);
+        }
 
-            return value;
+
+
+        void GetTemperature()
+        {
+            var dt = DateTime.Now;
+            var h = dt.Hour;
+            values[0] = coefficient * (double)weather.hours[h].temp.Value;
+            if (h == 23)
+            {
+                return;
+            }
+            var a = coefficient * (double)weather.hours[h + 1].temp;
+            var m = (double)dt.Minute / 60;
+            values[0] = (double)values[0] * (1 - m) + a * m;
         }
 
 
         string DayForecast()
         {
+            // 40.7128,-74.0060
             var s = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
             return s + Position + "?key=" + Key;
         }

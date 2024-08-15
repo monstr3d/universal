@@ -2,7 +2,7 @@
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
-
+using Diagram.UI;
 using Event.Interfaces;
 
 namespace Internet.Meteo.Wrapper
@@ -11,8 +11,11 @@ namespace Internet.Meteo.Wrapper
     {
         #region Fields
 
-        Measurement measurement;
- 
+        bool isUpdated = false;
+
+        IMeasurement[] measurements;
+
+    
         #endregion
 
    
@@ -45,17 +48,17 @@ namespace Internet.Meteo.Wrapper
 
         #endregion
 
-
         #region IMeasurements members
 
-        IMeasurement IMeasurements.this[int number] => measurement;
+        IMeasurement IMeasurements.this[int number] => measurements[number];
 
-        int IMeasurements.Count => 1;
+        int IMeasurements.Count => measurements.Length;
 
-        bool IMeasurements.IsUpdated { get => true; set { } }
+        bool IMeasurements.IsUpdated { get => isUpdated; set => isUpdated = value; }
 
         void IMeasurements.UpdateMeasurements()
         {
+            Update();
         }
 
         #endregion
@@ -86,12 +89,37 @@ namespace Internet.Meteo.Wrapper
         #region Protected members
 
         /// <summary>
-        /// Cretates measurements
+        /// Shows message
+        /// </summary>
+        /// <param name="message">The message</param>
+        protected override void ShowMessage(string message)
+        {
+            message.Show();
+        }
+
+        /// <summary>
+        /// Shows error
+        /// </summary>
+        /// <param name="exception">The exception</param>
+        protected override void ShowError(Exception exception)
+        {
+            exception.ShowError();
+        }
+
+        /// <summary>
+        /// Creates measurements
         /// </summary>
         protected void Create()
         {
-            Func<object> f = () => GetValue();
-            measurement = new Measurement(f, kind);
+            measurements = new IMeasurement[currentNames.Length];
+            for (int i = 0; i < currentNames.Length; i++)
+            {
+                var k = i;
+                Func<object> f = () =>
+                    values[k];
+                measurements[i] = new Measurement(Types[currentNames[i]], f,
+                    currentNames[i]);
+            }      
         }
 
         #endregion

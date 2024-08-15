@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using WindowsExtensions;
 
 namespace Internet.Meteo.UI.UserControls
@@ -20,6 +14,7 @@ namespace Internet.Meteo.UI.UserControls
         bool changing = false;
 
         float min, max, step;
+        
         public UserControlTemperature(float min, float max, float step)
         {
             InitializeComponent();
@@ -48,27 +43,25 @@ namespace Internet.Meteo.UI.UserControls
         }
 
 
-        private void Sensor_OnValueChange(double obj)
+        private void Sensor_OnValueChange(object[] obj)
         {
             this.InvokeIfNeeded(ChangeValue, obj);
         }
 
-        private void ChangeValue(double value)
+        private void ChangeValue(object[] value)
         {
-            term.Set((float)value);
+            double a = (double)value[0];
+            term.Set((float)a);
         }
 
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            if (changing)
+            if (sensor.Position == textBox.Text)
             {
                 return;
             }
-            int i = 0;
             sensor.Position = textBox.Text;
-            changing = true;
-            changing = false;
         }
     }
 }
