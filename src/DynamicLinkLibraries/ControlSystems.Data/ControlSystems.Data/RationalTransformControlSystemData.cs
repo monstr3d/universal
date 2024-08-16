@@ -312,6 +312,10 @@ namespace ControlSystems.Data
 
         #region IStarted Members
 
+        /// <summary>
+        /// Starts itself
+        /// </summary>
+        /// <param name="time">The start time</param>
         void IStarted.Start(double time)
         {
             for (int i = 0; i < state.Length; i++)

@@ -39,7 +39,11 @@ namespace Internet.Meteo.UI.UserControls
 
         private void Sensor_OnEnabledChange(bool obj)
         {
-            textBox.Enabled = !obj;
+            var a = () =>
+            {
+                textBox.Enabled = !obj;
+            };
+            this.InvokeIfNeeded(a);
         }
 
 

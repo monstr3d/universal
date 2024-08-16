@@ -16,7 +16,6 @@ namespace DataPerformer.Interfaces
         /// </summary>
         void Refresh();
 
-
         /// <summary>
         /// Starts all components
         /// </summary>

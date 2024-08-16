@@ -88,7 +88,7 @@ namespace DataPerformer.Interfaces
     public interface IStarted
     {
         /// <summary>
-        /// Starts this object
+        /// Starts itself
         /// </summary>
         /// <param name="time">Start time</param>
         void Start(double time);

@@ -161,6 +161,10 @@
         {
             lock (block)
             {
+                if (weather == null)
+                {
+                    return;
+                }
                 Get();
             }
             OnValueChange?.Invoke(values);
@@ -210,6 +214,13 @@
         #endregion
 
         #region Protected Members
+
+        protected void Start()
+        {
+         
+            IsEnabled = true;
+            IsEnabled = false;
+        }
 
         protected virtual void Set(string kind)
         {
@@ -329,6 +340,10 @@
 
         void GetAll()
         {
+            if (weather == null)
+            {
+                return;
+            }
             var dt = DateTime.Now;
             var h = dt.Hour;
             var hh = weather.hours[h];

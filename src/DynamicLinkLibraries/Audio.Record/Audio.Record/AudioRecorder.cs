@@ -53,17 +53,25 @@ namespace Audio.Record
 
         #region IRealTimeStartStop Members
 
+        /// <summary>
+        /// On start event
+        /// </summary>
         event Action IRealTimeStartStop.OnStart
         {
             add
             {
+            
             }
 
             remove
             {
+
             }
         }
 
+        /// <summary>
+        /// On stop event
+        /// </summary>
         event Action IRealTimeStartStop.OnStop
         {
             add
@@ -76,6 +84,9 @@ namespace Audio.Record
             }
         }
 
+        /// <summary>
+        /// Starts itself
+        /// </summary>
         void IRealTimeStartStop.Start()
         {
             if (calculationReason.Equals("Realtime"))
@@ -84,6 +95,9 @@ namespace Audio.Record
             }
         }
 
+        /// <summary>
+        /// Stops itself
+        /// </summary>
         void IRealTimeStartStop.Stop()
         {
             if (calculationReason.Equals("Realtime"))
@@ -97,6 +111,9 @@ namespace Audio.Record
 
         #region ICalculationReason Members
 
+        /// <summary>
+        /// CalculationReason
+        /// </summary>
         string ICalculationReason.CalculationReason
         {
             get

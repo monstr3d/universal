@@ -1,13 +1,17 @@
 ﻿using CategoryTheory;
 
+using Diagram.UI;
+
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
-using Diagram.UI;
+
 using Event.Interfaces;
 
 namespace Internet.Meteo.Wrapper
 {
-    public class Sensor : Meteo.Sensor, ICategoryObject, IMeasurements, IEvent
+    public class Sensor : Meteo.Sensor, ICategoryObject, IMeasurements, ICalculationReason,
+        IRealTimeStartStop, IStarted
     {
         #region Fields
 
@@ -15,10 +19,10 @@ namespace Internet.Meteo.Wrapper
 
         IMeasurement[] measurements;
 
+        string calculationReason = "";
     
         #endregion
 
-   
         #region Ctor
 
         /// <summary>
@@ -62,12 +66,12 @@ namespace Internet.Meteo.Wrapper
         }
 
         #endregion
-
+/* !!! CHECK AFTER
         #region IEvent members
 
         bool IEvent.IsEnabled 
         { 
-            get => base.IsEnabled; 
+            get => base.IsEnabled;
             set => base.IsEnabled = value; 
         }
 
@@ -83,7 +87,100 @@ namespace Internet.Meteo.Wrapper
         }
 
 
+        #endregion*/
+
+        #region IRealTimeStartStop Members
+
+        /// <summary>
+        /// On start event
+        /// </summary>
+        event Action IRealTimeStartStop.OnStart
+        {
+            add
+            {
+
+            }
+
+            remove
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// On stop event
+        /// </summary>
+        event Action IRealTimeStartStop.OnStop
+        {
+            add
+            {
+            }
+
+            remove
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Starts itself
+        /// </summary>
+        void IRealTimeStartStop.Start()
+        {
+            if (calculationReason == StaticExtensionEventInterfaces.Realtime)
+            {
+                IsEnabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Stops itself
+        /// </summary>
+        void IRealTimeStartStop.Stop()
+        {
+            if (calculationReason == StaticExtensionEventInterfaces.Realtime)
+            {
+                IsEnabled = false;
+                calculationReason = "";
+            }
+        }
+
+        /// <summary>
+        /// Starts itself
+        /// </summary>
+        /// <param name="time">The start time</param>
+        void IStarted.Start(double time)
+        {
+            if (calculationReason != StaticExtensionEventInterfaces.Realtime)
+            {
+
+                Start();
+            }
+        }
+
         #endregion
+
+
+        #region ICalculationReason Members
+
+        /// <summary>
+        /// CalculationReason
+        /// </summary>
+        string ICalculationReason.CalculationReason
+        {
+            get
+            {
+                return calculationReason;
+            }
+
+            set
+            {
+                calculationReason = value;
+            }
+        }
+
+        #endregion
+
 
 
         #region Protected members
@@ -121,7 +218,7 @@ namespace Internet.Meteo.Wrapper
                     currentNames[i]);
             }      
         }
-
+ 
         #endregion
 
     }
