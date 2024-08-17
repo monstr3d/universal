@@ -1201,12 +1201,14 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 
 \begin{lemma}\label{top_trans_tp_cov_lem}
 	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $\varphi \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ \varphi = p$ then one has
-	$$
-	\exists  \widetilde x \in \widetilde\sX \quad  \varphi\left( \widetilde x\right)  = \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad \varphi\left( \widetilde x \right) = \widetilde x.
-	$$
+\bea\label{top_transe_tp_cov_eqn}
+	\exists  \widetilde x \in \widetilde\sX \quad  \varphi\left( \widetilde x\right)  = \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad \varphi\left( \widetilde x \right) = \widetilde x,\\
+	\label{top_transa_tp_cov_eqn}
+		\exists  \widetilde x \in \widetilde\sX \quad  \varphi\left( \widetilde x\right)  \neq \widetilde x \quad  \Leftrightarrow\quad \forall  \widetilde x \in \widetilde\sX \quad \varphi\left( \widetilde x \right) \neq \widetilde x.
+\eea
 \end{lemma}
 \begin{proof}
-	The implication $\Leftarrow$ is evident. 
+	The implication  $\Leftarrow$ of the equation \eqref{top_transe_tp_cov_eqn} is evident. 
 	If  $ \varphi\left(\widetilde x\right) = \widetilde x$ then there is a connected open neighborhood $\widetilde \sU$ of $\widetilde x$ which mapped homeomorphically onto $\sU \bydef p\left( \widetilde \sU\right)$. The restriction $\left.p\right|_{\widetilde\sU}$ is a homeomorphism from $\widetilde\sU$ onto $\sU$. Otherwise there is an open  neighborhood $\widetilde \sV$ of $\widetilde x$ such that $ \varphi\left(\widetilde  \sV\right)  \subset \widetilde \sU$.
 	Taking into account $p \circ g = p$ one has $$\forall \widetilde x \in \widetilde \sU \cap \widetilde  \sV\quad  \varphi\left(\widetilde x\right)  = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p \circ  \varphi\left( \widetilde x \right) = \left(\left.p\right|_{\widetilde\sU}\right)^{-1} \circ p\left( \widetilde x \right)=  \widetilde x,$$ so a set
 	$$
@@ -1216,29 +1218,25 @@ is open. If $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}\neq \empty
 $$
 \widetilde x \in \widetilde\sU_1 \cap \varphi^{-1}\left(\widetilde\sU_2 \right)\quad \Rightarrow\quad \widetilde x \neq \varphi\left(\widetilde x \right), 
 $$ 
-i.e. the set $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}$ is open. So $\widetilde\sX$ is a disjoint union of nontrivial open sets. However it is impossible, since $\widetilde\sX$ is connected, so $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}=\emptyset$, hence $\widetilde{\sX}= \widetilde{\mathcal W}$.
+i.e. the set $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}$ is open. So $\widetilde\sX$ is a disjoint union of nontrivial open sets. However it is impossible, since $\widetilde\sX$ is connected, so $\widetilde{ \mathcal X}\setminus \widetilde{ \mathcal W}=\emptyset$, hence $\widetilde{\sX}= \widetilde{\mathcal W}$, and $\forall  \widetilde x \in \widetilde\sX \quad \varphi\left( \widetilde x \right) = \widetilde x$. 
+
+The equation \eqref{top_transa_tp_cov_eqn} directly follows from the \eqref{top_transe_tp_cov_eqn} one.
 \end{proof}
 \begin{corollary}\label{top_trans_tp_cov_cor}
 	Let $\sX$ be a  connected,  locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a   covering of connected spaces. If there is  $\widetilde x_0\in \widetilde\sX$ such that the map
 	\bean 
-	G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
+	G\left(\left.\widetilde{   \mathcal X }~\right|~{   \mathcal X } \right)\xrightarrow{\approx}p^{-1}p\left(\widetilde x_0 \right);\\
 	g \mapsto g\widetilde x_0. 
 	\eean
 	is bijective	then $p$ is a transitive covering.
 \end{corollary}
 
 \begin{corollary}\label{top_trans_cov_factor_cor}
-	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a {transitive} covering then there is the natural homeomorphism $\sX  \cong \widetilde{\mathcal X}/G\left(\left.\widetilde{\sX}~\right|\sX\right)$.
+	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a {transitive} covering then there is the natural homeomorphism $\sX  \cong \widetilde{\mathcal X}/G\left(\left.\widetilde{\sX}~\right|\sX\right)$. Conversely if $G$ is a properly discontinuous group of homeomorphisms of space $\widetilde\sX$ (cf. Definition \ref{top_properly_disc_defn}) then  the natural  map $\widetilde\sX\to \widetilde\sX/G$ is a transitive covering such that $G$ is isomorphic to the covering group $G\left(\left.\widetilde{   \mathcal X }~\right|~\widetilde{   \mathcal X }/G \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}).
 \end{corollary}
 \begin{remark}
-	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
-\end{remark} 
-\begin{corollary}\label{top_trans_algebraical_cov_factor_cor}
-	If $p: \widetilde{\mathcal X}\to {\mathcal X}$  is a  covering and $C_0\left( p\right) : C_0\left(\sX \right)$ !!!!
-\end{corollary}
-\begin{proof}
-	ALGEBRAICAL
-\end{proof}
+	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}. 
+\end{remark}
 
 \begin{theorem}\label{top_covp_cat_thm} 
 	Consider a commutative triangle of connected, Hausdorff topological spaces and  continuous maps
@@ -8733,6 +8731,29 @@ is an  noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn
 	$$
 	From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde A \right)$ is not finitely generated $M\left( A\right)$-module. This fact contradicts with hypotheses of this Lemma.
 \end{proof}
+
+\begin{lemma}\label{top_alg_trans_lem}
+If $\left(C\left(\sX \right), C\left(\widetilde \sX \right), G, \pi  \right)$ is and unital noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}) then the is a transitive covering $p :\widetilde \sX \to \sX$ such that $\pi = C_0\left(p\right)$ (cf. \eqref{top_c0p_eqn}) and   $G \cong G\left(\left. \widetilde\sX\right| \sX \right)$. 
+\end{lemma}
+\begin{proof}
+	The existence of continuous map $p$ follows from the Proposition \ref{spectrum_covering_finite_prop}, and from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a finite-fold covering. So  one should prove that:
+\begin{itemize}
+	\item the covering $p$ is transitive, 
+	\item  $G \cong G\left(\left. \widetilde\sX\right| \sX \right)$.
+\end{itemize} 
+On the other hand from the Proposition \ref{spectrum_covering_finite_prop} it follows that there is the natural action $G \times \widetilde\sX \to \widetilde\sX$
+with 
+\be\label{top_alg_trans_eqn}
+\sX \cong \widetilde\sX/G.
+\ee
+Any nontrivial element $g \in G$ yields a nontrivial $*$-automorphism of $C\left(\widetilde \sX \right)$ which corresponds to a nontrivial homeomorphism of $\widetilde \sX$, so there is $\widetilde x \in \widetilde\sX$ such that $g \widetilde x \neq \widetilde x$. From the Lemma  \ref{top_trans_tp_cov_lem} it turns out that
+$$
+\forall  \widetilde x \in \widetilde\sX \quad g \widetilde x  \neq \widetilde x
+$$
+and taking into account the Remark \ref{top_properly_disc_rem} we conclude that $G$ is {properly discontinuous} \ref{top_properly_disc_group_defn}. From the Lemma \ref{}
+
+
+\end{proof}
 \begin{empt}\label{spectrum_ff_pp_empr}
 	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn})  such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$. From the Lemma \ref{ctr_ccr_sp_lem} it follows that $\widetilde{A}$ is a CCR-algebra. The prime spectra of $A$ and $\widetilde A$ (cf. Definition \ref{primitive_prime_spectrum_defn}) coincide with $\sX$ and $\widetilde \sX$ respectively (cf. the Theorem \ref{ctr_hat_check_thm} and the Corollary \ref{ctr_ccr_i_cor}).
 	If   both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ then $C \cong C_b\left( \sX\right)$ and $\widetilde C \cong C_b\left(\widetilde \sX\right)$ (cf. the Theorem \ref{dauns_hofmann_thm}) where $C_b\left(\widetilde \sX\right)$ is a $C^*$-algebra of bounded complex-valued continuous functions over possibly non-Hausdorff space $\widetilde{\sX}$. From the Theorem \ref{gelfand-naimark_thm} it follows that there is a compact Hausdorff space $\widetilde \sY$ such that $\widetilde C \cong C\left(\widetilde \sY \right)$. The explained in \ref{spectrum_ff_p_empt} action $G\times \widetilde C\to \widetilde C$ yields an action $G\times \widetilde \sY\to \widetilde \sY$, i.e. one has a homomorphism
@@ -8744,18 +8765,21 @@ is an  noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn
 	p: \widetilde \sY \to \bt \sX
 \ee
 	where $\bt \sX$ is the {Stone-\v{C}ech compactification}  
-	of $\sX$ (cf. Definition \ref{top_stone_cech_defn}). From the Corollary \ref{top_trans_algebraical_cov_factor_cor} it follows that the covering is transitive.
+	of $\sX$ (cf. Definition \ref{top_stone_cech_defn}). From the Corollary \ref{top_trans_tp_cov_cor} it follows that the covering is transitive with
+	$$
+	G\left( \widetilde \sY \left| \bt \sX \right.\right) \cong G
+	$$
 \end{empt}
 
 \begin{lemma}\label{spectrum_ff_pp_lem}
-	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$. If  $\widetilde \sX$ is the spectrum of  $\widetilde A$ and a  homomorphism  $G \to \Homeo\left(\widetilde\sX \right)$ comes from the Proposition \ref{spectrum_covering_finite_prop}) the normal subgroup
+	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$. Then  the normal subgroup
 	\be\label{spectrum_ff_pp_eqn}
-	H \bydef \ker\left( G \to \widetilde C \right) 
+	H \bydef \ker\left( G \to \Aut \left( \widetilde C\right)  \right) 
 	\ee
 	is $\left(A, \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn}). 
 \end{lemma}
 \begin{proof}
-	From the Lemma \ref{ctr_ccr_sp_lem} it follows that $\widetilde A$ is a CCR-algebra. The prime spectra of $A$ and $\widetilde A$ (cf. Definition \ref{primitive_prime_spectrum_defn}) coincide with $\sX$ and $\widetilde \sX$ respectively (cf. the Theorem \ref{ctr_hat_check_thm} and the Corollary \ref{ctr_ccr_i_cor}). From the Lemma \ref{spectrum_ff_p_lem} it follows that $C_b\left(\widetilde \sX \right)$ is a finitely generated $C_b\left( \sX \right)$-module. From the Theorem \ref{pavlov_troisky_thm} it turns out that there is the natural finite-fold covering $\bt\widetilde \sX\to \bt\sX$ where both $\bt\widetilde \sX$ and $\bt\sX$  are Stone \ref{top_com}
+!!! 	From the Lemma \ref{ctr_ccr_sp_lem} it follows that $\widetilde A$ is a CCR-algebra. The prime spectra of $A$ and $\widetilde A$ (cf. Definition \ref{primitive_prime_spectrum_defn}) coincide with $\sX$ and $\widetilde \sX$ respectively (cf. the Theorem \ref{ctr_hat_check_thm} and the Corollary \ref{ctr_ccr_i_cor}). From the Lemma \ref{spectrum_ff_p_lem} it follows that $C_b\left(\widetilde \sX \right)$ is a finitely generated $C_b\left( \sX \right)$-module. From the Theorem \ref{pavlov_troisky_thm} it turns out that there is the natural finite-fold covering $\bt\widetilde \sX\to \bt\sX$ where both $\bt\widetilde \sX$ and $\bt\sX$  are Stone \ref{top_com}
 \end{proof}
 \begin{corollary}\label{spectrum_ff_p_cor} !!! CHECK !!!
 	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}) such that $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}). If  the spectrum $\sX$ of $A$ is Hausdorff then one has:
@@ -18770,8 +18794,12 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\begin{definition}\label{top_properly_disc_group_defn}\cite{spanier:at} 
 A group $G$ of homeomorphisms of a topological space $\sY$  is said to be  
 \textit{discontinuous} if the orbits of $G$ in $\sY$ are discrete subsets of $\sY$. $G$ is \textit{properly discontinuous} if for $y \in \sY$ there is an open neighborhood $\sU$ of $y$ in $\sY$ such 
-that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ \textit{acts without fixed points} if the only element of G having fixed points is the identity element.	
+that if $g, g' \in  G$ and $g\sU$ meets $g'\sU$, then $g = g'$. $G$ \textit{acts without fixed points} if the only element of $g\in G$ having fixed points is the identity element.	
 \end{definition}
+\begin{remark}\label{top_properly_disc_rem}\cite{spanier:at}
+	A finite group of homeomorphisms acting without fixed points on a 
+	Hausdorff space is properly discontinuous.
+\end{remark}
 \begin{theorem}\label{top_group_of_covering_transformations_thm}\cite{spanier:at}
 	Let $G$ a properly discontinuous group of homeomorphisms 
 	of a space $\sY$. Then the projection of $\sY$ to the orbit space $\sY/G$ is a covering projection. If $\sY$ is connected, this covering projection is regular and $G$  is its	group of covering transformations. 
@@ -18904,12 +18932,9 @@ following are clear.
 A properly discontinuous group of homeomorphisms is discontinuous 
 and acts without fixed points. 
 \end{definition}
-\begin{remark}\label{top_properly_disc_rem}\cite{spanier:at}
-A finite group of homeomorphisms acting without fixed points on a 
-Hausdorff space is properly discontinuous.
-\end{remark}
+
 	\begin{theorem}\label{top_cov_fact_thm}\cite{spanier:at}
-		Let $G$ be a properly discontinuous group of homeomorphisms of space $\mathcal Y$. Then the projection of $\mathcal Y$ to the orbit space $\mathcal Y/G$ is a covering projection. If $\mathcal Y$ is connected, this covering is regular and $G$ is its group of covering transformations, i.e. $G = G\left(\mathcal Y~|~\mathcal Y/G \right)$. 
+		Let $G$ be a properly discontinuous group of homeomorphisms of space $\mathcal Y$ (cf. Definition \ref{top_properly_disc_defn}). Then the projection of $\mathcal Y$ to the orbit space $\mathcal Y/G$ is a covering projection. If $\mathcal Y$ is connected, this covering is regular and $G$ is its group of covering transformations, i.e. $G = G\left(\mathcal Y~|~\mathcal Y/G \right)$. 
 	\end{theorem}
 	\begin{lem}\label{top_cov_from_pi1_cor}\cite{spanier:at}
 		Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with a unique path lifting. If $ \widetilde{\mathcal X}$ is connected and locally path-connected and $\widetilde{x}_0 \in \widetilde{\mathcal X}$ then $p$ is regular if and only if $G\left(\widetilde{\mathcal X}~|~{\mathcal X} \right)$ transitively acts on each fiber of $p$, in which case 
