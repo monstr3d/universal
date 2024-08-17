@@ -1,9 +1,4 @@
 ﻿using SoundService.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoundService
 {
@@ -42,9 +37,8 @@ namespace SoundService
         /// <param name="soundFactory">The factory to set</param>
         public static void Set(this ISoundFactory soundFactory)
         {
-            soundFactory.Directory = soundFactory;
+            soundFactory.Directory = SoundDirectory;
             SoundFactory = soundFactory;
-            
         }
 
     }

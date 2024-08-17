@@ -16,6 +16,8 @@ using BasicEngineering.UI.Factory;
 using Aviation.UI;
 using DataPerformer.Formula;
 using Chart.UserControls;
+using System.Windows.Controls;
+using SoundService;
 
 namespace Aviation.Light
 {
@@ -139,9 +141,14 @@ namespace Aviation.Light
                 f = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }
             var tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Image", "Events", "Arrows" };
-            ButtonWrapper[][] but = new ButtonWrapper[tabs.Length][];
+            var soundFactory = StaticExtensionSoundService.SoundFactory;
+            if (soundFactory != null)
+            {
+                tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Image", "Sound", "Events", "Arrows" };
+            }
+            var but = new ButtonWrapper[tabs.Length][];
             int i = 0;
-            List<ButtonWrapper> gen = new List<ButtonWrapper>();
+            var gen = new List<ButtonWrapper>();
             gen.AddRange(DataPerformer.UI.Factory.StaticFactory.GeneralObjectsButtons);
             gen.AddRange(ControlSystems.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
      //       gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
@@ -151,21 +158,34 @@ namespace Aviation.Light
             ++i;
             but[i] = Database.UI.Factory.DatabaseFactory.ObjectButtons;
             ++i;
-            List<ButtonWrapper> geom = new List<ButtonWrapper>();
+            var geom = new List<ButtonWrapper>();
             geom.AddRange(Motion6D.UI.Factory.MotionFactory.ObjectButtons);
             geom.AddRange(Motion6D.UI.Factory.VisibleFactory.GetVisualObjectButtons(f));
             but[i] = geom.ToArray();
             ++i;
-            List<ButtonWrapper> image = new List<ButtonWrapper>();
+            var image = new List<ButtonWrapper>();
             image.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ObjectButtons);
             image.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ObjectButtons);
             but[i] = image.ToArray();
             ++i;
-            List<ButtonWrapper> events = new List<ButtonWrapper>();
+            if (soundFactory != null)
+            {
+                try
+                {
+                    var sounds = SoundService.UI.Factory.SoundUIFactory.ObjectButtons;
+                    but[i] = sounds;
+                    ++i;
+                }
+                catch (Exception wx)
+                {
+
+                }
+            }
+            var events = new List<ButtonWrapper>();
             events.AddRange(Event.UI.Factory.UIFactory.ObjectButtons);
             but[i] = events.ToArray();
             ++i;
-            List<ButtonWrapper> arr = new List<ButtonWrapper>();
+            var arr = new List<ButtonWrapper>();
             arr.AddRange(EngineeringUIFactory.ArrowButtons);
             arr.Add(EngineeringUIFactory.DataExchangeArrowButtons[0]);
             arr.AddRange(Motion6D.UI.Factory.MotionFactory.ArrowButtons);

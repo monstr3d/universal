@@ -3,7 +3,7 @@
 namespace SoundServce.NAudio
 {
     [InitAssembly]
-    public class StaticExtensionSoundService
+    public class StaticExtensionSoundServiceNAudio
     {
         /// <summary>
         /// Inits itself
@@ -15,9 +15,11 @@ namespace SoundServce.NAudio
 
         }
 
-        static StaticExtensionSoundService()
+        static StaticExtensionSoundServiceNAudio()
         {
+            new Factory();
 
         }
+ 
     }
 }

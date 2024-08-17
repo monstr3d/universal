@@ -10,11 +10,17 @@ namespace SoundServce.NAudio
 {
     internal class Factory : ISoundFactory
     {
+        string directory;
         internal Factory()
         {
             this.Set();
         }
-        
-        ISoundPlayer ISoundFactory.SoundPlayer => throw new NotImplementedException();
+
+        ISoundPlayer ISoundFactory.SoundPlayer
+        {
+            get => new AsioOutSoundPlayer(directory);
+        }
+
+        string ISoundFactory.Directory { get => directory; set => directory = value; }
     }
 }

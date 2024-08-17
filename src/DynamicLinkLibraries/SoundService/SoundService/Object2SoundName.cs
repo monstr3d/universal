@@ -16,14 +16,13 @@ namespace SoundService
     /// <summary>
     /// Convereter of digit to sound
     /// </summary>
-    [Serializable()]
-    public class Object2SoundName : CategoryObject, ISerializable, 
+    public class Object2SoundName : CategoryObject, 
         IDataConsumer, IMeasurements, IPostSetArrow
     {
         #region Fields
 
     
-        string[] inputs = new string[0];
+        protected string[] inputs = new string[0];
 
  
         IMeasurement[] outMea;
@@ -43,27 +42,9 @@ namespace SoundService
         /// </summary>
         public Object2SoundName()
         {
+
         }
-
-        /// <summary>
-        /// Deserialization construcror
-        /// </summary>
-        /// <param name="info">Serialization info</param>
-        /// <param name="context">Streaming context</param>
-        protected Object2SoundName(SerializationInfo info, StreamingContext context)
-        {
-            inputs = info.GetValue("Inputs", typeof(string[])) as string[];
-        }
-
-        #endregion
-
-        #region ISerializable Members
-
-        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Inputs", inputs, typeof(string[]));
-        }
-
+ 
         #endregion
 
         #region IPostSetArrow Members

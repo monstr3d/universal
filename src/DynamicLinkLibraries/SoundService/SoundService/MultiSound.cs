@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
 
 using CategoryTheory;
 
@@ -19,9 +16,8 @@ namespace SoundService
     /// <summary>
     /// Multiple sound
     /// </summary>
-    [Serializable()]
     [CalculationReasons(new string[] {Event.Interfaces.StaticExtensionEventInterfaces.Realtime, "Testing" })]
-    public class MultiSound   : CategoryObject, ISerializable, 
+    public class MultiSound   : CategoryObject, 
         IDataConsumer, IPostSetArrow, ITimeMeasurementConsumer, IRealtimeUpdate, 
         IStopped, IStarted
     {
@@ -42,9 +38,9 @@ namespace SoundService
 
         List<long> pause =  new List<long>();
 
-        string conditionName;
+        protected string conditionName;
 
-        string soundName;
+        protected string soundName;
     
         IMeasurement timeMeasure;
 
@@ -66,27 +62,7 @@ namespace SoundService
         {
         }
 
-        /// <summary>
-        /// Deserialization construcror
-        /// </summary>
-        /// <param name="info">Serialization info</param>
-        /// <param name="context">Streaming context</param>
-        protected MultiSound(SerializationInfo info, StreamingContext context)
-        {
-            conditionName = info.GetString("Condition");
-            soundName = info.GetString("Sound");
-        }
-
-        #endregion
-
-        #region ISerializable Members
-
-        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Condition", conditionName);
-            info.AddValue("Sound", soundName);
-        }
-
+  
         #endregion
 
         #region IDataConsumer Members

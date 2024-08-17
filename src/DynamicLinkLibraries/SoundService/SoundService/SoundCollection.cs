@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 using CategoryTheory;
 
@@ -11,6 +10,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 
 using Event.Interfaces;
+
 using SoundService.Interfaces;
 
 namespace SoundService
@@ -20,7 +20,7 @@ namespace SoundService
     /// </summary>
     [Serializable()]
     [CalculationReasons(new string[] { StaticExtensionEventInterfaces.Realtime, "Testing" })]
-    public class SoundCollection : CategoryObject, ISerializable, IDataConsumer,
+    public class SoundCollection : CategoryObject, IDataConsumer,
         IPostSetArrow, ITimeMeasurementConsumer, IRealtimeUpdate, IMeasurements
     {
         #region Fields
@@ -37,7 +37,7 @@ namespace SoundService
 
         List<IMeasurements> measurements = new List<IMeasurements>();
 
-        Dictionary<string, string> sounds = new Dictionary<string, string>();
+        protected Dictionary<string, string> sounds = new Dictionary<string, string>();
 
         Dictionary<IMeasurement, string> measures = new Dictionary<IMeasurement, string>();
 
@@ -76,29 +76,12 @@ namespace SoundService
         /// </summary>
         public SoundCollection()
         {
-        }
 
-        /// <summary>
-        /// Deserialization construcror
-        /// </summary>
-        /// <param name="info">Serialization info</param>
-        /// <param name="context">Streaming context</param>
-        protected SoundCollection(SerializationInfo info, StreamingContext context)
-        {
-            sounds = info.GetValue("Sounds", typeof(Dictionary<string, string>)) as Dictionary<string, string>;
         }
 
         #endregion
 
-        #region ISerializable Members
-
-        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Sounds", sounds, typeof(Dictionary<string, string>));
-        }
-
-        #endregion
-
+   
         #region IDataConsumer Members
 
         void IDataConsumer.Add(IMeasurements measurements)
