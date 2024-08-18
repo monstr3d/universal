@@ -46,9 +46,9 @@ namespace Internet.Meteo.UI
                 switch (kind)
                 {
                     case "thermometer":
-                        return (new SensorLabel()).CreateLabelUI(Properties.Resources.thermometerp, true);
+                        return (new SensorLabel()).CreateLabelUI(image, true);
                     case "all":
-                        return (new SensorFullLabel()).CreateLabelUI(Properties.Resources.AtmosphereWeb, true);
+                        return (new SensorFullLabel()).CreateLabelUI(image, true);
                 }
             }
 

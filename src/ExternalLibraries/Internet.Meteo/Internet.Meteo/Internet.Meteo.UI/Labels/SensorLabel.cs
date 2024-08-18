@@ -32,7 +32,7 @@ namespace Internet.Meteo.UI.Labels
         /// Default constructor
         /// </summary>
         public SensorLabel()
-            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.thermometerp)
+            : base(typeof(Wrapper.Serializable.Sensor), "thermometer", Properties.Resources.thermometerp)
         {
 
         }

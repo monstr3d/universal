@@ -1,16 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 
 
 using CategoryTheory;
 
-using Diagram.UI;
 using Diagram.UI.Attributes;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;

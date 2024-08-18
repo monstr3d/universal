@@ -32,7 +32,7 @@ namespace Internet.Meteo.UI.Labels
         /// Default constructor
         /// </summary>
         public SensorFullLabel()
-            : base(typeof(Wrapper.Serializable.Sensor), "", Properties.Resources.AtmosphereWeb.ToBitmap())
+            : base(typeof(Wrapper.Serializable.Sensor), "all", Properties.Resources.AtmosphereWeb.ToBitmap())
         {
 
         }
