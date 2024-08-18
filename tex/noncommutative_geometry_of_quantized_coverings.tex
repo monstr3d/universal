@@ -1750,11 +1750,11 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
    		Let both  $A$ and  $\widetilde{A}$ are  connected $C^*$-algebras (cf. Definition \ref{connected_c_a_defn}), and let $\pi: A \hookto \widetilde{A}$ be an injective  $*$-homomorphism of % connected
    	$C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
-		\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
+		\item[(a)] if $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
 				\be\nonumber
 		G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \pi \left( A\right) \quad ga = a\right\}
 		\ee
-		is finite.
+		is finite,
 		\item[(b)] 	$\pi\left( A \right) = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|\forall g \in G\quad  a = g a\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or $*$-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
@@ -1771,36 +1771,48 @@ Any noncommutative finite-fold  pre-covering is a noncommutative finite-fold qua
 Indeed conditions (a), (b) of the Definition \ref{fin_pre_defn} state an isomorphism between ordered sets  of groups  and $C^*$-algebras  and it is an analog the fundamental
 theorem of Galois theory. (cf. \cite{kurosh:lga} Chapter Six, \S~6 for details).
 \end{remark}
-\begin{definition}\label{proper_subgroup_fin_defn}
-Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if a quadruple
-\be\label{proper_subgroup_fin_eqn}
-\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
-\ee
-is a  {noncommutative finite-fold  pre-covering}. The $*$-homomorphism $\pi^H:A\hookto \widetilde{A}^H $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
-\end{definition}
 \begin{lemma}\label{proper_subgroup_fin_lem}
-If $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ is  a {noncommutative finite-fold  pre-covering} and  $H\subset G\left(\left.\widetilde A~\right|A \right)$ is a subgroup  then a quadruple 
+	If $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ is  a {noncommutative finite-fold  pre-covering} and  $H\subset G\left(\left.\widetilde A~\right|A \right)$ is a subgroup  and
+	$$
+	\widetilde{A}^H \bydef \left\{\left. \widetilde{a}\in \widetilde{A}\right|\forall g \in H \quad g \widetilde{a} = \widetilde{a}\right\}
+	$$
+	then one has:
+	\begin{enumerate}
+		\item [(i)] the group
+	\be\label{g_h_eqn}
+		G_H \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}
+	\ee
+		is finite,
+		\item [(ii)] a quadruple
+	\end{enumerate}
 	\be\label{proper_subgroup_finh_eqn}
-\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
-\ee
-a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}).
+	\left(\widetilde{A}^H, \widetilde{A}, G_H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
+	\ee
+	a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}).
 \end{lemma}
-\begin{proof}	
+\begin{proof} !!! CHECK !!!	(i)
 	From the Definition \ref{fin_pre_defn} it follows that
 	$$
- G\left(\left.\widetilde A~\right|A \right) = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in \pi \left( A\right) \right\}.
+	G\left(\left.\widetilde A~\right|A \right) = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~\forall a \in \pi \left( A\right)\quad  ga = a\right\}.
 	$$
 	So one has
-\bean
-\forall g \in \Aut\left(\widetilde{A}\right) \quad \forall a^H \in \widetilde A^H\quad   g\widetilde a^H = \widetilde a^H \quad \Rightarrow \quad \forall a \in \pi\left(A \right) \quad g a = a,\\
- \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}\subset  G\left(\left.\widetilde A~\right|A \right).	
-\eean
-	It turns out that
 	\bean
-	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}= \\= \left\{ \left.g \in G~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}=H.
+	\forall g \in \Aut\left(\widetilde{A}\right) \quad \forall a^H \in \widetilde A^H\quad   g\widetilde a^H = \widetilde a^H \quad \Rightarrow \quad \forall a \in \pi\left(A \right) \quad g a = a,\\
+	G_H = 	\left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}\subset  G\left(\left.\widetilde A~\right|A \right).	
 	\eean
+	The group  $G\left(\left.\widetilde A~\right|A \right)$ is finite, so $	G_H$ is also finite.\\
+	(ii) From $H \subset G_H$ it follows that $\widetilde A^{G_H}\subset \widetilde A^H$, and from \eqref{g_h_eqn} it turns out that $\widetilde A^H\subset \widetilde A^{G_H}$, i.e. $\widetilde A^{G_H}= \widetilde A^H$, and from \eqref{g_h_eqn} it turns out that $\widetilde A^H\subset \widetilde A^{G_H}$. From (i) of this lemma it follows that the quadruple \eqref{proper_subgroup_finh_eqn} satisfies to the condition (a) of the Definition \ref{fin_pre_defn}. The equality  $\widetilde A^H= \widetilde A^{G_H}$ is a specialization of the condition (b).
 \end{proof}
 
+
+\begin{definition}\label{proper_subgroup_fin_defn} 
+Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if both quadruples
+\bea\label{proper_regular_fin_eqn}
+\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right),\\
+\label{proper_singular_fin_eqn}\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)
+\eea
+are a  {noncommutative finite-fold  pre-coverings}. The $*$-homomorphism $\pi^H:A\hookto \widetilde{A}^H $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$. The quadruples \eqref{proper_regular_fin_eqn} and \eqref{proper_singular_fin_eqn} are  $H$-\textit{regular} and $H$-\textit{singular} respectively.
+\end{definition}
 
 
 \begin{empt}
@@ -1839,7 +1851,7 @@ hence one has
 		\label{fin_composition2_eqn}
 	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
 	\ee
-is an unital finite-fold noncommutative covering.	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there is a following unital finite-fold noncommutative covering
+is an unital finite-fold noncommutative covering.	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!)  then there is a following unital finite-fold noncommutative covering
 	\be\label{fin_composition_eqn}
 	\left(A, \widetilde{A}^H, G/H, \rho \right).
 	\ee
@@ -1848,7 +1860,7 @@ is an unital finite-fold noncommutative covering.	Moreover if $H$ a $\left(A, \w
 From  the Lemma \ref{proper_subgroup_fin_lem} it follows that the  quadruple \eqref{fin_composition2_eqn} is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\widetilde{A}$ is an $A$-module generated by  $\left\{\widetilde a_1 ,..., \widetilde a_n\right\}\subset \widetilde{A}$ then
 $\widetilde{A} = \widetilde a_1 A + ... + \widetilde a_n A$. From $A\subset \widetilde{A}^H$ it  turns out that $\widetilde{A} = \widetilde a_1 \widetilde{A}^H + ... + \widetilde a_n \widetilde{A}^H$, i.e. $\widetilde{A}$ is a finitely generated $\widetilde{A}^H$-module.
 
-If $H$ is a $\left(A, \widetilde{A}, G, \pi \right)$-proper group then from the Definition \ref{proper_subgroup_fin_defn} it follows that the quadruple \ref{fin_composition_eqn}  is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).
+If $H$ is a $\left(A, \widetilde{A}, G, \pi \right)$-proper group then from the Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!! it follows that the quadruple \ref{fin_composition_eqn}  is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}).
 If $\widetilde a^H \in \widetilde{A}^H$ then $\widetilde a^H = \frac{1}{\left|H \right| }\sum_{g \in H} \widetilde a^H$. Otherwise 
 $$
 \widetilde a^H = \widetilde a_1 a_n + ...+ \widetilde a_n a_n =  \frac{1}{\left|H \right| }\sum_{g \in H}\left( g\widetilde a_1 a_n + ...+ g\widetilde a_n a_n\right)= \widetilde a^H_1 a_1 + ...+ \widetilde a^H_n a_n
@@ -1881,14 +1893,14 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 	\label{fin_composition_uni_2_eqn}
 	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
 	\ee
-	is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there is a following  finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).	Moreover if $H$ a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!)  then there is a following  finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
 	\be\label{fin_composition_uni_1_eqn}
 	\left(A, \widetilde{A}^H, G/H, \rho \right).
 	\ee
 
 \end{lemma}
 \begin{proof}
-%	From the Definition \ref{proper_subgroup_fin_defn} and
+%	From the Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!! and
 	 From the Lemma \ref{proper_subgroup_fin_lem} it follows that the quadruple  \eqref{fin_composition_uni_2_eqn} is a noncommutative  finite-fold pre-covering.
 Let $\left(B, \widetilde{B}, G, \widetilde\pi \right)$ be a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold covering, i.e. one has
    	\begin{enumerate}
@@ -1921,7 +1933,7 @@ Since $\widetilde B^H$ is unital, an inclusion $\widetilde  A^H\hookto\widetilde
 \eean
 is an unital noncommutative finite-fold covering. From the Definition \ref{fin_unitization_defn} it follows that the quadruple \eqref{fin_composition_uni_2_eqn} is a noncommutative  finite-fold coverings with unitization. 
 
-If $H$ is a $\left(A, \widetilde{A}, G, \pi \right)$-proper group  then from the Definition \ref{proper_subgroup_fin_defn} it follows that the quadruple \eqref{fin_composition_uni_1_eqn} is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). From the Lemma \ref{fin_composition_lem}  it follows that the quadruple
+If $H$ is a $\left(A, \widetilde{A}, G, \pi \right)$-proper group  then from the Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!! it follows that the quadruple \eqref{fin_composition_uni_1_eqn} is a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). From the Lemma \ref{fin_composition_lem}  it follows that the quadruple
 \bean%\label{fin_composition_uni_1_eqn}
 \left(B, \widetilde{B}^H, G/H,\widetilde \rho \right)
 \eean
@@ -2046,8 +2058,8 @@ From the Lemma \ref{increasing_convergent_w_lem} it follows that there is a limi
 	
 \end{definition}
 \begin{lemma}\label{fin_composition_unihereditary_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold pre-covering   (cf. Definition \ref{fin_pre_defn}).  Let $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper normal subgroup (cf. Definition \ref{proper_subgroup_fin_defn}). Let $B\subset A$ be a  $\left(A, \widetilde{A}, G, \pi \right)$-hereditary subalgebra. Let both \\$\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
-	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$ are given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem}. 
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold pre-covering   (cf. Definition \ref{fin_pre_defn}).  Let $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper normal subgroup (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!). Let $B\subset A$ be a  $\left(A, \widetilde{A}, G, \pi \right)$-hereditary subalgebra. Let both \\$\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
+	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$ are given by the Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!! and the Lemma \ref{proper_subgroup_fin_lem}. 
 	 {noncommutative finite-fold  pre-coverings}. If a hereditary $C^*$-subalgebra $B\subset A$ is $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} (cf. Definition \ref{strictly_proper_defn}) and  $\widetilde B$ is a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn})	 
 	 then following conditions hold:
 \begin{itemize}
@@ -2141,8 +2153,8 @@ If $\dl$ is such that $\left\|\widetilde a \right\|\dl^2 + 2\left\|\widetilde u 
 On the other hand from the Definition \ref{hereditary_lift_defn} and the Lemma \ref{hered_bab_lem} it follows that $\pi\left(a_{\la_\dl} \right)\widetilde a \pi\left(a_{\la_\dl} \right)\in \widetilde A_{\la_\dl}$, so from \eqref{al_dense_eqn} it turns out that the union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
 \end{proof}
 \begin{lemma}\label{fin_composition_covering_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) then  both noncommutative finite-fold pre-coverings $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and \\
-	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$  given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} are noncommutative finite-fold coverings. 
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!) then  both noncommutative finite-fold pre-coverings $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and \\
+	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$  given by the Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!! and the Lemma \ref{proper_subgroup_fin_lem} are noncommutative finite-fold coverings. 
 \end{lemma}
 \begin{proof}
 Let $\left\{A_\la \subset A\right\}_{\la\in\La}$  be the required by the Definition \ref{fin_defn} indexed by a directed set $\La$ family of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{strictly_proper_defn}). From  (iii) of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $A_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper} hereditary $C^*$-subalgebra for all  $\la\in \La$. Taking into account that a union $\cup_{\la\in \La} A_\la$ is dense in $A$ one concludes that the quadruple $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ a noncommutative finite-fold covering.
@@ -2171,7 +2183,7 @@ of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $\widetilde
 A pair  $\left( \left(\widetilde{A}', \widetilde{A}'', G'', \pi'' \right), \left(A, \widetilde{A}', G', \pi' \right)\right)$ of noncommutative finite-fold coverings is said to be \textit{composable} if there is a noncommutative finite-fold covering $\left(A, \widetilde{A}'', G, \pi \right)$ satisfying following conditions:
 \begin{itemize}
 	\item $\pi = \pi' \circ \pi''$,
-	\item there is  $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}), such that both $\left(A, \widetilde{A}', G', \pi' \right)$ and $\left(\widetilde{A}', \widetilde{A}'', G'', \pi'' \right)$ are equivalent to $H$-{regular} and $H$-{singular} coverings (cf. Definition \ref{fin_composition_covering_defn}) respectively.
+	\item there is  $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!), such that both $\left(A, \widetilde{A}', G', \pi' \right)$ and $\left(\widetilde{A}', \widetilde{A}'', G'', \pi'' \right)$ are equivalent to $H$-{regular} and $H$-{singular} coverings (cf. Definition \ref{fin_composition_covering_defn}) respectively.
 \end{itemize}
 We say that $\left(A, \widetilde{A}'', G, \pi \right)$ is a \textit{composition} of $\left(\widetilde{A}', \widetilde{A}'', G'', \pi'' \right)$ and $\left(A, \widetilde{A}', G', \pi' \right)$.
 \end{definition}
@@ -2215,7 +2227,7 @@ We say that $\left(A, \widetilde{A}'', G, \pi \right)$ is a \textit{composition}
 \end{definition}
 
 \begin{definition}\label{fin_composable_cat_defn}
-	A full subcategory $\mathscr C\subseteqq\mathfrak{FinCov}$-$A$ (cf. Definition \ref{subcategory_defn}) of $\mathfrak{FinCov}$-$A$ is said to be \textit{composable} then for any $\mathscr C$-morphism $\pi: \widetilde A''\hookto \widetilde A'$ from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$  there is a $\left(A, \widetilde{A}', G', \pi' \right)$-proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
+	A full subcategory $\mathscr C\subseteqq\mathfrak{FinCov}$-$A$ (cf. Definition \ref{subcategory_defn}) of $\mathfrak{FinCov}$-$A$ is said to be \textit{composable} then for any $\mathscr C$-morphism $\pi: \widetilde A''\hookto \widetilde A'$ from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$  there is a $\left(A, \widetilde{A}', G', \pi' \right)$-proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
 	$$
 	\left(\widetilde A'', \widetilde A', G\left(\left.  \widetilde A'\right| \widetilde A''\right), \pi\right)\cong \left(\widetilde A'^H, \widetilde A', H, \Id_{\widetilde A'}|_{\widetilde A''}\right)
 	$$
@@ -2262,7 +2274,7 @@ We say that $\left(A, \widetilde{A}'', G, \pi \right)$ is a \textit{composition}
 
 \begin{definition}\label{proper_composition_defn}
 	The  $C^*$-algebra $A$ is \textit{proper with respect to covering compositions} if for any noncommutative finite-fold coverings  $\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)$ and  
-	$\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)$ and there are a  noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$ and a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$-proper normal subgroup $H\subset G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there are following equivalences:
+	$\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)$ and there are a  noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$ and a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right),\widetilde \pi\circ \pi \right)$-proper normal subgroup $H\subset G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right)$ (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!) such that there are following equivalences:
 	\bean
 	\left(A, \widetilde{A}', G\left(\left.\widetilde{A}'~\right|{A}  \right), \pi \right)\cong 	\left(A, \widetilde{A}^H, G\left(\left.\widetilde{A}~\right|{A}  \right)/H, \pi \right),\\
 	\left(\widetilde A', \widetilde{A}, G\left(\left.\widetilde{A}~\right|\widetilde {A}'  \right), \widetilde \pi \right)\cong 	\left(\widetilde A^H, \widetilde{A},H,\left. \Id_{\widetilde A}\right|_{\widetilde A^H} \right)
@@ -3079,7 +3091,7 @@ $$
 %\end{proof}
 %\begin{corollary}\label{red_proper_cor}  
 %	If 	$\left(A, \widetilde{A}, G, \pi \right)$ is  a 
-%	reduced  noncommutative finite-fold pre-covering then any normal subgroup $H \subset G$ is $\left(A, \widetilde{A}, G, \pi \right)$-proper  (cf. Definition \ref{proper_subgroup_fin_defn}).
+%	reduced  noncommutative finite-fold pre-covering then any normal subgroup $H \subset G$ is $\left(A, \widetilde{A}, G, \pi \right)$-proper  (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!).
 %\end{corollary}
 %\begin{proof}
 %One needs check that the quadruple  
@@ -3102,7 +3114,7 @@ $$
 %\be
 %	H \bydef \left\{g \in G \left| \forall \widetilde{a}_{\text{red}} \in \widetilde{A}_{\text{red}} \quad g\widetilde{a}_{\text{red}}=\widetilde{a}_{\text{red}}\right.\right\}\subset G
 %\ee
-%	then from the Lemma \ref{quasi_red_lem}  it follows that $H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). Moreover if	$\left(A, \widetilde{A}, G, \pi \right)$  is a	noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
+%	then from the Lemma \ref{quasi_red_lem}  it follows that $H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!). Moreover if	$\left(A, \widetilde{A}, G, \pi \right)$  is a	noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
 %	\be\label{reduced_decomp_eqn}
 %	\begin{split}
 %\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)= \left(A, \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|A \right), \pi^H\right), 
@@ -8737,10 +8749,10 @@ If $\left(C\left(\sX \right), C\left(\widetilde \sX \right), G, \pi  \right)$ is
 \end{lemma}
 \begin{proof}
 	The existence of continuous map $p$ follows from the Proposition \ref{spectrum_covering_finite_prop}, and from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a finite-fold covering. So  one should prove that:
-\begin{itemize}
-	\item the covering $p$ is transitive, 
-	\item  $G \cong G\left(\left. \widetilde\sX\right| \sX \right)$.
-\end{itemize} 
+\begin{enumerate}
+	\item[(a)] the covering $p$ is transitive, 
+	\item[(b)]  $G \cong G\left(\left. \widetilde\sX\right| \sX \right)$.
+\end{enumerate} 
 On the other hand from the Proposition \ref{spectrum_covering_finite_prop} it follows that there is the natural action $G \times \widetilde\sX \to \widetilde\sX$
 with 
 \be\label{top_alg_trans_eqn}
@@ -8750,9 +8762,7 @@ Any nontrivial element $g \in G$ yields a nontrivial $*$-automorphism of $C\left
 $$
 \forall  \widetilde x \in \widetilde\sX \quad g \widetilde x  \neq \widetilde x
 $$
-and taking into account the Remark \ref{top_properly_disc_rem} we conclude that $G$ is {properly discontinuous} \ref{top_properly_disc_group_defn}. From the Lemma \ref{}
-
-
+and taking into account the Remark \ref{top_properly_disc_rem} we conclude that $G$ is {properly discontinuous} \ref{top_properly_disc_group_defn}. Conditions (a) and (b) follow from the Corollary \ref{top_trans_cov_factor_cor}.
 \end{proof}
 \begin{empt}\label{spectrum_ff_pp_empr}
 	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn})  such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$. From the Lemma \ref{ctr_ccr_sp_lem} it follows that $\widetilde{A}$ is a CCR-algebra. The prime spectra of $A$ and $\widetilde A$ (cf. Definition \ref{primitive_prime_spectrum_defn}) coincide with $\sX$ and $\widetilde \sX$ respectively (cf. the Theorem \ref{ctr_hat_check_thm} and the Corollary \ref{ctr_ccr_i_cor}).
@@ -8767,20 +8777,43 @@ and taking into account the Remark \ref{top_properly_disc_rem} we conclude that 
 	where $\bt \sX$ is the {Stone-\v{C}ech compactification}  
 	of $\sX$ (cf. Definition \ref{top_stone_cech_defn}). From the Corollary \ref{top_trans_tp_cov_cor} it follows that the covering is transitive with
 	$$
-	G\left( \widetilde \sY \left| \bt \sX \right.\right) \cong G
+	G\left( \widetilde \sY \left| \bt \sX \right.\right) \cong G/ \ker\left( 	G \to \Homeo\left(\widetilde \sY \right) \right).
 	$$
+	If 	\be\label{spectrum_ff_pp_eqn}
+		H \bydef \ker\left( G \to \Aut \left( \widetilde C\right)  \right)\cong  \ker\left( G \to \Homeo \left( \widetilde \sY\right)  \right) 
+		\ee 
+		then from the Lemma \ref{fin_composition_unitization_lem} it follows that 
+		$$	\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
+		$$
+		is a finite-fold noncommutative covering with unitization.
 \end{empt}
 
-\begin{lemma}\label{spectrum_ff_pp_lem}
-	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$. Then  the normal subgroup
-	\be\label{spectrum_ff_pp_eqn}
-	H \bydef \ker\left( G \to \Aut \left( \widetilde C\right)  \right) 
-	\ee
-	is $\left(A, \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn}). 
-\end{lemma}
-\begin{proof}
-!!! 	From the Lemma \ref{ctr_ccr_sp_lem} it follows that $\widetilde A$ is a CCR-algebra. The prime spectra of $A$ and $\widetilde A$ (cf. Definition \ref{primitive_prime_spectrum_defn}) coincide with $\sX$ and $\widetilde \sX$ respectively (cf. the Theorem \ref{ctr_hat_check_thm} and the Corollary \ref{ctr_ccr_i_cor}). From the Lemma \ref{spectrum_ff_p_lem} it follows that $C_b\left(\widetilde \sX \right)$ is a finitely generated $C_b\left( \sX \right)$-module. From the Theorem \ref{pavlov_troisky_thm} it turns out that there is the natural finite-fold covering $\bt\widetilde \sX\to \bt\sX$ where both $\bt\widetilde \sX$ and $\bt\sX$  are Stone \ref{top_com}
-\end{proof}
+
+%\begin{lemma}\label{spectrum_ff_pp_lem}
+%	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$. If $\widetilde C \cong C\left(\widetilde \sY\right)$ is the center of $M\left( \widetilde A\right)$  then  the normal subgroup
+%	\be\label{spectrum_ff_pp_eqn}
+%	H \bydef \ker\left( G \to \Aut \left( \widetilde C\right)  \right)\cong  \ker\left( G \to \Homeo \left( \widetilde \sY\right)  \right) 
+%	\ee
+%	is $\left(A, \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!), i.e. 
+%\end{lemma}
+%\begin{proof}
+%	From \eqref{spectrum_ff_pp_eqn} it follows that if
+%$$
+%\widetilde A^H \bydef \left\{\left. \widetilde a \in \widetilde A \right|\forall g \in H \quad g\widetilde a = \widetilde a \right\}
+%$$	
+%then 	the center of $M\left(\widetilde A^H \right)$ equals to $\widetilde C$.One needs prove  that a quadruple $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H\bydef \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$ a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}), i. e. following conditions hold:
+%\begin{enumerate}
+%	\item[(a)] if $\Aut\left(\widetilde{A}^H \right)$ is a group of *-automorphisms of $\widetilde{A}^H$ then the group  
+%	\be\nonumber
+%	G\left(\left. \widetilde{A}^H \right| A \right)  \bydef \left\{ \left.g \in \Aut\left(\widetilde{A}^H \right)~\right|\forall a \in \pi^H \left( A\right) \quad ga = a\right\}
+%	\ee
+%	is finite,
+%	\item[(b)] 	$\pi^H\left( A \right) = \left( \widetilde{A}^H\right)^{	G\left(\left. \widetilde{A}^H \right| A \right)} \stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}^H~~\right|\forall g \in 	G\left(\left. \widetilde{A}^H \right| A \right)\quad  a = g a\right\}$.
+%\end{enumerate}
+%(a) Indeed any $g \in G$ yields homeomorphism $\varphi_g$ of $\widetilde \sY$ such that $p \circ \varphi_g = p$ where $p$ is given by \eqref{top_sx_y_eqn}. Moreover if both $g', g'' \in G$ are representatives of  a single element of $G/H$ then $\varphi_{g'} = \varphi_{g''}$.
+
+
+%\end{proof}
 \begin{corollary}\label{spectrum_ff_p_cor} !!! CHECK !!!
 	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}) such that $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}). If  the spectrum $\sX$ of $A$ is Hausdorff then one has:
 	\begin{enumerate}
@@ -8824,7 +8857,7 @@ then one has:
 \begin{enumerate}
 	\item [(i)] the spectrum $\widetilde \sX$ of $\widetilde A$ is Hausdorff,
 	\item[(ii)] the given by the Proposition  \ref{spectrum_covering_finite_prop} map $p : \widetilde \sX\to \sX$ is a transitive finite-fold covering with $G\left(\left.\widetilde{\sX}~\right|\sX\right)\cong G/H$.
-	\item[(iii)] The normal subgroup $H \subset G$ is $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn})
+	\item[(iii)] The normal subgroup $H \subset G$ is $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!)
 \end{enumerate}
 \end{corollary}
 \begin{proof}
@@ -13094,7 +13127,7 @@ From the Lemma \ref{blowing_compact_unitization_lem} it follows that
 	\bean
 	H \bydef \left\{\left. g \in G \right| \forall a \in  A_0\left(q \right)\left( A\right) \quad ga=a \right\}
 	\eean
-	is $\left(A,  \widetilde A, G, \pi\right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn}). From the Lemma \ref{fin_composition_unitization_lem} it follows that there are $H$-{regular}  $H$-{singular} noncommutative finite-fold coverings with unitization (cf. Definition \ref{fin_unitization_defn})
+	is $\left(A,  \widetilde A, G, \pi\right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!). From the Lemma \ref{fin_composition_unitization_lem} it follows that there are $H$-{regular}  $H$-{singular} noncommutative finite-fold coverings with unitization (cf. Definition \ref{fin_unitization_defn})
 	\bea\label{blowing_reg_sing_m_eqn}
 	\left(A, A_0\left(\widetilde\sY \right) , G\left(\left.\widetilde\sY \right|\sY \right) \cong G/H, A_0\left(q \right) \right),\\
 	\label{blowing_reg_sing_eqn}
@@ -13668,7 +13701,7 @@ Let $\left( A, \widetilde{A}, G, \pi\right)$ be a {noncommutative finite-fold  q
 		\left( A , \widetilde{A}  , G, \pi   \right)
 		$$
 		is a {noncommutative finite-fold  pre-covering}.
-		\item[(ii)] If a normal subgroup $H\subset G$ is   $\left( A\otimes\K, \widetilde{A}\otimes\K, G, \pi\otimes \Id_\K\right)$-{proper} (cf.Definition \ref{proper_subgroup_fin_defn}) then $H$ is $
+		\item[(ii)] If a normal subgroup $H\subset G$ is   $\left( A\otimes\K, \widetilde{A}\otimes\K, G, \pi\otimes \Id_\K\right)$-{proper} (cf.Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!) then $H$ is $
 		\left( A , \widetilde{A} , G, \pi   \right)
 		$-{proper}.
 	\end{enumerate}
@@ -14546,7 +14579,7 @@ Our following constructions require an analog of the Dini's theorem.
 	\be\label{ctr_comm_e_eqn}
 \left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)\cong 	\left(A,\widetilde{A}^H, G/H, \pi^H    \right)
 	\ee
-		\item[(iv)] the normal subgroup $H \subset G$ is $\left(A, \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn})
+		\item[(iv)] the normal subgroup $H \subset G$ is $\left(A, \widetilde{A}, G, \pi \right)$-proper (cf. Definition \ref{proper_subgroup_fin_defn} !!! CORRECT !!!)
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
