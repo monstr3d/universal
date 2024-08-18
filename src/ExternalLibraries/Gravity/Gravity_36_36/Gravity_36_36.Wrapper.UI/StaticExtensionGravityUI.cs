@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AssemblyService.Attributes;
-using CategoryTheory;
+﻿using AssemblyService.Attributes;
+
 using Gravity_36_36.Wrapper.UI.Factory;
 
 namespace Gravity_36_36.Wrapper.UI
@@ -21,6 +16,7 @@ namespace Gravity_36_36.Wrapper.UI
         /// </summary>
         static public void Init()
         {
+        
         }
 
         static StaticExtensionGravityUI()

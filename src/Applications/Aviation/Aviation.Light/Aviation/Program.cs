@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using System.IO;
-using System.Xml.Serialization;
-
-using Diagram.UI.Interfaces;
+﻿using Diagram.UI.Interfaces;
 using Diagram.UI;
 
 using ControlSystemLib = ControlSystems;
@@ -14,10 +7,7 @@ using CommonService;
 using BasicEngineering.UI.Factory;
 
 using Aviation.UI;
-using DataPerformer.Formula;
-using Chart.UserControls;
-using System.Windows.Controls;
-using SoundService;
+
 
 namespace Aviation.Light
 {
@@ -56,10 +46,9 @@ namespace Aviation.Light
 
             /*     WpfInterface.StaticExtensionWebInterfaceUI.Init();*/
         }
-
         static void TestType()
         {
-            Type t = typeof(Internet.Meteo.Wrapper.Serializable.Sensor);
+            Type t = typeof(object);
             string st = t.FullName + "," + t.Assembly; //*/
             new Gravity_36_36.Gravity();
             var gv = new Gravity_36_36.Wrapper.Serializable.Gravity();
@@ -141,10 +130,10 @@ namespace Aviation.Light
                 f = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }
             var tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Image", "Events", "Arrows" };
-            var soundFactory = StaticExtensionSoundService.SoundFactory;
+            var soundFactory = SoundService.StaticExtensionSoundService.SoundFactory;
             if (soundFactory != null)
             {
-                tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Image", "Sound", "Events", "Arrows" };
+                tabs = [ "General", "Statistics", "Database", "6D Motion", "Image", "Sound", "Events", "Arrows" ];
             }
             var but = new ButtonWrapper[tabs.Length][];
             int i = 0;
@@ -170,16 +159,9 @@ namespace Aviation.Light
             ++i;
             if (soundFactory != null)
             {
-                try
-                {
-                    var sounds = SoundService.UI.Factory.SoundUIFactory.ObjectButtons;
-                    but[i] = sounds;
-                    ++i;
-                }
-                catch (Exception wx)
-                {
-
-                }
+                var sounds = SoundService.UI.StaticExtensionSoundServiceUI.ObjectButtons;
+                but[i] = sounds;
+                ++i;
             }
             var events = new List<ButtonWrapper>();
             events.AddRange(Event.UI.Factory.UIFactory.ObjectButtons);

@@ -9,24 +9,14 @@ namespace SoundService.UI.Factory
     /// <summary>
     /// Factory of sound ojects
     /// </summary>
-    public class SoundUIFactory : EmptyUIFactory
+    internal class SoundUIFactory : EmptyUIFactory
     {
         #region Fields
 
         public static readonly SoundUIFactory Singleton =
             new SoundUIFactory();
 
-        public static ButtonWrapper[] ObjectButtons = 
-       [
-                            new ButtonWrapper(typeof(Serializable.SoundCollection),
-                    "", "Sounds", Properties.Resources.audio, null, false, false),
-                            new ButtonWrapper(typeof(MultiSound),
-                    "", "Multiple Sound", Properties.Resources.pcdrsound, null, true, false),
-                            new ButtonWrapper(typeof(Object2SoundName),
-                    "", "Sound name converter", Properties.Resources.pcdrsounddigit, null, true, false)
-
-          ];
-
+  
         private static bool hasTests = false;
 
 
@@ -34,32 +24,9 @@ namespace SoundService.UI.Factory
 
         #region Ctor
 
- /*       static SoundUIFactory()
-        {
-            try
-            {
-
-                ObjectButtons = [
-                                    new ButtonWrapper(typeof(Serializable.SoundCollection),
-                            "", "Sounds", Properties.Resources.audio, null, false, false),
-                            new ButtonWrapper(typeof(MultiSound),
-                    "", "Multiple Sound", Properties.Resources.pcdrsound, null, true, false),
-                            new ButtonWrapper(typeof(Object2SoundName),
-                    "", "Sound name converter", Properties.Resources.pcdrsounddigit, null, true, false)
-                            
-
-          ];
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-        }*/
-
         private SoundUIFactory()
         {
-
+            this.Add();
         }
 
         #endregion
@@ -69,17 +36,17 @@ namespace SoundService.UI.Factory
         public override IObjectLabelUI CreateObjectLabel(IPaletteButton button)
         {
             Type type = button.ReflectionType;
-            if (type.Equals(typeof(SoundCollection)))
+            if (type.Equals(typeof(Serializable.SoundCollection)))
             {
-                return typeof(SoundService.UI.Labels.SoundCollectionLabel).CreateLabelUI(false);
+                return typeof(Labels.SoundCollectionLabel).CreateLabelUI(false);
             }
-            if (type.Equals(typeof(MultiSound)))
+            if (type.Equals(typeof(Serializable.MultiSound)))
             {
-                return typeof(SoundService.UI.Labels.MultiSoundLabel).CreateLabelUI(true);
+                return typeof(Labels.MultiSoundLabel).CreateLabelUI(true);
             }
-            if (type.Equals(typeof(Object2SoundName)))
+            if (type.Equals(typeof(Serializable.Object2SoundName)))
             {
-                return typeof(SoundService.UI.Labels.Object2SoundNameLabel).CreateLabelUI(true);
+                return typeof(Labels.Object2SoundNameLabel).CreateLabelUI(true);
             }
             return null;
         }

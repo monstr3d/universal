@@ -8,11 +8,15 @@ namespace SoundService.Serializable
     [Serializable]
     public class MultiSound : SoundService.MultiSound, ISerializable
     {
+
+        #region Ctor
+
         /// <summary>
         /// Default constructor
         /// </summary>
         public MultiSound()
         {
+
         }
 
         /// <summary>
@@ -26,6 +30,7 @@ namespace SoundService.Serializable
             soundName = info.GetString("Sound");
         }
 
+        #endregion
 
         #region ISerializable Members
 
@@ -36,7 +41,6 @@ namespace SoundService.Serializable
         }
 
         #endregion
-
 
 
     }
