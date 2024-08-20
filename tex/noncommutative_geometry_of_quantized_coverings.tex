@@ -1611,11 +1611,30 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 
 \begin{definition}\label{hilbert_product_defn}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then the   given by \eqref{finite_hilb_mod_prod_eqn} product is said to be the \textit{Hilbert product associated} with the noncommutative finite-fold  quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$. The given by the Lemma \ref{fin_hilbert_mod_lem} $C^*$-Hilbert $A$-module $\mathscr L^2\left( \widetilde{A}\right)_A$  is said to be the \textit{$C^*$-Hilbert   associated with the noncommutative finite-fold  quasi-covering} $\left(A, \widetilde{A}, G, \pi \right)$. The $C^*$-Hilbert module  $\mathscr L^2\left( \widetilde{A}\right)$  is $\widetilde A$-$A$-bimodule, so it will be denoted by $_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A$ and there is the natural isomorphism
-		$$
+\be\label{hilbert_product_eqn}
 	_{\widetilde{A}}\mathscr L^2\left( \widetilde{A}\right)_A \cong 	\widetilde A
-		$$
+\ee
 		of $\widetilde A$-$A$-bimodules.
 \end{definition}
+
+\begin{empt}\label{a_ppp_empt}
+Under the hypothesis of the Definition \ref{hilbert_product_defn} if
+\be\label{a_pp_eqn}
+\begin{split}
+\widetilde A^\parallel \bydef \left\{\widetilde a \in \widetilde A\left| \forall g \in G\quad g \widetilde a = \widetilde a \right.\right\} = \pi\left(A \right),\\
+\widetilde A^\perp \bydef \left\{\widetilde a \in \widetilde A\left| \sum_{	g \in {G}} g \widetilde a = 0 \right.\right\}
+\end{split}
+\ee
+then
+\be\label{a_ppp_eqn}
+\begin{split}
+\forall \widetilde a \in \widetilde A \quad \widetilde a = \widetilde a^\parallel + \widetilde a^\perp; \quad \widetilde a^\parallel \bydef \frac{1}{\left|G\right|} \sum_{	g \in {G}} g \widetilde a\in \widetilde a^\parallel\in  A^\parallel, \quad \widetilde a^\perp\bydef \widetilde a - \widetilde a^\parallel\in \widetilde A^\perp;\\
+\widetilde{A}=\widetilde A^\parallel\oplus \widetilde A^\perp;\\
+\forall \widetilde a^\parallel\in A^\parallel\in\quad \widetilde a^\perp\in  \widetilde A^\perp\quad  \left\langle a^\parallel, \widetilde a^\perp\right\rangle_A = \sum_{g\in G}  g\left(\left( \widetilde  a^\parallel\right)^*, \widetilde a^\perp \right) =\\=
+\left( \widetilde  a^\parallel\right)^*\sum_{g\in G}  g\ \widetilde a^\perp  = 0\quad \Rightarrow \quad \left\langle A^\parallel, \widetilde A^\perp\right\rangle_A= \left\langle A^\perp, \widetilde A^\parallel\right\rangle_A = \{0\}.
+\end{split}
+\ee
+\end{empt}
    \begin{definition}\label{fin_pre_defn}
    		Let both  $A$ and  $\widetilde{A}$ are  connected $C^*$-algebras (cf. Definition \ref{connected_c_a_defn}), and let $\pi: A \hookto \widetilde{A}$ be an injective  $*$-homomorphism of % connected
    	$C^*$-algebras such that following conditions hold:
@@ -14508,7 +14527,7 @@ Our following constructions require an analog of the Dini's theorem.
 	\ee
 	From the Lemma \ref{spectrum_ff_p_lem} and the Theorem \ref{pavlov_troisky_thm} it follows that an inclusion $C_b\left( \sX\right)  \to C\left(\widetilde \sY \right)$ yields a finite-fold covering
 	\be\label{top_sx_y_eqn}
-	p: \widetilde \sY \to \bt \sX
+	p_{\widetilde \sY}: \widetilde \sY \to \bt \sX
 	\ee
 	where $\bt \sX$ is the {Stone-\v{C}ech compactification}  
 	of $\sX$ (cf. Definition \ref{top_stone_cech_defn}). From the Corollary \ref{top_trans_tp_cov_cor} it follows that the covering is transitive with
@@ -14536,86 +14555,187 @@ Our following constructions require an analog of the Dini's theorem.
 	\label{ctr_fin_composition_uni_2_eqn}
 	\left(\widetilde{A}^H, \widetilde{A}, G_H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
 	\ee
-	where  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}). For any $\widetilde x \in \widetilde \sU$ and $g \in G_H$ one has $g \widetilde x = \widetilde x$ it follows that $\widetilde \sU$ can be regarded as an open subset of the spectrum of $\widetilde{A}^H$ and $\rep_{  \widetilde{x }}\left( \widetilde A^H\right)=\rep_{  \widetilde{x }}\left( \pi\left(A \right) \right)$
-\end{empt}
-
-
-\begin{lemma}\label{ctr_fin_h_lem}
-Under the hypotheses of \ref{spectrum_ff_pp_empt} the quadruple $\left( A, \widetilde A, G, \pi\right)$ is equivalent to $\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)$ one.
-\end{lemma}
-\begin{proof}
-	Suppose that the group $H\bydef \ker\left(G \to \mathrm{Homeo}\left(\widetilde \sX \right) \right)$ is not trivial and for any $\widetilde a \in \widetilde A$ denote by
-	\bean
+	where  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}). For any $\widetilde x \in \widetilde \sU$ and $g \in G_H$ one has $g \widetilde x = \widetilde x$ it follows that $\widetilde \sU$ can be regarded as an open subset of the spectrum of $\widetilde{A}^H$ and $\rep_{  \widetilde{x }}\left( \widetilde A^H\right)=\rep_{  \widetilde{x }}\left( \pi\left(A \right) \right)$. Similarly to \ref{a_ppp_empt} for  any $\widetilde a \in \widetilde A_{\widetilde \sU}$ denote by
+	\be\label{ctr_pp_eqn}
+	\begin{split}
 	\widetilde a^\parallel \bydef \frac{1}{\left|H \right| } \sum_{	g \in H}g \widetilde a,\\
-	\widetilde a^\perp \bydef \widetilde a-\widetilde a^\parallel,\\
-	\widetilde A^\parallel \bydef \left\{\left.\widetilde a^\parallel \in \widetilde A\right| \forall g \in H \quad g \widetilde a^\parallel = \widetilde a^\parallel \right\},\\
-	\widetilde A^\perp \bydef \left\{\widetilde a^\perp \in \widetilde A\left| \sum_{	g \in H}g \widetilde a^\perp = 0 \right.\right\},\\	\widetilde A = \widetilde A^\parallel \oplus \widetilde A^\perp,\\
-	\forall \widetilde x \in \widetilde\sX \quad \rep_{ \widetilde{x}}\left(\widetilde{A}^\parallel \right)=\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right),\quad \rep_{ \widetilde{x}}\left(\widetilde{A}^\perp \right)\cap\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right)= \{0\}
-	\eean
-	where $\oplus$ means a direct sum of $A$-$A$-bimodules. 
-	From the Corollary \ref{ctr_ccr_i_cor} it turns out that $\widetilde A$ is a $C^*$-algebra is of type $I$. 	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential ideal $\widetilde I$ which is a continuous trace continuous trace $C^*$-algebra. From the Lemma \ref{essential_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. 
-	
-	Suppose  $\widetilde x_0 \in \widetilde\sX_{\widetilde I}$ is such that $\rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)\subsetneqq\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. Then $H$ non trivially acts of  $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. According to  the construction \ref{ctr_imprim_empt} there is a compact neighborhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset  \widetilde\sX_{\widetilde I}$ and  $\left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
-	is an $\left.\widetilde A\right|^{\widetilde\sV}-\left. \widetilde e\right|^{\widetilde\sV}\left.A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}\cong C\left({\widetilde\sV}\right)$-imprimitivity bimodule. If 	 we denote it by $X_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$ then from $\widetilde A = \widetilde A^\parallel \oplus \widetilde A^\perp$ it follows that three is a direct sum  $	X_{C\left( \widetilde\sV\right)}= 	X^\parallel_{C\left( \widetilde\sV\right)}\oplus 	X^\perp_{C\left( \widetilde\sV\right)}$ where
+\widetilde a^\perp \bydef \widetilde a-\widetilde a^\parallel,\\
+\widetilde A^\parallel \bydef \left\{\left.\widetilde a^\parallel \in \widetilde A\right| \forall g \in H \quad g \widetilde a^\parallel = \widetilde a^\parallel \right\}= \widetilde A^H,\\
+\widetilde A^\perp \bydef \left\{\widetilde a^\perp \in \widetilde A\left| \sum_{	g \in H}g \widetilde a^\perp = 0 \right.\right\},\\
+\widetilde A_{\widetilde \sU} = \widetilde A^\parallel \oplus \widetilde A^\perp,\\
+\widetilde A^\parallel \cap \widetilde A^\perp= \{0\},\\	
+\forall \widetilde x \in \widetilde\sU \quad \rep_{ \widetilde{x}}\left(\widetilde{A}^\parallel \right)=\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right),\quad
+\rep_{ \widetilde{x}}\left(\widetilde{A}^\perp \right)\cap\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right)= \{0\}.
+	\end{split}
+	\ee
+and from \eqref{a_ppp_eqn} it follows that
+\be\label{ctr_hilb_eqn} 
+\left\langle A^\parallel, \widetilde A^\perp\right\rangle_A= \left\langle A^\perp, \widetilde A^\parallel\right\rangle_A = \{0\}
+\ee
+	Suppose  $\widetilde x_0 \in \widetilde\sU$ is such that $\rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)\subsetneqq\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. Then $H$ non trivially acts of  $\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$. According to  the construction \ref{ctr_imprim_empt} there is a compact neighborhood $\widetilde \sV$ of $\widetilde  x_0$ such that $\widetilde\sV\subset  \widetilde\sU$ and  $X \bydef X_{C\left( \widetilde \sV\right) }\bydef \left.\widetilde A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}$
+	is an $\left.\widetilde A\right|^{\widetilde\sV}-\left. \widetilde e\right|^{\widetilde\sV}\left.A\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}\cong C\left({\widetilde\sV}\right)$-imprimitivity bimodule (cf. Definition \ref{strong_morita_defn}) where $\left.\widetilde A\right|^{\widetilde\sV}$ is given by the equation \eqref{closed_ideal_eqn}. From the Definition \ref{strong_morita_defn} if follows that there is the natural $*$-isomorphism
+	\be\label{ctr_ka_eqn}
+	\left.\widetilde A\right|^{\widetilde\sV} \cong \K\left(X_{C\left( \widetilde \sV\right) } \right) 
+	\ee 
+From $\widetilde A = \widetilde A^\parallel \oplus \widetilde A^\perp$ it follows that three is a direct sum  $	X_{C\left( \widetilde\sV\right)}= 	X^\parallel_{C\left( \widetilde\sV\right)}\oplus 	X^\perp_{C\left( \widetilde\sV\right)}$ where
 	\bean
-	X^\parallel_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A^\parallel\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV},\\
-	X^\perp_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A^\perp \right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV}.
+	X^\parallel\bydef 	X^\parallel_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A^\parallel\right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV},\\
+X^\perp \bydef 	X^\perp_{C\left( \widetilde\sV\right)}\bydef \left.\widetilde A^\perp \right|^{\widetilde\sV}\left.\widetilde e\right|^{\widetilde\sV},
 	\eean
+	and taking into account \eqref{ctr_pp_eqn} one can deduce the following
+	\be\label{ctr_ax_eqn}
+	\begin{split}
+ \widetilde A^\parallel  \widetilde X^\parallel \subset X^\parallel,\\
+ \widetilde A^\parallel  \widetilde X^\perp \subset X^\perp
+\end{split}
+\ee
+Using \eqref{ctr_hilb_eqn} one can prove that
+\be\label{ctr_hilbx_eqn}
+\left\langle X^\parallel, \widetilde X^\perp\right\rangle_{C\left( \widetilde\sV\right) }=\left\langle X^\perp, \widetilde X^\parallel\right\rangle_{C\left( \widetilde\sV\right)} = \{0\}
+\ee
+Taking into account the equations \eqref{ctr_ka_eqn}, \eqref{ctr_ka_eqn} and \eqref{ctr_hilbx_eqn} one can prove that  $\widetilde A^\parallel$ is a $C^*$-subalgebra of a  generated by the set
+\be\label{ctr_s_eqn}
+S \bydef\left\lbrace\widetilde \xi^\parallel \left\rangle \right\langle\eta^\parallel \right\rbrace_{\xi^\parallel, \eta^\parallel\in X^\parallel}\bigcup  \left\lbrace\widetilde \xi^\perp \left\rangle \right\langle\eta^\perp \right\rbrace_{\xi^\perp, \eta^\perp\in X^\perp} 
+\ee
 	We can suppose that $\widetilde\sV$ is compact, so from the 
-Theorems \ref{comp_normal_thm} 	and \ref{urysohn_lem} it follows that there is   an open neighborhood of $\widetilde x_0$ such that
-\begin{itemize}
-	\item $\widetilde{\sU}\subset \widetilde{\sV}$,
-	\item there is a continuous map  $\widetilde f:  \to \left[0, 1\right]$ with $\widetilde f\left(\widetilde \sU \right) = \{1\}$ and $\widetilde f\left(\widetilde \sX\setminus \widetilde\sV\right) = \{0\}$,
-	\item there is a continuous map  $\varphi: \widetilde\sX \to [0,1]$ such that $\varphi\left(\widetilde x_0  \right) = 1$.
-\end{itemize}
- For any $\epsilon \in \left(0, 2\pi \right)$ denote by  
+	Theorems \ref{comp_normal_thm} 	and \ref{urysohn_lem} it follows that there is   an open neighborhood of $\widetilde x_0$ such that
+	\begin{itemize}
+		\item $\widetilde{\mathcal W}\subset \widetilde{\sV}$,
+		\item there is a continuous map  $\widetilde f:  \to \left[0, 1\right]$ with $\widetilde f\left(\widetilde{ \mathcal W}\right) = \{1\}$ and $\widetilde f\left(\widetilde \sX\setminus \widetilde\sV\right) = \{0\}$,
+		\item there is a continuous map  $\varphi: \widetilde{ \mathcal W} \to [0,1]$ such that $\varphi\left(\widetilde x_0  \right) = 1$.
+	\end{itemize}
+	For any $\epsilon \in \left(0, 2\pi \right)$ denote by  
 	\bean
 	\varphi_{\epsilon}\in C_b\left( \widetilde\sX\right) ,\\
 	\widetilde x \mapsto e^{i\eps \varphi\left( \widetilde x\right) }.
 	\eean	
-	There is the automorphism $\chi_\varepsilon\in \End^*_{C_0\left((\widetilde\sV \right) }\left(X_{C_0\left(\widetilde\sV \right)} \right) $ of the Hilbert $C_0\left(\widetilde\sV \right)$-module $X_{C_0\left(\widetilde\sV \right)}$ given by $\widetilde\xi^\parallel + \widetilde\xi^\perp\mapsto \widetilde\xi^\parallel + \varphi_{\epsilon}\left( \widetilde\xi^\perp\right) $. This automorphism yields the *-automorphism $\psi_\epsilon \in \Aut\left(\K\left(X_{C_0\left(\widetilde\sV \right)} \right)\right)\cong \Aut\left( \left.\widetilde A\right|^{\widetilde\sV}\right) $ given by
+	There is the automorphism $\chi_\varepsilon\in \Aut_{C\left((\widetilde\sV \right) }\left(X_{C\left(\widetilde\sV \right)} \right) $ of the Hilbert $C\left(\widetilde\sV \right)$-module $X_{C\left(\widetilde\sV \right)}$ given by $\widetilde\xi^\parallel + \widetilde\xi^\perp\mapsto \widetilde\xi^\parallel + \varphi_{\epsilon}\widetilde\xi^\perp$. This automorphism yields a bijective map $\psi_\epsilon:    \K\left(X_{C\left(\widetilde\sV \right)}\right) \xrightarrow{\cong}\K\left(X_{C\left(\widetilde\sV \right)}\right)$ given by
 	$$
 	\sum_{j = 0}^\infty \widetilde\xi_j \left\rangle \right\langle\widetilde \eta_j \mapsto \sum_{j = 0}^\infty \chi_\varepsilon\left( \widetilde\xi_j\right)  \left\rangle \right\langle \chi_\varepsilon\left( \widetilde\eta_j\right).
 	$$
-There the natural inclusion $\left.\widetilde A\right|_{\widetilde\sU}\subset \left.\widetilde A\right|^{\widetilde\sV}$ such that for all $\epsilon$ the *-automorphism  $\psi_{\epsilon}$ corresponds to the *-automorphism $\theta_\epsilon \in \Aut\left(\left.\widetilde A\right|_{\widetilde\sU}\right)$. Moreover 
+	One can directly check that
+	\bean
+ 	\forall\widetilde \xi^\parallel, \widetilde \eta^\parallel\in X^\parallel\quad \forall\widetilde \xi^\perp, \widetilde \eta^\perp\in X^\perp\quad \psi_\eps\left(\widetilde \xi^\parallel \left\rangle \right\langle\eta^\parallel  \right)^* =\left(\widetilde \xi^\parallel \left\rangle \right\langle\eta^\parallel  \right)^*,\\
+ \psi_\eps\left(\widetilde \xi^\parallel \left\rangle \right\langle\eta^\perp  \right)^* =\left(\widetilde \xi^\parallel \left\rangle \right\langle\eta^\perp  \right)^*,\quad\psi_\eps\left(\widetilde \xi^\perp \left\rangle \right\langle\eta^\parallel  \right)^* =\left(\widetilde \xi^\perp \left\rangle \right\langle\eta^\parallel  \right)^*, \\ \psi_\eps\left(\widetilde \xi^\perp \left\rangle \right\langle\eta^\perp  \right)^* =\left(\widetilde \xi^\perp \left\rangle \right\langle\eta^\perp  \right)^*.	  
+	\eean
+	Using the decomposition $	X_{C\left( \widetilde\sV\right)}= 	X^\parallel_{C\left( \widetilde\sV\right)}\oplus 	X^\perp_{C\left( \widetilde\sV\right)}$ and the distributive multiplication law one can prove that
+	$$
+\forall \widetilde \xi', \widetilde \xi''\widetilde \eta', \widetilde \eta''\in 	C\left(\widetilde\sV \right)\quad  \psi_\eps\left(\widetilde \xi' \left\rangle \right\langle\eta',\widetilde \xi'' \left\rangle \right\langle\eta''  \right)=\widetilde \xi' \left\rangle \right\langle\eta',\widetilde \xi'' \left\rangle \right\langle\eta'',
+	$$
+	it follows that $\psi_\eps$ is $*$-automorphism.
+	If $S$ is given by \eqref{ctr_s_eqn} then one has
+	$$
+	\forall s \in S \quad \Rightarrow \quad \psi_\eps\left( s \right)= s
+	$$
+	so
+	\be\label{ctr_fixed_eqn}
+	\forall \widetilde a^\parallel \in A^\parallel \quad \Rightarrow \quad \psi_\eps\left( a^\parallel \right)= a^\parallel
+	\ee
+	There the natural inclusion $\left.\widetilde A\right|_{\widetilde{\mathcal W}}\subset \left.\widetilde A\right|^{\widetilde\sV}$ such that for all $\epsilon$ the *-automorphism  $\psi_{\epsilon}$ corresponds to the *-automorphism $\theta_\epsilon \in \Aut\left(\left.\widetilde A\right|_{\widetilde{\mathcal W}}\right)$. Moreover 
 	if $\epsilon_1\neq \epsilon_2$ then $\th_{\epsilon_1}\neq \th_{\epsilon_2}$.  For any  $\epsilon \in \left(0, 2\pi \right)$ there is a bijective $\C$-linear map $g_\epsilon: \widetilde A\xrightarrow{\approx} \widetilde A$ given by
 	$$
 	\widetilde a \mapsto \left(1-\widetilde f \right) \widetilde a + \th_{\epsilon}\left(\widetilde f\widetilde a \right) .
 	$$
 	Since for any $\widetilde x \in \widetilde\sX$ the map 
-	\be\label{ctr_inf_eqn}
+	\bean
 	\rep_{ \widetilde{x}}\left(\widetilde A\right)  \to \rep_{ \widetilde{x}}\left(\widetilde A\right),\\
 	\rep_{ \widetilde{x}}\left(\widetilde a\right)  \to \rep_{ \widetilde{x}}\left(g_{\epsilon}\left( \widetilde a\right) \right)\quad\forall  \widetilde a\in  \widetilde A
-	\ee
+	\eean
 	is *-automorphism, the  map $g_\epsilon$ is $*$-automorphism. From 
 	$$
-	\forall\epsilon_1,\epsilon_2 \in \left[0, 2\pi \right)\quad  \epsilon_1,\neq\epsilon_2\quad \Rightarrow\quad \varphi_{\epsilon_1}\left(\widetilde x_0 \right) \neq \varphi_{\epsilon_2}\left(\widetilde x_0 \right) 
+	\forall\epsilon_1,\epsilon_2 \in \left[0, 2\pi \right)\quad  \epsilon_1,\neq\epsilon_2\quad \Rightarrow\quad \varphi_{\epsilon_1}\left(\widetilde x_0 \right) \neq \varphi_{\epsilon_2}\left(\widetilde x_0 \right) \quad\Rightarrow \quad g_{\epsilon_1}\neq g_{\epsilon_2}.
 	$$
-	and taking into account \eqref{ctr_inf_eqn} one has infinitely many different automorphisms $g_\eps$, so the group $H$ is not finite, so there is a contradiction with the Definition \ref{fin_pre_defn}. From this contradiction it follows that the hypotheses about the existence of $\widetilde x_0 \in \widetilde\sX_{\widetilde I}$ such that $\rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)\subsetneqq\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)$ is not right, i.e.
+	From the equation \eqref{ctr_fixed_eqn} it follows that
 	$$
-	\forall \widetilde x_0 \in \widetilde\sX_{\widetilde I}\quad \rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)=\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right).
+	\left\{g_\epsilon\right\}_{\epsilon \in \left(0, 2\pi \right)}\subset G_H,
 	$$
-	If $\widetilde x' \in \widetilde\sX\setminus \widetilde\sX_{\widetilde I}$ is such that $\rep_{  \widetilde{x }}\left( \pi\left(A \right) \right)\subsetneqq\rep_{  \widetilde{x }}\left(\widetilde{A} \right)$ then there is $\widetilde a \in \widetilde a$ and  $g \in H$  such that $\rep_{  \widetilde{x }'}\left(\widetilde{a} \right)\neq \rep_{  \widetilde{x }'}\left(g\widetilde{a} \right)$. So $\left\| \rep_{  \widetilde{x }'}\left(\widetilde{a} \right)-g \widetilde{a}\right\| > 0$.
-	 Otherwise 
+	i.e. there is an infinite subset of $G_H$. It contradicts with the Lemma \ref{fin_composition_unitization_lem}. So for any $\widetilde x \in \widetilde \sU$ the group $H$ acts trivially on $\rep_{\widetilde x}\left(\widetilde A \right)$ and 
 	$$
-	\forall \widetilde x_0 \in \widetilde\sX_{\widetilde I}\quad	\rep_{  \widetilde{x }}\left(\widetilde{a} \right)=  \rep_{  \widetilde{x }'}\left(g\widetilde{a} \right)\quad \Rightarrow\quad \left\| \rep_{  \widetilde{x }_0}\left(\widetilde{a}-g \widetilde a \right)\right\| = 0,
+	\forall \widetilde x \in \widetilde \sU \quad \Rightarrow \quad \rep_{\widetilde x}\left(\widetilde A \right)= \rep_{\widetilde x}\left(\pi\left(A \right)  \right).
 	$$
-	Taking into account that $\widetilde\sX_{\widetilde I}$ is an open subset of $\widetilde\sX$ we conclude that the map
-	\bean
-	\widetilde\sX \to \R,\\
-	\widetilde x \mapsto \left\| \rep_{  \widetilde{x }}\left(\widetilde{a}-g \widetilde a \right)\right\|
-	\eean
-	is not lower semi-continuous (cf. Definition \ref{top_lower_semi_defn}), but this fact contradicts with the Theorem  \ref{top_lower_semi_thm}. From this contradiction it follows that 
+	If $H$ is not trivial then there is $g \in H$ and $\widetilde a \in \widetilde A$ such that $\widetilde a - g\widetilde a \neq 0$. Hence is $\widetilde x \in \widetilde \sX$ such that $\left\|\rep_{  \widetilde{x }_0}\left( \widetilde a - g\widetilde a\right)  \right\|> 0$. From the Theorem \ref{lower_norm_thm}   it turns out that there is an open neighborhood $\widetilde \sU'$ of $\widetilde x$ such that
+	$$
+\forall \widetilde x \in \widetilde \sU'\quad \Rightarrow \quad \left\|\rep_{  \widetilde{x }}\left( \widetilde a - g\widetilde a\right)  \right\|> 0.
+	$$
+However  $\widetilde \sU\cap \widetilde \sU' \neq \emptyset$	since the set $\widetilde \sU$  is dense in  $\widetilde \sX$. But it is impossible because 
+	$$
+\forall \widetilde x \in \widetilde \sU\quad \Rightarrow \quad \left\|\rep_{  \widetilde{x }}\left( \widetilde a - g\widetilde a\right)  \right\|= 0.
 $$
-	\forall \widetilde x \in \widetilde\sX \rep_{  \widetilde{x }_0}\left( \pi\left(A \right) \right)=\rep_{  \widetilde{x }_0}\left(\widetilde{A} \right)
+From this contradiction it follows that the group $H$ is trivial and $G \cong 	G\left( \widetilde \sY \left| \bt \sX \right.\right)$. If 	the transitive covering 
+$p_{\widetilde \sY}: \widetilde \sY \to \bt \sX$ is given by \eqref{top_sx_y_eqn} then there is a transitive covering $p'_{\widetilde \sY}: p^{-1}_{\widetilde \sY}\left( \widetilde \sX\right) \to \sX$ such that
 $$
-and $H$ is a trivial group so $\left(A,\widetilde{A}, G, \pi    \right)\cong 	\left(A,\widetilde{A}^H, G/H, \pi^H    \right)
-$. 
-On the other hand from the equation \eqref{ctr_comm_e_eqn} it follows that 
+G\left( \widetilde \sY \left| \bt \sX \right.\right)\cong G\left( p^{-1}_{\widetilde \sY}\left(  \sX\right) \left| \sX \right.\right)
+$$
+Any $\widetilde y \in p^{-1}_{\widetilde \sY}\left( \widetilde \sX\right)$ yields a proper  ideal  
+$$
+\widetilde I_{\widetilde y} \bydef \left\{ \widetilde f \widetilde a\left| f \in C\left(\widetilde \sY \right) \quad \widetilde a \in \widetilde A\quad \widetilde f \left( \widetilde y\right)= 0 \right.\right\}\subset \widetilde A
+$$
+So for all  $\widetilde y \in p^{-1}_{\widetilde \sY}\left( \widetilde \sX\right)$ there is a nonempty set
+$$
+\widetilde \sX_{\widetilde y}\bydef \left\{\widetilde x \in \widetilde \sX \left| \rep_{  \widetilde{x }}\left( \widetilde I_{\widetilde y} \right) = \{0\}\right.\right\}
+$$
+such that
+$$
+\forall \widetilde y_1, \widetilde y_2 \in \widetilde\sY \quad \widetilde y_1 \neq \widetilde y_2 \quad \Rightarrow \quad \widetilde I_{\widetilde y_1} \cap \widetilde I_{\widetilde y_2}=\{0\} \quad \Rightarrow \quad \widetilde \sX_{\widetilde y_1}\cap \widetilde \sX_{\widetilde y_2}= \emptyset.
+$$
+If $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_covering_finite_prop} then from \eqref{spectrum_homeo_eqn} it follow that
+\be
+\forall x \in \sX \quad \left|p^{-1}\left(x \right) \right|\le  \left|G \right|= \left| G\left( p^{-1}_{\widetilde \sY}\left(  \sX\right) \left| \sX \right.\right) \right|
+\ee
+From
 \bean
-\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)\cong 	\left(A,\widetilde{A}^H, G/H, \pi^H    \right)\cong \left(A,\widetilde{A}, G, \pi    \right).
-\eean
+\left|p^{-1}_{\widetilde \sY}\left(x \right) \right| \left| G\left( p^{-1}_{\widetilde \sY}\left( \widetilde \sX\right) \left| \sX \right.\right) \right|,\\
+p^{-1}\left(x \right) = \bigsqcup_{\widetilde y \in p^{-1}_{\widetilde \sY}\left(x \right) }\widetilde \sX_{\widetilde y}
+\eean 
+it follows that
+$$
+\forall y \in p^{-1}_{\widetilde \sY}\left(x \right)\quad \left|\widetilde \sX_{\widetilde y} \right|= 1
+$$
+i.e. there is the natural bijection $p^{-1}_{\widetilde \sY}\cong \left(  \sX\right)\cong \widetilde\sX$. Since $C\left( \widetilde \sY\right)$ is a center of $M\left( \widetilde\sX \right)$ the bijection is a homeomorphism. Since the space $p^{-1}_{\widetilde \sY}\cong \left(  \sX\right)$ is Hausdorff the spectrum $\widetilde \sX$ of $\widetilde A$ is also Hausdorff, the map $p$ is a transitive finite-fold covering with  $G = G\left(
+\left. \widetilde \sX \right| \sX \right)$
+
+\end{empt}
+
+
+\begin{lemma}\label{ctr_fin_h_lem}
+		Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn})  such that $A$ is a CCR-algebra (cf. Definition \ref{ccr_defn}) with the Hausdorff spectrum $\sX$, then one has:
+		\begin{enumerate}
+			\item[(i)] the spectrum $\widetilde \sX$ of $\widetilde A$ is Hausdorff,
+			\item[(ii)] the given by the Proposition map $p: \widetilde\sX \to \sX$ is a transitive covering with  with  $G = G\left(
+			\left. \widetilde \sX \right| \sX \right)$,
+			\item[(iii)] the quadruple $\left( A, \widetilde A, G, \pi\right)$ is equivalent to $\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)$ one.
+		\end{enumerate} 
+\end{lemma}
+\begin{proof}
+	(i) and (ii) are already proven in \ref{spectrum_ff_pp_empt}.\\
+	(iii) \ref{proj_decomp_rem}
 \end{proof}
+\paragraph{!!!}
+\begin{lemma}\label{spectrum_ff_p_lem!}!!!
+	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_unitization_defn}). If   both $C$ and $\widetilde C$ are centers of $M\left(A \right)$ and $M\left( \widetilde{A}\right)$ then  $\widetilde C$ is a finitely generated $C$-module.
+\end{lemma}
+\begin{proof}
+	If $\widetilde C$ is not a finitely generated $C$-module  then from the Theorem \ref{fin_gen_thm} it follows that  there is an infinite algebraic sum
+	$$
+	\widetilde C = \sum_{\la\in \La} M_\la,
+	$$
+	of right $C$-modules, such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	\widetilde C \subsetneqq \sum_{\la\in \La_0} M_\la,
+	$$
+	One has an algebraic sum 
+	$$
+	M\left(\widetilde A \right)  = \sum_{\la\in \La} M\left( A\right)  M_\la
+	$$
+	of left  $M\left(A \right)$-nodules such that for any finite subset $\La_0 \subset \La$ one has
+	$$
+	M\left( \widetilde{A}\right) \neq \sum_{\la\in \La_0} M\left( A\right)  M_\la.
+	$$
+	From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde A \right)$ is not finitely generated $M\left( A\right)$-module. This fact contradicts with hypotheses of this Lemma.
+\end{proof}
+
+
+\paragraph{!!!}
 \begin{lemma}\label{ctr_necessary_lem} 
 	Let $A$ be a connected   $C^*$-algebra  with Hausdorff spectrum, locally compact, locally connected spectrum $\sX$, and suppose that $A$ is $CCR$ (cf. Definition \ref{ccr_defn}). If $\left(A,\widetilde{A}, G, \pi    \right)$ is a noncommutative finite-covering (cf. Definition \ref{fin_defn}) and $p: \widetilde \sX \to \sX$ is a given by the Proposition \ref{spectrum_covering_finite_prop} map form the spectrum $\widetilde \sX$ to the spectrum of $A$, then one has:
 	\begin{enumerate}
