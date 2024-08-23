@@ -1630,6 +1630,10 @@ then
 \begin{split}
 \forall \widetilde a \in \widetilde A \quad \widetilde a = \widetilde a^\parallel + \widetilde a^\perp; \quad \widetilde a^\parallel \bydef \frac{1}{\left|G\right|} \sum_{	g \in {G}} g \widetilde a\in \widetilde a^\parallel\in  A^\parallel, \quad \widetilde a^\perp\bydef \widetilde a - \widetilde a^\parallel\in \widetilde A^\perp;\\
 \widetilde{A}=\widetilde A^\parallel\oplus \widetilde A^\perp;\\
+\end{split}
+\ee
+\be\label{a_pppp_eqn}
+\begin{split}
 \forall \widetilde a^\parallel\in A^\parallel\in\quad \widetilde a^\perp\in  \widetilde A^\perp\quad  \left\langle a^\parallel, \widetilde a^\perp\right\rangle_A = \sum_{g\in G}  g\left(\left( \widetilde  a^\parallel\right)^*, \widetilde a^\perp \right) =\\=
 \left( \widetilde  a^\parallel\right)^*\sum_{g\in G}  g\ \widetilde a^\perp  = 0\quad \Rightarrow \quad \left\langle A^\parallel, \widetilde A^\perp\right\rangle_A= \left\langle A^\perp, \widetilde A^\parallel\right\rangle_A = \{0\}.
 \end{split}
@@ -3080,22 +3084,25 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
   a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*\quad \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
  \end{split}
  \end{equation}
- (cf. Equations \eqref{discr_cr_prod_op_eqn}). 
- Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. The left  and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
+ (cf. Equations \eqref{croosed_prod_eqn} and \eqref{discr_cr_prod_op_eqn})).  There are given by \eqref{morita_ta_act_eqn} left and right actions of $\widetilde{\La} \rtimes G$ on $\widetilde A$ 
+ \begin{equation}\label{morita_m_ta_act_eqn}
+ 	\begin{split}
+ 		\forall \widetilde{a}\in \widetilde{\La}\quad \forall a \in \widetilde{\La} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
+ 		\widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
+ \end{equation}
  
- \begin{equation}\label{morita_ta_act_eqn}
- \begin{split}
-  \forall \widetilde{a}\in \widetilde{A}\quad \forall a \in \widetilde{A} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
- \widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
+ Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Denote by $\varphi': \widetilde{A} \times  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi': \widetilde{A} \times \widetilde{A} \to A$ bilinear maps
+ \begin{equation}\label{morp_pp_fin_eqn}
+ 	\begin{split}
+ 		\forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi' \left(\widetilde{a}, \widetilde{b} \right)\left( g\right) \bydef    \widetilde{a} \left(g\widetilde{b} \right) ,\\
+ 		\psi' \left(\widetilde{a}, \widetilde{b} \right) \bydef \sum_{g \in G} g\left(\widetilde{a}^* \widetilde{b} \right).
+ 	\end{split}
  \end{equation}
-The left  (resp. right) action of $A$ on $\widetilde{A}$ we define as left  (resp. right) multiplication by $A$.
- Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ bilinear maps such that
- \begin{equation}\label{mor_pp_fin_eqn}
- \begin{split}
-  \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) \bydef    \widetilde{a} \left(g\widetilde{b} \right) ,\\
- \psi \left(\widetilde{a} \otimes \widetilde{b} \right) \bydef \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right).
- \end{split}
- \end{equation}
+ If $c \in A$ then from $\varphi'\left(\widetilde{a}c, \widetilde{b} \right) = \varphi'\left(\widetilde{a},c \widetilde b \right)$ it follows that $\varphi'$ yields a bimodule homomorphism $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}\to \widetilde A\rtimes G$. If $\left( \widetilde c, g_1 \right)\in \widetilde A\rtimes G $ then from
+\bean
+ 	\psi' \left(\widetilde{a} \left( \widetilde c, g_1 \right), \widetilde{b} \right)= \psi' \left(g_1^{-1}  \left( \widetilde{a}\widetilde{c} \right), \widetilde{b} \right)= \sum_{	g \in {G}}g\left( g_1^{-1}\left(  \widetilde{a}\widetilde{c}\right)\right)  \widetilde{b}= \sum_{	g \in {G}}g\left(  \widetilde{a}\widetilde{c}g_1  \widetilde{b}\right)= \\ \sum_{	g \in {G}}g\left(  \widetilde{a}\left( \widetilde{c}, g_1\right)   \widetilde{b}\right) = \psi' \left(\widetilde{a}, \left( \widetilde c, g_1 \right) \widetilde{b} \right)
+\eean
+it follows that $\psi'$ yields a bimodule homomorphism $\psi : \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A}\to A$.
  From above equations it follows that 
  \begin{equation}\label{morita_g_eqn}
  \begin{split}
@@ -3107,10 +3114,13 @@ The left  (resp. right) action of $A$ on $\widetilde{A}$ we define as left  (res
  = \left( \sum_{g \in G} g^{-1}\left( \widetilde{a} \widetilde{b} \right) \right)\widetilde{c}= \left( \sum_{g \in G} g\left( \widetilde{a} \widetilde{b} \right) \right)\widetilde{c}=\psi\left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c},
  \end{split}
  \end{equation}
- i.e. $\varphi, \psi$ satisfy conditions \eqref{morita_ctx_eqn}, so $\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right) $ is a Morita context.  Taking into account that the $A$-module $\widetilde{A}_A$ is a finitely generated projective generator and Remark \ref{morita_rem}  one has a following lemma.
- \begin{lem}\label{morita_galois_lem}
+ i.e. $\varphi, \psi$ satisfy conditions \eqref{morita_ctx_eqn}, so $\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right) $ is a Morita context.  According to the Remark  \ref{fin_cov_kasp_rem} it follows that $\widetilde A$ is a projective finitely generated $A$-module. From equation \eqref{a_ppp_eqn} it follows that $\widetilde A=\widetilde A^\parallel\oplus \widetilde A^\perp\cong  A\oplus \widetilde A^\perp$ and taking into account \eqref{progenerator_eqn} we conclude that $A$-module $\widetilde A$ is a progenerator.
+  \begin{lem}\label{morita_galois_lem}
  	If $\left(A, \widetilde{A}, G \right)$ is an unital noncommutative finite-fold  covering then  $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right)$$ is an algebraic Morita equivalence. 
  \end{lem}
+ \begin{proof}
+Follows from the Theorem \ref{progenerator_morita_thm}.
+ \end{proof}
  
  
  \begin{cor}\label{unital_cov_cor}
@@ -3170,14 +3180,26 @@ The left  (resp. right) action of $A$ on $\widetilde{A}$ we define as left  (res
  \end{equation}
 
 \begin{corollary}\label{tens_inv_cor}
-$\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. The given by  \ref{herm_functor_empt} functor $_A\widetilde{A}_{\widetilde{A}\rtimes G} \otimes_{\widetilde{A}\rtimes G}\left( -\right): \mathbf{Herm}_{\widetilde{A}\rtimes G} \to \mathbf{Herm}_A$ is equivalent to the functor of invariant submodule 
+$\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. The given by  \ref{herm_functor_empt} functor ${\widetilde{A}\rtimes G} \otimes_{\widetilde{A}}\left( -\right): \mathbf{Herm}_{\widetilde{A}} \to \mathbf{Herm}_{\widetilde{A}\rtimes G}$ is equivalent to the functor of invariant submodule 
 \bean
-\left( -\right)^G : \mathbf{Herm}_{\widetilde{A}\rtimes G} \to \mathbf{Herm}_A;\\
+\left( -\right)^G : \mathbf{Herm}_{\widetilde{A}} \to \mathbf{Herm}_A;\\
 \widetilde{   \H} \mapsto \widetilde{   \H}^G=\left\{\widetilde{\xi} \in \widetilde{   \H}~|~ g\widetilde{\xi} = \widetilde{\xi},~ \forall g \in G \right\}.
 \eean  
 \end{corollary}
 \begin{proof} 
-If $\xi = \widetilde a \otimes \widetilde\eta \in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtimes G}\widetilde{   \H}$ then $\xi = 1_{\widetilde{A}}\otimes a' \widetilde \eta$ where $a'\in \widetilde A \rtimes G$ is such that 
+If  $\widetilde \xi \in \widetilde \H$ and $\widetilde a'\in \widetilde{A}\rtimes G$ is such that there is $g' \in G$ with
+	$$
+\widetilde a'\left( g \right) = \begin{cases}
+\widetilde a & g = g'\\
+0 & g \neq g'
+\end{cases}	
+	$$
+	then for any $g\in G$ one has
+	$$
+\widetilde a' \otimes \widetilde \xi = g^{-1} 	1_{\widetilde{A}\rtimes G} \otimes g\widetilde \eta
+	$$
+	where $\widetilde \eta \bydef g' \left( \widetilde a \widetilde \xi\right)$. 
+If $\xi = \widetilde a \otimes \widetilde\eta \in \widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtimes G}\widetilde{   \H}$ then $\xi = 1_{\widetilde{A}}\otimes a' \widetilde \eta$ where $a'\in \widetilde A \rtimes G$ is such that 
 	\begin{equation}\nonumber
 		\begin{split}
 			a'\left(g \right) = \left\{\begin{array}{c l}
@@ -14562,7 +14584,7 @@ Our following constructions require an analog of the Dini's theorem.
 \rep_{ \widetilde{x}}\left(\widetilde{A}^\perp \right)\cap\rep_{ \widetilde{x}}\left(\pi\left( A\right)  \right)= \{0\}.
 	\end{split}
 	\ee
-and from \eqref{a_ppp_eqn} it follows that
+and from \eqref{a_pppp_eqn} it follows that
 \be\label{ctr_hilb_eqn} 
 \left\langle A^\parallel, \widetilde A^\perp\right\rangle_A= \left\langle A^\perp, \widetilde A^\parallel\right\rangle_A = \{0\}
 \ee
@@ -19517,14 +19539,71 @@ A group which is an inverse limit of finite groups is called \textit{profinite}.
 	%		\item[(iv)] If $P \in \mathbf{Pic}_R\left(A \right)$ and if $P\cong A$ as left  $A$-modules then $P\cong _{\Id_A} A_{\al}$ as bimodules for some $\al \in  \Aut_{R\mathrm{-alg}}\left(A \right)$.
 	% 	\end{enumerate}
 	% \end{proposition}
+	\begin{definition}\label{progenerator_defn}\cite{af:rings_cat_mod}
+	A left $R$-module $_RP$ is a \textit{progenerator} (or a \textit{left} $R$-\textit{progenerator}) in case it is a finitely generated projective generator. In particular, $_RR$ is a progenerator. 
+Indeed, $_RP$ is a progenerator if and only if there are integers $m$ and $b$ and 
+modules $P'$ and $R'$ with 
+\be\label{progenerator_eqn}
+R^m \cong P\oplus P'\quad P^m = R \oplus  R'
+\ee
+\end{definition}
+\begin{theorem}\cite{af:rings_cat_mod}
+%	22.1. Theorem. 
+Let $R$ and $S$ be equivalent rings via inverse equivalences $F:_R\mathscr{M}\xrightarrow{\cong}_S\mathscr{M}$ and $G:_S\mathscr{M}\xrightarrow{\cong}_R\mathscr{M}$. Set
+$$
+P \bydef F\left( R\right) \quad \text{and} \quad Q \bydef G\left(  S\right) 
+$$
+Then $P$ and $Q$ are naturally bimodules $_SP_R$ and $_RQ_S$ such that 
+\begin{enumerate}
+	\item[(i)] $_SP_R$ and $_RQ_S$ are faithfully balanced; 
+\item[(ii)] $P_R$, $_SP$, $_RQ$ and $Q_S$ are all progenerators; 
+\item[(iii)] $_SP_R \cong \Hom_S\left(Q,S\right)\cong \cong \Hom_R\left(Q,R\right)$ and $_RQ_S \cong \Hom_R\left(P,R\right)\cong \cong \Hom_S\left(P,S\right)$;
+\item[(iv)]  $F \cong \Hom_R\left(Q,- \right)$ and  $G \cong \Hom_S\left(P, - \right)$;
+\item [(v)]  $F \cong \left( P\otimes_R -\right)$ and  $GT \cong \left( Q\otimes_S -\right)$.
+		 
+\end{enumerate}
+
+\end{theorem}
+
+\begin{theorem}\label{progenerator_morita_thm}\cite{af:rings_cat_mod}
+	%	22.2. Theorem. 
+Let $R$ and $S$ be rings and let
+$$
+F : _R\mathscr{M}\to _S\mathscr{M}\quad \text{and} \quad G : _S\mathscr{M}\to _M\mathscr{M}
+$$ 
+be additive functors, where both $_R\mathscr{M}$ and $_S\mathscr{M}$ a categories of left $R$- and $S$-modules respectively. Then $F$ and $G$ are inverse equivalences if and only if there 
+exists a bimodule $_SP_R$ such that: 
+	\begin{enumerate}
+		\item[(i)]	$_SP$ and $P_R$ are progenerators; 
+	\item[(ii)]	 $_SP_R$ is balanced; 
+		\item[(iii)]	 $F \cong \left( P\otimes_R-\right) $ and $G \cong \Hom_S\left( P, -\right)$. 
+		
+	\end{enumerate}
+	Moreover, if there is a bimodule $_SP_R$ satisfying these conditions, then with 
+	$$Q \bydef \Hom_R \left(P, R \right),$$ 
+	we have $_RQ_S$ with $_RQ$ and $Q_S$ progenerators and 
+	$$	
+F \cong \Hom_R \left(Q, - \right)	\quad and \quad G \cong \left(Q\otimes_S - \right). 
+$$
+\end{theorem}
+\begin{corollary}
+%22.4. Corollary. 
+For two rings R and S the following assertions are equivalent: 
+\begin{enumerate}
+	\item[(i)] $R$ is Morita equivalent to $S$.
+	\item[(ii)] There is a progenerator $P_R$ with $S\cong  \End(P_R)$;
+	\item[(iii)] There is a progenerator $_RQ$ with $S\cong  \End(_RQ)$.
+\end{enumerate}
+
+\end{corollary}
 	
-	\section{Finite Galois coverings}\label{fin_gal_cov_sec}
-	\paragraph*{} Here I follow to \cite{auslander:galois}. Let $A \hookto \widetilde{A}$ be an injective homomorphism of unital algebras, such that
-	\begin{itemize}
-		\item $\widetilde{A}$ is a projective finitely generated $A$-module,
-		\item There is an action $G \times \widetilde{A} \to \widetilde{A}$ of a finite group $G$ such that $$A = \widetilde{A}^G=\left\{\widetilde{a}\in \widetilde{A}~|~g\widetilde{a}=\widetilde{a}; ~\forall g \in G\right\}.$$
-	\end{itemize}
-	Let us consider the category $\mathscr{M}^G_{\widetilde{A}}$ of $G-\widetilde{A}$ modules, i.e.  any object $M \in \mathscr{M}^G_{\widetilde{A}}$ is a $\widetilde{A}$-module with equivariant action of $G$, i.e. for any $m \in M$ a following condition holds
+	\section{Finite Galois coverings and   Morita equivalence}\label{fin_gal_cov_sec}
+	\paragraph*{} Here I follow to \cite{auslander:galois}, but used here notation is adopted to this book and   different from  \cite{auslander:galois} one. 
+	Let $\widetilde \La$ be a ring and let $G$ be a finite group operating on  $ \La$ as a group of automorphisms.	Let $\widetilde \La\rtimes G$ be an algebra such that $\widetilde\La\rtimes G \approx \widetilde \La\times G$ as an Abelian group and a multiplication law is given by
+	\be\label{croosed_prod_eqn}
+\forall 	\left( \widetilde a, g\right),\left(\widetilde b, h\right)\in \widetilde \La\times G \quad 	\left( \widetilde a, g\right)\cdot \left(\widetilde b, h\right) =\left(\widetilde a\left(g \widetilde b \right), gh  \right).
+	\ee
+	Let us consider the category $\mathscr{M}^G_{\widetilde{\La}}$ of $G$-$\widetilde{\La}$ modules, i.e.  any object $M \in \mathscr{M}^G_{\widetilde{A}}$ is a $\widetilde{\La}$-module with equivariant action of $G$, i.e. for any $m \in M$ a following condition holds
 	$$
 	g\left(\widetilde{a}m \right)=  \left(g\widetilde{a} \right) \left(gm \right) \text{ for any } \widetilde{a} \in \widetilde{A}, ~ g \in G.
 	$$
@@ -19532,15 +19611,64 @@ A group which is an inverse limit of finite groups is called \textit{profinite}.
 	$$
 	\varphi\left( g m\right)= g \varphi\left( m\right)   \text{ for any } m \in M, ~ g \in G.
 	$$
-	Let $\widetilde{A}\left[ G\right]$ be an algebra such that $\widetilde{A}\left[ G\right] \approx \widetilde{A}\times G$ as an Abelian group and a multiplication law is given by
-	$$
-	\left( a, g\right)\left( b, h\right) =\left(a\left(gb \right), gh  \right).
-	$$
-	The category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$ of $\widetilde{A}\left[ G\right]$ modules. Otherwise in \cite{auslander:galois} it is proven that if $\widetilde{A}$ is a finitely generated, projective $A$-module then there is an  equivalence between a category $\mathscr{M}_{A}$ of $A$-modules and the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$ (cf. Definition \ref{category_equivalence_definition}). It turns out that the category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{A}$. The equivalence is given by mutually inversed functors $\left( -\right) \otimes \widetilde{A}: \mathscr{M}_{A} \to \mathscr{M}^G_{\widetilde{A}}$ and $\left( -\right) ^G: \mathscr{M}^G_{\widetilde{A}}\to \mathscr{M}_{A}$.
+A left $\widetilde\La \rtimes G$-module $M$ may be thought of as a $G$-$\widetilde{\La}$-module, i.e. the category $\mathscr{M}_{\widetilde{\La}\rtimes G}$ of $\widetilde{\La}\rtimes G$- modules is equivalent to the $\mathscr{M}^G_{\widetilde{A}}$ one.
+$$
+\forall g \in G\quad \forall \widetilde a \in \widetilde \La\quad m \in M\quad g\left(am \right) = g\left(\widetilde a \right)g\left(m \right).
+$$	
+In the same way a	$\widetilde\La \rtimes G$-morphism between  $\widetilde\La \rtimes G$ modules $M$ and $N$ is a $\La$-morphism $f: M\to N$ such that $f\left(gm \right) = g\left( f\left(m \right)\right)$ for each $m \in M$ and $g\in G$. So a category
+\begin{definition}\label{pregalois_defn}
+We say that the action $G\times \widetilde\La \to \La$ is \textit{pregalois} if $\widetilde \La$ is a projective $ \widetilde\La\rtimes G$-generator where $\widetilde \La$ is considered as a left $\La\rtimes G$-module by
+\be\label{croosed_prod_m_eqn}
+\forall a, b \in \La \quad \forall g \in G \quad \left(a, g \right) \cdot b \bydef a. \left(g b \right) 
+\ee
+In this situation we say that the pair $\left(\La, G \right)$ is \textit{pregalois}. If 
+$$
+\La \bydef \widetilde{\La}^G \bydef \left\{\left. a \in  \widetilde{\La} \right| \forall g \in G \quad ga = a\right\}
+$$
+is a fixed point subring then we say that a pair $\left(\widetilde \La, \La\right)$ is \textit{pregalois}.
+\end{definition} 
+	When $G$ operates on $\widetilde\La$ as a group of automorphisms, the same action induces an action on $\widetilde \La^\circ$, the opposite ring of $A$.  The map
+\bean
+\begin{split}
+	f: \widetilde \La \rtimes G \to \widetilde \La^\circ\rtimes G,\\
+	\left(\widetilde a,g \right) \mapsto g\left(\widetilde a,g \right)g^{-1}
+\end{split}
+\eean
+is easily seen to be an antiisomorphism. Hence with this map we may identify $\left( \widetilde \La \rtimes G \right)^\circ$ with $\widetilde \La^\circ \rtimes G$. 
+For any $G$-$\widetilde{\La}$ module $M$  denote by
+\bean
+M^G \bydef \left\{m \in M | \forall g \in G \quad gm = m\right\}.
+\eean
+
+
+\begin{proposition}\cite{auslander:galois}
+	\begin{enumerate}
+		\item [(i)] The evaluation map 
+		\bean
+		\pi_M: \Hom_{\widetilde{\La}\rtimes G}\to M,\\
+		f \mapsto f\left(1 \right) 
+		\eean
+	induces a functorial isomorphism $\Hom_{\widetilde{\La}\rtimes G}\xrightarrow{\cong } M^G$ for all $\widetilde{ \La }$-$G$ modules $M$.
+	\item[(ii)] $\phi_{\widetilde \La} :\End_{\widetilde{\La}\rtimes G}\left(\widetilde\La \right)^\circ \to \widetilde \La^G$ is a ring isomorphism.
+	\end{enumerate}
+\end{proposition}
+As a consequence of the isomorphism $\End_{\widetilde{\La}\rtimes G}\left(\widetilde\La \right)^\circ \cong \widetilde \La^G$ we have from general Morita theory (cf. Remark \ref{morita_rem}) the following connection between the category $\mathscr{M}_{\widetilde{\La}\rtimes G}$ of left $\widetilde{\La}\rtimes G$ modules, and $\mathscr{M}_{\widetilde{\La}^G}$, the category of $\widetilde{\La}^G$-modules, when $\left( \widetilde{\La},G\right)$ is pregalois.
+\begin{proposition}\cite{auslander:galois}
+$\left( \widetilde{\La},G\right)$ is pregalois if and only if $\widetilde \La\otimes_{\widetilde \La^G}-:\mathscr{M}_{\widetilde{\La}^G}\to \mathscr{M}_{\widetilde{\La}\rtimes G}$ and $\Hom_{\widetilde{\La}\rtimes G}: \left( \widetilde{\La}, -\right)$ are inverse equivalence of categories.
+\end{proposition} 
+There are left and right of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
+\begin{equation}\label{morita_ta_act_eqn}
+	\begin{split}
+		\forall \widetilde{a}\in \widetilde{\La}\quad \forall a \in \widetilde{\La} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
+		\widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
+\end{equation}
+The left  (resp. right) action of $\La$ on $\widetilde{\La}$ we define as left  (resp. right) multiplication by $\La$.
+
+
+ Otherwise in \cite{auslander:galois} it is proven that if $\widetilde{\La}$ is a finitely generated, projective $\La$-module then there is an  equivalence between a category $\mathscr{M}_{\La}$ of $\La$-modules and the category $\mathscr{M}_{\widetilde{\La}\left[ G\right]}$ (cf. Definition \ref{category_equivalence_definition}). It turns out that the category $\mathscr{M}^G_{\widetilde{\La}}$ is equivalent to the category $\mathscr{M}_{\La}$. The equivalence is given by mutually inversed functors $\left( -\right) \otimes \widetilde{\La}: \mathscr{M}_{\La} \to \mathscr{M}^G_{\widetilde{\La}}$ and $\left( -\right) ^G: \mathscr{M}^G_{\widetilde{\La}}\to \mathscr{M}_{\La}$.
 	
 	
-	
-	
+
 	
 	
 	\section{Profinite and residually finite groups}\label{profinite_section}
@@ -27085,7 +27213,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  	
  	\bibitem{Ambjorn:2000cs}  J.~Ambjorn, Y.~M.~Makeenko, J.~Nishimura and R.~J.~Szabo,  {\it Lattice gauge fields and discrete noncommutative Yang-Mills theory}.  JHEP {\bf 0005}, 023 hep-th/0004147, 2000.
  	
- 	
+ 	\bibitem{af:rings_cat_mod} Anderson F.W., Fuller K.R. \textit{Rings and categories of modules}, Graduate Text in Mathematics, Springer Verlag, N.Y. 1974.
  	%\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover Publications, New York, 1961, 1963.
  	
  	\bibitem{antoine:part_o} Antoine, Jean-Pierre, Inoue, Atsushi, Trapani, C.  \textit{Partial *- Algebras and Their Operator Realizations}. SPRINGER-SCIENCE+BUSINESS MEDIA, B.V. 2002.
