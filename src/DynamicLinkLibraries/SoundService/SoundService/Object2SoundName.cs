@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Runtime.Serialization;
 
 using CategoryTheory;
 
@@ -169,10 +167,11 @@ namespace SoundService
             outMea = new IMeasurement[n];
             for (int i = 0; i < n; i++)
             {
-                Func<object, string> func = ConvertDouble;
-                Func<object> finp = this.FindMeasurement(inputs[i], false).Parameter;
+                var func = ConvertDouble;
+                var finp = this.FindMeasurement(inputs[i], false).Parameter;
                 outMea[i] = new Measurement("", () =>
                 {
+                    var k = inputs[i];
                     return func(finp());
                 },
                 "Sound_" + (i + 1));
@@ -186,40 +185,49 @@ namespace SoundService
         /// <returns>Sound filename(s)</returns>
         string ConvertDouble(object o)
         {
-            StringBuilder sb = new StringBuilder();
-            double d = (double)o;
-            if (d < 0)
+            // !!! DELETE TRY
+            try
             {
-                sb.Append("minus.wav_");
-                d = -d;
-            }
-            uint h = (uint)d;
-            if (h < 100)
-            {
-                TwoDigit(h, sb);
-            }
-            else if (h < 1000)
-            {
-                uint x = h % 100;
-                uint y = (h - x) / 100;
-                sb.Append(y);
-                sb.Append(".wav_");
-                sb.Append("hundred.wav");
-                if (x > 0)
+                StringBuilder sb = new StringBuilder();
+                double d = (double)o;
+                if (d < 0)
                 {
+                    sb.Append("minus.wav_");
+                    d = -d;
+                }
+                uint h = (uint)d;
+                if (h < 100)
+                {
+                    TwoDigit(h, sb);
+                }
+                else if (h < 1000)
+                {
+                    uint x = h % 100;
+                    uint y = (h - x) / 100;
+                    sb.Append(y);
+                    sb.Append(".wav_");
+                    sb.Append("hundred.wav");
+                    if (x > 0)
+                    {
+                        sb.Append("_");
+                        TwoDigit(x, sb);
+                    }
+                }
+                else
+                {
+                    uint x = h % 100;
+                    uint y = (h - x) / 100;
+                    TwoDigit(y, sb);
                     sb.Append("_");
                     TwoDigit(x, sb);
                 }
+                return sb.ToString();
             }
-            else
+            catch (Exception e)
             {
-                uint x = h % 100;
-                uint y = (h - x) / 100;
-                TwoDigit(y, sb);
-                sb.Append("_");
-                TwoDigit(x, sb);
+
             }
-            return sb.ToString();
+            return "";
         }
 
         /// <summary>

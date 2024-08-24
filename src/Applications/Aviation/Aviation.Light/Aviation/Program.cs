@@ -116,7 +116,6 @@ namespace Aviation.Light
         static readonly IUIFactory[] Factories = new IUIFactory[]
                 {
                     ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.Object,
-                    // !!!REMOVED        SoundService.UI.Factory.SoundUIFactrory.Singleton,
                     Event.UI.Factory.UIFactory.Factory,
                     Database.UI.Factory.DatabaseFactory.Object
                 };
@@ -186,7 +185,6 @@ namespace Aviation.Light
 
         static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
-            //!!! SCADA     
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;
             List<ButtonWrapper> l = new List<ButtonWrapper>();
             l.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);

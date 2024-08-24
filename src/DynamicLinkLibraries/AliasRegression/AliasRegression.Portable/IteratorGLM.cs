@@ -937,17 +937,6 @@ namespace Regression.Portable
                 }
             }
             return;
-            /* !!! for (int i = 0; i < sAliases.Count; i++)
-            {
-                for (int j = 0; j < sAliases.Count; j++)
-                {
-                    d[i, j] = 0;
-                }
-            }
-            for (int i = 0; i < sAliases.Count; i++)
-            {
-                dx[i] = 0.000001;
-            }*/
         }
 
         private IMeasurement Find(string name)

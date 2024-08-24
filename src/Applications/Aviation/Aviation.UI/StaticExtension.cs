@@ -157,19 +157,10 @@ namespace Aviation.UI
   
 
 
-     /*   static public Motion6D.PositionObjectFactory PositionObjectFactory
-        {
-            get
-            {
-                return WpfInterface.UI.Factory.WpfFactory.Singleton;
-                //return null;
-            }
-        }*/
-
+ 
 
         static StaticExtension()
         {
-          //!!!InitCollada();
         }
 
   }

@@ -46,18 +46,13 @@ namespace BasicEngineering.UI.Factory
         {
             get
             {
-         // !!!REMOVED       SoundService.StaticExtensionSoundService.SoundDirectory = Properties.Settings.Default.SoundDirectory;
+                SoundService.StaticExtensionSoundService.SoundDirectory = Properties.Settings.Default.SoundDirectory;
                 return Properties.Settings.Default.SoundDirectory;
             }
             set
             {
-                string dir = value;
-                if (dir[dir.Length - 1] != System.IO.Path.DirectorySeparatorChar)
-                {
-                    dir += System.IO.Path.DirectorySeparatorChar;
-                }
-                Properties.Settings.Default.SoundDirectory = dir;
-                // !!!REMOVED    SoundService.StaticExtensionSoundService.SoundDirectory = dir;
+                Properties.Settings.Default.SoundDirectory = value;
+                SoundService.StaticExtensionSoundService.SoundDirectory = value;
             }
         }
 

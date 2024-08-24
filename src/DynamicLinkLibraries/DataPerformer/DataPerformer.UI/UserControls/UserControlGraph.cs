@@ -1998,7 +1998,6 @@ Func<bool> stop)
             StartChart();
             ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
             this.InvokeIfNeeded(() => { toolStripButtonStop.Enabled = false; });
-
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
