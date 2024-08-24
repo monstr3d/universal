@@ -153,7 +153,7 @@ namespace DataPerformer
             }
             if (formulae != null)
             {
-                
+
                 formulaString = formulae.ToStringEnumerable().ToArray();
             }
             info.AddValue("Formulas", formulaString);
@@ -161,10 +161,11 @@ namespace DataPerformer
             info.AddValue("Parameters", pars);
             info.AddValue("Unaries", opNames);
             info.AddValue("CalculateDerivation", calculateDerivation);
-            if (comments != null)
+            if (comments == null)
             {
-                info.AddValue("Comments", comments);
+                comments = new byte[0];
             }
+            info.AddValue("Comments", comments);
             info.AddValue("DerivationOrder", deriOrder);
             info.Serialize("Feedback", feedback);
             info.AddValue("ShouldRuntimeUpdate", shouldRuntimeUpdate);

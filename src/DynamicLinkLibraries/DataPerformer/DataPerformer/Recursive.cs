@@ -118,10 +118,11 @@ namespace DataPerformer
 			info.AddValue("Parameters", parsH);
 			info.AddValue("Aliases", aliasesH);
 			info.AddValue("ExternalAliases", externalAlsH);
-			if (comments != null)
+			if (comments == null)
 			{
-				info.AddValue("Comments", comments);
+				comments = new byte[0];
 			}
+			info.AddValue("Comments", comments);
 		}
 
 		#endregion

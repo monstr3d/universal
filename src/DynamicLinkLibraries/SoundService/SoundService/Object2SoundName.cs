@@ -169,12 +169,21 @@ namespace SoundService
             {
                 var func = ConvertDouble;
                 var finp = this.FindMeasurement(inputs[i], false).Parameter;
-                outMea[i] = new Measurement("", () =>
-                {
-                    var k = inputs[i];
-                    return func(finp());
-                },
-                "Sound_" + (i + 1));
+                var k = i;
+                Func<object> f = () =>
+                 {
+                     try
+                     {
+
+                         var o = (object)func(finp);
+                       
+                     }
+                     catch (Exception ex)
+                     {
+                     }
+                     return (double)0;
+                 };
+                outMea[i] = new Measurement("", f, "Sound_" + (i + 1));
             }
         }
 
@@ -185,49 +194,40 @@ namespace SoundService
         /// <returns>Sound filename(s)</returns>
         string ConvertDouble(object o)
         {
-            // !!! DELETE TRY
-            try
+            StringBuilder sb = new StringBuilder();
+            double d = (double)o;
+            if (d < 0)
             {
-                StringBuilder sb = new StringBuilder();
-                double d = (double)o;
-                if (d < 0)
+                sb.Append("minus.wav_");
+                d = -d;
+            }
+            uint h = (uint)d;
+            if (h < 100)
+            {
+                TwoDigit(h, sb);
+            }
+            else if (h < 1000)
+            {
+                uint x = h % 100;
+                uint y = (h - x) / 100;
+                sb.Append(y);
+                sb.Append(".wav_");
+                sb.Append("hundred.wav");
+                if (x > 0)
                 {
-                    sb.Append("minus.wav_");
-                    d = -d;
-                }
-                uint h = (uint)d;
-                if (h < 100)
-                {
-                    TwoDigit(h, sb);
-                }
-                else if (h < 1000)
-                {
-                    uint x = h % 100;
-                    uint y = (h - x) / 100;
-                    sb.Append(y);
-                    sb.Append(".wav_");
-                    sb.Append("hundred.wav");
-                    if (x > 0)
-                    {
-                        sb.Append("_");
-                        TwoDigit(x, sb);
-                    }
-                }
-                else
-                {
-                    uint x = h % 100;
-                    uint y = (h - x) / 100;
-                    TwoDigit(y, sb);
                     sb.Append("_");
                     TwoDigit(x, sb);
                 }
-                return sb.ToString();
             }
-            catch (Exception e)
+            else
             {
-
+                uint x = h % 100;
+                uint y = (h - x) / 100;
+                TwoDigit(y, sb);
+                sb.Append("_");
+                TwoDigit(x, sb);
             }
-            return "";
+            return sb.ToString();
         }
 
         /// <summary>

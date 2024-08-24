@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Runtime.Serialization;
-
+using System.Xml.Linq;
 using Diagram.UI;
 
 
@@ -88,10 +88,11 @@ namespace Regression
             info.AddValue("Dispersions", dispersions);
             info.AddValue("Delta", delta);
             info.AddValue("StandardDeviation", standardDeviation);
-            if (comments != null)
+            if (comments == null)
             {
-                info.AddValue("Comments", comments);
+                comments = new byte[0];
             }
+            info.AddValue("Comments", comments);
             info.AddValue("Coefficient", Coefficient);
         }
 

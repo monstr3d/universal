@@ -59,7 +59,6 @@ namespace DataPerformer
             catch (Exception ex)
             {
                 comments = new byte[0];
-                ex.ShowError(100);
             }
             try
             {
@@ -95,10 +94,11 @@ namespace DataPerformer
             }*/
             info.AddValue("Arguments", argsH);
             info.AddValue("AliasNames", aliasNamesH);
-            if (comments != null)
+            if (comments == null)
             {
-                info.AddValue("Comments", comments);
+                comments = new byte[0];
             }
+            info.AddValue("Comments", comments);
             info.AddValue("DerivationOrder", deriOrder);
             info.AddValue("DerivationOrders", deriOrders, typeof(Dictionary<string, int>));
 

@@ -83,22 +83,26 @@ namespace DataPerformer
 		/// <param name="context">Streaming context</param>
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-            base.GetObjectData(info, context);
-            info.AddValue("X", X, typeof(string));
-            info.AddValue("Y", Y, typeof(string));
-        }
+			if (comments == null)
+			{
+				comments = new byte[0];
+			}
+			base.GetObjectData(info, context);
+			info.AddValue("X", X, typeof(string));
+			info.AddValue("Y", Y, typeof(string));
+		}
 
-		#endregion
+        #endregion
 
-		#region Specific Members
+        #region Specific Members
 
 
-		/// <summary>
-		/// Imports series collecion from document
-		/// </summary>
-		/// <param name="doc">The document</param>
-		/// <returns>Collection of series</returns>
-		public static Series[] ImportSeriesCollection(XmlDocument doc)
+        /// <summary>
+        /// Imports series collecion from document
+        /// </summary>
+        /// <param name="doc">The document</param>
+        /// <returns>Collection of series</returns>
+        public static Series[] ImportSeriesCollection(XmlDocument doc)
 		{
 			XmlNodeList l = doc.DocumentElement.GetElementsByTagName("Series");
 			List<Series> ls = new List<Series>();

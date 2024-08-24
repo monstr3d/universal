@@ -66,28 +66,6 @@ namespace Internet.Meteo.Wrapper
         }
 
         #endregion
-/* !!! CHECK AFTER
-        #region IEvent members
-
-        bool IEvent.IsEnabled 
-        { 
-            get => base.IsEnabled;
-            set => base.IsEnabled = value; 
-        }
-
-        event Action IEvent.Event
-        {
-            add
-            {
-            }
-
-            remove
-            {
-            }
-        }
-
-
-        #endregion*/
 
         #region IRealTimeStartStop Members
 
@@ -145,6 +123,10 @@ namespace Internet.Meteo.Wrapper
             }
         }
 
+        #endregion
+
+        #region IStarted Members
+
         /// <summary>
         /// Starts itself
         /// </summary>
@@ -159,7 +141,6 @@ namespace Internet.Meteo.Wrapper
         }
 
         #endregion
-
 
         #region ICalculationReason Members
 
@@ -180,8 +161,6 @@ namespace Internet.Meteo.Wrapper
         }
 
         #endregion
-
-
 
         #region Protected members
 

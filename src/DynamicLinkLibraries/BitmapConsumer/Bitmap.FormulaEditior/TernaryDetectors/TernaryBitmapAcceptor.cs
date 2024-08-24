@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using BaseTypes.Interfaces;
-using FormulaEditor.Interfaces;
 
 namespace Bitmap.FormulaEditior.TernaryDetectors
 {

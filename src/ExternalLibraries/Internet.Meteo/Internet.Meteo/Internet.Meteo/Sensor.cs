@@ -47,13 +47,30 @@
         public readonly Dictionary<string, string[]> names = new Dictionary<string, string[]>()
         {
             {"thermometer", ["temp"] },
-            {"all", ["temp", "feelslike", "humidity", "dew", "precip", "precipprob", "snow", 
-                "snowdepth", "preciptype",  "windgust",
-            "windspeed", "winddir","pressure","visibility", "cloudcover", "solarradiation",
-                 "solarenergy", "uvindex",  "conditions", "icon"] }
+            {"all", [
+                "temp", 
+                "feelslike", 
+                "humidity", 
+                "dew", 
+                "precip", 
+                "precipprob", 
+                "snow", 
+                "snowdepth", 
+                //"preciptype",
+                 "windgust",
+            "windspeed", 
+                "winddir",
+                "pressure",
+                "visibility", 
+                "cloudcover", 
+                "solarradiation",
+                 "solarenergy", 
+                "uvindex",  
+                "conditions", 
+                "icon"] }
 
         };
-
+ 
 
         FahrenheitCelsius fahrenheitCelsius;
 
@@ -71,8 +88,7 @@
         protected object[] values;
 
         protected string[] currentNames;
-
-
+        
         object block = new object();
 
         Task task;
@@ -81,8 +97,6 @@
 
         double cm1, cm2;
         
-      
-
         AutoResetEvent ev;
 
         dynamic weather;
@@ -352,20 +366,21 @@
             SetDouble(2, hh.humidity);
             SetDouble(3, hh.dew);
             SetDouble(4, hh.precip);
+            SetDouble(5, hh.precipprob);
             SetDouble(5, hh.snow);
             SetDouble(6, hh.snowdepth);
+            SetDouble(7, hh.windgust);
             SetDouble(8, hh.windspeed);
-            SetDouble(9, hh.windgust);
-            SetDouble(10, hh.winddir);
-            SetDouble(11, hh.pressure);
-            SetDouble(12, hh.visibility);
-            SetDouble(13, hh.cloudcover);
-            SetDouble(14, hh.solarradiation);
-            SetDouble(15, hh.solarenergy);
-            SetDouble(16, hh.solarradiation);
-            SetDouble(17, hh.uvindex);
-            values[18] = hh.conditions.Value;
-            values[19] = hh.icon.Value;
+            SetDouble(9, hh.winddir);
+            SetDouble(10, hh.pressure);
+            SetDouble(11, hh.visibility);
+            SetDouble(12, hh.cloudcover);
+            SetDouble(13, hh.solarradiation);
+            SetDouble(14, hh.solarenergy);
+            SetDouble(15, hh.solarradiation);
+            SetDouble(16, hh.uvindex);
+            values[17] = hh.conditions.Value;
+            values[18] = hh.icon.Value;
             if (h == 23)
             {
                 return;
@@ -377,18 +392,19 @@
             SetDoubleDouble(2, hh.humidity);
             SetDoubleDouble(3, hh.dew);
             SetDoubleDouble(4, hh.precip);
+            SetDoubleDouble(5, hh.precipprob);
             SetDoubleDouble(5, hh.snow);
             SetDoubleDouble(6, hh.snowdepth);
+            SetDoubleDouble(7, hh.windgust);
             SetDoubleDouble(8, hh.windspeed);
-            SetDoubleDouble(9, hh.windgust);
-            SetDoubleDouble(10, hh.winddir);
-            SetDoubleDouble(11, hh.pressure);
-            SetDoubleDouble(12, hh.visibility);
-            SetDoubleDouble(13, hh.cloudcover);
-            SetDoubleDouble(14, hh.solarradiation);
-            SetDoubleDouble(15, hh.solarenergy);
-            SetDoubleDouble(16, hh.solarradiation);
-            SetDoubleDouble(17, hh.uvindex);
+            SetDoubleDouble(9, hh.winddir);
+            SetDoubleDouble(10, hh.pressure);
+            SetDoubleDouble(11, hh.visibility);
+            SetDoubleDouble(12, hh.cloudcover);
+            SetDoubleDouble(13, hh.solarradiation);
+            SetDoubleDouble(14, hh.solarenergy);
+            SetDoubleDouble(15, hh.solarradiation);
+            SetDoubleDouble(16, hh.uvindex);
         }
 
 
