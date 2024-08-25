@@ -22,11 +22,7 @@ namespace SoundService.CodeCreators
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
             var code = new List<string>();
-            code.Add(obj.GetType().FullName);
-            code.Add("{");
-            code.Add("\tinternal CategoryObject()");
-            code.Add("\t{");
-
+ 
             switch (obj)
             {
                 case MultiSound multiSound:
@@ -46,29 +42,40 @@ namespace SoundService.CodeCreators
             return code;
         }
 
-        void Process(MultiSound multiSound, List<string> l)
+        void Process(MultiSound multiSound, List<string> code)
         {
-            l.Add("\t\tconditionName = \"" + multiSound.Condition + "\";");
-            l.Add("\t\tsoundName = \"" + multiSound.Sound + "\";");
+            code.Add(typeof(MultiSound).FullName);
+            code.Add("{");
+            code.Add("\tinternal CategoryObject()");
+            code.Add("\t{");
+            code.Add("\t\tconditionName = \"" + multiSound.Condition + "\";");
+            code.Add("\t\tsoundName = \"" + multiSound.Sound + "\";");
         }
 
 
         void Process(Object2SoundName object2SoundName, List<string> l)
         {
+            l.Add(typeof(Object2SoundName).FullName);
+            l.Add("{");
+            l.Add("\tinternal CategoryObject()");
+            l.Add("\t{");
             l.Add("\t\tinputs = [\n");
             for (int i = 0; i < object2SoundName.Inputs.Length; i++)
             {
                 var s = "\t\t\t\"" + object2SoundName.Inputs[i] + "\"";
-                if (i < ( object2SoundName.Inputs.Length - 1))
+                if (i < (object2SoundName.Inputs.Length - 1))
                 {
                     s += ",";
                 }
-                l.Add(s);  
+                l.Add(s);
             }
+            l.Add("\t\t];");
         }
 
         void Process(SoundCollection soundCollection, List<string> l)
         {
+            l.Add(typeof(SoundCollection).FullName);
+            l.Add("{");
             l.Add("\t\tsounds = new new Dictionary<string, string>()");
             l.Add("\t\t\t{");
             var d = soundCollection.Sounds;
@@ -84,7 +91,8 @@ namespace SoundService.CodeCreators
                 }
                 l.Add(s);
             }
-            l.Add("\t\t\t}");
+            l.Add("\t}");
+            l.Add("}");
 
         }
 

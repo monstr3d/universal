@@ -1,11 +1,10 @@
-﻿using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Internet.Meteo.Wrapper.Serializable
 {
 
     [Serializable]
-    public class Sensor : Wrapper.Sensor, ISerializable
+    public class Sensor : Internet.Meteo.Wrapper.Sensor, ISerializable
     {
 
 

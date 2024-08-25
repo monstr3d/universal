@@ -1,7 +1,7 @@
 ﻿using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-namespace Internet.Meteo.Wrapper.CodeCreators
+namespace Internet.Meteo.Wrapper.Serializable.CodeCreators
 {
     /// <summary>
     /// Code creator
@@ -16,11 +16,6 @@ namespace Internet.Meteo.Wrapper.CodeCreators
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
-            var tt = typeof(Internet.Meteo.Wrapper.Sensor);
-            var t = obj.GetType();
-            var s = t.IsSubclassOf(tt);
-            t = t.BaseType;
-            s = t.Equals(tt);
             if (!(obj is Internet.Meteo.Wrapper.Sensor sensor))
             {
                 return null;

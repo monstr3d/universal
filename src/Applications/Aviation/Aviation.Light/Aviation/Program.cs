@@ -46,17 +46,29 @@ namespace Aviation.Light
 
             /*     WpfInterface.StaticExtensionWebInterfaceUI.Init();*/
         }
+
         static void TestType()
         {
-            Type t = typeof(object);
-            string st = t.FullName + "," + t.Assembly; //*/
-            new Gravity_36_36.Gravity();
-            var gv = new Gravity_36_36.Wrapper.Serializable.Gravity();
-            var b = gv is Gravity_36_36.Wrapper.Gravity;
-            var ggg = (Gravity_36_36.Wrapper.Gravity)gv;
-            var a = new Regression.AliasRegression();
-            var bb = a is Regression.Portable.AliasRegression;
-            bb = false;
+            var obj = new Internet.Meteo.Wrapper.Serializable.Sensor("all");
+
+            if (!(obj is Internet.Meteo.Wrapper.Sensor sensor))
+            {
+                
+            }
+            else
+            {
+                sensor = null;
+            }
+
+            /*  Type t = typeof(object);
+              string st = t.FullName + "," + t.Assembly; //*/
+            /*     new Gravity_36_36.Gravity();
+                 var gv = new Gravity_36_36.Wrapper.Serializable.Gravity();
+                 var b = gv is Gravity_36_36.Wrapper.Gravity;
+                 var ggg = (Gravity_36_36.Wrapper.Gravity)gv;
+                 var a = new Regression.AliasRegression();
+                 var bb = a is Regression.Portable.AliasRegression;
+                 bb = false;*/
         }
         /// <summary>
         /// The main entry point for the application.
