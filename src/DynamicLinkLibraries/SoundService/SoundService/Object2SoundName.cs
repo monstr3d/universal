@@ -174,8 +174,10 @@ namespace SoundService
                  {
                      try
                      {
+                         object p = finp();
 
-                         var o = (object)func(finp);
+                         var o = (object)func(p);
+                         return o;
                        
                      }
                      catch (Exception ex)

@@ -84,9 +84,8 @@ namespace Motion6D.Portable.CoreCreators
             l.Add("\t}");
             List<string> lt = new List<string>();
             IAggregableMechanicalObject agg = data.Aggregate;
-            if (agg is RigidBody)
+            if (agg is RigidBody rb)
             {
-                RigidBody rb = agg as RigidBody;
                 lt = CreateRigidBody(rb);
             }
             l.Add("\t\tinternal class MechanicalAggregate :");

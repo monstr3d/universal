@@ -41,5 +41,13 @@ namespace SoundService
             SoundFactory = soundFactory;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static StaticExtensionSoundService()
+        {
+            new CodeCreators.CSCodeCreator();
+        }
+
     }
 }

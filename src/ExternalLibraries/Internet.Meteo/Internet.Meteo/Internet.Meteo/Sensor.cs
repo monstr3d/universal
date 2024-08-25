@@ -164,6 +164,8 @@
             }
         }
 
+        public string Kind { get => kind; }
+
 
         public string Key
         { get; set; } = "";

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -23,14 +22,14 @@ namespace Gravity_36_36.Wrapper.CodeCreators
         {
             var type = obj.GetType();
             var tt = type.BaseType;
-            var ttt = typeof(Gravity_36_36.Wrapper.Gravity);
+            var ttt = typeof(Gravity);
             var b = tt.Equals(ttt);
-            b = obj is Gravity_36_36.Wrapper.Gravity;
+            b = obj is Gravity;
             if (!b)
             {
                 return null;
             }
-            var gravity = (Gravity_36_36.Wrapper.Gravity)obj;
+            var gravity = (Gravity)obj;
             if (gravity == null)
             {
                 return null;

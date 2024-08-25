@@ -16,8 +16,8 @@ namespace SoundService
     /// <summary>
     /// Multiple sound
     /// </summary>
-    [CalculationReasons(new string[] {Event.Interfaces.StaticExtensionEventInterfaces.Realtime, "Testing" })]
-    public class MultiSound   : CategoryObject, 
+    [CalculationReasons(new string[] {StaticExtensionEventInterfaces.Realtime, "Testing" })]
+    public class MultiSound  : CategoryObject, 
         IDataConsumer, IPostSetArrow, ITimeMeasurementConsumer, IRealtimeUpdate, 
         IStopped, IStarted
     {
