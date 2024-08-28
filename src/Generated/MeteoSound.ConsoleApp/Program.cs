@@ -3,23 +3,31 @@
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using DataPerformer.Portable.DifferentialEquationProcessors;
+using DataPerformer.Portable.Helpers;
+using Diagram.UI.Interfaces;
+using Event.Portable;
 using GeneratedProject;
 
 
-var obj = new Internet.Meteo.Wrapper.Serializable.Sensor("all");
+var initializer =
+new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
+RungeProcessor.Processor,
+DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton, [], true);
+initializer.InitializeApplication();
 
-if (obj is Internet.Meteo.Wrapper.Sensor sensor)
-{
-    sensor = null;
-}
-else
-{
-    int j = 0;
-}
 
 var d = MeteoSoundTest.Desktop;
 var c = d.GetObject("Chart ATIS") as IDataConsumer;
-c.PerformFixed(0, 0.01, 2600, null, null, "", 0, null, null, null);
+var time = new TimeMeasurementProvider(null);
+try
+{
+    c.PerformFixed(0, 0.01, 2600, time, RungeProcessor.Processor, "Calculation", 0, null, null, null);
+}
+catch (Exception ex)
+{
+
+}
 
 /*PerformFixed(this IDataConsumer consumer, double start, double step, int count,
 ITimeMeasurementProvider provider,

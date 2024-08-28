@@ -19,11 +19,11 @@ namespace DataPerformer.Portable.Basic
         /// </summary>
         protected static readonly double a = 0;
 
-  
+
         /// <summary>
         /// Message strings
         /// </summary>
-        static public readonly string[] HasEqualStepString = 
+        static public readonly string[] HasEqualStepString =
             new string[] {"This series has equal steps",
                 "This series has no equal steps"};
 
@@ -52,7 +52,7 @@ namespace DataPerformer.Portable.Basic
         /// </summary>
         protected int[] pointFinish = new int[2];
 
- 
+
         #endregion
 
         #region Ctor
@@ -149,7 +149,7 @@ namespace DataPerformer.Portable.Basic
             points.AddRange(series.points);
             step = 0;
             CheckEqualStep();
-     }
+        }
 
 
 
@@ -295,7 +295,7 @@ namespace DataPerformer.Portable.Basic
             get { return points; }
         }
 
- 
+
         /// <summary>
         /// Calculates increasing inverted function
         /// </summary>
@@ -455,15 +455,6 @@ namespace DataPerformer.Portable.Basic
             }
         }
 
-
-        double[] Select(int i)
-        {
-            var x = points[i];
-            var y = new double[x.Length - 1];
-            Array.Copy(x, 1, y, 0, y.Length);
-            return [ y.Min(), y.Max() ];
-        }
-
         /// <summary>
         /// Size of this series
         /// </summary>
@@ -471,6 +462,10 @@ namespace DataPerformer.Portable.Basic
         {
             get
             {
+                if (points.Count == 0)
+                {
+                    return null;
+                }
                 var lx = new List<double>();
                 var ly = new List<double>();
                 for (int i = 0; i < points.Count; i++)
@@ -478,11 +473,10 @@ namespace DataPerformer.Portable.Basic
                     lx.Add(points[i][0]);
                     ly.AddRange(Select(i));
                 }
-                return new double[,] { {lx.Min(), lx.Max()},{ ly.Min(), ly.Max()} };
+                return new double[,] { { lx.Min(), lx.Max() }, { ly.Min(), ly.Max() } };
             }
         }
 
- 
         /// <summary>
         /// Access to value of function and its derivation
         /// </summary>
@@ -559,7 +553,7 @@ namespace DataPerformer.Portable.Basic
                 }
                 if (i > 1)
                 {
-                    if (Math.Abs(s - (p[0] - t)) > (double.Epsilon * 
+                    if (Math.Abs(s - (p[0] - t)) > (double.Epsilon *
                         Math.Abs(s)))
                     {
                         return;
@@ -572,7 +566,21 @@ namespace DataPerformer.Portable.Basic
 
         #endregion
 
-         #endregion
+
+        #region Private Members
+
+        double[] Select(int i)
+        {
+            var x = points[i];
+            var y = new double[x.Length - 1];
+            Array.Copy(x, 1, y, 0, y.Length);
+            return [y.Min(), y.Max()];
+        }
+
+
+        #endregion
+
+        #endregion
 
     }
 }

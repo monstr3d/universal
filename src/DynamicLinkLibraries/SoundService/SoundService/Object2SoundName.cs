@@ -168,14 +168,18 @@ namespace SoundService
             for (int i = 0; i < n; i++)
             {
                 var func = ConvertDouble;
-                var finp = this.FindMeasurement(inputs[i], false).Parameter;
+                var m = this.FindMeasurement(inputs[i], false);
                 var k = i;
                 Func<object> f = () =>
                  {
                      try
                      {
+                         var finp = m.Parameter;
                          object p = finp();
-
+                         if (p == null)
+                         {
+                             return null;
+                         }
                          var o = (object)func(p);
                          return o;
                        
@@ -183,7 +187,7 @@ namespace SoundService
                      catch (Exception ex)
                      {
                      }
-                     return (double)0;
+                     return "";
                  };
                 outMea[i] = new Measurement("", f, "Sound_" + (i + 1));
             }

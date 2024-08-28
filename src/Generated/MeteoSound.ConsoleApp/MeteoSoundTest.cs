@@ -39,6 +39,7 @@ namespace GeneratedProject
 				objects.Add(new InternalDesktop.OblectLabel19("ATIS Recursive", this));
 				objects.Add(new InternalDesktop.OblectLabel20("ATIS Sound", this));
 				objects.Add(new InternalDesktop.OblectLabel21("Chart ATIS", this));
+				objects.Add(new InternalDesktop.OblectLabel22("", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new InternalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
@@ -46,116 +47,136 @@ namespace GeneratedProject
 				currALabel.TargetNumber = (int)1;
 				currALabel  = new InternalDesktop.ArrowLabel1("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)6;
-				currALabel.TargetNumber = (int)3;
+				currALabel.SourceNumber = (int)7;
+				currALabel.TargetNumber = (int)6;
 				currALabel  = new InternalDesktop.ArrowLabel2("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)7;
-				currALabel.TargetNumber = (int)6;
+				currALabel.TargetNumber = (int)5;
 				currALabel  = new InternalDesktop.ArrowLabel3("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)7;
-				currALabel.TargetNumber = (int)5;
+				currALabel.SourceNumber = (int)8;
+				currALabel.TargetNumber = (int)6;
 				currALabel  = new InternalDesktop.ArrowLabel4("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
+				currALabel.SourceNumber = (int)9;
 				currALabel.TargetNumber = (int)6;
 				currALabel  = new InternalDesktop.ArrowLabel5("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)6;
-				currALabel  = new InternalDesktop.ArrowLabel6("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
 				currALabel.TargetNumber = (int)8;
-				currALabel  = new InternalDesktop.ArrowLabel7("", this);
+				currALabel  = new InternalDesktop.ArrowLabel6("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)10;
 				currALabel.TargetNumber = (int)7;
-				currALabel  = new InternalDesktop.ArrowLabel8("", this);
+				currALabel  = new InternalDesktop.ArrowLabel7("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)10;
 				currALabel.TargetNumber = (int)2;
-				currALabel  = new InternalDesktop.ArrowLabel9("", this);
+				currALabel  = new InternalDesktop.ArrowLabel8("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)10;
 				currALabel.TargetNumber = (int)4;
-				currALabel  = new InternalDesktop.ArrowLabel10("", this);
+				currALabel  = new InternalDesktop.ArrowLabel9("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)11;
 				currALabel.TargetNumber = (int)6;
-				currALabel  = new InternalDesktop.ArrowLabel11("", this);
+				currALabel  = new InternalDesktop.ArrowLabel10("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)11;
 				currALabel.TargetNumber = (int)8;
-				currALabel  = new InternalDesktop.ArrowLabel12("", this);
+				currALabel  = new InternalDesktop.ArrowLabel11("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)12;
 				currALabel.TargetNumber = (int)10;
-				currALabel  = new InternalDesktop.ArrowLabel13("", this);
+				currALabel  = new InternalDesktop.ArrowLabel12("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)13;
+				currALabel.TargetNumber = (int)10;
+				currALabel  = new InternalDesktop.ArrowLabel13("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)14;
 				currALabel.TargetNumber = (int)10;
 				currALabel  = new InternalDesktop.ArrowLabel14("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)14;
-				currALabel.TargetNumber = (int)10;
+				currALabel.TargetNumber = (int)13;
 				currALabel  = new InternalDesktop.ArrowLabel15("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)14;
-				currALabel.TargetNumber = (int)13;
+				currALabel.SourceNumber = (int)15;
+				currALabel.TargetNumber = (int)10;
 				currALabel  = new InternalDesktop.ArrowLabel16("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)15;
-				currALabel.TargetNumber = (int)10;
-				currALabel  = new InternalDesktop.ArrowLabel17("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)15;
 				currALabel.TargetNumber = (int)13;
-				currALabel  = new InternalDesktop.ArrowLabel18("", this);
+				currALabel  = new InternalDesktop.ArrowLabel17("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)16;
 				currALabel.TargetNumber = (int)11;
-				currALabel  = new InternalDesktop.ArrowLabel19("", this);
+				currALabel  = new InternalDesktop.ArrowLabel18("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)17;
 				currALabel.TargetNumber = (int)1;
-				currALabel  = new InternalDesktop.ArrowLabel20("", this);
+				currALabel  = new InternalDesktop.ArrowLabel19("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)18;
 				currALabel.TargetNumber = (int)17;
-				currALabel  = new InternalDesktop.ArrowLabel21("", this);
+				currALabel  = new InternalDesktop.ArrowLabel20("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)19;
 				currALabel.TargetNumber = (int)9;
+				currALabel  = new InternalDesktop.ArrowLabel21("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)20;
+				currALabel.TargetNumber = (int)11;
 				currALabel  = new InternalDesktop.ArrowLabel22("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)20;
-				currALabel.TargetNumber = (int)11;
-				currALabel  = new InternalDesktop.ArrowLabel23("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)20;
 				currALabel.TargetNumber = (int)18;
-				currALabel  = new InternalDesktop.ArrowLabel24("", this);
+				currALabel  = new InternalDesktop.ArrowLabel23("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)1;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new InternalDesktop.ArrowLabel25("", this);
+				currALabel  = new InternalDesktop.ArrowLabel24("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)21;
 				currALabel.TargetNumber = (int)11;
-				currALabel  = new InternalDesktop.ArrowLabel26("", this);
+				currALabel  = new InternalDesktop.ArrowLabel25("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)21;
 				currALabel.TargetNumber = (int)18;
-				currALabel  = new InternalDesktop.ArrowLabel27("", this);
+				currALabel  = new InternalDesktop.ArrowLabel26("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)21;
 				currALabel.TargetNumber = (int)16;
-				currALabel  = new InternalDesktop.ArrowLabel28("", this);
+				currALabel  = new InternalDesktop.ArrowLabel27("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)21;
 				currALabel.TargetNumber = (int)12;
+				currALabel  = new InternalDesktop.ArrowLabel28("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)1;
+				currALabel  = new InternalDesktop.ArrowLabel29("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)22;
+				currALabel.TargetNumber = (int)6;
+				currALabel  = new InternalDesktop.ArrowLabel30("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)22;
+				currALabel.TargetNumber = (int)7;
+				currALabel  = new InternalDesktop.ArrowLabel31("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)22;
+				currALabel.TargetNumber = (int)1;
+				currALabel  = new InternalDesktop.ArrowLabel32("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)22;
+				currALabel.TargetNumber = (int)10;
+				currALabel  = new InternalDesktop.ArrowLabel33("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)6;
+				currALabel.TargetNumber = (int)3;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -207,7 +228,7 @@ namespace GeneratedProject
 						formulaString = new string[]
 						{
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"8\" S=\"8\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"k\" S=\"k\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"p\" S=\"p\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>"
 						};
@@ -216,14 +237,14 @@ namespace GeneratedProject
 						deriOrder = 0;
 						arguments =  new List<string>()
 						{
-							"t = Http Meteo.temp",
-							"a = Http Meteo.windspeed",
-							"b = Http Meteo.winddir",
-							"p = Http Meteo.pressure"
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"k", (double)0.75006375541921 }
+							{"t", (double)0 },
+							{"k", (double)0.75006375541921 },
+							{"a", (double)0 },
+							{"b", (double)0 },
+							{"p", (double)0 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -248,22 +269,24 @@ namespace GeneratedProject
 						public void Update()
 						{
 							success = true;
-							variable = measurement0.Parameter();
+							variable = aliasName0.Value;
 							if (checkValue(variable)) { success = false; return; }
 							var_0 = (double)variable;
-							variable = measurement1.Parameter();
-							if (checkValue(variable)) { success = false; return; }
-							var_1 = (double)variable;
 							variable = aliasName2.Value;
 							if (checkValue(variable)) { success = false; return; }
 							var_2 = (double)variable;
-							variable = measurement3.Parameter();
+							var_3 = (var_1) * (var_2);
+							var_5 = (var_3) / (var_4);
+							variable = aliasName6.Value;
 							if (checkValue(variable)) { success = false; return; }
-							var_3 = (double)variable;
-							var_4 = (var_2) * (var_3);
-							variable = measurement5.Parameter();
+							var_6 = (double)variable;
+							variable = aliasName7.Value;
 							if (checkValue(variable)) { success = false; return; }
-							var_5 = (double)variable;
+							var_7 = (double)variable;
+							var_8 = (var_6) * (var_7);
+							variable = aliasName9.Value;
+							if (checkValue(variable)) { success = false; return; }
+							var_9 = (double)variable;
 						}
 						
 						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue, DataPerformer.Formula.DataPerformerFormula dataPerformerFormula)
@@ -272,17 +295,21 @@ namespace GeneratedProject
 							this.trees = trees;
 							this.checkValue = checkValue;
 							this.dataPerformerFormula = dataPerformerFormula;
-							measurement0 = dataPerformerFormula.ToMeasurement(trees[0]);
-							measurement1 = dataPerformerFormula.ToMeasurement(trees[1]);
+							aliasName0 = dataPerformerFormula.ToAliasName(trees[0]);
 							aliasName2 = dataPerformerFormula.ToAliasName(trees[2]);
-							measurement3 = dataPerformerFormula.ToMeasurement(trees[3]);
-							measurement5 = dataPerformerFormula.ToMeasurement(trees[5]);
+							aliasName6 = dataPerformerFormula.ToAliasName(trees[6]);
+							aliasName7 = dataPerformerFormula.ToAliasName(trees[7]);
+							aliasName9 = dataPerformerFormula.ToAliasName(trees[9]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
 							dictionary[trees[3]] = Get_3;
 							dictionary[trees[4]] = Get_4;
 							dictionary[trees[5]] = Get_5;
+							dictionary[trees[6]] = Get_6;
+							dictionary[trees[7]] = Get_7;
+							dictionary[trees[8]] = Get_8;
+							dictionary[trees[9]] = Get_9;
 						}
 						
 						public Func<object> this[FormulaEditor.ObjectFormulaTree tree]
@@ -290,21 +317,25 @@ namespace GeneratedProject
 						
 						Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();
 						
-						DataPerformer.Interfaces.IMeasurement measurement0;
-						DataPerformer.Interfaces.IMeasurement measurement1;
+						Diagram.UI.Interfaces.IAliasName aliasName0;
 						Diagram.UI.Interfaces.IAliasName aliasName2;
-						DataPerformer.Interfaces.IMeasurement measurement3;
-						DataPerformer.Interfaces.IMeasurement measurement5;
+						Diagram.UI.Interfaces.IAliasName aliasName6;
+						Diagram.UI.Interfaces.IAliasName aliasName7;
+						Diagram.UI.Interfaces.IAliasName aliasName9;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
 						double doubleValue = 0;
 						FormulaEditor.ObjectFormulaTree[] trees = null;
 						double var_0 = 0;
-						double var_1 = 0;
+						double var_1 = Math.PI;
 						double var_2 = 0;
 						double var_3 = 0;
-						double var_4 = 0;
+						double var_4 = 180;
 						double var_5 = 0;
+						double var_6 = 0;
+						double var_7 = 0;
+						double var_8 = 0;
+						double var_9 = 0;
 						
 						object Get_0()
 						{
@@ -334,6 +365,26 @@ namespace GeneratedProject
 						object Get_5()
 						{
 							return success ? var_5 : null;
+						}
+						
+						object Get_6()
+						{
+							return success ? var_6 : null;
+						}
+						
+						object Get_7()
+						{
+							return success ? var_7 : null;
+						}
+						
+						object Get_8()
+						{
+							return success ? var_8 : null;
+						}
+						
+						object Get_9()
+						{
+							return success ? var_9 : null;
 						}
 						
 						Func<object, bool> checkValue = (o) => false;
@@ -490,9 +541,9 @@ namespace GeneratedProject
 						};
 						aliases = new Dictionary<object, object>()
 						{
-										{"h" , (System.Double)(374)}
+										{"x" , (System.Double)(19000)}
+							,			{"h" , (System.Double)(0)}
 							,			{"a" , (System.Double)(0)}
-							,			{"x" , (System.Double)(19000)}
 						};
 						isSerialized = true;
 						calculateDerivation = false;
@@ -666,12 +717,13 @@ namespace GeneratedProject
 						proxyFactory = this;
 						feedback = new Dictionary<int, string>()
 						{
+							{ 0,"Equations.h" }
 						};
 				
 						formulaString = new string[]
 						{
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"f\" S=\"f\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
-							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"'\" S=\"d/dt\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>"
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"'\" S=\"d/dt\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>"
 						};
 						isSerialized = true;
 						calculateDerivation = false;
@@ -718,6 +770,7 @@ namespace GeneratedProject
 							variable = measurement2.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_2 = (double)variable;
+							var_3 = -(var_2);
 						}
 						
 						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue, DataPerformer.Formula.DataPerformerFormula dataPerformerFormula)
@@ -731,6 +784,7 @@ namespace GeneratedProject
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
+							dictionary[trees[3]] = Get_3;
 						}
 						
 						public Func<object> this[FormulaEditor.ObjectFormulaTree tree]
@@ -748,6 +802,7 @@ namespace GeneratedProject
 						double var_0 = 0;
 						double var_1 = 0;
 						double var_2 = 0;
+						double var_3 = 0;
 						
 						object Get_0()
 						{
@@ -762,6 +817,11 @@ namespace GeneratedProject
 						object Get_2()
 						{
 							return success ? var_2 : null;
+						}
+						
+						object Get_3()
+						{
+							return success ? var_3 : null;
 						}
 						
 						Func<object, bool> checkValue = (o) => false;
@@ -1495,6 +1555,8 @@ namespace GeneratedProject
 						deriOrder = 0;
 						arguments =  new List<string>()
 						{
+							"x = Equations.x",
+							"a = Recurrsive ATIS.x"
 						};
 						parameters =new Dictionary<string, object>()
 						{
@@ -1523,14 +1585,14 @@ namespace GeneratedProject
 						public void Update()
 						{
 							success = true;
-							variable =  trees[0].Calculate();
+							variable = measurement0.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_0 = (double)variable;
 							variable = aliasName1.Value;
 							if (checkValue(variable)) { success = false; return; }
 							var_1 = (double)variable;
 							var_2 = (var_0) > (var_1);
-							variable =  trees[3].Calculate();
+							variable = measurement3.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_3 = (double)variable;
 							var_4 = (var_3) < (var_1);
@@ -1543,7 +1605,9 @@ namespace GeneratedProject
 							this.trees = trees;
 							this.checkValue = checkValue;
 							this.dataPerformerFormula = dataPerformerFormula;
+							measurement0 = dataPerformerFormula.ToMeasurement(trees[0]);
 							aliasName1 = dataPerformerFormula.ToAliasName(trees[1]);
+							measurement3 = dataPerformerFormula.ToMeasurement(trees[3]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
@@ -1557,7 +1621,9 @@ namespace GeneratedProject
 						
 						Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();
 						
+						DataPerformer.Interfaces.IMeasurement measurement0;
 						Diagram.UI.Interfaces.IAliasName aliasName1;
+						DataPerformer.Interfaces.IMeasurement measurement3;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
 						double doubleValue = 0;
@@ -1827,9 +1893,9 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"b", "St V" },
+							{"f", ".wav" },
 							{"a", "St H" },
-							{"f", ".wav" }
+							{"b", "St V" }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -2231,11 +2297,11 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"j", "_degree.wav" },
-							{"c", "_degree.wav_" },
+							{"f", "_pressure.wav_" },
 							{"h", "_hectopascal.wav_temperature.wav_" },
 							{"a", "wind.wav_" },
-							{"f", "_pressure.wav_" }
+							{"c", "_degree.wav_" },
+							{"j", "_degree.wav" }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -2725,6 +2791,23 @@ namespace GeneratedProject
 				}
 			}
 		
+			internal class OblectLabel22 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel22(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel22.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : DataPerformer.Portable.DataConsumer
+				{
+				internal CategoryObject() : base(0)
+				{
+				}
+				}
+			}
+		
 			internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
 			{
 				internal ArrowLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
@@ -3095,6 +3178,71 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					arrow = new ArrowLabel28.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel29 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel29(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel29.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel30 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel30(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel30.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel31 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel31(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel31.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel32 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel32(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel32.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel33 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel33(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel33.CategoryArrow();
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink

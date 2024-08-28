@@ -1145,7 +1145,7 @@ Under the hypotheses \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is
 	Denote by $a^\bt \bydef  \bt\text{-}\lim_{\la\in \La} a_\la$ and $a^s  \bydef s\text{-}\lim_{\la\in \La} \pi\left( a_\la\right)\in B\left( \H\right)$.
 	If the equation \eqref{srict_strong_eqn} is not true then there is $\xi \in \H$ such that
 	$$
-	\zeta \bydef\pi\left(a_\bt \right)\xi -  a^s\xi\neq 0.
+	\zeta \bydef\pi\left(a^\bt \right)\xi -  a^s\xi\neq 0.
 	$$ 
 	There is $\la_s \in \La$ such that 
 	$$
@@ -4080,7 +4080,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are $*$-isomorphisms.
  \end{proof}
-!!! CONTINUE !!!
+
  \begin{lemma}\label{bt_lim_lem}
  	Under the hypotheses of the Definition  \ref{infinite_quasicovering_defn}  one has
  	\be\label{bt_lim_eqn}
@@ -4125,24 +4125,24 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\ee
  \end{corollary}
  \begin{proof}
- 	If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that is
+ 	If $\overline{a}	\in K\left(  \overline A\right)_+ $ is a positive element of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) then $\overline{b}\bydef \sqrt{\overline{a}}	\in K\left(  \overline A\right)_+$. From the Lemma \ref{bt_lim_lem} it follows that  there  is
  	$$
  	b_\la \bydef  \desc_{\la}\left(\overline b \right) \in K\left(A_\la \right)_+ 
  	$$
- (cf. Definition \ref{infinite_desc_defn})	then there is the $C^*$-norm limit.
+where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn})	then there is the $C^*$-norm limit.
  	$$
  	\overline{a} = \lim_{\la\in \La}b_\la \overline{b}.
  	$$
- 	where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn}). 
+ 	 
  	One has
  	\be \label{inf_la_conv_eqn}
  	\begin{split}
  		\forall \la', \la'' \quad  \la' \le \la''\quad 	\left(  b_{\la'} - \overline b\right) \overline{b}^2\left(  b_{\la'} - \overline b\right)\ge \left(  b_{\la''} -  \overline b\right) \overline{b}^2\left(  b_{\la''} - \overline b\right)\quad \Rightarrow \\ \Rightarrow\left\|   \left(  b_{\la'} - \overline b\right)\overline{b} \right\|\ge \left\|   \left(  b_{\la''} - \overline b\right)\overline{b} \right\|.
  	\end{split}
  	\ee
- 	If $\eps > 0$ then there is $\la_\eps \in \La$ such that $\left\|  b_{\la_\eps} \overline b   -  \overline b\overline b \right\|\le {\eps}/{3}$ end taking into account \eqref{inf_la_conv_eqn} we conclude that
+ 	If $\eps > 0$ then there is $\la_\eps \in \La$ such that $\left\|  b_{\la_\eps} \overline b   -  \overline b~\overline b \right\|\le {\eps}/{3}$ end taking into account \eqref{inf_la_conv_eqn} we conclude that
  	\be\label{inf_la_bb_eqn}
- 	\forall\la \in \La \quad  \la \ge \la_\eps \quad  \left\|  b_\la \overline b   -  \overline b\overline b \right\|\le \frac{\eps}{3}.
+ 	\forall\la \in \La \quad  \la \ge \la_\eps \quad  \left\|  b_\la \overline b   -  \overline b~\overline b \right\|\le \frac{\eps}{3}.
  	\ee
  	If  $\left\{u_\a\right\}_{\a \in \mathscr A}$ be an approximate unit of $A$ (cf. Definition \ref{approximate_unit_defn}), then from 
  	\bean
@@ -4337,6 +4337,8 @@ Let	$\widetilde {\lift} : A \to M\left(\widetilde A \right)$ be the given by the
 The motivation of the Definition \ref{infinite_noncommutative_covering_defn} is the Theorem \ref{top_main_thm}.
 \end{remark}
 \subsection{Equivariant representations}
+
+
 \subsubsection{Faithful representations}
 \begin{definition}\label{equivariant_representation_defn}
 If $\widehat{A}\bydef C^*\text{-}\varinjlim_{\la \in \La} A_\la$ (cf. Remark \ref{ininite_covering_inductive_rem}) then a faithful (cf. Definition \ref{faithful_representation_defn}) and nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ (cf. Definition \ref{faithful_representation_defn}) is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
@@ -4396,7 +4398,7 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
   \end{proposition}
 \begin{proof}
 	(i)
- 	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Proposition  \ref{spectrum_covering_finite_prop}   it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
+ 	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Proposition  \ref{spectrum_covering_finite_prop}   it turns out that for any $\mu, \nu \in \La$ such that $\mu \ge \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
  	$$
  	p^\nu_\mu = \left.t^\nu_\mu\right|_{\sX_\mu}
  	$$
@@ -4547,11 +4549,10 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
   	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
   	\eean
   	(cf. Definitions \ref{algebraical_finite_covering_category_defn})
- and  $\pi:\overline A \hookto B\left(\overline \H\right)$ is faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn}).  and $\overline a \in K\left(\overline A \right)_+$ is given by the equation \eqref{bt_lim_eqn}, i.e.
+ and  $\pi:\overline A \hookto B\left(\overline \H\right)$ is faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn}).  and $\overline a \in K\left(\overline A \right)_+$ is given by the equation \eqref{bt_lim_eqn} positive element, i.e.
  	  	\bean
  	\overline a =\bt\text{-}\lim_{\la \in \La} a_\la\quad a_\la \in K\left(A_\la \right)_+ 
  	 \eean 
- 	 (cf. equation \eqref{bt_lim_eqn})
  	 then one has
  	 \be\label{inverse_atomic_lim_h_eqn}
  	 \pi \left(\overline a  \right) = s\text{-}\lim_{{\la \in \La}}\pi\left(a_\la \right) 
@@ -4662,7 +4663,7 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
  	\be\label{cunv_2p_un_eqn}
  	\bt , \ga \ge \a_\la \quad \Rightarrow \quad \left\|\left(a_\bt- a_{\ga}\right)\xi_{\la}\right\|< \frac{\eps} {2\left|\La_0\right|C}
  	\ee
- 	If $\a_{\max} \ge a_\la$ for every $\la\in\La_0$ then  one has 
+ 	If $\a_{\max} \ge \a_\la$ for every $\la\in\La_0$ then  one has 
  	\bean
  	\bt , \ga \ge \a_{\max} \quad \Rightarrow \quad \left\|\left(a_\bt- a_{\ga}\right)\xi\right\|< \eps.
  	\eean
@@ -4697,7 +4698,7 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
  	ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right).
  	\ee
  \end{empt}
- 
+ !!! CONTINUE !!!
 \begin{lemma}\label{infinite_faithful_nondegererate_lem}
 Under the situation of the Definition \ref{algebraical_finite_covering_category_defn}   if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_\la \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful and non-degenerate (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerate.
 \end{lemma}

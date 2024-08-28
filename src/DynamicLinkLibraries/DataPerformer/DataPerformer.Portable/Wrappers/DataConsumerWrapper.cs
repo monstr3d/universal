@@ -231,7 +231,7 @@ namespace DataPerformer.Portable.Wrappers
                         t = start + i * step;
                         act(last, t, i);
                         last = t;
-                        acts();
+                        acts?.Invoke();
                     }
                 }
             }
