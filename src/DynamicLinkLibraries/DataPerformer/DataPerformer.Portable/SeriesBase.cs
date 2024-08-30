@@ -552,6 +552,20 @@ namespace DataPerformer.Portable
 
         #endregion
 
+        #region Overriden Members
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns>The string</returns>
+        public override string ToString()
+        {
+            return this.ObjectArrowName() + base.ToString() + ")";
+        }
+
+        #endregion
+
+
         #region Specific Members
 
         /// <summary>

@@ -314,6 +314,10 @@ namespace SoundService
                     var pl = StaticExtensionSoundService.SoundFactory.SoundPlayer;
                     pl.SoundLocation = sounds[i];
                     pl.PlaySync();
+                    if (pl is IDisposable disposable)
+                    {
+                        disposable.Dispose();
+                    }
                 }
                 catch (Exception ex)
                 {

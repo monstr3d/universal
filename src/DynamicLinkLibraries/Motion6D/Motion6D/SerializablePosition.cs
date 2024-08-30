@@ -110,7 +110,7 @@ namespace Motion6D
         /// <summary>
         /// Overriden to string
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The string</returns>
         public override string ToString()
         {
             return this.ObjectArrowName() + base.ToString() + ")";

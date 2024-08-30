@@ -49,6 +49,10 @@ namespace SoundServce.NAudio
             {
                 player.PlaybackStopped -= Player_PlaybackStopped;
             }
+           if (player is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
         }
 
         void ISoundPlayer.Play()

@@ -56,6 +56,10 @@ namespace SoundService
             ISoundPlayer pl = StaticExtensionSoundService.SoundFactory.SoundPlayer;
             pl.SoundLocation = fn;
             pl.Play();
+            if (pl is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
         }
         catch (Exception ex)
         {

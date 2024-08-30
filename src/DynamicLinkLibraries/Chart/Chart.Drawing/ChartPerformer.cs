@@ -648,6 +648,13 @@ namespace Chart.Drawing
                     }
                 }
             }
+            foreach (var xx in x)
+            {
+                if (xx.Count < 2)
+                {
+                    return;
+                }
+            }
             dSize[0, 0] = x[0].Min();
             dSize[0, 1] = x[1].Min();
             dSize[1, 0] = x[0].Max();

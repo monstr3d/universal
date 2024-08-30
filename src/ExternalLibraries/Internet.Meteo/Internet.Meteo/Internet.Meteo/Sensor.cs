@@ -18,7 +18,7 @@
 
         #region Fields
 
-   
+
         public readonly Dictionary<string, object> Types = new Dictionary<string, object>()
         {
             { "temp", (double)0 },
@@ -29,7 +29,7 @@
             {"precipprob", (double)0 },
            { "snow", (double)0 },
            { "snowdepth", (double)0 },
-            {"preciptype", (double)0 },
+          //  {"preciptype", (double)0 },
            { "windgust", (double)0 },
            { "windspeed", (double)0 },
             {"winddir", (double)0 },
@@ -48,29 +48,29 @@
         {
             {"thermometer", ["temp"] },
             {"all", [
-                "temp", 
-                "feelslike", 
-                "humidity", 
-                "dew", 
-                "precip", 
-                "precipprob", 
-                "snow", 
+                "temp",
+                "feelslike",
+                "humidity",
+                "dew",
+                "precip",
+                "precipprob",
+                "snow",
                 "snowdepth", 
                 //"preciptype",
                  "windgust",
-            "windspeed", 
+            "windspeed",
                 "winddir",
                 "pressure",
-                "visibility", 
-                "cloudcover", 
+                "visibility",
+                "cloudcover",
                 "solarradiation",
-                 "solarenergy", 
-                "uvindex",  
-                "conditions", 
+                 "solarenergy",
+                "uvindex",
+                "conditions",
                 "icon"] }
 
         };
- 
+
 
         FahrenheitCelsius fahrenheitCelsius;
 
@@ -88,15 +88,15 @@
         protected object[] values;
 
         protected string[] currentNames;
-        
+
         object block = new object();
 
         Task task;
 
-        Dictionary<string, Tuple< Func<string>, Action>> requests;
+        Dictionary<string, Tuple<Func<string>, Action>> requests;
 
         double cm1, cm2;
-        
+
         AutoResetEvent ev;
 
         dynamic weather;
@@ -146,14 +146,16 @@
                 }
             };
 
-         }
+        }
 
 
         #endregion
 
         #region Public Members
 
-
+        /// <summary>
+        /// The Fahrenheit Celsius sign
+        /// </summary>
         public FahrenheitCelsius FahrenheitCelsius
         {
             get => fahrenheitCelsius;
@@ -164,15 +166,27 @@
             }
         }
 
+        /// <summary>
+        /// The kind
+        /// </summary>
         public string Kind { get => kind; }
 
 
+        /// <summary>
+        /// The sofware API key
+        /// </summary>
         public string Key
         { get; set; } = "";
 
-        public string Position 
+        /// <summary>
+        /// Gegraphic position
+        /// </summary>
+        public string Position
         { get; set; } = "";
 
+        /// <summary>
+        /// Updates itself
+        /// </summary>
         public void Update()
         {
             lock (block)
@@ -186,7 +200,9 @@
             OnValueChange?.Invoke(values);
         }
 
-    
+        /// <summary>
+        /// The "is enabled" sign
+        /// </summary>
         public bool IsEnabled
         {
             get => task != null;
@@ -204,7 +220,7 @@
                         {
                             ev.WaitOne();
                             ev = null;
-                        }    
+                        }
                     }
                     OnEnabledChange?.Invoke(true);
                     return;
@@ -217,7 +233,7 @@
             }
         }
 
-  
+
         #endregion
 
         #region IDisposable members
@@ -231,13 +247,20 @@
 
         #region Protected Members
 
+        /// <summary>
+        /// Starts itself
+        /// </summary>
         protected void Start()
         {
-         
+
             IsEnabled = true;
             IsEnabled = false;
         }
 
+        /// <summary>
+        /// Sets a kind
+        /// </summary>
+        /// <param name="kind">The kind</param>
         protected virtual void Set(string kind)
         {
             this.kind = kind;
@@ -258,7 +281,7 @@
         /// Shows error
         /// </summary>
         /// <param name="exception">The exception</param>
-        protected abstract void  ShowError(Exception exception);
+        protected abstract void ShowError(Exception exception);
 
         #endregion
 
@@ -326,7 +349,7 @@
                 }
             }
         }
-  
+
         void SetDouble(int i, dynamic value)
         {
             object v = value.Value;
@@ -350,7 +373,7 @@
             }
             var a = (double)values[i];
             var b = (double)v;
-            values[i] = cm1 * a + cm2 * b;  
+            values[i] = cm1 * a + cm2 * b;
         }
 
 
@@ -369,17 +392,16 @@
             SetDouble(3, hh.dew);
             SetDouble(4, hh.precip);
             SetDouble(5, hh.precipprob);
-            SetDouble(5, hh.snow);
-            SetDouble(6, hh.snowdepth);
-            SetDouble(7, hh.windgust);
-            SetDouble(8, hh.windspeed);
-            SetDouble(9, hh.winddir);
-            SetDouble(10, hh.pressure);
-            SetDouble(11, hh.visibility);
-            SetDouble(12, hh.cloudcover);
-            SetDouble(13, hh.solarradiation);
-            SetDouble(14, hh.solarenergy);
-            SetDouble(15, hh.solarradiation);
+            SetDouble(6, hh.snow);
+            SetDouble(7, hh.snowdepth);
+            SetDouble(8, hh.windgust);
+            SetDouble(9, hh.windspeed);
+            SetDouble(10, hh.winddir);
+            SetDouble(11, hh.pressure);
+            SetDouble(12, hh.visibility);
+            SetDouble(13, hh.cloudcover);
+            SetDouble(14, hh.solarradiation);
+            SetDouble(15, hh.solarenergy);
             SetDouble(16, hh.uvindex);
             values[17] = hh.conditions.Value;
             values[18] = hh.icon.Value;
@@ -395,17 +417,16 @@
             SetDoubleDouble(3, hh.dew);
             SetDoubleDouble(4, hh.precip);
             SetDoubleDouble(5, hh.precipprob);
-            SetDoubleDouble(5, hh.snow);
-            SetDoubleDouble(6, hh.snowdepth);
-            SetDoubleDouble(7, hh.windgust);
-            SetDoubleDouble(8, hh.windspeed);
-            SetDoubleDouble(9, hh.winddir);
-            SetDoubleDouble(10, hh.pressure);
-            SetDoubleDouble(11, hh.visibility);
-            SetDoubleDouble(12, hh.cloudcover);
-            SetDoubleDouble(13, hh.solarradiation);
-            SetDoubleDouble(14, hh.solarenergy);
-            SetDoubleDouble(15, hh.solarradiation);
+            SetDoubleDouble(6, hh.snow);
+            SetDoubleDouble(7, hh.snowdepth);
+            SetDoubleDouble(8, hh.windgust);
+            SetDoubleDouble(9, hh.windspeed);
+            SetDoubleDouble(10, hh.winddir);
+            SetDoubleDouble(11, hh.pressure);
+            SetDoubleDouble(12, hh.visibility);
+            SetDoubleDouble(13, hh.cloudcover);
+            SetDoubleDouble(14, hh.solarradiation);
+            SetDoubleDouble(15, hh.solarenergy);
             SetDoubleDouble(16, hh.uvindex);
         }
 

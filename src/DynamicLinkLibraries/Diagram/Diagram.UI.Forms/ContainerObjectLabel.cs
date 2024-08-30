@@ -33,13 +33,13 @@ namespace Diagram.UI.Labels
 			type = button.Type;
 		}
 
-		#region Specific Members
+        #region Specific Members
 
-		/// <summary>
-		/// Overriden to string
-		/// </summary>
-		/// <returns></returns>
-		public override string ToString()
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns>The string</returns>
+        public override string ToString()
 		{
 			return RootName + " (" + base.ToString() + ")";
 		}

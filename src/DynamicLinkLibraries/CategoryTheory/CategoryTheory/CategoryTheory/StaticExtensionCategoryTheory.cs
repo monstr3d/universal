@@ -42,7 +42,7 @@ namespace CategoryTheory
 
         #region Public Members
 
-   
+
 
         /// <summary>
         /// Name of category object or arrow
@@ -56,14 +56,14 @@ namespace CategoryTheory
                 string t = obj.Object + "";
                 if (t.Contains("("))
                 {
-                    return t.Substring(0, t.IndexOf('(') + 1);
+                    return t.Substring(0, t.LastIndexOf('(') + 1);
                 }
 
             }
             return "";
         }
 
-
+ 
 
         #region Pure XML Members
 

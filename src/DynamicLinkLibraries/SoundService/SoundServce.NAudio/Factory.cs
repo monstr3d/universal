@@ -1,10 +1,5 @@
 ﻿using SoundService;
 using SoundService.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoundServce.NAudio
 {
@@ -18,7 +13,7 @@ namespace SoundServce.NAudio
 
         ISoundPlayer ISoundFactory.SoundPlayer
         {
-            get => new AsioOutSoundPlayer(directory);
+            get => new WaveOutEventPlayer(directory);
         }
 
         string ISoundFactory.Directory { get => directory; set => directory = value; }

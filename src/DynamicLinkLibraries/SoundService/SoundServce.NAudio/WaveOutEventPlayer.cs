@@ -1,21 +1,26 @@
-﻿using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
+﻿using NAudio.Wave.SampleProviders;
+using NAudio.Wave;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Numerics;
 
 namespace SoundServce.NAudio
 {
-    class AsioOutSoundPlayer : SoundPlayer
+    class WaveOutEventPlayer : SoundPlayer
     {
-        AsioOut asioOut;
+        WaveOutEvent waveOut;
         ISampleProvider sampleProvider;
         string directory;
 
 
-        public AsioOutSoundPlayer(string directory)
+        public WaveOutEventPlayer(string directory)
         {
             try
             {
-                asioOut = new AsioOut();
-                Player = asioOut;
+                waveOut = new WaveOutEvent();
+                Player = waveOut;
                 this.directory = directory;
             }
             catch (Exception ex)
@@ -33,7 +38,7 @@ namespace SoundServce.NAudio
                 if (value != null)
                 {
                     sampleProvider = CreateInputStream(Path.Combine(directory, value));
-                    asioOut.Init(sampleProvider);
+                    waveOut.Init(sampleProvider);
                 }
             }
         }
@@ -45,6 +50,5 @@ namespace SoundServce.NAudio
             var postVolumeMeter = new MeteringSampleProvider(sampleChannel);
             return postVolumeMeter;
         }
-
     }
 }
