@@ -108,7 +108,7 @@ namespace FormulaEditor
 		/// <param name="creator">The formula object creator</param>
 		private ObjectFormulaTree(MathFormula formula, IFormulaObjectCreator creator)
 		{
-			init(formula, creator);
+			Init(formula, creator);
             CreateResult();
             Normalize();
 		}
@@ -920,7 +920,7 @@ namespace FormulaEditor
 			}
 		}
 
-        private void init(MathFormula formula, IFormulaObjectCreator creator)
+        private void Init(MathFormula formula, IFormulaObjectCreator creator)
         {
             if (formula.Count == 0)
             {
@@ -971,7 +971,7 @@ namespace FormulaEditor
                             }
                         }
                         MathFormula f = new MathFormula(formula, 1, formula.Count - 2);
-                        init(f, creator);
+                        Init(f, creator);
                         return;
                     }
                 }

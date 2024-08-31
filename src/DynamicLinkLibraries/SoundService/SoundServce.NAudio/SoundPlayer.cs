@@ -27,7 +27,6 @@ namespace SoundServce.NAudio
 
         #endregion
 
-
         #region ISoundPlayer Members
 
         /// <summary>
@@ -105,6 +104,7 @@ namespace SoundServce.NAudio
                 return;
             }
             ev.Set();
+            ev = null;
         }
 
         private ISampleProvider CreateInputStream(string fileName)

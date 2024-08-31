@@ -162,10 +162,22 @@ namespace DataPerformer
                 MathFormula f = MathFormula.FromString(MathSymbolFactory.Sizes, st);
                 o[1] = f.FormulaString;
             }
-            Copy(vars, varsH);
-			Copy(pars, parsH);
-			Copy(aliases, aliasesH);
-			Copy(externalAls, externalAlsH);
+			if (varc.Count > 0)
+			{
+				Copy(vars, varsH);
+			}
+			if (pars.Count > 0)
+			{
+				Copy(pars, parsH);
+			}
+			if (aliases.Count > 0)
+			{
+				Copy(aliases, aliasesH);
+			}
+			if (externalAls.Count > 0)
+			{
+				Copy(externalAls, externalAlsH);
+			}
 		}
 
 		void ConvertInvert()

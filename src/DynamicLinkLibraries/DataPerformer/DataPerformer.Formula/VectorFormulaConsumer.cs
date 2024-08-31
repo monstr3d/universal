@@ -501,6 +501,13 @@ namespace DataPerformer.Formula
                         {
                             creator = VariableDetector.GetCreator(this);
                         }
+                        // !!!
+                        var s = this + "";
+                        if (s.Contains("Peaks"))
+                        {
+                            var ttt = ObjectFormulaTree.CreateTree(f, creator);
+                        }
+                        //
                         var  t = ObjectFormulaTree.CreateTree(f, creator);
                         measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa, this);
                     }

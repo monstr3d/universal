@@ -39,7 +39,6 @@ namespace GeneratedProject
 				objects.Add(new InternalDesktop.OblectLabel19("ATIS Recursive", this));
 				objects.Add(new InternalDesktop.OblectLabel20("ATIS Sound", this));
 				objects.Add(new InternalDesktop.OblectLabel21("Chart ATIS", this));
-				objects.Add(new InternalDesktop.OblectLabel22("", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new InternalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
@@ -159,24 +158,36 @@ namespace GeneratedProject
 				currALabel.TargetNumber = (int)1;
 				currALabel  = new InternalDesktop.ArrowLabel29("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)22;
-				currALabel.TargetNumber = (int)6;
-				currALabel  = new InternalDesktop.ArrowLabel30("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)22;
-				currALabel.TargetNumber = (int)7;
-				currALabel  = new InternalDesktop.ArrowLabel31("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)22;
-				currALabel.TargetNumber = (int)1;
-				currALabel  = new InternalDesktop.ArrowLabel32("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)22;
-				currALabel.TargetNumber = (int)10;
-				currALabel  = new InternalDesktop.ArrowLabel33("", this);
-				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)6;
 				currALabel.TargetNumber = (int)3;
+				currALabel  = new InternalDesktop.ArrowLabel30("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)6;
+				currALabel  = new InternalDesktop.ArrowLabel31("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)0;
+				currALabel  = new InternalDesktop.ArrowLabel32("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)14;
+				currALabel  = new InternalDesktop.ArrowLabel33("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)15;
+				currALabel  = new InternalDesktop.ArrowLabel34("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)20;
+				currALabel  = new InternalDesktop.ArrowLabel35("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)9;
+				currALabel  = new InternalDesktop.ArrowLabel36("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)8;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -237,14 +248,14 @@ namespace GeneratedProject
 						deriOrder = 0;
 						arguments =  new List<string>()
 						{
+							"t = Http Meteo.temp",
+							"a = Http Meteo.windspeed",
+							"b = Http Meteo.winddir",
+							"p = Http Meteo.pressure"
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"t", (double)0 },
-							{"k", (double)0.75006375541921 },
-							{"a", (double)0 },
-							{"b", (double)0 },
-							{"p", (double)0 }
+							{"k", (double)0.75006375541921 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -269,10 +280,10 @@ namespace GeneratedProject
 						public void Update()
 						{
 							success = true;
-							variable = aliasName0.Value;
+							variable = measurement0.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_0 = (double)variable;
-							variable = aliasName2.Value;
+							variable = measurement2.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_2 = (double)variable;
 							var_3 = (var_1) * (var_2);
@@ -280,11 +291,11 @@ namespace GeneratedProject
 							variable = aliasName6.Value;
 							if (checkValue(variable)) { success = false; return; }
 							var_6 = (double)variable;
-							variable = aliasName7.Value;
+							variable = measurement7.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_7 = (double)variable;
 							var_8 = (var_6) * (var_7);
-							variable = aliasName9.Value;
+							variable = measurement9.Parameter();
 							if (checkValue(variable)) { success = false; return; }
 							var_9 = (double)variable;
 						}
@@ -295,11 +306,11 @@ namespace GeneratedProject
 							this.trees = trees;
 							this.checkValue = checkValue;
 							this.dataPerformerFormula = dataPerformerFormula;
-							aliasName0 = dataPerformerFormula.ToAliasName(trees[0]);
-							aliasName2 = dataPerformerFormula.ToAliasName(trees[2]);
+							measurement0 = dataPerformerFormula.ToMeasurement(trees[0]);
+							measurement2 = dataPerformerFormula.ToMeasurement(trees[2]);
 							aliasName6 = dataPerformerFormula.ToAliasName(trees[6]);
-							aliasName7 = dataPerformerFormula.ToAliasName(trees[7]);
-							aliasName9 = dataPerformerFormula.ToAliasName(trees[9]);
+							measurement7 = dataPerformerFormula.ToMeasurement(trees[7]);
+							measurement9 = dataPerformerFormula.ToMeasurement(trees[9]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
@@ -317,11 +328,11 @@ namespace GeneratedProject
 						
 						Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();
 						
-						Diagram.UI.Interfaces.IAliasName aliasName0;
-						Diagram.UI.Interfaces.IAliasName aliasName2;
+						DataPerformer.Interfaces.IMeasurement measurement0;
+						DataPerformer.Interfaces.IMeasurement measurement2;
 						Diagram.UI.Interfaces.IAliasName aliasName6;
-						Diagram.UI.Interfaces.IAliasName aliasName7;
-						Diagram.UI.Interfaces.IAliasName aliasName9;
+						DataPerformer.Interfaces.IMeasurement measurement7;
+						DataPerformer.Interfaces.IMeasurement measurement9;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
 						double doubleValue = 0;
@@ -499,8 +510,8 @@ namespace GeneratedProject
 						points = new List<double[]>()
 						{
 							new double[] { 0, 0},
-							new double[] { 1000, 140},
-							new double[] { 2000, 400}
+							new double[] { 10000, 140},
+							new double[] { 20000, 400}
 						};
 				}
 				}
@@ -541,9 +552,9 @@ namespace GeneratedProject
 						};
 						aliases = new Dictionary<object, object>()
 						{
-										{"x" , (System.Double)(19000)}
-							,			{"h" , (System.Double)(0)}
-							,			{"a" , (System.Double)(0)}
+										{"a" , (System.Double)(0.59999999999999998)}
+							,			{"x" , (System.Double)(19000)}
+							,			{"h" , (System.Double)(208.2086600300384)}
 						};
 						isSerialized = true;
 						calculateDerivation = false;
@@ -1555,8 +1566,8 @@ namespace GeneratedProject
 						deriOrder = 0;
 						arguments =  new List<string>()
 						{
-							"x = Equations.x",
-							"a = Recurrsive ATIS.x"
+							"x = Recurrsive ATIS.x",
+							"a = Recurrsive ATIS.y"
 						};
 						parameters =new Dictionary<string, object>()
 						{
@@ -1893,9 +1904,9 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
+							{"b", "St V " },
 							{"f", ".wav" },
-							{"a", "St H" },
-							{"b", "St V" }
+							{"a", "St H " }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -2297,11 +2308,11 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"f", "_pressure.wav_" },
+							{"j", "_degree.wav" },
 							{"h", "_hectopascal.wav_temperature.wav_" },
+							{"f", "_pressure.wav_" },
 							{"a", "wind.wav_" },
-							{"c", "_degree.wav_" },
-							{"j", "_degree.wav" }
+							{"c", "_degree.wav_" }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -2791,23 +2802,6 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel22 : Diagram.UI.Labels.PureObjectLabel
-			{
-				internal OblectLabel22(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					obj = new OblectLabel22.CategoryObject();
-					obj.Object = this;
-				}
-		
-				internal class CategoryObject : DataPerformer.Portable.DataConsumer
-				{
-				internal CategoryObject() : base(0)
-				{
-				}
-				}
-			}
-		
 			internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
 			{
 				internal ArrowLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
@@ -3232,7 +3226,7 @@ namespace GeneratedProject
 					arrow = new ArrowLabel32.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
 				{
 				}
 			}
@@ -3243,6 +3237,45 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					arrow = new ArrowLabel33.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+				{
+				}
+			}
+		
+			internal class ArrowLabel34 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel34(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel34.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+				{
+				}
+			}
+		
+			internal class ArrowLabel35 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel35(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel35.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel36 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel36(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel36.CategoryArrow();
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink
