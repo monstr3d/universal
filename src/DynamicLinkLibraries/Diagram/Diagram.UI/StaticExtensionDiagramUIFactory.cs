@@ -85,12 +85,10 @@ namespace Diagram.UI
         /// <param name="factory">The factory to add</param>
         static public void Add(this IUIFactory factory)
         {
-            if (UIFactory is AssemblyFactory)
+            if (UIFactory is AssemblyFactory f)
             {
-                AssemblyFactory f = UIFactory as AssemblyFactory;
                 var fact = list.ToArray();
                 list.Clear();
-                
                 f.Add(factory);
                 return;
             }

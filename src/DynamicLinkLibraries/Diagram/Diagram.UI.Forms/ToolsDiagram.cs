@@ -108,8 +108,8 @@ namespace Diagram.UI
                 tree.Nodes.Add(objectsNode);
                 tree.Nodes.Add(arrowsNode);
                 tree.MouseUp += new MouseEventHandler(treeUp);
-                tree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(editNode);
-                tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(selectTree);
+                tree.AfterLabelEdit += new NodeLabelEditEventHandler(editNode);
+                tree.AfterSelect += new TreeViewEventHandler(selectTree);
                 tree.LabelEdit = true;
             }
         }
@@ -226,7 +226,17 @@ namespace Diagram.UI
         /// <param name="button">The button to add</param>
         public void AddButton(IPaletteButton button)
         {
-            buttonImages.Images.Add(button.ButtonImage as Image);
+            var img = button.ButtonImage;
+            if (img is Image im)
+            {
+                buttonImages.Images.Add(im);
+            }
+            else
+            {
+
+            }
+            
+            
             Type t = button.ReflectionType;
             if (t == null)
             {
@@ -297,7 +307,7 @@ namespace Diagram.UI
         /// <returns>The button</returns>
         public IPaletteButton FindButton(string type, string kind)
         {
-           foreach (Type t in buttons.Keys)
+            foreach (Type t in buttons.Keys)
             {
                 if (type./*Replace("Diagram.UI", "Diagram.UI").*/Equals(t + ""))
                 {

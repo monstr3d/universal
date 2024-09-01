@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 
 using CategoryTheory;
+
 using Diagram.UI.Labels;
 using Diagram.UI;
 using Diagram.UI.Factory;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
-using Motion6D.UI;
 using Motion6D.Aggregates;
 using Motion6D.UI.Forms;
-using System.Reflection;
-using Motion6D.Portable;
 
 namespace Motion6D.UI.Factory
 {
@@ -119,7 +114,7 @@ namespace Motion6D.UI.Factory
         {
             Type type = button.ReflectionType;
             string kind = button.Kind;  // Kind of object
-            if (type.Equals(typeof(Motion6D.SerializablePosition)))
+            if (type.Equals(typeof(SerializablePosition)))
             {
                 Motion6D.SerializablePosition p = new Motion6D.SerializablePosition();
                 if (kind.Equals(SphericalVectorPotentialGragient))

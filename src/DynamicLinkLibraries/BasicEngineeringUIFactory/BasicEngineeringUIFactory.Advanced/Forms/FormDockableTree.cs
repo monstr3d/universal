@@ -19,6 +19,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             init();
             this.LoadControlResources();
         }
+
         public TreeView Tree
         {
             get

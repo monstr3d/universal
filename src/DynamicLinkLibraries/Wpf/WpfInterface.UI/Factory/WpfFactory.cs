@@ -48,6 +48,7 @@ namespace WpfInterface.UI.Factory
         /// </summary>
         protected WpfFactory()
         {
+        
         }
 
         static WpfFactory()
@@ -63,32 +64,32 @@ namespace WpfInterface.UI.Factory
         {
             if (type.Equals(""))
             {
-                return new WpfInterface.Objects3D.WpfShape();
+                return new Objects3D.WpfShape();
             }
             if (type.Equals("Deformed figure"))
             {
-                return new WpfInterface.Objects3D.DeformedWpfShape();
+                return new Objects3D.DeformedWpfShape();
             }
             if (type.Equals("Collection"))
             {
-                return new WpfInterface.Objects3D.WpfVisibleCollectionObject();
+                return new Objects3D.WpfVisibleCollectionObject();
             }
             return null;
         }
 
-        public override Motion6D.Portable.Camera NewCamera()
+        public override Motion6D.Camera NewCamera()
         {
             return new WpfCamera();
         }
 
-        public override object CreateForm(Motion6D.Portable.Camera camera)
+        public override object CreateForm(Camera camera)
         {
             return null;
         }
 
         public override object CreateForm(IPosition position, IVisible visible)
         {
-            if (visible is WpfInterface.Objects3D.DeformedWpfShape)
+            if (visible is Objects3D.DeformedWpfShape)
             {
                 return new Forms.FormDeformed(position, visible);
             }
@@ -104,12 +105,12 @@ namespace WpfInterface.UI.Factory
         {
             if (obj.Equals(CameraType))
             {
-                return (new Labels.CameraLabel()).CreateLabelUI(ResourceImage.Camera, false);
+                return (new CameraLabel()).CreateLabelUI(ResourceImage.Camera, false);
             }
             if (obj.Equals(""))
             {
-                IObjectLabel l = new Labels.ShapeLabel("", ResourceImage.Cube.ToBitmap());
-                 return l.CreateLabelUI(ResourceImage.Cube.ToBitmap(), false);
+                IObjectLabel l = new ShapeLabel("", ResourceImage.Cube.ToBitmap());
+                return l.CreateLabelUI(ResourceImage.Cube, false);
             }
             return null;
         }

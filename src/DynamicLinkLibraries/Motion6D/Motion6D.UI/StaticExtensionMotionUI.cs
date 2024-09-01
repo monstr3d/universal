@@ -23,7 +23,7 @@ namespace Motion6D.UI
         /// <param name="exception">Error exception</param>
         static internal void ShowError(this Control control, Exception exception)
         {
-            control.ShowError(exception, Motion6D.UI.Utils.ControlUtilites.Resources);
+            control.ShowError(exception, Utils.ControlUtilites.Resources);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Motion6D.UI
         /// <param name="control"></param>
         static public void LoadControlResources(this Control control)
         {
-            control.LoadControlResources(Motion6D.UI.Utils.ControlUtilites.Resources);
+            control.LoadControlResources(Utils.ControlUtilites.Resources);
         }
 
         /// <summary>

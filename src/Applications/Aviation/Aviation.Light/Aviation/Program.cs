@@ -137,7 +137,11 @@ namespace Aviation.Light
         static LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Portable.Interfaces.IPositionObjectFactory factory)
         {
             Motion6D.Portable.Interfaces.IPositionObjectFactory f = factory;
-            if (f == null)
+            if (factory != null)
+            {
+                new Motion6D.UI.Factory.VisibleFactory(factory);
+            }
+            else
             {
                 f = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }

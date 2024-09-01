@@ -43,6 +43,7 @@ namespace Motion6D.UI.Factory
             this.factory = factory;
             PositionObjectFactory.Factory = factory;
             PureDesktop.DesktopPostLoad += (IDesktop d) => { DeleteTextures(); };
+            this.Add();
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace Motion6D.UI.Factory
             {
                 return factory.NewCamera();
             }
-            if (type.Equals(typeof(Motion6D.SerializablePosition)))
+            if (type.Equals(typeof(SerializablePosition)))
             {
                 object ob = factory.CreateObject(kind);  // Usage of the kind
                 if (ob != null)
@@ -98,20 +99,19 @@ namespace Motion6D.UI.Factory
             if (comp is IObjectLabel)
             {
                 IObjectLabel ol = comp as IObjectLabel;
-                ICategoryObject obj = ol.Object;
+                var obj = ol.Object as ICategoryObject;
                 Camera camera = obj.GetSimpleObject<Camera>();
                 if (camera != null)
                 {
                 }
-                if (obj is Motion6D.SerializablePosition)
+                if (obj is SerializablePosition position)
                 {
-                    Motion6D.Interfaces.IPosition p = obj as Motion6D.Interfaces.IPosition;
-                    object o = p.Parameters;
+                    IPosition p = position;
+                    object o = position.Parameters;
                     if (o != null)
                     {
-                        if (o is Motion6D.Interfaces.IVisible)
+                        if (o is IVisible v)
                         {
-                            Motion6D.Interfaces.IVisible v = o as Motion6D.Interfaces.IVisible;
                             object ob = factory.CreateForm(p, v);
                             if (ob != null)
                             {
@@ -140,9 +140,9 @@ namespace Motion6D.UI.Factory
             {
                 return factory.CreateLabel(camera) as IObjectLabelUI;
             }
-            if (obj is Motion6D.SerializablePosition)
+            if (obj is SerializablePosition)
             {
-                Motion6D.SerializablePosition sp = obj.GetObject<Motion6D.SerializablePosition>();
+                SerializablePosition sp = obj.GetObject<SerializablePosition>();
                 object lp = sp.Parameters;
                 Motion6D.Interfaces.IVisible vis = lp.GetSimpleObject<Motion6D.Interfaces.IVisible>();
                 if (vis != null)
