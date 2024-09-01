@@ -28,6 +28,8 @@ namespace WpfInterface.UI.Labels
 
         WpfShape shape;
 
+        ICategoryObject obj;
+
         protected Form form = null;
         
         #endregion
@@ -36,6 +38,7 @@ namespace WpfInterface.UI.Labels
 
         public ShapeLabel(string kind, Image image)  : base(typeof(SerializablePosition), kind, image)
         {
+        
         }
 
 
@@ -65,10 +68,11 @@ namespace WpfInterface.UI.Labels
         {
             get
             {
-                return shape;
+                return obj;
             }
             set
             {
+                obj = value;
                 shape = value.GetObject<WpfShape>();
                 if (control != null)
                 {

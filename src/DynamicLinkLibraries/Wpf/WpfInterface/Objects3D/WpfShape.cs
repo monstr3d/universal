@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Drawing;
 using System.IO;
@@ -34,7 +32,7 @@ namespace WpfInterface.Objects3D
     [Serializable()]
     public class WpfShape : CategoryObject, ISerializable, IChildrenObject, IWpfVisible, IFacet,
         ICameraConsumer, IPositionObject, IEventHandler, 
-        IAnimatedObject, IAllowCodeCreation
+        IAnimatedObject, IAllowCodeCreation, IPostDeserialize
     {
 
         #region Fields
@@ -149,9 +147,9 @@ namespace WpfInterface.Objects3D
             }
             try
             {
-                Xaml = info.GetString("Xaml");
+                xaml = info.GetString("Xaml");
                 isColored = info.GetBoolean("IsColored");
-                consumer = info.Deserialize<Motion6D.FieldConsumer3D>("FieldConsumer");
+                consumer = info.Deserialize<FieldConsumer3D>("FieldConsumer");
                 ch = new IAssociatedObject[] { consumer };
                 try
                 {
@@ -165,7 +163,6 @@ namespace WpfInterface.Objects3D
                     forecastTime = (TimeSpan)info.GetValue("ForecastTime", typeof(TimeSpan));
                     coordinateError = info.GetDouble("CoordinateError");
                     angleError = info.GetDouble("AngleError");
-
                 }
                 catch (Exception)
                 {
@@ -191,7 +188,7 @@ namespace WpfInterface.Objects3D
         {
             info.AddValue("Xaml", xaml);
             info.AddValue("IsColored", isColored);
-            info.Serialize<Motion6D.FieldConsumer3D>("FieldConsumer", consumer);
+            info.Serialize<FieldConsumer3D>("FieldConsumer", consumer);
             info.AddValue("Scaled", scaled);
             SaveTextures(info);
             info.AddValue("ForecastTime", forecastTime, typeof(TimeSpan));
@@ -511,6 +508,16 @@ namespace WpfInterface.Objects3D
 
         #endregion
 
+        #region IPostDeserialize Members
+
+        void IPostDeserialize.PostDeserialize()
+        {
+            Post();
+        }
+  
+        #endregion 
+
+
         #region ILinear6DForecast Members
 
         ReferenceFrame ILinear6DForecast.ReferenceFrame
@@ -712,6 +719,14 @@ namespace WpfInterface.Objects3D
             {
                 parameters[i] = par[i].ToArray();
             }
+        }
+
+        /// <summary>
+        /// Post operation
+        /// </summary>
+        protected virtual void Post()
+        {
+            Xaml = xaml;
         }
 
         /// <summary>
@@ -959,6 +974,7 @@ namespace WpfInterface.Objects3D
             return ss;
         }
 
+  
         System.Windows.Media.ImageBrush ImageBrush
         {
             get

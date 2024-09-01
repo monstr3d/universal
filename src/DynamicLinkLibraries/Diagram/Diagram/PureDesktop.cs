@@ -886,13 +886,27 @@ namespace Diagram.UI
         {
             try
             {
-                IEnumerable<ICategoryArrow> arrows = CategoryArrows;
-                foreach (ICategoryArrow arrow in arrows)
+                var objects = CategoryObjects;
+                foreach (var obj in objects)
+                {
+                    if (obj is IPostDeserialize deserialize)
+                    {
+                        deserialize.PostDeserialize();
+                    }
+                }
+                var arrows = CategoryArrows;
+                foreach (var arrow in arrows)
+                {
+                    if (arrow is IPostDeserialize deserialize)
+                    {
+                        deserialize.PostDeserialize();
+                    }
+                }
+                foreach (var arrow in arrows)
                 {
                     PostSetArrow(arrow);
                 }
-                IEnumerable<ICategoryObject> objects = CategoryObjects;
-                foreach (ICategoryObject lab in objects)
+                foreach (var lab in objects)
                 {
                     PostSetArrow(lab);
                 }

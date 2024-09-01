@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Markup;
-using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
 
@@ -28,6 +25,13 @@ namespace WpfInterface
                new Dictionary<string, Func<string, System.Windows.Media.Media3D.Visual3D>>();
 
         #endregion
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static StaticExtensionWpfInterface()
+        {
+        }
 
         #region Public Members
 
