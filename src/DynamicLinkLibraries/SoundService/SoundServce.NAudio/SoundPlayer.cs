@@ -23,7 +23,21 @@ namespace SoundServce.NAudio
 
         ISampleProvider sampleProvider;
 
-        protected string directory;
+        string directory;
+
+        #endregion
+
+
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="directory">The sound directory</param>
+        protected SoundPlayer(string directory)
+        {
+            this.directory = directory;
+        }
 
         #endregion
 

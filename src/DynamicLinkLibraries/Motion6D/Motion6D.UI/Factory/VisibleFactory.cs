@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
-
-
 
 
 using CategoryTheory;
@@ -17,7 +14,6 @@ using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
 using Motion6D.Interfaces;
-using Motion6D;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable;
 
@@ -46,7 +42,7 @@ namespace Motion6D.UI.Factory
             DeleteTextures();
             this.factory = factory;
             PositionObjectFactory.Factory = factory;
-            PureDesktop.DesktopPostLoad += (Diagram.UI.Interfaces.IDesktop d) => { DeleteTextures(); };
+            PureDesktop.DesktopPostLoad += (IDesktop d) => { DeleteTextures(); };
         }
 
         /// <summary>
@@ -211,15 +207,15 @@ namespace Motion6D.UI.Factory
                 {
                             new ButtonWrapper(factory.CameraType,
                     "", "Camera", ResourceImage.Camera, null, true, false),
-                            new ButtonWrapper(typeof(Motion6D.SerializablePosition),
+                            new ButtonWrapper(typeof(SerializablePosition),
                     "", "3D Object", ResourceImage.Cube, null, true, false),
-                            new ButtonWrapper(typeof(Motion6D.SerializablePosition),
+                            new ButtonWrapper(typeof(SerializablePosition),
                     "Collection", "3D Object Collection", ResourceImage.CubeCollection, null, true, false),
-                            new ButtonWrapper(typeof(Motion6D.SerializablePosition),
+                            new ButtonWrapper(typeof(SerializablePosition),
                     "Deformed figure", "Deformed object", ResourceImage.FormFigure, null, true, false),
-                            new ButtonWrapper(typeof(Motion6D.SerializablePosition),
+                            new ButtonWrapper(typeof(SerializablePosition),
                     "3D Field Consumer", "Consumer of 3D field", ResourceImage.Field3D_Consumer, null, true, false),
-                            new ButtonWrapper(typeof(Motion6D.SerializablePosition),
+                            new ButtonWrapper(typeof(SerializablePosition),
                     "Reper", "Reper", ResourceImage.Reper, null, true, false),
                    };
             List<ButtonWrapper> l = new List<ButtonWrapper>();

@@ -613,6 +613,24 @@ namespace WpfInterface.Objects3D
             }
         }
 
+        /// <summary>
+        /// Saves textures 
+        /// </summary>
+        /// <param name="directory">The directory</param>
+        public void SaveTextures(string directory)
+        {
+            foreach (var key in textures.Keys)
+            {
+                var b = textures[key];
+                using (var stream = File.OpenWrite(Path.Combine(directory, key)))
+                {
+                    stream.Write(b, 0, b.Length);
+                }
+            }
+        }
+
+
+
         #endregion
 
         #region Protected Members

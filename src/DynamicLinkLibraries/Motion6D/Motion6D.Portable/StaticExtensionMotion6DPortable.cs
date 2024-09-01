@@ -98,7 +98,6 @@ namespace Motion6D.Portable
         }
 
 
-
         /// <summary>
         /// Gets collection of factories
         /// </summary>

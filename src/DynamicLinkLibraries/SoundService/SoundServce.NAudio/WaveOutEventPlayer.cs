@@ -10,13 +10,12 @@ namespace SoundServce.NAudio
         string directory;
 
 
-        public WaveOutEventPlayer(string directory)
+        public WaveOutEventPlayer(string directory) : base(directory)
         {
             try
             {
                 waveOut = new WaveOutEvent();
                 Player = waveOut;
-                this.directory = directory;
             }
             catch (Exception ex)
             {

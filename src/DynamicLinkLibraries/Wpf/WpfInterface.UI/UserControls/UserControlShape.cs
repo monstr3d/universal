@@ -84,11 +84,13 @@ namespace WpfInterface.UI.UserControls
             {
                 return;
             }
-            string s = shape.Xaml;
-            using (TextWriter w = new StreamWriter(filename))
+            var s = shape.Xaml;
+            using (var w = new StreamWriter(filename))
             {
                 w.Write(s);
             }
+            var path = Path.GetDirectoryName(filename);
+            shape.SaveTextures(path);
         }
 
         private void Save()

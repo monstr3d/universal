@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Diagram.UI.Labels;
+
 using Motion6D.Interfaces;
-using Motion6D.Portable;
 
 namespace Motion6D.Portable.Interfaces
 {

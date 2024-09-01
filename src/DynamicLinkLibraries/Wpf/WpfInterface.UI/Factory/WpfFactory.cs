@@ -7,19 +7,19 @@ using System.Runtime.Serialization;
 using Diagram.UI;
 using Diagram.UI.Labels;
 
-using Motion6D;
 using Motion6D.Interfaces;
+using Motion6D.Portable;
+
 
 using WpfInterface.CameraInterface;
 using WpfInterface.UI.Labels;
-using Motion6D.Portable;
 
 namespace WpfInterface.UI.Factory
 {
     /// <summary>
     /// WPF implementation of 3D Graphics
     /// </summary>
-    public class WpfFactory : Motion6D.Portable.PositionObjectFactory
+    public class WpfFactory : PositionObjectFactory
     {
         #region Fields
 

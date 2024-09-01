@@ -121,7 +121,8 @@ namespace Aviation.Light
 
             Application.EnableVisualStyles();
             //       Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(GetForm(filename, null, logWriter, testInterface));
+            Application.Run(GetForm(filename, WpfInterface.UI.Factory.WpfFactory.Singleton, 
+                logWriter, testInterface));
         }
 
 

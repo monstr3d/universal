@@ -8,13 +8,13 @@ namespace SoundServce.NAudio
         AsioOut asioOut;
 
 
-        public AsioOutSoundPlayer(string directory)
+        public AsioOutSoundPlayer(string directory) : 
+            base(directory)
         {
             try
             {
                 asioOut = new AsioOut();
                 Player = asioOut;
-                this.directory = directory;
             }
             catch (Exception ex)
             {
