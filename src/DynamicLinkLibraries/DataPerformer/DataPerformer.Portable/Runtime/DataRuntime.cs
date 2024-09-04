@@ -614,9 +614,8 @@ namespace DataPerformer.Portable.Runtime
             Action<double, double, long> act = runtime.Step(processor, setTime,
                 StaticExtensionEventInterfaces.Realtime, null);
             long[] st = new long[] { 0 };
-
-            Action updList = null;
-            foreach (IRealtimeUpdate upd in update)
+            Action updList = update.TransformEnumerabe((u) => u.Update).ToSingleAction();
+/*            foreach (IRealtimeUpdate upd in update)
             {
                 Action actp = upd.Update;
                 if (actp == null)
@@ -644,7 +643,7 @@ namespace DataPerformer.Portable.Runtime
             if (updList == null)
             {
                 updList = () => { };
-            }
+            }*/
 
             //  Action[] updateActions = updlist.ToArray();
             object loc = new object();
@@ -666,8 +665,7 @@ namespace DataPerformer.Portable.Runtime
                          act(time[0], t[0], st[0]);
                          time[0] = t[0];
                          st[0] += 1;
-                         updList();
-                         //}
+                         updList.Invoke();
                      };
                 return (updatel == null) ? acttt : updatel + acttt;
             }
@@ -687,7 +685,7 @@ namespace DataPerformer.Portable.Runtime
                     act(time[0], t[0], st[0]);
                     time[0] = t[0];
                     st[0] += 1;
-                    updList();
+                    updList.Invoke();
                     acti(t[0]);
 
                 };

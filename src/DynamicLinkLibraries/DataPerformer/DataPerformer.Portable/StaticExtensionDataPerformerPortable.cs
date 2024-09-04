@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using AssemblyService.Attributes;
-using BaseTypes;
-using BaseTypes.Attributes;
-using BaseTypes.Interfaces;
+using System.Xml;
 
 using CategoryTheory;
 
@@ -13,7 +9,11 @@ using Diagram.UI.Aliases;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
+using AssemblyService.Attributes;
 
+using BaseTypes;
+using BaseTypes.Attributes;
+using BaseTypes.Interfaces;
 
 using DataPerformer.Attributes;
 using DataPerformer.Interfaces;
@@ -23,7 +23,6 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
-using System.Xml;
 
 namespace DataPerformer.Portable
 {
@@ -61,7 +60,6 @@ namespace DataPerformer.Portable
         /// Step
         /// </summary>
         static private int stepNumber;
-
 
         #endregion
 
@@ -2477,6 +2475,23 @@ namespace DataPerformer.Portable
 
         #region Private Members
 
+        static private Action GetUpdate(this IEnumerable<object> value, string reason)
+        {
+            Func<object, Action> tr = (object ob) =>
+            {
+                if (ob is IUpdatableObject up)
+                {
+
+                    if (ob.SatisfiesReason(reason))
+                    {
+                        return up.Update;
+                    }
+                }
+                return null;
+            };
+           return value.TransformEnumerabe<Action, object>(tr).ToSingleAction();
+        }
+
 
         static void getIterators(IDataConsumer consumer, List<IIterator> list)
         {
@@ -2516,6 +2531,7 @@ namespace DataPerformer.Portable
             return d;
         }
 
+
         /// <summary>
         /// Step action 
         /// </summary>
@@ -2528,23 +2544,12 @@ namespace DataPerformer.Portable
              IDifferentialEquationProcessor processor, Action<double> setTime, string reason)
         {
             IEnumerable<object> enu = runtime.AllComponents;
-            List<Action> updatable = new List<Action>();
+            List<Action> updatableActions = new List<Action>();
             List<IStep> step = new List<IStep>();
             List<IDynamical> dynamical = new List<IDynamical>();
+            var update = enu.GetUpdate(reason);
             foreach (object o in enu)
             {
-                if (o is IUpdatableObject)
-                {
-
-                    if (o.SatisfiesReason(reason))
-                    {
-                        IUpdatableObject up = o as IUpdatableObject;
-                        if (up.Update != null)
-                        {
-                            updatable.Add(up.Update);
-                        }
-                    }
-                }
                 if (o is IStep)
                 {
                     step.Add(o as IStep);
@@ -2562,9 +2567,9 @@ namespace DataPerformer.Portable
                     {
                         foreach (object o in enu)
                         {
-                            if (o is IStarted)
+                            if (o is IStarted started)
                             {
-                                (o as IStarted).Start(time);
+                                started.Start(time);
                             }
                         }
                     }
@@ -2572,7 +2577,7 @@ namespace DataPerformer.Portable
                     {
                         processor.Step(last, time);
                     }
-                    setTime(time);
+                    update?.Invoke();
                     foreach (IDynamical d in dynamical)
                     {
                         d.Time = time;
@@ -2599,10 +2604,7 @@ namespace DataPerformer.Portable
                             }
                         }
                     }
-                    foreach (Action u in updatable)
-                    {
-                        u();
-                    }
+                    update?.Invoke();
                     setTime(time);
                     foreach (IDynamical d in dynamical)
                     {
@@ -2724,6 +2726,8 @@ namespace DataPerformer.Portable
 
         #endregion
 
+        #region Classes
+
         class DefautFactory : ITimeMeasurementProviderFactory
         {
 
@@ -2738,5 +2742,7 @@ namespace DataPerformer.Portable
             }
         }
 
+
+        #endregion
     }
 }

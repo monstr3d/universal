@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-
 
 using CategoryTheory;
 using Diagram.UI;
@@ -217,7 +215,6 @@ namespace Motion6D.Portable
           //  CreateFrame();
         }
 
-
         /// <summary>
         /// Parent frame
         /// </summary>
@@ -319,7 +316,12 @@ namespace Motion6D.Portable
                 ReferenceFrame parent = this.GetParentFrame();
                 for (int i = 0; i < 3; i++)
                 {
-                    x[i] = (double)measurements[i].Parameter();
+                    var o = measurements[i].Parameter();
+                    if (o == null)
+                    {
+                        return;
+                    }
+                    x[i] = (double)o;
                 }
                 if (relative is IVelocity)
                 {
@@ -327,7 +329,7 @@ namespace Motion6D.Portable
                     double[] v = vel.Velocity;
                     for (int i = 0; i < 3; i++)
                     {
-                        IDerivation d = measurements[i] as IDerivation;
+                        var d = measurements[i] as IDerivation;
                         v[i] = d.Derivation.ToDouble();
                     }
                 }

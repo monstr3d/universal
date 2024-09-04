@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml.Linq;
 
@@ -42,7 +43,42 @@ namespace CategoryTheory
 
         #region Public Members
 
+        /// <summary>
+        /// Transformation of collection
+        /// </summary>
+        /// <typeparam name="T">Type of output</typeparam>
+        /// <typeparam name="S">Type of input</typeparam>
+        /// <param name="enumerable">Input Clolection</param>
+        /// <param name="transform">Trasformation function</param>
+        /// <returns>Trasformation result</returns>
+        public static IEnumerable<T> TransformEnumerabe<T, S>(this IEnumerable<S> enumerable,
+            Func<S, T> transform) where T : class
+            where S : class
+        {
+            foreach (S s in enumerable)
+            {
+                yield return transform(s);
+            }
+        }
 
+        /// <summary>
+        /// Trasforms a collection of actions to the single action
+        /// </summary>
+        /// <param name="actions">The collection of action</param>
+        /// <returns>The single</returns>
+        static public Action ToSingleAction(this IEnumerable<Action> actions)
+        {
+            Action action = null;
+            foreach (var act in actions)
+            {
+                if (act == null)
+                {
+                    continue;
+                }
+                action = (action == null) ? act : action + act;
+            }
+            return action;
+        }
 
         /// <summary>
         /// Name of category object or arrow

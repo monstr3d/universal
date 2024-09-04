@@ -357,12 +357,12 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="control">Control</param>
         /// <param name="action">Action</param>
-        public static void ForEeach(this Control control, Action<Control> action)
+        public static void ForEach(this Control control, Action<Control> action)
         {
             action(control);
             foreach (Control c in control.Controls)
             {
-                c.ForEeach(action);
+                c.ForEach(action);
             }
         }
 

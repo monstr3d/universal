@@ -9,5 +9,6 @@ namespace Motion6D.Interfaces
     /// </summary>
     public interface IVisible : IPositionObject
     {
+
     }
 }

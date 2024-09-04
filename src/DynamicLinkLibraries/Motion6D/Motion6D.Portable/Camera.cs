@@ -82,9 +82,10 @@ namespace Motion6D.Portable
         /// </summary>
         public Camera()
         {
+
         }
 
-         #endregion
+        #endregion
 
         #region IAssociatedObject Members
 
@@ -226,9 +227,12 @@ namespace Motion6D.Portable
         /// </summary>
         protected abstract void SetCalculationReason();
 
+        /// <summary>
+        /// Updates realtime
+        /// </summary>
+ // !!! DELETE       protected abstract void RealtimeUpdate();
 
         #endregion
-
 
         #region Virtual Members
 
@@ -244,13 +248,6 @@ namespace Motion6D.Portable
             set
             {
             }
-        }
-
-        /// <summary>
-        /// Updates real time
-        /// </summary>
-        public virtual void UpdateRealTime()
-        {
         }
 
         #endregion
@@ -333,8 +330,6 @@ namespace Motion6D.Portable
         /// </summary>
         public abstract void UpdateImage();
 
-
-
         /// <summary>
         /// Children count
         /// </summary>
@@ -369,9 +364,8 @@ namespace Motion6D.Portable
             foreach (IAssociatedObject obj in objs)
             {
                 object o = obj.Object;
-                if (o is Camera)
+                if (o is Camera c)
                 {
-                    Camera c = o as Camera;
                     c.UpdateImage();
                 }
             }

@@ -17,6 +17,7 @@ using Diagram.Interfaces;
 using AssemblyService;
 
 using System.Data;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Diagram.UI
 {
@@ -1490,6 +1491,48 @@ namespace Diagram.UI
             }
         }
 
+        /// <summary>
+        /// Transforms collection
+        /// </summary>
+        /// <typeparam name="T">Output type</typeparam>
+        /// <typeparam name="S">Inupt type</typeparam>
+        /// <param name="collection">Input collection</param>
+        /// <returns>Output collection</returns>
+        public static IEnumerable<T> ForEach<T, S>(this IEnumerable<S> collection)
+            where T : class where S : class
+        {
+            foreach (S s in collection)
+            {
+                if (s is T t)
+                {
+                    yield return t;
+                }
+                if (s is IObjectLabel l)
+                {
+                    object obj = l.Object;
+                    if (obj is T to)
+                    {
+                        yield return to;
+                    }
+                }
+                if (s is IArrowLabel al)
+                {
+                    object a = al.Arrow;
+                    if (a is T ta)
+                    {
+                        yield return ta;
+                    }
+                }
+                if (s is IAssociatedObject ao)
+                {
+                    T tc = ao.Find<T>();
+                    if (tc != null)
+                    {
+                        yield return tc;
+                    }
+                }
+            }
+        }
   
         /// <summary>
         /// Performs action for each collection objects

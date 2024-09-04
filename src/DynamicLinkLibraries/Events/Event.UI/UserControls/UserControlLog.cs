@@ -31,7 +31,7 @@ namespace Event.UI.UserControls
         public UserControlLog()
         {
             InitializeComponent();
-            this.ForEeach((Control control) =>
+            this.ForEach((Control control) =>
             {
                 control.AllowDrop = true;
                 control.DragDrop += UserControlLog_DragDrop;

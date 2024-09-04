@@ -69,7 +69,6 @@ namespace Motion6D
         public abstract void DynamicalRemove(SerializablePosition position);
 
 
-
         #endregion
 
     }

@@ -16,7 +16,7 @@ namespace SoundService
     /// <summary>
     /// Multiple sound
     /// </summary>
-    [CalculationReasons(new string[] {StaticExtensionEventInterfaces.Realtime, "Testing" })]
+    [CalculationReasons([StaticExtensionEventInterfaces.Realtime, "Testing"])]
     public class MultiSound  : CategoryObject, 
         IDataConsumer, IPostSetArrow, ITimeMeasurementConsumer, IRealtimeUpdate, 
         IStopped, IStarted
@@ -54,14 +54,13 @@ namespace SoundService
 
         #region Ctor
 
-
         /// <summary>
         /// Default constructor
         /// </summary>
         public MultiSound()
         {
-        }
 
+        }
   
         #endregion
 
@@ -236,7 +235,7 @@ namespace SoundService
             {
                 return;
             }
-            bool soundCondition = (bool)condition.Parameter();      // Sound condition
+            var soundCondition = (bool)condition.Parameter();      // Sound condition
             if (soundCondition)
             {
                 string currentSound = sound.Parameter() as string;  // Sound file

@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
-using System.Windows.Media.Animation;
-using System.Windows;
-
-using CategoryTheory;
 
 using Diagram.UI;
 
@@ -17,13 +11,11 @@ using DataPerformer.Interfaces.Attributes;
 
 using Event.Interfaces;
 
-
 using Animation.Interfaces.Enums;
 
 using Motion6D;
 using Motion6D.Interfaces;
 
-using WpfInterface;
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
 
@@ -245,6 +237,12 @@ namespace WpfInterface.CameraInterface
             info.AddValue("CoordinateError", coordinateError);
             info.AddValue("AngleError", angleError);
         }
+
+        #endregion
+
+        #region IUpdatableObject Members
+
+ 
 
         #endregion
 
@@ -510,8 +508,7 @@ namespace WpfInterface.CameraInterface
         #endregion
 
         #region Overriden
-
-
+  
         /// <summary>
         /// Sets a calculation reason
         /// </summary>
