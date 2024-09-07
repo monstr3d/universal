@@ -602,11 +602,11 @@ namespace DataPerformer.Portable.Runtime
         /// <param name="runtime">Runtime</param>
         /// <param name="time">Time</param>
         /// <param name="processor">processor</param>
-        /// <param name="action">Action</param>
+        /// <param name="additionaAction">Action</param>
         /// <param name="update">Update objects</param>
         /// <returns>Action</returns>
         protected virtual Action CreateAction(IDataRuntime runtime, double[] time,
-            IDifferentialEquationProcessor processor, Action action, IRealtimeUpdate[] update)
+            IDifferentialEquationProcessor processor, Action additionaAction, IRealtimeUpdate[] update)
         {
             ITimeMeasurementProvider rt = realtime;
             double[] t = new double[1];
@@ -615,37 +615,19 @@ namespace DataPerformer.Portable.Runtime
                 StaticExtensionEventInterfaces.Realtime, null);
             long[] st = new long[] { 0 };
             Action updList = update.TransformEnumerabe((u) => u.Update).ToSingleAction();
-/*            foreach (IRealtimeUpdate upd in update)
+            if (additionaAction != null)
             {
-                Action actp = upd.Update;
-                if (actp == null)
+                if (updList != null)
                 {
-                    continue;
+                    updList += additionaAction;
                 }
-                if (act != null)
+                else
                 {
-                    if (updList == null)
-                    {
-                        updList = actp;
-                        continue;
-                    }
-                    updList = updList + actp;
+                    updList = additionaAction;
                 }
+                    
             }
-            if (action != null)
-            {
-                updList = updList + action;
-            }
-            if (updList == null)
-            {
-                updList = action;
-            }
-            if (updList == null)
-            {
-                updList = () => { };
-            }*/
 
-            //  Action[] updateActions = updlist.ToArray();
             object loc = new object();
             Action updatel = null;
             if (realtime is IRealtimeUpdate)

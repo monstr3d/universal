@@ -12,6 +12,7 @@ namespace Internet.Meteo.Wrapper
 {
     public class Sensor : Meteo.Sensor, ICategoryObject, IMeasurements, ICalculationReason,
         IRealTimeStartStop, IStarted
+
     {
         #region Fields
 
@@ -20,7 +21,7 @@ namespace Internet.Meteo.Wrapper
         IMeasurement[] measurements;
 
         string calculationReason = "";
-    
+
         #endregion
 
         #region Ctor
@@ -161,7 +162,7 @@ namespace Internet.Meteo.Wrapper
         }
 
         #endregion
-
+  
         #region Protected members
 
         /// <summary>
@@ -193,12 +194,13 @@ namespace Internet.Meteo.Wrapper
                 var k = i;
                 Func<object> f = () =>
                     values[k];
-                measurements[i] = new Measurement(Types[currentNames[i]], f,
+                measurements[i] = new ReplacedParameterMeasurement(Types[currentNames[i]], f,
                     currentNames[i]);
-            }      
+            }
         }
- 
+
         #endregion
+
 
     }
 }

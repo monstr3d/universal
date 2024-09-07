@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
 
@@ -15,12 +12,10 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.BufferedData.Interfaces;
 using DataPerformer.Portable.Measurements;
-using DataPerformer.Portable.Time;
 
 using Event.Interfaces;
 using Event.Log.Database.Interfaces;
 using Event.Portable;
-using System.Threading;
 
 namespace DataPerformer.Event.Portable.Objects.BufferedData
 {

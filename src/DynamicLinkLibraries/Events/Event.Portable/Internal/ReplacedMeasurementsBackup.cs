@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using DataPerformer.Interfaces;
+
 using Event.Portable.Interfaces;
 
 namespace Event.Portable.Internal

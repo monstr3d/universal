@@ -116,6 +116,7 @@ namespace ZipUtils
             buff.CreateZip(unZipDirectory + outFile, name);
         }
 
+
         /// <summary>
         /// Crates default zip buffer
         /// </summary>
@@ -127,7 +128,7 @@ namespace ZipUtils
         {
             string fn = unZipDirectory + outFile;
             buff.CreateZip(fn, name);
-            byte[] b = new byte[0];
+            byte[] b = [];
             using (Stream stream = File.OpenRead(fn))
             {
                 b = new byte[stream.Length];
@@ -252,7 +253,7 @@ namespace ZipUtils
                     
                 }
             }
-        /*    using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
+   /*         using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
             {
                 s.SetLevel(9); // 0 - store only to 9 - means best compression
 

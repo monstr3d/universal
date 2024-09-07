@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using CategoryTheory;
 
 using Diagram.UI.Interfaces;
@@ -99,8 +97,8 @@ namespace Event.Portable
 
         void IIterator.Reset()
         {
-            enumerator = Create(consumer).GetEnumerator();
-            enumerator.MoveNext();
+            var enu = Create(consumer);
+            enumerator = enu.GetEnumerator();
         }
 
         #endregion

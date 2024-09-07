@@ -114,6 +114,7 @@ namespace Database.UI.Labels
 
         void INamedComponent.Remove()
         {
+
         }
 
         int INamedComponent.X
@@ -213,6 +214,7 @@ namespace Database.UI.Labels
 
         void INonstandardLabel.Initialize()
         {
+
         }
 
         void INonstandardLabel.Post()

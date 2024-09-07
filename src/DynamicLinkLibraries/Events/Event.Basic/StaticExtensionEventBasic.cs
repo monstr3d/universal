@@ -362,7 +362,7 @@ namespace Event.Basic
         /// <param name="filename">File name</param>
         public static void SaveToFile(this ISaveLog log, string filename)
         {
-            using (Stream stream = File.OpenWrite(filename + "." + log.Extension))
+            using (Stream stream = File.OpenWrite(filename + ".filelog"))//!! +"." + log.Extension))
             {
                 byte[] b = log.Bytes;
                 stream.Write(b, 0, b.Length);

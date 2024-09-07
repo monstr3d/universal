@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using CategoryTheory;
 
 using Diagram.UI;
@@ -200,7 +198,7 @@ namespace Event.Portable.Events
             if (eventReader != null)
             {
                 eventReader.Change -= Change;
-                eventReader.RemoveItself();
+                eventReader.DisdposeItself();
             }
             eventReader = null;
         }

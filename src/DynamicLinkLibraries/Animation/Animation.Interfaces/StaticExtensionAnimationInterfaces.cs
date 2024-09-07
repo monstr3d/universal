@@ -1,8 +1,8 @@
-﻿using Animation.Interfaces.Enums;
+﻿using System;
+
+
+using Animation.Interfaces.Enums;
 using Diagram.UI.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Animation.Interfaces
 {

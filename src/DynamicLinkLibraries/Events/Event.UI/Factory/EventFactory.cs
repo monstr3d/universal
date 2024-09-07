@@ -68,8 +68,10 @@ namespace Event.UI.Factory
                     "Data server", Properties.Resources.SeverEvent.ToBitmap(), 
                     null, true, false),
                     new ButtonWrapper(typeof(Basic.Data.LogHolder), "", "Saved log",
-                       Properties.Resources.log, null, true, false)
-                 };
+                       Properties.Resources.log, null, true, false),
+                      new ButtonWrapper(typeof(Basic.Data.LogIterator), "", "Log iterator",
+                       Properties.Resources.logIterator, null, true, false)
+              };
     
            /// <summary>
         /// Buttons of arrows

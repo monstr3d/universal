@@ -22,7 +22,7 @@ namespace Event.Basic.Data.Events
     [Serializable()]
     public class ImportedEventWriter : CategoryObject, ISerializable, IChildrenObject,
         IDataConsumer, IRealtimeUpdate, 
-        IPostSetArrow, IRemovableObject
+        IPostSetArrow, IDisposable
     {
 
         #region Fields
@@ -182,9 +182,9 @@ namespace Event.Basic.Data.Events
 
         #region IRemovableObject Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
-            eventWriter.RemoveItself();
+            eventWriter.DisdposeItself();
         }
 
         #endregion

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 using Event.Interfaces;
 
@@ -100,7 +96,8 @@ namespace Event.Basic.Logs
                             try
                             {
                                 o = formatter.Deserialize(stream);
-                            }
+                                
+                             }
                             catch
                             {
 
@@ -109,7 +106,21 @@ namespace Event.Basic.Logs
                             {
                                 break;
                             }
-                            if (i >= min)
+                            if (o is IEnumerable<object> enu)
+                            {
+                                foreach (var item in enu)
+                                {
+                                    if (i >= min)
+                                    {
+                                        yield return item;
+                                    }
+                                    else
+                                    {
+                                        ++i;
+                                    }
+                                }
+                            }
+                            else if (i >= min)
                             {
                                 ++i;
                                 yield return o;

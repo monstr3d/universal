@@ -1290,7 +1290,6 @@ namespace DataPerformer.UI.UserControls
 
         private void PerformIterator(IDataConsumer consumer, IIterator iterator)
         {
-            iterator.Reset();
             var mea = consumer.FindMeasurement(globalArg);
             var coord = mea.CreateCoordinateFunctions();
             if (coord != null)
@@ -2716,44 +2715,47 @@ Func<bool> stop)
             }
             TabPage page = tabControlMain.SelectedTab;
             IIterator iterator = Iterator;
-            object l = Log;
-            if ((l != null) | (iterator != null))
+            if (false)
             {
-                if (page == tabPageGraph | page == tabPageText)
+                object l = Log;
+                if ((l != null) | (iterator != null))
                 {
-                    if (analysisPause != null)
+                    if (page == tabPageGraph | page == tabPageText)
                     {
-                        analysisPause.Set();
-                        toolStripButtonPause.Enabled = true;
-                        toolStripButtonStop.Enabled = true;
-                        toolStripButtonStart.Enabled = false;
+                        if (analysisPause != null)
+                        {
+                            analysisPause.Set();
+                            toolStripButtonPause.Enabled = true;
+                            toolStripButtonStop.Enabled = true;
+                            toolStripButtonStart.Enabled = false;
+                            return;
+                        }
+                        mode = StaticExtensionEventInterfaces.RealtimeLogAnalysis;
+                        lan = new List<Tuple<double, Dictionary<string, object>>>();
+                        if (page == tabPageGraph)
+                        {
+                            if (l != null)
+                            {
+                                StartAnalysis(l);
+                            }
+                            if (iterator != null)
+                            {
+                                StartIterator(iterator);
+                            }
+                        }
+                        else
+                        {
+                            if (l != null)
+                            {
+                                StartTextAnalysis(l);
+                            }
+                            if (iterator != null)
+                            {
+                                StartTextAnalysis(iterator);
+                            }
+                        }
                         return;
                     }
-                    mode = StaticExtensionEventInterfaces.RealtimeLogAnalysis;
-                    lan = new List<Tuple<double, Dictionary<string, object>>>();
-                    if (page == tabPageGraph)
-                    {
-                        if (l != null)
-                        {
-                            StartAnalysis(l);
-                        }
-                        if (iterator != null)
-                        {
-                            StartIterator(iterator);
-                        }
-                    }
-                    else
-                    {
-                        if (l != null)
-                        {
-                            StartTextAnalysis(l);
-                        }
-                        if (iterator != null)
-                        {
-                            StartTextAnalysis(iterator);
-                        }
-                    }
-                    return;
                 }
             }
             if (page == tabPageGraph)

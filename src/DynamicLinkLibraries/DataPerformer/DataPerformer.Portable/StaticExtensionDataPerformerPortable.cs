@@ -2093,12 +2093,12 @@ namespace DataPerformer.Portable
         /// Finds measure
         /// </summary>
         /// <param name="consumer">Data consumer</param>
-        /// <param name="measure">Measure name</param>
+        /// <param name="measurement">Measure name</param>
         /// <param name="allowNull">The allow null sign</param>
         /// <returns>The measure</returns>
-        public static IMeasurement FindMeasurement(this IDataConsumer consumer, string measure, bool allowNull = false)
+        public static IMeasurement FindMeasurement(this IDataConsumer consumer, string measurement, bool allowNull = false)
         {
-            if (measure == null)
+            if (measurement == null)
             {
                 if (!allowNull)
                 {
@@ -2106,7 +2106,7 @@ namespace DataPerformer.Portable
                 }
                 return null;
             }
-            int n = measure.LastIndexOf(".");
+            int n = measurement.LastIndexOf(".");
             if (n < 0)
             {
                 if (!allowNull)
@@ -2115,8 +2115,8 @@ namespace DataPerformer.Portable
                 }
                 return null;
             }
-            string p = measure.Substring(0, n);
-            string s = measure.Substring(n + 1);
+            string p = measurement.Substring(0, n);
+            string s = measurement.Substring(n + 1);
             IAssociatedObject ass = consumer as IAssociatedObject;
             INamedComponent comp = ass.Object as INamedComponent;
             IDesktop d = comp.Desktop;
@@ -2147,7 +2147,7 @@ namespace DataPerformer.Portable
                     foreach (var cmm in cm.GetMeasurementObjects())
                     {
                         var nm = consumer.GetName(cmm);
-                        if (measure.Equals(nm))
+                        if (measurement.Equals(nm))
                         {
                             return cmm;
                         }

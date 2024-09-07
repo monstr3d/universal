@@ -19,7 +19,7 @@ namespace DataTableSelection
     /// <summary>
     /// Selection obtained from data set
     /// </summary>
-    [SerializableAttribute()]
+    [Serializable()]
     public class DataSetSelection : ArraySelectionCollection, ISerializable, ICategoryObject, IDataSetConsumer
     {
         /// <summary>
@@ -61,17 +61,17 @@ namespace DataTableSelection
         /// </summary>
         public DataSetSelection()
         {
-        }
 
+        }
 
         /// <summary>
         /// Deserialization constructor
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        public DataSetSelection(SerializationInfo info, StreamingContext context)
+        private DataSetSelection(SerializationInfo info, StreamingContext context)
         {
-            // table = info.GetValue("Table", typeof(DataTable)) as DataTable;
+
         }
 
         #endregion

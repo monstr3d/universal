@@ -723,14 +723,12 @@ namespace CategoryTheory
         /// Removes itself
         /// </summary>
         /// <param name="obj">Object</param>
-        static public void RemoveItself(this object obj)
+        static public void DisdposeItself(this object obj)
         {
-            if (obj is IDisposable)
+            if (obj is IDisposable d)
             {
-                IDisposable d = obj as IDisposable;
                 d.Dispose();
             }
-
         }
 
         /// <summary>

@@ -16,11 +16,36 @@ namespace Zip.Service
     [InitAssembly]
     public static class StaticExtensionZipService
     {
+
+        /// <summary>
+        /// Zip interface
+        /// </summary>
+        static IZipInterface zipInterface;
+
+        /// <summary>
+        /// Zip interface
+        /// </summary>
+        public static IZipInterface ZipInterface
+        {
+            get => zipInterface;
+            set
+            {
+                if (zipInterface != null)
+                {
+                    throw new InvalidOperationException();
+                }
+                zipInterface = value;
+            }
+        }
+  
+
         /// <summary>
         /// Inits itself
         /// </summary>
         public static void Init()
         {
+        
+        
         }
 
         /// <summary>
@@ -29,7 +54,7 @@ namespace Zip.Service
         static StaticExtensionZipService()
         {
             ZipListLoader.Singleton.AddListLoader();
-         //!!! LOG   StaticExtensionEventInterfaces.LogFactory = new ZipLog();
+            StaticExtensionEventInterfaces.LogFactory = new ZipLog();
         }
 
     }

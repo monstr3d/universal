@@ -5688,7 +5688,7 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 
 \begin{lemma}\label{top_a_u_lem}
 	If $\mathcal X$  is a locally compact, 
-	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$  there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
+	Hausdorff space then for any $x_0 \in  \mathcal X$ and any open neighborhood $\mathcal U\subset\mathcal X$ of $x_0$ with compact closure   there is a continuous function $a: \mathcal X \to \left[0,1 \right]$  such that following conditions hold:
 	\begin{itemize}
 		\item $a\left(\sX\right) = \left[0,1\right]$,
 		\item 	$a\left( x_0\right) = 1$,
@@ -5702,8 +5702,8 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 \end{lemma}
 \begin{proof}
 	From the Exercise \ref{top_completely_regular_exer} it turns out that that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}), i.e. there is a  continuous function $b: \mathcal X \to \left[0,1 \right]$  such that $b\left( x_0\right) = 1$ and $b\left(\mathcal X \setminus \mathcal U \right)= \{0\}$. A set 
-	$\sU' \bydef \left\{x \in \sX | a'\left(x \right) \neq 0\right\}$ is open. 
-	The set $\mathcal V = \left\{ x \in \mathcal X~|~c\left(x \right)> \frac{2}{3}  \right\}$ is open.
+	$\sU' \bydef \left\{x \in \sX | b\left(x \right) \neq 0\right\}$ is open. 
+	The set $\mathcal V = \left\{ x \in \mathcal X~|~b\left(x \right)> \frac{2}{3}  \right\}$ is open.
 	If $f: \R \to \R$ is a continuous function given by
 	\be\nonumber%\label{top_23_func_eqn}
 	f\left(t\right)=	\left\{\begin{array}{c l}
@@ -5713,7 +5713,7 @@ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{
 	\end{array}
 	\right.
 	\ee
-	then $a \bydef f\left(c \right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. If $\sX$ is locally connected and $\sU''$ is a component of $x_0$ is $\sU'$ (cf. Definition \ref{top_connected_component_defn}) then   from the Exercise \ref{top_loc_conn_exer} it follows that $\sU''$ is a quasi-component of $\sU'$ (cf. Definition \ref{top_quasi_component_defn}). If we define $a' \in C_c\left(\sX \right)$ by following way
+	then $a \bydef f\left(b\right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. If $\sX$ is locally connected and $\sU''$ is a component of $x_0$ is $\sU'$ (cf. Definition \ref{top_connected_component_defn}) then   from the Exercise \ref{top_loc_conn_exer} it follows that $\sU''$ is a quasi-component of $\sU'$ (cf. Definition \ref{top_quasi_component_defn}). If we define $a' \in C_c\left(\sX \right)$ by following way
 	$$
 	a'\left(x \right) \bydef \begin{cases}
 		a\left( x\right)& x \in \sU''\\
@@ -5727,14 +5727,17 @@ then the support $\supp a'$ is the closure of $\sU''$. From the Theorem \ref{top
 	\be\label{top_fx_eqn}
 	{f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
 	\ee
-	We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps.
+	We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps. 
 \end{definition}
+\begin{remark}\label{top_a_u_rem}
+If ${f}_{{x}_0}$ is an $x_0$-{stump} then $\supp f_{x_0}$ is compact, i.e. ${f}_{{x}_0}\in C_c\left(\sX\right)$, since it was assumed that the closure of $\sU$ is compact (cf. Lemma \ref{top_a_u_lem}).
+\end{remark}
 \begin{corollary}\label{com_a_u_cor}
 	Let $\mathcal X$ be a locally compact,   
 	Hausdorff space. For any $x_0 \in  \mathcal X$, and any open neighborhood $\mathcal U$ of $x_0$ there is an open neighborhood  $\mathcal V$ of $x_0$ such that the closure of $\mathcal V$ is a subset of $\mathcal U$.
 \end{corollary}
 \begin{proof}
-	If $a$ satisfies to the Lemma \ref{top_a_u_lem} then set $\mathcal V = \left\{x \in \mathcal X~|~ a\left(x \right)>0 \right\}$ is open and the closure of $\mathcal V$ is a subset of $\mathcal U$.
+	If $a$ satisfies to the Lemma \ref{top_a_u_lem} then a set $\mathcal V = \left\{x \in \mathcal X~|~ a\left(x \right)>0 \right\}$ is open and the closure of $\mathcal V$ is a subset of $\mathcal U$.
 \end{proof}
 
 \begin{definition}\label{top_stump_cov_defn}
@@ -5785,7 +5788,7 @@ then the support $\supp a'$ is the closure of $\sU''$. From the Theorem \ref{top
 \end{proof}
 
 \begin{remark}\label{top_covering_sum_compact_rem}
-	The support of the covering sum is compact since $\supp f_x$ is compact. 	
+From the Remark \ref{top_a_u_rem} it turns out that a support of any covering sum is compact.
 \end{remark}
 \begin{remark}
 	Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a covering  sum
@@ -5877,46 +5880,6 @@ then the support $\supp a'$ is the closure of $\sU''$. From the Theorem \ref{top
 	If $f \in C_c\left(\sX \right)$ then we define  $C_c\left( p\right)\left(f\right)\left(\widetilde x \right) \bydef f\circ p\left(\widetilde{x}\right)$. Since the map $p$ is continuous the map $C_c\left( p\right)\left(f\right)$ is a continuous map from  $\widetilde \sX$ to $\C$. From then Lemma \ref{top_compact_preimage_lem} it follows that $C_c\left( p\right)\left(f\right)\in C_c\left( \widetilde \sX\right)$. It is clear that $C_c\left( p\right)$ is injective $*$-homomorphism. The equation \eqref{top_compact_cc_c0_eqn} follows from \eqref{top_compact_cc_eqn} and the Definition \ref{c_c_closure_defn}, i.e. $C_0\left( p\right)$ can be obtained from $C_c\left( p\right)$ by topological completion.
 \end{proof}
 
-\begin{lemma}\label{top_cov_comp_lem}
-	Consider a commutative diagram 
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
-			& {\mathcal X}\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p$} (m-1-3)
-		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	with connected Hausdorff spaces and continuous maps. If both $p_1$ and $p_2$ are finite-fold coverings and the map $p$ is surjective then $p$ is also finite-fold covering.
-\end{lemma}
-\begin{proof}
-	Let $\widetilde x_2 \in \widetilde \sX_2$ and $x = p_2\left(\widetilde x_2 \right)$. Select an open neighborhood $\sU'$ evenly covered by $p_1$ and $p_2$ (cf. Definition \ref{top_covering_defn}). Let $\left\{\widetilde x^1_1, ...,\widetilde x^n_1\right\}\bydef p_2^{-1}\left(\widetilde x_2 \right)$, and let us select for any $j=1,...,n$ an open neighborhood $\widetilde{\sV}^j_1$ of $\widetilde x^j_1$ such that
-	$$
-	j \neq k \quad \Rightarrow \quad \widetilde{\sV}^j_1\cap \widetilde{\sV}^k_1=\emptyset,
-	$$
-	so one has
-	$$
-	\bigcup_{j=1}^n  \widetilde{\sV}^j_1 = \bigsqcup_{j=1}^n  \widetilde{\sV}^j_1
-	$$
-	A finite intersection 
-	$$
-	\sU \bydef \sU' \bigcap \left(\bigcap_{j=1}^n p\left(\widetilde{\sV}^j_1 \right)  \right) 
-	$$
-	is open and  evenly covered by $p_1$. Now one has
-	$$
-	p^{-1}_1\left( \sU\right) \bigcap \left(\bigsqcup_{j=1}^n  \widetilde{\sV}^j_1 \right) = \bigsqcup_{j=1}^n\left(p^{-1}_1\left( \sU\right)\bigcap   \widetilde{\sV}^j_1 \right) 
-	$$
-	and for all $j = 1,..., n$ a set $p^{-1}_1\left( \sU\right)\bigcap   \widetilde{\sV}^j_1$ is mapped homeomorphically onto $\sU$. If $ \widetilde\sU_2 \bydef p\left(\bigsqcup_{j=1}^n\left(p^{-1}_1\left( \sU\right)\bigcap   \widetilde{\sV}^j_1 \right) \right)$ then 
-	\begin{itemize}
-		\item $\widetilde\sU_2$ is an open neighborhood of $\widetilde x_2$,
-		\item $p^{-1}\left( \widetilde\sU_2\right) = \bigsqcup_{j=1}^n\left(p^{-1}_1\left( \sU\right)\bigcap   \widetilde{\sV}^j_1 \right)$,
-		\item for all $j = 1,..., n$ a set $p^{-1}_1\left( \sU\right)\bigcap   \widetilde{\sV}^j_1$ is mapped homeomorphically onto $\widetilde\sU_2$.
-	\end{itemize} 
-\end{proof}
 
 \section{Weak fundamental groups}
 \paragraph{}
@@ -5928,7 +5891,7 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 	Any connected, path connected, simply connected  space is weakly simply connected.
 \end{remark}
 \begin{remark}
-	The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_fin_thm} below).
+	The Definition \ref{simply_connected_defn} can be regarded as a generalization of \ref{top_weakly_simply_connected_defn} one (cf. Theorem \ref{top_finite_covering_thm} below).
 \end{remark}
 
 \begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
@@ -5972,7 +5935,7 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 \end{defn}
 \begin{definition}\label{top_gen_path_defn}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n-1$.
+	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. A weak path $\left(\sU_{1},...,\sU_{n}\right)$ (cf. Definition \ref{top_weak_path_defn}) on $\sX$  is said to be an  $\mathfrak{A}$-\textit{path} if  $\sU_j \in \mathfrak{A}$ for all $j = 1,...,n$.
 \end{definition}
 
 
@@ -6040,6 +6003,7 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 \begin{rem}
 	Any pair of closed path is composable.
 \end{rem}
+
 \begin{exercise}\label{top_path_lift_exer}
 	Let $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ be a pointed covering, and let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ 
 	be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
@@ -6064,7 +6028,15 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 	We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
 \end{definition}
 
-
+\begin{exercise}
+ Prove that $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are {homotopically equivalent} if and only if at least one of following paths
+ \bean
+\mathfrak p^*_1 \circ \mathfrak p_2,\\
+\mathfrak p_2 \circ \mathfrak p^*_1,\\
+\mathfrak p^*_2 \circ \mathfrak p_1
+ \eean 
+ is contractible.
+\end{exercise}
 From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
 \begin{definition}\label{top_weak_fundamental_group_defn}
 	If
@@ -6091,7 +6063,12 @@ $$
 \mathfrak p_1, \mathfrak p_2 \in  \mathfrak{Paths} \left( x_0, x\right)~~ \mathfrak p_1\sim_{\left( x_0, x\right)} \mathfrak p_2 ~~\Leftrightarrow ~~ \mathfrak p^*_1\circ  \mathfrak p_2 \text{ is contractible (cf. Definition \ref{top_contactible_path_defn})}.
 $$
 A class of equivalence of $\mathfrak p \in \mathfrak{Paths} \left( x_0, x\right)$ will be denoted by $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$
-Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$ There is a natural map 
+Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where 
+\be\label{top_paths_eqn}
+x\in \sX,\\
+\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.
+\ee
+ There is a natural map 
 \be
 \begin{split}
 	\widetilde p: \widetilde \sX\to \sX,\\
@@ -6106,7 +6083,10 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 	If $\sX$ is a connected,  weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}) space then a family of sets given by the equation \eqref{top_u_path_eqn} a {basis} for a topology on $\widetilde\sX$. 
 \end{lemma}
 \begin{proof}
-	One needs check conditions (a) and (b) of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From 
+	One needs prove conditions (a) and (b) of the Definition \ref{top_base_defn}.\\
+	(a) From the Lemma \ref{top_gen_path_lem} it follows that the set $\mathfrak{Paths} \left( x_0, x\right)$ (cf. \eqref{top_paths_eqn}) is not empty. For any $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\in \widetilde \sX$ the given by \eqref{top_u_path_eqn} set $ \widetilde \sU_{\mathfrak p}$ is a neighborhood of $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$,
+	\\
+	 (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From 
 	\eqref{top_u_path_eqn} it turns out that
 	\be\label{top_up_path_eqn}
 	\left[\mathfrak p'\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}= \left[\mathfrak p''\right]_{\left( x_0, \widetilde p\left(\widetilde x \right)\right)}
@@ -6146,11 +6126,10 @@ So one has the following Theorem.
 	$$
 	\pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
 	$$
-	where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}). 
-	
+	where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_group_of_covering_transformations_defn}). 
 \end{exercise}
 \begin{lemma}\label{top_lex_square_lem}
-	The ordered square $I^2_o$ (cf. \ref{top_lex_square_empt}) is weakly simply connected (cf. Definition \ref{top_weakly_simply_connected_defn}).
+	The described in \ref{top_lex_square_empt} ordered square $I^2_o$  is weakly simply connected (cf. Definition \ref{top_weakly_simply_connected_defn}).
 \end{lemma}
 
 \begin{proof}
@@ -6159,7 +6138,7 @@ So one has the following Theorem.
 	For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
 	From the Lemma \ref{top_gen_path_lem} it follows that there is a $\left\{\sU_x\right\}_{x \in \sX}$-path $\left( \sU_1, ..., \sU_{n}\right)$ 
 	(cf. Definition \ref{top_gen_path_defn})  from $\left(0,0\right)$ to $\left(1,1\right)$. 
-	If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected (cf. \cite{counter_topology}). 
+	If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then according to \ref{top_lex_square_empt} both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected. 
 	However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. Let $\widetilde x_0$ be such that $p\left(\widetilde x_0 \right) = \left(0,0\right)$. Let $\widetilde \sU_1$ be a connected component of $p^{-1}\left( \sU_1\right)$ such that $\widetilde x_0\in \widetilde \sU_1$. There is a homeomorphism $\phi_1 : \sU_1\xrightarrow{\cong}  \widetilde \sU_1$. If $x_1 \in \sU_1\cap \sU_2$ the there is a unique $\widetilde x_1 \in \widetilde \sU_1$ such that $p\left(\widetilde x_1 \right)= x_1$.  Let $\widetilde \sU_2$ be a connected component of $p^{-1}\left( \sU_2\right)$ such that $\widetilde x_1\in \widetilde \sU_2$. There is a homeomorphism $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ and $\widetilde \sU_1\cap \widetilde \sU_2\neq \emptyset$. Having homeomorphisms $\sU_1\xrightarrow{\cong}  \widetilde \sU_1$ and  $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ one has a homeomorphism $\phi_2:\sU_1\cup \sU_2 \xrightarrow{\cong}  \widetilde \sU_1\cup \widetilde \sU_2$. Continuing we obtain a continuous map 
 	$$
 	\phi^0_n: \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX
@@ -6223,7 +6202,7 @@ So one has the following Theorem.
 The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So instead the "regular covering"  we will use "transitive covering"  which is explained below.
 
 \begin{definition}\label{top_transitive_defn}
-	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
+	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_group_of_covering_transformations_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
 	\be\label{top_transitive_eqn}
 	\forall \widetilde x \in \widetilde\sX \quad	G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)\widetilde x = p^{-1}\left( p\left( \widetilde x\right) \right).
 	\ee

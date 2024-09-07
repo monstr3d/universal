@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using DataPerformer.Interfaces;
 
 namespace DataPerformer.Portable.Measurements
@@ -52,7 +49,7 @@ namespace DataPerformer.Portable.Measurements
             {
                 throw new Exception();
             }
-            base.parameter = ownParameter;
+            parameter = ownParameter;
             ownParameter = null;
         }
 

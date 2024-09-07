@@ -34,7 +34,7 @@ namespace Event.Interfaces
 
         static IEventLog currentLog;
 
-        static ILogLoader listLoader = new LogListLoaderCollection(new ILogLoader[0]);
+        static ILogLoader listLoader = new LogListLoaderCollection([]);
 
 
         static List<Func<object, object>> loadList = new List<Func<object, object>>();
@@ -412,10 +412,8 @@ namespace Event.Interfaces
             object[] obj = null;
             foreach (object o in list)
             {
-                if (o is Tuple<Dictionary<string, object>, DateTime>)
+                if (o is Tuple<Dictionary<string, object>, DateTime> t)
                 {
-                    Tuple<Dictionary<string, object>, DateTime> t =
-                        o as Tuple<Dictionary<string, object>, DateTime>;
                     Dictionary<string, object> d = t.Item1;
                     List<string> l = new List<string>(d.Keys);
                     foreach (string key in l)
@@ -423,10 +421,9 @@ namespace Event.Interfaces
                         d[key] = d[key].Transform(trans);
                     }
                 }
-                if (o is Tuple<string, object[], DateTime>)
+                if (o is Tuple<string, object[], DateTime> tt)
                 {
-                    Tuple<string, object[], DateTime> t = o as Tuple<string, object[], DateTime>;
-                    object[] ob = t.Item2;
+                    object[] ob = tt.Item2;
                     obj = ob;
                     for (int i = 0; i < ob.Length; i++)
                     {

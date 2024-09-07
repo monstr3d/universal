@@ -20,6 +20,17 @@ namespace Event.Interfaces
 
         List<object> l = new List<object>();
 
+        #endregion
+
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public MemoryLog()
+        {
+
+        }
 
         #endregion
 
@@ -38,7 +49,7 @@ namespace Event.Interfaces
 
         void IEventLog.Write(Dictionary<string, object> data, DateTime time)
         {
-           /*!!! foreach (object o in data.Values)
+       /*     foreach (object o in data.Values)
             {
                 TypeInfo type = IntrospectionExtensions.GetTypeInfo(o.GetType());
                 if (type.IsClass)

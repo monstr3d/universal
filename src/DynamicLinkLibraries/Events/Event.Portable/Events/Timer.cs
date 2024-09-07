@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
+
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Measurements;
+
 using Event.Interfaces;
 
 
@@ -14,8 +13,8 @@ namespace Event.Portable.Events
     /// <summary>
     /// Timer
     /// </summary>
-    public class Timer : CategoryObject, ITimerEvent, 
-          IRemovableObject, INativeEvent, ICalculationReason
+    public class Timer : CategoryObject, ITimerEvent,
+          IDisposable, INativeEvent, ICalculationReason, IMeasurements
     {
         #region Fields
 
@@ -29,7 +28,10 @@ namespace Event.Portable.Events
 
         private string calculationReason = "";
 
+        IMeasurement measurement;
+
         event Action onPrepare = () => { };
+
 
         #endregion
 
@@ -43,18 +45,19 @@ namespace Event.Portable.Events
             timer = StaticExtensionEventInterfaces.TimerEventFactory.NewTimer;
             Action act = Event;
             locked = act.LockedAction();
+            double a = 0;
+            measurement = new ReplacedParameterMeasurement(a, GetTime, "Time");
         }
 
 
         #endregion
- 
-        #region IRemovableObject Members
 
-        void IRemovableObject.RemoveObject()
+        #region IDisposable Members
+
+        void IDisposable.Dispose()
         {
-            timer.RemoveItself();
+            timer.DisdposeItself();
         }
-
 
         #endregion
 
@@ -155,7 +158,6 @@ namespace Event.Portable.Events
 
         #endregion
 
- 
         #region Private Members
 
         void Event()
@@ -165,5 +167,23 @@ namespace Event.Portable.Events
 
         #endregion
 
+        object GetTime() =>
+            DateTime.Now.ToOADate();
+
+        #region IMeasurement Members
+
+
+        IMeasurement IMeasurements.this[int number] => measurement;
+
+        int IMeasurements.Count => 1;
+
+        bool IMeasurements.IsUpdated { get; set; } = false;
+
+        void IMeasurements.UpdateMeasurements()
+        {
+
+        }
+
+        #endregion
     }
 }

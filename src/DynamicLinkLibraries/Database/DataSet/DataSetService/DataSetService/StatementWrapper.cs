@@ -15,8 +15,8 @@ namespace DataSetService
     /// <summary>
     /// Wrapper of statement
     /// </summary>
-    [SerializableAttribute()]
-    public class StatementWrapper : AbstractDataProvider, IRemovableObject
+    [Serializable()]
+    public class StatementWrapper : AbstractDataProvider, IDisposable
     {
 
         #region Fields
@@ -55,6 +55,7 @@ namespace DataSetService
         /// </summary>
         public StatementWrapper()
         {
+        
         }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace DataSetService
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected StatementWrapper(SerializationInfo info, StreamingContext context)
+        private StatementWrapper(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
             factoryName = info.GetValue("FactoryName", typeof(string)) + "";
@@ -182,7 +183,7 @@ namespace DataSetService
 
         #region IRemovableObject Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if (dataSet != null)
             {

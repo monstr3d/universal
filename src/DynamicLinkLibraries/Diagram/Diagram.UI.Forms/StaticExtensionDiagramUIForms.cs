@@ -372,9 +372,13 @@ namespace Diagram.UI
         /// <param name="control">The control</param>
         public static void PostSet(this Control control)
         {
-            if (control is IPostSet)
+            if (control is IPostSet post)
             {
-                (control as IPostSet).Post();
+                post.Post();
+            }
+            if (control is INonstandardLabel ns)
+            {
+                ns.Post();
             }
             foreach (Control c in control.Controls)
             {

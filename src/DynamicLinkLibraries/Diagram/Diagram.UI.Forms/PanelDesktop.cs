@@ -303,16 +303,17 @@ namespace Diagram.UI
             }
             foreach (object o in Objects)
             {
-                if (o is Control)
+                if (o is Control post)
                 {
-                    (o as Control).PostSet();
+                    post.PostSet();
                 }
+
             }
             foreach (object o in Arrows)
             {
-                if (o is Control)
+                if (o is Control control)
                 {
-                    (o as Control).PostSet();
+                    control.PostSet();
                 }
             }
         }
@@ -2400,7 +2401,6 @@ namespace Diagram.UI
                     post.PostSerialize();
                 }
             }
-
         }
 
         internal void Add(ICategoryObject ob, int x, int y)

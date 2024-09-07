@@ -33,7 +33,9 @@ namespace Zip.Service
             get
             {
                 byte[] b = list.LogListToBytes();
-                b = b.CreateDefaultZipBuffer("Zip.zip", (DateTime.Now + "").Replace("/", "_").Replace(":", "_"));
+
+
+              //!!!  b = b.CreateDefaultZipBuffer("Zip.zip", (DateTime.Now + "").Replace("/", "_").Replace(":", "_"));
                 return b;
             }
             set

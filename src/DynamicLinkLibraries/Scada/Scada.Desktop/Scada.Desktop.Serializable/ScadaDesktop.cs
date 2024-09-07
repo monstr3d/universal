@@ -63,9 +63,9 @@ namespace Scada.Desktop.Serializable
                  Event.Interfaces.IEventLog log = Event.Interfaces.StaticExtensionEventInterfaces.CurrentLog;
                  if (log != null)
                  {
-                     if (log is IDisposable)
+                     if (log is IDisposable disp)
                      {
-                         (log as IDisposable).Dispose();
+                         disp.Dispose();
                      }
                  }
                  Event.Interfaces.StaticExtensionEventInterfaces.NewLog = null;

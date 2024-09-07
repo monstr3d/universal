@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 
 using CategoryTheory;
-
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using BaseTypes.Attributes;
 
+using AssemblyService.Attributes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Runtime;
+using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
 using Event.Portable.Arrows;
 using Event.Portable.Interfaces;
 using Event.Portable.Internal;
-using DataPerformer.Portable.Interfaces;
-using AssemblyService.Attributes;
 
 namespace Event.Portable
 {
@@ -384,9 +380,8 @@ namespace Event.Portable
                     {
                         try
                         {
-                            if (obj is Tuple<INativeReader, object[], DateTime>)
-                            {
-                                Tuple<INativeReader, object[], DateTime> t = obj as Tuple<INativeReader, object[], DateTime>;
+                            if (obj is Tuple<INativeReader, object[], DateTime> t)
+                            { 
                                 p.DateTime = t.Item3;
                                 t.Item1.Read(t.Item2);
                                 act(t);
@@ -422,7 +417,6 @@ namespace Event.Portable
            ILogReader input, Func<object, bool> stop, string reason,
             TimeType timeType, bool isAbsoluteTime)
         {
-            ILogReader lr = input as ILogReader;
             IEnumerable<object> enu = input.Load(0, 0);
             return dataConsumer.RealtimeAnalysis(enu, stop, reason, timeType, isAbsoluteTime);
         }
@@ -442,22 +436,20 @@ namespace Event.Portable
         {
             cadr = 0;
             IComponentCollection cc = dataConsumer.CreateCollection(reason);
-            if (input is ILogReader)
+            if (input is ILogReader lr)
             {
-                ILogReader lr = input as ILogReader;
                 cc.ForEach((ICalculationReason re) => { re.CalculationReason = reason; });
                 cc.ForEach((IRealTimeStartStop ss) => { ss.Start(); });
                 dataConsumer.RealtimeAnalysis(lr, stop, reason, timeType, isAbsoluteTime);
                 cc.ForEach((IRealTimeStartStop ss) => { ss.Stop(); });
                 return;
             }
-            if (input is ILogReaderCollection)
+            if (input is ILogReaderCollection lc)
             {
-//                IComponentCollection cc = dataConsumer.CreateCollection(reason);
                 cc.ForEach((ICalculationReason re) => { re.CalculationReason = reason; });
                 cc.ForEach((IRealTimeStartStop ss) => { ss.Start(); });
-                IEnumerable<ILogReader> lr = (input as ILogReaderCollection).Readers;
-                foreach (ILogReader r in lr)
+                IEnumerable<ILogReader> lrc = lc.Readers;
+                foreach (ILogReader r in lrc)
                 {
                     cc.ForEach((IRealTimeStartStop ss) => { ss.Start(); });
                     bool b = dataConsumer.RealtimeAnalysis(r, stop, reason, timeType, isAbsoluteTime);
@@ -475,7 +467,6 @@ namespace Event.Portable
                 IIterator it = input as IIterator;
                 cc.ForEach((ICalculationReason re) => { re.CalculationReason = reason; });
                 cc.ForEach((IRealTimeStartStop ss) => { ss.Start(); });
-//                bool b = dataConsumer.RealtimeAnalysis(it, stop, reason, timeType, isAbsoluteTime);
                 cc.ForEach((IRealTimeStartStop ss) => { ss.Stop(); });
                 return;
             }
@@ -535,20 +526,19 @@ namespace Event.Portable
             {
                 IRealtime r = disp as IRealtime;
                 RealtimeProvider p = r.TimeProvider as RealtimeProvider;
-                Dictionary<IReplacedMeasurementParameter, string> d;
+                Dictionary<IReplacedMeasurementParameter, string> replacedMeasurements;
                 IEnumerable<object> list = dataConsumer.CreateList(input,
-                    collection, out d);
+                    collection, out replacedMeasurements);
                 DateTime centuryBegin = new DateTime(2001, 1, 1);
-                using (ReplacedMeasurementsBackup backup = new ReplacedMeasurementsBackup(d, r))
+                using (ReplacedMeasurementsBackup backup = new ReplacedMeasurementsBackup(replacedMeasurements, r))
                 {
                     Dictionary<string, object>[] output = backup.Output;
                     foreach (object obj in list)
                     {
                         try
                         {
-                            if (obj is Tuple<INativeReader, object[], DateTime>)
+                            if (obj is Tuple<INativeReader, object[], DateTime> t)
                             {
-                                Tuple<INativeReader, object[], DateTime> t = obj as Tuple<INativeReader, object[], DateTime>;
                                 p.DateTime = t.Item3;
                                 t.Item1.Read(t.Item2);
                                 if (stop(t))
@@ -565,16 +555,17 @@ namespace Event.Portable
                         }
                         try
                         {
-                            Tuple<DateTime, INativeEvent, Dictionary<string, object>> tuple = obj
-                                as Tuple<DateTime, INativeEvent, Dictionary<string, object>>;
-                            Dictionary<string, object> dob = tuple.Item3;
-                            output[0] = tuple.Item3;
-                            DateTime dt = tuple.Item1;
-                            p.DateTime = tuple.Item1;
-                            tuple.Item2.Force();
-                            if (stop(tuple))
+                            if (obj is Tuple<DateTime, INativeEvent, Dictionary<string, object>> tuple)
                             {
-                                return true;
+                                Dictionary<string, object> dob = tuple.Item3;
+                                output[0] = tuple.Item3;
+                                DateTime dt = tuple.Item1;
+                                p.DateTime = tuple.Item1;
+                                tuple.Item2.Force();
+                                if (stop(tuple))
+                                {
+                                    return true;
+                                }
                             }
                         }
                         catch (Exception exception)
@@ -626,15 +617,13 @@ namespace Event.Portable
                     object input, Func<object, bool> stop, string reason,
                     TimeType timeType, bool isAbsoluteTime)
         {
-            if (input is ILogReader)
+            if (input is ILogReader lr)
             {
-                ILogReader lr = input as ILogReader;
                 return dataConsumer.RealtimeAnalysisEnumerable(lr, stop, reason, timeType, isAbsoluteTime);
             }
-            if (input is ILogReaderCollection)
+            if (input is ILogReaderCollection lrc)
             {
-                ILogReaderCollection lr = input as ILogReaderCollection;
-                return dataConsumer.RealtimeAnalysisEnumerable(lr, stop, reason, timeType, isAbsoluteTime);
+                return dataConsumer.RealtimeAnalysisEnumerable(lrc, stop, reason, timeType, isAbsoluteTime);
             }
             if (input is IIterator)
             {
@@ -893,10 +882,9 @@ namespace Event.Portable
             Dictionary<string, INativeReader> dnr = new Dictionary<string, INativeReader>();
             components.ForEach((INativeReader reader) =>
             {
-                if (reader is IAssociatedObject)
+                if (reader is IAssociatedObject ao)
                 {
-                    string name = (consumer as IAssociatedObject).GetRelativeName(
-                        reader as IAssociatedObject);
+                    string name = (consumer as IAssociatedObject).GetRelativeName(ao);
                     dnr[name] = reader;
                 }
             });
@@ -1045,8 +1033,7 @@ namespace Event.Portable
             Dictionary<string, object> dcurrent = new Dictionary<string, object>();
             List<object> used = new List<object>();
             List<object[]> usedArrays = new List<object[]>();
-            Queue<Tuple<DateTime, INativeEvent, Dictionary<string, object>>> queue =
-                new Queue<Tuple<DateTime, INativeEvent, Dictionary<string, object>>>();
+            var queueReplaced = new Queue<Tuple<DateTime, INativeEvent, Dictionary<string, object>>>();
             Tuple<DateTime, INativeEvent, Dictionary<string, object>> tp = null;
             IEnumerable<object> en = list;
             Func<IEnumerable<object>, IEnumerable<object>> f = EnumerableTranformation;
@@ -1057,30 +1044,25 @@ namespace Event.Portable
             foreach (object current in en)
             {
                 ++cadr;
-                if (tp != null)
+                if (current is Tuple<Dictionary<string, object>, DateTime> cc)
                 {
-                    if (current is Tuple<Dictionary<string, object>, DateTime>)
+                    Dictionary<string, object> dc = cc.Item1;
+                    foreach (string key in dc.Keys)
                     {
-                        Dictionary<string, object> dc = (current as
-                            Tuple<Dictionary<string, object>, DateTime>).Item1;
-                        foreach (string key in dc.Keys)
-                        {
-                            dcurrent[key] = dc[key];
-                        }
-                    }
-                    else
-                    {
-                        tp = null;
-                        while (queue.Count > 0)
-                        {
-                            dcurrent = new Dictionary<string, object>();
-                            yield return queue.Dequeue();
-                        }
+                        dcurrent[key] = dc[key];
                     }
                 }
-                if (current is Tuple<string, object[], DateTime>)
+                else
                 {
-                    Tuple<string, object[], DateTime> t = current as Tuple<string, object[], DateTime>;
+                    tp = null;
+                    while (queueReplaced.Count > 0)
+                    {
+                        dcurrent = new Dictionary<string, object>();
+                        yield return queueReplaced.Dequeue();
+                    }
+                }
+                if (current is Tuple<string, object[], DateTime> t)
+                {
                     object[] ob = t.Item2;
                     if (ob.Length > 0)
                     {
@@ -1092,12 +1074,15 @@ namespace Event.Portable
                     }
                     yield return new Tuple<INativeReader, object[], DateTime>(dnr[t.Item1], ob, t.Item3);
                 }
-                if (current is Tuple<string, DateTime>)
+                if (current is Tuple<string, DateTime> ts)
                 {
-                    Tuple<string, DateTime> t = current as Tuple<string, DateTime>;
-                    tp = new Tuple<DateTime, INativeEvent, Dictionary<string, object>>(t.Item2,
-                    dna[t.Item1], dcurrent);
-                    queue.Enqueue(tp);
+                    if (dcurrent.Count > 0)
+                    {
+                        tp = new Tuple<DateTime, INativeEvent, Dictionary<string, object>>(ts.Item2,
+                        dna[ts.Item1], dcurrent);
+                        queueReplaced.Enqueue(tp);
+                        dcurrent.Clear();
+                    }
                 }
             }
         }
