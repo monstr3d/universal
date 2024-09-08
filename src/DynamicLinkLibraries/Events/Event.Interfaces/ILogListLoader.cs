@@ -19,7 +19,7 @@ namespace Event.Interfaces
         /// <param name="begin">Begin</param>
         /// <param name="end">End</param>
         /// <returns>Log reader</returns>
-        object Load(string url);
+        object Load(string url, uint begin, uint end);
 
     }
 }

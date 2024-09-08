@@ -40,6 +40,20 @@ namespace BasicEngineering.UI.Factory
         }
 
         /// <summary>
+        /// The "has log" sign
+        /// </summary>
+        public static  bool HasLog
+        {
+            get => Properties.Settings.Default.HasLog;
+            set
+            {
+                Properties.Settings.Default.HasLog = value;
+                Properties.Settings.Default.Save();
+                Event.Interfaces.StaticExtensionEventInterfaces.HasLog = value;
+            }
+        }
+
+        /// <summary>
         /// Sound directory
         /// </summary>
         public static string SoundDirectory

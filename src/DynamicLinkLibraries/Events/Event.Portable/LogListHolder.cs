@@ -56,7 +56,7 @@ namespace Event.Portable
                 {
                     return;
                 }
-                reader = value.LoadLog();
+                reader = value.LoadLog(begin, end);
                 if (reader == null)
                 {
                     reader = ZeroReader.Singleton;

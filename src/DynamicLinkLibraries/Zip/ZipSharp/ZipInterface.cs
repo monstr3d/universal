@@ -7,10 +7,9 @@ namespace ZipSharp
     {
         byte[] IZipInterface.this[string filename]
         {
-            get => Unzip(filename);;
+            get => Unzip(filename);
             set => CreateZip(value, filename, "a");
         }
-
         void CreateZip(byte[] buff, string outFile, string name)
         {
             if (File.Exists(outFile))

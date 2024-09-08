@@ -1313,6 +1313,7 @@ namespace DataPerformer.UI.UserControls
             var coll = consumer.GetDependentCollection();
             coll.ForEach((IRunning s) => s.IsRunning = true);
             MeasurementSeries[] series = null;
+            ctx = new();
             dicto = consumer.PerformIterator(iterator, globalArg, globalFunc, out series, () => ctx.Token.IsCancellationRequested);
         }
 

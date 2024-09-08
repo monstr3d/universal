@@ -69,22 +69,23 @@ namespace Chart.Drawing.Interfaces
                 if (b)
                 {
                     size[0, 0] = x;
-                    size[1, 0] = x;
-                    size[0, 1] = y.Min();
+                    size[0, 1] = x;
+                    size[1, 0] = y.Min();
                     size[1, 1] = y.Max();
                     b = false;
+                    continue;
                 }
                 if (size[0, 0] > x)
                 {
                     size[0, 0] = x;
                 }
-                if (size[1, 0] < x)
+                if (size[0, 1] < x)
                 {
-                    size[1, 0] = x;
+                    size[0, 1] = x;
                 }
-                if (size[0, 1] > y.Min())
+                if (size[1, 0] > y.Min())
                 {
-                    size[0, 1] = y.Min();
+                    size[1, 0] = y.Min();
                 }
                 if (size[1, 1] < y.Max())
                 {

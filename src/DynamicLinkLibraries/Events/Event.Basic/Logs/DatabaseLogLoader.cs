@@ -11,7 +11,7 @@ namespace Event.Basic.Logs
     class DatabaseLogLoader : ILogLoader
     {
  
-        object ILogLoader.Load(string url)
+        object ILogLoader.Load(string url, uint begin, uint end)
         {
             object loader =  url.LogFromUrl();
             return loader;

@@ -67,26 +67,28 @@ namespace Chart.Drawing.Painters
             }
             int[] size = performer.CanvasSize;
             performer.Transform(xx.X, xx.Y[0], pointStart);
+            var lastX = pointStart[0];
+            var lastY = pointStart[1];
             for (int i = 1; i < points.Count; i++)
             {
                 xx = points[i];
                 performer.Transform(xx.X, xx.Y[0], pointFinish);
-                int dx = Math.Abs(pointStart[0] - pointFinish[0]);
-                int dy = Math.Abs(pointStart[1] - pointFinish[1]);
-                if ((dx < performer.StepX) | (dy < performer.StepY))
+                int dx = Math.Abs(lastX - pointFinish[0]);
+                int dy = Math.Abs(lastY - pointFinish[1]);
+                if ((dx <= performer.StepX) & (dy <= performer.StepY))
                 {
                     continue;
                 }
-                int x1 = pointStart[0];
-                int y1 = pointStart[1];
+                int x1 = lastX;
+                int y1 = lastY;
                 int x2 = pointFinish[0];
                 int y2 = pointFinish[1];
                 for (int k = 0; k < pens.Length; ++k)
                 {
                     g.DrawLine(pens[k], x1, y1 + 2 * k, x2, y2 + 2 * k);
                 }
-                pointStart[0] = pointFinish[0];
-                pointStart[1] = pointFinish[1];
+                lastX = pointFinish[0];
+                lastY = pointFinish[1];
             }
         }
 

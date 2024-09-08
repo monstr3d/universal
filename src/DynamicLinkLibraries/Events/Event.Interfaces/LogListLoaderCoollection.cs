@@ -35,11 +35,11 @@ namespace Event.Interfaces
 
         #region  ILogLoader  Members
 
-        object ILogLoader.Load(string url)
+        object ILogLoader.Load(string url, uint begin, uint end)
         {
             foreach (ILogLoader loader in loaders)
             {
-                object reader = loader.Load(url);
+                object reader = loader.Load(url, begin, end);
                 if (reader != null)
                 {
                     return reader;

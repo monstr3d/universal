@@ -22,7 +22,7 @@ namespace Event.Portable.Events
 
         protected TimeSpan timeSpan;
 
-        protected event Action ev = () => { };
+        protected event Action ev;
 
         protected Action locked;
 
@@ -31,6 +31,8 @@ namespace Event.Portable.Events
         IMeasurement measurement;
 
         event Action onPrepare = () => { };
+
+        DateTime start;
 
 
         #endregion
@@ -113,6 +115,7 @@ namespace Event.Portable.Events
                     {
                         return;
                     }
+                    start = DateTime.Now;
                     if (value)
                     {
                         onPrepare();
@@ -153,7 +156,7 @@ namespace Event.Portable.Events
         /// </summary>
         void INativeEvent.Force()
         {
-            ev();
+            ev?.Invoke();
         }
 
         #endregion
@@ -162,13 +165,21 @@ namespace Event.Portable.Events
 
         void Event()
         {
-            ev();
+            ev?.Invoke();
         }
 
         #endregion
 
-        object GetTime() =>
-            DateTime.Now.ToOADate();
+        object GetTime()
+        {
+            var dt = DateTime.Now - start;
+            var a = dt.TotalSeconds;
+            if (a > 100)
+            {
+
+            }
+            return a;
+        }
 
         #region IMeasurement Members
 

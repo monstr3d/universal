@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -6,7 +7,7 @@ using Event.Interfaces;
 
 namespace Event.Basic.Logs
 {
-    class RealtimeReadFromFileLog : ILogLoader
+    public class RealtimeReadFromFileLog : ILogLoader
     {
         static internal readonly RealtimeReadFromFileLog Singleton = new RealtimeReadFromFileLog();
 
@@ -21,7 +22,7 @@ namespace Event.Basic.Logs
 
         #region ILogLoader Members
 
-        object ILogLoader.Load(string url)
+        object ILogLoader.Load(string url,  uint begin, uint end)
         {
             if (!File.Exists(url))
             {
@@ -32,7 +33,7 @@ namespace Event.Basic.Logs
             {
                 return null;
             }
-            return new FileLoader(url);
+            return new FileLoader(url, begin, end);
         }
 
         #endregion
@@ -45,10 +46,13 @@ namespace Event.Basic.Logs
 
             string fileName;
 
+            private uint begin, end;
      
-            internal FileLoader(string fileName)
+            internal FileLoader(string fileName, uint begin, uint end)
             {
                 this.fileName = fileName;
+                this.begin = begin;
+                this.end = end; 
             }
 
             int ILogReader.FullLength
@@ -83,9 +87,9 @@ namespace Event.Basic.Logs
                     {
                         long n = stream.Length;
                         int i = 0;
-                        uint min = begin;
-                        uint max = end;
-                        if ((begin == 0) & (end == 0))
+                        uint min = Math.Max(begin, this.begin);
+                        uint max = (end == 0) ? this.end : end;
+                        if ((min == 0) & (max == 0))
                         {
                             min = 0;
                             max = uint.MaxValue;
@@ -96,7 +100,6 @@ namespace Event.Basic.Logs
                             try
                             {
                                 o = formatter.Deserialize(stream);
-                                
                              }
                             catch
                             {
@@ -110,8 +113,13 @@ namespace Event.Basic.Logs
                             {
                                 foreach (var item in enu)
                                 {
+                                    if (i >=  max)
+                                    {
+                                        break;
+                                    }
                                     if (i >= min)
                                     {
+                                        ++i;
                                         yield return item;
                                     }
                                     else

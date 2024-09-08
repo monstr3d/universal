@@ -137,9 +137,9 @@ namespace Event.Interfaces
         /// </summary>
         /// <param name="url">Url</param>
         /// <returns>Log reader</returns>
-        public static object LoadLog(this string url)
+        public static object LoadLog(this string url, uint begin, uint end)
         {
-            return listLoader.Load(url);
+            return listLoader.Load(url, begin, end);
         }
 
     
@@ -210,12 +210,22 @@ namespace Event.Interfaces
         }
 
         /// <summary>
+        /// The "has log" sign
+        /// </summary>
+        public static bool HasLog
+        {  get; set; } = false;
+
+        /// <summary>
         /// New log
         /// </summary>
         public static IEventLog NewLog
         {
             get
             {
+                if (!HasLog)
+                {
+                    return null;
+                }
                 if (currentLog == null)
                 {
                     if (LogFactory != null)

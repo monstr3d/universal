@@ -48,6 +48,7 @@ namespace DataPerformer.Portable.Wrappers
            IErrorHandler errorHandler = null)
         {
             Func<bool> st = (stop == null) ? () => false : stop;
+            var b = true;
             try
             {
                 iterator.Reset();
@@ -56,16 +57,19 @@ namespace DataPerformer.Portable.Wrappers
                 var coll = Consumer.GetDependentCollection();
                 coll.ForEach((IRunning s) => s.IsRunning = true);
                 preparation?.Invoke();
-                do
+                while (true)
                 {
                     if (st())
                     {
-                        break;
+                        return;
                     }
-                    action();
+                    if (!iterator.Next())
+                    {
+                        return;
+                    }
                     rt.UpdateAll();
+                    action?.Invoke();
                 }
-                while (iterator.Next());
             }
             catch (Exception e)
             {

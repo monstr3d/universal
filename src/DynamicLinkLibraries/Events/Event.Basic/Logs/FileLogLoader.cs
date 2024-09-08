@@ -21,7 +21,7 @@ namespace Event.Basic.Logs
 
         }
 
-        object ILogLoader.Load(string url)
+        object ILogLoader.Load(string url, uint begin, uint end)
         {
             if (!File.Exists(url))
             {

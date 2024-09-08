@@ -15,7 +15,7 @@ namespace DataPerformer.Portable.Measurements
     {
         #region Fields
 
-        IMeasurement measure;
+        IMeasurement measurement;
 
         #endregion
 
@@ -24,10 +24,10 @@ namespace DataPerformer.Portable.Measurements
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="measure">Measure</param>
-        public MeasurementWrapper(IMeasurement measure)
+        /// <param name="measurement">Measure</param>
+        public MeasurementWrapper(IMeasurement measurement)
         {
-            this.measure = measure;
+            this.measurement = measurement;
         }
 
         #endregion
@@ -36,7 +36,7 @@ namespace DataPerformer.Portable.Measurements
 
         internal object GetValue()
         {
-            return measure.Parameter();
+            return measurement.Parameter();
         }
 
         #endregion

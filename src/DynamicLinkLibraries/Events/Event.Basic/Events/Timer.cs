@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
-
-using CategoryTheory;
-
-using DataPerformer.Interfaces;
 
 using Event.Interfaces;
 
@@ -35,7 +27,7 @@ namespace Event.Basic.Events
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected Timer(SerializationInfo info, StreamingContext context)
+        private Timer(SerializationInfo info, StreamingContext context)
             : this()
         {
             (this as ITimerEvent).TimeSpan = (TimeSpan)info.GetValue("TimeSpan", typeof(TimeSpan));

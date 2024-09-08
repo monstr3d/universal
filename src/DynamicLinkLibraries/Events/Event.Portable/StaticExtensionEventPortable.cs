@@ -738,22 +738,21 @@ namespace Event.Portable
                  reason, null, false) as IDisposable)
             {
                 IRealtime r = disp as IRealtime;
-                RealtimeProvider p = r.TimeProvider as RealtimeProvider;
-                Dictionary<IReplacedMeasurementParameter, string> d;
+                var realtImeProvider = r.TimeProvider as RealtimeProvider;
+                Dictionary<IReplacedMeasurementParameter, string> dReplaced;
                 IEnumerable<object> list = dataConsumer.CreateList(input,
-                    collection, out d);
+                    collection, out dReplaced);
                 DateTime centuryBegin = new DateTime(2001, 1, 1);
-                using (ReplacedMeasurementsBackup backup = new ReplacedMeasurementsBackup(d, r))
+                using (var backup = new ReplacedMeasurementsBackup(dReplaced, r))
                 {
-                    Dictionary<string, object>[] dm = backup.Output;
+                    Dictionary<string, object>[] output = backup.Output;
                     foreach (object obj in list)
                     {
-                        if (obj is Tuple<INativeReader, object[], DateTime>)
+                        if (obj is Tuple<INativeReader, object[], DateTime> t)
                         {
                             try
                             {
-                                Tuple<INativeReader, object[], DateTime> t = obj as Tuple<INativeReader, object[], DateTime>;
-                                p.DateTime = t.Item3;
+                                realtImeProvider.DateTime = t.Item3;
                                 t.Item1.Read(t.Item2);
                                 if (stop(t))
                                 {
@@ -770,15 +769,16 @@ namespace Event.Portable
                         }
                         try
                         {
-                            Tuple<DateTime, INativeEvent, Dictionary<string, object>> tuple
-                                = obj as Tuple<DateTime, INativeEvent, Dictionary<string, object>>;
-                            dm[0] = tuple.Item3;
-                            DateTime dt = tuple.Item1;
-                            p.DateTime = tuple.Item1;
-                            tuple.Item2.Force();
-                            if (stop(tuple))
+                            if (obj is Tuple<DateTime, INativeEvent, Dictionary<string, object>> tuple)
                             {
-                                break;
+                                output[0] = tuple.Item3;
+                                DateTime dt = tuple.Item1;
+                                realtImeProvider.DateTime = tuple.Item1;
+                                tuple.Item2.Force();
+                                if (stop(tuple))
+                                {
+                                    break;
+                                }
                             }
                         }
                         catch (Exception exception)
@@ -1036,6 +1036,7 @@ namespace Event.Portable
             var queueReplaced = new Queue<Tuple<DateTime, INativeEvent, Dictionary<string, object>>>();
             Tuple<DateTime, INativeEvent, Dictionary<string, object>> tp = null;
             IEnumerable<object> en = list;
+            Tuple<string, DateTime> tsCurrent = null;
             Func<IEnumerable<object>, IEnumerable<object>> f = EnumerableTranformation;
             if (f != null)
             {
@@ -1050,6 +1051,13 @@ namespace Event.Portable
                     foreach (string key in dc.Keys)
                     {
                         dcurrent[key] = dc[key];
+                    }
+                    if (tsCurrent != null)
+                    {
+                        var ret = new Tuple<DateTime, INativeEvent, Dictionary<string, object>>(tsCurrent.Item2,
+                             dna[tsCurrent.Item1], dcurrent);
+                        tsCurrent = null;
+                        yield return ret;
                     }
                 }
                 else
@@ -1076,6 +1084,8 @@ namespace Event.Portable
                 }
                 if (current is Tuple<string, DateTime> ts)
                 {
+                    tsCurrent = ts;
+                    continue;
                     if (dcurrent.Count > 0)
                     {
                         tp = new Tuple<DateTime, INativeEvent, Dictionary<string, object>>(ts.Item2,

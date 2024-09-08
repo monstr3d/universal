@@ -101,6 +101,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             toolStripButtonStrict = new System.Windows.Forms.ToolStripButton();
+            toolStripComboBoxHasLog = new System.Windows.Forms.ToolStripComboBox();
             menuStripMain = new System.Windows.Forms.MenuStrip();
             fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -391,7 +392,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // toolStripMain
             // 
             toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripButton, copyToolStripButton, toolStripSeparator2, pasteToolStripButton, cutToolStripButton, toolStripSeparator, printToolStripButton, saveToolStripButton, openToolStripButton, toolStripButtonClear, toolStripButtonRefresh, toolStripButtonToolBox, toolStripButtonFont, toolStripButtonSync, toolStripComboBoxCheckDetails, toolStripButtonTest, toolStripDropDownButtonAnimation, toolStripButtonStart, toolStripButtonPause, toolStripButtonStop, toolStripButtonDir, helpToolStripButton, toolStripButtonStrict });
+            toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripButton, copyToolStripButton, toolStripSeparator2, pasteToolStripButton, cutToolStripButton, toolStripSeparator, printToolStripButton, saveToolStripButton, openToolStripButton, toolStripButtonClear, toolStripButtonRefresh, toolStripButtonToolBox, toolStripButtonFont, toolStripButtonSync, toolStripComboBoxCheckDetails, toolStripButtonTest, toolStripDropDownButtonAnimation, toolStripButtonStart, toolStripButtonPause, toolStripButtonStop, toolStripButtonDir, helpToolStripButton, toolStripButtonStrict, toolStripComboBoxHasLog });
             toolStripMain.Location = new System.Drawing.Point(0, 24);
             toolStripMain.Name = "toolStripMain";
             toolStripMain.Size = new System.Drawing.Size(1200, 27);
@@ -719,6 +720,12 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             toolStripButtonStrict.Visible = false;
             toolStripButtonStrict.Click += toolStripButtonStrict_Click;
             // 
+            // toolStripComboBoxHasLog
+            // 
+            toolStripComboBoxHasLog.Items.AddRange(new object[] { "Has log", "Has no log" });
+            toolStripComboBoxHasLog.Name = "toolStripComboBoxHasLog";
+            toolStripComboBoxHasLog.Size = new System.Drawing.Size(121, 27);
+            // 
             // menuStripMain
             // 
             menuStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -743,28 +750,28 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O;
-            openToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            openToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             openToolStripMenuItem.Text = "&Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // loadfromdatabaseToolStripMenuItem
             // 
             loadfromdatabaseToolStripMenuItem.Name = "loadfromdatabaseToolStripMenuItem";
-            loadfromdatabaseToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            loadfromdatabaseToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             loadfromdatabaseToolStripMenuItem.Text = "Load from database";
             loadfromdatabaseToolStripMenuItem.Click += loadfromdatabaseToolStripMenuItem_Click;
             // 
             // toolStripApplicationFolder
             // 
             toolStripApplicationFolder.Name = "toolStripApplicationFolder";
-            toolStripApplicationFolder.Size = new System.Drawing.Size(184, 26);
+            toolStripApplicationFolder.Size = new System.Drawing.Size(179, 22);
             toolStripApplicationFolder.Text = "Application folder";
             toolStripApplicationFolder.Click += toolStripApplicationFolder_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(176, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -772,14 +779,14 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S;
-            saveToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            saveToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             saveToolStripMenuItem.Text = "&Save";
             saveToolStripMenuItem.Click += saveControl;
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            saveAsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             saveAsToolStripMenuItem.Text = "Save &As";
             saveAsToolStripMenuItem.Click += saveasToolStripMenuItem_Click;
             // 
@@ -787,26 +794,26 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // 
             savetodatabaseToolStripMenuItem.Image = (System.Drawing.Image)resources.GetObject("savetodatabaseToolStripMenuItem.Image");
             savetodatabaseToolStripMenuItem.Name = "savetodatabaseToolStripMenuItem";
-            savetodatabaseToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            savetodatabaseToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             savetodatabaseToolStripMenuItem.Text = "Save to database";
             savetodatabaseToolStripMenuItem.Click += savetodatabaseToolStripMenuItem_Click;
             // 
             // saveSCADAXMLToolStripMenuItem
             // 
             saveSCADAXMLToolStripMenuItem.Name = "saveSCADAXMLToolStripMenuItem";
-            saveSCADAXMLToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            saveSCADAXMLToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             saveSCADAXMLToolStripMenuItem.Text = "Save SCADA XML";
             saveSCADAXMLToolStripMenuItem.Click += saveSCADAXMLToolStripMenuItem_Click;
             // 
             // toolStripSeparator12
             // 
             toolStripSeparator12.Name = "toolStripSeparator12";
-            toolStripSeparator12.Size = new System.Drawing.Size(181, 6);
+            toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -1326,6 +1333,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxClassName;
         private System.Windows.Forms.ToolStripMenuItem staticToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripApplicationFolder;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxHasLog;
     }
 }
 

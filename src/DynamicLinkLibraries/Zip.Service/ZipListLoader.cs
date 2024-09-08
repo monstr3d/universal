@@ -25,7 +25,7 @@ namespace Zip.Service
 
         }
 
-        List<object> Load(string url)
+        List<object> Load(string url, uint begin, uint end)
         {
             if (!File.Exists(url))
             {
@@ -62,7 +62,7 @@ namespace Zip.Service
             return o as List<object>;
         }
 
-        object ILogLoader.Load(string url)
+        object ILogLoader.Load(string url, uint begin, uint end)
         {
             if (!File.Exists(url))
             {
