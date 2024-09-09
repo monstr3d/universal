@@ -6133,18 +6133,42 @@ So one has the following Theorem.
 \end{lemma}
 
 \begin{proof}
-	It is known that the space $I^2_o$ is locally connected. 
-	Let $p: \widetilde \sX \to I^2_o$ be a covering. 
-	For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
+	If $p: \widetilde \sX \to I^2_o$ is a nontrivial  covering with connected $\widetilde \sX$ then there are $\widetilde x'_1, \widetilde x''_1$ such that  $\widetilde x'_1\neq \widetilde x''_1$ and $p\left( \widetilde x'_1\right) =p\left(  \widetilde x''_1\right) = \left(1,1 \right)$. Let $\widetilde x_0 \in \widetilde \sX$ be such that $p\left(  \widetilde x_0\right)-=  \left(0,0 \right)$.  If $\mathfrak A$ be a family of connected open subsets of $\widetilde \sX$ which homeomorphically  mapped onto open subsets of $I^2_o$ then 	From the Lemma \ref{top_gen_path_lem} it follows that there is an  $\mathfrak A$-path $\left( \widetilde\sU_1, ..., \widetilde\sU_{n}\right)$ (cf. Definition \ref{top_gen_path_defn}) such that $\widetilde x_0 \in \widetilde \sU_1$ and $\widetilde x'_1 \in \widetilde \sU_n$. If $\left( \sU_1, ..., \sU_{n}\right)\bydef \left( p\left( \widetilde\sU_1\right) , ..., p\left( \widetilde\sU_{n}\right) \right)$ is the $p$-descent (cf. Definition \ref{top_path_desc_defn}). 	If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then according to \ref{top_lex_square_empt} both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected. 
+	However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. There is a homeomorphism $\phi_1 : \sU_1\xrightarrow{\cong}  \widetilde \sU_1$. If $x_1 \in \sU_1\cap \sU_2$ the there is a unique $\widetilde x_1 \in \widetilde \sU_1$ such that $p\left(\widetilde x_1 \right)= x_1$.  Let $\widetilde \sU_2$ be a connected component of $p^{-1}\left( \sU_2\right)$ such that $\widetilde x_1\in \widetilde \sU_2$. There is a homeomorphism $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ and $\widetilde \sU_1\cap \widetilde \sU_2\neq \emptyset$. Having homeomorphisms $\sU_1\xrightarrow{\cong}  \widetilde \sU_1$ and  $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ one has a homeomorphism $\phi_2:\sU_1\cup \sU_2 \xrightarrow{\cong}  \widetilde \sU_1\cup \widetilde \sU_2$. Going  we obtain a continuous map 
+	$$
+	\phi': \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX
+	$$
+	such that 
+	\bean
+	p \circ \phi' = \Id_{I^2_o},\\
+	\phi'\left(\left( 0, 0\right)  \right) = \widetilde x_0,\\
+		\phi'\left(\left(1, 1\right)  \right) = \widetilde x'_1
+	\eean
+	Similarly one can find a continuous map $\phi'': \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX$ with
+	\bean
+p \circ \phi'' = \Id_{I^2_o},\\
+\phi''\left(\left( 0, 0\right)  \right) = \widetilde x_0,\\
+\phi''\left(\left(1, 1\right)  \right) = \widetilde x''_1.
+\eean
+The set
+$$
+\sV \bydef \left\{x \in  I^2_o| \forall x' \in \sX \quad  \phi'\left( x'\right)= \phi''\left( x'\right)  \right\}
+$$
+is not empty and closed. On the other hand the set $I^2_o$ is simply ordered (cf.  the Definition \ref{simply_ord_defn}) where the order is given by the equation \eqref{top_order_top_s_eqn}. If 
+\bea
+y \bydef \max_{ x \in \sV} x,
+\eean
+then foe any open neighborhood $\sU$ of $y$ 
+!!!	 
+	$p \circ \phi^0_n = \Id_{I^2_o}$. 
+	If $\widetilde \sX_{x_0} \bydef \phi^0_n\left(  I^2_o\right)= \bigcup^n_{j = 1} \widetilde\sU_j  $ then a restriction $p|_{\widetilde \sX_{x_0}} : \widetilde \sX_{x_0} \xrightarrow{\cong} I^2_o$ is a homeomorphism. If $\widetilde x' \in \widetilde \sX_0$ then there is an open neighborhood $\sU'\subset I^2_0$ of $p\left(\widetilde x' \right)$, so a set $\widetilde \sU'\bydef \phi^0_n\left(\sU' \right) \subset \widetilde \sX_{x_0}$ is an open neighborhood of $\widetilde x'$. It turns out that a set $\widetilde \sX_{x_0}$ is an open subset of $\widetilde \sX$.
+
+	
+	It is known that the space $I^2_o$ is locally connected (cf. \cite{counter_topology,munkres:topology}), so the space $\widetilde \sX$ is locally connected. For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
 	From the Lemma \ref{top_gen_path_lem} it follows that there is a $\left\{\sU_x\right\}_{x \in \sX}$-path $\left( \sU_1, ..., \sU_{n}\right)$ 
 	(cf. Definition \ref{top_gen_path_defn})  from $\left(0,0\right)$ to $\left(1,1\right)$. 
 	If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then according to \ref{top_lex_square_empt} both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected. 
-	However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. Let $\widetilde x_0$ be such that $p\left(\widetilde x_0 \right) = \left(0,0\right)$. Let $\widetilde \sU_1$ be a connected component of $p^{-1}\left( \sU_1\right)$ such that $\widetilde x_0\in \widetilde \sU_1$. There is a homeomorphism $\phi_1 : \sU_1\xrightarrow{\cong}  \widetilde \sU_1$. If $x_1 \in \sU_1\cap \sU_2$ the there is a unique $\widetilde x_1 \in \widetilde \sU_1$ such that $p\left(\widetilde x_1 \right)= x_1$.  Let $\widetilde \sU_2$ be a connected component of $p^{-1}\left( \sU_2\right)$ such that $\widetilde x_1\in \widetilde \sU_2$. There is a homeomorphism $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ and $\widetilde \sU_1\cap \widetilde \sU_2\neq \emptyset$. Having homeomorphisms $\sU_1\xrightarrow{\cong}  \widetilde \sU_1$ and  $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ one has a homeomorphism $\phi_2:\sU_1\cup \sU_2 \xrightarrow{\cong}  \widetilde \sU_1\cup \widetilde \sU_2$. Continuing we obtain a continuous map 
-	$$
-	\phi^0_n: \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX
-	$$
-	such that $p \circ \phi^0_n = \Id_{I^2_o}$.    
-	If $\widetilde \sX_{x_0} \bydef \phi^0_n\left(  I^2_o\right)= \bigcup^n_{j = 1} \widetilde\sU_j  $ then a restriction $p|_{\widetilde \sX_{x_0}} : \widetilde \sX_{x_0} \xrightarrow{\cong} I^2_o$ is a homeomorphism. If $\widetilde x' \in \widetilde \sX_0$ then there is an open neighborhood $\sU'\subset I^2_0$ of $p\left(\widetilde x' \right)$, so a set $\widetilde \sU'\bydef \phi^0_n\left(\sU' \right) \subset \widetilde \sX_{x_0}$ is an open neighborhood of $\widetilde x'$. It turns out that a set $\widetilde \sX_{x_0}$ is an open subset of $\widetilde \sX$. If 
+	However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. Let $\widetilde x_0$ be such that $p\left(\widetilde x_0 \right) = \left(0,0\right)$. Let $\widetilde \sU_1$ be a connected component of $p^{-1}\left( \sU_1\right)$ such that $\widetilde x_0\in \widetilde \sU_1$.  If 
 	$$
 	p^{-1}\left(\left(0,0 \right)  \right)= \bigcup_{\a \in \mathscr A}\left\{x_\a \right\} 
 	$$
@@ -18072,6 +18096,13 @@ For any category there is a skeleton.
 			\item[(b)] \textit{transitive}, whenever $pRq$ and $qRs$, we have $pRs$.
 		\end{enumerate}
 	\end{definition}
+	\begin{definition}\label{simply_ord_defn}\cite{goldblatt:topoi}
+	A set with $\La$ with pre-ordering $\le$ is \textit{simply ordered} if one has:
+	\begin{enumerate}
+		\item [(a)] if $\mu, \nu \in \La$ are such that $\mu \le \mu$ and $\nu \le \mu$ then $\mu = \nu$,
+		\item [(b)] if $\mu, \nu \in \La$ then $\mu \le \mu$ or/and $\nu \le \mu$.
+	\end{enumerate}
+	\end{definition}
 	\begin{remark}\label{pre_order_rem}\cite{goldblatt:topoi}
 		For any set pre-ordered $\La$ with pre-ordering $R$ there is a pre-order category such that
 		\begin{enumerate}
@@ -18667,12 +18698,12 @@ Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_def
 \end{definition}
 \begin{empt}\label{top_lex_square_empt}\cite{counter_topology,munkres:topology}
 	Let $I^2_o = \left[0,1\right]^2$ be a unit square. We order $I^2_o$ lexicographically
-	$$
+	\be\label{top_order_top_s_eqn}
 	\forall (x, y),(u, w) \in \left[0,1\right]^2 = I^2_o \quad (x, y)< (u, w)  = \begin{cases}
 		y < w & x = u\\
 		x < u & \text{otherwise}
 	\end{cases}
-	$$
+\ee
 	and place the order topology on $I^2_o$. It is proven in  \cite{counter_topology,munkres:topology} $I^2_o$ is connected but it is not path connected.
 	The space $I^2_o$ is said to be the \textit{the ordered square} (cf. \cite{munkres:topology}).
 \end{empt}
