@@ -277,7 +277,6 @@ namespace DataPerformer.UI.UserControls
         }
 
 
-
         #endregion
 
         #region Private Members

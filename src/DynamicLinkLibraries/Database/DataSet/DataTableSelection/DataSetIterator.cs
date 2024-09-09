@@ -216,8 +216,8 @@ namespace DataTableSelection
         /// </summary>
         void Reset()
         {
-            current = 0;
-            rowreference[0] = table.Rows[0];
+            current = -1;
+ //           rowreference[0] = table.Rows[0];
         }
 
         /// <summary>

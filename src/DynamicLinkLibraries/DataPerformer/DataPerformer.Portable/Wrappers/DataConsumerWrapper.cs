@@ -10,6 +10,8 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
+using System.Reflection;
+using DataPerformer.Interfaces.Attributes;
 
 
 namespace DataPerformer.Portable.Wrappers
@@ -54,6 +56,16 @@ namespace DataPerformer.Portable.Wrappers
                 iterator.Reset();
                 Consumer.ResetAll();
                 var rt = Consumer.CreateRuntime(null);
+                var act = () => rt.UpdateAll();
+                var attr = CustomAttributeExtensions.GetCustomAttribute<IteratorTypeAttribute>
+                    (IntrospectionExtensions.GetTypeInfo(iterator.GetType()));
+                if (attr != null)
+                {
+                    if (attr.Log)
+                    {
+                        act = () => { };
+                    }
+                }
                 var coll = Consumer.GetDependentCollection();
                 coll.ForEach((IRunning s) => s.IsRunning = true);
                 preparation?.Invoke();
@@ -67,7 +79,7 @@ namespace DataPerformer.Portable.Wrappers
                     {
                         return;
                     }
-                    rt.UpdateAll();
+                    act();
                     action?.Invoke();
                 }
             }

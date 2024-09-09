@@ -10,12 +10,14 @@ using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using DataPerformer.Interfaces.Attributes;
 
 namespace Event.Portable
 {
     /// <summary>
     /// Iterator of log
     /// </summary>
+    [IteratorType(log: true)]
     public  class LogIterator : CategoryObject, IAddRemove,  IIterator, ICalculationReason
     {
 
@@ -102,7 +104,6 @@ namespace Event.Portable
         }
 
         #endregion
-
 
         #region Public Members
 

@@ -86,28 +86,35 @@ namespace DataPerformer.UI.UserControls
             List<string> l = new List<string>();
             for (int i = 0; i < n; i++)
             {
-                IMeasurements measurements = dataConsumer[i];
-                string name = (dataConsumer as IAssociatedObject).GetRelativeName(
-                    measurements as IAssociatedObject);
-                l.Add(name);
-                UserControlRealtimeMeaHeader uc = new UserControlRealtimeMeaHeader();
-                Dictionary<string, Tuple<Color[], bool, double[]>> dd;
-                if (dictionary.ContainsKey(name))
+                try
                 {
-                    dd = dictionary[name];
+                    IMeasurements measurements = dataConsumer[i];
+                    string name = (dataConsumer as IAssociatedObject).GetRelativeName(
+                        measurements as IAssociatedObject);
+                    l.Add(name);
+                    UserControlRealtimeMeaHeader uc = new UserControlRealtimeMeaHeader();
+                    Dictionary<string, Tuple<Color[], bool, double[]>> dd;
+                    if (dictionary.ContainsKey(name))
+                    {
+                        dd = dictionary[name];
+                    }
+                    else
+                    {
+                        dd = new Dictionary<string, Tuple<Color[], bool, double[]>>();
+                        dictionary[name] = dd;
+                    }
+                    uc.Set(dataConsumer, measurements, dd); ;
+                    uc.Left = 1;
+                    uc.Width = panelCenter.Width - 2;
+                    uc.Top = y;
+                    panelCenter.Controls.Add(uc);
+                    d.Add(uc);
+                    y += uc.Height + 1;
                 }
-                else
+                catch 
                 {
-                    dd = new Dictionary<string, Tuple<Color[], bool, double[]>>();
-                    dictionary[name] = dd;
+
                 }
-                uc.Set(dataConsumer, measurements, dd); ;
-                uc.Left = 1;
-                uc.Width = panelCenter.Width - 2;
-                uc.Top = y;
-                panelCenter.Controls.Add(uc);
-                d.Add(uc);
-                y += uc.Height + 1;
             }
             Height = iniHeight + y;
             List<string> ll = new List<string>(dictionary.Keys);
