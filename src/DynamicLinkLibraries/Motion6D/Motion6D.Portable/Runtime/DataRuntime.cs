@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using CategoryTheory;
 
@@ -9,9 +7,9 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
+using DataPerformer.Portable;
 
 using Motion6D.Interfaces;
-using DataPerformer.Portable;
 
 namespace Motion6D.Portable.Runtime
 {
@@ -270,7 +268,7 @@ namespace Motion6D.Portable.Runtime
         {
             base.UpdateAll();
             frames.UpdateFrames();
-            base.UpdateAll();
+           // base.UpdateAll();
         }
 
         private MechanicalAggregateEquation GetEquation(AggregableWrapper agg)

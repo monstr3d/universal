@@ -70,6 +70,7 @@ namespace Motion6D.Portable.Runtime
         {
             ClearAll();
             var cc = factory.CreateCollection(consumer, 0, null);
+            List<Action> actions = new List<Action>();
             IEnumerable<object> en = cc.AllComponents;
             foreach (object o in en)
             {
@@ -81,25 +82,22 @@ namespace Motion6D.Portable.Runtime
                         started.Add(sta);
                     }
                 }
-                if (o is IRuntimeUpdate)
+                if (o is IRuntimeUpdate rud)
                 {
-                    runtimeUpdate.Add(o as IRuntimeUpdate);
+                    runtimeUpdate.Add(rud);
                 }
-                if (o is IDataConsumer)
+                if (o is IDataConsumer dc)
                 {
-                    IDataConsumer dc = o as IDataConsumer;
                     for (int i = 0; i < dc.Count; i++)
                     {
-                        IMeasurements m = dc[i];
-                        if (m is RelativeMeasurements)
+                        IMeasurements mm = dc[i];
+                        if (mm is RelativeMeasurements rm)
                         {
-                            RelativeMeasurements rm = m as RelativeMeasurements;
                             AddFrameDependent(rm.Source);
                             AddFrameDependent(rm.Target);
                         }
-                        if (m is IRuntimeUpdate)
+                        if (mm is IRuntimeUpdate st)
                         {
-                            IRuntimeUpdate st = m as IRuntimeUpdate;
                             if (!st.ShouldRuntimeUpdate)
                             {
                                 if (!runtimeUpdate.Contains(st))
@@ -110,25 +108,23 @@ namespace Motion6D.Portable.Runtime
                         }
                     }
                 }
-                if (o is IPosition)
+                if (o is IPosition pos)
                 {
-                   frames.Add(o as IPosition);
+                    frames.Add(pos);
                 }
-                if (o is IMeasurements)
+                if (o is IMeasurements m)
                 {
-                    IMeasurements m = o as IMeasurements;
                     if (!measurements.Contains(m))
                     {
                         measurements.Add(m);
                     }
                 }
-                if (o is IStep)
+                if (o is IStep step)
                 {
-                    steps.Add(o as IStep);
+                    steps.Add(step);
                 }
-                if (o is IUpdatableObject)
+                if (o is IUpdatableObject up)
                 {
-                    IUpdatableObject up = o as IUpdatableObject;
                     if (up == null)
                     {
                         continue;
@@ -139,18 +135,14 @@ namespace Motion6D.Portable.Runtime
                     }
                     if (up.ShouldUpdate)
                     {
-                        if (up.Update != null)
-                        {
-                            updatable.Add(up.Update);
-                        }
+                        actions.Add(up.Update);
                     }
                 }
             }
             foreach (object obj in en)
             {
-                if (obj is IDynamical)
+                if (obj is IDynamical dyn)
                 {
-                    IDynamical dyn = obj as IDynamical;
                     if (dyn == null)
                     {
                         continue;
@@ -159,57 +151,17 @@ namespace Motion6D.Portable.Runtime
                 }
             }
             measurements.SortMeasurements();
-            updateAll = null;
-            Action um = UpdateMeasurements;
-            Action uu = () =>
-            {
-                foreach (Action up in updatable)
-                {
-                    up();
-                }
-    
-            };
-            Action upd = null;
-            if (updatable.Count > 0)
-            {    
-                upd = () =>
-                {
-                    foreach (Action up in updatable)
-                    {
-                        up();
-                    }
-                };
-                
-            }
             frames.SortPositions();
-            Action uf = null;
+            actions.Add(UpdateMeasurements);
             if (frames != null)
             {
                 if (frames.Count > 0)
                 {
-                    uf = () =>
-                        {
-                            frames.UpdateFrames();
-                        };
+                    actions.Add(() => frames.UpdateFrames());
                 }
             }
-            if (uf == null & upd == null)
-            {
-                updateAll = UpdateMeasurements;
-            }
-            else if (upd == null)
-            {
-                updateAll = UpdateMeasurements + uf;
-            }
-            else if (uf == null)
-            {
-                updateAll = UpdateMeasurements + upd + UpdateMeasurements;
-            }
-            else
-            {
-                updateAll = UpdateMeasurements + upd + uf + UpdateMeasurements + upd;
-            }
             started.SortOrder();
+            updateAll = actions.ToSingleAction();
         }
 
         /// <summary>

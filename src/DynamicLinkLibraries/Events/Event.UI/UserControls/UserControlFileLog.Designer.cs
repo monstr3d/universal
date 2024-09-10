@@ -28,85 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.labelFile = new System.Windows.Forms.Label();
-            this.panelCenter.SuspendLayout();
-            this.SuspendLayout();
+            panelCenter = new System.Windows.Forms.Panel();
+            labelFile = new System.Windows.Forms.Label();
+            panelRight = new System.Windows.Forms.Panel();
+            panelLeft = new System.Windows.Forms.Panel();
+            panelTop = new System.Windows.Forms.Panel();
+            panelBottom = new System.Windows.Forms.Panel();
+            labelFileShort = new System.Windows.Forms.Label();
+            panelCenter.SuspendLayout();
+            SuspendLayout();
             // 
             // panelCenter
             // 
-            this.panelCenter.Controls.Add(this.labelFile);
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 0);
-            this.panelCenter.Margin = new System.Windows.Forms.Padding(4);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(440, 145);
-            this.panelCenter.TabIndex = 20;
-            // 
-            // panelRight
-            // 
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(440, 0);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(0, 145);
-            this.panelRight.TabIndex = 18;
-            // 
-            // panelLeft
-            // 
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(0, 145);
-            this.panelLeft.TabIndex = 17;
-            // 
-            // panelTop
-            // 
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(440, 0);
-            this.panelTop.TabIndex = 16;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 145);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(440, 0);
-            this.panelBottom.TabIndex = 19;
+            panelCenter.Controls.Add(labelFileShort);
+            panelCenter.Controls.Add(labelFile);
+            panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelCenter.Location = new System.Drawing.Point(0, 0);
+            panelCenter.Margin = new System.Windows.Forms.Padding(4);
+            panelCenter.Name = "panelCenter";
+            panelCenter.Size = new System.Drawing.Size(385, 136);
+            panelCenter.TabIndex = 20;
             // 
             // labelFile
             // 
-            this.labelFile.AutoSize = true;
-            this.labelFile.Location = new System.Drawing.Point(19, 58);
-            this.labelFile.Name = "labelFile";
-            this.labelFile.Size = new System.Drawing.Size(117, 17);
-            this.labelFile.TabIndex = 0;
-            this.labelFile.Text = "Drag log file here";
+            labelFile.AutoSize = true;
+            labelFile.Location = new System.Drawing.Point(13, 38);
+            labelFile.Name = "labelFile";
+            labelFile.Size = new System.Drawing.Size(97, 15);
+            labelFile.TabIndex = 0;
+            labelFile.Text = "Drag log file here";
+            // 
+            // panelRight
+            // 
+            panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            panelRight.Location = new System.Drawing.Point(385, 0);
+            panelRight.Margin = new System.Windows.Forms.Padding(4);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new System.Drawing.Size(0, 136);
+            panelRight.TabIndex = 18;
+            // 
+            // panelLeft
+            // 
+            panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            panelLeft.Location = new System.Drawing.Point(0, 0);
+            panelLeft.Margin = new System.Windows.Forms.Padding(4);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new System.Drawing.Size(0, 136);
+            panelLeft.TabIndex = 17;
+            // 
+            // panelTop
+            // 
+            panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            panelTop.Location = new System.Drawing.Point(0, 0);
+            panelTop.Margin = new System.Windows.Forms.Padding(4);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new System.Drawing.Size(385, 0);
+            panelTop.TabIndex = 16;
+            // 
+            // panelBottom
+            // 
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 136);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(385, 0);
+            panelBottom.TabIndex = 19;
+            // 
+            // labelFileShort
+            // 
+            labelFileShort.AutoSize = true;
+            labelFileShort.Location = new System.Drawing.Point(13, 12);
+            labelFileShort.Name = "labelFileShort";
+            labelFileShort.Size = new System.Drawing.Size(0, 15);
+            labelFileShort.TabIndex = 1;
             // 
             // UserControlFileLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelCenter);
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelTop);
-            this.Controls.Add(this.panelBottom);
-            this.Name = "UserControlFileLog";
-            this.Size = new System.Drawing.Size(440, 145);
-            this.panelCenter.ResumeLayout(false);
-            this.panelCenter.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(panelCenter);
+            Controls.Add(panelRight);
+            Controls.Add(panelLeft);
+            Controls.Add(panelTop);
+            Controls.Add(panelBottom);
+            Name = "UserControlFileLog";
+            Size = new System.Drawing.Size(385, 136);
+            panelCenter.ResumeLayout(false);
+            panelCenter.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -117,5 +126,6 @@
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Label labelFileShort;
     }
 }

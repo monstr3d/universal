@@ -68,9 +68,10 @@ namespace Event.UI.Labels
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected LogLabel(SerializationInfo info, StreamingContext context)
+        private LogLabel(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
+
         }
 
         #endregion

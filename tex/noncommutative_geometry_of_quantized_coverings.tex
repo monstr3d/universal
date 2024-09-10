@@ -6133,54 +6133,31 @@ So one has the following Theorem.
 \end{lemma}
 
 \begin{proof}
-	If $p: \widetilde \sX \to I^2_o$ is a nontrivial  covering with connected $\widetilde \sX$ then there are $\widetilde x'_1, \widetilde x''_1$ such that  $\widetilde x'_1\neq \widetilde x''_1$ and $p\left( \widetilde x'_1\right) =p\left(  \widetilde x''_1\right) = \left(1,1 \right)$. Let $\widetilde x_0 \in \widetilde \sX$ be such that $p\left(  \widetilde x_0\right)-=  \left(0,0 \right)$.  If $\mathfrak A$ be a family of connected open subsets of $\widetilde \sX$ which homeomorphically  mapped onto open subsets of $I^2_o$ then 	From the Lemma \ref{top_gen_path_lem} it follows that there is an  $\mathfrak A$-path $\left( \widetilde\sU_1, ..., \widetilde\sU_{n}\right)$ (cf. Definition \ref{top_gen_path_defn}) such that $\widetilde x_0 \in \widetilde \sU_1$ and $\widetilde x'_1 \in \widetilde \sU_n$. If $\left( \sU_1, ..., \sU_{n}\right)\bydef \left( p\left( \widetilde\sU_1\right) , ..., p\left( \widetilde\sU_{n}\right) \right)$ is the $p$-descent (cf. Definition \ref{top_path_desc_defn}). 	If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then according to \ref{top_lex_square_empt} both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected. 
-	However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. There is a homeomorphism $\phi_1 : \sU_1\xrightarrow{\cong}  \widetilde \sU_1$. If $x_1 \in \sU_1\cap \sU_2$ the there is a unique $\widetilde x_1 \in \widetilde \sU_1$ such that $p\left(\widetilde x_1 \right)= x_1$.  Let $\widetilde \sU_2$ be a connected component of $p^{-1}\left( \sU_2\right)$ such that $\widetilde x_1\in \widetilde \sU_2$. There is a homeomorphism $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ and $\widetilde \sU_1\cap \widetilde \sU_2\neq \emptyset$. Having homeomorphisms $\sU_1\xrightarrow{\cong}  \widetilde \sU_1$ and  $\sU_2\xrightarrow{\cong}  \widetilde \sU_2$ one has a homeomorphism $\phi_2:\sU_1\cup \sU_2 \xrightarrow{\cong}  \widetilde \sU_1\cup \widetilde \sU_2$. Going  we obtain a continuous map 
-	$$
-	\phi': \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX
-	$$
-	such that 
-	\bean
-	p \circ \phi' = \Id_{I^2_o},\\
-	\phi'\left(\left( 0, 0\right)  \right) = \widetilde x_0,\\
-		\phi'\left(\left(1, 1\right)  \right) = \widetilde x'_1
-	\eean
-	Similarly one can find a continuous map $\phi'': \bigcup^n_{j = 1} \sU_j = I^2_o\to \widetilde \sX$ with
-	\bean
-p \circ \phi'' = \Id_{I^2_o},\\
-\phi''\left(\left( 0, 0\right)  \right) = \widetilde x_0,\\
-\phi''\left(\left(1, 1\right)  \right) = \widetilde x''_1.
-\eean
-The set
+	It is known (cf. \cite{counter_topology,munkres:topology}) that the space  $I^2_o$ is compact and locally connected. If $\mathfrak A$ is a family of connected open subsets of $\widetilde \sX$ which homeomorphically  mapped onto open  evenly covered by $p$ subsets of $I^2_o$ then  from the Lemma \ref{top_gen_path_lem} it follows that there is an  $\mathfrak A$-path $\left( \sU_1, ..., \sU_{n}\right)$ (cf. Definition \ref{top_gen_path_defn}) such that $\left(0,0 \right)  \in \sU_1$ and  $\left(1,1 \right)  \in \sU_n$. If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then according to \ref{top_lex_square_empt} both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected. 
+	However the set $\cup_{j = 1}^n\sU_j$ is connected ut follows that $ I^2_o\setminus\cup_{j = 1}^n\sU_j = \emptyset$, so $I^2_o=\cup_{j = 1}^n\sU_j$. Since a set $\sU_j$ is connected for any $j\in \left\{1,...,n\right\}$ there is a set $\left\{x'_1, x''_1, x'_2, x''_2, ..., x'_n, x''_n\right\}$ such that
+\be\label{top_op_eqn}
+\sU_j = \begin{cases}
+\left\{\left.x \in I^2_o\right| x'_j < x < x''_j \right\} & x'_j > \left(0, 0 \right)\text{ AND } x''_j < \left(1, 1 \right)\\
+ \left\{\left.x \in I^2_o\right| x'_j \le x < x''_j \right\} & x'_j = \left(0, 0 \right)\text{ AND } x''_j < \left(1, 1 \right)\\
+\left\{\left.x \in I^2_o\right| x'_j < x \le x''_j \right\} & x'_j > \left(0, 0 \right)\text{ AND } x''_j = \left(1, 1 \right),\\
+I^2_o & x'_j = \left(0, 0 \right)\text{ AND } x''_j = \left(1, 1 \right)
+\end{cases}	
+\ee
+where the order on $I^2_o$ is given by the equation \eqref{top_order_top_s_eqn}. Using \eqref{top_op_eqn} one can prove that there is a set $\left\{y'_1\bydef \left(0, 0 \right), y''_1, y'_2, y''_2, ..., y'_m, y''_m\bydef \left(1, 1 \right)\right\} \subset  I^2_o$ such that if
 $$
-\sV \bydef \left\{x \in  I^2_o| \forall x' \in \sX \quad  \phi'\left( x'\right)= \phi''\left( x'\right)  \right\}
+\sV_j \bydef \begin{cases}
+	\left\{\left.x \in I^2_o\right| x'_j < x < x''_j \right\} & 1 < j < n\\
+	\left\{\left.x \in I^2_o\right| x'_j \le x < x''_j \right\} & j = 0\text{ AND } j < n\\
+	\left\{\left.x \in I^2_o\right| x'_j < x \le x''_j \right\} &j> 1\text{ AND } j= n,\\
+	I^2_o & j = 1\text{ AND } j = n.
+	\end{cases}
 $$
-is not empty and closed. On the other hand the set $I^2_o$ is simply ordered (cf.  the Definition \ref{simply_ord_defn}) where the order is given by the equation \eqref{top_order_top_s_eqn}. If 
-\bea
-y \bydef \max_{ x \in \sV} x,
-\eean
-then foe any open neighborhood $\sU$ of $y$ 
-!!!	 
-	$p \circ \phi^0_n = \Id_{I^2_o}$. 
-	If $\widetilde \sX_{x_0} \bydef \phi^0_n\left(  I^2_o\right)= \bigcup^n_{j = 1} \widetilde\sU_j  $ then a restriction $p|_{\widetilde \sX_{x_0}} : \widetilde \sX_{x_0} \xrightarrow{\cong} I^2_o$ is a homeomorphism. If $\widetilde x' \in \widetilde \sX_0$ then there is an open neighborhood $\sU'\subset I^2_0$ of $p\left(\widetilde x' \right)$, so a set $\widetilde \sU'\bydef \phi^0_n\left(\sU' \right) \subset \widetilde \sX_{x_0}$ is an open neighborhood of $\widetilde x'$. It turns out that a set $\widetilde \sX_{x_0}$ is an open subset of $\widetilde \sX$.
-
-	
-	It is known that the space $I^2_o$ is locally connected (cf. \cite{counter_topology,munkres:topology}), so the space $\widetilde \sX$ is locally connected. For any $x \in I^2_o$ we select an open connected neighborhood $\sU_x$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). 
-	From the Lemma \ref{top_gen_path_lem} it follows that there is a $\left\{\sU_x\right\}_{x \in \sX}$-path $\left( \sU_1, ..., \sU_{n}\right)$ 
-	(cf. Definition \ref{top_gen_path_defn})  from $\left(0,0\right)$ to $\left(1,1\right)$. 
-	If there is $x \in I^2_o\setminus\cup_{j = 1}^n\sU_j$ then according to \ref{top_lex_square_empt} both sets $I^2_o\setminus \{x\}$ and $\cup_{j = 1}^n\sU_j$ are not connected. 
-	However the set $\cup_{j = 1}^n\sU_j$ is connected, so one has $I^2_o=\cup_{j = 1}^n\sU_j$. Let $\widetilde x_0$ be such that $p\left(\widetilde x_0 \right) = \left(0,0\right)$. Let $\widetilde \sU_1$ be a connected component of $p^{-1}\left( \sU_1\right)$ such that $\widetilde x_0\in \widetilde \sU_1$.  If 
-	$$
-	p^{-1}\left(\left(0,0 \right)  \right)= \bigcup_{\a \in \mathscr A}\left\{x_\a \right\} 
-	$$
-	
-!!!!! CONTINUE !!!	
-	
-	
-	If $\widetilde x_1$ is such that $\widetilde x_1\neq \widetilde x_0$ and  $p\left(\widetilde x_1 \right)= (0,0)$ then one can find a subspace  $\widetilde \sX_1 \subset \widetilde \sX$ such that $\widetilde x_1\in \widetilde \sX_1$ and a restriction $p|_{\widetilde \sX_1} : \widetilde \sX_1 \to I^2_o$ is homeomorphism. For any $x \in I^2_o$ the number of points of $p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right)$ equals to one or two. The set $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2 \right.\right\}$ is open, so the the set $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}$ is closed. If 
-	$$
-	x' \bydef \inf \left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}
-	$$ 
-	then $\left|p^{-1}\left(x' \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1$ because the set\\ $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}$ is closed. Let $\widetilde x'\in \widetilde \sX_0\cup \widetilde \sX_1$ be the unique point  such that $p\left( \widetilde x' \right) = x'$, and let $\sU'$ be a open connected set  evenly covered by $p$, and let $\widetilde \sU'$ be a connected component of $p^{-1}\left(\sU'\right)$ such that $\widetilde x'\in \widetilde \sU'$. There is $x'' \in \sU'$ such that $x'' < x'$ and $$\left|p^{-1}\left(x'' \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2.$$ From the above equation it follows that $\sU'$ is not evenly covered by $p$. From this contradiction one has $\left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2$ for all $x\in I^2_0$. It turns out that  $\widetilde \sX_0\cap \widetilde \sX_1= \emptyset$.  If a union $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then $\widetilde \sX_0$ is open but not closed or $\widetilde \sX_1$ is open but not closed. If $\widetilde \sX_0$ is open but not closed and the  $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then there is a convergent  net $\left\{\widetilde x_\a\right\}\subset \widetilde \sX_0$ such that $\lim \widetilde x_\a\in \widetilde \sX_1$. However from $\widetilde x_\a = \phi^0_n \circ p\left(\widetilde x_\a \right)$ it turns out that $\lim \widetilde x_\a= \phi^0_n\left(  \lim p\left( \widetilde x_\a\right) \right) \in \widetilde \sX_0$. If follows that $\widetilde \sX_0\cup \widetilde \sX_1=\widetilde \sX_0\sqcup \widetilde \sX_1$. By the similar way one can proof that $p^{-1}\left( I^2_o\right)$ is a disjoint union of homeomorphic to $I^2_o$ sets, i.e. $I^2_o$ is evenly covered by $p$.
+then $\sV_j$ is evenly covered by $p$ for any $j \in \left\{1,..., m\right\}$. Let $\left\{\widetilde x_1^\la \right\}_{\la \in \La}\bydef p^{-1}\left( \left(0, 0 \right)\right)$ and for all $\la \in \La$ the set  $\widetilde\sV^\la_1 \subset \widetilde\sX$ is a unique connected component of $p^{-1}\left(\sV_1 \right)$ such that $\widetilde x^\la_1 \in \widetilde\sV^\la_1$. For every $\la\in \La$ we define a  set  $\widetilde\sV^\la_2 \subset \widetilde\sX$ as  a unique connected component of $p^{-1}\left(\sV_2 \right)$ such that  $\widetilde\sV^\la_2 \cap \widetilde\sV^\la_1 \neq \emptyset$. Using an induction for each $j \in   \left\{3,..., m\right\}$ and $\la\in \La$ one can define $ \widetilde\sV^\la_j$ which is a  unique connected component of $p^{-1}\left(\sV_j \right)$ with $\widetilde\sV^\la_{j-1} \cap \widetilde\sV^\la_j \neq \emptyset$. For any $\la\in \La$ the set $\widetilde\sV^\la \bydef \widetilde\sV^\la_1 \cup ...\cup \widetilde\sV^\la_m$ is open since it is a union of open sets. On the other hand   $\widetilde\sV^\la$ is closed since the set $\widetilde \sX \setminus \widetilde\sV^\la = \bigcup_{\la' \in \La \setminus \left\{\la\right\}}$ is open. So $\widetilde\sV^\la$ is a quasi-component (cf. Definition \ref{top_quasi_component_defn}). We leave to the reader a proof of the following statements:
+\begin{itemize}
+	\item $\widetilde{\sX }= \bigsqcup_{\la\in \La} \widetilde\sV^\la$,
+	\item for all $\la \in \La$ the restriction $p|_{\widetilde\sV^\la}: \widetilde\sV^\la\to I^2_o$ is a homeomorphism.
+\end{itemize}
+According to the  Definition \ref{top_weakly_simply_connected_defn}) the space $I^2_o$  is weakly simply connected.
 \end{proof}
 
 \begin{exercise}\label{top_lex_square_exer}

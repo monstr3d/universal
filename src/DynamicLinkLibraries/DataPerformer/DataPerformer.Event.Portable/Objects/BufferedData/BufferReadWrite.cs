@@ -683,17 +683,14 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             get
             {
                 object l = null;
-                LogHolder log = null;
-//                BufferReadWrite buf = null;
                 IDesktop desktop = this.GetRootDesktop();
                 desktop.ForEach((BelongsToCollectionPortable b) =>
                 {
                     if (b.Source == consumer)
                     {
                         object o = b.Target;
-                        if (o is LogHolder)
+                        if (o is LogHolder log)
                         {
-                            log = o as LogHolder;
                             (log as IAssociatedObject).Prepare(true);
                             l = log.Reader;
                         }

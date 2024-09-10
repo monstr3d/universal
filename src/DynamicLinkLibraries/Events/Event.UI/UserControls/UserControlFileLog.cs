@@ -25,6 +25,7 @@ namespace Event.UI.UserControls
                 if (File.Exists(value))
                 {
                     labelFile.Text = value;
+                    labelFileShort.Text = Path.GetFileName(value);
                 }
                 else
                 {
