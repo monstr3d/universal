@@ -6629,11 +6629,11 @@ Under the hypothesis \ref{top_path_comp_empt} we say that the closed path $\wide
 \end{empt}
 
 \section{Continuity structures lift and descent}\label{top_lift_desc_sec}
-!!! CONTINUE !!!
+
 \paragraph*{}
 Let $\sX$ be a locally compact, Hausdorff space; and  for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}). Consider a $\C$-space given by
 \be\label{top_c_sec_eqn}
-C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right\}_{x \in \sX}\in \prod_{x \in \sX} A_x\right|\left\{a_x\right\} \text{ is a continuous section} \right\}
+C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right\}_{x \in \sX}\in \prod_{x \in \sX} A_x\right|\left\{a_x\right\} \text{ is a continuous field} \right\}
 \ee 
 (cf. Definition \ref{op_cont_fields_defn}).
 \begin{remark}\label{top_c_mod_rem}
@@ -6676,12 +6676,12 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 \left\|a\right\|\bydef \left\|\text{norm}_a\right\|.
 \ee
 
-\begin{definition}\label{top_s_bounded_defn}
+\begin{definition}\label{top_s_bounded_defn} 
 	The space $C_b\left(\sX, \left\{A_x\right\},\sF\right)$ given by
 	\be\label{top_s_bounded_eqn}
 	C_b\left(\sX, \left\{A_x\right\},\sF\right)\bydef \left\{\left.a \in C\left(\sX, \left\{A_x\right\},\sF\right)\right|\left\|a\right\| < \infty\right\}.
 	\ee
-	is said to be the \textit{space of bounded continuous sections}.
+	is said to be the \textit{space of bounded continuous fields}.
 \end{definition}
 
 
@@ -6785,26 +6785,29 @@ from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{
 	
 \end{lemma}
 \begin{proof} (i)
-	One needs check conditions (a)-(c) of the Definition \ref{operator_fields_continuity_defn}.\\
-	(a)	
-	Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. Any section $s\in\Ga\left( E, \pi, \mathcal X\right)$ corresponds to a continuous  map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$, so the map
-	\bean
-	s|_\sU : \sU \to \sU\times E_{x_0},\\
-	x \mapsto\left(x, u\left(x \right) \right)
-	\eean 
-	is continuous at $x_0$. It follows that both maps
-	\bean
-	x \mapsto u\left(x \right),\\
-	x \mapsto \left\| u\left(x \right)\right\| 
-	\eean 
-	are continuous. Since a point $x_0$ is arbitrary the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
-	(b) If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
-	\bean
-	s|_\sU : \sU \to \sU\times E_{x_0},\\
-	x \mapsto\left(x, e_{x_0} \right),
-	\eean 
-	i.e. there is a section $s: \sX\to E$ such that $s\left( x_0\right) = e_{x_0}$.\\
-	(c) A proof of this property we leave to the reader.\\
+	One needs check conditions (a)-(c) of the Definition \ref{operator_fields_continuity_defn}.
+	\begin{enumerate}
+		\item [(a)]	
+		Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. Any section $s\in\Ga\left( E, \pi, \mathcal X\right)$ corresponds to a continuous  map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$, so the map
+		\bean
+		s|_\sU : \sU \to \sU\times E_{x_0},\\
+		x \mapsto\left(x, u\left(x \right) \right)
+		\eean 
+		is continuous at $x_0$. It follows that both maps
+		\bean
+		x \mapsto u\left(x \right),\\
+		x \mapsto \left\| u\left(x \right)\right\| 
+		\eean 
+		are continuous. Since a point $x_0$ is arbitrary the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
+	\item[(b)] If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
+		\bean
+		s|_\sU : \sU \to \sU\times E_{x_0},\\
+		x \mapsto\left(x, e_{x_0} \right),
+		\eean 
+		i.e. there is a section $s: \sX\to E$ such that $s\left( x_0\right) = e_{x_0}$.\\
+\item	[(c)] A proof of this property we leave to the reader.
+	\end{enumerate}
+
 	(ii)  A proof  we leave to the reader.
 \end{proof}
 
@@ -6934,9 +6937,9 @@ The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
 	is said to be the \textit{total projection}.
 \end{definition}
 \begin{empt} Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}).
-	Let $\sU \subset \sX$ be an open subset and let $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. For any $\eps > 0$ denote by
+	Let $\sU \subset \sX$ be an open subset, and let $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. For any $\eps > 0$ denote by
 	\be\label{top_cs_neigh_eqn}
-	\mathfrak{O}\left(\sU, s, \eps \right) \bydef \left\{\left.a_x \in \widehat{\left\{A_x\right\}}\right| x\in \sU  \quad\left\|a_x - s_x \right\|< \eps \right\}
+	\mathfrak{O}\left(\sU, s, \eps \right) \bydef \left\{\left.a_x \in \widehat{\left\{A_x\right\}}\right| x\in \sU  \quad\left\|a_x - s_x \right\|< \eps \right\}.
 	\ee
 \end{empt}
 \begin{lemma}
@@ -6982,10 +6985,10 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \begin{remark}
 	The total projection $\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$ (cf. Definition \ref{top_total_defn}) is a continuous map.
 \end{remark}
-\begin{lemma}\label{top_js_lem} Following conditions hold.
+\begin{lemma}\label{top_js_lem} Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] If $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection  (cf. Definition \ref{top_total_defn}) and $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is  a continuous map  such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous with respect to $\sF$ (cf. Definition \ref{op_cont_fields_defn}).
-		\item[(ii)] 	 Conversely any continuous with respect to $\sF$ family $\left\{a_x\right\}$  corresponds to a continuous map 
+		\item [(i)] if $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection  (cf. Definition \ref{top_total_defn}) and $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is  a continuous map  such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous with respect to $\sF$ (cf. Definition \ref{op_cont_fields_defn}),
+		\item[(ii)] 	 conversely any continuous with respect to $\sF$ family $\left\{a_x\right\}$  corresponds to a continuous map 
 		\be\label{top_js_eqn}
 		\begin{split}
 			j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right),\\
@@ -7029,7 +7032,7 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 	If $\sV$ is compact then one has $	C\left(\sV, \left\{A_x\right\},\sF\right)=	C_b\left(\sV, \left\{A_x\right\},\sF\right)=	C_0\left(\sV, \left\{A_x\right\},\sF\right)$.
 \end{remark}
 
-
+!!! CONTINUE !!!
 
 \begin{lemma}\label{top_ax_k_lem}
 	Let $\sX$ be a locally compact,  Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}). If $\sY \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sY, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{ctr_restr_defn}) is surjective.
@@ -7147,7 +7150,7 @@ Below in this section we assume that all topological spaces are  connected and l
 	(c) If $A_x$ is a $C^*$-algebra for all $x \in \sX$ then from the condition (c) of the Definition \ref{operator_fields_continuity_defn} it follows that $\sF$ is  closed under pointwise multiplication and involution, i.e. for any $a, b \in \sF$ represented by families $\left\{a_x\right\}$ and $\left\{b_x\right\}$ respectively the families $\left\{a^*_x\right\}$ and $\left\{a_xb_x\right\}$ lie in $\sF$. If $\left\{\widetilde{a}^*_{\widetilde{x}}\right\}= \lift_p\left( a^*\right)$ and $\left\{\widetilde{a}_{\widetilde{x}}\widetilde{b}_{\widetilde{x}}\right\}= \lift_p\left( ab\right)$ then from \eqref{comm_lift_eqn} it turns out that $\lift_p\left( a^*\right), \lift_p\left(ab\right) \in \widetilde\sF$.
 \end{proof}
 \begin{definition}\label{top_lift_main_defn}
-	Let $\widetilde{   \sF}$ be given by \eqref{top_lift_eqn} continuity structure. The space of continuous sections (with respect to) $\widetilde{\sF}$ vector fields is said to be $p$-\textit{lift} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. We write
+	Let $\widetilde{   \sF}$ be given by \eqref{top_lift_eqn} continuity structure. The space of continuous fields (with respect to) $\widetilde{\sF}$ vector fields is said to be $p$-\textit{lift} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. We write
 	\bea\label{top_cont_lift_eqn}
 	\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right]  \stackrel{\text{def}}{=}	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right),\\
 	\label{top_cont_s_lift_eqn}
@@ -7292,7 +7295,7 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 	$$
 	\lift_p\left(b \right) \in \lift_p\left[ C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]. 
 	$$
-	Taking into account the Definition \ref{top_lift_main_defn} and equations 
+	Taking into account the Definition \ref{top_lift_main_defn}  and equations 
 	\eqref{top_ccn_eqn}, \eqref{top_cc0_eqn}, \eqref{top_lift_bounded_eqn}
 	one has 
 	\be\label{top_lift_inc_eqn}
@@ -7838,7 +7841,7 @@ $$
 			\in C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
 		\end{split}
 		\ee
-		where both $ \lift_p$ and $\desc_p$ are given by Definitions \ref{top_lift_main_defn} and \ref{top_lift_desc_defn} respectively.
+		where both $ \lift_p$ and $\desc_p$ are given by Definitions \ref{top_lift_main_defn}  and \ref{top_lift_desc_defn} respectively.
 		
 		%		\item[(iii)] If $a, b \in C_c\left({\sX} \right)$ are such that $\supp  a, \supp  b\subset  {\sU}$ then
 		%		$$
@@ -7900,7 +7903,7 @@ then following conditions hold:
 		\in C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
 	\end{split}
 	\ee
-	where both $ \lift_p$ and $\desc^c_p$ are given by Definitions \ref{top_lift_main_defn} and \ref{top_compactly_supported_descent_defn} respectively.
+	where both $ \lift_p$ and $\desc^c_p$ are given by Definitions \ref{top_lift_main_defn}  and \ref{top_compactly_supported_descent_defn} respectively.
 \end{enumerate}
 \end{corollary}
 \begin{proof}
@@ -7921,7 +7924,7 @@ is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX
 	\in C_b\left( \lift_{\widetilde p'}\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_{\widetilde p'}\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
 \end{split}
 \ee
-where both $ \lift_p$ and $\desc_p$ are given by Definitions \ref{top_lift_main_defn} and \ref{top_lift_desc_defn} respectively.
+where both $ \lift_p$ and $\desc_p$ are given by Definitions \ref{top_lift_main_defn}   and \ref{top_lift_desc_defn} respectively.
 \end{itemize}
 Now one can prove that the series \eqref{top_comact_series_eqn} is convergent to the following finite sum
 \be\label{top_desc_p_compact_eqn}
@@ -21787,7 +21790,7 @@ For any $C^*$-algebra $A$ denote by $M\left( A\right)_\bt$  the algebra $M\left(
 	A bounded  section $a$ of the fibered space $\left\{\mathcal X, M\left( A_x \right) \right\}$ is said to be \textit{strictly continuous (with respect to)} $\mathscr F$ if for each $\eps > 0$ and for each $c \in \mathscr F$ there is an element $b \in \mathscr{F}$ and an neighborhood $\mathcal U$ of $x_0$ such that $\left\|c _x \left( a _x - b_x\right)   \right\|+\left\|\left( a _x - b_x\right)c _x    \right\|< \eps$ for every $x$ in $\mathcal U$.
 \end{definition}
 
-We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ the set of all bounded strictly continuous cross sections in $\left\{\mathcal X, M\left( A_x \right) \right\}$
+We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ the set of all bounded strictly continuous cross sections in $\left\{\mathcal X, M\left( A_x \right) \right\}$.
 \begin{theorem}\label{cross_mult_thm}\cite{apt_mult}
 	There is the natural $*$-isomorphism $$M\left( C_0\left(\mathcal X, A_x, \mathscr F\right)\right) \cong C_b\left(\mathcal X, M\left( A_x\right)_\bt, \mathscr F\right).$$
 \end{theorem}
