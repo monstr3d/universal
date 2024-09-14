@@ -7032,8 +7032,6 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 	If $\sV$ is compact then one has $	C\left(\sV, \left\{A_x\right\},\sF\right)=	C_b\left(\sV, \left\{A_x\right\},\sF\right)=	C_0\left(\sV, \left\{A_x\right\},\sF\right)$.
 \end{remark}
 
-!!! CONTINUE !!!
-
 \begin{lemma}\label{top_ax_k_lem}
 	Let $\sX$ be a locally compact,  Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}). If $\sY \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sY, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{ctr_restr_defn}) is surjective.
 \end{lemma}
@@ -7135,9 +7133,11 @@ Below in this section we assume that all topological spaces are  connected and l
 \begin{proof}
 	
 	Check (a) - (c) of the Definition \ref{operator_fields_continuity_defn}. \\
-	(a) For every  $\widetilde x_0 \in \widetilde \sX$ there is an open neighborhood $\widetilde \sU$ such that the restriction $\left.p\right|_{\widetilde\sU}$ is injective.	 For any $a \in C\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)$ the function $\text{norm}_a$ is continuous at $x_0= p\left(\widetilde x_0\right)$. Otherwise for all $\widetilde x \in \widetilde\sU$ one has
-	$
-	\text{norm}_{\lift_p\left(a \right) }\left( \widetilde x\right)= \text{norm}_a\left(p\left( \widetilde x\right)  \right)$, hence  $\text{norm}_{\lift_p\left(a \right) }$ is  continuous at $\widetilde{x}_0$.\\
+	(a) If $\widetilde a \bydef \lift_p\left( a\right)$ then
+	$$
+\forall \widetilde x \in \widetilde\sX \quad \text{norm}_{\widetilde a }\left( \widetilde x  \right)=	\text{norm}_{a }\left( p\left( \widetilde x\right) \right),
+	$$
+	i.e. $\text{norm}_{\widetilde a }= \text{norm}_{ a }\circ p$. So the map $\text{norm}_{\widetilde a }$ is continuous since it is the composition of continuous maps.\\
 	(b) The subspace 
 	$$
 	\left\{\left. a_{x_0} \in A_{x_0}~\right|~ a \in C\left(\sX, \left\{A_x\right\}, \sF  \right) \right\}
@@ -7216,7 +7216,7 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 \be\label{top_lift_smooth_eqn}
 \lift_p\left( \Coo\left( M\right)\cap C_b\left( M\right) \right) \subset  \Coo\left(\widetilde M\right)\cap C_b\left(\widetilde M\right).
 \ee
-
+!!! CONTINUOUS !!!
 \end{exercise}
 \begin{empt}\label{top_norm_sub_empt} 
 	If $B \subset 	C_0\left(A \right) = C_0\left(\sX, \left\{A_x\right\}, A \right)$  is a norm closed $\C$-space then for any $x \in \sX$ there is a normed $\C$-subspace

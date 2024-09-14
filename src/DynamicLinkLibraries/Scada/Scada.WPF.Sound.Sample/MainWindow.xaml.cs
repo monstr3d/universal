@@ -32,6 +32,7 @@ namespace Scada.WPF.Sound.Sample
 
         public MainWindow()
         {
+            var d = System.Runtime.Loader.AssemblyLoadContext.Default;
             InitializeComponent();
             CreateScada();
             this.CreateMessageBoxEventHandler(scada);

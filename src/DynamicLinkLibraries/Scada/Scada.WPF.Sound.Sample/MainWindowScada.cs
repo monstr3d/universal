@@ -1,14 +1,12 @@
-﻿using System;
+﻿using System.Windows.Media;
 
-using Scada.Desktop;
-using System.Runtime.Serialization;
-
-using Diagram.UI;
-using Scada.Desktop.Serializable;
 using Event.Interfaces;
 using Event.WPF;
-using System.Collections.Generic;
-using System.Windows.Media;
+
+
+using Scada.Desktop;
+using Scada.Desktop.Serializable;
+
 
 namespace Scada.WPF.Sound.Sample
 {
@@ -19,6 +17,7 @@ namespace Scada.WPF.Sound.Sample
     {
         private void CreateScada()
         {
+            //Scada.WPF.UI._3D.ScadaControls.UserControlCamera c = new UI._3D.ScadaControls.UserControlCamera
             StaticExtensionEventInterfaces.TimerEventFactory = WpfTimerEventFactory.Singleton;
             StaticExtensionScadaDesktop.ScadaFactory = StaticExtensionScadaDesktopSerializable.BaseFactory;
             scada = Properties.Resources.atis_sound_event_tu154.ScadaFromBytes("Chart",

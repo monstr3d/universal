@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using DataPerformer.Portable.DifferentialEquationProcessors;
+﻿using System.Windows;
+
 using Diagram.UI;
+using Diagram.UI.Interfaces;
+
+using DataPerformer.Portable.DifferentialEquationProcessors;
+
 using EngineeringInitializer;
+
 using Event.Basic;
 using Event.Interfaces;
 using Event.WPF;
+
 using Scada.Desktop;
 using Scada.Desktop.Serializable;
 
@@ -23,13 +23,12 @@ namespace Scada.WPF.Sound.Sample
     {
         public App()
         {
-            Internet.Meteo.StaticExtensionMeteo.Init();
-            Http.Meteo.StaticExtensionMeteo.Init();
+            Internet.Meteo.Wrapper.StaticExtensionInternetMeteo.Init();
             StaticExtensionEventBasic.Init();
             BasicEngineeringInitializer initializer =
             new BasicEngineeringInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
             RungeProcessor.Processor,
-                new Diagram.UI.Interfaces.IApplicationInitializer[]
+                new IApplicationInitializer[]
                 {
               }, true);
             initializer.InitializeApplication();
