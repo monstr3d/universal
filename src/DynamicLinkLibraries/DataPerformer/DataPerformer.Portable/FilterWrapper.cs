@@ -14,7 +14,7 @@ namespace DataPerformer.Portable
 
         #region Fields 
 
-        protected int  kind = 0;
+        protected int kind = 0;
 
         protected string input;
 
@@ -99,15 +99,15 @@ namespace DataPerformer.Portable
             catch { }
         }
 
-        public int Kind 
-        { 
-            get => kind; 
-            set 
-            { 
-               kind = value; 
-               SetFilter(); 
+        public int Kind
+        {
+            get => kind;
+            set
+            {
+                kind = value;
+                SetFilter();
             }
-        
+
         }
 
         #endregion
@@ -169,17 +169,17 @@ namespace DataPerformer.Portable
 
 
 
-    #endregion
+        #endregion
 
-     object func()
+        object func()
         { return outval; }
 
-    #region Measurement class
+        #region Measurement class
 
 
-    class FilterMeasurement : IMeasurement, IAssociatedObject
+        class FilterMeasurement : IMeasurement, IAssociatedObject
         {
-            
+
             public FilterMeasurement(FilterWrapper filter)
             {
                 this.filter = filter;
@@ -188,14 +188,14 @@ namespace DataPerformer.Portable
 
             FilterWrapper filter;
 
-    
+
             Func<object> IMeasurement.Parameter => filter.func;
 
             string IMeasurement.Name => "Output";
 
             object IMeasurement.Type => (double)0;
 
-            object IAssociatedObject.Object { get => filter; set  { } }
+            object IAssociatedObject.Object { get => filter; set { } }
         }
 
         #endregion

@@ -29,7 +29,7 @@ namespace Bitmap.FormulaEditior
         /// <summary>
         /// Inits itself
         /// </summary>
-        static public void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }

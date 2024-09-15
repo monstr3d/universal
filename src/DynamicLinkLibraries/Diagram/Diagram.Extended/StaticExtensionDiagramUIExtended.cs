@@ -25,8 +25,9 @@ namespace Diagram.UI
         /// <summary>
         /// Initialization
         /// </summary>
-        public static void Init()
+        static public void Init()
         {
+
         }
 
         /// <summary>

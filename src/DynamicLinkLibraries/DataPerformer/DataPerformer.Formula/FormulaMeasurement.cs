@@ -92,7 +92,7 @@ namespace DataPerformer.Formula
 
         #endregion
 
-        #region IMeasurement Members
+        #region IAssociatedObject Members
 
         object IAssociatedObject.Object
         {
@@ -101,7 +101,6 @@ namespace DataPerformer.Formula
         }
 
         #endregion
-
 
         #region IMeasurement Members
 

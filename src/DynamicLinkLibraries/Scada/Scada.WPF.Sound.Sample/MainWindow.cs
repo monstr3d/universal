@@ -20,7 +20,7 @@ namespace Scada.WPF.Sound.Sample
             //Scada.WPF.UI._3D.ScadaControls.UserControlCamera c = new UI._3D.ScadaControls.UserControlCamera
             StaticExtensionEventInterfaces.TimerEventFactory = WpfTimerEventFactory.Singleton;
             StaticExtensionScadaDesktop.ScadaFactory = StaticExtensionScadaDesktopSerializable.BaseFactory;
-            scada = Properties.Resources.atis_sound_event_tu154.ScadaFromBytes("Chart Internal",
+            scada = Properties.Resources.atis_sound_event_tu154.ScadaFromBytes("Chart",
                 BaseTypes.Attributes.TimeType.Second, false, null);
             //(scada as Scada.Motion6D.Factory.ScadaDesktopMotion6D).AnimationType =
            //     Animation.Interfaces.Enums.AnimationType.Synchronous;

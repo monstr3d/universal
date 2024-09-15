@@ -5,7 +5,6 @@ using Diagram.UI.Interfaces;
 
 using DataPerformer.Portable.DifferentialEquationProcessors;
 
-using EngineeringInitializer;
 
 using Event.Basic;
 using Event.Interfaces;
@@ -13,6 +12,9 @@ using Event.WPF;
 
 using Scada.Desktop;
 using Scada.Desktop.Serializable;
+using EngineeringInitializer;
+using SoundService;
+using System.IO;
 
 namespace Scada.WPF.Sound.Sample
 {
@@ -23,6 +25,8 @@ namespace Scada.WPF.Sound.Sample
     {
         public App()
         {
+            StaticExtensionSoundService.SoundDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SOUNDS");
+            AssemblyService.StaticExtensionAssemblyService.Init();
             Internet.Meteo.Wrapper.StaticExtensionInternetMeteo.Init();
             StaticExtensionEventBasic.Init();
             BasicEngineeringInitializer initializer =

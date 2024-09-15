@@ -19,7 +19,7 @@ namespace Internet.Meteo.Wrapper.Serializable
         /// <summary>
         /// Inits itself
         /// </summary>
-        public static void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }

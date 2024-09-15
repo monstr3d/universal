@@ -1999,18 +1999,16 @@ namespace Diagram.UI
             {
                 throw exception;
             }
-            if (o is INamedComponent)
+            if (o is INamedComponent n)
             {
-                INamedComponent n = o as INamedComponent;
                 throw new DiagramException(exception, n);
             }
             if (o is IAssociatedObject)
             {
                 IAssociatedObject ass = o as IAssociatedObject;
                 object ob = ass.Object;
-                if (ob is INamedComponent)
+                if (ob is INamedComponent nc)
                 {
-                    INamedComponent nc = ob as INamedComponent;
                     throw new DiagramException(exception, nc);
                 }
             }

@@ -12,7 +12,7 @@ namespace FormulaEditor
     static public class StaticExtensionFormulaEditorSerializable
     {
 
-        public static void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-
+using System.Runtime.InteropServices;
 using AssemblyService.Attributes;
 
 namespace AssemblyService
@@ -18,6 +18,10 @@ namespace AssemblyService
         static LinkedList<string> locations = new LinkedList<string>();
 
         static string dir;
+
+        static readonly Type[] inputTypes = [typeof(InitAssemblyAttribute)];
+
+        static readonly object[] input = [null];
         
         static StaticExtensionAssemblyService()
         {
@@ -39,7 +43,7 @@ namespace AssemblyService
             Assembly ass = args.LoadedAssembly;
             if (assemblyDictionary.ContainsKey(ass.FullName))
             {
-                throw new Exception();
+                return;
             }
             assemblyDictionary[ass.FullName] = ass;
             CurrentDomain_AssemblyLoad(ass);
@@ -49,7 +53,7 @@ namespace AssemblyService
         /// <summary>
         /// Inits itself
         /// </summary>
-        static public void Init()
+        static public void Init(InitAssemblyAttribute attr = null)
         {
             
         }
@@ -76,8 +80,7 @@ namespace AssemblyService
             return ass;
         }
 
-
-        private static void CurrentDomain_AssemblyLoad(Assembly ass)
+        private static void CallInit(this Assembly ass)
         {
             try
             {
@@ -86,8 +89,12 @@ namespace AssemblyService
                 {
                     if (t.HasAttributeAss<InitAssemblyAttribute>())
                     {
-                        MethodInfo mi = t.GetMethod("Init");
-                        mi.Invoke(null, null);
+                        MethodInfo mi = t.GetMethod("Init", inputTypes);
+                        if (mi == null)
+                        {
+                            continue;
+                        }
+                        mi.Invoke(null, input);
                     }
                 }
             }
@@ -95,6 +102,12 @@ namespace AssemblyService
             {
 
             }
+
+        }
+
+        private static void CurrentDomain_AssemblyLoad(Assembly ass)
+        {
+            ass.CallInit();
         }
 
 
@@ -490,14 +503,18 @@ namespace AssemblyService
         private static void LoadBaseAssemblies(Action<Exception> exceptionHandler)
         {
             Assembly[] ass = AppDomain.CurrentDomain.GetAssemblies(); // Current domain assemblies
-            string dir = AppDomain.CurrentDomain.BaseDirectory;
+            foreach (var a in ass)
+            {
+                a.CallInit();
+            }            
+            var dir = AppDomain.CurrentDomain.BaseDirectory;
             foreach (Assembly a in ass)
             {
                 string loc = Path.GetFileName(a.Location);
                 locations.AddLast(loc);
             }
             string[] fn = Directory.GetFiles(dir, "*.dll");   // Dll files
-            IteratedLoad(locations, fn, exceptionHandler);
+            locations.IteratedLoad(fn, exceptionHandler);
         }
 
         /// <summary>
@@ -531,7 +548,7 @@ namespace AssemblyService
 
         #region Private Members
 
-        static private void IteratedLoad(LinkedList<string> l, 
+        static private void IteratedLoad(this LinkedList<string> l, 
             string[] files, Action<Exception> action)
         {
             int n = l.Count;
@@ -553,7 +570,7 @@ namespace AssemblyService
             }
             if (l.Count != n)
             {
-                IteratedLoad(l, files, action);
+                l.IteratedLoad(files, action);
             }
         }
 

@@ -20,7 +20,7 @@ namespace Gravity_36_36.Wrapper
         /// <summary>
         /// Inits itself
         /// </summary>
-        public static void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }

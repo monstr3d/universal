@@ -159,7 +159,11 @@ namespace Scada.WPF.UI.ScadaControls
 
         void SetValue()
         {
-            Content = transform((double)output());
+            var v = output();
+            if (v != null)
+            {
+                Content = transform((double)output());
+            }
         }
 
         #endregion

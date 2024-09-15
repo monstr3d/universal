@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using CategoryTheory;
+using AssemblyService.Attributes;
+
 
 using Diagram.UI.Interfaces;
 
@@ -13,7 +11,6 @@ using DataPerformer.Interfaces;
 
 using Scada.Interfaces;
 using Scada.Desktop;
-using AssemblyService.Attributes;
 
 namespace Scada.Motion6D
 {
@@ -37,7 +34,7 @@ namespace Scada.Motion6D
         /// <summary>
         /// Inits itself
         /// </summary>
-        static public void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }

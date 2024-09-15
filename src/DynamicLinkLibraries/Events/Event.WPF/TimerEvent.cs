@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Threading;
+﻿using System.Windows.Threading;
+
 using Event.Interfaces;
 
 namespace Event.WPF
@@ -15,7 +11,7 @@ namespace Event.WPF
 
         DispatcherTimer timer = new DispatcherTimer();
 
-        event Action ev = () => { };
+        event Action ev;
 
         bool isEnabled = false;
 
@@ -89,11 +85,9 @@ namespace Event.WPF
 
         #endregion
 
-
         private void Timer_Tick(object sender, EventArgs e)
         {
-            ev(); 
+            ev?.Invoke(); 
         }
-
     }
 }

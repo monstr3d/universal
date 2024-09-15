@@ -200,13 +200,12 @@ namespace Scada.Motion6D
 
         #region Private Members
 
-
         IRealtime StartRealtime(ITimeMeasurementProviderFactory timeMeasurementProviderFactory,
             bool multiThread)
         {
             IAsynchronousCalculation animation =
-               collection.StartAnimation(new string[] {StaticExtensionEventInterfaces.Realtime,
-             AnimationType.GetReason()}, AnimationType, new TimeSpan(0), 1, true, isAbsoluteTime);
+               collection.StartAnimation([StaticExtensionEventInterfaces.Realtime,
+             AnimationType.GetReason()], AnimationType, new TimeSpan(0), 1, true, isAbsoluteTime);
             if (animation != null)
             {
                 StaticExtensionEventPortable.OnceStop(animation.Interrupt);

@@ -16,6 +16,7 @@ namespace TestCategory.UI
         {
 
         }
+
         /// <summary>
         /// Converts object to test list
         /// </summary>

@@ -66,7 +66,7 @@ namespace FormulaEditor
         /// <summary>
         /// Initialization
         /// </summary>
-        public static void Init()
+        static public void Init()
         {
 
         }

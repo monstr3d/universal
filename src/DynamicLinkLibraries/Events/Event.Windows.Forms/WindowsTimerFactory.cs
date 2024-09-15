@@ -24,7 +24,7 @@ namespace Event.Windows.Forms
         static public readonly WindowsTimerFactory Singleton = new WindowsTimerFactory();
     
         [InitAssembly]
-        public static void Init()
+        static public void Init(InitAssemblyAttribute attr)
         { }
 
 

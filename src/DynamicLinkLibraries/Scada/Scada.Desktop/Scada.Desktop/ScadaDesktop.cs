@@ -130,7 +130,7 @@ namespace Scada.Desktop
             {
                 return;
             }
-            this.timeMeasurementProviderFactory = timeMeasurementProvider;
+            timeMeasurementProviderFactory = timeMeasurementProvider;
             this.realtimeStep = realtimeStep;
             this.desktop = desktop;
             this.timeUnit = timeUnit;

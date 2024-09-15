@@ -195,6 +195,11 @@ namespace Scada.WPF.UI.ScadaControls
             current = 0;
             for (int i = 0; i < ob.Length; i++)
             {
+                var xo = ob[i];
+                if (xo == null)
+                {
+                    continue;
+                }
                 double[] d = Output[i].Item3;
                 double x = (double)ob[i];
                 last[i] = GetY(x, d);

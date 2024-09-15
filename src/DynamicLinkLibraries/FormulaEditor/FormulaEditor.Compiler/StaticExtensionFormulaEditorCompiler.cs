@@ -10,6 +10,9 @@ namespace FormulaEditor.Compiler
     [InitAssembly]
     public static class StaticExtensionFormulaEditorCompiler
     {
+        /// <summary>
+        /// Compiler
+        /// </summary>
         static private ICompiler compiler;
 
         /// <summary>
@@ -18,25 +21,24 @@ namespace FormulaEditor.Compiler
         static public ICompiler Compiler
         {
             get => compiler;
-            set 
-            { 
-                compiler = value; 
-            } 
+            set => compiler = value;
         }
 
         /// <summary>
         /// Initialization
         /// </summary>
-        public static void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
   
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionFormulaEditorCompiler()
         {
             StaticExtensionFormulaEditor.Init();
             CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory(null);
-           // StaticExtensionFormulaEditor.Factory = f;
             StaticExtensionFormulaEditor.CreatorFactory = new CreatorOfCreator();
             StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
         }

@@ -362,7 +362,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Inits itself
         /// </summary>
-        static public void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }

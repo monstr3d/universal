@@ -1,11 +1,7 @@
 ﻿using CompilerService.Interfaces;
 using System;
 using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CompilerService
 {
@@ -17,8 +13,10 @@ namespace CompilerService
         private CodeDomProvider compiler = CodeDomProvider.CreateProvider("cs");
 
         static public readonly ICompiler Compiler = new CodeDomCSharpLibCompiler();
+       
         private CodeDomCSharpLibCompiler()
         {
+
         }
 
         /// <summary>

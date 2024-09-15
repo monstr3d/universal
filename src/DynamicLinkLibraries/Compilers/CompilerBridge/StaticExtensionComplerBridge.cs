@@ -1,7 +1,7 @@
-﻿using System;
+﻿using AssemblyService.Attributes;
 
-using AssemblyService.Attributes;
 using CompilerService.Interfaces;
+
 using FormulaEditor.Compiler;
 
 namespace CompilerBridge
@@ -24,7 +24,7 @@ namespace CompilerBridge
         /// <summary>
         /// Inits itself
         /// </summary>
-        static public void Init()
+        static public void Init(InitAssemblyAttribute attr)
         {
 
         }
