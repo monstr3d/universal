@@ -1,6 +1,4 @@
-﻿using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
+using Scada.Interfaces;
+using Scada.Wpf.Common.Convertes;
 
 
 namespace Scada.WPF.UI.ScadaControls

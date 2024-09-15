@@ -445,7 +445,7 @@ namespace Scada.Interfaces
         /// <param name="scada">The SCADA</param>
         /// <param name="name">Function name</param>
         /// <returns>The function</returns>
-        public static Func<double> GetDoubleOutput(this IScadaInterface scada, string name)
+        public static Func<double?> GetDoubleOutput(this IScadaInterface scada, string name)
         {
             Func<object> f = scada.GetOutput(name);
             return f.GetDoubleOutput(scada.Outputs[name]);
@@ -603,19 +603,19 @@ namespace Scada.Interfaces
             }
         }
 
-        internal static Func<double> GetDoubleOutput(this Func<object> func, object type)
+        internal static Func<double?> GetDoubleOutput(this Func<object> func, object type)
         {
             Type t = type.DetectType();
             if (t.Equals(typeof(double)))
             {
-                return () => { return (double)func(); };
+                return () => { return (double?)func(); };
             }
             else
             {
                 return () =>
                 {
-                    float a = (float)func();
-                    return (double)a;
+                    float? a = (float?)func();
+                    return (double?)a;
                 };
             }
         }

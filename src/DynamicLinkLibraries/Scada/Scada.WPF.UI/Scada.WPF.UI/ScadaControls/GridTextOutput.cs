@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI.ScadaControls
 {

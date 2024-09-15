@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 using Scada.Interfaces;
 
-using Scada.WPF.UI;
+using Scada.Wpf.Common;
 
 namespace Scada.WPF.Sound.Sample
 {
@@ -32,7 +32,6 @@ namespace Scada.WPF.Sound.Sample
 
         public MainWindow()
         {
-            var d = System.Runtime.Loader.AssemblyLoadContext.Default;
             InitializeComponent();
             CreateScada();
             this.CreateMessageBoxEventHandler(scada);

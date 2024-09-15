@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI.ScadaControls
 {
@@ -22,7 +24,7 @@ namespace Scada.WPF.UI.ScadaControls
 
         IEvent eventObject;
 
-        Func<double> output;
+        Func<double?> output;
 
         IScadaInterface scada;
 
@@ -165,8 +167,12 @@ namespace Scada.WPF.UI.ScadaControls
 
         void Set()
         {
-            a = output();
-            Dispatcher.Invoke(SetValue);
+            var f = output();
+            if (f != null)
+            {
+                a = (double)f;
+                Dispatcher.Invoke(SetValue);
+            }
         }
 
         void SetValue()

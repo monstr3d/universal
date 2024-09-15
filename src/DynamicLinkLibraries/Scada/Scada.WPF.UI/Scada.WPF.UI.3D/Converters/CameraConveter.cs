@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel;
 
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Wpf.Common;
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI._3D.Converters
 {
@@ -19,7 +21,7 @@ namespace Scada.WPF.UI._3D.Converters
         public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
         {
             return new StandardValuesCollection(
-                StaticExtensionScadaWpfUI.Scada.GetObjectList<global::Motion6D.Camera>());
+              StaticExtensionScadaWpfCommon.Scada.GetObjectList<global::Motion6D.Camera>());
         }
     }
 }

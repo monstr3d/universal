@@ -15,8 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI.ScadaControls
 {
@@ -95,10 +97,14 @@ namespace Scada.WPF.UI.ScadaControls
                 if (isEnabled)
                 {
                     currentInput = input;
-                    Func<double> f = scada.GetDoubleOutput(Input);
+                    Func<double?> f = scada.GetDoubleOutput(Input);
                     if (f != null)
                     {
-                       slider.Value = f();
+                        var r = f();
+                        if (r != null)
+                        {
+                            slider.Value = (double)r;
+                        }
                     }
                     return;
                 }

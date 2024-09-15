@@ -1,10 +1,11 @@
 ﻿<Window xmlns:Wpf="clr-namespace:DataPerformer.UI.Wpf;assembly=DataPerformer.UI.Wpf"   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Class="Scada.WPF.Sound.Sample.MainWindow"
-    xmlns:gauge="clr-namespace:CircularGauge;assembly=CircularGauge"
+        
          xmlns:ScadaControls="clr-namespace:Scada.WPF.UI.ScadaControls;assembly=Scada.WPF.UI"
          xmlns:ScadaControls3D="clr-namespace:Scada.WPF.UI._3D.ScadaControls;assembly=Scada.WPF.UI.3D"
-        Title="Aviation SCADA" Height="620" Width="620">
+             xmlns:CircularGauge="clr-namespace:Scada.CircularGauge;assembly=Scada.CircularGauge"
+   Title="Aviation SCADA" Height="620" Width="620">
     <Grid x:Name="LayoutRoot" >
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -32,7 +33,7 @@
                         <ColumnDefinition Width="300" />
                         <ColumnDefinition Width="300"/>
                     </Grid.ColumnDefinitions>
-                    <ScadaControls:ScadaCircularGaugeControl x:Name="Velocity"  Grid.Column="0" 
+                    <CircularGauge:CircularGaugeControl x:Name="Velocity"  Grid.Column="0" 
                            Radius="150" 
                                         ScaleRadius="90" 
                                         ScaleStartAngle="120" 
@@ -64,9 +65,9 @@
                                         DialTextOffset="40"
                                         DialText="Altitude, m"
                                         DialTextColor="DarkRed"
-               Event="Timer" Output="Motion + Audio/H, V.Formula_1"  />
+               Event="Timer" Output="Motion + Audio/H,V.Formula_1"  />
 
-                    <ScadaControls:ScadaCircularGaugeControl x:Name="Height"  Grid.Column="1" 
+                    <CircularGauge:CircularGaugeControl x:Name="Height"  Grid.Column="1" 
                                         Radius="153" 
                                         ScaleRadius="110" 
                                         ScaleStartAngle="120" 
@@ -84,7 +85,6 @@
                                         RangeIndicatorRadius="0"
                                         ScaleLabelRadius="90"
                                         ScaleLabelSize="40,20"
-                                        ScaleLabelFontSize="11"
                                         ScaleLabelForeground="Black"
                                         MajorTickSize="10,3"
                                         MinorTickSize="3,1"
@@ -96,9 +96,10 @@
                                         OptimalRangeStartValue="300"
                                         OptimalRangeEndValue="700" 
                                         DialTextOffset="40"
+                                        ScaleLabelFontSize="20"
                                         DialText="Velocity, mps"
                                         DialTextColor="DarkSlateGray"
-    Event="Timer" Output="Motion + Audio/H, V.Formula_2"  />
+    Event="Timer" Output="Motion + Audio/H,V.Formula_2"  />
                 </Grid>
                 <Grid Grid.Row ="1" Height="300">
                     <Grid.ColumnDefinitions>

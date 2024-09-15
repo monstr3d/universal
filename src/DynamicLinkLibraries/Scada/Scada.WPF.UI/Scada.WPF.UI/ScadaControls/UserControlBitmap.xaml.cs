@@ -15,8 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI.ScadaControls
 {

@@ -18,7 +18,8 @@ using System.Windows.Shapes;
 using Diagram.UI;
 
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Wpf.Common.Convertes;
 
 using Web.Interfaces;
 

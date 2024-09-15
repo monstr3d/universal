@@ -9,7 +9,8 @@ using System.Windows.Input;
 using System.Xml.Linq;
 
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI.ScadaControls
 {

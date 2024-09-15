@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Scada.Interfaces;
-using Scada.WPF.UI.Convertes;
+using Scada.Wpf.Common.Convertes;
 
 namespace Scada.WPF.UI.ScadaControls
 {
@@ -66,10 +66,14 @@ namespace Scada.WPF.UI.ScadaControls
                 if (isEnabled)
                 {
                     currentInput = input;
-                    Func<double> f = scada.GetDoubleOutput(Input);
+                    Func<double?> f = scada.GetDoubleOutput(Input);
                     if (f != null)
                     {
-                        Value = (decimal)f();
+                        var r = f();
+                        if (r.HasValue)
+                        {
+                            Value = (decimal)r.Value;
+                        }
                     }
                     return;
                 }

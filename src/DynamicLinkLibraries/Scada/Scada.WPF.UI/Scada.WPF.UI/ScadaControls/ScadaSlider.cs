@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using Scada.Interfaces;
 using System.ComponentModel;
-using Scada.WPF.UI.Convertes;
+
+using Scada.Interfaces;
+
+using Scada.Wpf.Common.Convertes;
 using System.Windows.Input;
 
 namespace Scada.WPF.UI.ScadaControls
@@ -116,11 +118,15 @@ namespace Scada.WPF.UI.ScadaControls
                 if (isEnabled)
                 {
                     currentInput = input;
-                    Func<double> f = scada.GetDoubleOutput(Input);
+                    Func<double?> f = scada.GetDoubleOutput(Input);
                     if (f != null)
                     {
                         change = false;
-                        Value = f();
+                        var r = f();
+                        if (r.HasValue)
+                        {
+                            Value = (double)r.Value;
+                        }
                         change = true;
                     }
                     return;
