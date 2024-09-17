@@ -1,10 +1,7 @@
 ﻿using Diagram.UI;
 using Diagram.UI.Interfaces;
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoundService.CodeCreators
 {
@@ -93,8 +90,6 @@ namespace SoundService.CodeCreators
             }
             l.Add("\t}");
             l.Add("}");
-
         }
-
     }
 }

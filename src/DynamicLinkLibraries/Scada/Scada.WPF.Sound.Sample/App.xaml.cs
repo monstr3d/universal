@@ -1,10 +1,9 @@
 ﻿using System.Windows;
+using System.IO;
 
 using Diagram.UI;
-using Diagram.UI.Interfaces;
 
 using DataPerformer.Portable.DifferentialEquationProcessors;
-
 
 using Event.Basic;
 using Event.Interfaces;
@@ -12,9 +11,11 @@ using Event.WPF;
 
 using Scada.Desktop;
 using Scada.Desktop.Serializable;
-using EngineeringInitializer;
+
 using SoundService;
-using System.IO;
+
+using EngineeringInitializer;
+
 
 namespace Scada.WPF.Sound.Sample
 {
@@ -31,18 +32,12 @@ namespace Scada.WPF.Sound.Sample
             StaticExtensionEventBasic.Init();
             BasicEngineeringInitializer initializer =
             new BasicEngineeringInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
-            RungeProcessor.Processor,
-                new IApplicationInitializer[]
-                {
-              }, true);
+            RungeProcessor.Processor,[], true);
             initializer.InitializeApplication();
             StaticExtensionEventInterfaces.TimerEventFactory = WpfTimerEventFactory.Singleton;
             StaticExtensionEventInterfaces.TimerFactory = WpfTimerFactory.Singleton;
             StaticExtensionScadaDesktop.ScadaFactory = StaticExtensionScadaDesktopSerializable.BaseFactory;
             StaticExtensionDiagramUISerializable.Init();
-            SoundService.StaticExtensionSoundService.SoundDirectory = 
-                AppDomain.CurrentDomain.BaseDirectory + "sounds" + 
-                System.IO.Path.DirectorySeparatorChar;
-        }
+         }
     }
 }
