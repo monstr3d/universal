@@ -5777,10 +5777,10 @@ If ${f}_{{x}_0}$ is an $x_0$-{stump} then $\supp f_{x_0}$ is compact, i.e. ${f}_
 	$\left\{\sV_x\right\}_{x\in\sX}$ (cf. equation \ref{top_vx_eqn}). 
 \end{defn}
 
-\begin{definition}\label{top_covering_sum_admits_defn}
-A dense $*$-subalgebra $R\subset C_0\left( \sX\right)$ \textit{admits covering sums} if for any family $\left\{\mathcal U_\alpha\in \mathcal X\right\}_{\alpha \in \mathscr A}$ with $\sX = \bigcup_{\mathcal U_\alpha\in \mathcal A}\sU_\a$ and any compact subset $\sY\subset \sX$ there is a dominated by $\left\{\mathcal U_\alpha\right\}$ covering sum for $\sY$ (cf. Definition \ref{top_covering_sum_defn}).
-\end{definition}
-\begin{example}\label{top_covering_sum_admits_exm}
+%\begin{definition}\label{top_covering_sum_admits_defn}
+%A dense $*$-subalgebra $R\subset C_0\left( \sX\right)$ \textit{admits covering sums} if for any family $\left\{\mathcal U_\alpha\in \mathcal X\right\}_{\alpha \in \mathscr A}$ with $\sX = \bigcup_{\mathcal U_\alpha\in \mathcal A}\sU_\a$ and any compact subset $\sY\subset \sX$ there is a dominated by $\left\{\mathcal U_\alpha\right\}$ covering sum for $\sY$ (cf. Definition \ref{top_covering_sum_defn}).
+%\end{definition}
+\begin{example}\label{top_covering_sum_admits_exm} !!! BELOW !!!
 If $M$ is a smooth paracompact $M$ manifold then  the $*$-subalgebra of $R\bydef \Coo\left( M\right) \cap C_0\left(M \right) \subset C_0\left(M \right)$ of smooth functions then from the Proposition \ref{top_smooth_part_unity_prop} it follows that $R$  admits covering sums.
 \end{example}
 
@@ -8066,26 +8066,86 @@ A\subset \mathscr S^A\left( \sX\right).
 Since $R$ is an $R$-module, there is an $R$-sheaf $\mathscr S^R$.
 One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
 \end{remark}
-Let $R\subset C_0\left(\sX\right)$ be a dense *-subalgebra. Similarly to the equation \eqref{unital_notation_eqn} one has an unital *-algebra $R^\sim$ which is an $R$-module. There is a natural inclusion $R^\sim \subset C_b\left(\sX\right)$.
+
 \begin{definition}\label{top_soft_r_defn}
-	We say that a dense $*$-subalgebra $R\subset C_0\left(\sX \right) $ is $c$-\textit{soft} if for any compact set $\sY\subset \sX$ there is $f \in R\cap C_c\left(\sX \right)$ such that
-	$$
-f\left( \sY\right) = \{1\}.	
-	$$ 
-	We say that $f$ is an $\left(R, \sY\right)$-\textit{stump}.
+	Let $\sX$ be a paracompact space (cf. Definition \ref{top_paracompact_defn}), locally compact, Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a dense $*$-subalgebra. Similarly to the equation \eqref{unital_notation_eqn} one has an unital $*$-algebra $R^\sim$ which is an $R$-module. There is a natural inclusion $R^\sim \subset C_b\left(\sX\right)$.
+	We say that a dense $*$-algebra $R\subset C_0\left(\sX\right)$ is \textit{soft} if following conditions hold:
+	\begin{enumerate}
+		\item [(a)] a sheaf $\mathscr S^{R^\sim}$ is soft (cf. Definition \ref{soft_sheaf_defn}),
+		\item [(b)] one has $R= C_0\left(\sX\right) \cap \mathscr S^{R^\sim}\left( \sX\right) $.
+	\end{enumerate}
 \end{definition}
 \begin{lemma}
-	If $R \subset C_0\left(\sX\right)$ is a $c$-soft *-subalgebra and $A$ is and $R$-module then  $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Definition \ref{sheaf_soft_defn})
+	Let $\sX$ be a paracompact space (cf. Definition \ref{top_paracompact_defn}), locally compact, Hausdorff space and and $p: \widetilde \sX \to \sX$ is a covering (cf. Definition \ref{top_covering_defn}). If $R\subset C_0\left(\sX\right)$ is a soft $*$-subalgebra, $\mathscr S^{R^\sim}$ is the $R^\sim$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) with the inverse image  $p^{-1}\mathscr S^{R^\sim}\left( \widetilde\sX \right)$ (cf. Definition \ref{sheaf_inv_im_defn})	
+	then the $*$-algebra
+	$$
+	\widetilde R \bydef C_0\left( \widetilde\sX \right) \cap p^{-1}\mathscr S^{R^\sim}\left( \widetilde\sX \right)\subset C_0\left( \widetilde\sX \right)
+	$$
+	is soft.
 \end{lemma}
 \begin{proof}
-	!!!!
+	The space $\widetilde \sX$ is paracompact since $\sX$ is paracompact and $p$ is a covering. Let $\widetilde x \in \widetilde\sX$ be a point and let $\widetilde \sU$ be a closed neighborhood of $\widetilde x$ which is mapped homeomorphically onto $\sU \bydef p\left( \widetilde\sU\right)$. Let $\widetilde \sY \subset \widetilde \sU$ be a closed subset
+	If $\widetilde r \in p^{-1}\mathscr S^{R^\sim}\left(\widetilde \sY\right)$ is a section  then from the Definition \ref{sheaf_inv_im_defn} there is the corresponding  section $r \in \mathscr S^{R^\sim}\left(\sY \bydef p\left( \widetilde \sY\right)  \right)$. Otherwise the sheaf   $\mathscr S^{R^\sim}$ is soft, so from the Lemma it turns out that there is a section $s \in \mathscr S^{R^\sim}\left(\sU \right)$ with $s|_{\sY}= r$. Since the restriction $p|_{\widetilde\sU} \to \sU$ is a homeomorphism the section $s$ naturally yields  a section $\widetilde s \in  p^{-1}\mathscr S^{R^\sim}$ such that $\widetilde s|_{\widetilde \sU}= \widetilde r$. From the Lemma \ref{schv_soft_n_lem} it follows that the sheaf $p^{-1}\mathscr S^{R^\sim}$ is soft. We leave to the reader a proof of that the set $\widetilde R \bydef p^{-1}\mathscr S^{R^\sim}\cap C_0\left( \widetilde\sX\right)$ is dense in  $C_0\left( \widetilde\sX\right)$.
 \end{proof}
-\begin{exercise}\label{top_soft_c_exer} !!! LEMMA !!! RESIDUALLY FINITE !!!
-Let $R \subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra.
-Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft *-subalgebra of $C_0\left(\widetilde \sX\right)$.
+
+\begin{lemma}\label{top_soft_r_lem}
+Let $\sX$ be a paracompact space (cf. Definition \ref{top_paracompact_defn}) with soft  $*$-algebra $R \subset C_0\left( \sX\right)$  (cf. Definition \ref{top_soft_r_defn}). If both $\sU, \sV\subset \sX$ are open subsets such that
+\begin{itemize}
+	\item the closure $\overline \sU$ of $\sU$ is a subset of $\sV$,
+	\item the closure $\overline \sV$  of $\sV$ is compact,
+\end{itemize}
+then there is a positive element $a \in R_+ \cap C_c\left(\sX \right) $ satisfying to following conditions:
+\bean
+a\left(\sU \right) = \{1\},\\
+\supp a \subset \sV.
+\eean
+\end{lemma}
+
+
+\begin{proof}
+There is an open subset $\mathcal W$ with compact closure $\overline{\mathcal W}$ such that $\overline \sU \subset \mathcal W$.
+If $\mathscr S^R$ is the $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then there is $s' \in \mathscr S^R\left( \sU \sqcup \left( \mathcal W \setminus \overline \sV \right)   \right)$ with
+\bean
+s'\left(\sU \right)= s'\left(\overline \sU \right) = \{1\},\\
+s'\left( \mathcal W \setminus \overline \sV \right)= s'\left(\overline{ \mathcal W} \setminus  \sV \right) = \{0\}.
+\eean
+According to the Definition \ref{sheaf_soft_defn} there is a global section $s'' \in \mathscr S^{R^\sim}\left(\sX \right)$ such that $s''|_{\sU \sqcup \left( \mathcal W \setminus \overline \sV \right) }= s'$. Using it and (4) of the Definition \ref{sheaf_defn} one can construct a global section $s\in \mathscr S^{R^\sim}$ such that
+\bean
+\supp s \in \overline{\mathcal W},\\
+s|_{\mathcal W}= s''|_{\mathcal W}
+\eean 
+From (b) of the Definition \ref{top_soft_r_defn} it follows that there is $b \in R$ which corresponds to $s$. It is clear that $a \bydef b^*b \in R$ matches to conditions of this lemma.
+\end{proof}
+
+
+
+\begin{exercise}\label{top_soft !!!_exer}
+	Let $R$ be a $c$-soft !!! *-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighborhood $\sU$ of $x$
+	there is a map $f \in R\cap C_c\left(\sX\right)$ such that
+	\begin{enumerate}
+		\item $\supp f \subset \sU$.
+		\item $f\left(\sX\right)= \left[0,1\right]$.
+		\item There is an open neighborhood $\sV$ such that $f\left(\sV\right)= \left[1\right]$.
+	\end{enumerate}
+	
 \end{exercise}
-\begin{exercise}\label{top_soft_p_exer}
-	If $R \subset C_0\left(\sX\right)$ is a $c$-soft *-subalgebra and $ p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
+\begin{definition}\label{top_stump_soft !!!_defn}
+	In the situation of the Exercise \ref{top_soft !!!_exer}  we say that $f$ is an $\left(R, x\right)$-\textit{stump}.
+\end{definition}
+
+
+\begin{lemma}
+	If $R \subset C_0\left(\sX\right)$ is a $c$-soft !!! *-subalgebra and $A$ is and $R$-module then  $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft !!! (cf. Definition \ref{sheaf_soft_defn})
+\end{lemma}
+\begin{proof}
+Follows from the Theorem \ref{sheaf_soft !!!_m_thm}.
+\end{proof}
+\begin{exercise}\label{top_soft !!!_c_exer} !!! LEMMA !!! RESIDUALLY FINITE !!!
+Let $R \subset C_0\left(\sX\right)$ be a $c$-soft !!! *-subalgebra.
+Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft !!! *-subalgebra of $C_0\left(\widetilde \sX\right)$.
+\end{exercise}
+\begin{exercise}\label{top_soft !!!_p_exer}
+	If $R \subset C_0\left(\sX\right)$ is a $c$-soft !!! *-subalgebra and $ p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
 \begin{enumerate}
 	\item[(a)] there is an open subset $\widetilde \sU\subset\widetilde\sX$ such that $\supp \widetilde f\subset \widetilde\sU$ and $\widetilde\sU$ is mapped homeomorphically onto $p\left(\widetilde\sU\right)$,
 	\item[(b)] $\widetilde f\left(\sX \right) = \left[0, 1\right]$,
@@ -8093,13 +8153,13 @@ Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^
 \end{enumerate}
 \end{exercise}
 
-\begin{definition}\label{top_stump_soft_p_defn}
-	Under the hypotheses of the Exercise \ref{top_soft_p_exer} we say that $f$ is an $\left(p, R, \widetilde x\right)$-\textit{stump}.
+\begin{definition}\label{top_stump_soft !!!_p_defn}
+	Under the hypotheses of the Exercise \ref{top_soft !!!_p_exer} we say that $f$ is an $\left(p, R, \widetilde x\right)$-\textit{stump}.
 \end{definition}
 
 
-\begin{exercise}\label{smooth_soft_exer}
-Let $M$ be a smooth paracompact manifold. Using the Proposition \ref{top_smooth_part_unity_prop} prove that $\Coo_0\left(M\right)\bydef \Coo\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}).
+\begin{exercise}\label{smooth_soft !!!_exer}
+Let $M$ be a smooth paracompact manifold. Using the Proposition \ref{top_smooth_part_unity_prop} prove that $\Coo_0\left(M\right)\bydef \Coo\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a $c$-soft !!! *-algebra (cf. Definition \ref{top_soft_r_defn}).
 \end{exercise}
 \subsection{Sheaves and continuity structures}
 \paragraph{}
@@ -8113,7 +8173,7 @@ C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
 C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right).
 \end{split}
 	\ee
-	(cf. equation \eqref{top_c_sec_eqn} and Definition \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn}). If the space $\sX$ is paracompact, then $C_0\left( \sX\right)$ is a $c$-soft *-subalgebra of  $C_0\left( \sX\right)$  (cf. Definitions \ref{top_soft_r_defn}). We leave to the reader the proof of following equations:
+	(cf. equation \eqref{top_c_sec_eqn} and Definition \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn}). If the space $\sX$ is paracompact, then $C_0\left( \sX\right)$ is a $c$-soft !!! *-subalgebra of  $C_0\left( \sX\right)$  (cf. Definitions \ref{top_soft_r_defn}). We leave to the reader the proof of following equations:
 		\bea\label{top_cont_sh_eqn}
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}=
 		\mathscr S^{C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)},\\
@@ -8177,7 +8237,7 @@ is commutative.
 \end{exercise}
 
 \begin{exercise}\label{top_sheaf_corr_exer}
-	Under the hypotheses of the Exercise \ref{top_top_shift_iso_exer} suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}). Let  $\Phi$   is a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}). Let $R \subset C_0\left(\sX\right)$ be a $\Phi$-soft *-subalgebra, and let $A \subset 	\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)$ be an $R$-submodule. If $\mathscr S^{A}$ is $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}), then from \eqref{top_sh_cong_eqn} one has  natural inclusions
+	Under the hypotheses of the Exercise \ref{top_top_shift_iso_exer} suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}). Let  $\Phi$   is a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}). Let $R \subset C_0\left(\sX\right)$ be a $\Phi$-soft !!! *-subalgebra, and let $A \subset 	\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)$ be an $R$-submodule. If $\mathscr S^{A}$ is $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}), then from \eqref{top_sh_cong_eqn} one has  natural inclusions
 	\bean
 	\mathscr S^{A}\left(\sX\right) \subset \mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right),\\
 	p^{-1}\mathscr S^{A}\left(\widetilde\sX\right) \subset  C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right).\\
@@ -8193,7 +8253,7 @@ is commutative.
 		(cf. Remark \ref{top_top_lift_rem}), i.e. $\lift_p^{\text{sheaf}}= \left.\lift_p^{\text{top}}\right|_{\mathscr S^{A}\left(\sX\right)}$.
 		\item Similarly the given  by the Definition \ref{top_lift_sh_desc_defn} $ \lift^p_{\widetilde{\sU}}$ and $\desc_{p}$ can be regarded as restrictions of the given by the Definition \ref{top_lift_desc_defn} maps $ \lift^p_{\widetilde{\sU}}$ and $\desc_{p}$.
 		\item If $\desc^c_p$ is a compactly supported $p$-descent (cf. Definition \ref{desc_c_sheaf_defn}) then one has
-		\be\label{top_cdesc_soft_eqn}
+		\be\label{top_cdesc_soft !!!_eqn}
 		\begin{split}
 		\desc^c_p\left(C_c\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right)\cap 	p^{-1}\mathscr S^{A}\left(\widetilde\sX\right) \right) =\\= C_c\left({\sX}, \left\{{A}_{{ x}}\right\}, {\sF}\right)\cap 	\mathscr S^{A}\left(\sX\right).
 		\end{split}
@@ -8207,7 +8267,7 @@ is commutative.
 	$ \lift^p_{\widetilde{\sU}}$, $\desc_{p}$ and $\desc^c_p$ will be used for objects given by the Definitions \ref{top_lift_sh_desc_defn} and \ref{top_lift_desc_defn}. 
 \end{remark}
 \begin{exercise}  
-	Let $R\subset C_0\left(\sX \right)$ be a $c$-soft algebra, and let $X$ be an $R$ module. Let $\mathscr S^X$ be the $X$-sheaf (cf. Definition \ref{top_x_sheaf_defn}). Denote by
+	Let $R\subset C_0\left(\sX \right)$ be a $c$-soft !!! algebra, and let $X$ be an $R$ module. Let $\mathscr S^X$ be the $X$-sheaf (cf. Definition \ref{top_x_sheaf_defn}). Denote by
 	$$
 	\mathscr S^X\left(\sX \right)_c \bydef \left\{\left. a \in \mathscr S^X\left(\sX\right) \right| \supp a \text{ is compact }\right\}
 	$$
@@ -8229,7 +8289,7 @@ The Definition \ref{desc_c_sheaf_defn} is compliant with the Definition \ref{top
 
 
 \begin{exercise}\label{top_pre_sheaf_exer} 
-Let $\sX$ be a locally compact, paracompact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ be a $c$-soft *-subalgebra (cf. Definition  \ref{top_soft_r_defn}). 	
+Let $\sX$ be a locally compact, paracompact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ be a $c$-soft !!! *-subalgebra (cf. Definition  \ref{top_soft_r_defn}). 	
 Let $\mathscr F$ be an $\mathscr S^R$ -{module} (cf. Definition \ref{sheaf_of_modules_den})
 Let $p: \widetilde\sX \to \sX$ be a transitive covering.
  Let $\widetilde{\mathscr F}\bydef p^{-1}\mathscr F$ be an inverse image (cf. Definition \ref{sheaf_inv_im_defn}), and let $\mathscr F\left( \sX\right) \subset  \widetilde{\mathscr F}\left( \widetilde\sX\right)$ be a natural inclusion of $\mathscr S^R$-modules. Let $\Aut_{ \mathscr S^R\left( \sX\right)}\left( \widetilde{\mathscr F}\left( \widetilde\sX\right)\right)$ be a group of  $ \mathscr S^R\left( \sX\right)$-module automorphisms.
@@ -8250,7 +8310,7 @@ Let $p: \widetilde\sX \to \sX$ be a transitive covering.
 \end{exercise}
 
 
-\begin{exercise}\label{top_hom_sub_exer} Let $\sX$ be a locally compact, paracompact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ a $c$-soft   *-subalgebra  \ref{top_soft_r_defn}). Let both $F$, $G$ be $R$-modules and let $\mathscr S^F$ and $\mathscr S^G$ be $F$-sheaf and $G$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}).
+\begin{exercise}\label{top_hom_sub_exer} Let $\sX$ be a locally compact, paracompact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ a $c$-soft !!!   *-subalgebra  \ref{top_soft_r_defn}). Let both $F$, $G$ be $R$-modules and let $\mathscr S^F$ and $\mathscr S^G$ be $F$-sheaf and $G$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}).
 	There is a sheaf  of local morphisms  $\mathscr Hom \left(\mathscr S^F,
 	\mathscr S^G \right)$ (cf. Definition \ref{sheaf_hom_defn}).
 Prove following statements.
@@ -8360,7 +8420,7 @@ then $D^*\left(M,E\right)$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn})
 The given by the equation \eqref{top_diff*_eqn} $O^*$-algebra  $D^*\left(M,E\right)$ is said to be an \textit{algebra of adjointable differential operators}.
 \end{definition}
 \begin{remark}
-The $O^*$-algebra  $D^*\left(M,E\right)$ is a module over a $c$-soft *-algebra  $\Coo_0\left(M \right)$ (cf. Definition \ref{top_soft_r_defn} and Exercise \ref{smooth_soft_exer}).
+The $O^*$-algebra  $D^*\left(M,E\right)$ is a module over a $c$-soft !!! *-algebra  $\Coo_0\left(M \right)$ (cf. Definition \ref{top_soft_r_defn} and Exercise \ref{smooth_soft !!!_exer}).
 \end{remark}
 \begin{lemma}\label{top_diff*_lem}
 If $\mathscr S^{D^*\left(M,E\right)}$ is the $D^*\left(M,E\right)$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then the natural inclusion
@@ -9177,7 +9237,7 @@ is a connected noncommutative  finite-fold weak covering (cf. Definition \ref{fi
 \subsubsection{Coverings of bounded operator $*$-algebras}
 
 \begin{theorem}\label{top_oa_cov_thm} 
-	Let $\sX$ be a connected, locally connected,  locally compact, paracompact, Hausdorff  space. If $\sX$ consents with noncommutative coverings and $R \subset C_0\left(\sX\right)$ is a $c$-soft  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
+	Let $\sX$ be a connected, locally connected,  locally compact, paracompact, Hausdorff  space. If $\sX$ consents with noncommutative coverings and $R \subset C_0\left(\sX\right)$ is a $c$-soft !!!  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
 	\begin{enumerate}
 		\item [(i)] if 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
 		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the equation \eqref{top_c0p_eqn},
@@ -9191,7 +9251,7 @@ is a connected noncommutative  finite-fold weak covering (cf. Definition \ref{fi
 	(i)
 	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. the Theorem \ref{top_fin_necassary_lem}. On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{\sX}\right)$. Conditions $G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
-	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde \sX\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\widetilde a_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ where $\widetilde a_{\widetilde x_0}$ is the stalk at $\widetilde x_0$ (cf. Definition \ref{sheaf_stalk_defn}). If $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ be an $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn}) then $\widetilde a_{\widetilde x_0}=\left(\widetilde f\widetilde a \right)_{\widetilde x_0}\notin p^{-1} \mathscr S^R_{\widetilde x_0}$.
+	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde \sX\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\widetilde a_{\widetilde x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$ where $\widetilde a_{\widetilde x_0}$ is the stalk at $\widetilde x_0$ (cf. Definition \ref{sheaf_stalk_defn}). If $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ be an $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft !!!_p_defn}) then $\widetilde a_{\widetilde x_0}=\left(\widetilde f\widetilde a \right)_{\widetilde x_0}\notin p^{-1} \mathscr S^R_{\widetilde x_0}$.
 	One has 
 \bean
 a \bydef \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left(\sX\right),\\
@@ -9328,7 +9388,7 @@ In the above proof the ideals ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ 
 \end{remark}
 
 \paragraph{Polynomials in one variable} \label {top_fin_hull_sec}
-Let $\sX$ be a locally compact,  connected, locally connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). 
+Let $\sX$ be a locally compact,  connected, locally connected, Hausdorff space, and let $R\subset C_0\left(\sX \right)$ be a $c$-soft !!! *-algebra (cf. Definition \ref{top_soft_r_defn}). 
 Let  $R\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. Clearly $R\left[t\right]$ is an $R$-module. Let $\mathscr S^{R\left[t\right]}$ be an $R\left[t\right]$-sheaf (cf. Definition \ref{top_x_sheaf_defn}).
  Let 
 \be\label{top_poly_a_defn}
@@ -9351,8 +9411,8 @@ If $\mathfrak B$ is the completion of $\mathfrak B'$ with respect to the graph t
  From the 
  Lemma \ref{top_fin_necassary_lem} 
   it follows that one has a natural  {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$).
-If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft_c_exer} it turns out that
-an intersection $\widetilde R \bydef p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft *-subalgebra. We leave to the reader the proof of the natural isomorphism
+If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft !!!_c_exer} it turns out that
+an intersection $\widetilde R \bydef p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft !!! *-subalgebra. We leave to the reader the proof of the natural isomorphism
 $$
 p^{-1}\mathscr S^{R\left[t\right]}\cong \mathscr S^{\widetilde R\left[t\right]}.
 $$
@@ -9653,7 +9713,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	\left(\A, \H ,D, J \right) \bydef	\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D ,J \right)
 	$$
 	specialization of the construction \ref{triple_conn_lift_empt}. 
-	From the Exercise \ref{smooth_soft_exer} it turns out that $\Coo\left(M \right)\subset C\left( M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). From the  Theorem \ref{top_oa_cov_thm} it follows that the quadruple	$$
+	From the Exercise \ref{smooth_soft !!!_exer} it turns out that $\Coo\left(M \right)\subset C\left( M\right)$ is a $c$-soft !!! *-algebra (cf. Definition \ref{top_soft_r_defn}). From the  Theorem \ref{top_oa_cov_thm} it follows that the quadruple	$$
 	\left(\A, \widetilde \A   , G\left(\left. \widetilde \A \right|\A \right) , \pi \right)\bydef  \left(\Coo\left(M\right), \Coo\left(\widetilde M \right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{\Coo\left(M\right)}\right)
 	$$
 	is a finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).	 
@@ -10730,7 +10790,7 @@ $$
 \mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
 $$
 (cf. Definition \ref{top_disconnected_defn}).
-	Let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
+	Let $R\subset C_0\left(\sX \right)$ be a $c$-soft !!! *-subalgebra (cf. Definition \ref{top_soft_r_defn}), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
 	The Theorem \ref{top_oa_cov_thm} enables us to construct a algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
@@ -10772,7 +10832,7 @@ $$
 	\be\label{top_ra_sh_eqn}
 	\forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} \subset \mathscr S^{\widetilde R}_{\widetilde x}
 	\ee
-	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$. From the Exercise \ref{top_soft_c_exer} it follows that $\widetilde R$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). If $\widetilde b \in  \widetilde R$ is a $\left(\widetilde p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn})
+	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$. From the Exercise \ref{top_soft !!!_c_exer} it follows that $\widetilde R$ is a $c$-soft !!! *-algebra (cf. Definition \ref{top_soft_r_defn}). If $\widetilde b \in  \widetilde R$ is a $\left(\widetilde p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft !!!_p_defn})
 	then from  $\widetilde b \in C_c\left(\widetilde \sX \right)$ and \eqref{top_inf_cov_oap_eqn} it follows that there is $a^\cup \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
 	$$
 	\widetilde b \widetilde a= \widetilde b a^\cup
@@ -10818,7 +10878,7 @@ $$
 	R_\la \widetilde R \subset  \widetilde R,\\
 	\widetilde R \subset R_\la  \widetilde R
 	\eean
-	it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft_y_defn} !!! REPLASE \ref{top_stump_soft_r_defn} !!!). Using the Lemma  \ref{top_compact_la_lem}  one can assume that there is an open subset $\widetilde \sU \subset \widetilde \sX$ and $\la_{\widetilde\sU}\in\La$ such that the natural covering $\widetilde p_{\la_{\widetilde\sU}} : \widetilde\sX \to \sX_{\la_{\widetilde\sU}}$ homeomorphically maps $\widetilde\sU$ onto $p_{\la_{\widetilde\sU}}\left(\widetilde\sU\right)$. For all $\widetilde a\in \widetilde R$ one has
+	it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft !!!_y_defn} !!! REPLASE \ref{top_stump_soft !!!_r_defn} !!!). Using the Lemma  \ref{top_compact_la_lem}  one can assume that there is an open subset $\widetilde \sU \subset \widetilde \sX$ and $\la_{\widetilde\sU}\in\La$ such that the natural covering $\widetilde p_{\la_{\widetilde\sU}} : \widetilde\sX \to \sX_{\la_{\widetilde\sU}}$ homeomorphically maps $\widetilde\sU$ onto $p_{\la_{\widetilde\sU}}\left(\widetilde\sU\right)$. For all $\widetilde a\in \widetilde R$ one has
 	\bean
 	a^\cup \bydef \desc_{p_{\la_{\widetilde\sU}}}\left( \widetilde f \widetilde a\right) \in R_{\la_{\widetilde\sU}}\subset \bigcup_{\la\in\La} R_\la
 	\eean
@@ -10894,7 +10954,7 @@ Above construction is a version of the described in \ref{comp_pt_o*_empt} genera
 	
 	
 	!!! STUMP REPLACE !!!
-	Let $\widetilde A' \in \L^\dagger\left(\Coo_c\left(\widetilde M \right)\cong  \Ga^\infty_c\left(\widetilde M, \widetilde T \right) \right)$ be an admissible  algebra (cf. Definition \ref{comp_pt_o*_empt}). Let $\widetilde a'\in \widetilde A'$ be any element. If $\widetilde a'$ is not a differential operator then there is $\widetilde \xi \in \Coo_c\left(\widetilde M \right)$ such that $\supp \widetilde a\widetilde\xi \subsetneqq \supp \widetilde\xi$ (cf. Definition \ref{do_man_defn}). Both  $\supp \widetilde a\widetilde\xi$ and  $\supp \widetilde\xi$ a closures of open sets, so there is an open set $\widetilde \sU\subset \supp \widetilde a\widetilde\xi$ such that $\widetilde\sU \cap \supp \widetilde \xi = \emptyset$. If $\widetilde x_0 \in \widetilde\sU$ and $\widetilde b$ is an $\left(\Coo_0\left(\widetilde M\right) , \widetilde x_0\right)$-{stump} (cf. Definition \ref{top_stump_soft_defn}  !!! DELETE !!!) such that $\supp \widetilde b\subset \widetilde \sU$ then 
+	Let $\widetilde A' \in \L^\dagger\left(\Coo_c\left(\widetilde M \right)\cong  \Ga^\infty_c\left(\widetilde M, \widetilde T \right) \right)$ be an admissible  algebra (cf. Definition \ref{comp_pt_o*_empt}). Let $\widetilde a'\in \widetilde A'$ be any element. If $\widetilde a'$ is not a differential operator then there is $\widetilde \xi \in \Coo_c\left(\widetilde M \right)$ such that $\supp \widetilde a\widetilde\xi \subsetneqq \supp \widetilde\xi$ (cf. Definition \ref{do_man_defn}). Both  $\supp \widetilde a\widetilde\xi$ and  $\supp \widetilde\xi$ a closures of open sets, so there is an open set $\widetilde \sU\subset \supp \widetilde a\widetilde\xi$ such that $\widetilde\sU \cap \supp \widetilde \xi = \emptyset$. If $\widetilde x_0 \in \widetilde\sU$ and $\widetilde b$ is an $\left(\Coo_0\left(\widetilde M\right) , \widetilde x_0\right)$-{stump} (cf. Definition \ref{top_stump_soft !!!_defn}  !!! DELETE !!!) such that $\supp \widetilde b\subset \widetilde \sU$ then 
 	$$
 	\widetilde b \in K\left(C_0\left(\widetilde M \right)  \right) \cap \L^\dagger\left(C_0\left(\widetilde M \right)  \right)_b.
 	$$
@@ -10982,7 +11042,7 @@ is a category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the tripl
 	\be\label{top_hilb_adm_eqn}
 	\forall \widetilde b \in C_c\left(\widetilde \sX \right)\quad \exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde b \widetilde a' =\widetilde b \lift_{\widetilde p_\la} \left( a_\la \right)  
 	\ee
-	where 	$\lift_{\widetilde p_\la}$ is the ${\widetilde p_\la}$-lift (cf. Definition \ref{top_lift_defn}). Let both $\mathscr S^{C_0\left(\sX \right) }$ and $\mathscr S^{C_0\left(\widetilde \sX \right) }$ be the ${C_0\left(\sX \right) }$-sheaf and the ${C_0\left(\widetilde \sX \right) }$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\left\{\widetilde \sU_\a\subset \widetilde\sX\right\}$ be a family of open subsets with compact closure  such that $\widetilde\sX = \cup \widetilde\sU_\a$. For any $\sU_\a$ there is a $\left(C_0\left(\widetilde \sX\right) , \widetilde \sY_\a\right)$-{stump} $\widetilde b_\la$ (cf. Remark \ref{top_stump_soft_y_rem})  where $\widetilde \sY_\a$ is the closure of $\widetilde \sU_\a$. From \eqref{top_hilb_adm_eqn} one has
+	where 	$\lift_{\widetilde p_\la}$ is the ${\widetilde p_\la}$-lift (cf. Definition \ref{top_lift_defn}). Let both $\mathscr S^{C_0\left(\sX \right) }$ and $\mathscr S^{C_0\left(\widetilde \sX \right) }$ be the ${C_0\left(\sX \right) }$-sheaf and the ${C_0\left(\widetilde \sX \right) }$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\left\{\widetilde \sU_\a\subset \widetilde\sX\right\}$ be a family of open subsets with compact closure  such that $\widetilde\sX = \cup \widetilde\sU_\a$. For any $\sU_\a$ there is a $\left(C_0\left(\widetilde \sX\right) , \widetilde \sY_\a\right)$-{stump} $\widetilde b_\la$ (cf. Remark \ref{top_stump_soft !!!_y_rem})  where $\widetilde \sY_\a$ is the closure of $\widetilde \sU_\a$. From \eqref{top_hilb_adm_eqn} one has
 	$$
 	\exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde b_\a\widetilde a'  =   \widetilde b_\a\lift_{\widetilde p_\la} \left( a_\la \right)
 	$$
@@ -11151,7 +11211,7 @@ $$
 	\forall \a \in \mathscr A\quad\widetilde f_\a \left(\widetilde{M}\right)\subset [0,1],\\
 	\forall \bt, \ga \in \mathscr A\quad \bt\le\ga \quad \Leftrightarrow \quad \widetilde f_\bt \le \widetilde f_\ga.
 \eean 
-From the Exercise \ref{smooth_soft_exer} it follows that $\Coo\left(\widetilde M \right)\cap C_0\left( \widetilde M\right)$ is a $c$-soft *-algebra. Taking into account the Exercise \ref{top_stump_soft_y_exer} we conclude that for any compact subset $\widetilde \sY$ of $\widetilde M$ there is $\a_{\widetilde\sY} \in  \mathscr A$ such that $f_{\a}\left({\widetilde\sY}\right) = \{1\}$ for all $\a \ge\a_{\widetilde\sY}$.  If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{top_inv_qo*_rlim_eqn}  it follows that
+From the Exercise \ref{smooth_soft !!!_exer} it follows that $\Coo\left(\widetilde M \right)\cap C_0\left( \widetilde M\right)$ is a $c$-soft !!! *-algebra. Taking into account the Exercise \ref{top_stump_soft !!!_y_exer} we conclude that for any compact subset $\widetilde \sY$ of $\widetilde M$ there is $\a_{\widetilde\sY} \in  \mathscr A$ such that $f_{\a}\left({\widetilde\sY}\right) = \{1\}$ for all $\a \ge\a_{\widetilde\sY}$.  If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{top_inv_qo*_rlim_eqn}  it follows that
 \bean
 \forall \widetilde a\in \widetilde{\mathfrak A}'\quad \forall \a\in \mathscr A\quad	\widetilde f_\a\widetilde a \in \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right).
 \eean
@@ -11191,7 +11251,7 @@ $$
 $$
 so if $\widetilde a \widetilde{c}=0$ then $\left\langle \widetilde a, \widetilde b \right\rangle= 0$. Thus the equation \eqref{top_inv_qo*_rzerop_eqn} is proven. The equation \eqref{top_inv_qo*_lzerop_eqn}  is equivalent to \eqref{top_inv_qo*_rzerop_eqn}. 
 
-Consider the equation  \eqref{top_inv_qo*_rlimp_eqn}. If  $\widetilde c\in \Coo_c\left(\widetilde M \right)$ is a $\left(\Coo_0\left( \widetilde M\right), \supp \widetilde b  \right)$-stump (cf. Remark \ref{top_stump_soft_y_rem}) then $\widetilde b = \widetilde b\widetilde c= \widetilde c\widetilde b$. From the Lemma \ref{top_compact_la_lem}  it follows that there is $\la_0\in \La$ and an open set $\widetilde \sU\subset \widetilde \sX$ such that
+Consider the equation  \eqref{top_inv_qo*_rlimp_eqn}. If  $\widetilde c\in \Coo_c\left(\widetilde M \right)$ is a $\left(\Coo_0\left( \widetilde M\right), \supp \widetilde b  \right)$-stump (cf. Remark \ref{top_stump_soft !!!_y_rem}) then $\widetilde b = \widetilde b\widetilde c= \widetilde c\widetilde b$. From the Lemma \ref{top_compact_la_lem}  it follows that there is $\la_0\in \La$ and an open set $\widetilde \sU\subset \widetilde \sX$ such that
 \begin{itemize}
 	\item $\supp \widetilde s \subset \widetilde \sU$,
 	\item $\widetilde \sU$ is mapped homeomorphically onto $\sU_{\la_0}\bydef \widetilde p_{\la_0}\left(\widetilde \sU \right)$ where $\widetilde p_{\la_0}: \widetilde M \to M_{\la_0}$ is the natural covering.
@@ -11515,7 +11575,7 @@ $$
  		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a
  		} = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right) 
 $$
-where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition  \ref{top_compactly_supported_descent_defn}). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft_eqn} it follows that
+where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition  \ref{top_compactly_supported_descent_defn}). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a $c$-soft !!! *-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft !!!_eqn} it follows that
 $$
 a_\la = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right)\in \Coo\left(\widetilde M \right).
 $$
@@ -14960,12 +15020,12 @@ which is an analog of the representation \ref{ctr_a_eqn}.
 \subsection{Coverings of $*$-algebras}
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \paragraph{}
-Let $A$ be a  $CCR$-algebra such that the spectrum $\sX$ of $A$ is locally connected, locally compact, Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Theorem  \ref{sheaf_soft_m_thm}). If $p : \widetilde \sX \to \sX$ is a finite-fold transitive covering then there from the Lemma \ref{ctr_sufficient_lem}   it follows that there is a noncommutative finite-fold covering 
+Let $A$ be a  $CCR$-algebra such that the spectrum $\sX$ of $A$ is locally connected, locally compact, Hausdorff space. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft !!! *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft !!! (cf. Theorem  \ref{sheaf_soft !!!_m_thm}). If $p : \widetilde \sX \to \sX$ is a finite-fold transitive covering then there from the Lemma \ref{ctr_sufficient_lem}   it follows that there is a noncommutative finite-fold covering 
 $$
 \left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 $$
 where $A_0\left( \widetilde{\sX }\right)$ is given by the Definition  \ref{top_lift_a_f_defn} $p$-lift of $A$, and $*$-homomorphism  $A_0\left(p\right)$ is given by the equation \eqref{top_c0p_ob_eqn} and/or \eqref{blowing_lift_fin_eqn} one. If $p^{-1}\mathscr S^\A$ is an inverse image sheaf (cf. Definition \ref{sheaf_inv_im_defn}) then an intersection
-\be\label{ctr_csoft_lift_eqn}
+\be\label{ctr_csoft !!!_lift_eqn}
 \A_0\left( \widetilde \sX \right)  \bydef  A_0\left(\widetilde \sX\right) \cap p^{-1}\mathscr S^\A \left(\widetilde \sX\right)
 \ee
 is a dense *-subalgebra of $A_0\left( \widetilde{\sX }\right)$.
@@ -15401,7 +15461,7 @@ $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mat
 \subsection{Coverings of $*$-algebras}
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \paragraph{}
-	Let $A$ be a $CCR$-algebra of type $I_0$ with locally connected, locally compact, Hausdorff spectrum. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft (cf. Theorem  \ref{sheaf_soft_m_thm}). 
+	Let $A$ be a $CCR$-algebra of type $I_0$ with locally connected, locally compact, Hausdorff spectrum. Let $R\subset C_0\left(\sX\right)$ be a $c$-soft !!! *-subalgebra (cf. Definition \ref{top_soft_r_defn}). If $\A\subset A$ is a dense *-subalgebra which is an $R$-module then $\A$-sheaf $\mathscr S^\A$ (cf. Definition \ref{top_x_sheaf_defn}) is $c$-soft !!! (cf. Theorem  \ref{sheaf_soft !!!_m_thm}). 
 	Let 
 \bean
 	\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}
@@ -24564,7 +24624,7 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 			%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(7) is a 
 			%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf  \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf  \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf  \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
 		\end{definition}
-\section{Flasque (flabby) and soft sheaves}
+\section{Flasque (flabby) and soft !!! sheaves}
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
 	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
@@ -24589,11 +24649,11 @@ Recall that for $s \in \mathscr{F}\left(\sX \right)$,
 \end{definition}\label{sheaf_soft_defn}
 The family of all compact subsets of $\sX$ is denoted by $c$.
 \begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
-	A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
-	called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
+	A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft !!!} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+	called \textit{soft !!!}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft !!!}.
 \end{definition}
-\begin{theorem}\label{sheaf_soft_m_thm}\cite{bredon:sheaf}
- Let $\left(\sX, \mathcal O_\sX \right)$ be a ringed space (cf. Definition \ref{sheaf_ringed_space_defn}), and let $\mathscr F$ be an $\mathcal O_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}). Suppose that the space $\sX$ is paracompact and $\Phi$ is a {paracompactifying} family of supports(cf. Definition \ref{phi_supp_defn}). If the sheaf $\mathcal O_\sX$ is $\Phi$-soft (cf. Definition \ref{soft_sheaf_defn}) then  $\mathscr F$ is also $\Phi$-soft.
+\begin{theorem}\label{sheaf_soft !!!_m_thm}\cite{bredon:sheaf}
+ Let $\left(\sX, \mathcal O_\sX \right)$ be a ringed space (cf. Definition \ref{sheaf_ringed_space_defn}), and let $\mathscr F$ be an $\mathcal O_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}). Suppose that the space $\sX$ is paracompact and $\Phi$ is a {paracompactifying} family of supports(cf. Definition \ref{phi_supp_defn}). If the sheaf $\mathcal O_\sX$ is $\Phi$-soft !!! (cf. Definition \ref{soft_sheaf_defn}) then  $\mathscr F$ is also $\Phi$-soft !!!.
 \end{theorem}
 Now is $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
 $\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf  generated by $\mathscr{P}$.
@@ -24629,9 +24689,14 @@ There is a theorem in Bredon's book (page 80).
 
 For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
 \begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
-	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft !!! if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft !!!.
 \end{lemma}
-
+\begin{corollary}\label{shead_soft !!!_csoft !!!_cor}
+	If  $\sX$ is  a paracompact space, locally compact space then  a  sheaf over $\sX$ is soft !!! if and only if it is $c$-soft !!! (cf. Definition \ref{sheaf_soft_defn})
+\end{corollary}
+\begin{proof}
+	The space $\sX$ contains a fundamental system of compact neighborhoods, so this corollary follows from the Lemma \ref{schv_soft_n_lem}.
+\end{proof}
 
 %\begin{theorem}\cite{bredon:sheaf}
 	%	6.2.\\
@@ -24653,36 +24718,36 @@ au-dessus d'un sous-ensemble fermé de $\sX$ contenu dans $\sU$, se prolonge à $\
 \end{theorem}
 Following text is an English translation of the above theorem
 \begin{theorem}
-	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
+	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft !!!.
 \end{theorem}
 \begin{thm}\cite{godement:sheaf}
 %Thorme 3-7-2. — 
 Soit $\mathscr{ A}$ un faisceau d'anneaux avec unité sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possède un  voisinage $\sU$ tel que, 	étant donnés des fermé disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, égale à 1 sur $S$ et à 0 sur $T$.
 \end{thm}
 Following text is an English translation of the above theorem.
-\begin{theorem}\label{sheaf_a_soft_thm}
-Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
+\begin{theorem}\label{sheaf_a_soft !!!_thm}
+Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft !!! if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
 \bean
 S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
 \eean
 \end{theorem}
 
-\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
+\begin{proposition}\label{flabby_soft !!!_prop}\cite{bredon:sheaf}
 	%	9.22. Proposition. \\
 	If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
-	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf  $\mathscr{F}$ on $\sX$.
+	then $\left.\mathscr{F}\right|_{\sU} $ is soft !!! for any flabby sheaf  $\mathscr{F}$ on $\sX$.
 \end{proposition}
 
 \section{Sheaves over non Hausdorff spaces}\label{sheaves_nh_sec}
-\begin{empt}\label{nh_csoft_empt}\cite{cra_moe:nhaus}
+\begin{empt}\label{nh_csoft !!!_empt}\cite{cra_moe:nhaus}
 	Here we assume that the space $\sX$ has an open cover by subsets $\sU \subset \sX$ which are each paracompact, Hausdorff, locally compact and of cohomological dimension bounded a number $d$ (depending  on $\sX$ but not $\sU$).	
 \end{empt}
 
-\begin{definition}\label{nh_csoft_defn}\cite{cra_moe:nhaus}
-	Let $\sX$ be a space satisfying the assumptions of \ref{nh_csoft_empt}. An Abelian sheaf $\mathscr{F}$ is said to be $c$-\textit{soft} if for any open $\sU \subset \sX$ its restriction $\left.\mathscr{F}\right|_{\sU}$ is a $c$-soft on $\sU$ in the usual sense. By the same proprety of for Hausdorff space, it follows that $c$-softness is a local property, i.e. a sheaf   $\mathscr{F}$ is $c$-soft if and only if there is an open cover $\sX= \cup \sU_\a$  such that $\left.\mathscr{F}\right|_{\sU_\a}$ is a $c$-soft sheaf  on $\sU$.
+\begin{definition}\label{nh_csoft !!!_defn}\cite{cra_moe:nhaus}
+	Let $\sX$ be a space satisfying the assumptions of \ref{nh_csoft !!!_empt}. An Abelian sheaf $\mathscr{F}$ is said to be $c$-\textit{soft !!!} if for any open $\sU \subset \sX$ its restriction $\left.\mathscr{F}\right|_{\sU}$ is a $c$-soft !!! on $\sU$ in the usual sense. By the same proprety of for Hausdorff space, it follows that $c$-soft !!!ness is a local property, i.e. a sheaf   $\mathscr{F}$ is $c$-soft !!! if and only if there is an open cover $\sX= \cup \sU_\a$  such that $\left.\mathscr{F}\right|_{\sU_\a}$ is a $c$-soft !!! sheaf  on $\sU$.
 \end{definition}
-\begin{definition}\label{nh_csoft_gc_defn}\cite{cra_moe:nhaus}
-	Let $\mathscr{F}$ be a $c$-soft sheaf  and let $\mathscr{F}'$  be its Godement resolution (i.e. $\mathscr{F}'= \Ga\left(\sU_{\text{distr}}, \mathscr{F} \right)$ is the set of all (not necessary continuous) sections for any open $\sU \subset \sX$). For any Hausdorff open set $\mathcal W$, let $\Ga_c\left(\mathcal W, \mathscr{F} \right)$ be the usual set of compactly supported sections. If $\mathcal W \subset \sU$, there is an evident homomorphism "extension by 0" 
+\begin{definition}\label{nh_csoft !!!_gc_defn}\cite{cra_moe:nhaus}
+	Let $\mathscr{F}$ be a $c$-soft !!! sheaf  and let $\mathscr{F}'$  be its Godement resolution (i.e. $\mathscr{F}'= \Ga\left(\sU_{\text{distr}}, \mathscr{F} \right)$ is the set of all (not necessary continuous) sections for any open $\sU \subset \sX$). For any Hausdorff open set $\mathcal W$, let $\Ga_c\left(\mathcal W, \mathscr{F} \right)$ be the usual set of compactly supported sections. If $\mathcal W \subset \sU$, there is an evident homomorphism "extension by 0" 
 	\be\label{sheaf_inc_eqn}
 	\Ga_c\left(\mathcal W, \mathscr{F} \right) \hookto \Ga_c\left(\mathcal U, \mathscr{F} \right)\subset \Ga_c\left(\mathcal U, \mathscr{F}' \right).
 	\ee
@@ -24690,10 +24755,10 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 	$$
 	\bigoplus_{\mathcal W} \Ga_c\left(\mathcal W, \mathscr{F}' \right) \hookto \Ga\left(\mathcal U, \mathscr{F}' \right),
 	$$ 
-	where $\mathcal W$ ranges over all open subsets $\mathcal W \subset \mathcal U$. %An alternative definition follows by choosing open cover in Propositions \ref{nh_csoft_gc_prop} below.
+	where $\mathcal W$ ranges over all open subsets $\mathcal W \subset \mathcal U$. %An alternative definition follows by choosing open cover in Propositions \ref{nh_csoft !!!_gc_prop} below.
 \end{definition}
-\begin{proposition}\label{nh_csoft_gc_lem}
-	Let  $\mathscr{F}$ be a $c$-soft sheaf. For any open cover $\sU = \cup \mathcal W_\a$ where each $\mathcal W_\a$ is Hausdorff the sequence $\oplus_\a \Ga_c\left(\mathcal W_\a,  \mathscr{F}\right) \to \Ga_c\left(\mathcal U,  \mathscr{F}\right)\to 0$ is exact.  
+\begin{proposition}\label{nh_csoft !!!_gc_lem}
+	Let  $\mathscr{F}$ be a $c$-soft !!! sheaf. For any open cover $\sU = \cup \mathcal W_\a$ where each $\mathcal W_\a$ is Hausdorff the sequence $\oplus_\a \Ga_c\left(\mathcal W_\a,  \mathscr{F}\right) \to \Ga_c\left(\mathcal U,  \mathscr{F}\right)\to 0$ is exact.  
 \end{proposition}
 
 \chapter{Groupoids foliations, pseudogroups and operator algebras}\label{foliations_sec}
@@ -25445,7 +25510,7 @@ In the case of general foliations, the total my group of a foliated bun dle must
 	\paragraph*{}
 	Here I follow to \cite{candel:foliII,connes:ncg94}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allow !!! ADMIT !!!s us to identify $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
 	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of “extension by 0” of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section describes it. (That paper develops an extended sheaf  theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
-	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf  of the foliated space $\sX$, that is, the sheaf  of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf  of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
+	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf  of the foliated space $\sX$, that is, the sheaf  of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf  of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft !!!_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
 	\be\label{foli_incc_eqn}
 \Ga_c\left(\mathcal W, \A \right) \hookto \Ga_c\left(\mathcal U, \A \right).
 \ee
