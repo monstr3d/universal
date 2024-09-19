@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{amsmath,amssymb,amsthm,slashed, euscript}
+\usepackage{mathrsfs} 
 
 
 
@@ -58,6 +59,7 @@ Algebras in analysis
 %Lowercase Gothic characters
 \newcommand{\gtf}{\mathfrak{f}}
 \newcommand{\gtg}{\mathfrak{g}}
+	\newcommand{\End}{\mathrm{End}}       %%
 
 %Bold Characters
 \newcommand{\Cb}{\mathbb{C}}
@@ -133,6 +135,7 @@ Algebras in analysis
 \newcommand{\la}{\lambda}     
 \newcommand{\La}{\Lambda}
 \newcommand{\bt}{\beta}           %% short for  \beta
+ \renewcommand{\H}{\mathcal{H}}               %% Hilbert space
  
  	\newcommand{\bean}{\begin{eqnarray*}}
  	\newcommand{\eean}{\end{eqnarray*}}
@@ -148,12 +151,7 @@ Algebras in analysis
 	
 	\usetikzlibrary{trees,positioning,shapes,shadows,arrows}
   
-\tikzset{
-	basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily, rectangle},
-	root/.style   = {basic, rounded corners=2pt, thin, align=center, fill=white},
-	level-2/.style = {basic, rounded corners=6pt, thin,align=center, fill=white, text width=3cm},
-	level-3/.style = {basic, thin, align=center, fill=white, text width=1.8cm}
-}
+
 \tikzset{
 	basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily,     rectangle},
 	root/.style   = {basic, rounded corners=2pt, thin, align=center,
@@ -167,126 +165,25 @@ Algebras in analysis
 \begin{frame}
   \titlepage
 \end{frame}
-
+\section{Hausdorff blowing-up}
 \begin{frame}
-
-\begin{tikzpicture}[
-	level 1/.style={sibling distance=60mm},
-	level 2/.append style={sibling distance=40mm},
-	edge from parent/.style={->,draw},
-	>=latex]
-	
-	% root of the the initial tree, level 1
-	\node[root] {Coverings of $C^*$-algebras}
-	% The first level, as children of the initial tree
-	child {node[level 2] (ch1) {Hausdorff blowing-up}
-		child {node[level 2] (c1) {Hausdorff spectrum}}
-		child {node[level 2] (c2) {Non Hausdorff}}{
-			child {node[level 2] (c3) {Groupoids}}{
-				child {node[level 2] (c4) {Foliations}}
-			}
-		}
-	}
-	child {node[level 2] (ch2) {Other coverings}
-	};
-	\begin{scope}[every node/.style={level 2}]
-		\node [below = of  ch2, xshift=10pt] (ch21) {Noncommutative tori};
-		\node [below = of  ch21] (ch22) {Isospectral deformations};
-		\node [level 3] [below = of  ch22]  (ch23) {$SO_q(3)$ by $SU_q(2)$};
-	\end{scope}	
-\begin{scope}[every node/.style={level 2}]
-	\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
-	\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
-\end{scope}	
-\foreach \value in {1,...,2}
-\draw[->] (c1.195) |- (c1\value.west);	
-\foreach \value in {1,...,3}
-\draw[->] (ch2.180) |- (ch2\value.west);
-\end{tikzpicture}	
-
+	\begin{definition}\label{blowing_u_defn}\alert{Petr Ivankov.}
+		If $A$ is a $C^*$-algebra then \alert{Hausdorff blowing-up} is an inclusion  $C_0\left( \sY\right) \subset M\left( A\right)$ such that:
+		\begin{enumerate}
+			\item[(a)] $C_c\left( \sY\right)A$ is dense in $A$,
+			\item [(b)]  $AC_c\left( \sY\right)$ is dense in $A$.
+		\end{enumerate} 
+	\end{definition}
+	\begin{rem}
+		Both conditions (a) and (b) are equivalent to each other and used for convenience.
+	\end{rem}
+	\begin{rem}
+		If $C_0\left( \sY\right)$ is within a center of $M\left( A\right)$ then $\sY$ is the spectrum of $A$.
+	\end{rem}
+	\begin{rem}
+		The "blowing-up" etymology comes from the algebraic geometry, where it means a map from nonsingular variety  onto a variety with singularities.
+	\end{rem}
 \end{frame}
-
-\begin{tikzpicture}[
-	level 1/.style={sibling distance=60mm},
-	level 2/.append style={sibling distance=40mm},
-	edge from parent/.style={->,draw},
-	>=latex]
-	
-	% root of the the initial tree, level 1
-	\node[root] {Coverings of $C^*$-algebras}
-	% The first level, as children of the initial tree
-	child {node[level 2] (ch1) {Hausdorff blowing-up}
-		child {node[level 2] (c1) {Hausdorff spectrum}}
-		child {node[level 2] (c2) {Other}}{
-			child {node[level 2] (c3) {Groipoids}}
-		}
-	}
-	child {node[level 2] (ch2) {Other coverings}
-	};
-	
-
-\end{tikzpicture}	
-
-\begin{tikzpicture}[
-level 1/.style={sibling distance=60mm},
-level 2/.append style={sibling distance=40mm},
-edge from parent/.style={->,draw},
->=latex]
-
-% root of the the initial tree, level 1
-\node[root] {Coverings of $C^*$-algebras}
-% The first level, as children of the initial tree
-child {node[level 2] (ch1) {Hausdorff blowing-up}
-	child {node[level 2] (c1) {Hausdorff spectrum}}
-	child {node[level 2] (c2) {Other}}
-}
-child {node[level 2] (ch2) {Other coverings}
-};
-
-% The second level, relatively positioned nodes
-\begin{scope}[every node/.style={level 3}]
-	\node [below = of  c1, xshift=15pt] (c11) {Commutative $C^*$-algebras};
-	\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
-	
-	
-\end{scope}
-\begin{scope}[every node/.style={level 2}]
-	\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
-	\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
-	
-	
-\end{scope}
-\foreach \value in {1,...,2}
-\draw[->] (c1.195) |- (c1\value.west);
-\begin{scope}[every node/.style={level 2}]
-	\node [below = of  c2, xshift=10pt] (c21) {Coverings of groupoids};
-	\node [below = of  c21] (c22) {Coverings of foliations};
-\foreach \value in {1,...,2}
-\draw[->] (c2.185) |- (c2\value.west);
-	
-\end{scope}
-
-\end{tikzpicture}
-\begin{frame}
-\begin{definition}\label{blowing_u_defn}\alert{Petr Ivankov.}
-	If $A$ is a $C^*$-algebra then \alert{Hausdorff blowing-up} is an injective inclusion  $C_0\left( \sY\right) \subset M\left( A\right)$ such that:
-\begin{enumerate}
-	\item[(a)] $C_c\left( \sY\right)A$ is dense in $A$,
-	\item [(b)]  $AC_c\left( \sY\right)$ is dense in $A$.
-\end{enumerate} 
-\end{definition}
-\begin{rem}
-Both conditions (a) and (b) are equivalent to each other and used for convenience.
-\end{rem}
-\begin{rem}
-	If $C_0\left( \sY\right)$ is within a center of $M\left( A\right)$ then $\sY$ is the spectrum of $A$.
-\end{rem}
-\begin{rem}
-	The "blowing-up" etymology comes from the algebraic geometry, where it means a map from nonsingular variety  onto a variety with singularities.
-\end{rem}
-
-\end{frame}
-\section{Basic example}
 \begin{frame}
 	Basic example $$C_c\left(M \right) \subset M\left( C^*\left(M, \sF \right)\right) $$  where 
 	$\left(M, \sF \right)$ is a foliated manifold and  $C^*\left(M, \sF \right)$ is a $C^*$-algebra of foliation. The spectrum of $C^*\left(M, \sF \right)$ is a set of leaves, and there is the natural map from $M$ to the spectrum.
@@ -337,7 +234,7 @@ A \cong A_1\oplus ...\oplus A_n,\\
 \end{frame}
 
 \begin{frame}
-	The above ideal is said to be \alert{Pedersen's ideal}. It is  proven by \alert{Ivankov P.R.} that $f \in K(]0, \infty [)$ can be replaced with the continuous functions given by
+	The above ideal is said to be \alert{Pedersen's ideal}. It is  proven by \alert{Petr Ivankov} that $f \in K(]0, \infty [)$ can be replaced with the continuous functions given by
 		$$
 		f_\eps\left( x\right)  \bydef\left\{
 		\begin{array}{c l}
@@ -355,11 +252,11 @@ A \cong A_1\oplus ...\oplus A_n,\\
 \begin{frame}
 \begin{definition}\label{blowing_ideals_au_ua_defn}
 	Let  $ C_0\left(\sY\right)\subset  M\left( A\right) $ be  Hausdorff blowing-up of $A$, and let $\sU \subset \sY$ be an open subset. Both   left and right  closed ideals $A_\sU$  and $_\sU A$ of $A$ (cf. Definition  generated by sets 	$AC_0\left( \sU\right)$ and $C_0\left( \sU\right)A$ are the \alert{left} $\sU$-\alert{ideal} and the \alert{right} $\sU$-\alert{ideal} respectively. A hereditary $C^*$-subalgebra of $A$
-	\be\label{blowing_hereditary_u_eqn} 
+	\bean
 	\begin{split}
 		_\sU A_\sU \bydef		_\sU A\cap  A_\sU = A^*	_\sU \cap  A_\sU
 	\end{split}
-	\ee	
+	\eean	
 	is the \alert{hereditary} $\sU$-\alert{subalgebra}.
 	
 	\end{definition}
@@ -382,7 +279,7 @@ A \cong A_1\oplus ...\oplus A_n,\\
 \begin{proof}	
 If $a \in K\left(A\right)_0$  then  there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$. On the other hand  there is a positive element  $c= fbf\in  A_+$  such that  $f\in C_c\left(\sY \right)$, $\left\|f \right\|=1 $, $c < b$, $\left\|c - b \right\|  < \eps/2$, and $\supp~ c\subset \supp ~f$ is compact.
 If $a \le c$ does not hold and $\rho: A \hookto B\left(H \right)$ is a faithful  nondegenerate representation  then there is $\xi \in H$ such that
-\bean\label{blowing_ac_eqn}
+\bean
 \forall \xi \in H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)
 \eean
 From $\left\|c - b \right\|  < \eps/2$ if follows that
@@ -420,6 +317,214 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 	
 \end{frame}
 
+\section{Coverings of $C^*$-algebras}
+\begin{frame}
+	
+	\begin{tikzpicture}[
+		level 1/.style={sibling distance=60mm},
+		level 2/.append style={sibling distance=40mm},
+		edge from parent/.style={->,draw},
+		>=latex]
+		
+		% root of the the initial tree, level 1
+		\node[root] {Coverings of $C^*$-algebras}
+		% The first level, as children of the initial tree
+		child {node[level 2] (ch1) {Hausdorff blowing-up}
+			child {node[level 2] (c1) {Hausdorff spectrum}}
+			child {node[level 2] (c2) {Non Hausdorff}}{
+				child {node[level 2] (c3) {Groupoids}}{
+					child {node[level 2] (c4) {Foliations}}
+				}
+			}
+		}
+		child {node[level 2] (ch2) {Other coverings}
+		};
+		\begin{scope}[every node/.style={level 2}]
+			\node [below = of  ch2, xshift=10pt] (ch21) {Noncommutative tori};
+			\node [below = of  ch21] (ch22) {Isospectral deformations};
+			\node [level 3] [below = of  ch22]  (ch23) {$SO_q(3)$ by $SU_q(2)$};
+		\end{scope}	
+		\begin{scope}[every node/.style={level 2}]
+			\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
+			\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+		\end{scope}	
+		\foreach \value in {1,...,2}
+		\draw[->] (c1.195) |- (c1\value.west);	
+		\foreach \value in {1,...,3}
+		\draw[->] (ch2.180) |- (ch2\value.west);
+	\end{tikzpicture}	
+	
+\end{frame}
+\section{Finite-fold coverings}
+\begin{frame}
+	
+	\alert{Alexander Pavlov, Evgenij Troitsky}
+	\begin{theorem}
+		Suppose both $\mathcal X$ and $\mathcal Y$ are compact Hausdorff connected spaces and $p :\mathcal  Y \to \mathcal X$
+		is a continuous surjection. If $C(\mathcal Y )$ is a projective finitely generated Hilbert module over
+		$C(\mathcal X)$ with respect to the action
+		\begin{equation*}
+			(f\xi)(y) = f(y)\xi(p(y)), ~ f \in  C(\mathcal Y ), ~ \xi \in  C(\mathcal X),
+		\end{equation*}
+		then $p$ is a finite-fold  covering.
+	\end{theorem}
+	It is naturally to define a finite-fold covering of $C^*$-algebras as an injective $*$-homomorphisms $A\hookto \widetilde A$ such that $ \widetilde A$-is a finitely generated Hilbert module over
+	$A$. However this definition does not gives good generalizations of results  related to topological coverings.
+	
+\end{frame}
+\begin{frame}
+	\begin{definition}\label{pre_defn} \alert{Pet Ivankov}.
+		Let $\pi: A \hookto \widetilde{A}$ be an injective *-homomorphism of connected  $C^*$-algebras such that following conditions hold:
+		\begin{enumerate}
+			\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
+			$
+			G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\pi\left( a\right)  = \pi\left( a\right) ;~~\forall a \in A\right\}
+			$
+			is finite.
+			\item[(b)] 	\be\label{cond_b_eqn}
+			\pi\left( 	A\right)  = \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}.\ee
+		\end{enumerate}
+		We say that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \to \widetilde{A}$   is a \alert{noncommutative finite-fold  pre-covering}. 
+	\end{definition}
+	
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		\alert{Petr Ivankov}
+		Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \alert{unital noncommutative finite-fold  covering} if $\pi\left(1_A \right) = 1_{\widetilde A}$  and $\widetilde{A}$ is a finitely generated projective  $A$-module.
+	\end{definition}
+	\begin{lemma}
+		\alert{Petr Ivankov, Alexander Pavlov, Evgenij Troitsky.}
+		If $\mathcal  X$ is a connected, compact, Hausdorff space then there is a natural 1-1 correspondence 
+		$$
+		\left(p:\widetilde{\mathcal  X}\to \mathcal  X \right)\leftrightarrow \left(C\left(\mathcal  X\right), C\left(\widetilde\sX\right), G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right), C_0\left(p \right)  \right).  
+		$$	
+		
+		between finite-fold transitive coverings of $\mathcal  X$ and unital noncommutative finite-fold  coverings of $C\left(\mathcal  X\right)$.
+	\end{lemma}
+	A covering $p:\widetilde\sX\to \mathcal  X $ is \alert{transitive}  if for all $x \in \sX$  the group $G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right)$ transitively acts on $p^{-1}\left( x\right)$.
+\end{frame}
+
+\begin{frame}
+	
+	Above definition and lemma can be applied to compact spaces and unital $C^*$-algebras. However there is a modification such that new definition yields noncommutative finite-fold coverings with nonunital $A$ and $\widetilde{A}$. It is proven that if $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  pre-covering  then there is the natural invective $*$-homomorphism
+	$$
+	M\left( \pi\right): M\left( A\right)  \hookto M\left(\widetilde A \right) 
+	$$
+	
+	\begin{definition}\label{fin_comp_defn}\alert{Petr  Ivankov}
+		If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  pre-covering then it is said to be 	a \alert{noncommutative finite-fold covering with unitization} if 
+		$\left(	M\left( A\right) , 	M\left( \widetilde{A}\right) , G, 	M\left( \pi\right)  \right)$ is an unital {noncommutative finite-fold covering}.
+		
+			\end{definition}
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		\alert{Petr Ivankov}.	A   noncommutative finite-fold  pre-covering $\left(A, \widetilde{A}, G, \pi \right)$ is said to be  a \alert{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\lambda\right\}_{\lambda\in\Lambda}\subset M\left( A\right)_+ $  of positive elements such that
+		\begin{enumerate}
+			\item[(a)] There is the limit 
+			$$
+			\beta\text{-}\lim_{\lambda \in \Lambda} u_\lambda = 1_{M\left(A \right) }
+			$$
+			in the strict topology of $M\left(A \right)$,
+			\item[(b)]  If for all   $\lambda\in\Lambda$ both $A_\lambda$ and  $\widetilde A_\lambda$ are $C^*$-norm completions  of $u_\lambda A u_\lambda$ and  $u_\lambda\widetilde{A}u_\lambda$ respectively then for every $\lambda\in\Lambda$ a quadruple
+			$$
+			\left(A_\lambda, \widetilde{A}_\lambda, G, \left.\pi\right|_{A_\lambda} :A_\lambda\to \widetilde{A}_\lambda\right)	
+			$$
+			is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\lambda\to \widetilde{A}_\lambda$, is the restriction on $\widetilde{A}_\lambda\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
+		\end{enumerate}
+		
+	\end{definition}
+\end{frame}
+\begin{frame}
+	Roughly speaking the above  Definition is an approximation of any covering by coverings with compact spaces.	
+	In result one has the following theorem.
+	\begin{theorem}
+		\alert{Petr Ivankov}. 	Let $\mathcal X$ be a connected, locally compact, Hausdorff space.
+		If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering then there is a connected space $\widetilde{   \mathcal X }$ and a transitive finite-fold covering  $p: \widetilde{   \mathcal X } \to \sX$ such that
+		$\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is equivalent to $\left(C_0\left( {   \mathcal X }\right), C_0\left( \widetilde{   \mathcal X }\right), G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right), \pi\right)$
+	\end{theorem}
+
+\end{frame}
+\begin{frame}
+There is a construction of infinite noncommutative covering of $C^*$-algebra $A$. It was explained at my previous speech. The   infinite noncommutative covering of $C^*$-algebra $A$ contains a triple $\left(A, \widetilde A, G \right)$ where  $\widetilde A$ is a $C^*$-algebra, and $G$ is a residually finite group, with an action $G \times \widetilde A \to \widetilde A$. If $A\cong C_0\left(\sX \right)$ then there is a covering $p: \widetilde \sX \to \sX$ such that $\left(A, \widetilde A, G \right)$ is equivalent to $\left(C_0\left(\sX \right), C_0\left( \widetilde \sX\right) , G \right)$ and $G$ is isomorphic to the group $G\left( \left.\widetilde{ \sX} \right| \sX\right)$  of covering transformations.
+\end{frame}
+
+
+
+\section{Hausdorff blowing-up and coverings}
+
+\begin{frame}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up. Let $q: \widetilde \sY\to \sY$ be a transitive covering such that $\sY = \widetilde \sY/G$ where $G$ is properly   discontinuous,  residually finite group  of homeomorphisms of $\widetilde \sY$. There is $C_0\left(\sY \right)$-valued product
+\bean
+\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
+\left(\widetilde f, \widetilde h \right) \mapsto \bt\text{-}\sum_{g\in G}\left(\widetilde f^* \widetilde h \right) 
+\eean
+where $\bt\text{-}\sum$ means the convergence of the series with respect to the strict topology of $M\left(C_0\left(\widetilde \sY \right)\right)$ and the natural inclusion  $C_0\left(\sY \right)\hookto M\left(C_0\left(\widetilde\sY \right)\right)$ is implied.
+
+So $ C_c \left(\widetilde \sY\right)$ is a pre-Hilbert $C_0\left(\sY \right)$-module \end{frame}
+\begin{frame}
+ If $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)$ is a completion of $C_c \left(\widetilde \sY \right)$ with respect to the norm
+ $$
+ \widetilde f \mapsto \sqrt{\left\| \left\langle \widetilde f,  \widetilde f  \right\rangle_{C_0\left(\sY \right)}\right\| }
+ $$
+  then $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)$ is a $C^*$-Hilbert $C_0\left(\sY \right)$-module. If $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ is an algebraic tensor product then there is an $A$-valued product.
+	\bean
+	\left\langle\cdot, \cdot  \right\rangle: \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right)\times \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right) \to A,\\
+	\left(\left(\widetilde f \otimes a \right) , \left(\widetilde h  \otimes b \right)  \right) \mapsto a^*\left\langle\widetilde f, \widetilde g \right\rangle_{C_0\left(\sY \right)} b.
+	\eean
+	so $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ becomes a pre-Hilbert $A$-module.
+	
+\end{frame}	
+\begin{frame}
+	 We denote by $\mathscr L^2\left(\widetilde \sY \right) _A$ the $C^*$-Hilbert $A$-module which is a completion  of  $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ with respect to the norm given by
+ $$
+\widetilde f \otimes a \mapsto \sqrt{\left\| \left\langle \widetilde f \otimes a,  \widetilde f \otimes a  \right\rangle\right\| }
+$$	
+ There are both a left  action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of $C^*$-algebras
+	\bean
+	\varphi_A : A \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right), \\
+	\label{blowing_c_h_eqn}
+	\varphi_{\widetilde \sY} : C_0 \left(\widetilde \sY \right) \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\eean
+	where $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable  endomorphisms
+	\end{frame}
+	\begin{frame}
+	There is a homomorphism 
+	\be\label{blowing_tensor_eqn} 
+	\begin{split}
+		\varphi^{\widetilde \sY}_A: C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
+		\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\sum_{j=1}^n 	\varphi_{\widetilde \sY}\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
+	\end{split}
+	\ee
+	of  $C_0\left( \widetilde\sY\right)$-$A$-bimodules. Since both $C_c\left(\widetilde \sY \right)$ and   $K\left(A \right)$ are dense in $C_0\left(\widetilde \sY \right)$ and  $A$ respectively the $*$-homomorphism \eqref{blowing_tensor_eqn} can be uniquely extended up to a  $C_0\left( \widetilde\sX\right)$-$A$-bimodule homomorphism 
+	\be\label{blowing_tensoar_eqn} 
+	\begin{split}
+		\psi^{\widetilde \sY}_A: C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\end{split}
+	\ee
+	such that the $C^*$ closure of $\varphi\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ coincides with\\  	$\varphi'\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A\right) $ one.
+\end{frame}
+\begin{frame}
+\begin{definition}\alert{Petr Ivankov}
+	If 	$C_0\left( \widetilde\sY\right)$-$A$-bimodule
+	\be\label{blowing_prods_eqn}
+	\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\subset  \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\ee	
+	 is a $*$-subalgebra of $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$
+	then  we say that the covering $q: \widetilde{\sY}\to \sY$ is $A$-\alert{regular}.  
+	\end{definition}
+	The above definition is very interesting because
+	\begin{itemize}
+		\item it is related to coverings of $C^*$-algebras,
+		\item it is an algebraic formulation of the geometric notion of coverings of groupoids.
+	\end{itemize}
+	
+\end{frame}
+\begin{frame}
+If $q: \widetilde{\sY}\to \sY$ is $A$-{regular} covering then under a set of conditions the $C^*$-norm closure of 	$\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ corresponds to a noncommutative covering of $A$.
+\end{frame}
+\section{Coverings of groupoids}
 
 \end{document}
 

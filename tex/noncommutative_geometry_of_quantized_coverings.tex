@@ -595,21 +595,44 @@
 
 \chapter*{Introduction}
 \paragraph*{}
-%\begin{equations}
-%	content...
-%\end{equations}
-%aa
-%\ees
-%\end{split}\end{equation}
+\begin{figure}
+	\begin{tikzpicture}[
+		level 1/.style={sibling distance=60mm},
+		level 2/.append style={sibling distance=40mm},
+		edge from parent/.style={->,draw},
+		>=latex]
+		
+		% root of the the initial tree, level 1
+		\node[root] {Coverings of $C^*$-algebras}
+		% The first level, as children of the initial tree
+		child {node[level 2] (ch1) {Hausdorff blowing-up}
+			child {node[level 2] (c1) {Hausdorff spectrum}}
+			child {node[level 2] (c2) {Non Hausdorff}}{
+				child {node[level 2] (c3) {Groupoids}}{
+					child {node[level 2] (c4) {Foliations}}
+				}
+			}
+		}
+		child {node[level 2] (ch2) {Other coverings}
+		};
+		\begin{scope}[every node/.style={level 2}]
+			\node [below = of  ch2, xshift=10pt] (ch21) {Noncommutative tori};
+			\node [below = of  ch21] (ch22) {Isospectral deformations};
+			\node [level 3] [below = of  ch22]  (ch23) {Covering of $SO_q(3)$ by $SU_2(q)$};
+		\end{scope}	
+		\begin{scope}[every node/.style={level 2}]
+			\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
+			\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+		\end{scope}	
+		\foreach \value in {1,...,2}
+		\draw[->] (c1.195) |- (c1\value.west);	
+		\foreach \value in {1,...,3}
+		\draw[->] (ch2.180) |- (ch2\value.west);
+	\end{tikzpicture}	
+	\caption{Classification of known noncommutative coverings} \label{fig:M1}
+\end{figure}
 
-%\begin{equation}\begin{split}
-%a
-%\end{split}\end{equation}
-%\be
-%\bs
-%sss\\s
-%\es
-%\ee
+
 There are theories of coverings of $C^*$-algebras which can be included into a following list (cf. Figure \ref{fig:M1}):
 \begin{itemize}
 	\item coverings of commutative $C^*$-algebras  \cite{clarisson:phd,pavlov_troisky:cov},
@@ -617,43 +640,6 @@ There are theories of coverings of $C^*$-algebras which can be included into a f
 	\item  coverings of noncommutative tori \cite{clarisson:phd,schwieger:nt_cov},
 	\item {the double covering of the quantum group $SO_q(3)$} \cite{dijkhuizen:so_doublecov,podles:so_su}. 
 \end{itemize}
-\begin{figure}
-	\begin{tikzpicture}[
-	level 1/.style={sibling distance=60mm},
-	level 2/.append style={sibling distance=40mm},
-	edge from parent/.style={->,draw},
-	>=latex]
-	
-	% root of the the initial tree, level 1
-	\node[root] {Coverings of $C^*$-algebras}
-	% The first level, as children of the initial tree
-	child {node[level 2] (ch1) {Hausdorff blowing-up}
-		child {node[level 2] (c1) {Hausdorff spectrum}}
-		child {node[level 2] (c2) {Non Hausdorff}}{
-			child {node[level 2] (c3) {Groupoids}}{
-				child {node[level 2] (c4) {Foliations}}
-			}
-		}
-	}
-	child {node[level 2] (ch2) {Other coverings}
-	};
-	\begin{scope}[every node/.style={level 2}]
-		\node [below = of  ch2, xshift=10pt] (ch21) {Noncommutative tori};
-		\node [below = of  ch21] (ch22) {Isospectral deformations};
-		\node [level 3] [below = of  ch22]  (ch23) {Covering of $SO_q(3)$ by $SU_2(q)$};
-	\end{scope}	
-	\begin{scope}[every node/.style={level 2}]
-		\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
-		\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
-	\end{scope}	
-	\foreach \value in {1,...,2}
-	\draw[->] (c1.195) |- (c1\value.west);	
-	\foreach \value in {1,...,3}
-	\draw[->] (ch2.180) |- (ch2\value.west);
-\end{tikzpicture}	
-\caption{Classification of known noncommutative coverings} \label{fig:M1}
-\end{figure}
-
 
 This work is devoted to a single general theory which includes all theories of this list, i.e. we develop a  system of axioms which can be applied for every item of the list.
 
@@ -12166,7 +12152,7 @@ Here we suppose that we have Hausdorff blowing-up and investigate conditions whe
 			\psi^{\widetilde \sY}_A: C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
 	\end{split}
 	\ee
-	such that the $C^*$ closure of $\varphi\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ coincides with\\  	$\varphi'\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A\right) $ one.
+	such that the $C^*$-closure of $\varphi\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ coincides with\\  	$\varphi'\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A\right) $ one.
 \end{empt}
 
 \begin{definition}\label{blowing_lift_hm_defn}
