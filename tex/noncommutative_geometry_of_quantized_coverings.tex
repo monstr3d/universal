@@ -551,6 +551,22 @@
 	\newcommand{\Hsquare}{%
 		\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
 	}
+		\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+		decorations.pathreplacing,decorations.pathmorphing,shapes,%
+		matrix,shapes.symbols}
+	
+	\usetikzlibrary{trees,positioning,shapes,shadows,arrows}
+	
+	
+	\tikzset{
+		basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily,     rectangle},
+		root/.style   = {basic, rounded corners=2pt, thin, align=center,
+			fill=green!30},
+		level 2/.style = {basic, rounded corners=6pt, thin,align=center,     fill=green!60,
+			text width=8em},
+		level 3/.style = {basic, thin, align=left, fill=pink!60, text width=6.5em}
+	}
+	
 
 	\title{Noncommutative Geometry of Quantized Coverings}
 	
@@ -558,6 +574,7 @@
 	{\textbf{Petr R. Ivankov*}\\
 		e-mail: * monster.ivankov@gmail.com \\
 	}
+	
 	
 	\begin{document}
 
@@ -593,13 +610,49 @@
 %sss\\s
 %\es
 %\ee
-There are theories of coverings of $C^*$-algebras which can be included into a following list:
+There are theories of coverings of $C^*$-algebras which can be included into a following list (cf. Figure \ref{fig:M1}):
 \begin{itemize}
 	\item coverings of commutative $C^*$-algebras  \cite{clarisson:phd,pavlov_troisky:cov},
 	\item coverings of $C^*$-algebras of groupoids and foliations  \cite{ouchi:cov_fol,xiaolu:foli_cov,zhi:cov_group}),
 	\item  coverings of noncommutative tori \cite{clarisson:phd,schwieger:nt_cov},
 	\item {the double covering of the quantum group $SO_q(3)$} \cite{dijkhuizen:so_doublecov,podles:so_su}. 
 \end{itemize}
+\begin{figure}
+	\begin{tikzpicture}[
+	level 1/.style={sibling distance=60mm},
+	level 2/.append style={sibling distance=40mm},
+	edge from parent/.style={->,draw},
+	>=latex]
+	
+	% root of the the initial tree, level 1
+	\node[root] {Coverings of $C^*$-algebras}
+	% The first level, as children of the initial tree
+	child {node[level 2] (ch1) {Hausdorff blowing-up}
+		child {node[level 2] (c1) {Hausdorff spectrum}}
+		child {node[level 2] (c2) {Non Hausdorff}}{
+			child {node[level 2] (c3) {Groupoids}}{
+				child {node[level 2] (c4) {Foliations}}
+			}
+		}
+	}
+	child {node[level 2] (ch2) {Other coverings}
+	};
+	\begin{scope}[every node/.style={level 2}]
+		\node [below = of  ch2, xshift=10pt] (ch21) {Noncommutative tori};
+		\node [below = of  ch21] (ch22) {Isospectral deformations};
+		\node [level 3] [below = of  ch22]  (ch23) {Covering of $SO_q(3)$ by $SU_2(q)$};
+	\end{scope}	
+	\begin{scope}[every node/.style={level 2}]
+		\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
+		\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+	\end{scope}	
+	\foreach \value in {1,...,2}
+	\draw[->] (c1.195) |- (c1\value.west);	
+	\foreach \value in {1,...,3}
+	\draw[->] (ch2.180) |- (ch2\value.west);
+\end{tikzpicture}	
+\caption{Classification of known noncommutative coverings} \label{fig:M1}
+\end{figure}
 
 
 This work is devoted to a single general theory which includes all theories of this list, i.e. we develop a  system of axioms which can be applied for every item of the list.
@@ -1420,7 +1473,7 @@ If $A$ is a $C^*$-algebra then one has
 \begin{lemma}\label{pedersen_eps_lem}
 Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
 	\begin{equation}\label{f_eps_eqn}
-		f_\eps\left( x\right)  =\left\{
+		f_\eps\left( x\right)  \bydef\left\{
 		\begin{array}{c l}
 			0 &x \le \eps \\
 			x - \eps & x > \eps
@@ -11924,7 +11977,7 @@ K\left(A \right)\subset A_c
 where $A_c \subset A$ is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn}).
 \end{lemma}
 \begin{proof}
-If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).
+If $a \in K\left(A\right)_0$ (cf \eqref{pedersen_k0_eqn}) then from the Lemma  \eqref{pedersen_eps_lem} it follows that there is $\eps > 0$ and $b \in A_+$ such that $a = f_\eps \left( b\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn}. On the other hand  there is a positive element !!!!  $c\in  A_+$  such that $\left\|c - b \right\|  < \eps/2$ and $\supp c$ is compact (cf. Definition  \ref{blowing_defn}).
  If $a \le c$ does not hold and $\rho: A \hookto B\left(\H \right)$ is a faithful  nondegenerate representation (cf. Definitions \ref{faithful_representation_defn}, \ref{nondegenerate_repr_defn}) then there is $\xi \in \H$ such that
 \bean\label{blowing_ac_eqn}
 \forall \xi \in \H \quad \left( \xi, \rho\left( a \right) \xi\right) > \left( \xi, \rho\left( c \right) \xi\right)

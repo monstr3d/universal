@@ -145,39 +145,128 @@ Algebras in analysis
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
 	decorations.pathreplacing,decorations.pathmorphing,shapes,%
 	matrix,shapes.symbols}
+	
+	\usetikzlibrary{trees,positioning,shapes,shadows,arrows}
   
-  \tikzset{
-  	>=stealth',
-  	punktchain/.style={
-  		rectangle, 
-  		rounded corners, 
-  		% fill=black!10,
-  		draw=black, very thick,
-  		text width=10em, 
-  		minimum height=3em, 
-  		text centered, 
-  		on chain},
-  	line/.style={draw, thick, <-},
-  	element/.style={
-  		tape,
-  		top color=white,
-  		bottom color=blue!50!black!60!,
-  		minimum width=8em,
-  		draw=blue!40!black!90, very thick,
-  		text width=10em, 
-  		minimum height=3.5em, 
-  		text centered, 
-  		on chain},
-  	every join/.style={->, thick,shorten >=1pt},
-  	decoration={brace},
-  	tuborg/.style={decorate},
-  	tubnode/.style={midway, right=2pt},
-  }
+\tikzset{
+	basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily, rectangle},
+	root/.style   = {basic, rounded corners=2pt, thin, align=center, fill=white},
+	level-2/.style = {basic, rounded corners=6pt, thin,align=center, fill=white, text width=3cm},
+	level-3/.style = {basic, thin, align=center, fill=white, text width=1.8cm}
+}
+\tikzset{
+	basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily,     rectangle},
+	root/.style   = {basic, rounded corners=2pt, thin, align=center,
+		fill=green!30},
+	level 2/.style = {basic, rounded corners=6pt, thin,align=center,     fill=green!60,
+		text width=8em},
+	level 3/.style = {basic, thin, align=left, fill=pink!60, text width=6.5em}
+}
 \begin{document}
 %\titlepage
 \begin{frame}
   \titlepage
 \end{frame}
+
+\begin{frame}
+
+\begin{tikzpicture}[
+	level 1/.style={sibling distance=60mm},
+	level 2/.append style={sibling distance=40mm},
+	edge from parent/.style={->,draw},
+	>=latex]
+	
+	% root of the the initial tree, level 1
+	\node[root] {Coverings of $C^*$-algebras}
+	% The first level, as children of the initial tree
+	child {node[level 2] (ch1) {Hausdorff blowing-up}
+		child {node[level 2] (c1) {Hausdorff spectrum}}
+		child {node[level 2] (c2) {Non Hausdorff}}{
+			child {node[level 2] (c3) {Groupoids}}{
+				child {node[level 2] (c4) {Foliations}}
+			}
+		}
+	}
+	child {node[level 2] (ch2) {Other coverings}
+	};
+	\begin{scope}[every node/.style={level 2}]
+		\node [below = of  ch2, xshift=10pt] (ch21) {Noncommutative tori};
+		\node [below = of  ch21] (ch22) {Isospectral deformations};
+		\node [level 3] [below = of  ch22]  (ch23) {$SO_q(3)$ by $SU_q(2)$};
+	\end{scope}	
+\begin{scope}[every node/.style={level 2}]
+	\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
+	\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+\end{scope}	
+\foreach \value in {1,...,2}
+\draw[->] (c1.195) |- (c1\value.west);	
+\foreach \value in {1,...,3}
+\draw[->] (ch2.180) |- (ch2\value.west);
+\end{tikzpicture}	
+
+\end{frame}
+
+\begin{tikzpicture}[
+	level 1/.style={sibling distance=60mm},
+	level 2/.append style={sibling distance=40mm},
+	edge from parent/.style={->,draw},
+	>=latex]
+	
+	% root of the the initial tree, level 1
+	\node[root] {Coverings of $C^*$-algebras}
+	% The first level, as children of the initial tree
+	child {node[level 2] (ch1) {Hausdorff blowing-up}
+		child {node[level 2] (c1) {Hausdorff spectrum}}
+		child {node[level 2] (c2) {Other}}{
+			child {node[level 2] (c3) {Groipoids}}
+		}
+	}
+	child {node[level 2] (ch2) {Other coverings}
+	};
+	
+
+\end{tikzpicture}	
+
+\begin{tikzpicture}[
+level 1/.style={sibling distance=60mm},
+level 2/.append style={sibling distance=40mm},
+edge from parent/.style={->,draw},
+>=latex]
+
+% root of the the initial tree, level 1
+\node[root] {Coverings of $C^*$-algebras}
+% The first level, as children of the initial tree
+child {node[level 2] (ch1) {Hausdorff blowing-up}
+	child {node[level 2] (c1) {Hausdorff spectrum}}
+	child {node[level 2] (c2) {Other}}
+}
+child {node[level 2] (ch2) {Other coverings}
+};
+
+% The second level, relatively positioned nodes
+\begin{scope}[every node/.style={level 3}]
+	\node [below = of  c1, xshift=15pt] (c11) {Commutative $C^*$-algebras};
+	\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+	
+	
+\end{scope}
+\begin{scope}[every node/.style={level 2}]
+	\node [below = of  c1, xshift=10pt] (c11) {Commutative $C^*$-algebras};
+	\node [below = of  c11] (c12) {Noncommutative $C^*$-algebras};
+	
+	
+\end{scope}
+\foreach \value in {1,...,2}
+\draw[->] (c1.195) |- (c1\value.west);
+\begin{scope}[every node/.style={level 2}]
+	\node [below = of  c2, xshift=10pt] (c21) {Coverings of groupoids};
+	\node [below = of  c21] (c22) {Coverings of foliations};
+\foreach \value in {1,...,2}
+\draw[->] (c2.185) |- (c2\value.west);
+	
+\end{scope}
+
+\end{tikzpicture}
 \begin{frame}
 \begin{definition}\label{blowing_u_defn}\alert{Petr Ivankov.}
 	If $A$ is a $C^*$-algebra then \alert{Hausdorff blowing-up} is an injective inclusion  $C_0\left( \sY\right) \subset M\left( A\right)$ such that:
@@ -331,46 +420,6 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 	
 \end{frame}
 
-\begin{frame}
-Coverings of $C^*$-algebras
-\begin{tikzpicture}
-	[node distance=.8cm,
-	start chain=going below,]
-	\node[punktchain, join] (intro) {Introduktion};
-	\node[punktchain, join] (probf)      {Problemformulering};
-	\node[punktchain, join] (investeringer)      {Investeringsteori};
-	\node[punktchain, join] (perfekt) {Det perfekte kapitalmarked};
-	\node[punktchain, join, ] (emperi) {Emperi};
-	\node (asym) [punktchain ]  {Asymmetrisk information};
-	\begin{scope}[start branch=venstre,
-		%We need to redefine the join-style to have the -> turn out right
-		every join/.style={->, thick, shorten <=1pt}, ]
-		\node[punktchain, on chain=going left, join=by {<-}]
-		(risiko) {Risiko og gamble};
-	\end{scope}
-	\begin{scope}[start branch=hoejre,]
-		\node (finans) [punktchain, on chain=going right] {Det finansielle system};
-	\end{scope}
-	\node[punktchain, join,] (disk) {Det imperfekte finansielle marked};
-	\node[punktchain, join,] (makro) {InvesteringsmÃ¦ssige konsekvenser};
-	\node[punktchain, join] (konk) {Konklusion};
-	% Now that we have finished the main figure let us add some "after-drawings"
-	%% First, let us connect (finans) with (disk). We want it to have
-	%% square corners.
-	\draw[|-,-|,->, thick,] (finans.south) |-+(0,-1em)-| (disk.north);
-	% Now, let us add some braches. 
-	%% No. 1
-	\draw[tuborg] let
-	\p1=(risiko.west), \p2=(finans.east) in
-	($(\x1,\y1+2.5em)$) -- ($(\x2,\y2+2.5em)$) node[above, midway]  {Teori};
-	%% No. 2
-	\draw[tuborg, decoration={brace}] let \p1=(disk.north), \p2=(makro.south) in
-	($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Analyse};
-	%% No. 3
-	\draw[tuborg, decoration={brace}] let \p1=(perfekt.north), \p2=(emperi.south) in
-	($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Problemfelt};
-\end{tikzpicture}
-\end{frame}
 
 \end{document}
 
