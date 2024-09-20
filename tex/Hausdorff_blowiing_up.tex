@@ -102,7 +102,7 @@ Algebras in analysis
 \newcommand{\supp}{\mathrm{supp}}
 \newcommand{\Ccl}{\mathbf{C}l}
 \newcommand{\xto}{\xrightarrow}
-
+\newcommand{\T}{\mathbb{T}} 
 \newcommand{\lto}{\longrightarrow}
 \newcommand{\ox}{\otimes}
 \newcommand{\nb}{\nabla}
@@ -629,6 +629,56 @@ consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ suc
 	
 \end{enumerate}
 \end{definition}
+\end{frame}
+\begin{frame}
+	Let $\G$ be a locally compact Hausdorff groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$.
+If for $f ,g \in C_c(\G)$, we define
+\bean
+\begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef \overline{f ( x^{ -1})}~\overline{\sigma\left(x, x^{-1} \right)}, 	
+\end{split}
+\eean
+then we obtain a $*$-algebra denoted by $C_c(\G, \sigma)$.
+	\begin{definition}
+	
+	Let $\sX$ be a locally compact Hausdorff space, and let $C_c\left(\sX\right)$ denote the	space of continuous, compactly supported functions on $\sX$. The natural	topology on $C_c\left(\sX\right)$ is the \alert{inductive limit topology}, defined as follows. A net	$\left\{f_\a\right\}$ in $C_c\left(\sX\right)$ converges to $f$ if there is a compact set $K\subset\sX$ containing	the supports of all $f_\a$ and $f$, and such that $f_\a$ converges uniformly to $f$ on$K$.
+\end{definition}
+This definition can be generalized to non Hausdorff spaces.
+
+\end{frame}
+\begin{frame}
+
+\begin{definition}\label{groupoid_representation_defn}
+	%1.3. D e f i n i t i o n : 
+	A \alert{representation} of $C_c\left(\G, \sigma\right)$ on a Hilbert space $\H$ is a $*$-homomorphism $L : C_c\left(\G, \sigma\right) \to B\left(\H \right)$ which is continuous when $C_c\left(\G, \sigma\right)$ has the inductive limit 
+	topology  and $B\left(\H \right)$  the weak operator topology  and is such that the linear  span of
+	$$
+	L\left(f \right) \xi , \quad f \in C_c\left(\G, \sigma\right), \quad \xi \in \H
+	$$
+	is dense in $\H$.
+\end{definition}
+
+
+\end{frame}
+\begin{frame}
+\begin{lemma}\label{groupoid_mult_repr_lem}
+	%1.13. Lemma : 
+	If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a unique representation
+	$M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
+	$L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
+\end{lemma}
+
+	If $\G$ is locally compact groupoid with a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ and a left  Haar system $\left\{\la^u\left| u \in \G^0\right.\right\}$  (cf. Definition then there is a $*$-algebra $C_c\left(\G, \sigma \right)$
+	If  $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ is a representation then there is a $C^*$-seminorm 
+	\bean
+	\begin{split}
+		\left\|\cdot  \right\|_\rho :   	C_c\left(\G , \sigma \right)\to \mathbb{R},\\
+		a \mapsto \left\|\rho\left( a \right)  \right\|
+	\end{split}
+	\eean
+	We suppose that $\rho$ is \alert{faithful}, i.e. $a \neq 0\quad \Rightarrow \quad \rho_c\left(a \right) \neq 0$. The completion of  $C_c\left(\G , \sigma \right)$ with respect to 	$\left\|\cdot  \right\|_\rho$ is a $C^*$-algebra denoted by $C^*_\rho\left(\G , \sigma \right)$. From the Lemma it follows that there is \alert{Hausdorff blowing-up} $C_0\left(\G^0 \right) \subset C^*_\rho\left(\G , \sigma \right)$.
 \end{frame}
 
 \end{document}
