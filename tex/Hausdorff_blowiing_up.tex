@@ -531,7 +531,7 @@ $$
 \begin{frame}
 If $q: \widetilde{\sY}\to \sY$ is $A$-{regular} covering then under a set of conditions the $C^*$-norm closure of 	$\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ corresponds to a noncommutative covering of $A$.
 \end{frame}
-\section{Coverings of groupoids}
+\section{Algebras of groupoids}
 \begin{frame}
 	\begin{definition}
 	% 104
@@ -617,9 +617,9 @@ The existence of covering is relevant to the lifting problem
 \end{definition}
 \end{frame}
 \begin{frame}
-	The space $\G$ is not Hausdorff. There are different notions the space of functions  $C_c\left( \G\right)$  with compact support. All these definitions yield isomorphic $C^*$-algebras.
+
 \begin{definition}
-Let $\G$ be a locally compact groupoid. A \alert{left  Haar system} for $\G$
+Let $\G$ be a locally compact  groupoid. A \alert{left  Haar system} for $\G$
 consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ such that
 \begin{enumerate}
 	\item [(a)] the support $\supp\la^u$ of the measure $\la^u$ is $\G^u$,
@@ -631,7 +631,8 @@ consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ suc
 \end{definition}
 \end{frame}
 \begin{frame}
-	Let $\G$ be a locally compact Hausdorff groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$.
+		If the groupoid $\G$ is Hausdorff then the space $C_c\left( \G\right)$ of functions with compact support is well known. If not and $\G$ corresponds to a foliation then  there are two  different generalizations of  the space of functions  $C_c\left( \G\right)$  with compact support. Both definitions yield isomorphic $C^*$-algebras.
+	Let $\G$ be a locally compact groupoid with left  Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. Suppose that the space $C_c\left( \G\right)$ is defined.
 If for $f ,g \in C_c(\G)$, we define
 \bean
 \begin{split}
@@ -641,35 +642,80 @@ If for $f ,g \in C_c(\G)$, we define
 \end{split}
 \eean
 then we obtain a $*$-algebra denoted by $C_c(\G, \sigma)$.
+
+
+\end{frame}
+\section{Coverings of groupoids}
+\begin{frame}
+	\begin{definition}\label{groupoid_lift_defn}
+		Let $\G$ be a groupoid such that the space $\G^0$ is Hausdorff.
+		Let $q: \widetilde \G^0 \to \G^0$ be transitive covering
+		and let $\widetilde \G^0\times_{\G^0}\G$ be pullback where the map $s : \G \to \G^0$ is implied. We say that the covering  $q$ is $\G$-\alert{regular} if there is  the groupoid $\widetilde \G^0$ with homeomorphism $\widetilde \G\cong \widetilde \G^0\times_{\G^0}\G$ such that the natural continuous map 
+		\be\label{groupoid_lift_eqn}
+		q_\G: \widetilde \G \to \G
+		\ee
+		is a covering (cf. Definition \ref{groupoid_covering_defn}). The groupoid $\widetilde \G$ is the $q$-\alert{lift} of $\G$. 	A $p$-\alert{topology} on $\widetilde\G$ is such that both maps $q_\G$ and $s:  \widetilde\G \to \widetilde\G^0$ are continuous.
+	\end{definition}
+\end{frame}
+\begin{frame}
+
+	Let $\G$ be a locally compact groupoid, and let   $p: \widetilde \G^0 \to \G^0$ is a $\G$-{regular} covering. If  $\widetilde\G$ is  the $p$-{lift} of $\G$  then $\widetilde\G$ is locally compact. Let $\left\{\la^u \left| u \in \G^0\right.\right\}$ be a left  Haar system for $\G$. For any $\widetilde u \in \widetilde\G^0$ there is a homeomorphism $\widetilde \G^{\widetilde u} \cong \G^{p\left(\widetilde u \right) }$. Using it  for any $\widetilde u$ one can  naturally construct a measure $\widetilde  \la^{\widetilde u}$ on $\widetilde \G$. It follows that
+	\begin{enumerate}
+		\item [(a)] the support $\supp \widetilde  \la^{\widetilde u}$ of the measure $\widetilde  \la^{\widetilde u}$ is $\widetilde \G^{\widetilde u}$,
+		\item [(b)]  (continuity) for any $\widetilde f \in C_c\left(\widetilde \G\right)$, $\widetilde u \mapsto \widetilde\la(\widetilde f)\left( \widetilde u\right)  = \int \widetilde f \widetilde d\la^{\widetilde u}$ is continuous, and
+		\item [(c)]  (left invariance) for any $\widetilde x\in \widetilde \G$ and any $\widetilde f \in  C_c(\widetilde \G )$, $\int \widetilde  f \left(  \widetilde x \widetilde y \right)  d\la^{s(\widetilde x)}\left( \widetilde y\right)  =
+		\int \widetilde f\left( \widetilde y\right) d\la^{d\left( \widetilde x\right) }\left( \widetilde y\right) $.
+	\end{enumerate}
+	From these circumstances it turns out that $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is a left  Haar system for $\widetilde{\G}$.
+
+\begin{definition}\label{groupoid_haar_lift_defn}
+	Under above hypotheses we say that the left  Haar system $\left\{\widetilde  \la^{\widetilde u}\left| \widetilde u \in \widetilde \G^0\right.\right\}$ is the $p$-\alert{lift} of $\left\{\la^u \left| u \in \G^0\right.\right\}$.
+	\end{definition}
+\end{frame}
+\begin{frame}
+If $\sigma$ is a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ (cf. Definition \ref{groupoid_cocycle_defn}) then there is a map
+	\bean
+	\begin{split}
+		\widetilde \sigma: \widetilde \G^2 \to \T,\\
+		\left(\widetilde x_0, \widetilde x_1 \right) \mapsto \left(q_\G\left( \widetilde x_0\right), q_\G\left( \widetilde x_1\right)\right). 
+	\end{split}
+	\eean
+It follows that 
+	$$
+	\forall \left(\widetilde x_0, \widetilde x_1 \right) \in \widetilde \G^2\quad \dl^2 \widetilde \sigma \left(\widetilde x_0, \widetilde x_1 \right)=\dl^2  \sigma \left(q_\G\left( \widetilde x_0\right), q_\G\left( \widetilde x_1\right)\right)= 1,
+	$$
+	i.e. $\widetilde \sigma$ is  a continuous 2-cocycle
+\begin{definition}\label{groupoid_cocycle_lift_defn}
+	We say that the continuous 2-cocycle $\widetilde \sigma\in Z^2\left(\G, \T\right)$ is the $q$-lift of $\sigma$.
+\end{definition}
+	If a groupoid $\G$ is locally compact then any $q$-lift of $\G$ is locally compact with respect to $p$-topology.
+\end{frame}
+\begin{frame}
 	\begin{definition}
+		
+		Let $\sX$ be a locally compact Hausdorff space, and let $C_c\left(\sX\right)$ denote the	space of continuous, compactly supported functions on $\sX$. The natural	topology on $C_c\left(\sX\right)$ is the \alert{inductive limit topology}, defined as follows. A net	$\left\{f_\a\right\}$ in $C_c\left(\sX\right)$ converges to $f$ if there is a compact set $K\subset\sX$ containing	the supports of all $f_\a$ and $f$, and such that $f_\a$ converges uniformly to $f$ on$K$.
+	\end{definition}
 	
-	Let $\sX$ be a locally compact Hausdorff space, and let $C_c\left(\sX\right)$ denote the	space of continuous, compactly supported functions on $\sX$. The natural	topology on $C_c\left(\sX\right)$ is the \alert{inductive limit topology}, defined as follows. A net	$\left\{f_\a\right\}$ in $C_c\left(\sX\right)$ converges to $f$ if there is a compact set $K\subset\sX$ containing	the supports of all $f_\a$ and $f$, and such that $f_\a$ converges uniformly to $f$ on$K$.
-\end{definition}
-This definition can be generalized to non Hausdorff spaces.
-
+	\begin{definition}\label{groupoid_representation_defn}
+		%1.3. D e f i n i t i o n : 
+		A \alert{representation} of $C_c\left(\G, \sigma\right)$ on a Hilbert space $\H$ is a $*$-homomorphism $L : C_c\left(\G, \sigma\right) \to B\left(\H \right)$ which is continuous when $C_c\left(\G, \sigma\right)$ has the inductive limit 
+		topology  and $B\left(\H \right)$  the weak operator topology  and is such that the linear  span of
+		$$
+		L\left(f \right) \xi , \quad f \in C_c\left(\G, \sigma\right), \quad \xi \in \H
+		$$
+		is dense in $\H$.
+	\end{definition}
+	
+	
 \end{frame}
 \begin{frame}
-
-\begin{definition}\label{groupoid_representation_defn}
-	%1.3. D e f i n i t i o n : 
-	A \alert{representation} of $C_c\left(\G, \sigma\right)$ on a Hilbert space $\H$ is a $*$-homomorphism $L : C_c\left(\G, \sigma\right) \to B\left(\H \right)$ which is continuous when $C_c\left(\G, \sigma\right)$ has the inductive limit 
-	topology  and $B\left(\H \right)$  the weak operator topology  and is such that the linear  span of
-	$$
-	L\left(f \right) \xi , \quad f \in C_c\left(\G, \sigma\right), \quad \xi \in \H
-	$$
-	is dense in $\H$.
-\end{definition}
-
-
-\end{frame}
-\begin{frame}
-\begin{lemma}\label{groupoid_mult_repr_lem}
-	%1.13. Lemma : 
-	If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a unique representation
-	$M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
-	$L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
-\end{lemma}
-
+	\begin{lemma}\label{groupoid_mult_repr_lem}
+		%1.13. Lemma : 
+		If $L$ is a representation of $C_c\left(\G, \sigma\right)$, there exists a unique representation
+		$M$ of $C_c\left(\G^0\right)$ such that for every $h \in C_c\left(\G^0\right)$ and every $f\in C_c\left(\G, \sigma\right)$, $L\left(h f \right)= M\left(h \right)L\left(f \right)$  and
+		$L\left(fh \right)= L\left(f \right)M\left(h \right)$. 
+	\end{lemma}
+	
 	If $\G$ is locally compact groupoid with a continuous 2-cocycle in $Z^2\left(\G, \T\right)$ and a left  Haar system $\left\{\la^u\left| u \in \G^0\right.\right\}$  (cf. Definition then there is a $*$-algebra $C_c\left(\G, \sigma \right)$
 	If  $\rho: 	C_c\left(\G , \sigma \right)\to B\left(\H \right)$ is a representation then there is a $C^*$-seminorm 
 	\bean
@@ -680,7 +726,7 @@ This definition can be generalized to non Hausdorff spaces.
 	\eean
 	We suppose that $\rho$ is \alert{faithful}, i.e. $a \neq 0\quad \Rightarrow \quad \rho_c\left(a \right) \neq 0$. The completion of  $C_c\left(\G , \sigma \right)$ with respect to 	$\left\|\cdot  \right\|_\rho$ is a $C^*$-algebra denoted by $C^*_\rho\left(\G , \sigma \right)$. From the Lemma it follows that there is \alert{Hausdorff blowing-up} $C_0\left(\G^0 \right) \subset C^*_\rho\left(\G , \sigma \right)$.
 \end{frame}
-
+\
 \end{document}
 
 
