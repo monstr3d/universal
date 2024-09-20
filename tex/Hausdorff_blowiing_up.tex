@@ -2,6 +2,13 @@
 \usepackage{amsmath,amssymb,amsthm,slashed, euscript}
 \usepackage{mathrsfs} 
 
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+%\usepackage{mathtools}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{cd}
 
 
 \textwidth=110mm
@@ -47,7 +54,7 @@ Algebras in analysis
 \newcommand{\Ef}{\mathbb{E}}
 \newcommand{\desc}{\mathfrak{desc}}
 
-
+\newcommand{\ga}{\gamma} 
 %Uppercase Gothic characters
 \newcommand{\gtA}{\mathfrak{A}}
 \newcommand{\gtB}{\mathfrak{B}}
@@ -525,6 +532,104 @@ $$
 If $q: \widetilde{\sY}\to \sY$ is $A$-{regular} covering then under a set of conditions the $C^*$-norm closure of 	$\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ corresponds to a noncommutative covering of $A$.
 \end{frame}
 \section{Coverings of groupoids}
+\begin{frame}
+	\begin{definition}
+	% 104
+	A \alert{groupoid} consists of a set $\G$, a distinguished subset $\G^0\subset\G$, two maps
+	$r, s : \G\to \G^0$ and a law of composition
+	$$
+	\circ: \G^2\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
+	$$
+	such that
+	\begin{enumerate}
+		\item $s\left(\ga_1\circ\ga_2\right)=s\left(\ga_2\right), \quad r\left(\ga_1\circ\ga_2\right)=r\left(\ga_1\right)\quad \forall\left(\ga_1, \ga_2 \right) \in \G$
+		\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^0$
+		\item $\ga\circ s\left(\ga\right)= r\left(\ga\right)\circ\ga = \ga\quad \forall\ga\in\G$
+		\item $\left( \ga_1\circ\ga_2\right) \circ\ga_3=\ga_1\circ\left( \ga_2\circ\ga_3\right) $
+		\item Each $\ga \in\G$ has a two-sided inverse $\ga^{-1}$, with $\ga\circ\ga^{-1}=r\left(\ga\right)$, $\ga^{-1}\circ\ga=r\left(\ga\right)$.
+	\end{enumerate}
+	The maps $r$, $s$ are called the \alert{range} and \alert{source} maps.
+\end{definition}
+
+\end{frame}
+\begin{frame}
+		\begin{definition}\label{groupoid_topological_defn}
+		A \alert{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
+		\begin{enumerate}
+			\item [(a)] $\G \to \G \quad x \mapsto x^{-1}$ is continuous,
+			\item [(b)] $\G^2\to \G\quad \left(x,y\right)\mapsto xy$ is continuous where $\G^2$ has the induced topology from $\G \times \G$.
+		\end{enumerate}
+	\end{definition}
+\begin{definition}
+	For $u, v\in \G^0$, $~\G^u\bydef r^{-1}\left( u\right)$,  $~\G_v\bydef s^{-1}\left( v\right)$  $~\G^u_v\bydef \G^u\cap \G_v$ and
+	$\G(u) = G^u_u$ which is a group, is called  the \alert{isotropy  group} at $u$.
+\end{definition}
+	
+\begin{definition}\label{groupoid_covering_defn}
+	Let $p : \widetilde{\G}\to G$ be a morphism of groupoids. An ordered pair
+	$\left( \widetilde{\G}, p\right)$ is a \text{covering groupoid} if for each object $\widetilde u \in \widetilde{\G}$ the restriction of $p$
+	$$
+	\widetilde{\G}^{\widetilde{u}}\to {\G}^u
+	$$
+	is bijection. The morphism $p$ is called the \alert{covering}. 
+\end{definition}
+\end{frame}
+
+\begin{frame}
+
+The existence of covering is relevant to the lifting problem
+	\newline
+\includegraphics[scale=0.7]{lifting.png}
+\newline
+	One can find obstructions of it in the fundamental group $\pi_1\left( \G^u_u, u \right)$
+
+\end{frame}	
+\begin{frame}
+	Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
+	us first define $\G^n$ for any $n\in\N$. The sets $\H^0$ , $\G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . x_{n-1}) \in \G\times...\times \G$ such that for $
+	j = 1 , . . . , n - 1$ , $\quad x_j$ is composable with its left  neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
+	\begin{enumerate}
+		\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = d(x_0)$ and
+		\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
+	\end{enumerate}
+	\end{frame}
+	\begin{frame}
+	The set $C^n\left(\G, A\right)$ of $n$-cochains is an Abelian group under point-wise addition. The
+	sequence 
+	\bean
+	0 \to C^0\left( \G, A\right)\to C^0\left( \G, A\right)\to C^1\left( \G, A\right)\to...\to  C^n\left( \G, A\right) \xrightarrow{\delta^n} C^{n + 1}\left( \G, A\right)\to ...
+	\eean
+	where 
+	\bean
+	\begin{split}
+		\delta^0f(x)\bydef L(x)\quad  f\circ s(x) - f \circ r ( x ),\\
+		\delta^n(f(x_0 ,..., x_n) = L ( x_0 ) f ( x_1,..., x_n) +\\+ \sum_{j=1}^n (-1)^j
+		f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
+	\end{split}
+	\eean
+	
+	is a cochain complex.
+	
+\begin{definition}\label{groupoid_cocycle_defn}
+	The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
+	the group of $n$-coboundaries will be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
+	$Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
+\end{definition}
+\end{frame}
+\begin{frame}
+	The space $\G$ is not Hausdorff. There are different notions the space of functions  $C_c\left( \G\right)$  with compact support. All these definitions yield isomorphic $C^*$-algebras.
+\begin{definition}
+Let $\G$ be a locally compact groupoid. A \alert{left  Haar system} for $\G$
+consists of measures $\left\{\left.\la^u \right| u \in \G^0\right\}$ on $\G$ such that
+\begin{enumerate}
+	\item [(a)] the support $\supp\la^u$ of the measure $\la^u$ is $\G^u$,
+	\item [(b)]  (continuity) for any $f \in C_c\left(\G\right)$, $u \mapsto \la(f)(u) = \int f d\la^u$ is continuous, and
+	\item [(c)]  (left invariance) for any $x\in \G$ and any $f \in  C_c(\G )$, $\int  f ( x y ) d\la^{s(x)}(y) =
+	\int f(y)d\la^{r(x)}(y)$.
+	
+\end{enumerate}
+\end{definition}
+\end{frame}
 
 \end{document}
 
