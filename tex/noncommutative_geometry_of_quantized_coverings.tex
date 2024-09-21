@@ -3947,7 +3947,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		& G_\mu\arrow[ru] &
  	\end{tikzcd}
  	\\
- 	then $\La$ becomes an directed set (cf. Definition \ref{directed_set_defn}). We say that the set $\La$ is $  G$-\textit{set} and the given by $\La$ pre-ordering category (cf. Definition \ref{preordercat_defn}) is $  G$-\textit{category}  $  G$-{category} denoted by $\La_{ G }$.
+ 	then $\La$ becomes an directed set (cf. Definition \ref{directed_set_defn}). We say that the set $\La$ is $  G$-\textit{set} and the given by $\La$ pre-ordering category (cf. Definition \ref{preordercat_defn}) is $  G$-\textit{category}.  $  G$-{category} denoted by $\La_{ G }$.
  	There is the natural functor from $\La_{ G }$ to the category of finite groups and surjective homomorphisms. The element $\la_{\min }\in \La$ which corresponds to the trivial factor-group $G_{\la_{\min}}= \{e\}$ is said to be \textit{minimal}.
  \end{definition}
  \begin{remark}\label{g_category_rem}
@@ -3988,35 +3988,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	is left  to the reader. 
  \end{proof}
- \begin{empt}\label{inf_cat_empt}
- 	Under the hypotheses  of the Lemma \ref{infinite_quasi_covering_lem} there is a category $\mathfrak{S}$ such that
- 	\begin{itemize}
- 		\item $\mathfrak{S}$-objects are $C^*$-algebras $A_\la$ where $\la\in \La$,
- 		\item $\mathfrak{S}$-morphisms are natural injective $*$-homomorphisms $\pi^\mu_\nu : A_\mu \hookto A_\nu$
- 		such that the diagram
- 		\\
- 		\begin{tikzcd}
- 		A_\mu \arrow[rr, "\pi_{\mu\nu}"] \arrow[rd, "\desc_{\mu}"]&& A_\nu\arrow[ld, "\desc_\nu"]\\
- 		& M\left( \overline A\right) &
- 		\end{tikzcd}
- 		\\
- 		is commutative.
- 	\end{itemize}
- 	
- \end{empt}
- \begin{notation}\label{inf_cat_not}
- 	Under the hypotheses   \ref{inf_cat_empt}    we use the following notation
- 	\be\label{inf_cat_not_eqn}
- 	A \bydef A_{\la_{\text{min}}}
- 	\ee
- 	where $\la_{\text{min}}\in \La$ is the minimal element,
- 	\be\label{inf_cat_not_pi_eqn}
- 	\pi_\la \bydef \pi^{\la_{\text{min}}}_\la : A \hookto A_\la.
- 	\ee
- 	
- \end{notation}
- 
-   \begin{lemma}\label{infinite_pre_covering_lem}
+    \begin{lemma}\label{infinite_pre_covering_lem}
  	Under the hypotheses \ref{infinite_quasicovering_empt} one has
  	\be\label{a_la_eqn}
  	\overline a \in K\left(\overline A \right)\quad  	a_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to  G_\la \right)}g \overline a \in  K\left( A_\la\right)	
@@ -4045,8 +4017,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	$$
  	So $a^j_\la \le f_{\eps_j/2}\left( c^j_\la\right)$ and taking into account $f_{\eps_j/2}\left(c^j_\la\right)\in K\left(A_\la \right)_0$ we conclude that $a^j_\la\in K\left(A_\la \right)_+$. Using the Definition \ref{pedersen_ideal_defn} one can prove this Lemma for all $\overline a \in K\left( \overline A\right)$.
  \end{proof}
- 
- 
+  
  \begin{definition}\label{infinite_desc_defn}
  	Under the hypotheses of the Lemma \ref{infinite_pre_covering_lem}  for all $\la\in\La$ there is a  natural   homomorphism of $A_\la$-$A_\la$-bimodules given by
  	\be\label{inf_desc_eqn}
@@ -4064,11 +4035,41 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  \end{definition}
  
  
+ \begin{empt}\label{inf_cat_empt}
+ 	Under the hypotheses  of the Lemma \ref{infinite_quasi_covering_lem} there is a category $\mathfrak{S}$ such that
+ 	\begin{itemize}
+ 		\item $\mathfrak{S}$-objects are $C^*$-algebras $A_\la$ where $\la\in \La$,
+ 		\item $\mathfrak{S}$-morphisms are natural injective $*$-homomorphisms $\pi^\mu_\nu : A_\mu \hookto A_\nu$
+ 		such that the diagram
+ 		\\
+ 		\begin{tikzcd}
+ 			A_\mu \arrow[rr, "\pi_{\mu\nu}"] \arrow[rd, ""]&& A_\nu\arrow[ld, ""]\\
+ 			& M\left( \overline A\right) &
+ 		\end{tikzcd}
+ 		\\
+ 		is commutative.
+ 	\end{itemize}
+ 	
+ \end{empt}
+ \begin{notation}\label{inf_cat_not}
+ 	Under the hypotheses   \ref{inf_cat_empt}    we use the following notation
+ 	\be\label{inf_cat_not_eqn}
+ 	A \bydef A_{\la_{\text{min}}}
+ 	\ee
+ 	where $\la_{\text{min}}\in \La$ is the minimal element,
+ 	\be\label{inf_cat_not_pi_eqn}
+ 	\pi_\la \bydef \pi^{\la_{\text{min}}}_\la : A \hookto A_\la.
+ 	\ee
+ 	
+ \end{notation}
+ 
+ 
+ 
  \begin{definition}\label{algebraical_finite_covering_category_defn}
  	The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if one has:
  	\begin{enumerate}
  		\item [(a)] 
- 		any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn});
+ 		any $\mathfrak{S}$-morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),
  		\item[(b)] for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.%, moreover we require that $\desc_{\la} \left(  K\left(\overline A \right)_+\right) = K\left(A_\la \right)_+$. 
  	\end{enumerate}
  			We write
@@ -12968,7 +12969,7 @@ From the Definition \ref{top_covering_compactification_defn} it follows that the
 \end{itemize}
 Let  both $B$ and $\widetilde B$  be $C^*$-subalgebras of  $M\left( A\right)$ and  $M\left(\widetilde A\right)$   generated by unions 	$A \cup C\left(\sZ \right)$ and $\widetilde A \cup C\left(\widetilde \sZ \right)$  respectively. 
 Similarly to \eqref{top_finite_covering_basis_eqn} there is a finite subset $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left( \widetilde{\sZ}\right)_+$ such that
-\be\label{blowing_finitez_covering_basis_eqn}
+\be\label{blowing_finite_covering_basis_eqn}
 \begin{split}
 	1_{C\left(\widetilde{\mathcal Z} \right) }= \sum_{j=1 }^n\widetilde{e}^2_{\widetilde{j}},\\
 	\forall j =1,...,n \quad \widetilde{e}_{j}	\left(g \widetilde{e}_{j} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sY \right|\sY \right).
@@ -16061,7 +16062,7 @@ Here we apply the explained in the chapter \ref{blowing_chap} to the investigati
 	is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-	!!!!
+Follows from the Theorem \ref{blowing_sufficient_covering_thm}.
 \end{proof}
 \begin{definition}\label{gropoid_trivial_defn}
 	Let $\sX$ be a locally compact, Hausdorff topological space. There is a topological groupoid $\G$ such that there are homeomorphisms
