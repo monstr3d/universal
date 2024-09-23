@@ -4043,7 +4043,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		such that the diagram
  		\\
  		\begin{tikzcd}
- 			A_\mu \arrow[rr, "\pi_{\mu\nu}"] \arrow[rd, ""]&& A_\nu\arrow[ld, ""]\\
+ 			A_\mu \arrow[rr, "\pi_{\mu\nu}"] \arrow[rd, "\lift_\mu"]&& A_\nu\arrow[ld, "\lift_\nu"]\\
  			& M\left( \overline A\right) &
  		\end{tikzcd}
  		\\
@@ -4065,7 +4065,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  
  
  
- \begin{definition}\label{algebraical_finite_covering_category_defn}
+ \begin{definition}\label{algebraical_finite_covering_category_defn} 
  	The  given by \ref{inf_cat_empt} category is said to be \textit{algebraical finite covering category} if one has:
  	\begin{enumerate}
  		\item [(a)] 
@@ -4076,50 +4076,16 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\be\label{algebraical_finite_covering_category_eqn}
  	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
  	\ee
- Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
+ Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{disconnected infinite noncommutative covering of the algebraical finite covering category}  $\mathfrak{S}$.
  \end{definition}
+ \begin{remark}
+ 	It will be proven that !!! UNIQUE !!!
+ \end{remark}
   
 \begin{definition}\label{algebraical_reduced_finite_covering_category_defn}
  	A given by the equation \eqref{algebraical_finite_covering_category_eqn}  algebraical finite covering category 	(cf. Definition \ref{algebraical_finite_covering_category_defn} is \textit{reduced} if for  any $\la\in \La$ the given by \eqref{inf_cat_not_pi_eqn} injective $*$-homomorphism $
  	\pi_\la : A \hookto A_\la$ is a reduced  noncommutative finite-fold covering (cf. Definitions  \ref{fin_defn} and \ref{fin_red_defn}).
  \end{definition}
- \begin{empt}\label{infinite_covering_empt} Let  $\mathfrak{S}\bydef\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ be an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). Consider a category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ such that
- 	\begin{itemize}
- 		\item $\mathfrak{Cov}\left(\mathfrak{S} \right)$-objects are pre-coverings of $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}),
- 		\item A $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism from $\left(A, \overline A', \widehat{G}\right)$ to  $\left( A, \overline A'', \widehat{G}\right)$ is an injective \\$*$-homomorphism $\phi: \overline A' \hookto  \overline A''$  such that
- 		\bea\label{infinite_covering_g_eqn}
- 		\forall	\overline a' \in \overline A'\quad \forall g \in \widehat{G}\quad g\phi\left( \overline a'\right) = \phi\left(g \overline a'\right),~~~\\
- 		\label{infinite_covering_eqn}\forall	\overline a' \in \overline K\left(\overline A'\right) \quad \forall \la\in \La \quad \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \overline a'= \bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\mu\right) }g \phi\left( \overline a'\right).~~~ 
- 		\eea
- 	\end{itemize} 
- \end{empt}
- \begin{definition}\label{disconnected_infinite_noncommutative_covering_defn}
- 	The terminal object 	\be\label{disconnected_infinite_noncommutative_covering_eqn}
- 	\left(A, \overline{A},  \widehat{G}\right)
- 	\ee
- 	 (cf. Definition \ref{terminal_object_defn}) of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ (cf. \ref{infinite_covering_empt}) is the  \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$. 
- \end{definition}
-  \begin{lemma}\label{uni_dicsonnected_lem}
- 	If a disconnected infinite noncommutative covering (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) exists then it is unique up to $*$-isomorphism. 
- \end{lemma}
- \begin{proof}
- 	If both $\overline{A}'$ and $\overline{A}''$ are disconnected infinite noncommutative coverings then there are injective $*$-homomorphism $\phi' : \overline{A}'\hookto\overline{A}''$ and $\phi'': \overline{A}''\hookto \overline{A}'$. From the Lemma \ref{bt_lim_lem} it follows that any $\overline a' \in \overline A'$ is given by
- 	$$
- 	\overline a' =\bt\text{-}\lim_{\la \in \La} a'_\la
- 	$$
- 	where 
- 	$$
- 	a'_\la \bydef 	\bt~\text{-}\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a' \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 
- 	$$
- 	where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. \eqref{bt_lim_eqn}). On the other hand from \eqref{bt_lim_eqn} it follows that $$
- 	\phi'\left(\overline a' \right)= \bt\text{-}\lim_{\la \in \La} a'_\la.
- 	$$ 
- 	Similarly one can prove that
- 	$$
- 	\phi'' \circ \phi'\left( \overline a'\right) = \bt\text{-}\lim_{\la \in \La} a'_\la =  \overline a',
- 	$$
- 	i.e. $\phi'' \circ \phi' = \Id_{\overline A'}$. It turns out that both $\phi'$ and $\phi''$ are $*$-isomorphisms.
- \end{proof}
 
  \begin{lemma}\label{bt_lim_lem}
  	Under the hypotheses of the Definition  \ref{infinite_quasicovering_defn}  one has
@@ -4310,7 +4276,7 @@ where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn
  
  
 \begin{empt}
- 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
+ 	Let	 $\left(A, \overline{A},\widehat{G} \right)$ be a  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
  	\be\label{infinite_covering_transformation_group_eqn}
  	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
  	\left\{\left. g \in \widehat{G}\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
@@ -4340,11 +4306,11 @@ where $\desc_{\la}$ is the $\la$-descent (cf. Definition \ref{infinite_desc_defn
  
  
  \begin{remark}
-The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) is a subcategory of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{subcategory_defn}) of (cf. Definition \ref{fin_category_defn}).
+The given by \eqref{algebraical_finite_covering_category_eqn} {algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) is a subcategory of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{subcategory_defn}) of (cf. Definition \ref{fin_category_defn}).
  \end{remark}
  
 \begin{definition}\label{good_defn}
-A  disconnected infinite noncommutative covering 	$\left(A, \overline{A},\widehat{G}\right)$ be of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is \textit{good} if  following conditions hold:
+A  disconnected infinite noncommutative covering 	$\left(A, \overline{A},\widehat{G}\right)$ be of $\mathfrak{S}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!) is \textit{good} if  following conditions hold:
  	\begin{enumerate}
  		\item[(a)] if both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in \widehat{G}$ such that $g \widetilde{A}'= \widetilde{A}''$,
  		\item [(b)] if $\widetilde A$ is a   connected component of $\overline{A}$ if  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{infinite_covering_transformation_group_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
@@ -4354,14 +4320,14 @@ A  disconnected infinite noncommutative covering 	$\left(A, \overline{A},\wideha
  	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {quasi-components} of $\overline \sX$  (cf. Definition \ref{top_quasi_component_defn}) then there is  $g \in \widehat{G}$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
  \end{remark}
  \begin{lemma}
- 	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then both  given by  	 \ref{infinite_lift_defn}  lift and $\la$-lift are injective.
+ 	 If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}$ (cf. Definitions  !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!  and \ref{good_defn}) then both  given by  	 \ref{infinite_lift_defn}  lift and $\la$-lift are injective.
 \end{lemma}
 \begin{proof}
 Let	$\widetilde {\lift} : A \to M\left(\widetilde A \right)$ be the given by the Definition  \ref{infinite_lift_defn} lift. If $\widetilde {\lift}$ is not injective then there is $a \in A\setminus \{0\}$ such that $\widetilde {\lift}\left( a\right)  \widetilde A = \{0\}$. For any $g \in \widehat G$ from $g\left(\widetilde {\lift}\left( a\right)\widetilde A \right)= \widetilde {\lift}\left( a\right)g \widetilde A $  it follows that $\widetilde {\lift}\left( a\right) \left( g  \widetilde A \right) = \{0\}$ . Now from the condition (a) of the Definition \ref{good_defn} the operator $\widetilde {\lift}\left( a\right)$ acts trivially on every connected component of $\overline A$. It turns out that $a  \overline A = \{0\}$, however it contradicts with the inclusion $a \subset M\left(\overline A \right)$. So $\widetilde {\lift}$ is injective. Similarly one can prove that $\la$-lift (cf. Definition \ref{infinite_lift_defn})  is also injective.
 \end{proof}
  
  \begin{definition}\label{infinite_noncommutative_covering_defn}
- 	If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn}  and \ref{good_defn}) then a connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{inverse noncommutative limit of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$}. The given by the equation \eqref{infinite_covering_transformation_group_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple
+ 	If $\left(A, \overline{A},\widehat{G}\right)$ is a good  disconnected infinite noncommutative covering of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$ (cf. Definitions \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!  and \ref{good_defn}) then a connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{inverse noncommutative limit of $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$}. The given by the equation \eqref{infinite_covering_transformation_group_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple
  	\be\label{infinite_noncommutative_covering_eqn}
  	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)
  	\ee
@@ -4426,7 +4392,7 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
 \end{proof}
 
 \begin{proposition}\label{infinite_spectrum_limit_prop} 
-	If $\left(A, \overline A, \widehat{G}\right)$ is a {pre}-{covering of the algebraical finite covering category}  
+	If $\left(A, \overline A, \widehat{G}\right)$ is a {disconnected infinite noncommutative covering of the algebraical finite covering category}  
 		\bean
 	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 	\eean
@@ -4542,13 +4508,15 @@ Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G 
  	 $$
  	According to the Definition \ref{inverse_limit_defn} a net $\left\{\rho_\la\right\}$ yields the unique element of the set theoretical limit $\varprojlim_{\la\in \La} \sX_\la$.
  \end{proof}
+ 
+ 
 
  \begin{lemma}\label{inverse_lim_h_lem}
  	Let 	 $\left(A, \overline A, \widehat{G}\right)$ be a reduced  {pre}-{covering of the algebraical finite covering category}  
  	\bean
  	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
  	\eean
- 	(cf. Definitions \ref{algebraical_finite_covering_category_defn}  and \ref{algebraical_reduced_finite_covering_category_defn}).
+ 	(cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}).
 Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural continuous map from the spectrum of the inverse limit to the spectrum of $A$ (cf. Definition \ref{top_inverse_limit_defn}). Suppose that for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_\la$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn}). 
  	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there are natural isomorphisms  
  	\be\label{inverse_lim_hs_eqn}
@@ -4577,7 +4545,7 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
  \bean
  \mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
  \eean
- (cf. Definitions \ref{algebraical_finite_covering_category_defn}  and \ref{algebraical_reduced_finite_covering_category_defn}) and the Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn})  of both $\widehat A$ and $\overline A$ is the Hilbert norm completion of the given by
+ (cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}) and the Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn})  of both $\widehat A$ and $\overline A$ is the Hilbert norm completion of the given by
  	\be\label{inverse_lim_h_eqn}
  	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{x }}\cong 	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{p} \left( \widehat{x }\right)}
  	\ee 
@@ -4607,7 +4575,7 @@ Let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural 
 \bean
 \mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \eean
-(cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}) and $\pi_a : \overline A\hookto B\left(\overline \H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{inverse_lim_h_cor} and the Lemma \ref{inverse_faithful_nondegenetate_lem} it follows that any $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism $\phi: \overline A' \hookto  \overline A''$ (cf. \ref{infinite_covering_empt}) can be included into the following commutative diagram
+(cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{algebraical_reduced_finite_covering_category_defn}) and $\pi_a : \overline A\hookto B\left(\overline \H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the Corollary \ref{inverse_lim_h_cor} and the Lemma \ref{inverse_faithful_nondegenetate_lem} it follows that any $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism $\phi: \overline A' \hookto  \overline A''$ (cf. \ref{infinite_covering_empt}) can be included into the following commutative diagram !!!!
 \newline
 \begin{tikzcd}
 \overline A'\arrow[rr, "\phi"] \arrow[rd, "\pi_{\overline A'}"]&& \overline A''\arrow[ld, "\pi_{\overline A''}"]\\
@@ -4623,7 +4591,7 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
 %\bean
 %\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 %\eean
-%(cf. Definitions \ref{algebraical_finite_covering_category_defn}then any morphism of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ of  pre-coverings of $\mathfrak{S}$ (cf. Definition \ref{infinite_covering_cat_defn}) is $*$-isomorphism. 
+%(cf. Definitions \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!then any morphism of the category $\mathfrak{Cov}\left(\mathfrak{S} \right)$ of  pre-coverings of $\mathfrak{S}$ (cf. Definition \ref{infinite_covering_cat_defn}) is $*$-isomorphism. 
 % \end{theorem}
 % \begin{proof}
 % Let both $\left(A, \overline A', \widehat{G}\right)$ to  $\left( A, \overline A'', \widehat{G}\right)$ are  $\mathfrak{Cov}\left(\mathfrak{S} \right)$-objects, and let $\phi: \overline A' \hookto  \overline A''$ be  an injective $*$-homomorphism $\phi: \overline A' \hookto  \overline A''$  satisfying to the equations \eqref{infinite_covering_g_eqn}, \eqref{infinite_covering_eqn}. From the Corollary \ref{inverse_lim_h_cor} it follows that the Hilbert spaces of atomic representations of both $\overline A'$ and $\overline A''$ are naturally isomorphic, i.e. there are atomic representations
@@ -4740,7 +4708,7 @@ where both $\pi_{\overline A'}$ and $\pi_{\overline A'}$ are atomic representati
  \end{empt}
 
 \begin{lemma}\label{infinite_faithful_nondegererate_lem}
-Under the situation of the Definition \ref{algebraical_finite_covering_category_defn}   if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_\la \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful and non-degenerate (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerate.
+Under the situation of the Definition \ref{algebraical_finite_covering_category_defn}    if an equivariant representation $\widehat \pi : \widehat A  \bydef C^*$-$\varinjlim_{\la \in \La} A_\la \hookto B\left(\widehat{\H}\right)$ (cf. Definition \ref{equivariant_representation_defn}) is faithful and non-degenerate (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{ext_repro_eqn} representation is faithful and non-degenerate.
 \end{lemma}
 \begin{proof}
 The notation of the Definition  \ref{algebraical_finite_covering_category_eqn} is used. If $\overline a \in  K\left( \overline A\right)$ then there and 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a \in  K\left( A\right)$ then there is $b \in A$ such that $ab\neq 0$. From 	$a \bydef 	\bt\text{-}\sum_{g\in \widehat{G}}g \overline a$ it follows that there is a finite subset $G_0\subset  \widehat{G}$ such that $\left( \sum_{g\in  {G}_0}g \overline a\right) b \neq 0$.  Moreover there is $g \in G_0$ such that $ (g\overline a)b \neq 0$. The representation $\widehat \pi$ is faithful, so there is $\xi \in \widehat{\H}$ such that $(g\overline a)b \xi \neq 0$, so one has $g^{-1}\left((g\overline a)b \xi  \right) = \overline a b g^{-1}\xi \neq 0$ (cf. equations \eqref{equivt_eqn} and \eqref{equivb_eqn}). It turns out that $\overline a \widehat{\H} \neq \{0\}$. But $K\left( \overline A\right) $ is dense in $\overline A$, so  $\overline a \widehat{\H} \neq \{0\}$ for all  $\overline a \in \overline A$, i.e. the given by \eqref{ext_repro_eqn} representation is faithful. Since $A_\la$ is generated by given by \eqref{basic_cov_cl_eqn} elements
@@ -4764,8 +4732,9 @@ s\text{-}	\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}\overline\pi\left( g
 	If $\overline a \in K\left( \overline A\right)_+$ is positive then this Lemma follows from the \ref{strict_strong_lem} one. General case is a consequence of the equation \eqref{four_decompositon_eqn}.
 
 \end{proof}
+
 \begin{lemma}\label{strict_strong_2_lem}
-Let	$\left( A,\overline A, \widehat{G}\right)$ be a {pre}-{covering} of the category $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}). If $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_representation_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation.  Under the hypotheses of the Lemma \ref{bt_lim_lem} if one has a given by \eqref{bt_lim_eqn} strict limit
+Let	$\left( A,\overline A, \widehat{G}\right)$ be  a {disconnected infinite noncommutative covering of the algebraical finite covering category}  $\mathfrak{S}$ (cf. Definition  \ref{algebraical_finite_covering_category_eqn}). If $\overline\pi: \overline{A}: \to B\left(\overline \H \right)$ be a faithful (cf. Definition \ref{faithful_representation_defn}), nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}) representation.  Under the hypotheses of the Lemma \ref{bt_lim_lem} if one has a given by \eqref{bt_lim_eqn} strict limit
 	$$
 \forall \overline a \in K\left( \overline A\right)  \quad \overline a =\bt\text{-}\lim_{\la \in \La}a_\la$$
 	 (cf. Definition \ref{strict_topology_defn}) then there is a limit
@@ -4777,6 +4746,34 @@ with respect to the strong topology of 	 $B\left(\overline \H \right)$ (cf. Defi
 \begin{proof}
 The proof of this lemma is similar the \ref{strict_strong_1_lem} one.
 \end{proof}
+
+ \begin{empt}
+	Let $\left(A, \overline A, \widehat{G}\right)$ be a   {disconnected infinite noncommutative covering of the algebraical finite covering category}  
+	\bean
+	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\},
+	\eean
+	and let $\overline \sX$ be the spectrum of $\overline A$. Let $\overline x \in \overline \sX$ and let $\rep_{\overline x}: \overline A \to B\left(\H_{\overline x} \right)$ be an irreducible representation (cf. Definition \ref{irred_defn}). From the  \ref{multiplier_el_defn} it follows that there is the natural *-homomorphism  $M\left(\rep_{\overline x} \right): M\left( \overline A\right)  \to  B\left(\H_{\overline x}\right)$. Otherwise if $\xi \in \H_{\overline x}$ then from  the Theorem \ref{irred_thm} it follows that $\H_{\overline x} = \rep_{\overline x}\left(\overline A \right)\xi= \rep_{\overline x}\left(M\left( \overline A\right)  \right)\xi$. Since $K\left(\overline A \right)$ is dense in $\overline A$ the space $\rep_{\overline x}\left(K\left(\overline A \right) \right)\xi$ is dense in $\H_{\overline{x}}$. For any $\la\in \La$ there is a natural inclusion $A_\la \subset M\left( \overline A\right)$, and from the Propositions \ref{infinite_spectrum_limit_prop} and \ref{sur_prop} it follows that for every $\la\in \La$ one has: 
+	\begin{itemize}
+		\item the natural  surjective map $\overline p_\la:  \overline \sX \to \sX_\la$ from $\overline \sX$ to the spectrum $\sX_\la$ of $A_\la$,
+		\item  a inclusion $\H^\la_{x_\la }\cong \rho_{\overline x}\left( A_\la \right)\xi \subset \H_{ \overline {x}}$ where $x_\la \bydef  \overline p_\la\left( \overline x\right) \in \sX_\la$  and  $\H^\la_{x_\la }$ is of the irreducible representation which corresponds to $x_\la$.                 
+	\end{itemize} 
+	It turns out that there is an  inclusion 
+\be\label{h_union_eqn}
+	\bigcup \H^\la_{ \overline p_\la\left( \overline x\right)} \subset \H_{\overline x}.
+\ee
+	From the Lemma \ref{strict_strong_2_lem} it follows that for any $\eps > 0$ and $\overline a \in K\left(\overline A \right)$ there is $\la \in \La$ such that
+	$$
+	\left\|\rep_{\overline{x}}\left( \desc_\la \left(\overline a \right)\right) \xi - \rep_{\overline{x}}\left( \overline a \right)\xi   \right\|< \eps 
+	$$
+	From this fact one can deduce that the union $\bigcup \H^\la_{ \overline p_\la\left( \overline x\right)}$ is dense in $\H_{\overline x}$. Taking into account \eqref{h_union_eqn} the  space $\subset \H_{\overline x}$ is  norm closure of  the union $\bigcup \H^\la_{ \overline p_\la\left( \overline x\right)}$. If $\pi_a: \overline A \to B\left(\H_a \right)$ is the atomic representation then $\H_a$ is the $C^*$-norm completion of the algebraic direct sum
+	$$
+\bigoplus_{\overline{x}\in \overline{   \mathcal X }}	\H_{ \overline {x}}.
+	$$ 
+	It follows that the space 
+\end{empt}
+
+
+
 \subsubsection{Induced representations}
 \paragraph{}
 	If  $\left( A, \overline A, \widehat{G}\right)$ is a {quasi}-{covering of algebraical finite covering category}  $$\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ (cf. Definition   \ref{infinite_quasicovering_defn}) then from \eqref{basic_cov_cl_eqn} it follows that there is a sesquilinear $A$-valued product
@@ -5096,7 +5093,7 @@ Under the hypotheses of the Definition \ref{comp_o*_defn} morphisms of $\mathfra
  \be\label{bl_cat_eqn}
  \mathfrak{S}_B\bydef \left\{\left\{B_\la\right\}_{\la\in \La}, \left\{\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
  \ee 
- (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn}) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
+ (cf.  Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!) where  $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).	
   	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra.  There is the natural action $\widehat G\times \widehat A\to \widehat A$.
   	Suppose that there is an equivariant  faithful nondegenerate representation (cf. Definitions \ref{equivariant_representation_defn}, \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equivalent_representation_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
   	$$
@@ -5220,7 +5217,7 @@ satisfies to the conditions  described in \ref{comp_pt_o*_empt}. If 	$\left(\mat
 	\be\label{blu_cat_eqn}
 	\mathfrak{S}_B=\left\{ \left( B ,  B_{\la} , G\left(\left.\mathfrak A_0^\la~\right|\mathfrak A_0 \right) , \overline \pi_{\la}|_{\mathfrak A_0}\right) \right\}_{\la \in \La}
 	\ee
-	(cf. Definitions \ref{algebraical_finite_covering_category_defn}   and \ref{good_defn}), and there is an  {infinite noncommutative covering} of  $\mathfrak{S}_B$. (cf. Definition \ref{infinite_noncommutative_covering_defn}). \be\label{be_eqn} 
+	(cf. Definitions \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!   and \ref{good_defn}), and there is an  {infinite noncommutative covering} of  $\mathfrak{S}_B$. (cf. Definition \ref{infinite_noncommutative_covering_defn}). \be\label{be_eqn} 
 	\left(B, \widetilde{B}, G_{\widehat\pi}\right)
 	\ee 
 \item[(ii)] There is an equivariant faithful representation $\widehat \pi: \widehat B \bydef C^*$-$\lim_{\la\in\La} B_\la\hookto B \left(\widehat\H \right) $ (cf. Definition \ref{equivalent_representation_defn}) such that the given by the equation \eqref{ext_repro_eqn} representation
@@ -5272,7 +5269,7 @@ Consider the situation \ref{comp_qo*_empt}.	Suppose that there exists an admissi
 Here we consider a generalization of the discussed in the Section \ref{infinite_ca_sec} construction.
 
 \begin{empt}\label{comp_op_pt_empt}
-	Consider an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) given by
+	Consider an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) given by
 	$$
 	\mathfrak{S} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),
 	$$
@@ -5582,7 +5579,7 @@ One needs check the conditions (a) and (b) of the Definition \ref{strong_morita_
 	where $\bt\text{-} \sum_{g \in G}$ means the convergence of series with respect to the strong topology of $M\left( \widetilde A\right)$ (cf. Definition \ref{strong_topology_defn}). Taking into account \eqref{hilb_inf_eqn} we conclude that the equations \eqref{morita_g_inf_eqn} are equivalent to the condition (a) of the Definition \ref{strong_morita_defn}.
 \item [(b)]	From the Definition \ref{admits_morita_defn} it follows that the linear span of $\left\langle \mathscr L^2\left( \widetilde{A}\right), \mathscr L^2\left( \widetilde{A}\right) \right\rangle_{\widetilde{A} \rtimes_c G}$  is dense in $\widetilde{A} \rtimes_c G$. 
 
-If $a \in K\left( A\right)$ then from the Definition \ref{algebraical_finite_covering_category_defn} one can deduce that there is $\widetilde a \in K\left( \widetilde a\right)$ such that
+If $a \in K\left( A\right)$ then from the Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!! one can deduce that there is $\widetilde a \in K\left( \widetilde a\right)$ such that
 $$
 a = \bt\text{-}\sum_{g \in G} \widetilde{a}
 $$ 
@@ -5601,7 +5598,7 @@ From the equation \eqref{four_decompositon_eqn} it follows that there are positi
 	\begin{equation}\label{cov_sec_triple_eqn}
 \mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 	\end{equation}
-	be a good  algebraic  finite covering category (cf.  Definitions \ref{algebraical_finite_covering_category_defn}  and \ref{good_defn}). 
+	be a good  algebraic  finite covering category (cf.  Definitions \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  and \ref{good_defn}). 
 	Suppose that for any $\la \in \La$ there is a spectral triple $\left(\sA_\la, \sH_\la, D_\la, J_\la\right)$, such that:
 	\begin{enumerate}
 		\item[(a)] $\left(\sA_\la, \sH_\la, D_\la, J_\la\right)$ is the  $\left(A, A_\la, G\left(\left.A_\la~\right|A \right), \pi_\la  \right)$-lift of $\left(\sA, \sH, D, J\right)$ (cf. Definition \ref{spectral_triple_fin_lift_defn}),
@@ -10479,7 +10476,7 @@ be the 	{algebraic} $\widetilde \sX$-$  G$-{category} (cf. Definition \ref{top_f
  $\mathfrak{S}_{C_0\left(p\right)}$ {algebraic} $\overline \sX$-$ \widehat G$-{category}
 \end{empt}
 \begin{lemma}\label{top_inf_sufficienf_lem}
-Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 \end{lemma}
 \begin{proof}
 Firstly we prove that  $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. From the Corollary \ref{comm_lift_desc_sum__lem}!!!LEMMA !! it follow that for any $\la \in \La$ and $\overline{a }\in K\left(C_0\left(\overline\sX \right) \right)= C_c\left(\overline\sX \right)$ a series 
@@ -10492,7 +10489,7 @@ is convergent with respect to the strict topology of $M\left(C_0\left(\overline\
 \ee
 where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. 
 From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn}).
-Now one needs check conditions (a) and (b) of the Definition \ref{algebraical_finite_covering_category_defn}.
+Now one needs check conditions (a) and (b) of the Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!.
 \begin{enumerate}
 	\item [(a)] From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering.
 	\item[(b)] Let $\la\in \La$ and let $\overline p_\la : \overline \sX \to \sX_\la$ be a natural covering. From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left( \sX_\la\right)  \right) = C_c\left( \sX_\la\right)$. If $a_\la \in C_c\left( \sX_\la\right)$ then the set $\supp a_\la$ is compact. If $\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\overline \sU_{\overline\a}, \overline \sV_{\overline\a}, \overline s_{\overline\a}\right)\right\}_{\overline \a \in \overline{\mathscr A}} \right)$ is a $\overline p_\la$-covering (cf. Definition \ref{top_cov_defn}) then there is a dominated by the family $\left\{\sU_{\overline{a}}\right\}$ covering sum $\sum^n_{j=1} f_j$ for $a_\la$ (cf. Definition \ref{top_covering_sum_defn}). One has
@@ -10512,7 +10509,7 @@ a_\la = \desc_{\la}\left( \overline a\right) 	= \bt\text{-}\sum_{g \in \ker\left
 
 
 \begin{lemma}\label{top_discontinuous_lem}
-	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of the given by \eqref{top_x_g_eqn} algebraical finite covering category $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definitions \ref{algebraical_finite_covering_category_defn}  !!!CHECK !!!and \ref{disconnected_infinite_noncommutative_covering_defn}).
+	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of the given by \eqref{top_x_g_eqn} algebraical finite covering category $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definitions \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!!CHECK !!!and \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!).
 \end{lemma}
 \begin{proof}
 If 	$\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is a  {pre}-{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$
@@ -10525,12 +10522,12 @@ where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Defi
 $$
 \forall \overline a \in \overline A'\quad \phi_{\overline A'}\left( \overline a\right) \in C_c\left(\overline \sX\right)
 $$
-From this circumstance it follows that $\overline A'\subset C_0\left( \overline \sX\right)$.  Taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the terminal object of the category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}), i.e. $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(p\right)}$.
+From this circumstance it follows that $\overline A'\subset C_0\left( \overline \sX\right)$.  Taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the terminal object of the category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!), i.e. $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(p\right)}$.
 \end{proof}
 
 
  	\begin{empt}\label{comm_transitive_empt} 
- 		From the Lemma \ref{top_discontinuous_lem}	 it follows that  the disconnected infinite noncommutative covering of $	\mathfrak{S}_p$  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
+ 		From the Lemma \ref{top_discontinuous_lem}	 it follows that  the disconnected infinite noncommutative covering of $	\mathfrak{S}_p$  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!) is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
 		From (iv)  of the Lemma \eqref{top_disconnected_lem} one has
 	\be\nonumber
 \widehat G= \varprojlim_{\la \in \La} G\left(\left.\sX_\la \right|\sX\right).
@@ -10577,7 +10574,7 @@ From the above construction one can deduce the following theorem.
 	\end{itemize}
 following conditions hold.
 \begin{enumerate}
-	\item [(i)]  The given by \eqref{top_cb_defna_eqn} algebraic finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) $\mathfrak{S}_{C_0\left(p \right) }$ is good  (cf. Definition \ref{good_defn}) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_p\right),G\left(\left.\varprojlim  \mathfrak{S}_p~\right| \mathcal X\right)\right)$$ is  the  {infinite noncommutative covering} of $\mathfrak{S}_{C_0\left( p\right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn}), where $\varprojlim  \mathfrak{S}_{p}$ is covering inverse limit of  given by  \eqref{top_category_fin_eqn} category (cf. Definition \ref{top_disconnected_defn}.
+	\item [(i)]  The given by \eqref{top_cb_defna_eqn} algebraic finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) $\mathfrak{S}_{C_0\left(p \right) }$ is good  (cf. Definition \ref{good_defn}) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_p\right),G\left(\left.\varprojlim  \mathfrak{S}_p~\right| \mathcal X\right)\right)$$ is  the  {infinite noncommutative covering} of $\mathfrak{S}_{C_0\left( p\right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn}), where $\varprojlim  \mathfrak{S}_{p}$ is covering inverse limit of  given by  \eqref{top_category_fin_eqn} category (cf. Definition \ref{top_disconnected_defn}.
 	\item[(ii)] There are  isomorphisms:
 	\begin{itemize}
 		\item $\varprojlim  \mathfrak{S}_{C_0\left(p\right)} \approx C_0\left(\varprojlim  \mathfrak{S}_{p}\right)$.
@@ -10627,7 +10624,7 @@ C_0\left( \sX^\sim_\la\right) = \C C_0\left( \sX^\sim_\la, \R\right),\\
 	\end{split}
 	\eean
 	the given by the Corollary \ref{top_cb_defna_eqn}
-algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 	Let $\tau: C_c\left(\sX \right)\to \C$ be a positive functional given by the Theorem \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$  such that
 	\be\label{top_meafunc_eqn}
@@ -10838,7 +10835,7 @@ $$
 		\left(\left\{ \left.C_0\left( p_\la\right)\right|_R :  R  \hookto  R_\la\right\}, \left\{ \left.C_0\left( p^\mu_{ \nu}\right)\right|_{R_\nu} : R_\nu \hookto R_\mu\right\}\right).
 	\end{split}
 	\ee
-	The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the  the Theorem \ref{top_main_thm} one has a 	good	{algebraical  finite covering category} (cf. Definitions \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!! and \ref{good_defn}) given by
+	The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the  the Theorem \ref{top_main_thm} one has a 	good	{algebraical  finite covering category} (cf. Definitions \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!! CHECK !!! and \ref{good_defn}) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
 	\mathfrak{S}_{C_0\left(p\right) } \bydef \\
@@ -11053,7 +11050,7 @@ $$
 	\mathfrak{S}_{C_0(p)} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
 \end{split}
 \ee
-be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}), given by \eqref{top_x_g_eqn}
+be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!), given by \eqref{top_x_g_eqn}
 From the Theorem \ref{top_main_thm} it follows that  a triple 
 $\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
 $ is  an  {infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
@@ -11122,7 +11119,7 @@ If $\widetilde{\sY}\bydef \widetilde \sY \times \R$,
  	\mathfrak{S}_{C_0\left(\widetilde p \right) } \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left(\widetilde p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left(\widetilde p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
  \end{split}
  \ee
- be a given by \eqref{top_x_g_eqn} algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
+ be a given by \eqref{top_x_g_eqn} algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!)
 \be\label{top_sb_eqn}
 \begin{split}
 	\mathfrak{S}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
@@ -11538,7 +11535,7 @@ of left  $C_0\left(\widetilde \sX \right)$-modules.
 \mathfrak{S}_{\widetilde p} = \left\{p_\la:\left(  M_\la, x^\la_0 \right) \to \left( M,{x_0}\right) \right\}
 \ee
  (cf. Definition \ref{top_disconnected_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}_p$ is naturally homeomorphic  to $\widetilde{M}$.  
- From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structures of the Riemannian manifolds. From the Theorem \ref{top_main_thm} it follows that one has a good algebraical  finite covering category (cf. Definitions \ref{algebraical_finite_covering_category_defn}  and \ref{good_defn})
+ From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structures of the Riemannian manifolds. From the Theorem \ref{top_main_thm} it follows that one has a good algebraical  finite covering category (cf. Definitions \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  and \ref{good_defn})
  $$
  \mathfrak{S}_{C\left(M\right)_0\left(\widetilde p \right) } = \left\{C_0\left( p_\la\right) :C\left(M\right)\hookto\left(  M_\la\right)  \right\}
  $$
@@ -13412,8 +13409,8 @@ $$
 \be\label{blowing_algebraical_finite_covering_category_eqn}
 \mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \ee
-(cf. Definition \ref{algebraical_finite_covering_category_defn}) such that 	a triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}), 
-\item[(iii)] if the triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$   is the  \textit{disconnected infinite noncommutative covering} of  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) then it is good (cf. Definition \ref{good_defn}) and a triple $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
+(cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) such that 	a triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$  is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!), 
+\item[(iii)] if the triple $\left(A, A_0\left(\overline\sY \right), \widehat{G} \right)$   is the  \textit{disconnected infinite noncommutative covering} of  $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!) then it is good (cf. Definition \ref{good_defn}) and a triple $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY\right|\sY \right) \right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn}).
 	\end{enumerate}
 \end{theorem}
 
@@ -13444,7 +13441,7 @@ A_b\left(\overline q_\la \right)\left(K\left( A\left( \sY_\la\right)  \right) \r
 $$
 Since $K\left( A\left( \sY_\la\right)\right) $ is dense in $ A\left( \sY_\la\right)$ the closure of $\overline A'$ equals to  $A_b\left(\overline q_\la \right)\left(  A\left( \sY_\la\right)\right)$, so the conditions of the Definition \ref{infinite_quasicovering_defn} are satisfied.
 
-Now one should prove conditions (a) and (b) of the Definition \ref{algebraical_finite_covering_category_defn}.
+Now one should prove conditions (a) and (b) of the Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!.
 \begin{enumerate}
 	\item [(a)]  From the Theorem \ref{blowing_sufficient_covering_thm} it follows that $A_0\left( q^\nu_\mu\right): A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)$ is a noncommutative finite-fold covering.
 	\item[(b)] Follows from the Lemma \ref{blowing_descent_pedersen_lem}.
@@ -13452,7 +13449,7 @@ Now one should prove conditions (a) and (b) of the Definition \ref{algebraical_f
 
 \end{proof}
 
-Under the hypotheses of the Theorem	\ref{blowing_sufficient_covering_inf_thm} set $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La} A\left( \sY_\la\right) $, where $C^*$-$\varinjlim$ is the given by the Definition \ref{inductive_lim_non_defn} $C^*$-inductive limit. If $\widehat A\hookto B\left(\widehat \H \right)$ is a faithful, nondegenerate representation, and a triple  $\left(A, \overline A', \widehat{G} \right)$ is a {pre}-{covering of the algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!! $\mathfrak{S}_{A_0\left(q \right) }$ given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then 
+Under the hypotheses of the Theorem	\ref{blowing_sufficient_covering_inf_thm} set $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La} A\left( \sY_\la\right) $, where $C^*$-$\varinjlim$ is the given by the Definition \ref{inductive_lim_non_defn} $C^*$-inductive limit. If $\widehat A\hookto B\left(\widehat \H \right)$ is a faithful, nondegenerate representation, and a triple  $\left(A, \overline A', \widehat{G} \right)$ is a {pre}-{covering of the algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!! CHECK !!! $\mathfrak{S}_{A_0\left(q \right) }$ given by \eqref{groupoid_foli_algebraical_finite_covering_category_eqn} then 
 from Lemma \ref{infinite_faithful_nondegererate_lem}  it follows that   there is a faithful, nondegenerate representation
 \be\label{groupoid_folia_eqn}
 \pi_{\overline A'} : \overline A' \hookto B\left(\widehat  \H \right). 
@@ -13486,8 +13483,8 @@ From the Definition \ref{infinite_noncommutative_covering_defn} it turns out tha
 	let $q:\widetilde \sY \to \sY$ be an $A$-regular (cf. Definition \ref{blowing_a_regular_defn})  transitive covering with connected $\widetilde \sY$ and residually finite group  $G\left(\left.\widetilde \sY\right|\sY \right)$ of covering transformations.  Let   $\overline q: \overline \sY  \to  \sY$  be {disconnected covering of} $q : \widetilde \sY \to \sY$ (cf. Definition \ref{top_disconnected_defn}), and let $\widehat{G}$ be the profinite completion of  $G\left(\left.\widetilde \sY\right|\sY \right)$. If 	\be\label{blowing_algebraical_finite_covering_p_category_eqn}
 	\mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 	\ee
-is the given by the Theorem \ref{blowing_sufficient_covering_inf_thm} an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) and $\left(A, \overline A', \widehat{G} \right)$ is {pre}-{covering of algebraical finite covering category}	
-$\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!!then one has:
+is the given by the Theorem \ref{blowing_sufficient_covering_inf_thm} an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) and $\left(A, \overline A', \widehat{G} \right)$ is {pre}-{covering of algebraical finite covering category}	
+$\mathfrak{S}_{A_0\left(q \right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!! CHECK !!!then one has:
 	\begin{enumerate}
 \item[(i)] if $A_0\left(\overline\sY \right)$ is a $C^*$-subalgebra of $\overline A'$ then $A_0\left(\overline\sY \right)$ is  a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}) of $\overline A'$.
 \item[(ii)] if $\left(\overline \sU, \overline \sV, \overline s\right)$ is a \textit{covering triple for} $\overline q$ (cf. Definition \ref{top_coveing_triple_defn}) and $$\overline C \subset K\left( A_0\left(\overline \sY \right)\right)  \cap ~ _{\overline \sU} A_0\left(\overline \sY \right) _{\overline \sU}$$ is a commutative $C^*$-subalgebra of  $A_0\left(\overline \sY \right)$ then there is the natural inclusion $\pi_{\overline C}: \overline C \hookto \overline A'$ such that
@@ -13544,7 +13541,7 @@ then for any $\la\in \La$ the surjective homomorphism $\widehat G \to G\left(\le
 $$
 \overline p_\la : \overline \sX^\oplus \to \sX_\la
 $$
-If  $\overline c \in \overline C_+$  is positive element then from the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!!it follows that there is $c'_{\overline A'} \in K\left( \overline A\right)_+$ such that
+If  $\overline c \in \overline C_+$  is positive element then from the condition (b) of the Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!! CHECK !!!it follows that there is $c'_{\overline A'} \in K\left( \overline A\right)_+$ such that
 \be\label{blowing_ova_eqn}
 c=  \b\text{-}\sum_{	g \in \widehat {G}}gc'_{\overline A'}.
 \ee
@@ -13600,7 +13597,7 @@ We leave to the reader a proof of that $\pi_{\overline C}$ satisfies to the equa
 \end{lemma}
 
 \begin{proof}
-From the Theorem \ref{blowing_sufficient_fin_thm} it follows that the given by the Theorem \ref{blowing_sufficient_covering_inf_thm} algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})	
+From the Theorem \ref{blowing_sufficient_fin_thm} it follows that the given by the Theorem \ref{blowing_sufficient_covering_inf_thm} algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!)	
 \bean
 \mathfrak{S}_{A_0\left(q \right) }\bydef \left\{\left\{A_0\left( \sY_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( q^\nu_\mu\right)  : A_0\left( \sY_\mu\right) \hookto A_0\left( \sY_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \eean
@@ -13955,13 +13952,13 @@ Under hypotheses \ref{stable_empt} one has:
 	\bean
 	\mathfrak{S}^\K\bydef \left\{\left\{A^\K_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu\otimes 1_{\K^+} : A^\K_\mu \hookto A^K_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 	\eean
-	is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) then  
+	is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) then  
 		\bean
 	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 	\eean
 	is  an algebraical finite covering category,
-	\item[(iii)] if the  triple $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is a {pre}-{covering of the algebraical finite covering category}   $\mathfrak{S}^\K$ (cf. Definition \ref{algebraical_finite_covering_category_defn}) then the  triple  $\left( A, \overline A, \widehat G\right)$ {pre}-{covering of the algebraical finite covering category} $\mathfrak{S}$,
-	\item[(iv)] if the  triple $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is the {disconnected infinite noncommutative covering} of $\mathfrak{S}^\K$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) then the  triple  $\left( A, \overline A, \widehat G\right)$ is the {disconnected infinite noncommutative covering} $\mathfrak{S}$,
+	\item[(iii)] if the  triple $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is a {pre}-{covering of the algebraical finite covering category}   $\mathfrak{S}^\K$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) then the  triple  $\left( A, \overline A, \widehat G\right)$ {pre}-{covering of the algebraical finite covering category} $\mathfrak{S}$,
+	\item[(iv)] if the  triple $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is the {disconnected infinite noncommutative covering} of $\mathfrak{S}^\K$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!) then the  triple  $\left( A, \overline A, \widehat G\right)$ is the {disconnected infinite noncommutative covering} $\mathfrak{S}$,
 
 \item[(v)] if a disconnected infinite noncommutative covering  $\left( A\otimes \K, \overline A\otimes \K, \widehat G\right)$  is {good} (cf. Definition \ref{good_defn}) then $\left( A, \overline A, \widehat G\right)$ is good, 
 \item[(vi)] if the triple $\left(A\otimes \K, \widetilde{A}\otimes\K , G\left(\left.\widetilde{A}\otimes \K~\right| A\otimes \K\right)\right)$
@@ -13986,7 +13983,7 @@ A^\K_\la \cong A_\la \otimes \K$.\\
 	\begin{enumerate}
 	\item [(a)] 
 Follows from (ii) of the Theorem \ref{stable_fin_cov_thm}
-	\item[(b)] If $a \in  K\left( A^p \right)_+$ then from the Definition \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!! it follows that there is $\widetilde a \in K\left( \overline A \otimes \K\right)_+$ such that $a =  \desc_{\la}\left(\widetilde a  \right)$. If $\widetilde a^p  \bydef p \widetilde a p$ then $$a =  \desc_{\la}\left(\widetilde a^p  \right).$$
+	\item[(b)] If $a \in  K\left( A^p \right)_+$ then from the Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!! CHECK !!! it follows that there is $\widetilde a \in K\left( \overline A \otimes \K\right)_+$ such that $a =  \desc_{\la}\left(\widetilde a  \right)$. If $\widetilde a^p  \bydef p \widetilde a p$ then $$a =  \desc_{\la}\left(\widetilde a^p  \right).$$
 \end{enumerate}
 (iv) If $\phi: \overline A' \hookto  \overline A''$ is a $\mathfrak{Cov}\left(\mathfrak{S} \right)$-morphism (cf. \ref{infinite_covering_empt}) then
 $$
@@ -14013,7 +14010,7 @@ is a $\mathfrak{Cov}\left(\mathfrak{S}^K \right)$-morphism. So a terminal object
 %	\be\label{stable_rep_eqn}  
 %	\mathfrak{S}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
 %	\ee
-%	be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). We say that 
+%	be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!). We say that 
 %	$	\mathfrak{S}_{A\otimes \K}$ is \textit{represented by} an algebraical  finite covering category
 %	\bean
 %	\mathfrak{S}_{A} \bydef   \left(\left\{\pi_\la: A\hookto A_\la\right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
@@ -14432,7 +14429,7 @@ Let $\pi^{\text{stab}}_1\left(A \right)\bydef \pi_1\left( A \otimes \K \right)$ 
 		\bean
 	\mathfrak{S}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto  A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
 	\eean
-	be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) which corresponds to $\pi_1\left( A \otimes \K \right)$ and suppose that $	\mathfrak{S}_{A\otimes \K}$ is {represented by}
+	be an algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) which corresponds to $\pi_1\left( A \otimes \K \right)$ and suppose that $	\mathfrak{S}_{A\otimes \K}$ is {represented by}
 	\bean
 	\mathfrak{S}_{A} \bydef   \left(\left\{\pi_\la: A\hookto A_\la\right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right).	
 	\eean
@@ -15266,7 +15263,7 @@ is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definitio
 		\be\label{hausdorff_algebraical_finite_covering_category_eqn}
 \mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\left\{A_0\left( \sX_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \ee		
-(cf. Definition \ref{algebraical_finite_covering_category_defn}. Moreover if $\widehat G$ is the profinite completion (cf. Example \ref{profinite_exm}) the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$   is the  {pre-covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Theorem \ref{blowing_sufficient_covering_inf_thm}).
+(cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!. Moreover if $\widehat G$ is the profinite completion (cf. Example \ref{profinite_exm}) the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$   is the  {pre-covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Theorem \ref{blowing_sufficient_covering_inf_thm}).
 \end{empt}
 
 
@@ -15305,7 +15302,7 @@ From (i) of the Lemma \ref{blowing_necessary_covering_inf_lem} it follows that $
 $$
 A_0\left( \overline\sX\right) \xrightarrow{\cong } \overline A'
 $$
-i.e. any  {pre}-{covering of algebraical finite covering category} $\mathfrak{S}_{A_0\left(p \right) }$ is equivalent to $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$, so the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}). Now this theorem becomes a consequence of (iii) of the Theorem \ref{blowing_sufficient_covering_inf_thm}.
+i.e. any  {pre}-{covering of algebraical finite covering category} $\mathfrak{S}_{A_0\left(p \right) }$ is equivalent to $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$, so the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!). Now this theorem becomes a consequence of (iii) of the Theorem \ref{blowing_sufficient_covering_inf_thm}.
 
 \end{proof}
 \begin{corollary}
@@ -15392,7 +15389,7 @@ Denote by $L^2\left(  A_0\left( \overline\sX\right) , \tr_{\overline\tau}  \righ
 \paragraph*{} Here we consider the generalization of the Theorem  \ref{hausdorff_covering_inf_thm}.
 \begin{empt}\label{ctr_op_main_empt}
 	Let $\left(X, Y\right)$ be a  {sub-unital subspace} (cf. Definition \ref{operator_space_subunital_defn}) such that $C^*$-envelope $C^*_e\left(X, Y\right)$ of $\left(X, Y\right)$ (cf. Definition \ref{operator_space_envelope_defn})
-	is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) of type $I_0$ with locally connected, locally compact> Hausdorff spectrum $\sX$. From the Theorem \ref{blowing_sufficient_covering_inf_thm}  it turns out that is an {algebraical  finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+	is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) of type $I_0$ with locally connected, locally compact> Hausdorff spectrum $\sX$. From the Theorem \ref{blowing_sufficient_covering_inf_thm}  it turns out that is an {algebraical  finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 	\be\nonumber
 	\begin{split}
 		\mathfrak{S}_{A_0\left( p\right)  } = \\
@@ -15489,7 +15486,7 @@ If
 	=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
 \end{split}
 \ee
-is a given by the Theorem  \ref{blowing_sufficient_covering_inf_thm}   algebraical  finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}) then from the Theorem  \ref{hausdorff_covering_inf_thm} it follows that is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) given by
+is a given by the Theorem  \ref{blowing_sufficient_covering_inf_thm}   algebraical  finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) then from the Theorem  \ref{hausdorff_covering_inf_thm} it follows that is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{infinite_noncommutative_covering_defn}) given by
 $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mathcal X\right)\right)$ where $\widetilde\sX \bydef \varprojlim  \mathfrak{S}_{\mathcal{X}}$ (cf. Definition \ref{top_disconnected_defn}).  Similarly to \eqref{ctr_tx_eqn} define a scalar product $K\left( A_0\left(  \widetilde\sX\right)\right) \times K\left( A_0\left(  \widetilde\sX\right)\right)\to\C$ and denote by $L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)$.
 \begin{exercise}
 	Prove that the natural representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)\right)$   is {induced} by $\left( \tr_\tau, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn})
@@ -15510,7 +15507,7 @@ be a {finite covering category of} $p : \widetilde \sX \to \sX$ (cf, Definition 
 \bean
 \mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
 \eean
-be a given by the Theorem \eqref{blowing_sufficient_covering_inf_thm} algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+be a given by the Theorem \eqref{blowing_sufficient_covering_inf_thm} algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 For any $\la\in \La$ let $\A_\la\bydef  A_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{\A}\left( \sX_\la\right)$,  and let $\widetilde \A\bydef  A_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{\A}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
 The Exercise \ref{ctr_bounded_exer} enables us to construct a algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 \be\label{ctr_inf_cov_oae_eqn}
@@ -15540,7 +15537,7 @@ $$ is an {infinite noncommutative covering}  of $\mathfrak{S}_{\A_0\left( p\righ
 Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_inf_o_sec}.
 \begin{empt}
 	Similarly to \ref{ctr_fin_o_empt} 	let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) such that  $M$ is the spectrum of $A$. There is a linear bundle $\left(E, q, M\right)  $ with fibers $\C^{n^2}$ such that there is $C_b\left( M\right)$-linear isomorphism $A \cong 
-	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  Let $p: \widetilde M \to M$ be a transitive  covering with a residually finite covering group $G\left(\left. \widetilde M \right| M \right)$ of  (cf. Definitions \ref{residually_finite_defn} and \ref{top_group_of_covering_transformations_defn}). The Theorem  \ref{blowing_sufficient_covering_inf_thm} yields  an  algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) given by 		
+	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  Let $p: \widetilde M \to M$ be a transitive  covering with a residually finite covering group $G\left(\left. \widetilde M \right| M \right)$ of  (cf. Definitions \ref{residually_finite_defn} and \ref{top_group_of_covering_transformations_defn}). The Theorem  \ref{blowing_sufficient_covering_inf_thm} yields  an  algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) given by 		
 	\be\label{ctr_bases_point_eqn}
 	\begin{split}
 		\mathfrak{S}_{A_0\left( p\right)  } = \\
@@ -16080,7 +16077,7 @@ Follows from the Theorem \ref{blowing_sufficient_covering_thm}.
 From the Definition \ref{gropoid_trivial_defn}	it follows that any covering $\widetilde \sX \to \sX$ of topological spaces (cf. Definition \ref{top_covering_defn}) corresponds to  a covering  groupoids (cf. Definition \ref{groupoid_covering_defn}). The Theorem \ref{groupoid_fin_thm} is a generalization of the \ref{top_finite_covering_thm} one.
 \end{remark}
 \begin{empt}\label{groupoid_n_cov_inf_empt}
-Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	$G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the equation \eqref{groupoid_blowing_fin_eqn} and the Theorems \ref{blowing_sufficient_covering_inf_thm} and \ref{groupoid_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn})
+Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	$G\left(\left.\widetilde{\G}^0~~\right|~\G^0 \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the equation \eqref{groupoid_blowing_fin_eqn} and the Theorems \ref{blowing_sufficient_covering_inf_thm} and \ref{groupoid_fin_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!)
 \be\label{groupoid_algebraical_finite_covering_category_eqn}
 \begin{split}
 \mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left(q \right) }\bydef \\
@@ -16099,7 +16096,7 @@ Under the hypotheses \ref{groupoid_n_cov_empt} suppose that the covering group 	
 		\be\label{groupoid_inf_eqn}
 	\left(C^*_{\rho}\left( \G ,  \sigma \right), C^*_{\widetilde\rho}\left(\overline \G , \overline \sigma \right)\cong C^*_{\rho}\left( \G ,  \sigma \right)_0\left( \overline{\G}^0\right) , 	G\left(\left.\overline{\G}^0~~\right|~\G^0 \right)\right)  
 	\ee 
-	 is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).	
+	 is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( \G ,  \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).	
 	
 \end{theorem}
 \begin{proof}
@@ -16162,7 +16159,7 @@ FOLLOWS FROM THE THEOREM \ref{blowing_sufficient_covering_thm}.
 \subsection{Infinite coverings}
 \begin{empt}\label{groupoid_foli_empt}
 	Let $\left(M, \F\right)$  is a foliated manifold (cf. Definition \ref{foliated_manifold_defn}),  and  $q:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ be a   regular covering (cf. Definition \ref{foli_reg_cov_defn}), 
-Suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  Let $\widehat{G}$ be the profinite completion of $G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{profinite_exm}). if $\overline q: \overline M  \to  M$  is the {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}From the Theorem \ref{groupoid_intinite_covering_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}).
+Suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}).  Let $\widehat{G}$ be the profinite completion of $G\left(\left.\widetilde M~~\right|~M \right)$ (cf. Definition \ref{profinite_exm}). if $\overline q: \overline M  \to  M$  is the {disconnected covering of} $q : \widetilde M \to M$ (cf. Definition \ref{top_disconnected_defn}From the Theorem \ref{groupoid_intinite_covering_thm} it follows that there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 	\be\label{groupoid_foli_algebraical_finite_covering_category_eqn}
 	\begin{split}
 		\mathfrak{S}_{C^*_{\rho}\left( M, \F, \sigma \right)_0\left(q \right) }\bydef 
@@ -16173,9 +16170,9 @@ Suppose that the covering group 	$G\left(\left.\widetilde M~~\right|~M \right)$ 
 	which is a specialization of \ref{groupoid_algebraical_finite_covering_category_eqn} one. Moreover if $C^*_{\overline\rho}\left(\overline M, \overline\F, \overline\sigma \right)$ is the $\overline q$-lift of $C^*_{\rho}\left( M, \F, \sigma \right)$ (cf. Definition \ref{blowing_lift_defn}) then from the Theorem \ref{blowing_sufficient_covering_inf_thm} it follows that 	\be\label{groupoid_foli_inf_eqn}
 	\left(C^*_{\rho}\left( M ,  \F, \sigma \right), C^*_{\overline\rho}\left(\overline M , \overline \F, \overline \sigma \right) , 	\widehat{G}  \right)  
 	\ee 
-	is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F, \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn}.
+	is a {pre}-{covering of algebraical finite covering category}  $\mathfrak{S}_{C^*_{\rho}\left( M ,  \F, \sigma \right)_0\left( q\right) }$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!.
 Set  $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La} A_\la$, where $C^*$-$\varinjlim$ is the given by the Definition \ref{inductive_lim_non_defn} $C^*$-inductive limit. 
-If $\widehat A\hookto B\left(\widehat \H \right)$ is a faithful, nondegenerate representation, and a triple  $\left(C^*_{\rho}\left( M, \F \right), \overline A', \widehat{G} \right)$ is a {pre}-{covering of the algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn}  !!! CHECK !!! then similarly to the there are faithful, nondegenerate  representations
+If $\widehat A\hookto B\left(\widehat \H \right)$ is a faithful, nondegenerate representation, and a triple  $\left(C^*_{\rho}\left( M, \F \right), \overline A', \widehat{G} \right)$ is a {pre}-{covering of the algebraical finite covering category} (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!  !!! CHECK !!! then similarly to the there are faithful, nondegenerate  representations
 \bean
 \pi_{\overline A'} : \overline A' \hookto B\left(\widehat  \H \right),\\
 \pi_{C^*_{\overline\rho}\left(\overline M, \overline\F, \overline\sigma \right) } : C^*_{\overline \rho}\left(\overline M, \overline\F, \overline\sigma \right) \hookto B\left(\widehat  \H \right) 
@@ -16219,7 +16216,7 @@ Consider a $\overline q$-{covering}
   \begin{lemma}\label{foli_fibration_lem}
   	Under  hypotheses \ref{groupoid_foli_empt}  suppose that  the foliated space $\left(\overline{M},~ \overline{\mathcal F} \right)$ {comes from the fibration} $\pi_{\overline B}: \overline M \to \overline B$ (cf. Definition \ref{foli_fibration_comes_defn}). If  the $C^*$-algebra  $C^*_\rho\left( M, \F\right)$ is given by \eqref{foli_triv_eqn} and  $C^*_{\overline\rho}\left( \overline M, \overline\F\right)$ is the $\overline q$-lift of $C^*_\rho\left( M, \F\right)$ (cf. Definition \ref{blowing_lift_defn}) then one has
   	\begin{enumerate}
-  		\item[(i)] there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}) given by
+  		\item[(i)] there is an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!) given by
   			\be\label{groupoid_foli_algebraical_finite_covering_category_trivial_eqn}
   		\begin{split}
   			\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }\bydef 
@@ -16227,7 +16224,7 @@ Consider a $\overline q$-{covering}
   			\quad A_\la \bydef C^*_{\rho_\la}\left( M_\la ,  \F_\la,  \right),\quad \pi^\mu_\nu \bydef C^*_{\rho}\left( M ,  \F, \right)_0\left( q^\nu_\mu\right): A_\mu \hookto A_\mu,
   		\end{split}
   		\ee	
- 		\item[(ii)] the triple $\left(C^*_{\rho}\left( M ,  \F\right), C^*_{\overline\rho}\left(\overline M , \overline \F \right) , 	\widehat{G}  \right)$ is the   \textit{disconnected infinite noncommutative covering} of  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn})  $\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }$,
+ 		\item[(ii)] the triple $\left(C^*_{\rho}\left( M ,  \F\right), C^*_{\overline\rho}\left(\overline M , \overline \F \right) , 	\widehat{G}  \right)$ is the   \textit{disconnected infinite noncommutative covering} of  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!)  $\mathfrak{S}_{C^*_{\rho}\left( M, \F \right)_0\left(q \right) }$,
  		\item[(iii)] there are natural $*$-isomorphisms 
  		\bean
  		C^*_r\left( M, \F\right)\cong C^*_\rho\left( M, \F\right)\cong C^*\left( M, \F\right),\\
@@ -16442,7 +16439,7 @@ i.e.
  \bean
  \mathfrak{S}_u= \left\{C^*_r\left( \T^2,   \F_{\th}\right)\hookto C^*_r\left( \T^2,   \F_{\th/n_1}\right)\hookto  ...\hookto C^*_r\left( \T^2,   \F_{\th/n_k}\right)\hookto ... \right\}
  \eean 
-This category corresponds to a foliated $\left(S^1 \times \R, \widetilde \F_u\right)$ which comes from the fibration (cf. Definition \ref{foli_fibration_comes_defn}, so from the Lemma \ref{foli_fibration_lem} it follows that $\mathfrak S_u$ is an an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn}). From the Theorem \ref{foli_sufficient_covering_inf_thm} it follows that $\mathfrak S_u$ is good, and the triple  $\left( C^*_r\left( \T^2,   \F_\th\right) , C^*_r\left(S^1 \times \R, \widetilde \F_u\right), \Z\right) $ is the  {infinite noncommutative covering} of $\mathfrak{S}_{u}$. Similarly to the equation \eqref{free_hur_hom_eqn} one has a homomorphism 
+This category corresponds to a foliated $\left(S^1 \times \R, \widetilde \F_u\right)$ which comes from the fibration (cf. Definition \ref{foli_fibration_comes_defn}, so from the Lemma \ref{foli_fibration_lem} it follows that $\mathfrak S_u$ is an an algebraical finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!). From the Theorem \ref{foli_sufficient_covering_inf_thm} it follows that $\mathfrak S_u$ is good, and the triple  $\left( C^*_r\left( \T^2,   \F_\th\right) , C^*_r\left(S^1 \times \R, \widetilde \F_u\right), \Z\right) $ is the  {infinite noncommutative covering} of $\mathfrak{S}_{u}$. Similarly to the equation \eqref{free_hur_hom_eqn} one has a homomorphism 
 \bean
 \Z \cong G\left( \left. C^*_r\left(S^1 \times \R, \widetilde \F_u\right)\right|  C^*_r\left( \T^2,   \F_\th\right)\right) \to K^1\left(  C^*_r\left( \T^2,   \F_\th\right)\right),\\
 k \mapsto k\left[u\right]
@@ -20657,7 +20654,7 @@ A representation of a $C^*$-algebra $A$ is a *- homomorphism  consisting $\pi : 
 \end{definition}	
 	\begin{definition}\label{representation_equivalence_defn}\cite{pedersen:ca_aut}
 %3.3.6. 
-We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: A \to B\left( \H_2\right)$ of a $C^*$-algebra $A$ are \textit{spatially equivalent} (or \textit{unitarily equivalent}) if there is an isometry $u$ of $\H_1$ 	onto $\H_2$ such that $u\pi_1\left(x \right)u^*  = \pi_2\left(x \right)$  for all $x$ in $A$. We say that the representations are \textit{equivalent} (or \textit{quasi-equivalent}) if there is an isomorphism $\rho$ of	$\pi_1\left( A\right)''$ onto 	$\pi_2\left( A\right)''$ such that $\rho\left(  \pi_1\left( x\right)\right) =\pi_2\left( x\right)$ for all $x$ in $A$. % Note that spatial 	equivalence implies equivalence since the map p:a^>uau* of B(H{) onto 		B(H2) is strongly continuous and takes n^A) onto7T2(^4), wherefore p gives an		isomorphism of n^Af onto 
+We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: A \to B\left( \H_2\right)$ of a $C^*$-algebra $A$ are \textit{spatially equivalent} (or \textit{unitary equivalent}) if there is an isometry $u$ of $\H_1$ 	onto $\H_2$ such that $u\pi_1\left(x \right)u^*  = \pi_2\left(x \right)$  for all $x$ in $A$. We say that the representations are \textit{equivalent} (or \textit{quasi-equivalent}) if there is an isomorphism $\rho$ of	$\pi_1\left( A\right)''$ onto 	$\pi_2\left( A\right)''$ such that $\rho\left(  \pi_1\left( x\right)\right) =\pi_2\left( x\right)$ for all $x$ in $A$. % Note that spatial 	equivalence implies equivalence since the map p:a^>uau* of B(H{) onto 		B(H2) is strongly continuous and takes n^A) onto7T2(^4), wherefore p gives an		isomorphism of n^Af onto 
 	\end{definition}
 	\begin{definition}\label{state_defn}\cite{pedersen:ca_aut}
 		A \textit{state} of a $C^*$ -algebra $A$ is a positive functional of norm one. The set of 
