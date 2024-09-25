@@ -189,7 +189,7 @@ namespace SoundService
                      }
                      return "";
                  };
-                outMea[i] = new Measurement("", f, "Sound_" + (i + 1));
+                outMea[i] = new Measurement("", f, "Sound_" + (i + 1), this);
             }
         }
 

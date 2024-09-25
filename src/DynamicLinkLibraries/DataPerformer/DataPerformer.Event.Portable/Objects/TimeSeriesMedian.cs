@@ -265,7 +265,7 @@ namespace DataPerformer.Event.Portable.Objects
                     {
                         return medians[p[0]];
                     }, 
-                    k);
+                    k, this);
                 measurements.Add(m);
                 list[i] = new List<double>();
                 input[i] = d[key];

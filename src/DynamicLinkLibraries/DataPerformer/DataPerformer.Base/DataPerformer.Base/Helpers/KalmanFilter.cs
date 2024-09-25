@@ -507,8 +507,8 @@ namespace DataPerformer.Helpers
         {
             Double a = 0;
             output = new IMeasurement[] {
-                new Measurement(new ArrayReturnType(a, new int[]{n[0]}, false), GetState, "State"),
-                new Measurement(new ArrayReturnType(a, new int[]{n[0], n[0]}, false), GetMatrix, "Covariation")
+                new Measurement(new ArrayReturnType(a, new int[]{n[0]}, false), GetState, "State", this),
+                new Measurement(new ArrayReturnType(a, new int[]{n[0], n[0]}, false), GetMatrix, "Covariation", this)
             };
         }
 

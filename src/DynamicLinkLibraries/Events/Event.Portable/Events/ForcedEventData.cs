@@ -261,7 +261,7 @@ namespace Event.Portable.Events
                     return data[k[0]]; 
                 };
                 ltypes.Add(t.Item1);
-                IMeasurement m = new ReplacedParameterMeasurement(t.Item2, f, t.Item1);
+                IMeasurement m = new ReplacedParameterMeasurement(t.Item2, f, t.Item1, this);
                 data[i] = t.Item2.GetDefaultValue();
                 l.Add(m);
                 ++i;

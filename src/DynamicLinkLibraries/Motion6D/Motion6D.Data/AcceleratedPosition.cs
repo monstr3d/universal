@@ -430,15 +430,15 @@ namespace Motion6D
                 dn[names[i]] = i;
             }
             transform = InerialAcceleration;
-            Measurement[] ma = new Measurement[] { new Measurement(getAx, ""), new Measurement(getAy, ""), new Measurement(getAz, "") };
-            MeasurementDerivation[] md = new MeasurementDerivation[] {
-                new MeasurementDerivation(a, getVx, ma[0], "Vx"),
-                new MeasurementDerivation(a, getVy, ma[1], "Vy"),
-                new MeasurementDerivation(a, getVz, ma[2], "Vz")};
-            MeasurementDerivation[] mc = new MeasurementDerivation[] {
-                new MeasurementDerivation(a, getX, md[0], "X"),
-                new MeasurementDerivation(a, getY, md[1], "Y"),
-                new MeasurementDerivation(a, getZ, md[2], "Z")};
+            Measurement[] ma = [new Measurement(getAx, "", this), new Measurement(getAy, "", this), new Measurement(getAz, "", this)];
+            MeasurementDerivation[] md =[
+                new MeasurementDerivation(a, getVx, ma[0], "Vx", this),
+                new MeasurementDerivation(a, getVy, ma[1], "Vy", this),
+                new MeasurementDerivation(a, getVz, ma[2], "Vz", this)];
+            MeasurementDerivation[] mc = [
+                new MeasurementDerivation(a, getX, md[0], "X", this),
+                new MeasurementDerivation(a, getY, md[1], "Y", this),
+                new MeasurementDerivation(a, getZ, md[2], "Z", this)];
             for (int i = 0; i < 3; i++)
             {
                 measures[i] = mc[i];

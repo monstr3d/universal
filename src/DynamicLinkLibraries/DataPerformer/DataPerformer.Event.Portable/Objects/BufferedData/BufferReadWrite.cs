@@ -825,7 +825,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
                         /// !!! This line of code throws an exception whenever one tries to call indicators in buffer while no file is added.
                         /// Perhaps change the way the indicators are called, and remove the throw expression altogether; 
                     },
-                    key));
+                    key, this));
             }
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseTypes;
 using BaseTypes.Interfaces;
+using CategoryTheory;
 using DataPerformer.Interfaces;
 using Diagram.UI;
 
@@ -13,7 +14,7 @@ namespace DataPerformer.Portable.Measurements
     /// <summary>
     /// Measurement
     /// </summary>
-    public class Measurement : IMeasurement
+    public class Measurement : IMeasurement, IAssociatedObject
     {
 
 
@@ -34,7 +35,15 @@ namespace DataPerformer.Portable.Measurements
         /// </summary>
         private object type;
 
+        /// <summary>
+        /// Double type
+        /// </summary>
         private static readonly Double a = 0;
+
+        /// <summary>
+        /// Object
+        /// </summary>
+        private object obj;
 
         /// <summary>
         /// Constructor
@@ -42,11 +51,13 @@ namespace DataPerformer.Portable.Measurements
         /// <param name="type">Type of parameter</param>
         /// <param name="parameter">Measurement parameter</param>
         /// <param name="name">Measurement name</param>
-        public Measurement(object type, Func<object> parameter, string name)
+        /// <param name="obj">Associated object</param>
+        public Measurement(object type, Func<object> parameter, string name, object obj)
         {
             this.parameter = parameter;
             this.name = name;
             this.type = type;
+            this.obj = obj;
         }
 
         /// <summary>
@@ -54,10 +65,12 @@ namespace DataPerformer.Portable.Measurements
         /// </summary>
         /// <param name="parameter">Parameter</param>
         /// <param name="name">Name of measure</param>
-        public Measurement(Func<object> parameter, string name)
+        /// <param name="obj">Associated object</param>
+        public Measurement(Func<object> parameter, string name, object obj)
             :
-            this(a, parameter, name)
+            this(a, parameter, name, obj)
         {
+
         }
 
 
@@ -94,7 +107,21 @@ namespace DataPerformer.Portable.Measurements
             }
         }
 
-    
+        /// <summary>
+        /// The associated object
+        /// </summary>
+        object IAssociatedObject.Object 
+        { get => obj; set => obj = value; }
+
+        /// <summary>
+        /// Overriden ToString
+        /// </summary>
+        /// <returns>The string</returns>
+        public override string ToString()
+        {
+            return this.ToStringStatic();
+        }
+
         /// <summary>
         /// Gets name of type
         /// </summary>

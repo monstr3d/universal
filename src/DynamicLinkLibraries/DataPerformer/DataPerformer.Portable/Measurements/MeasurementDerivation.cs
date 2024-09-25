@@ -26,8 +26,10 @@ namespace DataPerformer.Portable.Measurements
         /// <param name="parameter">Parameter</param>
         /// <param name="derivation">Derivation</param>
         /// <param name="name">Name</param>
-        public MeasurementDerivation(object type, Func<object> parameter, IMeasurement derivation, string name)
-            : base(type, parameter, name)
+        /// <param name="obj">Associated object</param>
+        public MeasurementDerivation(object type, Func<object> parameter, 
+            IMeasurement derivation, string name, object obj)
+            : base(type, parameter, name, obj)
         {
             this.derivation = derivation;
         }
@@ -38,8 +40,9 @@ namespace DataPerformer.Portable.Measurements
         /// <param name="parameter">Parameter</param>
         /// <param name="derivation">Derivation</param>
         /// <param name="name">Name</param>
-        public MeasurementDerivation(Func<object> parameter, IMeasurement derivation, string name)
-            : this(a, parameter, derivation, name)
+        /// <param name="obj">Associated object</param>
+        public MeasurementDerivation(Func<object> parameter, IMeasurement derivation, string name, object obj)
+            : this(a, parameter, derivation, name, obj)
         {
 
         }

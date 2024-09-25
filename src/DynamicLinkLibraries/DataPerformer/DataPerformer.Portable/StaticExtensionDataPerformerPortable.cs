@@ -23,6 +23,7 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
+using System.Xml.Linq;
 
 namespace DataPerformer.Portable
 {
@@ -91,7 +92,48 @@ namespace DataPerformer.Portable
             return wrapper.ToDouble(measurement);
         }
 
+        /// <summary>
+        /// Transformation to string
+        /// </summary>
+        /// <param name="measurement">measurement</param>
+        /// <param name="obj">Associated object</param>
+        /// <returns>The string</returns>
+        public static string ToString(this IMeasurement measurement, object obj)
+        {
+            var s = measurement.ToString();
+            if (obj == null)
+            {
+                return s;
+            }
+            var name = measurement.Name;
+            if (obj is IObjectLabel label)
+            {
+                return label.ToString() + "." + name + s;
+            }
+            if (obj is IAssociatedObject associatedObject)
+            {
+                if (associatedObject.Object is IObjectLabel alabel)
+                {
+                    return alabel.ToString() + "." + name + s;
+                }
+            }
+            return s;
+        }
 
+        /// <summary>
+        /// Static to string
+        /// </summary>
+        /// <param name="measurement">The measurement</param>
+        /// <returns>The string</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string ToStringStatic(this IMeasurement measurement)
+        {
+            if (measurement is IAssociatedObject alabel)
+            {
+                return measurement.ToString(alabel.Object);
+            }
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Checks whether type is double
@@ -148,10 +190,8 @@ namespace DataPerformer.Portable
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
             wrapper.PerformFixed(start, step, count,
-             provider,
-               processor, reason,
-              priority, action, condition, stop, asynchronousCalculation,
-              errorHandler);
+                provider, processor, reason, priority, action, condition, stop, asynchronousCalculation,
+                errorHandler);
         }
 
         /// <summary>
@@ -779,12 +819,12 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Creates value holder from measure
         /// </summary>
-        /// <param name="measure">The measure</param>
+        /// <param name="measurement">The measurement</param>
         /// <returns>The holder</returns>
-        public static Func<Func<object>> ToValueHolder(this IMeasurement measure)
+        public static Func<Func<object>> ToValueHolder(this IMeasurement measurement)
         {
             var wrapper =
-                new MeasurementWrapper(measure);
+                new MeasurementWrapper(measurement);
             return () => wrapper.GetValue;
         }
 
@@ -1364,32 +1404,32 @@ namespace DataPerformer.Portable
             List<IMeasurements> list = new List<IMeasurements>();
             for (int i = 0; i < consumer.Count; i++)
             {
-                IMeasurements m = consumer[i];
-                list.Add(m);
+                var measurements = consumer[i];
+                list.Add(measurements);
             }
-            if (consumer is IMeasurements)
+            if (consumer is IMeasurements cmeasurements)
             {
                 if (consumer.ShouldInsertIntoChildren())
                 {
-                    list.Add((IMeasurements)consumer);
+                    list.Add(cmeasurements);
                 }
             }
             for (int i = 0; i < list.Count; i++)
             {
-                IMeasurements m = list[i];
-                string on = consumer.GetMeasurementsName(m);
-                for (int j = 0; j < m.Count; j++)
+                var measurements = list[i];
+                var measurementsName = consumer.GetMeasurementsName(measurements);
+                for (int j = 0; j < measurements.Count; j++)
                 {
-                    IMeasurement mea = m[j];
+                    var measurement = measurements[j];
                     if (type != null)
                     {
-                        if (!mea.Type.Equals(type))
+                        if (!measurement.Type.Equals(type))
                         {
                             continue;
                         }
                     }
-                    string s = on + "." + mea.Name;
-                    dictionary[mea] = s;
+                    var name = measurementsName + "." + measurement.Name;
+                    dictionary[measurement] = name;
                 }
             }
             return dictionary;

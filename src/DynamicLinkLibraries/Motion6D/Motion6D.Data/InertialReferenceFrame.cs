@@ -756,19 +756,19 @@ namespace Motion6D
         private void init()
         {
             Double a = 0;
-            internalMeasurements[0] = new MeasurementDerivation(a, new Func<object>(x), new Measurement(Vx, ""), "x");
-            internalMeasurements[1] = new MeasurementDerivation(a, new Func<object>(y), new Measurement(Vy, ""), "y");
-            internalMeasurements[2] = new MeasurementDerivation(a, new Func<object>(z), new Measurement(Vz, ""), "x");
-            internalMeasurements[3] = new MeasurementDerivation(a, new Func<object>(Vx), new Measurement(Ax, ""), "vx");
-            internalMeasurements[4] = new MeasurementDerivation(a, new Func<object>(Vy), new Measurement(Ay, ""), "vy");
-            internalMeasurements[5] = new MeasurementDerivation(a, new Func<object>(Vz), new Measurement(Az, ""), "vz");
-            internalMeasurements[6] = new MeasurementDerivation(a, new Func<object>(Q0), new Measurement(DQ0, ""), "q0");
-            internalMeasurements[7] = new MeasurementDerivation(a, new Func<object>(Q1), new Measurement(DQ1, ""), "q1");
-            internalMeasurements[8] = new MeasurementDerivation(a, new Func<object>(Q2), new Measurement(DQ2, ""), "q2");
-            internalMeasurements[9] = new MeasurementDerivation(a, new Func<object>(Q3), new Measurement(DQ3, ""), "q3");
-            internalMeasurements[10] = new MeasurementDerivation(a, new Func<object>(OMx), new Measurement(DOMx, ""), "omx");
-            internalMeasurements[11] = new MeasurementDerivation(a, new Func<object>(OMy), new Measurement(DOMy, ""), "omy");
-            internalMeasurements[12] = new MeasurementDerivation(a, new Func<object>(OMz), new Measurement(DOMz, ""), "omz");
+            internalMeasurements[0] = new MeasurementDerivation(a, x, new Measurement(Vx, "", this), "x", this);
+            internalMeasurements[1] = new MeasurementDerivation(a, y, new Measurement(Vy, "", this), "y", this);
+            internalMeasurements[2] = new MeasurementDerivation(a, z, new Measurement(Vz, "", this), "x", this);
+            internalMeasurements[3] = new MeasurementDerivation(a, Vx, new Measurement(Ax, "", this), "vx", this);
+            internalMeasurements[4] = new MeasurementDerivation(a, Vy, new Measurement(Ay, "", this), "vy", this);
+            internalMeasurements[5] = new MeasurementDerivation(a, Vz, new Measurement(Az, "", this), "vz", this);
+            internalMeasurements[6] = new MeasurementDerivation(a, Q0, new Measurement(DQ0, "", this), "q0", this);
+            internalMeasurements[7] = new MeasurementDerivation(a, Q1, new Measurement(DQ1, "", this), "q1", this);
+            internalMeasurements[8] = new MeasurementDerivation(a, Q2, new Measurement(DQ2, "", this), "q2", this);
+            internalMeasurements[9] = new MeasurementDerivation(a, Q3, new Measurement(DQ3, "", this), "q3", this);
+            internalMeasurements[10] = new MeasurementDerivation(a, OMx, new Measurement(DOMx, "", this), "omx", this);
+            internalMeasurements[11] = new MeasurementDerivation(a, OMy, new Measurement(DOMy, "", this), "omy", this);
+            internalMeasurements[12] = new MeasurementDerivation(a, OMz, new Measurement(DOMz, "", this), "omz", this);
         }
 
 

@@ -106,7 +106,7 @@ namespace DataPerformer
             comments = info.GetValue("Comments", typeof(byte[])) as byte[];
 
             Func<object> fn = () => { return this; };
-            output = new IMeasurement[]{ new Measurement(this, fn, "Function")};
+            output = new IMeasurement[]{ new Measurement(this, fn, "Function", this)};
             
             /*arguments = (string[])info.GetValue("Arguments", typeof(string[]));
             Double a = 0;

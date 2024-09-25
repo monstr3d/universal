@@ -348,12 +348,12 @@ namespace DataPerformer.UI.Forms
                     IMeasurement mea = null;
                     if (par == null)
                     {
-                        mea = new Measurement(m.Parameter, c + "");
+                        mea = new Measurement(m.Parameter, c + "", null);
                     }
                     else
                     {
-                        Double a = 0;
-                        mea = new MeasurementDerivation(a, m.Parameter, par, c + "");
+                        double a = 0;
+                        mea = new MeasurementDerivation(a, m.Parameter, par, c + "", null);
                     }
                     solver.SetParameter(c, mea);
                 }

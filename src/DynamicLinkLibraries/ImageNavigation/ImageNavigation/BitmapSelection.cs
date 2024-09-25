@@ -142,7 +142,7 @@ namespace ImageNavigation
         public BitmapSelection()
         {
 
-            measurement = new Measurement(new object[] { a, a }, getData, "Selection");
+            measurement = new Measurement(new object[] { a, a }, getData, "Selection", this);
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace ImageNavigation
             try
             {
                 Bitmap = (Bitmap)info.GetValue("Bitmap", typeof(Bitmap));
-                measurement = new Measurement(new object[] { a, a }, getData, "Selection");
+                measurement = new Measurement(new object[] { a, a }, getData, "Selection", this);
             }
             catch (Exception ex)
             {

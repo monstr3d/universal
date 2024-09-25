@@ -48,7 +48,7 @@ namespace Event.Portable.Events
             Action act = Event;
             locked = act.LockedAction();
             double a = 0;
-            measurement = new ReplacedParameterMeasurement(a, GetTime, "Time");
+            measurement = new ReplacedParameterMeasurement(a, GetTime, "Time", this);
         }
 
 

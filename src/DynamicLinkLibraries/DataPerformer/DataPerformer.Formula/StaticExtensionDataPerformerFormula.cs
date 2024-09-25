@@ -90,9 +90,9 @@ namespace DataPerformer.Formula
         /// <param name="measurement">The measurement</param>
         /// <param name="detector">The detector</param>
         /// <returns>The variable</returns>
-        static public VariableMeasurement Create(this string symbol, IMeasurement measurement, IVariableDetector detector)
+        static public VariableMeasurement Create(this string symbol, IMeasurement measurement, IVariableDetector detector, object obj)
         {
-            return dataPerformerFormula.Create(symbol, measurement, detector);
+            return dataPerformerFormula.Create(symbol, measurement, detector, obj);
         }
 
 
@@ -103,9 +103,9 @@ namespace DataPerformer.Formula
         /// <param name="measurement">The measurement</param>
         /// <param name="detector">The detector</param>
         /// <returns>The variable</returns>
-        static public VariableMeasurement Create(this char symbol, IMeasurement measure, IVariableDetector detector)
+        static public VariableMeasurement Create(this char symbol, IMeasurement measure, IVariableDetector detector, object obj)
         {
-            return dataPerformerFormula.Create(symbol + "", measure, detector);
+            return dataPerformerFormula.Create(symbol + "", measure, detector, obj);
         }
 
 

@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Drawing;
 
 
 using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Labels;
 
 
 using DataPerformer.Portable.Measurements;
@@ -87,7 +82,7 @@ namespace ImageNavigation
             {
                 int[] k = new int[] { i };
                 //Func<object> f = () => { return GetValue(k[0]); };
-                meas[i] = new Measurement(ff[i], colors[i]);
+                meas[i] = new Measurement(ff[i], colors[i], this);
             }
         }
 

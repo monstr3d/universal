@@ -23,6 +23,8 @@ namespace DataPerformer.Formula
 
         IMeasurement measurement;
 
+        object obj;
+
         internal IMeasurement Measurement
         {
             get => measurement;
@@ -66,8 +68,10 @@ namespace DataPerformer.Formula
         /// <param name="symbol">Symbol of variable</param>
         /// <param name="measurement">Measure</param>
         /// <param name="detector">Detector of variables</param>
-        internal VariableMeasurement(string symbol, IMeasurement measurement, IVariableDetector detector)
+        internal VariableMeasurement(string symbol, IMeasurement measurement, 
+            IVariableDetector detector, object obj)
         {
+            this.obj = obj;
             this.symbol = symbol;
             Measurement = measurement;
             this.detector = detector;
@@ -137,7 +141,7 @@ namespace DataPerformer.Formula
                 throw new Exception("VariableMeasure.Derivation");
             }
             IDerivation d = Measurement as IDerivation;
-            VariableMeasurement mea = new VariableMeasurement("", d.Derivation, null);
+            VariableMeasurement mea = new VariableMeasurement("", d.Derivation, detector, obj);
             derivation = new ObjectFormulaTree(mea, new List<ObjectFormulaTree>());
             return derivation;
         }
@@ -192,6 +196,11 @@ namespace DataPerformer.Formula
 
 
         #region Members
+
+        public override string ToString()
+        {
+            return obj.ToString() + base.ToString();
+        }
 
         /// <summary>
         /// Sets a measurement

@@ -35,7 +35,7 @@ namespace DataPerformer
         /// </summary>
         public RandomGenerator()
         {
-            init();
+            Init();
         }
 
 
@@ -46,7 +46,7 @@ namespace DataPerformer
         /// <param name="context">Streaming context</param>
         protected RandomGenerator(SerializationInfo info, StreamingContext context)
         {
-            init();
+            Init();
         }
 
         #endregion
@@ -92,11 +92,11 @@ namespace DataPerformer
 
         #region Specifc Members
 
-        private void init()
+        private void Init()
         {
             Double a = 0;
             Func<object> p = getMeasure;
-            measure = new Measurement(a, p, "Random");
+            measure = new Measurement(a, p, "Random", this);
         }
 
         private object getMeasure()

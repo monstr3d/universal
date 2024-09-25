@@ -389,7 +389,7 @@ namespace Motion6D.Portable
                 this.i = i;
                 this.j = j;
                 par = coord;
-                derivation = new Measurement(deriv, "");
+                derivation = new Measurement(deriv, "", this);
             }
 
             #endregion
@@ -532,7 +532,7 @@ namespace Motion6D.Portable
                 this.name = name;
                 this.i = i;
                 par = coord;
-                derivation = new Measurement(deri, "");
+                derivation = new Measurement(deri, "", this);
             }
 
             #endregion

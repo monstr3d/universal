@@ -273,7 +273,7 @@ namespace DataPerformer.Formula
                                 if (!acceptors.ContainsKey(key))
                                 {
                                     acceptors[c + ""] =
-                                        dataPerformerFormula.Create(c, measurement, this);
+                                        dataPerformerFormula.Create(c, measurement, this, this);
                                 }
                             }
                         }
@@ -291,7 +291,7 @@ namespace DataPerformer.Formula
                         string key = s[0] + "";
                         if (!acceptors.ContainsKey(key))
                         {
-                            timeVariable = dataPerformerFormula.Create(s[0], timeMeasurement, this);
+                            timeVariable = dataPerformerFormula.Create(s[0], timeMeasurement, this, this);
                             acceptors[key] = timeVariable;
                         }
                     }
@@ -305,7 +305,7 @@ namespace DataPerformer.Formula
                         acceptors[key] = new AliasNameVariable(key, this, key);
                     }
                 }
-                postSetUnary();
+                PostSetUnary();
             }
             catch (Exception ex)
             {
@@ -338,7 +338,7 @@ namespace DataPerformer.Formula
             {
                 SeriesSymbol.SetOperations(formulae, value);
                 opTable = value;
-                setOperationNames(value);
+                SetOperationNames(value);
             }
         }
 
@@ -432,7 +432,7 @@ namespace DataPerformer.Formula
                         string key = c + "";
                         if (!acceptors.ContainsKey(key))
                         {
-                            VariableMeasurement v = c.Create(par[c], this);
+                            VariableMeasurement v = c.Create(par[c], this, this);
                             acceptors[key] = v;
                         }
                     }
@@ -502,6 +502,10 @@ namespace DataPerformer.Formula
                             creator = VariableDetector.GetCreator(this);
                         }
                         var  t = ObjectFormulaTree.CreateTree(f, creator);
+                        if (measurements[i] != null)
+                        {
+                            throw new Exception();
+                        }
                         measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa, this);
                     }
                     catch (Exception ex)
@@ -751,7 +755,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Accepts formulas
         /// </summary>
-        private void acceptFormulas()
+        private void AcceptFormulasPrivate()
         {
             try
             {
@@ -776,7 +780,7 @@ namespace DataPerformer.Formula
         }
 
   
-        private void setOperationNames(Dictionary<int, IOperationAcceptor> table)
+        private void SetOperationNames(Dictionary<int, IOperationAcceptor> table)
         {
             operationNames.Clear();
             foreach (int i in table.Keys)
@@ -787,15 +791,15 @@ namespace DataPerformer.Formula
             }
         }
 
-        private void setUnaryTrees(Dictionary<int, ICategoryObject> table)
+        private void SetUnaryTrees(Dictionary<int, ICategoryObject> table)
         {
             string str = Variables;
         }
 
-        private void postSetUnary()
+        private void PostSetUnary()
         {
             Dictionary<int, ICategoryObject> t = InternalOperationTable;
-            setUnaryTrees(t);
+            SetUnaryTrees(t);
         }
 
         /// <summary>

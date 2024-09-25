@@ -500,7 +500,7 @@ namespace DataPerformer
         private void init()
         {
             measure = new MeasurementDerivation(tree.ReturnType, new Func<object>(calculate), 
-                new Measurement(getDerivation, "Der_result"), "result");
+                new Measurement(getDerivation, "Der_result", this), "result", this);
         }
 
     }

@@ -541,21 +541,21 @@ namespace Motion6D.Portable
         void CreateMeasurements()
         {
             List<IMeasurement> lm = new List<IMeasurement>();
-            lm.Add(new Measurement(typeof(ReferenceFrame), GetFrame, "Frame"));
+            lm.Add(new Measurement(typeof(ReferenceFrame), GetFrame, "Frame", this));
             for (int i = 0; i < 3; i++)
             {
-                lm.Add(new Measurement(coordDel[i], names[i]));
+                lm.Add(new Measurement(coordDel[i], names[i], this));
             }
             for (int i = 0; i < 4; i++)
             {
-                lm.Add(new Measurement(oriDel[i], names[i + 6]));
+                lm.Add(new Measurement(oriDel[i], names[i + 6], this));
             }
             if (own is IVelocity)
             {
                 velocity = own as IVelocity;
                 for (int i = 0; i < 3; i++)
                 {
-                    lm.Add(new Measurement(velocityDel[i], names[i + 3]));
+                    lm.Add(new Measurement(velocityDel[i], names[i + 3], this));
                 }
             }
             if (own is IAngularVelocity)
@@ -563,7 +563,7 @@ namespace Motion6D.Portable
                 angularVelocity = own as IAngularVelocity;
                 for (int i = 0; i < 3; i++)
                 {
-                    lm.Add(new Measurement(angularDel[i], names[i + 10]));
+                    lm.Add(new Measurement(angularDel[i], names[i + 10], this));
                 }
             }
             outmeasurements = lm.ToArray();

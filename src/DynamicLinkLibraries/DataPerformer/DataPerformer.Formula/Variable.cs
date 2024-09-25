@@ -155,6 +155,11 @@ namespace DataPerformer.Formula
 
         #region Members
 
+        public override string ToString()
+        {
+            return obj.ToString() + base.ToString();
+        }
+
 
         internal string String
         {

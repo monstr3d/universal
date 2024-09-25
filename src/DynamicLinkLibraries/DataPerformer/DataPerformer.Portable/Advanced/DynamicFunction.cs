@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using BaseTypes.Interfaces;
+
 using CategoryTheory;
+
+using Diagram.UI;
+
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
-using Diagram.UI;
 
 
 
@@ -50,7 +55,6 @@ namespace DataPerformer.Portable.Advanced
 
 
         #endregion
-
 
         #region IMeasurements Members
 
@@ -170,13 +174,13 @@ namespace DataPerformer.Portable.Advanced
 
         #region Private Members
 
-        IMeasurement CreateMeasure(string preffix, IMeasurement m)
+        IMeasurement CreateMeasure(string preffix, IMeasurement m, object obj)
         {
             string n = m.Name;
             FunctionDyn f = new FunctionDyn(arg, m, global);
             f.size = size;
             lfd.Add(f);
-            return new Measurement(f, () => f, preffix + n);
+            return new Measurement(f, () => f, preffix + n, obj);
         }
 
         void Post()
@@ -201,7 +205,7 @@ namespace DataPerformer.Portable.Advanced
                 int n = mea.Count;
                 for (int i = 0; i < n; i++)
                 {
-                    l.Add(CreateMeasure(preffix, mea[i]));
+                    l.Add(CreateMeasure(preffix, mea[i], this));
                 }
             }
             Size = size;

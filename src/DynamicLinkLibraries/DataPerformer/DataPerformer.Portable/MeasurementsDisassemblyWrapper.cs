@@ -41,7 +41,7 @@ namespace DataPerformer.Portable
             {
                 Tuple<string, object> type = types[i];
                 o[0][i] = type.Item2;
-                l.Add(new ArrayMeasurement(o, type.Item2, i, n + type.Item1));
+                l.Add(new ArrayMeasurement(o, type.Item2, i, n + type.Item1, null));
             }
             measurements = l.ToArray();
         }

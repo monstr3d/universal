@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using CategoryTheory;
 
@@ -13,7 +12,7 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 
 using DataPerformer.Interfaces;
-using AssemblyService.Attributes;
+using DataPerformer.Portable;
 
 
 namespace DataPerformer.Formula
@@ -120,8 +119,18 @@ namespace DataPerformer.Formula
         }
 
         #endregion
- 
+
         #region Members
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns>The string</returns>
+        public override string ToString()
+        {
+            return this.ToStringStatic();
+        }
+
 
         object zero()
         {

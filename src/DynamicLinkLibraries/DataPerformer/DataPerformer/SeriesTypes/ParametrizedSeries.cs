@@ -72,7 +72,11 @@ namespace DataPerformer.SeriesTypes
 
         private void StandardStep()
         {
-            AddXY(Converter.ToNullDouble(x()()), Converter.ToNullDouble(y()()));
+            var xx = x();
+            var a = xx();
+            var yy = y();
+            var b = yy();
+            AddXY(Converter.ToNullDouble(a), Converter.ToNullDouble(b));
 
             /*!!! Test of test   (Artificial bug) 
            AddXY(Converter.ToDouble(x()()), Converter.ToDouble(y()()) + 0.0001);

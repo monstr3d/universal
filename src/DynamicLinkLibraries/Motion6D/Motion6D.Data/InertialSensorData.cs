@@ -245,14 +245,14 @@ namespace Motion6D
         void CreateMeasurements()
         {
  
-            measurements[0] = new Measurement(type, getA, "A");
-            measurements[1] = new Measurement(type, getEps, "E");
-            measurements[2] = new Measurement(getAx, "Ax");
-            measurements[3] = new Measurement(getAy, "Ay");
-            measurements[4] = new Measurement(getAz, "Az");
-            measurements[5] = new Measurement(getEx, "Ex");
-            measurements[6] = new Measurement(getEy, "Ey");
-            measurements[7] = new Measurement(getEz, "Ez");
+            measurements[0] = new Measurement(type, getA, "A", this);
+            measurements[1] = new Measurement(type, getEps, "E", this);
+            measurements[2] = new Measurement(getAx, "Ax", this);
+            measurements[3] = new Measurement(getAy, "Ay", this);
+            measurements[4] = new Measurement(getAz, "Az", this);
+            measurements[5] = new Measurement(getEx, "Ex", this);
+            measurements[6] = new Measurement(getEy, "Ey", this);
+            measurements[7] = new Measurement(getEz, "Ez", this);
         }
 
         object getAx()

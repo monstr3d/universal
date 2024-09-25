@@ -338,13 +338,13 @@ namespace DataPerformer.Portable.Advanced.Accumulators
             }
         }
 
-        private void Perform(IMeasurement m, string str, List<IMeasurement> measures)
+        private void Perform(IMeasurement m, string str, List<IMeasurement> measurements)
         {
             string s = str + "_" + m.Name;
             TimeFunction func = new TimeFunction(arg.Length, m.Type);
             functions[m] = func;
-            IMeasurement mea = new Measurement(func, FuncMeasure.createParameter(func), s);
-            measures.Add(mea);
+            IMeasurement mea = new Measurement(func, FuncMeasure.createParameter(func), s, this);
+            measurements.Add(mea);
         }
 
         private void Update()

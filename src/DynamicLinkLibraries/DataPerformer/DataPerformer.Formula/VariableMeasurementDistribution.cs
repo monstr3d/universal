@@ -22,8 +22,8 @@ namespace DataPerformer.Formula
         #region Ctor
 
         internal VariableMeasurementDistribution(string symbol, IMeasurement measure,
-            IDistribution distribution, IVariableDetector detector)
-            : base(symbol, measure, detector)
+            IDistribution distribution, IVariableDetector detector, object obj)
+            : base(symbol, measure, detector, obj)
         {
             this.distribution = distribution;
         }

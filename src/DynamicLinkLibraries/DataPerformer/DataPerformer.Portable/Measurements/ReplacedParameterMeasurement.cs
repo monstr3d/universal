@@ -24,7 +24,9 @@ namespace DataPerformer.Portable.Measurements
         /// <param name="type">Type of parameter</param>
         /// <param name="parameter">Measurement parameter</param>
         /// <param name="name">Measurement name</param>
-        public ReplacedParameterMeasurement(object type, Func<object> parameter, string name) : base(type, parameter, name)
+        /// <param name="obj">Associated object</param>
+        public ReplacedParameterMeasurement(object type, Func<object> parameter, string name, object obj) 
+            : base(type, parameter, name, obj)
         {
 
         }

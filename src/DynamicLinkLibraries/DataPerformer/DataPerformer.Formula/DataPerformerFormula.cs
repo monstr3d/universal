@@ -119,14 +119,14 @@ namespace DataPerformer.Formula
         /// <param name="measurement">The measurement</param>
         /// <param name="detector">The detector</param>
         /// <returns>The variable</returns>
-        public VariableMeasurement Create(string symbol, IMeasurement measurement, IVariableDetector detector)
+        public VariableMeasurement Create(string symbol, IMeasurement measurement, IVariableDetector detector, object obj)
         {
             if (!(measurement is IDistribution))
             {
-                return new VariableMeasurement(symbol, measurement, detector);
+                return new VariableMeasurement(symbol, measurement, detector, obj);
             }
             IDistribution distribution = measurement as IDistribution;
-            return new VariableMeasurementDistribution(symbol, measurement, distribution, detector);
+            return new VariableMeasurementDistribution(symbol, measurement, distribution, detector, obj);
         }
 
 
@@ -137,9 +137,9 @@ namespace DataPerformer.Formula
         /// <param name="measurement">The measurement</param>
         /// <param name="detector">The detector</param>
         /// <returns>The variable</returns>
-        public VariableMeasurement Create(char symbol, IMeasurement measurement, IVariableDetector detector)
+        public VariableMeasurement Create(char symbol, IMeasurement measurement, IVariableDetector detector, object obj)
         {
-            return Create(symbol + "", measurement, detector);
+            return Create(symbol + "", measurement, detector, obj);
         }
 
         /// <summary>
@@ -208,7 +208,12 @@ namespace DataPerformer.Formula
             }
 
             public ITreeCollection TreeCollection { get => treeCollection; }
-           
+
+            public override string ToString()
+            {
+                return measurementHolder.ToString() +  base.ToString();
+            }
+
         }
 
 

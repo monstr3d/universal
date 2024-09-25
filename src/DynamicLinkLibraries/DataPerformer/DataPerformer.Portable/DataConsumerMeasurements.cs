@@ -259,12 +259,12 @@ namespace DataPerformer.Portable
                 {
                     this.Throw(new Exception("Undefined measurements"));
                 }
-                IMeasurement m = measurements[n];
-                if (m == null)
+                IMeasurement measurement = measurements[n];
+                if (measurement == null)
                 {
                     this.Throw(new Exception("Undefined measure"));
                 }
-                return m;
+                return measurement;
             }
         }
 

@@ -19,7 +19,7 @@ namespace DataPerformer.Portable.Measurements
         /// </summary>
         /// <param name="parameter">Parameter</param>
         public TimeMeasurement(Func<object> parameter) :
-            base(parameter, new ConstantMeasurement(1), "Time")
+            base(parameter, new ConstantMeasurement(1), "Time", null)
         {
 
         }

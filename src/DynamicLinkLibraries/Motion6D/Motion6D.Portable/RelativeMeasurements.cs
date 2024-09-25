@@ -106,7 +106,7 @@ namespace Motion6D.Portable
         /// </summary>
         public RelativeMeasurements()
         {
-            measurementFrame = new Measurement(typeof(ReferenceFrame), GetFrame, "Frame");
+            measurementFrame = new Measurement(typeof(ReferenceFrame), GetFrame, "Frame",  this);
             coordDel = new Func<object>[] { GetX, GetY, GetZ };
         }
 
@@ -502,7 +502,7 @@ namespace Motion6D.Portable
                     UpdateAll = UpdateCoinDistance;
                     measurements = new IMeasurement[]
                     {
-                        new Measurement(GetDistance, names[3])
+                        new Measurement(GetDistance, names[3], this)
                     };
                 }
                 return false;
@@ -634,33 +634,33 @@ namespace Motion6D.Portable
             {
                 if (vel == null)
                 {
-                    meas.Add(new Measurement(pars[i], names[i]));
+                    meas.Add(new Measurement(pars[i], names[i], this));
                 }
                 else
                 {
                     if (vel.Length < 3)
                     {
-                        meas.Add(new Measurement(pars[i], names[i]));
+                        meas.Add(new Measurement(pars[i], names[i],this));
                     }
                     else
                     {
-                        meas.Add(new MeasurementDerivation(pars[i], vel[i], names[i]));
+                        meas.Add(new MeasurementDerivation(pars[i], vel[i], names[i], this));
                     }
                 }
             }
             if (vel == null)
             {
-                meas.Add(new Measurement(GetDistance, names[3]));
+                meas.Add(new Measurement(GetDistance, names[3], this));
             }
             else
             {
                 if (vel.Length < 4)
                 {
-                    meas.Add(new Measurement(GetDistance, names[3]));
+                    meas.Add(new Measurement(GetDistance, names[3], this));
                 }
                 else
                 {
-                    meas.Add(new MeasurementDerivation(GetDistance, vel[3], names[3]));
+                    meas.Add(new MeasurementDerivation(GetDistance, vel[3], names[3], this));
                 }
             }
             return meas.ToArray();
@@ -682,19 +682,19 @@ namespace Motion6D.Portable
                 {
                     if (acc.Length > 0)
                     {
-                        meas[i] = new MeasurementDerivation(pars[i], acc[i], names[i + 4]);
+                        meas[i] = new MeasurementDerivation(pars[i], acc[i], names[i + 4], this);
                     }
                     else
                     {
-                        meas[i] = new Measurement(pars[i], names[i + 4]);
+                        meas[i] = new Measurement(pars[i], names[i + 4], this);
                     }
                 }
                 else
                 {
-                    meas[i] = new MeasurementDerivation(pars[i], acc[i], names[i + 4]);
+                    meas[i] = new MeasurementDerivation(pars[i], acc[i], names[i + 4], this);
                 }
             }
-            meas[3] = new Measurement(GetVelocity, names[7]);
+            meas[3] = new Measurement(GetVelocity, names[7], this);
             return meas;
         }
 
@@ -708,7 +708,7 @@ namespace Motion6D.Portable
             Func<object>[] parameters = new Func<object>[] { GetOmegaX, GetOmegaY, GetOmegaZ };
             for (int i = 0; i < parameters.Length; i++)
             {
-                measurements[i] = new Measurement(parameters[i], names[15 + i]);
+                measurements[i] = new Measurement(parameters[i], names[15 + i], this);
             }
             return measurements;
         }
@@ -724,14 +724,14 @@ namespace Motion6D.Portable
             IMeasurement[] m = new IMeasurement[pars.Length];
             for (int i = 0; i < m.Length; i++)
             {
-                m[i] = new Measurement(pars[i], names[8 + i]);
+                m[i] = new Measurement(pars[i], names[8 + i], this);
             }
             return m;
         }
 
         IMeasurement[] CreateAccMeasurements()
         {
-            return new IMeasurement[0];
+            return [];
         }
    
         #endregion

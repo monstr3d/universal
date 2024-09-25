@@ -15,8 +15,8 @@ namespace DataPerformer.Portable.Measurements
         IDistribution distribution;
         internal MeasurementDistributionDerivation(object type,
             Func<object> parameter, Func<object> derivation, string name,
-            IDistribution distribution)
-            : base(type, parameter, new Measurement(derivation, ""), name)
+            IDistribution distribution, object obj)
+            : base(type, parameter, new Measurement(derivation, "", obj), name, obj)
         {
             this.distribution = distribution;
         }

@@ -508,7 +508,7 @@ namespace DataPerformer
              this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                 DifferentialEquationProcessor.Processor, reason, 0, () =>
                 {
-                    foreach (MeasurementsDisassemblyWrapper w in dis.Values)
+                    foreach (var w in dis.Values)
                     {
                         w.Update();
                     }
@@ -516,11 +516,11 @@ namespace DataPerformer
                     {
                         StaticExtensionDataPerformerPortable.StopRun();
                     }
-                    foreach (ParametrizedSeries s in series)
+                    foreach (var s in series)
                     {
                         s.Step();
                     }
-                    foreach (DoubleArrayFunction f in functions.Keys)
+                    foreach (var f in functions.Keys)
                     {
                         IMeasurement[] mm = functions[f];
                         double xx = (double)mm[0].Parameter();

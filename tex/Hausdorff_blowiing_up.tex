@@ -328,10 +328,11 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 \huge{Physical issues} \normalsize
 
 \begin{enumerate}
-	\item 	Experimentally proved physics is related to $C^*$-algebras with Hausdorff spectrum.
-	\item 		Experimentally proved physics is not self-consistent since it contains divergences.
+	\item 	Experimentally proved low-energy physics is related to $C^*$-algebras with Hausdorff spectrum.
+	\item 		Experimentally proved physics is not self-consistent since it contains high-energy  divergences.
 	\item To avoid divergences one needs application of $C^*$-algebras with non-Hausdorff spectrum.
-	\item Hausdorff blowing-up yields a duality between $C^*$-algebras with Hausdorff spectrum.
+	\item Hausdorff blowing-up yields a duality between $C^*$-algebras with Hausdorff spectrum and non-Hausdorff one.
+	\item Hausdorff blowing-up has the following physical meaning. A noncommutative $C^*$-algebra "contains" the limit commutative $C^*$-algebra corresponding to low energies.
 \end{enumerate}
 \end{frame}
 \section{Coverings of $C^*$-algebras}
@@ -374,9 +375,8 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 \end{frame}
 \section{Finite-fold coverings}
 \begin{frame}
-	
-	\alert{Alexander Pavlov, Evgenij Troitsky}
-	\begin{theorem}
+\huge{Finite-fold coverings} \normalsize	
+	\begin{theorem} 	\alert{Alexander Pavlov, Evgenij Troitsky}
 		Suppose both $\mathcal X$ and $\mathcal Y$ are compact Hausdorff connected spaces and $p :\mathcal  Y \to \mathcal X$
 		is a continuous surjection. If $C(\mathcal Y )$ is a projective finitely generated Hilbert module over
 		$C(\mathcal X)$ with respect to the action
@@ -428,7 +428,7 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 \begin{frame}
 	\begin{definition}
 		\alert{Petr Ivankov}
-		Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \alert{unital noncommutative finite-fold  covering} if $\pi\left(1_A \right) = 1_{\widetilde A}$  and $\widetilde{A}$ is a finitely generated projective  $A$-module.
+		Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \alert{unital noncommutative finite-fold  covering} if $\widetilde{A}$ is a finitely generated projective  $A$-module.
 	\end{definition}
 	\begin{lemma}
 		\alert{Petr Ivankov, Alexander Pavlov, Evgenij Troitsky.}
@@ -452,6 +452,7 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 	\begin{definition}\label{fin_comp_defn}\alert{Petr  Ivankov}
 		If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  pre-covering then it is said to be 	a \alert{noncommutative finite-fold covering with unitization} if 
 		$\left(	M\left( A\right) , 	M\left( \widetilde{A}\right) , G, 	M\left( \pi\right)  \right)$ is an unital {noncommutative finite-fold covering}.
+		Roughly speaking a finite-fold covering with unitization is approximated by unital one. This notion cannot be applied to coverings of a perforated plane.
 		
 			\end{definition}
 \end{frame}
@@ -470,7 +471,6 @@ However it is impossible since $a \le c$, so $\supp~ a \subsetneqq \supp ~c$ is 
 			$$
 			is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\lambda\to \widetilde{A}_\lambda$, is the restriction on $\widetilde{A}_\lambda\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
 		\end{enumerate}
-		
 	\end{definition}
 \end{frame}
 \begin{frame}
@@ -485,6 +485,58 @@ There is a generalization of infinite topological coverings such that an infinit
 \end{frame}
 
 \section{Infinite coverings}
+	\subsection{Basic example}
+\begin{frame}
+\huge{Infinite coverings} \normalsize\\
+	Let $\widetilde \sX$ be a topological space with an action $  G\times \widetilde \sX\to \widetilde\sX$ of residually finite group $  G$  of properly discontinuous  group of homeomorphisms. Let $\sX \bydef \widetilde\sX/   G$ and $p: \widetilde \sX\to\sX$ be a natural covering. 	For any finite factor group $G_\la =  G/ H_\la$ we define a space $\sX_\la \bydef \widetilde \sX/ H_\la$. Then there is a category of topological spaces and finite-fold transitive coverings given by
+	\be\label{top_g_x_cat_eqn}
+	\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+	\ee
+	Usage of the {finite covering algebraic functor} $C_0$  yields a category  given by
+	\bean
+	\begin{split}
+		\mathfrak{S}_{C_0\left(p\right) } \bydef \\
+		\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}.
+	\end{split}
+	\eean
+\end{frame}
+\begin{frame}
+	If  $\widehat{G} \bydef \varprojlim_{\la \in \La} G\left(  \left. \sX_\la~\right|\sX \right)$ is an inverse limit of finite groups  then the group  $\widehat{G}$ is profinite. One has $\sX_\la \bydef \widetilde \sX/ \ker\left( G\left(\left. \widetilde\sX~\right|\sX \right)\to G\left(  \left. \sX_\la~\right|\sX \right)\right)$ and there is an inverse limit $\widehat \sX = \varprojlim_{\la \in \La} \sX_\la$ of topological spaces. There is a natural continuous map $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$. If we consider a  {final} {with respect to the family of maps} $\left\{g \circ \widehat p\right\}_{g\in \widehat{G}}$ topology on $\widehat \sX$  then we obtain a topological space $\overline \sX$.
+\end{frame}
+\begin{frame}
+
+\begin{lemma}\label{top_disconnected_lem}
+	Under the above hypotheses  the following conditions hold.
+	\begin{enumerate}
+		\item[(i)] If $\left\{g_\iota G\left(\left. \widetilde\sX~\right|\sX \right)\right\}_{\iota \in I}$   is  a set of all left  cosets of $G\left(\left. \widetilde\sX~\right|\sX \right)$ in $\widehat{G}$  then there is a natural homeomorphism 
+		\be\label{top_disconnected_eqn}
+		\overline \sX \cong \bigsqcup_{\iota\in I} g_\iota \widetilde\sX.
+		\ee
+		
+		\item[(ii)] The natural map $\widetilde{\widehat p}: \widetilde \sX  \to \widehat \sX$ yields a natural inclusion $\widetilde \sX \subset \overline \sX$ such that $\widetilde \sX$ is a quasi-component  of $\overline \sX$.
+		\item[(iii)] For any  a quasi-component $\widetilde \sX' \subset \overline \sX$ there is $g \in \widehat{G}$ such that $\widetilde \sX' = g \widetilde \sX$.
+		\item[(iv)]  For any $\la \in \La$ the natural surjective map $\widehat p_\la: \widehat \sX \to \sX_\la$ yields a covering  $\overline p_\la: \overline \sX \to \sX_\la$ such that $\sX_\la\cong \overline\sX/ \ker \left(\widehat{G} \to G_\la \right)$. 
+		\item[(v)] There is a natural bijective continuous map $\overline{\widehat p}: \overline \sX \to \widehat \sX$.
+	\end{enumerate}	
+\end{lemma}
+
+\end{frame}
+\begin{frame}
+	\begin{definition}\label{top_disconnected_defn}
+		Under the  hypotheses of the Lemma \ref{top_disconnected_lem} we say that the map $\overline p: \overline \sX  \to  \sX$  is the \textit{disconnected covering of} $p : \widetilde \sX \to \sX$. The {topological} $\overline \sX$-$\widehat  G$-{category} $\mathfrak{S}_p$ is the \textit{finite covering category of} $p : \widetilde \sX \to \sX$.
+		Write
+		\be\label{top_category_fin_eqn}
+		\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}_{\substack{\mu,\nu \in \La\\\mu\ge\nu}}\right\}.
+		\ee
+		We say that $p : \widetilde \sX \to \sX$ is the \textit{covering inverse limit of} $\mathfrak{S}_p$
+		and we write
+		\be\label{top_disconnected_lim_eqn}
+		\widetilde \sX \bydef \varprojlim \mathfrak{S}_p
+		\ee
+	\end{definition}
+	\
+\end{frame}
+
 \begin{frame}
  \begin{definition}\label{g_category_defn}\alert{Petr Ivankov}
 	Let $ G$ be a residually finite group. 
@@ -612,12 +664,29 @@ $\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\pi^\mu_\nu : A_\
 	\end{definition}
 	
 	\end{frame}
-	
-	\section{Basic example}
 	\begin{frame}
-	Let
-	\end{frame}
+\begin{theorem}\label{top_main_thm}
+	If one has:
+	\begin{itemize}
+		\item the {disconnected  $\overline p: \overline \sX  \to  \sX$ covering of} $p : \widetilde \sX \to \sX$,
+		\item the finite covering category 	$\mathfrak{S}_p \bydef \left\{\left\{\sX_\la\right\}_{\la \in \La}, \left\{p^\mu_\nu:\sX_\mu\to \sX_\nu\right\}\right\}$ of $p : \widetilde \sX \to \sX$,
+	\end{itemize}
+	then 
+		 The given by 
+	\bean\label{top_x_g_eqn}		\begin{split}
+		\mathfrak{S}_{C_0\left(p\right) } \bydef \\
+		\left\{ \left\{ C_0\left( p_\la\right)  :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}, \left\{ C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right) \right\}  \right\}
+	\end{split}
+	\eean	
+		
+		algebraic finite covering category  is good   and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde \sX\right) ,G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)$$ is  the  {infinite noncommutative covering} of $\mathfrak{S}_{C_0\left( p\right) }$.
+		
+
 	
+	
+\end{theorem}
+\	\end{frame}
+
 \section{Hausdorff blowing-up and coverings}
 
 \begin{frame}

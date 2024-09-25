@@ -15,8 +15,8 @@ namespace DataPerformer.Portable.Measurements
         IDistribution distribution;
 
         public MeasurmentDistribution(Func<object> parameter,
-            string name, IDistribution distribution)
-            : base(parameter, name)
+            string name, IDistribution distribution, object obj)
+            : base(parameter, name, obj)
         {
             this.distribution = distribution;
         }

@@ -677,7 +677,7 @@ namespace DataPerformer.Portable
         protected void initFunc()
         {
             Func<object> par = func;
-            function = new Measurement(Singleton, par, "Function");
+            function = new Measurement(Singleton, par, "Function", this);
         }
 
 

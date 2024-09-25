@@ -195,7 +195,7 @@ namespace Internet.Meteo.Wrapper
                 Func<object> f = () =>
                     values[k];
                 measurements[i] = new ReplacedParameterMeasurement(Types[currentNames[i]], f,
-                    currentNames[i]);
+                    currentNames[i], this);
             }
         }
 

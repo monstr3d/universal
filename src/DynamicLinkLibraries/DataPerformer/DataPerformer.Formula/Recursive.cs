@@ -804,7 +804,7 @@ namespace DataPerformer.Formula
             foreach (char c in parameters.Keys)
             {
                 IMeasurement m = parameters[c] as IMeasurement;
-                VariableMeasurement v = c.Create(m, this);
+                VariableMeasurement v = c.Create(m, this, this);
                 acc[c + ""] = v;
             }
             foreach (char c in aliases.Keys)
@@ -989,7 +989,7 @@ namespace DataPerformer.Formula
 				if (s.Equals("Time"))
 				{
 					timeVariable = c.Create(
-						StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement, this);
+						StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement, this, this);
 					parameters[c] = timeVariable.Measurement;
 					continue;
 				}
@@ -1115,18 +1115,23 @@ namespace DataPerformer.Formula
 				return this;
 			}
 
-			#endregion
+            #endregion
 
-			#region Members
+            #region Members
 
-			/// <summary>
-			/// Variable measurements
-			/// </summary>
-			/// <param name="key">Measure key</param>
-			/// <param name="r">Parent</param>
-			/// <param name="v">Variable</param>
-			/// <returns>The measure</returns>
-			static internal IMeasurement GetMeasure(char key, Recursive r, out Variable v)
+            public override string ToString()
+            {
+                return r.ToString() + base.ToString();
+            }
+
+            /// <summary>
+            /// Variable measurements
+            /// </summary>
+            /// <param name="key">Measure key</param>
+            /// <param name="r">Parent</param>
+            /// <param name="v">Variable</param>
+            /// <returns>The measure</returns>
+            static internal IMeasurement GetMeasure(char key, Recursive r, out Variable v)
 			{
 				v = new Variable(key, r);
 				return v;

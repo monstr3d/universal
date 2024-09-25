@@ -950,7 +950,7 @@ namespace Motion6D.Portable
                 this.x = x;
                 this.i = i;
                 par = GetValue;
-                derivation = new Measurement(GetDerivation, "");
+                derivation = new Measurement(GetDerivation, "", this);
             }
 
 

@@ -636,7 +636,7 @@ namespace DataPerformer.Formula
         /// <param name="m">The parameter measurement</param>
         public void SetParameter(char c, IMeasurement m)
         {
-            VariableMeasurement v = dataPerformerFormula.Create(c, m, this);
+            VariableMeasurement v = dataPerformerFormula.Create(c, m, this, this);
             parameters[c] = v;
             string s = m.Name;
             pars[c] = s;
@@ -714,7 +714,7 @@ namespace DataPerformer.Formula
                             string key = c + "";
                             if (!acc.ContainsKey(key))
                             {
-                                acc[c + ""] = dataPerformerFormula.Create(c, measure, this);
+                                acc[c + ""] = dataPerformerFormula.Create(c, measure, this, this);
                             }
                         }
                     }
@@ -811,7 +811,7 @@ namespace DataPerformer.Formula
                             }
                             if (!acc.ContainsKey(c + ""))
                             {
-                                acc[c + ""] = dataPerformerFormula.Create(c, m, this);
+                                acc[c + ""] = dataPerformerFormula.Create(c, m, this, this);
                             }
                         }
                     }
@@ -941,7 +941,7 @@ namespace DataPerformer.Formula
                             string key = c + "";
                             if (!acc.ContainsKey(key))
                             {
-                                acc[c + ""] = dataPerformerFormula.Create(c, measure, this);
+                                acc[c + ""] = dataPerformerFormula.Create(c, measure, this, this);
                             }
                         }
                     }
@@ -959,7 +959,7 @@ namespace DataPerformer.Formula
                     string key = s[0] + "";
                     if (!acc.ContainsKey(key))
                     {
-                        timeVariable = dataPerformerFormula.Create(s[0], timeMeasurement, this);
+                        timeVariable = dataPerformerFormula.Create(s[0], timeMeasurement, this, this);
                         acc[key] = timeVariable;
                     }
                 }
@@ -997,7 +997,7 @@ namespace DataPerformer.Formula
                             parameter.Add(c, measurement);
                             if (!acc.ContainsKey(c + ""))
                             {
-                                var vm = dataPerformerFormula.Create(c, measurement, this);
+                                var vm = dataPerformerFormula.Create(c, measurement, this, this);
                                 parameters[c] = vm;
                                 acc[c + ""] = vm;
                             }
@@ -1010,7 +1010,7 @@ namespace DataPerformer.Formula
                 if (s.Substring(s.Length - 4).Equals("Time"))
                 {
                     var tp = StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
-                    timeVariable = dataPerformerFormula.Create(s[0], tp, this);
+                    timeVariable = dataPerformerFormula.Create(s[0], tp, this, this);
                     if (timeVariable is IOperationAcceptor acceptor)
                     {
                         if (!acc.ContainsKey(s[0] + ""))
@@ -1497,7 +1497,7 @@ namespace DataPerformer.Formula
                         string key = c + "";
                         if (!acc.ContainsKey(key))
                         {
-                            VariableMeasurement v = c.Create(par[c], this);
+                            VariableMeasurement v = c.Create(par[c], this, this);
                             acc[key] = v;
                         }
                     }
@@ -1785,6 +1785,11 @@ namespace DataPerformer.Formula
             #endregion
 
             #region Members
+
+            public override string ToString()
+            {
+                return equationSolver.ToString() +  base.ToString();
+            }
 
 
             internal string String

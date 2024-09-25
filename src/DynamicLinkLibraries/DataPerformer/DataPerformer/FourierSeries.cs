@@ -68,8 +68,8 @@ namespace DataPerformer
                 seriesTable[i] = "";
             }
             Double a = 0;
-            output[0] = new MeasurementDerivation(a, new Func<object>(getRe), new Measurement(getReDerivation, ""), "Real");
-            output[1] = new MeasurementDerivation(a, new Func<object>(getIm), new Measurement(getImDerivation, ""), "Image");
+            output[0] = new MeasurementDerivation(a, new Func<object>(getRe), new Measurement(getReDerivation, "", this), "Real", this);
+            output[1] = new MeasurementDerivation(a, new Func<object>(getIm), new Measurement(getImDerivation, "", this), "Image", this);
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace DataPerformer
             {
             }
             Double a = 0;
-            output[0] = new MeasurementDerivation(a, new Func<object>(getRe), new Measurement(getReDerivation, ""), "Real");
-            output[1] = new MeasurementDerivation(a, new Func<object>(getIm), new Measurement(getImDerivation, ""), "Image");
+            output[0] = new MeasurementDerivation(a, new Func<object>(getRe), new Measurement(getReDerivation, "", this), "Real", this);
+            output[1] = new MeasurementDerivation(a, new Func<object>(getIm), new Measurement(getImDerivation, "", this), "Image", this);
         }
 
         /// <summary>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataPerformer.Portable.Measurements
+﻿namespace DataPerformer.Portable.Measurements
 {
     class ArrayMeasurement : Measurement
     {
@@ -18,7 +12,7 @@ namespace DataPerformer.Portable.Measurements
 
         #region Ctor
 
-        internal ArrayMeasurement(object[][] obj, object type, int number, string name) : base(type, null, name)
+        internal ArrayMeasurement(object[][] obj, object type, int number, string name, object ob) : base(type, null, name, ob)
         {
             i = number;
             this.obj = obj;
