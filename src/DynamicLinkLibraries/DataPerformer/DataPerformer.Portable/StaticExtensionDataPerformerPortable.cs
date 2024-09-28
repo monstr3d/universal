@@ -23,7 +23,6 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
-using System.Xml.Linq;
 
 namespace DataPerformer.Portable
 {
