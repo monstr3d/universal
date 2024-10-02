@@ -6502,7 +6502,20 @@ Under the hypothesis \ref{top_path_comp_empt} we say that the closed path $\wide
 	\ee
 \end{empt}
 \begin{lemma}\label{top_homo_lem}
-	In the situation \ref{top_g_homo_empt} following condition holds:
+If we	consider a commutative triangle of connected, locally connected, locally compact, Hausdorff spaces  and  surjective continuous maps such that both $p_1$ and $p_2$ are transitive coverings.
+\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		\widetilde{\mathcal X}' & &\widetilde{\mathcal X}''\\ 
+		& {\mathcal X}\\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$p$} (m-1-3)
+	(m-1-1) edge node [left]  {$p'~~$} (m-2-2)
+	(m-1-3) edge node [right] {$~~p''$} (m-2-2);
+\end{tikzpicture}
+\\
+then one has:
 	\begin{itemize}
 		\item[(i)] $p$ is a transitive covering,
 		\item [(ii)] 	the given by \eqref{top_g_homo_eqn} surjective map $ h :  G\left(\left.\widetilde{   \mathcal X }'~\right|~{   \mathcal X } \right)\to G\left(\left.\widetilde{   \mathcal X }''~\right|~{   \mathcal X } \right)$ is a homomorphism of groups,
@@ -6519,152 +6532,6 @@ Under the hypothesis \ref{top_path_comp_empt} we say that the closed path $\wide
 	\eean
 	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
 	(iii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
-\end{proof}
-\begin{theorem}\label{top_covp_cat_thm}  !!! REPLACE \ref{top_homo_lem} !!!
-	Consider a commutative triangle of connected, Hausdorff topological spaces and  continuous maps
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
-			& {\mathcal X}\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p$} (m-1-3)
-		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	where the space $\sX$ is locally connected.	If   both  $p_1$ and $p_2$ are finite-fold transitive coverings (cf. Definition \ref{top_transitive_defn}) and the map $p$ is surjective then the map $p$ is a transitive covering such that there is the natural exact sequence  
-	\be\label{top_covp_cat_eqn}
-	\{e\}\to G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\subset	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\xrightarrow{\varphi} G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\to\{e\}
-	\ee
-	of groups and homomorphisms.	
-\end{theorem}
-!!! CHECK PROOF !!!
-\begin{proof}
-	From the Corollary \ref{top_cov_cat_cor} it follows that the map $p$ is a  covering.
-	From the Lemma \ref{top_trans_tp_cov_lem} it follows that for any $g \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ one has.
-	\be\label{top_free_act_eqn}
-	\begin{split}
-		\exists  \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right) \neq p\left( \widetilde x_1\right)  \quad  \Leftrightarrow\quad \forall   \widetilde x_1 \in \widetilde\sX_1 \quad p \circ g\left( \widetilde x_1\right)\neq p\left( \widetilde x_1\right). 
-	\end{split}
-	\ee 
-	If   $\varphi : \widetilde{\sX}_1\xrightarrow{\approx }  \widetilde{\sX}_1$ is   a homeomorphism such that
-	$$
-	\forall \widetilde{x}_1\in \widetilde{\sX}_1\quad p\left( \widetilde{x}_1\right) = p\left( \varphi\left(\widetilde{x}_1\right)\right).
-	$$
-	then $\varphi \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. In result one has
-	
-	\bean 
-	G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) \cong \left\{\left.g \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right) ~\right|\forall \widetilde x_1\in \widetilde\sX_1\quad p\left(  \widetilde x_1\right) = p\left(  g\widetilde x_1\right) \right\}
-	\eean
-	and there is a natural inclusion of groups
-	\bean
-	G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\subset 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right).
-	\eean
-	
-	
-	
-	If $\widetilde x_1 \in \widetilde \sX_1$ and $x \in \sX$ then since the covering $p_1$ transitive (cf. Definition \ref{top_transitive_defn})	i.e. $\sX \cong \widetilde \sX_1 / G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ it turns out that there is a bijective map
-	\bean
-	\phi_1: G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right) \xrightarrow{\cong}p_1^{-1}\left( x\right) ,\\
-	g \mapsto g \widetilde x_1,
-	\eean
-	so one has
-	$$
-	\left| G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\right|= \left| p_1^{-1}\left( x\right)\right|  
-	$$
-	If $\widetilde x_2\bydef p\left( \widetilde x_1 \right)  \in \widetilde \sX_2$ then similarly one can obtain a bijective map 
-	\bean
-	\phi_2: G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right) \xrightarrow{\cong}p_2^{-1}\left( x\right) ,\\
-	g \mapsto g \widetilde x_2,
-	\eean
-	and the equation
-	$$
-	\left| G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\right|= \left| p_2^{-1}\left( x\right)\right|  
-	$$
-	From the above equations and taking into account that $p$ is a covering one has
-	\bean
-	\left| p_1^{-1}\left( x\right)\right| =  \left| p^{-1}\left(\widetilde x_2\right)\right|  \left| p_2^{-1}\left( x\right)\right| ,\\ 
-	\left| G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\right|= \left| G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\right|\left| G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\right|,
-	\eean
-	it turns out that
-	$$
-	\left| p^{-1}\left(\widetilde x_2\right)\right|= \left| G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\right|.
-	$$
-	and there is a bijective map
-	\bean
-	\phi: G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\xrightarrow{\cong}p^{-1}\left( \widetilde x_2\right) ,\\
-	g \mapsto g \widetilde x_1
-	\eean
-	Using these maps one can construct a surjective map 
-	\be
-	\begin{split}
-		\varphi \bydef \phi_2^{-1} \circ p \circ \phi_1: G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right),
-	\end{split}
-	\ee
-	such that the image $\varphi\left( G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\right)$ of $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is trivial. To prove that $\varphi$ is a homomorphism of groups one needs check that the subgroup 	$G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)	\subset 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ is normal (cf. Definition \ref{normal_subgroup_defn})
-	\paragraph{title}
-	If $g \in 	G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$ is such that 
-	$$
-	\exists \widetilde{x}_1 \in \widetilde{\sX}_1 \quad p\left(g \widetilde{x}_1 \right) 	=  p\left(\widetilde{x}_1 \right)
-	$$
-	so from \eqref{top_free_act_eqn} ir follows that $\widetilde{\sX}_2\cong \widetilde{\sX}_1/ G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ so the covering $p$ is transitive.	
-	then there is a connected open neighborhood $\sU$ of $p_1\left(\widetilde{x}_1 \right)$ evenly covered by both  $p_1$ and $p_2$ (cf. Definition \ref{top_covering_defn}). If $\widetilde\sU_1$ is  a connected component of $p_1^{-1}\left( \sU\right)$  then there is a connected open neighborhood $\widetilde{\sU}_1$ of  $\widetilde{x}_1$ such that $p_1\left( \widetilde{\sU}_1\right)= \sU$.`If $\widetilde \sU_2 = p\left( \widetilde\sU_1\right)$ then $p_2\left( \widetilde \sU_2\right)  = \sU$. For any $x'\in \sU$ there is the unique $\widetilde x'_1 \in  \widetilde \sU_1$ such that $p_1\left( \widetilde x'_1\right) = x'_1$, and $p_1\left( \widetilde x'_1\right) = x'_1$. The point  $\widetilde y'_1\bydef g \widetilde x'_1$ is the unique point in $g \widetilde \sU_1$ such that $p_1\left( \widetilde x'_1\right) = x'_1$. It follows that $\widetilde y'_1$ is the unique point in $g \widetilde \sU_1$ such that $p\left( \widetilde{y}'_1 \right) 	=  p\left(\widetilde{x}_1 \right)$ i.e.
-	$$
-	\forall \widetilde{x}'_1 \in \widetilde{\sU}_1 \quad p\left(g \widetilde{x}'_1 \right) 	=  p\left(\widetilde{x}'_1 \right)	
-	$$
-	it turns out that the set
-	$$
-	\widetilde{\mathcal W}_1 \bydef \left\{\left.\widetilde x_1 \in \widetilde \sX_1\right| p\left( g\widetilde x_1\right)  = p\left( \widetilde x_1\right) \right\}
-	$$ 
-	is open.
-	If $\widetilde x_1 \in \widetilde \sX_1\setminus \widetilde{\mathcal W}_1$ then $p\left( g\widetilde x_1\right)  \neq p\left( \widetilde x_1\right)$ and there are neighborhoods $\widetilde \sU'_2$ and $\widetilde \sU''_2$  of  $p\left( \widetilde x_1\right)$ and $p\left( g\widetilde x_1\right)$ such that  $\widetilde \sU'_2\cap \widetilde \sU''_2= \emptyset$. From $p^{-1}\left(\widetilde \sU'_2 \right) \cap p^{-1}\left(\widetilde \sU''_2 \right)=\emptyset$ it follows that 
-	$$
-	\forall \widetilde x_1 \in 	\widetilde \sU'_2 \quad p\left( g\widetilde x_1\right)  = p\left( \widetilde x_1\right), 
-	$$
-	i.e. the set $\widetilde \sX_1\setminus \widetilde{\mathcal W}_1$ is open, and 	the set $\widetilde{\mathcal W}_1$ is closed. Since the space $\widetilde\sX_1$ is connected one has $\widetilde{\mathcal W}_1 = \widetilde\sX_1$ (cf. Remark \ref{top_connected_rem}) and $$\exists \widetilde{x}_1 \in \widetilde{\sX}_1 \quad p\left(g \widetilde{x}_1 \right) 	=  p\left(\widetilde{x}_1 \right)\Rightarrow \forall \widetilde{x}_1 \in \widetilde{\sX}_1 \quad p\left(g \widetilde{x}_1 \right) 	=  p\left(\widetilde{x}_1 \right).$$
-	So it is proven that
-	\bean
-	\forall g \in 	G\left( \left.{\widetilde{\sX}}_1~\right|\sX\right)\quad  \exists \widetilde{x}_1 \in \widetilde{\sX}_1 \quad p\left(g \widetilde{x}_1 \right) 	=  p\left(\widetilde{x}_1 \right) \quad  \exists \widetilde{x}_1 \in \widetilde{\sX}_1 \quad p\left(g \widetilde{x}_1 \right) 	=  p\left(\widetilde{x}_1 \right),\\
-	G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) \cong \left\{\left.g \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right) ~\right|\exists \widetilde x_1\in \widetilde\sX_1\quad p\left(  \widetilde x_1\right) = p\left(  g\widetilde x_1\right) \right\}.
-	\eean 
-	If $g \in  G\left( \left.{\widetilde{\sX}}_1~\right|\sX\right) $ then
-	then for any $g' \in G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ and $\widetilde x_1 \in \widetilde \sX_1$ one has
-	$$
-	p\left(g'g \widetilde x_1 \right) = p\left(g \widetilde x_1 \right)
-	$$
-	\bean
-	g G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) = \left\{\left.g' \in G\left( \left.{\widetilde{\sX}}_1~\right|\sX\right)\right| \forall \widetilde x_1 \in \widetilde{\sX}_1\quad g' \widetilde x_1 = g \widetilde x_1 \right\},
-	\eean 
-	
- i.e.
-$$
-p{-1}\left(\widetilde\sU_2 \right) = \bigsqcup_{\a \in \mathscr A} \widetilde\sU^\a_1
-$$
-If $\widetilde x_1 \in \widetilde\sU_1\subset \bigsqcup_{\a \in \mathscr A} \widetilde\sU^\a_1$ then $g\widetilde x_1 \in g\widetilde\sU_1\subset \bigsqcup_{\a \in \mathscr A} \widetilde\sU^\a_1$. For any $\widetilde x'_2 \in \widetilde\sU_2$ one has
-$$
-p^{-1}	\left(\widetilde x'_2 \right) \in   p_1^{-1} \circ p_2\left(\widetilde x'_2 \right)\subset \bigsqcup_{g' \in G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)} g'\widetilde\sU_1,
-$$
-in particular there is a unique 	$\widetilde x'_1 \in 	\widetilde \sX_1$ such that
-$$
-\widetilde x'_1 \in p^{-1}	\left(\widetilde x'_2 \right)\
-$$
-One can define 
-
-
-
-For any   $\widetilde x_1\in \widetilde{\sX}_1$
-\be\label{top_guuu_eqn}
-\forall g_2 \in G\left(  \left.{\widetilde{\sX}}_2~\right|{\sX}\right)\quad \exists g_1 \in  G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\quad  g_2 p\left(\widetilde x_1  \right)= p \left(g_1\widetilde x_1  \right)
-\ee
-and
-\bean
-\forall g', g'' \in G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\quad g_2 p\left(\widetilde x_1  \right)= p \left(g'g_1\widetilde x_1  \right)= p \left(g_1 g''\widetilde x_1  \right),\\
-g_1G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)g_1,
-\eean
-or equivalently $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$ is a normal subgroup of $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)$. From \eqref{top_guuu_eqn} it follows that there is a surjective homomorphism $G\left( \left.{\widetilde{\sX}}_1~\right|{\sX}\right)\to G\left( \left.{\widetilde{\sX}}_2~\right|{\sX}\right)$. From \eqref{top_free_act_eqn} it follows that  for any $\widetilde x_2\in \widetilde\sX_2$ one has $p^{-1}\left( \widetilde x_2\right)=G \left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$   where $\widetilde x_1 \in p^{-1}\left( \widetilde x_2\right)$.
-So one has $\widetilde{\sX}_2= \widetilde{\sX}_1/G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, it follows that the covering $p$ is transitive.
 \end{proof}
 
 \begin{corollary}\label{com_norm_cor}
