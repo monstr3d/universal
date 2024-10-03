@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormDatabaseTree.resx">
+      <DependentUpon>FormDatabaseTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>ResourceImage.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\ThirdParty\WinFormsUI\WinFormsUI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common.UI.Resources\Common.UI.Resources.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common.UI\Common.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CommonControls\CommonControls.Interfaces\CommonControls.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\ResourceService\ResourceService.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataWarehouse\DataWarehouse.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataWarehouseForm\DataWarehouse.Forms.csproj">
+    </ProjectReference>
+  </ItemGroup>
+</Project>

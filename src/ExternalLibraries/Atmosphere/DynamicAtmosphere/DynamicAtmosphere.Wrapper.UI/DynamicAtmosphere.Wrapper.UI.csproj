@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BaseTypes\BaseTypes\BaseTypes.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI\Diagram.UI.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram\Diagram.csproj" />
+    <ProjectReference Include="..\..\..\SunPosition\SunPosition.csproj" />
+    <ProjectReference Include="..\DynamicAtmosphere.Wrapper\DynamicAtmosphere.Wrapper.csproj" />
+    <ProjectReference Include="..\DynamicAtmosphere\DynamicAtmosphere.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormAtmosphere.resx">
+      <DependentUpon>FormAtmosphere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlAtmosphere.resx" />
+  </ItemGroup>
+</Project>

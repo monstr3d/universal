@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram\Diagram.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI\Diagram.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Web.Interfaces\Web.Interfaces\Web.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Gravity_36_36.Wrapper.Serializable\Gravity_36_36.Wrapper.Serializable.csproj" />
+    <ProjectReference Include="..\Gravity_36_36.Wrapper\Gravity_36_36.Wrapper.csproj" />
+    <ProjectReference Include="..\Gravity_36_36\Gravity_36_36.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormGravity.resx">
+      <DependentUpon>FormGravity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlGravity.resx">
+      <DependentUpon>UserControlGravity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

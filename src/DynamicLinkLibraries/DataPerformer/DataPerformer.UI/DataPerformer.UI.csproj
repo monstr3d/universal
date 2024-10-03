@@ -1,0 +1,468 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ThirdParty\OfficePickers\OfficePickers.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\AliasRegression\AliasRegression.Portable\AliasRegression.Portable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\AliasRegression\AliasRegression\AliasRegression.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Animation\Animation.Interfaces\Animation.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\AssemblyService\AssemblyService.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\BaseTypes\BaseTypes.Extended\BaseTypes.Extended.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chart\Chart.DataPerformer\Chart.DataPerformer.csproj" />
+    <ProjectReference Include="..\..\Chart\Chart.Drawing.Interfaces\Chart.Drawing.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Chart\Chart.Drawing\Chart.Drawing.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chart\Chart.Objects\Chart.Objects.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chart\Chart\Chart.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.Engineering.Localization\Common.Engineering.Localization.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.UI.Resources\Common.UI.Resources.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.UI\Common.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.Extended\Diagram.Extended.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram\Diagram.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Basic\Event.Basic.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Interfaces\Event.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Log.Database\Event.Log.Database.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Portable\Event.Portable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.UI\Event.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.Drawing\FormulaEditor.Drawing.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.Forms\FormulaEditor.Forms.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.UI\FormulaEditor.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor\FormulaEditor.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Basic\DataPerformer.Basic.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Event.Portable\DataPerformer.Event.Portable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Formula\DataPerformer.Formula.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI\Diagram.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Components\Diagram.UI.Components\Diagram.UI.Components.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\GeneralLinearMethod\GeneralLinearMethod.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\MathStatistics\MathStatistics\MathStatistics.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Node\TreeNode.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\ResourceService\ResourceService.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\ToolBox\ToolBox.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\WindowsExtensions\WindowsExtensions.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\XmlSelection\XmlSelection.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Audio.Record\Audio.Record\Audio.Record.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Portable.Basic\DataPerformer.Portable.Basic.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Portable\DataPerformer.Portable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.UI.Wpf\DataPerformer.UI.Wpf.csproj" />
+    <ProjectReference Include="..\DataPerformer\DataPerformer.csproj">
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ArrowPanel.resx">
+      <DependentUpon>ArrowPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\FormBufferReadWrite.resx">
+      <DependentUpon>FormBufferReadWrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlBufferReadWrite.resx">
+      <DependentUpon>UserControlBufferReadWrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlBufferReadWriteCadr.resx">
+      <DependentUpon>UserControlBufferReadWriteCadr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlBufferReadWriteFull.resx">
+      <DependentUpon>UserControlBufferReadWriteFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlDataBaseTreeSelect.resx">
+      <DependentUpon>UserControlDataBaseTreeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlEditDatadase.resx">
+      <DependentUpon>UserControlEditDatadase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColoredChooser.resx">
+      <DependentUpon>ColoredChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArrayDisassembly.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormArrayDisassembly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCombinedSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCombinedSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraphSave.resx">
+      <DependentUpon>FormGraphSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIteratorFilter.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormIteratorFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMatrixAssembly.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMatrixAssembly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPointCollection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPointCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaveVectorFunction.resx">
+      <DependentUpon>FormSaveVectorFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAliasRegression.resx">
+      <DependentUpon>FormAliasRegression.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAliasSelect.resx" />
+    <EmbeddedResource Include="Forms\FormArrayTransformer.resx">
+      <DependentUpon>FormArrayTransformer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDataPerformerCollectionStateTransformer.resx">
+      <DependentUpon>FormDataPerformerCollectionStateTransformer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDerivationCalculator.resx">
+      <DependentUpon>FormDerivationCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDiffEquation.resx">
+      <DependentUpon>FormDiffEquation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormExternalChart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormExternalChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormExternalChartProperties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormExternalChartProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFuncAccumulator.resx">
+      <DependentUpon>FormFuncAccumulator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGraph.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIterateGLM.resx">
+      <DependentUpon>FormIterateGLM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormKalmanFilter.resx">
+      <DependentUpon>FormKalmanFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMultiGraph.resx" />
+    <EmbeddedResource Include="Forms\FormNamedSeries.resx">
+      <DependentUpon>FormNamedSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormObjectTransformer.resx">
+      <DependentUpon>FormObjectTransformer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecursive.resx">
+      <DependentUpon>FormRecursive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSeries.resx">
+      <DependentUpon>FormSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTable2D.resx">
+      <DependentUpon>FormTable2D.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTable3D.resx">
+      <DependentUpon>FormTable3D.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVectorConsumer.resx">
+      <DependentUpon>FormVectorConsumer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVectorAssembly.resx">
+      <DependentUpon>FormVectorAssembly.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXmlSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormXmlSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\DrawSeriesLabel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DrawSeriesLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\FilterLabel.resx" />
+    <EmbeddedResource Include="Labels\GraphLabel.resx" />
+    <EmbeddedResource Include="Labels\SeriesLabel.resx" />
+    <EmbeddedResource Include="Labels\Table2DLabel.resx">
+      <DependentUpon>Table2DLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelFormula.resx">
+      <DependentUpon>PanelFormula.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelMeasureGraph.resx">
+      <DependentUpon>PanelMeasureGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceFilters.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceFilters.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceFormula.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>ResourceFormula.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImage.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>ResourceImage.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Graph\UserControlCadr.resx">
+      <DependentUpon>UserControlCadr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlAccumulatorSeriesArgument.resx">
+      <DependentUpon>UserControlAccumulatorSeriesArgument.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlAliases.resx" />
+    <EmbeddedResource Include="UserControls\UserControlChartMeasurements.resx" />
+    <EmbeddedResource Include="UserControls\UserControlDoubleMeasurements.resx" />
+    <EmbeddedResource Include="UserControls\UserControlFilter.resx" />
+    <EmbeddedResource Include="UserControls\UserControlComboboxTexts.resx">
+      <DependentUpon>UserControlComboboxTexts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComoboxesTexts.resx">
+      <DependentUpon>UserControlComoboxesTexts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariablesFull.resx">
+      <DependentUpon>UserControlComponentCollectionVariablesFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariablesMeasure.resx">
+      <DependentUpon>UserControlComponentCollectionVariablesMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariablesStep.resx">
+      <DependentUpon>UserControlComponentCollectionVariablesStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlEqualComboboxes.resx">
+      <DependentUpon>UserControlEqualComboboxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlEqualComboboxesContainer.resx">
+      <DependentUpon>UserControlEqualComboboxesContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlForward.resx">
+      <DependentUpon>UserControlForward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFuncAccumulatorFull.resx">
+      <DependentUpon>UserControlFuncAccumulatorFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlGraph.resx">
+      <DependentUpon>UserControlGraph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegessionAliasMeasureUserControl.resx">
+      <DependentUpon>RegessionAliasMeasureUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegressionAliasUserControl.resx">
+      <DependentUpon>RegressionAliasUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlArrayTransformer.resx">
+      <DependentUpon>UserControlArrayTransformer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlCharIntDictionary.resx">
+      <DependentUpon>UserControlCharIntDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlCharNumber.resx">
+      <DependentUpon>UserControlCharNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDelayAccumulator.resx">
+      <DependentUpon>UserControlDelayAccumulator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFeedBack.resx">
+      <DependentUpon>UserControlFeedBack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFisherComparator.resx">
+      <DependentUpon>UserControlFisherComparator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFormulaEditor.resx">
+      <DependentUpon>UserControlFormulaEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFuncAccumulator.resx">
+      <DependentUpon>UserControlFuncAccumulator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlIteratorGLM.resx">
+      <DependentUpon>UserControlIteratorGLM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlKalmanFilter.resx">
+      <DependentUpon>UserControlKalmanFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlManualInput.resx">
+      <DependentUpon>UserControlManualInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeaHeader.resx">
+      <DependentUpon>UserControlMeaHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasure.resx">
+      <DependentUpon>UserControlMeasure.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasureContainer.resx">
+      <DependentUpon>UserControlMeasureContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasureGraph.resx">
+      <DependentUpon>UserControlMeasureGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasurement.resx" />
+    <EmbeddedResource Include="UserControls\UserControlMeasurementCollection.resx" />
+    <EmbeddedResource Include="UserControls\UserControlMeasurements.resx" />
+    <EmbeddedResource Include="UserControls\UserControlMultiGraph.resx" />
+    <EmbeddedResource Include="UserControls\UserControlRealtime.resx">
+      <DependentUpon>UserControlRealtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeAnalysis.resx">
+      <DependentUpon>UserControlRealtimeAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeList.resx">
+      <DependentUpon>UserControlRealtimeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeaHeader.resx">
+      <DependentUpon>UserControlRealtimeMeaHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeasure.resx">
+      <DependentUpon>UserControlRealtimeMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeasureContainer.resx">
+      <DependentUpon>UserControlRealtimeMeasureContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeasurements.resx">
+      <DependentUpon>UserControlRealtimeMeasurements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRegressionAlias.resx">
+      <DependentUpon>UserControlRegressionAlias.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlNamedSeriesTab.resx">
+      <DependentUpon>UserControlNamedSeriesTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlSeriesTab.resx">
+      <DependentUpon>UserControlSeriesTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlSeriesTable.resx">
+      <DependentUpon>UserControlSeriesTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlNamedSeries.resx">
+      <DependentUpon>UserControlNamedSeries.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariables.resx">
+      <DependentUpon>UserControlComponentCollectionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable2D.resx">
+      <DependentUpon>UserControlTable2D.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable2DEditor.resx">
+      <DependentUpon>UserControlTable2DEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlSeries.resx">
+      <DependentUpon>UserControlSeries.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable2DTab.resx">
+      <DependentUpon>UserControlTable2DTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable3D.resx">
+      <DependentUpon>UserControlTable3D.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTimeSeriesMedian.resx">
+      <DependentUpon>UserControlTimeSeriesMedian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTopObject.resx">
+      <DependentUpon>UserControlTopObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>ResourceControl_Ru.Designer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ResourceFilters.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceFilters.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="UserControls\Wpf\UserControlWpfChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\Wpf\" />
+  </ItemGroup>
+</Project>

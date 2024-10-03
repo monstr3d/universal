@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram\Diagram.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI\Diagram.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Event.Basic\Event.Basic.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Event.Interfaces\Event.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Event.Log.Database\Event.Log.Database.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Event.Portable\Event.Portable.csproj">
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormSelectItem.resx">
+      <DependentUpon>FormSelectItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDatabaseSelectEdit.resx">
+      <DependentUpon>UserControlDatabaseSelectEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDataBaseTreeSelect.resx">
+      <DependentUpon>UserControlDataBaseTreeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlEditDatadase.resx">
+      <DependentUpon>UserControlEditDatadase.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

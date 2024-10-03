@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormConnectionString.resx">
+      <DependentUpon>FormConnectionString.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDatabase.resx">
+      <DependentUpon>FormDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImage.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>ResourceImage.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTree.resx">
+      <DependentUpon>UserControlTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <DependentUpon>ResourceControl_Ru.Designer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common.UI.Resources\Common.UI.Resources.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common.UI\Common.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CommonControls\CommonControls.Interfaces\CommonControls.Interfaces.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ResourceService\ResourceService.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WindowsExtensions\WindowsExtensions.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\DataWarehouse\DataWarehouse.csproj">
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ResourceImage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceImage.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

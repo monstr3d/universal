@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ColoredChooser.resx">
+      <DependentUpon>ColoredChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimpleIntesity.resx">
+      <DependentUpon>SimpleIntesity.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diagram\Diagram.UI\Diagram.UI.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram\Diagram.csproj">
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceService\ResourceService.csproj">
+    </ProjectReference>
+  </ItemGroup>
+</Project>
