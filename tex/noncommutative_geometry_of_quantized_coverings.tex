@@ -6417,7 +6417,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 Under the hypothesis of the Lemma \ref{top_covp_cat_lem} if the map $p$ is surjective and the covering $p_1$ is transitive then the map $p$ is a transitive covering.
 \end{corollary}
 \begin{proof}
-	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering. There is the natural homomorphic inclusion $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\subset  G\left(\left. \widetilde{\sX}_1~\right|\mathcal{X}\right)$. Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
+	From the Corollary \ref{top_cov_cat_cor} it follows that $p$ is a covering. There is the natural inclusion $G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\subset  G\left(\left. \widetilde{\sX}_1~\right|\mathcal{X}\right)$. Let $\widetilde x_2 \in\widetilde \sX_2$ be a point and $x = p_2\left( \widetilde x_2\right)$. If $\widetilde x_1\in \widetilde\sX_1$ is such that $p\left(\widetilde x_1\right)= \widetilde x_2$ then $p_1^{-1}\left( x_2 \right) = G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\widetilde x_1$ because the covering $\widetilde p_1$ is transitive. It follows that $p^{-1}\left(\widetilde x_2 \right) = G_{\widetilde x_2}\widetilde x_1$ where
 	$$
 	G_{\widetilde x_2} = \left\{\left.g \in G\left( \left.\mathcal{\widetilde{X}}_1~\right|\mathcal{X}\right)\right| p\left(g \widetilde x_2 \right)=p\left( \widetilde x_2\right)  \right\}.
 	$$
@@ -6624,7 +6624,7 @@ then one has:
 	\end{tikzpicture}
 	\\ 	
 	Prove following statements:
-	\begin{itemize}
+	\begin{enumerate}
 		\item both natural maps $\widetilde \sX\to \widetilde \sX'$ and $\widetilde \sX\to \widetilde \sX''$ are finite-fold transitive coverings,
 		\item one has
 		\bean
@@ -6632,58 +6632,45 @@ then one has:
 		\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right),
 		\eean
 		\item the family of isomorphism classes of  $\mathfrak{FinCov}$-$\sX$-objects is a directed set (cf. Definition \ref{directed_set_defn}).
-	\end{itemize}
-\end{exercise}
-\begin{definition}\label{top_fin_cov_p_defn}
-	Let $\left(\sX, x_0 \right)$ be a pointed space such that $\sX$ is a connected, locally connected,  locally compact,  Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\left( \sX, x_0\right) $ such that
-	\begin{itemize}
-		\item  $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$-objects are transitive finite-fold coverings\\ $\left( \widetilde\sX, \widetilde x_0\right)  \to \left( \sX, x_0\right)$ of $\sX$ preserving base-points,
-		\item a morphism form $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ to $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ is a preserving base-points surjective continuous map $p: \left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX_2, x^2_0\right)$ such that $p \circ p_1 = p_2$.
-	\end{itemize}
-	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
-\end{definition}
-\begin{remark}\label{top_skeleton_rem}
-	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
-	So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
-\end{remark}
-
-
-
-\begin{lemma}\label{top_comply_lem}
-	Let   $\sX$ be a connected, locally connected, locally compact, Hausdorff space. 
-	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_2\to \sX$ are transitive coverings.
-	If  $p^2_1 : \widetilde{\sX}_2\to  \widetilde{\sX}_1$ is surjective continuous map such  that $p_2 = p_1\circ p^2_1$  then following conditions hold:
-	\begin{enumerate}				\item[(a)] The map  $p^2_1$ is a transitive finite-fold covering.
-		
-		\item[(b)] There is a natural homeomorphism
-		\be\label{top_g_sur_eqn}
-		\widetilde{\sX}_1 \cong \widetilde{\sX}_2/G\left(\left.\widetilde \sX_1~\right|\sX \right).
-		\ee		
-		\item[(c)] 
-		
-		
-		The natural homomorphism $h: G\left(\left.\widetilde \sX_2~\right|\sX \right)\to 	G\left(\left.\widetilde \sX_1~\right|\sX \right)$ 
-		is surjective. 
-		\item[(d)] If  $q:\widetilde{\sX}_2\to  \widetilde{\sX}_1$ is any surjective continuous map such that $p_2 = q \circ  p_1$ then there is the unique $g \in 	G_1$ such that 
-		\be\nonumber
-		q =  g\circ  p^2_1.
-		\ee
 	\end{enumerate}
-	
-\end{lemma}
+\end{exercise}
+%\begin{definition}\label{top_fin_cov_p_defn}
+%	Let $\left(\sX, x_0 \right)$ be a pointed space such that $\sX$ is a connected, locally connected,  locally compact,  Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\left( \sX, x_0\right) $ such that
+%	\begin{itemize}
+%		\item  $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$-objects are transitive finite-fold coverings\\ $\left( \widetilde\sX, \widetilde x_0\right)  \to \left( \sX, x_0\right)$ of $\sX$ preserving base-points,
+%		\item a morphism form $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ to $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ is a preserving base-points surjective continuous map $p: \left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX_2, x^2_0\right)$ such that $p \circ p_1 = p_2$.
+%	\end{itemize}
+%	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
+%\end{definition}
+%\begin{remark}\label{top_skeleton_rem}
+%	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.	So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
+%\end{remark}
 
 
 
-
-\begin{proof}
-	
-	If $x_0 \in \sX$ is any point then from the Lemma  \ref{top_homo_lem} it follows that the natural surjective map $p_2^{-1}\left(x_0 \right) \to p_1^{-1}\left(x_0 \right)$ induces the natural surjective homomorphism 
-	$ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ of groups. Let us prove (a)-(d).\\
-	(a)  Follows from the Corollary \ref{top_covp_cat_cor}.\\		
-	(b) Follows from the Lemma  \ref{top_homo_lem}.\\
-	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
-	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
-\end{proof}
+%\begin{lemma}\label{top_comply_lem}
+%	Let   $\sX$ be a connected, locally connected, locally compact, Hausdorff space. 	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_2\to \sX$ are transitive coverings.	If  $p^2_1 : \widetilde{\sX}_2\to  \widetilde{\sX}_1$ is surjective continuous map such  that $p_2 = p_1\circ p^2_1$  then following conditions hold:
+%	\begin{enumerate}				\item[(a)] The map  $p^2_1$ is a transitive finite-fold covering.
+%		\item[(b)] There is a natural homeomorphism
+%		\be\label{top_g_sur_eqn}
+%		\widetilde{\sX}_1 \cong \widetilde{\sX}_2/G\left(\left.\widetilde \sX_1~\right|\sX \right).
+%		\ee		
+%		\item[(c)] 
+%		The natural homomorphism $h: G\left(\left.\widetilde \sX_2~\right|\sX \right)\to 	G\left(\left.\widetilde \sX_1~\right|\sX \right)$ 
+%		is surjective. 
+%		\item[(d)] If  $q:\widetilde{\sX}_2\to  \widetilde{\sX}_1$ is any surjective continuous map such that $p_2 = q \circ  p_1$ then there is the unique $g \in 	G_1$ such that 
+%		\be\nonumber
+%		q =  g\circ  p^2_1.
+%		\ee
+%	\end{enumerate}
+%\end{lemma}
+%\begin{proof}
+%	If $x_0 \in \sX$ is any point then from the Lemma  \ref{top_homo_lem} it follows that the natural surjective map $p_2^{-1}\left(x_0 \right) \to p_1^{-1}\left(x_0 \right)$ induces the natural surjective homomorphism 	$ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ of groups. Let us prove (a)-(d).\\
+%	(a)  Follows from the Corollary \ref{top_covp_cat_cor}.\\		
+%	(b) Follows from the Lemma  \ref{top_homo_lem}.\\
+%	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
+%	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
+%\end{proof}
 
 
 
@@ -6761,6 +6748,7 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 \end{remark}
 
 \begin{lemma}\label{top_c_cont_str_lem}
+	Following conditions hold:
 	\begin{enumerate}
 		\item[(i)] If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}), then $C\left(\sX, \left\{A_x\right\}, \sF \right)$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$.
 		\item[(ii)]
@@ -6784,13 +6772,11 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 	The Lemma \ref{top_c_cont_str_lem} is a generalization of the Lemma \ref{top_full_oaf_lem}.
 \end{remark}
 Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$.
-
 For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ denote by 
 \bea
 \label{top_norm_a_eqn}
 \text{norm}_a:  \sX \to \R, \quad x \mapsto \left\|a_x \right\|.
 \eea
-
 Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\to \left[0, \infty\right)$ given by
 \be\label{top_norm_eqn}
 \left\|a\right\|\bydef \left\|\text{norm}_a\right\|.
@@ -6913,12 +6899,12 @@ from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{
 		s|_\sU : \sU \to \sU\times E_{x_0},\\
 		x \mapsto\left(x, u\left(x \right) \right)
 		\eean 
-		is continuous at $x_0$. It follows that both maps
+	where $u: \sU \to E_{x_0}$ is a continuous map. It turns out that the map
 		\bean
-		x \mapsto u\left(x \right),\\
+		\sU \to \R,\\
 		x \mapsto \left\| u\left(x \right)\right\| 
 		\eean 
-		are continuous. Since a point $x_0$ is arbitrary the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
+		is also continuous. Since a point $x_0$ is arbitrary and $$\forall x \in \sU \quad \left\| s\left(x \right)\right\|=\left\| u\left(x \right)\right\|$$ the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
 	\item[(b)] If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
 		\bean
 		s|_\sU : \sU \to \sU\times E_{x_0},\\
@@ -6933,7 +6919,7 @@ from  the Lemma \ref{pedersen_eps_lem} it follows that $f_{\eps/2}\left(\mathrm{
 
 
 \begin{lemma}\label{top_c0_cont_str_lem}
-
+Following conditions hold.
 	\begin{enumerate}
 		\item[(i)] If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ (cf. Definition \ref{operator_fields_continuity_defn}), then   $C_c\left(\sX, \left\{A_x\right\}, \sF \right)$, $~~C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ are  continuity structures  for $\sX$ {and the} $\left\{A_x\right\}$.
 		\item[(ii)]
@@ -7003,7 +6989,7 @@ then a space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\ri
 	$
 	for $\sU$ (cf. Definition \ref{top_covering_sum_defn}), such that  $\sum_{j=1}^n f_{x_j}\left(x \right) = 1$ for each $x \in \sU$. From  $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$ it turns out  that
 	$$
-	\left\| \sum_{j=1}^n f_{x_j}\left( x\right)  a^{x_j}_x - a_x\right\|<  \eps \quad \forall x \in \sU.
+\forall x \in \sU \quad	\left\| \sum_{j=1}^n f_{x_j}\left( x\right)  a^{x_j}_x - a_x\right\|<  \eps  .
 	$$
 	and taking into account 
 	\bean
@@ -7073,7 +7059,8 @@ The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
 		\delta ' \bydef\eps'-\left\|s'_{x_0}-a^0_{x_0} \right\|>0,\\
 		\delta '' \bydef\eps''-\left\|s''_{x_0}-a^0_{x_0} \right\|> 0.
 	\eean 
-If $\eps< \min\left(\delta',\delta''\right)$ then there is $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that  $\left\|a^0_{x_0}-s_{x_0} \right\|<\eps/3$, and one has
+If $\eps< \min\left(\delta',\delta''\right)$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it turns out that there is $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that  $\left\|a^0_{x_0}-s_{x_0} \right\|<\eps/3$, and one has
+!!! CONTINUE !!!
 	\bean
 	\left\|s'_{x_0}-s_{x_0} \right\|<\eps'- \frac{\eps}{3},\\
 	\left\|s''_{x_0}-s_{x_0} \right\|<\eps''-\frac{\eps}{3}.
