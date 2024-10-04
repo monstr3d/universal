@@ -7048,6 +7048,7 @@ The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
 	\mathfrak{O}\left(\sU, s, \eps \right) \bydef \left\{\left.a_x \in \widehat{\left\{A_x\right\}}\right| x\in \sU  \quad\left\|a_x - s_x \right\|< \eps \right\}.
 	\ee
 \end{empt}
+
 \begin{lemma}
 	A collection of given by the equation \eqref{top_cs_neigh_eqn} subsets satisfies to (a) and (b) of the Definition \ref{top_base_defn}.
 \end{lemma}
@@ -7060,7 +7061,7 @@ The Lemma \ref{top_cs_nc_lem} is a generalization of \ref{top_full_oaf_lem} one.
 		\delta '' \bydef\eps''-\left\|s''_{x_0}-a^0_{x_0} \right\|> 0.
 	\eean 
 If $\eps< \min\left(\delta',\delta''\right)$ then from (b) of the Definition \ref{operator_fields_continuity_defn} it turns out that there is $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that  $\left\|a^0_{x_0}-s_{x_0} \right\|<\eps/3$, and one has
-!!! CONTINUE !!!
+
 	\bean
 	\left\|s'_{x_0}-s_{x_0} \right\|<\eps'- \frac{\eps}{3},\\
 	\left\|s''_{x_0}-s_{x_0} \right\|<\eps''-\frac{\eps}{3}.
@@ -7488,6 +7489,87 @@ From the Corollary \ref{top_cl_cc_iso_cor} it turns out that there is the natura
 	\end{split}
 	\end{equation}	
 \end{remark}
+
+\begin{theorem}\label{top_compact_thm} 
+	Let $\overline \sX$ be a Hausdorff, locally compact topological space with an action $\widehat  G\times \overline \sX\to \overline\sX$ (cf. Definition \ref{residually_finite_defn}) of properly discontinuous  group $\widehat  G$ of homeomorphisms (cf. Definition \ref{top_properly_disc_group_defn}). Assume that the group $\widehat  G$ is  residually finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\sX \cong \overline \sX/\widehat G$ and   $p: \overline \sX \to \sX$ is  a natural transitive covering (cf. Theorem \ref{top_group_of_covering_transformations_thm}).  For any compact subset  $\overline \sY \subset \overline \sX$ there are both a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
+	\begin{itemize}
+		\item $p = \widetilde p \circ \overline p$,
+		\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
+	\end{itemize}	
+\end{theorem}
+
+\begin{proof}
+	For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ i.e. ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Let  $J$ be a maximal subset of  $\left\{ 1,..., n\right\}^2$ such that for all $\left(j,k\right) \in J$ one has
+	\be\label{top_compact_eqn}
+	\begin{split}
+		j > k,\\
+		\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset,\\
+		{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
+	\end{split}
+	\ee	
+	Then for every $\left(j,k\right) \in J$  there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is transitive (cf. Definition \ref{top_transitive_defn}) there is a nontrivial $g_{jk} \in \overline G$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $\overline G$ is residually finite (cf. Definition \ref{residually_finite_defn}) there is a homomorphism $h_{jk}:\overline G\to G_{jk}$ such that:
+	\begin{itemize}
+		\item $G_{jk}$ is a finite group,
+		\item $h_{jk}\left(g_{jk} \right)\in G_{jk}$ is not trivial.
+	\end{itemize}
+	If $H_{jk}\bydef \ker h_{jk}$, and $\sX_{jk} \bydef \overline{\sX}/ H_{jk}$ then there are natural coverings $\overline p_{jk}: \overline \sX\to  \sX_{jk}$ and $\widetilde p_{jk}:  \sX_{jk}\to \sX$
+	such that
+	\be\label{top_compactp_eqn}
+	\begin{split}
+		G\left(\left. \sX_{jk}\right| \sX  \right)\cong G_{jk},\\
+		\widetilde p_{jk}\circ \overline p_{jk} = p,\\
+		\overline p_{jk}\left( \overline{\sU}_j\right) \cap  h_{jk}\left(g_{jk} \right)	\overline p_{jk}\left( \overline{\sU}_k\right)= \overline p_{jk}\left(  \overline{\sU}_j \cap g_{jk}  \overline{\sU}_k\right)  \neq \emptyset
+	\end{split}
+	\ee
+	Using  the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} and taking into account the Theorem \ref{top_bicont_thm} one can prove that natural maps 
+	\bean
+	%g_{ik}\overline{\sU}_k \xrightarrow{\cong} 	\overline  h_{jk}\left(g_{jk} \right) p_{jk}\left(\overline{\sU}_k \right),\\ 
+	%\overline  h_{jk}\left(g_{jk}\right) \overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right),\\ 
+	\overline{\sU}_j \xrightarrow{\cong} 	\overline p_{jk}\left(\overline{\sU}_j \right),\\ 
+	\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right), \\
+	\overline{\sU}_k \xrightarrow{\cong} 	\overline p_{jk}\left(\overline{\sU}_k \right),\\ 
+	\overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right), 
+	\eean
+	are homeomorphisms. Assume that  $\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ and $\widetilde x \in \overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)$. Then one has
+	\bean
+	h_{jk}\left( g^{-1}_{jk}\right)\left(\widetilde x \right)\in \overline p_{jk}\left( \overline{\sU}_k\right),\\
+	h_{jk}\left( g^{-1}_{jk}\right)\widetilde x  \neq \widetilde x,\\	
+	\widetilde p_{jk}\left(  h_{jk}\left( g^{-1}_{jk}\right)\widetilde x \right) = 	\widetilde p_{jk} \left( \widetilde x \right),
+	\eean
+	i.e.  the map $\overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right)$ is not bijective, so there is a contradiction. From this contradiction one concludes that the assumption $\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true, i.e. one has
+	\be\label{top_uiniu_eqn}
+	\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)=\emptyset.
+	\ee
+	If we assume   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ then there is $\widetilde x \in \overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)$	 and
+	\bean
+	\widetilde p_{jk}\left(\widetilde x \right) \in \widetilde p_{jk}\circ \overline p_{jk}\left( \overline{\sU}_j\right) \cap   \widetilde p_{jk}\circ 	\overline p_{jk}\left( \overline{\sU}_k\right)= \widetilde p_{jk}\circ \overline p_{jk}\left( \overline{\sU}_j\right) \cap   \widetilde p_{jk} \left( 	\overline p_{jk}\left( g_{jk} \overline{\sU}_k\right)\right) =\\
+	=  \widetilde p_{jk}\left( 	\overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)\right) .
+	\eean
+	From the above equation it follows that there is $\widetilde x' \in \overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)$ such that $\widetilde p_{jk}\left( \widetilde x'\right) = \widetilde p_{jk}\left( \widetilde x\right)$. Taking into account \eqref{top_uiniu_eqn} one has $\widetilde x' \neq \widetilde x$, however it is impossible because the map $\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right)$ is bijective, i.e. there is a contradiction. So the assumption   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true and  
+	\be\label{top_compactppp_eqn}	\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)= \emptyset.\ee  The group	$H_{jk}$ is a normal subgroup of $\overline G$ for any pair $\left(j, k\right)\in J$,
+	The index   $\left( \overline G : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). The set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ is finite. If
+	$$
+	H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
+	$$
+	then index   $\left( \overline G: H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there  are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( \overline G: H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
+	\be\label{top_compactpp_eqn}
+	\overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
+	\ee
+	Let $\overline y', \overline y'' \in \overline \sY$ be such that $\overline p\left(\overline y'\right)= \overline p\left(\overline y''\right)= \widetilde y$.
+	If $\overline y' \in \overline \sU_j$ and $\overline y'' \in \overline \sU_k$  then from \eqref{top_compactpp_eqn} it follows that $\overline y',\overline y''\in \overline \sU_j\cap \overline \sU_k$, so  $\overline y'= \overline y''$, i.e. $\overline p$ yields a bijective map  
+	$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
+\end{proof}
+
+\begin{lemma}\label{top_compact_la_lem}
+	Let $\overline p:\overline\sX \to \sX$ be a transitive covering, and let $\left(\overline \sU, \overline \sV, \overline s\right)$ is a {covering triple for} $\overline p$ (cf. Definition \ref{top_coveing_triple_defn})
+	Under the hypotheses of the Theorem \ref{top_compact_thm} there is $\la_{\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)} \in \La$ such that for any  $\la \ge \la_{\left(\overline \sU, \overline \sV, \overline s\right)} \in \La$ such that  the closure of  $\overline \sV$ is mapped homeomorphically onto  its image in $\sX_\la$.
+\end{lemma}
+\begin{proof}
+	The proof of this lemma can be obtained from the Theorem \ref{top_compact_thm}.
+\end{proof}
+
+
+
 \begin{defn}\label{top_compactly_supported_descent_defn}
 	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $p: \widetilde \sX \to \sX$ be a transitive covering such that the group  of covering transformations $G\left(\left.\widetilde\sX\right| \sX  \right)$ (cf. Definition \ref{top_group_of_covering_transformations_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). If $\widetilde{a}\in  C_c\left( \lift_p\left[C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ then $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
 Theorem  \ref{top_compact_thm} 	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. If
@@ -8004,6 +8086,7 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defna_eqn} it turns out there is the injective $*$-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
+!!! REPLACE LEMMA !!!
 \begin{exercise}\label{comm_lift_desc_sum_exer}  
 	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
 	\begin{enumerate}
@@ -8224,7 +8307,7 @@ From (b) of the Definition \ref{top_soft_r_defn} it follows that there is $b \in
 
 
 \begin{exercise}\label{top_soft_exer}
-	Let $R$ be a $c$-soft *-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighborhood $\sU$ of $x$
+	Let $R$ be a soft *-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighborhood $\sU$ of $x$
 	there is a map $f \in R\cap C_c\left(\sX\right)$ such that
 	\begin{enumerate}
 		\item $\supp f \subset \sU$.
@@ -10112,86 +10195,6 @@ If  $\widehat{G} \bydef \varprojlim_{\la \in \La}  G_\la$ is an inverse limit of
 \begin{remark}
 Indeed $\widetilde \sX$ is an  inverse limit if we consider a category having coverings as morphisms.
 \end{remark}
-
-
-\begin{theorem}\label{top_compact_thm} 
-Let $\overline \sX$ be a Hausdorff, locally compact topological space with an action $\widehat  G\times \overline \sX\to \overline\sX$ (cf. Definition \ref{residually_finite_defn}) of properly discontinuous  group $\widehat  G$ of homeomorphisms (cf. Definition \ref{top_properly_disc_group_defn}). Assume that the group $\widehat  G$ is  residually finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\sX \cong \overline \sX/\widehat G$ and   $p: \overline \sX \to \sX$ is  a natural transitive covering (cf. Theorem \ref{top_group_of_covering_transformations_thm}).  For any compact subset  $\overline \sY \subset \overline \sX$ there are both a finite-fold transitive covering $\widetilde p: \widetilde \sX\to \sX$ and a transitive covering $\overline p:\overline \sX \to \widetilde \sX$ such that: 
-\begin{itemize}
-	\item $p = \widetilde p \circ \overline p$,
-	\item the set $\overline \sY$ is homeomorphically mapped onto $\widetilde \sY \bydef \overline p \left( \overline \sY\right)$.
-\end{itemize}	
-\end{theorem}
-
-\begin{proof}
-For any $\overline{x}\in \overline{  \sY}$ there is  a connected open neighborhood $\overline{   \mathcal U }_{\overline{x}}$ which is mapped homeomorphically onto ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ i.e. ${p}\left(\overline{   \mathcal U }_{\overline{x}} \right)$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). One has $\overline{   \mathcal Y } \subset \cup_{\overline{x} \in \overline{   \mathcal U }} \overline{   \mathcal U }_{\overline{x}}$. Since $\overline{   \mathcal Y }$ is compact there is a finite set $\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\} \subset  \left\{ \overline{   \mathcal U }_{\overline{x}}\right\}_{\overline{x }\in \overline{   \mathcal U }}$ such that $\overline{   \mathcal Y } \subset \cup_{j=1}^n \overline{   \mathcal U }_{\overline{x}_j}$. Write $\left\{ \overline{   \mathcal U }_{1}, ...,  \overline{   \mathcal U }_{n}\right\}\stackrel{\text{def}}{=}\left\{ \overline{   \mathcal U }_{\overline{x}_1}, ...,  \overline{   \mathcal U }_{\overline{x}_n}\right\}$. Let  $J$ be a maximal subset of  $\left\{ 1,..., n\right\}^2$ such that for all $\left(j,k\right) \in J$ one has
-\be\label{top_compact_eqn}
-\begin{split}
-	j > k,\\
-	\overline{   \mathcal U }_{j} \cap \overline{   \mathcal U }_{k} = \emptyset,\\
-	{p}\left(\overline{   \mathcal U }_{j} \right)\cap {p}\left( \overline{   \mathcal U }_{k}\right) \neq \emptyset.	
-\end{split}
-\ee	
-Then for every $\left(j,k\right) \in J$  there are $\overline{x}_j \in \overline{   \mathcal U }_{j}$ and $\overline{x}_k \in \overline{   \mathcal U }_{k}$ such that ${p}\left(\overline{x}_j \right) = {p}\left(\overline{x}_k \right)$. Since $\overline{x}_j \neq \overline{x}_k$ and the covering $p$ is transitive (cf. Definition \ref{top_transitive_defn}) there is a nontrivial $g_{jk} \in \overline G$ such that $\overline{x}_j = g_{jk} \overline{x}_k$, so   $\overline{   \mathcal U }_j \cap g_{jk} \overline{   \mathcal U }_k\neq \emptyset$. Since the group $\overline G$ is residually finite (cf. Definition \ref{residually_finite_defn}) there is a homomorphism $h_{jk}:\overline G\to G_{jk}$ such that:
-\begin{itemize}
-	\item $G_{jk}$ is a finite group,
-	\item $h_{jk}\left(g_{jk} \right)\in G_{jk}$ is not trivial.
-\end{itemize}
-If $H_{jk}\bydef \ker h_{jk}$, and $\sX_{jk} \bydef \overline{\sX}/ H_{jk}$ then there are natural coverings $\overline p_{jk}: \overline \sX\to  \sX_{jk}$ and $\widetilde p_{jk}:  \sX_{jk}\to \sX$
-such that
-\be\label{top_compactp_eqn}
-\begin{split}
-	G\left(\left. \sX_{jk}\right| \sX  \right)\cong G_{jk},\\
-	\widetilde p_{jk}\circ \overline p_{jk} = p,\\
-	\overline p_{jk}\left( \overline{\sU}_j\right) \cap  h_{jk}\left(g_{jk} \right)	\overline p_{jk}\left( \overline{\sU}_k\right)= \overline p_{jk}\left(  \overline{\sU}_j \cap g_{jk}  \overline{\sU}_k\right)  \neq \emptyset
-\end{split}
-\ee
-Using  the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} and taking into account the Theorem \ref{top_bicont_thm} one can prove that natural maps 
-\bean
-%g_{ik}\overline{\sU}_k \xrightarrow{\cong} 	\overline  h_{jk}\left(g_{jk} \right) p_{jk}\left(\overline{\sU}_k \right),\\ 
-%\overline  h_{jk}\left(g_{jk}\right) \overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right),\\ 
-\overline{\sU}_j \xrightarrow{\cong} 	\overline p_{jk}\left(\overline{\sU}_j \right),\\ 
-\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right), \\
-\overline{\sU}_k \xrightarrow{\cong} 	\overline p_{jk}\left(\overline{\sU}_k \right),\\ 
-\overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right), 
-\eean
-are homeomorphisms. Assume that  $\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ and $\widetilde x \in \overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)$. Then one has
-\bean
-h_{jk}\left( g^{-1}_{jk}\right)\left(\widetilde x \right)\in \overline p_{jk}\left( \overline{\sU}_k\right),\\
-h_{jk}\left( g^{-1}_{jk}\right)\widetilde x  \neq \widetilde x,\\	
-\widetilde p_{jk}\left(  h_{jk}\left( g^{-1}_{jk}\right)\widetilde x \right) = 	\widetilde p_{jk} \left( \widetilde x \right),
-\eean
-i.e.  the map $\overline p_{jk}\left(\overline{\sU}_k \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_k \right)$ is not bijective, so there is a contradiction. From this contradiction one concludes that the assumption $\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true, i.e. one has
-\be\label{top_uiniu_eqn}
-\overline p_{jk}\left(\overline{\sU}_k \right)\cap  h_{jk}\left( g_{jk}\right) \overline p_{jk}\left( \overline{\sU}_k\right)=\emptyset.
-\ee
-If we assume   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ then there is $\widetilde x \in \overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)$	 and
-\bean
-\widetilde p_{jk}\left(\widetilde x \right) \in \widetilde p_{jk}\circ \overline p_{jk}\left( \overline{\sU}_j\right) \cap   \widetilde p_{jk}\circ 	\overline p_{jk}\left( \overline{\sU}_k\right)= \widetilde p_{jk}\circ \overline p_{jk}\left( \overline{\sU}_j\right) \cap   \widetilde p_{jk} \left( 	\overline p_{jk}\left( g_{jk} \overline{\sU}_k\right)\right) =\\
-=  \widetilde p_{jk}\left( 	\overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)\right) .
-\eean
-From the above equation it follows that there is $\widetilde x' \in \overline p_{jk}\left(\overline{\sU}_j\right) \cap  h_{jk}\left( g_{jk}\right) p_{jk}\left( \overline{\sU}_k\right)$ such that $\widetilde p_{jk}\left( \widetilde x'\right) = \widetilde p_{jk}\left( \widetilde x\right)$. Taking into account \eqref{top_uiniu_eqn} one has $\widetilde x' \neq \widetilde x$, however it is impossible because the map $\overline p_{jk}\left(\overline{\sU}_j \right)  \xrightarrow{\cong} 	\overline p\left(\overline{\sU}_j \right)$ is bijective, i.e. there is a contradiction. So the assumption   $\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)\neq \emptyset$ is not true and  
-\be\label{top_compactppp_eqn}	\overline p_{jk}\left( \overline{\sU}_j\right) \cap   	\overline p_{jk}\left( \overline{\sU}_k\right)= \emptyset.\ee  The group	$H_{jk}$ is a normal subgroup of $\overline G$ for any pair $\left(j, k\right)\in J$,
-The index   $\left( \overline G : H_{jk} \right) = \left|G_{jk} \right| $ is finite (cf. Section \ref{grops_sec}). The set $J = \left\{\left(j_1, k_1 \right),...,  \left(j_m, k_m \right) \right\} \subset \left\{1,..., n\right\}^2$ is finite. If
-$$
-H \bydef \bigcap_{\left(j, k \right)\in J} H_{j k}
-$$
-then index   $\left( \overline G: H\right)$ is finite (cf Example \ref{profinite_exm}). So if $\widetilde \sX \bydef \overline \sX / H$ then there  are transitive  coverings $\widetilde p: \widetilde \sX\to \sX$ and  $\overline p:\overline \sX \to \widetilde \sX$  such that $p = \widetilde p \circ \overline p$. From $\left( \overline G: H\right)= \left|G\left(\left.\widetilde\sX\right| \sX  \right)\right| $ it follows that $G\left(\left.\widetilde\sX\right| \sX  \right)$ is a finite group and  $\widetilde p: \widetilde \sX\to \sX$ is a finite-fold covering. Using \eqref{top_compactppp_eqn} one has
-\be\label{top_compactpp_eqn}
-\overline{\sU}_j \cap  \overline{\sU}_k= \emptyset \quad \Leftrightarrow \quad 	\overline p\left( \overline{\sU}_j\right) \cap \overline p\left( \overline{\sU}_k\right)= \emptyset.
-\ee
-Let $\overline y', \overline y'' \in \overline \sY$ be such that $\overline p\left(\overline y'\right)= \overline p\left(\overline y''\right)= \widetilde y$.
-If $\overline y' \in \overline \sU_j$ and $\overline y'' \in \overline \sU_k$  then from \eqref{top_compactpp_eqn} it follows that $\overline y',\overline y''\in \overline \sU_j\cap \overline \sU_k$, so  $\overline y'= \overline y''$, i.e. $\overline p$ yields a bijective map  
-$\th: \overline \sY\xrightarrow{\cong}\widetilde \sY \bydef \overline p \left( \overline \sY\right)$. From the Lemmas \ref{top_cov_lem} and \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}). Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism.
-\end{proof}
-
-\begin{lemma}\label{top_compact_la_lem}
-Let $\overline p:\overline\sX \to \sX$ be a transitive covering, and let $\left(\overline \sU, \overline \sV, \overline s\right)$ is a {covering triple for} $\overline p$ (cf. Definition \ref{top_coveing_triple_defn})
-Under the hypotheses of the Theorem \ref{top_compact_thm} there is $\la_{\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)} \in \La$ such that for any  $\la \ge \la_{\left(\overline \sU, \overline \sV, \overline s\right)} \in \La$ such that  the closure of  $\overline \sV$ is mapped homeomorphically onto  its image in $\sX_\la$.
-\end{lemma}
-\begin{proof}
-The proof of this lemma can be obtained from the Theorem \ref{top_compact_thm}.
-\end{proof}
-
 
 \begin{empt}\label{top_fin_empt}
 	Let $G$ be a group, and let $\left\{h: G \to G_\la\right\}_{\la\in \La}$ is a set of all homomorphisms from $G$ to finite groups. If 
