@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Regression;
 using DataPerformer.Interfaces;
 
-namespace DataPerformer
+namespace Regression.Portable
 {
     /// <summary>
     /// Iterator with filter

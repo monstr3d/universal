@@ -1109,6 +1109,7 @@ namespace Chart.Drawing
 
         #region Private Members
 
+  
         private bool IsNaN(bool exception)
         {
             for (int i = 0; i < 2; i++)

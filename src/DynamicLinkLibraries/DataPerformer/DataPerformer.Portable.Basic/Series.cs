@@ -55,6 +55,14 @@ namespace DataPerformer.Portable.Basic
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public Series()
+        {
+
+        }
+
         #endregion
 
         #region Specific Members

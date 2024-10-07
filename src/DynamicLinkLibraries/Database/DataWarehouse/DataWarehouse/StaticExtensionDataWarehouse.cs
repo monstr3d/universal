@@ -41,6 +41,7 @@ namespace DataWarehouse
         /// </summary>
         static Action<string> onMessage = (string message) => { };
 
+
         #endregion
 
         #region Ctor
@@ -57,6 +58,8 @@ namespace DataWarehouse
         #endregion
 
         #region Public Members
+
+ 
 
         /// <summary>
         /// Message event

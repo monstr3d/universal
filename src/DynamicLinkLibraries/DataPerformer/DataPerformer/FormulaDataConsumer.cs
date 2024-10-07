@@ -1,20 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 
 
 using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Aliases;
 
-
 using FormulaEditor;
-using GeneralLinearMethod;
-using AnalyticPolynom;
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;

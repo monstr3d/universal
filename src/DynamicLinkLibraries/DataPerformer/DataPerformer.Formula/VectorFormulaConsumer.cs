@@ -33,7 +33,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Formulas
         /// </summary>
-        protected MathFormula[] formulae  = null;
+        protected MathFormula[] formulae  = new MathFormula[0];
 
         /// <summary>
         /// Dictionary of acceptors

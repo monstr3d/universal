@@ -8,13 +8,15 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
+using AssemblyService.Attributes;
+
+
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
 
 using Scada.Interfaces;
-using AssemblyService.Attributes;
 
 namespace Scada.Desktop
 {

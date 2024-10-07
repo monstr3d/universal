@@ -5,63 +5,59 @@ using System.Runtime.Serialization;
 
 using CategoryTheory;
 
-using Diagram.UI;
 
 using BaseTypes;
 
-using GeneralLinearMethod;
-
-using DataPerformer;
 
 using Localization.Helper;
 
 
-namespace Regression
-{
-	/// <summary>
-	/// Selection constructed from xml
-	/// </summary>
-	[Serializable()]
-	public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, ICategoryObject
-	{
+namespace Regression.Portable;
 
-		#region Fields
+/// <summary>
+/// Selection constructed from xml
+/// </summary>
+[Serializable()]
+public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, ICategoryObject
+{
+
+	#region Fields
 
         /// <summary>
         /// Associated object
         /// </summary>
-		protected object obj;
+	protected object obj;
 
         /// <summary>
         /// Related docuiment
         /// </summary>
-		protected XmlDocument document;
+	protected XmlDocument document;
 
         /// <summary>
         /// Scheme
         /// </summary>
-		protected XmlDocument scheme;
+	protected XmlDocument scheme;
 
         /// <summary>
         /// String representastion of document
         /// </summary>
-		protected string documentString;
+	protected string documentString;
 
         /// <summary>
         /// String representastion of scheme
         /// </summary>
         protected string schemeString;
 
-		#endregion
+	#endregion
 
-		#region Constructors
+	#region Constructors
 
         /// <summary>
         /// Default constructor
         /// </summary>
  		public XmlSelectionCollection()
-		{
-		}
+	{
+	}
 
         /// <summary>
         /// Deserialization constructor
@@ -69,15 +65,15 @@ namespace Regression
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
         public XmlSelectionCollection(SerializationInfo info, StreamingContext context)
-		{
-			documentString = info.GetValue("Document", typeof(string)) as string;
-			schemeString = info.GetValue("Scheme", typeof(string)) as string;
-			load();
-		}
+	{
+		documentString = info.GetValue("Document", typeof(string)) as string;
+		schemeString = info.GetValue("Scheme", typeof(string)) as string;
+		load();
+	}
 
-		#endregion
+	#endregion
 
-		#region ISerializable Members
+	#region ISerializable Members
 
 
         /// <summary>
@@ -86,173 +82,172 @@ namespace Regression
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context)
-		{
-			info.AddValue("Document", documentString);
-			info.AddValue("Scheme", schemeString);
-		}
+	{
+		info.AddValue("Document", documentString);
+		info.AddValue("Scheme", schemeString);
+	}
 
-		#endregion
+	#endregion
 
-		#region ICategoryObject Members
+	#region ICategoryObject Members
 
         /// <summary>
         /// The identical arrow of this object
         /// </summary>
         public ICategoryArrow Id
+	{
+		get
 		{
-			get
-			{
-				return null;
-			}
+			return null;
 		}
+	}
 
         /// <summary>
         /// The category of this object
         /// </summary>
         public ICategory Category
+	{
+		get
 		{
-			get
-			{
-				return null;
-			}
+			return null;
 		}
+	}
 
-		#endregion
+	#endregion
 
-		#region IAssociatedObject Members
+	#region IAssociatedObject Members
 
         /// <summary>
         /// The associated object
         /// </summary>
         public object Object
+	{
+		get
 		{
-			get
-			{
-				return obj;
-			}
-			set
-			{
-				obj = value;
-			}
+			return obj;
 		}
+		set
+		{
+			obj = value;
+		}
+	}
 
-		#endregion
+	#endregion
 
-		#region Specific Members
+	#region Specific Members
 
         /// <summary>
         /// String representation of Xml document
         /// </summary>
-		public string Document
+	public string Document
+	{
+		get
 		{
-			get
-			{
-				return documentString;
-			}
-			set
-			{
-				documentString = value;
-				load();
-			}
+			return documentString;
 		}
+		set
+		{
+			documentString = value;
+			load();
+		}
+	}
 
         /// <summary>
         /// String representation of scheme
         /// </summary>
-		public string Scheme
+	public string Scheme
+	{
+		get
 		{
-			get
-			{
-				return schemeString;
-			}
-			set
-			{
-				schemeString = value;
-				load();
-			}
+			return schemeString;
 		}
-				
-		
-		void load()
+		set
 		{
-			if (documentString == null | schemeString == null)
-			{
-				return;
-			}
-			try
-			{
-				document = new XmlDocument();
-				document.LoadXml(documentString);
-				scheme = new XmlDocument();
-				scheme.LoadXml(schemeString);
-				XmlElement parametersDescription = 
-					scheme.GetElementsByTagName("ParametersDescription")[0] as XmlElement;
-				string strParametersDescription = 
-					parametersDescription.Attributes["value"].Value;
-				string strId = parametersDescription.Attributes["id"].Value;
-				string strName = parametersDescription.Attributes["name"].Value;
-				XmlElement docParametersDescription =
-					document.GetElementsByTagName(strParametersDescription)[0] as XmlElement;
-				string strParameterDescription = 
-					parametersDescription.Attributes["ParameterDescription"].Value;
-				XmlNodeList parametesDescriptions = 
-					docParametersDescription.GetElementsByTagName(strParameterDescription);
+			schemeString = value;
+			load();
+		}
+	}
 			
-				string[] names = new string[parametesDescriptions.Count];
-				Hashtable ids = new Hashtable();
-				int i = 0;
-				ArrayList cNames = new ArrayList();
-				foreach (XmlElement e in parametesDescriptions)
+	
+	void load()
+	{
+		if (documentString == null | schemeString == null)
+		{
+			return;
+		}
+		try
+		{
+			document = new XmlDocument();
+			document.LoadXml(documentString);
+			scheme = new XmlDocument();
+			scheme.LoadXml(schemeString);
+			XmlElement parametersDescription = 
+				scheme.GetElementsByTagName("ParametersDescription")[0] as XmlElement;
+			string strParametersDescription = 
+				parametersDescription.Attributes["value"].Value;
+			string strId = parametersDescription.Attributes["id"].Value;
+			string strName = parametersDescription.Attributes["name"].Value;
+			XmlElement docParametersDescription =
+				document.GetElementsByTagName(strParametersDescription)[0] as XmlElement;
+			string strParameterDescription = 
+				parametersDescription.Attributes["ParameterDescription"].Value;
+			XmlNodeList parametesDescriptions = 
+				docParametersDescription.GetElementsByTagName(strParameterDescription);
+		
+			string[] names = new string[parametesDescriptions.Count];
+			Hashtable ids = new Hashtable();
+			int i = 0;
+			ArrayList cNames = new ArrayList();
+			foreach (XmlElement e in parametesDescriptions)
+			{
+				string id = e.Attributes[strId].Value;
+				string name = e.Attributes[strName].Value;
+				if (ids.ContainsKey(id))
+				{
+					throw new Exception("Id " + id + " already exists");
+				}
+				if (cNames.Contains(name))
+				{
+					throw new Exception("Name " + name + " already exists");
+				}
+				ids[id] = i;
+				cNames.Add(name);
+				names[i] = name;
+				++i;
+			}
+			XmlElement parametersDictionary =
+				parametersDescription.GetElementsByTagName("ParameterDictionary")[0] as XmlElement;
+			string strValue = parametersDictionary.Attributes["value"].Value;
+			string strParameter = parametersDictionary.Attributes["Parameter"].Value;
+			string strResults = parametersDictionary.Attributes["Results"].Value;
+			string strResult = parametersDictionary.Attributes["Result"].Value;
+			XmlElement docResults = document.GetElementsByTagName(strResults)[0] as XmlElement;
+			XmlNodeList listResults = docResults.GetElementsByTagName(strResult);
+			double[][] data = new double[names.Length][];
+			for (int j = 0; j < data.Length; j++)
+			{
+				data[j] = new double[listResults.Count];
+			}
+			for (int j = 0; j < listResults.Count; j++)
+			{
+				XmlElement result = listResults[j] as XmlElement;
+				XmlNodeList par = result.GetElementsByTagName(strParameter);
+				foreach (XmlElement e in par)
 				{
 					string id = e.Attributes[strId].Value;
-					string name = e.Attributes[strName].Value;
-					if (ids.ContainsKey(id))
-					{
-						throw new Exception("Id " + id + " already exists");
-					}
-					if (cNames.Contains(name))
-					{
-						throw new Exception("Name " + name + " already exists");
-					}
-					ids[id] = i;
-					cNames.Add(name);
-					names[i] = name;
-					++i;
-				}
-				XmlElement parametersDictionary =
-					parametersDescription.GetElementsByTagName("ParameterDictionary")[0] as XmlElement;
-				string strValue = parametersDictionary.Attributes["value"].Value;
-				string strParameter = parametersDictionary.Attributes["Parameter"].Value;
-				string strResults = parametersDictionary.Attributes["Results"].Value;
-				string strResult = parametersDictionary.Attributes["Result"].Value;
-				XmlElement docResults = document.GetElementsByTagName(strResults)[0] as XmlElement;
-				XmlNodeList listResults = docResults.GetElementsByTagName(strResult);
-				double[][] data = new double[names.Length][];
-				for (int j = 0; j < data.Length; j++)
-				{
-					data[j] = new double[listResults.Count];
-				}
-				for (int j = 0; j < listResults.Count; j++)
-				{
-					XmlElement result = listResults[j] as XmlElement;
-					XmlNodeList par = result.GetElementsByTagName(strParameter);
-					foreach (XmlElement e in par)
-					{
-						string id = e.Attributes[strId].Value;
-						int n = (int) ids[id];
+					int n = (int) ids[id];
                         data[n][j] = e.GetAttribute(strValue).Convert();
-					}
 				}
-				Set(names, data);
 			}
-			catch (Exception e)
-			{
-				documentString = null;
-				schemeString = null;
-				throw e;
-			}
+			Set(names, data);
 		}
-
-		#endregion
+		catch (Exception e)
+		{
+			documentString = null;
+			schemeString = null;
+			throw e;
+		}
 	}
+
+	#endregion
 }

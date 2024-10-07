@@ -174,7 +174,7 @@ namespace BasicEngineering.UI.Factory
                 {
                     return new FormRecursive(lab);
                 }
-                if (obj is Regression.XmlSelectionCollection)
+                if (obj is Regression.Portable.XmlSelectionCollection)
                 {
                     return new FormXmlSelection(lab);
                 }

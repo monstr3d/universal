@@ -1,36 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
 
-using Diagram.UI;
-using Diagram.UI.Labels;
-using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Factory;
-
 using Diagram.UI.Utils;
+using Diagram.UI;
 
+using CategoryTheory;
+
+using DataPerformer.Portable;
 using DataPerformer;
-using DataPerformer.UI;
-using DataPerformer.Interfaces;
-
-using ResourceService;
-
-using DataWarehouse;
-
-using EngineeringInitializer;
-
-using BasicEngineering.UI.Factory.Interfaces;
-using BasicEngineering.UI.Factory.Forms;
 
 
 namespace BasicEngineering.UI.Factory
@@ -65,7 +49,7 @@ namespace BasicEngineering.UI.Factory
                     "", "Data set iterator", ResourceImage.RecoursiveGLM, MinimalFactory.Object, true, false),
                             new ButtonWrapper(typeof(Regression.CombinedSelection),
                     "", "Combined selection", ResourceImage.Sigma, MinimalFactory.Object, true, false),
-                            new ButtonWrapper(typeof(Regression.XmlSelectionCollection),
+                            new ButtonWrapper(typeof(Regression.Portable.XmlSelectionCollection),
                     "", "Selection from XML file", ResourceImage.XmlData, MinimalFactory.Object, true, false),
                             new ButtonWrapper(typeof(SeriesIterator),
                     "", "Iterator series", ResourceImage.SeriesIterator, MinimalFactory.Object, true, false),
@@ -82,13 +66,13 @@ namespace BasicEngineering.UI.Factory
         {
             new ButtonWrapper(typeof(BelongsToCollection), "", 
                 "Belongs link", ResourceImage.Belong, MinimalFactory.Object, true, true),
-            new ButtonWrapper(typeof(ObjectTransformerLink), "", 
+            new ButtonWrapper(typeof(DataPerformer.ObjectTransformerLink), "", 
                 "Link of object transformer", ResourceImage.TransformArrow, MinimalFactory.Object, true, true),
             new ButtonWrapper(typeof(Regression.SelectionLink), "", 
                 "Link between selection and selection consumer", ResourceImage.SelectionLink, MinimalFactory.Object, true, true),
-            new ButtonWrapper(typeof(IteratorConsumerLink), "", 
+            new ButtonWrapper(typeof(DataPerformer.IteratorConsumerLink), "", 
                 "Iterator link", ResourceImage.IteratorLink, MinimalFactory.Object, true, true),
-            new ButtonWrapper(typeof(UnaryLink), "", 
+            new ButtonWrapper(type: typeof(UnaryLink), "", 
                 "Unary link", ResourceImage.UnaryLink, MinimalFactory.Object, false, true),
         };
 

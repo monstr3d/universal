@@ -1,5 +1,7 @@
 ﻿using AssemblyService.Attributes;
+
 using DataSetService;
+
 using DataSetService.Interfaces;
 
 namespace DataSetSevice.Add
@@ -21,19 +23,21 @@ namespace DataSetSevice.Add
 
         static StaticExtensionDataSetServiceAdd()
         {
-            new Converter();
+            var c = Converter.Instance;
         }
 
         class Converter : IConnectionStringConverter
         {
-            internal Converter()
+            static internal readonly Converter Instance = new Converter();
+            private Converter()
             {
                 this.Set();
             }
 
             string IConnectionStringConverter.Convert(string value)
             {
-                return value.Replace("SQLEXPRESS", "SQLEXPESS").Replace("SSPI", "True").Replace("user id=sa;", "");
+                var s = value.Replace("SSPI", "True").Replace("user id=sa;", "");
+                return s;
             }
         }
     }

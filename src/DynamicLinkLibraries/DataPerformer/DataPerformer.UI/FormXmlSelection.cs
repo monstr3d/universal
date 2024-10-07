@@ -1,17 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
+
 using System.Windows.Forms;
 using System.Xml;
 
 using Diagram.UI;
-using Regression;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
+
+using Regression.Portable;
+
 
 namespace DataPerformer.UI
 {
@@ -21,8 +20,8 @@ namespace DataPerformer.UI
     public partial class FormXmlSelection : Form, IUpdatableForm
     {
         private XmlSelectionCollection selection;
+        
         private IObjectLabel label;
-
 
         private FormXmlSelection()
         {

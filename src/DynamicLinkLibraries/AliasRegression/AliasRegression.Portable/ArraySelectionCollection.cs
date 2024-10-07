@@ -2,7 +2,7 @@ using System;
 
 using DataPerformer.Interfaces;
 
-namespace Regression
+namespace Regression.Portable
 {
     /// <summary>
     /// Selection of array collections

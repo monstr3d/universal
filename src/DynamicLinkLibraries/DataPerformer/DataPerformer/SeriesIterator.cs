@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
+
 using Diagram.UI;
 
 using DataPerformer.Interfaces;
@@ -45,8 +45,8 @@ namespace DataPerformer
         /// </summary>
         public SeriesIterator()
         {
-        }
 
+        }
 
         /// <summary>
         /// Deserialization constructor

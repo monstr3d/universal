@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 using System.Windows.Forms;
 using System.Drawing;
@@ -8,10 +7,7 @@ using System.Drawing;
 using Chart.Interfaces;
 
 
-using Chart;
 using Chart.Drawing.Interfaces;
-using Chart.Drawing;
-using Chart.Drawing.Painters;
 
 namespace Chart
 {

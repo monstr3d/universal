@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
+
 using Diagram.UI;
+
 using BaseTypes;
-using GeneralLinearMethod;
-using DataPerformer;
-using DataSetService;
-using Regression;
 using BaseTypes.Utils;
+
+using DataSetService;
+
+using Regression.Portable;
 
 
 namespace DataTableSelection

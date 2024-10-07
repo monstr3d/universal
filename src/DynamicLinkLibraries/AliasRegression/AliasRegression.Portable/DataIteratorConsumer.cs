@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
-namespace Regression
+namespace Regression.Portable
 {
     /// <summary>
     /// Consumer of iterator
