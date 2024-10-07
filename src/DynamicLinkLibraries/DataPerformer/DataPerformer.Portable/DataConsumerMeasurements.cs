@@ -164,8 +164,6 @@ namespace DataPerformer.Portable
         /// <summary>
         /// The input dynamical parameter
         /// </summary>
- 
-
 
         #endregion
 

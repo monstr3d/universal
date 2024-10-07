@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -9,7 +7,6 @@ using BaseTypes.Interfaces;
 using FormulaEditor.Attributes;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-
 
 namespace FormulaEditor
 {

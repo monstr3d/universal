@@ -1,18 +1,19 @@
 using CategoryTheory;
 
 using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Aliases;
+
+using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor;
+using FormulaEditor.Symbols;
 
 using Regression.Portable;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-using BaseTypes.Interfaces;
-using FormulaEditor.Symbols;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Aliases;
+using System;
 
 namespace DataPerformer.Formula.Regression
 
@@ -21,9 +22,11 @@ namespace DataPerformer.Formula.Regression
     /// Formula iterator for filter
     /// </summary>
     public class FormulaFilterIterator : FilterIterator, ICategoryObject, IPostSetArrow, 
-        IVariableDetector, IAlias
+        IVariableDetector, IAlias, ITreeCollection
     {
         #region Fields
+
+        Action update = null;
 
         event Action<IAlias, string> onChange;
 
@@ -40,21 +43,37 @@ namespace DataPerformer.Formula.Regression
 
         Dictionary<char, IMeasurement> measurements = new Dictionary<char, IMeasurement>();
 
+        FormulaMeasurement[] output = new FormulaMeasurement[1];
+
         /// <summary>
         /// Formula arguments
         /// </summary>
         private ElementaryObjectArgument arg = new ElementaryObjectArgument();
+
+        Func<object> parameter;
 
         /// <summary>
         /// Dictionary of acceptors
         /// </summary>
         private Dictionary<string, IOperationAcceptor> acceptors = new Dictionary<string, IOperationAcceptor>();
 
+        /// <summary>
+        /// Proxy
+        /// </summary>
+        private ITreeCollectionProxy proxy = null;
+
+        /// <summary>
+        /// Proxy factory
+        /// </summary>
+        ITreeCollectionProxyFactory proxyFactory = null;
+
         protected string formula = "";
 
         IAlias alias;
 
         IFormulaObjectCreator creator;
+
+        DataPerformerFormula dataPerformerFormula;
 
         #endregion
 
@@ -65,6 +84,8 @@ namespace DataPerformer.Formula.Regression
         /// </summary>
         public FormulaFilterIterator()
         {
+            proxyFactory = StaticExtensionDataPerformerFormula.CreatorFactory(this);
+            dataPerformerFormula = new (this);
             alias = this;
         }
 
@@ -149,7 +170,13 @@ namespace DataPerformer.Formula.Regression
 
         #endregion
 
+        #region ITreeCollection Members
 
+        ObjectFormulaTree[] ITreeCollection.Trees =>  FormulaMeasurement.GetTrees(output);
+
+        bool ITreeCollection.IsValid => proxy != null;
+
+        #endregion
 
         #region Overriden Members
 
@@ -172,7 +199,13 @@ namespace DataPerformer.Formula.Regression
                 {
                     arg[s[0]] = constants[s];
                 }
-                return (bool?)tree.Result;
+                update();
+                var p = parameter();
+                if (p == null)
+                {
+                    return null;
+                }
+                return (bool)p;
             }
         }
 
@@ -337,9 +370,25 @@ namespace DataPerformer.Formula.Regression
             IFormulaObjectCreator creator = VariableDetector.GetCreator(this);
             f = f.FullTransform(null);
             tree = ObjectFormulaTree.CreateTree(f, creator);
+            var aa = new AssociatedAddition(this, null);
+            var fm = FormulaMeasurement.Create(tree, 0, "", aa, this);
+            output[0] = fm;
+            IMeasurement m = fm;
+            parameter = m.Parameter;
             arg = new ElementaryObjectArgument();
             arg.Add(tree);
             this.variables = variables;
+            try
+            {
+                proxy = proxyFactory.CreateProxy(this, StaticExtensionFormulaEditor.CheckValue);
+                update = proxy.Update;
+                FormulaMeasurement.Set(output, proxy);
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+
         }
 
         void PostAlias()
@@ -355,11 +404,11 @@ namespace DataPerformer.Formula.Regression
 
         }
 
-        
 
         #endregion
 
         #endregion
+
 
     }
 }
