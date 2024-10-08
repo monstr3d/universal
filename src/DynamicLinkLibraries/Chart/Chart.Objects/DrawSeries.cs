@@ -264,6 +264,15 @@ namespace Chart.Objects
             points.Clear();
             while (true)
             {
+                iterate:
+                foreach (IIterator i in it)
+                {
+                    if (!i.Next())
+                    {
+                        StaticExtensionChartInterfaces.GetSize(this, size);
+                        return;
+                    }
+                }
                 consumer.Reset();
                 consumer.UpdateChildrenData();
                 for (int i = 0; i < measures.Count; i++)
@@ -277,17 +286,8 @@ namespace Chart.Objects
                 }
                 IPoint p = factory.CreatePoint(objs);
                 points.Add(p);
-            iterate:
-                foreach (IIterator i in it)
-                {
-                    if (!i.Next())
-                    {
-                        StaticExtensionChartInterfaces.GetSize(this, size);
-                        return;
-                    }
-                }
 
-            }
+             }
         }
 
         #endregion

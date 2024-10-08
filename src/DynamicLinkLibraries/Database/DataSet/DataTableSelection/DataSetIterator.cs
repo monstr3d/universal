@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
@@ -10,11 +9,9 @@ using BaseTypes;
 
 using Diagram.UI;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 
 using DataSetService;
-
 
 namespace DataTableSelection
 {
@@ -217,7 +214,7 @@ namespace DataTableSelection
         void Reset()
         {
             current = -1;
- //           rowreference[0] = table.Rows[0];
+           //  !!! DELETE !!! rowreference[0] = table.Rows[0];
         }
 
         /// <summary>
