@@ -2,6 +2,7 @@ using System;
 using System.Runtime.Serialization;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 
 using Diagram.UI;
@@ -9,8 +10,8 @@ using Diagram.UI;
 using BaseTypes.Interfaces;
 
 using SerializationInterface;
+
 using FormulaEditor;
-using System.Linq;
 
 namespace DataPerformer
 {
@@ -153,8 +154,10 @@ namespace DataPerformer
             }
             if (formulae != null)
             {
-
-                formulaString = formulae.ToStringEnumerable().ToArray();
+                if (formulae.Length > 0)
+                {
+                    formulaString = formulae.ToStringEnumerable().ToArray();
+                }
             }
             info.AddValue("Formulas", formulaString);
             info.AddValue("Arguments", args);

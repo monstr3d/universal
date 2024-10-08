@@ -147,10 +147,7 @@ namespace Diagram.UI.Labels
             {
                 ex.ShowError(10);
             }
-
 		}
-
-       
 
         /// <summary>
         /// The on mouse up event handler

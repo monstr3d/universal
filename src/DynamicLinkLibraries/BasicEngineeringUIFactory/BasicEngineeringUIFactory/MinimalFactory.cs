@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Windows.Forms;
+using System.Collections;
+using System.Drawing;
 
+using System.Windows.Forms;
 
 using CategoryTheory;
 
@@ -17,8 +15,6 @@ using Diagram.UI.Interfaces;
 using DataPerformer;
 using DataPerformer.UI;
 using DataPerformer.UI.Forms;
-using System.Collections;
-using System.Drawing;
 using DataPerformer.Helpers;
 
 namespace BasicEngineering.UI.Factory

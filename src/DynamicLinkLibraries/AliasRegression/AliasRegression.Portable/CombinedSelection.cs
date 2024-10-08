@@ -45,6 +45,7 @@ namespace Regression.Portable
         /// </summary>
         public CombinedSelection()
         {
+
         }
 
         #endregion
