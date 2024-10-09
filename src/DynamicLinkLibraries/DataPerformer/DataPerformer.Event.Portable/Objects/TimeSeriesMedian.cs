@@ -99,7 +99,7 @@ namespace DataPerformer.Event.Portable.Objects
                 return;
             }
             CreateMesurements();
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)

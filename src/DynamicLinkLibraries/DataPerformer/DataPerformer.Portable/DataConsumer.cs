@@ -19,23 +19,23 @@ namespace DataPerformer.Portable
     public class DataConsumer : CategoryObject,  IDataConsumer,
         IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
     {
- 
+
         #region Fields
 
         /// <summary>
         /// Add event 
         /// </summary>
-        protected event Action<IEvent> onAddEvent = (IEvent e) => { };
+        protected event Action<IEvent> onAddEvent;
 
         /// <summary>
         /// Remove event
         /// </summary>
-        protected event Action<IEvent> onRemoveEvent = (IEvent e) => { };
+        protected event Action<IEvent> onRemoveEvent;
 
         /// <summary>
         /// Change input
         /// </summary>
-        protected event Action onChangeInput = () => { };
+        protected event Action onChangeInput;
 
         /// <summary>
         /// Interrupted excfeption
@@ -123,13 +123,13 @@ namespace DataPerformer.Portable
         void IEventHandler.Add(IEvent ev)
         {
             events.Add(ev);
-            onAddEvent(ev);
+            onAddEvent?.Invoke(ev);
         }
 
         void IEventHandler.Remove(IEvent ev)
         {
             events.Remove(ev);
-            onRemoveEvent(ev);
+            onRemoveEvent?.Invoke(ev);
         }
 
         IEnumerable<IEvent> IEventHandler.Events
@@ -289,7 +289,7 @@ namespace DataPerformer.Portable
             }
             measurementsData.Add(measurements);
             measurementsData.GetDependent(list, dependent);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         /// <summary>
@@ -300,7 +300,7 @@ namespace DataPerformer.Portable
         {
             measurementsData.Remove(arrow);
             measurementsData.GetDependent(list, dependent);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         /// <summary>

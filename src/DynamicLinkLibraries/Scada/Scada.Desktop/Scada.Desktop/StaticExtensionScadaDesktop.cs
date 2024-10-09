@@ -154,7 +154,7 @@ namespace Scada.Desktop
             {
                 return null;
             }
-            IScadaInterface scada = str.Substring(0, k).ToExistedScada();
+            var scada = str.Substring(0, k).ToExistedScada();
             if (scada == null)
             {
                 return null;
@@ -291,7 +291,10 @@ namespace Scada.Desktop
                 if (type.HasAttribute<InitAssemblyAttribute>())
                 {
                     MethodInfo mi = type.GetMethod("Init", inputTypes);
-                    mi.Invoke(null, new object[1]);
+                    if (mi != null)
+                    {
+                        mi.Invoke(null, new object[1]);
+                    }
                 }
                 action?.Invoke(type);
             }
@@ -351,8 +354,8 @@ namespace Scada.Desktop
             var temp1 = StaticExtensionEventInterfaces.TimerFactory;
             StaticExtensionEventInterfaces.TimerEventFactory = timerEventFactory;
             StaticExtensionEventInterfaces.TimerFactory = timerEvent;
-            IDesktop desktop = desktopD[name].GetValue(null) as IDesktop;
-            IScadaInterface scada =
+            var desktop = desktopD[name].GetValue(null) as IDesktop;
+            var scada =
                 desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, 
                 realtimeStep, timeMeasurementProviderFactory);
             StaticExtensionEventInterfaces.TimerEventFactory = temp;
@@ -377,7 +380,6 @@ namespace Scada.Desktop
         /// </summary>
         static public IScadaFactory ScadaFactory
         { get; set; }
-
 
         /// <summary>
         /// Sets base factory
@@ -447,7 +449,7 @@ namespace Scada.Desktop
             {
                 return null;
             }
-            IScadaInterface scada = 
+            var scada = 
                 desktop.ScadaFromDesktop(dataConsumer, timeType, 
                 isAbsoluteTime, realtimeStep, timeMeasurementProviderFactory);
             StaticExtensionEventInterfaces.TimerEventFactory = temp;

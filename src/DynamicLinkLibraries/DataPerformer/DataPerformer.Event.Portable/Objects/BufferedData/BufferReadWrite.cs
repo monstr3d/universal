@@ -61,16 +61,16 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         /// <summary>
         /// Add event
         /// </summary>
-        protected event Action<IEvent> onAddEvent = (IEvent e) => { };
+        protected event Action<IEvent> onAddEvent;
 
         /// <summary>
         /// Remove event
         /// </summary>
-        protected event Action<IEvent> onRemoveEvent = (IEvent e) => { };
+        protected event Action<IEvent> onRemoveEvent;
 
-        List<IMeasurement> measurements = new List<IMeasurement>();
+        List<IMeasurement> measurements = new ();
 
-        protected List<IEvent> events = new List<IEvent>();
+        protected List<IEvent> events = new ();
 
         Dictionary<string, object> current = null;
 
@@ -151,13 +151,13 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         void IDataConsumer.Add(IMeasurements measurements)
         {
             external.Add(measurements);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)
         {
             external.Remove(measurements);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.Reset()
@@ -246,13 +246,13 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         void IEventHandler.Add(IEvent ev)
         {
             events.Add(ev);
-            onAddEvent(ev);
+            onAddEvent?.Invoke(ev);
         }
 
         void IEventHandler.Remove(IEvent ev)
         {
             events.Remove(ev);
-            onRemoveEvent(ev);
+            onRemoveEvent?.Invoke(ev);
         }
 
         IEnumerable<IEvent> IEventHandler.Events

@@ -29,7 +29,7 @@ namespace SoundService
 
         bool isUpdated = false;
 
-        private event Action onChangeInput = () => { };
+        private event Action onChangeInput;
 
         #endregion
 
@@ -59,13 +59,13 @@ namespace SoundService
         void IDataConsumer.Add(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.UpdateChildrenData()

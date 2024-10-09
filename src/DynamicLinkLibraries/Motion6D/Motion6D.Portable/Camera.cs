@@ -50,12 +50,12 @@ namespace Motion6D.Portable
         /// <summary>
         /// Add event 
         /// </summary>
-        event Action<IEvent> onAddEvent = (IEvent e) => { };
+        event Action<IEvent> onAddEvent;
 
         /// <summary>
         /// Remove event
         /// </summary>
-        event Action<IEvent> onRemoveEvent = (IEvent e) => { };
+        event Action<IEvent> onRemoveEvent;
 
         /// <summary>
         /// Events
@@ -158,13 +158,13 @@ namespace Motion6D.Portable
         void IEventHandler.Add(IEvent ev)
         {
             events.Add(ev);
-            onAddEvent(ev);
+            onAddEvent?.Invoke(ev);
         }
 
         void IEventHandler.Remove(IEvent ev)
         {
             events.Remove(ev);
-            onRemoveEvent(ev);
+            onRemoveEvent?.Invoke(ev);
         }
 
         IEnumerable<IEvent> IEventHandler.Events

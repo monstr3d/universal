@@ -24,7 +24,7 @@ namespace Motion6D.Portable
         /// <summary>
         /// Change input event
         /// </summary>
-        private event Action onChangeInput = () => { };
+        private event Action onChangeInput;
 
         /// <summary>
         /// Associated object
@@ -119,13 +119,13 @@ namespace Motion6D.Portable
         void IDataConsumer.Add(IMeasurements measurements)
         {
             measurementsData.Add(measurements);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)
         {
             measurementsData.Remove(measurements);
-            onChangeInput();
+            onChangeInput?.Invoke();
         }
 
         void IDataConsumer.UpdateChildrenData()
