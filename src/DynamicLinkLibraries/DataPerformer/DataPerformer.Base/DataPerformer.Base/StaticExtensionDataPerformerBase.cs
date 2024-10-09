@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using CategoryTheory;
 
@@ -11,13 +8,11 @@ using MathGraph;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
-using Diagram.UI.Aliases;
 
 using BaseTypes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using DataPerformer.Portable.DifferentialEquationProcessors;
 using AssemblyService.Attributes;
 
 namespace DataPerformer
@@ -34,11 +29,6 @@ namespace DataPerformer
 
         static private readonly string illegal = "Illegal sequence of time providers";
 
-
-        /// <summary>
-        /// First
-        /// </summary>
-        static bool first = true;
 
         #endregion
 
@@ -100,12 +90,7 @@ namespace DataPerformer
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {
-            if (!first)
-            {
-                return;
-            }
-            first = false;
-            new Binder();
+        
         }
 
         /// <summary>

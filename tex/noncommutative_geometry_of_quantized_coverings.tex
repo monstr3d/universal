@@ -8069,10 +8069,10 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 	A \cong  C_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)
 	\ee
 	where $A_x \cong \K\left(\H \right)$ for all $x \in \sX$. If $p: \widetilde \sX \to \sX$ is a covering then  
-	\be
+	\be\label{top_tacs_eqn}
 	A_0\left(\widetilde\sX \right) \stackrel{\text{def}}{=} C_0\left(\lift_p\left[C_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)\right]\right)
 	\ee
-	$A_0\left(\widetilde\sX \right) \stackrel{\text{def}}{=} C_0\left({\widetilde\sX},  \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF}\right)$ is a  $C^*$-algebra such that $\widetilde{ \sX}$ is the spectrum of   $A_0\left(\widetilde\sX \right)$.
+	 is a  $C^*$-algebra such that $\widetilde{ \sX}$ is the spectrum of   $A_0\left(\widetilde\sX \right)$.
 	If $\widetilde a \in A_0\left(\widetilde\sX \right)$) is represented by the family $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \widetilde\sX}$  then one has
 	\be
 	\begin{split}
@@ -8084,6 +8084,49 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 	From \eqref{top_cb_defna_eqn} it turns out there is the injective $*$-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
 !!! REPLACE LEMMA !!!
+\paragraph{title}
+\begin{definition}\label{top_lift_desc_defn!} !!!
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ (cf. Definition \ref{top_support_defn}) and $\widetilde{a}'= \lift_p\left( a\right)$ then 
+	the family 
+	\be\label{comm_lift_desc_eqn}
+	\widetilde{a}_{\widetilde{x}}=\left\{\begin{array}{c l}
+		\widetilde{a}'_{\widetilde{x}}=	c^{-1}_{\widetilde x}\left( {a}_{p\left( \widetilde{x} \right) }\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
+		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
+	\end{array}\right. \quad c_{\widetilde x}\text{ is given by }\eqref{top_ct_iso_eqn}
+	\ee 
+	is said to be the $p$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $a$. Otherwise we say that $a$ is the $p$-\textit{descent} of $ \widetilde{a}$. We write
+	\be\label{top_lift_desc_eqn}
+	\begin{split}
+		\widetilde{a}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(a \right)  \text{ or simply } \widetilde{a}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(a \right), \\
+		a \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{a}  \right)  \text{ or simply } a \stackrel{\text{def}}{=} \desc \left(\widetilde{a}  \right).
+	\end{split}
+	\ee
+	If $\widetilde{\sV}$ is the closure of $\widetilde{\sU}$ then we define  the \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}   of $a$ by the following way
+	\be\label{top_lift_desc_closed_eqn}
+	\begin{split}
+		\lift^p_{\widetilde{\sV}}\left(a \right)  \bydef \lift^p_{\widetilde{\sU}}\left(a \right).
+	\end{split}
+	\ee
+	
+\end{definition}
+\
+\paragraph{title}
+\begin{lemma}
+Let $A$ be a given by the equation \eqref{top_acs_eqn} $C^*$-algebra with Hausdorff spectrum, and let $p: \widetilde \sX \to \sX$ be a transitive covering  with residually finite covering group  $G\left( \left. \widetilde\sX\right| \sX\right)$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn} and \ref{residually_finite_defn}). Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. If $\sU \bydef p\left(\widetilde \sU \right)$ and $a \in  A_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)$ is such that $\supp a \subset \sU$ then one has:
+\begin{enumerate}
+	\item[(i)] a series
+			$$
+\bt\text{-}	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a	$$
+	is convergent with respect to  to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( A_0\left(\widetilde\sX\right)\right)$ (cf. equation \eqref{top_tacs_eqn}),
+	\item[(ii)] the sum of the series equals to  $\lift_p\circ \desc_p\left(\widetilde a \right)$ (cf. Definition \ref{top_lift_desc_defn}).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+If $\eps >  0$ and $\widetilde b \in A_0\left(\widetilde\sX\right)$ then there is $\widetilde b' \in K\left(  A_0\left(\widetilde\sX\right)\right)$ such that 
+$$
+\left\|\widetilde b'- \widetilde b \right\| < \frac{\eps}{2\left\|\widetilde a\right\| }
+$$
+\end{proof}
 \begin{exercise}\label{comm_lift_desc_sum_exer}  
 	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
 	\begin{enumerate}
@@ -8092,7 +8135,7 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 		\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a  = \lift_p\circ \desc_p\left(\widetilde a \right).
 		$$
 		is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( C_0\left(\widetilde\sX\right)\right)$.
-		\item 	If $\widetilde f\in C_0\left(\widetilde\sX\right)_+$ a positive element is such that $\supp  \widetilde f\subset \widetilde \sU$ then one has
+		\item  NOT $C_0$ !!!	If $\widetilde f\in C_0\left(\widetilde\sX\right)_+$ a positive element is such that $\supp  \widetilde f\subset \widetilde \sU$ then one has
 		\be\label{top_desc_fin_eqn}
 		\widetilde f= \sqrt{ \widetilde f}\sqrt{ \desc_p\left( \widetilde f\right) }.
 		\ee

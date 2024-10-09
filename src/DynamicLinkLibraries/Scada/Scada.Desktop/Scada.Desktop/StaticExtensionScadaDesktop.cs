@@ -291,7 +291,7 @@ namespace Scada.Desktop
                 if (type.HasAttribute<InitAssemblyAttribute>())
                 {
                     MethodInfo mi = type.GetMethod("Init", inputTypes);
-                    mi.Invoke(null, null);
+                    mi.Invoke(null, new object[1]);
                 }
                 action?.Invoke(type);
             }

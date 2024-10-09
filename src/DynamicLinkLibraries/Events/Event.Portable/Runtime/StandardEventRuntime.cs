@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 
 using CategoryTheory;
 
@@ -13,10 +8,10 @@ using Diagram.UI.Interfaces;
 using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
 using Event.Portable.Interfaces;
-using DataPerformer.Portable.Interfaces;
 
 namespace Event.Portable.Runtime
 {
@@ -27,16 +22,9 @@ namespace Event.Portable.Runtime
     {
         #region Fields
 
-        /// <summary>
-        /// Stop event
-        /// </summary>
-     //   AutoResetEvent ev = null;
-
         IDisposable eventBackup;
 
         IDisposable timeBackup;
-
-       
 
         /// <summary>
         /// Singleton

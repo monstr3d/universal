@@ -110,7 +110,14 @@ namespace Event.Windows.Forms
 
         void IDisposable.Dispose()
         {
-            timer.Dispose();
+            try
+            {
+                timer.Dispose();
+            }
+            catch
+            {
+
+            }
         }
 
         #endregion
