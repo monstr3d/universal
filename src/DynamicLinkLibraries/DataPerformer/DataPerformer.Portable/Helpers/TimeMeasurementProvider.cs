@@ -1,7 +1,4 @@
-﻿using System;
-
-
-using DataPerformer.Interfaces;
+﻿using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 namespace DataPerformer.Portable.Helpers

@@ -495,11 +495,7 @@ namespace Diagram.UI
 
             internal Binder()
             {
-                if (first)
-                {
-                    first = false;
-                    this.Add();
-                }
+                this.Add();
             }
             readonly string[] types = new string[] { "DiagramUI", "Diagram.UI" };
             public override Type BindToType(string assemblyName, string typeName)

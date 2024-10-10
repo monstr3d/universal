@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Globalization;
 using System.Reflection;
 
@@ -192,6 +190,25 @@ namespace BaseTypes
                 return addition;
             }
             return action + addition;
+        }
+
+        /// <summary>
+        /// Trasforms a collection of actions to the single action
+        /// </summary>
+        /// <param name="actions">The collection of action</param>
+        /// <returns>The single</returns>
+        static public Action ToSingleAction(this IEnumerable<Action> actions)
+        {
+            Action action = null;
+            foreach (var act in actions)
+            {
+                if (act == null)
+                {
+                    continue;
+                }
+                action = (action == null) ? act : action + act;
+            }
+            return action;
         }
 
         /// <summary>

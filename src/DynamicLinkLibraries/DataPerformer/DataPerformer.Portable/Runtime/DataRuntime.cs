@@ -15,6 +15,7 @@ using DataPerformer.Portable;
 
 using Event.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
+using BaseTypes;
 
 namespace DataPerformer.Portable.Runtime
 {
@@ -614,7 +615,8 @@ namespace DataPerformer.Portable.Runtime
             Action<double, double, long> act = runtime.Step(processor, setTime,
                 StaticExtensionEventInterfaces.Realtime, null);
             long[] st = new long[] { 0 };
-            Action updList = update.TransformEnumerabe((u) => u.Update).ToSingleAction();
+            var cc = update.TransformEnumerabe((u) => u.Update);
+            var updList = cc.ToSingleAction();
             if (additionaAction != null)
             {
                 if (updList != null)

@@ -126,9 +126,9 @@ namespace Motion6D.Portable.Runtime
             {
                 acs = (ICategoryArrow a) => { return (a is RelativeMeasurementsLink); };
             }
-            List<ICategoryObject> comp = new List<ICategoryObject>();
+            List<ICategoryObject> comp = new ();
             (consumer as ICategoryObject).GetDependentObjects(cond, ac, acs, comp);
-            List<object> l = new List<object>();
+            List<object> l = new ();
             IEnumerable<ICategoryObject> ob = comp.ClearDoubleObjects();
             l.AddRange(ob);
             return new ComponentCollection(l, (consumer as ICategoryObject).GetRootDesktop());

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Xml.Linq;
 
 namespace CategoryTheory
@@ -59,25 +56,6 @@ namespace CategoryTheory
             {
                 yield return transform(s);
             }
-        }
-
-        /// <summary>
-        /// Trasforms a collection of actions to the single action
-        /// </summary>
-        /// <param name="actions">The collection of action</param>
-        /// <returns>The single</returns>
-        static public Action ToSingleAction(this IEnumerable<Action> actions)
-        {
-            Action action = null;
-            foreach (var act in actions)
-            {
-                if (act == null)
-                {
-                    continue;
-                }
-                action = (action == null) ? act : action + act;
-            }
-            return action;
         }
 
         /// <summary>
@@ -360,29 +338,6 @@ namespace CategoryTheory
                     yield return transformation(s);
                 }
             }
-        }
-
-        /// <summary>
-        /// Addition of actions
-        /// </summary>
-        /// <param name="act1">First action</param>
-        /// <param name="act2">Second action</param>
-        /// <returns>Sum of actions</returns>
-        static public Action Add(this Action act1, Action act2)
-        {
-            if (act1 != null)
-            {
-                if (act2 != null)
-                {
-                    return act1 + act2;
-                }
-                return act1;
-            }
-            if (act2 != null)
-            {
-                return act2;
-            }
-            return null;
         }
 
         /// <summary>

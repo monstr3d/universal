@@ -11,14 +11,11 @@ namespace SoundServce.NAudio
         static public void Init(InitAssemblyAttribute attr)
         {
 
-
-
         }
 
         static StaticExtensionSoundServiceNAudio()
         {
             new Factory();
-
         }
  
     }

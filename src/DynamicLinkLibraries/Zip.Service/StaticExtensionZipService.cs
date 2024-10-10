@@ -45,7 +45,6 @@ namespace Zip.Service
         static public void Init(InitAssemblyAttribute attr)
         {
         
-        
         }
 
         /// <summary>

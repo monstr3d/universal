@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CategoryTheory;
+
+using BaseTypes;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Interfaces;
