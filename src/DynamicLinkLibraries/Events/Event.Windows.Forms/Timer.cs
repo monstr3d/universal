@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Event.Interfaces;
 
@@ -25,6 +21,8 @@ namespace Event.Windows.Forms
         TimeSpan timeSpan = new TimeSpan();
 
         event Action onPrepare = () => { };
+
+        bool isDisposed = false;
 
         #endregion
 
@@ -110,6 +108,10 @@ namespace Event.Windows.Forms
 
         void IDisposable.Dispose()
         {
+            if (isDisposed)
+            {
+                return;
+            }
             try
             {
                 timer.Dispose();
@@ -118,6 +120,7 @@ namespace Event.Windows.Forms
             {
 
             }
+            isDisposed = true;
         }
 
         #endregion

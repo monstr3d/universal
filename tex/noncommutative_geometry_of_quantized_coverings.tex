@@ -6567,27 +6567,6 @@ then one has:
 \begin{remark}\label{top_fin_cov_rem}
 	We also use the alternative notation in which objects of $\mathfrak{FinCov}$-$\sX$ are covering spaces, i.e. a covering $\widetilde\sX \to \sX$ is replaced with the space $\widetilde\sX$.
 \end{remark}
-\begin{lemma}\label{top_compliant_covering_lem}
-	If $p_1:\widetilde\sX_1 \to \sX$, $p_2:\widetilde\sX_2 \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p': \widetilde\sX_1 \to  \widetilde\sX_2$, $p'': \widetilde\sX_1 \to  \widetilde\sX_2$ are morphisms of $\mathfrak{FinCov}$-$\sX$ then there is $g \in 	G\left(\left.\widetilde\sX_2~\right|\sX\right)$ such that
-	$$
-	p'' =  g \circ p'.
-	$$
-\end{lemma}
-\begin{proof}
-	The covering $p_2$ is transitive, so from $p' \circ p_2= p'' \circ p_2$ it turns out that
-	$$
-	\forall	\widetilde x_1\in \widetilde\sX_1\quad  \text{ there is the unique } g_{\widetilde x_1} \in G\left(\left.\widetilde\sX_2~\right|\sX\right)\quad p'\left( \widetilde x_1\right)= g_{\widetilde x_1} \circ p''\left(\widetilde x_1 \right).  
-	$$
-	There is the map
-	\bean
-	h: \widetilde\sX_1 \to G\left(\left.\widetilde\sX_2~\right|\sX\right);\\
-	\widetilde x_1\mapsto g_{\widetilde x_1} 
-	\eean
-	and since both $p'$ and $p''$ are local isomorphisms the map $h$ is continuous. However the space  $G\left(\left.\widetilde\sX_2~\right|\sX\right)$ of homeomorphisms is discrete and the space $\widetilde\sX_1$ is connected, hence the map $h$ is constant, i.e.
-	$$
-	\exists g \in G\left(\left.\widetilde\sX_2~\right|\sX\right) \quad \forall \widetilde x_1\in \widetilde\sX_1 \quad p''\left( \widetilde x_1\right) = g\circ p'\left( \widetilde x_1\right).
-	$$
-\end{proof} 
 \begin{empt}\label{top_cov_preord_empt}
 	One can define a pre-ordering (cf. Definition \ref{ord_defn}) on a family of  $\mathfrak{FinCov}$-$\sX$-objects (cf. Definition \ref{top_fin_cov_defn}) such that one has
 	$$
@@ -8084,51 +8063,102 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 	From \eqref{top_cb_defna_eqn} it turns out there is the injective $*$-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
 !!! REPLACE LEMMA !!!
-\paragraph{title}
-\begin{definition}\label{top_lift_desc_defn!} !!!
-	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ (cf. Definition \ref{top_support_defn}) and $\widetilde{a}'= \lift_p\left( a\right)$ then 
-	the family 
-	\be\label{comm_lift_desc_eqn}
-	\widetilde{a}_{\widetilde{x}}=\left\{\begin{array}{c l}
-		\widetilde{a}'_{\widetilde{x}}=	c^{-1}_{\widetilde x}\left( {a}_{p\left( \widetilde{x} \right) }\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
-		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
-	\end{array}\right. \quad c_{\widetilde x}\text{ is given by }\eqref{top_ct_iso_eqn}
-	\ee 
-	is said to be the $p$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $a$. Otherwise we say that $a$ is the $p$-\textit{descent} of $ \widetilde{a}$. We write
-	\be\label{top_lift_desc_eqn}
-	\begin{split}
-		\widetilde{a}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(a \right)  \text{ or simply } \widetilde{a}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(a \right), \\
-		a \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{a}  \right)  \text{ or simply } a \stackrel{\text{def}}{=} \desc \left(\widetilde{a}  \right).
-	\end{split}
-	\ee
-	If $\widetilde{\sV}$ is the closure of $\widetilde{\sU}$ then we define  the \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}   of $a$ by the following way
-	\be\label{top_lift_desc_closed_eqn}
-	\begin{split}
-		\lift^p_{\widetilde{\sV}}\left(a \right)  \bydef \lift^p_{\widetilde{\sU}}\left(a \right).
-	\end{split}
-	\ee
-	
-\end{definition}
-\
-\paragraph{title}
-\begin{lemma}
-Let $A$ be a given by the equation \eqref{top_acs_eqn} $C^*$-algebra with Hausdorff spectrum, and let $p: \widetilde \sX \to \sX$ be a transitive covering  with residually finite covering group  $G\left( \left. \widetilde\sX\right| \sX\right)$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn} and \ref{residually_finite_defn}). Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. If $\sU \bydef p\left(\widetilde \sU \right)$ and $a \in  A_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)$ is such that $\supp a \subset \sU$ then one has:
+
+\begin{lemma}\label{top_strong_lem}
+Let $A$ be a given by the equation \eqref{top_acs_eqn} $C^*$-algebra with Hausdorff spectrum, and let $p: \widetilde \sX \to \sX$ be a transitive covering  with residually finite covering group  $G\left( \left. \widetilde\sX\right| \sX\right)$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn} and \ref{residually_finite_defn}). Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. If $\sU \bydef p\left(\widetilde \sU \right)$ and $\widetilde a \in	A_0\left(\widetilde\sX \right) \stackrel{\mathrm{def}}{=} C_0\left(\lift_p\left[C_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)\right]\right)$ (cf. the equation \eqref{top_tacs_eqn}) is such that $\supp \widetilde a \subset \widetilde\sU$ then one has:
 \begin{enumerate}
-	\item[(i)] a series
-			$$
-\bt\text{-}	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a	$$
-	is convergent with respect to  to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( A_0\left(\widetilde\sX\right)\right)$ (cf. equation \eqref{top_tacs_eqn}),
-	\item[(ii)] the sum of the series equals to  $\lift_p\circ \desc_p\left(\widetilde a \right)$ (cf. Definition \ref{top_lift_desc_defn}).
+	\item[(i)] if $\pi_a : 	A_0\left(\widetilde\sX \right) \to B\left(\H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}t) then a series
+	\be\label{top_ser_st_eqn}
+s\text{-}	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }\pi_a\left( g\widetilde a	\right) 
+\ee
+	is convergent with respect to  to the strong topology  of  $B\left(\H_a \right)$ (cf. Definition \ref{strong_topology_defn}),
+	\item[(ii)] the sum of the series \eqref{top_ser_st_eqn} equals to  $\pi_a\left( \lift_p\circ \desc_p\left(\widetilde a \right)\right) $ (cf. Definition \ref{top_lift_desc_defn}).
 \end{enumerate}
 \end{lemma}
-\begin{proof}
-If $\eps >  0$ and $\widetilde b \in A_0\left(\widetilde\sX\right)$ then there is $\widetilde b' \in K\left(  A_0\left(\widetilde\sX\right)\right)$ such that 
+\begin{proof}(i)
+	From the Definition \ref{atomic_repr_defn} it follows that $\H_a$ is a norm completion of an algebraic direct sum
+	$
+\bigoplus_{\widetilde x\in\widetilde\sX}\H_{ \widetilde x}	
+	$
+	where $\H_{ \widetilde x}$ is a space of the irreducible representation $\rep_{  \widetilde{x }}: A_0\left(\widetilde{   \mathcal X} \right)\to B\left(\H_{ \widetilde x} \right)$. For any  $\widetilde x\in\widetilde\sX$ and for any finite subset  $G_0\subset G\left( \left. \widetilde\sX\right| \sX\right)$ it follows that
+\be\label{top_rep_sum_eqn}
+\sum_{	g \in {G}_0}\rep_{  \widetilde{x }}\left( 	g \widetilde a\right)=	\rep_{  \widetilde{x }}\left( \sum_{	g \in {G}_0}	g \widetilde a\right) = \begin{cases} 0 & \widetilde x \notin \bigcup _{	g \in {G}_0}	g\widetilde \sU\\
+\rep_{  \widetilde{x }}\left( g' \widetilde a\right) & \widetilde x \in \bigcup _{	g \in {G}_0}g\widetilde \sU \quad \widetilde x \in g'\widetilde \sU
+	\end{cases}
+\ee
+	From the above equation it turns out that for all $\widetilde x \in \widetilde{    \sX }$ the series $\rep_{  \widetilde{x }}\left( \sum_{	g \in {G}}	g \widetilde a\right)$ is convergent with respect to the strong topology of $B\left( \H_{ \widetilde x}\right)$ and
+\be\label{top_reps_sum_eqn}
+s\text{-}\sum_{	g \in  G\left( \left. \widetilde\sX\right| \sX\right)}\rep_{  \widetilde{x }}\left( 	g \widetilde a\right) = \begin{cases} 0 & \widetilde x \notin \bigcup _{	g \in G\left( \left. \widetilde\sX\right| \sX\right)}	g\widetilde \sU\\
+	\rep_{  \widetilde{x }}\left( g' \widetilde a\right) & \widetilde x \in \bigcup _{	g \in G\left( \left. \widetilde\sX\right| \sX\right)}g\widetilde \sU \quad \widetilde x \in g'\widetilde \sU
+\end{cases}
+\ee
+		 From the Lemma \ref{sum_hilb_rep_lem} it follows that the series \eqref{top_ser_st_eqn} with respect to  to the strong topology  of  $B\left(\H_a \right)$.
+\\	
+(ii) From the equations \eqref{comm_lift_desc_eqn} and \eqref{top_reps_sum_eqn} it follows that
 $$
-\left\|\widetilde b'- \widetilde b \right\| < \frac{\eps}{2\left\|\widetilde a\right\| }
+\forall \widetilde x \in \widetilde\sX \quad s\text{-}\sum_{	g \in  G\left( \left. \widetilde\sX\right| \sX\right)}\rep_{  \widetilde{x }}\left( 	g \widetilde a\right) = \rep_{  \widetilde{x }}\left(\lift_p\circ \desc_p\left(\widetilde a \right)\right)
+$$
+and taking into account the Definition \ref{atomic_repr_defn} one has
+$$
+s\text{-}	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }\pi_a\left( g\widetilde a	\right)= \pi_a\left( \lift_p\circ \desc_p\left(\widetilde a \right)\right).
 $$
 \end{proof}
+\begin{lemma}\label{top_strict_lem}
+	Let $A$ be a given by the equation \eqref{top_acs_eqn} $C^*$-algebra with Hausdorff spectrum, and let $p: \widetilde \sX \to \sX$ be a transitive covering  with residually finite covering group  $G\left( \left. \widetilde\sX\right| \sX\right)$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn} and \ref{residually_finite_defn}). Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. If $\sU \bydef p\left(\widetilde \sU \right)$ and $\widetilde a \in	A_0\left(\widetilde\sX \right) \stackrel{\mathrm{def}}{=} C_0\left(\lift_p\left[C_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)\right]\right)$ (cf. the equation \eqref{top_tacs_eqn}) is such that $\supp \widetilde a \subset \widetilde\sU$ then one has:
+	\begin{enumerate}
+		\item[(i)]  a series
+		\be\label{top_ser_bt_eqn}
+		\bt\text{-}	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) } g\widetilde a
+		\ee
+		is convergent with respect to  to the strict topology  of  $M\left(A_0\left(\widetilde\sX \right)  \right)$ (cf. Definition \ref{strict_topology_defn}),
+		\item[(ii)] the sum of the series \eqref{top_ser_bt_eqn} equals to  $ \lift_p\circ \desc_p\left(\widetilde a \right)$ (cf. Definition \ref{top_lift_desc_defn}).
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	Suppose that $\widetilde a$ is positive.
+If $\eps >  0$ and $\widetilde b \in A_0\left(\widetilde\sX\right)$ then there is an element  $\widetilde b' \in K\left(  A_0\left(\widetilde\sX\right)\right)$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_eqn}) such that 
+$$
+\left\|\widetilde b'- \widetilde b \right\| < \frac{\eps}{2\left\|\lift_p\circ \desc_p\left(\widetilde a \right)\right\| }.
+$$
+Similarly to the equation \eqref{peder_c0_eqn} one can proof that the set $\supp \widetilde b'$ is compact (cf.  the Lemma \ref{blowing_pedersen_compact_lem} below).
+Form the hypothesis of this lemma one has
+$$
+\bigcup_{g \in  G\left( \left. \widetilde\sX\right| \sX\right)} g \widetilde \sU=\bigsqcup_{g \in  G\left( \left. \widetilde\sX\right| \sX\right)} g \widetilde \sU
+$$
+If
+$$
+G_0\bydef \left\{\left. g \in  G\left( \left. \widetilde\sX\right| \sX\right)\right| g \widetilde \sU\cap \supp \widetilde b' \neq \emptyset\right\}
+$$
+then
+\be\label{top_sq_eqn}
+\bigsqcup_{g \in G_0} \left(  g \widetilde \sU\cap \supp \widetilde b'\right) \subset  \supp \widetilde b'
+\ee 
+If $G_0$ is not finite then from \eqref{top_sq_eqn} it follows that the compact set $\supp \widetilde b'$ contains an open subset having infinitely many quasi-components (cf. Definition \ref{top_quasi_component_defn}). It is impossible so the set $G_0$ is finite. If $G\subset G\left( \left. \widetilde\sX\right| \sX\right)$ is a finite set, such that $G_0 \subset G$ then one has
+$$
+\sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b'= \sum_{	g \in {G}_0} \left( g\widetilde a \right) \widetilde b'= \lift_p\circ \desc_p\left(\widetilde a \right)\widetilde b',
+$$
+so one has
+\bean
+\left\| \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b- \lift_p\circ \desc_p\left(\widetilde a \right)\widetilde b \right\| \le\\\le \left\| \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b- \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b' \right\|
++  \left\|  \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b'-\lift_p\circ \desc_p\left(\widetilde a \right)\widetilde b \right\|\le\\\le\left\|\lift_p\circ \desc_p\left(\widetilde a \right)\right\|\left\|\widetilde b'- \widetilde b \right\|+ \left\|\lift_p\circ \desc_p\left(\widetilde a \right)\right\|\left\|\widetilde b'- \widetilde b \right\|< \eps.
+\eean
+From the above equation it turns out that if $\left\{G \subset  G\left( \left. \widetilde\sX\right| \sX\right)\right\}$ is the directed set of finite subsets of $G\left( \left. \widetilde\sX\right| \sX\right)$
+$$
+\lim_{ G \subset  G\left( \left. \widetilde\sX\right| \sX\right)} \left\| \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b- \lift_p\circ \desc_p\left(\widetilde a \right)\widetilde b \right\|= 0.
+$$
+Similarly one has
+$$
+\lim_{ G \subset  G\left( \left. \widetilde\sX\right| \sX\right)} \left\| \sum_{	g \in {G}} \widetilde b\left( g\widetilde a \right) - \widetilde b\lift_p\circ \desc_p\left(\widetilde a \right) \right\|= 0,
+$$
+it follows that if $\widetilde a$ positive then
+\be\label{top_b_sum_eqn}
+\bt\text{-}	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) } g\widetilde a= \lift_p\circ \desc_p\left(\widetilde a \right).
+\ee
+The general case of \eqref{top_b_sum_eqn} can be obtained from the decomposition \eqref{four_decompositon_eqn}.
+\end{proof}
+
 \begin{exercise}\label{comm_lift_desc_sum_exer}  
-	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
+!!! CHECK !!!	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
 	\begin{enumerate}
 		\item The series
 		$$
@@ -12524,16 +12554,76 @@ So the image $	_{\widetilde \sU}\lift^q\left( _\sU A\right)$ is dense in $_{\wid
 	\begin{definition}
 		LIFT DEFINIION
 	\end{definition}
+\subsection{Induced representations}
+
+\paragraph{}
+
+	Under the hypotheses \ref{blowing_lift_empt} let  $\mathscr L^2\left(\widetilde \sY \right)_A$ be the $\widetilde \sY$-$A$-module (cf. Definition \ref{blowing_lift_hm_defn}). If $\rho : A \to B\left(\H \right)$  there is a  given by \eqref{induced_representation_eqn} representation
+	\be\label{blowing_induced_eqn}
+		\widetilde{\rho}\bydef\mathscr L^2\left(\widetilde \sY \right)_A\text{-}\Ind^A_{{A}_0\left(\widetilde\sY \right) }\rho: A_0\left(\widetilde\sY \right)\to B\left(\widetilde{\H} \right)
+		\ee
+		is given by \eqref{induced_representation_eqn}, i.e. $\widetilde{\rho}$
+		is the induced representation (cf. Definition \ref{induced_representation_defn}). 
+\begin{lemma}\label{blowing_induced_representation_lem}
+	If  $A_b\left(q \right) :A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ is $q$-lift (cf. Definition \ref{blowing_lift_defn}  ) and $\rho : A\to B\left( \H\right)$ is a faithful, nondegenerate  representation (cf. Definitions  \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{blowing_induced_eqn} induced representation $\widetilde{\rho}: A_0\left(\widetilde\sY \right)\to B\left(\widetilde{\H} \right)$ if faithful and nondegenerate !!! PROVE NONDEGENERATE !!!.
+\end{lemma}
+\begin{proof}
+If $\widetilde{\rho}$ is  faithful if and only if for any positive element $\widetilde a \in K\left( A_0\left(\widetilde\sY \right)\right)_+$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) of  $A_0\left(\widetilde\sY \right)$ one has $\widetilde{\rho}\left( \widetilde{a}\right) \neq 0$. From the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \widetilde a$ is compact. If $\sum_{j = 1}^n \widetilde f_j$ is a covering sum for $\supp \widetilde a$   {subordinated to} $q$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) then one has
+$$
+\widetilde a = \sum_{\substack{j = 1\\k=1}}^n \widetilde f_j \widetilde a\widetilde f_k.
+$$
+The sum is not zero if and only is there is $j \in \left\{1,..., n\right\}$ such that $\widetilde f_j \widetilde a\widetilde f_j\neq 0$. There is and open subset $\widetilde\sU$ homeomorphically mapped onto $q\left(\widetilde\sU \right)$ such that $\supp  \widetilde f_j \subset \widetilde \sU$. If $\left\{\widetilde u_\a\right\}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$ (cf. Definition \ref{approximate_unit_defn}) then there is $ \widetilde u\in \left\{\widetilde u_\a\right\}$ such that $\widetilde u \widetilde f_j \widetilde a\widetilde f_j \widetilde u\neq 0$. If $a \bydef \desc_q\left( \widetilde f_j\widetilde a{\widetilde f_j}\right) \in A$ where $\desc_q$ means $q$-descent (cf. Definition \ref{blowing_descent_defn}) then $\widetilde u \widetilde f_j \widetilde a\widetilde f_j \widetilde u=\widetilde ua \widetilde u$. Moreover from the Lemma \ref{blowing_descent_lem} it follows that
+\bean
+\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g\left(  \widetilde ua \widetilde u\right) = 	\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\quad \Rightarrow \\ \Rightarrow \desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)>   \widetilde ua \widetilde u\quad \Rightarrow\quad \desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)> 0\quad\Rightarrow\\ \Rightarrow \exists \xi \in \H \quad\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi \neq 0.
+\eean 
+On the other hand there is an inclusion $\phi : C_c\left( \widetilde \sY\right)\otimes_{C_0\left( \sY\right) } \H \hookto   \widetilde \H$. If $\xi \in \H$ is such that  $\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi > 0$ and $\widetilde \xi \bydef \phi \left({\widetilde u} \otimes \xi \right)$ then from  \eqref{hilb_prod_eqn} it follows that
+\bean
+\left(\left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi, \left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi \right)_{\widetilde \H}>\left( \desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi,\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi\right)>  0,
+\eean
+From $\widetilde{a} \ge \left(\widetilde f_j \widetilde a\widetilde f_j \right)$ it follows that
+$$
+\left( \widetilde a \widetilde \xi, \widetilde a \widetilde \xi \right)_{\widetilde \H}\ge \left(\left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi, \left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi \right)_{\widetilde \H}> 0,
+$$
+so $ \widetilde a \widetilde \xi \neq 0$ and $\widetilde{\rho}\left( \widetilde{a}\right) \neq 0$.
+
+
+Let us prove that the representation $\widetilde \rho$ is nondegenerate. If $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes \xi_j\in C_c\left( \widetilde \sY\right)\otimes_{C_0\left( \sY\right) } \H$ then 
+$$
+\widetilde \xi \neq 0 \quad \Leftrightarrow \quad \left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}} =\sum_{\substack{j=1\\k=1}}^{n}\left(\xi_j, \left\langle \widetilde f_j, \widetilde f_k \right\rangle_A \xi_k  \right)_\H > 0.
+$$
+The union $\widetilde\sZ \bydef \bigcup_{j=1} \supp \widetilde f_j$ is compact and if $\widetilde f$ is a covering sum of $\widetilde\sZ$ (cf. Definition \ref{top_covering_sum_defn}) then $\widetilde f \widetilde f_j = \widetilde f_j$ for any $j=1,..., n$. If $\left\{u_\a\right\}_{\a \in \mathscr A}\subset A$ is an approximate unit of $A$ then for all $\xi \in \H$ one has 
+$$
+\lim_{\a \in \mathscr A}u_\a \xi = \xi.
+$$
+So for any $j,k \in \left\{1,..., n\right\}$ there is $\a_{jk} \in \mathscr A$ such that
+\be\label{groupoid_inen2_eqn}
+\a \ge \a_{jk}\quad \Rightarrow\quad \left\|\left(\xi_j, \left\langle \widetilde f_j, \widetilde f_k \right\rangle_A \xi_k  \right)- \left(u_{\a}\xi_j, \left\langle \widetilde f_j, \widetilde f_k \right\rangle_A u_{\a} \xi_k  \right) \right\| < \frac{\left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}}}{n^2}
+\ee
+If $\a_0$ is such that $\a_0 \ge \a_{jk}$ for all  $j,k \in \left\{1,..., n\right\}$ and $\widetilde a \bydef \varphi'\left( \widetilde f\otimes u_{\a_0}\right)$ where $\psi^{\widetilde \sY}_A$ is given by \eqref{blowing_tensoar_eqn}. From \eqref{groupoid_inen2_eqn} and the triangulate identity it follows that
+$$
+\left| \left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}}- \left(\widetilde a\widetilde \xi , \widetilde a\widetilde \xi\right)_{\widetilde{\H}}\right| < \left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}}
+$$
+so 
+$$
+\left(\widetilde a\widetilde \xi , \widetilde a\widetilde \xi\right)_{\widetilde{\H}}> 0  \quad \Rightarrow\quad \widetilde a \widetilde \xi\neq 0.
+$$
+The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes \xi_j$ is dense in $\widetilde\H$ so for all $\widetilde\xi \in \widetilde\H$ there is $\widetilde a \in A_0\left(\widetilde\sY \right)$ such that $\widetilde a \widetilde\xi \neq 0$.
+
+
+
+\end{proof}	
+	
+\paragraph*{title}
 
 \begin{lemma}\label{blowing_descent_lem}
-
+	
 	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). If $G$ is a properly discontinuous group of homeomorphisms \ref{top_properly_disc_group_defn} of $\widetilde\sY$ with $\sY \cong \widetilde \sY/G$, and 
-		\be\label{blowing_com_eqn}
+	\be\label{blowing_com_eqn}
 	A_c\left(\widetilde\sY \right) \bydef \left\{\left.\widetilde a \in A_0\left(\widetilde\sY \right)\right|\supp \widetilde a \mathrm{~is ~compact}  \right\}
 	\ee
 	is the {algebra of compactly supported elements} (cf. Definition \ref{blowing_compact_supp_defn}) then for any $\widetilde a \in  A_c\left(\widetilde\sY \right)$ the series 
 	$$
-a  \bydef 	\bt\text{-} \sum_{	g \in {G}}\widetilde a
+	a  \bydef 	\bt\text{-} \sum_{	g \in {G}}\widetilde a
 	$$
 	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $a \in A_0\left(\sY \right)$ 
 \end{lemma}	
@@ -12542,58 +12632,58 @@ a  \bydef 	\bt\text{-} \sum_{	g \in {G}}\widetilde a
 	$
 	\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$ 
 	is   a $q$-{covering} (cf. Definition \ref{top_cov_defn})
-  then there is a covering sum $\widetilde f =\sum_{j=1}^n \widetilde{f}_j$ for  $\supp \widetilde{a}$ dominated by the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
-   
- \be\label{blowing_convt_eqn}
- \widetilde a =\widetilde a\pi_C\left(  \widetilde f\right)  = \sum_{j=1}^n \widetilde a\pi_C\left(  \widetilde f_j\right) 
- \ee 
- Suppose that $\supp \widetilde f_j \subset \widetilde \sU$ where $ \widetilde \sU \in \left\{\widetilde \sU_{\widetilde\a}\right\}$. Let   $\sU_{\a_j} \bydef q\left(\widetilde \sU \right) \in \left\{ \sU_{\a}\right\}$, and let
- both $A_{\sU_{\a_j}}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ are left ${\sU_{\a_j}}$- and $\widetilde \sU$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}).
- There a  given by the Lemma \ref{blowing_left_ideal_lem} isomorphism
-\bean
-\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}:  A_{\sU_{\a_j}}\to A_0\left(\widetilde\sY \right)_{\widetilde \sU}\\
+	then there is a covering sum $\widetilde f =\sum_{j=1}^n \widetilde{f}_j$ for  $\supp \widetilde{a}$ dominated by the family $\left\{\widetilde \sU_{\widetilde \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
+	
+	\be\label{blowing_convt_eqn}
+	\widetilde a =\widetilde a\pi_C\left(  \widetilde f\right)  = \sum_{j=1}^n \widetilde a\pi_C\left(  \widetilde f_j\right) 
+	\ee 
+	Suppose that $\supp \widetilde f_j \subset \widetilde \sU$ where $ \widetilde \sU \in \left\{\widetilde \sU_{\widetilde\a}\right\}$. Let   $\sU_{\a_j} \bydef q\left(\widetilde \sU \right) \in \left\{ \sU_{\a}\right\}$, and let
+	both $A_{\sU_{\a_j}}$ and $A_0\left(\widetilde\sY \right)_{\widetilde \sU}$ are left ${\sU_{\a_j}}$- and $\widetilde \sU$-ideals respectively (cf. Definition \ref{blowing_ideals_au_ua_defn}).
+	There a  given by the Lemma \ref{blowing_left_ideal_lem} isomorphism
+	\bean
+	\pi_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}:  A_{\sU_{\a_j}}\to A_0\left(\widetilde\sY \right)_{\widetilde \sU}\\
 	a \mapsto A_0\left(q \right)\left(   a \right) \widetilde s
-\eean
-of left $A$-modules. If $\widetilde a \in A_0\left(\widetilde\sY \right)$ then similarly to \eqref{blowing_convt_eqn} one has
- \be\label{blowing_convtt_eqn}
-\widetilde a =\pi_C\left(  \widetilde f\right) \widetilde a\pi_C\left(  \widetilde f\right)  =  \sum_{\substack{j=1\\k=1}}^n \widetilde  a_{kj}\quad \text{where}\quad  \widetilde  a_{kj} \bydef  \pi_C\left(  \widetilde f_k\right)\widetilde  a\pi_C\left(  \widetilde f_j\right) 
-\ee 
-If $a_{kj}\bydef \pi^{-1}_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}\left( \widetilde a_{kj}\right) \in A_{\sU_{\a_j}}$ then
-$$
- \widetilde a_{kj} = \widetilde \pi_C\left(\widetilde s_{\a_k}\right) A_b\left( q\right) \left(a_{jk} \right) \pi_C\left(\widetilde s_{\a_j}\right)
-$$
-If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then from the Lemma \ref{blowing_blowing_lem} and the Definition \ref{blowing_a_h_eqn} it follows that for any $\eps > 0$ there is $\widetilde \varphi_\eps \in C_c\left(\widetilde \sY \right)$ such that
-$$
-\left\|\widetilde b -  \widetilde \varphi_\eps \widetilde b \right\| < \frac{\eps}{2\left\|a_{kj} \right\|}
-$$
-Since both sets $\supp \widetilde s$ and $\supp \widetilde \varphi_\eps$ are compact the set
-$$
-G_0\bydef \left\{g \in G \left|\supp \widetilde s\cap \supp \widetilde \varphi_\eps \neq \emptyset \right.\right\}
-$$
-is finite. If follows that for any finite subset $G'\subset G$ one has
-$$
-G_0\subset G' \quad \Rightarrow \quad \sum_{g \in G_0} \left( g \widetilde a_{kj}\right) \widetilde \varphi_\eps\widetilde b= \sum_{g \in G'} \left( g \widetilde a_{kj}\right) \widetilde \varphi_\eps\widetilde b,
-$$
-it turns out that
-\bean
-G_0\subset G' \quad \Rightarrow \quad \left\|\sum_{g \in G'} \left( g  \widetilde a_{kj}\right) \widetilde b - A_b\left( q\right) \left(a_{jk} \right) \widetilde b\right\|\le \left\|A_b\left( q\right) \left(a_{jk} \right)  \widetilde \varphi_\eps \widetilde b  - A_b\left( q\right) \left(a_{jk} \right) \widetilde b\right\|+\\+ \left\|\sum_{g \in G'} \left( g \widetilde a_{jk}\right)\left( \widetilde \varphi_\eps  \widetilde b - \widetilde b\right) \right\|+\left\|\sum_{g \in G'} \left( g\widetilde a_{jk} \right) \widetilde \varphi_\eps \widetilde b - A_b\left( q\right) \left(a_{jk} \right) \widetilde \varphi_\eps \widetilde b\right\|< \\< \frac{\eps}{2\left\|a_{jk}  \right\|}\left\|a_{jk}\right\|+ \frac{\eps}{2\left\||a_{jk} \right\|}\left\||a_{jk} \right\|+ 0 = \eps.
-\eean
-So the series $\sum_{g \in G} \left( g A_b\left( q\right) \left(a_{jk} \right)\right) \widetilde b$ is $C^*$-norm convergent. Similarly one can prove that the series  $\sum_{g \in G} \widetilde b\left( g A_b\left( q\right) \left(a_{jk} \right)\right) $ is also $C^*$-norm convergent, so one has
-$$
-a^*a = \b\text{-}\sum_{g \in G} \widetilde b\left( g \widetilde a^*\widetilde a\right)
-$$
-where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$. 
+	\eean
+	of left $A$-modules. If $\widetilde a \in A_0\left(\widetilde\sY \right)$ then similarly to \eqref{blowing_convt_eqn} one has
+	\be\label{blowing_convtt_eqn}
+	\widetilde a =\pi_C\left(  \widetilde f\right) \widetilde a\pi_C\left(  \widetilde f\right)  =  \sum_{\substack{j=1\\k=1}}^n \widetilde  a_{kj}\quad \text{where}\quad  \widetilde  a_{kj} \bydef  \pi_C\left(  \widetilde f_k\right)\widetilde  a\pi_C\left(  \widetilde f_j\right) 
+	\ee 
+	If $a_{kj}\bydef \pi^{-1}_{A_0\left(\widetilde\sY \right)_{\widetilde \sU}}\left( \widetilde a_{kj}\right) \in A_{\sU_{\a_j}}$ then
+	$$
+	\widetilde a_{kj} = \widetilde \pi_C\left(\widetilde s_{\a_k}\right) A_b\left( q\right) \left(a_{jk} \right) \pi_C\left(\widetilde s_{\a_j}\right)
+	$$
+	If $\widetilde b \in A_0\left(\widetilde\sY \right)$ then from the Lemma \ref{blowing_blowing_lem} and the Definition \ref{blowing_a_h_eqn} it follows that for any $\eps > 0$ there is $\widetilde \varphi_\eps \in C_c\left(\widetilde \sY \right)$ such that
+	$$
+	\left\|\widetilde b -  \widetilde \varphi_\eps \widetilde b \right\| < \frac{\eps}{2\left\|a_{kj} \right\|}
+	$$
+	Since both sets $\supp \widetilde s$ and $\supp \widetilde \varphi_\eps$ are compact the set
+	$$
+	G_0\bydef \left\{g \in G \left|\supp \widetilde s\cap \supp \widetilde \varphi_\eps \neq \emptyset \right.\right\}
+	$$
+	is finite. If follows that for any finite subset $G'\subset G$ one has
+	$$
+	G_0\subset G' \quad \Rightarrow \quad \sum_{g \in G_0} \left( g \widetilde a_{kj}\right) \widetilde \varphi_\eps\widetilde b= \sum_{g \in G'} \left( g \widetilde a_{kj}\right) \widetilde \varphi_\eps\widetilde b,
+	$$
+	it turns out that
+	\bean
+	G_0\subset G' \quad \Rightarrow \quad \left\|\sum_{g \in G'} \left( g  \widetilde a_{kj}\right) \widetilde b - A_b\left( q\right) \left(a_{jk} \right) \widetilde b\right\|\le \left\|A_b\left( q\right) \left(a_{jk} \right)  \widetilde \varphi_\eps \widetilde b  - A_b\left( q\right) \left(a_{jk} \right) \widetilde b\right\|+\\+ \left\|\sum_{g \in G'} \left( g \widetilde a_{jk}\right)\left( \widetilde \varphi_\eps  \widetilde b - \widetilde b\right) \right\|+\left\|\sum_{g \in G'} \left( g\widetilde a_{jk} \right) \widetilde \varphi_\eps \widetilde b - A_b\left( q\right) \left(a_{jk} \right) \widetilde \varphi_\eps \widetilde b\right\|< \\< \frac{\eps}{2\left\|a_{jk}  \right\|}\left\|a_{jk}\right\|+ \frac{\eps}{2\left\||a_{jk} \right\|}\left\||a_{jk} \right\|+ 0 = \eps.
+	\eean
+	So the series $\sum_{g \in G} \left( g A_b\left( q\right) \left(a_{jk} \right)\right) \widetilde b$ is $C^*$-norm convergent. Similarly one can prove that the series  $\sum_{g \in G} \widetilde b\left( g A_b\left( q\right) \left(a_{jk} \right)\right) $ is also $C^*$-norm convergent, so one has
+	$$
+	a^*a = \b\text{-}\sum_{g \in G} \widetilde b\left( g \widetilde a^*\widetilde a\right)
+	$$
+	where the sum of the series implies the strict topology of $A_0\left(\widetilde\sY \right)$. 
 \end{proof}
 
 
 \begin{definition}\label{blowing_descent_compactly_supported_defn} 
-  A given by the Lemma \ref{blowing_descent_lem} $A$-$A$-bimodule homomorphism 
+	A given by the Lemma \ref{blowing_descent_lem} $A$-$A$-bimodule homomorphism 
 	\be\label{blowing_compactly_supported_descent_eqn}
 	\begin{split}
-\widetilde a\mapsto \bt\text{-} \sum_{	g \in {G}}\widetilde a
+		\widetilde a\mapsto \bt\text{-} \sum_{	g \in {G}}\widetilde a
 	\end{split} 
 	\ee
- is the \textit{compactly supported $q$-descent}.
+	is the \textit{compactly supported $q$-descent}.
 \end{definition}
 \begin{definition}\label{blowing_descent_defn}
 	If $\widetilde a \in A\left(\widetilde\sY \right)$ is such that $\supp \widetilde a$ is mapped homeomorphically onto $q\left( \supp \widetilde a\right)$ then we say that $\desc^c_q\left(\widetilde a\right)$ is  $q$-\textit{descent} of $\widetilde a$. We denote it by $\desc_q\left(\widetilde a\right)$. Moreover if $\widetilde \sU\subset \widetilde \sU$ is such that
@@ -12601,7 +12691,7 @@ where the sum of the series implies the strict topology of $A_0\left(\widetilde\
 		\item $\supp \widetilde a \subset \widetilde \sU$,
 		\item $\widetilde{\sU}$ is mapped homeomorphically onto $q\left(\widetilde\sU \right)$ 
 	\end{itemize}
- then we say that $\widetilde a$ is a $q$-$\widetilde{\sU}$-\textit{lift}. We write $\widetilde a = \lift^q_{\widetilde \sU}\left( a\right)$. Similarly to the Definition \ref{top_lift_desc_defn} we define a \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}.
+	then we say that $\widetilde a$ is a $q$-$\widetilde{\sU}$-\textit{lift}. We write $\widetilde a = \lift^q_{\widetilde \sU}\left( a\right)$. Similarly to the Definition \ref{top_lift_desc_defn} we define a \textit{closed}-$p$-$\widetilde{\sV}$-\textit{lift}.
 \end{definition}
 
 
@@ -12638,7 +12728,7 @@ where the sum of the series implies the strict topology of $A_0\left(\widetilde\
 	(cf. \ref{hilbert_module_norm_eqn})  we denote by $\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)$. 
 \end{definition}
 \begin{lemma}\label{blowing_hilb_iso_lem}
-If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then there is a natural isomorphism 
+	If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then there is a natural isomorphism 
 	\be\label{blowing_hilb_iso_eqn}
 	\mathscr{L}^2\left(A_0\left( \widetilde \sY\right) \right)\cong \mathscr L^2\left(\widetilde \sY \right)_A
 	\ee
@@ -12676,20 +12766,20 @@ If 	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (c
 	is a $q$-{lift} of $A$ (cf. Definition \ref{blowing_lift_defn}  ) then one has $A_b\left(q\right) \left(  A\right) \subset  A_0\left( \widetilde \sY\right)$. 
 \end{lemma}
 \begin{proof}
-According to   the Lemma \ref{blowing_lift_constr_lem}   it follows that $A_0\left( \widetilde \sY\right)$ is the $C^*$-norm completion of 
-$$
-\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)
-$$
-For any $\widetilde a \in 	\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ there is $\widetilde f\in C_c\left( \widetilde \sY\right)_+$ such that 
-$$
-\varphi_{\widetilde \sY}\left(\widetilde f \right) \widetilde a.
-$$
-on the other hand for any $a \in  K\left( A\right)$ there is $f \in C_c\left(\sY \right)_+$ such that $f a = a$.  Since a covering $q$ is finite-fold one has 	$A_b\left(q\right)\left( a\right) =  \varphi\left(C_c\left( q\right)\left(f \right) \otimes a \right)\in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\subset  A_0\left( \widetilde \sY\right)$ where $C_c\left( q\right)$ is given by \eqref{top_compact_cc_eqn}.
-Since $K\left(A \right)$ is dense in $A$  one has  
-$$
-\forall a \in A \quad A_b\left(q\right) \left( a\right) \subset  A_0\left( \widetilde \sY\right),
-$$
-or equivalently the equation \eqref{blowing_fin_eqn} holds.
+	According to   the Lemma \ref{blowing_lift_constr_lem}   it follows that $A_0\left( \widetilde \sY\right)$ is the $C^*$-norm completion of 
+	$$
+	\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)
+	$$
+	For any $\widetilde a \in 	\varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ there is $\widetilde f\in C_c\left( \widetilde \sY\right)_+$ such that 
+	$$
+	\varphi_{\widetilde \sY}\left(\widetilde f \right) \widetilde a.
+	$$
+	on the other hand for any $a \in  K\left( A\right)$ there is $f \in C_c\left(\sY \right)_+$ such that $f a = a$.  Since a covering $q$ is finite-fold one has 	$A_b\left(q\right)\left( a\right) =  \varphi\left(C_c\left( q\right)\left(f \right) \otimes a \right)\in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)\subset  A_0\left( \widetilde \sY\right)$ where $C_c\left( q\right)$ is given by \eqref{top_compact_cc_eqn}.
+	Since $K\left(A \right)$ is dense in $A$  one has  
+	$$
+	\forall a \in A \quad A_b\left(q\right) \left( a\right) \subset  A_0\left( \widetilde \sY\right),
+	$$
+	or equivalently the equation \eqref{blowing_fin_eqn} holds.
 \end{proof}
 
 
@@ -12715,16 +12805,16 @@ or equivalently the equation \eqref{blowing_fin_eqn} holds.
 	$
 	is a {finite}-$q$-{lift} and $f_\eps$ is given by \eqref{f_eps_eqn} then from
 	$$
-\forall a \in A_+\quad \forall \eps > 0	\quad f_\eps \left( 	A_0\left(q\right) \left( a\right) \right) = A_0\left(q\right) \left(f_\eps \left(  a\right) \right)
+	\forall a \in A_+\quad \forall \eps > 0	\quad f_\eps \left( 	A_0\left(q\right) \left( a\right) \right) = A_0\left(q\right) \left(f_\eps \left(  a\right) \right)
 	$$
 	one can deduce that $A_0\left(q\right) \left(K \left( A\right) \right)\cong \varphi_A \left( A\right) \subset 	K\left(A_0\left( \widetilde \sY\right) \right)$ where $\varphi_A$ is given by \eqref{blowing_a_h_eqn}. Taking into  \eqref{blowing_tensor_eqn}  and that $K\left(A_0\left( \widetilde \sY\right)\right) $ is a two sided one has
 	$$
-\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  \subset 	K\left(A_0\left( \widetilde \sY\right) \right)
+	\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  \subset 	K\left(A_0\left( \widetilde \sY\right) \right)
 	$$
 	Otherwise from the Definition \ref{blowing_lift_defn} if follows that $\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ is dense in $A_0\left( \widetilde \sY\right)$. On the other hand $K\left(A_0\left( \widetilde \sY\right) \right)$ is  the minimal dense ideal of $A_0\left( \widetilde \sY\right)$ (cf. the Theorem \ref{pedersen_ideal_thm}), so one has 
 	$$
-K\left(A_0\left( \widetilde \sY\right) \right) =\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  
-$$
+	K\left(A_0\left( \widetilde \sY\right) \right) =\varphi \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  
+	$$
 	
 \end{proof}
 
@@ -12772,7 +12862,7 @@ $$
 
 
 \begin{lemma}\label{blowing_lift_composition_lem}
-Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Suppose that  $\widetilde G$ is a {properly discontinuous} \ref{top_properly_disc_group_defn} group of homeomorphisms of $\widetilde \sY$ such that $\sY \cong \widetilde \sY / \widetilde G$.
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Suppose that  $\widetilde G$ is a {properly discontinuous} \ref{top_properly_disc_group_defn} group of homeomorphisms of $\widetilde \sY$ such that $\sY \cong \widetilde \sY / \widetilde G$.
 	Let 	 	$A_b\left(q\right) : A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)  
 	$
 	be a $q$-{lift} (cf. Definition \ref{blowing_lift_defn}  ), and let $\phi:\widetilde G\to G$ be a homomorphism onto a finite group $G$. If both  $q': \sY' \to \sY$ and $\widetilde q': \widetilde\sY \to \sY'$ are a natural transitive  coverings with
@@ -12784,7 +12874,7 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 		%\be\label{blowing_p_s_eqn}
 		%	\sum_{g \in \ker\left(G\to G \right)}g \widetilde a
 		%\ee
-	%	where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
+		%	where $\widetilde a \in K\left(\widetilde A\right)$ is an element of the Pedersen's ideal, and the convergence with respect to the strict topology of $M\left( A_0\left( \widetilde \sY\right)\right)$ is implied (cf. Definition \ref{strict_topology_defn}).
 	\end{enumerate} 
 \end{lemma}
 
@@ -12812,12 +12902,12 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 	f' a = f' (a h) = f' a f''; \quad f'' =  C_c\left(q' \right)\left(h \right)\in C_c\left( \sY'\right)  
 	$$
 	where $C_c\left(q' \right):  C_c\left( \sY\right)\hookto C_c\left( \sY'\right)$ is given by \eqref{top_compact_cc_eqn}.
-
+	
 	Consider a family $\left\{{\sU}_\a\subset  \sY\right\}_{\a\in \mathscr A}$ of connected open sets with compact closures such that $\sU_\a$ is evenly covered $q$  for all $\a\in \mathscr A$ and $\sY = \bigcup_{\a \in \mathscr A}\sU_\a$. For any $\a\in\mathscr A$ we select  a connected open set $\widetilde \sU_\a\subset \widetilde \sY$  which is mapped homeomorphically onto $\sU_\a$. If $\widetilde{\mathscr A}\bydef G\times  \mathscr A$ then there are the natural action $G\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the projection $p: \widetilde{\mathscr A} \to {\mathscr A}$.  If 	
 	$$
 	\sum_{j=1}^n f'_j
 	$$
-		
+	
 	is  a covering sum  for $\supp f' \cup \supp f''$ dominated by the family $\left\{{\sU}'_{\a'}\subset  \sY'\right\}_{\a'\in \mathscr A'}$ 
 	(cf. Definition  \ref{top_covering_sum_defn}) then
 	\bean
@@ -12879,7 +12969,7 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 		\item[(b)] $\widetilde a \subset \varphi^{\widetilde \sY}_A\left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right) $ 
 	\end{enumerate}
 	
-	 equals to 
+	equals to 
 	$$
 	K\left(A_0\left( \widetilde \sY\right) \right) =\varphi^{\widetilde \sY}_A \left( C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)  
 	$$
@@ -12889,63 +12979,63 @@ Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (c
 	If the covering $q: \widetilde{\sY}\to \sY$ is finite-fold then this lemma follows from the \ref{blowing_pederesen_fin_lem} one. 
 	
 	If $\widetilde a \in K\left(A_0\left( \widetilde \sY\right) \right)_+$ then there is a finite set $\left\{\widetilde a_1,..., \widetilde a_n\right\}\in K\left(A_0\left( \widetilde \sY\right) \right)_0$ such that $\widetilde a \le \sum_{j=1}^n \widetilde a_j$ (cf. the equation  \eqref{pedersen_k_plus_eqn}). From the Lemma \ref{pedersen_eps_lem} it follows that for any $j \in \left\{1, ,,,, n\right\}$ there is $\widetilde b_j \in A_0\left( \widetilde \sY\right)_+$ and $\eps_j > 0$ such that $\widetilde a_j = f_{\eps_j}\left( \widetilde b_j\right)$ where $f_{\eps_j}$ is given by \eqref{f_eps_eqn}. From $ f_{\eps_j}= f_{\eps_j/2}\circ f_{\eps_j/2}$ it follows that $\widetilde a_j = f_{\eps_j/2}\circ f_{\eps_j/2}\left(\widetilde b_j \right)$. On the other hand from the Lemma \ref{pedersen_eps_lem} and the Theorem \ref{blowing_pedersen_compact_lem} it follows that the for each $j\in \left\{1, ..., n\right\}$ the set $\supp f_{\eps_j/2}\left(\widetilde b_j \right)$  is compact, so the finite union $\bigcup_{j=1}^n \supp f_{\eps_j/2}\left(\widetilde b_j \right)$ is also compact.
-	 If $\widetilde f\in C_c\left( \widetilde \sY\right) $ is a covering sum for $\bigcup_{j=1}^n \supp f_{\eps_j/2}\left(\widetilde b_j \right)$ then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
+	If $\widetilde f\in C_c\left( \widetilde \sY\right) $ is a covering sum for $\bigcup_{j=1}^n \supp f_{\eps_j/2}\left(\widetilde b_j \right)$ then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
 	\begin{itemize}
 		\item $q = q' \circ \widetilde q$,
 		\item the covering $q'$ is finite-fold,
 		\item the set $\supp \widetilde f$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f \right)$.
 	\end{itemize}
 	If $\widetilde c'_j \bydef \desc_{\widetilde q}\left( f_{\eps_j/2}\left(\widetilde b_j \right) \right)\in A_0\left(\widetilde \sY' \right)$ is $\widetilde q$ descent (cf. Definition \ref{blowing_descent_defn}) 
-then $f_{\eps_j/2}\left(\widetilde b_j \right) = \varphi^{\widetilde \sY }_{A_0\left(\widetilde \sY' \right)}\left( \widetilde f\otimes \widetilde c'_j\right)$ where $ \varphi^{\widetilde \sY }_{A_0\left(\widetilde \sY' \right)}$ is given by the equation \eqref{blowing_tensor_eqn}. Moreover if $\widetilde a' \bydef \desc_{\widetilde q} \left(q \right) \left( \widetilde a\right)$ then
-\bean
-\widetilde a' \le \sum_{j=1}^n f_{\eps_j/2}\left( \widetilde c'_j \right) \in K\left( A_0\left( \widetilde \sY'\right) \right)_+,\\
-\widetilde a= \varphi^{\widetilde \sY }_{A_0\left(\widetilde \sY' \right)}\left( \widetilde f \otimes \widetilde a'\right) 
-\eean
-From the Lemma \ref{blowing_pederesen_inf_lem} it follows that there is
-$$
-\sum_{j= 1}^n \widetilde f_j \otimes a_j \in C_c\left(\widetilde\sY' \right)\otimes _{C_0\left( \sY \right) } A \to A_0\left(\widetilde\sY' \right)
-$$
-such that $\widetilde a'= \varphi'\left( \sum_{j= 1}^n \widetilde f_j \otimes a_j\right)$. 
-Using this fact one can prove that
-$$
-\widetilde a = \varphi^{\widetilde \sY}_A \left(\sum_{j= 1}^n \widetilde f \lift_{\widetilde{q}}\left( \widetilde f'_j\right)  \otimes a_j \right) 
-$$
-where $\lift_{\widetilde{q}}: C_0\left(\widetilde \sY' \right) \hookto C_b\left(\widetilde \sY \right)$ is  the $\widetilde{q}$-lift (cf. Definition \ref{top_lift_defn}). Since $K\left(A_0\left(\widetilde \sY \right)  \right)$ is the algebraic $\C$-linear span of $K\left(A_0\left(\widetilde \sY \right)  \right)_+$ one can conclude that any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right)  \right)$ satisfies to the conditions (a) and (b).
-
-Conversely suppose that $\widetilde a \in A_0\left(\widetilde \sY \right)$ satisfies to the conditions (a) and (b). If $\widetilde f\in C_c\left(\widetilde \sY \right) $ is a covering sum of $\supp \widetilde a$ (cf. Definition \ref{top_covering_sum_defn}) then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
-\begin{itemize}
-	\item $q = q' \circ \widetilde q$,
-	\item the covering $q'$ is finite-fold,
-	\item the set $\supp \widetilde f$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f \right)$.
-\end{itemize}
-From the condition (b) it follows that there is $\sum_{j=1}^n \widetilde f_j \otimes a_j\in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }\otimes A$ such that $\widetilde a =\varphi^{\widetilde \sY}_A\left( \sum_{j=1}^n \widetilde f_j \otimes a_j\right)$. Since $\widetilde f$ is a covering sum of $\widetilde a$ one has
-\bean
-\widetilde a = \widetilde f^2 \widetilde a \widetilde f^2 = \sum^n_{j=1} \varphi_{\widetilde \sY} \left(\widetilde f^2 \widetilde f_j\right) \varphi_A\left( a_j\right)\varphi_{\widetilde \sY} \left( \widetilde f^2 \right)=\\= 
-\sum^n_{j=1} \varphi_{\widetilde \sY} \left( {\widetilde f} \right)\varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right) \times \\ \times  \varphi_{\widetilde \sY} \left( {\widetilde f} \right) = \varphi_{\widetilde \sY} \left( {\widetilde f} \right)\times \\ \times 
-\left(\sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\right)   \varphi_{\widetilde \sY} \left( {\widetilde f} \right)
-\eean 
-From the Lemma \ref{blowing_pederesen_fin_lem} it follows that
-$$
-\widetilde a' \bydef \sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\in K\left( A_0\left( \widetilde \sY'\right) \right),
-$$
-so one has
-$$
-\widetilde a = \varphi_{\widetilde \sY} \left( {\widetilde f}\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde a'\right) \varphi_{\widetilde \sY} \left( \widetilde f\right)
-$$
-If $\widetilde a' \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$ then from \eqref{pedersen_k_plus_eqn} and the Lemma \ref{pedersen_eps_lem} it follows that 
-$$
-\widetilde a' \le \sum_{j = 1}^m f_{\eps_j}\left( \widetilde b'_j\right) 
-$$
-where  $\eps_j > 0$ and $\widetilde b'_j \in  A_0\left( \widetilde \sY'\right)_+$ for every $j = 1,..., m$ the functions $f_{\eps_j}$ are given by \eqref{f_eps_eqn}. From the Lemma \ref{blowing_faf_lem} it follows that if $\widetilde c'_j \bydef \desc_{\widetilde q}\left( {\widetilde f}\right) \widetilde b'_j\desc_{\widetilde q}\left( {\widetilde f}\right)$ then  $f_{\eps_j}\left( \widetilde b'_j\right)$ = $f_{\eps_j}\left( \widetilde c'_j\right)$. If follows that
-$$
-\widetilde a \le \sum_{j=1}^n \varphi_{\widetilde \sY} \left( \widetilde f\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( f_{\eps_j}\left(\widetilde{c}'_j \right) \right) \varphi_{\widetilde \sY} \left( \widetilde f\right),
-$$ 
-and taking into account the Lemma \ref{blowing_faf_lem} one has
-$$
-\widetilde a \le \sum_{j=1}^n f_{\eps_j}\left(   \varphi_{\widetilde \sY} \left( \widetilde f\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde{c}'_j \right)  \varphi_{\widetilde \sY} \left( \widetilde f\right)\right) 
-$$
-From  \eqref{pedersen_k_plus_eqn} and the Lemma \ref{pedersen_eps_lem} it follows that
-$\widetilde a \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$. Since $ K\left( A_0\left( \widetilde \sY'\right) \right)$ is an algebraic $\C$-linear span of $K\left( A_0\left( \widetilde \sY'\right) \right)_+$, one can proof that $\widetilde a \in K\left( A_0\left( \widetilde \sY\right) \right)$ for any  $\widetilde a' \in K\left( A_0\left( \widetilde \sY'\right) \right)$.
+	then $f_{\eps_j/2}\left(\widetilde b_j \right) = \varphi^{\widetilde \sY }_{A_0\left(\widetilde \sY' \right)}\left( \widetilde f\otimes \widetilde c'_j\right)$ where $ \varphi^{\widetilde \sY }_{A_0\left(\widetilde \sY' \right)}$ is given by the equation \eqref{blowing_tensor_eqn}. Moreover if $\widetilde a' \bydef \desc_{\widetilde q} \left(q \right) \left( \widetilde a\right)$ then
+	\bean
+	\widetilde a' \le \sum_{j=1}^n f_{\eps_j/2}\left( \widetilde c'_j \right) \in K\left( A_0\left( \widetilde \sY'\right) \right)_+,\\
+	\widetilde a= \varphi^{\widetilde \sY }_{A_0\left(\widetilde \sY' \right)}\left( \widetilde f \otimes \widetilde a'\right) 
+	\eean
+	From the Lemma \ref{blowing_pederesen_inf_lem} it follows that there is
+	$$
+	\sum_{j= 1}^n \widetilde f_j \otimes a_j \in C_c\left(\widetilde\sY' \right)\otimes _{C_0\left( \sY \right) } A \to A_0\left(\widetilde\sY' \right)
+	$$
+	such that $\widetilde a'= \varphi'\left( \sum_{j= 1}^n \widetilde f_j \otimes a_j\right)$. 
+	Using this fact one can prove that
+	$$
+	\widetilde a = \varphi^{\widetilde \sY}_A \left(\sum_{j= 1}^n \widetilde f \lift_{\widetilde{q}}\left( \widetilde f'_j\right)  \otimes a_j \right) 
+	$$
+	where $\lift_{\widetilde{q}}: C_0\left(\widetilde \sY' \right) \hookto C_b\left(\widetilde \sY \right)$ is  the $\widetilde{q}$-lift (cf. Definition \ref{top_lift_defn}). Since $K\left(A_0\left(\widetilde \sY \right)  \right)$ is the algebraic $\C$-linear span of $K\left(A_0\left(\widetilde \sY \right)  \right)_+$ one can conclude that any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right)  \right)$ satisfies to the conditions (a) and (b).
+	
+	Conversely suppose that $\widetilde a \in A_0\left(\widetilde \sY \right)$ satisfies to the conditions (a) and (b). If $\widetilde f\in C_c\left(\widetilde \sY \right) $ is a covering sum of $\supp \widetilde a$ (cf. Definition \ref{top_covering_sum_defn}) then  from the Theorem \ref{top_compact_thm} there are transitive coverings $q': \widetilde \sY' \to \sY$ and $\widetilde q:\widetilde\sY \to \widetilde\sY'$ such that:
+	\begin{itemize}
+		\item $q = q' \circ \widetilde q$,
+		\item the covering $q'$ is finite-fold,
+		\item the set $\supp \widetilde f$ is mapped homeomorphically onto $\widetilde q\left(\supp \widetilde f \right)$.
+	\end{itemize}
+	From the condition (b) it follows that there is $\sum_{j=1}^n \widetilde f_j \otimes a_j\in C_c\left(\widetilde \sY \right)\otimes_{C_0\left(\sY \right) }\otimes A$ such that $\widetilde a =\varphi^{\widetilde \sY}_A\left( \sum_{j=1}^n \widetilde f_j \otimes a_j\right)$. Since $\widetilde f$ is a covering sum of $\widetilde a$ one has
+	\bean
+	\widetilde a = \widetilde f^2 \widetilde a \widetilde f^2 = \sum^n_{j=1} \varphi_{\widetilde \sY} \left(\widetilde f^2 \widetilde f_j\right) \varphi_A\left( a_j\right)\varphi_{\widetilde \sY} \left( \widetilde f^2 \right)=\\= 
+	\sum^n_{j=1} \varphi_{\widetilde \sY} \left( {\widetilde f} \right)\varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right) \times \\ \times  \varphi_{\widetilde \sY} \left( {\widetilde f} \right) = \varphi_{\widetilde \sY} \left( {\widetilde f} \right)\times \\ \times 
+	\left(\sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\right)   \varphi_{\widetilde \sY} \left( {\widetilde f} \right)
+	\eean 
+	From the Lemma \ref{blowing_pederesen_fin_lem} it follows that
+	$$
+	\widetilde a' \bydef \sum^n_{j=1} \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \widetilde f_j\right)  \right)  \varphi_A\left( a_j\right)  \varphi_{\widetilde \sY'}\left(\desc_{\widetilde q}\left( {\widetilde f} \right) \right)\in K\left( A_0\left( \widetilde \sY'\right) \right),
+	$$
+	so one has
+	$$
+	\widetilde a = \varphi_{\widetilde \sY} \left( {\widetilde f}\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde a'\right) \varphi_{\widetilde \sY} \left( \widetilde f\right)
+	$$
+	If $\widetilde a' \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$ then from \eqref{pedersen_k_plus_eqn} and the Lemma \ref{pedersen_eps_lem} it follows that 
+	$$
+	\widetilde a' \le \sum_{j = 1}^m f_{\eps_j}\left( \widetilde b'_j\right) 
+	$$
+	where  $\eps_j > 0$ and $\widetilde b'_j \in  A_0\left( \widetilde \sY'\right)_+$ for every $j = 1,..., m$ the functions $f_{\eps_j}$ are given by \eqref{f_eps_eqn}. From the Lemma \ref{blowing_faf_lem} it follows that if $\widetilde c'_j \bydef \desc_{\widetilde q}\left( {\widetilde f}\right) \widetilde b'_j\desc_{\widetilde q}\left( {\widetilde f}\right)$ then  $f_{\eps_j}\left( \widetilde b'_j\right)$ = $f_{\eps_j}\left( \widetilde c'_j\right)$. If follows that
+	$$
+	\widetilde a \le \sum_{j=1}^n \varphi_{\widetilde \sY} \left( \widetilde f\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( f_{\eps_j}\left(\widetilde{c}'_j \right) \right) \varphi_{\widetilde \sY} \left( \widetilde f\right),
+	$$ 
+	and taking into account the Lemma \ref{blowing_faf_lem} one has
+	$$
+	\widetilde a \le \sum_{j=1}^n f_{\eps_j}\left(   \varphi_{\widetilde \sY} \left( \widetilde f\right)\varphi_{A_0\left( \widetilde \sY\right)}\left( \widetilde{c}'_j \right)  \varphi_{\widetilde \sY} \left( \widetilde f\right)\right) 
+	$$
+	From  \eqref{pedersen_k_plus_eqn} and the Lemma \ref{pedersen_eps_lem} it follows that
+	$\widetilde a \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$. Since $ K\left( A_0\left( \widetilde \sY'\right) \right)$ is an algebraic $\C$-linear span of $K\left( A_0\left( \widetilde \sY'\right) \right)_+$, one can proof that $\widetilde a \in K\left( A_0\left( \widetilde \sY\right) \right)$ for any  $\widetilde a' \in K\left( A_0\left( \widetilde \sY'\right) \right)$.
 \end{proof}
 \begin{lemma}\label{blowing_descent_pedersen_lem} 
 	If	$C_0\left( \sY\right)\hookto M\left( A\right) $ is   Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and   $q: \widetilde{\sY}\to \sY$ is   an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) then one has
@@ -12964,8 +13054,8 @@ $\widetilde a \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$. Since $ K
 	then there is a covering sum $ f =\sum_{j=1}^n {f}_j$ for  $\supp {a}$ dominated by the family $\left\{ \sU_{ \a}\right\}$ (cf. Definition \ref{top_covering_sum_defn}). It follows that
 	\be\label{blowing_convlt_eqn}
 	\begin{split}
-	a = faf  = \sum_{\substack{j=1\\k=1}}^n f_j a f_k,\\
-	\forall j = 1,..., n \quad \exists \a_j \in \mathscr A \quad \supp f_j \in \sU_{\a_j}
+		a = faf  = \sum_{\substack{j=1\\k=1}}^n f_j a f_k,\\
+		\forall j = 1,..., n \quad \exists \a_j \in \mathscr A \quad \supp f_j \in \sU_{\a_j}
 	\end{split}
 	\ee 
 	For any $j,k = 1,...,n$ one has $f_ja f_k\in K\left(A \right)$. If $\widetilde  \a_j \in \widetilde{\mathscr A}$ is such that $q\left( \widetilde \sU_{\widetilde\a_j}\right) = \sU_{\a_j}$ then from the Lemmas \ref{blowing_lift_eq_lem} and \ref{blowing_pederesen_inf_lem} it follows that
@@ -12973,9 +13063,9 @@ $\widetilde a \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$. Since $ K
 	\widetilde a_{jk} \bydef \varphi_{\widetilde \sY}\left( \lift^q_{\widetilde \sU_j}\left( \sqrt{f_j}\right) \right) \varphi_A\left(\sqrt{f_j} a \sqrt{f_k} \right) \varphi_{\widetilde \sY}\left( \lift^q_{\widetilde \sU_k}\left( \sqrt{f_k}\right) \right) \in K\left(A_0\left( \widetilde\sY\right)  \right) 
 	$$
 	where  $\varphi_A$, $\varphi_{\widetilde \sY}$ are given by the equations \eqref{blowing_a_h_eqn}, \eqref{blowing_c_h_eqn} and  $\lift^q_{\widetilde \sU_j}$, $~\lift^q_{\widetilde \sU_k}$ are given by the Definition \ref{top_lift_desc_eqn}. Let us prove that 
-\be\label{blowing_jk_eqn}
-\desc^c\left(\widetilde a_{jk} \right) \bydef \bt\text{-}\sum_{	g \in {G}}	g \widetilde a_{jk} = f_j a f_k
-\ee
+	\be\label{blowing_jk_eqn}
+	\desc^c\left(\widetilde a_{jk} \right) \bydef \bt\text{-}\sum_{	g \in {G}}	g \widetilde a_{jk} = f_j a f_k
+	\ee
 	where $\bt\text{-}\sum$ means the convergence of the series with respect to the strict topology of $M\left(A_0\left( \widetilde\sY\right) \right)$ (cf. Definition \ref{strict_topology_defn}). From the Lemmas \ref{blowing_pedersen_compact_lem} and \ref{blowing_descent_lem} if follows that the series \ref{blowing_jk_eqn} is strictly convergent. If $\widetilde b \in A_0\left( \widetilde\sY\right)$ and $\eps > 0$ then there is $\widetilde b \in K\left( A_0\left( \widetilde\sY\right)\right)$ such that
 	$$
 	\left\|\widetilde b - \widetilde b' \right\|< \frac{\eps }{\left\|\widetilde a_{jk} \right\|}.
@@ -12986,77 +13076,19 @@ $\widetilde a \in K\left( A_0\left( \widetilde \sY'\right) \right)_+$. Since $ K
 	$$
 	is finite.
 	For any finite $G'\subset G$ such that $G_0\subset G'$ one has
-\bean
-\sum_{	g \in {G}'}	\widetilde{b}'\left(g \widetilde a_{jk}  \right) = \widetilde{b}'\left( f_j a f_k\right),\\
+	\bean
+	\sum_{	g \in {G}'}	\widetilde{b}'\left(g \widetilde a_{jk}  \right) = \widetilde{b}'\left( f_j a f_k\right),\\
 	\left\|\sum_{	g \in {G}'}	\widetilde{b}\left(g \widetilde a_{jk}  \right) - \widetilde{b}\left( f_j a f_k\right)\right\|< \eps.
-\eean
-From the above equation it follows that \eqref{blowing_jk_eqn} holds. On the other hand if $\widetilde a \bydef \sum_{\substack{j=1\\k=1}}^n \widetilde a_{jk}$ then from the equations \eqref{blowing_convlt_eqn} and \eqref{blowing_jk_eqn} it turns out that
-$$
-a = \desc^c_q\left(\widetilde a \right).
-$$
+	\eean
+	From the above equation it follows that \eqref{blowing_jk_eqn} holds. On the other hand if $\widetilde a \bydef \sum_{\substack{j=1\\k=1}}^n \widetilde a_{jk}$ then from the equations \eqref{blowing_convlt_eqn} and \eqref{blowing_jk_eqn} it turns out that
+	$$
+	a = \desc^c_q\left(\widetilde a \right).
+	$$
 \end{proof}
 
 
-
-\subsection{Induced representations}
-
-\paragraph{}
-
-	Under the hypotheses \ref{blowing_lift_empt} let  $\mathscr L^2\left(\widetilde \sY \right)_A$ be the $\widetilde \sY$-$A$-module (cf. Definition \ref{blowing_lift_hm_defn}). If $\rho : A \to B\left(\H \right)$  there is a  given by \eqref{induced_representation_eqn} representation
-	\be\label{blowing_induced_eqn}
-		\widetilde{\rho}\bydef\mathscr L^2\left(\widetilde \sY \right)_A\text{-}\Ind^A_{{A}_0\left(\widetilde\sY \right) }\rho: A_0\left(\widetilde\sY \right)\to B\left(\widetilde{\H} \right)
-		\ee
-		is given by \eqref{induced_representation_eqn}, i.e. $\widetilde{\rho}$
-		is the induced representation (cf. Definition \ref{induced_representation_defn}). 
-\begin{lemma}\label{blowing_induced_representation_lem}
-	If  $A_b\left(q \right) :A \hookto	M\left( A_0\left( \widetilde \sY\right)\right)$ is $q$-lift (cf. Definition \ref{blowing_lift_defn}  ) and $\rho : A\to B\left( \H\right)$ is a faithful, nondegenerate  representation (cf. Definitions  \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then the given by \eqref{blowing_induced_eqn} induced representation $\widetilde{\rho}: A_0\left(\widetilde\sY \right)\to B\left(\widetilde{\H} \right)$ if faithful.
-\end{lemma}
-\begin{proof}
-If $\widetilde{\rho}$ is  faithful if and only if for any positive element $\widetilde a \in K\left( A_0\left(\widetilde\sY \right)\right)_+$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_defn}) of  $A_0\left(\widetilde\sY \right)$ one has $\widetilde{\rho}\left( \widetilde{a}\right) \neq 0$. From the Lemma \ref{blowing_pedersen_compact_lem} it follows that the support $\supp \widetilde a$ is compact. If $\sum_{j = 1}^n \widetilde f_j$ is a covering sum for $\supp \widetilde a$   {subordinated to} $q$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) then one has
-$$
-\widetilde a = \sum_{\substack{j = 1\\k=1}}^n \widetilde f_j \widetilde a\widetilde f_k.
-$$
-The sum is not zero if and only is there is $j \in \left\{1,..., n\right\}$ such that $\widetilde f_j \widetilde a\widetilde f_j\neq 0$. There is and open subset $\widetilde\sU$ homeomorphically mapped onto $q\left(\widetilde\sU \right)$ such that $\supp  \widetilde f_j \subset \widetilde \sU$. If $\left\{\widetilde u_\a\right\}\subset C_0\left( \widetilde \sU\right)$ is an approximate unit for  $C_0\left( \widetilde \sU\right)$ (cf. Definition \ref{approximate_unit_defn}) then there is $ \widetilde u\in \left\{\widetilde u_\a\right\}$ such that $\widetilde u \widetilde f_j \widetilde a\widetilde f_j \widetilde u\neq 0$. If $a \bydef \desc_q\left( \widetilde f_j\widetilde a{\widetilde f_j}\right) \in A$ where $\desc_q$ means $q$-descent (cf. Definition \ref{blowing_descent_defn}) then $\widetilde u \widetilde f_j \widetilde a\widetilde f_j \widetilde u=\widetilde ua \widetilde u$. Moreover from the Lemma \ref{blowing_descent_lem} it follows that
-\bean
-\sum_{	g \in G\left(\left.\widetilde \sY\right|\sY \right)}g\left(  \widetilde ua \widetilde u\right) = 	\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\quad \Rightarrow \\ \Rightarrow \desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)>   \widetilde ua \widetilde u\quad \Rightarrow\quad \desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)> 0\quad\Rightarrow\\ \Rightarrow \exists \xi \in \H \quad\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi \neq 0.
-\eean 
-On the other hand there is an inclusion $\phi : C_c\left( \widetilde \sY\right)\otimes_{C_0\left( \sY\right) } \H \hookto   \widetilde \H$. If $\xi \in \H$ is such that  $\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi > 0$ and $\widetilde \xi \bydef \phi \left({\widetilde u} \otimes \xi \right)$ then from  \eqref{hilb_prod_eqn} it follows that
-\bean
-\left(\left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi, \left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi \right)_{\widetilde \H}>\left( \desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi,\desc_q\left( \widetilde u\right)  a ~	\desc_q\left(\widetilde u\right)\xi\right)>  0,
-\eean
-From $\widetilde{a} \ge \left(\widetilde f_j \widetilde a\widetilde f_j \right)$ it follows that
-$$
-\left( \widetilde a \widetilde \xi, \widetilde a \widetilde \xi \right)_{\widetilde \H}\ge \left(\left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi, \left(\widetilde f_j \widetilde a\widetilde f_j \right) \widetilde \xi \right)_{\widetilde \H}> 0,
-$$
-so $ \widetilde a \widetilde \xi \neq 0$ and $\widetilde{\rho}\left( \widetilde{a}\right) \neq 0$.
-
-
-Let us prove that the representation $\widetilde \rho$ is nondegenerate. If $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes \xi_j\in C_c\left( \widetilde \sY\right)\otimes_{C_0\left( \sY\right) } \H$ then 
-$$
-\widetilde \xi \neq 0 \quad \Leftrightarrow \quad \left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}} =\sum_{\substack{j=1\\k=1}}^{n}\left(\xi_j, \left\langle \widetilde f_j, \widetilde f_k \right\rangle_A \xi_k  \right)_\H > 0.
-$$
-The union $\widetilde\sZ \bydef \bigcup_{j=1} \supp \widetilde f_j$ is compact and if $\widetilde f$ is a covering sum of $\widetilde\sZ$ (cf. Definition \ref{top_covering_sum_defn}) then $\widetilde f \widetilde f_j = \widetilde f_j$ for any $j=1,..., n$. If $\left\{u_\a\right\}_{\a \in \mathscr A}\subset A$ is an approximate unit of $A$ then for all $\xi \in \H$ one has 
-$$
-\lim_{\a \in \mathscr A}u_\a \xi = \xi.
-$$
-So for any $j,k \in \left\{1,..., n\right\}$ there is $\a_{jk} \in \mathscr A$ such that
-\be\label{groupoid_inen2_eqn}
-\a \ge \a_{jk}\quad \Rightarrow\quad \left\|\left(\xi_j, \left\langle \widetilde f_j, \widetilde f_k \right\rangle_A \xi_k  \right)- \left(u_{\a}\xi_j, \left\langle \widetilde f_j, \widetilde f_k \right\rangle_A u_{\a} \xi_k  \right) \right\| < \frac{\left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}}}{n^2}
-\ee
-If $\a_0$ is such that $\a_0 \ge \a_{jk}$ for all  $j,k \in \left\{1,..., n\right\}$ and $\widetilde a \bydef \varphi'\left( \widetilde f\otimes u_{\a_0}\right)$ where $psi^{\widetilde \sY}_A$ is given by \eqref{blowing_tensoar_eqn}. From \eqref{groupoid_inen2_eqn} and the triangulate identity it follows that
-$$
-\left| \left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}}- \left(\widetilde a\widetilde \xi , \widetilde a\widetilde \xi\right)_{\widetilde{\H}}\right| < \left(\widetilde \xi , \widetilde \xi\right)_{\widetilde{\H}}
-$$
-so 
-$$
-\left(\widetilde a\widetilde \xi , \widetilde a\widetilde \xi\right)_{\widetilde{\H}}> 0  \quad \Rightarrow\quad \widetilde a \widetilde \xi\neq 0.
-$$
-The subspace of elements $\widetilde \xi = \sum_{j-1}^n \widetilde{f}_j \otimes \xi_j$ is dense in $\widetilde\H$ so for all $\widetilde\xi \in \widetilde\H$ there is $\widetilde a \in A_0\left(\widetilde\sY \right)$ such that $\widetilde a \widetilde\xi \neq 0$.
-
-
-
-\end{proof}	
-
+\paragraph{title}
+\
 
 \subsection{Finite-fold coverings}
 \paragraph{}

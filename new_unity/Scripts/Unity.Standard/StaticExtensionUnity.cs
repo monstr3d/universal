@@ -244,6 +244,87 @@ namespace Unity.Standard
 
         #endregion
 
+
+        #region Constructor
+
+        static StaticExtensionUnity()
+        {
+
+            TextUpdate = new DefaultTextAction();
+
+            Assembly ass = typeof(StaticExtensionUnity).Assembly;
+
+            StaticExtensionDiagramUI.PostLoadDesktop += dAct;
+
+            PureDesktop.DesktopPostLoad += dAct;
+
+
+            ass.SetScadaAssembly((Type type) =>
+            {
+                try
+                {
+                    ConstructorInfo ci = type.GetConstructor(new Type[0]);
+                    if (ci == null)
+                    {
+                        return;
+                    }
+                    var types = type.GetInterfaces();
+                    string name = type.Name;
+                    if (types.Contains(typeof(IUpdate)))
+                    {
+                        updates[name] = ci;
+                    }
+                    if (types.Contains(typeof(IUpdateGameObject)))
+                    {
+                        updatesGameObject[name] = ci;
+                    }
+                    if (types.Contains(typeof(ITriggerAction)))
+                    {
+                        updatesTriggerAction[name] = ci;
+                    }
+                    if (types.Contains(typeof(ICollisionAction)))
+                    {
+                        updatesCollisionAction[name] = ci;
+                    }
+                    if (types.Contains(typeof(IActivation)))
+                    {
+                        activations[name] = ci;
+                    }
+                    if (types.Contains(typeof(IIndicatorFactory)))
+                    {
+                        indicatorFactories.Add(ci.Invoke(new object[] { })
+                            as IIndicatorFactory);
+                    }
+                    if (types.Contains(typeof(IStringUpdate)))
+                    {
+                        stringUpates[name] = type;
+                    }
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+            
+            );
+
+            var initializer =
+       new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
+        RungeProcessor.Processor,
+           DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
+          {
+
+          },
+          true);
+            initializer.InitializeApplication();
+
+
+        }
+
+        #endregion
+
+
+
         #region Public Members
 
         /// <summary>
@@ -378,7 +459,10 @@ namespace Unity.Standard
         /// </summary>
         public static void SetLevel()
         {
-            LevelAction();
+            if (Level != null)
+            {
+                LevelAction();
+            }
         }
 
         public static string ToZero(this string str)
@@ -841,19 +925,19 @@ namespace Unity.Standard
                 ITimerFactory timerEvent, IScadaUpdate update)
         {
             bool exists = desktop.ScadaExists();
-            IScadaInterface scada = desktop.ToScada("Consumer", timerEventFactory,
+            var scada = desktop.ToScada("Consumer", timerEventFactory,
                  timerEvent,
                 factory, TimeType.Second, false, null, true);
             scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
             if (exists)
             {
                 var t = scadaUpdates[desktop];
-                List<IScadaUpdate> l = t.Item2;
+                var l = t.Item2;
                 l.Add(update);
             }
             else
             {
-                List<IScadaUpdate> l = new List<IScadaUpdate>() { update };
+                var l = new List<IScadaUpdate>() { update };
                 scadaUpdates[desktop] = new
                     Tuple<object, List<IScadaUpdate>>
                 (new object(), l);   
@@ -904,7 +988,6 @@ namespace Unity.Standard
         #endregion
 
         #region Private
-
 
         static private Quaternion ToQuaternion(this EulerAngles euler, double[] t)
         {
@@ -1326,11 +1409,11 @@ namespace Unity.Standard
             string[] inputs,
             string[] outputs)
         {
-            Dictionary<string, Action<double>> insp = monoBehaviour.inps;
-            Dictionary<string, Func<double?>> outp = monoBehaviour.outs;
-            MonoBehaviourWrapper wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
-            IScadaInterface scada = wr.Scada;
-            List<Action<double>> li = new List<Action<double>>();
+            var insp = monoBehaviour.inps;
+            var outp = monoBehaviour.outs;
+            var wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
+            var scada = wr.Scada;
+            var li = new List<Action<double>>();
             var inp = scada.Inputs;
             foreach (var key in inputs)
             {
@@ -1350,7 +1433,7 @@ namespace Unity.Standard
                     Debug.LogError(ex.StackTrace);
                 }
             }
-            List<Func<double?>> lo = new List<Func<double?>>();
+            var lo = new List<Func<double?>>();
             var outs = scada.Outputs;
             foreach (var key in outputs)
             {
@@ -1392,75 +1475,6 @@ namespace Unity.Standard
         public static IReplaceActionFactory ReplaceActionFactory
         { get; set; } = new FrameReplaceActionFactory();
 
-
-        #endregion
-
-        #region Constructor
-
-        static StaticExtensionUnity()
-        {
- 
-            TextUpdate = new DefaultTextAction();
-
-            Assembly ass = typeof(StaticExtensionUnity).Assembly;
-
-            StaticExtensionDiagramUI.PostLoadDesktop += dAct;
-
-            PureDesktop.DesktopPostLoad += dAct;
-
-            ass.SetScadaAssembly((Type type) =>
-            {
-                ConstructorInfo ci = type.GetConstructor(new Type[0]);
-                if (ci == null)
-                {
-                    return;
-                }
-                var types = type.GetInterfaces();
-                string name = type.Name;
-                if (types.Contains(typeof(IUpdate)))
-                {
-                    updates[name] = ci;
-                }
-                if (types.Contains(typeof(IUpdateGameObject)))
-                {
-                    updatesGameObject[name] = ci;
-                }
-                if (types.Contains(typeof(ITriggerAction)))
-                {
-                    updatesTriggerAction[name] = ci;
-                }
-                if (types.Contains(typeof(ICollisionAction)))
-                {
-                    updatesCollisionAction[name] = ci;
-                }
-                if (types.Contains(typeof(IActivation)))
-                {
-                    activations[name] = ci;
-                }
-                if (types.Contains(typeof(IIndicatorFactory)))
-                {
-                    indicatorFactories.Add(ci.Invoke(new object[] { })
-                        as IIndicatorFactory);
-                }
-                if (types.Contains(typeof(IStringUpdate)))
-                {
-                    stringUpates[name] = type; 
-                }
-            }
-            );
-
-            var initializer =
-       new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
-        RungeProcessor.Processor,
-           DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
-          {
-
-          },
-          true);
-            initializer.InitializeApplication();
-
-            
-        }
 
         #endregion
 

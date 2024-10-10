@@ -97,7 +97,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Refresh action
         /// </summary>
-        protected Action onRefresh = () => { };
+        protected Action onRefresh;
 
         /// <summary>
         /// Events with data
@@ -293,7 +293,7 @@ namespace Scada.Desktop
         public override void Refresh()
         {
             CreateScada();
-            onRefresh();
+            onRefresh?.Invoke();
         }
 
 

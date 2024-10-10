@@ -7,8 +7,8 @@ using Diagram.UI.Interfaces;
 using Diagram.UI;
 
 using DataPerformer.Interfaces;
-using Event.Interfaces;
 
+using Event.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -293,12 +293,12 @@ namespace DataPerformer.Portable
         }
 
         /// <summary>
-        /// Removes target arrow
+        /// Removes  measurements
         /// </summary>
-        /// <param name="arrow">Arrow to remove</param>
-        public void Remove(IMeasurements arrow)
+        /// <param name="measurements">Measurements to remove</param>
+        public void Remove(IMeasurements measurements)
         {
-            measurementsData.Remove(arrow);
+            measurementsData.Remove(measurements);
             measurementsData.GetDependent(list, dependent);
             onChangeInput?.Invoke();
         }

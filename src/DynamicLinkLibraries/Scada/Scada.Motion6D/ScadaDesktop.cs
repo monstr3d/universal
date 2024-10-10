@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 
 
@@ -141,13 +137,13 @@ namespace Scada.Motion6D
                         {
                             throw new Exception("No runtime");
                         }
-                        onStart();
+                        onStart?.Invoke();
                     }
                     else
                     {
                         realtime.Stop();
                         realtime = null;
-                        onStop();
+                        onStop?.Invoke();
                     }
                     isEnabled = value;
                 }
@@ -204,8 +200,11 @@ namespace Scada.Motion6D
             bool multiThread)
         {
             IAsynchronousCalculation animation =
-               collection.StartAnimation([StaticExtensionEventInterfaces.Realtime,
-             AnimationType.GetReason()], AnimationType, new TimeSpan(0), 1, true, isAbsoluteTime);
+               collection.StartAnimation(
+
+
+               new string[]    { StaticExtensionEventInterfaces.Realtime,
+             AnimationType.GetReason() }, AnimationType, new TimeSpan(0), 1, true, isAbsoluteTime);
             if (animation != null)
             {
                 StaticExtensionEventPortable.OnceStop(animation.Interrupt);

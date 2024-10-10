@@ -148,9 +148,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
         //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
-        Dictionary<string, IReferenceFrame> frames
-     = monoBehaviorWrapper.Frames;
-
+        var  frames  = monoBehaviorWrapper.Frames;
         if (frames.ContainsKey(transformation))
         {
             IReferenceFrame frame = frames[transformation];

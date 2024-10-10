@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Animation.Interfaces;
 
-using Diagram.UI.Interfaces;
-using Animation.Interfaces;
-using Animation.Interfaces.Enums;
 using AssemblyService.Attributes;
 
 namespace Animation
