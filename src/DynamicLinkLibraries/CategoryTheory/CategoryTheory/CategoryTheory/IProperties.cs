@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace CategoryTheory
 {
     /// <summary>
@@ -10,7 +6,7 @@ namespace CategoryTheory
     public interface IProperties
     {
         /// <summary>
-        /// Proerties
+        /// Properties
         /// </summary>
         object Properties
         {

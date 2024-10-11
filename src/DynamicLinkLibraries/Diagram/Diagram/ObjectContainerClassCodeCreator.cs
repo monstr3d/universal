@@ -40,8 +40,9 @@ namespace Diagram.UI
             ObjectContainerPortable oc = obj as ObjectContainerPortable;
             l.Add("Diagram.UI.ObjectContainerPortable");
             l.Add("{");
-            l.Add("\tinternal CategoryObject() : base(null)");
+            l.Add("\tinternal CategoryObject(Diagram.UI.Labels.IObjectLabel label) : base(null)");
             l.Add("\t{");
+            l.Add("\t\tObject = label;");
             l.Add("\t\tdesktop = new Desktop(this);");
            l.Add("\t\tLoad();");
           //  l.Add("\t\tisPostoaded = true;;");

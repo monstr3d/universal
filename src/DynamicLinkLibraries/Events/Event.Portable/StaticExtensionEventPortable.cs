@@ -273,6 +273,24 @@ namespace Event.Portable
             }
         }
 
+        public static IRealtime CreateRuntime(
+              this IDataConsumer dataConsumer, TimeType timeUnit, bool absoluteTime, string reason, int priority = 0, IEventLog log = null)
+        {
+            IDesktop desktop = (dataConsumer as ICategoryObject).GetRootDesktop();
+            IComponentCollection collection = dataConsumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
+            /* !!!! IAsynchronousCalculation animation =
+                 collection.StartAnimation([StaticExtensionEventInterfaces.Realtime,
+              AnimationType.GetReason()], AnimationType, Pause, TimeScale, true, checkBoxAbsoluteTime.Checked);
+             if (animation != null)
+             {
+                 StaticExtensionEventPortable.OnceStop(animation.Interrupt);
+             }*/
+            return collection.StartRealtime(timeUnit,
+                absoluteTime, null,
+                dataConsumer, log,
+                reason, null, false);
+        }
+
 
         /// <summary>
         /// Start

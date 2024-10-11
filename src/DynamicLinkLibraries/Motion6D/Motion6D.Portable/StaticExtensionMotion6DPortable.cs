@@ -31,6 +31,7 @@ namespace Motion6D.Portable
 
         #region Public Members
 
+    
         /// <summary>
         /// Gets relative frame
         /// </summary>

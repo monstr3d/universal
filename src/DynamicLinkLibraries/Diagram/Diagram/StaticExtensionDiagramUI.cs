@@ -36,6 +36,9 @@ namespace Diagram.UI
         /// </summary>
         private static char[] sep = "\r\n\t".ToCharArray();
 
+        private static List<ISpecificCodeCreator> specificCodeCreators = new();
+
+
 
         /// <summary>
         /// Post create
@@ -73,9 +76,36 @@ namespace Diagram.UI
 
         private static event Action<IDesktop> postLoadDesktop = (IDesktop desktop) => { };
 
+
         #endregion
 
         #region Public Memberes
+
+        /// <summary>
+        /// Adds creator
+        /// </summary>
+        /// <param name="creator"></param>
+        public static void Add(this ISpecificCodeCreator creator)
+        {
+            specificCodeCreators.Add(creator);
+        }
+
+        /// <summary>
+        /// Checks allow
+        /// </summary>
+        /// <param name="allow"></param>
+        /// <returns>True if allow</returns>
+        public static bool Allow(this IAllowCodeCreation allow)
+        {
+            foreach (var a in specificCodeCreators)
+            {
+                if (a.Allow(allow))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         /// <summary>
         /// Creates data table
@@ -157,25 +187,22 @@ namespace Diagram.UI
         /// <returns>True is code should be created</returns>
         public static bool ShouldCreateCode(this INamedComponent component)
         {
-            IAllowCodeCreation cc = null;
-            if (component is IObjectLabel)
+            if (component is IObjectLabel l)
             {
-                IObjectLabel l = component as IObjectLabel;
                 var co = l.Object;
-                if (co is IAllowCodeCreation)
+                if (co is IAllowCodeCreation cc)
                 {
-                    cc = co as IAllowCodeCreation;
+                    return cc.AllowCodeCreation | cc.Allow();
                 }
             }
-            if (component is IArrowLabel)
+            if (component is IArrowLabel arrow)
             {
-                IArrowLabel arrow = component as IArrowLabel;
-                if (arrow is IAllowCodeCreation)
+                if (arrow is IAllowCodeCreation cc)
                 {
-                    cc = arrow as IAllowCodeCreation;
+                      return cc.AllowCodeCreation | cc.Allow();
                 }
             }
-            return (cc == null) ? true : cc.AllowCodeCreation;
+            return true;
         }
 
         /// <summary>
@@ -613,7 +640,15 @@ namespace Diagram.UI
                 l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
                 l.Add("\t\t{");
                 l.Add("\t\t\tthis.desktop = desktop;");
-                l.Add("\t\t\tobj = new " + cln + ".CategoryObject();");
+                var o = lab.Object;
+                if (o is IObjectContainer)
+                {
+                    l.Add("\t\t\tobj = new " + cln + ".CategoryObject(this);");
+                }
+                else
+                {
+                    l.Add("\t\t\tobj = new " + cln + ".CategoryObject();");
+                }
                 l.Add("\t\t\tobj.Object = this;");
                 l.Add("\t\t}");
                 l.Add("");

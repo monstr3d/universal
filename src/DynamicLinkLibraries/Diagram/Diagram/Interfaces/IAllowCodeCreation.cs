@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Diagram.UI.Interfaces
+﻿namespace Diagram.UI.Interfaces
 {
     /// <summary>
     /// Checks whether code creation is allowed

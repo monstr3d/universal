@@ -1582,7 +1582,8 @@ Func<bool> stop)
         void StartRealtimeClick()
         {
             currentCommand = "start";
-            DataConsumer consumer = this.consumer as DataConsumer;
+            DataConsumer dataConsumer = this.consumer as DataConsumer;
+    /*        
             IDesktop desktop = consumer.GetRootDesktop();
             IComponentCollection collection = consumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
             IAsynchronousCalculation animation =
@@ -1591,14 +1592,19 @@ Func<bool> stop)
             if (animation != null)
             {
                 StaticExtensionEventPortable.OnceStop(animation.Interrupt);
-            }
+            }*/
             StaticExtensionEventInterfaces.NewLog = null;
             buttonStartStopRealtime.Text = "Stop";
             buttonStartStopRealtime.BackColor = Color.Red;
-            userControlRealtime.Realtime = collection.StartRealtime(userControlTimeType.TimeUnit,
+            var realtime = consumer.CreateRuntime(
+              userControlTimeType.TimeUnit, checkBoxAbsoluteTime.Checked, StaticExtensionEventInterfaces.Realtime, 0,
+              StaticExtensionEventInterfaces.NewLog);
+            userControlRealtime.Realtime = realtime;
+                
+           /*     collection.StartRealtime(userControlTimeType.TimeUnit,
                 checkBoxAbsoluteTime.Checked, animation,
                 consumer, StaticExtensionEventInterfaces.NewLog, 
-                StaticExtensionEventInterfaces.Realtime, null, false);
+                StaticExtensionEventInterfaces.Realtime, null, false);*/
         }
 
         IEnumerable<PanelMeasureGraph> Panels
