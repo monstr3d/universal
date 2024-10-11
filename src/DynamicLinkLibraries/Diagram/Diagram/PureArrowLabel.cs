@@ -5,16 +5,19 @@ using System.Text;
 
 using CategoryTheory;
 using Diagram.UI.Interfaces;
+using Diagram.UI;
 
 namespace Diagram.UI.Labels
 {
     /// <summary>
     /// Pure arrow label
     /// </summary>
-    public class PureArrowLabel : IArrowLabel
+    public class PureArrowLabel : IArrowLabel, IDisposable
     {
 
         #region Fields
+
+        bool isDisposed = false;
 
         /// <summary>
         /// Name
@@ -391,6 +394,20 @@ namespace Diagram.UI.Labels
                 a.SetAssociatedObject(l);
             }
         }
+
+
+
+        void IDisposable.Dispose()
+        {
+            if (isDisposed)
+            {
+                return;
+            }
+            isDisposed = true;
+            this.DisposeArrow();
+        }
+
+        
         #endregion
 
 

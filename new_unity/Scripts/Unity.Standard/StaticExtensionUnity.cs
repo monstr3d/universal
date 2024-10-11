@@ -34,6 +34,7 @@ using UnityEngine.UI;
 using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
 using System.Globalization;
+using CategoryTheory;
 
 namespace Unity.Standard
 {
@@ -928,7 +929,7 @@ namespace Unity.Standard
             var scada = desktop.ToScada("Consumer", timerEventFactory,
                  timerEvent,
                 factory, TimeType.Second, false, null, true);
-            scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
+            scada.ErrorHandler = ErrorHandler;
             if (exists)
             {
                 var t = scadaUpdates[desktop];
@@ -1375,29 +1376,21 @@ namespace Unity.Standard
             var exe = scadaUpdates[desktop];
             var o = exe.Item1;
             var l = exe.Item2;
-            Action a = null;
+            List<Action> list = new();
             foreach (var up in exe.Item2)
             {
-                var act = up.Update;
-                if (act != null)
-                {
-                    if (a == null)
-                    {
-                        a = act;
-                        continue;
-                    }
-                    a += act;
-                }
+                list.Add(up.Update);
             }
+            var a = list.ToSingleAction();
             if (a == null)
             {
-                return () => { };
+                return null;
             }
             return () =>
                 {
                     lock (o)
                     {
-                        a();
+                        a?.Invoke();
                     }
                 };
         }

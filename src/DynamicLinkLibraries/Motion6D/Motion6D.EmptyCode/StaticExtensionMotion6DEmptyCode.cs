@@ -79,14 +79,18 @@ namespace Motion6D.EmptyCode
                     return null;
                 }
                 List<string> l = new();
-                if (obj is Camera)
+                if (obj is Camera camera)
                 {
                     string str = "Motion6D.Portable.EmptyCamera";
                     l.Add(str);
                     l.Add("{");
                     l.Add("\tinternal CategoryObject()");
                     l.Add("\t{");
-                    l.Add("");
+                    l.Add("\t\tnear = " + camera.NearPlaneDistance + ";");
+                    l.Add("\t\tfar = " + camera.FarPlaneDistance + ";");
+                    l.Add("\t\tfieldOfView = " + camera.FieldOfView + ";");
+                    l.Add("\t\twidth = " + camera.Width + ";");
+                    l.Add("\t\theight = " + camera.Height + ";");
                     l.Add("\t}");
                     l.Add("}");
                     return l;
@@ -96,7 +100,7 @@ namespace Motion6D.EmptyCode
                     string str = "Motion6D.Portable.VisibleConsumerLink";
                     l.Add(str);
                     l.Add("{");
-                    l.Add("\tinternal CategoryObject()");
+                    l.Add("\tinternal CategoryArrow()");
                     l.Add("\t{");
                     l.Add("");
                     l.Add("\t}");
@@ -106,13 +110,14 @@ namespace Motion6D.EmptyCode
                 if (obj is SerializablePosition sp)
                 {
                     var str = "Motion6D.Portable.SerializablePosition";
+                    l.Add(str);
                     l.Add("{");
                     l.Add("\tinternal CategoryObject()");
                     l.Add("\t{");
                     var p = sp.Parameters;
                     if (p is ICameraConsumer)
                     {
-                        l.Add("\t\tParameters = new  Motion6D.Portable.EmptyComeraConsumer();");
+                        l.Add("\t\tParameters = new  Motion6D.Portable.EmptyCameraConsumer(this);");
                     }
                     l.Add("\t}");
                     l.Add("}");

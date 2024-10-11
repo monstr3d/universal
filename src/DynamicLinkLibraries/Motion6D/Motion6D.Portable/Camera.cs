@@ -25,49 +25,70 @@ namespace Motion6D.Portable
 
         #region Fields
 
+        object obj;
+
+   
+        /// <summary>
+        /// Width
+        /// </summary>
+        protected int width;
+
+        /// <summary>
+        /// Heght
+        /// </summary>
+        protected int height;
+
+        /// <summary>
+        /// Visualization angle
+        /// </summary>
+        protected double fieldOfView = 40;
+
+
+        protected IPosition cameraPositon;
+
+
+   
+        /// <summary>
+        /// Perspective matrix
+        /// </summary>
+        protected double[,] matr4 = new double[4, 4];
+
+        /// <summary>
+        /// Helper frame
+        /// </summary>
+        protected ReferenceFrame helperFrame = new ReferenceFrame();
+
+        /// <summary>
+        /// Vector
+        /// </summary>
+        protected double[] vector16 = new double[16];
+
+        /// <summary>
+        /// Shift
+        /// </summary>
+        protected double[] shift = new double[3];
+
+        protected double near = 1;
+
+        protected double far = 200;
+
+        /// <summary>
+        /// Scale
+        /// </summary>
+        protected double scale = 1;
+  
         /// <summary>
         /// List of visible by camera objects
         /// </summary>
         protected List<IPosition> visible = new List<IPosition>();
 
-        #region Add Remove Events
 
-        /// <summary>
-        /// Add event
-        /// </summary>
-        event Action<IVisible> onAdd = (IVisible v) => { };
+        event Action<IVisible> onAdd;
 
-        /// <summary>
-        /// Remove event
-        /// </summary>
-        event Action<IVisible> onRemove = (IVisible v) => { };
+        event Action<IVisible> onRemove;
 
-        /// <summary>
-        /// Post event
-        /// </summary>
-        event Action<IVisible> onPost = (IVisible v) => { };
+        event Action<IVisible> onPost;
 
-        /// <summary>
-        /// Add event 
-        /// </summary>
-        event Action<IEvent> onAddEvent;
-
-        /// <summary>
-        /// Remove event
-        /// </summary>
-        event Action<IEvent> onRemoveEvent;
-
-        /// <summary>
-        /// Events
-        /// </summary>
-        List<IEvent> events = new List<IEvent>();
-
-        #endregion
-
-        /// <summary>
-        /// Attached oject
-        /// </summary>
-        private object obj;
 
         protected string calculationReason = "";
 
@@ -108,7 +129,7 @@ namespace Motion6D.Portable
         void IVisibleConsumer.Add(IVisible visible)
         {
             AddVisible(visible.Position);
-            onAdd(visible);
+            onAdd?.Invoke(visible);
         }
 
         void IVisibleConsumer.Remove(IVisible visible)
@@ -116,7 +137,7 @@ namespace Motion6D.Portable
             if (visible != null)
             {
                 RemoveVisible(visible.Position);
-                onRemove(visible);
+                onRemove?.Invoke(visible);
             }
         }
 
@@ -129,7 +150,7 @@ namespace Motion6D.Portable
             if (visible is ICameraConsumer)
             {
                 (visible as ICameraConsumer).Add(this);
-                onPost(visible);
+                onPost?.Invoke(visible);
             }
         }
 
@@ -154,6 +175,12 @@ namespace Motion6D.Portable
         #endregion
 
         #region IEventHandler Members
+
+        protected List<IEvent> events = new();
+
+        protected event Action<IEvent> onAddEvent;
+        
+        protected event Action<IEvent> onRemoveEvent;
 
         void IEventHandler.Add(IEvent ev)
         {
@@ -230,24 +257,62 @@ namespace Motion6D.Portable
         /// <summary>
         /// Updates realtime
         /// </summary>
- // !!! DELETE       protected abstract void RealtimeUpdate();
+        // !!! DELETE       protected abstract void RealtimeUpdate();
 
         #endregion
 
         #region Virtual Members
 
+        public virtual double NearPlaneDistance
+        {
+            get => near;
+            set => near = value;
+        }
+
+        public virtual double FarPlaneDistance
+        {
+            get => far;
+            set => far = value;
+        }
+
+        public virtual double FieldOfView
+        {
+            get => fieldOfView;
+            set
+            {
+                fieldOfView = value;
+                sin = Math.Sin(Math.PI * fieldOfView / 360.0);
+            }
+        }
+
+        public virtual int Width
+        {
+            get => width;
+            set => width = value;
+        }
+
+        public virtual int Height
+        {
+            get => height;
+            set => height = value;
+        }
+
+        public virtual bool Perspective
+        { get; set; } = true;
+
+        public virtual double Aspect
+        {
+            get => ((double)Height) / (double)Width;
+        }
+
+
         /// <summary>
         /// Scale
         /// </summary>
-        public virtual double Scale
+        public virtual  double Scale
         {
-            get
-            {
-                return 1;
-            }
-            set
-            {
-            }
+            get => scale;
+            set => scale = value;
         }
 
         #endregion
@@ -354,6 +419,18 @@ namespace Motion6D.Portable
             }
         }
 
+        protected  Action<object, Action> updateImage;
+
+
+        protected double sin = 2 * Math.Asin((20 * Math.PI) / 180.0);
+
+
+        public event Action<object, Action> OnUpdate
+        {
+            add { updateImage += value; }
+            remove { updateImage -= value; }
+        }
+
         /// <summary>
         /// Updates all frames on desktop
         /// </summary>
@@ -370,6 +447,10 @@ namespace Motion6D.Portable
                 }
             }
         }
+
+        protected event Action<IEvent> OnAddEvent;
+
+ 
 
         #endregion
 

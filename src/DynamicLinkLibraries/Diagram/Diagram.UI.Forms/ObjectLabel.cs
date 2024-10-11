@@ -110,24 +110,33 @@ namespace Diagram.UI.Labels
 		/// </summary>
 		private ObjectLabel()
 		{
+            Disposed += ObjectLabel_Disposed;
 		}
 
-		/// <summary>
-		/// Construcor from correspond button
-		/// </summary>
-		/// <param name="button">Correspond button</param>
-		public ObjectLabel(IPaletteButton button) : base(button)
+		private void ObjectLabel_Disposed(object sender, EventArgs e)
+		{
+			if (theObject == null) return;
+			if (theObject is IDisposable d) d.Dispose();
+			theObject = null;
+		}
+
+        /// <summary>
+        /// Construcor from correspond button
+        /// </summary>
+        /// <param name="button">Correspond button</param>
+        public ObjectLabel(IPaletteButton button) : base(button)
 		{
 			Initialize();
-		}
+            Disposed += ObjectLabel_Disposed;
+        }
 
-		
-		/// <summary>
+
+        /// <summary>
         /// Deserialization constructor
-		/// </summary>
-		/// <param name="info">Serialization info</param>
-		/// <param name="context">Streaming context</param>
-		public ObjectLabel(SerializationInfo info, StreamingContext context) : base(info, context)
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        public ObjectLabel(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 			Left = (int)info.GetValue("Left", typeof(int));
 			Top = (int)info.GetValue("Top", typeof(int));
@@ -138,6 +147,7 @@ namespace Diagram.UI.Labels
                 SetOwnName();
                 obj.SetAssociatedObject(this);
 			}
+            Disposed += ObjectLabel_Disposed;
         }
 
         #endregion

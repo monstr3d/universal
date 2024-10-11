@@ -138,6 +138,10 @@ public class Activation : MonoBehaviour
                 {
                     monoBehaviour.enabled = true;
                 }
+                if (monoBehaviour is ReferenceFrameBehavior rf)
+                {
+                    rf.Scale = globalScale;
+                }
             }
         }
     }

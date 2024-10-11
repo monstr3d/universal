@@ -27,7 +27,7 @@ namespace Unity.Standard
 
         protected IDesktop desktop;
  
-        Action ev = () => { };
+        Action ev;
 
         float currentTime;
 
@@ -134,7 +134,7 @@ namespace Unity.Standard
                 return;
             }
             currentTime = t;
-            ev();
+            ev?.Invoke();
         }
 
 

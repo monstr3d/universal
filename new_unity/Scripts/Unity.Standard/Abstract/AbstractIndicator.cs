@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.ExceptionServices;
+using BaseTypes;
 using CategoryTheory;
 using Scada.Desktop;
 

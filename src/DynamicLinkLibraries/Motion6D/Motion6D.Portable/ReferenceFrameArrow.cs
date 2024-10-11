@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Collections;
-
 
 
 using CategoryTheory;
-using Diagram.UI;
+
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+
 using Motion6D.Interfaces;
 
 namespace Motion6D.Portable
@@ -16,14 +14,14 @@ namespace Motion6D.Portable
     /// <summary>
     /// Link of relative frame
     /// </summary>
-    public class ReferenceFrameArrow : CategoryArrow,  IRemovableObject
+    public class ReferenceFrameArrow : CategoryArrow, IDisposable
     {
         #region Fields
-        
+
         IPosition source;
-        
+
         IReferenceFrame target;
-        
+
         #endregion
 
         #region Constructors
@@ -33,7 +31,7 @@ namespace Motion6D.Portable
         /// </summary>
         public ReferenceFrameArrow()
         {
-   
+
         }
 
 
@@ -90,19 +88,33 @@ namespace Motion6D.Portable
             }
         }
 
+        /// <summary>
+        /// TargetFrame
+        /// </summary>
+        public IReferenceFrame TargetFrame
+        {
+            get => target;
+        }
+
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
-            source.Parent = null;
-            if (target != null)
+            if (source != null)
             {
-                target.Children.Remove(source);
+                source.Parent = null;
+                if (target != null)
+                {
+                    target.Children.Remove(source);
+                }
             }
+            source = null;
+            target = null;
         }
+
 
         #endregion
 
@@ -151,7 +163,7 @@ namespace Motion6D.Portable
             return frames;
         }
 
- 
+
 
         private static void prepare(IReferenceFrame frame, List<IPosition> frames)
         {

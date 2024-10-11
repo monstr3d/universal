@@ -408,11 +408,11 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"a", (double)4.8466666666666667 },
-										{"k", (double)0.75006375541921 },
-										{"p", (double)1028 },
 										{"t", (double)22.503536067892504 },
-										{"b", (double)80.88333333333334 }
+										{"b", (double)80.88333333333334 },
+										{"p", (double)1028 },
+										{"a", (double)4.8466666666666667 },
+										{"k", (double)0.75006375541921 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{
@@ -709,9 +709,9 @@ namespace GeneratedProject
 									};
 									aliases = new Dictionary<object, object>()
 									{
-													{"a" , (System.Double)(0.59999999999999998)}
+													{"h" , (System.Double)(351.36591723216981)}
 										,			{"x" , (System.Double)(19000)}
-										,			{"h" , (System.Double)(302.70445131935253)}
+										,			{"a" , (System.Double)(0.59999999999999998)}
 									};
 									isSerialized = true;
 									calculateDerivation = false;
@@ -2061,9 +2061,9 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"a", "St H " },
 										{"f", ".wav" },
-										{"b", "St V " }
+										{"b", "St V " },
+										{"a", "St H " }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{
@@ -2465,10 +2465,10 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"a", "wind.wav_" },
-										{"f", "_pressure.wav_" },
-										{"c", "_degree.wav_" },
 										{"j", "_degree.wav" },
+										{"c", "_degree.wav_" },
+										{"f", "_pressure.wav_" },
+										{"a", "wind.wav_" },
 										{"h", "_hectopascal.wav_temperature.wav_" }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
@@ -3498,7 +3498,11 @@ namespace GeneratedProject
 				{
 					internal CategoryObject()
 					{
-				
+						near = 10000;
+						far = 400000;
+						fieldOfView = 40;
+						width = 0;
+						height = 0;
 					}
 				}
 			}
@@ -3548,10 +3552,11 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.SerializablePosition{
+				internal class CategoryObject : Motion6D.Portable.SerializablePosition
+				{
 					internal CategoryObject()
 					{
-						Parameters = null;
+						Parameters = new  Motion6D.Portable.EmptyCameraConsumer(this);
 					}
 				}
 			}
@@ -3565,10 +3570,11 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : {
+				internal class CategoryObject : Motion6D.Portable.SerializablePosition
+				{
 					internal CategoryObject()
 					{
-						Parameters = new EmptyComeraConsumer();
+						Parameters = new  Motion6D.Portable.EmptyCameraConsumer(this);
 					}
 				}
 			}
@@ -3645,8 +3651,8 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"k", (double)10 },
-							{"l", (double)100 }
+							{"l", (double)100 },
+							{"k", (double)10 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -4000,7 +4006,11 @@ namespace GeneratedProject
 				{
 					internal CategoryObject()
 					{
-				
+						near = 150;
+						far = 40000;
+						fieldOfView = 40;
+						width = 0;
+						height = 0;
 					}
 				}
 			}
@@ -4054,7 +4064,11 @@ namespace GeneratedProject
 				{
 					internal CategoryObject()
 					{
-				
+						near = 50000;
+						far = 300000;
+						fieldOfView = 60;
+						width = 0;
+						height = 0;
 					}
 				}
 			}
@@ -4255,7 +4269,7 @@ namespace GeneratedProject
 		
 				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
-					internal CategoryObject()
+					internal CategoryArrow()
 					{
 				
 					}
@@ -4285,7 +4299,7 @@ namespace GeneratedProject
 		
 				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
-					internal CategoryObject()
+					internal CategoryArrow()
 					{
 				
 					}
@@ -4302,7 +4316,7 @@ namespace GeneratedProject
 		
 				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
-					internal CategoryObject()
+					internal CategoryArrow()
 					{
 				
 					}
@@ -4332,7 +4346,7 @@ namespace GeneratedProject
 		
 				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
-					internal CategoryObject()
+					internal CategoryArrow()
 					{
 				
 					}
@@ -4349,7 +4363,7 @@ namespace GeneratedProject
 		
 				internal class CategoryArrow : Motion6D.Portable.VisibleConsumerLink
 				{
-					internal CategoryObject()
+					internal CategoryArrow()
 					{
 				
 					}

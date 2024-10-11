@@ -1477,12 +1477,12 @@ namespace Diagram.UI
             IEnumerable<ICategoryArrow> arrs = desktop.CategoryArrows;
             foreach (ICategoryArrow arr in arrs)
             {
-                RemoveObject(arr);
+                arr.RemoveObject();
             }
             IEnumerable<ICategoryObject> objs = desktop.CategoryObjects;
             foreach (ICategoryObject ob in objs)
             {
-                RemoveObject(ob);
+                ob.RemoveObject();
             }
         }
 
@@ -1490,11 +1490,15 @@ namespace Diagram.UI
         /// Removes object
         /// </summary>
         /// <param name="o">The object to remove</param>
-        public static void RemoveObject(object o)
+        public static void RemoveObject(this object o)
         {
             if (o == null)
             {
                 return;
+            }
+            if (o is IDisposable disposable)
+            {
+                disposable.Dispose();
             }
             if (o is IChildrenObject ch)
             {
@@ -1503,7 +1507,7 @@ namespace Diagram.UI
                 {
                     foreach (var ao in aoa)
                     {
-                        RemoveObject(ao);
+                        ao.RemoveObject();
                     }
                 }
             }
@@ -1513,15 +1517,39 @@ namespace Diagram.UI
             }
             if (o is IObjectLabel ol)
             {
-                RemoveObject(ol.Object);
+                ol.Object.RemoveObject();
+                ol.DisposeObject();
             }
             if (o is IArrowLabel al)
             {
-                RemoveObject(al.Arrow);
+                al.Arrow.RemoveObject();
+                al.DisposeArrow();
             }
-            if (o is IDisposable disposable)
+        }
+
+        static public void DisposeArrow(this IArrowLabel arrow)
+        {
+            if (arrow.Arrow is IDisposable da)
+            {
+                da.Dispose();
+            }
+            arrow.Source.DisposeObject();
+            arrow.Target.DisposeObject();
+            if (arrow is IDisposable disposable)
             {
                 disposable.Dispose();
+            }
+        }
+
+        static public void DisposeObject(this IObjectLabel ol)
+        {
+            if (ol.Object is IDisposable d)
+            {
+                d.Dispose();
+            }
+            if (ol is IDisposable dol)
+            {
+                dol.Dispose();
             }
         }
 
@@ -3777,7 +3805,7 @@ namespace Diagram.UI
                     d.Dispose();
                 }
             }
-            RemoveObject(obj);
+            obj.RemoveObject();
         }
 
 

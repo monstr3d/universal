@@ -109,8 +109,10 @@ namespace Diagram.UI.Labels
             InitializeComponent();
             captionEditor.KeyUp += KeyUp;
             nc = this;
+            Disposed += UserControlLabel_Disposed;
         }
 
+  
         /// <summary>
         /// Deserialization constructor
         /// </summary>
@@ -145,6 +147,7 @@ namespace Diagram.UI.Labels
                 ex.ShowError(-1);
             }
             captionEditor.KeyUp += KeyUp;
+            Disposed += UserControlLabel_Disposed;
         }
 
         #endregion
@@ -1042,6 +1045,13 @@ namespace Diagram.UI.Labels
         }
 
         #endregion
+
+        private void UserControlLabel_Disposed(object sender, EventArgs e)
+        {
+            if (obj == null) return;
+            if (obj is IDisposable disposable) disposable.Dispose();
+            obj = null;
+        }
 
     }
 }

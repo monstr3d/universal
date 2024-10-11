@@ -12,9 +12,11 @@ namespace Diagram.UI.Labels
     /// <summary>
     /// Pure object label
     /// </summary>
-    public class PureObjectLabel : IObjectLabel
+    public class PureObjectLabel : IObjectLabel, IDisposable
     {
         #region Fields
+
+        bool isDisposed = false;
 
         /// <summary>
         /// Associated object
@@ -716,6 +718,16 @@ namespace Diagram.UI.Labels
                     GetAllAliases(nc, lab, child, list, type);
                 }
             }
+        }
+
+        void IDisposable.Dispose()
+        {
+            if (isDisposed)
+            {
+                return;
+            }
+            isDisposed = true;
+            this.DisposeObject();
         }
 
         #endregion

@@ -36,16 +36,7 @@ namespace WpfInterface.CameraInterface
 
         #region Fields
 
-        /// <summary>
-        /// Width
-        /// </summary>
-        private int width;
-
-        /// <summary>
-        /// Heght
-        /// </summary>
-        private int height;
-
+   
         /// <summary>
         /// Inputs
         /// </summary>
@@ -60,16 +51,7 @@ namespace WpfInterface.CameraInterface
 
         double[] outpos = new double[3];
 
-        double sin = 2 * Math.Asin((20 * Math.PI) / 180.0);
-
-        /// <summary>
-        /// Visualization angle
-        /// </summary>
-        private double fieldOfView = 40;
-
-
-        private IPosition cameraPositon;
-
+     
 
         const Double a = 0;
 
@@ -87,49 +69,22 @@ namespace WpfInterface.CameraInterface
 
         PerspectiveCamera pCamera = new PerspectiveCamera();
 
-        private Action<object, Action> updateImage = (object o, Action act) => { };
-
+     
         AnimatableWrapper[] animatableChildren = new AnimatableWrapper[1];
 
-        Action change = () => {};
-
+     
         object parentControl;
-
-        /// <summary>
-        /// Perspective matrix
-        /// </summary>
-        private double[,] matr4 = new double[4, 4];
-
-        /// <summary>
-        /// Helper frame
-        /// </summary>
-        private ReferenceFrame helperFrame = new ReferenceFrame();
-
-        /// <summary>
-        /// Vector
-        /// </summary>
-        private double[] vector16 = new double[16];
-
-        /// <summary>
-        /// Shift
-        /// </summary>
-        private double[] shift = new double[3];
 
         private Dictionary<IPosition, Visual3D> dict = new Dictionary<IPosition, Visual3D>();
 
-        /// <summary>
+
+        #region Fields
+
+      
+       /// <summary>
         /// BackGround
         /// </summary>
         private string backgound = "";
-
-        private double near = 1;
-
-        private double far = 200;
-
-        /// <summary>
-        /// Scale
-        /// </summary>
-        private double scale = 1;
 
         Action onStop = () => { };
 
@@ -162,6 +117,15 @@ namespace WpfInterface.CameraInterface
 
         bool suppotrsAnimation = false;
 
+        #endregion
+
+
+        #endregion
+
+
+        #region Realtime animation
+
+      
         #endregion
 
 
@@ -240,13 +204,7 @@ namespace WpfInterface.CameraInterface
 
         #endregion
 
-        #region IUpdatableObject Members
-
- 
-
-        #endregion
-
-        #region IUpdatableObject Members
+       #region IUpdatableObject Members
 
         Action IUpdatableObject.Update
         {
@@ -412,6 +370,8 @@ namespace WpfInterface.CameraInterface
             get { return animatableChildren; }
         }
 
+        protected event Action change;
+
         event Action IAnimatedObject.Change
         {
             add { change += value; }
@@ -521,21 +481,7 @@ namespace WpfInterface.CameraInterface
         }
 
 
-        /// <summary>
-        /// Scale
-        /// </summary>
-        public override double Scale
-        {
-            get
-            {
-                return scale;
-            }
-            set
-            {
-                scale = value;
-            }
-        }
-
+  
         public override void UpdateImage()
         {
             if (!show)
@@ -598,14 +544,9 @@ namespace WpfInterface.CameraInterface
 
         #region Public Members
 
-        public event Action<object, Action> OnUpdate
-        {
-            add { updateImage += value; }
-            remove { updateImage -= value; }
-        }
 
 
-        public double FarPlaneDistance
+        public override double FarPlaneDistance
         {
             get
             {
@@ -639,7 +580,7 @@ namespace WpfInterface.CameraInterface
             updateImage = update;
         }
 
-        public double FieldOfView
+        public override double FieldOfView
         {
             get
             {
@@ -653,7 +594,7 @@ namespace WpfInterface.CameraInterface
             }
         }
 
-        public double NearPlaneDistance
+        public override double NearPlaneDistance
         {
             get
             {

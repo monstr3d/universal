@@ -137,18 +137,28 @@ namespace Diagram.UI.Labels
 			this.source = source;
 			this.target = target;
 			Initialize();
+            Disposed += ArrowLabel_Disposed;
 		}
 
-		/// <summary>
+        private void ArrowLabel_Disposed(object sender, EventArgs e)
+        {
+			if (arrow == null) return;
+            if (arrow is IDisposable disposable) disposable.Dispose();
+			arrow = null;
+        }
+
+        /// <summary>
         /// Deserialization constructor
-		/// </summary>
-		/// <param name="info">Serialization info</param>
-		/// <param name="context">Streaming context</param>
-		public ArrowLabel(SerializationInfo info, StreamingContext context) : base(info, context)
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        public ArrowLabel(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 			arrow = (ICategoryArrow)info.GetValue("Arrow", typeof(object));
 			sourceNumber = (int)info.GetValue("SourceNumber", typeof(int));
-			targetNumber = (int)info.GetValue("TargetNumber", typeof(int));
+            Disposed += ArrowLabel_Disposed;
+
+            targetNumber = (int)info.GetValue("TargetNumber", typeof(int));
 		}
 
 		#endregion

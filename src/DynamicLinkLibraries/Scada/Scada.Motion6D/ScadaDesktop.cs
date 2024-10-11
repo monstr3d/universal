@@ -27,7 +27,7 @@ using Animation.Interfaces;
 
 using Event.Portable.Interfaces;
 using DataPerformer.Portable.Interfaces;
-using DataPerformer.Portable;
+using Motion6D.Interfaces;
 
 namespace Scada.Motion6D
 {
@@ -46,7 +46,9 @@ namespace Scada.Motion6D
         /// </summary>
         new public static readonly ScadaDesktop Singleton = new ScadaDesktop(null, null, TimeType.Second, true, null, null);
 
-        Dictionary<string, Camera> cameras = new Dictionary<string, Camera>();
+        Dictionary<string, Camera> cameras = new ();
+
+        Dictionary<IReferenceFrame , Camera> positions = new ();
 
         object enabledlock = new object();
 
@@ -88,6 +90,18 @@ namespace Scada.Motion6D
             desktop.ForEach((Camera camera) =>
             {
                 cameras[(camera as IAssociatedObject).GetRootName()] = camera;
+            });
+            desktop.ForEach((ReferenceFrameArrow ar) =>
+            {
+                var s = ar.Source;
+                if (s is Camera camera)
+                {
+                    var p = ar.TargetFrame;
+                    if (p != null)
+                    {
+                        positions[p] = camera;
+                    }
+                }
             });
 
         }
@@ -174,6 +188,20 @@ namespace Scada.Motion6D
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Gets camera from the frame
+        /// </summary>
+        /// <param name="frame"></param>
+        /// <returns>The camera</returns>
+        public Camera GetCamera(IReferenceFrame frame)
+        {
+            if (positions.ContainsKey(frame))
+            {
+                return positions[frame];
+            }
+            return null;
+        }
 
         /// <summary>
         /// Type of animation

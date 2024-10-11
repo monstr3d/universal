@@ -20,6 +20,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #region Fields
 
+    public bool inheritCamera = true;
+
     public string desktop = "";
 
     public float step = 0;
@@ -62,7 +64,23 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     public bool unique = true;
 
-    Camera cam;
+    Camera owncamera;
+
+    public float Scale
+    {
+        get => globalScale;
+        set
+        {
+            globalScale = value;
+            SetCamera();
+        }
+    }
+
+    Motion6D.Portable.Camera Camera
+    {
+        get;
+        set;
+    } = null;
 
  
     private MonoBehaviourWrapper monoBehaviorWrapper;
@@ -82,6 +100,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
     Action lateUpdate;
 
     IScadaInterface scada;
+
+    Scada.Motion6D.ScadaDesktop motion6D;
 
     Action<Collider> triggerEnter = (Collider c) => { };
 
@@ -130,8 +150,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
                     SetConstants();
                     constants = new string[0];
                 }
-                Action act = (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
-                if (cam != null)
+                Action act = UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
+                if (owncamera != null)
                 {
                     lateUpdate = act;
                 }
@@ -145,6 +165,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
            StaticExtensionUnity.Create(this, unique, step,
            desktop, inputs, outputs);
         scada = monoBehaviorWrapper.Scada;
+        motion6D = scada as Scada.Motion6D.ScadaDesktop;
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
         //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
@@ -153,8 +174,11 @@ public class ReferenceFrameBehavior : MonoBehaviour
         {
             IReferenceFrame frame = frames[transformation];
             referenceFrame = frame.Own;
+            Camera = motion6D.GetCamera(frame);
+            SetCamera();
         }
-        cam = gameObject.GetComponent<Camera>();
+        owncamera = gameObject.GetComponent<Camera>();
+        SetCamera();
    
         if (onTriggerEnter.Length > 0)
         {
@@ -254,32 +278,48 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #region  Private Members
 
+    void SetCamera()
+    {
+        if (!inheritCamera)
+        {
+            return;
+        }
+        var c = Camera;
+        if ((owncamera == null) | (c == null)) return;
+
+        //        owncamera.aspect = (float)(c.Aspect);
+        owncamera.farClipPlane = (float)c.FarPlaneDistance * globalScale;
+        owncamera.nearClipPlane = (float)c.NearPlaneDistance * globalScale;
+        owncamera.fieldOfView = (float)c.FieldOfView;
+    }
+
 
     IEnumerator jumpCoroutine
     {
         get
         {
             yield return new WaitForSeconds(jumpPause);
-            Set(UpdatePosition);
+            Set(UpdateGlobalScalePosition);
             yield return 0;
         }
     }
 
     void Set(Action act)
     {
-        if (cam == null)
+        if (owncamera == null)
         {
             update = act;
             return;
         }
         lateUpdate = act;
     }
-
+/*
     void UpdatePosition()
     {
         gameObject.transform.rotation = referenceFrame.ToQuaternion();
         gameObject.transform.position = referenceFrame.Position.ToPosition();
     }
+*/
 
     void UpdateGlobalScalePosition()
     {
