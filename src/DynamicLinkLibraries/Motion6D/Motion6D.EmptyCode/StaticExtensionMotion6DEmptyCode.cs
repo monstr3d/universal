@@ -1,7 +1,9 @@
 ﻿using AssemblyService.Attributes;
+using BaseTypes;
 using Diagram.Interfaces;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Motion6D.Interfaces;
 using Motion6D.Portable;
 using Motion6D.Portable.Interfaces;
 using static Motion6D.EmptyCode.StaticExtensionMotion6DEmptyCode;
@@ -91,6 +93,7 @@ namespace Motion6D.EmptyCode
                     l.Add("\t\tfieldOfView = " + camera.FieldOfView + ";");
                     l.Add("\t\twidth = " + camera.Width + ";");
                     l.Add("\t\theight = " + camera.Height + ";");
+                    l.Add("\t\tScale = " + camera.Scale + ";");
                     l.Add("\t}");
                     l.Add("}");
                     return l;
@@ -115,9 +118,23 @@ namespace Motion6D.EmptyCode
                     l.Add("\tinternal CategoryObject()");
                     l.Add("\t{");
                     var p = sp.Parameters;
+                    if (p is IVisible vis)
+                    {
+                        var size = vis.Size;
+                        l.Add("\t\tdouble[,] size = null;");
+                        if (size != null)
+                        {
+                            l.Add("\t\tsize = new double[,]");
+                            var list = size.ToStringList();
+                            foreach (var item in list)
+                            {
+                                l.Add("\t\t" + item);
+                            }
+                        }
+                    }
                     if (p is ICameraConsumer)
                     {
-                        l.Add("\t\tParameters = new  Motion6D.Portable.EmptyCameraConsumer(this);");
+                        l.Add("\t\tParameters = new  Motion6D.Portable.EmptyCameraConsumer(this, size);");
                     }
                     l.Add("\t}");
                     l.Add("}");

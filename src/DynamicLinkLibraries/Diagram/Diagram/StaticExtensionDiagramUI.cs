@@ -1527,6 +1527,10 @@ namespace Diagram.UI
             }
         }
 
+        /// <summary>
+        /// Disposes arrow label
+        /// </summary>
+        /// <param name="arrow">The arrow label</param>
         static public void DisposeArrow(this IArrowLabel arrow)
         {
             if (arrow.Arrow is IDisposable da)
@@ -1541,6 +1545,10 @@ namespace Diagram.UI
             }
         }
 
+        /// <summary>
+        /// Disposes object label
+        /// </summary>
+        /// <param name="ol">The object label</param>
         static public void DisposeObject(this IObjectLabel ol)
         {
             if (ol.Object is IDisposable d)

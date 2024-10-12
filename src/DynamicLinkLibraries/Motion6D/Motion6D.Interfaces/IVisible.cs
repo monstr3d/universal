@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Motion6D.Interfaces
+﻿namespace Motion6D.Interfaces
 {
     /// <summary>
     /// Visible 3D object
     /// </summary>
     public interface IVisible : IPositionObject
     {
-
+        /// <summary>
+        /// The size
+        /// </summary>
+        double[,] Size { get; }
     }
 }

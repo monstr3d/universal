@@ -9,6 +9,7 @@ using Motion6D;
 
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
+using BaseTypes;
 
 namespace WpfInterface
 {
@@ -251,7 +252,88 @@ namespace WpfInterface
             return XamlWriter.Save(v3d);
         }
 
-   
+        /// <summary>
+        /// Gets size
+        /// </summary>
+        /// <param name="mesh"></param>
+        /// <returns></returns>
+        static public double[,] GetSize(this Point3DCollection pos)
+        {
+            var d = new double[2, 3];
+            bool f = true;
+            var dd = new double[3];
+            foreach (var p in pos)
+            {
+                dd[0] = p.X;
+                dd[1] = p.Y;
+                dd[2] = p.Z;
+                if (f)
+                {
+                   for (int i = 0; i < 3; i++)
+                    {
+                        d[0, i] = dd[i];
+                        d[1, i] = dd[i];
+                    }
+                   f = false;
+                    continue;
+                }
+                for (var i = 0; i < 3; i++)
+                {
+                    d[0, i] = Math.Min(dd[i], d[0, i]);
+                    d[1, i] = Math.Max(dd[i], d[1, i]);
+                }
+            }
+
+            return d;
+        }
+
+        static public double[,] GetSize(this Visual3D v3d)
+        {
+            double[,] d = null;
+            if (v3d is ModelVisual3D)
+            {
+                ModelVisual3D m3d = v3d as ModelVisual3D;
+                object ob = m3d.Content;
+                if (ob != null)
+                {
+                    GeometryModel3D geom = null;
+                    if (ob is GeometryModel3D g)
+                    {
+                        geom = g;
+                    }
+                    else if (ob is Model3DGroup gr)
+                    {
+                        Model3DCollection ch = gr.Children;
+                        foreach (object o in ch)
+                        {
+                            if (o is GeometryModel3D ge)
+                            {
+                                geom = ge;
+                                break;
+                            }
+                        }
+                    }
+                    if (geom != null)
+                    {
+                        Geometry3D g3d = geom.Geometry;
+                        if (g3d is MeshGeometry3D mesh)
+                        {
+                            d = d.GetSize(mesh.Positions.GetSize());
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (Visual3D vtd in m3d.Children)
+                    {
+                        d = d.GetSize(vtd.GetSize());
+                    }
+                }
+            }
+            return d;
+        }
+
+
         static public void Multiply(this MeshGeometry3D mesh, double scale)
         {
             Point3DCollection pos = mesh.Positions;

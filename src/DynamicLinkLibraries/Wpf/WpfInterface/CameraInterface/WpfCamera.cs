@@ -162,7 +162,7 @@ namespace WpfInterface.CameraInterface
                 far = info.GetDouble("FarPlaneDistance");
                 try
                 {
-                    scale = info.GetDouble("Scale");
+                    Scale = info.GetDouble("Scale");
                 }
                 catch (Exception)
                 {
@@ -196,7 +196,7 @@ namespace WpfInterface.CameraInterface
             info.AddValue("CameraBackground", backgound);
             info.AddValue("NearPlaneDistance", near);
             info.AddValue("FarPlaneDistance", far);
-            info.AddValue("Scale", scale);
+            info.AddValue("Scale", Scale);
             info.AddValue("ForecastTime", forecastTime, typeof(TimeSpan));
             info.AddValue("CoordinateError", coordinateError);
             info.AddValue("AngleError", angleError);

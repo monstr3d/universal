@@ -203,6 +203,10 @@ namespace WpfInterface.Objects3D
             get { return positions.Count; }
         }
 
+        Dictionary<string, byte[]> IWpfVisible.Textures => throw new NotImplementedException();
+
+        double[,] IVisible.Size => null;
+
         IPosition IVisibleCollection.this[int number]
         {
             get { return positions[number]; }

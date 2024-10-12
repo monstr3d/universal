@@ -5,7 +5,7 @@ namespace Motion6D.Portable
     {
         public EmptyCamera()
         {
-
+ 
         }
 
         public override void UpdateImage()

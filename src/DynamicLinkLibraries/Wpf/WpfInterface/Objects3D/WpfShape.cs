@@ -66,6 +66,8 @@ namespace WpfInterface.Objects3D
 
         private double[][] centers;
 
+        protected double[,] size;
+
         Color[] colors = null;
 
         protected IAssociatedObject[] ch;
@@ -236,6 +238,9 @@ namespace WpfInterface.Objects3D
                 return textures;
             }
         }
+
+
+        double[,] IVisible.Size => size;
 
         #endregion
 
@@ -517,7 +522,6 @@ namespace WpfInterface.Objects3D
   
         #endregion 
 
-
         #region ILinear6DForecast Members
 
         ReferenceFrame ILinear6DForecast.ReferenceFrame
@@ -606,6 +610,10 @@ namespace WpfInterface.Objects3D
                 facetCount = -1;
                 texture = null;
                 CreateFacets();
+                if (size == null)
+                {
+                  size = Visual.GetSize();
+                }
             }
         }
 
@@ -885,6 +893,11 @@ namespace WpfInterface.Objects3D
         #endregion
 
         #region Private Members
+
+        void CreateSize()
+        {
+            size = Visual.GetSize();
+        }
         
         internal void SetFile(string xaml, string dir)
         {

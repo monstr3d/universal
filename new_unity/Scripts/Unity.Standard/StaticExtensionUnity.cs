@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Globalization;
 
 using BaseTypes;
 
@@ -33,8 +34,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
-using System.Globalization;
-using CategoryTheory;
 
 namespace Unity.Standard
 {
@@ -1273,6 +1272,52 @@ namespace Unity.Standard
             Dictionary<string, List<Component>> comp;
             go.GetComponents(out comp);
             return comp.GetComponents<T>();
+        }
+
+        static public float[,] GetSize(this float[,] x, Vector3 v)
+        {
+            float[] y = new float[] { v.x, v.y, v.z };
+            if (x == null)
+            {
+                var  d = new float[2, 3];
+                for (int i = 0; i < y.Length; i++)
+                {
+                    d[0, i] = y[i];
+                    d[1, i] = y[i];
+                }
+                return d;
+            }
+            for (int i = 0; i < y.Length; i++)
+            {
+                x[0, i] = Math.Min(x[0, i], y[i]); ;
+                x[1, i] = Math.Max(x[1, i], y[i]); ;
+            }
+            return x;
+
+        }
+
+        static public float[,] GetSize(this MeshFilter mesh)
+        {
+            float[,] x = null;
+            var v = mesh.mesh.vertices;
+            foreach (var i in v)
+            {
+                x = x.GetSize(i);
+            }
+            return x;
+        }
+
+
+        static public void Scale(this MeshFilter mesh, float scale)
+        {
+            var v = mesh.mesh.vertices;
+            var vv = new Vector3[v.Length];
+            for (int i = 0; i < v.Length; i++)
+            {
+                var w = v[i];
+                vv[i] = new Vector3(w.x * scale, w.y * scale, w.z * scale);
+            }
+            mesh.mesh.vertices = vv;
         }
 
         static public Dictionary<string, List<T>> GetComponents<T>(this 

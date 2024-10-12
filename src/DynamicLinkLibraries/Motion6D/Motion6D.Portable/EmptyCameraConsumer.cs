@@ -11,11 +11,16 @@ namespace Motion6D.Portable
 
         object obj;
 
+        protected double[,] size;
 
-        public EmptyCameraConsumer(IPosition position)
+
+   
+        public EmptyCameraConsumer(IPosition position, double[,] size = null) 
         {
             this.position = position;
+            this.size = size;
         }
+
 
         void ICameraConsumer.Add(Camera camera)
         {
@@ -37,5 +42,7 @@ namespace Motion6D.Portable
             get => obj; 
             set => obj = value; 
         }
+
+        double[,] IVisible.Size => size;
     }
 }

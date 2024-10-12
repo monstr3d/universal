@@ -72,11 +72,7 @@ namespace Motion6D.Portable
 
         protected double far = 200;
 
-        /// <summary>
-        /// Scale
-        /// </summary>
-        protected double scale = 1;
-  
+    
         /// <summary>
         /// List of visible by camera objects
         /// </summary>
@@ -261,7 +257,16 @@ namespace Motion6D.Portable
 
         #endregion
 
+   
         #region Virtual Members
+
+        // Scale
+        public virtual double Scale
+        {
+            get;
+            set;
+        }
+
 
         public virtual double NearPlaneDistance
         {
@@ -305,15 +310,6 @@ namespace Motion6D.Portable
             get => ((double)Height) / (double)Width;
         }
 
-
-        /// <summary>
-        /// Scale
-        /// </summary>
-        public virtual  double Scale
-        {
-            get => scale;
-            set => scale = value;
-        }
 
         #endregion
 

@@ -5,6 +5,7 @@ using System.Reflection;
 
 using BaseTypes.Interfaces;
 using BaseTypes.Attributes;
+using System.Runtime.CompilerServices;
 
 namespace BaseTypes
 {
@@ -135,6 +136,66 @@ namespace BaseTypes
         #endregion
 
         #region Public Members
+        
+        /// <summary>
+        /// Gets size of x and y
+        /// </summary>
+        /// <param name="x">The x</param>
+        /// <param name="y">The y</param>
+        /// <returns>The size</returns>
+        public static double[,] GetSize(this double[,] x, double[,] y)
+        {
+            if (x == null)
+            {
+                if (y != null)
+                {
+                    return y;
+                }
+                return null;
+            }
+            var d = new double[2, x.GetLength(1)];
+            for (var i = 0; i < d.GetLength(1); i++)
+            {
+                d[0, i] = Math.Min(x[0, i], y[0, i]);
+                d[1, i] = Math.Max(x[1, i], y[1, i]);
+            }
+            return d;
+        }
+
+        /// <summary>
+        /// Conversion of array to sting list
+        /// </summary>
+        /// <param name="x">The array</param>
+        /// <returns>The string list</returns>
+        public static List<string> ToStringList(this double[,] x)
+        {
+            var l = new List<string>();
+            if (x == null)
+            {
+                return l;
+            }
+            l.Add("{");
+            for (var i = 0; i < x.GetLength(0); i++)
+            {
+                var s = "\t{";
+                for (var j = 0; j < x.GetLength(1); j++)
+                {
+                    if (j > 0)
+                    {
+                        s += ", ";
+                    }
+                    s += x[i, j].ToString();
+                }
+                s += " }";
+                if (i < x.GetLength(0) - 1)
+                {
+                    s += ",";
+                }
+                l.Add(s);
+            }
+            l.Add("};");
+            return l;
+        }
 
         /// <summary>
         /// Nullable type converion
