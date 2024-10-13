@@ -70,7 +70,8 @@ namespace Diagram.UI
         private static readonly string StandardHeader = "using System;" + Environment.NewLine +
             "using System.Collections.Generic;" + Environment.NewLine + 
             "using System.Linq;" + Environment.NewLine +
-            "using System.Text;" + Environment.NewLine + "" + Environment.NewLine + "";
+          //  "using System.Text;" + 
+            Environment.NewLine + "" + Environment.NewLine + "";
 
         private static List<Func<object, bool>> nativeDetectors = new List<Func<object, bool>>();
 
@@ -3289,20 +3290,19 @@ namespace Diagram.UI
             {
                 return;
             }
-            if (obj is T)
+            if (obj is T t)
             {
-                T t = obj as T;
                 action(t);
                 return;
             }
             if (find)
             {
-                if (obj is IAssociatedObject)
+                if (obj is IAssociatedObject ao)
                 {
-                    T t = (obj as IAssociatedObject).Find<T>();
-                    if (t != null)
+                    T ta = ao.Find<T>();
+                    if (ta != null)
                     {
-                        action(t);
+                        action(ta);
                     }
                 }
             }

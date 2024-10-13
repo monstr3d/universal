@@ -34,6 +34,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
+using RealMatrixProcessor;
 
 namespace Unity.Standard
 {
@@ -1248,6 +1249,15 @@ namespace Unity.Standard
             return new Quaternion((float)ori[1], (float)ori[2],
                 (float)ori[3], (float)ori[0]);
         }
+/*
+        static public Quaternion ToRotatedQuaternion(this
+            ReferenceFrame frame, double[] y, double[] z)
+        {
+            double[] ori = frame.Quaternion;
+            ori.QuaternionMultiply(y, z);
+            return new Quaternion(-(float)z[1], (float)z[2],
+                (float)z[3], (float)z[0]);
+        }*/
 
         /// <summary>
         /// 
@@ -1256,7 +1266,7 @@ namespace Unity.Standard
         /// <returns></returns>
         static public Vector3 ToPosition(this double[] t)
         {
-            return new Vector3((float)t[0], (float)t[1], (float)t[2]);
+            return new Vector3((float)t[0], (float)t[1], -(float)t[2]);
         }
 
         /// <summary>
@@ -1273,40 +1283,6 @@ namespace Unity.Standard
             go.GetComponents(out comp);
             return comp.GetComponents<T>();
         }
-
-        static public float[,] GetSize(this float[,] x, Vector3 v)
-        {
-            float[] y = new float[] { v.x, v.y, v.z };
-            if (x == null)
-            {
-                var  d = new float[2, 3];
-                for (int i = 0; i < y.Length; i++)
-                {
-                    d[0, i] = y[i];
-                    d[1, i] = y[i];
-                }
-                return d;
-            }
-            for (int i = 0; i < y.Length; i++)
-            {
-                x[0, i] = Math.Min(x[0, i], y[i]); ;
-                x[1, i] = Math.Max(x[1, i], y[i]); ;
-            }
-            return x;
-
-        }
-
-        static public float[,] GetSize(this MeshFilter mesh)
-        {
-            float[,] x = null;
-            var v = mesh.mesh.vertices;
-            foreach (var i in v)
-            {
-                x = x.GetSize(i);
-            }
-            return x;
-        }
-
 
         static public void Scale(this MeshFilter mesh, float scale)
         {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CategoryTheory;
@@ -38,20 +34,20 @@ namespace Diagram.UI
         {
             get 
             { 
-                if (obj is Control)
+                if (obj is Control c)
                 {
-                    object o = Find(type, (obj as Control));
+                    object o = Find(type, c);
                     if (o != null)
                     {
                         return o;
                     }
                 }
-                if (obj is IAssociatedObject)
+                if (obj is IAssociatedObject ao)
                 {
-                    object o = (obj as IAssociatedObject).Object;
-                    if (o is Control)
+                    object o = ao.Object;
+                    if (o is Control co)
                     {
-                        object ob = Find(type, (o as Control));
+                        object ob = Find(type, co);
                         if (ob != null)
                         {
                             return ob;

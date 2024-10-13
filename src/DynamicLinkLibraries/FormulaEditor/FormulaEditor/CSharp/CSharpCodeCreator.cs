@@ -29,7 +29,9 @@ namespace FormulaEditor.CSharp
         /// </summary>
         public static readonly string StandardHeader = "using System;" + Environment.NewLine + 
             "using System.Collections.Generic;" + Environment.NewLine + 
-            "using System.Text;" + Environment.NewLine + "" + Environment.NewLine + "";
+          //  "using System.Text;"
+         Environment.NewLine + "" +
+         Environment.NewLine + "";
 
         private static bool cycle = true;
 

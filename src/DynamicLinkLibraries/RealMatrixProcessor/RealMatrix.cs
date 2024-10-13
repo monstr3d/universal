@@ -32,6 +32,19 @@ namespace RealMatrixProcessor
         }
 
         /// <summary>
+        /// Inverts a matrix
+        /// </summary>
+        /// <param name="a">Matrix to invert</param>
+        /// <returns>Inverted matrix</returns>
+        public double[,] Invert(double[,] a)
+        {
+            int n = a.GetLength(0);
+            var inv = new double[n, n];
+            Invert(a, inv);
+            return inv;
+        }
+
+        /// <summary>
         /// Inverts matrix
         /// </summary>
         /// <param name="a">Matrix to invert</param>

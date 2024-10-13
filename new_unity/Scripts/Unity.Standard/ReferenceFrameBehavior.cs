@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+
 using UnityEngine;
 
 using Motion6D.Interfaces;
@@ -10,10 +12,12 @@ using Motion6D.Interfaces;
 using Scada.Interfaces;
 using Scada.Desktop;
 
+using Vector3D;
+
 using Unity.Standard;
 
-using System.Reflection;
 using Unity.Standard.Interfaces;
+
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
@@ -64,7 +68,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     public bool unique = true;
 
-    Camera owncamera;
 
     public float Scale
     {
@@ -123,6 +126,18 @@ public class ReferenceFrameBehavior : MonoBehaviour
     private static float globalScale = 1f;
 
 
+    Camera owncamera;
+
+    double[] yRotCamera;
+
+    double[] yRotObject;
+
+
+
+    double[] zRot = new double[4];
+
+
+
     #endregion
 
     #region Standard Members
@@ -138,8 +153,11 @@ public class ReferenceFrameBehavior : MonoBehaviour
         
     }
 
+   
     private void Awake()
     {
+        CreateRoration();
+
         globalScale = StaticExtensionUnity.GlobalScale;
         this.Add();
         MonoBehaviourTimerFactory.OnStart +=
@@ -153,7 +171,14 @@ public class ReferenceFrameBehavior : MonoBehaviour
                 Action act = UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
                 if (owncamera != null)
                 {
-                    lateUpdate = act;
+                    if (Camera != null)
+                    {
+                        lateUpdate = UpdateGlobalCameraPosition;
+                    }
+                    else
+                    {
+                        lateUpdate = act;
+                    }
                 }
                 else
                 {
@@ -269,7 +294,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
         Quaternion j = Quaternion.Euler(f[0], f[1], f[2]);
         jump = gameObject.transform.rotation * j;
-        Set(UpdateJump);
+      //  Set(UpdateJump);
         StartCoroutine(jumpCoroutine);
     }
 
@@ -299,34 +324,74 @@ public class ReferenceFrameBehavior : MonoBehaviour
         get
         {
             yield return new WaitForSeconds(jumpPause);
-            Set(UpdateGlobalScalePosition);
+            //Set(UpdateGlobalScalePosition);
             yield return 0;
         }
     }
-
-    void Set(Action act)
-    {
-        if (owncamera == null)
+    /*
+        void Set(Action act)
         {
-            update = act;
-            return;
+            if (owncamera == null)
+            {
+                update = act;
+                return;
+            }
+            lateUpdate = act;
+        }*/
+    /*
+        void UpdatePosition()
+        {
+            gameObject.transform.rotation = referenceFrame.ToQuaternion();
+            gameObject.transform.position = referenceFrame.Position.ToPosition();
         }
-        lateUpdate = act;
-    }
-/*
-    void UpdatePosition()
-    {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
-        gameObject.transform.position = referenceFrame.Position.ToPosition();
-    }
-*/
+    */
 
-    void UpdateGlobalScalePosition()
+    void UpdateGlobalCameraPosition()
     {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
+        //var q = referenceFrame.ToRotatedQuaternion(yRotCamera, zRot);
+        var q = referenceFrame.ToQuaternion();
+        gameObject.transform.rotation = q;
         var p = referenceFrame.Position.ToPosition();
         gameObject.transform.position = p * globalScale;
     }
+
+    void UpdateGlobalScalePosition()
+    {
+        //var q = referenceFrame.ToRotatedQuaternion(yRotObject, zRot);
+        var q = referenceFrame.ToQuaternion();
+        gameObject.transform.rotation = q;
+        var p = referenceFrame.Position.ToPosition();
+        gameObject.transform.position = p * globalScale;
+    }
+    void CreateRoration()
+    {
+        var a = new double[] { 1, 0, 0, 0};
+        var c = new double[] { 0, 0, 0, 1 }; ;
+        yRotCamera = new double[4];
+        yRotObject = new double[4];
+        double[,] m = new double[4, 4];
+        double[,] q = new double[3, 3];
+        a.QuaternionMultiply(c, yRotCamera);
+        yRotCamera = a;
+        yRotCamera.QuaternionToMatrix(q, m);
+        yRotCamera.QuaternionMultiply(a, yRotObject);
+         var b = new double[] { 0, 0, 0, 1 };
+        a.QuaternionMultiply(new double[] { 0, 0, 1, 0 }, yRotObject);
+        a = new double[] {1, 1, 0, 0 };
+        a.QuaternionMultiply(new double[] { 1, 0, 0, 1 }, c);
+        c.QuaternionMultiply(new double[] { 0, 0, 0, 1 }, yRotObject);
+
+    }
+
+    /*
+        void UpdateRotatePosition()
+        {
+            var rotation = referenceFrame.ToRotatedQuaternion(yRot, zRot);
+            gameObject.transform.rotation = rotation;
+            var p = referenceFrame.Position.ToPosition();
+            gameObject.transform.position = p * globalScale;
+
+        }*/
 
 
     void UpdateJump()

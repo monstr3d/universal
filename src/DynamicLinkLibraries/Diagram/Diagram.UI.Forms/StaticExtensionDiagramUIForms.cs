@@ -64,12 +64,6 @@ namespace Diagram.UI
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
             string path = config.FilePath;
             execonfDir = Path.GetDirectoryName(path);
-            /*    char s = Path.DirectorySeparatorChar;
-                if (p[p.Length - 1] != s)
-                {
-                    p += s;
-                }
-                execonfDir = p;*/
             StaticExtensionCategoryTheory.FindObject = FindFormObject.Singleton;
             dragDrop = new List<IDragDrop>(
                 AssemblyService.StaticExtensionAssemblyService.GetInterfacesFromBaseDirectory<IDragDrop>());

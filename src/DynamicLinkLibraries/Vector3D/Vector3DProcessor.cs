@@ -1,20 +1,18 @@
-using System;
-using System.Numerics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Vector3D.Interfaces;
-
 
 namespace Vector3D
 {
-
-    /// <summary>
-    /// Static extension methods
-    /// </summary>
-    public static class StaticExtensionVector3D
-	{
+    public class Vector3DProcessor
+    {
 
         #region Fields
 
-        private static readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
+        private readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
 
         #endregion
 
@@ -24,9 +22,9 @@ namespace Vector3D
         /// <param name="a">Fisrt arqument</param>
         /// <param name="b">Second argument</param>
         /// <returns>The value of the function</returns>
-        static double CopySign(double a, double b)
+        double CopySign(double a, double b)
         {
-            return  Math.Abs(a) * Math.Sign(b);
+            return Math.Abs(a) * Math.Sign(b);
         }
 
         /// <summary>
@@ -34,7 +32,7 @@ namespace Vector3D
         /// </summary>
         /// <param name="angles">The angles</param>
         /// <param name="quaternion">The quaternion</param>
-        public static void Set(this EulerAngles angles, double[] quaternion)
+        public void Set(EulerAngles angles, double[] quaternion)
         {
             angles.Set(quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
         }
@@ -45,9 +43,9 @@ namespace Vector3D
         /// <param name="angles">The angles</param>
         /// <param name="offset">The offset</param>
         /// <param name="quaternion">The quaternion</param>
-        public static void Set(this EulerAngles angles, int offset, double[] quaternion)
+        public void Set(EulerAngles angles, int offset, double[] quaternion)
         {
-            angles.Set(quaternion[1 + offset], quaternion[2 + offset], 
+            angles.Set(quaternion[1 + offset], quaternion[2 + offset],
                 quaternion[3 + offset], quaternion[offset]);
         }
 
@@ -56,7 +54,7 @@ namespace Vector3D
         /// </summary>
         /// <param name="angles">The angles</param>
         /// <param name="q">The quaternion</param>
-        static public void ToQuaternion(this EulerAngles angles, double[] q)
+        public void ToQuaternion(EulerAngles angles, double[] q)
         {
             // Abbreviations for the various angular functions
             double cy = Math.Cos(angles.yaw * 0.5);
@@ -77,7 +75,7 @@ namespace Vector3D
         /// <param name="angles">The angles</param>
         /// <param name="offset">The offset</param>
         /// <param name="q">The quaternion</param>
-        static public void ToQuaternion(this EulerAngles angles, int offset, double[] q)
+        public void ToQuaternion(EulerAngles angles, int offset, double[] q)
         {
             // Abbreviations for the various angular functions
             double cy = Math.Cos(angles.yaw * 0.5);
@@ -101,9 +99,9 @@ namespace Vector3D
         /// <param name="y">y - quaternion component</param>
         /// <param name="z">z - quaternion component</param>
         /// <param name="w">w - quaternion component</param>
-        public static void  Set(this EulerAngles angles, double x, double y, double z, double w)
+        public void Set(EulerAngles angles, double x, double y, double z, double w)
         {
-         
+
             // roll (x-axis rotation)
             double sinr_cosp = 2 * (w * x + y * z);
             double cosr_cosp = 1 - 2 * (x * x + y * y);
@@ -133,7 +131,7 @@ namespace Vector3D
         /// <param name="omega"></param>
         /// <param name="quaternion"></param>
         /// <param name="time"></param>
-        public static void RotateOmega(this double[] omega, double[] quaternion, double time)
+        public void RotateOmega(double[] omega, double[] quaternion, double time)
         {
             double o = omega.PartialNorm(0, 3);
             double phi = 0.5 * o * time;
@@ -154,7 +152,7 @@ namespace Vector3D
         /// <param name="source"></param>
         /// <param name="target"></param>
         /// <param name="aux"></param>
-        public static void RotateOmega(this double[] omega,  double time,
+        public void RotateOmega(double[] omega, double time,
            double[] source, double[] target, double[] aux)
         {
             omega.RotateOmega(aux, time);
@@ -168,7 +166,7 @@ namespace Vector3D
         /// <param name="theta">Theta angle - hunting</param>
         /// <param name="gamma">Gamma angle - roll </param>
         /// <param name="matrix">The matrix</param>
-        public static void CalculateRotationMatrixFromPitchRollHunting(double psi, 
+        public void CalculateRotationMatrixFromPitchRollHunting(double psi,
             double theta, double gamma, double[,] matrix)
         {
             double cp = Math.Cos(psi);
@@ -194,7 +192,7 @@ namespace Vector3D
         /// <param name="acceleration">Acceleration data</param>
         /// <param name="coefficient">Coefficient</param>
         /// <returns>Product</returns>
-        public static double[] Product(this IAccelerationData acceleration, double coefficient)
+        public double[] Product(IAccelerationData acceleration, double coefficient)
         {
             double[] output = new double[3];
             output[0] = coefficient * acceleration.AccelerationX;
@@ -202,7 +200,7 @@ namespace Vector3D
             output[2] = coefficient * acceleration.AccelerationZ;
             return output;
         }
-        
+
 
         /// <summary>
         /// Power of the norm
@@ -210,7 +208,7 @@ namespace Vector3D
         /// <param name="acceleration">Acceleration</param>
         /// <param name="power">Power</param>
         /// <returns>Power of the norm</returns>
-        public static double NormPower(this IAccelerationData acceleration, double power)
+        public double NormPower(IAccelerationData acceleration, double power)
         {
             return Math.Pow(acceleration.Norm(), power);
         }
@@ -220,7 +218,7 @@ namespace Vector3D
         /// </summary>
         /// <param name="acceleration">Acceleration</param>
         /// <returns>Norm</returns>
-        public static double Norm(this IAccelerationData acceleration)
+        public double Norm(IAccelerationData acceleration)
         {
             double x = acceleration.AccelerationX;
             double y = acceleration.AccelerationY;
@@ -232,7 +230,7 @@ namespace Vector3D
         /// Sets quaternion
         /// </summary>
         /// <param name="orientation"></param>
-        public static void SetQuaternion(this IFloatOrientation orientation)
+        public void SetQuaternion(IFloatOrientation orientation)
         {
             orientation.RotationMatrix.SetQuaternion(orientation.Quaternion);
         }
@@ -250,7 +248,7 @@ namespace Vector3D
         /// <param name="m31"></param>
         /// <param name="m32"></param>
         /// <param name="m33"></param>
-        public static void CalculateRotationMatrix(this IFloatQuaternion quaternion,
+        public void CalculateRotationMatrix(IFloatQuaternion quaternion,
             out float m11, out float m12, out float m13,
             out float m21, out float m22, out float m23,
             out float m31, out float m32, out float m33)
@@ -278,73 +276,73 @@ namespace Vector3D
             m31 = 2 * (a13 - a02);
             m32 = 2 * (a01 + a23);
             m33 = a00 - a11 - a22 + a33;
-         }
+        }
 
 
         /// <summary>
         /// Sets quaternion to Id
         /// </summary>
         /// <param name="quaternion">Quaternion</param>
-        public static void SetIdQuaternion(this double[] quaternion)
+        public void SetIdQuaternion(double[] quaternion)
         {
             Array.Copy(idQuaternion, quaternion, 4);
         }
 
-		/// <summary>
-		/// Vector multiplication of two vectors
-		/// </summary>
-		/// <param name="x">First vector</param>
-		/// <param name="y">Second vector</param>
-		/// <returns>Vector product</returns>
-		public static double[] VectorPoduct(this double[] x, double[] y)
-		{
-			double[] z = new double[3];
-			z[0] = x[1] * y[2] - x[2] * y[1];
-			z[1] = x[2] * y[0] - x[0] * y[2];
-			z[2] = x[0] * y[1] - x[1] * y[0];
-			return z;
-		}
+        /// <summary>
+        /// Vector multiplication of two vectors
+        /// </summary>
+        /// <param name="x">First vector</param>
+        /// <param name="y">Second vector</param>
+        /// <returns>Vector product</returns>
+        public double[] VectorPoduct(double[] x, double[] y)
+        {
+            double[] z = new double[3];
+            z[0] = x[1] * y[2] - x[2] * y[1];
+            z[1] = x[2] * y[0] - x[0] * y[2];
+            z[2] = x[0] * y[1] - x[1] * y[0];
+            return z;
+        }
 
-		/// <summary>
-		/// Vector multiplication of two vectors
-		/// </summary>
-		/// <param name="x">First vector</param>
-		/// <param name="y">Second vector</param>
-		/// <param name="z">Result vector</param>
-		public static void VectorPoduct(this double[] x, double[] y, double[] z)
-		{
-			z[0] = x[1] * y[2] - x[2] * y[1];
-			z[1] = x[2] * y[0] - x[0] * y[2];
-			z[2] = x[0] * y[1] - x[1] * y[0];
-		}
+        /// <summary>
+        /// Vector multiplication of two vectors
+        /// </summary>
+        /// <param name="x">First vector</param>
+        /// <param name="y">Second vector</param>
+        /// <param name="z">Result vector</param>
+        public void VectorPoduct(double[] x, double[] y, double[] z)
+        {
+            z[0] = x[1] * y[2] - x[2] * y[1];
+            z[1] = x[2] * y[0] - x[0] * y[2];
+            z[2] = x[0] * y[1] - x[1] * y[0];
+        }
 
-		/// <summary>
-		/// Scalar multiplication of two vectors
-		/// </summary>
-		/// <param name="x">First vector</param>
-		/// <param name="y">Second vector</param>
-		/// <returns></returns>
-		public static double ScalarProduct3d(this double[] x, double[] y)
-		{
-			return x[0] * y[0] + x[1] * y[1] + x[2] * y[2];
-		}
-		
-		/// <summary>
-		/// Scalar norm of vector
-		/// </summary>
-		/// <param name="x">The vector</param>
-		/// <returns>The square norm</returns>
-		public static double ScalarNorm3d(this double[] x)
-		{
-			return Math.Sqrt(Square3d(x));
-		}
+        /// <summary>
+        /// Scalar multiplication of two vectors
+        /// </summary>
+        /// <param name="x">First vector</param>
+        /// <param name="y">Second vector</param>
+        /// <returns></returns>
+        public double ScalarProduct3d(double[] x, double[] y)
+        {
+            return x[0] * y[0] + x[1] * y[1] + x[2] * y[2];
+        }
+
+        /// <summary>
+        /// Scalar norm of vector
+        /// </summary>
+        /// <param name="x">The vector</param>
+        /// <returns>The square norm</returns>
+        public double ScalarNorm3d(double[] x)
+        {
+            return Math.Sqrt(Square3d(x));
+        }
 
         /// <summary>
         /// Square of vector
         /// </summary>
         /// <param name="x">The vector</param>
         /// <returns>The square</returns>
-        public static double Square3d(double[] x)
+        public double Square3d(double[] x)
         {
             // !!! EXCEPTION DELETE
             if (x.Length != 3)
@@ -360,68 +358,68 @@ namespace Vector3D
         /// </summary>
         /// <param name="x">Noralizable vector</param>
         /// <returns>Normalization result</returns>
-		public static double[] VectorNorm3d(double[] x)
-		{
+		public double[] VectorNorm3d(double[] x)
+        {
             // !!! EXCEPTION DELETE
             if (x.Length != 3)
             {
                 throw new ArgumentException();
             }
             double a = ScalarNorm3d(x);
-			return Multiply3d(1 / a, x);
-		}
+            return Multiply3d(1 / a, x);
+        }
 
-		/// <summary>
-		/// Normalization of vector
-		/// </summary>
-		/// <param name="x">The vector</param>
-		public static void Normalize3d(this double[] x)
-		{
-			double a = 1 / ScalarNorm3d(x);
-			for (int i = 0; i < x.Length; i++)
-			{
-				x[i] *= a;
-			}
-		}
+        /// <summary>
+        /// Normalization of vector
+        /// </summary>
+        /// <param name="x">The vector</param>
+        public void Normalize3d(double[] x)
+        {
+            double a = 1 / ScalarNorm3d(x);
+            for (int i = 0; i < x.Length; i++)
+            {
+                x[i] *= a;
+            }
+        }
 
-  
+
         /// <summary>
         /// Multiplication of scalar and vector
         /// </summary>
         /// <param name="a">The scalar</param>
         /// <param name="x">The vector</param>
         /// <returns></returns>
-        public static double[] Multiply3d(this double a, double[] x)
-		{
-			double[] y = new double[3];
-			for (int i = 0; i < 3; i++)
-			{
-				y[i] = x[i] * a;
-			}
-			return y;
-		}
-		/// <summary>
-		/// Construction of reper by two vectors
-		/// </summary>
-		/// <param name="x">First vector</param>
-		/// <param name="y">Second vector</param>
-		/// <returns>Reper matrix</returns>
-		public static double[][] Reper(this double[] x, double[] y)
-		{
-			double[][] a = new double[3][];
-			a[0] = VectorNorm3d(x);
-			a[2] = VectorPoduct(a[0], y);
-			a[2] = VectorNorm3d(a[2]);
-			a[1] = VectorPoduct(a[2], a[0]);
-			return a;
-		}
+        public double[] Multiply3d(double a, double[] x)
+        {
+            double[] y = new double[3];
+            for (int i = 0; i < 3; i++)
+            {
+                y[i] = x[i] * a;
+            }
+            return y;
+        }
+        /// <summary>
+        /// Construction of reper by two vectors
+        /// </summary>
+        /// <param name="x">First vector</param>
+        /// <param name="y">Second vector</param>
+        /// <returns>Reper matrix</returns>
+        public double[][] Reper(double[] x, double[] y)
+        {
+            double[][] a = new double[3][];
+            a[0] = VectorNorm3d(x);
+            a[2] = VectorPoduct(a[0], y);
+            a[2] = VectorNorm3d(a[2]);
+            a[1] = VectorPoduct(a[2], a[0]);
+            return a;
+        }
 
         /// <summary>
         /// Construction of reper by 6D vector
         /// </summary>
         /// <param name="x">The vector</param>
         /// <returns>The reper</returns>
-        public static double[][] Reper(this double[] x)
+        public double[][] Reper(double[] x)
         {
             double[] v = new double[3];
             for (int i = 0; i < 3; i++)
@@ -435,7 +433,7 @@ namespace Vector3D
         /// Normalization of quaternion
         /// </summary>
         /// <param name="The quaternion"></param>
-        public static void QuaternionNormalize(this double[] quaternion)
+        public void QuaternionNormalize(double[] quaternion)
         {
             // !!! DELETE EXCEPTION
             if (quaternion.Length != 4)
@@ -452,7 +450,7 @@ namespace Vector3D
             for (var i = 0; i < 4; i++)
             {
                 quaternion[i] *= a;
-                    
+
             }
         }
 
@@ -463,82 +461,82 @@ namespace Vector3D
         /// <param name="v">Velocity</param>
         /// <param name="miss">Value of miss</param>
         /// <returns></returns>
-        public static double[] Miss(this double[] x, double[] v, ref double miss)
-		{
-			double[][] a = Reper(v, x);
-			miss = ScalarProduct3d(a[1], x);
-			return Multiply3d(miss, a[1]);
-		}
-		
-		/// <summary>
-		/// Normalization of transition matrix
-		/// </summary>
-		/// <param name="matrix">The matrix</param>
-		public static void NormMatrix(this double[,] matrix)
-		{
-			double[][] a = new double[2][];
-			for (int i = 0; i < 2; i++)
-			{
-				a[i] = new double[3];
-				for (int j = 0; j < 3; j++)
-				{
-					a[i][j] = matrix[i, j];
-				}
-			}
-			a = Reper(a[0], a[1]);
-			for (int i = 0; i < 3; i++)
-			{
-				for (int j = 0; j < 3; j++)
-				{
-					matrix[i, j] = a[i][j];
-				}
-			}
-		}
+        public double[] Miss(double[] x, double[] v, ref double miss)
+        {
+            double[][] a = Reper(v, x);
+            miss = ScalarProduct3d(a[1], x);
+            return Multiply3d(miss, a[1]);
+        }
+
+        /// <summary>
+        /// Normalization of transition matrix
+        /// </summary>
+        /// <param name="matrix">The matrix</param>
+        public void NormMatrix(double[,] matrix)
+        {
+            double[][] a = new double[2][];
+            for (int i = 0; i < 2; i++)
+            {
+                a[i] = new double[3];
+                for (int j = 0; j < 3; j++)
+                {
+                    a[i][j] = matrix[i, j];
+                }
+            }
+            a = Reper(a[0], a[1]);
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    matrix[i, j] = a[i][j];
+                }
+            }
+        }
 
 
-		/// <summary>
-		/// Calculates the coefficients of transition matrix by quaternion
-		/// </summary>
-		/// <param name="q">Coefficients of quaternion</param>
-		/// <param name="m">Transition matrix</param>
-		/// <param name="qq">Auxiliary matrix</param>
-		public static void QuaternionToMatrix(this double[] q, double[,] m, double[,] qq)
-		{
-			double norm = 1 / Math.Sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2] + q[3] * q[3]);
-			for (int i = 0; i < 4; i++)
-			{
-				q[i] *= norm; 
-			}
-			for (int i = 0; i < 4; i++)
-			{
-				for (int j = 0; j <= i; j++)
-				{
-					qq[i, j] = q[i] * q[j];
-				}
-			}
-			m[0, 0] = qq[0, 0] + qq[1, 1] - qq[2, 2] - qq[3, 3];
-			m[0, 1] = 2 * (qq[2, 1] - qq[3, 0]);
-			m[0, 2] = 2 * (qq[2, 0] + qq[3, 1]);
-			m[1, 0] = 2 * (qq[3, 0] + qq[2, 1]);
-			m[1, 1] = qq[0, 0] - qq[1, 1] + qq[2, 2] - qq[3, 3];
-			m[1, 2] = 2 * (qq[3, 2] - qq[1, 0]);
-			m[2, 0] = 2 * (qq[3, 1]-qq[2, 0]);
-			m[2, 1] = 2 * (qq[1, 0] + qq[3, 2]);
-			m[2, 2] = qq[0, 0] - qq[1, 1] - qq[2, 2] + qq[3, 3];
-		}
+        /// <summary>
+        /// Calculates the coefficients of transition matrix by quaternion
+        /// </summary>
+        /// <param name="q">Coefficients of quaternion</param>
+        /// <param name="m">Transition matrix</param>
+        /// <param name="qq">Auxiliary matrix</param>
+        public void QuaternionToMatrix(double[] q, double[,] m, double[,] qq)
+        {
+            double norm = 1 / Math.Sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2] + q[3] * q[3]);
+            for (int i = 0; i < 4; i++)
+            {
+                q[i] *= norm;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    qq[i, j] = q[i] * q[j];
+                }
+            }
+            m[0, 0] = qq[0, 0] + qq[1, 1] - qq[2, 2] - qq[3, 3];
+            m[0, 1] = 2 * (qq[2, 1] - qq[3, 0]);
+            m[0, 2] = 2 * (qq[2, 0] + qq[3, 1]);
+            m[1, 0] = 2 * (qq[3, 0] + qq[2, 1]);
+            m[1, 1] = qq[0, 0] - qq[1, 1] + qq[2, 2] - qq[3, 3];
+            m[1, 2] = 2 * (qq[3, 2] - qq[1, 0]);
+            m[2, 0] = 2 * (qq[3, 1] - qq[2, 0]);
+            m[2, 1] = 2 * (qq[1, 0] + qq[3, 2]);
+            m[2, 2] = qq[0, 0] - qq[1, 1] - qq[2, 2] + qq[3, 3];
+        }
 
-  		/// <summary>
-  		/// Calculation of dynamics
-  		/// </summary>
-  		/// <param name="q">Quaternion</param>
-  		/// <param name="der">Derivation</param>
-  		/// <param name="m">Axiliary matrix</param>
-  		/// <param name="omega">Angular velicity</param>
-  		/// <param name="qq">Auxliary variable</param>
-  		/// <param name="qd">Auxiliary varible</param>
-		public static void CalculateDynamics(this double[] q, double[] der, double[,] m, double[] omega, 
+        /// <summary>
+        /// Calculation of dynamics
+        /// </summary>
+        /// <param name="q">Quaternion</param>
+        /// <param name="der">Derivation</param>
+        /// <param name="m">Axiliary matrix</param>
+        /// <param name="omega">Angular velicity</param>
+        /// <param name="qq">Auxliary variable</param>
+        /// <param name="qd">Auxiliary varible</param>
+        public void CalculateDynamics(double[] q, double[] der, double[,] m, double[] omega,
             double[,] qq, double[,] qd)
-		{
+        {
             CalculateDynamics(q, der, omega, qd);
             for (int i = 0; i < 4; i++)
             {
@@ -566,7 +564,7 @@ namespace Vector3D
         /// <param name="der">Quaternion derivation</param>
         /// <param name="omega">Angular velocity</param>
         /// <param name="qd">Auxiliary array</param>
-        public static void CalculateDynamics(this double[] q, double[] der, double[] omega, double[,] qd)
+        public void CalculateDynamics(double[] q, double[] der, double[] omega, double[,] qd)
         {
             double norm = 1 / Math.Sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2] + q[3] * q[3]);
             for (int i = 0; i < 4; i++)
@@ -576,7 +574,7 @@ namespace Vector3D
             }
             for (int i = 0; i < 4; i++)
             {
-                 for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 4; j++)
                 {
                     qd[i, j] = q[i] * der[j];
                 }
@@ -594,7 +592,7 @@ namespace Vector3D
         /// <param name="omega">Angular velocity</param>
         /// <param name="quaternionDerivation">Derivation of quaternion</param>
         /// <param name="auxQuaternion">Auxiliary quaternion</param>
-        public static void CalculateQuaternionDerivation(this double[] quaternion, double[] omega, 
+        public void CalculateQuaternionDerivation(double[] quaternion, double[] omega,
             double[] quaternionDerivation, double[] auxQuaternion)
         {
             auxQuaternion[0] = 0;
@@ -616,7 +614,7 @@ namespace Vector3D
         /// <param name="qd">Auxiliary variable</param>
         /// <param name="dder">Quaternion second derivation</param>
         /// <param name="eps">Angular acceleration</param>
-        public static void CalculateAcceleratedDynamics(this double[] q, double[] der, double[] omega, double[,] qd,
+        public void CalculateAcceleratedDynamics(double[] q, double[] der, double[] omega, double[,] qd,
             double[] dder, double[] eps)
         {
             double norm = 1 / Math.Sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2] + q[3] * q[3]);
@@ -666,7 +664,7 @@ namespace Vector3D
         /// </summary>
         /// <param name="vector">Angular velocity vector</param>
         /// <param name="matrix">Angular velocity matrix</param>
-        public static void CreateVectorProductMatrtix(this double[] vector, double[,] matrix)
+        public void CreateVectorProductMatrtix(double[] vector, double[,] matrix)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -686,50 +684,50 @@ namespace Vector3D
         /// </summary>
         /// <param name="m">Matrix</param>
         /// <param name="q">Quaternion</param>
-        public static void MatrixToQuaternion(this double[,] m, double[] q)
-		{
-			q[0] = 0.5 * Math.Sqrt(1.0 + m[0, 0] + m[1, 1] + m[2, 2]);
-			double	m1 = 0;
-			if (Math.Abs(q[0]) > 0.001)
-			{
-				m1 = 1 / (4 * q[0]);
-				q[1] = (m[2, 1] - m[1, 2]) * m1;
-				q[2] = (m[0, 2] - m[2, 0]) * m1;
-				q[3] = (m[1, 0] - m[0, 1]) * m1;
-				return;
-			}
-			q[1] = 0.5 * Math.Sqrt(1.0 + m[0, 0] - m[1, 1] - m[2, 2]);
-			if (Math.Abs(q[1]) > 0.001)
-			{
-				m1 = 1.0 / (4 * q[1]);
-				q[0] = (m[2, 1] - m[1, 2]) * m1;
-				q[2] = (m[0, 1] + m[1, 0]) * m1;
-				q[3] = (m[0, 2] + m[2, 0]) * m1;
-				return;
-			}
-			q[2] = 0.5 * Math.Sqrt(1.0 - m[0, 0] + m[1, 1] - m[2, 2]);
-			if (Math.Abs(q[2]) > 0.001)
-			{
-				m1 = 1.0 / (4 * q[2]);
-				q[0] = (m[0, 2] - m[2, 0]) * m1;
-				q[1] = (m[0, 1] + m[1, 0]) * m1;
-				q[3] = (m[1, 2] + m[2, 1]) * m1;
-				return;
-			}
-			q[3] = 0.5 * Math.Sqrt(1 - m[0, 0] - m[1, 1] + m[2, 2]);
-			m1 = 1.0 / (4 * q[3]);
-			q[0] = (m[0, 1] - m[1, 0]) * m1;
-			q[1] = (m[0, 2] + m[2, 0]) * m1;
-			q[2] = (m[1, 2] + m[2, 1]) * m1;
+        public void MatrixToQuaternion(double[,] m, double[] q)
+        {
+            q[0] = 0.5 * Math.Sqrt(1.0 + m[0, 0] + m[1, 1] + m[2, 2]);
+            double m1 = 0;
+            if (Math.Abs(q[0]) > 0.001)
+            {
+                m1 = 1 / (4 * q[0]);
+                q[1] = (m[2, 1] - m[1, 2]) * m1;
+                q[2] = (m[0, 2] - m[2, 0]) * m1;
+                q[3] = (m[1, 0] - m[0, 1]) * m1;
+                return;
+            }
+            q[1] = 0.5 * Math.Sqrt(1.0 + m[0, 0] - m[1, 1] - m[2, 2]);
+            if (Math.Abs(q[1]) > 0.001)
+            {
+                m1 = 1.0 / (4 * q[1]);
+                q[0] = (m[2, 1] - m[1, 2]) * m1;
+                q[2] = (m[0, 1] + m[1, 0]) * m1;
+                q[3] = (m[0, 2] + m[2, 0]) * m1;
+                return;
+            }
+            q[2] = 0.5 * Math.Sqrt(1.0 - m[0, 0] + m[1, 1] - m[2, 2]);
+            if (Math.Abs(q[2]) > 0.001)
+            {
+                m1 = 1.0 / (4 * q[2]);
+                q[0] = (m[0, 2] - m[2, 0]) * m1;
+                q[1] = (m[0, 1] + m[1, 0]) * m1;
+                q[3] = (m[1, 2] + m[2, 1]) * m1;
+                return;
+            }
+            q[3] = 0.5 * Math.Sqrt(1 - m[0, 0] - m[1, 1] + m[2, 2]);
+            m1 = 1.0 / (4 * q[3]);
+            q[0] = (m[0, 1] - m[1, 0]) * m1;
+            q[1] = (m[0, 2] + m[2, 0]) * m1;
+            q[2] = (m[1, 2] + m[2, 1]) * m1;
 
-		}
+        }
 
         /// <summary>
         /// Converts vector form of so(3) generator to matrix represenation
         /// </summary>
         /// <param name="vector">so(3) generator</param>
         /// <param name="matrix">Matrix</param>
-        public static void SO3VectorToSO3Matrix(this double[] vector, double[,] matrix)
+        public void SO3VectorToSO3Matrix(double[] vector, double[,] matrix)
         {
             double w0 = vector[0];
             double w1 = vector[1];
@@ -754,7 +752,7 @@ namespace Vector3D
         /// <param name="x">First term</param>
         /// <param name="y">Second term</param>
         /// <param name="z">Product</param>
-        public static void QuaternionMultiply(this double[] x, double[] y, double[] z)
+        public void QuaternionMultiply(double[] x, double[] y, double[] z)
         {
             z[0] = x[0] * y[0] - x[1] * y[1] - x[2] * y[2] - x[3] * y[3];
             z[1] = x[0] * y[1] + x[1] * y[0] + x[2] * y[3] - x[3] * y[2];
@@ -768,7 +766,7 @@ namespace Vector3D
         /// <param name="x">First term</param>
         /// <param name="y">Second term</param>
         /// <param name="z">Product</param>
-        public static void QuaternionInvertMultiply(this double[] x, double[] y, double[] z)
+        public void QuaternionInvertMultiply(double[] x, double[] y, double[] z)
         {
             z[0] = x[0] * y[0] + x[1] * y[1] + x[2] * y[2] + x[3] * y[3];
             z[1] = x[0] * y[1] - x[1] * y[0] - x[2] * y[3] + x[3] * y[2];
@@ -782,7 +780,7 @@ namespace Vector3D
         /// <param name="quaterinon">Quaterinon</param>
         /// <param name="omegaIn">Input omega</param>
         /// <param name="omegaOut">Output omega</param>
-        public static void QuaternionInvertOmega(this double[] quaterinon, double[] omegaIn, double[] omegaOut)
+        public void QuaternionInvertOmega(double[] quaterinon, double[] omegaIn, double[] omegaOut)
         {
             omegaOut[0] = quaterinon[0] * omegaIn[0] - quaterinon[2] * omegaIn[2] + quaterinon[3] * omegaIn[1];
             omegaOut[1] = quaterinon[0] * omegaIn[1] - quaterinon[3] * omegaIn[0] + quaterinon[1] * omegaIn[2];
@@ -796,7 +794,7 @@ namespace Vector3D
         /// <param name="angle">Rotation angle</param>
         /// <param name="axis">Number of rotation axis</param>
         /// <param name="quaternion">Rotation quaternion</param>
-        public static void Rotate(double angle, int axis, double[] quaternion)
+        public void Rotate(double angle, int axis, double[] quaternion)
         {
             for (int i = 1; i < 4; i++)
             {
@@ -805,7 +803,7 @@ namespace Vector3D
             double a = 0.5 * angle;
             quaternion[0] = Math.Cos(a);
             quaternion[axis] = Math.Sin(a);
-         }
+        }
 
         /// <summary>
         /// Rotation quaternions
@@ -815,7 +813,7 @@ namespace Vector3D
         /// <param name="quaternion">Rotation quaternion</param>
         /// <param name="buffer">Buffer</param>
         /// <param name="buff">Additinal buffer</param>
-        public static void Rotate(double[] angles, int[] axis, 
+        public void Rotate(double[] angles, int[] axis,
             double[] quaternion, double[][] buffer, double[] buff)
         {
             Rotate(angles[0], axis[0], quaternion);
@@ -834,7 +832,7 @@ namespace Vector3D
         /// Sets quaternion to identity
         /// </summary>
         /// <param name="quaternion">Quaternion to set</param>
-        public static void QuaternionSetIdentity(this double[] quaternion)
+        public void QuaternionSetIdentity(double[] quaternion)
         {
             quaternion[0] = 1;
             quaternion[1] = 0;
@@ -850,7 +848,7 @@ namespace Vector3D
         /// <param name="quaternion">Rotation quaternion</param>
         /// <param name="buffer1">Fist buffer</param>
         /// <param name="buffer2">Second buffer</param>
-        public static void Rotate(this double angle, int axis, double[] quaternion, double[] buffer1, double[] buffer2)
+        public void Rotate(double angle, int axis, double[] quaternion, double[] buffer1, double[] buffer2)
         {
             Array.Copy(quaternion, buffer1, quaternion.Length);
             Rotate(angle, axis, buffer2);
@@ -865,7 +863,7 @@ namespace Vector3D
         /// <param name="startIndex">startIndex</param>
         /// <param name="length">Length</param>
         /// <returns>The partial square</returns>
-        public static double PartialSquare(this double[] x, int startIndex, int length)
+        public double PartialSquare(double[] x, int startIndex, int length)
         {
             double a = 0;
             for (int i = 0; i < length; i++)
@@ -883,7 +881,7 @@ namespace Vector3D
         /// <param name="startIndex">startIndex</param>
         /// <param name="length">Length</param>
         /// <returns>The partial norm</returns>
-        public static double PartialNorm(this double[] x, int startIndex, int length)
+        public double PartialNorm(double[] x, int startIndex, int length)
         {
             return Math.Sqrt(PartialSquare(x, startIndex, length));
         }
@@ -893,7 +891,7 @@ namespace Vector3D
         /// </summary>
         /// <param name="x">Jagged array</param>
         /// <returns>Square array</returns>
-        static public double[,] ToSquare(this double[][] x)
+        public double[,] ToSquare(double[][] x)
         {
             double[,] a = new double[x.Length, x[0].Length];
             for (int i = 0; i < a.GetLength(0); i++)
@@ -911,13 +909,13 @@ namespace Vector3D
         /// </summary>
         /// <param name="x">Input vector</param>
         /// <returns>Reper matrix</returns>
-        static public double[,] SquareReper(this double[] x)
+        public double[,] SquareReper(double[] x)
         {
             return ToSquare(Reper(x));
         }
 
 
-        static public void RotateOmega(this double[] omega, double dt, double[] quaternion)
+        public void RotateOmega(double[] omega, double dt, double[] quaternion)
         {
             double a = 0;
             for (int i = 0; i < 3; i++)
@@ -925,7 +923,7 @@ namespace Vector3D
                 double o = omega[i] * dt;
                 a += o * o;
             }
-          //  a = Math.Sin(Math.)
+            //  a = Math.Sin(Math.)
         }
 
         /// <summary>
@@ -936,7 +934,7 @@ namespace Vector3D
         /// <param name="ctheta">Cos theta</param>
         /// <param name="stheta">Sin theta</param>
         /// <param name="matrix">Spherical matrix</param>
-        static public void FillSphericalMatrix(this double cphi, double sphi, 
+        public void FillSphericalMatrix(double cphi, double sphi,
             double ctheta, double stheta, double[,] matrix)
         {
             matrix[0, 0] = cphi * ctheta;
@@ -961,8 +959,8 @@ namespace Vector3D
         /// <param name="buffer">Auxiliary buffer</param>
         /// <param name="buffer1">Auxiliary buffer</param>
         /// <param name="result">Result acceleration</param>
-        static public void CalculateRelativeAcceleration(this double[] acc, double[] omega, double[] eps, double[] velocity,
-          double[] position,  double[] buffer, double[] buffer1, double[] result)
+        public void CalculateRelativeAcceleration(double[] acc, double[] omega, double[] eps, double[] velocity,
+          double[] position, double[] buffer, double[] buffer1, double[] result)
         {
             Array.Copy(acc, result, 3);
             VectorPoduct(omega, velocity, buffer);
