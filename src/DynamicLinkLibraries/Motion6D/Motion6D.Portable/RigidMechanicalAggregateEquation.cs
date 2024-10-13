@@ -41,8 +41,8 @@ namespace Motion6D.Portable
             {
                 return;
             }
-            RealMatrixProcessor.StaticExtensionRealMatrix.Invert(matrix, invertedMatrix);
-            RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(forcesToAccelerations, invertedMatrix, finalMatrix);
+            realMatrix.Invert(matrix, invertedMatrix);
+            realMatrix.Multiply(forcesToAccelerations, invertedMatrix, finalMatrix);
         }
 
         #endregion
@@ -70,7 +70,7 @@ namespace Motion6D.Portable
         protected override void CalculateLinkAccelerations()
         {
             CalculateResidues();
-            RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(finalMatrix, connectionResidues, addAcceleration);
+            realMatrix.Multiply(finalMatrix, connectionResidues, addAcceleration);
         }
  
         #endregion

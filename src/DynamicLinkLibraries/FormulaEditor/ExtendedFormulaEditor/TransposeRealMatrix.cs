@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-
 using BaseTypes;
 using BaseTypes.Interfaces;
 
-using FormulaEditor.Interfaces;
+using RealMatrixProcessor;
 
 
 namespace FormulaEditor
@@ -16,6 +13,8 @@ namespace FormulaEditor
         object type;
         double[,] buffer;
         const Double a = 0;
+
+        RealMatrix realMatrix = new();
 
         int col;
 
@@ -47,7 +46,7 @@ namespace FormulaEditor
             get 
             {
                 double[,] y = x[0] as double[,];
-                RealMatrixProcessor.StaticExtensionRealMatrix.Transpose(y, buffer);
+                realMatrix.Transpose(y, buffer);
                 return buffer;
             }
         }

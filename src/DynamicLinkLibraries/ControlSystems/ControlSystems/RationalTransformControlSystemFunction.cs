@@ -17,6 +17,9 @@ namespace ControlSystems
     {
         #region Fields
 
+        protected RealMatrix realMatrix = new();
+        protected static RealMatrix rm = new();
+
         /// <summary>
         /// Solver of differential equations
         /// </summary>
@@ -336,15 +339,15 @@ namespace ControlSystems
                 return (polynom[0] * polynom[1]) > 0;
             }
             double[,] a = GetGurvitzMatrix(polynom);
-            double det = StaticExtensionRealMatrix.Det(a);
+            double det = rm.Det(a);
             if (det <= 0)
             {
                 return false;
             }
             for (int i = 1; i < a.GetLength(0); i++)
             {
-                double[,] b = StaticExtensionRealMatrix.GetMainMinor(a, i);
-                det = StaticExtensionRealMatrix.Det(b);
+                double[,] b = rm.GetMainMinor(a, i);
+                det = rm.Det(b);
                 if (det <= 0)
                 {
                     return false;

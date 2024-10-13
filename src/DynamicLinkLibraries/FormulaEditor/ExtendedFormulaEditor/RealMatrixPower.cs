@@ -6,6 +6,7 @@ using BaseTypes;
 using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
+using RealMatrixProcessor;
 
 
 namespace FormulaEditor
@@ -18,6 +19,8 @@ namespace FormulaEditor
         double[,] mult;
         const Double a = 0;
         int dim;
+
+        RealMatrix realMatrix = new();
         internal RealMatrixPower(int dim)
         {
             this.dim = dim;
@@ -64,12 +67,12 @@ namespace FormulaEditor
                 }
                 else
                 {
-                    RealMatrixProcessor.StaticExtensionRealMatrix.Invert(mat, mult);
+                   realMatrix.Invert(mat, mult);
                     n = -n;
                 }
                 for (int i = 0; i < n; i++)
                 {
-                    RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(result, mult, buffer);
+                    realMatrix.Multiply(result, mult, buffer);
                     for (int k = 0; k < dim; k++)
                     {
                         for (int l = 0; l < dim; l++)

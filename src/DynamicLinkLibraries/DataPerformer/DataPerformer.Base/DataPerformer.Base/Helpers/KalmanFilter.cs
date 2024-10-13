@@ -25,6 +25,8 @@ namespace DataPerformer.Helpers
     {
         #region Fields
 
+        RealMatrix realMatrix = new();
+
         string trans = "";
 
         string meas = "";
@@ -157,7 +159,7 @@ namespace DataPerformer.Helpers
             {
                 delta[i] = y1[i] - y[i];
             }
-            StaticExtensionRealMatrix.KalmanFilter(state, delta, transition, partial, covariation, ec, mc,
+            realMatrix.KalmanFilter(state, delta, transition, partial, covariation, ec, mc,
                 coefficient, partialTrans, partialPeer, errorCovariationPeer, errorCovariationPeerPlus,
                 statePeer, covariationPeer, covariationPeerPlus);
         }

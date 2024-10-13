@@ -7,7 +7,7 @@ using CategoryTheory;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
-
+using RealMatrixProcessor;
 using Vector3D;
 
 namespace Motion6D.Portable
@@ -20,6 +20,8 @@ namespace Motion6D.Portable
     {
 
         #region Fields
+
+        protected RealMatrix realMatrix = new();
 
         protected ReferenceFrame own = new Motion6DAcceleratedFrame();
 

@@ -10,6 +10,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+using RealMatrixProcessor;
 
 namespace Motion6D.Portable.Aggregates
 {
@@ -20,6 +21,8 @@ namespace Motion6D.Portable.Aggregates
         IUpdatableObject, IPostSetArrow, IAggregableMechanicalObject, IDataConsumer
     {
         #region Fields
+
+        protected RealMatrix realMatrix = new();
 
         /// <summary>
         /// Change input event

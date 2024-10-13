@@ -1,13 +1,13 @@
 using System;
-using System.Collections.Generic;
 
 using BaseTypes;
 using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-
 using RealMatrixProcessor;
+
+
 
 namespace FormulaEditor
 {
@@ -15,6 +15,7 @@ namespace FormulaEditor
     {
         #region Fields
 
+        RealMatrix realMatrix = new();
 
         internal static readonly RealMatrixMultiplication Singleton = new RealMatrixMultiplication();
 
@@ -57,7 +58,7 @@ namespace FormulaEditor
             {
                 double[,] a = x[0] as double[,];
                 double[,] b = x[1] as double[,];
-                StaticExtensionRealMatrix.Multiply(a, b, buffer);
+                realMatrix.Multiply(a, b, buffer);
                 return buffer;
             }
         }

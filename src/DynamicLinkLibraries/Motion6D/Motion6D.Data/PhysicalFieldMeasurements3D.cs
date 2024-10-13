@@ -17,6 +17,7 @@ using Motion6D.Interfaces;
 using Motion6D.Portable;
 
 using PhysicalField.Interfaces;
+using RealMatrixProcessor;
 
 
 namespace Motion6D
@@ -80,7 +81,8 @@ namespace Motion6D
 
         private Dictionary<IPhysicalField, object[]> fieldValue = new Dictionary<IPhysicalField, object[]>();
 
- 
+
+        static protected RealMatrix rm = new();
  
         #endregion
 
@@ -372,7 +374,7 @@ namespace Motion6D
         /// <param name="y">Output</param>
         static public void ProcessCovariantVector(double[] x, double[,] matrix, double[] y)
         {
-            RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(x, matrix, y);
+            rm.Multiply(x, matrix, y);
         }
 
 

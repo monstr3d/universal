@@ -14,6 +14,10 @@ namespace Vector3D
 
         double[] x = new double[3];
 
+        RealMatrix realMatrix = new ();
+
+        static RealMatrix rm = new();
+
         #endregion
 
         #region Ctor
@@ -92,7 +96,7 @@ namespace Vector3D
         /// Norm
         /// </summary>
         public double Norm
-        { get => x.Norm(); }
+        { get => realMatrix.Norm(x); }
 
         #region Overloaded operators
 
@@ -107,7 +111,7 @@ namespace Vector3D
             double[] x = new double[3];
             b.CopyTo(x, 0);
             double[] y = new double[3];
-            StaticExtensionRealMatrix.Multiply(y, a);
+            rm.Multiply(y, a);
             return new Vector3Double(y);
         }
 
@@ -121,7 +125,7 @@ namespace Vector3D
         public static Vector3Double operator -(Vector3Double a, Vector3Double b)
         {
             double[] x = new double[3];
-            StaticExtensionRealMatrix.Difference(a.x, b.x, x);
+            rm.Difference(a.x, b.x, x);
             return new Vector3Double(x);
         }
 
@@ -134,7 +138,7 @@ namespace Vector3D
         public static Vector3Double operator +(Vector3Double a, Vector3Double b)
         {
             double[] x = new double[3];
-            StaticExtensionRealMatrix.Add(a.x, b.x, x);
+            rm.Add(a.x, b.x, x);
             return new Vector3Double(x);
         }
 

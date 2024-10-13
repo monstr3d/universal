@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
+using RealMatrixProcessor;
 
 using Vector3D;
 
@@ -14,6 +13,8 @@ namespace Motion6D.Interfaces
     {
 
         #region Fields
+
+        protected RealMatrix realMatrix = new ();
 
         /// <summary>
         /// Orientation quaternion

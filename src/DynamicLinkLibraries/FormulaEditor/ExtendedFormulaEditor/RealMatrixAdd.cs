@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace FormulaEditor
 {
     public class RealMatrixAdd : RealMatrixBinary
@@ -25,7 +21,7 @@ namespace FormulaEditor
             {
                 double[,] a = x[0] as double[,];
                 double[,] b = x[1] as double[,];
-                RealMatrixProcessor.StaticExtensionRealMatrix.Add(a, b, buffer);
+                realMatrix.Add(a, b, buffer);
                 return buffer;
             }
         }

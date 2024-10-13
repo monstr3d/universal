@@ -16,6 +16,8 @@ namespace Dynamic.Atmosphere
 
         #region Fields
 
+        RealMatrix realMatrix = new();
+
         static private readonly DateTime Date1900 = new DateTime(1900, 1, 1, 0, 0, 0);
 
         protected object[] ob = new object[2];
@@ -180,7 +182,7 @@ namespace Dynamic.Atmosphere
 
         double atm(double[] x, double t, double alf, double del, ref double s0, ref double h, int[] it)
         {
-            double hh = x.Normalize(y, 0);
+            double hh = realMatrix.Normalize(x, y, 0);
             h = hh - 6378.140 * (1.0 - 0.335282E-2 * y[2] * y[2]);
            if (h <= 180)
             {

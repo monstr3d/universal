@@ -10,6 +10,8 @@ namespace DynamicAtmosphere
     {
         #region Fields
 
+        RealMatrix realMatrix = new();
+
         const Double type = 0;
 
         object[] ob = new object[2];
@@ -179,7 +181,7 @@ namespace DynamicAtmosphere
         double atm(double[] x, DateTime time, double alf, double del, ref double s0, ref double h, int[] it)
         {
             var z = new double[3];
-            double hh = x.Normalize(y, 0);
+            double hh = realMatrix.Normalize(x, y, 0);
             
 
             h = hh - 6378.140 * (1.0 - 0.335282E-2 * y[2] * y[2]);

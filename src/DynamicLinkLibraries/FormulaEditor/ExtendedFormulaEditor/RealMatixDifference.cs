@@ -24,7 +24,7 @@ namespace FormulaEditor
             {
                 double[,] a = x[0] as double[,];
                 double[,] b = x[1] as double[,];
-                RealMatrixProcessor.StaticExtensionRealMatrix.Difference(a, b, buffer);
+                realMatrix.Difference(a, b, buffer);
                 return buffer;
             }
         }

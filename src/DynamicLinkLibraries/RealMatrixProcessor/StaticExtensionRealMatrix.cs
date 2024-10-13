@@ -8,7 +8,7 @@ namespace RealMatrixProcessor
 	/// </summary>
 	public static class StaticExtensionRealMatrix
 	{
-
+/*
         static private RealMatrix realMatrix = new();
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace RealMatrixProcessor
         /// <param name="a">First term</param>
         /// <param name="b">Second term</param>
         /// <param name="c">Product</param>
-        static public void Multiply(this double[,] a, double[,] b, double[,] c)
+        static  void Multiply(this double[,] a, double[,] b, double[,] c)
 		{
             realMatrix.Multiply(a, b, c);
 		}
@@ -387,7 +387,7 @@ namespace RealMatrixProcessor
         static public void Jacoby(double[,] a, double[,] s, double eps)
         {
             realMatrix.Jacoby(a, s, eps);
-        }
+        }//*/
     }
 }
  

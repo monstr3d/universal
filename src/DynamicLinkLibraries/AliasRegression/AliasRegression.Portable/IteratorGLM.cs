@@ -23,6 +23,8 @@ namespace Regression.Portable
 
         #region Fields
 
+        RealMatrix realMatrix = new ();
+
         /// <summary>
         /// Change input event
         /// </summary>
@@ -454,7 +456,7 @@ namespace Regression.Portable
                     mr[j, i] = mr[i, j];
                 }
             }
-            StaticExtensionRealMatrix.Invert(mr, mr1);
+            realMatrix.Invert(mr, mr1);
             for (int im = 0; im < c.Count; im++)
             {
                 double[] y0 = c[im];
@@ -466,7 +468,7 @@ namespace Regression.Portable
                         ht[i, j] = (y[j] - y0[j]) / dx[i];
                     }
                 }
-                StaticExtensionRealMatrix.Multiply(ht, mr1, htr);
+                realMatrix.Multiply(ht, mr1, htr);
                 for (int i = 0; i < auliliaryA.GetLength(0); i++)
                 {
                     for (int k = 0; k < htr.GetLength(1); k++)
@@ -479,7 +481,7 @@ namespace Regression.Portable
                     }
                 }
             }
-            StaticExtensionRealMatrix.Solve(auliliaryA, z, indxa);
+            realMatrix.Solve(auliliaryA, z, indxa);
             for (int i = 0; i < z.Length; i++)
             {
                 SetDelta(aliases[i], z[i]);
@@ -581,8 +583,8 @@ namespace Regression.Portable
                         mr[j, i] = mr[i, j];
                     }
                 }
-                StaticExtensionRealMatrix.Invert(mr, mr1);
-                StaticExtensionRealMatrix.Multiply(ht, mr1, htr);
+                realMatrix.Invert(mr, mr1);
+                realMatrix.Multiply(ht, mr1, htr);
                 for (int i = 0; i < auliliaryA.GetLength(0); i++)
                 {
                     for (int k = 0; k < htr.GetLength(1); k++)
@@ -604,7 +606,7 @@ namespace Regression.Portable
                 }
             }
             m:
-            StaticExtensionRealMatrix.Solve(auliliaryA, z, indxa);
+            realMatrix.Solve(auliliaryA, z, indxa);
             for (int i = 0; i < z.Length; i++)
             {
                 SetDelta(aliases[i], z[i]);

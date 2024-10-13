@@ -25,6 +25,8 @@ namespace Motion6D.Portable
 
         #region Fields
 
+        protected RealMatrix realMatrix = new();
+
         EulerAngles angles = new EulerAngles();
 
         const double a = 0;
@@ -243,7 +245,7 @@ namespace Motion6D.Portable
 
         void UpdateAngularVelocity()
         {
-            aTarget.Omega.Multiply(relativeFrame.Matrix, aux);
+            realMatrix.Multiply(aTarget.Omega, relativeFrame.Matrix, aux);
             double[] om = aSource.Omega;
             for (int i = 0; i < 3; i++)
             {
@@ -573,7 +575,7 @@ namespace Motion6D.Portable
         void UpdateOrientation(double[] x, double[] aux)
         {
             double[,] m = oTarget.Matrix;
-            x.Multiply(m, aux);
+            realMatrix.Multiply(x, m, aux);
             Array.Copy(aux, x, 3);
         }
 
@@ -615,7 +617,7 @@ namespace Motion6D.Portable
         {
             double[] om = aTarget.Omega;
             relativePos.VectorPoduct(om, omegaRProduct);
-            relativeVelocity.PlusEqual( omegaRProduct);
+            realMatrix.PlusEqual(relativeVelocity, omegaRProduct);
         }
 
         IMeasurement[] zero

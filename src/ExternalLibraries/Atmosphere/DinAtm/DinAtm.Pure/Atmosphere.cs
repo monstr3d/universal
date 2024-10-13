@@ -14,6 +14,8 @@ namespace DinAtm.Pure
 
         #region Fields
 
+        protected RealMatrix realMatrix = new();
+
         protected object[] ob = new object[2];
 
         static public readonly string[] sins = new string[] { "t", "x", "y", "z" };
@@ -184,7 +186,7 @@ namespace DinAtm.Pure
 
         double atm(double[] x, double t, double alf, double del, ref double s0, ref double h, int[] it)
         {
-            double hh = x.Normalize(y, 0);
+            double hh = realMatrix.Normalize(x, y, 0);
 
 
             h = hh - 6378.140 * (1.0 - 0.335282E-2 * y[2] * y[2]);

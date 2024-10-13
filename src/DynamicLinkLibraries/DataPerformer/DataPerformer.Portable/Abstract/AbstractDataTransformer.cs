@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CategoryTheory;
 
 using DataPerformer.Interfaces;
+using RealMatrixProcessor;
 
 namespace DataPerformer.Portable.Abstract
 {
@@ -14,6 +15,9 @@ namespace DataPerformer.Portable.Abstract
     {
 
         #region Fields
+
+        protected RealMatrix realMatrix = new();
+        protected  static RealMatrix rm = new();
 
         /// <summary>
         /// Change input event

@@ -1,17 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 using BaseTypes;
 using BaseTypes.Interfaces;
 
-using FormulaEditor.Interfaces;
+using RealMatrixProcessor;
 
 
 namespace FormulaEditor
 {
     public class RealVectorMatrixMultiplication : IObjectOperation
     {
+        RealMatrix realMatrix = new();
 
         const Double a = 0;
         ArrayReturnType type;
@@ -37,7 +36,7 @@ namespace FormulaEditor
             {
                 double[,] m = x[0] as double[,];
                 double[] y = x[1] as double[];
-                RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(m, y, buffer);
+                realMatrix.Multiply(m, y, buffer);
                 return buffer;
             }
         }

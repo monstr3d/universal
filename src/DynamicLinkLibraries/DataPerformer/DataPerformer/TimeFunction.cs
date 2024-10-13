@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BaseTypes.Interfaces;
-
-
-using FormulaEditor;
-using FormulaEditor.Interfaces;
+using RealMatrixProcessor;
 
 namespace DataPerformer
 {
@@ -17,6 +14,8 @@ namespace DataPerformer
     {
 
         #region Fields
+
+        RealMatrix realMatrix = new();
 
         internal static readonly IOneVariableFunction Object = new TimeFunction();
         private readonly static Double a = 0;
@@ -159,7 +158,7 @@ namespace DataPerformer
             {
                 n = data.GetLength(0) - degree - 2;
             }
-            return RealMatrixProcessor.StaticExtensionRealMatrix.LagrangeInterpolation(t, degree, n, data);
+            return realMatrix.LagrangeInterpolation(t, degree, n, data);
         }
 
         object Clone(object o)

@@ -7,6 +7,7 @@ using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
+using RealMatrixProcessor;
 
 
 namespace FormulaEditor
@@ -14,12 +15,13 @@ namespace FormulaEditor
     public class RealMatrixBinary : IObjectOperation, IBinaryAcceptor, IBinaryDetector
     {
 
-
         #region Fields
         const Double a = 0;
         ArrayReturnType type;
 
         protected double[,] buffer;
+
+        protected RealMatrix realMatrix = new();
 
         internal static readonly RealMatrixBinary Singleton = new RealMatrixBinary();
 

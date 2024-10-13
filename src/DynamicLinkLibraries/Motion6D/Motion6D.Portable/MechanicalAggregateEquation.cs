@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 using CategoryTheory;
 using Diagram.UI;
@@ -14,6 +13,8 @@ using Vector3D;
 
 using Motion6D.Interfaces;
 
+using RealMatrixProcessor;
+
 namespace Motion6D.Portable
 {
     /// <summary>
@@ -24,6 +25,8 @@ namespace Motion6D.Portable
 
         #region Fields
 
+        protected RealMatrix realMatrix = new();
+ 
         /// <summary>
         /// Wrapper of aggregate
         /// </summary>
@@ -500,7 +503,7 @@ namespace Motion6D.Portable
             if (matrix.GetLength(0) != 0)
             {
                 CalculateLinkAccelerations();
-                RealMatrixProcessor.StaticExtensionRealMatrix.PlusEqual(vector, addAcceleration);
+                realMatrix.PlusEqual(vector, addAcceleration);
                 for (int ln = 0; ln < links.Count; ln++)
                 {
                     MechanicalAggregateLink ml = links[ln];
@@ -749,7 +752,7 @@ namespace Motion6D.Portable
                 Fill(forcesToAccelerations, s.GetForcesMatrix(ss), sn, k);
                 FillMinus(forcesToAccelerations, t.GetForcesMatrix(tt), tn, k);
             }
-            RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(accelerationTransition, forcesToAccelerations, matrix);
+            realMatrix.Multiply(accelerationTransition, forcesToAccelerations, matrix);
         }
 
         /// <summary>

@@ -349,7 +349,7 @@ namespace DataPerformer.Portable.Advanced
                 {
                     k = 0;
                 }
-                return RealMatrixProcessor.StaticExtensionRealMatrix.LagrangeInterpolation(arg, degree, k, l);
+                return rm.LagrangeInterpolation(arg, degree, k, l);
             }
 
 

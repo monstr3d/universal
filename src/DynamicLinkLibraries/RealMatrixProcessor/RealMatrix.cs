@@ -319,7 +319,7 @@ namespace RealMatrixProcessor
         /// <returns>Norm</returns>
         public double Norm(double[] vector)
         {
-            return Math.Sqrt(vector.Square());
+            return Math.Sqrt(Square(vector));
         }
 
 

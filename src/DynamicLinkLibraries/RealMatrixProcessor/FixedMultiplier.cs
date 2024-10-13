@@ -10,9 +10,7 @@ namespace RealMatrixProcessor
      
         RealMatrix realMatrix = new();
 
-        int n;
-
-        Action<double[,], double[,]> action = null;
+         Action<double[,], double[,]> action = null;
 
         #endregion
 
