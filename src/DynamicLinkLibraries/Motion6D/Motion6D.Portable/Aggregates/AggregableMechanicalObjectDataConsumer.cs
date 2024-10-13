@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using CategoryTheory;
 using Diagram.UI;
@@ -10,7 +9,10 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+
 using RealMatrixProcessor;
+
+using Vector3D;
 
 namespace Motion6D.Portable.Aggregates
 {
@@ -23,6 +25,8 @@ namespace Motion6D.Portable.Aggregates
         #region Fields
 
         protected RealMatrix realMatrix = new();
+
+        protected Vector3DProcessor vp = new();
 
         /// <summary>
         /// Change input event

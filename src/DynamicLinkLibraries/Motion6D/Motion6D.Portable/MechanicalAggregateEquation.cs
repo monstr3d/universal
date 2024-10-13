@@ -26,6 +26,8 @@ namespace Motion6D.Portable
         #region Fields
 
         protected RealMatrix realMatrix = new();
+
+        protected Vector3DProcessor vp = new();
  
         /// <summary>
         /// Wrapper of aggregate
@@ -277,7 +279,7 @@ namespace Motion6D.Portable
                     omega[j] = a;
                     om[j] = a;
                 }
-                StaticExtensionVector3D.CalculateQuaternionDerivation(quater, omega, der, auxQuaternion);
+                vp.CalculateQuaternionDerivation(quater, omega, der, auxQuaternion);
                 for (int j = 0; j < 4; j++)
                 {
                     derivations[n + 6 + j, 0] = quater[j];

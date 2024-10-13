@@ -429,7 +429,7 @@ namespace Motion6D.Portable.Aggregates
             }
             if (i < 9)
             {
-                angles.Set(6, initialState);
+               vp.Set(angles ,6, initialState);
                 switch (i - 6)
                 {
                     case 0: return angles.roll;
@@ -451,7 +451,7 @@ namespace Motion6D.Portable.Aggregates
             }
             if (i < 9)
             {
-                angles.Set(6, initialState);
+                vp.Set(angles, 6, initialState);
                 switch (i - 6)
                 {
                     case 0:
@@ -464,7 +464,7 @@ namespace Motion6D.Portable.Aggregates
                         angles.yaw = v;
                         break;
                 }
-                angles.ToQuaternion(6, initialState);
+                vp.ToQuaternion(angles, 6, initialState);
             }
             else
             {
@@ -603,7 +603,7 @@ namespace Motion6D.Portable.Aggregates
        private void SetOrientation()
         {
             Array.Copy(state, 6, quater, 0, 4);
-            StaticExtensionVector3D.QuaternionToMatrix(quater, orientation, qq);
+            vp.QuaternionToMatrix(quater, orientation, qq);
             realMatrix.Transpose(orientation, transposedOrientation);
         }
 
@@ -734,13 +734,13 @@ namespace Motion6D.Portable.Aggregates
 
             // Orientation
             Array.Copy(connection, 3, quaterAdd, 0, 4);
-            StaticExtensionVector3D.QuaternionMultiply(quater, quaterAdd, quaterAddP);
+            vp.QuaternionMultiply(quater, quaterAdd, quaterAddP);
             Array.Copy(quaterAddP, 0, connectionState, 6, 4);
 
             // Velocity
             Array.Copy(state, v3d, 3);
             Array.Copy(state, 10, v3d1, 0, 3);
-            StaticExtensionVector3D.VectorPoduct(v3d, v3d1, v3d2);
+            vp.VectorPoduct(v3d, v3d1, v3d2);
             realMatrix.Multiply(orientation, v3d2, v3d);
             for (int i = 0; i < 3; i++)
             {
@@ -781,7 +781,7 @@ namespace Motion6D.Portable.Aggregates
             //  Orientation
             Array.Copy(connectionExternal, 6, quaterAdd, 0, 4);
             Array.Copy(connectionInrernal, 3, quaterAddP, 0, 4);
-            StaticExtensionVector3D.QuaternionInvertMultiply(quaterAddP, quaterAdd, quater);
+            vp.QuaternionInvertMultiply(quaterAddP, quaterAdd, quater);
             Array.Copy(quater, 0, state, 6, 4);
             SetOrientation();
 
@@ -801,7 +801,7 @@ namespace Motion6D.Portable.Aggregates
             // Velocity
             Array.Copy(connectionExternal, 3, state, 3, 3);
             Array.Copy(connectionInrernal, v3d, 3);
-            StaticExtensionVector3D.VectorPoduct(omega, v3d, v3d1);
+            vp.VectorPoduct(omega, v3d, v3d1);
             realMatrix.Multiply(orientation, v3d, v3d2);
             for (int i = 0; i < 3; i++)
             {
@@ -816,7 +816,7 @@ namespace Motion6D.Portable.Aggregates
             double[] internalConnection = connections[n];
             Array.Copy(internalConnection, 3, quater, 0, 4);
             double[,] tm = new double[3, 3];
-            StaticExtensionVector3D.QuaternionToMatrix(quater, tm, qq);
+            vp.QuaternionToMatrix(quater, tm, qq);
             transformationMatrixes[n] = tm;
 
             double[,] fm = forcesMatrixes[n];
@@ -851,7 +851,7 @@ namespace Motion6D.Portable.Aggregates
 
             // Force to angular acceleration
             Array.Copy(internalConnection, v3d, 3);
-            StaticExtensionVector3D.SO3VectorToSO3Matrix(v3d, auxiliaryMatrix);
+            vp.SO3VectorToSO3Matrix(v3d, auxiliaryMatrix);
             realMatrix.Multiply(auxiliaryMatrix, tm, auxiliaryMatrixAdd);
             realMatrix.Multiply(invertedMomentOfInertia, auxiliaryMatrixAdd, auxiliaryMatrix);
             for (int i = 0; i < 3; i++)
@@ -883,7 +883,7 @@ namespace Motion6D.Portable.Aggregates
 
             double[] conn = connections[n];
             Array.Copy(conn, v3d, 3);
-            StaticExtensionVector3D.SO3VectorToSO3Matrix(v3d, auxiliaryMatrix);
+            vp.SO3VectorToSO3Matrix(v3d, auxiliaryMatrix);
             realMatrix.Multiply(auxiliaryMatrix, t, auxiliaryMatrixAdd);
             for (int i = 0; i < 3; i++)
             {
@@ -940,7 +940,7 @@ namespace Motion6D.Portable.Aggregates
             AddForce();
             Array.Copy(state, 10, omega, 0, 3);
             realMatrix.Multiply(momentOfInertia,omega, omegaAdd);
-            omega.VectorPoduct(omegaAdd, omegaAddP);
+            vp.VectorPoduct(omega, omegaAdd, omegaAddP);
             for (int i = 0; i < 3; i++)
             {
                 internalAcceleration[i + 3] += omegaAddP[i];
@@ -984,15 +984,15 @@ namespace Motion6D.Portable.Aggregates
             // Linear acceleration
             Array.Copy(internalAcceleration, 3, v3d, 0, 3);
             Array.Copy(x, v3d1, 3);
-            StaticExtensionVector3D.VectorPoduct(v3d, v3d1, v3d2);
+            vp.VectorPoduct(v3d, v3d1, v3d2);
             realMatrix.Multiply(v3d2, orientation, v3d1);
             for (int i = 0; i < 3; i++)
             {
                 acc[i] = internalAcceleration[i] + v3d1[i];
             }
             Array.Copy(x, v3d1, 3);
-            omega.VectorPoduct(v3d1, v3d2);
-            omega.VectorPoduct(v3d2, v3d1);
+            vp.VectorPoduct(omega, v3d1, v3d2);
+          vp.VectorPoduct(omega, v3d2, v3d1);
             realMatrix.Multiply(v3d1, orientation, v3d);
             for (int i = 0; i < 3; i++)
             {

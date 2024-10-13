@@ -14,6 +14,7 @@ using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
+using Vector3D;
 
 namespace Motion6D
 {
@@ -26,6 +27,8 @@ namespace Motion6D
         IStarted, IChildrenObject, IDataConsumer, IPostSetArrow
     {
         #region Fields
+
+        protected Vector3DProcessor vp = new();
 
         /// <summary>
         /// Change input event
@@ -450,7 +453,7 @@ namespace Motion6D
         {
            ReferenceFrame frame = this.GetFrame();
             IAngularVelocity av = frame as IAngularVelocity;
-            Vector3D.StaticExtensionVector3D.CalculateRelativeAcceleration(absoluteAcc, angvel.Omega, angacc.AngularAcceleration,
+            vp.CalculateRelativeAcceleration(absoluteAcc, angvel.Omega, angacc.AngularAcceleration,
                 vel.Velocity, position, buffer, buffer1, x);
         }
 

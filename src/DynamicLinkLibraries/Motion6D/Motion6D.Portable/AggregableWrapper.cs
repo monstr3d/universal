@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
+using System.Reflection;
 
 
 using CategoryTheory;
-using Diagram.UI;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
-using DataPerformer.Portable.Measurements;
-using System.Reflection;
+using Vector3D;
 
 namespace Motion6D.Portable
 {
@@ -24,6 +21,8 @@ namespace Motion6D.Portable
         IChildrenObject, IMeasurements, IPostSetArrow
     {
         #region Fields
+
+        Vector3DProcessor vp = new();
 
         /// <summary>
         /// Aggregate
@@ -244,7 +243,7 @@ namespace Motion6D.Portable
         {
             Array.Copy(aggregate.State, 6, quaternion, 0, 4);
             Array.Copy(aggregate.State, 10, omega, 0, 3);
-            Vector3D.StaticExtensionVector3D.CalculateDynamics(quaternion, quaterDerivation, omega, qq);
+            vp.CalculateDynamics(quaternion, quaterDerivation, omega, qq);
         }
 
         bool IMeasurements.IsUpdated

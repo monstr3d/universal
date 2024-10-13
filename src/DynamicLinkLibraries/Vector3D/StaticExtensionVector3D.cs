@@ -11,7 +11,7 @@ namespace Vector3D
     /// </summary>
     public static class StaticExtensionVector3D
 	{
-
+/*
         #region Fields
 
         private static readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
@@ -977,6 +977,6 @@ namespace Vector3D
             {
                 result[i] += buffer[i] + buffer1[i];
             }
-        }
+        }*/
     }
 }

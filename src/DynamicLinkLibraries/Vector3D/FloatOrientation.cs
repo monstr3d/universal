@@ -15,6 +15,8 @@ namespace Vector3D
 
         protected FloatRotationMatrix rotationMatrix;
 
+        protected Vector3DProcessor vp = new();
+
 
         #endregion
 
@@ -24,7 +26,7 @@ namespace Vector3D
         {
             this.quaternion = new FloatQuaternion(quaternion);
             rotationMatrix = new FloatRotationMatrix();
-            this.SetQuaternion(); 
+            vp.SetQuaternion(this);
         }
 
    

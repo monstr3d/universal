@@ -23,6 +23,7 @@ namespace Motion6D.UI.Forms
         RigidReferenceFrame frame;
         private TextBox[] coord;
 
+        Vector3D.Vector3DProcessor vp = new();
         private FormRigidFrame()
         {
             InitializeComponent();
@@ -88,7 +89,7 @@ namespace Motion6D.UI.Forms
                     m[i, j] = (double)row[j + 1];
                 }
             }
-            Vector3D.StaticExtensionVector3D.NormMatrix(m);
+            vp.NormMatrix(m);
             Fill(m);
             if (save)
             {

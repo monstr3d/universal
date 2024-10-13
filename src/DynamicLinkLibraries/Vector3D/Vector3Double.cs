@@ -18,6 +18,7 @@ namespace Vector3D
 
         static RealMatrix rm = new();
 
+ 
         #endregion
 
         #region Ctor
@@ -98,62 +99,10 @@ namespace Vector3D
         public double Norm
         { get => realMatrix.Norm(x); }
 
+       
         #region Overloaded operators
 
-        /// <summary>
-        /// Substraction
-        /// </summary>
-        /// <param name="a">Left part</param>
-        /// <param name="b">Right part</param>
-        /// <returns>The substractin result</returns>
-        public static Vector3Double operator *(double a, Vector3Double b)
-        {
-            double[] x = new double[3];
-            b.CopyTo(x, 0);
-            double[] y = new double[3];
-            rm.Multiply(y, a);
-            return new Vector3Double(y);
-        }
-
-
-        /// <summary>
-        /// Substraction
-        /// </summary>
-        /// <param name="a">Left part</param>
-        /// <param name="b">Right part</param>
-        /// <returns>The substractin result</returns>
-        public static Vector3Double operator -(Vector3Double a, Vector3Double b)
-        {
-            double[] x = new double[3];
-            rm.Difference(a.x, b.x, x);
-            return new Vector3Double(x);
-        }
-
-        /// <summary>
-        /// Addition
-        /// </summary>
-        /// <param name="a">Left part</param>
-        /// <param name="b">Right part</param>
-        /// <returns>The addition result</returns>
-        public static Vector3Double operator +(Vector3Double a, Vector3Double b)
-        {
-            double[] x = new double[3];
-            rm.Add(a.x, b.x, x);
-            return new Vector3Double(x);
-        }
-
-
-        /// <summary>
-        /// Scalar product
-        /// </summary>
-        /// <param name="a">Left part</param>
-        /// <param name="b">Right part</param>
-        /// <returns>The substractin result</returns>
-        public static double operator |(Vector3Double a, Vector3Double b)
-        {
-            return a.x.ScalarProduct3d(b.x);
-        }
-
+  
 
         #endregion
 

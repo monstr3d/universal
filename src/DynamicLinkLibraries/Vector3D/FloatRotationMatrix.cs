@@ -24,6 +24,8 @@ namespace Vector3D
         protected float m32;
         protected float m33;
 
+        protected Vector3DProcessor vp = new();
+
         float IFloatRotationMatrix.M11
         {
             get
@@ -98,7 +100,7 @@ namespace Vector3D
 
         void IFloatRotationMatrix.SetQuaternion(IFloatQuaternion quatertion)
         {
-            quatertion.CalculateRotationMatrix(out m11, out m12, out m13, 
+           vp.CalculateRotationMatrix(quatertion, out m11, out m12, out m13, 
                 out m21, out m22, out m23,
                 out m31, out m32, out m33);
         }

@@ -314,7 +314,7 @@ namespace Motion6D
                 linAccAbsolute[i] = forces[i] * unMass + aux[i];
             }
             realMatrix.Multiply(J, omega, aux);
-            StaticExtensionVector3D.VectorPoduct(omega, aux, aux1);
+            vp.VectorPoduct(omega, aux, aux1);
             realMatrix.Add(aux1, 0, forces, 9, aux, 0, 3);
             Array.Copy(forces, 3, aux1, 0, 3);
             realMatrix.Multiply(aux1, T, aux2);
@@ -323,7 +323,7 @@ namespace Motion6D
             realMatrix.Multiply(L, aux2, epsRelative);
             aux4d[0] = 0;
             Array.Copy(omega, 0, aux4d, 1, 3);
-            StaticExtensionVector3D.QuaternionInvertMultiply(relativeQuaternion, aux4d, quaternionDervation);
+            vp.QuaternionInvertMultiply(relativeQuaternion, aux4d, quaternionDervation);
             for (i = 0; i < 3; i++)
             {
                 quaternionDervation[i] *= 0.5;

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using PhysicalField;
 using PhysicalField.Interfaces;
 
 namespace Motion6D

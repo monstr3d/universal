@@ -12,6 +12,7 @@ using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Portable;
+using Vector3D;
 
 namespace Motion6D.UI
 {
@@ -28,6 +29,8 @@ namespace Motion6D.UI
         private ComboBox[] required;
         private TextBox[] linear;
         private TextBox[] angular;
+
+        Vector3DProcessor vp = new();
 
         private static readonly string[] req = new string[] { "Jxx", "Jyy", "Jzz" };
 
@@ -177,7 +180,7 @@ namespace Motion6D.UI
                     m[i, j] = (double)row[j + 1];
                 }
             }
-            Vector3D.StaticExtensionVector3D.NormMatrix(m);
+            vp.NormMatrix(m);
             fill(m);
             if (save)
             {

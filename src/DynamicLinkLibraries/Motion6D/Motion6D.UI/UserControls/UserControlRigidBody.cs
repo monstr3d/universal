@@ -17,6 +17,8 @@ namespace Motion6D.UI.UserControls
 
         #region Fields
 
+        Vector3DProcessor vp = new();
+
         private RigidBody rigid;
 
         private ComboBox[] comboAli;
@@ -119,7 +121,7 @@ namespace Motion6D.UI.UserControls
             Array.Copy(init, 6, q, 0, 4);
             double[,] m = new double[3, 3];
             double[,] qq = new double[4, 4];
-            q.QuaternionToMatrix(m, qq);
+           vp.QuaternionToMatrix(q, m, qq);
             fillMatrix(m);
             for (int i = 0; i < 6; i++)
             {
@@ -130,7 +132,7 @@ namespace Motion6D.UI.UserControls
                 angular[i].Text = init[i + 10] + "";
             }
             EulerAngles angles = new EulerAngles();
-            angles.Set(q);
+            vp.Set(angles, q);
             textBoxRoll.Text = angles.roll + "";
             textBoxPitch.Text = angles.pitch + "";
             textBoxYaw.Text = angles.yaw + "";
@@ -143,10 +145,10 @@ namespace Motion6D.UI.UserControls
             double yaw = double.Parse(textBoxYaw.Text);
             EulerAngles angles = new EulerAngles(roll, pitch, yaw);
             double[] q = new double[4];
-            angles.ToQuaternion(q);
+            vp.ToQuaternion(angles, q);
             double[,] m = new double[3, 3];
             double[,] qq = new double[4, 4];
-            q.QuaternionToMatrix(m, qq);
+            vp.QuaternionToMatrix(q, m, qq);
             fillMatrix(m);
         }
 
@@ -175,7 +177,7 @@ namespace Motion6D.UI.UserControls
                     m[i, j] = (double)row[j + 1];
                 }
             }
-            m.NormMatrix();
+            vp.NormMatrix(m);
             fillMatrix(m);
         }
 
@@ -248,7 +250,7 @@ namespace Motion6D.UI.UserControls
             }
             double[] q = new double[4];
             double[,] qq = new double[4, 4];
-            mo.MatrixToQuaternion(q);
+            vp.MatrixToQuaternion(mo, q);
             Array.Copy(q, 0, inc, 6, 4);
             double[][] conn = null;
             normConnections();

@@ -350,7 +350,7 @@ namespace Motion6D.Portable
                         IDerivation d = measurements[i + 3] as IDerivation;
                         der[i] = d.Derivation.ToDouble();
                     }
-                    Vector3D.StaticExtensionVector3D.CalculateDynamics(or.Quaternion, der, om, qd);
+                    vp.CalculateDynamics(or.Quaternion, der, om, qd);
                 }
                 if (relative is IAcceleration)
                 {
@@ -369,7 +369,7 @@ namespace Motion6D.Portable
                     double[] om = av.Omega;
                     IOrientation or = relative as IOrientation;
                     double[] angacc = anc.AngularAcceleration;
-                    Vector3D.StaticExtensionVector3D.CalculateAcceleratedDynamics(or.Quaternion, der, om, qd, angsec, angacc);
+                    vp.CalculateAcceleratedDynamics(or.Quaternion, der, om, qd, angsec, angacc);
                 }
                 base.Update();
             }

@@ -16,6 +16,10 @@ namespace Motion6D.Interfaces
 
         protected RealMatrix realMatrix = new ();
 
+        protected Vector3DProcessor vp = new();
+
+        protected static Vector3DProcessor vps = new ();
+
         /// <summary>
         /// Orientation quaternion
         /// </summary>
@@ -266,7 +270,7 @@ namespace Motion6D.Interfaces
         static public void GetRelative(ReferenceFrame baseFrame, ReferenceFrame relativeFrame, 
             ReferenceFrame result, double[] diff)
         {
-            StaticExtensionVector3D.QuaternionInvertMultiply(relativeFrame.quaternion, baseFrame.quaternion, result.quaternion);
+            vps.QuaternionInvertMultiply(relativeFrame.quaternion, baseFrame.quaternion, result.quaternion);
             result.SetMatrix();
             for (int i = 0; i < 3; i++)
             {
@@ -451,10 +455,10 @@ namespace Motion6D.Interfaces
                 }
             }
             double[,] qq = new double[4, 4];
-            double[] e = Vector3D.StaticExtensionVector3D.VectorNorm3d(rp);
+            double[] e = vps.VectorNorm3d(rp);
             double[] q = new double[] { cD2, e[0] * sD2, e[1] * sD2, e[2] * sD2 };
             double[,] mq = new double[3, 3];
-            Vector3D.StaticExtensionVector3D.QuaternionToMatrix(q, mq, qq);
+            vps.QuaternionToMatrix(q, mq, qq);
             double[,] mr = new double[3, 3];
             for (int i = 0; i < 3; i++)
             {
@@ -503,7 +507,7 @@ namespace Motion6D.Interfaces
                     position[i] += baseFrame.matrix[i, j] * relative.position[j];
                 }
             }
-            StaticExtensionVector3D.QuaternionMultiply(baseFrame.quaternion, relative.quaternion, quaternion);
+            vp.QuaternionMultiply(baseFrame.quaternion, relative.quaternion, quaternion);
             SetMatrix();
         }
 
@@ -513,7 +517,7 @@ namespace Motion6D.Interfaces
         public void SetMatrix()
         {
             Norm();
-            StaticExtensionVector3D.QuaternionToMatrix(quaternion, matrix, qq);
+            vp.QuaternionToMatrix(quaternion, matrix, qq);
         }
 
 
@@ -549,7 +553,7 @@ namespace Motion6D.Interfaces
         /// </summary>
         protected void Norm()
         {
-            quaternion.QuaternionNormalize();
+            vp.QuaternionNormalize(quaternion);
         }
 
         /// <summary>

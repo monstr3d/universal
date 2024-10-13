@@ -7,12 +7,17 @@ using Vector3D.Interfaces;
 
 namespace Vector3D
 {
+    /// <summary>
+    /// Vector provessor
+    /// </summary>
     public class Vector3DProcessor
     {
 
         #region Fields
 
         private readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
+
+        protected Vector3DProcessor vp = new();
 
         #endregion
 
@@ -34,7 +39,7 @@ namespace Vector3D
         /// <param name="quaternion">The quaternion</param>
         public void Set(EulerAngles angles, double[] quaternion)
         {
-            angles.Set(quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
+           Set(angles, quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
         }
 
         /// <summary>
@@ -45,7 +50,7 @@ namespace Vector3D
         /// <param name="quaternion">The quaternion</param>
         public void Set(EulerAngles angles, int offset, double[] quaternion)
         {
-            angles.Set(quaternion[1 + offset], quaternion[2 + offset],
+            Set(angles,quaternion[1 + offset], quaternion[2 + offset],
                 quaternion[3 + offset], quaternion[offset]);
         }
 
@@ -133,7 +138,7 @@ namespace Vector3D
         /// <param name="time"></param>
         public void RotateOmega(double[] omega, double[] quaternion, double time)
         {
-            double o = omega.PartialNorm(0, 3);
+            double o = PartialNorm(omega,0, 3);
             double phi = 0.5 * o * time;
             double s = Math.Sin(phi);
             quaternion[0] = Math.Sqrt(1 - s * s);
@@ -155,7 +160,7 @@ namespace Vector3D
         public void RotateOmega(double[] omega, double time,
            double[] source, double[] target, double[] aux)
         {
-            omega.RotateOmega(aux, time);
+            RotateOmega(omega, aux, time);
             QuaternionMultiply(source, aux, target);
         }
 
@@ -210,7 +215,7 @@ namespace Vector3D
         /// <returns>Power of the norm</returns>
         public double NormPower(IAccelerationData acceleration, double power)
         {
-            return Math.Pow(acceleration.Norm(), power);
+            return Math.Pow(vp.Norm(acceleration), power);
         }
 
         /// <summary>

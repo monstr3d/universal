@@ -21,6 +21,8 @@ namespace Motion6D.Portable
 
         #region Fields
 
+        protected Vector3DProcessor vp = new();
+
         protected RealMatrix realMatrix = new();
 
         protected ReferenceFrame own = new Motion6DAcceleratedFrame();
@@ -168,7 +170,7 @@ namespace Motion6D.Portable
             {
                 return relative.Position[i];
             }
-            angles.Set(relative.Quaternion);
+            vp.Set(angles, relative.Quaternion);
             switch (i - 3)
             {
                 case 0: return angles.roll;
@@ -189,7 +191,7 @@ namespace Motion6D.Portable
             }
             if (i < 9)
             {
-                angles.Set(relative.Quaternion);
+                vp.Set(angles, relative.Quaternion);
                 switch (i - 6)
                 {
                     case 0:
@@ -202,7 +204,7 @@ namespace Motion6D.Portable
                         angles.yaw = v;
                         break;
                 }
-                angles.ToQuaternion(relative.Quaternion);
+                vp.ToQuaternion(angles, relative.Quaternion);
             }
         }
 
@@ -366,7 +368,7 @@ namespace Motion6D.Portable
             }
             set
             {
-                value.MatrixToQuaternion(relativeQuaternion);
+                vp.MatrixToQuaternion(value, relativeQuaternion);
                 CopyQuaternionToRelativeFrame();
             }
         }

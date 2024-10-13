@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vector3D;
 
 namespace Motion6D.Uniform6D
 {
@@ -13,6 +14,8 @@ namespace Motion6D.Uniform6D
     public class Uniform6DMotion
     {
         #region Fields
+
+        protected Vector3DProcessor vp = new();
 
         double aMax;
 
@@ -388,7 +391,7 @@ namespace Motion6D.Uniform6D
             Array.Copy(coord2, end, 3);
             Array.Copy(quater1, quaternionBegin, 4);
             Array.Copy(quater2, quaternionEnd, 4);
-            Vector3D.StaticExtensionVector3D.QuaternionInvertMultiply(quaternionBegin, quaternionEnd, auxQuaterInternal);
+            vp.QuaternionInvertMultiply(quaternionBegin, quaternionEnd, auxQuaterInternal);
             QuaternionNorm(auxQuaterInternal);
             double s = auxQuaterInternal[0];
             if (s > 0.99999999999999999999)

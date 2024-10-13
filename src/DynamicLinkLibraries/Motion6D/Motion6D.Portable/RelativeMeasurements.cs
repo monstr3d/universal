@@ -27,6 +27,8 @@ namespace Motion6D.Portable
 
         protected RealMatrix realMatrix = new();
 
+        protected Vector3DProcessor vp = new();
+
         EulerAngles angles = new EulerAngles();
 
         const double a = 0;
@@ -220,7 +222,7 @@ namespace Motion6D.Portable
         {
             Array.Copy(relativePos, relativeFrame.Position, 3);
             Array.Copy(quaternion, relativeFrame.Quaternion, 4);
-            angles.Set(quaternion);
+            vp.Set(angles, quaternion);
         }
 
         void UpdateFrameAngularVelocity()
@@ -608,7 +610,7 @@ namespace Motion6D.Portable
 
         void UpdateQuaternion()
         {
-            oTarget.Quaternion.QuaternionInvertMultiply(oSource.Quaternion, quaternion);
+           vp.QuaternionInvertMultiply(oTarget.Quaternion,oSource.Quaternion, quaternion);
             Array.Copy(quaternion, relativeFrame.Quaternion, 3);
             relativeFrame.SetMatrix();
         }
@@ -616,7 +618,7 @@ namespace Motion6D.Portable
         void AddAngularVelocity()
         {
             double[] om = aTarget.Omega;
-            relativePos.VectorPoduct(om, omegaRProduct);
+            vp.VectorPoduct(relativePos, om, omegaRProduct);
             realMatrix.PlusEqual(relativeVelocity, omegaRProduct);
         }
 
