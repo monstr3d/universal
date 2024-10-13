@@ -17,7 +17,6 @@ namespace Vector3D
 
         private readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
 
-        protected Vector3DProcessor vp = new();
 
         #endregion
 
@@ -206,7 +205,6 @@ namespace Vector3D
             return output;
         }
 
-
         /// <summary>
         /// Power of the norm
         /// </summary>
@@ -215,7 +213,7 @@ namespace Vector3D
         /// <returns>Power of the norm</returns>
         public double NormPower(IAccelerationData acceleration, double power)
         {
-            return Math.Pow(vp.Norm(acceleration), power);
+            return Math.Pow(Norm(acceleration), power);
         }
 
         /// <summary>

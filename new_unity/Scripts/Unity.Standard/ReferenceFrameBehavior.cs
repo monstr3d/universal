@@ -17,12 +17,17 @@ using Vector3D;
 using Unity.Standard;
 
 using Unity.Standard.Interfaces;
+using RealMatrixProcessor;
 
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
 
     #region Fields
+
+    protected Vector3DProcessor vp = new();
+
+    protected InternalAutomorphism internalAutomorphism;
 
     public bool inheritCamera = true;
 
@@ -156,7 +161,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
    
     private void Awake()
     {
-        CreateRoration();
+        CreateRotation();
 
         globalScale = StaticExtensionUnity.GlobalScale;
         this.Add();
@@ -173,7 +178,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
                 {
                     if (Camera != null)
                     {
-                        lateUpdate = UpdateGlobalCameraPosition;
+                        lateUpdate = act;// UpdateGlobalCameraPosition;
                     }
                     else
                     {
@@ -358,20 +363,59 @@ public class ReferenceFrameBehavior : MonoBehaviour
     void UpdateGlobalScalePosition()
     {
         //var q = referenceFrame.ToRotatedQuaternion(yRotObject, zRot);
-        var q = referenceFrame.ToQuaternion();
-        gameObject.transform.rotation = q;
-        var p = referenceFrame.Position.ToPosition();
-        gameObject.transform.position = p * globalScale;
+        /* var q = referenceFrame.ToQuaternion();
+         gameObject.transform.rotation = q;
+         var p = referenceFrame.Position.ToPosition();
+         gameObject.transform.position = p * globalScale;*/
+        SetPosition(referenceFrame);
+        SetOrientation(referenceFrame);
     }
-    void CreateRoration()
+
+    double[,] orientation = new double[3, 3];
+    double[,] aux = new double[4, 4];
+    double[] quaternion = new double[4];
+
+    void SetOrientation(ReferenceFrame frame)
     {
-        var a = new double[] { 1, 0, 0, 0};
+        var ori = frame.Quaternion;
+        vp.QuaternionToMatrix(ori, orientation, aux);
+        internalAutomorphism.ProsessItself(orientation);
+        vp.MatrixToQuaternion(orientation, quaternion);
+        Quaternion q = new Quaternion((float)quaternion[1],
+            (float)quaternion[2], (float)quaternion[3], (float)quaternion[0]);
+        gameObject.transform.rotation = q;
+    }
+    
+    void SetPosition(ReferenceFrame frame)
+    {
+        var vector = ToPosition(frame.Position);
+        gameObject.transform.position = vector;
+    }
+
+
+    Vector3 ToPosition(double[] t)
+    {
+        return new Vector3((float)t[0], (float)t[1], -(float)t[2]);
+    }
+
+ 
+
+    void CreateRotation()
+    {
+        double[,] a =
+        {
+            {1, 0, 0},
+            {0, 1, 0},
+            {0, 0, -1}
+        };
+        internalAutomorphism = new(a);
+  /*      var a = new double[] { 1, 0, 0, 0};
         var c = new double[] { 0, 0, 0, 1 }; ;
         yRotCamera = new double[4];
         yRotObject = new double[4];
         double[,] m = new double[4, 4];
         double[,] q = new double[3, 3];
-        a.QuaternionMultiply(c, yRotCamera);
+        v a.QuaternionMultiply(c, yRotCamera);
         yRotCamera = a;
         yRotCamera.QuaternionToMatrix(q, m);
         yRotCamera.QuaternionMultiply(a, yRotObject);
@@ -380,19 +424,11 @@ public class ReferenceFrameBehavior : MonoBehaviour
         a = new double[] {1, 1, 0, 0 };
         a.QuaternionMultiply(new double[] { 1, 0, 0, 1 }, c);
         c.QuaternionMultiply(new double[] { 0, 0, 0, 1 }, yRotObject);
+  */
 
     }
 
-    /*
-        void UpdateRotatePosition()
-        {
-            var rotation = referenceFrame.ToRotatedQuaternion(yRot, zRot);
-            gameObject.transform.rotation = rotation;
-            var p = referenceFrame.Position.ToPosition();
-            gameObject.transform.position = p * globalScale;
-
-        }*/
-
+ 
 
     void UpdateJump()
     {

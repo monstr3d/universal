@@ -35,6 +35,7 @@ using UnityEngine.UI;
 using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
 using RealMatrixProcessor;
+using Unity.VisualScripting;
 
 namespace Unity.Standard
 {
@@ -47,6 +48,8 @@ namespace Unity.Standard
     {
 
         #region Fields
+
+        static Vector3DProcessor vp = new();
 
         /// <summary>
         /// Failure messages
@@ -992,7 +995,7 @@ namespace Unity.Standard
 
         static private Quaternion ToQuaternion(this EulerAngles euler, double[] t)
         {
-            euler.Set(t);
+           vp.Set(euler,t);
             return
                Quaternion.Euler(Mathf.Rad2Deg * (float)euler.pitch,
                 Mathf.Rad2Deg * (float)euler.roll, Mathf.Rad2Deg * (float)euler.yaw);
@@ -1284,17 +1287,34 @@ namespace Unity.Standard
             return comp.GetComponents<T>();
         }
 
-        static public void Scale(this MeshFilter mesh, float scale)
+        static public void Transform(this MeshFilter mesh, Func<Vector3, Vector3> transform)
         {
             var v = mesh.mesh.vertices;
             var vv = new Vector3[v.Length];
             for (int i = 0; i < v.Length; i++)
             {
                 var w = v[i];
-                vv[i] = new Vector3(w.x * scale, w.y * scale, w.z * scale);
+                vv[i] = transform(w);
             }
             mesh.mesh.vertices = vv;
         }
+
+
+
+
+
+        static public void Scale(this MeshFilter mesh, float scale)
+        {
+            Func<Vector3, Vector3> t = (v) =>  v * scale;
+            Transform(mesh, t);
+        }
+
+        static public void InverseZ(this MeshFilter mesh)
+        {
+            Func<Vector3, Vector3> t = (v) =>  new Vector3(v.x, v.y, -v.z); 
+            Transform(mesh, t);
+        }
+
 
         static public Dictionary<string, List<T>> GetComponents<T>(this 
             Dictionary<string, List<Component>> comp)

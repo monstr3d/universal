@@ -735,7 +735,7 @@ namespace Motion6D.Portable
 
         IMeasurement[] CreateAccMeasurements()
         {
-            return [];
+            return new IMeasurement[0];
         }
    
         #endregion
