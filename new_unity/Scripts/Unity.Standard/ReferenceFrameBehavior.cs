@@ -12,12 +12,14 @@ using Motion6D.Interfaces;
 using Scada.Interfaces;
 using Scada.Desktop;
 
+using Scada.Motion6D.Interfaces;
+
 using Vector3D;
 
 using Unity.Standard;
 
 using Unity.Standard.Interfaces;
-using RealMatrixProcessor;
+using SoundService.Interfaces;
 
 
 public class ReferenceFrameBehavior : MonoBehaviour
@@ -25,11 +27,10 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #region Fields
 
+    
+
     protected Vector3DProcessor vp = new();
 
-    protected InternalAutomorphism internalAutomorphism;
-
-    public bool inheritCamera = true;
 
     public string desktop = "";
 
@@ -73,6 +74,14 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     public bool unique = true;
 
+    private AudioSource audioSource;
+
+
+    public AudioSource AudioSource
+    {
+        set => audioSource = value;
+    }
+
 
     public float Scale
     {
@@ -80,7 +89,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
         set
         {
             globalScale = value;
-            SetCamera();
         }
     }
 
@@ -92,6 +100,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
  
     private MonoBehaviourWrapper monoBehaviorWrapper;
+
 
     internal Dictionary<string, Action<double>>
         inps = new Dictionary<string, Action<double>>();
@@ -107,7 +116,16 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Action lateUpdate;
 
-    IScadaInterface scada;
+    double[,] orientation = new double[3, 3];
+    double[,] aux = new double[4, 4];
+    double[] quaternion = new double[4];
+
+
+    public Scada.Motion6D.ScadaDesktop Scada
+    {
+        get;
+        private set;
+    }
 
     Scada.Motion6D.ScadaDesktop motion6D;
 
@@ -133,13 +151,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Camera owncamera;
 
-    double[] yRotCamera;
-
-    double[] yRotObject;
-
-
-
-    double[] zRot = new double[4];
+   
 
 
 
@@ -176,14 +188,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
                 Action act = UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
                 if (owncamera != null)
                 {
-                    if (Camera != null)
-                    {
-                        lateUpdate = act;// UpdateGlobalCameraPosition;
-                    }
-                    else
-                    {
-                        lateUpdate = act;
-                    }
+                    lateUpdate = act;
                 }
                 else
                 {
@@ -194,19 +199,26 @@ public class ReferenceFrameBehavior : MonoBehaviour
         monoBehaviorWrapper =
            StaticExtensionUnity.Create(this, unique, step,
            desktop, inputs, outputs);
-        scada = monoBehaviorWrapper.Scada;
-        motion6D = scada as Scada.Motion6D.ScadaDesktop;
+        Scada = monoBehaviorWrapper.Scada;
+        motion6D = Scada as Scada.Motion6D.ScadaDesktop;
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
         //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
-        var  frames  = monoBehaviorWrapper.Frames;
-        if (frames.ContainsKey(transformation))
+        ICameraProvider p = motion6D;
+        var cameras = p.Cameras;
+        IReferenceFrame frame;
+        if (cameras.ContainsKey(transformation))
         {
-            IReferenceFrame frame = frames[transformation];
-            referenceFrame = frame.Own;
-            Camera = motion6D.GetCamera(frame);
-            SetCamera();
+            Camera = cameras[transformation];
+            frame = motion6D.GetFrame(Camera);
         }
+        else
+        {
+            var frames = motion6D.Frames;
+            frame = frames[transformation];
+            Camera = motion6D.GetCamera(frame);
+        }
+        referenceFrame = frame.Own;
         owncamera = gameObject.GetComponent<Camera>();
         SetCamera();
    
@@ -214,7 +226,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         {
             ConstructorInfo c = StaticExtensionUnity.updatesTriggerAction[onTriggerEnter];
             ITriggerAction ta = c.Invoke(new Type[0]) as ITriggerAction;
-            ta.Set(gameObject, scada);
+            ta.Set(gameObject, Scada);
             triggerEnter = ta.Action;
         }
         if (onCollisionEnter.Length > 0)
@@ -228,7 +240,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
         if (collisionAction != null)
         {
-            collisionAction.Set(gameObject, collisionIndicator, scada);
+            collisionAction.Set(gameObject, collisionIndicator, Scada);
             collisionEnter = collisionAction.Action;
         }
     }
@@ -264,6 +276,12 @@ public class ReferenceFrameBehavior : MonoBehaviour
         try
         {
             wrapperUpdate?.Invoke();
+            if (audioSource != null)
+            {
+                audioSource.enabled = true; ;
+                audioSource = null;
+            }
+
         }
         catch (Exception exception)
         {
@@ -310,10 +328,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     void SetCamera()
     {
-        if (!inheritCamera)
-        {
-            return;
-        }
         var c = Camera;
         if ((owncamera == null) | (c == null)) return;
 
@@ -371,16 +385,16 @@ public class ReferenceFrameBehavior : MonoBehaviour
         SetOrientation(referenceFrame);
     }
 
-    double[,] orientation = new double[3, 3];
-    double[,] aux = new double[4, 4];
-    double[] quaternion = new double[4];
-
+  
     void SetOrientation(ReferenceFrame frame)
     {
         var ori = frame.Quaternion;
-        vp.QuaternionToMatrix(ori, orientation, aux);
+ /*       vp.QuaternionToMatrix(ori, orientation, aux);
         internalAutomorphism.ProsessItself(orientation);
-        vp.MatrixToQuaternion(orientation, quaternion);
+        vp.MatrixToQuaternion(orientation, quaternion);*/
+        Array.Copy(ori, quaternion, quaternion.Length);
+        quaternion[1] = -ori[1];
+        quaternion[2] = -ori[2];
         Quaternion q = new Quaternion((float)quaternion[1],
             (float)quaternion[2], (float)quaternion[3], (float)quaternion[0]);
         gameObject.transform.rotation = q;
@@ -402,29 +416,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     void CreateRotation()
     {
-        double[,] a =
-        {
-            {1, 0, 0},
-            {0, 1, 0},
-            {0, 0, -1}
-        };
-        internalAutomorphism = new(a);
-  /*      var a = new double[] { 1, 0, 0, 0};
-        var c = new double[] { 0, 0, 0, 1 }; ;
-        yRotCamera = new double[4];
-        yRotObject = new double[4];
-        double[,] m = new double[4, 4];
-        double[,] q = new double[3, 3];
-        v a.QuaternionMultiply(c, yRotCamera);
-        yRotCamera = a;
-        yRotCamera.QuaternionToMatrix(q, m);
-        yRotCamera.QuaternionMultiply(a, yRotObject);
-         var b = new double[] { 0, 0, 0, 1 };
-        a.QuaternionMultiply(new double[] { 0, 0, 1, 0 }, yRotObject);
-        a = new double[] {1, 1, 0, 0 };
-        a.QuaternionMultiply(new double[] { 1, 0, 0, 1 }, c);
-        c.QuaternionMultiply(new double[] { 0, 0, 0, 1 }, yRotObject);
-  */
+ 
 
     }
 
@@ -438,7 +430,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     void SetConstants()
     {
-        var consts = scada.Constants;
+        var consts = (Scada as IScadaInterface).Constants;
         char[] sep = "=".ToCharArray();
         foreach (string cc in constants)
         {
@@ -450,7 +442,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
                 {
                     double a = double.Parse(ss[1],
                         System.Globalization.CultureInfo.InvariantCulture);
-                    scada.SetConstant(ss[0], a);
+                    (Scada as IScadaInterface).SetConstant(ss[0], a);
                 }
 
             }

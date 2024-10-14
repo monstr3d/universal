@@ -140,7 +140,7 @@ public class Activation : MonoBehaviour
                 }
                 if (monoBehaviour is ReferenceFrameBehavior rf)
                 {
-                    rf.Scale = globalScale;
+                   // rf.Scale = globalScale;
                 }
             }
         }
@@ -183,7 +183,10 @@ public class Activation : MonoBehaviour
   
     void UpdateFist()
     {
-        
+        if (activationObject != null)
+        {
+            activationObject.PostActivate(components);
+        }
         foreach (string s in disabledComponents)
         {
             s.EnableDisable(false);

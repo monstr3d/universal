@@ -26,7 +26,9 @@ using Scada.Motion6D.Interfaces;
 using Animation.Interfaces;
 
 using Event.Portable.Interfaces;
+
 using DataPerformer.Portable.Interfaces;
+
 using Motion6D.Interfaces;
 
 namespace Scada.Motion6D
@@ -48,7 +50,15 @@ namespace Scada.Motion6D
 
         Dictionary<string, Camera> cameras = new ();
 
+        Dictionary<string, IReferenceFrame> frames = new ();
+
         Dictionary<IReferenceFrame , Camera> positions = new ();
+
+
+        Dictionary<Camera, IReferenceFrame> cameraPositions = new();
+
+
+
 
         object enabledlock = new object();
 
@@ -91,6 +101,10 @@ namespace Scada.Motion6D
             {
                 cameras[(camera as IAssociatedObject).GetRootName()] = camera;
             });
+            desktop.ForEach((IReferenceFrame frame) =>
+            {
+                frames[(frame as IAssociatedObject).GetRootName()] = frame;
+            });
             desktop.ForEach((ReferenceFrameArrow ar) =>
             {
                 var s = ar.Source;
@@ -100,6 +114,7 @@ namespace Scada.Motion6D
                     if (p != null)
                     {
                         positions[p] = camera;
+                        cameraPositions[camera] = p;
                     }
                 }
             });
@@ -204,6 +219,22 @@ namespace Scada.Motion6D
         }
 
         /// <summary>
+        /// Gets frame from camera
+        /// </summary>
+        /// <param name="camera">The camera</param>
+        /// <returns>The frame</returns>
+        public IReferenceFrame GetFrame(Camera camera)
+        {
+            if (cameraPositions.ContainsKey(camera))
+            {
+                return cameraPositions[camera];
+            }
+            return null;
+        }
+
+
+
+        /// <summary>
         /// Type of animation
         /// </summary>
         public Animation.Interfaces.Enums.AnimationType AnimationType
@@ -219,6 +250,8 @@ namespace Scada.Motion6D
                 return cameras;
             }
         }
+
+        public Dictionary<string, IReferenceFrame> Frames { get => frames; }
 
         #endregion
 

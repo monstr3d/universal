@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 
 
 namespace GeneratedProject
@@ -34,7 +34,7 @@ namespace GeneratedProject
 				objects.Add(new InternalDesktop.OblectLabel14("Camera 2 frame", this));
 				objects.Add(new InternalDesktop.OblectLabel15("Camera 2", this));
 				objects.Add(new InternalDesktop.OblectLabel16("Side frame", this));
-				objects.Add(new InternalDesktop.OblectLabel17("Side camera", this));
+				objects.Add(new InternalDesktop.OblectLabel17("Camera 3", this));
 				objects.Add(new InternalDesktop.OblectLabel18("Consumer", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new InternalDesktop.ArrowLabel0("", this);
@@ -435,9 +435,9 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"a", (double)4.8466666666666667 },
-										{"k", (double)0.75006375541921 },
 										{"t", (double)22.503536067892504 },
+										{"k", (double)0.75006375541921 },
+										{"a", (double)4.8466666666666667 },
 										{"b", (double)80.88333333333334 },
 										{"p", (double)1028 }
 									};
@@ -736,9 +736,9 @@ namespace GeneratedProject
 									};
 									aliases = new Dictionary<object, object>()
 									{
-													{"a" , (System.Double)(0.59999999999999998)}
+													{"h" , (System.Double)(245.69186698651268)}
+										,			{"a" , (System.Double)(0.59999999999999998)}
 										,			{"x" , (System.Double)(19000)}
-										,			{"h" , (System.Double)(205.59930691663146)}
 									};
 									isSerialized = true;
 									calculateDerivation = false;
@@ -2492,10 +2492,10 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
+										{"h", "_hectopascal.wav_temperature.wav_" },
 										{"a", "wind.wav_" },
 										{"f", "_pressure.wav_" },
 										{"c", "_degree.wav_" },
-										{"h", "_hectopascal.wav_temperature.wav_" },
 										{"j", "_degree.wav" }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
@@ -3691,8 +3691,8 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"l", (double)100 },
-							{"k", (double)10 }
+							{"k", (double)10 },
+							{"l", (double)100 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{

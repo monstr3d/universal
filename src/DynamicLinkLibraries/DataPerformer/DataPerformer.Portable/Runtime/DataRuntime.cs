@@ -649,7 +649,7 @@ namespace DataPerformer.Portable.Runtime
                          act(time[0], t[0], st[0]);
                          time[0] = t[0];
                          st[0] += 1;
-                         updList.Invoke();
+                         updList?.Invoke();
                      };
                 return (updatel == null) ? acttt : updatel + acttt;
             }
@@ -669,7 +669,7 @@ namespace DataPerformer.Portable.Runtime
                     act(time[0], t[0], st[0]);
                     time[0] = t[0];
                     st[0] += 1;
-                    updList.Invoke();
+                    updList?.Invoke();
                     acti(t[0]);
 
                 };

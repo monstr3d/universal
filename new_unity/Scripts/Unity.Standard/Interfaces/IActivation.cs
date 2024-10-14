@@ -16,6 +16,14 @@ namespace Unity.Standard.Interfaces
         void Activate(MonoBehaviour[] monoBehaviours);
 
         /// <summary>
+        /// Post activation
+        /// </summary>
+        /// <param name="monoBehaviours">Mono Behaviours</param>
+        void PostActivate(MonoBehaviour[] monoBehaviours);
+
+
+
+        /// <summary>
         /// Level
         /// </summary>
         int Level

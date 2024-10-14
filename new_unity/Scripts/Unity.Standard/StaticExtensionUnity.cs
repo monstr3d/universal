@@ -36,6 +36,8 @@ using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
 using RealMatrixProcessor;
 using Unity.VisualScripting;
+using UnityEngine.VFX;
+using UnityEngine.UIElements;
 
 namespace Unity.Standard
 {
@@ -1299,9 +1301,21 @@ namespace Unity.Standard
             mesh.mesh.vertices = vv;
         }
 
+        static RealMatrix realMatrix = new();
 
+        static private Vector3 Transform(this double[,] mat, Vector3 v)
+        {
+            var x = new double[] { (double)v.x, (double)v.y, (double)v.z };
+            var y = new double[3];
+            realMatrix.Multiply(mat, x, y);
+            return new Vector3((float)y[0], (float)y[1], (float)y[2]);
+        }
 
-
+        static public void Transform(this MeshFilter mesh, double[,] m)
+        {
+            Func<Vector3, Vector3> t = (v) => m.Transform(v);
+            Transform(mesh, t);
+        }
 
         static public void Scale(this MeshFilter mesh, float scale)
         {
@@ -1448,7 +1462,7 @@ namespace Unity.Standard
             var wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
             var scada = wr.Scada;
             var li = new List<Action<double>>();
-            var inp = scada.Inputs;
+            var inp = (scada as IScadaInterface).Inputs;
             foreach (var key in inputs)
             {
                 if (!inp.ContainsKey(key))
@@ -1468,7 +1482,7 @@ namespace Unity.Standard
                 }
             }
             var lo = new List<Func<double?>>();
-            var outs = scada.Outputs;
+            var outs = (scada as IScadaInterface).Outputs;
             foreach (var key in outputs)
             {
                 if (!outs.ContainsKey(key))
