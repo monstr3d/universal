@@ -17,6 +17,7 @@ using Diagram.Interfaces;
 using AssemblyService;
 
 using System.Data;
+using System.Diagnostics;
 
 namespace Diagram.UI
 {
@@ -1503,14 +1504,7 @@ namespace Diagram.UI
             }
             if (o is IChildrenObject ch)
             {
-                var aoa = ch.Children;
-                if (aoa != null)
-                {
-                    foreach (var ao in aoa)
-                    {
-                        ao.RemoveObject();
-                    }
-                }
+                ch.DisposeChildren();
             }
             if (o is IRemovableObject ro)
             {
@@ -1529,11 +1523,35 @@ namespace Diagram.UI
         }
 
         /// <summary>
+        /// Dispodes a children object
+        /// </summary>
+        /// <param name="ob">The object</param>
+        static public void DisposeChildren(this IChildrenObject ob)
+        {
+            var ch = ob.Children;
+            foreach (var o in ch)
+            {
+                if (o is IChildrenObject c)
+                {
+                    c.DisposeChildren();
+                }
+                if (o is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
         /// Disposes arrow label
         /// </summary>
         /// <param name="arrow">The arrow label</param>
         static public void DisposeArrow(this IArrowLabel arrow)
         {
+            if (arrow is IChildrenObject ch)
+            {
+                ch.DisposeChildren();
+            }    
             if (arrow.Arrow is IDisposable da)
             {
                 da.Dispose();
@@ -1552,9 +1570,15 @@ namespace Diagram.UI
         /// <param name="ol">The object label</param>
         static public void DisposeObject(this IObjectLabel ol)
         {
-            if (ol.Object is IDisposable d)
+            var ob = ol.Object;
+            if (ob is IChildrenObject c)
+            {
+                c.DisposeChildren();
+            }
+            if (ob is IDisposable d)
             {
                 d.Dispose();
+                ol.Object = null;
             }
             if (ol is IDisposable dol)
             {

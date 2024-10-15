@@ -4,16 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-using CategoryTheory;
-using Diagram.UI;
-using Diagram.UI.Labels;
-using Diagram.UI.Attributes;
-using Diagram.UI.Interfaces;
-
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable.Interfaces;
-
 namespace DataPerformer.Arrows
 {
     /// <summary>
@@ -23,7 +13,7 @@ namespace DataPerformer.Arrows
     /// The link with data provider
     /// </summary>
     [Serializable()]
-    public class DataLink : DataPerformer.Portable.DataLink,
+    public class DataLink : Portable.DataLink,
        ISerializable
     {
         #region Fields

@@ -10,13 +10,6 @@ namespace DataPerformer
     public class DataLink : Portable.DataLink, ISerializable
     {
 
-        #region Fields
-
-   
-  
-
-        #endregion
-
         #region Ctor
 
         /// <summary>

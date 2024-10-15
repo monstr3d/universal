@@ -512,10 +512,10 @@ namespace CategoryTheory
         public static T GetObject<T>(this IAssociatedObject obj) where T : class
         {
             // If obj is subtype of T
-            if (obj is T)
+            if (obj is T t)
             {
                 // Returns obj as T
-                return obj as T;
+                return t;
             }
             // Search in children
             // If obj is IChildrenObject

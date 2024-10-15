@@ -16,8 +16,6 @@ namespace Diagram.UI.Labels
     {
         #region Fields
 
-        bool isDisposed = false;
-
         /// <summary>
         /// Associated object
         /// </summary>
@@ -722,12 +720,9 @@ namespace Diagram.UI.Labels
 
         void IDisposable.Dispose()
         {
-            if (isDisposed)
-            {
-                return;
-            }
-            isDisposed = true;
+            if (obj == null)
             this.DisposeObject();
+            obj = null;
         }
 
         #endregion

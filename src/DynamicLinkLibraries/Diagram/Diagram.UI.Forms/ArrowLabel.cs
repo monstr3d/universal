@@ -1,22 +1,11 @@
 using System;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.IO;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization.Formatters;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
-using System.Configuration.Assemblies;
-using System.Threading;
-using System.Xml.Serialization;
 using System.Xml;
 
 using CategoryTheory;
-
-using MathGraph;
 
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
@@ -157,12 +146,10 @@ namespace Diagram.UI.Labels
 			arrow = (ICategoryArrow)info.GetValue("Arrow", typeof(object));
 			sourceNumber = (int)info.GetValue("SourceNumber", typeof(int));
             Disposed += ArrowLabel_Disposed;
-
             targetNumber = (int)info.GetValue("TargetNumber", typeof(int));
 		}
 
 		#endregion
-
 
 		/// <summary>
 		/// Overriden to string
@@ -216,10 +203,13 @@ namespace Diagram.UI.Labels
 			{
 				RemoveForm();
 			}
-			if (Arrow is IRemovableObject)
+			if (Arrow is IRemovableObject obj)
 			{
-				IRemovableObject obj = Arrow as IRemovableObject;
 				obj.RemoveObject();
+			}
+			if (Arrow is IDisposable disposable)
+			{
+				disposable.Dispose();
 			}
 			arrow = null;
 			GC.Collect();

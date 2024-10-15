@@ -12,6 +12,7 @@ namespace DataPerformer.Interfaces
     /// </summary>
     public interface IDataTransformer : IMeasurements, IDataConsumer
     {
+
     }
 
         /// <summary>

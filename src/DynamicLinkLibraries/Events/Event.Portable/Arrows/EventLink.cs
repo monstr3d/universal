@@ -1,55 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
-
 
 using CategoryTheory;
+
 using Event.Interfaces;
 
 namespace Event.Portable.Arrows
 {
     /// <summary>
-    /// Link between event and its handler
+    /// Link between event and its event handler
     /// </summary>
     public class EventLink : ICategoryArrow,  IDisposable
     {
         #region Fields
 
+        /// <summary>
+        /// Target
+        /// </summary>
         IEvent target;
 
+        /// <summary>
+        /// Source
+        /// </summary>
         IEventHandler source;
 
+        /// <summary>
+        /// Associated object
+        /// </summary>
         object obj;
 
         #endregion
 
-        #region Ctor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public EventLink()
-        {
-
-        }
-
-        #endregion
-
-        #region Overriden Members
+        #region ICategoryArrow Members
 
         /// <summary>
         /// The source of this arrow
         /// </summary>
         ICategoryObject ICategoryArrow.Source
         {
-            get
-            {
-                return source as ICategoryObject;
-            }
+            get => source as ICategoryObject;
             set
             {
+                // Checks whether the source
+                // implements the legal interface
                 source = value.GetSource<IEventHandler>();
             }
         }
@@ -59,12 +51,10 @@ namespace Event.Portable.Arrows
         /// </summary>
         ICategoryObject ICategoryArrow.Target
         {
-            get
-            {
-                return target as ICategoryObject;
-            }
+            get =>  target as ICategoryObject;
             set
-            {
+            {   // Checks whether the target
+                // implements the legal interface
                 target = value.GetTarget<IEvent>();
                 source.Add(target);
             }
@@ -87,6 +77,8 @@ namespace Event.Portable.Arrows
             }
             source.Remove(target);
             source = null;
+            target = null;
+            GC.Collect();
         }
 
 
@@ -94,10 +86,17 @@ namespace Event.Portable.Arrows
 
         #region Public
 
-        public IEvent Source { get => source; }
+        /// <summary>
+        /// Event handler (source)
+        /// </summary>
+        public IEventHandler Source { get => source; }
+
+        /// <summary>
+        /// The event (target)
+        /// </summary>
+        public IEvent Target { get => target; }
 
         #endregion
-
 
     }
 }
