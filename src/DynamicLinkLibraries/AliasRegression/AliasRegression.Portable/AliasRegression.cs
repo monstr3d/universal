@@ -566,7 +566,7 @@ namespace Regression.Portable
 					foreach (IAssociatedObject ao in measurements)
 					{
 						IAssociatedObject ob = null;
-						if (ao is DataPerformer.Portable.DataLink)
+						if (ao is DataLink)
 						{
 							IArrowLabel ar = ao.Object as IArrowLabel;
 							IObjectLabel l = ar.Target;

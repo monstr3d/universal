@@ -13,13 +13,15 @@ namespace Event.Portable.Arrows
     /// <summary>
     /// Link between event and its handler
     /// </summary>
-    public class EventLink : CategoryArrow,  IRemovableObject
+    public class EventLink : ICategoryArrow,  IDisposable
     {
         #region Fields
 
         IEvent target;
 
         IEventHandler source;
+
+        object obj;
 
         #endregion
 
@@ -30,9 +32,8 @@ namespace Event.Portable.Arrows
         /// </summary>
         public EventLink()
         {
-        }
 
-  
+        }
 
         #endregion
 
@@ -41,7 +42,7 @@ namespace Event.Portable.Arrows
         /// <summary>
         /// The source of this arrow
         /// </summary>
-        public override ICategoryObject Source
+        ICategoryObject ICategoryArrow.Source
         {
             get
             {
@@ -56,7 +57,7 @@ namespace Event.Portable.Arrows
         /// <summary>
         /// The target of this arrow
         /// </summary>
-        public override ICategoryObject Target
+        ICategoryObject ICategoryArrow.Target
         {
             get
             {
@@ -69,11 +70,16 @@ namespace Event.Portable.Arrows
             }
         }
 
+        /// <summary>
+        /// The associated object
+        /// </summary>
+        object IAssociatedObject.Object { get => obj; set => obj = value; }
+
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if ((source == null) | (target == null))
             {
@@ -86,7 +92,12 @@ namespace Event.Portable.Arrows
 
         #endregion
 
-    
+        #region Public
+
+        public IEvent Source { get => source; }
+
+        #endregion
+
 
     }
 }

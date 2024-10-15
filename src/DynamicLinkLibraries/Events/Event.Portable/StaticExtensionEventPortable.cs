@@ -837,26 +837,7 @@ namespace Event.Portable
         }
 
 
-        /// <summary>
-        /// Gets target
-        /// </summary>
-        /// <param name="link">Link</param>
-        /// <returns>Source</returns>
-        public static IEvent GetTarget(this EventLink link)
-        {
-            return link.Target as IEvent;
-        }
-
-        /// <summary>
-        /// Gets source
-        /// </summary>
-        /// <param name="link">Link</param>
-        /// <returns>Target</returns>
-        public static IEventHandler GetSource(this EventLink link)
-        {
-            return link.Source as IEventHandler;
-        }
-
+    
         /// <summary>
         /// Relative Time sign
         /// </summary>

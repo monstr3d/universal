@@ -1,16 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Labels;
-
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable.Interfaces;
 
 namespace DataPerformer
 {
@@ -18,8 +7,7 @@ namespace DataPerformer
     /// The link between data provider and data consumer
     /// </summary>
     [Serializable()]
-    public class DataLink : DataPerformer.Portable.DataLink, ISerializable,
-        IRemovableObject, IDataLinkFactory
+    public class DataLink : Portable.DataLink, ISerializable
     {
 
         #region Fields
@@ -63,9 +51,5 @@ namespace DataPerformer
 
         #endregion
 
-        #region ICategoryArrow Members
-
- 
-        #endregion
     }
 }

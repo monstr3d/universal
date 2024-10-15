@@ -19,7 +19,7 @@ namespace DataPerformer.Portable
     /// The link between data provider and data consumer
     /// </summary>
     public class DataLink : ICategoryArrow,
-        IRemovableObject, IDataLinkFactory
+        IDisposable, IDataLinkFactory
     {
 
         #region Fields
@@ -83,7 +83,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// The source of this arrow
         /// </summary>
-        public ICategoryObject Source
+        ICategoryObject ICategoryArrow.Source
         {
             set
             {
@@ -103,7 +103,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// The target of this arrow
         /// </summary>
-        public ICategoryObject Target
+        ICategoryObject ICategoryArrow.Target
         {
             get
             {
@@ -182,12 +182,12 @@ namespace DataPerformer.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
         /// <summary>
         /// The post remove operation
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             if (source == null | target == null)
             {
@@ -339,14 +339,19 @@ namespace DataPerformer.Portable
 
 
         /// <summary>
-        /// Measurements provider
+        /// Target
         /// </summary>
-        public IMeasurements Measurements
+        public IMeasurements Target
         {
-            get
-            {
-                return target;
-            }
+            get => target;
+        }
+
+        /// <summary>
+        /// Source
+        /// </summary>
+        public IDataConsumer Source
+        {
+            get => source;
         }
 
         #endregion

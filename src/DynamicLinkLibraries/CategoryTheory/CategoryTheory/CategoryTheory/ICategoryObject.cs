@@ -1,4 +1,3 @@
-
 namespace CategoryTheory
 {
     /// <summary>

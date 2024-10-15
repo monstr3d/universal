@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>Introduction</h2>
+
+    <p>It is well known that mathematics is universal. Arithmetic operations of addition, subtraction, division and multiplication&nbsp;are being used in different domains.&nbsp;&nbsp;However there is a next level of abstraction.- Category Theory or the Abstract Nonsense.&nbsp; Here is a citation of the book &quot;Robert Goldblatt. Topoi. The categorical analysis of logic. North-Holland 1984&quot;.</p>
+
+    <p><img height="89" src="object_and_arrow.png" width="83" /></p>
+
+    <address>We did not actually say what <strong>a</strong> and <strong>f</strong> are. The point is that they can be anything you like. <strong>a</strong> might be a set with <strong>f</strong> its identity function. But <strong>f</strong> might be a number, or a pair of numbers, or a banana, or the Eiffel tower, or even Richard Nixon. Likewise for <strong>a</strong>.</address>
+
+    <p>I would like to prove that this abstraction has a practical significance. The title of this article means that the abstract principle can be applied to the interoperability for different domains</p>
+
+    <ul>
+        <li>the <a href="https://en.wikipedia.org/wiki/SCADA" target="blank_">SCADA</a>,</li>
+        <li>the computer games.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h2>Background</h2>
+
+    <p>Abstraction allows us to find common ground in different phenomena. In mathematics there are <a href="https://en.wikipedia.org/wiki/Abstract_algebra" target="_blank">abstract algebra</a> and <a href="https://en.wikipedia.org/wiki/Topology">topology</a><a href="https://en.wikipedia.org/wiki/Topology" target="_blank">.</a>&nbsp;However, there is another level of abstraction in which algebra and topology are special cases of the concept of <a href="https://en.wikipedia.org/wiki/Category_theory">category</a>.&nbsp;<a href="https://en.wikipedia.org/wiki/Algebraic_topology" target="_blank">Algebraic topology </a>provides a mapping (<a href="https://en.wikipedia.org/wiki/Functor" target="_blank">functor</a>) from topology to algebra and this allows solving topological problems by algebraic methods.&nbsp;I developed <a href="https://www.codeproject.com/Articles/15441/Universal-Framework-for-Science-and-Engineering-3" target="_blank">software</a> dedicated to category theory and found it useful not only for mathematics. For example, the problem of temperature control can be solved using both <a href="https://en.wikipedia.org/wiki/Open_Platform_Communications" target="_blank">OPC</a> and <a href="https://en.wikipedia.org/wiki/LonWorks" target="_blank">LonWorks</a> standards of communications.&nbsp;However there is an universal approach which includes both standards. The <a href="https://en.wikipedia.org/wiki/Abstract_factory_pattern" target="_blank">Abstract factory pattern</a> can be regarded as a functor from OPC to LonWorks and vice versa.&nbsp;&nbsp;Ыoftware development also has many abstract ideas such as <a href="https://en.wikipedia.org/wiki/Design_Patterns" target="_blank">Design patterns</a> and <a href="https://en.wikipedia.org/wiki/SOLID" target="_blank">SOLID</a>. These ideas are devoted to reusable principles this article is devoted to the reusable code.</p>
+
+    <h2>Extension of the&nbsp;category theory</h2>
+
+    <p><a href="https://en.wikipedia.org/wiki/Category_theory" target="_top">Classical category theory</a> has objects and arrows such that</p>
+
+    <ul>
+        <li>objects belong to single category,</li>
+        <li>there is an identical arrow</li>
+        <li>and all arrows are composable.</li>
+    </ul>
+
+    <p>The extended category theory implies that&nbsp;</p>
+
+    <ul>
+        <li>objects can&nbsp;belong to several categories,</li>
+        <li>arrows are not always composable,</li>
+        <li>the source and the target of an&nbsp;arrow can belong to different interfaces</li>
+        <li>and a type of an arrow uniquely defines interfaces of the source and the target.</li>
+    </ul>
+
+    <p>The basic&nbsp;interfaces are presented below</p>
+
+<pre lang="C#">
+namespace CategoryTheory
+{
+&nbsp;&nbsp; &nbsp;/// &lt;summary&gt;
+&nbsp;&nbsp; &nbsp;/// Object associated with another object
+&nbsp;&nbsp; &nbsp;/// &lt;/summary&gt;
+&nbsp;&nbsp; &nbsp;public interface IAssociatedObject
+&nbsp;&nbsp; &nbsp;{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;/// &lt;summary&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;/// The associated object
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;/// &lt;/summary&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;object Object
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;get;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;set;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+}
+</pre>
+
+    <p>This interface contains the associated object witch is useful for technical reasons.</p>
+
+<pre>
+namespace CategoryTheory
+{
+&nbsp; &nbsp; /// &lt;summary&gt;
+&nbsp; &nbsp; /// The object of a math category
+&nbsp; &nbsp; /// &lt;/summary&gt;
+&nbsp; &nbsp; public interface ICategoryObject : IAssociatedObject
+&nbsp; &nbsp; {
+
+&nbsp; &nbsp; }
+}
+</pre>
+
+    <p>This interface is basic for all objects. This interface as itself is empty, it means that the objects is purely abstract. The associated object contains a label with a technical information.</p>
+
+<pre>
+namespace CategoryTheory
+{
+&nbsp; &nbsp; /// &lt;summary&gt;
+&nbsp; &nbsp; /// The arrow of math category theory
+&nbsp; &nbsp; /// &lt;/summary&gt;
+&nbsp; &nbsp; public interface ICategoryArrow : IAssociatedObject
+&nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; /// &lt;summary&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; /// The source of this arrow
+&nbsp; &nbsp; &nbsp; &nbsp; /// &lt;/summary&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; ICategoryObject Source
+&nbsp; &nbsp; &nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; get;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; &nbsp; /// &lt;summary&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; /// The target of this arrow
+&nbsp; &nbsp; &nbsp; &nbsp; /// &lt;/summary&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; ICategoryObject Target
+&nbsp; &nbsp; &nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; get;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; }
+}
+</pre>
+
+    <p>This is a basic interface of any arrow. It contains the <em>Source </em>and the <em>Target.</em>&nbsp;The associated object contains a label with a technical information.</p>
+
+    <h2>Generalized SCADA</h2>
+
+    <p>The generalized SCADA has following types</p>
+
+    <ul>
+        <li>objects belong to single category,</li>
+        <li>there is an identical arrow</li>
+        <li>and all arrows are composable.</li>
+    </ul>
+
+    <h2>Points of Interest</h2>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>Did you learn anything interesting/fun/annoying while writing the code? Did you do anything particularly clever or wild or zany?</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <h2>History</h2>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>Keep a running update of any changes or improvements you&#39;ve made here.</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+</body>
+</html>

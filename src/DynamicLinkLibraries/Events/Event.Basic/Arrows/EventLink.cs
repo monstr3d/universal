@@ -14,7 +14,7 @@ namespace Event.Basic.Arrows
     /// Link between event and its handler
     /// </summary>
     [Serializable()]
-    public class EventLink : Event.Portable.Arrows.EventLink, ISerializable
+    public class EventLink : Portable.Arrows.EventLink, ISerializable
     {
         #region Fields
 
@@ -36,8 +36,8 @@ namespace Event.Basic.Arrows
         /// <param name="context">Streaming context</param>
         protected EventLink(SerializationInfo info, StreamingContext conext)
         {
-        }
 
+        }
 
         #endregion
 
