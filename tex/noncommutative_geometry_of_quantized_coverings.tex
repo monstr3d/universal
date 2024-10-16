@@ -5931,8 +5931,14 @@ From the Remark \ref{top_a_u_rem} it turns out that a support of any covering su
 	\end{enumerate}
 	We say that $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$ is a \textit{covering triple for} $p$.
 \end{definition}
+\begin{definition}\label{top_coveing_quadruple_defn}
+Let $p:\widetilde\sX \to \sX$ be a covering. Suppose that there are connected open subsets $\widetilde \sU, \widetilde \sV, \widetilde {\mathcal W} \subset \widetilde \sX$, and two continuous map $\widetilde{s}: \widetilde \sX \to \left[0,1\right]$, $\widetilde{t}: \widetilde \sX \to \left[0,1\right]$ such that both
+$\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$ and $\left(\widetilde \sV,  \widetilde {\mathcal W}, \widetilde s\right)$ are covering triples for $p$ then a tuple 
+$\left(\widetilde \sU, \widetilde \sV, \widetilde {\mathcal W},\widetilde s, \widetilde t\right)$ is a \textit{covering quadruple for} $p$.
+\end{definition}
+
 \begin{remark}\label{top_covering_sum_subordinated_rem}
-	From the Lemma \ref{top_a_u_lem} it follows that if the space $\sX$ is Hausdorff, locally compact, and locally connected then for any  $\widetilde x \in \widetilde\sX$ there is a {covering triple $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$  for} $p$ such that $\widetilde x \in \widetilde \sX$.
+	From the Lemma \ref{top_a_u_lem} it follows that if the space $\sX$ is Hausdorff, locally compact, and locally connected then for any  $\widetilde x \in \widetilde\sX$ there is a {covering triple $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$  for} $p$ such that $\widetilde x \in \widetilde \sX$. !!! ADD QUADRUPLE 
 \end{remark}
 
 
@@ -12370,7 +12376,7 @@ i.e. a set $C_c\left( \widetilde\sY\right)A_0\left(\widetilde\sY\right) \bydef \
 \end{proof}
 Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and  let $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}). Let  
 $$
-\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ 
+\left(\	\left\{\left(\sU_\a, \sV_\a, \right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ 
 be  a $q$-{covering} (cf. Definition \ref{top_cov_defn}).  If 
 $$
 \widetilde a \bydef \varphi\left(\widetilde f \otimes a \right) \in \varphi\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)
@@ -12433,7 +12439,10 @@ are convergent with respect to the strong topology of $B\left( \H\right)$ (cf. D
 	\be\label{blowing_strong_eqn}
 	s\text{-}\sum_{	g \in G\left(\left.\widetilde \sY\right| \sY \right)} g \widetilde a
 	\ee
-	is convergent with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}).
+	is convergent with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}) and 
+\be\label{b}
+\left\|s\text{-}\sum_{	g \in G\left(\left.\widetilde \sY\right| \sY \right)} g \widetilde a \right\| = 	\left\|\widetilde a \right\|
+\ee
 \end{lemma}
 \begin{proof}
 	If $\xi \in \H$ and let $\eps > 0$ then from \eqref{blowing_leg_eqn} it follows that there is a finite subset $G_{\xi, \eps}\subset G\left(\left.\widetilde \sY\right| \sY \right)$ such that
@@ -12443,13 +12452,13 @@ are convergent with respect to the strong topology of $B\left( \H\right)$ (cf. D
 	From $\forall g \in G \quad \left\|\pi\left( g\widetilde a\right)  \right\|=\left\|\widetilde a \right\|$ it follows that 
 	if $G' \subset G\left(\left.\widetilde \sY\right| \sY \right)$ is a finite set with $ G_{\xi, \eps}\subset G'$ then
 	\bean
-	\left\|\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus G'}\pi\left( g \widetilde a\right) \xi-\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus G_{\xi, \eps}}g \widetilde a \xi\right\|\le \sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|\pi\left( g \widetilde a\right) \xi \right\|^2 }=\\  \sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|p'_g\pi\left( g \widetilde a\right)p''_g \xi \right\|^2 }\le \left\|\widetilde a \right\|\sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|p''_g \xi \right\|^2}< \eps.
+	\left\|\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus G'}\pi\left( g \widetilde a\right) \xi-\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus G_{\xi, \eps}}\pi\left( g \widetilde a\right)  \xi\right\|\le \sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|\pi\left( g \widetilde a\right) \xi \right\|^2 }=\\  \sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|p'_g\pi\left( g \widetilde a\right)p''_g \xi \right\|^2 }\le \left\|\widetilde a \right\|\sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|p''_g \xi \right\|^2}< \eps.
 	\eean
 	The above equation means that the series \ref{blowing_strong_eqn}.
 	is convergent with respect to the strong topology of $B\left(\H \right)$.
 \end{proof}	
 \begin{corollary}\label{blowing_strict_cor}
-	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) with $\sY \cong \widetilde{\sY}/G$ where $G\cong G\left(\left.\widetilde \sY\right| \sY \right) $ is a properly disconnected group of homeomorphisms of $\widetilde{\sY}$ (cf. Definition \ref{top_properly_disc_group_defn}). Let $A_0\left(\widetilde\sY \right)$ be the $q$-lift  (cf. Definition \ref{blowing_lift_defn}). Suppose that  there are open subsets $\widetilde\sU', \widetilde\sU''\subset \widetilde\sY$  such that  all $g', g'' \in  G\left(\left.\widetilde \sY\right| \sY \right)$ from $g' \neq g''$ it turns out that
+	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) with $\sY \cong \widetilde{\sY}/G$ where $G\cong G\left(\left.\widetilde \sY\right| \sY \right) $ is a properly disconnected group of homeomorphisms of $\widetilde{\sY}$ (cf. Definition \ref{top_properly_disc_group_defn}). Let $A_0\left(\widetilde\sY \right)$ be the $q$-lift  (cf. Definition \ref{blowing_lift_defn}). If  there are open subsets $\widetilde\sU', \widetilde\sU''\subset \widetilde\sY$  such that for all $g', g'' \in  G\left(\left.\widetilde \sY\right| \sY \right)$ from $g' \neq g''$ it turns out that
 	\be \label{blowing_int_ot_eqn}
 	\begin{split}
 		g' \widetilde \sU' \cap 	g'' \widetilde \sU'= \emptyset,\\
@@ -12460,14 +12469,33 @@ are convergent with respect to the strong topology of $B\left( \H\right)$ (cf. D
 \be\label{blowing_int_deduce_eqn}
 \widetilde a \in  ~_{\widetilde \sU'}A_0\left(\widetilde\sY \right)\cap A_0\left(\widetilde\sY \right)_{\widetilde \sU''}
 \ee
-(cf. Definition \eqref{blowing_ideals_au_ua_defn})
-	Then the series 
+(cf. Definition \eqref{blowing_ideals_au_ua_defn}),
+then one has
+\begin{enumerate}
+	\item[(i)] If $A_0\left(\widetilde\sY \right)$ is a faithful nondegenerate representation !!! then the series
+	\be\label{blowing_s_eqn}
+	s\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)}\pi\left(  g  \widetilde a\right) 
+	\ee	
+	is convergent with respect to the strong topology of $B\left( \H\right)$ !!!,
+	\item[(ii)] 	the series
 	\be\label{blowing_bt_eqn}
 	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde a
 	\ee
-	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}).
+	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}), and one has
+	\be\label{blowing_sb_eqn}
+		s\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)}\pi\left(  g  \widetilde a\right) = \pi\left( \bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde a\right), 
+	\ee
+
+	\item[(ii)] moreover if   there are covering  quadruples  $\left(\widetilde \sU', \widetilde \sV', \widetilde {\mathcal W}',\widetilde s', \widetilde t'\right)$ and $\left(\widetilde \sU'', \widetilde \sV'', \widetilde {\mathcal W}'',\widetilde s'', \widetilde t''\right)$  for $q$ (cf. Definition \ref{top_coveing_quadruple_defn}) then there is $a \in A$ such that
+	\be\label{blowing_btaa_eqn}
+	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde a= A_b\left(q \right) \left(a \right) 
+	\ee
+	where $A_b\left(q \right)$ is the $q$-lift (cf. Definition \ref{blowing_lift_hom_defn})
+\end{enumerate}
+
 \end{corollary}
-\begin{proof}
+
+\begin{proof}(i)
 	From the Lemma \ref{blowing_blowing_lem} it follows that there is inclusion $C_0\left( \widetilde \sY\right) \subset M\left(A_0\left(\widetilde\sY \right) \right)$
 	If  $\pi : A_0\left(\widetilde\sY \right) \hookto B\left(\H\right)$ is a faithful nondegenerate  representation (cf. Definitions  \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then from  the Definition \ref{multiplier_el_defn} it turns that there are inclusions 
 	\bean
@@ -12485,30 +12513,31 @@ C_0\left( \widetilde \sY\right)\subset B\left( \H\right)
 	$$
 	s \text{-}\sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)}\pi\left(g \widetilde a \right) 
 	$$
-	is convergent with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). Suppose that $\widetilde a$ is positive.
-	If $\eps >  0$ and $\widetilde b \in A_0\left(\widetilde\sY\right)$ then there is an element  $\widetilde b' \in K\left(  A_0\left(\widetilde\sY\right)\right)$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_eqn}) such that 
+	is convergent with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). \\
+(ii) Let $a' \bydef 	s \text{-}\sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)}\pi\left(g \widetilde a \right)\in B\left( \H\right)$.	If $\eps >  0$ and $\widetilde b \in A_0\left(\widetilde\sY\right)$ then there is an element  $\widetilde b' \in K\left(  A_0\left(\widetilde\sY\right)\right)$ of Pedersen's ideal (cf. Definition \ref{pedersen_ideal_eqn}) such that 
 	$$
-	\left\|\widetilde b'- \widetilde b \right\| < \frac{\eps}{2\left\|s \text{-}\sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)}\pi\left(g \widetilde a \right)\right\| }.
+	\left\|\widetilde b'- \widetilde b \right\| < \frac{\eps}{2\left\|a'\right\| }.
 	$$
 	From the Lemma \ref{blowing_pedersen_compact_lem}
 	it turns out that a set $\supp \widetilde b'$ is compact.
 	Form the hypothesis of this lemma one has
 	$$
-	\bigcup_{g \in  G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde \sU=\bigsqcup_{g \in  G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde \sU
+	\bigcup_{g \in  G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde \sU''=\bigsqcup_{g \in  G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde \sU''
 	$$
 	If
 	$$
-	G_0\bydef \left\{\left. g \in  G\left( \left. \widetilde\sY\right| \sY\right)\right| g \widetilde \sU\cap \supp \widetilde b' \neq \emptyset\right\}
+	G_0\bydef \left\{\left. g \in  G\left( \left. \widetilde\sY\right| \sY\right)\right| g \widetilde \sU''\cap \supp \widetilde b' \neq \emptyset\right\}
 	$$
 	then
 	\be\label{blowing_sq_eqn}
-	\bigsqcup_{g \in G_0} \left(  g \widetilde \sU\cap \supp \widetilde b'\right) \subset  \supp \widetilde b'
+	\bigsqcup_{g \in G_0} \left(  g \widetilde \sU''\cap \supp \widetilde b'\right) \subset  \supp \widetilde b'
 	\ee 
-	If $G_0$ is not finite then from \eqref{blowing_sq_eqn} it follows that the compact set $\supp \widetilde b'$ contains an open subset having infinitely many quasi-components (cf. Definition \ref{top_quasi_component_defn}). It is impossible so the set $G_0$ is finite. If $G\subset G\left( \left. \widetilde\sY\right| \sY\right)$ is a finite set, such that $G_0 \subset G$ then one has
+	If $G_0$ is not finite then from \eqref{blowing_sq_eqn} it follows that the compact set $\supp \widetilde b'$ contains an open subset having infinitely many quasi-components (cf. Definition \ref{top_quasi_component_defn}). It is impossible so the set $G_0$ is finite. If $\widetilde a' \bydef $	
+	If $G\subset G\left( \left. \widetilde\sY\right| \sY\right)$ is a finite set, such that $G_0 \subset G$ then one has
 	$$
-	\sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b'= \sum_{	g \in {G}_0} \left( g\widetilde a \right) \widetilde b'
+	\sum_{	g \in {G}} \pi\left( \left( g\widetilde a \right) \widetilde b'\right) =  a'\pi\left(  \widetilde b'\right),
 	$$
-	so from the triangle inequality one has
+	so from the triangle inequality it follows that
 	\bean
 	\left\| \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b- \sum_{	g \in {G_0}} \left( g\widetilde a \right) \widetilde b \right\| \le\\
 	\le \left\| \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b- \sum_{	g \in {G}} \left( g\widetilde a \right) \widetilde b' \right\|
@@ -12527,8 +12556,107 @@ C_0\left( \widetilde \sY\right)\subset B\left( \H\right)
 	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} \widetilde b \left( g \widetilde a\right)
 	$
 	is also $C^*$-norm convergent.
-	The general case of the strict convergence of the series  \eqref{blowing_bt_eqn} can be obtained from the decomposition \eqref{four_decompositon_eqn}.
-	
+	The general case of the strict convergence of the series  \eqref{blowing_bt_eqn} can be obtained from the decomposition \eqref{four_decompositon_eqn}.\\
+	(ii) From the Definition \ref{top_coveing_triple_defn} it follows that 
+\be\label{blowing_paa_eqn}
+\widetilde a = \varphi_{\widetilde \sY}\left( \widetilde s\right) \widetilde a %\varphi_{\widetilde \sY}\left( \widetilde s''\right)\in !!! MODULE !!!	
+\ee
+where $\varphi_{\widetilde \sY}$ is given by the equation \eqref{blowing_c_h_eqn}. On the other hand from the Definition \ref{blowing_lift_defn} it follows that  there is a net
+$\left\{\widetilde a_\a\right\}_{\a\in \mathscr A}\subset \varphi^{\widetilde \sY}_A\left(C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \right)$ such that there is the $C^*$-norm limit
+$$
+\widetilde a = \lim_{\a \in \mathscr A} \widetilde a_\a.
+$$
+For any $\a \in \mathscr A$ one has
+$$
+\widetilde a_\a = \sum_{j = 1}^{n_\a}  \varphi_{\widetilde \sY}\left(\widetilde f^j_\a \right) 	A_b\left(q \right)\left(a^j_\a\right); \quad a^j_\a \in A,  \quad \widetilde f^j_\a \in C_c\left( \widetilde \sY\right) 
+$$
+If $s \bydef  \desc_q\left( \widetilde s\right)$ and  $t \bydef  \desc_q\left( \widetilde t\right)$ where $\desc_q$ !!! then  taking into account \eqref{blowing_paa_eqn} we obtain the following  $C^*$-norm limit
+$$
+\widetilde a = \lim_{\a \in \mathscr A}\varphi_{\widetilde \sY}\left({\widetilde t}\right) A_b\left(q \right)\left(b_\a\right)
+$$
+where 
+$$
+b_\a \bydef \sum_{j=1}^n \desc_q\left({\widetilde s}\widetilde f^j_\a   \right) a^j_\a.
+$$
+such that $b_\a = t b_\a \in {s}A$. 
+Let us prove that one has
+$$
+\forall b \in s A \quad \left\| b\right\| \le \left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\right\|
+$$ 
+There is $\xi \in \mathscr L^2\left(\widetilde \sY \right) _A $ which corresponds to $\varphi^{\widetilde \sY}_A\left(\widetilde t\otimes_{C_0\left(\sY\right) }b \right)$ then
+\bean
+\xi = \varphi_{\widetilde \sY}\left({\widetilde t}\right)\xi,\\
+\left\| b\right\| = \left\|\xi\right\|_H
+\eean
+where $\left\|\cdot\right\|_H$ is the norm of the $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right) _A$. On the other hand
+one has
+$$
+\left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\right\|
+\ge \frac{\left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\xi\right\|_H}{\left\|\xi\right\|_H }=  \frac{\left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\varphi_{\widetilde \sY}\left({\widetilde t}\right) \xi\right\|_H}{\left\|\xi\right\|_H }
+$$
+
+$$
+\left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\right\|\ge \frac{\left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\xi\right\|_H}{\left\|\xi\right\|_H }=  \frac{\left\|\varphi_{\widetilde \sY}\left({\widetilde t}\right)  A_b\left(q \right)\left(b\right)\varphi_{\widetilde \sY}\left({\widetilde t}\right) \xi\right\|_H}{\left\|\xi\right\|_H }
+$$
+
+
+!!!
+One has
+$$
+\left\| b_a\right\| = \sqrt{\left\| b^*_\a b_a \right\| }
+$$
+Let us prove that one has
+$$
+\forall b \in s A \quad 
+$$ 
+
+
+$$
+\widetilde a = \varphi_{\widetilde \sY}\left(\widetilde s'\right) \lim_{\a \in \mathscr A}  \sum_{j = 1}^{n_\a} \varphi_{\widetilde \sY}\left(\widetilde s'\widetilde f^j_\a \right) 	A_b\left(q \right)\left(a^j_\a\right) \varphi_{\widetilde \sY}\left(\widetilde s''\right)=.\mathscr L^2!!!
+$$
+There is a net $\left\{a_\a \in A\right\}_{\a \in  \mathscr A}$ such that
+$$
+a_\a = \sum_{j = 1}^{n_\a}  \desc_q\left(\widetilde f^j_\a \widetilde s'\right) 	a^j_\a\desc_q\left( \widetilde s''\right)
+$$
+\paragraph{!!! CONTINUE !!!}
+\begin{empt}\label{blowing_lift_empt!}!!!
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\subset  M\left(A \right)$ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Let $q: \widetilde \sY\to \sY$ be a transitive covering such that $\sY = \widetilde \sY/G$ where $G$ is properly   discontinuous,  residually finite group  of homeomorphisms of $\widetilde \sY$ (cf. Definitions \ref{top_properly_disc_group_defn} and \ref{residually_finite_defn}). There is $C_0\left(\sY \right)$-valued product
+	\bean
+	\left\langle\cdot, \cdot  \right\rangle_{C_0\left(\sY \right)}: C_c \left(\widetilde \sY \right) \times C_c \left(\widetilde \sY \right)\to C_0\left(\sY \right),\\
+	\left(\widetilde a, \widetilde b \right) \mapsto \desc^c_q\left(\widetilde a^* \widetilde b \right) 
+	\eean
+	where $\desc^c_q$ is  a {compactly supported} $q$-{descent} \ref{top_compactly_supported_descent_defn}. So $ C_c \left(\widetilde \sY\right)$ is a pre-Hilbert $C_0\left(\sY \right)$-module (cf. Definition \ref{hilbert_module_defn}). If $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)$ is a completion of $C_c \left(\widetilde \sY \right)$ with respect to given by \eqref{hilbert_module_norm_eqn} norm then $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)$ is a $C^*$-Hilbert $C_0\left(\sY \right)$-module. If $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ is an algebraic tensor product then there is an $A$-valued product.
+	\bean
+	\left\langle\cdot, \cdot  \right\rangle: \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right)\times \left( \mathscr L^2\left(C_c \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A\right) \to A,\\
+	\left(\left(\widetilde f \otimes a \right) , \left(\widetilde g  \otimes b \right)  \right) \mapsto a^*\left\langle\widetilde f, \widetilde g \right\rangle_{C_0\left(\sY \right)} b.
+	\eean
+	so $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ becomes a pre-Hilbert $A$-module. We denote by $\mathscr L^2\left(\widetilde \sY \right) _A$ the $C^*$-Hilbert $A$-module which is a completion  of  $\mathscr L^2\left(C_0 \left(\widetilde \sY \right) \right)\otimes_{C_0\left(\sY \right)} A$ with respect to given by \eqref{hilbert_module_norm_eqn} norm. There are both a left  action 	$C_0 \left(\widetilde \sY \right)\times \mathscr L^2\left(\widetilde \sY \right) _A\to \mathscr L^2\left(\widetilde \sY \right) _A$ and the right action $\mathscr L^2\left(\widetilde \sY \right) _A\times A \to \mathscr L^2\left(\widetilde \sY \right) _A$ such that $\mathscr L^2\left(\sY\right)_A$ is $C_0 \left(\widetilde \sY \right)$-$A$-bimodule. These actions induce injective homomorphisms of $C^*$-algebras
+	\bea\label{blowing_a_h_eqn}
+	\varphi_A : A \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right), \\
+	\label{blowing_c_h_eqn}
+	\varphi_{\widetilde \sY} : C_0 \left(\widetilde \sY \right) \hookto \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\eea
+	where $\End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)$ is the $C^*$-algebra of adjointable  endomorphisms of  the $C^*$-Hilbert $A$-module $\mathscr L^2\left(\widetilde \sY \right)_A$ (cf. Definition \ref{adjointable_operator_defn}).
+	There is a homomorphism 
+	\be\label{blowing_tensor_eqn} 
+	\begin{split}
+		\varphi^{\widetilde \sY}_A: C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right) \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right),\\
+		\sum_{j=1}^n 	\widetilde f_j \otimes a_j \mapsto 	\sum_{j=1}^n 	\varphi_{\widetilde \sY}\left( \widetilde f_j\right) \varphi_A\left(a_j \right)
+	\end{split}
+	\ee
+	of right $C_0\left( \widetilde\sY\right)$-$A$-bimodules, where 	$\varphi_A, ~	\varphi_{\widetilde \sY}$ are given by  \eqref{blowing_a_h_eqn}, \eqref{blowing_c_h_eqn} and the algebraic tensor product is implied. Since both $C_c\left(\widetilde \sY \right)$ and   $K\left(A \right)$ are dense in $C_0\left(\widetilde \sY \right)$ and  $A$ respectively the $*$-homomorphism \eqref{blowing_tensor_eqn} can be uniquely extended up to a  $C_0\left( \widetilde\sX\right)$-$A$-bimodule homomorphism 
+	\be\label{blowing_tensoar_eqn} 
+	\begin{split}
+		\psi^{\widetilde \sY}_A: C_0\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A \to \End^*_A\left( \mathscr L^2\left(\widetilde \sY \right)_A\right)
+	\end{split}
+	\ee
+	such that the $C^*$-closure of $\varphi\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } K\left( A\right)\right)$ coincides with\\  	$\varphi'\left(  C_c\left( \widetilde \sY \right)\otimes_{C_0\left(\sY\right) } A\right) $ one.
+\end{empt}
+
+\begin{definition}\label{blowing_lift_hm_defn1}11
+	Under the hypotheses \ref{blowing_lift_empt}  we say that the $C^*$-Hilbert $A$-module  $\mathscr L^2\left(\widetilde \sY \right)_A$ is the $\widetilde \sY$-$A$-\textit{module}.
+\end{definition}
+\paragraph{title}
 \end{proof}
 \begin{theorem}\label{blowing_strict_thm}
 	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) with $\sY \cong \widetilde{\sY}/G$ where $G\cong G\left(\left.\widetilde \sY\right| \sY \right) $ is a properly disconnected group of homeomorphisms of $\widetilde{\sY}$ (cf. Definition \ref{top_properly_disc_group_defn}). Let $A_0\left(\widetilde\sY \right)$ be the $q$-lift  (cf. Definition \ref{blowing_lift_defn}). If
@@ -12539,8 +12667,41 @@ C_0\left( \widetilde \sY\right)\subset B\left( \H\right)
 	\ee
 	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}).
 \end{theorem}
+\begin{definition}\label{top_cov_defn!}!!!
+	Under the hypotheses \ref{top_cov_empt} we say that a pair $$\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ is a $p$-\textit{covering}. Both the action $G\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the map  $p_{\widetilde{\mathscr A}}: \widetilde{\mathscr A} \to {\mathscr A}$ are $p$-\textit{action} and $p$-\textit{projection} respectively.
+\end{definition}
+
+\begin{defn}\label{top_covering_sum_defn!}
+	Let $\sY\subset\sX$ is a compact subset of a locally compact,  Hausdorff space $\sX$. The  $f \bydef \sum_{j = 1}^n f_j$.
+	is said to be a \textit{covering sum for} $\sY$. We also say that the covering sum \eqref{top_cfs_eqn} is \textit{dominated} by the family 
+	$\left\{\sV_x\right\}_{x\in\sX}$ (cf. equation \ref{top_vx_eqn}). 
+\end{defn}
+
+
 \begin{proof}
-!!!	content...
+If  a pair
+$$\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$
+is a $q$-covering (cf. Definition \ref{top_cov_defn})  then there is a dominated by a family $\left\{\widetilde \sU_{\widetilde\a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ finite sum $\sum_{j = 1}^n \widetilde f_j$ for $\supp \widetilde a$ (cf. Definition \ref{top_covering_sum_defn}). It follows that 
+$$
+\widetilde a = \sum_{\substack{j=1\\k=1}}^n \widetilde f_j  \widetilde a  \widetilde f_k 
+$$
+If for every $j \in \left\{1,..., n\right\}$ 
+$$
+\widetilde \sU_j \bydef \left\{\left. \widetilde y \in \widetilde\sY \right| \widetilde f_j\left( \widetilde y\right)> 0 \right\}
+$$
+then one has
+\bea\label{blowing_aauu_eqn}
+\forall j, k \in \left\{1,...,n\right\}\quad \widetilde f_j  \widetilde a  \widetilde f_k\in ~_{\widetilde \sU_j}A_0\left(\widetilde\sY \right)\cap A_0\left(\widetilde\sY \right)_{\widetilde \sU_k},\\
+\label{blowing_aau_eqn}
+\forall j \in \left\{1,...,n\right\}\quad \exists \widetilde \a \in \widetilde{\mathscr A}\quad \widetilde \sU_j \subset \widetilde \sU_{\widetilde \a}
+\eea
+where both ideals $_{\widetilde \sU_j}A_0\left(\widetilde\sY \right)$ and  $A_0\left(\widetilde\sY \right)_{\widetilde \sU_k}$ are given by the Definition \eqref{blowing_ideals_au_ua_defn}. From \eqref{blowing_aau_eqn} it follows that 
+\be
+\forall j \in \left\{1,...,n\right\}\quad  \forall g', g'' \in  G\left(\left.\widetilde \sY\right| \sY \right)\quad g' \neq g''\quad 
+	g' \widetilde \sU_j \cap 	g'' \widetilde \sU_j= \emptyset.
+\ee
+Both equations \eqref{blowing_aauu_eqn} and \eqref{blowing_aau_eqn} can be regarded as special
+
 \end{proof}
 
 \begin{definition}
