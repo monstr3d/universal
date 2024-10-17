@@ -10519,6 +10519,17 @@ Moreover one has $\widetilde \sX = \bigcup_{\widetilde \a \in \widetilde{\mathsc
 	Under the hypotheses \ref{top_cov_empt} we say that a pair $$\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ is a $p$-\textit{covering}. Both the action $G\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the map  $p_{\widetilde{\mathscr A}}: \widetilde{\mathscr A} \to {\mathscr A}$ are $p$-\textit{action} and $p$-\textit{projection} respectively.
 \end{definition}
 
+\begin{empt}
+Similarly to the construction \ref{top_cov_empt} one can replace covering triples  (cf. Definition \ref{top_coveing_triple_defn}) with covering quadruples (cf. Definition \ref{top_coveing_quadruple_defn}) and obtain a pair
+\be
+\left(\	\left\{\left(\sU_\a, \sV_\a, \mathcal W_\a,s_\a, t_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}, \widetilde{ \mathcal W}_{\widetilde\a}, \widetilde s_{\widetilde\a}, \widetilde t_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)
+\ee
+\end{empt}
+
+\begin{definition}\label{top_ext_cov_defn}
+	We say that a pair \eqref{top_coveing_quadruple_defn} is an \textit{extended}-$p$-\textit{covering}. Both the action $G\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the map  $p_{\widetilde{\mathscr A}}: \widetilde{\mathscr A} \to {\mathscr A}$ are $p$-\textit{action} and $p$-\textit{projection} respectively.
+\end{definition}
+
 \subsection{Coverings $C^*$-algebras and operator spaces}
 
 \paragraph*{}
@@ -12663,10 +12674,20 @@ The given by \eqref{blowing_uu_eqn} isomorphism $_{\widetilde \sU'}\lift^q_{\wid
 or $\desc_q$.
 \end{definition}
 \begin{remark}
-From the Corollary \ref{blowing_strict_cor} it turns out that
-\be
-\forall \widetilde a \in ~_{\widetilde \sU'}A_0\left(\widetilde\sY \right)\cap A_0\left(\widetilde\sY \right)_{\widetilde \sU''}\quad 	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} A_b\left( q\right)\circ _{\widetilde \sU'}\desc^q_{\widetilde \sU''}\left( \widetilde a\right).
+The Definition \ref{blowing_lift_desc_defn} is a generalization of the \ref{top_lift_desc_defn} one.
+\end{remark}
+\begin{remark}\label{blowing_lift_desc_rem}
+From the Corollary \ref{blowing_strict_cor} it turns out that for all $\widetilde a \in ~_{\widetilde \sU'}A_0\left(\widetilde\sY \right)\cap A_0\left(\widetilde\sY \right)_{\widetilde \sU''}$ and  $ a \in ~_{q\left( \widetilde \sU'\right) }A\cap A_{q\left( \widetilde \sU''\right) }$ one has
+\be\label{blowing_lift_desc_eqn}
+ 	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde a = A_b\left( q\right)\circ _{\widetilde \sU'}\desc^q_{\widetilde \sU''}\left( \widetilde a\right)
+ 	\ee
+\be\label{blowing_lift_desc_c_eqn}
+\begin{split}
+ a = ~_{\widetilde \sU'}\desc^q_{\widetilde \sU''}\circ~ _{\widetilde \sU'}\lift^q_{\widetilde \sU''}\left(  a\right),\\
+ \widetilde a = ~_{\widetilde \sU'}\lift^q_{\widetilde \sU''}\circ~ _{\widetilde \sU'}\desc^q_{\widetilde \sU''}\left( \widetilde a\right)
+\end{split}
 \ee
+The equations \eqref{blowing_lift_desc_c_eqn} are generalizations of \eqref{comm_lift_desc_l_eqn} ones.
 \end{remark}
 \begin{theorem}\label{blowing_strict_thm}
 	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) with $\sY \cong \widetilde{\sY}/G$ where $G\cong G\left(\left.\widetilde \sY\right| \sY \right) $ is a properly disconnected group of homeomorphisms of $\widetilde{\sY}$ (cf. Definition \ref{top_properly_disc_group_defn}). Let $A_0\left(\widetilde\sY \right)$ be the $q$-lift  (cf. Definition \ref{blowing_lift_defn}). If
@@ -12675,23 +12696,20 @@ From the Corollary \ref{blowing_strict_cor} it turns out that
 	\be\label{blowing_bta_eqn}
 	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde a
 	\ee
-	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}).
+	is convergent with respect to the strict topology of $M\left( A_0\left(\widetilde\sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and there is $a \in A$ such that
+	\be\label{blowing_desc_eqn}
+	\bt\text{-} \sum_{g\in G\left( \left. \widetilde\sY\right| \sY\right)} g \widetilde a = A_b\left( q\right)\left( a\right)  
+	\ee
 \end{theorem}
-\begin{definition}\label{top_cov_defn!}!!!
-	Under the hypotheses \ref{top_cov_empt} we say that a pair $$\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$ is a $p$-\textit{covering}. Both the action $G\times \widetilde{\mathscr A}\to \widetilde{\mathscr A}$ and the map  $p_{\widetilde{\mathscr A}}: \widetilde{\mathscr A} \to {\mathscr A}$ are $p$-\textit{action} and $p$-\textit{projection} respectively.
-\end{definition}
 
-\begin{defn}\label{top_covering_sum_defn!}
-	Let $\sY\subset\sX$ is a compact subset of a locally compact,  Hausdorff space $\sX$. The  $f \bydef \sum_{j = 1}^n f_j$.
-	is said to be a \textit{covering sum for} $\sY$. We also say that the covering sum \eqref{top_cfs_eqn} is \textit{dominated} by the family 
-	$\left\{\sV_x\right\}_{x\in\sX}$ (cf. equation \ref{top_vx_eqn}). 
-\end{defn}
+
+
 
 
 \begin{proof}
 If  a pair
-$$\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$
-is a $q$-covering (cf. Definition \ref{top_cov_defn})  then there is a dominated by a family $\left\{\widetilde \sU_{\widetilde\a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ finite sum $\sum_{j = 1}^n \widetilde f_j$ for $\supp \widetilde a$ (cf. Definition \ref{top_covering_sum_defn}). It follows that 
+$$\left(	\left\{\left(\sU_\a, \sV_\a, \mathcal W_\a,s_\a, t_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\widetilde \sU_{\widetilde\a}, \widetilde \sV_{\widetilde\a}, \widetilde s_{\widetilde\a}, \widetilde{ \mathcal W}_{\widetilde\a}, \widetilde s_{\widetilde\a}, \widetilde t_{\widetilde\a}\right)\right\}_{\widetilde \a \in \widetilde{\mathscr A}} \right)$$
+is an extended  $q$-covering (cf. Definition \ref{top_ext_cov_defn})  then there is a dominated by a family $\left\{\widetilde \sU_{\widetilde\a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}$ finite sum $\sum_{j = 1}^n \widetilde f_j$ for $\supp \widetilde a$ (cf. Definition \ref{top_covering_sum_defn}). It follows that 
 $$
 \widetilde a = \sum_{\substack{j=1\\k=1}}^n \widetilde f_j  \widetilde a  \widetilde f_k 
 $$
@@ -12710,13 +12728,19 @@ where both ideals $_{\widetilde \sU_j}A_0\left(\widetilde\sY \right)$ and  $A_0\
 \forall j \in \left\{1,...,n\right\}\quad  \forall g', g'' \in  G\left(\left.\widetilde \sY\right| \sY \right)\quad g' \neq g''\quad 
 	g' \widetilde \sU_j \cap 	g'' \widetilde \sU_j= \emptyset.
 \ee
-Both equations \eqref{blowing_aauu_eqn} and \eqref{blowing_aau_eqn} can be regarded as special
+Both equations \eqref{blowing_aauu_eqn} and \eqref{blowing_aau_eqn} can be regarded as specializations of !!! ones. So from the Corollary \ref{blowing_strict_cor} it tur
 
 \end{proof}
 
-\begin{definition}
-	$\desc^c$ !!!
+\begin{definition}\label{blowing_compactly_supported_descent_defn}
+	Consider a hypotheses of the Theorem \ref{blowing_strict_thm}. If $a \in A$ satisfies to the equation \eqref{}  the we say that $a$ is \textit{compactly supported} $q$-\textit{descent}, denoted by $\desc^c_q$ From the Theorem \ref{blowing_strict_thm} it follows that
+\be\label{blowiing_desc_compact_eqn}
+\desc^c_p\left(\widetilde a \right) = \bt\text{-} \sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) } g \widetilde a \in A_b\left(q \right) \left(A \right) 
+\ee
 \end{definition}
+\begin{remark}
+The Definition \ref{blowing_compactly_supported_descent_defn} is a generalization of \ref{top_compactly_supported_descent_defn} one.
+\end{remark}
 \begin{remark}
 	The (1) of the Exercise \ref{comm_lift_desc_sum_exer} is a specialization of the Theorem \ref{blowing_strict_thm}.
 \end{remark}
