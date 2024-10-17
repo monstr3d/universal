@@ -6,22 +6,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <SignAssembly>False</SignAssembly>
     <ApplicationIcon>Aviation.ico</ApplicationIcon>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Aviation.ico" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Aviation.ico" />
   </ItemGroup>
 
+
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\AssemblyService\AssemblyService.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\Compilers\CompilerBridge\CompilerBridge.csproj" />
-    <ProjectReference Include="..\..\..\ExternalLibraries\Internet.Meteo\Internet.Meteo\Internet.Meteo.Wrapper.Serializable\Internet.Meteo.Wrapper.Serializable.csproj" />
-    <ProjectReference Include="..\..\..\ExternalLibraries\Internet.Meteo\Internet.Meteo\Internet.Meteo.Wrapper\Internet.Meteo.Wrapper.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.UI.Wpf\DataPerformer.UI.Wpf.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\EngineeringInitializer\EngineeringInitializer.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\Events\Event.WPF\Event.WPF.csproj" />
@@ -31,13 +26,26 @@
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\Scada\Scada.Motion6D\Scada.Motion6D.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\Scada\Scada.WPF.UI\Scada.WPF.UI.3D\Scada.WPF.UI.3D.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\Scada\Scada.WPF.UI\Scada.WPF.UI\Scada.WPF.UI.csproj" />
-    <ProjectReference Include="..\..\..\DynamicLinkLibraries\SoundService\SoundServce.NAudio\SoundServce.NAudio.csproj" />
-    <ProjectReference Include="..\..\..\DynamicLinkLibraries\SoundService\SoundService.Serializable\SoundService.Serializable.csproj" />
     <ProjectReference Include="..\..\..\DynamicLinkLibraries\Wpf\WpfInterface\WpfInterface.csproj" />
   </ItemGroup>
 
+
   <ItemGroup>
-    <Resource Include="Aviation.ico" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
 
 </Project>
