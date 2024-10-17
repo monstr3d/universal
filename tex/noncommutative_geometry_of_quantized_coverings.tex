@@ -12437,11 +12437,11 @@ are convergent with respect to the strong topology of $B\left( \H\right)$ (cf. D
 \begin{lemma}\label{blowing_strong_lem}
 	Under the hypotheses \ref{blowing_strong_empt} the series 
 	\be\label{blowing_strong_eqn}
-	s\text{-}\sum_{	g \in G\left(\left.\widetilde \sY\right| \sY \right)} g \widetilde a
+	s\text{-}\sum_{	g \in G\left(\left.\widetilde \sY\right| \sY \right)} \pi\left(  g \widetilde a\right) 
 	\ee
-	is convergent with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}) and 
-\be\label{b}
-\left\|s\text{-}\sum_{	g \in G\left(\left.\widetilde \sY\right| \sY \right)} g \widetilde a \right\| = 	\left\|\widetilde a \right\|
+	is convergent with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}) and for any subset $G\subset G\left(\left.\widetilde \sY\right| \sY \right)$ one has
+\be\label{blowing_ss_eqn}
+\left\|s\text{-}\sum_{	g \in G}\pi\left(  g \widetilde a \right) \right\| = 	\left\|\widetilde a \right\|
 \ee
 \end{lemma}
 \begin{proof}
@@ -12455,7 +12455,32 @@ are convergent with respect to the strong topology of $B\left( \H\right)$ (cf. D
 	\left\|\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus G'}\pi\left( g \widetilde a\right) \xi-\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus G_{\xi, \eps}}\pi\left( g \widetilde a\right)  \xi\right\|\le \sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|\pi\left( g \widetilde a\right) \xi \right\|^2 }=\\  \sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|p'_g\pi\left( g \widetilde a\right)p''_g \xi \right\|^2 }\le \left\|\widetilde a \right\|\sqrt{\sum_{g\in G\left(\left.\widetilde \sY\right| \sY \right)\setminus   G_{\xi, \eps}} \left\|p''_g \xi \right\|^2}< \eps.
 	\eean
 	The above equation means that the series \ref{blowing_strong_eqn}.
-	is convergent with respect to the strong topology of $B\left(\H \right)$.
+	is convergent with respect to the strong topology of $B\left(\H \right)$.\\
+	
+	If $G\subset G\left(\left.\widetilde \sY\right| \sY \right)$ is a subset and $g \in G$ then $\left\|\pi\left(  g \widetilde a \right) \right\| = 	\left\|\widetilde g a \right\|=\left\|\widetilde a \right\|$ since $g$ is an $*$-automorphism. For any $\eps> 0$ there is $\xi \H$ such that 
+	$$
+	\frac{\left\|\pi\left(  g \widetilde a \right)\xi \right\|}{\left\|\xi\right\| }> \left\|\widetilde a \right\| - \eps.
+	$$
+	From $\pi\left(  g \widetilde a \right)\xi = \pi\left(  g \widetilde a \right)p''_g\xi$ if follows that there is $\xi \H$ such that
+	$$
+\frac{\left\|\pi\left(  g \widetilde a \right)p''_g\xi \right\|}{\left\|p''_g\xi\right\| }> \left\|\widetilde a \right\| - \eps.
+$$
+One the other hand from the equations \eqref{blowing_ppp_eqn} and 
+\eqref{blowing_o_eqn} it turns out that 
+\bean
+\forall g' \in G \setminus\{g\}\quad \pi\left(g' a \right) p_g = 0 \quad \Rightarrow \quad s\text{-}\sum_{	g'' \in G}\pi\left(  g'' \widetilde a \right)p_g \xi = \pi\left(  g \widetilde a \right)p_g \xi \quad\Rightarrow\\
+\Rightarrow \frac{\left\|\left(s\text{-}\sum_{	g'' \in G}\pi\left(  g'' \widetilde a \right)\right) p_g \xi \right\|}{\left\|p''_g\xi\right\| }> \left\|\widetilde a \right\| - \eps\quad \Rightarrow \quad \left\|s\text{-}\sum_{	g'' \in G}\pi\left(  g'' \widetilde a \right) \right\|\ge \left\|\widetilde a \right\|.
+\eean
+On the other hand for any $\xi \in \H$ then from the equations \eqref{blowing_ppp_eqn} and 
+\eqref{blowing_o_eqn} one has
+\bean
+\left\|\left( s\text{-}\sum_{	g \in G}\pi\left(  g \widetilde a \right)\right) \xi \right\|^2 = \sum_{g\in G} \left\|p'_g\pi\left(  g \widetilde a \right)p''_g\xi \right\|^2 \le \left\|\widetilde a \right\|^2 \sum_{g\in G}\left\|p_g \xi \right\|^2 \le \left\|\widetilde a \right\|^2 \left\| \xi \right\|^2,
+\eean
+it follows that
+$$
+\forall \xi \in \H\setminus\{0\}\quad \frac{\left\|\left( s\text{-}\sum_{	g \in G}\pi\left(  g \widetilde a \right)\right) \xi\right\|}{\left\| \xi\right\|}\le \left\|\widetilde a \right\|\quad \Rightarrow \quad \left\|s\text{-}\sum_{	g'' \in G}\pi\left(  g'' \widetilde a \right) \right\|\le \left\|\widetilde a \right\|.
+$$
+Taking into account $\left\|s\text{-}\sum_{	g'' \in G}\pi\left(  g'' \widetilde a \right) \right\|\ge \left\|\widetilde a \right\|$ one has \eqref{blowing_ss_eqn}.
 \end{proof}	
 \begin{corollary}\label{blowing_strict_cor}
 	Let 	$C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up (cf. Definition \ref{blowing_defn}), and let  $q: \widetilde{\sY}\to \sY$ be  an   $A$-{regular} covering (cf. Definition \ref{blowing_a_regular_defn}) with $\sY \cong \widetilde{\sY}/G$ where $G\cong G\left(\left.\widetilde \sY\right| \sY \right) $ is a properly disconnected group of homeomorphisms of $\widetilde{\sY}$ (cf. Definition \ref{top_properly_disc_group_defn}). Let $A_0\left(\widetilde\sY \right)$ be the $q$-lift  (cf. Definition \ref{blowing_lift_defn}). If  there are open subsets $\widetilde\sU', \widetilde\sU''\subset \widetilde\sY$  such that for all $g', g'' \in  G\left(\left.\widetilde \sY\right| \sY \right)$ from $g' \neq g''$ it turns out that
