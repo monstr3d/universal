@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+using System.Data;
 
 using CategoryTheory;
 
@@ -16,8 +17,6 @@ using Diagram.Interfaces;
 
 using AssemblyService;
 
-using System.Data;
-using System.Diagnostics;
 
 namespace Diagram.UI
 {
@@ -3488,33 +3487,33 @@ namespace Diagram.UI
            Func<ICategoryObject, bool> objectCondition, Func<ICategoryArrow, bool>
          arrowCondition, Func<ICategoryArrow, bool> sourceCondition, List<ICategoryObject> dependent)
         {
-            foreach (ICategoryArrow a in arrows)
+            foreach (var a in arrows)
             {
                 if (!arrowCondition(a))
                 {
                     continue;
                 }
-                if ((a.Source != obj) & (a.Target != obj))
+                var s = a.Source;
+                var t = a.Target;
+                if ((s != obj) & (t != obj))
                 {
                     continue;
                 }
-                if (a.Target == obj)
+                if (t == obj)
                 {
                     if (sourceCondition != null)
                     {
                         if (sourceCondition(a))
                         {
-                            ICategoryObject s = a.Source;
                             if (objectCondition(s))
                             {
                                 if (!dependent.Contains(s))
                                 {
                                     dependent.Add(s);
-                                    if (s is IChildrenObject)
+                                    if (s is IChildrenObject cobj)
                                     {
-                                        IChildrenObject cob = s as IChildrenObject;
                                         IEnumerable<ICategoryObject> en = 
-                                            cob.GetChildren<ICategoryObject>();
+                                            cobj.GetChildren<ICategoryObject>();
                                         foreach (ICategoryObject co in en)
                                         {
                                             if (!dependent.Contains(co))
@@ -3534,7 +3533,6 @@ namespace Diagram.UI
                     }
                     continue;
                 }
-                ICategoryObject t = a.Target;
                 if (t == null)
                 {
                     throw new Exception();
@@ -3548,9 +3546,8 @@ namespace Diagram.UI
                     continue;
                 }
                 dependent.Add(t);
-                if (t is IChildrenObject)
+                if (t is IChildrenObject cob)
                 {
-                    IChildrenObject cob = t as IChildrenObject;
                     IEnumerable<ICategoryObject> en = cob.GetChildren<ICategoryObject>();
                     foreach (ICategoryObject co in en)
                     {
@@ -3586,7 +3583,6 @@ namespace Diagram.UI
             }
         }
 
-
         private static void GetDependentObjects(this ICategoryObject obj,
             IEnumerable<ICategoryArrow> arrows,
             Func<ICategoryObject, bool> objectCondition, Func<ICategoryArrow, bool>
@@ -3600,52 +3596,50 @@ namespace Diagram.UI
                 {
                     continue;
                 }
-                if (!(co is IChildrenObject))
+                if (co is IChildrenObject ch)
                 {
-                    continue;
-                }
-                IChildrenObject ch = co as IChildrenObject;
-                IEnumerable<IAssociatedObject> ao = ch.GetChildren<IAssociatedObject>();
-                if (ao != null)
-                {
-                    foreach (object c in ao)
+                    IEnumerable<IAssociatedObject> ao = ch.GetChildren<IAssociatedObject>();
+                    if (ao != null)
                     {
-                        if (c is ICategoryObject)
+                        foreach (object c in ao)
                         {
-                            ICategoryObject ca = c as ICategoryObject;
-                            if (dependent.Contains(ca))
+                            if (c is ICategoryObject)
                             {
-                                if (objectCondition(co))
+                                ICategoryObject ca = c as ICategoryObject;
+                                if (dependent.Contains(ca))
                                 {
-                                    if (!dependent.Contains(co))
+                                    if (objectCondition(co))
                                     {
-                                        dependent.Add(co);
-                                        co.GetDependentObjects(arrows, objectCondition,
-                                            arrowCondition, sourceCondition, dependent, all);
+                                        if (!dependent.Contains(co))
+                                        {
+                                            dependent.Add(co);
+                                            co.GetDependentObjects(arrows, objectCondition,
+                                                arrowCondition, sourceCondition, dependent, all);
+                                        }
+                                        goto m;
                                     }
-                                    goto m;
+                                }
+                            }
+                        }
+                        continue;
+
+                    m:
+                        foreach (object c in ao)
+                        {
+
+                            if (c is ICategoryObject ca)
+                            {
+                                if (!dependent.Contains(ca))
+                                {
+                                    dependent.Add(ca);
+                                    ca.GetDependentObjects(arrows, objectCondition,
+                                        arrowCondition, sourceCondition, dependent, all);
                                 }
                             }
                         }
                     }
-                    continue;
-                m:
-                    foreach (object c in ao)
-                    {
-
-                        if (c is ICategoryObject)
-                        {
-                            ICategoryObject ca = c as ICategoryObject;
-                            if (!dependent.Contains(ca))
-                            {
-                                dependent.Add(ca);
-                                ca.GetDependentObjects(arrows, objectCondition,
-                                    arrowCondition, sourceCondition, dependent, all);
-                            }
-                        }
-                    }
                 }
-            }
+           }
         }
 
    

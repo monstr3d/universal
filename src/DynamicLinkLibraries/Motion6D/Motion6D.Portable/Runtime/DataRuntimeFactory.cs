@@ -100,12 +100,9 @@ namespace Motion6D.Portable.Runtime
             //var collection = base.CreateCollection(consumer, priority, reason);
             Func<ICategoryObject, bool> cond = (ICategoryObject obj) =>
             {
-                if (obj is IRuntimeUpdate)
+                if (obj is IRuntimeUpdate runtime)
                 {
-                    if (!(obj as IRuntimeUpdate).ShouldRuntimeUpdate)
-                    {
-                        return false;
-                    }
+                    return runtime.ShouldRuntimeUpdate;
                 }
                 return true;
             };

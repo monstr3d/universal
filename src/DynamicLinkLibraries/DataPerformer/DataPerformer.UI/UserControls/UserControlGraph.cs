@@ -28,7 +28,6 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 using DataPerformer.Interfaces.BufferedData.Interfaces;
-
 using DataPerformer.UI;
 using DataPerformer.UI.Objects;
 using DataPerformer.UI.Interfaces;
@@ -40,8 +39,6 @@ using Event.Log.Database.Interfaces;
 
 using Animation.Interfaces;
 
-using ToolBox;
-
 using Chart.Interfaces;
 using Chart.Drawing;
 using Chart.Drawing.Interfaces;
@@ -51,9 +48,9 @@ using Chart.Indicators;
 using Chart.DataPerformer;
 using Chart.UserControls;
 
+using ToolBox;
 
 using WindowsExtensions;
-
 
 namespace DataPerformer.UI.UserControls
 {

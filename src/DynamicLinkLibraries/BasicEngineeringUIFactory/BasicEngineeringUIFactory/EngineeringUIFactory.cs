@@ -13,7 +13,6 @@ using Diagram.UI;
 
 using CategoryTheory;
 
-using DataPerformer.Portable;
 using DataPerformer;
 
 

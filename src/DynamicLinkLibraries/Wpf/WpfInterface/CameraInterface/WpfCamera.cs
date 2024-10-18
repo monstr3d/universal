@@ -122,13 +122,6 @@ namespace WpfInterface.CameraInterface
 
         #endregion
 
-
-        #region Realtime animation
-
-      
-        #endregion
-
-
         #endregion
 
         #region Ctor
