@@ -28,7 +28,7 @@ namespace Unity.Standard.Indicators
         #endregion
 
         public SliderWrapperLimits(string parameter, Component component,
-       float scale, float limit, Func<double> output, Color normal, Color exceed, string format, 
+       float scale, float limit, Func<double?> output, Color normal, Color exceed, string format, 
        bool enableDebug, string alias, string dimension) :
             base(parameter,  component, scale,  limit, output, normal, exceed, format, enableDebug)
 

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using UnityEngine;
 
 namespace Unity.Standard.Interfaces
@@ -17,6 +14,14 @@ namespace Unity.Standard.Interfaces
         /// </summary>
         /// <param name="monoBehaviours">Mono Behaviours</param>
         void Activate(MonoBehaviour[] monoBehaviours);
+
+        /// <summary>
+        /// Post activation
+        /// </summary>
+        /// <param name="monoBehaviours">Mono Behaviours</param>
+        void PostActivate(MonoBehaviour[] monoBehaviours);
+
+
 
         /// <summary>
         /// Level

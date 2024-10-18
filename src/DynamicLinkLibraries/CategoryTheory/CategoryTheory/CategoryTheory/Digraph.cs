@@ -74,8 +74,14 @@ namespace MathGraph
         /// <param name="vertex">Vertex to remove</param>
         public void RemoveVertex(DigraphVertex vertex)
         {
-            vertices.Remove(vertex);
-            vertex.RemoveObject();
+            if (vertices.Contains(vertex))
+            {
+                vertices.Remove(vertex);
+            }
+            if (vertex is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
         }
 
         /// <summary>

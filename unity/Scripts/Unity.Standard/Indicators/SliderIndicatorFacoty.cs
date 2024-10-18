@@ -37,7 +37,7 @@ namespace Unity.Standard.Indicators
             }
             string desktop = d["Desktop"];
             IScadaInterface scada = desktop.ToExistedScada();
-            Func<double> f = null;
+            Func<double?> f = null;
             string par = desktop + ".";
             if (scada != null)
             {

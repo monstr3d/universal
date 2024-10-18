@@ -34,6 +34,4 @@ namespace Scada.WPF.Sound.Sample
 
         }
     }
-
-
 }

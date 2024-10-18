@@ -16,7 +16,7 @@ namespace ImageTransformations
 {
     [Serializable()]
     public class MapTransformation : CategoryObject, ISerializable, IDataConsumer, 
-        IBitmapConsumer, IPostSetArrow, IBitmapProvider, IRemovableObject
+        IBitmapConsumer, IPostSetArrow, IBitmapProvider, IDisposable
     {
         #region Fields
 
@@ -73,7 +73,8 @@ namespace ImageTransformations
 
         ~MapTransformation()
         {
-            RemoveObject();
+            IDisposable d = this;
+            d.Dispose();
         }
 
         #endregion
@@ -241,11 +242,11 @@ namespace ImageTransformations
 
         #region IRemovableObject Members
 
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
-            if (bmp != null)
+            if (bmp is IDisposable d)
             {
-                bmp.Dispose();
+                d.Dispose();
                 bmp = null;
             }
         }

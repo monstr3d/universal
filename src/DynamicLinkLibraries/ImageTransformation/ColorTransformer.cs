@@ -21,7 +21,7 @@ namespace ImageTransformations
 	/// </summary>
 	[Serializable()]
 	public class ColorTransformer : CategoryObject, ISerializable, 
-        IBitmapProvider, IBitmapConsumer, IAlias, IRemovableObject
+        IBitmapProvider, IBitmapConsumer, IAlias, IDisposable
 	{
 		#region Fields
 
@@ -66,8 +66,8 @@ namespace ImageTransformations
 
         ~ColorTransformer()
         {
-            IRemovableObject r = this;
-            r.RemoveObject();
+            IDisposable r = this;
+            r.Dispose();
         }
 
 
@@ -275,13 +275,13 @@ namespace ImageTransformations
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
-            if (bitmap != null)
+            if (bitmap is IDisposable d)
             {
-                bitmap.Dispose();
+                d.Dispose();
                 bitmap = null;
             }
         }

@@ -1506,10 +1506,6 @@ namespace Diagram.UI
             {
                 ch.DisposeChildren();
             }
-            if (o is IRemovableObject ro)
-            {
-                ro.RemoveObject();
-            }
             if (o is IObjectLabel ol)
             {
                 ol.Object.RemoveObject();
@@ -1551,13 +1547,11 @@ namespace Diagram.UI
             if (arrow is IChildrenObject ch)
             {
                 ch.DisposeChildren();
-            }    
+            }
             if (arrow.Arrow is IDisposable da)
             {
                 da.Dispose();
             }
-            arrow.Source.DisposeObject();
-            arrow.Target.DisposeObject();
             if (arrow is IDisposable disposable)
             {
                 disposable.Dispose();
@@ -1570,19 +1564,24 @@ namespace Diagram.UI
         /// <param name="ol">The object label</param>
         static public void DisposeObject(this IObjectLabel ol)
         {
-            var ob = ol.Object;
-            if (ob is IChildrenObject c)
+            if (ol == null)
+            {
+                return;
+            }
+            if (ol.Object is IChildrenObject c)
             {
                 c.DisposeChildren();
-            }
-            if (ob is IDisposable d)
-            {
-                d.Dispose();
-                ol.Object = null;
             }
             if (ol is IDisposable dol)
             {
                 dol.Dispose();
+                ol.Object = null;
+                return;
+            }
+            if (ol.Object is IDisposable d)
+            {
+                d.Dispose();
+                ol.Object = null;
             }
         }
 
@@ -3827,14 +3826,12 @@ namespace Diagram.UI
         /// <param name="obj">Object to dispose</param>
         static internal void DisposeAssociatedObject(object obj)
         {
-            if (obj is IAssociatedObject)
+            if (obj is IAssociatedObject ob)
             {
-                IAssociatedObject ao = obj as IAssociatedObject;
-                object ob = ao.Object;
-                if (ob is IDisposable)
+                if (ob is IDisposable d)
                 {
-                    IDisposable d = ob as IDisposable;
                     d.Dispose();
+                    return;
                 }
             }
             obj.RemoveObject();

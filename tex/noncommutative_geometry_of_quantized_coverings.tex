@@ -664,10 +664,9 @@ Classical notion & Noncommutative generalization\\
 \end{tabular}
 \end{center}
 \end {table}
-
+\pagebreak
 In this book we continue development of the noncommutative geometry, this book contains generalizations of following notions.
-\\
-\\
+
 \begin {table}[H]
 \caption {Mapping between geometry of topological coverings and noncommutative ones} \label{add_mapping_table} 
 \begin{center}
@@ -14398,31 +14397,49 @@ where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom
 \paragraph*{}
 If $A$ is a stable $C^*$-algebra (cf. Definition \ref{stable_ca_defn}) then according to \cite{blackadar:ko} any unitary element $u\in M\left( A\right)$ or $u\in M\left( A\right)/A$ yields an element of  $K$-groups of $A$ (cf. Corollary \ref{stable_k_cor}). Otherwise sometimes the element $u$ can define a noncommutative covering of $A$. This circumstance yields an interaction between noncommutative coverings and $K$-theory. This interaction is similar   Hurewicz homomorphism from homotopic groups to homology ones.
 \begin{empt}\label{h_pre_empt}
-	Let $A$ be a stable  $C^*$-algebra (cf. Definition \ref{stable_ca_defn}), and let $u \in M\left( A\right) $ be an unitary element.  If $A \hookto B\left(\H \right)$ is a faithful representation then $u \in B\left(\H \right)$. Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
-	\be\label{h_n_root}
-	\left( \phi_n\right)^n = \Id_{\left\{\left. z \in \C\right| \left|z \right|=1\right\}}
-	\ee
-	In particular $\phi_n$ can be given by	
-	\be\label{h_n_n_root}
-	\phi_n\left( \varphi\right)= e^{\frac{i \varphi}{n}} 
-	\ee
-	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$. If  $v \bydef \phi_n\left( u\right)\in   B\left(\H \right)$ then $u = v^n$. Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $Av^n \subset \widetilde A$ for all $n \in \Z$.
-	
- If  $v \bydef \phi_n\left( u\right)\in   B\left(\H \right)$ then $u = v^n$. Let $\widetilde A \subset B\left(\H \right)$ be a $C^*$- algebra which is isomorphic to the left $A$ module given by
+	If  $A$ is a   $C^*$-algebra, and  $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation then !!!! DEFT !!!  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$. Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary element such that $v^n \in \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there on has finitely generated left $M\left(A \right)$-module 
 	$$
-	\widetilde A \cong \sum_{j = 0}^{n-1} Av^i
+	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
 	$$
-	Assume that there is the natural action $\Z_n \times \widetilde A\to \widetilde A$ such that 
-	$$
-	\forall \overline k \in \Z_n \quad \overline k v = e^{\frac{2\pi i k}{n}}
-	$$
-Suppose that the natural $A$-module homomorphism $\pi: A \hookto \widetilde A$  is a $*$-homomorphism of $C^*$-algebras.
+	If $\widetilde M$ is a $C^*$-subalgebra of $B\left( \H\right)$ then there is an injective $*$-homomorphism 
+	\bean
+	\widetilde \lift: M\left(  A\right)\hookto \widetilde M,\\
+	a \mapsto \pi\left( a\right) v^0
+	\eean 
+	If one has
+
+				\be
+				\begin{split}
+G \bydef \left\{ \left.g \in \Aut\left(\widetilde{M} \right)~\right|\forall a \in \widetilde \lift\left(  M\left(  A\right)\right)  \quad ga = a\right\} \cong \Z_n,
+\\\forall \overline k \in \Z_n\quad \overline k v = e^{\frac{2\pi i k}{n}}v
+				\end{split}
+\ee
+then a quadruple
+$$
+\left( M\left(  A\right), \widetilde M, \Z_n, \widetilde \lift \right) 
+$$
+is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). If $\widetilde A \subset \widetilde M$ is generated  by $\widetilde \lift\left(A \right)$ two sided ideal then $\widetilde M = M\left( \widetilde A\right)$ and one has a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})  
+\be\label{hurewicz_u_n_eqn}
+\left(   A, \widetilde A, \Z_n,  \lift \right) 
+\ee
+where an injective $*$-homomorphism $\lift : A \hookto \widetilde A$ comes from  $\widetilde \lift: M\left(A \right)\hookto M\left( \widetilde A\right)$ one.  
 \end{empt}
 \begin{definition}\label{hurewicz_u_n_defn}
-	In  situation \ref{h_pre_empt} if $\left(A, \widetilde A , \Z_n , \pi  \right)$  is a  noncommutative finite-fold   covering $\left(A, \widetilde A , \Z_n , \pi  \right)$  (cf. Definition \ref{fin_defn} then we say that $\left(A, \widetilde A , \Z_n , \pi  \right)$ is a $\left(u, n\right)$-\textit{covering}.
+Under the hypothesis  \ref{h_pre_empt} if $u \bydef v^n$ the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u, n\right)$-\textit{covering}.
 \end{definition}
+\begin{empt}
+	Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
+\be\label{h_n_root}
+\left( \phi_n\right)^n = \Id_{\left\{\left. z \in \C\right| \left|z \right|=1\right\}}
+\ee
+In particular $\phi_n$ can be given by	
+\be\label{h_n_n_root}
+\phi_n\left( \varphi\right)= e^{\frac{i \varphi}{n}} 
+\ee
+where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
+\end{empt}
 \begin{example}\label{s_1_covering_sample}
-	If  $A \bydef C\left( S^1\right)\otimes \K$ then there is the natural inclusion $C\left( S^1\right)\subset M\left(A \right)$ it is known that $K_1\left(C\left( S^1\right) \right) = \Z\left[u\right]$ where $u \in C\left( S^1\right)\in M\left( A\right)$ is an unital element. If $\phi_n$ satisfying  to \eqref{h_n_root} and 	$v = \phi\left( u\right)$ then $C\left( S^1\right)\left[v\right]\cong C\left( \widetilde \sY \right)$ where $\widetilde \sY\cong S^1$ and an inclusion  $C\left( S^1\right)\hookto C\left( S^1\right)\left[v\right]$ corresponds to an $n$-listed covering $\widetilde \sY\cong S^1 \to S^1$. In result one has an $\left(u, n\right)$-{covering} $\left(C\left( S^1\right)\otimes \K, C\left( \widetilde \sY\right)\otimes \K, \Z_n\right)$  of $C\left( S^1\right)\otimes \K$ (cf. Theorem \ref{stable_fin_cov_thm} )
+	If  $A \bydef C\left( S^1\right)\otimes \K$ then there is the natural inclusion $C\left( S^1\right)\subset M\left(A \right)$ it is known that $K_1\left(C\left( S^1\right) \right) = \Z\left[u\right]$ where $u \in C\left( S^1\right)\in M\left( A\right)$ is an unital element. If $\phi_n$ satisfying  to !!! \eqref{h_n_root} and 	$v = \phi\left( u\right)$ then $C\left( S^1\right)\left[v\right]\cong C\left( \widetilde \sY \right)$ where $\widetilde \sY\cong S^1$ and an inclusion  $C\left( S^1\right)\hookto C\left( S^1\right)\left[v\right]$ corresponds to an $n$-listed covering $\widetilde \sY\cong S^1 \to S^1$. In result one has an $\left(u, n\right)$-{covering} $\left(C\left( S^1\right)\otimes \K, C\left( \widetilde \sY\right)\otimes \K, \Z_n\right)$  of $C\left( S^1\right)\otimes \K$ (cf. Theorem \ref{stable_fin_cov_thm} )
 \end{example}
 \begin{exm}\label{s_3_covering_sample}
 	It is known that $S^3$ is homeomorphic to $SU(2)$ and $K^1\left(SU(2) \right)\cong K_1(C(SU(2))\cong \Z$. The group $K_1(C(SU(2)))$ is generated by $\left[u\right]$ where   $u \in C(SU(2)) \otimes \mathbb{M}_2(\mathbb{C})\subset M\left(C(SU(2))\otimes \K \right)$ is an unitary element which commutes with $C(SU(2))$. Let $C\cong C\left( \sY\right)$ be a generated by $C\left( SU\left(2 \right) \right) \cup \{u\}$ commutative $C^*$-algebra. According to the construction \ref{h_pre_empt} there is a finite-fold covering $\widetilde \sY \to \sY$. If $\widetilde \sY$ is connected then there is a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))\otimes \K$ (cf. Definition \ref{fin_defn}) then From the Theorem \ref{stable_fin_cov_thm} it follows that a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))$. But  $\pi_1\left( SU(2)\right)$ is trivial, so from the Corollary  \ref{comm_comm_cor} it follows that $C(SU(2)))$ has no nontrivial  connected noncommutative finite-fold coverings. So there is no $\left(u, n\right)$-{coverings}. Since $\pi_1\left( SU(2)\right)$ it trivial there are no nontrivial elements of $K_1\left( SU(2) \right)$ which lie in $h_{K_1}\left( \pi_1\left( SU(2)\right)\right)$.

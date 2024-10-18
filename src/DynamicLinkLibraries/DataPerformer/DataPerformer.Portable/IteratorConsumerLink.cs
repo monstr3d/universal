@@ -1,13 +1,14 @@
 
 using CategoryTheory;
 using DataPerformer.Interfaces;
+using System;
 
 namespace DataPerformer.Portable
 {
     /// <summary>
     /// Link to iterator consumer
     /// </summary>
-    public class IteratorConsumerLink : ICategoryArrow, IRemovableObject
+    public class IteratorConsumerLink : ICategoryArrow, IDisposable
     {
         #region Fields
 
@@ -79,9 +80,9 @@ namespace DataPerformer.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             consumer.Remove(iterator);
         }

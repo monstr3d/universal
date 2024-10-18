@@ -12,7 +12,7 @@ namespace Motion6D.Portable
     /// <summary>
     /// Link to facet
     /// </summary>
-     public class FacetConsumerLink : CategoryArrow, IRemovableObject
+     public class FacetConsumerLink : CategoryArrow, IDisposable
     {
 
         #region Fields
@@ -71,9 +71,9 @@ namespace Motion6D.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if (consumer != null)
             {

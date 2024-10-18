@@ -10,7 +10,7 @@ namespace MathGraph
     /// <summary>
     /// Vertex of digraph
     /// </summary>
-    public class DigraphVertex : IAssociatedObject, IRemovableObject
+    public class DigraphVertex : IAssociatedObject, IDisposable
     {
         /// <summary>
         /// Linked object
@@ -133,17 +133,17 @@ namespace MathGraph
         }
 
         /// <summary>
-        /// Removes itself
+        /// Disposes itself
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
-            foreach (DigraphEdge e in incomingEdges)
+            foreach (IDisposable e in incomingEdges)
             {
-                e.RemoveObject();
+                e.Dispose();
             }
-            foreach (DigraphEdge e in outcomingEdges)
+            foreach (IDisposable e in outcomingEdges)
             {
-                e.RemoveObject();
+                e.Dispose();
             }
             parent.RemoveVertex(this);
         }

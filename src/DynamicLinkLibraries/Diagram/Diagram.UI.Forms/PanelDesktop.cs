@@ -1866,23 +1866,20 @@ namespace Diagram.UI
                 Form f = sf.Form as Form;
                 if (f != null)
                 {
-                    if (f is IRemovableObject)
+                    if (f is IDisposable rf)
                     {
-                        IRemovableObject rf = f as IRemovableObject;
-                        rf.RemoveObject();
+                        rf.Dispose();
                     }
                 }
             }
-            if (label is IRemovableObject)
+            if (label is IDisposable rl)
             {
-                IRemovableObject rl = label as IRemovableObject;
-                rl.RemoveObject();
+                rl.Dispose();
             }
             object obj = label.Object;
-            if (obj is IRemovableObject)
+            if (obj is IDisposable ro)
             {
-                IRemovableObject ro = obj as IRemovableObject;
-                ro.RemoveObject();
+                ro.Dispose();
             }
             tools.RemoveObjectNode(label);
             GC.Collect();

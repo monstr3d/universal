@@ -21,7 +21,7 @@ namespace ImageNavigation
     /// </summary>
     [Serializable()]
     public class BitmapSelection : ICategoryObject, ISerializable, IMeasurements, IStructuredSelection,
-        IUpdatableSelection, IBitmapConsumer, IStructuredSelectionCollection, IRemovableObject
+        IUpdatableSelection, IBitmapConsumer, IStructuredSelectionCollection, IDisposable
     {
 
 
@@ -454,9 +454,9 @@ namespace ImageNavigation
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDispoable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if (bitmap != null)
             {

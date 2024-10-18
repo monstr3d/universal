@@ -721,7 +721,13 @@ namespace Diagram.UI.Labels
         void IDisposable.Dispose()
         {
             if (obj == null)
-            this.DisposeObject();
+            {
+                return;
+            }
+            if (obj is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
             obj = null;
         }
 

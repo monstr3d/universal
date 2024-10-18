@@ -12,7 +12,7 @@ namespace Motion6D.Portable
     /// <summary>
     /// Link for relative measurements
     /// </summary>
-    public class RelativeMeasurementsLink : CategoryArrow,  IRemovableObject
+    public class RelativeMeasurementsLink : CategoryArrow,  IDisposable
     {
 
         #region Fields
@@ -87,9 +87,9 @@ namespace Motion6D.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if (measurements == source)
             {

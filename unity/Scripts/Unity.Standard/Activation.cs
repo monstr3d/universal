@@ -70,7 +70,10 @@ public class Activation : MonoBehaviour
                 activationObject = ci.Invoke(new object[0]) as IActivation;
              }
         }
-        LevelType = activationObject.GetActivationType(level);
+        if (activationObject != null)
+        {
+            LevelType = activationObject.GetActivationType(level);
+        }
         if (StaticExtensionUnity.StaticLevel != 0)
         {
             level = StaticExtensionUnity.StaticLevel;
@@ -86,7 +89,10 @@ public class Activation : MonoBehaviour
         }
         StaticExtensionUnity.Activation = this;
         exists = true;
-        type = activationObject.GetActivationType(level);
+        if (activationObject != null)
+        {
+            type = activationObject.GetActivationType(level);
+        }
         if (type != null)
         {
             MethodInfo stop = type.GetMethod("Collision",
@@ -99,7 +105,6 @@ public class Activation : MonoBehaviour
                 };
             }
         }
-
         MethodInfo mi = null;
         if (type != null)
         {
@@ -133,16 +138,23 @@ public class Activation : MonoBehaviour
                 {
                     monoBehaviour.enabled = true;
                 }
+                if (monoBehaviour is ReferenceFrameBehavior rf)
+                {
+                   // rf.Scale = globalScale;
+                }
             }
         }
     }
 
     private void Start()
     {
-        MethodInfo mi = type.GetMethod("Post", new Type[0]);
-        if (mi != null)
+        if (type != null)
         {
-            mi.Invoke(null, new object[0]);
+            MethodInfo mi = type.GetMethod("Post", new Type[0]);
+            if (mi != null)
+            {
+                mi.Invoke(null, new object[0]);
+            }
         }
         StaticExtensionUnity.SetLevel();
         StartCoroutine(enumerator);
@@ -171,7 +183,10 @@ public class Activation : MonoBehaviour
   
     void UpdateFist()
     {
-        
+        if (activationObject != null)
+        {
+            activationObject.PostActivate(components);
+        }
         foreach (string s in disabledComponents)
         {
             s.EnableDisable(false);

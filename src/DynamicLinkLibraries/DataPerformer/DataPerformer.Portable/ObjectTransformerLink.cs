@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataPerformer.Portable
 {
-    public class ObjectTransformerLink :  ICategoryArrow, IRemovableObject
+    public class ObjectTransformerLink :  ICategoryArrow, IDisposable
     {
         IObjectTransformer target;
 
@@ -73,9 +73,9 @@ namespace DataPerformer.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             source.Remove(target);
         }

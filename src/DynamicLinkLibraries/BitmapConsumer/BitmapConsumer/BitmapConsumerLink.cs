@@ -14,7 +14,7 @@ namespace BitmapConsumer
     /// Link between bitmap consumer and bitmap provider
     /// </summary>
     [Serializable()]
-    public class BitmapConsumerLink : CategoryArrow, IRemovableObject, ISerializable
+    public class BitmapConsumerLink : CategoryArrow, IDisposable, ISerializable
     {
         #region Fields
 
@@ -67,7 +67,7 @@ namespace BitmapConsumer
         }
 
         #endregion
-
+         
         #region ICategoryArrow Members
 
         public override ICategoryObject Source
@@ -98,9 +98,9 @@ namespace BitmapConsumer
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             if (source != null & target != null)
             {

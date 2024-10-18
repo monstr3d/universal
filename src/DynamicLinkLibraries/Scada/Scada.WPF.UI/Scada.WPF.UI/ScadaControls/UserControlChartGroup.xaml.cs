@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using BaseTypes;
@@ -85,7 +75,10 @@ namespace Scada.WPF.UI.ScadaControls
                 }
                 if (scada == null)
                 {
-                    CreateUI();
+                    if (!CreateUI())
+                    {
+                        return;
+                    }
                 }
                 scada = value;
                 if (eventObject != null)
@@ -119,6 +112,13 @@ namespace Scada.WPF.UI.ScadaControls
                     return;
                 }
                 isEnabled = value;
+                if (!StaticExtensionWpfUI.Strict)
+                {
+                    if (paths == null)
+                    {
+                        return;
+                    }
+                }
                 if (value)
                 {
                     foreach (Path p in paths)
@@ -233,8 +233,15 @@ namespace Scada.WPF.UI.ScadaControls
             current = next;
         }
 
-        void CreateUI()
+        bool CreateUI()
         {
+            if (!StaticExtensionWpfUI.Strict)
+            {
+                if (Output == null)
+                {
+                    return false;
+                }
+            }
             paths = new Path[Output.Count];
             last = new double[Output.Count];
             List<GeometryGroup> l = new List<GeometryGroup>();
@@ -251,6 +258,7 @@ namespace Scada.WPF.UI.ScadaControls
                 paths[i] = p;
                 main.Children.Add(p);
             }
+            return true;
         }
 
         double GetY(double x, double[] d)

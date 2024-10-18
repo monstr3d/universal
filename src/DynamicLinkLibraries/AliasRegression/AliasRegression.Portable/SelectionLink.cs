@@ -2,6 +2,7 @@
 
 
 using DataPerformer.Interfaces;
+using System;
 
 namespace Regression.Portable
 {
@@ -9,7 +10,7 @@ namespace Regression.Portable
     /// <summary>
     /// Link of selection
     /// </summary>
-    public class SelectionLink : CategoryArrow, IRemovableObject
+    public class SelectionLink : CategoryArrow, IDisposable
     {
         #region Fields
 
@@ -98,12 +99,12 @@ namespace Regression.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
         /// <summary>
         /// The post remove operation
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             source.Remove(target);
         }

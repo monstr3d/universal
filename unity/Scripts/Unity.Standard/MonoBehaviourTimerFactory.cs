@@ -23,11 +23,11 @@ namespace Unity.Standard
 
         #region Fields
 
-        private IScadaInterface scada;
+        private Scada.Motion6D.ScadaDesktop scada;
 
         protected IDesktop desktop;
  
-        Action ev = () => { };
+        Action ev;
 
         float currentTime;
 
@@ -59,14 +59,14 @@ namespace Unity.Standard
         static MonoBehaviourTimerFactory()
         {
             StaticExtensionUnity.Init();
-            timeMeasurement = new Measurement(GetTime, "Time");
+            timeMeasurement = new Measurement(GetTime, "Time", "Time");
         }
 
         protected MonoBehaviourTimerFactory(string desktopName)
         {
             exists = desktopName.ScadaExists();
             this.desktopName = desktopName;
-            scada = desktopName.ToUniqueScada(this, this, this);
+            scada = desktopName.ToUniqueScada(this, this, this) as Scada.Motion6D.ScadaDesktop;
             desktop = scada.GetDesktop();
             if (!exists)
             {
@@ -105,7 +105,7 @@ namespace Unity.Standard
         }
 
 
-        public IScadaInterface Scada { get => scada; }
+        public Scada.Motion6D.ScadaDesktop Scada { get => scada; }
 
         /// <summary>
         /// Starts itself
@@ -134,7 +134,7 @@ namespace Unity.Standard
                 return;
             }
             currentTime = t;
-            ev();
+            ev?.Invoke();
         }
 
 

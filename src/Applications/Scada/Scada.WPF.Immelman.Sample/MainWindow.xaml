@@ -7,11 +7,70 @@
         xmlns:ScadaControls="clr-namespace:Scada.WPF.UI.ScadaControls;assembly=Scada.WPF.UI"
         xmlns:ScadaControls3D="clr-namespace:Scada.WPF.UI._3D.ScadaControls;assembly=Scada.WPF.UI.3D"
         mc:Ignorable="d"
-        Title="Immelman" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
+        Title="Immelman" Height="608" Width="800">
+    <Grid x:Name="LayoutRoot" >
+          <Canvas x:Name="canvas">
+            <Grid Canvas.ZIndex="1"  Width="{Binding ActualWidth, ElementName=canvas}" Opacity="0.9">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Start" Grid.Column="1" Name="ButtonStart" HorizontalAlignment="Center" Margin="0,0,0,0"  Width="75" Click="Start_Click"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="300"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"/>
+                <Grid Grid.Row="1"></Grid>
+               <!-- <ScadaControls3D:UserControlCamera  Grid.Row="0" Margin="0,0,0,0" Camera="Camera2"  />
+                <ScadaControls3D:UserControlCamera  Grid.Row="1" Margin="0,0,0,0" Camera="Camera2"  />-->
+                <Grid Grid.Row="0" Opacity="0.9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" />
+                    <Grid Grid.Column="1"/>
+</Grid>
+                <Grid Grid.Row ="1" Height="300">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300" />
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    <ScadaControls3D:UserControlCamera x:Name="side" Margin="0,0,0,0" Grid.Column="1" Camera="Camera 1" />
+                    <ScadaControls3D:UserControlCamera x:Name="camera1" Margin="0,0,0,0" Grid.Column="0" Camera="Camera 2" />
+                    <Grid Grid.Column="1" Opacity="0.8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ScadaControls:ScadaProgressBar Minimum="0" Maximum="250000" Orientation="Vertical" Grid.Column="1" Event="Timer" Output="Plane frame.x" Width="20" Foreground="Magenta" />
+                        <ScadaControls:ScadaProgressBar Minimum="0" Maximum="4000" Orientation="Vertical" Grid.Column="2" Event="Timer" Output="Plane frame.y" Width="20" Foreground="LightGreen"/>
+                    </Grid>
+                    <ScadaControls:UserControlChartGroup x:Name="chart" Opacity="0.5" Grid.Column="1" Event="Timer" 
+                                                         Width="{Binding ActualWidth, ElementName=camera1}" Height="{Binding ActualHeight, ElementName=camera1}"/>
+                    <Grid Grid.Column="0" Opacity="0.8" Width="{Binding ActualWidth, ElementName=camera1}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Height" Foreground="Magenta" FontSize="26.667"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="Velocity" Foreground="LightGreen" FontSize="26.667" />
+                        <ScadaControls:LabelOutput Grid.Row="0" Grid.Column="1" Event="Timer" Output="Plane frame.x" Foreground="Magenta" FontSize="26.667" />
+                        <ScadaControls:LabelOutput Grid.Row="1" Grid.Column="1" Event="Timer" Output="Plane frame.y"  Foreground="LightGreen" FontSize="26.667" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Canvas>
     </Grid>
 </Window>

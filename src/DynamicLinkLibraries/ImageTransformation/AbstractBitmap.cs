@@ -20,7 +20,7 @@ namespace ImageTransformations
     /// Abstract bitmap
     /// </summary>
     public abstract class AbstractBitmap : CategoryObject, IBitmapProvider,
-        ISerializable, IMeasurements, IRemovableObject, IPostSetArrow
+        ISerializable, IMeasurements, IDisposable, IPostSetArrow
     {
         #region Fields
         /// <summary>
@@ -96,11 +96,11 @@ namespace ImageTransformations
 
         #region IRemovableObject Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
-            if (bitmap != null)
+            if (bitmap is IDisposable disposable)
             {
-                bitmap.Dispose();
+                disposable.Dispose();
                 bitmap = null;
             }
         }

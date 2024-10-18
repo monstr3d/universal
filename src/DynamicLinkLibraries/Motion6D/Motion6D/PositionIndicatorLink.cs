@@ -13,7 +13,7 @@ namespace Motion6D
     /// Link to position indicator
     /// </summary>
     [Serializable()]
-    public class PositionIndicatorLink : ISerializable, ICategoryArrow, IRemovableObject
+    public class PositionIndicatorLink : ISerializable, ICategoryArrow, IDisposable
     {
         #region Fields
         object obj;
@@ -22,7 +22,6 @@ namespace Motion6D
 
         IPositionCollection collecion;
         #endregion
-
 
         #region Ctor
 
@@ -106,9 +105,9 @@ namespace Motion6D
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             indicator.Positions = null;
         }

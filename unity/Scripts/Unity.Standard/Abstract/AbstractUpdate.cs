@@ -17,7 +17,7 @@ namespace Unity.Standard.Abstract
 
         protected Action<double>[] dInp;
 
-        protected Func<double>[] dOut;
+        protected Func<double?>[] dOut;
 
         protected MonoBehaviourWrapper wrapper;
 

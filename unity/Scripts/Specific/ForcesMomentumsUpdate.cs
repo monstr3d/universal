@@ -69,9 +69,9 @@ namespace Scripts.Specific
 
         MonoBehaviour mb;
 
-        Action<double>[] dInp = new Action<double>[6];
+        Action<double?>[] dInp = new Action<double?>[6];
 
-        Func<double>[] dOut = new Func<double>[6];
+        Func<double?>[] dOut = new Func<double?>[6];
 
         public static GameObject camera;
 

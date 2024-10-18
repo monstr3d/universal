@@ -63,15 +63,15 @@ namespace ImageTransformations
         #endregion
 
 
- 
+
         private void fillCombo()
         {
             Double a = 0;
             IList<string> al = trans.GetAliases(a);
             comboIn.FillCombo(al);
-           IList<string> m = trans.GetAllMeasurements(a);
-           comboOut.FillCombo(m);
-         }
+            IList<string> m = trans.GetAllMeasurements(a);
+            comboOut.FillCombo(m);
+        }
 
         private void selectCombo()
         {

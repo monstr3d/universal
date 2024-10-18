@@ -15,6 +15,8 @@ namespace Unity.Standard
 {
     class FrameReplaceActionFactory : IReplaceActionFactory
     {
+        protected Vector3DProcessor vp = new();
+
         object[] IReplaceActionFactory.Create(IScadaInterface scada, string name, out Action action)
         {
             var ou = scada.Outputs;
@@ -30,7 +32,7 @@ namespace Unity.Standard
                     euler = new EulerAngles();
                     frame = f() as ReferenceFrame;
                     o = new object[] { frame, euler };
-                    action = () => { euler.Set(frame.Quaternion); };
+                    action = () => { vp.Set(euler, frame.Quaternion); };
                     return o;
                 }
             }
@@ -45,7 +47,7 @@ namespace Unity.Standard
             });
             euler = new EulerAngles();
             o = new object[] { frame, euler };
-            action = () => { euler.Set(frame.Quaternion); };
+            action = () => { vp.Set(euler, frame.Quaternion); };
             return o;
         }
     }

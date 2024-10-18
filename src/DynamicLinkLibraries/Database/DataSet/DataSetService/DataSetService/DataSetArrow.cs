@@ -15,7 +15,7 @@ namespace DataSetService
     /// Arrow between data set provider and data set consumer
     /// </summary>
     [SerializableAttribute()]
-    public class DataSetArrow : CategoryArrow, ISerializable, IRemovableObject
+    public class DataSetArrow : CategoryArrow, ISerializable, IDisposable
     {
 
         #region Fields
@@ -99,15 +99,15 @@ namespace DataSetService
             }
         }
 
- 
+
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
         /// <summary>
         /// The post remove operation
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             if (source != null & target != null)
             {

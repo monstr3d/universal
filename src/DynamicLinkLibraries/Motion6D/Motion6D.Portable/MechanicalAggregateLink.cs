@@ -12,7 +12,7 @@ namespace Motion6D.Portable
     /// Link of mechanical aggregates
     /// </summary>
      public class MechanicalAggregateLink : CategoryArrow, 
-        IAggregableMechanicalFactory, IRemovableObject
+        IAggregableMechanicalFactory, IDisposable
     {
         #region Fields
 
@@ -116,12 +116,12 @@ namespace Motion6D.Portable
             }
         }
 
- 
+
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if (links.Contains(this))
             {

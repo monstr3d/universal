@@ -11,7 +11,7 @@ using BitmapConsumer;
 namespace ImageNavigation
 {
     [Serializable()]
-    public class BitmapMeasurementsLink : ICategoryArrow, IRemovableObject, ISerializable
+    public class BitmapMeasurementsLink : ICategoryArrow, IDisposable, ISerializable
     {
         #region Fields
         private object obj;
@@ -127,9 +127,9 @@ namespace ImageNavigation
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             source.BitmapProvider = null;
         }

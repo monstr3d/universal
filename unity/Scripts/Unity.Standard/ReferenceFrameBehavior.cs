@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+
 using UnityEngine;
 
 using Motion6D.Interfaces;
@@ -10,15 +12,24 @@ using Motion6D.Interfaces;
 using Scada.Interfaces;
 using Scada.Desktop;
 
+using Scada.Motion6D.Interfaces;
+
+using Vector3D;
+
 using Unity.Standard;
 
-using System.Reflection;
 using Unity.Standard.Interfaces;
+
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
 
     #region Fields
+
+    
+
+    protected Vector3DProcessor vp = new();
+
 
     public string desktop = "";
 
@@ -62,26 +73,60 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     public bool unique = true;
 
-    Camera cam;
+    private AudioSource audioSource;
+
+
+    public AudioSource AudioSource
+    {
+        set => audioSource = value;
+    }
+
+
+    public float Scale
+    {
+        get => globalScale;
+        set
+        {
+            globalScale = value;
+        }
+    }
+
+    Motion6D.Portable.Camera Camera
+    {
+        get;
+        set;
+    } = null;
 
  
     private MonoBehaviourWrapper monoBehaviorWrapper;
 
+
     internal Dictionary<string, Action<double>>
         inps = new Dictionary<string, Action<double>>();
 
-    internal Dictionary<string, Func<double>> outs =
-        new Dictionary<string, Func<double>>();
+    internal Dictionary<string, Func<double?>> outs =
+        new Dictionary<string, Func<double?>>();
 
     internal Action<double>[] dInp;
 
-    internal Func<double>[] dOut;
+    internal Func<double?>[] dOut;
 
     Action update;
 
     Action lateUpdate;
 
-    IScadaInterface scada;
+    double[,] orientation = new double[3, 3];
+    double[,] aux = new double[4, 4];
+    double[] quaternion = new double[4];
+
+
+    public Scada.Motion6D.ScadaDesktop Scada
+    {
+        get;
+        private set;
+    }
+
+    Scada.Motion6D.ScadaDesktop motion6D;
 
     Action<Collider> triggerEnter = (Collider c) => { };
 
@@ -103,6 +148,12 @@ public class ReferenceFrameBehavior : MonoBehaviour
     private static float globalScale = 1f;
 
 
+    Camera owncamera;
+
+   
+
+
+
     #endregion
 
     #region Standard Members
@@ -118,8 +169,11 @@ public class ReferenceFrameBehavior : MonoBehaviour
         
     }
 
+   
     private void Awake()
     {
+        CreateRotation();
+
         globalScale = StaticExtensionUnity.GlobalScale;
         this.Add();
         MonoBehaviourTimerFactory.OnStart +=
@@ -130,8 +184,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
                     SetConstants();
                     constants = new string[0];
                 }
-                Action act = (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
-                if (cam != null)
+                Action act = UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
+                if (owncamera != null)
                 {
                     lateUpdate = act;
                 }
@@ -144,25 +198,34 @@ public class ReferenceFrameBehavior : MonoBehaviour
         monoBehaviorWrapper =
            StaticExtensionUnity.Create(this, unique, step,
            desktop, inputs, outputs);
-        scada = monoBehaviorWrapper.Scada;
+        Scada = monoBehaviorWrapper.Scada;
+        motion6D = Scada as Scada.Motion6D.ScadaDesktop;
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
         //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
-        Dictionary<string, IReferenceFrame> frames
-     = monoBehaviorWrapper.Frames;
-
-        if (frames.ContainsKey(transformation))
+        ICameraProvider p = motion6D;
+        var cameras = p.Cameras;
+        IReferenceFrame frame;
+        if (cameras.ContainsKey(transformation))
         {
-            IReferenceFrame frame = frames[transformation];
-            referenceFrame = frame.Own;
+            Camera = cameras[transformation];
+            frame = motion6D.GetFrame(Camera);
         }
-        cam = gameObject.GetComponent<Camera>();
+        else
+        {
+            var frames = motion6D.Frames;
+            frame = frames[transformation];
+            Camera = motion6D.GetCamera(frame);
+        }
+        referenceFrame = frame.Own;
+        owncamera = gameObject.GetComponent<Camera>();
+        SetCamera();
    
         if (onTriggerEnter.Length > 0)
         {
             ConstructorInfo c = StaticExtensionUnity.updatesTriggerAction[onTriggerEnter];
             ITriggerAction ta = c.Invoke(new Type[0]) as ITriggerAction;
-            ta.Set(gameObject, scada);
+            ta.Set(gameObject, Scada);
             triggerEnter = ta.Action;
         }
         if (onCollisionEnter.Length > 0)
@@ -176,7 +239,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
         if (collisionAction != null)
         {
-            collisionAction.Set(gameObject, collisionIndicator, scada);
+            collisionAction.Set(gameObject, collisionIndicator, Scada);
             collisionEnter = collisionAction.Action;
         }
     }
@@ -212,6 +275,12 @@ public class ReferenceFrameBehavior : MonoBehaviour
         try
         {
             wrapperUpdate?.Invoke();
+            if (audioSource != null)
+            {
+                audioSource.enabled = true; ;
+                audioSource = null;
+            }
+
         }
         catch (Exception exception)
         {
@@ -247,7 +316,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
         Quaternion j = Quaternion.Euler(f[0], f[1], f[2]);
         jump = gameObject.transform.rotation * j;
-        Set(UpdateJump);
+      //  Set(UpdateJump);
         StartCoroutine(jumpCoroutine);
     }
 
@@ -256,40 +325,101 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #region  Private Members
 
+    void SetCamera()
+    {
+        var c = Camera;
+        if ((owncamera == null) | (c == null)) return;
+
+        //        owncamera.aspect = (float)(c.Aspect);
+        owncamera.farClipPlane = (float)c.FarPlaneDistance * globalScale;
+        owncamera.nearClipPlane = (float)c.NearPlaneDistance * globalScale;
+        owncamera.fieldOfView = (float)c.FieldOfView;
+    }
+
 
     IEnumerator jumpCoroutine
     {
         get
         {
             yield return new WaitForSeconds(jumpPause);
-            Set(UpdatePosition);
+            //Set(UpdateGlobalScalePosition);
             yield return 0;
         }
     }
-
-    void Set(Action act)
-    {
-        if (cam == null)
+    /*
+        void Set(Action act)
         {
-            update = act;
-            return;
+            if (owncamera == null)
+            {
+                update = act;
+                return;
+            }
+            lateUpdate = act;
+        }*/
+    /*
+        void UpdatePosition()
+        {
+            gameObject.transform.rotation = referenceFrame.ToQuaternion();
+            gameObject.transform.position = referenceFrame.Position.ToPosition();
         }
-        lateUpdate = act;
-    }
+    */
 
-    void UpdatePosition()
+    void UpdateGlobalCameraPosition()
     {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
-        gameObject.transform.position = referenceFrame.Position.ToPosition();
-    }
-
-    void UpdateGlobalScalePosition()
-    {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
+        //var q = referenceFrame.ToRotatedQuaternion(yRotCamera, zRot);
+        var q = referenceFrame.ToQuaternion();
+        gameObject.transform.rotation = q;
         var p = referenceFrame.Position.ToPosition();
         gameObject.transform.position = p * globalScale;
     }
 
+    void UpdateGlobalScalePosition()
+    {
+        //var q = referenceFrame.ToRotatedQuaternion(yRotObject, zRot);
+        /* var q = referenceFrame.ToQuaternion();
+         gameObject.transform.rotation = q;
+         var p = referenceFrame.Position.ToPosition();
+         gameObject.transform.position = p * globalScale;*/
+        SetPosition(referenceFrame);
+        SetOrientation(referenceFrame);
+    }
+
+  
+    void SetOrientation(ReferenceFrame frame)
+    {
+        var ori = frame.Quaternion;
+ /*       vp.QuaternionToMatrix(ori, orientation, aux);
+        internalAutomorphism.ProsessItself(orientation);
+        vp.MatrixToQuaternion(orientation, quaternion);*/
+        Array.Copy(ori, quaternion, quaternion.Length);
+        quaternion[1] = -ori[1];
+        quaternion[2] = -ori[2];
+        Quaternion q = new Quaternion((float)quaternion[1],
+            (float)quaternion[2], (float)quaternion[3], (float)quaternion[0]);
+        gameObject.transform.rotation = q;
+    }
+    
+    void SetPosition(ReferenceFrame frame)
+    {
+        var vector = ToPosition(frame.Position);
+        gameObject.transform.position = vector;
+    }
+
+
+    Vector3 ToPosition(double[] t)
+    {
+        return new Vector3((float)t[0], (float)t[1], -(float)t[2]);
+    }
+
+ 
+
+    void CreateRotation()
+    {
+ 
+
+    }
+
+ 
 
     void UpdateJump()
     {
@@ -299,7 +429,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     void SetConstants()
     {
-        var consts = scada.Constants;
+        var consts = (Scada as IScadaInterface).Constants;
         char[] sep = "=".ToCharArray();
         foreach (string cc in constants)
         {
@@ -311,7 +441,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
                 {
                     double a = double.Parse(ss[1],
                         System.Globalization.CultureInfo.InvariantCulture);
-                    scada.SetConstant(ss[0], a);
+                    (Scada as IScadaInterface).SetConstant(ss[0], a);
                 }
 
             }

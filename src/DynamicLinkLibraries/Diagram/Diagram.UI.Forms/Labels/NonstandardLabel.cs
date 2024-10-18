@@ -109,10 +109,9 @@ namespace Diagram.UI.Labels
                 {
                     IShowForm sf = label as IShowForm;
                     Form form = sf.Form as Form;
-                    if (form is IRemovableObject)
+                    if (form is IDisposable disposable)
                     {
-                        IRemovableObject r = form as IRemovableObject;
-                        r.RemoveObject();
+                        disposable.Dispose();
                     }
                     sf.RemoveForm();
                     sf = null;
@@ -123,30 +122,28 @@ namespace Diagram.UI.Labels
                 return;
             }
             isRemoved = true;
-            if (label is IRemovableObject)
+            if (label is IDisposable dp)
             {
-                IRemovableObject r = label as IRemovableObject;
-                r.RemoveObject();
+                dp.Dispose();
             }
             Control cont = label as Control;
             Control c = Parent;
             if (c != null)
             {
-                PanelDesktop d = pDesktop;
+                PanelDesktop pd = pDesktop;
                 if (c.Controls.Contains(cont))
                 {
-                    d.Remove(label);
+                    pd.Remove(label);
                     if (c.Controls.Contains(cont))
                     {
                         c.Controls.Remove(cont);
                     }
                 }
             }
-            if (label.Object is IRemovableObject)
+            if (label.Object is IDisposable d)
             {
-                IRemovableObject obj = label.Object as IRemovableObject;
-                obj.RemoveObject();
-                obj = null;
+                d.Dispose();
+                label.Object = null;
             }
             cont.Dispose();
             label = null;
@@ -294,10 +291,9 @@ namespace Diagram.UI.Labels
                 ex.ShowError(10);
                 if (arrow != null)
                 {
-                    if (arrow is IRemovableObject)
+                    if (arrow is IDisposable d)
                     {
-                        IRemovableObject rem = arrow as IRemovableObject;
-                        rem.RemoveObject();
+                        d.Dispose();
                     }
                 }
                 ex.ShowError(1);

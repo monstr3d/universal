@@ -214,10 +214,9 @@ namespace Diagram.UI.Labels
                 ex.ShowError(10);
                 if (arrow != null)
 				{
-					if (arrow is IRemovableObject)
+					if (arrow is IDisposable d)
 					{
-						IRemovableObject rem = arrow as IRemovableObject;
-						rem.RemoveObject();
+						d.Dispose();
 					}
 				}
                 ex.ShowError(1);

@@ -15,7 +15,7 @@ namespace Audio.Record
     /// <summary>
     /// Command of audio
     /// </summary>
-    public class AudioCommand : CategoryObject, IAddRemove, IRemovableObject
+    public class AudioCommand : CategoryObject, IAddRemove, IDisposable
     {
 
         #region Fields
@@ -102,7 +102,7 @@ namespace Audio.Record
 
         #region IAddRemove Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             command.Command -= Execute;
         }

@@ -17,10 +17,6 @@ namespace Unity.Standard
         private MonoBehaviour monoBehaviour;
 
 
-        private Dictionary<string, Motion6D.Interfaces.IReferenceFrame> frames =
-            new Dictionary<string, Motion6D.Interfaces.IReferenceFrame>();
-
-
 
         #endregion
 
@@ -29,11 +25,6 @@ namespace Unity.Standard
         public MonoBehaviourWrapper(MonoBehaviour monoBehaviour,
              string name = null) : base(name)
         {
-            desktop.ForEach((Motion6D.Interfaces.IReferenceFrame frame) =>
-            {
-                string fn = frame.GetName(desktop);
-                frames[fn] = frame;
-            });
         }
 
         #endregion
@@ -41,8 +32,6 @@ namespace Unity.Standard
         #region Members
 
         #region Public Members
-
-        public Dictionary<string, Motion6D.Interfaces.IReferenceFrame> Frames { get => frames; }
 
         #endregion
 

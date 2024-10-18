@@ -368,7 +368,7 @@ namespace DataPerformer
     /// </summary>
     [Serializable()]
     public class UnaryLink : ICategoryArrow, ISerializable,
-        IRemovableObject
+        IDisposable
     {
         private VectorFormulaConsumer source;
 
@@ -457,7 +457,7 @@ namespace DataPerformer
         /// <summary>
         /// The post remove operation
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             source.RemoveOperation(target);
         }

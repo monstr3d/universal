@@ -189,10 +189,9 @@ namespace Diagram.UI
                // label.RemoveFromComponent();
 			//	label.RemoveForm();
 				desktop.Tools.RemoveArrowNode(label);
-				if (label.Arrow is IRemovableObject)
+				if (label.Arrow is IDisposable d)
 				{
-					IRemovableObject rem = label.Arrow as IRemovableObject;
-					rem.RemoveObject();
+					d.Dispose();
 				}
 			}
 			arrows = null;

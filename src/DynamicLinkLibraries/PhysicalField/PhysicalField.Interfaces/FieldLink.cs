@@ -8,7 +8,7 @@ namespace PhysicalField.Interfaces
     /// <summary>
     /// Link between Physical field and irradiated object
     /// </summary>
-    public class FieldLink : ICategoryArrow, IRemovableObject,  IFieldFactory
+    public class FieldLink : ICategoryArrow, IDisposable, IFieldFactory
     {
         #region Fields
 
@@ -111,9 +111,9 @@ namespace PhysicalField.Interfaces
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             source.Remove(target);
         }

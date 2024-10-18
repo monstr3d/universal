@@ -17,7 +17,7 @@ namespace DataPerformer.Helpers
     /// Collection and transformer
     /// </summary>
     [Serializable()]
-    public class DataPerformerCollectionStateTransformer : ObjectsCollection, IChildrenObject, IPostSetArrow, IRemovableObject
+    public class DataPerformerCollectionStateTransformer : ObjectsCollection, IChildrenObject, IPostSetArrow, IDisposable
     {
         #region Fields
 
@@ -90,9 +90,9 @@ namespace DataPerformer.Helpers
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             IDisposable d = transformer;
             d.Dispose();

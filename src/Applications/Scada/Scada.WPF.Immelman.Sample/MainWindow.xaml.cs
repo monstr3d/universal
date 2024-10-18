@@ -1,5 +1,7 @@
 ﻿using Scada.Interfaces;
 using Scada.Wpf.Common;
+using Scada.WPF.UI;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,10 +28,27 @@ namespace Scada.WPF.Immelman.Sample
 
         public MainWindow()
         {
-            InitializeComponent();
-            CreateScada();
-            this.CreateMessageBoxEventHandler(scada);
-            this.Set(scada);
+            try
+            {
+                InitializeComponent();
+                CreateScada();
+                // this.CreateMessageBoxEventHandler(scada);
+                StaticExtensionWpfUI.Strict = false;
+                this.Set(scada);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
+
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            bool b = !scada.IsEnabled;
+            scada.IsEnabled = b;
+            ButtonStart.Content = b ? "Stop" : "Start";
+        }
+
     }
 }

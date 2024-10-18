@@ -1,13 +1,14 @@
 using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
+using System;
 
 namespace Motion6D.Portable
 {
     /// <summary>
     /// Link between visible object and its consumer
     /// </summary>
-    public class VisibleConsumerLink : ICategoryArrow,  IRemovableObject, IPostSerialize, IAllowCodeCreation
+    public class VisibleConsumerLink : ICategoryArrow, IDisposable, IPostSerialize, IAllowCodeCreation
     {
 
         #region Fields
@@ -125,14 +126,14 @@ namespace Motion6D.Portable
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposale Members
 
         /// <summary>
         /// Removing of VisibleConsumerLink
         /// </summary>
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
-                source.Remove(target);
+            source.Remove(target);
         }
 
         #endregion

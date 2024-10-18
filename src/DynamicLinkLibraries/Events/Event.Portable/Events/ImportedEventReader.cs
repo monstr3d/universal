@@ -15,7 +15,7 @@ namespace Event.Portable.Events
     /// Imported event with reading data
     /// </summary>
     public class ImportedEventReader : CategoryObject, IEvent, INativeEvent,
-       IMeasurements, IChildrenObject, IRemovableObject
+       IMeasurements, IChildrenObject, IDisposable
     {
 
         #region Fields
@@ -185,9 +185,9 @@ namespace Event.Portable.Events
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if (actual != null)
             {

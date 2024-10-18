@@ -13,7 +13,7 @@ namespace DataPerformer
     /// Link to Switch
     /// </summary>
     [Serializable()]
-    public class SwitchLink : ICategoryArrow, ISerializable, IRemovableObject
+    public class SwitchLink : ICategoryArrow, ISerializable, IDisposable
     {
         private FormulaDataConsumer target;
         private ISwitched source;
@@ -99,7 +99,7 @@ namespace DataPerformer
         /// <summary>
         /// The post remove operation
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose()
         {
             source.RemoveSwitch(this);
         }

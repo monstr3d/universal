@@ -12,7 +12,7 @@ namespace Diagram.UI
     /// <summary>
     /// The belongs to collection link
     /// </summary>
-    public class BelongsToCollectionPortable : CategoryArrow, IRemovableObject
+    public class BelongsToCollectionPortable : CategoryArrow, IDisposable
     {
         #region Fields
 
@@ -78,9 +78,9 @@ namespace Diagram.UI
 
         #endregion
 
-        #region IRemovableObject Members
+        #region IDisposable Members
 
-        void IRemovableObject.RemoveObject()
+        void IDisposable.Dispose()
         {
             if ((source != null) & (target != null))
             {

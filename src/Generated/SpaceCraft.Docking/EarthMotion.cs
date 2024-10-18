@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 
 
 namespace GeneratedProject
@@ -11,88 +11,74 @@ namespace GeneratedProject
 
 		 static public bool SuccessLoad { get; private set; } = true;
 
-		public static  Diagram.UI.Interfaces.IDesktop Desktop { get => new IntrenalDesktop(); }
+		public static  Diagram.UI.Interfaces.IDesktop Desktop { get => new InternalDesktop(); }
 
-		internal class IntrenalDesktop : Diagram.UI.PureDesktop
+		internal class InternalDesktop : Diagram.UI.PureDesktop
 		{
-			internal IntrenalDesktop()
+			internal InternalDesktop()
 			{
-				objects.Add(new IntrenalDesktop.OblectLabel0("Motion", this));
-				objects.Add(new IntrenalDesktop.OblectLabel1("Linear", this));
-				objects.Add(new IntrenalDesktop.OblectLabel2("Orbit roration 1", this));
-				objects.Add(new IntrenalDesktop.OblectLabel3("Orbit rotation 2", this));
-				objects.Add(new IntrenalDesktop.OblectLabel4("Earth", this));
-				objects.Add(new IntrenalDesktop.OblectLabel5("Timer", this));
-				objects.Add(new IntrenalDesktop.OblectLabel6("Relative", this));
-				objects.Add(new IntrenalDesktop.OblectLabel7("Base frame", this));
-				objects.Add(new IntrenalDesktop.OblectLabel8("Consumer", this));
-				objects.Add(new IntrenalDesktop.OblectLabel9("Sun", this));
-				objects.Add(new IntrenalDesktop.OblectLabel10("Relative Sun", this));
+				objects.Add(new InternalDesktop.OblectLabel0("Motion", this));
+				objects.Add(new InternalDesktop.OblectLabel1("Linear", this));
+				objects.Add(new InternalDesktop.OblectLabel2("Orbit roration 1", this));
+				objects.Add(new InternalDesktop.OblectLabel3("Orbit rotation 2", this));
+				objects.Add(new InternalDesktop.OblectLabel4("Earth", this));
+				objects.Add(new InternalDesktop.OblectLabel5("Timer", this));
+				objects.Add(new InternalDesktop.OblectLabel6("Relative", this));
+				objects.Add(new InternalDesktop.OblectLabel7("Consumer", this));
+				objects.Add(new InternalDesktop.OblectLabel8("Base frame", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
-				currALabel  = new IntrenalDesktop.ArrowLabel0("", this);
+				currALabel  = new InternalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)1;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel1("", this);
+				currALabel  = new InternalDesktop.ArrowLabel1("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)2;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel2("", this);
+				currALabel  = new InternalDesktop.ArrowLabel2("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel3("", this);
+				currALabel  = new InternalDesktop.ArrowLabel3("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel4("", this);
+				currALabel  = new InternalDesktop.ArrowLabel4("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)2;
 				currALabel.TargetNumber = (int)1;
-				currALabel  = new IntrenalDesktop.ArrowLabel5("", this);
+				currALabel  = new InternalDesktop.ArrowLabel5("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)2;
-				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
+				currALabel  = new InternalDesktop.ArrowLabel6("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)3;
-				currALabel  = new IntrenalDesktop.ArrowLabel7("", this);
+				currALabel  = new InternalDesktop.ArrowLabel7("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
+				currALabel.SourceNumber = (int)7;
 				currALabel.TargetNumber = (int)5;
-				currALabel  = new IntrenalDesktop.ArrowLabel8("", this);
+				currALabel  = new InternalDesktop.ArrowLabel8("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
+				currALabel.SourceNumber = (int)7;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel9("", this);
+				currALabel  = new InternalDesktop.ArrowLabel9("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
+				currALabel.SourceNumber = (int)7;
 				currALabel.TargetNumber = (int)4;
-				currALabel  = new IntrenalDesktop.ArrowLabel10("", this);
+				currALabel  = new InternalDesktop.ArrowLabel10("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)6;
-				currALabel.TargetNumber = (int)7;
-				currALabel  = new IntrenalDesktop.ArrowLabel11("", this);
+				currALabel.TargetNumber = (int)8;
+				currALabel  = new InternalDesktop.ArrowLabel11("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)4;
 				currALabel.TargetNumber = (int)6;
-				currALabel  = new IntrenalDesktop.ArrowLabel12("", this);
+				currALabel  = new InternalDesktop.ArrowLabel12("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
+				currALabel.SourceNumber = (int)7;
 				currALabel.TargetNumber = (int)6;
-				currALabel  = new IntrenalDesktop.ArrowLabel13("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)1;
-				currALabel  = new IntrenalDesktop.ArrowLabel14("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)10;
-				currALabel  = new IntrenalDesktop.ArrowLabel15("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)10;
-				currALabel.TargetNumber = (int)7;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -141,11 +127,11 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"q", (double)0.10000000000000001 },
-							{"c", (double)-0.20000000000000001 },
 							{"b", (double)0.10000000000000001 },
 							{"p", (double)0.10000000000000001 },
-							{"a", (double)5 }
+							{"c", (double)-0.20000000000000001 },
+							{"a", (double)5 },
+							{"q", (double)0.10000000000000001 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -153,32 +139,46 @@ namespace GeneratedProject
 						Init();
 					}
 				
-					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
+					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Func<object, bool> checkValue)
 					{
+						DataPerformer.Formula.DataPerformerFormula dataPerformerFormula = new (this);
 						FormulaEditor.Interfaces.ITreeCollection f = this;
 						var t = 
 							FormulaEditor.ObjectFormulaTree.CreateList(f.Trees, new List<FormulaEditor.ObjectFormulaTree>());
 						var tt = t.ToArray();
-						return new Calculation(tt);
+						return new Calculation(tt, checkValue, dataPerformerFormula);
 					}
 				
 					internal class Calculation : FormulaEditor.Interfaces.ITreeCollectionProxy
 					{
+						public bool Success { get => success; }
+						
 						public void Update()
 						{
-							var_0 = (double)aliasName0.Value;
-							var_1 = (double)aliasName1.Value;
-							var_2 = (double)measurement2.Parameter();
+							success = true;
+							variable = aliasName0.Value;
+							if (checkValue(variable)) { success = false; return; }
+							var_0 = (double)variable;
+							variable = aliasName1.Value;
+							if (checkValue(variable)) { success = false; return; }
+							var_1 = (double)variable;
+							variable = measurement2.Parameter();
+							if (checkValue(variable)) { success = false; return; }
+							var_2 = (double)variable;
 							var_3 = (var_1) * (var_2);
 							var_4 = Math.Cos(var_3);
 							var_5 = (var_0) * (var_4);
 							var_6 = Math.Sin(var_3);
 							var_7 = -(var_6);
-							var_8 = (double)measurement8.Parameter();
+							variable = measurement8.Parameter();
+							if (checkValue(variable)) { success = false; return; }
+							var_8 = (double)variable;
 							var_9 = (var_1) * (var_8);
 							var_10 = (var_7) * (var_9);
 							var_11 = (var_0) * (var_10);
-							var_12 = (double)measurement12.Parameter();
+							variable = measurement12.Parameter();
+							if (checkValue(variable)) { success = false; return; }
+							var_12 = (double)variable;
 							var_13 = (var_1) * (var_12);
 							var_14 = (var_7) * (var_13);
 							var_15 = -(var_6);
@@ -205,13 +205,19 @@ namespace GeneratedProject
 							var_36 = (var_27) * (var_35);
 							var_37 = (var_31) + (var_36);
 							var_38 = (var_0) * (var_37);
-							var_39 = (double)aliasName39.Value;
+							variable = aliasName39.Value;
+							if (checkValue(variable)) { success = false; return; }
+							var_39 = (double)variable;
 							var_40 = Math.Sin(var_39);
 							var_42 = Math.Cos(var_39);
-							var_43 = (double)aliasName43.Value;
+							variable = aliasName43.Value;
+							if (checkValue(variable)) { success = false; return; }
+							var_43 = (double)variable;
 							var_44 = Math.Cos(var_43);
 							var_45 = Math.Sin(var_43);
-							var_46 = (double)aliasName46.Value;
+							variable = aliasName46.Value;
+							if (checkValue(variable)) { success = false; return; }
+							var_46 = (double)variable;
 							var_47 = (var_46) * (var_2);
 							var_48 = Math.Cos(var_47);
 							var_49 = Math.Sin(var_47);
@@ -242,17 +248,20 @@ namespace GeneratedProject
 							var_74 = (var_68) + (var_73);
 						}
 						
-						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
+						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees, Func<object, bool> checkValue, DataPerformer.Formula.DataPerformerFormula dataPerformerFormula)
 						{
+							success = true;
 							this.trees = trees;
-							aliasName0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[0]);
-							aliasName1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[1]);
-							measurement2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[2]);
-							measurement8 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[8]);
-							measurement12 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[12]);
-							aliasName39 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[39]);
-							aliasName43 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[43]);
-							aliasName46 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[46]);
+							this.checkValue = checkValue;
+							this.dataPerformerFormula = dataPerformerFormula;
+							aliasName0 = dataPerformerFormula.ToAliasName(trees[0]);
+							aliasName1 = dataPerformerFormula.ToAliasName(trees[1]);
+							measurement2 = dataPerformerFormula.ToMeasurement(trees[2]);
+							measurement8 = dataPerformerFormula.ToMeasurement(trees[8]);
+							measurement12 = dataPerformerFormula.ToMeasurement(trees[12]);
+							aliasName39 = dataPerformerFormula.ToAliasName(trees[39]);
+							aliasName43 = dataPerformerFormula.ToAliasName(trees[43]);
+							aliasName46 = dataPerformerFormula.ToAliasName(trees[46]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
@@ -332,10 +341,10 @@ namespace GeneratedProject
 							dictionary[trees[76]] = Get_76;
 						}
 						
-						public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
+						public Func<object> this[FormulaEditor.ObjectFormulaTree tree]
 						{ get { return dictionary[tree]; }}
 						
-						Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
+						Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> > dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, Func<object> >();
 						
 						Diagram.UI.Interfaces.IAliasName aliasName0;
 						Diagram.UI.Interfaces.IAliasName aliasName1;
@@ -429,388 +438,393 @@ namespace GeneratedProject
 						
 						object Get_0()
 						{
-							return var_0;
+							return success ? var_0 : null;
 						}
 						
 						object Get_1()
 						{
-							return var_1;
+							return success ? var_1 : null;
 						}
 						
 						object Get_2()
 						{
-							return var_2;
+							return success ? var_2 : null;
 						}
 						
 						object Get_3()
 						{
-							return var_3;
+							return success ? var_3 : null;
 						}
 						
 						object Get_4()
 						{
-							return var_4;
+							return success ? var_4 : null;
 						}
 						
 						object Get_5()
 						{
-							return var_5;
+							return success ? var_5 : null;
 						}
 						
 						object Get_6()
 						{
-							return var_6;
+							return success ? var_6 : null;
 						}
 						
 						object Get_7()
 						{
-							return var_7;
+							return success ? var_7 : null;
 						}
 						
 						object Get_8()
 						{
-							return var_8;
+							return success ? var_8 : null;
 						}
 						
 						object Get_9()
 						{
-							return var_9;
+							return success ? var_9 : null;
 						}
 						
 						object Get_10()
 						{
-							return var_10;
+							return success ? var_10 : null;
 						}
 						
 						object Get_11()
 						{
-							return var_11;
+							return success ? var_11 : null;
 						}
 						
 						object Get_12()
 						{
-							return var_12;
+							return success ? var_12 : null;
 						}
 						
 						object Get_13()
 						{
-							return var_13;
+							return success ? var_13 : null;
 						}
 						
 						object Get_14()
 						{
-							return var_14;
+							return success ? var_14 : null;
 						}
 						
 						object Get_15()
 						{
-							return var_15;
+							return success ? var_15 : null;
 						}
 						
 						object Get_16()
 						{
-							return var_16;
+							return success ? var_16 : null;
 						}
 						
 						object Get_17()
 						{
-							return var_17;
+							return success ? var_17 : null;
 						}
 						
 						object Get_18()
 						{
-							return var_18;
+							return success ? var_18 : null;
 						}
 						
 						object Get_19()
 						{
-							return var_19;
+							return success ? var_19 : null;
 						}
 						
 						object Get_20()
 						{
-							return var_20;
+							return success ? var_20 : null;
 						}
 						
 						object Get_21()
 						{
-							return var_21;
+							return success ? var_21 : null;
 						}
 						
 						object Get_22()
 						{
-							return var_22;
+							return success ? var_22 : null;
 						}
 						
 						object Get_23()
 						{
-							return var_23;
+							return success ? var_23 : null;
 						}
 						
 						object Get_24()
 						{
-							return var_24;
+							return success ? var_24 : null;
 						}
 						
 						object Get_25()
 						{
-							return var_25;
+							return success ? var_25 : null;
 						}
 						
 						object Get_26()
 						{
-							return var_26;
+							return success ? var_26 : null;
 						}
 						
 						object Get_27()
 						{
-							return var_27;
+							return success ? var_27 : null;
 						}
 						
 						object Get_28()
 						{
-							return var_28;
+							return success ? var_28 : null;
 						}
 						
 						object Get_29()
 						{
-							return var_29;
+							return success ? var_29 : null;
 						}
 						
 						object Get_30()
 						{
-							return var_30;
+							return success ? var_30 : null;
 						}
 						
 						object Get_31()
 						{
-							return var_31;
+							return success ? var_31 : null;
 						}
 						
 						object Get_32()
 						{
-							return var_32;
+							return success ? var_32 : null;
 						}
 						
 						object Get_33()
 						{
-							return var_33;
+							return success ? var_33 : null;
 						}
 						
 						object Get_34()
 						{
-							return var_34;
+							return success ? var_34 : null;
 						}
 						
 						object Get_35()
 						{
-							return var_35;
+							return success ? var_35 : null;
 						}
 						
 						object Get_36()
 						{
-							return var_36;
+							return success ? var_36 : null;
 						}
 						
 						object Get_37()
 						{
-							return var_37;
+							return success ? var_37 : null;
 						}
 						
 						object Get_38()
 						{
-							return var_38;
+							return success ? var_38 : null;
 						}
 						
 						object Get_39()
 						{
-							return var_39;
+							return success ? var_39 : null;
 						}
 						
 						object Get_40()
 						{
-							return var_40;
+							return success ? var_40 : null;
 						}
 						
 						object Get_41()
 						{
-							return var_41;
+							return success ? var_41 : null;
 						}
 						
 						object Get_42()
 						{
-							return var_42;
+							return success ? var_42 : null;
 						}
 						
 						object Get_43()
 						{
-							return var_43;
+							return success ? var_43 : null;
 						}
 						
 						object Get_44()
 						{
-							return var_44;
+							return success ? var_44 : null;
 						}
 						
 						object Get_45()
 						{
-							return var_45;
+							return success ? var_45 : null;
 						}
 						
 						object Get_46()
 						{
-							return var_46;
+							return success ? var_46 : null;
 						}
 						
 						object Get_47()
 						{
-							return var_47;
+							return success ? var_47 : null;
 						}
 						
 						object Get_48()
 						{
-							return var_48;
+							return success ? var_48 : null;
 						}
 						
 						object Get_49()
 						{
-							return var_49;
+							return success ? var_49 : null;
 						}
 						
 						object Get_50()
 						{
-							return var_50;
+							return success ? var_50 : null;
 						}
 						
 						object Get_51()
 						{
-							return var_51;
+							return success ? var_51 : null;
 						}
 						
 						object Get_52()
 						{
-							return var_52;
+							return success ? var_52 : null;
 						}
 						
 						object Get_53()
 						{
-							return var_53;
+							return success ? var_53 : null;
 						}
 						
 						object Get_54()
 						{
-							return var_54;
+							return success ? var_54 : null;
 						}
 						
 						object Get_55()
 						{
-							return var_55;
+							return success ? var_55 : null;
 						}
 						
 						object Get_56()
 						{
-							return var_56;
+							return success ? var_56 : null;
 						}
 						
 						object Get_57()
 						{
-							return var_57;
+							return success ? var_57 : null;
 						}
 						
 						object Get_58()
 						{
-							return var_58;
+							return success ? var_58 : null;
 						}
 						
 						object Get_59()
 						{
-							return var_59;
+							return success ? var_59 : null;
 						}
 						
 						object Get_60()
 						{
-							return var_60;
+							return success ? var_60 : null;
 						}
 						
 						object Get_61()
 						{
-							return var_61;
+							return success ? var_61 : null;
 						}
 						
 						object Get_62()
 						{
-							return var_62;
+							return success ? var_62 : null;
 						}
 						
 						object Get_63()
 						{
-							return var_63;
+							return success ? var_63 : null;
 						}
 						
 						object Get_64()
 						{
-							return var_64;
+							return success ? var_64 : null;
 						}
 						
 						object Get_65()
 						{
-							return var_65;
+							return success ? var_65 : null;
 						}
 						
 						object Get_66()
 						{
-							return var_66;
+							return success ? var_66 : null;
 						}
 						
 						object Get_67()
 						{
-							return var_67;
+							return success ? var_67 : null;
 						}
 						
 						object Get_68()
 						{
-							return var_68;
+							return success ? var_68 : null;
 						}
 						
 						object Get_69()
 						{
-							return var_69;
+							return success ? var_69 : null;
 						}
 						
 						object Get_70()
 						{
-							return var_70;
+							return success ? var_70 : null;
 						}
 						
 						object Get_71()
 						{
-							return var_71;
+							return success ? var_71 : null;
 						}
 						
 						object Get_72()
 						{
-							return var_72;
+							return success ? var_72 : null;
 						}
 						
 						object Get_73()
 						{
-							return var_73;
+							return success ? var_73 : null;
 						}
 						
 						object Get_74()
 						{
-							return var_74;
+							return success ? var_74 : null;
 						}
 						
 						object Get_75()
 						{
-							return var_75;
+							return success ? var_75 : null;
 						}
 						
 						object Get_76()
 						{
-							return var_76;
+							return success ? var_76 : null;
 						}
+						
+						Func<object, bool> checkValue = (o) => false;
+						object variable;
+						bool success = true;
+						DataPerformer.Formula.DataPerformerFormula dataPerformerFormula = null;
 					
 					}
 				}
@@ -974,6 +988,23 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
+				internal class CategoryObject : DataPerformer.Portable.DataConsumer
+				{
+				internal CategoryObject() : base(0)
+				{
+				}
+				}
+			}
+		
+			internal class OblectLabel8 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel8(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel8.CategoryObject();
+					obj.Object = this;
+				}
+		
 				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
 				{
 				
@@ -994,80 +1025,11 @@ namespace GeneratedProject
 				, 0
 						};
 				
-						isSerialized = true;
 						Init();
 					}
 				
 				}
 				
-			}
-		
-			internal class OblectLabel8 : Diagram.UI.Labels.PureObjectLabel
-			{
-				internal OblectLabel8(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					obj = new OblectLabel8.CategoryObject();
-					obj.Object = this;
-				}
-		
-				internal class CategoryObject : DataPerformer.Portable.DataConsumer
-				{
-				internal CategoryObject() : base(0)
-				{
-				}
-				}
-			}
-		
-			internal class OblectLabel9 : Diagram.UI.Labels.PureObjectLabel
-			{
-				internal OblectLabel9(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					obj = new OblectLabel9.CategoryObject();
-					obj.Object = this;
-				}
-		
-				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
-				{
-				
-					internal CategoryObject()
-					{
-						relativePosition = new double[]
-						{
-				5
-				, 5
-				, 5
-						};
-				
-						relativeQuaternion = new double[]
-						{
-				1
-				, 0
-				, 0
-				, 0
-						};
-				
-						isSerialized = true;
-						Init();
-					}
-				
-				}
-				
-			}
-		
-			internal class OblectLabel10 : Diagram.UI.Labels.PureObjectLabel
-			{
-				internal OblectLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					obj = new OblectLabel10.CategoryObject();
-					obj.Object = this;
-				}
-		
-				internal class CategoryObject : Motion6D.Portable.RelativeMeasurements
-				{
-				}
 			}
 		
 			internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
@@ -1235,45 +1197,6 @@ namespace GeneratedProject
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink
-				{
-				}
-			}
-		
-			internal class ArrowLabel13 : Diagram.UI.Labels.PureArrowLabel
-			{
-				internal ArrowLabel13(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					arrow = new ArrowLabel13.CategoryArrow();
-				}
-		
-				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
-				{
-				}
-			}
-		
-			internal class ArrowLabel14 : Diagram.UI.Labels.PureArrowLabel
-			{
-				internal ArrowLabel14(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					arrow = new ArrowLabel14.CategoryArrow();
-				}
-		
-				internal class CategoryArrow : Motion6D.Portable.RelativeMeasurementsLink
-				{
-				}
-			}
-		
-			internal class ArrowLabel15 : Diagram.UI.Labels.PureArrowLabel
-			{
-				internal ArrowLabel15(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					arrow = new ArrowLabel15.CategoryArrow();
-				}
-		
-				internal class CategoryArrow : Motion6D.Portable.RelativeMeasurementsLink
 				{
 				}
 			}

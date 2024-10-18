@@ -36,7 +36,7 @@ namespace Unity.Standard.Indicators
             
             string desktop = d["Desktop"];
             IScadaInterface scada = desktop.ToExistedScada();
-            Func<double> f = null;
+            Func<double?> f = null;
             string par = desktop + ".";
             bool debug = false;
             if (txt.ContainsKey("Debug"))

@@ -9,7 +9,7 @@ namespace MathGraph
     /// <summary>
     /// Edge of digraph
     /// </summary>
-    public class DigraphEdge : IAssociatedObject, IRemovableObject
+    public class DigraphEdge : IAssociatedObject, IDisposable
     {
         /// <summary>
         /// Linked object
@@ -46,6 +46,7 @@ namespace MathGraph
         /// </summary>
         public DigraphEdge()
         {
+
         }
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace MathGraph
         /// <summary>
         /// Removes itself
         /// </summary>
-        public void RemoveObject()
+        void IDisposable.Dispose() 
         {
             source.RemoveOutcoming(this);
             target.RemoveIncoming(this);

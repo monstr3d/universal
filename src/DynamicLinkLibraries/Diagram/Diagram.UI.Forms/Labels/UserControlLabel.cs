@@ -22,7 +22,7 @@ namespace Diagram.UI.Labels
     [Serializable()]
     public partial class UserControlLabel :
         UserControl, IObjectLabelUI, ISerializable, IShowForm, 
-        IProperties, IRemovableObject, IStartStopConsumer, IEnabled
+        IProperties, IStartStopConsumer, IEnabled
     {
 
         #region Fields
@@ -185,6 +185,10 @@ namespace Diagram.UI.Labels
             set
             {
                 obj = value;
+                if (value == null)
+                {
+                    return;
+                }
                 if (value is IProperties)
                 {
                     IProperties pr = value as IProperties;
@@ -589,17 +593,15 @@ namespace Diagram.UI.Labels
         {
             if (child != null)
             {
-                if (child is IRemovableObject)
-                {
-                    IRemovableObject ro = child as IRemovableObject;
-                    ro.RemoveObject();
-                }
                 if (child is IDisposable)
                 {
                     IDisposable d = child as IDisposable;
                     d.Dispose();
                 }
             }
+            if (obj == null) return;
+            if (obj is IDisposable disposable) disposable.Dispose();
+            obj = null;
         }
 
         #endregion
@@ -1048,9 +1050,7 @@ namespace Diagram.UI.Labels
 
         private void UserControlLabel_Disposed(object sender, EventArgs e)
         {
-            if (obj == null) return;
-            if (obj is IDisposable disposable) disposable.Dispose();
-            obj = null;
+            RemoveObject();
         }
 
     }

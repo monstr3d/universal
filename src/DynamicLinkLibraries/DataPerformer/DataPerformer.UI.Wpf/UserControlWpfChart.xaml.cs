@@ -159,7 +159,6 @@ namespace DataPerformer.UI.Wpf
                 last[key] = GetY(x, s);
             }
             write = SetAction;
-
         }
 
         private void SetAction(Dictionary<string, object> d, double time)

@@ -203,10 +203,6 @@ namespace Diagram.UI.Labels
 			{
 				RemoveForm();
 			}
-			if (Arrow is IRemovableObject obj)
-			{
-				obj.RemoveObject();
-			}
 			if (Arrow is IDisposable disposable)
 			{
 				disposable.Dispose();
