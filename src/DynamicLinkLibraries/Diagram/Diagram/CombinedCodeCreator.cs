@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using Diagram.UI.Interfaces;
 
 namespace Diagram.UI
@@ -17,7 +14,6 @@ namespace Diagram.UI
         List<IClassCodeCreator> list = new List<IClassCodeCreator>();
 
         #endregion
-
 
         #region IClassCodeCreator Members
 

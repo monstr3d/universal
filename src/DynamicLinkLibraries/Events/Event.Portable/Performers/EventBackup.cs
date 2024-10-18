@@ -61,14 +61,16 @@ namespace Event.Portable.Performers
             IRealtimeStart rst = null;
             desktop.ForEach((BelongsToCollectionPortable arrow) =>
             {
-                if (!l.Contains(arrow.Target))
+                ICategoryArrow a = arrow;
+                var s = a.Source;
+                var t = a.Target;
+
+                if (!l.Contains(t))
                 {
                     return;
                 }
-                ICategoryObject s = arrow.Source;
-                if (s is IRealtimeStart)
+                if (s is IRealtimeStart rs)
                 {
-                    IRealtimeStart rs = s as IRealtimeStart;
                     if (rs.IsEnabled)
                     {
                         if (rst != null)

@@ -138,13 +138,13 @@ namespace Event.Portable
             object l = null;
             desktop.ForEach((BelongsToCollectionPortable b) =>
             {
-                if (b.Source == consumer)
+                ICategoryArrow a = b;
+                var s = a.Source;
+                var t = a.Target;
+                if (s == consumer)
                 {
-                    object o = b.Target;
-                    if (o is LogHolder)
+                    if (t is LogHolder llh)
                     {
-
-                        LogHolder llh = o as LogHolder;
                         (llh as IAssociatedObject).Prepare(true);
                         l = llh.Reader;
                     }

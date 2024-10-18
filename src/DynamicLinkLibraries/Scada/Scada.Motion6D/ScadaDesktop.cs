@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-
 using CategoryTheory;
 
 using BaseTypes.Attributes;
@@ -11,24 +10,19 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 using Event.Portable;
 using Event.Interfaces;
-
-using Motion6D.Portable;
+using Event.Portable.Interfaces;
 
 using Scada.Interfaces;
-
 using Scada.Desktop;
 using Scada.Motion6D.Interfaces;
 
-
 using Animation.Interfaces;
 
-using Event.Portable.Interfaces;
-
-using DataPerformer.Portable.Interfaces;
-
+using Motion6D.Portable;
 using Motion6D.Interfaces;
 
 namespace Scada.Motion6D

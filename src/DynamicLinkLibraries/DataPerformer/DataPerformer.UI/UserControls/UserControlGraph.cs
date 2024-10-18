@@ -854,12 +854,15 @@ namespace DataPerformer.UI.UserControls
                 IIterator iterator = null;
                 desktop.ForEach((BelongsToCollectionPortable b) =>
                 {
-                    if (b.Source == consumer)
+                    ICategoryArrow a = b;
+                    var s = a.Source;
+                    var t = a.Target;
+                    if (s == consumer)
                     {
-                        object o = b.Target;
-                        if (o is IIterator)
+                        if (t is IIterator it)
                         {
-                            iterator = o as IIterator;
+                            iterator = it;
+                            return;
                         }
                     }
                 });
@@ -875,12 +878,13 @@ namespace DataPerformer.UI.UserControls
                 IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
                 desktop.ForEach((BelongsToCollectionPortable b) =>
                 {
-                    if (b.Source == consumer)
+                    ICategoryArrow a = b;
+                    var s = a.Source;
+                    var t = a.Target;
+                    if (s == consumer)
                     {
-                        object o = b.Target;
-                        if (o is LogHolder)
+                        if (t is LogHolder log)
                         {
-                            log = o as LogHolder;
                             (log as IAssociatedObject).Prepare(true);
                             l = log.Reader;
                         }

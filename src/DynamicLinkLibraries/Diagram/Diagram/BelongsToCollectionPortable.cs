@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Runtime.Serialization;
 
 using CategoryTheory;
 
@@ -12,9 +10,14 @@ namespace Diagram.UI
     /// <summary>
     /// The belongs to collection link
     /// </summary>
-    public class BelongsToCollectionPortable : CategoryArrow, IDisposable
+    public class BelongsToCollectionPortable : ICategoryArrow, IDisposable
     {
         #region Fields
+
+        /// <summary>
+        /// Associated object
+        /// </summary>
+        private object obj;
 
         /// <summary>
         /// Source
@@ -35,17 +38,18 @@ namespace Diagram.UI
         /// </summary>
         public BelongsToCollectionPortable()
         {
+
         }
 
- 
+
         #endregion
- 
-        #region Overriden Members
+
+        #region ICategoryArrow Members
 
         /// <summary>
         /// Source
         /// </summary>
-        public override ICategoryObject Source
+        ICategoryObject ICategoryArrow.Source
         {
             get
             {
@@ -60,11 +64,11 @@ namespace Diagram.UI
         /// <summary>
         /// Target
         /// </summary>
-        public override ICategoryObject Target
+        ICategoryObject ICategoryArrow.Target
         {
             get
             {
-                return target as ICategoryObject;
+                return target;
             }
             set
             {
@@ -75,6 +79,11 @@ namespace Diagram.UI
                 CategoryException.ThrowIllegalTargetException();
             }
         }
+        
+        /// <summary>
+        /// The associated object
+        /// </summary>
+        object IAssociatedObject.Object { get => obj; set => obj = value; }
 
         #endregion
 

@@ -676,7 +676,6 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             }
             return null;
         }
-
  
         private object Log
         {
@@ -686,10 +685,12 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
                 IDesktop desktop = this.GetRootDesktop();
                 desktop.ForEach((BelongsToCollectionPortable b) =>
                 {
-                    if (b.Source == consumer)
+                    ICategoryArrow a = b;
+                    var s = a.Source;
+                    var t = a.Target;
+                    if (s == consumer)
                     {
-                        object o = b.Target;
-                        if (o is LogHolder log)
+                        if (t is LogHolder log)
                         {
                             (log as IAssociatedObject).Prepare(true);
                             l = log.Reader;
@@ -708,12 +709,15 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
                 IDesktop desktop = this.GetRootDesktop();
                 desktop.ForEach((BelongsToCollectionPortable b) =>
                 {
-                    if (b.Source == consumer)
+                    ICategoryArrow a = b;
+                    var s = a.Source;
+                    var t = a.Target;
+
+                    if (s == consumer)
                     {
-                        object o = b.Target;
-                        if (o is IIterator)
+                        if (t is IIterator it)
                         {
-                            iterator = o as IIterator;
+                            iterator = it;
                         }
                     }
                 });
