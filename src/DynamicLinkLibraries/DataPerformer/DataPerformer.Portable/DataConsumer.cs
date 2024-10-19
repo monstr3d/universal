@@ -14,7 +14,7 @@ namespace DataPerformer.Portable
 {
  
     /// <summary>
-    /// Data consimer
+    /// Data consumer
     /// </summary>
     public class DataConsumer : CategoryObject,  IDataConsumer,
         IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
@@ -51,17 +51,17 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Arrows to data providers
         /// </summary>
-        protected List<IMeasurements> measurementsData;
+        protected List<IMeasurements> measurementsData = new ();
 
         /// <summary>
         /// Dependent measurements
         /// </summary>
-        protected List<IMeasurements> dependent = new List<IMeasurements>();
+        protected List<IMeasurements> dependent = new ();
 
         /// <summary>
         /// List of dependent objects
         /// </summary>
-        protected List<object> list = new List<object>();
+        protected List<object> list = new ();
 
         /// <summary>
         /// Type of consumer
@@ -113,7 +113,6 @@ namespace DataPerformer.Portable
         public DataConsumer(int type)
         {
             this.type = type;
-            initialize();
         }
 
         #endregion
@@ -207,17 +206,13 @@ namespace DataPerformer.Portable
             get => timeMeasurement;
             set
             {
-                if (timeMeasurement == value) return;
+                if (timeMeasurement == value)
+                {
+                    return;
+                }
                 timeMeasurement = value;
             }
         }
-
-        #endregion
-
-        #region Static Helper Members
-
-
-
 
         #endregion
 
@@ -377,7 +372,7 @@ namespace DataPerformer.Portable
 
 
         /// <summary>
-        /// Shows, wreather the object is updated
+        /// Shows, whether the object is updated
         /// </summary>
         public bool IsUpdated
         {
@@ -467,17 +462,6 @@ namespace DataPerformer.Portable
                   //!!!!!!  c.test(desktop);
                 }
             }
-        }
-
-        #endregion
-
-        #region   Private Members
-        /// <summary>
-        /// Initialization
-        /// </summary>
-        private void initialize()
-        {
-            measurementsData = new List<IMeasurements>();
         }
 
         #endregion

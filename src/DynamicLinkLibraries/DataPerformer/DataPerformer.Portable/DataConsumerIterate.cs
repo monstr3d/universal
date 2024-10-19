@@ -1,12 +1,12 @@
-﻿using DataPerformer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+
+using DataPerformer.Interfaces;
 
 namespace DataPerformer.Portable
 {
+    /// <summary>
+    /// Data consumer and iterator
+    /// </summary>
     public class DataConsumerIterate : DataConsumer, IIteratorConsumer
     {
         #region Classes
