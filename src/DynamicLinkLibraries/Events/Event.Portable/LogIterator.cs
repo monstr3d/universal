@@ -137,7 +137,7 @@ namespace Event.Portable
             Func<object, bool> stop = (object o) => { return false; };
             IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
             object l = null;
-            desktop.ForEach((BelongsToCollection b) =>
+            desktop.ForEach((Diagram.UI.Portable.BelongsToCollection b) =>
             {
                 ICategoryArrow a = b;
                 var s = a.Source;

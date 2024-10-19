@@ -684,7 +684,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             {
                 object l = null;
                 IDesktop desktop = this.GetRootDesktop();
-                desktop.ForEach((BelongsToCollection b) =>
+                desktop.ForEach((Diagram.UI.Portable.BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;
@@ -708,7 +708,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             {
                 IIterator iterator = null;
                 IDesktop desktop = this.GetRootDesktop();
-                desktop.ForEach((BelongsToCollection b) =>
+                desktop.ForEach((Diagram.UI.Portable.BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;

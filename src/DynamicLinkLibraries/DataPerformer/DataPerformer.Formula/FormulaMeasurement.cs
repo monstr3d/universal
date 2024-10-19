@@ -210,7 +210,7 @@ namespace DataPerformer.Formula
         {
             get
             {
-                return [ tree ];
+                return new ObjectFormulaTree[] { tree };
             }
         }
 

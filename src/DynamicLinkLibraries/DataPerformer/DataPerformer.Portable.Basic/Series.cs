@@ -28,7 +28,7 @@ namespace DataPerformer.Portable.Basic
         /// <summary>
         /// Points
         /// </summary>
-        protected List<double[]> points = new List<double[]>();
+        protected List<double[]> points = new ();
 
         /// <summary>
         /// Current parameter
@@ -580,9 +580,8 @@ namespace DataPerformer.Portable.Basic
             var x = points[i];
             var y = new double[x.Length - 1];
             Array.Copy(x, 1, y, 0, y.Length);
-            return [y.Min(), y.Max()];
+            return new double[] {y.Min(), y.Max()};
         }
-
 
         #endregion
 

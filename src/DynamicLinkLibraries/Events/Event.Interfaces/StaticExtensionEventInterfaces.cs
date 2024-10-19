@@ -28,21 +28,21 @@ namespace Event.Interfaces
         /// </summary>
         public const string PureRealtimeLogAnalysis = "PureRealtimeLogAnalysis";
 
-        static List<EventLogLink> links = new List<EventLogLink>();
+        static List<EventLogLink> links = new ();
 
-        static List<EventReaderLink> readers = new List<EventReaderLink>();
+        static List<EventReaderLink> readers = new ();
 
         static IEventLog currentLog;
 
-        static ILogLoader listLoader = new LogListLoaderCollection([]);
+        static ILogLoader listLoader = new LogListLoaderCollection(new ILogLoader[0]);
 
 
-        static List<Func<object, object>> loadList = new List<Func<object, object>>();
+        static List<Func<object, object>> loadList = new ();
 
-        static List<Func<object, object>> saveList = new List<Func<object, object>>();
+        static List<Func<object, object>> saveList = new ();
 
 
-        static event Action<string> postSaveLog = (string id) => { };
+        static event Action<string> postSaveLog;
 
         /// <summary>
         /// Locker
@@ -108,7 +108,7 @@ namespace Event.Interfaces
         /// <param name="id">Log id</param>
         static public void LogPostSave(string id)
         {
-            postSaveLog(id);
+            postSaveLog?.Invoke(id);
         }
 
         /// <summary>

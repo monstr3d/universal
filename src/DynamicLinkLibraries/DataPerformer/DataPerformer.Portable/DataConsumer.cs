@@ -95,7 +95,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Children
         /// </summary>
-        protected IAssociatedObject[] children = [ new Diagram.UI.Objects.EmptyAddRemove() ];
+        protected IAssociatedObject[] children = new IAssociatedObject[] { new Diagram.UI.Objects.EmptyAddRemove()};
 
         /// <summary>
         /// Events

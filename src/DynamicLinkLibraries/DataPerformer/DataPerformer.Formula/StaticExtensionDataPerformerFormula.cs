@@ -182,11 +182,11 @@ namespace DataPerformer.Formula
                 {
                     if (operation is AliasNameVariable)
                     {
-                        return [" = aliasName", ".Value;"];
+                        return new string[] { " = aliasName", ".Value;" };
                     }
                     if (operation is IMeasurementHolder)
                     {
-                        return [" = measurement", ".Parameter();"];
+                        return new string[] { " = measurement", ".Parameter();" };
                     }
                     return null;
                 }

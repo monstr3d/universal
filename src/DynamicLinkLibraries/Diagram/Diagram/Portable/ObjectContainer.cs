@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using CategoryTheory;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
-namespace Diagram.UI
+namespace Diagram.UI.Portable
 {
     /// <summary>
     /// Container of objects
     /// </summary>
     /// </summary>
-    public class ObjectContainerPortable : CategoryObject, IObjectContainer, IPostSetArrow
+    public class ObjectContainer : CategoryObject, IObjectContainer, IPostSetArrow
     {
 
 
@@ -25,13 +23,13 @@ namespace Diagram.UI
         /// </summary>
         protected Dictionary<string, object> inter = new Dictionary<string, object>();
 
-   
+
         /// <summary>
         /// Type
         /// </summary>
         protected string type;
 
-     
+
         /// <summary>
         /// Child desktop
         /// </summary>
@@ -51,14 +49,13 @@ namespace Diagram.UI
 
         #endregion
 
-
         #region Constructors
 
         /// <summary>
         /// Main constructor
         /// </summary>
         /// <param name="desktop">The parent desktop</param>
-        protected ObjectContainerPortable(PureDesktop desktop)
+        protected ObjectContainer(PureDesktop desktop)
         {
             this.desktop = desktop;
         }
@@ -70,8 +67,8 @@ namespace Diagram.UI
 
         public virtual void PostSetArrow()
         {
-     //        Load();
-     //       PostLoad();
+            //        Load();
+            //       PostLoad();
         }
 
         #endregion
@@ -231,32 +228,32 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="desktop">The desktop</param>
         public void SetParents(IDesktop desktop)
-		{
-			IEnumerable<IObjectLabel> objs = desktop.Objects;
-			INamedComponent comp = null;
-			foreach (IObjectLabel ol in objs)
-			{
-				if (ol.Object == this)
-				{
-					comp = ol;
-					break;
-				}
-			}
-			IEnumerable<object> objects = this.desktop.Components;
-			foreach (INamedComponent nc in objects)
-			{
-				if (nc is IObjectLabel)
-				{
-					IObjectLabel l = nc as IObjectLabel;
-					if (l.Object is IObjectContainer)
-					{
-						IObjectContainer oc = l.Object as IObjectContainer;
+        {
+            IEnumerable<IObjectLabel> objs = desktop.Objects;
+            INamedComponent comp = null;
+            foreach (IObjectLabel ol in objs)
+            {
+                if (ol.Object == this)
+                {
+                    comp = ol;
+                    break;
+                }
+            }
+            IEnumerable<object> objects = this.desktop.Components;
+            foreach (INamedComponent nc in objects)
+            {
+                if (nc is IObjectLabel)
+                {
+                    IObjectLabel l = nc as IObjectLabel;
+                    if (l.Object is IObjectContainer)
+                    {
+                        IObjectContainer oc = l.Object as IObjectContainer;
                         oc.Desktop.SetParents();
-					}
-				}
-				nc.Parent = comp;
-			}
-		}
+                    }
+                }
+                nc.Parent = comp;
+            }
+        }
 
 
         #endregion

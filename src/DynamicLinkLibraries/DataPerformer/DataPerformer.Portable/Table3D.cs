@@ -87,7 +87,7 @@ namespace DataPerformer.Portable
         public Table3D()
         {
             Func<object> fn = () => { return this; };
-            output = [new Measurement(this, fn, "Function", this)];
+            output = new IMeasurement[] { new Measurement(this, fn, "Function", this)};
         }
 
 

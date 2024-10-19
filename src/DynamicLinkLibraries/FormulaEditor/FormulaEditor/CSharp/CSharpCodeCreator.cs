@@ -375,7 +375,7 @@ namespace FormulaEditor.CSharp
             }
             if (op is NegationOperation) 
             {
-                return [" = !", ";"];
+                return new string[] { " = !", ";" };
             }
             if (op is ElementaryBinaryOperation)
             {

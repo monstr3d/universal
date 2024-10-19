@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
+
 using AssemblyService.Attributes;
 
 namespace AssemblyService
@@ -13,15 +13,15 @@ namespace AssemblyService
     public static class StaticExtensionAssemblyService
     {
 
-        static Dictionary<string, Assembly> assemblyDictionary = new Dictionary<string, Assembly>();
+        static Dictionary<string, Assembly> assemblyDictionary = new ();
 
-        static LinkedList<string> locations = new LinkedList<string>();
+        static LinkedList<string> locations = new ();
+
+        static readonly Type[] inputTypes = new Type[] { typeof(InitAssemblyAttribute) };
+
+        static readonly object[] input = new object[] {null};
 
         static string dir;
-
-        static readonly Type[] inputTypes = [typeof(InitAssemblyAttribute)];
-
-        static readonly object[] input = [null];
         
         static StaticExtensionAssemblyService()
         {

@@ -1289,10 +1289,10 @@ namespace Diagram.UI
                 }
                 else
                 {
-                    return [caro];
+                    return new object[] { caro};
                 }
             }
-            return [obj];
+            return new object[] { obj };
         }
 
         /// <summary>

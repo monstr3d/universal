@@ -55,7 +55,7 @@ namespace Event.Portable.Performers
             IDesktop desktop = collection.Desktop.Root;
             IList<ICategoryObject> l = collection.GetAll<ICategoryObject>();
             IRealtimeStart rst = null;
-            desktop.ForEach((BelongsToCollection arrow) =>
+            desktop.ForEach((Diagram.UI.Portable.BelongsToCollection arrow) =>
             {
                 ICategoryArrow a = arrow;
                 var s = a.Source;

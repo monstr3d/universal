@@ -138,14 +138,14 @@ namespace FormulaEditor.CSharp
         private List<string> PostCreateCode(ICodeCreator local, IList<string> lcode,
            IList<string> variables, IList<string> initializers, string consturctor, bool checkValue = true)
         {
-            List<string> l =
-            [
+            List<string> l = new()
+            {
                 "public bool Success { get => success; }",
                 "",
                 "public void Update()",
                 "{",
                 "\tsuccess = true;",
-            ];
+            };
             foreach (string s in lcode)
             {
                 l.Add("\t" + s);

@@ -57,7 +57,7 @@ namespace DataPerformer.Portable
 
         object[] IObjectOperation.InputTypes
         {
-            get => [(double)0];
+            get =>  new object[] { (double)0 };
         }
 
         object IObjectOperation.this[object[] x]

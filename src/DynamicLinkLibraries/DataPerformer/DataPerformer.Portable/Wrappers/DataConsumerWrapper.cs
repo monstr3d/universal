@@ -56,7 +56,7 @@ namespace DataPerformer.Portable.Wrappers
                 iterator.Reset();
                 Consumer.ResetAll();
                 var rt = Consumer.CreateRuntime(null);
-                var act = () => rt.UpdateAll();
+                Action act = () => { rt.UpdateAll(); };
                 var attr = CustomAttributeExtensions.GetCustomAttribute<IteratorTypeAttribute>
                     (IntrospectionExtensions.GetTypeInfo(iterator.GetType()));
                 if (attr != null)

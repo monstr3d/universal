@@ -12,7 +12,7 @@ namespace Diagram.UI
     /// <summary>
     /// Base conttainer of objects
     /// </summary>
-    public abstract class ObjectContainerBase : Diagram.UI.ObjectContainerPortable, ISerializable
+    public abstract class ObjectContainerBase : Portable.ObjectContainer, ISerializable
     {
         #region Fields
 
