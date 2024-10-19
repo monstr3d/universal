@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Diagram.Portable;
 
 
 
 namespace GeneratedProject
 {
-	public static class EarthMotion
+    public static class EarthMotion
 	{
 
 		 static public bool SuccessLoad { get; private set; } = true;
@@ -1157,7 +1158,7 @@ namespace GeneratedProject
 					arrow = new ArrowLabel9.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+				internal class CategoryArrow : BelongsToCollectionPortable
 				{
 				}
 			}

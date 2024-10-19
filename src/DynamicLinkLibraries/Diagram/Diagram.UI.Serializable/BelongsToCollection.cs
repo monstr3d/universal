@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-using CategoryTheory;
-using Diagram.UI.Interfaces;
 
 namespace Diagram.UI
 {
@@ -12,7 +7,7 @@ namespace Diagram.UI
     /// The belongs to collection link
     /// </summary>
     [Serializable()]
-    public class BelongsToCollection : BelongsToCollectionPortable, ISerializable
+    public class BelongsToCollection : Portable.BelongsToCollection, ISerializable
     {
  
         #region Ctor

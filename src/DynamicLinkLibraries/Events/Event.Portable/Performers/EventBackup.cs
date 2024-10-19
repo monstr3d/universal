@@ -11,6 +11,7 @@ using DataPerformer.Interfaces;
 using Event.Interfaces;
 using Event.Portable.Interfaces;
 using Event.Portable;
+using Diagram.UI.Portable;
 
 namespace Event.Portable.Performers
 {
@@ -54,7 +55,7 @@ namespace Event.Portable.Performers
             IDesktop desktop = collection.Desktop.Root;
             IList<ICategoryObject> l = collection.GetAll<ICategoryObject>();
             IRealtimeStart rst = null;
-            desktop.ForEach((BelongsToCollectionPortable arrow) =>
+            desktop.ForEach((BelongsToCollection arrow) =>
             {
                 ICategoryArrow a = arrow;
                 var s = a.Source;

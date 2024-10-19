@@ -5,6 +5,7 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI;
+using Diagram.UI.Portable;
 
 using BaseTypes.Attributes;
 
@@ -136,7 +137,7 @@ namespace Event.Portable
             Func<object, bool> stop = (object o) => { return false; };
             IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
             object l = null;
-            desktop.ForEach((BelongsToCollectionPortable b) =>
+            desktop.ForEach((BelongsToCollection b) =>
             {
                 ICategoryArrow a = b;
                 var s = a.Source;

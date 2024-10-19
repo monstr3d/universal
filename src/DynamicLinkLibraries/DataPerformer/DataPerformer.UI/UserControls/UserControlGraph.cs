@@ -849,7 +849,7 @@ namespace DataPerformer.UI.UserControls
             {
                 IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
                 IIterator iterator = null;
-                desktop.ForEach((BelongsToCollectionPortable b) =>
+                desktop.ForEach((Diagram.UI.Portable.BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;
@@ -873,7 +873,7 @@ namespace DataPerformer.UI.UserControls
             {
                 object l = null;
                 IDesktop desktop = (consumer as IAssociatedObject).GetRootDesktop();
-                desktop.ForEach((BelongsToCollectionPortable b) =>
+                desktop.ForEach((BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;
@@ -882,7 +882,8 @@ namespace DataPerformer.UI.UserControls
                     {
                         if (t is LogHolder log)
                         {
-                            (log as IAssociatedObject).Prepare(true);
+                            IAssociatedObject ass = log;
+                            ass.Prepare(true);
                             l = log.Reader;
                         }
                     }

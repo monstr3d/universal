@@ -38,10 +38,9 @@ namespace DataPerformer.Portable
         protected event Action onChangeInput;
 
         /// <summary>
-        /// Interrupted excfeption
+        /// Interrupted exception
         /// </summary>
         public const string Interrupted = "Interrupted";
-
 
         /// <summary>
         /// Error message of variables shortage
@@ -78,7 +77,6 @@ namespace DataPerformer.Portable
         /// </summary>
         protected byte[] comments = new byte[0];
 
-
         /// <summary>
         /// Start
         /// </summary>
@@ -94,12 +92,24 @@ namespace DataPerformer.Portable
         /// </summary>
         protected int steps = 2;
 
+        /// <summary>
+        /// Children
+        /// </summary>
         protected IAssociatedObject[] children = [ new Diagram.UI.Objects.EmptyAddRemove() ];
 
+        /// <summary>
+        /// Events
+        /// </summary>
         protected List<IEvent> events = new ();
 
+        /// <summary>
+        /// Calculation reason
+        /// </summary>
         protected string calculationReason = "";
 
+        /// <summary>
+        /// Time measurement
+        /// </summary>
         private IMeasurement timeMeasurement = null;
 
         #endregion

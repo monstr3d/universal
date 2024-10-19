@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using Diagram.UI.Interfaces;
+
 
 namespace Diagram.UI
 {
@@ -22,9 +19,9 @@ namespace Diagram.UI
         {           
             List<string> l = new List<string>();
             string str = null;
-            if (obj is BelongsToCollectionPortable)
+            if (obj is Portable.BelongsToCollection)
             {
-                str = "Diagram.UI.BelongsToCollectionPortable";
+                str = "Diagram.UI.Portable.BelongsToCollectionPortable";
             }
             if (str != null)
             {

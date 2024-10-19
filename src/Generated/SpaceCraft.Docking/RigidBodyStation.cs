@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Diagram.Portable;
 
 
 
 namespace GeneratedProject
 {
-	public  class RigidBodyStation : Diagram.UI.PureDesktop
+    public  class RigidBodyStation : Diagram.UI.PureDesktop
 	{
 		public RigidBodyStation()
 		{
@@ -7542,7 +7543,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel36.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+			internal class CategoryArrow : BelongsToCollectionPortable
 			{
 			}
 		}
@@ -7633,7 +7634,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel43.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+			internal class CategoryArrow : BelongsToCollectionPortable
 			{
 			}
 		}
@@ -7646,7 +7647,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel44.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+			internal class CategoryArrow : BelongsToCollectionPortable
 			{
 			}
 		}
@@ -7685,7 +7686,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel47.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+			internal class CategoryArrow : BelongsToCollectionPortable
 			{
 			}
 		}
@@ -7698,7 +7699,7 @@ namespace GeneratedProject
 				arrow = new ArrowLabel48.CategoryArrow();
 			}
 	
-			internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+			internal class CategoryArrow : BelongsToCollectionPortable
 			{
 			}
 		}

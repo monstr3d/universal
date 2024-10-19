@@ -7,6 +7,7 @@ using BaseTypes.Attributes;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Portable;
 
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
@@ -683,7 +684,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             {
                 object l = null;
                 IDesktop desktop = this.GetRootDesktop();
-                desktop.ForEach((BelongsToCollectionPortable b) =>
+                desktop.ForEach((BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;
@@ -707,7 +708,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             {
                 IIterator iterator = null;
                 IDesktop desktop = this.GetRootDesktop();
-                desktop.ForEach((BelongsToCollectionPortable b) =>
+                desktop.ForEach((BelongsToCollection b) =>
                 {
                     ICategoryArrow a = b;
                     var s = a.Source;

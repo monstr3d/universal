@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 
 using CategoryTheory;
-
+using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-namespace Diagram.UI
+namespace Diagram.UI.Portable
 {
     /// <summary>
     /// The belongs to collection link
     /// </summary>
-    public class BelongsToCollectionPortable : ICategoryArrow, IDisposable
+    public class BelongsToCollection : ICategoryArrow, IDisposable
     {
         #region Fields
 
@@ -36,7 +36,7 @@ namespace Diagram.UI
         /// <summary>
         /// Default constructor
         /// </summary>
-        public BelongsToCollectionPortable()
+        public BelongsToCollection()
         {
 
         }
@@ -79,7 +79,7 @@ namespace Diagram.UI
                 CategoryException.ThrowIllegalTargetException();
             }
         }
-        
+
         /// <summary>
         /// The associated object
         /// </summary>
@@ -91,7 +91,7 @@ namespace Diagram.UI
 
         void IDisposable.Dispose()
         {
-            if ((source != null) & (target != null))
+            if (source != null & target != null)
             {
                 source.Remove(target);
                 source = null;
