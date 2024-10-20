@@ -19,7 +19,7 @@ namespace Diagram.UI
         {           
             List<string> l = new List<string>();
             string str = null;
-            if (obj is Portable.BelongsToCollection)
+            if (obj is BelongsToCollection)
             {
                 str = "Diagram.UI.Portable.BelongsToCollection";
             }
@@ -30,9 +30,9 @@ namespace Diagram.UI
                 l.Add("}");
                 return l;
             }
-            if (obj is Diagram.UI.Portable.ObjectContainer oc)
+            if (obj is ObjectContainer oc)
             {
-                l.Add("Diagram.UI.Portable.ObjectContainer");
+                l.Add(" Diagram.UI.Portable.ObjectContainer");
                 l.Add("{");
                 l.Add("\tinternal CategoryObject(Diagram.UI.Labels.IObjectLabel label) : base(null)");
                 l.Add("\t{");

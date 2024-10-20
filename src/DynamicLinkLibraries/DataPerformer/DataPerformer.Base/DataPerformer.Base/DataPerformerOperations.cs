@@ -49,7 +49,7 @@ namespace DataPerformer
         #region Specific Members
 
         /// <summary>
-        /// Trasformation
+        /// Transformation
         /// </summary>
         /// <param name="input">Input</param>
         /// <param name="output">Output</param>
