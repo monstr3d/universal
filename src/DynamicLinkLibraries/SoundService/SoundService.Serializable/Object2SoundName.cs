@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace SoundService.Serializable
 {
     /// <summary>
-    /// Convereter of digit to sound
+    /// Converter of digit to sound
     /// </summary>
     [Serializable()]
     public class Object2SoundName : SoundService.Object2SoundName, ISerializable

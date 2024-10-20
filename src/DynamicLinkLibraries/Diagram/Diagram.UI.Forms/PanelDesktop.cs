@@ -1792,7 +1792,7 @@ namespace Diagram.UI
 
   
         /// <summary>
-        /// Adds convereter for drag
+        /// Adds converter for drag
         /// </summary>
         /// <param name="converter">The converter to add</param>
         public void Add(ICategoryObjectConverter converter)

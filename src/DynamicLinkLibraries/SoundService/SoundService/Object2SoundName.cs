@@ -12,7 +12,7 @@ using DataPerformer.Interfaces;
 namespace SoundService
 {
     /// <summary>
-    /// Convereter of digit to sound
+    /// Converter of digit to sound
     /// </summary>
     public class Object2SoundName : CategoryObject, 
         IDataConsumer, IMeasurements, IPostSetArrow
@@ -167,7 +167,7 @@ namespace SoundService
             outMea = new IMeasurement[n];
             for (int i = 0; i < n; i++)
             {
-                var func = ConvertDouble;
+                Func<object, string> func = ConvertDouble;
                 var m = this.FindMeasurement(inputs[i], false);
                 var k = i;
                 Func<object> f = () =>

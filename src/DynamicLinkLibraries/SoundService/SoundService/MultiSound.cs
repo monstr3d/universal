@@ -10,13 +10,14 @@ using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 
 using Event.Interfaces;
+using System.Xml.Linq;
 
 namespace SoundService
 {
     /// <summary>
     /// Multiple sound
     /// </summary>
-    [CalculationReasons([StaticExtensionEventInterfaces.Realtime, "Testing"])]
+    [CalculationReasons(new string[] { StaticExtensionEventInterfaces.Realtime, "Testing" })]
     public class MultiSound  : CategoryObject, 
         IDataConsumer, IPostSetArrow, ITimeMeasurementConsumer, IRealtimeUpdate, 
         IStopped, IStarted
