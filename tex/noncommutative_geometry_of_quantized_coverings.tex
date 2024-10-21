@@ -14397,7 +14397,17 @@ where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom
 \paragraph*{}
 If $A$ is a stable $C^*$-algebra (cf. Definition \ref{stable_ca_defn}) then according to \cite{blackadar:ko} any unitary element $u\in M\left( A\right)$ or $u\in M\left( A\right)/A$ yields an element of  $K$-groups of $A$ (cf. Corollary \ref{stable_k_cor}). Otherwise sometimes the element $u$ can define a noncommutative covering of $A$. This circumstance yields an interaction between noncommutative coverings and $K$-theory. This interaction is similar   Hurewicz homomorphism from homotopic groups to homology ones.
 \begin{empt}\label{h_pre_empt}
-	If  $A$ is a   $C^*$-algebra, and  $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation then !!!! DEFT !!!  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$. Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is partial isometry such that $v^n \in \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there on has finitely generated left $M\left(A \right)$-module 
+	Let  $A$ be  a   $C^*$-algebra and suppose that there is a fundamental group $\pi_1\left(A\right)$.  If $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a finite fold noncommutative covering then from the Definition \ref{good_defn} it turns out that there is the natural surjective homomorphism
+	\be\label{fundamental_gr_hom_eqn}
+	h_{\widetilde A} : \pi_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
+	\ee
+	 Suppose that both Abelian groups $K_0\left(A \right)$ and  $K_1\left(A \right)$ are finitely generated 	 and consider the equation \eqref{uct_c}, i.e.
+	 
+	 	\begin{equation}\label{uct_ch_eqn}
+	 	\mathrm{\Ext}^1(K_0(A), \mathbb{Z}) \xrightarrow{\psi} K^1(A) \xrightarrow{\varphi} \mathrm{Hom}(K_1(A), \mathbb{Z})).
+	 \end{equation}
+	 
+	 and  $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation then !!!! DEFT !!!  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$. Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is partial isometry such that $v^n \in \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there on has finitely generated left $M\left(A \right)$-module 
 	$$
 	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
 	$$
@@ -14408,7 +14418,7 @@ If $A$ is a stable $C^*$-algebra (cf. Definition \ref{stable_ca_defn}) then acco
 	\eean 
 	If one has
 
-				\be
+				\be\label{h_gr_eqn}
 				\begin{split}
 G \bydef \left\{ \left.g \in \Aut\left(\widetilde{M} \right)~\right|\forall a \in \widetilde \lift\left(  M\left(  A\right)\right)  \quad ga = a\right\} \cong \Z_n,
 \\\forall \overline k \in \Z_n\quad \overline k v = e^{\frac{2\pi i k}{n}}v
@@ -14428,18 +14438,57 @@ where an injective $*$-homomorphism $\lift : A \hookto \widetilde A$ comes from 
 Under the hypothesis  \ref{h_pre_empt} if $u \bydef v^n$ the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u,v, n\right)$-\textit{covering}.
 \end{definition}
 
-\begin{definition}
-Suppose that there is $x\in K_1\left(A \right)$ such that the cyclic group $\Z x\cong \Z$  and there is no $y\in K_1\left(A \right)$ with $x = ky$ where $k > 1$. Suppose that $x= [u]$ with $u \in M\left(A \right)$ and there is a set $\left\{v_{j}\right\}_{j \in \N}\subset B\left(\H \right)$ with
+\begin{empt}
+Suppose that there is $x\in K_1\left(A \right)$ such that $\Z x\cong \Z$  and there is no $y\in K_1\left(A \right)$ with $x = ky$ where $k > 1$. Suppose that $x= [u]$ with $u \in M\left(A\otimes K \right)$ and there is a set $\left\{v_{m}\right\}_{j \in \N}\subset B\left(\H \right)$ with
+\be\label{h_vm_eqn}
+v_m^m =\pi\left(u \right),\\
+\forall m, l \in \N \quad v_{jm}^m = v_j. 
+\ee
+If for any $j \in \N$ there is a $\left(u,v_j, j\right)$-covering then we say that $x$ \textit{complies with Hurewicz homomorphism}. Denote by $K_1\left(A \right)_{H}\subset K_1\left(A \right)$ a set of elements which complies with Hurewicz homomorphism. If 
 \bean
-v_j^j =\pi\left(u \right),\\
-\forall j, l \in \N \quad v_{jl}^l = v_j. 
+K^1\left( A\right)_{\perp} \bydef \left\{\left.z \in K^1\left( A\right)\right| \forall x \in K^1\left(A \right)_{H} \quad \varphi(z)(x) = 0 \right\}, \\
+K^1\left( A\right)_\parallel\bydef K^1\left( A\right)/K^1\left( A\right)_\perp
 \eean
-If for any $j \in \N$ there is a $\left(u,v_j, j\right)$-covering then we say that $x$ \textit{complies with Hurewicz homomorphism}. Denote by $K_1\left(A \right)_{H}\subset K_1\left(A \right)$ a set of elements which complies with Hurewicz homomorphism, and let
+where $\varphi$ is given by \eqref{uct_c_eqn} then $K^1\left( A\right)_\parallel$ is a free Abelian group generated by representatives of elements of $K_1\left(A \right)_{H}$. Let $\left\{x_1, ..., x_n\right\}\in K_1\left(A \right)_{H}$ be such that
+\be\label{h_ds_eqn}
+K^1\left( A\right)_\parallel = \Z \overline x_1 \oplus ...\oplus  \Z \overline x_n
+\ee
+where $\overline x_j$ is represented by $x_j$  for any $j =1, ..., n$, Let $x \in  \left\{x_1, ..., x_n\right\}$ and $x= [u]$ with $u \in M\left(A\otimes \K \right)$. For any $m \in \N$ let 
 $$
-K^1\left( A\right)_{\perp} \bydef \left\{\left.z \in K^1\left( A\right)\right| \forall x \in K^1\left(A \right)_{H} \quad \varphi(z)(x) = 0 \right\}
+\left(A, A_m, \Z_m, \lift_m \right) 
 $$
-We say that $K^1\left( A\right)_H\bydef K^1\left( A\right)/K^1\left( A\right)_\perp$ is \textit{the free image of the Hurewicz homomorphism}.
+there is a required by the Definition \ref{hurewicz_u_n_defn}. yields a character  
+ If $h_{m} : \pi_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then  homomorphism then any $g \in \pi_1\left(A\right)$ yields a character
+ \bean
+ \chi_m : \Z \overline x \to \sU\left( 1\right),\\
+ k  \overline x_1 \mapsto \frac{h_m\left( g\right) v^k_m}{v_m} 
+ \eean 
+ where $v_m$ satisfies to \eqref{h_vm_eqn} (cf. \eqref{h_gr_eqn}). If $\Q\overline x \bydef \Q \otimes_\Z \Z \overline x$ then there is a character
+ \bean
+ \chi_\Q:  \Q\overline x \to \sU\left( 1\right),\\
+ \forall a, b \in \N \quad \frac{a}{b}\overline x_1\mapsto \frac{\chi_a\left(\overline x_1 \right) }{\chi_b\left(\overline x_1 \right)}
+ \eean 
+If $\R\overline x \bydef \R \otimes_\Z \Z \overline x$ then $ \chi_\Q$ can be uniquely extended up to a continuous character $\chi_\R:  \R\overline x \to \sU\left( 1\right)$. From the Theorem \ref{top_alg_thm} it follows that $\chi_\R$ yields a functional $f^\R_g : \R\overline x \to \R$. One can prove that $f^\R_g\left( \Z \overline x \right) \subset \Z$ so there is a homomorphism $f_g : \Hom \left( \Z \overline x , \Z\right)$. Using the direct sum one can construct homomorphisms 
+\bean
+K^1\left( A\right)_\parallel \to \Z,
+\rho_g : K^1\left( A\right) \to \Z
+\eean
+The map
+\be\label{h_free_eqn}
+\begin{split}
+h_{\mathrm{free}} : \pi_1\left(A \right) \to \Hom\left(  K^1\left( A\right), \Z\right),\\
+g \mapsto \rho_g. 
+\end{split}
+\ee
+ 
+\end{empt}
+
+\begin{definition}\label{h_free_defn}
+We say that the map given by \eqref{h_free_eqn}	is the \textit{free Hurewicz homomorphism}.
 \end{definition}
+\begin{remark}
+	The formula \eqref{uct_ch_eqn} is the motivation of the Definition \ref{h_free_defn}.
+\end{remark}
 
 \begin{definition}\label{h_covering_defn}
 Suppose that
@@ -14499,39 +14548,6 @@ $$
 \left( \underbrace{ p^{s_1},...,  p^{s_1}}_{H\left( p^{s_1}\right)\mathrm{-times}},..., \underbrace{ p^{s_n},...,  p^{s_n}}_{H\left( p^{s_n}\right)\mathrm{-times}}\right)
 $$
 \end{definition}
-	
-\paragraph{title}
-called the \textit{torsion subgroup} of $A$. 
-The torsion subgroup of $A$ is denoted by $A_{\mathrm{tor}}$.
-A finitely generated torsion Abelian group is obviously finite.  If A is an Abelian group and $p$ a prime number, 
-we denote by $A(p)$ the subgroup of all elements $x\in A$ whose period is a power 
-of $p$. Then $A(p)$ is a torsion group, and is a $p$-\textit{group} if it is finite. 
-\begin{theorem}\label{alg_fin_gen_ab_fin_thm!}\cite{lang}
-	%Theorem 8.1 
-	Let $A$ be a torsion Abelian group. Then $A$ is the direct sum of 
-	its subgroups $A(p)$ for all primes $p$ such that $A(p)\neq\{0\}$. 
-\end{theorem}
-A finite $p$-group A is said to be of {type} $\left(p^{r_1}, ...,p^{r_s} \right)$ 
-if $A$ is isomorphic to the product of cyclic groups of orders $p^{r_j}~ (j = 1,..., s)$.
-\begin{theorem}\label{alg_finp_gen_ab_fin_thm!}\cite{lang}
-	%Theorem 8.2. 
-	Every finite Abelian $p$-group is isomorphic to a product of 
-	cyclic $p$-groups. If it is of type $\left(p^{r_1}, ...,p^{r_s} \right)$ with 
-	$$
-	r_1 \ge r_2\ge ...\ge r_s
-	$$
-	then the sequence of integers $\left( r_1,..., r_s\right)$  is uniquely determined.
-\end{theorem}
-\begin{theorem}\label{alg_fin_gen_ab_inf_thm!}\cite{lang}
-	%Theorem 8.5. 
-	Let A be a finitely generated Abelian group, and let $A_{\mathrm{tor}}$ be 
-	the subgroup consisting of all elements of $A$ having finite period. Then $A_{\mathrm{tor}}$ is 
-	finite, and $A/A_{\mathrm{tor}}$ is free. There exists a free subgroup $B$ of $A$ such that $A$ is the 
-	direct sum of $A_{\mathrm{tor}}$ and $B$. 
-\end{theorem}
-
-	
-\paragraph{title}	
 	
 	
 	
@@ -14720,7 +14736,7 @@ is isomorphic to a vector space $\Q^k$. Moreover the image of the  natural inclu
 \ee
 such that $K_1\left( A\right)_{\mathrm{free~spec}}\subset \ker \chi_g$. It is explained in \cite{weil:basic_number_theory} that there is a unique $x_g \in \Hom\left( \Q^k, \Q\right)$ such that $\chi_g\left(y \right) = \chi\left(x_g\left(y \right)  \right)$. Moreover  from  $\Z^k\subset \ker \chi_g$ it turns out that $x_g\in \Hom\left( \Z^k, \Z\right)   \cong \Hom\left(K_1\left( A\right)_{\mathrm{free~spec}} , \Z\right)\subset \Hom\left(K_1\left( A\right), \Z\right)$. 
 In result one has the \textit{free Hurewicz homomorphism}
-\be\label{h_free_eqn}
+\be\label{h_free_eqn!} !!! DELETE
 h^{\widetilde A_{\mathrm{free}}}_{\mathrm{free}} : G_{\text{free}}=G\left( \left. \widetilde A_{\text{free}}\right| A_{\text{tors}}\right) \to \Hom\left(K_1\left( A\right), \Z  \right) 
 \ee
 \begin{exercise}
@@ -20333,7 +20349,7 @@ The left  (resp. right) action of $\La$ on $\widetilde{\La}$ we define as left  
 
 
  Otherwise in \cite{auslander:galois} it is proven that if $\widetilde{\La}$ is a finitely generated, projective $\La$-module then there is an  equivalence between a category $\mathscr{M}_{\La}$ of $\La$-modules and the category $\mathscr{M}_{\widetilde{\La}\left[ G\right]}$ (cf. Definition \ref{category_equivalence_definition}). It turns out that the category $\mathscr{M}^G_{\widetilde{\La}}$ is equivalent to the category $\mathscr{M}_{\La}$. The equivalence is given by mutually inversed functors $\left( -\right) \otimes \widetilde{\La}: \mathscr{M}_{\La} \to \mathscr{M}^G_{\widetilde{\La}}$ and $\left( -\right) ^G: \mathscr{M}^G_{\widetilde{\La}}\to \mathscr{M}_{\La}$.
-	\section{Topological and algebraical dual}
+	\section{Topological and algebraic dual}\label{top_alg_dual_sec}
 \paragraph{} For any locally compact group $G$  field one can define its \textit{topological dual} $G^*$ as a space of of characters. For any vector space $V$ there is \textit{algebraic dual} space of linear functionals (cf. \cite{weil:basic_number_theory})
 \begin{theorem}\label{top_alg_thm}\cite{weil:basic_number_theory}
 %THEOREM 3. 
