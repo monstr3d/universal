@@ -24,9 +24,11 @@ namespace Scripts.Specific
         float rollAmplitude = 1, pitchAmplitude = 1,
             pitchXOffSet = 0, pitchYOffSet = 0;
 
-        Func<double>[] omegas = new Func<double>[2];
+        Func<double?>[] omegas = new Func<double?>[2];
 
         int[] om = new int[2];
+
+        RealMatrixProcessor.RealMatrix rm = new();
 
         float pasX;
 
@@ -95,9 +97,12 @@ namespace Scripts.Specific
         void UpdateInternal()
         {
             float amp = 100;
+            var o = new object[] { omegas[0](), omegas[1]() };
+            var x = rm.Convert<double>(o);
+            if (x == null) return;
             for (int i = 0; i < 2; i++)
             {
-                om[i] = Math.Sign(omegas[i]());
+                om[i] = Math.Sign(x[i]);
             }
             Vector2 p = new Vector2(lpos.x + om[0] * amp, lpos.y + om[1] * amp);
             if (!p.Equals(path.localPosition))

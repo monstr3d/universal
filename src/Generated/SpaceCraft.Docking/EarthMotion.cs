@@ -19,7 +19,7 @@ namespace GeneratedProject
 			{
 				objects.Add(new InternalDesktop.OblectLabel0("Motion", this));
 				objects.Add(new InternalDesktop.OblectLabel1("Linear", this));
-				objects.Add(new InternalDesktop.OblectLabel2("Orbit roration 1", this));
+				objects.Add(new InternalDesktop.OblectLabel2("Orbit rotation 1", this));
 				objects.Add(new InternalDesktop.OblectLabel3("Orbit rotation 2", this));
 				objects.Add(new InternalDesktop.OblectLabel4("Earth", this));
 				objects.Add(new InternalDesktop.OblectLabel5("Timer", this));
@@ -141,10 +141,10 @@ namespace GeneratedProject
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"q", (double)0.10000000000000001 },
-							{"b", (double)0.10000000000000001 },
-							{"a", (double)5 },
 							{"c", (double)-0.20000000000000001 },
+							{"a", (double)5 },
+							{"b", (double)0.10000000000000001 },
+							{"q", (double)0.10000000000000001 },
 							{"p", (double)0.10000000000000001 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()

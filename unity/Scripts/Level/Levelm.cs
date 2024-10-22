@@ -22,6 +22,10 @@ namespace Scripts.Level
 
         #region Fields
 
+        protected Vector3DProcessor vp = new();
+
+        protected RealMatrixProcessor.RealMatrix rm = new();
+
         protected EulerAngles angles = new EulerAngles();
 
         protected ReferenceFrame frame;
@@ -49,11 +53,11 @@ namespace Scripts.Level
 
         protected IScadaInterface scada;
 
-        protected Func<double> fx;
+        protected Func<double?> fx;
 
-        protected Func<double> fy;
+        protected Func<double?> fy;
 
-        protected Func<double> fz;
+        protected Func<double?> fz;
 
         protected Action<double> ax;
 

@@ -21,6 +21,10 @@ public class ResultIndicator : MonoBehaviour
 
     #region Fields
 
+    protected static RealMatrixProcessor.RealMatrix rm = new();
+
+    protected static Vector3DProcessor vp = new();
+
     Action update;
 
     IScadaInterface scada;
@@ -134,7 +138,7 @@ public class ResultIndicator : MonoBehaviour
         yz = null;
         delta = null;
         Array.Copy(frame.Position, spos, 3);
-        double d = RealMatrixProcessor.RealMatrix.Norm(spos);
+        double d = rm.Norm(spos);
         if (d > 0.1)
         {
             return null;
@@ -142,7 +146,7 @@ public class ResultIndicator : MonoBehaviour
         Array.Copy(frame.Quaternion, sori, 4);
         Array.Copy(v.Velocity, svel, 3);
         Array.Copy(av.Omega, somega, 3);
-        angles.Set(sori);
+        vp.Set(angles, sori);
         string s = CheckResult("Y", spos[1], Constants[0], 100);
         {
             if (s != null)
@@ -260,7 +264,7 @@ public class ResultIndicator : MonoBehaviour
         rt.sizeDelta = new Vector2(rt.rect.width, 850f);
         Text text = res.GetComponentsInChildren<Text>(true)[0];
         EulerAngles angles = new EulerAngles();
-        angles.Set(ori);
+        vp.Set(angles, ori);
         string s = "Deviations\nY\t";
         s += GetResult(pos[1], parameters[0], 100, "0.0");
         s += "\nZ\t" + GetResult(pos[0], parameters[0], 100, "0.0");

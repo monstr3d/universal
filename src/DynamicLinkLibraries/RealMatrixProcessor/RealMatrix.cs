@@ -9,6 +9,27 @@ namespace RealMatrixProcessor
     public class RealMatrix
     {
         /// <summary>
+        /// Conversion of arrays
+        /// </summary>
+        /// <typeparam name="T">Type of output</typeparam>
+        /// <param name="objects">Input</param>
+        /// <returns>Output</returns>
+        public T[] Convert<T>(object[] objects)
+        {
+            var x = new T[objects.Length];
+            for (int i = 0; i < objects.Length; i++)
+            {
+                var o = objects[i];
+                if (o == null)
+                {
+                    return null;
+                }
+                x[i] = (T)o;
+            }
+            return x;
+        }
+
+        /// <summary>
         /// Normalization of vector
         /// </summary>
         /// <param name="inp">Input</param>

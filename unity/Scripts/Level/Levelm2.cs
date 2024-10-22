@@ -34,7 +34,9 @@ namespace Scripts.Level
         private void Levelm2_Event()
         {
             double[] p = frame.Position;
-            var l = fx();
+            var lp = fx();
+            if (lp == null) return;
+            var l = lp.Value;
             if (Math.Abs(p[2]) < 0.01 & last != l)
             {
                 ev.Event -= Levelm2_Event;

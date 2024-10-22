@@ -1,4 +1,11 @@
-﻿using Unity.Standard;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+
+using UnityEngine;
+
+using Unity.Standard;
 
 using Scada.Interfaces;
 
@@ -14,6 +21,8 @@ public class Activation : MonoBehaviour
 
 
     public string activation = "";
+
+    public bool mirror = false;
 
     public float delay = 0.1f;
 
@@ -46,6 +55,9 @@ public class Activation : MonoBehaviour
 
     static Type type;
 
+    static Activation staticActivation;
+
+    static internal Activation StaticActivation { get => staticActivation; }
  
     #endregion
 
@@ -53,6 +65,7 @@ public class Activation : MonoBehaviour
 
     private void Awake()
     {
+        staticActivation = this;
         StaticExtensionUnity.GlobalScale = globalScale;
         StaticExtensionUnity.Activation = this;
         if (activation != null)

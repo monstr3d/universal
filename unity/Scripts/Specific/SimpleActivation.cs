@@ -288,6 +288,7 @@ namespace Scripts.Specific
 
         Type IActivation.GetActivationType(int level)
         {
+            return null;
         }
 
         void IActivation.PostActivate(MonoBehaviour[] monoBehaviours)

@@ -19,6 +19,7 @@ using Vector3D;
 using Unity.Standard;
 
 using Unity.Standard.Interfaces;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 
 public class ReferenceFrameBehavior : MonoBehaviour
@@ -115,8 +116,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Action lateUpdate;
 
-    double[,] orientation = new double[3, 3];
-    double[,] aux = new double[4, 4];
     double[] quaternion = new double[4];
 
 
@@ -150,9 +149,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Camera owncamera;
 
-   
-
-
 
     #endregion
 
@@ -172,8 +168,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
    
     private void Awake()
     {
-        CreateRotation();
-
         globalScale = StaticExtensionUnity.GlobalScale;
         this.Add();
         MonoBehaviourTimerFactory.OnStart +=
@@ -184,7 +178,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
                     SetConstants();
                     constants = new string[0];
                 }
-                Action act = UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
+                var mirror = Activation.StaticActivation.mirror;
+                Action act = mirror ? UpdateGlobalScalePositionMirror : UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
                 if (owncamera != null)
                 {
                     lateUpdate = act;
@@ -211,11 +206,17 @@ public class ReferenceFrameBehavior : MonoBehaviour
             Camera = cameras[transformation];
             frame = motion6D.GetFrame(Camera);
         }
-        else
+        else if (motion6D.Frames.ContainsKey(transformation))
         {
             var frames = motion6D.Frames;
             frame = frames[transformation];
             Camera = motion6D.GetCamera(frame);
+        }  
+        else
+        {
+            IScadaInterface s = motion6D;
+            var pos = s.GetObject<IPosition>(transformation);
+            frame = pos.Parent;
         }
         referenceFrame = frame.Own;
         owncamera = gameObject.GetComponent<Camera>();
@@ -364,33 +365,27 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
     */
 
-    void UpdateGlobalCameraPosition()
+
+
+    void UpdateGlobalScalePositionMirror()
     {
-        //var q = referenceFrame.ToRotatedQuaternion(yRotCamera, zRot);
-        var q = referenceFrame.ToQuaternion();
-        gameObject.transform.rotation = q;
-        var p = referenceFrame.Position.ToPosition();
-        gameObject.transform.position = p * globalScale;
+        SetPositionMirror(referenceFrame);
+        SetOrientationMirror(referenceFrame);
     }
 
     void UpdateGlobalScalePosition()
     {
-        //var q = referenceFrame.ToRotatedQuaternion(yRotObject, zRot);
-        /* var q = referenceFrame.ToQuaternion();
-         gameObject.transform.rotation = q;
-         var p = referenceFrame.Position.ToPosition();
-         gameObject.transform.position = p * globalScale;*/
         SetPosition(referenceFrame);
-        SetOrientation(referenceFrame);
+        var ori = referenceFrame.Quaternion;
+        Quaternion q = new Quaternion((float)ori[1],
+            (float)ori[2], (float)ori[3], (float)ori[0]);
+        gameObject.transform.rotation = q;
     }
 
-  
-    void SetOrientation(ReferenceFrame frame)
+
+    void SetOrientationMirror(ReferenceFrame frame)
     {
         var ori = frame.Quaternion;
- /*       vp.QuaternionToMatrix(ori, orientation, aux);
-        internalAutomorphism.ProsessItself(orientation);
-        vp.MatrixToQuaternion(orientation, quaternion);*/
         Array.Copy(ori, quaternion, quaternion.Length);
         quaternion[1] = -ori[1];
         quaternion[2] = -ori[2];
@@ -405,21 +400,29 @@ public class ReferenceFrameBehavior : MonoBehaviour
         gameObject.transform.position = vector;
     }
 
+    void SetPositionMirror(ReferenceFrame frame)
+    {
+        var vector = ToPositionMirror(frame.Position);
+        gameObject.transform.position = vector;
+    }
 
-    Vector3 ToPosition(double[] t)
+
+    Vector3 ToPositionMirror(double[] t)
     {
         return new Vector3((float)t[0], (float)t[1], -(float)t[2]);
     }
 
- 
 
-    void CreateRotation()
+    Vector3 ToPosition(double[] t)
     {
- 
-
+        return new Vector3((float)t[0], (float)t[1], (float)t[2]);
     }
 
- 
+
+
+
+
+
 
     void UpdateJump()
     {
