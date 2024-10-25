@@ -178,7 +178,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
                     SetConstants();
                     constants = new string[0];
                 }
-                var mirror = Activation.StaticActivation.mirror;
+                var mirror = StaticExtensionUnity.Activation.mirror;
                 Action act = mirror ? UpdateGlobalScalePositionMirror : UpdateGlobalScalePosition;// (globalScale == 1f) ? UpdatePosition : UpdateGlobalScalePosition;
                 if (owncamera != null)
                 {

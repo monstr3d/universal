@@ -55,19 +55,24 @@ public class Activation : MonoBehaviour
 
     static Type type;
 
-    static Activation staticActivation;
 
-    static internal Activation StaticActivation { get => staticActivation; }
- 
+    #endregion
+
+    #region Ctor
+
+  
     #endregion
 
     #region Standard Members
 
     private void Awake()
     {
-        staticActivation = this;
-        StaticExtensionUnity.GlobalScale = globalScale;
+        if (StaticExtensionUnity.Activation != null)
+        {
+            throw new Exception();
+        }
         StaticExtensionUnity.Activation = this;
+        StaticExtensionUnity.GlobalScale = globalScale;
         if (activation != null)
         {
             if (activation.Length > 0)
