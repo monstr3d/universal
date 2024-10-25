@@ -224,7 +224,7 @@ public class OutputController : MonoBehaviour
             return;
         }
         var factory = StaticExtensionUnity.ReplaceActionFactory;
-        Dictionary<string, ConstructorInfo> constructors =
+        var  constructors =
             StaticExtensionUnity.updatesGameObject;
         foreach (var key in allparameters.Keys)
         {

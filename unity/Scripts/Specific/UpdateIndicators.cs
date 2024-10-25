@@ -7,8 +7,11 @@ using Scada.Interfaces;
 
 using Unity.Standard.Abstract;
 using Unity.Standard.Interfaces;
+using Unity.Standard;
 
-namespace Unity.Standard
+using Scripts.Specific;
+
+namespace Unity.Specific
 {
     public class UpdateIndicators : AbstractUpdateGameObject
     {
@@ -48,7 +51,6 @@ namespace Unity.Standard
 
         public override Action Update => updateLocal;
 
-        
 
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
@@ -76,7 +78,7 @@ namespace Unity.Standard
             {
       //          upd += UpdateLimits;
                 update += UpdateLimits;
-                StaticExtensionUnity.OnGlobal += AddClobal;
+                StaticExtensionUnity.OnGlobal += AddGlobal;
             }
         }
 
@@ -91,7 +93,7 @@ namespace Unity.Standard
             update();
         }
 
-        void AddClobal(string global)
+        void AddGlobal(string global)
         {
             if (global.StartsWith("on:"))
             {
@@ -139,9 +141,8 @@ namespace Unity.Standard
 
         void UpdateLimits()
         {
-         /*!!!   limits.StartBlink(blinkDelay, Start, st,
+            limits.StartBlink(blinkDelay, Start, st,
                 ForcesMomentumsUpdate.forcesMomentumsUpdate.AlarmAudio);
-         */
         }
 
         #endregion

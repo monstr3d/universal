@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Runtime.ExceptionServices;
+
 using BaseTypes;
-using CategoryTheory;
+
 using Scada.Desktop;
 
 using Unity.Standard;
@@ -33,7 +33,6 @@ namespace Unity.Standard.Abstract
         protected Action<object> setValue;
  
         protected bool isVisible = true;
-
 
         #endregion
 

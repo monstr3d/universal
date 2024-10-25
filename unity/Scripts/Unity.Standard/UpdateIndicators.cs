@@ -5,12 +5,8 @@ using UnityEngine;
 
 using Scada.Interfaces;
 
-using Scripts;
-
-using Unity.Standard;
 using Unity.Standard.Abstract;
 using Unity.Standard.Interfaces;
-using Scripts.Specific;
 
 namespace Unity.Standard
 {
@@ -143,8 +139,9 @@ namespace Unity.Standard
 
         void UpdateLimits()
         {
-            limits.StartBlink(blinkDelay, Start, st,
+         /*!!!   limits.StartBlink(blinkDelay, Start, st,
                 ForcesMomentumsUpdate.forcesMomentumsUpdate.AlarmAudio);
+         */
         }
 
         #endregion

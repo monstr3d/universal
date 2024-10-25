@@ -1,10 +1,9 @@
-﻿using Scada.Desktop;
-using Scada.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Scada.Desktop;
+using Scada.Interfaces;
+
 using Unity.Standard.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
