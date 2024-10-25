@@ -940,32 +940,6 @@ The Corollary \ref{inductive_lim_state_nor_cor} is a generalization of the Theor
 \end{remark}
 
 
-\section{Ext-functor and characters}\label{ext_char_sec}
-\paragraph*{}
-Let $A \bydef \Z^n /\Gamma$ be a finite Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
-$$
- \Hom \left(\Z^n, \Z \right)\to \Hom \left(\Ga, \Z\right)
-$$
-and 
-$$
-\Ext\left( A, \Z\right) =  \Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right).
-$$
-Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^n, \Q\right)$. One has a character 
-\bean
-\varphi : \Q^n \to e^{\frac{i\Q}{2\pi}},\\
-x \mapsto e^{\frac{i\psi\left(x \right) }{2\pi}}.
-\eean
- The restriction $\varphi|_{\Z^n}: \Z^n \to e^{\frac{i\Q}{2\pi}}$ is a character on $\Z^n$. From $\phi\left(\Ga \right) \subset  \Z$ it follows that $\varphi|_{\Z^n}\left( \Ga\right) = \{1\}$, i.e. $\varphi|_{\Z^n}$ is trivial on $\Ga$. So $\varphi|_{\Z^n}$ yields a homomorphism $\chi_\phi: \Z^n / \Ga \to e^{\frac{i\Q}{2\pi}}$, i.e. $\chi_\phi$ is a character.  If $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$ then $\phi\left( \Z^n \right) \subset \Z$ and $\varphi|_{\Z^n}$ yields  a trivial character. Otherwise if the character $\varphi|_{\Z^n}$ is trivial then $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$. So any element of   $\Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$ yield a character $\Z^n / \Ga\to e^{\frac{i\Q}{2\pi}}$.
- 
-Conversely a character $\chi : \Z^n/\Ga \to e^{\frac{i\Q}{2\pi}}$ naturally yields a character $\th : \Z^n \to e^{\frac{i\Q}{2\pi}}$. Let $\left(e_1, ..., e_n\right)\subset \Z^n$ be generators of $\Z^n$ and for any $j = 1, ..., n$ we select $\xi_j \in \Q$ such that $\chi\left(e_j\right)=e^{\frac{i\xi_j}{2\pi}}$. Define 
-\bean 
-\varphi: \Z^n \to \Q;\\
-\forall\left(a_1, ..., a_n\right)\in \Z^n\quad \varphi \left( a_1e_1 + ... + a_1e_n\right)  = a_1\xi_1 + ... + a_1\xi_n
-\eean 
-From $\chi\left(\Ga\right)= \{1\}$ it follows that $\varphi\left( \Ga\right) = \Z$ i.e. $\varphi|_\Ga\in \Hom\left(\Ga, \Z \right)$.
-The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$. 
-
-
 \section{Representations of hereditary subalgebras}
 
 
@@ -5937,7 +5911,7 @@ $\left(\widetilde \sU, \widetilde \sV, \widetilde {\mathcal W},\widetilde s, \wi
 \end{definition}
 
 \begin{remark}\label{top_covering_sum_subordinated_rem}
-	From the Lemma \ref{top_a_u_lem} it follows that if the space $\sX$ is Hausdorff, locally compact, and locally connected then for any  $\widetilde x \in \widetilde\sX$ there is a {covering triple $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$  for} $p$ such that $\widetilde x \in \widetilde \sX$. !!! ADD QUADRUPLE 
+	From the Lemma \ref{top_a_u_lem} it follows that if the space $\sX$ is Hausdorff, locally compact, and locally connected then for any  $\widetilde x \in \widetilde\sX$ there is a covering triple $\left(\widetilde \sU, \widetilde \sV, \widetilde s\right)$  and a covering quadruple $\left(\widetilde \sU, \widetilde \sV, \widetilde {\mathcal W},\widetilde s, \widetilde t\right)$  for $p$.
 \end{remark}
 
 
@@ -7857,7 +7831,7 @@ Under the hypotheses \ref{top_a_res_rem} if a subset   $\sY \subset \sX$ is comp
 	\begin{enumerate}
 		\item[(i)]	if $p: \widetilde{\sX} \to \sX$ is a transitive covering then there is the natural injective $*$-homomorphism
 		\be\label{top_mult_inc_eqn}
-		M\left(A\left( p\right)  \right) : M\left( 	A_0\left(\sX \right)\right)  \hookto M\left( A_0\left(\widetilde{\sX}\right)\right),
+		M\left(A_0\left( p\right)  \right) : M\left( 	A_0\left(\sX \right)\right)  \hookto M\left( A_0\left(\widetilde{\sX}\right)\right),
 		\ee
 		\item[(ii)] there is the natural action $G\left(\left.\widetilde{\sX}~\right|\sX\right) \times M\left( A_0\left(\widetilde{\sX}\right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)$,
 		\item[(iii)] 	if $p: \widetilde{\sX} \to \sX$ is a transitive finite-fold covering then 	$M\left(A\left( p\right)  \right)$ induces the following $*$-isomorphism
@@ -7920,18 +7894,18 @@ A_0\left(\widetilde \sX  \right) \bydef C_0\left(\lift_p\left[\sX, \left\{A_x\ri
  If $p: \widetilde\sX_1 \to \widetilde\sX_2$ is a $\mathfrak{FinCov}$-$\sX$ morphism, then
 		\be\label{top_c0p_ob_eqn}
 		\begin{split}
-		A_0\left(p \right) \stackrel{\mathrm{def}}{=} \left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right) 
+		A_0\left(p\right) \stackrel{\mathrm{def}}{=} \left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right) 
 		\end{split}
 				\ee	
 			where $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ is given by the equation \ref{top_fin_lift_eqn}
 \end{empt}
 \begin{definition}\label{top_functor_c_algebra_defn}
-	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $A$. We say that both  the $C^*$-algebra  $A_0\left(\widetilde\sX  \right)$ and the *-homomorphism  is $	A_0\left(p \right)  	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right)$ is  the $p$-\textit{lift} of $A$.
+	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and $*$-homomorphisms is said to by the \textit{finite covering functor associated with} $A$. We say that both  the $C^*$-algebra  $A_0\left(\widetilde\sX  \right)$ and the *-homomorphism  is $	A_0\left(p\right)  	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right)$ is  the $p$-\textit{lift} of $A$.
 \end{definition}
 %\begin{definition}\label{top_lift_a_f_defn}  
-%Under the hypotheses of the Definition \ref{top_functor_c_algebra_defn} we say that both  the $C^*$-algebra  $A_0\left(\widetilde\sX  \right)$ and the *-homomorphism  is $	A_0\left(p \right)  	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right)$ is  the $p$-\textit{lift} of $A$.
+%Under the hypotheses of the Definition \ref{top_functor_c_algebra_defn} we say that both  the $C^*$-algebra  $A_0\left(\widetilde\sX  \right)$ and the *-homomorphism  is $	A_0\left(p\right)  	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right)$ is  the $p$-\textit{lift} of $A$.
 %\end{definition}
-\begin{definition}\label{top_cs_functa_b_defn} !!! MB \ref{top_cb_defnah_eqn} !!!
+\begin{definition}\label{top_cs_functa_b_defn}
 	$A$ be a $C^*$-algebra with connected, locally connected, locally compact, Hausdorff spectrum $\sX$
 	If $p: \widetilde{\sX} \to \sX$ is a transitive covering then we use the following notation for $C^*$-algebras and their injective *-homomorphisms:
 	\be\label{top_cb_defna_eqn}
@@ -8075,16 +8049,9 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defna_eqn} it turns out there is the injective $*$-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
-!!! REPLACE LEMMA !!!
-
 \begin{exercise}\label{comm_lift_desc_sum_exer}  
-!!! CHECK !!!	Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
+Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
 	\begin{enumerate}
-		\item The series
-		$$
-		\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a  = \lift_p\circ \desc_p\left(\widetilde a \right).
-		$$
-		is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( C_0\left(\widetilde\sX\right)\right)$.
 		\item  NOT $C_0$ !!!	If $\widetilde f\in C_0\left(\widetilde\sX\right)_+$ a positive element is such that $\supp  \widetilde f\subset \widetilde \sU$ then one has
 		\be\label{top_desc_fin_eqn}
 		\widetilde f= \sqrt{ \widetilde f}\sqrt{ \desc_p\left( \widetilde f\right) }.
@@ -8107,8 +8074,8 @@ where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically
 		\item $A_0\left(\widetilde \sX  \right)$ means a functor, 
 		\item $C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)$ is a specialization of the Definition \ref{top_lift_main_defn}.
 	\end{enumerate} 
-	Henceforth both roles and both notations will be used. Similar words we can say about maps 	$A_0\left(p \right) $ and  $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ (cf. equation \eqref{top_c0p_ob_eqn}).
-	Later  we will  consider  generalizations of both $A_0\left(\widetilde \sX  \right)$ and $A_0\left(p \right) $ and  we will have a similar situation (cf. Remark \ref{blowing_diff_notation_rem}). 
+	Henceforth both roles and both notations will be used. Similar words we can say about maps 	$A_0\left(p\right) $ and  $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ (cf. equation \eqref{top_c0p_ob_eqn}).
+	Later  we will  consider  generalizations of both $A_0\left(\widetilde \sX  \right)$ and $A_0\left(p\right) $ and  we will have a similar situation (cf. Remark \ref{blowing_diff_notation_rem}). 
 \end{rem}
 
 
@@ -10268,55 +10235,6 @@ of the category
 Follows from the construction \ref{top_fin_sec_empt}.
 \end{proof}
 
-\begin{lemma}\label{comm_lift_desc_sum__lem}
-	Let $\sX$ be a connected, locally compact, Hausdorff space, and let $\sF$ be	a continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{operator_fields_continuity_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering such that the group $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\widetilde a \in C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)$
-	then following conditions hold:
-	\begin{enumerate}
-		\item [(i)] The series 	
-		\be\label{top_comact_series_eqn}
-		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a}.
-		\ee 
-		is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right]\right)  \right)$ (cf. Definition \ref{strict_topology_defn}),
-		\item[(ii)] 
-		\be\label{comm_desc_c_sum_eqn}
-		\begin{split}
-			\bt\text{-}			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = \lift_p \circ \desc^c_p\left( \widetilde{a}\right) \in 
-			\\
-			\in C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
-		\end{split}
-		\ee
-		where both $ \lift_p$ and $\desc^c_p$ are given by Definitions \ref{top_lift_main_defn}  and \ref{top_compactly_supported_descent_defn} respectively.
-	\end{enumerate}
-\end{lemma}
-\begin{proof}
-	(i) A set $\supp \widetilde{a}$ (cf. Equation \eqref{top_support_eqn}) is compact. From the 
-	Theorem \ref{top_compact_thm} 	it follows that there is a finite-fold transitive covering $p': \widetilde \sX' \to \sX$ and  a transitive covering $\widetilde p': \widetilde \sX \to \widetilde \sX'$ such that $p = p' \circ \widetilde p'$ and $\supp \widetilde{a}$ is mapped homeomorphically onto $\widetilde p'\left(\supp \widetilde{a} \right)$. 
-	From the Lemma \ref{comm_lift_desc_sum_lem} it follows that 
-	\begin{itemize}
-		\item The series 	
-		\be\nonumber
-		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\widetilde{\sX}'\right) } g\widetilde{a}.
-		\ee 
-		is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right]\right)  \right)$ (cf. Definition \ref{strict_topology_defn}),
-		\item
-		\be\label{comm_desc_cc_sum_eqn}
-		\begin{split}
-			\bt\text{-}			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = a = \lift_{\widetilde p'} \circ \desc_{\widetilde p'}\left( \widetilde{a}\right) \in 
-			\\
-			\in C_b\left( \lift_{\widetilde p'}\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_{\widetilde p'}\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
-		\end{split}
-		\ee
-		where both $ \lift_p$ and $\desc_p$ are given by Definitions \ref{top_lift_main_defn}   and \ref{top_lift_desc_defn} respectively.
-	\end{itemize}
-	Now one can prove that the series \eqref{top_comact_series_eqn} is convergent to the following finite sum
-	\be\label{top_desc_p_compact_eqn}
-	\lift_p\left( \sum_{	g \in G\left( \left. \widetilde \sX'\right| \sX\right) } g \desc_{\widetilde p'} \left(\widetilde a \right)\in C_c\left(\sX, \left\{A_x\right\}, \sF \right)\right) 
-	\ee
-	where the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right]\right)  \right)$ is implied.\\
-	(ii) Follows from the equations  \eqref{top_desc_compact_eqn} and \eqref{top_desc_p_compact_eqn}.
-\end{proof}
-
-
 \begin{exercise} !!! RESIDUALLY FINITE !!!
 	Consider the situation \ref{comm_lift_desc_sum_strong_empt}.  Let $\widetilde a \in A_c\left(\widetilde\sX \right)$ (cf. \eqref{top_cb_defna_eqn}). Prove following statements:
 	\begin{enumerate}
@@ -10562,7 +10480,7 @@ be the 	{algebraic} $\widetilde \sX$-$  G$-{category} (cf. Definition \ref{top_f
 Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 \end{lemma}
 \begin{proof}
-Firstly we prove that  $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. From the Corollary \ref{comm_lift_desc_sum__lem}!!!LEMMA !! it follow that for any $\la \in \La$ and $\overline{a }\in K\left(C_0\left(\overline\sX \right) \right)= C_c\left(\overline\sX \right)$ a series 
+Firstly we prove that  $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. From the Corollary \ref{comm_lift_desc_sum_lem}!!!LEMMA !! it follow that for any $\la \in \La$ and $\overline{a }\in K\left(C_0\left(\overline\sX \right) \right)= C_c\left(\overline\sX \right)$ a series 
 $$
  	a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
 $$
@@ -12758,7 +12676,7 @@ Both equations \eqref{blowing_aauu_eqn} and \eqref{blowing_aau_eqn} can be regar
 The Definition \ref{blowing_compactly_supported_descent_defn} is a generalization of \ref{top_compactly_supported_descent_defn} one.
 \end{remark}
 \begin{remark}
-	The (1) of the Exercise \ref{comm_lift_desc_sum_exer} is a specialization of the Theorem \ref{blowing_strict_thm}.
+	The (1) of the Exercise \ref{comm_lift_desc_sum_exer}  !!! REPLACE \ref{comm_lift_desc_sum_lem} !!! is a specialization of the Theorem \ref{blowing_strict_thm}.
 \end{remark}
 
 
@@ -12771,8 +12689,8 @@ The Definition \ref{blowing_compactly_supported_descent_defn} is a generalizatio
 		\item $A_0\left(\widetilde \sX  \right)$ means a functor, 
 		\item $C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)$ is a specialization of the Definition \ref{top_lift_main_defn}.
 	\end{enumerate} 
-	Henceforth both roles and both notations will be used. Similar words we can say about maps 	$A_0\left(p \right) $ and  $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ (cf. equation \eqref{top_c0p_ob_eqn!}).
-	Later (cf. !!! \ref{}) we will  consider a generalization of both $A_0\left(\widetilde \sX  \right)$ and $A_0\left(p \right) $ and  we will have a similar situation.
+	Henceforth both roles and both notations will be used. Similar words we can say about maps 	$A_0\left(p\right) $ and  $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ (cf. equation \eqref{top_c0p_ob_eqn!}).
+	Later (cf. !!! \ref{}) we will  consider a generalization of both $A_0\left(\widetilde \sX  \right)$ and $A_0\left(p\right) $ and  we will have a similar situation.
 \end{rem}
 \subsection{Induced representations}
 
@@ -14976,7 +14894,7 @@ i.e. there is the natural bijection $p^{-1}_{\widetilde \sY}\cong \left(  \sX\ri
 			\item[(i)] the spectrum $\widetilde \sX$ of $\widetilde A$ is Hausdorff,
 			\item[(ii)] the given by the Proposition map $p: \widetilde\sX \to \sX$ is a transitive covering with  with  $G = G\left(
 			\left. \widetilde \sX \right| \sX \right)$,
-			\item[(iii)] the quadruple $\left( A, \widetilde A, G, \pi\right)$ is equivalent to $\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p \right) \right)$ one.
+			\item[(iii)] the quadruple $\left( A, \widetilde A, G, \pi\right)$ is equivalent to $\left(A ,A_0\left( \widetilde\sX\right), G\left(\left.\widetilde{\sX}~\right|\sX\right),A_0\left(p\right) \right)$ one.
 		\end{enumerate} 
 \end{lemma}
 \begin{proof}
@@ -15398,18 +15316,18 @@ Let $A$ be a $CCR$-algebra (cf. Definition \ref{ccr_defn}) with connected, local
 \eean 
 is the {finite covering category of} $p : \widetilde \sX \to \sX$ (cf. Definition \ref{top_disconnected_defn}) then from Theorem \ref{blowing_sufficient_covering_inf_thm} it follows that there is  an algebraical finite covering category 
 		\be\label{hausdorff_algebraical_finite_covering_category_eqn}
-\mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\left\{A_0\left( \sX_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\mathfrak{S}_{A_0\left(p\right) }\bydef \left\{\left\{A_0\left( \sX_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \ee		
-(cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!. Moreover if $\widehat G$ is the profinite completion (cf. Example \ref{profinite_exm}) the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$   is the  {pre-covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Theorem \ref{blowing_sufficient_covering_inf_thm}).
+(cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!. Moreover if $\widehat G$ is the profinite completion (cf. Example \ref{profinite_exm}) the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$   is the  {pre-covering} of $\mathfrak{S}_{A_0\left(p\right) }$ (cf. Theorem \ref{blowing_sufficient_covering_inf_thm}).
 \end{empt}
 !!!Manuilov helped early this theorem was proven for continuous trace $C^*$-algebras only!!!
 
 \begin{theorem}\label{hausdorff_covering_inf_thm} 
-Under the hypotheses \ref{hausdorff_covering_inf_thm} if we 	 suppose  that $A$ is a $C^*$-algebra of type $I_0$ (cf. Definition \ref{type_I_0_defn}), then  algebraical finite covering category  $\mathfrak{S}_{A_0\left(p \right) }$ is good (cf. Definition \ref{good_defn}) and a triple
+Under the hypotheses \ref{hausdorff_covering_inf_thm} if we 	 suppose  that $A$ is a $C^*$-algebra of type $I_0$ (cf. Definition \ref{type_I_0_defn}), then  algebraical finite covering category  $\mathfrak{S}_{A_0\left(p\right) }$ is good (cf. Definition \ref{good_defn}) and a triple
 $$
 \left(A, A_0\left(\widetilde\sX \right), G\left(\left. \widetilde\sX~\right|\sX \right) \right)
 $$
-is the {infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn})
+is the {infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p\right) }$ (cf. Definition \ref{infinite_noncommutative_covering_defn})
 	
 \end{theorem}
 
@@ -15439,7 +15357,7 @@ From (i) of the Lemma \ref{blowing_necessary_covering_inf_lem} it follows that $
 $$
 A_0\left( \overline\sX\right) \xrightarrow{\cong } \overline A'
 $$
-i.e. any  {pre}-{covering of algebraical finite covering category} $\mathfrak{S}_{A_0\left(p \right) }$ is equivalent to $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$, so the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p \right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! REPLACE !!! !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!). Now this theorem becomes a consequence of (iii) of the Theorem \ref{blowing_sufficient_covering_inf_thm}.
+i.e. any  {pre}-{covering of algebraical finite covering category} $\mathfrak{S}_{A_0\left(p\right) }$ is equivalent to $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$, so the triple $\left(A, A_0\left(\overline\sX \right), \widehat{G} \right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{A_0\left(p\right) }$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! REPLACE !!! !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!). Now this theorem becomes a consequence of (iii) of the Theorem \ref{blowing_sufficient_covering_inf_thm}.
 
 \end{proof}
 \begin{corollary}
@@ -15463,9 +15381,9 @@ is the {fundamental group}	of  $A$  (cf. Definition \ref{fundamental_group_nc_de
 \begin{proof}
 If $p: \widetilde{\sX}_{\mathrm{res~fin}}\to \sX$ is the natural covering and  an algebraical finite covering category 
 \bean
-\mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\left\{A_0\left( \sX_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
+\mathfrak{S}_{A_0\left(p\right) }\bydef \left\{\left\{A_0\left( \sX_\la\right) \right\}_{\la\in \La}, \left\{A_0\left( p^\nu_\mu\right)  : A_0\left( \sX_\mu\right) \hookto A_0\left( \sX_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
 \eean
-is given by \eqref{hausdorff_algebraical_finite_covering_category_eqn} then from the Theorem \ref{ctr_fin_thm} it follows that $\mathfrak{S}_{A_0\left(p \right) }$  contains \textit{all} classes of isomorphisms of  noncommutative finite-fold coverings of $A$. Now this corollary becomes a consequence of the Theorem \ref{hausdorff_covering_inf_thm}.		
+is given by \eqref{hausdorff_algebraical_finite_covering_category_eqn} then from the Theorem \ref{ctr_fin_thm} it follows that $\mathfrak{S}_{A_0\left(p\right) }$  contains \textit{all} classes of isomorphisms of  noncommutative finite-fold coverings of $A$. Now this corollary becomes a consequence of the Theorem \ref{hausdorff_covering_inf_thm}.		
 \end{proof}
 \begin{corollary}
 	Let $A$ be a $CCR$-algebra of type $I_0$ with locally connected, locally compact, Hausdorff spectrum $\sX$. If the space $\mathcal X$ is weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}) then one has
@@ -15534,7 +15452,7 @@ Denote by $L^2\left(  A_0\left( \overline\sX\right) , \tr_{\overline\tau}  \righ
 	\end{split}
 	\ee
 (cf. the equation \eqref{hausdorff_algebraical_finite_covering_category_eqn})
-	From the Theorem \ref{hausdorff_covering_inf_thm} it follows that $\mathfrak{S}_{A_0\left(p \right)  }$ is good. Moreover   the triple 
+	From the Theorem \ref{hausdorff_covering_inf_thm} it follows that $\mathfrak{S}_{A_0\left(p\right)  }$ is good. Moreover   the triple 
 	$$
 	\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mathcal X\right)\right)
 	$$
@@ -15642,7 +15560,7 @@ $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mat
 \eean 
 be a {finite covering category of} $p : \widetilde \sX \to \sX$ (cf, Definition \ref{top_disconnected_defn}), and let
 \bean
-\mathfrak{S}_{A_0\left(p \right) }\bydef \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
+\mathfrak{S}_{A_0\left(p\right) }\bydef \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
 \eean
 be a given by the Theorem \eqref{blowing_sufficient_covering_inf_thm} algebraical  finite covering category (cf. Definition \ref{algebraical_finite_covering_category_defn} !!! DISCONNECTED !!!).
 For any $\la\in \La$ let $\A_\la\bydef  A_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{\A}\left( \sX_\la\right)$,  and let $\widetilde \A\bydef  A_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{\A}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
