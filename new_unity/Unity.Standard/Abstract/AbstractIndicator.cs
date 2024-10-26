@@ -50,16 +50,41 @@ namespace Unity.Standard.Abstract
 
         #region IIndicator Members
 
+        /// <summary>
+        /// Update action
+        /// </summary>
         Action IIndicator.Update { get => update; }
+
+        /// <summary>
+        /// The name of parameter
+        /// </summary>
         string IIndicator.Parameter { get => parameter; }
+
+        /// <summary>
+        /// The value
+        /// </summary>
         object IIndicator.Value { get => obj;  set => setValue(value); }
+
+
+        /// <summary>
+        /// Type
+        /// </summary>
         object IIndicator.Type { get => type; }
+
+
+        /// <summary>
+        /// Type
+        /// </summary>
         bool IIndicator.IsActive 
         { 
             get => isActive; 
             set => SetActive(value); 
         }
 
+
+        /// <summary>
+        /// Global action
+        /// </summary>
         Action<string> IIndicator.Global { get => SetGlobal; }
 
         #endregion
@@ -139,7 +164,7 @@ namespace Unity.Standard.Abstract
         /// <summary>
         /// Sets active state
         /// </summary>
-        /// <param name="active">The acrive</param>
+        /// <param name="active">The active</param>
         protected virtual void  SetActive(bool active)
         {
             if (active == isActive)
@@ -163,33 +188,6 @@ namespace Unity.Standard.Abstract
         #endregion
 
         #region Own 
-
-        /*      /// <summary>
-              /// Exceeds
-              /// </summary>
-              protected Func<float[], bool> Exceeds
-              {
-                  get
-                  { 
-                      double a = 0;
-                      if (a.Equals(type))
-                      {
-                          return (float[] l) =>
-                          {
-                              double x = (double)obj;
-                              float y = (float)x;
-                              return (y < l[0]) | (y > l[1]);
-                          };
-                      }
-                      return (float[] l) =>
-                      {
-                          float x = (float)obj;
-                          return (x < l[0]) | (x > l[1]);
-                      };
-
-                  }
-              }
-        !!! */
 
         /// <summary>
         /// Finds the function

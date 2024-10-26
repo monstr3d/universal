@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Unity.Standard.Abstract;
+
 using UnityEngine.UI;
 
 namespace Unity.Standard.Indicators
@@ -24,6 +25,14 @@ namespace Unity.Standard.Indicators
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="parameter">Parameter</param>
+        /// <param name="text">Text</param>
+        /// <param name="type">Type</param>
+        /// <param name="format">Format</param>
+        /// <param name="debug">the "debug" sign</param>
         public TextIndicator(string parameter, Text text, object type, string format = null, bool debug = false)
         {
             f = () => { return obj + ""; };
@@ -68,14 +77,13 @@ namespace Unity.Standard.Indicators
             text.gameObject.SetActive(visible);
             if (!visible)
             {
-                // text.enabled []
                 return;
             }
-         //   updateText?.Invoke();
-         //  setFloatValue(currentValue);
         }
 
-
+        /// <summary>
+        /// Active post set
+        /// </summary>
         protected override void PostSet()
         {
             if (!isActive)
@@ -86,9 +94,16 @@ namespace Unity.Standard.Indicators
             {
                 return;
             }
-            text.text = pref + f();
+            var v = f();
+            if (v != null)
+            {
+                text.text = pref + v;
+            }
         }
 
+        /// <summary>
+        /// Active post set
+        /// </summary>
         protected override void PostSetActive()
         {
             text.gameObject.SetActive(isActive);
@@ -108,6 +123,10 @@ namespace Unity.Standard.Indicators
 
         }
 
+        /// <summary>
+        /// Global post set
+        /// </summary>
+        /// <param name="str"></param>
         protected override void PostSetGlobal(string str)
         {
 

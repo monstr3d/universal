@@ -17,9 +17,8 @@ namespace Unity.Standard.Interfaces
         /// </summary>
         string Parameter { get; }
 
-
         /// <summary>
-        /// Set value
+        /// The value
         /// </summary>
         object Value { get; set; }
 
