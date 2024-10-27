@@ -22,8 +22,8 @@ namespace WpfInterface
         #region Fields
 
         static double[] x = new double[3];
-        private static Dictionary<string, Func<string, System.Windows.Media.Media3D.Visual3D>> dic =
-               new Dictionary<string, Func<string, System.Windows.Media.Media3D.Visual3D>>();
+
+        private static Dictionary<string, Func<string, Visual3D>> dic = new();
 
         #endregion
 
@@ -32,6 +32,7 @@ namespace WpfInterface
         /// </summary>
         static StaticExtensionWpfInterface()
         {
+
         }
 
         #region Public Members
@@ -56,7 +57,7 @@ namespace WpfInterface
         }
 
         /// <summary>
-        /// Sets standart transform to geometry
+        /// Sets standard transform to geometry
         /// </summary>
         /// <param name="geometry">Geomerty</param>
         public static void SetStandardTransform(this Visual3D geometry)
@@ -129,7 +130,7 @@ namespace WpfInterface
         /// <summary>
         /// 3D file load
         /// </summary>
-        public static Dictionary<string, Func<string, System.Windows.Media.Media3D.Visual3D>> FileLoad
+        public static Dictionary<string, Func<string, Visual3D>> FileLoad
         {
             get
             {
@@ -192,26 +193,24 @@ namespace WpfInterface
         static public bool Transform(this Visual3D v3d, Func<Point3D, Point3D> pt,
             Func<System.Windows.Media.Media3D.Vector3D, System.Windows.Media.Media3D.Vector3D> vt)
         {
-            if (v3d is ModelVisual3D)
+            if (v3d is ModelVisual3D m3d)
             {
-                ModelVisual3D m3d = v3d as ModelVisual3D;
                 object ob = m3d.Content;
                 if (ob != null)
                 {
                     GeometryModel3D geom = null;
-                    if (ob is GeometryModel3D)
+                    if (ob is GeometryModel3D g)
                     {
-                        geom = ob as GeometryModel3D;
+                        geom = g;
                     }
-                    else if (ob is Model3DGroup)
+                    else if (ob is Model3DGroup gr)
                     {
-                        Model3DGroup gr = ob as Model3DGroup;
                         Model3DCollection ch = gr.Children;
                         foreach (object o in ch)
                         {
-                            if (o is GeometryModel3D)
+                            if (o is GeometryModel3D ff)
                             {
-                                geom = o as GeometryModel3D;
+                                geom = ff;
                                 break;
                             }
                         }
@@ -219,9 +218,8 @@ namespace WpfInterface
                     if (geom != null)
                     {
                         Geometry3D g3d = geom.Geometry;
-                        if (g3d is MeshGeometry3D)
+                        if (g3d is MeshGeometry3D mesh)
                         {
-                            MeshGeometry3D mesh = g3d as MeshGeometry3D;
                             mesh.Transform(pt, vt);
                         }
                     }
