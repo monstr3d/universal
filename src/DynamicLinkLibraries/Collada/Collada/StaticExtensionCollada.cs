@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using System.Xaml;
+using System.Windows.Media.Media3D.Converters;
 
 
 
@@ -40,7 +42,7 @@ namespace Collada
 
         private static Dictionary<IdName, object> allObjects = new();
 
-        private static Dictionary<IdName, double[]> arrays = new ();
+        private static Dictionary<IdName, object> arrays = new ();
 
         private static Dictionary<IdName, MeshGeometry3D> meshes = new ();
         
@@ -72,6 +74,12 @@ namespace Collada
             allObjects[idName] = o;
         }
 
+        public static T Clone<T>(T obj) where T : class
+        {
+            var s = System.Windows.Markup.XamlWriter.Save(obj);
+            return System.Windows.Markup.XamlReader.Parse(s) as T;
+        }
+
 
 
         private static Dictionary<string, Func<XmlElement,  Material>> materialCalc
@@ -92,14 +100,14 @@ namespace Collada
         private static readonly Dictionary<string, object[]> actions
      = new ()
             {
-{"float_array", new object[] {new Func<IdName, XmlElement, object>(GetArray), arrays}},
+{"float_array", new object[] {new Func<IdName, XmlElement, object>(GetArray<float>), arrays}},
 {"geometry", new object[]{new Func<IdName, XmlElement, object>(GetGeometry), visuals}},
 {"effect", new object[]{new Func<IdName, XmlElement, object>(GetEffect), effects}},
 
 {"material", new object[]{new Func<IdName, XmlElement, object>(GetMaterial), materials}},
 {"image", new object[]{new Func<IdName, XmlElement, object>(GetImage), images}},
 {"source", new object[] {new Func<IdName, XmlElement, object>(GetSource), sources}},
-{"vertices", new object[] {new Func<IdName, XmlElement, object>(GetVetrices), sources}}
+{"vertices", new object[] {new Func<IdName, XmlElement, object>(GetVetrices<float>), sources}}
             };
 
        private static readonly Dictionary<string, Func<XmlElement, object>> sourceDic = new ()
@@ -412,7 +420,7 @@ namespace Collada
         {
             if (e.Name.Equals("color"))
             {
-                double[] d = e.ToDoubleArray();
+                double[] d = e.ToRealArray<double>();
                 if (d.Length == 3)
                 {
                     return Color.FromRgb(d[0].ToColor(), d[1].ToColor(), d[2].ToColor());
@@ -433,7 +441,39 @@ namespace Collada
             throw new Exception();
         }
 
-        static double[] ToDoubleArray(this XmlNode node)
+        static T ToReal<T>(this string s) where T : struct
+        {
+            object obj = null;
+            if (typeof(T) == typeof(double))
+            {
+                obj = s.ToDouble();
+            }
+            else
+            {
+                obj = float.Parse(s);
+            }
+            return (T)obj;
+        }
+
+        static T[] ToRealArray<T>(this  XmlNode node) where T : struct
+        {
+            string str = node.InnerText;
+            string[] ss = str.Split(sep);
+
+            var l = new List<T>();
+            foreach (string s in ss)
+            {
+                if (s.Length > 0)
+                {
+                    T a = s.ToReal<T>();
+                    l.Add(a);
+                }
+            }
+            return l.ToArray();
+
+        }
+
+   /*     static double[] ToDoubleArray(this XmlNode node)
         {
             string str = node.InnerText;
             string[] ss = str.Split(sep);
@@ -448,7 +488,7 @@ namespace Collada
             }
             return l.ToArray();
         }
-
+   */
  
         private static double ToDouble(this string str)
         {
@@ -543,13 +583,13 @@ namespace Collada
             return null;
         }
 
-        private static double[] FindArray(IdName name)
+        private static T[] FindArray<T>(IdName name) where T : struct
         {
             if (!arrays.ContainsKey(name))
             {
-                GetArray(name, name.Xml);
+                GetArray<T>(name, name.Xml);
             }
-            return arrays[name];
+            return arrays[name] as T[];
         }
 
         public static T FindSource<T>(this XmlElement element) where T : class
@@ -636,19 +676,32 @@ namespace Collada
         {
             if (sources.ContainsKey(name))
             {
-                return null;
+                return sources[name];
             }
+            var l = new List<object>();
             foreach (string key in sourceDic.Keys)
             {
                 XmlElement e = element.GetChild(key);
                 if (e != null)
                 {
                     object o = sourceDic[key](e);
-                    element.Add<object>(o, sources);
-                    return o;
+                    if (o != null)
+                    {
+                        element.Add<object>(o, sources);
+                        l.Add(o);
+                    }
                 }
              }
-            return null;
+            if (l.Count > 0)
+            {
+                if (l.Count == 1)
+                {
+                    return l[0];
+                }
+                element.Add<object>(l, sources);
+                return l;
+            }
+            throw new Exception();
         }
 
         static void Add<T>(this XmlElement element, T t, Dictionary<IdName, T> dic) where T : class
@@ -665,11 +718,11 @@ namespace Collada
 
 
 
-        private static object GetVetrices(IdName name, XmlElement element)
+        private static object GetVetrices<T>(IdName name, XmlElement element) where T : struct
         {
-            double[] x = element.FindSource<double[]>();
+            T[] x = element.FindSource<T[]>();
             element.Add<object>(x, sources);
-            element.Add<double[]>(x, arrays);
+            element.Add<object>(x, arrays);
             return x;
         }
 
@@ -713,6 +766,10 @@ namespace Collada
             Dictionary<string, XmlElement> par = e.GetParameters();
             string s = e.GetAttribute("url").Substring(1);
             IdName n = s.ToIdName();
+            if (materials.ContainsKey(n))
+            {
+                return materials[n];
+            }
             var mats = new List<Material>();
             foreach (string key in materialCalc.Keys)
             {
@@ -751,20 +808,20 @@ namespace Collada
             return mat;
         }
 
-        private static object GetArray(IdName name, XmlElement element)
+        private static object GetArray<T>(IdName name, XmlElement element) where T : struct
         {
             if (arrays.ContainsKey(name))
             {
-                return null;
+                return arrays[name];
             }
-            double[] x;
+            object x = null;
             if (sources.ContainsKey(name))
             {
-                x = sources[name] as double[];
+                x = sources[name];
             }
             else
             {
-                x = element.ToDoubleArray();
+                x = element.ToRealArray<T>();
             }
             arrays[name] = x;
             return x;
@@ -776,8 +833,8 @@ namespace Collada
 
         static object GetFloatArray(XmlElement element)
         {
-            double[] x = element.ToDoubleArray();
-            element.Add<double[]>(x, arrays);
+            float[] x = element.ToRealArray<float>();
+            element.Add<object>(x, arrays);
             return x;
         }
 
