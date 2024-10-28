@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Xaml;
 using System.Windows.Media.Media3D.Converters;
+using System.Xml.Linq;
 
 
 
@@ -56,10 +57,14 @@ namespace Collada
       
         private static Dictionary<IdName, object> sources = new ();
 
+        private static Dictionary<string, IdName> sourcesId = new();
+
         private static Dictionary<string, XmlElement> names = new ();
 
         private static IdName idName;
 
+
+  
         public static void Set(this IdName idName, object o)
         {
             if (o == null)
@@ -121,6 +126,14 @@ namespace Collada
        };
 
         #endregion
+
+        private static Dictionary<Type, Func<IdName, object, List<Tuple<IdName, object>>, object>> combine = new()
+        {
+            { typeof(BlurEffect), GetBlur }
+        };
+
+  
+         
 
         #region Common
 
@@ -186,7 +199,7 @@ namespace Collada
                 {
                     throw new Exception();
                 }
-                if (x.Object != null)
+                if (!(x.Object is XmlElement))
                 {
                     throw new Exception();
                 }
@@ -203,15 +216,10 @@ namespace Collada
                 if (actions.ContainsKey(tag))
                 {
                     var o = tag.Process(e);
-                    if (o == null)
+                    if (o != null)
                     {
-                        throw new Exception();
+                        n.Set(o);
                     }
-                    n.Set(o);
-                }
-                else
-                {
-                    n.Set(e);
                 }
             }
             idName.Combine();
@@ -221,20 +229,63 @@ namespace Collada
         static public object Combine(this IdName name)
         {
             var o = name.Object;
-            var l = new List<object>();
+            var l = new List<Tuple< IdName, object>>();
             foreach (var i in name)
             {
+                if (i.Object == o)
+                {
+                    continue;
+                }
                 var c = i.Combine();
-                l.Add(c);
+                if (c != null)
+                {
+                    if (c != o)
+                    {
+                        if (!(c is XmlElement))
+                        {
+                            var tt = new Tuple<IdName, object>(name, c);
+                            l.Add(tt);
+                        }
+                    }
+                }
+            }
+            if (l.Count == 0)
+            {
+                return o;
             }
             Type t = o.GetType();
-            return name.Combine(t, l);
+            return name.Combine(t, o, l);
         }
 
-        public static  object Combine(this IdName name, Type t, List<object> list)
+        public static object Combine(this IdName name, Type t, object o, List<Tuple<IdName, object>> list)
+        {
+            if (o is XmlElement)
+            {
+                return list.Count > 0 ? list : null;
+            }
+            if (list.Count == 0)
+            {
+                return o;
+            }
+            if (combine.ContainsKey(t))
+            {
+                var f = combine[t];
+
+                return f(name, o, list);
+            }
+            throw new Exception();
+        }
+
+        #region Combines
+
+        static object GetBlur(IdName name, object o, List<Tuple<IdName, object>> l)
         {
             return null;
         }
+
+
+
+        #endregion
 
         static void SetLight(this Visual3D v3d)
         {
@@ -295,6 +346,7 @@ namespace Collada
         }
 
 
+   
 
         private static IdName SetDictionaryId(this XmlElement element)
         {
@@ -778,8 +830,22 @@ namespace Collada
                 {
                     if (node is XmlElement el)
                     {
-                        var m = materialCalc[key](el);
-                        mats.Add(m);
+                        var id = e.ToIdName();
+                        Material m = null;
+                        if (materials.ContainsKey(id))
+                        {
+                            m = materials[id];
+                        }
+                        else
+                        {
+
+                            m = materialCalc[key](el);
+                            if (m != null)
+                            {
+                                materials[id] = m;
+                            }
+                            mats.Add(m);
+                        }
                     }
                 }
             }
@@ -803,6 +869,10 @@ namespace Collada
                 {
                     mg.Children.Add(m);
                 }
+            }
+            if (mat == null)
+            {
+                return null;
             }
             materials[name] = mat;
             return mat;
@@ -841,6 +911,11 @@ namespace Collada
         #endregion
 
         #region Models
+
+        static public IdName GetSource(string id)
+        {
+            return sourcesId[id];
+        }
 
         static Visual3D GetMesh(XmlElement element)
         {
@@ -929,90 +1004,108 @@ namespace Collada
 
         private static Material GetPhong(XmlElement e)
         {
-             List<Material> l = new List<Material>();
-             foreach (XmlNode n in e.ChildNodes)
-             {
-                 string tag = n.Name;
-                 XmlElement el = n as XmlElement;
-                 if (materialTypes.ContainsKey(tag))
-                 {
-                     Type t = materialTypes[tag];
-                     ConstructorInfo c = t.GetConstructor(new Type[0]);
-                     Material mat = c.Invoke(new object[0]) as Material;
-                     Color color = el.GetColor();
-                     PropertyInfo pi = t.GetProperty("Color");
-                     pi.SetValue(mat, color, null);
-                     if (mat is SpecularMaterial)
-                     {
-                         try
-                         {
-                            if (e.GetAttribute("reflectivity").Length > 0)
+            IdName nd = e.ToIdName();
+            if (materials.ContainsKey(nd))
+            {
+                return materials[nd];
+            }
+            List<Material> l = new List<Material>();
+            foreach (XmlNode n in e.ChildNodes)
+            {
+                if (n is XmlElement el)
+                {
+                    Material mat = null; ;
+                    nd = el.ToIdName();
+                    if (materials.ContainsKey(nd))
+                    {
+                        mat = materials[nd];
+                    }
+                    else
+                    {
+                        string tag = e.Name;
+                        if (materialTypes.ContainsKey(tag))
+                        {
+                            Type t = materialTypes[tag];
+                            ConstructorInfo c = t.GetConstructor(new Type[0]);
+                            mat = c.Invoke(new object[0]) as Material;
+                            materials[nd] = mat;
+                            Color color = el.GetColor();
+                            PropertyInfo pi = t.GetProperty("Color");
+                            pi.SetValue(mat, color, null);
+                            if (mat is SpecularMaterial)
                             {
-                                double refl = e.ToDouble("reflectivity");
-                                SpecularMaterial sm = mat as SpecularMaterial;
-                                sm.SpecularPower = refl;
+                                try
+                                {
+                                    if (e.GetAttribute("reflectivity").Length > 0)
+                                    {
+                                        double refl = e.ToDouble("reflectivity");
+                                        SpecularMaterial sm = mat as SpecularMaterial;
+                                        sm.SpecularPower = refl;
+                                    }
+                                }
+                                finally
+                                {
+                                    throw new Exception();
+                                }
                             }
-                         }
-                         finally
-                         {
-                         }
-                     }
-                     XmlElement texture = el.GetChild("texture");
-                     if (texture != null)
-                     {
-                         ImageSource im = null;
-                         string tex = texture.GetAttribute("texture");
-                         XmlElement et = null;
-                         if (parameters.ContainsKey(tex))
-                         {
-                             et = parameters[tex].ChildNodes[0] as XmlElement;
-                             if (et.Name.Equals("sampler2D"))
-                             {
-                                 string si = et.GetChild("source").InnerText;
-                                 if (parameters.ContainsKey(si))
-                                 {
-                                     XmlElement ess = parameters[si];
-                                     im = ess.InnerText.ToIdName().Find<ImageSource>();
-                                     if (im == null)
-                                     {
-                                         return null;
-                                     }
-                                     if (mat is DiffuseMaterial)
-                                     {
-                                         ImageBrush br = new ImageBrush(im);
-                                         br.ViewportUnits = BrushMappingMode.Absolute;
-                                         br.Opacity = 1;
-                                         DiffuseMaterial dm = mat as DiffuseMaterial;
-                                         dm.Brush = br;
-                                     }
-                                     else
-                                     {
-                                         PropertyInfo pib = mat.GetType().GetProperty("Brush");
-                                         if (pib != null)
-                                         {
-                                             ImageBrush br = new ImageBrush(im);
-                                             br.Opacity = 1;
-                                             pib.SetValue(mat, br, null);
-                                         }
-                                     }
-                                 }
-                             }
+                        }
+                    }
+                    XmlElement texture = el.GetChild("texture");
+                    if (texture != null)
+                    {
+                        ImageSource im = null;
+                        string tex = texture.GetAttribute("texture");
+                        XmlElement et = null;
+                        if (parameters.ContainsKey(tex))
+                        {
+                            et = parameters[tex].ChildNodes[0] as XmlElement;
+                            if (et.Name.Equals("sampler2D"))
+                            {
+                                string si = et.GetChild("source").InnerText;
+                                if (parameters.ContainsKey(si))
+                                {
+                                    XmlElement ess = parameters[si];
+                                    im = ess.InnerText.ToIdName().Find<ImageSource>();
+                                    if (im == null)
+                                    {
+                                        return null;
+                                    }
+                                    if (mat is DiffuseMaterial)
+                                    {
+                                        ImageBrush br = new ImageBrush(im);
+                                        br.ViewportUnits = BrushMappingMode.Absolute;
+                                        br.Opacity = 1;
+                                        DiffuseMaterial dm = mat as DiffuseMaterial;
+                                        dm.Brush = br;
+                                    }
+                                    else
+                                    {
+                                        PropertyInfo pib = mat.GetType().GetProperty("Brush");
+                                        if (pib != null)
+                                        {
+                                            ImageBrush br = new ImageBrush(im);
+                                            br.Opacity = 1;
+                                            pib.SetValue(mat, br, null);
+                                        }
+                                    }
+                                }
+                            }
 
-                         }
-                         else
-                         {
-                         }
-                         if (et.Name.Equals("surface"))
-                         {
-                         }
-                     }
-                     if (mat == null)
-                     {
-                         return null;
-                     }
-                     l.Add(mat);
-                 }
-             }
+                        }
+                        else
+                        {
+                        }
+                        if (et.Name.Equals("surface"))
+                        {
+                        }
+                    }
+                    if (mat == null)
+                    {
+                        return null;
+                    }
+                    l.Add(mat);
+                }
+            }
             if (l.Count == 1)
             {
                 return l[0];

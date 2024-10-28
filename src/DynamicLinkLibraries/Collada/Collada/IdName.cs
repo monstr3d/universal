@@ -55,6 +55,12 @@ namespace Collada
 
         IdName parent = null;
 
+        public IdName Source
+        {
+            get;
+            private set;
+        }
+
         public IdName Parent
         {
             get => parent;
@@ -62,7 +68,10 @@ namespace Collada
             {
                 if (parent != null) return;
                 parent = value;
-                parent.ids.Add(this);
+                if (!parent.ids.Contains(this))
+                {
+                    parent.ids.Add(this);
+                }
             }
         }
 
@@ -75,7 +84,7 @@ namespace Collada
             get => obj;
             set
             {
-                if (obj != null)
+                if (obj != xmlElement)
                 {
                     throw new Exception();
                 }
@@ -87,9 +96,16 @@ namespace Collada
 
         #region Ctor
 
+        public void SetSource()
+        {
+            var src = xmlElement.GetAttribute("source");
+            src = src.Substring(1);
+        }
+
         private IdName(XmlElement xmlElement)
         {
             this.xmlElement = xmlElement;
+            obj = xmlElement;
             string att = xmlElement.GetAttribute("id");
             if (att.Length > 0)
             {
@@ -121,19 +137,35 @@ namespace Collada
             {
                 Process(n);
             }
-            var p = xmlElement.ParentNode;
+            XmlNode p = xmlElement.ParentNode;
+            if (p == xmlElement)
+            {
+                p = p.ParentNode;
+            }
             while (true)
             {
                 if (p == null) break;
-                if (p is XmlElement e)
+                if (p is XmlElement el)
                 {
-                    if (dictionary.ContainsKey(e))
+                    if (dictionary.ContainsKey(el))
                     {
-                        Parent = dictionary[e];
-                        break;
+                        var pp = dictionary[el];
+                        if (pp != this)
+                        {
+                            Parent = pp;
+                            break;
+                        }
                     }
                 }
                 p = p.ParentNode;
+            }
+        }
+
+        public void Reset(object o)
+        {
+            if (o != null)
+            {
+                obj = o;
             }
         }
 
