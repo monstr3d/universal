@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Xml;
 
 namespace Collada
@@ -18,33 +15,10 @@ namespace Collada
 
         static private Dictionary<string, XmlElement> elements = new();
 
-
-        static public Dictionary<XmlElement, IdName> Dictionary
-        {
-            get => dictionary;
-        }
+        static private Dictionary<string, IdName> sources = new();
 
 
-        static private Dictionary<IdName, XmlElement> inverse = new();
-
-        public static List<IdName> All
-        {
-            get
-            {
-                var list = new List<IdName>();
-                foreach (var x in inverse.Keys)
-                {
-                    if (list.Contains(x))
-                    {
-                        throw new Exception();
-                    }
-                    list.Add(x);
-                }
-                return list;
-            }
-        }
-
- 
+      
         string id;
 
         string name;
@@ -54,28 +28,6 @@ namespace Collada
         XmlElement xmlElement;
 
         IdName parent = null;
-
-        public IdName Source
-        {
-            get;
-            private set;
-        }
-
-        public IdName Parent
-        {
-            get => parent;
-            private set
-            {
-                if (parent != null) return;
-                parent = value;
-                if (!parent.ids.Contains(this))
-                {
-                    parent.ids.Add(this);
-                }
-            }
-        }
-
-        public string Tag => xmlElement.Name;
 
         private object obj;
 
@@ -94,13 +46,10 @@ namespace Collada
 
         #endregion
 
+
+
         #region Ctor
 
-        public void SetSource()
-        {
-            var src = xmlElement.GetAttribute("source");
-            src = src.Substring(1);
-        }
 
         private IdName(XmlElement xmlElement)
         {
@@ -124,6 +73,7 @@ namespace Collada
                 throw new Exception();
             }
             keyValuePairs[id] = this;
+            sources[id] = this;
             elements[id] = xmlElement;
             this.xmlElement = xmlElement;
             dictionary[xmlElement] = this;
@@ -161,6 +111,76 @@ namespace Collada
             }
         }
 
+
+        #endregion
+
+
+        static public Dictionary<XmlElement, IdName> Dictionary
+        {
+            get => dictionary;
+        }
+
+
+        static private Dictionary<IdName, XmlElement> inverse = new();
+      public static List<IdName> All
+        {
+            get
+            {
+                var list = new List<IdName>();
+                foreach (var x in inverse.Keys)
+                {
+                    if (list.Contains(x))
+                    {
+                        throw new Exception();
+                    }
+                    list.Add(x);
+                }
+                return list;
+            }
+        }
+
+
+
+        public IdName Source
+        {
+            get;
+            private set;
+        }
+
+        public IdName Parent
+        {
+            get => parent;
+            private set
+            {
+                if (parent != null) return;
+                parent = value;
+                if (!parent.ids.Contains(this))
+                {
+                    parent.ids.Add(this);
+                }
+            }
+        }
+
+        public string Tag => xmlElement.Name;
+
+
+
+        public void SetSource()
+        {
+            var src = xmlElement.GetAttribute("source");
+            if (src.Length > 0)
+            {
+                src = src.Substring(1);
+                Source = sources[src];
+                var ob = Source.Object;
+                ob = ob.Clone();
+                obj = ob;
+            }
+            foreach (var i in this)
+            {
+                i.SetSource();
+            }
+        }
         public void Reset(object o)
         {
             if (o != null)
@@ -185,7 +205,7 @@ namespace Collada
             }
         }
 
-        #endregion
+       
         public static IdName GetIdName(string name)
         {
             return keyValuePairs[name];

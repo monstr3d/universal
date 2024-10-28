@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
@@ -79,8 +80,30 @@ namespace Collada
             allObjects[idName] = o;
         }
 
-        public static T Clone<T>(T obj) where T : class
+        public static T[] CloneArray<T>(this T[] t) where T: struct
         {
+            var tt = new T[t.Length];
+            for (var i = 0; i < t.Length; i++)
+            {
+                tt[i] = t[i];
+            }
+            return tt;
+        }
+
+        public static T Clone<T>(this T obj) where T : class
+        {
+            if (obj is double[] d)
+            {
+               return d.CloneArray() as T;
+            }
+            if (obj is float[] f)
+            {
+               return f.CloneArray() as T;
+            }
+            if (obj is int[] i)
+            {
+               return  i.CloneArray() as T;
+            }
             var s = System.Windows.Markup.XamlWriter.Save(obj);
             return System.Windows.Markup.XamlReader.Parse(s) as T;
         }
@@ -127,7 +150,7 @@ namespace Collada
 
         #endregion
 
-        private static Dictionary<Type, Func<IdName, object, List<Tuple<IdName, object>>, object>> combine = new()
+        private static Dictionary<Type, Func<IdName, object, Dictionary<IdName, object>, object>> combine = new()
         {
             { typeof(BlurEffect), GetBlur }
         };
@@ -222,6 +245,7 @@ namespace Collada
                     }
                 }
             }
+            idName.SetSource();
             idName.Combine();
         }
 
@@ -229,22 +253,22 @@ namespace Collada
         static public object Combine(this IdName name)
         {
             var o = name.Object;
-            var l = new List<Tuple< IdName, object>>();
+            var l = new Dictionary<IdName, object>();
             foreach (var i in name)
             {
-                if (i.Object == o)
+                var ob = i.Object;
+                if (Compare(ob, o))
                 {
                     continue;
                 }
                 var c = i.Combine();
                 if (c != null)
                 {
-                    if (c != o)
+                    if (!Compare(c, o))
                     {
                         if (!(c is XmlElement))
                         {
-                            var tt = new Tuple<IdName, object>(name, c);
-                            l.Add(tt);
+                            l[idName] = i.Object;
                         }
                     }
                 }
@@ -257,7 +281,7 @@ namespace Collada
             return name.Combine(t, o, l);
         }
 
-        public static object Combine(this IdName name, Type t, object o, List<Tuple<IdName, object>> list)
+        public static object Combine(this IdName name, Type t, object o, Dictionary<IdName, object> list)
         {
             if (o is XmlElement)
             {
@@ -273,14 +297,60 @@ namespace Collada
 
                 return f(name, o, list);
             }
+            var b = Compare(o, list);
             throw new Exception();
         }
 
         #region Combines
 
-        static object GetBlur(IdName name, object o, List<Tuple<IdName, object>> l)
+        static object GetBlur(IdName name, object o, Dictionary<IdName, object> l)
         {
             return null;
+        }
+
+        static bool Compare(this object o1, object o2)
+        {
+            if (o1 is XmlElement | o2 is XmlElement)
+            {
+                return true;
+            }
+            object x = o2;
+            while (true)
+            {
+                if (x is List<Tuple<IdName, object>>  l)
+                {
+                    if (l.Count > 1)
+                    {
+                        return false;
+                    }
+                    x = l[0].Item2;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (o1 == x)
+            {
+                return true;
+            }
+            if (o1 is Array  a1)
+            {
+                if (x is Array a2)
+                {
+                    if (a1 is double[] d1 && a2 is double[] d2)
+                    return d1.SequenceEqual(d2);
+                    if (a1 is float[] f1 && a2 is float[] f2)
+                        return f1.SequenceEqual(f2);
+                    if (a1 is int[] i1 && a2 is int[] i2)
+                        return i1.SequenceEqual(i2);
+                }
+            }
+            if (o1.Equals(x))
+            {
+                return true;
+            }
+            return false;
         }
 
 
