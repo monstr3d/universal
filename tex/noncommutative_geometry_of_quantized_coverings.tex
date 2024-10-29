@@ -5447,7 +5447,7 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 \begin{definition}\label{fundamental_group_nc_p_defn} 
 	Let $P$ be a property of noncommutative finite-fold coverings.	Let $A$ be a $C^*$-algebra, and let 	$	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)	$	be the  {infinite noncommutative covering} (cf. Definition \ref{infinite_noncommutative_covering_defn}) of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ such that $A = A_{\la_{\mathrm{min}}}$.	Suppose that $\mathfrak{S}$ contains \textit{all} classes of isomorphisms of noncommutative finite-fold coverings of $A$ (cf. Definition \ref{fin_defn}) which possess the property $P$. Assume that for all $\mu, \nu \in \La$ such that $\mu \le \nu$ the finite-fold noncommutative cornering  $\lift^\mu_\nu : A_\mu \hookto A_\nu$ possesses the property $P$. 	Then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the $P$-\textit{universal  covering} 	of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the $P$-\textit{fundamental group} of $A$. We use the following notation
 	$$
-	\lift^P_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\pi^P_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
 $$
 \end{definition}
 \begin{example}
@@ -8287,25 +8287,23 @@ From (b) of the Definition \ref{top_soft_r_defn} it follows that there is $b \in
 \begin{proof}
 Follows from the Theorem \ref{sheaf_soft_m_thm}.
 \end{proof}
-\begin{lemma}\label{sheaf_soft_neighborhood_lem!}!!!\cite{godement:sheaf,torsten:sheaves}
-	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
-\end{lemma}
 
-\begin{exercise}\label{top_soft_c_exer} !!! LEMMA ABOVE 
+\begin{remark}\label{top_soft_c_rem}
 Let $R \subset C_0\left(\sX\right)$ be a soft $*$-subalgebra.
-Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft $*$-subalgebra of $C_0\left(\widetilde \sX\right)$.
-\end{exercise}
-\begin{exercise}\label{top_soft_p_exer}
+If $p: \widetilde \sX \to \sX$ is a covering then from the Definition \ref{top_covering_defn} and the Lemma \ref{sheaf_soft_neighborhood_lem}  it follows that the intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft $*$-subalgebra of $C_0\left(\widetilde \sX\right)$.
+\end{remark}
+
+\begin{remark}\label{top_soft_p_rem} 
 	If $R \subset C_0\left(\sX\right)$ is a soft $*$-subalgebra and $ p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
 \begin{enumerate}
 	\item[(a)] there is an open subset $\widetilde \sU\subset\widetilde\sX$ such that $\supp \widetilde f\subset \widetilde\sU$ and $\widetilde\sU$ is mapped homeomorphically onto $p\left(\widetilde\sU\right)$,
 	\item[(b)] $\widetilde f\left(\sX \right) = \left[0, 1\right]$,
 	\item[(c)] there is an open neighborhood $\widetilde \sV$ of $\widetilde x$ such that $\widetilde f\left(\widetilde \sV \right) = \{1\}$.
 \end{enumerate}
-\end{exercise}
+\end{remark}
 
 \begin{definition}\label{top_stump_soft_p_defn}
-	Under the hypotheses of the Exercise \ref{top_soft_p_exer} we say that $f$ is an $\left(p, R, \widetilde x\right)$-\textit{stump}.
+	Under the hypotheses of the Remark \ref{top_soft_p_rem}  we say that $f$ is an $\left(p, R, \widetilde x\right)$-\textit{stump}.
 \end{definition}
 
 
@@ -9562,7 +9560,7 @@ If $\mathfrak B$ is the completion of $\mathfrak B'$ with respect to the graph t
  From the 
  Lemma \ref{top_fin_necassary_lem} 
   it follows that one has a natural  {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$).
-If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft_c_exer} it turns out that
+If $\mathscr S^R$ is an $R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) and $p^{-1}\mathscr S^{R}$ is its inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then from the Exercise \ref{top_soft_c_exer}  !!!! REPLACE WITH REMAFK \ref{top_soft_c_rem} !!! it turns out that
 an intersection $\widetilde R \bydef p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft $*$-subalgebra. We leave to the reader the proof of the natural isomorphism
 $$
 p^{-1}\mathscr S^{R\left[t\right]}\cong \mathscr S^{\widetilde R\left[t\right]}.
@@ -10865,7 +10863,7 @@ $$
 	\be\label{top_ra_sh_eqn}
 	\forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} \subset \mathscr S^{\widetilde R}_{\widetilde x}
 	\ee
-	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$. From the Exercise \ref{top_soft_c_exer} it follows that $\widetilde R$ is a soft $*$-algebra (cf. Definition \ref{top_soft_r_defn}). If $\widetilde b \in  \widetilde R$ is a $\left(\widetilde p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn})
+	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$. From the Exercise \ref{top_soft_c_exer}  !!!! REPLACE WITH REMAFK \ref{top_soft_c_rem} !!! it follows that $\widetilde R$ is a soft $*$-algebra (cf. Definition \ref{top_soft_r_defn}). If $\widetilde b \in  \widetilde R$ is a $\left(\widetilde p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn})
 	then from  $\widetilde b \in C_c\left(\widetilde \sX \right)$ and \eqref{top_inf_cov_oap_eqn} it follows that there is $a^\cup \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
 	$$
 	\widetilde b \widetilde a= \widetilde b a^\cup

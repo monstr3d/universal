@@ -20,7 +20,7 @@ namespace WinFormsApp3DConversion
             {
                 var output = Path.GetFileNameWithoutExtension(file);
                 output = Path.Combine(dir, output);
-                output = output + ".dae";
+                output = output + ".3ds";
                 file.Convert(output);
             }
             ApplicationConfiguration.Initialize();

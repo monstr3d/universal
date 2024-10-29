@@ -17,12 +17,14 @@ namespace Collada
 
         static private Dictionary<string, IdName> sources = new();
 
-
+       
       
         string id;
 
-        string name;
+        bool isCombined = false;
 
+ 
+  
         List<IdName> ids = new();
 
         XmlElement xmlElement;
@@ -31,18 +33,7 @@ namespace Collada
 
         private object obj;
 
-        public Object Object
-        {
-            get => obj;
-            set
-            {
-                if (obj != xmlElement)
-                {
-                    throw new Exception();
-                }
-                obj = value;
-            }
-        }
+        string name;
 
         #endregion
 
@@ -54,7 +45,11 @@ namespace Collada
         private IdName(XmlElement xmlElement)
         {
             this.xmlElement = xmlElement;
-            obj = xmlElement;
+             var nn = xmlElement.Name;
+            if (nn.Contains("mater"))
+            {
+
+            }
             string att = xmlElement.GetAttribute("id");
             if (att.Length > 0)
             {
@@ -115,6 +110,36 @@ namespace Collada
         #endregion
 
 
+        #region Properties
+        public bool IsCombined
+        {
+            get => isCombined;
+            set
+            {
+                isCombined = value;
+                if (value)
+                {
+                    xmlElement.SetAttribute("IsCombined", "True");
+                }
+            }
+        }
+
+
+        public object Object
+        {
+            get => obj;
+            set
+            {
+                if (obj != null)
+                {
+                    throw new Exception();
+                }
+                obj = value;
+            }
+        }
+
+
+
         static public Dictionary<XmlElement, IdName> Dictionary
         {
             get => dictionary;
@@ -152,6 +177,10 @@ namespace Collada
             get => parent;
             private set
             {
+                if (value == null)
+                {
+                    return;
+                }
                 if (parent != null) return;
                 parent = value;
                 if (!parent.ids.Contains(this))
@@ -163,6 +192,10 @@ namespace Collada
 
         public string Tag => xmlElement.Name;
 
+        public string Id => id;
+
+
+        #endregion
 
 
         public void SetSource()
@@ -189,8 +222,7 @@ namespace Collada
             }
         }
 
-        internal string Id => id;
-
+ 
         private void Process(XmlNode node)
         {
             if (node is XmlElement e)
@@ -212,7 +244,7 @@ namespace Collada
         }
 
 
-        
+
 
         public static IdName ToIdName(XmlElement xmlElement)
         {
@@ -220,7 +252,7 @@ namespace Collada
             {
                 return dictionary[xmlElement];
             }
-           return new IdName(xmlElement);
+            return new IdName(xmlElement);
         }
 
         public XmlElement Xml => xmlElement;
@@ -251,19 +283,6 @@ namespace Collada
 
         #endregion
 
-        #region Own Members
-        /*
-                internal IdName Double()
-                {
-                    if (name.Length != 0)
-                    {
-                        return null;
-                    }
-                    return new IdName(id, id);
-                }
-        */
-
-
-        #endregion
+   
     }
 }
