@@ -21,6 +21,7 @@ namespace ConvertCOLLADA.FormsApplication
             // @"g:\Model\1.dae".ColladaToVisual3D();
            // XmlDocument doc = new XmlDocument();
             var f = @"c:\0\03D\UNZIP\MODELS\cadnav.com_modelMIG29\Models_G0403A048\1857302.dae";
+            f = @"c:\0\03D\NRW\UNZIP\cadnav.com_model_TORNADO\Models_G0404A626\Tornado.dae";
             //  doc.Load(f);
             var v3d = f.ColladaToVisual3D();
             foreach (var ss in v3d.Values)

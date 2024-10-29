@@ -231,11 +231,6 @@ namespace Collada
                 return o;
             }
             XmlNode n = name.Xml;
-            if (n.ChildNodes.Count == 0)
-            {
-                name.IsCombined = true;
-                return o;
-            }
             foreach (XmlNode nd in n.ChildNodes)
             {
                 Combine(nd);
@@ -254,7 +249,6 @@ namespace Collada
                 }
                 if (ob is KeyValuePair<IdName, object> p)
                 {
-
                     p.ToList(l);
                 }
                 else if (ob is List<KeyValuePair<IdName, object>> li)
@@ -266,15 +260,9 @@ namespace Collada
                     l.Add(new KeyValuePair<IdName, object>(i, ob));
                 }
             }
-            if (l.Count == 0)
-            {
-                name.IsCombined = true;
-                return o;
-            }
             if (o == null)
             {
                 name.IsCombined = true;
-
                 name.Reset(l);
                 return l;
             }
@@ -308,8 +296,7 @@ namespace Collada
             {
                  return f(name, o, list);
             }
-            var b = Compare(o, list);
-            throw new Exception();
+            return o;
         }
 
         #region Combines
@@ -332,6 +319,12 @@ namespace Collada
             return o;
         }
 
+        static object GetVisual3D(IdName name, object o, List<KeyValuePair<IdName, object>> l)
+        {
+            return null;
+        }
+
+
 
         static object GetM3d(IdName name, object o, List<KeyValuePair<IdName, object>> l)
         {
@@ -344,6 +337,9 @@ namespace Collada
             return null;
         }
 
+        #endregion
+
+        #region Compare
 
         static public bool Compare(this Array array, object o)
         {
@@ -414,32 +410,6 @@ namespace Collada
         }
 
 
-        public static Visual3D ToVisual3D(this XmlElement element)
-        {
-            List<Visual3D> l = new List<Visual3D>();
-            foreach (XmlElement e in element.ChildNodes)
-            {
-                if (!e.Name.Equals("node"))
-                {
-                    continue;
-                }
-                Visual3D v = e.ToVisual3D();
-                if (v != null)
-                {
-                    l.Add(v);
-                }
-            }
-            if (l.Count == 1)
-            {
-                return l[0];
-            }
-            ModelVisual3D m3d = new ModelVisual3D();
-            foreach (Visual3D v3d in l)
-            {
-                m3d.Children.Add(v3d);
-            }
-            return m3d;
-        }
 
 
    
@@ -465,6 +435,22 @@ namespace Collada
             }
         }
 
+
+        #endregion
+
+
+        #region Clone
+
+        public static T[] CloneArray<T>(this T[] t) where T : struct
+        {
+            var tt = new T[t.Length];
+            for (var i = 0; i < t.Length; i++)
+            {
+                tt[i] = t[i];
+            }
+            return tt;
+        }
+
         public static T Clone<T>(this T obj) where T : class
         {
             if (obj is double[] d)
@@ -483,8 +469,8 @@ namespace Collada
             return System.Windows.Markup.XamlReader.Parse(s) as T;
         }
 
-
         #endregion
+
 
         #region Events
 
@@ -504,10 +490,6 @@ namespace Collada
         #endregion
 
         #region Convert
- 
- 
-
-
   
 
         static string[] Separate(this string str)
@@ -537,13 +519,18 @@ namespace Collada
         static T ToReal<T>(this string s) where T : struct
         {
             object obj = null;
-            if (typeof(T) == typeof(double))
+            var t = typeof(T);
+            if (t == typeof(double))
             {
                 obj = s.ToDouble();
             }
-            else
+            else if (t == typeof(float))
             {
                 obj = float.Parse(s);
+            }
+            else if (t == typeof(int))
+            {
+                obj = int.Parse(s);
             }
             return (T)obj;
         }

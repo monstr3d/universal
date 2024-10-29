@@ -23,8 +23,6 @@ namespace Collada
 
         bool isCombined = false;
 
- 
-  
         List<IdName> ids = new();
 
         XmlElement xmlElement;
@@ -45,11 +43,6 @@ namespace Collada
         private IdName(XmlElement xmlElement)
         {
             this.xmlElement = xmlElement;
-             var nn = xmlElement.Name;
-            if (nn.Contains("mater"))
-            {
-
-            }
             string att = xmlElement.GetAttribute("id");
             if (att.Length > 0)
             {

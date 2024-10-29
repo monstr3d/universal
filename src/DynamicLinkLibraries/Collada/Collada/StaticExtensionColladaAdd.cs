@@ -10,6 +10,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
+using System.Windows.Controls;
 
 namespace Collada
 {
@@ -46,28 +47,19 @@ namespace Collada
 
         private static Dictionary<IdName, Effect> effects = new();
 
+        static Dictionary<IdName, int[]> intp = new();
+
+
         private static Dictionary<IdName, object> sources = new();
 
         private static Dictionary<string, IdName> sourcesId = new();
 
-        private static Dictionary<string, XmlElement> names = new();
-
+ 
         #endregion
 
-        #region Clone
+ 
 
-        public static T[] CloneArray<T>(this T[] t) where T : struct
-        {
-            var tt = new T[t.Length];
-            for (var i = 0; i < t.Length; i++)
-            {
-                tt[i] = t[i];
-            }
-            return tt;
-        }
-
-
-
+        #region
 
         private static Dictionary<string, Func<XmlElement, Material>> materialCalc
             = new()
@@ -87,8 +79,12 @@ namespace Collada
 {"material", new object[]{new Func<IdName, XmlElement, object>(GetMaterial), materials}},
 {"image", new object[]{new Func<IdName, XmlElement, object>(GetImage), images}},
 {"source", new object[] {new Func<IdName, XmlElement, object>(GetSource), sources}},
-{"vertices", new object[] {new Func<IdName, XmlElement, object>(GetVetrices<float>), sources}}
-            };
+{"vertices", new object[] {new Func<IdName, XmlElement, object>(GetVetrices<float>), sources}},
+{"p", new object[] {new Func<IdName, XmlElement, object>(GetP), intp}}
+  };
+
+  
+
 
         private static readonly Dictionary<string, Func<XmlElement, object>> sourceDic = new()
        {
@@ -105,14 +101,14 @@ namespace Collada
         private static Dictionary<Type, Func<IdName, object, List<KeyValuePair<IdName, object>>, object>> combine = new()
         {
             { typeof(BlurEffect), GetBlur },
-            {typeof(Array), GetArray }
+            {typeof(Array), GetArray },
+            {typeof(Visual3D), GetVisual3D}
         };
 
 
         #endregion
 
         #region Common
-
 
 
         private static readonly Dictionary<string, Type> materialTypes = new Dictionary<string, Type>()
@@ -153,6 +149,7 @@ namespace Collada
 
 
         #endregion
+
         #region Convert
 
         static int[] ToIntArray(this XmlElement element)
@@ -434,6 +431,22 @@ namespace Collada
             return mat;
         }
 
+        static object GetP(IdName idName, XmlElement element)
+        {
+            if (intp.ContainsKey(idName))
+            {
+                return intp[idName];
+            }
+            if (sources.ContainsKey(idName)) 
+            { 
+            return sources[idName];
+            }
+            var x = element.ToRealArray<int>();
+            intp[idName] = x;
+            return x;
+        }
+
+
         private static object GetArray<T>(IdName name, XmlElement element) where T : struct
         {
             if (arrays.ContainsKey(name))
@@ -473,6 +486,32 @@ namespace Collada
 
         }
 
+        public static Visual3D ToVisual3D(this XmlElement element)
+        {
+            List<Visual3D> l = new List<Visual3D>();
+            foreach (XmlElement e in element.ChildNodes)
+            {
+                if (!e.Name.Equals("node"))
+                {
+                    continue;
+                }
+                Visual3D v = e.ToVisual3D();
+                if (v != null)
+                {
+                    l.Add(v);
+                }
+            }
+            if (l.Count == 1)
+            {
+                return l[0];
+            }
+            ModelVisual3D m3d = new ModelVisual3D();
+            foreach (Visual3D v3d in l)
+            {
+                m3d.Children.Add(v3d);
+            }
+            return m3d;
+        }
 
 
         static Visual3D GetMesh(XmlElement element)
@@ -517,6 +556,12 @@ namespace Collada
                 geom.Material = mat;
                 mod.Content = geom;
             }
+            else
+            {
+                GeometryModel3D geom = new GeometryModel3D();
+                geom.Geometry = mesh;
+                mod.Content = geom;
+            }
             var ss = element.GetElementsByTagName("source");
             foreach (XmlElement s in ss)
             {
@@ -525,6 +570,13 @@ namespace Collada
                     continue;
                 }
                 "source".Process(s);
+                
+            }
+            ss = element.GetElementsByTagName("triangles");
+            if (ss.Count == 1)
+            {
+                var tringles = ss[0] as XmlElement;
+
             }
             return mod;
         }
