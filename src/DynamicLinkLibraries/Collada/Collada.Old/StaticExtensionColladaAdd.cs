@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows.Documents.DocumentStructures;
 using System.Windows.Controls;
+using System.Net.Http.Headers;
 
-namespace Collada
+namespace Collada.Old
 {
     partial class StaticExtensionCollada
     {
@@ -20,12 +19,12 @@ namespace Collada
         #region Fields
 
         #region Combine
-/*
-        private static Dictionary<Type, Func<IdName, object, Dictionary<IdName, object>, object>> combine = new()
-        {
-            { typeof(BlurEffect), GetBlur }
-        };
-*/
+        /*
+                private static Dictionary<Type, Func<IdName, object, Dictionary<IdName, object>, object>> combine = new()
+                {
+                    { typeof(BlurEffect), GetBlur }
+                };
+        */
 
 
         #endregion
@@ -41,6 +40,8 @@ namespace Collada
 
         private static Dictionary<IdName, ImageSource> images = new();
 
+        private static Dictionary<IdName, Scene> scenes = new();
+
         private static Dictionary<IdName, Material> materials = new();
 
         private static Dictionary<IdName, Visual3D> visuals = new();
@@ -54,19 +55,19 @@ namespace Collada
 
         private static Dictionary<string, IdName> sourcesId = new();
 
- 
+
         #endregion
 
- 
+
 
         #region
 
         private static Dictionary<string, Func<XmlElement, Material>> materialCalc
             = new()
             {
-               { "phong", GetPhong}
+               { "phong", GetPhong},
+                {"instance_effect", GetInstanceEffect}
             };
-
 
 
         private static readonly Dictionary<string, object[]> functions
@@ -80,10 +81,11 @@ namespace Collada
 {"image", new object[]{new Func<IdName, XmlElement, object>(GetImage), images}},
 {"source", new object[] {new Func<IdName, XmlElement, object>(GetSource), sources}},
 {"vertices", new object[] {new Func<IdName, XmlElement, object>(GetVetrices<float>), sources}},
-{"p", new object[] {new Func<IdName, XmlElement, object>(GetP), intp}}
+{"p", new object[] {new Func<IdName, XmlElement, object>(GetP), intp}},
+         { "library_visual_scenes", new object[] {new Func<IdName, XmlElement, object>(GetScenes), scenes} },
   };
 
-  
+
 
 
         private static readonly Dictionary<string, Func<XmlElement, object>> sourceDic = new()
@@ -102,7 +104,8 @@ namespace Collada
         {
             { typeof(BlurEffect), GetBlur },
             {typeof(Array), GetArray },
-            {typeof(Visual3D), GetVisual3D}
+            {typeof(Visual3D), GetVisual3D},
+            {typeof(Scene), GetScene}
         };
 
 
@@ -259,19 +262,64 @@ namespace Collada
             }
             return c;
         }
+        static List<Point3D> ToPoint3DList(this float[] x)
+        {
+            List<Point3D> c = new List<Point3D>();
+            for (int i = 0; i < x.Length; i += 3)
+            {
+                Point3D p = new Point3D(x[i], x[i + 1], x[i + 2]);
+                c.Add(p);
+            }
+            return c;
+        }
+
+        static List<Vector3D> ToVector3DList(this float[] x)
+        {
+            var c = new List<Vector3D>();
+            for (int i = 0; i < x.Length; i += 3)
+            {
+                var p = new Vector3D(x[i], x[i + 1], x[i + 2]);
+                c.Add(p);
+            }
+            return c;
+        }
+
+
+
+
 
 
 
 
         private static List<Point3D> ToPoint3DList(this XmlElement e)
         {
-            return e.FindSource<double[]>().ToPoint3DList();
+            return e.FindSourceChild<double[]>().ToPoint3DList();
         }
 
-  
+
+        public static Func<int, Material> GetDefaultMaterial
+        {
+            get;
+            set;
+        }
+
+        public static object GetMaterial(this string mat, int materialIndex)
+        {
+            if (mat == "default")
+            {
+                if (GetDefaultMaterial != null)
+                {
+                    return GetDefaultMaterial(materialIndex);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            throw new NotImplementedException();
+        }
 
 
- 
 
         #endregion
 
@@ -325,11 +373,18 @@ namespace Collada
 
         private static object GetVetrices<T>(IdName name, XmlElement element) where T : struct
         {
-            T[] x = element.FindSource<T[]>();
+            T[] x = element.FindSourceChild<T[]>();
             element.Add<object>(x, sources);
             element.Add<object>(x, arrays);
             return x;
         }
+
+        private static object GetScenes(IdName name, XmlElement element)
+        {
+            return new Scene(element);
+        }
+
+
 
 
 
@@ -364,72 +419,105 @@ namespace Collada
             return null;
         }
 
+
         private static object GetMaterial(IdName name, XmlElement element)
         {
+            if (materials.ContainsKey(name))
+            {
+                return materials[name];
+            }
+
             Material mat = null;
             XmlElement e = element.GetElementsByTagName("instance_effect")[0] as XmlElement;
             Dictionary<string, XmlElement> par = e.GetParameters();
             string s = e.GetAttribute("url").Substring(1);
-            IdName n = s.ToIdName();
-            if (materials.ContainsKey(n))
             {
-                return materials[n];
-            }
-            var mats = new List<Material>();
-            foreach (string key in materialCalc.Keys)
-            {
-                XmlNodeList nl = e.GetElementsByTagName(key);
-                foreach (var node in nl)
-                {
-                    if (node is XmlElement el)
-                    {
-                        var id = e.ToIdName();
-                        Material m = null;
-                        if (materials.ContainsKey(id))
-                        {
-                            m = materials[id];
-                        }
-                        else
-                        {
-
-                            m = materialCalc[key](el);
-                            if (m != null)
-                            {
-                                materials[id] = m;
-                            }
-                            mats.Add(m);
-                        }
-                    }
-                }
-            }
-            if (mats.Count == 0)
-            {
+                e = name.Xml;
                 foreach (string key in materialCalc.Keys)
                 {
-                    var m = materialCalc[key](element);
-                    if (m != null)
+                    XmlNodeList nl = e.GetElementsByTagName(key);
+                    if (nl.Count == 1)
                     {
-                        mat = m;
-                        break;
+                        mat = materialCalc[key](nl[0] as XmlElement);
                     }
-                }
-            }
-            else
-            {
-                var mg = new MaterialGroup();
-                mat = mg;
-                foreach (var m in mats)
-                {
-                    mg.Children.Add(m);
                 }
             }
             if (mat == null)
             {
-                return null;
+                //   throw new Exception();
             }
             materials[name] = mat;
             return mat;
         }
+
+        /*
+
+                private static object GetMaterial(IdName name, XmlElement element)
+                {
+                    Material mat = null;
+                    XmlElement e = element.GetElementsByTagName("instance_effect")[0] as XmlElement;
+                    Dictionary<string, XmlElement> par = e.GetParameters();
+                    string s = e.GetAttribute("url").Substring(1);
+                    IdName n = s.ToIdName();
+                    if (materials.ContainsKey(n))
+                    {
+                        return materials[n];
+                    }
+                    var mats = new List<Material>();
+                    foreach (string key in materialCalc.Keys)
+                    {
+                        XmlNodeList nl = e.GetElementsByTagName(key);
+                        foreach (var node in nl)
+                        {
+                            if (node is XmlElement el)
+                            {
+                                var id = e.ToIdName();
+                                Material m = null;
+                                if (materials.ContainsKey(id))
+                                {
+                                    m = materials[id];
+                                }
+                                else
+                                {
+
+                                    m = materialCalc[key](el);
+                                    if (m != null)
+                                    {
+                                        materials[id] = m;
+                                    }
+                                    mats.Add(m);
+                                }
+                            }
+                        }
+                    }
+                    if (mats.Count == 0)
+                    {
+                        foreach (string key in materialCalc.Keys)
+                        {
+                            var m = materialCalc[key](element);
+                            if (m != null)
+                            {
+                                mat = m;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var mg = new MaterialGroup();
+                        mat = mg;
+                        foreach (var m in mats)
+                        {
+                            mg.Children.Add(m);
+                        }
+                    }
+                    if (mat == null)
+                    {
+                        return null;
+                    }
+                    materials[name] = mat;
+                    return mat;
+                }*/
 
         static object GetP(IdName idName, XmlElement element)
         {
@@ -437,9 +525,9 @@ namespace Collada
             {
                 return intp[idName];
             }
-            if (sources.ContainsKey(idName)) 
-            { 
-            return sources[idName];
+            if (sources.ContainsKey(idName))
+            {
+                return sources[idName];
             }
             var x = element.ToRealArray<int>();
             intp[idName] = x;
@@ -514,6 +602,11 @@ namespace Collada
         }
 
 
+        static Point3DCollection ToPoint3DCollection(this float[] x)
+        {
+            return new Point3DCollection(x.ToPoint3DList());
+        }
+
         static Visual3D GetMesh(XmlElement element)
         {
             ModelVisual3D mod = new ModelVisual3D();
@@ -570,7 +663,7 @@ namespace Collada
                     continue;
                 }
                 "source".Process(s);
-                
+
             }
             ss = element.GetElementsByTagName("triangles");
             if (ss.Count == 1)
@@ -594,6 +687,87 @@ namespace Collada
                 c.Add(p);
             }
             return c;
+        }
+
+        static List<System.Windows.Point> ToPointList(this float[] x)
+        {
+            List<System.Windows.Point> c = new();
+            for (int i = 0; i < x.Length; i += 2)
+            {
+                var p = new System.Windows.Point(x[i], 1 - x[i + 1]);
+                c.Add(p);
+            }
+            return c;
+        }
+
+
+        private static Dictionary<string, Type> matTypes = new()
+            {
+            {"diffuse", typeof(DiffuseMaterial) },
+                        {"specular", typeof(SpecularMaterial) },
+
+                        {"reflective", typeof(EmissiveMaterial) }
+
+};
+        private static Material GetInstanceEffect(XmlElement element)
+        {
+            var url = element.GetAttribute("url").Substring(1);
+            var c = url.ToIdName();
+            if (materials.ContainsKey(c))
+            {
+                return materials[c];
+            }
+            var xml = c.Xml;
+            List<Material> l = new List<Material>();
+            var nl = xml.GetElementsByTagName("phong")[0];
+            Material material = null;
+             foreach (XmlElement e in nl.ChildNodes)
+            {
+                var nm = e.Name;
+                if (matTypes.ContainsKey(nm))
+                {
+                    var t = matTypes[nm];
+                    var ct = t.GetConstructor([]);
+                    material = ct.Invoke(null) as Material;
+                    l.Add(material);
+                    foreach (XmlElement ee in e.ChildNodes)
+                    {
+                        var sn = ee.Name;
+                        if (sn == "color")
+                        {
+                            var color = ee.GetColor();
+                            var cp = t.GetProperty("Color") as PropertyInfo;
+                            cp.SetValue(material, color);
+                        }
+                        else if (sn == "reflectivity")
+                        {
+                            var d = ee.ToDouble();
+                            var cr = t.GetProperty("SpecularPower");
+                            cr.SetValue(material, d);
+
+                        }
+                        else if (sn == "texture")
+                        {
+                            var coord = ee.GetAttribute("texcoord");
+                            var cg = coord.ToIdName();
+                            
+
+                            var txtr = ee.GetAttribute("texture");
+                            var ttxt = txtr.ToIdName();
+                        }
+                    }
+                }
+            }
+            if (l.Count == 1)
+            {
+                materials[c] = material;
+                return material;
+            }
+            var mc = new MaterialCollection(l);
+            var mg = new MaterialGroup();
+            mg.Children = mc;
+            materials[c] = mg;
+            return mg;
         }
 
 

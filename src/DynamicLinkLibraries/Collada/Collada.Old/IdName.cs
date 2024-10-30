@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Collada
+namespace Collada.Old
 {
     public class IdName : IEnumerable<IdName>
     {
@@ -58,7 +58,8 @@ namespace Collada
             }
             if (keyValuePairs.ContainsKey(id))
             {
-                throw new Exception();
+                id = Guid.NewGuid() + "";
+                xmlElement.SetAttribute("id", id);
             }
             keyValuePairs[id] = this;
             sources[id] = this;
