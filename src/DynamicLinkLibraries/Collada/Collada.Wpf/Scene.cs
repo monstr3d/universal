@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Collada
+namespace Collada.Wpf
 {
     internal class Scene
     {

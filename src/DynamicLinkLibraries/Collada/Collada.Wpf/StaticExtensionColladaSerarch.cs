@@ -8,7 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
-namespace Collada.Old
+namespace Collada.Wpf
 {
     partial  class StaticExtensionCollada
     {

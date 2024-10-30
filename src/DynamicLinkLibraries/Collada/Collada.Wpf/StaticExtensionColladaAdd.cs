@@ -11,7 +11,7 @@ using System.Windows.Documents.DocumentStructures;
 using System.Windows.Controls;
 using System.Net.Http.Headers;
 
-namespace Collada.Old
+namespace Collada.Wpf
 {
     partial class StaticExtensionCollada
     {

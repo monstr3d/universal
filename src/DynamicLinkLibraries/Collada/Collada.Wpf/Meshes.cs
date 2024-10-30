@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 
-namespace Collada
+namespace Collada.Wpf
 {
     public struct Meshes
     {

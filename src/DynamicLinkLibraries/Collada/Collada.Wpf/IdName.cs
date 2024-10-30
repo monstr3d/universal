@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Collada.Old
+namespace Collada.Wpf
 {
     public class IdName : IEnumerable<IdName>
     {

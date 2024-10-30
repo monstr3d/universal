@@ -7,7 +7,7 @@ using System.Windows.Media.Media3D;
 
 
 
-namespace Collada.Old
+namespace Collada.Wpf
 {
     /// <summary>
     /// Collada converter

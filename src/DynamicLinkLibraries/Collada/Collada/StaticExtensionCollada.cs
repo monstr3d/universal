@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Collada
 {
@@ -9,9 +10,21 @@ namespace Collada
     /// </summary>
     public static class StaticExtensionCollada
     {
+   
+        static ICollada collada;
+
+        static Dictionary<XmlElement, object> dictionary;
+
+        static private Dictionary<string, XmlElement> keyValuePairs;
+
+        static private XmlElement xmlElement;
+
+        static string filename;
+
         static StaticExtensionCollada()
         {
             dictionary = new();
+            keyValuePairs = new();
         }
 
         public static ICollada Collada
@@ -22,19 +35,10 @@ namespace Collada
                 collada = value;
                 Clear();
                 filename = null;
-              }
+            }
         }
 
-        static ICollada collada;
-
-     
-
-
-        static Dictionary<XmlElement, object> dictionary;
-
-        static private XmlElement xmlElement;
-
-        static string filename;
+        #region Members
 
         public static XmlElement Xml => xmlElement;
 
@@ -57,7 +61,7 @@ namespace Collada
             }
         }
 
-        static  void Set(this XmlElement element, object value)
+        static public void Set(this XmlElement element, object value)
         {
             if (dictionary.ContainsKey(element))
             {
@@ -74,6 +78,11 @@ namespace Collada
         static  void Clear()
         {
             dictionary.Clear();
+            keyValuePairs.Clear();
+            if (collada != null)
+            {
+                collada.Clear();
+            }
         }
 
         static  object CloneItself(this object obj)
@@ -112,7 +121,7 @@ namespace Collada
             return (T)element.Get();
         }
 
-        static  void PreLoad(this XmlNode element)
+        static void PreLoad(this XmlNode element)
         {
             foreach (XmlNode node in element.ChildNodes)
             {
@@ -120,8 +129,24 @@ namespace Collada
             }
             if (element is XmlElement xmlElement)
             {
+                var id = xmlElement.GetAttribute("id");
+                if (id.Length == null | keyValuePairs.ContainsKey(id))
+                {
+                    id = Guid.NewGuid().ToString();
+                    xmlElement.SetAttribute("id", id);
+                }
+                keyValuePairs[id] = xmlElement;
                 xmlElement.Get();
             }
+        }
+
+        public static XmlElement ToXml(this string id)
+        {
+            if (keyValuePairs.ContainsKey(id))
+            { 
+                return keyValuePairs[id]; 
+            }
+            return null;
         }
 
         static bool IsCombined(this XmlElement node)
@@ -155,10 +180,11 @@ namespace Collada
                     return;
                 }
                 xml.Combine();
+                xml.SetCombined();
             }
         }
 
-        static public object GetCombined(XmlElement element)
+        static public object GetCombined(this XmlElement element)
         {
             if (IsCombined(element))
             {
@@ -168,15 +194,29 @@ namespace Collada
             return o.CloneItself();
         }
 
-        static  object Combine(this XmlElement xmlElement)
+        static public XmlElement GetXmlElement(this string key)
         {
-            object obj = 9;
+            if (keyValuePairs.ContainsKey(key))
+            {
+                return keyValuePairs[key];
+            }
+            return null;
+        }
+
+        static public object GetCombined(this string s)
+        {
+            return s.GetXmlElement().GetCombined();
+        }
+
+        static object Combine(this XmlElement xmlElement)
+        {
             var o = xmlElement.Get();
+            var obj = o;
             if (!IsCombined(xmlElement))
             {
                 return o;
             }
-            Func<XmlElement, object> f = null;
+            Func<XmlElement, object, object> f = null;
             xmlElement.SetCombined();
             if (o == null)
             {
@@ -198,11 +238,11 @@ namespace Collada
             }
             if (f != null)
             {
-                var res = f(xmlElement);
+                var res = f(xmlElement, o);
                 xmlElement.ReSet(res);
                 obj = res;
             }
-            return obj;
+            return obj.CloneItself();
         }
 
         public static string Filename => filename;
@@ -226,6 +266,65 @@ namespace Collada
             xmlDoc.Load(filename);
             XmlElement = xmlDoc.DocumentElement;
         }
+
+        #endregion
+
+
+        #region Service
+
+        public static T Find<T>(this string name) where T : class
+        {
+            return name.GetXmlElement().Find<T>(); ;
+        }
+
+        private static T Find<T>(this XmlElement el) where T : class
+        {
+          return  el.Get() as T;
+        }
+  
+        public static double ToDouble(this string str)
+        {
+            return double.Parse(
+                str.Replace(".",
+                System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+        }
+
+        static public XmlElement GetChild(this XmlElement element, string tag)
+        {
+            XmlNodeList nl = element.GetElementsByTagName(tag);
+            if (nl.Count == 1)
+            {
+                return nl[0] as XmlElement;
+            }
+            return null;
+        }
+
+        private static double ToDouble(this XmlElement element)
+        {
+            if (element.Name.Equals("float"))
+            {
+                return element.InnerText.ToDouble();
+            }
+            XmlNodeList nl = element.GetElementsByTagName("float");
+            if (nl.Count == 1)
+            {
+                return (nl[0] as XmlElement).ToDouble();
+            }
+            throw new Exception();
+        }
+
+        public static double ToDouble(this XmlElement element, string tag)
+        {
+            XmlNodeList nl = element.GetElementsByTagName(tag);
+            if (nl.Count == 1)
+            {
+                return (nl[0] as XmlElement).ToDouble();
+            }
+            throw new Exception();
+        }
+
+
+        #endregion
 
     }
 
