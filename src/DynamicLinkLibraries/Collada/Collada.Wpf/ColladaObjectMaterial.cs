@@ -4,24 +4,18 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using System.Windows.Media;
 using System.Xml;
 
 namespace Collada.Wpf
 {
     partial class ColladaObject
     {
-        #region Material
 
-        private static readonly Dictionary<string, Type> matTypes = new()
-            {
-            {"diffuse", typeof(DiffuseMaterial) },
-                        {"specular", typeof(SpecularMaterial) },
+        #region Functions
 
-                        {"reflective", typeof(EmissiveMaterial) }
 
-        };
 
         private static readonly Dictionary<string, Type> materialTypes = new Dictionary<string, Type>()
         {
@@ -31,15 +25,13 @@ namespace Collada.Wpf
    // {"transparent",  typeof(DiffuseMaterial}*/
       };
 
-
-        Dictionary<XmlElement, Material> materials = new();
-
-        private Dictionary<string, Func<XmlElement, Material>> materialCalc
-         = new()
-         {
+        private static readonly Dictionary<string, Func<XmlElement, Material>> materialCalc
+                = new()
+                {
                { "phong", GetPhong},
                 {"instance_effect", GetInstanceEffect}
-         };
+                };
+
 
 
         private Material GetPhong(XmlElement e)
@@ -67,7 +59,7 @@ namespace Collada.Wpf
                             ConstructorInfo c = t.GetConstructor([]);
                             mat = c.Invoke([]) as Material;
                             materials[e] = mat;
-                            Color color = GetColor(el);
+                            Color color = el.GetColor();
                             PropertyInfo pi = t.GetProperty("Color");
                             pi.SetValue(mat, color, null);
                             if (mat is SpecularMaterial)
@@ -175,7 +167,7 @@ namespace Collada.Wpf
             {
                 return mat;
             }
-     
+
             var xml = url.GetXmlElement();
             List<Material> l = new List<Material>();
             var nl = xml.GetElementsByTagName("phong")[0];
@@ -183,9 +175,9 @@ namespace Collada.Wpf
             foreach (XmlElement e in nl.ChildNodes)
             {
                 var nm = e.Name;
-                if (matTypes.ContainsKey(nm))
+                if (materialTypes.ContainsKey(nm))
                 {
-                    var t = matTypes[nm];
+                    var t = materialTypes[nm];
                     var ct = t.GetConstructor([]);
                     material = ct.Invoke(null) as Material;
                     l.Add(material);
@@ -194,7 +186,7 @@ namespace Collada.Wpf
                         var sn = ee.Name;
                         if (sn == "color")
                         {
-                            var color = GetColor(ee);
+                            var color = ee.GetColor();
                             var cp = t.GetProperty("Color") as PropertyInfo;
                             cp.SetValue(material, color);
                         }
@@ -219,13 +211,13 @@ namespace Collada.Wpf
             }
             if (l.Count == 1)
             {
-                materials[c] = material;
+                materials[element] = material;
                 return material;
             }
             var mc = new MaterialCollection(l);
             var mg = new MaterialGroup();
             mg.Children = mc;
-            materials[c] = mg;
+            materials[element] = mg;
             return mg;
         }
 
@@ -233,6 +225,7 @@ namespace Collada.Wpf
 
 
         #endregion
+
 
 
     }

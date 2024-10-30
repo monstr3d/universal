@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace Collada
 {
@@ -12,6 +12,9 @@ namespace Collada
     {
    
         static ICollada collada;
+
+        private static readonly char[] sep = "\r\n ".ToCharArray();
+
 
         static Dictionary<XmlElement, object> dictionary;
 
@@ -40,26 +43,35 @@ namespace Collada
 
         #region Members
 
-        public static XmlElement Xml => xmlElement;
-
-        public static IEnumerable<XmlElement> Elements => GetElements(xmlElement);
-
-
-        private static IEnumerable<XmlElement> GetElements(XmlNode node)
+        static public IEnumerable<T> GetElements<T>() where T : class
         {
-            if (node is XmlElement element)
+            foreach (var item in dictionary.Values)
             {
-                yield return element;
-            }   
-            foreach (XmlNode n in node.ChildNodes)
-            {
-                var x = GetElements(n);
-                foreach (var y  in x)
+                if (item is T t)
                 {
-                    yield return y;
+                    yield return t;
                 }
             }
         }
+
+
+        static public IEnumerable<T> GetElements<T>(Func<T, bool> func) where T : class
+        {
+            IEnumerable<T> items = GetElements<T>();
+            foreach (var item in items)
+            {
+                if (func(item))
+                {
+                    yield return item;
+                }
+            }
+        }
+
+
+
+        public static XmlElement Xml => xmlElement;
+
+        public static IEnumerable<XmlElement> Elements => GetElements(xmlElement);
 
         static public void Set(this XmlElement element, object value)
         {
@@ -147,6 +159,12 @@ namespace Collada
                 return keyValuePairs[id]; 
             }
             return null;
+        }
+
+        public static string Directory
+        {
+            get;
+            private set;
         }
 
         static bool IsCombined(this XmlElement node)
@@ -262,6 +280,7 @@ namespace Collada
         public static void Load(this string filename)
         {
             StaticExtensionCollada.filename = filename;
+            Directory = Path.GetDirectoryName(filename);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlElement = xmlDoc.DocumentElement;
@@ -299,7 +318,13 @@ namespace Collada
             return null;
         }
 
-        private static double ToDouble(this XmlElement element)
+        static public string[] Separate(this string str)
+        {
+            return str.Split(sep);
+        }
+
+
+        public static double ToDouble(this XmlElement element)
         {
             if (element.Name.Equals("float"))
             {
@@ -322,6 +347,99 @@ namespace Collada
             }
             throw new Exception();
         }
+
+        public static int ToInt(this string str)
+        {
+            return int.Parse(str);
+        }
+
+
+
+        public static int[] ToIntArray(this XmlElement element)
+        {
+            XmlElement e = element.GetChild("p");
+            string[] ss = e.InnerText.Separate();
+            List<int> l = new List<int>();
+            foreach (string s in ss)
+            {
+                if (s.Length > 0)
+                {
+                    l.Add(s.ToInt());
+                }
+            }
+            return l.ToArray();
+        }
+
+        static public string ToFileName(this string str)
+        {
+            return Path.Combine(Directory, Path.GetFileName(str));
+        }
+
+        static public T ToReal<T>(this string s) where T : struct
+        {
+            object obj = null;
+            var t = typeof(T);
+            if (t == typeof(double))
+            {
+                obj = s.ToDouble();
+            }
+            else if (t == typeof(float))
+            {
+                obj = float.Parse(s);
+            }
+            else if (t == typeof(int))
+            {
+                obj = int.Parse(s);
+            }
+            return (T)obj;
+        }
+
+        public static IEnumerable<XmlNode> GetNodes(this XmlNode node)
+        {
+            yield return node;
+            foreach (XmlNode n in node.ChildNodes)
+            {
+                var nd = n.GetNodes();
+                foreach (XmlNode ndd in nd)
+                {
+                    yield return ndd;
+                }
+            }
+        }
+
+        public static IEnumerable<XmlElement> GetElements(this XmlNode node)
+        {
+            var nd = node.GetNodes();
+            foreach (XmlNode ndd in nd)
+            {
+                if (ndd is XmlElement e)
+                {
+                    yield return e;
+                }
+            }
+        }
+
+
+
+
+        static public T[] ToRealArray<T>(this XmlNode node) where T : struct
+        {
+            string str = node.InnerText;
+            string[] ss = str.Split(sep);
+
+            var l = new List<T>();
+            foreach (string s in ss)
+            {
+                if (s.Length > 0)
+                {
+                    T a = s.ToReal<T>();
+                    l.Add(a);
+                }
+            }
+            return l.ToArray();
+
+        }
+
 
 
         #endregion
