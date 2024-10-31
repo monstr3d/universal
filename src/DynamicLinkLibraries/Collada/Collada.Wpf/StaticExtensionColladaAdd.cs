@@ -13,7 +13,7 @@ using System.Net.Http.Headers;
 
 namespace Collada.Wpf
 {
-    partial class StaticExtensionCollada
+    partial class StaticExtensionColladaOld
     {
 
         #region Fields
@@ -61,13 +61,6 @@ namespace Collada.Wpf
 
 
         #region
-
-        private static Dictionary<string, Func<XmlElement, Material>> materialCalc
-            = new()
-            {
-               { "phong", GetPhong},
-                {"instance_effect", GetInstanceEffect}
-            };
 
 
         private static readonly Dictionary<string, object[]> functions
@@ -142,7 +135,7 @@ namespace Collada.Wpf
 
         #region Convert
 
-        static int[] ToIntArray(this XmlElement element)
+        public static int[] ToIntArray(this XmlElement element)
         {
             XmlElement e = element.GetChild("p");
             string[] ss = e.InnerText.Separate();
@@ -158,40 +151,9 @@ namespace Collada.Wpf
         }
 
 
-        static List<int[]> ToInt3Array(this XmlElement element)
-        {
-            List<int[]> l = new List<int[]>();
-            int[] x = element.ToIntArray();
-            for (int i = 0; i < x.Length; i += 3)
-            {
-                l.Add(new int[] { x[i], x[i + 1], x[i + 2] });
-            }
-            return l;
-        }
+   
 
 
-
-
-
-
-        static ImageSource ToImage(this string str)
-        {
-            string fn = str.ToFileName();
-            if (!System.IO.File.Exists(fn))
-            {
-                return null;
-            }
-            System.Windows.Media.Imaging.BitmapImage bi =
-                new System.Windows.Media.Imaging.BitmapImage();
-            bi.BeginInit();
-            bi.UriSource = new Uri(fn);
-            bi.EndInit();
-            return bi;
-        }
-
-
-
-  
 
 
 
@@ -303,6 +265,8 @@ namespace Collada.Wpf
         }
 
 
+
+
         private static object GetMaterial(IdName name, XmlElement element)
         {
             if (materials.ContainsKey(name))
@@ -315,7 +279,7 @@ namespace Collada.Wpf
             Dictionary<string, XmlElement> par = e.GetParameters();
             string s = e.GetAttribute("url").Substring(1);
             {
-                e = name.Xml;
+   /*             e = name.Xml;
                 foreach (string key in materialCalc.Keys)
                 {
                     XmlNodeList nl = e.GetElementsByTagName(key);
@@ -323,7 +287,7 @@ namespace Collada.Wpf
                     {
                         mat = materialCalc[key](nl[0] as XmlElement);
                     }
-                }
+                }*/
             }
             if (mat == null)
             {

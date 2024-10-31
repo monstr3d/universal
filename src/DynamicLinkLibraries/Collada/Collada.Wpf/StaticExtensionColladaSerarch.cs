@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace Collada.Wpf
 {
-    partial  class StaticExtensionCollada
+    partial  class StaticExtensionColladaOld
     {
 
         static Func<IdName, XmlElement, int[]>[] SearctriangleIndicesArray =

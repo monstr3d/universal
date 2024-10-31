@@ -7,28 +7,95 @@ using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Xml;
+using System.Net.Http.Headers;
 
 namespace Collada.Wpf
 {
     partial class ColladaObject
     {
 
+        Dictionary<XmlElement, Material> materials; 
+
+
         #region Functions
 
 
 
-        private  Dictionary<string, Type> materialTypes = new Dictionary<string, Type>()
-        {
-                 {"diffuse", typeof(DiffuseMaterial)},
-                 {"specular", typeof(SpecularMaterial)},
-    {"reflective", typeof(EmissiveMaterial)}
-   // {"transparent",  typeof(DiffuseMaterial}*/
-      };
+
+
+        private Dictionary<string, Type> materialTypes; 
 
         private Dictionary<string, Func<XmlElement, Material>> materialCalc;
 
 
-        private  Material GetPhong(XmlElement e)
+        object GetInstanceEffect(XmlElement element)
+        {
+            return GetInstanceEffectMaterial(element);
+        }
+
+        private Material GeEffectMaterial(XmlElement element)
+        {
+            var url = element.GetAttribute("url").Substring(1);
+            var mat = GetMaterial(url);
+            if (mat != null)
+            {
+                return mat;
+            }
+
+            var xml = url.GetXmlElement();
+            List<Material> l = new List<Material>();
+            var nl = xml.GetElementsByTagName("phong")[0];
+            Material material = null;
+            foreach (XmlElement e in nl.ChildNodes)
+            {
+                var nm = e.Name;
+                if (materialTypes.ContainsKey(nm))
+                {
+                    var t = materialTypes[nm];
+                    var ct = t.GetConstructor([]);
+                    material = ct.Invoke(null) as Material;
+                    l.Add(material);
+                    foreach (XmlElement ee in e.ChildNodes)
+                    {
+                        var sn = ee.Name;
+                        if (sn == "color")
+                        {
+                            var color = ee.GetColor();
+                            var cp = t.GetProperty("Color") as PropertyInfo;
+                            cp.SetValue(material, color);
+                        }
+                        else if (sn == "reflectivity")
+                        {
+                            var d = ee.ToDouble();
+                            var cr = t.GetProperty("SpecularPower");
+                            cr.SetValue(material, d);
+
+                        }
+                        else if (sn == "texture")
+                        {
+                            var coord = ee.GetAttribute("texcoord");
+                            var cg = coord.ToIdName();
+                            var txtr = ee.GetAttribute("texture");
+                            var ttxt = txtr.ToIdName();
+                        }
+                    }
+                }
+            }
+            if (l.Count == 1)
+            {
+                materials[element] = material;
+                return material;
+            }
+            return l.ToMaterial();
+         }
+
+        object GetPhongObject(XmlElement e)
+        {
+            return GetPhong(e);
+        }
+
+
+        private Material GetPhong(XmlElement e)
         {
             if (materials.ContainsKey(e))
             {
@@ -46,28 +113,28 @@ namespace Collada.Wpf
                     }
                     else
                     {
-                        string tag = e.Name;
+                        string tag = el.Name;
                         if (materialTypes.ContainsKey(tag))
                         {
                             Type t = materialTypes[tag];
                             ConstructorInfo c = t.GetConstructor([]);
                             mat = c.Invoke([]) as Material;
-                            materials[e] = mat;
+                            materials[el] = mat;
                             Color color = el.GetColor();
                             PropertyInfo pi = t.GetProperty("Color");
                             pi.SetValue(mat, color, null);
-                            if (mat is SpecularMaterial)
+                            if (mat is SpecularMaterial sm)
                             {
                                 try
                                 {
-                                    if (e.GetAttribute("reflectivity").Length > 0)
+                                    var rf = el.GetAttribute("reflectivity");
+                                    if (rf.Length > 0)
                                     {
-                                        double refl = e.ToDouble("reflectivity");
-                                        SpecularMaterial sm = mat as SpecularMaterial;
+                                        double refl = el.ToDouble("reflectivity");
                                         sm.SpecularPower = refl;
                                     }
                                 }
-                                finally
+                                catch (Exception exception)
                                 {
                                     throw new Exception();
                                 }
@@ -124,44 +191,71 @@ namespace Collada.Wpf
                         {
                         }
                     }
-                    if (mat == null)
+                    if (mat != null)
                     {
-                        return null;
+                        l.Add(mat);
                     }
-                    l.Add(mat);
                 }
+            }
+            return l.ToMaterial();
+          }
+
+
+
+        Material GetMaterial(string matName)
+        {
+            var x = elementList[matName];
+            if (x == null)
+            {
+                return null;
+            }
+            var l = new List<Material>();
+            foreach (var m in x)
+            {
+                if (materials.ContainsKey(m))
+                {
+                    l.Add(materials[m]);
+                }
+                else
+                {
+                    if (m.Name  == "effect")
+                    {
+                        Material mat = GetEffect(m) as Material;
+                    }
+                }
+            }
+            if (l.Count == 0)
+            {
+                return null;
             }
             if (l.Count == 1)
             {
                 return l[0];
             }
-            MaterialGroup gr = new MaterialGroup();
-            foreach (Material m in l)
-            {
-                gr.Children.Add(m);
-            }
-            return gr;
+            return l.ToMaterial();
+    
         }
 
-        Material GetMaterial(string matName)
-        {
-            var x = matName.GetXmlElement();
-            if (materials.ContainsKey(x))
-            {
-                return materials[x];
-            }
-            return null;
-        }
 
-        private  Material GetInstanceEffect(XmlElement element)
+        private Material GetInsanceEffect(XmlElement element)
         {
-            var url = element.GetAttribute("url").Substring(1);
-            var mat = GetMaterial(url);
-            if (mat != null)
+            var m = element.Get();
+            if (m != null)
             {
-                return mat;
+                if (m is Material mater)
+                {
+                    return mater;
+                }
             }
-
+            var url = element.GetAttribute("url");
+            if (url.Length > 1)
+            {
+                var mat = GetMaterial(url.Substring(1));
+                if (mat != null)
+                {
+                    return mat;
+                }
+            }
             var xml = url.GetXmlElement();
             List<Material> l = new List<Material>();
             var nl = xml.GetElementsByTagName("phong")[0];
@@ -208,11 +302,7 @@ namespace Collada.Wpf
                 materials[element] = material;
                 return material;
             }
-            var mc = new MaterialCollection(l);
-            var mg = new MaterialGroup();
-            mg.Children = mc;
-            materials[element] = mg;
-            return mg;
+            return l.ToMaterial();
         }
 
 

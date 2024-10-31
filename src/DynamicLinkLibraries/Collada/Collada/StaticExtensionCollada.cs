@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Collada
 {
@@ -24,10 +27,13 @@ namespace Collada
 
         static string filename;
 
+        static List<XmlElement> completed;
+
         static StaticExtensionCollada()
         {
             dictionary = new();
             keyValuePairs = new();
+            completed= new();
         }
 
         public static ICollada Collada
@@ -52,6 +58,16 @@ namespace Collada
                     yield return t;
                 }
             }
+        }
+
+        /// <summary>
+        /// The unique id of element
+        /// </summary>
+        /// <param name="xmlElement">TheElement</param>
+        /// <returns>The unique id</returns>
+        static public string UniqueId(this XmlElement xmlElement)
+        {
+            return collada.UniqueId(xmlElement);
         }
 
 
@@ -95,6 +111,7 @@ namespace Collada
             {
                 collada.Clear();
             }
+            completed.Clear();
         }
 
         static  object CloneItself(this object obj)
@@ -104,18 +121,28 @@ namespace Collada
 
         public static object Get(this XmlElement element)
         {
+            if (collada.IsUnknown(element))
+            {
+                return null;
+            }
             if (dictionary.ContainsKey(element))
             {
                 return dictionary[element].CloneItself();
             }
             var tag = element.Name;
-            if (collada.Functions.ContainsKey(tag))
+            var func = collada.Functions;
+            if (func.ContainsKey(tag))
             {
-                var o = collada.Functions[tag].CloneItself();
+                var f = func[tag];
+                var o = f(element);
+                if (o == null)
+                {
+                    throw new Exception();
+                }
                 element.Set(o);
-                return o;
+                return o.CloneItself();
             }
-            return null;
+            throw new Exception();
         }
 
         static public T Get<T>(this XmlElement element) where T : class 
@@ -133,6 +160,18 @@ namespace Collada
             return (T)element.Get();
         }
 
+        static void Get(this XmlNode element)
+        {
+            foreach (XmlNode node in element.ChildNodes)
+            {
+                node.Get();
+            }
+            if (element is XmlElement xmlElement)
+            {
+                xmlElement.Get();
+            }
+        }
+
         static void PreLoad(this XmlNode element)
         {
             foreach (XmlNode node in element.ChildNodes)
@@ -141,14 +180,16 @@ namespace Collada
             }
             if (element is XmlElement xmlElement)
             {
-                var id = xmlElement.GetAttribute("id");
-                if (id.Length == null | keyValuePairs.ContainsKey(id))
+                collada.Put(xmlElement);
+                var id = xmlElement.UniqueId();
+                if (id != null)
                 {
-                    id = Guid.NewGuid().ToString();
-                    xmlElement.SetAttribute("id", id);
+                    if (keyValuePairs.ContainsKey(id))
+                    {
+                        throw new Exception();
+                    }
+                    keyValuePairs[id] = xmlElement;
                 }
-                keyValuePairs[id] = xmlElement;
-                xmlElement.Get();
             }
         }
 
@@ -169,13 +210,12 @@ namespace Collada
 
         static bool IsCombined(this XmlElement node)
         {
-            var a = node.GetAttribute("IsCombined");
-            return (a == "True");
+           return completed.Contains(node);
         }
 
         static void SetCombined(this XmlElement xmlElement)
         {
-            xmlElement.SetAttribute("IsCombined", "True");
+            completed.Add(xmlElement);
         }
 
         static  void Combine(this XmlNode element)
@@ -272,6 +312,7 @@ namespace Collada
             {
                 Clear();
                 value.PreLoad();
+                (value as XmlNode).Get();
                 value.Combine();
                 xmlElement = value;
             }
@@ -352,23 +393,13 @@ namespace Collada
         {
             return int.Parse(str);
         }
+   
 
-
-
-        public static int[] ToIntArray(this XmlElement element)
+        public static object GetArray<T>(XmlElement element) where T : struct
         {
-            XmlElement e = element.GetChild("p");
-            string[] ss = e.InnerText.Separate();
-            List<int> l = new List<int>();
-            foreach (string s in ss)
-            {
-                if (s.Length > 0)
-                {
-                    l.Add(s.ToInt());
-                }
-            }
-            return l.ToArray();
+            return element.ToRealArray<T>();
         }
+
 
         static public string ToFileName(this string str)
         {

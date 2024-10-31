@@ -17,18 +17,18 @@ namespace Collada.Wpf
         #region Combine Members
 
 
-        static object GetBlur(XmlElement element, object o)
+        object GetBlur(XmlElement element, object o)
         {
             return null;
         }
 
-        static object GetArray(XmlElement element, object o)
+        object GetArray(XmlElement element, object o)
         {
             Array arr = o as Array;
             return o;
         }
 
-        static object GetScene(XmlElement element, object o)
+        object GetScene(XmlElement element, object o)
         {
             var scene = o as Scene;
             var xml = scene.Xml;
@@ -38,7 +38,7 @@ namespace Collada.Wpf
 
 
 
-        static object GetVisual3D(XmlElement element, object o)
+        object GetVisual3D(XmlElement element, object o)
         {
             var visual3D = o as Visual3D;
             if (visual3D is ModelVisual3D mod)

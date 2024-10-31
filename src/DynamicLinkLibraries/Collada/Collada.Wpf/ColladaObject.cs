@@ -1,31 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
+using System.Windows.Media.TextFormatting;
 using System.Xml;
 
 
 namespace Collada.Wpf
 {
-    internal partial class ColladaObject : ICollada
+    public partial class ColladaObject : ICollada
     {
 
         #region Fields
+        public enum UpDirection
+        {
+            None,
+            X, Y, Z
+        };
 
-        #region Fields
+        public UpDirection Direction 
+        { 
+            get; 
+            private set; 
+        }= UpDirection.None;
 
-        Dictionary<XmlElement, Material> materials = new();
-
+        Dictionary<string, List<XmlElement>> elementList;
 
         #endregion
 
-
-        Dictionary<string, Func<XmlElement, object>> functions;
-
-  
-        #endregion
         public ColladaObject()
         {
+            elementList = new();
+            materials = new();
+          sourceDic  = new()
+       {
+ {"float_array", GetFloatArray}
+       };
+
             combined = new()
         {
             { typeof(BlurEffect), GetBlur },
@@ -33,20 +45,75 @@ namespace Collada.Wpf
             {typeof(Visual3D), GetVisual3D},
             {typeof(Scene), GetScene}
             };
-               materialCalc  =       new()
-         { 
-               { "phong", GetPhong},
-                {"instance_effect", GetInstanceEffect}
-         };
+         
 
-        materialCalc 
-                = new()
+        materialCalc    = new()
                 {
                { "phong", GetPhong},
-                {"instance_effect", GetInstanceEffect}
+                {"effect", GeEffectMaterial}
                 };
 
+        materialTypes    = new Dictionary<string, Type>()
+        {
+                 {"diffuse", typeof(DiffuseMaterial)},
+            {"specular", typeof(SpecularMaterial)},
+            {"reflective", typeof(EmissiveMaterial)}
+        };
+            functions = new()           {
+{"float_array",  StaticExtensionCollada.GetArray<float>},
+{"geometry", GetGeometry },
+{"phong", GetPhongObject },             
+
+{"material", GetMaterial},
+{"image", GetImage},
+{"source", GetSource},
+{"vertices", GetVetrices<float>},
+{"p",GetP},
+         { "library_visual_scenes", GetScenes },
+                {"instance_effect", CalculateMaterialObject },
+                               {"up_axis", SetUpAxis },
+                               {"unit", SetUnit }
+ 
+                // */
+  };
+            visualDic = new()
+       {
+ {"mesh", GetMesh}
+       };
+            StaticExtensionCollada.Collada = this;
+
         }
+
+        #region Temp
+
+        public Unit MeterUnit 
+        { get; private set; } = null;
+
+        object SetUpAxis(XmlElement element)
+        {
+            var up = UpDirection.None;
+            if (element.InnerText == "Y_UP")
+            {
+                up = UpDirection.Y;
+            }
+            Direction = up;
+            return up;
+        }
+
+        object SetUnit(XmlElement xmlElement)
+        {
+            var unit = new Unit { Text = xmlElement.InnerXml };
+            MeterUnit = unit;
+            return unit;
+        }
+
+        public class Unit
+        {
+            public string Text { get; set; }
+        }
+
+
+        #region
 
         #region ICollada Members
 
@@ -69,6 +136,25 @@ namespace Collada.Wpf
             materials.Clear();
         }
 
+
+        /// <summary>
+        /// The unique of element
+        /// </summary>
+        /// <param name="xmlElement">TheElement</param>
+        /// <returns>The id</returns>
+        string ICollada.UniqueId(XmlElement xmlElement)
+        {
+            var id = xmlElement.GetAttribute("id");
+            if (id.Length == 0)
+            {
+                return null;
+            }
+            var name = xmlElement.GetAttribute("name");
+            return id + "@" + name;
+        }
+
+
+
         /// <summary>
         /// Clones object
         /// </summary>
@@ -79,16 +165,57 @@ namespace Collada.Wpf
             return obj;
         }
 
+        /// <summary>
+        /// Puts Xml element
+        /// </summary>
+        /// <param name="xmlElement"></param>
+        void ICollada.Put(XmlElement xmlElement)
+        {
+            var id = xmlElement.GetAttribute("id");
+            if (id.Length == 0)
+            {
+                return;
+            }
+            List<XmlElement> l = null;
+            if (elementList.ContainsKey(id))
+            {
+                l = elementList[id];
+            }
+            else
+            {
+                l = new List<XmlElement>();
+                elementList[id] = l;
+            }
+            l.Add(xmlElement);
+         }
+
+        /// <summary>
+        /// The unknown element
+        /// </summary>
+        /// <param name="xmlElement">The element</param>
+        /// <returns>Thue if it is unknown</returns>
+        bool ICollada.IsUnknown(XmlElement xmlElement)
+        {
+            var n = xmlElement.Name;
+            return unknown.Contains(xmlElement.Name);
+        }
+
+        List<string> unknown = new()
+        {
+            "author", "authoring_tool", "comments", "copyright", "contributor",
+            "created", "modified", "asset"
+        };
+
+
         #endregion
 
-        #region 
+        public void Load(string fileName)
+        {
+            StaticExtensionCollada.Load(fileName);
+        }
 
         #endregion
 
-
-        #region Functions Methods
-
-
-        #endregion    
     }
+    #endregion
 }

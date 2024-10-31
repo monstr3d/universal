@@ -1,9 +1,6 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
@@ -14,14 +11,71 @@ namespace Collada.Wpf
     {
         static StaticExtensionColladaWpf()
         {
-            Collada.StaticExtensionCollada.Collada = new ColladaObject();
+            StaticExtensionCollada.Collada = new ColladaObject();
         }
 
-        public static string FileName
+ 
+        public static  List<Material> ToList(this Material material)
         {
-            get => Collada.StaticExtensionCollada.Filename;
-            set =>  Collada.StaticExtensionCollada.Load(value); 
+            List<Material> list = new List<Material>();
+            if (material is MaterialGroup group)
+            {
+                foreach (var mat in group.Children)
+                {
+                    list.AddRange(mat.ToList());
+                }
+            }
+            else
+            {
+                if (!list.Contains(material))
+                {
+                    list.Add(material);
+                }
+            }
+            return list;
         }
+
+        public static Material SimplifyMaterial(this object  obj)
+        {
+            var mat = obj.ToMaterial();
+            return mat.SimplifyMaterial();
+        }
+
+        public static Material SimplifyMaterial(this Material material)
+        {
+            return material.ToList().ToMaterial();
+        }
+
+        public static Material ToMaterial(this object o)
+        {
+            if (o is Material material)
+            {
+                return material;
+            }
+            var list = new List<Material>();
+            if (o is IEnumerable en)
+            {
+                foreach (var mpp in en)
+                {
+                    if (mpp is Material mp)
+                    {
+                        list.Add(mp);
+                    }
+                }
+            }
+            if (list.Count == 0)
+            {
+                return null;
+            }
+            if (list.Count == 1)
+            {
+                return list[0];
+            }
+            var mc = new MaterialCollection(list);
+            var mg = new MaterialGroup();
+            mg.Children = mc;
+            return mg;
+       }
 
         public static object GetMaterial(this string mat, int materialIndex)
         {
@@ -92,7 +146,7 @@ namespace Collada.Wpf
 
 
 
-        static List<int[]> ToInt3Array(this XmlElement element)
+        public static List<int[]> ToInt3Array(this XmlElement element)
         {
             List<int[]> l = new List<int[]>();
             int[] x = element.ToIntArray();
@@ -108,7 +162,7 @@ namespace Collada.Wpf
 
 
 
-        static ImageSource ToImage(this string str)
+        public static ImageSource ToImage(this string str)
         {
             string fn = str.ToFileName();
             if (!System.IO.File.Exists(fn))

@@ -12,7 +12,7 @@ namespace Collada.Wpf
     /// <summary>
     /// Collada converter
     /// </summary>
-    public static partial class StaticExtensionCollada
+    public static partial class StaticExtensionColladaOld
     {
 
         #region Fields
@@ -91,7 +91,7 @@ namespace Collada.Wpf
 
        public static void ColladaToXaml(this string fileName)
        {
-            StaticExtensionCollada.fileName = fileName;
+            StaticExtensionCollada.Load(fileName);
             idName = null;
            directory = System.IO.Path.GetDirectoryName(fileName) +
                System.IO.Path.DirectorySeparatorChar;
@@ -102,8 +102,8 @@ namespace Collada.Wpf
 
        public static Dictionary<string, Visual3D> ColladaToVisual3D(this string fileName)
        {
-           StaticExtensionCollada.fileName = fileName;
-           directory = System.IO.Path.GetDirectoryName(fileName) +
+            StaticExtensionCollada.Load(fileName);
+            directory = System.IO.Path.GetDirectoryName(fileName) +
                System.IO.Path.DirectorySeparatorChar;
            XmlDocument doc = new XmlDocument();
            doc.Load(fileName);
@@ -136,7 +136,7 @@ namespace Collada.Wpf
 
         public static void ColladaToXaml(this XmlDocument doc)
         {
-            StaticExtensionCollada.doc = doc;
+            StaticExtensionColladaOld.doc = doc;
             Clear();
             idName = doc.DocumentElement.SetDictionaryId();
             XmlNodeList p = doc.DocumentElement.GetElementsByTagName("newparam");
@@ -427,7 +427,7 @@ namespace Collada.Wpf
                 if (v != null)
                 {
                     v.SetLight();
-                    d[el.GetAttribute("id")] = v;
+                 //   d[el.GetAttribute("id")] = v;
                 }
             }
             return d;
@@ -528,7 +528,7 @@ namespace Collada.Wpf
 
 
 
-        static Dictionary<string, XmlElement> GetParameters(this XmlElement element)
+        public static Dictionary<string, XmlElement> GetParameters(this XmlElement element)
         {
             Dictionary<string, XmlElement> d = new Dictionary<string, XmlElement>();
             XmlNodeList nl = element.GetElementsByTagName("newparam");
@@ -646,6 +646,7 @@ namespace Collada.Wpf
             return null;
         }
 
+ 
         private static T[] FindArray<T>(IdName name) where T : struct
         {
             if (!arrays.ContainsKey(name))
@@ -669,7 +670,7 @@ namespace Collada.Wpf
         }
 
 
-        static Dictionary<string, object> FindInputs(this XmlElement element)
+        static public  Dictionary<string, object> FindInputs(this XmlElement element)
         {
             XmlNodeList nl = element.GetElementsByTagName("input");
             if (nl.Count == 0)
