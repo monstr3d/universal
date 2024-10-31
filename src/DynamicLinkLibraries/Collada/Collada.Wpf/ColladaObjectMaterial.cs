@@ -17,7 +17,7 @@ namespace Collada.Wpf
 
 
 
-        private static readonly Dictionary<string, Type> materialTypes = new Dictionary<string, Type>()
+        private  Dictionary<string, Type> materialTypes = new Dictionary<string, Type>()
         {
                  {"diffuse", typeof(DiffuseMaterial)},
                  {"specular", typeof(SpecularMaterial)},
@@ -25,16 +25,10 @@ namespace Collada.Wpf
    // {"transparent",  typeof(DiffuseMaterial}*/
       };
 
-        private static readonly Dictionary<string, Func<XmlElement, Material>> materialCalc
-                = new()
-                {
-               { "phong", GetPhong},
-                {"instance_effect", GetInstanceEffect}
-                };
+        private Dictionary<string, Func<XmlElement, Material>> materialCalc;
 
 
-
-        private Material GetPhong(XmlElement e)
+        private  Material GetPhong(XmlElement e)
         {
             if (materials.ContainsKey(e))
             {
@@ -159,7 +153,7 @@ namespace Collada.Wpf
             return null;
         }
 
-        private Material GetInstanceEffect(XmlElement element)
+        private  Material GetInstanceEffect(XmlElement element)
         {
             var url = element.GetAttribute("url").Substring(1);
             var mat = GetMaterial(url);

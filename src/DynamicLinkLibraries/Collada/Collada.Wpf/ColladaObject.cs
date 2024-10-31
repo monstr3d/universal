@@ -39,7 +39,13 @@ namespace Collada.Wpf
                 {"instance_effect", GetInstanceEffect}
          };
 
-        
+        materialCalc 
+                = new()
+                {
+               { "phong", GetPhong},
+                {"instance_effect", GetInstanceEffect}
+                };
+
         }
 
         #region ICollada Members
