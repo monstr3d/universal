@@ -8,6 +8,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Xml;
 using System.Net.Http.Headers;
+using System.Windows.Media.TextFormatting;
 
 namespace Collada.Wpf
 {
@@ -33,10 +34,27 @@ namespace Collada.Wpf
             return GetInstanceEffectMaterial(element);
         }
 
+        object GetEffectMaterialObject(XmlElement element)
+        {
+            return GeEffectMaterial(element);
+        }
+
+
+        object GetColorObject(XmlElement e)
+        {
+            return e.GetColor();
+        }
+
+
+
         private Material GeEffectMaterial(XmlElement element)
         {
-            var url = element.GetAttribute("url").Substring(1);
-            var mat = GetMaterial(url);
+            var url = element.GetAttribute("url");
+            if (url.Length < 2)
+            {
+                return element.FromXml("phong");
+            }
+            var mat = GetMaterial(url.Substring(1));
             if (mat != null)
             {
                 return mat;
@@ -55,16 +73,13 @@ namespace Collada.Wpf
                     var ct = t.GetConstructor([]);
                     material = ct.Invoke(null) as Material;
                     l.Add(material);
+                    var color = e.GetColorXml().Get(); ;
+                    var cp = t.GetProperty("Color") as PropertyInfo;
+                    cp.SetValue(material, color);
                     foreach (XmlElement ee in e.ChildNodes)
                     {
                         var sn = ee.Name;
-                        if (sn == "color")
-                        {
-                            var color = ee.GetColor();
-                            var cp = t.GetProperty("Color") as PropertyInfo;
-                            cp.SetValue(material, color);
-                        }
-                        else if (sn == "reflectivity")
+                        if (sn == "reflectivity")
                         {
                             var d = ee.ToDouble();
                             var cr = t.GetProperty("SpecularPower");
@@ -94,6 +109,25 @@ namespace Collada.Wpf
             return GetPhong(e);
         }
 
+        XmlElement GetImageXml(string tex)
+        {
+            XmlElement et = null;
+            if (parametersNew.ContainsKey(tex))
+            {
+                var par = parametersNew[tex];
+                var s = paramSource[par];
+                var ss = s.InnerText;
+                par = parametersNew[ss];
+                var imgt = par.InnerText;
+                XmlElement imXml = null;
+                if (elementList.ContainsKey(imgt))
+                {
+                    return elementList[imgt][0];
+                }
+            }
+            return null;
+        }
+
 
         private Material GetPhong(XmlElement e)
         {
@@ -120,7 +154,9 @@ namespace Collada.Wpf
                             ConstructorInfo c = t.GetConstructor([]);
                             mat = c.Invoke([]) as Material;
                             materials[el] = mat;
-                            Color color = el.GetColor();
+                            var xc = el.GetColorXml();
+                            var color = xc.Get();
+                           // Color color = el.GetColor();
                             PropertyInfo pi = t.GetProperty("Color");
                             pi.SetValue(mat, color, null);
                             if (mat is SpecularMaterial sm)
@@ -139,65 +175,53 @@ namespace Collada.Wpf
                                     throw new Exception();
                                 }
                             }
-                        }
-                    }
-                    XmlElement texture = el.GetChild("texture");
-                    if (texture != null)
-                    {
-                        ImageSource im = null;
-                        string tex = texture.GetAttribute("texture");
-                        XmlElement et = null;
-                        var en = tex.GetXmlElement();
-                        if (en != null)
-                        {
-                            et = en.ChildNodes[0] as XmlElement;
-                            if (et.Name.Equals("sampler2D"))
+                            XmlElement texture = el.GetChild("texture");
+                            if (texture != null)
                             {
-                                string si = et.GetChild("source").InnerText;
-                                var ess = si.GetXmlElement();
-                                if (ess != null)
+                                ImageSource im = null;
+                                string tex = texture.GetAttribute("texture");
+                                var imXml = GetImageXml(tex);
+                                if (imXml != null)
                                 {
-                                    im = ess.InnerText.Find<ImageSource>();
-                                    if (im == null)
+                                    var x = imXml.Get();
+                                    if (x is ImageSource iso)
                                     {
-                                        return null;
+                                        im = iso;
                                     }
-                                    if (mat is DiffuseMaterial)
+                                }
+                                if (im == null)
+                                {
+                                    continue;
+                                }
+                                if (mat is DiffuseMaterial)
+                                {
+                                    ImageBrush br = new ImageBrush(im);
+                                    br.ViewportUnits = BrushMappingMode.Absolute;
+                                    br.Opacity = 1;
+                                    DiffuseMaterial dm = mat as DiffuseMaterial;
+                                    dm.Brush = br;
+                                }
+                                else
+                                {
+                                    PropertyInfo pib = mat.GetType().GetProperty("Brush");
+                                    if (pib != null)
                                     {
                                         ImageBrush br = new ImageBrush(im);
-                                        br.ViewportUnits = BrushMappingMode.Absolute;
                                         br.Opacity = 1;
-                                        DiffuseMaterial dm = mat as DiffuseMaterial;
-                                        dm.Brush = br;
-                                    }
-                                    else
-                                    {
-                                        PropertyInfo pib = mat.GetType().GetProperty("Brush");
-                                        if (pib != null)
-                                        {
-                                            ImageBrush br = new ImageBrush(im);
-                                            br.Opacity = 1;
-                                            pib.SetValue(mat, br, null);
-                                        }
+                                        pib.SetValue(mat, br, null);
                                     }
                                 }
                             }
 
+                            if (mat != null)
+                            {
+                                l.Add(mat);
+                            }
                         }
-                        else
-                        {
-                        }
-                        if (et.Name.Equals("surface"))
-                        {
-                        }
-                    }
-                    if (mat != null)
-                    {
-                        l.Add(mat);
                     }
                 }
             }
-            return l.ToMaterial();
+            return l.SimplifyMaterial();
           }
 
 

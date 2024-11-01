@@ -5,6 +5,7 @@ using System.Xml;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 
 namespace Collada
 {
@@ -15,6 +16,8 @@ namespace Collada
     {
    
         static ICollada collada;
+
+        static IFunction function;
 
         private static readonly char[] sep = "\r\n ".ToCharArray();
 
@@ -42,6 +45,17 @@ namespace Collada
             set
             {
                 collada = value;
+                Clear();
+                filename = null;
+            }
+        }
+
+        public static IFunction Function
+        {
+            get => function;
+            set
+            {
+                function = value;
                 Clear();
                 filename = null;
             }
@@ -111,12 +125,16 @@ namespace Collada
             {
                 collada.Clear();
             }
+            if (function != null)
+            {
+                function.Clear();
+            }
             completed.Clear();
         }
 
         static  object CloneItself(this object obj)
         {
-            return collada.Clone(obj);
+            return function.Clone(obj);
         }
 
         public static object Get(this XmlElement element)
@@ -129,12 +147,11 @@ namespace Collada
             {
                 return dictionary[element].CloneItself();
             }
-            var tag = element.Name;
-            var func = collada.Functions;
-            if (func.ContainsKey(tag))
+            var func = function[element];
+            if (func != null)
             {
-                var f = func[tag];
-                var o = f(element);
+
+                var o = func(element);
                 if (o == null)
                 {
                     throw new Exception();
@@ -180,7 +197,10 @@ namespace Collada
             }
             if (element is XmlElement xmlElement)
             {
-                collada.Put(xmlElement);
+                if (!collada.IsUnknown(xmlElement))
+                {
+                    collada.Put(xmlElement);
+                }
                 var id = xmlElement.UniqueId();
                 if (id != null)
                 {
@@ -274,26 +294,8 @@ namespace Collada
             {
                 return o;
             }
-            Func<XmlElement, object, object> f = null;
+            Func<XmlElement, object, object> f = function.Combine(xmlElement, o);
             xmlElement.SetCombined();
-            if (o == null)
-            {
-
-            }
-            Type t = o.GetType();
-            while (true)
-            {
-                if (t == null)
-                {
-                    break;
-                }
-                if (collada.Combined.ContainsKey(t))
-                {
-                    f = collada.Combined[t];
-                    break;
-                }
-                t = t.BaseType;
-            }
             if (f != null)
             {
                 var res = f(xmlElement, o);
@@ -305,12 +307,28 @@ namespace Collada
 
         public static string Filename => filename;
 
+        public static bool IsBase(this Type baseType, Type type)
+        {
+            var t = type;
+            while (t != null)
+            {
+                if (t ==  baseType)
+                {  
+                    return true; 
+                }
+                t = t.BaseType;
+            }
+            return false;
+        
+        }
+
         public static XmlElement XmlElement
         {
             get => xmlElement;
             set
             {
                 Clear();
+                collada.Init(value);
                 value.PreLoad();
                 (value as XmlNode).Get();
                 value.Combine();
@@ -449,6 +467,22 @@ namespace Collada
                 }
             }
         }
+
+        public static IEnumerable<XmlElement> GetElements(this XmlNode node, Func<XmlElement, bool> func)
+        {
+            var nd = node.GetNodes();
+            foreach (XmlNode ndd in nd)
+            {
+                if (ndd is XmlElement e)
+                {
+                    if (func(e))
+                    {
+                        yield return e;
+                    }
+                }
+            }
+        }
+
 
 
 

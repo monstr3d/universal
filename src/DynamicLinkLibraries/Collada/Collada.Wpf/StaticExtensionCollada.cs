@@ -134,6 +134,50 @@ namespace Collada.Wpf
             return null;
         }
 
+        static public void ColladaToXaml(this XmlElement element)
+        {
+            Clear();
+            idName = element.SetDictionaryId();
+            XmlNodeList p = element.GetElementsByTagName("newparam");
+            foreach (XmlElement e in p)
+            {
+                parameters[e.GetAttribute("sid")] = e;
+            }
+            var l = new List<IdName>();
+            foreach (var x in IdName.All)
+            {
+                if (l.Contains(x))
+                {
+                    throw new Exception();
+                }
+                if (!(x.Object is XmlElement))
+                {
+                    // throw new Exception();
+                }
+                l.Add(x);
+            }
+            foreach (IdName n in l)
+            {
+                XmlElement e = n.Xml;
+                if (e == null)
+                {
+                    throw new Exception();
+                }
+                string tag = e.Name;
+                /*if (functions.ContainsKey(tag))
+                {
+                    var o = tag.Process(e);
+                    if (o != null)
+                    {
+                        n.Set(o);
+                    }
+                }*/
+            }
+            idName.SetSource();
+      //      idName.Combine();
+        }
+
+
         public static void ColladaToXaml(this XmlDocument doc)
         {
             StaticExtensionColladaOld.doc = doc;
@@ -699,7 +743,7 @@ namespace Collada.Wpf
         }
 
 
-        private static T Find<T>(this string name) where T : class
+        public static T Find<T>(this string name) where T : class
         {
             var idName = IdName.GetIdName(name);
             return Find<T>(idName);

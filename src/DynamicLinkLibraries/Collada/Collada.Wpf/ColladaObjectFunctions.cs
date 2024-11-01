@@ -192,7 +192,8 @@ namespace Collada.Wpf
         Material GetInstanceEffectMaterial(XmlElement xmlElement)
         {
             var materials = new List<Material>();
-            var tag = xmlElement.GetAttribute("url").Substring(1);
+            var url = xmlElement.GetAttribute("url");
+            var tag = url.Substring(1);
             var el = elementList[tag];
             foreach (var ee in el)
             {
@@ -239,11 +240,18 @@ namespace Collada.Wpf
             return l.ToMaterial();
           }
 
-           
+           XmlElement GetImageFromTexture(string textureName)
+        {
+            return null;
+        }
 
         object GetImage(XmlElement element)
         {
             ImageSource im = element.InnerText.ToImage();
+            if (im == null)
+            {
+                return false;
+            }
             return im;
         }
 

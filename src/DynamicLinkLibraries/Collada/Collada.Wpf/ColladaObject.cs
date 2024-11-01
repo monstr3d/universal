@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Media;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
 using System.Windows.Media.TextFormatting;
@@ -9,7 +11,7 @@ using System.Xml;
 
 namespace Collada.Wpf
 {
-    public partial class ColladaObject : ICollada
+    public partial class ColladaObject : ICollada, IFunction
     {
 
         #region Fields
@@ -27,12 +29,15 @@ namespace Collada.Wpf
 
         Dictionary<string, List<XmlElement>> elementList;
 
+        public static ColladaObject Instance = new ColladaObject();
+
         #endregion
 
-        public ColladaObject()
+        private ColladaObject()
         {
             elementList = new();
             materials = new();
+            parametersNew = new();
           sourceDic  = new()
        {
  {"float_array", GetFloatArray}
@@ -70,9 +75,9 @@ namespace Collada.Wpf
 {"vertices", GetVetrices<float>},
 {"p",GetP},
          { "library_visual_scenes", GetScenes },
-                {"instance_effect", CalculateMaterialObject },
+                {"instance_effect", GetInstanceEffect },
                                {"up_axis", SetUpAxis },
-                               {"unit", SetUnit }
+                               {"unit", SetUnit }, { "effect",  GetEffectMaterialObject }, { "color", GetColorObject }
  
                 // */
   };
@@ -81,11 +86,13 @@ namespace Collada.Wpf
  {"mesh", GetMesh}
        };
             StaticExtensionCollada.Collada = this;
+            StaticExtensionCollada.Function = this;
 
         }
 
-        #region Temp
+        
 
+    
         public Unit MeterUnit 
         { get; private set; } = null;
 
@@ -112,12 +119,67 @@ namespace Collada.Wpf
             public string Text { get; set; }
         }
 
+        Dictionary<string, XmlElement> parametersNew;
+
+
+        Dictionary<string, XmlElement> urls = new();
 
         #region
 
+
+        Func<XmlElement, object> Get(XmlElement xmlElement)
+        {
+            if (functions.ContainsKey(xmlElement.Name))
+            {
+                return functions[xmlElement.Name];
+            }
+            return null;
+
+        }
+
+        Func<XmlElement, object, object>  GetCombine(XmlElement xmlElement, object obj)
+        {
+            var type = obj.GetType();
+            foreach (var t in combined)
+            {
+                if (t.Key.IsBase(type))
+                {
+                    return t.Value;
+                }
+            }
+            return null;
+        }
+
+        #region IFunction Members
+
+            Func<XmlElement, object> IFunction.this[XmlElement xmlElement] => Get(xmlElement);
+
+            void IFunction.Clear()
+            {
+            Clear();
+            }
+
+            object IFunction.Clone(object obj)
+            {
+            return obj;
+            }
+
+            Func<XmlElement, object, object> IFunction.Combine(XmlElement xmlElement, object obj)
+            {
+                return GetCombine(xmlElement, obj);
+            }
+
+        #region
+
+        private void Clear()
+        {
+            materials.Clear();
+            elementList.Clear();
+        }
+
         #region ICollada Members
 
-        /// <summary>
+   /*     /// <summary>
         /// Creation functions
         /// </summary>
         Dictionary<string, Func<XmlElement, object>> ICollada.Functions => functions;
@@ -126,7 +188,7 @@ namespace Collada.Wpf
         /// Combination function
         /// </summary>
         Dictionary<Type, Func<XmlElement, object, object>> ICollada.Combined => combined;
-
+   */
 
         /// <summary>
         /// Clears itself
@@ -134,6 +196,7 @@ namespace Collada.Wpf
         void ICollada.Clear()
         {
             materials.Clear();
+            elementList.Clear();
         }
 
 
@@ -147,24 +210,23 @@ namespace Collada.Wpf
             var id = xmlElement.GetAttribute("id");
             if (id.Length == 0)
             {
+                var url = xmlElement.GetAttribute("url");
+                if( url.Length > 0)
+                {
+                    if (urls.ContainsKey(url))
+                    {
+                        throw new Exception();
+                    }
+                    urls[url] = xmlElement;
+                    return url;
+                }
                 return null;
             }
             var name = xmlElement.GetAttribute("name");
             return id + "@" + name;
         }
 
-
-
-        /// <summary>
-        /// Clones object
-        /// </summary>
-        /// <param name="obj">The object to clone</param>
-        /// <returns>CCloned object</returns>
-        object ICollada.Clone(object obj)
-        {
-            return obj;
-        }
-
+    
         /// <summary>
         /// Puts Xml element
         /// </summary>
@@ -189,6 +251,7 @@ namespace Collada.Wpf
             l.Add(xmlElement);
          }
 
+
         /// <summary>
         /// The unknown element
         /// </summary>
@@ -196,15 +259,70 @@ namespace Collada.Wpf
         /// <returns>Thue if it is unknown</returns>
         bool ICollada.IsUnknown(XmlElement xmlElement)
         {
-            var n = xmlElement.Name;
+                var n = xmlElement.Name;
+            if (n == "newparam")
+            {
+                parametersNew[xmlElement.GetAttribute("sid")] = xmlElement;
+            }
+            if (n == "source")
+            {
+      /*          var t = xmlElement.InnerText;
+                if (sources.ContainsKey(t))
+                {
+                    throw new Exception();
+                }
+                sources[t] = xmlElement;*/
+            }
             return unknown.Contains(xmlElement.Name);
         }
 
+        /// <summary>
+        /// Initialization
+        /// </summary>
+        /// <param name="xmlElement"></param>
+        void ICollada.Init(XmlElement xmlElement)
+        {
+            var s = xmlElement.GetElements();
+            foreach (XmlElement e in s)
+            {
+                if (finalTypes.Contains(e.Name))
+                {
+                    e.Get();
+                }
+            }
+            s =  xmlElement.GetElements(IsSource);
+            foreach (XmlElement e in s) 
+            {
+      //          sources[e.InnerText] = e;
+                var param = e.ParentNode.ParentNode as XmlElement;
+                sourceParam[e] = param;
+                paramSource[param] = e;
+            }
+        }
+
+        string[] finalTypes = ["image","p", "color"];
+
+        Dictionary<XmlElement, XmlElement> sourceParam = new Dictionary<XmlElement, XmlElement>();
+        Dictionary<XmlElement, XmlElement> paramSource = new Dictionary<XmlElement, XmlElement>();
+
+
+        bool first = false;
         List<string> unknown = new()
         {
             "author", "authoring_tool", "comments", "copyright", "contributor",
-            "created", "modified", "asset"
+            "created", "modified", "asset", "library_materials"
         };
+
+
+        Dictionary<string, XmlElement> sources = new();
+
+  
+        bool IsSource(XmlElement xmlElement)
+        {
+            return xmlElement.Name == "source";
+        }
+
+
 
 
         #endregion
@@ -217,5 +335,7 @@ namespace Collada.Wpf
         #endregion
 
     }
+    #endregion
+
     #endregion
 }

@@ -9,7 +9,7 @@ namespace Collada
         /// <summary>
         /// Creation functions
         /// </summary>
-        Dictionary<string, Func<XmlElement, object>> Functions { get; }
+ /*      Dictionary<string, Func<XmlElement, object>> Functions { get; }
 
         /// <summary>
         /// Combination function
@@ -22,7 +22,7 @@ namespace Collada
         /// <param name="obj">The object to clone</param>
         /// <returns>CCloned object</returns>
         object Clone(object obj);
-
+ */
         /// <summary>
         /// The unique id of element
         /// </summary>
@@ -48,5 +48,10 @@ namespace Collada
         /// <returns>Thue if it is unknown</returns>
         bool IsUnknown(XmlElement xmlElement);
 
+        /// <summary>
+        /// Initialization
+        /// </summary>
+        /// <param name="xmlElement"></param>
+        void Init(XmlElement xmlElement);
     }
 }

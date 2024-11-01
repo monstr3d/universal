@@ -11,8 +11,10 @@ namespace Collada.Wpf
     {
         static StaticExtensionColladaWpf()
         {
-            StaticExtensionCollada.Collada = new ColladaObject();
+            StaticExtensionCollada.Collada = ColladaObject.Instance;
         }
+
+        static public ColladaObject Instance => ColladaObject.Instance;
 
  
         public static  List<Material> ToList(this Material material)
@@ -44,6 +46,32 @@ namespace Collada.Wpf
         public static Material SimplifyMaterial(this Material material)
         {
             return material.ToList().ToMaterial();
+        }
+
+        public static Material FromXml(this XmlElement element, string tag)
+        {
+            var l = new List<Material>();
+            var nl = element.GetElementsByTagName(tag);
+            foreach (XmlNode node in nl)
+            {
+                if (node.ParentNode != element)
+                {
+                  //  continue;
+                }
+                if (node is XmlElement e)
+                {
+                    var o = e.Get();
+                    if (o is Material m)
+                    {
+                        l.Add(m);
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+            }
+            return l.SimplifyMaterial();
         }
 
         public static Material ToMaterial(this object o)
@@ -116,8 +144,23 @@ namespace Collada.Wpf
             return c;
         }
 
+        static public XmlElement GetColorXml(this XmlElement e)
+        {
+            if (e.Name == "color")
+            {
+                return e;
+            }
+            foreach (XmlNode n in e.ChildNodes)
+            {
+                if (n.Name.Equals("color"))
+                {
+                    return (n as XmlElement);
+                }
+            }
+            throw new Exception();
+        }
 
-
+    
         static public Color GetColor(this XmlElement e)
         {
             if (e.Name.Equals("color"))

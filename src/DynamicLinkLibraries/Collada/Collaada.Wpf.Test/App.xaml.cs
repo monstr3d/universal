@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using System.Xml;
 using Collada.Wpf;
 
 namespace Collaada.Wpf.Test
@@ -18,7 +19,7 @@ namespace Collaada.Wpf.Test
             f = @"c:\0\03D\tu154b\Model\1.dae";
             //  doc.Load(f);
 
-            var collada = new ColladaObject();
+            var collada = StaticExtensionColladaWpf.Instance; 
             collada.Load(f);
             var r = collada.Visual3DRoots;
         }
