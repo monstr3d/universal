@@ -347,6 +347,7 @@ namespace Collada
                 Clear();
                 xmlElement = value;
                 collada.Init(value);
+                function.Init(value);
                 value.PreLoad();
                 (value as XmlNode).Get();
                 value.Combine();

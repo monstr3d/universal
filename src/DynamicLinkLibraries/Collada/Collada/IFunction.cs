@@ -36,5 +36,12 @@ namespace Collada
         /// </summary>
         void Clear();
 
-     }
+        /// <summary>
+        /// Initialization
+        /// </summary>
+        /// <param name="xmlElement"></param>
+        void Init(XmlElement xmlElement);
+
+
+    }
 }

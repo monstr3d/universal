@@ -90,7 +90,7 @@ namespace Collada.Wpf
         /// <param name="xmlElement"></param>
         void ICollada.Put(XmlElement xmlElement)
         {
-            var id = xmlElement.GetAttribute("id");
+     /*       var id = xmlElement.GetAttribute("id");
             if (id.Length == 0)
             {
                 return;
@@ -105,7 +105,7 @@ namespace Collada.Wpf
                 l = new List<XmlElement>();
                 elementList[id] = l;
             }
-            l.Add(xmlElement);
+            l.Add(xmlElement);*/
         }
 
 
@@ -117,7 +117,7 @@ namespace Collada.Wpf
         bool ICollada.IsUnknown(XmlElement xmlElement)
         {
             var n = xmlElement.Name;
-            if (n == "newparam")
+        /*    if (n == "newparam")
             {
                 parametersNew[xmlElement.GetAttribute("sid")] = xmlElement;
             }
@@ -129,14 +129,14 @@ namespace Collada.Wpf
                               throw new Exception();
                           }
                           sources[t] = xmlElement;*/
-            }
+        //    }*/
             return unknown.Contains(xmlElement.Name);
         }
 
         List<string> unknown = new()
         {
             "author", "authoring_tool", "comments", "copyright", "contributor",
-            "created", "modified", "asset", "library_materials"
+            "created", "modified", "asset", "library_materials", "COLLADA"
         };
 
         /// <summary>
@@ -146,24 +146,25 @@ namespace Collada.Wpf
         void ICollada.Init(XmlElement xmlElement)
         {
             finalTypes.Get();
-  /*          var s = xmlElement.GetElements();
-            foreach (XmlElement e in s)
-            {
-                if (finalTypes.Contains(e.Name))
-                {
-                    e.Get();
-                }
-            }
-            s = xmlElement.GetElements(IsSource);
-            foreach (XmlElement e in s)
-            {
-                //          sources[e.InnerText] = e;
-                var param = e.ParentNode.ParentNode as XmlElement;
-                sourceParam[e] = param;
-                paramSource[param] = e;
-            }*/
+            /*          var s = xmlElement.GetElements();
+                      foreach (XmlElement e in s)
+                      {
+                          if (finalTypes.Contains(e.Name))
+                          {
+                              e.Get();
+                          }
+                      }
+                      s = xmlElement.GetElements(IsSource);
+                      foreach (XmlElement e in s)
+                      {
+                          //          sources[e.InnerText] = e;
+                          var param = e.ParentNode.ParentNode as XmlElement;
+                          sourceParam[e] = param;
+                          paramSource[param] = e;
+                      }*/
+            newparam.Get();
         }
-
+        string[] newparam = ["newparam"];
         string[] finalTypes = ["image", "p", "color", "float_array", "reflectivity", "reflective"];
 
   
@@ -190,12 +191,7 @@ namespace Collada.Wpf
 
 
 
-        public class Unit
-        {
-            public string Text { get; set; }
-        }
-
-
+  
         Dictionary<string, XmlElement> urls = new();
 
         #region

@@ -8,8 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Reflection;
-using static Collada.Wpf.ColladaObject;
-using System.Security.Cryptography.Xml;
+using System.Linq.Expressions;
 
 namespace Collada.Wpf
 {
@@ -39,7 +38,10 @@ namespace Collada.Wpf
             return o;
         }
 
-
+        object GetParameter(XmlElement element)
+        {
+            return new Parameter(element, elementList);
+        }
 
         object GetVisual3D(XmlElement element, object o)
         {
@@ -253,6 +255,7 @@ namespace Collada.Wpf
         }
 
 
+
         private object GetMaterial(XmlElement element)
         {
             var materials = new List<Material>();
@@ -440,9 +443,11 @@ namespace Collada.Wpf
         XmlElement GetImageXml(string tex)
         {
             XmlElement et = null;
-            if (parametersNew.ContainsKey(tex))
+            var p = Parameter.Get(tex);
+            throw new NotImplementedException();
+         /*   if (parametersNew.ContainsKey(tex))
             {
-                var par = parametersNew[tex];
+                var par = Parameter.Get(tex).Xm;
                 var s = paramSource[par];
                 var ss = s.InnerText;
                 par = parametersNew[ss];
@@ -452,7 +457,7 @@ namespace Collada.Wpf
                 {
                     return elementList[imgt][0];
                 }
-            }
+            }*/
             return null;
         }
 

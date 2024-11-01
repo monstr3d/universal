@@ -10,6 +10,12 @@ using System.Xml;
 
 namespace Collada.Wpf
 {
+    public class Unit
+    {
+        public string Text { get; set; }
+    }
+
+
     public enum UpDirection
     {
         None,
@@ -18,7 +24,7 @@ namespace Collada.Wpf
 
     internal partial class Function : IFunction
     {
-        internal static readonly IFunction Instance = new Function();
+        internal static readonly Function Instance = new Function();
 
         protected Function()
         {
@@ -41,7 +47,7 @@ namespace Collada.Wpf
         {
                  {"diffuse", typeof(DiffuseMaterial)},
             {"specular", typeof(SpecularMaterial)},
-            {"reflective", typeof(EmissiveMaterial)}
+{"reflective", typeof(EmissiveMaterial)}
         };
             functions = new()           {
 {"float_array",  StaticExtensionCollada.GetArray<float>},
@@ -58,8 +64,8 @@ namespace Collada.Wpf
                                {"up_axis", SetUpAxis },
                                {"unit", SetUnit }, { "effect",  GetEffectMaterialObject }, 
                 { "color", GetColorObject }, {"float", GetFloat}, {"reflectivity",
-                StaticExtensionCollada.GetFirstChild}, {"reflectivive",
-                StaticExtensionCollada.GetFirstChild}
+                StaticExtensionCollada.GetFirstChild}, {"reflective",
+                StaticExtensionCollada.GetFirstChild}, {"newparam", GetParameter}
  
                 // */
   };
@@ -89,11 +95,42 @@ namespace Collada.Wpf
             return GetCombine(xmlElement, obj);
         }
 
-        #region
+        public Dictionary<string, List<XmlElement>> KeyValuePairs
+        {
+            get => elementList;
+        }
 
-        #endregion
 
-        Func<XmlElement, object, object> GetCombine(XmlElement xmlElement, object obj)
+        /// <summary>
+        /// Initialization
+        /// </summary>
+        /// <param name="xmlElement"></param>
+        void IFunction.Init(XmlElement xmlElement)
+        {
+            var s = xmlElement.GetElements();
+            foreach (var e in s)
+            {
+                var id = e.GetAttribute("id");
+                List<XmlElement> l = null;
+                if (elementList.ContainsKey(id))
+                {
+                    l = elementList[id];
+                }
+                else
+                {
+                    l = new List<XmlElement>();
+                    elementList[id] = l;
+                }
+                l.Add(xmlElement);
+            }
+        }
+
+
+            #region
+
+            #endregion
+
+            Func<XmlElement, object, object> GetCombine(XmlElement xmlElement, object obj)
         {
             var type = obj.GetType();
             foreach (var t in combined)
@@ -106,14 +143,36 @@ namespace Collada.Wpf
             return null;
         }
 
+        void Put(XmlElement xmlElement)
+        {
+            var id = xmlElement.GetAttribute("id");
+            if (id.Length == 0)
+            {
+                return;
+            }
+            List<XmlElement> l = null;
+            if (elementList.ContainsKey(id))
+            {
+                l = elementList[id];
+            }
+            else
+            {
+                l = new List<XmlElement>();
+                elementList[id] = l;
+            }
+            l.Add(xmlElement);
+        }
+
+
+
         Func<XmlElement, object> Get(XmlElement xmlElement)
         {
             if (functions.ContainsKey(xmlElement.Name))
             {
+                Put(xmlElement);
                 return functions[xmlElement.Name];
             }
             return null;
-
         }
 
         protected virtual void Clear()

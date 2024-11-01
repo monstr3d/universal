@@ -19,7 +19,9 @@ namespace Collada.Wpf
 
         Dictionary<string, Func<XmlElement, object>> sourceDic;
 
-        Dictionary<Type, Func<XmlElement, object, object>> combined; Dictionary<XmlElement, Material> materials;
+        Dictionary<Type, Func<XmlElement, object, object>> combined; 
+        
+        Dictionary<XmlElement, Material> materials = new();
 
 
 
@@ -32,7 +34,7 @@ namespace Collada.Wpf
 
 
 
-        Dictionary<string, List<XmlElement>> elementList;
+        Dictionary<string, List<XmlElement>> elementList = new();
 
         Dictionary<XmlElement, XmlElement> sourceParam = new Dictionary<XmlElement, XmlElement>();
         Dictionary<XmlElement, XmlElement> paramSource = new Dictionary<XmlElement, XmlElement>();
