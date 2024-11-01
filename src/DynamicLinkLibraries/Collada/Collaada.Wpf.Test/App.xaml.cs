@@ -19,9 +19,8 @@ namespace Collaada.Wpf.Test
             f = @"c:\0\03D\tu154b\Model\1.dae";
             //  doc.Load(f);
 
-            var collada = StaticExtensionColladaWpf.Instance; 
-            collada.Load(f);
-            var r = collada.Visual3DRoots;
+            StaticExtensionColladaWpf.Set();
+            StaticExtensionColladaWpf.Load(f);
         }
     }
 

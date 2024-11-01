@@ -11,8 +11,20 @@ namespace Collada.Wpf
     {
         static StaticExtensionColladaWpf()
         {
+        }
+
+        public static void Set()
+        {
+            StaticExtensionCollada.Function = Function.Instance;
             StaticExtensionCollada.Collada = ColladaObject.Instance;
         }
+
+        public static void Load(string filenme)
+        {
+            StaticExtensionCollada.Load(filenme);
+        }
+
+        
 
         static public ColladaObject Instance => ColladaObject.Instance;
 

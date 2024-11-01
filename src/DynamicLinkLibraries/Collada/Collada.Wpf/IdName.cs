@@ -113,7 +113,7 @@ namespace Collada.Wpf
                 isCombined = value;
                 if (value)
                 {
-                    xmlElement.SetAttribute("IsCombined", "True");
+                   // xmlElement.SetAttribute("IsCombined", "True");
                 }
             }
         }

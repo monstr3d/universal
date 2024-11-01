@@ -6,6 +6,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace Collada
 {
@@ -135,6 +136,22 @@ namespace Collada
         static  object CloneItself(this object obj)
         {
             return function.Clone(obj);
+        }
+
+        static public void Get(this IEnumerable<string> filter)
+        {
+            var arr = filter.ToArray();
+            Func<XmlElement, bool> func = (e) => { return arr.Contains(e.Name); };
+            var enu = xmlElement.GetElements(func);
+            foreach (var e in enu)
+            {
+                e.Get();
+            }
+        }
+
+        public static object GetFirstChild(this XmlElement element)
+        {
+            return (element.FirstChild as XmlElement).Get();
         }
 
         public static object Get(this XmlElement element)
@@ -328,11 +345,11 @@ namespace Collada
             set
             {
                 Clear();
+                xmlElement = value;
                 collada.Init(value);
                 value.PreLoad();
                 (value as XmlNode).Get();
                 value.Combine();
-                xmlElement = value;
             }
         }
 

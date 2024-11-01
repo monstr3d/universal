@@ -6,7 +6,4 @@ using System.Threading.Tasks;
 
 namespace Collada.Wpf
 {
-    internal class UpDirection
-    {
-    }
 }

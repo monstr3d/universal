@@ -222,12 +222,12 @@ namespace Collada.Wpf
             idName.Combine();
         }
 
-        static void Combine(XmlNode node)
+        static void Combine1(XmlNode node)
         {
             var nl = node.ChildNodes;
             foreach (XmlNode n in nl)
             {
-                Combine(n);
+                Combine1(n);
             }
             if (node is XmlElement el)
             {
@@ -277,7 +277,7 @@ namespace Collada.Wpf
             XmlNode n = name.Xml;
             foreach (XmlNode nd in n.ChildNodes)
             {
-                Combine(nd);
+               // Combine(nd);
             }
             var l = new List<KeyValuePair<IdName, object>>();
             foreach (var i in name)
