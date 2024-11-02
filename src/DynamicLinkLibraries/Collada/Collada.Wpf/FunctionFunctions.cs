@@ -9,6 +9,7 @@ using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Reflection;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 
 namespace Collada.Wpf
 {
@@ -40,7 +41,7 @@ namespace Collada.Wpf
 
         object GetParameter(XmlElement element)
         {
-            return new Parameter(element, elementList);
+            return Parameter.GetParameter(element, elementList);
         }
 
         object GetVisual3D(XmlElement element, object o)
@@ -439,12 +440,47 @@ namespace Collada.Wpf
             return unit;
         }
 
-
-        XmlElement GetImageXml(string tex)
+       
+ 
+        ImageSource GetImageXml(string tex)
         {
             XmlElement et = null;
             var p = Parameter.Get(tex);
-            throw new NotImplementedException();
+            ImageSource iso = null;
+            foreach (var pp in p)
+            {
+                var v = pp.Value;
+                if (v is ImageSource ss)
+                {
+                    if (iso == null)
+                    {
+                        iso = ss;
+                    }
+                    else if (iso != ss)
+                    {
+                        throw new Exception();
+                    }
+                    continue;
+                }
+                if (v is Abstract @abstract)
+                {
+                    var tv = @abstract.Value;
+                    if (tv is ImageSource its)
+                    {
+                        if (iso == null)
+                        {
+                            iso = its;
+                        }
+                        else if (iso != its)
+                        {
+                            throw new Exception();
+                        }
+                    }
+                    continue;
+
+                }
+            }
+            return iso;
          /*   if (parametersNew.ContainsKey(tex))
             {
                 var par = Parameter.Get(tex).Xm;
@@ -458,7 +494,6 @@ namespace Collada.Wpf
                     return elementList[imgt][0];
                 }
             }*/
-            return null;
         }
 
 
@@ -513,15 +548,7 @@ namespace Collada.Wpf
                             {
                                 ImageSource im = null;
                                 string tex = texture.GetAttribute("texture");
-                                var imXml = GetImageXml(tex);
-                                if (imXml != null)
-                                {
-                                    var x = imXml.Get();
-                                    if (x is ImageSource iso)
-                                    {
-                                        im = iso;
-                                    }
-                                }
+                                im = GetImageXml(tex);
                                 if (im == null)
                                 {
                                     continue;
