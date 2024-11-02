@@ -9,8 +9,21 @@ namespace Collada.Wpf
 {
     public static  class StaticExtensionColladaWpf
     {
+
+        static internal readonly List<string> Unknown = new()
+        {
+            "author", "authoring_tool", "comments", "copyright", "contributor",
+            "created", "modified", "asset", "library_materials", "COLLADA", "init_from",
+            "library_images", "technique", "profile_COMMON", "sampler2D", "surface", "source", "magfilter", "minfilter"
+        };
+
         static StaticExtensionColladaWpf()
         {
+        }
+
+        public static bool IsUnknown(this XmlElement value)
+        {
+            return Unknown.Contains(value.Name);
         }
 
         public static void Set()

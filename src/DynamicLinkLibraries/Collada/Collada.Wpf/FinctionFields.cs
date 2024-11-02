@@ -17,7 +17,7 @@ namespace Collada.Wpf
 
         Dictionary<string, Func<XmlElement, Visual3D>> visualDic;
 
-        Dictionary<string, Func<XmlElement, object>> sourceDic;
+        Dictionary<string, Func<XmlElement, object>> sourceDic = new ();
 
         Dictionary<Type, Func<XmlElement, object, object>> combined; 
         

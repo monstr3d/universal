@@ -7,6 +7,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
 using System.Windows.Media.TextFormatting;
 using System.Xml;
+using System.Xml.Linq;
 
 
 namespace Collada.Wpf
@@ -130,14 +131,45 @@ namespace Collada.Wpf
                           }
                           sources[t] = xmlElement;*/
         //    }*/
-            return unknown.Contains(xmlElement.Name);
+            return StaticExtensionColladaWpf.Unknown.Contains(xmlElement.Name);
         }
 
-        List<string> unknown = new()
+
+        void Testtecfiltes(XmlElement xmlElement)
         {
-            "author", "authoring_tool", "comments", "copyright", "contributor",
-            "created", "modified", "asset", "library_materials", "COLLADA"
-        };
+            Func<XmlElement, bool> func = (e) => { return (e.Name == "minfilter" | e.Name == "magfilter"); };
+            var enu = xmlElement.GetElements(func);
+            foreach (var e in enu)
+            {
+                if (e.ParentNode.Name != "sampler2D")
+                {
+                    throw new Exception();
+                }
+            }
+        }
+
+
+        void Testtechnique(XmlElement xmlElement)
+        {
+            Func<XmlElement, bool> func = (e) => { return e.Name == "technique"; };
+            var enu = xmlElement.GetElements(func);
+            foreach (var e in enu)
+            {
+                if (e.ChildNodes.Count != 1)
+                {
+                    throw new Exception();
+                }
+                if (e.GetAttribute("sid") != "common")
+                {
+                    throw new Exception();
+                }
+                if (e.FirstChild.Name != "phong")
+                {
+                    throw new Exception();
+                }
+            }
+
+        }
 
         /// <summary>
         /// Initialization
@@ -145,6 +177,10 @@ namespace Collada.Wpf
         /// <param name="xmlElement"></param>
         void ICollada.Init(XmlElement xmlElement)
         {
+            //  Testtechnique(xmlElement);
+        //    Testtecfiltes(xmlElement);
+
+
             finalTypes.Get();
             /*          var s = xmlElement.GetElements();
                       foreach (XmlElement e in s)
@@ -162,9 +198,15 @@ namespace Collada.Wpf
                           sourceParam[e] = param;
                           paramSource[param] = e;
                       }*/
-            newparam.Get();
+            // newparam.Get();
+            foreach (var s in strings)
+            {
+                var t = new string[] { s };
+                t.Get();
+            }
         }
-        string[] newparam = ["newparam"];
+ 
+        string[] strings  = ["transparent", "newparam", "diffuse", "specular", "reflective" , "effect" ];
         string[] finalTypes = ["image", "p", "color", "float_array", "reflectivity", "reflective"];
 
   

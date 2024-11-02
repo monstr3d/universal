@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Xml.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Xml.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Collada
 {
@@ -33,11 +32,16 @@ namespace Collada
 
         static List<XmlElement> completed;
 
+        static List<XmlElement> begins;
+
+  
+
         static StaticExtensionCollada()
         {
             dictionary = new();
             keyValuePairs = new();
             completed= new();
+            begins = new();
         }
 
         public static ICollada Collada
@@ -131,9 +135,54 @@ namespace Collada
                 function.Clear();
             }
             completed.Clear();
+            begins.Clear();
         }
 
-        static  object CloneItself(this object obj)
+        public static IEnumerable<XmlElement> ByTag(this string tag, XmlElement element)
+        {
+            var nodelist = element.GetElementsByTagName(tag);
+            foreach (XmlNode item in nodelist)
+            {
+                if (item.ParentNode != element)
+                {
+                    continue;
+                }
+                if (item is XmlElement el)
+                {
+                    yield return el;
+                }
+            }
+        }
+
+        public static XmlElement FirstElement(this XmlElement xmlElement)
+        {
+            return xmlElement.FirstChild as XmlElement;
+        }
+
+        public static XmlElement ByTagUnique(this string tag, XmlElement element)
+        {
+            var l = tag.ByTagAll(element).ToArray();
+            if (l.Length != 1)
+            {
+                throw new Exception();
+            }
+            return l[0];
+        }
+
+        public static IEnumerable<XmlElement> ByTagAll(this string tag, XmlElement element)
+        {
+            var nodelist = element.GetElementsByTagName(tag);
+            foreach (XmlNode item in nodelist)
+            {
+                if (item is XmlElement el)
+                {
+                    yield return el;
+                }
+            }
+        }
+
+
+        static object CloneItself(this object obj)
         {
             return function.Clone(obj);
         }
@@ -156,13 +205,13 @@ namespace Collada
 
         public static object Get(this XmlElement element)
         {
-            if (collada.IsUnknown(element))
-            {
-                return null;
-            }
             if (dictionary.ContainsKey(element))
             {
                 return dictionary[element].CloneItself();
+            }
+            if (collada.IsUnknown(element))
+            {
+                return null;
             }
             var func = function[element];
             if (func != null)
@@ -202,7 +251,10 @@ namespace Collada
             }
             if (element is XmlElement xmlElement)
             {
-                xmlElement.Get();
+                if (!collada.IsUnknown(xmlElement))
+                {
+                    xmlElement.Get();
+                }
             }
         }
 
@@ -307,18 +359,23 @@ namespace Collada
         {
             var o = xmlElement.Get();
             var obj = o;
-            if (!IsCombined(xmlElement))
+            if (IsCombined(xmlElement))
             {
                 return o;
             }
+            if (begins.Contains(xmlElement))
+            {
+                throw new Exception();
+            }
+            begins.Add(xmlElement);
             Func<XmlElement, object, object> f = function.Combine(xmlElement, o);
-            xmlElement.SetCombined();
             if (f != null)
             {
                 var res = f(xmlElement, o);
                 xmlElement.ReSet(res);
                 obj = res;
             }
+            xmlElement.SetCombined();
             return obj.CloneItself();
         }
 

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
 using System.Xml;
@@ -49,7 +46,9 @@ namespace Collada.Wpf
             {"specular", typeof(SpecularMaterial)},
 {"reflective", typeof(EmissiveMaterial)}
         };
-            functions = new()           {
+            try
+            {
+                functions = new()           {
 {"float_array",  StaticExtensionCollada.GetArray<float>},
 {"geometry", GetGeometry },
 {"phong", GetPhongObject },
@@ -62,13 +61,20 @@ namespace Collada.Wpf
          { "library_visual_scenes", GetScenes },
                 {"instance_effect", GetInstanceEffect },
                                {"up_axis", SetUpAxis },
-                               {"unit", SetUnit }, { "effect",  GetEffectMaterialObject }, 
+                               {"unit", SetUnit }, { "effect",  GetEffectMaterialObject },
                 { "color", GetColorObject }, {"float", GetFloat}, {"reflectivity",
-                StaticExtensionCollada.GetFirstChild}, {"reflective",
-                StaticExtensionCollada.GetFirstChild}, {"newparam", GetParameter}
- 
+                StaticExtensionCollada.GetFirstChild},  {"newparam", GetParameter},
+         {"diffuse" ,  GetMaterialColor },
+  {"specular" ,  GetMaterialColor },
+{ "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , { "surface", GetSurface }, { "texture", GetTexture }
+
                 // */
   };
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
             visualDic = new()
        {
  {"mesh", GetMesh}
@@ -110,6 +116,10 @@ namespace Collada.Wpf
             var s = xmlElement.GetElements();
             foreach (var e in s)
             {
+                if (StaticExtensionColladaWpf.IsUnknown(e))
+                {
+                    continue;
+                }
                 var id = e.GetAttribute("id");
                 List<XmlElement> l = null;
                 if (elementList.ContainsKey(id))
@@ -178,6 +188,7 @@ namespace Collada.Wpf
         protected virtual void Clear()
         {
             Parameter.Clear();
+            sourceDic.Clear();
         }
 
 

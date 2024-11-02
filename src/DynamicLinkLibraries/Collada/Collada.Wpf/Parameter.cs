@@ -1,11 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks.Sources;
+using System.Linq;
 using System.Windows.Media;
 using System.Xml;
 
 namespace Collada.Wpf
 {
+    public class Transparent
+    {
+        XmlElement xml;
+
+        public Color Color { get; private set; }
+
+        public string Opaque { get; private set; }
+        public Transparent(XmlElement xml)
+        {
+            this.xml = xml;
+            Color = (Color)(xml.FirstChild as XmlElement).Get();
+            Opaque = xml.GetAttribute("opaque");
+        }
+    }
+
+    public class Texture
+    {
+        public XmlElement Xml { get; private set; }
+
+        public Abstract Abstract { get; private set; }
+
+        public ImageSource ImageSource { get; private set; }
+
+        public Parameter Parameters { get; private set; }
+
+        Parameter pp;
+        public Texture(XmlElement xmlElement)
+        {
+            Xml = xmlElement;
+            var texture = xmlElement.GetAttribute("texture");
+            Parameters = Parameter.Get(texture);
+            Set();
+        }
+
+        void Set()
+        {
+    /*        foreach (var p in Parameters)
+            {
+                if (pp == null)
+                {
+                    pp = p;
+                }
+                else if (pp.Xml.ToString() != p.Xml.ToString())
+                {
+                    throw new Exception();
+                }
+            }*/
+        }
+    }
 
     public class Abstract
     {
@@ -60,6 +109,10 @@ namespace Collada.Wpf
                     }
                 }
                 var pas =  Parameter.Get(t);
+                if (pas == null)
+                {
+                    continue;
+                }
                 var iso = pas.GetImageSource(null);
                 if (iso is ImageSource imageSource)
                 {
@@ -99,6 +152,7 @@ namespace Collada.Wpf
     {
         public Sampler2D(XmlElement element) : base(element)
         {
+
         }
         protected override object GetValue()
         {
@@ -113,7 +167,7 @@ namespace Collada.Wpf
 
     public class Parameter
     {
-        private static Dictionary<string, List<Parameter>> parameters = new();
+        private static Dictionary<string, Parameter> parameters = new();
 
         private static List<XmlElement> elements = new();
 
@@ -134,8 +188,14 @@ namespace Collada.Wpf
 
         };
 
-        static public object GetParameter(XmlElement xmlElement, Dictionary<string, List<XmlElement>> dic)
+        private static Dictionary<string, Parameter> xnlp = new();
+
+        static internal object GetParameter(XmlElement xmlElement, Dictionary<string, List<XmlElement>> dic)
         {
+            if (xnlp.ContainsKey(xmlElement.OuterXml))
+            {
+                return xnlp[xmlElement.OuterXml];
+            }
             if (elements.Contains(xmlElement))
             {
                 return false;
@@ -151,6 +211,7 @@ namespace Collada.Wpf
             {
                 return false;
             }
+            xnlp[xmlElement.ToString()] = p;
             return p;
         }
 
@@ -175,17 +236,16 @@ namespace Collada.Wpf
             else 
             {
                 Value = o;
-                List<Parameter> l = null;
+           //     List<Parameter> l = null;
                 if (parameters.ContainsKey(Name))
                 {
-                    l = parameters[Name];
+                    throw new Exception();
                 }
                 else
                 {
-                    l = new List<Parameter>();
-                    parameters[Name] = l;
+                    parameters[Name] = this;
                 }
-                l.Add(this);
+           //     l.Add(this);
                 return;
             }
         }
@@ -195,8 +255,10 @@ namespace Collada.Wpf
 
         object Create()
         {
+            var x = xmlElement.FirstElement().Get();
+            var en = "init_from".ByTagUnique(xmlElement).InnerText;
+            
             var fc = xmlElement.FirstChild;
-            var en = fc.InnerText;
             if (keyValuePairs.ContainsKey(en))
             {
                 var kvp = keyValuePairs[en];
@@ -206,6 +268,7 @@ namespace Collada.Wpf
                 }
                 throw new Exception();
             }
+         //   return (fc as XmlElement).Get();
             if (d.ContainsKey(fc.Name))
             {
                 return d[fc.Name](xmlElement);
@@ -224,7 +287,7 @@ namespace Collada.Wpf
             return null;
         }
 
-        public static List<Parameter> Get(string s)
+        public static Parameter Get(string s)
         {
             if (!parameters.ContainsKey(s))
             {
@@ -237,6 +300,7 @@ namespace Collada.Wpf
         {
             parameters.Clear();
             elements.Clear();
+            xnlp.Clear();
         }
 
         #region Functions
