@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
@@ -13,12 +8,12 @@ namespace Collada.Wpf.Classes
 
         public int[] p { get; private set; }
 
-        private P(XmlElement element) : base(element)
+        protected P(XmlElement element) : base(element)
         {
             p = element.ToRealArray<int>();
         }
 
-        object Get()
+        protected object Get()
         {
             return p;
         }

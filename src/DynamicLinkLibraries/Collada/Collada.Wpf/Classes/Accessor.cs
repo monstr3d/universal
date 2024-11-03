@@ -9,6 +9,7 @@ namespace Collada.Wpf.Classes
 {
     public class Accessor : XmlHolder
     {
+        static public readonly string Tag = "accessor";
 
         public float[] Array { get; private set; }
 
@@ -34,7 +35,7 @@ namespace Collada.Wpf.Classes
             }
         }
 
-        public static object GetAccessor(XmlElement element)
+        public static object Get(XmlElement element)
         {
             return new Accessor(element);
         }

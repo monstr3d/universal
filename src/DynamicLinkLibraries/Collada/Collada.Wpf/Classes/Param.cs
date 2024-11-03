@@ -6,11 +6,12 @@ namespace Collada.Wpf.Classes
 {
     internal class Param : XmlHolder
     {
+        static public readonly string Tag = "param";
+
         static Dictionary<string, Type> types = new()
         {
             { "float", typeof(float) },
         };
-        static public readonly string Tag = "param";
 
         public string Name { get; private set; }
 

@@ -6,6 +6,8 @@ namespace Collada.Wpf.Classes
     public class Surface : Sid, IImageSource
     {
 
+        static public readonly string Tag = "surface";
+
         public ImageSource ImageSource { get; private set; }
 
 

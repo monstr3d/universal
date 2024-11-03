@@ -14365,14 +14365,14 @@ It turns out that
 h_{K_1}	\left(\left[f \right]  \right)= \left[K^1_{S^1}\circ f\right] \in K_1\left(\sX \right)
 \ee
 where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$. For any $C^*$-algebra $A$ and any (infinite) noncommutative covering $\left(A, \widetilde A, G\left( \left. \widetilde A\right| A\right) \right)$, we replace a homomorphism
-\eqref{h_k1_f_eqn} by a pair $\left( h^{\widetilde A}_{\text{tors}}, h^{\widetilde A}_{\text{tors}}\right)_{\text{free}}  $ of homomorphisms
+\eqref{h_k1_f_eqn} by a pair $\left( h^{\widetilde A}_{\text{tors}}, h^{\widetilde A}_{\text{free}}\right)  $ of homomorphisms
 \be\label{h_main_eqn}
 \begin{split}
-	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to K_1\left(A \right)_{\text{tors}} ,\\
-	h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to K_1\left( A\right)_{\text{free}} \bydef  K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}
+	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to \chi\left(  K_1\left(A \right)_{\text{tors}}\right)  ,\\
+	h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to\Hom\left(  K_1\left( A\right)_{\text{free}}, \Z\right)  \bydef  \Hom\left( K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}, \Z\right) 
 \end{split}
 \ee
-where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part.
+where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part and $\chi\left(  K_1\left(A \right)_{\text{tors}}\right) $ is the group of characters.
 
 \section{Basic idea}
 
@@ -14389,10 +14389,10 @@ h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\wid
 \ee
 is 
 $$
-h_{\widetilde A}=  \pi^{\text{ab}}_{\widetilde A} \pi^{\text{ab}}
+h_{\widetilde A}=  \pi^{\text{ab}}_{\widetilde A}\circ \pi^{\text{ab}}
 $$
-!!!!!
-		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unital element such that $v^n \in \pi\left(u \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there on has finitely generated left $M\left(A \right)$-module 
+
+		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unital element such that $v^n \in \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
 	$$
 	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
 	$$
@@ -14474,7 +14474,7 @@ g \mapsto \rho_g
 \end{empt}
 
 \begin{definition}\label{h_defn}
-freeWe say that the map given by \eqref{h_free_eqn}	 the \textit{free Hurewicz homomorphism}.
+We say that the map given by \eqref{h_free_eqn}	 the \textit{free Hurewicz homomorphism}.
 \end{definition}
 \begin{remark}
 	The formula \eqref{uct_c} is the motivation of the Definition \ref{h_defn} because $h$ is a homomorphism from $\pi^{P_{\mathrm{untz}}}_1\left(A \right)$ to the factor group of $K^1\left(A \right)$.  
@@ -14525,7 +14525,7 @@ where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\lef
 	is a noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}). The quadruple \eqref{h_multia_eqn} is a $\left(\pi, \left\{\left(u_j, n_j \right)_{j = 1,..., n} \right\}\right) $- \textit{covering with unitization}.
 	
 \end{definition}
-\begin{notation}\label{h_p_not}
+\begin{notation}\label{h_p_not}!!! CONTINUE !!!
 	If $A\left( p\right)$ is a $p$-group of type $\left(p^{r_1}, ...,p^{r_s} \right)$ (cf. Section \ref{alg_fin_gen_ab_sec}) then say that $A\left( p\right)$ is a $p$-group of type $\left( \underbrace{ p^{s_1},...,  p^{s_1}}_{\ord\left( p^{s_1}\right)\mathrm{-times}},..., \underbrace{ p^{s_n},...,  p^{s_n}}_{\ord\left( p^{s_n}\right)\mathrm{-times}}\right) $
 \end{notation}
 \begin{empt}\label{tors_special_case_general}

@@ -33,9 +33,14 @@ namespace Collada.Wpf
         static Function()
         {
             /// !!!!!!
-            Type[] types = [typeof(Param), typeof(Image), typeof(P), typeof(ColorObject), typeof(Float_Array),
-            typeof(Reflectivity), typeof(Reflective)];
-            methods = new();
+            string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
+
+            Type[] types = [typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+            typeof(Reflectivity), typeof(Accessor)];
+                
+              //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
+           
+        methods = new();
 
             foreach (var type in types)
             {
@@ -43,6 +48,10 @@ namespace Collada.Wpf
                 var s = fi.GetValue(null) as string;
                 tags.Add(s);
                 MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                if (mi == null)
+                {
+                    throw new Exception();
+                }
                 methods[s] = mi;
             }
 
@@ -95,10 +104,13 @@ namespace Collada.Wpf
                 StaticExtensionCollada.GetFirstChild}, 
          {"diffuse" ,  GetMaterialColor },
   {"specular" ,  GetMaterialColor },
-{ "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , { "surface", GetSurface },  {"sampler2D", GetSample2D },{ "texture", GetTexture },
+{ "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , 
+               //     { "surface", GetSurface }, 
+                    {"sampler2D", GetSample2D },{ "texture", GetTexture },
   //{"param", GetParam }, 
                     
-                    {"accessor", Accessor.GetAccessor}, {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
+                   // {"accessor", Accessor.GetAccessor}, 
+                    {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
                     {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
   }; 
            
