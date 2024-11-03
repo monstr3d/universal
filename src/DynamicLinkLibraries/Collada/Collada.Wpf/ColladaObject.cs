@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Controls;
@@ -8,6 +9,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Media.TextFormatting;
 using System.Xml;
 using System.Xml.Linq;
+using Collada.Wpf.Classes;
 
 
 namespace Collada.Wpf
@@ -143,7 +145,8 @@ namespace Collada.Wpf
             //  Testtechnique(xmlElement);
             //    Testtecfiltes(xmlElement);
 
-
+            var t = Function.Tags;
+            t.Get();
             finalTypes.Get();
             /*          var s = xmlElement.GetElements();
                       foreach (XmlElement e in s)

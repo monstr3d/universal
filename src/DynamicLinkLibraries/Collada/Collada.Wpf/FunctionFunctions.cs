@@ -12,6 +12,7 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
+using Collada.Wpf.Classes;
 
 namespace Collada.Wpf
 {
@@ -23,7 +24,7 @@ namespace Collada.Wpf
         
         object GetParam(XmlElement element)
         {
-            return new Param(element);
+            return null;// return new Param(element);
         }
 
         object GetTransparent(XmlElement element)
@@ -79,16 +80,7 @@ namespace Collada.Wpf
         }
 
 
-        object GetSurface(XmlElement element)
-        {
-            var s = Sid.Get(element);
-            if (s != null)
-            {
-                return s;
-            }
-            return new Surface(element);
-        }
-
+  
 
 
     
@@ -550,7 +542,7 @@ namespace Collada.Wpf
         */
 
 
-        private object GetMaterialColor(XmlElement xml)
+        internal Material GetMaterialColor(XmlElement xml)
         {
             var n = xml.Name;
             var t = materialTypes[n];

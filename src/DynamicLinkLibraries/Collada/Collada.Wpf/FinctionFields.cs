@@ -28,7 +28,7 @@ namespace Collada.Wpf
 
 
 
-        private Dictionary<string, Type> materialTypes;
+        private static Dictionary<string, Type> materialTypes;
 
         private Dictionary<string, Func<XmlElement, Material>> materialCalc;
 

@@ -91,12 +91,12 @@ namespace Collada.Wpf
 
        public static void ColladaToXaml(this string fileName)
        {
-            StaticExtensionCollada.Load(fileName);
+      /*      StaticExtensionCollada.Load(fileName);
             idName = null;
            directory = System.IO.Path.GetDirectoryName(fileName) +
                System.IO.Path.DirectorySeparatorChar;
            XmlDocument doc = new XmlDocument();
-           doc.Load(fileName);
+           doc.Load(fileName);*/
        }
 
 

@@ -556,6 +556,8 @@ namespace Collada
         {
             return int.Parse(str);
         }
+
+        
    
 
         public static object GetArray<T>(XmlElement element) where T : struct

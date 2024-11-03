@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Collada.Wpf
+namespace Collada.Wpf.Classes
 {
     internal class BindVertexInput : XmlHolder
     {
         public static readonly string Tag = "bind_vertex_input";
         private BindVertexInput(XmlElement element) : base(element)
-        { 
-        
+        {
+
         }
 
         internal static object Get(XmlElement element)

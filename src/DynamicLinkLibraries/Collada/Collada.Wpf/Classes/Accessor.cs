@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Collada;
 
-namespace Collada.Wpf
+namespace Collada.Wpf.Classes
 {
     public class Accessor : XmlHolder
     {

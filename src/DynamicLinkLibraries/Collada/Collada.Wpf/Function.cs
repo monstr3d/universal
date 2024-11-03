@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
 using System.Xml;
+using System.Reflection;
+using Collada.Wpf.Classes;
 
 namespace Collada.Wpf
 {
@@ -23,9 +24,34 @@ namespace Collada.Wpf
     {
         internal static readonly Function Instance = new Function();
 
+        static public List<string> Tags => tags;
+
+        static List<string> tags = new();
+
+        static Dictionary<string, MethodInfo> methods;
+
+        static Function()
+        {
+            /// !!!!!!
+            Type[] types = [typeof(Param), typeof(Image), typeof(P), typeof(ColorObject), typeof(Float_Array),
+            typeof(Reflectivity), typeof(Reflective)];
+            methods = new();
+
+            foreach (var type in types)
+            {
+                FieldInfo fi = type.GetField("Tag");
+                var s = fi.GetValue(null) as string;
+                tags.Add(s);
+                MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                methods[s] = mi;
+            }
+
+        }
+
         protected Function()
         {
-            combined = new()
+            
+         combined = new()
         {
             { typeof(BlurEffect), GetBlur },
             {typeof(Array), GetArray },
@@ -46,6 +72,9 @@ namespace Collada.Wpf
             {"specular", typeof(SpecularMaterial)},
 {"reflective", typeof(EmissiveMaterial)}
         };
+
+ 
+          
             try
             {
                 functions = new()           {
@@ -67,11 +96,13 @@ namespace Collada.Wpf
          {"diffuse" ,  GetMaterialColor },
   {"specular" ,  GetMaterialColor },
 { "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , { "surface", GetSurface },  {"sampler2D", GetSample2D },{ "texture", GetTexture },
-  {"param", GetParam }, {"accessor", Accessor.GetAccessor}, {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
+  //{"param", GetParam }, 
+                    
+                    {"accessor", Accessor.GetAccessor}, {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
                     {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
   }; 
            
-            /// !!!!!!
+    
             }
             catch(Exception ex)
             {
@@ -105,12 +136,6 @@ namespace Collada.Wpf
             return GetCombine(xmlElement, obj);
         }
 
-        public Dictionary<string, List<XmlElement>> KeyValuePairs
-        {
-            get => elementList;
-        }
-
-
         /// <summary>
         /// Initialization
         /// </summary>
@@ -140,11 +165,18 @@ namespace Collada.Wpf
         }
 
 
-            #region
+        #region
 
-            #endregion
+        #endregion
 
-            Func<XmlElement, object, object> GetCombine(XmlElement xmlElement, object obj)
+
+        public Dictionary<string, List<XmlElement>> KeyValuePairs
+        {
+            get => elementList;
+        }
+
+
+        Func<XmlElement, object, object> GetCombine(XmlElement xmlElement, object obj)
         {
             var type = obj.GetType();
             foreach (var t in combined)
@@ -181,10 +213,17 @@ namespace Collada.Wpf
 
         Func<XmlElement, object> Get(XmlElement xmlElement)
         {
-            if (functions.ContainsKey(xmlElement.Name))
+            /* if (functions.ContainsKey(xmlElement.Name))
+             {
+                 Put(xmlElement);
+                 return functions[xmlElement.Name];
+             }*/
+            var tag = xmlElement.Name;
+            if (methods.ContainsKey(tag))
             {
                 Put(xmlElement);
-                return functions[xmlElement.Name];
+                var mi = methods[tag];
+                return (e) => mi.Invoke(null, new object[] { e });
             }
             return null;
         }
