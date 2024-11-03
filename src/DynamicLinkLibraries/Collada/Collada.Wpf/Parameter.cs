@@ -51,28 +51,6 @@ namespace Collada.Wpf
 
     }
 
-    public class Abstract
-    {
-        protected XmlElement parent;
-
-
-        protected XmlElement own;
-
-        protected Dictionary<string, List<XmlElement>> keyValues;
-
-        public object Value { get; protected set; }
-
-    }
-    public class Source
-    {
-        public Source(XmlElement xml)
-        {
-            var c = xml.InnerText;
-            var t = c.GetObject();
-
-        }
-    }
-
     public class Sid : XmlHolder
     {
         static Dictionary<string, Sid> dictionary = new();

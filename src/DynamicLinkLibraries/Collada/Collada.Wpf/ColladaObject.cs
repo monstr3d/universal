@@ -52,6 +52,7 @@ namespace Collada.Wpf
         /// </summary>
         void ICollada.Clear()
         {
+        
         }
 
 
@@ -82,8 +83,7 @@ namespace Collada.Wpf
         }
 
 
-        Dictionary<string, List<XmlElement>> elementList;
-
+       
 
         /// <summary>
         /// Puts Xml element
@@ -134,6 +134,44 @@ namespace Collada.Wpf
             return StaticExtensionColladaWpf.Unknown.Contains(xmlElement.Name);
         }
 
+        /// <summary>
+        /// Initialization
+        /// </summary>
+        /// <param name="xmlElement"></param>
+        void ICollada.Init(XmlElement xmlElement)
+        {
+            //  Testtechnique(xmlElement);
+            //    Testtecfiltes(xmlElement);
+
+
+            finalTypes.Get();
+            /*          var s = xmlElement.GetElements();
+                      foreach (XmlElement e in s)
+                      {
+                          if (finalTypes.Contains(e.Name))
+                          {
+                              e.Get();
+                          }
+                      }
+                      s = xmlElement.GetElements(IsSource);
+                      foreach (XmlElement e in s)
+                      {
+                          //          sources[e.InnerText] = e;
+                          var param = e.ParentNode.ParentNode as XmlElement;
+                          sourceParam[e] = param;
+                          paramSource[param] = e;
+                      }*/
+            // newparam.Get();
+            foreach (var s in strings)
+            {
+                s.Get();
+            }
+        }
+
+
+        #endregion
+
+        #region
 
         void Testtecfiltes(XmlElement xmlElement)
         {
@@ -170,43 +208,11 @@ namespace Collada.Wpf
             }
 
         }
-
-        /// <summary>
-        /// Initialization
-        /// </summary>
-        /// <param name="xmlElement"></param>
-        void ICollada.Init(XmlElement xmlElement)
-        {
-            //  Testtechnique(xmlElement);
-        //    Testtecfiltes(xmlElement);
-
-
-            finalTypes.Get();
-            /*          var s = xmlElement.GetElements();
-                      foreach (XmlElement e in s)
-                      {
-                          if (finalTypes.Contains(e.Name))
-                          {
-                              e.Get();
-                          }
-                      }
-                      s = xmlElement.GetElements(IsSource);
-                      foreach (XmlElement e in s)
-                      {
-                          //          sources[e.InnerText] = e;
-                          var param = e.ParentNode.ParentNode as XmlElement;
-                          sourceParam[e] = param;
-                          paramSource[param] = e;
-                      }*/
-            // newparam.Get();
-            foreach (var s in strings)
-            {
-                s.Get();
-            }
-        }
+        // !!!!!!
  
-        string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect" ];
-        string[] finalTypes = ["image", "p", "color", "float_array", "reflectivity", "reflective" ];
+        string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect", 
+            Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];
+        string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
 
   
         Dictionary<XmlElement, XmlElement> sourceParam = new Dictionary<XmlElement, XmlElement>();

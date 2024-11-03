@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Xml.Linq;
-using System.Runtime.CompilerServices;
 
 namespace Collada
 {
@@ -18,6 +15,10 @@ namespace Collada
         static ICollada collada;
 
         static IFunction function;
+
+        static List<ICombining> currentCombinins = new ();
+
+        static List<ICombining> globalCominings = new();
 
         private static readonly char[] sep = "\r\n ".ToCharArray();
 
@@ -122,8 +123,62 @@ namespace Collada
            dictionary[element] = value;
         }
 
+        static int number = int.MaxValue;
+
+        static  bool FullIterate()
+        {
+            number = int.MaxValue; 
+            
+            for (int i = 0; i < NumerOfIteration; i++)
+            {
+                globalCominings.Clear();
+                var el = Elements;
+                foreach (var item in el)
+                {
+                    if (collada.IsUnknown(item))
+                    {
+                        continue;
+                    }
+                    item.GetCombined();
+                }
+                if (globalCominings.Count == 0)
+                {
+                    return true;
+                }
+                if (globalCominings.Count == number)
+                {
+                    return false;
+                }
+                number = globalCominings.Count;
+           }
+            return false;
+        }
+
+
+        public static int NumerOfIteration { get; set; } = 1;
+
+        static object GetCombined(this XmlElement element)
+        {
+            var o = element.Get();
+            if (o is ICombining combining)
+            {
+                if (currentCombinins.Contains(combining))
+                {
+                    return combining;
+                }
+                var v = combining.Value;
+                element.ReSet(v);
+                currentCombinins.Remove(combining);
+                globalCominings.Add(combining);
+                element.ReSet(v);
+                return v;
+            }
+            return o;
+        }
+
         static  void Clear()
         {
+            currentCombinins.Clear();
             dictionary.Clear();
             keyValuePairs.Clear();
             if (collada != null)
@@ -343,7 +398,7 @@ namespace Collada
                 xml.SetCombined();
             }
         }
-
+/*
         static public object GetCombined(this XmlElement element)
         {
             if (IsCombined(element))
@@ -353,7 +408,7 @@ namespace Collada
             var o = element.Combine();
             return o.CloneItself();
         }
-
+*/
         static public XmlElement GetXmlElement(this string key)
         {
             if (keyValuePairs.ContainsKey(key))
@@ -420,9 +475,11 @@ namespace Collada
                 function.Init(value);
                 value.PreLoad();
                 (value as XmlNode).Get();
-                value.Combine();
+                Success = FullIterate();
             }
         }
+
+        public static bool Success { get; private set; }
 
         public static void Load(this string filename)
         {

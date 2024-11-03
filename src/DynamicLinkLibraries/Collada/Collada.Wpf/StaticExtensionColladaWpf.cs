@@ -14,7 +14,7 @@ namespace Collada.Wpf
         {
             "author", "authoring_tool", "comments", "copyright", "contributor",
             "created", "modified", "asset", "library_materials", "COLLADA", "init_from",
-            "library_images", "technique", "profile_COMMON",  "source", "magfilter", "minfilter", "newparam"
+            "library_images", "technique", "profile_COMMON",   "magfilter", "minfilter", "newparam", "library_effects"
         };
 
         static StaticExtensionColladaWpf()

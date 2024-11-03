@@ -20,7 +20,11 @@ namespace Collada.Wpf
         #region Combined functions
 
         #region Combine Members
-
+        
+        object GetParam(XmlElement element)
+        {
+            return new Param(element);
+        }
 
         object GetTransparent(XmlElement element)
         {
@@ -348,7 +352,8 @@ namespace Collada.Wpf
 
         object GetSource(XmlElement element)
         {
-            return new Source(element);
+            
+            //return new Source(element);
             var l = new List<object>();
             foreach (string key in sourceDic.Keys)
             {

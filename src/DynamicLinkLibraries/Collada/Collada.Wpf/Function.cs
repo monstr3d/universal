@@ -56,7 +56,7 @@ namespace Collada.Wpf
 {"material", GetMaterial},
 {"image", GetImage},
 
-{"vertices", GetVetrices<float>},
+{Vertices.Tag, Vertices.Get},
 {"p",GetP},
          { "library_visual_scenes", GetScenes },
                 {"instance_effect", GetInstanceEffect },
@@ -67,9 +67,11 @@ namespace Collada.Wpf
          {"diffuse" ,  GetMaterialColor },
   {"specular" ,  GetMaterialColor },
 { "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , { "surface", GetSurface },  {"sampler2D", GetSample2D },{ "texture", GetTexture },
-{"source", GetSource},
-                // */
+  {"param", GetParam }, {"accessor", Accessor.GetAccessor}, {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
+                    {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
   }; 
+           
+            /// !!!!!!
             }
             catch(Exception ex)
             {
