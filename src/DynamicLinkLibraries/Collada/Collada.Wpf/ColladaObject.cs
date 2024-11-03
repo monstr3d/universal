@@ -201,13 +201,12 @@ namespace Collada.Wpf
             // newparam.Get();
             foreach (var s in strings)
             {
-                var t = new string[] { s };
-                t.Get();
+                s.Get();
             }
         }
  
-        string[] strings  = ["transparent", "newparam", "diffuse", "specular", "reflective" , "effect" ];
-        string[] finalTypes = ["image", "p", "color", "float_array", "reflectivity", "reflective"];
+        string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect" ];
+        string[] finalTypes = ["image", "p", "color", "float_array", "reflectivity", "reflective" ];
 
   
         Dictionary<XmlElement, XmlElement> sourceParam = new Dictionary<XmlElement, XmlElement>();

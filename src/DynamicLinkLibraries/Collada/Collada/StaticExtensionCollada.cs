@@ -187,6 +187,19 @@ namespace Collada
             return function.Clone(obj);
         }
 
+
+        static public void Get(this string filter)
+        {
+            var arr = filter.ToArray();
+            Func<XmlElement, bool> func = (e) => { return e.Name == filter; };
+            var enu = xmlElement.GetElements(func);
+            foreach (var e in enu)
+            {
+                e.Get();
+            }
+        }
+
+
         static public void Get(this IEnumerable<string> filter)
         {
             var arr = filter.ToArray();

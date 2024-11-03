@@ -14,7 +14,7 @@ namespace Collada.Wpf
         {
             "author", "authoring_tool", "comments", "copyright", "contributor",
             "created", "modified", "asset", "library_materials", "COLLADA", "init_from",
-            "library_images", "technique", "profile_COMMON", "sampler2D", "surface", "source", "magfilter", "minfilter"
+            "library_images", "technique", "profile_COMMON",  "source", "magfilter", "minfilter", "newparam"
         };
 
         static StaticExtensionColladaWpf()
@@ -37,76 +37,7 @@ namespace Collada.Wpf
             StaticExtensionCollada.Load(filenme);
         }
 
-        static public ImageSource GetImageSource(this object obj, ImageSource iso)
-        {
-            if (obj == null)
-            {
-                return iso;
-            }
-            var iss = iso;
-            if (obj is IEnumerable en)
-            {
-                foreach (var item in en)
-                {
-                    iss = item.GetImageSource(iss);
-                    if (iss == null)
-                    {
-                        continue;
-                    }
-                    if (iso != null)
-                    {
-                        if (iso != null)
-                        {
-                            if (iso != iss)
-                            {
-                                throw new Exception();
-                            }
-                        }
-
-                    }
-
-                }
-                return iss;
-            }
-            else if (obj is Parameter pr)
-            {
-                var v = pr.Value;
-                if (v is ImageSource isst)
-                {
-                    if (iso != null)
-                    {
-                        if (iso != isst)
-                        {
-                            throw new Exception();
-                        }
-                    }
-                    return isst;
-                }
-                else
-                {
-                    return v.GetImageSource(iss);
-                }
-            }
-            else if (obj is Abstract @abstract)
-            {
-                var vv = @abstract.Value;
-                if (vv is ImageSource iist)
-                {
-                    if (iso != null)
-                    {
-                        if (iso != iist)
-                        {
-                            throw new Exception();
-                        }
-                    }
-                    return iist;
-
-                }
-            }
-            return iso;
-        }
-
-
+ 
 
 
         static public ColladaObject Instance => ColladaObject.Instance;
@@ -141,6 +72,11 @@ namespace Collada.Wpf
         public static Material SimplifyMaterial(this Material material)
         {
             return material.ToList().ToMaterial();
+        }
+
+        public static object GetObject(this string key)
+        {
+           return Function.Instance.Get(key);
         }
 
         public static Material FromXml(this XmlElement element, string tag)

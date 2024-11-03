@@ -55,7 +55,7 @@ namespace Collada.Wpf
 
 {"material", GetMaterial},
 {"image", GetImage},
-{"source", GetSource},
+
 {"vertices", GetVetrices<float>},
 {"p",GetP},
          { "library_visual_scenes", GetScenes },
@@ -63,13 +63,13 @@ namespace Collada.Wpf
                                {"up_axis", SetUpAxis },
                                {"unit", SetUnit }, { "effect",  GetEffectMaterialObject },
                 { "color", GetColorObject }, {"float", GetFloat}, {"reflectivity",
-                StaticExtensionCollada.GetFirstChild},  {"newparam", GetParameter},
+                StaticExtensionCollada.GetFirstChild}, 
          {"diffuse" ,  GetMaterialColor },
   {"specular" ,  GetMaterialColor },
-{ "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , { "surface", GetSurface }, { "texture", GetTexture }
-
+{ "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , { "surface", GetSurface },  {"sampler2D", GetSample2D },{ "texture", GetTexture },
+{"source", GetSource},
                 // */
-  };
+  }; 
             }
             catch(Exception ex)
             {
@@ -81,6 +81,8 @@ namespace Collada.Wpf
        };
 
         }
+
+       
 
         #region IFunction Members
 
@@ -187,7 +189,7 @@ namespace Collada.Wpf
 
         protected virtual void Clear()
         {
-            Parameter.Clear();
+            Sid.Clear();
             sourceDic.Clear();
         }
 

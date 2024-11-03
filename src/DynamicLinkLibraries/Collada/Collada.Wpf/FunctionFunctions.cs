@@ -10,6 +10,8 @@ using System.Xml;
 using System.Reflection;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Net.Http.Headers;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Collada.Wpf
 {
@@ -18,6 +20,7 @@ namespace Collada.Wpf
         #region Combined functions
 
         #region Combine Members
+
 
         object GetTransparent(XmlElement element)
         {
@@ -48,11 +51,43 @@ namespace Collada.Wpf
             return o;
         }
 
-        object GetParameter(XmlElement element)
+        object GetSample2D(XmlElement element)
         {
-            return Parameter.GetParameter(element, elementList);
+            var s = Sid.Get(element);
+            if (s != null)
+            {
+                return s;
+            }
+            return new Sampler2D(element);
         }
 
+        internal object Get(string name)
+        {
+            if (elementList.ContainsKey(name))
+            {
+                var s = elementList[name];
+                if (s.Count == 1)
+                {
+                    return s[0].Get();
+                }
+            }
+            throw new Exception();
+        }
+
+
+        object GetSurface(XmlElement element)
+        {
+            var s = Sid.Get(element);
+            if (s != null)
+            {
+                return s;
+            }
+            return new Surface(element);
+        }
+
+
+
+    
         object GetVisual3D(XmlElement element, object o)
         {
             var visual3D = o as Visual3D;
@@ -300,11 +335,7 @@ namespace Collada.Wpf
             return null;
         }
 
-        object GetSurface(XmlElement element)
-        {
-            return new Surface(element);
-        }
-
+   
         object GetImage(XmlElement element)
         {
             ImageSource im = element.InnerText.ToImage();
@@ -317,6 +348,7 @@ namespace Collada.Wpf
 
         object GetSource(XmlElement element)
         {
+            return new Source(element);
             var l = new List<object>();
             foreach (string key in sourceDic.Keys)
             {
@@ -543,29 +575,28 @@ namespace Collada.Wpf
             XmlElement texture = xml.GetChild("texture");
             if (texture != null)
             {
-                ImageSource im = null;
                 string tex = texture.GetAttribute("texture");
-                var p = Parameter.Get(tex);
-                if (im == null)
+                Texture text = texture.Get() as Texture;
+                var im = text.ImageSource;
+                if (im != null)
                 {
-                    return mat;
-                }
-                if (mat is DiffuseMaterial)
-                {
-                    ImageBrush br = new ImageBrush(im);
-                    br.ViewportUnits = BrushMappingMode.Absolute;
-                    br.Opacity = 1;
-                    DiffuseMaterial dm = mat as DiffuseMaterial;
-                    dm.Brush = br;
-                }
-                else
-                {
-                    PropertyInfo pib = mat.GetType().GetProperty("Brush");
-                    if (pib != null)
+                    if (mat is DiffuseMaterial)
                     {
                         ImageBrush br = new ImageBrush(im);
+                        br.ViewportUnits = BrushMappingMode.Absolute;
                         br.Opacity = 1;
-                        pib.SetValue(mat, br, null);
+                        DiffuseMaterial dm = mat as DiffuseMaterial;
+                        dm.Brush = br;
+                    }
+                    else
+                    {
+                        PropertyInfo pib = mat.GetType().GetProperty("Brush");
+                        if (pib != null)
+                        {
+                            ImageBrush br = new ImageBrush(im);
+                            br.Opacity = 1;
+                            pib.SetValue(mat, br, null);
+                        }
                     }
                 }
             }
