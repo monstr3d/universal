@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
@@ -6,11 +7,27 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "reflectivity";
 
-        public double Value { get; private set; }
+        public object Value { get; private set; }
 
         private Reflectivity(XmlElement element) : base(element)
         {
-            Value = element.ToDouble();
+            try
+            {
+                var fc = element.FirstChild;
+                if (fc != null)
+                {
+
+                    Value = (element.FirstChild as XmlElement).Get();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception  ex)
+            {
+
+            }
         }
 
         object Get()

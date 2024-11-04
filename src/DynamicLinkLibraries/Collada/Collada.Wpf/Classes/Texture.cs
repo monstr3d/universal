@@ -4,29 +4,20 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    public class Texture : XmlHolder, IImageSource
+    public class Texture : XmlHolder
     {
 
         static public readonly string Tag = "texture";
 
-        public Sid Sid { get; private set; }
+ 
+        public Sampler2D Sample { get; private set; }
 
-        public ImageSource ImageSource
-        {
-            get
-            {
-                if (Sid is IImageSource iss)
-                {
-                    return iss.ImageSource;
-                }
-                return null;
-            }
-        }
-
+        public string TexCoord { get; private set; }
         public Texture(XmlElement xmlElement) : base(xmlElement)
         {
             var texture = xmlElement.GetAttribute("texture");
-            Sid = Sid.Get(texture);
+            Sample = Sampler2D.Get(texture);
+            TexCoord = xmlElement.GetAttribute("texcoord");
         }
 
         object Get()

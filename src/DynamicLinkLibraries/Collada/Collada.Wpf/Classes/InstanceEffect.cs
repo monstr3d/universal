@@ -10,6 +10,8 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "instance_effect";
 
+        public Material Material { get; private set; }
+
         private InstanceEffect(XmlElement element) : base(element)
         {
 
@@ -17,55 +19,17 @@ namespace Collada.Wpf.Classes
 
         Material GetInstanceEffect(XmlElement element)
         {
-            var m = element.Get();
-            if (m is Material mat)
-            {
-                return mat;
-            }
             var url = element.GetAttribute("url").Substring(1);
-            var c = url.ToIdName();
-            var xml = c.Xml;
-            List<Material> l = new List<Material>();
-            var nl = xml.GetElementsByTagName("phong")[0];
-            Material material = null;
-            foreach (XmlElement e in nl.ChildNodes)
+            Material m = url.FromCollada() as Material;
+            if (m == null)
             {
-                var nm = e.Name;
-                material = Function.MaterialFromName(nm);
-                if (material == null)
-                {
-                    continue;
-                }
-                Type t = material.GetType();
-                l.Add(material);
-                foreach (XmlElement ee in e.ChildNodes)
-                {
-                    var sn = ee.Name;
-                    if (sn == "color")
-                    {
-                        var color = ee.GetColor();
-                        var cp = t.GetProperty("Color") as PropertyInfo;
-                        cp.SetValue(material, color);
-                    }
-                    else if (sn == "reflectivity")
-                    {
-                        var d = ee.ToDouble();
-                        var cr = t.GetProperty("SpecularPower");
-                        cr.SetValue(material, d);
-
-                    }
-                    else if (sn == "texture")
-                    {
-                        var coord = ee.GetAttribute("texcoord");
-                        var cg = coord.ToIdName();
-
-
-                        var txtr = ee.GetAttribute("texture");
-                        var ttxt = txtr.GetObject();
-                    }
-                }
+                throw new Exception();
             }
-            return l.SimplifyMaterial();
+            if (element.ChildNodes.Count != 0)
+            {
+                throw new Exception();
+            }
+            return m;
         }
 
         object Get()

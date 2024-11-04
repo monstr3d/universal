@@ -35,5 +35,12 @@ namespace Collada
         /// </summary>
         /// <param name="xmlElement"></param>
         void Init(XmlElement xmlElement);
+
+        /// <summary>
+        /// Gets object from string
+        /// </summary>
+        /// <param name="s">The string</param>
+        /// <returns>The object</returns>
+        object Get(string s);
     }
 }

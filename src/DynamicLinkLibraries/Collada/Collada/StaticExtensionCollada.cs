@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Collada
 {
@@ -88,6 +89,17 @@ namespace Collada
         static public string UniqueId(this XmlElement xmlElement)
         {
             return collada.UniqueId(xmlElement);
+        }
+
+        public static double NumberToDouble(this object value)
+        {
+            var t = value.GetType();
+            if (t == typeof(double))
+            {
+                return (double)value;
+            }
+            float f = (float)value;
+            return (double)f;
         }
 
 
@@ -193,6 +205,42 @@ namespace Collada
             begins.Clear();
         }
 
+        public static IEnumerable<T> GetOwnChilden<T>(this XmlElement element) where T : class
+        {
+            var nl = element.ChildNodes;
+            foreach (XmlNode n in nl )
+            {
+                if (n.ParentNode != element)
+                {
+                    continue;
+                }
+                if (n is XmlElement e)
+                {
+                    T t = e.Get() as T;
+                    if (t != null)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    yield return t;
+                }
+            }
+
+        }
+
+        public static IEnumerable<T> ByTag<T>(this string tag, XmlElement element) where T : class
+        {
+            IEnumerable<XmlElement> p = tag.ByTag(element);
+            foreach (var el in p)
+            {
+                T t = el.Get() as T;
+                if (t == null)
+                {
+                    throw new Exception();
+                }
+                yield return t;
+            }
+        }
+
         public static IEnumerable<XmlElement> ByTag(this string tag, XmlElement element)
         {
             var nodelist = element.GetElementsByTagName(tag);
@@ -245,7 +293,6 @@ namespace Collada
 
         static public void Get(this string filter)
         {
-            var arr = filter.ToArray();
             Func<XmlElement, bool> func = (e) => { return e.Name == filter; };
             var enu = xmlElement.GetElements(func);
             foreach (var e in enu)
@@ -315,6 +362,20 @@ namespace Collada
         static  public T GetStruct<T>(this XmlElement element) where T : struct
         {
             return (T)element.Get();
+        }
+
+        static public object GetFromNode(this XmlNode node)
+        {
+            if (node is XmlElement e)
+            {
+                return e.Get();
+            }
+            return null;
+        }
+
+        static public object FromCollada(this string s)
+        {
+            return collada.Get(s);
         }
 
         static void Get(this XmlNode element)
@@ -520,6 +581,14 @@ namespace Collada
                 System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
         }
 
+        public static float ToFloat(this string str)
+        {
+            return float.Parse(
+                str.Replace(".",
+                System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+        }
+
+
         static public XmlElement GetChild(this XmlElement element, string tag)
         {
             XmlNodeList nl = element.GetElementsByTagName(tag);
@@ -535,6 +604,8 @@ namespace Collada
             return str.Split(sep);
         }
 
+
+        
 
         public static double ToDouble(this XmlElement element)
         {
@@ -607,6 +678,21 @@ namespace Collada
                 foreach (XmlNode ndd in nd)
                 {
                     yield return ndd;
+                }
+            }
+        }
+
+        public static IEnumerable<object> GetOwnChildren(this XmlElement e)
+        {
+            foreach (XmlNode node in e.ChildNodes)
+            {
+                if (node == e)
+                {
+                    continue;
+                }
+                if (node is XmlElement element)
+                {
+                    yield return element.Get();
                 }
             }
         }

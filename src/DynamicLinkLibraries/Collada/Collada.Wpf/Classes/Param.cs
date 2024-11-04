@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    internal class Param : XmlHolder
+    public class Param : XmlHolder
     {
         static public readonly string Tag = "param";
 

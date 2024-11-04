@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
 
 namespace Collada.Wpf
 {
@@ -17,7 +11,7 @@ namespace Collada.Wpf
         
         }
 
-        static internal object Get(XmlElement element)
+        static public object Get(XmlElement element)
         {
             return new Instance_Material(element);
         }

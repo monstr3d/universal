@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Collada.Wpf
+namespace Collada.Wpf.Classes
 {
     public class Vertices : XmlHolder
     {
@@ -19,7 +19,7 @@ namespace Collada.Wpf
         }
 
         private object Value => this;
-        
+
 
         public static object Get(XmlElement xml)
         {

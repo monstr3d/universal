@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
@@ -14,13 +15,21 @@ namespace Collada.Wpf
         {
             "author", "authoring_tool", "comments", "copyright", "contributor",
             "created", "modified", "asset", "library_materials", "COLLADA", "init_from",
-            "library_images", "technique", "profile_COMMON",   "magfilter", "minfilter", "newparam", "library_effects"
+            "library_images", "technique", "profile_COMMON",    "library_effects"
         };
 
         static StaticExtensionColladaWpf()
         {
         }
 
+        static public void CheckSource(this XmlElement element)
+        {
+            var s = element.GetElementsByTagName("source");
+            if (s.Count > 0)
+            {
+                throw new Exception();
+            }
+        }
         public static bool IsUnknown(this XmlElement value)
         {
             return Unknown.Contains(value.Name);
@@ -28,8 +37,15 @@ namespace Collada.Wpf
 
         public static void Set()
         {
-            StaticExtensionCollada.Function = Function.Instance;
-            StaticExtensionCollada.Collada = ColladaObject.Instance;
+            try
+            {
+                StaticExtensionCollada.Function = Function.Instance;
+                StaticExtensionCollada.Collada = ColladaObject.Instance;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public static void Load(string filenme)

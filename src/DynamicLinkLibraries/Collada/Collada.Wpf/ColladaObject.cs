@@ -56,6 +56,15 @@ namespace Collada.Wpf
         {
         
         }
+        /// <summary>
+        /// Gets object from string
+        /// </summary>
+        /// <param name="s">The string</param>
+        /// <returns>The object</returns>
+        object ICollada.Get(string s)
+        {
+            return Function.FromCollada(s); ;
+        }
 
 
         /// <summary>
@@ -150,8 +159,9 @@ namespace Collada.Wpf
             t = Function.AddTags;
             foreach (var tag in t)
             {
-                t.Get();
+                tag.Get();
             }
+            int i = 0;
     
             /*          var s = xmlElement.GetElements();
                       foreach (XmlElement e in s)
@@ -214,10 +224,10 @@ namespace Collada.Wpf
         }
      //    !!!!!!
  
-        string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect", 
+       /* string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect", 
             Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];
         string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
-
+       */
   
         Dictionary<XmlElement, XmlElement> sourceParam = new Dictionary<XmlElement, XmlElement>();
         Dictionary<XmlElement, XmlElement> paramSource = new Dictionary<XmlElement, XmlElement>();

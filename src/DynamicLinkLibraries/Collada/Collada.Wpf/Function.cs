@@ -37,48 +37,68 @@ namespace Collada.Wpf
 
         static Function()
         {
-            // !!!!!!
-         //   string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
+            try
+            {
+                // !!!!!!
+                //   string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
 
 
-            Type[] types = [typeof(Up_Axis), typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+                Type[] types = [typeof(BindVertexInput), typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
             typeof(Reflectivity), typeof(Accessor)];
-                
-              //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
-           
-        methods = new();
 
-            foreach (var type in types)
-            {
-                FieldInfo fi = type.GetField("Tag");
-                var s = fi.GetValue(null) as string;
-                tags.Add(s);
-                MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
-                if (mi == null)
+                //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
+
+                methods = new();
+
+                foreach (var type in types)
                 {
-                    throw new Exception();
+                    FieldInfo fi = type.GetField("Tag");
+                    var s = fi.GetValue(null) as string;
+                    tags.Add(s);
+                    MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                    if (mi == null)
+                    {
+                        throw new Exception();
+                    }
+                    methods[s] = mi;
                 }
-                methods[s] = mi;
-            }
 
-            types = [typeof(Transparent), typeof(Surface), typeof(Sampler2D), typeof(Texture), typeof(InstanceEffect)];
-
-            foreach (var type in types)
-            {
-                FieldInfo fi = type.GetField("Tag");
-                var s = fi.GetValue(null) as string;
-                addTags.Add(s);
-                MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
-                if (mi == null)
+                types = [typeof(Transparent), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Diffuse),
+                typeof(Reflective), typeof(Specular), typeof(Phong),
+                typeof(EffectObject), typeof(InstanceEffect), typeof(MaterialObject), typeof(Instance_Material), typeof(Technique)];
+                foreach (var type in types)
                 {
-                    throw new Exception();
+                    string s = null;
+                    FieldInfo fi = type.GetField("Tag");
+                    if (fi == null)
+                    {
+                        throw new Exception();
+                    }
+                    try
+                    {
+                        s = fi.GetValue(null) as string;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    addTags.Add(s);
+                    MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                    if (mi == null)
+                    {
+                        throw new Exception();
+                    }
+                    methods[s] = mi;
                 }
-                methods[s] = mi;
+
+
+              /*  string[] strings = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect",
+            Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];*/
             }
+            catch (Exception ex)
+            {
 
-
-            string[] strings = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect",
-            Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];
+            }
 
         }
 
@@ -114,7 +134,7 @@ namespace Collada.Wpf
           
             try
             {
-                functions = new()           {
+ /*               functions = new()           {
 {"float_array",  StaticExtensionCollada.GetArray<float>},
 {"geometry", GetGeometry },
 {"phong", GetPhongObject },
@@ -141,7 +161,7 @@ namespace Collada.Wpf
                    // {"accessor", Accessor.GetAccessor}, 
                     {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
                     {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
-  }; 
+  }; */
            
     
             }
@@ -184,7 +204,10 @@ namespace Collada.Wpf
 
                         {"reflective", typeof(EmissiveMaterial) } };
 
-
+        internal static bool IsMaterial(string s)
+        {
+            return matTypes.ContainsKey(s);
+        }
         internal static Material MaterialFromName(string s)
         {
             if (matTypes.ContainsKey(s))
@@ -291,7 +314,12 @@ namespace Collada.Wpf
         protected virtual void Clear()
         {
             Sid.Clear();
+            Phong.Clear();
             sourceDic.Clear();
+            EffectObject.Clear();
+            NewParam.Clear();
+            Surface.Clear();
+            Sampler2D.Clear();
         }
 
 
