@@ -26,16 +26,22 @@ namespace Collada.Wpf
 
         static public List<string> Tags => tags;
 
+        static public List<string> AddTags => addTags;
+
+
         static List<string> tags = new();
+
+        static List<string> addTags = new();
 
         static Dictionary<string, MethodInfo> methods;
 
         static Function()
         {
-            /// !!!!!!
-            string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
+            // !!!!!!
+         //   string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
 
-            Type[] types = [typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+
+            Type[] types = [typeof(Up_Axis), typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
             typeof(Reflectivity), typeof(Accessor)];
                 
               //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
@@ -55,7 +61,29 @@ namespace Collada.Wpf
                 methods[s] = mi;
             }
 
+            types = [typeof(Transparent), typeof(Surface), typeof(Sampler2D), typeof(Texture), typeof(InstanceEffect)];
+
+            foreach (var type in types)
+            {
+                FieldInfo fi = type.GetField("Tag");
+                var s = fi.GetValue(null) as string;
+                addTags.Add(s);
+                MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                if (mi == null)
+                {
+                    throw new Exception();
+                }
+                methods[s] = mi;
+            }
+
+
+            string[] strings = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect",
+            Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];
+
         }
+
+
+
 
         protected Function()
         {
@@ -104,7 +132,8 @@ namespace Collada.Wpf
                 StaticExtensionCollada.GetFirstChild}, 
          {"diffuse" ,  GetMaterialColor },
   {"specular" ,  GetMaterialColor },
-{ "reflective" ,  GetMaterialColor }, { "transparent" , GetTransparent} , 
+{ "reflective" ,  GetMaterialColor }, 
+                    //{ "transparent" , GetTransparent} , 
                //     { "surface", GetSurface }, 
                     {"sampler2D", GetSample2D },{ "texture", GetTexture },
   //{"param", GetParam }, 
@@ -148,6 +177,25 @@ namespace Collada.Wpf
             return GetCombine(xmlElement, obj);
         }
 
+        private static Dictionary<string, Type> matTypes = new()
+            {
+            {"diffuse", typeof(DiffuseMaterial) },
+                        {"specular", typeof(SpecularMaterial) },
+
+                        {"reflective", typeof(EmissiveMaterial) } };
+
+
+        internal static Material MaterialFromName(string s)
+        {
+            if (matTypes.ContainsKey(s))
+            {
+                var t = matTypes[s];
+                var ct = t.GetConstructor([]);
+                return  ct.Invoke(null) as Material;
+            }
+            return null;
+        }
+    
         /// <summary>
         /// Initialization
         /// </summary>

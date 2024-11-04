@@ -27,11 +27,7 @@ namespace Collada.Wpf
             return null;// return new Param(element);
         }
 
-        object GetTransparent(XmlElement element)
-        {
-            return new Transparent(element);
-        }
-
+  
 
         object GetBlur(XmlElement element, object o)
         {

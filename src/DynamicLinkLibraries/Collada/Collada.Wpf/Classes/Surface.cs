@@ -21,7 +21,7 @@ namespace Collada.Wpf.Classes
             ImageSource = element.InnerText.GetObject() as ImageSource;
         }
 
-        object GetSurface(XmlElement element)
+        object GeSourcet(XmlElement element)
         {
             var s = Sid.Get(element);
             if (s != null)
@@ -29,6 +29,17 @@ namespace Collada.Wpf.Classes
                 return s;
             }
             return new Surface(element);
+        }
+
+        public static object Get(XmlElement element)
+        {
+            var s = Sid.Get(element);
+            if (s != null)
+            {
+                return s;
+            }
+            return new Surface(element);
+
         }
 
     }

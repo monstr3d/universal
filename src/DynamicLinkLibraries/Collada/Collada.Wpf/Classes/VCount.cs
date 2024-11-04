@@ -7,14 +7,14 @@ namespace Collada.Wpf.Classes
 
     internal class VCount : P
     {
-        static public readonly string Tag = "vcount";
+        static public new  readonly string Tag = "vcount";
 
         private VCount(XmlElement element) : base(element)
         {
 
         }
 
-        public static object Get(XmlElement element)
+        public static new object Get(XmlElement element)
         {
             var a = new VCount(element);
             return a.Get();

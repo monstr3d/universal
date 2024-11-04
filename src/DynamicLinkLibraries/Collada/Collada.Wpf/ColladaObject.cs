@@ -147,7 +147,12 @@ namespace Collada.Wpf
 
             var t = Function.Tags;
             t.Get();
-            finalTypes.Get();
+            t = Function.AddTags;
+            foreach (var tag in t)
+            {
+                t.Get();
+            }
+    
             /*          var s = xmlElement.GetElements();
                       foreach (XmlElement e in s)
                       {
@@ -165,10 +170,6 @@ namespace Collada.Wpf
                           paramSource[param] = e;
                       }*/
             // newparam.Get();
-            foreach (var s in strings)
-            {
-                s.Get();
-            }
         }
 
 
@@ -211,7 +212,7 @@ namespace Collada.Wpf
             }
 
         }
-        // !!!!!!
+     //    !!!!!!
  
         string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect", 
             Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];
@@ -236,8 +237,6 @@ namespace Collada.Wpf
 
         #endregion
 
-        public Unit MeterUnit
-        { get; private set; } = null;
 
 
 

@@ -271,6 +271,12 @@ namespace Collada
             return (element.FirstChild as XmlElement).Get();
         }
 
+        /// <summary>
+        /// Gets object from element
+        /// </summary>
+        /// <param name="element">The element</param>
+        /// <returns>The object</returns>
+        /// <exception cref="Exception">The exception</exception>
         public static object Get(this XmlElement element)
         {
             if (dictionary.ContainsKey(element))
@@ -358,6 +364,8 @@ namespace Collada
             }
             return null;
         }
+
+  
 
         public static string Directory
         {
