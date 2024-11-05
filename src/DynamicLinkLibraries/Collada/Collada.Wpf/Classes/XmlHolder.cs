@@ -8,6 +8,10 @@ namespace Collada.Wpf.Classes
     {
         protected XmlHolder(XmlElement element) : base(element)
         {
+            if (element.IsElementary())
+            {
+                return;
+            }
             var nl = element.GetAllElementsByTagName("source").ToArray();
             if (nl.Length > 0)
             {

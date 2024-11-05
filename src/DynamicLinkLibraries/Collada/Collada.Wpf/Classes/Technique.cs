@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("technique_common",true)]
+    [Tag("technique_common")]
     internal class Technique : XmlHolder
     {
     

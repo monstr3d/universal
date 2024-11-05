@@ -9,8 +9,7 @@ namespace Collada.Wpf.Classes
     [Tag("instance_effect")]
     internal class InstanceEffect : XmlHolder
     {
-        static public readonly string Tag = "instance_effect";
-
+ 
         public Material Material { get; private set; }
 
         private InstanceEffect(XmlElement element) : base(element)

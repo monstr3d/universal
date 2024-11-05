@@ -97,12 +97,15 @@ namespace Collada
 
         public static TagAttribute GetTag(this XmlElement element)
         {
-            return tags[element.Name];
+            var tag = tags[element.Name];
+            return tag;
         }
 
         public static bool IsElementary(this XmlElement element)
         {
-            return element.GetTag().IsElemenary;
+            var tag = element.GetTag();
+            var b = tag.IsElemenary;
+            return b;
         }
 
         public static bool IsUnknown(this XmlElement element)
@@ -135,8 +138,10 @@ namespace Collada
             }
         }
 
-        public static IEnumerable<T> ChildNodes<T>(this XmlElement xmlElement) where T : class
+        public static IEnumerable<T> ChildNodes<T>(this XmlElement xmlElement) 
         {
+            var type = typeof(T);
+            var name = types[type].Tag;
             var nl = xmlElement.ChildNodes;
             foreach (var item in nl)
             {
@@ -144,10 +149,13 @@ namespace Collada
                 {
                     if (e.ParentNode == xmlElement)
                     {
-                        var t = e.Get() as T;
-                        if (t != null)
+                        if (e.Name == name)
                         {
-                            yield return t;
+                            var t = (T)e.Get();
+                            if (t != null)
+                            {
+                                yield return t;
+                            }
                         }
                     }
                 }
@@ -297,8 +305,32 @@ namespace Collada
             begins.Clear();
         }
 
-        public static IEnumerable<T> GetOwnChilden<T>(this XmlElement element)
+
+        public static IEnumerable<T> GetAllChildren<T>(this XmlElement element)
         {
+            var type = typeof(T);
+            var name = types[type].Tag;
+            var nl = element.GetAllElementsByTagName(name);
+            foreach (var n in nl)
+            {
+                if (n is XmlElement e)
+                {
+                    if (e.Name == name)
+                    {
+                        T t = (T)e.Get();
+                        if (t != null)
+                        {
+                            yield return t;
+                        }
+                    }
+                }
+            }
+        }
+
+        public static IEnumerable<T> GetOwnChildren<T>(this XmlElement element)
+        {
+            var type = typeof(T);
+            var name = types[type].Tag;
             var nl = element.ChildNodes;
             foreach (XmlNode n in nl )
             {
@@ -308,8 +340,14 @@ namespace Collada
                 }
                 if (n is XmlElement e)
                 {
-                    T t = (T)e.Get();
-                    yield return t;
+                    if (e.Name == name)
+                    {
+                        T t = (T)e.Get();
+                        if (t != null)
+                        {
+                            yield return t;
+                        }
+                    }
                 }
             }
         }

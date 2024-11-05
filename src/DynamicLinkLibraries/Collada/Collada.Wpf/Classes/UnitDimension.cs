@@ -5,8 +5,7 @@ namespace Collada.Wpf.Classes
     [Tag("unit", true)]
     internal class UnitDimension : XmlHolder
     {
-        static public readonly string Tag = "unit";
-
+  
         private UnitDimension(XmlElement element) : base(element)
         {
 

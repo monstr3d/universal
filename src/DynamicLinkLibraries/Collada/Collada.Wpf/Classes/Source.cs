@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("source", true)]
+    [Tag("source")]
     internal class Source : XmlHolder
     {
         static public readonly string Tag = "source";

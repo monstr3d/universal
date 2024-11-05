@@ -8,9 +8,8 @@ using System.Xml;
 namespace Collada.Wpf.Classes
 {
     [Tag("effect")]
-    internal class EffectObject : XmlHolder
+    internal class EffectObject : SourceHolder
     {
-
         public static EffectObject Get(Material material)
         {
             if (effects.ContainsKey(material))
@@ -30,7 +29,6 @@ namespace Collada.Wpf.Classes
         {
             effects.Clear();
         }
-        static public readonly string Tag = "effect";
 
         static Dictionary<Material, EffectObject> effects;
 
@@ -53,11 +51,8 @@ namespace Collada.Wpf.Classes
                     throw new Exception();
                 }
             }
-            if (l.Count != 1)
-            {
-                throw new Exception();
-            }
-            Material = l[0];
+
+            Material = l.SimplifyMaterial();
         }
 
         object Get()

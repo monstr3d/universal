@@ -58,8 +58,8 @@ namespace Collada.Wpf
 
             }
 
-            
-          //  assembly.CreateElementary(methods, elementary, allTags);
+
+            //  assembly.CreateElementary(methods, elementary, allTags);
 
             try
             {
@@ -69,39 +69,41 @@ namespace Collada.Wpf
                 if (false)
                 {
 
-       /*             Type[] types = [typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis),
-                    typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
-            typeof(Reflectivity), typeof(Accessor)];
-                    // types = [typeof(BindVertexInput), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), 
-                    //       typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
-                    //typeof(Reflectivity), typeof(Accessor)];
+                    /*             Type[] types = [typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis),
+                                 typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+                         typeof(Reflectivity), typeof(Accessor)];
+                                 // types = [typeof(BindVertexInput), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), 
+                                 //       typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+                                 //typeof(Reflectivity), typeof(Accessor)];
 
-                    //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
+                                 //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
 
 
-                    methods = new();
+                                 methods = new();
 
-                    foreach (var type in types)
-                    {
-                        FieldInfo fi = type.GetField("Tag");
-                        var s = fi.GetValue(null) as string;
-                        tags.Add(s);
-                        if (allTags.Contains(s))
-                        {
-                            throw new Exception();
-                        }
-                        allTags.Add(s);
-                        MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
-                        if (mi == null)
-                        {
-                            throw new Exception();
-                        }
-                        methods[s] = mi;
-                    }*/
+                                 foreach (var type in types)
+                                 {
+                                     FieldInfo fi = type.GetField("Tag");
+                                     var s = fi.GetValue(null) as string;
+                                     tags.Add(s);
+                                     if (allTags.Contains(s))
+                                     {
+                                         throw new Exception();
+                                     }
+                                     allTags.Add(s);
+                                     MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                                     if (mi == null)
+                                     {
+                                         throw new Exception();
+                                     }
+                                     methods[s] = mi;
+                                 }*/
                 }
-                Type[] types = [typeof(Surface), typeof(Sampler2D), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
+                Type[] types = [typeof(Source), typeof(Surface), typeof(Sampler2D), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
-                typeof(EffectObject), typeof(InstanceEffect), typeof(MaterialObject), typeof(Instance_Material), typeof(Technique)];
+                typeof(EffectObject), typeof(InstanceEffect), typeof(MaterialObject), typeof(Instance_Material), typeof(Technique)
+                ];
+            
 
                 var nonelementary = new List<string>();
                 foreach (var type in types)

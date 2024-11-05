@@ -200,10 +200,7 @@ namespace Collada.Wpf
         }
      //    !!!!!!
  
-       /* string[] strings  = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect", 
-            Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];
-        string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
-       */
+    
   
         Dictionary<XmlElement, XmlElement> sourceParam = new Dictionary<XmlElement, XmlElement>();
         Dictionary<XmlElement, XmlElement> paramSource = new Dictionary<XmlElement, XmlElement>();
