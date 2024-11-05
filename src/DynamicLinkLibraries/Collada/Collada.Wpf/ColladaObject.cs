@@ -157,6 +157,7 @@ namespace Collada.Wpf
             var t = Function.Tags;
             t.Get();
             t = Function.AddTags;
+            return;
             foreach (var tag in t)
             {
                 tag.Get();

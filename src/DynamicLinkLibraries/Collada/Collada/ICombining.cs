@@ -6,6 +6,9 @@ namespace Collada
     /// </summary>
     public interface ICombining
     {
-        object Value { get; }
+        /// <summary>
+        /// Combines itself
+        /// </summary>
+        void Combine();
     }
 }

@@ -218,6 +218,8 @@ namespace Collada.Wpf
             }
             return null;
         }
+
+        List<string> t = new();
     
         /// <summary>
         /// Initialization
@@ -231,6 +233,11 @@ namespace Collada.Wpf
                 if (StaticExtensionColladaWpf.IsUnknown(e))
                 {
                     continue;
+                }
+                var n = e.Name;
+                if (!t.Contains(n))
+                {
+                    t.Add(n);
                 }
                 var id = e.GetAttribute("id");
                 List<XmlElement> l = null;

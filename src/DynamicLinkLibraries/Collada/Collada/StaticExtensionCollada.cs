@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace Collada
 {
@@ -18,6 +18,8 @@ namespace Collada
         static IFunction function;
 
         static List<ICombining> currentCombinins = new ();
+
+        static Dictionary<XmlElement, ICombining> combinations = new ();
 
         static List<ICombining> globalCominings = new();
 
@@ -137,7 +139,7 @@ namespace Collada
 
         static int number = int.MaxValue;
 
-        static  bool FullIterate()
+       /* static  bool FullIterate()
         {
             number = int.MaxValue; 
             
@@ -165,10 +167,12 @@ namespace Collada
            }
             return false;
         }
+       */
 
 
         public static int NumerOfIteration { get; set; } = 1;
 
+        /**
         static object GetCombined(this XmlElement element)
         {
             var o = element.Get();
@@ -186,11 +190,17 @@ namespace Collada
                 return v;
             }
             return o;
+        }*/
+
+
+        static public void ClearCombinations()
+        {
+            combinations.Clear();
         }
 
         static  void Clear()
         {
-            currentCombinins.Clear();
+            ClearCombinations();
             dictionary.Clear();
             keyValuePairs.Clear();
             if (collada != null)
@@ -344,6 +354,19 @@ namespace Collada
                     throw new Exception();
                 }
                 element.Set(o);
+                if (o is ICombining c)
+                {
+                    c.Combine();
+                    var p = dictionary[element];
+                    if (p is ICombining)
+                    {
+                        combinations[element] = p;
+                    }
+                    else if (combinations.ContainsKey(element))
+                    {
+                        combinations.Remove(element);
+                    }
+                }
                 return o.CloneItself();
             }
             throw new Exception();
@@ -487,11 +510,12 @@ namespace Collada
             return null;
         }
 
+        /*
         static public object GetCombined(this string s)
         {
             return s.GetXmlElement().GetCombined();
         }
-
+        */
         static object Combine(this XmlElement xmlElement)
         {
             var o = xmlElement.Get();
@@ -544,7 +568,7 @@ namespace Collada
                 function.Init(value);
                 value.PreLoad();
                 (value as XmlNode).Get();
-                Success = FullIterate();
+ //               Success = FullIterate();
             }
         }
 
