@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("polylist")]
     internal class PolyList : XmlHolder
     {
         static public readonly string Tag = "polylist";

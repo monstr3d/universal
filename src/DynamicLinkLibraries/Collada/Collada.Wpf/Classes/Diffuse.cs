@@ -4,6 +4,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("diffuse")]
     internal class Diffuse : MaterialColor
     {
         static public readonly string Tag = "diffuse";

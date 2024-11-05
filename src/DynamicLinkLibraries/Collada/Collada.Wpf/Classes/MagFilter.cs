@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("magfilter", true)]
     internal class MagFilter : Source
     {
         static public readonly string Tag = "magfilter";
+
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = true;
+
+
 
         private MagFilter(XmlElement element) : base(element)
         {

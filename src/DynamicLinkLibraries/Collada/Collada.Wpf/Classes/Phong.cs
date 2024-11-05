@@ -6,7 +6,8 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    internal class Phong : XmlHolder
+    [Tag("phong")]
+    internal class Phong : Collada.Wpf.Classes.XmlHolder
     {
         static Dictionary<Material, List<object>> keyValuePairs = new();
         static List<SpecularMaterial> speculars = new();
@@ -30,13 +31,12 @@ namespace Collada.Wpf.Classes
             phong = new();
         }
         static internal void Clear()
-        { 
+        {
             keyValuePairs.Clear();
             speculars.Clear();
             phong.Clear();
         }
 
-        static public readonly string Tag = "phong";
 
         private Phong(XmlElement element) : base(element)
         {
@@ -107,8 +107,8 @@ namespace Collada.Wpf.Classes
                         continue;
                     }
                     throw new Exception();
-                    
- 
+
+
                 }
 
             }
@@ -132,7 +132,7 @@ namespace Collada.Wpf.Classes
                     if (m is DiffuseMaterial dm)
                     {
                         var br = dm.Brush;
-            //            br.Opacity = transparent.
+                        //            br.Opacity = transparent.
                     }
                 }
             }

@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("instance_visual_scene")]
     internal class InstanceVisualScene : XmlHolder
     {
         static public readonly string Tag = "instance_visual_scene";

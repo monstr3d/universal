@@ -5,6 +5,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("accessor", true)]
     public class Accessor : XmlHolder
     {
         static public readonly string Tag = "accessor";

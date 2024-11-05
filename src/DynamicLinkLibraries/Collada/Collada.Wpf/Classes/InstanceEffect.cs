@@ -6,6 +6,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("instance_effect")]
     internal class InstanceEffect : XmlHolder
     {
         static public readonly string Tag = "instance_effect";

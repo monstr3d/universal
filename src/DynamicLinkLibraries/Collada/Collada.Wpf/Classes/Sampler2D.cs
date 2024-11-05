@@ -5,6 +5,7 @@ using System;
 using Collada;
 using System.Collections.Generic;
 
+[Tag("sampler2D")]
 public class Sampler2D : Sid
 {
     static public readonly string Tag = "sampler2D";

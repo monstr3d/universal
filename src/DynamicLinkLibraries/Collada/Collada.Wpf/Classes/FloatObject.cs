@@ -7,9 +7,17 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("float", true)]
     internal class FloatObject : XmlHolder
     {
         static public readonly string Tag = "float";
+
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = true;
+
+
 
         public float Value { get; private set; } = 0;
 

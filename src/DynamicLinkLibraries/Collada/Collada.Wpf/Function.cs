@@ -28,27 +28,53 @@ namespace Collada.Wpf
 
         static public List<string> Tags => tags;
 
-        static public List<string> AddTags => addTags;
+        static public List<string> AddTags => allTags;
 
 
         static List<string> tags = new();
 
-        static List<string> addTags = new();
 
         static Dictionary<string, MethodInfo> methods;
+
+        static List<string> allTags;
+
+
+        static List<string> elementary;
+
+
 
 
         static Function()
         {
+            elementary = new();
+            methods = new Dictionary<string, MethodInfo>();
+            allTags = new List<string>();
+            Assembly assembly = typeof(Function).Assembly;
             try
             {
-   
+                assembly.Detect(methods, elementary, allTags);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            
+          //  assembly.CreateElementary(methods, elementary, allTags);
+
+            try
+            {
+
                 // !!!!!!
                 //   string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
 
 
-                Type[] types = [typeof(BindVertexInput), typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+                Type[] types = [typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis),
+                    typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
             typeof(Reflectivity), typeof(Accessor)];
+           // types = [typeof(BindVertexInput), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), 
+             //       typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+            //typeof(Reflectivity), typeof(Accessor)];
 
                 //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
 
@@ -60,7 +86,11 @@ namespace Collada.Wpf
                     FieldInfo fi = type.GetField("Tag");
                     var s = fi.GetValue(null) as string;
                     tags.Add(s);
-                    addTags.Add(s);
+                    if (allTags.Contains(s))
+                    {
+                        throw new Exception();
+                    }
+                    allTags.Add(s);
                     MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
                     if (mi == null)
                     {
@@ -69,7 +99,7 @@ namespace Collada.Wpf
                     methods[s] = mi;
                 }
 
-                types = [typeof(Transparent), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Diffuse),
+                types = [typeof(Source), typeof(Transparent), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
                 typeof(EffectObject), typeof(InstanceEffect), typeof(MaterialObject), typeof(Instance_Material), typeof(Technique)];
                 foreach (var type in types)
@@ -88,7 +118,11 @@ namespace Collada.Wpf
                     {
 
                     }
-                    addTags.Add(s);
+                    if (allTags.Contains(s))
+                    {
+                        throw new Exception();
+                    }
+                    allTags.Add(s);
                     MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
                     if (mi == null)
                     {
@@ -109,9 +143,9 @@ namespace Collada.Wpf
                     {
 
                     }
-                    if (!addTags.Contains(s))
+                    if (!allTags.Contains(s))
                     {
-                        addTags.Add(s);
+                        allTags.Add(s);
                     }
                 }
 
@@ -131,8 +165,8 @@ namespace Collada.Wpf
 
         protected Function()
         {
-            
-         combined = new()
+
+            combined = new()
         {
             { typeof(BlurEffect), GetBlur },
             {typeof(Array), GetArray },
@@ -154,51 +188,48 @@ namespace Collada.Wpf
 {"reflective", typeof(EmissiveMaterial)}
         };
 
- 
-          
-            try
-            {
- /*               functions = new()           {
-{"float_array",  StaticExtensionCollada.GetArray<float>},
-{"geometry", GetGeometry },
-{"phong", GetPhongObject },
 
-{"material", GetMaterial},
-{"image", GetImage},
 
-{Vertices.Tag, Vertices.Get},
-{"p",GetP},
-         { "library_visual_scenes", GetScenes },
-                {"instance_effect", GetInstanceEffect },
-                               {"up_axis", SetUpAxis },
-                               {"unit", SetUnit }, { "effect",  GetEffectMaterialObject },
-                { "color", GetColorObject }, {"float", GetFloat}, {"reflectivity",
-                StaticExtensionCollada.GetFirstChild}, 
-         {"diffuse" ,  GetMaterialColor },
-  {"specular" ,  GetMaterialColor },
-{ "reflective" ,  GetMaterialColor }, 
-                    //{ "transparent" , GetTransparent} , 
-               //     { "surface", GetSurface }, 
-                    {"sampler2D", GetSample2D },{ "texture", GetTexture },
-  //{"param", GetParam }, 
-                    
-                   // {"accessor", Accessor.GetAccessor}, 
-                    {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
-                    {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
-  }; */
-           
-    
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+
+            /*               functions = new()           {
+           {"float_array",  StaticExtensionCollada.GetArray<float>},
+           {"geometry", GetGeometry },
+           {"phong", GetPhongObject },
+
+           {"material", GetMaterial},
+           {"image", GetImage},
+
+           {Vertices.Tag, Vertices.Get},
+           {"p",GetP},
+                    { "library_visual_scenes", GetScenes },
+                           {"instance_effect", GetInstanceEffect },
+                                          {"up_axis", SetUpAxis },
+                                          {"unit", SetUnit }, { "effect",  GetEffectMaterialObject },
+                           { "color", GetColorObject }, {"float", GetFloat}, {"reflectivity",
+                           StaticExtensionCollada.GetFirstChild}, 
+                    {"diffuse" ,  GetMaterialColor },
+             {"specular" ,  GetMaterialColor },
+           { "reflective" ,  GetMaterialColor }, 
+                               //{ "transparent" , GetTransparent} , 
+                          //     { "surface", GetSurface }, 
+                               {"sampler2D", GetSample2D },{ "texture", GetTexture },
+             //{"param", GetParam }, 
+
+                              // {"accessor", Accessor.GetAccessor}, 
+                               {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
+                               {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
+             }; */
+
+
+
             visualDic = new()
        {
  {"mesh", GetMesh}
        };
 
         }
+        
+        
 
        
 
@@ -218,8 +249,48 @@ namespace Collada.Wpf
 
         Func<XmlElement, object, object> IFunction.Combine(XmlElement xmlElement, object obj)
         {
-            return GetCombine(xmlElement, obj);
+            return null; // GetCombine(xmlElement, obj);
         }
+
+        Func<XmlElement, object> Get(XmlElement xmlElement)
+        {
+            /* if (functions.ContainsKey(xmlElement.Name))
+             {
+                 Put(xmlElement);
+                 return functions[xmlElement.Name];
+             }*/
+            var tag = xmlElement.Name;
+            if (methods.ContainsKey(tag))
+            {
+                Put(xmlElement);
+                var mi = methods[tag];
+                return (e) => mi.Invoke(null, new object[] { e });
+            }
+            return null;
+        }
+
+        void Put(XmlElement xmlElement)
+        {
+            var id = xmlElement.GetAttribute("id");
+            if (id.Length == 0)
+            {
+                return;
+            }
+            List<XmlElement> l = null;
+            if (elementList.ContainsKey(id))
+            {
+                l = elementList[id];
+            }
+            else
+            {
+                l = new List<XmlElement>();
+                elementList[id] = l;
+            }
+            l.Add(xmlElement);
+        }
+
+
+
 
         private static Dictionary<string, Type> matTypes = new()
             {
@@ -243,7 +314,6 @@ namespace Collada.Wpf
             return null;
         }
 
-        List<string> t = new();
     
         /// <summary>
         /// Initialization
@@ -251,25 +321,25 @@ namespace Collada.Wpf
         /// <param name="xmlElement"></param>
         void IFunction.Init(XmlElement xmlElement)
         {
+            List<string> tags = new List<string>();
             var s = xmlElement.GetElements();
             foreach (var e in s)
             {
-                if (StaticExtensionColladaWpf.IsUnknown(e))
+                if (!e.IsUnknown())
                 {
                     continue;
                 }
                 var n = e.Name;
-                if (!e.IsUnknown())
+
+                if (!allTags.Contains(n))
                 {
-                    if (!addTags.Contains(n))
+                    if (!tags.Contains(n))
                     {
-                        if (!t.Contains(n))
-                        {
-                            t.Add(n);
-                        }
+                        tags.Add(n);
                     }
                 }
-                var id = e.GetAttribute("id");
+            }
+   /*             var id = e.GetAttribute("id");
                 List<XmlElement> l = null;
                 if (elementList.ContainsKey(id))
                 {
@@ -291,7 +361,6 @@ namespace Collada.Wpf
                         writer.WriteLine(str);
                     }
                 }
-            }
         }
 
 
@@ -349,13 +418,7 @@ namespace Collada.Wpf
                  return functions[xmlElement.Name];
              }*/
             var tag = xmlElement.Name;
-            if (methods.ContainsKey(tag))
-            {
-                Put(xmlElement);
-                var mi = methods[tag];
-                return (e) => mi.Invoke(null, new object[] { e });
-            }
-            return null;
+    
         }
 
         protected virtual void Clear()

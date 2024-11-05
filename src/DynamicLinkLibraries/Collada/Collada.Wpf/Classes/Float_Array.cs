@@ -2,9 +2,15 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("float_array", true)]
     internal class Float_Array : XmlHolder
     {
         static public readonly string Tag = "float_array";
+
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = true;
 
         public float[] Array { get; private set; }
 

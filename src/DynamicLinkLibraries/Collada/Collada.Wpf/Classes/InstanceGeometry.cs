@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("instance_geometry")]
     internal class InstanceGeomery : XmlHolder
     {
         static public readonly string Tag = "instance_geometry";

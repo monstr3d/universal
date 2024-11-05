@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("bind_material")]
     internal class BingMaterial : XmlHolder
     {
         static public readonly string Tag = "bind_material";

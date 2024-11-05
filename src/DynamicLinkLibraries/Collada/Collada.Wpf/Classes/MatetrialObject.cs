@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("material")]
     internal class MaterialObject : XmlHolder
     {
         static public readonly string Tag = "material";

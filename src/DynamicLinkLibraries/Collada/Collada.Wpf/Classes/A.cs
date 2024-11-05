@@ -2,9 +2,15 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("A")]
     internal class A : XmlHolder
     {
-        static public readonly string Tag = "";
+ 
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = false;
+
 
         private A(XmlElement element) : base(element)
         {

@@ -7,6 +7,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("bind_vertex_input")]
     internal class BindVertexInput : XmlHolder
     {
         public static readonly string Tag = "bind_vertex_input";

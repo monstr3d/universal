@@ -3,6 +3,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("reflectivity")]
     internal class Reflectivity : XmlHolder
     {
         static public readonly string Tag = "reflectivity";
@@ -16,7 +17,6 @@ namespace Collada.Wpf.Classes
                 var fc = element.FirstChild;
                 if (fc != null)
                 {
-
                     Value = (element.FirstChild as XmlElement).Get();
                 }
                 else

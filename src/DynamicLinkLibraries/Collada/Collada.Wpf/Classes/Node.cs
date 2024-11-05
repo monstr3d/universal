@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("node")]
     internal class Node : XmlHolder
     {
         static public readonly string Tag = "node";

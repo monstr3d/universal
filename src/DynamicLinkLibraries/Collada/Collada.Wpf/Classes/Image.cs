@@ -3,9 +3,17 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("image", true)]
     internal class Image : XmlHolder
     {
         static public readonly string Tag = "image";
+
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = true;
+
+
 
         public ImageSource ImageSource { get; private set; }
 

@@ -6,6 +6,13 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "up_axis";
 
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = true;
+
+
+
         private Up_Axis(XmlElement element) : base(element)
         {
 

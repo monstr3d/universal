@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
@@ -9,6 +10,45 @@ namespace Collada.Wpf
 {
     public static  class StaticExtensionColladaWpf
     {
+        public static void CreateElementary(this Assembly assembly, Dictionary<string, MethodInfo> methods, List<string> elementary, List<string> all)
+        {
+            Type[] typ = assembly.GetTypes();
+            foreach (var item in typ)
+            {
+                FieldInfo fi = item.GetField("Tag");
+                if (fi == null)
+                {
+                    continue;
+                }
+                var s = fi.GetValue(null) as string;
+                if (s.Length == 0)
+                {
+                    continue;
+                }
+                MethodInfo mi = item.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                if (mi == null)
+                {
+                    throw new Exception();
+                }
+                methods[s] = mi;
+                if (all.Contains(s))
+                {
+                    throw new Exception();
+                }
+                all.Add(s);
+                fi = item.GetField("IsElementary");
+                if (fi == null)
+                {
+                    continue;
+                }
+                var b = (bool)fi.GetValue(null);
+                if (b)
+                {
+                    elementary.Add(s);
+                }
+            }
+ 
+        }
 
         static internal readonly List<string> Unknown = new()
         {

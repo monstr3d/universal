@@ -7,6 +7,13 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "source";
 
+        /// <summary>
+        /// Is elementary
+        /// </summary>
+        static public readonly bool IsElementary = true;
+
+
+
         public string Name { get; private set; }
 
         public object[] Children { get; private set; }

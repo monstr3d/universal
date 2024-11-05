@@ -4,6 +4,8 @@ using System.IO;
 using System.Xml;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Reflection;
+using System.ComponentModel;
 
 namespace Collada
 {
@@ -71,6 +73,25 @@ namespace Collada
         }
 
         #region Members
+
+        public static IEnumerable<T> ChildNodes<T>(this XmlElement xmlElement) where T : class
+        {
+            var nl = xmlElement.ChildNodes;
+            foreach (var item in nl)
+            {
+                if (item is XmlElement e)
+                {
+                    if (e.ParentNode == xmlElement)
+                    {
+                        var t = e.Get() as T;
+                        if (t != null)
+                        {
+                            yield return t;
+                        }
+                    }
+                }
+            }
+        }
 
         static public IEnumerable<T> GetElements<T>() where T : class
         {
@@ -316,7 +337,54 @@ namespace Collada
             return collada.IsUnknown(element);
         }
 
-        static public void Get(this IEnumerable<string> filter)
+
+        public static void Get(this IEnumerable<string> filter)
+        {
+            foreach (var e in filter)
+            {
+                e.Get();    
+            }
+        }
+
+        public static void Detect(this Type type, Dictionary<string, MethodInfo> methods, List<string> elementary, List<string> all)
+        {
+            TagAttribute attr = CustomAttributeExtensions.GetCustomAttribute<TagAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+            if (attr == null)
+            {
+                return;
+            }
+            var tag = attr.Tag;
+            if (tag.Length == 0)
+            {
+                return;
+            }
+            MethodInfo mi = type.GetMethod("Get", [ typeof(XmlElement) ]);
+            if (mi == null)
+            {
+                throw new Exception();
+            }
+            if (all.Contains(tag))
+            {
+                throw new Exception();
+            }
+            all.Add(tag);
+            methods[tag] = mi;
+            if (attr.IsElemenary)
+            {
+                elementary.Add(tag);
+            }
+        }
+
+        public static void Detect(this Assembly assembly, Dictionary<string, MethodInfo> methods, List<string> elementary, List<string> all)
+        {
+            var types = assembly.GetTypes();
+            foreach (var item in types)
+            {
+                item.Detect(methods, elementary, all);
+            }
+        }
+
+        static public void GetAll(this IEnumerable<string> filter)
         {
             var arr = filter.ToArray();
             Func<XmlElement, bool> func = (e) => { return arr.Contains(e.Name); };
@@ -699,13 +767,16 @@ namespace Collada
 
         public static IEnumerable<XmlNode> GetNodes(this XmlNode node)
         {
-            yield return node;
-            foreach (XmlNode n in node.ChildNodes)
+            if (node != null)
             {
-                var nd = n.GetNodes();
-                foreach (XmlNode ndd in nd)
+                yield return node;
+                foreach (XmlNode n in node.ChildNodes)
                 {
-                    yield return ndd;
+                    var nd = n.GetNodes();
+                    foreach (XmlNode ndd in nd)
+                    {
+                        yield return ndd;
+                    }
                 }
             }
         }

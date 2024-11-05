@@ -7,6 +7,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("effect")]
     internal class EffectObject : XmlHolder
     {
 
@@ -38,7 +39,7 @@ namespace Collada.Wpf.Classes
         private EffectObject(XmlElement element) : base(element)
         {
             var l = new List<Material>();
-            var nl = element.GetElementsByTagName(Phong.Tag);
+            var nl = element.GetElementsByTagName("phong");
             foreach (XmlElement e in nl)
             {
                 Material material = e.Get() as Material;

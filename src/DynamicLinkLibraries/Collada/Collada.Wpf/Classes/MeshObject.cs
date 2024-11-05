@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("mesh")]
     internal class MeshObject : XmlHolder
     {
         static public readonly string Tag = "mesh";
@@ -16,7 +17,7 @@ namespace Collada.Wpf.Classes
             return this;
         }
 
-        public static object MeskObject(XmlElement element)
+        public static object Get(XmlElement element)
         {
             var a = new MeshObject(element);
             return a.Get();

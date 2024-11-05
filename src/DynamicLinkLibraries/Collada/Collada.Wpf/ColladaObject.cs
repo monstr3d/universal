@@ -138,17 +138,13 @@ namespace Collada.Wpf
         /// <param name="xmlElement"></param>
         void ICollada.Init(XmlElement xmlElement)
         {
-            //  Testtechnique(xmlElement);
+           //  Testtechnique(xmlElement);
             //    Testtecfiltes(xmlElement);
 
             var t = Function.Tags;
-            t.Get();
+            t.GetAll();
             t = Function.AddTags;
-            return;
-            foreach (var tag in t)
-            {
-                tag.Get();
-            }
+            t.Get();
             int i = 0;
     
             /*          var s = xmlElement.GetElements();
