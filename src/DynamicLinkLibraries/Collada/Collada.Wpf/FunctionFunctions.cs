@@ -116,7 +116,7 @@ namespace Collada.Wpf
         }
         object GetScenes(XmlElement element)
         {
-            return new Scene(element);
+            return null;// return new Scene(element);
         }
         static object GetP(XmlElement element)
         {

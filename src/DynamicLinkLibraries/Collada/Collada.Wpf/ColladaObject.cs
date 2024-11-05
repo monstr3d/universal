@@ -129,20 +129,7 @@ namespace Collada.Wpf
         bool ICollada.IsUnknown(XmlElement xmlElement)
         {
             var n = xmlElement.Name;
-        /*    if (n == "newparam")
-            {
-                parametersNew[xmlElement.GetAttribute("sid")] = xmlElement;
-            }
-            if (n == "source")
-            {
-                /*          var t = xmlElement.InnerText;
-                          if (sources.ContainsKey(t))
-                          {
-                              throw new Exception();
-                          }
-                          sources[t] = xmlElement;*/
-        //    }*/
-            return StaticExtensionColladaWpf.Unknown.Contains(xmlElement.Name);
+             return StaticExtensionColladaWpf.Unknown.Contains(xmlElement.Name);
         }
 
         /// <summary>

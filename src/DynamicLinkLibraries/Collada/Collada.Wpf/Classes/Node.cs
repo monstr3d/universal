@@ -2,11 +2,11 @@
 
 namespace Collada.Wpf.Classes
 {
-    internal class A : XmlHolder
+    internal class Node : XmlHolder
     {
-        static public readonly string Tag = "";
+        static public readonly string Tag = "node";
 
-        private A(XmlElement element) : base(element)
+        private Node(XmlElement element) : base(element)
         {
 
         }
@@ -18,7 +18,7 @@ namespace Collada.Wpf.Classes
 
         public static object Get(XmlElement element)
         {
-            var a = new A(element);
+            var a = new Node(element);
             return a.Get();
         }
     }

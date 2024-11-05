@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
@@ -15,7 +14,7 @@ namespace Collada.Wpf
         {
             "author", "authoring_tool", "comments", "copyright", "contributor",
             "created", "modified", "asset", "library_materials", "COLLADA", "init_from",
-            "library_images", "technique", "profile_COMMON",    "library_effects"
+            "library_images", "technique", "profile_COMMON",    "library_effects", "library_geometries" , "library_visual_scenes"
         };
 
         static StaticExtensionColladaWpf()

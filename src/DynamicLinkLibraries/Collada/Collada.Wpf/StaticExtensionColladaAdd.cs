@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Documents.DocumentStructures;
 using System.Windows.Controls;
 using System.Net.Http.Headers;
+using Collada.Wpf.Classes;
 
 namespace Collada.Wpf
 {
@@ -226,7 +227,7 @@ namespace Collada.Wpf
 
         private static object GetScenes(IdName name, XmlElement element)
         {
-            return new Scene(element);
+            return null;// return new Scene(element);
         }
 
 

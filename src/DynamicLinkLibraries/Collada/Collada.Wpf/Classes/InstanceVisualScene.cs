@@ -2,11 +2,11 @@
 
 namespace Collada.Wpf.Classes
 {
-    internal class A : XmlHolder
+    internal class InstanceVisualScene : XmlHolder
     {
-        static public readonly string Tag = "";
+        static public readonly string Tag = "instance_visual_scene";
 
-        private A(XmlElement element) : base(element)
+        private InstanceVisualScene(XmlElement element) : base(element)
         {
 
         }
@@ -18,7 +18,7 @@ namespace Collada.Wpf.Classes
 
         public static object Get(XmlElement element)
         {
-            var a = new A(element);
+            var a = new InstanceVisualScene(element);
             return a.Get();
         }
     }

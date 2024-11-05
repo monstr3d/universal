@@ -2,11 +2,11 @@
 
 namespace Collada.Wpf.Classes
 {
-    internal class A : XmlHolder
+    internal class BingMaterial : XmlHolder
     {
-        static public readonly string Tag = "";
+        static public readonly string Tag = "bind_material";
 
-        private A(XmlElement element) : base(element)
+        private BingMaterial(XmlElement element) : base(element)
         {
 
         }
@@ -18,7 +18,7 @@ namespace Collada.Wpf.Classes
 
         public static object Get(XmlElement element)
         {
-            var a = new A(element);
+            var a = new BingMaterial(element);
             return a.Get();
         }
     }

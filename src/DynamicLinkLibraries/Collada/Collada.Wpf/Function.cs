@@ -5,6 +5,8 @@ using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Reflection;
 using Collada.Wpf.Classes;
+using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace Collada.Wpf
 {
@@ -35,10 +37,12 @@ namespace Collada.Wpf
 
         static Dictionary<string, MethodInfo> methods;
 
+
         static Function()
         {
             try
             {
+   
                 // !!!!!!
                 //   string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
 
@@ -48,6 +52,7 @@ namespace Collada.Wpf
 
                 //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
 
+
                 methods = new();
 
                 foreach (var type in types)
@@ -55,6 +60,7 @@ namespace Collada.Wpf
                     FieldInfo fi = type.GetField("Tag");
                     var s = fi.GetValue(null) as string;
                     tags.Add(s);
+                    addTags.Add(s);
                     MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
                     if (mi == null)
                     {
@@ -90,10 +96,28 @@ namespace Collada.Wpf
                     }
                     methods[s] = mi;
                 }
+                Type[] typ = typeof(Function).Assembly.GetTypes();
+                foreach (var item in typ)
+                {
+                    FieldInfo fi = item.GetField("Tag");
+                    if (fi == null)
+                    {
+                        continue;
+                    }
+                    var s = fi.GetValue(null) as string;
+                    if (s.Length == 0)
+                    {
+
+                    }
+                    if (!addTags.Contains(s))
+                    {
+                        addTags.Add(s);
+                    }
+                }
 
 
-              /*  string[] strings = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect",
-            Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];*/
+                /*  string[] strings = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect",
+              Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];*/
             }
             catch (Exception ex)
             {
@@ -235,9 +259,15 @@ namespace Collada.Wpf
                     continue;
                 }
                 var n = e.Name;
-                if (!t.Contains(n))
+                if (!e.IsUnknown())
                 {
-                    t.Add(n);
+                    if (!addTags.Contains(n))
+                    {
+                        if (!t.Contains(n))
+                        {
+                            t.Add(n);
+                        }
+                    }
                 }
                 var id = e.GetAttribute("id");
                 List<XmlElement> l = null;
@@ -251,6 +281,16 @@ namespace Collada.Wpf
                     elementList[id] = l;
                 }
                 l.Add(xmlElement);
+            }
+            if (t.Count != 0)
+            {
+                using (var writer = new StreamWriter("abscent.txt"))
+                {
+                    foreach (var str in t)
+                    {
+                        writer.WriteLine(str);
+                    }
+                }
             }
         }
 

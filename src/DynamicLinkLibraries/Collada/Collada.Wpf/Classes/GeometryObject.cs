@@ -2,11 +2,11 @@
 
 namespace Collada.Wpf.Classes
 {
-    internal class A : XmlHolder
+    internal class GeometryObject : XmlHolder
     {
-        static public readonly string Tag = "";
+        static public readonly string Tag = "geometry";
 
-        private A(XmlElement element) : base(element)
+        private GeometryObject(XmlElement element) : base(element)
         {
 
         }
@@ -18,7 +18,7 @@ namespace Collada.Wpf.Classes
 
         public static object Get(XmlElement element)
         {
-            var a = new A(element);
+            var a = new GeometryObject(element);
             return a.Get();
         }
     }

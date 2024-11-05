@@ -311,6 +311,10 @@ namespace Collada
             }
         }
 
+        static public bool IsUnknown(this XmlElement element)
+        {
+            return collada.IsUnknown(element);
+        }
 
         static public void Get(this IEnumerable<string> filter)
         {
@@ -358,9 +362,9 @@ namespace Collada
                 {
                     c.Combine();
                     var p = dictionary[element];
-                    if (p is ICombining)
+                    if (p is ICombining comb)
                     {
-                        combinations[element] = p;
+                        combinations[element] = comb;
                     }
                     else if (combinations.ContainsKey(element))
                     {
