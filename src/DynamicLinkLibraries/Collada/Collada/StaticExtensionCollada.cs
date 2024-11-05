@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Collada
 {
@@ -40,6 +42,10 @@ namespace Collada
 
         static List<XmlElement> begins;
 
+        static Dictionary<string, TagAttribute> tags;
+
+        static Dictionary<Type, TagAttribute> types;
+
   
 
         static StaticExtensionCollada()
@@ -48,7 +54,11 @@ namespace Collada
             keyValuePairs = new();
             completed= new();
             begins = new();
+            tags = new();
+            types = new();
         }
+
+        
 
         public static ICollada Collada
         {
@@ -73,6 +83,57 @@ namespace Collada
         }
 
         #region Members
+
+        public static TagAttribute GetTag(this Type type)
+        {
+            return types[type];
+        }
+
+        public static bool IsUknown(this Type type)
+        {
+            return !types.ContainsKey(type);
+        }
+
+
+        public static TagAttribute GetTag(this XmlElement element)
+        {
+            return tags[element.Name];
+        }
+
+        public static bool IsElementary(this XmlElement element)
+        {
+            return element.GetTag().IsElemenary;
+        }
+
+        public static bool IsUnknown(this XmlElement element)
+        {
+            return !tags.ContainsKey(element.Name);
+        }
+
+        public static void CheckElementary(this XmlElement element)
+        {
+            
+            if (!element.IsElementary())
+            {
+                return;
+            }
+            var x = element.GetElements();
+            foreach (var e in x)
+            {
+                if (e == element)
+                {
+                    continue;
+                }
+                if (e.IsUnknown())
+                {
+                    continue;
+                }
+                if (!e.IsElementary())
+                {
+                    throw new Exception();
+                }
+            }
+        }
 
         public static IEnumerable<T> ChildNodes<T>(this XmlElement xmlElement) where T : class
         {
@@ -236,7 +297,7 @@ namespace Collada
             begins.Clear();
         }
 
-        public static IEnumerable<T> GetOwnChilden<T>(this XmlElement element) where T : class
+        public static IEnumerable<T> GetOwnChilden<T>(this XmlElement element)
         {
             var nl = element.ChildNodes;
             foreach (XmlNode n in nl )
@@ -247,15 +308,26 @@ namespace Collada
                 }
                 if (n is XmlElement e)
                 {
-                    T t = e.Get() as T;
-                    if (t != null)
-                    {
-                        throw new InvalidOperationException();
-                    }
+                    T t = (T)e.Get();
                     yield return t;
                 }
             }
+        }
 
+        public static IEnumerable<XmlElement> GetAllElementsByTagName(this XmlElement element, string name)
+        {
+            var e = element.GetElements();
+            foreach (XmlElement n in e)
+            {
+                if (n != element)
+                {
+                    if (n.Name == name)
+                    {
+                        yield return n;
+                    }
+                }
+
+            }
         }
 
         public static IEnumerable<T> ByTag<T>(this string tag, XmlElement element) where T : class
@@ -332,11 +404,7 @@ namespace Collada
             }
         }
 
-        static public bool IsUnknown(this XmlElement element)
-        {
-            return collada.IsUnknown(element);
-        }
-
+   
 
         public static void Get(this IEnumerable<string> filter)
         {
@@ -354,6 +422,8 @@ namespace Collada
                 return;
             }
             var tag = attr.Tag;
+            types[type] = attr;
+            tags[tag] = attr; 
             if (tag.Length == 0)
             {
                 return;
@@ -412,14 +482,13 @@ namespace Collada
             {
                 return dictionary[element].CloneItself();
             }
-            if (collada.IsUnknown(element))
+            if (element.IsUnknown())
             {
                 return null;
             }
             var func = function[element];
             if (func != null)
             {
-
                 var o = func(element);
                 if (o == null)
                 {
@@ -481,10 +550,11 @@ namespace Collada
             }
             if (element is XmlElement xmlElement)
             {
-                if (!collada.IsUnknown(xmlElement))
+                if (xmlElement.IsUnknown())
                 {
-                    xmlElement.Get();
+                    return;
                 }
+                xmlElement.Get();
             }
         }
 
@@ -496,7 +566,7 @@ namespace Collada
             }
             if (element is XmlElement xmlElement)
             {
-                if (!collada.IsUnknown(xmlElement))
+                if (!xmlElement.IsUnknown())
                 {
                     collada.Put(xmlElement);
                 }
@@ -638,6 +708,7 @@ namespace Collada
                 xmlElement = value;
                 collada.Init(value);
                 function.Init(value);
+                return;
                 value.PreLoad();
                 (value as XmlNode).Get();
  //               Success = FullIterate();

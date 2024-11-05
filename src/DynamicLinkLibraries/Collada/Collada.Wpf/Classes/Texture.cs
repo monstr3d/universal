@@ -4,10 +4,9 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("texture")]
     public class Texture : XmlHolder
     {
-
-        static public readonly string Tag = "texture";
 
  
         public Sampler2D Sample { get; private set; }

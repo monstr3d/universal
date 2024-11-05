@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Text.Json.Serialization;
+using System.Windows.Media;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
@@ -24,11 +25,7 @@ namespace Collada.Wpf.Classes
 
         object Get()
         {
-            if (ImageSource == null)
-            {
-                return false;
-            }
-            return ImageSource;
+            return this;
         }
 
         public static object Get(XmlElement element)

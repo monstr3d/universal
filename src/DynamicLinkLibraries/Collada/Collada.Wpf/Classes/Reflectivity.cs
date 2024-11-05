@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("reflectivity")]
+    [Tag("reflectivity",true)]
     internal class Reflectivity : XmlHolder
     {
         static public readonly string Tag = "reflectivity";

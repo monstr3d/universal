@@ -5,8 +5,6 @@ using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Reflection;
 using Collada.Wpf.Classes;
-using System.IO;
-using System.Runtime.CompilerServices;
 
 namespace Collada.Wpf
 {
@@ -26,10 +24,11 @@ namespace Collada.Wpf
     {
         internal static readonly Function Instance = new Function();
 
-        static public List<string> Tags => tags;
+        static public List<string> Tags => elementary;
 
         static public List<string> AddTags => allTags;
 
+        static public List<string> Nonelementary {  get; private set; }
 
         static List<string> tags = new();
 
@@ -67,88 +66,60 @@ namespace Collada.Wpf
 
                 // !!!!!!
                 //   string[] finalTypes = ["param", "image", "p", "color", "float_array", "reflectivity", "reflective", "accessor"];
+                if (false)
+                {
 
-
-                Type[] types = [typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis),
+       /*             Type[] types = [typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis),
                     typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
             typeof(Reflectivity), typeof(Accessor)];
-           // types = [typeof(BindVertexInput), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), 
-             //       typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
-            //typeof(Reflectivity), typeof(Accessor)];
+                    // types = [typeof(BindVertexInput), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), 
+                    //       typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
+                    //typeof(Reflectivity), typeof(Accessor)];
 
-                //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
+                    //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
 
 
-                methods = new();
+                    methods = new();
 
-                foreach (var type in types)
-                {
-                    FieldInfo fi = type.GetField("Tag");
-                    var s = fi.GetValue(null) as string;
-                    tags.Add(s);
-                    if (allTags.Contains(s))
+                    foreach (var type in types)
                     {
-                        throw new Exception();
-                    }
-                    allTags.Add(s);
-                    MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
-                    if (mi == null)
-                    {
-                        throw new Exception();
-                    }
-                    methods[s] = mi;
+                        FieldInfo fi = type.GetField("Tag");
+                        var s = fi.GetValue(null) as string;
+                        tags.Add(s);
+                        if (allTags.Contains(s))
+                        {
+                            throw new Exception();
+                        }
+                        allTags.Add(s);
+                        MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
+                        if (mi == null)
+                        {
+                            throw new Exception();
+                        }
+                        methods[s] = mi;
+                    }*/
                 }
-
-                types = [typeof(Source), typeof(Transparent), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Diffuse),
+                Type[] types = [typeof(Surface), typeof(Sampler2D), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
                 typeof(EffectObject), typeof(InstanceEffect), typeof(MaterialObject), typeof(Instance_Material), typeof(Technique)];
+
+                var nonelementary = new List<string>();
                 foreach (var type in types)
                 {
-                    string s = null;
-                    FieldInfo fi = type.GetField("Tag");
-                    if (fi == null)
+                    if (type.IsUknown())
                     {
                         throw new Exception();
                     }
-                    try
-                    {
-                        s = fi.GetValue(null) as string;
-                    }
-                    catch (Exception ex)
-                    {
-
-                    }
-                    if (allTags.Contains(s))
+                    TagAttribute tag = type.GetTag();
+                    var name = tag.Tag;
+                    if (tag.IsElemenary)
                     {
                         throw new Exception();
                     }
-                    allTags.Add(s);
-                    MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
-                    if (mi == null)
-                    {
-                        throw new Exception();
-                    }
-                    methods[s] = mi;
+                    nonelementary.Add(name);
                 }
-                Type[] typ = typeof(Function).Assembly.GetTypes();
-                foreach (var item in typ)
-                {
-                    FieldInfo fi = item.GetField("Tag");
-                    if (fi == null)
-                    {
-                        continue;
-                    }
-                    var s = fi.GetValue(null) as string;
-                    if (s.Length == 0)
-                    {
-
-                    }
-                    if (!allTags.Contains(s))
-                    {
-                        allTags.Add(s);
-                    }
-                }
-
+                Nonelementary = nonelementary;
+                return;
 
                 /*  string[] strings = ["transparent", "surface", "sampler2D",  "texture", "diffuse", "specular", "reflective" , "effect",
               Technique.Tag, Instance_Material.Tag, BindVertexInput.Tag, Source.Tag, Input.Tag ];*/

@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("source", true)]
     internal class Source : XmlHolder
     {
         static public readonly string Tag = "source";
@@ -21,7 +23,14 @@ namespace Collada.Wpf.Classes
         protected Source(XmlElement element) : base(element)
         {
             Name = element.InnerText;
-          //  Children = element.GetOwnChilden<object>().ToArray();
+            try
+            {
+                //Children = element.GetOwnChilden<object>().ToArray();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         protected object Get()

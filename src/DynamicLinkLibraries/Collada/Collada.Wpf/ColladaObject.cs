@@ -122,17 +122,6 @@ namespace Collada.Wpf
 
 
         /// <summary>
-        /// The unknown element
-        /// </summary>
-        /// <param name="xmlElement">The element</param>
-        /// <returns>Thue if it is unknown</returns>
-        bool ICollada.IsUnknown(XmlElement xmlElement)
-        {
-            var n = xmlElement.Name;
-             return StaticExtensionColladaWpf.Unknown.Contains(xmlElement.Name);
-        }
-
-        /// <summary>
         /// Initialization
         /// </summary>
         /// <param name="xmlElement"></param>
@@ -143,6 +132,9 @@ namespace Collada.Wpf
 
             var t = Function.Tags;
             t.GetAll();
+            t = Function.Nonelementary;
+            t.Get();
+            return;
             t = Function.AddTags;
             t.Get();
             int i = 0;

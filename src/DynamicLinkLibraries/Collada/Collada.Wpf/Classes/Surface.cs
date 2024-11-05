@@ -4,6 +4,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("surface")]
     public class Surface : Sid, IImageSource
     {
         

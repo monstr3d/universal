@@ -24,12 +24,6 @@ namespace Collada
         void Put(XmlElement xmlElement);
 
         /// <summary>
-        /// The unknown element
-        /// </summary>
-        /// <param name="xmlElement">The element</param>
-        /// <returns>Thue if it is unknown</returns>
-        bool IsUnknown(XmlElement xmlElement);
-
         /// <summary>
         /// Initialization
         /// </summary>

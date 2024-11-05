@@ -5,10 +5,10 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("technique_common",true)]
     internal class Technique : XmlHolder
     {
-        static readonly public string Tag = "technique_common";
-
+    
         object[] children;
 
         private Technique(XmlElement element) : base(element)

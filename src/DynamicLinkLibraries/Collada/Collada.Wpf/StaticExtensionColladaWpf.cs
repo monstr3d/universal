@@ -69,11 +69,7 @@ namespace Collada.Wpf
                 throw new Exception();
             }
         }
-        public static bool IsUnknown(this XmlElement value)
-        {
-            return Unknown.Contains(value.Name);
-        }
-
+    
         public static void Set()
         {
             try

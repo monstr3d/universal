@@ -1,13 +1,10 @@
 ﻿
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("transparent", true)]
     internal class Transparent : XmlHolder
     {
         static public readonly string Tag = "transparent";
