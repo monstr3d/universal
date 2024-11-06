@@ -1,15 +1,24 @@
-﻿using System.Xml;
+﻿using System.Security.Policy;
+using System.Xml;
 
 namespace Collada.Wpf
 {
     [Tag("instance_material")]
     internal class Instance_Material : XmlHolder
     {
-        public static readonly string Tag = "instance_material";
+ 
+        private Instance_Material(XmlElement element) : base(element)
+        {
+            var url = element.GetAttribute("url");
+            if (url.Length > 0)
+            {
 
-        private Instance_Material(XmlElement element) : base(element) 
-        { 
-        
+            }
+            else
+            {
+
+            }
+ 
         }
 
         static public object Get(XmlElement element)

@@ -16,14 +16,14 @@ namespace Collada
     /// </summary>
     public static class StaticExtensionCollada
     {
-   
+
         static ICollada collada;
 
         static IFunction function;
 
-        static List<ICombining> currentCombinins = new ();
+        static List<ICombining> currentCombinins = new();
 
-        static Dictionary<XmlElement, ICombining> combinations = new ();
+        static Dictionary<XmlElement, ICombining> combinations = new();
 
         static List<ICombining> globalCominings = new();
 
@@ -46,19 +46,19 @@ namespace Collada
 
         static Dictionary<Type, TagAttribute> types;
 
-  
+
 
         static StaticExtensionCollada()
         {
             dictionary = new();
             keyValuePairs = new();
-            completed= new();
+            completed = new();
             begins = new();
             tags = new();
             types = new();
         }
 
-        
+
 
         public static ICollada Collada
         {
@@ -94,10 +94,57 @@ namespace Collada
             return !types.ContainsKey(type);
         }
 
+        public static bool IsAccessible(this XmlElement element)
+        {
+            return element.GetTag() != null;
+        }
+
+        public static Dictionary<XmlElement, object> ChildDictionary(this XmlElement xml)
+        {
+            Dictionary<XmlElement, object> d = new();
+            var nl = xml.GetElements().Where(e => e.ParentNode == xml & e.IsAccessible());
+            foreach (XmlElement e in nl)
+            {
+                d[e] = e.Get();
+            }
+            return d;
+        }
+        public static void AllDictionary(this XmlElement xml, Dictionary<XmlElement, object> d)
+        {
+            Func<XmlElement, bool> f = (e) =>
+                {
+                    if (e == xml)
+                    {
+                        return false;
+                    }
+                    return e.IsAccessible();
+                };
+            var nl = xml.GetElements().Where(f);
+            foreach (XmlElement e in nl)
+            {
+                d[e] = e.Get();
+            }
+        }
+        
+        public static Dictionary<XmlElement, object> AllDictionary(this XmlElement xml)
+        {
+            Dictionary<XmlElement, object> d = new();
+            var nl = xml.GetElements().Where(e =>  e.IsAccessible());
+            foreach (XmlElement e in nl)
+            {
+                d[e] = e.Get();
+            }
+            return d;
+        }
 
         public static TagAttribute GetTag(this XmlElement element)
         {
-            var tag = tags[element.Name];
+            var name = element.Name;
+            if (!tags.ContainsKey(name))
+            {
+                return null;
+            }
+            var tag = tags[name];
             return tag;
         }
 
@@ -137,6 +184,7 @@ namespace Collada
                 }
             }
         }
+   
 
         public static IEnumerable<T> ChildNodes<T>(this XmlElement xmlElement) 
         {
@@ -305,15 +353,37 @@ namespace Collada
             begins.Clear();
         }
 
+        public static IEnumerable<object> GetProxyObjects<T>(this XmlElement element)
+        {
+            var tag = types[typeof(T)];
+            var enu = element.GetElements().Where(e => e != element & e.Name.Equals(tag));
+            foreach (var x in enu)
+            {
+                yield return x.Get();
+            }    
+        }
 
-        public static IEnumerable<T> GetAllChildren<T>(this XmlElement element)
+        public static object GetProxyObject<T>(this XmlElement element)
+        {
+            var c = element.GetProxyObjects<T>().ToArray();
+            switch (c.Length)
+            {
+                case 0: return null;
+                    case 1: return c[0];
+                    default: throw new Exception();
+            }
+     
+        }
+
+
+        public static IEnumerable<T> GetAllChildren<T>(this XmlElement element) where T : class
         {
             var type = typeof(T);
             var name = types[type].Tag;
             var nl = element.GetAllElementsByTagName(name).Where(e => e != element);
             foreach (var n in nl)
             {
-                T t = (T)n.Get();
+                T t = n.Get() as T;
                 if (t != null)
                 {
                     yield return t;
@@ -535,15 +605,16 @@ namespace Collada
             throw new Exception();
         }
 
-        static public T Get<T>(this XmlElement element) where T : class 
+        static public T Get<T>(this XmlElement element) where T : class
         {
-            var o = element.Get();
-            if (o is T t)
+            var o = element.GetAllChildren<T>().ToArray();
+            switch (o.Length)
             {
-                return (T) t;
+                case 0: return null;
+                case 1: return o[0];
+                    default : throw new Exception();
             }
-            return null;
-        }
+         }
 
         static  public T GetStruct<T>(this XmlElement element) where T : struct
         {

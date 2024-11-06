@@ -14,6 +14,16 @@ namespace Collada.Wpf.Classes
 
         private InstanceEffect(XmlElement element) : base(element)
         {
+            var url = element.GetAttribute("url").Substring(1);
+            var material = url.FromCollada() as Material;
+            if (material == null)
+            {
+
+            }
+            else
+            {
+                Material = material;
+            }
 
         }
 
@@ -34,7 +44,7 @@ namespace Collada.Wpf.Classes
 
         object Get()
         {
-            return GetInstanceEffect(Xml);
+            return Material;
         }
 
         public static object Get(XmlElement element)

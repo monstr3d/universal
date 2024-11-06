@@ -44,54 +44,6 @@ namespace Collada.Wpf.Classes
                Reflectivity = xml.ToDouble("reflectivity");
             }
             return mat;
-    /*        if (mat is SpecularMaterial sm)
-            {
-                try
-                {
-                    var rf = xml.GetAttribute("reflectivity");
-                    if (rf.Length > 0)
-                    {
-                        double refl = xml.ToDouble("reflectivity");
-                        sm.SpecularPower = refl;
-                    }
-                }
-                catch (Exception exception)
-                {
-                    throw new Exception();
-                }
-            }
-            XmlElement texture = xml.GetChild("texture");
-            if (texture != null)
-            {
-                string tex = texture.GetAttribute("texture");
-                Texture = texture.Get() as Texture;
-                Surface s = Texture.Sample.Surface;
-                if (s != null)
-                {
-                    var im = s.ImageSource;
-                    if (im != null)
-                    {
-                        if (mat is DiffuseMaterial)
-                        {
-                            ImageBrush br = new ImageBrush(im);
-                            br.ViewportUnits = BrushMappingMode.Absolute;
-                            br.Opacity = 1;
-                            DiffuseMaterial dm = mat as DiffuseMaterial;
-                            dm.Brush = br;
-                        }
-                        else
-                        {
-                            PropertyInfo pib = mat.GetType().GetProperty("Brush");
-                            if (pib != null)
-                            {
-                                ImageBrush br = new ImageBrush(im);
-                                br.Opacity = 1;
-                                pib.SetValue(mat, br, null);
-                            }
-                        }
-                    }
-                }
-            }*/
             return mat;
         }
 

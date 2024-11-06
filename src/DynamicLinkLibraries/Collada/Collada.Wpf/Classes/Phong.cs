@@ -51,13 +51,7 @@ namespace Collada.Wpf.Classes
 
         private Phong(XmlElement element) : base(element)
         {
-            var refl = element.GetAllChildren<Reflectivity>().ToArray();
-            var opa = element.GetOwnChildren<Transparent>().ToArray();
-            if (refl.Length > 1 | opa.Length > 1)
-            {
-                throw new Exception();
-            }
-            var l = new List<Material>();
+             var l = new List<Material>();
             foreach (XmlNode n in Xml.ChildNodes)
             {
                 if (n is XmlElement el)
@@ -87,19 +81,8 @@ namespace Collada.Wpf.Classes
                     }
                 }
             }
-            if (refl.Length == 1)
-            {
-                var rf = refl[0];
-                var r = rf.Value.NumberToDouble();
-                SpecularMaterial.SpecularPower = r * 100;
-            }
-
-            if (opa.Length == 1)
-            {
-                var op = opa[0];
-                var c = op.Color;
-                var br = EmissiveMaterial.Brush;
-            }
+            SpecularMaterial.Set(element);
+            EmissiveMaterial.Set(element);
             Material = l.SimplifyMaterial();
         }
 

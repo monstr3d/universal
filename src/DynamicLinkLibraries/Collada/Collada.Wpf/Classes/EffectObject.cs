@@ -37,6 +37,7 @@ namespace Collada.Wpf.Classes
         private EffectObject(XmlElement element) : base(element)
         {
             var l = new List<Material>();
+
             var nl = element.GetElementsByTagName("phong");
             foreach (XmlElement e in nl)
             {

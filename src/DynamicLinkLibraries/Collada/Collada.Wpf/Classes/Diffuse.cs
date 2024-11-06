@@ -11,43 +11,37 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "diffuse";
 
-        public Texture Texture { get; private set; }
+        public Texture Texture { get; internal set; }
 
  
         public DiffuseMaterial DiffuseMaterial { get; private set; }
 
+        internal void Set(Texture texture)
+        {
+            if (texture == null)
+            {
+                return;
+            }
+            if (DiffuseMaterial.Set(texture))
+            {
+                Texture = texture;
+            }
+        }
+
         private Diffuse(XmlElement element) : base(element)
         {
-            DiffuseMaterial = Material as DiffuseMaterial;
-            if (DiffuseMaterial == null)
-            {
-                throw new Exception();
-            }
-            XmlElement texture = element.GetChild("texture");
-            if (texture != null)
-            {
-                string tex = texture.GetAttribute("texture");
-                var txt = texture.Get() as Texture;
-                Surface s = txt.Sample.Surface;
-                if (s != null)
-                {
-                    var im = s.ImageSource;
-                    if (im != null)
-                    {
-                        Texture = txt;
-                        ImageBrush br = new ImageBrush(im);
-                        br.ViewportUnits = BrushMappingMode.Absolute;
-                        br.Opacity = 1;
-                        DiffuseMaterial.Brush = br;
-                        return;
-                    }
-                }
-            }
             var el = element.GetElements().Where(e => e != Xml & e.Name != "texture" & e.Name != "color").ToArray();
             if (el.Length > 0)
             {
                 throw new Exception();
             }
+
+            DiffuseMaterial = Material as DiffuseMaterial;
+            if (DiffuseMaterial == null)
+            {
+                throw new Exception();
+            }
+            this.SetTextureByXmlElement(element);
         }
 
         protected override Type Type => typeof(DiffuseMaterial);
@@ -56,7 +50,7 @@ namespace Collada.Wpf.Classes
         public static object Get(XmlElement element)
         {
             var a = new Diffuse(element);
-            return a.DiffuseMaterial;
+            return a.Get();
         }
     }
 }

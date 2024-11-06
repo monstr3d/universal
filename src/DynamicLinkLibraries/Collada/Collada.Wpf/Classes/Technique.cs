@@ -17,7 +17,7 @@ namespace Collada.Wpf.Classes
             {
                 children = element.GetOwnChildren().ToArray();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
 
             }

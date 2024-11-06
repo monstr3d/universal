@@ -396,6 +396,7 @@ namespace Collada.Wpf
             NewParam.Clear();
             Surface.Clear();
             Sampler2D.Clear();
+            Source.Clear();
         }
 
 

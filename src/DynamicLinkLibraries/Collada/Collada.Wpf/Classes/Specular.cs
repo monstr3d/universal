@@ -29,7 +29,7 @@ namespace Collada.Wpf.Classes
         public static object Get(XmlElement element)
         {
             var a = new Specular(element);
-            return a.Material;
+            return a.Get();
         }
     }
 }

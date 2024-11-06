@@ -3,15 +3,11 @@
 namespace Collada.Wpf.Classes
 {
     [Tag("magfilter", true)]
-    internal class MagFilter : Source
+    internal class MagFilter : XmlHolder
     {
         static public readonly string Tag = "magfilter";
 
-        /// <summary>
-        /// Is elementary
-        /// </summary>
-        static public readonly bool IsElementary = true;
-
+   
 
 
         private MagFilter(XmlElement element) : base(element)

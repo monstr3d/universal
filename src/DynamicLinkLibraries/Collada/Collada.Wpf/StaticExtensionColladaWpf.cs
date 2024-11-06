@@ -3,14 +3,100 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
+using Collada.Wpf.Classes;
 
 namespace Collada.Wpf
 {
     public static  class StaticExtensionColladaWpf
     {
+
+ 
+
+        internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)
+        {
+            if (imageSource == null)
+            {
+                return false;
+            }
+            ImageBrush br = new ImageBrush(imageSource);
+            br.ViewportUnits = BrushMappingMode.Absolute;
+            br.Opacity = 1;
+            return true;
+        }
+
+        internal static bool Set(this DiffuseMaterial diffuseMaterial, Surface surface)
+        {
+            if (surface == null)
+            {
+                return false;
+            }
+            return diffuseMaterial.Set(surface.ImageSource);
+        }
+
+        internal static bool Set(this DiffuseMaterial diffuseMaterial, Sampler2D sampler2D)
+        {
+            if (sampler2D == null)
+            {
+                return false;
+            }
+            return diffuseMaterial.Set(sampler2D.Surface);
+        }
+
+        internal static bool Set(this DiffuseMaterial diffuseMaterial, Texture texture)
+        {
+            if (texture == null)
+            {
+                return false;
+            }
+            return diffuseMaterial.Set(texture.Sample);
+        }
+
+        internal static void SetTextureByXmlElement(this Diffuse diffuse, XmlElement element)
+        {
+            var t = element.Get<Texture>();
+            diffuse.Set(t);
+        }
+
+        internal  static void Set(this SpecularMaterial mat, Reflectivity refl)
+        {
+            if (refl == null)
+            {
+                return;
+            }
+            var r = refl.Value.NumberToDouble();
+            mat.SpecularPower = r * 100;
+        }
+
+        internal static void Set(this EmissiveMaterial mat, Transparent transparent)
+        {
+            if (transparent == null)
+            {
+                return;
+            }    
+        }
+
+        public static void Set(this SpecularMaterial mat, XmlElement e)
+        {
+            var t = e.Get<Reflectivity>();
+            mat.Set(t);
+        }
+
+        internal static void Set(this EmissiveMaterial mat, XmlElement e)
+        {
+            var t = e.Get<Transparent>();
+            mat.Set(t);
+
+        }
+
+
+
+
+
 
 
         public static int[] ToIntArray(this XmlElement element)
