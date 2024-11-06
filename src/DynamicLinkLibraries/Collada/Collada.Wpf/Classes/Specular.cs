@@ -5,14 +5,23 @@ using System.Xml;
 namespace Collada.Wpf.Classes
 {
     [Tag("specular")]
-    internal class Specular : MaterialColor
+    public class Specular : MaterialColor
     {
         static public readonly string Tag = "specular";
 
+       public SpecularMaterial SpecularMaterial { get; private set; }
+
         private Specular(XmlElement element) : base(element)
         {
-
+            SpecularMaterial = Material as SpecularMaterial;
+            var rf = Xml.GetAttribute("reflectivity");
+            if (rf.Length > 0)
+            {
+                double refl = Xml.ToDouble("reflectivity");
+                SpecularMaterial.SpecularPower = refl;
+            }
         }
+
 
         protected override Type Type => typeof(SpecularMaterial);
 
@@ -20,7 +29,7 @@ namespace Collada.Wpf.Classes
         public static object Get(XmlElement element)
         {
             var a = new Specular(element);
-            return a.Get();
+            return a.Material;
         }
     }
 }

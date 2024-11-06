@@ -21,9 +21,12 @@ namespace Collada.Wpf.Classes
 
         static public readonly string Tag = "surface";
 
-        public ImageSource ImageSource { get; private set; }
+        public ImageSource ImageSource { 
+            get; 
+            private set; 
+        }
 
-        internal static void Clear()
+        new internal static void Clear()
         {
             surfaces.Clear();
         }
@@ -43,12 +46,10 @@ namespace Collada.Wpf.Classes
         {
             base.Set(newParam);
             var n = newParam.Name;
-            if (surfaces.ContainsKey(n))
+            var sf = Surface.Get(n);
+            if (sf != null)
             {
-                if (surfaces[n].Xml.InnerText != Xml.InnerText)
-                {
-                    throw new System.Exception();
-                }
+                ImageSource = sf.ImageSource;
             }
             else
             {
@@ -66,7 +67,7 @@ namespace Collada.Wpf.Classes
             return new Surface(element);
         }
 
-        public static object Get(XmlElement element)
+        public new static object Get(XmlElement element)
         {
    /*         var s = Sid.Get(element);
             if (s != null)

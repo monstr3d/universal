@@ -147,13 +147,6 @@ namespace Collada.Wpf
             {typeof(Scene), GetScene}
             };
 
-
-            materialCalc = new()
-                {
-               { "phong", GetPhong},
-                {"effect", GeEffectMaterial}
-                };
-
             materialTypes = new Dictionary<string, Type>()
         {
                  {"diffuse", typeof(DiffuseMaterial)},
@@ -193,13 +186,13 @@ namespace Collada.Wpf
                                {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
              }; */
 
-
+/*
 
             visualDic = new()
        {
  {"mesh", GetMesh}
        };
-
+*/
         }
         
         

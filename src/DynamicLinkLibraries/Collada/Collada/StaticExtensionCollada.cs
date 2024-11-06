@@ -310,19 +310,13 @@ namespace Collada
         {
             var type = typeof(T);
             var name = types[type].Tag;
-            var nl = element.GetAllElementsByTagName(name);
+            var nl = element.GetAllElementsByTagName(name).Where(e => e != element);
             foreach (var n in nl)
             {
-                if (n is XmlElement e)
+                T t = (T)n.Get();
+                if (t != null)
                 {
-                    if (e.Name == name)
-                    {
-                        T t = (T)e.Get();
-                        if (t != null)
-                        {
-                            yield return t;
-                        }
-                    }
+                    yield return t;
                 }
             }
         }
@@ -355,17 +349,7 @@ namespace Collada
         public static IEnumerable<XmlElement> GetAllElementsByTagName(this XmlElement element, string name)
         {
             var e = element.GetElements();
-            foreach (XmlElement n in e)
-            {
-                if (n != element)
-                {
-                    if (n.Name == name)
-                    {
-                        yield return n;
-                    }
-                }
-
-            }
+            return e.Where(e => e.Name == name);
         }
 
         public static IEnumerable<T> ByTag<T>(this string tag, XmlElement element) where T : class

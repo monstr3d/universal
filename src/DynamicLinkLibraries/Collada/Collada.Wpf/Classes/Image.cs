@@ -25,7 +25,11 @@ namespace Collada.Wpf.Classes
 
         object Get()
         {
-            return this;
+            if (ImageSource == null)
+            {
+                return this;
+            }
+            return ImageSource;
         }
 
         public static object Get(XmlElement element)

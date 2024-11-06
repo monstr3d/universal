@@ -16,10 +16,6 @@ namespace Collada.Wpf.Classes
             Color = (Color)(xml.FirstChild as XmlElement).Get();
             Opaque = xml.GetAttribute("opaque");
         }
-        object Get()
-        {
-            return this;
-        }
 
         public static object Get(XmlElement element)
         {

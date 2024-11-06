@@ -12,7 +12,7 @@ namespace Collada.Wpf.Classes
             var b =  ContainsSource = element.GetAllElementsByTagName("source").ToArray().Length > 0;
             if (b)
             {
-                var s = element.GetAllChildren<Source>().ToArray();
+                var s = element.GetAllChildren<Source>().ToArray(); ;
                 ContainsSource = true;
             }
             else

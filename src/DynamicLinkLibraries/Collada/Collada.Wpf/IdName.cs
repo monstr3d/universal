@@ -200,7 +200,7 @@ namespace Collada.Wpf
                 src = src.Substring(1);
                 Source = sources[src];
                 var ob = Source.Object;
-                ob = ob.Clone();
+               // ob = ob.Clone();
                 obj = ob;
             }
             foreach (var i in this)

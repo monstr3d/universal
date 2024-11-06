@@ -9,7 +9,7 @@ using Collada.Wpf.Classes;
 
 
 namespace Collada.Wpf
-{
+{/*
     /// <summary>
     /// Collada converter
     /// </summary>
@@ -36,7 +36,7 @@ namespace Collada.Wpf
         #endregion
 
 
-  
+
 
         #region Dictionary
 
@@ -44,7 +44,7 @@ namespace Collada.Wpf
         private static IdName idName;
 
 
-  
+
         public static void Set(this IdName idName, object o)
         {
             if (o == null)
@@ -53,30 +53,34 @@ namespace Collada.Wpf
             }
             if (allObjects.ContainsKey(idName))
             {
-          //      throw new Exception();
+                //      throw new Exception();
             }
             idName.Object = o;
             allObjects[idName] = o;
         }
 
-        public static IEnumerable<KeyValuePair<T, object>> GetEnumerable<T>(this Dictionary<T, object> dictionray)
-        {
-            foreach (KeyValuePair<T, object> kvp in dictionray)
+        /*    public static IEnumerable<KeyValuePair<T, object>> GetEnumerable<T>(this Dictionary<T, object> dictionray)
             {
-                if (kvp.Value is Dictionary<T, object> d)
+                foreach (KeyValuePair<T, object> kvp in dictionray)
                 {
-                    var t = d.GetEnumerable<T>();
-                    foreach (var tt in t)
+                    if (kvp.Value is Dictionary<T, object> d)
                     {
-                        yield return tt;
+                        var t = d.GetEnumerable<T>();
+                        foreach (var tt in t)
+                        {
+                            yield return tt;
+                        }
+                    }
+                    else
+                    {
+                        yield return kvp;
                     }
                 }
-                else
-                {
-                    yield return kvp;
-                }
-            }
-        }
+    }
+
+
+
+ 
 
  
  
@@ -85,19 +89,15 @@ namespace Collada.Wpf
 
 
       
-        
-        #endregion
-
-        #region Common
 
        public static void ColladaToXaml(this string fileName)
        {
-      /*      StaticExtensionCollada.Load(fileName);
+           StaticExtensionCollada.Load(fileName);
             idName = null;
            directory = System.IO.Path.GetDirectoryName(fileName) +
                System.IO.Path.DirectorySeparatorChar;
            XmlDocument doc = new XmlDocument();
-           doc.Load(fileName);*/
+           doc.Load(fileName);
        }
 
 
@@ -172,7 +172,7 @@ namespace Collada.Wpf
                     {
                         n.Set(o);
                     }
-                }*/
+                }
             }
             idName.SetSource();
       //      idName.Combine();
@@ -852,9 +852,6 @@ namespace Collada.Wpf
             </transparent>*/
 
 
-        #endregion
 
-        #endregion
-
-    }
 }
+

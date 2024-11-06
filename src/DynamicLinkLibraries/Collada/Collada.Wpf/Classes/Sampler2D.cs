@@ -49,7 +49,7 @@ public class Sampler2D : Sid
         }
         else
         {
-           samplers[n] = this;
+            samplers[n] = this;
             n = n.Replace("Sampler", "Surface");
             Surface = Surface.Get(n); 
         }

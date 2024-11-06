@@ -30,11 +30,7 @@ namespace Collada.Wpf.Classes
             }
         }
 
-        object Get()
-        {
-            return Value;
-        }
-
+ 
         public static object Get(XmlElement element)
         {
             var a = new Reflectivity(element);

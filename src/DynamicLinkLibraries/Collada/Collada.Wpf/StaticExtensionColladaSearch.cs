@@ -52,7 +52,7 @@ namespace Collada.Wpf
 
             return null;
         }
-
+/*
         static void Set(this IdName name, XmlElement xmlElement, MeshGeometry3D meshGeometry)
         {
             var triangles = xmlElement.SeachTriangles();
@@ -60,10 +60,10 @@ namespace Collada.Wpf
             {
                 Set(name, xmlElement, triangles, meshGeometry);
             }
-        }
+        }*/
 
         static string[] MESHSTR = ["TEXCOORD", "VERTEX", "NORMAL"];
-
+/*
         static void Set(IdName name, XmlElement xmlElement, XmlElement triangles, MeshGeometry3D meshGeometry)
         {
             var s = triangles.OuterXml;
@@ -107,7 +107,7 @@ namespace Collada.Wpf
         }
 
         
-
+*/
 
         #endregion
     }

@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Reflection;
-using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    internal abstract class MaterialColor : XmlHolder
+    public abstract class MaterialColor : XmlHolder
     {
 
-        public Material Material { get; private set; }
+        protected Material Material {  get; private set; }
 
-        public Texture Texture { get; private set; }
+    //    public Texture Texture { get; private set; }
 
         protected  MaterialColor(XmlElement element) : base(element)
         {
+            var ou = element.OuterXml;
+             
             Material = GetMaterialColor(element);
             if (Material == null)
             {
@@ -22,10 +23,7 @@ namespace Collada.Wpf.Classes
             }
         }
 
-        protected Material Get()
-        {
-            return Material;
-        }
+        protected double Reflectivity { get; private set; } = -1;
 
         abstract protected Type Type {  get; }
 
@@ -39,7 +37,14 @@ namespace Collada.Wpf.Classes
             // Color color = el.GetColor();
             PropertyInfo pi = t.GetProperty("Color");
             pi.SetValue(mat, color, null);
-            if (mat is SpecularMaterial sm)
+            Material = mat;
+            var rf = xml.GetAttribute("reflectivity");
+            if (rf.Length > 0)
+            {
+               Reflectivity = xml.ToDouble("reflectivity");
+            }
+            return mat;
+    /*        if (mat is SpecularMaterial sm)
             {
                 try
                 {
@@ -86,8 +91,13 @@ namespace Collada.Wpf.Classes
                         }
                     }
                 }
-            }
+            }*/
             return mat;
+        }
+
+        protected override object Get()
+        {
+            return Material;
         }
 
 

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Windows.Documents;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
@@ -7,11 +10,19 @@ using System.Xml;
 namespace Collada.Wpf.Classes
 {
     [Tag("phong")]
-    internal class Phong : Collada.Wpf.Classes.XmlHolder
+    internal class Phong : XmlHolder
     {
+
+        public Material Material { get; private set; }
         static Dictionary<Material, List<object>> keyValuePairs = new();
         static List<SpecularMaterial> speculars = new();
         static List<Material> phong = new List<Material>();
+
+        public DiffuseMaterial DiffuseMaterial { get; private set; } = null;
+
+        public SpecularMaterial SpecularMaterial { get; private set; } = null;
+
+        public EmissiveMaterial EmissiveMaterial { get; private set; } = null;
 
         public static bool IsReflexive(SpecularMaterial sp)
         {
@@ -40,7 +51,56 @@ namespace Collada.Wpf.Classes
 
         private Phong(XmlElement element) : base(element)
         {
+            var refl = element.GetAllChildren<Reflectivity>().ToArray();
+            var opa = element.GetOwnChildren<Transparent>().ToArray();
+            if (refl.Length > 1 | opa.Length > 1)
+            {
+                throw new Exception();
+            }
+            var l = new List<Material>();
+            foreach (XmlNode n in Xml.ChildNodes)
+            {
+                if (n is XmlElement el)
+                {
+                    var nm = el.Name;
+                    if (Function.IsMaterial(nm))
+                    {
+                        Material mat = el.Get() as Material;
+                        if (mat != null)
+                        {
+                            l.Add(mat);
+                            switch (mat)
+                            {
+                                case DiffuseMaterial diffuse:
+                                    DiffuseMaterial = diffuse;
+                                    break;
+                                case SpecularMaterial specular:
+                                    SpecularMaterial = specular;
+                                    break;
+                                case EmissiveMaterial emissive:
+                                    EmissiveMaterial = emissive;
+                                    break;
+                            }
+                            continue;
+                        }
+                        throw new Exception();
+                    }
+                }
+            }
+            if (refl.Length == 1)
+            {
+                var rf = refl[0];
+                var r = rf.Value.NumberToDouble();
+                SpecularMaterial.SpecularPower = r * 100;
+            }
 
+            if (opa.Length == 1)
+            {
+                var op = opa[0];
+                var c = op.Color;
+                var br = EmissiveMaterial.Brush;
+            }
+            Material = l.SimplifyMaterial();
         }
 
         public static List<object> GetList(Material material)
@@ -52,9 +112,9 @@ namespace Collada.Wpf.Classes
             return null;
         }
 
-        object Get()
+        protected override object Get()
         {
-            return GetPhong(Xml);
+            return Material;
         }
 
         public static object Get(XmlElement element)
@@ -82,36 +142,25 @@ namespace Collada.Wpf.Classes
                             keyValuePairs[mat] = list;
                             l.Add(mat);
                             phong.Add(mat);
+                            switch (mat)
+                            {
+                                case DiffuseMaterial diffuse:
+                                    DiffuseMaterial = diffuse;
+                                    break;
+                                case SpecularMaterial specular:
+                                    SpecularMaterial = specular;
+                                    break;
+                                case EmissiveMaterial emissive:
+                                    EmissiveMaterial = emissive;
+                                    break;
+                            }
                             continue;
                         }
                         throw new Exception();
                     }
-                    if (nm == "transparent")
-                    {
-                        transparent = el.Get() as Transparent;
-                        if (transparent == null)
-                        {
-                            throw new Exception();
-                        }
-                        list.Add(transparent);
-                        continue;
-                    }
-                    if (nm == "reflectivity")
-                    {
-                        reflectivity = el.Get();
-                        if (reflectivity == null)
-                        {
-                            throw new Exception();
-                        }
-                        list.Add(reflectivity);
-                        continue;
-                    }
-                    throw new Exception();
-
-
                 }
-
             }
+            reflectivity = e.GetAllChildren<Reflectivity>().ToArray();
             var res = l.SimplifyMaterial();
             phong.Add(res);
             keyValuePairs[res] = list;

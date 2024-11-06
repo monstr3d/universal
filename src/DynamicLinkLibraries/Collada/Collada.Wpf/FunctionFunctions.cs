@@ -18,9 +18,7 @@ namespace Collada.Wpf
 {
     partial class Function
     {
-        #region Combined functions
-
-        #region Combine Members
+       
         
         object GetParam(XmlElement element)
         {
@@ -105,10 +103,7 @@ namespace Collada.Wpf
         }
 
 
-        #endregion
-
-        #endregion
-
+/*
         object GetVetrices<T>(XmlElement element) where T : struct
         {
             T[] x = element.FindSourceChild<T[]>();
@@ -391,63 +386,7 @@ namespace Collada.Wpf
 
 
 
-        private Material GeEffectMaterial(XmlElement element)
-        {
-            var url = element.GetAttribute("url");
-            if (url.Length < 2)
-            {
-                return element.FromXml("phong");
-            }
-            var mat = GetMaterial(url.Substring(1));
-            if (mat != null)
-            {
-                return mat;
-            }
-
-            var xml = url.GetXmlElement();
-            List<Material> l = new List<Material>();
-            var nl = xml.GetElementsByTagName("phong")[0];
-            Material material = null;
-            foreach (XmlElement e in nl.ChildNodes)
-            {
-                var nm = e.Name;
-                if (materialTypes.ContainsKey(nm))
-                {
-                    var t = materialTypes[nm];
-                    var ct = t.GetConstructor([]);
-                    material = ct.Invoke(null) as Material;
-                    l.Add(material);
-                    var color = e.GetColorXml().Get(); ;
-                    var cp = t.GetProperty("Color") as PropertyInfo;
-                    cp.SetValue(material, color);
-                    foreach (XmlElement ee in e.ChildNodes)
-                    {
-                        var sn = ee.Name;
-                        if (sn == "reflectivity")
-                        {
-                            var d = ee.ToDouble();
-                            var cr = t.GetProperty("SpecularPower");
-                            cr.SetValue(material, d);
-
-                        }
-                        else if (sn == "texture")
-                        {
-                            var coord = ee.GetAttribute("texcoord");
-                            var cg = coord.ToIdName();
-                            var txtr = ee.GetAttribute("texture");
-                            var ttxt = txtr.ToIdName();
-                        }
-                    }
-                }
-            }
-            if (l.Count == 1)
-            {
-                materials[element] = material;
-                return material;
-            }
-            return l.ToMaterial();
-        }
-
+ 
         object GetFloat(XmlElement element)
         {
             return float.Parse(element.InnerText);
@@ -656,41 +595,7 @@ namespace Collada.Wpf
 
 
 
-        Material GetMaterial(string matName)
-        {
-            var x = elementList[matName];
-            if (x == null)
-            {
-                return null;
-            }
-            var l = new List<Material>();
-            foreach (var m in x)
-            {
-                if (materials.ContainsKey(m))
-                {
-                    l.Add(materials[m]);
-                }
-                else
-                {
-                    if (m.Name == "effect")
-                    {
-                        Material mat = GetEffect(m) as Material;
-                    }
-                }
-            }
-            if (l.Count == 0)
-            {
-                return null;
-            }
-            if (l.Count == 1)
-            {
-                return l[0];
-            }
-            return l.ToMaterial();
-
-        }
-
-
+        /*
         private Material GetInsanceEffect(XmlElement element)
         {
             var m = element.Get();
@@ -758,11 +663,10 @@ namespace Collada.Wpf
             }
             return l.ToMaterial();
         }
+        */
 
 
 
-
-        #endregion
 
     }
 }

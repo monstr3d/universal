@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
@@ -10,6 +11,108 @@ namespace Collada.Wpf
 {
     public static  class StaticExtensionColladaWpf
     {
+
+
+        public static int[] ToIntArray(this XmlElement element)
+        {
+            XmlElement e = element.GetChild("p");
+            string[] ss = e.InnerText.Separate();
+            List<int> l = new List<int>();
+            foreach (string s in ss)
+            {
+                if (s.Length > 0)
+                {
+                    l.Add(s.ToInt());
+                }
+            }
+            return l.ToArray();
+        }
+
+        static Visual3D GetMesh(XmlElement element)
+        {
+            /*
+            ModelVisual3D mod = new ModelVisual3D();
+            MeshGeometry3D mesh = new MeshGeometry3D();
+            Material mat = null;
+            //mesh.Positions = e.GetChild("vertices").ToPoint3DCollection();
+            var poly = element.GetChild("polylist");
+            if (poly != null)
+            {
+
+                List<int[]> ind = poly.ToInt3Array();
+             //   mat = Find<Material>(poly.GetAttribute("material").ToIdName());
+                if (mat == null)
+                {
+                    return null;
+                }
+                XmlNodeList nl = poly.GetElementsByTagName("input");
+                Dictionary<string, object> d = poly.FindInputs();
+                List<Point3D> vertices = (d["VERTEX"] as double[]).ToPoint3DList();
+                List<Vector3D> norm = (d["NORMAL"] as double[]).ToVector3DList();
+                List<System.Windows.Point> textures = (d["TEXCOORD"] as double[]).ToPointList();
+                Point3DCollection vert = new Point3DCollection();
+                PointCollection textc = new PointCollection();
+                Int32Collection index = new Int32Collection();
+                Vector3DCollection norms = new Vector3DCollection();
+                Vector3D[] nt = new Vector3D[ind.Count];
+                var pt = new System.Windows.Point[ind.Count];
+                for (int i = 0; i < ind.Count; i++)
+                {
+                    norms.Add(norm[i]);
+                    textc.Add(textures[i]);
+                    vert.Add(vertices[ind[i][0]]);
+                }
+                mesh.Positions = vert;
+                mesh.Normals = norms;
+                mesh.TextureCoordinates = textc;
+                mesh.TriangleIndices = index;
+                GeometryModel3D geom = new GeometryModel3D();
+                geom.Geometry = mesh;
+                geom.Material = mat;
+                mod.Content = geom;
+            }
+            else
+            {
+                GeometryModel3D geom = new GeometryModel3D();
+                geom.Geometry = mesh;
+                mod.Content = geom;
+            }
+            var ss = element.GetElementsByTagName("source");
+            foreach (XmlElement s in ss)
+            {
+                if (s.ParentNode != element)
+                {
+                    continue;
+                }
+                "source".Process(s);
+
+            }
+            ss = element.GetElementsByTagName("triangles");
+            if (ss.Count == 1)
+            {
+                var tringles = ss[0] as XmlElement;
+
+            }
+            return mod;*/
+            return null;
+        }
+
+
+        public static List<int[]> ToInt3Array(this XmlElement element)
+        {
+            List<int[]> l = new List<int[]>();
+            int[] x = element.ToIntArray();
+            for (int i = 0; i < x.Length; i += 3)
+            {
+                l.Add(new int[] { x[i], x[i + 1], x[i + 2] });
+            }
+            return l;
+        }
+
+        public static List<Point3D> ToPoint3DList(this XmlElement e)
+        {
+            return null;// e.GetAllChildren<double[]>().ToArray().ToPoint3DList();
+        }
         public static void CreateElementary(this Assembly assembly, Dictionary<string, MethodInfo> methods, List<string> elementary, List<string> all)
         {
             Type[] typ = assembly.GetTypes();
@@ -271,17 +374,7 @@ namespace Collada.Wpf
 
 
 
-        public static List<int[]> ToInt3Array(this XmlElement element)
-        {
-            List<int[]> l = new List<int[]>();
-            int[] x = element.ToIntArray();
-            for (int i = 0; i < x.Length; i += 3)
-            {
-                l.Add(new int[] { x[i], x[i + 1], x[i + 2] });
-            }
-            return l;
-        }
-
+   
 
 
 
@@ -364,10 +457,7 @@ namespace Collada.Wpf
 
 
 
-        public static List<Point3D> ToPoint3DList(this XmlElement e)
-        {
-            return e.FindSourceChild<double[]>().ToPoint3DList();
-        }
+     
 
         static public void SetLight(this Visual3D v3d)
         {
