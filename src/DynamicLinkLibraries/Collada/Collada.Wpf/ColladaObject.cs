@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media.Effects;
@@ -121,12 +122,38 @@ namespace Collada.Wpf
         }
 
 
+
+
         /// <summary>
         /// Initialization
         /// </summary>
         /// <param name="xmlElement"></param>
         void ICollada.Init(XmlElement xmlElement)
         {
+            var l = new List<string>();
+
+            var x = xmlElement.GetElements().Where(e => !e.IsUnknown());
+            foreach (var e in x)
+            {
+                if (!l.Contains(e.Name))
+                {
+                    var s = e.OuterXml;
+
+                    if (s.Contains("source"))
+                    {
+                        l.Add(e.Name);
+                    }
+                }
+            }
+            l.Sort();
+            using (var writer = new StreamWriter("source.txt"))
+            {
+                foreach (var e in l)
+                {
+                    writer.WriteLine(e);
+                }
+            }
+            l = null;  
            //  Testtechnique(xmlElement);
             //    Testtecfiltes(xmlElement);
 

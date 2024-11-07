@@ -13,8 +13,6 @@ namespace Collada.Wpf.Classes
 
         static private Dictionary<string, Source> keyValuePairs = new();
 
-  
-
 
         public string Name { get; private set; }
         Dictionary<XmlElement, object> children;
@@ -28,7 +26,7 @@ namespace Collada.Wpf.Classes
             try
             {
                 children = new Dictionary<XmlElement, object>(); ;
-                element.AllDictionary(children);
+               // element.AllDictionary(children);
                 if (children.Count != 0)
                 {
 
