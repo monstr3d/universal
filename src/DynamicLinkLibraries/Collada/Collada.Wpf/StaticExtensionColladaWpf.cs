@@ -20,7 +20,28 @@ namespace Collada.Wpf
             var mat = element.GetAttribute("material");
             return MaterialObject.Get(mat);
         }
- 
+
+        internal static T Get<T>(this string id, Dictionary<string, T> d) where T : class
+        {
+            if (d.ContainsKey(id))
+                return d[id];
+            return null;
+        }
+
+
+        internal static void  Put<T>(this XmlElement element, T value, Dictionary<string, T> d) where T : class
+        {
+            var id = element.GetAttribute("id");
+            if (id.Length == 0)
+            {
+                return;
+            }
+            if (d.ContainsKey(id))
+            {
+                throw new Exception();
+            }
+            d[id] = value;
+        }
 
         internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)
         {

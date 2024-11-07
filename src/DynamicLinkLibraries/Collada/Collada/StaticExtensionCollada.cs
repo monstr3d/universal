@@ -8,6 +8,7 @@ using System.Reflection;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace Collada
 {
@@ -16,6 +17,8 @@ namespace Collada
     /// </summary>
     public static class StaticExtensionCollada
     {
+        static public string Id
+        { get; set; }
 
         static ICollada collada;
 
@@ -46,6 +49,8 @@ namespace Collada
 
         static Dictionary<Type, TagAttribute> types;
 
+        static Dictionary<Type, IClear> clears;
+
 
 
         static StaticExtensionCollada()
@@ -56,6 +61,7 @@ namespace Collada
             begins = new();
             tags = new();
             types = new();
+            clears = new();
         }
 
 
@@ -154,6 +160,157 @@ namespace Collada
             var b = tag.IsElemenary;
             return b;
         }
+
+        static public T Get<T>(this string id) where T: class
+        {
+            if (id.Length == 0)
+            {
+                return null;
+            }
+            var t = typeof(T);
+            IClear clear = t.GetClear();
+            var d = clear as DictionayClear<T>;
+            if (d.ContainsKey(id))
+            {
+                return d[id];
+            }
+            return null;
+        }
+
+        public static IClear GetClear<T>()
+            where T : class
+        {
+            return new DictionayClear<T>();
+        }
+
+       
+
+        static public T GetStatic<T>(this XmlElement element) where T : class
+        {
+            var id = element.GetAttribute(Id);
+            if (id.Length == 0)
+            {
+                return null;
+            }
+            return id.Get<T>();
+        }
+
+       
+
+        public static void PutObject(this XmlElement xml, object value)
+        {
+            var id = xml.GetAttribute(Id);
+            if (id.Length == null)
+            {
+                return;
+            }
+            var t = value.GetType();
+            var s = t.GetClear() as IClear;
+            if (s == null)
+            {
+                return;
+            }
+            s.PutObject(id, value);
+        }
+
+
+        static public void Put<T>(this XmlElement xml, T value) where T : class
+        {
+            var id = xml.GetAttribute(Id);
+            if (id.Length == null)
+            {
+                return;
+            }
+            id.Put(value);
+        }
+
+        static public void Put<T>(this string s, T value) where T : class
+        {
+            if (s.Length == 0)
+            {
+                return;
+            }
+            var clear = typeof(T).GetClear();
+            if (clear == null)
+            {
+                return;
+            }
+            var d = clear as DictionayClear<T>;
+            d[s] = value;
+        }
+
+        static public void  Put<T>(this XmlElement xml, T value, DictionayClear<T> d) where T : class
+        {
+            var ids = xml.GetAttribute(Id);
+            if (ids.Length == 0)
+            {
+                return;
+            }
+            d.Put(ids, value);
+        }
+
+
+
+        public static void InitClear(this Type type)
+        {
+            PropertyInfo property = type.GetProperty("Clear", typeof(IClear));
+            if (property == null)
+            {
+                return;
+            }
+            var c = property.GetValue(null, null) as IClear;
+            clears[type] = c;
+        }
+        public static IClear GetClear(this Type type)
+        {
+            if (clears.ContainsKey(type))
+            {
+                return clears[type];
+            }
+            return null;
+        }
+
+        public static DictionayClear<T> GetDictionary<T>(this Type type) where T : class
+        {
+            var clear = type.GetClear();
+            if (clear == null)
+            {
+                return null;
+            }
+            return clear as DictionayClear<T>;
+        }
+
+        public static T Get<T>(this object obj) where T : class
+        {
+            var source = obj.GetType().GetDictionary<T>();
+            return source.Get<T>();
+        }
+
+        public static void Put(this object obj)
+        {
+            var t = obj.GetType();
+            
+        }
+
+
+        public static void Put<T>(this T value) where T : class
+        {
+            value.Put(value);
+        }
+
+
+        public static void  Put<T>(this object obj, T value) where T : class
+        {
+            if (value == null)
+            {
+                return; 
+            }
+            var t = obj.GetType();
+            var source = t.GetDictionary<T>();
+            source.Put(value);
+        }
+
+
 
         public static bool IsUnknown(this XmlElement element)
         {
@@ -338,6 +495,10 @@ namespace Collada
 
         static  void Clear()
         {
+            foreach (var i in clears.Values)
+            {
+                i.Clear();
+            }
             ClearCombinations();
             dictionary.Clear();
             keyValuePairs.Clear();
@@ -376,15 +537,35 @@ namespace Collada
         }
 
 
-        public static IEnumerable<T> GetAllChildren<T>(this XmlElement element) where T : class
+        public static IEnumerable<object> GetAllObjectChildren<T>(this XmlElement element)
         {
             var type = typeof(T);
             var name = types[type].Tag;
             var nl = element.GetAllElementsByTagName(name).Where(e => e != element);
             foreach (var n in nl)
             {
-                T t = n.Get() as T;
-                if (t != null)
+                yield return n.Get();
+            }
+        }
+
+        public static IEnumerable<T> GetAllChildren<T>(this XmlElement element) where T : class
+        {
+            var nl = element.GetAllObjectChildren<T>();
+            foreach (var n in nl)
+            {
+                if (n is T t)
+                {
+                    yield return t;
+                }
+            }
+        }
+
+        public static IEnumerable<S> GetAllChildren<T,S>(this XmlElement element) where T : class where S : class
+        {
+            var nl = element.GetAllObjectChildren<T>();
+            foreach (var n in nl)
+            {
+                if (n is S t)
                 {
                     yield return t;
                 }
@@ -513,6 +694,7 @@ namespace Collada
             {
                 return;
             }
+            type.InitClear();
             var tag = attr.Tag;
             types[type] = attr;
             tags[tag] = attr; 
@@ -614,7 +796,31 @@ namespace Collada
                 case 1: return o[0];
                     default : throw new Exception();
             }
-         }
+        }
+
+        static public S Get<T, S>(this XmlElement element) where T : class where S : class
+        {
+            var o = element.GetAllChildren<T, S>().ToArray();
+            switch (o.Length)
+            {
+                case 0: return null;
+                case 1: return o[0];
+                default: throw new Exception();
+            }
+        }
+
+
+
+        static public object GetObject<T>(this XmlElement element) where T : class
+        {
+            var o = element.GetAllObjectChildren<T>().ToArray();
+            switch (o.Length)
+            {
+                case 0: return null;
+                case 1: return o[0];
+                default: throw new Exception();
+            }
+        }
 
         static  public T GetStruct<T>(this XmlElement element) where T : struct
         {

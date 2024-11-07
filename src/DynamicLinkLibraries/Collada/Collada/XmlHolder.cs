@@ -19,6 +19,7 @@ namespace Collada
         protected XmlHolder(XmlElement xml)
         {
             Xml = xml;
+            xml.PutObject(this);
         }
     }
 }

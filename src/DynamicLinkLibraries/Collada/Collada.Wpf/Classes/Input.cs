@@ -16,7 +16,7 @@ namespace Collada.Wpf.Classes
         {
             Semantic = element.GetAttribute("semantic");
             Source = element.GetAttribute("source");
-            if ((Semantic.Length == 0) || (Source.Length == 0))
+            if ((Semantic.Length == 0) | (Source.Length == 0))
             {
                 throw new Exception();
             }

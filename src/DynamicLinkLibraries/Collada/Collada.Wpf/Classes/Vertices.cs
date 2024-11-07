@@ -4,14 +4,16 @@ using System.Xml;
 namespace Collada.Wpf.Classes
 {
     [Tag("vertices")]
-    public class Vertices : XmlHolder
+    internal class Vertices : XmlHolder
     {
  
         public Sid Sid { get; private set; }
 
+        public Input Input { get; private set; }
+
         private Vertices(XmlElement xml) : base(xml)
         {
-
+            Input = xml.Get<Input>();
         }
 
         private object Value => this;

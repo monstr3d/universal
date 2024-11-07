@@ -1,23 +1,26 @@
 ﻿using System.Xml;
+using System.Collections.Generic;
 
 namespace Collada.Wpf.Classes
 {
     [Tag("float_array", true)]
     internal class Float_Array : XmlHolder
     {
-        static public readonly string Tag = "float_array";
+        static Float_Array()
+        {
+        }
 
-        /// <summary>
-        /// Is elementary
-        /// </summary>
-        static public readonly bool IsElementary = true;
 
+   
         public float[] Array { get; private set; }
 
         private Float_Array(XmlElement element) : base(element)
         {
             Array = element.ToRealArray<float>();
+            var p = element.GetStatic<Float_Array>();
         }
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<Float_Array>();
 
         object Get()
         {
@@ -29,5 +32,7 @@ namespace Collada.Wpf.Classes
             var a = new Float_Array(element);
             return a.Get();
         }
+
+    
     }
 }

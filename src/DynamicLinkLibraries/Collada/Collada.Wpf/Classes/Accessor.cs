@@ -14,6 +14,9 @@ namespace Collada.Wpf.Classes
 
         public Param[] Params { get; private set; }
 
+        public Source Source { get; private set; }
+
+
         public Accessor(XmlElement element) : base(element)
         {
             Params = "param".ByTag<Param>(element).ToArray(); ;

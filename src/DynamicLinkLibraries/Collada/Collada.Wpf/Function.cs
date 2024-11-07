@@ -45,6 +45,7 @@ namespace Collada.Wpf
 
         static Function()
         {
+            StaticExtensionCollada.Id = "id";
             elementary = new();
             methods = new Dictionary<string, MethodInfo>();
             allTags = new List<string>();
@@ -101,7 +102,7 @@ namespace Collada.Wpf
                 }
                 Type[] types = [typeof(Source), typeof(Surface), typeof(Sampler2D), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
-                typeof(EffectObject),  typeof(MaterialObject), typeof(Vertices),  typeof(Technique)
+                typeof(EffectObject),  typeof(MaterialObject),  typeof(Vertices),  typeof(Technique)
                 ];
             
 
@@ -397,7 +398,7 @@ namespace Collada.Wpf
             Surface.Clear();
             Sampler2D.Clear();
             Source.Clear();
-            MaterialObject.Clear(); 
+            MaterialObject.Clear();
         }
 
 
