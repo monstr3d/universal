@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
@@ -6,11 +7,7 @@ namespace Collada.Wpf.Classes
     internal class A : XmlHolder
     {
  
-        /// <summary>
-        /// Is elementary
-        /// </summary>
-        static public readonly bool IsElementary = false;
-
+  
 
         private A(XmlElement element) : base(element)
         {

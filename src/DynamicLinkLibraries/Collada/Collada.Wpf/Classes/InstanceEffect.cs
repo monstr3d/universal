@@ -6,30 +6,31 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("instance_effect")]
+    [Tag("instance_effect", true)]
     internal class InstanceEffect : XmlHolder
     {
  
-        public Material Material { get; private set; }
+   //     public Material Material { get; private set; }
 
+        public string Url { get; private set; }
         private InstanceEffect(XmlElement element) : base(element)
         {
-            var url = element.GetAttribute("url").Substring(1);
-            var material = url.FromCollada() as Material;
+            Url = element.GetAttribute("url").Substring(1);
+  /*          var material = url.FromCollada() as Material;
             if (material == null)
             {
 
             }
             else
             {
-                Material = material;
-            }
+              //  Material = material;
+            }*/
 
         }
-
+/*
         Material GetInstanceEffect(XmlElement element)
         {
-            var url = element.GetAttribute("url").Substring(1);
+  /*          var url = element.GetAttribute("url").Substring(1);
             Material m = url.FromCollada() as Material;
             if (m == null)
             {
@@ -41,10 +42,11 @@ namespace Collada.Wpf.Classes
             }
             return m;
         }
+*/
 
         object Get()
         {
-            return Material;
+            return this;
         }
 
         public static object Get(XmlElement element)

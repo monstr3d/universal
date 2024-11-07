@@ -15,6 +15,11 @@ namespace Collada.Wpf
     public static  class StaticExtensionColladaWpf
     {
 
+        internal static Material GetMaterial(this XmlElement element)
+        {
+            var mat = element.GetAttribute("material");
+            return MaterialObject.Get(mat);
+        }
  
 
         internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)

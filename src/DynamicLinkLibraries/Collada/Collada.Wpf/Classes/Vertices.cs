@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("vertices")]
     public class Vertices : XmlHolder
     {
-        public readonly static string Tag = "vertices";
-
+ 
         public Sid Sid { get; private set; }
 
         private Vertices(XmlElement xml) : base(xml)

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("bind_vertex_input")]
+    [Tag("bind_vertex_input", true)]
     internal class BindVertexInput : XmlHolder
     {
         public static readonly string Tag = "bind_vertex_input";

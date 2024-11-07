@@ -2,6 +2,7 @@
 
 namespace Collada.Wpf.Classes
 {
+    [Tag("up_axis", true)]
     internal class Up_Axis : XmlHolder
     {
         static public readonly string Tag = "up_axis";

@@ -5,6 +5,7 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
+
     public abstract class MaterialColor : XmlHolder
     {
 

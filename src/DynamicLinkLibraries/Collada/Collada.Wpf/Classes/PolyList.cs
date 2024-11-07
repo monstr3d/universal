@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Windows.Media.Media3D;
+using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
@@ -7,8 +8,11 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "polylist";
 
+        public Material Material { get; private set; }
+
         private PolyList(XmlElement element) : base(element)
         {
+            Material = element.GetMaterial();
 
         }
 
