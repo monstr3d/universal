@@ -8,15 +8,11 @@ namespace Collada.Wpf.Classes
     public class Source : Collada.XmlHolder
     {
 
-        static private Dictionary<string, Source> keyValuePairs = new();
+        public static IClear Clear => StaticExtensionCollada.GetClear<Source>();
 
-        public static Source Get(string id)
-        {
-            if (keyValuePairs.ContainsKey(id))
-            { return keyValuePairs[id]; }
-            return null;
-        }
 
+
+    
 
         public string Name { get; private set; }
         Dictionary<XmlElement, object> children;
@@ -28,12 +24,12 @@ namespace Collada.Wpf.Classes
 
         protected Source(XmlElement element) : base(element)
         {
-            Name = element.InnerText;
+      //      Name = element.InnerText;
             try
             {
                 Array = element.Get<Float_Array, float[]>();
                 children = new Dictionary<XmlElement, object>(); ;
-               // element.AllDictionary(children);
+                // element.AllDictionary(children);
                 if (children.Count != 0)
                 {
 
@@ -42,15 +38,6 @@ namespace Collada.Wpf.Classes
             catch (Exception e)
             {
 
-            }
-            var id = element.GetAttribute("id");
-            if (id.Length > 0)
-            {
-                if (keyValuePairs.ContainsKey(id))
-                {
-                    throw new Exception();
-                }
-                keyValuePairs[id] = this;
             }
         }
 
@@ -63,11 +50,6 @@ namespace Collada.Wpf.Classes
         {
             var a = new Source(element);
             return a.Get();
-        }
-
-        internal static void Clear()
-        {
-            keyValuePairs.Clear();
         }
     }
 }

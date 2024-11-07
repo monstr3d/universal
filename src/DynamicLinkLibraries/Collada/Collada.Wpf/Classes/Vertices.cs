@@ -15,6 +15,8 @@ namespace Collada.Wpf.Classes
         {
             Input = xml.Get<Input>();
         }
+        public static IClear Clear => StaticExtensionCollada.GetClear<Vertices>();
+
 
         private object Value => this;
 

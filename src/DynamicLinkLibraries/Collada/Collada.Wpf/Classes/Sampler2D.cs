@@ -12,6 +12,11 @@ public class Sampler2D : Sid
 
     static Dictionary<string, Sampler2D> samplers = new();
 
+
+    public static IClear Clear => StaticExtensionCollada.GetClear<Sampler2D>();
+
+
+
     static public Sampler2D Get(string s)
     {
         if (samplers.ContainsKey(s))
@@ -21,12 +26,11 @@ public class Sampler2D : Sid
         return null;
     }
 
-    internal static void Clear()
+    internal static void ClearT()
     {
         samplers.Clear();
     }
 
-    
 
     public Surface Surface { get; private set; }
 

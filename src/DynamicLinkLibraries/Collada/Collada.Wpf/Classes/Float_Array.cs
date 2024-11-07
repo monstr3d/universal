@@ -17,7 +17,7 @@ namespace Collada.Wpf.Classes
         private Float_Array(XmlElement element) : base(element)
         {
             Array = element.ToRealArray<float>();
-            var p = element.GetStatic<Float_Array>();
+        //    var p = element.GetStatic<Float_Array>();
         }
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Float_Array>();

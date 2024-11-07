@@ -7,6 +7,7 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "bind_material";
 
+        
         private BingMaterial(XmlElement element) : base(element)
         {
 

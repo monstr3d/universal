@@ -200,7 +200,7 @@ namespace Collada
         public static void PutObject(this XmlElement xml, object value)
         {
             var id = xml.GetAttribute(Id);
-            if (id.Length == null)
+            if (id.Length == 0)
             {
                 return;
             }

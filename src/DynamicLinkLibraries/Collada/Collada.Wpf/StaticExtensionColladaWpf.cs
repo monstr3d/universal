@@ -283,8 +283,32 @@ namespace Collada.Wpf
             {
                 throw new Exception();
             }
+
         }
-    
+
+        internal static object GetSemantic(this string semantic, string id)
+        {
+            if (semantic == "POSITION")
+            {
+                return id.Get<Source>();
+            }
+            if (semantic == "VERTEX")
+            { 
+
+                return  id.Get<Vertices>();
+            }
+            if (semantic == "NORMAL")
+            {
+                return id.Get<Source>();
+            }
+            if (semantic == "TEXCOORD")
+            {
+                return id.Get<Source>();
+            }
+            throw new Exception();
+        }
+
+
         public static void Set()
         {
             try

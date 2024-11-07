@@ -3,8 +3,8 @@ using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("input", true)]
-    internal class Input: XmlHolder
+    [TagAttribute("input")]
+    public class Input: XmlHolder
     {
 
 
@@ -15,8 +15,13 @@ namespace Collada.Wpf.Classes
         private Input(XmlElement element) : base(element)
         {
             Semantic = element.GetAttribute("semantic");
-            Source = element.GetAttribute("source");
+            Source = element.GetAttribute("source").Substring(1);
             if ((Semantic.Length == 0) | (Source.Length == 0))
+            {
+                throw new Exception();
+            }
+            var o = Semantic.GetSemantic(Source);
+            if (o == null)
             {
                 throw new Exception();
             }
