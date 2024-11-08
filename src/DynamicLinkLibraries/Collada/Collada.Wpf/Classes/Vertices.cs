@@ -4,7 +4,7 @@ using System.Xml;
 namespace Collada.Wpf.Classes
 {
     [Tag("vertices")]
-    internal class Vertices : XmlHolder
+    public class Vertices : XmlHolder
     {
  
         public Sid Sid { get; private set; }

@@ -16,24 +16,118 @@ namespace Collada.Wpf
     public static  class StaticExtensionColladaWpf
     {
 
-        public static List<Point3D> ToPoint3DList(this object obj)
+        static List<Point3D> ToPoint3DList(this double[] x)
         {
-            switch (obj)
+            List<Point3D> c = new List<Point3D>();
+            for (int i = 0; i < x.Length; i += 3)
             {
-                case Vertices vertices:
+                Point3D p = new Point3D(x[i], x[i + 1], x[i + 2]);
+                c.Add(p);
+            }
+            return c;
+        }
 
-                        break;
+
+
+
+        public static List<Point3D> ToPoint3DList(this Source s)
+        {
+             return s.Array.ToPoint3DList();
+        }
+
+
+
+
+        public static List<Point3D> ToPoint3DList(this KeyValuePair<string, object> pair)
+        {
+            if (pair.Key == "POSITION")
+            {
+                if (pair.Value is Source source)
+                {
+                    return source.ToPoint3DList();
+                }
             }
 
             throw new NotImplementedException();
         }
+
+        public static List<Point3D> ToPoint3DList(this Vertices vertices)
+        {
+            return vertices.Input.Semantic.ToPoint3DList();
+        }
+
+        public static Point3DCollection ToPoint3DCollection(this List<Point3D> list)
+        {
+           Point3DCollection vert = new Point3DCollection();
+            foreach (Point3D p in list)
+            {
+                vert.Add(p);
+            }
+            return vert;
+        }
+
+        public static List<Point3D> ToPoint3DList(this object obj)
+        {
+            List<Point3D> points = null;
+            switch (obj)
+            {
+                case Vertices vertices:
+                    points = vertices.ToPoint3DList(); ;
+
+                    break;
+            }
+            if (points == null)
+            {
+                throw new NotImplementedException();
+            }
+            return points;
+        }
+
+        public static List<Vector3D> ToVector3DList(this Source source)
+        {
+            return source.Array.ToVector3DList();
+
+        }
+
+
         public static List<Vector3D> ToVector3DList(this object obj)
         {
+            List<Vector3D> l = null;
+            switch (obj)
+            {
+                case Source source:
+                   l = source.ToVector3DList();
+
+                    break;
+            }
+            if (l != null)
+            {
+                return l;
+            }
 
             throw new NotImplementedException();
         }
-        public static List<Point> ToPointList(this object ob)
+
+        public static List<Point> ToPointList(this Source source)
         {
+            return source.Array.ToPointList();
+        }
+
+        public static List<Point> ToPointList(this object obj)
+        {
+            List<Point> l = null;
+            switch (obj)
+            {
+                case Source source:
+                    l = source.ToPointList();
+
+                    break;
+            }
+            if (l != null)
+            {
+                return l;
+            }
+
             throw new NotImplementedException();
         }
 
@@ -581,16 +675,7 @@ namespace Collada.Wpf
 
 
 
-        public static List<Point3D> ToPoint3DList(this double[] x)
-        {
-            List<Point3D> c = new List<Point3D>();
-            for (int i = 0; i < x.Length; i += 3)
-            {
-                Point3D p = new Point3D(x[i], x[i + 1], x[i + 2]);
-                c.Add(p);
-            }
-            return c;
-        }
+ 
         public static List<Point3D> ToPoint3DList(this float[] x)
         {
             List<Point3D> c = new List<Point3D>();

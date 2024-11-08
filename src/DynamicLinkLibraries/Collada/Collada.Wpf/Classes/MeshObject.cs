@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Xml;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace Collada.Wpf.Classes
 {
@@ -11,48 +13,68 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "mesh";
 
-        public Visual3D Visual3D { get; private set; }
+        public MeshGeometry3D MeshGeometry3D { get; private set; }
+
+        public Material Material { get; private set; }
 
         private MeshObject(XmlElement element) : base(element)
         {
-            Visual3D = GetMesh(element);
+            MeshGeometry3D = GetMesh(element);
         }
 
         object Get()
         {
-            return Visual3D;
+            return MeshGeometry3D;
         }
 
         public static object Get(XmlElement element)
         {
             var a = new MeshObject(element);
-            return a.Get();
+            return a; ;
         }
 
-        static Visual3D GetMesh(XmlElement element)
+        static MeshGeometry3D GetMeshSimple(XmlElement element)
         {
-            ModelVisual3D mod = new ModelVisual3D();
+            try
+            {
+                var mesh = new MeshGeometry3D();
+                var verices = element.Get<Vertices>();
+                var v = verices.ToPoint3DList().ToPoint3DCollection();
+                mesh.Positions = v;
+                return mesh;
+            }
+            catch (Exception e)
+            {
+
+
+            }
+            throw new Exception();
+        }
+
+        MeshGeometry3D GetMesh(XmlElement element)
+        {
+            var polyList = element.Get<PolyList>();
+            if (polyList == null)
+            {
+                return GetMeshSimple(element);
+            }
+            //       ModelVisual3D mod = new ModelVisual3D();
             MeshGeometry3D mesh = new MeshGeometry3D();
-            Material mat = null;
             //mesh.Positions = e.GetChild("vertices").ToPoint3DCollection();
-            PolyList polyList = element.Get<PolyList>();
             var d = polyList.Inputs;
             var indexes = polyList.Indexes;
+            Material = polyList.Material;
 
             List<Point3D> vertices = d["VERTEX"].ToPoint3DList();
             List<Vector3D> norm = d["NORMAL"].ToVector3DList();
             List<Point> textures = d["TEXCOORD"].ToPointList();
-            Point3DCollection vert = new Point3DCollection();
+            Point3DCollection vert = vertices.ToPoint3DCollection();
             PointCollection textc = new PointCollection();
             Int32Collection index = new Int32Collection();
             Vector3DCollection norms = new Vector3DCollection();
-            /* foreach (Point3D p in vertices)
-             {
-                 vert.Add(p);
-             }*/
             Vector3D[] nt = new Vector3D[indexes.Count];
             Point[] pt = new Point[indexes.Count];
-            /*
+
             foreach (int[] i in indexes)
             {
                 index.Add(i[0]);
@@ -70,12 +92,13 @@ namespace Collada.Wpf.Classes
             mesh.Normals = norms;
             mesh.TextureCoordinates = textc;
             mesh.TriangleIndices = index;
-            GeometryModel3D geom = new GeometryModel3D();
-            geom.Geometry = mesh;
-            geom.Material = mat;
-            mod.Content = geom;
-            return mod;*/
-            return mod;
+           
+            return mesh;
+            /*  GeometryModel3D geom = new GeometryModel3D();
+              geom.Geometry = mesh;
+              geom.Material = mat;
+              mod.Content = geom;
+              return mod*/
         }
     }
 }

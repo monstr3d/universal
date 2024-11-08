@@ -728,6 +728,21 @@ namespace Collada
             }
         }
 
+        /// <summary>
+        /// Conversion
+        /// </summary>
+        /// <typeparam name="T">Type of source</typeparam>
+        /// <typeparam name="S">Type of result</typeparam>
+        /// <param name="source">The source</param>
+        /// <returns>The result</returns>
+        public static IEnumerable<S> Convert<T, S>(this IEnumerable<T> source, Func<T, S> f) where T : struct where S : struct
+        {
+            foreach (var item in source)
+            {
+                yield return f(item);
+            }
+        }
+
         static public void GetAll(this IEnumerable<string> filter)
         {
             var arr = filter.ToArray();
