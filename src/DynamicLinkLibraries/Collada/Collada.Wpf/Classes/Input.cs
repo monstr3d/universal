@@ -8,11 +8,12 @@ namespace Collada.Wpf.Classes
     public class Input: XmlHolder
     {
 
-        public Dictionary<string, object> Semantic => dictionary;
+        public KeyValuePair<string, object> Semantic => dictionary;
 
-        Dictionary<string, object> dictionary = new();
+       KeyValuePair<string, object> dictionary;
 
-     
+        public static IClear Clear => StaticExtensionCollada.GetClear<Input>();
+
 
         private Input(XmlElement element) : base(element)
         {
@@ -27,9 +28,8 @@ namespace Collada.Wpf.Classes
             {
                 throw new Exception();
             }
-            dictionary[semantic] = o;
-
-        }
+            dictionary = new KeyValuePair<string, object>(semantic, o);
+       }
 
         object Get()
         {

@@ -102,7 +102,7 @@ namespace Collada.Wpf
                 }
                 Type[] types = [typeof(Source), typeof(Vertices), typeof(Input), typeof(Surface), typeof(Sampler2D), typeof(Accessor), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
-                typeof(EffectObject),  typeof(MaterialObject),  typeof(Technique)
+                typeof(EffectObject),  typeof(MaterialObject),  typeof(Technique), typeof(PolyList), typeof(MeshObject)
                 ];
             
 

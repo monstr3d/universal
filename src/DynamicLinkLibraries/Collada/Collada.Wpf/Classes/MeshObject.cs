@@ -7,7 +7,7 @@ using System.Windows;
 namespace Collada.Wpf.Classes
 {
     [Tag("mesh")]
-    internal class MeshObject : XmlHolder
+    internal class MeshObject : Collada.XmlHolder
     {
         static public readonly string Tag = "mesh";
 
@@ -36,8 +36,7 @@ namespace Collada.Wpf.Classes
             Material mat = null;
             //mesh.Positions = e.GetChild("vertices").ToPoint3DCollection();
             PolyList polyList = element.Get<PolyList>();
-            Input input = polyList.Input;
-            var d = input.Semantic;
+            var d = polyList.Inputs;
             var indexes = polyList.Indexes;
 
             List<Point3D> vertices = (d["VERTEX"] as double[]).ToPoint3DList();
@@ -53,6 +52,7 @@ namespace Collada.Wpf.Classes
              }*/
             Vector3D[] nt = new Vector3D[indexes.Count];
             Point[] pt = new Point[indexes.Count];
+            /*
             foreach (int[] i in indexes)
             {
                 index.Add(i[0]);
@@ -64,7 +64,7 @@ namespace Collada.Wpf.Classes
             {
                 norms.Add(norm[i]);
                 textc.Add(textures[i]);
-                vert.Add(vertices[ind[i][0]]);
+                vert.Add(vertices[indexes[i][0]]);
             }
             mesh.Positions = vert;
             mesh.Normals = norms;
@@ -74,6 +74,7 @@ namespace Collada.Wpf.Classes
             geom.Geometry = mesh;
             geom.Material = mat;
             mod.Content = geom;
+            return mod;*/
             return mod;
         }
     }
