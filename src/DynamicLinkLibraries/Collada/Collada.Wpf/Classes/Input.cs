@@ -1,30 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [TagAttribute("input")]
+    [Tag("input")]
     public class Input: XmlHolder
     {
 
+        public Dictionary<string, object> Semantic => dictionary;
 
-        public string Semantic { get; private set; }
+        Dictionary<string, object> dictionary = new();
 
-        public string Source { get; private set; }
+     
 
         private Input(XmlElement element) : base(element)
         {
-            Semantic = element.GetAttribute("semantic");
-            Source = element.GetAttribute("source").Substring(1);
-            if ((Semantic.Length == 0) | (Source.Length == 0))
+           var  semantic = element.GetAttribute("semantic");
+            var source = element.GetAttribute("source").Substring(1);
+            if ((semantic.Length == 0) | (source.Length == 0))
             {
                 throw new Exception();
             }
-            var o = Semantic.GetSemantic(Source);
+            var o = semantic.GetSemantic(source);
             if (o == null)
             {
                 throw new Exception();
             }
+            dictionary[semantic] = o;
 
         }
 

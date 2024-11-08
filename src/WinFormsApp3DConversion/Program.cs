@@ -19,6 +19,7 @@ namespace WinFormsApp3DConversion
             dir = @"c:\0\03D\NRW\UNZIP\cadnav.com_model_TORNADO\Models_G0404A626\";
             dir = @"c:\0\03D\";//\NRW\UNZIP\cadnav.com_model_TORNADO\Models_G0404A626\";
             dir = @"c:\0\03D\Models_G0404A279\";
+            dir = @"c:\0\03D\Models_G0404A626\";
             var files = Directory.GetFiles(dir, "*.obj");   
             TrialException.SuppressTrialException = true;
             foreach (var file in files)
