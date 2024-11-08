@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
@@ -14,6 +15,27 @@ namespace Collada.Wpf
 {
     public static  class StaticExtensionColladaWpf
     {
+
+        public static List<Point3D> ToPoint3DList(this object obj)
+        {
+            switch (obj)
+            {
+                case Vertices vertices:
+
+                        break;
+            }
+
+            throw new NotImplementedException();
+        }
+        public static List<Vector3D> ToVector3DList(this object obj)
+        {
+
+            throw new NotImplementedException();
+        }
+        public static List<Point> ToPointList(this object ob)
+        {
+            throw new NotImplementedException();
+        }
 
         internal static Material GetMaterial(this XmlElement element)
         {

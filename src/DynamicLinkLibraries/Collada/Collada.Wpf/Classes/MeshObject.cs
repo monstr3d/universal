@@ -39,9 +39,9 @@ namespace Collada.Wpf.Classes
             var d = polyList.Inputs;
             var indexes = polyList.Indexes;
 
-            List<Point3D> vertices = (d["VERTEX"] as double[]).ToPoint3DList();
-            List<Vector3D> norm = (d["NORMAL"] as double[]).ToVector3DList();
-            List<Point> textures = (d["TEXCOORD"] as double[]).ToPointList();
+            List<Point3D> vertices = d["VERTEX"].ToPoint3DList();
+            List<Vector3D> norm = d["NORMAL"].ToVector3DList();
+            List<Point> textures = d["TEXCOORD"].ToPointList();
             Point3DCollection vert = new Point3DCollection();
             PointCollection textc = new PointCollection();
             Int32Collection index = new Int32Collection();
