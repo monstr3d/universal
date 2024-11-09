@@ -11,6 +11,10 @@ namespace Collada.Wpf.Classes
 
         public Visual3D Visual3D { get; private set; }
 
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<GeometryObject>();
+
+
         private GeometryObject(XmlElement element) : base(element)
         {
             var mesh = element.Get<MeshObject>();

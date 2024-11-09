@@ -1,12 +1,12 @@
 ﻿using System.Security.Policy;
 using System.Xml;
 
-namespace Collada.Wpf
+namespace Collada.Wpf.Classes
 {
     [Tag("instance_material")]
     internal class Instance_Material : XmlHolder
     {
- 
+
         private Instance_Material(XmlElement element) : base(element)
         {
             var url = element.GetAttribute("url");
@@ -18,7 +18,7 @@ namespace Collada.Wpf
             {
 
             }
- 
+
         }
 
         static public object Get(XmlElement element)

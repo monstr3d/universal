@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Media;
-using System.Xml;
+﻿using System.Xml;
 
 namespace Collada.Wpf.Classes
 {

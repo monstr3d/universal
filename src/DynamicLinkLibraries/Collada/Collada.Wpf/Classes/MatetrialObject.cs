@@ -2,7 +2,6 @@
 using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace Collada.Wpf.Classes
 {

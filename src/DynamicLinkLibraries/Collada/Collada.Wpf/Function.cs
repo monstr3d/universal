@@ -102,7 +102,8 @@ namespace Collada.Wpf
                 }
                 Type[] types = [typeof(Source), typeof(Vertices), typeof(Input), typeof(Surface), typeof(Sampler2D), typeof(Accessor), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
-                typeof(EffectObject),  typeof(MaterialObject),  typeof(Technique), typeof(PolyList), typeof(MeshObject), typeof(GeometryObject)
+                typeof(EffectObject),  typeof(MaterialObject), typeof(Instance_Material),  typeof(BindMaterial),  typeof(Technique), typeof(PolyList), typeof(MeshObject), typeof(GeometryObject),
+                  typeof(Node), typeof(Scene)
                 ];
             
 
@@ -399,6 +400,7 @@ namespace Collada.Wpf
             Sampler2D.ClearT();
       //      Source.Clear();
             MaterialObject.Clear();
+            Node.Clear();
         }
 
 
