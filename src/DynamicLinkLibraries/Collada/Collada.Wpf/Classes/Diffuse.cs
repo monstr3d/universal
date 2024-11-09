@@ -33,7 +33,8 @@ namespace Collada.Wpf.Classes
             var el = element.GetElements().Where(e => e != Xml & e.Name != "texture" & e.Name != "color").ToArray();
             if (el.Length > 0)
             {
-                throw new Exception();
+                NewMethod();
+                return;
             }
 
             DiffuseMaterial = Material as DiffuseMaterial;
@@ -42,6 +43,11 @@ namespace Collada.Wpf.Classes
                 throw new Exception();
             }
             this.SetTextureByXmlElement(element);
+        }
+
+        private static void NewMethod()
+        {
+            throw new Exception();
         }
 
         protected override Type Type => typeof(DiffuseMaterial);

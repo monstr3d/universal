@@ -45,7 +45,6 @@ namespace Collada.Wpf.Classes
                Reflectivity = xml.ToDouble("reflectivity");
             }
             return mat;
-            return mat;
         }
 
         protected override object Get()

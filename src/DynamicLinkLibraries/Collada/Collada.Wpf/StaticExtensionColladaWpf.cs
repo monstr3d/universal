@@ -169,6 +169,7 @@ namespace Collada.Wpf
             ImageBrush br = new ImageBrush(imageSource);
             br.ViewportUnits = BrushMappingMode.Absolute;
             br.Opacity = 1;
+            diffuseMaterial.Brush = br;
             return true;
         }
 

@@ -8,7 +8,8 @@ namespace Collada.Wpf.Classes
     public class Texture : XmlHolder
     {
 
- 
+        public static IClear Clear => StaticExtensionCollada.GetClear<Texture>();
+
         public Sampler2D Sample { get; private set; }
 
         public string TexCoord { get; private set; }

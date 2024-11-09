@@ -48,10 +48,13 @@ namespace Collada.Wpf.Classes
             roots.Clear();
         }
 
+
+        static List<ModelVisual3D> lm = new();
         public ModelVisual3D Result
         {
             get
             {
+                lm.Clear();
                 ModelVisual3D m = new ModelVisual3D();
                 var l = GetVisual3D();
                 foreach (var i in l)
@@ -75,7 +78,15 @@ namespace Collada.Wpf.Classes
             var l = new List<Visual3D>();
             foreach (var child in childern)
             {
-                l.AddRange(child.GetVisual3D());
+                var c = child.GetVisual3D();
+                foreach (var v3 in c)
+                {
+                    if (!lm.Contains(v3))
+                    {
+                        lm.Add(v3 as ModelVisual3D);
+                        l.Add(v3);
+                    }
+                }
             }
             if (vis == null)
             {
@@ -182,7 +193,9 @@ namespace Collada.Wpf.Classes
             }
             var a = new Node(element);
             a.Combine();
-            StaticExtensionColladaWpf.Result = a.Result;
+            var r = a.Result;
+            r.SetLight();
+            StaticExtensionColladaWpf.Result = r;
             return a.Get();
         }
     }
