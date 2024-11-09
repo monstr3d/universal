@@ -27,6 +27,7 @@ namespace Collada.Wpf
             return c;
         }
 
+        static public ModelVisual3D Result { get; internal set; }
 
 
 

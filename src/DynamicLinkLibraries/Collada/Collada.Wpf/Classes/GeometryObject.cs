@@ -1,11 +1,12 @@
 ﻿using System.Windows.Media.Media3D;
 using System.Xml;
 using System;
+using System.Collections.Generic;
 
 namespace Collada.Wpf.Classes
 {
     [Tag("geometry")]
-    internal class GeometryObject : Collada.XmlHolder
+    public class GeometryObject : Collada.XmlHolder
     {
         static public readonly string Tag = "geometry";
 
@@ -14,9 +15,34 @@ namespace Collada.Wpf.Classes
 
         public static IClear Clear => StaticExtensionCollada.GetClear<GeometryObject>();
 
+        static Dictionary<string, GeometryObject> byName = new ();
+
+        static public GeometryObject Get(string name)
+        {
+            if (byName.ContainsKey(name))
+            {
+                return byName[name];
+            }
+            return null;
+
+        }
+
+        static internal void ClearItSelf()
+        {
+            byName.Clear();
+        }
 
         private GeometryObject(XmlElement element) : base(element)
         {
+            var name = element.GetAttribute("name");
+            if (name.Length > 0)
+            {
+                if (byName.ContainsKey(name))
+                {
+                    throw new Exception();
+                }
+                byName[name] = this;
+            }
             var mesh = element.Get<MeshObject>();
             if (mesh == null)
             {

@@ -399,8 +399,9 @@ namespace Collada.Wpf
             Surface.Clear();
             Sampler2D.ClearT();
       //      Source.Clear();
-            MaterialObject.Clear();
+        //    MaterialObject.Clear();
             Node.Clear();
+            GeometryObject.ClearItSelf();
         }
 
 

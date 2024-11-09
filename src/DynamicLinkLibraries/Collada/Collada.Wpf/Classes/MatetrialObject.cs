@@ -11,6 +11,9 @@ namespace Collada.Wpf.Classes
         private static Dictionary<string, Material> materials = new();
         public Material Material { get; private set; }
 
+        public static IClear Clear => StaticExtensionCollada.GetClear<MaterialObject>();
+
+
         private MaterialObject(XmlElement element) : base(element)
         {
             if (element.ChildNodes.Count != 1)
@@ -29,7 +32,7 @@ namespace Collada.Wpf.Classes
 
         object Get()
         {
-            return Material;
+            return this;
         }
 
         public static object Get(XmlElement element)
@@ -47,9 +50,5 @@ namespace Collada.Wpf.Classes
             return materials[s];
         }
 
-        internal static void Clear()
-        {
-            materials.Clear();
-        }
     }
 }

@@ -10,7 +10,6 @@ namespace Collada.Wpf.Classes
         private Scene(XmlElement element) : base(element)
         {
             var c = Node.Roots;
-
         }
 
         object Get()

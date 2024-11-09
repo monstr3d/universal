@@ -1,14 +1,19 @@
 ﻿using System.Security.Policy;
+using System.Windows.Media.Media3D;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
     [Tag("instance_material")]
-    internal class Instance_Material : XmlHolder
+    public class Instance_Material : XmlHolder
     {
 
         private Instance_Material(XmlElement element) : base(element)
         {
+            var target = element.GetAttribute("target");
+            target = target.Substring(1);
+            var m = target.Get<MaterialObject>();
+            Material = m.Material;
             var url = element.GetAttribute("url");
             if (url.Length > 0)
             {
@@ -19,7 +24,11 @@ namespace Collada.Wpf.Classes
 
             }
 
+            
+
         }
+
+        public Material Material { get; private set; }
 
         static public object Get(XmlElement element)
         {

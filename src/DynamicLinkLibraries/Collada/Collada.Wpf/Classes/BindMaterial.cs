@@ -1,14 +1,22 @@
-﻿using System.Xml;
+﻿using System.Windows.Media.Media3D;
+using System.Xml;
+using System;
 
 namespace Collada.Wpf.Classes
 {
     [Tag("bind_material")]
-    internal class BindMaterial : XmlHolder
+    public class BindMaterial : XmlHolder
     {
  
-        
+        public Material Material { get; private set; }
         private BindMaterial(XmlElement element) : base(element)
         {
+            var inst = element.Get<Instance_Material>();
+            if (inst == null)
+            {
+                return;
+            }
+            Material = element.Get<Instance_Material>().Material;
 
         }
 

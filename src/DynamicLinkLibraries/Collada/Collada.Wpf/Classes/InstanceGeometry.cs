@@ -1,4 +1,6 @@
-﻿using System.Xml;
+﻿using System.Windows.Media.Media3D;
+using System.Xml;
+using System;
 
 namespace Collada.Wpf.Classes
 {
@@ -9,6 +11,8 @@ namespace Collada.Wpf.Classes
 
         bool isCombined = false;
 
+        public Material Material { get; private set; }
+
         public void Combine()
         {
             if (isCombined)
@@ -16,6 +20,15 @@ namespace Collada.Wpf.Classes
                 return;
             }
             var x = Xml;
+            var b = x.Get<BindMaterial>();
+            if (b != null)
+            {
+                Material = b.Material;
+            }
+            else
+            {
+                throw new Exception();
+            }
 
             isCombined = true;
         }
