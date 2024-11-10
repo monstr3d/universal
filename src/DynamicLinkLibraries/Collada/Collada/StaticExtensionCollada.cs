@@ -1047,9 +1047,6 @@ namespace Collada
             StaticExtensionCollada.filename = filename;
             Directory = Path.GetDirectoryName(filename);
             function.Filename = filename;
-            collada.Filename = filename;
-            return;
-            collada.Filename = filename;
             Directory = Path.GetDirectoryName(filename);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
