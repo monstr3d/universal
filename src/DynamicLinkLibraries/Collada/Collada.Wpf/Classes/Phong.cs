@@ -70,6 +70,7 @@ namespace Collada.Wpf.Classes
                                     break;
                                 case SpecularMaterial specular:
                                     SpecularMaterial = specular;
+                                    SpecularMaterial.SpecularPower = 1;
                                     break;
                                 case EmissiveMaterial emissive:
                                     EmissiveMaterial = emissive;
@@ -157,7 +158,7 @@ namespace Collada.Wpf.Classes
                 if (m is SpecularMaterial sp)
                 {
                     speculars.Add(sp);
-                    sp.SpecularPower = 100 * reflectivity.NumberToDouble();
+                    sp.SpecularPower =  reflectivity.NumberToDouble();
                 }
                 if (transparent != null)
                 {

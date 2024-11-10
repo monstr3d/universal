@@ -1,9 +1,11 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Documents;
+using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 
@@ -29,6 +31,8 @@ namespace Collada.Wpf.Classes
         public GeometryObject Geometry { get; private set; }
 
         public Visual3D Visual3D { get; private set; }
+
+        public Material Material { get; private set; }
 
         public static List<Node> roots = new();
 
@@ -57,10 +61,15 @@ namespace Collada.Wpf.Classes
                 lm.Clear();
                 ModelVisual3D m = new ModelVisual3D();
                 var l = GetVisual3D();
-                foreach (var i in l)
+                if (l != null)
                 {
-                    m.Children.Add(i);
+                    foreach (var i in l)
+                    {
+                        i.Transform = new MatrixTransform3D();
+                        m.Children.Add(i);
+                    }
                 }
+                m.Transform = new MatrixTransform3D();
                 return m;
             }
         }
@@ -79,24 +88,72 @@ namespace Collada.Wpf.Classes
             foreach (var child in childern)
             {
                 var c = child.GetVisual3D();
+                if (c == null)
+                {
+                    continue;
+                }
                 foreach (var v3 in c)
                 {
-                    if (!lm.Contains(v3))
+                    ModelVisual3D modelVisual3D = v3 as ModelVisual3D;
+                    var cnt = modelVisual3D.Content as GeometryModel3D;
+                    var mat = cnt.Material;
+                    if (mat != null)
                     {
-                        lm.Add(v3 as ModelVisual3D);
-                        l.Add(v3);
+                        EmissiveMaterial emi = null; ;
+                        SpecularMaterial spec = null;
+                        var color = new System.Windows.Media.Color { A = 0, R = 0, G = 0, B = 0 };
+                        if (mat is MaterialGroup group)
+                        {
+                            foreach (var mm in group.Children)
+                            {
+                                if (mm is DiffuseMaterial material)
+                                {
+                                    if (material.Brush != null)
+                                    {
+                                        l.Add(v3);
+                                        emi = null;
+                                        spec = null;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        System.Windows.Media.Brush brush =
+                                            new SolidColorBrush(color);
+                                        material.Brush = brush;
+                                        material.Color = color;
+                                    }
+                                }
+                                if (mm is EmissiveMaterial e)
+                                {
+                                    emi = e;
+                                }
+                                if (mm is SpecularMaterial ss)
+                                {
+                                    spec = ss;
+                                }
+                            }
+                        }
+                        if (spec != null)
+                        {
+                            spec.SpecularPower = 0;
+                            spec.Color = color;
+                        }
+                        if (emi != null)
+                        {
+                            emi.Color = color;
+                        }
+
+                    }
+                    if (vis == null)
+                    {
                     }
                 }
             }
-            if (vis == null)
-            {
-                return l;
-            }
-            return null;
+            return l;
+
         }
 
 
-  
 
 
 
@@ -104,10 +161,24 @@ namespace Collada.Wpf.Classes
         {
             Id = element.GetAttribute("id");
             Name = element.GetAttribute("name");
-            Geometry = GeometryObject.Get(Name);
+            //var ig = element.Get<InstanceGeomery>();
+            var cn = element.GetOwnChildren<InstanceGeomery>().ToArray();
+            if (cn.Length == 1)
+            {
+                Visual3D = cn[0].Visual3D;
+                if (Visual3D == null)
+                {
+                    return;
+                }
+                Material = cn[0].Material;
+                ModelVisual3D modelVisual3D = Visual3D as ModelVisual3D;
+                var ct = modelVisual3D.Content as GeometryModel3D;
+                ct.Material = Material;
+            }
+  //          Geometry = GeometryObject.Get(Name);
             if (Geometry != null)
             {
-                Visual3D = Geometry.Visual3D;
+               // Visual3D = Geometry.Visual3D;
             }
             var nk = element.GetElements().Where(e => e.ParentNode == element & e.Name == Tag);
             if (!roots.Contains(this))

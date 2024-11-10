@@ -12,6 +12,7 @@ namespace Collada.Wpf.Classes
         /// </summary>
         static public readonly bool IsElementary = true;
 
+        public static IClear Clear => StaticExtensionCollada.GetClear<P>();
 
 
         public int[] p { get; private set; }

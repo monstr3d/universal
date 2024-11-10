@@ -17,7 +17,10 @@ namespace Collada.Wpf.Classes
         public string Name { get; private set; }
         Dictionary<XmlElement, object> children;
 
-        public float[] Array { get; private set; }
+        public float[] Array { 
+            get; 
+            private set; 
+        }
 
 
         public object[] Children { get; private set; }
@@ -27,7 +30,11 @@ namespace Collada.Wpf.Classes
       //      Name = element.InnerText;
             try
             {
-                Array = element.Get<Float_Array, float[]>();
+               var a = element.Get<Float_Array, float[]>();
+                if (a != null)
+                {
+                    Array = a;
+                }
                 children = new Dictionary<XmlElement, object>(); ;
                 // element.AllDictionary(children);
                 if (children.Count != 0)

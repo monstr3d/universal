@@ -52,7 +52,8 @@ namespace WpfInterface
         {
             get
             {
-                 return new MatrixTransform3D();
+                var t = new MatrixTransform3D();
+                return t;
             }
         }
 

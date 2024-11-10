@@ -85,7 +85,7 @@ namespace SerializationInterface
         }
 
         /// <summary>
-        /// Deserialzes object from bytes
+        /// Deserializes object from bytes
         /// </summary>
         /// <typeparam name="T">Type of object</typeparam>
         /// <param name="b">Bytes</param>

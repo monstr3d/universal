@@ -51,6 +51,7 @@ namespace Collada
 
         static Dictionary<Type, IClear> clears;
 
+    
 
 
         static StaticExtensionCollada()
@@ -93,6 +94,13 @@ namespace Collada
         public static TagAttribute GetTag(this Type type)
         {
             return types[type];
+        }
+
+        public static byte ToByte(this double d)
+        {
+            var x = d * 256 - 1;
+            int k = (int)x;
+            return (byte)k;
         }
 
         public static bool IsUknown(this Type type)
@@ -906,7 +914,9 @@ namespace Collada
         }
 
   
-
+        /// <summary>
+        /// Working directory
+        /// </summary>
         public static string Directory
         {
             get;
@@ -1031,9 +1041,15 @@ namespace Collada
 
         public static bool Success { get; private set; }
 
+
         public static void Load(this string filename)
         {
             StaticExtensionCollada.filename = filename;
+            Directory = Path.GetDirectoryName(filename);
+            function.Filename = filename;
+            collada.Filename = filename;
+            return;
+            collada.Filename = filename;
             Directory = Path.GetDirectoryName(filename);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);

@@ -16,6 +16,22 @@ namespace Collada.Wpf
     public static  class StaticExtensionColladaWpf
     {
 
+        static Dictionary<string, Material> mtl = new Dictionary<string, Material>();
+
+       internal static  void Add(this MtlWrapper wrapper)
+        {
+            mtl[wrapper.Name] = wrapper.Material;
+        }
+
+        internal static Material GetMaterial(this string name)
+        {
+            if (mtl.ContainsKey(name))
+            {
+                return mtl[name];
+            }
+            return null;
+        }
+
         static List<Point3D> ToPoint3DList(this double[] x)
         {
             List<Point3D> c = new List<Point3D>();
@@ -123,6 +139,14 @@ namespace Collada.Wpf
                     l = source.ToPointList();
 
                     break;
+            }
+            if (obj is int[]  ints)
+            {
+                l = new List<Point>();
+                for (int i = 0; i < ints.Length; i+=2)
+                {
+                    l.Add(new Point(ints[i], ints[i+1]));
+                }
             }
             if (l != null)
             {
@@ -327,6 +351,26 @@ namespace Collada.Wpf
             return null;
         }
 
+        public static List<int[]> ToTextureArray(this int[] x)
+        {
+            var l = new List<int[]>();
+            for (int i = 0; i < x.Length; i+= 9)
+            {
+                var y = new int[9];
+                Array.Copy(x, i, y, 0, 9);
+                l.Add([y[0], y[3], y[6]]);
+                l.Add([y[1], y[4], y[7]]);
+                l.Add([y[2], y[5], y[8]]);
+            }
+
+            return l;
+        }
+
+        public static List<int[]> ToTextureArray(this XmlElement element)
+        {
+            var x = element.ToIntArray();
+            return x.ToTextureArray();
+        }
 
         public static List<int[]> ToInt3Array(this XmlElement element)
         {
@@ -440,9 +484,30 @@ namespace Collada.Wpf
             }
         }
 
-        public static void Load(string filenme)
+        public static Color ToColor(this string str)
         {
-            StaticExtensionCollada.Load(filenme);
+            var ss = str.Split(" ".ToCharArray());
+            var d = new List<double>();
+            foreach (var s in ss)
+            {
+                var t = s.Trim();
+                if (t.Length == 0)
+                {
+                    continue;
+                }
+                d.Add(s.ToDouble());
+            }
+            return new Color
+            {
+                R = d[0].ToByte(),
+                G = d[1].ToByte(),
+                B = d[2].ToByte()
+            };
+        }
+
+        public static void Load(string filename)
+        {
+            StaticExtensionCollada.Load(filename);
         }
 
  
@@ -561,23 +626,23 @@ namespace Collada.Wpf
         }
 
 
-        static public List<System.Windows.Point> ToPointList(this double[] x)
+        static public List<Point> ToPointList(this double[] x)
         {
-            List<System.Windows.Point> c = new();
+            List<Point> c = new();
             for (int i = 0; i < x.Length; i += 2)
             {
-                var p = new System.Windows.Point(x[i], 1 - x[i + 1]);
+                var p = new Point(x[i], x[i + 1]);
                 c.Add(p);
             }
             return c;
         }
 
-        static public List<System.Windows.Point> ToPointList(this float[] x)
+        static public List<Point> ToPointList(this float[] x)
         {
-            List<System.Windows.Point> c = new();
+            List<Point> c = new();
             for (int i = 0; i < x.Length; i += 2)
             {
-                var p = new System.Windows.Point(x[i], 1 - x[i + 1]);
+                var p = new Point((double)x[i], 1 - (double)x[i + 1]);
                 c.Add(p);
             }
             return c;

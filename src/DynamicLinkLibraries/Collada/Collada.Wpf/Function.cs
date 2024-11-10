@@ -5,6 +5,9 @@ using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Reflection;
 using Collada.Wpf.Classes;
+using System.IO;
+using System.Net.WebSockets;
+using System.Windows.Controls;
 
 namespace Collada.Wpf
 {
@@ -28,9 +31,13 @@ namespace Collada.Wpf
 
         static public List<string> AddTags => allTags;
 
+        string filename;
+
         static public List<string> Nonelementary {  get; private set; }
+        string IFunction.Filename { get => filename; set => Set(value); }
 
         static List<string> tags = new();
+
 
 
         static Dictionary<string, MethodInfo> methods;
@@ -40,7 +47,7 @@ namespace Collada.Wpf
 
         static List<string> elementary;
 
-
+        static public string Directory {  get; internal set; }
 
 
         static Function()
@@ -135,7 +142,36 @@ namespace Collada.Wpf
 
         }
 
+        void Set(string filename)
+        {
+            this.filename = filename;
+            var fn = Path.GetFileNameWithoutExtension(filename);
+            var dir = Path.GetDirectoryName(filename);
+            fn =  Path.Combine( Path.GetDirectoryName(filename), fn + ".mtl");
+            if (File.Exists(fn))
+            {
+                CreateMtl(fn);
+            }
+        }
 
+
+        static void CreateMtl(string filename)
+        {
+            using (var reader = new StreamReader(filename))
+            {
+                do
+                {
+                    var line = reader.ReadLine();
+                    if (line.Contains("newmtl"))
+                    {
+                        var ss = line.Split(" ".ToCharArray());
+                        var name = ss[ss.Length - 1];
+                        new MtlWrapper(name, reader);
+                    }
+                }
+                while (!reader.EndOfStream);
+            }
+        }
 
 
         protected Function()
@@ -394,7 +430,7 @@ namespace Collada.Wpf
             Sid.Clear();
             Phong.Clear();
             sourceDic.Clear();
-            EffectObject.Clear();
+      //      EffectObject.Clear();
             NewParam.Clear();
             Surface.Clear();
             Sampler2D.ClearT();

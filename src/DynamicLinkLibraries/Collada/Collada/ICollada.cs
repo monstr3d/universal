@@ -36,5 +36,12 @@ namespace Collada
         /// <param name="s">The string</param>
         /// <returns>The object</returns>
         object Get(string s);
+
+
+        /// <summary>
+        /// File name
+        /// </summary>
+        string Filename { get; set; }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Collada.Wpf.Classes
 {
@@ -14,20 +15,29 @@ namespace Collada.Wpf.Classes
 
         public List<int[]> Indexes { get; private set; }
 
+        public int[] Index { get; private set; }
+
         public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
 
         private PolyList(XmlElement element) : base(element)
         {
+            var c = element.GetAttribute("material");
+            if (c == "acmat12")
+            {
+
+            }
+            Index = element.ToIntArray();
             Material = element.GetMaterial();
             Indexes = element.ToInt3Array();
-            var d = element.GetAllChildren<Input>();
-            foreach (var item in d)
+            //Indexes = element.ToTextureArray();
+            var d = element.GetAllChildren<Input>().ToArray();
+            foreach (var inp in d)
             {
-                var c = item.Semantic;
-                Inputs[c.Key] = c.Value;
+                var sem = inp.Semantic;
+                Inputs[sem.Key] = sem.Value;
             }
-        }
+          }
 
         object Get()
         {

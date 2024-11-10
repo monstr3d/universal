@@ -21,12 +21,20 @@ namespace Collada.Wpf
     {
 
         #region Fields
-   
+
+        string filename;
+
+        void Set(string filename)
+        {
+            this.filename = filename;
+        }
+
         public UpDirection Direction
         {
             get;
             private set;
         } = UpDirection.None;
+        string ICollada.Filename { get => filename; set => Set(value); }
 
         public static ColladaObject Instance = new ColladaObject();
 

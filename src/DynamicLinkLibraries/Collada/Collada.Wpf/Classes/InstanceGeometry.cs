@@ -13,8 +13,11 @@ namespace Collada.Wpf.Classes
 
         public Material Material { get; private set; }
 
+        public Visual3D Visual3D { get; private set; }
+
         public void Combine()
         {
+            /*
             if (isCombined)
             {
                 return;
@@ -30,11 +33,44 @@ namespace Collada.Wpf.Classes
                 throw new Exception();
             }
 
-            isCombined = true;
+            isCombined = true;*/
         }
+
 
         private InstanceGeomery(XmlElement element) : base(element)
         {
+            var url = element.GetAttribute("url").Substring(1);
+            if (url.Length != 0)
+            {
+                if (url == "ID158")
+                {
+
+                }
+            }
+            var b = element.Get<Instance_Material>();
+            if (b == null)
+            {
+                return;
+            }
+            Material = b.Material;
+            if (url.Length != 0)
+            {
+                if (url == "ID158")
+                {
+
+                }
+                var t = url.Get<GeometryObject>();
+                if (t == null)
+                {
+                    return;
+                }
+                Visual3D = t.Visual3D;
+                if (Visual3D is ModelVisual3D model)
+                {
+                   var  g= model.Content as GeometryModel3D;
+                    g.Material = Material;
+                }
+            }
 
         }
 

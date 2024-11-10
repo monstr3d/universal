@@ -23,13 +23,16 @@ namespace Collada.Wpf.Classes
             effects = new();
         }
 
-        public Material Material { get; private set; }
+        public static IClear Clear => StaticExtensionCollada.GetClear<EffectObject>();
 
+
+        public Material Material { get; private set; }
+/*
         internal static void Clear()
         {
             effects.Clear();
         }
-
+*/
         static Dictionary<Material, EffectObject> effects;
 
 

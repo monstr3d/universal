@@ -17,6 +17,11 @@ namespace Collada.Wpf.Classes
 
         private Input(XmlElement element) : base(element)
         {
+            var p = element.Get<P>();
+            if (p != null)
+            {
+
+            }
            var  semantic = element.GetAttribute("semantic");
             var source = element.GetAttribute("source").Substring(1);
             if ((semantic.Length == 0) | (source.Length == 0))

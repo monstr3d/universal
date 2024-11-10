@@ -42,6 +42,11 @@ namespace Collada
         /// <param name="xmlElement"></param>
         void Init(XmlElement xmlElement);
 
+        /// <summary>
+        /// File name
+        /// </summary>
+        string Filename { get; set; }
+
 
     }
 }

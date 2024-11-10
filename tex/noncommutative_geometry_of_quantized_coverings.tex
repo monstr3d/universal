@@ -14394,30 +14394,26 @@ where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ 
 \eqref{h_k1_f_eqn} by a pair $\left( h^{\widetilde A}_{\text{tors}}, h^{\widetilde A}_{\text{free}}\right)  $ of homomorphisms
 \be\label{h_main_eqn}
 \begin{split}
-	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to \chi\left(  K_1\left(A \right)_{\text{tors}}\right)  ,\\
+	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to \Ext \left(  K_1\left(A \right)_{\text{tors}}, \Z\right)  ,\\
 	h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to\Hom\left(  K_1\left( A\right)_{\text{free}}, \Z\right)  \bydef  \Hom\left( K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}, \Z\right) 
 \end{split}
 \ee
-where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part and $\chi\left(  K_1\left(A \right)_{\text{tors}}\right) $ is the group of characters.
+where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part.
 
 \section{Basic idea}
 
 \paragraph*{}
 
 	Let  $A$ be  a stable     $C^*$-algebra (cf. Definition \ref{stable_ca_defn}).
-	Let  $P_{\mathrm{untz}}$ be the given by \eqref{unitization_p_eqn} property  noncommutative finite-fold coverings, and suppose that there is $P_{\mathrm{untz}}$- fundamental group $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
+	Let  $P_{\mathrm{untz}}$ be the given by \eqref{unitization_p_eqn} property  noncommutative finite-fold coverings, and suppose that there is $P_{\mathrm{untz}}$ - fundamental group $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
 	$$
 \pi_1^{\text{ab}} \bydef \pi^{P_{\mathrm{untz}}}_1\left(A\right)/ \left[\pi^{P_{\mathrm{untz}}}_1\left(A\right), \pi^{P_{\mathrm{untz}}}_1\left(A\right)\right]	
 	$$
-is a finitely generated Abelian group	and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the homomorphism
+is a finitely generated Abelian group	and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the surjective homomorphism
 	\be\label{fundamental_gr_hom_eqn}
 h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
 \ee
 is 
-$$
-h_{\widetilde A}=  \pi^{\text{ab}}_{\widetilde A}\circ \pi^{\text{ab}}
-$$
-
 		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unital element such that $v^n \in \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
 	$$
 	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
@@ -14456,39 +14452,6 @@ k\left[u \right]   \mapsto \frac{ gv^k}{v}=  e^{\frac{2\pi i kl}{n}}
 \end{split}
 \ee
 where $l\in \Z$ is a representative of $g$.
-\paragraph{Cyclic coverings}
-Let $\sX$ be a connected, locally connected  topological space with  is a dense constable set $A= \{a_j\}_{\j \in \N}\subset \sX$ . Let $\widetilde \sX \to \sX$ be a covering. Let $\left\{\sU_\la\right\}_{\la \in \La}$ be a family of connected, locally connected open sets such that $\sX = \cup_{\la\in \La}\sU_\la$. For any $a_j \in A$  we select $\sU \in \left\{\sU_\la\right\}$ and define a sequence $\{\a_{jk}\}_{k\in \N}\subset \sU$ such that
-\bean
-a_j = \lim_{k \to \infty} a_{jk},\\
-\forall j \in \N \quad A \cap \{\a_{jk}\}= \emptyset
-\eean 
-Let us define a net $\{b_l\}_{l \in \N}$ such 
-\bean
- j \neq k \quad b_j \neq b_k,\\ 
- \{b_l\}_{l \in \N}= \cup \{\a_{jk}\}
-\eean
-We define a map 
-\bean
-\varphi: \sX \to \N,\\
-x \mapsto \begin{cases}
-	l & x = b_l\\
-	0 & x \notin  \{b_l\}
-\end{cases}
-\eean   
-Any $u : \sX \to \sU(1)$ we represent by the following way
-$$
-\forall x \in \sX \quad u(x)= e^{i \phi\left( x\right) }
-$$
-where $\phi\left( x\right) \in \left[0, 2\pi\right)$. If we define 
-\bean
-v : \sX \to \sU(1),\\
-x \mapsto e^{\frac{2\pi i\left(  \phi\left(x \right)  + \varphi\left( x\right)\right)  }{n}}
-\eean
-then $v^n = u$.
-If $\rho : C_0\left(\sX \right) \otimes \K \to B\left( \H\right)$ is an atomic representation  then $v$ can be regarded as a bounded operator of $B\left(\H \right)$. 
-
-COVERING !!!
-
 \paragraph{Torsion Hurewicz homomorphism}
 Let $K_1\left(A \right)_{\mathrm{tors}}\subset K_1\left(A \right)$ be a torsion subgroup, end let $p$ be a prime. For any $r > 0$ we define by $K_1\left(A \right)\left( p^r\right) \subset K_1\left(A \right)_{\mathrm{tors}}$  a set
 $$
@@ -14536,21 +14499,21 @@ h^A_{\mathrm{tors}}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Ext\left(  K_1
 The homomorphism  $h^A_{\mathrm{tors}}$ is the \textit{torsion part of Hurewicz homomorphism}.
 \end{definition}
 \paragraph{Free Hurewicz homomorphism}
-Let $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$. An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \text{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)$ with
+If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$. An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \text{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)$ with
 	\be\label{h_vm_eqn}
 	\begin{split}
 		v_k^k =\pi\left(u\right),\\
-		\forall k, l \in \N \quad v_{km}^m = v_k. 
+		\forall k, l \in \N \quad v_{kl}^l = v_k. 
 	\end{split}
 	\ee
 and for any $k \in \N$ there is a $\left( u, v_k, k\right)$-covering. If $V^{\mathrm{adm}}\subset K_1\left( A\right)_{\mathrm{free}}\otimes \Q$ is a generated by admissible elements subspace then $V^{\mathrm{adm}}$ is isomorphic to  the factor-space of   $K_1\left( A\right)_{\mathrm{free}}\otimes \Q$. Similarly if $K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\bydef V^{\mathrm{adm}} \cap  K_1\left( A\right)_{\mathrm{free}}$ then $K^{\mathrm{adm}}_1\left( A\right)$ is isomorphic to  a factor-group of a $K_1\left( A\right)_{\mathrm{free}}$. Indeed
 \be\label{h_dsi_eqn}
 K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\cong \Z x_1 \oplus ...\oplus \Z x_n
 \ee
-where $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$ and there is a (non unique) surjective homomorphism $K_1\left( A\right)_{\mathrm{free}}\to \Z x_j$. If $x \in \left\{x_1,...,  x_n\right\}$ then $x$ can be represented by $u \in   M\left( A \otimes \K\right)$ satisfying to the conditions \eqref{h_vm_eqn}. For any $m \in \N$ let $
+where $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$ and there is a (non unique) surjective homomorphism $K_1\left( A\right)_{\mathrm{free}}\to \Z x_j$. Any $x \in \left\{x_1,...,  x_n\right\}$  can be represented by $u \in   M\left( A \otimes \K\right)$ satisfying to the conditions \eqref{h_vm_eqn}. For any $m \in \N$ let $
 \left(A, A_m, \Z_m, \lift_m \right) 
 $
-the  required by the Definition \ref{hurewicz_u_n_defn} noncommutative covering with unitization.  If $h_{m} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then  homomorphism then any $g \in \pi^{P_{\mathrm{untz}}}_1\left(A\right)$ yields a character
+the  required by the Definition \ref{hurewicz_u_n_defn} noncommutative covering with unitization.  If $h_{m} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then   any $g \in \pi^{P_{\mathrm{untz}}}_1\left(A\right)$ yields a character
 \bean
 \chi^g_m : \Z  x \to \sU\left( 1\right),\\
 k   x \mapsto \frac{h_m\left( g\right) v^k_m}{v_m}= e^{\frac{2\pi i kl}{m}} 
@@ -14594,34 +14557,6 @@ is a homomorphism of groups.
 \end{definition}
 
 
-\begin{empt}
-
-such that $\Z x\cong \Z$,  and $x$ is not divisible, i.e. there is no $y\in K_1\left(A \right)$ with $x = ky$ where $k > 1$. We say that $x'$ is \text{equivalent}  
-
-
-
-Suppose that $x= [u]$ with $u \in M\left(A \right)$ and there is a set $\left\{v_{j}\right\}_{j \in \N}\subset B\left(\H \right)$ with
-\be\label{h_vm_eqn!}
-\begin{split}
-v_j^j =\pi\left(u \right),\\
-\forall m, l \in \N \quad v_{jm}^m = v_j. 
-\end{split}
-\ee
-If for any $j \in \N$ there is a $\left(u,v_j, j\right)$-covering then we say that $x$ \textit{complies with Hurewicz homomorphism}. Denote by $K_1\left(A \right)_{H}\subset K_1\left(A \right)$ a set of elements which complies with Hurewicz homomorphism. If 
-\bean
-K^1\left( A\right)_{\perp} \bydef \left\{z \in K_1\left( A\right)\left| \forall x \in K^1\left(A \right)_{H} \quad \varphi(z)(x) = 0\right. \right\}, \\
-K_1\left( A\right)_\parallel\bydef K_1\left( A\right)/\left\{x \in K_1\left(  A\right)  \left| \forall z \in  K^1\left( A\right)_{\perp} \quad \varphi(z)(x) = 0\right.\right\}
-\eean
-where $\varphi$ is given by \eqref{uct_c_eqn} then $K^1\left( A\right)_\parallel$ is a free Abelian group generated by representatives of elements of $K_1\left(A \right)_{H}$. Let $\left\{x_1, ..., x_n\right\}\in K_1\left(A \right)_{H}$ be such that
-\be\label{h_ds_eqn}
-K^1\left( A\right)_\parallel = \Z \overline x_1 \oplus ...\oplus  \Z \overline x_n
-\ee
-where $\overline x_j$ is represented by $x_j$  for any $j =1, ..., n$, Let $x \in  \left\{x_1, ..., x_n\right\}$ and $x= [u]$ with $u \in M\left(A \right)$.  
-\end{empt}
-
-\begin{definition}\label{h_defn}
-We say that the map given by \eqref{h_free_eqn}	 the \textit{free Hurewicz homomorphism}.
-\end{definition}
 \begin{remark}
 	The formula \eqref{uct_c} is the motivation of the Definition \ref{h_defn} because $h$ is a homomorphism from $\pi^{P_{\mathrm{untz}}}_1\left(A \right)$ to the factor group of $K^1\left(A \right)$.  
 \end{remark}
@@ -14639,7 +14574,40 @@ where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\lef
 \begin{example}\label{s_1_covering_sample}
 	If  $A \bydef C\left( S^1\right)\otimes \K$ then there is the natural inclusion $C\left( S^1\right)\subset M\left(A \right)$ it is known that $K_1\left(C\left( S^1\right) \right) = \Z\left[u\right]$ where $u \in C\left( S^1\right)\in M\left( A\right)$ is an unital element. If $\phi_n$ satisfying  to !!! \eqref{h_n_root} and 	$v = \phi\left( u\right)$ then $C\left( S^1\right)\left[v\right]\cong C\left( \widetilde \sY \right)$ where $\widetilde \sY\cong S^1$ and an inclusion  $C\left( S^1\right)\hookto C\left( S^1\right)\left[v\right]$ corresponds to an $n$-listed covering $\widetilde \sY\cong S^1 \to S^1$. In result one has an $\left(u, n\right)$-{covering} $\left(C\left( S^1\right)\otimes \K, C\left( \widetilde \sY\right)\otimes \K, \Z_n\right)$  of $C\left( S^1\right)\otimes \K$ (cf. Theorem \ref{stable_fin_cov_thm} )
 \end{example}
+\paragraph{Cyclic coverings}
+Let $\sX$ be a connected, locally connected  topological space with  is a dense constable set $A= \{a_j\}_{\j \in \N}\subset \sX$ . Let $\widetilde \sX \to \sX$ be a covering. Let $\left\{\sU_\la\right\}_{\la \in \La}$ be a family of connected, locally connected open sets such that $\sX = \cup_{\la\in \La}\sU_\la$. For any $a_j \in A$  we select $\sU \in \left\{\sU_\la\right\}$ and define a sequence $\{\a_{jk}\}_{k\in \N}\subset \sU$ such that
+\bean
+a_j = \lim_{k \to \infty} a_{jk},\\
+\forall j \in \N \quad A \cap \{\a_{jk}\}= \emptyset
+\eean 
+Let us define a net $\{b_l\}_{l \in \N}$ such 
+\bean
+j \neq k \quad b_j \neq b_k,\\ 
+\{b_l\}_{l \in \N}= \cup \{\a_{jk}\}
+\eean
+We define a map 
+\bean
+\varphi: \sX \to \N,\\
+x \mapsto \begin{cases}
+	l & x = b_l\\
+	0 & x \notin  \{b_l\}
+\end{cases}
+\eean   
+Any $u : \sX \to \sU(1)$ we represent by the following way
+$$
+\forall x \in \sX \quad u(x)= e^{i \phi\left( x\right) }
+$$
+where $\phi\left( x\right) \in \left[0, 2\pi\right)$. If we define 
+\bean
+v : \sX \to \sU(1),\\
+x \mapsto e^{\frac{2\pi i\left(  \phi\left(x \right)  + \varphi\left( x\right)\right)  }{n}}
+\eean
+then $v^n = u$.
+If $\rho : C_0\left(\sX \right) \otimes \K \to B\left( \H\right)$ is an atomic representation  then $v$ can be regarded as a bounded operator of $B\left(\H \right)$. 
 
+COVERING !!!
+
+\
 \paragraph{torsion}
 \begin{definition}\label{h_covering_defn}
 	Suppose that

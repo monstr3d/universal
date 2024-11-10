@@ -79,7 +79,7 @@ namespace Collada.Wpf.Classes
             {
                 index.Add(i[0]);
                 norms.Add(norm[i[1]]);
-                textc.Add(textures[i[2]]);
+          //      textc.Add(textures[i[2]]);
             }
 
             for (int i = 0; i < indexes.Count; i++)
