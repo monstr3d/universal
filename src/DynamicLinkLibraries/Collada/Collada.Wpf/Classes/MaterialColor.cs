@@ -33,17 +33,21 @@ namespace Collada.Wpf.Classes
             var t = Type;
             ConstructorInfo c = t.GetConstructor([]);
             var mat = c.Invoke([]) as Material;
-            var xc = xml.GetColorXml();
-            var color = xc.Get();
-            // Color color = el.GetColor();
-            PropertyInfo pi = t.GetProperty("Color");
-            pi.SetValue(mat, color, null);
             Material = mat;
+            var xc = xml.GetColorXml();
+            if (xc != null)
+            {
+                var color = xc.Get();
+                // Color color = el.GetColor();
+                PropertyInfo pi = t.GetProperty("Color");
+                pi.SetValue(mat, color, null);
+            }
             var rf = xml.GetAttribute("reflectivity");
             if (rf.Length > 0)
             {
                Reflectivity = xml.ToDouble("reflectivity");
             }
+            mat.Set(xml.Get<Texture>());
             return mat;
         }
 

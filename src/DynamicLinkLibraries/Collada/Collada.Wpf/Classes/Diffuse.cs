@@ -9,7 +9,6 @@ namespace Collada.Wpf.Classes
     [Tag("diffuse")]
     internal class Diffuse : MaterialColor
     {
-        static public readonly string Tag = "diffuse";
 
         public Texture Texture { get; internal set; }
 

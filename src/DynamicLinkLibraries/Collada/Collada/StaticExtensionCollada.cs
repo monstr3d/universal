@@ -96,9 +96,14 @@ namespace Collada
             return types[type];
         }
 
+
         public static byte ToByte(this double d)
         {
-            var x = d * 256 - 1;
+            var x = Math.Floor(d * 256);
+            if (x == 256)
+            {
+                x = 255;
+            }
             int k = (int)x;
             return (byte)k;
         }
@@ -1047,7 +1052,6 @@ namespace Collada
             StaticExtensionCollada.filename = filename;
             Directory = Path.GetDirectoryName(filename);
             function.Filename = filename;
-            Directory = Path.GetDirectoryName(filename);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlElement = xmlDoc.DocumentElement;
@@ -1133,11 +1137,6 @@ namespace Collada
         
    
 
-        public static object GetArray<T>(XmlElement element) where T : struct
-        {
-            return element.ToRealArray<T>();
-        }
-
 
         static public string ToFileName(this string str)
         {
@@ -1221,13 +1220,8 @@ namespace Collada
             }
         }
 
-
-
-
-
-        static public T[] ToRealArray<T>(this XmlNode node) where T : struct
+        public static T[] ToRealArray<T>(this string str) where T : struct
         {
-            string str = node.InnerText;
             string[] ss = str.Split(sep);
 
             var l = new List<T>();
@@ -1240,11 +1234,9 @@ namespace Collada
                 }
             }
             return l.ToArray();
-
         }
 
-
-
+ 
         #endregion
 
     }

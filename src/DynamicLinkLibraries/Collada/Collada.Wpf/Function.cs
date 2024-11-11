@@ -107,7 +107,7 @@ namespace Collada.Wpf
                                      methods[s] = mi;
                                  }*/
                 }
-                Type[] types = [typeof(Source), typeof(Vertices), typeof(Input), typeof(Surface), typeof(Sampler2D), typeof(Accessor), typeof(NewParam),  typeof(Texture), typeof(Diffuse),
+                Type[] types = [typeof(Init_From), typeof(Source), typeof(Vertices), typeof(Input), typeof(Surface), typeof(Sampler2D), typeof(Accessor), typeof(NewParam),  typeof(Texture), typeof(Emission), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
                 typeof(EffectObject),  typeof(MaterialObject), typeof(Instance_Material),  typeof(BindMaterial),  typeof(Technique), typeof(PolyList), typeof(MeshObject), typeof(GeometryObject),
                   typeof(Node), typeof(Scene)
@@ -301,7 +301,10 @@ namespace Collada.Wpf
             {"diffuse", typeof(DiffuseMaterial) },
                         {"specular", typeof(SpecularMaterial) },
 
-                        {"reflective", typeof(EmissiveMaterial) } };
+                        {"reflective", typeof(EmissiveMaterial) },
+
+                   {"emission", typeof(EmissiveMaterial) }
+             };
 
         internal static bool IsMaterial(string s)
         {

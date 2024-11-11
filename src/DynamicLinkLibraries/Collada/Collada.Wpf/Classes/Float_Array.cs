@@ -16,7 +16,7 @@ namespace Collada.Wpf.Classes
 
         private Float_Array(XmlElement element) : base(element)
         {
-            Array = element.ToRealArray<float>();
+            Array = element.InnerText.ToRealArray<float>();
         //    var p = element.GetStatic<Float_Array>();
         }
 

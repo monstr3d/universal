@@ -20,15 +20,15 @@ namespace Collaada.Wpf.Test
             //  f = @"c:\0\03D\NRW\UNZIP\cadnav.com_model_TORNADO\Models_G0404A626\Tornado.dae";
             f = @"c:\0\03D\tu154b\Model\1.dae";
             f = @"c:\0\03D\Models_G0404A626\Tornado.dae";
+            var fn = Path.GetFileNameWithoutExtension(f);
             var dir = Path.GetDirectoryName(f);
-
+            var file = Path.Combine(dir, fn + ".xaml");
             //  doc.Load(f);
 
             StaticExtensionColladaWpf.Set();
             StaticExtensionColladaWpf.Load(f);
-            return;
             var r = XamlWriter.Save(StaticExtensionColladaWpf.Result);
-            using (var w = new StreamWriter(Path.Combine(dir, "tornado.xaml")))
+            using (var w = new StreamWriter(file))
             {
                 w.Write(r);
             }

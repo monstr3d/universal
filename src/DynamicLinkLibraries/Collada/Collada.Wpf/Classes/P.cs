@@ -19,7 +19,7 @@ namespace Collada.Wpf.Classes
 
         protected P(XmlElement element) : base(element)
         {
-            p = element.ToRealArray<int>();
+            p = element.InnerText.ToRealArray<int>();
         }
 
         protected virtual object Get()

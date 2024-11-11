@@ -11,10 +11,8 @@ namespace Collada.Wpf.Classes
         public static IClear Clear => StaticExtensionCollada.GetClear<Source>();
 
 
-
-    
-
         public string Name { get; private set; }
+
         Dictionary<XmlElement, object> children;
 
         public float[] Array { 

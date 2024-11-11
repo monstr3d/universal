@@ -4,6 +4,7 @@ using System.Xml;
 using System;
 using Collada;
 using System.Collections.Generic;
+using Collada.Wpf;
 
 [Tag("sampler2D")]
 public class Sampler2D : Sid
@@ -31,12 +32,32 @@ public class Sampler2D : Sid
         samplers.Clear();
     }
 
+    
 
     public Surface Surface { get; private set; }
 
 
     public Sampler2D(XmlElement element) : base(element)
     {
+        var sur = element.Get<Surface>();
+        if (sur != null)
+        {
+            Surface = sur;
+        }
+        if (ImageSource != null)
+        {
+            return;
+        }
+        var s = element.Get<Source>();
+        if (s != null)
+        {
+            var ss = s.Xml.InnerText;
+            Surface = Surface.Get(ss);
+            if (Surface != null)
+            {
+                imageSource = Surface.ImageSource;
+            }
+        }
 
     }
 
@@ -59,16 +80,6 @@ public class Sampler2D : Sid
         }
     }
 
-    protected override void Process(XmlElement element)
-    {
-        var f = element.FirstElement();
-    /*    Surface = Sid.Get(f.InnerText) as Surface;
-        if (Surface == null)
-        {
-            throw new Exception();
-        }
-        ImageSource = Surface.ImageSource;*/
-    }
 
     public static object Get(XmlElement element)
     {

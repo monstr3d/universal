@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using System.Xml;
 
 namespace Collada.Wpf.Classes
@@ -13,6 +12,8 @@ namespace Collada.Wpf.Classes
         /// Is elementary
         /// </summary>
         static public readonly bool IsElementary = true;
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<Image>();
 
 
 

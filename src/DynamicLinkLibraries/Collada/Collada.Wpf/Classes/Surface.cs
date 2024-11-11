@@ -5,42 +5,79 @@ using System.Xml;
 namespace Collada.Wpf.Classes
 {
     [Tag("surface")]
-    public class Surface : Sid, IImageSource
+    public class Surface : Sid
     {
-        
+        static Surface()
+        {
+            surfaces = new();
+            sids = new(); ;
+
+        }
+
         static public Surface Get(string s)
         {
             if (surfaces.ContainsKey(s))
             {
                 return surfaces[s];
             }
-            return null;
+            return GetSid(s);
         }
 
-        static Dictionary<string, Surface> surfaces = new();
+        static Dictionary<string, Surface> surfaces = null;
+
+        static Dictionary<string, Surface> sids = null;
+
 
         static public readonly string Tag = "surface";
 
-        public ImageSource ImageSource { 
-            get; 
-            private set; 
-        }
 
         new internal static void Clear()
         {
             surfaces.Clear();
+            sids.Clear();
         }
 
 
         public Surface(XmlElement element) : base(element)
         {
+            var p = element.ParentNode;
+            if (p.Name == "newparam")
+            {
+                XmlElement a = p as XmlElement;
+                var sid = a.GetAttribute("sid");
+                if (sid.Length > 0)
+                {
+                    sids[sid] = this;
+                }
 
+            }
+        }
+
+        public static Surface GetSid(string sid)
+        {
+            if (sids.ContainsKey(sid))
+            {
+                return sids[sid];
+            }
+            return null;
         }
 
         protected override void Process(XmlElement element)
         {
-            ImageSource = element.InnerText.GetObject() as ImageSource;
+            base.Process(element);
+            if (imageSource != null)
+            {
+                return;
+            }
+  
+            ImageSource iso = element.InnerText.GetObject() as ImageSource;
+            if (iso != null)
+            {
+                imageSource = iso;
+                return;
+            }
         }
+
 
         public override void Set(NewParam newParam)
         {
@@ -49,7 +86,10 @@ namespace Collada.Wpf.Classes
             var sf = Surface.Get(n);
             if (sf != null)
             {
-                ImageSource = sf.ImageSource;
+                if (imageSource == null)
+                {
+                    imageSource = sf.ImageSource;
+                }
             }
             else
             {

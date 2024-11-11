@@ -12,6 +12,12 @@ namespace Collada.Wpf.Classes
         {
             var target = element.GetAttribute("target");
             target = target.Substring(1);
+            Material mm = StaticExtensionColladaWpf.GetMaterial(target);
+            if (mm != null)
+            {
+                Material = mm;
+                return;
+            }
             var m = target.Get<MaterialObject>();
             Material = m.Material;
             var url = element.GetAttribute("url");

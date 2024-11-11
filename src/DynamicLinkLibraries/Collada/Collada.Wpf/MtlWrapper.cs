@@ -74,7 +74,7 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
                 return;
             }
             MaterialGroup mat= new MaterialGroup();
-            var chidren = mat.Children;
+            var children = mat.Children;
             material = mat;
             var diffuse = new DiffuseMaterial();
             diffuse.Color = Diffuse;
@@ -82,13 +82,13 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
             br.ViewportUnits = BrushMappingMode.Absolute;
             br.Opacity = 1;
             diffuse.Brush = br;
-            chidren.Add(diffuse);
+            children.Add(diffuse);
             var emissive = new EmissiveMaterial();
             emissive.Color = Ambient;
-            chidren.Add(emissive);
+            children.Add(emissive);
             var specular = new SpecularMaterial();
             specular.Color = Specular;
-            chidren.Add(specular);
+            children.Add(specular);
 
         }
 

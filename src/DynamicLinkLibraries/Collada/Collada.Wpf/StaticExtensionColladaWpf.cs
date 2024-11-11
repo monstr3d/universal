@@ -186,6 +186,11 @@ namespace Collada.Wpf
 
         internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)
         {
+            var brush = diffuseMaterial.Brush as ImageBrush;
+            if (brush != null)
+            {
+                return true;
+            }
             if (imageSource == null)
             {
                 return false;
@@ -211,6 +216,10 @@ namespace Collada.Wpf
             if (sampler2D == null)
             {
                 return false;
+            }
+            if (sampler2D.ImageSource != null)
+            {
+                return diffuseMaterial.Set(sampler2D.ImageSource);
             }
             return diffuseMaterial.Set(sampler2D.Surface);
         }
@@ -484,6 +493,22 @@ namespace Collada.Wpf
             }
         }
 
+        public static Color ToColor(this double[] d)
+        {
+            if (d.Length == 3)
+            {
+                return Color.FromRgb(d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+            }
+            else if (d.Length == 4)
+            {
+                return Color.FromArgb(d[3].ToByte(), d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+            }
+            throw new Exception();
+        }
+
+
+
+
         public static Color ToColor(this string str)
         {
             var ss = str.Split(" ".ToCharArray());
@@ -497,12 +522,7 @@ namespace Collada.Wpf
                 }
                 d.Add(s.ToDouble());
             }
-            return new Color
-            {
-                R = d[0].ToByte(),
-                G = d[1].ToByte(),
-                B = d[2].ToByte()
-            };
+            return d.ToArray().ToColor();
         }
 
         public static void Load(string filename)
@@ -661,24 +681,48 @@ namespace Collada.Wpf
                     return (n as XmlElement);
                 }
             }
-            throw new Exception();
+            return null;
         }
 
-    
+        public static void Set(this Material m, Texture texture)
+        {
+            if (texture == null)
+            {
+                return;
+            }
+            if (m is DiffuseMaterial diffuse)
+            {
+                diffuse.Set(texture.Sample);
+            }
+        }
+
+        static public Color GetColor(this double[] d)
+        {
+            if (d.Length == 3)
+            {
+                return Color.FromRgb(d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+            }
+            else if (d.Length == 4)
+            {
+                return Color.FromArgb(d[3].ToByte(), d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+            }
+            throw new Exception();
+
+        }
+
+
+        static public Color GetColor(this string s)
+        {
+            double[] d = s.ToRealArray<double>();
+            return d.GetColor();
+        }
+
         static public Color GetColor(this XmlElement e)
         {
             if (e.Name.Equals("color"))
             {
-                double[] d = e.ToRealArray<double>();
-                if (d.Length == 3)
-                {
-                    return Color.FromRgb(d[0].ToColor(), d[1].ToColor(), d[2].ToColor());
-                }
-                else if (d.Length == 4)
-                {
-                    return Color.FromArgb(d[3].ToColor(), d[0].ToColor(), d[1].ToColor(), d[2].ToColor());
-                }
-                throw new Exception();
+                double[] d = e.InnerText.ToRealArray<double>();
+                return d.GetColor();
             }
             foreach (XmlNode n in e.ChildNodes)
             {
@@ -712,14 +756,6 @@ namespace Collada.Wpf
             bi.UriSource = new Uri(fn);
             bi.EndInit();
             return bi;
-        }
-
-
-
-        public static byte ToColor(this double x)
-        {
-            double y = Math.Floor(x * 255);
-            return (byte)y;
         }
 
 

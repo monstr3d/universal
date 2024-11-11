@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Xml;
 using System;
+using System.Windows.Media;
 namespace Collada.Wpf.Classes
 {
 
-    public abstract class Sid : Collada.XmlHolder
+    public abstract class Sid : Collada.XmlHolder, IImageSource
     {
         static Dictionary<XmlElement, Sid> dictionary = new();
 
@@ -14,6 +15,13 @@ namespace Collada.Wpf.Classes
         protected NewParam newParam;
 
         public NewParam NewParam => newParam;
+
+        protected ImageSource imageSource;
+
+        
+
+        public ImageSource ImageSource => imageSource;
+
         public Sid(XmlElement element) : base(element)
         {
             var p = element.ParentNode as XmlElement;
@@ -26,7 +34,14 @@ namespace Collada.Wpf.Classes
             Process(element);
         }
 
-        protected abstract void Process(XmlElement element);
+        protected virtual void Process(XmlElement element)
+        {
+            var inf = element.Get<Init_From>();
+            if (inf != null)
+            {
+                imageSource = inf.ImageSource;
+            }
+        }
 
         public virtual void Set(NewParam newParam)
         {
