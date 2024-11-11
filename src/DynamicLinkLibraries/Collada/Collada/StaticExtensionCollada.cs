@@ -108,6 +108,22 @@ namespace Collada
             return (byte)k;
         }
 
+        public static T[,] ToMatrix<T>(this T[] matrix, int row)
+        {
+            var col = matrix.Length / row;
+            var res = new T[row, col];
+            int i = 0;
+            for (var j = 0; j < row; j++)
+            {
+                for (var k = 0; k < col; k++)
+                {
+                    res[j, k] = matrix[i];
+                    ++i;
+                }
+            }
+            return res;
+        }
+
         public static bool IsUknown(this Type type)
         {
             return !types.ContainsKey(type);

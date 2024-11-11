@@ -170,15 +170,21 @@ namespace Collada.Wpf.Classes
                 {
                     return;
                 }
-                Material = cn[0].Material;
-                ModelVisual3D modelVisual3D = Visual3D as ModelVisual3D;
-                var ct = modelVisual3D.Content as GeometryModel3D;
-                ct.Material = Material;
+                var mat = element.Get<Matrix>();
+                if (mat != null)
+                {
+                    var mm = mat.Matrix3D;
+                    if (mm != null)
+                    {
+                        Visual3D.Transform = new MatrixTransform3D(mm);
+                    }
+                }
+
             }
-  //          Geometry = GeometryObject.Get(Name);
+            //          Geometry = GeometryObject.Get(Name);
             if (Geometry != null)
             {
-               // Visual3D = Geometry.Visual3D;
+                // Visual3D = Geometry.Visual3D;
             }
             var nk = element.GetElements().Where(e => e.ParentNode == element & e.Name == Tag);
             if (!roots.Contains(this))
@@ -192,9 +198,8 @@ namespace Collada.Wpf.Classes
                 child.Parent = this;
                 childern.Add(child);
             }
- 
         }
-
+            //var mater = element.Get<Instance_Material>();
  
         void Combine()
         {
@@ -264,10 +269,34 @@ namespace Collada.Wpf.Classes
             }
             var a = new Node(element);
             a.Combine();
-            var r = a.Result;
-            r.SetLight();
-            StaticExtensionColladaWpf.Result = r;
             return a.Get();
+        }
+
+        public static ModelVisual3D GetAll()
+        {
+            ModelVisual3D mod;
+            if (roots.Count == 1)
+            {
+                mod = roots[0].Visual3D as ModelVisual3D;
+                mod.SetLight();
+                return mod;
+            }
+            else
+            {
+                mod = new ModelVisual3D();
+                var children = mod.Children;
+                foreach (var root in roots)
+                {
+                    var r = root.Visual3D;
+                    if (!children.Contains(r))
+                    {
+                        children.Add(r);
+                        r.SetLight();
+                    }
+                }
+            }
+            mod.SetLight();
+            return mod;
         }
     }
 }
