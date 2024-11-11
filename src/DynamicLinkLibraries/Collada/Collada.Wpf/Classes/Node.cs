@@ -165,10 +165,15 @@ namespace Collada.Wpf.Classes
             var cn = element.GetOwnChildren<InstanceGeomery>().ToArray();
             if (cn.Length == 1)
             {
-                Visual3D = cn[0].Visual3D;
-                if (Visual3D == null)
+                var ig = cn[0];
+                Visual3D = ig.Visual3D;
+                try
                 {
-                    return;
+                    Visual3D.Check();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
                 }
                 var mat = element.Get<Matrix>();
                 if (mat != null)

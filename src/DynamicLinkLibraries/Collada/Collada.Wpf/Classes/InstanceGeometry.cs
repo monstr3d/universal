@@ -9,8 +9,6 @@ namespace Collada.Wpf.Classes
     {
         static public readonly string Tag = "instance_geometry";
 
-        bool isCombined = false;
-
         public Material Material { get; private set; }
 
         public Visual3D Visual3D { get; private set; }
@@ -42,37 +40,59 @@ namespace Collada.Wpf.Classes
             var url = element.GetAttribute("url").Substring(1);
             if (url.Length != 0)
             {
-                if (url == "ID158")
+                if (url == "ID126")
                 {
 
                 }
-            }
-            var b = element.Get<Instance_Material>();
-            if (b == null)
-            {
-                return;
-            }
-            Material = b.Material;
-            if (url.Length != 0)
-            {
-                if (url == "ID158")
-                {
 
-                }
-                var t = url.Get<GeometryObject>();
-                if (t == null)
+                if (url.Length != 0)
                 {
-                    return;
+                    if (url == "ID126")
+                    {
+
+                    }
+                    var t = url.Get<GeometryObject>();
+                    if (t == null)
+                    {
+                        return;
+                    }
+                    Visual3D = t.Visual3D;
+                    if (Visual3D == null)
+                    {
+                        throw new Exception();
+                    }
+                    if (Visual3D is ModelVisual3D model)
+                    {
+                        var g = model.Content as GeometryModel3D;
+                        g.Material = Material;
+                    }
                 }
-                Visual3D = t.Visual3D;
-                if (Visual3D is ModelVisual3D model)
+                if (Visual3D == null)
                 {
-                   var  g= model.Content as GeometryModel3D;
-                    g.Material = Material;
+                    throw new Exception();
+                }
+                if (Visual3D is ModelVisual3D modelVisual)
+                {
+                    var c = modelVisual.Content;
+                    if (c is GeometryModel3D g)
+                    {
+                        if (g.Material == null)
+                        {
+                            var b = element.Get<Instance_Material>();
+                            if (b != null)
+                            {
+                                g.Material = b.Material;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
                 }
             }
-
         }
+
 
         object Get()
         {

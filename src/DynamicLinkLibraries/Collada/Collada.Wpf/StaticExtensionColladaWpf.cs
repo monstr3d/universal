@@ -184,8 +184,117 @@ namespace Collada.Wpf
             d[id] = value;
         }
 
+        static List<DiffuseMaterial> abscentImage = new List<DiffuseMaterial>();
+
+        internal static bool Check(this Material material)
+        {
+            if (material is DiffuseMaterial diff)
+            {
+                return true;
+                var brush = diff.Brush as ImageBrush;
+                if (brush == null)
+                {
+                    return abscentImage.Contains(diff);
+                }
+                return true;
+
+            }
+            if (material is MaterialGroup group)
+            {
+                if (group.Children.Count != 3)
+                { 
+                    return false; 
+                }
+                EmissiveMaterial emissive = null;
+                SpecularMaterial specular = null;
+                DiffuseMaterial diffuse = null; 
+                foreach ( var child in group.Children )
+                {
+                    switch (child)
+                    {
+                        case EmissiveMaterial emissiveMaterial:
+                            emissive = emissiveMaterial;
+                            break;
+                        case SpecularMaterial sMaterial:
+                            specular = sMaterial;
+                            break;
+                        case DiffuseMaterial diffuseMaterial:
+                            if (!diffuseMaterial.Check())
+                            {
+                                return false;
+                            }
+                            diffuse = diffuseMaterial;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                return (diffuse != null) & (specular != null) & (emissive != null);
+            }
+            return true;
+        }
+
+        internal static void Check(this Visual3D visual3D)
+        {
+            if (visual3D == null)
+            {
+                throw new Exception();
+            }
+            if (visual3D is ModelVisual3D m)
+            {
+                m.Check();
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+        }
+
+        internal static void Check(this ModelVisual3D modelVisual3D)
+        {
+            var m = modelVisual3D.Content as GeometryModel3D;
+            if (m == null)
+            {
+                throw new Exception();
+            }
+            if (!m.Material.Check())
+            {
+                throw new Exception();
+            }
+            var ms = m.Geometry as MeshGeometry3D;
+            if (ms == null)
+            {
+                throw new Exception();
+            }
+            ms.Check();
+        }
+
+        internal static void Check(this MeshGeometry3D meshGeometry3D)
+        {
+            if (meshGeometry3D.Positions == null)
+            {
+                throw new Exception();
+            }
+            if (meshGeometry3D.Normals == null)
+            {
+                throw new Exception();
+            }
+            if (meshGeometry3D.TextureCoordinates == null)
+            {
+                throw new Exception();
+            }
+            if (meshGeometry3D.TriangleIndices == null)
+            {
+                throw new Exception();
+            }    
+        }
+
         internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)
         {
+            if (diffuseMaterial == null)
+            {
+                return false;
+            }
             var brush = diffuseMaterial.Brush as ImageBrush;
             if (brush != null)
             {
@@ -193,6 +302,10 @@ namespace Collada.Wpf
             }
             if (imageSource == null)
             {
+                if (!abscentImage.Contains(diffuseMaterial))
+                {
+                    abscentImage.Add(diffuseMaterial);
+                }
                 return false;
             }
             ImageBrush br = new ImageBrush(imageSource);
