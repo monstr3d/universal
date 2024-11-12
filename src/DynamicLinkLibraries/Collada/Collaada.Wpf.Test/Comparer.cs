@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
@@ -9,18 +10,51 @@ namespace Collaada.Wpf.Test
 {
     public class Comparer : IEqualityComparer<MeshGeometry3D>
     {
+
+        public static IEqualityComparer<MeshGeometry3D> Inatance = new Comparer();
+
         bool IEqualityComparer<MeshGeometry3D>.Equals(MeshGeometry3D? x, MeshGeometry3D? y)
         {
-            var xx = x.Positions;
-            var yy = y.Positions;
-            for (var i = 0; i < xx.Count; i++)
+            /*  var xx = x.Positions;
+              var yy = y.Positions;
+              for (var i = 0; i < xx.Count; i++)
+              {
+                  var a = xx[i];
+                  var b = yy[i];
+                  if (!a.Equals(b))
+                      return false;
+              }
+              return true;*/
+            var xx = x.TextureCoordinates;
+            var yy = y.TextureCoordinates;
+            if (xx.Count == 0 | yy.Count == 0)
             {
-                var a = xx[i];
-                var b = yy[i];
-                if (!a.Equals(b))
-                    return false;
+                return false;
             }
-            return true;
+            if (!xx[0].Equals(yy[0]))
+            {
+                return false;
+            }
+            if (xx.Count != yy.Count)
+            {
+                return false;
+            }
+            if (xx.Count > 10)
+            {
+
+            }
+            for (int i = 0; i < xx.Count; i++)
+            {
+                if (!xx[i].Equals(yy[i]))
+                {
+
+                }
+            }
+            if (x.TextureCoordinates != y.TextureCoordinates)
+            {
+
+            }
+            return xx.Count == yy.Count;
         }
 
         int IEqualityComparer<MeshGeometry3D>.GetHashCode(MeshGeometry3D obj)

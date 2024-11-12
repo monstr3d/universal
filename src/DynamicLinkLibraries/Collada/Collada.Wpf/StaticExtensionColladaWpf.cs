@@ -9,7 +9,9 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
+using System.Xml.Linq;
 using Collada.Wpf.Classes;
+using Collada;
 
 namespace Collada.Wpf
 {
@@ -45,6 +47,28 @@ namespace Collada.Wpf
 
         static public ModelVisual3D Result => Node.GetAll();
 
+
+        public static List<int[]> ToInt3Array(this int[] x)
+        {
+            List<int[]> l = new List<int[]>();
+            for (int i = 0; i < x.Length; i += 3)
+            {
+                l.Add(new int[] { x[i], x[i + 1], x[i + 2] });
+            }
+            return l;
+        }
+
+        static public List<int[]> ToInt3Array(this XmlElement element)
+        {
+            return element.ToIntArray().ToInt3Array();
+            List<int[]> l = new List<int[]>();
+            int[] x = element.ToIntArray();
+            for (int i = 0; i < x.Length; i += 3)
+            {
+                l.Add(new int[] { x[i], x[i + 1], x[i + 2] });
+            }
+            return l;
+        }
 
 
         public static List<Point3D> ToPoint3DList(this Source s)
@@ -138,6 +162,9 @@ namespace Collada.Wpf
                 case Source source:
                     l = source.ToPointList();
 
+                    break;
+                case   float[] fl:
+                    l = fl.Convert(x => (double)x).ToArray().ToPointList();
                     break;
             }
             if (obj is int[]  ints)
@@ -283,11 +310,13 @@ namespace Collada.Wpf
             {
                 throw new Exception();
             }
-            if (meshGeometry3D.TriangleIndices == null)
+            if (meshGeometry3D.TriangleIndices.Count == 0)
             {
-                throw new Exception();
+               // throw new Exception();
             }    
         }
+
+      
 
         internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)
         {
@@ -494,17 +523,7 @@ namespace Collada.Wpf
             return x.ToTextureArray();
         }
 
-        public static List<int[]> ToInt3Array(this XmlElement element)
-        {
-            List<int[]> l = new List<int[]>();
-            int[] x = element.ToIntArray();
-            for (int i = 0; i < x.Length; i += 3)
-            {
-                l.Add(new int[] { x[i], x[i + 1], x[i + 2] });
-            }
-            return l;
-        }
-
+ 
         public static List<Point3D> ToPoint3DList(this XmlElement e)
         {
             return null;// e.GetAllChildren<double[]>().ToArray().ToPoint3DList();
@@ -587,7 +606,7 @@ namespace Collada.Wpf
             }
             if (semantic == "TEXCOORD")
             {
-                return id.Get<Source>();
+               return  id.Get<Source>().Array;
             }
             throw new Exception();
         }

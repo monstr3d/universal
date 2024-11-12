@@ -48,29 +48,21 @@ namespace Wpf.Loader
 
         public void  Load(string file)
         {
-            var dir = Path.GetDirectoryName(file);
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(file);
-            XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
-            foreach (XmlElement e in nl)
+            string dir = Path.GetDirectoryName(file);
+            Visual3D v = file.ToVisual3D();
+            string xaml;
+            if (v != null)
             {
-                string iso = e.GetAttribute("ImageSource");
-                if (iso.Contains('/'))
-                {
-                    iso = Path.GetFileName(iso);
-                    e.SetAttribute("ImageSource", iso);
-                }
-                string fn = Path.Combine(dir, iso); ;
-                if (!File.Exists(fn))
-                {
-                    continue;
-                }
-                Stream stream = File.OpenRead(fn);
-                byte[] b = new byte[stream.Length];
-                stream.Read(b, 0, b.Length);
-                textures[iso] = b;
+                xaml = System.Windows.Markup.XamlWriter.Save(v);
             }
-            Xaml = doc.OuterXml;
+            else
+            {
+                using (TextReader reader = new StreamReader(file))
+                {
+                    xaml = reader.ReadToEnd();
+                }
+            }
+            SetFile(xaml, dir);
 
         }
 
@@ -188,17 +180,7 @@ namespace Wpf.Loader
             }
         }
 
-        /// <summary>
-        /// Public access to visual
-        /// </summary>
-        public Visual3D PublicVisual
-        {
-            get
-            {
-                return Visual;
-            }
-        }
-
+  
         /// <summary>
         /// Saves textures 
         /// </summary>
@@ -406,7 +388,7 @@ namespace Wpf.Loader
         /// <summary>
         /// Visual object
         /// </summary>
-        protected virtual Visual3D Visual
+        public virtual Visual3D Visual
         {
             get
             {
@@ -418,7 +400,7 @@ namespace Wpf.Loader
                 if (ob is Visual3D)
                 {
                     v3d = ob as Visual3D;
-           StaticExtensionWpfLoader.SetStandardTransform(v3d);
+                    StaticExtensionWpfLoader.SetStandardTransform(v3d);
                     if (v3d is ModelVisual3D)
                     {
                         model = v3d as ModelVisual3D;
@@ -437,7 +419,7 @@ namespace Wpf.Loader
                     model.Content = group;
                     geom.Material = bp.Material;
                     model.Content = geom;
-                  StaticExtensionWpfLoader.SetStandardTransform(model);
+                    StaticExtensionWpfLoader.SetStandardTransform(model);
                     v3d = model;
                 }
                 if (isColored)

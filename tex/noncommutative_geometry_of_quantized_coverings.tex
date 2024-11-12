@@ -14373,14 +14373,14 @@ is a $\mathfrak{Cov}\left(\mathfrak{S}^K \right)$-morphism. So a terminal object
 If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_red_homol_defn}, i.e. it is a reduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
 \be\label{h_hk1_eqn}
 \begin{split}
-	h_{K_1}	:\pi^{P_{\mathrm{untz}}}_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }\\
+	h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\\\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }
 	\Hom\left(K_0\left(S^0 \right),  K_1\left(\sX \right)\right)\cong K_1\left(\sX \right).
 \end{split}
 \ee
 From \ref{cirle_k1_empt} it follows that
-$$
+\be\label{h_hk11_eqn}
 h_{K_1}	\left(\left[f \right]  \right) \bydef K_1\left( \left[f \right]\right) \left(\left[ 	K^1_{S^1}\right]  \right)
-$$
+\ee
 where the following notation is used
 \begin{itemize}
 	\item $f: \left(S^1, s_0\right)\to \left(\sX, x_0\right)$ is a representative of $\left[f \right]\in \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, y_0 \right), \pi_1\left(\sX, y_0 \right)\right]$.
@@ -14580,137 +14580,33 @@ where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\lef
 \begin{example}\label{s_1_covering_sample}
 	If  $A \bydef C\left( S^1\right)\otimes \K$ then there is the natural inclusion $C\left( S^1\right)\subset M\left(A \right)$ it is known that $K_1\left(C\left( S^1\right) \right) = \Z\left[u\right]$ where $u \in C\left( S^1\right)\in M\left( A\right)$ is an unital element. If $\phi_n$ satisfying  to !!! \eqref{h_n_root} and 	$v = \phi\left( u\right)$ then $C\left( S^1\right)\left[v\right]\cong C\left( \widetilde \sY \right)$ where $\widetilde \sY\cong S^1$ and an inclusion  $C\left( S^1\right)\hookto C\left( S^1\right)\left[v\right]$ corresponds to an $n$-listed covering $\widetilde \sY\cong S^1 \to S^1$. In result one has an $\left(u, n\right)$-{covering} $\left(C\left( S^1\right)\otimes \K, C\left( \widetilde \sY\right)\otimes \K, \Z_n\right)$  of $C\left( S^1\right)\otimes \K$ (cf. Theorem \ref{stable_fin_cov_thm} )
 \end{example}
-\paragraph{Cyclic coverings}
-Let $\sX$ be a connected, locally connected  topological space with  is a dense constable set $A= \{a_j\}_{\j \in \N}\subset \sX$ . Let $\widetilde \sX \to \sX$ be a covering. Let $\left\{\sU_\la\right\}_{\la \in \La}$ be a family of connected, locally connected open sets such that $\sX = \cup_{\la\in \La}\sU_\la$. For any $a_j \in A$  we select $\sU \in \left\{\sU_\la\right\}$ and define a sequence $\{\a_{jk}\}_{k\in \N}\subset \sU$ such that
-\bean
-a_j = \lim_{k \to \infty} a_{jk},\\
-\forall j \in \N \quad A \cap \{\a_{jk}\}= \emptyset
-\eean 
-Let us define a net $\{b_l\}_{l \in \N}$ such 
-\bean
-j \neq k \quad b_j \neq b_k,\\ 
-\{b_l\}_{l \in \N}= \cup \{\a_{jk}\}
-\eean
-We define a map 
-\bean
-\varphi: \sX \to \N,\\
-x \mapsto \begin{cases}
-	l & x = b_l\\
-	0 & x \notin  \{b_l\}
-\end{cases}
-\eean   
-Any $u : \sX \to \sU(1)$ we represent by the following way
+\section{Comparison with classical Hurewicz homomorphism}
+\paragraph{} Suppose that $\left[\om\right]\in \pi_1\left(\sX, x_0 \right)$ is represented by an injective continuous map $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$. The map $\om$ yields a homomorphism $K_1\left(\om \right): K_1\left( C\left( \sX\right) \right) \to K_1\left( S^1\right)$ such that if $x \in K_1\left( \sX\right)$ is represented by unitary map $u : \sX \to \sU\left(1 \right)$ then $K_1\left(\left[\om\right] \right)\left(x \right)=K_1\left(\left[\om\right] \right)\left(\left[u\right] \right)\in K_1\left(C\left(  S^1\right) \right)$ is represented by the restriction  $u|_{\om\left(S^1 \right) }$, i.e. $K_1\left(\left[\om\right] \right)\left(\left[u\right] \right)= \left[u|_{\om\left(S^1 \right) }\right]$. Note that $K_1\left(\left[\om\right] \right)$ linearly depends on $\left[\om\right]$, i,e.
+\be\label{h_o_eqn}
+K_1\left(\left[\om_1 \cdot \om_2\right] \right)= K_1\left(\left[\om_1\right] \right)K_1\left(\left[\om_2\right] \right)
+\ee
+If $\left[u_{S^1}\right]\in  K_1\left(C\left(  S^1\right)\right) $ is a generator of  $K_1\left(C\left(  S^1\right)\right) $ then there is $n \ge 0$ such that $K_1\left( \left[\om_2\right] \right)\left( K_1\left(C\left(\sX \right)  \right)\right)    = n\Z \left[u_{S^1}\right]$. If $n > 1$  then $n = p^{r_1}_1\cdot ...\cdot p^{r_m}_m$. And from \eqref{h_o_eqn} it follows that
 $$
-\forall x \in \sX \quad u(x)= e^{i \phi\left( x\right) }
+\om = \om_1 \cdot ...\cdot \om_m
 $$
-where $\phi\left( x\right) \in \left[0, 2\pi\right)$. If we define 
-\bean
-v : \sX \to \sU(1),\\
-x \mapsto e^{\frac{2\pi i\left(  \phi\left(x \right)  + \varphi\left( x\right)\right)  }{n}}
-\eean
-then $v^n = u$.
-If $\rho : C_0\left(\sX \right) \otimes \K \to B\left( \H\right)$ is an atomic representation  then $v$ can be regarded as a bounded operator of $B\left(\H \right)$. 
+with
+$$
+\forall j \in \left\{1, ..., m\right\}]\quad K_1\left( \left[\om_j\right]\right)\left( K_1\left(C\left(\sX \right)  \right)\right)    = p^{r_j}_j\Z \left[u_{S^1}\right]
+$$
+For any $j \in \left\{1, ..., m\right\}$ there is $u_j : \sX \to \sU\left( 1\right)$ such that  $ K_1\left( \left[\om_j\right]\right)\left(\left[u_j\right] \right) = p^{r_j}_j \left[u_{S^1}\right]$. There is no $v_j \sX \to \sU\left( 1\right)$ such that $v_j^{ p^{r_j}_j}= u_j$.
 
-COVERING !!!
 
-\
-\paragraph{torsion}
-\begin{definition}\label{h_covering_defn}
-	Suppose that
-	$$
-	\left\{\left(u_j, n_j \right) \right\}_{j = 1,..., n}\subset  M\left( A\right) \times \N
-	$$
-	is such that for any $j \in \left\{1,...,n\right\}$ one has a unitary  $v_j \in B\left(\H \right)$ satisfying following conditions :
-	\begin{enumerate}
-		\item[(a)] $n_j> 1$ and $v_j^{n_j}=M\left(\pi \right)\left(  u_j\right) $ is an unitary,.
-		\item[(b)]  $\forall k \in \{1, ..., n_j -1\}\quad v_j^k   \notin M\left( \pi \right)\left(M\left( A\right) \right) $.  
-		\item[(c)] If $C\left(v_1,  ..., v_n\right)\subset B\left( \H\right) $ is a $C^*$-algebra generated by $\left\{v_1,  ..., v_n\right\}$ and  $\widetilde M$  is an algebraic $\C$-linear span  of
-		$$
-		\left\{ a p \left| a \in M\left(A \right)\quad p \in C\left(v_1,  ..., v_n\right) \right.\right\}
-		$$
-		is a finitely generated left $M\left( A\right)$-module,
-		\item[(e)] $\widetilde M$ is a $C^*$-subalgebra of $B\left( \H\right)$ and there is a  natural unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn})
-		\be\label{h_multi_eqn}
-		\left( M\left(  A\right), ~\widetilde M,~ \Z_{n_1}\times...\times \Z_{n_n} , ~\widetilde \lift \right) 
-		\ee
-		such that
-		$$
-		\forall \left(\overline{k}_1, ..., \overline{k}_n \right) \in \Z_{n_1}\times...\times \Z_{n_n}\quad \left(\overline{k}_1, ..., \overline{k}_n \right) v_j = e^{\frac{2\pi i k_j}{n_j}}v_j.	
-		$$
-	\end{enumerate}
-	The quadruple \eqref{h_multi_eqn} is an \textit{unital} $\left(\pi, \left\{\left(u_j, n_j \right) \right\}_{j = 1,..., n}\right) $- \textit{covering}. If $\widetilde A$ is a generated by $A$ ideal of  $\widetilde M$ then the natural  quadruple
-	\be\label{h_multia_eqn}
-	\left(  A, \widetilde A ,~ \Z_{n_1}\times...\times \Z_{n_n} , ~ \lift \right) 
-	\ee
-	is a noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}). The quadruple \eqref{h_multia_eqn} is a $\left(\pi, \left\{\left(u_j, n_j \right)_{j = 1,..., n} \right\}\right) $- \textit{covering with unitization}.
-	
-\end{definition}
-\begin{notation}\label{h_p_not}!!! CONTINUE !!!
-	If $A\left( p\right)$ is a $p$-group of type $\left(p^{r_1}, ...,p^{r_s} \right)$ (cf. Section \ref{alg_fin_gen_ab_sec}) then say that $A\left( p\right)$ is a $p$-group of type $\left( \underbrace{ p^{s_1},...,  p^{s_1}}_{\ord\left( p^{s_1}\right)\mathrm{-times}},..., \underbrace{ p^{s_n},...,  p^{s_n}}_{\ord\left( p^{s_n}\right)\mathrm{-times}}\right) $
-\end{notation}
-\begin{empt}\label{tors_special_case_general}
- Suppose that the $p$-group $K_1\left( A\right)_{\mathrm{tor}}\left( p\right)$ of    a torsion group $K_1\left( A\right)_{\mathrm{tor}}$ (Section \ref{alg_fin_gen_ab_sec}) is of type  $\left( \underbrace{ p^{s_1},...,  p^{s_1}}_{\ord\left( p^{s_1}\right)\mathrm{-times}},..., \underbrace{ p^{s_n},...,  p^{s_n}}_{\ord\left( p^{s_n}\right)\mathrm{-times}}\right) $. We say that $p^s$-component of $K_1\left( A\right)_{\mathrm{tor}}\left( p\right)$ \textit{admits order} $n$ if  there is a set $\left\{u_j\right\}_{j=1,..., n}\subset M\left(A \right) $ of unitaries such that
-	\begin{enumerate}
-		\item[(a)]  $u_j$ represents an element $\left[u_j\right]\in K_1\left( A\right)_{\mathrm{tor}}\left(p \right) $ such that $\left|\Z\left[u_j\right]\right| = p^s$ and one has
-		$$
-		\bigoplus_{j=1}^n 	\Z\left[u_j\right] \subset K_0\left( A\right)\left(p \right),
-		$$
-		\item[(b)] there is a $\left(\pi, \left\{\left(u_j, p^s \right)_{j = 1,..., n} \right\}\right) $- {covering with unitization}.
-	\end{enumerate}	
-	\begin{definition}
-		Suppose that 
-		$$
-		H\left(p^s  \right) \bydef \max \left\{n \left| p^ss\text{-component of } K_1\left( A\right)_{\mathrm{tor}}\left( p\right) \text{ admits order } n\right.\right\}
-		$$
-		then we say that the \textit{image Hurewicz homomorphism in } $K^1\left( A\right)\left(p \right)$ \textit{is of type}
-		$$
-		\left( \underbrace{ p^{s_1},...,  p^{s_1}}_{H\left( p^{s_1}\right)\mathrm{-times}},..., \underbrace{ p^{s_n},...,  p^{s_n}}_{H\left( p^{s_n}\right)\mathrm{-times}}\right)
-		$$
-	\end{definition}
-	$K_1\left( A\right)_{\mathrm{tor}}$ of $K_1\left( A\right)$ is finitely generated then from the Theorem \ref{alg_fin_gen_ab_fin_thm} it follows that there are a set $\left\{u_1,..., u_{H\left( p^r\right)}\right\}\subset  M\left( A\right)$ of unitaries such that 
-	$$
-	\bigoplus_{j = 1}^{H\left( p^r\right) } \Z\left[u_j\right]\subset	K_1\left( A\right)_{\mathrm{tor}}	$$
-	and $\left|\Z\left[u_j\right]\right|= p^r$,
-	Suppose  there is a faithful nondegenerate representation $\pi: A\to B\left(\H\right)  $ and   $n \le m$ the quadruple
-	$$
-	\left(  A, \widetilde A ,~ \underbrace{\Z_{p^r}\times...\times \Z_{p^r}}_{H\left( p^{r}\right)\mathrm{-times}} = G\left( \left. \widetilde A\right| A\right)  , ~ \lift \right)
-	$$
-	is a $\left(\pi, \left\{\left(v_j, n_j \right)_{j = 1,..., n} \right\}\right) $- {covering with unitization} (cf. Definition \ref{h_covering_defn}). Let $h_{\widetilde A}: \pi_1\left(A \right) \to G\left( \left. \widetilde A\right| A\right)$ be a given by the Definition \ref{good_defn} surjective homomorphism. 
-	For any
-	$g \in \pi_1\left(A \right) $ we define a character $\chi_g : \bigoplus_{j = 1}^{\ord\left( p^r\right) } \Z\left[u_j\right]\to U\left(1 \right)$
-	$$
-	\chi^{p^r}_{g}\left(\left[u_j\right] \right) \bydef\begin{cases}
-		\frac{h_{\widetilde A_\K}\left(g \right) v_j}{v_{j}} & j \le H\left( p^r\right) \\
-		1 & j > H\left( p^r\right)
-	\end{cases}
-	$$
-	Using the Theorem \ref{alg_finp_gen_ab_fin_thm} for any $g \in \pi_1\left( A\right)$ one can construct a character $\chi_g: K_0\left( A\right)_{\mathrm{tor}}\to U\left(1 \right)$ 
-	On the other hand
-	$\mathrm{\Ext}\left(K_0\left( A\right)_{\mathrm{tor}}, \Z \right)$ is naturally isomorphic to the group of characters on $K_1\left( A\right)_{\mathrm{tor}}$. So one has a homomorphism
-	\be\label{h_tor_eqn}
-	\begin{split}
-	h_{\mathrm{tor}}: \pi^{P_{\mathrm{untz}}}_1\left(A \right)\to  \chi\left(K_0\left( A\right)_{\mathrm{tor}}\right),\\
-	g \mapsto \chi_g
-	\end{split}
-	\ee
-	where $\chi\left(K_0\left( A\right)_{\mathrm{tor}}\right)$ is a group of characters of the torsion group $(K_0\left( A\right)_{\mathrm{tor}}$.
-\end{empt}\label{h_tor_defn}
-\begin{definition}
-	We say that the given by \eqref{h_tor_eqn} map is the \textit{torsion Hurewicz homomorphism}. 
-\end{definition}
-\begin{empt}
-	Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
-	\be\label{h_n_root}
-	\left( \phi_n\right)^n = \Id_{\left\{\left. z \in \C\right| \left|z \right|=1\right\}}
-	\ee
-	In particular $\phi_n$ can be given by	
-	\be\label{h_n_n_root}
-	\phi_n\left( \varphi\right)= e^{\frac{i \varphi}{n}} 
-	\ee
-	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
-\end{empt}
-\paragraph{torsion}
-\
+If $\left[u|_{\om\left(S^1 \right) }\right]$ is not trivial then then the image of  $K_1\left( C\left( \sX\right) \right) \to K_1\left( S^1\right)$ is not trivial. Suppose that there is $u \sX \to \sU\left(1 \right)$ such that  
+
+
+Suppose that $\left[u\right]\in  K_1\left( \sX\right)$ is not divisible, i.e. there is no $x \in K_1\left( C\left( \sX\right) \right)$ and $n> 1$ with  $\left[u\right] = nx$. It means that $\Z\left[u\right]\cong \Z$ or $\Z\left[u\right]\cong \Z_{p^r}$.  suppose that 
+\be\label{h_hk1_eqn!}
+\begin{split}
+	h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\\\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }
+	\Hom\left(K_0\left(S^0 \right),  K_1\left(\sX \right)\right)\cong K_1\left(\sX \right).
+\end{split}
+\ee
+
 
 \begin{exm}\label{s_3_covering_sample}
 	It is known that $S^3$ is homeomorphic to $SU(2)$ and $K^1\left(SU(2) \right)\cong K_1(C(SU(2))\cong \Z$. The group $K_1(C(SU(2)))$ is generated by $\left[u\right]$ where   $u \in C(SU(2)) \otimes \mathbb{M}_2(\mathbb{C})\subset M\left(C(SU(2))\otimes \K \right)$ is an unitary element which commutes with $C(SU(2))$. Let $C\cong C\left( \sY\right)$ be a generated by $C\left( SU\left(2 \right) \right) \cup \{u\}$ commutative $C^*$-algebra. According to the construction \ref{h_pre_empt} there is a finite-fold covering $\widetilde \sY \to \sY$. If $\widetilde \sY$ is connected then there is a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))\otimes \K$ (cf. Definition \ref{fin_defn}) then From the Theorem \ref{stable_fin_cov_thm} it follows that a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))$. But  $\pi^{P_{\mathrm{untz}}}_1\left( SU(2)\right)$ is trivial, so from the Corollary  \ref{comm_comm_cor} it follows that $C(SU(2)))$ has no nontrivial  connected noncommutative finite-fold coverings. So there is no $\left(u, n\right)$-{coverings}. Since $\pi^{P_{\mathrm{untz}}}_1\left( SU(2)\right)$ it trivial there are no nontrivial elements of $K_1\left( SU(2) \right)$ which lie in $h_{K_1}\left( \pi^{P_{\mathrm{untz}}}_1\left( SU(2)\right)\right)$. 

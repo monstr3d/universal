@@ -1150,9 +1150,6 @@ namespace Collada
             return int.Parse(str);
         }
 
-        
-   
-
 
         static public string ToFileName(this string str)
         {

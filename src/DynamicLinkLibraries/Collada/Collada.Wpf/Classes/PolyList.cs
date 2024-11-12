@@ -15,22 +15,31 @@ namespace Collada.Wpf.Classes
 
         public List<int[]> Indexes { get; private set; }
 
-        public int[] Index { get; private set; }
+        public List<int[]> Index { get; private set; }
+
+        public int[] Triangles { get; private set; }
 
         public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
 
         private PolyList(XmlElement element) : base(element)
         {
-            var c = element.GetAttribute("material");
+            var p = element.Get<P, int[]>();
+            if (p != null)
+            {
+                Index = p.ToInt3Array();
+            }
+              var c = element.GetAttribute("material");
             if (c == "acmat12")
             {
 
             }
-            Index = element.ToIntArray();
+           // Index = element.ToIntArray();
             Material = element.GetMaterial();
-            Indexes = element.ToInt3Array();
-            //Indexes = element.ToTextureArray();
+            if (Indexes == null)
+            {
+                Indexes = element.ToInt3Array();
+            }
             var d = element.GetAllChildren<Input>().ToArray();
             foreach (var inp in d)
             {

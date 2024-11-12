@@ -5,7 +5,6 @@ namespace Collada.Wpf.Classes
     [Tag("p", true)]
     internal class P : XmlHolder
     {
-        static public readonly string Tag = "p";
 
         /// <summary>
         /// Is elementary

@@ -172,7 +172,6 @@ namespace Collada.Wpf
                 mesh.Positions = vert;
                 mesh.Normals = norms;
                 mesh.TextureCoordinates = textc;
-                mesh.TriangleIndices = index;
                 GeometryModel3D geom = new GeometryModel3D();
                 geom.Geometry = mesh;
                 geom.Material = mat;
