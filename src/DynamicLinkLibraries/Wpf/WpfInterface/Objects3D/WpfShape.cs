@@ -23,77 +23,36 @@ using Event.Interfaces;
 using Animation.Interfaces.Enums;
 
 using WpfInterface.Interfaces;
-using WpfInterface.Wpf;
 using WpfInterface.Animated;
 using Motion6D.Portable.Interfaces;
+using Wpf.Loader;
 
 namespace WpfInterface.Objects3D
 {
     [Serializable()]
-    public class WpfShape : CategoryObject, ISerializable, IChildrenObject, IWpfVisible, IFacet,
+    public class WpfShape : XamlWrapper, ICategoryObject, ISerializable, IChildrenObject, IWpfVisible, IFacet,
         ICameraConsumer, IPositionObject, IEventHandler, 
         IAnimatedObject, IAllowCodeCreation, IPostDeserialize
     {
 
         #region Fields
 
-        protected string xaml;
-
-        protected int facetCount = -1;
-
-        const int side = 5;
-
-        MeshGeometry3D mesh;
+        object obj;
 
         AnimatableWrapper[] animatableChildren = new AnimatableWrapper[0];
-
-        protected bool isColored = false;
-
-        private double[] areas;
 
         private Dictionary<Motion6D.Portable.Camera, Visual3D>
             visuals = new Dictionary<Motion6D.Portable.Camera, Visual3D>();
 
-        private double[][] normals;
-
-        private BoundaryParameters bp;
-
-        protected Dictionary<string, string> paths = new Dictionary<string, string>();
-
-        private object[] types = null;
-
-        private object[][] parameters;
-
-        private double[][] centers;
-
-        protected double[,] size;
-
-        Color[] colors = null;
-
+   
         protected IAssociatedObject[] ch;
 
-        Bitmap texture;
 
         protected FieldConsumer3D consumer;
 
-        public const string deleteTexture = "delete_texture_file_";
-
-        protected Dictionary<string, string> urls = new Dictionary<string, string>();
-
-        protected bool scaled = false;
-
-        Action change = () => { };
-
-        Action onStop = () => { };
-
-        int aniCount;
-
+  
         protected bool allowCodeCreation = false;
 
-        /// <summary>
-        /// Textures
-        /// </summary>
-        protected Dictionary<string, byte[]> textures = new Dictionary<string, byte[]>();
 
         #region Realtime animation
 
@@ -209,6 +168,14 @@ namespace WpfInterface.Objects3D
 
         #endregion
 
+        #region IAssociatedObject Members
+
+        object IAssociatedObject.Object { get => obj; set => obj = value; }
+
+
+        #endregion
+
+
         #region IWpfVisible Members
 
         public virtual Visual3D GetVisual(Motion6D.Portable.Camera camera)
@@ -228,16 +195,6 @@ namespace WpfInterface.Objects3D
             return v3d;
         }
 
-        /// <summary>
-        /// Textures
-        /// </summary>
-        public virtual Dictionary<string, byte[]> Textures
-        {
-            get
-            {
-                return textures;
-            }
-        }
 
 
         double[,] IVisible.Size => size;
@@ -283,7 +240,7 @@ namespace WpfInterface.Objects3D
 
         void IFacet.SetColor(int n, double alpha, double red, double green, double blue)
         {
-            colors[n] = StaticExtensionWpfInterface.GetColor(alpha, red, green, blue);
+            colors[n] = StaticExtensionWpfLoader.GetColor(alpha, red, green, blue);
         }
 
         string IFacet.Id
@@ -576,74 +533,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        public void Load(string filename)
-        {
-            string dir = Path.GetDirectoryName(filename);
-            Visual3D v = filename.ToVisual3D();
-            string xaml;
-            if (v != null)
-            {
-                xaml = System.Windows.Markup.XamlWriter.Save(v);
-            }
-            else
-            {
-                using (TextReader reader = new StreamReader(filename))
-                {
-                    xaml = reader.ReadToEnd();
-                }
-            }
-            SetFile(xaml, dir);
-        }
-
-        /// <summary>
-        /// Xaml
-        /// </summary>
-        public string Xaml
-        {
-            get
-            {
-                return xaml;
-            }
-            set
-            {
-                xaml = value;
-                facetCount = -1;
-                texture = null;
-                CreateFacets();
-                if (size == null)
-                {
-                  size = Visual.GetSize();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Public access to visual
-        /// </summary>
-        public Visual3D PublicVisual
-        {
-            get
-            {
-                return Visual;
-            }
-        }
-
-        /// <summary>
-        /// Saves textures 
-        /// </summary>
-        /// <param name="directory">The directory</param>
-        public void SaveTextures(string directory)
-        {
-            foreach (var key in textures.Keys)
-            {
-                var b = textures[key];
-                using (var stream = File.OpenWrite(Path.Combine(directory, key)))
-                {
-                    stream.Write(b, 0, b.Length);
-                }
-            }
-        }
-
+  
 
 
         #endregion
@@ -669,9 +559,17 @@ namespace WpfInterface.Objects3D
         }
 
         /// <summary>
+        /// Post operation
+        /// </summary>
+        protected virtual void Post()
+        {
+            Xaml = xaml;
+        }
+
+        /// <summary>
         /// Creates facets
         /// </summary>
-        protected void CreateFacets()
+        protected override void CreateFacets()
         {
             if (facetCount > 0)
             {
@@ -729,87 +627,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        /// <summary>
-        /// Post operation
-        /// </summary>
-        protected virtual void Post()
-        {
-            Xaml = xaml;
-        }
 
-        /// <summary>
-        /// Process Xaml
-        /// </summary>
-        /// <param name="str">Xaml string</param>
-        /// <returns>Processed Xaml</returns>
-        protected string ProcessXaml(string str)
-        {
-            string s = str + "";
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(s);
-            XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
-            foreach (XmlElement e in nl)
-            {
-                string iso = e.GetAttribute("ImageSource");
-                if (iso != null)
-                {
-                    if (iso.Length > 0)
-                    {
-                        if (textures.ContainsKey(iso))
-                        {
-                            if (urls.ContainsKey(iso))
-                            {
-                                e.SetAttribute("ImageSource", urls[iso]);
-                                continue;
-                            }
-                            int n = iso.LastIndexOf('.');
-                            string ext = iso.Substring(n);
-                            string path = null;
-                            if (paths.ContainsKey(iso))
-                            {
-                                path = paths[iso];
-                                if (!File.Exists(path))
-                                {
-                                    using (Stream stream = File.OpenWrite(path))
-                                    {
-                                        byte[] b = textures[iso];
-                                        stream.Write(b, 0, b.Length);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                string fn = GenerateFileName(ext, out path);
-                                using (Stream stream = File.OpenWrite(path))
-                                {
-                                    byte[] b = textures[iso];
-                                    stream.Write(b, 0, b.Length);
-                                }
-                            }
-                            e.SetAttribute("ImageSource", path);
-                            paths[iso] = path;
-                        }
-                        else
-                        {
-                            string path = AppDomain.CurrentDomain.BaseDirectory + iso;
-                            e.SetAttribute("ImageSource", path);
-                            paths[iso] = path;
-                            if (File.Exists(path))
-                            {
-                                using (Stream stream = File.OpenRead(path))
-                                {
-                                    byte[] b = new byte[stream.Length];
-                                    stream.Read(b, 0, b.Length);
-                                    textures[iso] = b;
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-            return doc.OuterXml;
-        }
 
         /// <summary>
         /// Creates field consumer
@@ -823,124 +641,10 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        /// <summary>
-        /// Visual object
-        /// </summary>
-        protected virtual Visual3D Visual
-        {
-            get
-            {
-                bp = null;
-                Visual3D v3d;
-                string s = ProcessXaml(xaml);
-                object ob = System.Windows.Markup.XamlReader.Parse(s);
-                ModelVisual3D model = null;
-                if (ob is Visual3D)
-                {
-                    v3d = ob as Visual3D;
-                    StaticExtensionWpfInterface.SetStandardTransform(v3d);
-                    if (v3d is ModelVisual3D)
-                    {
-                        model = v3d as ModelVisual3D;
-                    }
-                }
-                else
-                {
-                    bp = ob as BoundaryParameters;
-                    model = new ModelVisual3D();
-                    Model3DGroup group = new Model3DGroup();
-                    GeometryModel3D geom = new GeometryModel3D();
-                    mesh = bp.Mesh;
-                    mesh.Create(out areas, out centers);
-                    geom.Geometry = bp.Mesh;
-                    group.Children.Add(geom);
-                    model.Content = group;
-                    geom.Material = bp.Material;
-                    model.Content = geom;
-                    StaticExtensionWpfInterface.SetStandardTransform(model);
-                    v3d = model;
-                }
-                if (isColored)
-                {
-                    if (model != null)
-                    {
-                        if (model.Content is GeometryModel3D)
-                        {
-                            GeometryModel3D gm = model.Content as GeometryModel3D;
-                            MaterialGroup gr = new MaterialGroup();
-                            //gr.Children.Add(gm.Material);
-                            gm.Material = gr;
-                            EmissiveMaterial mat = new EmissiveMaterial();
-                            mat.Brush = ImageBrush;
-                            gr.Children.Add(mat);
-                            double h = 1.0 / ((double)facetCount);
-                            mesh.TextureCoordinates.Clear();
-                            for (int i = 0; i < facetCount; i++)
-                            {
-                                double x = i * side;
-                                mesh.TextureCoordinates.Add(new System.Windows.Point(x, 0));
-                                double x1 = x + side;
-                                mesh.TextureCoordinates.Add(new System.Windows.Point(x1, side));
-                                mesh.TextureCoordinates.Add(new System.Windows.Point(x1, 0));
-                            }
-                        }
-                    }
-                }
-                return v3d;
-            }
-        }
 
         #endregion
 
         #region Private Members
-
-        void CreateSize()
-        {
-            size = Visual.GetSize();
-        }
-        
-        internal void SetFile(string xaml, string dir)
-        {
-            string d = dir;
-            if (d[d.Length - 1] != Path.DirectorySeparatorChar)
-            {
-                d += Path.DirectorySeparatorChar;
-            }
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(xaml);
-            XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
-            foreach (XmlElement e in nl)
-            {
-                string iso = e.GetAttribute("ImageSource");
-                if (iso.Contains('/'))
-                {
-                    iso = iso.Substring(iso.LastIndexOf('/') + 1);
-                    e.SetAttribute("ImageSource", iso);
-                }
-                string fn = d + iso;
-                if (!File.Exists(fn))
-                {
-                    continue;
-                }
-                Stream stream = File.OpenRead(fn);
-                byte[] b = new byte[stream.Length];
-                stream.Read(b, 0, b.Length);
-                textures[iso] = b;
-            }
-            Xaml = doc.OuterXml;
-        }
-
-        private Bitmap Texture
-        {
-            get
-            {
-                if (texture == null)
-                {
-                    texture = new Bitmap(side * facetCount, side);
-                }
-                return texture;
-            }
-        }
 
         private void AniCount()
         {
@@ -951,7 +655,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        private void Fill()
+        protected override void Fill()
         {
             PhysicalField.Interfaces.IFieldConsumer fc = consumer;
             fc.Consume();
@@ -973,7 +677,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        private string GenerateFileName(string ext, out string path)
+        protected override string GenerateFileName(string ext, out string path)
         {
             string ss = Guid.NewGuid() + "";
             ss = ss.Replace('-', '_');
@@ -988,7 +692,7 @@ namespace WpfInterface.Objects3D
         }
 
   
-        System.Windows.Media.ImageBrush ImageBrush
+        protected override System.Windows.Media.ImageBrush ImageBrush
         {
             get
             {
@@ -1012,7 +716,7 @@ namespace WpfInterface.Objects3D
         }
 
     
- 
+
         #endregion
 
         #endregion

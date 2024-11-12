@@ -18,6 +18,7 @@ using Motion6D.Interfaces;
 
 using WpfInterface.Interfaces;
 using WpfInterface.Animated;
+using Wpf.Loader;
 
 
 
@@ -666,7 +667,7 @@ namespace WpfInterface.CameraInterface
         void SetTransform()
         {
             int count = Count;
-            pCamera.Transform = StaticExtensionWpfInterface.StandardTransform;
+            pCamera.Transform = StaticExtensionWpfLoader.StandardTransform;
             cameraPositon.SetTransform(pCamera.Transform as MatrixTransform3D);
             for (int i = 0; i < count; i++)
             {

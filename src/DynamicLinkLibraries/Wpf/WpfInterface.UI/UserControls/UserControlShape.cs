@@ -14,6 +14,8 @@ using Motion6D.Interfaces;
 
 using WpfInterface.Objects3D;
 
+using Wpf.Loader;
+
 namespace WpfInterface.UI.UserControls
 {
     public partial class UserControlShape : UserControl

@@ -20,8 +20,13 @@ namespace WinFormsApp3DConversion
             dir = @"c:\0\03D\";//\NRW\UNZIP\cadnav.com_model_TORNADO\Models_G0404A626\";
             dir = @"c:\0\03D\Models_G0404A279\";
             dir = @"c:\0\03D\Models_G0404A626\";
-            var files = Directory.GetFiles(dir, "*.obj");   
+            dir = @"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\";
+            var files = Directory.GetFiles(dir, "*.obj"); 
+            
             TrialException.SuppressTrialException = true;
+
+            @"c:\AUsers\1MySoft\CSharp\03D\XAML\".Process("*.obj");
+            return;
             foreach (var file in files)
             {
                 var output = Path.GetFileNameWithoutExtension(file);

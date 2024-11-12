@@ -14413,7 +14413,6 @@ is a finitely generated Abelian group	and  $\left( A, \widetilde{A},G\left( \lef
 	\be\label{fundamental_gr_hom_eqn}
 h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
 \ee
-is 
 		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unital element such that $v^n \in \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
 	$$
 	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
@@ -14473,15 +14472,16 @@ According to the Theorem \ref{alg_finp_gen_ab_fin_thm} there is a surjective hom
 of Abelian groups. So for any $j \in \left\{1,..., n\right\}$ there is a surjective homomorphism  $K_1\left(A \right)_{\mathrm{tors}}\to \Z_{p^r} x_j$.
  For any $j \in \left\{1, ..., n\right\}$ there is $\left( u_j, v_j, p^r\right)$-covering $\left(   A, \widetilde A,  G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)} \cong \Z_{p^r} ,  \lift \right)_{\left( u_j, v_j, p^r\right)}$ and for all $g \in G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}$  there is  the given by \eqref{p_char_eqn} character
 $$
-	\chi^g_{\left(u_j, v_j, p^r\right)}:  \Z_{p^r} x_j\to \sU\left( 1\right)
-$$.
+	\chi^g_{\left(u_j, v_j, p^r\right)}:  \Z_{p^r} x_j\to \sU\left( 1\right).
+$$
 Above characters yield a homomorphism 
-$$
- G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi \left(\Z_{p^r} x_j \right) 
-$$
+\bean
+ G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi \left(\Z_{p^r} x_j \right) \\
+ g \mapsto \chi^g_{\left(u_j, v_j, p^r\right)}:
+\eean
 where $\chi \left( \Z_{p^r} x_j\right)$ is a group of characters of $\Z_{p^r} x_j$. Since there is a surjective homomorphism $K_1\left(A \right)_{\mathrm{tors}}\to\Z_{p^r} x_j$ one has a homomorphism 
 $$
- G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi \left(K_1\left(A \right)_{\mathrm{tors}} \right) 
+ G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi\left( K_1\left(A \right)_{\mathrm{tors}}\right) 
 $$
 Taking into account the surjective homomorphism $\eqref{fundamental_gr_hom_eqn}$ one has a homomorphism
 $$
@@ -14499,7 +14499,7 @@ h^A_{\mathrm{tors}}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Ext\left(  K_1
 The homomorphism  $h^A_{\mathrm{tors}}$ is the \textit{torsion part of Hurewicz homomorphism}.
 \end{definition}
 \paragraph{Free Hurewicz homomorphism}
-If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$. An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \text{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)$ with
+If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$. An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus \pi\left( M\left(A \right) \right) $ with
 	\be\label{h_vm_eqn}
 	\begin{split}
 		v_k^k =\pi\left(u\right),\\
@@ -14521,33 +14521,39 @@ k   x \mapsto \frac{h_m\left( g\right) v^k_m}{v_m}= e^{\frac{2\pi i kl}{m}}
 where $v_m$ satisfies to \eqref{h_vm_eqn} (cf. \eqref{h_gr_eqn}) and $l \in \Z$ is a representative of $h_m\left( g\right)\in \Z_n$. If $\Q x \bydef \Q \otimes_\Z \Z  x$ then there is a character
 \bean
 \chi^g_\Q:  \Q x \to \sU\left( 1\right),\\
-\forall a \in \Z, \quad b \in \N \quad \frac{a}{b} x\mapsto e^{\frac{2\pi i kl}{bm}} 
+\forall a \in \Z \quad \forall b \in \N \quad \chi^g_\Q\left(\frac{a}{b} x\right)\bydef \left( \chi^g_b\left( x\right)\right)^a
 \eean
 such that
 \be\label{h_integer_eqn}
 \forall  \frac{a}{b} \in \Z\quad \chi^g_\Q\left( \frac{a}{b} x\right) = 1.
 \ee 
-The character is $\chi_\Q$ is continuous so it can be uniquely extended up to a continuous character.
-If $\R x \bydef \R \otimes_\Z \Z \overline x$ then $ \chi^g_\Q$ can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$. If we consider the  \textit{standard character}
+The map
+\bean
+\phi_{\left( u_j, v_j, p^r\right)}: \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi\left(\Q x \right),\\
+g \mapsto  \chi^g_\Q
+\eean
+is a homomorphism of groups.
+The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$
+ If we consider the  \textit{standard character}
 \bean
 \chi_{\text{standard}}: \R \to \sU\left(1 \right) ,\\
 x \mapsto e^{-\frac{x}{2\pi}}
 \eean
 then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
-$f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$. Using the direct sum \eqref{h_dsi_eqn} and the surjective homomorphisms $K\left( A\right)_{\mathrm{free}}\to \Z x$  one can construct homomorphism 
+$f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$. Using the direct sum \eqref{h_dsi_eqn} and the surjective homomorphisms $K_1\left( A\right)_{\mathrm{free}}\to \Z x$  one can construct homomorphism 
 $$
-f^g_x: K\left( A\right)_{\mathrm{free}}\to \Z.
+f^g_x: K_1\left( A\right)_{\mathrm{free}}\to\chi \left(  \Z x\right) .
 $$
 The formula
 $$
 f^g = f^g_{x_1} + ... + f^g_{x_n}
 $$
-yields an element of $\Hom\left(K\left( A\right)_{\mathrm{free}}, \Z \right)$.
+yields an element of $\Hom\left(K_1\left( A\right)_{\mathrm{free}}, \Z \right)$.
 In result one has a group homomorphism
 The map
 \be\label{h_free_eqn}
 \begin{split}
-	h^A_{\mathrm{free}} : \pi^{P_{\mathrm{untz}}}_1\left(A \right) \to \Hom\left(  K^1\left( A\right)_{\mathrm{free}}, \Z\right),\\
+	h^A_{\mathrm{free}} : \pi^{P_{\mathrm{untz}}}_1\left(A \right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right),\\
 	g \mapsto f^g 
 \end{split}
 \ee

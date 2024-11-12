@@ -18,7 +18,7 @@ namespace Collada.Wpf.Classes
 
         public List<Node> Chidren => childern;
 
-        public static List<Node> Roots => roots;
+        public static List<XmlElement> Roots => roots;
 
         public List<Visual3D> Visual3Ds => visual3Ds;
 
@@ -34,7 +34,7 @@ namespace Collada.Wpf.Classes
 
         public Material Material { get; private set; }
 
-        public static List<Node> roots = new();
+        public static List<XmlElement> roots = new();
 
         bool isCombined = false;
 
@@ -54,26 +54,6 @@ namespace Collada.Wpf.Classes
 
 
         static List<ModelVisual3D> lm = new();
-        public ModelVisual3D Result
-        {
-            get
-            {
-                lm.Clear();
-                ModelVisual3D m = new ModelVisual3D();
-                var l = GetVisual3D();
-                if (l != null)
-                {
-                    foreach (var i in l)
-                    {
-                        i.Transform = new MatrixTransform3D();
-                        m.Children.Add(i);
-                    }
-                }
-                m.Transform = new MatrixTransform3D();
-                return m;
-            }
-        }
-
         List<Visual3D> GetVisual3D()
         {
             var vis = Visual3D as ModelVisual3D;
@@ -167,6 +147,10 @@ namespace Collada.Wpf.Classes
             {
                 var ig = cn[0];
                 Visual3D = ig.Visual3D;
+                if (Visual3D == null)
+                {
+
+                }
                 try
                 {
                     Visual3D.Check();
@@ -191,21 +175,52 @@ namespace Collada.Wpf.Classes
             {
                 // Visual3D = Geometry.Visual3D;
             }
-            var nk = element.GetElements().Where(e => e.ParentNode == element & e.Name == Tag);
-            if (!roots.Contains(this))
+            var p = element.ParentNode.Name;
+            if (p != Tag)
             {
-                roots.Add(this);
+                if (!roots.Contains(element))
+                {
+                    roots.Add(element);
+                }
             }
+            if (Visual3D == null)
+            {
+                Visual3D = new ModelVisual3D();
+            }
+
+            var nk = element.GetElements().Where(e => e.ParentNode == element & e.Name == Tag);
             foreach (XmlElement xmlElement in nk)
             {
+                if (roots.Contains(xmlElement))
+                {
+                    roots.Remove(xmlElement);
+                }
                 var child = new Node(xmlElement);
                 dic[xmlElement] = child;
                 child.Parent = this;
                 childern.Add(child);
+                var v3d = child.Visual3D;
+                if (v3d == null)
+                {
+
+                }
+                if (v3d != null)
+                {
+                    if (Visual3D == null)
+                    {
+                        continue;
+                    }
+                    if (Visual3D is ModelVisual3D model)
+                    {
+                        if (!model.Children.Contains(v3d))
+                        {
+                            model.Children.Add(v3d);
+                        }
+                    }
+                }
             }
         }
-            //var mater = element.Get<Instance_Material>();
- 
+
         void Combine()
         {
             if (isCombined)
@@ -214,11 +229,12 @@ namespace Collada.Wpf.Classes
             }
             foreach (var child in childern)
             {
-                child.Combine();
+                //   child.Combine();
             }
             CombineItself();
             isCombined = true;
         }
+
 
         void CombineItself()
         {
@@ -257,23 +273,14 @@ namespace Collada.Wpf.Classes
             }
         }
 
-
-
-        object Get()
-        {
-            return this;
-        }
-
-        static Node parent = null;
-
-        public static object Get(XmlElement element)
+        static public object Get(XmlElement element)
         {
             if (dic.ContainsKey(element))
             {
                 return dic[element];
             }
             var a = new Node(element);
-            a.Combine();
+           // a.Combine();
             return a.Get();
         }
 
@@ -282,7 +289,8 @@ namespace Collada.Wpf.Classes
             ModelVisual3D mod;
             if (roots.Count == 1)
             {
-                mod = roots[0].Visual3D as ModelVisual3D;
+                var o = roots[0].Get() as Node;
+                mod = o.Visual3D as ModelVisual3D;
                 mod.SetLight();
                 return mod;
             }
@@ -292,11 +300,16 @@ namespace Collada.Wpf.Classes
                 var children = mod.Children;
                 foreach (var root in roots)
                 {
-                    var r = root.Visual3D;
-                    if (!children.Contains(r))
+                    var r = root.Get() as Node;
+                    var p = r.Visual3D as ModelVisual3D;
+                    if (p == null)
                     {
-                        children.Add(r);
-                        r.SetLight();
+                        continue;
+                    }
+                    if (!children.Contains(p))
+                    {
+                        children.Add(p);
+                        p.SetLight();
                     }
                 }
             }

@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 
-namespace WpfInterface.Wpf
+namespace Wpf.Loader
 {
     public class BoundaryParameters : DependencyObject
     {
