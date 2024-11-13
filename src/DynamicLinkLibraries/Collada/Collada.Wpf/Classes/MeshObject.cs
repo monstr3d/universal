@@ -105,7 +105,7 @@ namespace Collada.Wpf.Classes
             List<Point3D> vertices = d["VERTEX"].ToPoint3DList();
             List<Vector3D> norm = d["NORMAL"].ToVector3DList();
             var textures = d["TEXCOORD"].ToPointList();
-            Point3DCollection vert = vertices.ToPoint3DCollection();
+            Point3DCollection vert = new Point3DCollection();// vertices.ToPoint3DCollection();
             PointCollection textc = new PointCollection();
             Int32Collection index = new Int32Collection();
             Vector3DCollection norms = new Vector3DCollection();
@@ -115,24 +115,27 @@ namespace Collada.Wpf.Classes
                  }*/
             Vector3D[] nt = new Vector3D[ind.Count];
             Point[] pt = new Point[ind.Count];
-       /*     foreach (int[] i in ind)
+            /*     foreach (int[] i in ind)
               {
                   index.Add(i[0]);
                   norms.Add(norm[i[1]]);
                   textc.Add(textures[i[2]]);
               }*/
-              
+            Int32Collection tr = new Int32Collection();
             for (int i = 0; i < ind.Count; i++)
             {
-                norms.Add(norm[i]);
-                textc.Add(textures[i]);
+                norms.Add(norm[ind[i][1]]);
+                textc.Add(textures[ind[i][2]]);
                 vert.Add(vertices[ind[i][0]]);
+                tr.Add(i);
             }
             mesh.Positions = vert;
-            mesh.Normals = norms;
+            mesh.Normals = norms;;
             mesh.TextureCoordinates = textc;
-           var tr = polyList.Triangles;
-            if (tr != null)
+            mesh.TriangleIndices = tr; // new Int32Collection(polyList.Triangles);
+           var trr = polyList.Triangles;
+            int ii = 0;
+         /*   if (tr != null)
             {
                 if (tr.Length > 40)
                 {
@@ -150,8 +153,8 @@ namespace Collada.Wpf.Classes
             {
                 //throw new Exception();
             }
-            mesh.TriangleIndices = new Int32Collection();
-           
+            mesh*.TriangleIndices = new Int32Collection();
+           */
             return mesh;
             /*  GeometryModel3D geom = new GeometryModel3D();
               geom.Geometry = mesh;

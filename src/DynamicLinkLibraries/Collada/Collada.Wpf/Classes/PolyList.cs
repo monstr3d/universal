@@ -28,6 +28,7 @@ namespace Collada.Wpf.Classes
             if (p != null)
             {
                 Index = p.ToInt3Array();
+                Triangles = p;
             }
               var c = element.GetAttribute("material");
             if (c == "acmat12")
