@@ -141,7 +141,7 @@ namespace Collada.Wpf.Classes
             }
             
             mesh.Positions = vert;
-            mesh.Normals = norms;;
+            mesh.Normals = new Vector3DCollection(norm);
             mesh.TextureCoordinates = textc;
             
 
