@@ -104,7 +104,16 @@ namespace Collada.Wpf.Classes
    
             List<Point3D> vertices = d["VERTEX"].ToPoint3DList();
             List<Vector3D> norm = d["NORMAL"].ToVector3DList();
+            var triangles = polyList.Triangles;
+            if (3 * norm.Count != triangles.Length)
+            {
+                throw new Exception();
+            }
             var textures = d["TEXCOORD"].ToPointList();
+            if (textures.Count != norm.Count)
+            {
+                throw new Exception();
+            }
             Point3DCollection vert = new Point3DCollection();// vertices.ToPoint3DCollection();
             PointCollection textc = new PointCollection();
             Int32Collection index = new Int32Collection();
@@ -126,13 +135,21 @@ namespace Collada.Wpf.Classes
             {
                 norms.Add(norm[ind[i][1]]);
                 textc.Add(textures[ind[i][2]]);
+              //  textc.Add(textures[ind[i][2]]);
                 vert.Add(vertices[ind[i][0]]);
                 tr.Add(i);
             }
+            
             mesh.Positions = vert;
             mesh.Normals = norms;;
             mesh.TextureCoordinates = textc;
-            mesh.TriangleIndices = tr; // new Int32Collection(polyList.Triangles);
+            
+
+      //      mesh.Positions = new Point3DCollection(vertices);
+       //     mesh.Normals = new Vector3DCollection(norm);
+       //     mesh.TextureCoordinates = new PointCollection(textures);
+       //     mesh.TriangleIndices = new Int32Collection(polyList.Triangles);
+           // mesh.TriangleIndices = tr; // new Int32Collection(polyList.Triangles);
            var trr = polyList.Triangles;
             int ii = 0;
          /*   if (tr != null)
