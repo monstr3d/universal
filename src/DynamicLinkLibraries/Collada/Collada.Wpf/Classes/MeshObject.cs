@@ -8,6 +8,8 @@ using System.Xml.Linq;
 using System.Linq.Expressions;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Linq;
 
 namespace Collada.Wpf.Classes
 {
@@ -55,11 +57,73 @@ namespace Collada.Wpf.Classes
                 }
         */
 
+        MeshGeometry3D LoadSimple(XmlElement element)
+        {
+
+            MeshGeometry3D mesh = new MeshGeometry3D();
+            return mesh;
+            var de = element.GetAllChildren<Input>().ToArray();
+            var d = new Dictionary<string, OffSet>();
+            foreach (var inp in de)
+            {
+                var sem = inp.Semantic;
+                d[sem.Key] = sem.Value;
+            }
+            var p = element.Get<P>();
+            if (p != null)
+            {
+                throw new Exception();
+            }
+            Material = this.Material;
+            if (Material == null)
+            {
+                Material = StaticExtensionColladaWpf.DefaultMaterial;
+            }
+            var offv = d["VERTEX"];
+            var ov = offv.Offset;
+            List<Point3D> vertices = offv.Value.ToPoint3DList();
+            var n = vertices.Count;
+            var offn = d["NORMAL"];
+            var on = offn.Offset;
+            List<Vector3D> norm = offn.Value.ToVector3DList();
+            var offt = d["TEXCOORD"];
+            var ot = offt.Offset;
+            var textures = offt.Value.ToPointList();
+            var vert = new Point3DCollection();
+            var textc = new PointCollection();
+            var  norms = new Vector3DCollection();
+            Int32Collection index = new Int32Collection();
+            for (int i = 0; i < vertices.Count; i++)
+            {
+                vert.Add(vertices[i]);
+            }
+            for (int i = 0; i < norm.Count; i++)
+            {
+                norms.Add(norm[i]);
+            }
+            for (int i = 0; i < textures.Count; i++)
+            {
+                textc.Add(textures[i]);
+            }
+
+            mesh.Positions = vert;
+            mesh.Normals = norms;
+            mesh.TextureCoordinates = textc;
+
+            return mesh;
+        }
+
+
+
 
 
         MeshGeometry3D Load(XmlElement element)
         {
             var triangle = element.Get<Triangles>();
+            if (triangle == null)
+            {
+                return LoadSimple(element);
+            }
             MeshGeometry3D mesh = new MeshGeometry3D();
             //mesh.Positions = e.GetChild("vertices").ToPoint3DCollection();
             var d = triangle.Inputs;
@@ -133,7 +197,6 @@ namespace Collada.Wpf.Classes
             var offt = d["TEXCOORD"];
             var ot = offt.Offset;
             var textures = offt.Value.ToPointList();
-
             var ind = polyList.Index;
             Point3DCollection vert = new Point3DCollection();
             PointCollection textc = new PointCollection();
