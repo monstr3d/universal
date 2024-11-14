@@ -7,6 +7,7 @@ using System.Windows;
 using System.Xml.Linq;
 using System.Linq.Expressions;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace Collada.Wpf.Classes
 {
@@ -54,23 +55,8 @@ namespace Collada.Wpf.Classes
                 }
         */
 
-        void Process(Triangles triangles, string type, Vector3DCollection norm,
-        PointCollection textc)
-        {
-            var d = triangles.Inputs;
-            var ind = triangles.Index;
-            if (!d.ContainsKey(type))
-            {
-                return;
-            }
-            var val = d[type];
-            var off = val.Offset;
-            if (type == "VERTEX")
-            {
-                List<Point3D> vertices = val.Value.ToPoint3DList();
 
-            }
-        }
+
         MeshGeometry3D Load(XmlElement element)
         {
             var triangle = element.Get<Triangles>();
@@ -81,42 +67,51 @@ namespace Collada.Wpf.Classes
             var offv = d["VERTEX"];
             var ov = offv.Offset;
             List<Point3D> vertices = offv.Value.ToPoint3DList();
-            var offt = d["TEXCOORD"];
-            var ot = offt.Offset;
-            var textures = offt.Value.ToPointList();
-            var ind = triangle.Index;
-            if (d.ContainsKey("NORMAL"))
-            {
-                var offn = d["NORMAL"];
-                var on = offv.Offset;
-                List<Vector3D> norm = offn.Value.ToVector3DList();
-                Point3DCollection vert = new Point3DCollection();
-                PointCollection textc = new PointCollection();
-                Int32Collection index = new Int32Collection();
-                var norms = new Vector3DCollection();
-                for (int i = 0; i < ind.Count; i++)
-                {
-                    norms.Add(norm[ind[i][on]]);
-                    textc.Add(textures[ind[i][ot]]);
-                    vert.Add(vertices[ind[i][ov]]);
-                }
-                mesh.Positions = vert;
-                mesh.Normals = norms;
-                mesh.TextureCoordinates = textc;
-                return mesh;
-            }
-            Point3DCollection vertt = new Point3DCollection();
-            PointCollection textct = new PointCollection();
-            Int32Collection indext = new Int32Collection();
+            Point3DCollection vert = new Point3DCollection();
+            PointCollection textc = new PointCollection();
+            Int32Collection index = new Int32Collection();
+            Vector3DCollection norms = new Vector3DCollection();
+            var ind = triangle.Indexes;
             for (int i = 0; i < ind.Count; i++)
             {
-                textct.Add(textures[ind[i][ot]]);
-                vertt.Add(vertices[ind[i][ov]]);
+                vert.Add(vertices[ind[i][ov]]);
             }
-            mesh.Positions = vertt;
-            mesh.TextureCoordinates = textct;
+            Process(triangle, "NORMAL", norms, textc);
+            Process(triangle, "TEXCOORD", norms, textc);
+            mesh.Positions = vert;
+            mesh.TextureCoordinates = textc;
+            mesh.Normals = norms;
             return mesh;
         }
+        void Process(Triangles triangles, string type, Vector3DCollection norm,
+       PointCollection textc)
+        {
+            var d = triangles.Inputs;
+            var ind = triangles.Index;
+            if (!d.ContainsKey(type))
+            {
+                return;
+            }
+            var val = d[type];
+            var off = val.Offset;
+            var v = val.Value;
+            if (type == "TEXCOORD")
+            {
+                var textur = v.ToPointList();
+                foreach (var i in ind)
+                {
+                    textc.Add(textur[i[off]]);
+                }
+                return;
+            }
+            var normals = v.ToVector3DList();
+            foreach (var i in ind)
+            {
+                norm.Add(normals[i[off]]);
+            }
+
+        }
+
 
         MeshGeometry3D GetMesh(XmlElement element)
         {
