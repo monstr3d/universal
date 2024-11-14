@@ -75,15 +75,6 @@ namespace Collada.Wpf.Classes
 
         MeshGeometry3D GetMesh(XmlElement element)
         {
-            XmlElement poly = element.GetChild("polylist");
-
-            List<int[]> indi;
-
-            if (poly != null)
-            { 
-                indi = poly.ToInt3Array();
-            }
-
             var polyList = element.Get<PolyList>();
             if (polyList == null)
             {
@@ -95,11 +86,6 @@ namespace Collada.Wpf.Classes
             MeshGeometry3D mesh = new MeshGeometry3D();
             //mesh.Positions = e.GetChild("vertices").ToPoint3DCollection();
             var d = polyList.Inputs;
-            var indexes = polyList.Indexes;
-            if (indexes.Count == 0)
-            {
-                throw new Exception();
-            }
             Material = polyList.Material;
    
             List<Point3D> vertices = d["VERTEX"].ToPoint3DList();
@@ -114,35 +100,62 @@ namespace Collada.Wpf.Classes
             {
                 throw new Exception();
             }
-            Point3DCollection vert = new Point3DCollection();// vertices.ToPoint3DCollection();
+            Point3DCollection vert = new Point3DCollection();
             PointCollection textc = new PointCollection();
             Int32Collection index = new Int32Collection();
-            Vector3DCollection norms = new Vector3DCollection();
-            /* foreach (Point3D p in vertices)
-                 {
-                     vert.Add(p);
-                 }*/
-            Vector3D[] nt = new Vector3D[ind.Count];
-            Point[] pt = new Point[ind.Count];
-            /*     foreach (int[] i in ind)
-              {
-                  index.Add(i[0]);
-                  norms.Add(norm[i[1]]);
-                  textc.Add(textures[i[2]]);
-              }*/
-            Int32Collection tr = new Int32Collection();
+            var norms = new Vector3DCollection();
             for (int i = 0; i < ind.Count; i++)
             {
-                norms.Add(norm[ind[i][1]]);
-                textc.Add(textures[ind[i][2]]);
-              //  textc.Add(textures[ind[i][2]]);
+                norms.Add(norm[i]);
+                textc.Add(textures[i]);
+                if (i != ind[i][1])
+                {
+
+                }
+                var n = vertices.Count - ind[i][0] - 1;
+           //     vert.Add(vertices[n]);
                 vert.Add(vertices[ind[i][0]]);
-                tr.Add(i);
             }
-            
+            /*
+                     var list = new List<int>();
+         var dict = new Dictionary<int, List<Point3D>>();
+         var trianlgles = polyList.Triangles;
+         for (int i = 0; i < triangles.Length; i++ )
+         {
+             var tri = triangles[i];
+             if (!list.Contains(tri))
+             {
+                 list.Add(tri);
+             }
+             List<Point3D> l = null;
+             if (dict.ContainsKey(tri))
+             {
+                 l = dict[tri];
+             }
+             else
+             {
+                 l = new List<Point3D>(); 
+                 dict[tri] = l;
+             }
+             l.Add(vertices[tri]);
+         }
+
+         list.Sort();
+         foreach ( var v in list )
+         {
+             var lt = dict[v];
+             foreach ( var t in lt )
+             {
+                 vert.Add(t);
+             }
+         }
+
+         */
+
             mesh.Positions = vert;
-            mesh.Normals = new Vector3DCollection(norm);
+            mesh.Normals = norms;
             mesh.TextureCoordinates = textc;
+        //    mesh.TriangleIndices = tr;
             
 
       //      mesh.Positions = new Point3DCollection(vertices);
@@ -150,7 +163,6 @@ namespace Collada.Wpf.Classes
        //     mesh.TextureCoordinates = new PointCollection(textures);
        //     mesh.TriangleIndices = new Int32Collection(polyList.Triangles);
            // mesh.TriangleIndices = tr; // new Int32Collection(polyList.Triangles);
-           var trr = polyList.Triangles;
             int ii = 0;
          /*   if (tr != null)
             {

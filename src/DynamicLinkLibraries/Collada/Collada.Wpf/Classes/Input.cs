@@ -8,15 +8,25 @@ namespace Collada.Wpf.Classes
     public class Input: XmlHolder
     {
 
-        public KeyValuePair<string, object> Semantic => dictionary;
+        public KeyValuePair<string, OffSet> Semantic => dictionary;
 
-       KeyValuePair<string, object> dictionary;
+       KeyValuePair<string, OffSet> dictionary;
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Input>();
 
 
+
+
         private Input(XmlElement element) : base(element)
         {
+            int offset = -1;
+            var off = element.GetAttribute("offset");
+
+            if (off.Length > 0)
+            {
+                offset = int.Parse(off);
+            }
+            var s = element.OuterXml;
             var p = element.Get<P>();
             if (p != null)
             {
@@ -33,7 +43,8 @@ namespace Collada.Wpf.Classes
             {
                 throw new Exception();
             }
-            dictionary = new KeyValuePair<string, object>(semantic, o);
+            var offs = new OffSet(offset, o);
+            dictionary = new KeyValuePair<string, OffSet>(semantic, offs);
        }
 
         object Get()

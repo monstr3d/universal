@@ -183,9 +183,15 @@ namespace Collada.Wpf
             throw new NotImplementedException();
         }
 
+        public static Material Default { get; set; }
+
         internal static Material GetMaterial(this XmlElement element)
         {
             var mat = element.GetAttribute("material");
+            if (mat == "default")
+            {
+                return Default;
+            }
             return MaterialObject.Get(mat);
         }
 

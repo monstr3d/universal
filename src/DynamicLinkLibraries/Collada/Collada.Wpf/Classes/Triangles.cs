@@ -1,45 +1,41 @@
-﻿using System.Windows.Media.Media3D;
-using System.Xml;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media.Media3D;
+using System.Xml;
 
 namespace Collada.Wpf.Classes
 {
-    [Tag("polylist")]
-    internal class PolyList : XmlHolder
+    [Tag("triangles")]
+    internal class Triangles : XmlHolder
     {
 
         public Material Material { get; private set; }
 
-        public Dictionary<string, object> Inputs{ get; private set; } = new();
+        public Dictionary<string, OffSet> Inputs { get; private set; } = new();
 
         public List<int[]> Indexes { get; private set; }
 
         public List<int[]> Index { get; private set; }
 
-        public int[] Triangles 
-        { 
-            get; 
-            private set; 
+        public int[] Polygon
+        {
+            get;
+            private set;
         }
 
-        public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
-
-        private PolyList(XmlElement element) : base(element)
+        private Triangles(XmlElement element) : base(element)
         {
             var p = element.Get<P, int[]>();
             if (p != null)
             {
                 Index = p.ToInt3Array();
-                Triangles = p;
+                Polygon = p;
             }
-              var c = element.GetAttribute("material");
-            if (c == "acmat12")
-            {
-
-            }
-           // Index = element.ToIntArray();
+            // Index = element.ToIntArray();
             Material = element.GetMaterial();
             if (Indexes == null)
             {
@@ -51,7 +47,7 @@ namespace Collada.Wpf.Classes
                 var sem = inp.Semantic;
                 Inputs[sem.Key] = sem.Value;
             }
-          }
+        }
 
         object Get()
         {
@@ -60,7 +56,7 @@ namespace Collada.Wpf.Classes
 
         public static object Get(XmlElement element)
         {
-            var a = new PolyList(element);
+            var a = new Triangles(element);
             return a.Get();
         }
     }
