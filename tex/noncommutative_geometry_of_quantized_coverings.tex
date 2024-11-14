@@ -14498,6 +14498,13 @@ According to the section \ref{ext_char_sec} the above homomorphism is equivalent
 \be\label{h_tors_eqn}
 h^A_{\mathrm{tors}}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Ext\left(  K_1\left(A \right)_{\mathrm{tors}}, \Z \right)
 \ee 
+
+	\begin{equation}\label{uct_c_h_eqn}!!!
+	\mathrm{\Ext}^1(K_1(A), \mathbb{Z}) \xrightarrow{\psi} K^0(A) \xrightarrow{\varphi} \mathrm{Hom}(K_0(A), \mathbb{Z})).
+\end{equation}
+	\begin{equation}\label{uct_c_hhh_eqn}!!!
+h^A_{\mathrm{tors}}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  K^0(A)_{\mathrm{tors}}
+\end{equation}
 \begin{definition}\label{h_tors_defn}
 The homomorphism  $h^A_{\mathrm{tors}}$ is the \textit{torsion part of Hurewicz homomorphism}.
 \end{definition}
@@ -14571,20 +14578,54 @@ is a homomorphism of groups.
 
 
 \begin{remark}
-	The formula \eqref{uct_c} is the motivation of the Definition \ref{h_defn} because $h$ is a homomorphism from $\pi^{P_{\mathrm{untz}}}_1\left(A \right)$ to the factor group of $K^1\left(A \right)$.  
+	The formula \eqref{uct_c} is the motivation of the Definition \ref{h_free_defn} because $h$ is a homomorphism from $\pi^{P_{\mathrm{untz}}}_1\left(A \right)$ to the factor group of $K^1\left(A \right)$.  
 \end{remark}
-\begin{theorem}\cite{blackadar:ko}
-%Theorem 23.1.2 
-%(Kunneth Theorem (KT)). 7]
-Let $A$ and $B$ be separable $C^*$-algebras, with $A \in N$, and suppose $K_*\left( A\right) $ or $K_*\left( B\right)$ 
-is finitely generated. Then there is a short exact sequence
+	\begin{equation}\label{uct_c_hhkh_eqn}!!!
+	h^A_{\mathrm{tors}}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  K^0(A)_{\mathrm{tors}}
+\end{equation}
+\begin{empt}
+Let $x \in  \pi^{P_{\mathrm{untz}}}_1\left(A\right)$ and let
+\bean
+x_{\mathrm{free}} = h^A_{\mathrm{free}}\left(x \right) \in \Hom\left(  K_1\left( A\right), \Z\right),\\
+x_{\mathrm{tors}} = h^A_{\mathrm{tors}}\left(x \right) \in K_0\left( A\right)_{\mathrm{tors}}
+\eean
+If $y_{\mathrm{free}} \in K^1\left(A \right) $ is a representative of $x_{\mathrm{free}}$ then the equation \eqref{uct_kk_eqn} yields the  element 
 \be
-yy
+\bt\left( y_{\mathrm{free}}\otimes x_{\mathrm{tors}}\right) \in KK^1\left(A, A \right) 
 \ee
-The map  has degree 0 and $\rho$ has degree 1. The sequence is natural in each
-variable, and splits unnaturally. So if $K_*\left(A \right)$  or  $K_*\left(B \right)$ is torsion-free,  $\bt$ is an
-isomorphism.
+does not depend on the choice of representative $y_{\mathrm{free}}$ since $x_{\mathrm{tors}}$ is torsion.
+\end{empt}
+\begin{definition}\label{h_full_defn}
+The map
+\be\label{h_full_eqn}
+\begin{split}
+\pi^{P_{\mathrm{untz}}}_1\left(A \right)\to KK^1\left(A, A \right) ,\\
+x \mapsto\bt\left( y_{\mathrm{free}}\otimes x_{\mathrm{tors}}\right).
+\end{split}
+\ee
+if \textit{full Hurewicz homomorphism} or simply \textit{Hurewicz homomorphism}.
+\end{definition}
+\begin{theorem}\cite{blackadar:ko}
+	%Theorem 23.1.2 
+	%(Kunneth Theorem (KT)). 7]
+	Let $A$ and $B$ be separable $C^*$-algebras, with $A \in N$, and suppose $K_*\left( A\right) $ or $K_*\left( B\right)$
+	is finitely generated. Then there is a short exact sequence
+	\be\label{uct_kk_eqn}
+	0 \to K^*\left(A \right) \otimes K_*\left(B \right)\xrightarrow{\bt} KK^*\left(A, B \right) \xrightarrow{\rho} \mathrm{Tor}^{\Z}\left( K^*\left( A\right) , K_*\left(B \right) \right) \to 0
+	\ee
+	The map $\bt$ has degree 0 and $\rho$ has degree 1. The sequence is natural in each
+	variable, and splits unnaturally. So if $K_*\left(A \right)$  or  $K_*\left(B \right)$ is torsion-free, $\bt$ is an
+	isomorphism.
 \end{theorem}
+\begin{theorem}\cite{blackadar:ko}
+%Theorem 23.1.1 (Universal Coefficient Theorem (UCT)). [Rosenbergand Schochet 1987] Let $A$ and $B$ be separable $C^*$-algebras, with $A \in N$, and suppose $K_*\left( A\right) $ or $K_*\left( B\right)$
+is finitely generated. Then there is a short exact sequence
+$$
+$$
+%The map  has degree 0 and  has degree 1. The sequence is natural in each
+variable, and splits unnaturally. So if $K_*\left( A\right)$  is free or  $K_*\left( A\right)$ is divisible, then $\ga$ is an isomorphism.
+\end{theorem}
+
 \begin{empt}
 	Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
 \be\label{h_n_root}

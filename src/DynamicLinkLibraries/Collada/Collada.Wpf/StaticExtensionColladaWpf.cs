@@ -94,7 +94,7 @@ namespace Collada.Wpf
 
         public static List<Point3D> ToPoint3DList(this Vertices vertices)
         {
-            return vertices.Input.Semantic.ToPoint3DList();
+            return vertices.Input.Semantic.Value.ToPoint3DList();
         }
 
         public static Point3DCollection ToPoint3DCollection(this List<Point3D> list)
@@ -116,6 +116,13 @@ namespace Collada.Wpf
                     points = vertices.ToPoint3DList(); ;
 
                     break;
+                case OffSet offSet:
+                    points = offSet.Value.ToPoint3DList();
+                    break;
+                case Source source:
+                    points = source.ToPoint3DList();
+                    break;
+                        
             }
             if (points == null)
             {
@@ -183,14 +190,14 @@ namespace Collada.Wpf
             throw new NotImplementedException();
         }
 
-        public static Material Default { get; set; }
+        public static Material DefaultMaterial { get; set; }
 
         internal static Material GetMaterial(this XmlElement element)
         {
             var mat = element.GetAttribute("material");
             if (mat == "default")
             {
-                return Default;
+                return DefaultMaterial;
             }
             return MaterialObject.Get(mat);
         }

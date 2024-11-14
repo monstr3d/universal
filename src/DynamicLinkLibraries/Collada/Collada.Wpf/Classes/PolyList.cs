@@ -11,7 +11,7 @@ namespace Collada.Wpf.Classes
 
         public Material Material { get; private set; }
 
-        public Dictionary<string, object> Inputs{ get; private set; } = new();
+        public Dictionary<string, OffSet> Inputs{ get; private set; } = new();
 
         public List<int[]> Indexes { get; private set; }
 

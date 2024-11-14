@@ -11,15 +11,15 @@ namespace Collada.Wpf
 
         int offset;
 
-        object obj;
+        object value;
 
-        public OffSet(int offset, object obj)
+        public OffSet(int offset, object value)
         {
             this.offset = offset;
-            this.obj = obj;
+            this.value = value;
         }
 
-        public object Object => obj;
+        public object Value => value;
 
         public int Offset => offset;
     }
