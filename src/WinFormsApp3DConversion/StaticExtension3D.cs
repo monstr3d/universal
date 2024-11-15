@@ -34,7 +34,10 @@ namespace WinFormsApp3DConversion
                 var s = Scene.FromFile(file);
                 var f = Path.GetFileNameWithoutExtension(file);
                 f = Path.Combine(input, f + ".dae");
-                s.Save(f);
+                if (!File.Exists(f))
+                {
+                    s.Save(f);
+                }
             }
 
         }
