@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Windows.Media.Media3D;
-using System.Xml;
+﻿using System.Xml;
 
 namespace Collada.Wpf.Classes
 {

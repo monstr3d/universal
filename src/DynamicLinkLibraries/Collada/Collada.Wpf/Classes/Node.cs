@@ -168,6 +168,26 @@ namespace Collada.Wpf.Classes
                         Visual3D.Transform = new MatrixTransform3D(mm);
                     }
                 }
+                var bind_mat = element.Get<BindMaterial>();
+                if (bind_mat != null)
+                {
+                    var material = bind_mat.Material;
+                    if (material != null)
+                    {
+                        ModelVisual3D modelVisual3D = Visual3D as ModelVisual3D;
+                        if (modelVisual3D.Content is GeometryModel3D g)
+                        {
+                            if (g.Material != material)
+                            {
+                                g.Material = material;
+                            }
+                            if (g.Geometry is MeshGeometry3D meshGeometry)
+                            {
+                                
+                            }
+                        }
+                    }
+                }
 
             }
             //          Geometry = GeometryObject.Get(Name);

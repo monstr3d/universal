@@ -8,7 +8,10 @@ namespace Collada.Wpf.Classes
     public class Matrix : XmlHolder
     {
 
-        public Matrix3D Matrix3D { get; private set; }
+        public Matrix3D Matrix3D { 
+            get; 
+            private set; 
+        }
 
         private Matrix(XmlElement element) : base(element)
         {

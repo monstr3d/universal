@@ -54,6 +54,10 @@ namespace Collada.Wpf.Classes
             var mod = new ModelVisual3D();
             mod.Content = geom;
             Visual3D = mod;
+            if (geom.Material == null)
+            {
+                var id = element.GetAttribute("id");
+            }
         }
 
         object Get()

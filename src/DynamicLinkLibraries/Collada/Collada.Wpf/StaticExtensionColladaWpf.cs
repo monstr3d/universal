@@ -197,7 +197,7 @@ namespace Collada.Wpf
             var mat = element.GetAttribute("material");
             if (mat == "default")
             {
-                return DefaultMaterial;
+                return null;
             }
             return MaterialObject.Get(mat);
         }

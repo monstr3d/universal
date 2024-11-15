@@ -9,20 +9,40 @@ namespace Collada.Wpf.Classes
     internal class MaterialObject : XmlHolder
     {
         private static Dictionary<string, Material> materials = new();
-        public Material Material { get; private set; }
+        public Material Material 
+        { 
+            get; 
+            private set; 
+        }
 
         public static IClear Clear => StaticExtensionCollada.GetClear<MaterialObject>();
 
 
         private MaterialObject(XmlElement element) : base(element)
         {
-            if (element.ChildNodes.Count != 1)
-            {
-                throw new Exception();
-            }
-            var m = element.FirstElement().Get() as InstanceEffect;
-            Material = m.Url.FromCollada() as Material;
             var id = element.GetAttribute("id");
+            var mtr = StaticExtensionColladaWpf.GetMaterial(id);
+            if (mtr != null)
+            {
+                Material = mtr;
+            }
+            else
+            {
+                if (element.ChildNodes.Count != 1)
+                {
+                    throw new Exception();
+                }
+                var m = element.FirstElement().Get() as InstanceEffect;
+                var o = m.Url.FromCollada();
+                if (o is Material mat)
+                {
+                    Material = mat;
+                }
+                else
+                {
+
+                }
+            }
             if (materials.ContainsKey(id))
             {
                 throw new Exception();
