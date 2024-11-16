@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Reflection;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 
 namespace Collada
 {
@@ -90,6 +85,22 @@ namespace Collada
         }
 
         #region Members
+
+        public static string ConvertExtension(this string f, string ext, bool check = false)
+        {
+            var dir = Path.GetDirectoryName(f);
+            var fn = Path.GetFileNameWithoutExtension(f) + ext;
+            fn = Path.Combine(dir, fn);
+            if (check)
+            {
+                if (!File.Exists(fn))
+                {
+                    throw new FileNotFoundException(f);
+                }
+            }
+            return fn;
+        }
+
 
         public static TagAttribute GetTag(this Type type)
         {
@@ -941,7 +952,7 @@ namespace Collada
         public static string Directory
         {
             get;
-            private set;
+            set;
         }
 
         static bool IsCombined(this XmlElement node)

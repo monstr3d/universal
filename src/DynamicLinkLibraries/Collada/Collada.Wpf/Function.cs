@@ -145,34 +145,16 @@ namespace Collada.Wpf
         void Set(string filename)
         {
             this.filename = filename;
-            var fn = Path.GetFileNameWithoutExtension(filename);
-            var dir = Path.GetDirectoryName(filename);
-            fn =  Path.Combine( Path.GetDirectoryName(filename), fn + ".mtl");
+            var fn = filename.ConvertExtension(".mtl");
             if (File.Exists(fn))
             {
-                CreateMtl(fn);
+                MtlWrapper wr = new MtlWrapper();
+                StaticExtensionColladaWpf.Mtl = wr.Create(fn);
             }
         }
 
 
-        static void CreateMtl(string filename)
-        {
-            using (var reader = new StreamReader(filename))
-            {
-                do
-                {
-                    var line = reader.ReadLine();
-                    if (line.Contains("newmtl"))
-                    {
-                        var ss = line.Split(" ".ToCharArray());
-                        var name = ss[ss.Length - 1];
-                        new MtlWrapper(name, reader);
-                    }
-                }
-                while (!reader.EndOfStream);
-            }
-        }
-
+ 
 
         protected Function()
         {

@@ -5,6 +5,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
+using Collada;
 using Collada.Wpf;
 using Wpf.Loader;
 
@@ -17,13 +18,12 @@ namespace Collaada.Wpf.Test
     {
         public App()
         {
-             // Compare();
-              Generate();
+            // Compare();
+            // Generate();
+            GenterateObj();
         }
 
-        void Generate()
-        {
-            var d = new Dictionary<string, string>()
+        Dictionary<string, string> models = new Dictionary<string, string>()
             {
              { "Mig29", @"c:\AUsers\1MySoft\CSharp\03D\XAML\MIG29\1857302.dae" },
              { "Tu154",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1.dae" },
@@ -31,7 +31,25 @@ namespace Collaada.Wpf.Test
              { "Sukhoi",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae" },
                 {"F15", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F15\F-15C Eagle.dae" },
 
-            };
+        
+        };
+
+        void GenterateObj()
+        {
+            GenterateObj("Tornado");
+        }
+
+        void GenterateObj(string obj)
+        {
+            var fn = models[obj].ConvertExtension(".obj");
+            var converter = new ObjToXamlConverter();
+            converter.Create(fn);
+        }
+
+
+
+        void Generate()
+        {
             // XmlDocument doc = new XmlDocument();
             //      var f = @"c:\0\03D\UNZIP\MODELS\cadnav.com_modelMIG29\Models_G0403A048\1857302.dae";
             //  f = @"c:\0\03D\NRW\UNZIP\cadnav.com_model_TORNADO\Models_G0404A626\Tornado.dae";
@@ -44,7 +62,7 @@ namespace Collaada.Wpf.Test
             var f = "";
             //  f = d["Mig29"];
             // f = d["Tu154"];
-           f = d["Tornado"];
+           f = models["Tornado"];
         //    f = d["Sukhoi"];
         //    f = d["F15"];
             if (!File.Exists(f))

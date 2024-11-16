@@ -18,18 +18,15 @@ namespace Collada.Wpf
     public static  class StaticExtensionColladaWpf
     {
 
-        static Dictionary<string, Material> mtl = new Dictionary<string, Material>();
+        static public Dictionary<string, Material> Mtl { get; set; }
 
-       internal static  void Add(this MtlWrapper wrapper)
-        {
-            mtl[wrapper.Name] = wrapper.Material;
-        }
+
 
         internal static Material GetMaterial(this string name)
         {
-            if (mtl.ContainsKey(name))
+            if (Mtl.ContainsKey(name))
             {
-                return mtl[name];
+                return Mtl[name];
             }
             return null;
         }
@@ -879,13 +876,6 @@ namespace Collada.Wpf
             throw new Exception();
         }
         #region Convert
-
-
-
-   
-
-
-
 
 
         public static ImageSource ToImage(this string str)

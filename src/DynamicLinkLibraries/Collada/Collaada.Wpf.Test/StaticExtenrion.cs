@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Enumeration;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
@@ -8,9 +11,10 @@ using Wpf.Loader;
 
 namespace Collaada.Wpf.Test
 {
-    internal class StaticExtenrion
+    internal  static class StaticExtenrion
     {
-        void Compare()
+ 
+       static  void Compare()
         {
             var wr1 = new XamlWrapper();
             wr1.Load(@"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1.xaml");

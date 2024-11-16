@@ -41,6 +41,32 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
     public class MtlWrapper
     {
 
+        public MtlWrapper()
+        {
+
+        }
+
+        public Dictionary<string, Material> Create(string filename)
+        {
+            var dict = new Dictionary<string, Material>();
+            using (var reader = new StreamReader(filename))
+            {
+                do
+                {
+                    var line = reader.ReadLine();
+                    if (line.Contains("newmtl"))
+                    {
+                        var ss = line.Split(" ".ToCharArray());
+                        var name = ss[ss.Length - 1];
+                        new MtlWrapper(name, reader, dict);
+                    }
+                }
+                while (!reader.EndOfStream);
+            }
+            return dict;
+        }
+
+
         public ImageSource Ka { get; private set; }
         public ImageSource Kd { get; private set; }
 
@@ -73,7 +99,7 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
             {
                 return;
             }
-            MaterialGroup mat= new MaterialGroup();
+            MaterialGroup mat = new MaterialGroup();
             var children = mat.Children;
             material = mat;
             var diffuse = new DiffuseMaterial();
@@ -92,12 +118,11 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
 
         }
 
-        public MtlWrapper(string str, StreamReader reader)
+        private MtlWrapper(string str, StreamReader reader, Dictionary<string, Material> materials)
         {
             Name = str;
-            string  newName = "";
+            string newName = "";
   
-   
             List<string> list = new List<string>();
             do
             {
@@ -119,14 +144,17 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
             }
             while (!reader.EndOfStream);
             Finalize(list);
-            if (!reader.EndOfStream)
+            Create();
+            materials[Name] = Material;
+               
+             if (!reader.EndOfStream)
             {
-                new MtlWrapper(newName, reader);
+                new MtlWrapper(newName, reader, materials);
             }
 
         }
 
-        
+
 
         void Finalize(List<string> list)
         {
@@ -144,7 +172,7 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
                 {
                     case "Ka":
                         Ambient = value.ToColor();
-                            break;
+                        break;
                     case "Kd":
                         Diffuse = value.ToColor();
                         break;
@@ -173,8 +201,6 @@ During rendering, map_Kd values are multiplied by the Kd values to derive the RG
                         break;
                 }
             }
-            this.Add();
         }
     }
-
 }
