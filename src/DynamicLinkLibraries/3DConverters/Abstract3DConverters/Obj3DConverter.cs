@@ -3,7 +3,7 @@ using Collada;
 
 namespace Abstract3DConverters
 {
-    public class Obj3DConverter
+    public class Obj3DConverter: ITextReaderMeshCreator
     {
         List<AbstractMesh> models = new();
 
@@ -63,11 +63,12 @@ namespace Abstract3DConverters
                         }
                     }
                     else
-                    { }
-                    var model = new AbstractMesh(currName, material, vertices, normals, textures, triangles);
-                    models.Add(model);
-                    //models[currName] = modelVisual3D;
-                    Create(reader, lt);
+                    {
+                        var model = new AbstractMesh(name, material, vertices, normals, textures, triangles);
+                        models.Add(model);
+                        //models[currName] = modelVisual3D;
+                        Create(reader, lt);
+                    }
 
 
                 }
@@ -116,6 +117,15 @@ namespace Abstract3DConverters
                     continue;
                 }
             }
+        }
+
+        string ITextReaderMeshCreator.Extension => ".obj";
+
+        List<AbstractMesh> ITextReaderMeshCreator.Create(TextReader reader)
+        {
+            models.Clear();
+            Create(reader, null);
+            return models;
         }
     }
 }

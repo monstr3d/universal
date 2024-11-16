@@ -12,11 +12,14 @@ using System.Xml;
 using System.Xml.Linq;
 using Collada.Wpf.Classes;
 using Collada;
+using Abstract3DConverters;
 
 namespace Collada.Wpf
 {
     public static  class StaticExtensionColladaWpf
     {
+
+    
 
         static public Dictionary<string, Material> Mtl { get; set; }
 
