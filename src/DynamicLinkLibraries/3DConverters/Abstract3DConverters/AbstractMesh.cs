@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Collada.Wpf
+﻿namespace Abstract3DConverters
 {
     public class AbstractMesh
     {
@@ -21,11 +15,11 @@ namespace Collada.Wpf
 
         public string Material { get; private set; }
 
-        public AbstractMesh(string name, string material, List<float[]> vertixes, List<float[]> normals, List<float[]> textures, List<int[][]> indexes)
+        public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals, List<float[]> textures, List<int[][]> indexes)
         {
             Name = name;
             Material = material;
-            Vertices = vertixes;
+            Vertices = vertices;
             Normals = normals;
             Textures = textures;
             Indexes = indexes;

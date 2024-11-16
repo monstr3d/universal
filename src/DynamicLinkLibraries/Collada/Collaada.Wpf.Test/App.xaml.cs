@@ -5,6 +5,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
+using Abstract3DConverters;
 using Collada;
 using Collada.Wpf;
 using Wpf.Loader;
@@ -42,7 +43,7 @@ namespace Collaada.Wpf.Test
         void GenterateObj(string obj)
         {
             var fn = models[obj].ConvertExtension(".obj");
-            var converter = new ObjToXamlConverter();
+            var converter = new Obj3DConverter();
             converter.Create(fn);
         }
 
