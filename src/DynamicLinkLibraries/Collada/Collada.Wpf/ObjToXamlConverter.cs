@@ -12,23 +12,15 @@ namespace Collada.Wpf
     public class ObjToXamlConverter
     {
 
-        Dictionary<string, Material> materials;
-
-        Dictionary<string, ModelVisual3D> models = new();
+        Dictionary<string, AbstractMesh> models = new();
 
         public ObjToXamlConverter()
         {
 
         }
 
-        private ObjToXamlConverter(Dictionary<string, Material> materials)
-        {
-            this.materials = materials;
-        }
-
-        
-
-        public Dictionary<string, ModelVisual3D> Create(string filename)
+    
+        public Dictionary<string, AbstractMesh> Create(string filename)
         {
             StaticExtensionCollada.Directory = Path.GetDirectoryName(filename);
             var fn = filename.ConvertExtension(".mtl");
@@ -41,7 +33,6 @@ namespace Collada.Wpf
             {
                 materials = new Dictionary<string, Material>();
             }
-            var dict = new Dictionary<string, ModelVisual3D>();
             models = new();
             using (var reader  = new StreamReader(filename))
             {
