@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters
 {
-    internal class EmissiveMaterial : Material
+    public class EmissiveMaterial : SimpleMaterial
     {
+        public Image Image { get; private set; }
+
+        public EmissiveMaterial(Color color, Image image) : base(color)
+        {
+            Image = image;
+        }
     }
 }

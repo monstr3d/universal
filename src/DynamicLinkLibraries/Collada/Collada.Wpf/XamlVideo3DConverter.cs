@@ -5,38 +5,38 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using System.Xml.Linq;
-using Abstract3DConverters;
+
 
 namespace Collada.Wpf
 {
-    partial class XamlVideo3DConverter : IVisual3DConverter
+    partial class XamlVideo3DConverter 
     {
 
+        Assembly assembly = typeof(Visual3D).Assembly;
 
 
-        Assembly IVisual3DConverter.Assembly => typeof(System.Windows.Media.Media3D.Visual3D).Assembly;
+        #region
 
-        Path.Combine(Directory, Name) IVisual3DConverter.MaterialDictionary { get; => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        ImageSource Get(Abstract3DConverters.Image source)
+        {
+            System.Windows.Media.Imaging.BitmapImage bi =
+                new System.Windows.Media.Imaging.BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri(source.FullPath);
+            bi.EndInit();
+            return bi;
+        }
 
-        object IVisual3DConverter.Get(Image image)
+        ModelVisual3D Get(Abstract3DConverters.AbstractMesh abstractMesh)
         {
             throw new NotImplementedException();
         }
 
-        object IVisual3DConverter.Get(Material material)
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
 
-        object IVisual3DConverter.Get(Color color)
-        {
-            throw new NotImplementedException();
-        }
-
-        object IVisual3DConverter.Get(AbstractMesh mesh)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

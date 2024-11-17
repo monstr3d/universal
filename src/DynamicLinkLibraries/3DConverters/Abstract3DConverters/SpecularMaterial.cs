@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters
 {
-    public class SpecularMaterial : Material
+    public class SpecularMaterial : SimpleMaterial
     {
+        public float SpecularPower { get; private set; }
+
+        public SpecularMaterial(Color color,  float power) : base(color)
+        {
+            SpecularPower = power;
+        }
+
     }
 }

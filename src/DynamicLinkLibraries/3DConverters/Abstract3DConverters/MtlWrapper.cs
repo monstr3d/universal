@@ -89,15 +89,12 @@ namespace Abstract3DConverters
             MaterialGroup mat = new MaterialGroup();
             var children = mat.Children;
             material = mat;
-            var diffuse = new DiffuseMaterial();
-            diffuse.Color = Diffuse;
+            var diffuse = new DiffuseMaterial(Diffuse, Kd, d);
             //diffuse.Texture = Kd;
             children.Add(diffuse);
-            var emissive = new EmissiveMaterial();
-            emissive.Color = Ambient;
-            children.Add(emissive);
-            var specular = new SpecularMaterial();
-            specular.Color = Specular;
+            var emissive = new EmissiveMaterial(Ambient, Ka);
+             children.Add(emissive);
+            var specular = new SpecularMaterial(Specular, Ns);
             children.Add(specular);
 
         }
