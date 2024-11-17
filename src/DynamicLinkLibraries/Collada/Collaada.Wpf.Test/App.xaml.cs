@@ -37,7 +37,7 @@ namespace Collaada.Wpf.Test
 
         void GenterateObj()
         {
-            GenterateObj("Tornado");
+            GenterateObj("Sukhoi");
         }
 
         void GenterateObj(string obj)

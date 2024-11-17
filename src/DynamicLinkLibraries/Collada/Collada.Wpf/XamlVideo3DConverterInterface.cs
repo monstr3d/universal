@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstract3DConverters
+namespace Collada.Wpf
 {
-    public class MaterialGroup : Material
+    internal class XamlVideo3DConverterInterface
     {
-
-        public List<Material> Children { get; set; } = new();
     }
 }

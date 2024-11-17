@@ -1,5 +1,4 @@
-﻿using System.Security.Policy;
-using System.Windows.Media.Media3D;
+﻿using System.Windows.Media.Media3D;
 using System.Xml;
 
 namespace Collada.Wpf.Classes

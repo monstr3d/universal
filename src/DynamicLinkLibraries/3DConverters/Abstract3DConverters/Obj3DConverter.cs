@@ -7,7 +7,9 @@ namespace Abstract3DConverters
     {
         List<AbstractMesh> models = new();
 
-        
+        string directory;
+
+        Dictionary<string, Material> materials; 
 
         public Obj3DConverter()
         {
@@ -18,10 +20,12 @@ namespace Abstract3DConverters
         public List<AbstractMesh> Create(string filename)
         {
             models = new();
+            directory = Path.GetDirectoryName(filename);
+
             using (var reader = new StreamReader(filename))
             {
 
-                Create(reader, Path.GetDirectoryName(filename));
+                Create(reader);
 
             }
             return models;
@@ -43,6 +47,13 @@ namespace Abstract3DConverters
                 {
                     //     models[name] = 
                     break;
+                }
+                if (line.StartsWith("mtllib "))
+                {
+                    var file = line.Substring("mtllib ".Length).Trim();
+             //       file = Path.Combine(directory, file);
+                    var mtl = new MtlWrapper();
+                    materials = mtl.Create(file, directory);
                 }
                 var objs = "# object ";
                 if (line.Contains(objs))

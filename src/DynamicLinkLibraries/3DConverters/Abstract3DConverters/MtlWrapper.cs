@@ -18,8 +18,21 @@ namespace Abstract3DConverters
 
         }
 
+        public  Dictionary<string, Material> Create(string filename, string directory)
+        {
+            dict.Clear();
+            using (var reader = new StreamReader(Path.Combine(directory, filename)))
+            {
+                new MtlWrapper(filename, directory, reader, dict);
+
+            }
+            return dict;
+
+        }
+
         public Dictionary<string, Material> Create(string filename)
         {
+            dict.Clear();
             using (var reader = new StreamReader(filename))
             {
                 do
@@ -38,8 +51,8 @@ namespace Abstract3DConverters
         }
 
 
-        public string Ka { get; private set; }
-        public string Kd { get; private set; }
+        public Image Ka { get; private set; }
+        public Image Kd { get; private set; }
 
         public string Name { get; private set; }
 
@@ -49,10 +62,11 @@ namespace Abstract3DConverters
 
         public Color Specular { get; private set; }
 
-        public Image Ns { get; private set; }
-        public Image Ni { get; private set; }
-        public Image d { get; private set; }
-        public Image illum { get; private set; }
+
+        public float Ns { get; private set; }
+        public float Ni { get; private set; }
+        public float d { get; private set; }
+        public float illum { get; private set; }
 
         private Material material;
         public Material Material
@@ -77,7 +91,7 @@ namespace Abstract3DConverters
             material = mat;
             var diffuse = new DiffuseMaterial();
             diffuse.Color = Diffuse;
-            diffuse.Texture = Kd;
+            //diffuse.Texture = Kd;
             children.Add(diffuse);
             var emissive = new EmissiveMaterial();
             emissive.Color = Ambient;
@@ -124,6 +138,12 @@ namespace Abstract3DConverters
 
         }
 
+        private  float ToFloat(string str)
+        {
+            return float.Parse(
+                str.Replace(".",
+                System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+        }
 
 
         void Finalize(List<string> list, string directory)
@@ -150,22 +170,22 @@ namespace Abstract3DConverters
                         Specular = new Color(value);
                         break;
                     case "map_Ka":
-                        Ka = value;
+                        Ka = new Image(value, directory);
                         break;
                     case "map_Kd":
-                        Kd = value;
+                        Kd = new Image(value, directory);
                         break;
                     case "Ns":
-                        Ns = new Image(value, directory);
+                        Ns = ToFloat(value);
                         break;
                     case "Ni":
-                        Ni = new Image(value, directory);
+                        Ni = ToFloat(value);
                         break;
                     case "d":
-                        d = new Image(value, directory);
+                        d = ToFloat(value);
                         break;
                     case "illum":
-                        illum = new Image(value, directory);
+                        illum = ToFloat(value);
                         break;
                     default:
                         break;
