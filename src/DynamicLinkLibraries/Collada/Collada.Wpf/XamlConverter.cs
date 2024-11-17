@@ -12,8 +12,9 @@ namespace Collada.Wpf
     public class XamlConverter
     {
 
-        public IEnumerable<ModelVisual3D> Convert(IEnumerable<AbstractMesh> input, Dictionary<string, Material> keyValues)
+        public IEnumerable<ModelVisual3D> Convert(IEnumerable<AbstractMesh> input, Dictionary<string, System.Windows.Media.Media3D.Material> keyValues)
         {
+            yield return new ModelVisual3D();
             
             foreach (var mesh in input)
             {

@@ -7,6 +7,8 @@ namespace Abstract3DConverters
     {
         List<AbstractMesh> models = new();
 
+        
+
         public Obj3DConverter()
         {
 
@@ -15,12 +17,11 @@ namespace Abstract3DConverters
 
         public List<AbstractMesh> Create(string filename)
         {
-            StaticExtensionCollada.Directory = Path.GetDirectoryName(filename);
             models = new();
             using (var reader = new StreamReader(filename))
             {
 
-                Create(reader);
+                Create(reader, Path.GetDirectoryName(filename));
 
             }
             return models;
@@ -56,7 +57,7 @@ namespace Abstract3DConverters
                         }
                         else
                         {
-                            var mod = new AbstractMesh(currName, material, vertices, normals, textures, triangles);
+                            var mod = new AbstractMesh(currName,  material, vertices, normals, textures, triangles);
                             models.Add(mod);
                             Create(reader, lt);
                             continue;
@@ -64,7 +65,7 @@ namespace Abstract3DConverters
                     }
                     else
                     {
-                        var model = new AbstractMesh(name, material, vertices, normals, textures, triangles);
+                        var model = new AbstractMesh(name,  material, vertices, normals, textures, triangles);
                         models.Add(model);
                         //models[currName] = modelVisual3D;
                         Create(reader, lt);

@@ -2,6 +2,9 @@
 {
     public class AbstractMesh
     {
+        public AbstractMesh Parent { get; private set; }
+
+        public List<AbstractMesh> Children { get; } = new ();
 
         public List<float[]> Vertices { get; private set; }
 
@@ -15,6 +18,7 @@
 
         public string Material { get; private set; }
 
+    
         public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals, List<float[]> textures, List<int[][]> indexes)
         {
             Name = name;

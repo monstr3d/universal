@@ -21,11 +21,11 @@ namespace Collada.Wpf
 
     
 
-        static public Dictionary<string, Material> Mtl { get; set; }
+        static public Dictionary<string, System.Windows.Media.Media3D.Material> Mtl { get; set; }
 
 
 
-        internal static Material GetMaterial(this string name)
+        internal static System.Windows.Media.Media3D.Material GetMaterial(this string name)
         {
             if (Mtl.ContainsKey(name))
             {
@@ -190,9 +190,9 @@ namespace Collada.Wpf
             throw new NotImplementedException();
         }
 
-        public static Material DefaultMaterial { get; set; }
+        public static System.Windows.Media.Media3D.Material DefaultMaterial { get; set; }
 
-        internal static Material GetMaterial(this XmlElement element)
+        internal static System.Windows.Media.Media3D.Material GetMaterial(this XmlElement element)
         {
             var mat = element.GetAttribute("material");
             if (mat == "default")
@@ -224,11 +224,11 @@ namespace Collada.Wpf
             d[id] = value;
         }
 
-        static List<DiffuseMaterial> abscentImage = new List<DiffuseMaterial>();
+        static List<System.Windows.Media.Media3D.DiffuseMaterial> abscentImage = new List<System.Windows.Media.Media3D.DiffuseMaterial>();
 
-        internal static bool Check(this Material material)
+        internal static bool Check(this System.Windows.Media.Media3D.Material material)
         {
-            if (material is DiffuseMaterial diff)
+            if (material is System.Windows.Media.Media3D.DiffuseMaterial diff)
             {
                 return true;
                 var brush = diff.Brush as ImageBrush;
@@ -239,26 +239,26 @@ namespace Collada.Wpf
                 return true;
 
             }
-            if (material is MaterialGroup group)
+            if (material is System.Windows.Media.Media3D.MaterialGroup group)
             {
                 if (group.Children.Count != 3)
                 { 
                     return false; 
                 }
-                EmissiveMaterial emissive = null;
-                SpecularMaterial specular = null;
-                DiffuseMaterial diffuse = null; 
+                System.Windows.Media.Media3D.EmissiveMaterial emissive = null;
+                System.Windows.Media.Media3D.SpecularMaterial specular = null;
+                System.Windows.Media.Media3D.DiffuseMaterial diffuse = null; 
                 foreach ( var child in group.Children )
                 {
                     switch (child)
                     {
-                        case EmissiveMaterial emissiveMaterial:
+                        case System.Windows.Media.Media3D.EmissiveMaterial emissiveMaterial:
                             emissive = emissiveMaterial;
                             break;
-                        case SpecularMaterial sMaterial:
+                        case System.Windows.Media.Media3D.SpecularMaterial sMaterial:
                             specular = sMaterial;
                             break;
-                        case DiffuseMaterial diffuseMaterial:
+                        case System.Windows.Media.Media3D.DiffuseMaterial diffuseMaterial:
                             if (!diffuseMaterial.Check())
                             {
                                 return false;
@@ -331,7 +331,7 @@ namespace Collada.Wpf
 
       
 
-        internal static bool Set(this DiffuseMaterial diffuseMaterial, ImageSource imageSource)
+        internal static bool Set(this System.Windows.Media.Media3D.DiffuseMaterial diffuseMaterial, ImageSource imageSource)
         {
             if (diffuseMaterial == null)
             {
@@ -357,7 +357,7 @@ namespace Collada.Wpf
             return true;
         }
 
-        internal static bool Set(this DiffuseMaterial diffuseMaterial, Surface surface)
+        internal static bool Set(this System.Windows.Media.Media3D.DiffuseMaterial diffuseMaterial, Surface surface)
         {
             if (surface == null)
             {
@@ -366,7 +366,7 @@ namespace Collada.Wpf
             return diffuseMaterial.Set(surface.ImageSource);
         }
 
-        internal static bool Set(this DiffuseMaterial diffuseMaterial, Sampler2D sampler2D)
+        internal static bool Set(this System.Windows.Media.Media3D.DiffuseMaterial diffuseMaterial, Sampler2D sampler2D)
         {
             if (sampler2D == null)
             {
@@ -379,7 +379,7 @@ namespace Collada.Wpf
             return diffuseMaterial.Set(sampler2D.Surface);
         }
 
-        internal static bool Set(this DiffuseMaterial diffuseMaterial, Texture texture)
+        internal static bool Set(this System.Windows.Media.Media3D.DiffuseMaterial diffuseMaterial, Texture texture)
         {
             if (texture == null)
             {
@@ -394,7 +394,7 @@ namespace Collada.Wpf
             diffuse.Set(t);
         }
 
-        internal  static void Set(this SpecularMaterial mat, Reflectivity refl)
+        internal  static void Set(this System.Windows.Media.Media3D.SpecularMaterial mat, Reflectivity refl)
         {
             if (refl == null)
             {
@@ -412,13 +412,13 @@ namespace Collada.Wpf
             }    
         }
 
-        public static void Set(this SpecularMaterial mat, XmlElement e)
+        public static void Set(this System.Windows.Media.Media3D.SpecularMaterial mat, XmlElement e)
         {
             var t = e.Get<Reflectivity>();
             mat.Set(t);
         }
 
-        internal static void Set(this EmissiveMaterial mat, XmlElement e)
+        internal static void Set(this System.Windows.Media.Media3D.EmissiveMaterial mat, XmlElement e)
         {
             var t = e.Get<Transparent>();
             mat.Set(t);
@@ -638,15 +638,15 @@ namespace Collada.Wpf
             }
         }
 
-        public static Color ToColor(this double[] d)
+        public static System.Windows.Media.Color ToColor(this double[] d)
         {
             if (d.Length == 3)
             {
-                return Color.FromRgb(d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+                return System.Windows.Media.Color.FromRgb(d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
             }
             else if (d.Length == 4)
             {
-                return Color.FromArgb(d[3].ToByte(), d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+                return System.Windows.Media.Color.FromArgb(d[3].ToByte(), d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
             }
             throw new Exception();
         }
@@ -654,7 +654,7 @@ namespace Collada.Wpf
 
 
 
-        public static Color ToColor(this string str)
+        public static System.Windows.Media.Color ToColor(this string str)
         {
             var ss = str.Split(" ".ToCharArray());
             var d = new List<double>();
@@ -681,10 +681,10 @@ namespace Collada.Wpf
         static public ColladaObject Instance => ColladaObject.Instance;
 
  
-        public static  List<Material> ToList(this Material material)
+        public static  List<System.Windows.Media.Media3D.Material> ToList(this System.Windows.Media.Media3D.Material material)
         {
-            List<Material> list = new List<Material>();
-            if (material is MaterialGroup group)
+            List<System.Windows.Media.Media3D.Material> list = new List<System.Windows.Media.Media3D.Material>();
+            if (material is System.Windows.Media.Media3D.MaterialGroup group)
             {
                 foreach (var mat in group.Children)
                 {
@@ -701,13 +701,13 @@ namespace Collada.Wpf
             return list;
         }
 
-        public static Material SimplifyMaterial(this object  obj)
+        public static System.Windows.Media.Media3D.Material SimplifyMaterial(this object  obj)
         {
             var mat = obj.ToMaterial();
             return mat.SimplifyMaterial();
         }
 
-        public static Material SimplifyMaterial(this Material material)
+        public static System.Windows.Media.Media3D.Material SimplifyMaterial(this System.Windows.Media.Media3D.Material material)
         {
             return material.ToList().ToMaterial();
         }
@@ -717,9 +717,9 @@ namespace Collada.Wpf
            return Function.Instance.Get(key);
         }
 
-        public static Material FromXml(this XmlElement element, string tag)
+        public static System.Windows.Media.Media3D.Material FromXml(this XmlElement element, string tag)
         {
-            var l = new List<Material>();
+            var l = new List<System.Windows.Media.Media3D.Material>();
             var nl = element.GetElementsByTagName(tag);
             foreach (XmlNode node in nl)
             {
@@ -730,7 +730,7 @@ namespace Collada.Wpf
                 if (node is XmlElement e)
                 {
                     var o = e.Get();
-                    if (o is Material m)
+                    if (o is System.Windows.Media.Media3D.Material m)
                     {
                         l.Add(m);
                     }
@@ -743,18 +743,18 @@ namespace Collada.Wpf
             return l.SimplifyMaterial();
         }
 
-        public static Material ToMaterial(this object o)
+        public static System.Windows.Media.Media3D.Material ToMaterial(this object o)
         {
-            if (o is Material material)
+            if (o is System.Windows.Media.Media3D.Material material)
             {
                 return material;
             }
-            var list = new List<Material>();
+            var list = new List<System.Windows.Media.Media3D.Material>();
             if (o is IEnumerable en)
             {
                 foreach (var mpp in en)
                 {
-                    if (mpp is Material mp)
+                    if (mpp is System.Windows.Media.Media3D.Material mp)
                     {
                         list.Add(mp);
                     }
@@ -769,7 +769,7 @@ namespace Collada.Wpf
                 return list[0];
             }
             var mc = new MaterialCollection(list);
-            var mg = new MaterialGroup();
+            var mg = new System.Windows.Media.Media3D.MaterialGroup();
             mg.Children = mc;
             return mg;
        }
@@ -829,40 +829,40 @@ namespace Collada.Wpf
             return null;
         }
 
-        public static void Set(this Material m, Texture texture)
+        public static void Set(this System.Windows.Media.Media3D.Material m, Texture texture)
         {
             if (texture == null)
             {
                 return;
             }
-            if (m is DiffuseMaterial diffuse)
+            if (m is System.Windows.Media.Media3D.DiffuseMaterial diffuse)
             {
                 diffuse.Set(texture.Sample);
             }
         }
 
-        static public Color GetColor(this double[] d)
+        static public System.Windows.Media.Color GetColor(this double[] d)
         {
             if (d.Length == 3)
             {
-                return Color.FromRgb(d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+                return System.Windows.Media.Color.FromRgb(d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
             }
             else if (d.Length == 4)
             {
-                return Color.FromArgb(d[3].ToByte(), d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
+                return System.Windows.Media.Color.FromArgb(d[3].ToByte(), d[0].ToByte(), d[1].ToByte(), d[2].ToByte());
             }
             throw new Exception();
 
         }
 
 
-        static public Color GetColor(this string s)
+        static public System.Windows.Media.Color GetColor(this string s)
         {
             double[] d = s.ToRealArray<double>();
             return d.GetColor();
         }
 
-        static public Color GetColor(this XmlElement e)
+        static public System.Windows.Media.Color GetColor(this XmlElement e)
         {
             if (e.Name.Equals("color"))
             {
@@ -949,7 +949,7 @@ namespace Collada.Wpf
             {
                 ModelVisual3D m3d = v3d as ModelVisual3D;
                 ModelVisual3D m = new ModelVisual3D();
-                AmbientLight l = new AmbientLight(Color.FromRgb(255, 255, 255));
+                AmbientLight l = new AmbientLight(  System.Windows.Media.Color.FromRgb(255, 255, 255));
                 m.Content = l;
                 m3d.Children.Insert(0, m);
             }

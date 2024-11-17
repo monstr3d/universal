@@ -76,8 +76,8 @@ namespace Collaada.Wpf.Test
 
             //  doc.Load(f);
 
-            DiffuseMaterial diffuse = new DiffuseMaterial();
-            diffuse.Color = Color.FromArgb(255, 255, 255, 255);
+            System.Windows.Media.Media3D.DiffuseMaterial diffuse = new System.Windows.Media.Media3D.DiffuseMaterial();
+            diffuse.Color = System.Windows.Media.Color.FromArgb(255, 255, 255, 255);
             StaticExtensionColladaWpf.DefaultMaterial = diffuse;
             StaticExtensionColladaWpf.Set();
             StaticExtensionColladaWpf.Load(f);
