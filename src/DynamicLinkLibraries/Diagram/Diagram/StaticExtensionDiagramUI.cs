@@ -16,6 +16,7 @@ using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 
 using AssemblyService;
+using static System.Collections.Specialized.BitVector32;
 
 
 namespace Diagram.UI
@@ -1626,7 +1627,45 @@ namespace Diagram.UI
                 }
             }
         }
-  
+
+        public static IEnumerable<T> GetEnumerable<T>(this IEnumerable<object> collection,  bool find = false) where T : class
+        {
+            foreach (object o in collection)
+            {
+                if (o is T t)
+                {
+                    yield return t;
+                }
+                if (o is IObjectLabel l)
+                {
+                    object obj = l.Object;
+                    var enu = GetEnumerable<T>(new object[]{ obj }, find);
+                    foreach (T tc in enu)
+                    {
+                        yield return tc;
+                    }
+                }
+                if (o is IArrowLabel al)
+                {
+                    object obj = al.Arrow;
+                    var enu = GetEnumerable<T>(new object[] { obj }, find);
+                    foreach (T tc in enu)
+                    {
+                        yield return tc;
+                    }
+                }
+                if (o is IAssociatedObject)
+                {
+                    var enu = GetEnumerable<T>(new object[] { o }, find);
+                    foreach (T tc in enu)
+                    {
+                        yield return tc;
+                    }
+                }
+            }
+
+        }
+
         /// <summary>
         /// Performs action for each collection objects
         /// </summary>
@@ -1638,9 +1677,9 @@ namespace Diagram.UI
         {
             foreach (object o in collection)
             {
-                if (o is T)
+                if (o is T t)
                 {
-                    Execute(o as T, action, find);
+                    Execute(t, action, find);
                     continue;
                 }
                 if (o is IObjectLabel)
@@ -3297,6 +3336,26 @@ namespace Diagram.UI
                     p.Prepare();
                 }
             }
+        }
+
+        private static IEnumerable<T> Enumerate<T>(this object obj,  bool find) where T : class
+        {
+            if (obj is T t)
+            {
+                yield return t;
+            }
+            if (find)
+            {
+                if (obj is IAssociatedObject ao)
+                {
+                    T ta = ao.Find<T>();
+                    if (ta != null)
+                    {
+                        yield return ta;
+                    }
+                }
+            }
+
         }
 
         /// <summary>

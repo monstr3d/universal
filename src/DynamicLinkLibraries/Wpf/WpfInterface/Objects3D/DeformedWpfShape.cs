@@ -222,7 +222,7 @@ namespace WpfInterface.Objects3D
 
         #region Overriden Members
 
-        protected override Visual3D Visual
+        public override Visual3D Visual
         {
             get
             {

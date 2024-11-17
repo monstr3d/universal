@@ -404,7 +404,7 @@ namespace Collada.Wpf
             mat.SpecularPower = r * 100;
         }
 
-        internal static void Set(this EmissiveMaterial mat, Transparent transparent)
+        internal static void Set(this System.Windows.Media.Media3D.EmissiveMaterial mat, Transparent transparent)
         {
             if (transparent == null)
             {

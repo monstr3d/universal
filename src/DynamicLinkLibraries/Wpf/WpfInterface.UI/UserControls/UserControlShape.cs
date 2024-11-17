@@ -42,8 +42,8 @@ namespace WpfInterface.UI.UserControls
 
         internal void SaveInverted()
         {
-            shape.PublicVisual.InvertZ();
-            string s = System.Windows.Markup.XamlWriter.Save(shape.PublicVisual);
+            shape.Visual.InvertZ();
+            string s = System.Windows.Markup.XamlWriter.Save(shape.Visual);
             using (System.IO.TextWriter wr = new System.IO.StreamWriter(@"g:\2.xaml"))
             {
                 wr.WriteLine(s);
