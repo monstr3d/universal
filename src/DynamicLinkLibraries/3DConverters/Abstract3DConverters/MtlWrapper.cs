@@ -10,12 +10,12 @@ namespace Abstract3DConverters
 {
     public class MtlWrapper : IMaterialDictionary
     {
-        Dictionary<string, Material> dict = new();
+        Dictionary<string, Material> dict;
 
 
         public MtlWrapper()
         {
-
+            dict = new Dictionary<string, Material>();
         }
 
         public Dictionary<string, object> Create( Dictionary<string, Material> keyValuePairs, IMaterialCreator creator)
@@ -32,7 +32,6 @@ namespace Abstract3DConverters
 
         public  Dictionary<string, Material> Create(string filename, string directory)
         {
-            dict.Clear();
             using (var reader = new StreamReader(Path.Combine(directory, filename)))
             {
                 new MtlWrapper(filename, directory, reader, dict);

@@ -45,6 +45,16 @@ namespace Abstract3DConverters
                 var line = reader.ReadLine();
                 if (line == null)
                 {
+                    var model = new AbstractMesh(name, material, vertices, normals, textures, triangles);
+                    models.Add(model);
+                    break;
+                }
+                if (line.Length == 0)
+                {
+                    continue;
+                }
+                if (line == null)
+                {
                     //     models[name] = 
                     break;
                 }
@@ -84,7 +94,7 @@ namespace Abstract3DConverters
 
 
                 }
-                if (currName == null)
+                if (currName == null & name == null)
                 {
                     continue;
                 }

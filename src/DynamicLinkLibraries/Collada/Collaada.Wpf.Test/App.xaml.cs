@@ -46,9 +46,9 @@ namespace Collaada.Wpf.Test
             var converter = new Obj3DConverter();
             IEnumerable<AbstractMesh> l = converter.Create(fn);
             IMaterialDictionary materialDictionary = converter;
-            var dict = materialDictionary.Materials;
+            Dictionary<string, Abstract3DConverters.Material>  dictionary = materialDictionary.Materials;
             var mtl = new MtlWrapper();
-            var list = mtl.Create(dict, new WpfMaterialCreator());
+            var list = mtl.Create(dictionary, new WpfMaterialCreator());
             var p = new Performer();
             p.Create(l, new WpfMeshCreator(), list).ToArray();
         }
