@@ -40,8 +40,8 @@ namespace Abstract3DConverters
                     break;
             }
             var simple = material as SimpleMaterial;
-            Set(simple, simple.Color);
-            return simple;
+            Set(result, simple.Color);
+            return result;
         }
 
         public abstract object CreateGroup(MaterialGroup materialGroup);
@@ -71,6 +71,30 @@ namespace Abstract3DConverters
         public abstract void SetOpacicty(object material, float opacity);
 
         public abstract void SetPower(object material, float power);
+
+
+        public virtual void Set(object material, Color color)
+        {
+            var c = Create(color);
+            Set(material, c);
+        }
+
+        public virtual void SetImage(object material, Image image)
+        {
+            if (image == null)
+            {
+                return;
+            }
+            var im = Create(image); 
+            if (im == null)
+            {
+                return;
+            }
+            
+            SetImage(material, im);
+        }
+
+
 
     }
 }

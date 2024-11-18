@@ -148,8 +148,9 @@ namespace Collada.Wpf
             var fn = filename.ConvertExtension(".mtl");
             if (File.Exists(fn))
             {
-                MtlWrapper wr = new MtlWrapper();
-                StaticExtensionColladaWpf.Mtl = wr.Create(fn);
+                throw new FileNotFoundException();
+             //   MtlWrapper wr = new MtlWrapper();
+              //  StaticExtensionColladaWpf.Mtl = wr.Create(fn);
             }
         }
 

@@ -5472,9 +5472,9 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 
 \begin{definition}\label{fundamental_group_nc_p_defn} 
 	Let $P$ be a property of noncommutative finite-fold coverings.	Let $A$ be a $C^*$-algebra, and let 	$	\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)	$	be the  {infinite noncommutative covering} (cf. Definition \ref{infinite_noncommutative_covering_defn}) of $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}$$ such that $A = A_{\la_{\mathrm{min}}}$.	Suppose that $\mathfrak{S}$ contains \textit{all} classes of isomorphisms of noncommutative finite-fold coverings of $A$ (cf. Definition \ref{fin_defn}) which possess the property $P$. Assume that for all $\mu, \nu \in \La$ such that $\mu \le \nu$ the finite-fold noncommutative cornering  $\lift^\mu_\nu : A_\mu \hookto A_\nu$ possesses the property $P$. 	Then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the $P$-\textit{universal  covering} 	of $A$.  The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the $P$-\textit{fundamental group} of $A$. We use the following notation
-	$$
+\be\label{fg_bas_p_eqn}
 	\pi^P_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
-$$
+\ee
 \end{definition}
 \begin{example}
 There is a property $P_{\mathrm{untz}}$ of noncommutative finite-fold coverings such that
@@ -14413,7 +14413,7 @@ is a finitely generated Abelian group	and  $\left( A, \widetilde{A},G\left( \lef
 	\be\label{fundamental_gr_hom_eqn}
 h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
 \ee
-		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unital element such that $v^n \in \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
+		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
 	$$
 	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
 	$$
@@ -14463,7 +14463,6 @@ where $l\in \Z$ is a representative of $g$.
 	\ee
 	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
 \end{empt}
-
 \paragraph{Torsion Hurewicz homomorphism}
 Let $K_0\left(A \right)_{\mathrm{tors}}\subset K_0\left(A \right)$ be a torsion subgroup, end let $p$ be a prime. For any $r > 0$ we define by $K_1\left(A \right)\left( p^r\right) \subset K_0\left(A \right)_{\mathrm{tors}}$  a set
 $$
@@ -14476,7 +14475,7 @@ If $x \in K_0\left(A \right)\left(p^r \right)\setminus \{0\}$ then from \ref{v_l
 \be\label{h_index_w_eqn}
 x = \mathrm{Index}~w
 \ee
-(cf. equation \eqref{d_u_iv_eqn}). From $p^rx = 0$ it follows that $u \bydef w^{p^r}\in \pi\left( M\left(A \right) \right) $ is unitary. If $v \in B\left(\H \right)$ is an unitary with $v^{p^r} = \pi \left( u\right)$ then $v \notin  \pi\left( M\left( A\otimes \K\right)\right) $.
+(cf. equation \eqref{d_u_iv_eqn}). From $p^rx = 0$ it follows that $u \bydef w^{p^r}\in \pi\left( M\left(A \right) \right) $ is unitary. Suppose $v \in B\left(\H \right)$ is an unitary with $v^{p^r} = \pi \left( u\right)$ and $v \notin  \pi\left( M\left( A\otimes \K\right)\right) $.
 
 \begin{definition}\label{h_admissible_tors_defn}
 	We say that element $x \in K_0\left(A \right)\left( p^r\right)$ is $p^r$-\textit{admissible} if $x$ can be  represented by partial isometry $w\in M\left( A\otimes \K\right)$ such that there is a $\left(u \bydef w^{p^r}, v, p^r\right)$-covering.
@@ -14517,7 +14516,7 @@ and
 \be\label{h_vp_r_eqn}
 \varphi_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \pi_1\left(A\right)\left(p^r \right)
 \ee
- is the natural surjective homomorphism.
+is the natural surjective homomorphism.
 Taking into account the surjective homomorphism $\eqref{fundamental_gr_hom_eqn}$ one has a homomorphism
 $$
 \phi_{\left( u_j, v_j, p^r\right)}: \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  \chi \left(K_1 \left( A\right)\left(p^r \right) \right) 
@@ -14544,6 +14543,7 @@ and taking into account  \eqref{uct_c} one has
 \begin{definition}\label{h_tors_defn}
 	The homomorphism  $h^A_{p^r}$ is the $p^r$-\textit{part of Hurewicz homomorphism}.
 \end{definition}
+
 
 
 \paragraph{Free Hurewicz homomorphism}
@@ -14674,7 +14674,13 @@ If $h_{K^1}$ is the classical Hurewicz homomorphism then $\varphi\circ h_{K^1}= 
 
 \section{Hausdorff blowing-up and Hurewicz homomorphism}
 \paragraph{}
-If $A$ is a $C^*$-algebra and $C\left(\sY \right) \to M\left( A\right)$ is Hausdorff blowing-up (cf. Definition \ref{blowing_defn}) with connected, compact $CW$-complex $\sY$, then from the Lemma \ref{blowing_unitization_lem} for  any noncommutative finite-fold covering with unitization  $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition  \ref{fin_unitization_defn})  there is  the natural  $A$-regular covering $q: \widetilde \sY \to \sY$ 	such that $\left(A, \widetilde{A}, G, \lift \right)$ is equivalent to $\left(A, A_0\left( \widetilde{\sY}\right) , G, A_0\left( q\right)  \right)$ WHERE 
+Let $A$ be a $C^*$-algebra and let $C\left(\sY \right) \to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Suppose that there is an $A$-regular covering $q: \widetilde \sY\to \sY$ with residually connected $G\left( \left.\widetilde \sY\right|\sY\right)$ such that 
+$$
+\left( A, A_0\left(\widetilde \sY \right), G\left( \left.\widetilde \sY\right|\sY\right) \right) 
+$$ 
+is $P_{\mathrm{untz}}$-universal covering  (cf. Definition \ref{fundamental_group_nc_p_defn})
+
+ with connected, compact $CW$-complex $\sY$, then from the Lemma \ref{blowing_unitization_lem} for  any noncommutative finite-fold covering with unitization  $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition  \ref{fin_unitization_defn})  there is  the natural  $A$-regular covering $q: \widetilde \sY \to \sY$ 	such that $\left(A, \widetilde{A}, G, \lift \right)$ is equivalent to $\left(A, A_0\left( \widetilde{\sY}\right) , G, A_0\left( q\right)  \right)$ WHERE 
 !!! 
 Suppose that $\pi_1\left( \sY, y_0\right)$ is a finitely generated Abelian group, and any generator  of $\pi_1\left( \sY, y_0\right)/\pi_1\left( \sY, y_0\right)_{\mathrm{tor}}$ (cf. Section \ref{alg_fin_gen_ab_sec}) can be represented by an injective continuous map $\a: S^1 \hookto \sY$.
 \begin{lemma}

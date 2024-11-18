@@ -44,7 +44,13 @@ namespace Collaada.Wpf.Test
         {
             var fn = models[obj].ConvertExtension(".obj");
             var converter = new Obj3DConverter();
-            converter.Create(fn);
+            IEnumerable<AbstractMesh> l = converter.Create(fn);
+            IMaterialDictionary materialDictionary = converter;
+            var dict = materialDictionary.Materials;
+            var mtl = new MtlWrapper();
+            var list = mtl.Create(dict, new WpfMaterialCreator());
+            var p = new Performer();
+            p.Create(l, new WpfMeshCreator(), list).ToArray();
         }
 
 

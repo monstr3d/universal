@@ -3,7 +3,7 @@ using Collada;
 
 namespace Abstract3DConverters
 {
-    public class Obj3DConverter: ITextReaderMeshCreator
+    public class Obj3DConverter: ITextReaderMeshCreator, IMaterialDictionary
     {
         List<AbstractMesh> models = new();
 
@@ -132,6 +132,8 @@ namespace Abstract3DConverters
         }
 
         string ITextReaderMeshCreator.Extension => ".obj";
+
+        Dictionary<string, Material> IMaterialDictionary.Materials => materials;
 
         List<AbstractMesh> ITextReaderMeshCreator.Create(TextReader reader)
         {

@@ -18,6 +18,18 @@ namespace Abstract3DConverters
 
         }
 
+        public Dictionary<string, object> Create( Dictionary<string, Material> keyValuePairs, IMaterialCreator creator)
+        {
+            Dictionary<string, object> d = new Dictionary<string, object>();
+            foreach ( var pair in keyValuePairs )
+            {
+                Material mat = pair.Value;
+                var v = creator.Create(mat);
+                d[pair.Key] = v;
+            }
+            return d;
+        }
+
         public  Dictionary<string, Material> Create(string filename, string directory)
         {
             dict.Clear();
@@ -86,6 +98,10 @@ namespace Abstract3DConverters
             {
                 return;
             }
+            if (Diffuse == null)
+            {
+                return;
+            }
             MaterialGroup mat = new MaterialGroup();
             var children = mat.Children;
             material = mat;
@@ -99,6 +115,8 @@ namespace Abstract3DConverters
 
         }
 
+        bool first = false;
+
         private MtlWrapper(string str, string directory, StreamReader reader, Dictionary<string, Material> materials)
         {
             Name = str;
@@ -108,10 +126,11 @@ namespace Abstract3DConverters
             do
             {
                 var line = reader.ReadLine();
-                if (line.Length > 0)
+                if (line.Length ==  0)
                 {
-                    list.Add(line);
+                    continue;
                 }
+                list.Add(line);
                 if (line.Contains("newmtl"))
                 {
                     var ss = line.Split(" ".ToCharArray());
@@ -124,9 +143,14 @@ namespace Abstract3DConverters
                 }
             }
             while (!reader.EndOfStream);
+            
             Finalize(list, directory);
             Create();
-            materials[Name] = Material;
+            var mat = Material;
+            if (mat != null)
+            {
+                materials[Name] = Material;
+            }
 
             if (!reader.EndOfStream)
             {
