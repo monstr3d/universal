@@ -31,14 +31,18 @@ namespace Collaada.Wpf.Test
              { "Tornado",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\Tornado\Tornado.dae" },
              { "Sukhoi",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae" },
                 {"F15", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F15\F-15C Eagle.dae" },
+               {"F16", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F-16C Fighting Falcon\F-16C Fighting Falcon.obj" },
 
-        
+
         };
 
         void GenterateObj()
         {
-            GenerateObj("Tornado");
-         
+            // GenerateObj("Tornado");
+            //        GenerateObj("F15");
+            GenerateObj("Mig29");
+         //   GenerateObj("F16");
+
         }
 
         void GenerateObj(string obj)
@@ -61,8 +65,6 @@ namespace Collaada.Wpf.Test
             {
                 w.Write(r);
             }
-
-
         }
 
 

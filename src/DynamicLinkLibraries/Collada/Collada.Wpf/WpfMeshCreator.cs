@@ -15,10 +15,7 @@ namespace Collada.Wpf
     {
         Assembly IMeshCreator.Assembly => typeof(ModelVisual3D).Assembly;
 
-        int currentVerex = 1;
-
-        int currentTexture = 1;
-
+     
         List<float[]> vertices = new List<float[]>();
 
         List<float[]> textures = new List<float[]>();
@@ -27,7 +24,7 @@ namespace Collada.Wpf
 
         void IMeshCreator.Init(IEnumerable<AbstractMesh> meshes)
         {
-             foreach (var mesh in meshes)
+            foreach (var mesh in meshes)
             {
                 vertices.AddRange(mesh.Vertices);
                 textures.AddRange(mesh.Textures);
@@ -96,10 +93,7 @@ namespace Collada.Wpf
             }
             mg.TextureCoordinates = textcoord;
             mg.Positions = points;
-            currentVerex = maxv + 1;
-            currentTexture = maxt + 1;
             return mg;
-
         }
 
         private MeshGeometry3D Create(AbstractMesh mesh)
@@ -108,38 +102,32 @@ namespace Collada.Wpf
             {
                 return CreateWN(mesh);
             }
-            var meshGeometry = new MeshGeometry3D();
+            var mg = new MeshGeometry3D();
             var points = new Point3DCollection();
-            foreach (var point in mesh.Vertices)
-            {
-                points.Add(new Point3D(point[0], point[1], point[2]));
-            }
-            var norms = new Vector3DCollection();
-            foreach (var item in mesh.Normals)
-            {
-                norms.Add(new Vector3D(item[0], item[1], item[2]));
-            }
             var textcoord = new PointCollection();
-            foreach (var n in mesh.Textures)
-            {
-                textcoord.Add(new Point(n[0], n[1]));
-            }
-            var ind = new Int32Collection();
+            var norm= new Vector3DCollection();
             foreach (var item in mesh.Indexes)
             {
                 foreach (var idx in item)
                 {
-                    foreach (var i in idx)
-                    {
-                        ind.Add(i);
-                    }
+                    var kp = idx[0] - 1;
+                    float[] v = vertices[kp];
+                    var p = new Point3D(v[0], v[1], v[2]);
+                    points.Add(p);
+                    kp = idx[1] - 1;
+                    v = textures[kp];
+                    var t = new Point(v[0], v[1]);
+                    textcoord.Add(t);
+                    kp = idx[2] - 1;
+                    var nn = normals[kp];
+                    var normal = new Vector3D(nn[0], nn[1], nn[2]);
+                    norm.Add(normal);
                 }
             }
-            meshGeometry.Positions = points;
-            meshGeometry.Normals = norms;
-            meshGeometry.TextureCoordinates = textcoord;
-            meshGeometry.TriangleIndices = ind;
-            return meshGeometry;
+            mg.TextureCoordinates = textcoord;
+            mg.Positions = points;
+            mg.Normals = norm;
+            return mg;
 
         }
 

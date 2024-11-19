@@ -64,6 +64,7 @@ namespace Abstract3DConverters
 
         public Image Ka { get; private set; }
         public Image Kd { get; private set; }
+        public Image Ks { get; private set; }
 
         public string Name { get; private set; }
 
@@ -77,8 +78,9 @@ namespace Abstract3DConverters
         public float Ns { get; private set; }
         public float Ni { get; private set; }
         public float d { get; private set; }
-        public float illum { get; private set; }
+        public int illum { get; private set; }
 
+ 
         private Material material;
         public Material Material
         {
@@ -104,14 +106,22 @@ namespace Abstract3DConverters
             MaterialGroup mat = new MaterialGroup();
             var children = mat.Children;
             material = mat;
-            var diffuse = new DiffuseMaterial(Diffuse, Kd, d);
-            //diffuse.Texture = Kd;
-            children.Add(diffuse);
-            var emissive = new EmissiveMaterial(Ambient, Ka);
-             children.Add(emissive);
-            var specular = new SpecularMaterial(Specular, Ns);
-            children.Add(specular);
-
+            if (Diffuse != null)
+            {
+                var diffuse = new DiffuseMaterial(Diffuse, Kd, d);
+                //diffuse.Texture = Kd;
+                children.Add(diffuse);
+            }
+            if (Ambient != null)
+            {
+                var emissive = new EmissiveMaterial(Ambient, Ka);
+                children.Add(emissive);
+            }
+            if (Specular != null)
+            {
+                var specular = new SpecularMaterial(Specular, Ns);
+                children.Add(specular);
+            }
         }
 
         bool first = false;
@@ -180,35 +190,55 @@ namespace Abstract3DConverters
                 var value = t.Substring(n);
                 switch (name)
                 {
+                    /// The ambient color of the material is declared using Ka. Color definitions are in RGB where each channel's 
+                    /// value is between 0 and 1.
+
                     case "Ka":
                         Ambient = new Color(value);
                         break;
                     case "Kd":
+                      //  Similarly, the diffuse color is declared using Kd.
                         Diffuse = new Color(value);
                         break;
                     case "Ks":
+               //         The specular color is declared using Ks, and weighted using the specular exponent Ns.
                         Specular = new Color(value);
                         break;
+                       // the ambient texture map
                     case "map_Ka":
                         Ka = new Image(value, directory);
                         break;
+                    // the diffuse texture map 
                     case "map_Kd":
                         Kd = new Image(value, directory);
                         break;
+
+                    //# specular color texture map
+                    case "map_Ks":
+                        Ks = new Image(value, directory);
+                        break;
                     case "Ns":
+                /// Specular exponent ranges between 0 and 1000                        Ns 10.000            
                         Ns = ToFloat(value);
                         break;
                     case "Ni":
+                        // # optical density                    Values can range from 0.001 to 10
                         Ni = ToFloat(value);
                         break;
                     case "d":
+// some implementations use 'd'        d 0.9 # others use 'Tr' (inverted: Tr = 1 - d) Tr 0.1
                         d = ToFloat(value);
                         break;
+                    case "Tr":
+                        d = 1 - ToFloat(value);
+                        break;
+            //            illumination model
                     case "illum":
-                        illum = ToFloat(value);
+                        illum = int.Parse(value);
                         break;
                     default:
                         break;
+                        
                 }
             }
         }
