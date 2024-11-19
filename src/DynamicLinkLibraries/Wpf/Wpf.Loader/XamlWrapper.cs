@@ -69,6 +69,7 @@ namespace Wpf.Loader
         internal void SetFile(string xaml, string dir)
         {
             string d = dir;
+            var ds = d.Replace(Path.DirectorySeparatorChar, '/');
             if (d[d.Length - 1] != Path.DirectorySeparatorChar)
             {
                 d += Path.DirectorySeparatorChar;
@@ -81,10 +82,12 @@ namespace Wpf.Loader
                 string iso = e.GetAttribute("ImageSource");
                 if (iso.Contains('/'))
                 {
-                    iso = iso.Substring(iso.LastIndexOf('/') + 1);
+                    //iso = iso.Substring(iso.LastIndexOf('/') + 1);
+                    iso = iso.Substring(ds.Length + "file://".Length + 1);
                     e.SetAttribute("ImageSource", iso);
                 }
-                string fn = d + iso;
+                string fn = ds + iso;
+                fn = fn.Replace('/', Path.DirectorySeparatorChar);
                 if (!File.Exists(fn))
                 {
                     continue;

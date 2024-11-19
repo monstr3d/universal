@@ -10,10 +10,14 @@ namespace Abstract3DConverters
     public interface IMeshCreator
     {
         Assembly Assembly { get; }
+
+        void Init(IEnumerable<AbstractMesh> meshes);
         object Create(AbstractMesh mesh);
 
         void SetMaterial(object mesh, object material);
 
         public void Add(object mesh, object child);
+
+        public object Combine(IEnumerable<object> meshes);
     }
 }

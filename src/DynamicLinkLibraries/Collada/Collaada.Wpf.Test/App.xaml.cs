@@ -37,10 +37,11 @@ namespace Collaada.Wpf.Test
 
         void GenterateObj()
         {
-            GenterateObj("Sukhoi");
+            GenerateObj("Tornado");
+         
         }
 
-        void GenterateObj(string obj)
+        void GenerateObj(string obj)
         {
             var fn = models[obj].ConvertExtension(".obj");
             var converter = new Obj3DConverter();
@@ -50,8 +51,20 @@ namespace Collaada.Wpf.Test
             var mtl = new MtlWrapper();
             var list = mtl.Create(dictionary, new WpfMaterialCreator());
             var p = new Performer();
-            p.Create(l, new WpfMeshCreator(), list).ToArray();
+            var model  =  p.Combine<ModelVisual3D>(l, new WpfMeshCreator(), list);
+            model.SetLight();
+            var fnt = Path.GetFileNameWithoutExtension(fn);
+            var dir = Path.GetDirectoryName(fn);
+            var file = Path.Combine(dir, fnt + ".xaml");
+            var r = XamlWriter.Save(model);
+            using (var w = new StreamWriter(file))
+            {
+                w.Write(r);
+            }
+
+
         }
+
 
 
 

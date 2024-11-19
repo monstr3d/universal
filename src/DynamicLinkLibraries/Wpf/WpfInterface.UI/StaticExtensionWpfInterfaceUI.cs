@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
 using AssemblyService.Attributes;
+using Wpf.Loader;
 
 
 
@@ -31,6 +33,7 @@ namespace WpfInterface.UI
         internal static void Set(this System.Windows.Forms.OpenFileDialog dlg)
         {
             var dic = StaticExtensionWpfInterface.FileLoad;
+            var dicp = StaticExtensionWpfLoader.FileLoad;
             foreach (string key in dic.Keys)
             {
                 dlg.Filter = dlg.Filter + ";*." + key;
