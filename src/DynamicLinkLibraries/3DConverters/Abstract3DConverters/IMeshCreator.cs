@@ -11,7 +11,7 @@ namespace Abstract3DConverters
     {
         Assembly Assembly { get; }
 
-        void Init(IEnumerable<AbstractMesh> meshes);
+        void Init(object obj);
         object Create(AbstractMesh mesh);
 
         void SetMaterial(object mesh, object material);

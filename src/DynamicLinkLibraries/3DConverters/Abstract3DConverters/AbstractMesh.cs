@@ -19,7 +19,8 @@
         public string Material { get; private set; }
 
     
-        public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals, List<float[]> textures, List<int[][]> indexes)
+        public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals, 
+            List<float[]> textures, List<int[][]> indexes)
         {
             Name = name;
             Material = material;

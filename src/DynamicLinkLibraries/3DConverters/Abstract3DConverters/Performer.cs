@@ -30,18 +30,18 @@ namespace Abstract3DConverters
             return o as T;
         }
 
-        public IEnumerable<T> Create<T>(IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials) where T : class
+        public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials) where T : class
         {
-            c.Init(meshes);
+            c.Init(o);
             foreach (var mesh in meshes)
             {
                 yield return Create<T>(mesh, c, materials);
             }
         }
 
-        public T Combine<T>(IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials) where T : class
+        public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials) where T : class
         {
-            var enu = Create<T>(meshes, c, materials);
+            var enu = Create<T>(o, meshes, c, materials);
             return c.Combine(enu) as T;
         }
     }

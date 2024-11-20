@@ -22,13 +22,13 @@ namespace Collada.Wpf
         
         List<float[]> normals = new List<float[]>();
 
-        void IMeshCreator.Init(IEnumerable<AbstractMesh> meshes)
+        void IMeshCreator.Init(object o)
         {
-            foreach (var mesh in meshes)
+            if (o is Tuple < List<float[]>, List<float[]>, List<float[]>> t)
             {
-                vertices.AddRange(mesh.Vertices);
-                textures.AddRange(mesh.Textures);
-                normals.AddRange(mesh.Normals);
+                vertices = t.Item1;
+                textures = t.Item2;
+                normals = t.Item3;
             }
         }
 
@@ -59,6 +59,7 @@ namespace Collada.Wpf
         object IMeshCreator.Combine(IEnumerable<object> meshes)
         {
             var model = new ModelVisual3D();
+            model.Transform = Transform3D.Identity;
             foreach (var mesh in meshes)
             {
                 var m = mesh as ModelVisual3D;
@@ -98,7 +99,7 @@ namespace Collada.Wpf
 
         private MeshGeometry3D Create(AbstractMesh mesh)
         {
-            if (mesh.Normals.Count == 0)
+            if (normals.Count == 0)
             {
                 return CreateWN(mesh);
             }
@@ -111,17 +112,26 @@ namespace Collada.Wpf
                 foreach (var idx in item)
                 {
                     var kp = idx[0] - 1;
-                    float[] v = vertices[kp];
-                    var p = new Point3D(v[0], v[1], v[2]);
-                    points.Add(p);
+                    if (kp >= 0)
+                    {
+                        float[] v = vertices[kp];
+                        var p = new Point3D(v[0], v[1], v[2]);
+                        points.Add(p);
+                    }
                     kp = idx[1] - 1;
-                    v = textures[kp];
-                    var t = new Point(v[0], v[1]);
-                    textcoord.Add(t);
-                    kp = idx[2] - 1;
-                    var nn = normals[kp];
-                    var normal = new Vector3D(nn[0], nn[1], nn[2]);
-                    norm.Add(normal);
+                    if (kp >= 0)
+                    {
+                        var  v = textures[kp];
+                        var t = new Point(v[0], v[1]);
+                        textcoord.Add(t);
+                    }
+                    if (kp >= 0)
+                    {
+                        kp = idx[2] - 1;
+                        var nn = normals[kp];
+                        var normal = new Vector3D(nn[0], nn[1], nn[2]);
+                        norm.Add(normal);
+                    }
                 }
             }
             mg.TextureCoordinates = textcoord;

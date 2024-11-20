@@ -1,7 +1,7 @@
 ﻿
 namespace Abstract3DConverters
 {
-    public class MeshTextReaderCreator: IAbstractMeshCreator
+  /*  public class MeshTextReaderCreator: IAbstractMeshCreator
 
     {
 
@@ -21,4 +21,5 @@ namespace Abstract3DConverters
             }
         }
     }
+ / */
 }

@@ -32,6 +32,7 @@ namespace Collaada.Wpf.Test
              { "Sukhoi",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae" },
                 {"F15", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F15\F-15C Eagle.dae" },
                {"F16", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F-16C Fighting Falcon\F-16C Fighting Falcon.obj" },
+            {"H6", @"c:\AUsers\1MySoft\CSharp\03D\XAML\Models_G0404A151\H6.obj" }
 
 
         };
@@ -40,8 +41,9 @@ namespace Collaada.Wpf.Test
         {
             // GenerateObj("Tornado");
             //        GenerateObj("F15");
-            GenerateObj("Mig29");
-         //   GenerateObj("F16");
+            //    GenerateObj("Mig29");
+            //   GenerateObj("F16");
+                GenerateObj("H6");
 
         }
 
@@ -49,13 +51,14 @@ namespace Collaada.Wpf.Test
         {
             var fn = models[obj].ConvertExtension(".obj");
             var converter = new Obj3DConverter();
-            IEnumerable<AbstractMesh> l = converter.Create(fn);
+            IAbstractMeshCreator meshCreator = converter;
+            Tuple<object,    List<AbstractMesh>> l = meshCreator.Create(fn);
             IMaterialDictionary materialDictionary = converter;
             Dictionary<string, Abstract3DConverters.Material>  dictionary = materialDictionary.Materials;
             var mtl = new MtlWrapper();
             var list = mtl.Create(dictionary, new WpfMaterialCreator());
             var p = new Performer();
-            var model  =  p.Combine<ModelVisual3D>(l, new WpfMeshCreator(), list);
+            var model  =  p.Combine<ModelVisual3D>(l.Item1, l.Item2, new WpfMeshCreator(), list);
             model.SetLight();
             var fnt = Path.GetFileNameWithoutExtension(fn);
             var dir = Path.GetDirectoryName(fn);
