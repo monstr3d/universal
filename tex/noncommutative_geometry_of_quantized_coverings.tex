@@ -727,9 +727,9 @@ In the Chapter \ref{stab_chap} it is proven that some properties of noncommutati
 %\paragraph*{}
 %In the Chapter \ref{stab_chap} we prove that if $*$-homomorphism $A \hookto \widetilde{A}$ of $C^*$-algebras is a "noncommutative covering" then both natural $*$-homomorphisms  $A \otimes \mathbb{M}_n\left(\C \right)  \hookto \widetilde{A} \otimes \mathbb{M}_n\left(\C \right)$ and $A \otimes \K\left(\ell^2\left( \N \right)\right)  \hookto \widetilde{A}\otimes \K\left(\ell^2\left( \N \right)\right)$ are "noncommutative coverings".
 
-\paragraph*{} The Chapter \ref{h_chap} is devoted to the generalization of the Hurewicz homomorphism from the fundamental group to $K$-homology.
-
 \paragraph*{} The Chapter \ref{ctr_chap} is devoted to noncommutative coverings of $C^*$-algebras with Hausdorff spectrum. It is proven that the theory of noncommutative coverings of $C^*$-algebras with Hausdorff spectrum contains all ingredients of right row of the Table \ref{add_mapping_table}. 
+
+\paragraph*{} The Chapter \ref{h_chap} is devoted to the generalization of the Hurewicz homomorphism from the fundamental group to $K$-homology.
 
 %\paragraph*{} In the  Chapter \ref{vf_chap} the coverings of spaces of vector fields are being discussed. Sections of vector fields of Hilbert spaces have the natural structure of operator spaces. Application of the results of the Chapters \ref{cov_fin_chap}  and \ref{infinite_covering_chap} yield finite-fold and infinite noncommutative coverings of these spaces.
 
@@ -14367,419 +14367,6 @@ is a $\mathfrak{Cov}\left(\mathfrak{S}^K \right)$-morphism. So a terminal object
 
 
 
-\chapter{Hurewicz homomorphism}\label{h_chap}
-\section{Preliminaries}\label{h_prel}
-\paragraph{}
-If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_red_homol_defn}, i.e. it is a reduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
-\be\label{h_hk1_eqn}
-\begin{split}
-	h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\\\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }
-	\Hom\left(K_0\left(S^0 \right),  K_1\left(\sX \right)\right)\cong K_1\left(\sX \right).
-\end{split}
-\ee
-From \ref{cirle_k1_empt} it follows that
-\be\label{h_hk11_eqn}
-h_{K_1}	\left(\left[f \right]  \right) \bydef K_1\left( \left[f \right]\right) \left(\left[ 	K^1_{S^1}\right]  \right)
-\ee
-where the following notation is used
-\begin{itemize}
-	\item $f: \left(S^1, s_0\right)\to \left(\sX, x_0\right)$ is a representative of $\left[f \right]\in \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, y_0 \right), \pi_1\left(\sX, y_0 \right)\right]$.
-	\item $	K^1_{S^1}:C\left( u\right)\to  Q\left(\K \right)$ is a given by \eqref{s1_k_1_eqn} representative of the generator of $K_1\left(S^1 \right)$.  
-\end{itemize}
-It turns out that
-\be\label{h_k1_f_eqn}
-h_{K_1}	\left(\left[f \right]  \right)= \left[K^1_{S^1}\circ f\right] \in K_1\left(\sX \right)
-\ee
-where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$. For any $C^*$-algebra $A$ and any (infinite) noncommutative covering $\left(A, \widetilde A, G\left( \left. \widetilde A\right| A\right) \right)$, we replace a homomorphism
-\eqref{h_k1_f_eqn} by a pair $\left( h^{\widetilde A}_{\text{tors}}, h^{\widetilde A}_{\text{free}}\right)  $ of homomorphisms
-\be\label{h_main_eqn}
-\begin{split}
-	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to \Ext \left(  K_1\left(A \right)_{\text{tors}}, \Z\right)  ,\\
-	h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to\Hom\left(  K_1\left( A\right)_{\text{free}}, \Z\right)  \bydef  \Hom\left( K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}, \Z\right) 
-\end{split}
-\ee
-where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part.
-
-\section{Basic idea}
-
-\paragraph*{}
-
-	Let  $A$ be  a stable     $C^*$-algebra (cf. Definition \ref{stable_ca_defn}).
-	Let  $P_{\mathrm{untz}}$ be the given by \eqref{unitization_p_eqn} property  noncommutative finite-fold coverings, and suppose that there is $P_{\mathrm{untz}}$ - fundamental group $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
-	$$
-\pi_1^{\text{ab}} \bydef \pi^{P_{\mathrm{untz}}}_1\left(A\right)/ \left[\pi^{P_{\mathrm{untz}}}_1\left(A\right), \pi^{P_{\mathrm{untz}}}_1\left(A\right)\right]	
-	$$
-is a finitely generated Abelian group	and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the surjective homomorphism
-	\be\label{fundamental_gr_hom_eqn}
-h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
-\ee
-		 If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
-	$$
-	\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
-	$$
-	with an injective map  $M\left(  A\right)\hookto \widetilde M$ which comes from inclusions $M\left(  A\right)\hookto B\left(\H \right)$ and  $\widetilde M \to B\left( \H\right)$. 
-	If $\widetilde M$ is a $C^*$-subalgebra of $B\left( \H\right)$ then the inclusion is an  injective $*$-homomorphism 
-$
-	\widetilde \lift: M\left(  A\right)\hookto \widetilde M
-	$. 
-	If  $\Aut\left(\widetilde{M} \right)$ is group of $*$-automorphisms and 
-
-				\be\label{h_gr_eqn}
-				\begin{split}
-G \bydef \left\{ \left.g \in \Aut\left(\widetilde{M} \right)~\right|\forall a \in \widetilde \lift\left(  M\left(  A\right)\right)  \quad ga = a\right\} \cong \Z_n,
-\\\forall \overline k \in \Z_n\quad \overline k v = e^{\frac{2\pi i k}{n}}v
-				\end{split}
-\ee
-then a quadruple
-$$
-\left( M\left(  A\right), \widetilde M, \Z_n, \widetilde \lift \right) 
-$$
-is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). If $\widetilde A \subset \widetilde M$ is generated  by $\widetilde \lift\left(A \right)$ two sided ideal then $\widetilde M = M\left( \widetilde A\right)$ and one has a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})  
-\be\label{hurewicz_u_n_eqn}
-\left(   A, \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
-\ee
-where an injective $*$-homomorphism $\lift : A \hookto \widetilde A$ comes from  $\widetilde \lift: M\left(A \right)\hookto M\left( \widetilde A\right)$ one.  
-
-\begin{definition}\label{hurewicz_u_n_defn}
-Under the above hypothesis   the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u, v, n\right)$-\textit{covering}.
-\end{definition}
-For any $\left(u, v, n\right)$-{covering} and $g \in  G\left( \left.\widetilde A\right| A\right)\cong \Z_n$ there is a character
-\be\label{p_char_eqn}
-\begin{split}
-\chi^g_{\left(u, v, n\right)}:  \Z\left[u\right]\to \sU\left( 1\right),\\
-k\left[u \right]   \mapsto \frac{ gv^k}{v}=  e^{\frac{2\pi i kl}{n}}
-\end{split}
-\ee
-where $l\in \Z$ is a representative of $g$.
-
-\begin{empt}
-	Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
-	\be\label{h_n_root}
-	\left( \phi_n\right)^n = \Id_{\left\{\left. z \in \C\right| \left|z \right|=1\right\}}
-	\ee
-	In particular $\phi_n$ can be given by	
-	\be\label{h_n_n_root}
-	\phi_n\left( \varphi\right)= e^{\frac{i \varphi}{n}} 
-	\ee
-	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
-\end{empt}
-\paragraph{Torsion Hurewicz homomorphism}
-Let $K_0\left(A \right)_{\mathrm{tors}}\subset K_0\left(A \right)$ be a torsion subgroup, end let $p$ be a prime. For any $r > 0$ we define by $K_1\left(A \right)\left( p^r\right) \subset K_0\left(A \right)_{\mathrm{tors}}$  a set
-$$
-K_0\left(A \right)\left(p^r \right) \bydef \left\{\left. x \in  K_0\left(A \right)_{\mathrm{tors}}\right|\text{ period of } x \text{ equals to } p^r \right\}.
-$$
-\begin{remark}\label{h_factor_rem}
-	According to the Theorem \ref{alg_finp_gen_ab_fin_thm} there is a natural surjective homomorphism $K_0\left(A \right)_{\mathrm{tors}}\to K_0\left(A \right)\left(p^r \right)$ of Abelian groups, i.e. $K_0\left(A \right)\left(p^r \right)$ can be regarded as factor group of $K_0\left(A \right)$.
-\end{remark}
-According to the Definition \ref{index_map_defn} for 
-any $x \in K_0\left(A \right)\left(p^r \right)\setminus \{0\}$ there is $\overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ and a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
-$$
-\begin{pmatrix}
-\overline v & 0\\
-0& \overline v^{-1}
-\end{pmatrix}
-$$
-such that $x = \partial \overline v \bydef \left[\overline wp_n\overline w^{-1}\right]- \left[p_n\right]
-$.
-If $x = 0$ then $\overline v$ can be lifted up to an element of $GL_{n}\left( M\left(A\otimes \K \right)\right)$.
-If $\widetilde A \in B\left(\H \right)$ is generated by a union $\cup  \left\{\overline wp_n\overline w^{-1}\right\}$ $C^*$-algebra  and $\phi : A\otimes \K \hookto \widetilde A$ is the natural homomorphism then  $K_0\left(\phi \right)\left(  x \right)= 0$. It follows that there is  $v \in GL_{n}\left( M\left(\widetilde A \right)\right)$ such that $v|_{ M\left(A\otimes \K \right)} =\overline v$. From $p^r x = 0$ it follows that $u \bydef \overline v^{p^r}= v^{p^r}
- \in GL_{n}\left(M\left(A\otimes \K \right)  \right)$.
- \begin{definition}\label{h_admissible_tors_defn}
- Under the above hypothesis if  one can select  $u, v$ such that:
- \begin{itemize}
- 	\item both $u$ and $v$ are unitary,
- 	\item $\widetilde A = \bigoplus_{j = 0}^{p^r-1} \left(  A\otimes \K\right)  v^j$,
- \end{itemize}
-then we say that the element $x \in K_0\left(A \right)\left( p^r\right)\setminus \{0\}$ is $p^r$-\textit{admissible}.
- \end{definition}
- \begin{remark}\label{h_admissible_tors_rem}
- If $x$ is $p^r$-admissible then the  quadruple
-\be\label{h_admissible_tors_eqn}
-\left(A\otimes \K, \widetilde A ,	G\left( \left.\widetilde A\right| A\right)\cong \Z_{p^r}, \lift\bydef \phi\right) 
-\ee
-is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}). \end{remark} 
-The group   $\Z_{p^r}$ is a field, so $K_0\left(A \right)\left(p^r \right)$ is a finite dimensional  $\Z_{p^r}$-vector space. Let $ K^{\mathrm{adm}}_0\left(A \right)\left( p^r\right) \subset\K_0\left(A \right)\left(p^r \right)$ is a subspace generated by admissible elements. There is a following representation 
-$$
-K^{\mathrm{adm}}_1\left(A \right)\left( p^r\right) = \Z_{p^r} x_1\oplus ...\oplus \Z_{p^r} x_n
-$$
-such that $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$. There is a (non unique) subspace $V \subset K_0\left(A \right)\left(p^r \right)$ with a natural isomorphism 
-$$
-K^{\mathrm{adm}}_0\left(A \right)\left( p^r\right)\cong  K_0\left(A \right)\left( p^r\right)/V
-$$
-and a surjective homomorphism 
-$$
-K_0 \left( A\right)\left(p^r \right)  \to K^{\mathrm{adm}}_1\left(A \right)\left( p^r\right) 
-$$
-of $\Z_{p^r}$-vector spaces. So for any $j \in \left\{1,..., n\right\}$ there is a surjective homomorphism  $K_0 \left( A\right)\left(p^r \right)\to \Z_{p^r} x_j$.
-For any $j \in \left\{1, ..., n\right\}$ there is $\left( u_j, v_j, p^r\right)$-covering $\left(   A, \widetilde A,  G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)} \cong \Z_{p^r} ,  \lift \right)_{\left( u_j, v_j, p^r\right)}$ and for all $g \in G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}$  there is  the given by \eqref{p_char_eqn} character
-$$
-\chi^g_{\left(u_j, v_j, p^r\right)}:  \Z_{p^r} x_j\to \sU\left( 1\right).
-$$
-
-
-Above characters yield a homomorphism 
-\bean
-G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi \left(\Z_{p^r} x_j \right) \\
-g \mapsto \chi^g_{\left(u_j, v_j, p^r\right)}:
-\eean
-where $\chi \left( \Z_{p^r} x_j\right)$ is a group of characters of $\Z_{p^r} x_j$. Since there is a surjective homomorphism $K_0\left(A \right)_{\mathrm{tors}}\to\Z_{p^r} x_j$ one has a homomorphism 
-$$
-G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi\left(K_1 \left( A\right)\left(p^r \right)\right) 
-$$
-Let $G_{p^r}$ be a family of all factor groups of $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ such that any $G \in G_r$ has no isomorphic to $\Z_{p^r}$ factor group.
-$$
-\pi_1\left(A\right)\left(p^r \right)\bydef \pi^{P_{\mathrm{untz}}}_1\left(A\right)/ \bigcap_{G \in G_r} \ker \left(\pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\right) .
-$$
-and 
-\be\label{h_vp_r_eqn}
-\varphi_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \pi_1\left(A\right)\left(p^r \right)
-\ee
-is the natural surjective homomorphism.
-Taking into account the surjective homomorphism $\eqref{fundamental_gr_hom_eqn}$ one has a homomorphism
-$$
-\phi_{\left( u_j, v_j, p^r\right)}: \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  \chi \left(K_1 \left( A\right)\left(p^r \right) \right) 
-$$
-A sum of homomorphisms $\phi_{\left( u_j, v_j, p^r\right)}$ is a homomorphism 
-\bean
-h^A_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi \left(K_0 \left( A\right)\left(p^r \right) \right)
-\eean
-Since there is a surjective homomorphism $K_1 \left( A\right)_{\mathrm{tors}}\to K_1 \left( A\right)\left(p^r \right)$ one has a homomorphism
-\bean
-h^A_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi \left(K_0 \left( A\right)_{\mathrm{tors}}\right) 
-\eean
-According to the section \ref{ext_char_sec} the above homomorphism is equivalent to the following one has
-\be\label{h_tors_eqn}
-h^A_{p^r}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Ext^1_\Z\left(  K_0\left(A \right)_{\mathrm{tors}}, \Z \right)\cong \Ext^1_\Z\left(  K_0\left(A \right), \Z \right)
-\ee 
-and taking into account  \eqref{uct_c} one has
-\begin{equation}\label{uct_c_h_eqn}
-	\Ext^1_\Z(K_0(A), \mathbb{Z}) \xrightarrow{\psi} K^1(A) \xrightarrow{\varphi} \mathrm{Hom}(K_1(A), \mathbb{Z})).
-\end{equation}
-\begin{equation}\label{uct_c_hhh_eqn}
-	h^A_{p^r}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  K^1(A)_{\mathrm{tors}}\subset  K^1(A) 
-\end{equation}
-\begin{definition}\label{h_tors_defn}
-	The homomorphism  $h^A_{p^r}$ is the $p^r$-\textit{part of Hurewicz homomorphism}.
-\end{definition}
-
-
-
-\paragraph{Free Hurewicz homomorphism}
-If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$.
-\begin{definition}\label{h_admissible_free_defn}
-	An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus \pi\left( M\left(A \right) \right) $ with
-	\be\label{h_vm_eqn}
-	\begin{split}
-		v_k^k =\pi\left(u\right),\\
-		\forall k, l \in \N \quad v_{kl}^l = v_k. 
-	\end{split}
-	\ee
-	and for any $k \in \N$ there is a $\left( u, v_k, k\right)$-covering.
-\end{definition}
-If $V^{\mathrm{adm}}\subset K_1\left( A\right)_{\mathrm{free}}\otimes \Q$ is a generated by admissible elements subspace then $V^{\mathrm{adm}}$ is isomorphic to  the factor-space of   $K_1\left( A\right)_{\mathrm{free}}\otimes \Q$. Similarly if $K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\bydef V^{\mathrm{adm}} \cap  K_1\left( A\right)_{\mathrm{free}}$ then $K^{\mathrm{adm}}_1\left( A\right)$ is isomorphic to  a factor-group of a $K_1\left( A\right)_{\mathrm{free}}$. Indeed
-\be\label{h_dsi_eqn}
-K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\cong \Z x_1 \oplus ...\oplus \Z x_n
-\ee
-where $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$ and there is a (non unique) surjective homomorphism $K_1\left( A\right)_{\mathrm{free}}\to \Z x_j$. Any $x \in \left\{x_1,...,  x_n\right\}$  can be represented by $u \in   M\left( A \otimes \K\right)$ satisfying to the conditions \eqref{h_vm_eqn}. For any $m \in \N$ let $
-\left(A, A_m, \Z_m, \lift_m \right) 
-$
-the  required by the Definition \ref{hurewicz_u_n_defn} noncommutative covering with unitization.  If $h_{m} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then   any $g \in \pi^{P_{\mathrm{untz}}}_1\left(A\right)$ yields a character
-\bean
-\chi^g_m : \Z  x \to \sU\left( 1\right),\\
-k   x \mapsto \frac{h_m\left( g\right) v^k_m}{v_m}= e^{\frac{2\pi i kl}{m}} 
-\eean 
-where $v_m$ satisfies to \eqref{h_vm_eqn} (cf. \eqref{h_gr_eqn}) and $l \in \Z$ is a representative of $h_m\left( g\right)\in \Z_n$. If $\Q x \bydef \Q \otimes_\Z \Z  x$ then there is a character
-\bean
-\chi^g_\Q:  \Q x \to \sU\left( 1\right),\\
-\forall a \in \Z \quad \forall b \in \N \quad \chi^g_\Q\left(\frac{a}{b} x\right)\bydef \left( \chi^g_b\left( x\right)\right)^a
-\eean
-such that
-\be\label{h_integer_eqn}
-\forall  \frac{a}{b} \in \Z\quad \chi^g_\Q\left( \frac{a}{b} x\right) = 1.
-\ee 
-The map
-\bean
-\phi_{\left( u_j, v_j, p^r\right)}: \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi\left(\Q x \right),\\
-g \mapsto  \chi^g_\Q
-\eean
-is a homomorphism of groups.
-The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$
-If we consider the  \textit{standard character}
-\bean
-\chi_{\text{standard}}: \R \to \sU\left(1 \right) ,\\
-x \mapsto e^{-\frac{x}{2\pi}}
-\eean
-then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
-$f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$. Using the direct sum \eqref{h_dsi_eqn} and the surjective homomorphisms $K_1\left( A\right)_{\mathrm{free}}\to \Z x$  one can construct homomorphism 
-$$
-f^g_x: K_1\left( A\right)_{\mathrm{free}}\to\chi \left(  \Z x\right) .
-$$
-The formula
-$$
-f^g = f^g_{x_1} + ... + f^g_{x_n}
-$$
-yields an element of $\Hom\left(K_1\left( A\right)_{\mathrm{free}}, \Z \right)$.
-In result one has a group homomorphism
-The map
-\be\label{h_free_eqn}
-\begin{split}
-	h^A_{\mathrm{free}} : \pi^{P_{\mathrm{untz}}}_1\left(A \right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right)\cong  \Hom\left(  K_1\left( A\right), \Z\right),\\
-	g \mapsto f^g 
-\end{split}
-\ee
-is a homomorphism of groups.
-\begin{definition}\label{h_free_defn}
-	The homomorphism  $h^A_{\mathrm{free}}$ is the \textit{free part of Hurewicz homomorphism}.
-\end{definition}
-
-
-\section{$C^*$-algebras with Hausdorff spectrum}
-\subsection{$C^*$-algebras of path-connected spaces}
-\paragraph{}
-Let $\left(\sX, x_0\right)$ be  pointed path-connected space, and let $\pi_1\left(\sX, x_0 \right)$ be its fundamental group. Consider a faithful nondegenerate representation $C\left(\sX\right)\otimes \K \hookto B\left( \H\right)$. Any element of $\pi_1\left(\sX, x_0 \right)$ is represented by a pointed  map  $\om : \left( S^1, s_0\right) \to \left(\sX_0, x_0 \right)$. On the other hand the map yields a homomorphism $K_1\left(\om \right): K_1\left( C\left(\sX \right) \right)  \to K_1\left( C\left(S^1 \right) \right)$. This homomorphism   depends on homotopical class of $\om$ in $\pi_1\left(\sX, x_0 \right)$. Moreover it is invariant modulo the commutant  $\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right]$. We denote by $\left[\om \right]$ the class of $\om$ in $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)$ where 
-$$ 
-\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)\bydef  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right].
-$$  Also we denote by $K_1\left(\left[\om\right] \right) \bydef K_1\left(\om \right)$.  There is a two sided ideal $I_\om\subset M\left(C\left( \sX\right)\otimes \K  \right)$ generated by a set
-$$
-\left\{f \in C\left( \sX\right) | \om_a \circ f = \{0\} \right\}
-$$
-and a factor algebra $ M\left(C\left( \sX\right)\otimes \K  \right)_\om \bydef  M\left(C\left( \sX\right)\otimes \K  \right)/I_\om$. We suppose that there is an unitary 
-\be\label{h_u_om_eqn}
-u_\om \in M\left(C\left( \sX\right)\otimes \K  \right)_\om
-\ee
- such that the image of $u_\om$ is a generator of $K^1\left(C\left(S^1 \right)  \right)$. 
-
-\paragraph{Torsion Hurewicz homomorphism}
-If  $p^r$ is a power of prime then  and let $\left\{p_\a: \sX_\a \to \sX \right\}_{\a \in \mathscr A}$ be a set of all finite-fold coverings with
-$$
-G\left(\left.\sX_\a\right| \sX \right) \cong \Z_{p^r}.
-$$
-then for every $\a \in \mathscr A$ there   is an unital finite-fold noncommutative covering $\left(C\left( \sX\right) ,C\left(  \sX_\a\right), G\left(\left.\sX_\a\right| \sX \right), C\left( p_\a\right) \right)$. Let
-\bean
-\pi_1\left(\sX, x_0 \right) \left( p^r\right) \bydef \pi_1\left(\sX, x_0 \right)/ \ker_{\a \in \mathscr A} \pi_1\left(\sX, x_0 \right)\to G\left(\left.\sX_\a\right| \sX \right)
-\eean
-and $\varphi_{p^r}:\pi_1\left(\sX, x_0 \right)  \to \pi_1\left(\sX, x_0 \right) \left( p^r\right)$ is the natural surjective homomorphism.
-
-
-For each $\a \in \mathscr A$ there is the natural surjective homomorphism  $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)\to G\left(\left.\sX_\a\right| \sX \right) \cong \Z_{p^r}$ of Abelian groups. Suppose that a generator of $G\left(\left.\sX_\a\right| \sX \right)$ is represented by $\om_\a:  \left(S^1, s_0 \right) \to \left(\sX, x_0 \right)$. If  $u_{\om_\a} \in M\left(C\left( \sX\right)\otimes \K  \right)_{\om_\a}$ is given by \eqref{h_u_om_eqn}.
-If $h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ is the given by \eqref{h_hk1_eqn} Hurewicz homomorphism and $h_{K_1}\left(\left[\om_\a\right] \right) \neq 0$ then period of $h_{K_1}\left(\left[\om_\a\right] \right)$ equals to $p^r$ since the period of $\left[\om_\a\right]$ equals to $p^r$. So from  \eqref{uct_c_h_eqn} it follows that $h_{K_1}\left(\left[\om_\a\right] \right)\in \varphi\left( \Ext^1_\Z(K_0(A), \mathbb{Z})\right)$. There is $x_\a \in K_0\left(A \right)\left(p^r \right) $ such that $h_{K_1}\left(\left[\om_\a\right] \right)\in \Ext^1_\Z\left( \Z_{p^r} x, \Z \right)$ From the equation \eqref{d_u_iv_eqn} it follows that there is a partial isometry $w_\a \in M\left(C\left( \sX\right)  \otimes \K\right)$ such that
-$$
-x_\a= \mathrm{Index}~w_\a \in K_0\left(A \right).
-$$
-From  $p^rx_\a = 0$ it follows that $u_\a \bydef w^{p^r}_\a$ is isometry and $v_\a \bydef \phi_{p^r} \left( \pi\left(u_\a \right) \right) \notin M\left(C\left( \sX\right) \otimes\K \right)$. Moreover   $\left(C\left( \sX\right) ,C\left(  \sX_\a\right), G\left(\left.\sX_\a\right| \sX \right), C\left( p_\a\right) \right)$ is a $\left( u_\a= w^{p^r}_\a, v_\a, p^r\right)$-covering. So element $x$ is $p^r$-admissible (cf. Definition \ref{h_admissible_tors_defn}) and $h_{\K_1}\left(\left[\om_\a\right] \right)  = h^A_{p^r}\left(\left[\om_\a\right] \right)$ where $h^A_{p^r}$ is the $p^r$ {part of Hurewicz homomorphism} (cf. Definition \ref{uct_c_hhh_eqn})
-\begin{lemma}
-If $h_{K^1}$ is the classical Hurewicz homomorphism then $\varphi_{p^r}\circ h_{K^1}=  h^{C\left(\sX \right) }_{p^r}$.
-\end{lemma}
-
-\paragraph{Free Hurewicz homomorphism}
-Let  $K_1\left(  C\left( \sX\right)\right)_{\mathrm{free}} \bydef K_1\left( C\left( \sX\right)\right)/ K_1\left( C\left( \sX\right)\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$. Similarly there if $\pi^{\mathrm{tors}}_1\left(\sX, x_0 \right)$ is the torsion subgroup of $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)$ then 
-$$
-\pi^{\mathrm{free}}_1\left(\sX, x_0 \right)\bydef \pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)/\pi^{\mathrm{tors}}_1\left(\sX, x_0 \right)\cong \Z_k.
-$$
-Suppose that $\om : \left( S^1, s_0\right) \to \left(\sX_0, x_0 \right)$ is a representative of the generator of $\pi^{\mathrm{free}}_1\left(\sX, x_0 \right)$. If 
-$$
-\varphi \circ h_{K_1}\left(\left[\om\right] \right) \neq 0
-$$
-where $h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ is the given by \eqref{h_hk1_eqn} Hurewicz homomorphism, and $\varphi: K^1\left(C_0\left(\sX \right)  \right) \to \Hom \left( K_1\left(C_0\left(\sX \right)\right) , \Z\right)$ is given by  \eqref{uct_c_h_eqn} then $h_{K_1}\left(\left[\om\right] \right)$ can be represented by an  element  $y \in K^1\left(C_0\left(\sX \right)   \right)$ such that $\Z y \cong \Z$. There is a free rank one factor group $\Z x$ of  $K_1\left(C_0\left(\sX \right)\right) $ such that
-$$
-\varphi \circ h_{K_1}\left(\left[\om\right] \right) = k x \mapsto k \quad \forall k \in \Z
-$$
-If $u \in M\left(C\left( \sX\right) \otimes \K \right)$ is such that $y = \left[u\right]$ then the set $\left\{v_n \bydef \phi_n\left(\pi\left(u \right)  \right) \right\}_{n \in \N} \subset B\left(\H \right)$ (cf. equation \eqref{h_n_n_root})  then $\left\{v_n \right\}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the representative of $x$ in  $K_1\left( A\right)_{\mathrm{free}}$ is admissible (cf. Definition \ref{h_admissible_free_defn}.
-\begin{lemma}
-If $h_{K^1}$ is the classical Hurewicz homomorphism then $\varphi\circ h_{K^1}=  h^{C\left(\sX \right) }_{\mathrm{free}}$ where $h^{C\left(\sX \right) }_{\mathrm{free}}$ is the {free part of Hurewicz homomorphism} (cf. Definition \ref{h_free_defn}) 
-\end{lemma} 
-
-
-\section{Hausdorff blowing-up and Hurewicz homomorphism}
-\paragraph{}
-Let $A$ be a $C^*$-algebra and let $C\left(\sY \right) \to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Suppose that there is an $A$-regular covering $q: \widetilde \sY\to \sY$ with residually connected $G\left( \left.\widetilde \sY\right|\sY\right)$ such that 
-$$
-\left( A, A_0\left(\widetilde \sY \right), G\left( \left.\widetilde \sY\right|\sY\right) \right) 
-$$ 
-is $P_{\mathrm{untz}}$-universal covering  (cf. Definition \ref{fundamental_group_nc_p_defn})
-
- with connected, compact $CW$-complex $\sY$, then from the Lemma \ref{blowing_unitization_lem} for  any noncommutative finite-fold covering with unitization  $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition  \ref{fin_unitization_defn})  there is  the natural  $A$-regular covering $q: \widetilde \sY \to \sY$ 	such that $\left(A, \widetilde{A}, G, \lift \right)$ is equivalent to $\left(A, A_0\left( \widetilde{\sY}\right) , G, A_0\left( q\right)  \right)$ WHERE 
-!!! 
-Suppose that $\pi_1\left( \sY, y_0\right)$ is a finitely generated Abelian group, and any generator  of $\pi_1\left( \sY, y_0\right)/\pi_1\left( \sY, y_0\right)_{\mathrm{tor}}$ (cf. Section \ref{alg_fin_gen_ab_sec}) can be represented by an injective continuous map $\a: S^1 \hookto \sY$.
-\begin{lemma}
-	In the above hypothesis then the map $\a: S^1\to U\left(1 \right)$ can be extended up to a continuous map $\varphi:\sY\to U\left(1 \right)\cong S^1$.   
-\end{lemma}
-\begin{proof}
-	Consider  the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
-	\be\label{h_h_eqn}
-	...\to	 H^1\left(\sY ;\Z\right) \xrightarrow{H^1\left[f\right]=H^1\left[\a\right]} H^1\left(S^1; \Z \right) \xrightarrow{\delta} H^{2}\left(\sY, S^1 ;\Z\right)\to ...
-	\ee
-	The map $H_1\left[f\right]: H_1\left(S^1 \right)  \hookto  H_1\left(\sY \right)$ is injective. From $H_1\left(S^1 \right)\cong \Z$ and the Theorem \ref{top_h_to_k_thm} one can deduce that the homomorphism $H^1\left[f\right]: H^1\left(\sY \right)  \to  H^1\left(S^1 \right)$ is surjective. Since the sequence \eqref{h_h_eqn} is exact, one has $\delta = 0$, so $\delta H^1\left[\a\right]\left( \iota \right)  = 0 \in  H^2\left(\sY, S^1; \Z \right)$ so from the Theorem \ref{top_obstr_thm} it turns out that $\a$ can be extended over $\sY$.
-\end{proof}
-\begin{lemma}
-Under the above hypothesis the Hurewicz homomorphism (cf. Definition \ref{h_defn}) yields a natural isomorphism
-$$
-\pi_1\left( \sY, y_0\right) / \pi_1\left( \sY, y_0\right)_{\mathrm{tor}}\cong K^1\left(A \right)/ K^1\left(A \right)_{\mathrm{tor}}.
-$$
-\end{lemma}
-\begin{proof}
-If $\left[ u_{S^1}\right]\in K_1\left( S^1\right) $ is a generator of the group $K_1\left( S^1\right)\cong \Z$ then the map $u_{\sY}\bydef u_{S^1}\circ \varphi$ is an unitary element of both $C\left(\sY \right)$ and $M\left( A\right)$. The represented by $u_\sY$ element  $\left[ u_{\sY}\right]\in K_1\left(\sY\right)$ is not trivial since $K_1\left(\a \right)\left(\left[ u_{\sY}\right] \right)=  \left[ u_{S^1}\right]\neq 0$. It is not divisible, i.e. there is no $k > 1$ and $x \in K_1\left(\sY\right)$ such that $k x = \left[ u_{\sY}\right]$ since there is no $n >1$ and $y \in K_1\left(S^1 \right)$ such that $k y = \left[ u_{S^1}\right]$ It follows that there is no unitary $v \in M\left( A\right)$ and $n > 1$ such that $v^n = u_{\sY}$. If $\pi: A \to B\left( \H\right)$ is a faithful nondegenerate !!! representation  and for all $j > 0$ one has $v_j = \phi_j\left(u \right)\in B\left( \H\right)$ (where  $\phi_j$ is given by $\eqref{h_n_n_root}$ then the  set $\left\{v_{j}\right\}_{j \in \N}\subset B\left(\H \right)$ satisfies to \eqref{h_vm_eqn}.
-\end{proof}
-\begin{remark}
-	!!!!
-\bean
-%K^1\left(\varphi \right): K^1\left( A\right)\to K_1\left(\sY \right) \\
-\text{image}~~ K^1\left(\varphi \right)\circ h^A_{\text{nc}}\subset \text{image}  ~h^\sY
-\eean
-where  $K^1\left(\varphi \right): K^1\left(A \right) \to K_1\left(\sY \right)$ the natural homomorphism  $h^\sY: \pi_1\left(\sY \right)\to K_1\left( \sY\right)$ is the classical  Hurewicz homomorphism (cf. Definition \ref{h_defn})
-\end{remark}
-
-
-\section{Comparison with the classical Hurewicz homomorphism}
-\paragraph*{} Consider the described in the Section \ref{h_prel}  situation. Let $\left( \sX, x_0\right)$ be a  pointed  $CW$-complex (cf. Remark \ref{top_obstr_rem}) and let 
-$$
-f_S : \left(S^1, s_0 \right)\to \left( \sX, x_0\right) 
-$$
-be a map which represents a generator $\left[f_S\right]$ of an Abelian group \\ $ \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$.
-\begin{exercise}
-	A given by the Proposition \ref{top_pi1_pi1_prop} action yields an equivalence relation (cf. Definition \ref{equivalence_relation_defn}) on $\pi_1\left(\sX \right)$ such that
-	$$
-	\forall \ga_1, \ga_2 , \a \in \pi_1\left(\sX \right)\quad \ga_1\cdot \a \sim \ga_2\cdot \a.
-	$$
-	Prove following statements.
-	\begin{enumerate}
-		\item $\forall  \a, \bt \in\pi_1\left(\sX \right)\quad \a \sim \bt \quad \Leftrightarrow \quad \a^{-1}\bt \in \left[\pi_1\left(\sX \right), \pi_1\left(\sX \right)\right]$.
-		\item There is the natural isomorphism  $\pi_1\left(\sX \right)/\left[\pi_1\left(\sX \right), \pi_1\left(\sX \right)\right]\to \left[S^1, \sX \right]$ where $ \left[S^1, \sX \right]$ is a set of classes of homotopically equivalent continuous maps from $S$ to $\sX$.
-	\end{enumerate} 
-\end{exercise}
-Using the above Exercise we replace $
-f_S$ with 
-$$
-f_S : S^1 \to \sX.
-$$
-Suppose that $f_S$ homeomorphically maps $S^1$ onto $f_S\left(S^1 \right)$ i.e. there is a pair $\left(\sX, f_S\left(S^1 \right)\right)\cong \left(\sX, S^1\right)$ (cf. \cite{spanier:at,switzer:at}). 
-From the Theorem \ref{hurewicz_iso_thm} it follows that 	$h_{\mathrm{sing}}\left(\left[f_S\right] \right) \in H_1\left( \sX\right)$ is a generator of $H_1\left( \sX\right)$. Moreover if the period of  $\left[f_S\right]$ equals to $n$ or infinite then the period of $h_{\mathrm{sing}}\left(\left[f_S\right]\right) $ equals to $n$ or infinite respectively. If $u_{S^1}: S^1\to U\left( 1\right)$ is a homeomorphism given by $x \mapsto e^{2\pi i x}$ then $\left[u_{S^1}\right]$ is a generator of $K^1\left(S^1 \right)$ and $Index \left(\left[u_{S^1}\right],  \left[ K^1_{S^1}\right] \right)\bydef Index \left( K^1_{S^1}\left( u_{S^1}\right)\right)  =  1$, i.e. index of the Fredholm operator  $  K^1_{S^1}\left(u_{S^1} \right)$ equals to 1 (cf. Equation \eqref{s1_k_1_eqn}).
-\subsection{Free special case}
-\paragraph*{}
-
-\section{Resume}
-\paragraph*{}
-In the introduction of Soviet edition of the book "Basic Number Theory" \cite{weil:basic_number_theory} Andre Weil wrote the following:
-\paragraph*{}
-\textit{With this I would like to emphasize that [the current book] is not simply a textbook for the future number theorists. There was a time when Galois theory was considered as something abstract and complicated, demanded only by specialists. Moreover, I knew quite a few excellent mathematicians of my generation that overtly confessed in their complete ignorance about Galois theory and, perhaps, even took pride in that. Today, everyone perfectly understands that [Galois theory] is one of the 'stem' topics, which every serious student of mathematics has to get familiar with during the first years of their study. In my opinion, the same holds for the elementary theory of algebraic number fields, including the class field theory, and I hope that this book will ultimately promote this. I will be glad if the present translation is useful for the new generation of Soviet mathematicians in that regard}.
-\paragraph*{}
-This book uses this point. If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field theory \cite{weil:basic_number_theory} yields  homomorphisms
-\be\label{cls_f_eqn}
-\begin{split}
-	K^\times \to \mathrm{Gal}\left(K^\mathrm{ab}/K \right),\\
-	F^\times_{\mathbf{A}}/F^\times \to \mathrm{Gal}\left(F^\mathrm{ab}/F \right)
-\end{split}
-\ee
-Using  the the explained in the Sections \ref{torsion_special_case} and \ref{free_special_case} constructions one can define the Hurewicz homomorphism, i.e similarly to \eqref{cls_f_eqn} one can define a homomorphism
-\be\label{h_f_eqn}
-\pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]\to K^1\left(A\right).
-\ee
-Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $ \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$. The obtaining of   \eqref{cls_f_eqn} and \eqref{h_f_eqn} uses explained in \cite{weil:basic_number_theory} technical methods.
-
-
-
-
-
 \chapter{Coverings of $C^*$-algebras with Hausdorff spectrum}\label{ctr_chap}
 \paragraph*{}
  The notion of the operator space with Hausdorff spectrum is a  generalization of $C^*$-algebra with Hausdorff spectrum. (cf. Section \ref{ctr_oa_sec}). Here we consider noncommutative coverings of these spaces. 
@@ -15957,6 +15544,445 @@ the following mapping.
 \\
 \\
 \\
+
+\chapter{Hurewicz homomorphism}\label{h_chap}
+\section{Preliminaries}\label{h_prel}
+\paragraph{}
+If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_red_homol_defn}, i.e. it is a reduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
+\be\label{h_hk1_eqn}
+\begin{split}
+	h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\\\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }
+	\Hom\left(K_0\left(S^0 \right),  K_1\left(\sX \right)\right)\cong K_1\left(\sX \right).
+\end{split}
+\ee
+From \ref{cirle_k1_empt} it follows that
+\be\label{h_hk11_eqn}
+h_{K_1}	\left(\left[f \right]  \right) \bydef K_1\left( \left[f \right]\right) \left(\left[ 	K^1_{S^1}\right]  \right)
+\ee
+where the following notation is used
+\begin{itemize}
+	\item $f: \left(S^1, s_0\right)\to \left(\sX, x_0\right)$ is a representative of $\left[f \right]\in \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, y_0 \right), \pi_1\left(\sX, y_0 \right)\right]$.
+	\item $	K^1_{S^1}:C\left( u\right)\to  Q\left(\K \right)$ is a given by \eqref{s1_k_1_eqn} representative of the generator of $K_1\left(S^1 \right)$.  
+\end{itemize}
+It turns out that
+\be\label{h_k1_f_eqn}
+h_{K_1}	\left(\left[f \right]  \right)= \left[K^1_{S^1}\circ f\right] \in K_1\left(\sX \right)
+\ee
+where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$. For any $C^*$-algebra $A$ and any (infinite) noncommutative covering $\left(A, \widetilde A, G\left( \left. \widetilde A\right| A\right) \right)$, we replace a homomorphism
+\eqref{h_k1_f_eqn} by a pair $\left( h^{\widetilde A}_{\text{tors}}, h^{\widetilde A}_{\text{free}}\right)  $ of homomorphisms
+\be\label{h_main_eqn}
+\begin{split}
+	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to \Ext \left(  K_1\left(A \right)_{\text{tors}}, \Z\right)  ,\\
+	h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to\Hom\left(  K_1\left( A\right)_{\text{free}}, \Z\right)  \bydef  \Hom\left( K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}, \Z\right) 
+\end{split}
+\ee
+where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part.
+
+\section{Basic idea}
+\begin{theorem}\cite{blackadar:ko}
+	%Theorem 23.1.2 
+	%(Kunneth Theorem (KT)). 7]
+	Let $A$ and $B$ be separable $C^*$-algebras, with $A \in N$, and suppose $K_*\left( A\right) $ or $K_*\left( B\right)$
+	is finitely generated. Then there is a short exact sequence
+	\be\label{uct_kk_eqn}
+	0 \to K^*\left(A \right) \otimes K_*\left(B \right)\xrightarrow{\bt} KK^*\left(A, B \right) \xrightarrow{\rho} \mathrm{Tor}^{\Z}\left( K^*\left( A\right) , K_*\left(B \right) \right) \to 0
+	\ee
+	The map $\bt$ has degree 0 and $\rho$ has degree 1. The sequence is natural in each
+	variable, and splits unnaturally. So if $K_*\left(A \right)$  or  $K_*\left(B \right)$ is torsion-free, $\bt$ is an
+	isomorphism.
+\end{theorem}
+\begin{theorem}\cite{blackadar:ko}
+	%Theorem 23.1.1 (Universal Coefficient Theorem (UCT)). [Rosenbergand Schochet 1987]
+	Let $A$ and $B$ be separable $C^*$-algebras, with $A \in N$, and suppose $K_*\left( A\right) $ or $K_*\left( B\right)$
+	is finitely generated. Then there is a short exact sequence
+	\be
+	0\to \Ext^1_\Z\left(K_*\left(A \right) , K_*\left(B \right) \right) \xrightarrow{\dl} KK^*\left( A, B\right) \xrightarrow{\ga} \Hom\left( K_*\left( A\right), K_*\left(B \right)   \right) 
+	\ee
+	The map $\ga$  has degree 0 and $\rho$ has degree 1. The sequence is natural in each
+	variable, and splits unnaturally. So if $K_*\left( A\right)$  is free or  $K_*\left( A\right)$ is divisible, then $\ga$ is an isomorphism.
+\end{theorem}
+
+
+\paragraph*{}
+
+Let  $A$ be  a stable     $C^*$-algebra (cf. Definition \ref{stable_ca_defn}).
+Let  $P_{\mathrm{untz}}$ be the given by \eqref{unitization_p_eqn} property  noncommutative finite-fold coverings, and suppose that there is $P_{\mathrm{untz}}$ - fundamental group $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
+$$
+\pi_1^{\text{ab}} \bydef \pi^{P_{\mathrm{untz}}}_1\left(A\right)/ \left[\pi^{P_{\mathrm{untz}}}_1\left(A\right), \pi^{P_{\mathrm{untz}}}_1\left(A\right)\right]	
+$$
+is a finitely generated Abelian group	and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the surjective homomorphism
+\be\label{fundamental_gr_hom_eqn}
+h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
+\ee
+If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
+$$
+\widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
+$$
+with an injective map  $M\left(  A\right)\hookto \widetilde M$ which comes from inclusions $M\left(  A\right)\hookto B\left(\H \right)$ and  $\widetilde M \to B\left( \H\right)$. 
+If $\widetilde M$ is a $C^*$-subalgebra of $B\left( \H\right)$ then the inclusion is an  injective $*$-homomorphism 
+$
+\widetilde \lift: M\left(  A\right)\hookto \widetilde M
+$. 
+If  $\Aut\left(\widetilde{M} \right)$ is group of $*$-automorphisms and 
+
+\be\label{h_gr_eqn}
+\begin{split}
+	G \bydef \left\{ \left.g \in \Aut\left(\widetilde{M} \right)~\right|\forall a \in \widetilde \lift\left(  M\left(  A\right)\right)  \quad ga = a\right\} \cong \Z_n,
+	\\\forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  M\left(  A\right)\right)\quad \overline k \cdot \left( a  v^n \right) \bydef a v^{kn}
+\end{split}
+\ee
+where $k$ is a representative of $\overline k$ then a quadruple
+$$
+\left( M\left(  A\right), \widetilde M, \Z_n, \widetilde \lift \right) 
+$$
+is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). If $\widetilde A \subset \widetilde M$ is generated  by $\widetilde \lift\left(A \right)$ two sided ideal then $\widetilde M = M\left( \widetilde A\right)$ and one has a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})  
+\be\label{hurewicz_u_n_eqn}
+\left(   A, \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
+\ee
+where an injective $*$-homomorphism $\lift : A \hookto \widetilde A$ comes from  $\widetilde \lift: M\left(A \right)\hookto M\left( \widetilde A\right)$ one.  
+
+\begin{definition}\label{hurewicz_u_n_defn}
+	Under the above hypothesis   the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u, v, n\right)$-\textit{covering}.
+\end{definition}
+For any $\left(u, v, n\right)$-{covering} and $g \in  G\left( \left.\widetilde A\right| A\right)\cong \Z_n$ there is a character
+\be\label{p_char_eqn}
+\begin{split} !!!!
+	\chi^g_{\left(u, v, n\right)}:  \Z\left[u\right]\to \sU\left( 1\right),\\
+	k\left[u \right]   = e^{\frac{2\pi i kl}{n}}
+\end{split}
+\ee
+where $l\in \Z$ is a representative of $g$.
+
+\begin{empt}
+	Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
+	\be\label{h_n_root}
+	\left( \phi_n\right)^n = \Id_{\left\{\left. z \in \C\right| \left|z \right|=1\right\}}
+	\ee
+	In particular $\phi_n$ can be given by	
+	\be\label{h_n_n_root}
+	\phi_n\left( \varphi\right)= e^{\frac{i \varphi}{n}} 
+	\ee
+	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
+\end{empt}
+\paragraph{Torsion Hurewicz homomorphism}
+Let $K_0\left(A \right)_{\mathrm{tors}}\subset K_0\left(A \right)$ be a torsion subgroup, end let $p$ be a prime. For any $r > 0$ we define by $K_1\left(A \right)\left( p^r\right) \subset K_0\left(A \right)_{\mathrm{tors}}$  a set
+$$
+K_0\left(A \right)\left(p^r \right) \bydef \left\{\left. x \in  K_0\left(A \right)_{\mathrm{tors}}\right|\text{ period of } x \text{ equals to } p^r \right\}.
+$$
+\begin{remark}\label{h_factor_rem}
+	According to the Theorem \ref{alg_finp_gen_ab_fin_thm} there is a natural surjective homomorphism $K_0\left(A \right)_{\mathrm{tors}}\to K_0\left(A \right)\left(p^r \right)$ of Abelian groups, i.e. $K_0\left(A \right)\left(p^r \right)$ can be regarded as factor group of $K_0\left(A \right)$.
+\end{remark}
+According to the Definition \ref{index_map_defn} for 
+any $x \in K_0\left(A \right)\left(p^r \right)\setminus \{0\}$ there is $\overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ and a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
+$$
+\begin{pmatrix}
+	\overline v & 0\\
+	0& \overline v^{-1}
+\end{pmatrix}
+$$
+such that $x = \partial \overline v \bydef \left[\overline wp_n\overline w^{-1}\right]- \left[p_n\right]
+$.
+If $x = 0$ then $\overline v$ can be lifted up to an element of $GL_{n}\left( M\left(A\otimes \K \right)\right)$.
+If $\widetilde A \in B\left(\H \right)$ is generated by a union $\cup  \left\{\overline wp_n\overline w^{-1}\right\}$ $C^*$-algebra  and $\phi : A\otimes \K \hookto \widetilde A$ is the natural homomorphism then  $K_0\left(\phi \right)\left(  x \right)= 0$. It follows that there is  $v \in GL_{n}\left( M\left(\widetilde A \right)\right)$ such that $v|_{ M\left(A\otimes \K \right)} =\overline v$. From $p^r x = 0$ it follows that $u \bydef \overline v^{p^r}= v^{p^r}
+\in GL_{n}\left(M\left(A\otimes \K \right)  \right)$.
+\begin{definition}\label{h_admissible_tors_defn}
+	Under the above hypothesis if  one can select  $u, v$ such that:
+	\begin{itemize}
+		\item both $u$ and $v$ are unitary,
+		\item $\widetilde A = \bigoplus_{j = 0}^{p^r-1} \left(  A\otimes \K\right)  v^j$,
+	\end{itemize}
+	then we say that the element $x \in K_0\left(A \right)\left( p^r\right)\setminus \{0\}$ is $p^r$-\textit{admissible}.
+\end{definition}
+\begin{remark}\label{h_admissible_tors_rem}
+	If $x$ is $p^r$-admissible then the  quadruple
+	\be\label{h_admissible_tors_eqn}
+	\left(A\otimes \K, \widetilde A ,	G\left( \left.\widetilde A\right| A\right)\cong \Z_{p^r}, \lift\bydef \phi\right) 
+	\ee
+	is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}). 
+	\end{remark} 
+	Any admissible $x$ yields a homomorphism
+	$$
+		G\left( \left.\widetilde A\right| A\right)\to
+	$$
+The group   $\Z_{p^r}$ is a field, so $K_0\left(A \right)\left(p^r \right)$ is a finite dimensional  $\Z_{p^r}$-vector space. Let $ K^{\mathrm{adm}}_0\left(A \right)\left( p^r\right) \subset\K_0\left(A \right)\left(p^r \right)$ is a subspace generated by admissible elements. There is a following representation 
+$$
+K^{\mathrm{adm}}_1\left(A \right)\left( p^r\right) = \Z_{p^r} x_1\oplus ...\oplus \Z_{p^r} x_n
+$$
+such that $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$. There is a (non unique) subspace $V \subset K_0\left(A \right)\left(p^r \right)$ with a natural isomorphism 
+$$
+K^{\mathrm{adm}}_0\left(A \right)\left( p^r\right)\cong  K_0\left(A \right)\left( p^r\right)/V
+$$
+and a surjective homomorphism 
+$$
+K_0 \left( A\right)\left(p^r \right)  \to K^{\mathrm{adm}}_1\left(A \right)\left( p^r\right) 
+$$
+of $\Z_{p^r}$-vector spaces. So for any $j \in \left\{1,..., n\right\}$ there is a surjective homomorphism  $K_0 \left( A\right)\left(p^r \right)\to \Z_{p^r} x_j$.
+For any $j \in \left\{1, ..., n\right\}$ there is $\left( u_j, v_j, p^r\right)$-covering $\left(   A, \widetilde A,  G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)} \cong \Z_{p^r} ,  \lift \right)_{\left( u_j, v_j, p^r\right)}$ and for all $g \in G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}$  there is  the given by \eqref{p_char_eqn} character
+$$
+\chi^g_{\left(u_j, v_j, p^r\right)}:  \Z_{p^r} x_j\to \sU\left( 1\right).
+$$
+
+
+Above characters yield a homomorphism 
+\bean
+G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi \left(\Z_{p^r} x_j \right) \\
+g \mapsto \chi^g_{\left(u_j, v_j, p^r\right)}:
+\eean
+where $\chi \left( \Z_{p^r} x_j\right)$ is a group of characters of $\Z_{p^r} x_j$. Since there is a surjective homomorphism $K_0\left(A \right)_{\mathrm{tors}}\to\Z_{p^r} x_j$ one has a homomorphism 
+$$
+G\left( \left.\widetilde A\right| A\right)_{\left( u_j, v_j, p^r\right)}\to \chi\left(K_1 \left( A\right)\left(p^r \right)\right) 
+$$
+Let $G_{p^r}$ be a family of all factor groups of $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ such that any $G \in G_r$ has no isomorphic to $\Z_{p^r}$ factor group.
+$$
+\pi_1\left(A\right)\left(p^r \right)\bydef \pi^{P_{\mathrm{untz}}}_1\left(A\right)/ \bigcap_{G \in G_r} \ker \left(\pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\right) .
+$$
+and 
+\be\label{h_vp_r_eqn}
+\varphi_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \pi_1\left(A\right)\left(p^r \right)
+\ee
+is the natural surjective homomorphism.
+Taking into account the surjective homomorphism $\eqref{fundamental_gr_hom_eqn}$ one has a homomorphism
+$$
+\phi_{\left( u_j, v_j, p^r\right)}: \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  \chi \left(K_1 \left( A\right)\left(p^r \right) \right) 
+$$
+A sum of homomorphisms $\phi_{\left( u_j, v_j, p^r\right)}$ is a homomorphism 
+\bean
+h^A_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi \left(K_0 \left( A\right)\left(p^r \right) \right)
+\eean
+Since there is a surjective homomorphism $K_1 \left( A\right)_{\mathrm{tors}}\to K_1 \left( A\right)\left(p^r \right)$ one has a homomorphism
+\bean
+h^A_{p^r} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi \left(K_0 \left( A\right)_{\mathrm{tors}}\right) 
+\eean
+According to the section \ref{ext_char_sec} the above homomorphism is equivalent to the following one has
+\be\label{h_tors_eqn}
+h^A_{p^r}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Ext^1_\Z\left(  K_0\left(A \right)_{\mathrm{tors}}, \Z \right)\cong \Ext^1_\Z\left(  K_0\left(A \right), \Z \right)
+\ee 
+and taking into account  \eqref{uct_c} one has
+\begin{equation}\label{uct_c_h_eqn}
+	\Ext^1_\Z(K_0(A), \mathbb{Z}) \xrightarrow{\psi} K^1(A) \xrightarrow{\varphi} \mathrm{Hom}(K_1(A), \mathbb{Z})).
+\end{equation}
+\begin{equation}\label{uct_c_hhh_eqn}
+	h^A_{p^r}:  \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  K^1(A)_{\mathrm{tors}}\subset  K^1(A) 
+\end{equation}
+\begin{definition}\label{h_tors_defn}
+	The homomorphism  $h^A_{p^r}$ is the $p^r$-\textit{part of Hurewicz homomorphism}.
+\end{definition}
+
+
+
+\paragraph{Free Hurewicz homomorphism}
+If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$.
+\begin{definition}\label{h_admissible_free_defn}
+	An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus \pi\left( M\left(A \right) \right) $ with
+	\be\label{h_vm_eqn}
+	\begin{split}
+		v_k^k =\pi\left(u\right),\\
+		\forall k, l \in \N \quad v_{kl}^l = v_k. 
+	\end{split}
+	\ee
+	and for any $k \in \N$ there is a $\left( u, v_k, k\right)$-covering.
+\end{definition}
+If $V^{\mathrm{adm}}\subset K_1\left( A\right)_{\mathrm{free}}\otimes \Q$ is a generated by admissible elements subspace then $V^{\mathrm{adm}}$ is isomorphic to  the factor-space of   $K_1\left( A\right)_{\mathrm{free}}\otimes \Q$. Similarly if $K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\bydef V^{\mathrm{adm}} \cap  K_1\left( A\right)_{\mathrm{free}}$ then $K^{\mathrm{adm}}_1\left( A\right)$ is isomorphic to  a factor-group of a $K_1\left( A\right)_{\mathrm{free}}$. Indeed
+\be\label{h_dsi_eqn}
+K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\cong \Z x_1 \oplus ...\oplus \Z x_n
+\ee
+where $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$ and there is a (non unique) surjective homomorphism $K_1\left( A\right)_{\mathrm{free}}\to \Z x_j$. Any $x \in \left\{x_1,...,  x_n\right\}$  can be represented by $u \in   M\left( A \otimes \K\right)$ satisfying to the conditions \eqref{h_vm_eqn}. For any $m \in \N$ let $
+\left(A, A_m, \Z_m, \lift_m \right) 
+$
+the  required by the Definition \ref{hurewicz_u_n_defn} noncommutative covering with unitization.  If $h_{m} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then   any $g \in \pi^{P_{\mathrm{untz}}}_1\left(A\right)$ yields a character
+\bean
+\chi^g_m : \Z  x \to \sU\left( 1\right),\\
+k   x \mapsto \frac{h_m\left( g\right) v^k_m}{v_m}= e^{\frac{2\pi i kl}{m}} 
+\eean 
+where $v_m$ satisfies to \eqref{h_vm_eqn} (cf. \eqref{h_gr_eqn}) and $l \in \Z$ is a representative of $h_m\left( g\right)\in \Z_n$. If $\Q x \bydef \Q \otimes_\Z \Z  x$ then there is a character
+\bean
+\chi^g_\Q:  \Q x \to \sU\left( 1\right),\\
+\forall a \in \Z \quad \forall b \in \N \quad \chi^g_\Q\left(\frac{a}{b} x\right)\bydef \left( \chi^g_b\left( x\right)\right)^a
+\eean
+such that
+\be\label{h_integer_eqn}
+\forall  \frac{a}{b} \in \Z\quad \chi^g_\Q\left( \frac{a}{b} x\right) = 1.
+\ee 
+The map
+\bean
+\phi_{\left( u_j, v_j, p^r\right)}: \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to \chi\left(\Q x \right),\\
+g \mapsto  \chi^g_\Q
+\eean
+is a homomorphism of groups.
+The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$
+If we consider the  \textit{standard character}
+\bean
+\chi_{\text{standard}}: \R \to \sU\left(1 \right) ,\\
+x \mapsto e^{-\frac{x}{2\pi}}
+\eean
+then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
+$f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$. Using the direct sum \eqref{h_dsi_eqn} and the surjective homomorphisms $K_1\left( A\right)_{\mathrm{free}}\to \Z x$  one can construct homomorphism 
+$$
+f^g_x: K_1\left( A\right)_{\mathrm{free}}\to\chi \left(  \Z x\right) .
+$$
+The formula
+$$
+f^g = f^g_{x_1} + ... + f^g_{x_n}
+$$
+yields an element of $\Hom\left(K_1\left( A\right)_{\mathrm{free}}, \Z \right)$.
+In result one has a group homomorphism
+The map
+\be\label{h_free_eqn}
+\begin{split}
+	h^A_{\mathrm{free}} : \pi^{P_{\mathrm{untz}}}_1\left(A \right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right)\cong  \Hom\left(  K_1\left( A\right), \Z\right),\\
+	g \mapsto f^g 
+\end{split}
+\ee
+is a homomorphism of groups.
+\begin{definition}\label{h_free_defn}
+	The homomorphism  $h^A_{\mathrm{free}}$ is the \textit{free part of Hurewicz homomorphism}.
+\end{definition}
+
+
+\section{$C^*$-algebras with Hausdorff spectrum}
+\subsection{$C^*$-algebras of path-connected spaces}
+\paragraph{}
+Let $\left(\sX, x_0\right)$ be  pointed path-connected space, and let $\pi_1\left(\sX, x_0 \right)$ be its fundamental group. Consider a faithful nondegenerate representation $C\left(\sX\right)\otimes \K \hookto B\left( \H\right)$. Any element of $\pi_1\left(\sX, x_0 \right)$ is represented by a pointed  map  $\om : \left( S^1, s_0\right) \to \left(\sX_0, x_0 \right)$. On the other hand the map yields a homomorphism $K_1\left(\om \right): K_1\left( C\left(\sX \right) \right)  \to K_1\left( C\left(S^1 \right) \right)$. This homomorphism   depends on homotopical class of $\om$ in $\pi_1\left(\sX, x_0 \right)$. Moreover it is invariant modulo the commutant  $\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right]$. We denote by $\left[\om \right]$ the class of $\om$ in $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)$ where 
+$$ 
+\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)\bydef  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right].
+$$  Also we denote by $K_1\left(\left[\om\right] \right) \bydef K_1\left(\om \right)$.  There is a two sided ideal $I_\om\subset M\left(C\left( \sX\right)\otimes \K  \right)$ generated by a set
+$$
+\left\{f \in C\left( \sX\right) | \om_a \circ f = \{0\} \right\}
+$$
+and a factor algebra $ M\left(C\left( \sX\right)\otimes \K  \right)_\om \bydef  M\left(C\left( \sX\right)\otimes \K  \right)/I_\om$. We suppose that there is an unitary 
+\be\label{h_u_om_eqn}
+u_\om \in M\left(C\left( \sX\right)\otimes \K  \right)_\om
+\ee
+such that the image of $u_\om$ is a generator of $K^1\left(C\left(S^1 \right)  \right)$. 
+
+\paragraph{Torsion Hurewicz homomorphism}
+If  $p^r$ is a power of prime then  and let $\left\{p_\a: \sX_\a \to \sX \right\}_{\a \in \mathscr A}$ be a set of all finite-fold coverings with
+$$
+G\left(\left.\sX_\a\right| \sX \right) \cong \Z_{p^r}.
+$$
+then for every $\a \in \mathscr A$ there   is an unital finite-fold noncommutative covering $\left(C\left( \sX\right) ,C\left(  \sX_\a\right), G\left(\left.\sX_\a\right| \sX \right), C\left( p_\a\right) \right)$. Let
+\bean
+\pi_1\left(\sX, x_0 \right) \left( p^r\right) \bydef \pi_1\left(\sX, x_0 \right)/ \bigcap_{\a \in \mathscr A} \ker \pi_1\left(\sX, x_0 \right)\to G\left(\left.\sX_\a\right| \sX \right)
+\eean
+and $\varphi_{p^r}:\pi_1\left(\sX, x_0 \right)  \to \pi_1\left(\sX, x_0 \right) \left( p^r\right)$ is the natural surjective homomorphism.
+For each $\a \in \mathscr A$ there is the natural surjective homomorphism  $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)\to G\left(\left.\sX_\a\right| \sX \right) \cong \Z_{p^r}$ of Abelian groups. Suppose that a generator of $G\left(\left.\sX_\a\right| \sX \right)$ is represented by $\om_\a:  \left(S^1, s_0 \right) \to \left(\sX, x_0 \right)$. If  $u_{\om_\a} \in M\left(C\left( \sX\right)\otimes \K  \right)_{\om_\a}$ is given by \eqref{h_u_om_eqn}.
+If $h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ is the given by \eqref{h_hk1_eqn} Hurewicz homomorphism and $h_{K_1}\left(\left[\om_\a\right] \right) \neq 0$ then period of $h_{K_1}\left(\left[\om_\a\right] \right)$ equals to $p^r$ since the period of $\left[\om_\a\right]$ equals to $p^r$. So from  \eqref{uct_c_h_eqn} it follows that $h_{K_1}\left(\left[\om_\a\right] \right)\in \varphi\left( \Ext^1_\Z(K_0(A), \mathbb{Z})\right)$. There is $x_\a \in K_0\left(A \right)\left(p^r \right) $ such that $h_{K_1}\left(\left[\om_\a\right] \right)\in \Ext^1_\Z\left( \Z_{p^r} x, \Z \right)$ From the equation \eqref{d_u_iv_eqn} it follows that there is a partial isometry $w_\a \in M\left(C\left( \sX\right)  \otimes \K\right)$ such that
+$$
+x_\a= \mathrm{Index}~w_\a \in K_0\left(A \right).
+$$
+From  $p^rx_\a = 0$ it follows that $u_\a \bydef w^{p^r}_\a$ is isometry and $v_\a \bydef \phi_{p^r} \left( \pi\left(u_\a \right) \right) \notin M\left(C\left( \sX\right) \otimes\K \right)$. Moreover   $\left(C\left( \sX\right) ,C\left(  \sX_\a\right), G\left(\left.\sX_\a\right| \sX \right), C\left( p_\a\right) \right)$ is a $\left( u_\a= w^{p^r}_\a, v_\a, p^r\right)$-covering. So element $x$ is $p^r$-admissible (cf. Definition \ref{h_admissible_tors_defn}) and $h_{\K_1}\left(\left[\om_\a\right] \right)  = h^A_{p^r}\left(\left[\om_\a\right] \right)$ where $h^A_{p^r}$ is the $p^r$ {part of Hurewicz homomorphism} (cf. Definition \ref{uct_c_hhh_eqn})
+\begin{lemma}
+	If $h_{K^1}$ is the classical Hurewicz homomorphism then $\varphi_{p^r}\circ h_{K^1}=  h^{C\left(\sX \right) }_{p^r}$.
+\end{lemma}
+
+\paragraph{Free Hurewicz homomorphism}
+Let  $K_1\left(  C\left( \sX\right)\right)_{\mathrm{free}} \bydef K_1\left( C\left( \sX\right)\right)/ K_1\left( C\left( \sX\right)\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$. Similarly there if $\pi^{\mathrm{tors}}_1\left(\sX, x_0 \right)$ is the torsion subgroup of $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)$ then 
+$$
+\pi^{\mathrm{free}}_1\left(\sX, x_0 \right)\bydef \pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)/\pi^{\mathrm{tors}}_1\left(\sX, x_0 \right)\cong \Z_k.
+$$
+Suppose that $\om : \left( S^1, s_0\right) \to \left(\sX_0, x_0 \right)$ is a representative of the generator of $\pi^{\mathrm{free}}_1\left(\sX, x_0 \right)$. If 
+$$
+\varphi \circ h_{K_1}\left(\left[\om\right] \right) \neq 0
+$$
+where $h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ is the given by \eqref{h_hk1_eqn} Hurewicz homomorphism, and $\varphi: K^1\left(C_0\left(\sX \right)  \right) \to \Hom \left( K_1\left(C_0\left(\sX \right)\right) , \Z\right)$ is given by  \eqref{uct_c_h_eqn} then $h_{K_1}\left(\left[\om\right] \right)$ can be represented by an  element  $y \in K^1\left(C_0\left(\sX \right)   \right)$ such that $\Z y \cong \Z$. There is a free rank one factor group $\Z x$ of  $K_1\left(C_0\left(\sX \right)\right) $ such that
+$$
+\varphi \circ h_{K_1}\left(\left[\om\right] \right) = k x \mapsto k \quad \forall k \in \Z
+$$
+If $u \in M\left(C\left( \sX\right) \otimes \K \right)$ is such that $y = \left[u\right]$ then the set $\left\{v_n \bydef \phi_n\left(\pi\left(u \right)  \right) \right\}_{n \in \N} \subset B\left(\H \right)$ (cf. equation \eqref{h_n_n_root})  then $\left\{v_n \right\}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the representative of $x$ in  $K_1\left( A\right)_{\mathrm{free}}$ is admissible (cf. Definition \ref{h_admissible_free_defn}.
+\begin{lemma}
+	If $h_{K^1}$ is the classical Hurewicz homomorphism then $\varphi\circ h_{K^1}=  h^{C\left(\sX \right) }_{\mathrm{free}}$ where $h^{C\left(\sX \right) }_{\mathrm{free}}$ is the {free part of Hurewicz homomorphism} (cf. Definition \ref{h_free_defn}) 
+\end{lemma} 
+
+
+\section{Hausdorff blowing-up and Hurewicz homomorphism}
+\paragraph{}
+Let $A$ be a $C^*$-algebra and let $C\left(\sY \right) \to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}). Suppose that there is an $A$-regular covering $q: \widetilde \sY\to \sY$ with residually connected $G\left( \left.\widetilde \sY\right|\sY\right)$ such that 
+$$
+\left( A, A_0\left(\widetilde \sY \right), G\left( \left.\widetilde \sY\right|\sY\right) \right) 
+$$ 
+is $P_{\mathrm{untz}}$-universal covering  (cf. Definition \ref{fundamental_group_nc_p_defn})
+
+with connected, compact $CW$-complex $\sY$, then from the Lemma \ref{blowing_unitization_lem} for  any noncommutative finite-fold covering with unitization  $\left(A, \widetilde{A}, G, \lift \right)$ (cf. Definition  \ref{fin_unitization_defn})  there is  the natural  $A$-regular covering $q: \widetilde \sY \to \sY$ 	such that $\left(A, \widetilde{A}, G, \lift \right)$ is equivalent to $\left(A, A_0\left( \widetilde{\sY}\right) , G, A_0\left( q\right)  \right)$ WHERE 
+!!! 
+Suppose that $\pi_1\left( \sY, y_0\right)$ is a finitely generated Abelian group, and any generator  of $\pi_1\left( \sY, y_0\right)/\pi_1\left( \sY, y_0\right)_{\mathrm{tor}}$ (cf. Section \ref{alg_fin_gen_ab_sec}) can be represented by an injective continuous map $\a: S^1 \hookto \sY$.
+\begin{lemma}
+	In the above hypothesis then the map $\a: S^1\to U\left(1 \right)$ can be extended up to a continuous map $\varphi:\sY\to U\left(1 \right)\cong S^1$.   
+\end{lemma}
+\begin{proof}
+	Consider  the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
+	\be\label{h_h_eqn}
+	...\to	 H^1\left(\sY ;\Z\right) \xrightarrow{H^1\left[f\right]=H^1\left[\a\right]} H^1\left(S^1; \Z \right) \xrightarrow{\delta} H^{2}\left(\sY, S^1 ;\Z\right)\to ...
+	\ee
+	The map $H_1\left[f\right]: H_1\left(S^1 \right)  \hookto  H_1\left(\sY \right)$ is injective. From $H_1\left(S^1 \right)\cong \Z$ and the Theorem \ref{top_h_to_k_thm} one can deduce that the homomorphism $H^1\left[f\right]: H^1\left(\sY \right)  \to  H^1\left(S^1 \right)$ is surjective. Since the sequence \eqref{h_h_eqn} is exact, one has $\delta = 0$, so $\delta H^1\left[\a\right]\left( \iota \right)  = 0 \in  H^2\left(\sY, S^1; \Z \right)$ so from the Theorem \ref{top_obstr_thm} it turns out that $\a$ can be extended over $\sY$.
+\end{proof}
+\begin{lemma}
+	Under the above hypothesis the Hurewicz homomorphism (cf. Definition \ref{h_defn}) yields a natural isomorphism
+	$$
+	\pi_1\left( \sY, y_0\right) / \pi_1\left( \sY, y_0\right)_{\mathrm{tor}}\cong K^1\left(A \right)/ K^1\left(A \right)_{\mathrm{tor}}.
+	$$
+\end{lemma}
+\begin{proof}
+	If $\left[ u_{S^1}\right]\in K_1\left( S^1\right) $ is a generator of the group $K_1\left( S^1\right)\cong \Z$ then the map $u_{\sY}\bydef u_{S^1}\circ \varphi$ is an unitary element of both $C\left(\sY \right)$ and $M\left( A\right)$. The represented by $u_\sY$ element  $\left[ u_{\sY}\right]\in K_1\left(\sY\right)$ is not trivial since $K_1\left(\a \right)\left(\left[ u_{\sY}\right] \right)=  \left[ u_{S^1}\right]\neq 0$. It is not divisible, i.e. there is no $k > 1$ and $x \in K_1\left(\sY\right)$ such that $k x = \left[ u_{\sY}\right]$ since there is no $n >1$ and $y \in K_1\left(S^1 \right)$ such that $k y = \left[ u_{S^1}\right]$ It follows that there is no unitary $v \in M\left( A\right)$ and $n > 1$ such that $v^n = u_{\sY}$. If $\pi: A \to B\left( \H\right)$ is a faithful nondegenerate !!! representation  and for all $j > 0$ one has $v_j = \phi_j\left(u \right)\in B\left( \H\right)$ (where  $\phi_j$ is given by $\eqref{h_n_n_root}$ then the  set $\left\{v_{j}\right\}_{j \in \N}\subset B\left(\H \right)$ satisfies to \eqref{h_vm_eqn}.
+\end{proof}
+\begin{remark}
+	!!!!
+	\bean
+	%K^1\left(\varphi \right): K^1\left( A\right)\to K_1\left(\sY \right) \\
+	\text{image}~~ K^1\left(\varphi \right)\circ h^A_{\text{nc}}\subset \text{image}  ~h^\sY
+	\eean
+	where  $K^1\left(\varphi \right): K^1\left(A \right) \to K_1\left(\sY \right)$ the natural homomorphism  $h^\sY: \pi_1\left(\sY \right)\to K_1\left( \sY\right)$ is the classical  Hurewicz homomorphism (cf. Definition \ref{h_defn})
+\end{remark}
+
+
+\section{Comparison with the classical Hurewicz homomorphism}
+\paragraph*{} Consider the described in the Section \ref{h_prel}  situation. Let $\left( \sX, x_0\right)$ be a  pointed  $CW$-complex (cf. Remark \ref{top_obstr_rem}) and let 
+$$
+f_S : \left(S^1, s_0 \right)\to \left( \sX, x_0\right) 
+$$
+be a map which represents a generator $\left[f_S\right]$ of an Abelian group \\ $ \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$.
+\begin{exercise}
+	A given by the Proposition \ref{top_pi1_pi1_prop} action yields an equivalence relation (cf. Definition \ref{equivalence_relation_defn}) on $\pi_1\left(\sX \right)$ such that
+	$$
+	\forall \ga_1, \ga_2 , \a \in \pi_1\left(\sX \right)\quad \ga_1\cdot \a \sim \ga_2\cdot \a.
+	$$
+	Prove following statements.
+	\begin{enumerate}
+		\item $\forall  \a, \bt \in\pi_1\left(\sX \right)\quad \a \sim \bt \quad \Leftrightarrow \quad \a^{-1}\bt \in \left[\pi_1\left(\sX \right), \pi_1\left(\sX \right)\right]$.
+		\item There is the natural isomorphism  $\pi_1\left(\sX \right)/\left[\pi_1\left(\sX \right), \pi_1\left(\sX \right)\right]\to \left[S^1, \sX \right]$ where $ \left[S^1, \sX \right]$ is a set of classes of homotopically equivalent continuous maps from $S$ to $\sX$.
+	\end{enumerate} 
+\end{exercise}
+Using the above Exercise we replace $
+f_S$ with 
+$$
+f_S : S^1 \to \sX.
+$$
+Suppose that $f_S$ homeomorphically maps $S^1$ onto $f_S\left(S^1 \right)$ i.e. there is a pair $\left(\sX, f_S\left(S^1 \right)\right)\cong \left(\sX, S^1\right)$ (cf. \cite{spanier:at,switzer:at}). 
+From the Theorem \ref{hurewicz_iso_thm} it follows that 	$h_{\mathrm{sing}}\left(\left[f_S\right] \right) \in H_1\left( \sX\right)$ is a generator of $H_1\left( \sX\right)$. Moreover if the period of  $\left[f_S\right]$ equals to $n$ or infinite then the period of $h_{\mathrm{sing}}\left(\left[f_S\right]\right) $ equals to $n$ or infinite respectively. If $u_{S^1}: S^1\to U\left( 1\right)$ is a homeomorphism given by $x \mapsto e^{2\pi i x}$ then $\left[u_{S^1}\right]$ is a generator of $K^1\left(S^1 \right)$ and $Index \left(\left[u_{S^1}\right],  \left[ K^1_{S^1}\right] \right)\bydef Index \left( K^1_{S^1}\left( u_{S^1}\right)\right)  =  1$, i.e. index of the Fredholm operator  $  K^1_{S^1}\left(u_{S^1} \right)$ equals to 1 (cf. Equation \eqref{s1_k_1_eqn}).
+\subsection{Free special case}
+\paragraph*{}
+
+\section{Resume}
+\paragraph*{}
+In the introduction of Soviet edition of the book "Basic Number Theory" \cite{weil:basic_number_theory} Andre Weil wrote the following:
+\paragraph*{}
+\textit{With this I would like to emphasize that [the current book] is not simply a textbook for the future number theorists. There was a time when Galois theory was considered as something abstract and complicated, demanded only by specialists. Moreover, I knew quite a few excellent mathematicians of my generation that overtly confessed in their complete ignorance about Galois theory and, perhaps, even took pride in that. Today, everyone perfectly understands that [Galois theory] is one of the 'stem' topics, which every serious student of mathematics has to get familiar with during the first years of their study. In my opinion, the same holds for the elementary theory of algebraic number fields, including the class field theory, and I hope that this book will ultimately promote this. I will be glad if the present translation is useful for the new generation of Soviet mathematicians in that regard}.
+\paragraph*{}
+This book uses this point. If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field theory \cite{weil:basic_number_theory} yields  homomorphisms
+\be\label{cls_f_eqn}
+\begin{split}
+	K^\times \to \mathrm{Gal}\left(K^\mathrm{ab}/K \right),\\
+	F^\times_{\mathbf{A}}/F^\times \to \mathrm{Gal}\left(F^\mathrm{ab}/F \right)
+\end{split}
+\ee
+Using  the the explained in the Sections \ref{torsion_special_case} and \ref{free_special_case} constructions one can define the Hurewicz homomorphism, i.e similarly to \eqref{cls_f_eqn} one can define a homomorphism
+\be\label{h_f_eqn}
+\pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]\to K^1\left(A\right).
+\ee
+Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $ \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$. The obtaining of   \eqref{cls_f_eqn} and \eqref{h_f_eqn} uses explained in \cite{weil:basic_number_theory} technical methods.
+
+
+
+
 
 
 
