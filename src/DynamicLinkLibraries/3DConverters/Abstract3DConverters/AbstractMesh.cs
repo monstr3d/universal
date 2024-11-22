@@ -6,17 +6,22 @@
 
         public List<AbstractMesh> Children { get; } = new ();
 
-        public List<float[]> Vertices { get; private set; }
+        public List<float[]> Vertices { get; protected set; }
 
-        public List<float[]> Normals { get; private set; }
+        public List<float[]> Normals { get; protected set; }
 
-        public List<float[]> Textures { get; private set; }
+        public List<float[]> Textures { get; protected set; }
 
-        public List<int[][]> Indexes { get; private set; }
+        public List<int[][]> Indexes { get; protected set; }
 
-        public string Name { get; private set; }
+        public string Name { get; protected set; }
 
-        public string Material { get; private set; }
+        public string Material { get; protected set; }
+
+        protected AbstractMesh(string name)
+        {
+
+        }
 
     
         public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals, 

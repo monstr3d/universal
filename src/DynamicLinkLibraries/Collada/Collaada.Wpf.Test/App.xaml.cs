@@ -21,7 +21,8 @@ namespace Collaada.Wpf.Test
         {
             // Compare();
             // Generate();
-            GenterateObj();
+            //  GenerateObj();
+            GenerateAC();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -37,7 +38,22 @@ namespace Collaada.Wpf.Test
 
         };
 
-        void GenterateObj()
+        string acdir = @"c:\AUsers\1MySoft\CSharp\03D\AC";
+
+        void GenerateAC()
+        {
+            GenerateAC("H-60.ac");
+        }
+
+        void GenerateAC(string filename)
+        {
+            var converter = new AcConverter();
+            IAbstractMeshCreator meshCreator = converter;
+            var f = Path.Combine(acdir, filename);
+            Tuple<object, List<AbstractMesh>> l = meshCreator.Create(f);
+        }
+
+        void GenerateObj()
         {
             // GenerateObj("Tornado");
             //        GenerateObj("F15");

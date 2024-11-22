@@ -3,7 +3,7 @@ using Collada;
 
 namespace Abstract3DConverters
 {
-    public class Obj3DConverter: IAbstractMeshCreator, IMaterialDictionary
+    public class Obj3DConverter: AbstractMeshCreator, IMaterialDictionary
     {
         List<AbstractMesh> models = new();
 
@@ -11,7 +11,7 @@ namespace Abstract3DConverters
 
         Dictionary<string, Material> materials; 
 
-        public Obj3DConverter()
+        public Obj3DConverter() : base(".obj")
         {
 
         }
@@ -19,9 +19,8 @@ namespace Abstract3DConverters
 
 
         #region IAbstractMeshCreator Members
-        string IAbstractMeshCreator.Extension => ".obj";
 
-        Tuple<object, List<AbstractMesh>> IAbstractMeshCreator.Create(string filename)
+        protected override Tuple<object, List<AbstractMesh>> Create(string filename)
         {
             var dir = Path.GetDirectoryName(filename);
             using (var reader = new StreamReader(filename))
