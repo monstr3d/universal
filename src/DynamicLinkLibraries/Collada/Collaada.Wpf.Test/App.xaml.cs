@@ -42,7 +42,7 @@ namespace Collaada.Wpf.Test
 
         void GenerateAC()
         {
-            GenerateAC("H-60.ac");
+            GenerateAC("tu154B.ac");
         }
 
         void GenerateAC(string filename)

@@ -26,29 +26,75 @@ namespace Abstract3DConverters
                 }
                 while (!reader.EndOfStream);
             }
-            var meshes = Create(lines).ToArray();
+            var end = new int[] { 0 };
+            var meshes = Create(lines, end).ToArray();
 
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>());
         }
 
-
-        public IEnumerable<AbstractMesh> Create(List<string> lines)
+        public IEnumerable<AbstractMesh> Create(List<string> lines, int[] end, int start = 0, int current = -1)
         {
+            if (current == 0)
+            {
+                yield break;
+            }
+            for (var i = start; i < lines.Count; i++)
+            {
+                var line = lines[i];
+                var name = "";
+                var counter = 0;
+                if (line.StartsWith("OBJECT"))
+                {
+                    var nl = new List<string>();
+                    nl.Add(line);
+                    for(var j = i; j < lines.Count; j++)
+                    {
+                        var l = lines[j];
+                        nl.Add(l);
+                        if (l.StartsWith("name "))
+                        {
+                            name = l.Substring("name ".Length).Replace("\"", "");
+                        }
+                        if (l.StartsWith("kids "))
+                        {
+                            var count = int.Parse(l.Substring("kids ".Length));
+                            var am = new AbstractMesh(name, count, nl);
+                            end[0] = j;                            
+                            yield return am;
+                            counter++;
+                            if (counter == current)
+                            {
+                                yield break;
+                            }
+                            var enu = Create(lines, end, j, count).ToArray();
+                            foreach (var a in enu)
+                            {
+                                a.Parent = am;
+                            }
+                        }
+
+                    }
+                    i = end[0];
+                }
+            }
+        }
+
+
+   /*     public IEnumerable<AbstractMesh> Create(List<string> lines)
+        {
+            Queue<AbstractMesh> queue = new Queue<AbstractMesh>();
             for (int i = 0; i < lines.Count; i++)
             {
                 var l = lines[i];
                 if (l.StartsWith("OBJECT"))
                 {
-                    int kids = 0;
-                    string name = "";
-                    if (l == "OBJECT world")
+                    for (int j = 1; j < l.Length; j++)
                     {
-                       kids = l[i + 1].Su 
+                        
                     }
-                    var name = lines[i +  1].Substring("name ".Length);
                 }
+                yield return null;
             }
-            yield return null;
-        }
+        }*/
     }
 }

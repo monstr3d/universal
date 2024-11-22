@@ -2,7 +2,20 @@
 {
     public class AbstractMesh
     {
-        public AbstractMesh Parent { get; private set; }
+        protected AbstractMesh parent;
+
+        public AbstractMesh Parent
+        {
+            get => parent;
+            set
+            {
+                parent = value;
+                if (!parent.Children.Contains(this))
+                {
+                    parent.Children.Add(this);
+                }
+            }
+        }
 
         public List<AbstractMesh> Children { get; } = new ();
 
@@ -14,13 +27,19 @@
 
         public List<int[][]> Indexes { get; protected set; }
 
+        public int Count { get; private set; }
+
         public string Name { get; protected set; }
 
         public string Material { get; protected set; }
 
-        protected AbstractMesh(string name)
-        {
+        public object Value { get; private set; } = null;
 
+        public  AbstractMesh(string name, int count, object value)
+        {
+            Name = name;
+            Count = count;
+            Value = value;
         }
 
     
