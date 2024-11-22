@@ -17,7 +17,7 @@
             }
         }
 
-        public List<AbstractMesh> Children { get; } = new ();
+        public List<AbstractMesh> Children { get; } = new();
 
         public List<float[]> Vertices { get; protected set; }
 
@@ -33,20 +33,16 @@
 
         public string Material { get; protected set; }
 
-        public object Value { get; private set; } = null;
 
-        public  AbstractMesh(string name, int count, object value)
+        protected AbstractMesh(string name)
         {
             Name = name;
-            Count = count;
-            Value = value;
         }
 
-    
-        public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals, 
-            List<float[]> textures, List<int[][]> indexes)
+
+        public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals,
+            List<float[]> textures, List<int[][]> indexes) : this(name)
         {
-            Name = name;
             Material = material;
             Vertices = vertices;
             Normals = normals;

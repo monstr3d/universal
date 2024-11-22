@@ -46,7 +46,6 @@ namespace Abstract3DConverters
                 if (line.StartsWith("OBJECT"))
                 {
                     var nl = new List<string>();
-                    nl.Add(line);
                     for(var j = i; j < lines.Count; j++)
                     {
                         var l = lines[j];
@@ -58,7 +57,7 @@ namespace Abstract3DConverters
                         if (l.StartsWith("kids "))
                         {
                             var count = int.Parse(l.Substring("kids ".Length));
-                            var am = new AbstractMesh(name, count, nl);
+                            var am = new AbstractMeshAC(name, count, nl);
                             end[0] = j;                            
                             yield return am;
                             counter++;
