@@ -1358,7 +1358,7 @@ The algebra of compact operators is given by
 %\ee
 %	\end{lemma}
 %	\begin{proof}
-%		If $\H \bydef \H'\oplus \H''$, $x'\in \H'$, $y''\in \H''$, $x \bydef\left(x', 0 \right) \in \H'\oplus\H''$ and $y \bydef\left(0, y'' \right) \in \H'\oplus\H''$ then from then from the Cauchy–Schwarz inequality it follows that
+%		If $\H \bydef \H'\oplus \H''$, $x'\in \H'$, $y''\in \H''$, $x \bydef\left(x', 0 \right) \in \H'\oplus\H''$ and $y \bydef\left(0, y'' \right) \in \H'\oplus\H''$ then from then from the Cauchy Schwarz inequality it follows that
 %	\be\label{cs_xy_eqn}
 %	\begin{split}
 %		\left|	\left(x, a y \right)_\H \right|=	\left|	\left(\sqrt{a} x, \sqrt{a} y \right)_\H \right|\le \left\|\sqrt{a} x \right\| \left\|\sqrt{a} y \right\| =\\= \sqrt{\left(\sqrt{a} x, \sqrt{a} x\right)_\H } \sqrt{\left(\sqrt{a} y, \sqrt{a} y\right)_\H  }
@@ -6024,6 +6024,7 @@ The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
 \end{definition}
+
 \begin{remark}\label{top_path_ass_rem}
 	The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
 	\be\label{top_path_ass_eqn}
@@ -6117,13 +6118,15 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
 	be a family of connected all open subsets of $\sX$ evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). Let  ${\mathfrak p}\bydef \left(\sU_1, ..., \sU_n\right)$ be a $\mathfrak{A}$-{path}, such that $x_0\in\sU_1$. 
 	Prove that there is an unique  $\widetilde{\mathfrak p}\bydef \left(\widetilde \sU_1, ...,\widetilde \sU_n\right)$ such that $\widetilde x_0 \in \widetilde \sU_1$ and ${\mathfrak p}$ is the $p$-descent of $\widetilde{\mathfrak p}$.
 \end{exercise}
-
 \begin{definition}\label{top_path_lift_defn}
 	The given by the Exercise  \ref{top_path_lift_exer} path $\widetilde{\mathfrak p}$ is said to be the $p$-\textit{lift} of $\mathfrak p$. We write
 	\be\label{top_path_lift_eqn}
-	\lift_p~\mathfrak p\bydef\widetilde{\mathfrak p}.
+	\lift_p\left( ~\mathfrak p\right) \bydef\widetilde{\mathfrak p}.
 	\ee 
+	or the $p$-$\widetilde x_0$-\textit{lift}.
 \end{definition}
+
+
 \begin{definition}\label{top_contactible_path_defn}
 	Let 
 	$\left(\sX, x_0\right)$ be  a pointed space such that  $\sX$ is a connected, locally connected and weakly semilocally 1-connected space.  A closed  semilocally 1-connected path $x_0$-path $\left(\sU_1, ..., \sU_n\right)$ (cf. Definition \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) is said to be \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ a $p$-{lift} of $\mathfrak p$ is closed (cf. Definitions \ref{top_closed_path_defn} and \ref{top_path_lift_defn}).
@@ -6145,7 +6148,9 @@ If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\mathfrak p}\bydef
  \eean 
  is contractible.
 \end{exercise}
+\begin{empt}\label{top_weak_fundamental_group_empt}
 From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
+\end{empt}
 \begin{definition}\label{top_weak_fundamental_group_defn}
 	If
 	$\left(\sX, x_0\right)$ is  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space
@@ -6229,13 +6234,45 @@ So one has the following Theorem.
 \begin{remark}
 	The Theorem \ref{top_simply_con_cov_thm} is a generalization of the Lemma \ref{top_simply_con_cov_lem}.
 \end{remark}
-\begin{exercise}\label{top_weak_covering_iso_exer}
-	Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ is an universal covering. Prove that there is a following natural isomorphism
-	$$
-	\pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
-	$$
-	where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_covering_transformations_geoup_defn}). 
-\end{exercise}
+
+\begin{lemma}\label{top_weak_covering_iso_lem}
+	Let $\left(\sX, x_0\right)$ be   a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ is an universal covering. Then  there is a following natural isomorphism
+$$
+\pi^{\mathrm{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
+$$
+where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_covering_transformations_geoup_defn}). 
+\end{lemma}
+\begin{proof}
+Select $\widetilde x_0\in \widetilde \sX$. For any $g \in G\left(\left. \widetilde \sX\right|\sX \right)$ we select a {weakly semilocally 1-connected} $\widetilde x_0$-path $\widetilde {\mathfrak{p}}\bydef\left( \widetilde \sU_1, ...,  \widetilde \sU_n\right)$ with $g\widetilde x_0 \in \widetilde \sU_n$ (cf. Definitions \ref{top_weak_path_defn} and \ref{top_closed_path_defn}) . Let $\mathfrak p = \left(   \sU_1, ...,   \sU_n\right)\bydef \desc_p \left(\widetilde {\mathfrak{p}} \right) $ be the descent of $\widetilde {\mathfrak{p}}$ (cf Definition \ref{top_path_desc_defn}). If $\widetilde x_1 \in \widetilde \sX$ then we select an $\widetilde x_1$-path $\widetilde {\mathfrak{p}}'\bydef\left( \widetilde \sU'_1, ...,  \widetilde \sU'_m\right)$ with $\widetilde x_0 \in \widetilde \sU'_m$. If $\widetilde {\mathfrak{p}}'' \bydef \lift_p\left(\mathfrak p'^*\circ \mathfrak p\circ \mathfrak p' \right) = \left(\widetilde{\sU}''_1, ... , \widetilde{\sU}''_r \right)$ the $p$-$\widetilde x_1$ -lift (cf. Definition \ref{top_path_lift_defn}) then there is the unique $\widetilde{x}'_1 \in  \widetilde{\sU}''_r$. with $p\left( \widetilde{x}'_1\right)= \widetilde{x}_1$. We leave to the reader prove of following statements
+\begin{itemize}
+	\item the map 
+	\bean
+	\phi: \widetilde \sX \to \widetilde \sX,\\
+\widetilde{x}_1 \mapsto \widetilde{x}'_1
+	\eean 
+is uniquely defined homeomorphism,
+\item $\phi = g$.
+\end{itemize} 
+\end{proof}
+\begin{empt}\label{top_xg_empt}
+If $\sX$ is  a connected, locally connected and weakly semilocally 1-connected space (cf. Definition \ref{top_weakly_semi1_defn}) and $G \subset \pi^{\mathrm{w}}_1\left(\sX, x_0\right)$ is a subgroup then one can naturally construct a topological space ${\sX}\left[G\right]$. As a set ${\sX}\left[G\right]$ equals to $G \times \sX$, and the topology of ${\sX}\left[G\right]$ is generated by sets
+\be\label{top_xg_eqn}
+\left( g, \sU\right) \bydef \left\{\left. \left(g, x  \right)\in G \times \sX \right| x \in \sU\right\}
+\ee
+where $\sU\subset \sX$ is a connected, semilocally proper space (cf. Definition \ref{top_weakly_semi1_defn}). We leave to the reader the prove of the following statements: 
+\begin{itemize}
+	\item[(i)] the given by \eqref{top_xg_eqn} family satisfies to the  Definition \ref{top_base_defn}),
+	\item[(ii)] there is the natural   covering $p_G : {\sX}\left[G\right] \to \sX$ such that $G\left(\left. {\sX}\left[G\right] \right| \sX\right)\cong G$.
+\end{itemize}
+\end{empt}
+\begin{definition}\label{top_xg_defn}
+Under the hypothesis \ref{top_base_defn} we say that ${\sX}\left[G\right]$ is the $\sX$-$G$-\textit{space}, and the map $p_G : {\sX}\left[G\right] \to \sX$ is the $\sX$-$G$-\textit{covering}.
+\end{definition}
+\begin{empt}\label{top_xgp_empt}
+Any $\widetilde x \in {\sX}\left[G\right]$ can be obtained by the following algorithm. We define a weak $x_0$-path $\mathfrak p = \left(\sU_0, ..., \sU_n \right)$ such that $p_G\left( \widetilde x\right)= x\in \sU_n$. Then we find a closed $x_0$ path $\mathfrak p'$ which is a representative of $g \in G$. There are the $p_G$-$\widetilde x_0$-lift $\widetilde{\mathfrak p}= \left(\widetilde \sU_1, ..., \widetilde \sU_m\right)$ of the composition $\mathfrak p' \circ \mathfrak p$, and  $\widetilde x$ is a unique point such that $\widetilde x \in \widetilde \sU_m$ and $p_G\left( \widetilde x\right)= x$.
+\end{empt}
+
+
 \begin{lemma}\label{top_lex_square_lem}
 	The described in \ref{top_lex_square_empt} ordered square $I^2_o$  is weakly simply connected (cf. Definition \ref{top_weakly_simply_connected_defn}).
 \end{lemma}
@@ -12731,7 +12768,7 @@ Both equations \eqref{blowing_aauu_eqn} and \eqref{blowing_aau_eqn} can be regar
 \end{proof}
 
 \begin{definition}\label{blowing_compactly_supported_descent_defn}
-	Consider a hypotheses of the Theorem \ref{blowing_strict_thm}. If $a \in A$ satisfies to the equation \eqref{}  the we say that $a$ is \textit{compactly supported} $q$-\textit{descent}, denoted by $\desc^c_q$ From the Theorem \ref{blowing_strict_thm} it follows that
+%	Consider a hypotheses of the Theorem \ref{blowing_strict_thm}. If $a \in A$ satisfies to the equation \eqref{}  the we say that $a$ is \textit{compactly supported} $q$-\textit{descent}, denoted by $\desc^c_q$ From the Theorem \ref{blowing_strict_thm} it follows that
 \be\label{blowiing_desc_compact_eqn}
 \desc^c_p\left(\widetilde a \right) = \bt\text{-} \sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) } g \widetilde a \in A_b\left(q \right) \left(A \right) 
 \ee
@@ -12754,7 +12791,7 @@ The Definition \ref{blowing_compactly_supported_descent_defn} is a generalizatio
 		\item $C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)$ is a specialization of the Definition \ref{top_lift_main_defn}.
 	\end{enumerate} 
 	Henceforth both roles and both notations will be used. Similar words we can say about maps 	$A_0\left(p\right) $ and  $\left.\lift_{p}\right|_{A_0\left(\widetilde\sX_2 \right)}$ (cf. equation \eqref{top_c0p_ob_eqn!}).
-	Later (cf. !!! \ref{}) we will  consider a generalization of both $A_0\left(\widetilde \sX  \right)$ and $A_0\left(p\right) $ and  we will have a similar situation.
+!!! %	Later (cf. !!! \ref{}) we will  consider a generalization of both $A_0\left(\widetilde \sX  \right)$ and $A_0\left(p\right) $ and  we will have a similar situation.
 \end{rem}
 \subsection{Induced representations}
 
@@ -15580,73 +15617,73 @@ where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom
 
 \section{Basic idea}
 \paragraph*{}
-If $A \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(M\left(A \right)  \right)$ and $v^j \notin \pi\left(M\left(A \right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A \right)$-module 
+If $A\otimes \K \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\otimes \K\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(M\left(A \otimes \K\right)  \right)$ and $v^j \notin \pi\left(M\left(A \otimes \K\right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A\otimes \K \right)$-module 
 $$
 \widetilde M \bydef \sum_{j = 1}^{n-1} \pi\left(M\left(  A\right)\right)  v^j \in B\left(\H \right) 
 $$
-with an injective map  $M\left(  A\right)\hookto \widetilde M$ which comes from inclusions $M\left(  A\right)\hookto B\left(\H \right)$ and  $\widetilde M \to B\left( \H\right)$. 
+with an injective map  $M\left(  A\otimes \K\right)\hookto \widetilde M$ which comes from inclusions $M\left(  A\otimes \K\right)\hookto B\left(\H \right)$ and  $\widetilde M \to B\left( \H\right)$. 
 If $\widetilde M$ is a $C^*$-subalgebra of $B\left( \H\right)$ then the inclusion is an  injective $*$-homomorphism 
 $
-\widetilde \lift: M\left(  A\right)\hookto \widetilde M
+\widetilde \lift: M\left(  A\otimes \K\right)\hookto \widetilde M
 $. 
 If  $\Aut\left(\widetilde{M} \right)$ is group of $*$-automorphisms and 
 
 \be\label{h_gr_eqn}
 \begin{split}
-	G \bydef \left\{ \left.g \in \Aut\left(\widetilde{M} \right)~\right|\forall a \in \widetilde \lift\left(  M\left(  A\right)\right)  \quad ga = a\right\} \cong \Z_n,
-	\\\forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  M\left(  A\right)\right)\quad \overline k \cdot \left( a  v^n \right) \bydef a v^{kn}
+	G \bydef \left\{ \left.g \in \Aut\left(\widetilde{M} \right)~\right|\forall a \in \widetilde \lift\left(  M\left(  A\otimes \K\right)\right)  \quad ga = a\right\} \cong \Z_n,
+	\\\forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  M\left(  A\otimes \K\right)\right)\quad \overline k \cdot \left( a  v^n \right) \bydef a v^{kn}
 \end{split}
 \ee
 where $k$ is a representative of $\overline k$ then a quadruple
 $$
-\left( M\left(  A\right), \widetilde M, \Z_n, \widetilde \lift \right) 
+\left( M\left(  A\otimes \K\right), \widetilde M, \Z_n, \widetilde \lift \right) 
 $$
-is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). If $\widetilde A \subset \widetilde M$ is generated  by $\widetilde \lift\left(A \right)$ two sided ideal then $\widetilde M = M\left( \widetilde A\right)$ and one has a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})  
+is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). If $\widetilde A  \subset \widetilde M$ is generated  by $\widetilde \lift\left(A \otimes \K \right)$ two sided ideal then $\widetilde M = M\left( \widetilde A\right)$ and one has a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn})  
 \be\label{hurewicz_u_n_eqn}
-\left(   A, \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
+\left(   A \otimes \K, \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
 \ee
-where an injective $*$-homomorphism $\lift : A \hookto \widetilde A$ comes from  $\widetilde \lift: M\left(A \right)\hookto M\left( \widetilde A\right)$ one.  
+where an injective $*$-homomorphism $\lift : A \otimes \K \hookto \widetilde A$ comes from  $\widetilde \lift: M\left(A \otimes \K\right)\hookto M\left( \widetilde A\right)$ one.  
 
 \begin{definition}\label{hurewicz_u_n_defn}
 	Under the above hypothesis   the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u, v, n\right)$-\textit{covering}.
 \end{definition}
-Let  $A$ be  a stable     $C^*$-algebra (cf. Definition \ref{stable_ca_defn}).
-Let  $P_{\mathrm{untz}}$ be the given by \eqref{unitization_p_eqn} property  noncommutative finite-fold coverings, and suppose that there is $P_{\mathrm{untz}}$ - fundamental group $\pi^{P_{\mathrm{untz}}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
+Let  $A\otimes \K$ be  a stable     $C^*$-algebra (cf. Definition \ref{stable_ca_defn}).
+Let  $P_{\mathrm{untz}}$ be the given by \eqref{unitization_p_eqn} property  noncommutative finite-fold coverings, and suppose that there is $P_{\mathrm{untz}}$ - fundamental group $\pi^{P_{\mathrm{untz}}}_1\left(A\otimes \K\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
 $$
-\pi_1^{\text{ab}}\left(A \right)  \bydef \pi^{P_{\mathrm{untz}}}_1\left(A\right)/ \left[\pi^{P_{\mathrm{untz}}}_1\left(A\right), \pi^{P_{\mathrm{untz}}}_1\left(A\right)\right]	
+\pi_1^{\text{ab}}\left(A \otimes \K\right)  \bydef \pi^{P_{\mathrm{untz}}}_1\left(A\otimes \K\right)/ \left[\pi^{P_{\mathrm{untz}}}_1\left(A\otimes \K\right), \pi^{P_{\mathrm{untz}}}_1\left(A\otimes \K\right)\right]	
 $$
-and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the group $G\left( \left.\widetilde A\right| A\right)$ is Abelian then there are natural surjective homomorphisms 
+and  $\left( A\otimes \K, \widetilde{A},G\left( \left.\widetilde A\right| A\otimes \K\right) , \lift\right)$  is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the group $G\left( \left.\widetilde A\right| A\otimes \K\right)$ is Abelian then there are natural surjective homomorphisms 
 \be\label{fundamental_gr_hom_eqn}
 \begin{split}
-h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right),\\
-h^{\mathrm{ab}}_{\widetilde A} : \pi^{\mathrm{ab}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right)
+h_{\widetilde A} : \pi^{P_{\mathrm{untz}}}_1\left(A\otimes \K\right)\to G\left( \left.\widetilde A\right| A\otimes \K\right),\\
+h^{\mathrm{ab}}_{\widetilde A} : \pi^{\mathrm{ab}}_1\left(A\otimes \K\right)\to G\left( \left.\widetilde A\right| A\right)
 \end{split}
 \ee
-If is $\pi_1^{\text{ab}}\left( A\right)$ is a finitely generated Abelian group
-If $\pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}} \subset \pi_1^{\text{ab}}\left( A\right)$ is the  torsion subgroup then there is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the group $G\left( \left.\widetilde A\right| A\right)$ is Abelian and there is an isomorphism
+If is $\pi_1^{\text{ab}}\left( A\otimes \K\right)$ is a finitely generated Abelian group
+If $\pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}} \subset \pi_1^{\text{ab}}\left( A\otimes \K\right)$ is the  torsion subgroup then there is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the group $G\left( \left.\widetilde A\right| A\otimes \K\right)$ is Abelian and there is an isomorphism
 $$
-\pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\cong G\left( \left.\widetilde A\right| A\right).
+\pi_1^{\text{ab}}\left(A\otimes \K\right)_{\mathrm{tors}}\cong G\left( \left.\widetilde A\right| A\otimes \K\right).
 $$
-Taking into account that $G\left( \left.\widetilde A\right| A\right)$ is a factor-group of $\pi_1^{\text{ab}}\left(A \right)$ we conclude that there is the natural decomposition
+Taking into account that $G\left( \left.\widetilde A\right| A\otimes \K\right)$ is a factor-group of $\pi_1^{\text{ab}}\left(A \right)$ we conclude that there is the natural decomposition
 \be\label{h_f_decomp_eqn} 
 \begin{split}
-\pi_1^{\text{ab}}\left(A \right)\cong \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\oplus \pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}},\\
-\pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}} \cong \pi_1^{\text{ab}}\left(A \right)/ \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}
+\pi_1^{\text{ab}}\left(A\otimes \K \right)\cong \pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}}\oplus \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{free}},\\
+\pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{free}} \cong \pi_1^{\text{ab}}\left(A\otimes \K \right)/ \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}}
 \end{split}
 \ee
-Suppose that there is  covering  $\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$ such that there is no $\left(   A, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\right) ,  \lift^{\widetilde B} \right)$ with $r < q$ and 
+Suppose that there is  covering  $\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$ such that there is no $\left(   A\otimes \K, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\otimes \K\right) ,  \lift^{\widetilde B} \right)$ with $r < q$ and 
 $$
-\left(   A, \widetilde A, \Z_{p^r} , \lift^{\widetilde A} \right)= \left(   A, \widetilde B^H, \Z_{p^q}/H, \lift^{\widetilde B^H} \right)
+\left(   A\otimes \K, \widetilde A, \Z_{p^r} , \lift^{\widetilde A} \right)= \left(   A\otimes \K, \widetilde B^H, \Z_{p^q}/H, \lift^{\widetilde B^H} \right)
 $$
 (cf. equation \eqref{fin_composition_uni_1_eqn}). Then there is a subgroup $G^{\widetilde A}\subset \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}$ which mapped homeomorphically onto $G\left( \left.\widetilde A\right| A\right)\cong p^r$. In result we obtain the following natural decomposition
 $$
- \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}.
+ \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}.
  $$
  Using it we can construct the following direct sum
  $$
- \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}  = \pi_1^{\text{ab}}\left(A \right)^\parallel_{\mathrm{tors}} \oplus\pi_1^{\text{ab}}\left(A \right)^\perp_{\mathrm{tors}} 
+ \pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}}  = \pi_1^{\text{ab}}\left(A\otimes \K \right)^\parallel_{\mathrm{tors}} \oplus\pi_1^{\text{ab}}\left(A \otimes \K\right)^\perp_{\mathrm{tors}} 
  $$
- such that $\Z_{p^r} \in \pi_1^{\text{ab}}\left(A \right)^\parallel_{\mathrm{tors}}$ is $\Z_{p^r}$ corresponds to a covering $\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$ satisfying to the following conditions:
+ such that $\Z_{p^r} \in \pi_1^{\text{ab}}\left(A \right)^\parallel_{\mathrm{tors}}$ is $\Z_{p^r}$ corresponds to a covering $\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$ satisfying to the following conditions:
  \begin{enumerate}
  	\item[(a)] the covering is a $\left(u, v. p^r \right)$,
  	 \item[(b)] there is a nontrivial $x \in K_0\left(A \right)$ represented  by partial isometry $w \in M\left(A \otimes \K \right)$, i.e. $x=  \mathrm{Index}~w\in K_0\left(A \otimes \K\right)$ (cf. equation \eqref{d_u_iv_eqn}) such that $M\left(  \lift^{\widetilde A} \right) \left( w\right) = v$.
@@ -15654,13 +15691,13 @@ $$
  Since $v$ is invertible one has $K_0\left(\lift^{\widetilde A} \right) \left( x\right) = 0$.
  Under the  above hypothesis  there is an homomorphism
 \bean
-  \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right)\to K_0\left(A \right),\\
+  \Z_{p^r}\cong G\left( \left.\widetilde A\right| A \otimes \K\right)\to K_0\left(A \right),\\
   k \mapsto k~ \mathrm{Index}~w
 \eean
 Using these homomorphism one construct following homomorphisms
 \bean
-\phi^\parallel :\pi_1^{\text{ab}}\left(A \right)^\parallel_{\mathrm{tors}}\to K_0\left( A\right) , \\
-\phi: \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to K_0\left( A\right)
+\phi^\parallel :\pi_1^{\text{ab}}\left(A\otimes \K \right)^\parallel_{\mathrm{tors}}\to K_0\left( A\right) , \\
+\phi: \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}}\to K_0\left( A\right)
 \eean  
 For any $\om \in \pi_1^{\text{ab}}\left(A \right)$ the map
 \bean
@@ -15676,30 +15713,27 @@ h^A_{\mathrm{tors}}: \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to  \Ext^1
 where $k \in \Z$ is a representative of $\overline k \in \Z_{p^r}$, 
 then similarly  \ref{v_lift_empt} $~v$ is a partial isometry.
 \end{definition}
-\paragraph{title}
-According to the Definition \ref{index_map_defn} for 
-any $x \in K_0\left(A \right)\left(p^r \right)\setminus \{0\}$ there is $\overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ and a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
-$$
-\begin{pmatrix}
-	\overline v & 0\\
-	0& \overline v^{-1}
-\end{pmatrix}
-$$
-such that $x = \partial \overline v \bydef \left[\overline wp_n\overline w^{-1}\right]- \left[p_n\right]
-$.
-If $x = 0$ then $\overline v$ can be lifted up to an element of $GL_{n}\left( M\left(A\otimes \K \right)\right)$.
-If $\widetilde A \in B\left(\H \right)$ is generated by a union $\cup  \left\{\overline wp_n\overline w^{-1}\right\}$ $C^*$-algebra  and $\phi : A\otimes \K \hookto \widetilde A$ is the natural homomorphism then  $K_0\left(\phi \right)\left(  x \right)= 0$. It follows that there is  $v \in GL_{n}\left( M\left(\widetilde A \right)\right)$ such that $v|_{ M\left(A\otimes \K \right)} =\overline v$. From $p^r x = 0$ it follows that $u \bydef \overline v^{p^r}= v^{p^r}
-\in GL_{n}\left(M\left(A\otimes \K \right)  \right)$.
-\begin{definition}\label{h_admissible_tors_defn}
-	Under the above hypothesis if  one can select  $u, v$ such that:
-	\begin{itemize}
-		\item both $u$ and $v$ are unitary,
-		\item $\widetilde A = \bigoplus_{j = 0}^{p^r-1} \left(  A\otimes \K\right)  v^j$,
-	\end{itemize}
-	then we say that the element $x \in K_0\left(A \right)\left( p^r\right)\setminus \{0\}$ is $p^r$-\textit{admissible}.
-\end{definition}
-
-\paragraph{title}
+%\paragraph{title}
+%^According to the Definition \ref{index_map_defn} for any $x \in K_0\left(A \right)\left(p^r \right)\setminus \{0\}$ there is $\overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ and a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
+%$$
+%\begin{pmatrix}
+%	\overline v & 0\\
+%	0& \overline v^{-1}
+%\end{pmatrix}
+%$$
+%such that $x = \partial \overline v \bydef \left[\overline wp_n\overline w^{-1}\right]- \left[p_n\right]
+%$.
+%If $x = 0$ then $\overline v$ can be lifted up to an element of $GL_{n}\left( M\left(A\otimes \K \right)\right)$.If $\widetilde A \in B\left(\H \right)$ is generated by a union $\cup  \left\{\overline wp_n\overline w^{-1}\right\}$ $C^*$-algebra  and $\phi : A\otimes \K \hookto \widetilde A$ is the natural homomorphism then  $K_0\left(\phi \right)\left(  x \right)= 0$. It follows that there is  $v \in GL_{n}\left( M\left(\widetilde A \right)\right)$ such that $v|_{ M\left(A\otimes \K \right)} =\overline v$. From $p^r x = 0$ it follows that $u \bydef \overline v^{p^r}= v^{p^r}\in GL_{n}\left(M\left(A\otimes \K \right)  \right)$.
+%\begin{definition}\label{h_admissible_tors_defn}
+%	Under the above hypothesis if  one can select  $u, v$ such that:
+%	\begin{itemize}
+%		\item both $u$ and $v$ are unitary,
+%		\item $\widetilde A = \bigoplus_{j = 0}^{p^r-1} \left(  A\otimes \K\right)  v^j$,
+%	\end{itemize}
+%	then we say that the element $x \in K_0\left(A \right)\left( p^r\right)\setminus \{0\}$ %is $p^r$-\textit{admissible}.
+%\end{definition}
+% INDEX
+%\paragraph{title}
 \begin{empt}
 	Let $\phi_n$ is a Borel $n^{\mathrm{th}}$ root $\phi_n$ of identity map on the set $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$, i.e.
 	\be\label{h_n_root}
@@ -15770,7 +15804,7 @@ In result one has a group homomorphism
 The map
 \be\label{h_free_eqn}
 \begin{split}
-	h^A_{\mathrm{free}} : \pi^{P_{\mathrm{untz}}}_1\left(A \right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right)\cong  \Hom\left(  K_1\left( A\right), \Z\right),\\
+	h^A_{\mathrm{free}} : \pi^{P_{\mathrm{untz}}}_1\left(A \otimes \K\right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right)\cong  \Hom\left(  K_1\left( A\right), \Z\right),\\
 	g \mapsto f^g 
 \end{split}
 \ee
@@ -15782,13 +15816,50 @@ is a homomorphism of groups.
 \begin{defn}
 Taking into account the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
 $$
-\pi_1^{\mathrm{ab}}\left( A\right) \to K^1\left(A \right) 
+\pi_1^{\mathrm{ab}}\left( A\otimes \K\right) \to K^1\left(A \right) 
 $$
 or equivalently
 $$
-h^A:\pi^{P_{\mathrm{untz}}}_1\left(A\right)\to  K^1\left(A \right) 
+h^A:\pi^{P_{\mathrm{untz}}}_1\left(A \otimes \K\right)\to  K^1\left(A \right) 
 $$
 \end{defn}
+
+\section{$C^*$-algebras with Hausdorff spectrum}
+\paragraph{} Let  $A$ be a stable $C^*$-algebra with compact, connected, locally connected and weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$. We do not require that $\sX$ is path connected. Let $\Z_n \subset \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$ be a cyclic subgroup of {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}), and let $\sX\left[\Z_n\right]$ is the $\sX$-$\Z_n$-{space} with the  $\sX$-$\Z_n$-{covering} $p_{\Z_n}: \sX\left[\Z_n\right]\to \sX$ (cf. Definition \ref{top_xg_defn}). Suppose that the generator of $\Z_n$ is represented by the weak closed $x_0$-path 
+$\left(\sU_1, ..., \sU_n \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Below we will use a set of hypotheses which are hold for a wide classes of spaces, e.g. all $CW$-complexes and manifolds. But these hypotheses are more general since they are hold for several spaces which are not path connected. Suppose that $\sU $ is the closure of the union $\sU_1\cup ...\cup \sU_n$ and following conditions hold:
+\begin{itemize}
+	\item $K^1\left( \sU\right) \cong \Z$, 
+	\item a generator $\left[v\right]\in K^1\left( \sU\right)$ of $K^1\left( \sU\right)$ is represented by a continuous map $v : \sU \to U\left(1 \right)$. 
+\end{itemize}
+Let $\pi : C\left( \sX\right)\left[\Z_n\right]\otimes \K\to B\left( \H\right)$ is a faithful nondegenerate representation    
+Let  $\widetilde \sU \bydef p^{-1}_{\Z_n}\left( \sU\right) $ and $u\bydef  p^{-1}_{\Z_n}|_{\widetilde \sU}\circ v:  \widetilde \sU \to U\left(1 \right)$. If $\phi_n$ is given satisfies to the equations  \eqref{h_n_root},\eqref{h_n_n_root} and $w \bydef \phi_n\left( u\right)\in \pi\left(C\left(\widetilde \sU \right)  \right) $. Suppose that $w' \in C\left(\widetilde \sU \right)$ is such that $w = \pi\left(w'\right)$ and suppose that $w'$ can be extended up to a continuous map $\widetilde u : \sX\left[\Z_n\right]\to U\left( 1\right)$. There is a continuous map 
+\bean
+u : \sX \to U\left( 1\right),\\
+u\left( x\right) \bydef  \prod_{\widetilde x \in p^{-1}_{\Z_n}\left(x \right) } \widetilde u\left( \widetilde x\right) 
+\eean
+There is an open connected neighborhood $\mathcal  W\subset U\left(1 \right)$ of $1$ such that the map
+$$
+u \mapsto u^n,
+$$
+is a homeomorphism from $\mathcal  W$ onto $\mathcal  W^n$. We say say that that a connected open  subset $\mathcal W_\sX\subset \sX$ is $u, n$ if for any $x_0 \in \mathcal W_\sX$ the set
+$$
+\mathcal W_{x_0} \bydef \left\{ u\left( x\right)u^*\left( x_0\right) | x \in \mathcal W_\sX \right\}
+$$
+there is an open subset $\widetilde \sV$ such that the map
+$$
+u \mapsto u^n
+$$
+homeomorphically maps $\widetilde \sV$ onto $\mathcal W_{x_0}$.
+Let $\mathfrak A$ be a family
+\begin{itemize}
+	\item h
+	\item any $\sU \in \mathfrak A$ is $u, n$.
+\end{itemize}
+Now we define $v : \sX\left[G\right] \to U\left( 1\right)$ such that $C\left(p_{\Z_n} \right)\left( u\right) = v^n$. For any $\widetilde x \in   \sX\left[G\right]$ we select a path. 
+ 
+
+
+
 
 \section{Comparison with the classical Hurewicz homomorphism}
 \paragraph*{} Consider the described in the Section \ref{h_prel}  situation. Let $\left( \sX, x_0\right)$ be a  pointed  $CW$-complex (cf. Remark \ref{top_obstr_rem}) and let 
@@ -15972,7 +16043,6 @@ $\sX \to U(1)$ such that $\varphi|_{S^1 }=\a$.
 The map 	$\varphi: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ satisfies to \eqref{h_n_root}  then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$. % From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) which is an $\left(u, n \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
 \
 
-\section{$C^*$-algebras with Hausdorff spectrum}
 \subsection{$C^*$-algebras of path-connected spaces}
 \paragraph{}
 Let $\left(\sX, x_0\right)$ be  pointed path-connected space, and let $\pi_1\left(\sX, x_0 \right)$ be its fundamental group. Consider a faithful nondegenerate representation $C\left(\sX\right)\otimes \K \hookto B\left( \H\right)$. Any element of $\pi_1\left(\sX, x_0 \right)$ is represented by a pointed  map  $\om : \left( S^1, s_0\right) \to \left(\sX_0, x_0 \right)$. On the other hand the map yields a homomorphism $K_1\left(\om \right): K_1\left( C\left(\sX \right) \right)  \to K_1\left( C\left(S^1 \right) \right)$. This homomorphism   depends on homotopical class of $\om$ in $\pi_1\left(\sX, x_0 \right)$. Moreover it is invariant modulo the commutant  $\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right]$. We denote by $\left[\om \right]$ the class of $\om$ in $\pi^{\mathrm{ab}}_1\left(\sX, x_0 \right)$ where 
@@ -19709,7 +19779,7 @@ A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ 
 		This limiting cone, when it exists, is said to have the \textit{universal property} 
 		with respect to $D$ -cones.
 		 A limit for 
-		diagram $D$ is unique up to isomorphism.%:- if {ft: —> a\} and {f-:c'—> d;} 			are both limits for D, then the unique commuting arrow f: c'— above is 			iso (its inverse is the unique commuting arrow c-—*c' whose existence 			follows from the fact that {/,': c' —> dj is a limit). 
+		diagram $D$ is unique up to isomorphism.%:- if {ft:  > a\} and {f-:c' > d;} 			are both limits for D, then the unique commuting arrow f: c'  above is 			iso (its inverse is the unique commuting arrow c- *c' whose existence 			follows from the fact that {/,': c'  > dj is a limit). 
 		% It is universal amongst such cones-any other 		D-cone factors uniquely through it as in the last diagram.		
 
 
@@ -20366,7 +20436,7 @@ with the natural inclusion $S^k\subset E^{k+1}$. A space $\sX$ is said to be $n$
 	exists.
 \end{theorem}
 %Let $\sX$ is a set.
-%If $\mathcal C$ is a class consisting of pairs $(S,s)$, where $S$ is a net in $\sX$ and $s$ a point, when is there a topology $\mathcal T$ for X such that (6» e C iff S  converges to s relative to the topology 3
+%If $\mathcal C$ is a class consisting of pairs $(S,s)$, where $S$ is a net in $\sX$ and $s$ a point, when is there a topology $\mathcal T$ for X such that (6  e C iff S  converges to s relative to the topology 3
 \begin{definition}\label{top_lower_semi_defn}\cite{bourbaki_sp:gt}
 A real-valued function $f$, defined on a topological space $\sX$, is said to be \textit{lower semi-continuous} (resp. \textit{upper semi-continuous} at point $a \in \sX$ if for each $h < f\left(a\right)$ (resp. each $k > f\left(a\right))$ there is an open neighborhood $\sV$ of $a$ such that $h < f\left(x\right)$ (resp. each $k > f\left(x\right))$ for each $x\in\sV$.\\
 A real-valued function $f$, is said to be \textit{lower semi-continuous} (resp. \textit{upper semi-continuous} on $\sX$ if it is  {lower semi-continuous} (resp. {upper semi-continuous} at every point of $\sX$.
@@ -21014,7 +21084,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	\ee
 	is a differentiable function on $\sU$. 	It is clear this definition does not depend on the choice of 
 	coordinate system. 
-	%	Another way to express the differentiability of the Rieman	nian metric is to say that for any pair of vector fields X and , which 	are differentiable in a neighborhood V of M, the function (X, Y) is 	differentiable on V. It is immediate that this definition is equivalent 	to the other. 	It is usual to delete the index p in the function ( , )p when- 	ever there is no possibility of confusion. The function gij (= ) is 	called the local representation of the Riemannian metric (or "the gij 	of the metric") in the coordinate system x: U  Rn ≈ M. 
+	%	Another way to express the differentiability of the Rieman	nian metric is to say that for any pair of vector fields X and , which 	are differentiable in a neighborhood V of M, the function (X, Y) is 	differentiable on V. It is immediate that this definition is equivalent 	to the other. 	It is usual to delete the index p in the function ( , )p when- 	ever there is no possibility of confusion. The function gij (= ) is 	called the local representation of the Riemannian metric (or "the gij 	of the metric") in the coordinate system x: U  Rn   M. 
 	A differentiable manifold with a given Riemannian metric will be called a \textit{Riemannian manifold}. 
 	
 \end{definition}
@@ -21513,7 +21583,7 @@ $$
 \left\langle v, v^* \right\rangle_V =  \chi\left(\left[v, v'\right] \right) 
 $$
 defines a bijective mapping $v' \mapsto v^*$ of the algebraic dual $V'$ of $V$ onto $V^*$.
-%if x(xy)= I for all x, y in K, this mapping is an isomorphism for thestructures of I/‘, V* as right vector-spaces over K.
+%if x(xy)= I for all x, y in K, this mapping is an isomorphism for thestructures of I/ , V* as right vector-spaces over K.
 \end{theorem}	
 
 	
@@ -21579,7 +21649,7 @@ defines a bijective mapping $v' \mapsto v^*$ of the algebraic dual $V'$ of $V$ o
 %If $A\subset X$, the \textit{convex hull} of $A$, is the 
 %intersection of all convex sets that contain $A$.	%\end{definition}
 %	\begin{theorem}\label{convex_compact_thm} \cite{conway:fa}
-%%Krein-Smulian Theorem:[2] — 
+%%Krein-Smulian Theorem:[2]   
 %\textit{Krein-Smulian Theorem}. If $X$ is a Banach space and $K$ is a weakly 
 %compact subset of $X$, then the convex hull of $K$ is weakly compact. 
 %	\end{theorem}
@@ -21655,7 +21725,7 @@ defines a bijective mapping $v' \mapsto v^*$ of the algebraic dual $V'$ of $V$ o
 		Every self-adjoint linear operator is symmetric.
 	\end{definition}
 	\begin{definition}\cite{kreyszig:fa}
-		%10.3·1 Definition (Closed linear operator). 
+		%10.3 1 Definition (Closed linear operator). 
 		Let $T: \D\left( T\right)\to\H$ be a
 		linear operator, where $\D\left( T\right)\subset\H$) and $\H$ is a complex Hilbert space.
 		Then $T$ is called a \textit{closed linear operator} if its graph
@@ -22719,8 +22789,8 @@ If $\sX$ is a spectrum of a {homogeneous of order} $n$ algebra $A$ then $A$ corr
 		and there are natural homeomorphisms $P \mapsto P\cap \sU$ of $\sU$ onto the set of primitive ideals of  $ \left.A\right|_\sU$, and
 		$P \mapsto P/A_\sU$ of $\hat A \setminus \sU$ onto  the set of primitive ideals of  $A/A_\sU$. %(Proposition A.27). 
 		When $\hat A$
-		is a (locally compact) Hausdorff space $T$, we can localize at a point $t$ ‚ that is,
-		examine behavior in a neighborhood of $t$ ‚ either by looking at the ideal $A_\sU$
+		is a (locally compact) Hausdorff space $T$, we can localize at a point $t$   that is,
+		examine behavior in a neighborhood of $t$   either by looking at the ideal $A_\sU$
 		corresponding to an open neighborhood $\sU$ of $t$, or by passing to the quotient
 		\be\label{closed_ideal_eqn}
 		\left.A\right|^F \stackrel{\text{def}}{=} A/\left( 
@@ -23129,7 +23199,7 @@ $\E \ox_B \F$ to highlight~$\varphi$.
 	\end{example}
 	
 	\begin{rem}
-			If~$_AX_B$ be an $A$-$B$ imprimitivity bimodule then there is a \textit{dual} $B$-$A$ bimodule $_B\widetilde X_A$ which is a $B$–$A$-imprimitivity bimodule (cf. \cite{rae:ctr_morita}).
+			If~$_AX_B$ be an $A$-$B$ imprimitivity bimodule then there is a \textit{dual} $B$-$A$ bimodule $_B\widetilde X_A$ which is a $B$ $A$-imprimitivity bimodule (cf. \cite{rae:ctr_morita}).
 	\end{rem}
 	\begin{theorem}\label{morita_herm_thm} \cite{rae:ctr_morita,Rieffel:74a}
 		Let~$X$ be an $A$-$B$ equivalence bimodule.  Then given by \ref{induced_representation_defn} functor $X\otimes_B\blank$
@@ -23141,7 +23211,7 @@ $\E \ox_B \F$ to highlight~$\varphi$.
 	\end{theorem}
 	\begin{theorem}\label{rieffel_equiv_thm}\cite{rae:ctr_morita}
 		%Theorem 3.29. 
-		Suppose that $X$ is an $A$–$B$-imprimitivity bimodule, and $\pi$, $\rho$
+		Suppose that $X$ is an $A$ $B$-imprimitivity bimodule, and $\pi$, $\rho$
 		are nondegenerate representations of $B$ 
 		and $A$, respectively. Then $\widetilde X-\Ind\left(  X-\Ind \pi \right)$ is 
 		naturally unitarily equivalent to $\pi$, and $X-\Ind\left(\widetilde  X-\Ind \rho \right)$ is 
@@ -23150,11 +23220,11 @@ $\E \ox_B \F$ to highlight~$\varphi$.
 	\end{theorem}
 	\begin{corollary}\cite{rae:ctr_morita}
 		%Corollary 3.312.
-		If $X$ is an $A$–$B$-imprimitivity bimodule, then the inverse of the Rieffel correspondence $X-\Ind$ is  $\widetilde X-\Ind$.
+		If $X$ is an $A$ $B$-imprimitivity bimodule, then the inverse of the Rieffel correspondence $X-\Ind$ is  $\widetilde X-\Ind$.
 	\end{corollary}
 	\begin{corollary}\label{morita_irred}\cite{rae:ctr_morita}
 		%Corollary 3.32. 
-		Suppose that $X$ is an $A$–$B$-imprimitivity bimodule, and that $\pi$
+		Suppose that $X$ is an $A$ $B$-imprimitivity bimodule, and that $\pi$
 		is 
 		a nondegenerate representation of $B$. Then $\widetilde  X-\Ind \pi$
 		is irreducible if and only if $\pi$ 
@@ -23173,7 +23243,7 @@ $\E \ox_B \F$ to highlight~$\varphi$.
  %Definition 1.10.1. 
 The \textit{stabilization} of $A$ is $A^s\bydef A\otimes \K$. 
 $C^*$-algebras $A$ and $B$ are said to be \textit{stably equivalent} when $A\otimes \K\cong B\otimes \K$.
-%Definition 5.1.1.$\mathbb{M}_\infty\left(A \right)$ is the algebraic direct limit of $\mathbb{M}_n\left(A \right)$ under theembeddings $a \mapsto \text{diag}\left(a, 0\right)$.$M∞(A) may be thought of as the algebra of all infinite matrices over A with7only finitely many nonzero entries. Whenever it is convenient, we will identifyMn(A) with its image in the upper left-hand corner of Mn+k(A) or M∞(A).When it is necessary to topologize M∞(A), any topology inducing the naturaltopologies on Mn(A) will do. For example, M∞(A) may be given the inductivelimit topology if desired. Better yet, one may choose the norms on Mn(A) sothat the embeddings are isometries; M∞(A) is a local Banach algebra with theinduced norm.
+%Definition 5.1.1.$\mathbb{M}_\infty\left(A \right)$ is the algebraic direct limit of $\mathbb{M}_n\left(A \right)$ under theembeddings $a \mapsto \text{diag}\left(a, 0\right)$.$M (A) may be thought of as the algebra of all infinite matrices over A with7only finitely many nonzero entries. Whenever it is convenient, we will identifyMn(A) with its image in the upper left-hand corner of Mn+k(A) or M (A).When it is necessary to topologize M (A), any topology inducing the naturaltopologies on Mn(A) will do. For example, M (A) may be given the inductivelimit topology if desired. Better yet, one may choose the norms on Mn(A) sothat the embeddings are isometries; M (A) is a local Banach algebra with theinduced norm.
 %If $A$ is a (local) $C^*$-algebra, the embedding are isometries, so $\mathbb{M}_\infty\left(A \right)$ has anatural norm. The completion is called the \textit{stable algebra} of A, denoted $A\otimes \K$ (it is the $C^*$-tensor product of $A$ and $\K$).
 \end{definition}
 	\begin{theorem}\label{stable_morita_thm}\cite{brown:stable}
@@ -23806,7 +23876,7 @@ Sometimes we consider operator algebras which are dense subalgebras of operator 
 		$X$  to be a pair $(A, j)$ consisting of a unital $C^*$-algebra $A$, and a unital 
 		complete isometry $j : X\to  A$, such that $j(X)$ generates $A$ as a $C^*$-algebra. 
 	\end{definition}
-	%4.1.10 (C$*$-extensions) For a unital-subspace X of a unital C$*$-algebra A, the  noncommutative analogue of ‚point separation‚ is the assertion that X generates  A as a C$*$-algebra. Indeed by the Stone-Weierstrass theorem, to say that a unitalsubspace  X . C(O) generates C(O) as a C$*$-algebra, is the same as saying that  X separates points of O. Thus we define a C$*$-extension of a unital operator space  X (see 1.3.1) to be a pair (A, j) consisting of a unital C$*$-algebra A, and a unital  complete isometry j : X . A, such that j(X) generates A as a C$*$-algebra. Theorem 4.3.1  
+	%4.1.10 (C$*$-extensions) For a unital-subspace X of a unital C$*$-algebra A, the  noncommutative analogue of  point separation  is the assertion that X generates  A as a C$*$-algebra. Indeed by the Stone-Weierstrass theorem, to say that a unitalsubspace  X . C(O) generates C(O) as a C$*$-algebra, is the same as saying that  X separates points of O. Thus we define a C$*$-extension of a unital operator space  X (see 1.3.1) to be a pair (A, j) consisting of a unital C$*$-algebra A, and a unital  complete isometry j : X . A, such that j(X) generates A as a C$*$-algebra. Theorem 4.3.1  
 	
 	\begin{corollary}\cite{blecher_merdy} Following conditions hold:
 		%Corollary 4.2.8 
@@ -23827,7 +23897,7 @@ Sometimes we consider operator algebras which are dense subalgebras of operator 
 	
 	\begin{theorem}\label{c_env_sp_thm}\cite{blecher_merdy}
 		%4.3.1
-		(Arveson‚ Hamana) If $X$ is a unital operator space, then there 
+		(Arveson  Hamana) If $X$ is a unital operator space, then there 
 		exists a $C^*$-extension $(B, j)$ of $X$ with the following universal property: Given 
 		any  $C^*$-extension $(A, k)$ of $X$, there exists a (necessarily unique and surjective) 
 		$*$-homomorphism $\pi: A \to B$, such that $\pi \circ k = j$. 
@@ -23984,7 +24054,7 @@ For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
 \end{corollary}
 \subsection{Grading}
 !!!
-%If $A$ is any (ungraded) C-algebra, there is a grading onM2(A) with M2(A)(0) the diagonal matrices and M2(A)(1) the matrices with zerodiagonal. This is an even grading with grading operator diag(1;?1), called thestandard even grading on M2(A). By identifying AK with M2(AK), we obtainthe standard even grading of AK (this grading is actually only determinedup to conjugation by aninner automorphism homotopic to the identity).(b) There is a standard odd grading on A  A for any (ungraded) A: (A A)(0) =f(a; a) : a 2 Ag and (A  A)(1) =f(a;?a) : a 2 Ag. If A = C, we denoteC2 with the standard odd grading by C1. (C1 is a complex Cliord algebra[Kasparov 1980b, x 2].) Note that C1 is isomorphic to the group C-algebra ofZ2; the grading is given by the dual action of ^Z2= Z2.(c) A grading on a C-algebra A induces a canonical grading on M(A) in theobvious way. Thus, for any ungraded A, there is a standard even grading onMs(A) (determined up to inner automorphism homotopic to the identity).The reader interested just in Kasparov theory for ordinary (ungraded) C-algebras need only be concerned with these exam
+%If $A$ is any (ungraded) C-algebra, there is a grading onM2(A) with M2(A)(0) the diagonal matrices and M2(A)(1) the matrices with zerodiagonal. This is an even grading with grading operator diag(1;?1), called thestandard even grading on M2(A). By identifying AK with M2(AK), we obtainthe standard even grading of AK (this grading is actually only determinedup to conjugation by aninner automorphism homotopic to the identity).(b) There is a standard odd grading on A  A for any (ungraded) A: (A A)(0) =f(a; a) : a 2 Ag and (A  A)(1) =f(a;?a) : a 2 Ag. If A = C, we denoteC2 with the standard odd grading by C1. (C1 is a complex Cliord algebra[Kasparov 1980b, x 2].) Note that C1 is isomorphic to the group C-algebra ofZ2; the grading is given by the dual action of ^Z2= Z2.(c) A grading on a C-algebra A induces a canonical grading on M(A) in theobvious way. Thus, for any ungraded A, there is a standard even grading onMs(A) (determined up to inner automorphism homotopic to the identity).The reader interested just in Kasparov theory for ordinary (ungraded) C-algebras need only be concerned with these exam
 	\subsection{Fredholm index}
 	
 	\begin{definition}\label{fred_a_defn}\cite{matro:hcm}
@@ -24288,7 +24358,7 @@ Inverse limits of $C^*$-algebras are specializations of the explained  in \ref{p
 	\end{notn} 
 	Note that $A_p$ is a $C^*$-algebra, and that the proof of Proposition \ref{pro_c_prop} 
 	gives a canonical representation of $A$ as an inverse limit, namely $A = \varprojlim_{p\in S(A)} A_p$. 
-	%+—Pes(A) (S(A) is directed because if p,^ G S(A), then a »—>• max(p(a), q(a)) is also in S(A).) We will show in Corollary 1.2.8 that in fact A/Ker(p) is always already complete.
+	%+ Pes(A) (S(A) is directed because if p,^ G S(A), then a   >  max(p(a), q(a)) is also in S(A).) We will show in Corollary 1.2.8 that in fact A/Ker(p) is always already complete.
 	\begin{definition}\label{pro_bound_defn}\cite{phillips:inv_lim}
 		%1.10. DEFINITION ([63]).
 		Let $A$ be a pro-$C^*$-algebra. Then the set of \textit{bounded elements} is the set
@@ -24349,7 +24419,7 @@ Here I follow to \cite{phillips:inv_lim_app}.	We begin with the construction of 
 	positive," or the statement that some equation in the variables $G \coprod G^*$ and some unknowns has a solution, or that some function from a topological space into $G$ is
 	continuous. Note that Blackadar considers only relations of the form $\|x\| \le \eta$ for $\eta > 0$ and $x$ in the unitization $F(G)^+$ of $F(G)$. (We do not allow !!! ADMIT !!! relations involving
 	elements of $F(G)^+=F(G)$ because they do not make sense in a nonunital $C^*$-
-	algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge Ñ g$
+	algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge   g$
 	for some fixed $e \in G$ and all $g \in G \coprod G^*$).
 	\begin{definition}\label{gr_ca_defn}\cite{phillips:inv_lim_app}
 		Let $(G,R)$ be a set of \textit{generators and relations}.
@@ -24586,7 +24656,7 @@ homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 \begin{definition}\label{multinormed_a_defn}\cite{dosi:multi}
 A seminorm $p$ on a unital associative algebra $A$ is called a \textit{multiplicative seminorm} if $p(1_A) = 1$ and $p(ab) \le p(a)p(b)$ for all $a, b \in A$. A multiplicative seminorm on an
 associative $*$-algebra A is said to be a \textit{$C^*$-seminorm} if $p\left(a^*\right)= p(a)$ and $p\left(a^*a\right)= p(a)^2$ for
-all $p\in A$. A complete polynormed  algebra with a defining family of multiplicative seminorms (respectively, $C^*$-seminorms) is called an \textit{Arens–Michael algebra} (respectively, \textit{multinormed
+all $p\in A$. A complete polynormed  algebra with a defining family of multiplicative seminorms (respectively, $C^*$-seminorms) is called an \textit{Arens Michael algebra} (respectively, \textit{multinormed
 $C^*$-algebra}).
 \end{definition}
 	\begin{remark}\label{la_los_rem}
@@ -24823,7 +24893,7 @@ $C^*$-algebra}).
 	
 	We recall that an unbounded $C^*$-seminorm $p$ on a partial $*$-algebra $\mathfrak{A}$ is a seminorm defined on a partial $*$-subalgebra $D(p)$ of $\mathfrak{A}$, the domain of $p$, with the properties:
 	\begin{itemize}
-		\item $p(ab) ≤ p(a)p(b)$, whenever $ab$ is well-defined;
+		\item $p(ab)   p(a)p(b)$, whenever $ab$ is well-defined;
 		\item $p\left(a^*a \right) = p\left(a \right)^2$  whenever $a^*a$ is well-defined
 	\end{itemize}
 	
@@ -25188,7 +25258,7 @@ may as well assume that $I $ is the inclusion of a direct summand.
 
 \section{Discrete crossed product of $C^*$-algebras}\label{discr_cr_prod_sec}	
 Here I follow to \cite{discrete_crossed}.
-Let $G$ be a discrete group and $A$ a $C^*$-algebra. An action of $G$ on $A$ is a group homomorphism from $G$ into $\Aut(A)$ — the group of $*$-automorphisms on $A$. The action is denoted by a dot in the following way
+Let $G$ be a discrete group and $A$ a $C^*$-algebra. An action of $G$ on $A$ is a group homomorphism from $G$ into $\Aut(A)$   the group of $*$-automorphisms on $A$. The action is denoted by a dot in the following way
 $$
 t \mapsto (a \mapsto t. a),\quad t \in G,\quad a \in A.
 $$
@@ -25196,15 +25266,15 @@ A $C^*$-dynamical system $(A,G)$ consist of a discrete group $G$, a $C^*$-algebr
 \be\label{discr_cr_prod_cc_eqn}
 \sum _{t \in G} a_t u_t\quad \forall t \in G \quad a_t  \in A,
 \ee
-where only finitely many $a_t$’s are non-zero. One equips $C_c(G,A)$ with a $*$-operation and a twisted product, in such
-a way that the action becomes ”inner”. By this we mean that $t. a = u_tau^*_t$ for every $t \in G$, $a \in A$. More precisely we have the following product and $*$-operation
+where only finitely many $a_t$ s are non-zero. One equips $C_c(G,A)$ with a $*$-operation and a twisted product, in such
+a way that the action becomes  inner . By this we mean that $t. a = u_tau^*_t$ for every $t \in G$, $a \in A$. More precisely we have the following product and $*$-operation
 \be\label{discr_cr_prod_op_eqn}
 \begin{split}
 	ab \bydef \sum_{s,t\in G}a_t(t\cdot b_s)u_{ts}, \quad
 	a^* =\sum_{t\in G} (t^{-1}.a^*_t )u_{t^{-1}} ,\\ a =\sum _{t \in G} a_t u_t, \quad b =\sum _{s \in G} a_s u_s
 \end{split}
 \ee
-Fix a $C^*$-dynamical system $(A,G)$ with $G$ discrete. A covariant representation $\left(\pi, u, \H \right)$  of $(A,G)$ consists of an unitary representation $u: G \to B(\H)$ of $G$ and a representation $\pi  : A \to B(\H)$ of $A$ such that $u(t)π(a)u(t)^* = \pi(t. a)$
+Fix a $C^*$-dynamical system $(A,G)$ with $G$ discrete. A covariant representation $\left(\pi, u, \H \right)$  of $(A,G)$ consists of an unitary representation $u: G \to B(\H)$ of $G$ and a representation $\pi  : A \to B(\H)$ of $A$ such that $u(t) (a)u(t)^* = \pi(t. a)$
 for every $t \in  G$ and $a \in A$. For a covariant representation $\left(\pi, u, \H \right)$ let $\pi\times u$ denote the associated representation of $C_c(G,A)$ on $\H$. The \textit{full $C^*$-algebra norm} on $C_c(G,A)$ is given by
 $$
 \left\|\cdot \right\|  \bydef \sup\left\| (\pi \times u)(\cdot )\right\| 
@@ -25221,7 +25291,7 @@ where the regular representation $\widetilde\pi : C_c(G,A) \to B(\widetilde \H )
 \ee
 where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\widetilde \H\bydef \ell^2\left(G, \H\right) $ and $\delta_{t, \xi}$ is the map $s \mapsto \delta_{t, s}\xi \in \H$ ($ \delta_{t, s}$ is the Kronecker delta). In this way $\widetilde\pi$ becomes faithful. The reduced $C^*$-algebra norm does not depend on the choice of the faithful representation $\pi$ (cf.  \cite{discrete_crossed}). The \textit{reduced crossed product}, denoted by $A\rtimes_rG$ is the completion of $C_c(G,A)$ with respect to the reduced $C^*$-algebra norm. 
 
-%˜π(a)t, = t,π(t1.a), (s)t, = st,, a  A, s, t  G,   H where π : A  B(H) is any faithful representation, H = l2(G,H) andt,  H is the map s 7 t,s  H (t,s is the Kronecker delta). In thisway ˜π   becomes faithful, cf. [61, Lemma 2.26]. The reduced C$*$-algebranorm does not depend on the choice of the faithful representation π, cf. [9,Proposition 4.1.5]The reduced crossed product, denoted ArG, is the completion of Cc(G,A)with respect to the reduced C$*$-algebra norm. The inclusion of G into thegroup of unitaries inM(ArG) allow !!! ADMIT !!!s us to consider ut, t  G as an unitary element in M(A r G), cf. [61, Proposition 2.34].Let (π, u,H) be a covariant representation of a C$*$-dynamical system (A,G) with G discrete. Then πu extends to a representation πu of AGon H. The map sending (π, u,H) into π  u is a one-to-one correspondencebetween covariant representations of (A,G) and representations of AG, cf.[61, Proposition 2.40].Let us proof a few results to give the reader a better understanding ofsome of the well known results about crossed product C$*$-algebras.
+%  (a)t, = t, (t1.a), (s)t, = st,, a  A, s, t  G,   H where   : A  B(H) is any faithful representation, H = l2(G,H) andt,  H is the map s 7 t,s  H (t,s is the Kronecker delta). In thisway      becomes faithful, cf. [61, Lemma 2.26]. The reduced C$*$-algebranorm does not depend on the choice of the faithful representation  , cf. [9,Proposition 4.1.5]The reduced crossed product, denoted ArG, is the completion of Cc(G,A)with respect to the reduced C$*$-algebra norm. The inclusion of G into thegroup of unitaries inM(ArG) allow !!! ADMIT !!!s us to consider ut, t  G as an unitary element in M(A r G), cf. [61, Proposition 2.34].Let ( , u,H) be a covariant representation of a C$*$-dynamical system (A,G) with G discrete. Then  u extends to a representation  u of AGon H. The map sending ( , u,H) into    u is a one-to-one correspondencebetween covariant representations of (A,G) and representations of AG, cf.[61, Proposition 2.40].Let us proof a few results to give the reader a better understanding ofsome of the well known results about crossed product C$*$-algebras.
 
 
 \chapter{Spectral triples}
@@ -26318,7 +26388,7 @@ of sheaves. An isomorphism is a morphism  which has a two-sided inverse.
 \begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
 	%1.13. 
 	\textit{
-		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, §1.2].)
+		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II,  1.2].)
 	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
 		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
 	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$. We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
@@ -26357,7 +26427,7 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 	$\sU \subset \sX$, $\quad \mathscr F'\left(\sU \right)$  is a subgroup of $\mathscr F\left(\sU \right)$, and the restriction maps of the 
 	sheaf $\mathscr F'$ are induced by those of $\mathscr F$. It follows that for any point $P$, the 
 	stalk $\mathscr F'_P$ is a subgroup of $\mathscr F_P$. 
-	%If (p: & -> ^ is a morphism of sheaves, we define the fce/w/ of (p, denoted ker cp, to be the presheaf kernel of cp (which is a sheaf). Thus ker cp is a subsheaf of .^. We say that a morphism of sheaves cp:^ -> (^ is injeetive if ker (p = 0. Thus <p is injeetive if and only if the induced map cp{U)\^(U) -> ^(G) is 	injeetive for every open set of X. 	If cp\ 3F -> ^ is a morphism of sheaves, we define the zm^ of cp, 	denoted im cp, to be the sheaf associated to the presheaf image of cp. By 	the universal property of the sheaf associated to a presheaf, there is a 	natural map im cp -> rS. In fact this map is injeetive (see Ex. 1.4), and thus 	im cp can be identified with a subsheaf of f&. 	We say that a morphism cp\, -> ^ of sheaves is sitrjective if im cp = f^. 	We say that a sequence . . . —> ^l~"] -—> .Wl ^> ,l^x -> . . . of sheaves 	and morphisms is ^xacr if at each stage ker <p' = im cpl ~ l. Thus a sequence
+	%If (p: & -> ^ is a morphism of sheaves, we define the fce/w/ of (p, denoted ker cp, to be the presheaf kernel of cp (which is a sheaf). Thus ker cp is a subsheaf of .^. We say that a morphism of sheaves cp:^ -> (^ is injeetive if ker (p = 0. Thus <p is injeetive if and only if the induced map cp{U)\^(U) -> ^(G) is 	injeetive for every open set of X. 	If cp\ 3F -> ^ is a morphism of sheaves, we define the zm^ of cp, 	denoted im cp, to be the sheaf associated to the presheaf image of cp. By 	the universal property of the sheaf associated to a presheaf, there is a 	natural map im cp -> rS. In fact this map is injeetive (see Ex. 1.4), and thus 	im cp can be identified with a subsheaf of f&. 	We say that a morphism cp\, -> ^ of sheaves is sitrjective if im cp = f^. 	We say that a sequence . . .  > ^l~"] - > .Wl ^> ,l^x -> . . . of sheaves 	and morphisms is ^xacr if at each stage ker <p' = im cpl ~ l. Thus a sequence
 		
 	\end{definition}
 	
@@ -26396,7 +26466,7 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 			$\sU\subset\sX$, the group 
 			$\mathscr F\left(\sU \right)$ is an $\mathcal O_\sX$-module, and for each inclusion of 
 			open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \right) \to \mathscr F\left(\sV \right)$  is compatible with the module structures via the ring homomorphism $\mathcal O_\sX\left(\sU \right) \to \mathcal O_\sX \left(\sV \right)$.
-			%	(9X(V). A morphism #" ≈> ^ of sheaves of $x-modules is a morphism of 
+			%	(9X(V). A morphism #"  > ^ of sheaves of $x-modules is a morphism of 
 			%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(7) is a 
 			%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf  \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf  \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf  \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
 		\end{definition}
@@ -26476,16 +26546,16 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 %	Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allow !!! ADMIT !!!s a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
 %\end{theorem}
 %\begin{theorem}
-%Thorme 3.4.1- — 
-%Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que tout point de $\sX$ possède un  voisinage $\sU$ vérifiant la condition suivante : toute section de $\mathscr F$au-dessus d'un sous-ensemble fermé de $\sX$ contenu dans $\sU$, se prolonge à $\sU$. Alors $\mathscr F$ est mou.
+%Thorme 3.4.1-   
+%Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que tout point de $\sX$ poss de un  voisinage $\sU$ v rifiant la condition suivante : toute section de $\mathscr F$au-dessus d'un sous-ensemble ferm  de $\sX$ contenu dans $\sU$, se prolonge   $\sU$. Alors $\mathscr F$ est mou.
 %\end{theorem}
 %Following text is an English translation of the above theorem
 %\begin{theorem}
 %	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
 %\end{theorem}
 %\begin{thm}\cite{godement:sheaf}
-%Thorme 3-7-2. — 
-%Soit $\mathscr{ A}$ un faisceau d'anneaux avec unité sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possède un  voisinage $\sU$ tel que, 	étant donnés des fermé disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, égale à 1 sur $S$ et à 0 sur $T$.
+%Thorme 3-7-2.   
+%Soit $\mathscr{ A}$ un faisceau d'anneaux avec unit  sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ poss de un  voisinage $\sU$ tel que, 	 tant donn s des ferm  disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$,  gale   1 sur $S$ et   0 sur $T$.
 %\end{thm}
 %Following text is an English translation of the above theorem.
 %\begin{theorem}\label{sheaf_a_soft_thm}
@@ -26610,7 +26680,7 @@ Let $\G$ be a groupoid, $A$ a group and $c: \G\to A$ a homomorphism, the
 %1.7. D e f i n i t i o n :
  Let $\G$ be a groupoid, let $A$ be a group and let $\a: A \to \Aut\left(\G\right)$ be a
 homomorphism. We write $x*a \bydef \left[\a\left(a^{-1}\right)\right]$ for $a\in A$ and $x\in \G$. The \textit{semi-direct product} $G\rtimes_\a A$ is the groupoid $G\times A$ where $( x , a )$ and $( z , b )$ are composable if and only if $z = y*a$ with  $x$ and $y$ composable,$ ( x , a ) ( y * a,b) = ( x y , a b )$ , and $(x,a)^{ -1}\bydef \left( x ^{-1} * a, a^{ - l} \right)$ .
-Then, $r ( x , a ) = ( r ( x ) , e )$ and $s ( x , a ) = (d(x) • a , e )$ . The unit  space may be identified 
+Then, $r ( x , a ) = ( r ( x ) , e )$ and $s ( x , a ) = (d(x)   a , e )$ . The unit  space may be identified 
 with $\G^0$.
 \end{definition}
 
@@ -26649,7 +26719,7 @@ a  $\mathscr C$ - bundle with the bundle map $p: A \to A_0$. Write $A_u \bydef p
 $$
  \text{Iso}(A) = \left\{\text{isomorphisms }\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
  $$	
-	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v °#v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
+	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v  #v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
 	\end{definition}
 \begin{definition}
 	% Definition 1.11.
@@ -26738,10 +26808,10 @@ with $p\left(\widetilde{u} \right) = u$  where $\widetilde u \in \widetilde \G$ 
 morphism with $f\left( v\right)= u$  such that$\F$ is connected. Then $f$ lifts
 to a morphism $\widetilde f:  \F \to \widetilde\G$ with $\widetilde f\left(v \right)  =\widetilde u$ if and only if $f^*\F^v_v \subset p^*\widetilde\G^{\widetilde u}_{\widetilde u}$
 and if this lifting exists, then it is unique.
-%For every subgroup ? of the fundamental group π(G,G) of G at G, Higgins [2]and Brown (Theorem 9.4.3 [1])also prove the following covering-groupoid existence
+%For every subgroup ? of the fundamental group  (G,G) of G at G, Higgins [2]and Brown (Theorem 9.4.3 [1])also prove the following covering-groupoid existence
 %theorem:
 \end{theorem}
-%For every subgroup ? of the fundamental group π(G,G) of G at G, Higgins [2]
+%For every subgroup ? of the fundamental group  (G,G) of G at G, Higgins [2]
 %and Brown (Theorem 9.4.3 [1]) also prove the following covering-groupoid existence
 %theorem:
 %\begin{theorem}
@@ -26751,7 +26821,7 @@ and if this lifting exists, then it is unique.
 %\end{theorem}
 %Theorem 2.4 (Existence). Let G be an object of the connected groupoid G, and let
 %be a subgroup of the fundamental group , then there is a covering groupoid
-%(˜ G, p) of G with p(˜G) = G where ˜G ? Ob(˜ G) and p?π(˜G, ˜ G) = ?.
+%(  G, p) of G with p( G) = G where  G ? Ob(  G) and p? ( G,   G) = ?.
 
 There are following motivations this definition:
 \begin{itemize}
@@ -27272,8 +27342,8 @@ In the case of general foliations, the total my group of a foliated bun dle must
 	\section{Operator algebras of foliations}\label{foli_alg_subsec}
 	\paragraph*{}
 	Here I follow to \cite{candel:foliII,connes:ncg94}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allow !!! ADMIT !!!s us to identify $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
-	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of “extension by 0” of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section describes it. (That paper develops an extended sheaf  theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
-	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf  of the foliated space $\sX$, that is, the sheaf  of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf  of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
+	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of  extension by 0  of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section describes it. (That paper develops an extended sheaf  theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
+	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf  of the foliated space $\sX$, that is, the sheaf  of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf  of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf  $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then  extension by 0  induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
 	\be\label{foli_incc_eqn}
 \Ga_c\left(\mathcal W, \A \right) \hookto \Ga_c\left(\mathcal U, \A \right).
 \ee
@@ -27393,7 +27463,7 @@ on $\Ga_c\left(\G,\Om^{1/2}\right)$.
 		If $f \in \Ga^\infty_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
 	\end{lem}
 	%\begin{defn} \label{foli_full_defn} NECESSARY
-	%  Definition 1.4.12. The full $C^*$-algebra of the foliated space $\left(M, \sF\right)$ denoted by $C^*_r\left(M, \sF\right)$, is the completion of %c(G,D1/2) with respect to the pseudonorm f=f= supœ(f), where runs through all the involutive representations of c (G,D1/2) on a separable Hilbert space whose restrictions to the graph G(U) of each foliated chart U for (M,F) are weakly continuous for the inductive limit ... Because each Rx, x  M, is an involutive representation of the convolution 
+	%  Definition 1.4.12. The full $C^*$-algebra of the foliated space $\left(M, \sF\right)$ denoted by $C^*_r\left(M, \sF\right)$, is the completion of %c(G,D1/2) with respect to the pseudonorm f=f= sup (f), where runs through all the involutive representations of c (G,D1/2) on a separable Hilbert space whose restrictions to the graph G(U) of each foliated chart U for (M,F) are weakly continuous for the inductive limit ... Because each Rx, x  M, is an involutive representation of the convolution 
 	%\end{defn}
 	\begin{definition}\label{foli_fibration_defn}\cite{candel:foliI}
 		A foliated space $\left(M, \sF\right)$ is a \textit{fibration} if for any $x$ there is an open transversal $N$ such that $x\in N$ and for every  leaf $L$ of $\left(M, \sF\right)$ the intersection $L\cap  N$ contains no more then one point.
@@ -27488,7 +27558,7 @@ the tensor product $\K\left( L^2\left( \mathcal N\right) \right) \otimes C_0\lef
 	A transversal $\mathcal N$ of a foliated space $\left(M, \F \right)$   is said to be \textit{complete} if $\mathcal N$ meets every leaf. 
 \end{definition}
 	\begin{remark}
-	In \cite{hilsum_scandalis:stab} the French word "fidèle" is used instead the "complete" one. However the word "complete" is used in \cite{candel:foliII}.
+	In \cite{hilsum_scandalis:stab} the French word "fid le" is used instead the "complete" one. However the word "complete" is used in \cite{candel:foliII}.
 \end{remark}
 	
 	\begin{theorem}\label{foli_mor_thm}\cite{candel:foliII,hilsum_scandalis:stab}
@@ -27501,11 +27571,11 @@ the tensor product $\K\left( L^2\left( \mathcal N\right) \right) \otimes C_0\lef
 	
 	
 	%\begin{lemma}
-	%	Il existe un recouvrement distingué  localement  	fini de $V$ par des ouverts trivialisants $\Om_j$, $j \in \left\{1, 2,. . . , n, . . .\right\}$ et  	des transversales $T_j$, dans $\Om_j$ tels que les adhérences $\overline T_j$, dans $V$ des  	$T_j$ soient deux à deux disjointes. 
+	%	Il existe un recouvrement distingu   localement  	fini de $V$ par des ouverts trivialisants $\Om_j$, $j \in \left\{1, 2,. . . , n, . . .\right\}$ et  	des transversales $T_j$, dans $\Om_j$ tels que les adh rences $\overline T_j$, dans $V$ des  	$T_j$ soient deux   deux disjointes. 
 	%	\end{lemma}
 	The following  lemma is a more strong version of the Theorem \ref{foli_mor_thm}.
 	\begin{lemma}\label{foli_stab_lem}\cite{hilsum_scandalis:stab}
-		Si $N$ est une transversale fidèle de $M$
+		Si $N$ est une transversale fid le de $M$
 		on a: 
 	\be\label{foli_stab_eqn}
 	C^*_r\left(M, \sF \right)\cong C^*_r\left(\G^N_N \right)\otimes \K
@@ -29049,7 +29119,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  	
 %\bibitem{lie_groupoids_coov}  CORRECT TURKISH
 
-%I. Içen, M. Gürsoy, A. Özcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207 – 218. 	c©T  UB ITAK, doi:10.3906/mat-0902-2, 2011.
+%I. I en, M. G rsoy, A.  zcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207   218. 	c T  UB ITAK, doi:10.3906/mat-0902-2, 2011.
 	\bibitem{alekseev_bytsko:wilson_nc_tori} Anton Alekseev, Andrei Bytsko, {\it 	Wilson lines on noncommutative tori}. arXiv:hep-th/0002101, 2000.
  	
  	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973.
@@ -29064,7 +29134,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  	
  	
  	\bibitem{antoine:part_s} J.-P. Antoine, F. Mathot, \textit{Partial $*$-algebras of closed operators and their commutants. I. General
- 		structure}. Ann. Inst. H. Poincaré 46, 299–324 (1987), 1987.
+ 		structure}. Ann. Inst. H. Poincar  46, 299 324 (1987), 1987.
  	
  	\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
  	
@@ -29202,7 +29272,7 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
  
 \bibitem{chakraborty_pal:quantum_su_2} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{Equivariant spectral triples on the quantum $SU(2)$ group}. arXiv:math/0201004v3, 2002.
 
-\bibitem{chakraborty_pal:inv_hom} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{An invariant for homogeneous spaces of compact quantum groups}. Advances in Mathematics. 301 (2016) 258‚ 2016.
+\bibitem{chakraborty_pal:inv_hom} Partha Sarathi Chakraborty,  Arupkumar Pal. \textit{An invariant for homogeneous spaces of compact quantum groups}. Advances in Mathematics. 301 (2016) 258  2016.
 
 %\bibitem{chang:fermionic} Ee Chang-Young, Hiroaki Nakajima, Hyeonjoon Shin. {\it Fermionic $T$-duality and Morita Equivalence}, arXiv:1101.0473, 2011.
 
@@ -29212,7 +29282,7 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 %\bibitem{cheng_li:gauge}Cheng, T.-P.; Li, L.-F. {\it Gauge Theory of Elementary Particle Physics}. Oxford University Press. ISBN 0-19-851961-3. 1983.
 
-%\bibitem{connes:gravity}A. Connes. {\it Gravity coupled with matter and foundation of noncommutative geometry‚\}, Commun. Math. Phys. 182 (1996), 155‚176. 1996.
+%\bibitem{connes:gravity}A. Connes. {\it Gravity coupled with matter and foundation of noncommutative geometry \}, Commun. Math. Phys. 182 (1996), 155 176. 1996.
 
 %\bibitem{connes:c_alg_dg} Alain Connes. {\it $C^*$-algebras and differential geometry}. arXiv:hep-th/0101093, 2001.
 
@@ -29248,16 +29318,16 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 \bibitem{fell:operator_fields}J. M. G. Fell. \textit{The structure of algebras of operator fields}. Acta Math. Volume 106, Number 3-4 (1961), 233-280. 1961.
 
-\bibitem{quasi_star_many} M. Fragoulopoulou, C. Trapani S. Triolo \textit{Locally convex quasi $*$-algebras with sufficiently many $*$-representations}.  J. Math. Anal. Appl. 388 (2012) 1180–1193, 2012.
+\bibitem{quasi_star_many} M. Fragoulopoulou, C. Trapani S. Triolo \textit{Locally convex quasi $*$-algebras with sufficiently many $*$-representations}.  J. Math. Anal. Appl. 388 (2012) 1180 1193, 2012.
 
 \bibitem{quasi_star} Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex	Quasi $*$-Algebras 	and their	Representations}. Springer Nature Switzerland AG, 2020.
 
 
 \bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
 
-\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
+\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Alg brique et Th orie des Faisceaux}. Actualit s Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
-\bibitem{cinfty_manifolds} Juan A. Navarro González, Juan B. Sancho de Salas. $\Coo$-\textit{Differentiable Spaces}. Springer.  2003.
+\bibitem{cinfty_manifolds} Juan A. Navarro Gonz lez, Juan B. Sancho de Salas. $\Coo$-\textit{Differentiable Spaces}. Springer.  2003.
 
 
 
@@ -29304,7 +29374,7 @@ Springer Science+Business Media, Inc. 2005.
 
 %\bibitem{isaacs:auto} I.M. Isaacs. \textit{Automorphisms of matrix algebras over commutative rings}. Linear Algebra and its Applications, Volume 31, June 1980, Pages 215-231, 1980.
 
-\bibitem{hilsum_scandalis:stab}Hilsum, Michel; Skandalis, Georges. \textit{Stabilité des $C^*$-algèbres de feuilletages}. Annales de l'Institut Fourier, Volume 33 (1983) no. 3, p. 201-208, 1983. 
+\bibitem{hilsum_scandalis:stab}Hilsum, Michel; Skandalis, Georges. \textit{Stabilit  des $C^*$-alg bres de feuilletages}. Annales de l'Institut Fourier, Volume 33 (1983) no. 3, p. 201-208, 1983. 
 
 \bibitem{hatcher:at}Allen Hatcher, \textit{Algebraic topology}. Cambridge University Presses, Cambridge, 2002. 
 
@@ -29360,15 +29430,15 @@ New York London Toronto Sydney San Francisco. 1980.
 
 
 \bibitem{krajewski:finite}
-Thomas Krajewski. \textit{Classification of finite spectral triples}. Journal of Geometry and Physics Volume 28, Issues 1‚ November 1998, Pages 1-30, 1998.
+Thomas Krajewski. \textit{Classification of finite spectral triples}. Journal of Geometry and Physics Volume 28, Issues 1  November 1998, Pages 1-30, 1998.
 
 \bibitem{kreyszig:fa} Erwin Kreyszig. \textit{Introductory Functional Analysis with Applications}.  New York, N.Y. : Wiley, 1978.
 \bibitem{Lance:Hilbert_modules}E. Christopher Lance, \textit{Hilbert $C^*$-modules}, London Mathematical Society Lecture Note Series, vol. 210, Cambridge University Press, Cambridge, 1995. DOI 10.1017/CBO9780511526206 MR, 1995.
 
 
 \bibitem{kurosh:lga} A. G. Kurosh. \textit{Lectures on General Algebra}. PERGAMON PRESS.
-OXFORD . LONDON • EDINBURGH • NEW YORK •
-PARIS • FRANKFURT. 1965.
+OXFORD . LONDON   EDINBURGH   NEW YORK  
+PARIS   FRANKFURT. 1965.
 
 
 \bibitem{kurat:topI} Kazimierz Kuratowski. \textit{Topology}. Volume 1. Academic Press, 1966
@@ -29415,7 +29485,7 @@ Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for grou
 
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
-\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left  cancellative monoids}. M\"unster J. of Math. 16 (2023), 147–175, 2023.
+\bibitem{neshv:non_haudorff} Sergey Neshveyev and Gaute Schwartz. \textit{Non-Hausdorff \'etale groupoids and $C^*$-algebras of left  cancellative monoids}. M\"unster J. of Math. 16 (2023), 147 175, 2023.
 
 \bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 \bibitem{Paschke:73}
@@ -29430,18 +29500,18 @@ Transactions of the American Mathematical Society \textbf{182} (1973),
 	
 	\bibitem{pavlov_troisky:cov} Alexander Pavlov, Evgenij Troitsky. {\it Quantization of branched coverings.}   Russ. J. Math. Phys. (2011) 18: 338. doi:10.1134/S1061920811030071, 2011.
 	
-%\bibitem{pedersen:semi}Gert  Kjærgård  Pedersen.	\textit{Applications of weak* semicontinuity in $C^*$-algebra theory}. Duke Math. J. Volume 39, Number 3 (1972), 431-450. 1972.
+%\bibitem{pedersen:semi}Gert  Kj rg rd  Pedersen.	\textit{Applications of weak* semicontinuity in $C^*$-algebra theory}. Duke Math. J. Volume 39, Number 3 (1972), 431-450. 1972.
  \bibitem{parta:two_approaches_ym}
 Partha Sarathi Chakraborty, Satyajit Guin. {\it Equivalence of Two Approaches to Yang-Mills on Non-commutative Torus }.
 arXiv:1304.7616v1, 2013.
 
 	
 	
-\bibitem{pedersen:ca_aut}Gert Kjærgård Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
+\bibitem{pedersen:ca_aut}Gert Kj rg rd Pedersen. {\it $C^*$-algebras and their automorphism groups}. London ; New York : Academic Press, 1979.
 
 %\bibitem{pierce:ass} Richard S. Pierce. \textit{Associative algebras}. Springer-Verlag, 1982.
 
-\bibitem{pedersen:mea_c} Gert Kjærgård Pedersen.  \textit{Measure Theory for $C^*$-Algebras}. Mathematica Scandinavica (1966) Volume: 19, page 131-145
+\bibitem{pedersen:mea_c} Gert Kj rg rd Pedersen.  \textit{Measure Theory for $C^*$-Algebras}. Mathematica Scandinavica (1966) Volume: 19, page 131-145
 ISSN: 0025-5521; 1903-1807/e, 1966.
 
 \bibitem{phillips:inv_lim_app}
@@ -29541,7 +29611,7 @@ Marc A. Reiffel,
 \bibitem{ruan:real_comp} Ruan, Z.J. \textit{Complexifications of real operator spaces}. Illinois J. Math.
 Volume 47, Number 4 (2003), 1047-1062. 2003.
 
-\bibitem{ruan:real_os} Ruan, Z.J. \textit{On Real Operator Spaces}. Acta Math Sinica 19, 485–496 (2003). https://doi.org/10.1007. 2003.
+\bibitem{ruan:real_os} Ruan, Z.J. \textit{On Real Operator Spaces}. Acta Math Sinica 19, 485 496 (2003). https://doi.org/10.1007. 2003.
 
 
 
@@ -29571,7 +29641,7 @@ J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
 
 \bibitem{Sengupta} A.~Sengupta. {\it Gauge invariant functions of connections}.  Proc.\ Am.\ Math.\ Soc.\ {\bf 121}, 897-905 (1994).
 
-\bibitem{discrete_crossed}Adam Sierakowski. \textit{Discrete Crossed product $C^*$-algebras}. Ph.D. Thesis. University of Copenhagen — Department of Mathematical Sciences — 2009.
+\bibitem{discrete_crossed}Adam Sierakowski. \textit{Discrete Crossed product $C^*$-algebras}. Ph.D. Thesis. University of Copenhagen   Department of Mathematical Sciences   2009.
 
 \bibitem{sol_tro:ca_op} Yu. P. Solovyov, E. V. Troitsky. \textit{$C^*$-Algebras and Elliptic Operators in Differential Topology}. (vol. 192 of Translations of Mathemetical Monographs) Amer. Math. Soc, Providence, RI, 2000 (Revised English translation). 2000.
 
@@ -29642,7 +29712,7 @@ E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
 
 %\bibitem{voic:dual} D. V. Voiculescu. \textit{Dual algebraic structures on operator algebras related to free products}. J. Operator Theory 17 (1987) 85-98. | MR 873463 | Zbl 0656.46058, 1987.
 
-\bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987‚ 2014.
+\bibitem{wagner:pb} S. Wagner. \textit{On noncommutative principal bundles with finite abelian structure group.} J. Noncommut. Geom., 8(4):987  2014.
 
 \bibitem{structure_of_standard} Wai Mee Ching. \textit{The structure of standard $C^*$-algebras and their representations}. Pacific J. Math. 67(1): 131-153 (1976).
 
