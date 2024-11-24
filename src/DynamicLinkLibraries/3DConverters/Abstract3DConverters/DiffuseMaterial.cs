@@ -19,5 +19,10 @@ namespace Abstract3DConverters
             Image = image;
             Opacity = opacity;
         }
+
+        protected override object CloneIfself()
+        {
+            return new DiffuseMaterial(Color.Clone() as Color, null, Opacity);
+        }
     }
 }

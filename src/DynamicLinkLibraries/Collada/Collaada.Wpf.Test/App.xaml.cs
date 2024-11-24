@@ -21,8 +21,8 @@ namespace Collaada.Wpf.Test
         {
             // Compare();
             // Generate();
-            //  GenerateObj();
-            GenerateAC();
+              GenerateObj();
+           // GenerateAC();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -55,11 +55,11 @@ namespace Collaada.Wpf.Test
 
         void GenerateObj()
         {
-            // GenerateObj("Tornado");
+            GenerateObj("Tornado");
             //        GenerateObj("F15");
             //    GenerateObj("Mig29");
             //   GenerateObj("F16");
-                GenerateObj("H6");
+            //    GenerateObj("H6");
 
         }
 

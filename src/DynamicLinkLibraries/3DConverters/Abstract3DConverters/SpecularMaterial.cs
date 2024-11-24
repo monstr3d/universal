@@ -15,5 +15,9 @@ namespace Abstract3DConverters
             SpecularPower = power;
         }
 
+        protected override object CloneIfself()
+        {
+            return new SpecularMaterial(Color.Clone() as  Color, SpecularPower);
+        }
     }
 }

@@ -14,5 +14,10 @@ namespace Abstract3DConverters
         {
             Image = image;
         }
+
+        protected override object CloneIfself()
+        {
+            return new EmissiveMaterial(Color.Clone() as Color, null);
+        }
     }
 }

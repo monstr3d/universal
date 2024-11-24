@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters
 {
-    public class SimpleMaterial : Material
+    public abstract class SimpleMaterial : Material
     {
         public Color Color {  get; private set; }
 
@@ -14,5 +14,7 @@ namespace Abstract3DConverters
         {
             Color = color;
         }
+
+        
     }
 }

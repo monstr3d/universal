@@ -131,7 +131,7 @@ namespace Abstract3DConverters
                                 }
                                 else
                                 {
-                                    i[m] = int.Parse(sss[m]);
+                                    i[m] = int.Parse(sss[m]) - 1;
                                 }
                             }
                         }

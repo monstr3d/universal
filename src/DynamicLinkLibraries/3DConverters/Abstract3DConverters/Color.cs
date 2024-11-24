@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters
 {
-    public class Color
+    public class Color : ICloneable
     {
         public float[] Value { get; private set; }
+
+        private Color(float[] value)
+            { this.Value = value; }
 
         public Color(string color)
         {
@@ -32,6 +35,9 @@ namespace Abstract3DConverters
                 System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
         }
 
-
+        public object Clone()
+        {
+            return new Color(Value);
+        }
     }
 }

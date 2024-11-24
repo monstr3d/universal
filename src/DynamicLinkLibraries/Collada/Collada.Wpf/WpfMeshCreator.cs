@@ -80,12 +80,12 @@ namespace Collada.Wpf
             {
                 foreach (var idx in item)
                 {
-                    var kp = idx[0] - 1;
+                    var kp = idx[0];
                     maxv = Math.Max(idx[0], maxv);
                     float[] v = vertices[kp];
                     var p = new Point3D(v[0], v[1], v[2]);
                     points.Add(p);
-                    kp = idx[1] - 1;
+                    kp = idx[1];
                     maxt = Math.Max(idx[1], maxt);
                     v = textures[kp];
                     var t = new Point(v[0], v[1]);
@@ -111,14 +111,14 @@ namespace Collada.Wpf
             {
                 foreach (var idx in item)
                 {
-                    var kp = idx[0] - 1;
+                    var kp = idx[0];
                     if (kp >= 0)
                     {
                         float[] v = vertices[kp];
                         var p = new Point3D(v[0], v[1], v[2]);
                         points.Add(p);
                     }
-                    kp = idx[1] - 1;
+                    kp = idx[1];
                     if (kp >= 0)
                     {
                         var  v = textures[kp];
@@ -127,7 +127,7 @@ namespace Collada.Wpf
                     }
                     if (kp >= 0)
                     {
-                        kp = idx[2] - 1;
+                        kp = idx[2];
                         var nn = normals[kp];
                         var normal = new Vector3D(nn[0], nn[1], nn[2]);
                         norm.Add(normal);
