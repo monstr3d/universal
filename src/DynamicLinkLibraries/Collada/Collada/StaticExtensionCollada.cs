@@ -1247,7 +1247,6 @@ namespace Collada
         public static T[] ToRealArray<T>(this string str) where T : struct
         {
             string[] ss = str.Split(sep);
-
             var l = new List<T>();
             foreach (string s in ss)
             {

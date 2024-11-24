@@ -9,7 +9,7 @@ namespace Abstract3DConverters
 {
     public class AcConverter : AbstractMeshCreator
     {
-
+        IPolygonSplitter polygonSplitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
         public AcConverter() : base("ac")
         {
 

@@ -3,7 +3,7 @@
 namespace AssemblyService.Attributes
 {
     /// <summary>
-    /// Inits assembly
+    /// Initialize assembly
     /// </summary>
     public class InitAssemblyAttribute : Attribute
     {

@@ -110,9 +110,6 @@ namespace AssemblyService
             ass.CallInit();
         }
 
-
-
-
         #region Fields
 
         private static Dictionary<Action<Assembly>, List<string>> acted =
