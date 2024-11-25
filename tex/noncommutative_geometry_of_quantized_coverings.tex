@@ -15679,20 +15679,21 @@ $$
 $$
  \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}.
  $$
- Using it we can construct the following direct sum
+ \begin{empt}\label{h_cond_empt}
+ Using the above decomposition we can construct the following direct sum
  $$
  \pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}}  = \pi_1^{\text{ab}}\left(A\otimes \K \right)^\parallel_{\mathrm{tors}} \oplus\pi_1^{\text{ab}}\left(A \otimes \K\right)^\perp_{\mathrm{tors}} 
  $$
- such that $\Z_{p^r} \in \pi_1^{\text{ab}}\left(A \right)^\parallel_{\mathrm{tors}}$ is $\Z_{p^r}$ corresponds to a covering $\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$ satisfying to the following conditions:
+ such that $\Z_{p^r} \in \pi_1^{\text{ab}}\left(A \right)^\parallel_{\mathrm{tors}}$ is $\Z_{p^r}$ corresponds to a covering $$\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$$ satisfying to the following conditions:
  \begin{enumerate}
- 	\item[(a)] the covering is a $\left(u, v, p^r \right)$,
+ 	\item[(a)] the covering $\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$  is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}),
  	 \item[(b)] there is a nontrivial $x \in K_0\left(A \right)$ represented  by partial isometry $w \in M\left(A \otimes \K \right)$, i.e. 
  	 \be\label{h_x_index_eqn}
  	 x=  \mathrm{Index}~w\in K_0\left(A \otimes \K\right)
  	 \ee
  	  (cf. equation \eqref{d_u_iv_eqn}) such that $M\left(  \lift^{\widetilde A} \right) \left( w\right) = v$.
  \end{enumerate}
- Since $v$ is invertible one has $K_0\left(\lift^{\widetilde A} \right) \left( x\right) = 0$.
+ Since $v$ is invertible element of $M\left( \widetilde A\right)$  one has $K_0\left(\lift^{\widetilde A} \right) \left( x\right) = 0$.
  Under the  above hypothesis  there is an homomorphism
 \bean
   \Z_{p^r}\cong G\left( \left.\widetilde A\right| A \otimes \K\right)\to K_0\left(A \right),\\
@@ -15709,6 +15710,7 @@ For any $\om \in \pi_1^{\text{ab}}\left(A \right)$ the map
 k \mapsto \phi\left(\om \right) 
 \eean
 represents an element of $\Ext^1_\Z\left( K_0\left( A\right), \Z \right)$. 
+\end{empt}
 \begin{definition}\label{h_tors_defn}
 In result one has a \textit{torsion Hurewicz homomorphism}
 \be\label{h_tors_eqn}
@@ -15718,10 +15720,21 @@ where $k \in \Z$ is a representative of $\overline k \in \Z_{p^r}$,
 then similarly  \ref{v_lift_empt} $~v$ is a partial isometry.
 \end{definition}
 %\paragraph{title}
-\begin{empt}
+\begin{empt}\label{h_partial_empt}
 
-There is the alternative description of the given by \eqref{h_x_index_eqn} element $x$. 
-According to the Definition \ref{index_map_defn} for any $x \in K_0\left(A \right)\left(p^r \right)\setminus \{0\}$ there is \\$ \overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ and a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
+There is the alternative description of the given by \eqref{h_x_index_eqn} element $x$. Element $v \in M\left(A \right)$ from the condition (a)  of \ref{h_cond_empt} is not invertible element of $M\left(A\otimes \K \right)$ however it can be a representative of $\overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$. 
+According to the Definition \ref{index_map_defn} there $x \in K_0\left(A \right)\setminus \{0\}$  such that
+$$
+x = \partial \overline v
+$$
+where  $\partial \overline v$ comes from the exact sequence
+\be\label{h_long_exact_seq_eqn} 
+\begin{split}
+K_1\left(A\otimes \K \right) \xrightarrow{}K_1\left(M\left(A\otimes \K \right)\right) \xrightarrow{} \\
+\to K_1\left(M\left(A\otimes \K \right)/A\otimes \K \right) \xrightarrow{\partial}K_0\left(A\otimes \K \right) \\\xrightarrow{}K_0\left(M\left(A\otimes \K \right) \right) \xrightarrow{} K_0\left(M\left(A\otimes \K \right)/A\otimes \K \right)
+\end{split}
+\ee
+there is a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
 $$
 \begin{pmatrix}
 	\overline v & 0\\
@@ -15732,10 +15745,7 @@ such that
 \be\label{h_x_partial_eqn}
 x = \partial \overline v \bydef \left[\overline wp_n\overline w^{-1}\right]- \left[p_n\right]
 \ee
-where  $\partial \overline v$ comes from the exact sequence.
-\be\label{h_long_exact_seq_eqn} !!!
-K_1\left(A\otimes \K \right) \xrightarrow{\iota_*}K_1\left(M\left(A\otimes \K \right)\right) \xrightarrow{\pi} K_1\left(M\left(A\otimes \K \right)/ \right) \xrightarrow{\partial}K_0\left(J \right) \xrightarrow{\iota_*}K_0\left(A \right) \xrightarrow{\pi} K_0\left(A/J \right)
-\ee
+
 If $x = 0$ then $\overline v$ can be lifted up to an element of $GL_{n}\left( M\left(A\otimes \K \right)\right)$.If $\widetilde A \in B\left(\H \right)$ is generated by a union $\cup  \left\{\overline wp_n\overline w^{-1}\right\}$ $C^*$-algebra  and $\phi : A\otimes \K \hookto \widetilde A$ is the natural homomorphism then  $K_0\left(\phi \right)\left(  x \right)= 0$. It follows that there is  $v \in GL_{n}\left( M\left(\widetilde A \right)\right)$ such that $v|_{ M\left(A\otimes \K \right)} =\overline v$. From $p^r x = 0$ it follows that $u \bydef \overline v^{p^r}= v^{p^r}\in GL_{n}\left(M\left(A\otimes \K \right)  \right)$.
 \end{empt}
 
@@ -15929,6 +15939,34 @@ is an $\left( u_\sX,  v_{\sX\left[\Z_{{p^r}}\right]}, p^r\right)$-covering (cf. 
 \begin{proof}
 	!!!!!!
 \end{proof}
+Similarly to \ref{h_partial_empt} $v_{\sX\left[\Z_{{p^r}}\right]}$ is not an invertible element of $GL_{n}\left( M\left(C\left(\sX \right) \otimes \K \right)  \right)$.  However it represents $\overline v \in GL_{n}\left( M\left(C\left(\sX \right)\otimes \K \right) / C\left(\sX \right)\otimes \K \right)$
+\paragraph{title}
+\begin{empt}\label{h_partial_empt1} !!!
+	
+	There is the alternative description of the given by \eqref{h_x_index_eqn} element $x$. Element $v \in M\left(A \right)$ from the condition (a)  of \ref{h_cond_empt} is not invertible element of $M\left(A\otimes \K \right)$ however it can be a representative of $\overline v \in GL_{n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$. 
+	According to the Definition \ref{index_map_defn} there $x \in K_0\left(A \right)\setminus \{0\}$  such that
+	$$
+	x = \partial \overline v
+	$$
+	where  $\partial \overline v$ comes from the exact sequence
+
+	there is a lift  $\overline w \in GL_{2n}\left( M\left(A\otimes \K \right) / A\otimes \K \right)$ of 
+	$$
+	\begin{pmatrix}
+		\overline v & 0\\
+		0& \overline v^{-1}
+	\end{pmatrix}
+	$$
+	such that
+	\be\label{h_x_partial_eqn}
+	x = \partial \overline v \bydef \left[\overline wp_n\overline w^{-1}\right]- \left[p_n\right]
+	\ee
+	
+	If $x = 0$ then $\overline v$ can be lifted up to an element of $GL_{n}\left( M\left(A\otimes \K \right)\right)$.If $\widetilde A \in B\left(\H \right)$ is generated by a union $\cup  \left\{\overline wp_n\overline w^{-1}\right\}$ $C^*$-algebra  and $\phi : A\otimes \K \hookto \widetilde A$ is the natural homomorphism then  $K_0\left(\phi \right)\left(  x \right)= 0$. It follows that there is  $v \in GL_{n}\left( M\left(\widetilde A \right)\right)$ such that $v|_{ M\left(A\otimes \K \right)} =\overline v$. From $p^r x = 0$ it follows that $u \bydef \overline v^{p^r}= v^{p^r}\in GL_{n}\left(M\left(A\otimes \K \right)  \right)$.
+\end{empt}
+
+
+\paragraph{title}
 PROVE COINCIDENDE !!!
 Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume that  Suppose that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
 $\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_m$ and following conditions hold:
