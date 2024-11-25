@@ -19,7 +19,7 @@ namespace Abstract3DConverters
 
         public virtual object Create(Material material)
         {
-            object result = null;
+           object result = null;
            switch (material)
             {
                 case DiffuseMaterial diffuseMaterial:

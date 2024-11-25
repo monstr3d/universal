@@ -34,13 +34,13 @@ namespace Abstract3DConverters
             c.Init(o);
             foreach (var mesh in meshes)
             {
-                yield return Create<T>(mesh, c, materials);
+                yield return Create<T>(mesh, c, materials, materialCreator);
             }
         }
 
         public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials, IMaterialCreator materialCreator = null) where T : class
         {
-            var enu = Create<T>(o, meshes, c, materials);
+            var enu = Create<T>(o, meshes, c, materials, materialCreator);
             return c.Combine(enu) as T;
         }
     }

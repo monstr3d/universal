@@ -71,6 +71,10 @@ namespace Collada.Wpf
 
         private MeshGeometry3D CreateWN(AbstractMesh mesh)
         {
+            if (mesh.Indexes == null)
+            {
+                return null;
+            }
             int maxv = 0;
             int maxt = 0;
             var mg = new MeshGeometry3D();

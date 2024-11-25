@@ -58,9 +58,12 @@ namespace Abstract3DConverters
 
         public virtual object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
         {
-            if (map.ContainsKey(Material))
+            if (Material != null)
             {
-                return map[Material];
+                if (map.ContainsKey(Material))
+                {
+                    return map[Material];
+                }
             }
             return null;
         }

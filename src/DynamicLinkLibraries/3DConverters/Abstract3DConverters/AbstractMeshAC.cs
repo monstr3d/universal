@@ -17,11 +17,24 @@ namespace Abstract3DConverters
 
         List<string> l;
 
-        public Image Image { get; private set; }
+        public Image Image 
+        { 
+            get; 
+            private set; 
+        }
 
         List<Polygon> polygons;
 
-        public Material Material { get; private set; }
+        Material mat;
+
+        public Material Material 
+        {
+            get => mat;
+            private set
+            {
+                mat = value;
+            }
+        }
 
         public AbstractMeshAC(string name, int count, List<string> l, Material material, string directory) : base(name)
         {
@@ -37,6 +50,7 @@ namespace Abstract3DConverters
                 {
                     Image = new Image(texture, directory);
                     SetImage(Material, Image);
+                    continue;
                 }
                 var numvert = ToReal<int>(line, "numvert ");
                 if (numvert != null)
@@ -85,7 +99,36 @@ namespace Abstract3DConverters
                     }
                 }
             }
+            CreatePolygons();
         }
+
+        private void CreatePolygons()
+        {
+            if (polygons == null)
+            {
+                return;
+            }
+            var idx = new List<int[][]>();
+            Indexes = idx;
+            var txt = new List<float[]>();
+            Textures = txt;
+            var k = 0;
+            foreach (var p in polygons)
+            {
+                var t = p.Points;
+                var ii = new int[t.Count][];
+                idx.Add(ii);
+                for (int j = 0; j < t.Count; j++)
+                {
+                    var pp = t[j];
+                    var iii = new int[] { pp.Item1, k, -1 };
+                    ii[j] = iii;
+                    ++k;
+                    txt.Add(pp.Item2);
+                }
+            }
+        }
+        
 
         public override object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
         {

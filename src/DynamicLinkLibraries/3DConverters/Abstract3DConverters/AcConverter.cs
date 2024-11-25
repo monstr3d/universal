@@ -29,8 +29,7 @@ namespace Abstract3DConverters
             }
             var end = new int[] { 0 };
             var meshes = Create(lines, end).ToArray();
-
-            return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>());
+            return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
 
         public IEnumerable<AbstractMesh> Create(List<string> lines, int[] end, int start = 0, int current = -1)
