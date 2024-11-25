@@ -12,12 +12,15 @@ namespace Abstract3DConverters
         Assembly Assembly { get; }
 
         void Init(object obj);
+       
         object Create(AbstractMesh mesh);
 
         void SetMaterial(object mesh, object material);
 
-        public void Add(object mesh, object child);
+        void Add(object mesh, object child);
 
-        public object Combine(IEnumerable<object> meshes);
+        object Combine(IEnumerable<object> meshes);
+
+        void SetTransformation(object mesh, float[] transformation);
     }
 }

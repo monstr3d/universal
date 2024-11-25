@@ -45,14 +45,23 @@ namespace Abstract3DConverters
             for(int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
-                var texture = ToString(line, "texture ");
+                var loc = s.ToString(line, "loc ");
+                if (loc != null)
+                {
+                    var location = s.ToRealArray<float>(loc);
+                    TransformationMatrix = [ 1, 0, 0, 0, 
+                                             0, 1, 0, 0,
+                                             0, 0, 0, 1, 
+                                            location[0], location[1], location[2], 0 ];
+                }
+                var texture = s.ToString(line, "texture ");
                 if (texture != null)
                 {
                     Image = new Image(texture, directory);
                     SetImage(Material, Image);
                     continue;
                 }
-                var numvert = ToReal<int>(line, "numvert ");
+                var numvert = s.ToReal<int>(line, "numvert ");
                 if (numvert != null)
                 {
                     var v = new List<float[]>();
@@ -61,12 +70,12 @@ namespace Abstract3DConverters
                     int nv = numvert.Value;
                     for (; j < nv + i + 1; j++)
                     {
-                        v.Add(ToRealArray<float>(l[j]));
+                        v.Add(s.ToRealArray<float>(l[j]));
                     }
                     i = j - 1;
                     continue;
                 }
-                var numsurf = ToReal<int>(line, "numsurf ");
+                var numsurf = s.ToReal<int>(line, "numsurf ");
                 if (numsurf != null)
                 {
                     polygons = new();
@@ -74,7 +83,7 @@ namespace Abstract3DConverters
                     var k = i + 1;
                     for (;  k < l.Count; k++)
                     {
-                        var refs = ToReal<int>(l[k], "refs ");
+                        var refs = s.ToReal<int>(l[k], "refs ");
                         if (refs != null)
                         {
                             var rf = refs.Value;
@@ -83,8 +92,9 @@ namespace Abstract3DConverters
                             for (; p < l.Count; p++)
                             {
                                 var il = l[p];
-                                var ss = il.Split(sep);
-                                var t = new Tuple<int, float[]>(ToReal<int>(ss[0].Trim()), new float[] { ToReal<float>(ss[1].Trim()), ToReal<float>(ss[2].Trim()) });
+                                var ss = s.Split(il);
+                                var t = new Tuple<int, float[]>(s.ToReal<int>(ss[0].Trim()), new float[] { s.ToReal<float>(ss[1].Trim()), 
+                                    s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
                                 if (pp.Count == refs)
                                 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +16,20 @@ namespace Collada.Wpf
     {
         Assembly IMeshCreator.Assembly => typeof(ModelVisual3D).Assembly;
 
-     
-        List<float[]> vertices = new List<float[]>();
+        Service s = new();
 
-        List<float[]> textures = new List<float[]>();
-        
-        List<float[]> normals = new List<float[]>();
+
+        List<float[]> vertices;
+
+        List<float[]> textures;
+
+        List<float[]> normals;
+
+        Performer performer = new();
 
         void IMeshCreator.Init(object o)
         {
-            if (o is Tuple < List<float[]>, List<float[]>, List<float[]>> t)
+            if (o is Tuple<List<float[]>, List<float[]>, List<float[]>> t)
             {
                 vertices = t.Item1;
                 textures = t.Item2;
@@ -42,7 +47,7 @@ namespace Collada.Wpf
 
         object IMeshCreator.Create(AbstractMesh mesh)
         {
-           var model = new ModelVisual3D();
+            var model = new ModelVisual3D();
             var geom = new GeometryModel3D();
             model.Content = geom;
             geom.Geometry = Create(mesh);
@@ -68,6 +73,64 @@ namespace Collada.Wpf
             return model;
         }
 
+        void IMeshCreator.SetTransformation(object mesh, float[] transformation)
+        {
+            var ModelVisual3D = mesh as ModelVisual3D;
+            var x = s.Convert(transformation);
+            var mat = new Matrix3D(x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15]);
+            ModelVisual3D.Transform = new MatrixTransform3D(mat);
+        }
+
+
+        private MeshGeometry3D Create(AbstractMesh mesh, List<float[]> vertices, List<float[]> textures, List<float[]> normals,
+            List<int[][]> indexes)
+        {
+            var mg = new MeshGeometry3D();
+            var points = new Point3DCollection();
+            var norm = new Vector3DCollection();
+            var textcoord = new PointCollection();
+            foreach (var item in mesh.Indexes)
+            {
+                foreach (var idx in item)
+                {
+                    var kp = idx[0];
+                    if (kp >= 0)
+                    {
+                        float[] v = vertices[kp];
+                        var p = new Point3D(v[0], v[1], v[2]);
+                        points.Add(p);
+                    }
+                    kp = idx[1];
+                    if (kp >= 0)
+                    {
+                        var v = textures[kp];
+                        var t = new Point(v[0], v[1]);
+                        textcoord.Add(t);
+                    }
+                    kp = idx[2];
+                    if (kp >= 0)
+                    {
+                        var v = normals[kp];
+                        var c = new Vector3D(v[0], v[1], v[2]);
+                        norm.Add(c);
+                    }
+                }
+            }
+            if (textcoord.Count > 0)
+            {
+                mg.TextureCoordinates = textcoord;
+            }
+            if (points.Count > 0)
+            {
+                mg.Positions = points;
+            }
+            if (norm.Count > 0)
+            {
+                mg.Normals = norm;
+            }
+            return mg;
+        }
+
 
         private MeshGeometry3D CreateWN(AbstractMesh mesh)
         {
@@ -75,12 +138,13 @@ namespace Collada.Wpf
             {
                 return null;
             }
+
             int maxv = 0;
             int maxt = 0;
             var mg = new MeshGeometry3D();
             var points = new Point3DCollection();
             var textcoord = new PointCollection();
-             foreach (var item in mesh.Indexes)
+            foreach (var item in mesh.Indexes)
             {
                 foreach (var idx in item)
                 {
@@ -103,47 +167,55 @@ namespace Collada.Wpf
 
         private MeshGeometry3D Create(AbstractMesh mesh)
         {
-            if (normals.Count == 0)
+            var ind = mesh.Indexes;
+            if (ind == null)
             {
-                return CreateWN(mesh);
+                return new MeshGeometry3D();
             }
-            var mg = new MeshGeometry3D();
-            var points = new Point3DCollection();
-            var textcoord = new PointCollection();
-            var norm= new Vector3DCollection();
-            foreach (var item in mesh.Indexes)
+            if (ind.Count == 0)
             {
-                foreach (var idx in item)
+                return new MeshGeometry3D();
+            }
+            var vt = vertices;
+            if (vt == null)
+            {
+                vt = mesh.Vertices;
+            }
+            else if (vt.Count == 0)
+            {
+                vt = mesh.Vertices;
+            }
+            if (vt == null)
+            {
+                return new MeshGeometry3D();
+            }
+            if (vt.Count == 0)
+            {
+                return new MeshGeometry3D();
+            }
+            var nr = normals;
+            if (nr == null)
+            {
+                nr = mesh.Normals;
+            }
+            else
+            {
+                if (nr.Count == 0)
                 {
-                    var kp = idx[0];
-                    if (kp >= 0)
-                    {
-                        float[] v = vertices[kp];
-                        var p = new Point3D(v[0], v[1], v[2]);
-                        points.Add(p);
-                    }
-                    kp = idx[1];
-                    if (kp >= 0)
-                    {
-                        var  v = textures[kp];
-                        var t = new Point(v[0], v[1]);
-                        textcoord.Add(t);
-                    }
-                    if (kp >= 0)
-                    {
-                        kp = idx[2];
-                        var nn = normals[kp];
-                        var normal = new Vector3D(nn[0], nn[1], nn[2]);
-                        norm.Add(normal);
-                    }
+                    nr = mesh.Normals;
                 }
             }
-            mg.TextureCoordinates = textcoord;
-            mg.Positions = points;
-            mg.Normals = norm;
-            return mg;
-
+            var txt = textures;
+            if (txt == null)
+            {
+                txt = mesh.Textures;
+            }
+            else if (txt.Count == 0)
+            {
+                txt = mesh.Textures;
+            }
+            return Create(mesh, vt,  txt, nr, ind);
         }
 
-     }
+    }
 }

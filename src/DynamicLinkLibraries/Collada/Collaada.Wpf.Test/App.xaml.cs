@@ -43,7 +43,11 @@ namespace Collaada.Wpf.Test
 
         void GenerateAC()
         {
-            GenerateAC("tu154B.ac");
+            // GenerateAC("tu154B.ac");
+            // GenerateAC("H-60.ac");
+            // GenerateAC("F-15-lowpoly.ac");
+            //   GenerateAC("dauphin.ac");
+               GenerateAC("testpilot.ac");
         }
 
         Material DefaultMaterial
@@ -75,7 +79,7 @@ namespace Collaada.Wpf.Test
             model.SetLight();
             var fnt = Path.GetFileNameWithoutExtension(fn);
             var dir = Path.GetDirectoryName(fn);
-            var file = Path.Combine(dir, fnt + ".xaml");
+            var file = Path.Combine(acdir, fnt + ".xaml");
             var r = XamlWriter.Save(model);
             using (var w = new StreamWriter(file))
             {
