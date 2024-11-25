@@ -8,6 +8,8 @@ namespace Abstract3DConverters
 
         protected static readonly char[] sep = "\r\n ".ToCharArray();
 
+        public float[] TransformationMatrix { get; protected set; }
+
         public AbstractMesh Parent
         {
             get => parent;
@@ -54,15 +56,35 @@ namespace Abstract3DConverters
             Indexes = indexes;
         }
 
-   
+        public virtual object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
+        {
+            if (map.ContainsKey(Material))
+            {
+                return map[Material];
+            }
+            return null;
+        }
 
-        protected T? ToReal<T>(string str, string shift) where T : struct 
+
+        protected string ToString(string str, string shift)
         {
             if (str.StartsWith(shift))
             {
-                return ToReal<T>(str.Substring(shift.Length));
+               return str.Substring(shift.Length).Replace("\"", "").Trim();
             }
             return null;
+        }
+
+
+
+        protected T? ToReal<T>(string str, string shift) where T : struct
+        {
+            var s = ToString(str, shift);
+            if (s == null)
+            {
+                return null;
+            }
+            return ToReal<T>(s);
         }
 
         private float ToFloat(string str)
@@ -114,6 +136,21 @@ namespace Abstract3DConverters
                 obj = ToInt(s);
             }
             return (T)obj;
+        }
+
+        protected void SetImage(Material mat, Image img)
+        {
+            if (mat is DiffuseMaterial diffuse)
+            {
+                diffuse.Image = img;
+            }
+            if (mat is MaterialGroup group)
+            {
+                foreach (var m in group.Children)
+                {
+                    SetImage(m, img);
+                }
+            }
         }
 
     }

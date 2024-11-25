@@ -10,9 +10,12 @@ namespace Abstract3DConverters
     {
         public Image Image { get; private set; }
 
-        public EmissiveMaterial(Color color, Image image) : base(color)
+        public EmissiveMaterial(Color color, Image image = null) : base(color)
         {
-            Image = image;
+            if (image != null)
+            {
+                Image = image.Clone() as Image;
+            }
         }
 
         protected override object CloneIfself()

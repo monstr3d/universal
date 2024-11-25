@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Abstract3DConverters
 {
     public class AcConverter : AbstractMeshCreator
     {
-        IPolygonSplitter polygonSplitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
-        public AcConverter() : base("ac")
-        {
 
+        public Material DefaultMaterial { get;  private set; }
+
+        public AcConverter(Material defaultMaterial) : base("ac")
+        {
+            DefaultMaterial = defaultMaterial;
         }
 
         protected override Tuple<object, List<AbstractMesh>> Create(string filename)
@@ -57,7 +58,7 @@ namespace Abstract3DConverters
                         if (l.StartsWith("kids "))
                         {
                             var count = int.Parse(l.Substring("kids ".Length));
-                            var am = new AbstractMeshAC(name, count, nl);
+                            var am = new AbstractMeshAC(name, count, nl, DefaultMaterial, directory);
                             end[0] = j;                            
                             yield return am;
                             counter++;

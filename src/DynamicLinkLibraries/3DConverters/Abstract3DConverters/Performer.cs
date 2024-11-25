@@ -13,24 +13,23 @@ namespace Abstract3DConverters
 
         }
 
-        public T Create<T>(AbstractMesh mesh, IMeshCreator meshCreator, Dictionary<string, object> materials) where T : class
+        public T Create<T>(AbstractMesh mesh, IMeshCreator meshCreator, Dictionary<string, object> materials, IMaterialCreator materialCreator = null) where T : class
         {
             object o = meshCreator.Create(mesh);
-            var mat = mesh.Material;
-            if (mat != null)
+            var mt = mesh.GetMaterial(materials, materialCreator);
+            if (mt != null)
             {
-                object mt = materials[mat];
                 meshCreator.SetMaterial(o, mt);
             }
             foreach (var child in mesh.Children)
             {
-                var ch = Create<T>(child, meshCreator, materials);
+                var ch = Create<T>(child, meshCreator, materials, materialCreator);
                 meshCreator.Add(o, ch);
             }
             return o as T;
         }
 
-        public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials) where T : class
+        public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials, IMaterialCreator materialCreator = null) where T : class
         {
             c.Init(o);
             foreach (var mesh in meshes)
@@ -39,7 +38,7 @@ namespace Abstract3DConverters
             }
         }
 
-        public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials) where T : class
+        public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials, IMaterialCreator materialCreator = null) where T : class
         {
             var enu = Create<T>(o, meshes, c, materials);
             return c.Combine(enu) as T;

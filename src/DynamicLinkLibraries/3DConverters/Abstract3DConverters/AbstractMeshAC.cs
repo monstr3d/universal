@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 using Collada;
 
 namespace Abstract3DConverters
@@ -12,17 +13,31 @@ namespace Abstract3DConverters
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
+        string directory;
+
         List<string> l;
+
+        public Image Image { get; private set; }
 
         List<Polygon> polygons;
 
-        public AbstractMeshAC(string name, int count, List<string> l) : base(name)
+        public Material Material { get; private set; }
+
+        public AbstractMeshAC(string name, int count, List<string> l, Material material, string directory) : base(name)
         {
+            this.directory = directory;
+            Material = material.Clone() as Material;
             this.count = count;
             this.l = l;
             for(int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
+                var texture = ToString(line, "texture ");
+                if (texture != null)
+                {
+                    Image = new Image(texture, directory);
+                    SetImage(Material, Image);
+                }
                 var numvert = ToReal<int>(line, "numvert ");
                 if (numvert != null)
                 {
@@ -72,7 +87,17 @@ namespace Abstract3DConverters
             }
         }
 
+        public override object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
+        {
+            var o = base.GetMaterial(map, creator);
+            if (o != null)
+            {
+                return o;
+            }
+            return creator.Create(Material);
+        }
 
-        
+
+
     }
 }

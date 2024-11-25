@@ -9,6 +9,7 @@ using Abstract3DConverters;
 using Collada;
 using Collada.Wpf;
 using Wpf.Loader;
+using Material = Abstract3DConverters.Material;
 
 namespace Collaada.Wpf.Test
 {
@@ -21,7 +22,7 @@ namespace Collaada.Wpf.Test
         {
             // Compare();
             // Generate();
-          //    GenerateObj();
+         //  GenerateObj();
            GenerateAC();
         }
 
@@ -45,9 +46,25 @@ namespace Collaada.Wpf.Test
             GenerateAC("tu154B.ac");
         }
 
+        Material DefaultMaterial
+        {
+            get
+            {
+                var material = new Abstract3DConverters.MaterialGroup();
+                var color = new Abstract3DConverters.Color("1 1 1 1");
+                var diffuse = new Abstract3DConverters.DiffuseMaterial(color);
+                material.Children.Add(diffuse);
+                var specular = new Abstract3DConverters.SpecularMaterial(color, 0);
+                material.Children.Add(specular);
+                var emissive = new Abstract3DConverters.EmissiveMaterial(color);
+                material.Children.Add(emissive);
+                return material;
+            }
+        }
+
         void GenerateAC(string filename)
         {
-            var converter = new AcConverter();
+            var converter = new AcConverter(DefaultMaterial);
             IAbstractMeshCreator meshCreator = converter;
             var f = Path.Combine(acdir, filename);
             Tuple<object, List<AbstractMesh>> l = meshCreator.Create(f);

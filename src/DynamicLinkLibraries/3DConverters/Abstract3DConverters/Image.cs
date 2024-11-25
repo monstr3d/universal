@@ -3,7 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Abstract3DConverters
 {
-    public class Image
+    public class Image : ICloneable
     {
 
         public string Name { get; private set; }
@@ -38,6 +38,11 @@ namespace Abstract3DConverters
                 }
             }
             return null;
+        }
+
+        public object Clone()
+        {
+            return new Image(Name, Directory);
         }
     }
 }

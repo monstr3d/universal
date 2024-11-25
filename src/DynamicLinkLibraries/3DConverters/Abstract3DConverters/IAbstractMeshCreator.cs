@@ -5,6 +5,8 @@ namespace Abstract3DConverters
     {
         string Extension { get; }
 
+        string Directory { get; }
+
         Tuple<object, List<AbstractMesh>> Create(string filename);
     }
 }
