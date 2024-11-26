@@ -23,7 +23,7 @@ namespace Abstract3DConverters
             private set; 
         }
 
-        List<Polygon> polygons;
+        private List<Polygon> polygons;
 
         Material mat;
 
@@ -45,6 +45,34 @@ namespace Abstract3DConverters
             for(int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
+                if (line.StartsWith("OBJECT "))
+                {
+                    continue;
+                }
+                if (line.StartsWith("kids "))
+                {
+                    continue;
+                }
+                if (line.StartsWith("name "))
+                {
+                    continue;
+                }
+                if (line.StartsWith("data "))
+                {
+                    continue;
+                }
+                if (line.StartsWith("Mesh."))
+                {
+                    continue;
+                }
+                if (line.StartsWith("texrep 1 1"))
+                {
+                    continue;
+                }
+                if (line.StartsWith("crease "))
+                {
+                    continue;
+                }
                 var loc = s.ToString(line, "loc ");
                 if (loc != null)
                 {
@@ -107,12 +135,14 @@ namespace Abstract3DConverters
                             polygons.AddRange(polygo);
                         }    
                     }
+                    i = k;
+                    continue;
                 }
+                throw new Exception();
             }
-            CreatePolygons();
         }
 
-        private void CreatePolygons()
+        public void CreatePolygons()
         {
             if (polygons == null)
             {

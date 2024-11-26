@@ -167,6 +167,10 @@ namespace Collada.Wpf
 
         private MeshGeometry3D Create(AbstractMesh mesh)
         {
+            if (mesh is AbstractMeshAC ac)
+            {
+                ac.CreatePolygons();
+            }
             var ind = mesh.Indexes;
             if (ind == null)
             {
@@ -176,7 +180,7 @@ namespace Collada.Wpf
             {
                 return new MeshGeometry3D();
             }
-            var vt = vertices;
+             var vt = vertices;
             if (vt == null)
             {
                 vt = mesh.Vertices;
