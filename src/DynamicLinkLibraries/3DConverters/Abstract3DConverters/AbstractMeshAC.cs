@@ -65,6 +65,10 @@ namespace Abstract3DConverters
                 {
                     continue;
                 }
+                if (line.StartsWith("Mesh"))
+                {
+                    continue;
+                }
                 if (line.StartsWith("texrep 1 1"))
                 {
                     continue;

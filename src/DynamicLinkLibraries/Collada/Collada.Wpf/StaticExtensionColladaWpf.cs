@@ -21,12 +21,19 @@ namespace Collada.Wpf
 
     
 
-        static public Dictionary<string, System.Windows.Media.Media3D.Material> Mtl { get; set; }
+        static public Dictionary<string, System.Windows.Media.Media3D.Material> Mtl { 
+            get; 
+            set; 
+        }
 
 
 
         internal static System.Windows.Media.Media3D.Material GetMaterial(this string name)
         {
+            if (Mtl == null)
+            {
+                return null;
+            }
             if (Mtl.ContainsKey(name))
             {
                 return Mtl[name];

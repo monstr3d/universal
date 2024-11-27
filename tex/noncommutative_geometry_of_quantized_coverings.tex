@@ -15680,30 +15680,80 @@ Taking into account that $G\left( \left.\widetilde A\right| A\otimes \K\right)$ 
 \pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{free}} \cong \pi_1^{\text{ab}}\left(A\otimes \K \right)/ \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}}
 \end{split}
 \ee
-Suppose that there is  covering  $\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$ such that there is no $\left(   A\otimes \K, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\otimes \K\right) ,  \lift^{\widetilde B} \right)$ with $r < q$ and 
+\begin{definition}\label{h_maximal_defn}
+A covering  $\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)$ is is \textit{maximal} is there is no $\left(   A\otimes \K, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\otimes \K\right) ,  \lift^{\widetilde B} \right)$ with $r < q$ and 
 $$
 \left(   A\otimes \K, \widetilde A, \Z_{p^r} , \lift^{\widetilde A} \right)= \left(   A\otimes \K, \widetilde B^H, \Z_{p^q}/H, \lift^{\widetilde B^H} \right)
 $$
-(cf. equation \eqref{fin_composition_uni_1_eqn}). Then there is a subgroup $G^{\widetilde A}\subset \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}$ which mapped homeomorphically onto $G\left( \left.\widetilde A\right| A\right)\cong p^r$. In result we obtain the following natural decomposition
+(cf. equation \eqref{fin_composition_uni_1_eqn}). There is a subgroup $G^{\widetilde A}\subset \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}$ which mapped  onto $G\left( \left.\widetilde A\right| A\right)\cong p^r$.
+\end{definition}
+In result we obtain the following natural decomposition
 \be\label{h_direc_sum}
- \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}.
+ \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}
 \ee
- \begin{definition}\label{h_fin_adm_defn}
- 	A finite-fold noncommutative covering  
+where every summand is a maximal covering.
+ \begin{definition}\label{h_admissible_fin_defn}
+ 	A maximal finite-fold noncommutative covering  
  	$$
  	\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)
  	$$
  	is \textit{admissible}  if it is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
  \end{definition}
  \begin{empt}\label{h_cond_empt} 
- 	From the isomorphism $M\left(\widetilde A  \otimes \K\right) \cong M\left( A  \otimes \K\right)^{p^r}$ of $M\left( A  \otimes \K\right)$-modules it turns out that there is an isomorphism $M\left(\widetilde A  \otimes \K\right) \cong M\left( A  \otimes \K\right)$ of $M\left( A  \otimes \K\right)$-modules. It turns out that $v$ can be regarded as an element of  $M\left( A  \otimes \K\right)$. The element $v$ is an invertible element of $M\left(\widetilde A  \otimes \K\right)$ however $v$ is not invertible element of $M\left(\widetilde A  \otimes \K\right)$. Similarly to the Definition \ref{index_map_defn}
-there is a lift \\ $ w \in GL_{2n}\left( M\left(A\otimes \K \right)   \right)$ of 
+ Under the hypothesis of the Definition \ref{h_admissible_fin_defn}	 one has a homomorphism $\widetilde{A}\cong A^{p^r}$ of $A$ modules.  Similarly to the Definition \ref{index_map_defn}
+ there is a lift  $ w \in GL_{2p^r}\left( M\left(A\otimes \K \right)   \right)$ of 
+ $$
+ \begin{pmatrix}
+ 	v & 0\\
+ 	0&  v^{-1}
+ \end{pmatrix}
+ $$
+ For any $j \in \N $ one can define
+ $$
+ x_j \bydef \left[ w^j P_{p^r} w^{-j}\right]- \left[P_{p^r}\right]\in K_0\left(A\right)
+ $$
+ Such that
+ $$
+ x_j = j x_1
+ $$
+ if we use the Kasparov stabilization theorem i.e. $\ell^2\left( A\right) \cong A^{2n} \oplus \ell^2\left( A\right)$ then $v$ is equivalent to
+ $$
+ \mathrm{diag}\left(w\begin{pmatrix}
+ 	p_n   & 0\\
+ 	0  & 0
+ \end{pmatrix}w^{-1}, 1_{\ell^2\left( A\right)}\right). 
+ $$
+ 
+ 
+\paragraph{title} 
+  isomorphism $M\left(\widetilde A  \otimes \K\right) \cong M\left( A  \otimes \K\right)^{p^r}$ of $M\left( A  \otimes \K\right)$-modules it turns out that there is an isomorphism $M\left(\widetilde A  \otimes \K\right) \cong M\left( A  \otimes \K\right)$ of $M\left( A  \otimes \K\right)$-modules. It turns out that $v$ can be regarded as an element of  $M\left( A  \otimes \K\right)$. The element $v$ is an invertible element of $M\left(\widetilde A  \otimes \K\right)$ however $v$ is not invertible element of $M\left( A  \otimes \K\right)$. On the other hand one has $ A  \otimes \K\subset  \widetilde  A  \otimes \K$, so $v$ can be 
+ 
+ 
+ so since $v^{p^r} = u$ and since $u$ is an invertible element of $Q\left(A \otimes \K \right) \cong M\left(A\otimes \K \right)/\left( A\otimes \K \right)$ $v$ is also an invertible element of $Q\left(A \otimes \K \right)$.
+ Similarly to the Definition \ref{index_map_defn}
+there is a lift  $ w \in GL_{2n}\left( M\left(A\otimes \K \right)   \right)$ of 
 $$
 \begin{pmatrix}
 	v & 0\\
 	0&  v^{-1}
 \end{pmatrix}
 $$
+\begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
+	%	8.3.2. The map @ is called the index map. The reason is the following. 
+	Suppose $A$ is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
+	\be\label{partial_p_eqn}
+	w = \begin{pmatrix}
+		v & 1 - vv^*\\
+		1- v^*v& v^*
+	\end{pmatrix},
+	\ee
+	so 
+	\be\label{partial_u_eqn}
+	\begin{split}
+		\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[\mathrm{diag}\left( v^*v, 1-vv^*\right) \right]- \left[p_n\right] = \\=\left[ 1-vv^*\right]- \left[1-v^*v\right].
+	\end{split}
+	\ee
+\end{empt}
 and if we use the Kasparov stabilization theorem i.e. $\ell^2\left( A\right) \cong A^{2n} \oplus \ell^2\left( A\right)$ then $v$ is equivalent to
 $$
 \mathrm{diag}\left(w\begin{pmatrix}
@@ -15864,7 +15914,11 @@ $$
 
 \section{$C^*$-algebras with Hausdorff spectrum}
 \paragraph{} Let  $A$ be a stable $C^*$-algebra with compact, connected, locally connected and weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$. We do not require that $\sX$ is path connected. Let   $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$ be a cf  {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}, and let $$\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \bydef \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)/\left[\pi_1^{\mathrm{w}}\left(\sX, x_0 \right), \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\right].$$
-Let $\Z_{p^r} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right)$ be a cyclic  group of  {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}) with prime $p$, and let $\sX\left[\Z_{p^r}\right]$ is the $\sX$-$\Z_{p^r}$-{space} with the  $\sX$-$\Z_{p^r}$-{covering} $P_{\Z_{p^r}}: \sX\left[\Z_{p^r}\right]\to \sX$ (cf. Definition \ref{top_xg_defn}).  Suppose that 
+Let $\Z_{p^r} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right)$ be a cyclic  group of  {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}) with prime $p$, and let $\sX\left[\Z_{p^r}\right]$ is the $\sX$-$\Z_{p^r}$-{space} with the  $\sX$-$\Z_{p^r}$-{covering} $P_{\Z_{p^r}}: \sX\left[\Z_{p^r}\right]\to \sX$ (cf. Definition \ref{top_xg_defn}).  Suppose that the finite-fold noncommutative covering 
+$$
+\left(A, A_0\left( \sX\left[\Z_{p^r}\right]\right), Z_{p^r} , C\left( P_{\Z_{p^r}}\right) \right) 
+$$
+is maximal (cf. Definition \ref{h_maximal_defn}). It follows that
 \be\label{h_c_cond_eqn}
 \begin{split}
 \text{there is no a  subgroup } \Z_{p^q} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \text{ with }q > r \\\text { and the natural inclusion } \Z_{p^r} \subsetneqq \Z_{p^q}.
@@ -15939,15 +15993,7 @@ v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
  $$
  This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined.
 \begin{lemma}
-Under the above hypotheses there is the natural isomorphism
-$$
-C\left( \sX\left[\Z_{{p^r}}\right]\right)\cong \bigoplus_{j=0}^{p^r-1} C\left( \sX\right) v^j_{\sX\left[\Z_{{p^r}}\right]}
-$$
-of $C\left( \sX\right)$ -modules, i.e.
-$$
-\left(C\left( \sX\right), C\left( \sX\left[\Z_{{p^r}}\right]\right), \Z_{p^r}, C\left( P_{\Z_{{p^r}}}\right)  \right)
-$$
-is an $\left( u_\sX,  v_{\sX\left[\Z_{{p^r}}\right]}, p^r\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
+If $A$ is a stable separable $C^*$-algebra with Hausdorff spectrum then any maximal covering of $A$ is admissible (cf. Definition \ref{})
 \end{lemma}
 \begin{proof}
 	!!!!!!

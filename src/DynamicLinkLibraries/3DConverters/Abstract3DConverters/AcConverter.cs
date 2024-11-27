@@ -11,6 +11,8 @@ namespace Abstract3DConverters
 
         public Material DefaultMaterial { get;  private set; }
 
+        Service s = new();
+
         public AcConverter(Material defaultMaterial) : base("ac")
         {
             DefaultMaterial = defaultMaterial;
@@ -28,11 +30,11 @@ namespace Abstract3DConverters
                 while (!reader.EndOfStream);
             }
             var end = new int[] { 0 };
-            var meshes = Create(lines, end).ToArray();
+            var meshes = Create(lines).ToArray();
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
 
-        public IEnumerable<AbstractMesh> Create(List<string> lines, int[] end, int start = 0, int current = -1)
+        public IEnumerable<AbstractMesh> Create(List<string> lines,  int start = 0, int current = -1)
         {
             if (current == 0)
             {
@@ -41,31 +43,36 @@ namespace Abstract3DConverters
             for (var i = start; i < lines.Count; i++)
             {
                 var line = lines[i];
-                var name = "";
+                string name = start == 0 ? "": null;
                 var counter = 0;
                 if (line.StartsWith("OBJECT"))
                 {
                     var nl = new List<string>();
-                    for(var j = i; j < lines.Count; j++)
+                    for (var j = i; j < lines.Count; j++)
                     {
+                        i = j;
                         var l = lines[j];
                         nl.Add(l);
-                        if (l.StartsWith("name "))
+                        if (name == null)
                         {
-                            name = l.Substring("name ".Length).Replace("\"", "");
+                            name = s.ToString(l, "name ");
+                            continue;
                         }
-                        if (l.StartsWith("kids "))
+                        var cnt = s.ToReal<int>(l, "kids ");
+                        if (cnt != null)
                         {
-                            var count = int.Parse(l.Substring("kids ".Length));
+                            var count = cnt.Value;
                             var am = new AbstractMeshAC(name, count, nl, DefaultMaterial, directory);
-                            end[0] = j;                            
+                            name = null;
+                            nl = new();
+                            i = j;
                             yield return am;
                             counter++;
                             if (counter == current)
                             {
                                 yield break;
                             }
-                            var enu = Create(lines, end, j, count).ToArray();
+                            var enu = Create(lines, j, count).ToArray();
                             foreach (var a in enu)
                             {
                                 a.Parent = am;
@@ -73,7 +80,6 @@ namespace Abstract3DConverters
                         }
 
                     }
-                    i = end[0];
                 }
             }
         }
