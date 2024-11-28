@@ -15700,97 +15700,41 @@ where every summand is a maximal covering.
  	is \textit{admissible}  if it is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
  \end{definition}
  \begin{empt}\label{h_cond_empt} 
- Under the hypothesis of the Definition \ref{h_admissible_fin_defn}	 one has a homomorphism $\widetilde{A}\cong A^{p^r}$ of $A$ modules.  Similarly to the Definition \ref{index_map_defn}
- there is a lift  $ w \in GL_{2p^r}\left( M\left(A\otimes \K \right)   \right)$ of 
+ Under the hypothesis of the Definition \ref{h_admissible_fin_defn}	 one has a homomorphism $M\left( \widetilde{A}\right) \cong M\left( A\right) ^{p^r}$ of $A$ modules.  It follows that there is the inclusion $\phi_{p^r}:M\left( \widetilde{A}\right) \hookto \mathbb{M}_{p^r}\left(A \right)$.  The element
  $$
- \begin{pmatrix}
- 	v & 0\\
- 	0&  v^{-1}
- \end{pmatrix}
+ p_v \bydef \phi_{p^r}\left( v\right) 	\begin{pmatrix}
+ 	1_{M\left( A\right) } & 0 &\ldots & 0\\
+ 	0& 0 &\ldots&0 \\
+ 	\vdots& \vdots &\ddots&\vdots\\
+ 	0& 0 & \ldots &0
+ \end{pmatrix}  \phi_{p^r}\left( v^{-1}\right)\in \mathbb{M}_{p^r}\left(A \right)
  $$
- For any $j \in \N $ one can define
+ is a projector so one has $x_v \bydef \left[p_v\right]\in K_0\left(A \right)$. For any $j > 0$ there is 
  $$
- x_j \bydef \left[ w^j P_{p^r} w^{-j}\right]- \left[P_{p^r}\right]\in K_0\left(A\right)
+  p_{v^j} \bydef \phi_{p^r}\left( v^j\right) 	\begin{pmatrix}
+ 	1_{M\left( A\right) } & 0 &\ldots & 0\\
+ 	0& 0 &\ldots&0 \\
+ 	\vdots& \vdots &\ddots&\vdots\\
+ 	0& 0 & \ldots &0
+ \end{pmatrix}  \phi_{p^r}\left( v^{-j}\right)\in \mathbb{M}_{p^r}\left(A \right)
  $$
- Such that
- $$
- x_j = j x_1
- $$
- if we use the Kasparov stabilization theorem i.e. $\ell^2\left( A\right) \cong A^{2n} \oplus \ell^2\left( A\right)$ then $v$ is equivalent to
- $$
- \mathrm{diag}\left(w\begin{pmatrix}
- 	p_n   & 0\\
- 	0  & 0
- \end{pmatrix}w^{-1}, 1_{\ell^2\left( A\right)}\right). 
- $$
- 
- 
-\paragraph{title} 
-  isomorphism $M\left(\widetilde A  \otimes \K\right) \cong M\left( A  \otimes \K\right)^{p^r}$ of $M\left( A  \otimes \K\right)$-modules it turns out that there is an isomorphism $M\left(\widetilde A  \otimes \K\right) \cong M\left( A  \otimes \K\right)$ of $M\left( A  \otimes \K\right)$-modules. It turns out that $v$ can be regarded as an element of  $M\left( A  \otimes \K\right)$. The element $v$ is an invertible element of $M\left(\widetilde A  \otimes \K\right)$ however $v$ is not invertible element of $M\left( A  \otimes \K\right)$. On the other hand one has $ A  \otimes \K\subset  \widetilde  A  \otimes \K$, so $v$ can be 
- 
- 
- so since $v^{p^r} = u$ and since $u$ is an invertible element of $Q\left(A \otimes \K \right) \cong M\left(A\otimes \K \right)/\left( A\otimes \K \right)$ $v$ is also an invertible element of $Q\left(A \otimes \K \right)$.
- Similarly to the Definition \ref{index_map_defn}
-there is a lift  $ w \in GL_{2n}\left( M\left(A\otimes \K \right)   \right)$ of 
-$$
-\begin{pmatrix}
-	v & 0\\
-	0&  v^{-1}
-\end{pmatrix}
-$$
-\begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
-	%	8.3.2. The map @ is called the index map. The reason is the following. 
-	Suppose $A$ is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
-	\be\label{partial_p_eqn}
-	w = \begin{pmatrix}
-		v & 1 - vv^*\\
-		1- v^*v& v^*
-	\end{pmatrix},
-	\ee
-	so 
-	\be\label{partial_u_eqn}
-	\begin{split}
-		\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[\mathrm{diag}\left( v^*v, 1-vv^*\right) \right]- \left[p_n\right] = \\=\left[ 1-vv^*\right]- \left[1-v^*v\right].
-	\end{split}
-	\ee
-\end{empt}
-and if we use the Kasparov stabilization theorem i.e. $\ell^2\left( A\right) \cong A^{2n} \oplus \ell^2\left( A\right)$ then $v$ is equivalent to
-$$
-\mathrm{diag}\left(w\begin{pmatrix}
-	p_n   & 0\\
-	0  & 0
-\end{pmatrix}w^{-1}, 1_{\ell^2\left( A\right)}\right). 
-$$
-where $p^n: A^n\otimes\K\to  A^n\otimes\K$ is an identical map.
-It turns out that that the operator $v$ is Fredholm, i.e.
-$$
-v \in Q\left(A \otimes \K \right) \cong M\left(A\otimes \K \right)/\left( A\otimes \K \right)
-$$
-and there is $x \in K_0\left(A \otimes \K\right)$ 
-such that 
-\be\label{h_x_partial_eqn}
-x = \partial  v \bydef \left[ wp_n w^{-1}\right]- \left[p_n\right]\in K_0\left(A\right)  
+ such that $\left[p_v^j\right]= j \left[p_v\right]$. Since $v^{p^r} = u$ and $u$ is an invertible element of $M\left( A\right)$ one has $\left[p{_v^{p^r}}\right] = p^r\left[p_v\right] = \left[1_{M\left( A\right) }\right]$. The surjective map $K_0\left( A\right)\to  K_0\left( A\right)/\Z \left[1_{M\left( A\right) }\right]$ induces a map
+ \bean
+ \Z\left[p_v\right] \to  K_0\left( A\right)/\Z \left[1_{M\left( A\right) }\right],\\
+\left[p_v\right]\mapsto \overline{\left[p_v\right]} 
+ \eean 
+ where $\overline{\left[p_v\right]}$ is represented by $\left[p_v\right]$, Clearly $p^r\overline{\left[p_v\right]} = 0$, so there is the natural isomorphism
+\bean
+  G\left( \left.\widetilde A\right| A\otimes \K\right) \cong \Z_{p^r} \to \Z \overline{\left[p_v\right]}\subset  K_0\left( A\right)/\Z \left[1_{M\left( A\right) }\right],\\
+  \overline k \mapsto k\overline{\left[p_v\right]}
+\eean
+where $k \in \Z$ is a representative of $\overline k \in   \Z_{p^r}$.
+Taking into account the natural isomorphism $$\Ext^1_\Z\left(K_0\left( A\right), \Z  \right) \cong \Ext^1_\Z\left(K_0\left( A\right)/\Z \left[1_{M\left( A\right) }\right], \Z  \right)$$
+one has the homomorphism
+\be
+\phi_{\widetilde A} : G\left( \left.\widetilde A\right| A\otimes \K\right)\to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)
 \ee
-  $\partial  v$ is the index map (cf. Definition \ref{index_map_defn}) which agrees 
- 	\be\label{h_long_exact_seq_eqn} 
- 	\begin{split}
- 		K_1\left(A\otimes \K \right) \xrightarrow{}\\K_1\left(M\left(A\otimes \K \right)\right) \xrightarrow{} 
- 		 K_1\left(Q\left(A\otimes \K \right) \right) \xrightarrow{\partial}K_0\left(A\otimes \K \right) \xrightarrow{}K_0\left(M\left(A\otimes \K \right) \right)\\ \xrightarrow{} K_0\left(Q\left(A\otimes \K \right) \right)
- 	\end{split}
- 	\ee
-  From $v^{p^r}= u \in M\left(A\otimes \K \right)$ it follows that $p^rx = 0$.
- Since $u= \lift^{\widetilde A}\left( v\right) $ is invertible element of $M\left(  A\otimes\K \right)$  one has $K_0\left(\lift^{\widetilde A} \right) \left( x\right) = 0$.
- Under the  above hypothesis  there is a homomorphism
-\be\label{sing_fin_eqn}
-\begin{split}
-  \Z_{p^r}\cong G\left( \left.\widetilde A\right| A \otimes \K\right)\to K_0\left(A \right),\\
-k \mapsto k~ x.
-\end{split}
-\ee
- The direct sum \eqref{h_direc_sum} can be represented by the following way 
- $$
-\pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}}  = \pi_1^{\text{ab}}\left(A\otimes \K \right)^{\mathrm{adm}}_{\mathrm{tors}} \oplus\pi_1^{\text{ab}}\left(A \otimes \K\right)^\perp_{\mathrm{tors}} 
-$$
+ 
 where $\pi_1^{\text{ab}}\left(A\otimes \K \right)^{\mathrm{adm}}_{\mathrm{tors}}\subset \pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}}$ includes all admissible components.
 Using the homomorphism \eqref{sing_fin_eqn} one construct following homomorphisms
 \bean
