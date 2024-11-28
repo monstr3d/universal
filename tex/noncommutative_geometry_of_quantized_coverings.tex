@@ -15624,6 +15624,8 @@ where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ 
 \ee
 where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part.
 
+
+
 \section{Basic idea}
 \paragraph*{}
 If $A\otimes \K \hookto B\left(\H \right)$ is a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}) then  there is a faithful representation $\pi :M\left( A\otimes \K\right) \hookto B\left(\H \right)$ (cf. Definition \ref{multiplier_el_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(M\left(A \otimes \K\right)  \right)$ and $v^j \notin \pi\left(M\left(A \otimes \K\right)  \right)$ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $M\left(A\otimes \K \right)$-module 
@@ -15701,14 +15703,14 @@ where every summand is a maximal covering.
  \end{definition}
  \begin{empt}\label{h_cond_empt} 
  Under the hypothesis of the Definition \ref{h_admissible_fin_defn}	 one has a homomorphism $M\left( \widetilde{A}\right) \cong M\left( A\right) ^{p^r}$ of $A$ modules.  It follows that there is the inclusion $\phi_{p^r}:M\left( \widetilde{A}\right) \hookto \mathbb{M}_{p^r}\left(A \right)$.  The element
- $$
+\be\label{h_p_v_eqn}
  p_v \bydef \phi_{p^r}\left( v\right) 	\begin{pmatrix}
  	1_{M\left( A\right) } & 0 &\ldots & 0\\
  	0& 0 &\ldots&0 \\
  	\vdots& \vdots &\ddots&\vdots\\
  	0& 0 & \ldots &0
  \end{pmatrix}  \phi_{p^r}\left( v^{-1}\right)\in \mathbb{M}_{p^r}\left(A \right)
- $$
+ \ee
  is a projector so one has $x_v \bydef \left[p_v\right]\in K_0\left(A \right)$. For any $j > 0$ there is 
  $$
   p_{v^j} \bydef \phi_{p^r}\left( v^j\right) 	\begin{pmatrix}
@@ -15731,29 +15733,80 @@ where every summand is a maximal covering.
 where $k \in \Z$ is a representative of $\overline k \in   \Z_{p^r}$.
 Taking into account the natural isomorphism $$\Ext^1_\Z\left(K_0\left( A\right), \Z  \right) \cong \Ext^1_\Z\left(K_0\left( A\right)/\Z \left[1_{M\left( A\right) }\right], \Z  \right)$$
 one has the homomorphism
-\be
-\phi_{\widetilde A} : G\left( \left.\widetilde A\right| A\otimes \K\right)\to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)
+\be\label{h_hpr_eqn}
+\phi_{\widetilde A} : G\left( \left.\widetilde A\right| A\otimes \K\right)\cong \Z_{p^r}\to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)
 \ee
- 
-where $\pi_1^{\text{ab}}\left(A\otimes \K \right)^{\mathrm{adm}}_{\mathrm{tors}}\subset \pi_1^{\text{ab}}\left(A\otimes \K \right)_{\mathrm{tors}}$ includes all admissible components.
-Using the homomorphism \eqref{sing_fin_eqn} one construct following homomorphisms
+From the decomposition \ref{h_direc_sum}
 \bean
-\phi^{\mathrm{adm}} :\pi_1^{\text{ab}}\left(A\otimes \K \right)^{\mathrm{adm}}_{\mathrm{tors}}\to K_0\left( A\right) , \\
-\phi: \pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}}\to K_0\left( A\right)
-\eean  
-For any $\om \in \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}$ the map
-\bean
-\Z \to K_0\left( A\right),\\
-k \mapsto k \phi\left(\om \right) 
+\pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}
 \eean
-represents an element of $\Ext^1_\Z\left( K_0\left( A\right), \Z \right)$. 
+it follows that any homomorphism
+$$
+\om :\pi_1^{\text{ab}}\left(A \otimes \K\right)_{\mathrm{tors}}\to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)
+$$
+equals to $\om_1 + ... +\om_N$ where  $\om_l : \Z_{p_l^{r^l}} \to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)$ is a homomorphism for all $l \in \{1,..., N\}$. For any $l = 1, .... N$ we find a homomorphism $$h_l: \Z_{p_l^{r^l}} \to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)$$ such that $h_l$ is  the given by \eqref{h_hpr_eqn} \text{homomorphism} if  the  \text{corresponding to } $\Z_{p_l^{r^l}}$  \text{ covering is admissible} (cf. Definition \ref{h_admissible_fin_defn}) and $h_l$ is trivial  \text{corresponding to } $\Z_{p_l^{r^l}}$  \text{ covering is not  admissible}.
 \end{empt}
 \begin{definition}\label{h_tors_defn}
-In result one has a \textit{torsion Hurewicz homomorphism}
+	The given by
 \be\label{h_tors_eqn}
-h^A_{\mathrm{tors}}: \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to  \Ext^1_\Z\left( K_0\left( A\right), \Z \right)\subset K^1\left(A \right) 
-\ee  
+h^A_{\mathrm{tors}}\bydef h_1 + ... + h_N:  \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right), \Z \right)\subset K^1\left(A \right) 
+\ee 
+map is the \textit{torsion Hurewicz homomorphism}.  
 \end{definition}
+\begin{empt}
+	Let  	
+	$$
+	\left(   A\otimes \K, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\otimes \K\right) ,  \lift^{\widetilde A} \right)
+	$$
+	be an  {admissible} finite-fold covering (cf. Definition \ref{h_admissible_fin_defn} which is a $\left(u, v, p^r\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn})
+	Using the Kasparov stabilization theorem one has 
+	$$
+	\ell^2\left(M\left( A\right) \right) \cong M\left(A \right)^{p^r} \oplus  \ell^2\left(M\left( A\right)\right) 
+	$$
+and there is $v_M \in M\left(A \otimes K \right)$ such that
+$$
+v_M \bydef \mathrm{diag} \left( p_v, 1_M\left(A\right),...,  1_M\left(A\right),...\right) 
+$$
+where $p_v\in \mathbb{M}_{p^r}\left(M\left( A\right)  \right) $ is given by \eqref{h_p_v_eqn}. The element $v_M$ represents an invertible  $\overline v$ of $Q\left(A\right)\bydef M\left(A\otimes \K \right)/\left(A\otimes \K \right)$, i.e.
+\be
+\overline v \in Q\left(A \right)
+\ee
+From this  construction it follows
+that
+\be
+\left[p_v\right] = \partial \left[\overline v\right]\in K_0\left( A\right) \cong K_0\left(A\otimes \K \right).
+\ee
+where $\left[\overline v\right] \in K_1\left(Q\left(A\otimes \K \right) \right)$ is represented by $\overline {v}$, the homomorphism   $\partial$  is the index map (cf. Definition \ref{index_map_defn}) from  the well known exact sequence 
+\be\label{h_long_exact_seq_eqn} 
+\begin{split}
+K_1\left(M\left(A\otimes \K \right)\right) \xrightarrow{} 
+	K_1\left(Q\left(A\otimes \K \right) \right) \xrightarrow{\partial}K_0\left(A\otimes \K \right) \xrightarrow{}K_0\left(M\left(A\otimes \K \right) \right)
+\end{split}
+\ee
+
+\end{empt}
+\begin{empt}\cite{blackadar:ko}
+!!!! DOWN 
+Let $u$ be the unilateral shift on a Hilbert space, and $T\bydef C*\left(u \right)$ . $T$ is
+called the \textit{Toeplitz algebra} (it is isomorphic to the $C^*$-algebra generated by all
+Toeplitz operators on the unit disk with continuous symbol). The operator $e \bydef 1- uu^*$ is a one-dimensional projection. $T$ contains $K$ as an essential
+ideal, and $T/ \K\cong C\left( S^1\right)$ . So there is a short exact sequence
+$$
+0 \K \to T \to C\left( S^1\right) 
+$$
+This sequence does not split; in fact, this is the standard" nonsplit extension
+of $C\left( S^1\right)$ by $\K$.
+\end{empt}
+\begin{empt}
+		It is well known (cf \cite{blackadar:ko}) that there is an exact sequence of $C^*$-algebras
+	\be\label{toepliz_sec_eqn}
+	\{0\} \to \K \to Q\left(\K\right)\bydef M\left( \K\right) / \K \xrightarrow{s} C\left( S^1\right)\to \{0\}. 
+	\ee
+	which induces the isomorphism $K_1\left( s\right): K_1\left(C\left(S^1 \right) \right) \to K_1\left(Q\left( K\right)  \right)$. 
+
+	
+If  there is a surjective $*$-homomorphism  $M\left(A \right)\to C\left(S^1 \right)$ then it can be extended up to a homomorphism  $\phi: M\left(A\otimes \K \right)\to C\left(S^1 \right)$. If $A \otimes \K \subset \ker \phi$ then there is a $*$-homomorphism $f: Q\left(A \right) \to Q\left(\K \right)$. So there are natural maps  $K_1\left(f \right) : \left( Q\left(\K \right)\right) \to K_1\left( Q\left( A\right) \right)$ and $K_1\left(s \circ f \right):  K_1\left(S^1 \right) \in K_1\left( Q\left(\K \right) \right)$. If $\overline v \in Q\left( A\right)$ is such that $\left[v\right]= K_1\left(s \circ f \right)\left(\left[u_{S^1}\right] \right)$ 
+\end{empt}
 %\paragraph{title}
 
 %\begin{definition}\label{h_admissible_tors_defn}
