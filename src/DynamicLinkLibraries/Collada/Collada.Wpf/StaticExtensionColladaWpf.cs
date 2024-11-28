@@ -168,7 +168,7 @@ namespace Collada.Wpf
             return source.Array.ToPointList();
         }
 
-        public static List<Point> ToPointList(this object obj)
+        public static List<Point> ToPointList(this object obj, bool invert)
         {
             List<Point> l = null;
             switch (obj)
@@ -186,7 +186,15 @@ namespace Collada.Wpf
                 l = new List<Point>();
                 for (int i = 0; i < ints.Length; i+=2)
                 {
-                    l.Add(new Point(ints[i], ints[i+1]));
+                    if (invert)
+                    {
+                        l.Add(new Point(ints[i], 1- ints[i + 1]));
+                    }
+                    else
+                    {
+                        l.Add(new Point(ints[i], ints[i + 1]));
+
+                    }
                 }
             }
             if (l != null)

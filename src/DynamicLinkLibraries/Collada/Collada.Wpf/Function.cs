@@ -77,35 +77,6 @@ namespace Collada.Wpf
                 if (false)
                 {
 
-                    /*             Type[] types = [typeof(Source), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis),
-                                 typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
-                         typeof(Reflectivity), typeof(Accessor)];
-                                 // types = [typeof(BindVertexInput), typeof(MinFilter), typeof(MagFilter), typeof(FloatObject), typeof(Up_Axis), 
-                                 //       typeof(UnitDimension),  typeof(VCount), typeof(P), typeof(Param), typeof(Image),  typeof(ColorObject), typeof(Float_Array),
-                                 //typeof(Reflectivity), typeof(Accessor)];
-
-                                 //  typeof(Reflective), typeof(Diffuse), typeof(Specular)];
-
-
-                                 methods = new();
-
-                                 foreach (var type in types)
-                                 {
-                                     FieldInfo fi = type.GetField("Tag");
-                                     var s = fi.GetValue(null) as string;
-                                     tags.Add(s);
-                                     if (allTags.Contains(s))
-                                     {
-                                         throw new Exception();
-                                     }
-                                     allTags.Add(s);
-                                     MethodInfo mi = type.GetMethod("Get", new Type[] { typeof(XmlElement) });
-                                     if (mi == null)
-                                     {
-                                         throw new Exception();
-                                     }
-                                     methods[s] = mi;
-                                 }*/
                 }
                 Type[] types = [typeof(Init_From), typeof(Source), typeof(Vertices), typeof(Input), typeof(Surface), typeof(Sampler2D), typeof(Accessor), typeof(NewParam),  typeof(Texture), typeof(Emission), typeof(Diffuse),
                 typeof(Reflective), typeof(Specular), typeof(Phong),
@@ -178,42 +149,7 @@ namespace Collada.Wpf
 
 
 
-            /*               functions = new()           {
-           {"float_array",  StaticExtensionCollada.GetArray<float>},
-           {"geometry", GetGeometry },
-           {"phong", GetPhongObject },
-
-           {"material", GetMaterial},
-           {"image", GetImage},
-
-           {Vertices.Tag, Vertices.Get},
-           {"p",GetP},
-                    { "library_visual_scenes", GetScenes },
-                           {"instance_effect", GetInstanceEffect },
-                                          {"up_axis", SetUpAxis },
-                                          {"unit", SetUnit }, { "effect",  GetEffectMaterialObject },
-                           { "color", GetColorObject }, {"float", GetFloat}, {"reflectivity",
-                           StaticExtensionCollada.GetFirstChild}, 
-                    {"diffuse" ,  GetMaterialColor },
-             {"specular" ,  GetMaterialColor },
-           { "reflective" ,  GetMaterialColor }, 
-                               //{ "transparent" , GetTransparent} , 
-                          //     { "surface", GetSurface }, 
-                               {"sampler2D", GetSample2D },{ "texture", GetTexture },
-             //{"param", GetParam }, 
-
-                              // {"accessor", Accessor.GetAccessor}, 
-                               {Technique.Tag, Technique.Get}, {Instance_Material.Tag, Instance_Material.Get},
-                               {BindVertexInput.Tag, BindVertexInput.Get }, {Input.Tag, Input.Get }, {Source.Tag, Source.Get }
-             }; */
-
-/*
-
-            visualDic = new()
-       {
- {"mesh", GetMesh}
-       };
-*/
+    
         }
         
         

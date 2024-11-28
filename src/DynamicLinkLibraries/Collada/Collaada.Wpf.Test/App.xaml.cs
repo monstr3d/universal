@@ -21,15 +21,16 @@ namespace Collaada.Wpf.Test
         public App()
         {
             // Compare();
-        //    Generate();
-         //  GenerateObj();
-           GenerateAC();
+            //   Generate();
+           // GenerateObj();
+            //  GenerateAC();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
             {
              { "Mig29", @"c:\AUsers\1MySoft\CSharp\03D\XAML\MIG29\1857302.dae" },
              { "Tu154",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\tu154B.dae" },
+             { "1",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1.dae" },
              { "Tornado",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\Tornado\Tornado.dae" },
              { "Sukhoi",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae" },
                 {"F15", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F15\F-15C Eagle.dae" },
@@ -89,11 +90,12 @@ namespace Collaada.Wpf.Test
 
         void GenerateObj()
         {
-            GenerateObj("Tornado");
-            //        GenerateObj("F15");
-            //    GenerateObj("Mig29");
-            //   GenerateObj("F16");
-            //    GenerateObj("H6");
+          //  GenerateObj("Tornado");
+             //       GenerateObj("F15");
+          //      GenerateObj("Mig29");
+            GenerateObj("Sukhoi");
+            //    GenerateObj("F16");
+            //  GenerateObj("H6");
 
         }
 
@@ -131,7 +133,7 @@ namespace Collaada.Wpf.Test
          //  f = models["Tornado"];
             //    f = d["Sukhoi"];
             //    f = d["F15"];
-            f = models["Tu154"];
+            f = models["1"];
             if (!File.Exists(f))
             {
                 throw new Exception();

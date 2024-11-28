@@ -88,7 +88,7 @@ namespace Collada.Wpf.Classes
             List<Vector3D> norm = offn.Value.ToVector3DList();
             var offt = d["TEXCOORD"];
             var ot = offt.Offset;
-            var textures = offt.Value.ToPointList();
+            var textures = offt.Value.ToPointList(true);
             var vert = new Point3DCollection();
             var textc = new PointCollection();
             var  norms = new Vector3DCollection();
@@ -161,7 +161,7 @@ namespace Collada.Wpf.Classes
             var v = val.Value;
             if (type == "TEXCOORD")
             {
-                var textur = v.ToPointList();
+                var textur = v.ToPointList(true);
                 foreach (var i in ind)
                 {
                     textc.Add(textur[i[off]]);
@@ -196,7 +196,7 @@ namespace Collada.Wpf.Classes
             List<Vector3D> norm = offn.Value.ToVector3DList();
             var offt = d["TEXCOORD"];
             var ot = offt.Offset;
-            var textures = offt.Value.ToPointList();
+            var textures = offt.Value.ToPointList(true);
             var ind = polyList.Index;
             Point3DCollection vert = new Point3DCollection();
             PointCollection textc = new PointCollection();
@@ -211,6 +211,10 @@ namespace Collada.Wpf.Classes
             mesh.Positions = vert;
             mesh.Normals = norms;
             mesh.TextureCoordinates = textc;
+            if (vert.Count != textures.Count)
+            {
+
+            }
             return mesh;
 
             /*     var ind = polyList.Index;

@@ -104,15 +104,18 @@ namespace Collada.Wpf
                     if (kp >= 0)
                     {
                         var v = textures[kp];
-                        var t = new Point(1-v[0],  v[1]);
+                        var t = new Point(v[0], 1- v[1]);
                         textcoord.Add(t);
                     }
-                    kp = idx[2];
-                    if (kp >= 0)
+                    if (idx.Length > 2)
                     {
-                        var v = normals[kp];
-                        var c = new Vector3D(v[0], v[1], v[2]);
-                        norm.Add(c);
+                        kp = idx[2];
+                        if (kp >= 0)
+                        {
+                            var v = normals[kp];
+                            var c = new Vector3D(v[0], v[1], v[2]);
+                            norm.Add(c);
+                        }
                     }
                 }
             }
