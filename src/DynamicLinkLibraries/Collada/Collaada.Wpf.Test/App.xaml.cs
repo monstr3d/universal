@@ -8,6 +8,7 @@ using System.Xml;
 using Abstract3DConverters;
 using Collada;
 using Collada.Wpf;
+using Collada141;
 using Wpf.Loader;
 using Material = Abstract3DConverters.Material;
 
@@ -21,7 +22,7 @@ namespace Collaada.Wpf.Test
         public App()
         {
             // Compare();
-            //   Generate();
+              Generate();
            // GenerateObj();
             //  GenerateAC();
         }
@@ -31,6 +32,8 @@ namespace Collaada.Wpf.Test
              { "Mig29", @"c:\AUsers\1MySoft\CSharp\03D\XAML\MIG29\1857302.dae" },
              { "Tu154",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\tu154B.dae" },
              { "1",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1.dae" },
+             { "11",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\11.xml" },
+             { "1NEW",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1NEW.dae" },
              { "Tornado",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\Tornado\Tornado.dae" },
              { "Sukhoi",  @"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae" },
                 {"F15", @"c:\AUsers\1MySoft\CSharp\03D\XAML\F15\F-15C Eagle.dae" },
@@ -129,15 +132,18 @@ namespace Collaada.Wpf.Test
         {
             var f = "";
             //  f = d["Mig29"];
-            // f = d["Tu154"];
-         //  f = models["Tornado"];
+             f = models["Tu154"];
+            //  f = models["Tornado"];
             //    f = d["Sukhoi"];
             //    f = d["F15"];
-            f = models["1"];
+      //   /   f = models["1"];
+           // f = models["11"];
             if (!File.Exists(f))
             {
                 throw new Exception();
             }
+            // f.CheckSchema();
+            COLLADA model = COLLADA.Load(f);
             var fn = Path.GetFileNameWithoutExtension(f);
             var dir = Path.GetDirectoryName(f);
             var file = Path.Combine(dir, fn + ".xaml");
