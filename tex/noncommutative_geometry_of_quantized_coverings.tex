@@ -717,6 +717,9 @@ The Chapter \ref{cov_fin_chap} contains the construction of noncommutative    fi
 The Chapter \ref{infinite_covering_chap} is devoted to  noncommutative   infinite coverings of $C^*$-algebras and operator spaces. The Sections \ref{infinite_ca_sec} - \ref{inf_mor_sec} are  basic. The Section \ref{str_cov_glo_sec} is interesting for  those who are interested in coverings of spectral triples.
 \paragraph*{}
 The Chapter \ref{top_chap} contains applications of described in Chapters  \ref{cov_fin_chap} and \ref{infinite_covering_chap} theory to commutative $C^*$-algebras. It is constructed a given by the Table \ref{add_mapping_table}   natural one to one correspondence between geometry of topological coverings and "noncommutative" ones.
+
+
+\paragraph*{} The Chapter \ref{h_chap} is devoted to the generalization of the Hurewicz homomorphism from the fundamental group to $K$-homology.
 \paragraph*{}
 The Chapter \ref{blowing_chap} is devoted  to the construction of  Hausdorff blowing-up. This construction can be applied for obtaining of noncommutative coverings of  $C^*$-algebras with Hausdorff spectrum, and non-Hausdorff one, e.g. $C^*$-algebras of groupoids and foliations (cf. \cite{candel:foliII}).
 
@@ -729,7 +732,7 @@ In the Chapter \ref{stab_chap} it is proven that some properties of noncommutati
 
 \paragraph*{} The Chapter \ref{ctr_chap} is devoted to noncommutative coverings of $C^*$-algebras with Hausdorff spectrum. It is proven that the theory of noncommutative coverings of $C^*$-algebras with Hausdorff spectrum contains all ingredients of right row of the Table \ref{add_mapping_table}. 
 
-\paragraph*{} The Chapter \ref{h_chap} is devoted to the generalization of the Hurewicz homomorphism from the fundamental group to $K$-homology.
+
 
 %\paragraph*{} In the  Chapter \ref{vf_chap} the coverings of spaces of vector fields are being discussed. Sections of vector fields of Hilbert spaces have the natural structure of operator spaces. Application of the results of the Chapters \ref{cov_fin_chap}  and \ref{infinite_covering_chap} yield finite-fold and infinite noncommutative coverings of these spaces.
 
@@ -6160,13 +6163,16 @@ From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} 
 \begin{exercise}\label{top_fundamental_group_mor_exer}
 	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$. Prove a generalization of the Theorem \ref{top_fundamental_group_mor_thm}.
 \end{exercise}
-\begin{exercise}
-	Let $\sX$ be a connected, locally path-connected  and  semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) Hausdorff space. Prove that there is a natural isomorphism
+\begin{lemma}\label{top_weak_equivalence_lem}
+	Let $\sX$ be a connected, locally path-connected  and  semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) Hausdorff space then  there is a natural isomorphism
 	\be
 	\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
 	\ee
 	between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
-\end{exercise}
+\end{lemma}
+\begin{proof}
+!!!!
+\end{proof}
 Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space. 
 For any $x \in \sX$ denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that $$
 \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
@@ -10807,9 +10813,9 @@ then one has:
 	\item[(ii)]	there is a  natural  
 	group isomorphism 
 	\be\label{comm_fg_iso_eqn}
-	\pi_1\left( C_0\left(\sX \right)\right)\cong G\left( \left.{\widetilde{\sX}}_{\mathrm{res~fin}}~\right|\sX\right) 
+\pi^{\mathrm{w}}_1\left( C_0\left(\sX \right)\right)\cong G\left( \left.{\widetilde{\sX}}_{\mathrm{res~fin}}~\right|\sX\right) 
 	\ee
-	where  $\pi_1\left( C_0\left(\sX \right)\right)$ 
+	where  $\pi^{\mathrm{w}}_1\left( C_0\left(\sX \right)\right)$ 
 	is the {fundamental group}	of   $ C_0\left(\sX \right)$  (cf. Definition \ref{fundamental_group_nc_defn}.
 	
 	\end{enumerate}
@@ -11899,7 +11905,7 @@ where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ 
 
 
 
-\section{Basic idea}
+\section{Basic constructions}
 \paragraph*{}
 Let $A$ be an unital $C^*$-algebra and let $\pi: A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(A\right)$ and $v^j \notin \pi\left(A\right) $ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $A$-module 
 $$
@@ -12140,6 +12146,8 @@ h_{K^1}	\bydef h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}:\pi_1\left(A\ri
 
 \section{Hurewicz homomorphism for commutative $C^*$-algebras}
 \paragraph{} Let  $A\bydef C\left(\sX \right) $ be a  commutative  $C^*$-algebra with compact, connected, locally connected and weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$. We do not require that $\sX$ is path connected. Let   $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$ be a   {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}, and let $$\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \bydef \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)/\left[\pi_1^{\mathrm{w}}\left(\sX, x_0 \right), \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\right].$$
+ Below we consider a set of hypotheses which are hold for a wide classes of spaces, e.g. all $CW$-complexes and/or manifolds. But these hypotheses are more general since they are hold for several spaces which are not path connected.
+ \paragraph{Torsion special case.}
 Let $\Z_{p^r} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right)$ be a cyclic  group of  {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}) with prime $p$, and let $\sX\left[\Z_{p^r}\right]$ is the $\sX$-$\Z_{p^r}$-{space} with the  $\sX$-$\Z_{p^r}$-{covering} $P_{\Z_{p^r}}: \sX\left[\Z_{p^r}\right]\to \sX$ (cf. Definition \ref{top_xg_defn}).  Suppose that the finite-fold noncommutative covering 
 $$
 \left(C\left(\sX \right) , C\left( \sX\left[\Z_{p^r}\right]\right), \Z_{p^r} , C\left( P_{\Z_{p^r}}\right) \right) 
@@ -12151,7 +12159,7 @@ is maximal (cf. Definition \ref{hurewicz_maximal_defn}). It follows that $ \Z_{p
 \end{split}
 \ee
 Suppose that the generator  of $\Z_{p^r}$ is represented by the weak closed $x_0$-path 
-$\left(\sU'_1, ..., \sU'_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Below we will use a set of hypotheses which are hold for a wide classes of spaces, e.g. all $CW$-complexes and/or manifolds. But these hypotheses are more general since they are hold for several spaces which are not path connected. Suppose that $\sV' $ is the closure of the union $\sU'_1\cup ...\cup \sU'_m$ and following conditions hold:
+$\left(\sU'_1, ..., \sU'_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV' $ is the closure of the union $\sU'_1\cup ...\cup \sU'_m$ and following conditions hold:
 \begin{itemize}
 	\item $K^1\left( \sV'\right) \cong \Z$, 
 	\item a generator $\left[u_{\sV'}\right]\in K^1\left( \sV'\right)$ of $K^1\left( \sV'\right)$ is represented by a continuous map $u_{\sV'} : \sV' \to U\left(1 \right)$ with  $u_\sV\left( x_0\right) = 1$.
@@ -12217,15 +12225,8 @@ Using the construction \ref{top_xg_empt} one obtains a nontrivial finite-fold co
 $$
 G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p^r}}\right]\right)= \Z_{p^s} \quad s > 0. 
 $$
-This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined. Taking into account the Theorem \ref{top_main_thm} one has the following lemma.
-\begin{lemma}
-	$A\bydef C\left(\sX \right) $ be a  commutative  $C^*$-algebra with compact, connected, locally connected and weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$ then any maximal covering of $C\left(\sX \right)$ is admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_admissible_defn}). 
-\end{lemma}
-\begin{proof}
-
-\end{proof}
-Similarly to \ref{h_partial_empt} $v_{\sX\left[\Z_{{p^r}}\right]}$ is not an invertible element of $GL_{n}\left( M\left(C\left(\sX \right) \otimes \K \right)  \right)$.  However it represents $\overline v \in GL_{n}\left( M\left(C\left(\sX \right)\otimes \K \right) / C\left(\sX \right)\otimes \K \right)$
-ROVE COINCIDENDE !!!
+This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined. Taking into account the Theorem \ref{top_main_thm} one has the following lemma. So under above hypothesis a covering is admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_admissible_defn}). 
+\paragraph{Free special case}
 Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume that  Suppose that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
 $\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_m$ and following conditions hold:
 \begin{itemize}
@@ -12234,10 +12235,16 @@ $\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_grou
 	\item $K^1\left( \sX\right)\cong \Z \oplus K^\perp \left( \sX\right)$ and the inclusion   $\sV \to \sX$ yields a surjective homomorphism $K^1\left( \sX\right)\to \K^1\left(\sV \right)$ which is equivalent to the projection onto $\Z$ - component of $K^1\left( \sX\right)$. 
 	\item the map $u_{\sV}$ can be extended up to $u_\sX : \sX \to U(1)$ and $\left[u_\sX\right]\in K^1\left( \sX\right)$ is the generator of $\Z$ component.
 \end{itemize}
-If $\pi: C\left( \sX\right)\otimes \K$ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn})
+If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn})
 
-PROVE COINCIDENDE !!!
-\section{Toeplitz algebras and Hurewicz  homomorphism}
+
+\section{Comparison with classical Hurewicz homomorphism}
+\paragraph{} The given by the equation  \ref{h_hk1_eqn} Hurewicz homomorphism 	$h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ implicitly assumes that the space $\sX$ is path connected. Here we prove that if $\sX$ is compact Hausdorff, path coconnected space then then following homomorphisms
+\bean
+\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right),\\
+\pi_1\left(C\left( \sX\right)  \right)\to  K^1\left(C\left(\sX \right)  \right)
+\eean
+are equivalent. It is explained in \cite{blackadar:ko} that there is the natural isomorphism  $K_1\left(\sX \right)\cong  K^1\left(C\left(\sX \right)  \right)$. On the other hand form the Lemma \ref{top_weak_equivalence_lem}
 
 \begin{empt}\label{toepl_empt}\cite{blackadar:ko}
 	!!!! DOWN 
@@ -12256,7 +12263,39 @@ PROVE COINCIDENDE !!!
 \begin{empt}
 	If  there is a surjective $*$-homomorphism  $M\left(A \right)\to C\left(S^1 \right)$ then it can be extended up to a homomorphism  $\phi: M\left(A\otimes \K \right)\to C\left(S^1 \right)$. If $A \otimes \K \subset \ker \phi$ then there is a $*$-homomorphism $f: Q\left(A \right) \to C^*\left( u_S\right) $. So there is the  natural map  $K_0\left(f \right) : K_0\left( C^*\left(u_S \right)\right) \to K_1\left( Q\left( A\right) \right)$ and $K_1\left(s \circ f \right):  K_1\left(S^1 \right) \in K_1\left( Q\left(\K \right) \right)$. If $\overline v \in Q\left( A\right)$ is such that $\left[v\right]= K_1\left(s \circ f \right)\left(\left[u_{S^1}\right] \right)$ 
 \end{empt}
-\
+If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_red_homol_defn}, i.e. it is a reduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
+\be\label{h_hk1_eqn}
+\begin{split}
+	h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\\\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }
+	\Hom\left(K_0\left(S^0 \right),  K_1\left(\sX \right)\right)\cong K_1\left(\sX \right).
+\end{split}
+\ee
+Let $C\left( u\right) \cong C\left( S^1\right)$ be a $C^*$-algebra generated by a single unitary element $u$.
+If $w \in B\left( \H\cong \ell^2\left(\N\right)\right)$ is  an unilateral shift then $w$ represents an unitary element $v \in Q\left(\K \right)$. 
+It is known \cite{blackadar:ko} that $K^1\left( C\left( u\right)\right)\cong \Z$.  and a generator of $K^1\left( C\left( u\right)\right)$ is represented by the homomorphism
+\be\label{s1_k_1_eqn}
+\begin{split}
+	K^1_{S^1}:C\left( u\right)\to  Q\left(\K \right),\\
+	u \mapsto v.
+\end{split}
+\ee
+From \ref{cirle_k1_empt} it follows that
+\be\label{h_hk11_eqn}
+h_{K_1}	\left(\left[f \right]  \right) \bydef K_1\left( \left[f \right]\right) \left(\left[ 	K^1_{S^1}\right]  \right)
+\ee
+where the following notation is used
+\begin{itemize}
+	\item $f: \left(S^1, s_0\right)\to \left(\sX, x_0\right)$ is a representative of $\left[f \right]\in \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, y_0 \right), \pi_1\left(\sX, y_0 \right)\right]$.
+	\item $	K^1_{S^1}:C\left( u\right)\to  Q\left(\K \right)$ is a given by \eqref{s1_k_1_eqn} representative of the generator of $K_1\left(S^1 \right)$.  
+\end{itemize}
+It turns out that
+\be\label{h_k1_f_eqn}
+h_{K_1}	\left(\left[f \right]  \right)= \left[K^1_{S^1}\circ f\right] \in K_1\left(\sX \right)
+\ee
+where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$. 
+
+
+
 \section{Comparison with the classical Hurewicz homomorphism}
 \paragraph*{} Consider the described in the Section \ref{h_prel}  situation. Let $\left( \sX, x_0\right)$ be a  pointed  $CW$-complex (cf. Remark \ref{top_obstr_rem}) and let 
 $$
