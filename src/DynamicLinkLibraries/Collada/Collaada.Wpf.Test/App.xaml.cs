@@ -8,8 +8,6 @@ using System.Xml;
 using Abstract3DConverters;
 using Collada;
 using Collada.Wpf;
-using Collada141;
-using Wpf.Loader;
 using Material = Abstract3DConverters.Material;
 
 namespace Collaada.Wpf.Test
@@ -22,9 +20,9 @@ namespace Collaada.Wpf.Test
         public App()
         {
             // Compare();
-              Generate();
+             // Generate();
            // GenerateObj();
-            //  GenerateAC();
+              GenerateAC();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -73,7 +71,7 @@ namespace Collaada.Wpf.Test
         void GenerateAC(string filename)
         {
             var fn = filename;
-            var converter = new AcConverter(DefaultMaterial);
+            var converter = new AcConverter();
             IAbstractMeshCreator meshCreator = converter;
             var f = Path.Combine(acdir, filename);
             Tuple<object, List<AbstractMesh>> l = meshCreator.Create(f);
@@ -143,7 +141,7 @@ namespace Collaada.Wpf.Test
                 throw new Exception();
             }
             // f.CheckSchema();
-            COLLADA model = COLLADA.Load(f);
+         //   COLLADA model = COLLADA.Load(f);
             var fn = Path.GetFileNameWithoutExtension(f);
             var dir = Path.GetDirectoryName(f);
             var file = Path.Combine(dir, fn + ".xaml");

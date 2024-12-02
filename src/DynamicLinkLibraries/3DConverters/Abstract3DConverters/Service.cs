@@ -20,6 +20,11 @@ namespace Abstract3DConverters
 
         #region Service
 
+        public string Trim(string str)
+        {
+            return str.Replace("\"", "").Trim();
+        }
+
         public string ToString(string str, string shift)
         {
             if (str.StartsWith(shift))

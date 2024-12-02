@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,12 @@ namespace Abstract3DConverters
 {
     public class AcConverter : AbstractMeshCreator
     {
-
-        public Material DefaultMaterial { get;  private set; }
+        List<Material> Materials { get; } = new ();
 
         Service s = new();
 
-        public AcConverter(Material defaultMaterial) : base("ac")
+        public AcConverter() : base("ac")
         {
-            DefaultMaterial = defaultMaterial;
         }
 
         protected override Tuple<object, List<AbstractMesh>> Create(string filename)
@@ -29,10 +28,35 @@ namespace Abstract3DConverters
                 }
                 while (!reader.EndOfStream);
             }
-            var end = new int[] { 0 };
+            CreateMaterials(lines);
             var meshes = Create(lines).ToArray();
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
+
+        void CreateMaterials(List<string> lines)
+        {
+            foreach (var line in lines)
+            {
+                var mat  = s.ToString(line, "MATERIAL ");
+                if (mat == null)
+                {
+                    continue;
+                }
+                var ss = s.Split(mat);
+                var l = new List<string>();
+                foreach (var str in ss)
+                {
+                    if (str.Length > 0)
+                    {
+                        l.Add(s.Trim(str));
+                    }
+                }
+                var group = new MaterialGroup(l[0]);
+                    Materials.Add(group);
+  
+            }
+        }
+
 
         public IEnumerable<AbstractMesh> Create(List<string> lines,  int start = 0, int current = -1)
         {
@@ -62,7 +86,7 @@ namespace Abstract3DConverters
                         if (cnt != null)
                         {
                             var count = cnt.Value;
-                            var am = new AbstractMeshAC(name, count, nl, DefaultMaterial, directory);
+                            var am = new AbstractMeshAC(name, count, nl, Materials, directory);
                             name = null;
                             nl = new();
                             i = j;
@@ -85,21 +109,5 @@ namespace Abstract3DConverters
         }
 
 
-   /*     public IEnumerable<AbstractMesh> Create(List<string> lines)
-        {
-            Queue<AbstractMesh> queue = new Queue<AbstractMesh>();
-            for (int i = 0; i < lines.Count; i++)
-            {
-                var l = lines[i];
-                if (l.StartsWith("OBJECT"))
-                {
-                    for (int j = 1; j < l.Length; j++)
-                    {
-                        
-                    }
-                }
-                yield return null;
-            }
-        }*/
     }
 }

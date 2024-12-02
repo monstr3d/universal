@@ -5,6 +5,8 @@ namespace Abstract3DConverters
     {
         public Color  Color { get; set; }
 
+        public string Name { get; protected set; } = null;
+
         public object Clone()
         {
             return CloneIfself();

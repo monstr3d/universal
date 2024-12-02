@@ -13,8 +13,6 @@ namespace Abstract3DConverters
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
-        string directory;
-
         List<string> l;
 
         public Image Image 
@@ -36,10 +34,9 @@ namespace Abstract3DConverters
             }
         }
 
-        public AbstractMeshAC(string name, int count, List<string> l, Material material, string directory) : base(name)
+        public AbstractMeshAC(string name, int count, List<string> l, List<Material> materials, string directory) : base(name)
         {
-            this.directory = directory;
-            Material = material.Clone() as Material;
+           // Material = material.Clone() as Material;
             this.count = count;
             this.l = l;
             for(int i = 0; i < l.Count; i++)
