@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Abstract3DConverters
@@ -12,6 +15,8 @@ namespace Abstract3DConverters
         List<Material> Materials { get; } = new ();
 
         Service s = new();
+
+        protected  string[] colstr = ["amb", "emis", "spec", "shi", "trans"];
 
         public AcConverter() : base("ac")
         {
@@ -33,6 +38,8 @@ namespace Abstract3DConverters
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
 
+
+
         void CreateMaterials(List<string> lines)
         {
             foreach (var line in lines)
@@ -53,8 +60,64 @@ namespace Abstract3DConverters
                 }
                 var group = new MaterialGroup(l[0]);
                     Materials.Add(group);
-  
+                var d = new Dictionary<int, string>();
+                for (int i = 0; i < l.Count; i++) 
+                {
+                    if (colstr.Contains(l[i]))
+                    d[i] = l[i];
+                }
+                var arr = d.Keys.ToArray();
+                DiffuseMaterial diff = null;
+                EmissiveMaterial emi = null;
+                SpecularMaterial spe = null;
+
+                
+                Color diffcolor = null;
+            Color specolor = null;
+                for (var j = 0; j < arr.Length; j++)
+                {
+                    var k = arr[j];
+                    string  key = d[k];
+                    switch (key)
+                    {
+                        case "amb":
+
+                            diffcolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
+                             break;
+                        case "emis":
+                            var color = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
+                            emi = new EmissiveMaterial(color);
+                            break;
+                        case "spec":
+                            specolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
+                            break;
+                        case "shi":
+                            var sp = s.ToReal<float>(l[k + 1]);
+                            spe = new SpecularMaterial(specolor, sp);
+                            break;
+                        case "trans":
+                            var tr = s.ToReal<float>(l[k + 1]);
+                            diff = new DiffuseMaterial(diffcolor, null, tr);
+                            break;
+                        default: break;
+                    }
+                    
+                }
+                group.Children.Add(diff);
+                group.Children.Add(emi);
+                group.Children.Add(spe);
             }
+        }
+
+        private Color GetColor(List<string> l, int b, int e)
+        {
+            var str = "";
+            for (var i = b; i < e; i++)
+            {
+                str += l[i] + " ";
+            }
+            return new Color(str.Trim());
+
         }
 
 

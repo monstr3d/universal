@@ -42,6 +42,7 @@ namespace Abstract3DConverters
             for(int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
+  
                 if (line.StartsWith("OBJECT "))
                 {
                     continue;
@@ -112,6 +113,18 @@ namespace Abstract3DConverters
                     var k = i + 1;
                     for (;  k < l.Count; k++)
                     {
+                        var mp = s.ToReal<int>(l[k], "mat ");
+                        {
+                            if (mp != null)
+                            {
+                                if (Material == null)
+                                {
+                                    Material = materials[mp.Value].Clone() as Material;
+                                }
+                                continue;
+                            }
+                        }
+
                         var refs = s.ToReal<int>(l[k], "refs ");
                         if (refs != null)
                         {

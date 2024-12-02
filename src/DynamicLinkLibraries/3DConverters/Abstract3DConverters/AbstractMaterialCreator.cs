@@ -39,8 +39,8 @@ namespace Abstract3DConverters
                 default:
                     break;
             }
-            var simple = material as SimpleMaterial;
-            Set(result, simple.Color);
+            //var simple = material as SimpleMaterial;
+            //Set(result, simple.Color);
             return result;
         }
 
