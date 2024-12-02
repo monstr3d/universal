@@ -86,7 +86,10 @@ namespace Collada.Wpf
         {
             var d = material as DiffuseMaterial;
             ImageBrush br = d.Brush as ImageBrush;
-            br.Opacity = opacity;
+            if (br != null)
+            {
+                br.Opacity = opacity;
+            }
            
         }
 

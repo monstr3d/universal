@@ -29,9 +29,6 @@ namespace Abstract3DConverters
 
         void SetImage(object material, object image);
 
-
-
-
         void Set(object material, Color color);
 
         void SetImage(object material, Image image);

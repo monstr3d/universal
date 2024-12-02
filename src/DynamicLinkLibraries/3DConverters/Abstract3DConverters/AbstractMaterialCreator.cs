@@ -24,13 +24,17 @@ namespace Abstract3DConverters
             {
                 case DiffuseMaterial diffuseMaterial:
                     result =  Create(diffuseMaterial);
+                    Set(result, diffuseMaterial.Color);
                     SetImage(result, diffuseMaterial.Image);
+                    SetOpacicty(result, diffuseMaterial.Opacity);
                     break;
                 case EmissiveMaterial emissiveMaterial:
                     result = Create(emissiveMaterial);
+                    Set(result, emissiveMaterial.Color);
                     break;   
                     case SpecularMaterial specularMaterial:
                     result = Create(specularMaterial);
+                    Set(result, specularMaterial.Color);
                     SetPower(result, specularMaterial.SpecularPower);
                     break;
                 case MaterialGroup group:
@@ -90,11 +94,8 @@ namespace Abstract3DConverters
             {
                 return;
             }
-            
             SetImage(material, im);
         }
-
-
 
     }
 }

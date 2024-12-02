@@ -42,7 +42,7 @@ namespace Abstract3DConverters
             for(int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
-  
+  /*
                 if (line.StartsWith("OBJECT "))
                 {
                     continue;
@@ -74,7 +74,7 @@ namespace Abstract3DConverters
                 if (line.StartsWith("crease "))
                 {
                     continue;
-                }
+                }*/
                 var loc = s.ToString(line, "loc ");
                 if (loc != null)
                 {
@@ -119,7 +119,10 @@ namespace Abstract3DConverters
                             {
                                 if (Material == null)
                                 {
-                                    Material = materials[mp.Value].Clone() as Material;
+                                    var mat = materials[mp.Value];
+                                    mat = mat.Clone() as Material;
+                                    Material = mat;
+                                    SetImage(Material, Image);
                                 }
                                 continue;
                             }
@@ -152,7 +155,6 @@ namespace Abstract3DConverters
                     i = k;
                     continue;
                 }
-                throw new Exception();
             }
         }
 
@@ -193,8 +195,6 @@ namespace Abstract3DConverters
             }
             return creator.Create(Material);
         }
-
-
 
     }
 }
