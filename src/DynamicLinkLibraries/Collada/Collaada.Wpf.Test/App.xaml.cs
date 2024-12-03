@@ -49,7 +49,7 @@ namespace Collaada.Wpf.Test
             // GenerateAC("H-60.ac");
             // GenerateAC("F-15-lowpoly.ac");
             //   GenerateAC("dauphin.ac");
-            //   GenerateAC("testpilot.ac");
+            //  GenerateAC("testpilot.ac");
         }
 
         Material DefaultMaterial

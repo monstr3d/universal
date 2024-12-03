@@ -12124,7 +12124,7 @@ In result one has a group homomorphism
 The map
 \be\label{h_free_eqn}
 \begin{split}
-	h^{\mathrm{free}}_{K^1} : \pi_1\left(A \otimes \K\right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right)\cong  \Hom\left(  K_1\left( A\right), \Z\right),\\
+	h^{\mathrm{free}}_{K^1} : \pi_1\left(A \right) \to \Hom\left(  K_1\left( A\right)_{\mathrm{free}}, \Z\right)\cong  \Hom\left(  K_1\left( A\right), \Z\right),\\
 	g \mapsto f^g 
 \end{split}
 \ee
@@ -12136,7 +12136,7 @@ is a homomorphism of groups.
 \begin{defn}\label{hurewicz_defn}
 	Taking into account the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
 	$$
-h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}: 	\pi_1^{\mathrm{ab}}\left( A\right) \to K^1\left(A \right) 
+ h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}: 	\pi_1^{\mathrm{ab}}\left( A\right) \to K^1\left(A \right) 
 	$$
 	or equivalently
 	\be\label{hurewicz_eqn}
@@ -12173,11 +12173,11 @@ The given by the equations \eqref{h_m_eqn} and \eqref{h_m_ab_eqn} maps are \text
 \paragraph{} Let  $A\bydef C\left(\sX \right) $ be a  commutative  $C^*$-algebra with compact, connected, locally connected and weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$. We do not require that $\sX$ is path connected. Let   $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$ be a   {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}, and let $$\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \bydef \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)/\left[\pi_1^{\mathrm{w}}\left(\sX, x_0 \right), \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\right].$$
 Below we consider a set of hypotheses which are hold for a wide classes of spaces, e.g. all $CW$-complexes and/or manifolds. But these hypotheses are more general since they are hold for several spaces which are not path connected.
 \paragraph{Torsion special case.}
-Let $\Z_{p^r} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right)$ be a cyclic  group of  {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}) with prime $p$, and let $\sX\left[\Z_{p^r}\right]$ is the $\sX$-$\Z_{p^r}$-{space} with the  $\sX$-$\Z_{p^r}$-{covering} $P_{\Z_{p^r}}: \sX\left[\Z_{p^r}\right]\to \sX$ (cf. Definition \ref{top_xg_defn}).  Suppose that the finite-fold noncommutative covering 
+Let $\Z_{p^r} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right)$ be a cyclic  group and simultaneously factor group of the {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}) with prime $p$, and let $\sX\left[\Z_{p^r}\right]$ is the $\sX$-$\Z_{p^r}$-{space} with the  $\sX$-$\Z_{p^r}$-{covering} $P_{\Z_{p^r}}: \sX\left[\Z_{p^r}\right]\to \sX$ (cf. Definition \ref{top_xg_defn}).  Suppose that the finite-fold noncommutative covering 
 $$
 \left(C\left(\sX \right) , C\left( \sX\left[\Z_{p^r}\right]\right), \Z_{p^r} , C\left( P_{\Z_{p^r}}\right) \right) 
 $$
-is maximal (cf. Definition \ref{hurewicz_maximal_defn}). It follows that $ \Z_{p^q}$ is a direct sum of nontrivial  subgroups and
+is maximal (cf. Definition \ref{hurewicz_maximal_defn}). It follows that $ \Z_{p^q}$ is no a direct sum of nontrivial  subgroups and
 \be\label{h_c_cond_eqn}
 \begin{split}
 	\text{there is no a  subgroup } \Z_{p^q} \subset \pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \text{ with }q > r \\\text { and the natural inclusion } \Z_{p^r} \subsetneqq \Z_{p^q}.
@@ -12196,11 +12196,13 @@ Let $\mathfrak{A}_{\sV'}$ be a family of open connected  subsets of $\sV$ such t
 \end{itemize} 
 Suppose that the generator of  $\Z_{p^r}$ is represented by $\mathfrak{A}_{\sV'}$-path $\left(\sU_1, ..., \sU_k \right)$ such that if $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_k$ such that following conditions hold:
 \begin{itemize}
-	\item the inclusion $\sV \subset \sV'$ yields an isomorphism $K^1\left( \sV\right) \cong K^1\left( \sV'\right) $
+	\item the inclusion $\sV \subset \sV'$ yields an isomorphism 
+\be\label{h_v_tors_eqn}
+K^1\left( \sV\right) \cong K^1\left( \sV'\right)\cong \Z
+\ee	
 	\item   $\left[u_{\sV}\right]\bydef \left[u_{\sV'}|_\sV\right]$ is a generator of $K^1\left( \sV\right)$
 \end{itemize}
-Let $\pi : C\left( \sX\left[\Z_{p^r}\right]\right)\otimes \K\hookto B\left( \H\right)$ be a faithful nondegenerate representation.   
-Let  $\widetilde \sV \bydef P^{-1}_{\Z_{p^r}}\left( \sV\right) $ and $u_{\widetilde \sV}\bydef  P^{-1}_{\Z_{p^r}}|_{\widetilde \sV}\circ u_\sV:  \widetilde \sV \to U\left(1 \right)$. If $\phi_{p^r}$  satisfies to the equations  \eqref{h_n_root},\eqref{h_n_n_root} and $v_{\widetilde \sV} \bydef \phi_{p^r}\left( u_{\widetilde \sV}\right)\in B\left( \H\right) $ then  $v_{\widetilde \sV}\in \pi\left(C\left(\widetilde \sV \right)  \right) $, so we write $v_{\widetilde \sV}\in C\left(\widetilde \sV \right)$. Suppose that $u_{\widetilde \sV } \in C\left(\widetilde \sV \right)$ can be extended up to a continuous map $ u_{\sX\left[\Z_{p^r}\right]}  : \sX\left[\Z_{p^r}\right]\to U\left( 1\right)$. There is a continuous map 
+Let  $\widetilde \sV \bydef P^{-1}_{\Z_{p^r}}\left( \sV\right) $ and $u_{\widetilde \sV}\bydef  P^{-1}_{\Z_{p^r}}|_{\widetilde \sV}\circ u_\sV:  \widetilde \sV \to U\left(1 \right)$. If $\pi: C\left(\sX \right)\to B\left(\H \right)$ is a faithful nondegenerate representation  $\phi_{p^r}$  satisfies to the equations  \eqref{h_n_root},\eqref{h_n_n_root} and $v_{\widetilde \sV} \bydef \phi_{p^r}\left( \pi \left( u_{\widetilde \sV}\right)\right) \in B\left( \H\right) $ then  $v_{\widetilde \sV}\in \pi\left(C\left(\widetilde \sV \right)  \right) $, so we write $v_{\widetilde \sV}\in C\left(\widetilde \sV \right)$. If $u_{\widetilde \sV } \in C\left(\widetilde \sV \right)$ can be extended up to a continuous map $ u_{\sX\left[\Z_{p^r}\right]}  : \sX\left[\Z_{p^r}\right]\to U\left( 1\right)$, then there is a continuous map 
 \bean
 u_ \sX : \sX \to U\left( 1\right),\\
 u_\sX\left( x\right) \bydef  \prod_{\widetilde x \in P^{-1}_{\Z_{p^r}}\left(x \right) }  u_{\sX\left[\Z_{p^r}\right]}\left( \widetilde x\right) 
@@ -12210,11 +12212,11 @@ There is a  map
 \mathrm{pow}_{p^r}: U\left( 1\right)\to U\left( 1\right),\\
 u \mapsto u^{p^r},
 \eean
-is such that if $\mathcal W\subset S^1$ is contained in the circular arc $\a$  of the circle then the restriction $\mathrm{pow}_{p^r}|_{\mathcal W}$ has left inverse, i.e.
+is such that if $\mathcal W\subset S^1$ is contained in the circular arc $\a$  of the size $\frac{2\pi}{p^r}$ then the restriction $\mathrm{pow}_{p^r}|_{\mathcal W}$ has left inverse, i.e.
 \be
 \left.\mathrm{pow}^{-1}_{p^r}\right|_{{\mathrm{pow}_{p^r}}\left(\mathcal W \right) }\circ \mathrm{pow}_{p^r}|_{\mathcal W} = \Id_{\mathcal W}
 \ee
-We say   that a connected open  subset $\widetilde \sU \subset \sX\left[\Z_{{p^r}}\right]$ is $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-\textit{admissible}  if  $u_{\sX\left[\Z{p^r}\right]}\left( \widetilde \sU\right)$ is a subset of a circular arc of size $\frac{2\pi}{p^r}$.  Consider a family $\widetilde{\mathfrak A}$ of all connected open sets such that any $\widetilde\sU \in\widetilde{\mathfrak A}$ satisfies to following conditions:
+We say   that a connected open  subset $\widetilde \sU \subset \sX\left[\Z_{{p^r}}\right]$ is $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-\textit{admissible}  if  $u_{\sX\left[\Z{p^r}\right]}\left( \widetilde \sU\right)$ is a subset of a circular arc $\a$ of size $\frac{2\pi}{p^r}$.  Consider a family $\widetilde{\mathfrak A}$ of all connected open sets such that any $\widetilde\sU \in\widetilde{\mathfrak A}$ satisfies to following conditions:
 \begin{itemize}
 	\item $\widetilde \sU$ is mapped homeomorphically onto $P_{\Z_{p^r}}\left(\widetilde \sU\right) \subset \sX$. 
 	\item $\widetilde{\sU}$ is $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible}. 
@@ -12224,7 +12226,11 @@ Let $\widetilde x_0$ be such that $P_{\Z_{p^r}}\left( \widetilde x_0\right)= x_0
 v_{\sX\left[\Z_{{p^r}}\right]}\left( \widetilde x_0\right) = 1,\\
 v^{p^r}_{\sX\left[\Z_{{p^r}}\right]}=  u_\sX \circ P_{\Z_{{p^r}}}
 \eean
-If $\widetilde x_1 \in  \sX\left[\Z_{{p^r}}\right]$ then there is a weak  $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ with $\widetilde x_0 \in  \widetilde \sU_1$ and $\widetilde x_1 \in  \widetilde \sU_n$. Since $\widetilde \sU_1$ is  $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible} then there is a map $v_{\widetilde \sU_1}: \widetilde \sU_1 \to U\left( 1\right)$ such that
+If $\widetilde x_1 \in  \sX\left[\Z_{{p^r}}\right]$ then there is a weak  $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ with $\widetilde x_0 \in  \widetilde \sU_1$ and $\widetilde x_1 \in  \widetilde \sU_n$. Since $\widetilde \sU_1$ is  $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible} then  a map 
+$$
+v_{\widetilde \sU_1}\bydef \left.\mathrm{pow}^{-1}_{p^r}\right|_{{\mathrm{pow}_{p^r}}\left(P_{\Z_{{p^r}}}\left( \widetilde\sU_1\right)  \right)}: \widetilde \sU_1 \to U\left( 1\right)
+$$	
+is  such that
 \bean
 v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
 \forall  \widetilde x \in \widetilde \sU_1 \quad v^{p^r}_{\widetilde \sU_1}\left( \widetilde x\right) = u_\sX \circ P_{\Z_{{p^r}}}\left(\widetilde x \right).
@@ -12250,20 +12256,43 @@ Using the construction \ref{top_xg_empt} one obtains a nontrivial finite-fold co
 $$
 G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p^r}}\right]\right)= \Z_{p^s} \quad s > 0. 
 $$
-This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined. Taking into account the Theorem \ref{top_main_thm} one has the following lemma. So under above hypothesis a covering is admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_admissible_defn}). 
+This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined.  So under above hypothesis a covering is admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_admissible_defn}). 
 \paragraph{Free special case}
-Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume that  Suppose that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
+Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume  that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
 $\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_m$ and following conditions hold:
 \begin{itemize}
-	\item $K^1\left( \sV\right) \cong \Z$, 
+	\item one  has
+	\be\label{h_v_free_eqn}
+	K^1\left( \sV\right) \cong  \Z
+	\ee	
 	\item a generator $\left[u_{\sV}\right]\in K^1\left( \sV\right)$ of $K^1\left( \sV\right)$ is represented by a continuous map $u_{\sV} : \sV \to U\left(1 \right)$ with  $u_\sV\left( x_0\right) = 1$.
 	\item $K^1\left( \sX\right)\cong \Z \oplus K^\perp \left( \sX\right)$ and the inclusion   $\sV \to \sX$ yields a surjective homomorphism $K^1\left( \sX\right)\to \K^1\left(\sV \right)$ which is equivalent to the projection onto $\Z$ - component of $K^1\left( \sX\right)$. 
 	\item the map $u_{\sV}$ can be extended up to $u_\sX : \sX \to U(1)$ and $\left[u_\sX\right]\in K^1\left( \sX\right)$ is the generator of $\Z$ component.
 \end{itemize}
-If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn})
+If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn}).
+\paragraph{Comparison with classical Hurewicz homomorphism}
+According to the equations \eqref{h_v_tors_eqn},  \eqref{h_v_free_eqn} both above constructions assume the existence of a closed subset $\sV \subset \sX$ such that
+\begin{itemize}
+	\item $K^1\left(\sV \right)\cong \Z$,
+	\item the generator of  $K^1\left(\sV \right)$ is represented by the continuous  map $v_\sV : \sV \to U\left(1 \right)$. 
+\end{itemize}
+Using the exact sequence \eqref{toepl_eqn} one can obtain a following diagram
+\\
+\begin{tikzcd}
+	C_0\left(\sX \setminus \sV\right) \arrow[d] \arrow[r]&C\left(\sX \right)  \arrow[r, ""]\arrow[d ]&  C\left(\sV\right)  \arrow[d, "v_\sV"]\\
+	\K\arrow[r] & C^*\left(u \right) \arrow[r, ""]  &C\left(S^1 \right)  
+\end{tikzcd}
+\\
+The above diagram yields a following diagram of $K^1$-homology
+\\
+\begin{tikzcd}
+	K^1\left( C_0\left(\sX \setminus \sV\right)\right) &K^1\left( C\left(\sX \right) \right)  \arrow[l, ""]&K^1\left( C\left(\sV\right)\right)   \arrow[l]\\
+	K^1\left( \K\right) \arrow[u]\arrow[r] & K^1\left(  C^*\left(u \right)\right) \arrow[u] \arrow[l, ""]  &K^1\left(C\left(S^1 \right)  \right)\cong  \Z\arrow[u, "K^1\left( v_\sV\right)" ]\arrow[l]
+\end{tikzcd}
+\\
+where $K^1\left( v_\sV\right)$ is an isomorphism.
 
-
-\section{Comparison with classical Hurewicz homomorphism}
+\section{Comparison with classical Hurewicz homomorphism}.
 \paragraph{} The given by the equation  \ref{h_hk1_eqn} Hurewicz homomorphism 	$h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ implicitly assumes that the space $\sX$ is path connected. Here we prove that if $\sX$ is compact Hausdorff, path coconnected space then then following homomorphisms
 \bean
 \pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right),\\
