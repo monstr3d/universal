@@ -193,6 +193,13 @@ namespace Abstract3DConverters
             {
                 return o;
             }
+            if (Material == null)
+            {
+                if (count == 0)
+                {
+                    return null;
+                }
+            }
             return creator.Create(Material);
         }
 

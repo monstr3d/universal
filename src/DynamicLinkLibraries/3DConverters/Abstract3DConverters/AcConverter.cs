@@ -16,7 +16,7 @@ namespace Abstract3DConverters
 
         Service s = new();
 
-        protected  string[] colstr = ["amb", "emis", "spec", "shi", "trans"];
+        protected  string[] colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
         public AcConverter() : base("ac")
         {
@@ -74,15 +74,20 @@ namespace Abstract3DConverters
                 
                 Color diffcolor = null;
             Color specolor = null;
+                Color ambcolor = null;
                 for (var j = 0; j < arr.Length; j++)
                 {
                     var k = arr[j];
                     string  key = d[k];
                     switch (key)
                     {
+                        case "rgb":
+                            diffcolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
+                            break;
+
                         case "amb":
 
-                            diffcolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
+                            ambcolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
                              break;
                         case "emis":
                             var color = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
@@ -96,8 +101,8 @@ namespace Abstract3DConverters
                             spe = new SpecularMaterial(specolor, sp);
                             break;
                         case "trans":
-                            var tr = s.ToReal<float>(l[k + 1]);
-                            diff = new DiffuseMaterial(diffcolor, null, tr);
+                            var tr = 1 - s.ToReal<float>(l[k + 1]);
+                            diff = new DiffuseMaterial(diffcolor, ambcolor, null, tr);
                             break;
                         default: break;
                     }

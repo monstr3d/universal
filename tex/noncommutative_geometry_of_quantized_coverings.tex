@@ -12248,7 +12248,7 @@ $$
 If this construction does not provide the unique result then there is a closed path $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ such that 
 \bean
 \widetilde x_0 \in \widetilde \sU_1,\\
-\widetilde x_0 \in \widetilde \sU_n,\\
+\widetilde x_1 \in \widetilde \sU_n,\\
 v_{\widetilde \sU_1}\left(\widetilde x_0 \right)= 1,\\
 v_{\widetilde \sU_n}\left(\widetilde x_0 \right)= e^{2\pi i k / p^r}\neq 1.
 \eean
@@ -12274,24 +12274,30 @@ If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenera
 According to the equations \eqref{h_v_tors_eqn},  \eqref{h_v_free_eqn} both above constructions assume the existence of a closed subset $\sV \subset \sX$ such that
 \begin{itemize}
 	\item $K^1\left(\sV \right)\cong \Z$,
-	\item the generator of  $K^1\left(\sV \right)$ is represented by the continuous  map $v_\sV : \sV \to U\left(1 \right)$. 
+	\item the generator of  $K^1\left(\sV \right)$ is represented by the continuous  map $u_\sV : \sV \to U\left(1 \right)$. 
 \end{itemize}
 Using the exact sequence \eqref{toepl_eqn} one can obtain a following diagram
 \\
 \begin{tikzcd}
-	C_0\left(\sX \setminus \sV\right) \arrow[d] \arrow[r]&C\left(\sX \right)  \arrow[r, ""]\arrow[d ]&  C\left(\sV\right)  \arrow[d, "v_\sV"]\\
-	\K\arrow[r] & C^*\left(u \right) \arrow[r, ""]  &C\left(S^1 \right)  
+	C_0\left(\sX \setminus \sV\right) \arrow[d] \arrow[r]&C\left(\sX \right)  \arrow[r, "\mathrm{pr}_{\sX\downarrow\sV}"]\arrow[d, "\mathrm{pr}" ]&  C\left(\sV\right)  \arrow[d, "u_\sV"]\\
+	\K\arrow[r, "\iota"] & C^*\left(u \right) \arrow[r, "\mathrm{pr}"]  &C\left(S^1 \right)  
 \end{tikzcd}
 \\
 The above diagram yields a following diagram of $K^1$-homology
 \\
 \begin{tikzcd}
 	K^1\left( C_0\left(\sX \setminus \sV\right)\right) &K^1\left( C\left(\sX \right) \right)  \arrow[l, ""]&K^1\left( C\left(\sV\right)\right)   \arrow[l]\\
-	K^1\left( \K\right) \arrow[u]\arrow[r] & K^1\left(  C^*\left(u \right)\right) \arrow[u] \arrow[l, ""]  &K^1\left(C\left(S^1 \right)  \right)\cong  \Z\arrow[u, "K^1\left( v_\sV\right)" ]\arrow[l]
+	K^1\left( \K\right) \arrow[u]\arrow[r] & K^1\left(  C^*\left(u \right)\right) \arrow[u] \arrow[l, ""]  &K^1\left(C\left(S^1 \right)  \right)\cong  \Z\arrow[u, "K^1\left( u_\sV\right)" ]\arrow[l]
 \end{tikzcd}
 \\
-where $K^1\left( v_\sV\right)$ is an isomorphism.
+There is $u_\sX$ 
 
+where $K^1\left( u_\sV\right)$ is an isomorphism. 
+
+
+The  $*$-homomorphism $C\left( \sX\right) \to C\left(\sV \right) $ can be extended up to a homomorphism $M\left(C\left( \sX\right)\otimes \K\right)  \to M\left(  C\left(\sV \right) \otimes \K\right)$ so one can obtain $*$-homomorphisms  $M\left(C\left( \sX\right)\otimes \K\right)\to M\left((C\left( S^1\right)\otimes \K \right)$ and $Q\left(C\left( \sX\right)  \right) \to Q\left(C\left( S^1 \right) \right)$. 
+
+  
 \section{Comparison with classical Hurewicz homomorphism}.
 \paragraph{} The given by the equation  \ref{h_hk1_eqn} Hurewicz homomorphism 	$h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ implicitly assumes that the space $\sX$ is path connected. Here we prove that if $\sX$ is compact Hausdorff, path coconnected space then then following homomorphisms
 \bean
@@ -12442,7 +12448,7 @@ The homomorphism is not injective since $\left[\om\right] \in \pi_1^{\text{ab}}\
 	called the \textit{Toeplitz algebra}. The operator $e \bydef 1- uu^*$ is a one-dimensional projection. So $C^*\left(u \right)$ contains $\K$ as an essential
 	ideal, and $C^*\left(u \right)/ \K\cong C\left( S^1\right)$ . So there is a short exact sequence
 	\be\label{toepl_eqn}
-	0 \to \K \to C^*\left(u \right) \to C\left( S^1\right) \to 0
+	0 \to \K \xrightarrow{\iota} C^*\left(u \right) \xrightarrow{\mathrm{pr}} C\left( S^1\right) \to 0
 	\ee
 	which yields an exact sequence
 	\be\label{toepl_k_eqn}

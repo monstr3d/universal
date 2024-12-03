@@ -31,16 +31,17 @@ namespace Abstract3DConverters
 
         public float Opacity { get; private set; }
 
-        public DiffuseMaterial(Color color, Image image = null, float opacity = 0) : base(color)
+        public DiffuseMaterial(Color color, Color ambient, Image image = null, float opacity = 0) : base(color)
         {
             Image = image;
             Opacity = opacity;
+            AmbientColor = ambient;
         }
 
         protected override object CloneIfself()
         {
             var im = (Image == null) ? null : Image.Clone() as Image;
-            return new DiffuseMaterial(Color.Clone() as Color, im, Opacity);
+            return new DiffuseMaterial(Color.Clone() as Color, AmbientColor.Clone() as Color,  im, Opacity);
         }
     }
 }

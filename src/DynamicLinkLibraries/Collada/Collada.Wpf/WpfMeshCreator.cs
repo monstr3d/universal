@@ -104,7 +104,7 @@ namespace Collada.Wpf
                     if (kp >= 0)
                     {
                         var v = textures[kp];
-                        var t = new Point(v[0], 1- v[1]);
+                        var t = new Point(v[0], 1 - v[1]);
                         textcoord.Add(t);
                     }
                     if (idx.Length > 2)

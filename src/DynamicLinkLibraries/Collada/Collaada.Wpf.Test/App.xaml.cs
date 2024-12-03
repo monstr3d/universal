@@ -49,7 +49,7 @@ namespace Collaada.Wpf.Test
             // GenerateAC("H-60.ac");
             // GenerateAC("F-15-lowpoly.ac");
             //   GenerateAC("dauphin.ac");
-            //  GenerateAC("testpilot.ac");
+              GenerateAC("testpilot.ac");
         }
 
         Material DefaultMaterial
@@ -58,7 +58,7 @@ namespace Collaada.Wpf.Test
             {
                 var material = new Abstract3DConverters.MaterialGroup();
                 var color = new Abstract3DConverters.Color("1 1 1 1");
-                var diffuse = new Abstract3DConverters.DiffuseMaterial(color);
+                var diffuse = new Abstract3DConverters.DiffuseMaterial(color, null);
                 material.Children.Add(diffuse);
                 var specular = new Abstract3DConverters.SpecularMaterial(color, 0);
                 material.Children.Add(specular);

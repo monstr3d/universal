@@ -108,7 +108,7 @@ namespace Abstract3DConverters
             material = mat;
             if (Diffuse != null)
             {
-                var diffuse = new DiffuseMaterial(Diffuse, Kd, d);
+                var diffuse = new DiffuseMaterial(Diffuse, null, Kd, d);
                 //diffuse.Texture = Kd;
                 children.Add(diffuse);
             }
