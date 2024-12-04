@@ -41,15 +41,22 @@ namespace QuadraticSplitterLibrary
                     
                     return [polygon];
                 }
-                if (polygon.Points.Count == 4)
+        /*        if (polygon.Points.Count == 4)
                 {
                     var pt = polygon.Points;
                     var pol1 = new Polygon(new List<Tuple<int, float[]>>() { pt[0], pt[1], pt[2] });
                     var pol2 = new Polygon(new List<Tuple<int, float[]>>() { pt[0], pt[2], pt[3] });
                     return [Invert(pol1), Invert(pol2)];
 
+                }*/
+                var l = new List<Polygon>();
+                for (int i = 0;  i < polygon.Points.Count -2; i++)
+                {
+                    var pt = polygon.Points;
+                    var p = new Polygon(new List<Tuple<int, float[]>>() { pt[0], pt[i + 1], pt[i + 2] });
+                    l.Add(p);
                 }
-                throw new NotImplementedException();
+                return l.ToArray();
 
             }
 

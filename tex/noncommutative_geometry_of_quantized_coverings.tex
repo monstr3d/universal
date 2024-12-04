@@ -11968,15 +11968,15 @@ In result we obtain the following natural decomposition
 \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}
 \ee
 where every summand is matches to a  maximal covering (cf. Definition \ref{hurewicz_maximal_defn}).
-\begin{definition}\label{hurewicz_admissible_defn}
+\begin{definition}\label{hurewicz_quasi_admissible_defn}
 	A maximal finite-fold noncommutative covering  
 	$$
 	\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)
 	$$
-	is \textit{admissible}  if it is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
+	is \textit{quasi-admissible}  if it is a $\left(u, v, p^r \right)$-covering (cf. Definition \ref{hurewicz_u_n_defn}).
 \end{definition}
 \begin{empt}\label{h_cond_empt} 
-	Under the hypothesis of the Definition \ref{hurewicz_admissible_defn}	 one has a homomorphism $ \widetilde{A} \cong  A^{p^r}$ of $M\left( A\right) $ modules.  	It follows that there is the inclusion $\phi_{p^r}:M\left( \widetilde{A}\right) \hookto \mathbb{M}_{p^r}\left(M\left( A \right) \right)$. 
+	Under the hypothesis of the Definition \ref{hurewicz_quasi_admissible_defn}	 one has a homomorphism $ \widetilde{A} \cong  A^{p^r}$ of $M\left( A\right) $ modules.  	It follows that there is the inclusion $\phi_{p^r}:M\left( \widetilde{A}\right) \hookto \mathbb{M}_{p^r}\left(M\left( A \right) \right)$. 
 	There is a block-diagonal infinite dimensional  matrix
 	\be
 	\overline v \bydef	\begin{pmatrix}
@@ -11991,7 +11991,7 @@ where every summand is matches to a  maximal covering (cf. Definition \ref{hurew
 	\overline v \in Q\left(A \right) 	
 	$$
 	Using this construction we define
-	\be
+	\be\label{hurewicz_xv_egn}
 	x_v = \partial \left[\overline v\right]\in K_0\left( A\right) \cong K_0\left(A\otimes \K \right).
 	\ee
 	where $\left[\overline v\right] \in K_1\left(Q\left(A\right) \right)$ is represented by $\overline {v}$, the homomorphism   $\partial$  is the index map (cf. Definition \ref{index_map_defn}) from  the well known exact sequence 
@@ -12024,14 +12024,40 @@ $$
 	 $$
 	 so one has
 	 \be
-	 \Z x \cong \Z ~\partial 	\left[\overline v \right] \cong \Z_{p^r}.
+	 \Z x_v \cong \Z ~\partial 	\left[\overline v \right] \cong \Z_{p^r}.
 	 \ee
+\begin{definition}\label{hurewicz_admissible_defn}
+	A quasi-admissible finite-fold noncommutative covering  
+	$$
+	\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)
+	$$
+	(cf. Definition \ref{hurewicz_quasi_admissible_defn})
+	is \textit{admissible}  if there is a direct sum
+	\be\label{hurewicz_admissible_eqn}
+	K_0\left( A\right)_{\mathrm{tors}}= \Z x_v \oplus K_0\left( A\right)^\perp_{\mathrm{tors}}
+	\ee
+where $x_v$ is given by the equation \eqref{hurewicz_xv_egn}.	
+\end{definition}
+Below we suppose that 	a finite-fold noncommutative covering  
+$$
+\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)
+$$
+is admissible,
 There is the natural isomorphism
-	\bean
-	G\left( \left.\widetilde A\right| A\right) \cong \Z_{p^r} \to \Z x\subset  K_0\left( A\right)_{\mathrm{tors}},\\
-	\overline k \mapsto k x
-	\eean
-	where $k \in \Z$ is a representative of $\overline k \in   \Z_{p^r}$.
+	\be\label{h_gk_eqn}
+	\begin{split}
+	G\left( \left.\widetilde A\right| A\right) \cong \Z_{p^r} \to \Hom\left(\Z,  \Z x_v\right) ,\\
+\left(m \mapsto m x_v \right) \mapsto \left( \overline k \mapsto k m x_v\right) 
+	\end{split}
+	\ee
+	where $k \in \Z$ is a representative of $\overline k \in   \Z_{p^r}$. Any element of $\Hom\left(\Z,  \Z x_v\right)$ represents an element of $\Ext^1_\Z\left(\Z x_v, \Z  \right)$ so the map \eqref{h_gk_eqn} yields a homomorphism
+	$$
+	G\left( \left.\widetilde A\right| A\right) \to 	\Ext^1_\Z\left(\Z x_v, \Z  \right)
+	$$
+	and from \eqref{hurewicz_admissible_eqn} we can obtain a homomorphism
+	$$
+		G\left( \left.\widetilde A\right| A\right) \to 	\to \Ext^1_\Z\left(K_0\left( A\right)_{\mathrm{tors}}, \Z  \right).
+	$$
 	Taking into account the natural isomorphism $$\Ext^1_\Z\left(K_0\left( A\right), \Z  \right) \cong \Ext^1_\Z\left(K_0\left( A\right)_{\mathrm{tors}}, \Z  \right)$$
 	one has the homomorphism
 	\be\label{h_hpr_eqn}
@@ -12197,11 +12223,16 @@ Let $\mathfrak{A}_{\sV'}$ be a family of open connected  subsets of $\sV$ such t
 Suppose that the generator of  $\Z_{p^r}$ is represented by $\mathfrak{A}_{\sV'}$-path $\left(\sU_1, ..., \sU_k \right)$ such that if $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_k$ such that following conditions hold:
 \begin{itemize}
 	\item the inclusion $\sV \subset \sV'$ yields an isomorphism 
-\be\label{h_v_tors_eqn}
-K^1\left( \sV\right) \cong K^1\left( \sV'\right)\cong \Z
-\ee	
+	\be\label{h_v_tors_eqn}
+	K^1\left( \sV\right) \cong K^1\left( \sV'\right)\cong \Z
+	\ee	
 	\item   $\left[u_{\sV}\right]\bydef \left[u_{\sV'}|_\sV\right]$ is a generator of $K^1\left( \sV\right)$
 \end{itemize}
+There is $v_\sX \in C\left(\sX \right)$ such that
+\be\label{h_tors_vx_eqn}
+u_\sV = \left.v_\sX\right|_\sV.
+\ee
+
 Let  $\widetilde \sV \bydef P^{-1}_{\Z_{p^r}}\left( \sV\right) $ and $u_{\widetilde \sV}\bydef  P^{-1}_{\Z_{p^r}}|_{\widetilde \sV}\circ u_\sV:  \widetilde \sV \to U\left(1 \right)$. If $\pi: C\left(\sX \right)\to B\left(\H \right)$ is a faithful nondegenerate representation  $\phi_{p^r}$  satisfies to the equations  \eqref{h_n_root},\eqref{h_n_n_root} and $v_{\widetilde \sV} \bydef \phi_{p^r}\left( \pi \left( u_{\widetilde \sV}\right)\right) \in B\left( \H\right) $ then  $v_{\widetilde \sV}\in \pi\left(C\left(\widetilde \sV \right)  \right) $, so we write $v_{\widetilde \sV}\in C\left(\widetilde \sV \right)$. If $u_{\widetilde \sV } \in C\left(\widetilde \sV \right)$ can be extended up to a continuous map $ u_{\sX\left[\Z_{p^r}\right]}  : \sX\left[\Z_{p^r}\right]\to U\left( 1\right)$, then there is a continuous map 
 \bean
 u_ \sX : \sX \to U\left( 1\right),\\
@@ -12222,10 +12253,12 @@ We say   that a connected open  subset $\widetilde \sU \subset \sX\left[\Z_{{p^r
 	\item $\widetilde{\sU}$ is $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible}. 
 \end{itemize}
 Let $\widetilde x_0$ be such that $P_{\Z_{p^r}}\left( \widetilde x_0\right)= x_0$ and let us construct $v_{\sX\left[\Z_{{p^r}}\right]} : \sX\left[\Z_{{p^r}}\right]\to U\left( 1\right)$ such that 
-\bean
-v_{\sX\left[\Z_{{p^r}}\right]}\left( \widetilde x_0\right) = 1,\\
-v^{p^r}_{\sX\left[\Z_{{p^r}}\right]}=  u_\sX \circ P_{\Z_{{p^r}}}
-\eean
+\be\label{h_vx_eqn}
+\begin{split}
+	v_{\sX\left[\Z_{{p^r}}\right]}\left( \widetilde x_0\right) = 1,\\
+	v^{p^r}_{\sX\left[\Z_{{p^r}}\right]}=  u_\sX \circ C\left(  P_{\Z_{{p^r}}}\right). 
+\end{split}
+\ee
 If $\widetilde x_1 \in  \sX\left[\Z_{{p^r}}\right]$ then there is a weak  $\widetilde{\mathfrak A}$-path $\left( \widetilde \sU_1, ..., \widetilde \sU_n\right)$ with $\widetilde x_0 \in  \widetilde \sU_1$ and $\widetilde x_1 \in  \widetilde \sU_n$. Since $\widetilde \sU_1$ is  $u_{\sX\left[\Z{p^r}\right]}$-$p^r$-{admissible} then  a map 
 $$
 v_{\widetilde \sU_1}\bydef \left.\mathrm{pow}^{-1}_{p^r}\right|_{{\mathrm{pow}_{p^r}}\left(P_{\Z_{{p^r}}}\left( \widetilde\sU_1\right)  \right)}: \widetilde \sU_1 \to U\left( 1\right)
@@ -12256,33 +12289,76 @@ Using the construction \ref{top_xg_empt} one obtains a nontrivial finite-fold co
 $$
 G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p^r}}\right]\right)= \Z_{p^s} \quad s > 0. 
 $$
-This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined.  So under above hypothesis a covering is admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_admissible_defn}). 
+This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined.  So under above hypothesis a covering is quasi-admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_quasi_admissible_defn}). 
 \paragraph{Free special case}
 Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume  that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
 $\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_m$ and following conditions hold:
 \begin{itemize}
 	\item one  has
 	\be\label{h_v_free_eqn}
-	K^1\left( \sV\right) \cong  \Z
+	K_1\left( \sV\right) \cong  \Z
 	\ee	
-	\item a generator $\left[u_{\sV}\right]\in K^1\left( \sV\right)$ of $K^1\left( \sV\right)$ is represented by a continuous map $u_{\sV} : \sV \to U\left(1 \right)$ with  $u_\sV\left( x_0\right) = 1$.
+	\item a generator $\left[u_{\sV}\right]\in K_1\left( \sV\right)$ of $K^1\left( \sV\right)$ is represented by a continuous map $u_{\sV} : \sV \to U\left(1 \right)$ with  $u_\sV\left( x_0\right) = 1$.
 	\item $K^1\left( \sX\right)\cong \Z \oplus K^\perp \left( \sX\right)$ and the inclusion   $\sV \to \sX$ yields a surjective homomorphism $K^1\left( \sX\right)\to \K^1\left(\sV \right)$ which is equivalent to the projection onto $\Z$ - component of $K^1\left( \sX\right)$. 
-	\item the map $u_{\sV}$ can be extended up to $u_\sX : \sX \to U(1)$ and $\left[u_\sX\right]\in K^1\left( \sX\right)$ is the generator of $\Z$ component.
+	\item the map $u_{\sV}$ can be extended up to $v_\sX : \sX \to U(1)$ and $\left[v_\sX\right]\in K_1\left( \sX\right)$ is the generator of $\Z$ component, i.e.
+	\be\label{h_free_vx_eqn}
+	u_\sV = \left.v_\sX\right|_\sV.
+	\ee
+	
 \end{itemize}
 If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn}).
 \paragraph{Comparison with classical Hurewicz homomorphism}
 According to the equations \eqref{h_v_tors_eqn},  \eqref{h_v_free_eqn} both above constructions assume the existence of a closed subset $\sV \subset \sX$ such that
 \begin{itemize}
 	\item $K^1\left(\sV \right)\cong \Z$,
-	\item the generator of  $K^1\left(\sV \right)$ is represented by the continuous  map $u_\sV : \sV \to U\left(1 \right)$. 
+	\item the generator of  $K^1\left(\sV \right)$ is represented by the continuous  map $u_\sV : \sV \to U\left(1 \right)$.
+	\item there is aa exact sequence of $C^*$-algebras
+	\be\label{h_ex_eqn}
+	\{0\}\to C_0\left(\sX \setminus \sV\right)\hookto C\left( \sX\right)\xrightarrow{\mathrm{pr}_{\sX/\sV}}  C\left(\sV \right)\to \{0\}  
+	\ee 
+	and $v_\sX \in C\left(\sX \right)$  with $\mathrm{pr}_{\sX/\sV}\left(v_\sX \right) = v_\sV$ !!!  MAY BE DELETE (cf. equations \eqref{h_tors_vx_eqn} and \eqref{h_free_vx_eqn}) 
 \end{itemize}
-Using the exact sequence \eqref{toepl_eqn} one can obtain a following diagram
+If $u \in C\left(S^1 \right)$ is a unitary element such that $C\left(S^1 \right)$ is generated by $u$ $C^*$-algebra and $K^1\left( C\left(S^1 \right)\right) \cong \Z\left[u\right]$ then there is a *-homomorphism
+\bean
+C\left(S^1 \right)\to C\left(\sV \right);\\
+\sum_{j \in \Z} c_j u^j \mapsto \sum_{j \in \Z} c_j u^j_\sV. \quad \forall j \in \Z \quad c_j \in \C.
+\eean
+If $v$ is an unilateral shift on the Hilbert space and $C^*\left(v \right)$ is  $C^*$-algebra generated   by $v$ then the map
+\bean
+C^*\left(v \right) \to C\left( S^1\right);\\ 
+\sum_{j \in \Z} c_j v^j \mapsto \sum_{j \in \Z} c_j u^j_\sV. \quad \forall j \in \Z \quad c_j \in \C
+\eean
+is a surjective homomorphism and there is the given by \eqref{toepl_eqn} exact sequence
+	\bean
+0 \to \K \xrightarrow{\iota} C^*\left(v \right) \xrightarrow{\mathrm{pr}} C\left( S^1\right) \to 0
+\eean
+Taking into account that $\K \subset C^*\left(u \right)$ is the unique ideal one has the following diagram 
 \\
 \begin{tikzcd}
-	C_0\left(\sX \setminus \sV\right) \arrow[d] \arrow[r]&C\left(\sX \right)  \arrow[r, "\mathrm{pr}_{\sX\downarrow\sV}"]\arrow[d, "\mathrm{pr}" ]&  C\left(\sV\right)  \arrow[d, "u_\sV"]\\
-	\K\arrow[r, "\iota"] & C^*\left(u \right) \arrow[r, "\mathrm{pr}"]  &C\left(S^1 \right)  
+	\{0\}\arrow[r]&	C_0\left(\sX \setminus \sV\right)  \arrow[r]&C\left(\sX \right)  \arrow[r, "\mathrm{pr}_{\sX/\sV}"]&  C\left(\sV\right) \arrow[r] & \{0\} \\
+	\{0\}\arrow[r]&	\K\arrow[u]\arrow[r, "\iota"] & C^*\left(u \right) \arrow[u, "\tau" ] \arrow[r, "\mathrm{pr}"]  &C\left(S^1 \right)\arrow[u, "\widetilde \tau"]\arrow[r]& \{0\} 
 \end{tikzcd}
 \\
+If we consider a torsion special case we will extend this diagram up to
+\\
+\\
+\begin{tikzcd}
+	& & C\left(\sX\left[\Z_{p^r}\right] \right) \arrow[rd, "\desc"] \\
+	\{0\}\arrow[r]&	C_0\left(\sX \setminus \sV\right)  \arrow[r]&C\left(\sX \right)\arrow[u, "C\left(  P_{\Z_{{p^r}}}\right)"]  \arrow[r, "\mathrm{pr}_{\sX/\sV}"]&  C\left(\sV\right) \arrow[r] & \{0\} \\
+	\{0\}\arrow[r]&	\K\arrow[u]\arrow[r, "\iota"] & C^*\left(v \right) \arrow[u, "\tau" ] \arrow[r, "\mathrm{pr}"]  &C\left(S^1 \right)\arrow[u, "\widetilde \tau"]\arrow[r]& \{0\} 
+\end{tikzcd}
+\\
+The above diagram is not commutative since $\desc \circ C\left(  P_{\Z_{{p^r}}}\right)\neq \mathrm{pr}_{\sX/\sV}$. If $v_{\sX\left[\Z_{{p^r}}\right]}\in \sX\left[\Z_{{p^r}}\right]$ satisfies to the equation \eqref{h_vx_eqn} then  $$
+\desc\left(v_{\sX\left[\Z_{{p^r}}\right]} \right)=u_\sV=\mathrm{pr}_{\sX/\sV} \left( v_\sX\right) = \mathrm{pr}_{\sX/\sV}\circ \tau\left(v \right) 
+$$
+The homomorphism 
+
+Using that $K_1\left(C\left(\sV \right)  \right) \cong \Z$ and taking into account that $\left[u_\sV\right]$ is a generator of $K_1\left( \sV\right)$ the map 
+
+
+
+one can obtain a following diagram
+
 The above diagram yields a following diagram of $K^1$-homology
 \\
 \begin{tikzcd}
@@ -12297,7 +12373,11 @@ where $K^1\left( u_\sV\right)$ is an isomorphism.
 
 The  $*$-homomorphism $C\left( \sX\right) \to C\left(\sV \right) $ can be extended up to a homomorphism $M\left(C\left( \sX\right)\otimes \K\right)  \to M\left(  C\left(\sV \right) \otimes \K\right)$ so one can obtain $*$-homomorphisms  $M\left(C\left( \sX\right)\otimes \K\right)\to M\left((C\left( S^1\right)\otimes \K \right)$ and $Q\left(C\left( \sX\right)  \right) \to Q\left(C\left( S^1 \right) \right)$. 
 
-  
+
+
+
+
+
 \section{Comparison with classical Hurewicz homomorphism}.
 \paragraph{} The given by the equation  \ref{h_hk1_eqn} Hurewicz homomorphism 	$h_{K_1}	:\pi_1\left(\sX, x_0 \right)\to  K_1\left(\sX \right)$ implicitly assumes that the space $\sX$ is path connected. Here we prove that if $\sX$ is compact Hausdorff, path coconnected space then then following homomorphisms
 \bean
