@@ -45,9 +45,11 @@ namespace Collaada.Wpf.Test
 
         void GenerateAC()
         {
-            GenerateAC("tu154B.ac");
+          //  GenerateAC("tu154B.ac");
+        //    return;
              GenerateAC("H-60.ac");
-             GenerateAC("F-15-lowpoly.ac");
+            return;
+           //  GenerateAC("F-15-lowpoly.ac");
                GenerateAC("dauphin.ac");
              GenerateAC("testpilot.ac");
         }

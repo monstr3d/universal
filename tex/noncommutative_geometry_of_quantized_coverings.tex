@@ -12290,24 +12290,7 @@ $$
 G\left(\left.\widetilde \sX \right| \sX\left[\Z_{{p^r}}\right]\right)= \Z_{p^s} \quad s > 0. 
 $$
 This fact contradicts with the condition \eqref{h_c_cond_eqn} so  $v_{\sX\left[\Z_{{p^r}}\right]}$ is uniquely defined.  So under above hypothesis a covering is quasi-admissible (cf. Definitions \ref{hurewicz_maximal_defn} and \ref{hurewicz_quasi_admissible_defn}). 
-\paragraph{Free special case}
-Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume  that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
-$\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_m$ and following conditions hold:
-\begin{itemize}
-	\item one  has
-	\be\label{h_v_free_eqn}
-	K_1\left( \sV\right) \cong  \Z
-	\ee	
-	\item a generator $\left[u_{\sV}\right]\in K_1\left( \sV\right)$ of $K^1\left( \sV\right)$ is represented by a continuous map $u_{\sV} : \sV \to U\left(1 \right)$ with  $u_\sV\left( x_0\right) = 1$.
-	\item $K^1\left( \sX\right)\cong \Z \oplus K^\perp \left( \sX\right)$ and the inclusion   $\sV \to \sX$ yields a surjective homomorphism $K^1\left( \sX\right)\to \K^1\left(\sV \right)$ which is equivalent to the projection onto $\Z$ - component of $K^1\left( \sX\right)$. 
-	\item the map $u_{\sV}$ can be extended up to $v_\sX : \sX \to U(1)$ and $\left[v_\sX\right]\in K_1\left( \sX\right)$ is the generator of $\Z$ component, i.e.
-	\be\label{h_free_vx_eqn}
-	u_\sV = \left.v_\sX\right|_\sV.
-	\ee
-	
-\end{itemize}
-If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn}).
-\paragraph{Comparison with classical Hurewicz homomorphism}
+
 According to the equations \eqref{h_v_tors_eqn},  \eqref{h_v_free_eqn} both above constructions assume the existence of a closed subset $\sV \subset \sX$ such that
 \begin{itemize}
 	\item $K^1\left(\sV \right)\cong \Z$,
@@ -12329,7 +12312,7 @@ C^*\left(v \right) \to C\left( S^1\right);\\
 \sum_{j \in \Z} c_j v^j \mapsto \sum_{j \in \Z} c_j u^j_\sV. \quad \forall j \in \Z \quad c_j \in \C
 \eean
 is a surjective homomorphism and there is the given by \eqref{toepl_eqn} exact sequence
-	\bean
+\bean
 0 \to \K \xrightarrow{\iota} C^*\left(v \right) \xrightarrow{\mathrm{pr}} C\left( S^1\right) \to 0
 \eean
 Taking into account that $\K \subset C^*\left(u \right)$ is the unique ideal one has the following diagram 
@@ -12348,13 +12331,35 @@ If we consider a torsion special case we will extend this diagram up to
 	\{0\}\arrow[r]&	\K\arrow[u]\arrow[r, "\iota"] & C^*\left(v \right) \arrow[u, "\tau" ] \arrow[r, "\mathrm{pr}"]  &C\left(S^1 \right)\arrow[u, "\widetilde \tau"]\arrow[r]& \{0\} 
 \end{tikzcd}
 \\
+
 The above diagram is not commutative since $\desc \circ C\left(  P_{\Z_{{p^r}}}\right)\neq \mathrm{pr}_{\sX/\sV}$. If $v_{\sX\left[\Z_{{p^r}}\right]}\in \sX\left[\Z_{{p^r}}\right]$ satisfies to the equation \eqref{h_vx_eqn} then  $$
-\desc\left(v_{\sX\left[\Z_{{p^r}}\right]} \right)=u_\sV=\mathrm{pr}_{\sX/\sV} \left( v_\sX\right) = \mathrm{pr}_{\sX/\sV}\circ \tau\left(v \right) 
+\desc\left(v_{\sX\left[\Z_{{p^r}}\right]} \right)=u_\sV= \mathrm{pr}_{\sX/\sV}\circ \tau\left(v \right) 
 $$
-The homomorphism 
+There is a homomorphism 
 
 Using that $K_1\left(C\left(\sV \right)  \right) \cong \Z$ and taking into account that $\left[u_\sV\right]$ is a generator of $K_1\left( \sV\right)$ the map 
 
+\paragraph{title}
+\begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
+	%	8.3.2. The map @ is called the index map. The reason is the following. 
+	Suppose $A$ is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
+	\be\label{partial_p_eqn}
+	w = \begin{pmatrix}
+		v & 1 - vv^*\\
+		1- v^*v& v^*
+	\end{pmatrix},
+	\ee
+	so 
+	\be\label{partial_u_eqn}
+	\begin{split}
+		\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[\mathrm{diag}\left( v^*v, 1-vv^*\right) \right]- \left[p_n\right] = \\=\left[ 1-vv^*\right]- \left[1-v^*v\right].
+	\end{split}
+	\ee
+\end{empt}
+
+
+
+\paragraph{title}
 
 
 one can obtain a following diagram
@@ -12375,6 +12380,25 @@ The  $*$-homomorphism $C\left( \sX\right) \to C\left(\sV \right) $ can be extend
 
 
 
+
+\paragraph{Free special case}
+Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume  that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
+$\left(\sU_1, ..., \sU_m \right)$ (cf. Definition \ref{top_weak_fundamental_group_empt}). Suppose that $\sV $ is the closure of the union $\sU_1\cup ...\cup \sU_m$ and following conditions hold:
+\begin{itemize}
+	\item one  has
+	\be\label{h_v_free_eqn}
+	K_1\left( \sV\right) \cong  \Z
+	\ee	
+	\item a generator $\left[u_{\sV}\right]\in K_1\left( \sV\right)$ of $K^1\left( \sV\right)$ is represented by a continuous map $u_{\sV} : \sV \to U\left(1 \right)$ with  $u_\sV\left( x_0\right) = 1$.
+	\item $K^1\left( \sX\right)\cong \Z \oplus K^\perp \left( \sX\right)$ and the inclusion   $\sV \to \sX$ yields a surjective homomorphism $K^1\left( \sX\right)\to \K^1\left(\sV \right)$ which is equivalent to the projection onto $\Z$ - component of $K^1\left( \sX\right)$. 
+	\item the map $u_{\sV}$ can be extended up to $v_\sX : \sX \to U(1)$ and $\left[v_\sX\right]\in K_1\left( \sX\right)$ is the generator of $\Z$ component, i.e.
+	\be\label{h_free_vx_eqn}
+	u_\sV = \left.v_\sX\right|_\sV.
+	\ee
+	
+\end{itemize}
+If $\pi: C\left( \sX\right)\hookto B\left(\H \right) $ is a faithful nondegenerate representation and $v_j \bydef \phi_j \left(u_\sX \right)$ where $\phi_j$ satisfies to the equations \eqref{h_n_root} and \eqref{h_n_n_root} then the family  $\left\{v_{k}\right\}_{k \in \N}$ satisfies to the Definition \ref{h_admissible_free_defn}, i.e. the elemevt $\left[u_\sX\right]\in K^1\left( \sX\right)$ is admissible (cf. Definition \ref{h_admissible_free_defn}).
+\paragraph{Comparison with classical Hurewicz homomorphism}
 
 
 
@@ -12536,6 +12560,11 @@ The homomorphism is not injective since $\left[\om\right] \in \pi_1^{\text{ab}}\
 	\ee
 	
 \end{empt}
+\begin{remark}\label{toepl_iso_rem}\cite{blackadar:ko}
+!!! DOWN !!!
+The $ C^*\left(v \right)$ is the universal $C^*$-algebra generated by an isometry, i.e. if $u$ is an isometry there is a canonical homomorphism from  $C^*\left(v \right)$ onto  $C^*\left(v \right)$ sending
+$v$ to $u$.
+\end{remark}
  
 \paragraph{Free special case}
 Suppose that $\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) = \Z \oplus \pi_1^\perp\left(\sX, x_0 \right)$. Assume that  Suppose that the generator  of $\Z$-component  is represented by the weak closed $x_0$-path 
