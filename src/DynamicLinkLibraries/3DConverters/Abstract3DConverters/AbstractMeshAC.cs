@@ -23,17 +23,7 @@ namespace Abstract3DConverters
 
         private List<Polygon> polygons;
 
-        Material mat;
-
-        public Material Material 
-        {
-            get => mat;
-            private set
-            {
-                mat = value;
-            }
-        }
-
+  
         public AbstractMeshAC(string name, int count, List<string> l, List<Material> materials, string directory) : base(name)
         {
            // Material = material.Clone() as Material;

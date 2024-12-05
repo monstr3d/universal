@@ -28,9 +28,9 @@ namespace Collada.Converter
 
 
 
-        AbstractMeshCollada Create(node node)
+        AbstractMesh Create(node node)
         {
-            var mesh = CreareOwn(node);
+            var mesh =  new AbstractMeshCollada(node);
             if (node.node1 != null)
             {
                 foreach (var item in node.node1)

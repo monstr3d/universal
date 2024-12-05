@@ -29,13 +29,8 @@ namespace Collada.Converter
                         }
                     }
                 }
-                yield  break;
+                yield break;
             }
-        }
-       
-        AbstractMeshCollada CreareOwn(node node)
-        {
-            return new AbstractMeshCollada(node.name);
         }
     }
 }

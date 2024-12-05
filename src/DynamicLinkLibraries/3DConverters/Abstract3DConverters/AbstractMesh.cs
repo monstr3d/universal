@@ -36,7 +36,19 @@
 
         public string Name { get; protected set; }
 
-        public string Material { get; protected set; }
+        public string MaterialString { get; protected set; }
+
+        Material mat;
+
+        public Material Material
+        {
+            get => mat;
+            protected set
+            {
+                mat = value;
+            }
+        }
+
 
 
         protected AbstractMesh(string name)
@@ -48,7 +60,7 @@
         public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals,
             List<float[]> textures, List<int[][]> indexes) : this(name)
         {
-            Material = material;
+            MaterialString = material;
             Vertices = vertices;
             Normals = normals;
             Textures = textures;
@@ -59,9 +71,9 @@
         {
             if (Material != null)
             {
-                if (map.ContainsKey(Material))
+                if (map.ContainsKey(MaterialString))
                 {
-                    return map[Material];
+                    return map[MaterialString];
                 }
             }
             return null;

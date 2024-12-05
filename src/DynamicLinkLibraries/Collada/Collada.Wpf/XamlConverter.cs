@@ -20,7 +20,7 @@ namespace Collada.Wpf
             {
                 var model = new ModelVisual3D();
                 var g = new GeometryModel3D();
-                var mat = mesh.Material;
+                var mat = mesh.MaterialString;
                 if (keyValues.ContainsKey(mat))
                 {
                     g.Material = keyValues[mat];
