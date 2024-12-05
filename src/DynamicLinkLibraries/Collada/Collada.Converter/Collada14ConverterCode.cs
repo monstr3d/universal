@@ -10,20 +10,38 @@ namespace Collada.Converter
 {
     partial class Collada14Converter
     {
-        Tuple<object, List<AbstractMesh>> Create(Collada141.COLLADA collada)
+        Tuple<object, List<AbstractMesh>> Create()
         {
-            var t = new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>());
+            var l = new List<AbstractMesh>();
+            foreach (var node in Nodes)
+            {
+                l.Add(Create(node));
+            }
+            
+
+            var t = new Tuple<object, List<AbstractMesh>>(null, l);
    //         var sc = collada.asset.no
             return t;
         }
 
+        
+
+
+
         AbstractMeshCollada Create(node node)
         {
             var mesh = CreareOwn(node);
-            foreach (var item in node.node1)
+            if (node.node1 != null)
             {
-                var m = Create(item);
-                m.Parent = mesh;
+                foreach (var item in node.node1)
+                {
+                    if (item == null)
+                    {
+                        continue;
+                    }
+                    var m = Create(item);
+                    m.Parent = mesh;
+                }
             }
             return mesh;
         }

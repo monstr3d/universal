@@ -9,7 +9,7 @@ namespace Collada.Converter
 {
     internal class AbstractMeshCollada : AbstractMesh
     {
-        protected AbstractMeshCollada(string name) : base(name)
+        internal AbstractMeshCollada(string name) : base(name)
         {
         }
     }

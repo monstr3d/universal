@@ -9,10 +9,33 @@ namespace Collada.Converter
 {
     partial class Collada14Converter
     {
+        IEnumerable<node> Nodes
+        {
+            get
+            {
+                var it = collada.Items;
+                foreach (var i in it)
+                {
+                    if (i is library_visual_scenes sc)
+                    {
+                        var vs = sc.visual_scene;
+                        foreach (var v in vs)
+                        {
+                            var nd = v.node;
+                            foreach (var n in nd)
+                            {
+                                yield return n;
+                            }
+                        }
+                    }
+                }
+                yield  break;
+            }
+        }
        
         AbstractMeshCollada CreareOwn(node node)
         {
-            return null;
+            return new AbstractMeshCollada(node.name);
         }
     }
 }
