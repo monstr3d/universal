@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Markup;
@@ -7,6 +8,7 @@ using System.Windows.Media.Media3D;
 using System.Xml;
 using Abstract3DConverters;
 using Collada;
+using Collada.Converter;
 using Collada.Wpf;
 using Material = Abstract3DConverters.Material;
 
@@ -20,9 +22,10 @@ namespace Collaada.Wpf.Test
         public App()
         {
             // Compare();
-             // Generate();
-           // GenerateObj();
-              GenerateAC();
+            // Generate();
+            // GenerateObj();
+            //  GenerateAC();
+            GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -42,6 +45,18 @@ namespace Collaada.Wpf.Test
         };
 
         string acdir = @"c:\AUsers\1MySoft\CSharp\03D\AC";
+
+        void GenerateCollada()
+        {
+            GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\11.dae");
+        }
+
+
+        void GenerateCollada(string filename)
+        {
+            IAbstractMeshCreator converter = new Collada14Converter();
+            var res = converter.Create(filename);
+        }
 
         void GenerateAC()
         {

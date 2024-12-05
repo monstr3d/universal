@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
     public class Image : ICloneable
     {

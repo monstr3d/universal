@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
     public class Color : ICloneable
     {

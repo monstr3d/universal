@@ -6,6 +6,11 @@
 
         protected string directory;
 
+        public AbstractMeshCreator(string extension)
+        {
+            this.extension = extension;
+        }
+
 
         string IAbstractMeshCreator.Extension => extension;
 
@@ -17,11 +22,7 @@
             return Create(filename);
         }
 
-        protected AbstractMeshCreator(string extension)
-        {
-            this.extension = extension;
-        }
-
+     
 
         protected abstract Tuple<object, List<AbstractMesh>> Create(string filename);
 
@@ -34,7 +35,6 @@
             }
             action(mesh);
         }
-
         
     }
 }

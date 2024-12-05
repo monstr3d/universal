@@ -18,7 +18,7 @@ namespace Abstract3DConverters
 
         protected  string[] colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
-        public AcConverter() : base("ac")
+        public AcConverter() : base(".ac")
         {
         }
 

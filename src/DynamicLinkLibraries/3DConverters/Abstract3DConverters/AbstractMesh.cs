@@ -1,6 +1,4 @@
-﻿using Collada;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
     public class AbstractMesh
     {
