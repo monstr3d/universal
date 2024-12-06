@@ -1,4 +1,5 @@
 ﻿using Abstract3DConverters;
+using Collada141;
 
 namespace Collada.Converter
 {
@@ -6,6 +7,8 @@ namespace Collada.Converter
     {
 
         private Collada141.COLLADA collada;
+
+        Dictionary<Type, List<object>> dic = new Dictionary<Type, List<object>>();
         public Collada14Converter() : base(".dae")
         {
         }
@@ -14,6 +17,8 @@ namespace Collada.Converter
         protected override Tuple<object, List<AbstractMesh>> Create(string filename)
         {
             collada = Collada141.COLLADA.Load(filename);
+            collada.Add(dic, collada.GetType().Assembly);
+           
             return Create();
         }
     }

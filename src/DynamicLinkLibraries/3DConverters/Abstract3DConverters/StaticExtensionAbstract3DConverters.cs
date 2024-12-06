@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -57,6 +58,60 @@ namespace Abstract3DConverters
                 }
             }
 
+        }
+
+        /// <summary>
+        /// Adds object with all its properties
+        /// </summary>
+        /// <param name="obj">the object</param>
+        /// <param name="dic">the dictionary</param>
+        /// <param name="assembly">the assembly</param>
+        static public void Add(this object obj, Dictionary<Type, List<object>> dic, Assembly assembly)
+        {
+            if (obj == null)
+            {
+                return;
+            }
+            if (obj is IEnumerable enu)
+            {
+                foreach (var item in enu)
+                {
+                    if (item != null)
+                    {
+                        item.Add(dic, assembly);
+                    }
+                }
+                return;
+            }
+            var t = obj.GetType();
+            if (t.Assembly != assembly)
+            {
+                return;
+            }
+            List<object> list = null;
+            if (dic.ContainsKey(t))
+            {
+                list = dic[t];
+            }
+            else
+            {
+                list = new List<object>();
+                dic[t] = list;
+            }
+            if (list.Contains(obj))
+            {
+                return;
+            }
+            list.Add(obj);
+            var prop = t.GetProperties();
+            foreach (var p in prop)
+            {
+                var ob = p.GetValue(obj);
+                if (ob != null)
+                {
+                    ob.Add(dic, assembly);
+                }
+            }
         }
     }
 }
