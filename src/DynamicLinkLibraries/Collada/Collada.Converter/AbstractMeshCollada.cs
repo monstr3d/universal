@@ -10,16 +10,18 @@ namespace Collada.Converter
 {
     internal class AbstractMeshCollada : AbstractMesh
     {
+        Collada14Converter converter;
 
-        private instance_geometry[] instance_geometry;
+        instance_geometry[] instance_geometry;
+
         instance_geometry geometry;
 
         bind_material bind_material;
 
 
-        internal AbstractMeshCollada(node node) : base(node.name)
+        internal AbstractMeshCollada(node node, Collada14Converter converter) : base(node.name)
         {
-
+            this.converter = converter;
             instance_geometry = node.instance_geometry;
             if (instance_geometry != null)
             {
@@ -29,7 +31,7 @@ namespace Collada.Converter
 
         void CreateInstanceGeometry()
         {
-            foreach (var geom in instance_geometry)
+           foreach (var geom in instance_geometry)
             {
                 if (geometry != null & geom != null)
                 {
@@ -49,7 +51,7 @@ namespace Collada.Converter
 
         void CreateMaterial()
         {
-            var bm = bind_material;
+          //  var bm = bind_material;
         }
 
 

@@ -24,13 +24,51 @@ namespace Collada.Converter
             return t;
         }
 
+        object ToZeroItem(object obj)
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+            var pr = obj.GetType().GetProperty("Items");
+            if (pr == null)
+            {
+                return null;
+            }
+            var it = pr.GetValue(obj);
+            if (it == null)
+            {
+                return null;
+            }
+            if (it is Array array)
+            {
+                if (array.Length != 1)
+                {
+                    throw new Exception();
+                }
+                return array.GetValue(0);
+            }
+            return null;
+        }
+
+        T ToZeroItem<T>(object obj)
+        {
+            return (T) ToZeroItem(obj);
+        }
+
+
+        Image GetImage(object obj)
+        {
+            var image = obj as image;
+            return new Image(image.name, Directory);
+        }
         
 
 
 
         AbstractMesh Create(node node)
         {
-            var mesh =  new AbstractMeshCollada(node);
+            var mesh =  new AbstractMeshCollada(node, this);
             if (node.node1 != null)
             {
                 foreach (var item in node.node1)
