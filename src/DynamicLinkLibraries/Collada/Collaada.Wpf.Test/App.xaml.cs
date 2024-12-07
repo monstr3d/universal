@@ -48,7 +48,7 @@ namespace Collaada.Wpf.Test
 
         void GenerateCollada()
         {
-            GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\11.dae");
+            GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1.dae");
         }
 
 

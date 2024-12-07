@@ -14,7 +14,9 @@ namespace Collada.Converter
 
         instance_geometry[] instance_geometry;
 
-        instance_geometry geometry;
+        instance_geometry geom;
+
+        geometry geometry;
 
         bind_material bind_material;
 
@@ -31,31 +33,52 @@ namespace Collada.Converter
 
         void CreateInstanceGeometry()
         {
-           foreach (var geom in instance_geometry)
+           foreach (var g in instance_geometry)
             {
-                if (geometry != null & geom != null)
+                if (g != null & geom != null)
                 {
                     throw new Exception();
                 }
-                geometry = geom;
+                geom = g;
             }
             CreateGeometry();
         }
 
         void CreateGeometry()
         {
-            bind_material = geometry.bind_material;
+            bind_material = geom.bind_material;
+            if (geom.url != null)
+            {
+                var url = geom.url;
+                if (url != null)
+                {
+                    if (url.Length > 1)
+                    {
+                        url = url.Substring(1);
+                        if (converter.Geometries.ContainsKey(url))
+                        {
+                            geometry = converter.Geometries[url];
+                        }
+                    }
+                }
+            }
             CreateMaterial();
-            
+            CreateMesh();
+        }
+
+        void CreateMesh()
+        {
+
         }
 
         void CreateMaterial()
         {
-          //  var bm = bind_material;
+            var th = bind_material.technique_common[0];
+            var v = th.symbol;
+            if (converter.Materials.ContainsKey(v))
+            {
+                this.Material = converter.Materials[v];
+            }
         }
-
-
-
-        
     }
 }

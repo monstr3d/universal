@@ -11907,26 +11907,22 @@ where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ 
 
 \section{Basic constructions}
 \paragraph*{}
-Let $A$ be an unital $C^*$-algebra and let $\pi: A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). Let $n\in \N$ with $n > 1$ and  $v\in B\left( \H\right)$ is an unitary such that $v^n = \pi\left(u \right)\in  \pi\left(A\right)$ and $v^j \notin \pi\left(A\right) $ for any $j \in \left\{1,..., n-1\right\}$ then there is a finitely generated left $A$-module 
-$$
-\widetilde A\bydef \sum_{j = 1}^{n-1} \pi\left(A\right)  v^j \in B\left(\H \right) 
-$$
-with an injective map  $\lift A: \hookto \widetilde A$ which comes from the inclusions $\widetilde A \to B\left( \H\right)$. 
-If $\widetilde A$ is a $C^*$-subalgebra of $B\left( \H\right)$ then the inclusion is an  injective $*$-homomorphism 
-$
- \lift: A\hookto \widetilde A
-$.
-If  $\Aut\left(\widetilde{A} \right)$ is group of $*$-automorphisms then one has
 
-\bea\label{h_gr_eqn}
-	G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \widetilde \lift\left( A\right)  \quad ga = a\right\} \cong \Z_n,
-	\\\label{h_gr_a_eqn}\forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  A\right)\quad \overline k \cdot \left(\sum_{j = 0}^n a_j  v^j \right) \bydef \sum_{j = 0}^n a_j  e^{\frac{2\pi i j k}{n}}v^j%.
-\eea
-where $k$ is a representative of $\overline k$ and $a_j \in \lift\left( A\right)$ for all $j \in \left\{1,..., n\right\}$. Under this hypothesis the quadruple
+Let $A$ be an unital $C^*$-algebra with unitary element $u\in A$, and let
 \be\label{hurewicz_u_n_eqn}
 \left(   A , \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
 \ee
-is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). 
+be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}) with an isometry $v \in \widetilde A$ such that
+\bean
+v^n = u,\\
+\widetilde A\bydef \oplus_{j = 0}^{n-1} \pi\left(A\right)  v^j \in B\left(\H \right) 
+\eean
+Suppose that 
+\bea\label{h_gr_eqn}
+	G\left( \left.\widetilde A\right| A\right) \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \widetilde \lift\left( A\right)  \quad ga = a\right\} \cong \Z_n,
+	\\\label{h_gr_a_eqn}\forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  A\right)\quad \overline k \cdot \left(\sum_{j = 0}^n a_j  v^j \right) \bydef \sum_{j = 0}^n a_j  e^{\frac{2\pi i j k}{n}}v^j%.
+\eea
+where $k$ is a representative of $\overline k$ and $a_j \in \lift\left( A\right)$ for all $j \in \left\{1,..., n\right\}$.
 \begin{definition}\label{hurewicz_u_n_defn}
 	Under the above hypothesis   the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u, v, n\right)$-\textit{covering}.
 \end{definition}
@@ -11962,10 +11958,10 @@ If $\pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}}\bydef \pi_1^{\text{ab}}\lef
 	\ee
 	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
 \end{empt}
-
+\paragraph{Free part}
 If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$.
 \begin{definition}\label{h_admissible_free_defn}
-	An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus \pi\left( M\left(A \right) \right) $ with
+	An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus \pi\left( M\left(A \right) \right) $ of unital elements with
 	\be\label{h_vm_eqn}
 	\begin{split}
 		v_k^k =\pi\left(u\right),\\
@@ -12029,6 +12025,7 @@ is a homomorphism of groups.
 \begin{definition}
 	The homomorphism  $h^{\mathrm{free}}_{K^1}$ is the \textit{free part of Hurewicz homomorphism}.
 \end{definition}
+\paragraph{Torsion part}
 \begin{definition}\label{hurewicz_maximal_defn}
 	A finite-fold noncommutative $\left(u, v, p^r\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn})  $$\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$$
 	
@@ -12059,15 +12056,15 @@ where every summand is matches to a  maximal covering (cf. Definition \ref{hurew
 
 \begin{empt}\label{h_cond_empt} 
 	Under the hypothesis of the Definition \ref{hurewicz_quasi_admissible_defn}	 one has a homomorphism $ \widetilde{A} \cong  A^{p^r}$ of left $ A $-modules.  If we consider a direct sum $ \widetilde{A} = \oplus_{j=1}^{p^{r-1}} A v^j$ then $v$ corresponds to the following matrix
-\bean
-\begin{pmatrix}
+\be\label{h_v_matrix_eqn}
+v = \begin{pmatrix}
 0 & 0 & 0&\ldots & u\\
 1_A & 0 & 0&\ldots& u\\
 0 & 1_A & 0&\ldots & u\\
 \vdots& \vdots &\vdots&\ddots &\vdots\\ 
 0 & 0& 0&\ldots & u
-\end{pmatrix}\in \mathbb{M}_{p^r}\left( A  \right)
-\eean 	
+\end{pmatrix}\in \mathbb{M}_{p^r}\left( A  \right).
+\ee	
 	It follows that there is the inclusion $\phi_{p^r}:M\left( \widetilde{A}\right) \hookto \mathbb{M}_{p^r}\left( A  \right)$. 
 	There is a block-diagonal infinite dimensional  matrix
 	\be
@@ -12094,19 +12091,40 @@ where every summand is matches to a  maximal covering (cf. Definition \ref{hurew
 	\end{split}
 	\ee
 	Similarly to the Definition \ref{index_map_defn},
-	 $\overline v \in  M\left(A\otimes \K \right)/\left(A\otimes \K \right)$, and if  \\$w \in GL_{2n}\left(M\left(A\otimes \K \right) \right) $ is  a lift of $\mathrm{diag}(\overline v,\overline v^{-1})$ then $$
-	 \partial \left[\overline v \right] \bydef\left[wp_nw^{-1}\right]- \left[p_n\right]\in K_0(A)
+	 $\overline v \in  M\left(A\otimes \K \right)/\left(A\otimes \K \right)$, and if  \\$w \in GL_{2p^r}\left(M\left(A\otimes \K \right) \right) $ is  a lift of $\mathrm{diag}(\overline v,\overline v^{-1})$ then $$
+	 \partial \left[\overline v \right] \bydef\left[wp_{p^r}w^{-1}\right]- \left[p_{p^r}\right]\in K_0(A)
 	 $$
 	 where 
 	 $$
-	 p_n \bydef \begin{pmatrix}
+	 p_{p^r} \bydef \begin{pmatrix}
 	 	1_{M\left( A\otimes \K\right) } & 0 &\ldots & 0\\
 	 	0& 1_{M\left( A\otimes \K\right) } &\ldots&0 \\
 	 	\vdots& \vdots &\ddots&\vdots\\
 	 	0& 0 & \ldots &1_{M\left( A\otimes \K\right) }
 	 \end{pmatrix} \in \mathbb{M}_n\left( 1_{M\left( A\otimes \K\right) }\right).
 	 $$
-
+	Since $\partial$ is homomorphism one has
+	\be\label{part_hom_eqn}
+	\forall n \in \Z \quad \partial \left[\overline v^n\right]= nx_v.
+	\ee 
+	since $v^{p^r}= \pi\left(u \right)$ is unitary element of $A$ the element $\overline v^{p^r}$ is an unitary element of $M\left(A \otimes \K \right)$ so from the Proposition \ref{trivial_mk_prop} it follows that 
+	 \be\label{h_part_triv_eqn}
+ \partial \left[\overline v^{p^r}\right]= p^rx_v = 0.
+	 \ee 
+	 According to \ref{v_lift_empt} $\mathrm{diag}( v, v^{-1})$ lifts to an unitary
+ 	\be\label{partial_p_eqn}
+w = \begin{pmatrix}
+	v & 1 - vv^*\\
+	1& v^*
+\end{pmatrix},
+\ee
+so 
+\be\label{h_partial_u_eqn}
+\begin{split}
+	\partial([v]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[ 1-vv^*\right]
+\end{split}
+\ee
+	 
 \begin{definition}\label{hurewicz_admissible_defn}
 	A quasi-admissible finite-fold noncommutative covering  
 	$$
@@ -12136,7 +12154,7 @@ $$
 is admissible. Using the equation \eqref{h_gr_a_eqn} for any $g \in G\left( \left.\widetilde A\right| A\right)$ there is a character 
 \bean
 \chi_g : \Z x_v \to U\left( 1\right),\\
-k x_v =  \partial \overline v^k \mapsto \frac{g v^k}{v_k}
+k x_v =  \partial \left[ \overline v^k\right]  \mapsto \frac{g v^k}{v_k}
 \eean 
 The map $g \mapsto \chi_g$ is homomorphism from $G\left( \left.\widetilde A\right| A\right)$ to the group of characters on $\Z x_v$ and taking into account the Section \ref{ext_char_sec} one has a homomorphism
 $$
@@ -12565,6 +12583,15 @@ There is a homomorphism
 Using that $K_1\left(C\left(\sV \right)  \right) \cong \Z$ and taking into account that $\left[u_\sV\right]$ is a generator of $K_1\left( \sV\right)$ the map 
 
 \paragraph{title}
+	
+If $A$ is a $C^*$-algebra and $J \subset A$ is a closed two-sided ideal then there there a $*$-homomorphisms $\iota: J \hookto A$, $~\pi: A \to A / J$ and a long exact sequence
+\be\label{long_exact_seq_eqn}
+K_1\left(J \right) \xrightarrow{\iota_*}K_1\left(A \right) \xrightarrow{\pi} K_1\left(A/J \right) \xrightarrow{\partial}K_0\left(J \right) \xrightarrow{\iota_*}K_0\left(A \right) \xrightarrow{\pi} K_0\left(A/J \right)
+\ee
+(cf. \cite{blackadar:ko})
+\begin{definition}\label{index_map_defn}\cite{blackadar:ko}%	Definition 8.3.1.
+	$~$Let $u \in  GL_n(A/J)$, and let $w \in GL_{2n}(A)$ be a lift of $\mathrm{diag}(u,u^{-1})$. Define $\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]\in K_0(J)$. The map $\partial$ is called the \textit{index map}.
+\end{definition}
 \begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
 	%	8.3.2. The map @ is called the index map. The reason is the following. 
 	Suppose $A$ is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
@@ -12582,6 +12609,17 @@ Using that $K_1\left(C\left(\sV \right)  \right) \cong \Z$ and taking into accou
 	\ee
 \end{empt}
 
+\begin{empt}\label{part_index_empt}
+	It is proven in \cite{blackadar:ko} that both groups $K_0\left( M\left( A\otimes\K\right)\right)$ and $K_1\left( M\left( A\otimes\K\right)\right)$ are trivial. From the equation \eqref{long_exact_seq_eqn} it follows that 
+	\be\label{partial_k_eqn}
+	\partial : K_1\left(  M\left( A\otimes\K\right)/\left( A\otimes\K\right)\right)\cong  K_0\left( A\otimes\K\right) 
+	\ee
+	is an isomorphism. If $u \in M\left( A\otimes\K\right)/\left( A\otimes\K\right)$ is an unitary which lifts to a partial isometry $v \in M\left( A\otimes\K\right)$ then similarly  \ref{v_lift_empt} $~v$ is a partial isometry. Moreover one has
+	\be\label{d_u_iv_eqn}
+	\partial \left[u\right]= \mathrm{Index}~v\in K_0\left(A \otimes \K\right).
+	\ee
+	(cf. Definition \ref{index_map_defn}).
+\end{empt}
 
 
 \paragraph{title}
@@ -24790,6 +24828,11 @@ is an isomorphism. If $u \in M\left( A\otimes\K\right)/\left( A\otimes\K\right)$
 \ee
 (cf. Definition \ref{index_map_defn}).
 \end{empt}
+
+\begin{proposition}\label{trivial_mk_prop}\cite{blackadar:ko}
+%	Proposition 12.2.1. 
+If A is any $C^*$-algebra, $K_0\left(M\left(A \otimes \K \right)  \right) = K_1\left(M\left(A \otimes \K \right)  \right)= \{0\}$. 
+\end{proposition}
 
 %In the special case A = B(H), J = K(H), and K0(K) is identied with Z in thestandard way, the map @ is exactly the map which sends a unitary in the Calkinalgebra to its Fredholm index.Unitaries in a quotient do not lift to partial isometries in general, so thedenition of @ must be stated in the more complicated way given above.
 
