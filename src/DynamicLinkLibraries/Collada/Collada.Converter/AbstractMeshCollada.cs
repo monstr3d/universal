@@ -68,7 +68,9 @@ namespace Collada.Converter
 
         void CreateMesh()
         {
-
+            var mesh = geometry.Item as mesh;
+            var poly = mesh.Items[0] as polylist;
+            //te
         }
 
         void CreateMaterial()
@@ -77,7 +79,7 @@ namespace Collada.Converter
             var v = th.symbol;
             if (converter.Materials.ContainsKey(v))
             {
-                this.Material = converter.Materials[v];
+                Material = converter.Materials[v];
             }
         }
     }

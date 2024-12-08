@@ -75,7 +75,7 @@ namespace Collaada.Wpf.Test
             {
                 var material = new Abstract3DConverters.MaterialGroup();
                 var color = new Abstract3DConverters.Color("1 1 1 1");
-                var diffuse = new Abstract3DConverters.DiffuseMaterial(color, null);
+                var diffuse = new Abstract3DConverters.DiffuseMaterial(color, null, null);
                 material.Children.Add(diffuse);
                 var specular = new Abstract3DConverters.SpecularMaterial(color, 0);
                 material.Children.Add(specular);

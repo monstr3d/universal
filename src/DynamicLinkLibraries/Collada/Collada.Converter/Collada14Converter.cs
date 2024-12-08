@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Net.WebSockets;
 using Abstract3DConverters;
 using Collada141;
 
@@ -17,6 +18,8 @@ namespace Collada.Converter
 
         public Dictionary<string, geometry> Geometries { get; private set; }
 
+        public Dictionary<string, common_newparam_type> NewParam { get; private set; }
+
 
         public string Directory
         { get; private set; }
@@ -31,6 +34,7 @@ namespace Collada.Converter
         {
             collada.Add(dic, collada.GetType().Assembly);
             Images = ToDictionary(dic[typeof(image)], GetImage);
+            NewParam = ToDictionary(dic[typeof(common_newparam_type)], o => (common_newparam_type)o, "sid");
             Effects = ToDictionary(dic[typeof(effect)], GetEffect);
             Materials = ToDictionary(dic[typeof(material)], GetMaterial);
             Geometries = ToDictionary(dic[typeof(geometry)], GetGeometry, "id");
@@ -114,7 +118,7 @@ namespace Collada.Converter
 
         private Material GetEffect(object effect)
         {
-            string im = null;
+            Image image = null;
             if (effect is effect eff)
             {
                 var mt = ToZeroItem<Collada141.effectFx_profile_abstractProfile_COMMON>(eff);
@@ -127,32 +131,29 @@ namespace Collada.Converter
                     {
                         var ittt = itt[0] as common_newparam_type;
                         var itttt = ittt.Item as fx_surface_common;
-                        im = itttt.init_from[0].Value;
+                        var im = itttt.init_from[0].Value;
+                        if (Images.ContainsKey(im))
+                        {
+                            image = Images[im];
+                        }
+                        ittt = itt[1] as common_newparam_type;
+                        var st = ittt.Item as fx_sampler2D_common;
                     }
                 }
-                if (t != null)
-                {
-                    return GetMaterial(t, im);
-                }
+
+                var tech = eff.Items[0];
+                return GetMaterial(eff.Items[0].technique, image);
             }
             return null;
 
         }
 
-        Material GetMaterial(Collada141.effectFx_profile_abstractProfile_COMMONTechnique technique, string image)
+        Material GetMaterial(Collada141.effectFx_profile_abstractProfile_COMMONTechnique technique, Image image)
         {
-            Image img = null;
-            if (image != null)
-            {
-                if (Images.ContainsKey(image))
-                {
-                    img = Images[image];
-                }
-            }
-            var it = technique.Item;
+             var it = technique.Item;
             if (it is Collada141.effectFx_profile_abstractProfile_COMMONTechniquePhong phong)
             {
-                return GetMaterial(phong, img);
+                return GetMaterial(phong, image);
             }
             return null;
         }
@@ -163,14 +164,17 @@ namespace Collada.Converter
         {
             var grp = new MaterialGroup();
             var ambient = GetColor(material.ambient);
+            var diff = material.diffuse;
             var diffColor = GetColor(material.diffuse);
-
-            float opacity = 0;
-            if (diffColor != null)
+      /*      if (diffColor == null)
             {
-                var diffuse = new DiffuseMaterial(diffColor, ambient, image, opacity);
-                grp.Children.Add(diffuse);
-            }
+                var txt = diff.Item as common_color_or_texture_typeTexture;
+                var np = NewParam[txt.texture];
+
+            }*/
+            float opacity = 0;
+            var diffuse = new DiffuseMaterial(diffColor, ambient, image, opacity);
+            grp.Children.Add(diffuse);
             var ecolor =  GetColor(material.emission);
             if (ecolor != null)
             {
