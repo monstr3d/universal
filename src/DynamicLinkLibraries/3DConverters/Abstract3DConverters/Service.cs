@@ -107,11 +107,64 @@ namespace Abstract3DConverters
         {
             return Convert(array, x => (double)x).ToArray();
         }
+        public float[] Convert(double[] array)
+        {
+            return Convert(array, x => (float)x).ToArray();
+        }
 
         public string[] Split(string str)
         {
             return str.Split(sep);
         }
+
+ 
+        public List<T[]> ToReal3Array<T>(T[] x) where T : struct
+        {
+            var l = new List<T[]>();
+            for (int i = 0; i < x.Length; i += 3)
+            {
+                l.Add(new T[] { x[i], x[i + 1], x[i + 2] });
+            }
+            return l;
+        }
+
+        public List<T[]> ToReal2Array<T>(T[] x) where T : struct
+        {
+            var l = new List<T[]>();
+            for (int i = 0; i < x.Length; i += 2)
+            {
+                l.Add([ x[i], x[i + 1] ]);
+            }
+            return l;
+        }
+
+
+        public List<T[]> ToReal3Array<T>(string str) where T : struct
+        {
+            return ToReal3Array(ToRealArray<T>(str));
+        }
+
+        public List<int[][]> ToInt3Array(string str)
+        {
+            var l = ToReal3Array<int>(str);
+            return ToInt3Array(l);
+        }
+
+      
+        public List<int[][]> ToInt3Array(List<int[]> x)
+        {
+            var l = new List<int[][]>();
+            for (int i = 0; i < x.Count; i += 3)
+            {
+                var y = new int[3][] { x[i], x[i + 1], x[i + 2] };
+                l.Add(y);
+            }
+            return l;
+
+        }
+
+
+
 
         #endregion
 

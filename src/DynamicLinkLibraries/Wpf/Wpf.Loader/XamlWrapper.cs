@@ -193,6 +193,11 @@ namespace Wpf.Loader
             foreach (var key in textures.Keys)
             {
                 var b = textures[key];
+                var file = Path.Combine(directory, key);
+                if (!file.Contains(directory))
+                {
+                    continue;
+                }
                 using (var stream = File.OpenWrite(Path.Combine(directory, key)))
                 {
                     stream.Write(b, 0, b.Length);

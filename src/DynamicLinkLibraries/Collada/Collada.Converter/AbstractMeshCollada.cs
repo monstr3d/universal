@@ -69,17 +69,35 @@ namespace Collada.Converter
         void CreateMesh()
         {
             var mesh = geometry.Item as mesh;
-            var poly = mesh.Items[0] as polylist;
+            if (mesh.Items != null)
+            {
+                var poly = mesh.Items[0] as polylist;
+                Indexes = s.ToInt3Array(poly.p);
+                var vert = mesh.source[0];
+                var v = vert.Item as float_array;
+                Vertices = s.ToReal3Array(s.Convert(v.Values));
+                var txt = mesh.source[2].Item as float_array;
+                Textures = s.ToReal2Array(s.Convert(txt.Values));
+                var norm = mesh.source[1].Item as float_array;
+                Normals = s.ToReal3Array(s.Convert(norm.Values));
+            }
             //te
         }
 
         void CreateMaterial()
         {
-            var th = bind_material.technique_common[0];
-            var v = th.symbol;
-            if (converter.Materials.ContainsKey(v))
+            if (bind_material.technique_common != null)
             {
-                Material = converter.Materials[v];
+                var tc = bind_material.technique_common;
+                if (tc.Length > 0)
+                {
+                    var th = bind_material.technique_common[0];
+                    var v = th.symbol;
+                    if (converter.Materials.ContainsKey(v))
+                    {
+                        Material = converter.Materials[v];
+                    }
+                }
             }
         }
     }

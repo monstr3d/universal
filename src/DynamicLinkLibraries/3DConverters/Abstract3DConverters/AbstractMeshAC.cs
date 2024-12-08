@@ -4,15 +4,11 @@ using Collada;
 
 namespace Abstract3DConverters
 {
-    public class AbstractMeshAC : AbstractMesh
+    public class AbstractMeshAC :  AbstractMeshPolygon
     {
 
         int count;
-
-        float[] coord;
-
-        IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
-
+  
         List<string> l;
 
         public Image Image 
@@ -21,10 +17,9 @@ namespace Abstract3DConverters
             private set; 
         }
 
-        private List<Polygon> polygons;
-
-  
-        public AbstractMeshAC(string name, int count, List<string> l, List<Material> materials, string directory) : base(name)
+   
+        public AbstractMeshAC(string name, int count, List<string> l, List<Material> materials,  string directory) :
+            base(name)
         {
            // Material = material.Clone() as Material;
             this.count = count;
@@ -98,7 +93,6 @@ namespace Abstract3DConverters
                 var numsurf = s.ToReal<int>(line, "numsurf ");
                 if (numsurf != null)
                 {
-                    polygons = new();
                     var nc = numsurf.Value;
                     var k = i + 1;
                     for (;  k < l.Count; k++)
@@ -138,8 +132,7 @@ namespace Abstract3DConverters
 
                             }
                             var polygon = new Polygon(pp);
-                            var polygo = splitter[polygon];
-                            polygons.AddRange(polygo);
+                            Polygons.Add(polygon);
                         }    
                     }
                     i = k;
@@ -148,33 +141,7 @@ namespace Abstract3DConverters
             }
         }
 
-        public void CreatePolygons()
-        {
-            if (polygons == null)
-            {
-                return;
-            }
-            var idx = new List<int[][]>();
-            Indexes = idx;
-            var txt = new List<float[]>();
-            Textures = txt;
-            var k = 0;
-            foreach (var p in polygons)
-            {
-                var t = p.Points;
-                var ii = new int[t.Count][];
-                idx.Add(ii);
-                for (int j = 0; j < t.Count; j++)
-                {
-                    var pp = t[j];
-                    var iii = new int[] { pp.Item1, k, -1 };
-                    ii[j] = iii;
-                    ++k;
-                    txt.Add(pp.Item2);
-                }
-            }
-        }
-        
+          
 
         public override object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
         {

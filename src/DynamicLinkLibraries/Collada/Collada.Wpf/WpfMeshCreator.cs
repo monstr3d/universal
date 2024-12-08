@@ -170,9 +170,9 @@ namespace Collada.Wpf
 
         private MeshGeometry3D Create(AbstractMesh mesh)
         {
-            if (mesh is AbstractMeshAC ac)
+            if (mesh is AbstractMeshPolygon ap)
             {
-                ac.CreatePolygons();
+                ap.CreateFromPolygons();
             }
             var ind = mesh.Indexes;
             if (ind == null)

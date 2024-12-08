@@ -24,8 +24,8 @@ namespace Collaada.Wpf.Test
             // Compare();
             // Generate();
             // GenerateObj();
-            //  GenerateAC();
-            GenerateCollada();
+              GenerateAC();
+          //  GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -60,8 +60,8 @@ namespace Collaada.Wpf.Test
 
         void GenerateAC()
         {
-          //  GenerateAC("tu154B.ac");
-        //    return;
+              GenerateAC("tu154B.ac");
+              return;
              GenerateAC("H-60.ac");
             return;
            //  GenerateAC("F-15-lowpoly.ac");

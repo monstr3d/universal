@@ -71,9 +71,16 @@
         {
             if (Material != null)
             {
-                if (map.ContainsKey(MaterialString))
+                return Material;
+            }
+            if (Material == null)
+            {
+                if (MaterialString != null)
                 {
-                    return map[MaterialString];
+                    if (map.ContainsKey(MaterialString))
+                    {
+                        return map[MaterialString];
+                    }
                 }
             }
             return null;
