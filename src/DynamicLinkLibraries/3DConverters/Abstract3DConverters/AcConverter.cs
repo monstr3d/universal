@@ -73,7 +73,7 @@ namespace Abstract3DConverters
 
                 
                 Color diffcolor = null;
-            Color specolor = null;
+                Color specolor = null;
                 Color ambcolor = null;
                 for (var j = 0; j < arr.Length; j++)
                 {
@@ -86,7 +86,6 @@ namespace Abstract3DConverters
                             break;
 
                         case "amb":
-
                             ambcolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
                              break;
                         case "emis":

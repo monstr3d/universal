@@ -12056,9 +12056,10 @@ Using this product $P$ can be decomposed onto the direct sum
 $$
 P = P_1 \oplus .... \oplus P_N
 $$
-where every summand corresponds to an irreducible representation of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Otherwise the group $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ is commutative so any irreducible representation corresponds to a character of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Thus  there is a homomorphism from  $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the  group of characters of the category of projective finitely generated $C^*$-Hilbert  $A_{\mathrm{tors}}$-$\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-modules. However this category is equivalent to the category of projective $C^*$-Hilbert $A$-modules. It turns out that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters of $K_0\left( A\right)$ using the Section \ref{ext_char_sec} one has a homomorphism 
+where every summand corresponds to an irreducible representation of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Otherwise the group $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ is commutative so any irreducible representation corresponds to a character of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Thus  there is a homomorphism from  $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the  group of characters of the category of projective finitely generated $C^*$-Hilbert  $A_{\mathrm{tors}}$-$\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-modules. However this category is equivalent to the category of projective $C^*$-Hilbert $A$-modules (cf. Remark \ref{morita_g_a_rem}). It turns out that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters of $K_0\left( A\right)$. It follows that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to to the group of characters of $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$ is the torsion subgroup of $K_0\left(A \right)$.  
+Using the Section \ref{ext_char_sec} one has a homomorphism 
 	\be\label{h_tors_eqn}
-h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right), \Z \right)\subset K^1\left(A \right) 
+h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)\subset K^1\left(A \right) 
 \ee 
 (cf. the equation \eqref{uct_c}).
 
@@ -12116,78 +12117,52 @@ h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   
 \begin{empt}\label{h_cond_empt} 
 	
 Suppose that 	$$
-	\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)
+	\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right)
 	$$
-is an unital noncommutative covering such that:
-\begin{itemize}
-	\item it is $\left(u, v, n\right)$-{covering} (cf. Definition \ref{hurewicz_u_n_defn}),
-	\item it is maximal (cf. Definition \ref{hurewicz_maximal_defn}).
-\end{itemize}
-	
-One has a homomorphism $ \widetilde{A} \cong  A^{p^r}$ of left $ A $-modules.  If we consider a direct sum $ \widetilde{A} = \oplus_{j=1}^{p^{r-1}} A v^j$ then $v$ corresponds to the following matrix
+is a maximal  unital noncommutative covering (cf. Definitions \ref{fin_unital_defn} and \ref{hurewicz_maximal_defn}) such that there is an isometry $v \in \widetilde A$ and an isomorphism 
+\be\label{hurewics_module_iso_eqn}
+  \widetilde{A} = \oplus_{j=0}^{p^{r-1}} \lift \left( A\right)  v^j \cong A^{p^r}
+\ee
+of left $A$-modules. The isomorphism \eqref{hurewics_module_iso_eqn} yields the natural inclusion 
+\be\label{hurewics_inc_eqn}
+\phi_{p^r} : \widetilde{A} \hookto \mathbb{M}_{p^r}\left( A  \right)
+\ee
+of $C^*$-algebras such that if $\pi\left(u \right) = \phi_{p^r}\left( v\right)^{p^r}$ then one has 
 \be\label{h_v_matrix_eqn}
-v = \begin{pmatrix}
-0 & 0 & 0&\ldots & u\\
-1_A & 0 & 0&\ldots& u\\
-0 & 1_A & 0&\ldots & u\\
-\vdots& \vdots &\vdots&\ddots &\vdots\\ 
-0 & 0& 0&\ldots & u
-\end{pmatrix}\in \mathbb{M}_{p^r}\left( A  \right).
+\begin{split}
+\phi_{p^r}\left( v\right)  = \begin{pmatrix}
+	0 & 0 & 0&\ldots & u\\
+	1_A & 0 & 0&\ldots& u\\
+	0 & 1_A & 0&\ldots & u\\
+	\vdots& \vdots &\vdots&\ddots &\vdots\\ 
+	0 & 0& 0&\ldots & u
+	\end{pmatrix},\\
+\forall a \in A	\quad \phi_{p^r} \circ \lift \left(a\right)  = \begin{pmatrix}
+		a & 0 & 0&\ldots & 0\\
+		0 & a & 0&\ldots& 0\\
+		0 & 0 & a&\ldots & 0\\
+		\vdots& \vdots &\vdots&\ddots &\vdots\\ 
+		0 & 0& 0&\ldots & a
+	\end{pmatrix}.
+\end{split}
 \ee	
-	It follows that there is the inclusion $\phi_{p^r}:M\left( \widetilde{A}\right) \hookto \mathbb{M}_{p^r}\left( A  \right)$. 
-	There is a block-diagonal infinite dimensional  matrix
-	\be
-	\overline v \bydef	\begin{pmatrix}
-		\phi_{p^r}\left( v\right)  & 0 & 0&\ldots  \\
-		0&  1_{\mathbb{M}_{p^r}\left(A\right)} & 0 & \ldots \\
-		0& 0 &  1_{\mathbb{M}_{p^r}\left(A \right)} & \ldots \\
-		\vdots& \vdots &\vdots&\ddots\\
-	\end{pmatrix}
-	\ee
-	which in fact is an invertible element of $Q\left(A\right)\bydef M\left(A\otimes \K \right)/\left(A\otimes \K \right)$, i.e.
-	$$
-	\overline v \in Q\left(A \right) 	
-	$$
-	Using this construction we define
-	\be\label{hurewicz_xv_egn}
-	x_v = \partial \left[\overline v\right]\in K_0\left( A\right) \cong K_0\left(A\otimes \K \right).
-	\ee
-	where $\left[\overline v\right] \in K_1\left(Q\left(A\right) \right)$ is represented by $\overline {v}$, the homomorphism   $\partial$  is the index map (cf. Definition \ref{index_map_defn}) from  the well known exact sequence 
-	\be\label{h_long_exact_seq_eqn} 
-	\begin{split}
-		K_1\left(M\left(A\otimes \K \right)\right) \xrightarrow{} 
-		K_1\left(Q\left(A \right) \right) \xrightarrow{\partial}K_0\left(A\otimes \K \right) \xrightarrow{}K_0\left(M\left(A\otimes \K \right) \right)
-	\end{split}
-	\ee
-	Similarly to the Definition \ref{index_map_defn},
-	 $\overline v \in  M\left(A\otimes \K \right)/\left(A\otimes \K \right)$, and if  \\$w \in GL_{2p^r}\left(M\left(A\otimes \K \right) \right) $ is  a lift of $\mathrm{diag}(\overline v,\overline v^{-1})$ then $$
-	 \partial \left[\overline v \right] \bydef\left[wp_{p^r}w^{-1}\right]- \left[p_{p^r}\right]\in K_0(A)
-	 $$
-	 where 
-	 $$
-	 p_{p^r} \bydef \begin{pmatrix}
-	 	1_{M\left( A\otimes \K\right) } & 0 &\ldots & 0\\
-	 	0& 1_{M\left( A\otimes \K\right) } &\ldots&0 \\
-	 	\vdots& \vdots &\ddots&\vdots\\
-	 	0& 0 & \ldots &1_{M\left( A\otimes \K\right) }
-	 \end{pmatrix} \in \mathbb{M}_{p^r}\left( 1_{M\left( A\otimes \K\right) }\right).
-	 $$
-	Since $\partial$ is homomorphism one has
-	\be\label{part_hom_eqn}
-	\forall n \in \Z \quad \partial \left[\overline v^n\right]= nx_v.
-	\ee 
-	since $v^{p^r}= \pi\left(u \right)$ is unitary element of $A$ the element $\overline v^{p^r}$ is an unitary element of $M\left(A \otimes \K \right)$ so from the Proposition \ref{trivial_mk_prop} it follows that 
-	 \be\label{h_part_triv_eqn}
- \partial \left[\overline v^{p^r}\right]= p^rx_v = 0.
-	 \ee 
-	 According to \ref{v_lift_empt} $\mathrm{diag}( v, v^{-1})$ lifts to an unitary
+If
  	\be\label{partial_p_eqn}
 w = \begin{pmatrix}
 	v & 1 - vv^*\\
 	1& v^*
 \end{pmatrix},
 \ee
-so 
+then
+\bean
+ww^* = \begin{pmatrix}
+	v & 1 - vv^*\\
+	1& v^*
+\end{pmatrix}\begin{pmatrix}
+v^* & 1 - vv^*\\
+ 1 - v^*& v
+\end{pmatrix}
+\eean 
 \be\label{h_partial_u_eqn}
 \begin{split}
 	\partial([v]) = \left[wp_{p^r}w^{-1}\right]- \left[p_{p^r}\right]=\left[ 1_{\mathbb{M}_{p^r}\left(A \right)}-vv^*\right]= \left[ 1_{\mathbb{M}_{p^r}\left(A \right)}\right]-\left[vv^*\right]
@@ -12197,9 +12172,6 @@ From the equation \eqref{h_partial_u_eqn} it follows that if
 
 !!!!!
 
- \begin{remark}\label{morita_g_a_rem!}!!!
-	According to the Appendix  \ref{fin_gal_cov_sec} the  category of projective finitely generated  $\widetilde{A} \rtimes G$ -modules is equivalent to the category of projective finitely generated $\widetilde{A}$-$G$-modules, i.e. $\widetilde{A}$-modules with equivariant action of $G$. From the Lemma \ref{morita_galois_lem} it follows that the category of projective finitely generated  $C^*$-Hilbert $A$-modules is equivalent to the category of projective finitely generated  $C^*$-Hilbert $A$-$G$-modules.
-\end{remark}
 
  
 Below we suppose that 	a finite-fold noncommutative covering  

@@ -71,7 +71,7 @@
         {
             if (Material != null)
             {
-                return Material;
+                return creator.Create(Material);
             }
             if (Material == null)
             {

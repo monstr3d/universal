@@ -32,6 +32,8 @@ namespace DataPerformer.UI.Labels
 
         #region Specific Fields
 
+        internal int TabSelectedIndex { get; private set; } = 0;
+
         private DataConsumer consumer;
 
         private global::Animation.Interfaces.Enums.AnimationType animationType =
@@ -165,6 +167,8 @@ namespace DataPerformer.UI.Labels
             info.AddValue("CadrNumber", cadrNumber);
             info.AddValue("MultiSeries", MultiSeries, typeof(List<Dictionary<string, Dictionary<string, Color>>>));
             info.AddValue("CodeAliases", CodeAliases, typeof(Dictionary<string, string>));
+            var c = this.FindChild<TabControl>("tabControlMain");
+            info.AddValue("TabSelectedIndex", c.SelectedIndex);
         }
 
         #endregion
@@ -517,6 +521,14 @@ namespace DataPerformer.UI.Labels
                 {
                     CodeAliases = info.GetValue("CodeAliases", typeof(Dictionary<string, string>))
                         as Dictionary<string, string>;
+                }
+                catch
+                {
+
+                }
+                try
+                {
+                   TabSelectedIndex =  info.GetInt32("TabSelectedIndex");
                 }
                 catch
                 {

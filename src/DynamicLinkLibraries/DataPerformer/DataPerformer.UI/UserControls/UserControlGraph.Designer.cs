@@ -819,7 +819,7 @@ namespace DataPerformer.UI.UserControls
             label9.Location = new System.Drawing.Point(4, 4);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(57, 15);
+            label9.Size = new System.Drawing.Size(58, 15);
             label9.TabIndex = 0;
             label9.Text = "Time unit";
             // 

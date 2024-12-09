@@ -193,12 +193,17 @@ namespace Wpf.Loader
             foreach (var key in textures.Keys)
             {
                 var b = textures[key];
-                var file = Path.Combine(directory, key);
+                var f = key.Replace('/', Path.DirectorySeparatorChar);
+                if (f[0]  == Path.DirectorySeparatorChar)
+                {
+                    f = f.Substring(1);
+                }
+                var file = Path.Combine(directory, f);
                 if (!file.Contains(directory))
                 {
                     continue;
                 }
-                using (var stream = File.OpenWrite(Path.Combine(directory, key)))
+                using (var stream = File.OpenWrite(Path.Combine(directory, f)))
                 {
                     stream.Write(b, 0, b.Length);
                 }
@@ -327,6 +332,15 @@ namespace Wpf.Loader
                     }
                 }
             }
+            var l = new List<string>(textures.Keys);
+            foreach (string key in l)
+            {
+                if (!paths.ContainsKey(key))
+                {
+                    textures.Remove(key);
+                }
+            }
+
             return doc.OuterXml;
         }
 

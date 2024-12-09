@@ -419,23 +419,32 @@ namespace Diagram.UI
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="control">The control</param>
+        /// <param name="name">The name</param>
         /// <returns>The child</returns>
-        public static T FindChild<T>(this Control control) where T : Control
+        public static T FindChild<T>(this Control control, string name = null) where T : Control
         {
-            if (control is T)
+            if (control is T t)
             {
-                return control as T;
-            }
-            foreach (Control c in control.Controls)
-            {
-                T t = c.FindChild<T>();
-                if (t != null)
+                if (name == null)
+                {  return t; }
+                if (name == control.Name)
                 {
                     return t;
                 }
             }
+            foreach (Control c in control.Controls)
+            {
+                T res = c.FindChild<T>(name);
+                if (res != null)
+                {
+                    return res;
+                }
+            }
             return null;
         }
+
+ 
+
 
         /// <summary>
         /// Finds child object

@@ -13,7 +13,7 @@ namespace Abstract3DConverters
 
         public List<Polygon> Polygons
         { get; } = new List<Polygon>();
-               
+
 
         public AbstractMeshPolygon(string name) : base(name)
         {
@@ -53,13 +53,6 @@ namespace Abstract3DConverters
                     ii[j] = iii;
                     ++k;
                     txt.Add(pp.Item2);
-                }
-            }
-            foreach (var child in Children)
-            {
-                if (child is AbstractMeshPolygon amp)
-                {
-                    amp.CreateFromPolygons();
                 }
             }
         }

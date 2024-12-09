@@ -262,7 +262,7 @@ namespace DataPerformer.UI.UserControls
             }
             PreInit();
             realtimeupdate += indicatorWrapper.UpdateIndicators;
-            //tabControlMain.TabPages.Remove(tabPageAnimation);
+             //tabControlMain.TabPages.Remove(tabPageAnimation);
             tabControlMain.TabPages.Remove(tabPageStartStopRealtime);
         }
 
@@ -306,8 +306,12 @@ namespace DataPerformer.UI.UserControls
                     labelX.Visible = enabled;
                     labelY.Visible = enabled;
                 };
-              //  performer.Add(mouseTransformerIndicator);
                 performer.Add(mouseTransformerIndicator);
+                var gl = this.FindParent<Labels.GraphLabel>();
+                if (gl != null)
+                {
+                    tabControlMain.SelectedIndex = gl.TabSelectedIndex;
+                }
             }
             catch (Exception ex)
             {
