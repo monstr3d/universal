@@ -26,50 +26,13 @@ namespace Abstract3DConverters
         public AbstractMeshAC(AbstractMeshAC parent, string name, int count, List<string> l, List<Material> materials,  string directory) :
             base(name, parent)
         {
-         /*   TransformationMatrix = [ 1, 0, 0, 0,
-                                             0, 1, 0, 0,
-                                             0, 0, 1, 0,
-                                            0, 0, 0, 0 ];*/
-            // Material = material.Clone() as Material;
             this.count = count;
             this.l = l;
- 
+            int nv = -1;
+            int ns = -1;
             for (int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
-  /*
-                if (line.StartsWith("OBJECT "))
-                {
-                    continue;
-                }
-                if (line.StartsWith("kids "))
-                {
-                    continue;
-                }
-                if (line.StartsWith("name "))
-                {
-                    continue;
-                }
-                if (line.StartsWith("data "))
-                {
-                    continue;
-                }
-                if (line.StartsWith("Mesh."))
-                {
-                    continue;
-                }
-                if (line.StartsWith("Mesh"))
-                {
-                    continue;
-                }
-                if (line.StartsWith("texrep 1 1"))
-                {
-                    continue;
-                }
-                if (line.StartsWith("crease "))
-                {
-                    continue;
-                }*/
                 var loc = s.ToString(line, "loc ");
                 if (loc != null)
                 {
@@ -83,17 +46,14 @@ namespace Abstract3DConverters
                 if (texture != null)
                 {
                     Image = new Image(texture, directory);
- //                   if (Material)
- //                   SetImage(Material, Image);
- //                   continue;
                 }
                 var numvert = s.ToReal<int>(line, "numvert ");
                 if (numvert != null)
                 {
+                    nv = numvert.Value;
                     var v = new List<float[]>();
                     Vertices = v;
                     var j = i + 1;
-                    int nv = numvert.Value;
                     for (; j < nv + i + 1; j++)
                     {
                         v.Add(s.ToRealArray<float>(l[j]));
@@ -104,13 +64,13 @@ namespace Abstract3DConverters
                 var numsurf = s.ToReal<int>(line, "numsurf ");
                 if (numsurf != null)
                 {
+                    ns = numsurf.Value;
                     int mt = -1;
                     var mats = new List<int>();
                     var nc = numsurf.Value;
                     var k = i + 1;
                     for (;  k < l.Count; k++)
                     {
-  
                         var mp = s.ToReal<int>(l[k], "mat ");
                         {
                             if (mp != null)
@@ -120,17 +80,10 @@ namespace Abstract3DConverters
                                 {
                                     mats.Add(mt);
                                 }
-      /*                         if (Material == null)
-                               {
-                                    var mat = materials[mp.Value];
-                                    mat = mat.Clone() as Material;
-                                    Material = mat;
-                                    SetImage(Material, Image);
-                                }*/
                                 continue;
                             }
                         }
-
+                        
                         var refs = s.ToReal<int>(l[k], "refs ");
                         if (refs != null)
                         {
@@ -153,6 +106,10 @@ namespace Abstract3DConverters
                             var polygon = new Polygon(pp);
                             dp[polygon] = mt;
                             Polygons.Add(polygon);
+                        }
+                        if (Polygons.Count < ns)
+                        {
+                            continue;
                         }
                         if (mats.Count == 1)
                         {
