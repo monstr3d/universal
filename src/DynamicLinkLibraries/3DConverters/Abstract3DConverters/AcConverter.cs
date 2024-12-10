@@ -34,7 +34,7 @@ namespace Abstract3DConverters
                 while (!reader.EndOfStream);
             }
             CreateMaterials(lines);
-            var meshes = Create(lines).ToArray();
+            var meshes = Create(null, lines).ToArray();
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
 
@@ -125,7 +125,7 @@ namespace Abstract3DConverters
         }
 
 
-        public IEnumerable<AbstractMesh> Create(List<string> lines,  int start = 0, int current = -1)
+        public IEnumerable<AbstractMesh> Create(AbstractMeshAC parent, List<string> lines,  int start = 0, int current = -1)
         {
             if (current == 0)
             {
@@ -153,7 +153,7 @@ namespace Abstract3DConverters
                         if (cnt != null)
                         {
                             var count = cnt.Value;
-                            var am = new AbstractMeshAC(name, count, nl, Materials, directory);
+                            var am = new AbstractMeshAC(parent, name, count, nl, Materials, directory);
                             name = null;
                             nl = new();
                             i = j;
@@ -163,7 +163,7 @@ namespace Abstract3DConverters
                             {
                                 yield break;
                             }
-                            var enu = Create(lines, j, count).ToArray();
+                            var enu = Create(am, lines, j, count).ToArray();
                             foreach (var a in enu)
                             {
                                 a.Parent = am;

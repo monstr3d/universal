@@ -14,6 +14,15 @@
             get => parent;
             set
             {
+                if (value == null)
+                {
+                    if (parent != null)
+                    {
+                        parent.Children.Remove(this);
+                    }
+                    parent = null;
+                    return;
+                }
                 parent = value;
                 if (!parent.Children.Contains(this))
                 {

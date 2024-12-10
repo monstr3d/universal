@@ -10,18 +10,22 @@ namespace Abstract3DConverters
         { get; } = new List<Polygon>();
 
 
-        public AbstractMeshPolygon(string name) : base(name)
+        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent =null) : base(name)
         {
-
+            Parent = parent;
         }
 
-        public AbstractMeshPolygon(string name, string material) : base(name)
+        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent, string material) : this(name, parent) 
         {
             MaterialString = material;
         }
 
         public void CreateFromPolygons()
         {
+            if (Polygons.Count == 0)
+            {
+                return;
+            }
             List<Polygon> polygons = new List<Polygon>();
             foreach (var polygon in Polygons)
             {

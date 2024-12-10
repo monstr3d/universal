@@ -10,7 +10,6 @@ namespace Abstract3DConverters
 
         int count;
 
-        bool disitegrate = false;
 
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
 
@@ -24,13 +23,18 @@ namespace Abstract3DConverters
         }
 
    
-        public AbstractMeshAC(string name, int count, List<string> l, List<Material> materials,  string directory) :
-            base(name)
+        public AbstractMeshAC(AbstractMeshAC parent, string name, int count, List<string> l, List<Material> materials,  string directory) :
+            base(name, parent)
         {
-           // Material = material.Clone() as Material;
+         /*   TransformationMatrix = [ 1, 0, 0, 0,
+                                             0, 1, 0, 0,
+                                             0, 0, 1, 0,
+                                            0, 0, 0, 0 ];*/
+            // Material = material.Clone() as Material;
             this.count = count;
             this.l = l;
-            for(int i = 0; i < l.Count; i++)
+ 
+            for (int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
   /*
@@ -72,7 +76,7 @@ namespace Abstract3DConverters
                     var location = s.ToRealArray<float>(loc);
                     TransformationMatrix = [ 1, 0, 0, 0, 
                                              0, 1, 0, 0,
-                                             0, 0, 0, 1, 
+                                             0, 0, 1, 0, 
                                             location[0], location[1], location[2], 0 ];
                 }
                 var texture = s.ToString(line, "texture ");
@@ -177,8 +181,14 @@ namespace Abstract3DConverters
             }
         }
 
-        private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image) : base("")
+        private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image) : base(parent.Name, parent)
         {
+     /*       TransformationMatrix = [ 1, 0, 0, 0,
+                                             0, 1, 0, 0,
+                                             0, 0, 1, 0,
+                                            0, 0, 0, 0 ];
+     */
+
             Vertices = new List<float[]>();
             var d = new Dictionary<int, int>();
             int i = 0;
@@ -203,8 +213,6 @@ namespace Abstract3DConverters
             }
             var pol = new Polygon(l);
             Polygons.Add(pol);
-            Parent = parent;
-            TransformationMatrix = parent.TransformationMatrix;
             Material = material.Clone() as Material;
             if (image != null)
             {
