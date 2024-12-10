@@ -3165,9 +3165,7 @@ it follows that $\psi'$ yields a bimodule homomorphism $\psi : \widetilde{A} \ot
  \begin{proof}
 Follows from the Theorem \ref{progenerator_morita_thm}.
  \end{proof}
- \begin{remark}\label{morita_g_a_rem}
- According to the Appendix  \ref{fin_gal_cov_sec} the  category of projective finitely generated  $\widetilde{A} \rtimes G$ -modules is equivalent to the category of projective finitely generated $\widetilde{A}$-$G$-modules, i.e. $\widetilde{A}$-modules with equivariant action of $G$. From the Lemma \ref{morita_galois_lem} it follows that the category of projective finitely generated  $C^*$-Hilbert $A$-modules is equivalent to the category of projective finitely generated  $C^*$-Hilbert $\widetilde A$-$G$-modules.
- \end{remark}
+
  
  \begin{cor}\label{unital_cov_cor}
  	Let $\left(A, \widetilde{A}, G, \lift \right)$ be an unital noncommutative finite-fold  covering. Let us define a structure of Hilbert $\widetilde{A} \rtimes G$-$A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by following products
@@ -3225,6 +3223,16 @@ Follows from the Theorem \ref{progenerator_morita_thm}.
  \end{array}\right..
  \end{equation}
 
+
+\begin{cor}\label{unital_cov_k_cor}
+	If $\left(A, \widetilde{A}, G, \lift \right)$ is an unital noncommutative finite-fold  covering then there is the natural isomorphism
+	\be
+	K_0\left(A \right) \cong K^G_0\left(\widetilde{A} \right) 
+	\ee
+\end{cor}
+\begin{proof}
+Follows from the Corollary \ref{unital_cov_cor} and the Theorem \ref{equiv_k_thm}.
+\end{proof}
  \begin{lem}\label{comp_cov_lem}
  	Let $\left(A, \widetilde{A}, G \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by  products \eqref{hilb_gal_eqn}.
  	Following conditions hold:
@@ -12048,26 +12056,30 @@ There is and unital finite-fold noncommutative covering
 \be\label{hurewicz_torsion_covering_eqn}
 \left(   A, A_{\mathrm{tors}}, \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}} ,  \lift^{\mathrm{tors}} \right)
 \ee
-which corresponds to the finite group $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Consider a category of finitely generated projective  $A_{\mathrm{tors}}$ - $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-modules (cf. Appendix \ref{equiv_k_sec}).
+which corresponds to the finite group $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Consider a category of finitely generated projective  $A_{\mathrm{tors}}$ - $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-modules (cf. Appendix \ref{equiv_k_sec}). From the Corollary \ref{unital_cov_k_cor} it follows that there is the natural isomorphism
+\be\label{unital_cov_kk_eqn}
+K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0 \cong K_0\left(A \right) 
+\ee
 The group $K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)$ is an $R\left( \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\right)$-module (cf. !!!)
 One has
 \bean
 K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right) = \bigoplus_{\chi \in R\left( \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\right)}K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)_\chi \oplus \\ K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)^\perp 
 \eean
-where !!!!
+where $K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)_\chi$ corresponds to the representation $\chi \in R\left( \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\right)$  and  $K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)^\perp$ corresponds to a trivial representation of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$.
 On the other hand
 $$
 K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)_\chi\cong \Z_{p^r} \oplus ... \oplus \Z_{p^r} \cong \left( \Z_{p^r}\right)^{N_\chi} 
 $$
 If $y \in K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)_\chi$ corresponds to  $\left( b_1, ...,b_{N_\chi}\right)\in \left( \Z_{p^r}\right)^{N_\chi}$ then for any $g \in \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ we define
 $$
-\chi_g\left(y \right) \bydef \prod_{j=1}^{N_\chi}\chi\left( a_j\right) 
+\chi_g\left(y \right) \bydef \prod_{j=1}^{N_\chi}\chi\left( b_j\right) 
 $$
-If $y = \sum_{\chi \in R\left( \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\right)} a_\chi\in K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0$ then we define
+If $y = \sum_{\chi \in R\left( \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\right)} a_\chi\in K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)$ then we define
 $$
 \chi_g \left(x  \right) \bydef  \prod_{\chi \in R\left( \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\right)}\chi\left(a_\chi \right). 
 $$
-The map $g \mapsto \chi_g$ is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to to the group of characters of $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$ is the torsion subgroup of $K_0\left(A \right)$.
+The map $g \mapsto \chi_g$ is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to to the group of characters of $K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)$. Taking into account the isomorphism \eqref{unital_cov_kk_eqn} one has a homomorphism from   $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to to the group of characters on $K_0\left( A\right)$. This homomorphism yields a  a homomorphism from   $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters on 
+ $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$ is the torsion subgroup of $K_0\left(A \right)$.
 Using the Section \ref{ext_char_sec} one has a homomorphism 
 	\be\label{h_tors_eqn}
 h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)\subset K^1\left(A \right) 
@@ -12114,111 +12126,6 @@ h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   
 	\begin{definition}\label{hurewicz_m_defn}
 		The given by the equations \eqref{h_m_eqn} and \eqref{h_m_ab_eqn} maps are \textit{multiplier Hurewicz homomorphisms}.
 	\end{definition}
-	
-!!! CONTINUE !!!
-
-
-
-
-\
-
-
-
-
-\begin{empt}\label{h_cond_empt} 
-	
-Suppose that 	$$
-	\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right)
-	$$
-is a maximal  unital noncommutative covering (cf. Definitions \ref{fin_unital_defn} and \ref{hurewicz_maximal_defn}) such that there is an isometry $v \in \widetilde A$ and an isomorphism 
-\be\label{hurewics_module_iso_eqn}
-  \widetilde{A} = \oplus_{j=0}^{p^{r-1}} \lift \left( A\right)  v^j \cong A^{p^r}
-\ee
-of left $A$-modules. The isomorphism \eqref{hurewics_module_iso_eqn} yields the natural inclusion 
-\be\label{hurewics_inc_eqn}
-\phi_{p^r} : \widetilde{A} \hookto \mathbb{M}_{p^r}\left( A  \right)
-\ee
-of $C^*$-algebras such that if $\pi\left(u \right) = \phi_{p^r}\left( v\right)^{p^r}$ then one has 
-\be\label{h_v_matrix_eqn}
-\begin{split}
-\phi_{p^r}\left( v\right)  = \begin{pmatrix}
-	0 & 0 & 0&\ldots & u\\
-	1_A & 0 & 0&\ldots& u\\
-	0 & 1_A & 0&\ldots & u\\
-	\vdots& \vdots &\vdots&\ddots &\vdots\\ 
-	0 & 0& 0&\ldots & u
-	\end{pmatrix},\\
-\forall a \in A	\quad \phi_{p^r} \circ \lift \left(a\right)  = \begin{pmatrix}
-		a & 0 & 0&\ldots & 0\\
-		0 & a & 0&\ldots& 0\\
-		0 & 0 & a&\ldots & 0\\
-		\vdots& \vdots &\vdots&\ddots &\vdots\\ 
-		0 & 0& 0&\ldots & a
-	\end{pmatrix}.
-\end{split}
-\ee	
-If
- 	\be\label{partial_p_eqn}
-w = \begin{pmatrix}
-	v & 1 - vv^*\\
-	1& v^*
-\end{pmatrix},
-\ee
-then
-\bean
-ww^* = \begin{pmatrix}
-	v & 1 - vv^*\\
-	1& v^*
-\end{pmatrix}\begin{pmatrix}
-v^* & 1 - vv^*\\
- 1 - v^*& v
-\end{pmatrix}
-\eean 
-\be\label{h_partial_u_eqn}
-\begin{split}
-	\partial([v]) = \left[wp_{p^r}w^{-1}\right]- \left[p_{p^r}\right]=\left[ 1_{\mathbb{M}_{p^r}\left(A \right)}-vv^*\right]= \left[ 1_{\mathbb{M}_{p^r}\left(A \right)}\right]-\left[vv^*\right]
-\end{split}
-\ee
-From the equation \eqref{h_partial_u_eqn} it follows that if 
-
-!!!!!
-
-
- 
-Below we suppose that 	a finite-fold noncommutative covering  
-$$
-\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)
-$$
-is admissible. Using the equation \eqref{h_gr_a_eqn} for any $g \in G\left( \left.\widetilde A\right| A\right)$ there is a character 
-\bean
-\chi_g : \Z x_v \to U\left( 1\right),\\
-k x_v =  \partial \left[ \overline v^k\right]  \mapsto \frac{g v^k}{v_k}
-\eean 
-The map $g \mapsto \chi_g$ is homomorphism from $G\left( \left.\widetilde A\right| A\right)$ to the group of characters on $\Z x_v$ and taking into account the Section \ref{ext_char_sec} one has a homomorphism
-$$
-G\left( \left.\widetilde A\right| A\right)\to 	G\left( \left.\widetilde A\right| A\right) \to 	\Ext^1_\Z\left(\Z x_v, \Z  \right).
-$$
-From \eqref{hurewicz_admissible_eqn} we can obtain a homomorphism
-	$$
-		G\left( \left.\widetilde A\right| A\right) \to 	\to \Ext^1_\Z\left(K_0\left( A\right)_{\mathrm{tors}}, \Z  \right).
-	$$
-	Taking into account the natural isomorphism $$\Ext^1_\Z\left(K_0\left( A\right), \Z  \right) \cong \Ext^1_\Z\left(K_0\left( A\right)_{\mathrm{tors}}, \Z  \right)$$
-	one has the homomorphism
-	\be\label{h_hpr_eqn}
-	\phi_{\widetilde A} : G\left( \left.\widetilde A\right| A\right)\cong \Z_{p^r}\to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)
-	\ee
-	From the decomposition \ref{h_direc_sum}
-	\bean
-	\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}
-	\eean
-	it follows that any homomorphism
-	$$
-	\om :\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)
-	$$
-	equals to $\om_1 + ... +\om_N$ where  $\om_l : \Z_{p_l^{r^l}} \to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)$ is a homomorphism for all $l \in \{1,..., N\}$. For any $l = 1, .... N$ we find a homomorphism $$h_l: \Z_{p_l^{r^l}} \to \Ext^1_\Z\left(K_0\left( A\right), \Z  \right)$$ such that $h_l$ is  the given by \eqref{h_hpr_eqn} if  the  \text{corresponding to } $\Z_{p_l^{r^l}}$  \text{ covering is admissible} (cf. Definition \ref{hurewicz_admissible_defn}) and $h_l$ is trivial  \text{corresponding to } $\Z_{p_l^{r^l}}$  \text{ covering is not  admissible}.
-\end{empt}
-
-
 \section{Topological Hurewicz homomorphism}
 
 \paragraph{} Let  $A\bydef C\left(\sX \right) $ be a  commutative  $C^*$-algebra with compact path connected,  and  semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$.   $\pi_1\left(\sX, x_0 \right)$ be a   {weak fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}, and let $$\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \bydef \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right].$$
@@ -24845,9 +24752,11 @@ For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
 	\eean
 	
 \end{corollary}
-\subsection{Grading}
-!!!
-%If $A$ is any (ungraded) C-algebra, there is a grading onM2(A) with M2(A)(0) the diagonal matrices and M2(A)(1) the matrices with zerodiagonal. This is an even grading with grading operator diag(1;?1), called thestandard even grading on M2(A). By identifying AK with M2(AK), we obtainthe standard even grading of AK (this grading is actually only determinedup to conjugation by aninner automorphism homotopic to the identity).(b) There is a standard odd grading on A  A for any (ungraded) A: (A A)(0) =f(a; a) : a 2 Ag and (A  A)(1) =f(a;?a) : a 2 Ag. If A = C, we denoteC2 with the standard odd grading by C1. (C1 is a complex Cliord algebra[Kasparov 1980b, x 2].) Note that C1 is isomorphic to the group C-algebra ofZ2; the grading is given by the dual action of ^Z2= Z2.(c) A grading on a C-algebra A induces a canonical grading on M(A) in theobvious way. Thus, for any ungraded A, there is a standard even grading onMs(A) (determined up to inner automorphism homotopic to the identity).The reader interested just in Kasparov theory for ordinary (ungraded) C-algebras need only be concerned with these exam
+\subsection{Grading of $C^*$-algebras}
+\paragraph{}
+If $A$ is any (ungraded) $C^*$-algebra, there is a grading on $M_2(A)$ with $M_2(A)^{(0)}$ the diagonal matrices and $M_2(A)^{(1)}$ the matrices with zero diagonal. This is an even grading with grading operator $\mathrm{diag}\left(1,-1 \right)$, called the \textit{standard even grading} on $M_2\left(A \right)$ . By identifying $A\otimes \K$ with $\mathbb{M}_2\left( A\otimes \K\right)$ , we obtain the \textit{standard even grading} of $A\otimes \K$ (this grading is actually only determined up to conjugation by an inner automorphism homotopic to the identity).\\
+(b) There is a \textit{standard odd grading} on $A\oplus A$ for any (ungraded) $A: (A \oplus A)^{(0)} =\left\{\left(a, a \right)| a \in A \right\}$ and  $(A \oplus A)^{(1)} =\left\{\left(a, -a \right)| a \in A \right\}$ If $A = \C$, we denote $\C^2$ with the standard odd grading by $\C_1$. ($\C_1$ is a complex Clifford algebra) Note that $\C_1$ is isomorphic to the group $\C_1$-algebra of $\Z_2$; the grading is given by the dual action of $\hat \Z_2\cong \Z_2$.
+(c) A grading on a $C^*$-algebra $A$ induces a canonical grading on $M(A)$ in the obvious way. Thus, for any ungraded $A$, there is a standard even grading on $M\left( A\otimes \K\right)$ ) (determined up to inner automorphism homotopic to the identity).
 	\subsection{Fredholm index}
 	
 	\begin{definition}\label{fred_a_defn}\cite{matro:hcm}
@@ -25152,7 +25061,7 @@ binary operation on the set of projective $\left( A, G, \a\right)$ -modules, dir
 \begin{definition}\label{equiv_k_defn}
 $K^G_0\left( A\right) $ is the Grothendieck group of $\mathbb{V}^G\left( A\right)$.
 \end{definition}
-\begin{theorem}
+\begin{theorem}\label{equiv_k_thm}
 Let $\left( A, G, \a\right)$ be a covariant system (with $G$ compact). There
 is a natural isomorphism $K^G_0\left( A\right) \cong K_0\left(A\rtimes  G\right)$.
 \end{theorem}
@@ -25160,10 +25069,13 @@ is a natural isomorphism $K^G_0\left( A\right) \cong K_0\left(A\rtimes  G\right)
 If $R\left(G \right)$ is a ring of irreducible representation then  $K^G_0\left( A\right)$ is an $R\left( G\right)$-module. 
 \end{remark}
 
-\begin{theorem}
-Theorem 20.3.1.   !!!! Let A1, A2, B1, B2, D be G-algebras. Then there is a bilinear
+\begin{theorem}\label{kk_pairing_thm}
+%Theorem 20.3.1.   
+ Let $A_1$, $A_2$, $B_1$, $B_2$, $D$,  be G-algebras. Then there is a bilinear
 pairing
-
+\be\label{kk_pairing_eqn}
+\hat \otimes_D: KK^m_G\left(A_1, B_1 \hat \otimes D \right) \times KK^n_G\left(D \hat \otimes A_2, B^2 \right) \to KK^{m+n}\left(A_1 \hat \otimes A_2, B_1 \hat \otimes B_2 \right) 
+\ee
 which is associative and functorial in all possible senses.
 \end{theorem}
 

@@ -80,11 +80,15 @@ namespace Collada.Converter
                 Textures = s.ToReal2Array(s.Convert(txt.Values));
                 var norm = mesh.source[1].Item as float_array;
                 Normals = s.ToReal3Array(s.Convert(norm.Values));
+                var l = new List<Tuple<int, int, float[]>>();
                 for (int i = 0; i < ind.Count; i++)
                 {
-                    
+                    var ii = ind[i];
+                    var t = new Tuple<int, int, float[]>(ii[0], ii[1], Textures[ii[2]]);
+                    l.Add(t);
                 }
-
+                var p = new Polygon(l);
+                Polygons.Add(p);
             }
             //te
         }

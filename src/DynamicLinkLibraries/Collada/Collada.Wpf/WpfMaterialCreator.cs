@@ -46,10 +46,13 @@ namespace Collada.Wpf
 
         public override object Create(Abstract3DConverters.DiffuseMaterial material)
         {
-            var ac = Create(material.AmbientColor);
-            var ambient = (Color)ac;
-            var mat =  new DiffuseMaterial();  
-            mat.AmbientColor = ambient;
+            var mat = new DiffuseMaterial();
+            if (material.AmbientColor != null)
+            {
+                var ac = Create(material.AmbientColor);
+                var ambient = (Color)ac;
+                mat.AmbientColor = ambient;
+            }
             return mat;
         }
 

@@ -24,8 +24,8 @@ namespace Collaada.Wpf.Test
             // Compare();
          //    Generate();
             //// GenerateObj();
-             GenerateAC();
-           // GenerateCollada();
+           //  GenerateAC();
+           GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -56,6 +56,18 @@ namespace Collaada.Wpf.Test
         {
             IAbstractMeshCreator converter = new Collada14Converter();
             var res = converter.Create(filename);
+            var p = new Performer();
+            var model = p.Combine<ModelVisual3D>(res.Item1, res.Item2, new WpfMeshCreator(), null, new WpfMaterialCreator());
+            model.SetLight();
+            var fnt = Path.GetFileNameWithoutExtension(filename);
+            var dir = Path.GetDirectoryName(filename);
+            var file = Path.Combine(acdir, fnt + ".xaml");
+            var r = XamlWriter.Save(model);
+            using (var w = new StreamWriter(file))
+            {
+                w.Write(r);
+            }
+
         }
 
         void GenerateAC()

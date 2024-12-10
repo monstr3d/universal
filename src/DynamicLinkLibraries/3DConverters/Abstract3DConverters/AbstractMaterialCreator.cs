@@ -79,8 +79,11 @@ namespace Abstract3DConverters
 
         public virtual void Set(object material, Color color)
         {
-            var c = Create(color);
-            Set(material, c);
+            if (color != null)
+            {
+                var c = Create(color);
+                Set(material, c);
+            }
         }
 
         public virtual void SetImage(object material, Image image)
