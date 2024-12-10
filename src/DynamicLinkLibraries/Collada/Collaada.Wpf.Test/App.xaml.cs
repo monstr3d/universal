@@ -22,10 +22,10 @@ namespace Collaada.Wpf.Test
         public App()
         {
             // Compare();
-            // Generate();
-            // GenerateObj();
-              GenerateAC();
-          //  GenerateCollada();
+         //    Generate();
+            //// GenerateObj();
+             GenerateAC();
+           // GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()

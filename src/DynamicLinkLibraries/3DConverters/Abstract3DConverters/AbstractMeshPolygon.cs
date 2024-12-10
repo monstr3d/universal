@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Abstract3DConverters
 {
     public class AbstractMeshPolygon : AbstractMesh
@@ -11,7 +6,7 @@ namespace Abstract3DConverters
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
-        public List<Polygon> Polygons
+       protected List<Polygon> Polygons
         { get; } = new List<Polygon>();
 
 
@@ -52,7 +47,7 @@ namespace Abstract3DConverters
                     var iii = new int[] { pp.Item1, k, -1 };
                     ii[j] = iii;
                     ++k;
-                    txt.Add(pp.Item2);
+                    txt.Add(pp.Item3);
                 }
             }
         }

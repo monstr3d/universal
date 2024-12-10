@@ -32,7 +32,7 @@ namespace EarClipperSplitter
                 var points = new List<Vector3m>();
                 foreach (var point in polygon.Points)
                 {
-                    var p = point.Item2;
+                    var p = point.Item3;
                     dd[point.Item1] = p;
                     var v = new Vector3m(p[0], p[1], 0);
                     foreach (var py in points)
@@ -75,12 +75,12 @@ namespace EarClipperSplitter
                 
                 for (var i = 0; i < res.Count; i+= 3)
                 {
-                    var t = new List<Tuple<int, float[]>>();
-                   for (var j = 0; j < 3; j++)
+                    var t = new List<Tuple<int, int, float[]>>();
+                   for (var j = 0; j < 3; j++) 
                     {
                         var k = i + j;
                         var ind = l[k];
-                        t.Add(new Tuple<int, float[]> (ind, dd[ind]) );
+                        t.Add(new Tuple<int, int, float[]> (ind, -1, dd[ind]) );
 
                     }
                    pp.Add(new Polygon(t));

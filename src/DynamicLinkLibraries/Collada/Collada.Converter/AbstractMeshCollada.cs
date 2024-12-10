@@ -8,7 +8,7 @@ using Collada141;
 
 namespace Collada.Converter
 {
-    internal class AbstractMeshCollada : AbstractMesh
+    internal class AbstractMeshCollada : AbstractMeshPolygon
     {
         Collada14Converter converter;
 
@@ -72,7 +72,7 @@ namespace Collada.Converter
             if (mesh.Items != null)
             {
                 var poly = mesh.Items[0] as polylist;
-                Indexes = s.ToInt3Array(poly.p);
+                var ind = s.ToReal3Array<int>(poly.p);
                 var vert = mesh.source[0];
                 var v = vert.Item as float_array;
                 Vertices = s.ToReal3Array(s.Convert(v.Values));
@@ -80,6 +80,11 @@ namespace Collada.Converter
                 Textures = s.ToReal2Array(s.Convert(txt.Values));
                 var norm = mesh.source[1].Item as float_array;
                 Normals = s.ToReal3Array(s.Convert(norm.Values));
+                for (int i = 0; i < ind.Count; i++)
+                {
+                    
+                }
+
             }
             //te
         }

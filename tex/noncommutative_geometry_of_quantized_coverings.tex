@@ -12056,7 +12056,11 @@ Using this product $P$ can be decomposed onto the direct sum
 $$
 P = P_1 \oplus .... \oplus P_N
 $$
-where every summand corresponds to an irreducible representation of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Otherwise the group $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ is commutative so any irreducible representation corresponds to a character of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Thus  there is a homomorphism from  $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the  group of characters of the category of projective finitely generated $C^*$-Hilbert  $A_{\mathrm{tors}}$-$\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-modules. However this category is equivalent to the category of projective $C^*$-Hilbert $A$-modules (cf. Remark \ref{morita_g_a_rem}). It turns out that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters of $K_0\left( A\right)$. It follows that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to to the group of characters of $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$ is the torsion subgroup of $K_0\left(A \right)$.  
+where every summand corresponds to an irreducible representation of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Otherwise the group $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ is commutative so any irreducible representation corresponds to a character of $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$. Thus  there is a homomorphism from  $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the  group of characters of the category of projective finitely generated $C^*$-Hilbert  $A_{\mathrm{tors}}$-$\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-modules. However this category is equivalent to the category of projective $C^*$-Hilbert $A$-modules (cf. Remark \ref{morita_g_a_rem}). It turns out that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters of $K_0\left( A\right)$. This homomorphism if given by the following way. If $x \in K_0\left( A\right)$ is not divisible i.e. there is no $n > 1$ and $y \in  K_0\left( A\right)$ with $x = ny$ and $x$ is represented $A_{\mathrm{tors}}$- $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$-module $P$ then for any $\forall g \in \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ the restriction to $\Z x$ of the corresponding to $g$ character is given by
+$$
+\forall k \in \Z \quad g (kx ) \mapsto \left( \frac{gp}{p}\right)^k   \quad \text{where} \quad p \in P\setminus\{0\}
+$$
+It follows that there is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to to the group of characters of $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$ is the torsion subgroup of $K_0\left(A \right)$.
 Using the Section \ref{ext_char_sec} one has a homomorphism 
 	\be\label{h_tors_eqn}
 h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)\subset K^1\left(A \right) 
@@ -25078,29 +25082,57 @@ On the other hand  the equation \eqref{free_spec_eqn} comes from \eqref{uct_eqn}
 	\end{equation}
 	From (\ref{uct_c}) it follows that $K^1(A)$ depends on $K_0(A)_{tors}$ and $K_1(A)/K_1(A)_{tors}$. We say that dependence \eqref{uct_c} on $K_0(A)_{tors}$ is a {\it torsion special case} and dependence (\ref{free_spec_eqn}) of $K^1(A)$ on $K_1(A)/K_1(A)_{tors}$ is a {\it free special case}.
 	
-%	\subsection{Mappng cones and Puppe sequences}
-%\begin{defn}\cite{blackadar:ko}
+	\subsection{Mapping cones and Puppe sequences}
+\begin{defn}\cite{blackadar:ko}
 %Definition 19.4.1. 
-%\begin{enumerate}
-%	\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $C_0\left(\left[0, 1\right); A \right)$ (with the obvious grading).
-%	\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the mapping cone of $\phi$,
-%	denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB= f(0)\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
-%\end{enumerate}
+\begin{enumerate}
+	\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $C_0\left(\left[0, 1\right); A \right)$ (with the obvious grading).
+	\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the mapping cone of $\phi$,
+	denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB= f(0)\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
+\end{enumerate}
 
-%The mapping cone construction is an important example of a pullback (15.3).
+The mapping cone construction is an important example of a pullback.
 
-%\end{defn}
-%There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C0((0, 1);B)$.) 
-%There is a standard short exact sequence 0  SBi  Cp A  0associated to C.
-%\begin{theorem}\cite{blackadar:ko}
+\end{defn}
+There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
+There is a standard short exact sequence 
+$$
+0 \to SB \to C_\phi \to A \to 0
+$$
+associated to $C_\phi$.
+\begin{theorem}\cite{blackadar:ko}
 %Theorem 19.4.3 
-%(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
-%\bean
-%KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
-%KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
-%\eean
-%\end{theorem}
+(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
+\bean
+KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
+KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
+\eean
+
+\end{theorem}
 \end{empt}
+
+\subsection{Fredholm picture of $KK$-theory}
+Let $A$ be an  unital, trivially
+graded $C^*$-algebra and $B$ is a $\sigma$-unital and trivially graded. We may identify $B\left(\ell^2\left( B\right)  \right)$  with $\mathbb{M}_2\left(  M\left( B \otimes \K\right)\right)$
+, with the diagonal-off diagonal grading.% as in 14.1.2(a). 
+With this identification, $\phi \bydef \left(\phi_0, \phi_1 \right)$ , where $\phi_j$ is a unital homomorphism from $A$ to $M\left( B \otimes \K\right)$, and
+\bean
+F \bydef \begin{pmatrix}
+	0 & T^*\\
+T & 0
+	\end{pmatrix}
+\eean
+for some $T \in  M\left( B \otimes \K\right)$ with $\left\|T \right\|\le 1$ . The intertwining conditions for $F$ and
+$\phi$ become $T^*T -1, ~ TT^* - 1, ~ T\phi_1\left(a \right) - \phi_0\left(a \right) \in B\otimes \K$
+ for all $a \in A$. The
+equivalence relation $\sim_h$ is homotopy of triples $\left(\phi_0, \phi_1, T \right)$   (with strong-operator
+continuity).% oh [resp. c] is generated by unitary equivalence, norm-homotopy[resp. compact perturbation] of T, and adding on degenerate triples (where T isa unitary exactly intertwining 0 and 1).
+ A Kasparov module in the Fredholm picture is often denoted by a triple
+$\left(E^{(0)}\oplus E^{(1)},\phi^{(0)}\oplus \phi^{(1)}  \right) $, where $T \in B\left(E^{(0)}, E^{(1)} \right)$ is an operator with the
+right algebraic and intertwining properties as above. Modules expressed in this
+way give the \textit{Fredholm picture} of $KK(A,B)$.
+
+
 \subsection{Miscellany}	
 
 \begin{proposition}\label{nt_khom_prop}\cite{had:ntk,sudo:ntk}
