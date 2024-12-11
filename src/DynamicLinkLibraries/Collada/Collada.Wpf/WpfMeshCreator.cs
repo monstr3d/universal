@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using Abstract3DConverters;
+using Collada.Wpf.Classes;
 
 namespace Collada.Wpf
 {
@@ -135,6 +136,47 @@ namespace Collada.Wpf
         }
 
 
+
+        private MeshGeometry3D Create(AbstractMesh mesh, List<float[]> vertices, List<float[]> textures, List<float[]> normals)
+        {
+            var mg = new MeshGeometry3D();
+            var points = new Point3DCollection();
+            var norm = new Vector3DCollection();
+            var textcoord = new PointCollection();
+            foreach (var v in vertices)
+            {
+                var p = new Point3D(v[0], v[1], v[2]);
+                points.Add(p);
+            }
+            foreach (var t in textures)
+            {
+                var p = new Point(t[0], 1 - t[1]);
+                textcoord.Add(p);
+            }
+            if (normals != null)
+            {
+                foreach (var n in normals)
+                {
+                    var nm = new Vector3D(n[0], n[1], n[2]);
+                    norm.Add(nm);
+                }
+            }
+            if (textcoord.Count > 0)
+            {
+                mg.TextureCoordinates = textcoord;
+            }
+            if (points.Count > 0)
+            {
+                mg.Positions = points;
+            }
+            if (norm.Count > 0)
+            {
+                mg.Normals = norm;
+            }
+            return mg;
+        }
+
+
         private MeshGeometry3D CreateWN(AbstractMesh mesh)
         {
             if (mesh.Indexes == null)
@@ -177,11 +219,7 @@ namespace Collada.Wpf
             var ind = mesh.Indexes;
             if (ind == null)
             {
-                return new MeshGeometry3D();
-            }
-            if (ind.Count == 0)
-            {
-                return new MeshGeometry3D();
+                //return new MeshGeometry3D();
             }
              var vt = vertices;
             if (vt == null)
@@ -220,6 +258,10 @@ namespace Collada.Wpf
             else if (txt.Count == 0)
             {
                 txt = mesh.Textures;
+            }
+            if (ind == null)
+            {
+                return Create(mesh, vt, txt, nr);
             }
             return Create(mesh, vt,  txt, nr, ind);
         }

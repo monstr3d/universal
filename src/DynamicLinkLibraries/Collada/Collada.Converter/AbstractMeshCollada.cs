@@ -8,7 +8,7 @@ using Collada141;
 
 namespace Collada.Converter
 {
-    internal class AbstractMeshCollada : AbstractMeshPolygon
+    internal class AbstractMeshCollada : AbstractMesh
     {
         Collada14Converter converter;
 
@@ -75,22 +75,27 @@ namespace Collada.Converter
                 var ind = s.ToReal3Array<int>(poly.p);
                 var vert = mesh.source[0];
                 var v = vert.Item as float_array;
-                Vertices = s.ToReal3Array(s.Convert(v.Values));
+                var vertices = s.ToReal3Array(s.Convert(v.Values));
                 var txt = mesh.source[2].Item as float_array;
-                Textures = s.ToReal2Array(s.Convert(txt.Values));
+                var textures = s.ToReal2Array(s.Convert(txt.Values));
                 var norm = mesh.source[1].Item as float_array;
-                Normals = s.ToReal3Array(s.Convert(norm.Values));
+                var normals = s.ToReal3Array(s.Convert(norm.Values));
                 var l = new List<Tuple<int, int, float[]>>();
+                Vertices = new List<float[]>();
+                Normals = new List<float[]>();
+                Textures = new List<float[]>();
                 for (int i = 0; i < ind.Count; i++)
                 {
                     var ii = ind[i];
-                    var t = new Tuple<int, int, float[]>(ii[0], ii[1], Textures[ii[2]]);
-                    l.Add(t);
+                    Vertices.Add(vertices[ii[0]]);
+                    Textures.Add(textures[ii[1]]);
+                    var n = ii[2];
+                    if (n >= 0 & n < normals.Count)
+                    {
+                        Normals.Add(normals[n]);
+                    }
                 }
-                var p = new Polygon(l);
-                Polygons.Add(p);
             }
-            //te
         }
 
         void CreateMaterial()
