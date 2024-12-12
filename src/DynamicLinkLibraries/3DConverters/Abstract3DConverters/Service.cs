@@ -139,6 +139,13 @@ namespace Abstract3DConverters
         }
 
 
+        public List<T[]> ToReal2Array<T>(string s) where T : struct
+        {
+            return ToReal2Array(ToRealArray<T>(s));
+        }
+
+
+
         public List<T[]> ToReal3Array<T>(string str) where T : struct
         {
             return ToReal3Array(ToRealArray<T>(str));

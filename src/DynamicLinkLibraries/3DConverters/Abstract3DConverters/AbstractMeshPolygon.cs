@@ -48,10 +48,10 @@ namespace Abstract3DConverters
                 for (int j = 0; j < t.Count; j++)
                 {
                     var pp = t[j];
-                    var iii = new int[] { pp.Item1, k, -1 };
+                    var iii = new int[] { pp.Item1, k, pp.Item3 };
                     ii[j] = iii;
+                    txt.Add(pp.Item4);
                     ++k;
-                    txt.Add(pp.Item3);
                 }
             }
         }

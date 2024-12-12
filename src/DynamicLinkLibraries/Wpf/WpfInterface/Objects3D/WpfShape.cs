@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml;
 using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization;
@@ -174,7 +173,6 @@ namespace WpfInterface.Objects3D
 
 
         #endregion
-
 
         #region IWpfVisible Members
 

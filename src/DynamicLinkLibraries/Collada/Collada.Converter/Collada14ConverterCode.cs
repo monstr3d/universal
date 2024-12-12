@@ -60,7 +60,8 @@ namespace Collada.Converter
         Image GetImage(object obj)
         {
             var image = obj as image;
-            return new Image(image.name, Directory);
+            var im =  new Image(image.Item + "", Directory);
+            return im.Name == null ? null : im;
         }
         
 

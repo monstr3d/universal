@@ -67,7 +67,7 @@
 
 
         public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals,
-            List<float[]> textures, List<int[][]> indexes) : this(name)
+           List<float[]> textures, List<int[][]> indexes) : this(name)
         {
             MaterialString = material;
             Vertices = vertices;

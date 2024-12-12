@@ -14,6 +14,11 @@
             var n = Path.GetFileName(name);
             Directory = directory;
             Name = Find(n, Directory);
+            if (Name == null)
+            {
+                return;
+            }
+            Name = Name.Replace(Path.DirectorySeparatorChar, '/');
             FullPath = Directory + Name;
             var p = File.Exists(FullPath);
         }

@@ -91,7 +91,15 @@ namespace Collada.Converter
                 var t = item.GetType();
                 var p = t.GetProperty(pname);
                 var s = p.GetValue(item) + "";
-                d[s] = func(item);
+                var val = func(item);
+                if (val != null)
+                {
+                    d[s] = func(item);
+                }
+                else
+                {
+
+                }
             }
 
             return d;

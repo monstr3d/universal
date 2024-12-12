@@ -24,7 +24,7 @@ namespace Collaada.Wpf.Test
             // Compare();
          //    Generate();
             //// GenerateObj();
-           //  GenerateAC();
+         //   GenerateAC();
            GenerateCollada();
         }
 
