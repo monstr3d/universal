@@ -16,6 +16,8 @@ namespace Wpf.Loader
     public class XamlWrapper
     {
 
+        protected Paths.Service.Service service = new();
+
         protected double[][] normals;
 
 
@@ -80,51 +82,22 @@ namespace Wpf.Loader
             foreach (XmlElement e in nl)
             {
                 string iso = e.GetAttribute("ImageSource");
-                var fn = Path.GetFileName(iso);
-                var fin = Path.Combine(dir, fn);
-                if (File.Exists(fin))
+                if (iso.Contains('/'))
                 {
-                    File.Copy(fin, fn);
-                    Directory.SetCurrentDirectory(dir);
-            //        fn = "file://" + fn.Replace(Path.DirectorySeparatorChar, '/');
-                    e.SetAttribute("ImageSource", fn);
-                }
-                else if (File.Exists(iso))
-                {
+                    //iso = iso.Substring(iso.LastIndexOf('/') + 1);
+                    iso = iso.Substring(ds.Length + "file://".Length + 1);
                     e.SetAttribute("ImageSource", iso);
                 }
-                else if (iso.Contains('/'))
-                {
-                     var isoo = iso.Substring(ds.Length + "file://".Length + 1);
-                    if (File.Exists(iso))
-                    {
-                        e.SetAttribute("ImageSource", isoo);
-                    }
-                    else if (File.Exists(iso))
-                    {
-                        e.SetAttribute("ImageSource", iso);
-                    }
-                    else
-                    {
-
-                    }
-                }
-                else
-                {
-
-                }
-                fn = ds + iso;
+                string fn = ds + iso;
                 fn = fn.Replace('/', Path.DirectorySeparatorChar);
                 if (!File.Exists(fn))
                 {
                     continue;
                 }
-                using (Stream stream = File.OpenRead(fn))
-                {
-                    byte[] b = new byte[stream.Length];
-                    stream.Read(b, 0, b.Length);
-                    textures[iso] = b;
-                }
+                Stream stream = File.OpenRead(fn);
+                byte[] b = new byte[stream.Length];
+                stream.Read(b, 0, b.Length);
+                textures[iso] = b;
             }
             Xaml = doc.OuterXml;
         }
@@ -261,6 +234,8 @@ namespace Wpf.Loader
 
         protected int aniCount;
 
+
+
         protected int facetCount = -1;
 
         public const int side = 5;
@@ -285,6 +260,9 @@ namespace Wpf.Loader
             }
         }
 
+
+
+
         /// <summary>
         /// Process Xaml
         /// </summary>
@@ -303,6 +281,12 @@ namespace Wpf.Loader
                 {
                     if (iso.Length > 0)
                     {
+                        var isi = service.FindEnd(iso, textures.Keys);
+                        if (isi == null)
+                        {
+                            continue;
+                        }
+                        iso = isi;
                         if (textures.ContainsKey(iso))
                         {
                             if (urls.ContainsKey(iso))

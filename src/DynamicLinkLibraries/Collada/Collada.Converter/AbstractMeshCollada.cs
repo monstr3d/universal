@@ -79,6 +79,11 @@ namespace Collada.Converter
                 Textures = s.ToReal2Array(s.Convert(txt.Values));
                 var norm = mesh.source[1].Item as float_array;
                 Normals = s.ToReal3Array(s.Convert(norm.Values));
+                var pc = mesh.Items.Length;
+                if (pc != 1)
+                {
+
+                }
                 var poly = mesh.Items[0] as polylist;
                 var vcount = s.ToRealArray<int>(poly.vcount);
                 var cc = 0;

@@ -24,8 +24,8 @@ namespace Collaada.Wpf.Test
             // Compare();
          //    Generate();
             //// GenerateObj();
-         //   GenerateAC();
-           GenerateCollada();
+           GenerateAC();
+          // GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
