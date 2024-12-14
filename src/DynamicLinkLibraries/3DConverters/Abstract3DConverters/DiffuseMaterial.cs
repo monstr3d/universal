@@ -30,7 +30,7 @@ namespace Abstract3DConverters
 
         public float Opacity { get; private set; }
 
-        public DiffuseMaterial(Color color, Color ambient, Image image, float opacity = 0) 
+        public DiffuseMaterial(Color color, Color ambient, Image image, float opacity = 1) 
         {
             Image = image;
             Opacity = opacity;

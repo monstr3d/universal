@@ -12,7 +12,7 @@ namespace Abstract3DConverters
 {
     public class AcConverter : AbstractMeshCreator
     {
-        List<Material> Materials { get; } = new ();
+        List<Material> MaterialsP { get; } = new ();
 
         Service s = new();
 
@@ -22,6 +22,7 @@ namespace Abstract3DConverters
         {
         }
 
+        /*
         protected override Tuple<object, List<AbstractMesh>> Create(string filename)
         {
             var lines = new List<string>();
@@ -37,6 +38,27 @@ namespace Abstract3DConverters
             var meshes = Create(null, lines).ToArray();
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
+        */
+
+        #region AbstractMeshCreator Members
+
+        public override Dictionary<string, Material> Materials => throw new NotImplementedException();
+
+        public override Dictionary<string, Image> Images => throw new NotImplementedException();
+
+ 
+        public override Tuple<object, List<AbstractMesh>> Create(IAbstractMeshCreator creator)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateAll()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        #endregion
 
 
 
@@ -59,7 +81,7 @@ namespace Abstract3DConverters
                     }
                 }
                 var group = new MaterialGroup(l[0]);
-                    Materials.Add(group);
+                    MaterialsP.Add(group);
                 var d = new Dictionary<int, string>();
                 for (int i = 0; i < l.Count; i++) 
                 {
@@ -153,7 +175,7 @@ namespace Abstract3DConverters
                         if (cnt != null)
                         {
                             var count = cnt.Value;
-                            var am = new AbstractMeshAC(parent, name, count, nl, Materials, directory);
+                            var am = new AbstractMeshAC(parent, name, count, nl, MaterialsP, directory);
                             name = null;
                             nl = new();
                             i = j;

@@ -23,9 +23,9 @@ namespace Collaada.Wpf.Test
         {
             // Compare();
          //    Generate();
-            //// GenerateObj();
-           GenerateAC();
-          // GenerateCollada();
+            GenerateObj();
+         //  GenerateAC();
+           //GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -48,20 +48,22 @@ namespace Collaada.Wpf.Test
 
         void GenerateCollada()
         {
-            GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\XAML\tu154b\Model\1.dae");
+           // GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\Collada\tu154B.dae");
+            GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
         }
 
 
         void GenerateCollada(string filename)
         {
-            IAbstractMeshCreator converter = new Collada14Converter();
+
+            AbstractMeshCreator converter = new Collada14Converter();
             var res = converter.Create(filename);
             var p = new Performer();
             var model = p.Combine<ModelVisual3D>(res.Item1, res.Item2, new WpfMeshCreator(), null, new WpfMaterialCreator());
             model.SetLight();
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
-            var file = Path.Combine(acdir, fnt + ".xaml");
+            var file = Path.Combine(dir, fnt + ".xaml");
             var r = XamlWriter.Save(model);
             using (var w = new StreamWriter(file))
             {
@@ -101,7 +103,7 @@ namespace Collaada.Wpf.Test
         {
             var fn = filename;
             var converter = new AcConverter();
-            IAbstractMeshCreator meshCreator = converter;
+            AbstractMeshCreator meshCreator = converter;
             var f = Path.Combine(acdir, filename);
             Tuple<object, List<AbstractMesh>> l = meshCreator.Create(f);
             var list = new Dictionary<string, object>();
@@ -133,8 +135,8 @@ namespace Collaada.Wpf.Test
         {
             var fn = models[obj].ConvertExtension(".obj");
             var converter = new Obj3DConverter();
-            IAbstractMeshCreator meshCreator = converter;
-            Tuple<object,    List<AbstractMesh>> l = meshCreator.Create(fn);
+            AbstractMeshCreator meshCreator = converter;
+            Tuple<object,  List<AbstractMesh>> l = meshCreator.Create(fn);
             IMaterialDictionary materialDictionary = converter;
             Dictionary<string, Material>  dictionary = materialDictionary.Materials;
             var mtl = new MtlWrapper();

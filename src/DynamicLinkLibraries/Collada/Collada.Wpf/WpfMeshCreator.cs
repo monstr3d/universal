@@ -17,6 +17,9 @@ namespace Collada.Wpf
     {
         Assembly IMeshCreator.Assembly => typeof(ModelVisual3D).Assembly;
 
+        Dictionary<string, Abstract3DConverters.Material> IMeshCreator.Materials { set { } }
+        Dictionary<string, Abstract3DConverters.Image> IMeshCreator.Images { set { } }
+
         Service s = new();
 
 
@@ -26,7 +29,6 @@ namespace Collada.Wpf
 
         List<float[]> normals;
 
-        Performer performer = new();
 
         void IMeshCreator.Init(object o)
         {

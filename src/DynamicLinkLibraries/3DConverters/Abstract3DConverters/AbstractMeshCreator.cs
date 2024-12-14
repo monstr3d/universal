@@ -6,6 +6,10 @@
 
         protected string directory;
 
+        protected string filename;
+
+
+
         public AbstractMeshCreator(string extension)
         {
             this.extension = extension;
@@ -16,15 +20,26 @@
 
         string IAbstractMeshCreator.Directory => directory;
 
-        Tuple<object, List<AbstractMesh>> IAbstractMeshCreator.Create(string filename)
+        public abstract Dictionary<string, Material> Materials { get; }
+        public abstract Dictionary<string, Image> Images { get; }
+
+        public  void Load(string filename)
         {
             directory = Path.GetDirectoryName(filename);
-            return Create(filename);
+            this.filename = filename;
+            CreateAll();
         }
 
-     
+        public abstract Tuple<object, List<AbstractMesh>> Create(IAbstractMeshCreator creator);
 
-        protected abstract Tuple<object, List<AbstractMesh>> Create(string filename);
+        public Tuple<object, List<AbstractMesh>> Create(string filename)
+        {
+            Load(filename);
+            return Create(this);
+        }
+
+
+        protected abstract void CreateAll();
 
         protected virtual void Perform(AbstractMesh mesh, Action<AbstractMesh> action)
         {

@@ -7,6 +7,12 @@ namespace Abstract3DConverters
 
         string Directory { get; }
 
-        Tuple<object, List<AbstractMesh>> Create(string filename);
+        void Load(string filename);
+
+        Tuple<object, List<AbstractMesh>> Create(IAbstractMeshCreator creator);
+
+        Dictionary<string, Material> Materials { get; }
+
+        Dictionary<string, Image> Images { get; }
     }
 }

@@ -14,7 +14,7 @@ namespace Collada.Converter
 
         public Dictionary<string, Material> Effects { get; private set; }
 
-        public Dictionary<string, Material> Materials { get; private set; }
+        public Dictionary<string, Material> Materials { get; private set; } 
 
         public Dictionary<string, geometry> Geometries { get; private set; }
 
@@ -71,7 +71,7 @@ namespace Collada.Converter
 
         }
 
-        protected override Tuple<object, List<AbstractMesh>> Create(string filename)
+        protected  Tuple<object, List<AbstractMesh>> Create(string filename)
         {
             Directory = Path.GetDirectoryName(filename);
             collada = Collada141.COLLADA.Load(filename);
@@ -180,7 +180,7 @@ namespace Collada.Converter
                 var np = NewParam[txt.texture];
 
             }*/
-            float opacity = 0;
+            float opacity = 1;
             var diffuse = new DiffuseMaterial(diffColor, ambient, image, opacity);
             grp.Children.Add(diffuse);
             var ecolor =  GetColor(material.emission);

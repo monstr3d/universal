@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Abstract3DConverters
 {
     public interface IMeshCreator
     {
         Assembly Assembly { get; }
+
+        Dictionary<string, Material> Materials
+        {
+            set;
+        }
+
+        Dictionary<string, Image> Images
+        {
+            set;
+        }
+            
 
         void Init(object obj);
        
