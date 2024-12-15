@@ -30,12 +30,12 @@
             CreateAll();
         }
 
-        public abstract Tuple<object, List<AbstractMesh>> Create(IAbstractMeshCreator creator);
+        public abstract Tuple<object, List<AbstractMesh>> Create();
 
         public Tuple<object, List<AbstractMesh>> Create(string filename)
         {
             Load(filename);
-            return Create(this);
+            return Create();
         }
 
 
