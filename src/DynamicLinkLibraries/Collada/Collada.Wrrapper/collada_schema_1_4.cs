@@ -9933,15 +9933,10 @@ namespace Collada141
 
         public static COLLADA Load(string fileName)
         {
-            FileStream stream = new FileStream(fileName, FileMode.Open);
             COLLADA result;
-            try
+            using (var stream = new FileStream(fileName, FileMode.Open))
             {
                 result = Load(stream);
-            }
-            finally
-            {
-                stream.Close();
             }
             return result;
         }

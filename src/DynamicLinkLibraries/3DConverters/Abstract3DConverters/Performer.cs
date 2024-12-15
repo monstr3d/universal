@@ -20,49 +20,55 @@ namespace Abstract3DConverters
 
         #endregion
 
-        public T Create<T>(AbstractMesh mesh, IMeshCreator meshCreator, Dictionary<string, object> materials = null, IMaterialCreator materialCreator = null) where T : class
+        public T Create<T>(AbstractMesh mesh, IMeshConverter meshCreator) where T : class
         {
+            IMaterialCreator materialCreator = meshCreator.MaterialCreator;
             object o = meshCreator.Create(mesh);
             var trans = mesh.TransformationMatrix;
             if (trans != null)
             {
                 meshCreator.SetTransformation(o, trans);
             }
-            var mt = mesh.GetMaterial(materials, materialCreator);
+            var mt = mesh.GetMaterial(materialCreator);
             if (mt != null)
             {
                 meshCreator.SetMaterial(o, mt);
             }
             foreach (var child in mesh.Children)
             {
-                var ch = Create<T>(child, meshCreator, materials, materialCreator);
+                var ch = Create<T>(child, meshCreator);
                 meshCreator.Add(o, ch);
             }
             return o as T;
         }
 
-        public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials= null, IMaterialCreator materialCreator = null) where T : class
+        public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
-            c.Init(o);
+            converter.Init(o);
             foreach (var mesh in meshes)
             {
-                yield return Create<T>(mesh, c, materials, materialCreator);
+                yield return Create<T>(mesh, converter);
             }
         }
 
-        public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshCreator c, Dictionary<string, object> materials = null, IMaterialCreator materialCreator = null) where T : class
+        public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
-            var enu = Create<T>(o, meshes, c, materials, materialCreator);
-            return c.Combine(enu) as T;
+            var enu = Create<T>(o, meshes, converter);
+            return converter.Combine(enu) as T;
         }
 
-        public T Create<T>(string filename, IAbstractMeshCreator creator, IMeshCreator meshCreator) where  T : class
+        public T Create<T>(string filename, IMeshCreator creator, IMeshConverter converter, Action < T> action = null) where T : class
         {
             creator.Load(filename);
-            var t =  creator.Create();
-            meshCreator.Images = creator.Images;
-            meshCreator.Materials = creator.Materials;
-            return Combine<T>(t.Item1, t.Item2, meshCreator);
+            var t = creator.Create();
+            converter.Images = creator.Images;
+            converter.Materials = creator.Materials;
+            var res = Combine<T>(t.Item1, t.Item2, converter);
+            if (action != null)
+            {
+                action(res);
+            }
+            return res;
         }
     }
 }

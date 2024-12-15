@@ -7,6 +7,7 @@ namespace Abstract3DConverters
     {
 
         Assembly Assembly { get; }
+        
         object Create(Image image);
 
 

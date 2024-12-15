@@ -1,11 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq.Expressions;
-using System.Text.Json;
-using Collada;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
-    public class AbstractMeshAC :  AbstractMeshPolygon
+    public class AbstractMeshAC : AbstractMeshPolygon
     {
 
         int count;
@@ -13,23 +8,26 @@ namespace Abstract3DConverters
 
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
 
+        AcCreator creator;
+
 
         List<string> l;
 
-        public Image Image 
-        { 
-            get; 
-            private set; 
+        public Image Image
+        {
+            get;
+            private set;
         }
 
-   
-        public AbstractMeshAC(AbstractMeshAC parent, string name, int count, List<string> l, List<Material> materials,  string directory) :
-            base(name, parent)
+
+        public AbstractMeshAC(AbstractMeshAC parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
+            base(name, parent, creator)
         {
             this.count = count;
             this.l = l;
             int nv = -1;
             int ns = -1;
+            this.creator = creator;
             for (int i = 0; i < l.Count; i++)
             {
                 var line = l[i];
@@ -37,9 +35,9 @@ namespace Abstract3DConverters
                 if (loc != null)
                 {
                     var location = s.ToRealArray<float>(loc);
-                    TransformationMatrix = [ 1, 0, 0, 0, 
+                    TransformationMatrix = [ 1, 0, 0, 0,
                                              0, 1, 0, 0,
-                                             0, 0, 1, 0, 
+                                             0, 0, 1, 0,
                                             location[0], location[1], location[2], 0 ];
                 }
                 var texture = s.ToString(line, "texture ");
@@ -69,7 +67,7 @@ namespace Abstract3DConverters
                     var mats = new List<int>();
                     var nc = numsurf.Value;
                     var k = i + 1;
-                    for (;  k < l.Count; k++)
+                    for (; k < l.Count; k++)
                     {
                         var mp = s.ToReal<int>(l[k], "mat ");
                         {
@@ -83,7 +81,7 @@ namespace Abstract3DConverters
                                 continue;
                             }
                         }
-                        
+
                         var refs = s.ToReal<int>(l[k], "refs ");
                         if (refs != null)
                         {
@@ -95,7 +93,7 @@ namespace Abstract3DConverters
                             {
                                 var il = l[p];
                                 var ss = s.Split(il);
-                                var t = new Tuple<int, int, int, float[]>(s.ToReal<int>(ss[0].Trim()), j, -1, new float[] { s.ToReal<float>(ss[1].Trim()), 
+                                var t = new Tuple<int, int, int, float[]>(s.ToReal<int>(ss[0].Trim()), j, -1, new float[] { s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
                                 ++j;
@@ -126,7 +124,7 @@ namespace Abstract3DConverters
                                 foreach (Polygon p in Polygons)
                                 {
                                     var mat = materials[dp[p]];
-                                    new AbstractMeshAC(this, p, mat, Image);
+                                    new AbstractMeshAC(this, p, mat, Image, creator);
                                 }
                                 Vertices = new List<float[]>();
                                 Polygons.Clear();
@@ -140,13 +138,14 @@ namespace Abstract3DConverters
             }
         }
 
-        private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image) : base(parent.Name, parent)
+        private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :
+            base(parent.Name, parent, creator)
         {
-     /*       TransformationMatrix = [ 1, 0, 0, 0,
-                                             0, 1, 0, 0,
-                                             0, 0, 1, 0,
-                                            0, 0, 0, 0 ];
-     */
+            /*       TransformationMatrix = [ 1, 0, 0, 0,
+                                                    0, 1, 0, 0,
+                                                    0, 0, 1, 0,
+                                                   0, 0, 0, 0 ];
+            */
 
             Vertices = new List<float[]>();
             var d = new Dictionary<int, int>();
@@ -164,7 +163,7 @@ namespace Abstract3DConverters
             {
                 Vertices.Add(parent.Vertices[key]);
             }
-            var l =  new List<Tuple<int, int, int, float[]>> ();
+            var l = new List<Tuple<int, int, int, float[]>>();
             foreach (var p in polygon.Points)
             {
                 var t = new Tuple<int, int, int, float[]>(d[p.Item1], p.Item2, p.Item3, p.Item4);
@@ -179,25 +178,5 @@ namespace Abstract3DConverters
                 SetImage(Material, Image);
             }
         }
-
-          
-
-        public override object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
-        {
-            var o = base.GetMaterial(map, creator);
-            if (o != null)
-            {
-                return o;
-            }
-            if (Material == null)
-            {
-                if (count == 0)
-                {
-                    return null;
-                }
-            }
-            return creator.Create(Material);
-        }
-
     }
 }

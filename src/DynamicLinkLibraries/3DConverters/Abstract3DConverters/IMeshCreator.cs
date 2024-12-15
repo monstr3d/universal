@@ -1,33 +1,18 @@
 ﻿
-using System.Reflection;
-
 namespace Abstract3DConverters
 {
     public interface IMeshCreator
     {
-        Assembly Assembly { get; }
+        string Extension { get; }
 
-        Dictionary<string, Material> Materials
-        {
-            set;
-        }
+        string Directory { get; }
 
-        Dictionary<string, Image> Images
-        {
-            set;
-        }
-            
+        void Load(string filename);
 
-        void Init(object obj);
-       
-        object Create(AbstractMesh mesh);
+        Tuple<object, List<AbstractMesh>> Create();
 
-        void SetMaterial(object mesh, object material);
+        Dictionary<string, Material> Materials { get; }
 
-        void Add(object mesh, object child);
-
-        object Combine(IEnumerable<object> meshes);
-
-        void SetTransformation(object mesh, float[] transformation);
+        Dictionary<string, Image> Images { get; }
     }
 }

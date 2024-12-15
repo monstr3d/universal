@@ -10,9 +10,9 @@ using System.Windows.Media.Media3D;
 
 namespace Collada.Wpf
 {
-    public class WpfMaterialCreator : Abstract3DConverters.AbstractMaterialCreator
+    internal class WpfMaterialCreator : Abstract3DConverters.AbstractMaterialCreator
     {
-        public WpfMaterialCreator()
+        internal WpfMaterialCreator()
         {
         }
 

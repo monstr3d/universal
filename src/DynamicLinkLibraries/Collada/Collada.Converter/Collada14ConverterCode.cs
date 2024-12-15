@@ -8,9 +8,9 @@ using Collada141;
 
 namespace Collada.Converter
 {
-    partial class Collada14Converter
+    partial class Collada14MeshCreator
     {
-        Tuple<object, List<AbstractMesh>> Create()
+        public override Tuple<object, List<AbstractMesh>> Create()
         {
             var l = new List<AbstractMesh>();
             foreach (var node in Nodes)
@@ -60,7 +60,7 @@ namespace Collada.Converter
         Image GetImage(object obj)
         {
             var image = obj as image;
-            var im =  new Image(image.Item + "", Directory);
+            var im =  new Image(image.Item + "", directory);
             return im.Name == null ? null : im;
         }
         
@@ -69,7 +69,7 @@ namespace Collada.Converter
 
         AbstractMesh Create(node node)
         {
-            var mesh =  new AbstractMeshCollada(node, this);
+            var mesh =  new AbstractMeshCollada(node, null, this);
             if (node.node1 != null)
             {
                 foreach (var item in node.node1)

@@ -10,7 +10,6 @@ using Abstract3DConverters;
 using Collada;
 using Collada.Converter;
 using Collada.Wpf;
-using Material = Abstract3DConverters.Material;
 
 namespace Collaada.Wpf.Test
 {
@@ -23,9 +22,9 @@ namespace Collaada.Wpf.Test
         {
             // Compare();
          //    Generate();
-            GenerateObj();
-         //  GenerateAC();
-           //GenerateCollada();
+             GenerateObj();
+         //    GenerateAC();
+         //  GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -52,29 +51,43 @@ namespace Collaada.Wpf.Test
             GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
         }
 
-
-        void GenerateCollada(string filename)
+        void GenerateWpf(string filename, IMeshCreator creator)
         {
-
-            AbstractMeshCreator converter = new Collada14Converter();
-            var res = converter.Create(filename);
-            var p = new Performer();
-            var model = p.Combine<ModelVisual3D>(res.Item1, res.Item2, new WpfMeshCreator(), null, new WpfMaterialCreator());
-            model.SetLight();
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".xaml");
-            var r = XamlWriter.Save(model);
-            using (var w = new StreamWriter(file))
+            var act = (ModelVisual3D m) =>
             {
-                w.Write(r);
-            }
+                m.SetLight();
+                var r = XamlWriter.Save(m);
+                using (var w = new StreamWriter(file))
+                {
+                    w.Write(r);
+                }
 
+            };
+            Generate<ModelVisual3D>(filename, creator, new WpfMeshConverter(),  act);
+        }
+
+
+        void Generate<T>(string filename, IMeshCreator creator, IMeshConverter converter,
+           Action<T> action) where T : class
+        {
+
+            var p = new Performer();
+            p.Create<T>(filename, creator, converter, action);
+        }
+
+        void GenerateCollada(string filename)
+        {
+            GenerateWpf(filename, new Collada14MeshCreator());
+            return;
         }
 
         void GenerateAC()
         {
-              GenerateAC("tu154B.ac");
+
+            GenerateAC("tu154B.ac");
               return;
              GenerateAC("H-60.ac");
             return;
@@ -83,7 +96,7 @@ namespace Collaada.Wpf.Test
              GenerateAC("testpilot.ac");
         }
 
-        Material DefaultMaterial
+        Abstract3DConverters.Material DefaultMaterial
         {
             get
             {
@@ -101,31 +114,34 @@ namespace Collaada.Wpf.Test
 
         void GenerateAC(string filename)
         {
-            var fn = filename;
-            var converter = new AcConverter();
-            AbstractMeshCreator meshCreator = converter;
             var f = Path.Combine(acdir, filename);
-            Tuple<object, List<AbstractMesh>> l = meshCreator.Create(f);
-            var list = new Dictionary<string, object>();
-            var p = new Performer();
-            var model = p.Combine<ModelVisual3D>(l.Item1, l.Item2, new WpfMeshCreator(), list, new WpfMaterialCreator());
-            model.SetLight();
-            var fnt = Path.GetFileNameWithoutExtension(fn);
-            var dir = Path.GetDirectoryName(fn);
-            var file = Path.Combine(acdir, fnt + ".xaml");
-            var r = XamlWriter.Save(model);
-            using (var w = new StreamWriter(file))
-            {
-                w.Write(r);
-            }
+            GenerateWpf(f, new AcCreator());
+            return;
+            /*        var fn = filename;
+                    var converter = new AcConverter();
+                    AbstractMeshCreator meshCreator = converter;
+                    var f = Path.Combine(acdir, filename);
+                    Tuple<object, List<AbstractMesh>> l = meshCreator.Create(f);
+                    var list = new Dictionary<string, object>();
+                    var p = new Performer();
+                    var model = p.Combine<ModelVisual3D>(l.Item1, l.Item2, new WpfMeshConverter(), list, new WpfMaterialCreator());
+                    model.SetLight();
+                    var fnt = Path.GetFileNameWithoutExtension(fn);
+                    var dir = Path.GetDirectoryName(fn);
+                    var file = Path.Combine(acdir, fnt + ".xaml");
+                    var r = XamlWriter.Save(model);
+                    using (var w = new StreamWriter(file))
+                    {
+                        w.Write(r);
+                    }*/
         }
 
         void GenerateObj()
         {
           //  GenerateObj("Tornado");
-             //       GenerateObj("F15");
+                 GenerateObj("F15");
           //      GenerateObj("Mig29");
-            GenerateObj("Sukhoi");
+           // GenerateObj("Sukhoi");
             //    GenerateObj("F16");
             //  GenerateObj("H6");
 
@@ -134,24 +150,27 @@ namespace Collaada.Wpf.Test
         void GenerateObj(string obj)
         {
             var fn = models[obj].ConvertExtension(".obj");
-            var converter = new Obj3DConverter();
-            AbstractMeshCreator meshCreator = converter;
-            Tuple<object,  List<AbstractMesh>> l = meshCreator.Create(fn);
-            IMaterialDictionary materialDictionary = converter;
-            Dictionary<string, Material>  dictionary = materialDictionary.Materials;
-            var mtl = new MtlWrapper();
-            var list = mtl.Create(dictionary, new WpfMaterialCreator());
-            var p = new Performer();
-            var model  =  p.Combine<ModelVisual3D>(l.Item1, l.Item2, new WpfMeshCreator(), list, new WpfMaterialCreator());
-            model.SetLight();
-            var fnt = Path.GetFileNameWithoutExtension(fn);
-            var dir = Path.GetDirectoryName(fn);
-            var file = Path.Combine(dir, fnt + ".xaml");
-            var r = XamlWriter.Save(model);
-            using (var w = new StreamWriter(file))
-            {
-                w.Write(r);
-            }
+            GenerateWpf(fn, new Obj3DConverter());
+            return;
+
+            /*      var converter = new Obj3DConverter();
+                 AbstractMeshCreator meshCreator = converter;
+                 Tuple<object,  List<AbstractMesh>> l = meshCreator.Create(fn);
+                 IMaterialDictionary materialDictionary = converter;
+                 Dictionary<string, Abstract3DConverters. Material>  dictionary = materialDictionary.Materials;
+                 var mtl = new MtlWrapper();
+                 var list = mtl.Create(dictionary, new WpfMaterialCreator());
+                 var p = new Performer();
+                 var model  =  p.Combine<ModelVisual3D>(l.Item1, l.Item2, new WpfMeshConverter(), list, new WpfMaterialCreator());
+                 model.SetLight();
+                 var fnt = Path.GetFileNameWithoutExtension(fn);
+                 var dir = Path.GetDirectoryName(fn);
+                 var file = Path.Combine(dir, fnt + ".xaml");
+                 var r = XamlWriter.Save(model);
+                 using (var w = new StreamWriter(file))
+                 {
+                     w.Write(r);
+                 }*/
         }
 
 

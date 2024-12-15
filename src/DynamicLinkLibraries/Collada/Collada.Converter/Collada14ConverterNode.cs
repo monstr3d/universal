@@ -7,7 +7,7 @@ using Collada141;
 
 namespace Collada.Converter
 {
-    partial class Collada14Converter
+    partial class Collada14MeshCreator
     {
         IEnumerable<node> Nodes
         {

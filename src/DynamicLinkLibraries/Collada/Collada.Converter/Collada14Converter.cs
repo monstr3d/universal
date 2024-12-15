@@ -5,38 +5,46 @@ using Collada141;
 
 namespace Collada.Converter
 {
-    public partial class Collada14Converter : AbstractMeshCreator
+    public partial class Collada14MeshCreator : AbstractMeshCreator
     {
 
         private Collada141.COLLADA collada;
 
-        public Dictionary<string, Image> Images { get; private set; }
+        Dictionary<string, Image> images;
+
+        Dictionary<string, Material> materials;
+
+        public override Dictionary<string, Image> Images { get => images; }
 
         public Dictionary<string, Material> Effects { get; private set; }
 
-        public Dictionary<string, Material> Materials { get; private set; } 
+        public override Dictionary<string, Material> Materials { get => materials; } 
 
         public Dictionary<string, geometry> Geometries { get; private set; }
 
         public Dictionary<string, common_newparam_type> NewParam { get; private set; }
 
 
-        public string Directory
-        { get; private set; }
-
         Dictionary<Type, List<object>> dic = new Dictionary<Type, List<object>>();
-        public Collada14Converter() : base(".dae")
+        public Collada14MeshCreator() : base(".dae")
         {
 
         }
 
+        protected override void CreateAll()
+        {
+            collada = Collada141.COLLADA.Load(filename);
+            PrepareData();
+        }
+
+
         void PrepareData()
         {
             collada.Add(dic, collada.GetType().Assembly);
-            Images = ToDictionary(dic[typeof(image)], GetImage);
+            images = ToDictionary(dic[typeof(image)], GetImage);
             NewParam = ToDictionary(dic[typeof(common_newparam_type)], o => (common_newparam_type)o, "sid");
             Effects = ToDictionary(dic[typeof(effect)], GetEffect);
-            Materials = ToDictionary(dic[typeof(material)], GetMaterial);
+            materials = ToDictionary(dic[typeof(material)], GetMaterial);
             Geometries = ToDictionary(dic[typeof(geometry)], GetGeometry, "id");
         }
 
@@ -70,7 +78,7 @@ namespace Collada.Converter
             return null;
 
         }
-
+/*
         protected  Tuple<object, List<AbstractMesh>> Create(string filename)
         {
             Directory = Path.GetDirectoryName(filename);
@@ -78,7 +86,7 @@ namespace Collada.Converter
             PrepareData();
             return Create();
         }
-
+*/
         public Dictionary<string, T> ToDictionary<T>(List<object> list, Func<object, T> func, string pname = "name") where T : class
         {
             var d = new Dictionary<string, T>();

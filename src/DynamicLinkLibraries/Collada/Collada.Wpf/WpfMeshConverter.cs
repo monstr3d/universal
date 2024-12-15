@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using Abstract3DConverters;
-using Collada.Wpf.Classes;
 
 namespace Collada.Wpf
 {
-    public class WpfMeshCreator : IMeshCreator
+    public class WpfMeshConverter : IMeshConverter
     {
-        Assembly IMeshCreator.Assembly => typeof(ModelVisual3D).Assembly;
+        Assembly IMeshConverter.Assembly => typeof(ModelVisual3D).Assembly;
 
-        Dictionary<string, Abstract3DConverters.Material> IMeshCreator.Materials { set { } }
-        Dictionary<string, Abstract3DConverters.Image> IMeshCreator.Images { set { } }
+        WpfMaterialCreator creator = new WpfMaterialCreator();
+
+        Dictionary<string, Abstract3DConverters.Material> IMeshConverter.Materials { set { } }
+        Dictionary<string, Abstract3DConverters.Image> IMeshConverter.Images { set { } }
+
+        public IMaterialCreator MaterialCreator => creator;
 
         Service s = new();
 
@@ -30,7 +29,7 @@ namespace Collada.Wpf
         List<float[]> normals;
 
 
-        void IMeshCreator.Init(object o)
+        void IMeshConverter.Init(object o)
         {
             if (o is Tuple<List<float[]>, List<float[]>, List<float[]>> t)
             {
@@ -41,14 +40,14 @@ namespace Collada.Wpf
         }
 
 
-        void IMeshCreator.Add(object mesh, object child)
+        void IMeshConverter.Add(object mesh, object child)
         {
             var model = mesh as ModelVisual3D;
             var ch = child as ModelVisual3D;
             model.Children.Add(ch);
         }
 
-        object IMeshCreator.Create(AbstractMesh mesh)
+        object IMeshConverter.Create(AbstractMesh mesh)
         {
             var model = new ModelVisual3D();
             var geom = new GeometryModel3D();
@@ -57,14 +56,14 @@ namespace Collada.Wpf
             return model;
         }
 
-        void IMeshCreator.SetMaterial(object mesh, object material)
+        void IMeshConverter.SetMaterial(object mesh, object material)
         {
             var model = (ModelVisual3D)mesh;
             var geom = model.Content as GeometryModel3D;
             geom.Material = material as System.Windows.Media.Media3D.Material;
         }
 
-        object IMeshCreator.Combine(IEnumerable<object> meshes)
+        object IMeshConverter.Combine(IEnumerable<object> meshes)
         {
             var model = new ModelVisual3D();
             model.Transform = Transform3D.Identity;
@@ -76,7 +75,7 @@ namespace Collada.Wpf
             return model;
         }
 
-        void IMeshCreator.SetTransformation(object mesh, float[] transformation)
+        void IMeshConverter.SetTransformation(object mesh, float[] transformation)
         {
             var ModelVisual3D = mesh as ModelVisual3D;
             var x = s.Convert(transformation);

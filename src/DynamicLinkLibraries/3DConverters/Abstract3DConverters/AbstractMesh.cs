@@ -6,6 +6,8 @@
 
         protected Service s = new();
 
+        protected IMeshCreator creator;
+
   
         public float[] TransformationMatrix { get; protected set; }
 
@@ -60,14 +62,15 @@
 
 
 
-        protected AbstractMesh(string name)
+        protected AbstractMesh(string name, IMeshCreator creator)
         {
+            this.creator = creator;
             Name = name;
         }
 
 
-        public AbstractMesh(string name, string material, List<float[]> vertices, List<float[]> normals,
-           List<float[]> textures, List<int[][]> indexes) : this(name)
+        public AbstractMesh(string name, IMeshCreator creator, string material, List<float[]> vertices, List<float[]> normals,
+           List<float[]> textures, List<int[][]> indexes) : this(name, creator)
         {
             MaterialString = material;
             Vertices = vertices;
@@ -76,25 +79,23 @@
             Indexes = indexes;
         }
 
-        public virtual object GetMaterial(Dictionary<string, object> map, IMaterialCreator creator)
+        public virtual object GetMaterial(IMaterialCreator creator)
         {
             if (Material != null)
             {
                 return creator.Create(Material);
             }
-            if (Material == null)
+            var mt = this.creator.Materials;
+            if (MaterialString != null)
             {
-                if (MaterialString != null)
+                if (mt.ContainsKey(MaterialString))
                 {
-                    if (map.ContainsKey(MaterialString))
-                    {
-                        return map[MaterialString];
-                    }
+                    var mm = mt[MaterialString];
+                    return creator.Create(mm);
                 }
             }
             return null;
         }
-
   
         protected void SetImage(Material mat, Image img)
         {

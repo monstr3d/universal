@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿
 
 namespace Abstract3DConverters
 {
-    public class AcConverter : AbstractMeshCreator
+    public class AcCreator : LinesMeshCreator
     {
-        List<Material> MaterialsP { get; } = new ();
+        List<Material> MaterialsP { get; } = new();
 
         Service s = new();
 
-        protected  string[] colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
+        protected string[] colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
-        public AcConverter() : base(".ac")
+
+
+        public AcCreator() : base(".ac")
         {
         }
 
@@ -39,22 +33,18 @@ namespace Abstract3DConverters
             return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
         }
         */
+  
 
         #region AbstractMeshCreator Members
 
-        public override Dictionary<string, Material> Materials => throw new NotImplementedException();
-
-        public override Dictionary<string, Image> Images => throw new NotImplementedException();
-
  
-        public override Tuple<object, List<AbstractMesh>> Create(IAbstractMeshCreator creator)
-        {
-            throw new NotImplementedException();
-        }
+    
 
-        protected override void CreateAll()
+
+        public override Tuple<object, List<AbstractMesh>> Create()
         {
-            throw new NotImplementedException();
+            var l = Create(null, lines).ToList();
+            return new Tuple<object, List<AbstractMesh>>(null, l);
         }
 
 
@@ -66,7 +56,7 @@ namespace Abstract3DConverters
         {
             foreach (var line in lines)
             {
-                var mat  = s.ToString(line, "MATERIAL ");
+                var mat = s.ToString(line, "MATERIAL ");
                 if (mat == null)
                 {
                     continue;
@@ -81,26 +71,27 @@ namespace Abstract3DConverters
                     }
                 }
                 var group = new MaterialGroup(l[0]);
-                    MaterialsP.Add(group);
+                MaterialsP.Add(group);
+                materials[l[0]] = group;
                 var d = new Dictionary<int, string>();
-                for (int i = 0; i < l.Count; i++) 
+                for (int i = 0; i < l.Count; i++)
                 {
                     if (colstr.Contains(l[i]))
-                    d[i] = l[i];
+                        d[i] = l[i];
                 }
                 var arr = d.Keys.ToArray();
                 DiffuseMaterial diff = null;
                 EmissiveMaterial emi = null;
                 SpecularMaterial spe = null;
 
-                
+
                 Color diffcolor = null;
                 Color specolor = null;
                 Color ambcolor = null;
                 for (var j = 0; j < arr.Length; j++)
                 {
                     var k = arr[j];
-                    string  key = d[k];
+                    string key = d[k];
                     switch (key)
                     {
                         case "rgb":
@@ -109,7 +100,7 @@ namespace Abstract3DConverters
 
                         case "amb":
                             ambcolor = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
-                             break;
+                            break;
                         case "emis":
                             var color = new Color(l.GetRange(k + 1, arr[j + 1] - k - 1).ToArray());
                             emi = new EmissiveMaterial(color);
@@ -127,7 +118,7 @@ namespace Abstract3DConverters
                             break;
                         default: break;
                     }
-                    
+
                 }
                 group.Children.Add(diff);
                 group.Children.Add(emi);
@@ -147,7 +138,7 @@ namespace Abstract3DConverters
         }
 
 
-        public IEnumerable<AbstractMesh> Create(AbstractMeshAC parent, List<string> lines,  int start = 0, int current = -1)
+        public IEnumerable<AbstractMesh> Create(AbstractMeshAC parent, List<string> lines, int start = 0, int current = -1)
         {
             if (current == 0)
             {
@@ -156,7 +147,7 @@ namespace Abstract3DConverters
             for (var i = start; i < lines.Count; i++)
             {
                 var line = lines[i];
-                string name = start == 0 ? "": null;
+                string name = start == 0 ? "" : null;
                 var counter = 0;
                 if (line.StartsWith("OBJECT"))
                 {
@@ -175,7 +166,7 @@ namespace Abstract3DConverters
                         if (cnt != null)
                         {
                             var count = cnt.Value;
-                            var am = new AbstractMeshAC(parent, name, count, nl, MaterialsP, directory);
+                            var am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
                             name = null;
                             nl = new();
                             i = j;
@@ -197,6 +188,9 @@ namespace Abstract3DConverters
             }
         }
 
-
+        protected override void CreateFromLines()
+        {
+            CreateMaterials(lines);
+        }
     }
 }

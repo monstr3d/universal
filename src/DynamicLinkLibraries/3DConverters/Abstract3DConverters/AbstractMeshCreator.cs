@@ -1,12 +1,14 @@
 ﻿namespace Abstract3DConverters
 {
-    public abstract class AbstractMeshCreator : IAbstractMeshCreator
+    public abstract class AbstractMeshCreator : IMeshCreator
     {
         string extension;
 
         protected string directory;
 
         protected string filename;
+
+        
 
 
 
@@ -16,9 +18,9 @@
         }
 
 
-        string IAbstractMeshCreator.Extension => extension;
+        string IMeshCreator.Extension => extension;
 
-        string IAbstractMeshCreator.Directory => directory;
+        string IMeshCreator.Directory => directory;
 
         public abstract Dictionary<string, Material> Materials { get; }
         public abstract Dictionary<string, Image> Images { get; }
