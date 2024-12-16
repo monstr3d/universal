@@ -3,17 +3,35 @@ using Collada;
 
 namespace Abstract3DConverters
 {
-    public class Obj3DConverter : LinesMeshCreator
+    public class Obj3DConverter : LinesMeshCreator, IAdditionalInformation
     {
         List<AbstractMesh> models = new();
 
-   
+        private string mtlfile;
 
+        private string mtlstr;
 
+        Dictionary<string, byte[]> add;
+
+       Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
         public Obj3DConverter() : base(".obj")
         {
 
+        }
+
+        Dictionary<string, byte[]> CreateAdd()
+        {
+            if (add == null)
+            {
+                using (Stream stream = File.OpenRead(mtlfile))
+                {
+                    byte[] b = new byte[stream.Length];
+                    stream.Read(b);
+                    add = new Dictionary<string, byte[]>() { { mtlstr, b } };
+                }
+            }
+            return add;
         }
 
 
@@ -121,7 +139,8 @@ namespace Abstract3DConverters
                  if (line.StartsWith("mtllib "))
                 {
                     var file = line.Substring("mtllib ".Length).Trim();
-                    //       file = Path.Combine(directory, file);
+                    mtlfile = Path.Combine(directory, file);
+                    mtlstr = file;
                     var mtl = new MtlWrapper();
                     materials = mtl.Create(file, directory);
                     break;
@@ -302,7 +321,10 @@ namespace Abstract3DConverters
                 if (line.StartsWith("mtllib "))
                 {
                     var file = line.Substring("mtllib ".Length).Trim();
-             //       file = Path.Combine(directory, file);
+                    mtlstr = file;
+                    mtlfile = Path.Combine(directory, file);
+
+                    //       file = Path.Combine(directory, file);
                     var mtl = new MtlWrapper();
                     materials = mtl.Create(file, directory);
                 }

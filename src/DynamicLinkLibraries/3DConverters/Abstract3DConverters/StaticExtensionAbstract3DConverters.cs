@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,20 +48,27 @@ namespace Abstract3DConverters
 
         static void Initialize(this Assembly assembly)
         {
-            var types = assembly.GetTypes();
-
-            foreach (var type in types)
+            try
             {
-                if (CustomAttributeExtensions.GetCustomAttribute<InitAttribute>(IntrospectionExtensions.GetTypeInfo(type)) != null)
-                {
-                    MethodInfo mi = type.GetMethod("Init", InputTypes);
-                    if (mi == null)
-                    {
-                        continue;
-                    }
-                    mi.Invoke(null, [null]);
+                var types = assembly.GetTypes();
 
+                foreach (var type in types)
+                {
+                    if (CustomAttributeExtensions.GetCustomAttribute<InitAttribute>(IntrospectionExtensions.GetTypeInfo(type)) != null)
+                    {
+                        MethodInfo mi = type.GetMethod("Init", InputTypes);
+                        if (mi == null)
+                        {
+                            continue;
+                        }
+                        mi.Invoke(null, [null]);
+
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+
             }
 
         }
