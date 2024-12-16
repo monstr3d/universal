@@ -11,7 +11,7 @@ namespace Animation
     public static class StaticExtensionAnimationInterfaces
     {
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

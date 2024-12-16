@@ -25,7 +25,7 @@ namespace FormulaEditor.Compiler
         }
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         /// <param name="attr">Initialization attribute</param>
         static public void Init(InitAssemblyAttribute attr)

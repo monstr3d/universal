@@ -16,7 +16,7 @@ namespace Regression.Portable
         #region Public Members
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

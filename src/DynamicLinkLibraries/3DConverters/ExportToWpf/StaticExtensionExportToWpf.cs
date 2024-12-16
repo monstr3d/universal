@@ -1,10 +1,16 @@
 ﻿using AssemblyService.Attributes;
 
-namespace SoundServce.NAudio
+namespace ExportToWpf
 {
     [InitAssembly]
-    public class StaticExtensionSoundServiceNAudio
+    public class StaticExtensionExportToWpf
     {
+
+        static StaticExtensionExportToWpf()
+        {
+
+        }
+
         /// <summary>
         /// Initialize itself
         /// </summary>
@@ -13,10 +19,6 @@ namespace SoundServce.NAudio
 
         }
 
-        static StaticExtensionSoundServiceNAudio()
-        {
-            new Factory();
-        }
- 
+
     }
 }

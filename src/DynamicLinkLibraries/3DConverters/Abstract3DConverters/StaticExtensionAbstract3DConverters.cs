@@ -40,6 +40,11 @@ namespace Abstract3DConverters
             }
         }
 
+        public static void Init()
+        {
+
+        }
+
         static void Initialize(this Assembly assembly)
         {
             var types = assembly.GetTypes();

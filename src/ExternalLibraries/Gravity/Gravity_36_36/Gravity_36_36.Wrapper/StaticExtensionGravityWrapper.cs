@@ -18,7 +18,7 @@ namespace Gravity_36_36.Wrapper
         #region Public Members
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

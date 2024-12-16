@@ -17,7 +17,7 @@ namespace DataSetService.TestInterface
         }
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

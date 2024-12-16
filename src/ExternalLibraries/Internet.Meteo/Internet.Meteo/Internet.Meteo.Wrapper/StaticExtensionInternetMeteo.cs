@@ -12,7 +12,7 @@ namespace Internet.Meteo.Wrapper
         #region Public Members
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr = null)
         {

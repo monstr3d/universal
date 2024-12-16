@@ -31,6 +31,11 @@ namespace Wpf.Loader
 
         protected System.Drawing.Color[] colors = null;
 
+        public Dictionary<string, byte[]> Attachement
+        {
+            get; protected set;
+        }
+
 
         /// <summary>
         /// Textures
@@ -51,25 +56,34 @@ namespace Wpf.Loader
         public void  Load(string file)
         {
             string dir = Path.GetDirectoryName(file);
-            Visual3D v = file.ToVisual3D();
-            string xaml;
-            if (v != null)
+            /*
+                       Visual3D v = file.ToVisual3D();
+                       string xaml;
+                       if (v != null)
+                       {
+                           xaml = System.Windows.Markup.XamlWriter.Save(v);
+                       }
+                       else
+                       {
+                           using (TextReader reader = new StreamReader(file))
+                           {
+                               xaml = reader.ReadToEnd();
+                           }
+                       }*/
+            var ext = Path.GetExtension(file).ToLower();
+            if (!StaticExtensionWpfLoader.FileLoad.ContainsKey(ext))
             {
-                xaml = System.Windows.Markup.XamlWriter.Save(v);
+                return;
             }
-            else
-            {
-                using (TextReader reader = new StreamReader(file))
-                {
-                    xaml = reader.ReadToEnd();
-                }
-            }
-            SetFile(xaml, dir);
+            var func = StaticExtensionWpfLoader.FileLoad[ext];
+            var t = func(file);
+            SetFile(t.Item1, t.Item2, dir);
 
         }
 
-        internal void SetFile(string xaml, string dir)
+        internal void SetFile(string xaml, Dictionary<string, byte[]> attach, string dir)
         {
+            Attachement = attach;
             string d = dir;
             var ds = d.Replace(Path.DirectorySeparatorChar, '/');
             if (d[d.Length - 1] != Path.DirectorySeparatorChar)

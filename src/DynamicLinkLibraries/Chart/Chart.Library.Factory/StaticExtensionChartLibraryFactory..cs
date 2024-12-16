@@ -13,7 +13,7 @@ namespace Chart.Library.Factory
             new CandleSeriesLibrary();
         }
 
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

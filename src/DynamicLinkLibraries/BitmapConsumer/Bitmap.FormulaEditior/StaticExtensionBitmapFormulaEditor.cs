@@ -27,7 +27,7 @@ namespace Bitmap.FormulaEditior
         internal static readonly string[] Operations = { "BinaryBitmap", "TernaryBitmap", "UnaryBitmap" };
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

@@ -280,7 +280,7 @@ namespace WpfInterface.Transformations
         }
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         /// <param name="coord">Coordinates</param>
         /// <param name="quaternion">Quaternion</param>

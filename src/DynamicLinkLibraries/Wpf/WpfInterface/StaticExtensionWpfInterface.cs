@@ -38,7 +38,7 @@ namespace WpfInterface
         #region Public Members
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init()
         {

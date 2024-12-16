@@ -16,7 +16,7 @@ namespace Dynamic.Atmosphere.Serializable
     public static class StaticExtensionDynamicAtmosphereSerializable
     {
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

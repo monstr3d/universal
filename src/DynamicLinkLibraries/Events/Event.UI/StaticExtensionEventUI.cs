@@ -28,7 +28,7 @@ namespace Event.UI
     public static class StaticExtensionEventUI
     {
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

@@ -16,7 +16,7 @@ namespace Event.Basic.Data
     public static class StaticExtensionEventBasicData
     {
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

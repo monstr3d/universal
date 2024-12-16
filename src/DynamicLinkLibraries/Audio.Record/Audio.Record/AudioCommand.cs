@@ -127,7 +127,7 @@ namespace Audio.Record
         #region Protected Members
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         protected void Init()
         {

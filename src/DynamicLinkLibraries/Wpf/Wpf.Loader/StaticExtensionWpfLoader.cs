@@ -1,4 +1,5 @@
 
+using System.IO;
 using System.Windows.Markup;
 using System.Windows.Media.Media3D;
 
@@ -6,6 +7,25 @@ namespace Wpf.Loader
 {
     public static class StaticExtensionWpfLoader
     {
+
+        static public void Add(this Func<string, Tuple<string, Dictionary<string, byte[]>>> t, string extension)
+        {
+            FileLoad[extension] = t;
+        }
+
+        static StaticExtensionWpfLoader()
+        {
+            FileLoad[".xaml"] = Load;
+        }
+
+        static Tuple<string, Dictionary<string, byte[]>> Load(string filename)
+        {
+            using (var reader = new StreamReader(filename))
+            {
+                var s = reader.ReadToEnd();
+                return new Tuple<string, Dictionary<string, byte[]>>(s, new Dictionary<string, byte[]>());
+            }
+        }
 
 
         static public double GetArea(this Point3D[] points, out System.Windows.Media.Media3D.Vector3D normal)
@@ -19,18 +39,15 @@ namespace Wpf.Loader
             return a;
         }
 
-        static Dictionary<string, Func<string, Visual3D>> dic = new();
+        // static Dictionary<string, Func<string, Visual3D>> dic = new();
 
         /// <summary>
         /// 3D file load
         /// </summary>
-        public static Dictionary<string, Func<string, Visual3D>> FileLoad
+        public static Dictionary<string, Func<string, Tuple<string, Dictionary<string, byte[]>>>> FileLoad
         {
-            get
-            {
-                return dic;
-            }
-        }
+            get;
+        } = new();
 
 
         static public void Create(this MeshGeometry3D mesh, out double[] areas, out double[][] centers)
@@ -116,12 +133,13 @@ namespace Wpf.Loader
         /// <returns>Visual 3D object</returns>
         static public Visual3D ToVisual3D(this string filename)
         {
-            string ext = System.IO.Path.GetExtension(filename).Substring(1);
+            return null;
+    /*        string ext = System.IO.Path.GetExtension(filename).Substring(1);
             if (!dic.ContainsKey(ext))
             {
                 return null;
             }
-            return dic[ext](filename);
+            return dic[ext](filename);*/
         }
 
 

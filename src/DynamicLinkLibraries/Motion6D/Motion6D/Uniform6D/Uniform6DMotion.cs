@@ -118,7 +118,7 @@ namespace Motion6D.Uniform6D
         #region Public
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         /// <param name="coord">Coordinates</param>
         /// <param name="quaternion">Quaternion</param>

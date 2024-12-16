@@ -127,6 +127,15 @@ namespace WpfInterface.Objects3D
                 catch (Exception)
                 {
                 }
+                try
+                {
+                    Attachement = info.GetValue("Attachement", typeof(Dictionary<string, byte[]>))
+                        as Dictionary<string, byte[]>;
+                }
+                catch
+                {
+
+                }
             }
             catch (Exception)
             {
@@ -154,6 +163,7 @@ namespace WpfInterface.Objects3D
             info.AddValue("ForecastTime", forecastTime, typeof(TimeSpan));
             info.AddValue("CoordinateError", coordinateError);
             info.AddValue("AngleError", angleError);
+            info.AddValue("Attachement", Attachement, typeof(Dictionary<string, byte[]>));
         }
 
         #endregion

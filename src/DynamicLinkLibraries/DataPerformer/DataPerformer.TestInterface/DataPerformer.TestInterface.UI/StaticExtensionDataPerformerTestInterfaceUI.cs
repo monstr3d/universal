@@ -22,7 +22,7 @@ namespace DataPerformer.TestInterface.UI
         }
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init(InitAssemblyAttribute attr)
         {

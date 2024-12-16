@@ -459,7 +459,7 @@ namespace Diagram.UI
         }
 
         /// <summary>
-        /// Inits itself
+        /// Initialize itself
         /// </summary>
         static public void Init()
         {
