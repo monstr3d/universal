@@ -6,14 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using Abstract3DConverters.Materials;
 
 
 namespace Collada.Wpf
 {
     internal class WpfMaterialCreator : Abstract3DConverters.AbstractMaterialCreator
     {
-        internal WpfMaterialCreator()
+        Dictionary<string, string> images;
+        internal WpfMaterialCreator(Dictionary<string, string> images = null)
         {
+            this.images = images;
         }
 
         public override Assembly Assembly => typeof(Material).Assembly;
@@ -31,6 +34,10 @@ namespace Collada.Wpf
             {
                 return null;
             }
+            if (images != null)
+            {
+                images[fn] = image.Name;
+            }
             System.Windows.Media.Imaging.BitmapImage bi =
                 new System.Windows.Media.Imaging.BitmapImage();
             bi.BeginInit();
@@ -44,7 +51,7 @@ namespace Collada.Wpf
             return ToColor(color.Value);
         }
 
-        public override object Create(Abstract3DConverters.DiffuseMaterial material)
+        public override object Create(Abstract3DConverters.Materials.DiffuseMaterial material)
         {
             var mat = new DiffuseMaterial();
             if (material.AmbientColor != null)
@@ -56,17 +63,17 @@ namespace Collada.Wpf
             return mat;
         }
 
-        public override object Create(Abstract3DConverters.SpecularMaterial material)
+        public override object Create(Abstract3DConverters.Materials.SpecularMaterial material)
         {
             return new SpecularMaterial();
         }
 
-        public override object Create(Abstract3DConverters.EmissiveMaterial material)
+        public override object Create(Abstract3DConverters.Materials.EmissiveMaterial material)
         {
             return new EmissiveMaterial();
         }
 
-        public override object CreateGroup(Abstract3DConverters.MaterialGroup materialGroup)
+        public override object CreateGroup(Abstract3DConverters.Materials.MaterialGroup materialGroup)
         {
             return new MaterialGroup();
         }

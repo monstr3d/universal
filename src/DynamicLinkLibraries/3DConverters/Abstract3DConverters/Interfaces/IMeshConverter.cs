@@ -1,7 +1,8 @@
-﻿
-using System.Reflection;
+﻿using System.Reflection;
+using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Interfaces
 {
     public interface IMeshConverter
     {
@@ -18,10 +19,10 @@ namespace Abstract3DConverters
         {
             set;
         }
-            
+
 
         void Init(object obj);
-       
+
         object Create(AbstractMesh mesh);
 
         void SetMaterial(object mesh, object material);

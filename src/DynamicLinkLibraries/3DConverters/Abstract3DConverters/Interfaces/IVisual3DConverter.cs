@@ -1,7 +1,9 @@
 ﻿using System.Reflection;
+using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
 
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Interfaces
 {
     public interface IVisual3DConverter
     {
@@ -9,7 +11,7 @@ namespace Abstract3DConverters
 
         object Get(Image image);
 
-       object Get(Material material);
+        object Get(Material material);
 
         object Get(Color color);
 

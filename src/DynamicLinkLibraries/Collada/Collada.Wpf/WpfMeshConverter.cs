@@ -4,18 +4,29 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using System.Xml;
 using Abstract3DConverters;
+using Abstract3DConverters.Creators;
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Meshes;
 
 namespace Collada.Wpf
 {
-    public class WpfMeshConverter : IMeshConverter
+    public class WpfMeshConverter : IMeshConverter, IStringRepresentation
     {
         Assembly IMeshConverter.Assembly => typeof(ModelVisual3D).Assembly;
 
-        WpfMaterialCreator creator = new WpfMaterialCreator();
+        WpfMaterialCreator creator;
 
-        Dictionary<string, Abstract3DConverters.Material> IMeshConverter.Materials { set { } }
+        Dictionary<string, Abstract3DConverters.Materials.Material> IMeshConverter.Materials { set { } }
         Dictionary<string, Abstract3DConverters.Image> IMeshConverter.Images { set { } }
+
+        Dictionary<string, string> imagemap = new();
+
+        public WpfMeshConverter()
+        {
+            creator = new WpfMaterialCreator(imagemap);
+        }
 
         public IMaterialCreator MaterialCreator => creator;
 
@@ -267,5 +278,41 @@ namespace Collada.Wpf
             return Create(mesh, vt,  txt, nr, ind);
         }
 
+        string IStringRepresentation.ToString(object obj)
+        {
+            switch (obj)
+            {
+                case ModelVisual3D modelVisual3D:
+                    return Get(modelVisual3D);
+  
+            }
+            return null;
+        }
+
+        string Get(ModelVisual3D modelVisual3D)
+        {
+            var r = System.Windows.Markup.XamlWriter.Save(modelVisual3D);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(r);
+            foreach (XmlElement e in doc.GetElementsByTagName("ImageBrush"))
+            {
+                string iso = e.GetAttribute("ImageSource");
+                foreach (var item in imagemap.Values)
+                {
+                    if (iso.EndsWith(item))
+                    {
+                        var s = item;
+                        if (item[0] == '/')
+                        {
+                            s = s.Substring(1);
+                        }
+                        e.SetAttribute("ImageSource", s);
+                        break;
+                    }
+                }
+            }
+            return doc.OuterXml;
+ 
+        }
     }
 }

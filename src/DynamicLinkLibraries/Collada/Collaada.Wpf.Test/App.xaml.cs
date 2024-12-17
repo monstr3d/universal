@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 using Abstract3DConverters;
+using Abstract3DConverters.Interfaces;
 using Collada;
 using Collada.Converter;
 using Collada.Wpf;
@@ -22,8 +23,8 @@ namespace Collaada.Wpf.Test
         {
             // Compare();
          //    Generate();
-             GenerateObj();
-         //    GenerateAC();
+        //     GenerateObj();
+             GenerateAC();
          //  GenerateCollada();
         }
 
@@ -59,23 +60,27 @@ namespace Collaada.Wpf.Test
             var act = (ModelVisual3D m) =>
             {
                 m.SetLight();
-                var r = XamlWriter.Save(m);
-                using (var w = new StreamWriter(file))
-                {
-                    w.Write(r);
-                }
 
             };
-            Generate<ModelVisual3D>(filename, creator, new WpfMeshConverter(),  act);
+            var obj = Generate<ModelVisual3D>(filename, creator, new WpfMeshConverter(),  act);
+            using (var writer = new StreamWriter(file))
+            {
+                writer.Write(obj);
+            }
         }
 
 
-        void Generate<T>(string filename, IMeshCreator creator, IMeshConverter converter,
-           Action<T> action) where T : class
+        string Generate<T>(string filename, IMeshCreator creator, IMeshConverter converter,
+           Action<T> action = null) where T : class
         {
 
             var p = new Performer();
-            p.Create<T>(filename, creator, converter, action);
+            var res = p.Create<T>(filename, creator, converter, action);
+            if (converter is IStringRepresentation sr)
+            {
+                return  sr.ToString(res);
+            }
+            return null;
         }
 
         void GenerateCollada(string filename)
@@ -87,16 +92,17 @@ namespace Collaada.Wpf.Test
         void GenerateAC()
         {
 
+            GenerateAC("dauphin.ac");
+            return;
             GenerateAC("tu154B.ac");
               return;
              GenerateAC("H-60.ac");
             return;
            //  GenerateAC("F-15-lowpoly.ac");
-               GenerateAC("dauphin.ac");
              GenerateAC("testpilot.ac");
         }
 
-        Abstract3DConverters.Material DefaultMaterial
+        Abstract3DConverters.Materials.Material DefaultMaterial
         {
             get
             {
@@ -150,7 +156,7 @@ namespace Collaada.Wpf.Test
         void GenerateObj(string obj)
         {
             var fn = models[obj].ConvertExtension(".obj");
-            GenerateWpf(fn, new Obj3DConverter());
+            GenerateWpf(fn, new Obj3DCrearor());
             return;
 
             /*      var converter = new Obj3DConverter();

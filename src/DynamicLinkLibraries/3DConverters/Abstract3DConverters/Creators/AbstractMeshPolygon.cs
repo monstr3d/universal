@@ -1,23 +1,25 @@
-﻿
-namespace Abstract3DConverters
+﻿using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Meshes;
+
+namespace Abstract3DConverters.Creators
 {
     public class AbstractMeshPolygon : AbstractMesh
     {
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
-       protected List<Polygon> Polygons
+        protected List<Polygon> Polygons
         { get; } = new List<Polygon>();
 
 
-        public AbstractMeshPolygon(string name,   AbstractMeshPolygon parent, IMeshCreator creator) : 
+        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent, IMeshCreator creator) :
             base(name, creator)
         {
             Parent = parent;
         }
 
-        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent, string material, IMeshCreator creator) : 
-            this(name, parent, creator) 
+        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent, string material, IMeshCreator creator) :
+            this(name, parent, creator)
         {
             MaterialString = material;
         }

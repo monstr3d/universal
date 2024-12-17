@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Net.WebSockets;
 using Abstract3DConverters;
+using Abstract3DConverters.Creators;
+using Abstract3DConverters.Materials;
 using Collada141;
 
 namespace Collada.Converter

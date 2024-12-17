@@ -1,4 +1,6 @@
-﻿namespace Abstract3DConverters
+﻿using Abstract3DConverters.Materials;
+
+namespace Abstract3DConverters.Creators
 {
     public abstract class LinesMeshCreator : AbstractMeshCreator
     {

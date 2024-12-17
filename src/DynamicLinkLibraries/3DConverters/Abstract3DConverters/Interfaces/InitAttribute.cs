@@ -1,4 +1,4 @@
-﻿namespace Abstract3DConverters
+﻿namespace Abstract3DConverters.Interfaces
 {
     public class InitAttribute : Attribute
     {

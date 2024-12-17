@@ -1,14 +1,13 @@
-﻿
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters.Materials
 {
     public class DiffuseMaterial : Material
     {
 
         Image im;
 
-        public Image Image 
-        {  
-            get => im; 
+        public Image Image
+        {
+            get => im;
             internal set
             {
                 if (value == null)
@@ -30,7 +29,7 @@ namespace Abstract3DConverters
 
         public float Opacity { get; private set; }
 
-        public DiffuseMaterial(Color color, Color ambient, Image image, float opacity = 1) 
+        public DiffuseMaterial(Color color, Color ambient, Image image, float opacity = 1)
         {
             Image = image;
             Opacity = opacity;
@@ -40,10 +39,10 @@ namespace Abstract3DConverters
 
         protected override object CloneIfself()
         {
-            var im = (Image == null) ? null : Image.Clone() as Image;
-            var color = (Color == null) ? null : Color.Clone() as Color;
-            var ambient = (AmbientColor == null) ? null : AmbientColor.Clone()  as Color;
-            return new DiffuseMaterial(color, ambient,  im, Opacity);
+            var im = Image == null ? null : Image.Clone() as Image;
+            var color = Color == null ? null : Color.Clone() as Color;
+            var ambient = AmbientColor == null ? null : AmbientColor.Clone() as Color;
+            return new DiffuseMaterial(color, ambient, im, Opacity);
         }
     }
 }

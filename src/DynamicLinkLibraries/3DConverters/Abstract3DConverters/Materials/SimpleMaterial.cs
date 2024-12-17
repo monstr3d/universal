@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Materials
 {
     public abstract class SimpleMaterial : Material
     {
-        public Color Color {  get; private set; }
+        public Color Color { get; private set; }
 
         protected SimpleMaterial(Color color)
         {
             Color = color.Clone() as Color;
         }
-        
+
     }
 }

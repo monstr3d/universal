@@ -1,9 +1,10 @@
-﻿
+﻿using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Meshes;
 using Collada;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Creators
 {
-    public class Obj3DConverter : LinesMeshCreator, IAdditionalInformation
+    public class Obj3DCrearor : LinesMeshCreator, IAdditionalInformation
     {
         List<AbstractMesh> models = new();
 
@@ -13,9 +14,9 @@ namespace Abstract3DConverters
 
         Dictionary<string, byte[]> add;
 
-       Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
+        Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
-        public Obj3DConverter() : base(".obj")
+        public Obj3DCrearor() : base(".obj")
         {
 
         }
@@ -136,7 +137,7 @@ namespace Abstract3DConverters
         {
             foreach (var line in lines)
             {
-                 if (line.StartsWith("mtllib "))
+                if (line.StartsWith("mtllib "))
                 {
                     var file = line.Substring("mtllib ".Length).Trim();
                     mtlfile = Path.Combine(directory, file);
@@ -149,7 +150,7 @@ namespace Abstract3DConverters
             }
         }
 
-  
+
         /*  protected override Tuple<object, List<AbstractMesh>> Create(string filename)
           {
               var dir = Path.GetDirectoryName(filename);
@@ -292,7 +293,7 @@ namespace Abstract3DConverters
                     return models;
                 }*/
 
-        void Create( string name = null)
+        void Create(string name = null)
         {
             string currName = null;
             List<float[]> vertices = new();
@@ -301,8 +302,8 @@ namespace Abstract3DConverters
             List<int[][]> triangles = new();
             string material = null;
 
-               foreach (var line in lines)
-            { 
+            foreach (var line in lines)
+            {
                 if (line == null)
                 {
                     var model = new AbstractMesh(name, this, material, vertices, normals, textures, triangles);

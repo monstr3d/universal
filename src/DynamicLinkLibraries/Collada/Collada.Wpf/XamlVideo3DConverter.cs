@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml.Linq;
+using Abstract3DConverters.Meshes;
 
 
 namespace Collada.Wpf
@@ -30,7 +31,7 @@ namespace Collada.Wpf
             return bi;
         }
 
-        ModelVisual3D Get(Abstract3DConverters.AbstractMesh abstractMesh)
+        ModelVisual3D Get(AbstractMesh abstractMesh)
         {
             throw new NotImplementedException();
         }

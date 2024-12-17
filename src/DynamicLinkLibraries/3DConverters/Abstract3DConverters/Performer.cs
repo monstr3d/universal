@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Meshes;
 using Collada;
 
 namespace Abstract3DConverters

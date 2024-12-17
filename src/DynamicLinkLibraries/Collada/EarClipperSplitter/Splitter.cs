@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters;
+using Abstract3DConverters.Interfaces;
 using EarClipperLib;
 
 namespace EarClipperSplitter

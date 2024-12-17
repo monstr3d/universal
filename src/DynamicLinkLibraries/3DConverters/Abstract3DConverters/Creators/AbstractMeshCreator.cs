@@ -1,4 +1,8 @@
-﻿namespace Abstract3DConverters
+﻿using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
+
+namespace Abstract3DConverters.Creators
 {
     public abstract class AbstractMeshCreator : IMeshCreator
     {
@@ -8,7 +12,7 @@
 
         protected string filename;
 
-        
+
 
 
 
@@ -25,7 +29,7 @@
         public abstract Dictionary<string, Material> Materials { get; }
         public abstract Dictionary<string, Image> Images { get; }
 
-        public  void Load(string filename)
+        public void Load(string filename)
         {
             directory = Path.GetDirectoryName(filename);
             this.filename = filename;
@@ -52,6 +56,6 @@
             }
             action(mesh);
         }
-        
+
     }
 }

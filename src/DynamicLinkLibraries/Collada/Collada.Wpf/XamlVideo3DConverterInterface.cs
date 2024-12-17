@@ -5,6 +5,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters;
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
 
 namespace Collada.Wpf
 {

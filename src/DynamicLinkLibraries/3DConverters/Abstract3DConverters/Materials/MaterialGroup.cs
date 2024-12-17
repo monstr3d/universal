@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Materials
 {
     public class MaterialGroup : Material
     {
-        public List<Material> Children { get;  } = new();
+        public List<Material> Children { get; } = new();
 
         public MaterialGroup(string name = null)
         {
@@ -19,7 +19,7 @@ namespace Abstract3DConverters
         {
             var mat = new MaterialGroup(Name);
             var c = mat.Children;
-            foreach ( var child in Children)
+            foreach (var child in Children)
             {
                 c.Add(child.Clone() as Material);
             }

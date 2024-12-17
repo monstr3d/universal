@@ -78,12 +78,13 @@ namespace Wpf.Loader
             var func = StaticExtensionWpfLoader.FileLoad[ext];
             var t = func(file);
             SetFile(t.Item1, t.Item2, dir);
-
         }
 
         internal void SetFile(string xaml, Dictionary<string, byte[]> attach, string dir)
         {
+            this.xaml = xaml;
             Attachement = attach;
+            textures.Clear();
             string d = dir;
             var ds = d.Replace(Path.DirectorySeparatorChar, '/');
             if (d[d.Length - 1] != Path.DirectorySeparatorChar)
@@ -96,25 +97,25 @@ namespace Wpf.Loader
             foreach (XmlElement e in nl)
             {
                 string iso = e.GetAttribute("ImageSource");
-                if (iso.Contains('/'))
-                {
-                    //iso = iso.Substring(iso.LastIndexOf('/') + 1);
-                    iso = iso.Substring(ds.Length + "file://".Length + 1);
-                    e.SetAttribute("ImageSource", iso);
-                }
                 string fn = ds + iso;
                 fn = fn.Replace('/', Path.DirectorySeparatorChar);
                 if (!File.Exists(fn))
                 {
-                    continue;
+                    fn = Path.Combine(ds, iso);
+                    if (!File.Exists(fn))
+                    {
+                        continue;
+                    }
                 }
-                Stream stream = File.OpenRead(fn);
-                byte[] b = new byte[stream.Length];
-                stream.Read(b, 0, b.Length);
-                textures[iso] = b;
+                using (var stream = File.OpenRead(fn))
+                {
+                    byte[] b = new byte[stream.Length];
+                    stream.Read(b);
+                    textures[iso] = b;
+                }
             }
-            Xaml = doc.OuterXml;
         }
+
         /// <summary>
         /// Creates facets
         /// </summary>

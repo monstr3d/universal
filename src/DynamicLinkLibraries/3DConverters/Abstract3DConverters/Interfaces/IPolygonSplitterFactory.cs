@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Interfaces
 {
     public interface IPolygonSplitterFactory
     {

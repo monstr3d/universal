@@ -1,17 +1,22 @@
-﻿namespace Abstract3DConverters
+﻿using System.Linq.Expressions;
+using Abstract3DConverters.Creators;
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
+
+namespace Abstract3DConverters.Meshes
 {
     public class AbstractMeshAC : AbstractMeshPolygon
     {
 
-        int count;
 
 
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
 
-        AcCreator creator;
-
+        int count;
 
         List<string> l;
+
+        int shift = -1;
 
         public Image Image
         {
@@ -23,6 +28,10 @@
         public AbstractMeshAC(AbstractMeshAC parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
             base(name, parent, creator)
         {
+            if (creator is AcCreator ac)
+            {
+                shift = ac.Shift;
+            }
             this.count = count;
             this.l = l;
             int nv = -1;
@@ -73,7 +82,7 @@
                         {
                             if (mp != null)
                             {
-                                mt = mp.Value - 1;
+                                mt = mp.Value;
                                 if (!mats.Contains(mt))
                                 {
                                     mats.Add(mt);
@@ -136,6 +145,7 @@
                     continue;
                 }
             }
+
         }
 
         private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :

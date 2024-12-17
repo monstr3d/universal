@@ -49,7 +49,7 @@ namespace ExportToWpf
 
         static Tuple<string, Dictionary<string, byte[]>> ExportObj(string filename)
         {
-            return Export(filename, new Obj3DConverter());
+            return Export(filename, new Obj3DCrearor());
         }
 
 
@@ -59,7 +59,7 @@ namespace ExportToWpf
         }
 
 
-        static Tuple<string, Dictionary<string, byte[]>> Export(string filename, IMeshCreator creator)
+        static Tuple<string, Dictionary<string, byte[]>> Export(string filename, Abstract3DConverters.Interfaces.IMeshCreator creator)
         {
             var d = new Dictionary<string, byte[]>();
             using (var stream = File.OpenRead(filename))
@@ -70,10 +70,10 @@ namespace ExportToWpf
                 d[str] = b;
             }
             var p = new Performer();
-            var res = p.Create<ModelVisual3D>(filename, creator, new WpfMeshConverter());
+            var converter = new WpfMeshConverter();
+            var res = p.Create<ModelVisual3D>(filename, creator, converter);
             res.SetLight();
-            var r = XamlWriter.Save(res);
-            if (creator is IAdditionalInformation add)
+             if (creator is Abstract3DConverters.Interfaces.IAdditionalInformation add)
             {
                 var dic = add.Information;
                 foreach (var key in dic.Keys)
@@ -81,6 +81,8 @@ namespace ExportToWpf
                     d[key] = dic[key];
                 }
             }
+            Abstract3DConverters.Interfaces.IStringRepresentation stringRepresentation = converter;
+            var r = stringRepresentation.ToString(res);
             return new Tuple<string, Dictionary<string, byte[]>>(r, d);
 
         }

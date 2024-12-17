@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
-using Abstract3DConverters;
+using Abstract3DConverters.Meshes;
 
 namespace Collada.Wpf
 {

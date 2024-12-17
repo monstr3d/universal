@@ -1,4 +1,7 @@
-﻿namespace Abstract3DConverters
+﻿using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
+
+namespace Abstract3DConverters.Meshes
 {
     public class AbstractMesh
     {
@@ -8,7 +11,7 @@
 
         protected IMeshCreator creator;
 
-  
+
         public float[] TransformationMatrix { get; protected set; }
 
         public AbstractMesh Parent
@@ -96,7 +99,7 @@
             }
             return null;
         }
-  
+
         protected void SetImage(Material mat, Image img)
         {
             if (mat is DiffuseMaterial diffuse)

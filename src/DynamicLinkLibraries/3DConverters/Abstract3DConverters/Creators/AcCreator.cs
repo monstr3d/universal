@@ -1,6 +1,7 @@
-﻿
+﻿using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Creators
 {
     public class AcCreator : LinesMeshCreator
     {
@@ -10,35 +11,20 @@ namespace Abstract3DConverters
 
         protected string[] colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
+        internal int Shift { get; private set; } = -1;
+
 
 
         public AcCreator() : base(".ac")
         {
         }
 
-        /*
-        protected override Tuple<object, List<AbstractMesh>> Create(string filename)
-        {
-            var lines = new List<string>();
-            using (var reader = new StreamReader(filename))
-            {
-                do
-                {
-                    lines.Add(reader.ReadLine());
-                }
-                while (!reader.EndOfStream);
-            }
-            CreateMaterials(lines);
-            var meshes = Create(null, lines).ToArray();
-            return new Tuple<object, List<AbstractMesh>>(null, new List<AbstractMesh>(meshes));
-        }
-        */
-  
+
 
         #region AbstractMeshCreator Members
 
- 
-    
+
+
 
 
         public override Tuple<object, List<AbstractMesh>> Create()
@@ -166,7 +152,15 @@ namespace Abstract3DConverters
                         if (cnt != null)
                         {
                             var count = cnt.Value;
-                            var am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
+                            AbstractMeshAC am = null;
+                            try
+                            {
+                                am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
                             name = null;
                             nl = new();
                             i = j;
@@ -191,6 +185,19 @@ namespace Abstract3DConverters
         protected override void CreateFromLines()
         {
             CreateMaterials(lines);
+            foreach (var line in lines)
+            {
+                var mp = s.ToReal<int>(line, "mat ");
+                if (mp != null)
+                {
+                    var n = mp.Value;
+                    if (n == 0)
+                    {
+                        Shift = 0;
+                    }
+                }
+
+            }
         }
     }
 }

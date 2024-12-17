@@ -1,13 +1,13 @@
-﻿
-using System.Reflection;
+﻿using System.Reflection;
+using Abstract3DConverters.Materials;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Interfaces
 {
     public interface IMaterialCreator
     {
 
         Assembly Assembly { get; }
-        
+
         object Create(Image image);
 
 
@@ -23,7 +23,7 @@ namespace Abstract3DConverters
 
         object Create(EmissiveMaterial material);
 
-        void  Add(object group, object value);
+        void Add(object group, object value);
 
 
         void Set(object material, object color);
@@ -33,8 +33,6 @@ namespace Abstract3DConverters
         void Set(object material, Color color);
 
         void SetImage(object material, Image image);
-
-
 
     }
 }

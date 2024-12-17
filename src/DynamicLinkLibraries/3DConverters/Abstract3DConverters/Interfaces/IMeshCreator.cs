@@ -1,5 +1,7 @@
-﻿
-namespace Abstract3DConverters
+﻿using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
+
+namespace Abstract3DConverters.Interfaces
 {
     public interface IMeshCreator
     {
