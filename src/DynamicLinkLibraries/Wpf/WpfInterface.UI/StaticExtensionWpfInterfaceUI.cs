@@ -35,12 +35,17 @@ namespace WpfInterface.UI
         {
            // var dic = StaticExtensionWpfInterface.FileLoad;
             var dicp = StaticExtensionWpfLoader.FileLoad;
-            dlg.Filter = "3D files |";
+            var s1 = "3D files |";
+            var s2 = "";
             foreach (string key in dicp.Keys)
             {
-                dlg.Filter = dlg.Filter + ";*." + key;
+                  s1 += "*" + key + ";";
+    //            s1 += ss + ";";
+    //            s2 += "|*" + key + ";";
             }
-            dlg.Filter = "3D files | *.*";
+            // s1 = s1.Substring(0, s1.Length - 1) + ")";
+            var f = s1.Substring(0, s1.Length - 1);
+            dlg.Filter = f;
         }
 
         static StaticExtensionWpfInterfaceUI()

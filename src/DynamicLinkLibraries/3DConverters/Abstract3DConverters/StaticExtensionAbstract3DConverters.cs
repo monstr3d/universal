@@ -1,9 +1,7 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Attributes;
+using Abstract3DConverters.Interfaces;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Metadata;
@@ -19,6 +17,9 @@ namespace Abstract3DConverters
         public static IPolygonSplitter PolygonSplitter => PolygonSplitterFactory.CreatePolygonSplitter();
 
         static readonly Type[] InputTypes = new Type[] { typeof(InitAttribute) };
+
+        static Dictionary<string, ConstructorInfo> creators = new();
+
 
         static StaticExtensionAbstract3DConverters()
         {
@@ -37,7 +38,6 @@ namespace Abstract3DConverters
                 {
                     var assembl = Assembly.LoadFrom(file);
                     assembl.Initialize();
-
                 }
             }
         }
@@ -53,8 +53,31 @@ namespace Abstract3DConverters
             {
                 var types = assembly.GetTypes();
 
+
                 foreach (var type in types)
                 {
+                    if (!type.IsAbstract)
+                    {
+                        var tt = new List<Type>(type.GetInterfaces());
+
+                        if (tt.Contains(typeof(IMeshCreator)))
+                        {
+                            var ca = CustomAttributeExtensions.GetCustomAttribute<Attributes.ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                            if (ca != null)
+                            {
+                                ConstructorInfo constructor = type.GetConstructor([]);
+                                var keys = ca.Extensions;
+                                foreach (var key in keys)
+                                {
+                                    creators[key] = constructor;
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception();
+                            }
+                        }
+                    }
                     if (CustomAttributeExtensions.GetCustomAttribute<InitAttribute>(IntrospectionExtensions.GetTypeInfo(type)) != null)
                     {
                         MethodInfo mi = type.GetMethod("Init", InputTypes);
@@ -72,6 +95,16 @@ namespace Abstract3DConverters
 
             }
 
+        }
+
+        public static IMeshCreator ToMeshCreator(this string filename)
+        {
+            var ext = Path.GetExtension(filename);
+            if (creators.ContainsKey(ext))
+            {
+                return creators[ext].Invoke([]) as IMeshCreator;
+            }
+            return null;
         }
 
         /// <summary>

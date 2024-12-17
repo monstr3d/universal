@@ -4,6 +4,7 @@ using Collada;
 
 namespace Abstract3DConverters.Creators
 {
+    [Attributes.Extension([".obj"])]
     public class Obj3DCrearor : LinesMeshCreator, IAdditionalInformation
     {
         List<AbstractMesh> models = new();

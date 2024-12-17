@@ -1,8 +1,10 @@
-﻿using Abstract3DConverters.Materials;
+﻿using System.Runtime.CompilerServices;
+using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
+    [Attributes.Extension([ ".ac" ])]
     public class AcCreator : LinesMeshCreator
     {
         List<Material> MaterialsP { get; } = new();
@@ -17,7 +19,7 @@ namespace Abstract3DConverters.Creators
 
         public AcCreator() : base(".ac")
         {
-        }
+         }
 
 
 

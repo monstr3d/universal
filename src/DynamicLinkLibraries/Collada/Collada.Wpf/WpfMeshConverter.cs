@@ -6,7 +6,6 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 using Abstract3DConverters;
-using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 

@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
-using Abstract3DConverters.Materials;
 
 
 namespace Collada.Wpf
@@ -19,7 +18,7 @@ namespace Collada.Wpf
             this.images = images;
         }
 
-        public override Assembly Assembly => typeof(Material).Assembly;
+        public override Assembly Assembly => typeof(System.Windows.Media.Media3D.Material).Assembly;
 
         public override void Add(object group, object value)
         {

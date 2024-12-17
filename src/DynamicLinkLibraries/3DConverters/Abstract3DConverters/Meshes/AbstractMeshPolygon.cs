@@ -1,7 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Meshes;
 
-namespace Abstract3DConverters.Creators
+namespace Abstract3DConverters.Meshes
 {
     public class AbstractMeshPolygon : AbstractMesh
     {

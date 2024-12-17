@@ -22,8 +22,6 @@ namespace Abstract3DConverters.Creators
         }
 
 
-        string IMeshCreator.Extension => extension;
-
         string IMeshCreator.Directory => directory;
 
         public abstract Dictionary<string, Material> Materials { get; }

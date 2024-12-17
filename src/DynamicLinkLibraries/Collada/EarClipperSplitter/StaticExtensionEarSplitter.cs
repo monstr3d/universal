@@ -1,5 +1,5 @@
 ﻿using Abstract3DConverters;
-using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Attributes;
 
 namespace EarClipperSplitter
 {

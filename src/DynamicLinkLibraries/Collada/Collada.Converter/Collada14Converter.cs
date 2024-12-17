@@ -7,6 +7,7 @@ using Collada141;
 
 namespace Collada.Converter
 {
+    [Abstract3DConverters.Attributes.Extension([".dae"])]
     public partial class Collada14MeshCreator : AbstractMeshCreator
     {
 

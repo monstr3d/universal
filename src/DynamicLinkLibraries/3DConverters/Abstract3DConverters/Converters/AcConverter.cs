@@ -10,7 +10,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
-    internal class AcConverter : IMeshConverter
+    public class AcConverter : IMeshConverter, IStringRepresentation
     {
         #region Fields
 
@@ -74,6 +74,14 @@ namespace Abstract3DConverters.Converters
             throw new NotImplementedException();
         }
 
+
+        string IStringRepresentation.ToString(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
         #endregion
 
         #region Members
@@ -88,8 +96,7 @@ namespace Abstract3DConverters.Converters
 
         }
 
-
-        #region
+        #endregion
 
 
         #region Materail Creator
@@ -163,7 +170,10 @@ namespace Abstract3DConverters.Converters
                 throw new NotImplementedException();
             }
 
-            #endregion
+
         }
+
+        #endregion
+
     }
 }

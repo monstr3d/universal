@@ -1,13 +1,17 @@
 ﻿
 using System;
 using System.IO;
+using System.Net.WebSockets;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Xml;
 using Abstract3DConverters;
+using Abstract3DConverters.Converters;
+using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
 using Collada;
 using Collada.Converter;
 using Collada.Wpf;
@@ -21,9 +25,10 @@ namespace Collaada.Wpf.Test
     {
         public App()
         {
+            StaticExtensionAbstract3DConverters.Init();
             // Compare();
-         //    Generate();
-        //     GenerateObj();
+            //    Generate();
+            //     GenerateObj();
              GenerateAC();
          //  GenerateCollada();
         }
@@ -52,8 +57,10 @@ namespace Collaada.Wpf.Test
             GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
         }
 
-        void GenerateWpf(string filename, IMeshCreator creator)
+        void GenerateWpf(string filename)
         {
+            var creator = filename.ToMeshCreator();
+            var converter = new WpfMeshConverter();
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".xaml");
@@ -62,17 +69,44 @@ namespace Collaada.Wpf.Test
                 m.SetLight();
 
             };
-            var obj = Generate<ModelVisual3D>(filename, creator, new WpfMeshConverter(),  act);
+     /*     
+            var obj = Generate<ModelVisual3D>(filename,   act);
             using (var writer = new StreamWriter(file))
             {
                 writer.Write(obj);
             }
+     */
+        }
+     
+        void GenerateToAC(string filename)
+        {
+            var creator = filename.ToMeshCreator();
+
+            var fnt = Path.GetFileNameWithoutExtension(filename);
+            var ext = Path.GetExtension(filename);
+            if (ext == ".ac")
+            {
+                fnt += "1";
+            }
+            var dir = Path.GetDirectoryName(filename);
+            var file = Path.Combine(dir, fnt + ".ac");
+            var ac = new AcConverter();
+
+            var obj = Generate<object>(filename, ac);
+            IStringRepresentation r = ac;
+            var s = r.ToString(r);
+            using (var writer = new StreamWriter(file))
+            {
+                writer.Write(s);
+            }
         }
 
 
-        string Generate<T>(string filename, IMeshCreator creator, IMeshConverter converter,
+
+        string Generate<T>(string filename,  IMeshConverter converter,
            Action<T> action = null) where T : class
         {
+            var creator = filename.ToMeshCreator();
 
             var p = new Performer();
             var res = p.Create<T>(filename, creator, converter, action);
@@ -85,7 +119,7 @@ namespace Collaada.Wpf.Test
 
         void GenerateCollada(string filename)
         {
-            GenerateWpf(filename, new Collada14MeshCreator());
+            GenerateWpf(filename);
             return;
         }
 
@@ -106,22 +140,26 @@ namespace Collaada.Wpf.Test
         {
             get
             {
-                var material = new Abstract3DConverters.MaterialGroup();
-                var color = new Abstract3DConverters.Color("1 1 1 1");
-                var diffuse = new Abstract3DConverters.DiffuseMaterial(color, null, null);
-                material.Children.Add(diffuse);
-                var specular = new Abstract3DConverters.SpecularMaterial(color, 0);
-                material.Children.Add(specular);
-                var emissive = new Abstract3DConverters.EmissiveMaterial(color);
-                material.Children.Add(emissive);
-                return material;
+                /*            var material = new MaterialGroup();
+                            var color = new Abstract3DConverters.Color("1 1 1 1");
+                            var diffuse = new Abstract3DConverters.DiffuseMaterial(color, null, null);
+                            material.Children.Add(diffuse);
+                            var specular = new Abstract3DConverters.SpecularMaterial(color, 0);
+                            material.Children.Add(specular);
+                            var emissive = new Abstract3DConverters.EmissiveMaterial(color);
+                            material.Children.Add(emissive);
+                            return material;*/
+                return null;
+
             }
         }
+
+        
 
         void GenerateAC(string filename)
         {
             var f = Path.Combine(acdir, filename);
-            GenerateWpf(f, new AcCreator());
+            GenerateWpf(f);
             return;
             /*        var fn = filename;
                     var converter = new AcConverter();
@@ -156,7 +194,7 @@ namespace Collaada.Wpf.Test
         void GenerateObj(string obj)
         {
             var fn = models[obj].ConvertExtension(".obj");
-            GenerateWpf(fn, new Obj3DCrearor());
+            GenerateWpf(fn);
             return;
 
             /*      var converter = new Obj3DConverter();

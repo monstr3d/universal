@@ -2,6 +2,7 @@
 using System.Windows.Markup;
 using System.Windows.Media.Media3D;
 using Abstract3DConverters;
+using Abstract3DConverters.Creators;
 using AssemblyService.Attributes;
 using Collada.Wpf;
 using Wpf.Loader;
@@ -13,14 +14,14 @@ namespace ExportToWpf
     {
 
         static StaticExtensionExportToWpf()
-        { 
+        {
+            string[] s = [".ac", ".dae", "obj"];
             StaticExtensionAbstract3DConverters.Init();
-            Func<string, Tuple<string, Dictionary<string, byte[]>>> f = ExportAC;
-            f.Add(".ac");
-            f = ExportCollada;
-            f.Add(".dae");
-            f = ExportObj;
-            f.Add(".obj");
+            Func<string, Tuple<string, Dictionary<string, byte[]>>> f = Export;
+            foreach (var str in s)
+            {
+                f.Add(str);
+            }
         }
 
         /// <summary>
@@ -42,22 +43,13 @@ namespace ExportToWpf
             }
         }
 
-        static Tuple<string, Dictionary<string, byte[]>> ExportAC(string filename)
+        static Tuple <string, Dictionary<string, byte[]>> Export(string filename)
         {
-            return Export(filename, new AcCreator());
+            var c = filename.ToMeshCreator();
+            return Export(filename, c);
         }
 
-        static Tuple<string, Dictionary<string, byte[]>> ExportObj(string filename)
-        {
-            return Export(filename, new Obj3DCrearor());
-        }
-
-
-        static Tuple<string, Dictionary<string, byte[]>> ExportCollada(string filename)
-        {
-            return Export(filename, new Collada.Converter.Collada14MeshCreator());
-        }
-
+   
 
         static Tuple<string, Dictionary<string, byte[]>> Export(string filename, Abstract3DConverters.Interfaces.IMeshCreator creator)
         {

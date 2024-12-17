@@ -5,7 +5,6 @@ namespace Abstract3DConverters.Interfaces
 {
     public interface IMeshCreator
     {
-        string Extension { get; }
 
         string Directory { get; }
 
