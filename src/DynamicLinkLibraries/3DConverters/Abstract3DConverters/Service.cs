@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abstract3DConverters.Materials;
 using Collada;
 
 namespace Abstract3DConverters
@@ -20,9 +21,55 @@ namespace Abstract3DConverters
 
         #region Service
 
+        public Image GetImage(Material mat)
+        {
+            if (mat is DiffuseMaterial diffuse)
+            {
+                return diffuse.Image;
+            }
+            if (mat is MaterialGroup group)
+            {
+                foreach (var m in group.Children)
+                {
+                    var im = GetImage(m);
+                    if (im != null)
+                    {
+                        return im;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public string StrinValue<T>(T[] array, string sep = " ") where T : struct
+        {
+            var s = " ";
+            foreach (var item in array)
+            {
+                s += item + sep;
+            }
+            s = s.Substring(0, s.Length - sep.Length);
+            return s;
+        }
+
+        
+
         public string Trim(string str)
         {
             return str.Replace("\"", "").Trim();
+        }
+
+        public string Shrink(string str)
+        {
+            var s = str.Replace("  ", " ");
+            s = s.Replace("  ", " ");
+            s = s.Replace("  ", " ");
+            return s;
+        }
+
+        public string Wrap(string str)
+        {
+            return "\"" + str + "\"";
         }
 
         public string ToString(string str, string shift)

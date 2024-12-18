@@ -2,12 +2,12 @@
 
 namespace Abstract3DConverters.Meshes
 {
-    public class AbstractMeshPolygon : AbstractMesh
+    public abstract class AbstractMeshPolygon : AbstractMesh
     {
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
-        protected List<Polygon> Polygons
+        public List<Polygon> Polygons
         { get; } = new List<Polygon>();
 
 
@@ -22,6 +22,8 @@ namespace Abstract3DConverters.Meshes
         {
             MaterialString = material;
         }
+
+        public abstract void Disintegrate();
 
         public void CreateFromPolygons()
         {

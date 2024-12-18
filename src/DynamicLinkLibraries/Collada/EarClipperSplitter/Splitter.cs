@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
 using EarClipperLib;
 
 namespace EarClipperSplitter
@@ -31,6 +32,7 @@ namespace EarClipperSplitter
             var d1 = new Dictionary<float[], int>();
             var d2 = new Dictionary<float[], int>();
             var d3 = new Dictionary<float[], int>();
+            var mat = polygon.Material.Clone() as Material;
 
             if (polygon.Points.Count >= 3)
             {
@@ -92,7 +94,7 @@ namespace EarClipperSplitter
                         t.Add(new Tuple<int, int, int, float[]>(d1[pt], d2[pt], d3[pt], pt));
 
                     }
-                   pp.Add(new Polygon(t));
+                   pp.Add(new Polygon(t, mat));
                 }
                 return pp.ToArray();
             }

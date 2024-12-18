@@ -29,7 +29,7 @@ namespace Collada.Converter
 
 
         Dictionary<Type, List<object>> dic = new Dictionary<Type, List<object>>();
-        public Collada14MeshCreator() : base(".dae")
+        public Collada14MeshCreator() 
         {
 
         }
@@ -72,14 +72,20 @@ namespace Collada.Converter
                             url = url.Substring(1);
                             if (Effects.ContainsKey(url))
                             {
-                                return Effects[url];
+                                var mt = Effects[url] as MaterialGroup;
+                                var mg = new MaterialGroup(mat.id);
+                                foreach (var mm in mt.Children)
+                                {
+                                    var mmm = mm.Clone() as Material;
+                                    mg.Children.Add(mmm);
+                                }
+                                return mg;
                             }
                         }
                     }
                 }
             }
             return null;
-
         }
 /*
         protected  Tuple<object, List<AbstractMesh>> Create(string filename)

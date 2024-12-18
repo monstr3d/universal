@@ -31,6 +31,12 @@ namespace Wpf.Loader
 
         protected System.Drawing.Color[] colors = null;
 
+        protected string xaml;
+
+
+        protected Dictionary<string, byte[]> textures = new Dictionary<string, byte[]>();
+
+
         public Dictionary<string, byte[]> Attachement
         {
             get; protected set;
@@ -48,28 +54,10 @@ namespace Wpf.Loader
             }
         }
 
-        protected string xaml;
-
-
-        protected Dictionary<string, byte[]> textures = new Dictionary<string, byte[]>();
-
+ 
         public void  Load(string file)
         {
             string dir = Path.GetDirectoryName(file);
-            /*
-                       Visual3D v = file.ToVisual3D();
-                       string xaml;
-                       if (v != null)
-                       {
-                           xaml = System.Windows.Markup.XamlWriter.Save(v);
-                       }
-                       else
-                       {
-                           using (TextReader reader = new StreamReader(file))
-                           {
-                               xaml = reader.ReadToEnd();
-                           }
-                       }*/
             var ext = Path.GetExtension(file).ToLower();
             if (!StaticExtensionWpfLoader.FileLoad.ContainsKey(ext))
             {

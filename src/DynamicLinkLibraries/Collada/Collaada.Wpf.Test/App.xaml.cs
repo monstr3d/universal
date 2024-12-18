@@ -29,8 +29,9 @@ namespace Collaada.Wpf.Test
             // Compare();
             //    Generate();
             //     GenerateObj();
-             GenerateAC();
-         //  GenerateCollada();
+               GenerateToAc();
+           // GenerateAC();
+      //     GenerateCollada();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -69,17 +70,37 @@ namespace Collaada.Wpf.Test
                 m.SetLight();
 
             };
-     /*     
-            var obj = Generate<ModelVisual3D>(filename,   act);
+            
+       
+            var obj = Generate<ModelVisual3D>(filename, converter,  act);
+            IStringRepresentation r = converter;
+            var s = r.ToString(obj);
             using (var writer = new StreamWriter(file))
             {
-                writer.Write(obj);
+
+                writer.Write(s);
             }
-     */
         }
-     
-        void GenerateToAC(string filename)
+
+        void GenerateToAc()
         {
+            GenerateToAC("1.dae");
+            return;
+            GenerateToAC("dauphin.ac");
+            return;
+            GenerateAC("tu154B.ac");
+            return;
+            GenerateAC("H-60.ac");
+            return;
+            //  GenerateAC("F-15-lowpoly.ac");
+            GenerateAC("testpilot.ac");
+
+        }
+
+        void GenerateToAC(string filen)
+        {
+            var filename = Path.Combine(acdir, filen);
+
             var creator = filename.ToMeshCreator();
 
             var fnt = Path.GetFileNameWithoutExtension(filename);
@@ -93,11 +114,9 @@ namespace Collaada.Wpf.Test
             var ac = new AcConverter();
 
             var obj = Generate<object>(filename, ac);
-            IStringRepresentation r = ac;
-            var s = r.ToString(r);
             using (var writer = new StreamWriter(file))
             {
-                writer.Write(s);
+                writer.Write(obj);
             }
         }
 

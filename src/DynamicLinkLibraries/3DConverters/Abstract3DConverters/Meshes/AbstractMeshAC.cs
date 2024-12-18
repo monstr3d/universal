@@ -8,15 +8,15 @@ namespace Abstract3DConverters.Meshes
     public class AbstractMeshAC : AbstractMeshPolygon
     {
 
-
+        List<int> mats = new List<int>();
 
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
+
+        List<Material> materials;
 
         int count;
 
         List<string> l;
-
-        int shift = -1;
 
         public Image Image
         {
@@ -28,11 +28,8 @@ namespace Abstract3DConverters.Meshes
         public AbstractMeshAC(AbstractMeshAC parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
             base(name, parent, creator)
         {
-            if (creator is AcCreator ac)
-            {
-                shift = ac.Shift;
-            }
             this.count = count;
+            this.materials = materials;
             this.l = l;
             int nv = -1;
             int ns = -1;
@@ -73,7 +70,6 @@ namespace Abstract3DConverters.Meshes
                 {
                     ns = numsurf.Value;
                     int mt = -1;
-                    var mats = new List<int>();
                     var nc = numsurf.Value;
                     var k = i + 1;
                     for (; k < l.Count; k++)
@@ -90,7 +86,6 @@ namespace Abstract3DConverters.Meshes
                                 continue;
                             }
                         }
-
                         var refs = s.ToReal<int>(l[k], "refs ");
                         if (refs != null)
                         {
@@ -112,7 +107,9 @@ namespace Abstract3DConverters.Meshes
                                 }
 
                             }
-                            var polygon = new Polygon(pp);
+                            var matetrial = materials[mt];
+                            matetrial = matetrial.Clone() as Material;
+                            var polygon = new Polygon(pp, matetrial);
                             dp[polygon] = mt;
                             Polygons.Add(polygon);
                         }
@@ -126,30 +123,16 @@ namespace Abstract3DConverters.Meshes
                             Material = mat.Clone() as Material;
                             SetImage(Material, Image);
                         }
-                        else if (mats.Count > 1)
-                        {
-                            if (Vertices.Count > 0)
-                            {
-                                foreach (Polygon p in Polygons)
-                                {
-                                    var mat = materials[dp[p]];
-                                    new AbstractMeshAC(this, p, mat, Image, creator);
-                                }
-                                Vertices = new List<float[]>();
-                                Polygons.Clear();
-                                Image = null;
-                            }
-                        }
+
                     }
                     i = k;
                     continue;
                 }
             }
-
         }
 
         private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :
-            base(parent.Name, parent, creator)
+            base(parent.Name + Guid.NewGuid(), parent, creator)
         {
             /*       TransformationMatrix = [ 1, 0, 0, 0,
                                                     0, 1, 0, 0,
@@ -179,13 +162,36 @@ namespace Abstract3DConverters.Meshes
                 var t = new Tuple<int, int, int, float[]>(d[p.Item1], p.Item2, p.Item3, p.Item4);
                 l.Add(t);
             }
-            var pol = new Polygon(l);
+            var pol = new Polygon(l, material.Clone() as Material);
             Polygons.Add(pol);
             Material = material.Clone() as Material;
             if (image != null)
             {
                 Image = image.Clone() as Image;
                 SetImage(Material, Image);
+            }
+        }
+
+        public override void Disintegrate()
+        {
+            if (mats.Count > 1)
+            {
+                if (Vertices.Count > 0)
+                {
+                    foreach (Polygon p in Polygons)
+                    {
+                        var h = dp[p];
+                        if ((h < 0) | (h >= materials.Count))
+                        {
+
+                        }
+                        var mat = materials[h];
+                        new AbstractMeshAC(this, p, mat, Image, creator);
+                    }
+                    Vertices = new List<float[]>();
+                    Polygons.Clear();
+                    Image = null;
+                }
             }
         }
     }

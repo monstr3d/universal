@@ -17,7 +17,7 @@ namespace Abstract3DConverters.Creators
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
-        public Obj3DCrearor() : base(".obj")
+        public Obj3DCrearor()
         {
 
         }

@@ -225,6 +225,7 @@ namespace Collada.Wpf
         {
             if (mesh is AbstractMeshPolygon ap)
             {
+                ap.Disintegrate();
                 ap.CreateFromPolygons();
             }
             var ind = mesh.Indexes;

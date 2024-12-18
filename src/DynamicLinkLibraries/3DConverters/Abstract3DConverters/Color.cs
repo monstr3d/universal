@@ -7,20 +7,37 @@ namespace Abstract3DConverters
     {
         public float[] Value { get; private set; }
 
+
+
         public Color(float[] value)
             { this.Value = value; }
 
-        public Color(double[] value)
+        public Color(double[] value)//, bool inverse = false)
         {
-            Value = Transform(value);
+            /*
+            if (!inverse)
+            {
+           
+            }*/
+            Value = Transform(value, false);
         }
 
-        private float[] Transform(double[] x)
+        private float[] Transform(double[] x, bool inverse)
         {
             var c = new float[x.Length];
             for (int i = 0; i < x.Length; i++)
             {
                 c[i] = (float)x[i];
+            }
+            if (c.Length == 4)
+            {
+                if (inverse)
+                {
+                    var a = c[0];
+                    var b = c[3];
+                    c[0] = b;
+                    c[3] = a;
+                }
             }
             return c;
         }
@@ -57,5 +74,17 @@ namespace Abstract3DConverters
         {
             return new Color(Value);
         }
+
+        public string StringValue(string sep = " ")
+        {
+            var s = "";
+            foreach (var a in Value)
+            {
+                s += a + sep;
+            }
+            s = s.Substring(0, s.Length - sep.Length);
+            return s;
+        }
+
     }
 }

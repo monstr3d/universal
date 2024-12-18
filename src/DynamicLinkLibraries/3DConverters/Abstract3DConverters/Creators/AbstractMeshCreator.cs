@@ -6,7 +6,6 @@ namespace Abstract3DConverters.Creators
 {
     public abstract class AbstractMeshCreator : IMeshCreator
     {
-        string extension;
 
         protected string directory;
 
@@ -16,9 +15,8 @@ namespace Abstract3DConverters.Creators
 
 
 
-        public AbstractMeshCreator(string extension)
+        public AbstractMeshCreator()
         {
-            this.extension = extension;
         }
 
 

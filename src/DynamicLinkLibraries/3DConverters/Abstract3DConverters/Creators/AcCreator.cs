@@ -1,27 +1,21 @@
-﻿using System.Runtime.CompilerServices;
-using Abstract3DConverters.Materials;
+﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
-    [Attributes.Extension([ ".ac" ])]
+    [Attributes.Extension([".ac"])]
     public class AcCreator : LinesMeshCreator
     {
         List<Material> MaterialsP { get; } = new();
 
         Service s = new();
 
-        protected string[] colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
+        internal static   string[] Colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
-        internal int Shift { get; private set; } = -1;
-
-
-
-        public AcCreator() : base(".ac")
+        public AcCreator()
         {
-         }
 
-
+        }
 
         #region AbstractMeshCreator Members
 
@@ -37,8 +31,6 @@ namespace Abstract3DConverters.Creators
 
 
         #endregion
-
-
 
         void CreateMaterials(List<string> lines)
         {
@@ -64,7 +56,7 @@ namespace Abstract3DConverters.Creators
                 var d = new Dictionary<int, string>();
                 for (int i = 0; i < l.Count; i++)
                 {
-                    if (colstr.Contains(l[i]))
+                    if (Colstr.Contains(l[i]))
                         d[i] = l[i];
                 }
                 var arr = d.Keys.ToArray();
@@ -114,17 +106,6 @@ namespace Abstract3DConverters.Creators
             }
         }
 
-        private Color GetColor(List<string> l, int b, int e)
-        {
-            var str = "";
-            for (var i = b; i < e; i++)
-            {
-                str += l[i] + " ";
-            }
-            return new Color(str.Trim());
-
-        }
-
 
         public IEnumerable<AbstractMesh> Create(AbstractMeshAC parent, List<string> lines, int start = 0, int current = -1)
         {
@@ -154,15 +135,7 @@ namespace Abstract3DConverters.Creators
                         if (cnt != null)
                         {
                             var count = cnt.Value;
-                            AbstractMeshAC am = null;
-                            try
-                            {
-                                am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
-                            }
-                            catch (Exception ex)
-                            {
-
-                            }
+                            var am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
                             name = null;
                             nl = new();
                             i = j;
@@ -187,19 +160,6 @@ namespace Abstract3DConverters.Creators
         protected override void CreateFromLines()
         {
             CreateMaterials(lines);
-            foreach (var line in lines)
-            {
-                var mp = s.ToReal<int>(line, "mat ");
-                if (mp != null)
-                {
-                    var n = mp.Value;
-                    if (n == 0)
-                    {
-                        Shift = 0;
-                    }
-                }
-
-            }
         }
     }
 }

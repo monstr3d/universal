@@ -11,7 +11,7 @@ namespace Abstract3DConverters.Creators
 
         protected List<string> lines = new List<string>();
 
-        protected LinesMeshCreator(string extension) : base(extension)
+        protected LinesMeshCreator()
         {
 
         }

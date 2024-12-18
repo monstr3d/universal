@@ -15,7 +15,7 @@ namespace ExportToWpf
 
         static StaticExtensionExportToWpf()
         {
-            string[] s = [".ac", ".dae", "obj"];
+            string[] s = [".ac", ".dae", ".obj"];
             StaticExtensionAbstract3DConverters.Init();
             Func<string, Tuple<string, Dictionary<string, byte[]>>> f = Export;
             foreach (var str in s)

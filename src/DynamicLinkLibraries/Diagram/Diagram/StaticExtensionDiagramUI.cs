@@ -16,7 +16,6 @@ using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 
 using AssemblyService;
-using static System.Collections.Specialized.BitVector32;
 
 
 namespace Diagram.UI

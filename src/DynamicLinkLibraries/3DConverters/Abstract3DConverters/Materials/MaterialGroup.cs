@@ -21,6 +21,10 @@ namespace Abstract3DConverters.Materials
             var c = mat.Children;
             foreach (var child in Children)
             {
+                if (child == null)
+                {
+
+                }
                 c.Add(child.Clone() as Material);
             }
             return mat;

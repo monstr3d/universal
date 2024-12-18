@@ -19,8 +19,15 @@
                 return;
             }
             Name = Name.Replace(Path.DirectorySeparatorChar, '/');
-            FullPath = Directory + Name;
-            var p = File.Exists(FullPath);
+            if (Name.StartsWith("/"))
+            {
+                Name = Name.Substring(1);
+            }
+            FullPath = Directory + "/" + Name;
+            if (!File.Exists(FullPath))
+            {
+                throw new Exception();
+            }
         }
 
         private string Find(string name, string directory)

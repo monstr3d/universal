@@ -20,7 +20,9 @@ namespace Collada.Converter
         geometry geometry;
 
         bind_material bind_material;
-
+        public override void Disintegrate()
+        {
+        }
 
         internal AbstractMeshCollada(node node, AbstractMeshPolygon parent, Collada14MeshCreator converter) : base(node.name, parent, converter)
         {
@@ -136,7 +138,12 @@ namespace Collada.Converter
                         l.Add(t);
                         ++j;
                     }
-                    var p = new Polygon(l);
+                    var mt = poly.material;
+                    Abstract3DConverters.Materials.Material mat = creator.Materials[mt];
+
+
+                    var p = new Polygon(l, mat);
+
                     Polygons.Add(p);
                 }
 
