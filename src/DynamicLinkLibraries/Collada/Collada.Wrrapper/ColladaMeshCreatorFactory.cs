@@ -1,11 +1,5 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Collada.Converter.Creators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Collada.Converter
@@ -19,7 +13,16 @@ namespace Collada.Converter
         {
             var doc = new XmlDocument();
             doc.Load(filename);
-            return new Collada14MeshCreator();
+            var version = doc.DocumentElement.GetAttribute("version");
+            if (version.StartsWith("1.4"))
+            {
+                return new Collada14MeshCreator();
+            }
+            if (version.StartsWith("1.5"))
+            {
+                return new Collada15MeshCreator();
+            }
+            return null;
         }
     }
 }

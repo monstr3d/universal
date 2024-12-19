@@ -1,6 +1,5 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
-using Collada;
 
 namespace Abstract3DConverters.Creators
 {
@@ -16,6 +15,8 @@ namespace Abstract3DConverters.Creators
         Dictionary<string, byte[]> add;
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
+
+        Service s = new Service();
 
         public Obj3DCrearor()
         {
@@ -49,19 +50,19 @@ namespace Abstract3DConverters.Creators
             {
                 if (line.IndexOf("v ") == 0)
                 {
-                    var f = line.Substring("v ".Length).Trim().ToRealArray<float>();
+                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
                     vertices.Add(f);
                     continue;
                 }
                 if (line.IndexOf("vn ") == 0)
                 {
-                    var f = line.Substring("vn ".Length).Trim().ToRealArray<float>();
+                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
                     normals.Add(f);
                     continue;
                 }
                 if (line.IndexOf("vt ") == 0)
                 {
-                    var f = line.Substring("vt ".Length).Trim().ToRealArray<float>();
+                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
                     textures.Add(f);
                     continue;
                 }
@@ -363,19 +364,19 @@ namespace Abstract3DConverters.Creators
                 }
                 if (line.IndexOf("v ") == 0)
                 {
-                    var f = line.Substring("v ".Length).Trim().ToRealArray<float>();
+                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
                     vertices.Add(f);
                     continue;
                 }
                 if (line.IndexOf("vn ") == 0)
                 {
-                    var f = line.Substring("vn ".Length).Trim().ToRealArray<float>();
+                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
                     normals.Add(f);
                     continue;
                 }
                 if (line.IndexOf("vt ") == 0)
                 {
-                    var f = line.Substring("vt ".Length).Trim().ToRealArray<float>();
+                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
                     textures.Add(f);
                     continue;
                 }

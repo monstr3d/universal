@@ -10,7 +10,7 @@ using Collada141;
 
 namespace Collada.Converter.Meshes
 {
-    internal class AbstractMeshCollada : AbstractMeshPolygon
+    internal class AbstractMeshCollada14 : AbstractMeshPolygon
     {
         Collada14MeshCreator converter;
 
@@ -25,7 +25,7 @@ namespace Collada.Converter.Meshes
         {
         }
 
-        internal AbstractMeshCollada(node node, AbstractMeshPolygon parent, Collada14MeshCreator converter) : base(node.name, parent, converter)
+        internal AbstractMeshCollada14(node node, AbstractMeshPolygon parent, Collada14MeshCreator converter) : base(node.name, parent, converter)
         {
             this.converter = converter;
             instance_geometry = node.instance_geometry;

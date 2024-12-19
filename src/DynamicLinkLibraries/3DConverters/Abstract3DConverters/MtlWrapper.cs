@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using Collada;
 
 namespace Abstract3DConverters
 {

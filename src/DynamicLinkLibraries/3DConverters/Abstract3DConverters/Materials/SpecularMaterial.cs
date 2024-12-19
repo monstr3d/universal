@@ -8,7 +8,7 @@ namespace Abstract3DConverters.Materials
 {
     public class SpecularMaterial : SimpleMaterial
     {
-        public float SpecularPower { get; private set; }
+        public float SpecularPower { get;  set; }
 
         public SpecularMaterial(Color color, float power) : base(color)
         {

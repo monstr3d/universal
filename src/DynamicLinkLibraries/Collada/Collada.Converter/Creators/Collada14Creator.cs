@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Net.WebSockets;
+﻿
 using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
@@ -38,7 +37,7 @@ namespace Collada.Converter.Creators
 
         protected override void CreateAll()
         {
-            collada = COLLADA.Load(filename);
+            collada = COLLADA.Load141(filename);
             PrepareData();
         }
 
@@ -275,7 +274,7 @@ namespace Collada.Converter.Creators
 
         AbstractMesh Create(node node)
         {
-            var mesh = new AbstractMeshCollada(node, null, this);
+            var mesh = new AbstractMeshCollada14(node, null, this);
             if (node.node1 != null)
             {
                 foreach (var item in node.node1)

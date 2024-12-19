@@ -9931,7 +9931,7 @@ namespace Collada141
         }
 
 
-        public static COLLADA Load(string fileName)
+        public static COLLADA Load141(string fileName)
         {
             COLLADA result;
             using (var stream = new FileStream(fileName, FileMode.Open))
@@ -9970,14 +9970,9 @@ namespace Collada141
 
         public void Save(string fileName)
         {
-            FileStream stream = new FileStream(fileName, FileMode.Create);
-            try
+            using (var stream = new FileStream(fileName, FileMode.Create))
             {
                 Save(stream);
-            }
-            finally
-            {
-                stream.Close();
             }
         }
 

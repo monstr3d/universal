@@ -27,11 +27,12 @@ namespace Collaada.Wpf.Test
         {
             StaticExtensionAbstract3DConverters.Init();
             // Compare();
-            //    Generate();
+            //  Generate();
             //     GenerateObj();
-               GenerateToAc();
-           // GenerateAC();
-      //     GenerateCollada();
+            //  GenerateToAc();
+            // GenerateAC();
+            //     GenerateCollada();
+            GenerateWpf();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -58,9 +59,15 @@ namespace Collaada.Wpf.Test
             GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
         }
 
+        void GenerateWpf()
+        {
+            GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
+
+         //   GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+        }
+
         void GenerateWpf(string filename)
         {
-            var creator = filename.ToMeshCreator();
             var converter = new WpfMeshConverter();
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
@@ -135,6 +142,8 @@ namespace Collaada.Wpf.Test
             }
             return null;
         }
+
+
 
         void GenerateCollada(string filename)
         {
@@ -241,36 +250,6 @@ namespace Collaada.Wpf.Test
 
         void Generate()
         {
-            var f = "";
-            //  f = d["Mig29"];
-             f = models["Tu154"];
-            //  f = models["Tornado"];
-            //    f = d["Sukhoi"];
-            //    f = d["F15"];
-      //   /   f = models["1"];
-           // f = models["11"];
-            if (!File.Exists(f))
-            {
-                throw new Exception();
-            }
-            // f.CheckSchema();
-         //   COLLADA model = COLLADA.Load(f);
-            var fn = Path.GetFileNameWithoutExtension(f);
-            var dir = Path.GetDirectoryName(f);
-            var file = Path.Combine(dir, fn + ".xaml");
-
-            //  doc.Load(f);
-
-            System.Windows.Media.Media3D.DiffuseMaterial diffuse = new System.Windows.Media.Media3D.DiffuseMaterial();
-            diffuse.Color = System.Windows.Media.Color.FromArgb(255, 255, 255, 255);
-            StaticExtensionColladaWpf.DefaultMaterial = diffuse;
-            StaticExtensionColladaWpf.Set();
-            StaticExtensionColladaWpf.Load(f);
-            var r = XamlWriter.Save(StaticExtensionColladaWpf.Result);
-            using (var w = new StreamWriter(file))
-            {
-                w.Write(r);
-            }
         }
 
 

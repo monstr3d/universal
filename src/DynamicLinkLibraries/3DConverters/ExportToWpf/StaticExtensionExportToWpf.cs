@@ -1,8 +1,6 @@
 ﻿using System.IO;
-using System.Windows.Markup;
 using System.Windows.Media.Media3D;
 using Abstract3DConverters;
-using Abstract3DConverters.Creators;
 using AssemblyService.Attributes;
 using Collada.Wpf;
 using Wpf.Loader;

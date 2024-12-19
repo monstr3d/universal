@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters.Materials;
-using Collada;
 
 namespace Abstract3DConverters
 {
@@ -115,7 +114,7 @@ namespace Abstract3DConverters
             {
                 if (s.Length > 0)
                 {
-                    T a = s.ToReal<T>();
+                    T a =  ToReal<T>(s);
                     l.Add(a);
                 }
             }

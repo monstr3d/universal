@@ -1,7 +1,5 @@
-﻿using System.Net.Security;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text;
-using System.Windows.Markup;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
