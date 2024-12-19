@@ -12,6 +12,10 @@ namespace Abstract3DConverters
 {
     public static class StaticExtensionAbstract3DConverters
     {
+        static MeshCreatorFactoryCollection meshCreators;
+
+        static IMeshCreatorFactory meshCreatorFactory;
+
         public static IPolygonSplitterFactory PolygonSplitterFactory { get; set; }
 
         public static IPolygonSplitter PolygonSplitter => PolygonSplitterFactory.CreatePolygonSplitter();
@@ -20,12 +24,17 @@ namespace Abstract3DConverters
 
         static Dictionary<string, ConstructorInfo> creators = new();
 
+        static List<IMeshCreatorFactory> meshCreatorFactories = new();
+
 
         static StaticExtensionAbstract3DConverters()
         {
+            meshCreators = new MeshCreatorFactoryCollection();
+            meshCreatorFactory = meshCreators;
             var ass = AppDomain.CurrentDomain.GetAssemblies();
             var inputTypes = new Type[] { typeof(InitAttribute) };
             var l = new List<string>();
+            
             foreach (var assembly in ass)
             {
                 l.Add(assembly.Location);
@@ -40,6 +49,12 @@ namespace Abstract3DConverters
                     assembl.Initialize();
                 }
             }
+            var fd = new MeshCreatorConstructorFactory(creators);
+            fd.Add();
+            foreach (var f in meshCreatorFactories)
+            {
+                f.Add();
+            }
         }
 
         public static void Init()
@@ -47,8 +62,19 @@ namespace Abstract3DConverters
 
         }
 
+        public static IMeshCreator GetMeshCreator(string filename)
+        {
+            return meshCreatorFactory[filename];
+        }
+
+        public static void Add(this IMeshCreatorFactory factory)
+        {
+            meshCreators.Add(factory);
+        }
+
         static void Initialize(this Assembly assembly)
         {
+            var factories = new List<IMeshCreatorFactory>();
             try
             {
                 var types = assembly.GetTypes();
@@ -74,9 +100,21 @@ namespace Abstract3DConverters
                             }
                             else
                             {
-                                throw new Exception();
+                                
                             }
                         }
+                        if (tt.Contains(typeof(IMeshCreatorFactory)))
+                        {
+                            var ca = CustomAttributeExtensions.GetCustomAttribute<Attributes.ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                            if (ca != null)
+                            {
+                                ConstructorInfo constructor = type.GetConstructor([]);
+                                var f = constructor.Invoke(null) as IMeshCreatorFactory;
+                                meshCreatorFactories.Add(f);
+                            }
+
+                        }
+
                     }
                     if (CustomAttributeExtensions.GetCustomAttribute<InitAttribute>(IntrospectionExtensions.GetTypeInfo(type)) != null)
                     {
@@ -99,12 +137,7 @@ namespace Abstract3DConverters
 
         public static IMeshCreator ToMeshCreator(this string filename)
         {
-            var ext = Path.GetExtension(filename);
-            if (creators.ContainsKey(ext))
-            {
-                return creators[ext].Invoke([]) as IMeshCreator;
-            }
-            return null;
+            return meshCreatorFactory[filename];
         }
 
         /// <summary>

@@ -36,6 +36,15 @@ namespace Abstract3DConverters.Creators
         {
             foreach (var line in lines)
             {
+                var txt = s.ToString(line, "texture ");
+                if (txt != null)
+                {
+                    if (!images.ContainsKey(txt))
+                    {
+                        var im = new Image(txt, directory);
+                        images[txt] = im;
+                    }
+                }
                 var mat = s.ToString(line, "MATERIAL ");
                 if (mat == null)
                 {
@@ -138,7 +147,7 @@ namespace Abstract3DConverters.Creators
                             var am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
                             name = null;
                             nl = new();
-                            i = j;
+                            i = j + 1;
                             yield return am;
                             counter++;
                             if (counter == current)

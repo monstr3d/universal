@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters;
 using Abstract3DConverters.Meshes;
+using Collada.Converter.Creators;
 using Collada141;
 
-namespace Collada.Converter
+namespace Collada.Converter.Meshes
 {
     internal class AbstractMeshCollada : AbstractMeshPolygon
     {
@@ -36,7 +37,7 @@ namespace Collada.Converter
 
         void CreateInstanceGeometry()
         {
-           foreach (var g in instance_geometry)
+            foreach (var g in instance_geometry)
             {
                 if (g != null & geom != null)
                 {
@@ -74,7 +75,7 @@ namespace Collada.Converter
             var mesh = geometry.Item as mesh;
             if (mesh.Items != null)
             {
-               
+
                 var vert = mesh.source[0];
                 var v = vert.Item as float_array;
                 Vertices = s.ToReal3Array(s.Convert(v.Values));
@@ -131,7 +132,7 @@ namespace Collada.Converter
                         {
                             if (ii[0] != j)
                             {
-                           //     throw new Exception();
+                                //     throw new Exception();
                             }
                         }
                         var t = new Tuple<int, int, int, float[]>(ii[0], ii[1], ii[2], Textures[ii[1]]);
@@ -147,21 +148,6 @@ namespace Collada.Converter
                     Polygons.Add(p);
                 }
 
-                /*        var l = new List<Tuple<int, int, float[]>>();
-                        Vertices = new List<float[]>();
-                        Normals = new List<float[]>();
-                        Textures = new List<float[]>();
-                        for (int i = 0; i < ind.Count; i++)
-                        {
-                            var ii = ind[i];
-                            Vertices.Add(vertices[ii[0]]);
-                            Textures.Add(textures[ii[1]]);
-                            var n = ii[2];
-                            if (n >= 0 & n < normals.Count)
-                            {
-                                Normals.Add(normals[n]);
-                            }
-                        }*/
             }
         }
 

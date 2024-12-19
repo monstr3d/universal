@@ -101,7 +101,7 @@ namespace Abstract3DConverters.Meshes
                                     s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
                                 ++j;
-                                if (pp.Count == refs)
+                                if (pp.Count == rf)
                                 {
                                     break;
                                 }
@@ -117,11 +117,16 @@ namespace Abstract3DConverters.Meshes
                         {
                             continue;
                         }
-                        if (mats.Count == 1)
+                        else
                         {
-                            var mat = materials[dp.Values.ToArray()[0]];
-                            Material = mat.Clone() as Material;
-                            SetImage(Material, Image);
+                            if (mats.Count == 1)
+                            {
+                                var mat = materials[dp.Values.ToArray()[0]];
+                                Material = mat.Clone() as Material;
+                                SetImage(Material, Image);
+                            }
+                            i = k;
+                            continue;
                         }
 
                     }
@@ -134,12 +139,6 @@ namespace Abstract3DConverters.Meshes
         private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :
             base(parent.Name + Guid.NewGuid(), parent, creator)
         {
-            /*       TransformationMatrix = [ 1, 0, 0, 0,
-                                                    0, 1, 0, 0,
-                                                    0, 0, 1, 0,
-                                                   0, 0, 0, 0 ];
-            */
-
             Vertices = new List<float[]>();
             var d = new Dictionary<int, int>();
             int i = 0;
@@ -154,6 +153,10 @@ namespace Abstract3DConverters.Meshes
             }
             foreach (var key in d.Keys)
             {
+                if ((key < 0) | (key >= parent.Vertices.Count))
+                {
+
+                }
                 Vertices.Add(parent.Vertices[key]);
             }
             var l = new List<Tuple<int, int, int, float[]>>();
@@ -180,11 +183,8 @@ namespace Abstract3DConverters.Meshes
                 {
                     foreach (Polygon p in Polygons)
                     {
-                        var h = dp[p];
-                        if ((h < 0) | (h >= materials.Count))
-                        {
-
-                        }
+                        int h = 0;
+                        h = dp[p];
                         var mat = materials[h];
                         new AbstractMeshAC(this, p, mat, Image, creator);
                     }

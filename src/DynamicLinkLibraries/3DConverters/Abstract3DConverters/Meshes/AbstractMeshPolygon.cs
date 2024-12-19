@@ -34,10 +34,17 @@ namespace Abstract3DConverters.Meshes
             List<Polygon> polygons = new List<Polygon>();
             foreach (var polygon in Polygons)
             {
-                var pp = splitter[polygon];
-                foreach (var p in pp)
+                if (polygon.Points.Count <= 3)
                 {
-                    polygons.Add(p);
+                    polygons.Add(polygon);
+                }
+                else
+                {
+                    var pp = splitter[polygon];
+                    foreach (var p in pp)
+                    {
+                        polygons.Add(p);
+                    }
                 }
             }
             var idx = new List<int[][]>();

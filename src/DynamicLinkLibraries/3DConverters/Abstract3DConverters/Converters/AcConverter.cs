@@ -175,6 +175,7 @@ namespace Abstract3DConverters.Converters
                     l.Add(s);
                 }
             }
+            l.Add("kids " + polygon.Children.Count);
             return l;
         }
 
