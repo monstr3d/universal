@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Linq;
 using System.Reflection;
+using System.Net.WebSockets;
 
 namespace Collada
 {
@@ -83,6 +84,8 @@ namespace Collada
                 filename = null;
             }
         }
+        
+
 
         #region Members
 
@@ -133,6 +136,12 @@ namespace Collada
                 }
             }
             return res;
+        }
+
+        public static Type AdditionalType
+        {
+            get;
+            set;
         }
 
         public static bool IsUknown(this Type type)
@@ -291,11 +300,12 @@ namespace Collada
 
 
 
-        public static void InitClear(this Type type)
+        public static void InitClear(this Type type, List<string> clear)
         {
             PropertyInfo property = type.GetProperty("Clear", typeof(IClear));
             if (property == null)
             {
+                clear.Add(type.Name);
                 return;
             }
             var c = property.GetValue(null, null) as IClear;
@@ -727,14 +737,15 @@ namespace Collada
             }
         }
 
-        public static void Detect(this Type type, Dictionary<string, MethodInfo> methods, List<string> elementary, List<string> all)
+        public static void Detect(this Type type, Dictionary<string, MethodInfo> methods, List<string> elementary, 
+            List<string> all, List<string> clear, List<string> method)
         {
             TagAttribute attr = CustomAttributeExtensions.GetCustomAttribute<TagAttribute>(IntrospectionExtensions.GetTypeInfo(type));
             if (attr == null)
             {
                 return;
             }
-            type.InitClear();
+            type.InitClear(clear);
             var tag = attr.Tag;
             types[type] = attr;
             tags[tag] = attr; 
@@ -742,10 +753,18 @@ namespace Collada
             {
                 return;
             }
-            MethodInfo mi = type.GetMethod("Get", [ typeof(XmlElement) ]);
+            MethodInfo mi = null;
+            if (AdditionalType != null)
+            {
+                mi = type.GetMethod("Get", [typeof(XmlElement), AdditionalType]);
+            }
+            else
+            {
+               mi =  type.GetMethod("Get", [typeof(XmlElement)]);
+            }
             if (mi == null)
             {
-                throw new Exception();
+                method.Add(tag);
             }
             if (all.Contains(tag))
             {
@@ -762,9 +781,15 @@ namespace Collada
         public static void Detect(this Assembly assembly, Dictionary<string, MethodInfo> methods, List<string> elementary, List<string> all)
         {
             var types = assembly.GetTypes();
+            var clear = new List<string>();
+            var method = new List<string>();
             foreach (var item in types)
             {
-                item.Detect(methods, elementary, all);
+                item.Detect(methods, elementary, all, clear, method);
+            }
+            if (clear.Count > 0 | method.Count > 0)
+            {
+                throw new Exception();
             }
         }
 

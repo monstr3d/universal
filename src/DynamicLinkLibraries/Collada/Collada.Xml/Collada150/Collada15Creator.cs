@@ -4,9 +4,11 @@ using System.Xml;
 using System.Xml.Linq;
 using Abstract3DConverters;
 using Abstract3DConverters.Creators;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 using Collada;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Collada150.Creators
 {
@@ -34,7 +36,10 @@ namespace Collada150.Creators
 
 
 
+
         static List<string> allTags;
+
+        static List<string> elementary;
 
 
         /*
@@ -44,11 +49,33 @@ namespace Collada150.Creators
 
 
                 Dictionary<Type, List<object>> dic = new Dictionary<Type, List<object>>();
+
         */
+
+        static Collada15MeshCreator()
+        {
+            StaticExtensionCollada.AdditionalType = typeof(IMeshCreator);
+            StaticExtensionCollada.Id = "id";
+            elementary = new();
+            methods = new Dictionary<string, MethodInfo>();
+            allTags = new List<string>();
+            Assembly assembly = typeof(Collada15MeshCreator).Assembly;
+            try
+            {
+                assembly.Detect(methods, elementary, allTags);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+        }
 
         public Collada15MeshCreator()
         {
-
+            StaticExtensionCollada.Collada = this;
+            StaticExtensionCollada.Function = this;
         }
 
         protected override void CreateAll()
@@ -59,6 +86,9 @@ namespace Collada150.Creators
 
         void PrepareData()
         {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filename);
+            StaticExtensionCollada.XmlElement = doc.DocumentElement;
             /*
              collada.Add(dic, collada.GetType().Assembly);
              images = ToDictionary(dic[typeof(image)], GetImage);
@@ -141,7 +171,7 @@ namespace Collada150.Creators
 
         public override Tuple<object, List<AbstractMesh>> Create()
         {
-            throw new NotImplementedException();
+            return null;
         }
         /*
        private Color GetColor(common_color_or_texture_typeColor color)
@@ -348,10 +378,64 @@ namespace Collada150.Creators
                 throw new NotImplementedException();
             }
 
-            void ICollada.Init(XmlElement xmlElement)
+        void ICollada.Init(XmlElement xmlElement)
+        {
             {
-                throw new NotImplementedException();
+                var l = new List<string>();
+                if (false)
+                {
+                    var x = xmlElement.GetElements().Where(e => !e.IsUnknown());
+                    foreach (var e in x)
+                    {
+                        if (!l.Contains(e.Name))
+                        {
+                            var s = e.OuterXml;
+
+                            if (s.Contains("source"))
+                            {
+                                l.Add(e.Name);
+                            }
+                        }
+                    }
+                    l.Sort();
+                    using (var writer = new StreamWriter("source.txt"))
+                    {
+                        foreach (var e in l)
+                        {
+                            writer.WriteLine(e);
+                        }
+                    }
+                    l = null;
+                    //  Testtechnique(xmlElement);
+                    //    Testtecfiltes(xmlElement);
+                }
             }
+            var t = elementary;
+            t.GetAll();
+            return;
+            //       t = Function.AddTags;
+            //        t.Get();
+            int i = 0;
+
+            /*          var s = xmlElement.GetElements();
+                      foreach (XmlElement e in s)
+                      {
+                          if (finalTypes.Contains(e.Name))
+                          {
+                              e.Get();
+                          }
+                      }
+                      s = xmlElement.GetElements(IsSource);
+                      foreach (XmlElement e in s)
+                      {
+                          //          sources[e.InnerText] = e;
+                          var param = e.ParentNode.ParentNode as XmlElement;
+                          sourceParam[e] = param;
+                          paramSource[param] = e;
+                      }*/
+            // newparam.Get();
+
+        }
 
             void ICollada.Put(XmlElement xmlElement)
             {
@@ -396,7 +480,7 @@ namespace Collada150.Creators
             {
                 Put(xmlElement);
                 var mi = methods[tag];
-                return (e) => mi.Invoke(null, new object[] { e });
+                return (e) => mi.Invoke(null, [e, this]);
             }
             return null;
         }
@@ -426,7 +510,7 @@ namespace Collada150.Creators
 
         #region IFunction Members
 
-        Func<XmlElement, object> IFunction.this[XmlElement xmlElement] => throw new NotImplementedException();
+        Func<XmlElement, object> IFunction.this[XmlElement xmlElement] => Get(xmlElement);
 
         string IFunction.Filename { get => filename; set { } }
 

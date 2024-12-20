@@ -61,9 +61,9 @@ namespace Collaada.Wpf.Test
 
         void GenerateWpf()
         {
-            GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
+    //        GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
-         //   GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+           GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
         }
 
         void GenerateWpf(string filename)

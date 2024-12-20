@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Xml;
+using Abstract3DConverters.Interfaces;
 
 namespace Collada.Wpf.Classes
 {
     public class XmlHolder : Collada.XmlHolder
     {
+
 
 
         protected XmlHolder(XmlElement element) : base(element)

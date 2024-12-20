@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
+using Collada;
 
-namespace Collada.Wpf.Classes
+namespace Collada150.Classes.Comlicated
 {
     [Tag("A")]
     internal class A : XmlHolder
     {
- 
-  
 
-        private A(XmlElement element) : base(element)
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<A>();
+
+
+        private A(XmlElement element) : base(element, null)
         {
 
         }

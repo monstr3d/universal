@@ -1,13 +1,17 @@
 ﻿using System.Xml;
+using Abstract3DConverters.Interfaces;
+using Collada;
 
-namespace Collada.Converter.Classes
+namespace Collada150.Classes
 {
     public class XmlHolder : Collada.XmlHolder
     {
 
+        protected IMeshCreator meshCreator;
 
-        protected XmlHolder(XmlElement element) : base(element)
+        protected XmlHolder(XmlElement element, IMeshCreator meshCreator) : base(element)
         {
+            this.meshCreator = meshCreator;
             if (element.IsElementary())
             {
                 return;
