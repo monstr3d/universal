@@ -8,7 +8,7 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 using Collada;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Collada150.Classes.Comlicated;
 
 namespace Collada150.Creators
 {
@@ -19,9 +19,9 @@ namespace Collada150.Creators
 
         Dictionary<string, Material> materials;
 
-        Dictionary<string, Image> images;
+        Dictionary<string, Abstract3DConverters.Image> images;
 
-        public override Dictionary<string, Image> Images { get => images; }
+        public override Dictionary<string, Abstract3DConverters.Image> Images { get => images; }
 
         public Dictionary<string, Material> Effects { get; private set; }
 
@@ -33,15 +33,14 @@ namespace Collada150.Creators
 
         Dictionary<string, XmlElement> urls = new();
 
-
-
+        internal Dictionary<string, Abstract3DConverters.Image> ImageIds { get; private set; } = new();
 
 
         static List<string> allTags;
 
         static List<string> elementary;
 
-
+        static List<string> nonelementary;
         /*
                 public Dictionary<string, geometry> Geometries { get; private set; }
 
@@ -59,6 +58,7 @@ namespace Collada150.Creators
             elementary = new();
             methods = new Dictionary<string, MethodInfo>();
             allTags = new List<string>();
+            nonelementary = new();
             Assembly assembly = typeof(Collada15MeshCreator).Assembly;
             try
             {
@@ -68,14 +68,32 @@ namespace Collada150.Creators
             {
 
             }
+            Type[] types = [typeof(Classes.Comlicated.Image), typeof(Texture), typeof(Transparency), typeof(Transparent)];
+            foreach (var type in types)
+            {
+                if (type.IsUknown())
+                {
+                    throw new Exception();
+                }
+                TagAttribute tag = type.GetTag();
+                var name = tag.Tag;
+                if (tag.IsElemenary)
+                {
+                    throw new Exception();
 
-
+                }
+                nonelementary.Add(name);
+            }
         }
+
 
         public Collada15MeshCreator()
         {
+            images = new();
+            materials = new Dictionary<string, Material>();
             StaticExtensionCollada.Collada = this;
             StaticExtensionCollada.Function = this;
+            
         }
 
         protected override void CreateAll()
@@ -173,198 +191,7 @@ namespace Collada150.Creators
         {
             return null;
         }
-        /*
-       private Color GetColor(common_color_or_texture_typeColor color)
-       {
-           if (color == null)
-           {
-               return null;
-           }
-           return new Color(color.Values);
-       }
-
-       private Color GetColor(common_color_or_texture_type color)
-       {
-           if (color == null)
-           {
-               return null;
-           }
-           var c = color.Item as common_color_or_texture_typeColor;
-           return GetColor(c);
-       }
-
-       private Material GetEffect(object effect)
-       {
-           Image image = null;
-           if (effect is effect eff)
-           {
-               var mt = ToZeroItem<effectFx_profile_abstractProfile_COMMON>(eff);
-               var t = mt.technique;
-               var it = eff.Items[0];
-               var itt = it.Items;
-               if (itt != null)
-               {
-                   if (itt.Length > 0)
-                   {
-                       var ittt = itt[0] as common_newparam_type;
-                       var itttt = ittt.Item as fx_surface_common;
-                       var im = itttt.init_from[0].Value;
-                       if (Images.ContainsKey(im))
-                       {
-                           image = Images[im];
-                       }
-                       ittt = itt[1] as common_newparam_type;
-                       var st = ittt.Item as fx_sampler2D_common;
-                   }
-               }
-
-               var tech = eff.Items[0];
-               return GetMaterial(eff.Items[0].technique, image);
-           }
-           return null;
-
-       }
-
-       Material GetMaterial(effectFx_profile_abstractProfile_COMMONTechnique technique, Image image)
-       {
-           var it = technique.Item;
-           if (it is effectFx_profile_abstractProfile_COMMONTechniquePhong phong)
-           {
-               return GetMaterial(phong, image);
-           }
-           return null;
-       }
-
-
-
-       private Material GetMaterial(effectFx_profile_abstractProfile_COMMONTechniquePhong material, Image image)
-       {
-           var grp = new MaterialGroup();
-           var ambient = GetColor(material.ambient);
-           var diff = material.diffuse;
-           var diffColor = GetColor(material.diffuse);
-           /*      if (diffColor == null)
-                 {
-                     var txt = diff.Item as common_color_or_texture_typeTexture;
-                     var np = NewParam[txt.texture];
-
-                 }*/
-        /*     float opacity = 1;
-             var diffuse = new DiffuseMaterial(diffColor, ambient, image, opacity);
-             grp.Children.Add(diffuse);
-             var ecolor = GetColor(material.emission);
-             if (ecolor != null)
-             {
-                 var emissive = new EmissiveMaterial(ecolor);
-                 grp.Children.Add(emissive);
-             }
-             var spec = GetColor(material.specular);
-             if (spec != null)
-             {
-                 var specular = new SpecularMaterial(spec, 0);
-                 grp.Children.Add(specular);
-             }
-
-             return grp;
-         }
-
-         public override Tuple<object, List<AbstractMesh>> Create()
-         {
-             var l = new List<AbstractMesh>();
-             foreach (var node in Nodes)
-             {
-                 l.Add(Create(node));
-             }
-
-
-             var t = new Tuple<object, List<AbstractMesh>>(null, l);
-             //         var sc = collada.asset.no
-             return t;
-         }
-
-         object ToZeroItem(object obj)
-         {
-             if (obj == null)
-             {
-                 return null;
-             }
-             var pr = obj.GetType().GetProperty("Items");
-             if (pr == null)
-             {
-                 return null;
-             }
-             var it = pr.GetValue(obj);
-             if (it == null)
-             {
-                 return null;
-             }
-             if (it is Array array)
-             {
-                 if (array.Length != 1)
-                 {
-                     throw new Exception();
-                 }
-                 return array.GetValue(0);
-             }
-             return null;
-         }
-
-         T ToZeroItem<T>(object obj)
-         {
-             return (T)ToZeroItem(obj);
-         }
-
-
-         Image GetImage(object obj)
-         {
-             var image = obj as image;
-             var im = new Image(image.Item + "", directory);
-             return im.Name == null ? null : im;
-         }
-
-
-         AbstractMesh Create(node node)
-         {
-             var mesh = new AbstractMeshCollada(node, null, this);
-             if (node.node1 != null)
-             {
-                 foreach (var item in node.node1)
-                 {
-                     if (item == null)
-                     {
-                         continue;
-                     }
-                     var m = Create(item);
-                     m.Parent = mesh;
-                 }
-             }
-             return mesh;
-         }
-
-         IEnumerable<node> Nodes
-         {
-             get
-             {
-                 var it = collada.Items;
-                 foreach (var i in it)
-                 {
-                     if (i is library_visual_scenes sc)
-                     {
-                         var vs = sc.visual_scene;
-                         foreach (var v in vs)
-                         {
-                             var nd = v.node;
-                             foreach (var n in nd)
-                             {
-                                 yield return n;
-                             }
-                         }
-                     }
-                 }
-                 yield break;
-             }
-         }*/
-
+  
         #region ICollada Members
              string ICollada.Filename { get => filename; set { } }
 
@@ -412,7 +239,12 @@ namespace Collada150.Creators
             }
             var t = elementary;
             t.GetAll();
-            return;
+            t = nonelementary;
+            foreach (var n in t)
+            {
+                n.Get();
+            }
+                   
             //       t = Function.AddTags;
             //        t.Get();
             int i = 0;
@@ -554,3 +386,195 @@ namespace Collada150.Creators
         #endregion
     }
 }
+
+/*
+ private Color GetColor(common_color_or_texture_typeColor color)
+ {
+     if (color == null)
+     {
+         return null;
+     }
+     return new Color(color.Values);
+ }
+
+ private Color GetColor(common_color_or_texture_type color)
+ {
+     if (color == null)
+     {
+         return null;
+     }
+     var c = color.Item as common_color_or_texture_typeColor;
+     return GetColor(c);
+ }
+
+ private Material GetEffect(object effect)
+ {
+     Image image = null;
+     if (effect is effect eff)
+     {
+         var mt = ToZeroItem<effectFx_profile_abstractProfile_COMMON>(eff);
+         var t = mt.technique;
+         var it = eff.Items[0];
+         var itt = it.Items;
+         if (itt != null)
+         {
+             if (itt.Length > 0)
+             {
+                 var ittt = itt[0] as common_newparam_type;
+                 var itttt = ittt.Item as fx_surface_common;
+                 var im = itttt.init_from[0].Value;
+                 if (Images.ContainsKey(im))
+                 {
+                     image = Images[im];
+                 }
+                 ittt = itt[1] as common_newparam_type;
+                 var st = ittt.Item as fx_sampler2D_common;
+             }
+         }
+
+         var tech = eff.Items[0];
+         return GetMaterial(eff.Items[0].technique, image);
+     }
+     return null;
+
+ }
+
+ Material GetMaterial(effectFx_profile_abstractProfile_COMMONTechnique technique, Image image)
+ {
+     var it = technique.Item;
+     if (it is effectFx_profile_abstractProfile_COMMONTechniquePhong phong)
+     {
+         return GetMaterial(phong, image);
+     }
+     return null;
+ }
+
+
+
+ private Material GetMaterial(effectFx_profile_abstractProfile_COMMONTechniquePhong material, Image image)
+ {
+     var grp = new MaterialGroup();
+     var ambient = GetColor(material.ambient);
+     var diff = material.diffuse;
+     var diffColor = GetColor(material.diffuse);
+     /*      if (diffColor == null)
+           {
+               var txt = diff.Item as common_color_or_texture_typeTexture;
+               var np = NewParam[txt.texture];
+
+           }*/
+/*     float opacity = 1;
+     var diffuse = new DiffuseMaterial(diffColor, ambient, image, opacity);
+     grp.Children.Add(diffuse);
+     var ecolor = GetColor(material.emission);
+     if (ecolor != null)
+     {
+         var emissive = new EmissiveMaterial(ecolor);
+         grp.Children.Add(emissive);
+     }
+     var spec = GetColor(material.specular);
+     if (spec != null)
+     {
+         var specular = new SpecularMaterial(spec, 0);
+         grp.Children.Add(specular);
+     }
+
+     return grp;
+ }
+
+ public override Tuple<object, List<AbstractMesh>> Create()
+ {
+     var l = new List<AbstractMesh>();
+     foreach (var node in Nodes)
+     {
+         l.Add(Create(node));
+     }
+
+
+     var t = new Tuple<object, List<AbstractMesh>>(null, l);
+     //         var sc = collada.asset.no
+     return t;
+ }
+
+ object ToZeroItem(object obj)
+ {
+     if (obj == null)
+     {
+         return null;
+     }
+     var pr = obj.GetType().GetProperty("Items");
+     if (pr == null)
+     {
+         return null;
+     }
+     var it = pr.GetValue(obj);
+     if (it == null)
+     {
+         return null;
+     }
+     if (it is Array array)
+     {
+         if (array.Length != 1)
+         {
+             throw new Exception();
+         }
+         return array.GetValue(0);
+     }
+     return null;
+ }
+
+ T ToZeroItem<T>(object obj)
+ {
+     return (T)ToZeroItem(obj);
+ }
+
+
+ Image GetImage(object obj)
+ {
+     var image = obj as image;
+     var im = new Image(image.Item + "", directory);
+     return im.Name == null ? null : im;
+ }
+
+
+ AbstractMesh Create(node node)
+ {
+     var mesh = new AbstractMeshCollada(node, null, this);
+     if (node.node1 != null)
+     {
+         foreach (var item in node.node1)
+         {
+             if (item == null)
+             {
+                 continue;
+             }
+             var m = Create(item);
+             m.Parent = mesh;
+         }
+     }
+     return mesh;
+ }
+
+ IEnumerable<node> Nodes
+ {
+     get
+     {
+         var it = collada.Items;
+         foreach (var i in it)
+         {
+             if (i is library_visual_scenes sc)
+             {
+                 var vs = sc.visual_scene;
+                 foreach (var v in vs)
+                 {
+                     var nd = v.node;
+                     foreach (var n in nd)
+                     {
+                         yield return n;
+                     }
+                 }
+             }
+         }
+         yield break;
+     }
+ }*/

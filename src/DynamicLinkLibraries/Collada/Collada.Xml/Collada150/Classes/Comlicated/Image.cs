@@ -5,20 +5,16 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Comlicated
 {
-    [Tag("image", true)]
+    [Tag("image")]
     internal class Image : XmlHolder
     {
         static public readonly string Tag = "image";
 
         Service s = new Service();
 
-        /// <summary>
-        /// Is elementary
-        /// </summary>
-        static public readonly bool IsElementary = true;
-
+     
         public static IClear Clear => StaticExtensionCollada.GetClear<Image>();
 
 
@@ -27,17 +23,13 @@ namespace Collada150.Classes
 
         private Image(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
-            ImageSource = new Abstract3DConverters.Image(element.InnerText, meshCreator.Directory);
+            var ifr = element.Get<Init_From>().Text;
+            ImageSource = new Abstract3DConverters.Image(ifr, meshCreator.Directory);
+            meshCreator.Images[ImageSource.Name] = ImageSource;
+            MeshCreator.ImageIds[element.GetAttribute("id")] = ImageSource;
         }
 
-        object Get()
-        {
-            if (ImageSource == null)
-            {
-                return this;
-            }
-            return ImageSource;
-        }
+   
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {

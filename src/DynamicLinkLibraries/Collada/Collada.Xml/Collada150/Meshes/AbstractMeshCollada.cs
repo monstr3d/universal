@@ -8,15 +8,17 @@ using Abstract3DConverters.Meshes;
 
 namespace Collada150.Meshes
 {
-    internal class AbstractMeshCollada : AbstractMeshPolygon
+    internal class AbstractMeshCollada : AbstractMeshNamedMaterial
     {
         public AbstractMeshCollada(string name, AbstractMeshPolygon parent, IMeshCreator creator) : base(name, parent, creator)
         {
         }
 
-        public override void Disintegrate()
+        public AbstractMeshCollada(string name, AbstractMeshPolygon parent, string material, IMeshCreator creator) : base(name, parent, material, creator)
         {
-            throw new NotImplementedException();
         }
+
+
+
     }
 }

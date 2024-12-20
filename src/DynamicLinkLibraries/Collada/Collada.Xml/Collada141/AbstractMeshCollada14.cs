@@ -10,7 +10,7 @@ using Collada141;
 
 namespace Collada.Converter.Meshes
 {
-    internal class AbstractMeshCollada14 : AbstractMeshPolygon
+    internal class AbstractMeshCollada14 : AbstractMeshNamedMaterial
     {
         Collada14MeshCreator converter;
 
@@ -21,9 +21,6 @@ namespace Collada.Converter.Meshes
         geometry geometry;
 
         bind_material bind_material;
-        public override void Disintegrate()
-        {
-        }
 
         internal AbstractMeshCollada14(node node, AbstractMeshPolygon parent, Collada14MeshCreator converter) : base(node.name, parent, converter)
         {

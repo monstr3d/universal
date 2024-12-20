@@ -1,6 +1,7 @@
 ﻿
 
 using System.Xml;
+using Abstract3DConverters.Interfaces;
 using Collada;
 
 namespace Collada150.Classes.Comlicated
@@ -11,24 +12,28 @@ namespace Collada150.Classes.Comlicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Texture>();
 
-        public Sampler2D Sample { get; private set; }
+        internal Abstract3DConverters.Image Image { get; private set; }
 
         public string TexCoord { get; private set; }
-        public Texture(XmlElement xmlElement) : base(xmlElement)
+        public Texture(XmlElement xmlElement, IMeshCreator meshCreator) : base(xmlElement, meshCreator)
         {
             var texture = xmlElement.GetAttribute("texture");
-            Sample = Sampler2D.Get(texture);
-            TexCoord = xmlElement.GetAttribute("texcoord");
+            if (meshCreator.Images.ContainsKey(texture))
+            {
+                Image = meshCreator.Images[texture];
+            }
+            else
+            {
+
+            }
+     
         }
 
-        object Get()
-        {
-            return this;
-        }
+ 
 
-        public static object Get(XmlElement element)
+        public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Texture(element);
+            var a = new Texture(element, meshCreator);
             return a.Get();
 
         }

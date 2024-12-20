@@ -22,19 +22,15 @@ namespace Collada150.Classes
         public static IClear Clear => StaticExtensionCollada.GetClear<ColorObject>();
 
 
-        private ColorObject(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
+        private ColorObject(XmlElement element) : base(element, null)
         {
             Color = element.GetColor();
         }
 
-        object Get()
-        {
-            return Color;
-        }
-
+  
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new ColorObject(element, null);
+            var a = new ColorObject(element);
             return a.Get();
         }
     }

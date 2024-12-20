@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using Abstract3DConverters.Interfaces;
 using Collada;
 
 namespace Collada150.Classes.Comlicated
@@ -53,7 +54,7 @@ namespace Collada150.Classes.Comlicated
             return this;
         }
 
-        public static object Get(XmlElement element)
+        public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
             var a = new Source(element);
             return a.Get();

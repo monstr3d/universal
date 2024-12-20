@@ -1,6 +1,7 @@
 ﻿using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
+using Collada150.Creators;
 
 namespace Collada150.Classes
 {
@@ -9,9 +10,12 @@ namespace Collada150.Classes
 
         protected IMeshCreator meshCreator;
 
+        protected Collada15MeshCreator MeshCreator { get; private set; }
+
         protected XmlHolder(XmlElement element, IMeshCreator meshCreator) : base(element)
         {
             this.meshCreator = meshCreator;
+            MeshCreator = meshCreator as Collada15MeshCreator;
             if (element.IsElementary())
             {
                 return;

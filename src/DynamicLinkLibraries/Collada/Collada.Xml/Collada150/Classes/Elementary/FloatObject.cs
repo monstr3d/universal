@@ -26,7 +26,7 @@ namespace Collada150.Classes.Elementary
 
         object Get()
         {
-            return Value;
+            return this;
         }
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
