@@ -6,21 +6,18 @@ using Collada150.Classes.Elementary;
 namespace Collada150.Classes.Comlicated
 {
     [Tag("transparency")]
-    internal class Transparency : XmlHolder
+    internal class Transparency : FloatWrapper
     {
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Transparency>();
-        public float Value { get; private set; }
 
-        private Transparency(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
+        private Transparency(XmlElement element) : base(element)
         {
-            Value = element.Get<FloatObject>().Value;
         }
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Transparency(element, meshCreator);
-            return a.Get();
+            return  new Transparency(element);
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Xml;
-using System.Xml.Linq;
-using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
@@ -17,15 +16,17 @@ namespace Collada150.Creators
         Dictionary<string, List<XmlElement>> elementList = new();
 
 
-        Dictionary<string, Material> materials;
+        Dictionary<string, Abstract3DConverters.Materials.Material> materials = new();
 
         Dictionary<string, Abstract3DConverters.Image> images;
 
+        internal Dictionary<string, Sampler2D> Samplers { get; private set; } = new();
+
         public override Dictionary<string, Abstract3DConverters.Image> Images { get => images; }
 
-        public Dictionary<string, Material> Effects { get; private set; }
+        public Dictionary<string, Abstract3DConverters.Materials.Material> Effects { get; private set; }
 
-        public override Dictionary<string, Material> Materials { get => materials; }
+        public override Dictionary<string, Abstract3DConverters.Materials.Material> Materials { get => materials; }
 
 
         static Dictionary<string, MethodInfo> methods;
@@ -35,12 +36,19 @@ namespace Collada150.Creators
 
         internal Dictionary<string, Abstract3DConverters.Image> ImageIds { get; private set; } = new();
 
+        internal Dictionary<string, NewParam> Surfaces { get; private set; } = new();
+
+        internal Dictionary<string, NewParam> Samples2D { get; private set; } = new();
+
+        internal Dictionary<string, Source> Sources { get; private set; } = new();
 
         static List<string> allTags;
 
         static List<string> elementary;
 
         static List<string> nonelementary;
+
+        internal Dictionary<string, Effect> Eff { get; private set; } = new Dictionary<string, Effect>();
         /*
                 public Dictionary<string, geometry> Geometries { get; private set; }
 
@@ -68,7 +76,9 @@ namespace Collada150.Creators
             {
 
             }
-            Type[] types = [typeof(Classes.Comlicated.Image), typeof(Texture), typeof(Transparency), typeof(Transparent)];
+            Type[] types = [typeof(Source), typeof(Classes.Comlicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
+            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Comlicated.Material),
+             typeof(Vertices), typeof(Input)];
             foreach (var type in types)
             {
                 if (type.IsUknown())
@@ -84,15 +94,23 @@ namespace Collada150.Creators
                 }
                 nonelementary.Add(name);
             }
+           
         }
 
 
         public Collada15MeshCreator()
         {
-            images = new();
-            materials = new Dictionary<string, Material>();
-            StaticExtensionCollada.Collada = this;
-            StaticExtensionCollada.Function = this;
+            try
+            {
+                images = new();
+                StaticExtensionCollada.Collada = this;
+                StaticExtensionCollada.Function = this;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             
         }
 
@@ -101,6 +119,25 @@ namespace Collada150.Creators
             PrepareData();
         }
 
+
+        void CreateParams()
+        {
+            foreach (var np in Samples2D)
+            {
+                var sam = np.Value;
+                var sa = sam.Sampler2D.SourceName;
+                if (Surfaces.ContainsKey(sa))
+                {
+                    var nss = Surfaces[sa];
+                    var ss = nss.Surface;
+                    sam.Sampler2D.Surface = ss;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+        }
 
         void PrepareData()
         {
@@ -240,9 +277,15 @@ namespace Collada150.Creators
             var t = elementary;
             t.GetAll();
             t = nonelementary;
-            foreach (var n in t)
+            for (int j = 0; j < nonelementary.Count; j++)
             {
+                var n = nonelementary[j];
                 n.Get();
+                if (n == "newparam")
+                {
+                    CreateParams();
+                }
+
             }
                    
             //       t = Function.AddTags;

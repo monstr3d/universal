@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
+using Collada150.Creators;
 
 namespace Collada150.Classes.Comlicated
 {
@@ -15,32 +16,23 @@ namespace Collada150.Classes.Comlicated
 
         public string Name { get; private set; }
 
-        Dictionary<XmlElement, object> children;
+        internal string Text { get; private set; }
 
-        public float[] Array
-        {
-            get;
-            private set;
-        }
-
+        public float[] Array { get; private set; }
 
         public object[] Children { get; private set; }
 
-        protected Source(XmlElement element) : base(element)
+        protected Source(XmlElement element, IMeshCreator meshCreator) : base(element)
         {
-            //      Name = element.InnerText;
+            var creator = meshCreator as Collada15MeshCreator;
+            creator.Sources[element.GetAttribute("id")] = this;
             try
             {
-                var a = element.Get<Float_Array, float[]>();
-                if (a != null)
+                Text = element.InnerText;
+                var arr = element.Get<Float_Array>();
+                if (arr != null)
                 {
-                    Array = a;
-                }
-                children = new Dictionary<XmlElement, object>(); ;
-                // element.AllDictionary(children);
-                if (children.Count != 0)
-                {
-
+                    Array = arr.Array;
                 }
             }
             catch (Exception e)
@@ -56,7 +48,7 @@ namespace Collada150.Classes.Comlicated
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Source(element);
+            var a = new Source(element, meshCreator);
             return a.Get();
         }
     }

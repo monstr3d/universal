@@ -8,11 +8,6 @@ namespace Collada150.Classes
     [Tag("color", true)]
     internal class ColorObject : XmlHolder
     {
-        static public readonly string Tag = "color";
-
-        /// <summary>
-        /// Is elementary
-        /// </summary>
         static public readonly bool IsElementary = true;
 
         Service s = new Service();

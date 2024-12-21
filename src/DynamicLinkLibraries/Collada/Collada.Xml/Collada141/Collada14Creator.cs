@@ -192,12 +192,11 @@ namespace Collada.Converter.Creators
             var ambient = GetColor(material.ambient);
             var diff = material.diffuse;
             var diffColor = GetColor(material.diffuse);
-            /*      if (diffColor == null)
-                  {
-                      var txt = diff.Item as common_color_or_texture_typeTexture;
-                      var np = NewParam[txt.texture];
-
-                  }*/
+            if (diffColor == null)
+            {
+                var tr = material.transparent.Item as common_color_or_texture_typeColor;
+                diffColor = new Color(tr.Values);
+            }
             float opacity = 1;
             var diffuse = new DiffuseMaterial(diffColor, ambient, image, opacity);
             grp.Children.Add(diffuse);

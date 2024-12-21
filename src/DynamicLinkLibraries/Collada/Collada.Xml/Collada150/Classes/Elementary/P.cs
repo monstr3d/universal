@@ -23,11 +23,7 @@ namespace Collada150.Classes
             p = element.InnerText.ToRealArray<int>();
         }
 
-        protected virtual object Get()
-        {
-            return p;
-        }
-
+ 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
             var a = new P(element, meshCreator);
