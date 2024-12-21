@@ -20,6 +20,8 @@ namespace Collada150.Classes.Comlicated
 
         public Dictionary<string, OffSet> Inputs { get; private set; } = new();
 
+        public int[] Idx { get; private set; }
+
         public List<int[]> Indexes { get; private set; }
 
         public List<int[]> Index { get; private set; }
@@ -40,7 +42,7 @@ namespace Collada150.Classes.Comlicated
             var p = element.Get<P>();
             if (p != null)
             {
-                P = p.Value;
+                Idx = p.Value;
             }
          //   // Index = element.ToIntArray();
      /*       Material = element.GetMaterial();
@@ -55,12 +57,6 @@ namespace Collada150.Classes.Comlicated
                 Inputs[sem.Key] = sem.Value;
             }
             List<float[]> vertices = null;
-            Dictionary<int, int> off = new();
-            if (Inputs.ContainsKey("VERTEX"))
-            {
-                var pp = Inputs["VERTEX"];
-                off[0] = pp.Offset;
-            }
             
         }
 

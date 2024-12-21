@@ -586,6 +586,28 @@ namespace Collada
      
         }
 
+        public static void SetParents(this Dictionary<XmlElement, Abstract3DConverters.Meshes.AbstractMesh> mehses)
+        {
+            foreach (var mesh in mehses.Keys)
+            {
+                var a = mehses[mesh];
+                var p = mesh.ParentNode;
+                while (p != null)
+                {
+                    if (p is XmlElement e)
+                    {
+                        if (mehses.ContainsKey(e))
+                        {
+                            var b = mehses[e];
+                            a.Parent = b;
+                            break;
+                        }
+                    }
+                    p = p.ParentNode;
+                }
+            }
+        }
+
 
         public static IEnumerable<object> GetAllObjectChildren<T>(this XmlElement element)
         {

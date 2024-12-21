@@ -9,12 +9,15 @@ namespace Collada150.Classes.Comlicated
     public class Vertices : XmlHolder
     {
 
+        public float[] Array { get; private set; }
 
         public Input Input { get; private set; }
 
         private Vertices(XmlElement xml) : base(xml, null)
         {
             Input = xml.Get<Input>();
+            Array = Input.Array;
+
         }
         public static IClear Clear => StaticExtensionCollada.GetClear<Vertices>();
 

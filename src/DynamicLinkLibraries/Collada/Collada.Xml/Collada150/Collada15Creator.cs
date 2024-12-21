@@ -50,6 +50,8 @@ namespace Collada150.Creators
         static List<string> nonelementary;
 
         internal Dictionary<string, Effect> Eff { get; private set; } = new Dictionary<string, Effect>();
+
+        internal Dictionary<string, GeometryObject> Geom { get; private set; } = new();
         /*
                 public Dictionary<string, geometry> Geometries { get; private set; }
 
@@ -79,7 +81,7 @@ namespace Collada150.Creators
             }
             Type[] types = [typeof(Source), typeof(Classes.Comlicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
             typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Comlicated.Material),
-          typeof(Instance_Material), typeof(BindMaterial), typeof(Input), typeof(Vertices), typeof(Triangles)];
+          typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(MeshObject)];
             foreach (var type in types)
             {
                 if (type.IsUknown())

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
@@ -12,6 +14,11 @@ namespace Collada150.Classes.Comlicated
 
         public KeyValuePair<string, OffSet> Semantic => dictionary;
 
+   
+       public float[] Array { get; private set; }
+
+
+
         KeyValuePair<string, OffSet> dictionary;
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Input>();
@@ -21,7 +28,7 @@ namespace Collada150.Classes.Comlicated
 
         private Input(XmlElement element) : base(element, null)
         {
-            int offset = -1;
+            var offset = -1;
             var off = element.GetAttribute("offset");
 
             if (off.Length > 0)
@@ -32,11 +39,11 @@ namespace Collada150.Classes.Comlicated
             var p = element.Get<P>();
             if (p != null)
             {
-
+                throw new Exception();
             }
             var semantic = element.GetAttribute("semantic");
             var source = element.GetAttribute("source").Substring(1);
-            if (semantic.Length == 0 | source.Length == 0)
+            if ((semantic.Length == 0) | (source.Length == 0))
             {
                 throw new Exception();
             }
@@ -45,8 +52,17 @@ namespace Collada150.Classes.Comlicated
             {
                 throw new Exception();
             }
+            if (o is Source so)
+            {
+                Array = so.Array;
+            }
+            if (o is Vertices ve)
+            {
+                Array = ve.Array;
+            }
             var offs = new OffSet(offset, o);
             dictionary = new KeyValuePair<string, OffSet>(semantic, offs);
+
         }
 
         object Get()
