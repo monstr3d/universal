@@ -19,7 +19,7 @@ namespace Collada150.Classes
 
         protected override object Get()
         {
-            return p;
+            return this;
         }
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)

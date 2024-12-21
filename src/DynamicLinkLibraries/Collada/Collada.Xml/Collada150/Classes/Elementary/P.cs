@@ -16,11 +16,11 @@ namespace Collada150.Classes
         public static IClear Clear => StaticExtensionCollada.GetClear<P>();
 
 
-        public int[] p { get; private set; }
+        public int[] Value { get; private set; }
 
         protected P(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
-            p = element.InnerText.ToRealArray<int>();
+            Value = element.InnerText.ToRealArray<int>();
         }
 
  

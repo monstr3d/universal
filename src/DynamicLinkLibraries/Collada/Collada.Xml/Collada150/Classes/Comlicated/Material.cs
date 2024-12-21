@@ -27,17 +27,22 @@ namespace Collada150.Classes.Comlicated
         private Material(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             var id = element.GetAttribute("id");
+            
             MaterialGroup = new MaterialGroup(id);
             var url = element.Get<Elementary.InstanceEffect>().Url;
             url = url.Substring(1);
             var eff = MeshCreator.Eff[url];
             var mats = eff.Materials;
+            MaterialGroup = new MaterialGroup(id);
+
             foreach (var mt in mats)
             {
                 MaterialGroup.Children.Add(mt);
             }
             meshCreator.Materials[id] = MaterialGroup;
 
+
+            return;
         }
 
 

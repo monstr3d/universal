@@ -13,7 +13,7 @@ namespace Abstract3DConverters.Interfaces
         Tuple<object, List<AbstractMesh>> Create();
 
         Dictionary<string, Material> Materials { get; }
-
+ 
         Dictionary<string, Image> Images { get; }
     }
 }

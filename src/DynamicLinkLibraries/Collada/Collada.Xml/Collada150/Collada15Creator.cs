@@ -15,6 +15,7 @@ namespace Collada150.Creators
     {
         Dictionary<string, List<XmlElement>> elementList = new();
 
+        internal Dictionary<string, List<Abstract3DConverters.Materials.Material>> MaterialList { get; private set; } = new();
 
         Dictionary<string, Abstract3DConverters.Materials.Material> materials = new();
 
@@ -78,7 +79,7 @@ namespace Collada150.Creators
             }
             Type[] types = [typeof(Source), typeof(Classes.Comlicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
             typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Comlicated.Material),
-             typeof(Vertices), typeof(Input)];
+          typeof(Instance_Material), typeof(BindMaterial), typeof(Input), typeof(Vertices), typeof(Triangles)];
             foreach (var type in types)
             {
                 if (type.IsUknown())

@@ -8,17 +8,13 @@ using Abstract3DConverters.Meshes;
 
 namespace Collada150.Meshes
 {
-    internal class AbstractMeshCollada : AbstractMeshNamedMaterial
+    internal class AbstractMeshCollada : AbstractMesh
     {
-        public AbstractMeshCollada(string name, AbstractMeshPolygon parent, IMeshCreator creator) : base(name, parent, creator)
+        public AbstractMeshCollada(string name,  IMeshCreator creator) : base(name, creator)
         {
         }
 
-        public AbstractMeshCollada(string name, AbstractMeshPolygon parent, string material, IMeshCreator creator) : base(name, parent, material, creator)
-        {
-        }
-
-
+ 
 
     }
 }

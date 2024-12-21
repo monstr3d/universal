@@ -11,9 +11,7 @@ namespace Collada150.Classes.Comlicated
     public class Source : Collada.XmlHolder
     {
 
-        public static IClear Clear => StaticExtensionCollada.GetClear<Source>();
-
-
+ 
         public string Name { get; private set; }
 
         internal string Text { get; private set; }
@@ -21,6 +19,10 @@ namespace Collada150.Classes.Comlicated
         public float[] Array { get; private set; }
 
         public object[] Children { get; private set; }
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<Source>();
+
+
 
         protected Source(XmlElement element, IMeshCreator meshCreator) : base(element)
         {

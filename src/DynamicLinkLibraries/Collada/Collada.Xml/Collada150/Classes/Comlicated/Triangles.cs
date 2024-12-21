@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media.Media3D;
 using System.Xml;
+using Abstract3DConverters;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Collada;
 
@@ -14,6 +15,7 @@ namespace Collada150.Classes.Comlicated
     internal class Triangles : XmlHolder
     {
 
+        Service s = new Service();
         public Material Material { get; private set; }
 
         public Dictionary<string, OffSet> Inputs { get; private set; } = new();
@@ -22,33 +24,44 @@ namespace Collada150.Classes.Comlicated
 
         public List<int[]> Index { get; private set; }
 
-        public int[] Polygon
-        {
-            get;
-            private set;
-        }
+        public int[] P { get; private set; }
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<Triangles>();
+
+        public Tuple<List<float[]>, List<float[]>, List<float[]>, List<int[]>> Tuple { get; private set; }
+        
 
 
-        private Triangles(XmlElement element) : base(element)
+
+      
+
+        private Triangles(XmlElement element) : base(element, null)
         {
-            var p = element.Get<P, int[]>();
+            var p = element.Get<P>();
             if (p != null)
             {
-                Index = p.ToInt3Array();
-                Polygon = p;
+                P = p.Value;
             }
-            // Index = element.ToIntArray();
-            Material = element.GetMaterial();
-            if (Indexes == null)
+         //   // Index = element.ToIntArray();
+     /*       Material = element.GetMaterial();
+   /        if (Indexes == null)
             {
                 Indexes = element.ToInt3Array();
-            }
+            }*/
             var d = element.GetAllChildren<Input>().ToArray();
             foreach (var inp in d)
             {
                 var sem = inp.Semantic;
                 Inputs[sem.Key] = sem.Value;
             }
+            List<float[]> vertices = null;
+            Dictionary<int, int> off = new();
+            if (Inputs.ContainsKey("VERTEX"))
+            {
+                var pp = Inputs["VERTEX"];
+                off[0] = pp.Offset;
+            }
+            
         }
 
         object Get()
@@ -56,7 +69,7 @@ namespace Collada150.Classes.Comlicated
             return this;
         }
 
-        public static object Get(XmlElement element)
+        public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
             var a = new Triangles(element);
             return a.Get();

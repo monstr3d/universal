@@ -40,7 +40,7 @@ namespace Collada150.Classes.Comlicated
             {
                 throw new Exception();
             }
-            var o = GetSemantic(semantic,source);
+            var o = GetSemantic(semantic, source);
             if (o == null)
             {
                 throw new Exception();

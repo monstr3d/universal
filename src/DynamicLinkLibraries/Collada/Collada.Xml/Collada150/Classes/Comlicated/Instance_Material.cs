@@ -1,4 +1,7 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
 using Collada;
 
 namespace Collada150.Classes.Comlicated
@@ -7,37 +10,23 @@ namespace Collada150.Classes.Comlicated
     public class Instance_Material : XmlHolder
     {
 
-        private Instance_Material(XmlElement element) : base(element)
+        internal Abstract3DConverters.Materials.Material Material { get; private set; }
+
+
+        public static IClear Clear => StaticExtensionCollada.GetClear<Instance_Material>();
+
+
+        private Instance_Material(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
-            var target = element.GetAttribute("target");
+           var target = element.GetAttribute("target");
             target = target.Substring(1);
-            Material mm = StaticExtensionColladaWpf.GetMaterial(target);
-            if (mm != null)
-            {
-                Material = mm;
-                return;
-            }
-            var m = target.Get<MaterialObject>();
-            Material = m.Material;
-            var url = element.GetAttribute("url");
-            if (url.Length > 0)
-            {
-
-            }
-            else
-            {
-
-            }
-
-
-
+            Material = meshCreator.Materials[target];
         }
 
-        public Material Material { get; private set; }
 
-        static public object Get(XmlElement element)
+        static public object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            return new Instance_Material(element);
+            return new Instance_Material(element, meshCreator);
         }
 
     }
