@@ -205,6 +205,21 @@ namespace Abstract3DConverters
             return l;
         }
 
+        public List<T[]> ToArray<T>(List<T> x, int n) where T : class
+        {
+            var l = new List<T[]>();
+            for (int i = 0; i < x.Count; i += n)
+            {
+                T[] y = new T[n];
+                for (int j = 0; j < n; j++)
+                {
+                    y[j] = x[i + j];
+                }
+                l.Add(y);
+            }
+            return l;
+        }
+
         public List<T[]> ToRealArray<T>(T[] x, int n) where T : struct
         {
             var l = new List<T[]>();
@@ -219,6 +234,13 @@ namespace Abstract3DConverters
             }
             return l;
         }
+
+        public List<T[][]> ToRealArray<T>(T[] x, int n, int m) where T : struct
+        {
+            var y = ToRealArray(x, n);
+            return ToArray(y, m);
+        }
+
 
         public List<T[]> ToReal2Array<T>(T[] x) where T : struct
         {

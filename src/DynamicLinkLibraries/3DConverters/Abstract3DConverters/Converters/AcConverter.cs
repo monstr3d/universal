@@ -27,7 +27,7 @@ namespace Abstract3DConverters.Converters
 
         Dictionary<string, int> dm = new();
 
-        IMeshConverter coverter;
+        IMeshConverter converter;
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Abstract3DConverters.Converters
 
         public AcConverter()
         {
-            coverter = this;
+            converter = this;
         }
 
         #endregion
@@ -49,6 +49,8 @@ namespace Abstract3DConverters.Converters
         IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
 
         Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
+
+        string IMeshConverter.Directory => throw new NotImplementedException();
 
         void IMeshConverter.Add(object mesh, object child)
         {

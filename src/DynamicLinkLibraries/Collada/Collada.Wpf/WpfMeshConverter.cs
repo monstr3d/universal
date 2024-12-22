@@ -29,6 +29,8 @@ namespace Collada.Wpf
 
         public IMaterialCreator MaterialCreator => creator;
 
+        IMaterialCreator IMeshConverter.MaterialCreator => throw new NotImplementedException();
+
         Service s = new();
 
 
@@ -48,6 +50,10 @@ namespace Collada.Wpf
                 normals = t.Item3;
             }
         }
+
+
+        string IMeshConverter.Directory => throw new NotImplementedException();
+
 
 
         void IMeshConverter.Add(object mesh, object child)
@@ -284,6 +290,9 @@ namespace Collada.Wpf
             {
                 case ModelVisual3D modelVisual3D:
                     return Get(modelVisual3D);
+                    break;
+                case string s:
+                    return s;
   
             }
             return null;

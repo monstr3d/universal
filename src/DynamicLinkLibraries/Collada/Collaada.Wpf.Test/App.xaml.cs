@@ -32,7 +32,8 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-            GenerateWpf();
+            //  GenerateWpf();
+            GenerateToDae();
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -103,6 +104,35 @@ namespace Collaada.Wpf.Test
             GenerateAC("testpilot.ac");
 
         }
+
+        void GenerateToDae()
+        {
+            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+        }
+
+        void GenerateToDae(string filen)
+        {
+            var filename = Path.Combine(acdir, filen);
+
+            var creator = filename.ToMeshCreator();
+
+            var fnt = Path.GetFileNameWithoutExtension(filename);
+            var ext = Path.GetExtension(filename);
+            if (ext == ".dae")
+            {
+                fnt += "1";
+            }
+            var dir = Path.GetDirectoryName(filename);
+            var file = Path.Combine(dir, fnt + ".dae");
+            var ac = new Collada150.Collada150Converter();
+
+            var obj = Generate<object>(filename, ac);
+            using (var writer = new StreamWriter(file))
+            {
+                writer.Write(obj);
+            }
+        }
+
 
         void GenerateToAC(string filen)
         {

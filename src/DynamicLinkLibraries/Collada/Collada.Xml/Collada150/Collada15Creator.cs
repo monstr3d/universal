@@ -2,17 +2,20 @@
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Xml;
+using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 using Collada;
-using Collada150.Classes.Comlicated;
+using Collada150.Classes.Complicated;
 
 namespace Collada150.Creators
 {
     public partial class Collada15MeshCreator : AbstractMeshCreator, IFunction, ICollada
     {
+        Service s = new();
+
         Dictionary<string, List<XmlElement>> elementList = new();
 
         internal Dictionary<string, List<Abstract3DConverters.Materials.Material>> MaterialList { get; private set; } = new();
@@ -80,8 +83,8 @@ namespace Collada150.Creators
             {
 
             }
-            Type[] types = [typeof(Source), typeof(Classes.Comlicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
-            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Comlicated.Material),
+            Type[] types = [typeof(Source), typeof(Classes.Complicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
+            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Complicated.Material),
           typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(MeshObject),
             typeof(GeometryObject), typeof(InstanceGeomery), typeof(Node) ];
             foreach (var type in types)
@@ -231,7 +234,9 @@ namespace Collada150.Creators
 
         public override Tuple<object, List<AbstractMesh>> Create()
         {
-            return null;
+            s.SetParents(Meshes);
+            var l = s.GetRoots(Meshes.Values).ToList();
+            return new Tuple<object, List<AbstractMesh>>(null, l);
         }
   
         #region ICollada Members

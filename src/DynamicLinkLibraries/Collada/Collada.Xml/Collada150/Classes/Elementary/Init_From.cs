@@ -1,9 +1,8 @@
-﻿using System;
-using System.Xml;
+﻿using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes.Comlicated
+namespace Collada150.Classes.Complicated
 {
     [Tag("init_from", true)]
     public class Init_From : XmlHolder

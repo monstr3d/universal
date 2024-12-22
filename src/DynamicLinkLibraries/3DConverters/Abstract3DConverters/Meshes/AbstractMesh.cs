@@ -12,7 +12,11 @@ namespace Abstract3DConverters.Meshes
         protected IMeshCreator creator;
 
 
-        public float[] TransformationMatrix { get; protected set; }
+        public float[] TransformationMatrix 
+        { 
+            get; 
+            protected set; 
+        }
 
         public AbstractMesh Parent
         {
@@ -65,7 +69,7 @@ namespace Abstract3DConverters.Meshes
 
 
 
-        protected AbstractMesh(string name, IMeshCreator creator)
+        public AbstractMesh(string name, IMeshCreator creator = null)
         {
             this.creator = creator;
             Name = name;
@@ -91,6 +95,15 @@ namespace Abstract3DConverters.Meshes
             Normals = normals;
             Textures = textures;
             Indexes = indexes;
+        }
+
+        public AbstractMesh(string name, IMeshCreator creator = null, Material material = null,
+         List<float[]> vertices = null, List<float[]> normals = null,
+    List<float[]> textures = null, List<int[][]> indexes = null, float[] matrix = null) : 
+            this(name, creator, material, vertices, normals,
+        textures, indexes)
+        {
+            TransformationMatrix = matrix;
         }
 
 

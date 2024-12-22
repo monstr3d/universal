@@ -8,6 +8,8 @@ namespace Abstract3DConverters.Interfaces
     {
         Assembly Assembly { get; }
 
+        string Directory { get; }
+
         Dictionary<string, Material> Materials
         {
             set;
