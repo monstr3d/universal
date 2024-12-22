@@ -26,6 +26,7 @@ namespace Collada150.Creators
         public override Dictionary<string, Abstract3DConverters.Image> Images { get => images; }
 
         public Dictionary<string, Abstract3DConverters.Materials.Material> Effects { get; private set; }
+        public Dictionary<XmlElement, AbstractMesh> Meshes { get; private set; } = new(); 
 
         public override Dictionary<string, Abstract3DConverters.Materials.Material> Materials { get => materials; }
 
@@ -81,7 +82,8 @@ namespace Collada150.Creators
             }
             Type[] types = [typeof(Source), typeof(Classes.Comlicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
             typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Comlicated.Material),
-          typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(MeshObject)];
+          typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(MeshObject),
+            typeof(GeometryObject), typeof(InstanceGeomery), typeof(Node) ];
             foreach (var type in types)
             {
                 if (type.IsUknown())

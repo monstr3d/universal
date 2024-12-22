@@ -568,10 +568,7 @@ namespace Collada
         {
             var tag = types[typeof(T)];
             var enu = element.GetElements().Where(e => e != element & e.Name.Equals(tag));
-            foreach (var x in enu)
-            {
-                yield return x.Get();
-            }    
+            return enu.Select(e => e.Get());
         }
 
         public static object GetProxyObject<T>(this XmlElement element)
@@ -586,62 +583,25 @@ namespace Collada
      
         }
 
-        public static void SetParents(this Dictionary<XmlElement, Abstract3DConverters.Meshes.AbstractMesh> mehses)
-        {
-            foreach (var mesh in mehses.Keys)
-            {
-                var a = mehses[mesh];
-                var p = mesh.ParentNode;
-                while (p != null)
-                {
-                    if (p is XmlElement e)
-                    {
-                        if (mehses.ContainsKey(e))
-                        {
-                            var b = mehses[e];
-                            a.Parent = b;
-                            break;
-                        }
-                    }
-                    p = p.ParentNode;
-                }
-            }
-        }
-
 
         public static IEnumerable<object> GetAllObjectChildren<T>(this XmlElement element)
         {
             var type = typeof(T);
             var name = types[type].Tag;
             var nl = element.GetAllElementsByTagName(name).Where(e => e != element);
-            foreach (var n in nl)
-            {
-                yield return n.Get();
-            }
+            return nl.Select(e => e.Get());
         }
 
         public static IEnumerable<T> GetAllChildren<T>(this XmlElement element) where T : class
         {
             var nl = element.GetAllObjectChildren<T>();
-            foreach (var n in nl)
-            {
-                if (n is T t)
-                {
-                    yield return t;
-                }
-            }
-        }
+            return nl.Where(e => e is T).Select(e => e as T);
+         }
 
-        public static IEnumerable<S> GetAllChildren<T,S>(this XmlElement element) where T : class where S : class
+        public static IEnumerable<S> GetAllChildren<T, S>(this XmlElement element) where T : class where S : class
         {
             var nl = element.GetAllObjectChildren<T>();
-            foreach (var n in nl)
-            {
-                if (n is S t)
-                {
-                    yield return t;
-                }
-            }
+            return nl.Where(e => e is T).Select(e => e as S);
         }
 
         public static IEnumerable<T> GetOwnChildren<T>(this XmlElement element)
@@ -743,11 +703,8 @@ namespace Collada
         {
             Func<XmlElement, bool> func = (e) => { return e.Name == filter; };
             var enu = xmlElement.GetElements(func);
-            foreach (var e in enu)
-            {
-                e.Get();
-            }
-        }
+            enu.Select(e => e.Get()).ToArray();
+         }
 
    
 
@@ -824,10 +781,7 @@ namespace Collada
         /// <returns>The result</returns>
         public static IEnumerable<S> Convert<T, S>(this IEnumerable<T> source, Func<T, S> f) where T : struct where S : struct
         {
-            foreach (var item in source)
-            {
-                yield return f(item);
-            }
+            return source.Select(e => f(e));
         }
 
         static public void GetAll(this IEnumerable<string> filter)
@@ -835,10 +789,7 @@ namespace Collada
             var arr = filter.ToArray();
             Func<XmlElement, bool> func = (e) => { return arr.Contains(e.Name); };
             var enu = xmlElement.GetElements(func);
-            foreach (var e in enu)
-            {
-                e.Get();
-            }
+            enu.Select(e => e.Get()).ToArray();
         }
 
         public static object GetFirstChild(this XmlElement element)

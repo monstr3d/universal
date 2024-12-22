@@ -82,6 +82,18 @@ namespace Abstract3DConverters.Meshes
             Indexes = indexes;
         }
 
+        public AbstractMesh(string name, IMeshCreator creator = null, Material material = null, 
+            List<float[]> vertices = null, List<float[]> normals = null,
+       List<float[]> textures = null, List<int[][]> indexes = null) : this(name, creator)
+        {
+            Material = material;
+            Vertices = vertices;
+            Normals = normals;
+            Textures = textures;
+            Indexes = indexes;
+        }
+
+
         public virtual object GetMaterial(IMaterialCreator creator)
         {
             if (Material != null)

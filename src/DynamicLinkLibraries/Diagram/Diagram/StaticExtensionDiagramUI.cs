@@ -1627,6 +1627,7 @@ namespace Diagram.UI
             }
         }
 
+
         public static IEnumerable<T> GetEnumerable<T>(this IEnumerable<object> collection,  bool find = false) where T : class
         {
             foreach (object o in collection)
@@ -1664,6 +1665,7 @@ namespace Diagram.UI
             }
 
         }
+
 
         /// <summary>
         /// Performs action for each collection objects

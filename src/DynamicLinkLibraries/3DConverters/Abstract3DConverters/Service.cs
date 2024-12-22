@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters
 {
@@ -19,6 +21,35 @@ namespace Abstract3DConverters
 
 
         #region Service
+
+        public  void SetParents(Dictionary<XmlElement, AbstractMesh> mehses)
+        {
+            foreach (var mesh in mehses.Keys)
+            {
+                var a = mehses[mesh];
+                var p = mesh.ParentNode;
+                while (p != null)
+                {
+                    if (p is XmlElement e)
+                    {
+                        if (mehses.ContainsKey(e))
+                        {
+                            var b = mehses[e];
+                            a.Parent = b;
+                            break;
+                        }
+                    }
+                    p = p.ParentNode;
+                }
+            }
+        }
+
+
+
+        public IEnumerable<AbstractMesh> GetRoots(IEnumerable<AbstractMesh> meshes)
+        {
+            return meshes.Where(e => e.Parent == null);
+        }
 
         public Image GetImage(Material mat)
         {
@@ -170,6 +201,21 @@ namespace Abstract3DConverters
             for (int i = 0; i < x.Length; i += 3)
             {
                 l.Add(new T[] { x[i], x[i + 1], x[i + 2] });
+            }
+            return l;
+        }
+
+        public List<T[]> ToRealArray<T>(T[] x, int n) where T : struct
+        {
+            var l = new List<T[]>();
+            for (int i = 0; i < x.Length; i += n)
+            {
+                T[] y = new T[n];
+                for (int j = 0; j < n; j++)
+                {
+                    y[j] = x[i + j];
+                }
+                l.Add(y);
             }
             return l;
         }
