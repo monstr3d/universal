@@ -29,7 +29,7 @@ namespace Collada150.Creators
         public override Dictionary<string, Abstract3DConverters.Image> Images { get => images; }
 
         public Dictionary<string, Abstract3DConverters.Materials.Material> Effects { get; private set; }
-        public Dictionary<XmlElement, AbstractMesh> Meshes { get; private set; } = new(); 
+        public Dictionary<XmlElement, IParent> Meshes { get; private set; } = new(); 
 
         public override Dictionary<string, Abstract3DConverters.Materials.Material> Materials { get => materials; }
 
@@ -235,7 +235,8 @@ namespace Collada150.Creators
         public override Tuple<object, List<AbstractMesh>> Create()
         {
             s.SetParents(Meshes);
-            var l = s.GetRoots(Meshes.Values).ToList();
+
+            var l = s.GetRoots(Meshes.Values).Select(a => a as AbstractMesh).ToList();
             return new Tuple<object, List<AbstractMesh>>(null, l);
         }
   

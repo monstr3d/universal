@@ -8,11 +8,9 @@ namespace Collada150
     {
         #region Fields
 
-        XmlDocument doc = new ();
 
         Service s = new();
 
-        MaterialCreator materialCreator = new MaterialCreator();
 
 
         List<float[]> vertices;

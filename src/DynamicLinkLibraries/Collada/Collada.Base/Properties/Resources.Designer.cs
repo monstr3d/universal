@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Collada150.Properties {
+namespace Collada.Base.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Collada150.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Collada150.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Collada.Base.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,43 +62,23 @@ namespace Collada150.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
-        ///
         ///&lt;effect id=&quot;effect-a2431cff_dds&quot;&gt;
-        ///
-        ///
         ///		&lt;profile_COMMON&gt;
-        ///
-        ///
         ///			&lt;newparam sid=&quot;DiffuseColor-surface&quot;&gt;
-        ///
-        ///
         ///				&lt;surface type=&quot;2D&quot;&gt;
-        ///
         ///					&lt;init_from&gt;object_1&lt;/init_from&gt;
-        ///
         ///				&lt;/surface&gt;
-        ///
         ///			&lt;/newparam&gt;
-        ///
-        ///
         ///			&lt;newparam sid=&quot;DiffuseColor-sampler&quot;&gt;
-        ///
-        ///
         ///				&lt;sampler2D&gt;
-        ///
         ///					&lt;source&gt;DiffuseColor-surface&lt;/source&gt;
-        ///
         ///					&lt;wrap_s&gt;WRAP&lt;/wrap_s&gt;
-        ///
         ///					&lt;wrap_t&gt;WRAP&lt;/wrap_t&gt;
-        ///
         ///					&lt;wrap_p&gt;WRAP&lt;/wrap_p&gt;
-        ///
         ///					&lt;minfilter&gt;NONE&lt;/minfilter&gt;
-        ///
         ///					&lt;magfilter&gt;NONE&lt;/magfilter&gt;
-        ///
-        /// [rest of string was truncated]&quot;;.
+        ///					&lt;mipfilter&gt;NONE&lt;/mipfilter&gt;
+        ///				&lt;/sa [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string effect {
             get {
@@ -107,30 +87,17 @@ namespace Collada150.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;COLLADA version=&quot;1.5.0&quot; xmlns=&quot;http://www.collada.org/2008/03/COLLADASchema&quot;&gt;
-        ///  &lt;asset&gt;
-        ///    &lt;contributor /&gt;
-        ///    &lt;unit meter=&quot;1&quot; /&gt;
-        ///    &lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
-        ///  &lt;/asset&gt;
-        ///  &lt;library_lights /&gt;
-        ///  &lt;library_materials&gt;
-        ///  &lt;/library_materials&gt;
-        ///  &lt;library_effects&gt;
-        ///  &lt;/library_effects&gt;
-        ///  &lt;library_cameras /&gt;
-        ///  &lt;library_geometries&gt;
-        ///  &lt;/library_geometries&gt;
-        ///  &lt;library_images&gt;
-        ///  &lt;/library_images&gt;
-        ///  &lt;library_animations /&gt;
-        ///  &lt;scene&gt;
-        ///    &lt;instance_visual_scene url=&quot;# [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///
+        ///&lt;image xmlns=&quot;http://www.collada.org/2008/03/COLLADASchema&quot; id=&quot;object_1&quot;&gt;
+        ///
+        ///	&lt;init_from&gt;&lt;/init_from&gt;
+        ///
+        ///&lt;/image&gt;.
         /// </summary>
-        internal static string etalon {
+        internal static string image {
             get {
-                return ResourceManager.GetString("etalon", resourceCulture);
+                return ResourceManager.GetString("image", resourceCulture);
             }
         }
     }

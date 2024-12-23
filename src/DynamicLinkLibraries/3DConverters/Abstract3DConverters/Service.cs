@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -22,7 +24,7 @@ namespace Abstract3DConverters
 
         #region Service
 
-        public  void SetParents(Dictionary<XmlElement, AbstractMesh> mehses)
+        public  void SetParents(Dictionary<XmlElement, IParent> mehses)
         {
             foreach (var mesh in mehses.Keys)
             {
@@ -44,9 +46,23 @@ namespace Abstract3DConverters
             }
         }
 
+        public void SetParents(Dictionary<IParent, XmlElement> meshes)
+        {
+            foreach (var mesh in meshes)
+            {
+                var p = mesh.Key.Parent;
+                if (p != null)
+                {
+                    var e = meshes[p];
+                    e.AppendChild(mesh.Value);
+                }
+            }
+        }
 
 
-        public IEnumerable<AbstractMesh> GetRoots(IEnumerable<AbstractMesh> meshes)
+
+
+        public IEnumerable<IParent> GetRoots(IEnumerable<IParent> meshes)
         {
             return meshes.Where(e => e.Parent == null);
         }
