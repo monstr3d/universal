@@ -5238,6 +5238,9 @@ We say that the triple
 	\bigcup_{\la\in \La} A_\la\subset \widetilde A.
 	\ee 
 \end{remark} 
+\begin{empt}
+!!!!WEAK!!!!
+\end{empt}
 \subsection{Coverings and unbounded operators on Hilbert modules}\label{unb_hilb_sec}
 
 \paragraph*{}
@@ -5357,6 +5360,11 @@ Consider the situation \ref{comp_qo*_empt}.	Suppose that there exists an admissi
 	$\left(\left( {\mathfrak A}, {\mathfrak A}_0 \right), \left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0 \right), G_{\widehat{\lift}}\right)$ is the 
 	${\lift}$-\textit{ inverse noncommutative limit of $\mathfrak{S}$}.
 \end{definition}
+
+
+\begin{empt}
+	!!!!WEAK!!!!
+\end{empt}
 
 
 \section{Coverings of (local) operator spaces}
@@ -11959,10 +11967,10 @@ and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift
 \ee
 
 \begin{definition}\label{hurewicz_allows_defn}
-We say that $C^*$-algebra $A$ \textit{allows Hurewicz homomorphism} if one has:
+We say that $C^*$-algebra $A$ \textit{admits Hurewicz homomorphism} if one has:
 \begin{itemize}
 	\item the groups $\pi^{\mathrm{ab}}_1\left(A \right) $, $K_0\left( A\right)$ and $K_1\left(A \right)$   are finitely generated,\\
-	\item for any finite subgroup of  $G \subset \pi^{\mathrm{ab}}_1$ there is a finite-fold noncommutative covering  $\left(   A , \widetilde A,  G\left( \left.\widetilde A\right| A\right), \lift\right) $ with Abelian $G\left( \left.\widetilde A\right| A\right)$ such that  the composition
+	\item for any finite subgroup of  $G \subset \pi^{\mathrm{ab}}_1\left( A\right) $ there is a finite-fold noncommutative covering  $\left(   A , \widetilde A,  G\left( \left.\widetilde A\right| A\right), \lift\right) $ with Abelian $G\left( \left.\widetilde A\right| A\right)$ such that  the composition
 	$$
 	G \hookto \pi^{\mathrm{ab}}_1\left(A \right)\to  G\left( \left.\widetilde A\right| A\right)
 	$$
@@ -11970,9 +11978,7 @@ We say that $C^*$-algebra $A$ \textit{allows Hurewicz homomorphism} if one has:
 
 \end{itemize}
 \end{definition}
-Below we suppose that  $C^*$-algebra $A$ {allows Hurewicz homomorphism}.
-
-If  $\pi_1^{\text{ab}}\left( A\right)$ is a finitely generated Abelian group then the torsion subgroup \\ $\pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}} \subset \pi_1^{\text{ab}}\left( A\right)$ is finite, so there is a finite-fold noncommutative coveting $\left(   A , \widetilde A,  G\left( \left.\widetilde A\right| A\right) ,  \lift \right)$ such that there is the natural isomorphism
+Below we suppose that  $C^*$-algebra $A$ {admits Hurewicz homomorphism}, so the torsion subgroup  the torsion subgroup  $\pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}} \subset \pi_1^{\text{ab}}\left( A\right)$ is finite and there is a finite-fold noncommutative coveting $\left(   A , \widetilde A,  G\left( \left.\widetilde A\right| A\right) ,  \lift \right)$ such that there is the natural isomorphism
 $$
 \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\cong G\left(\left.\widetilde A\right| A\right).
 $$
@@ -17824,165 +17830,10 @@ the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
 	where $ f_{m_1,n_1}, ..., f_{m_N,n_N}$ are described Lemma \ref{mp_osc_lem} elements	 
 	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$
 	From 
-	
-	\paragraph{USE IT !!!}
-	\begin{lemma}\label{nt_w*_top_lem}
-		If $\overline a \in S\left(\R^{2N}\right)$ then for all $j\in \N$ the following conditions hold:
-		\begin{enumerate}
-			\item [(i)] The series 	
-			\be\label{nt_w*_top_eqn}
-			\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
-			\ee
-			is convergent with respect to the weak*-topology (cf. Definition \ref{w*_topology_defn}) of the dual space $S'\left(\R^{2N}\right)$ of $ S\left(\R^{2N}\right)$. Moreover $a_j$ is represented by infinitely differentiable map $\R^{2N}\to \C$, i.e. $a_j\in \Coo\left(\R^{2N} \right)$.
-			\item[(ii)] One has 
-			\be\label{mp_fourier_torusa_eqn}
-			a_j = \sum_{k \in Z^{2N}} c_k \exp\left(2\pi i \frac{k}{m_j} ~\cdot \right)
-			\ee
-			where $\left\{c_k \in \C\right\}_{k \in \Z^{2N}}$ are rapidly decreasing coefficients given by
-			\begin{equation}\label{mp_fourier_torus_eqn}
-				c_k = \frac{1}{m_j^{2N} } \int_{\R^{2N}} \overline{a}\left(x \right)  \exp\left(2\pi i \frac{k}{m_j}\cdot x\right) dx = \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
-			\end{equation}
-			\item[(iii)] For any $j$ the equation \eqref{nt_w*_top_eqn} yields the $\C$-linear surjective map
-			\be\label{nt_ss_nt_map_eqn}
-			\varphi_j:	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right) 
-			\ee
-		\end{enumerate}
-	\end{lemma}
-	
-	\paragraph{USE IT}
-	
 	\begin{defn}\label{nt_r_2_N_repr_defn!}!!!\cite{moyal_spectral} Let $\SS'\left(\R^{2N} \right)$ be a vector space dual to $\SS\left(\R^{2N} \right)$. Denote by $C_b\left(\R^{2N}_\th\right)\stackrel{\mathrm{def}}{=} \set{T \in \SS'\left(\R^{2N}\right) : T \star_\th g \in L^2\left(\R^{2N}\right) \text{ for all } g \in L^2(\R^{2N})}$, provided with the given by \eqref{mp_op_eqn} operator norm $	\|\cdot\|_{\mathrm{op}}$.
 		Denote by $C_0\left(\R^{2N}_\th \right)$ the operator norm completion of $\SS\left(\R^{2N}_\th \right).$  
 	\end{defn}
 \end{empt}
-\paragraph{title}	
-It is known \cite{moyal_spectral} that the domain of  the Moyal plane product can be extended up to $L^2\left(\R^{2N} \right)$. 
-
-
-%\begin{rem}\label{norm_remark}
-%	Since $\SS\left(\R{2N} \right)$ is dense in $L^2\left(\R{2N} \right)$ the operator norm is given by $\|T\|_{\mathrm{op}} =\sup\set{\|T \star g\|_2/\|g\|_2 : 0 \neq g \in \SS\left( \R^{2N}\right) }$ 
-%\end{rem}
-
-\begin{defn}\label{mp_star_alg_defn!} !!!
-	Denote by $\SS\left(\R^{2N}_\th \right)$  (resp. $L^2\left(\R^{2N}_\th \right)$ ) the operator algebra  which is $\C$-linearly isomorphic to $\SS\left(\R^{2N} \right)$  (resp. $L^2\left(\R^{2N} \right)$ ) and product coincides with  $\star_\th$. Both  $\SS\left(\R^{2N}_\th \right)$ and $L^2\left(\R^{2N}_\th \right)$ act on the Hilbert space $L^2\left(\R^{2N} \right)$. Denote by
-	\begin{equation}\label{mp_psi_th_eqn}
-		\Psi_\th:  \SS\left(\R^{2N} \right)\xrightarrow{\approx}\SS\left(\R^{2N}_\th \right)
-	\end{equation}
-	the natural $\C$-linear isomorphism.  
-\end{defn}
-\begin{defn}\label{nt_r_2_N_repr_defn!}!!!\cite{moyal_spectral} Let $\SS'\left(\R^{2N} \right)$ be a vector space dual to $\SS\left(\R^{2N} \right)$. Denote by $C_b\left(\R^{2N}_\th\right)\stackrel{\mathrm{def}}{=} \set{T \in \SS'\left(\R^{2N}\right) : T \star_\th g \in L^2\left(\R^{2N}\right) \text{ for all } g \in L^2(\R^{2N})}$, provided with the given by \eqref{mp_op_eqn} operator norm $	\|\cdot\|_{\mathrm{op}}$.
-	Denote by $C_0\left(\R^{2N}_\th \right)$ the operator norm completion of $\SS\left(\R^{2N}_\th \right).$  
-\end{defn}
-\begin{rem}
-	Obviously $\SS\left(\R^{2N}_\th\right)  \hookto C_b\left(\R^{2N}_\th\right)$. But $\SS\left(\R^{2N}_\th\right)$ is not dense in $C_b\left(\R^{2N}_\th\right)$, i.e. $C_0\left(\R^{2N}_\th\right) \subsetneq C_b\left(\R^{2N}_\th\right)$  (cf. \cite{moyal_spectral}).
-\end{rem}
-
-\begin{rem}
-	$L^2\left(\R^{2N}_\th\right)$ is the $\|\cdot\|_2$ norm completion of $\SS\left(\R^{2N}_\th\right)$ hence 
-	from the Lemma \ref{nt_l_2_est_lem} it follows that 
-	\begin{equation}\label{mp_2_op_eqn}
-		L^2\left(\R^{2N}_\th\right) \subset C_0\left(\R^{2N}_\th\right).
-	\end{equation} 
-\end{rem}
-\begin{rem}
-	Notation of the Definition \ref{nt_r_2_N_repr_defn} differs from \cite{moyal_spectral}. Here symbols $A_\th, \A_\th, A^0_\th$ are replaced with $C_b\left(\R^{2N}_\th\right), \SS\left(\R^{2N}_\th\right), C_0\left(\R^{2N}_\th\right)$ respectively.
-\end{rem}
-\begin{rem}
-	The $\C$-linear space $C_0\left(\R^{2N}_\th \right)$ is not isomorphic to $C_0\left(\R^{2N}\right)$. 
-\end{rem}
-
-
-There are elements $\left\{f_{nm}\in\SS\left(\R^{2} \right)\right\}_{m,n \in \N^0}$, described in \cite{varilly_bondia:phobos}, which satisfy to the following Lemma. 
-\begin{lem}\label{mp_osc_lem!} {\rm\cite{varilly_bondia:phobos}}
-	\label{lm:osc-basis}
-	Let $m,n,k,l \in \N$. Then $f_{mn} \star_\th f_{kl} = \delta_{nk}f_{ml}$
-	and $f_{mn}^* = f_{nm}$. Thus $f_{nn}$ is an orthogonal projection and
-	$f_{mn}$ is nilpotent for $m \neq n$. Moreover,
-	$\left\langle f_{mn}, f_{kl}\right\rangle  = %2^N\,
-	\delta_{mk}\,\delta_{nl}$. The family
-	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$ is an
-	orthogonal basis.
-\end{lem}
-\begin{remark}
-	One has 
-	\be\label{nt_dmn_eqn}
-	\int_{\R^2} f_{mn} = \delta_{mn}.
-	\ee
-\end{remark}
-
-
-%Theorem 6: 
-\begin{prop}\label{mp_fmn_prop}\cite{moyal_spectral,varilly_bondia:phobos}
-	Let $N = 1$. Then $\SS\left(\R^{2N}_\th\right)=\SS\left(\R^{2}_\th\right) $ has a Fr\'echet algebra isomorphism with
-	the matrix algebra of rapidly decreasing double sequences
-	$c = (c_{mn})$ of complex numbers such that, for each $k \in \N$,
-	\begin{equation}\label{mp_matr_norm}
-		r_k(c) \stackrel{\mathrm{def}}{=} \biggl( \sum_{m,n=0}^\infty
-		\th^{2k}  \left( m+\half\right)^k \left( n+\half\right)^k |c_{mn}|^2 \biggr)^{1/2}
-	\end{equation}
-	
-	is finite, topologized by all the seminorms $(r_k)$; via the
-	decomposition $f = \sum_{m,n=0}^\infty c_{mn} f_{mn}$ of~$\SS(\R^2)$ in
-	the $\{f_{mn}\}$ basis.
-	The twisted product $f \star_\th g$ is
-	the matrix product $ab$, where
-	\begin{equation}\label{mp_mult_eqn}
-		\left( ab\right)_{mn} \stackrel{\mathrm{def}}{=} \sum_{k= 0}^{\infty} a_{\mu\nu}b_{kn}.
-	\end{equation}
-	
-	For $N > 1$, $\Coo\left(\R^{2N}_\th\right)$ is isomorphic to the (projective) tensor product
-	of $N$ matrix algebras of this kind, i.e.
-	\begin{equation}\label{mp_tensor_prod}
-		\SS\left(\R^{2N}_\th\right) \cong \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}}
-	\end{equation}
-	with the projective topology induced by seminorms $r_k$ given by \eqref{mp_matr_norm}.	
-\end{prop}
-\begin{rem}
-	If $A$ is  $C^*$-norm completion of the matrix algebra with the norm \eqref{mp_matr_norm} then $A \approx \mathcal K$, i.e.
-	\begin{equation}\label{mp_2_eqn}
-		C_0\left(\R^{2}_\th\right) \approx \mathcal K.
-	\end{equation}
-	Form \eqref{mp_tensor_prod} and \eqref{mp_2_eqn} it follows that
-	\begin{equation}\label{mp_2N_eqn!}!!!
-		C_0\left(\R^{2N}_\th\right) \cong \underbrace{C_0\left(\R^{2}_\th\right)\otimes\dots\otimes C_0\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \approx \underbrace{\mathcal K\otimes\dots\otimes\mathcal K}_{N-\mathrm{times}} \approx \mathcal K
-	\end{equation}
-	where $\otimes$ means minimal or maximal tensor product ($\mathcal{K}$ is nuclear hence both products coincide).
-	
-\end{rem}
-
-\begin{definition}\cite{varilly_bondia:phobos}
-	%Denition 6.
-	For $s, t \in\R$ we denote by $\G_{s,t}$ the Hilbert space obtained by completing $\sS\left( \R^2 \right)$  with
-	respect to the norm
-	$$
-	\left\|\sum_{m,n = 0}^\infty c_{mn} f_{mn}\right\|= \sqrt{\sum_{m,n = 0}^\infty \left(2m + 1\right)^s \left(2n + 1\right)^t \left| c_{mn}\right|^2 }
-	$$
-	
-\end{definition}
-
-Denote by 
-\be
-\mathcal{I}_{s,t}\bydef \G_{s,0}\times \G_{0,t} = \left\{f\times g~ \left|~ f\in \G_{s,0}, \quad g\in \G_{0,t}  \right|\right\}
-\ee
-
-
-
-\begin{empt}\label{nt_m_planes_empt}\cite{moyal_spectral}
-	By plane waves we understand all functions of the form
-	$$
-	x \mapsto \exp(ik\cdot x) 
-	$$
-	for $k\in \R^{2N}$.  One obtains for the Moyal
-	product of plane waves:
-	\begin{equation}\label{mp_wave_prod_eqn}
-		\begin{split}
-			\exp\left(ik\cdot\right) \star_{\Theta}\exp\left(ik\cdot\right)=\exp\left(ik\cdot\right) \star_{\theta}\exp\left(ik\cdot\right)= \exp\left(i\left( k+l\right) \cdot\right) e^{-\pi i k \cdot \Th l}.
-		\end{split}
-	\end{equation}
-	It is proven in \cite{moyal_spectral} that plane waves lie in $C_b\left(\R^{2N}_\th \right)$. 	
-\end{empt}
-\paragraph{title}	
-
 
 \begin{lemma}\label{nt_w*_lem}
 	If $\overline a \in S\left(\R^{2N} _\th\right)_+$ is an element which correspond to positive element of $C_b\left( \R^{2N}_\th\right)\subset B\left( L^2\left(\R^{2N}_\th \right) \right)$ (cf. Definition \ref{nt_r_2_N_repr_defn}) then for all $j\in \N$ there is $a_j\in\Coo\left(\T^{2N}_{\th/2m_j}\right)$ such that the series
@@ -18059,7 +17910,7 @@ There is the inclusion $C\left(\T^{2N}_{\th/2m_j}\right)\hookto C_b\left( \R^{2N
 	
 \end{proof}
 
-\subsection{Fundamental group and Hurewicz homomorphism}\label{nt_fg_sec}  !!! DELETE !!!
+
 \paragraph{}
 Let $C\left( \T^{2}_\th\right)$ be a noncommutative torus (cf. \eqref{nt_symplectic_eqn}) and let $u, v\in U\left( C\left( \T^{2}_\th\right)\right)$ be its generators (cf. Definition \ref{nt_uni_defn}). Let $n > 1$ and consider two finite-fold noncommutatve coverings
 \bean
@@ -18209,7 +18060,369 @@ Using above equations one concludes that the Hurewicz homomorphism corresponds t
 $$
 h_{\mathrm{free}}:\pi_1\left(C^*_r\left(\T^2, \sF_\th\right) \right)\to K^1 \left(C\left( \T^2_\th\right) \right).
 $$
+\subsection{Coverings of $O^*$-algebras}
+\paragraph*{}
+If $a\in \Coo\left( \T^{2N}_\th\right)$ and $b\in \SS\left( \R^{2N}_\th\right)$ then  there is the product $a\times b\in L^2\left(\R^{2N}_\th \right)$ (cf. equation \eqref{nt_l2r_eqn}.
+\begin{lemma}\label{nt_cont_lem}
+	Consider the above situation. If $\sF\left(a\times b \right)$ is the Fourier transformation of  $a\times b\in L^2\left(\R^{2N}_\th \right)$ then $\sF\left(a\times b \right)$ corresponds to a complex-valued continuous map on $\R^{2N}$.
+\end{lemma}
+\begin{proof}
+	From \eqref{nt_prod_duality_eqn} if turns out that
+	$$
+	\mathcal{F}\left(a \times b \right) = \mathcal{F} a \diamond  \sF b.
+	$$
+	If $a = \sum_{k\in \Z^{2N}} c_k U_k$ (cf. equation \eqref{nt_series_eqn}) then the Fourier transformation of $a$ is given by
+	$$
+	\sF\left(a \right) = \sum_{k\in \Z^2N}c_k\delta_k
+	$$
+	where $\delta_k$ is  concentrated at $k\in \R^{2N}$ the Dirac delta function.
+	From the equation \eqref{nt_diamond_eqn} it follows that
+	\be\label{nt_mp_d_eqn}
+	\mathcal{F} a \diamond  \sF b= \sum_{k\in \Z^2N}c_k\delta_k\diamond b = \sum_{k\in \Z^2N}c_k e^{-ik \cdot t} \mathcal{F} b\left(t \right).
+	\ee
+	From $b \in \SS\left( \R^{2N}_\th\right)$ it turns out  that $\sF b \in \SS\left( \R^{2N}\right)$, in particular $\sF b\in C_b\left( \R^{2N}\right)$,
+	If $C \bydef \left\|\sF b  \right\|_{C_b\left( \R^{2N}\right)}$ where $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ is the uniform norm on $C_b\left( \R^{2N}\right)$ then
+	$$
+	\left\|t \mapsto  e^{-ik \cdot t} \mathcal{F} b\left(t \right)  \right\|_{C_b\left( \R^{2N}\right)}=C\quad \forall k \in \Z^{2N}.
+	$$
+	On the other hand  from \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_k \right|$ is convergent, so the right part of the equation \eqref{nt_mp_d_eqn} is  convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm. Thus one has
+	$$
+	\mathcal{F} a \diamond  \sF b\in C_b\left(\R^{2N} \right).
+	$$.
+\end{proof}
+\begin{lemma}\label{nt_smooth_lem}
+	In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b$ of any order  to a complex-valued continuous map on $\R^{2N}$.
+\end{lemma}
+\begin{proof}
+	Form \eqref{mp_parial_mult_eqn} it follows that
+	$$
+	\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_j b
+	$$
+	From $\partial_j b\in \SS\left( \R^{2N}\right)$ and the above proof it follows that $\sF\left(a\times\partial_j b \right)$ lies in   $C_b\left(\R^{2N} \right)$. On the other hand similarly to the above construction one has
+	$$
+	\sF\left( \partial_j a \times b\right) = c_k k_j e^{-ik \cdot t} \mathcal{F} b\left(t \right)
+	$$ From \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_kk_j \right|$ is    convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm, so on has
+	$$
+	\sF\left( \partial_j a \times b\right)\in C_b\left( \R^{2N}\right)\Rightarrow 	\partial_j \left( a \times b \right)\in C_b\left( \R^{2N}\right)
+	$$
+	Similarly one can proof that the Fourier transformation of  partial derivations of any orders are continuous functions. 
+	
+\end{proof}
+\begin{lemma}\label{nt_ss_lem}
+	In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b\in \SS\left(\R^{2N}_\th \right)$.
+\end{lemma}
+\begin{proof}
+	From the Proposition \ref{mp_factor_prop} it follows that $b = b' \times b''$ where $b', b'' \in \SS\left(\R^{2N}_\th \right)$. From $\SS\left(\R^{2N}_\th \right)\subset L^2\left(\R^{2N}_\th \right)$ and $C\left( \T^{2N}_\th\right)\times L^2\left(\R^{2N}_\th \right)= L^2\left(\R^{2N}_\th \right)$ it follows that
+	$$
+	a \times b = \left( a \times b'\right) \times b'' \subset  L^2\left( \R^{2N}\right)\times L^2\left( \R^{2N}\right),
+	$$
+	and taking into account the Remark \ref{mp_l2_rem} one has
+	$$
+	a \times b\in C_0\left( \R^{2N}\right).
+	$$
+	Similarly from
+	\bean
+	\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_jb,\\
+	\partial_j a \in C\left( \T^{2N}_\th\right),\\
+	\partial_jb \in \SS\left( \R^{2N}\right)
+	\eean
+	one can deduce that $\partial_j \left( a \times b \right)\in C_0\left( \R^{2N}\right)$. Similar operation can be performed for all differential operator of any order, so $a \times b$ is a smooth function. Taking into account  the Lemma \ref{nt_smooth_lem} one has $a\times b\in \SS\left(\R^{2N}_\th \right) $.
+\end{proof}
+\begin{lemma}
+	For all $a \in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ one has $a \times \SS\left(\R^{2N}_\th \right)\not\subset \SS\left(\R^{2N}_\th \right)$
+\end{lemma}\label{nt_ss_c_lem}
+\begin{proof} Let $\phi$ is a map $\R^{2N}\to \R$ such that
+	\be
+	\begin{split}
+		\sF \phi \in \SS\left(\R^{2N}\right),\\
+		\sF \phi \left(\R^{2N}\right) = \left[0,1\right],\\
+		\supp \sF \phi  \subset \left\{x \in \R^{2N}\left|\left\|x\right\|< \frac{1}{2}\right.\right\}.	
+	\end{split}
+	\ee
+	If $a = \sum_{k\in \Z^{2N}} c_k U_k\in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ then from the equation \eqref{mp_znorm_eqn} it follows that there is $M\in N$ such that the map
+	\bean
+	f_\N: \Z^{2N}\to \R,\\
+	k \mapsto \left| c_k\right|  \left\|k \right\|^M 
+	\eean
+	If $f_\R \bydef \left| \sF\left( a \times \phi\right)\left(x \right) \right\| \left\|x \right\|^M $ then from  
+	From \eqref{nt_mp_d_eqn} it follows that
+	$$
+	f_\R\left(k \right) = f_\N\left( k\right) 
+	$$
+	so the map $f_\R$ is not bounded. It turns out that $\sF a \diamond\sF\phi \not\in \SS\left(\R^{2N} \right)$ or, equivalently $  a \times\phi \not\in \SS\left(\R^{2N} \right)$.
+\end{proof}
+\begin{lemma}
+	If we consider the inclusion  $\Coo\left( \T^{2N}_\th\right)\subset B\left( L^2\left(\R^{N} \right) \right)$ then one has  $\Coo\left( \T^{2N}_\th\right)=  C\left( \T^{2N}_\th\right)\cap \L^\dagger\left(\SS\left(\R^{2N} \right)  \right)$. 
+\end{lemma}
+\begin{proof}
+	From the Lemma \ref{nt_ss_lem} it follows that $\Coo\left( \T^{2N}_\th\right)\subset \L^\dagger\left(\SS\left(\R^{2N} \right)\right) $. Conversely from the Lemma  \ref{nt_ss_c_lem} it follows that
+	$$
+	a\in C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)\quad \Rightarrow \quad a\notin \L^\dagger\left(\SS\left(\R^{2N} \right)\right).
+	$$
+\end{proof}
+From the Theorem \ref{nt_d_fin_thm} and the Exercise \ref{nt_d_fin_exer} it turns out that there is  a {pointed  !!! DELETE !!! algebraic finite covering categories of $O^*$-algebras}  given by
+\bea
+\label{nt_comp_pt_o*_eqn}
+\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) } = \left(\left\{\pi_j: D\left(\T^{2N}_\th\right)  \hookto D\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\pi^l_k\right\}\right),\quad\quad\\
+\label{nt_comp_pt_of*_eqn}
+\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) } = \left(\left\{\left.\pi_j\right|_{\Coo\left(\T^{2N}_\th\right) }: \Coo\left(\T^{2N}_\th\right)  \hookto \Coo\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\left.\pi^l_k\right|_{\Coo\left(\T^{2N}_{\th/m^2_k}\right)}\right\}\right)\quad~~
+\eea
+(cf. Definition \ref{comp_o*_defn}).
+The is a natural inclusion  $\SS\left(\R^{2N}_\th \right)\subset \L\left( \R^{2N}\right)$ such that $\SS\left(\R^{2N}_\th \right)$ is a dense subspace.  If $\widehat \H \bydef \bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ is the described in the Section \ref{nt_inf_ind_repr_constr_sec} Hilbert space then an algebraic direct sum $\widehat \D \bydef \bigoplus_{g \in J}\sS\left(\R^{2N}_\th\right)$ is a dense subspace of $\widehat \D$.
+If given by \eqref{nt_comp_pt_o*_eqn} and \eqref{nt_comp_pt_of*_eqn} injective *-homomorphisms are regarded as inclusions  then there are the following inclusions
+\bea\label{nt_dinc_eqn}
+\pi:\bigcup_{j \in \N} D\left( \T^{2N}_{\th/m_j^2}\right) \hookto \L^\dagger\left(\widehat \D \right) ,\\
+\label{nt_dincf_eqn}
+\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}:\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right) \hookto \L^\dagger\left(\widehat \D \right). 
+\eea
+If $\widehat G \bydef \varprojlim  \Z^{2N}/\Z^{2N}_{m_j}$ there is the natural action $\widehat G\times \widehat \H\to \widehat \H$ which satisfies to \eqref{o*_dinv_eqn}. The bounded part of both  $D\left( \T^{2N}_{\th/m_j^2}\right)$ and $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equal to $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$. The $C^*$-norm completion of  $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equals to $C\left( \T^{2N}_{\th/m_j^2}\right)$. Similarly to  \eqref{bl_cat_eqn}
+one has  a pointed  !!! DELETE !!! algebraical  finite covering category
+\be\label{nt_bl_cat_eqn}
+\begin{split}
+	\mathfrak{S}_{C\left(\T^{n}_{{\Th}} \right)}^\N
+	=\left( \left\{ \left( C\left(\T^{2N}_{{\th}} \right), C\left(\T^{2N}_{\th/m_j^2} \right), \Z^n_{m_j}, \rho_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \rho^j_k: C\left(\T^{2N}_{\th/m_j^2} \right)\hookto C\left(\T^{2N}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}.
+\end{split} 
+\ee
+(cf. \eqref{nt_cofinal_eqn}) where both $\rho_j$ and $\rho^j_k$ come from $\left.\pi_j\right|_{\Coo\left(\T^{2N}_{\th/m^2_k}\right)}$ and $\left.\pi^j_k\right|_{\Coo\left(\T^{2N}_{\th/m^2_k}\right)}$ respectively. It turns out that both \eqref{nt_comp_pt_o*_eqn} and \eqref{nt_comp_pt_of*_eqn} are pointed  !!! DELETE !!! algebraic finite covering categories of $O^*$-algebras (cf. Definition \ref{comp_o*_defn}).
+If $\widehat B\bydef C^*$-$\varinjlim C\left(\T^{2N}_{\th/m_j^2} \right)$ then there is the given by \eqref{nt_equiv_eqn} equivariant representation $\widehat{\pi}^\oplus: \widehat{B}\hookto B\left( \widehat{\H}\right)$. From the Theorem \ref{nt_inf_cov_thm} it turns out that triple $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$ is  the  $\widehat\pi^\oplus$-infinite noncommutative covering of $\mathfrak{S}_{C\left(\T^{n}_{{\Th}} \right)}^\N$ (cf. Definition \ref{main_defn}). If $\widetilde \H$ is the norm completion of $C_0\left(\R^{2N}_\th\right)\widehat\H$ then one has
+\be
+\begin{split}
+	\widetilde \H \cong L^2\left(\R^{2N}\right) ,\\
+	\widetilde \D\bydef \widehat\D \cap \widetilde \H \cong \SS\left(\R^{2N}_\th \right) 
+\end{split}
+\ee
+Above construction is a version of the described in \ref{comp_pt_o*_empt} general construction.
+Denote by $C_c\left( \R^{2N}_\th\right) \bydef K\left( C_0\left( \R^{2N}_\th\right)\right)$ the Pedersen's ideal of $C_0\left( \R^{2N}_\th\right)$ and let $\Coo_c\left( \R^{2N}_\th\right)\bydef C_c\left( \R^{2N}_\th\right)\cap \L^\dagger\left(\widetilde \D \right)$. Denote by 
+\be\label{nt_cood_eqn}
+\begin{split}
+	\Coo\left( \R^{2N}_\th\right)\bydef\\\bydef \left\{a\in \L^\dagger\left(\widetilde \D \right)\left|a\Coo_c\left( \R^{2N}_\th\right)\subset \Coo_c\left( \R^{2N}_\th\right)~ \Coo_c\left( \R^{2N}_\th\right)a\subset \Coo_c\left( \R^{2N}_\th\right) \right.\right\}.
+\end{split}
+\ee
+If $D\left( \R^{2N}_\th\right)$ a *-subalgebra of  $\L^\dagger\left(\widetilde \D \right)$ generated by $\Coo\left( \R^{2N}_\th\right)$ and a set of differential operators $\left\lbrace\partial/\partial x_1, ..., \partial/\partial x_n \right\rbrace$ then any $P \in  D\left( \R^{2N}_\th\right)$ can be represented as
+\bean
+P = \sum_{j=1}^m a_j P_j,\quad a_1,..., a_m\in \Coo_c\left( \R^{2N}_\th\right);\\
+P = \sum_{j=1}^m P_j b_j,\quad b_1,..., b_m\in \Coo_c\left( \R^{2N}_\th\right).
+\eean
+where $P_j$ is a monomial of $\left\lbrace\partial/\partial x_1, ..., \partial/\partial x_n \right\rbrace$ for all $j=1,...,n$.
+Indeed $D\left( \R^{2N}_\th\right)$ is a *-subalgebra of  $\L^\dagger\left(\widetilde \D \right)$   which  satisfies to the following equivalent conditions: 
+\bea\label{nt_diff1_eqn} 
+D\left( \R^{2N}_\th\right)=\left\{\widetilde d \in\L^\dagger\left(\widetilde\D\right)  \left|~\widetilde d\Coo_c\left( \R^{2N}_\th\right)\subset  D\left( \R^{2N}_\th\right)\right.\right\},\\
+\label{nt_diff2_eqn}
+D\left( \R^{2N}_\th\right)=\left\{\widetilde d \in\L^\dagger\left(\widetilde\D\right)  \left|~\widetilde d\Coo_c\left( \R^{2N}_\th\right) \subset  D\left( \R^{2N}_\th\right)\right.\right\}.
+\eea
 
+\begin{theorem}
+	In the described above situation following conditions hold:
+	\begin{enumerate}
+		\item[(i)] The triple $\left(\Coo\left( \T^{2N}_\th \right) , \Coo\left( \R^{2N}_\th\right) , \Z^{2N}\right) $ is the 
+		$\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_of*_eqn} {pointed  !!! DELETE !!! algebraic finite covering category $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}).
+		\item [(ii)] The triple $\left(D\left( \T^{2N}_\th \right) , D\left( \R^{2N}_\th\right) , \Z^{2N}\right) $ is the 
+		$\left.\pi\right.$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_o*_eqn} {pointed  !!! DELETE !!! algebraic finite covering category $\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}).
+	\end{enumerate}
+	
+\end{theorem}
+
+\begin{proof}(i)
+	From $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C\left(\T^{2N}_{\th/m_j^2} \right)\subset M\left(C_0\left( \R^{2N}_\th\right)\right)$ it follows that
+	\be
+	\begin{split}
+		\Coo\left(\T^{2N}_{\th/m_j^2} \right)C_c\left(\R^{2N}_{\th} \right)\subset C_c\left(\R^{2N}_{\th} \right),\\
+		C_c\left(\R^{2N}_{\th} \right)\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\R^{2N}_{\th} \right)
+	\end{split}
+	\ee
+	
+	Taking into account that  $\forall j\in \N\quad \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset  \L^\dagger\left(\widetilde \D \right)$ and \eqref{nt_cood_eqn} one has
+	\bea
+	\bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset \Coo\left( \R^{2N}_\th\right),\\
+	\Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  \Coo\left( \R^{2N}_\th\right),\\
+	\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)\Coo_c\left(\R^{2N}_\th \right)	\subset		\Coo\left(\R^{2N}_\th \right)  \Coo_c\left(\R^{2N}_\th \right).
+	\eea
+	If $\widetilde A'$ is a $\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$-admissible algebra (cf.  \ref{comp_pt_o*_empt}) then from the equations \eqref{inv_o*_llim_eqn}, \eqref{inv_o*_rlim_eqn} it follows that
+	\bean
+	\mathrm{span}\left\lbrace \Coo_c\left(\R^{2N}_\th\right) \widetilde A'\right\rbrace=\\=\mathrm{span}\left\lbrace \Coo_c\left(\R^{2N}_\th\right) \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right\rbrace \subset  \Coo_c\left( \R^{2N}_\th\right),\\
+	\mathrm{span}\left\lbrace  \widetilde A'\Coo_c\left(\R^{2N}_\th\right)\right\rbrace=\\=\mathrm{span}\left\lbrace  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\Coo_c\left(\R^{2N}_\th\right)\right\rbrace \subset  \Coo_c\left( \R^{2N}_\th\right)
+	\eean
+	and taking into account \eqref{nt_cood_eqn} one has
+	$$
+	\widetilde A'\subset \Coo\left( \R^{2N}_\th\right)
+	$$
+	Now for completion the proof of (i) one should show that the algebra $ \Coo\left( \R^{2N}_\th\right)$ is admissible, i.e. it satisfies to the  conditions \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}.
+	\begin{itemize}
+		\item The condition \eqref{inv_o*_lim_eqn} follows from the natural action $\Z^{2N}\times \Coo\left( \R^{2N}_\th\right)\to \Coo\left( \R^{2N}_\th\right)$.
+		\item The condition \eqref{inv_o*_blim_eqn} follows from $\Coo\left( \R^{2N}_\th\right)\cap C_b\left( \R^{2N}_\th\right)\subset C_b\left( \R^{2N}_\th\right)$.
+		\item The conditions \eqref{inv_o*_llim_eqn} and \eqref{inv_o*_rlim_eqn} follow from \eqref{nt_cood_eqn}.
+	\end{itemize}
+	(ii) 
+	Taking into account \eqref{nt_diff2_eqn} one has
+	\be\label{nt_uni_inc_eqn}
+	\bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\subset D\left( \R^{2N}_\th\right).
+	\ee
+	Let us prove that $D\left(\R^{2N}_\th\right)$ is $\pi$ admissible, i.e. it satisfies to the equations \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}; that is
+	\bea\label{nt_inv_o*_lim_eqn}
+	\Z^N D\left( \R^{2N}_\th\right)  = D\left(\R^{2N}_\th\right),\\
+	\label{nt_inv_o*_blim_eqn}
+	C_b\left(\R^{2N}_\th \right) \cap \L^\dagger\left(\widetilde \D \right)\subset 	C_b\left(\R^{2N}_\th \right), \\
+	\label{nt_inv_o*_llim_eqn}	
+	\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right)= \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)  ,\\	
+	\label{nt_inv_o*_rlim_eqn}
+	D\left( \R^{2N}_\th\right)\Coo_c\left(\R^{2N}_\th \right)  =\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)	\right)\Coo_c\left(\R^{2N}_\th\right). 
+	\eea
+	
+	\begin{itemize}
+		\item The equation \eqref{nt_inv_o*_lim_eqn} follows from $	\Z^N \Coo\left( \R^{2N}_\th\right)=\Coo\left( \R^{2N}_\th\right)$ and \\	$\Z^N\left\lbrace\partial/\partial x_1, ..., \partial/\partial x_n \right\rbrace= \left\lbrace\partial/\partial x_1, ..., \partial/\partial x_n \right\rbrace$.
+		\item The equation \eqref{nt_inv_o*_blim_eqn} is a tautology.
+		\item From \eqref{nt_uni_inc_eqn} ir follows that
+		$$
+		\Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right).
+		$$
+		Conversely if $a \in \Coo_c\left(\R^{2N}_\th \right)$ and $P= \sum_{j=1}^m a_j P_j,\quad a_1,..., a_n\in \Coo\left( \R^{2N}_\th\right)\in  D\left( \R^{2N}_\th\right)$ (cf. \eqref{nt_diff1_eqn}) then 
+		\bean
+		aP = aa_1P_1 + ... + aa_mP_m = b_mP_1 + b_mP_1 =\\= b_1 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_1 + ... + b_m 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_m \in \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
+		\eean
+		where $b_j \bydef aa_j \in  \Coo_c\left(\R^{2N}_\th\right)$ for any $j =1,...,m$.
+		\item The proof of the equation  \eqref{nt_inv_o*_rlim_eqn} is similar to the proof of \eqref{nt_inv_o*_rlim_eqn} 
+	\end{itemize}
+	Now one should prove that $D\left( \widetilde \R^{2N}_\th\right)$ is the maximal *-algebra which satisfies to  the equations \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}. 
+	If it is not maximal then there is $\widetilde d \in \L^\dagger\left( \widetilde \D\right)\setminus D\left(\widetilde \R^{2N}_\th \right)$ such that
+	\be
+	\Coo_c\left(\R^{2N}_\th \right) \widetilde d\subset  \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
+	\ee
+	(cf. equations \eqref{inv_o*_llim_eqn} and \eqref{nt_inv_o*_llim_eqn}). However from $\Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)\subset D\left(\R^{2N}_\th \right)$ and \eqref{nt_diff2_eqn} it follows that $\widetilde d \in  D\left(\widetilde \R^{2N}_\th \right)$. From this contradiction one concludes that $D\left( \widetilde \R^{2N}_\th\right)$ is a maximal *-algebra which satisfies to  the equations \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}. 
+	
+\end{proof}
+
+\subsection{Coverings of quasi $*$-algebras}
+\paragraph*{}
+
+Let  $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $ (cf. Definition \ref{mp_mult_defn}), and let $G_j\bydef ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$
+
+The action $G_j \times \R^n\to \R^n$ yields the action  $G_j \times \SS'\left( \R^{n}\right)\to \SS'\left( \R^{n}\right)$ denote by
+\be
+\left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}  \bydef \left\{\left.T\in \SS'\left( \R^{2N}\right)\right| gT = T \quad \forall a \in G_j \in \right\}
+\ee
+\begin{lemma}
+	Let 
+	$\varphi_j:	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right)$  be a given by \eqref{nt_ss_nt_map_eqn} surjective map.
+	
+	In the described above situation there is the natural isomorphism.
+	$$
+	\left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}\cong \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'
+	$$
+\end{lemma}
+\begin{proof}
+	Let $\phi\in \left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}$. Define $\psi_j\in \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'$ by the following way
+	$$
+	\psi\left(a_j \right)\bydef \phi\left(\widetilde a \right) \quad  \text{where} \quad a_j = \varphi_j\left( \widetilde a\right). 
+	$$
+	Above definition is correct because $\varphi_j$ is surective and $\phi$ is $G_j$-invariant. Conversely let $\psi_j\in \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'$. Define $\phi\in \left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}$  by the following way
+	$$
+	\phi\left(\widetilde a \right) \bydef \psi\left(a_j \right) \quad  \text{where} \quad a_j = \varphi_j\left( \widetilde a\right). 
+	$$
+	Constructed $\C$-linear maps are mutually inverse.
+\end{proof}
+
+An application of both the Exercise \ref{nt_quasi_fin_exer} and the given by \eqref{nt_comp_pt_of*_eqn} category 	$\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$ yields a \textit{pointed  !!! DELETE !!! algebraic finite covering category of quasi-$*$-algebras}
+(cf. Definition \ref{comp_qo*_defn})  given by
+\be\label{nt_distr_inf_eqn}
+\begin{split}
+	\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) } =\\  =\left(\left\{\pi_j: \left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^j, \mathfrak A_0^j \right) \right\}_{j \in \N}, \left\{\pi^k_l: \right\}_{\substack{k,l \in \N\\ l > k}}\right),\\
+	\text{where } \left( \mathfrak A, \mathfrak A_0 \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right),\\ \left( \mathfrak A^j, \mathfrak A_0^j \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)  \right).
+\end{split}
+\ee
+
+
+\begin{lemma}
+	In  the described above situation the triple
+	$$
+	\left(\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right), \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) , \Z^{2N}\right) 
+	$$
+	is  the inverse noncommutative limit of the given by \eqref{nt_distr_inf_eqn} pointed  !!! DELETE !!! algebraic finite covering category	$\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) }$ of quasi *-algebras (cf Definition \ref{inv_qo*_lim_defn}). 
+\end{lemma}
+\begin{proof}
+	Let $\left\{p_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \R^{2N}_\th\right)$ be the subset all finite-rank projectors. If we define partial order on $\La$ such that
+	$$
+	\forall\bt , \ga\in \mathscr A \quad \bt  \le\ga  \quad \Leftrightarrow \quad \im p_\bt \subseteqq \im p_\ga
+	$$  
+	then $\mathscr A$ becomes a directed set. For all $\widetilde a a \in \Coo_c\left( \R^{2N}_\th\right)$ there is $\a_{\widetilde a} \in \mathscr A$ such that
+	\be\label{nt_comp_st_eqn}
+	\forall\a\in\mathscr A \quad \a \ge \a_{\widetilde a} \quad \Rightarrow \quad \widetilde a = \widetilde a p_{\a}
+	\ee
+	If $\left(\widetilde A', \Coo\left(\R^{2N}_{\theta}\right)\right)$ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) and $\widetilde a \in \widetilde{\mathfrak A}'$  such  then from the condition \eqref{inv_qo*_rlim_eqn} it follows that
+	$$
+	\widetilde a p_\a \in \Coo_c\left( \R^{2N}_\th\right)'
+	$$
+	If $\left\langle\cdot , \cdot \right\rangle : \Coo_c\left( \R^{2N}_\th\right)'\times \Coo_c\left( \R^{2N}_\th\right)$ is a natural covering then for all $\widetilde b \in \Coo_c\left( \R^{2N}_\th\right)$ from \eqref{nt_comp_st_eqn}  it turns out that
+	$
+	\left\langle \widetilde a p_\a , \widetilde b\right\rangle = \left\langle \widetilde a p_{\a_{\widetilde a}} , \widetilde b\right\rangle\quad\forall \a \ge \a_{\widetilde a}
+	$
+	i.e. the net\\ $\left\lbrace \left\langle \widetilde a p_\a , \widetilde b\right\rangle\right\rbrace_{\la\in\La}\in\C$ is convergent. So the net $\left\lbrace  \widetilde a p_\a , \right\rbrace_{\a\in\mathscr A}$ is convergent with respect to  the weak topology of $\Coo_c\left( \R^{2N}_\th\right)'$. Now we define a $\C$-linear map
+	\bean
+	\Psi: \widetilde A'\to \Coo\left(\R^{2N}_{\theta}\right),\\
+	\widetilde a \mapsto \lim_{\a\in\mathscr A}\widetilde a  p_\la
+	\eean 
+	From the equation \eqref{inv_qo*_lzero_eqn} it follows that the map $\Psi$ is injective, i.e. any admissible quasi *-algebra is a subalgebra of $\left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$. To finish the proof one should show that $\left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$ is admissible, i.e. it satisfies to the conditions (a)-(c) of the Definition \ref{comp_pt_qo*_defn}.
+	
+	\begin{enumerate}
+		\item[(a)]  The natural   action $\Z^{2N}\times \R^{2N} \to \R^{2N}$ induces the action \\ $\Z^{2N}\times \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) \to \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$ which complies with the natural action $ \Z^{2N}\times \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)\to \Coo\left(\R^{2N}_{\theta}\right)$.
+		\item[(b)] The inclusion $\bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ follows from an inclusions  $\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ for all $j\in \N$.
+		
+		\item[(c)] The specific versions of the equations
+		\eqref{inv_qo*_rzero_eqn}-\eqref{inv_qo*_rlim_eqn}  are presented below:
+		\bea
+		\label{nt_inv_qo*_rzero_eqn}
+		\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
+		\label{nt_inv_qo*_lzero_eqn}
+		\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \widetilde{a}\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
+		\label{nt_inv_qo*_llim_eqn}	\mathrm{span}\left\lbrace \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\right\rbrace =\mathrm{span}\left\lbrace  \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \left( \bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)\right) \right\rbrace ,\quad\quad\\	
+		\label{nt_inv_qo*_rlim_eqn}\mathrm{span}\left\lbrace  \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)\right\rbrace =\mathrm{span}\left\lbrace   \left( \bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)\right)\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \right\rbrace .\quad\quad
+		\eea
+		\begin{itemize}
+			\item From $\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}$ it follows that $p_\a \widetilde a = 0$ for all $\a\in \mathscr A$. It turns out that $\widetilde a = 0$, so \eqref{nt_inv_qo*_rzero_eqn} is proven.
+			\item The equation  \eqref{nt_inv_qo*_lzero_eqn} can be proven similarly to \eqref{nt_inv_qo*_rzero_eqn}.
+			\item Left and right parts of both \eqref{nt_inv_qo*_llim_eqn} and \eqref{nt_inv_qo*_rlim_eqn} equal to $\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$.
+		\end{itemize}
+		
+	\end{enumerate}
+	
+\end{proof}
+
+
+
+\subsection{Covering of spectral triples}
+
+
+
+\paragraph*{} 
+
+
+Let us consider following objects
+\begin{itemize}
+	\item A spectral triple of a noncommutative torus\\ $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$ (cf. equation \ref{nt_sp_tr_eqn}).
+	\item  A good algebraical  finite covering sequence given by
+	\begin{equation*}
+		\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}
+	\end{equation*}
+	given by \eqref{nt_cofinal_eqn}.
+\end{itemize}
+From the Theorem \ref{nt_inf_cov_thm} it follows that $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$ is a  $\widehat{\pi}^\oplus$-infinite noncommutative covering of $\mathfrak{S}_\th$ (cf. Definition \ref{main_defn}).
+Otherwise from the Exercise \ref{nt_st_fin_exer} it follows that
+\begin{equation}\label{nt_triple_seq_eqn}
+	\begin{split}
+		\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right) } = \{ \left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right), \dots,\\
+		\left(C^{\infty}\left( \T^{2N}_{\th/m_j^2}\right) , L^2\left(C\left( \T^{2N}_{\th/m_j^2} \right), \tau_j\right) \otimes \C^{2^N} , D_j \right), \dots
+		\}.
+	\end{split}
+\end{equation}
+is coherent set of spectral triples (cf. Definition \ref{cov_sec_triple_defn}).
+
+
+
+\begin{exercise}
+	Prove that there is the triple $\left(C^{\infty}(\mathbb{R}^{2N}_{\theta}),L^2\left(\R^{2N}\right)\otimes\mathbb{C}^{2^N}, \widetilde D\right)$ which is the $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$-lift of $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$.
+\end{exercise}
+
+
+\
 
 
 

@@ -3,13 +3,12 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Elementary
 {
     [Tag("color", true)]
     internal class ColorObject : XmlHolder
     {
-        static public readonly bool IsElementary = true;
-
+    
         Service s = new Service();
         public Color Color { get; private set; }
 

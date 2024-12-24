@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System.Net.Http.Headers;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -11,19 +12,23 @@ namespace Abstract3DConverters.Creators
 
         protected string filename;
 
+        protected Dictionary<string, Material> materials = new();
+
+        protected Dictionary<string, Image> images = new();
+
+        protected Service s = new Service();
 
 
 
-
-        public AbstractMeshCreator()
+        protected AbstractMeshCreator()
         {
-        }
 
+        }
 
         string IMeshCreator.Directory => directory;
 
-        public abstract Dictionary<string, Material> Materials { get; }
-        public abstract Dictionary<string, Image> Images { get; }
+        public Dictionary<string, Material> Materials => materials;
+        public Dictionary<string, Image> Images => images;
 
         public void Load(string filename)
         {
@@ -40,6 +45,8 @@ namespace Abstract3DConverters.Creators
             return Create();
         }
 
+
+        
 
         protected abstract void CreateAll();
 

@@ -12,7 +12,10 @@ namespace Abstract3DConverters.Materials
 
         protected SimpleMaterial(Color color)
         {
-            Color = color.Clone() as Color;
+            if (color != null)
+            {
+                Color = color.Clone() as Color;
+            }
         }
 
     }

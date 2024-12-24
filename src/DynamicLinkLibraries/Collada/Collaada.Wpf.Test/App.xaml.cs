@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.IO;
-using System.Net.WebSockets;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
@@ -32,8 +31,22 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-            //  GenerateWpf();
-            GenerateToDae();
+        //      GenerateWpf();
+              GenerateToDae();
+         //   GenerateNative();
+        }
+
+        void GenerateNative()
+        {
+            GenerateNative("tu154b.ac");
+        }
+
+        void GenerateNative(string s)
+        {
+            string dir = @"c:\AUsers\1MySoft\CSharp\03D\NATIVE\";
+            var f = Path.Combine(dir, s);
+            GenerateWpf(f);
+
         }
 
         Dictionary<string, string> models = new Dictionary<string, string>()
@@ -107,7 +120,9 @@ namespace Collaada.Wpf.Test
 
         void GenerateToDae()
         {
-            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+                 GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
+          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
+         //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
         }
 
         void GenerateToDae(string filen)

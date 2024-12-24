@@ -9,6 +9,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 using Collada;
+using Collada150.Classes.Elementary;
 using Collada150.Creators;
 
 namespace Collada150.Classes.Complicated
@@ -51,6 +52,8 @@ namespace Collada150.Classes.Complicated
             List<float[]> normal = null;
             List<float[]> textures = null;
             int[] offs = new int[tr.Inputs.Count];
+            var h = new int[] { -1, -1, -1 };
+
             if (tr.Inputs.ContainsKey("VERTEX"))
             {
                 var o = tr.Inputs["VERTEX"];
@@ -58,6 +61,7 @@ namespace Collada150.Classes.Complicated
                 var v = o.Value as Vertices;
                 var x = v.Array;
                 vertices = s.ToRealArray(x, 3);
+                h[0] = o.Offset;
             }
             if (tr.Inputs.ContainsKey("TEXCOORD"))
             {
@@ -66,6 +70,7 @@ namespace Collada150.Classes.Complicated
                 offs[1] = o.Offset;
                 var v = o.Value as float[];
                 textures = s.ToRealArray(v, 2);
+                h[1] = o.Offset;
             }
             if (tr.Inputs.ContainsKey("NORMAL"))
             {
@@ -74,6 +79,7 @@ namespace Collada150.Classes.Complicated
                 offs[2] = o.Offset;
                 var v = o.Value as float[];
                 normal = s.ToRealArray(v, 3);
+                h[2] = o.Offset;
             }
             var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
             var t = new List<int[][]>();
@@ -83,7 +89,6 @@ namespace Collada150.Classes.Complicated
                 for (int j = 0; j < p.Length; j++)
                 {
                     var pp = p[j];
-                    var h = new int[] { -1, -1, -1 };
                     k[j] = h;
                     for (int hh = 0; hh < pp.Length; hh++)
                     {

@@ -1,14 +1,13 @@
 ﻿
-using System.Linq.Expressions;
 using System.Reflection;
 using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 using Collada;
 using Collada150.Classes.Complicated;
+using Collada150.Classes.Elementary;
 
 namespace Collada150.Creators
 {
@@ -20,22 +19,19 @@ namespace Collada150.Creators
 
         internal Dictionary<string, List<Abstract3DConverters.Materials.Material>> MaterialList { get; private set; } = new();
 
-        Dictionary<string, Abstract3DConverters.Materials.Material> materials = new();
-
-        Dictionary<string, Abstract3DConverters.Image> images;
-
+  
         internal Dictionary<string, Sampler2D> Samplers { get; private set; } = new();
-
-        public override Dictionary<string, Abstract3DConverters.Image> Images { get => images; }
-
         public Dictionary<string, Abstract3DConverters.Materials.Material> Effects { get; private set; }
         public Dictionary<XmlElement, IParent> Meshes { get; private set; } = new(); 
 
-        public override Dictionary<string, Abstract3DConverters.Materials.Material> Materials { get => materials; }
-
-
+   
         static Dictionary<string, MethodInfo> methods;
 
+        internal Dictionary<string, Float_Array> Arrays 
+        { 
+            get;
+            private set; 
+        } = new();
 
         Dictionary<string, XmlElement> urls = new();
 
@@ -85,7 +81,7 @@ namespace Collada150.Creators
             }
             Type[] types = [typeof(Source), typeof(Classes.Complicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
             typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Complicated.Material),
-          typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(MeshObject),
+          typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(PolyList),
             typeof(GeometryObject), typeof(InstanceGeomery), typeof(Node) ];
             foreach (var type in types)
             {
@@ -356,20 +352,22 @@ namespace Collada150.Creators
 
         Func<XmlElement, object> Get(XmlElement xmlElement)
         {
-            /* if (functions.ContainsKey(xmlElement.Name))
-             {
-                 Put(xmlElement);
-                 return functions[xmlElement.Name];
-             }*/
             var tag = xmlElement.Name;
-            if (methods.ContainsKey(tag))
+            try
             {
-                Put(xmlElement);
-                var mi = methods[tag];
-                return (e) => mi.Invoke(null, [e, this]);
+                if (methods.ContainsKey(tag))
+                {
+                    Put(xmlElement);
+                    var mi = methods[tag];
+                    return (e) => mi.Invoke(null, [e, this]);
+                }
+            }
+            catch (Exception e)
+            {
+
             }
             return null;
-        }
+            }
 
         void Put(XmlElement xmlElement)
         {

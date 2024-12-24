@@ -2,7 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Elementary
 {
     [Tag("up_axis", true)]
     internal class Up_Axis : XmlHolder

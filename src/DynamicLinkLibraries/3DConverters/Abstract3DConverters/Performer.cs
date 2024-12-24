@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters
@@ -21,24 +16,24 @@ namespace Abstract3DConverters
 
         #endregion
 
-        public T Create<T>(AbstractMesh mesh, IMeshConverter meshCreator) where T : class
+        public T Create<T>(AbstractMesh mesh, IMeshConverter meshConverter) where T : class
         {
-            IMaterialCreator materialCreator = meshCreator.MaterialCreator;
-            object o = meshCreator.Create(mesh);
+            IMaterialCreator materialCreator = meshConverter.MaterialCreator;
+            object o = meshConverter.Create(mesh);
             var trans = mesh.TransformationMatrix;
             if (trans != null)
             {
-                meshCreator.SetTransformation(o, trans);
+                meshConverter.SetTransformation(o, trans);
             }
             var mt = mesh.GetMaterial(materialCreator);
             if (mt != null)
             {
-                meshCreator.SetMaterial(o, mt);
+                meshConverter.SetMaterial(o, mt);
             }
             foreach (var child in mesh.Children)
             {
-                var ch = Create<T>(child, meshCreator);
-                meshCreator.Add(o, ch);
+                var ch = Create<T>(child, meshConverter);
+                meshConverter.Add(o, ch);
             }
             return o as T;
         }
@@ -46,10 +41,11 @@ namespace Abstract3DConverters
         public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
             converter.Init(o);
-            foreach (var mesh in meshes)
+            return meshes.Select(e => Create<T>(e, converter)).ToList();
+  /*          foreach (var mesh in meshes)
             {
                 yield return Create<T>(mesh, converter);
-            }
+            }^*/
         }
 
         public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class

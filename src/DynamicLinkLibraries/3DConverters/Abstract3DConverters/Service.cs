@@ -24,6 +24,7 @@ namespace Abstract3DConverters
 
         #region Service
 
+   
         public  void SetParents(Dictionary<XmlElement, IParent> mehses)
         {
             foreach (var mesh in mehses.Keys)
@@ -60,11 +61,30 @@ namespace Abstract3DConverters
         }
 
 
-
-
         public IEnumerable<IParent> GetRoots(IEnumerable<IParent> meshes)
         {
             return meshes.Where(e => e.Parent == null);
+        }
+
+        public Dictionary<string, Image> GetImages(IEnumerable<Material> mat)
+        {
+            var d = new Dictionary<string, Image>();
+            var f = (Material m) =>
+            {
+                var im = GetImage(m);
+                if (im != null)
+                {
+                    var n = im.Name;
+                    if (d.ContainsKey(n))
+                    {
+                        throw new Exception();
+                    }
+                    d[n] = im;
+                }
+                return im;
+            };
+            mat.Select(f).ToList();
+            return d;
         }
 
         public Image GetImage(Material mat)

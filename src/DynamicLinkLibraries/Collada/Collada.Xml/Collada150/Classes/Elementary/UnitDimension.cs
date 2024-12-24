@@ -2,7 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Elementary
 {
     [Tag("unit", true)]
     internal class UnitDimension : XmlHolder

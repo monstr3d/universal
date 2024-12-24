@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abstract3DConverters.Materials;
+﻿using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters
 {

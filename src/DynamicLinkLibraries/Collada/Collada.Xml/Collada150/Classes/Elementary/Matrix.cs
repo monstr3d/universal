@@ -3,7 +3,7 @@ using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Elementary
 {
     [Tag("matrix", true)]
     public class Matrix : XmlHolder

@@ -32,7 +32,7 @@ namespace Collada150.Classes.Complicated
             }
             else
             {
-                throw new Exception();
+            //    throw new Exception();
             }
         }
 

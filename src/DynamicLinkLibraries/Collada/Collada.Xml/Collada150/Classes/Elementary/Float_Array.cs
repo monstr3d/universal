@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Collada;
 using Abstract3DConverters.Interfaces;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Elementary
 {
     [Tag("float_array", true)]
     internal class Float_Array : XmlHolder
@@ -19,6 +19,11 @@ namespace Collada150.Classes
         private Float_Array(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             Array = element.InnerText.ToRealArray<float>();
+            var id = element.GetAttribute("id");
+            if (id.Length > 0)
+            {
+                MeshCreator.Arrays[id] = this;
+            }
         //    var p = element.GetStatic<Float_Array>();
         }
 
@@ -31,7 +36,7 @@ namespace Collada150.Classes
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Float_Array(element, null);
+            var a = new Float_Array(element, meshCreator);
             return a.Get();
         }
 

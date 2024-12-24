@@ -104,7 +104,7 @@ namespace Abstract3DConverters
             {
                 return;
             }
-            MaterialGroup mat = new MaterialGroup();
+            MaterialGroup mat = new MaterialGroup(Name);
             var children = mat.Children;
             material = mat;
             if (Diffuse != null)

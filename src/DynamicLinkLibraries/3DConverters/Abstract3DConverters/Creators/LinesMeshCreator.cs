@@ -5,9 +5,6 @@ namespace Abstract3DConverters.Creators
     public abstract class LinesMeshCreator : AbstractMeshCreator
     {
 
-        protected Dictionary<string, Material> materials = new();
-
-        protected Dictionary<string, Image> images = new();
 
         protected List<string> lines = new List<string>();
 
@@ -39,8 +36,5 @@ namespace Abstract3DConverters.Creators
 
         protected abstract void CreateFromLines();
 
-        public override Dictionary<string, Material> Materials => materials;
-
-        public override Dictionary<string, Image> Images => images;
-    }
+      }
 }

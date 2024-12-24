@@ -13,15 +13,10 @@ namespace Collada.Converter.Creators
 
         private Collada141.COLLADA collada;
 
-        Dictionary<string, Image> images;
-
-        Dictionary<string, Material> materials;
-
-        public override Dictionary<string, Image> Images { get => images; }
-
+    
+   
         public Dictionary<string, Material> Effects { get; private set; }
 
-        public override Dictionary<string, Material> Materials { get => materials; }
 
         public Dictionary<string, geometry> Geometries { get; private set; }
 

@@ -3,13 +3,13 @@ using Collada;
 using System.Xml;
 
 
-namespace Collada150.Classes
+namespace Collada150.Classes .Elementary   
 {
     [Tag("vcount", true)]
     internal class VCount : P
     {
 
-        public static IClear Clear => StaticExtensionCollada.GetClear<VCount>();
+        public static new IClear Clear => StaticExtensionCollada.GetClear<VCount>();
 
 
         private VCount(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)

@@ -39,6 +39,8 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
 
         Dictionary<string, Material> materials;
 
+        
+      
 
 
         protected IMeshConverter converter;
@@ -230,11 +232,14 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
 
         protected virtual void Set(Dictionary<string, Material> materials)
         {
+            int nm = 0;
             this.materials = materials;
+            var pm = doc.GetElementsByTagName("library_materials")[0] as XmlElement;
             var parent = doc.GetElementsByTagName("library_effects")[0] as XmlElement;
             foreach (var m in materials.Values)
             {
-                CreateMaterial(parent, m);
+                ++nm;
+                CreateMaterial(parent, pm, m, nm);
             }
         }
 
@@ -250,9 +255,10 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
            {"mapfilter", "NONE" },
 
         };
-        private void CreateMaterial(XmlElement parent, Material material)
+
+        Dictionary<string, string> mat_mat0 = new Dictionary<string, string>();
+        private void CreateMaterial(XmlElement parent, XmlElement pm, Material material, int nm)
         {
-            ++nm;
             DiffuseMaterial diffuseMaterial = null;
             EmissiveMaterial emissiveMaterial = null;
             SpecularMaterial specularMaterial = null;
@@ -274,7 +280,8 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
             }
             var eff = doc.CreateElement("effect");
             parent.AppendChild(eff);
-            eff.SetAttribute("id", material.Name);
+            var effn = "effect-" + material.Name;
+            eff.SetAttribute("id", effn);
             var pc = doc.CreateElement("profile_COMMON");
             eff.AppendChild(pc);
             var dcf = "DiffuseColor-surface" + nm;
@@ -282,13 +289,20 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
             pc.AppendChild(np);
             np.SetAttribute("sid", dcf);
             Image image = diffuseMaterial.Image;
-            var at = imAttr[image];
+            var at = "";
+            if (image != null)
+            {
+                at = imAttr[image];
+            }
             var sur = doc.CreateElement("surface");
             np.AppendChild(sur);
             sur.SetAttribute("type", "2D");
-            var ifr = doc.CreateElement("init_from");
-            sur.AppendChild(ifr);
-            ifr.InnerText = at;
+            if (at.Length > 0)
+            {
+                var ifr = doc.CreateElement("init_from");
+                sur.AppendChild(ifr);
+                ifr.InnerText = at;
+            }
             np = doc.CreateElement("newparam");
             pc.AppendChild(np);
             var dcs = "DiffuseColor-sampler" + nm;
@@ -310,6 +324,32 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
             var p = doc.CreateElement("phong");
             tn.AppendChild(p);
             CreateColor(p, "emission", emissiveMaterial.Color);
+            if (diffuseMaterial.AmbientColor != null)
+            {
+                CreateColor(p, "ambient", diffuseMaterial.AmbientColor);
+            }
+            var df = doc.CreateElement("diffuse");
+            p.AppendChild(df);
+            var txt = doc.CreateElement("texture");
+            df.AppendChild(txt);
+            txt.SetAttribute("texcoord", "uv0");
+            txt.SetAttribute("texture", dcs);
+            if (specularMaterial != null)
+            {
+                CreateColor(p, "specular", specularMaterial.Color);
+                CreateFloat(p, "shininess", specularMaterial.SpecularPower);
+            }
+            CreateColor(p, "transparent", diffuseMaterial.Color);
+            CreateFloat(p, "transparency", 1 - diffuseMaterial.Opacity);
+            var nmt= doc.CreateElement("material");
+            pm.AppendChild(nmt);
+            var matn = material.Name;
+            nmt.SetAttribute("id", matn);
+            nmt.SetAttribute("name", matn);
+            var ieff = doc.CreateElement("instance_effect");
+            nmt.AppendChild(ieff);
+            ieff.SetAttribute("url", "#" + effn);
+            mat_mat0[matn] = "mat" + nm;
         }
 
         protected void CreateColor(XmlElement p, string tag, Color color)
@@ -320,6 +360,36 @@ public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMate
             t.AppendChild(c);
             c.InnerText = color.StringValue();
         }
+
+
+        protected void CreateFloat(XmlElement p, string tag, float a)
+        {
+            var t = doc.CreateElement(tag);
+            p.AppendChild(t);
+            var c = doc.CreateElement("color");
+            t.AppendChild(c);
+            c.InnerText = a + "";
+        }
+
+        protected XmlElement Create(XmlElement parent, AbstractMesh mesh)
+        {
+            var node = doc.CreateElement("node");
+            Process(node, mesh);
+            parent.AppendChild(node);
+            mesh.Children.Select(e => Create(node, e)).ToList();
+            return node;
+        }
+
+        protected void Process(XmlElement element, AbstractMesh mesh)
+        {
+            var name = mesh.Name;
+            element.SetAttribute("id", name);
+            element.SetAttribute("name", name);
+            element.SetAttribute("sid", name);
+
+        }
+
+
 
 
 

@@ -25,13 +25,19 @@ namespace Collada150.Classes.Complicated
         {
             var ifr = element.Get<Init_From>().Text;
             ImageSource = new Abstract3DConverters.Image(ifr, meshCreator.Directory);
-            if (!meshCreator.Images.ContainsKey(ImageSource.Name))
+            if (ImageSource.Name != null)
             {
-                meshCreator.Images[ImageSource.Name] = ImageSource;
+                if (!meshCreator.Images.ContainsKey(ImageSource.Name))
+                {
+                    meshCreator.Images[ImageSource.Name] = ImageSource;
+                }
+                MeshCreator.ImageIds[element.GetAttribute("id")] = ImageSource;
             }
-            MeshCreator.ImageIds[element.GetAttribute("id")] = ImageSource;
-        }
+            else
+            {
 
+            }
+        }
    
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)

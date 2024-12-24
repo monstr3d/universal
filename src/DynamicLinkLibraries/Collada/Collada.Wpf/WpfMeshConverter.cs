@@ -29,7 +29,7 @@ namespace Collada.Wpf
 
         public IMaterialCreator MaterialCreator => creator;
 
-        IMaterialCreator IMeshConverter.MaterialCreator => throw new NotImplementedException();
+        IMaterialCreator IMeshConverter.MaterialCreator => creator;
 
         Service s = new();
 

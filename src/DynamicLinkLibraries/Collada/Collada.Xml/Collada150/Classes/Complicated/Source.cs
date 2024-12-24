@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
+using Collada150.Classes.Elementary;
 using Collada150.Creators;
 
 namespace Collada150.Classes.Complicated

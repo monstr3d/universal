@@ -1,5 +1,4 @@
-﻿using System.Xml;
-using Abstract3DConverters;
+﻿using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 
 namespace Collada150
@@ -10,7 +9,6 @@ namespace Collada150
 
 
         Service s = new();
-
 
 
         List<float[]> vertices;

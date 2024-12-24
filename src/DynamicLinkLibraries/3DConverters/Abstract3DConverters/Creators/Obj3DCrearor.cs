@@ -146,6 +146,7 @@ namespace Abstract3DConverters.Creators
                     mtlstr = file;
                     var mtl = new MtlWrapper();
                     materials = mtl.Create(file, directory);
+                    images = s.GetImages(materials.Values);
                     break;
                 }
 

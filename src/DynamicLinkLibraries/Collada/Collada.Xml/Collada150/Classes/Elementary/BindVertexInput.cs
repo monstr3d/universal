@@ -3,7 +3,7 @@ using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Collada;
 
-namespace Collada150.Classes
+namespace Collada150.Classes.Complicated
 {
     [Tag("bind_vertex_input", true)]
     internal class BindVertexInput : XmlHolder
