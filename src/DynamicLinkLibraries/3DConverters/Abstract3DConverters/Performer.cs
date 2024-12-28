@@ -38,29 +38,24 @@ namespace Abstract3DConverters
             return o as T;
         }
 
-        public IEnumerable<T> Create<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
+        public IEnumerable<T> Create<T>(IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
-            converter.Init(o);
             return meshes.Select(e => Create<T>(e, converter)).ToList();
-  /*          foreach (var mesh in meshes)
-            {
-                yield return Create<T>(mesh, converter);
-            }^*/
         }
 
-        public T Combine<T>(object o, IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
+        public T Combine<T>(IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
-            var enu = Create<T>(o, meshes, converter);
+            var enu = Create<T>(meshes, converter);
             return converter.Combine(enu) as T;
         }
 
         public T Create<T>(string filename, IMeshCreator creator, IMeshConverter converter, Action < T> action = null) where T : class
         {
             creator.Load(filename);
-            var t = creator.Create();
+            var meshes = creator.Meshes;
             converter.Images = creator.Images;
             converter.Materials = creator.Materials;
-            var res = Combine<T>(t.Item1, t.Item2, converter);
+            var res = Combine<T>(meshes, converter);
             if (action != null)
             {
                 action(res);

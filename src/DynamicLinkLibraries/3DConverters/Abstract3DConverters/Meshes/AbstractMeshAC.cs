@@ -1,11 +1,10 @@
-﻿using System.Linq.Expressions;
-using Abstract3DConverters.Creators;
+﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters.Meshes
 {
-    public class AbstractMeshAC : AbstractMeshPolygon
+    internal class AbstractMeshAC : AbstractMeshPolygon
     {
 
         List<int> mats = new List<int>();
@@ -25,7 +24,7 @@ namespace Abstract3DConverters.Meshes
         }
 
 
-        public AbstractMeshAC(AbstractMeshAC parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
+        public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
             base(name, parent, creator)
         {
             this.count = count;

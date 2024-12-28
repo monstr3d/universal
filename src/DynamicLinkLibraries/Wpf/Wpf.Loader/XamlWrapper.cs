@@ -10,6 +10,7 @@ using System.Xml;
 using System.Windows.Media.TextFormatting;
 using System.Security.Policy;
 using System.Drawing;
+using System.Linq.Expressions;
 
 namespace Wpf.Loader
 {
@@ -208,7 +209,15 @@ namespace Wpf.Loader
                 {
                     continue;
                 }
-                using (var stream = File.OpenWrite(Path.Combine(directory, f)))
+                var ff = f.Replace('/', Path.DirectorySeparatorChar);
+                ff = Path.Combine(directory, ff);
+                var dd = Path.GetDirectoryName(ff);
+                var di = new DirectoryInfo(dd);
+                if (!di.Exists)
+                {
+                    di.Create();
+                }
+                using (var stream = File.OpenWrite(ff))
                 {
                     stream.Write(b, 0, b.Length);
                 }

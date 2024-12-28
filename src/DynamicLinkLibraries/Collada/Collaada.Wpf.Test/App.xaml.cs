@@ -27,13 +27,16 @@ namespace Collaada.Wpf.Test
             StaticExtensionAbstract3DConverters.Init();
             // Compare();
             //  Generate();
-            //     GenerateObj();
+            //   GenerateObj();
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-        //      GenerateWpf();
-              GenerateToDae();
-         //   GenerateNative();
+            GenerateToDae();
+            GenerateWpf();
+         //   GenerateWpf();
+
+            //     GenerateToDae();
+            //   GenerateNative();
         }
 
         void GenerateNative()
@@ -256,9 +259,9 @@ namespace Collaada.Wpf.Test
         void GenerateObj()
         {
           //  GenerateObj("Tornado");
-                 GenerateObj("F15");
+           //      GenerateObj("F15");
           //      GenerateObj("Mig29");
-           // GenerateObj("Sukhoi");
+            GenerateObj("Sukhoi");
             //    GenerateObj("F16");
             //  GenerateObj("H6");
 

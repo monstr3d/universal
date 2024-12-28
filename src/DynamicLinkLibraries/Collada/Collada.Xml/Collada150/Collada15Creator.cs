@@ -1,4 +1,5 @@
 ﻿
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Xml;
 using Abstract3DConverters;
@@ -148,60 +149,7 @@ namespace Collada150.Creators
             XmlDocument doc = new XmlDocument();
             doc.Load(filename);
             StaticExtensionCollada.XmlElement = doc.DocumentElement;
-            /*
-             collada.Add(dic, collada.GetType().Assembly);
-             images = ToDictionary(dic[typeof(image)], GetImage);
-             NewParam = ToDictionary(dic[typeof(common_newparam_type)], o => (common_newparam_type)o, "sid");
-             Effects = ToDictionary(dic[typeof(effect)], GetEffect);
-             materials = ToDictionary(dic[typeof(material)], GetMaterial);
-             Geometries = ToDictionary(dic[typeof(geometry)], GetGeometry, "id");*/
         }
-        /*
-                geometry GetGeometry(object obj)
-                {
-                    return obj as geometry;
-                }
-
-
-                Material GetMaterial(object obj)
-                {
-                    if (obj is material mat)
-                    {
-                        var eff = mat.instance_effect;
-                        if (eff != null)
-                        {
-                            var url = eff.url;
-                            if (url != null)
-                            {
-                                if (url.Length > 1)
-                                {
-                                    url = url.Substring(1);
-                                    if (Effects.ContainsKey(url))
-                                    {
-                                        var mt = Effects[url] as MaterialGroup;
-                                        var mg = new MaterialGroup(mat.id);
-                                        foreach (var mm in mt.Children)
-                                        {
-                                            var mmm = mm.Clone() as Material;
-                                            mg.Children.Add(mmm);
-                                        }
-                                        return mg;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return null;
-                }
-                /*
-                        protected  Tuple<object, List<AbstractMesh>> Create(string filename)
-                        {
-                            Directory = Path.GetDirectoryName(filename);
-                            collada = Collada141.COLLADA.Load(filename);
-                            PrepareData();
-                            return Create();
-                        }
-                */
         public Dictionary<string, T> ToDictionary<T>(List<object> list, Func<object, T> func, string pname = "name") where T : class
         {
             var d = new Dictionary<string, T>();
@@ -228,12 +176,10 @@ namespace Collada150.Creators
             return d;
         }
 
-        public override Tuple<object, List<AbstractMesh>> Create()
+        protected override IEnumerable<AbstractMesh> Get()
         {
             s.SetParents(Meshes);
-
-            var l = s.GetRoots(Meshes.Values).Select(a => a as AbstractMesh).ToList();
-            return new Tuple<object, List<AbstractMesh>>(null, l);
+            return s.GetRoots(Meshes.Values).Select(a => a as AbstractMesh).ToList();
         }
   
         #region ICollada Members
@@ -277,8 +223,6 @@ namespace Collada150.Creators
                         }
                     }
                     l = null;
-                    //  Testtechnique(xmlElement);
-                    //    Testtecfiltes(xmlElement);
                 }
             }
             var t = elementary;
@@ -294,35 +238,13 @@ namespace Collada150.Creators
                 }
 
             }
-                   
-            //       t = Function.AddTags;
-            //        t.Get();
-            int i = 0;
-
-            /*          var s = xmlElement.GetElements();
-                      foreach (XmlElement e in s)
-                      {
-                          if (finalTypes.Contains(e.Name))
-                          {
-                              e.Get();
-                          }
-                      }
-                      s = xmlElement.GetElements(IsSource);
-                      foreach (XmlElement e in s)
-                      {
-                          //          sources[e.InnerText] = e;
-                          var param = e.ParentNode.ParentNode as XmlElement;
-                          sourceParam[e] = param;
-                          paramSource[param] = e;
-                      }*/
-            // newparam.Get();
 
         }
 
-            void ICollada.Put(XmlElement xmlElement)
-            {
+        void ICollada.Put(XmlElement xmlElement)
+        {
 
-            }
+        }
 
         string ICollada.UniqueId(XmlElement xmlElement)
         {

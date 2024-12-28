@@ -84,6 +84,11 @@ namespace Abstract3DConverters.Meshes
             Normals = normals;
             Textures = textures;
             Indexes = indexes;
+            var mt = creator.Materials;
+            if (mt.ContainsKey(MaterialString))
+            {
+                Material = mt[MaterialString];
+            }
         }
 
         public AbstractMesh(string name, IMeshCreator creator = null, Material material = null, 
@@ -109,18 +114,25 @@ namespace Abstract3DConverters.Meshes
 
         public virtual object GetMaterial(IMaterialCreator creator)
         {
-            if (Material != null)
+            try
             {
-                return creator.Create(Material);
-            }
-            var mt = this.creator.Materials;
-            if (MaterialString != null)
-            {
-                if (mt.ContainsKey(MaterialString))
+                if (Material != null)
                 {
-                    var mm = mt[MaterialString];
-                    return creator.Create(mm);
+                    return creator.Create(Material);
                 }
+                var mt = this.creator.Materials;
+                if (MaterialString != null)
+                {
+                    if (mt.ContainsKey(MaterialString))
+                    {
+                        var mm = mt[MaterialString];
+                        return creator.Create(mm);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
             return null;
         }

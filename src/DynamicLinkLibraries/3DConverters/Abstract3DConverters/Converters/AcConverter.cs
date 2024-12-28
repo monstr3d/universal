@@ -80,16 +80,6 @@ namespace Abstract3DConverters.Converters
             return null;
         }
 
-        void IMeshConverter.Init(object obj)
-        {
-            if (obj is Tuple<List<float[]>, List<float[]>, List<float[]>> t)
-            {
-                vertices = t.Item1;
-                textures = t.Item2;
-                normals = t.Item3;
-            }
-        }
-
         void IMeshConverter.SetMaterial(object mesh, object material)
         {
             throw new NotImplementedException();

@@ -23,7 +23,7 @@ namespace Collada150.Classes.Complicated
 
         public int[] Idx { get; private set; }
 
-        public List<int[]> Indexes { get; private set; }
+    //    public List<int[]> Indexes { get; private set; }
 
         public List<int[]> Index { get; private set; }
 

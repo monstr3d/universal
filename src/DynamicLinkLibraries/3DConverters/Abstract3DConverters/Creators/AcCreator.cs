@@ -12,6 +12,9 @@ namespace Abstract3DConverters.Creators
 
         internal static   string[] Colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
+
+        internal int[] Shift { get; private set; } = [0, 0, 0];
+
         public AcCreator()
         {
 
@@ -19,11 +22,14 @@ namespace Abstract3DConverters.Creators
 
         #region AbstractMeshCreator Members
 
+        protected override IEnumerable<AbstractMesh> Get()
+        {
+            return Create(null, lines).ToList();
+        }
+     
 
 
-
-
-        public override Tuple<object, List<AbstractMesh>> Create()
+        public Tuple<object, List<AbstractMesh>> Create()
         {
             var l = Create(null, lines).ToList();
             return new Tuple<object, List<AbstractMesh>>(null, l);
@@ -116,7 +122,7 @@ namespace Abstract3DConverters.Creators
         }
 
 
-        public IEnumerable<AbstractMesh> Create(AbstractMeshAC parent, List<string> lines, int start = 0, int current = -1)
+        public IEnumerable<AbstractMesh> Create(AbstractMesh parent, List<string> lines, int start = 0, int current = -1)
         {
             if (current == 0)
             {

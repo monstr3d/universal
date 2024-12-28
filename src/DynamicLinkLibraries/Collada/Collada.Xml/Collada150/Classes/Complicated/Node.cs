@@ -1,9 +1,4 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
@@ -47,7 +42,6 @@ namespace Collada150.Classes.Complicated
             var g = geom.Geometry;
             var mesh = g.Mesh;
             var tr = mesh.Triangles;
-
             List<float[]> vertices = null;
             List<float[]> normal = null;
             List<float[]> textures = null;
@@ -89,16 +83,25 @@ namespace Collada150.Classes.Complicated
                 for (int j = 0; j < p.Length; j++)
                 {
                     var pp = p[j];
-                    k[j] = h;
+                    var kj = new int[pp.Length];
+                    k[j] = kj;
                     for (int hh = 0; hh < pp.Length; hh++)
                     {
-                        h[offs[hh]] = pp[hh];
+                        kj[offs[hh]] = pp[hh];
                     }
                 }
                 t.Add(k);
 
             }
-            return new AbstractMesh(name, null, mt, vertices, normal, textures, t, mm);
+            try
+            {
+                return new AbstractMesh(name, null, mt, vertices, normal, textures, t, mm);
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
         }
 
 

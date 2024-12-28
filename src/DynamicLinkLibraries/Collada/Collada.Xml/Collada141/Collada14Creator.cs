@@ -211,7 +211,7 @@ namespace Collada.Converter.Creators
             return grp;
         }
 
-        public override Tuple<object, List<AbstractMesh>> Create()
+        protected override IEnumerable<AbstractMesh> Get()
         {
             var l = new List<AbstractMesh>();
             foreach (var node in Nodes)
@@ -219,10 +219,7 @@ namespace Collada.Converter.Creators
                 l.Add(Create(node));
             }
 
-
-            var t = new Tuple<object, List<AbstractMesh>>(null, l);
-            //         var sc = collada.asset.no
-            return t;
+            return l;
         }
 
         object ToZeroItem(object obj)

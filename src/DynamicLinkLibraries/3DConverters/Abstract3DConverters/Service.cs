@@ -47,6 +47,17 @@ namespace Abstract3DConverters
             }
         }
 
+        public IEnumerable<T> ToSingleArray<T>(List<T[]> t) where T :struct
+        {
+            foreach (var item in t)
+            {
+                foreach (var i in item)
+                {
+                    yield return i;
+                }
+            }
+        }
+
         public void SetParents(Dictionary<IParent, XmlElement> meshes)
         {
             foreach (var mesh in meshes)

@@ -1,7 +1,4 @@
-﻿using System.Linq.Expressions;
-using System.Transactions;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
     public class Color : ICloneable
     {

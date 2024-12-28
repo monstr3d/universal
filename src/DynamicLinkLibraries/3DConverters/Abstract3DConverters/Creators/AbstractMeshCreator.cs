@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Headers;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -37,16 +36,16 @@ namespace Abstract3DConverters.Creators
             CreateAll();
         }
 
-        public abstract Tuple<object, List<AbstractMesh>> Create();
+        IEnumerable<AbstractMesh> IMeshCreator.Meshes => Get();
 
-        public Tuple<object, List<AbstractMesh>> Create(string filename)
+        public IEnumerable<AbstractMesh> Create(string filename)
         {
             Load(filename);
-            return Create();
+            return Get();
         }
 
 
-        
+        protected  abstract IEnumerable<AbstractMesh> Get();
 
         protected abstract void CreateAll();
 

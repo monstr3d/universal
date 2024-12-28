@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters;
+﻿using System.Xml;
+using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 
 namespace Collada150
@@ -8,20 +9,8 @@ namespace Collada150
         #region Fields
 
 
-        Service s = new();
-
-
-        List<float[]> vertices;
-
-        List<float[]> textures;
-
-        List<float[]> normals;
-
-        List<string> materials = new();
-
         Dictionary<string, int> dm = new();
 
-        IMeshConverter converter;
 
         #endregion
 
@@ -31,6 +20,8 @@ namespace Collada150
         {
             converter = this;
             doc.LoadXml(Properties.Resources.etalon);
+            var r = doc.GetElementsByTagName("library_visual_scenes")[0];
+            library_visual_scenes = doc.GetElementsByTagName("library_visual_scenes")[0] as XmlElement;
         }
 
         #endregion

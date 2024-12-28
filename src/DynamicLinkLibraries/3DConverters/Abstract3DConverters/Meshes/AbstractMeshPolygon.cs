@@ -11,13 +11,13 @@ namespace Abstract3DConverters.Meshes
         { get; } = new List<Polygon>();
 
 
-        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent, IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, IMeshCreator creator) :
             base(name, creator)
         {
             Parent = parent;
         }
 
-        public AbstractMeshPolygon(string name, AbstractMeshPolygon parent, string material, IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, string material, IMeshCreator creator) :
             this(name, parent, creator)
         {
             MaterialString = material;

@@ -41,16 +41,7 @@ namespace Collada.Wpf
         List<float[]> normals;
 
 
-        void IMeshConverter.Init(object o)
-        {
-            if (o is Tuple<List<float[]>, List<float[]>, List<float[]>> t)
-            {
-                vertices = t.Item1;
-                textures = t.Item2;
-                normals = t.Item3;
-            }
-        }
-
+   
 
         string IMeshConverter.Directory => throw new NotImplementedException();
 

@@ -35,7 +35,21 @@ namespace Abstract3DConverters
         {
             using (var reader = new StreamReader(Path.Combine(directory, filename)))
             {
-                new MtlWrapper(filename, directory, reader, dict);
+
+                var name = "";
+                do
+                {
+                    var line = reader.ReadLine();
+                    if (line.Contains("newmtl"))
+                    {
+                        var ss = line.Split(" ".ToCharArray());
+                        name = ss[ss.Length - 1];
+                        break;
+                    }
+
+                }
+                while (!reader.EndOfStream);
+                new MtlWrapper(name, directory, reader, dict);
 
             }
             return dict;
@@ -125,7 +139,7 @@ namespace Abstract3DConverters
             }
         }
 
-        bool first = false;
+        bool first = true;
 
         private MtlWrapper(string str, string directory, StreamReader reader, Dictionary<string, Material> materials)
         {

@@ -10,7 +10,7 @@ namespace Abstract3DConverters.Interfaces
 
         void Load(string filename);
 
-        Tuple<object, List<AbstractMesh>> Create();
+        IEnumerable<AbstractMesh> Meshes { get; }
 
         Dictionary<string, Material> Materials { get; }
  

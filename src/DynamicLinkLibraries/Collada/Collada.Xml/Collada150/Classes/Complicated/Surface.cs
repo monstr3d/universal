@@ -21,7 +21,12 @@ namespace Collada150.Classes.Complicated
 
         public Surface(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
-            var iff = element.Get<Init_From>().Text;
+            var i = element.Get<Init_From>();
+            if (i == null)
+            {
+                return;
+            }
+            var iff = i.Text;
             var imm = MeshCreator.ImageIds;
             if (imm.ContainsKey(iff))
             {

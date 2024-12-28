@@ -22,9 +22,6 @@ namespace Abstract3DConverters.Interfaces
             set;
         }
 
-
-        void Init(object obj);
-
         object Create(AbstractMesh mesh);
 
         void SetMaterial(object mesh, object material);
