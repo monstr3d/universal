@@ -1,7 +1,10 @@
-﻿namespace Abstract3DConverters
+﻿using System.Runtime.InteropServices;
+
+namespace Abstract3DConverters
 {
     public class Image : ICloneable
     {
+        static public string DefaultPath { get; set; } 
 
         public string Name { get; private set; }
 
@@ -11,6 +14,12 @@
 
         public Image(string name, string directory)
         {
+            if (directory == null)
+            {
+                Name = name;
+                FullPath = DefaultPath;
+                return;
+            }
             var n = Path.GetFileName(name);
             Directory = directory;
             Name = Find(n, Directory);

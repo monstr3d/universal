@@ -18,7 +18,6 @@ namespace Abstract3DConverters.Creators
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
-        Service s = new Service();
 
         internal List<float[]> Vertices { get; private set; } = new List<float[]>();
         internal List<float[]> Normals  { get; private set; } = new List<float[]>();

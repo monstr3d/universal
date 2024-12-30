@@ -10,6 +10,8 @@ namespace Abstract3DConverters.Interfaces
 
         void Load(string filename);
 
+        void Load(Stream stream);
+
         IEnumerable<AbstractMesh> Meshes { get; }
 
         Dictionary<string, Material> Materials { get; }

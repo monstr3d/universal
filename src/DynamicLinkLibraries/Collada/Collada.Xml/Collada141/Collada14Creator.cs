@@ -30,9 +30,13 @@ namespace Collada.Converter.Creators
 
         }
 
+        protected override void LoadIfself(Stream stream)
+        {
+            collada = COLLADA.Load(stream);
+        }
+
         protected override void CreateAll()
         {
-            collada = Collada141.COLLADA.Load141(filename);
             PrepareData();
         }
 

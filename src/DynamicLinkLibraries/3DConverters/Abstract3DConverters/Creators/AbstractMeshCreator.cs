@@ -33,8 +33,19 @@ namespace Abstract3DConverters.Creators
         {
             directory = Path.GetDirectoryName(filename);
             this.filename = filename;
+            using (var stream = File.OpenRead(filename))
+            {
+                Load(stream);
+            }
+        }
+
+        public void Load(Stream stream)
+        {
+            LoadIfself(stream);
             CreateAll();
         }
+
+        protected abstract void LoadIfself(Stream stream);
 
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Get();
 

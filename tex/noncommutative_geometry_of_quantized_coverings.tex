@@ -17669,6 +17669,8 @@ which is a specialization of \eqref{conn_triple_eqn}, i.e. $\nabla$ is a connect
 
 
 \section{Infinite coverings}\label{nt_inf_sec}
+
+!!! ALL CHECK !!!
 %{} %Let us consider a sequence
 %\begin{equation}\label{nt_long_seq_eqn}
 %\mathfrak{S}_{C\left( \T^n_\Th\right) } =\left\{ C\left( \T^n_\Th\right)  =C\left( \T^n_{\Th_0}\right) \xrightarrow{\pi^1}  ... \xrightarrow{\pi^j} C\left( \T^n_{\Th_j}\right) \xrightarrow{\pi^{j+1}} ...\right\}.
@@ -17819,6 +17821,9 @@ the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
 	\widehat{\pi}^\oplus\left( a\right)\left(g\xi \right) =  g\left( \widehat{\pi}\left(g^{-1}a \right) \xi\right); ~ \forall a \in  \widehat{C\left(\mathbb{T}^{2N}_{\th}\right) }, ~ \forall g \in J,~ \forall \xi \in L^2\left(\R^{2N} \right). 
 	\ee
 \end{empt}
+
+
+
 \subsection{Inverse noncommutative limit}\label{nt_inv_lim_sec}
 \begin{lemma}\label{nt_w*_top_lem}
 	If $\overline a \in S\left(\R^{2N}\right)$ then for all $j\in \N$ the following conditions hold:
@@ -17938,19 +17943,16 @@ the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
 	The Lemma \ref{mp_osc_lem} describes an orthogonal basis 	 
 	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$ 
 	orthogonal basis of $L^2\left( \R^2\right)$, so from \eqref{nt_m_t_eqn} it follows that
-	$$
+\be\label{nt_compact_eqn}
 	C_0\left(\R^{2N}_\th\right) \cong \K\left(  \underbrace{L^2\left(\R^{2}_\th\right)\otimes\dots\otimes L^2\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \right) 
-	$$
+\ee
 	There is a basis of $\underbrace{L^2\left(\R^{2}_\th\right)\otimes\dots\otimes L^2\left(\R^{2}_\th\right)}_{N-\mathrm{times}}$ consisting elements
 	\be
 	f_{m_1,n_1}\otimes ...\otimes  f_{m_N,n_N}
 	\ee
 	where $ f_{m_1,n_1}, ..., f_{m_N,n_N}$ are described Lemma \ref{mp_osc_lem} elements	 
-	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$
-	From 
-	\begin{defn}\label{nt_r_2_N_repr_defn!}!!!\cite{moyal_spectral} Let $\SS'\left(\R^{2N} \right)$ be a vector space dual to $\SS\left(\R^{2N} \right)$. Denote by $C_b\left(\R^{2N}_\th\right)\stackrel{\mathrm{def}}{=} \set{T \in \SS'\left(\R^{2N}\right) : T \star_\th g \in L^2\left(\R^{2N}\right) \text{ for all } g \in L^2(\R^{2N})}$, provided with the given by \eqref{mp_op_eqn} operator norm $	\|\cdot\|_{\mathrm{op}}$.
-		Denote by $C_0\left(\R^{2N}_\th \right)$ the operator norm completion of $\SS\left(\R^{2N}_\th \right).$  
-	\end{defn}
+	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$.
+
 \end{empt}
 
 \begin{lemma}\label{nt_w*_lem}
@@ -18004,28 +18006,45 @@ the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
 	where the sum of the series means the strong convergence in $B\left( L^2\left(\R^{2N}_\th \right)\right)$. 
 \end{proof}
 
-There is the inclusion $C\left(\T^{2N}_{\th/2m_j}\right)\hookto C_b\left( \R^{2N}_\th\right)$
 \begin{lemma}\label{nt_p_lem}
-	Under the hypotheses \ref{nt_w*_lem} thy series \eqref{nt_w*_eqn} is convergent with respect to the strict topology of $M\left(C_0\left( \R^{2N}_\th\right) \right)$ (cf. Definition \ref{strict_topology_defn}) 
-	!!!!
-	
+	Under the hypotheses \ref{nt_w*_lem} then series \eqref{nt_w*_eqn} is convergent with respect to the strict topology of $M\left(C_0\left( \R^{2N}_\th\right) \right)$ (cf. Definition \ref{strict_topology_defn}) with the following strict sum
 	$$
-	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
+\bt \text{-}	\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
 	$$
 \end{lemma}
 
-\begin{proof} !!! CORRECT !!!  RANK ONE OPERATOR !!!
-	\cite{moyal_spectral}
-	If $f,g \in L^2 \left(\R^{2N} \right)$, then $f\star_\th g \in L^2 \left(\R^{2N} \right)$ and $\left\|f\right\|_{\mathrm{op}} < \left(2\pi\th \right)^{-\frac{N}{2}} \left\|f\right\|_2$.
-	where	$\left\|\cdot\right\|_{2}$ be the $L^2$-norm given by
-	\begin{equation}\label{nt_l2_norm_eqn}
-		\left\|f\right\|_{2} \stackrel{\mathrm{def}}{=} \left|\int_{\R^{2N}} \left|f\right|^2 dx \right|^{\frac{1}{2}}.
-	\end{equation}
-	and the operator norm
-	\be\label{mp_op_eqn}
-	\|T\|_{\mathrm{op}} \stackrel{\mathrm{def}}{=}\sup\set{\|T \star g\|_2/\|g\|_2 : 0 \neq g \in L^2\left( \R^{2N})\right) }
-	\ee 
+\begin{proof} 
 	
+From the equation \eqref{nt_compact_eqn} it follows that 
+One has \bean
+C_0\left(\R^{2N}_\th\right) \cong \K\left(  \underbrace{L^2\left(\R^{2}_\th\right)\otimes\dots\otimes L^2\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \right),
+\eean 
+so $\overline b' \bydef \xi\left\rangle \right\langle\eta \in C_0\left(\R^{2N}_\th\right)$ for all $\xi, \eta \in  \underbrace{L^2\left(\R^{2}_\th\right)\otimes\dots\otimes L^2\left(\R^{2}_\th\right)}_{N-\mathrm{times}}$. If $\overline a \in S\left(\R^{2N} _\th\right)_+$ then from the Lemma \ref{nt_w*_lem} it follows  the series
+\bean
+a_j\bydef \sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }  g \overline a = a_j
+\eean 
+is convergent with respect to the strong topology of $B\left(\underbrace{L^2\left(\R^{2}_\th\right)\otimes\dots\otimes L^2\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \right) $ (cf. Definition). So for any $\dl > 0$ there is a finite subset $G_0\subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ such that for any subset $G_0\subset G\subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ one has
+\bean
+\left\|\left( \sum_{g \in G }  g \overline a\right) \xi - a_j \xi \right\| < \dl
+\eean
+If $\left\|\eta\right\|\le 1$ then one has.
+\bean
+\left\|\left( \sum_{g \in G }  g \overline a\right) \overline b'  - a_j \overline b'\right\| < \dl.
+\eean
+If  $\eps > 0$ and   $\overline b\in \K$ is and arbitrary operator then there is a finite sum $\sum_{k=1}^n\xi_k\left\rangle \right\langle\eta_k$ with
+\bean
+\forall j =1, ..., n \quad \left\|\eta_j\right\|\le 1,\\
+\left\|\sum_{k=1}^n\xi_k\left\rangle \right\langle\eta_k- \overline b\right\|< \frac{\eps}{2\left\|a_j\right\|}
+\eean
+One the other hand for all $k \in\left\{1,..., n\right\}$ there is a finite group $G^k_0\subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$ with
+ \bean
+ \left\|\left( \sum_{g \in G^k }  g \overline a\right) \overline b_k  - a_j \overline b_k\right\| <  \frac{\eps}{2n}
+ \eean
+ where $b_k \bydef \xi_k\left\rangle \right\langle\eta_k$ and  $G^k_0\subset G^k\subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$. If $G_0 \bydef \bigcup_{k =1}^n G^k$ then from the triangle identity it follows that
+ $$
+  G_0\subset G\subset \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) \quad \Rightarrow \quad  \left\|\left( \sum_{g \in G }  g \overline a\right) \overline b  - a_m \overline b\right\| <\eps. 
+ $$
+This lemma follows from the above inequality.
 \end{proof}
 
 

@@ -13,9 +13,9 @@ namespace Abstract3DConverters.Creators
 
         }
 
-        protected override void CreateAll()
+        protected override void LoadIfself(Stream stream)
         {
-            using (var reader = new StreamReader(filename))
+            using (var reader = new StreamReader(stream))
             {
                 do
                 {
@@ -31,6 +31,10 @@ namespace Abstract3DConverters.Creators
                 }
                 while (!reader.EndOfStream);
             }
+        }
+
+        protected override void CreateAll()
+        {
             CreateFromLines();
         }
 

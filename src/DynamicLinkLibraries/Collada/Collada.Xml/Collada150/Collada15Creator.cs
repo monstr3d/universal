@@ -12,7 +12,7 @@ using Collada150.Classes.Elementary;
 
 namespace Collada150.Creators
 {
-    public partial class Collada15MeshCreator : AbstractMeshCreator, IFunction, ICollada
+    public partial class Collada15MeshCreator : XmlMeshCreator, IFunction, ICollada
     {
         Service s = new();
 
@@ -146,8 +146,6 @@ namespace Collada150.Creators
 
         void PrepareData()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filename);
             StaticExtensionCollada.XmlElement = doc.DocumentElement;
         }
         public Dictionary<string, T> ToDictionary<T>(List<object> list, Func<object, T> func, string pname = "name") where T : class
