@@ -51,7 +51,7 @@ namespace Abstract3DConverters
 
         public T Create<T>(string filename, IMeshCreator creator, IMeshConverter converter, Action < T> action = null) where T : class
         {
-            creator.Load(filename);
+          //  creator.Load(filename);
             var meshes = creator.Meshes;
             converter.Images = creator.Images;
             converter.Materials = creator.Materials;

@@ -103,7 +103,7 @@ namespace Collada150.Creators
         }
 
 
-        public Collada15MeshCreator()
+        public Collada15MeshCreator(XmlDocument doc) : base(doc)
         {
             try
             {

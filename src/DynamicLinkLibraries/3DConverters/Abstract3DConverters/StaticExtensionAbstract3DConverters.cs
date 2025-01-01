@@ -62,9 +62,9 @@ namespace Abstract3DConverters
 
         }
 
-        public static IMeshCreator GetMeshCreator(string filename)
+        public static IMeshCreator GetMeshCreator(string extension, Stream stream)
         {
-            return meshCreatorFactory[filename];
+            return meshCreatorFactory[extension, stream];
         }
 
         public static void Add(this IMeshCreatorFactory factory)
@@ -91,7 +91,7 @@ namespace Abstract3DConverters
                             var ca = CustomAttributeExtensions.GetCustomAttribute<Attributes.ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
                             if (ca != null)
                             {
-                                ConstructorInfo constructor = type.GetConstructor([]);
+                                ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(Stream)]);
                                 var keys = ca.Extensions;
                                 foreach (var key in keys)
                                 {
@@ -137,7 +137,10 @@ namespace Abstract3DConverters
 
         public static IMeshCreator ToMeshCreator(this string filename)
         {
-            return meshCreatorFactory[filename];
+            using (var stream = File.OpenRead(filename))
+            {
+                return meshCreatorFactory[filename, stream];
+            }
         }
 
         /// <summary>

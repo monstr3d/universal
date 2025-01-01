@@ -11,6 +11,8 @@ namespace Abstract3DConverters.Creators
 
         protected string filename;
 
+        protected string ext;
+
         protected Dictionary<string, Material> materials = new();
 
         protected Dictionary<string, Image> images = new();
@@ -24,39 +26,46 @@ namespace Abstract3DConverters.Creators
 
         }
 
+        string IMeshCreator.Extension => ext;
+
         string IMeshCreator.Directory => directory;
 
         public Dictionary<string, Material> Materials => materials;
         public Dictionary<string, Image> Images => images;
 
-        public void Load(string filename)
-        {
-            directory = Path.GetDirectoryName(filename);
-            this.filename = filename;
-            using (var stream = File.OpenRead(filename))
-            {
-                Load(stream);
-            }
-        }
+        public abstract void Load(Stream stream);
 
-        public void Load(Stream stream)
-        {
-            LoadIfself(stream);
-            CreateAll();
-        }
+        /*        public void Load(string filename)
+                {
+                    directory = Path.GetDirectoryName(filename);
+                    this.filename = filename;
+                    using (var stream = File.OpenRead(filename))
+                    {
+                        Load(stream);
+                    }
+                }
 
-        protected abstract void LoadIfself(Stream stream);
+                public void Load(Stream stream)
+                {
+                    LoadIfself(stream);
+                    CreateAll();
+                }
+
+                protected abstract void LoadIfself(Stream stream);
+
+
+                public IEnumerable<AbstractMesh> Create(string filename)
+                {
+                    Load(filename);
+                    return Get();
+                }
+
+                */
 
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Get();
 
-        public IEnumerable<AbstractMesh> Create(string filename)
-        {
-            Load(filename);
-            return Get();
-        }
 
-
-        protected  abstract IEnumerable<AbstractMesh> Get();
+        protected abstract IEnumerable<AbstractMesh> Get();
 
         protected abstract void CreateAll();
 

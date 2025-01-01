@@ -4031,7 +4031,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	The  given by \ref{inf_cat_empt} category is said to be a \textit{weak algebraical finite covering category} if
  		any $\mathfrak{S}$-morphism $\lift^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
  	We write
- 	\be\label{weak_algebraical_weak_finite_covering_category_eqn}
+ 	\be\label{weak_algebraical_finite_covering_category_eqn}
  	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
  	\ee
  	Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{disconnected covering of the weak algebraical finite covering category}  $\mathfrak{S}$.
@@ -4091,7 +4091,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
 	the  \textit{weak infinite noncommutative covering} or the  \textit{weak covering inverse  limit} of the weak algebraical finite covering category (cf. Definition \ref{connected_comp_defn}) $$\mathfrak{S}=\left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}.$$ 
 \end{definition}
 \begin{remark}
-	The  Definitions \ref{infinite_weak_quasicovering_defn}, \ref{weak_algebraical_finite_covering_category_defn} and \ref{infinite_weak_noncommutative_covering_defn} !!!! ADD DEFINITIONS !!! depend of the choice of the dense $*$-subalgebra   $\overline{\A}\subset \overline{A}$
+	The  Definitions \ref{infinite_weak_quasicovering_defn}, \ref{weak_algebraical_finite_covering_category_defn}, \ref{infinite_lift_weak_defn}, \ref{weak_good_defn} and \ref{infinite_weak_noncommutative_covering_defn}  depend of the choice of the dense $*$-subalgebra   $\overline{\A}\subset \overline{A}$
 \end{remark}  
  \begin{lemma}\label{infinite_pre_covering_lem}
 	Under the hypotheses \ref{infinite_quasicovering_empt} if $\overline \A =  K\left(\overline A \right)$ where $\overline \A$ is given by \eqref{dense_a_eqn}
@@ -4148,16 +4148,6 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
 	\desc \bydef \desc_{\la_{\min}}: K\left(\overline A \right) \to K\left(A \right)
 	$$  homomorphism   of $A$-$A$-bimodules is the \textit{minimal descent}.
 \end{definition}
-  \begin{definition}\label{weak_algebraical_finite_covering_category_defn!}
-	The  given by \ref{inf_cat_empt} category is said to be a \textit{weak algebraical finite covering category} if
-	any $\mathfrak{S}$-morphism $\lift^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
-	We write
-	\be\label{algebraical_weak_finite_covering_category_eqn}
-	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
-	\ee
-	Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{disconnected covering of the weak algebraical finite covering category}  $\mathfrak{S}$.
-\end{definition}
-
 
 
   \begin{definition}\label{algebraical_finite_covering_category_defn}
@@ -4165,7 +4155,8 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
   	\be\label{algebraical_finite_covering_category_eqn}
   	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
   	\ee
- is an \textit{algebraical finite covering category} if for all $\la \in \La$ is the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.
+ is an \textit{algebraical finite covering category} if the given by the equation \eqref{dense_a_eqn} $*$-subalgebra $\overline \A \subset \overline A$ equals to the Pedersen's ideal $K\left(\overline \A \right)$ of $\overline \A$, and  
+  for all $\la \in \La$ the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.
  	Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
  \end{definition}
 
@@ -27940,8 +27931,8 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		The algebra $\SS\left(\R^{2N}, \star_\th \right)$  has the (nonunique) factorization property:
 		for all $h \in  \SS\left(\R^{2N} \right)$ there exist $f,g \in  \SS\left(\R^{2N} \right)$ that $h = f \star_\th g$.
 	\end{prop}
-	% Denition 2.8 
-	\begin{defn}\label{mp_mult_defn}\cite{varilly_bondia:phobos}
+	% Denition 2.8   
+	\begin{defn}\label{mp_mult_defn}\cite{varilly_bondia:phobos}  !!! REPLACE TO S 2!!!!
 		\label{df:Moyal-alg}	Denote by $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $, i.e. the space of continuous functionals on $\SS\left( \R^{n}\right)$.
 		The Moyal product can be defined, by duality, on larger sets than
 		$\SS\left(\R^{2N}\right)$. For $T \in \SS'\left(\R^{2N}\right)$, write the evaluation on $g \in \SS\left(\R^{2N}\right)$ as

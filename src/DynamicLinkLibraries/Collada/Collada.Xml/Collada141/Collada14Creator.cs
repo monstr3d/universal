@@ -1,4 +1,5 @@
 ﻿
+using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
@@ -8,7 +9,7 @@ using Collada141;
 
 namespace Collada.Converter.Creators
 {
-    public partial class Collada14MeshCreator : AbstractMeshCreator
+    public partial class Collada14MeshCreator : XmlMeshCreator
     {
 
         private Collada141.COLLADA collada;
@@ -25,15 +26,12 @@ namespace Collada.Converter.Creators
 
         Dictionary<Type, List<object>> dic = new Dictionary<Type, List<object>>();
 
-        public Collada14MeshCreator()
+        public Collada14MeshCreator(XmlDocument doc) : base(doc)
         {
-
+            collada = COLLADA.Load(doc.OuterXml);
         }
 
-        protected override void LoadIfself(Stream stream)
-        {
-            collada = COLLADA.Load(stream);
-        }
+     
 
         protected override void CreateAll()
         {

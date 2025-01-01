@@ -15,7 +15,7 @@ namespace Abstract3DConverters.Creators
 
         internal int[] Shift { get; private set; } = [0, 0, 0];
 
-        public AcCreator()
+        public AcCreator(string filename, Stream stream) : base(filename, stream)
         {
 
         }

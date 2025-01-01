@@ -12,7 +12,7 @@ using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Collada;
-using Collada.Converter;
+//using Collada.Converter;
 using Collada.Wpf;
 
 namespace Collaada.Wpf.Test
@@ -142,13 +142,14 @@ namespace Collaada.Wpf.Test
             }
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".dae");
-            var ac = new Collada150.Collada150Converter();
+            throw new Exception();
+           /* var ac = new Collada150.Collada150Converter();
 
             var obj = Generate<object>(filename, ac);
             using (var writer = new StreamWriter(file))
             {
                 writer.Write(obj);
-            }
+            }*/
         }
 
 

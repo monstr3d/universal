@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Conversion3D.WebApplication.Utilities;
 
-namespace Conversion3D.WebApplication.Models
+namespace Conversion3D.WebApplication.Pages
 {
     public class BufferedSingleFileUploadPhysicalModel : PageModel
     {
@@ -27,7 +27,11 @@ namespace Conversion3D.WebApplication.Models
         }
 
         [BindProperty]
-        public BufferedSingleFileUploadPhysical FileUpload { get; set; }
+        public BufferedSingleFileUploadPhysical FileUpload 
+        { 
+            get; 
+            set; 
+        }
 
         public string Result { get; private set; }
 
@@ -89,10 +93,18 @@ namespace Conversion3D.WebApplication.Models
     {
         [Required]
         [Display(Name = "File")]
-        public IFormFile FormFile { get; set; }
+        public IFormFile FormFile 
+        { 
+            get; 
+            set; 
+        }
 
         [Display(Name = "Note")]
         [StringLength(50, MinimumLength = 0)]
-        public string Note { get; set; }
+        public string Note 
+        {
+            get; 
+            set; 
+        }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Conversion3D.WebApplication.Models
+namespace Conversion3D.WebApplication.Pages
 {
     public class AppFile
     {

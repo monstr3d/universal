@@ -9941,6 +9941,24 @@ namespace Collada141
             return result;
         }
 
+        public static COLLADA Load(string s)
+        {
+            using (var ms = new MemoryStream())
+            {
+                using (var writer = new StreamWriter(ms))
+                {
+                    writer.Write(s);
+                }
+                using (var reader = new StreamReader(ms))
+                {
+                    XmlSerializer xSerializer = new XmlSerializer(typeof(COLLADA));
+
+                    return (COLLADA)xSerializer.Deserialize(reader);
+
+                }
+            }
+        }
+
         public static COLLADA Load(Stream stream)
         {
             try

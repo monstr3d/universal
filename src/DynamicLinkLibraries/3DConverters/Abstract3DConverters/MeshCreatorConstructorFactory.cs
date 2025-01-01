@@ -14,9 +14,9 @@ namespace Abstract3DConverters
             this.dictionary = dictionary;
         }
 
-        IMeshCreator IMeshCreatorFactory.this[string filename] => Get(filename);
+        IMeshCreator IMeshCreatorFactory.this[string extension, Stream stream] => Get(extension, stream);
 
-        private IMeshCreator Get(string filename)
+        private IMeshCreator Get(string filename, Stream stream)
         {
             var ext = Path.GetExtension(filename);
             if (!dictionary.ContainsKey(ext))
@@ -24,7 +24,7 @@ namespace Abstract3DConverters
                 return null;
             }
             var c = dictionary[ext];
-            return c.Invoke(null) as IMeshCreator;
+            return c.Invoke([filename, stream]) as IMeshCreator;
         }
 
 

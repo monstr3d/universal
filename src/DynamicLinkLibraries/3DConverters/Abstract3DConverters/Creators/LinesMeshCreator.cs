@@ -1,19 +1,20 @@
 ﻿using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
-    public abstract class LinesMeshCreator : AbstractMeshCreator
+    public abstract class LinesMeshCreator : StreamMeshCrearor
     {
 
 
         protected List<string> lines = new List<string>();
 
-        protected LinesMeshCreator()
+        protected LinesMeshCreator(string filename, Stream stream) : base(filename, stream)
         {
-
+            CreateAll();
         }
 
-        protected override void LoadIfself(Stream stream)
+        public override void Load(Stream stream)
         {
             using (var reader = new StreamReader(stream))
             {

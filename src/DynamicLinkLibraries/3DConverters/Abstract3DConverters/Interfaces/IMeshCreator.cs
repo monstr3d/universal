@@ -5,10 +5,10 @@ namespace Abstract3DConverters.Interfaces
 {
     public interface IMeshCreator
     {
+        string Extension { get; }
 
         string Directory { get; }
 
-        void Load(string filename);
 
         void Load(Stream stream);
 

@@ -11,14 +11,19 @@ namespace Abstract3DConverters.Creators
     {
         protected XmlDocument doc;
 
-        protected override void LoadIfself(Stream stream)
+        protected XmlMeshCreator(XmlDocument doc)
         {
-            using (var reader = new StreamReader(stream))
+            this.doc = doc;
+        }
+
+        public override void Load(Stream stream)
+        {
+         /*   using (var reader = new StreamReader(stream))
             {
                 var s = reader.ReadToEnd();
                 doc = new XmlDocument();
                 doc.LoadXml(s);
-            }
+            }*/
         }
 
     }
