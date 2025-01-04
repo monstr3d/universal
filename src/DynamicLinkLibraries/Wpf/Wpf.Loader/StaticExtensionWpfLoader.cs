@@ -7,6 +7,31 @@ namespace Wpf.Loader
 {
     public static class StaticExtensionWpfLoader
     {
+        static  IFilenameGenerator FilenameGenerator 
+        { 
+            get;  
+            set; 
+        }
+
+        /// <summary>
+        /// Sets generator of a name of file
+        /// </summary>
+        /// <param name="filenameGenerator">The generator to set</param>
+        public static void Set(this IFilenameGenerator filenameGenerator)
+        {
+            FilenameGenerator = filenameGenerator;
+        }
+
+        /// <summary>
+        /// Generates a name of file
+        /// </summary>
+        /// <param name="ext">The extension</param>
+        /// <param name="path">The path</param>
+        /// <returns>The name of file</returns>
+        static public string GenerateFileName(string ext, out string path)
+        {
+            return FilenameGenerator.GenerateFileName(ext, out path);
+        }
 
         static public void Add(this Func<string, Tuple<string, Dictionary<string, byte[]>>> t, string extension)
         {
@@ -17,6 +42,13 @@ namespace Wpf.Loader
         {
             FileLoad[".xaml"] = Load;
         }
+
+
+        static public void DeleteTextures()
+        {
+            FilenameGenerator.Clean();
+        }
+
 
         static Tuple<string, Dictionary<string, byte[]>> Load(string filename)
         {

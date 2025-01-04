@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Media;
+using System.IO;
 using System.Windows.Media.Media3D;
 
 using AssemblyService.Attributes;
-using DataSetService;
 using Wpf.Loader;
 
 
@@ -17,6 +16,8 @@ namespace WpfInterface.UI
     [InitAssembly]
     public static class StaticExtensionWpfInterfaceUI
     {
+        public const string deleteTexture = "delete_texture_file_";
+
 
         static double[] x = new double[3];
         private static Dictionary<string, Func<string, Visual3D>> dic =
@@ -50,7 +51,52 @@ namespace WpfInterface.UI
 
         static StaticExtensionWpfInterfaceUI()
         {
+            new FilenameGenerator();
+        }
 
+        class FilenameGenerator : IFilenameGenerator
+        {
+            internal FilenameGenerator()
+            {
+                this.Set();
+            }
+
+            void IFilenameGenerator.Clean()
+            {
+                string dir = AppDomain.CurrentDomain.BaseDirectory;
+                if (dir[dir.Length - 1] != System.IO.Path.DirectorySeparatorChar)
+                {
+                    dir += System.IO.Path.DirectorySeparatorChar;
+                }
+                string[] files = System.IO.Directory.GetFiles(dir);
+                foreach (string file in files)
+                {
+                    if (file.Contains("delete_texture_file"))
+                    {
+                        try
+                        {
+                            System.IO.File.Delete(file);
+                        }
+                        catch (Exception)
+                        {
+                        }
+                    }
+                }
+            }
+
+            string IFilenameGenerator.GenerateFileName(string ext, out string path)
+            {
+                string ss = Path.GetRandomFileName() + "";
+                ss = ss.Replace('-', '_');
+                ss = deleteTexture + ss + ext;
+                string fn = AppDomain.CurrentDomain.BaseDirectory;
+                if (fn[fn.Length - 1] != Path.DirectorySeparatorChar)
+                {
+                    fn += Path.DirectorySeparatorChar;
+                }
+                path = fn + ss;
+                return ss;
+            }
         }
     }
 }

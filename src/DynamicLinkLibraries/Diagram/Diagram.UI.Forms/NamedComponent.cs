@@ -15,7 +15,6 @@ using System.Xml.Serialization;
 using System.Xml;
 
 using CategoryTheory;
-using MathGraph;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 

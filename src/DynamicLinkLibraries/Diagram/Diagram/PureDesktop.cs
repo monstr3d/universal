@@ -615,24 +615,7 @@ namespace Diagram.UI
             return graph;
         }
 
-        /// <summary>
-        /// Composition of path arrows
-        /// </summary>
-        /// <param name="category">Category of arrows</param>
-        /// <param name="path">The path</param>
-        /// <returns>The composition</returns>
-        static public IAdvancedCategoryArrow Composition(ICategory category, DigraphPath path)
-        {
-            IArrowLabel label = path[0].Object as IArrowLabel;
-            IAdvancedCategoryArrow arrow = label.Arrow as IAdvancedCategoryArrow;
-            for (int i = 1; i < path.Count; i++)
-            {
-                label = path[i].Object as IArrowLabel;
-                arrow = (label.Arrow as IAdvancedCategoryArrow).Compose(category, arrow);
-            }
-            return arrow;
-        }
-
+ 
 
         /// <summary>
         /// Gets resources string

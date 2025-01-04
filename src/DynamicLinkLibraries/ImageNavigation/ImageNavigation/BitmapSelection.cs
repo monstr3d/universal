@@ -177,15 +177,7 @@ namespace ImageNavigation
 
         #region ICategoryObject Members
 
-        public ICategory Category
-        {
-            get
-            {
-                // TODO:  Add BitmapSelection.Category getter implementation
-                return null;
-            }
-        }
-
+    
         public ICategoryArrow Id
         {
             get

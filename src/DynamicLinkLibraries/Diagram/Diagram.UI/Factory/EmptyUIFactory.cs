@@ -86,25 +86,6 @@ namespace Diagram.UI.Factory
             return null;
         }
 
-        /// <summary>
-        /// Gets button from category
-        /// </summary>
-        /// <param name="category">The category</param>
-        /// <returns>The button</returns>
-        public virtual IPaletteButton GetObjectButton(ICategory category)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// Gets button from category
-        /// </summary>
-        /// <param name="category">The category</param>
-        /// <returns>The button</returns>
-        public virtual IPaletteButton GetArrowButton(ICategory category)
-        {
-            return null;
-        }
 
         /// <summary>
         /// Tools

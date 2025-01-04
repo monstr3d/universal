@@ -685,20 +685,6 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        protected override string GenerateFileName(string ext, out string path)
-        {
-            string ss = Guid.NewGuid() + "";
-            ss = ss.Replace('-', '_');
-            ss = deleteTexture + ss + ext;
-            string fn = AppDomain.CurrentDomain.BaseDirectory;
-            if (fn[fn.Length - 1] != Path.DirectorySeparatorChar)
-            {
-                fn += Path.DirectorySeparatorChar;
-            }
-            path = fn + ss;
-            return ss;
-        }
-
   
         protected override System.Windows.Media.ImageBrush ImageBrush
         {

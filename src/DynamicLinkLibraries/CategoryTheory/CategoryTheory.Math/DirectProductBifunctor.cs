@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Text;
 
-namespace CategoryTheory
+namespace CategoryTheory.Math
 {
     /// <summary>
     /// Bifunctor of direct product

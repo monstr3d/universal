@@ -138,9 +138,6 @@ namespace Abstract3DConverters.Creators
 
             return meshes;
         }
-
-    
-
         void CreateMaterials()
         {
             foreach (var line in lines)
@@ -158,8 +155,6 @@ namespace Abstract3DConverters.Creators
 
             }
         }
-
-
    
         void Create(string name = null)
         {

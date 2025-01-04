@@ -269,41 +269,8 @@ namespace Diagram.UI.Factory
             return null;
         }
 
-        /// <summary>
-        /// Gets button from category
-        /// </summary>
-        /// <param name="category">The category</param>
-        /// <returns>The button</returns>
-        public virtual IPaletteButton GetObjectButton(ICategory category)
-        {
-            foreach (IUIFactory f in factories)
-            {
-                IPaletteButton b = f.GetObjectButton(category);
-                if (b != null)
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
+  
 
-        /// <summary>
-        /// Gets button from category
-        /// </summary>
-        /// <param name="category">The category</param>
-        /// <returns>The button</returns>
-        public virtual IPaletteButton GetArrowButton(ICategory category)
-        {
-            foreach (IUIFactory f in factories)
-            {
-                IPaletteButton b = f.GetArrowButton(category);
-                if (b != null)
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
 
         /// <summary>
         /// Tools

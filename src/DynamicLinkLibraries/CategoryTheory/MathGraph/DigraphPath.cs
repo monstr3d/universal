@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Text;
 
 using CategoryTheory;
+
 
 namespace MathGraph
 {
@@ -158,7 +155,7 @@ namespace MathGraph
             }
             return true;
         }
-
+/*
         /// <summary>
         /// Arrow of path
         /// </summary>
@@ -193,6 +190,7 @@ namespace MathGraph
             }
             return arrow;
         }
+*/
 
         /// <summary>
         /// Path source

@@ -103,16 +103,6 @@ public class XmlSelectionCollection : ArraySelectionCollection, ISerializable, I
 	}
 
         /// <summary>
-        /// The category of this object
-        /// </summary>
-        public ICategory Category
-	{
-		get
-		{
-			return null;
-		}
-	}
-
 	#endregion
 
 	#region IAssociatedObject Members

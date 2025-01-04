@@ -59,7 +59,7 @@ namespace Conversion3D.WebApplication.Utilities
 
         public static async Task<byte[]> ProcessFormFile<T>(IFormFile formFile, 
             ModelStateDictionary modelState, string[] permittedExtensions, 
-            long sizeLimit)
+            long sizeLimit, string extension)
         {
             var fieldDisplayName = string.Empty;
 
@@ -219,7 +219,7 @@ namespace Conversion3D.WebApplication.Utilities
                         {
                             if (reader.ReadByte() > sbyte.MaxValue)
                             {
-                                return false;
+                         //       return false;
                             }
                         }
                     }
@@ -233,7 +233,7 @@ namespace Conversion3D.WebApplication.Utilities
                             if (b > sbyte.MaxValue ||
                                 !_allowedChars.Contains(b))
                             {
-                                return false;
+                  //              return false;
                             }
                         }
                     }

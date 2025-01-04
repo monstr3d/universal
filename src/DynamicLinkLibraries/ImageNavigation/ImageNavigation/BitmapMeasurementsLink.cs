@@ -104,11 +104,7 @@ namespace ImageNavigation
         }
 
 
-        public ICategoryArrow Compose(ICategory category, ICategoryArrow next)
-        {
-            return null;
-        }
-
+   
         #endregion
 
         #region IAssociatedObject Members

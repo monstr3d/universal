@@ -9,7 +9,6 @@ using System.Collections.Generic;
 
 using CategoryTheory;
 
-using MathGraph;
 
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;

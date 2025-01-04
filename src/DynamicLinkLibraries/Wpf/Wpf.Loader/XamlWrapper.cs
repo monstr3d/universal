@@ -234,7 +234,6 @@ namespace Wpf.Loader
             size = Visual.GetSize();
         }
 
-        public const string deleteTexture = "delete_texture_file_";
 
         protected Dictionary<string, string> urls = new Dictionary<string, string>();
 
@@ -385,19 +384,15 @@ namespace Wpf.Loader
             }
         }
 
-
+        /// <summary>
+        /// Generates name of file
+        /// </summary>
+        /// <param name="ext">Extension</param>
+        /// <param name="path">Path</param>
+        /// <returns>File name</returns>
         protected virtual string GenerateFileName(string ext, out string path)
         {
-            string ss = Guid.NewGuid() + "";
-            ss = ss.Replace('-', '_');
-            ss = deleteTexture + ss + ext;
-            string fn = AppDomain.CurrentDomain.BaseDirectory;
-            if (fn[fn.Length - 1] != Path.DirectorySeparatorChar)
-            {
-                fn += Path.DirectorySeparatorChar;
-            }
-            path = fn + ss;
-            return ss;
+            return StaticExtensionWpfLoader.GenerateFileName(ext, out path);
         }
 
 

@@ -55,21 +55,6 @@ namespace Diagram.UI.Interfaces
 
 
         /// <summary>
-        /// Gets button from category
-        /// </summary>
-        /// <param name="category">The category</param>
-        /// <returns>The button</returns>
-        IPaletteButton GetObjectButton(ICategory category);
-
-        /// <summary>
-        /// Gets button from category
-        /// </summary>
-        /// <param name="category">The category</param>
-        /// <returns>The button</returns>
-        IPaletteButton GetArrowButton(ICategory category);
-
-
-        /// <summary>
         /// Tools
         /// </summary>
         IToolsDiagram Tools

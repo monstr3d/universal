@@ -33,14 +33,7 @@ namespace CategoryTheory
 
         #region ICategoryObject Members
 
-        /// <summary>
-        /// Category
-        /// </summary>
-        public virtual ICategory Category
-        {
-            get { return null; }
-        }
-
+  
 
         #endregion
 

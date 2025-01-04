@@ -12,7 +12,8 @@ namespace Conversion3D.WebApplication.Pages
     public class BufferedSingleFileUploadPhysicalModel : PageModel
     {
         private readonly long _fileSizeLimit;
-        private readonly string[] _permittedExtensions = { ".txt" };
+        private readonly string[] _permittedExtensions = { ".gif", ".txt" };
+
         private readonly string _targetFilePath;
 
         public BufferedSingleFileUploadPhysicalModel(IConfiguration config)
@@ -37,6 +38,12 @@ namespace Conversion3D.WebApplication.Pages
 
         public void OnGet()
         {
+       
+        }
+
+        public void OnPost()
+        {
+
         }
 
         public async Task<IActionResult> OnPostUploadAsync()
@@ -48,11 +55,14 @@ namespace Conversion3D.WebApplication.Pages
                 return Page();
             }
 
+            
+      
             var formFileContent =
                 await FileHelpers.ProcessFormFile<BufferedSingleFileUploadPhysical>(
                     FileUpload.FormFile, ModelState, _permittedExtensions,
-                    _fileSizeLimit);
+                    _fileSizeLimit, ".dae");
 
+            var ms = ModelState;
             if (!ModelState.IsValid)
             {
                 Result = "Please correct the form.";
@@ -91,6 +101,13 @@ namespace Conversion3D.WebApplication.Pages
 
     public class BufferedSingleFileUploadPhysical
     {
+        private string note = "Image";
+
+        public BufferedSingleFileUploadPhysical()
+        {
+
+        }
+
         [Required]
         [Display(Name = "File")]
         public IFormFile FormFile 
@@ -101,10 +118,10 @@ namespace Conversion3D.WebApplication.Pages
 
         [Display(Name = "Note")]
         [StringLength(50, MinimumLength = 0)]
-        public string Note 
+        public string Note
         {
-            get; 
-            set; 
-        }
+            get => note;
+            set { note = value; }
+        } 
     }
 }

@@ -5,6 +5,7 @@ using System.Windows.Media;
 using Scada.Interfaces;
 
 using Scada.WPF.UI._3D.Converters;
+using Wpf.Loader;
 
 namespace Scada.WPF.UI._3D.ScadaControls
 {
@@ -137,26 +138,8 @@ namespace Scada.WPF.UI._3D.ScadaControls
 
         static void DeleteTextures()
         {
-            string dir = AppDomain.CurrentDomain.BaseDirectory;
-            if (dir[dir.Length - 1] != System.IO.Path.DirectorySeparatorChar)
-            {
-                dir += System.IO.Path.DirectorySeparatorChar;
-            }
-            string[] files = System.IO.Directory.GetFiles(dir);
-            foreach (string file in files)
-            {
-                if (file.Contains("delete_texture_file"))
-                {
-                    try
-                    {
-                        System.IO.File.Delete(file);
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
-            }
-        }
+            StaticExtensionWpfLoader.DeleteTextures();
+      }
 
 
         #endregion

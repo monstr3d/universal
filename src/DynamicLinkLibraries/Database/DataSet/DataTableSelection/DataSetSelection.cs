@@ -93,17 +93,6 @@ namespace DataTableSelection
 
         #region ICategoryObject Members
 
-        /// <summary>
-        /// The category of this object
-        /// </summary>
-        public ICategory Category
-        {
-            get
-            {
-                return null;
-            }
-        }
-
 
         /// <summary>
         /// The identical arrow of this object

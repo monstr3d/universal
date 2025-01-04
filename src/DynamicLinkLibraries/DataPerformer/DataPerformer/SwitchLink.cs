@@ -59,28 +59,6 @@ namespace DataPerformer
 
 
         /// <summary>
-        /// Composes this arrow "f" with next arrow "g" 
-        /// </summary>
-        /// <param name="category"> The category of arrow</param>
-        /// <param name="next"> The next arrow "g" </param>
-        /// <returns>Composition "fg" </returns>
-        public ICategoryArrow Compose(ICategory category, ICategoryArrow next)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// The category of this object
-        /// </summary>
-        public ICategory Category
-        {
-            get
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
         /// Associated object
         /// </summary>
         public object Object

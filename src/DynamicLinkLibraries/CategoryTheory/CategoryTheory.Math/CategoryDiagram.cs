@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 
 using MathGraph;
 
-namespace CategoryTheory
+namespace CategoryTheory.Math
 {
     /// <summary>
     /// DiagramLimit
@@ -34,7 +31,7 @@ namespace CategoryTheory
         private Digraph graph;
 
         /// <summary>
-        /// Arrows hashtable
+        /// Arrows hash table
         /// </summary>
         private Dictionary<CategoryObjectPair, IAdvancedCategoryArrow > arrows = new Dictionary<CategoryObjectPair, IAdvancedCategoryArrow >();
 

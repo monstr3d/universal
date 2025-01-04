@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CategoryTheory
+namespace CategoryTheory.Math
 {
     /// <summary>
     /// Category with direct product

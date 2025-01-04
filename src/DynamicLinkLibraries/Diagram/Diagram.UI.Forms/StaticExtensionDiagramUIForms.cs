@@ -21,7 +21,6 @@ using AssemblyService.Attributes;
 using ResourceService;
 using WindowsExtensions;
 using System.Configuration;
-using System.DirectoryServices.ActiveDirectory;
 
 namespace Diagram.UI
 {
