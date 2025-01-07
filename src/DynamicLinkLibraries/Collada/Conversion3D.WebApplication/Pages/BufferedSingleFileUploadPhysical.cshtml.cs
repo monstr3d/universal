@@ -13,7 +13,7 @@ namespace Conversion3D.WebApplication.Pages
     public class BufferedSingleFileUploadPhysicalModel : PageModel
     {
         private readonly long _fileSizeLimit;
-        private readonly string[] _permittedExtensions = { ".gif", ".txt" };
+        private readonly string[] _permittedExtensions = { ".obj", ".ac", ".dae" };
 
         private readonly string _targetFilePath;
 
@@ -27,6 +27,31 @@ namespace Conversion3D.WebApplication.Pages
             // To save physical files to the temporary files folder, use:
             //_targetFilePath = Path.GetTempPath();
         }
+
+        [Required]
+        [Display(Name = "Extensions")]
+
+        public List<SelectListItem> Extensions { get; } = new List<SelectListItem>
+    {
+        new SelectListItem { Value = ".ac", Text = "obj files" },
+        new SelectListItem { Value = ".obj", Text = "ac files" },
+        new SelectListItem { Value = ".dae", Text = "Collada"  },
+    };
+        [Display(Name = "Extension")]
+        [StringLength(50, MinimumLength = 0)]
+   //     [BindProperty]
+        public string Extension
+        {
+            get;
+            set;
+        }
+
+        [BindProperty]
+        public string Gender { get; set; }
+        public string[] Genders = new[] { "Male", "Female", "Unspecified" };
+
+
+
 
         [BindProperty]
         public BufferedSingleFileUploadPhysical FileUpload 
@@ -55,13 +80,14 @@ namespace Conversion3D.WebApplication.Pages
 
                 return Page();
             }
+            var ext = Extension;
 
-            
-      
+
+
             var formFileContent =
                 await FileHelpers.ProcessFormFile<BufferedSingleFileUploadPhysical>(
                     FileUpload.FormFile, ModelState, _permittedExtensions,
-                    _fileSizeLimit, ".dae");
+                    _fileSizeLimit, ext);
 
             var ms = ModelState;
             if (!ModelState.IsValid)
@@ -70,6 +96,7 @@ namespace Conversion3D.WebApplication.Pages
 
                 return Page();
             }
+
 
             // For the file name of the uploaded file stored
             // server-side, use Path.GetRandomFileName to generate a safe
@@ -115,24 +142,6 @@ namespace Conversion3D.WebApplication.Pages
         { 
             get; 
             set; 
-        }
-
-        [Required]
-        [Display(Name = "Extensions")]
-        [StringLength(50, MinimumLength = 0)]
-
-        public List<SelectListItem> Extensions { get; } = new List<SelectListItem>
-    {
-        new SelectListItem { Value = "MX", Text = "Mexico" },
-        new SelectListItem { Value = "CA", Text = "Canada" },
-        new SelectListItem { Value = "US", Text = "USA"  },
-    };
-        [Display(Name = "Extension")]
-        [StringLength(50, MinimumLength = 0)]
-        public string Extension
-        {
-            get;
-            set;
         }
 
     }

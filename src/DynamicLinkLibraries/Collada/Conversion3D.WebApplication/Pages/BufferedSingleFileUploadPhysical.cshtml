@@ -15,11 +15,21 @@
             <label asp-for="FileUpload.FormFile"></label>
         </dt>
         <dt>
-            <select asp-for="FileUpload.Extension" asp-items="FileUpload.Extensions"></select>
-        </dt>
-        <dd>
-            <input asp-for="FileUpload.FormFile" type="file" />
-            <span asp-validation-for="FileUpload.FormFile"></span>
+            <table>
+                <tr>
+          <td>          <input asp-for="FileUpload.FormFile" type="file" />
+                        <span asp-validation-for="FileUpload.FormFile"></span>
+                    </td>
+                    <td>
+                        @foreach (var gender in Model.Genders)
+                        {
+                            @Html.RadioButtonFor(model => model.Gender, gender) @gender
+
+                            <br />
+                        }
+                    </td>
+            </tr>
+            </table>
         </dd>
     </dl>
     <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />

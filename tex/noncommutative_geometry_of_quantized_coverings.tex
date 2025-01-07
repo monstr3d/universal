@@ -12292,12 +12292,15 @@ Any $g \in \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ yields a character
 x \mapsto \chi_x\left(g \right) 
 \eean 
 On the other hand a   map $g \mapsto \chi_g$ is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to  the group of characters of $K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)$. Taking into account the isomorphism \eqref{unital_cov_kk_eqn} one has a homomorphism from   $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters on $K_0\left( A\right)$. This homomorphism yields a  a homomorphism from   $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters on 
- $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$ is the torsion subgroup of $K_0\left(A \right)$.
-Using the Section \ref{ext_char_sec} one has a homomorphism 
-	\be\label{h_tors_eqn}
-h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)\subset K^1\left(A \right) 
-\ee 
-(cf. the equation \eqref{uct_c}).
+ $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$. So there is a homomorphism 
+ 	\be\label{h_tors_eqn}
+ h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)
+ \ee 
+ If $A$ belongs to class $N$ (cf. Definition \ref{N_defn}) then one has a homomorphism
+ $$
+  h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   K^1\left(A \right) 
+ $$
+ (cf. the equation \eqref{uct_c}).
 
 \begin{definition}\label{h_tors_defn}
 	The given by \eqref{h_tors_eqn}
@@ -12306,7 +12309,7 @@ h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   
 
 
 \begin{defn}\label{hurewicz_defn}
-	Taking into account the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
+IF !!!!	Taking into account the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
 	$$
 	h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}: 	\pi_1^{\mathrm{ab}}\left( A\right) \to K^1\left(A \right) 
 	$$
@@ -23933,6 +23936,50 @@ If A is any $C^*$-algebra, $K_0\left(M\left(A \otimes \K \right)  \right) = K_1\
 
 	\subsection{Universal coefficient theorem}
 	\paragraph*{}	The universal coefficient theorem \cite{blackadar:ko} establishes (in particular) a relationship between $K$ - theory and $K$- homology. 
+	\begin{theorem}
+%	Theorem 15.8.1. 
+Let $A$ be a $C^*$=algebra. The following conditions are equivalent:
+\begin{enumerate}
+	\item[(i)]  For every $C^*$--algebra $B$, the algebraic tensor product $A\otimes B$ has a unique
+$C^*$--cross norm.
+	\item[(ii)]  The identity map from $A$ to $A$ can be approximated pointwise in norm by	completely positive finite-rank contractions.
+	\item[(iii)]  $A^{**}$- is an injective ("hyperfinite") von Neumann algebra.
+		\item[(iv)]  A is $C^*$-amenable: every derivation from $A$ into a dual normal Banach $A$-
+	module is inner.
+\end{enumerate}
+A $C^*$-algebra satisfying these conditions is called nuclear.
+	\end{theorem}
+	
+	
+	\begin{definition}\label{N_defn}\cite{blackadar:ko}
+%	Definition 22.3.4.
+ Let $N$ be the smallest class of separable nuclear $C^*$-algebras
+with the following properties:
+\begin{enumerate}
+	\item [(N1)] $N$ contains $\C$.
+\item [(N2)] $N$ is closed under countable inductive limits.
+\item [(N3)]If $0 \to A \to D \to B \to 0$ is an exact sequence, and two of the terms are
+	in $N$, then so is the third.
+\item [(N4)] $N$ is closed under $KK$-equivalence.
+\end{enumerate}
+	\end{definition}
+
+For any separable $C^*$-algebras $A$ and $B$, there are maps
+\bean
+\a  : K_*\left(A \right) \otimes K_*\left(B \right)\to  K_*\left(A \otimes B\right) ,\\
+\b : K^*\left(A \right) \otimes K_*\left(B \right)\to KK^*\left( A, B\right),\\
+\ga : KK^*\left( A, B\right) \to \Hom\left(K_*\left(A \right) , K_*\left(B \right) \right) 
+\eean
+which are natural in $A$ and $B$.
+
+
+These maps are defined using the intersection product. $\a$
+comes from the
+pairing $KK^*\left(\C, A \right) \otimes KK^*\left(\C, B \right)\to  KK^*\left(\C,A \otimes B\right)$. 
+The map $\b$ comes from the pairing $KK^*\left(A, \C \right) \times KK^*\left(\C, B \right) \to KK^*\left(A, B \right)$.
+
+
+Finally, $\ga$ is the adjoint of the pairing $KK^*\left( \C, A\right) \times	KK^*\left(A, B \right)\to KK^*\left( \C, B\right)$
 		\begin{theorem}
 			\label{uct_thm}\cite{blackadar:ko}
 		%	Theorem 	23.1.1 	
