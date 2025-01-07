@@ -2601,13 +2601,13 @@ Under the hypothesis \ref{unitization_multiplier_empt} one has:
 
 \begin{definition}\label{vecherovsky_defn}
 	 A given by the Lemma \ref{unitization_multiplier_lem} unital covering $\left(B, \widetilde{B}, G, \widetilde\lift \right)$ is \textit{minimal}.  
- A unitization $A \hookto B$ is the \textit{Vecherovsky's unitization} if any minimal for any minimal covering $\left(B', \widetilde{B}', G, \widetilde\lift' \right)$ one has
+ A unitization $A \hookto B$ is the \textit{covering unitization} if any minimal for any minimal covering $\left(B', \widetilde{B}', G, \widetilde\lift' \right)$ one has
 	\be\label{vecherovsky_eqn}
 	B' = B.
 	\ee
 \end{definition}
 \begin{remark}
-If {Vecherovsky's unitization} exists then it is unique.
+If {covering unitization} exists then it is unique.
 \end{remark}
 
 \section{Induced representations}\label{induced_repr_fin_sec}
@@ -20609,20 +20609,20 @@ point.
 
 \subsection{Homology theory and Hurewicz homomorphism}
 
-%\begin{definition}\label{top_unred_defn}\cite{switzer:at}
-%	Let $\mathscr T^2$ denote the category of all topological pairs $\left(\sX, \A\right)$ ($\A\subset\sX$ a subspace) and maps $f: \left(\sX, \A\right)\to \left(\sY, \B\right)$. On $\mathscr T^2$  we have the functor $R:\mathscr T^2$ ("restriction") defined by $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(f \right)= f|_{\A}$. Let $\mathscr T^2~'$ be the homotopy category - i.e. objects are as in $\mathscr T^2$, morphisms are homotopy classes of maps. We still  have $R:\mathscr T^2~'\to \mathscr T^2~':$ $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(\left[f\right] \right)= \left[f|_{\A}\right]$. 
+\begin{definition}\label{top_unred_defn}\cite{switzer:at}
+	Let $\mathscr T^2$ denote the category of all topological pairs $\left(\sX, \A\right)$ ($\A\subset\sX$ a subspace) and maps $f: \left(\sX, \A\right)\to \left(\sY, \B\right)$. On $\mathscr T^2$  we have the functor $R:\mathscr T^2$ ("restriction") defined by $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(f \right)= f|_{\A}$. Let $\mathscr T^2~'$ be the homotopy category - i.e. objects are as in $\mathscr T^2$, morphisms are homotopy classes of maps. We still  have $R:\mathscr T^2~'\to \mathscr T^2~':$ $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(\left[f\right] \right)= \left[f|_{\A}\right]$. 
 	
-%	An \textit{unreduced homology theory} $h_*$ on $\mathscr T^2~'$ is a sequence of functors $h_n$ from $\mathscr T^2~'$ to the category of Abelian groups  for each $n\in \Z$ and the natural transformations $\partial_n : h_n \to h_{n-1}\circ R$, satisfying the following two axioms:
-%	\begin{enumerate}
-%		\item [(a)] Exactness: for every pair $\left(\sX, \A\right)\in\mathscr T^2~'$ the sequence
-%		\bean
-%		...\to h_{n+1}\left(\sX, \A\right)\xrightarrow{\partial_{n+1}\left(\sX, \A\right)} h_{n}\left(\A, \emptyset\right)\xrightarrow{hurewicz_n\left[i\right]}h_{n}\left(\sX, \emptyset\right)\xrightarrow{hurewicz_n\left[j\right]}\\
-%		h_{n}\left(\sX, \A\right)\xrightarrow{\partial_{n}\left(\sX, \A\right)}
-%		\eean
-%		is exact where $i: \left(\A, \emptyset\right)\to \left(\sX, \emptyset\right)$ and $j: \left(\sX, \A\right)\to \left(\sX, \emptyset\right)$ are the inclusions.
-%		\item[(b)] Excision: for every pair $\left(\sX, \A\right)$ and open subset $\sU\in \A$ with $\overline{   \mathcal U }\subset \mathring{\A}$ the inclusion $j: \left(\sX\setminus \sU, \A\setminus \sU\right)\to \left(\sX, \A\right)$ induces an isomorphism $h_n\left[j\right]: h_n\left(\sX\setminus \sU, \A\setminus \sU\right)\to h_n\left(\sX, \A\right)$.
-%	\end{enumerate}
-	%\end{definition}
+	An \textit{unreduced homology theory} $h_*$ on $\mathscr T^2~'$ is a sequence of functors $h_n$ from $\mathscr T^2~'$ to the category of Abelian groups  for each $n\in \Z$ and the natural transformations $\partial_n : h_n \to h_{n-1}\circ R$, satisfying the following two axioms:
+	\begin{enumerate}
+		\item [(a)] Exactness: for every pair $\left(\sX, \A\right)\in\mathscr T^2~'$ the sequence
+		\bean
+		...\to h_{n+1}\left(\sX, \A\right)\xrightarrow{\partial_{n+1}\left(\sX, \A\right)} h_{n}\left(\A, \emptyset\right)\xrightarrow{hurewicz_n\left[i\right]}h_{n}\left(\sX, \emptyset\right)\xrightarrow{hurewicz_n\left[j\right]}\\
+		h_{n}\left(\sX, \A\right)\xrightarrow{\partial_{n}\left(\sX, \A\right)}
+		\eean
+		is exact where $i: \left(\A, \emptyset\right)\to \left(\sX, \emptyset\right)$ and $j: \left(\sX, \A\right)\to \left(\sX, \emptyset\right)$ are the inclusions.
+		\item[(b)] Excision: for every pair $\left(\sX, \A\right)$ and open subset $\sU\in \A$ with $\overline{   \mathcal U }\subset \mathring{\A}$ the inclusion $j: \left(\sX\setminus \sU, \A\setminus \sU\right)\to \left(\sX, \A\right)$ induces an isomorphism $h_n\left[j\right]: h_n\left(\sX\setminus \sU, \A\setminus \sU\right)\to h_n\left(\sX, \A\right)$.
+	\end{enumerate}
+	\end{definition}
 	\paragraph{}
 Let $\mathscr {PT}$ be a category of  pointed spaces and let $\mathscr {PT}'$ be a homotopy category, i.e. objects are as in $\mathscr {PT}$, morphisms are homotopy classes of maps.
 \begin{definition}\label{top_suspension_defn}\cite{switzer:at}
@@ -20693,33 +20693,33 @@ $$
 \end{theorem}
 
 
-\subsection{Obstruction theory}
-\begin{definition}\label{top_char_defn}\cite{spanier:at}
-	Let $\pi$ an Abelian group and $\sY$ is a path-connected  pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
-	$$
-	\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
-	$$ 
-	is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at}).
-\end{definition}
-\begin{definition}\label{top_pi_n_defn}\cite{spanier:at}
-Let $\pi$ be a group and let $n$ be an integer $\ge 1$. A space of type $\left(\pi, n\right)$ is a path-connected  pointed space $\sY$ such that $\pi_q\left(\sY \right)= 0$  for $q\neq n$ and 
+%\subsection{Obstruction theory}
+%\begin{definition}\label{top_char_defn}\cite{spanier:at}
+%	Let $\pi$ an Abelian group and $\sY$ is a path-connected  pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
+%	$$
+%	\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
+%	$$ 
+%	is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at}).
+%\end{definition}
+%\begin{definition}\label{top_pi_n_defn}\cite{spanier:at}
+%Let $\pi$ be a group and let $n$ be an integer $\ge 1$. A space of type $\left(\pi, n\right)$ is a path-connected  pointed space $\sY$ such that $\pi_q\left(\sY \right)= 0$  for $q\neq n$ and 
 $\pi_n\left(\sY \right)= 0$ is isomorphic to $\pi$.
-\end{definition}
-\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
+%\end{definition}
+%\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
 	%12 theorem 
-	Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $\sY$. If $(\sX,\A)$ is a relative $CW$-complex, a map $f: \A\to \sY$ 
-	can be extended over $\sX$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
-\end{theorem}
-\begin{remark}\label{top_obstr_rem}
-A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:at}.
-\end{remark}
-\begin{remark}
-	The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
-	\bean
-	...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
-	\eean
-	and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
-\end{remark}
+%	Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $\sY$. If $(\sX,\A)$ is a relative $CW$-complex, a map $f: \A\to \sY$ 
+%	can be extended over $\sX$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
+%\end{theorem}
+%\begin{remark}\label{top_obstr_rem}
+%A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:at}.
+%\end{remark}
+%\begin{remark}
+%	The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence %\eqref{top_c_exact_eqn}, i.e.
+%	\bean
+%	...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
+%	\eean
+%	and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
+%\end{remark}
 
 \subsection{Fredholm picture of $K$-theory}
 \paragraph{} % PAGE 108
@@ -24233,7 +24233,7 @@ $R_*\left( G\right)$-algebra.
 
 \begin{proposition}\label{nt_khom_prop}\cite{had:ntk,sudo:ntk}
 %Proposition 5. 
-For $0\le \th \le 1$, the $K$-homology groups of the $C\left(\T^2_\th \right)$ are $K^j\left(C\left(\T^2_\th \right) \right)\bydef  KK^j\left( C\left(\T^2_\th \right)\right) \cong \Z^2$.
+For $0\le \th \le 1$, the $K$-homology groups of the $C\left(\T^2_\th \right)$ are $K^j\left(C\left(\T^2_\th \right) \right)\bydef  KK^j\left( C\left(\T^2_\th \right), \C\right) \cong \Z^2$.
 
 \end{proposition}
 
@@ -29559,7 +29559,7 @@ J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
 \bibitem{spanier:at}
 E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
 
-\bibitem{sudo:ntk} Takahiro Sudo. \textit{K-Homology of Continuous Fields of Noncommutative Tori} Nihonkai Math. J. Vol.19(2008), 1-19, 2008.
+\bibitem{sudo:ntk} Takahiro Sudo. \textit{K-Homology of Continuous Fields of Noncommutative Tori}. Nihonkai Math. J. Vol.19(2008), 1-19, 2008.
 
 \bibitem{sudo:k_ctr} Takahiro Sudo. \textit{$K$-theory of $C^*$-algebras of locally trivial continuous fields}. Commun. Korean Math. Soc. 2005 Vol. 20, No. 1, 79-92 Printed March 1, 2005.
 

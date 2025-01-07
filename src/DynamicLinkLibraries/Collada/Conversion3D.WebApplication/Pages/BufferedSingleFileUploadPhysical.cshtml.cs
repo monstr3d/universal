@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Conversion3D.WebApplication.Utilities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Conversion3D.WebApplication.Pages
 {
@@ -116,12 +117,23 @@ namespace Conversion3D.WebApplication.Pages
             set; 
         }
 
-        [Display(Name = "Note")]
+        [Required]
+        [Display(Name = "Extensions")]
         [StringLength(50, MinimumLength = 0)]
-        public string Note
+
+        public List<SelectListItem> Extensions { get; } = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "MX", Text = "Mexico" },
+        new SelectListItem { Value = "CA", Text = "Canada" },
+        new SelectListItem { Value = "US", Text = "USA"  },
+    };
+        [Display(Name = "Extension")]
+        [StringLength(50, MinimumLength = 0)]
+        public string Extension
         {
-            get => note;
-            set { note = value; }
-        } 
+            get;
+            set;
+        }
+
     }
 }
