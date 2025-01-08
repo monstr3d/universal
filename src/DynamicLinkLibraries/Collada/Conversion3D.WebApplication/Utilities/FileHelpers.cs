@@ -121,7 +121,7 @@ namespace Conversion3D.WebApplication.Utilities
                             $"{fieldDisplayName}({trustedFileNameForDisplay}) is empty.");
                     }
 
-                    if (!IsValidFileExtensionAndSignature(
+               /*     if (!IsValidFileExtensionAndSignature(
                         formFile.FileName, memoryStream, permittedExtensions))
                     {
                         modelState.AddModelError(formFile.Name,
@@ -130,9 +130,9 @@ namespace Conversion3D.WebApplication.Utilities
                             "doesn't match the file's extension.");
                     }
                     else
-                    {
+                    {*/
                         return memoryStream.ToArray();
-                    }
+              //      }
                 }
             }
             catch (Exception ex)

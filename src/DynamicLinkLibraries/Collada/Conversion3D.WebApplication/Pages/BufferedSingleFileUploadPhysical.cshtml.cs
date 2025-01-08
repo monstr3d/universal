@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Conversion3D.WebApplication.Utilities;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Xml.Linq;
+using System.Linq.Expressions;
 
 namespace Conversion3D.WebApplication.Pages
 {
@@ -15,10 +17,33 @@ namespace Conversion3D.WebApplication.Pages
         private readonly long _fileSizeLimit;
         private readonly string[] _permittedExtensions = { ".obj", ".ac", ".dae" };
 
+        private readonly Dictionary<string, string[]> fileTypes = new Dictionary<string, string[]>()
+            { 
+            { "AC3D file format", new string[] {".ac", "ac3d"} },
+           { "Obj file format",  new string[] { ".obj" }},
+           { "Collada file format",  new string[] { ".dae" }}
+            };
+
         private readonly string _targetFilePath;
 
         public BufferedSingleFileUploadPhysicalModel(IConfiguration config)
         {
+            var l = new List<string>();
+            var lt = new List<string>();
+            foreach (var p in fileTypes)
+            {
+                foreach (var item in p.Value)
+                {
+                    l.Add(item);
+                }
+               lt.Add("  " + p.Key);
+//                Extensions.Add(new SelectListItem { Value = k, Text = k });
+            }
+
+            Extensions = lt.ToArray();
+
+
+            _permittedExtensions = l.ToArray();
             _fileSizeLimit = config.GetValue<long>("FileSizeLimit");
 
             // To save physical files to a path provided by configuration:
@@ -31,24 +56,21 @@ namespace Conversion3D.WebApplication.Pages
         [Required]
         [Display(Name = "Extensions")]
 
-        public List<SelectListItem> Extensions { get; } = new List<SelectListItem>
-    {
+        public List<SelectListItem> Extensions1 { get; } = new List<SelectListItem>();
+ /*   {
         new SelectListItem { Value = ".ac", Text = "obj files" },
         new SelectListItem { Value = ".obj", Text = "ac files" },
         new SelectListItem { Value = ".dae", Text = "Collada"  },
-    };
-        [Display(Name = "Extension")]
-        [StringLength(50, MinimumLength = 0)]
-   //     [BindProperty]
+    };*/
+  //      [Display(Name = "Extension")]
+  //      [StringLength(50, MinimumLength = 0)]
+        [BindProperty]
         public string Extension
         {
             get;
             set;
         }
-
-        [BindProperty]
-        public string Gender { get; set; }
-        public string[] Genders = new[] { "Male", "Female", "Unspecified" };
+        public string[] Extensions;// = new[] { "Male", "Female", "Unspecified" };
 
 
 
@@ -80,7 +102,8 @@ namespace Conversion3D.WebApplication.Pages
 
                 return Page();
             }
-            var ext = Extension;
+            var ext = fileTypes[Extension.Substring(2)][0];
+            
 
 
 

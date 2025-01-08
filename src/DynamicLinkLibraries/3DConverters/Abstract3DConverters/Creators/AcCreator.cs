@@ -3,7 +3,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
-    [Attributes.Extension([".ac"])]
+    [Attributes.Extension([".ac", ".ac3d"])]
     public class AcCreator : LinesMeshCreator
     {
         List<Material> MaterialsP { get; } = new();
