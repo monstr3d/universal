@@ -1,11 +1,13 @@
 ﻿using System.Reflection;
 using System.Text;
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
+    [Converter(".ac")]
     public class AcConverter : IMeshConverter, IStringRepresentation
     {
         #region Fields

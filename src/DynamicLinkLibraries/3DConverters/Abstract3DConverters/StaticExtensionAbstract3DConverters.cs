@@ -14,7 +14,13 @@ namespace Abstract3DConverters
     {
         static MeshCreatorFactoryCollection meshCreators;
 
+        static MeshConverterFactoryCollection meshConverters;
+
         static IMeshCreatorFactory meshCreatorFactory;
+
+        static IMeshConverterFactory meshConvertFactory;
+
+
 
         public static IPolygonSplitterFactory PolygonSplitterFactory { get; set; }
 
@@ -24,17 +30,25 @@ namespace Abstract3DConverters
 
         static Dictionary<string, ConstructorInfo> creators = new();
 
+        static Dictionary<string, Dictionary<string, ConstructorInfo>>  conveters = new();
+
+
         static List<IMeshCreatorFactory> meshCreatorFactories = new();
+
+        static List<IMeshConverterFactory> meshConverterFactories = new();
+
+
 
 
         static StaticExtensionAbstract3DConverters()
         {
             meshCreators = new MeshCreatorFactoryCollection();
             meshCreatorFactory = meshCreators;
+            meshConverters = new MeshConverterFactoryCollection();
+            meshConvertFactory = meshConverters;
             var ass = AppDomain.CurrentDomain.GetAssemblies();
             var inputTypes = new Type[] { typeof(InitAttribute) };
             var l = new List<string>();
-            
             foreach (var assembly in ass)
             {
                 l.Add(assembly.Location);
@@ -55,7 +69,15 @@ namespace Abstract3DConverters
             {
                 f.Add();
             }
+            var fc = new MeshConverterConstructorFactory(conveters);
+            fc.Add();
+            foreach (var f in meshConverterFactories)
+            {
+                f.Add();
+            }
+
         }
+
 
         public static void Init()
         {
@@ -71,6 +93,12 @@ namespace Abstract3DConverters
         {
             meshCreators.Add(factory);
         }
+
+        public static void Add(this IMeshConverterFactory factory)
+        {
+            meshConverters.Add(factory);
+        }
+
 
         static void Initialize(this Assembly assembly)
         {
@@ -88,7 +116,7 @@ namespace Abstract3DConverters
 
                         if (tt.Contains(typeof(IMeshCreator)))
                         {
-                            var ca = CustomAttributeExtensions.GetCustomAttribute<Attributes.ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                            var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
                             if (ca != null)
                             {
                                 ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(Stream)]);
@@ -100,21 +128,36 @@ namespace Abstract3DConverters
                             }
                             else
                             {
-                                
+
                             }
                         }
-                        if (tt.Contains(typeof(IMeshCreatorFactory)))
+                        if (tt.Contains(typeof(IMeshConverter)))
                         {
-                            var ca = CustomAttributeExtensions.GetCustomAttribute<Attributes.ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                            var ca = CustomAttributeExtensions.GetCustomAttribute<ConverterAttribute>(IntrospectionExtensions.GetTypeInfo(type));
                             if (ca != null)
                             {
                                 ConstructorInfo constructor = type.GetConstructor([]);
                                 var f = constructor.Invoke(null) as IMeshCreatorFactory;
-                                meshCreatorFactories.Add(f);
+                                var key = ca.Extention;
+                                Dictionary<string, ConstructorInfo> d;
+                                if (conveters.ContainsKey(key))
+                                {
+                                    d = conveters[key];
+                                }
+                                else
+                                {
+                                    d = new Dictionary<string, ConstructorInfo>();
+                                    conveters[key] = d;
+                                }
+                                var comment = ca.Comment;
+                                if (comment == null)
+                                {
+                                    comment = "";
+                                }
+                                d[comment] = constructor;
                             }
 
                         }
-
                     }
                     if (CustomAttributeExtensions.GetCustomAttribute<InitAttribute>(IntrospectionExtensions.GetTypeInfo(type)) != null)
                     {
@@ -132,14 +175,23 @@ namespace Abstract3DConverters
             {
 
             }
+        }
 
+        public static IMeshConverter ToMeshConvertor(this string extension, string comment = null)
+        {
+            return meshConvertFactory[extension, comment];
+        }
+
+        public static IMeshCreator ToMeshCreator(this string filename, Stream stream)
+        {
+            return meshCreatorFactory[filename, stream];
         }
 
         public static IMeshCreator ToMeshCreator(this string filename)
         {
             using (var stream = File.OpenRead(filename))
             {
-                return meshCreatorFactory[filename, stream];
+                return ToMeshCreator(filename, stream);
             }
         }
 

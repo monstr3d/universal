@@ -59,7 +59,7 @@ namespace Conversion3D.WebApplication.Utilities
 
         public static async Task<byte[]> ProcessFormFile<T>(IFormFile formFile, 
             ModelStateDictionary modelState, string[] permittedExtensions, 
-            long sizeLimit, string extension)
+            long sizeLimit)
         {
             var fieldDisplayName = string.Empty;
 

@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters;
-using System.Xml;
 using Abstract3DConverters.Materials;
-using System.Reflection;
 using Abstract3DConverters.Meshes;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
-using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Collada.Base
 {
@@ -87,7 +82,12 @@ namespace Collada.Base
 
         void IMeshConverter.Add(object mesh, object child)
         {
-            throw new NotImplementedException();
+            var p = mesh as XmlElement;
+            var c = child as XmlElement;
+            if (c.ParentNode == null)
+            {
+                p.AppendChild(c);
+            }
         }
 
         object IMeshConverter.Combine(IEnumerable<object> meshes)
@@ -142,39 +142,53 @@ namespace Collada.Base
         {
             ++ng;
             var name = "mesh_" + ng;
-            var e = doc.CreateElement("geometry");
-            e.SetAttribute("id", name);
-            var r = doc.GetElementsByTagName("library_geometries")[0];
-            r.AppendChild(e);
-            var me = doc.CreateElement("mesh");
-            e.AppendChild(me);
-            var se = doc.CreateElement("source");
-            me.AppendChild(se);
-            se.SetAttribute("id", name + "-position");
-            se.SetAttribute("name", "position");
-            var vert = s.ToSingleArray(mesh.Vertices).ToArray();
-            CreateFloatArray(se, name + "-position-array", vert);
-            CreateTechnique_XYZ(se, "#" + name + "-position-array", vert);
-            se = doc.CreateElement("source");
-            me.AppendChild(se);
-            se.SetAttribute("id", name + "-texcoord");
-            se.SetAttribute("name", "texcoord");
-            vert = GetTextureArray(mesh.Textures).ToArray();
-            CreateFloatArray(se, name + "-texcoord-array", vert);
-            CreateTechnique_TS(se, "#" + name + "-texcoord-array", vert);
-            //
-            //
-            var vt = doc.CreateElement("vertices");
-            me.AppendChild(vt);
-            vt.SetAttribute("id", name + "-vertices");
-            CreateSemantic(vt, "POSITION", name + "-position");
-            var tr = doc.CreateElement("triangles");
-            me.AppendChild(tr);
-            tr.SetAttribute("material", "default");
-            tr.SetAttribute("count", mesh.Vertices.Count + "");
-            CreateSemantic(tr, "VERTEX", name + "-vertices", 0);
-            CreateSemantic(tr, "TEXCOORD", name + "-texcoord", 1);
-            CreateArray(tr, "p", mesh.Indexes.ToArray());
+            if (mesh.Vertices != null)
+            {
+                var e = doc.CreateElement("geometry");
+                e.SetAttribute("id", name);
+                var r = doc.GetElementsByTagName("library_geometries")[0];
+                r.AppendChild(e);
+                var me = doc.CreateElement("mesh");
+                e.AppendChild(me);
+                var se = doc.CreateElement("source");
+                me.AppendChild(se);
+                se.SetAttribute("id", name + "-position");
+                se.SetAttribute("name", "position");
+                var vert = s.ToSingleArray(mesh.Vertices).ToArray();
+                CreateFloatArray(se, name + "-position-array", vert);
+                CreateTechnique_XYZ(se, "#" + name + "-position-array", vert);
+                se = doc.CreateElement("source");
+                me.AppendChild(se);
+                se.SetAttribute("id", name + "-texcoord");
+                se.SetAttribute("name", "texcoord");
+                var txt = mesh.Textures;
+                if (txt != null)
+                {
+                    vert = GetTextureArray(txt).ToArray();
+                    CreateFloatArray(se, name + "-texcoord-array", vert);
+                    CreateTechnique_TS(se, "#" + name + "-texcoord-array", vert);
+                }
+                else
+                {
+
+                }
+                //
+                //
+                var vt = doc.CreateElement("vertices");
+                me.AppendChild(vt);
+                vt.SetAttribute("id", name + "-vertices");
+                CreateSemantic(vt, "POSITION", name + "-position");
+                if (mesh.Indexes != null)
+                {
+                    var tr = doc.CreateElement("triangles");
+                    me.AppendChild(tr);
+                    tr.SetAttribute("material", "default");
+                    tr.SetAttribute("count", mesh.Vertices.Count + "");
+                    CreateSemantic(tr, "VERTEX", name + "-vertices", 0);
+                    CreateSemantic(tr, "TEXCOORD", name + "-texcoord", 1);
+                    CreateArray(tr, "p", mesh.Indexes.ToArray());
+                }
+            }
             return name;
         }
 

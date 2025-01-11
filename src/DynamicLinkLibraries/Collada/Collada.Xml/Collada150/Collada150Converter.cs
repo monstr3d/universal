@@ -1,9 +1,9 @@
 ﻿using System.Xml;
-using Abstract3DConverters;
-using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Attributes;
 
 namespace Collada150
 {
+    [Converter(".dae", "1.5.0")]
     public class Collada150Converter : Collada.Base.ColladaMeshConverter
     {
         #region Fields
@@ -16,7 +16,12 @@ namespace Collada150
 
         #region Constructor
 
-        public Collada150Converter(string directory = null) : base(directory)
+        public Collada150Converter() : this(null)
+        {
+
+        }
+
+        public Collada150Converter(string directory) : base(directory)
         {
             converter = this;
             doc.LoadXml(Properties.Resources.etalon);

@@ -70,7 +70,7 @@ namespace Conversion3D.WebApplication.Pages
         public string[] Extensions;// = new[] { "Male", "Female", "Unspecified" };
 
 
-
+/*
 
         [BindProperty]
         public Upload3D FileUpload
@@ -78,6 +78,8 @@ namespace Conversion3D.WebApplication.Pages
             get;
             set;
         }
+
+*/
 
         public string Result { get; private set; }
 
@@ -106,7 +108,7 @@ namespace Conversion3D.WebApplication.Pages
 
             var formFileContent =
                 await FileHelpers.ProcessFormFile<Upload3D>(
-                    FileUpload.FormFile, ModelState, _permittedExtensions,
+                    FormFile, ModelState, _permittedExtensions,
                     _fileSizeLimit);
 
             var ms = ModelState;
@@ -117,17 +119,13 @@ namespace Conversion3D.WebApplication.Pages
                 return Page();
             }
 
-            var inex = FileUpload.FormFile.FileName;
+            var inex = FormFile.FileName;
 
             using (var stream = new MemoryStream(formFileContent))
             {
-                var creator = inex.ToMeshCreator(stream);
                 var p = new Performer();
-                var converter = ext.Item1[0].ToMeshConvertor(ext.Item2);
-                var res = p.Create<object>(creator.Meshes, converter);
-                var sr = converter as IStringRepresentation;
-                var r = sr.ToString(sr);
-            }
+                var r = p.CreateAll(inex, stream, ext.Item1[0], ext.Item2);
+             }
 
             /*
                         var creator = ext.ToMeshCreator();
@@ -170,7 +168,17 @@ namespace Conversion3D.WebApplication.Pages
 
             return RedirectToPage("./Index");
         }
+
+        [BindProperty]
+        [Required]
+        [Display(Name = "File")]
+        public IFormFile FormFile
+        {
+            get;
+            set;
+        }
     }
+
 
     public class Upload3D
     {
@@ -183,7 +191,7 @@ namespace Conversion3D.WebApplication.Pages
 
         [Required]
         [Display(Name = "File")]
-        public IFormFile FormFile
+        public IFormFile FormFile1
         {
             get;
             set;

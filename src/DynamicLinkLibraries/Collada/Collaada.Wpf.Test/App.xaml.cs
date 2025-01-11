@@ -32,7 +32,7 @@ namespace Collaada.Wpf.Test
             // GenerateAC();
             //     GenerateCollada();
             GenerateToDae();
-            GenerateWpf();
+        //    GenerateWpf();
          //   GenerateWpf();
 
             //     GenerateToDae();
@@ -123,7 +123,8 @@ namespace Collaada.Wpf.Test
 
         void GenerateToDae()
         {
-                 GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
+            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.ac");
+        //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
           //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
          //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
         }
@@ -142,14 +143,14 @@ namespace Collaada.Wpf.Test
             }
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".dae");
-            throw new Exception();
-           /* var ac = new Collada150.Collada150Converter();
+
+            var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
 
             var obj = Generate<object>(filename, ac);
             using (var writer = new StreamWriter(file))
             {
                 writer.Write(obj);
-            }*/
+            }
         }
 
 
@@ -184,7 +185,7 @@ namespace Collaada.Wpf.Test
             var creator = filename.ToMeshCreator();
 
             var p = new Performer();
-            var res = p.Create<T>(filename, creator, converter, action);
+            var res = p.Create<T>(creator, converter, action);
             if (converter is IStringRepresentation sr)
             {
                 return  sr.ToString(res);
