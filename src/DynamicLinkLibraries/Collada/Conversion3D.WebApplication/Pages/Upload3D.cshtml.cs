@@ -69,6 +69,10 @@ namespace Conversion3D.WebApplication.Pages
         }
         public string[] Extensions;// = new[] { "Male", "Female", "Unspecified" };
 
+        public string FileName { get; private set; }
+
+        public byte[] Bytes { get; private set; }
+
 
 /*
 
@@ -92,6 +96,23 @@ namespace Conversion3D.WebApplication.Pages
         {
 
         }
+
+        public async Task<IActionResult> OnPostReferenceAsync()
+        {
+            
+
+            await Task.Delay(1);
+
+            if (Bytes == null)
+            {
+                return Page();
+            }
+            
+            return File(Bytes, "application/xml", FileName);
+        }
+
+
+
 
         public async Task<IActionResult> OnPostUploadAsync()
         {
@@ -121,11 +142,34 @@ namespace Conversion3D.WebApplication.Pages
 
             var inex = FormFile.FileName;
 
+            var pp = Path.GetFileNameWithoutExtension(inex);
+            FileName = pp + ext.Item1[0];
+
+
+
             using (var stream = new MemoryStream(formFileContent))
             {
                 var p = new Performer();
                 var r = p.CreateAll(inex, stream, ext.Item1[0], ext.Item2);
-             }
+                using (var outp = new MemoryStream())
+                {
+                    using (var outps = new StreamWriter(outp))
+                    {
+                        outps.Write(r);
+                        Bytes = outp.ToArray();
+                        //   return File(bt, "application/xml", fn);
+                        var pg = Page();
+                        //   return pg;
+
+                     //   var routeValues = new { Tuple =  new Tuple<byte[], string>(Bytes, FileName) };
+                        var routeValues = new { Tuple = "TTT" };
+                        //   return RedirectToPage("./HyperLink"m);
+                        var rd =  RedirectToPage("./HyperLink", routeValues);
+
+                        return rd;
+                    }
+                }
+            }
 
             /*
                         var creator = ext.ToMeshCreator();
@@ -157,16 +201,18 @@ namespace Conversion3D.WebApplication.Pages
             // For more information, see the topic that accompanies 
             // this sample.
 
-            using (var fileStream = System.IO.File.Create(filePath))
+        /*    using (var fileStream = System.IO.File.Create(filePath))
             {
                 await fileStream.WriteAsync(formFileContent);
 
                 // To work directly with a FormFile, use the following
                 // instead:
                 //await FileUpload.FormFile.CopyToAsync(fileStream);
-            }
+            }*/
 
-            return RedirectToPage("./Index");
+           
+
+            //return RedirectToPage("./Index");
         }
 
         [BindProperty]

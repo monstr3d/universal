@@ -1,9 +1,14 @@
 using Abstract3DConverters;
+using Conversion3D.WebApplication.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//builder.Services.AddScoped(typeof(IHyperLink), typeof(HyperLinkModel));
+
+builder.Services.AddScoped<IHyperLink>(_ => new HyperLinkModel());
 
 var app = builder.Build();
 
