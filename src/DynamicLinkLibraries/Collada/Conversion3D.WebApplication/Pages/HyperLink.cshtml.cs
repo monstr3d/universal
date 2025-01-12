@@ -1,35 +1,54 @@
+using Conversion3D.WebApplication.Pages.Shared;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Conversion3D.WebApplication.Pages
 {
-    public class HyperLinkModel : PageModel, IHyperLink
+    [AllowAnonymous]
+    public class HyperLinkModel : PageModel
     {
-/*
-        public HyperLinkModel(ILogger<PrivacyModel> logger)
-        {
 
+        public HyperLinkModel(IHyperLinkTransient hyperLink)
+        {
+            Data = hyperLink.Tuple.Item1;
+            FileName = hyperLink.Tuple.Item2;
         }
 
-
-        public HyperLinkModel(IConfiguration config)
+        
+         public byte[] Data
         {
-
+            get;
+            private set;
         }
-*/
-        public HyperLinkModel()
+
+        public string FileName
         {
-            var vd = ViewData;
+            get;
+            private set;
+        }
+        
+
+    
+        public string Text
+        {
+            get;
+            set;
         }
 
         public void OnGet()
         {
         }
 
-        public Tuple<byte[], string> Tuple
+        
+
+        public async Task<IActionResult> OnPostDownloadAsync()
         {
-            get;
-            set;
+            await Task.Delay(1);
+            return File(Data, "application/xml", FileName);
         }
+
+  
     }
 }

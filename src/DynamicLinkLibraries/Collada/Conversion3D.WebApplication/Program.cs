@@ -1,14 +1,19 @@
 using Abstract3DConverters;
 using Conversion3D.WebApplication.Pages;
+using Conversion3D.WebApplication.Pages.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddSingleton(typeof(IHyperLinkTransient), typeof(Data));
+
+//builder.Services.AddMvc();
+builder.Services.AddMvc(x => x.EnableEndpointRouting = false);
 //builder.Services.AddScoped(typeof(IHyperLink), typeof(HyperLinkModel));
 
-builder.Services.AddScoped<IHyperLink>(_ => new HyperLinkModel());
+//builder.Services.AddScoped<IHyperLink>(_ => new HyperLinkModel());
 
 var app = builder.Build();
 
@@ -21,6 +26,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -28,6 +35,13 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseMvcWithDefaultRoute();
+
+//app.UseSession();
+
+
+//app.UseMvc();
 
 StaticExtensionAbstract3DConverters.Init();
 

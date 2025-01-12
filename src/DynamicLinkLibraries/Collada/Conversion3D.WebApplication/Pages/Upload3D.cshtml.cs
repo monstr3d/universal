@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
+using Conversion3D.WebApplication.Pages.Shared;
 
 namespace Conversion3D.WebApplication.Pages
 {
@@ -23,8 +25,11 @@ namespace Conversion3D.WebApplication.Pages
 
         private readonly string _targetFilePath;
 
-        public Upload3DModel(IConfiguration config)
+        private IHyperLinkTransient HyperLink { get;  set; }
+
+        public Upload3DModel(IConfiguration configuration, IHyperLinkTransient hyperLink)
         {
+            HyperLink = hyperLink;
             var l = new List<string>();
             var lt = new List<string>();
             foreach (var p in fileTypes)
@@ -41,10 +46,10 @@ namespace Conversion3D.WebApplication.Pages
 
 
             _permittedExtensions = l.ToArray();
-            _fileSizeLimit = config.GetValue<long>("FileSizeLimit");
+            _fileSizeLimit = 100000000;// config.GetValue<long>("FileSizeLimit");
 
             // To save physical files to a path provided by configuration:
-            _targetFilePath = config.GetValue<string>("StoredFilesPath");
+            _targetFilePath = "c:\file"; //config.GetValue<string>("StoredFilesPath");
 
             // To save physical files to the temporary files folder, use:
             //_targetFilePath = Path.GetTempPath();
@@ -111,7 +116,7 @@ namespace Conversion3D.WebApplication.Pages
             return File(Bytes, "application/xml", FileName);
         }
 
-
+        
 
 
         public async Task<IActionResult> OnPostUploadAsync()
@@ -162,11 +167,20 @@ namespace Conversion3D.WebApplication.Pages
                         //   return pg;
 
                      //   var routeValues = new { Tuple =  new Tuple<byte[], string>(Bytes, FileName) };
-                        var routeValues = new { Tuple = "TTT" };
+                        var routeValues = new { Text = "TTT" };
                         //   return RedirectToPage("./HyperLink"m);
                         var rd =  RedirectToPage("./HyperLink", routeValues);
-
+                        var t = new Tuple<byte[], string>(Bytes, FileName);
+                        ViewData["Tuple"] = t;
+                        Request.RouteValues["Tuple"] = t;
+                        var d = new Dictionary<Type, List<object> >()
+                        {
+                            {typeof(byte[]), new List<object>(){Bytes } }
+                        };
+                        PageContext.Add(d, typeof(byte[]).Assembly);
+                        HyperLink.Tuple = t;
                         return rd;
+                        
                     }
                 }
             }
