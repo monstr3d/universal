@@ -9945,16 +9945,23 @@ namespace Collada141
         {
             using (var ms = new MemoryStream())
             {
+                byte[] bytes;
                 using (var writer = new StreamWriter(ms))
                 {
                     writer.Write(s);
+                    writer.Flush();
+                    bytes = ms.GetBuffer();
                 }
-                using (var reader = new StreamReader(ms))
+                using (var stream = new MemoryStream(bytes))
                 {
-                    XmlSerializer xSerializer = new XmlSerializer(typeof(COLLADA));
+                    return Load(stream);
+                    using (var reader = new StreamReader(stream))
+                    {
+                        XmlSerializer xSerializer = new XmlSerializer(typeof(COLLADA));
 
-                    return (COLLADA)xSerializer.Deserialize(reader);
+                        return (COLLADA)xSerializer.Deserialize(reader);
 
+                    }
                 }
             }
         }

@@ -956,7 +956,7 @@ namespace Collada.Wpf
 
 
 
-     
+  /*   
 
         static public void SetLight(this Visual3D v3d)
         {
@@ -969,7 +969,7 @@ namespace Collada.Wpf
                 m3d.Children.Insert(0, m);
             }
         }
-
+  */
 
         #endregion
     }

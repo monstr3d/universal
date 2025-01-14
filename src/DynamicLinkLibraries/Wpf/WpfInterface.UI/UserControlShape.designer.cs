@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlShape));
             panelCenterTop = new System.Windows.Forms.Panel();
+            panelColor = new System.Windows.Forms.Panel();
             checkBoxLightColor = new System.Windows.Forms.CheckBox();
             checkBoxScaled = new System.Windows.Forms.CheckBox();
             checkBoxColored = new System.Windows.Forms.CheckBox();
@@ -89,7 +90,6 @@
             toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             openFileDialogFigure = new System.Windows.Forms.OpenFileDialog();
             colorDialog = new System.Windows.Forms.ColorDialog();
-            panelColor = new System.Windows.Forms.Panel();
             panelCenterTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSh).BeginInit();
             panelMain.SuspendLayout();
@@ -114,6 +114,13 @@
             panelCenterTop.Name = "panelCenterTop";
             panelCenterTop.Size = new System.Drawing.Size(233, 146);
             panelCenterTop.TabIndex = 2;
+            // 
+            // panelColor
+            // 
+            panelColor.Location = new System.Drawing.Point(117, 88);
+            panelColor.Name = "panelColor";
+            panelColor.Size = new System.Drawing.Size(33, 30);
+            panelColor.TabIndex = 8;
             // 
             // checkBoxLightColor
             // 
@@ -585,13 +592,6 @@
             // openFileDialogFigure
             // 
             openFileDialogFigure.Filter = "3D files |*.xaml";
-            // 
-            // panelColor
-            // 
-            panelColor.Location = new System.Drawing.Point(117, 88);
-            panelColor.Name = "panelColor";
-            panelColor.Size = new System.Drawing.Size(33, 30);
-            panelColor.TabIndex = 8;
             // 
             // UserControlShape
             // 

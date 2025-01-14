@@ -59,8 +59,8 @@ namespace Abstract3DConverters
             {
                 if (!l.Contains(file))
                 {
-                    var assembl = Assembly.LoadFrom(file);
-                    assembl.Initialize();
+                    var assembly = Assembly.LoadFrom(file);
+                    assembly.Initialize();
                 }
             }
             var fd = new MeshCreatorConstructorFactory(creators);
@@ -130,6 +130,17 @@ namespace Abstract3DConverters
                             {
 
                             }
+                        }
+                        if (tt.Contains(typeof(IMeshCreatorFactory)))
+                        {
+                            var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                            if (ca != null)
+                            {
+                                ConstructorInfo constructor = type.GetConstructor([]);
+                                var f = constructor.Invoke(null) as IMeshCreatorFactory;
+                                meshCreatorFactories.Add(f);
+                            }
+
                         }
                         if (tt.Contains(typeof(IMeshConverter)))
                         {

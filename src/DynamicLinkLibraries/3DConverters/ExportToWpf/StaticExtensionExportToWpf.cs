@@ -30,7 +30,7 @@ namespace ExportToWpf
 
         }
 
-        static public void SetLight(this Visual3D v3d)
+      /*  static public void SetLight(this Visual3D v3d)
         {
             if (v3d is ModelVisual3D m3d)
             {
@@ -39,7 +39,7 @@ namespace ExportToWpf
                 m.Content = l;
                 m3d.Children.Insert(0, m);
             }
-        }
+        }*/
 
         static Tuple <string, Dictionary<string, byte[]>> Export(string filename)
         {
@@ -62,7 +62,7 @@ namespace ExportToWpf
             var p = new Performer();
             var converter = new WpfMeshConverter();
             var res = p.Create<ModelVisual3D>(creator, converter);
-            res.SetLight();
+   //         res.SetLight();
              if (creator is Abstract3DConverters.Interfaces.IAdditionalInformation add)
             {
                 var dic = add.Information;

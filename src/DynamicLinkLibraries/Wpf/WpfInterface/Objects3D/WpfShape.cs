@@ -24,6 +24,7 @@ using WpfInterface.Interfaces;
 using WpfInterface.Animated;
 using Motion6D.Portable.Interfaces;
 using Wpf.Loader;
+using System.Windows.Markup;
 
 namespace WpfInterface.Objects3D
 {
@@ -208,7 +209,9 @@ namespace WpfInterface.Objects3D
             visuals[camera] = v3d;
             if (!scaled)
             {
+                var s = XamlWriter.Save(v3d);
                 SetLight(v3d);
+                var s1 = XamlWriter.Save(v3d);
                 return v3d;
             }
             double sc = camera.Scale;
@@ -557,7 +560,7 @@ namespace WpfInterface.Objects3D
 
             get;
             set;
-        } = true;
+        } = false;
 
 
 

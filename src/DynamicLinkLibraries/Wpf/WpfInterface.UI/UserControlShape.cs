@@ -10,6 +10,7 @@ using Motion6D.Interfaces;
 using WpfInterface.Objects3D;
 
 using Wpf.Loader;
+using CutoutPro.Winforms;
 
 namespace WpfInterface.UI.UserControls
 {
@@ -57,9 +58,9 @@ namespace WpfInterface.UI.UserControls
                 shape = value;
                 checkBoxScaled.Checked = value.IsScaled;
                 showFilename();
-                checkBoxColored.Checked = value.HasLight;
-                checkBoxColored.CheckedChanged += CheckBoxColored_CheckedChanged;
-                
+                checkBoxLightColor.Checked = value.HasLight;
+                checkBoxLightColor.CheckStateChanged += CheckBoxColored_CheckedChanged;
+                SetColorPanel();
             }
         }
 
@@ -77,16 +78,16 @@ namespace WpfInterface.UI.UserControls
 
         private void CheckBoxColored_CheckedChanged(object? sender, EventArgs e)
         {
-            shape.HasLight = checkBoxColored.Checked;
+            shape.HasLight = checkBoxLightColor.Checked;
             if (!shape.HasLight)
             {
                 SetColorPanel();
                 return;
             }
-            var res = colorDialog.ShowDialog();
-            if (res == DialogResult.OK)
+            var  dialog = new ArgbColorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                var c = colorDialog.Color;
+                var c = dialog.Color;
                 shape.LightColor = System.Windows.Media.Color.FromArgb(c.A, c.R, c.G, c.B);
             }
             SetColorPanel();
