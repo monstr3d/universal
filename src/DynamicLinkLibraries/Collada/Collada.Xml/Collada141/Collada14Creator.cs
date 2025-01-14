@@ -31,7 +31,18 @@ namespace Collada.Converter.Creators
             collada = COLLADA.Load(doc.OuterXml);
         }
 
-     
+        public Collada14MeshCreator(string str) : base(str)
+        {
+            collada = COLLADA.Load(str);
+        }
+
+        public Collada14MeshCreator(Stream str) : base(str)
+        {
+            collada = COLLADA.Load(str);
+        }
+
+
+
 
         protected override void CreateAll()
         {

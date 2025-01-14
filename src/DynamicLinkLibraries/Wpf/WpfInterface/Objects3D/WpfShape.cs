@@ -769,6 +769,17 @@ namespace WpfInterface.Objects3D
             }
             if (v3d is ModelVisual3D m3d)
             {
+                foreach (var child in m3d.Children)
+                {
+                    if (child == v3d)
+                    {
+                        continue;
+                    }
+                    if (child is Visual3D v)
+                    {
+                        SetLight(v);
+                    }
+                }
                 ModelVisual3D m = new ModelVisual3D();
                 AmbientLight l = new AmbientLight(LightColor);
                 m.Content = l;

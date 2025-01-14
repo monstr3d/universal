@@ -30,8 +30,9 @@ namespace ExportToWpf
 
         }
 
-      /*  static public void SetLight(this Visual3D v3d)
+        static public void SetLight(this Visual3D v3d)
         {
+            return;
             if (v3d is ModelVisual3D m3d)
             {
                 ModelVisual3D m = new ModelVisual3D();
@@ -39,15 +40,13 @@ namespace ExportToWpf
                 m.Content = l;
                 m3d.Children.Insert(0, m);
             }
-        }*/
+        }
 
         static Tuple <string, Dictionary<string, byte[]>> Export(string filename)
         {
             var c = filename.ToMeshCreator();
             return Export(filename, c);
         }
-
-   
 
         static Tuple<string, Dictionary<string, byte[]>> Export(string filename, Abstract3DConverters.Interfaces.IMeshCreator creator)
         {
@@ -62,7 +61,7 @@ namespace ExportToWpf
             var p = new Performer();
             var converter = new WpfMeshConverter();
             var res = p.Create<ModelVisual3D>(creator, converter);
-   //         res.SetLight();
+            res.SetLight();
              if (creator is Abstract3DConverters.Interfaces.IAdditionalInformation add)
             {
                 var dic = add.Information;

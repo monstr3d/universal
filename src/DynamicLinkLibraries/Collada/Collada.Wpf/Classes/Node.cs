@@ -311,7 +311,7 @@ namespace Collada.Wpf.Classes
             {
                 var o = roots[0].Get() as Node;
                 mod = o.Visual3D as ModelVisual3D;
-//                mod.SetLight();
+            //    mod.SetLight();
                 return mod;
             }
             else
@@ -329,11 +329,11 @@ namespace Collada.Wpf.Classes
                     if (!children.Contains(p))
                     {
                         children.Add(p);
-      //                  p.SetLight();
+                       // p.SetLight();
                     }
                 }
             }
- //           mod.SetLight();
+        //    mod.SetLight();
             return mod;
         }
     }

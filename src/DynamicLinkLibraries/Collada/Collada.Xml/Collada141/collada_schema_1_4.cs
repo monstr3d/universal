@@ -17,7 +17,6 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -9931,73 +9930,39 @@ namespace Collada141
         }
 
 
-        public static COLLADA Load141(string fileName)
+        public static COLLADA Load(string fileName)
         {
+            FileStream stream = new FileStream(fileName, FileMode.Open);
             COLLADA result;
-            using (var stream = new FileStream(fileName, FileMode.Open))
+            try
             {
                 result = Load(stream);
+            }
+            finally
+            {
+                stream.Close();
             }
             return result;
         }
 
-        public static COLLADA Load(string s)
-        {
-            using (var ms = new MemoryStream())
-            {
-                byte[] bytes;
-                using (var writer = new StreamWriter(ms))
-                {
-                    writer.Write(s);
-                    writer.Flush();
-                    bytes = ms.GetBuffer();
-                }
-                using (var stream = new MemoryStream(bytes))
-                {
-                    return Load(stream);
-                    using (var reader = new StreamReader(stream))
-                    {
-                        XmlSerializer xSerializer = new XmlSerializer(typeof(COLLADA));
-
-                        return (COLLADA)xSerializer.Deserialize(reader);
-
-                    }
-                }
-            }
-        }
-
         public static COLLADA Load(Stream stream)
         {
-            try
-            {
-                using (var ms = new MemoryStream())
-                {
-                    var xs = new XmlSerializer(typeof(DateTime));
-                    xs.Serialize(ms, DateTime.Now);
-                    var cc = ms.ToArray();
-                    using (var reader = new StreamReader(ms))
-                    {
-                        var rr = reader.ReadToEnd();
-                    }
+            StreamReader str = new StreamReader(stream);
+            XmlSerializer xSerializer = new XmlSerializer(typeof(COLLADA));
 
-                }
-  
-                StreamReader str = new StreamReader(stream);
-                XmlSerializer xSerializer = new XmlSerializer(typeof(COLLADA));
-
-                return (COLLADA)xSerializer.Deserialize(str);
-            }
-            catch (Exception ex)
-            {
-            }
-            return null;
+            return (COLLADA)xSerializer.Deserialize(str);            
         }
 
         public void Save(string fileName)
         {
-            using (var stream = new FileStream(fileName, FileMode.Create))
+            FileStream stream = new FileStream(fileName, FileMode.Create);
+            try
             {
                 Save(stream);
+            }
+            finally
+            {
+                stream.Close();
             }
         }
 

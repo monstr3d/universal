@@ -11,9 +11,28 @@ namespace Abstract3DConverters.Creators
     {
         protected XmlDocument doc;
 
+
+        protected string String
+        {
+            get;
+            private set;
+        }
+
         protected XmlMeshCreator(XmlDocument doc)
         {
             this.doc = doc;
+        }
+
+        protected XmlMeshCreator(string str)
+        {
+            String = str;
+            doc = new XmlDocument();
+            doc.LoadXml(str);
+        }
+
+        protected XmlMeshCreator(Stream stream)
+        {
+
         }
 
         public override void Load(Stream stream)
