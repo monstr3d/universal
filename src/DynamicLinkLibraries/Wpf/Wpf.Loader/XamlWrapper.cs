@@ -37,8 +37,10 @@ namespace Wpf.Loader
 
         protected Dictionary<string, byte[]> textures = new Dictionary<string, byte[]>();
 
+ 
 
-        public Dictionary<string, byte[]> Attachement
+
+        public Dictionary<string, byte[]> Attachment
         {
             get; protected set;
         }
@@ -72,7 +74,7 @@ namespace Wpf.Loader
         internal void SetFile(string xaml, Dictionary<string, byte[]> attach, string dir)
         {
             this.xaml = xaml;
-            Attachement = attach;
+            Attachment = attach;
             textures.Clear();
             string d = dir;
             var ds = d.Replace(Path.DirectorySeparatorChar, '/');

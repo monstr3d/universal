@@ -61,7 +61,7 @@ namespace ExportToWpf
             }
             var p = new Performer();
             var converter = new WpfMeshConverter();
-            var res = p.Create<ModelVisual3D>(filename, creator, converter);
+            var res = p.Create<ModelVisual3D>(creator, converter);
             res.SetLight();
              if (creator is Abstract3DConverters.Interfaces.IAdditionalInformation add)
             {

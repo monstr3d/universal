@@ -2,7 +2,7 @@
 {
     public interface IHyperLink
     {
-        Tuple<byte[], string> Tuple
+        Tuple<Stream, string> Tuple
         {
             get;
             set;

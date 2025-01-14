@@ -27,7 +27,7 @@ namespace Conversion3D.WebApplication.Pages
 
         private IHyperLinkTransient HyperLink { get;  set; }
 
-        public Upload3DModel(IConfiguration configuration, IHyperLinkTransient hyperLink)
+        public Upload3DModel(IConfiguration config, IHyperLinkTransient hyperLink)
         {
             HyperLink = hyperLink;
             var l = new List<string>();
@@ -46,10 +46,10 @@ namespace Conversion3D.WebApplication.Pages
 
 
             _permittedExtensions = l.ToArray();
-            _fileSizeLimit = 100000000;// config.GetValue<long>("FileSizeLimit");
+            _fileSizeLimit =  config.GetValue<long>("FileSizeLimit");
 
             // To save physical files to a path provided by configuration:
-            _targetFilePath = "c:\file"; //config.GetValue<string>("StoredFilesPath");
+            _targetFilePath = config.GetValue<string>("StoredFilesPath");
 
             // To save physical files to the temporary files folder, use:
             //_targetFilePath = Path.GetTempPath();
@@ -100,6 +100,21 @@ namespace Conversion3D.WebApplication.Pages
         public void OnPost()
         {
 
+        }
+
+        private Stream Zip(byte[] b)
+        {
+            var outStream = new MemoryStream();
+            using (var archive = new System.IO.Compression.ZipArchive(outStream, System.IO.Compression.ZipArchiveMode.Create, true))
+            {
+                var fileInArchive = archive.CreateEntry(FileName, System.IO.Compression.CompressionLevel.Optimal);
+                using var entryStream = fileInArchive.Open();
+                using var fileToCompressStream = new MemoryStream(b);
+                fileToCompressStream.CopyTo(entryStream);
+                entryStream.Flush();
+                entryStream.Close();
+                return outStream;
+            }
         }
 
         public async Task<IActionResult> OnPostReferenceAsync()
@@ -161,7 +176,7 @@ namespace Conversion3D.WebApplication.Pages
                     using (var outps = new StreamWriter(outp))
                     {
                         outps.Write(r);
-                        Bytes = outp.ToArray();
+                         
                         //   return File(bt, "application/xml", fn);
                         var pg = Page();
                         //   return pg;
@@ -170,7 +185,7 @@ namespace Conversion3D.WebApplication.Pages
                         var routeValues = new { Text = "TTT" };
                         //   return RedirectToPage("./HyperLink"m);
                         var rd =  RedirectToPage("./HyperLink", routeValues);
-                        var t = new Tuple<byte[], string>(Bytes, FileName);
+                        var t = new Tuple<Stream, string>(Zip(outp.ToArray()), FileName);
                         ViewData["Tuple"] = t;
                         Request.RouteValues["Tuple"] = t;
                         var d = new Dictionary<Type, List<object> >()

@@ -16,6 +16,7 @@ namespace WpfInterface.UI.UserControls
     public partial class UserControlShape : UserControl
     {
         #region Fields
+
         private WpfShape shape;
 
         //private Motion6D.UI.FormFieldShape form;
@@ -39,10 +40,10 @@ namespace WpfInterface.UI.UserControls
         {
             shape.Visual.InvertZ();
             string s = System.Windows.Markup.XamlWriter.Save(shape.Visual);
-            using (System.IO.TextWriter wr = new System.IO.StreamWriter(@"g:\2.xaml"))
+        /*    using (System.IO.TextWriter wr = new System.IO.StreamWriter(@"g:\2.xaml"))
             {
                 wr.WriteLine(s);
-            }
+            }*/
         }
 
         public WpfShape Shape
@@ -56,7 +57,39 @@ namespace WpfInterface.UI.UserControls
                 shape = value;
                 checkBoxScaled.Checked = value.IsScaled;
                 showFilename();
+                checkBoxColored.Checked = value.HasLight;
+                checkBoxColored.CheckedChanged += CheckBoxColored_CheckedChanged;
+                
             }
+        }
+
+        void SetColorPanel()
+        {
+            if (!shape.HasLight)
+            {
+                panelColor.Visible = false;
+                return;
+            }
+            panelColor.Visible = true;
+            var c = shape.LightColor;
+            panelColor.BackColor = System.Drawing.Color.FromArgb(c.A, c.R, c.G, c.B);
+        }
+
+        private void CheckBoxColored_CheckedChanged(object? sender, EventArgs e)
+        {
+            shape.HasLight = checkBoxColored.Checked;
+            if (!shape.HasLight)
+            {
+                SetColorPanel();
+                return;
+            }
+            var res = colorDialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                var c = colorDialog.Color;
+                shape.LightColor = System.Windows.Media.Color.FromArgb(c.A, c.R, c.G, c.B);
+            }
+            SetColorPanel();
         }
 
         private void open()

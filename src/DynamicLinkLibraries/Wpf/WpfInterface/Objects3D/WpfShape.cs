@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Runtime.Serialization;
 using System.Windows.Media.Media3D;
 
@@ -129,8 +128,20 @@ namespace WpfInterface.Objects3D
                 }
                 try
                 {
-                    Attachement = info.GetValue("Attachement", typeof(Dictionary<string, byte[]>))
+                    Attachment = info.GetValue("Attachment", typeof(Dictionary<string, byte[]>))
                         as Dictionary<string, byte[]>;
+                }
+                catch
+                {
+
+                }
+                try
+                {
+
+
+                    var f = info.GetValue("LightColor", typeof(float[])) as float[];
+                    LightColor = System.Windows.Media.Color.FromScRgb(f[0], f[1], f[2], f[3]);
+                    HasLight = info.GetBoolean("HasLight");
                 }
                 catch
                 {
@@ -163,7 +174,12 @@ namespace WpfInterface.Objects3D
             info.AddValue("ForecastTime", forecastTime, typeof(TimeSpan));
             info.AddValue("CoordinateError", coordinateError);
             info.AddValue("AngleError", angleError);
-            info.AddValue("Attachement", Attachement, typeof(Dictionary<string, byte[]>));
+            info.AddValue("Attachment", Attachment, typeof(Dictionary<string, byte[]>));
+            var c = LightColor;
+            float[] f = [c.ScA, c.ScR, c.ScG, c.ScB];
+            info.AddValue("LightColor", f, typeof(float[]));
+            info.AddValue("HasLight", HasLight);
+
         }
 
         #endregion
@@ -192,20 +208,27 @@ namespace WpfInterface.Objects3D
             visuals[camera] = v3d;
             if (!scaled)
             {
+                SetLight(v3d);
                 return v3d;
             }
             double sc = camera.Scale;
             if (sc == 1)
             {
+                SetLight(v3d);
                 return v3d;
             }
             v3d.Multiply(sc);
+            SetLight(v3d);
             return v3d;
         }
 
+        #endregion
+
+        #region IVisible Members
 
 
         double[,] IVisible.Size => size;
+
 
         #endregion
 
@@ -517,6 +540,26 @@ namespace WpfInterface.Objects3D
         #region Specific Members
 
         #region Public Members
+        /// <summary>
+        /// Color of light
+        /// </summary>
+        public System.Windows.Media.Color LightColor
+        {
+            get;
+            set;
+        } = System.Windows.Media.Color.FromScRgb(1, 1, 1, 1);
+
+        /// <summary>
+        /// The "has light" sign
+        /// </summary>
+        public bool HasLight
+        {
+
+            get;
+            set;
+        } = true;
+
+
 
         /// <summary>
         /// The is scaled sign
@@ -685,7 +728,9 @@ namespace WpfInterface.Objects3D
             }
         }
 
-  
+        /// <summary>
+        /// Image brush
+        /// </summary>
         protected override System.Windows.Media.ImageBrush ImageBrush
         {
             get
@@ -712,6 +757,21 @@ namespace WpfInterface.Objects3D
     
 
         #endregion
+
+        private void SetLight(Visual3D v3d)
+        {
+            if (!HasLight)
+            {
+                return;
+            }
+            if (v3d is ModelVisual3D m3d)
+            {
+                ModelVisual3D m = new ModelVisual3D();
+                AmbientLight l = new AmbientLight(LightColor);
+                m.Content = l;
+                m3d.Children.Insert(0, m);
+            }
+        }
 
         #endregion
 

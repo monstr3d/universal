@@ -7,6 +7,6 @@ namespace Conversion3D.WebApplication.Pages.Shared
         {
 
         }
-        public Tuple<byte[], string> Tuple { get; set; }
+        public Tuple<Stream, string> Tuple { get; set; }
     }
 }

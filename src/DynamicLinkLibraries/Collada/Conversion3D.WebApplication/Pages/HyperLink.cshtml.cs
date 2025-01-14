@@ -1,6 +1,5 @@
 using Conversion3D.WebApplication.Pages.Shared;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,7 +16,7 @@ namespace Conversion3D.WebApplication.Pages
         }
 
         
-         public byte[] Data
+         public Stream Data
         {
             get;
             private set;
@@ -46,7 +45,8 @@ namespace Conversion3D.WebApplication.Pages
         public async Task<IActionResult> OnPostDownloadAsync()
         {
             await Task.Delay(1);
-            return File(Data, "application/xml", FileName);
+            Data.Position = 0;
+            return File(Data, "application/zip", FileName + ".zip");
         }
 
   

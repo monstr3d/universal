@@ -71,7 +71,7 @@ namespace Abstract3DConverters
             return converter.Combine(enu) as T;
         }
 
-        public T Create<T>(IMeshCreator creator, IMeshConverter converter, Action < T> action = null) where T : class
+        public T Create<T>(IMeshCreator creator, IMeshConverter converter, Action <T> action = null) where T : class
         {
             var meshes = creator.Meshes;
             converter.Images = creator.Images;
