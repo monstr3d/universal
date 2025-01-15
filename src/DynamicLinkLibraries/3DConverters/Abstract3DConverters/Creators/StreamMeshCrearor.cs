@@ -19,6 +19,5 @@ namespace Abstract3DConverters.Creators
             ext = Path.GetExtension(filename);
             Load(stream);
         }
-
      }
 }

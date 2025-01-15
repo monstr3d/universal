@@ -67,7 +67,11 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        IParent IParent.Parent { get => parent; set => Parent = value as AbstractMesh; }
+        IParent IParent.Parent 
+        { 
+            get => parent; 
+            set => Parent = value as AbstractMesh; 
+        }
 
         public AbstractMesh(string name, IMeshCreator creator = null)
         {

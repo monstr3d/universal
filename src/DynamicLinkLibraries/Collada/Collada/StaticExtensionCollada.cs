@@ -584,6 +584,7 @@ namespace Collada
         }
 
 
+
         public static IEnumerable<object> GetAllObjectChildren<T>(this XmlElement element)
         {
             var type = typeof(T);
@@ -596,7 +597,15 @@ namespace Collada
         {
             var nl = element.GetAllObjectChildren<T>();
             return nl.Where(e => e is T).Select(e => e as T);
-         }
+        }
+
+        public static T GetFirstChild<T>(this XmlElement element) where T : class
+        {
+            var nl = element.GetAllObjectChildren<T>();
+            var a = nl.Where(e => e is T).Select(e => e as T).ToArray();
+            return a.Length > 0 ? a[0] : null;
+        }
+
 
         public static IEnumerable<S> GetAllChildren<T, S>(this XmlElement element) where T : class where S : class
         {

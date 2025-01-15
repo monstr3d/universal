@@ -1,6 +1,4 @@
-﻿using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
-
+﻿
 namespace Abstract3DConverters.Creators
 {
     public abstract class LinesMeshCreator : StreamMeshCrearor

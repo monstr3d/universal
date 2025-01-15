@@ -1,4 +1,6 @@
 using Abstract3DConverters;
+using Conversion3D.WebApplication.Classes;
+using Conversion3D.WebApplication.Interfacers;
 using Conversion3D.WebApplication.Pages;
 using Conversion3D.WebApplication.Pages.Shared;
 
@@ -8,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton(typeof(IHyperLinkTransient), typeof(Data));
+
+builder.Services.AddSingleton(typeof(IBytesSingleton), typeof(BytesSingleton));
+
 
 //builder.Services.AddMvc();
 builder.Services.AddMvc(x => x.EnableEndpointRouting = false);

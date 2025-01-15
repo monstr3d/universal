@@ -73,10 +73,9 @@ namespace Abstract3DConverters
 
         public T Create<T>(IMeshCreator creator, IMeshConverter converter, Action <T> action = null) where T : class
         {
-            var meshes = creator.Meshes;
             converter.Images = creator.Images;
             converter.Materials = creator.Materials;
-            var res = Combine<T>(meshes, converter);
+            var res = Combine<T>(creator.Meshes, converter);
             if (action != null)
             {
                 action(res);
