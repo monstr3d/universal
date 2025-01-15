@@ -27,7 +27,7 @@ namespace Abstract3DConverters
             return res;
         }
 
-        public string CreateAll(string fileinput, Stream stream, string outExt, string outComment, Action<object> act = null)
+        public string CreateString(string fileinput, Stream stream, string outExt, string outComment, Action<object> act = null)
         {
             var creator = fileinput.ToMeshCreator(stream);
             var p = new Performer();
@@ -36,6 +36,23 @@ namespace Abstract3DConverters
             var sr = converter as IStringRepresentation;
             var r = sr.ToString(res);
             return r;
+        }
+
+        public void CreateAndSave(string fileinput, Stream stream, string outExt, string outComment, Stream outs, Action<object> act = null)
+        {
+            var creator = fileinput.ToMeshCreator(stream);
+            var p = new Performer();
+            var converter = outExt.ToMeshConvertor(outComment);
+            var res = p.Create<object>(creator, converter, act);
+            if (converter is ISaveToStream save)
+            {
+                save.Save(res, outs);
+                return;
+            }
+            var sr = converter as IStringRepresentation;
+            var r = sr.ToString(res);
+            using var wr = new StreamWriter(outs);
+            wr.Write(r);
         }
 
         public T Create<T>(AbstractMesh mesh, IMeshConverter meshConverter) where T : class

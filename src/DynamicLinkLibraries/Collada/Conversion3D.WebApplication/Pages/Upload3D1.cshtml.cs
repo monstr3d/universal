@@ -174,7 +174,7 @@ namespace Conversion3D.WebApplication.Pages
             using (var stream = new MemoryStream(formFileContent))
             {
                 var p = new Performer();
-                var r = p.CreateAll(inex, stream, ext.Item1[0], ext.Item2);
+                var r = p.CreateString(inex, stream, ext.Item1[0], ext.Item2);
                 using (var outp = new MemoryStream())
                 {
                     using (var outps = new StreamWriter(outp))

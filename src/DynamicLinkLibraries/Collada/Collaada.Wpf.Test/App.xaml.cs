@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Automation.Text;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
@@ -91,7 +92,7 @@ namespace Collaada.Wpf.Test
             var file = Path.Combine(dir, fnt + ".xaml");
             var act = (ModelVisual3D m) =>
             {
-                m.SetLight();
+               // m.SetLight();
 
             };
             
@@ -123,17 +124,20 @@ namespace Collaada.Wpf.Test
 
         void GenerateToDae()
         {
-            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.ac");
-        //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
-          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
-         //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
+          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.ac");
+
+            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+
+            //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
+            //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
+            //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
         }
 
         void GenerateToDae(string filen)
         {
             var filename = Path.Combine(acdir, filen);
 
-            var creator = filename.ToMeshCreator();
+           // var creator = filename.ToMeshCreator();
 
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var ext = Path.GetExtension(filename);
@@ -143,14 +147,33 @@ namespace Collaada.Wpf.Test
             }
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".dae");
+            if (File.Exists(file))
+            {
+                file = Path.Combine(dir, fnt + Path.GetRandomFileName() + "1.5.0.dae");
 
-            var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
+            }
+
+           // var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
+
+            using var outs = File.OpenWrite(file);
+
+            var p = new Performer();
+            using var stream = File.OpenRead(filen);
+            p.CreateAndSave(filen, stream, ".dae", "1.5.0", outs);
+            return;
+
+/*
+            if (ac is ISaveToStream ss)
+            {
+                return;
+            }
 
             var obj = Generate<object>(filename, ac);
             using (var writer = new StreamWriter(file))
             {
                 writer.Write(obj);
             }
+*/
         }
 
 

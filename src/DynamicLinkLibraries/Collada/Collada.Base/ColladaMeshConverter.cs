@@ -11,7 +11,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Collada.Base
 {
-    public class ColladaMeshConverter : IMeshConverter, IStringRepresentation, IMaterialCreator
+    public class ColladaMeshConverter : IMeshConverter, ISaveToStream, IMaterialCreator
     {
 
         #region Fields
@@ -292,10 +292,20 @@ namespace Collada.Base
 
         #region IStringRepresentation Members
 
-        string IStringRepresentation.ToString(object obj)
+        /*  string IStringRepresentation.ToString(object obj)
+          {
+              var d = obj as XmlDocument;
+              */
+        void ISaveToStream.Save(object obj, Stream stream)
         {
             var d = obj as XmlDocument;
-            return d.OuterXml;
+            using var w = XmlWriter.Create(stream, new XmlWriterSettings
+            {
+                NewLineChars = "\n",
+                Indent = true
+                
+            });
+            d.WriteContentTo(w);
         }
 
 
