@@ -11,7 +11,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Collada.Base
 {
-    public class ColladaMeshConverter : IMeshConverter, ISaveToStream, IMaterialCreator
+    public abstract class ColladaMeshConverter : IMeshConverter, ISaveToStream, IMaterialCreator
     {
 
         #region Fields
@@ -21,6 +21,9 @@ namespace Collada.Base
         protected XmlDocument effect = new();
 
         protected Service s = new();
+
+        protected int nmat = 0;
+
 
 
 
@@ -92,7 +95,7 @@ namespace Collada.Base
 
         object IMeshConverter.Combine(IEnumerable<object> meshes)
         {
-            return doc; ;
+            return doc;
         }
 
         object IMeshConverter.Create(AbstractMesh mesh)
@@ -113,6 +116,9 @@ namespace Collada.Base
         }
 
         #endregion
+
+        
+        
 
         int ng = 0;
 
@@ -156,7 +162,7 @@ namespace Collada.Base
                 se.SetAttribute("name", "position");
                 var vert = s.ToSingleArray(mesh.Vertices).ToArray();
                 CreateFloatArray(se, name + "-position-array", vert);
-                CreateTechnique_XYZ(se, "#" + name + "-position-array", vert);
+                CreateTechnique_XYZ(se, name + "-position-array", vert);
                 se = doc.CreateElement("source");
                 me.AppendChild(se);
                 se.SetAttribute("id", name + "-texcoord");
@@ -166,7 +172,7 @@ namespace Collada.Base
                 {
                     vert = GetTextureArray(txt).ToArray();
                     CreateFloatArray(se, name + "-texcoord-array", vert);
-                    CreateTechnique_TS(se, "#" + name + "-texcoord-array", vert);
+                    CreateTechnique_TS(se, name + "-texcoord-array", vert);
                 }
                 else
                 {
@@ -178,16 +184,18 @@ namespace Collada.Base
                 me.AppendChild(vt);
                 vt.SetAttribute("id", name + "-vertices");
                 CreateSemantic(vt, "POSITION", name + "-position");
+                var tr = doc.CreateElement("triangles");
+                me.AppendChild(tr);
+                tr.SetAttribute("material", "default");
+                tr.SetAttribute("count", mesh.Vertices.Count + "");
+                CreateSemantic(tr, "VERTEX", name + "-vertices", 0);
+                CreateSemantic(tr, "TEXCOORD", name + "-texcoord", 1);
                 if (mesh.Indexes != null)
                 {
-                    var tr = doc.CreateElement("triangles");
-                    me.AppendChild(tr);
-                    tr.SetAttribute("material", "default");
-                    tr.SetAttribute("count", mesh.Vertices.Count + "");
-                    CreateSemantic(tr, "VERTEX", name + "-vertices", 0);
-                    CreateSemantic(tr, "TEXCOORD", name + "-texcoord", 1);
                     CreateArray(tr, "p", mesh.Indexes.ToArray());
                 }
+                
+
             }
             return name;
         }
@@ -599,34 +607,10 @@ namespace Collada.Base
         protected Dictionary<AbstractMesh, XmlElement> nodes = new();
 
 
-        int nmat = 0;
+   
 
-        protected XmlElement Create(XmlElement parent, AbstractMesh mesh)
-        {
-            var node = doc.CreateElement("node");
-            var pmesh =  Process(node, mesh);
-            var ig = doc.CreateElement("instance_geometry");
-            ig.SetAttribute("url", "#" + pmesh);
-            var mt = mesh.Material;
-            if (mt != null)
-            {
-                var bm = doc.CreateElement("bind_material");
-                ig.AppendChild(bm);
-                var tc = doc.CreateElement("technique_common");
-                bm.AppendChild(tc);
-                var im = doc.CreateElement("instance_material");
-                tc.AppendChild(im);
-                im.SetAttribute("symbol", "mat" + nmat);
-                var nm = mt.Name;
-                im.SetAttribute("target", "#" + nm);
-            }
-            ++nmat;
-            node.AppendChild(ig);
-            parent.AppendChild(node);
-            mesh.Children.Select(e => Create(node, e)).ToList();
-            nodes[mesh] = node;
-            return node;
-        }
+
+        protected abstract XmlElement Create(XmlElement parent, AbstractMesh mesh);
 
         protected string Process(XmlElement element, AbstractMesh mesh)
         {

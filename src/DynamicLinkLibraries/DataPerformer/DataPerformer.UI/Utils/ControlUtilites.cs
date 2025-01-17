@@ -54,7 +54,7 @@ namespace DataPerformer.UI.Utils
             lock (errorHandler)
             {
                 err[1] = c;
-                Diagram.UI.StaticExtensionDiagramUI.Show(message, err);
+                Diagram.UI.StaticExtensionDiagramUI.ShowMessage(message, err);
             }
         }
 

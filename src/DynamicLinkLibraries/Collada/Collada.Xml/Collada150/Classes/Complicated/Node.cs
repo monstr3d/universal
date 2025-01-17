@@ -48,67 +48,64 @@ namespace Collada150.Classes.Complicated
             List<float[]> textures = null;
             List<int[][]> t = null;
             var g = geom.Geometry;
-            if (g != null)
+            var mesh = g.Mesh;
+            if (mesh != null)
             {
                 try
                 {
-                    var mesh = g.Mesh;
                     var tr = mesh.Triangles;
-                    if (tr != null)
+                    int[] offs = new int[tr.Inputs.Count];
+                    var h = new int[] { -1, -1, -1 };
+
+                    if (tr.Inputs.ContainsKey("VERTEX"))
                     {
-                        int[] offs = new int[tr.Inputs.Count];
-                        var h = new int[] { -1, -1, -1 };
+                        var o = tr.Inputs["VERTEX"];
+                        offs[0] = o.Offset;
+                        var v = o.Value as Vertices;
+                        var x = v.Array;
+                        vertices = s.ToRealArray(x, 3);
+                        h[0] = o.Offset;
+                    }
+                    if (tr.Inputs.ContainsKey("TEXCOORD"))
+                    {
+                        var o = tr.Inputs["TEXCOORD"];
 
-                        if (tr.Inputs.ContainsKey("VERTEX"))
-                        {
-                            var o = tr.Inputs["VERTEX"];
-                            offs[0] = o.Offset;
-                            var v = o.Value as Vertices;
-                            var x = v.Array;
-                            vertices = s.ToRealArray(x, 3);
-                            h[0] = o.Offset;
-                        }
-                        if (tr.Inputs.ContainsKey("TEXCOORD"))
-                        {
-                            var o = tr.Inputs["TEXCOORD"];
+                        offs[1] = o.Offset;
+                        var v = o.Value as float[];
+                        textures = s.ToRealArray(v, 2);
+                        h[1] = o.Offset;
+                    }
+                    if (tr.Inputs.ContainsKey("NORMAL"))
+                    {
+                        var o = tr.Inputs["NORMAL"];
 
-                            offs[1] = o.Offset;
-                            var v = o.Value as float[];
-                            textures = s.ToRealArray(v, 2);
-                            h[1] = o.Offset;
-                        }
-                        if (tr.Inputs.ContainsKey("NORMAL"))
+                        offs[2] = o.Offset;
+                        var v = o.Value as float[];
+                        normal = s.ToRealArray(v, 3);
+                        h[2] = o.Offset;
+                    }
+                    var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
+                    t = new List<int[][]>();
+                    foreach (var p in ii)
+                    {
+                        int[][] k = new int[p.Length][];
+                        for (int j = 0; j < p.Length; j++)
                         {
-                            var o = tr.Inputs["NORMAL"];
-
-                            offs[2] = o.Offset;
-                            var v = o.Value as float[];
-                            normal = s.ToRealArray(v, 3);
-                            h[2] = o.Offset;
-                        }
-                        var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
-                        t = new List<int[][]>();
-                        foreach (var p in ii)
-                        {
-                            int[][] k = new int[p.Length][];
-                            for (int j = 0; j < p.Length; j++)
+                            var pp = p[j];
+                            var kj = new int[pp.Length];
+                            k[j] = kj;
+                            for (int hh = 0; hh < pp.Length; hh++)
                             {
-                                var pp = p[j];
-                                var kj = new int[pp.Length];
-                                k[j] = kj;
-                                for (int hh = 0; hh < pp.Length; hh++)
-                                {
-                                    kj[offs[hh]] = pp[hh];
-                                }
+                                kj[offs[hh]] = pp[hh];
                             }
-                            t.Add(k);
-
                         }
+                        t.Add(k);
+
                     }
                 }
                 catch (Exception ex)
                 {
-
+                    ex.ShowError();
                 }
             }
             try
@@ -117,7 +114,7 @@ namespace Collada150.Classes.Complicated
             }
             catch (Exception e)
             {
-
+                e.ShowError();
             }
             return null;
         }

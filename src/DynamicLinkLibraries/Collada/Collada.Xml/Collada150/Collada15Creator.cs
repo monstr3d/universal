@@ -76,7 +76,7 @@ namespace Collada150.Creators
             }
             catch (Exception ex)
             {
-
+                ex.ShowError();
             }
             Type[] types = [typeof(Source), typeof(Classes.Complicated.Image), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
             typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Complicated.Material),
@@ -113,11 +113,13 @@ namespace Collada150.Creators
             }
             catch (Exception ex)
             {
-
+                ex.ShowError();
             }
 
             
         }
+
+
 
         protected override void CreateAll()
         {
@@ -284,10 +286,10 @@ namespace Collada150.Creators
             }
             catch (Exception e)
             {
-
+                e.ShowError();
             }
             return null;
-            }
+        }
 
         void Put(XmlElement xmlElement)
         {

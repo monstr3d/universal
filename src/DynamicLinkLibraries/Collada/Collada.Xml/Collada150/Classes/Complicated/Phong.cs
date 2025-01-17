@@ -1,5 +1,6 @@
 ﻿
 using System.Xml;
+using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Collada;
@@ -71,7 +72,7 @@ namespace Collada150.Classes.Complicated
             }
             catch (Exception ex)
             {
-
+                ex.ShowError();
             }
         }
 

@@ -171,7 +171,7 @@ namespace Internet.Meteo.Wrapper
         /// <param name="message">The message</param>
         protected override void ShowMessage(string message)
         {
-            message.Show();
+            message.ShowMessage();
         }
 
         /// <summary>

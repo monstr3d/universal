@@ -31,36 +31,12 @@ namespace Abstract3DConverters.Creators
         string IMeshCreator.Directory => directory;
 
         public Dictionary<string, Material> Materials => materials;
+
         public Dictionary<string, Image> Images => images;
 
         public abstract void Load(Stream stream);
 
-        /*        public void Load(string filename)
-                {
-                    directory = Path.GetDirectoryName(filename);
-                    this.filename = filename;
-                    using (var stream = File.OpenRead(filename))
-                    {
-                        Load(stream);
-                    }
-                }
-
-                public void Load(Stream stream)
-                {
-                    LoadIfself(stream);
-                    CreateAll();
-                }
-
-                protected abstract void LoadIfself(Stream stream);
-
-
-                public IEnumerable<AbstractMesh> Create(string filename)
-                {
-                    Load(filename);
-                    return Get();
-                }
-
-                */
+ 
 
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Get();
 

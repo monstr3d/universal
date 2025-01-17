@@ -51,7 +51,7 @@ namespace Collada150.Classes.Complicated
             var o = GetSemantic(semantic, source);
             if (o == null)
             {
-                throw new Exception();
+                //throw new Exception();
             }
             if (o is Source so)
             {

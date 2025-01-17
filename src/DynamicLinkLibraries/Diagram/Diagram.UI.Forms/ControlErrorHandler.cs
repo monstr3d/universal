@@ -56,7 +56,7 @@ namespace Diagram.UI
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(c.FindForm(), message, ResourceService.Resources.GetControlResource("Error", resources));
                 return;
             }
-            Diagram.UI.StaticExtensionDiagramUI.Show(message, obj);
+            Diagram.UI.StaticExtensionDiagramUI.ShowMessage(message, obj);
         }
 
         #endregion

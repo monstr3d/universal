@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
     public class Image : ICloneable
     {

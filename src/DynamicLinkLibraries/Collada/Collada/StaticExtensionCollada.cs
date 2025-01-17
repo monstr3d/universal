@@ -4,7 +4,6 @@ using System.IO;
 using System.Xml;
 using System.Linq;
 using System.Reflection;
-using System.Net.WebSockets;
 
 namespace Collada
 {
@@ -593,6 +592,15 @@ namespace Collada
             return nl.Select(e => e.Get());
         }
 
+        public static IEnumerable<object> GetObjectChildren<T>(this XmlElement element)
+        {
+            var type = typeof(T);
+            var name = types[type].Tag;
+            var nl = element.GetAllElementsByTagName(name).Where(e => e.ParentNode == element);
+            return nl.Select(e => e.Get());
+        }
+
+
         public static IEnumerable<T> GetAllChildren<T>(this XmlElement element) where T : class
         {
             var nl = element.GetAllObjectChildren<T>();
@@ -601,7 +609,7 @@ namespace Collada
 
         public static T GetFirstChild<T>(this XmlElement element) where T : class
         {
-            var nl = element.GetAllObjectChildren<T>();
+            var nl = element.GetObjectChildren<T>();
             var a = nl.Where(e => e is T).Select(e => e as T).ToArray();
             return a.Length > 0 ? a[0] : null;
         }

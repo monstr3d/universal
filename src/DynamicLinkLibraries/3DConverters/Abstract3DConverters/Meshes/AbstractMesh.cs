@@ -136,7 +136,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception ex)
             {
-
+                ex.ShowError();
             }
             return null;
         }

@@ -174,7 +174,7 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public override void Disintegrate()
+        protected override void Disintegrate()
         {
             if (mats.Count > 1)
             {

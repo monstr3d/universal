@@ -48,7 +48,7 @@ namespace SoundService
         string fn = soundDirectory + filename;
         if (!System.IO.File.Exists(fn))
         {
-            ("Sound file '" + fn + " do not exist").Show();
+            ("Sound file '" + fn + " do not exist").ShowMessage();
             return;
         }
         try

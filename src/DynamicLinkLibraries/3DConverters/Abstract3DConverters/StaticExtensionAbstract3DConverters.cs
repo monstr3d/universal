@@ -21,6 +21,7 @@ namespace Abstract3DConverters
         static IMeshConverterFactory meshConvertFactory;
 
 
+        static  IErrorHandler ErrorHandler { get; set; }
 
         public static IPolygonSplitterFactory PolygonSplitterFactory { get; set; }
 
@@ -82,6 +83,19 @@ namespace Abstract3DConverters
         public static void Init()
         {
 
+        }
+
+        public static void Set(this IErrorHandler errorHandler)
+        {
+            ErrorHandler = errorHandler;
+        }
+
+        static public void ShowError(this Exception exception, object obj = null)
+        {
+            if (ErrorHandler != null)
+            {
+                ErrorHandler.ShowError(exception, obj);
+            }
         }
 
         public static IMeshCreator GetMeshCreator(string extension, Stream stream)
@@ -178,13 +192,12 @@ namespace Abstract3DConverters
                             continue;
                         }
                         mi.Invoke(null, [null]);
-
                     }
                 }
             }
             catch (Exception e)
             {
-
+                e.ShowError();
             }
         }
 

@@ -8,8 +8,6 @@ using System.Data;
 
 using CategoryTheory;
 
-using MathGraph;
-
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Attributes;
@@ -519,7 +517,7 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="obj">Attached object</param>
-        static public void Show(this string message, object obj = null)
+        static public void ShowMessage(this string message, object obj = null)
         {
             object o;
             IErrorHandler eh = GetErrorHandler(obj, out o);
@@ -1157,10 +1155,10 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="level">Level of message</param>
-        static public void Show(this string message, int level)
+        static public void ShowMessage(this string message, int level)
         {
             object o = level;
-            Show(message, o);
+            ShowMessage(message, o);
         }
 
         /// <summary>

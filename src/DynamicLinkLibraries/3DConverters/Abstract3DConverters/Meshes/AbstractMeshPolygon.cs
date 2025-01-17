@@ -23,9 +23,15 @@ namespace Abstract3DConverters.Meshes
             MaterialString = material;
         }
 
-        public abstract void Disintegrate();
+        public void CreateTriangles()
+        {
+            Disintegrate();
+            CreateFromPolygons();
+        }
 
-        public void CreateFromPolygons()
+        protected abstract void Disintegrate();
+
+        protected void CreateFromPolygons()
         {
             if (Polygons.Count == 0)
             {
