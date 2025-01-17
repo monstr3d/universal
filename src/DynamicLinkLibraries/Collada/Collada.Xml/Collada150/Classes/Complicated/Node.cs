@@ -14,11 +14,18 @@ namespace Collada150.Classes.Complicated
     {
         public static IClear Clear => StaticExtensionCollada.GetClear<Node>();
 
+        Collada15MeshCreator Creator
+        {
+            get;
+            set;
+        }
+
+
         Service s = new ();
 
         private Node(XmlElement element, IMeshCreator meshCreator) : base(element)
         {
-            var creator = meshCreator as Collada15MeshCreator;
+            Creator = meshCreator as Collada15MeshCreator;
             var name = element.GetAttribute("name");
             var geom = element.GetFirstChild<InstanceGeomery>();
             var mat = element.GetFirstChild<BindMaterial>();
@@ -29,7 +36,7 @@ namespace Collada150.Classes.Complicated
                 mm = s.Convert(mt.Matrix3D);
             }
             var mesh = Create(geom, mat, name, mm);
-            creator.Meshes[element] = mesh;
+            Creator.Meshes[element] = mesh;
         }
 
         AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)
@@ -41,7 +48,7 @@ namespace Collada150.Classes.Complicated
             }
             if (geom == null)
             {
-                return new AbstractMesh(name, null);
+                return new AbstractMesh(name, Creator);
             }
             List<float[]> vertices = null;
             List<float[]> normal = null;
@@ -110,7 +117,7 @@ namespace Collada150.Classes.Complicated
             }
             try
             {
-                return new AbstractMesh(name, null, mt, vertices, normal, textures, t, mm);
+                return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
             }
             catch (Exception e)
             {

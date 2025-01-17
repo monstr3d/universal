@@ -7,6 +7,8 @@ namespace Abstract3DConverters.Meshes
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
+        protected bool trianlesCreared = false;
+
         public List<Polygon> Polygons
         { get; } = new List<Polygon>();
 
@@ -25,53 +27,65 @@ namespace Abstract3DConverters.Meshes
 
         public void CreateTriangles()
         {
+            if (trianlesCreared)
+            {
+                return;
+            }
             Disintegrate();
             CreateFromPolygons();
+            trianlesCreared = true;
         }
 
         protected abstract void Disintegrate();
 
         protected void CreateFromPolygons()
         {
-            if (Polygons.Count == 0)
+            if (Polygons.Count > 0 & !trianlesCreared)
             {
-                return;
-            }
-            List<Polygon> polygons = new List<Polygon>();
-            foreach (var polygon in Polygons)
-            {
-                if (polygon.Points.Count <= 3)
+                List<Polygon> polygons = new List<Polygon>();
+                foreach (var polygon in Polygons)
                 {
-                    polygons.Add(polygon);
-                }
-                else
-                {
-                    var pp = splitter[polygon];
-                    foreach (var p in pp)
+                    if (polygon.Points.Count <= 3)
                     {
-                        polygons.Add(p);
+                        polygons.Add(polygon);
+                    }
+                    else
+                    {
+                        var pp = splitter[polygon];
+                        foreach (var p in pp)
+                        {
+                            polygons.Add(p);
+                        }
+                    }
+                }
+                var idx = new List<int[][]>();
+                Indexes = idx;
+                var txt = new List<float[]>();
+                Textures = txt;
+                var k = 0;
+                foreach (var p in polygons)
+                {
+                    var t = p.Points;
+                    var ii = new int[t.Count][];
+                    idx.Add(ii);
+                    for (int j = 0; j < t.Count; j++)
+                    {
+                        var pp = t[j];
+                        var iii = new int[] { pp.Item1, k, pp.Item3 };
+                        ii[j] = iii;
+                        txt.Add(pp.Item4);
+                        ++k;
                     }
                 }
             }
-            var idx = new List<int[][]>();
-            Indexes = idx;
-            var txt = new List<float[]>();
-            Textures = txt;
-            var k = 0;
-            foreach (var p in polygons)
+            foreach (AbstractMesh mesh in Children)
             {
-                var t = p.Points;
-                var ii = new int[t.Count][];
-                idx.Add(ii);
-                for (int j = 0; j < t.Count; j++)
+                if (mesh is AbstractMeshPolygon amp)
                 {
-                    var pp = t[j];
-                    var iii = new int[] { pp.Item1, k, pp.Item3 };
-                    ii[j] = iii;
-                    txt.Add(pp.Item4);
-                    ++k;
+                    amp.CreateFromPolygons();
                 }
             }
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -20,7 +21,6 @@ using AssemblyService.Attributes;
 
 using ResourceService;
 using WindowsExtensions;
-using System.Configuration;
 
 namespace Diagram.UI
 {

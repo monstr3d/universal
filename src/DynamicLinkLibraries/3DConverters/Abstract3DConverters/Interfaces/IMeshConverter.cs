@@ -17,10 +17,6 @@ namespace Abstract3DConverters.Interfaces
 
         IMaterialCreator MaterialCreator { get; }
 
-        Dictionary<string, Image> Images
-        {
-            set;
-        }
 
         object Create(AbstractMesh mesh);
 

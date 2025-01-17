@@ -73,8 +73,12 @@ namespace Abstract3DConverters.Meshes
             set => Parent = value as AbstractMesh; 
         }
 
-        public AbstractMesh(string name, IMeshCreator creator = null)
+        public AbstractMesh(string name, IMeshCreator creator)
         {
+            if (creator == null)
+            {
+                throw new Exception();
+            }
             this.creator = creator;
             Name = name;
         }
@@ -95,7 +99,7 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public AbstractMesh(string name, IMeshCreator creator = null, Material material = null, 
+        public AbstractMesh(string name, IMeshCreator creator, Material material = null, 
             List<float[]> vertices = null, List<float[]> normals = null,
        List<float[]> textures = null, List<int[][]> indexes = null) : this(name, creator)
         {
@@ -106,7 +110,7 @@ namespace Abstract3DConverters.Meshes
             Indexes = indexes;
         }
 
-        public AbstractMesh(string name, IMeshCreator creator = null, Material material = null,
+        public AbstractMesh(string name, IMeshCreator creator, Material material = null,
          List<float[]> vertices = null, List<float[]> normals = null,
     List<float[]> textures = null, List<int[][]> indexes = null, float[] matrix = null) : 
             this(name, creator, material, vertices, normals,

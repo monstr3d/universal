@@ -8,14 +8,14 @@ namespace Abstract3DConverters.Interfaces
 
         Assembly Assembly { get; }
 
-        object Create(Image image);
+        object Create(string key, Image image);
 
 
         object Create(Color color);
 
-        object Create(Material material);
+        object Create(string key, Material material);
 
-        object Create(MaterialGroup material);
+        object Create(string key, MaterialGroup material);
 
         object Create(DiffuseMaterial material);
 

@@ -8,10 +8,11 @@ namespace Collada.Wpf.Classes
     public class XmlHolder : Collada.XmlHolder
     {
 
-
+        protected IMeshCreator creator;
 
         protected XmlHolder(XmlElement element) : base(element)
         {
+            creator = Collada as IMeshCreator;
             if (element.IsElementary())
             {
                 return;

@@ -136,7 +136,7 @@ namespace Abstract3DConverters.Meshes
         }
 
         private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :
-            base(parent.Name + Guid.NewGuid(), parent, creator)
+            base(parent.Name + Path.GetRandomFileName(), parent, creator)
         {
             Vertices = new List<float[]>();
             var d = new Dictionary<int, int>();
@@ -178,16 +178,19 @@ namespace Abstract3DConverters.Meshes
         {
             if (mats.Count > 1)
             {
-                if (Vertices.Count > 0)
+                if (Vertices != null)
                 {
-                    foreach (Polygon p in Polygons)
+                    if (Vertices.Count > 0)
                     {
-                        int h = 0;
-                        h = dp[p];
-                        var mat = materials[h];
-                        new AbstractMeshAC(this, p, mat, Image, creator);
+                        foreach (Polygon p in Polygons)
+                        {
+                            int h = 0;
+                            h = dp[p];
+                            var mat = materials[h];
+                            new AbstractMeshAC(this, p, mat, Image, creator);
+                        }
                     }
-                    Vertices = new List<float[]>();
+                    Vertices = null;
                     Polygons.Clear();
                     Image = null;
                 }
