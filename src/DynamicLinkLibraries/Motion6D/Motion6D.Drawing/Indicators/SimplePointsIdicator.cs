@@ -9,6 +9,7 @@ using Diagram.UI;
 using Motion6D.Drawing.Interfaces;
 using Motion6D.Drawing.Classes;
 using Motion6D.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D.Drawing.Indicators
 {

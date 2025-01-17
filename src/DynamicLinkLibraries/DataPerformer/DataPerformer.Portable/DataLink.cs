@@ -8,6 +8,7 @@ using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Interfaces;
+using ErrorHandler;
 
 
 namespace DataPerformer.Portable

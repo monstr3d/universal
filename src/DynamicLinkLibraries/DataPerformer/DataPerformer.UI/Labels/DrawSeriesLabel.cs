@@ -26,6 +26,7 @@ using Chart.Drawing;
 
 
 using DataPerformer.UI;
+using ErrorHandler;
 
 namespace DataPerformer.UI.Labels
 {

@@ -17,6 +17,7 @@ using System.Xml;
 using CategoryTheory;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Diagram.UI.Labels
 {

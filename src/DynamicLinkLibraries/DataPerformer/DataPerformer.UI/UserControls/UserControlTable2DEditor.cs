@@ -15,6 +15,7 @@ using Diagram.UI;
 using Diagram.UI.Utils;
 
 using DataPerformer.Portable;
+using ErrorHandler;
 
 namespace DataPerformer.UI.UserControls
 {

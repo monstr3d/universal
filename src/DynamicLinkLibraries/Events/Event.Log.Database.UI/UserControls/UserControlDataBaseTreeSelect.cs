@@ -13,6 +13,7 @@ using Diagram.UI;
 using Event.Log.Database.Interfaces;
 using Event.Portable;
 using Event.Basic;
+using ErrorHandler;
 
 namespace Event.Log.Database.UI.UserControls
 {

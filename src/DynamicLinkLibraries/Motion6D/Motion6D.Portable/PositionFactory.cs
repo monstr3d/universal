@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using Diagram.UI;
-
+using ErrorHandler;
 using Motion6D.Interfaces;
 using Motion6D.Portable;
 
@@ -66,7 +66,7 @@ namespace Motion6D
         }
 
         /// <summary>
-        /// Accees to factory by name
+        /// Acceess to factory by name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>

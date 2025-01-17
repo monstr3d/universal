@@ -9,6 +9,7 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D.Portable
 {

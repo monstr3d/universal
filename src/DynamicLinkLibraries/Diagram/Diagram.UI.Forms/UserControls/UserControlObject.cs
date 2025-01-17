@@ -11,6 +11,7 @@ using CategoryTheory;
 
 
 using Diagram.UI.Labels;
+using ErrorHandler;
 
 namespace Diagram.UI.UserControls
 {

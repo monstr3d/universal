@@ -18,6 +18,7 @@ using DataPerformer.Interfaces;
 using DataPerformer;
 using FormulaEditor.Drawing.Symbols;
 using FormulaEditor.Drawing;
+using ErrorHandler;
 
 namespace DataPerformer.UI.UserControls
 {

@@ -24,6 +24,7 @@ using Chart.Utils;
 
 using DataPerformer.UI;
 using ImageNavigation.Inrefaces;
+using ErrorHandler;
 
 namespace ImageNavigation.UserControls
 {

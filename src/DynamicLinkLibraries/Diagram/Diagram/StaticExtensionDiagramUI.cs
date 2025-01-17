@@ -14,6 +14,7 @@ using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 
 using AssemblyService;
+using ErrorHandler;
 
 
 namespace Diagram.UI
@@ -47,11 +48,6 @@ namespace Diagram.UI
         /// Create code action
         /// </summary>
         static private event Action<List<string>> onCreateCode;
-
-        /// <summary>
-        /// Handler of log
-        /// </summary>
-        private static IErrorHandler errorHandler;
 
         /// <summary>
         /// Object comparer
@@ -472,66 +468,7 @@ namespace Diagram.UI
             return l;
         }
 
-        /// <summary>
-        /// Error handler
-        /// </summary>
-        public static IErrorHandler ErrorHandler
-        {
-            get
-            {
-                return errorHandler;
-            }
-            set
-            {
-                errorHandler = value;
-            }
-        }
-
-        /// <summary>
-        /// Shows exception (extension method)
-        /// </summary>
-        /// <param name="exception">Exception</param>
-        /// <param name="obj">Attached object</param>
-        static public void ShowError(this Exception exception, object obj = null)
-        {
-            object o;
-            if (exception is IErrorHandler)
-            {
-                (exception as IErrorHandler).ShowError(exception, obj);
-                return;
-            }
-            IErrorHandler eh = GetErrorHandler(obj, out o);
-            if (eh != null)
-            {
-                eh.ShowError(exception, o);
-                return;
-            }
-            if (errorHandler != null) // Static error handler
-            {
-                errorHandler.ShowError(exception, obj);
-            }
-        }
-
-        /// <summary>
-        /// Shows message
-        /// </summary>
-        /// <param name="message">The message to show</param>
-        /// <param name="obj">Attached object</param>
-        static public void ShowMessage(this string message, object obj = null)
-        {
-            object o;
-            IErrorHandler eh = GetErrorHandler(obj, out o);
-            if (eh != null)
-            {
-                eh.ShowMessage(message, o);
-                return;
-            }
-            if (errorHandler != null)
-            {
-                errorHandler.ShowMessage(message, obj);
-            }
-        }
-
+ 
         #endregion
 
         #region C# Code Create
@@ -1127,38 +1064,6 @@ namespace Diagram.UI
                 l.Add(t);
             }
             return l.ToArray();
-        }
-
-        /// <summary>
-        /// Sets strict error handler
-        /// </summary>
-        public static void SetStrictErrorHandler()
-        {
-            ErrorHandler = ErrorHandlers.StrictErrorHandler.Singleton;
-        }
-
-  
-        /// <summary>
-        /// Shows error
-        /// </summary>
-        /// <param name="exception">Exception</param>
-        /// <param name="errorLevel">Error level</param>
-        static public void ShowErrorLevel(this Exception exception, int errorLevel = 0)
-        {
-
-            object o = errorLevel;
-            ShowError(exception, o);
-        }
-
-        /// <summary>
-        /// Shows message
-        /// </summary>
-        /// <param name="message">The message to show</param>
-        /// <param name="level">Level of message</param>
-        static public void ShowMessage(this string message, int level)
-        {
-            object o = level;
-            ShowMessage(message, o);
         }
 
         /// <summary>

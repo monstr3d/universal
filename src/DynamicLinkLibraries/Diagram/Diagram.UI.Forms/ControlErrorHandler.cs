@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 
 namespace Diagram.UI
@@ -44,7 +43,7 @@ namespace Diagram.UI
                 Diagram.UI.Utils.ControlUtilites.ShowError(c, exception, resources);
                 return;
             }
-            Diagram.UI.StaticExtensionDiagramUI.ShowError(exception, obj);
+            StaticExtensionErrorHandler.ShowError(exception, obj);
         }
 
         void IErrorHandler.ShowMessage(string message, object obj)
@@ -56,7 +55,7 @@ namespace Diagram.UI
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(c.FindForm(), message, ResourceService.Resources.GetControlResource("Error", resources));
                 return;
             }
-            Diagram.UI.StaticExtensionDiagramUI.ShowMessage(message, obj);
+            StaticExtensionErrorHandler.ShowMessage(message, obj);
         }
 
         #endregion

@@ -13,6 +13,7 @@ using BitmapConsumer;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
+using ErrorHandler;
 
 namespace ImageNavigation
 {

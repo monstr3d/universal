@@ -5,6 +5,7 @@ using System.Data;
 
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace DataSetService
 {

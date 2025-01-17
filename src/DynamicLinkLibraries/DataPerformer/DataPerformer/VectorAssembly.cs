@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace DataPerformer
 {

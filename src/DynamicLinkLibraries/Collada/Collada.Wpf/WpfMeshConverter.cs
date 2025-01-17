@@ -18,8 +18,7 @@ namespace Collada.Wpf
         WpfMaterialCreator creator;
 
         Dictionary<string, Abstract3DConverters.Materials.Material> IMeshConverter.Materials { set { } }
-        Dictionary<string, Image> IMeshConverter.Images { set { } }
-
+  
         Dictionary<string, string> imagemap = new();
 
         public WpfMeshConverter()

@@ -12,6 +12,7 @@ using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.UI.Forms
 {

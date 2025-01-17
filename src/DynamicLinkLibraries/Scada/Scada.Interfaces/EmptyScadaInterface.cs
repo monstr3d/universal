@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using ErrorHandler;
 
 namespace Scada.Interfaces
 {
@@ -116,21 +117,7 @@ namespace Scada.Interfaces
             }
         }
 
-        /// <summary>
-        /// Error Handler
-        /// </summary>
-        public override IErrorHandler ErrorHandler
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
+  
         /// <summary>
         /// Gets object of type 
         /// </summary>
@@ -176,5 +163,7 @@ namespace Scada.Interfaces
         {
             throw new NotImplementedException();
         }
+
+        public override IErrorHandler ErrorHandler { get; set; }
     }
 }

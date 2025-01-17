@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using ErrorHandler;
 
 namespace Scada.Interfaces
 {
@@ -215,6 +216,7 @@ namespace Scada.Interfaces
             get;
             set;
         }
+        IErrorHandler IScadaInterface.ErrorHandler { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Refresh

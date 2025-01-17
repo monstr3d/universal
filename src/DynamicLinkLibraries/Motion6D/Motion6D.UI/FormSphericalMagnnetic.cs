@@ -1,16 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-using Diagram.UI;
 using PhysicalField;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D.UI
 {

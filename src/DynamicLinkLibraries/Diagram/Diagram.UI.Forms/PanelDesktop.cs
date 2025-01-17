@@ -24,6 +24,7 @@ using SerializationInterface;
 using Common.UI;
 
 using ToolBox;
+using ErrorHandler;
 
 
 namespace Diagram.UI

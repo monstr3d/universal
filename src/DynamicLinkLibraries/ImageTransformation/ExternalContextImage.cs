@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Diagram.UI;
 using System.Net;
+using ErrorHandler;
 
 namespace ImageTransformations
 {

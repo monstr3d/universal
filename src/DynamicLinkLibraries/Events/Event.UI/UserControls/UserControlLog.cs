@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Diagram.UI;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 
-using Event.Basic;
 using Event.Log.Database;
+
+using ErrorHandler;
 
 namespace Event.UI.UserControls
 {

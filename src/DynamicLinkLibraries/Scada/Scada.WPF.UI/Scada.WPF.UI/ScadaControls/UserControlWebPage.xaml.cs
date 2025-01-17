@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Diagram.UI;
-
+using ErrorHandler;
 using Scada.Interfaces;
 
 using Scada.Wpf.Common.Convertes;

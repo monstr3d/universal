@@ -8,6 +8,7 @@ using System.Data.Common;
 using CategoryTheory;
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace DataSetService
 {

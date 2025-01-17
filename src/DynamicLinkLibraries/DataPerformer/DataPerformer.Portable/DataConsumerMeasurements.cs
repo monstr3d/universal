@@ -13,6 +13,7 @@ using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {

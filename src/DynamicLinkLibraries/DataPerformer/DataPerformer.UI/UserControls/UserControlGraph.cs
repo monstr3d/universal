@@ -51,6 +51,7 @@ using Chart.UserControls;
 using ToolBox;
 
 using WindowsExtensions;
+using ErrorHandler;
 
 namespace DataPerformer.UI.UserControls
 {

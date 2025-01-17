@@ -10,6 +10,7 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+using ErrorHandler;
 
 namespace Diagram.UI.Utils
 {
@@ -283,7 +284,7 @@ namespace Diagram.UI.Utils
         /// <param name="r">Resources</param>
         public static void ShowError(this Form form, Exception e, string helpstring, Dictionary<string, string> r)
         {
-            IErrorHandler eh = StaticExtensionDiagramUI.ErrorHandler;
+            IErrorHandler eh = StaticExtensionErrorHandler.ErrorHandler;
             if (eh != null)
             {
                 e.ShowError(0);
@@ -323,7 +324,7 @@ namespace Diagram.UI.Utils
         /// <param name="e">Error exception</param>
         public static void ShowError(Exception e)
         {
-            IErrorHandler eh = Diagram.UI.StaticExtensionDiagramUI.ErrorHandler;
+            IErrorHandler eh = StaticExtensionErrorHandler.ErrorHandler;
             if (eh != null)
             {
                 eh.ShowError(e, 1);
@@ -338,9 +339,9 @@ namespace Diagram.UI.Utils
             }
             DiagramException de = e as DiagramException;
             Form f = null;
-            if (Diagram.UI.StaticExtensionDiagramUI.ErrorHandler is Form)
+            if (StaticExtensionErrorHandler.ErrorHandler is Form)
             {
-                f = Diagram.UI.StaticExtensionDiagramUI.ErrorHandler as Form;
+                f = StaticExtensionErrorHandler.ErrorHandler as Form;
             }
             FormHelp fh = new FormHelp(e.Message, e, null);
             fh.ShowDialog(f);

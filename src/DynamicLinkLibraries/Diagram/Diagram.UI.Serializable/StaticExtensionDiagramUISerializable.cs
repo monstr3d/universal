@@ -13,6 +13,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using AssemblyService;
+using ErrorHandler;
 
 namespace Diagram.UI
 {

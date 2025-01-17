@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 using Diagram.UI;
 using FormulaEditor;
+using ErrorHandler;
 
 namespace DataPerformer
 {

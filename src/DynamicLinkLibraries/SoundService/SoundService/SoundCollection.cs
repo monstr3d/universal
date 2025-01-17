@@ -12,6 +12,7 @@ using DataPerformer.Interfaces.Attributes;
 using Event.Interfaces;
 
 using SoundService.Interfaces;
+using ErrorHandler;
 
 namespace SoundService
 {

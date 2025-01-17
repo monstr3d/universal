@@ -11,6 +11,7 @@ using WpfInterface.Objects3D;
 
 using Wpf.Loader;
 using CutoutPro.Winforms;
+using ErrorHandler;
 
 namespace WpfInterface.UI.UserControls
 {

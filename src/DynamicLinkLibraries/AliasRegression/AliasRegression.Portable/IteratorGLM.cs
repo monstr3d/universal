@@ -10,6 +10,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using RealMatrixProcessor;
+using ErrorHandler;
 
 namespace Regression.Portable
 {

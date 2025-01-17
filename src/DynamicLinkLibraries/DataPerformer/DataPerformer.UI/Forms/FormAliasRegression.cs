@@ -16,6 +16,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using DataPerformer.UI.UserControls;
+using ErrorHandler;
 
 namespace DataPerformer.UI.Forms
 {

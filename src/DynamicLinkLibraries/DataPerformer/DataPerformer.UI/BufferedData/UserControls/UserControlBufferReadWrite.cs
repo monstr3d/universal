@@ -9,6 +9,7 @@ using DataPerformer.Portable;
 using DataPerformer.Event.Portable.Objects.BufferedData;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.UI.BufferedData.UserControls
 {

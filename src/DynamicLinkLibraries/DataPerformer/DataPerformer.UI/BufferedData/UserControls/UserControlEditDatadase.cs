@@ -7,6 +7,7 @@ using Diagram.UI;
 using DataPerformer.Interfaces.BufferedData.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.UI;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI.BufferedData.UserControls

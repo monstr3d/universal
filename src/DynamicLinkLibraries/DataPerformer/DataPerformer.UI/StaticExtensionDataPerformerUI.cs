@@ -30,6 +30,7 @@ using DataPerformer.UI.UserControls;
 using Chart.Objects;
 using DataPerformer.UI.Labels;
 using BaseTypes;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI

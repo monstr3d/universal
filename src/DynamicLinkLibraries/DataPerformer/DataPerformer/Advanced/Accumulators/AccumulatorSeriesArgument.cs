@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace DataPerformer.Advanced.Accumulators
 {

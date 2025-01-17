@@ -19,6 +19,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using DataPerformer.Formula.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Formula
 {

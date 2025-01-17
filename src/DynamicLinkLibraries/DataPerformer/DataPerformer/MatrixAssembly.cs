@@ -9,6 +9,7 @@ using BaseTypes;
 
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer
 {

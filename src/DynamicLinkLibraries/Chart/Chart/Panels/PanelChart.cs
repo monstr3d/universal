@@ -7,6 +7,7 @@ using Chart.Forms;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Series;
 using Diagram.UI;
+using ErrorHandler;
 
 namespace Chart.Panels
 {

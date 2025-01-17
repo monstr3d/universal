@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace Gravity_36_36.Wrapper.UI.UserControls
 {

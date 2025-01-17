@@ -13,6 +13,7 @@ using FormulaEditor.Interfaces;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
+using ErrorHandler;
 
 
 namespace DataPerformer.Formula

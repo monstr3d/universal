@@ -20,6 +20,7 @@ using Event.Portable.Events;
 using Event.Portable.Interfaces;
 
 using Scada.Interfaces;
+using ErrorHandler;
 
 namespace Scada.Desktop
 {
@@ -76,7 +77,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Error handler
         /// </summary>
-        protected Interfaces.IErrorHandler errorHandler;
+        protected IErrorHandler errorHandler;
 
         /// <summary>
         /// Create Xml documet
@@ -270,7 +271,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Error Handler
         /// </summary>
-        public override Interfaces.IErrorHandler ErrorHandler
+        public override IErrorHandler ErrorHandler
         {
             get
             {
@@ -279,7 +280,7 @@ namespace Scada.Desktop
             set
             {
                 errorHandler = value;
-                StaticExtensionDiagramUI.ErrorHandler = new ErrorHandlerWrapper(value);
+                value.Set();
             }
         }
 
@@ -478,6 +479,7 @@ namespace Scada.Desktop
                 return desktop; 
             }
         }
+
 
         #endregion
 

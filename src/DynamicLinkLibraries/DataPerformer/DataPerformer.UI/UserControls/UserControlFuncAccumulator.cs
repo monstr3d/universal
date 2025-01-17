@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Diagram.UI;
 
 using DataPerformer;
+using ErrorHandler;
 
 namespace DataPerformer.UI.UserControls
 {

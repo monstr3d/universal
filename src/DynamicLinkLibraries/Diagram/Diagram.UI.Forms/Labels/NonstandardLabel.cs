@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
+using ErrorHandler;
 
 namespace Diagram.UI.Labels
 {

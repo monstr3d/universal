@@ -14,6 +14,7 @@ using Regression.Portable;
 
 using DataPerformer.Interfaces;
 using System;
+using ErrorHandler;
 
 namespace DataPerformer.Formula.Regression
 

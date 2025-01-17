@@ -20,6 +20,7 @@ using DataPerformer.Portable.Interfaces;
 using OrdinaryDifferentialEquations;
 
 using ControlSystemsWrapper;
+using ErrorHandler;
 
 
 namespace ControlSystems.Data

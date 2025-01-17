@@ -4,6 +4,7 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Portable.Runtime;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -7,6 +7,7 @@ using System.Reflection;
 
 
 using CategoryTheory;
+using ErrorHandler;
 
 namespace Diagram.UI
 {

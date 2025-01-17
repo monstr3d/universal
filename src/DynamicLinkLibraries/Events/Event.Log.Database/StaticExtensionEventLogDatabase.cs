@@ -1,4 +1,5 @@
 ﻿using Diagram.UI;
+using ErrorHandler;
 using Event.Interfaces;
 using Event.Log.Database.Interfaces;
 using System;

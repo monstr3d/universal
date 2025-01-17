@@ -19,6 +19,7 @@ using Event.Interfaces;
 using Event.Portable.Arrows;
 using Event.Portable.Interfaces;
 using Event.Portable.Internal;
+using ErrorHandler;
 
 namespace Event.Portable
 {

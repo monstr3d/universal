@@ -18,6 +18,7 @@ using Motion6D.Portable;
 
 using PhysicalField.Interfaces;
 using RealMatrixProcessor;
+using ErrorHandler;
 
 
 namespace Motion6D

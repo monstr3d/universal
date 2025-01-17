@@ -15,6 +15,7 @@ using DataPerformer.Portable.Measurements;
 
 using Motion6D.Interfaces;
 using Vector3D;
+using ErrorHandler;
 
 namespace Motion6D
 {

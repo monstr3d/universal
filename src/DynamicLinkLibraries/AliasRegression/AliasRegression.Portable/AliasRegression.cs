@@ -12,6 +12,7 @@ using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
 using GeneralLinearMethod;
+using ErrorHandler;
 
 namespace Regression.Portable
 {

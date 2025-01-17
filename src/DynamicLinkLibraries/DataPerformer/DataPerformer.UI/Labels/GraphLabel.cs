@@ -18,6 +18,7 @@ using DataPerformer.UI.UserControls;
 using DataPerformer.UI.Interfaces;
 using DataPerformer.UI.UserControls.Graph;
 using Diagram.UI.Forms.Interfaces;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI.Labels

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 using Diagram.UI.Utils;
 using Diagram.UI.Aliases;
+using ErrorHandler;
 
 namespace Diagram.UI
 {

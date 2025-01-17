@@ -6,6 +6,7 @@ using Abstract3DConverters.Interfaces;
 using AssemblyService.Attributes;
 
 using Collada.Wpf;
+using ErrorHandler;
 using Wpf.Loader;
 
 namespace ExportToWpf
@@ -16,7 +17,6 @@ namespace ExportToWpf
 
         static StaticExtensionExportToWpf()
         {
-            new ErrorHandler();
             string[] s = [".ac", ".dae", ".obj"];
             StaticExtensionAbstract3DConverters.Init();
             Func<string, Tuple<string, Dictionary<string, byte[]>>> f = Export;
@@ -80,24 +80,6 @@ namespace ExportToWpf
 
         }
 
-        class ErrorHandler : IErrorHandler
-        {
-            internal ErrorHandler()
-            {
-                this.Set();
-            }
-
-
-            void IErrorHandler.ShowError(Exception exception, object obj)
-            {
-                Diagram.UI.StaticExtensionDiagramUI.ShowError(exception, obj);
-            }
-
-            void IErrorHandler.ShowMessage(string message, object obj)
-            {
-                Diagram.UI.StaticExtensionDiagramUI.ShowMessage(message, obj);
-            }
-        }
 
     }
 }

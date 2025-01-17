@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Diagram.UI;
 
 using FormulaEditor;
+using ErrorHandler;
 
 namespace DataPerformer
 {

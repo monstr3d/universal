@@ -15,6 +15,7 @@ using DataPerformer.Interfaces;
 
 
 using BitmapConsumer;
+using ErrorHandler;
 
 namespace ImageTransformations
 {

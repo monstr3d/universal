@@ -12,6 +12,7 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace ImageNavigation.Forms
 {

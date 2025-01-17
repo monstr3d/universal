@@ -13,6 +13,7 @@ using Diagram.UI.Interfaces;
 using FormulaEditor;
 
 using BitmapConsumer;
+using ErrorHandler;
 
 namespace ImageTransformations
 {

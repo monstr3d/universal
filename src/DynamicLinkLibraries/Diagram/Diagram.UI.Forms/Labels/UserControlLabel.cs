@@ -11,6 +11,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 
 using SerializationInterface;
+using ErrorHandler;
 
 
 namespace Diagram.UI.Labels

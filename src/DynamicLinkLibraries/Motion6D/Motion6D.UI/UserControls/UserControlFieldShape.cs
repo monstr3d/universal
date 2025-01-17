@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.IO;
 using System.Windows.Forms;
 
 
 using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
@@ -21,8 +17,9 @@ using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
 
-using PhysicalField;
 using PhysicalField.Interfaces;
+
+using ErrorHandler;
 
 namespace Motion6D.UI.UserControls
 {

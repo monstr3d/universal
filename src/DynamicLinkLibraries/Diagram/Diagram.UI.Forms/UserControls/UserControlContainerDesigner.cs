@@ -16,6 +16,7 @@ using ResourceService;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 
 namespace Diagram.UI.UserControls

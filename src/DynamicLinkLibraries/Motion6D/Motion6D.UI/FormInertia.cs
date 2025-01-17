@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using Diagram.UI;
@@ -13,6 +10,7 @@ using Diagram.UI.Interfaces;
 
 using DataPerformer.Portable;
 using Vector3D;
+using ErrorHandler;
 
 namespace Motion6D.UI
 {

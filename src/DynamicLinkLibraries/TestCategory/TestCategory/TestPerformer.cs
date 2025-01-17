@@ -12,6 +12,7 @@ using DataWarehouse;
 
 
 using TestCategory.Interfaces;
+using ErrorHandler;
 
 namespace TestCategory
 {
@@ -71,7 +72,7 @@ namespace TestCategory
         /// </summary>
         public TestPerformer(IErrorHandler errorHandler, ITestInterface testInterface)
         {
-            StaticExtensionDiagramUI.ErrorHandler = errorHandler;
+            errorHandler.Set();
             this.testInterface = testInterface;
         }
 

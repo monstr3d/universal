@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace Event.UI.Forms
 {

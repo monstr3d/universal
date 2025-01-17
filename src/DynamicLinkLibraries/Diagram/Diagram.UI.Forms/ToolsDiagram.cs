@@ -10,6 +10,7 @@ using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
+using ErrorHandler;
 
 
 namespace Diagram.UI

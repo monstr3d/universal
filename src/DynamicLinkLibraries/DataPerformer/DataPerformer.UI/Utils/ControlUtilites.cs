@@ -7,6 +7,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using ResourceService;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI.Utils
@@ -45,7 +46,7 @@ namespace DataPerformer.UI.Utils
             lock (errorHandler)
             {
                 err[1] = c;
-                Diagram.UI.StaticExtensionDiagramUI.ShowError(exception, err);
+                StaticExtensionErrorHandler.ShowError(exception, err);
             }
         }
 
@@ -54,7 +55,7 @@ namespace DataPerformer.UI.Utils
             lock (errorHandler)
             {
                 err[1] = c;
-                Diagram.UI.StaticExtensionDiagramUI.ShowMessage(message, err);
+                StaticExtensionErrorHandler.ShowMessage(message, err);
             }
         }
 

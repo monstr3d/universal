@@ -79,7 +79,7 @@ namespace Collada.Base
 
         IMaterialCreator IMeshConverter.MaterialCreator => this;
 
-        Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
+     //   Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
 
         string IMeshConverter.Directory => directory;
 
@@ -241,26 +241,13 @@ namespace Collada.Base
             throw new NotImplementedException();
         }
 
-        object IMaterialCreator.Create(Image image)
-        {
-            throw new NotImplementedException();
-        }
-
+  
         object IMaterialCreator.Create(Color color)
         {
             throw new NotImplementedException();
         }
 
-        object IMaterialCreator.Create(Material material)
-        {
-            return material;
-        }
-
-        object IMaterialCreator.Create(MaterialGroup material)
-        {
-            throw new NotImplementedException();
-        }
-
+ 
         object IMaterialCreator.Create(DiffuseMaterial material)
         {
             throw new NotImplementedException();
@@ -621,6 +608,21 @@ namespace Collada.Base
             CreateArray(element, "matrix", mesh.TransformationMatrix);
             return CreateGeometry(mesh);
 
+        }
+
+        object IMaterialCreator.Create(string key, Image image)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(string key, Material material)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(string key, MaterialGroup material)
+        {
+            throw new NotImplementedException();
         }
 
 

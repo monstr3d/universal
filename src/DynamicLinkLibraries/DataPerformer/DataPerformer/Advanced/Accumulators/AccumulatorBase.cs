@@ -9,6 +9,7 @@ using Diagram.UI;
 using SerializationInterface;
 
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Advanced.Accumulators
 {

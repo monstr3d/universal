@@ -60,7 +60,7 @@ namespace Abstract3DConverters.Creators
                 foreach (var pair in keyValuePairs)
                 {
                     Material mat = pair.Value;
-                    var v = creator.Create(mat);
+                    var v = creator.Create(pair.Key, mat);
                     d[pair.Key] = v;
                 }
                 return d;

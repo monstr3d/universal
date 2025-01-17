@@ -15,6 +15,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Portable;
 
 using BitmapIndicator;
+using ErrorHandler;
 
 
 namespace ImageTransformations

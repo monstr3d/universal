@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 using Diagram.UI;
 using Diagram.UI.Utils;
-
+using ErrorHandler;
 using Motion6D.Portable.Aggregates;
 
 using Vector3D;

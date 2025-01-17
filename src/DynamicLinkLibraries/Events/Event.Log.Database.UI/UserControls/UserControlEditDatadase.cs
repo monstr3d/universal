@@ -14,6 +14,7 @@ using Diagram.UI;
 using Event.Basic;
 using Event.Log.Database.Interfaces;
 using Event.Log.Database.UI.Forms;
+using ErrorHandler;
 
 namespace Event.Log.Database.UI.UserControls
 {

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
-
+using ErrorHandler;
 using Regression;
 
 namespace DataPerformer.UI.UserControls

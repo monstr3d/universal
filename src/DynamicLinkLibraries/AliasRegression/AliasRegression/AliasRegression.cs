@@ -3,6 +3,7 @@ using System.Collections;
 using System.Runtime.Serialization;
 
 using Diagram.UI;
+using ErrorHandler;
 
 
 namespace Regression

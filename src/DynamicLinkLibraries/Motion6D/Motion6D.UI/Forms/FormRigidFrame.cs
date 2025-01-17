@@ -11,6 +11,7 @@ using Motion6D;
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D.UI.Forms
 {

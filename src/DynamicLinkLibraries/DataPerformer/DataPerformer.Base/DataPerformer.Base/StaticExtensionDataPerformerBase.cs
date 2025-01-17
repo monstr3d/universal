@@ -14,6 +14,7 @@ using BaseTypes;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using AssemblyService.Attributes;
+using ErrorHandler;
 
 namespace DataPerformer
 {

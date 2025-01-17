@@ -25,6 +25,7 @@ using WpfInterface.Animated;
 using Motion6D.Portable.Interfaces;
 using Wpf.Loader;
 using System.Windows.Markup;
+using ErrorHandler;
 
 namespace WpfInterface.Objects3D
 {

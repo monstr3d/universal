@@ -18,6 +18,7 @@ using SerializationInterface;
 using Motion6D;
 using Motion6D.UI;
 using Motion6D.Drawing.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D.UI.Labels
 {

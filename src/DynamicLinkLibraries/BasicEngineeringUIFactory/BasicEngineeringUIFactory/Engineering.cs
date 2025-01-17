@@ -4,6 +4,7 @@ using Diagram.UI;
 
 using DataPerformer.Portable;
 using DataPerformer.UI;
+using ErrorHandler;
 
 namespace BasicEngineering.UI.Factory
 {

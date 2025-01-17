@@ -14,6 +14,7 @@ using BaseTypes.Interfaces;
 using DataPerformer.Interfaces;
 using Diagram.UI.Labels;
 using DataPerformer.Portable.Measurements;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {

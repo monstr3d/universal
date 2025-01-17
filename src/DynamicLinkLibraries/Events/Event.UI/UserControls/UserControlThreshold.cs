@@ -17,6 +17,7 @@ using DataPerformer.Portable;
 
 using Event.Portable.Events;
 using Event.UI.Labels;
+using ErrorHandler;
 
 namespace Event.UI.UserControls
 {

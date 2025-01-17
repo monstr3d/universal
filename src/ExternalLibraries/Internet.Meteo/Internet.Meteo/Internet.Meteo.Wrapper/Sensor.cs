@@ -7,6 +7,7 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
 using Event.Interfaces;
+using ErrorHandler;
 
 namespace Internet.Meteo.Wrapper
 {

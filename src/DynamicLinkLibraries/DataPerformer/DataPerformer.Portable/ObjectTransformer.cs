@@ -10,6 +10,7 @@ using Diagram.UI;
 using BaseTypes;
 
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {

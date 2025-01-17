@@ -12,6 +12,7 @@ using Diagram.UI.Labels;
 using DataPerformer.Interfaces;
 using System.Reflection;
 using DataPerformer.Interfaces.Attributes;
+using ErrorHandler;
 
 
 namespace DataPerformer.Portable.Wrappers

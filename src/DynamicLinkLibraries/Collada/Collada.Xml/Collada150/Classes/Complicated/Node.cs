@@ -6,6 +6,7 @@ using Abstract3DConverters.Meshes;
 using Collada;
 using Collada150.Classes.Elementary;
 using Collada150.Creators;
+using ErrorHandler;
 
 namespace Collada150.Classes.Complicated
 {

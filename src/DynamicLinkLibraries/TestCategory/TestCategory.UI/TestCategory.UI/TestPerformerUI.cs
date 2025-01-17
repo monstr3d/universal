@@ -11,6 +11,7 @@ using Diagram.UI.Interfaces;
 using DataWarehouse;
 
 using TestCategory;
+using ErrorHandler;
 
 namespace TestCategory.UI
 {

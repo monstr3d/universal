@@ -21,6 +21,7 @@ using FormulaEditor;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.Measurements;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI.Forms

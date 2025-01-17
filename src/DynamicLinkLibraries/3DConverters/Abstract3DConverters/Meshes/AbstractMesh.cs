@@ -1,6 +1,8 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
+using ErrorHandler;
+
 namespace Abstract3DConverters.Meshes
 {
     public class AbstractMesh: IParent
@@ -126,7 +128,7 @@ namespace Abstract3DConverters.Meshes
             {
                 if (Material != null)
                 {
-                    return creator.Create(Material);
+                    return creator.Create(MaterialString, Material);
                 }
                 var mt = this.creator.Materials;
                 if (MaterialString != null)
@@ -134,7 +136,7 @@ namespace Abstract3DConverters.Meshes
                     if (mt.ContainsKey(MaterialString))
                     {
                         var mm = mt[MaterialString];
-                        return creator.Create(mm);
+                        return creator.Create(MaterialString, mm);
                     }
                 }
             }

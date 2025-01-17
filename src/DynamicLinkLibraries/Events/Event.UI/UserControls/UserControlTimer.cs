@@ -12,6 +12,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using Event.Interfaces;
+using ErrorHandler;
 
 namespace Event.UI.UserControls
 {

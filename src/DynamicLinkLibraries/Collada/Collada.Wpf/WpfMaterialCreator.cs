@@ -132,5 +132,19 @@ namespace Collada.Wpf
             throw new Exception();
         }
 
+        public override object Create(string key, Abstract3DConverters.Image image)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object Create(string key, Abstract3DConverters.Materials.Material material)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object Create(string key, Abstract3DConverters.Materials.MaterialGroup material)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -23,6 +23,7 @@ using Chart.Utils;
 using Chart.Indicators;
 using Chart.Drawing.Coordinators;
 using Chart.Drawing;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI.UserControls

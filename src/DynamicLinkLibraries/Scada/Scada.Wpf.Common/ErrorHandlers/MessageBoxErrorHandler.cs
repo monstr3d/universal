@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ErrorHandler;
 
 namespace Scada.Wpf.Common.ErrorHandlers
 {
-    class MessageBoxErrorHandler : Interfaces.IErrorHandler
+    class MessageBoxErrorHandler : IErrorHandler
     {
         Window window;
 
@@ -16,12 +17,12 @@ namespace Scada.Wpf.Common.ErrorHandlers
             this.window = window;
         }
 
-        void Interfaces.IErrorHandler.ShowError(Exception exception, object obj)
+        void IErrorHandler.ShowError(Exception exception, object obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, exception.Message); });
         }
 
-        void Interfaces.IErrorHandler.ShowMessage(string message, object obj)
+        void IErrorHandler.ShowMessage(string message, object obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, message); });
         }

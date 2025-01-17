@@ -22,6 +22,7 @@ using Database.UI.UserControls;
 using DataPerformer.UI;
 using Diagram.UI.Interfaces;
 using Database.UI.Labels;
+using ErrorHandler;
 
 namespace Database.UI.Forms
 {

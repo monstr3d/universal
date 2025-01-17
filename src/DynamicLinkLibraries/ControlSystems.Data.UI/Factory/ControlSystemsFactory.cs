@@ -14,6 +14,7 @@ using Diagram.UI.Factory;
 using DataPerformer.Portable;
 
 using ControlSystems.UI.Interfaces;
+using ErrorHandler;
 
 namespace ControlSystems.Data.UI.Factory
 {

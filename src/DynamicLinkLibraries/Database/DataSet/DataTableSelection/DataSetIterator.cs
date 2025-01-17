@@ -12,6 +12,7 @@ using Diagram.UI;
 using DataPerformer.Interfaces;
 
 using DataSetService;
+using ErrorHandler;
 
 namespace DataTableSelection
 {

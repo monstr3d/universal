@@ -13,6 +13,7 @@ using Motion6D.Interfaces;
 using Vector3D;
 
 using RealMatrixProcessor;
+using ErrorHandler;
 
 namespace Motion6D.Portable
 {

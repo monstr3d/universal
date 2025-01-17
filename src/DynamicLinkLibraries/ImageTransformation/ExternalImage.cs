@@ -10,6 +10,7 @@ using System.Net;
 using Diagram.UI;
 
 using Web.Interfaces;
+using ErrorHandler;
 
 namespace ImageTransformations
 {

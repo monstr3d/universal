@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
+using ErrorHandler;
 using System;
 using System.Collections;
 using System.Linq.Expressions;
@@ -85,20 +86,7 @@ namespace Abstract3DConverters
 
         }
 
-        public static void Set(this IErrorHandler errorHandler)
-        {
-            ErrorHandler = errorHandler;
-        }
-
-        static public void ShowError(this Exception exception, object obj = null)
-        {
-            if (ErrorHandler != null)
-            {
-                ErrorHandler.ShowError(exception, obj);
-            }
-        }
-
-        public static IMeshCreator GetMeshCreator(string extension, Stream stream)
+       public static IMeshCreator GetMeshCreator(string extension, Stream stream)
         {
             return meshCreatorFactory[extension, stream];
         }

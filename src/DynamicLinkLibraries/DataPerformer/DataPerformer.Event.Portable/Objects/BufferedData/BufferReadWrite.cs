@@ -17,6 +17,7 @@ using DataPerformer.Portable.Measurements;
 using Event.Interfaces;
 using Event.Log.Database.Interfaces;
 using Event.Portable;
+using ErrorHandler;
 
 namespace DataPerformer.Event.Portable.Objects.BufferedData
 {

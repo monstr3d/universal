@@ -1,6 +1,7 @@
 ﻿using DataSetService;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 using FormulaEditor;
 using FormulaEditor.Compiler;
 using NUnit.Framework;
@@ -16,7 +17,7 @@ namespace TestCategory.Standard
     {
         static StaticExtensionTestCategoryStandard()
         {
-            StaticExtensionDiagramUI.ErrorHandler = new ErrorHandler();
+            new ErrorHandler();
             //   AssemblyService.StaticExtensionAssemblyService.Init();
             LoadFormulaResources();
             CompilerBridge.StaticExtensionComplerBridge.Init(null);
@@ -140,6 +141,11 @@ namespace TestCategory.Standard
 
     internal class ErrorHandler : IErrorHandler
     {
+        internal ErrorHandler()
+        {
+            this.Set();
+        }
+
         void IErrorHandler.ShowError(Exception exception, object obj)
         {
             if (exception.Message == "Member \'Comments\' was not found.")

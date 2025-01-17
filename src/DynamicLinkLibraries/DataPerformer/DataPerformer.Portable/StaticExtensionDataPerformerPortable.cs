@@ -24,6 +24,7 @@ using DataPerformer.Portable.Wrappers;
 
 using Event.Interfaces;
 using System.Drawing;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {

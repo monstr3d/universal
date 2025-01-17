@@ -8,6 +8,7 @@ using System.IO;
 using CategoryTheory;
 
 using SerializationInterface;
+using ErrorHandler;
 
 namespace Diagram.UI
 {

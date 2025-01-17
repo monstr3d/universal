@@ -11,6 +11,7 @@ using Diagram.UI;
 
 using Localization.Helper;
 using DataPerformer.Portable.Basic;
+using ErrorHandler;
 
 namespace DataPerformer
 {

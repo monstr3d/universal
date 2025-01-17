@@ -18,6 +18,7 @@ using DataPerformer.SeriesTypes;
 using DataPerformer.Portable;
 using DataPerformer.Formula;
 using AssemblyService.Attributes;
+using ErrorHandler;
 
 namespace DataPerformer
 {

@@ -18,6 +18,7 @@ using OrdinaryDifferentialEquations;
 using Chart;
 using Chart.UserControls;
 using ControlSystems.UI.Interfaces;
+using ErrorHandler;
 
 namespace ControlSystems.UI.UserControls
 {

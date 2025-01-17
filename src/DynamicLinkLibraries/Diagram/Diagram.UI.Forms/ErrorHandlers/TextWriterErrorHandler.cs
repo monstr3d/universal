@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using Diagram.UI.Interfaces;
-using CategoryTheory;
+
+using ErrorHandler;
 
 namespace Diagram.UI.ErrorHandlers
 {

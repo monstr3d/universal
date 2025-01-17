@@ -12,6 +12,7 @@ using BaseTypes.Interfaces;
 using SerializationInterface;
 
 using FormulaEditor;
+using ErrorHandler;
 
 namespace DataPerformer
 {

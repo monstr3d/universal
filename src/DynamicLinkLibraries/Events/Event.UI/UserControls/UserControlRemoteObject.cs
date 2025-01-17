@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Diagram.UI;
 
 using Web.Interfaces;
+using ErrorHandler;
 
 // !!!REMOVEDusing Event.Remote;
 

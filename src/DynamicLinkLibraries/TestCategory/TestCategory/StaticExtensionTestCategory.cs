@@ -10,6 +10,7 @@ using Diagram.UI.Interfaces;
 
 
 using TestCategory.Interfaces;
+using ErrorHandler;
 
 
 

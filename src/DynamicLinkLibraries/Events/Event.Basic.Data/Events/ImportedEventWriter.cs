@@ -13,6 +13,7 @@ using Event.Interfaces;
 
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
+using ErrorHandler;
 
 namespace Event.Basic.Data.Events
 {

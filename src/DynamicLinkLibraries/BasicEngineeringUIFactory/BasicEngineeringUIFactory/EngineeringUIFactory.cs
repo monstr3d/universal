@@ -5,15 +5,17 @@ using System.Threading;
 using System.Windows.Forms;
 
 
+using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Factory;
 using Diagram.UI.Utils;
-using Diagram.UI;
 
 using CategoryTheory;
 
 using DataPerformer;
+
+using ErrorHandler;
 
 
 namespace BasicEngineering.UI.Factory
@@ -270,7 +272,7 @@ namespace BasicEngineering.UI.Factory
         {
             set
             {
-                 StaticExtensionDiagramUI.ErrorHandler = value;
+                value.Set();
             }
         }
 

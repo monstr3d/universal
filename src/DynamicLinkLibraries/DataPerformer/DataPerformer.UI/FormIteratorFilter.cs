@@ -10,6 +10,7 @@ using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.UI
 {

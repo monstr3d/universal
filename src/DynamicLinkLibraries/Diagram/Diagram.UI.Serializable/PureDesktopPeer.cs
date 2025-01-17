@@ -15,6 +15,7 @@ using Diagram.UI.Attributes;
 using Diagram.UI.Interfaces;
 
 using SerializationInterface;
+using ErrorHandler;
 
 
 namespace Diagram.UI

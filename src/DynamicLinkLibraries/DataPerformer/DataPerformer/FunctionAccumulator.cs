@@ -14,6 +14,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Advanced.Accumulators;
 using DataPerformer.Attributes;
+using ErrorHandler;
 
 
 namespace DataPerformer

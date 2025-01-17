@@ -9,6 +9,7 @@ using MathGraph;
 
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 
 namespace Diagram.UI

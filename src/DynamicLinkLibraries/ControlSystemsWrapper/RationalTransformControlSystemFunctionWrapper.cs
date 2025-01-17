@@ -21,6 +21,7 @@ using ExtendedFormulaEditor;
 
 
 using ControlSystems;
+using ErrorHandler;
 
 namespace ControlSystemsWrapper
 {

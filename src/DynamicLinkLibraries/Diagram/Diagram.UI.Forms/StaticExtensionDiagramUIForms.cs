@@ -21,6 +21,7 @@ using AssemblyService.Attributes;
 
 using ResourceService;
 using WindowsExtensions;
+using ErrorHandler;
 
 namespace Diagram.UI
 {

@@ -1,19 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
-using Diagram.UI;
 using CategoryTheory;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 
-using Motion6D;
 using Motion6D.Interfaces;
-
+using ErrorHandler;
 
 namespace Motion6D.UI
 {

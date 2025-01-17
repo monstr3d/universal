@@ -274,26 +274,7 @@ namespace Abstract3DConverters.Converters
                 throw new NotImplementedException();
             }
 
-            object IMaterialCreator.Create(Image image)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(Color color)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(Material material)
-            {
-                return null;
-            }
-
-            object IMaterialCreator.Create(MaterialGroup material)
-            {
-                throw new NotImplementedException();
-            }
-
+    
             object IMaterialCreator.Create(DiffuseMaterial material)
             {
                 throw new NotImplementedException();
@@ -305,6 +286,26 @@ namespace Abstract3DConverters.Converters
             }
 
             object IMaterialCreator.Create(EmissiveMaterial material)
+            {
+                throw new NotImplementedException();
+            }
+
+            object IMaterialCreator.Create(string key, Image image)
+            {
+                throw new NotImplementedException();
+            }
+
+            object IMaterialCreator.Create(Color color)
+            {
+                throw new NotImplementedException();
+            }
+
+            object IMaterialCreator.Create(string key, Material material)
+            {
+                throw new NotImplementedException();
+            }
+
+            object IMaterialCreator.Create(string key, MaterialGroup material)
             {
                 throw new NotImplementedException();
             }

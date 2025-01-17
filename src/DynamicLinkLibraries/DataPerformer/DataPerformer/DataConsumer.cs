@@ -16,6 +16,7 @@ using DataPerformer.SeriesTypes;
 using DataPerformer.Portable;
 
 using DataPerformer.Portable.DifferentialEquationProcessors;
+using ErrorHandler;
 
 namespace DataPerformer
 {

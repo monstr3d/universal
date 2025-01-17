@@ -20,6 +20,7 @@ using Chart.Drawing.Interfaces;
 using Chart.Objects;
 using Chart.Panels;
 using Chart.Drawing;
+using ErrorHandler;
 
 namespace DataPerformer.UI
 {

@@ -2,6 +2,7 @@
 using DataPerformer.Portable;
 using DataPerformer.Portable.Time;
 using Diagram.UI;
+using ErrorHandler;
 using System;
 using System.Collections.Generic;
 using System.Linq;

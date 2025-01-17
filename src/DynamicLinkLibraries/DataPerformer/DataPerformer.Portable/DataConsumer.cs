@@ -9,6 +9,7 @@ using Diagram.UI;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;
+using ErrorHandler;
 
 namespace DataPerformer.Portable
 {

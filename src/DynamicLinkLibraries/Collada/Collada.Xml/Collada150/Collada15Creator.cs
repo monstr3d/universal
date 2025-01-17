@@ -8,6 +8,7 @@ using Abstract3DConverters.Meshes;
 using Collada;
 using Collada150.Classes.Complicated;
 using Collada150.Classes.Elementary;
+using ErrorHandler;
 
 namespace Collada150.Creators
 {

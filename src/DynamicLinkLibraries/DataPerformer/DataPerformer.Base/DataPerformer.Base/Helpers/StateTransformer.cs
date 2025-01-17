@@ -13,6 +13,7 @@ using Diagram.UI.Helpers;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
+using ErrorHandler;
 
 namespace DataPerformer.Helpers
 {

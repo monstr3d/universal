@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Runtime.Serialization;
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace ImageTransformations
 {

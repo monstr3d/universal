@@ -1,24 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 
-using CategoryTheory;
-using Diagram.UI;
-using Motion6D;
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
+
 using Motion6D.Drawing.Interfaces;
+
+using ErrorHandler;
 
 namespace Motion6D.UI
 {
     /// <summary>
-    /// Editor of pisition indicator properties
+    /// Editor of position indicator properties
     /// </summary>
     public partial class FormPositionsIndicator : Form, IUpdatableForm, IRedraw
     {

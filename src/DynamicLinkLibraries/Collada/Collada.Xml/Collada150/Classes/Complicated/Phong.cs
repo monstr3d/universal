@@ -4,6 +4,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Collada;
+using ErrorHandler;
 namespace Collada150.Classes.Complicated
 {
     [Tag("phong")]

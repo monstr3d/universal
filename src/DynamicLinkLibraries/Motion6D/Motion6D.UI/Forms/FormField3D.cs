@@ -17,6 +17,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 using Motion6D.Portable;
+using ErrorHandler;
 
 namespace Motion6D.UI.Forms
 {

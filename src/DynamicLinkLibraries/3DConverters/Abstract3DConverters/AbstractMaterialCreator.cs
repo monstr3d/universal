@@ -1,11 +1,14 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Abstract3DConverters
 {
     public abstract class AbstractMaterialCreator : IMaterialCreator
     {
+        
+
         public abstract Assembly Assembly {get;}
         public abstract void Add(object group, object value);
 
@@ -96,5 +99,8 @@ namespace Abstract3DConverters
             SetImage(material, im);
         }
 
+        public abstract object Create(string key, Image image);
+        public abstract object Create(string key, Material material);
+        public abstract object Create(string key, MaterialGroup material);
     }
 }

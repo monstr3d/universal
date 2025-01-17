@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Diagram.UI;
 using Diagram.UI.UserControls;
 using Diagram.UI.Utils;
+using ErrorHandler;
 
 namespace SoundService.UI.UserControls
 {

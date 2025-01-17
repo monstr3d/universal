@@ -9,6 +9,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 
 using Diagram.UI;
+using ErrorHandler;
 
 namespace DataSetService
 {

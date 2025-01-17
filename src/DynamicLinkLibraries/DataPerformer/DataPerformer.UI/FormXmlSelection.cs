@@ -10,6 +10,7 @@ using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 
 using Regression.Portable;
+using ErrorHandler;
 
 
 namespace DataPerformer.UI

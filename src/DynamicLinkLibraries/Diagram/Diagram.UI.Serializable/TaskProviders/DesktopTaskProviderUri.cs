@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Diagram.UI.Interfaces;
+using ErrorHandler;
 
 namespace Diagram.UI.TaskProviders
 {

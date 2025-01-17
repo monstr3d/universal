@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BaseTypes;
+using ErrorHandler;
 
 namespace Diagram.UI.UserControls
 {
