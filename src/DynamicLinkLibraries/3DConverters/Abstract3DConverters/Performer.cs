@@ -38,11 +38,10 @@ namespace Abstract3DConverters
             return r;
         }
 
-        public void CreateAndSave(string fileinput, Stream stream, string outExt, string outComment, Stream outs, Action<object> act = null)
+        public void CreateAndSave(string fileinput, Stream stream, IMeshConverter converter, Stream outs, Action<object> act = null)
         {
             var creator = fileinput.ToMeshCreator(stream);
             var p = new Performer();
-            var converter = outExt.ToMeshConvertor(outComment);
             var res = p.Create<object>(creator, converter, act);
             if (converter is ISaveToStream save)
             {
@@ -54,6 +53,31 @@ namespace Abstract3DConverters
             using var wr = new StreamWriter(outs);
             wr.Write(r);
         }
+
+        public void CreateAndSave(string fileinput, Stream stream, string outExt, string outComment, Stream outs, Action<object> act = null)
+        {
+            var converter = outExt.ToMeshConvertor(outComment);
+            CreateAndSave(fileinput, stream, converter, outs, act);
+        }
+
+
+        public void CreateAndSave(string fileinput, string outExt, string outComment, Stream outs, Action<object> act = null)
+        {
+            var converter = outExt.ToMeshConvertor(outComment);
+            using var stream = File.OpenRead(fileinput);
+            CreateAndSave(fileinput, stream, converter, outs, act);
+        }
+
+
+        public void CreateAndSave(string fileinput, string outExt, string outComment = null, Action<object> act = null)
+        {
+            using var stream = File.OpenWrite(outExt);
+            CreateAndSave(fileinput, outExt, outComment, stream, act);
+        }
+
+
+
+
 
         public T Create<T>(AbstractMesh mesh, IMeshConverter meshConverter) where T : class
         {
@@ -90,17 +114,14 @@ namespace Abstract3DConverters
 
         public T Create<T>(IMeshCreator creator, IMeshConverter converter, Action <T> action = null) where T : class
         {
+            converter.Directory = creator.Directory;
             var materialCreator = converter.MaterialCreator;
             var images = creator.Images;
             foreach (var image in images)
             {
-                materialCreator.Create(image.Key, image.Value);
+                materialCreator.AddImageToDictionary(image.Key, materialCreator.Create(image.Value));
             }
-            var materials = creator.Materials;
-            foreach (var material in materials)
-            {
-                materialCreator.Create(material.Key, material.Value);
-            }
+            converter.Materials = creator.Materials;
             var res = Combine<T>(creator.Meshes, converter);
             if (action != null)
             {

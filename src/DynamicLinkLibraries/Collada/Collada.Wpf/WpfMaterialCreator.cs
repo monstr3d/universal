@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using Abstract3DConverters.MaterialCreators;
 
 
 namespace Collada.Wpf
 {
-    internal class WpfMaterialCreator : Abstract3DConverters.AbstractMaterialCreator
+    internal class WpfMaterialCreator : IdenticalMaterialCreator
     {
-        Dictionary<string, string> images;
-        internal WpfMaterialCreator(Dictionary<string, string> images = null)
+
+        Dictionary<string, string> images = new();
+
+        internal WpfMaterialCreator(Dictionary<string, object> images = null, Dictionary<string, object> materials = null) :
+            base(images)
         {
-            this.images = images;
+
         }
 
-        public override Assembly Assembly => typeof(Material).Assembly;
+
 
         public override void Add(object group, object value)
         {
@@ -26,7 +31,7 @@ namespace Collada.Wpf
         public override object Create(Abstract3DConverters.Image image)
         {
             string fn = image.FullPath; ;
-            if (!System.IO.File.Exists(fn))
+            if (!File.Exists(fn))
             {
                 return null;
             }
@@ -91,7 +96,7 @@ namespace Collada.Wpf
             d.Brush = br;
         }
 
-        public override void SetOpacicty(object material, float opacity)
+        public override void SetOpacity(object material, float opacity)
         {
             var d = material as DiffuseMaterial;
             ImageBrush br = d.Brush as ImageBrush;
@@ -132,19 +137,5 @@ namespace Collada.Wpf
             throw new Exception();
         }
 
-        public override object Create(string key, Abstract3DConverters.Image image)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override object Create(string key, Abstract3DConverters.Materials.Material material)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override object Create(string key, Abstract3DConverters.Materials.MaterialGroup material)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

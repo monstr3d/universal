@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters.Interfaces
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IMeshConverterFactory
     {
         IMeshConverter this[string extension, string comment] { get; }

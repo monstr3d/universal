@@ -1,15 +1,38 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.MaterialCreators
 {
     public abstract class AbstractMaterialCreator : IMaterialCreator
     {
-        
 
-        public abstract Assembly Assembly {get;}
+        #region Fields
+
+        protected Dictionary<string, object> Images
+        {
+            get;
+
+            private set;
+        }
+
+
+
+
+        #endregion
+
+        #region Ctor
+
+        protected AbstractMaterialCreator(Dictionary<string, object> images = null)
+        {
+            Images = images;
+        }
+
+
+        #endregion
+
+
+
         public abstract void Add(object group, object value);
 
         public abstract object Create(Image image);
@@ -18,26 +41,26 @@ namespace Abstract3DConverters
 
         public virtual object Create(Material material)
         {
-           object result = null;
-           switch (material)
+            object result = null;
+            switch (material)
             {
                 case DiffuseMaterial diffuseMaterial:
-                    result =  Create(diffuseMaterial);
+                    result = Create(diffuseMaterial);
                     Set(result, diffuseMaterial.Color);
                     SetImage(result, diffuseMaterial.Image);
-                    SetOpacicty(result, diffuseMaterial.Opacity);
+                    SetOpacity(result, diffuseMaterial.Opacity);
                     break;
                 case EmissiveMaterial emissiveMaterial:
                     result = Create(emissiveMaterial);
                     Set(result, emissiveMaterial.Color);
-                    break;   
-                    case SpecularMaterial specularMaterial:
+                    break;
+                case SpecularMaterial specularMaterial:
                     result = Create(specularMaterial);
                     Set(result, specularMaterial.Color);
                     SetPower(result, specularMaterial.SpecularPower);
                     break;
                 case MaterialGroup group:
-                        return Create(group);
+                    return Create(group);
                     break;
                 default:
                     break;
@@ -60,7 +83,7 @@ namespace Abstract3DConverters
             }
             return o;
         }
-        
+
         public abstract object Create(DiffuseMaterial material);
 
         public abstract object Create(SpecularMaterial material);
@@ -71,7 +94,7 @@ namespace Abstract3DConverters
 
         public abstract void SetImage(object material, object image);
 
-        public abstract void SetOpacicty(object material, float opacity);
+        public abstract void SetOpacity(object material, float opacity);
 
         public abstract void SetPower(object material, float power);
 
@@ -91,7 +114,7 @@ namespace Abstract3DConverters
             {
                 return;
             }
-            var im = Create(image); 
+            var im = Create(image);
             if (im == null)
             {
                 return;
@@ -99,8 +122,10 @@ namespace Abstract3DConverters
             SetImage(material, im);
         }
 
-        public abstract object Create(string key, Image image);
-        public abstract object Create(string key, Material material);
-        public abstract object Create(string key, MaterialGroup material);
+        public virtual void AddImageToDictionary(string key, object image)
+        {
+            Images[key] = image;
+        }
+
     }
 }

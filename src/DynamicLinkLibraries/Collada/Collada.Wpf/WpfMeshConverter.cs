@@ -13,7 +13,6 @@ namespace Collada.Wpf
 {
     public class WpfMeshConverter : IMeshConverter, IStringRepresentation
     {
-        Assembly IMeshConverter.Assembly => typeof(ModelVisual3D).Assembly;
 
         WpfMaterialCreator creator;
 
@@ -21,9 +20,13 @@ namespace Collada.Wpf
   
         Dictionary<string, string> imagemap = new();
 
+        Dictionary<string, object> images = new();
+
+        Dictionary<string, object> materials = new();
+
         public WpfMeshConverter()
         {
-            creator = new WpfMaterialCreator(imagemap);
+            creator = new WpfMaterialCreator(images, materials);
         }
 
         public IMaterialCreator MaterialCreator => creator;
@@ -39,10 +42,7 @@ namespace Collada.Wpf
 
         List<float[]> normals;
 
-
-   
-
-        string IMeshConverter.Directory => throw new NotImplementedException();
+        string IMeshConverter.Directory  { get; set;}
 
 
 

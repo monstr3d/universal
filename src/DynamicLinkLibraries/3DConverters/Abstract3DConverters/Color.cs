@@ -1,10 +1,13 @@
-﻿namespace Abstract3DConverters
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace Abstract3DConverters
 {
     public class Color : ICloneable
     {
         public float[] Value { get; private set; }
 
-
+        private readonly string s_hex = "0123456789abcdef";
 
         public Color(float[] value)
             { this.Value = value; }
@@ -83,5 +86,26 @@
             return s;
         }
 
+       
+
+
+        public string ByteValue
+        {
+            get
+            {
+                var s = "";
+                for (int i = 0; i < Value.Length; i++)
+                {
+                    var b = (byte)(Value[i] * 255);
+                    for (int j = 1; j >= 0; j--)
+                    {
+                        string s_hex = "0123456789abcdef";
+                        var c = (int)((b >> (j * 4)) & 0xF);
+                        s += s_hex[c];
+                    }
+                }
+                return s.ToUpper();
+            }
+        }
     }
 }

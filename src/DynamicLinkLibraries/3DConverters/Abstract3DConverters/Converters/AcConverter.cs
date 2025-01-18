@@ -7,6 +7,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
+    /*
     [Converter(".ac")]
     public class AcConverter : IMeshConverter, IStringRepresentation
     {
@@ -124,7 +125,7 @@ namespace Abstract3DConverters.Converters
                     var lt = coverter.Create(im) as List<string>;
                     l.AddRange(lt);
                 }*/
-                return l;
+  /*              return l;
             }
             l.Add("OBJECT poly");
             l.Add("name " + service.Wrap(n));
@@ -260,7 +261,7 @@ namespace Abstract3DConverters.Converters
 
         #region Materail Creator
 
-        class MaterialCreator : IMaterialCreator
+        class MaterialCreator : IMaterialCreator, IMaterialCreator
         {
 
             internal MaterialCreator()
@@ -269,12 +270,32 @@ namespace Abstract3DConverters.Converters
             }
             Assembly IMaterialCreator.Assembly => throw new NotImplementedException();
 
+            public void AddImageToDictionary(string key, object image)
+            {
+                throw new NotImplementedException();
+            }
+
+            public void AddMaterialToDictionary(string key, object material)
+            {
+                throw new NotImplementedException();
+            }
+
+            public object Create(Image image)
+            {
+                throw new NotImplementedException();
+            }
+
+            public object Create(MaterialGroup material)
+            {
+                throw new NotImplementedException();
+            }
+
             void IMaterialCreator.Add(object group, object value)
             {
                 throw new NotImplementedException();
             }
 
-    
+
             object IMaterialCreator.Create(DiffuseMaterial material)
             {
                 throw new NotImplementedException();
@@ -335,5 +356,5 @@ namespace Abstract3DConverters.Converters
 
         #endregion
 
-    }
+    }*/
 }

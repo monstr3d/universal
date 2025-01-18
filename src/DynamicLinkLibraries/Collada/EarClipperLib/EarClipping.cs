@@ -127,10 +127,10 @@ namespace EarClipperLib
             polygon.PointCount = pointCount;
         }
 
-        public void Triangulate()
+        public bool Triangulate()
         {
             if (Normal.Equals(Vector3m.Zero()))
-                throw new Exception("The input is not a valid polygon");
+                return false;
             if (_holes != null && _holes.Count > 0)
             {
                 ProcessHoles();
@@ -184,6 +184,7 @@ namespace EarClipperLib
                     throw new Exception("No progression. The input must be wrong");
                 }
             }
+            return true;
         }
 
         private bool PointsOnLine(Polygon pointList)

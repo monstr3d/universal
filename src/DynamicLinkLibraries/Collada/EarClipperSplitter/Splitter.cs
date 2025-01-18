@@ -7,6 +7,7 @@ using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using EarClipperLib;
+using ErrorHandler;
 
 namespace EarClipperSplitter
 {
@@ -58,10 +59,14 @@ namespace EarClipperSplitter
                 clipping.SetPoints(points);
                 try
                 {
-                    clipping.Triangulate();
+                    if (!clipping.Triangulate())
+                    {
+                        return [];
+                    }
                 }
                 catch (Exception ex)
                 {
+                    ex.ShowError();
                     return [];
                 }
                 var res = clipping.Result;

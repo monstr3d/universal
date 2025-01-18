@@ -128,7 +128,7 @@ namespace Abstract3DConverters.Meshes
             {
                 if (Material != null)
                 {
-                    return creator.Create(MaterialString, Material);
+                    return creator.Create(Material);
                 }
                 var mt = this.creator.Materials;
                 if (MaterialString != null)
@@ -136,7 +136,7 @@ namespace Abstract3DConverters.Meshes
                     if (mt.ContainsKey(MaterialString))
                     {
                         var mm = mt[MaterialString];
-                        return creator.Create(MaterialString, mm);
+                        return creator.Create(mm);
                     }
                 }
             }

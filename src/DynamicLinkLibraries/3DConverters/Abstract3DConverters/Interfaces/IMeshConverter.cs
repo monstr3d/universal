@@ -1,14 +1,12 @@
-﻿using System.Reflection;
-using Abstract3DConverters.Materials;
+﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Interfaces
 {
     public interface IMeshConverter
     {
-        Assembly Assembly { get; }
 
-        string Directory { get; }
+        string Directory { get; set;  }
 
         Dictionary<string, Material> Materials
         {

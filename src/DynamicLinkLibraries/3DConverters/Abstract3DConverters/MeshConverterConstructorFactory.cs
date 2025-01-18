@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using Abstract3DConverters.Interfaces;
 
 namespace Abstract3DConverters
@@ -23,18 +18,20 @@ namespace Abstract3DConverters
 
         IMeshConverter Get(string extension, string comment)
         {
+            var ext = Path.GetExtension(extension);
             ConstructorInfo ci = null;
-            if (dictionary.ContainsKey(extension))
+            var c = comment == null ? "" : comment;
+            if (dictionary.ContainsKey(ext))
             {
-                var d = dictionary[extension];
+                var d = dictionary[ext];
                 var k = d.Keys;
-                if (k.Count == 0)
+                if (k.Count == 1)
                 {
                     ci = d.Values.ToArray()[0];
                 }
                 else
                 {
-                    ci = d[comment];
+                    ci = d[c];
                 }
             }
             if (ci != null)

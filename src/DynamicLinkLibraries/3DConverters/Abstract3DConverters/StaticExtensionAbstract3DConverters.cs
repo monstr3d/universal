@@ -1,13 +1,10 @@
-﻿using Abstract3DConverters.Attributes;
-using Abstract3DConverters.Interfaces;
-using ErrorHandler;
-using System;
-using System.Collections;
-using System.Linq.Expressions;
+﻿using System.Collections;
 using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+
+using Abstract3DConverters.Attributes;
+using Abstract3DConverters.Interfaces;
+
+using ErrorHandler;
 
 namespace Abstract3DConverters
 {

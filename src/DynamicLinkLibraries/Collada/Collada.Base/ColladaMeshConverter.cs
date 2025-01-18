@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
+﻿using System.Text;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters;
@@ -11,7 +7,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Collada.Base
 {
-    public abstract class ColladaMeshConverter : IMeshConverter, ISaveToStream, IMaterialCreator
+    public abstract class ColladaMeshConverter : IMeshConverter, ISaveToStream
     {
 
         #region Fields
@@ -73,15 +69,15 @@ namespace Collada.Base
 
         #region IMeshConverter implemebtation
 
-        Assembly IMeshConverter.Assembly => typeof(ColladaMeshConverter).Assembly;
 
         Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
 
-        IMaterialCreator IMeshConverter.MaterialCreator => this;
 
-     //   Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
+        //   Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
 
-        string IMeshConverter.Directory => directory;
+        string IMeshConverter.Directory { get => directory; set => directory = value; }
+
+        IMaterialCreator IMeshConverter.MaterialCreator => throw new NotImplementedException();
 
         void IMeshConverter.Add(object mesh, object child)
         {
@@ -234,55 +230,7 @@ namespace Collada.Base
         #region Material Creator
 
 
-        Assembly IMaterialCreator.Assembly => throw new NotImplementedException();
-
-        void IMaterialCreator.Add(object group, object value)
-        {
-            throw new NotImplementedException();
-        }
-
   
-        object IMaterialCreator.Create(Color color)
-        {
-            throw new NotImplementedException();
-        }
-
- 
-        object IMaterialCreator.Create(DiffuseMaterial material)
-        {
-            throw new NotImplementedException();
-        }
-
-        object IMaterialCreator.Create(SpecularMaterial material)
-        {
-            throw new NotImplementedException();
-        }
-
-        object IMaterialCreator.Create(EmissiveMaterial material)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaterialCreator.Set(object material, object color)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaterialCreator.Set(object material, Color color)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaterialCreator.SetImage(object material, object image)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaterialCreator.SetImage(object material, Image image)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         #region IStringRepresentation Members
@@ -610,21 +558,8 @@ namespace Collada.Base
 
         }
 
-        object IMaterialCreator.Create(string key, Image image)
-        {
-            throw new NotImplementedException();
-        }
-
-        object IMaterialCreator.Create(string key, Material material)
-        {
-            throw new NotImplementedException();
-        }
-
-        object IMaterialCreator.Create(string key, MaterialGroup material)
-        {
-            throw new NotImplementedException();
-        }
-
+     
+ 
 
 
 

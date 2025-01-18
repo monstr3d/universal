@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters
 {
@@ -23,6 +19,15 @@ namespace Abstract3DConverters
 
 
         #region Service
+
+        public void SetColor(XmlElement element, string colorName, Color color)
+        {
+            if (color == null)
+            {
+                return;
+            }
+            element.SetAttribute(colorName, "#" + color.ByteValue);
+        }
 
    
         public  void SetParents(Dictionary<XmlElement, IParent> mehses)
@@ -127,6 +132,19 @@ namespace Abstract3DConverters
             }
             s = s.Substring(0, s.Length - sep.Length);
             return s;
+        }
+
+        public string Parse(IEnumerable<float> f)
+        {
+            var sb = new StringBuilder();
+            foreach (var x in f)
+            {
+                var xx = x.ToString();
+                sb.Append(xx);
+                sb.Append(" ");
+            }
+            var s = sb + "";
+            return s.Substring(0, s.Length - 1);
         }
 
         

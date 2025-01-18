@@ -1,20 +1,12 @@
 ﻿
-using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Automation.Text;
-using System.Windows.Markup;
-using System.Windows.Media;
-using System.Windows.Media.Media3D;
-using System.Xml;
 using Abstract3DConverters;
-using Abstract3DConverters.Converters;
-using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Materials;
 using Collada;
 //using Collada.Converter;
 using Collada.Wpf;
+using ErrorHandler;
 
 namespace Collaada.Wpf.Test
 {
@@ -32,8 +24,8 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-            GenerateToDae();
-        //    GenerateWpf();
+         //   GenerateToDae();
+           GenerateWpf();
          //   GenerateWpf();
 
             //     GenerateToDae();
@@ -79,31 +71,33 @@ namespace Collaada.Wpf.Test
 
         void GenerateWpf()
         {
-         //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
+            //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
-          GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+            // GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+
+       //     GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+
+            GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+
         }
 
         void GenerateWpf(string filename)
         {
-            var converter = new WpfMeshConverter();
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".xaml");
-            var act = (ModelVisual3D m) =>
+            if (File.Exists(file))
             {
-               // m.SetLight();
-
-            };
-            
-       
-            var obj = Generate<ModelVisual3D>(filename, converter,  act);
-            IStringRepresentation r = converter;
-            var s = r.ToString(obj);
-            using (var writer = new StreamWriter(file))
+                file = Path.Combine(dir, fnt + Path.GetRandomFileName() + ".xaml");
+            }
+            var p = new Performer();
+            try
             {
-
-                writer.Write(s);
+                p.CreateAndSave(filename, file);
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
             }
         }
 
@@ -179,7 +173,7 @@ namespace Collaada.Wpf.Test
 
         void GenerateToAC(string filen)
         {
-            var filename = Path.Combine(acdir, filen);
+ /*           var filename = Path.Combine(acdir, filen);
 
             var creator = filename.ToMeshCreator();
 
@@ -197,7 +191,7 @@ namespace Collaada.Wpf.Test
             using (var writer = new StreamWriter(file))
             {
                 writer.Write(obj);
-            }
+            }*/
         }
 
 

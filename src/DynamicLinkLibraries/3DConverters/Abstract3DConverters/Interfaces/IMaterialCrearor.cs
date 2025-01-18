@@ -6,16 +6,14 @@ namespace Abstract3DConverters.Interfaces
     public interface IMaterialCreator
     {
 
-        Assembly Assembly { get; }
 
-        object Create(string key, Image image);
-
+        object Create(Image image);
+        
 
         object Create(Color color);
 
-        object Create(string key, Material material);
 
-        object Create(string key, MaterialGroup material);
+        object Create(MaterialGroup material);
 
         object Create(DiffuseMaterial material);
 
@@ -23,16 +21,19 @@ namespace Abstract3DConverters.Interfaces
 
         object Create(EmissiveMaterial material);
 
+
+        object Create(Material material);
+
+
+
         void Add(object group, object value);
 
 
-        void Set(object material, object color);
-
         void SetImage(object material, object image);
 
-        void Set(object material, Color color);
+        void AddImageToDictionary(string key, object image);
 
-        void SetImage(object material, Image image);
+        void SetOpacity(object material, float opacity);
 
     }
 }
