@@ -1,8 +1,7 @@
 ﻿using Abstract3DConverters.Interfaces;
-using Collada.Converter.Creators;
 using System.Xml;
 
-namespace Collada.Converter
+namespace Abstract3DConverters.MeshCreatorFactory
 {
     [Abstract3DConverters.Attributes.Extension([".dae"])]
     public class ColladaMeshCreatorFactory : IMeshCreatorFactory
@@ -23,14 +22,14 @@ namespace Collada.Converter
                 {
                     using (var ms = new MemoryStream(b))
                     {
-                        return new Collada14MeshCreator(ms);
+                       // return new Collada14MeshCreator(ms);
                     }
                     //   return new Collada14MeshCreator(doc);
-                    return new Collada14MeshCreator(s);
+                   // return new Collada14MeshCreator(s);
                 }
                 if (version.StartsWith("1.5"))
                 {
-                    return new Collada15MeshCreator(doc);
+                   // return new Collada15MeshCreator(doc);
                 }
             }
             return null;

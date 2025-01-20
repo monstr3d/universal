@@ -1,5 +1,6 @@
 ﻿using System.Xml;
 using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -29,10 +30,15 @@ namespace Abstract3DConverters.Converters
         #endregion
 
         string IMeshConverter.Directory { get => directory; set => directory = value; }
-        Dictionary<string, Material> IMeshConverter.Materials { set => materials = value; }
+        Dictionary<string, Material> IMeshConverter.Materials { set => Set(materials); }
 
 
         #region Ctor
+
+        protected virtual void Set(Dictionary<string, Material> materials)
+        {
+            this.materials = materials;
+        }
 
         protected XmlConverter()
         {
@@ -67,10 +73,7 @@ namespace Abstract3DConverters.Converters
 
         void IMeshConverter.SetMaterial(object mesh, object material)
         {
-            var m = mesh as XmlElement;
-            var mat = material as XmlElement;
-            SetMaterial(m, mat);
-            
+            SetMaterial(mesh, material);
         }
 
         void IMeshConverter.SetTransformation(object mesh, float[] transformation)
@@ -80,7 +83,7 @@ namespace Abstract3DConverters.Converters
 
         string IStringRepresentation.ToString(object obj)
         {
-            var stream = new Utf8StringWriter();
+            var stream = new StringWriter();
             using var w = XmlWriter.Create(stream, new XmlWriterSettings
             {
                 //         NewLineChars = "\n",
@@ -140,6 +143,14 @@ namespace Abstract3DConverters.Converters
                 }
             }
             return doc;
+
+        }
+
+        protected virtual void SetMaterial(object mesh, object material)
+        {
+            var m = mesh as XmlElement;
+            var mat = material as XmlElement;
+            SetMaterial(m, mat);
 
         }
 

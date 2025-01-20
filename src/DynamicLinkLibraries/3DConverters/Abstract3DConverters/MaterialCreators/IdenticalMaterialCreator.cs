@@ -5,6 +5,7 @@ namespace Abstract3DConverters.MaterialCreators
 {
     public abstract class IdenticalMaterialCreator : AbstractMaterialCreator
     {
+
         protected IdenticalMaterialCreator(Dictionary<string, object> images = null) :
             base(images)
         {

@@ -43,8 +43,8 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-            GenerateToDae();
-          // GenerateXaml();
+       //     GenerateToDae();
+          GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 

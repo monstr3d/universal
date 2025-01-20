@@ -61,6 +61,80 @@ namespace Abstract3DConverters.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///
+        ///&lt;effect id=&quot;effect-a2431cff_dds&quot;&gt;
+        ///
+        ///
+        ///		&lt;profile_COMMON&gt;
+        ///
+        ///
+        ///			&lt;newparam sid=&quot;DiffuseColor-surface&quot;&gt;
+        ///
+        ///
+        ///				&lt;surface type=&quot;2D&quot;&gt;
+        ///
+        ///					&lt;init_from&gt;object_1&lt;/init_from&gt;
+        ///
+        ///				&lt;/surface&gt;
+        ///
+        ///			&lt;/newparam&gt;
+        ///
+        ///
+        ///			&lt;newparam sid=&quot;DiffuseColor-sampler&quot;&gt;
+        ///
+        ///
+        ///				&lt;sampler2D&gt;
+        ///
+        ///					&lt;source&gt;DiffuseColor-surface&lt;/source&gt;
+        ///
+        ///					&lt;wrap_s&gt;WRAP&lt;/wrap_s&gt;
+        ///
+        ///					&lt;wrap_t&gt;WRAP&lt;/wrap_t&gt;
+        ///
+        ///					&lt;wrap_p&gt;WRAP&lt;/wrap_p&gt;
+        ///
+        ///					&lt;minfilter&gt;NONE&lt;/minfilter&gt;
+        ///
+        ///					&lt;magfilter&gt;NONE&lt;/magfilter&gt;
+        ///
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string effect {
+            get {
+                return ResourceManager.GetString("effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;COLLADA version=&quot;1.5.0&quot; xmlns=&quot;http://www.collada.org/2008/03/COLLADASchema&quot;&gt;
+        ///  &lt;asset&gt;
+        ///    &lt;contributor /&gt;
+        ///    &lt;unit meter=&quot;1&quot; /&gt;
+        ///    &lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
+        ///  &lt;/asset&gt;
+        ///  &lt;library_lights /&gt;
+        ///  &lt;library_materials&gt;
+        ///  &lt;/library_materials&gt;
+        ///  &lt;library_effects&gt;
+        ///  &lt;/library_effects&gt;
+        ///  &lt;library_cameras /&gt;
+        ///  &lt;library_geometries&gt;
+        ///  &lt;/library_geometries&gt;
+        ///  &lt;library_images&gt;
+        ///  &lt;/library_images&gt;
+        ///	&lt;library_visual_scenes id=&quot;1&quot;&gt;
+        ///	&lt;/library_visual_scenes&gt;
+        ///	&lt;library_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string etalon {
+            get {
+                return ResourceManager.GetString("etalon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;ModelVisual3D xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;/ModelVisual3D&gt;
         ///

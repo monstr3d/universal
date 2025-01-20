@@ -1,6 +1,5 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using System.Reflection;
 
 namespace Abstract3DConverters.MaterialCreators
 {
@@ -16,7 +15,7 @@ namespace Abstract3DConverters.MaterialCreators
             private set;
         }
 
-
+        protected IMaterialCreator creator;
 
 
         #endregion
@@ -26,6 +25,7 @@ namespace Abstract3DConverters.MaterialCreators
         protected AbstractMaterialCreator(Dictionary<string, object> images = null)
         {
             Images = images;
+            creator = this;
         }
 
 

@@ -1,9 +1,7 @@
 ﻿using Abstract3DConverters.Attributes;
-using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using System.Text;
 using System.Xml;
 
 namespace Abstract3DConverters.Converters
@@ -17,8 +15,8 @@ namespace Abstract3DConverters.Converters
         {
             converter = this;
             doc.LoadXml(Properties.Resources.xaml);
-            materialCreator = new MaterialCreator(images, doc);
             xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
+            materialCreator = new XamlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
         }
 
 
@@ -117,16 +115,12 @@ namespace Abstract3DConverters.Converters
 
     }
 
-    class MaterialCreator : IdenticalMaterialCreator
+    class XamlMaterialCreator : XmlMaterialCreator
     {
-        XmlDocument doc;
 
-        Service s = new();
-
-        internal MaterialCreator(Dictionary<string, object> images, XmlDocument doc) :
-            base(images)
+        internal XamlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
+            base(doc, xmlns, images)
         {
-            this.doc = doc;
         }
 
        
@@ -171,25 +165,6 @@ namespace Abstract3DConverters.Converters
 
   
 
-        public override object Create(Material material)
-        {
-            switch (material)
-            {
-                case DiffuseMaterial diff:
-                    return Create(diff);
-                    break;
-                case EmissiveMaterial emi:
-                    return Create(emi);
-                    break;
-                case SpecularMaterial spec:
-                    return Create(spec);
-                    break;
-                case MaterialGroup mg:
-                    return Create(mg);
-                default:
-                    return null;
-            }
-        }
 
         public override object Create(MaterialGroup material)
         {
@@ -208,21 +183,9 @@ namespace Abstract3DConverters.Converters
 
 
 
-
-        public override void Add(object group, object value)
-        {
-        }
-
         private void SetColor(XmlElement e, Color c)
         {
             s.SetColor(e, "Color",c);
-        }
-
-        private readonly string ns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
-
-        private XmlElement Create(string tag)
-        {
-            return doc.CreateElement(tag, ns);
         }
     }
 
