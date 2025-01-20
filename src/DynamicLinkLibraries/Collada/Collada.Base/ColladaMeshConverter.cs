@@ -569,4 +569,62 @@ namespace Collada.Base
 
 
     }
+
+    class MaterialCreator : IMaterialCreator
+    {
+        void IMaterialCreator.Add(object group, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMaterialCreator.AddImageToDictionary(string key, object image)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(Image image)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(Color color)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(MaterialGroup material)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(DiffuseMaterial material)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(SpecularMaterial material)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(EmissiveMaterial material)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IMaterialCreator.Create(Material material)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMaterialCreator.SetImage(object material, object image)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMaterialCreator.SetOpacity(object material, float opacity)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

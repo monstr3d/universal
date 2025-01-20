@@ -181,6 +181,7 @@ namespace EarClipperLib
                     break;
                 if (!guard)
                 {
+                    return false;
                     throw new Exception("No progression. The input must be wrong");
                 }
             }

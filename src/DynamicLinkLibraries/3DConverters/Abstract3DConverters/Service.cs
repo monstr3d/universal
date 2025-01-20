@@ -139,7 +139,8 @@ namespace Abstract3DConverters
             var sb = new StringBuilder();
             foreach (var x in f)
             {
-                var xx = x.ToString();
+                var y = (double)x;
+                var xx = y.ToString();
                 sb.Append(xx);
                 sb.Append(" ");
             }

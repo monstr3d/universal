@@ -3,70 +3,41 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using System.Drawing;
-using System.Linq.Expressions;
 using System.Text;
 using System.Xml;
 
 namespace Abstract3DConverters.Converters
 {
     [Converter(".xaml")]
-    public class XamlConverter : IMeshConverter, ISaveToStream
+    public class XamlConverter : XmlConverter
     {
-        Service s = new();
 
-        private Dictionary<string, Material> materials;
 
-        private Dictionary<string, object> images = new();
-        XmlDocument doc = new XmlDocument();
-
-        //private Dictionary<string, object>
-
-        MaterialCreator materialCreator;
- 
         public XamlConverter()
         {
+            converter = this;
+            doc.LoadXml(Properties.Resources.xaml);
             materialCreator = new MaterialCreator(images, doc);
+            xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
         }
 
-        string IMeshConverter.Directory
-        {
-            get;
-            set;
-        }
 
-        Dictionary<string, Material> IMeshConverter.Materials { set => materials = value; }
-
-        IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
-
-        void IMeshConverter.Add(object mesh, object child)
-        {
-            var p = mesh as XmlElement;
-            var c = child as XmlElement;
-            p.AppendChild(c);
-        }
-
-        object IMeshConverter.Combine(IEnumerable<object> meshes)
-        {
-            throw new NotImplementedException();
-        }
-
-        object IMeshConverter.Create(AbstractMesh mesh)
+        protected override XmlElement Create(AbstractMesh mesh)
         {
             if (mesh is AbstractMeshPolygon p)
             {
                 p.CreateTriangles();
             }
-            var x = doc.CreateElement("ModelVisual3D");
-            var y = doc.CreateElement("ModelVisual3D.Content");
+            var x = Create("ModelVisual3D");
+            var y = Create("ModelVisual3D.Content");
             x.AppendChild(y);
-            var z = doc.CreateElement("GeometryModel3D");
+            var z = Create("GeometryModel3D");
             y.AppendChild(z);
-            var w = doc.CreateElement("GeometryModel3D.Geometry");
+            var w = Create("GeometryModel3D.Geometry");
             z.AppendChild(w);
-            var v= doc.CreateElement("MeshGeometry3D");
+            var v = Create("MeshGeometry3D");
             w.AppendChild(v);
-            if (mesh.Indexes != null)
+            if (mesh.Indexes != null & mesh.Vertices != null)
             {
                 var points = new List<float>();
                 var norm = new List<float>();
@@ -119,38 +90,31 @@ namespace Abstract3DConverters.Converters
                 }
 
             }
+            var mat = mesh.Material;
+            if (mat != null)
+            {
+                var mr = Create("GeometryModel3D.Material");
+                z.AppendChild(mr);
+                var max = materialCreator.Create(mat) as XmlElement;
+                mr.AppendChild(max);
+            }
             return x;
         }
 
-        void IMeshConverter.SetMaterial(object mesh, object material)
-        {
-            if (material == null)
-            {
-                return;
-            }
-        }
 
-        void IMeshConverter.SetTransformation(object mesh, float[] transformation)
+        protected override void SetTransformation(object mesh, float[] transformation)
         {
-            throw new NotImplementedException();
-        }
-
-        void ISaveToStream.Save(object obj, Stream stream)
-        {
-            var d = obj as XmlDocument;
-            using var w = XmlWriter.Create(stream, new XmlWriterSettings
-            {
-                NewLineChars = "\n",
-                Indent = true,
-                OmitXmlDeclaration = true
-
-            });
-            d.WriteContentTo(w);
+            var x = mesh as XmlElement;
+            var t = Create("ModelVisual3D.Transform");
+            x.AppendChild(t);
+            var tr = Create("MatrixTransform3D");
+            t.AppendChild(tr);
         }
 
         public static bool UseDirectory
-        { get; set; } = false;
-        
+        { get; set; }
+
+
     }
 
     class MaterialCreator : IdenticalMaterialCreator
@@ -169,35 +133,35 @@ namespace Abstract3DConverters.Converters
 
         public override object Create(DiffuseMaterial material)
         {
-            var x = doc.CreateElement("DiffuseMaterial");
+            var x = Create("DiffuseMaterial");
             SetColor(x, material.Color);
             s.SetColor(x, "AmbientColor", material.AmbientColor);
             var im = material.Image;
             if (im != null)
             {
 
-                var br = doc.CreateElement("DiffuseMaterial.Brush");
+                var br = Create("DiffuseMaterial.Brush");
                 x.AppendChild(br);
-                var ibr = doc.CreateElement("ImageBrush");
+                var ibr = Create("ImageBrush");
                 br.AppendChild(ibr);
                 var st = XamlConverter.UseDirectory ? im.FullPath : im.Name;
                 ibr.SetAttribute("ImageSource", st);
                 ibr.SetAttribute("ViewportUnits", "Absolute");
-                ibr.SetAttribute("Opacity", (1 - material.Opacity) + "");
+                ibr.SetAttribute("Opacity", material.Opacity + "");
             }
             return x;
         }
 
         public override object Create(EmissiveMaterial material)
         {
-            var x = doc.CreateElement("EmissiveMaterial");
+            var x = Create("EmissiveMaterial");
             SetColor(x, material.Color);
             return x;
         }
 
         public override object Create(SpecularMaterial material)
         {
-            var x = doc.CreateElement("SpecularMaterial");
+            var x = Create("SpecularMaterial");
             SetColor(x, material.Color);
             x.SetAttribute("SpecularPower", material.SpecularPower + "");
             return x;
@@ -229,8 +193,8 @@ namespace Abstract3DConverters.Converters
 
         public override object Create(MaterialGroup material)
         {
-            var x = doc.CreateElement("MaterialGroup");
-            var y = doc.CreateElement("MaterialGroup.Children");
+            var x = Create("MaterialGroup");
+            var y = Create("MaterialGroup.Children");
             x.AppendChild(y);
             foreach (var m in material.Children)
             {
@@ -238,7 +202,6 @@ namespace Abstract3DConverters.Converters
                 y.AppendChild(z);
             }
             return x;
-
         }
 
 
@@ -253,6 +216,13 @@ namespace Abstract3DConverters.Converters
         private void SetColor(XmlElement e, Color c)
         {
             s.SetColor(e, "Color",c);
+        }
+
+        private readonly string ns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
+
+        private XmlElement Create(string tag)
+        {
+            return doc.CreateElement(tag, ns);
         }
     }
 

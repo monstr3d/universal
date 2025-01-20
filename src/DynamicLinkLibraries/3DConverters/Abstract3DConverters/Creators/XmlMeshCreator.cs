@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 
@@ -12,6 +8,7 @@ namespace Abstract3DConverters.Creators
     {
         protected XmlDocument doc;
 
+ 
         public Dictionary<XmlElement, IParent> Meshes { get; private set; } = new();
 
         protected string String

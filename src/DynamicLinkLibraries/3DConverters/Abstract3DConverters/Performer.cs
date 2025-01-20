@@ -84,10 +84,7 @@ namespace Abstract3DConverters
             IMaterialCreator materialCreator = meshConverter.MaterialCreator;
             object o = meshConverter.Create(mesh);
             var trans = mesh.TransformationMatrix;
-            if (trans != null)
-            {
-                meshConverter.SetTransformation(o, trans);
-            }
+            meshConverter.SetTransformation(o, trans);
             var mt = mesh.GetMaterial(materialCreator);
             if (mt != null)
             {

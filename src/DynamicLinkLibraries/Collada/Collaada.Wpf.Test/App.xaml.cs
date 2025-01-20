@@ -1,6 +1,8 @@
 ﻿
+using System;
 using System.IO;
 using System.Windows;
+using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada;
@@ -15,8 +17,25 @@ namespace Collaada.Wpf.Test
     /// </summary>
     public partial class App : Application
     {
+
+        void Load()
+        {
+            var doc = new XmlDocument();
+            doc.Load(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
+            using var stream = File.OpenWrite(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B1.xaml");
+            using var w = XmlWriter.Create(stream, new XmlWriterSettings
+            {
+                NewLineChars = "\n",
+                Indent = true,
+                OmitXmlDeclaration = true,
+
+            });
+            doc.WriteContentTo(w);
+        }
         public App()
         {
+        //    Load();
+           
             StaticExtensionAbstract3DConverters.Init();
             // Compare();
             //  Generate();
@@ -24,8 +43,9 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-         //   GenerateToDae();
-           GenerateWpf();
+            GenerateToDae();
+          // GenerateXaml();
+       //     GenerateWPF();
          //   GenerateWpf();
 
             //     GenerateToDae();
@@ -41,7 +61,7 @@ namespace Collaada.Wpf.Test
         {
             string dir = @"c:\AUsers\1MySoft\CSharp\03D\NATIVE\";
             var f = Path.Combine(dir, s);
-            GenerateWpf(f);
+            //GenerateWpf(f);
 
         }
 
@@ -69,19 +89,26 @@ namespace Collaada.Wpf.Test
             GenerateCollada(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
         }
 
-        void GenerateWpf()
+        void GenerateXaml()
         {
             //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
             // GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
 
-       //     GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
-            GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+            GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+           // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
         }
 
-        void GenerateWpf(string filename)
+        void GenerateWPF()
+        {
+            GenerateWPF(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+            //     GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+
+        }
+
+        void GenerateXaml(string filename)
         {
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
@@ -100,6 +127,22 @@ namespace Collaada.Wpf.Test
                 ex.ShowError();
             }
         }
+
+        void GenerateWPF(string filename)
+        {
+            var fnt = "WPF" + Path.GetFileNameWithoutExtension(filename);
+            var dir = Path.GetDirectoryName(filename);
+            var file = Path.Combine(dir, fnt + ".xaml");
+            if (File.Exists(file))
+            {
+                file = Path.Combine(dir, fnt + Path.GetRandomFileName() + ".xaml");
+            }
+            using var stream = File.OpenRead(filename);
+            using var outs = File.OpenWrite(file);
+            var p = new Performer();
+            p.CreateAndSave(filename, stream, new WpfMeshConverter(), outs);
+        }
+
 
         void GenerateToAc()
         {
@@ -214,7 +257,7 @@ namespace Collaada.Wpf.Test
 
         void GenerateCollada(string filename)
         {
-            GenerateWpf(filename);
+           // GenerateWpf(filename);
             return;
         }
 
@@ -254,7 +297,7 @@ namespace Collaada.Wpf.Test
         void GenerateAC(string filename)
         {
             var f = Path.Combine(acdir, filename);
-            GenerateWpf(f);
+         //   GenerateWpf(f);
             return;
             /*        var fn = filename;
                     var converter = new AcConverter();
@@ -289,7 +332,7 @@ namespace Collaada.Wpf.Test
         void GenerateObj(string obj)
         {
             var fn = models[obj].ConvertExtension(".obj");
-            GenerateWpf(fn);
+          //  GenerateWpf(fn);
             return;
 
             /*      var converter = new Obj3DConverter();
