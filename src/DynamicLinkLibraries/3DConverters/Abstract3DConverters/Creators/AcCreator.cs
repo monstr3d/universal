@@ -18,7 +18,7 @@ namespace Abstract3DConverters.Creators
 
         private Dictionary<string, MaterialGroup> matGroup = new();
 
-        public AcCreator(string filename, Stream stream) : base(filename, stream)
+        public AcCreator(string filename, byte[] bytes) : base(filename, bytes)
         {
 
         }

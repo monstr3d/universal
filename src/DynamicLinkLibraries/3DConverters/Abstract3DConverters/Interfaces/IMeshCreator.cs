@@ -9,8 +9,7 @@ namespace Abstract3DConverters.Interfaces
 
         string Directory { get; }
 
-
-        void Load(Stream stream);
+        void Load(byte[] bytes);
 
         IEnumerable<AbstractMesh> Meshes { get; }
 

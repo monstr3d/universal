@@ -10,7 +10,7 @@ namespace Abstract3DConverters.Creators
     public abstract class StreamMeshCrearor : AbstractMeshCreator
     {
 
-        protected StreamMeshCrearor(string filename, Stream stream)
+        protected StreamMeshCrearor(string filename,  byte[] bytes)
         {
             if (StaticExtensionAbstract3DConverters.UseDirectory)
             {
@@ -21,7 +21,7 @@ namespace Abstract3DConverters.Creators
                 }
             }
             ext = Path.GetExtension(filename);
-            Load(stream);
+            Load(bytes);
         }
      }
 }

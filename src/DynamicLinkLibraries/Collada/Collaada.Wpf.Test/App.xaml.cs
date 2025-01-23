@@ -140,9 +140,11 @@ namespace Collaada.Wpf.Test
                 file = Path.Combine(dir, fnt + Path.GetRandomFileName() + ".xaml");
             }
             using var stream = File.OpenRead(filename);
+            var bytes = new byte[stream.Length];
+            stream.Read(bytes);
             using var outs = File.OpenWrite(file);
             var p = new Performer();
-            p.CreateAndSave(filename, stream, new WpfMeshConverter(), outs);
+            p.CreateAndSave(filename, bytes, new WpfMeshConverter(), outs);
         }
 
 
@@ -165,7 +167,7 @@ namespace Collaada.Wpf.Test
         {
             GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
 
-          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+          // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
             //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
@@ -198,7 +200,9 @@ namespace Collaada.Wpf.Test
 
             var p = new Performer();
             using var stream = File.OpenRead(filen);
-            p.CreateAndSave(filen, stream, ".dae", "1.5.0", outs);
+            var bytes = new byte[stream.Length];
+            stream.Read(bytes);
+            p.CreateAndSave(filen, bytes, ".dae", "1.5.0", outs);
             return;
 
 /*

@@ -34,9 +34,8 @@ namespace Abstract3DConverters.Creators
 
         public Dictionary<string, Image> Images => images;
 
-        public abstract void Load(Stream stream);
+        public abstract void Load(byte[] bytes);
 
- 
 
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Get();
 

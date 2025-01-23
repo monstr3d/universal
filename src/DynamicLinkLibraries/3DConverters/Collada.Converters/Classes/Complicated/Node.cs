@@ -77,8 +77,15 @@ namespace Collada.Converters.Classes.Complicated
                         offs[0] = o.Offset;
                         var v = o.Value as Vertices;
                         var x = v.Array;
-                        vertices = s.ToRealArray(x, 3);
-                        h[0] = o.Offset;
+                        if (x != null)
+                        {
+                            vertices = s.ToRealArray(x, 3);
+                        }
+                        else
+                        {
+                            vertices = null;
+                        }
+                            h[0] = o.Offset;
                     }
                     if (tr.Inputs.ContainsKey("TEXCOORD"))
                     {
@@ -86,7 +93,14 @@ namespace Collada.Converters.Classes.Complicated
 
                         offs[1] = o.Offset;
                         var v = o.Value as float[];
-                        textures = s.ToRealArray(v, 2);
+                        if (v != null)
+                        {
+                            textures = s.ToRealArray(v, 2);
+                        }
+                        else
+                        {
+                            textures = null;
+                        }
                         h[1] = o.Offset;
                     }
                     if (tr.Inputs.ContainsKey("NORMAL"))
@@ -95,26 +109,36 @@ namespace Collada.Converters.Classes.Complicated
 
                         offs[2] = o.Offset;
                         var v = o.Value as float[];
-                        normal = s.ToRealArray(v, 3);
+                        if (v != null)
+                        {
+                            normal = s.ToRealArray(v, 3);
+                        }
+                        else
+                        {
+                            normal = null;
+                        }
                         h[2] = o.Offset;
                     }
-                    var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
-                    t = new List<int[][]>();
-                    foreach (var p in ii)
+                    if (tr.Idx != null)
                     {
-                        int[][] k = new int[p.Length][];
-                        for (int j = 0; j < p.Length; j++)
+                        var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
+                        t = new List<int[][]>();
+                        foreach (var p in ii)
                         {
-                            var pp = p[j];
-                            var kj = new int[pp.Length];
-                            k[j] = kj;
-                            for (int hh = 0; hh < pp.Length; hh++)
+                            int[][] k = new int[p.Length][];
+                            for (int j = 0; j < p.Length; j++)
                             {
-                                kj[offs[hh]] = pp[hh];
+                                var pp = p[j];
+                                var kj = new int[pp.Length];
+                                k[j] = kj;
+                                for (int hh = 0; hh < pp.Length; hh++)
+                                {
+                                    kj[offs[hh]] = pp[hh];
+                                }
                             }
-                        }
-                        t.Add(k);
+                            t.Add(k);
 
+                        }
                     }
                 }
                 catch (Exception ex)

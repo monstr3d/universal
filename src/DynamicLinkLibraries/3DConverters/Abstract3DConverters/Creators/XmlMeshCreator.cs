@@ -28,21 +28,21 @@ namespace Abstract3DConverters.Creators
             doc.LoadXml(str);
         }
 
-        protected XmlMeshCreator(Stream stream)
+        protected XmlMeshCreator(byte[] bytes)
         {
 
         }
 
-        public override void Load(Stream stream)
+        public override void Load(byte[] bytes)
         {
-         /*   using (var reader = new StreamReader(stream))
-            {
-                var s = reader.ReadToEnd();
-                doc = new XmlDocument();
-                doc.LoadXml(s);
-            }*/
+            using var stream = new MemoryStream(bytes);
+
+            using var reader = new StreamReader(stream);
+            var s = reader.ReadToEnd();
+            doc = new XmlDocument();
+            doc.LoadXml(s);
         }
 
     }
 
- }
+}

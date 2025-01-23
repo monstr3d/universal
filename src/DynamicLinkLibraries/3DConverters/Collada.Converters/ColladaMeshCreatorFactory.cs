@@ -12,12 +12,15 @@ namespace Collada.Converters
 
         }
 
-        public IMeshCreator this[string filename, Stream stream] => Get(filename, stream);
+        public IMeshCreator this[string filename, byte[] bytes] => Get(filename, bytes);
 
-        IMeshCreator Get(string filename, Stream stream)
+        IMeshCreator Get(string filename, byte[] bytes)
         {
             var doc = new XmlDocument();
-            doc.Load(stream);
+            using var stream = new MemoryStream(bytes);
+            using var reader = new StreamReader(stream);
+            var s = reader.ReadToEnd();
+            doc.LoadXml(s);
             /*  var b = new byte[stream.Length];
               stream.Read(b);
               using (var r = new StreamReader(new MemoryStream(b)))

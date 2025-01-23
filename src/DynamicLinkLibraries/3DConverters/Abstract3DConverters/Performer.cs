@@ -11,18 +11,18 @@ namespace Abstract3DConverters
 
         }
 
-        public T CreateAll<T>(string fileinput, Stream stream, string outExt, string outComment, Action<T> act) where T : class
+        public T CreateAll<T>(string fileinput, byte[] bytes, string outExt, string outComment, Action<T> act) where T : class
         {
-            var creator = fileinput.ToMeshCreator(stream);
+            var creator = fileinput.ToMeshCreator(bytes);
             var p = new Performer();
             var converter = outExt.ToMeshConvertor(outComment);
             var res = p.Create<T>(creator, converter, act);
             return res;
         }
 
-        public string CreateString(string fileinput, Stream stream, string outExt, string outComment, Action<object> act = null)
+        public string CreateString(string fileinput, byte[] bytes, string outExt, string outComment, Action<object> act = null)
         {
-            var creator = fileinput.ToMeshCreator(stream);
+            var creator = fileinput.ToMeshCreator(bytes);
             var p = new Performer();
             var converter = outExt.ToMeshConvertor(outComment);
             var res = p.Create<object>(creator, converter, act);
@@ -31,9 +31,9 @@ namespace Abstract3DConverters
             return r;
         }
 
-        public void CreateAndSave(string fileinput, Stream stream, IMeshConverter converter, Stream outs, Action<object> act = null)
+        public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, Stream outs, Action<object> act = null)
         {
-            var creator = fileinput.ToMeshCreator(stream);
+            var creator = fileinput.ToMeshCreator(bytes);
             var p = new Performer();
             var res = p.Create<object>(creator, converter, act);
             if (converter is ISaveToStream save)
@@ -47,10 +47,10 @@ namespace Abstract3DConverters
             wr.Write(r);
         }
 
-        public void CreateAndSave(string fileinput, Stream stream, string outExt, string outComment, Stream outs, Action<object> act = null)
+        public void CreateAndSave(string fileinput, byte[] bytes, string outExt, string outComment, Stream outs, Action<object> act = null)
         {
             var converter = outExt.ToMeshConvertor(outComment);
-            CreateAndSave(fileinput, stream, converter, outs, act);
+            CreateAndSave(fileinput, bytes, converter, outs, act);
         }
 
 
@@ -58,7 +58,9 @@ namespace Abstract3DConverters
         {
             var converter = outExt.ToMeshConvertor(outComment);
             using var stream = File.OpenRead(fileinput);
-            CreateAndSave(fileinput, stream, converter, outs, act);
+            byte[] bytes = new byte[stream.Length];
+            stream.Read(bytes);
+            CreateAndSave(fileinput, bytes, converter, outs, act);
         }
 
 

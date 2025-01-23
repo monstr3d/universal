@@ -124,7 +124,7 @@ namespace Abstract3DConverters
                             var ca = CustomAttributeExtensions.GetCustomAttribute<ExtensionAttribute>(IntrospectionExtensions.GetTypeInfo(type));
                             if (ca != null)
                             {
-                                ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(Stream)]);
+                                ConstructorInfo constructor = type.GetConstructor([typeof(string), typeof(byte[])]);
                                 var keys = ca.Extensions;
                                 foreach (var key in keys)
                                 {

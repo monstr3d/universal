@@ -25,7 +25,7 @@ namespace Abstract3DConverters.Creators
         internal List<float[]> Textures { get; private set; } = new List<float[]>();
 
 
-        public Obj3DCrearor(string filename, Stream stream) : base(filename, stream)
+        public Obj3DCrearor(string filename, byte[] bytes) : base(filename, bytes)
         {
 
         }
@@ -521,6 +521,11 @@ namespace Abstract3DConverters.Creators
         protected override void CreateFromLines()
         {
             CreateMaterials();
+        }
+
+        public override void Load(byte[] bytes)
+        {
+            throw new NotImplementedException();
         }
     }
 }
