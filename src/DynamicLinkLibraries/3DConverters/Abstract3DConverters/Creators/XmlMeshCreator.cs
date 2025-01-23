@@ -28,9 +28,10 @@ namespace Abstract3DConverters.Creators
             doc.LoadXml(str);
         }
 
-        protected XmlMeshCreator(byte[] bytes)
+        protected XmlMeshCreator(string filename, byte[] bytes)
         {
-
+            directory = filename.GetDirectory();
+            Load(bytes);
         }
 
         public override void Load(byte[] bytes)
@@ -41,6 +42,7 @@ namespace Abstract3DConverters.Creators
             var s = reader.ReadToEnd();
             doc = new XmlDocument();
             doc.LoadXml(s);
+            CreateAll();
         }
 
     }

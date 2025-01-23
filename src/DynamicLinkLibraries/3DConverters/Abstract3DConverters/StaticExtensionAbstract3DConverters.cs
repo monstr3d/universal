@@ -42,7 +42,10 @@ namespace Abstract3DConverters
             set;
         } = false;
 
-
+        static public string GetDirectory(this string filename)
+        {
+            return UseDirectory ? Path.GetDirectoryName(filename) : null;
+        }
 
 
         static StaticExtensionAbstract3DConverters()
