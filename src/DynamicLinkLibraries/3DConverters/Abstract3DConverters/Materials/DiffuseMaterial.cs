@@ -29,6 +29,9 @@
 
         public float Opacity { get; private set; }
 
+
+        public override bool HasImage => Image != null;
+
         public DiffuseMaterial(Color color, Color ambient, Image image, float opacity)
         {
             Image = image;

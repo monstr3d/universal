@@ -12,8 +12,6 @@ namespace Abstract3DConverters.MaterialCreators
 
         protected string xmlns;
 
-        protected Service s = new();
-
         protected XmlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
             base(images)
         {

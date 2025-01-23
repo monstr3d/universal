@@ -2,6 +2,6 @@
 {
     public interface IMeshCreatorFactory
     {
-        IMeshCreator this[string extension, Stream stream] { get;  }
+        IMeshCreator this[string extension, byte[] bytes] { get;  }
     }
 }

@@ -17,6 +17,14 @@ namespace Abstract3DConverters
         
         }
 
+        public Color GetColor(XmlElement element)
+        {
+            var s = element.InnerText;
+            float[] f = ToRealArray<float>(s);
+            return new Color(f);
+
+        }
+
 
         #region Service
 
@@ -139,7 +147,7 @@ namespace Abstract3DConverters
             var sb = new StringBuilder();
             foreach (var x in f)
             {
-                var y = (double)x;
+                var y = x;// (double)x;
                 var xx = y.ToString();
                 sb.Append(xx);
                 sb.Append(" ");

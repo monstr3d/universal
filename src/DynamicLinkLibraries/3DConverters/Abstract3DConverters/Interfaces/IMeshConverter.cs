@@ -13,6 +13,11 @@ namespace Abstract3DConverters.Interfaces
             set;
         }
 
+        Dictionary<string, Image> Images
+        {
+            set;
+        }
+
         IMaterialCreator MaterialCreator { get; }
 
 

@@ -83,6 +83,8 @@ namespace Aviation.Light
 
             AssemblyService.StaticExtensionAssemblyService.Init();
 
+            Abstract3DConverters.StaticExtensionAbstract3DConverters.UseDirectory = true;
+
             TestType();
 
             // FormulaMeasurement.CheckValue = (o)                            => o == null;

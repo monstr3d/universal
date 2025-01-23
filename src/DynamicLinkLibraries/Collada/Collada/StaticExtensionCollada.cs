@@ -721,9 +721,8 @@ namespace Collada
             Func<XmlElement, bool> func = (e) => { return e.Name == filter; };
             var enu = xmlElement.GetElements(func);
             enu.Select(e => e.Get()).ToArray();
-         }
+        }
 
-   
 
         public static void Get(this IEnumerable<string> filter)
         {

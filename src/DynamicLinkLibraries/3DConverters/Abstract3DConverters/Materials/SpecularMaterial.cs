@@ -10,6 +10,8 @@ namespace Abstract3DConverters.Materials
     {
         public float SpecularPower { get;  set; }
 
+        public override bool HasImage => false;
+
         public SpecularMaterial(Color color, float power) : base(color)
         {
             SpecularPower = power;

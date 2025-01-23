@@ -5,7 +5,7 @@ using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
 {
-    public class AbstractMesh: IParent
+    public class AbstractMesh : IParent
     {
         protected AbstractMesh parent;
 
@@ -14,10 +14,10 @@ namespace Abstract3DConverters.Meshes
         protected IMeshCreator creator;
 
 
-        public float[] TransformationMatrix 
-        { 
-            get; 
-            protected set; 
+        public float[] TransformationMatrix
+        {
+            get;
+            protected set;
         }
 
         public AbstractMesh Parent
@@ -69,10 +69,10 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        IParent IParent.Parent 
-        { 
-            get => parent; 
-            set => Parent = value as AbstractMesh; 
+        IParent IParent.Parent
+        {
+            get => parent;
+            set => Parent = value as AbstractMesh;
         }
 
         public AbstractMesh(string name, IMeshCreator creator)
@@ -101,7 +101,7 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public AbstractMesh(string name, IMeshCreator creator, Material material = null, 
+        public AbstractMesh(string name, IMeshCreator creator, Material material = null,
             List<float[]> vertices = null, List<float[]> normals = null,
        List<float[]> textures = null, List<int[][]> indexes = null) : this(name, creator)
         {
@@ -114,7 +114,7 @@ namespace Abstract3DConverters.Meshes
 
         public AbstractMesh(string name, IMeshCreator creator, Material material = null,
          List<float[]> vertices = null, List<float[]> normals = null,
-    List<float[]> textures = null, List<int[][]> indexes = null, float[] matrix = null) : 
+    List<float[]> textures = null, List<int[][]> indexes = null, float[] matrix = null) :
             this(name, creator, material, vertices, normals,
         textures, indexes)
         {
@@ -145,21 +145,6 @@ namespace Abstract3DConverters.Meshes
                 ex.ShowError();
             }
             return null;
-        }
-
-        protected void SetImage(Material mat, Image img)
-        {
-            if (mat is DiffuseMaterial diffuse)
-            {
-                diffuse.Image = img;
-            }
-            if (mat is MaterialGroup group)
-            {
-                foreach (var m in group.Children)
-                {
-                    SetImage(m, img);
-                }
-            }
         }
 
     }

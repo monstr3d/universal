@@ -6,14 +6,14 @@ namespace Abstract3DConverters
     {
         List<IMeshCreatorFactory> list = new();
 
-        IMeshCreator IMeshCreatorFactory.this[string extension, Stream stream] => Get(extension, stream);
+        IMeshCreator IMeshCreatorFactory.this[string extension, byte[] bytes]=> Get(extension, bytes);
     
     
-        private IMeshCreator Get(string extension, Stream stream)
+        private IMeshCreator Get(string extension, byte[] bytes)
         {
             foreach (var item in list)
             {
-                var f = item[extension, stream];
+                var f = item[extension, bytes];
                 if (f != null)
                 {
                     return f;

@@ -1,7 +1,8 @@
 ﻿using System.IO;
 using System.Windows.Media.Media3D;
-
+using System.Xml;
 using Abstract3DConverters;
+using Abstract3DConverters.Converters;
 using Abstract3DConverters.Interfaces;
 using AssemblyService.Attributes;
 
@@ -17,9 +18,9 @@ namespace ExportToWpf
 
         static StaticExtensionExportToWpf()
         {
-            string[] s = [".ac", ".dae", ".obj"];
+            string[] s = [".ac", ".dae", ".obj", "*.xaml"];
             StaticExtensionAbstract3DConverters.Init();
-            Func<string, Tuple<string, Dictionary<string, byte[]>>> f = Export;
+            Func<string, Tuple<object, Dictionary<string, byte[]>>> f = Export;
             foreach (var str in s)
             {
                 f.Add(str);
@@ -46,13 +47,13 @@ namespace ExportToWpf
             }
         }
 
-        static Tuple <string, Dictionary<string, byte[]>> Export(string filename)
+        static Tuple <object, Dictionary<string, byte[]>> Export(string filename)
         {
             var c = filename.ToMeshCreator();
             return Export(filename, c);
         }
 
-        static Tuple<string, Dictionary<string, byte[]>> Export(string filename, Abstract3DConverters.Interfaces.IMeshCreator creator)
+        static Tuple<object, Dictionary<string, byte[]>> Export(string filename, IMeshCreator creator)
         {
             var d = new Dictionary<string, byte[]>();
             using (var stream = File.OpenRead(filename))
@@ -63,10 +64,11 @@ namespace ExportToWpf
                 d[str] = b;
             }
             var p = new Performer();
-            var converter = new WpfMeshConverter();
-            var res = p.Create<ModelVisual3D>(creator, converter);
-            res.SetLight();
-             if (creator is Abstract3DConverters.Interfaces.IAdditionalInformation add)
+            var converter = new Abstract3DConverters.Converters.XamlMeshConverter();
+            var res = p.Create<object>(creator, converter);
+            
+            //    res.SetLight();
+            if (creator is IAdditionalInformation add)
             {
                 var dic = add.Information;
                 foreach (var key in dic.Keys)
@@ -74,12 +76,18 @@ namespace ExportToWpf
                     d[key] = dic[key];
                 }
             }
-            Abstract3DConverters.Interfaces.IStringRepresentation stringRepresentation = converter;
+            if (res is XmlDocument)
+            {
+               //return new Tuple<object, Dictionary<string, byte[]>>(res, d);
+            }
+            IStringRepresentation stringRepresentation = converter;
             var r = stringRepresentation.ToString(res);
-            return new Tuple<string, Dictionary<string, byte[]>>(r, d);
-
+            using var w = new StreamWriter(@"c:\0\1.txt");
+            w.AutoFlush = true;
+            w.Write(r);
+            w.Flush();
+            return new Tuple<object, Dictionary<string, byte[]>>(r, d);
         }
-
 
     }
 }

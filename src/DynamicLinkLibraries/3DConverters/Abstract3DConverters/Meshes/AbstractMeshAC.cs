@@ -107,7 +107,14 @@ namespace Abstract3DConverters.Meshes
 
                             }
                             var matetrial = materials[mt];
-                            matetrial = matetrial.Clone() as Material;
+                            if (Image != null)
+                            {
+                                matetrial = matetrial.SetImage(Image);
+                            }
+                            else
+                            {
+                                matetrial = matetrial.Clone() as Material;
+                            }
                             var polygon = new Polygon(pp, matetrial);
                             dp[polygon] = mt;
                             Polygons.Add(polygon);
@@ -121,8 +128,15 @@ namespace Abstract3DConverters.Meshes
                             if (mats.Count == 1)
                             {
                                 var mat = materials[dp.Values.ToArray()[0]];
-                                Material = mat.Clone() as Material;
-                                SetImage(Material, Image);
+                                var mm  = mat.Clone() as Material;
+                                if (Image == null)
+                                {
+                                    Material = mm;
+                                }
+                                else
+                                {
+                                    Material = mm.SetImage(Image);
+                                }
                             }
                             i = k;
                             continue;
@@ -164,13 +178,19 @@ namespace Abstract3DConverters.Meshes
                 var t = new Tuple<int, int, int, float[]>(d[p.Item1], p.Item2, p.Item3, p.Item4);
                 l.Add(t);
             }
-            var pol = new Polygon(l, material.Clone() as Material);
-            Polygons.Add(pol);
-            Material = material.Clone() as Material;
             if (image != null)
             {
+                material = material.Clone() as Material;
+                var im = image.Clone() as Image;
+                material = material.SetImage(im);
+            }
+            var pol = new Polygon(l, material);
+            Polygons.Add(pol);
+            Material = material.Clone() as Material;
+            if (image != null & !Material.HasImage)
+            {
                 Image = image.Clone() as Image;
-                SetImage(Material, Image);
+                Material = Material.SetImage( Image);
             }
         }
 

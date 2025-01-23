@@ -32,7 +32,7 @@ namespace Wpf.Loader
             return FilenameGenerator.GenerateFileName(ext, out path);
         }
 
-        static public void Add(this Func<string, Tuple<string, Dictionary<string, byte[]>>> t, string extension)
+        static public void Add(this Func<string, Tuple<object, Dictionary<string, byte[]>>> t, string extension)
         {
             FileLoad[extension] = t;
         }
@@ -49,12 +49,12 @@ namespace Wpf.Loader
         }
 
 
-        static Tuple<string, Dictionary<string, byte[]>> Load(string filename)
+        static Tuple<object, Dictionary<string, byte[]>> Load(string filename)
         {
             using (var reader = new StreamReader(filename))
             {
                 var s = reader.ReadToEnd();
-                return new Tuple<string, Dictionary<string, byte[]>>(s, new Dictionary<string, byte[]>());
+                return new Tuple<object, Dictionary<string, byte[]>>(s, new Dictionary<string, byte[]>());
             }
         }
 
@@ -75,7 +75,7 @@ namespace Wpf.Loader
         /// <summary>
         /// 3D file load
         /// </summary>
-        public static Dictionary<string, Func<string, Tuple<string, Dictionary<string, byte[]>>>> FileLoad
+        public static Dictionary<string, Func<string, Tuple<object, Dictionary<string, byte[]>>>> FileLoad
         {
             get;
         } = new();

@@ -8,6 +8,10 @@ namespace Abstract3DConverters.MaterialCreators
 
         #region Fields
 
+
+        protected Service s = new();
+
+
         protected Dictionary<string, object> Images
         {
             get;
@@ -122,10 +126,6 @@ namespace Abstract3DConverters.MaterialCreators
             SetImage(material, im);
         }
 
-        public virtual void AddImageToDictionary(string key, object image)
-        {
-            Images[key] = image;
-        }
-
+ 
     }
 }

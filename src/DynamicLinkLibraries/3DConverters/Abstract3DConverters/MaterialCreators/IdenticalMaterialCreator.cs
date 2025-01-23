@@ -11,13 +11,6 @@ namespace Abstract3DConverters.MaterialCreators
         {
         }
 
-   
-        public override void AddImageToDictionary(string key, object image)
-        {
-            base.AddImageToDictionary(key, image);
-        }
-
-
         public override object Create(Image image)
         {
             return image.Clone();

@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters.Materials;
+﻿using System.ComponentModel;
+using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
@@ -15,6 +16,8 @@ namespace Abstract3DConverters.Creators
 
         internal int[] Shift { get; private set; } = [0, 0, 0];
 
+        private Dictionary<string, MaterialGroup> matGroup = new();
+
         public AcCreator(string filename, Stream stream) : base(filename, stream)
         {
 
@@ -27,7 +30,7 @@ namespace Abstract3DConverters.Creators
             return Create(null, lines).ToList();
         }
      
-
+       
 
         public Tuple<object, List<AbstractMesh>> Create()
         {
@@ -118,6 +121,30 @@ namespace Abstract3DConverters.Creators
                 group.Children.Add(diff);
                 group.Children.Add(emi);
                 group.Children.Add(spe);
+            }
+            Material mt = null;
+            string imstr = null;
+            Image image = null;
+            foreach (var line in lines)
+            {
+                var st = s.ToString(line, "texture");
+                if (st != null)
+                {
+                    imstr = s.Trim(st);
+                    image = images[imstr];
+                }
+                var st1 = s.ToString(line, "mat");
+                if (st1 != null)
+                {
+                    var k = s.ToReal<int>(st1);
+                    mt = MaterialsP[k];
+                    var mat = mt.SetImage(image);
+                    var key = mat.Name;
+                    if (!materials.ContainsKey(key))
+                    {
+                        materials[key] = mat;
+                    }
+                }
             }
         }
 

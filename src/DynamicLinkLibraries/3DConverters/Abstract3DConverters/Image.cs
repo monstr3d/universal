@@ -15,7 +15,7 @@
             if (directory == null)
             {
                 Name = name;
-                FullPath = DefaultPath;
+                FullPath = name;
                 return;
             }
             var n = Path.GetFileName(name);

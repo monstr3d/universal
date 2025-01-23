@@ -18,6 +18,26 @@ namespace Collaada.Wpf.Test
     public partial class App : Application
     {
 
+        public App()
+        {
+        //    Load();
+           
+            StaticExtensionAbstract3DConverters.Init();
+            // Compare();
+            //  Generate();
+            //   GenerateObj();
+            //  GenerateToAc();
+            // GenerateAC();
+            //     GenerateCollada();
+               GenerateToDae();
+       //   GenerateXaml();
+       //     GenerateWPF();
+         //   GenerateWpf();
+
+            //     GenerateToDae();
+            //   GenerateNative();
+        }
+
         void Load()
         {
             var doc = new XmlDocument();
@@ -32,25 +52,7 @@ namespace Collaada.Wpf.Test
             });
             doc.WriteContentTo(w);
         }
-        public App()
-        {
-        //    Load();
-           
-            StaticExtensionAbstract3DConverters.Init();
-            // Compare();
-            //  Generate();
-            //   GenerateObj();
-            //  GenerateToAc();
-            // GenerateAC();
-            //     GenerateCollada();
-       //     GenerateToDae();
-          GenerateXaml();
-       //     GenerateWPF();
-         //   GenerateWpf();
 
-            //     GenerateToDae();
-            //   GenerateNative();
-        }
 
         void GenerateNative()
         {

@@ -31,8 +31,7 @@ namespace Abstract3DConverters.Interfaces
 
         void SetImage(object material, object image);
 
-        void AddImageToDictionary(string key, object image);
-
+ 
         void SetOpacity(object material, float opacity);
 
     }

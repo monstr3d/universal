@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters
@@ -12,11 +10,6 @@ namespace Abstract3DConverters
         {
 
         }
-
-        #region Service
-
-
-        #endregion
 
         public T CreateAll<T>(string fileinput, Stream stream, string outExt, string outComment, Action<T> act) where T : class
         {
@@ -75,10 +68,6 @@ namespace Abstract3DConverters
             CreateAndSave(fileinput, outExt, outComment, stream, act);
         }
 
-
-
-
-
         public T Create<T>(AbstractMesh mesh, IMeshConverter meshConverter) where T : class
         {
             IMaterialCreator materialCreator = meshConverter.MaterialCreator;
@@ -114,10 +103,7 @@ namespace Abstract3DConverters
             converter.Directory = creator.Directory;
             var materialCreator = converter.MaterialCreator;
             var images = creator.Images;
-            foreach (var image in images)
-            {
-                materialCreator.AddImageToDictionary(image.Key, materialCreator.Create(image.Value));
-            }
+            converter.Images = creator.Images;
             converter.Materials = creator.Materials;
             var res = Combine<T>(creator.Meshes, converter);
             if (action != null)

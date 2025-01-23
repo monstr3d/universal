@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Creators
 {
@@ -11,10 +12,13 @@ namespace Abstract3DConverters.Creators
 
         protected StreamMeshCrearor(string filename, Stream stream)
         {
-            if (File.Exists(filename))
+            if (StaticExtensionAbstract3DConverters.UseDirectory)
             {
-                directory = Path.GetDirectoryName(filename);
-                this.filename = filename;
+                if (File.Exists(filename))
+                {
+                    directory = Path.GetDirectoryName(filename);
+                    this.filename = filename;
+                }
             }
             ext = Path.GetExtension(filename);
             Load(stream);

@@ -36,6 +36,12 @@ namespace Abstract3DConverters
 
         static List<IMeshConverterFactory> meshConverterFactories = new();
 
+        static public bool UseDirectory
+        {
+            get;
+            set;
+        } = false;
+
 
 
 
@@ -83,9 +89,9 @@ namespace Abstract3DConverters
 
         }
 
-       public static IMeshCreator GetMeshCreator(string extension, Stream stream)
+       public static IMeshCreator GetMeshCreator(string extension, byte[] bytes)
         {
-            return meshCreatorFactory[extension, stream];
+            return meshCreatorFactory[extension, bytes];
         }
 
         public static void Add(this IMeshCreatorFactory factory)
@@ -191,17 +197,17 @@ namespace Abstract3DConverters
             return meshConvertFactory[extension, comment];
         }
 
-        public static IMeshCreator ToMeshCreator(this string filename, Stream stream)
+        public static IMeshCreator ToMeshCreator(this string filename, byte[] bytes)
         {
-            return meshCreatorFactory[filename, stream];
+            return meshCreatorFactory[filename, bytes];
         }
 
         public static IMeshCreator ToMeshCreator(this string filename)
         {
-            using (var stream = File.OpenRead(filename))
-            {
-                return ToMeshCreator(filename, stream);
-            }
+            using var stream = File.OpenRead(filename);
+            byte[] b = new byte[stream.Length];
+            stream.ReadExactly(b);
+            return ToMeshCreator(filename, b);
         }
 
         /// <summary>

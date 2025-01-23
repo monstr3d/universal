@@ -71,9 +71,35 @@ namespace Wpf.Loader
             SetFile(t.Item1, t.Item2, dir);
         }
 
-        internal void SetFile(string xaml, Dictionary<string, byte[]> attach, string dir)
+        internal void SetFile(object xaml, Dictionary<string, byte[]> attach, string dir)
         {
-            this.xaml = xaml;
+            var doc = new XmlDocument();
+            if (xaml is string s)
+            {
+                this.xaml = s;
+                doc.LoadXml(s);
+            }
+            if (xaml is XmlDocument dc)
+            {
+                doc = dc;
+                var stream = new StringWriter();
+                using var w = XmlWriter.Create(stream, new XmlWriterSettings
+                {
+                    //         NewLineChars = "\n",
+                    OmitXmlDeclaration = true,
+
+
+                });
+                dc.WriteContentTo(w);
+                stream.Flush();
+                var stt = stream.ToString();
+                this.xaml = stt;
+                var sb = new StringBuilder(stt);
+                TextReader sr = new StringReader(stt);
+                using var reader = XmlReader.Create(sr);
+                var ddd = new XmlDocument();
+                ddd.Load(reader);
+             }
             Attachment = attach;
             textures.Clear();
             string d = dir;
@@ -82,8 +108,6 @@ namespace Wpf.Loader
             {
                 d += Path.DirectorySeparatorChar;
             }
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(xaml);
             XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
             foreach (XmlElement e in nl)
             {

@@ -43,8 +43,7 @@ namespace Collada.Wpf
         List<float[]> normals;
 
         string IMeshConverter.Directory  { get; set;}
-
-
+        Dictionary<string, Image> IMeshConverter.Images { set  {  } }
 
         void IMeshConverter.Add(object mesh, object child)
         {

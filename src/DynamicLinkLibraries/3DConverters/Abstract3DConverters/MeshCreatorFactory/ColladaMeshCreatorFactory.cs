@@ -6,14 +6,11 @@ namespace Abstract3DConverters.MeshCreatorFactory
     [Abstract3DConverters.Attributes.Extension([".dae"])]
     public class ColladaMeshCreatorFactory : IMeshCreatorFactory
     {
-        public IMeshCreator this[string filename, Stream stream] => Get(filename, stream);
+        public IMeshCreator this[string filename, byte[] bytes] => Get(filename, bytes);
 
-        IMeshCreator Get(string filename, Stream stream)
+        IMeshCreator Get(string filename, byte[] bytes)
         {
-            var b = new byte[stream.Length];
-            stream.Read(b);
-            using (var r = new StreamReader(new MemoryStream(b)))
-            {
+            using 
                 var s = r.ReadToEnd();
                 var doc = new XmlDocument();
                 doc.LoadXml(s);
