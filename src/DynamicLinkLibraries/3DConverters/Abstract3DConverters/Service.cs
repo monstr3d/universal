@@ -17,6 +17,10 @@ namespace Abstract3DConverters
         
         }
 
+
+        #region Service
+
+
         public Color GetColor(XmlElement element)
         {
             var s = element.InnerText;
@@ -25,8 +29,6 @@ namespace Abstract3DConverters
 
         }
 
-
-        #region Service
 
         public void SetColor(XmlElement element, string colorName, Color color)
         {
@@ -294,6 +296,12 @@ namespace Abstract3DConverters
             return l;
         }
 
+        public List<T[]> ToRealArray<T>(string s, int n) where T : struct
+        {
+            T[] t = ToRealArray<T>(s);
+            return ToRealArray<T>(t, n);
+        }
+
         public List<T[]> ToRealArray<T>(T[] x, int n) where T : struct
         {
             var l = new List<T[]>();
@@ -357,6 +365,8 @@ namespace Abstract3DConverters
             return l;
 
         }
+
+    
 
 
 
