@@ -20,8 +20,8 @@ namespace Collaada.Wpf.Test
 
         public App()
         {
-        //    Load();
-           
+            //    Load();
+            StaticExtensionAbstract3DConverters.UseDirectory = true;
             StaticExtensionAbstract3DConverters.Init();
             // Compare();
             //  Generate();
@@ -199,14 +199,16 @@ namespace Collaada.Wpf.Test
 
            // var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
 
-            using var outs = File.OpenWrite(file);
+         //   using var outs = File.OpenWrite(file);
 
             var p = new Performer();
-            using var stream = File.OpenRead(filen);
+            p.CreateAndSave(filen, file);
+            return;
+        /*    using var stream = File.OpenRead(filen);
             var bytes = new byte[stream.Length];
             stream.Read(bytes);
             p.CreateAndSave(filen, bytes, ".dae", "1.5.0", outs);
-            return;
+            return;*/
 
 /*
             if (ac is ISaveToStream ss)

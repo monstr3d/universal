@@ -43,7 +43,7 @@ namespace Collada.Converters
             }
             if (version.StartsWith("1.5"))
             {
-                return new ColladaMeshCreator(doc);
+                return new ColladaMeshCreator(filename, doc);
             }
             return null;
 

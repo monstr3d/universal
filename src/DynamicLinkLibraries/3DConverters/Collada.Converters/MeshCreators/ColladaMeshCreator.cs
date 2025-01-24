@@ -104,7 +104,7 @@ namespace Collada.Converters.MeshCreators
         }
 
 
-        public ColladaMeshCreator(XmlDocument doc) : base(doc)
+        public ColladaMeshCreator(string filename, XmlDocument doc) : base(filename, doc)
         {
             try
             {

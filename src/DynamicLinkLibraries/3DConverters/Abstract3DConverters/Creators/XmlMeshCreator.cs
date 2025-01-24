@@ -16,9 +16,10 @@ namespace Abstract3DConverters.Creators
             private set;
         }
 
-        protected XmlMeshCreator(XmlDocument doc)
+        protected XmlMeshCreator(string filename, XmlDocument doc)
         {
             this.doc = doc;
+            directory = filename.GetDirectory();
         }
 
         protected XmlMeshCreator(string str)

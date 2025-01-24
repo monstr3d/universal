@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Abstract3DConverters
@@ -42,8 +43,19 @@ namespace Abstract3DConverters
             return c;
         }
 
-        public Color(string[] strings)
+        public Color(string[] strings, bool hex = false)
         {
+            if (hex)
+            {
+                var bt = GetBytes(strings[0]);
+                Value = new float[bt.Length];
+                for (var i = 0; i < bt.Length; i++)
+                {
+                    float f = (float)bt[i];
+                    Value[i] = f / 255f;
+                }
+                return;
+            }
             List<float> values = new List<float>();
             foreach (var v in strings)
             {
@@ -58,9 +70,11 @@ namespace Abstract3DConverters
 
         }
 
-        public Color(string color) : this(color.Split(' '))
+        public Color(string color, bool hex = false) : this(color.Split(' '), hex)
         {
         }
+
+
 
 
         private float ToFloat(string str)
@@ -107,5 +121,28 @@ namespace Abstract3DConverters
                 return s.ToUpper();
             }
         }
+
+        byte GetByte(string s)
+        {
+            int b = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                b = b << 4;
+                b += s_hex.IndexOf(s[i]);
+            }
+            return BitConverter.GetBytes(b)[0];
+        }
+
+        byte[] GetBytes(string s)
+        {
+            var l = s.Length / 2;
+            byte[] b = new byte[l];
+            for (int i = 0; i < l; i++)
+            {
+                b[i] = GetByte(s.Substring(2 * i));
+            }
+            return b;
+        }
+        
     }
 }

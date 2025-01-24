@@ -1,5 +1,7 @@
 ﻿using Abstract3DConverters.Creators;
+using Abstract3DConverters.Materials;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Xml;
@@ -14,7 +16,6 @@ namespace Abstract3DConverters.Meshes
         Dictionary<string, Action<XmlElement>> content;
         Dictionary<string, Action<XmlElement>> geometry;
         Dictionary<string, Action<XmlElement>> geometryGeometry;
-        Dictionary<string, Action<XmlElement>> masGeometry;
         internal AbstractMeshXaml(XamlMeshCreator creator, XmlElement element) : base(creator.MeshName, creator)
         {
             actions = new Dictionary<string, Action<XmlElement>>()
@@ -61,12 +62,87 @@ namespace Abstract3DConverters.Meshes
             Parent = parent;
         }
 
-
-        void ParseMaterial(XmlElement e)
+        Color GetColor(XmlElement element, string attr)
         {
-            var ch = e.GetElementsByTagName("MaterialGroup.Children")[0];
-            var mg = new 
+            var c = element.GetAttribute(attr);
+            if (c.Length == 0)
+            {
+                return null;
+            }
+            return new Color(c.Substring(1).ToLower(), true);
 
+        }
+
+        Material GetMaterial(XmlElement element)
+        {
+            Material mat = null;
+            var color = GetColor(element, "Color");
+            switch (element.Name)
+            {
+                case "DiffuseMaterial":
+                    var amb = GetColor(element, "AmbientColor");
+                    var txt = element.GetElementsByTagName("ImageBrush")[0] as XmlElement;
+                    float t = 0;
+                    Image im = null;
+                    if (txt != null)
+                    {
+                        var opa = txt.GetAttribute("Opacity");
+                        if (opa.Length > 0)
+                        {
+                            t = s.ToReal<float>(opa);
+                        }
+                        var ims = txt.GetAttribute("ImageSource");
+                        if (ims.Length > 0)
+                        {
+                            var imgs = creator.Images;
+                            if (imgs.ContainsKey(ims))
+                            {
+                                im = imgs[ims];
+                            }
+                            else
+                            {
+                                im = new Image(ims, creator.Directory);
+                                imgs[ims] = im;
+                            }
+                        }
+                    }
+                    mat = new DiffuseMaterial(color, amb, im, 1 - t);
+                    break;
+
+                case "EmissiveMaterial":
+                    mat = new EmissiveMaterial(color);
+                    break;
+                case "SpecularMaterial":
+                    var sp = element.GetAttribute("SpecularPower");
+                    var spp = s.ToReal<float>(sp);
+                    mat = new SpecularMaterial(color, spp);
+                    break;
+            }
+            if (mat == null)
+            {
+                throw new Exception("MATERIAL " + element.Name);
+            }
+            return mat;
+        }
+
+
+        void ParseMaterial(XmlElement elemebt)
+        {
+            var ch = element.GetElementsByTagName("MaterialGroup.Children")[0];
+            var name = meshCreator.MaterialName;
+            var mg = new MaterialGroup(name);
+            meshCreator.Materials[name] = mg;
+            var mat = ch.ChildNodes;
+            foreach (var n in mat)
+            {
+                if (n is XmlElement e)
+                {
+                    if (e.ParentNode == ch)
+                    {
+                        mg.Children.Add(GetMaterial(e));
+                    }
+                }
+            }
         }
 
 
@@ -93,6 +169,7 @@ namespace Abstract3DConverters.Meshes
                 var c = Vertices.Count;
                 if (c > 0)
                 {
+                    c = c / 3;
 
                     Indexes = new List<int[][]>();
                     for (int i = 0; i < c; i++)
@@ -100,7 +177,7 @@ namespace Abstract3DConverters.Meshes
                         int[][] k = new int[3][];
                         for (int j = 0; j < 3; j++)
                         {
-                            var l = 3 * i + j;
+                            var l =  3 * i + j;
                             k[j] = [l, l, -1];
                         }
                         Indexes.Add(k);
