@@ -348,7 +348,7 @@ namespace Collada.Converters.MeshConverters
                 CreateFloat(p, "shininess", specularMaterial.SpecularPower);
             }
             CreateColor(p, "transparent", diffuseMaterial.Color);
-            CreateFloat(p, "transparency", 1 - diffuseMaterial.Opacity);
+            CreateFloat(p, "transparency", diffuseMaterial.Opacity);
             var nmt = Create("material");
             pm.AppendChild(nmt);
             var matn = material.Name;

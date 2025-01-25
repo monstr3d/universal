@@ -21,10 +21,7 @@ namespace Abstract3DConverters.Converters
 
         protected override XmlElement Create(AbstractMesh mesh)
         {
-            if (mesh is AbstractMeshPolygon p)
-            {
-                p.CreateTriangles();
-            }
+            mesh.CreateTriangles();
             var x = Create("ModelVisual3D");
             var y = Create("ModelVisual3D.Content");
             x.AppendChild(y);

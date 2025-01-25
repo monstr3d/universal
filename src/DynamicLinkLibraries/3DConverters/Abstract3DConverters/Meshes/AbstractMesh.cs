@@ -13,6 +13,11 @@ namespace Abstract3DConverters.Meshes
 
         protected IMeshCreator creator;
 
+        public List<Polygon> Polygons
+        { get; } = new List<Polygon>();
+
+        protected bool trianlesCreared = false;
+
 
         public float[] TransformationMatrix
         {
@@ -146,6 +151,20 @@ namespace Abstract3DConverters.Meshes
             }
             return null;
         }
+
+        public virtual void CreateTriangles()
+        {
+            if (trianlesCreared)
+            {
+                return;
+            }
+            trianlesCreared = true;
+            foreach (var t in Children)
+            {
+                t.CreateTriangles();
+            }
+        }
+
 
     }
 }

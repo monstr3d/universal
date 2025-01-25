@@ -131,6 +131,7 @@ namespace Abstract3DConverters.Meshes
             var ch = element.GetElementsByTagName("MaterialGroup.Children")[0];
             var name = meshCreator.MaterialName;
             var mg = new MaterialGroup(name);
+            Material = mg;
             meshCreator.Materials[name] = mg;
             var mat = ch.ChildNodes;
             foreach (var n in mat)
@@ -161,7 +162,7 @@ namespace Abstract3DConverters.Meshes
                 Textures = new List<float[]>();
                 foreach (var x in t)
                 {
-                    Textures.Add([x[0], -x[1]]);
+                    Textures.Add([x[0], 1-x[1]]);
                 }
             }
             if (Vertices != null)

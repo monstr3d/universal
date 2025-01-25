@@ -7,12 +7,8 @@ namespace Abstract3DConverters.Meshes
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
 
-        protected bool trianlesCreared = false;
-
-        public List<Polygon> Polygons
-        { get; } = new List<Polygon>();
-
-
+  
+ 
         public AbstractMeshPolygon(string name, AbstractMesh parent, IMeshCreator creator) :
             base(name, creator)
         {
@@ -25,15 +21,11 @@ namespace Abstract3DConverters.Meshes
             MaterialString = material;
         }
 
-        public void CreateTriangles()
+        public override void CreateTriangles()
         {
-            if (trianlesCreared)
-            {
-                return;
-            }
+            base.CreateTriangles();
             Disintegrate();
             CreateFromPolygons();
-            trianlesCreared = true;
         }
 
         protected abstract void Disintegrate();

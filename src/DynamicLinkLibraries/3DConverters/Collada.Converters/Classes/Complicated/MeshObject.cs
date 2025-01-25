@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml;
-using System.Windows;
-using System.Xml.Linq;
-using System.Linq.Expressions;
-using System.Diagnostics;
-using System.ComponentModel;
-using System.Linq;
-using Collada;
+﻿using System.Xml;
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters;
 
 namespace Collada.Converters.Classes.Complicated
 {

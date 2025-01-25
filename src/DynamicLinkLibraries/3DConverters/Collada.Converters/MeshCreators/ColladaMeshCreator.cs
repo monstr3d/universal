@@ -82,7 +82,7 @@ namespace Collada.Converters.MeshCreators
                 ex.ShowError();
             }
             Type[] types = [typeof(Source), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
-            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Classes.Complicated.Material),
+            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Effect), typeof(Material),
           typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(PolyList),
             typeof(GeometryObject), typeof(InstanceGeomery), typeof(Node) ];
             foreach (var type in types)
