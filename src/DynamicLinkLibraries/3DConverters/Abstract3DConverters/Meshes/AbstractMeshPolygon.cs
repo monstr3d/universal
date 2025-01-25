@@ -1,18 +1,19 @@
 ﻿using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters.Meshes
 {
-    public abstract class AbstractMeshPolygon : AbstractMesh
+    public  class AbstractMeshPolygon : AbstractMesh
     {
 
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
-
-  
- 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent,  IMeshCreator creator) :
             base(name, creator)
         {
-            Parent = parent;
+            if (parent != null)
+            {
+                Parent = parent;
+            }
         }
 
         public AbstractMeshPolygon(string name, AbstractMesh parent, string material, IMeshCreator creator) :
@@ -21,14 +22,46 @@ namespace Abstract3DConverters.Meshes
             MaterialString = material;
         }
 
+        public AbstractMeshPolygon(string name, AbstractMesh parent, string material, IMeshCreator creator, List<Polygon> polygons) :
+            this(name, parent, material, creator)
+        {
+            foreach (var p in polygons)
+            {
+                Polygons.Add(p);
+            }
+        }
+
+        public AbstractMeshPolygon(string name, AbstractMesh parent, Material material, List<Polygon> polygons, IMeshCreator creator) :
+      this(name, parent, null, creator)
+        {
+            Material = material;
+            foreach (var p in polygons)
+            {
+                Polygons.Add(p);
+            }
+        }
+
+        public AbstractMeshPolygon(string name, AbstractMesh parent, Material material, List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
+            this(name, parent, material, polygons, creator)
+        {
+            Vertices = vertices;
+            Normals = normals;
+        }
+
+
         public override void CreateTriangles()
         {
             base.CreateTriangles();
+            trianlesCreared = false;
             Disintegrate();
             CreateFromPolygons();
+            trianlesCreared = true;
         }
 
-        protected abstract void Disintegrate();
+        protected virtual void Disintegrate()
+        {
+
+        }
 
         protected void CreateFromPolygons()
         {
@@ -63,21 +96,13 @@ namespace Abstract3DConverters.Meshes
                     for (int j = 0; j < t.Count; j++)
                     {
                         var pp = t[j];
-                        var iii = new int[] { pp.Item1, k, pp.Item3 };
+                        var iii = new int[] { pp.Vertex, k, pp.Normal };
                         ii[j] = iii;
-                        txt.Add(pp.Item4);
+                        txt.Add(pp.Data);
                         ++k;
                     }
                 }
             }
-            foreach (AbstractMesh mesh in Children)
-            {
-                if (mesh is AbstractMeshPolygon amp)
-                {
-                    amp.CreateFromPolygons();
-                }
-            }
-            
         }
     }
 }

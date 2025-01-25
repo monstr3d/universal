@@ -5,6 +5,9 @@ using Abstract3DConverters.Interfaces;
 using Abstract3DConverters;
 using Abstract3DConverters.Creators;
 using Collada.Converters.Classes.Elementary;
+using ErrorHandler;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -21,7 +24,13 @@ namespace Collada.Converters.Classes.Complicated
 
         public List<int[]> Index { get; private set; }
 
-        public Polygon Polygon { get; private set; }
+        public float[] Vertices { get; private set; }
+
+        public List<Polygon> Polygons 
+        { 
+            get; 
+            private set; 
+        } = new List<Polygon>();
 
         public float[] Normals { get; private set; }
 
@@ -36,108 +45,80 @@ namespace Collada.Converters.Classes.Complicated
 
         private PolyList(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
-            var p = element.Get<P>();
-            var vc = element.Get<VCount>();
-            var vcount = vc.Value;
-            var arr = p.Value;
-            var c = element.GetAttribute("material");
-            if (meshCreator.Materials.ContainsKey(c))
+            try
             {
-                Material = meshCreator.Materials[c];
-            }
-            float[] vertices = null;
-
-            float[] textures = null;
-            var children = element.GetAllChildren<Input>().ToArray();
-            int[] offs = new int[] { -1, -1, -1 };
-            foreach (var item in children)
-            {
-                var t = item.Semantic.Key;
-                if (t == "VERTEX")
+                var p = element.Get<P>();
+                var vc = element.Get<VCount>();
+                var vcount = vc.Value;
+                var arr = p.Value;
+                var c = element.GetAttribute("material");
+                if (meshCreator.Materials.ContainsKey(c))
                 {
-                    var ofs = item.Semantic.Value;
-                    offs[0] = ofs.Offset;
-                    var tt = ofs.Value as Vertices;
-                    vertices = tt.Array;
-                    continue;
+                    Material = meshCreator.Materials[c];
                 }
-                if (t == "NORMAL")
+     
+                float[] textures = null;
+                var children = element.GetAllChildren<Input>().ToArray();
+                int[] offs = new int[] { -1, -1, -1 };
+                foreach (var item in children)
                 {
-                    var ofs = item.Semantic.Value;
-                    offs[2] = ofs.Offset;
-                    var tt = ofs.Value as Source;
-                    Normals = tt.Array;
-                    continue;
-                }
-                if (t == "TEXCOORD")
-                {
-                    var ofs = item.Semantic.Value;
-                    offs[1] = ofs.Offset;
-                    var v = ofs.Value;
-                    if (v is float[] vt)
+                    var t = item.Semantic.Key;
+                    if (t == "VERTEX")
                     {
-                        textures = vt;
+                        var ofs = item.Semantic.Value;
+                        offs[0] = ofs.Offset;
+                        var tt = ofs.Value as Vertices;
+                        Vertices = tt.Array;
+                        continue;
                     }
-                    if (v is Source tt)
+                    if (t == "NORMAL")
                     {
-                        textures = tt.Array;
+                        var ofs = item.Semantic.Value;
+                        offs[2] = ofs.Offset;
+                        var tt = ofs.Value as Source;
+                        Normals = tt.Array;
+                        continue;
                     }
-                    continue;
-                }
-            }
-            List<int[]> ind = null;
-            int cc = 0;
-            foreach (var it in vcount)
-            {
-                cc += it;
-            }
-            if (arr.Length == 3 * cc)
-            {
-                ind = s.ToRealArray<int>(arr, 3);
-            }
-            else if (arr.Length == 2 * cc)
-            {
-                ind = s.ToRealArray<int>(arr, 2);
-            }
-            else
-            {
-                throw new Exception();
-            }
-            var j = 0;
-            foreach (var vcc in vcount)
-            {
-                var l = new List<Tuple<int, int, int, float[]>>();
-                for (int i = 0; i < vcc; i++)
-                {
-                    var ii = ind[j];
-                    if (ii[0] > vertices.Length)
+                    if (t == "TEXCOORD")
                     {
-
-                    }
-                    if (ii[1] > textures.Length)
-                    {
-
-                    }
-                    if (ii[2] > Normals.Length)
-                    {
-
-                    }
-                    if (ii.Length == 3)
-                    {
-                        if (ii[0] != j)
+                        var ofs = item.Semantic.Value;
+                        offs[1] = ofs.Offset;
+                        var v = ofs.Value;
+                        if (v is float[] vt)
                         {
-                            //     throw new Exception();
+                            textures = vt;
                         }
+                        if (v is Source tt)
+                        {
+                            textures = tt.Array;
+                        }
+                        continue;
                     }
-                    var txt = s.ToRealArray(textures, 2);
-                    var tt = new Tuple<int, int, int, float[]>(ii[offs[0]], ii[offs[1]], ii[offs[2]], txt[ii[1]]);
-                    l.Add(tt);
-                    ++j;
                 }
-
-
-                Polygon = new Polygon(l, Material);
-
+                var nn = 0;
+                if (textures == null)
+                {
+                    return;
+                }
+                var txt = s.ToRealArray<float>(textures, 2);
+                
+                foreach (var item in vcount)
+                {
+                    var points = new List<Point>();
+                    for (var i = 0; i < item; i++)
+                    {
+                        throw new Exception();
+                   //     var nnn = 3 * nn;
+                    //    var t = new Tuple<int, int, int, float[]>(nnn, nnn + 1, nnn + 2, txt[nn]);
+                    //    points.Add(t);
+                    }
+                    var polygon = new Polygon(points, Material);
+                    Polygons.Add(polygon);
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.ShowError("PolyList");
             }
         }
 

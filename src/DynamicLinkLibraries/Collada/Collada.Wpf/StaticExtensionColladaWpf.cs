@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using Collada.Wpf.Classes;
 using Collada;
 using Abstract3DConverters;
+using Point = System.Windows.Point;
 
 namespace Collada.Wpf
 {

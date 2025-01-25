@@ -4,11 +4,11 @@ namespace Abstract3DConverters
 {
     public class Polygon
     {
-        public List<Tuple<int, int, int, float[]>> Points {  get; private set; }
+        public List<Point> Points {  get; private set; }
 
         public Material Material { get; private set; }
 
-        public Polygon(List<Tuple<int, int, int, float[]>> points, Material material)
+        public Polygon(List<Point> points, Material material)
         {
             if (material == null)
             {
@@ -16,7 +16,7 @@ namespace Abstract3DConverters
             }
             foreach (var p in points)
             {
-                if (p.Item1 < 0)
+                if (p.Vertex < 0)
                 {
 
                 }
@@ -26,5 +26,24 @@ namespace Abstract3DConverters
         }
 
         public string MaterialName => Material.Name;
+    }
+
+    public class Point
+    {
+        public Point(int vertex, int texture, int normal, float[] data)
+        {
+            Vertex = vertex;
+            Textrure = texture;
+            Normal = normal;
+            Data = data;
+        }
+
+        public int Vertex { get; private set; }
+
+        public int Textrure { get; private set; }
+
+        public int Normal { get; private set; }
+
+        public float[] Data { get; private set; }
     }
 }

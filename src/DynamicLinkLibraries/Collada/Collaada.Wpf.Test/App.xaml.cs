@@ -29,8 +29,8 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-               GenerateToDae();
-       //   GenerateXaml();
+           //    GenerateToDae();
+          GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
@@ -96,10 +96,12 @@ namespace Collaada.Wpf.Test
             //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
             // GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
+                      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B_poly.dae");
+             //         GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154BFROMAC.dae");
 
 
-            GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
-           // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+            //      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+            // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
         }
 

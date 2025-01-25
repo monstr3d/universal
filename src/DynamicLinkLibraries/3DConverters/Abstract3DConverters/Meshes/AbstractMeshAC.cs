@@ -90,13 +90,13 @@ namespace Abstract3DConverters.Meshes
                         {
                             var rf = refs.Value;
                             var p = k + 1;
-                            var pp = new List<Tuple<int, int, int, float[]>>();
+                            var pp = new List<Point>();
                             int j = 0;
                             for (; p < l.Count; p++)
                             {
                                 var il = l[p];
                                 var ss = s.Split(il);
-                                var t = new Tuple<int, int, int, float[]>(s.ToReal<int>(ss[0].Trim()), j, -1, new float[] { s.ToReal<float>(ss[1].Trim()),
+                                var t = new Point(s.ToReal<int>(ss[0].Trim()), j, -1, new float[] { s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
                                 ++j;
@@ -157,7 +157,7 @@ namespace Abstract3DConverters.Meshes
             int i = 0;
             foreach (var p in polygon.Points)
             {
-                var k = p.Item1;
+                var k = p.Vertex;
                 if (!d.ContainsKey(k))
                 {
                     d[k] = i;
@@ -172,10 +172,10 @@ namespace Abstract3DConverters.Meshes
                 }
                 Vertices.Add(parent.Vertices[key]);
             }
-            var l = new List<Tuple<int, int, int, float[]>>();
+            var l = new List<Point>();
             foreach (var p in polygon.Points)
             {
-                var t = new Tuple<int, int, int, float[]>(d[p.Item1], p.Item2, p.Item3, p.Item4);
+                var t = new Point(d[p.Vertex], p.Textrure, p.Normal, p.Data);
                 l.Add(t);
             }
             if (image != null)

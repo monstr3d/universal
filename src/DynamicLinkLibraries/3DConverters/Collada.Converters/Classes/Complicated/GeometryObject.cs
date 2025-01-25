@@ -34,31 +34,6 @@ namespace Collada.Converters.Classes.Complicated
             creator.Geom[element.GetAttribute("id")] = this;
             
         }
- /*           var name = element.GetAttribute("name");
-            if (name.Length > 0)
-            {
-                if (byName.ContainsKey(name))
-                {
-                    throw new Exception();
-                }
-                byName[name] = this;
-            }
-            var mesh = element.Get<MeshObject>();
-            if (mesh == null)
-            {
-                throw new Exception();
-            }
-            var geom = new GeometryModel3D();
-            geom.Geometry = mesh.MeshGeometry3D;
-            geom.Material = mesh.Material;
-            var mod = new ModelVisual3D();
-            mod.Content = geom;
-            Visual3D = mod;
-            if (geom.Material == null)
-            {
-                var id = element.GetAttribute("id");
-            }
-        }*/
 
         object Get()
         {

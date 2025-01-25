@@ -1,7 +1,9 @@
 ﻿
+using System.Collections.Generic;
 using System.Xml;
 
 using Abstract3DConverters;
+using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 
@@ -15,6 +17,8 @@ namespace Collada.Converters.Classes.Complicated
     [Tag("node")]
     public class Node : Collada.XmlHolder
     {
+        MeshObject meshObject;
+
         public static IClear Clear => StaticExtensionCollada.GetClear<Node>();
 
         ColladaMeshCreator Creator
@@ -62,12 +66,12 @@ namespace Collada.Converters.Classes.Complicated
             List<float[]> textures = null;
             List<int[][]> t = null;
             var g = geom.Geometry;
-            var mesh = g.Mesh;
-            if (mesh != null)
+            meshObject = g.Mesh;
+            var tr = meshObject.Triangles;
+            if (tr != null)
             {
                 try
                 {
-                    var tr = mesh.Triangles;
                     int[] offs = new int[tr.Inputs.Count];
                     var h = new int[] { -1, -1, -1 };
 
@@ -145,17 +149,33 @@ namespace Collada.Converters.Classes.Complicated
                 {
                     ex.ShowError();
                 }
+                try
+                {
+                    return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
+
+                }
+                catch (Exception e)
+                {
+                    e.ShowError("Node Mesh");
+                }
+
             }
             try
             {
-                return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
+                var poly = meshObject.Polygon;
+                var vv = s.ToRealArray<float>(poly.Vertices, 3);
+
+                return new AbstractMeshPolygon(name, null, mt, poly.Polygons, vv, null, Creator);
+                //   return new AbstractMeshPolygon(name, null, mt, Creator, p);
+                // return new AbstractMeshPolygon()
             }
             catch (Exception e)
             {
-                e.ShowError();
+                e.ShowError("Node polygon");
             }
             return null;
-        }
+
+         }
 
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)

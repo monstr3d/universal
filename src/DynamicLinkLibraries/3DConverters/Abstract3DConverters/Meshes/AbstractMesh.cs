@@ -164,7 +164,5 @@ namespace Abstract3DConverters.Meshes
                 t.CreateTriangles();
             }
         }
-
-
     }
 }

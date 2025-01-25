@@ -114,7 +114,7 @@ namespace Collada.Wpf
                     if (kp >= 0)
                     {
                         var v = textures[kp];
-                        var t = new Point(v[0], 1 - v[1]);
+                        var t = new System.Windows.Point(v[0], 1 - v[1]);
                         textcoord.Add(t);
                     }
                     if (idx.Length > 2)
@@ -159,7 +159,7 @@ namespace Collada.Wpf
             }
             foreach (var t in textures)
             {
-                var p = new Point(t[0], 1 - t[1]);
+                var p = new System.Windows.Point(t[0], 1 - t[1]);
                 textcoord.Add(p);
             }
             if (normals != null)
@@ -210,7 +210,7 @@ namespace Collada.Wpf
                     kp = idx[1];
                     maxt = Math.Max(idx[1], maxt);
                     v = textures[kp];
-                    var t = new Point(v[0], v[1]);
+                    var t = new System.Windows.Point(v[0], v[1]);
                     textcoord.Add(t);
                 }
             }

@@ -33,17 +33,11 @@ namespace Collada.Converters
             var version = doc.DocumentElement.GetAttribute("version");
             if (version.StartsWith("1.4"))
             {
-            /*    using (var ms = new MemoryStream(b))
-                {
-                    // return new Collada14MeshCreator(ms);
-                }
-                //   return new Collada14MeshCreator(doc);
-                //   return new Collada14MeshCreator(s);
-            */
+                return new ColladaMeshCreator2008(filename, doc);
             }
             if (version.StartsWith("1.5"))
             {
-                return new ColladaMeshCreator(filename, doc);
+                return new ColladaMeshCreator2008(filename, doc);
             }
             return null;
 

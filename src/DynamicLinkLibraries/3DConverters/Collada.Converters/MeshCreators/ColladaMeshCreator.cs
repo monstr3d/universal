@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
@@ -11,7 +6,6 @@ using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
 using ErrorHandler;
 using System.Xml;
-using Abstract3DConverters;
 
 namespace Collada.Converters.MeshCreators
 {
@@ -104,7 +98,7 @@ namespace Collada.Converters.MeshCreators
         }
 
 
-        public ColladaMeshCreator(string filename, XmlDocument doc) : base(filename, doc)
+        protected ColladaMeshCreator(string filename, XmlDocument doc) : base(filename, doc)
         {
             try
             {

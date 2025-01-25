@@ -33,18 +33,21 @@ namespace EarClipperSplitter
             var d1 = new Dictionary<float[], int>();
             var d2 = new Dictionary<float[], int>();
             var d3 = new Dictionary<float[], int>();
-            var mat = polygon.Material.Clone() as Material;
-
+            Material mat = null;
+            if (polygon.Material != null)
+            {
+                mat = polygon.Material.Clone() as Material;
+            }
             if (polygon.Points.Count >= 3)
             {
                 var points = new List<Vector3m>();
                 foreach (var point in polygon.Points)
                 {
-                    var p = point.Item4;
-                    d1[p] = point.Item1;
-                    d2[p] = point.Item2;
-                    d3[p] = point.Item3;
-                    dd[point.Item1] = p;
+                    var p = point.Data;
+                    d1[p] = point.Vertex;
+                    d2[p] = point.Textrure;
+                    d3[p] = point.Normal;
+                    dd[point.Vertex] = p;
                     var v = new Vector3m(p[0], p[1], 0);
                     foreach (var py in points)
                     {
@@ -53,7 +56,7 @@ namespace EarClipperSplitter
                             return [];
                         }
                     }
-                    dic[v] = point.Item1;
+                    dic[v] = point.Vertex;
                     points.Add(v);
                 }
                 clipping.SetPoints(points);
@@ -90,13 +93,13 @@ namespace EarClipperSplitter
                 
                 for (var i = 0; i < res.Count; i+= 3)
                 {
-                    var t = new List<Tuple<int, int, int, float[]>>();
+                    var t = new List<Point>();
                    for (var j = 0; j < 3; j++) 
                     {
                         var k = i + j;
                         var ind = l[k];
                         var pt = dd[ind];
-                        t.Add(new Tuple<int, int, int, float[]>(d1[pt], d2[pt], d3[pt], pt));
+                        t.Add(new Point(d1[pt], d2[pt], d3[pt], pt));
 
                     }
                    pp.Add(new Polygon(t, mat));
