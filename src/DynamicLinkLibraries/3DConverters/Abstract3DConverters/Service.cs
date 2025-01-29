@@ -228,6 +228,27 @@ namespace Abstract3DConverters
             return l.ToArray();
         }
 
+        Type dt = typeof(double);
+
+        public string ToString<T>(T t) where T : struct
+        {
+            Type type = typeof(T);
+            object o = t;
+            switch (type)
+            {
+                case var value when value == typeof(double):
+                    var d = (double)o;
+                    return d.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                case var value when value == typeof(float):
+                    var f = (float)o;
+                    return f.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                case var value when value == typeof(int):
+                    var i = (int)o;
+                    return i.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            }
+            return null;
+        }
+
         public T ToReal<T>(string s) where T : struct
         {
             object obj = null;

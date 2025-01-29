@@ -2,7 +2,6 @@
 
 namespace Collada.Converters.MeshConverters
 {
-    [Converter(".dae", "1.5.0")]
     public class ConverterolladaMeshConverter2008 : ColladaMeshConverter
     {
         #region Fields

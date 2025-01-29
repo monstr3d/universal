@@ -1,13 +1,14 @@
-﻿using System.Reflection;
-using System.Text;
+﻿using System.Text;
+
 using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
-    /*
+    
     [Converter(".ac")]
     public class AcConverter : IMeshConverter, IStringRepresentation
     {
@@ -15,16 +16,10 @@ namespace Abstract3DConverters.Converters
 
         Service service = new();
 
-        MaterialCreator materialCreator = new MaterialCreator();
+        ExeptionalMaterialCreator materialCreator = new ExeptionalMaterialCreator();
 
         Service s = new();
 
-
-        List<float[]> vertices;
-
-        List<float[]> textures;
-
-        List<float[]> normals;
 
         List<string> materials = new();
 
@@ -45,15 +40,15 @@ namespace Abstract3DConverters.Converters
 
         #region Interface implementation
 
-        Assembly IMeshConverter.Assembly => typeof(AcConverter).Assembly;
-
+   
         Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
 
         IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
 
    //     Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
 
-        string IMeshConverter.Directory => throw new NotImplementedException();
+        string IMeshConverter.Directory { get; set; }
+        Dictionary<string, Image> IMeshConverter.Images { set {} }
 
         void IMeshConverter.Add(object mesh, object child)
         {
@@ -120,12 +115,12 @@ namespace Abstract3DConverters.Converters
                 l.Add("OBJECT word");
                 var kids = polygon.Children.Count;
                 l.Add("kids " + kids);
-               /* foreach (var im in polygon.Children)
+                foreach (var im in polygon.Children)
                 {
-                    var lt = coverter.Create(im) as List<string>;
+                    var lt = converter.Create(im) as List<string>;
                     l.AddRange(lt);
-                }*/
-  /*              return l;
+                }
+               return l;
             }
             l.Add("OBJECT poly");
             l.Add("name " + service.Wrap(n));
@@ -164,7 +159,7 @@ namespace Abstract3DConverters.Converters
                 l.Add("refs " + points.Count);
                 foreach (var point in points)
                 {
-                    var s = "" + point.Item1 + " " + point.Item4[0] + " " + point.Item4[1];
+                    var s = "" + point.Vertex + " " + point.Data[0] + " " + point.Data[1];
                     l.Add(s);
                 }
             }
@@ -259,102 +254,6 @@ namespace Abstract3DConverters.Converters
 
         #endregion
 
-        #region Materail Creator
-
-        class MaterialCreator : IMaterialCreator, IMaterialCreator
-        {
-
-            internal MaterialCreator()
-            {
-
-            }
-            Assembly IMaterialCreator.Assembly => throw new NotImplementedException();
-
-            public void AddImageToDictionary(string key, object image)
-            {
-                throw new NotImplementedException();
-            }
-
-            public void AddMaterialToDictionary(string key, object material)
-            {
-                throw new NotImplementedException();
-            }
-
-            public object Create(Image image)
-            {
-                throw new NotImplementedException();
-            }
-
-            public object Create(MaterialGroup material)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IMaterialCreator.Add(object group, object value)
-            {
-                throw new NotImplementedException();
-            }
-
-
-            object IMaterialCreator.Create(DiffuseMaterial material)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(SpecularMaterial material)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(EmissiveMaterial material)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(string key, Image image)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(Color color)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(string key, Material material)
-            {
-                throw new NotImplementedException();
-            }
-
-            object IMaterialCreator.Create(string key, MaterialGroup material)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IMaterialCreator.Set(object material, object color)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IMaterialCreator.Set(object material, Color color)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IMaterialCreator.SetImage(object material, object image)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IMaterialCreator.SetImage(object material, Image image)
-            {
-                throw new NotImplementedException();
-            }
-
-
-        }
-
-        #endregion
-
-    }*/
+ 
+    }
 }

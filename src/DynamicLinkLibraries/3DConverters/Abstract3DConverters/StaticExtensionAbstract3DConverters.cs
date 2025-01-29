@@ -16,7 +16,7 @@ namespace Abstract3DConverters
 
         static IMeshCreatorFactory meshCreatorFactory;
 
-        static IMeshConverterFactory meshConvertFactory;
+        static IMeshConverterFactory meshConverterFactory;
 
 
         static  IErrorHandler ErrorHandler { get; set; }
@@ -30,6 +30,8 @@ namespace Abstract3DConverters
         static Dictionary<string, ConstructorInfo> creators = new();
 
         static Dictionary<string, Dictionary<string, ConstructorInfo>>  conveters = new();
+
+        
 
 
         static List<IMeshCreatorFactory> meshCreatorFactories = new();
@@ -53,7 +55,7 @@ namespace Abstract3DConverters
             meshCreators = new MeshCreatorFactoryCollection();
             meshCreatorFactory = meshCreators;
             meshConverters = new MeshConverterFactoryCollection();
-            meshConvertFactory = meshConverters;
+            meshConverterFactory = meshConverters;
             var ass = AppDomain.CurrentDomain.GetAssemblies();
             var inputTypes = new Type[] { typeof(InitAttribute) };
             var l = new List<string>();
@@ -110,7 +112,6 @@ namespace Abstract3DConverters
 
         static void Initialize(this Assembly assembly)
         {
-            var factories = new List<IMeshCreatorFactory>();
             try
             {
                 var types = assembly.GetTypes();
@@ -121,6 +122,19 @@ namespace Abstract3DConverters
                     if (!type.IsAbstract)
                     {
                         var tt = new List<Type>(type.GetInterfaces());
+                        if (tt.Contains(typeof(IMeshConverterFactory)))
+                        {
+                            var cat = CustomAttributeExtensions.GetCustomAttribute<ConverterAttribute>(IntrospectionExtensions.GetTypeInfo(type));
+                            if (cat != null)
+                            {
+                                var ci = type.GetConstructor([]);
+                                if (ci != null)
+                                {
+                                    var f = ci.Invoke([]) as IMeshConverterFactory;
+                                    f.Add();
+                                }
+                            }
+                        }
 
                         if (tt.Contains(typeof(IMeshCreator)))
                         {
@@ -197,7 +211,7 @@ namespace Abstract3DConverters
 
         public static IMeshConverter ToMeshConvertor(this string extension, string comment = null)
         {
-            return meshConvertFactory[extension, comment];
+            return meshConverterFactory[extension, comment];
         }
 
         public static IMeshCreator ToMeshCreator(this string filename, byte[] bytes)

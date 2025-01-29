@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace Abstract3DConverters.Materials
 {
@@ -19,7 +20,15 @@ namespace Abstract3DConverters.Materials
         public abstract bool HasImage { get;  }
         public Material SetImage(Image image)
         {
-            var name = Name + "-" + image.Name;
+            var name = Name + "-";
+            if (image == null)
+            {
+                name += Path.GetRandomFileName();
+            }
+            else
+            {
+                name += image.Name;
+            }
             if (this is MaterialGroup group)
             {
                 var mat = new MaterialGroup(name);

@@ -6,24 +6,29 @@ namespace Abstract3DConverters.Meshes
     public  class AbstractMeshPolygon : AbstractMesh
     {
 
+        public List<Polygon> Polygons
+        { get; private set; } = new List<Polygon>();
+
+
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
-        public AbstractMeshPolygon(string name, AbstractMesh parent,  IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix,  IMeshCreator creator) :
             base(name, creator)
         {
+            TransformationMatrix = matrix;
             if (parent != null)
             {
                 Parent = parent;
             }
         }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, string material, IMeshCreator creator) :
-            this(name, parent, creator)
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator) :
+            this(name, parent, matrix, creator)
         {
             MaterialString = material;
         }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, string material, IMeshCreator creator, List<Polygon> polygons) :
-            this(name, parent, material, creator)
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator, List<Polygon> polygons) :
+            this(name, parent, matrix, material, creator)
         {
             foreach (var p in polygons)
             {
@@ -31,7 +36,7 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, Material material, List<Polygon> polygons, IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<Polygon> polygons, IMeshCreator creator) :
       this(name, parent, null, creator)
         {
             Material = material;
@@ -41,8 +46,8 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, Material material, List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
-            this(name, parent, material, polygons, creator)
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
+            this(name, parent, matrix, material, polygons, creator)
         {
             Vertices = vertices;
             Normals = normals;
@@ -53,14 +58,8 @@ namespace Abstract3DConverters.Meshes
         {
             base.CreateTriangles();
             trianlesCreared = false;
-            Disintegrate();
             CreateFromPolygons();
             trianlesCreared = true;
-        }
-
-        protected virtual void Disintegrate()
-        {
-
         }
 
         protected void CreateFromPolygons()

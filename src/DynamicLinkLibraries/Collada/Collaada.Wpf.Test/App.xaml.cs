@@ -6,6 +6,10 @@ using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada;
+using Collada.Converters;
+using Collada.Converters.MeshConverters;
+
+
 //using Collada.Converter;
 using Collada.Wpf;
 using ErrorHandler;
@@ -20,6 +24,11 @@ namespace Collaada.Wpf.Test
 
         public App()
         {
+
+            var c = new Contributor("Ivankov", "USEF", "TESTING", "@Ivankov");
+
+            ColladaMeshConverter.Contributor = c;
+
             //    Load();
             StaticExtensionAbstract3DConverters.UseDirectory = true;
             StaticExtensionAbstract3DConverters.Init();
@@ -29,12 +38,12 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-           //    GenerateToDae();
-          GenerateXaml();
+      //       GenerateToDae();
+         GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
-            //     GenerateToDae();
+     //            GenerateToDae();
             //   GenerateNative();
         }
 
@@ -93,15 +102,21 @@ namespace Collaada.Wpf.Test
 
         void GenerateXaml()
         {
-            //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
+                     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+
+            //          GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\TornadoFromObj.dae");
+            //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.dae");
+            //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.obj");
+            //            //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
             // GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
-                      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B_poly.dae");
-             //         GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154BFROMAC.dae");
+            //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B_poly.dae");
+            //         GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154BFROMAC.dae");
 
 
-            //      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+            //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
             // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+            //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
 
         }
 
@@ -169,14 +184,16 @@ namespace Collaada.Wpf.Test
         {
           //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
 
-            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
+          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
 
 
-            // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+           //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
             //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
             //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
+           // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
+    //        GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
         }
 
         void GenerateToDae(string filen)
@@ -199,12 +216,12 @@ namespace Collaada.Wpf.Test
 
             }
 
-           // var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
+          // var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
 
          //   using var outs = File.OpenWrite(file);
 
             var p = new Performer();
-            p.CreateAndSave(filen, file);
+            p.CreateAndSave(filen, file, "1.5.0");
             return;
         /*    using var stream = File.OpenRead(filen);
             var bytes = new byte[stream.Length];

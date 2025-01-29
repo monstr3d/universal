@@ -3,7 +3,6 @@ using Abstract3DConverters.Attributes;
 
 namespace Collada.Converters.MeshConverters
 {
-    [Converter(".dae", "1.5.1")]
     public class ConverterolladaMeshConverter2005 : ColladaMeshConverter
     {
         #region Fields

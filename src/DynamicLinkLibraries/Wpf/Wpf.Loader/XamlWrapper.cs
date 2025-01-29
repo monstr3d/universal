@@ -386,7 +386,10 @@ namespace Wpf.Loader
                 }
             }
 
-            return doc.OuterXml;
+            var ret = doc.OuterXml;
+            ret = ret.Replace("Name=\"", "x:Name=\"");
+            ret = ret.Replace("Key=\"", "x:Key=\"");
+            return ret;
         }
 
 

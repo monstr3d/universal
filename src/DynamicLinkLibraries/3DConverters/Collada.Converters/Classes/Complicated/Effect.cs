@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters;
-using Collada;
-using System.Xml;
-using Collada.Converters.MaterialCreators;
+
 using Collada.Converters.MeshCreators;
 
 namespace Collada.Converters.Classes.Complicated

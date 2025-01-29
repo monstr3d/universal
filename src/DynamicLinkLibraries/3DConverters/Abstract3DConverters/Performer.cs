@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
+using ErrorHandler;
 
 namespace Abstract3DConverters
 {
@@ -63,6 +64,8 @@ namespace Abstract3DConverters
             CreateAndSave(fileinput, bytes, converter, outs, act);
         }
 
+    
+
 
         public void CreateAndSave(string fileinput, string outExt, string outComment = null, Action<object> act = null)
         {
@@ -96,7 +99,7 @@ namespace Abstract3DConverters
 
         public T Combine<T>(IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
-            var enu = Create<T>(meshes, converter);
+            var  enu = Create<T>(meshes, converter);
             return converter.Combine(enu) as T;
         }
 
@@ -104,7 +107,6 @@ namespace Abstract3DConverters
         {
             converter.Directory = creator.Directory;
             var materialCreator = converter.MaterialCreator;
-            var images = creator.Images;
             converter.Images = creator.Images;
             converter.Materials = creator.Materials;
             var res = Combine<T>(creator.Meshes, converter);

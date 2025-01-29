@@ -1,8 +1,10 @@
-﻿using Abstract3DConverters.Attributes;
+﻿using System.Text;
+using System.Xml;
+
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using System.Xml;
 
 namespace Abstract3DConverters.Converters
 {
@@ -22,7 +24,7 @@ namespace Abstract3DConverters.Converters
         protected override XmlElement Create(AbstractMesh mesh)
         {
             mesh.CreateTriangles();
-            var x = Create("ModelVisual3D");
+            var x = Create("ModelVisual3D", mesh.Name);
             var y = Create("ModelVisual3D.Content");
             x.AppendChild(y);
             var z = Create("GeometryModel3D");
@@ -49,22 +51,28 @@ namespace Abstract3DConverters.Converters
                                 points.Add(vv);
                             }
                         }
-                        kp = idx[1];
-                        if (kp >= 0)
+                        if (mesh.Textures != null)
                         {
-                            var vt = mesh.Textures[kp];
-                            textcoord.Add(vt[0]);
-                            textcoord.Add(1 - vt[1]);
-                        }
-                        if (idx.Length > 2)
-                        {
-                            kp = idx[2];
+                            kp = idx[1];
                             if (kp >= 0)
                             {
-                                var vn = mesh.Normals[kp];
-                                foreach (var vv in vn)
+                                var vt = mesh.Textures[kp];
+                                textcoord.Add(vt[0]);
+                                textcoord.Add(1 - vt[1]);
+                            }
+                        }
+                        if (mesh.Normals != null)
+                        {
+                            if (idx.Length > 2)
+                            {
+                                kp = idx[2];
+                                if (kp >= 0)
                                 {
-                                    norm.Add(vv);
+                                    var vn = mesh.Normals[kp];
+                                    foreach (var vv in vn)
+                                    {
+                                        norm.Add(vv);
+                                    }
                                 }
                             }
                         }
@@ -103,6 +111,18 @@ namespace Abstract3DConverters.Converters
             x.AppendChild(t);
             var tr = Create("MatrixTransform3D");
             t.AppendChild(tr);
+            if (transformation != null)
+            {
+                var sb = new StringBuilder();
+                foreach (var p in transformation)
+                {
+                    var st = s.ToString<float>(p) + ",";
+                    sb.Append(st);
+                }
+                var str = sb.ToString();
+                str = str.Substring(0, str.Length - 1);
+                tr.SetAttribute("Matrix", str);
+            }
         }
 
         protected override void Set(Dictionary<string, Image> images)
@@ -164,7 +184,15 @@ namespace Abstract3DConverters.Converters
 
         public override object Create(MaterialGroup material)
         {
+            var n = material.Name;
             var x = Create("MaterialGroup");
+            if (n != null)
+            {
+                if (n.Length > 0)
+                {
+                  //  x.SetAttribute("x:Key", n);
+                }
+            }
             var y = Create("MaterialGroup.Children");
             x.AppendChild(y);
             foreach (var m in material.Children)

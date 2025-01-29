@@ -27,6 +27,5 @@ namespace Abstract3DConverters
             return c.Invoke([filename, bytes]) as IMeshCreator;
         }
 
-
     }
 }

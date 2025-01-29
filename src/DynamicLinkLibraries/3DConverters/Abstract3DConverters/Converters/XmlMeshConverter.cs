@@ -37,16 +37,7 @@ namespace Abstract3DConverters.Converters
 
         #endregion
 
-        string IMeshConverter.Directory { get => directory; set => directory = value; }
-        Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
-
         #region Ctor
-
-        protected virtual void Set(Dictionary<string, Material> materials)
-        {
-            this.materials = materials;
-        }
-
         protected XmlMeshConverter(string xmlns)
         {
             converter = this;
@@ -54,9 +45,21 @@ namespace Abstract3DConverters.Converters
             nodes = doc.DocumentElement;
         }
 
-
         #endregion
 
+        #region Members
+
+
+        string IMeshConverter.Directory { get => directory; set => directory = value; }
+        Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
+
+   
+        protected virtual void Set(Dictionary<string, Material> materials)
+        {
+            this.materials = materials;
+        }
+
+  
         IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
 
         Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
@@ -124,6 +127,8 @@ namespace Abstract3DConverters.Converters
         }
 
 
+        #endregion
+
 
 
         #region Protected
@@ -175,9 +180,17 @@ namespace Abstract3DConverters.Converters
 
         }
 
-        protected XmlElement Create(string tag)
+        protected XmlElement Create(string tag, string name = null)
         {
-            return doc.CreateElement(tag, xmlns);
+            var x = doc.CreateElement(tag, xmlns);
+            if (name != null)
+            {
+                if (name.Length > 0)
+                {
+             //       x.SetAttribute("x:Name", name);
+                }
+            }
+            return x;
         }
 
 

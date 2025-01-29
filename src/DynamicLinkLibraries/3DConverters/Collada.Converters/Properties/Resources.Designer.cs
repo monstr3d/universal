@@ -110,23 +110,22 @@ namespace Collada.Converters.Properties {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;COLLADA xmlns=&quot;http://www.collada.org/2005/11/COLLADASchema&quot; version=&quot;1.4.1&quot;&gt;
         ///	&lt;asset&gt;
-        ///    &lt;contributor /&gt;
-        ///    &lt;unit meter=&quot;1&quot; /&gt;
+        ///			&lt;contributor&gt;
+        ///				&lt;author&gt;&lt;/author&gt;
+        ///				&lt;authoring_tool&gt;&lt;/authoring_tool&gt;
+        ///				&lt;comments&gt;&lt;/comments&gt;
+        ///				&lt;copyright&gt;&lt;/copyright&gt;
+        ///			&lt;/contributor&gt;
+        ///			&lt;created&gt;&lt;/created&gt;
+        ///			&lt;modified&gt;&lt;/modified&gt;
+        ///			&lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
+        ///			&lt;unit meter=&quot;1.0&quot; name=&quot;meter&quot;/&gt;
+        ///		&lt;unit meter=&quot;1&quot; /&gt;
         ///    &lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
         ///  &lt;/asset&gt;
         ///  &lt;library_lights /&gt;
         ///  &lt;library_materials&gt;
-        ///  &lt;/library_materials&gt;
-        ///  &lt;library_effects&gt;
-        ///  &lt;/library_effects&gt;
-        ///  &lt;library_cameras /&gt;
-        ///  &lt;library_geometries&gt;
-        ///  &lt;/library_geometries&gt;
-        ///  &lt;library_images&gt;
-        ///  &lt;/library_images&gt;
-        ///	&lt;library_visual_scenes id=&quot;1&quot;&gt;
-        ///	&lt;/library_visual_scenes&gt;
-        ///	&lt;library_a [rest of string was truncated]&quot;;.
+        ///  &lt;/ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string etalon2005 {
             get {
@@ -137,24 +136,23 @@ namespace Collada.Converters.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;COLLADA version=&quot;1.5.0&quot; xmlns=&quot;http://www.collada.org/2008/03/COLLADASchema&quot;&gt;
-        ///  &lt;asset&gt;
-        ///    &lt;contributor /&gt;
-        ///    &lt;unit meter=&quot;1&quot; /&gt;
-        ///    &lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
-        ///  &lt;/asset&gt;
-        ///  &lt;library_lights /&gt;
+        ///	&lt;asset&gt;
+        ///		&lt;contributor&gt;
+        ///			&lt;author&gt;&lt;/author&gt;
+        ///			&lt;authoring_tool&gt;&lt;/authoring_tool&gt;
+        ///			&lt;comments&gt;&lt;/comments&gt;
+        ///			&lt;copyright&gt;&lt;/copyright&gt;
+        ///		&lt;/contributor&gt;
+        ///		&lt;created&gt;&lt;/created&gt;
+        ///		&lt;modified&gt;&lt;/modified&gt;
+        ///		&lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
+        ///		&lt;unit meter=&quot;1.0&quot; name=&quot;meter&quot;/&gt;
+        ///		&lt;unit meter=&quot;1&quot; /&gt;
+        ///		&lt;up_axis&gt;Y_UP&lt;/up_axis&gt;
+        ///	&lt;/asset&gt;
+        ///	&lt;library_lights /&gt;
         ///  &lt;library_materials&gt;
-        ///  &lt;/library_materials&gt;
-        ///  &lt;library_effects&gt;
-        ///  &lt;/library_effects&gt;
-        ///  &lt;library_cameras /&gt;
-        ///  &lt;library_geometries&gt;
-        ///  &lt;/library_geometries&gt;
-        ///  &lt;library_images&gt;
-        ///  &lt;/library_images&gt;
-        ///	&lt;library_visual_scenes id=&quot;1&quot;&gt;
-        ///	&lt;/library_visual_scenes&gt;
-        ///	&lt;library_ [rest of string was truncated]&quot;;.
+        ///  &lt;/library_materi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string etalon2008 {
             get {

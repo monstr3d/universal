@@ -24,8 +24,8 @@ namespace Abstract3DConverters.Meshes
         }
 
 
-        public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
-            base(name, parent, creator)
+        public AbstractMeshAC(AbstractMesh parent, string name,  AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
+            base(name, parent, null, creator)
         {
             this.count = count;
             this.materials = materials;
@@ -147,10 +147,11 @@ namespace Abstract3DConverters.Meshes
                     continue;
                 }
             }
+            Disintegrate();
         }
 
         private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :
-            base(parent.Name + Path.GetRandomFileName(), parent, creator)
+            base(parent.Name + Path.GetRandomFileName(), parent, null, creator)
         {
             Vertices = new List<float[]>();
             var d = new Dictionary<int, int>();
@@ -192,9 +193,10 @@ namespace Abstract3DConverters.Meshes
                 Image = image.Clone() as Image;
                 Material = Material.SetImage( Image);
             }
+            Disintegrate();
         }
 
-        protected override void Disintegrate()
+        protected  void Disintegrate()
         {
             if (mats.Count > 1)
             {

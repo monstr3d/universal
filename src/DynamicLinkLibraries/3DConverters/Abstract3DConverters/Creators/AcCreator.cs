@@ -51,7 +51,14 @@ namespace Abstract3DConverters.Creators
                     if (!images.ContainsKey(txt))
                     {
                         var im = new Image(txt, directory);
-                        images[txt] = im;
+                        if (im.Name != null)
+                        {
+                            images[txt] = im;
+                        }
+                        else
+                        {
+
+                        }
                     }
                 }
                 var mat = s.ToString(line, "MATERIAL ");
@@ -131,7 +138,10 @@ namespace Abstract3DConverters.Creators
                 if (st != null)
                 {
                     imstr = s.Trim(st);
-                    image = images[imstr];
+                    if (images.ContainsKey(imstr))
+                    {
+                        image = images[imstr];
+                    }
                 }
                 var st1 = s.ToString(line, "mat");
                 if (st1 != null)

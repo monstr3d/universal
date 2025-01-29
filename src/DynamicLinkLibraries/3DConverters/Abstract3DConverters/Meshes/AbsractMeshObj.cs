@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Numerics;
-using System.Runtime.InteropServices.Marshalling;
-using System.Text;
-using System.Threading.Tasks;
-using Abstract3DConverters.Creators;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Creators;
 
 namespace Abstract3DConverters.Meshes
 {
@@ -22,7 +13,7 @@ namespace Abstract3DConverters.Meshes
         {
             Creator = creator;
             Indexes = new();
-
+/*
 
             var vertices = creator.Vertices;
             if (vertices != null)
@@ -46,7 +37,6 @@ namespace Abstract3DConverters.Meshes
                 foreach (var idx in item)
                 {
                     int[] indx = [-1, -1, -1];
-
                     var kp = idx[0];
                     if (kp >= 0)
                     {
@@ -77,6 +67,7 @@ namespace Abstract3DConverters.Meshes
                 Indexes.Add(ln.ToArray());
             }
      //       Indexes.Add(ln.ToArray());
+*/
 
         }
     }

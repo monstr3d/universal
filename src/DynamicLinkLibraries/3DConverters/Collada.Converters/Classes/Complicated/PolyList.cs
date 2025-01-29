@@ -101,16 +101,17 @@ namespace Collada.Converters.Classes.Complicated
                     return;
                 }
                 var txt = s.ToRealArray<float>(textures, 2);
-                
+
+                var k = 0;
+                var pp = p.Value;
                 foreach (var item in vcount)
                 {
                     var points = new List<Point>();
                     for (var i = 0; i < item; i++)
                     {
-                        throw new Exception();
-                   //     var nnn = 3 * nn;
-                    //    var t = new Tuple<int, int, int, float[]>(nnn, nnn + 1, nnn + 2, txt[nn]);
-                    //    points.Add(t);
+                        var point = new Point(k, pp[k], -1, txt[k]);
+                        ++k;
+                        points.Add(point);
                     }
                     var polygon = new Polygon(points, Material);
                     Polygons.Add(polygon);

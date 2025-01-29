@@ -7,23 +7,28 @@ namespace Abstract3DConverters.Meshes
 {
     public class AbstractMesh : IParent
     {
+        #region Fields
+
         protected AbstractMesh parent;
 
         protected Service s = new();
 
         protected IMeshCreator creator;
 
-        public List<Polygon> Polygons
-        { get; } = new List<Polygon>();
-
         protected bool trianlesCreared = false;
+    
+        Material mat;
 
+        #endregion
+
+        #region Properties
 
         public float[] TransformationMatrix
         {
             get;
             protected set;
         }
+
 
         public AbstractMesh Parent
         {
@@ -63,7 +68,6 @@ namespace Abstract3DConverters.Meshes
 
         public string MaterialString { get; protected set; }
 
-        Material mat;
 
         public Material Material
         {
@@ -80,6 +84,9 @@ namespace Abstract3DConverters.Meshes
             set => Parent = value as AbstractMesh;
         }
 
+        #endregion
+
+        #region Ctor
         public AbstractMesh(string name, IMeshCreator creator)
         {
             if (creator == null)
@@ -106,25 +113,27 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public AbstractMesh(string name, IMeshCreator creator, Material material = null,
-            List<float[]> vertices = null, List<float[]> normals = null,
-       List<float[]> textures = null, List<int[][]> indexes = null) : this(name, creator)
+        public AbstractMesh(string name, IMeshCreator creator, Material material = null, 
+            List<float[]> vertices = null, List<float[]> textures = null, List<float[]> normals = null,
+       List<int[][]> indexes = null) : this(name, creator)
         {
             Material = material;
             Vertices = vertices;
-            Normals = normals;
             Textures = textures;
+            Normals = normals;
             Indexes = indexes;
         }
 
         public AbstractMesh(string name, IMeshCreator creator, Material material = null,
-         List<float[]> vertices = null, List<float[]> normals = null,
-    List<float[]> textures = null, List<int[][]> indexes = null, float[] matrix = null) :
+         List<float[]> vertices = null, List<float[]> textures = null, List<float[]> normals = null,
+     List<int[][]> indexes = null, float[] matrix = null) :
             this(name, creator, material, vertices, normals,
         textures, indexes)
         {
             TransformationMatrix = matrix;
         }
+
+        #endregion
 
 
         public virtual object GetMaterial(IMaterialCreator creator)
