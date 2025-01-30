@@ -4,6 +4,7 @@ using System.Text;
 using System.Xml;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using RealMatrixProcessor;
 
 namespace Abstract3DConverters
 {
@@ -11,6 +12,8 @@ namespace Abstract3DConverters
     {
 
         protected static readonly char[] sep = "\r\n ".ToCharArray();
+
+        RealMatrix realMatrix = new();
 
         public Service() 
         { 
@@ -38,6 +41,9 @@ namespace Abstract3DConverters
             }
             element.SetAttribute(colorName, "#" + color.ByteValue);
         }
+
+
+        //float[] 
 
    
         public  void SetParents(Dictionary<XmlElement, IParent> mehses)

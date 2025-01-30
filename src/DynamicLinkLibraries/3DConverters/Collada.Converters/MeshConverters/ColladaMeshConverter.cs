@@ -190,7 +190,29 @@ namespace Collada.Converters.MeshConverters
             e.AppendChild(me);
             if (mesh is AbstractMeshPolygon poly)
             {
-                throw new Exception("POLY");
+                var se = Create("source");
+                me.AppendChild(se);
+                se.SetAttribute("id", name + "-position");
+                se.SetAttribute("name", "position");
+                var vert = s.ToSingleArray(mesh.Vertices).ToArray();
+                CreateFloatArray(se, name + "-position-array", vert);
+                CreateTechnique_XYZ(se, name + "-position-array", vert);
+                se = Create("source");
+                me.AppendChild(se);
+                se.SetAttribute("id", name + "-texcoord");
+                se.SetAttribute("name", "texcoord");
+                var l = new List<float>();
+                var pol = poly.Polygons;
+                foreach (var polygon in pol)
+                {
+                    foreach (var point in polygon.Points)
+                    {
+                        for (var i = 0; i < 2; i++)
+                        {
+                            //l.Add(polygon.)
+                        }
+                    }
+                }
             }
             else
             {
@@ -204,6 +226,7 @@ namespace Collada.Converters.MeshConverters
                     var vert = s.ToSingleArray(mesh.Vertices).ToArray();
                     CreateFloatArray(se, name + "-position-array", vert);
                     CreateTechnique_XYZ(se, name + "-position-array", vert);
+
 
                     se = Create("source");
                     me.AppendChild(se);

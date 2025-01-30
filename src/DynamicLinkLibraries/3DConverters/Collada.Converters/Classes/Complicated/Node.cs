@@ -50,6 +50,19 @@ namespace Collada.Converters.Classes.Complicated
             Creator.Meshes[element] = mesh;
         }
 
+
+        float[] GetValue(object o)
+        {
+            switch (o)
+            {
+                case Source so:
+                    return so.Array;
+                case Vertices v:
+                    return v.Array;
+            }
+            throw new Exception();
+        }
+
         AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)
         {
             Abstract3DConverters.Materials.Material mt = null;
@@ -77,8 +90,7 @@ namespace Collada.Converters.Classes.Complicated
                 {
                     var o = tr.Inputs["VERTEX"];
                     offs[0] = o.Offset;
-                    var v = o.Value as Vertices;
-                    var x = v.Array;
+                    var x = GetValue(o.Value);
                     if (x != null)
                     {
                         vertices = s.ToRealArray(x, 3);
@@ -93,7 +105,7 @@ namespace Collada.Converters.Classes.Complicated
                 {
                     var o = tr.Inputs["TEXCOORD"];
                     offs[1] = o.Offset;
-                    var v = o.Value as float[];
+                    var v = GetValue(o.Value);
                     if (v != null)
                     {
                         textures = s.ToRealArray(v, 2);
@@ -108,7 +120,7 @@ namespace Collada.Converters.Classes.Complicated
                 {
                     var o = tr.Inputs["NORMAL"];
                     offs[2] = o.Offset;
-                    var v = o.Value as float[];
+                    var v = GetValue(o.Value);
                     if (v != null)
                     {
                         normal = s.ToRealArray(v, 3);
