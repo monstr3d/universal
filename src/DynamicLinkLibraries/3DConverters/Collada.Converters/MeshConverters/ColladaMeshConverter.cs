@@ -194,6 +194,7 @@ namespace Collada.Converters.MeshConverters
             }
             else
             {
+                var li = new List<int>();
                 if (mesh.Vertices != null)
                 {
                     var se = Create("source");
@@ -243,19 +244,32 @@ namespace Collada.Converters.MeshConverters
                     tr.SetAttribute("count", mesh.Vertices.Count + "");
                     var sem = 0;
                     CreateSemantic(tr, "VERTEX", name + "-vertices", sem);
+                    li.Add(0);
                     ++sem;
                     if (mesh.Normals != null)
                     {
                         if (mesh.Normals != null)
                         {
                             CreateSemantic(tr, "NORMAL", name + "-normal", sem);
+                            li.Add(2);
                             ++sem;
                         }
                     }
                     CreateSemantic(tr, "TEXCOORD", name + "-texcoord", sem);
+                    li.Add(1);
+                    var ofs = li.ToArray();
+                    var p = new List<int>();
+                    foreach (var item in mesh.Indexes)
+                    {
+                        foreach (var k in item)
+                        {
+                            for (int i = 0; i < k.Length; i++)
+                            p.Add(k[ofs[i]]);
+                        }
+                    }
                     if (mesh.Indexes != null)
                     {
-                        CreateArray(tr, "p", mesh.Indexes.ToArray());
+                        CreateArray(tr, "p", p.ToArray());
                     }
                 }
             }
@@ -544,7 +558,7 @@ namespace Collada.Converters.MeshConverters
                 CreateFloat(p, "shininess", specularMaterial.SpecularPower);
             }
             CreateColor(p, "transparent", diffuseMaterial.Color);
-            CreateFloat(p, "transparency", diffuseMaterial.Opacity);
+            CreateFloat(p, "transparency", 1f - diffuseMaterial.Opacity);
             var nmt = Create("material");
             pm.AppendChild(nmt);
             var matn = material.Name;

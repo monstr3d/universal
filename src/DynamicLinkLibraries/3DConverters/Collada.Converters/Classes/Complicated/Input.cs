@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Xml;
+﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
-using Collada;
+
 using Collada.Converters.Classes.Elementary;
 
 namespace Collada.Converters.Classes.Complicated
@@ -27,7 +24,7 @@ namespace Collada.Converters.Classes.Complicated
 
 
 
-        private Input(XmlElement element) : base(element, null)
+        private Input(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             var offset = -1;
             var off = element.GetAttribute("offset");
@@ -43,6 +40,10 @@ namespace Collada.Converters.Classes.Complicated
                 throw new Exception();
             }
             var semantic = element.GetAttribute("semantic");
+            if (!semantic.StartsWith("PO"))
+            {
+
+            }
             var source = element.GetAttribute("source").Substring(1);
             if ((semantic.Length == 0) | (source.Length == 0))
             {
@@ -56,6 +57,10 @@ namespace Collada.Converters.Classes.Complicated
             if (o is Source so)
             {
                 Array = so.Array;
+                if (Array == null)
+                {
+
+                }
             }
             if (o is Vertices ve)
             {
@@ -73,7 +78,11 @@ namespace Collada.Converters.Classes.Complicated
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Input(element);
+            var a = new Input(element, meshCreator);
+            if (a.Array == null)
+            {
+
+            }
             return a.Get();
         }
 
@@ -94,7 +103,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             if (semantic == "TEXCOORD")
             {
-                return id.Get<Source>().Array;
+                return id.Get<Source>();
             }
             throw new Exception();
         }

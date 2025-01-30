@@ -3,7 +3,28 @@
     public class DiffuseMaterial : Material
     {
 
+        #region Fields
+
         Image im;
+
+        #endregion
+
+        #region  Ctor
+
+        public DiffuseMaterial(Color color, Color ambient, Image image, float opacity)
+        {
+            Image = image;
+            Opacity = opacity;
+            if (color == null)
+            {
+
+            }
+            AmbientColor = ambient;
+            Color = color;
+        }
+
+        #endregion
+
 
         public Image Image
         {
@@ -27,22 +48,14 @@
 
         public Color AmbientColor { get; private set; }
 
-        public float Opacity { get; private set; }
+        public float Opacity 
+        { 
+            get; 
+            private set; 
+        }
 
 
         public override bool HasImage => Image != null;
-
-        public DiffuseMaterial(Color color, Color ambient, Image image, float opacity)
-        {
-            Image = image;
-            Opacity = opacity;
-            if (color == null)
-            {
-
-            }
-            AmbientColor = ambient;
-            Color = color;
-        }
 
         protected override object CloneIfself()
         {

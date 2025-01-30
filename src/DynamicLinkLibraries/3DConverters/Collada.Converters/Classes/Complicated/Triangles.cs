@@ -38,7 +38,7 @@ namespace Collada.Converters.Classes.Complicated
 
       
 
-        private Triangles(XmlElement element) : base(element, null)
+        private Triangles(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             var p = element.Get<P>();
             if (p != null)
@@ -68,7 +68,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Triangles(element);
+            var a = new Triangles(element,  meshCreator);
             return a.Get();
         }
     }

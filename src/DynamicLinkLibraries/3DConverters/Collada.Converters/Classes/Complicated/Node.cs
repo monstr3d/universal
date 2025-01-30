@@ -70,96 +70,81 @@ namespace Collada.Converters.Classes.Complicated
             var tr = meshObject.Triangles;
             if (tr != null)
             {
-                try
+                int[] offs = new int[tr.Inputs.Count];
+                var h = new int[] { -1, -1, -1 };
+
+                if (tr.Inputs.ContainsKey("VERTEX"))
                 {
-                    int[] offs = new int[tr.Inputs.Count];
-                    var h = new int[] { -1, -1, -1 };
-
-                    if (tr.Inputs.ContainsKey("VERTEX"))
+                    var o = tr.Inputs["VERTEX"];
+                    offs[0] = o.Offset;
+                    var v = o.Value as Vertices;
+                    var x = v.Array;
+                    if (x != null)
                     {
-                        var o = tr.Inputs["VERTEX"];
-                        offs[0] = o.Offset;
-                        var v = o.Value as Vertices;
-                        var x = v.Array;
-                        if (x != null)
-                        {
-                            vertices = s.ToRealArray(x, 3);
-                        }
-                        else
-                        {
-                            vertices = null;
-                        }
-                            h[0] = o.Offset;
+                        vertices = s.ToRealArray(x, 3);
                     }
-                    if (tr.Inputs.ContainsKey("TEXCOORD"))
+                    else
                     {
-                        var o = tr.Inputs["TEXCOORD"];
-
-                        offs[1] = o.Offset;
-                        var v = o.Value as float[];
-                        if (v != null)
-                        {
-                            textures = s.ToRealArray(v, 2);
-                        }
-                        else
-                        {
-                            textures = null;
-                        }
-                        h[1] = o.Offset;
+                        vertices = null;
                     }
-                    if (tr.Inputs.ContainsKey("NORMAL"))
+                    h[0] = o.Offset;
+                }
+                if (tr.Inputs.ContainsKey("TEXCOORD"))
+                {
+                    var o = tr.Inputs["TEXCOORD"];
+                    offs[1] = o.Offset;
+                    var v = o.Value as float[];
+                    if (v != null)
                     {
-                        var o = tr.Inputs["NORMAL"];
-
-                        offs[2] = o.Offset;
-                        var v = o.Value as float[];
-                        if (v != null)
-                        {
-                            normal = s.ToRealArray(v, 3);
-                        }
-                        else
-                        {
-                            normal = null;
-                        }
-                        h[2] = o.Offset;
+                        textures = s.ToRealArray(v, 2);
                     }
-                    if (tr.Idx != null)
+                    else
                     {
-                        var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
-                        t = new List<int[][]>();
-                        foreach (var p in ii)
+                        textures = null;
+                    }
+                    h[1] = o.Offset;
+                }
+                if (tr.Inputs.ContainsKey("NORMAL"))
+                {
+                    var o = tr.Inputs["NORMAL"];
+                    offs[2] = o.Offset;
+                    var v = o.Value as float[];
+                    if (v != null)
+                    {
+                        normal = s.ToRealArray(v, 3);
+                    }
+                    else
+                    {
+                        normal = null;
+                    }
+                    h[2] = o.Offset;
+                }
+                if (tr.Idx != null)
+                {
+                    var ii = s.ToRealArray(tr.Idx, offs.Length, 3);
+                    t = new List<int[][]>();
+                    foreach (var p in ii)
+                    {
+                        int[][] k = new int[p.Length][];
+                        for (int j = 0; j < p.Length; j++)
                         {
-                            int[][] k = new int[p.Length][];
-                            for (int j = 0; j < p.Length; j++)
+                            var pp = p[j];
+                            var kj = new int[pp.Length];
+                            k[j] = kj;
+                            for (int hh = 0; hh < pp.Length; hh++)
                             {
-                                var pp = p[j];
-                                var kj = new int[pp.Length];
-                                k[j] = kj;
-                                for (int hh = 0; hh < pp.Length; hh++)
-                                {
-                                    kj[offs[hh]] = pp[hh];
-                                }
+                                kj[offs[hh]] = pp[hh];
                             }
-                            t.Add(k);
-
                         }
+                        t.Add(k);
+
                     }
                 }
-                catch (Exception ex)
-                {
-                    ex.ShowError();
-                }
-                try
-                {
-                    return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
 
-                }
-                catch (Exception e)
-                {
-                    e.ShowError("Node Mesh");
-                }
-
+                return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
             }
+
+
             try
             {
                 var poly = meshObject.Polygon;
@@ -173,7 +158,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             return null;
 
-         }
+        }
 
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)

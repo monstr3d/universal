@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
-using System.Windows.Media;
 using System.Xml;
-using System.Windows.Media.TextFormatting;
-using System.Security.Policy;
 using System.Drawing;
-using System.Linq.Expressions;
 
 namespace Wpf.Loader
 {

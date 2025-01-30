@@ -56,6 +56,10 @@ namespace Abstract3DConverters.Converters
                             kp = idx[1];
                             if (kp >= 0)
                             {
+                                if (kp >= mesh.Textures.Count)
+                                {
+
+                                }
                                 var vt = mesh.Textures[kp];
                                 textcoord.Add(vt[0]);
                                 textcoord.Add(1 - vt[1]);
