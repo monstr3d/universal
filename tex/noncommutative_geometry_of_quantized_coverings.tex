@@ -10509,7 +10509,7 @@ Let  $\sX$ be a connected, locally coconnected,  locally compact, Hausdorff spac
 	\rho^\la_{\widetilde x} : C_0\left(\sX_\la \right) \to \rep_{  \widetilde{x }}\left(  C_0\left(\widetilde\sX \right)\right)\cong \C
 	\ee 
 	where $\H_{ \widetilde x}\cong \C$ is the Hilbert space of the representation $ \rep_{  \widetilde{x }}$.
-!!! CONTINUE !!!
+
 \begin{empt}\label{top_long_p_empt}
 Suppose that  $\widetilde a\in  K\left( C\left(\widetilde \sX_{\mathrm{discr}} \right) \right) _+$ is  a positive element such that
 \be\label{top_atomic_cc_eqn}
@@ -10557,25 +10557,30 @@ From  $\left\|\widetilde{a}^n \right\| =    \left( \frac{2}{3}\right)^{n-1} \fra
 \be\label{top_ser_eqn}
 \widetilde{a}' \bydef	\sum_{n = 1}^\infty \widetilde  a^n.
 \ee
-the sum of the series lies in $C_b\left( \widetilde{\sX}\right)$
+the sum of the series lies in $C_b\left( \widetilde{\sX}\right)$.
 On the other hand from
 $$ 
 \forall n \in \N \quad \left\|\widetilde{a}- \widetilde{a}^n\right\|\le \frac{1}{3}\left\|\widetilde{a}\right\|  \left( \frac{2}{3}\right)^{n-1}
 $$	
-it follows that  $\widetilde a= \widetilde a'$ and o $\widetilde a\in C_b\left( \widetilde{\sX}\right)\subset   C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
+it follows that the series \eqref{top_ser_eqn} is uniformly convergent, hence $\widetilde a= \widetilde a'$ and  $\widetilde a\in C_b\left( \widetilde{\sX}\right)\subset   C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
 
 \end{empt}
-
+!!! CORRECT !!!
 \begin{thm}\label{top_discrete_p_thm}
-	Under the hypotheses \ref{top_long_p_empt} one has $\widetilde{a}\in C_c\left( \widetilde{\sX}\right)$.
+	Suppose that  $\widetilde a\in  K\left( C\left(\widetilde \sX_{\mathrm{discr}} \right) \right) _+$ is  a positive element such that
+	\be\label{top_atomicp_cc_eqn}
+	a_\la \bydef s\text{-}	\sum_{g \in \ker\left(\widehat{G}\to  G\left( \left.\sX_\la~\right|\sX\right)\right) }g \widetilde a \in  C_c\left(\sX_\la\right)
+	\ee 
+	where the point-wise convergence of the series is implied and $C_c\left(\sX_\la\right)$ is regarded as a $C^*$-subalgebra of $C\left(\widetilde\sX_{\mathrm{discr}} \right)$.
+Then one has $\widetilde{a}\in C_c\left( \widetilde{\sX}\right)$.
 \end{thm}
 \begin{proof}
-	From the Lemma \ref{pedersen_eps_lem} and the equality \eqref{four_decompositon_eqn} we can suppose that there is $\dl > 0$ such $\widetilde a = f_\dl \left( \widetilde b\right)$ where $\widetilde b \in C_b\left(\widetilde \sX \right)_+$ and $f_\dl$ is given by   the equation \eqref{f_eps_eqn}. If $\widetilde a' \bydef f_{\dl/2}\left( \widetilde b\right)$ then  $\widetilde a = f_{\dl/2}\left( \widetilde a'\right)$. 
+	From the Lemma \ref{pedersen_eps_lem} and the equality \eqref{four_decompositon_eqn}, the construction \ref{top_long_p_empt} we can suppose that there is $\dl > 0$ such $\widetilde a = f_\dl \left( \widetilde b\right)$ where $\widetilde b \in C_b\left(\widetilde \sX \right)_+$ and $f_\dl$ is given by   the equation \eqref{f_eps_eqn}. If $\widetilde a' \bydef f_{\dl/2}\left( \widetilde b\right)$ then  $\widetilde a = f_{\dl/2}\left( \widetilde a'\right)$. 
 	Let
 	$$
 	a \bydef \sum_{g\in \widehat G} g \widetilde a'\in C_c\left( \sX\right) 
 	$$
-	Let $\widetilde a^1 \bydef f_\eps\left( \widetilde a\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn} and $\eps \bydef \frac{2}{3}\lVert \widetilde a\rVert$ and denote by $a^1 \bydef \sum_{g\in \widehat G} \widetilde a^1\in C_c\left( \sX\right)$. For any $\widetilde x \in \supp \widetilde a^1$ we select an open neighborhood $\widetilde \sU_{\widetilde x}\subset \widetilde \sX$ such that:
+	Let $\widetilde a^1 \bydef f_\eps\left( \widetilde a\right)$ where $f_\eps$ is given by \eqref{f_eps_eqn} and $\eps \bydef \frac{2}{3}\lVert \widetilde a\rVert$ and denote by $a^1 \bydef \sum_{g\in \widehat G} \widetilde a^1\in C_c\left( \sX\right)$. Similarly to the construction  \ref{top_long_p_empt} for any $\widetilde x \in \supp \widetilde a^1$ we select an open neighborhood $\widetilde \sU_{\widetilde x}\subset \widetilde \sX$ such that:
 	\begin{itemize}
 		\item $\widetilde \sU_{\widetilde x}$ is mapped homeomorphically onto $ \sU_{\widetilde x}\bydef \widetilde p\left(\widetilde \sU_{\widetilde x} \right)$,
 		\item there is $\la_{\widetilde x} \in \La$ such that  

@@ -743,7 +743,7 @@ namespace Collada.Converters.MeshConverters
         void SetDate()
         {
             var d = DateTime.Now;
-            var s = d.ToString();
+            var s = d.ToString("yyyy-MM-ddTHH:mm:ss");
             var e = doc.GetElementsByTagName("asset")[0];
             foreach (var c in e.ChildNodes)
             {

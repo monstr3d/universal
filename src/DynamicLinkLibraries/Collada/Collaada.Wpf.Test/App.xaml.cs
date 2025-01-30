@@ -183,7 +183,7 @@ namespace Collaada.Wpf.Test
         void GenerateToDae()
         {
 
-            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
 
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
@@ -195,7 +195,7 @@ namespace Collaada.Wpf.Test
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
             //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
             // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
-            //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+               GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
         }
 
         void GenerateToDae(string filen)

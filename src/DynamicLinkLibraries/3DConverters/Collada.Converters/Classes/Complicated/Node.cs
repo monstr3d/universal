@@ -159,6 +159,7 @@ namespace Collada.Converters.Classes.Complicated
 
             try
             {
+                
                 var poly = meshObject.Polygon;
                 var vv = s.ToRealArray<float>(poly.Vertices, 3);
 
