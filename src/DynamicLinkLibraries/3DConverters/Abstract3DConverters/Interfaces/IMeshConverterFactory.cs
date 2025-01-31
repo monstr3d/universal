@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstract3DConverters.Interfaces
+﻿namespace Abstract3DConverters.Interfaces
 {
     /// <summary>
-    /// 
+    /// The factory of mesh converters
     /// </summary>
     public interface IMeshConverterFactory
     {
+        /// <summary>
+        /// Gets a mesh converter
+        /// </summary>
+        /// <param name="extension">Thr file extension</param>
+        /// <param name="comment">The comment</param>
+        /// <returns>The converter</returns>
         IMeshConverter this[string extension, string comment] { get; }
     }
 }

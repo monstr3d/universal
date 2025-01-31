@@ -1,26 +1,34 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq.Expressions;
-using System.Text;
-
-namespace Abstract3DConverters
+﻿namespace Abstract3DConverters
 {
+    /// <summary>
+    /// Color
+    /// </summary>
     public class Color : ICloneable
     {
+        /// <summary>
+        /// The value
+        /// </summary>
         public float[] Value { get; private set; }
 
+        /// <summary>
+        /// Hex symbols
+        /// </summary>
         private readonly string s_hex = "0123456789abcdef";
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="value">The float value</param>
         public Color(float[] value)
             { this.Value = value; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="value">The double value</param>
         public Color(double[] value)//, bool inverse = false)
         {
-            /*
-            if (!inverse)
-            {
-           
-            }*/
-            Value = Transform(value, false);
+           Value = Transform(value, false);
         }
 
         private float[] Transform(double[] x, bool inverse)

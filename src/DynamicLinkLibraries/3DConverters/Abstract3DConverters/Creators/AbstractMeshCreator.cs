@@ -26,7 +26,7 @@ namespace Abstract3DConverters.Creators
 
         }
 
-        string IMeshCreator.Extension => ext;
+        //string IMeshCreator.Extension => ext;
 
         string IMeshCreator.Directory => directory;
 

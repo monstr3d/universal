@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml.Linq;
-
-namespace Abstract3DConverters.Materials
+﻿namespace Abstract3DConverters.Materials
 {
     public abstract class Material : ICloneable
     {

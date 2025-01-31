@@ -6,15 +6,29 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters.Attributes
 {
+    /// <summary>
+    /// Attribute of mesh converter
+    /// </summary>
     public class ConverterAttribute : Attribute
     {
-        public string Extention { get; private set; }
+        /// <summary>
+        /// Extension
+        /// </summary>
+        public string Extension { get; private set; }
 
+        /// <summary>
+        /// Comment
+        /// </summary>
         public string Comment { get; private set; }
 
-        public ConverterAttribute(string extention, string comment = null)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="extension">Extension</param>
+        /// <param name="comment">Comment</param>
+        public ConverterAttribute(string extension, string comment = null)
         {
-            Extention = extention;
+            Extension = extension;
             Comment = comment;
         }
     }

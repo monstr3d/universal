@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstract3DConverters.Interfaces
+﻿namespace Abstract3DConverters.Interfaces
 {
+    /// <summary>
+    /// Object having a parent
+    /// </summary>
     public interface IParent
     {
+        /// <summary>
+        /// The parent
+        /// </summary>
         IParent Parent { get; set; }
     }
 }

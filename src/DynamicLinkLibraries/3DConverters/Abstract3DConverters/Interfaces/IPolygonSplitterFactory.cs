@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstract3DConverters.Interfaces
+﻿namespace Abstract3DConverters.Interfaces
 {
+    /// <summary>
+    /// Factory of polygon splitter
+    /// </summary>
     public interface IPolygonSplitterFactory
     {
+        /// <summary>
+        /// Creates the polygon splitter
+        /// </summary>
+        /// <returns>The polygon splitter</returns>
         IPolygonSplitter CreatePolygonSplitter();
     }
 }

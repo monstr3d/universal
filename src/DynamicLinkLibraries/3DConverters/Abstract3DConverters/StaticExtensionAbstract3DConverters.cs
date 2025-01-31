@@ -171,7 +171,7 @@ namespace Abstract3DConverters
                             {
                                 ConstructorInfo constructor = type.GetConstructor([]);
                                 var f = constructor.Invoke(null) as IMeshCreatorFactory;
-                                var key = ca.Extention;
+                                var key = ca.Extension;
                                 Dictionary<string, ConstructorInfo> d;
                                 if (conveters.ContainsKey(key))
                                 {
