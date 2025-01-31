@@ -43,7 +43,6 @@ namespace Collaada.Wpf.Test
        //     GenerateWPF();
          //   GenerateWpf();
 
-   //              GenerateToDae();
             //   GenerateNative();
         }
 
@@ -183,19 +182,19 @@ namespace Collaada.Wpf.Test
         void GenerateToDae()
         {
 
-          //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+           // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
 
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
 
 
-            //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+              //GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
             //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
             //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
             // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
-               GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+          //    GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
         }
 
         void GenerateToDae(string filen)
