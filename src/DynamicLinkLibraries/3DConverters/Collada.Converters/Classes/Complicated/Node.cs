@@ -84,7 +84,7 @@ namespace Collada.Converters.Classes.Complicated
             if (tr != null)
             {
                 int[] offs = new int[tr.Inputs.Count];
-                var h = new int[] { -1, -1, -1 };
+                var h = new int[] { 0, 0, 0 };
 
                 if (tr.Inputs.ContainsKey("VERTEX"))
                 {

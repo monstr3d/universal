@@ -179,7 +179,7 @@ namespace Abstract3DConverters.Meshes
                         for (int j = 0; j < 3; j++)
                         {
                             var l =  3 * i + j;
-                            k[j] = [l, l, -1];
+                            k[j] = [l, l, 0];
                         }
                         Indexes.Add(k);
                     }

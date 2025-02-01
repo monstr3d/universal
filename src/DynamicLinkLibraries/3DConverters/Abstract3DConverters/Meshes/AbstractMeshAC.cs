@@ -96,7 +96,7 @@ namespace Abstract3DConverters.Meshes
                             {
                                 var il = l[p];
                                 var ss = s.Split(il);
-                                var t = new Point(s.ToReal<int>(ss[0].Trim()), j, -1, new float[] { s.ToReal<float>(ss[1].Trim()),
+                                var t = new Point(s.ToReal<int>(ss[0].Trim()), j, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
                                 ++j;

@@ -38,8 +38,8 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-       //   GenerateToDae();
-        GenerateXaml();
+          GenerateToDae();
+      // GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
@@ -101,10 +101,10 @@ namespace Collaada.Wpf.Test
 
         void GenerateXaml()
         {
-                 GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
+             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
             //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
 
-           // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphinkczehzf0.rxd1.5.0.dae");
+           GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphinzo15rsze.yrj1.5.0.dae");
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.dae");
             //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.obj");
             //            //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
@@ -183,13 +183,13 @@ namespace Collaada.Wpf.Test
         void GenerateToDae()
         {
 
-           GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+          // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
 
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
 
 
-              //GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+              GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
             //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");

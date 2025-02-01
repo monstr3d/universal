@@ -5,12 +5,25 @@ namespace Abstract3DConverters.Meshes
 {
     public  class AbstractMeshPolygon : AbstractMesh
     {
+  
+        #region Fields
 
-        public List<Polygon> Polygons
-        { get; private set; } = new List<Polygon>();
-
-
+        /// <summary>
+        /// Splitter
+        /// </summary>
         IPolygonSplitter splitter = StaticExtensionAbstract3DConverters.PolygonSplitter;
+
+        #endregion
+
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="parent">Parent</param>
+        /// <param name="matrix">Transformation matrix</param>
+        /// <param name="creator">The creator of mesh</param>
         public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix,  IMeshCreator creator) :
             base(name, creator)
         {
@@ -21,12 +34,30 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="parent">Parent</param>
+        /// <param name="matrix">Transformation matrix</param>
+        /// <param name="material">The material</param>
+        /// <param name="creator">The creator of mesh</param>
         public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator) :
             this(name, parent, matrix, creator)
         {
             MaterialString = material;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="parent">Parent</param>
+        /// <param name="matrix">Transformation matrix</param>
+        /// <param name="material">The material</param>
+        /// <param name="polygons">Polygons</param>
+        /// <param name="creator">The creator of mesh</param>
         public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator, List<Polygon> polygons) :
             this(name, parent, matrix, material, creator)
         {
@@ -46,14 +77,41 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="parent">Parent</param>
+        /// <param name="matrix">Transformation matrix</param>
+        /// <param name="material">The material</param>
+        /// <param name="polygons">Polygons</param>
+        /// <param name="vertices">vertices</param>
+        /// <param name="normals">Normals</param>
+        /// <param name="creator">The creator of mesh</param>
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, 
+            List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
             this(name, parent, matrix, material, polygons, creator)
         {
             Vertices = vertices;
             Normals = normals;
         }
 
+        #endregion
 
+        #region Members
+
+        /// <summary>
+        /// Polygons
+        /// </summary>
+        public List<Polygon> Polygons
+        {
+            get;
+            private set;
+        } = new List<Polygon>();
+
+        /// <summary>
+        /// Creates triangles
+        /// </summary>
         public override void CreateTriangles()
         {
             base.CreateTriangles();
@@ -62,6 +120,9 @@ namespace Abstract3DConverters.Meshes
             trianlesCreared = true;
         }
 
+        /// <summary>
+        /// Creates from polygons
+        /// </summary>
         protected void CreateFromPolygons()
         {
             if (Polygons.Count > 0 & !trianlesCreared)
@@ -102,6 +163,8 @@ namespace Abstract3DConverters.Meshes
                     }
                 }
             }
+
+            #endregion
         }
     }
 }

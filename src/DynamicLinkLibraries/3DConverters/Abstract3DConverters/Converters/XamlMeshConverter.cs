@@ -43,8 +43,12 @@ namespace Abstract3DConverters.Converters
                     foreach (var idx in item)
                     {
                         var kp = idx[0];
-                        if (kp >= 0)
+                        if (mesh.Vertices != null)
                         {
+                            if (kp >= mesh.Vertices.Count)
+                            {
+
+                            }
                             float[] vr = mesh.Vertices[kp];
                             foreach (var vv in vr)
                             {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
@@ -13,6 +14,7 @@ namespace Abstract3DConverters.Creators
 
         internal static   string[] Colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
+        int last = 0;
 
         internal int[] Shift { get; private set; } = [0, 0, 0];
 
@@ -27,6 +29,7 @@ namespace Abstract3DConverters.Creators
 
         protected override IEnumerable<AbstractMesh> Get()
         {
+            int last = 0;
             return Create(null, lines).ToList();
         }
      
@@ -34,6 +37,7 @@ namespace Abstract3DConverters.Creators
 
         public Tuple<object, List<AbstractMesh>> Create()
         {
+            int last = 0;
             var l = Create(null, lines).ToList();
             return new Tuple<object, List<AbstractMesh>>(null, l);
         }
@@ -158,7 +162,7 @@ namespace Abstract3DConverters.Creators
             }
         }
 
-
+    
         public IEnumerable<AbstractMesh> Create(AbstractMesh parent, List<string> lines, int start = 0, int current = -1)
         {
             if (current == 0)
@@ -176,6 +180,7 @@ namespace Abstract3DConverters.Creators
                     for (var j = i; j < lines.Count; j++)
                     {
                         i = j;
+                        last = j;
                         var l = lines[j];
                         nl.Add(l);
                         if (name == null)
@@ -203,7 +208,7 @@ namespace Abstract3DConverters.Creators
                                 a.Parent = am;
                             }
                         }
-
+                        j = last;
                     }
                 }
             }

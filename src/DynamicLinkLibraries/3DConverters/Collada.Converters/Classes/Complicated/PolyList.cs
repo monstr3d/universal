@@ -59,7 +59,7 @@ namespace Collada.Converters.Classes.Complicated
      
                 float[] textures = null;
                 var children = element.GetAllChildren<Input>().ToArray();
-                int[] offs = new int[] { -1, -1, -1 };
+                int[] offs = new int[] { 0, 0, 0 };
                 foreach (var item in children)
                 {
                     var t = item.Semantic.Key;
