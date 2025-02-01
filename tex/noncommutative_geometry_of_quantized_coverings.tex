@@ -4153,9 +4153,12 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
   	\be\label{algebraical_finite_covering_category_eqn}
   	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
   	\ee
- is an \textit{algebraical finite covering category} if the given by the equation \eqref{dense_a_eqn} $*$-subalgebra $\overline \A \subset \overline A$ equals to the Pedersen's ideal $K\left(\overline \A \right)$ of $\overline \A$, and  
-  for all $\la \in \La$ the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.
- 	Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
+ is an \textit{algebraical finite covering category} if one has:
+ \begin{enumerate}
+ 	\item [(a)] the given by the equation \eqref{dense_a_eqn} dense $*$-subalgebra $\overline \A \subset \overline A$ equals to the Pedersen's ideal $K\left(\overline \A \right)$ of $\overline A$,
+ 	\item[(b)] for all $\la \in \La$ the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.
+ \end{enumerate}
+	Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
  \end{definition}
 
   
@@ -10693,67 +10696,33 @@ be the 	{algebraic} $\widetilde \sX$-$  G$-{category} (cf. Definition \ref{top_f
 Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is a {pre-covering of  the algebraical finite covering category} (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definition \ref{algebraical_finite_covering_category_defn}).
 \end{lemma}
 \begin{proof}
-	iiii
-	\paragraph{title}
-	   \begin{definition}\label{weak_algebraical_finite_covering_category_defn!}!!!
-		The  given by \ref{inf_cat_empt} category is said to be a \textit{weak algebraical finite covering category} if
-		any $\mathfrak{S}$-morphism $\lift^\mu_\nu : A_\mu \hookto A_\nu$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}) 
-		We write
-		\be\label{weak_algebraical_finite_covering_category_eqn!}
-		\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
-		\ee
-		Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{disconnected covering of the weak algebraical finite covering category}  $\mathfrak{S}$.
-	\end{definition}
-\begin{definition}\label{infinite_quasicovering_defn!}!!! 	Under the hypotheses of the Definition \ref{weak_algebraical_finite_covering_category_defn} if the given by \eqref{dense_a_eqn} $*$-subalgebra $\overline{\A}\subset \overline A$ is the Pedersen's ideal $K \left(\overline A \right)$ of $\overline A$ then the  given by  \eqref{infinite_weak_quasicovering_eqn} triple $ 
-	\left( A, \overline A, \widehat G\right)$
-	is an  \textit{infinite quasi-covering}. We say that $A_\la$ is the $\la$-\textit{descent of} $\overline A$. The natural injective $*$-homomorphism $\lift_\la: A_\la \hookto M\left(\overline A \right)$ is the $\la$-\textit{lift}.
-\end{definition}
-	\paragraph{title}
-Firstly we prove that  $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering} (cf. Definition \ref{infinite_quasicovering_defn}. From the Lemma \ref{comm_lift_desc_sum_lem} it follows that for any $\la \in \La$ and $\overline{a }\in K\left(C_0\left(\overline\sX \right) \right)= C_c\left(\overline\sX \right)$ a series 
+Firstly we prove that  $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering}, i.e. a dense $*$-subalgebra $\overline \A \bydef  C_c\left(\overline\sX \right)$ of  $C_0\left(\overline\sX \right)$ satisfies to the Definition \ref{infinite_quasicovering_defn}, From the Lemma \ref{comm_lift_desc_sum_lem} it follows that for any $\la \in \La$ and $\overline{a }\in K\left(C_0\left(\overline\sX \right) \right)= C_c\left(\overline\sX \right)$ a series 
 $$
- 	a_\la =\bt\text{-} \sum_{	g \in \ker\left( \widehat{G}\to G_\la\right) }g \overline a
+ 	a_\la =\bt\text{-} \sum_{	g\bydef \ker\left( \widehat{G}\to G_\la\right) }g \overline a
 $$
-is convergent with respect to the strict topology of $M\left(C_0\left(\overline\sX \right)\right) =  C_b\left(\overline\sX \right)$. So  $a_\la$ can be regarded as an element of $C_0\left(\overline\sX \right)$. On the other hand $a_\la$ is invariant with respect to action of $H_\la \bydef \ker\left( \widehat{G}\to G_\la\right)$, so $a_\la$ can be regarded as an element of $C_b\left( \sX_\la\right)$ where $\sX_{\la}\bydef \overline \sX / H_\la$ (cf. the equation \eqref{top_xh_eqn}). Indeed one has
+is convergent with respect to the strict topology of $M\left(C_0\left(\overline\sX \right)\right) =  C_b\left(\overline\sX \right)$. On the other hand $a_\la$ is invariant with respect to action of $H_\la \bydef \ker\left( \widehat{G}\to G_\la\right)$, so $a_\la$ can be regarded as an element of $C_b\left( \sX_\la\right)$ where $\sX_{\la}\bydef \overline \sX / H_\la$ (cf. the equation \eqref{top_xh_eqn}). Indeed one has
 \be\label{top_a_l_eqn}
 \desc_{\la}\left(\overline a \right)  = \desc^c_{\overline p_\la}\left(\overline a \right)
 \ee
-where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$ descent. 
-From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn}).
-Now one needs check conditions (a) and (b) of the Definition \ref{algebraical_finite_covering_category_defn}.
-
-\paragraph{title}
-
-\begin{definition}\label{algebraical_finite_covering_category_defn!}!!!
-	A weak  algebraical finite covering category (cf. Definition \ref{weak_algebraical_finite_covering_category_defn}) given by
-	\be\label{algebraical_finite_covering_category_eqn!}
-	\mathfrak{S}\bydef \left\{\left\{A_\la\right\}_{\la\in \La}, \left\{\lift^\mu_\nu : A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu \le \nu}}\right\}
-	\ee
-	is an \textit{algebraical finite covering category} if the given by the equation \eqref{dense_a_eqn} $*$-subalgebra $\overline \A \subset \overline A$ equals to the Pedersen's ideal $K\left(\overline \A \right)$ of $\overline \A$, and  
-	for all $\la \in \La$ the $\la$-{descent} $\desc_{\la} : K\left(\overline A \right) \to K\left(A_\la \right)$  (cf. Definition \ref{infinite_desc_defn}) is surjective, i.e. $\desc_{\la} \left(  K\left(\overline A \right)\right) = K\left(A_\la \right)$.
-	Moreover the given by the Definition \ref{infinite_quasicovering_defn} infinite quasi-covering $\left( A, \overline A, \widehat G\right)$ is said to be a \textit{pre}-\textit{covering of the algebraical finite covering category}  $\mathfrak{S}$.
-\end{definition}
-
-\paragraph{title}
-\begin{enumerate}
-	\item [(a)] From the Theorem \ref{top_finite_covering_thm} it follows that any $*$-homomorphism $C_0\left( p^\mu_\nu\right)  :C_0\left( \mathcal{X}_\mu\right)  \hookto C_0\left( \mathcal{X}_\nu\right)$ is a noncommutative finite-fold covering.
-	\item[(b)] Let $\la\in \La$ and let $\overline p_\la : \overline \sX \to \sX_\la$ be a natural covering. From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left( \sX_\la\right)  \right) = C_c\left( \sX_\la\right)$. If $a_\la \in C_c\left( \sX_\la\right)$ then the set $\supp a_\la$ is compact. If $\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\overline \sU_{\overline\a}, \overline \sV_{\overline\a}, \overline s_{\overline\a}\right)\right\}_{\overline \a \in \overline{\mathscr A}} \right)$ is a $\overline p_\la$-covering (cf. Definition \ref{top_cov_defn}) then there is a dominated by the family $\left\{\sU_{\overline{a}}\right\}$ covering sum $\sum^n_{j=1} f_j$ for $a_\la$ (cf. Definition \ref{top_covering_sum_defn}). One has
-	\bean
-	a_\la = a_\la \sum^n_{j=1} f_j,\\
-	\forall j \in \{1,...,n\}\quad \exists \a_j \in \mathscr A \quad \supp f_j \subset \sU_{{\a_j}}
-	\eean 
-	For any $j \in \{1,...,n\}$ one can select $\overline a_j \in \overline{\mathscr A}$ such that $\overline p_\la\left( \overline \sU_{\overline \a_j}\right)= \sU_{\a_j}$. 
-	Let $\overline a \bydef \sum^n_{j=1} \lift_{\overline\sU_{\overline \a_j}}^{\overline p_\la}\left(f_j a_\la \right)$ where $\lift_{\sU_{\overline \a_j}}^{\overline p_\la}$ is the  $\overline p_\la$-$\overline\sU_{\overline \a_j}$-{lift} (cf. Definition \ref{top_lift_desc_defn}). We leave to the reader the proof of the following equation
-	$$
+where $\desc_\la$  is the $\la$-{descent} (cf. Definition \ref{infinite_desc_defn}) and $\desc^c_{\overline p_\la}\left(\overline a \right)$ is the  compactly supported $\overline p_\la$-descent (cf. Definition \ref{top_compactly_supported_descent_defn})
+From the Theorem  \ref{top_compact_img_thm} it follows that $\desc^c_{\overline p_\la}\left(\overline a \right)\in C_c\left(\sX_\la \right)$ and one can proof that any element of  $ C_c\left(\sX_\la \right)$ is a finite linear combination of given by the equation \eqref{top_a_l_eqn} elements. The $C^*$-norm completion of  $ C_c\left(\sX_\la \right)$ is $C_0\left(\sX_\la \right)$ so the $C^*$-algebra $C_0\left(\sX_\la \right)$ is the $\la$-descent of $\overline{A}$ (cf. Definition \ref{infinite_quasicovering_defn}). So $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is  an  {infinite quasi-covering}. It is known  that $\overline \A \bydef  C_c\left(\overline\sX \right)$ is Pedersen's ideal of $C_0\left( \overline \sX\right)$ (equation \ref{peder_c0_eqn}), so the condition (a) of the Definition \ref{algebraical_finite_covering_category_defn} holds. Let us prove the condition (b).  Let $\la\in \La$ and let $\overline p_\la : \overline \sX \to \sX_\la$ be a natural covering. From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left( \sX_\la\right)  \right) = C_c\left( \sX_\la\right)$. If $a_\la \in C_c\left( \sX_\la\right)$ then the set $\supp a_\la$ is compact. If $\left(\	\left\{\left(\sU_\a, \sV_\a, s_\a\right)\right\}_{\a \in \mathscr A}, \left\{\left(\overline \sU_{\overline\a}, \overline \sV_{\overline\a}, \overline s_{\overline\a}\right)\right\}_{\overline \a \in \overline{\mathscr A}} \right)$ is a $\overline p_\la$-covering (cf. Definition \ref{top_cov_defn}) then there is a dominated by the family $\left\{\sU_{\overline{a}}\right\}$ covering sum $\sum^n_{j=1} f_j$ for $a_\la$ (cf. Definition \ref{top_covering_sum_defn}). One has
+\bean
+a_\la = a_\la \sum^n_{j=1} f_j,\\
+\forall j \in \{1,...,n\}\quad \exists \a_j \in \mathscr A \quad \supp f_j \subset \sU_{{\a_j}}
+\eean 
+For any $j \in \{1,...,n\}$ one can select $\overline a_j \in \overline{\mathscr A}$ such that $\overline p_\la\left( \overline \sU_{\overline \a_j}\right)= \sU_{\a_j}$. 
+Let $\overline a \bydef \sum^n_{j=1} \lift_{\overline\sU_{\overline \a_j}}^{\overline p_\la}\left(f_j a_\la \right)$ where $\lift_{\sU_{\overline \a_j}}^{\overline p_\la}$ is the  $\overline p_\la$-$\overline\sU_{\overline \a_j}$-{lift} (cf. Definition \ref{top_lift_desc_defn}). We leave to the reader the proof of the following equation
+$$
 a_\la = \desc_{\la}\left( \overline a\right) 	= \bt\text{-}\sum_{g \in \ker\left(\widehat G \to G\left( \left. \sX_\la \right| \sX \right) \right)} g \overline{a}
-	$$
-	where $\bt\text{-}\sum$ means a convergence of the series with respect to the strict topology of $M\left(C_0\left(\overline \sX \right)  \right)$ (cf. Definition \ref{strict_topology_defn}), i.e. the map $\desc_{\la}$ is surjective.
-\end{enumerate}
+$$
+where $\bt\text{-}\sum$ means a convergence of the series with respect to the strict topology of $M\left(C_0\left(\overline \sX \right)  \right)$ (cf. Definition \ref{strict_topology_defn}), i.e. the map $\desc_{\la}$ is surjective.
+
 
 
 \end{proof}
 
 \begin{lemma}\label{top_discontinuous_lem}
-	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of the given by \eqref{top_x_g_eqn} algebraical finite covering category $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{disconnected_infinite_noncommutative_covering_defn} \ref{algebraical_reduced_finite_covering_category_defn}).
+	Under the hypotheses \ref{top_inf_sufficienf_empt} the triple $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of the given by \eqref{top_x_g_eqn} algebraical finite covering category $\mathfrak{S}_{C_0\left(p\right)}$ (cf. Definitions \ref{algebraical_finite_covering_category_defn} and \ref{disconnected_infinite_noncommutative_covering_defn}).
 \end{lemma}
 \begin{proof}
 If 	$\left( C_0\left(\sX \right) ,  \overline A', \widehat G\right)$ is a  {pre}-{covering of the algebraical finite covering category}  $\mathfrak{S}_{C_0\left(p\right)}$
@@ -10766,12 +10735,13 @@ where $\overline \H_a$ is a Hilbert space of the atomic representation (cf. Defi
 $$
 \forall \overline a \in \overline A'\quad \phi_{\overline A'}\left( \overline a\right) \in C_c\left(\overline \sX\right)
 $$
-From this circumstance it follows that $\overline A'\subset C_0\left( \overline \sX\right)$.  Taking into account the Lemma \ref{top_inf_sufficienf_lem} we conclude that $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the terminal object of the category $\mathfrak{Cov}\left(\mathfrak{S}_{C_0\left(p\right)} \right)$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! REPLACE !!! !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!), i.e. $\left( C_0\left(\sX \right) ,  C_0\left(\overline\sX \right), \widehat G\right)$ is the {disconnected infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(p\right)}$.
+From this circumstance it follows that $\overline A'\subset C_0\left( \overline \sX\right)$.  On the other hand from the Lemma \ref{top_inf_sufficienf_lem} it turns out  that $\left( C_0\left(\sX \right) ,  C_0\left( \overline \sX\right) , \widehat G\right)$ is a  {pre}-{covering of the algebraical finite covering category}, so the triple $\left( C_0\left(\sX \right) ,  C_0\left( \overline \sX\right) , \widehat G\right)$ satisfies to the Definition \ref{disconnected_infinite_noncommutative_covering_defn} (cf. \ref{disconnected_infinite_noncommutative_covering_empt}).
 \end{proof}
 
 
  	\begin{empt}\label{comm_transitive_empt} 
- 		From the Lemma \ref{top_discontinuous_lem}	 it follows that  the disconnected infinite noncommutative covering of $	\mathfrak{S}_p$  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn} !!! REPLACE !!! !!! \ref{algebraical_reduced_finite_covering_category_defn} !!!!!) is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
+ 		Let $\widetilde\sX \subset \overline \sX$ be a quasi-component of $\overline \sX$.
+ 		From the Lemma \ref{top_discontinuous_lem}	 it follows that  the disconnected infinite noncommutative covering of $	\mathfrak{S}_p$  (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
 		From (iv)  of the Lemma \eqref{top_disconnected_lem} one has
 	\be\nonumber
 \widehat G= \varprojlim_{\la \in \La} G\left(\left.\sX_\la \right|\sX\right).
@@ -10780,7 +10750,7 @@ The natural action $\widehat G\times C_0\left( \overline{   \mathcal X }\right)\
 	$ \widehat G\times  \overline{   \mathcal X} \to C_0\left( \overline{   \mathcal X }\right).
 $
  From the equation \eqref{top_disconnected_eqn} it follows that any quasi-component of $\overline \sX$ is homeomorphic to $\widetilde{\mathcal X}$. 
-	If $\widetilde A \subset C_0\left(\overline{\mathcal X}\right)$ is a connected component of $C_0\left(\overline{\mathcal X}\right)$ (cf. Definition \ref{connected_comp_defn}) then from the Exercise \ref{conn_comp_exer} it turns out that
+	If $\widetilde A \subset C_0\left(\widetilde{\mathcal X}\right)$ is a connected component of $C_0\left(\overline{\mathcal X}\right)$ (cf. Definition \ref{connected_comp_defn}) then from the Exercise \ref{conn_comp_exer} it turns out that
  $$
 \widetilde A \cong  C_0\left(\widetilde{\mathcal X}\right)\cong \left\{\left.\widetilde a \in C_0\left(\overline{\mathcal X}\right)\right|\widetilde a\left( \overline \sX \setminus \widetilde\sX' \right)= \{0\}  \right\}.
  $$
@@ -10808,7 +10778,7 @@ From the above construction one can deduce the following theorem.
 	
 \end{empt}
 
-
+!!! CONTINUE !!!
 
 \begin{theorem}\label{top_main_thm}
 	Under the hypotheses  of the Definition \ref{top_disconnected_defn} which include

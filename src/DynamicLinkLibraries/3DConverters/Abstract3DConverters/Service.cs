@@ -8,13 +8,22 @@ using RealMatrixProcessor;
 
 namespace Abstract3DConverters
 {
+    /// <summary>
+    /// Service
+    /// </summary>
     public class Service
     {
 
         protected static readonly char[] sep = "\r\n ".ToCharArray();
 
+        /// <summary>
+        /// Real matrix operation
+        /// </summary>
         RealMatrix realMatrix = new();
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Service() 
         { 
         
@@ -23,7 +32,11 @@ namespace Abstract3DConverters
 
         #region Service
 
-
+        /// <summary>
+        /// Color from XML element
+        /// </summary>
+        /// <param name="element">The XML element</param>
+        /// <returns>The color</returns>
         public Color GetColor(XmlElement element)
         {
             var s = element.InnerText;
@@ -32,7 +45,12 @@ namespace Abstract3DConverters
 
         }
 
-
+        /// <summary>
+        /// Sets color to XML element
+        /// </summary>
+        /// <param name="element">The element</param>
+        /// <param name="colorName">The name of color</param>
+        /// <param name="color">The color</param>
         public void SetColor(XmlElement element, string colorName, Color color)
         {
             if (color == null)
@@ -42,10 +60,10 @@ namespace Abstract3DConverters
             element.SetAttribute(colorName, "#" + color.ByteValue);
         }
 
-
-        //float[] 
-
-   
+   /// <summary>
+   /// Sets parents for the Dictionary
+   /// </summary>
+   /// <param name="mehses">The dictionary</param>
         public  void SetParents(Dictionary<XmlElement, IParent> mehses)
         {
             foreach (var mesh in mehses.Keys)
@@ -68,6 +86,12 @@ namespace Abstract3DConverters
             }
         }
 
+        /// <summary>
+        /// Transforms a list of arrays to a single array
+        /// </summary>
+        /// <typeparam name="T">The type</typeparam>
+        /// <param name="t">Input</param>
+        /// <returns>Output</returns>
         public IEnumerable<T> ToSingleArray<T>(List<T[]> t) where T :struct
         {
             foreach (var item in t)
@@ -79,6 +103,10 @@ namespace Abstract3DConverters
             }
         }
 
+        /// <summary>
+        ///  Sets parents for dictionary
+        /// </summary>
+        /// <param name="meshes">The dictionary</param>
         public void SetParents(Dictionary<IParent, XmlElement> meshes)
         {
             foreach (var mesh in meshes)
@@ -92,12 +120,22 @@ namespace Abstract3DConverters
             }
         }
 
-
+        /// <summary>
+        /// Gets roots of enumerable
+        /// </summary>
+        /// <param name="meshes">The enumerable</param>
+        /// <returns>The roots</returns>
         public IEnumerable<IParent> GetRoots(IEnumerable<IParent> meshes)
         {
             return meshes.Where(e => e.Parent == null);
         }
 
+        /// <summary>
+        /// Gets images from materials
+        /// </summary>
+        /// <param name="mat">The material</param>
+        /// <returns>The images</returns>
+        /// <exception cref="Exception">The exception</exception>
         public Dictionary<string, Image> GetImages(IEnumerable<Material> mat)
         {
             var d = new Dictionary<string, Image>();
@@ -119,6 +157,11 @@ namespace Abstract3DConverters
             return d;
         }
 
+        /// <summary>
+        /// Gets image from the material
+        /// </summary>
+        /// <param name="mat">The material</param>
+        /// <returns>The image</returns>
         public Image GetImage(Material mat)
         {
             if (mat is DiffuseMaterial diffuse)
@@ -139,6 +182,13 @@ namespace Abstract3DConverters
             return null;
         }
 
+        /// <summary>
+        /// String value of the array
+        /// </summary>
+        /// <typeparam name="T">The type of the array</typeparam>
+        /// <param name="array">The array</param>
+        /// <param name="sep">The separator</param>
+        /// <returns>The string value</returns>
         public string StrinValue<T>(T[] array, string sep = " ") where T : struct
         {
             var s = " ";
@@ -150,6 +200,12 @@ namespace Abstract3DConverters
             return s;
         }
 
+
+        /// <summary>
+        /// Parsing of the float enumerable
+        /// </summary>
+        /// <param name="f">The float enumerable</param>
+        /// <returns>The parsing result</returns>
         public string Parse(IEnumerable<float> f)
         {
             var sb = new StringBuilder();
@@ -164,13 +220,21 @@ namespace Abstract3DConverters
             return s.Substring(0, s.Length - 1);
         }
 
-        
-
+        /// <summary>
+        /// Trims quoted string
+        /// </summary>
+        /// <param name="str">The quoted string</param>
+        /// <returns>The result</returns>
         public string Trim(string str)
         {
             return str.Replace("\"", "").Trim();
         }
 
+        /// <summary>
+        /// Shrinks the string
+        /// </summary>
+        /// <param name="str">The string to shrink</param>
+        /// <returns>The shrink result</returns>
         public string Shrink(string str)
         {
             var s = str.Replace("  ", " ");
@@ -179,11 +243,22 @@ namespace Abstract3DConverters
             return s;
         }
 
+        /// <summary>
+        /// Wraps string
+        /// </summary>
+        /// <param name="str">The string to wrap</param>
+        /// <returns>The string result</returns>
         public string Wrap(string str)
         {
             return "\"" + str + "\"";
         }
 
+        /// <summary>
+        /// To string operation
+        /// </summary>
+        /// <param name="str">The string</param>
+        /// <param name="shift">The shift</param>
+        /// <returns>The result</returns>
         public string ToString(string str, string shift)
         {
             if (str.StartsWith(shift))
@@ -193,6 +268,13 @@ namespace Abstract3DConverters
             return null;
         }
 
+        /// <summary>
+        /// To real operation
+        /// </summary>
+        /// <typeparam name="T">The type</typeparam>
+        /// <param name="str">The string</param>
+        /// <param name="shift">The shift</param>
+        /// <returns>The result</returns>
         public T? ToReal<T>(string str, string shift) where T : struct
         {
             var s = ToString(str, shift);
@@ -203,22 +285,12 @@ namespace Abstract3DConverters
             return ToReal<T>(s);
         }
 
-        private float ToFloat(string str)
-        {
-            return float.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
-        }
-
-        private double ToDouble(string str)
-        {
-            return double.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
-        }
-
-        private int ToInt(string str)
-        {
-            return int.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
-        }
-
-
+        /// <summary>
+        /// Converts string to real array
+        /// </summary>
+        /// <typeparam name="T">The type</typeparam>
+        /// <param name="str">The string</param>
+        /// <returns>The array</returns>
         public T[] ToRealArray<T>(string str) where T : struct
         {
             string[] ss = str.Split(sep);
@@ -234,8 +306,12 @@ namespace Abstract3DConverters
             return l.ToArray();
         }
 
-        Type dt = typeof(double);
-
+        /// <summary>
+        /// Conversion to string
+        /// </summary>
+        /// <typeparam name="T">The type</typeparam>
+        /// <param name="t">The object</param>
+        /// <returns>The string</returns>
         public string ToString<T>(T t) where T : struct
         {
             Type type = typeof(T);
@@ -255,6 +331,12 @@ namespace Abstract3DConverters
             return null;
         }
 
+        /// <summary>
+        /// Converts the string to real
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="s">The type</param>
+        /// <returns>The result</returns>
         public T ToReal<T>(string s) where T : struct
         {
             object obj = null;
@@ -274,40 +356,51 @@ namespace Abstract3DConverters
             return (T)obj;
         }
 
-
+        /// <summary>
+        /// Converts enumerable
+        /// </summary>
+        /// <typeparam name="S">Output type</typeparam>
+        /// <typeparam name="T">Input type</typeparam>
+        /// <param name="input">The input</param>
+        /// <param name="func">The transformation</param>
+        /// <returns>The output</returns>
         public IEnumerable<S> Convert<S, T>(IEnumerable<T> input, Func<T, S> func)
         {
-            foreach (var item in input)
-            {
-                yield return func(item);
-            }
+            return input.Select(e => func(e));
         }
 
+        /// <summary>
+        /// Converts array
+        /// </summary>
+        /// <param name="array">Input</param>
+        /// <returns>Output</returns>
         public double[] Convert(float[] array)
         {
             return Convert(array, x => (double)x).ToArray();
         }
+
+        /// <summary>
+        /// Converts array
+        /// </summary>
+        /// <param name="array">Input</param>
+        /// <returns>Output</returns>
         public float[] Convert(double[] array)
         {
             return Convert(array, x => (float)x).ToArray();
         }
 
+        /// <summary>
+        /// Splits string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>Splitting result</returns>
         public string[] Split(string str)
         {
             return str.Split(sep);
         }
 
- 
-        public List<T[]> ToReal3Array<T>(T[] x) where T : struct
-        {
-            var l = new List<T[]>();
-            for (int i = 0; i < x.Length; i += 3)
-            {
-                l.Add(new T[] { x[i], x[i + 1], x[i + 2] });
-            }
-            return l;
-        }
-
+ //!!!
+  
         public List<T[]> ToArray<T>(List<T> x, int n) where T : class
         {
             var l = new List<T[]>();
@@ -371,7 +464,7 @@ namespace Abstract3DConverters
 
         public List<T[]> ToReal3Array<T>(string str) where T : struct
         {
-            return ToReal3Array(ToRealArray<T>(str));
+            return ToRealArray(ToRealArray<T>(str), 3);
         }
 
         public List<int[][]> ToInt3Array(string str)
@@ -393,9 +486,25 @@ namespace Abstract3DConverters
 
         }
 
-    
+        #endregion
+
+        #region Private members
 
 
+        private float ToFloat(string str)
+        {
+            return float.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
+        }
+
+        private double ToDouble(string str)
+        {
+            return double.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
+        }
+
+        private int ToInt(string str)
+        {
+            return int.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
+        }
 
 
         #endregion

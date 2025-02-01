@@ -161,8 +161,19 @@ namespace Collada.Converters.Classes.Complicated
             {
                 
                 var poly = meshObject.Polygon;
-                var vv = s.ToRealArray<float>(poly.Vertices, 3);
-
+                if (poly == null)
+                {
+                    return new AbstractMesh(name, Creator);
+                }
+                List<float[]> vv = null;
+                if (poly.Vertices != null)
+                {
+                    vv = s.ToRealArray<float>(poly.Vertices, 3);
+                }
+                if (vv == null)
+                {
+                    return new AbstractMesh(name, Creator);
+                }
                 return new AbstractMeshPolygon(name, null, mm, mt, poly.Polygons, vv, null, Creator);
             }
             catch (Exception e)
