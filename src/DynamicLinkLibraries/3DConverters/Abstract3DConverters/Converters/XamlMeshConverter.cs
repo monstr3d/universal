@@ -33,19 +33,22 @@ namespace Abstract3DConverters.Converters
             z.AppendChild(w);
             var v = Create("MeshGeometry3D");
             w.AppendChild(v);
-            if (mesh.Indexes != null & mesh.Vertices != null)
+            var vert = mesh.Vertices;
+            if (mesh.Indexes != null & vert != null)
             {
-                var points = new List<float>();
-                var norm = new List<float>();
-                var textcoord = new List<float>();
-                foreach (var item in mesh.Indexes)
+                var count = vert.Count;
+                if (count > 0)
                 {
-                    foreach (var idx in item)
+                    var points = new List<float>();
+                    var norm = new List<float>();
+                    var textcoord = new List<float>();
+
+                    foreach (var item in mesh.Indexes)
                     {
-                        var kp = idx[0];
-                        if (mesh.Vertices != null)
+                        foreach (var idx in item)
                         {
-                            if (kp >= mesh.Vertices.Count)
+                            var kp = idx[0];
+                            if (kp >= count)
                             {
 
                             }
@@ -54,52 +57,53 @@ namespace Abstract3DConverters.Converters
                             {
                                 points.Add(vv);
                             }
-                        }
-                        if (mesh.Textures != null)
-                        {
-                            kp = idx[1];
-                            if (kp >= 0)
+                            if (mesh.Textures != null)
                             {
-                                if (kp >= mesh.Textures.Count)
-                                {
-
-                                }
-                                var vt = mesh.Textures[kp];
-                                textcoord.Add(vt[0]);
-                                textcoord.Add(1 - vt[1]);
-                            }
-                        }
-                        if (mesh.Normals != null)
-                        {
-                            if (idx.Length > 2)
-                            {
-                                kp = idx[2];
+                                kp = idx[1];
                                 if (kp >= 0)
                                 {
-                                    var vn = mesh.Normals[kp];
-                                    foreach (var vv in vn)
+                                    if (kp >= mesh.Textures.Count)
                                     {
-                                        norm.Add(vv);
+
+                                    }
+                                    var vt = mesh.Textures[kp];
+                                    textcoord.Add(vt[0]);
+                                    textcoord.Add(1 - vt[1]);
+                                }
+                            }
+                            if (mesh.Normals != null)
+                            {
+                                if (idx.Length > 2)
+                                {
+                                    kp = idx[2];
+                                    if (kp >= 0)
+                                    {
+                                        var vn = mesh.Normals[kp];
+                                        foreach (var vv in vn)
+                                        {
+                                            norm.Add(vv);
+                                        }
                                     }
                                 }
                             }
+                            if (points.Count > 0)
+                            {
+                                v.SetAttribute("Positions", s.Parse(points));
+                            }
+                            if (textcoord.Count > 0)
+                            {
+                                v.SetAttribute("TextureCoordinates", s.Parse(textcoord));
+                            }
+                            if (norm.Count > 0)
+                            {
+                                v.SetAttribute("Normals", s.Parse(norm));
+                            }
                         }
                     }
-                }
-                if (points.Count > 0)
-                {
-                    v.SetAttribute("Positions", s.Parse(points));
-                }
-                if (textcoord.Count > 0)
-                {
-                    v.SetAttribute("TextureCoordinates", s.Parse(textcoord));
-                }
-                if (norm.Count > 0)
-                {
-                    v.SetAttribute("Normals", s.Parse(norm));
-                }
 
+                }
             }
+
             var mat = mesh.Material;
             if (mat != null)
             {
@@ -110,7 +114,7 @@ namespace Abstract3DConverters.Converters
             }
             return x;
         }
-
+  
 
         protected override void SetTransformation(object mesh, float[] transformation)
         {

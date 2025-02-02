@@ -13,7 +13,8 @@ namespace Abstract3DConverters.Meshes
 
         List<Material> materials;
 
-        int count;
+        int count = 0;
+  
 
         List<string> l;
 
@@ -24,16 +25,18 @@ namespace Abstract3DConverters.Meshes
         }
 
 
-        public AbstractMeshAC(AbstractMesh parent, string name,  AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
+        public AbstractMeshAC(AbstractMesh parent, string name,  AcCreator creator, int count, List<string> l, List<Material> materials,  string directory) :
             base(name, parent, null, creator)
         {
+            var pos = creator.Position;
             this.count = count;
             this.materials = materials;
             this.l = l;
             int nv = -1;
             int ns = -1;
             this.creator = creator;
-            for (int i = 0; i < l.Count; i++)
+            int txt = 0;
+            for (int i = pos; i < l.Count; i++)
             {
                 var line = l[i];
                 var loc = s.ToString(line, "loc ");
@@ -91,15 +94,14 @@ namespace Abstract3DConverters.Meshes
                             var rf = refs.Value;
                             var p = k + 1;
                             var pp = new List<Point>();
-                            int j = 0;
                             for (; p < l.Count; p++)
                             {
                                 var il = l[p];
                                 var ss = s.Split(il);
-                                var t = new Point(s.ToReal<int>(ss[0].Trim()), j, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
+                                var t = new Point(s.ToReal<int>(ss[0].Trim()), txt, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
-                                ++j;
+                                ++txt;
                                 if (pp.Count == rf)
                                 {
                                     break;

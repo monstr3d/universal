@@ -57,7 +57,7 @@ namespace Collada.Converters.MeshConverters
             get
             {
                 ++matName;
-                return "nat" + matName;
+                return "mat" + matName;
             }
         }
 
@@ -129,13 +129,8 @@ namespace Collada.Converters.MeshConverters
         protected abstract void Load();
         protected override XmlElement Create(AbstractMesh mesh)
         {
-            if (mesh is AbstractMeshPolygon mp)
-            {
-                mp.CreateTriangles();
-            }
             var node = Create("node");
             var pmesh = Process(node, mesh);
-            //   mesh.Children.Select(e => Create(node, e)).ToList();
             nodesDic[mesh] = node;
             if (mesh.Vertices != null)
             {
@@ -223,9 +218,11 @@ namespace Collada.Converters.MeshConverters
                     var vcount = new List<int>();
                     var p = new List<int>();
                     var ln = new List<int[][]>();
+                    int gg = 0;
                     foreach (var polygon in pol)
                     {
-                        int[][] kk = new int[polygon.Points.Count][];
+                        var count = polygon.Points.Count;
+                        int[][] kk = new int[count][];
                         ln.Add(kk);
                         var nn = 0;
                         var points = polygon.Points;

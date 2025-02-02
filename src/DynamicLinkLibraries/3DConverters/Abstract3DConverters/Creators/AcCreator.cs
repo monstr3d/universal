@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using Abstract3DConverters.Materials;
+﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
@@ -14,7 +12,13 @@ namespace Abstract3DConverters.Creators
 
         internal static   string[] Colstr = ["rgb", "amb", "emis", "spec", "shi", "trans"];
 
-        int last = 0;
+
+        internal int Position
+        {
+            get;
+            set;
+        } = 0;
+
 
         internal int[] Shift { get; private set; } = [0, 0, 0];
 
@@ -45,6 +49,7 @@ namespace Abstract3DConverters.Creators
 
         #endregion
 
+ 
         void CreateMaterials(List<string> lines)
         {
             foreach (var line in lines)
@@ -165,24 +170,31 @@ namespace Abstract3DConverters.Creators
     
         public IEnumerable<AbstractMesh> Create(AbstractMesh parent, List<string> lines, int start = 0, int current = -1)
         {
+            if (Position >= lines.Count)
+            {
+                yield break;
+            }
+
             if (current == 0)
             {
                 yield break;
             }
-            for (var i = start; i < lines.Count; i++)
+            var st = Math.Max(start, Position);
+            if (st >= lines.Count)
+            {
+                yield break;
+            }
+            string name = st == 0 ? "" : null;
+            for (var i = st; i < lines.Count; i++)
             {
                 var line = lines[i];
-                string name = start == 0 ? "" : null;
                 var counter = 0;
                 if (line.StartsWith("OBJECT"))
                 {
-                    var nl = new List<string>();
                     for (var j = i; j < lines.Count; j++)
                     {
                         i = j;
-                        last = j;
                         var l = lines[j];
-                        nl.Add(l);
                         if (name == null)
                         {
                             name = s.ToString(l, "name ");
@@ -191,16 +203,36 @@ namespace Abstract3DConverters.Creators
                         var cnt = s.ToReal<int>(l, "kids ");
                         if (cnt != null)
                         {
+                            var pos = j + 1;
                             var count = cnt.Value;
-                            var am = new AbstractMeshAC(parent, name, this, count, nl, MaterialsP, directory);
+                            if (Position >= lines.Count)
+                            {
+                                yield break;
+                            }
+                            var am = new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
                             name = null;
-                            nl = new();
                             i = j + 1;
                             yield return am;
-                            counter++;
+                            if (pos > Position)
+                            {
+                                Position = pos;
+                            }
+                            else
+                            {
+                            }
+                            if (Position >= lines.Count)
+                            {
+                                yield break;
+                            }
+                           counter++;
                             if (counter == current)
                             {
                                 yield break;
+                            }
+
+                            if (count == 0)
+                            {
+                                continue;
                             }
                             var enu = Create(am, lines, j, count).ToArray();
                             foreach (var a in enu)
@@ -208,7 +240,6 @@ namespace Abstract3DConverters.Creators
                                 a.Parent = am;
                             }
                         }
-                        j = last;
                     }
                 }
             }
