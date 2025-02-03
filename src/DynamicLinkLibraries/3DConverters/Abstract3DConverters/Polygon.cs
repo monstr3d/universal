@@ -6,7 +6,7 @@ namespace Abstract3DConverters
     /// <summary>
     /// Polygon
     /// </summary>
-    public class Polygon
+    public class PolygonLocal
     {
         /// <summary>
         /// Points
@@ -23,7 +23,7 @@ namespace Abstract3DConverters
         /// </summary>
         /// <param name="points">Points</param>
         /// <param name="material">Material</param>
-        public Polygon(List<PointAC> points, Material material)
+        public PolygonLocal(List<PointAC> points, Material material)
         {
             if (material == null)
             {

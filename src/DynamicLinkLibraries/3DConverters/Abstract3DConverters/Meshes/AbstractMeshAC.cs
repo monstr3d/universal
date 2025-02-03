@@ -2,17 +2,19 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using Microsoft.VisualBasic;
 
 namespace Abstract3DConverters.Meshes
 {
     internal class AbstractMeshAC : AbstractMeshPolygon
     {
 
-        List<int> mats = new List<int>();
-
+    
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
 
-        List<Material> materials;
+        List<Material> materials = new();
+
+        List<string> mats = new List<string>()]
 
         int count = 0;
   
@@ -29,6 +31,7 @@ namespace Abstract3DConverters.Meshes
         public AbstractMeshAC(AbstractMesh parent, string name,  AcCreator creator, int count, List<string> l, List<Material> materials,  string directory) :
             base(name, parent, null, creator)
         {
+            var dd = new Dictionary<int, float[]>();
             var pos = creator.Position;
             this.count = count;
             this.materials = materials;
@@ -37,6 +40,8 @@ namespace Abstract3DConverters.Meshes
             int ns = -1;
             this.creator = creator;
             int txt = 0;
+            var ds = new Dictionary<int, float[]>();
+            var vrt = new List<float[]>();
             for (int i = pos; i < l.Count; i++)
             {
                 var line = l[i];
@@ -63,7 +68,9 @@ namespace Abstract3DConverters.Meshes
                     var j = i + 1;
                     for (; j < nv + i + 1; j++)
                     {
-                        v.Add(s.ToRealArray<float>(l[j]));
+                        var vertex = s.ToRealArray<float>(l[j]);
+                        v.Add(vertex);
+                        vrt.Add(vertex);
                     }
                     i = j - 1;
                     continue;
@@ -74,6 +81,47 @@ namespace Abstract3DConverters.Meshes
                     ns = numsurf.Value;
                     int mt = -1;
                     var nc = numsurf.Value;
+                    ++i;
+                    for (var surf = 0; surf < nc; surf++)
+                    {
+                        i += 2;
+                        var mp = s.ToReal<int>(l[i], "mat ");
+                        mt = mp.Value;
+                        var material = materials[mt];
+                        var mn = material.Name;
+                        if (!mats.Contains(mn))
+                        {
+                            mats.Add(mn);
+                        }
+                        ++i;
+                        var refs = s.ToReal<int>(l[i], "refs ");
+                        var lp = new List<int>();
+                        var rf = refs.Value;
+
+                        for (var rr = 0; rr < rf; rr++)
+                        {
+                            ++i;
+                            var lp = new List<int>();
+                            for (; p < l.Count; p++)
+                            {
+                                var il = l[p];
+                                var ss = s.Split(il);
+                                var key = s.ToReal<int>(ss[0].Trim());
+                                lp.Add(key);
+                                if (!dd.ContainsKey(key))
+                                {
+                                    dd[key] = new float[] { s.ToReal<float>(ss[1].Trim()),
+                                    s.ToReal< float >(ss[2].Trim()) };
+                                }
+                                else
+                                {
+
+                                }
+
+                            }
+
+
+                        }
                     var k = i + 1;
                     for (; k < l.Count; k++)
                     {
@@ -92,33 +140,53 @@ namespace Abstract3DConverters.Meshes
                         var refs = s.ToReal<int>(l[k], "refs ");
                         if (refs != null)
                         {
+                            if (Polygons == null)
+                            {
+                                Polygons = new();
+                            }
                             var rf = refs.Value;
                             var p = k + 1;
                             var pp = new List<PointAC>();
+                            var lp = new List<int>();
                             for (; p < l.Count; p++)
                             {
                                 var il = l[p];
                                 var ss = s.Split(il);
-                                var t = new PointAC(s.ToReal<int>(ss[0].Trim()), txt, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
+                                var key = s.ToReal<int>(ss[0].Trim());
+                                lp.Add(key);
+                                if (!dd.ContainsKey(key))
+                                {
+                                    dd[key] = new float[] { s.ToReal<float>(ss[1].Trim()),
+                                    s.ToReal< float >(ss[2].Trim()) };
+                                }
+                                else
+                                {
+
+                                }
+                                if (false)
+                                {
+                                    var t = new PointAC(s.ToReal<int>(ss[0].Trim()), txt, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal< float >(ss[2].Trim()) });
-                                pp.Add(t);
-                                ++txt;
-                                if (pp.Count == rf)
+                                    pp.Add(t);
+                                    ++txt;
+                                }
+                                if (lp.Count == rf)
                                 {
                                     break;
                                 }
 
                             }
-                            var matetrial = materials[mt];
+                            
+                            var material = materials[mt];
                             if (Image != null)
                             {
-                                matetrial = matetrial.SetImage(Image);
+                                material = material.SetImage(Image);
                             }
                             else
                             {
-                                matetrial = matetrial.Clone() as Material;
+                                material = material.Clone() as Material;
                             }
-                            var polygon = new Polygon(pp, matetrial);
+                            var polygon = new Polygon(lp.ToArray(), material);
                             dp[polygon] = mt;
                             Polygons.Add(polygon);
                         }
@@ -150,10 +218,22 @@ namespace Abstract3DConverters.Meshes
                     continue;
                 }
             }
-            Disintegrate();
+            if (vrt != null)
+            {
+                if (vrt.Count > 0)
+                {
+                    Points = new List<Point>();
+                    for (var h = 0; h < vrt.Count; h++)
+                    {
+                        var point = new Point(vrt[h], dd[h], null);
+                        Points.Add(point);
+                    }
+                }
+            }
+         //   Disintegrate();
         }
 
-        private AbstractMeshAC(AbstractMeshAC parent, Polygon polygon, Material material, Image image, IMeshCreator creator) :
+        private AbstractMeshAC(AbstractMeshAC parent, PolygonLocal polygon, Material material, Image image, IMeshCreator creator) :
             base(parent.Name + Path.GetRandomFileName(), parent, null, creator)
         {
             Vertices = new List<float[]>();
@@ -188,8 +268,6 @@ namespace Abstract3DConverters.Meshes
                 var im = image.Clone() as Image;
                 material = material.SetImage(im);
             }
-            var pol = new Polygon(l, material);
-            Polygons.Add(pol);
             Material = material.Clone() as Material;
             if (image != null & !Material.HasImage)
             {
@@ -200,14 +278,14 @@ namespace Abstract3DConverters.Meshes
         }
 
         protected  void Disintegrate()
-        {
+        {/*
             if (mats.Count > 1)
             {
                 if (Vertices != null)
                 {
                     if (Vertices.Count > 0)
                     {
-                        foreach (Polygon p in Polygons)
+                        foreach (PolygonLocal p in Polygons)
                         {
                             int h = 0;
                             h = dp[p];
@@ -219,7 +297,7 @@ namespace Abstract3DConverters.Meshes
                     Polygons.Clear();
                     Image = null;
                 }
-            }
+            }*/
         }
     }
 }

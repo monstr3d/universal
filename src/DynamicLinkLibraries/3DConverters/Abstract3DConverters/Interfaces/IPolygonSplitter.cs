@@ -1,4 +1,6 @@
-﻿namespace Abstract3DConverters.Interfaces
+﻿using Abstract3DConverters.Points;
+
+namespace Abstract3DConverters.Interfaces
 {
     /// <summary>
     /// Splitter of polygon
@@ -6,10 +8,12 @@
     public interface IPolygonSplitter
     {
         /// <summary>
-        /// Splits polygon
+        /// Splits Polygon
         /// </summary>
         /// <param name="polygon">The polygon</param>
+        /// <param name="points">The points</param>
         /// <returns>The split result</returns>
-        Polygon[] this[Polygon polygon] { get; }
+        List<Polygon> this[Polygon polygon, List<Point> points] { get; }
+
     }
 }

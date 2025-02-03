@@ -156,7 +156,7 @@ namespace Abstract3DConverters.Meshes
                 dp[x] = Points.Count;
                 Points.Add(points[x]);
             }
-            PolygonIndexes = new();
+            Polygons = new();
             foreach (var ind in indexes)
             {
                 var li = new List<int>();
@@ -164,7 +164,8 @@ namespace Abstract3DConverters.Meshes
                 {
                     li.Add(dp[item[0]]);
                 }
-                PolygonIndexes.Add(li.ToArray());
+                var pl = new Polygon(li.ToArray(), material);
+                Polygons.Add(pl);
             }
         }
     }

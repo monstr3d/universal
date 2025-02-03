@@ -114,8 +114,8 @@ namespace Collada.Converters.Classes.Complicated
                         ++k;
                         points.Add(point);
                     }
-                    var polygon = new Polygon(points, Material);
-                    Polygons.Add(polygon);
+              ///      var polygon = new Polygon(points, Material);
+              //      Polygons.Add(polygon);
                 }
             }
             catch (Exception exception)

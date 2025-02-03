@@ -191,58 +191,58 @@ namespace Collada.Converters.MeshConverters
 
         string CreateGeometry(AbstractMesh mesh)
         {
-            var name = GeomName;
-            var e = Create("geometry");
-            e.SetAttribute("id", name);
-            var r = doc.GetElementsByTagName("library_geometries")[0];
-            r.AppendChild(e);
-            var me = Create("mesh");
-            e.AppendChild(me);
-            if (mesh is AbstractMeshPolygon poly)
-            {
-                if (mesh.Vertices != null)
-                {
-                    var se = Create("source");
-                    me.AppendChild(se);
-                    se.SetAttribute("id", name + "-position");
-                    se.SetAttribute("name", "position");
-                    var vert = s.ToSingleArray(mesh.Vertices).ToArray();
-                    CreateFloatArray(se, name + "-position-array", vert);
-                    CreateTechnique_XYZ(se, name + "-position-array", vert);
-                    se = Create("source");
-                    me.AppendChild(se);
-                    se.SetAttribute("id", name + "-texcoord");
-                    se.SetAttribute("name", "texcoord");
-                    var l = new List<float[]>();
-                    var pol = poly.Polygons;
-                    var vcount = new List<int>();
-                    var p = new List<int>();
-                    var ln = new List<int[][]>();
-                    int gg = 0;
-                    foreach (var polygon in pol)
+            /*        var name = GeomName;
+                    var e = Create("geometry");
+                    e.SetAttribute("id", name);
+                    var r = doc.GetElementsByTagName("library_geometries")[0];
+                    r.AppendChild(e);
+                    var me = Create("mesh");
+                    e.AppendChild(me);
+                    if (mesh is AbstractMeshPolygon poly)
                     {
-                        var count = polygon.Points.Count;
-                        int[][] kk = new int[count][];
-                        ln.Add(kk);
-                        var nn = 0;
-                        var points = polygon.Points;
-                        vcount.Add(points.Count);
-                        foreach (var point in points)
+                        if (mesh.Vertices != null)
                         {
-                            int[] id = [point.Vertex, point.Textrure, point.Normal];
-                            kk[nn] = id;
-                            foreach (var tt in id)
+                            var se = Create("source");
+                            me.AppendChild(se);
+                            se.SetAttribute("id", name + "-position");
+                            se.SetAttribute("name", "position");
+                            var vert = s.ToSingleArray(mesh.Vertices).ToArray();
+                            CreateFloatArray(se, name + "-position-array", vert);
+                            CreateTechnique_XYZ(se, name + "-position-array", vert);
+                            se = Create("source");
+                            me.AppendChild(se);
+                            se.SetAttribute("id", name + "-texcoord");
+                            se.SetAttribute("name", "texcoord");
+                            var l = new List<float[]>();
+                            var pol = poly.Polygons;
+                            var vcount = new List<int>();
+                            var p = new List<int>();
+                            var ln = new List<int[][]>();
+                            int gg = 0;
+                            foreach (var polygon in pol)
                             {
-                                if (tt >= 0)
+                                var count = polygon.Indexes.Count;
+                                int[][] kk = new int[count][];
+                                ln.Add(kk);
+                                var nn = 0;
+                                var points = polygon.Indexes;
+                                vcount.Add(points.Count);
+                                foreach (var point in points)
                                 {
-                                    p.Add(tt);
-                                }
-                            }
-                            /*    for (var i = 0; i < 2; i++)
-                                {
-                                    l.Add(point.Data[i]);
-                                }*/
-                            l.Add([point.Data[0],point.Data[1]]);
+                                    int[] id = [point.Vertex, point.Textrure, point.Normal];
+                                    kk[nn] = id;
+                                    foreach (var tt in id)
+                                    {
+                                        if (tt >= 0)
+                                        {
+                                            p.Add(tt);
+                                        }
+                                    }
+                                    /*    for (var i = 0; i < 2; i++)
+                                        {
+                                            l.Add(point.Data[i]);
+                  /*                      }*/
+            /*                l.Add([point.Data[0],point.Data[1]]);
                         }
                     }
                     var txt = l;
@@ -388,6 +388,8 @@ namespace Collada.Converters.MeshConverters
                 }
             }
             return name;
+            */
+            return "";
         }
 
 

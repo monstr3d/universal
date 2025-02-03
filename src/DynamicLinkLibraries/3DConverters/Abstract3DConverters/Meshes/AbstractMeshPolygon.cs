@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using System.Xml.Linq;
 
 namespace Abstract3DConverters.Meshes
 {
@@ -58,22 +59,22 @@ namespace Abstract3DConverters.Meshes
         /// <param name="material">The material</param>
         /// <param name="polygons">Polygons</param>
         /// <param name="creator">The creator of mesh</param>
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator, List<Polygon> polygons) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator, List<PolygonLocal> polygons) :
             this(name, parent, matrix, material, creator)
         {
             foreach (var p in polygons)
             {
-                Polygons.Add(p);
+              //  Polygons.Add(p);
             }
         }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<Polygon> polygons, IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<PolygonLocal> polygons, IMeshCreator creator) :
       this(name, parent, null, creator)
         {
             Material = material;
             foreach (var p in polygons)
             {
-                Polygons.Add(p);
+                //Polygons.Add(p);
             }
         }
 
@@ -89,7 +90,7 @@ namespace Abstract3DConverters.Meshes
         /// <param name="normals">Normals</param>
         /// <param name="creator">The creator of mesh</param>
         public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, 
-            List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
+            List<PolygonLocal> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
             this(name, parent, matrix, material, polygons, creator)
         {
             Vertices = vertices;
@@ -99,15 +100,6 @@ namespace Abstract3DConverters.Meshes
         #endregion
 
         #region Members
-
-        /// <summary>
-        /// Polygons
-        /// </summary>
-        public List<Polygon> Polygons
-        {
-            get;
-            private set;
-        } = new List<Polygon>();
 
         /// <summary>
         /// Creates triangles
@@ -125,46 +117,33 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         protected void CreateFromPolygons()
         {
-            if (Polygons.Count > 0 & !trianglesCreated)
+
+            if (Polygons == null | trianglesCreated | Points == null)
             {
-                List<Polygon> polygons = new List<Polygon>();
-                foreach (var polygon in Polygons)
+                return;
+            }
+            if (Polygons.Count == 0 | Points.Count == 0)
+            {
+                return;
+            }
+            var l = new List<int[]>();
+    /*        foreach (var item in PolygonIndexes)
+            {
+                if (item.Length <= 3)
                 {
-                    if (polygon.Points.Count <= 3)
-                    {
-                        polygons.Add(polygon);
-                    }
-                    else
-                    {
-                        var pp = splitter[polygon];
-                        foreach (var p in pp)
-                        {
-                            polygons.Add(p);
-                        }
-                    }
+                    l.Add(item);
+                    continue;
                 }
-                var idx = new List<int[][]>();
-                Indexes = idx;
-                var txt = new List<float[]>();
-                Textures = txt;
-                var k = 0;
-                foreach (var p in polygons)
+                var pp = splitter[item, Points];
+                foreach (var p in pp)
                 {
-                    var t = p.Points;
-                    var ii = new int[t.Count][];
-                    idx.Add(ii);
-                    for (int j = 0; j < t.Count; j++)
-                    {
-                        var pp = t[j];
-                        var iii = new int[] { pp.Vertex, k, pp.Normal };
-                        ii[j] = iii;
-                        txt.Add(pp.Data);
-                        ++k;
-                    }
+                    l.Add(p);
                 }
             }
+            PolygonIndexes = l;*/
 
-            #endregion
         }
+
+        #endregion
     }
 }

@@ -174,7 +174,7 @@ namespace Collada.Converters.Classes.Complicated
                 {
                     return new AbstractMesh(name, Creator);
                 }
-                return new AbstractMeshPolygon(name, null, mm, mt, poly.Polygons, vv, null, Creator);
+                return null;// new AbstractMeshPolygon(name, null, mm, mt, poly.Polygons, vv, null, Creator);
             }
             catch (Exception e)
             {

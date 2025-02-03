@@ -152,16 +152,16 @@ namespace Abstract3DConverters.Converters
             l.Add("numsurf " + polygon.Polygons.Count);
             foreach (var poly in polygon.Polygons)
             {
-                var mt = poly.MaterialName;
-                var i = dm[mt];
+                var mt = poly.Material;
+                var i = dm[mt.Name];
                 l.Add("mat " + i);
-                var points = poly.Points;
+  /*              var points = poly.Indexes;
                 l.Add("refs " + points.Count);
                 foreach (var point in points)
                 {
                     var s = "" + point.Vertex + " " + point.Data[0] + " " + point.Data[1];
                     l.Add(s);
-                }
+                }*/
             }
             l.Add("kids " + polygon.Children.Count);
             return l;

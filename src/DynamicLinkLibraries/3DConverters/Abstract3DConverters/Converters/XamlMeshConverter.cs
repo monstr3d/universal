@@ -92,9 +92,9 @@ namespace Abstract3DConverters.Converters
                 v.SetAttribute("Normals", s.Parse(ln));
             }
             var sb = new StringBuilder();
-            foreach (var pl in mesh.PolygonIndexes)
+            foreach (var pl in mesh.Polygons)
             {
-                foreach (var pll in pl)
+                foreach (var pll in pl.Indexes)
                 {
                     sb.Append(" " + pll);
                 }

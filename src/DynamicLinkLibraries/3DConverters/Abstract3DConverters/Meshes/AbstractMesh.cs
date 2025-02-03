@@ -210,7 +210,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Indexes of triangles;
         /// </summary>
-        public List<int[]> PolygonIndexes { get; protected set; }
+        public List<Polygon> Polygons { get; protected set; }
 
         /// <summary>
         /// Name
