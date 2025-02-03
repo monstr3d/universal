@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using Abstract3DConverters.Points;
 using EarClipperLib;
 using ErrorHandler;
 
@@ -93,13 +94,13 @@ namespace EarClipperSplitter
                 
                 for (var i = 0; i < res.Count; i+= 3)
                 {
-                    var t = new List<Point>();
+                    var t = new List<PointAC>();
                    for (var j = 0; j < 3; j++) 
                     {
                         var k = i + j;
                         var ind = l[k];
                         var pt = dd[ind];
-                        t.Add(new Point(d1[pt], d2[pt], d3[pt], pt));
+                        t.Add(new PointAC(d1[pt], d2[pt], d3[pt], pt));
 
                     }
                    pp.Add(new Polygon(t, mat));

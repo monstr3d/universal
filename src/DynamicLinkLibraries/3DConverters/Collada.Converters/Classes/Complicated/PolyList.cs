@@ -8,6 +8,7 @@ using Collada.Converters.Classes.Elementary;
 using ErrorHandler;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using Abstract3DConverters.Points;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -106,10 +107,10 @@ namespace Collada.Converters.Classes.Complicated
                 var pp = p.Value;
                 foreach (var item in vcount)
                 {
-                    var points = new List<Point>();
+                    var points = new List<PointAC>();
                     for (var i = 0; i < item; i++)
                     {
-                        var point = new Point(k, pp[k], -1, txt[k]);
+                        var point = new PointAC(k, pp[k], -1, txt[k]);
                         ++k;
                         points.Add(point);
                     }

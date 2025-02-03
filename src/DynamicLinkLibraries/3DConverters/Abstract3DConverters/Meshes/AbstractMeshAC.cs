@@ -1,6 +1,7 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Meshes
 {
@@ -93,12 +94,12 @@ namespace Abstract3DConverters.Meshes
                         {
                             var rf = refs.Value;
                             var p = k + 1;
-                            var pp = new List<Point>();
+                            var pp = new List<PointAC>();
                             for (; p < l.Count; p++)
                             {
                                 var il = l[p];
                                 var ss = s.Split(il);
-                                var t = new Point(s.ToReal<int>(ss[0].Trim()), txt, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
+                                var t = new PointAC(s.ToReal<int>(ss[0].Trim()), txt, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal< float >(ss[2].Trim()) });
                                 pp.Add(t);
                                 ++txt;
@@ -175,10 +176,10 @@ namespace Abstract3DConverters.Meshes
                 }
                 Vertices.Add(parent.Vertices[key]);
             }
-            var l = new List<Point>();
+            var l = new List<PointAC>();
             foreach (var p in polygon.Points)
             {
-                var t = new Point(d[p.Vertex], p.Textrure, p.Normal, p.Data);
+                var t = new PointAC(d[p.Vertex], p.Textrure, p.Normal, p.Data);
                 l.Add(t);
             }
             if (image != null)

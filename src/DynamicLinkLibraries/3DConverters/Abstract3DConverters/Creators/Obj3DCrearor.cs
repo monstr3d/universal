@@ -407,11 +407,19 @@ namespace Abstract3DConverters.Creators
             Material material = null;
             string name = null;
             var shift = new int[] { 1, 1, 1 };
+            int ii = 0;
             foreach (var line in lines)
             {
+                ++ii;
                 var objName = s.ToString(line, "# object");
                 if (objName != null)
                 {
+                    var models =     CreateModels(objName, ii);
+                    foreach (var m in models)
+                    {
+                        yield return m;
+                    }
+                    yield break;
                     if (name != null)
                     {
 
@@ -505,6 +513,22 @@ namespace Abstract3DConverters.Creators
 
             }
         }
+
+        IEnumerable<AbstractMesh> CreateModels(string name, int begin)
+        {
+            var n = name;
+            string nn = null;
+            int end = 0;
+            int[] shift = [1, 1, 1];
+            do
+            {
+                var m = new AbstractMeshObj(n, this, begin, out end, out nn, shift, lines);
+                yield return m;
+                begin = end;
+                n = nn;
+            }
+            while (n != null);
+        }
    
         void Create(string name = null)
         {
@@ -515,8 +539,11 @@ namespace Abstract3DConverters.Creators
             List<int[][]> triangles = new();
             string material = null;
 
+            var b = 0;
+
             foreach (var line in lines)
             {
+                ++b;
                 if (line == null)
                 {
                     var model = new AbstractMesh(name, this, material, vertices, normals, textures, triangles);
@@ -546,6 +573,7 @@ namespace Abstract3DConverters.Creators
                 if (line.Contains(objs))
                 {
                     var lt = line.Substring(objs.Length).Trim();
+               //    return CreateModels(lt, b);
                     if (name == null)
                     {
                         if (currName == null)

@@ -31,8 +31,78 @@ namespace Abstract3DConverters.Converters
             y.AppendChild(z);
             var w = Create("GeometryModel3D.Geometry");
             z.AppendChild(w);
+            var mat = mesh.Material;
+            if (mat != null)
+            {
+                var mr = Create("GeometryModel3D.Material");
+                z.AppendChild(mr);
+                var max = materialCreator.Create(mat) as XmlElement;
+                mr.AppendChild(max);
+            }
+
             var v = Create("MeshGeometry3D");
             w.AppendChild(v);
+            var pts = mesh.Points;
+            if (pts == null)
+            {
+                return x;
+            }
+            if (pts.Count == 0)
+            {
+                return x;
+            }
+            var lv = new List<float>();
+            var lt = new List<float>();
+            var ln = new List<float>();
+            foreach (var point in mesh.Points)
+            {
+                var vt = point.Vertex;
+                if (vt != null)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        lv.Add(vt[i]);
+                    }
+                }
+                vt = point.Texture;
+                if (vt != null)
+                {
+                    lt.Add(vt[0]);
+                    lt.Add(1f - vt[1]);
+                }
+                vt = point.Normal;
+                if (vt != null)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        ln.Add(vt[i]);
+                    }
+                }
+            }
+          if (lv.Count > 0)
+            {
+                v.SetAttribute("Positions", s.Parse(lv));
+            }
+            if (lt.Count > 0)
+            {
+                v.SetAttribute("TextureCoordinates", s.Parse(lt));
+            }
+            if (ln.Count > 0)
+            {
+                v.SetAttribute("Normals", s.Parse(ln));
+            }
+            var sb = new StringBuilder();
+            foreach (var pl in mesh.PolygonIndexes)
+            {
+                foreach (var pll in pl)
+                {
+                    sb.Append(" " + pll);
+                }
+            }
+            var str = sb.ToString();
+            v.SetAttribute("TriangleIndices", str.Substring(1));
+ 
+            return x;
             var vert = mesh.Vertices;
             if (mesh.Indexes != null & vert != null)
             {
@@ -104,14 +174,6 @@ namespace Abstract3DConverters.Converters
                 }
             }
 
-            var mat = mesh.Material;
-            if (mat != null)
-            {
-                var mr = Create("GeometryModel3D.Material");
-                z.AppendChild(mr);
-                var max = materialCreator.Create(mat) as XmlElement;
-                mr.AppendChild(max);
-            }
             return x;
         }
   

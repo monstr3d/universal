@@ -1,6 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-
+using Abstract3DConverters.Points;
 using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
@@ -30,7 +30,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// The "triangles created@ sign
         /// </summary>
-        protected bool trianlesCreared = false;
+        protected bool trianglesCreated = false;
     
         Material mat;
 
@@ -125,7 +125,7 @@ namespace Abstract3DConverters.Meshes
         #region IParent implementation
 
         /// <summary>
-        /// Parenr
+        /// Parent
         /// </summary>
         IParent IParent.Parent
         {
@@ -173,6 +173,15 @@ namespace Abstract3DConverters.Meshes
         }
 
         /// <summary>
+        /// Points
+        /// </summary>
+        public List<Point> Points
+        {
+            get;
+            protected set;
+        }
+
+        /// <summary>
         /// Children
         /// </summary>
         public List<AbstractMesh> Children { get; } = new();
@@ -196,6 +205,12 @@ namespace Abstract3DConverters.Meshes
         /// Indexes
         /// </summary>
         public List<int[][]> Indexes { get; protected set; }
+        
+
+        /// <summary>
+        /// Indexes of triangles;
+        /// </summary>
+        public List<int[]> PolygonIndexes { get; protected set; }
 
         /// <summary>
         /// Name
@@ -254,11 +269,11 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         public virtual void CreateTriangles()
         {
-            if (trianlesCreared)
+            if (trianglesCreated)
             {
                 return;
             }
-            trianlesCreared = true;
+            trianglesCreated = true;
             foreach (var t in Children)
             {
                 t.CreateTriangles();

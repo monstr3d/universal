@@ -115,9 +115,9 @@ namespace Abstract3DConverters.Meshes
         public override void CreateTriangles()
         {
             base.CreateTriangles();
-            trianlesCreared = false;
+            trianglesCreated = false;
             CreateFromPolygons();
-            trianlesCreared = true;
+            trianglesCreated = true;
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         protected void CreateFromPolygons()
         {
-            if (Polygons.Count > 0 & !trianlesCreared)
+            if (Polygons.Count > 0 & !trianglesCreated)
             {
                 List<Polygon> polygons = new List<Polygon>();
                 foreach (var polygon in Polygons)
