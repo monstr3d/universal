@@ -180,10 +180,13 @@ namespace Abstract3DConverters.Creators
                     {
                         yield return new AbstractMeshAC(null, MaterialsP, lines, this);
                     }
-                    while (Position <= lines.Count -1);
+                    while (Position <= lines.Count - 1);
+                    yield break;
                 }
-                //new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
             }
+                yield break;
+                //new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
+ 
             
             if (Position >= lines.Count)
             {

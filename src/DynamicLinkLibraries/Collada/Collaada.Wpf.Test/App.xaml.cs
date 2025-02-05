@@ -88,7 +88,7 @@ namespace Collaada.Wpf.Test
         void GenerateXaml()
         {
              //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
-            //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+           //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
 
        //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin2l03rkr0.nkf1.5.0.dae");
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.dae");
@@ -100,8 +100,8 @@ namespace Collaada.Wpf.Test
             //         GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154BFROMAC.dae");
 
 
-           //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
-            GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+             GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+          //  GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
 
         }

@@ -8286,7 +8286,7 @@ Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove followi
 
 
 \section{Sheaves lift and descent}
-\subsection{Inverse images lift and descent}
+\subsection{Inverse images lift and descent}\label{sheave_lift_desc_sec}
 \paragraph*{}
 If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image}  $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
 \be\label{top_cs_sheaf_inc_eqn}
@@ -11819,145 +11819,129 @@ from  the Lemma \ref{top_compact_la_lem}  there are an open subset $\widetilde{ 
 	Any element  $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ is $\mathfrak{S}_{\left(\Coo\left(M \right) , \sH,\Dslash , J\right)}$- {smooth} (cf. Definition \ref{smooth_el_defn}).
 \end{lemma}
 \begin{proof}
-	!!!!
+One needs check conditions (a)-(c) of the Definition \ref{smooth_el_defn}. 
+	 	\begin{enumerate}
+	\item[(a)]  Follows from the Theorem \ref{top_compact_thm}.
+	\item[(b)] Follows from the Lemma \ref{top_smooth_a_lem}
+	\item[(c)] From $\widetilde a\in C_c\left(\widetilde M\right)$ it follows that $\supp \widetilde a$ is compact. From the Lemma \ref{top_compact_la_lem} it follows that for there is $\la_{\supp \widetilde a}\in \La$ such that $\supp \widetilde a$ is mapped homeomorphically onto $\widetilde p_{\la_{\supp \widetilde a}}\left(\supp \widetilde a\right)$.  If $G_\la \bydef \ker\left(G\left(\left.\widetilde M\right| M\right)\to G\left(\left.M_\la \right| M\right)\right) $ and 
+	\bean
+	\forall \la \in \La \quad \la \ge 	\la_{\supp \widetilde a} \quad \forall g_1, g_2 \in G_\la \quad 	g_1 \neq g_2 \quad \Rightarrow \\
+	\Rightarrow g_1 \supp \widetilde a\cap g_2 \supp \widetilde a= \emptyset
+	\eean
+	If $\widetilde\xi\in L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}$  then 
+	$$
+	\left\| \widetilde \xi \right\|^2= \sum_{g \in G_{\la{\supp \widetilde a}}}
+	\left\|\chi_{\supp g \widetilde a} \widetilde \xi \right\|^2$$
+	where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\widetilde a$  (cf. Definition \ref{top_characteristic_function_defn}).  If $e\in G\left(\left.\widetilde M\right| M\right)$  is the  neutral  element then for any $\delta > 0$ there is a finite subset $S'\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
+	$$
+	\sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S' \cup \{e\}\right)}
+	\left\| \chi_{\supp g\widetilde a} \widetilde \xi \right\|^2 < \delta.
+	$$ 
+	So for any $\eps > 0$ one can select a finite subset $S\subset G_{\la_{\supp \widetilde a}}\setminus\{e\}$ such that
+	\be\label{top_se_eqn}
+	\left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \xi \right\|< \frac{\eps }{ \left\|\pi^s\left( \widetilde a\right)  \right\|}.
+	\ee 
+	Since the set $S$ is finite and 
+	$$
+	\bigcap_{\la \in \La}G_\la = \{e\}
+	$$
+	there is $\la_S \in \La$ such that $\la_S \ge \la_{\supp \widetilde a}$ and
+	$$
+	\la \ge \la_S \quad \Rightarrow \quad S \cap  G_\la= \emptyset.
+	$$
+	From our construction it follows that
+	\bean
+	\la \ge \la_S~~\Rightarrow~~ \quad\left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \sum_{	g \in G_\la }\pi^s\left( g\widetilde a\right) \widetilde \xi \right\|= \left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \pi^s\left( a_\la\right) \widetilde \xi \right\|< \eps,
+	\eean
+	i.e. the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of 
+	$B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}\right)$.		
+%	\item[(d)] 	The space $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ of compactly supported is dense in $L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ so we should prove that a net 
+%	\bean
+%	\left\lbrace \left[D_\la, \sum_{	g \in G_\la}\widetilde a_\la \right]\widetilde\eta\right\rbrace_{\la\in\La}
+%	\eean  
+%	for any $\widetilde\eta\in \Ga_c^\infty\left(\widetilde M, \widetilde S \right)$. Similarly to the equation \ref{top_se_eqn} for all $\eps$ one can find a finite subset  $T\subset G_{\la_{\supp \widetilde a}}\setminus\{e\}$
+%	\bean
+%	\left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(T \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \eta \right\|< \frac{\eps }{ \left\|\left[\Dslash_{\la_{\supp \widetilde a}}, a_{\la_{\supp \widetilde a}} \right]\right\|}.
+%	\eean 
+%	There is $\la_T \in \La$ such that $\la_T \ge \la_{\supp \widetilde a}$ and
+%	$$
+%	\la \ge \la_T \quad \Rightarrow \quad T \cap  G_\la= \emptyset.
+%	$$
+%	From our construction it follows that
+%	\bean
+%	\la \ge \la_T~~\Rightarrow~~ \quad\left\|\left[\Dslash_{\la}, a_{\la} \%right]\widetilde \eta-\left[\Dslash_{\la_{T}}, a_{\la_{T}} \right]\widetilde \eta \right\|< \eps,
+%	\eean
+%	i.e. the net $\left\{\left[\Dslash_{\la}, a_{\la} \right]\right\}_{\la\in\La}$  is convergent with respect to the strong topology of 
+%	$B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)\right)$. If  $\mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}$ is a $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then $\widetilde\eta \in \mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}\left(\widetilde M \right) $. Moreover if   $\mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}$ is a $\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)$-sheaf then on has
+%	\bean
+%	\Dslash_{\la_{\supp \widetilde a}}\in \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)  
+%	\eean
+%	where  $\mathscr Hom$ is a sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}). If $\widetilde p_{\la_{\supp \widetilde a}}: \widetilde M \to M_{\la_{\supp \widetilde a}}$ is a natural covering then from our construction it follows that
+%	\be\label{top_llla_eqn}
+%	\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta = \left[ p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right]\widetilde \eta
+%	\ee
+%	where the map
+%	\bean
+%	\widetilde p^{-1}_{\la_{\supp \widetilde a}} : \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)\hookto\\\hookto \mathscr Hom\left( \Ga_c^\infty\left(\widetilde M, \widetilde S \right), \Ga_c^\infty\left(\widetilde M, \widetilde S \right)\right) 
+%	\eean
+%	is the  $\widetilde p_{\la_{\supp \widetilde a}}$-inverse image (cf. Definition \ref{top_smooth_inv_im_defn}).
+\end{enumerate}
+
+
 \end{proof}	
-\paragraph{title}
-\begin{defn}\label{smooth_el_defn!} !!!!
-	Let us consider the  situation of the Definition \ref{spectral_triple_weakly_coh_defn}.
-	Let $\Om^1_D$ be the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D, J\right)$ (cf. Definition \ref{ass_cycle_defn}).
-	An element $\widetilde{a}  \in \widetilde{\A} $ is said to be $\mathfrak{S}_{\left(\sA, \sH, D, J\right)}$- \textit{smooth} if the following conditions hold:
-	\begin{enumerate}
-		%	\item[(a)] The element $\widetilde{a}$ lies in $\mathscr L^2\left( \widetilde{A}\right)$.
-		\item[(a)] For any $\la \in \La$ the series 
+\begin{empt} !!! CHECK !!!
+	The space $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ of compactly supported is dense in $L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ so we should prove that a net 
+		\bean
+		\left\lbrace \left[D_\la, \sum_{	g \in G_\la}\widetilde a_\la \right]\widetilde\eta\right\rbrace_{\la\in\La}
+		\eean  
+		for any $\widetilde\eta\in \Ga_c^\infty\left(\widetilde M, \widetilde S \right)$. Similarly to the equation \ref{top_se_eqn} for all $\eps$ one can find a finite subset  $T\subset G_{\la_{\supp \widetilde a}}\setminus\{e\}$
+		\bean
+		\left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(T \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \eta \right\|< \frac{\eps }{ \left\|\left[\Dslash_{\la_{\supp \widetilde a}}, a_{\la_{\supp \widetilde a}} \right]\right\|}.
+		\eean 
+		There is $\la_T \in \La$ such that $\la_T \ge \la_{\supp \widetilde a}$ and
 		$$
-		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a} 
+		\la \ge \la_T \quad \Rightarrow \quad T \cap  G_\la= \emptyset.
 		$$
-		is convergent with respect to strict topology of $M\left(\widetilde{A}\right)$ and
-		$a_\la \in \A_\la$ where the inclusion $\A_\la\subset A_\la\subset M\left(\widetilde{A}\right)$ is implied.
-		\item[(b)]  If for any $\la \in \La$ and $s \in \N$ the representation $\lift^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ}, \eqref{s_diff_repr_equ} 
-		and  
-		inclusion $\lift^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right)$ (cf.  \eqref{ps_inc_eqn})  is implied then  the net $\left\{\lift^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$ (cf. Definition \ref{strong_topology_defn}).	
-		\item[(c)] If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
-		\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
-		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$   (cf. Definition \ref{strong_topology_defn}).	.
-		%	Moreover one has
-		%	$$
-		%	\lim_{\la\in \La} \left[D_\la, a_\la\right] \in \mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
-		%	$$
-		%	where left  part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $\mathscr L^2\left( \widetilde{A}\right) \otimes_{\A} \Om^1_D \subset \widetilde{A} \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
-	\end{enumerate}
-	Denote by 
-	\be\label{a_s_eqn}	
-	\widetilde{a}^s\bydef \lim_{\la\in\La}  \lift^s_\la\left(a_\la \right) \in B\left(\widetilde\H^{2^s} \right)
-	\ee	
-	in sense the strong convergence of $B\left(\widetilde\H^{2^s} \right)$, and denote by $\widetilde{W}^\infty$ the space of smooth elements. 
-\end{defn}
-
-\paragraph{title}
-
-\begin{proof}
-If $\widetilde a\in \Coo_c\left(\widetilde M\right)\bydef C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ then from the Lemma \ref{comm_lift_desc_sum_lem} one has
-$$
- 		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a
- 		} = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right) 
-$$
-where $\desc^c_{\widetilde p_{\la}}$ is a compactly supported $\widetilde p_{\la}$-descent (cf. Definition  \ref{top_compactly_supported_descent_defn}). Taking into account that $\Coo_0\left( \widetilde M\right)$ is a soft $*$-algebra (cf. Definition \ref{top_soft_r_defn}) from \eqref{top_cdesc_soft_eqn} it follows that
-$$
-a_\la = \desc^c_{\widetilde p_{\la}}\left(\widetilde a \right)\in \Coo\left(\widetilde M \right).
-$$
-There is an open subset $\widetilde \sU \subset \widetilde \sX$ with compact closure such that $\supp \widetilde a \subset \widetilde \sU$. If $\widetilde p_\la: \widetilde \sX \to \sX$ is a natural covering then from the Lemma \ref{top_compact_la_lem}  one has  $\la_{\widetilde \sU} \in \La$ such that for all $\la \ge \la_{\widetilde \sU}$ the set  $\widetilde p_\la\left(\widetilde \sU \right)$ is evenly covered by $\widetilde{p}_\la$. 
-If $\la \ge \la_{\widetilde \sU}$ then from the Lemma  \ref{comm_lift_desc_sum_lem} one has
-$$
-a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a
-} = \desc_{\widetilde p_{\la}}\left(\widetilde a \right) 
-$$
-where $\desc_{\widetilde p_{\la}}$ is a $\widetilde p_{\la}$-descent (cf. Definition \ref{top_lift_desc_defn}). From the equation \eqref{top_lift_desc_eqn} it follows that $\widetilde{a}$ is a   $\widetilde p_{\la}$-$\widetilde{\sU}$-{lift} of $\widetilde a$, i.e. 
-\be\label{top_lift_exer_eqn}
-\widetilde{a}= \lift^{\widetilde p_{\la}}_{\widetilde{\sU}}\left(a_\la \right)
-\ee
-From n$^\text{0}$ 2 of the Exercise \ref{top_sheaf_corr_exer} it follows that $\widetilde a\in \Coo\left( \widetilde M\right)$. 
-
-\end{proof}
- 
+		From our construction it follows that
+		\bean
+		\la \ge \la_T~~\Rightarrow~~ \quad\left\|\left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta-\left[\Dslash_{\la_{T}}, a_{\la_{T}} \right]\widetilde \eta \right\|< \eps,
+		\eean
+		i.e. the net $\left\{\left[\Dslash_{\la}, a_{\la} \right]\right\}_{\la\in\La}$  is convergent with respect to the strong topology of 
+		$B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)\right)$. If  $\mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}$ is a $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then $\widetilde\eta \in \mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}\left(\widetilde M \right) $. Moreover if   $\mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}$ is a $\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)$-sheaf then on has
+		\bean
+		\Dslash_{\la_{\supp \widetilde a}}\in \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)  
+		\eean
+		where  $\mathscr Hom$ is a sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}). If $\widetilde p_{\la_{\supp \widetilde a}}: \widetilde M \to M_{\la_{\supp \widetilde a}}$ is a natural covering then from our construction it follows that
+		\be\label{top_llla_eqn}
+		\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta = \left[ p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right]\widetilde \eta
+		\ee
+		where the map
+		\bean
+		\widetilde p^{-1}_{\la_{\supp \widetilde a}} : \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)\hookto\\\hookto \mathscr Hom\left( \Ga_c^\infty\left(\widetilde M, \widetilde S \right), \Ga_c^\infty\left(\widetilde M, \widetilde S \right)\right) 
+		\eean
+		is the  $\widetilde p_{\la_{\supp \widetilde a}}$-inverse image (cf. Definition \ref{top_smooth_inv_im_defn}).
+\end{empt}
 \begin{lemma}\label{top_smooth_lem}
-An element $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$  is smooth  (cf.  Definition \ref{smooth_el_defn} !!! CORRECT !!!)  if and only if $\widetilde a\in \Coo_c\left(\widetilde M\right)=C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$.
+An element $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$  is smooth  (cf.  Definition \ref{smooth_el_defn})  if and only if $\widetilde a\in \Coo_c\left(\widetilde M\right)=C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$.
 \end{lemma}
 \begin{proof}
-	If $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$ is smooth then  from the Lemma \ref{top_smooth_a_lem} it follows that $\widetilde a \in \Coo_c\left(\widetilde M\right)$.
+	From the Lemma \ref{top_smooth_a_lem} it follows that $\widetilde a \in \Coo_c\left(\widetilde M\right)$ is smooth.
 	
-	Conversely suppose that $\widetilde a\in \Coo_c\left(\widetilde M\right)$. One needs check that $\widetilde a$ satisfies to conditions (a)-(d) of the Definition \ref{smooth_el_defn} !!! CORRECT !!!.
-	 	\begin{enumerate}
-		\item[(a)] Evident.
-		\item[(b)] Follows from the Lemma \ref{top_smooth_a_lem}
-		\item[(c)] From $\widetilde a\in C_c\left(\widetilde M\right)$ it follows that $\supp \widetilde a$ is compact. From the Lemma \ref{top_compact_la_lem} it follows that for there is $\la_{\supp \widetilde a}\in \La$ such that $\supp \widetilde a$ is mapped homeomorphically onto $\widetilde p_{\la_{\supp \widetilde a}}\left(\supp \widetilde a\right)$.  If $G_\la \bydef \ker\left(G\left(\left.\widetilde M\right| M\right)\to G\left(\left.M_\la \right| M\right)\right) $ and 
-	\bean
-\forall \la \in \La \quad \la \ge 	\la_{\supp \widetilde a} \quad \forall g_1, g_2 \in G_\la \quad 	g_1 \neq g_2 \quad \Rightarrow \\
-\Rightarrow g_1 \supp \widetilde a\cap g_2 \supp \widetilde a= \emptyset
-	\eean
-		If $\widetilde\xi\in L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}$  then 
-		$$
-	\left\| \widetilde \xi \right\|^2= \sum_{g \in G_{\la{\supp \widetilde a}}}
-\left\|\chi_{\supp g \widetilde a} \widetilde \xi \right\|^2$$
-where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\widetilde a$  (cf. Definition \ref{top_characteristic_function_defn}).  If $e\in G\left(\left.\widetilde M\right| M\right)$  is the  neutral  element then for any $\delta > 0$ there is a finite subset $S'\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
- $$
- \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S' \cup \{e\}\right)}
- \left\| \chi_{\supp g\widetilde a} \widetilde \xi \right\|^2 < \delta.
- $$ 
- So for any $\eps > 0$ one can select a finite subset $S\subset G_{\la_{\supp \widetilde a}}\setminus\{e\}$ such that
- \be\label{top_se_eqn}
- \left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \xi \right\|< \frac{\eps }{ \left\|\pi^s\left( \widetilde a\right)  \right\|}.
-\ee 
- Since the set $S$ is finite and 
+	Conversely suppose that $\widetilde a\in C_c\left(\widetilde M\right)$ is smooth then  form the Theorem \ref{top_compact_la_lem} it turns out that there are $\la\in \La$ and open subset $\widetilde \sU$ such that
+	\begin{itemize}
+		\item $\supp \widetilde{a} \subset \widetilde \sU$,
+		\item the set $\widetilde \sU$ is homeomorphically mapped onto $\sU_\la \bydef \widetilde p_\la\left( \widetilde \sU\right)$ where  $\widetilde p_\la: \widetilde \sU\to \sU_\la$ is a natural covering.
+	\end{itemize}
+From the condition (a) of the Definition \ref{smooth_el_defn} it follows that the series 
 $$
-\bigcap_{\la \in \La}G_\la = \{e\}
+a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{\sX}\right|\sX_\la \right)\to G\left(\left.\sX_\la\right|\sX \right)\right) } ~ g \widetilde{a} 
 $$
- there is $\la_S \in \La$ such that $\la_S \ge \la_{\supp \widetilde a}$ and
- $$
-\la \ge \la_S \quad \Rightarrow \quad S \cap  G_\la= \emptyset.
- $$
- From our construction it follows that
-\bean
-\la \ge \la_S~~\Rightarrow~~ \quad\left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \sum_{	g \in G_\la }\pi^s\left( g\widetilde a\right) \widetilde \xi \right\|= \left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \pi^s\left( a_\la\right) \widetilde \xi \right\|< \eps,
-\eean
-i.e. the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of 
- $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}\right)$.		
- \item[(d)] 	The space $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ of compactly supported is dense in $L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ so we should prove that a net 
-\bean
-\left\lbrace \left[D_\la, \sum_{	g \in G_\la}\widetilde a_\la \right]\widetilde\eta\right\rbrace_{\la\in\La}
-\eean  
- for any $\widetilde\eta\in \Ga_c^\infty\left(\widetilde M, \widetilde S \right)$. Similarly to the equation \ref{top_se_eqn} for all $\eps$ one can find a finite subset  $T\subset G_{\la_{\supp \widetilde a}}\setminus\{e\}$
-\bean
- \left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(T \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \eta \right\|< \frac{\eps }{ \left\|\left[\Dslash_{\la_{\supp \widetilde a}}, a_{\la_{\supp \widetilde a}} \right]\right\|}.
- \eean 
-There is $\la_T \in \La$ such that $\la_T \ge \la_{\supp \widetilde a}$ and
- $$
- \la \ge \la_T \quad \Rightarrow \quad T \cap  G_\la= \emptyset.
- $$
- From our construction it follows that
- \bean
- \la \ge \la_T~~\Rightarrow~~ \quad\left\|\left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta-\left[\Dslash_{\la_{T}}, a_{\la_{T}} \right]\widetilde \eta \right\|< \eps,
- \eean
- i.e. the net $\left\{\left[\Dslash_{\la}, a_{\la} \right]\right\}_{\la\in\La}$  is convergent with respect to the strong topology of 
- $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)\right)$. If  $\mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}$ is a $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then $\widetilde\eta \in \mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}\left(\widetilde M \right) $. Moreover if   $\mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}$ is a $\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)$-sheaf then on has
- \bean
- \Dslash_{\la_{\supp \widetilde a}}\in \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)  
- \eean
- where  $\mathscr Hom$ is a sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}). If $\widetilde p_{\la_{\supp \widetilde a}}: \widetilde M \to M_{\la_{\supp \widetilde a}}$ is a natural covering then from our construction it follows that
-  \be\label{top_llla_eqn}
-\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta = \left[ p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right]\widetilde \eta
- \ee
- where the map
-\bean
-\widetilde p^{-1}_{\la_{\supp \widetilde a}} : \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)\hookto\\\hookto \mathscr Hom\left( \Ga_c^\infty\left(\widetilde M, \widetilde S \right), \Ga_c^\infty\left(\widetilde M, \widetilde S \right)\right) 
-\eean
-is the  $\widetilde p_{\la_{\supp \widetilde a}}$-inverse image (cf. Definition \ref{top_smooth_inv_im_defn}).
-	\end{enumerate}
-
+is convergent with respect to strict topology of $C_b\left(\widetilde{\sX}\right)$ and $a_\la \in \Coo\left(M_\la \right)$. Using  the Lemmas \ref{strict_strong_lem} and \ref{comm_lift_desc_sum_lem} one can prove that 
+$$
+\widetilde a = \lift_{\widetilde{\sU}}^{\widetilde{p}_\la}\left(a_\la \right) 
+$$
+where $\lift_{\widetilde{\sU}}^{\widetilde{p}_\la}$ is the $\widetilde{p}_\la$-$ \widetilde{\sU}$-lift (cf. Definition \ref{top_lift_desc_defn}). Using the Section \ref{top_lift_desc_defn} one can prove that $\widetilde a \in \Coo\left( \widetilde M\right)$.
 \end{proof}
-
-
-
-
 \begin{remark}
 From the Lemma \ref{top_smooth_lem} and the Definition \ref{smooth_alg_defn} it follows that  {smooth algebra} $\widetilde\A$ of the coherent set \eqref{comm_triple_seq_eqn} of spectral triples  is a completion of $\Coo_c\left(\widetilde M\right)$ in the topology induced by the seminorms $\left\| \cdot \right\|_s$ (cf. equation \ref{smooth_seminorms_eqn}). Since $\Coo_c\left(\widetilde M\right)$ is dense in $\Coo_c\left(\widetilde M\right)$ the coherent set \eqref{comm_triple_seq_eqn} of spectral triples is weakly good (cf. Definition \ref{smooth_alg_defn})
 \end{remark}
@@ -11981,7 +11965,7 @@ Charge conjugation 	& $J$ and $\widetilde J$ & $C$ and $\widetilde C$  \\  & & \
 	\end{tabular}
 	\\
 	\\
-To complete it one should find an explicit formula for $\widetilde D$. From \eqref{top_llla_eqn}
+To complete it one should find an explicit formula for $\widetilde D$. From \eqref{top_llla_eqn} !!!
 	it follows that 
 	\bean
 	\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right] = \left[\widetilde p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right].

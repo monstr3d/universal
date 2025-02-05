@@ -36,10 +36,6 @@ namespace Abstract3DConverters.Meshes
 
         internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials, List<string> l, AcCreator creator) : base(null, null, null, creator)
         {
-            if (parent != null)
-            {
-                Parent = parent;
-            }
             var directory = base.creator.Directory;
             AcCreator = creator;
             var i = creator.Position + 1;
@@ -72,9 +68,48 @@ namespace Abstract3DConverters.Meshes
                 {
                     var n = kids.Value;
                     AcCreator.Position = i + 1;
+                    if (vrt != null)
+                    {
+                        if (vrt.Count > 0)
+                        {
+                            Points = new List<Point>();
+                            for (var h = 0; h < vrt.Count; h++)
+                            {
+                                float[] norm = null;
+                                if (dd.ContainsKey(h))
+                                {
+                                    norm = dd[h];
+                                }
+                                var point = new Point(vrt[h], norm);
+                                Points.Add(point);
+                            }
+                        }
+                    }
+                    if (n > 0)
+                    {
+                        if (parent != null)
+                        {
+                            Parent = parent;
+                        }
+                    }
+                    else if (Points != null)
+                    {
+                        if (Points.Count > 0)
+                        {
+                            if (parent != null)
+                            {
+                                Parent = parent;
+                            }
+                        }
+                    }
+                    AbstractMesh m = this;
+                    if (Parent == null & (parent != null))
+                    {
+                        m = parent;
+                    }
                     for (var k = 0; k < n; k++)
                     {
-                        new AbstractMeshAC(this, materials, l, AcCreator);
+                        new AbstractMeshAC(m as AbstractMeshAC, materials, l, AcCreator);
                     }
                     return;
                 }
@@ -108,8 +143,7 @@ namespace Abstract3DConverters.Meshes
                         var vertex = s.ToRealArray<float>(l[j]);
                         v.Add(vertex);
                         vrt.Add(vertex);
-                        if (vrt.Count >= nv)
-                            ++j;
+                        ++j;
                     }
                     i = j - 1;
                     continue;
@@ -174,24 +208,6 @@ namespace Abstract3DConverters.Meshes
                         Polygons.Add(polygon);
                     }
                 }
-            }
-            if (vrt != null)
-            {
-                if (vrt.Count > 0)
-                {
-                    Points = new List<Point>();
-                    for (var h = 0; h < vrt.Count; h++)
-                    {
-                        float[] norm = null;
-                        if (dd.ContainsKey(h))
-                        {
-                            norm = dd[h];
-                        }
-                        var point = new Point(vrt[h], norm);
-                        Points.Add(point);
-                    }
-                }
-
             }
         }
 
