@@ -1,9 +1,9 @@
 ﻿namespace Abstract3DConverters.Points
 {
     /// <summary>
-    /// Point
+    /// Point of texture
     /// </summary>
-    public class Point
+    public class PointTexture
     {
 
         #region Ctor
@@ -11,22 +11,24 @@
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="vertex">Vertex</param>
-        /// <param name="normal">Normal</param>
-        public Point(float[] vertex, float[] normal)
+        /// <param name="index">Index</param>
+        /// <param name="texture">Texture</param>
+        public PointTexture(int index, float[] texture)
         {
-            Vertex = vertex;
-            Normal = normal;
+            Texture = texture;
+            Index = index;
         }
 
         #endregion
 
         #region Properties
 
+
+
         /// <summary>
         /// Vertex
         /// </summary>
-        public float[] Vertex
+        public float[] Texture
         {
             get;
             private set;
@@ -35,13 +37,13 @@
         /// <summary>
         /// Vertex
         /// </summary>
-        public float[] Normal
+        public int Index
         {
             get;
             private set;
         }
 
-  
+
         #endregion
 
     }

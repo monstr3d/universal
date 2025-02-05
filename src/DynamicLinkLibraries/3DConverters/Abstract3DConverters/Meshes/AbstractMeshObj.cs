@@ -16,6 +16,8 @@ namespace Abstract3DConverters.Meshes
             var normals = new List<float[]>();
             var indexes = new List<int[][]>();
             Material material = null;
+            var textureVertex = new Dictionary<int, int>();
+            var vertexTexture = new Dictionary<int, int>();
             for (var k = begin; k < lines.Count; k++)
             {
                 var line = lines[k];
@@ -91,6 +93,15 @@ namespace Abstract3DConverters.Meshes
                                 i[m] = int.Parse(sss[m]) - shift[m];
                             }
                         }
+                        if (i.Length == 3)
+                        {
+                            textureVertex[i[1]] = i[0];
+                        }
+                        else
+                        {
+                            textureVertex[i[1]] = i[0];
+                        }
+                        vertexTexture[i[0]] = i[1];
                     }
                     indexes.Add(ind);
                     continue;
@@ -141,7 +152,7 @@ namespace Abstract3DConverters.Meshes
                             norm = normals[idn];
                         }
                     }
-                    var point = new Point(vert, txt, norm);
+                    var point = new Point(vert, norm);
                     points[id] = point;
                     dic[id] = item;
                 }
@@ -159,11 +170,14 @@ namespace Abstract3DConverters.Meshes
             Polygons = new();
             foreach (var ind in indexes)
             {
-                var li = new List<int>();
+                var li = new List<PointTexture>();
                 foreach (var item in ind)
                 {
-                    li.Add(dp[item[0]]);
+                    var pt = new PointTexture(item[0], textures[item[1]]);
+                    li.Add(pt);
+
                 }
+                // li.Add(dp[item[0]]);
                 var pl = new Polygon(li.ToArray(), material);
                 Polygons.Add(pl);
             }

@@ -24,8 +24,9 @@ namespace Abstract3DConverters.Converters
         protected override XmlElement Create(AbstractMesh mesh)
         {
             mesh.CreateTriangles();
+            var dt = new Dictionary<int, float[]>();
             var x = Create("ModelVisual3D", mesh.Name);
-            var y = Create("ModelVisual3D.Content");
+           var y = Create("ModelVisual3D.Content");
             x.AppendChild(y);
             var z = Create("GeometryModel3D");
             y.AppendChild(z);
@@ -52,10 +53,34 @@ namespace Abstract3DConverters.Converters
                 return x;
             }
             var lv = new List<float>();
-            var lt = new List<float>();
             var ln = new List<float>();
-            foreach (var point in mesh.Points)
+            var lt = new List<float>();
+            var pp = mesh.Polygons;
+            if (pp != null)
             {
+                foreach (var polygon in pp)
+                {
+                    foreach (var point in polygon.Points)
+                    {
+                        var txt = point.Texture;
+                        dt[point.Index] = [txt[0],1f - txt[1]];
+                    }
+                }
+            }
+          /*  var lk = new List<int>(dt.Keys);
+            lk.Sort();
+            foreach (var key in lk)
+            {
+                var p = dt[key];
+                foreach (var pt in p)
+                {
+                    lt.Add(pt);
+                }
+            }*/
+          for (var ii = 0; ii < mesh.Points.Count; ii++)
+            {
+                var point = mesh.Points[ii];
+
                 var vt = point.Vertex;
                 if (vt != null)
                 {
@@ -63,12 +88,13 @@ namespace Abstract3DConverters.Converters
                     {
                         lv.Add(vt[i]);
                     }
-                }
-                vt = point.Texture;
-                if (vt != null)
-                {
-                    lt.Add(vt[0]);
-                    lt.Add(1f - vt[1]);
+                    if (!dt.ContainsKey(ii))
+                    {
+
+                    }
+                    var tx = dt[ii];
+                    lt.Add(tx[0]);
+                    lt.Add(tx[1]);
                 }
                 vt = point.Normal;
                 if (vt != null)
@@ -79,7 +105,7 @@ namespace Abstract3DConverters.Converters
                     }
                 }
             }
-          if (lv.Count > 0)
+            if (lv.Count > 0)
             {
                 v.SetAttribute("Positions", s.Parse(lv));
             }
@@ -94,14 +120,13 @@ namespace Abstract3DConverters.Converters
             var sb = new StringBuilder();
             foreach (var pl in mesh.Polygons)
             {
-                foreach (var pll in pl.Indexes)
+                foreach (var pll in pl.Points)
                 {
-                    sb.Append(" " + pll);
+                    sb.Append(" " + pll.Index);
                 }
             }
             var str = sb.ToString();
             v.SetAttribute("TriangleIndices", str.Substring(1));
- 
             return x;
             var vert = mesh.Vertices;
             if (mesh.Indexes != null & vert != null)

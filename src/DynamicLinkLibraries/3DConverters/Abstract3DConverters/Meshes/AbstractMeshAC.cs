@@ -2,22 +2,22 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
-using Microsoft.VisualBasic;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
 {
     internal class AbstractMeshAC : AbstractMeshPolygon
     {
 
-    
+
         Dictionary<Polygon, int> dp = new Dictionary<Polygon, int>();
 
         List<Material> materials = new();
 
-        List<string> mats = new List<string>()]
+        List<string> mats = new List<string>();
 
         int count = 0;
-  
+
 
         List<string> l;
 
@@ -27,210 +27,160 @@ namespace Abstract3DConverters.Meshes
             private set;
         }
 
+        private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(null, parent, null, creator)
+        {
+            Parent = parent;
+            Polygons = new();
+            Name = parent.Name + "_" + Path.GetRandomFileName();
+            Material = polygon.Material;
+            var pts = new Dictionary<int, Point>();
+            var dd = new Dictionary<int, int>();
+            var l = new List<int>();
+            int k = 0;
+   /*         foreach (var i in polygon.Indexes)
+            {
+                if (!pts.ContainsKey(i))
+                {
+                    var c = Points.Count;
+                    l.Add(c);
+                    dd[i] = c;
+                    Points.Add(parent.Points[i]);
+                }
+                else
+                {
+                    l.Add(dd[i]);
+                }
+            }
+            var poly = new Polygon(l.ToArray(), Material);
+            Polygons.Add(poly);*/
+        }
 
-        public AbstractMeshAC(AbstractMesh parent, string name,  AcCreator creator, int count, List<string> l, List<Material> materials,  string directory) :
+
+        public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
             base(name, parent, null, creator)
         {
-            var dd = new Dictionary<int, float[]>();
-            var pos = creator.Position;
-            this.count = count;
-            this.materials = materials;
-            this.l = l;
-            int nv = -1;
-            int ns = -1;
-            this.creator = creator;
-            int txt = 0;
-            var ds = new Dictionary<int, float[]>();
-            var vrt = new List<float[]>();
-            for (int i = pos; i < l.Count; i++)
+            try
             {
-                var line = l[i];
-                var loc = s.ToString(line, "loc ");
-                if (loc != null)
+                var dd = new Dictionary<int, float[]>();
+                var pos = creator.Position;
+                this.count = count;
+                this.materials = materials;
+                this.l = l;
+                int nv = -1;
+                int ns = -1;
+                this.creator = creator;
+                int txt = 0;
+                var ds = new Dictionary<int, float[]>();
+                var vrt = new List<float[]>();
+                for (int i = pos; i < l.Count; i++)
                 {
-                    var location = s.ToRealArray<float>(loc);
-                    TransformationMatrix = [ 1, 0, 0, 0,
+                    var line = l[i];
+                    var loc = s.ToString(line, "loc ");
+                    if (loc != null)
+                    {
+                        var location = s.ToRealArray<float>(loc);
+                        TransformationMatrix = [ 1, 0, 0, 0,
                                              0, 1, 0, 0,
                                              0, 0, 1, 0,
                                             location[0], location[1], location[2], 0 ];
-                }
-                var texture = s.ToString(line, "texture ");
-                if (texture != null)
-                {
-                    Image = new Image(texture, directory);
-                }
-                var numvert = s.ToReal<int>(line, "numvert ");
-                if (numvert != null)
-                {
-                    nv = numvert.Value;
-                    var v = new List<float[]>();
-                    Vertices = v;
-                    var j = i + 1;
-                    for (; j < nv + i + 1; j++)
-                    {
-                        var vertex = s.ToRealArray<float>(l[j]);
-                        v.Add(vertex);
-                        vrt.Add(vertex);
                     }
-                    i = j - 1;
-                    continue;
-                }
-                var numsurf = s.ToReal<int>(line, "numsurf ");
-                if (numsurf != null)
-                {
-                    ns = numsurf.Value;
-                    int mt = -1;
-                    var nc = numsurf.Value;
-                    ++i;
-                    for (var surf = 0; surf < nc; surf++)
+                    var texture = s.ToString(line, "texture ");
+                    if (texture != null)
                     {
-                        i += 2;
-                        var mp = s.ToReal<int>(l[i], "mat ");
-                        mt = mp.Value;
-                        var material = materials[mt];
-                        var mn = material.Name;
-                        if (!mats.Contains(mn))
+                        Image = new Image(texture, directory);
+                    }
+                    var numvert = s.ToReal<int>(line, "numvert ");
+                    if (numvert != null)
+                    {
+                        nv = numvert.Value;
+                        var v = new List<float[]>();
+                        Vertices = v;
+                        var j = i + 1;
+                        for (; j < nv + i + 1; j++)
                         {
-                            mats.Add(mn);
+                            var vertex = s.ToRealArray<float>(l[j]);
+                            v.Add(vertex);
+                            vrt.Add(vertex);
                         }
-                        ++i;
-                        var refs = s.ToReal<int>(l[i], "refs ");
-                        var lp = new List<int>();
-                        var rf = refs.Value;
-
-                        for (var rr = 0; rr < rf; rr++)
+                        i = j - 1;
+                        continue;
+                    }
+                    var numsurf = s.ToReal<int>(line, "numsurf ");
+                    if (numsurf != null)
+                    {
+                        ns = numsurf.Value;
+                        int mt = -1;
+                        var nc = numsurf.Value;
+                        for (var surf = 0; surf < nc; surf++)
                         {
-                            ++i;
-                            var lp = new List<int>();
-                            for (; p < l.Count; p++)
+                            i += 2;
+                            var mp = s.ToReal<int>(l[i], "mat ");
+                            mt = mp.Value;
+                            var mtt = materials[mt].Clone() as Material;
+                            var im = Image.Clone() as Image;
+                            Material = mtt.SetImage(im);
+                            var mn = Material.Name;
+                            if (!mats.Contains(mn))
                             {
-                                var il = l[p];
+                                mats.Add(mn);
+                            }
+                            else
+                            {
+
+                            }
+                            if (mats.Count != 1)
+                            {
+
+                            }
+                            ++i;
+                            var refs = s.ToReal<int>(l[i], "refs ");
+                            var lp = new List<PointTexture>();
+                            var rf = refs.Value;
+                            for (var rr = 0; rr < rf; rr++)
+                            {
+                                ++i;
+                                var il = l[i];
                                 var ss = s.Split(il);
                                 var key = s.ToReal<int>(ss[0].Trim());
-                                lp.Add(key);
-                                if (!dd.ContainsKey(key))
-                                {
-                                    dd[key] = new float[] { s.ToReal<float>(ss[1].Trim()),
-                                    s.ToReal< float >(ss[2].Trim()) };
-                                }
-                                else
-                                {
-
-                                }
-
+                                var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
+                                    s.ToReal<float>(ss[2].Trim()) ]);
+                                lp.Add(pt);
                             }
-
-
-                        }
-                    var k = i + 1;
-                    for (; k < l.Count; k++)
-                    {
-                        var mp = s.ToReal<int>(l[k], "mat ");
-                        {
-                            if (mp != null)
-                            {
-                                mt = mp.Value;
-                                if (!mats.Contains(mt))
-                                {
-                                    mats.Add(mt);
-                                }
-                                continue;
-                            }
-                        }
-                        var refs = s.ToReal<int>(l[k], "refs ");
-                        if (refs != null)
-                        {
+                            var polygon = new Polygon(lp.ToArray(), Material);
                             if (Polygons == null)
                             {
                                 Polygons = new();
                             }
-                            var rf = refs.Value;
-                            var p = k + 1;
-                            var pp = new List<PointAC>();
-                            var lp = new List<int>();
-                            for (; p < l.Count; p++)
-                            {
-                                var il = l[p];
-                                var ss = s.Split(il);
-                                var key = s.ToReal<int>(ss[0].Trim());
-                                lp.Add(key);
-                                if (!dd.ContainsKey(key))
-                                {
-                                    dd[key] = new float[] { s.ToReal<float>(ss[1].Trim()),
-                                    s.ToReal< float >(ss[2].Trim()) };
-                                }
-                                else
-                                {
-
-                                }
-                                if (false)
-                                {
-                                    var t = new PointAC(s.ToReal<int>(ss[0].Trim()), txt, 0, new float[] { s.ToReal<float>(ss[1].Trim()),
-                                    s.ToReal< float >(ss[2].Trim()) });
-                                    pp.Add(t);
-                                    ++txt;
-                                }
-                                if (lp.Count == rf)
-                                {
-                                    break;
-                                }
-
-                            }
-                            
-                            var material = materials[mt];
-                            if (Image != null)
-                            {
-                                material = material.SetImage(Image);
-                            }
-                            else
-                            {
-                                material = material.Clone() as Material;
-                            }
-                            var polygon = new Polygon(lp.ToArray(), material);
-                            dp[polygon] = mt;
                             Polygons.Add(polygon);
                         }
-                        if (Polygons.Count < ns)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            if (mats.Count == 1)
-                            {
-                                var mat = materials[dp.Values.ToArray()[0]];
-                                var mm  = mat.Clone() as Material;
-                                if (Image == null)
-                                {
-                                    Material = mm;
-                                }
-                                else
-                                {
-                                    Material = mm.SetImage(Image);
-                                }
-                            }
-                            i = k;
-                            continue;
-                        }
-
                     }
-                    i = k;
-                    continue;
                 }
-            }
-            if (vrt != null)
-            {
-                if (vrt.Count > 0)
+                if (vrt != null)
                 {
-                    Points = new List<Point>();
-                    for (var h = 0; h < vrt.Count; h++)
+                    if (vrt.Count > 0)
                     {
-                        var point = new Point(vrt[h], dd[h], null);
-                        Points.Add(point);
+                        Points = new List<Point>();
+                        for (var h = 0; h < vrt.Count; h++)
+                        {
+                            float[] norm = null;
+                            if (dd.ContainsKey(h))
+                            {
+                                norm = dd[h];
+                            }
+                            var point = new Point(vrt[h], norm);
+                            Points.Add(point);
+                        }
                     }
                 }
+                if (mats.Count > 1)
+                {
+                    Disintegrate();
+                }
             }
-         //   Disintegrate();
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
         }
 
         private AbstractMeshAC(AbstractMeshAC parent, PolygonLocal polygon, Material material, Image image, IMeshCreator creator) :
@@ -272,32 +222,32 @@ namespace Abstract3DConverters.Meshes
             if (image != null & !Material.HasImage)
             {
                 Image = image.Clone() as Image;
-                Material = Material.SetImage( Image);
+                Material = Material.SetImage(Image);
             }
-            Disintegrate();
-        }
-
-        protected  void Disintegrate()
-        {/*
             if (mats.Count > 1)
             {
-                if (Vertices != null)
+                Disintegrate();
+            }
+        }
+
+        protected void Disintegrate()
+        {
+            if (mats.Count > 1)
+            {
+                if (Points.Count > 0)
                 {
-                    if (Vertices.Count > 0)
+                    foreach (Polygon p in Polygons)
                     {
-                        foreach (PolygonLocal p in Polygons)
-                        {
-                            int h = 0;
-                            h = dp[p];
-                            var mat = materials[h];
-                            new AbstractMeshAC(this, p, mat, Image, creator);
-                        }
+                        int h = 0;
+                        h = dp[p];
+                        var mat = materials[h];
+                        new AbstractMeshAC(this, p, creator as AcCreator);
                     }
-                    Vertices = null;
-                    Polygons.Clear();
-                    Image = null;
                 }
-            }*/
+                Points = null;
+                Polygons = null;
+                Image = null;
+            }
         }
     }
 }

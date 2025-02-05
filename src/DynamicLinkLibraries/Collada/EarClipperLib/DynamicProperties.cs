@@ -38,9 +38,19 @@ namespace EarClipperLib
         private Dictionary<PropertyConstants, object> _properties = new Dictionary<PropertyConstants, object>();
         public int Count { get { return _properties.Count; } }
 
-        internal void AddProperty(PropertyConstants key, object value)
+        public bool  AddProperty(PropertyConstants key, object value)
         {
-            _properties.Add(key, value);
+            try
+            {
+                _properties.Add(key, value);
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return false;
+
         }
 
         internal bool ExistsKey(PropertyConstants key)

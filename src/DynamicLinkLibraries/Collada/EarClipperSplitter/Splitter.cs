@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
@@ -21,34 +19,33 @@ namespace EarClipperSplitter
 
         IEqualityComparer<Vector3m> c = null;
 
-        private Splitter()
+        private Splitter() 
         {
             c = this;
         }
-        List<Polygon> IPolygonSplitter.this[Polygon polygon, List<Point> points] => Get(polygon, points);
+        Polygon[] IPolygonSplitter.this[Polygon polygon] => GetPolygons(polygon);
 
         EarClipping clipping = new EarClipping();
-
-        List<Polygon> Get(Polygon polygon, List<Point> pts)
+     
+        private Polygon[] GetPolygons(Polygon polygon)
         {
-            try
+            var dic = new Dictionary<Vector3m, int>();
+            var dd = new Dictionary<int, float[]>();
+            var d1 = new Dictionary<float[], int>();
+            var d2 = new Dictionary<float[], int>();
+            var d3 = new Dictionary<float[], int>();
+            Material mat = null;
+            if (polygon.Material != null)
             {
-                var material = polygon.Material;
-                var p = polygon.Indexes;
-                var dic = new Dictionary<Vector3m, int>();
-                var dd = new Dictionary<int, float[]>();
-                var d1 = new Dictionary<float[], int>();
-                var d2 = new Dictionary<float[], int>();
-                var d3 = new Dictionary<float[], int>();
-                if (p.Length <= 3)
-                {
-                    return [polygon];
-                }
+                mat = polygon.Material.Clone() as Material;
+            }
+            if (polygon.Points.Length >= 3)
+            {
                 var points = new List<Vector3m>();
-                foreach (var i in p)
+                foreach (var point in polygon.Points)
                 {
-                    var txt = pts[i].Texture;
-                    var v = new Vector3m(txt[0], txt[1], 0);
+                    var p = point.Texture; ;
+                    var v = new Vector3m(p[0], p[1], 0);
                     foreach (var py in points)
                     {
                         if (c.Equals(py, v))
@@ -56,39 +53,67 @@ namespace EarClipperSplitter
                             return [];
                         }
                     }
-                    dic[v] = i;
+                    var ind = point.Index;
+                    dic[v] = ind;
+                    dd[ind] = p;
                     points.Add(v);
-
-                }
-                var d = new Dictionary<Vector3m, int>();
-                for (var i = 0; i < points.Count; i++)
-                {
-                    d[points[i]] = i;
                 }
                 clipping.SetPoints(points);
-                if (!clipping.Triangulate())
+                try
                 {
+                    if (!clipping.Triangulate())
+                    {
+                        return [];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.ShowError();
                     return [];
                 }
                 var res = clipping.Result;
-                var lr = new List<Polygon>();
-                for (var i = 0; i < res.Count; i += 3)
+                var l = new List<int>();
+                foreach (var p in res)
                 {
-                    int[] kk = new int[3];
-                    var pp = new Polygon(kk, material);
-                    lr.Add(pp);
-                    for (var lt = 0; lt < 3; lt++)
+                    foreach (var pt in dic.Keys)
                     {
-                        kk[lt] = d[res[i + lt]];
+                        if (c.Equals(p, pt))
+                        {
+                            l.Add(dic[pt]);
+                            break;
+                        }
                     }
                 }
-                return lr;
+                if (l.Count != res.Count)
+                {
+                    throw new Exception();
+                }
+                var pp = new List<Polygon>();
+
+                for (var i = 0; i < res.Count; i += 3)
+                {
+                    var t = new List<PointTexture>();
+                    for (var j = 0; j < 3; j++)
+                    {
+                        var k = i + j;
+                        var r = res[k];
+                        var ind = dic[r];
+                        if (!dd.ContainsKey(ind))
+                        {
+
+                        }
+                        var pt = dd[ind];
+                        var point = new PointTexture(ind, pt);
+                        t.Add(point);
+
+                    }
+                    pp.Add(new Polygon(t.ToArray(), mat));
+                }
+                return pp.ToArray();
             }
-            catch (Exception ex)
-            {
-                ex.ShowError(-1);
-            }
-            return [];
+
+
+            return [polygon];
         }
 
         IPolygonSplitter IPolygonSplitterFactory.CreatePolygonSplitter()

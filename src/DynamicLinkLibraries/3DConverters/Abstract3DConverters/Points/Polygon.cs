@@ -7,7 +7,7 @@ namespace Abstract3DConverters.Points
         /// <summary>
         /// Indexes
         /// </summary>
-        public int[] Indexes 
+        public PointTexture[] Points
         { 
             get; protected set; 
         }
@@ -24,11 +24,11 @@ namespace Abstract3DConverters.Points
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="indexes">Points</param>
+        /// <param name="points">Points</param>
         /// <param name="material">Material</param>
-        public Polygon(int[] indexes, Material material)
+        public Polygon(PointTexture[] points, Material material)
         {
-            Indexes = indexes;
+            Points = points;
             Material = material;
         }
     }

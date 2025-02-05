@@ -269,15 +269,7 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         public virtual void CreateTriangles()
         {
-            if (trianglesCreated)
-            {
-                return;
-            }
-            trianglesCreated = true;
-            foreach (var t in Children)
-            {
-                t.CreateTriangles();
-            }
+        
         }
 
         #endregion

@@ -1,9 +1,12 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using System.Xml.Linq;
+using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Meshes
 {
+    /// <summary>
+    /// Mesh wih polygon
+    /// </summary>
     public  class AbstractMeshPolygon : AbstractMesh
     {
   
@@ -69,7 +72,7 @@ namespace Abstract3DConverters.Meshes
         }
 
         public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<PolygonLocal> polygons, IMeshCreator creator) :
-      this(name, parent, null, creator)
+               this(name, parent, null, creator)
         {
             Material = material;
             foreach (var p in polygons)
@@ -106,16 +109,13 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         public override void CreateTriangles()
         {
-            base.CreateTriangles();
-            trianglesCreated = false;
             CreateFromPolygons();
-            trianglesCreated = true;
         }
 
         /// <summary>
         /// Creates from polygons
         /// </summary>
-        protected void CreateFromPolygons()
+        protected virtual void CreateFromPolygons()
         {
 
             if (Polygons == null | trianglesCreated | Points == null)
@@ -126,22 +126,48 @@ namespace Abstract3DConverters.Meshes
             {
                 return;
             }
-            var l = new List<int[]>();
-    /*        foreach (var item in PolygonIndexes)
+            var l = new List<Polygon>();
+            foreach (var item in Polygons)
             {
-                if (item.Length <= 3)
+                var idx = item.Points;
+                if (idx.Length <= 3)
                 {
                     l.Add(item);
                     continue;
                 }
-                var pp = splitter[item, Points];
+                var pp = splitter[item];
+                if (pp.Length == 0)
+                {
+                    pp = GetEmpty(item);
+                }
                 foreach (var p in pp)
                 {
                     l.Add(p);
                 }
             }
-            PolygonIndexes = l;*/
+            Polygons.Clear();
+            Polygons = null;
+            Polygons = l;
+        }
 
+        Polygon[] GetEmpty(Polygon polygon)
+        {
+            var p = new List<Polygon>();
+            var pt = polygon.Points;
+            int i = 0;
+            do
+            {
+                var l = new List<PointTexture>();
+                for (var j = 0; j < 3; j++)
+                {
+                    var k = (i >= pt.Length) ? pt.Length - 1 : i;
+                    l.Add(pt[k]);
+                    ++i;
+                }
+                p.Add(new Polygon(l.ToArray(), polygon.Material));
+            }
+            while (i <= pt.Length);
+            return p.ToArray();
         }
 
         #endregion

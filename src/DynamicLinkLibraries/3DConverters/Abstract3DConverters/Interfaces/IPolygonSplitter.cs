@@ -11,9 +11,8 @@ namespace Abstract3DConverters.Interfaces
         /// Splits Polygon
         /// </summary>
         /// <param name="polygon">The polygon</param>
-        /// <param name="points">The points</param>
         /// <returns>The split result</returns>
-        List<Polygon> this[Polygon polygon, List<Point> points] { get; }
+        Polygon[] this[Polygon polygon] { get; }
 
     }
 }

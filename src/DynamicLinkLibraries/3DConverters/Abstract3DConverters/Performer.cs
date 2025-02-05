@@ -66,8 +66,7 @@ namespace Abstract3DConverters
         public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, Stream outs, Action<object> act = null)
         {
             var creator = fileinput.ToMeshCreator(bytes);
-            var p = new Performer();
-            var res = p.Create<object>(creator, converter, act);
+            var res = Create<object>(creator, converter, act);
             if (converter is ISaveToStream save)
             {
                 save.Save(res, outs);
