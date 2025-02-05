@@ -167,9 +167,24 @@ namespace Abstract3DConverters.Creators
             }
         }
 
-    
+
         public IEnumerable<AbstractMesh> Create(AbstractMesh parent, List<string> lines, int start = 0, int current = -1)
         {
+            for (var i = 0; i < lines.Count; i++)
+            {
+                var line = lines[i];
+                if (line.StartsWith("OBJECT"))
+                {
+                    Position = i;
+                    do
+                    {
+                        yield return new AbstractMeshAC(null, MaterialsP, lines, this);
+                    }
+                    while (Position <= lines.Count -1);
+                }
+                //new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
+            }
+            
             if (Position >= lines.Count)
             {
                 yield break;
@@ -184,42 +199,48 @@ namespace Abstract3DConverters.Creators
             {
                 yield break;
             }
-            string name = st == 0 ? "" : null;
-            for (var i = st; i < lines.Count; i++)
+            string name = null;
+             for (var i = st; i < lines.Count; i++)
             {
                 var line = lines[i];
                 var counter = 0;
                 if (line.StartsWith("OBJECT"))
                 {
-                    for (var j = i; j < lines.Count; j++)
+                    var j = i + 1;
+                    if (j >= lines.Count)
                     {
-                        i = j;
+                        yield break;
+                    }
+                    var n = s.ToString(lines[j + 1], "name");
+                    if (n != null)
+                    {
+                        name = n;
+                        ++j;
+
+                    }
+                    else
+                    {
+                        name = "";
+                    }
+                    Position = j;
+                    AbstractMeshAC am = null;// var am = new  AbstractMeshAC(null, name, this, 0, lines, MaterialsP, directory);
+                    for (; j < lines.Count; j++)
+                    {
                         var l = lines[j];
-                        if (name == null)
-                        {
-                            name = s.ToString(l, "name ");
-                            continue;
-                        }
                         var cnt = s.ToReal<int>(l, "kids ");
                         if (cnt != null)
                         {
-                            var pos = j + 1;
                             var count = cnt.Value;
                             if (Position >= lines.Count)
                             {
                                 yield break;
                             }
-                            var am = new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
+                            Position = j;
+                            //var am = new AbstractMeshAC(parent, name, this, count, lines, MaterialsP, directory);
                             name = null;
                             i = j + 1;
-                            yield return am;
-                            if (pos > Position)
-                            {
-                                Position = pos;
-                            }
-                            else
-                            {
-                            }
+                            var amm = new AbstractMesh(null, null);
+                            yield return amm; 
                             if (Position >= lines.Count)
                             {
                                 yield break;

@@ -2,6 +2,7 @@
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
@@ -21,11 +22,197 @@ namespace Abstract3DConverters.Meshes
 
         List<string> l;
 
+        AcCreator AcCreator
+        {
+            get;
+            set;
+        }
+
         public Image Image
         {
             get;
             private set;
         }
+
+        internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials, List<string> l, AcCreator creator) : base(null, null, null, creator)
+        {
+            if (parent != null)
+            {
+                Parent = parent;
+            }
+            var directory = base.creator.Directory;
+            AcCreator = creator;
+            var i = creator.Position + 1;
+            var ltex = new List<int>();
+            var dd = new Dictionary<int, float[]>();
+            var pos = creator.Position;
+            this.materials = materials;
+            this.l = l;
+            int nv = -1;
+            int ns = -1;
+            int txt = 0;
+            var ds = new Dictionary<int, float[]>();
+            var vrt = new List<float[]>();
+            var line = l[i];
+            var str = s.ToString(line, "name ");
+            if (str != null)
+            {
+                Name = str;
+                ++i;
+            }
+            else
+            {
+                Name = "";
+            }
+            for (; i < l.Count; i++)
+            {
+                line = l[i];
+                var kids = s.ToReal<int>(line, "kids");
+                if (kids != null)
+                {
+                    var n = kids.Value;
+                    AcCreator.Position = i + 1;
+                    for (var k = 0; k < n; k++)
+                    {
+                        new AbstractMeshAC(this, materials, l, AcCreator);
+                    }
+                    return;
+                }
+                var loc = s.ToString(line, "loc ");
+                if (loc != null)
+                {
+                    var location = s.ToRealArray<float>(loc);
+                    TransformationMatrix = [ 1, 0, 0, 0,
+                                             0, 1, 0, 0,
+                                             0, 0, 1, 0,
+                                            location[0], location[1], location[2], 0 ];
+                }
+                var texture = s.ToString(line, "texture ");
+                if (texture != null)
+                {
+                    Image = new Image(texture, directory);
+                }
+                var numvert = s.ToReal<int>(line, "numvert ");
+                if (numvert != null)
+                {
+                    if (vrt.Count > 0)
+                    {
+                        continue;
+                    }
+                    nv = numvert.Value;
+                    var v = new List<float[]>();
+                    Vertices = v;
+                    var j = i + 1;
+                    for (var b = 0; b < nv; b++)
+                    {
+                        var vertex = s.ToRealArray<float>(l[j]);
+                        v.Add(vertex);
+                        vrt.Add(vertex);
+                        if (vrt.Count >= nv)
+                            ++j;
+                    }
+                    i = j - 1;
+                    continue;
+                }
+                var numsurf = s.ToReal<int>(line, "numsurf ");
+                if (numsurf != null)
+                {
+                    ns = numsurf.Value;
+                    int mt = -1;
+                    var nc = numsurf.Value;
+                    for (var surf = 0; surf < nc; surf++)
+                    {
+                        i += 2;
+                        var mp = s.ToReal<int>(l[i], "mat ");
+                        mt = mp.Value;
+                        var mtt = materials[mt].Clone() as Material;
+                        if (Image != null)
+                        {
+                            var im = Image.Clone() as Image;
+                            Material = mtt.SetImage(im);
+                        }
+                        else
+                        {
+                            Material = mtt.Clone() as Material;
+                        }
+                        var mn = Material.Name;
+                        if (!mats.Contains(mn))
+                        {
+                            mats.Add(mn);
+                        }
+                        else
+                        {
+
+                        }
+                        if (mats.Count != 1)
+                        {
+
+                        }
+                        ++i;
+                        var refs = s.ToReal<int>(l[i], "refs ");
+                        var lp = new List<PointTexture>();
+                        var rf = refs.Value;
+                        for (var rr = 0; rr < rf; rr++)
+                        {
+                            ++i;
+                            var il = l[i];
+                            var ss = s.Split(il);
+                            var key = s.ToReal<int>(ss[0].Trim());
+                            if (!ltex.Contains(key))
+                            {
+                                ltex.Add(key);
+                            }
+                            var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
+                                    s.ToReal<float>(ss[2].Trim()) ]);
+                            lp.Add(pt);
+                        }
+                        var polygon = new Polygon(lp.ToArray(), Material);
+                        if (Polygons == null)
+                        {
+                            Polygons = new();
+                        }
+                        Polygons.Add(polygon);
+                    }
+                }
+            }
+            if (vrt != null)
+            {
+                if (vrt.Count > 0)
+                {
+                    Points = new List<Point>();
+                    for (var h = 0; h < vrt.Count; h++)
+                    {
+                        float[] norm = null;
+                        if (dd.ContainsKey(h))
+                        {
+                            norm = dd[h];
+                        }
+                        var point = new Point(vrt[h], norm);
+                        Points.Add(point);
+                    }
+                }
+
+            }
+        }
+
+/*            for (var i = 0; i < Points.Count; i++)
+            {
+                if (!ltex.Contains(i))
+                {
+
+                }
+            }
+            if (mats.Count > 1)
+            {
+                Disintegrate();
+            }
+        }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+}
+        }*/
 
         private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(null, parent, null, creator)
         {
@@ -61,6 +248,7 @@ namespace Abstract3DConverters.Meshes
         {
             try
             {
+                var ltex = new List<int>();
                 var dd = new Dictionary<int, float[]>();
                 var pos = creator.Position;
                 this.count = count;
@@ -92,15 +280,21 @@ namespace Abstract3DConverters.Meshes
                     var numvert = s.ToReal<int>(line, "numvert ");
                     if (numvert != null)
                     {
+                        if (vrt.Count > 0)
+                        {
+                            continue;
+                        }
                         nv = numvert.Value;
                         var v = new List<float[]>();
                         Vertices = v;
                         var j = i + 1;
-                        for (; j < nv + i + 1; j++)
-                        {
+                        for (var b = 0; b < nv; b++)
+                        { 
                             var vertex = s.ToRealArray<float>(l[j]);
                             v.Add(vertex);
                             vrt.Add(vertex);
+                            if (vrt.Count >= nv)
+                            ++j;
                         }
                         i = j - 1;
                         continue;
@@ -117,8 +311,15 @@ namespace Abstract3DConverters.Meshes
                             var mp = s.ToReal<int>(l[i], "mat ");
                             mt = mp.Value;
                             var mtt = materials[mt].Clone() as Material;
-                            var im = Image.Clone() as Image;
-                            Material = mtt.SetImage(im);
+                            if (Image != null)
+                            {
+                                var im = Image.Clone() as Image;
+                                Material = mtt.SetImage(im);
+                            }
+                            else
+                            {
+                                Material = mtt.Clone() as Material;
+                            }
                             var mn = Material.Name;
                             if (!mats.Contains(mn))
                             {
@@ -142,6 +343,10 @@ namespace Abstract3DConverters.Meshes
                                 var il = l[i];
                                 var ss = s.Split(il);
                                 var key = s.ToReal<int>(ss[0].Trim());
+                                if (!ltex.Contains(key))
+                                {
+                                    ltex.Add(key);
+                                }
                                 var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal<float>(ss[2].Trim()) ]);
                                 lp.Add(pt);
@@ -170,6 +375,14 @@ namespace Abstract3DConverters.Meshes
                             var point = new Point(vrt[h], norm);
                             Points.Add(point);
                         }
+                    }
+                    
+                }
+                for (var i = 0;  i < Points.Count; i++)
+                {
+                    if (!ltex.Contains(i))
+                    {
+
                     }
                 }
                 if (mats.Count > 1)
