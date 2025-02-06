@@ -8,7 +8,11 @@ namespace Abstract3DConverters.Creators
         protected XmlDocument doc;
 
 
-        public Dictionary<XmlElement, IParent> Meshes { get; private set; } = new();
+        public Dictionary<XmlElement, IParent> Meshes 
+        { 
+            get; 
+            private set; 
+        } = new();
 
         protected string String
         {

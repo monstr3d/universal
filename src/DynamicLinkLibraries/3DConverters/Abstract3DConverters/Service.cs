@@ -430,7 +430,12 @@ namespace Abstract3DConverters
                 T[] y = new T[n];
                 for (int j = 0; j < n; j++)
                 {
-                    y[j] = x[i + j];
+                    var a = i + j;
+                    if (a >= x.Length)
+                    {
+
+                    }
+                    y[j] = x[a];
                 }
                 l.Add(y);
             }

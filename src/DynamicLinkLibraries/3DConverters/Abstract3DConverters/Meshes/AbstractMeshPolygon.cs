@@ -53,25 +53,8 @@ namespace Abstract3DConverters.Meshes
             MaterialString = material;
         }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="parent">Parent</param>
-        /// <param name="matrix">Transformation matrix</param>
-        /// <param name="material">The material</param>
-        /// <param name="polygons">Polygons</param>
-        /// <param name="creator">The creator of mesh</param>
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, string material, IMeshCreator creator, List<PolygonLocal> polygons) :
-            this(name, parent, matrix, material, creator)
-        {
-            foreach (var p in polygons)
-            {
-              //  Polygons.Add(p);
-            }
-        }
 
-        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<PolygonLocal> polygons, IMeshCreator creator) :
+        public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, List<Polygon> polygons, IMeshCreator creator) :
                this(name, parent, null, creator)
         {
             Material = material;
@@ -93,7 +76,7 @@ namespace Abstract3DConverters.Meshes
         /// <param name="normals">Normals</param>
         /// <param name="creator">The creator of mesh</param>
         public AbstractMeshPolygon(string name, AbstractMesh parent, float[] matrix, Material material, 
-            List<PolygonLocal> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
+            List<Polygon> polygons, List<float[]> vertices, List<float[]> normals, IMeshCreator creator) :
             this(name, parent, matrix, material, polygons, creator)
         {
             Vertices = vertices;

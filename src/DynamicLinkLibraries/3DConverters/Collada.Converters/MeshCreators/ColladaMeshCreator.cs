@@ -102,7 +102,7 @@ namespace Collada.Converters.MeshCreators
         {
             try
             {
-                 images = new();
+                images = new();
                 StaticExtensionCollada.Collada = this;
                 StaticExtensionCollada.Function = this;
                 CreateAll();
@@ -112,8 +112,6 @@ namespace Collada.Converters.MeshCreators
             {
                 ex.ShowError();
             }
-
-
         }
 
 

@@ -1,14 +1,11 @@
 ﻿using System.Xml;
-using Collada;
-using Abstract3DConverters.Materials;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters;
-using Abstract3DConverters.Creators;
+using Abstract3DConverters.Points;
+
 using Collada.Converters.Classes.Elementary;
 using ErrorHandler;
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
-using Abstract3DConverters.Points;
+
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -26,6 +23,8 @@ namespace Collada.Converters.Classes.Complicated
         public List<int[]> Index { get; private set; }
 
         public float[] Vertices { get; private set; }
+
+        public List<Point> Points { get; private set; } = new();
 
         public List<Polygon> Polygons 
         { 
@@ -102,20 +101,25 @@ namespace Collada.Converters.Classes.Complicated
                     return;
                 }
                 var txt = s.ToRealArray<float>(textures, 2);
-
                 var k = 0;
                 var pp = p.Value;
+                int tn = 0;
                 foreach (var item in vcount)
                 {
-                    var points = new List<PointAC>();
+                    var points = new List<PointTexture>();
                     for (var i = 0; i < item; i++)
                     {
-                        var point = new PointAC(k, pp[k], -1, txt[k]);
-                        ++k;
+                         int idx = arr[tn];
+                         var point = new PointTexture(idx, txt[tn]);
+                        ++tn;
                         points.Add(point);
                     }
-              ///      var polygon = new Polygon(points, Material);
-              //      Polygons.Add(polygon);
+                    var polygon = new Polygon(points.ToArray(), Material);
+                    if (Polygons == null)
+                    {
+                        Polygons = new();
+                    }
+                    Polygons.Add(polygon);
                 }
             }
             catch (Exception exception)

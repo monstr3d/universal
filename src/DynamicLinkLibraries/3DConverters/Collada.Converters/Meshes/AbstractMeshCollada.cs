@@ -1,55 +1,23 @@
-﻿
-using System.Collections.Generic;
-using System.Xml;
-
-using Abstract3DConverters;
-using Abstract3DConverters.Creators;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Meshes;
-
-using Collada.Converters.Classes.Elementary;
+using Abstract3DConverters.Points;
+using Collada.Converters.Classes.Complicated;
 using Collada.Converters.MeshCreators;
-using Collada.Converters.Meshes;
 using ErrorHandler;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Collada.Converters.Classes.Complicated
+namespace Collada.Converters.Meshes
 {
-    [Tag("node")]
-    public class Node : Collada.XmlHolder
+    class AbstractMeshCollada : AbstractMeshPolygon
     {
-        MeshObject meshObject;
 
-        public static IClear Clear => StaticExtensionCollada.GetClear<Node>();
-
-        ColladaMeshCreator Creator
-        {
-            get;
-            set;
-        }
-
-
-        Service s = new ();
-
-        private Node(XmlElement element, IMeshCreator meshCreator) : base(element)
-        {
-            Creator = meshCreator as ColladaMeshCreator;
-            var name = element.GetAttribute("name");
-            var geom = element.GetFirstChild<InstanceGeomery>();
-            BindMaterial mat = null;
-            if (geom != null)
-            {
-                mat = geom.Xml.GetFirstChild<BindMaterial>();
-            }
-            var mt = element.GetFirstChild<Matrix>();
-            float[] mm = null;
-            if (mt != null)
-            {
-                mm = s.Convert(mt.Matrix3D);
-            }
-            var mesh = Create(geom, mat, name, mm);
-            Creator.Meshes[element] = mesh;
-        }
-
+        private ColladaMeshCreator meshCreator;
 
         float[] GetValue(object o)
         {
@@ -63,25 +31,18 @@ namespace Collada.Converters.Classes.Complicated
             throw new Exception();
         }
 
-        AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)
+
+        internal AbstractMeshCollada(InstanceGeomery geom, BindMaterial material, string name, float[] mm, ColladaMeshCreator creator) : base(name, null, mm, creator)
         {
-            return new AbstractMeshCollada(geom, material, name, mm, Creator);
-            Abstract3DConverters.Materials.Material mt = null;
-            if (material != null)
-            {
-                mt = material.Material;
-            }
-            if (geom == null)
-            {
-                return new AbstractMesh(name, Creator);
-            }
+            meshCreator = creator;
+            Material = material.Material;
+            var g = geom.Geometry;
+            var meshObject = g.Mesh;
+            var tr = meshObject.Triangles;
             List<float[]> vertices = null;
             List<float[]> normal = null;
             List<float[]> textures = null;
             List<int[][]> t = null;
-            var g = geom.Geometry;
-            meshObject = g.Mesh;
-            var tr = meshObject.Triangles;
             if (tr != null)
             {
                 int[] offs = new int[tr.Inputs.Count];
@@ -153,43 +114,55 @@ namespace Collada.Converters.Classes.Complicated
 
                     }
                 }
-
-                return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
+                return;
             }
-
-
-            try
+            var poly = meshObject.Polygon;
+            if (poly == null)
             {
-                
-                var poly = meshObject.Polygon;
-                if (poly == null)
-                {
-                    return new AbstractMesh(name, Creator);
-                }
-                List<float[]> vv = null;
-                if (poly.Vertices != null)
-                {
-                    vv = s.ToRealArray<float>(poly.Vertices, 3);
-                }
-                if (vv == null)
-                {
-                    return new AbstractMesh(name, Creator);
-                }
-                return null;// new AbstractMeshPolygon(name, null, mm, mt, poly.Polygons, vv, null, Creator);
+                return;
             }
-            catch (Exception e)
+            var vv = poly.Vertices;
+            if (vv == null)
             {
-                e.ShowError("Node polygon");
+                return;
             }
-            return null;
+            if (vv.Length == 0)
+            {
+                return;
+            }
+            Points = new();
+            if (poly.Vertices.Length > 0)
+            {
+                Points = new();
+                vertices = s.ToRealArray(poly.Vertices, 3);
+                if (poly.Normals != null)
+                {
+                    normal = s.ToRealArray(poly.Normals, 2);
+                    if (normal.Count > 0)
+                    {
+                        for (int i = 0; i < vertices.Count; i++)
+                        {
+                            var p = new Abstract3DConverters.Points.Point(vertices[i], normal[i]);
+                            Points.Add(p);
+                        }
+                        goto label;
+                    }
+                }
+                for (int j = 0; j < vertices.Count; j++)
+                {
+                    var p = new Abstract3DConverters.Points.Point(vertices[j]);
+                    Points.Add(p);
+                }
 
+            }
+        label:
+            Polygons = new();
+            foreach (var p in poly.Polygons)
+            {
+                var pp = new Polygon(p.Points, Material);
+                Polygons.Add(p);
+            }
+   
         }
-
-
-        public static object Get(XmlElement element, IMeshCreator meshCreator)
-        {
-            return  new Node(element, meshCreator);
-        }
-
     }
 }

@@ -13,7 +13,7 @@
         /// </summary>
         /// <param name="vertex">Vertex</param>
         /// <param name="normal">Normal</param>
-        public Point(float[] vertex, float[] normal)
+        public Point(float[] vertex, float[] normal = null)
         {
             Vertex = vertex;
             Normal = normal;

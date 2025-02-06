@@ -8,6 +8,7 @@ using Abstract3DConverters.Converters;
 using Abstract3DConverters.MaterialCreators;
 
 using ErrorHandler;
+using System.Linq.Expressions;
 
 namespace Collada.Converters.MeshConverters
 {
@@ -132,24 +133,27 @@ namespace Collada.Converters.MeshConverters
             var node = Create("node");
             var pmesh = Process(node, mesh);
             nodesDic[mesh] = node;
-            if (mesh.Vertices != null)
+            if (mesh.Points != null)
             {
-                var ig = Create("instance_geometry");
-                ig.SetAttribute("url", "#" + pmesh);
-                var mt = mesh.Material;
-                if (mt != null)
+                if (mesh.Points.Count > 0)
                 {
-                    var bm = Create("bind_material");
-                    ig.AppendChild(bm);
-                    var tc = Create("technique_common");
-                    bm.AppendChild(tc);
-                    var im = Create("instance_material");
-                    tc.AppendChild(im);
-                    im.SetAttribute("symbol", MaterialName);
-                    var nm = mt.Name;
-                    im.SetAttribute("target", "#" + nm);
+                    var ig = Create("instance_geometry");
+                    ig.SetAttribute("url", "#" + pmesh);
+                    var mt = mesh.Material;
+                    if (mt != null)
+                    {
+                        var bm = Create("bind_material");
+                        ig.AppendChild(bm);
+                        var tc = Create("technique_common");
+                        bm.AppendChild(tc);
+                        var im = Create("instance_material");
+                        tc.AppendChild(im);
+                        im.SetAttribute("symbol", MaterialName);
+                        var nm = mt.Name;
+                        im.SetAttribute("target", "#" + nm);
+                    }
+                    node.AppendChild(ig);
                 }
-                node.AppendChild(ig);
             }
             return node;
         }
@@ -191,117 +195,125 @@ namespace Collada.Converters.MeshConverters
 
         string CreateGeometry(AbstractMesh mesh)
         {
-            /*        var name = GeomName;
-                    var e = Create("geometry");
-                    e.SetAttribute("id", name);
-                    var r = doc.GetElementsByTagName("library_geometries")[0];
-                    r.AppendChild(e);
-                    var me = Create("mesh");
-                    e.AppendChild(me);
-                    if (mesh is AbstractMeshPolygon poly)
+            var name = GeomName;
+            var e = Create("geometry");
+            e.SetAttribute("id", name);
+            var r = doc.GetElementsByTagName("library_geometries")[0];
+            r.AppendChild(e);
+            var me = Create("mesh");
+            e.AppendChild(me);
+            //         if (mesh is AbstractMeshPolygon poly)
+            if (true)
+            {
+                if (mesh.Points != null)
+                {
+                    if (mesh.Points.Count > 0)
                     {
-                        if (mesh.Vertices != null)
+                        var vv = new List<float[]>();
+                        var vn = new List<float[]>();
+                        foreach (var pt in mesh.Points)
                         {
-                            var se = Create("source");
-                            me.AppendChild(se);
-                            se.SetAttribute("id", name + "-position");
-                            se.SetAttribute("name", "position");
-                            var vert = s.ToSingleArray(mesh.Vertices).ToArray();
-                            CreateFloatArray(se, name + "-position-array", vert);
-                            CreateTechnique_XYZ(se, name + "-position-array", vert);
-                            se = Create("source");
-                            me.AppendChild(se);
-                            se.SetAttribute("id", name + "-texcoord");
-                            se.SetAttribute("name", "texcoord");
-                            var l = new List<float[]>();
-                            var pol = poly.Polygons;
-                            var vcount = new List<int>();
-                            var p = new List<int>();
-                            var ln = new List<int[][]>();
-                            int gg = 0;
-                            foreach (var polygon in pol)
+                            if (pt.Vertex != null)
                             {
-                                var count = polygon.Indexes.Count;
-                                int[][] kk = new int[count][];
-                                ln.Add(kk);
-                                var nn = 0;
-                                var points = polygon.Indexes;
-                                vcount.Add(points.Count);
-                                foreach (var point in points)
-                                {
-                                    int[] id = [point.Vertex, point.Textrure, point.Normal];
-                                    kk[nn] = id;
-                                    foreach (var tt in id)
-                                    {
-                                        if (tt >= 0)
-                                        {
-                                            p.Add(tt);
-                                        }
-                                    }
-                                    /*    for (var i = 0; i < 2; i++)
-                                        {
-                                            l.Add(point.Data[i]);
-                  /*                      }*/
-            /*                l.Add([point.Data[0],point.Data[1]]);
-                        }
-                    }
-                    var txt = l;
-                    se = Create("source");
-                    me.AppendChild(se);
-                    se.SetAttribute("id", name + "-texcoord");
-                    se.SetAttribute("name", "texcoord");
-                    var tex = GetTextureArray(txt).ToArray();
-                    if (tex != null)
-                    {
-                        CreateFloatArray(se, name + "-texcoord-array", tex);
-                        CreateTechnique_TS(se, name + "-texcoord-array", tex);
-                    }
-                    var vt = Create("vertices");
-                    me.AppendChild(vt);
-                    vt.SetAttribute("id", name + "-vertices");
-                    CreateSemantic(vt, "POSITION", name + "-position");
-                    if (mesh.Normals != null)
-                    {
-                        se = Create("source");
-                        me.AppendChild(se);
-                        se.SetAttribute("id", name + "-normal");
-                        se.SetAttribute("name", name + "-normal");
-                        var norm = s.ToSingleArray(mesh.Normals).ToArray();
-                        CreateFloatArray(se, name + "-normal-array", norm);
-                        CreateTechnique_XYZ(se, name + "-normal-array", norm);
-                    }
-                    if (pol.Count > 0)
-                    {
-                        var polylist = Create("polylist");
-                        me.AppendChild(polylist);
-                        polylist.SetAttribute("count", "" + pol.Count);
-                        var mat = "Default";
-                        var mt = pol[0].Material;
-                        if (mt != null)
-                        {
-                            mat = mt.Name;
-                        }
-                        polylist.SetAttribute("material", mat);
-                        var sem = 0;
-                        var li = new List<int>();
-                        CreateSemantic(polylist, "VERTEX", name + "-vertices", sem);
-                        li.Add(0);
-                        ++sem;
-                        if (mesh.Normals != null)
-                        {
-                            if (mesh.Normals.Count != 0)
+                                vv.Add(pt.Vertex);
+                            }
+                            if (pt.Normal != null)
                             {
-                                CreateSemantic(polylist, "NORMAL", name + "-normal", sem);
-                                li.Add(2);
-                                ++sem;
+                                vn.Add(pt.Normal);
                             }
                         }
-                        CreateSemantic(polylist, "TEXCOORD", name + "-texcoord", sem);
-                        li.Add(1);
-                        var ofs = li.ToArray();
-                        CreateArray(polylist, "vcount", vcount.ToArray());
-                        CreateArray(polylist, "p", p.ToArray());
 
+                        var se = Create("source");
+                        me.AppendChild(se);
+                        se.SetAttribute("id", name + "-position");
+                        se.SetAttribute("name", "position");
+                        var vvv = s.ToSingleArray(vv).ToArray();
+                        CreateFloatArray(se, name + "-position-array", vvv);
+                        CreateTechnique_XYZ(se, name + "-position-array", vvv);
+                        se = Create("source");
+                        me.AppendChild(se);
+                        se.SetAttribute("id", name + "-texcoord");
+                        se.SetAttribute("name", "texcoord");
+                        var l = new List<float[]>();
+                        var pol = mesh.Polygons;
+                        var vcount = new List<int>();
+                        var p = new List<int>();
+                        var ln = new List<int[][]>();
+                        int gg = 0;
+                        var vtxt = new List<float[]>();
+                        var ppp = new List<int>();
+                        foreach (var polygon in pol)
+                        {
+                            var count = polygon.Points.Length;
+                            int[][] kk = new int[count][];
+                            ln.Add(kk);
+                            var nn = 0;
+                            var points = polygon.Points;
+                            vcount.Add(points.Length);
+                            foreach (var point in points)
+                            {
+                                vtxt.Add([point.Texture[0], point.Texture[1]]);
+                                ppp.Add(point.Index);
+                            }
+                        }
+                        var txt = l;
+                        se = Create("source");
+                        me.AppendChild(se);
+                        se.SetAttribute("id", name + "-texcoord");
+                        se.SetAttribute("name", "texcoord");
+                        var tex = s.ToSingleArray(vtxt).ToArray();
+                        if (tex != null)
+                        {
+                            CreateFloatArray(se, name + "-texcoord-array", tex);
+                            CreateTechnique_TS(se, name + "-texcoord-array", tex);
+                        }
+                        var vt = Create("vertices");
+                        me.AppendChild(vt);
+                        vt.SetAttribute("id", name + "-vertices");
+                        CreateSemantic(vt, "POSITION", name + "-position");
+                        if (vn.Count > 0)
+                        {
+                            se = Create("source");
+                            me.AppendChild(se);
+                            se.SetAttribute("id", name + "-normal");
+                            se.SetAttribute("name", name + "-normal");
+                            var norm = s.ToSingleArray(vn).ToArray();
+                            CreateFloatArray(se, name + "-normal-array", norm);
+                            CreateTechnique_XYZ(se, name + "-normal-array", norm);
+                        }
+                        if (pol.Count > 0)
+                        {
+                            var polylist = Create("polylist");
+                            me.AppendChild(polylist);
+                            polylist.SetAttribute("count", "" + pol.Count);
+                            var mat = "Default";
+                            var mt = pol[0].Material;
+                            if (mt != null)
+                            {
+                                mat = mt.Name;
+                            }
+                            polylist.SetAttribute("material", mat);
+                            var sem = 0;
+                            var li = new List<int>();
+                            CreateSemantic(polylist, "VERTEX", name + "-vertices", sem);
+                            li.Add(0);
+                            ++sem;
+                            if (mesh.Normals != null)
+                            {
+                                if (mesh.Normals.Count != 0)
+                                {
+                                    CreateSemantic(polylist, "NORMAL", name + "-normal", sem);
+                                    li.Add(2);
+                                    ++sem;
+                                }
+                            }
+                            CreateSemantic(polylist, "TEXCOORD", name + "-texcoord", sem);
+                            li.Add(1);
+                            var ofs = li.ToArray();
+                            CreateArray(polylist, "vcount", vcount.ToArray());
+                            CreateArray(polylist, "p", ppp.ToArray());
+
+                        }
                     }
                 }
             }
@@ -386,114 +398,15 @@ namespace Collada.Converters.MeshConverters
                         CreateArray(tr, "p", p.ToArray());
                     }
                 }
-            }
-            return name;
-            */
-            return "";
-        }
-
-
-        string CreateGeometry1(AbstractMesh mesh)
-        {
-            var name = "";
-            var e = Create("geometry");
-            e.SetAttribute("id", name);
-            var r = doc.GetElementsByTagName("library_geometries")[0];
-            r.AppendChild(e);
-            var me = Create("mesh");
-            e.AppendChild(me);
-
-            if (mesh is AbstractMeshPolygon polygon)
-            {
-                if (mesh.Vertices != null)
-                {
-                    var se = Create("source");
-                    me.AppendChild(se);
-                    se.SetAttribute("id", name + "-position");
-                    se.SetAttribute("name", "position");
-                    var vert = s.ToSingleArray(mesh.Vertices).ToArray();
-                    CreateFloatArray(se, name + "-position-array", vert);
-                    CreateTechnique_XYZ(se, name + "-position-array", vert);
-                    if (mesh.Normals != null)
-                    {
-                        se = Create("source");
-                        me.AppendChild(se);
-                        se.SetAttribute("id", name + "-normal");
-                        se.SetAttribute("name", name + "-normal");
-                        var norm = s.ToSingleArray(mesh.Normals).ToArray();
-                        CreateFloatArray(se, name + "-normal-array", norm);
-                        CreateTechnique_XYZ(se, name + "-normal-array", norm);
-
-                    }
-                    se = Create("source");
-                    me.AppendChild(se);
-                    se.SetAttribute("id", name + "-texcoord");
-                    se.SetAttribute("name", name + "-texcoord");
-                    var txt = mesh.Textures;
-                    if (txt != null)
-                    {
-                        vert = GetTextureArray(txt).ToArray();
-                        CreateFloatArray(se, name + "-texcoord-array", vert);
-                        CreateTechnique_TS(se, name + "-texcoord-array", vert);
-                    }
-                    else
-                    {
-
-                    }
-                    //
-                    //
-                    var vt = Create("vertices");
-                    me.AppendChild(vt);
-                    vt.SetAttribute("id", name + "-vertices");
-                    CreateSemantic(vt, "POSITION", name + "-position");
-                    if (mesh is AbstractMeshPolygon poly)
-                    {
-                        var tr = Create("triangles");
-                        me.AppendChild(tr);
-                        tr.SetAttribute("material", "default");
-                        tr.SetAttribute("count", mesh.Vertices.Count + "");
-                        int sem = 0;
-                        CreateSemantic(tr, "VERTEX", name + "-vertices", sem);
-                        ++sem;
-                        if (mesh.Normals != null)
-                        {
-                            CreateSemantic(tr, "NORMAL", name + "-norma", sem);
-                            ++sem;
-                        }
-                        CreateSemantic(tr, "TEXCOORD", name + "-texcoord", 1);
-                        if (mesh.Indexes != null)
-                        {
-                            CreateArray(tr, "p", mesh.Indexes.ToArray());
-                        }
-                    }
-
-
-                }
                 else
                 {
-                    var tr = Create("triangles");
-                    me.AppendChild(tr);
-                    tr.SetAttribute("material", "default");
-                    tr.SetAttribute("count", mesh.Vertices.Count + "");
-                    int sem = 0;
-                    CreateSemantic(tr, "VERTEX", name + "-vertices", sem);
-                    ++sem;
-                    if (mesh.Normals != null)
-                    {
-                        CreateSemantic(tr, "NORMAL", name + "-norma", sem);
-                        ++sem;
-                    }
-                    CreateSemantic(tr, "TEXCOORD", name + "-texcoord", 1);
-                    if (mesh.Indexes != null)
-                    {
-                        CreateArray(tr, "p", mesh.Indexes.ToArray());
-                    }
+
                 }
-
-
             }
             return name;
         }
+
+
 
         void CreateTechnique_common(XmlElement parent, string name, float[] f, string[][] s)
         {

@@ -412,52 +412,6 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-        private AbstractMeshAC(AbstractMeshAC parent, PolygonLocal polygon, Material material, Image image, IMeshCreator creator) :
-            base(parent.Name + Path.GetRandomFileName(), parent, null, creator)
-        {
-            Vertices = new List<float[]>();
-            var d = new Dictionary<int, int>();
-            int i = 0;
-            foreach (var p in polygon.Points)
-            {
-                var k = p.Vertex;
-                if (!d.ContainsKey(k))
-                {
-                    d[k] = i;
-                    ++i;
-                }
-            }
-            foreach (var key in d.Keys)
-            {
-                if ((key < 0) | (key >= parent.Vertices.Count))
-                {
-
-                }
-                Vertices.Add(parent.Vertices[key]);
-            }
-            var l = new List<PointAC>();
-            foreach (var p in polygon.Points)
-            {
-                var t = new PointAC(d[p.Vertex], p.Textrure, p.Normal, p.Data);
-                l.Add(t);
-            }
-            if (image != null)
-            {
-                material = material.Clone() as Material;
-                var im = image.Clone() as Image;
-                material = material.SetImage(im);
-            }
-            Material = material.Clone() as Material;
-            if (image != null & !Material.HasImage)
-            {
-                Image = image.Clone() as Image;
-                Material = Material.SetImage(Image);
-            }
-            if (mats.Count > 1)
-            {
-                Disintegrate();
-            }
-        }
 
         protected void Disintegrate()
         {
