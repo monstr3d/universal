@@ -161,6 +161,33 @@ namespace Abstract3DConverters
             return p;
         }
 
+        /// <summary>
+        /// Matrix point product
+        /// </summary>
+        /// <param name="a">Matrix</param>
+        /// <param name="point">Point</param>
+        /// <returns>Product</returns>
+        public PointTexture Product(float[,] a, PointTexture point)
+        {
+            var n = point.Normal;
+            if (n == null)
+            {
+                return point;
+            }
+            var norm = new float[3] { 0f, 0f, 0f };
+            for (var i = 0; i < 3; i++)
+            {
+                for (var j = 0; j < 3; j++)
+                {
+                    norm[i] += a[i, j] * norm[j];
+
+                }
+            }
+            return new PointTexture(point.Index, point.Texture, norm);
+        }
+
+
+
 
         /// <summary>
         ///  Sets parents for dictionary

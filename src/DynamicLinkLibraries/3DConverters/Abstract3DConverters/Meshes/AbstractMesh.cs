@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System.Net.Http.Headers;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
@@ -45,6 +46,10 @@ namespace Abstract3DConverters.Meshes
 
         Func<float[,]> GetAbsoluteMatrix;
 
+        protected List<Polygon> absolutePolygons;
+
+        Func<List<Polygon>> GetAbsolutePolygons;
+
 
 
 
@@ -60,6 +65,7 @@ namespace Abstract3DConverters.Meshes
             GetAbsolute = GetStart;
             GetRelativeMatrix = GetRelativeMatrixStart;
             GetAbsoluteMatrix = GetAbsoluteMatrixStart;
+            GetAbsolutePolygons = GetPolygonStart;
         }
 
         /// <summary>
@@ -301,6 +307,11 @@ namespace Abstract3DConverters.Meshes
         public List<Point> AbsolutePoints => GetAbsolute();
 
         /// <summary>
+        /// Absolute polygons
+        /// </summary>
+        public List<Polygon> AbsolutePolygons => GetAbsolutePolygons();
+
+        /// <summary>
         /// Relative matrix
         /// </summary>
         public float[,] RelativeMatrix => GetRelativeMatrix();
@@ -343,6 +354,29 @@ namespace Abstract3DConverters.Meshes
 
         #region Private
 
+        void CalculateAbsolutePolygons()
+        {
+            if (Polygons != null)
+            {
+                if (Polygons.Count > 0)
+                {
+                    absolutePolygons = new();
+                    var m = AbsoluteMatrix;
+                    foreach (var polygon in Polygons)
+                    {
+                        var l = new List<PointTexture>();
+                        foreach (var point in polygon.Points)
+                        {
+                            l.Add(s.Product(m, point));
+                        }
+                        absolutePolygons.Add(new Polygon(l.ToArray(), polygon.Material));
+                    }
+
+                }
+            }
+
+        }
+
         void CalculateAbsolute()
         {
             if (Points != null)
@@ -357,6 +391,20 @@ namespace Abstract3DConverters.Meshes
                     }    
                 }
             }
+        }
+
+
+        List<Polygon> GetPolygonStart()
+        {
+            CalculateAbsolutePolygons();
+            GetAbsolutePolygons = GetPolygonFinish;
+            return absolutePolygons;
+
+        }
+
+        List<Polygon> GetPolygonFinish()
+        {
+            return absolutePolygons;
         }
 
         List<Point> GetStart()
@@ -389,7 +437,6 @@ namespace Abstract3DConverters.Meshes
                   { tr[8], tr[9],tr[10], tr[11] },  { tr[12], tr[13],tr[14], tr[15] }
                 };
             }
-
             GetRelativeMatrix = GetRelativeMatrixFinish;
             return relative;
         }

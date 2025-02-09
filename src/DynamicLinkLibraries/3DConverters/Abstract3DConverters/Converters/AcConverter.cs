@@ -1,5 +1,4 @@
-﻿using System.Text;
-
+﻿
 using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
@@ -10,14 +9,12 @@ namespace Abstract3DConverters.Converters
 {
     
     [Converter(".ac")]
-    public class AcConverter : IMeshConverter, IStringRepresentation
+    public class AcConverter : LinesConverter
     {
         #region Fields
 
-        Service service = new();
 
-        ExeptionalMaterialCreator materialCreator = new ExeptionalMaterialCreator();
-
+   
         Service s = new();
 
 
@@ -25,51 +22,28 @@ namespace Abstract3DConverters.Converters
 
         Dictionary<string, int> dm = new();
 
-        IMeshConverter converter;
 
         #endregion
 
         #region Ctor
 
-        public AcConverter()
+        public AcConverter() : base()
         {
-            converter = this;
+            materialCreator = new ExeptionalMaterialCreator();
         }
 
         #endregion
 
         #region Interface implementation
+  
 
-   
-        Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
-
-        IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
-
-   //     Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
-
-        string IMeshConverter.Directory { get; set; }
-        Dictionary<string, Image> IMeshConverter.Images { set {} }
-
-        void IMeshConverter.Add(object mesh, object child)
+        protected override object Combine(IEnumerable<object> meshes)
         {
-            var m = mesh as List<string>;
-            var c = child as List<string>;
-            m.AddRange(c);
+             lines.AddRange(materials);
+            return base.Combine(meshes);
         }
 
-        object IMeshConverter.Combine(IEnumerable<object> meshes)
-        {
-            var l = new List<string>();
-            l.AddRange(materials);
-            foreach (var mesh in meshes)
-            {
-                var lm = mesh as List<string>;
-                l.AddRange(lm);
-            }
-            return l;
-        }
-
-        object IMeshConverter.Create(AbstractMesh mesh)
+        protected override object Create(AbstractMesh mesh)
         {
             if (mesh is AbstractMeshPolygon meshPolygon)
             {
@@ -78,28 +52,18 @@ namespace Abstract3DConverters.Converters
             return null;
         }
 
-        void IMeshConverter.SetMaterial(object mesh, object material)
+        protected override void SetMaterial(object mesh, object material)
         {
             throw new NotImplementedException();
         }
 
-        void IMeshConverter.SetTransformation(object mesh, float[] transformation)
+        protected override void SetTransformation(object mesh, float[] transformation)
         {
             throw new NotImplementedException();
         }
 
 
-        string IStringRepresentation.ToString(object obj)
-        {
-            var l = obj as List<string>;
-            var sb = new StringBuilder();
-            foreach (var str in l)
-            {
-                sb.Append(str + '\n');
-            }
-            return sb.ToString();
-        }
-
+ 
 
 
         #endregion
@@ -123,15 +87,15 @@ namespace Abstract3DConverters.Converters
                return l;
             }
             l.Add("OBJECT poly");
-            l.Add("name " + service.Wrap(n));
+            l.Add("name " + s.Wrap(n));
             l.Add(n);
             var mat = polygon.Material;
             if (mat != null)
             {
-                var im = service.GetImage(mat);
+                var im = s.GetImage(mat);
                 if (im != null)
                 {
-                    l.Add("texture " + service.Wrap(im.Name));
+                    l.Add("texture " + s.Wrap(im.Name));
                 }
             }
             if (polygon.Vertices == null)
@@ -147,7 +111,7 @@ namespace Abstract3DConverters.Converters
             l.Add("numvert " + polygon.Vertices.Count);
             foreach (var v in polygon.Vertices)
             {
-                l.Add(service.StrinValue(v));
+                l.Add(s.StrinValue(v));
             }
             l.Add("numsurf " + polygon.Polygons.Count);
             foreach (var poly in polygon.Polygons)
@@ -182,15 +146,15 @@ namespace Abstract3DConverters.Converters
             {
                 dm[item.Key] = i;
                 ++i;
-                var s = service.Shrink(GetMaterial(item.Value));
-                mat.Add(s);
+                var st =  s.Shrink(GetMaterial(item.Value));
+                mat.Add(st);
             }
 
         }
 
         string GetMaterial(Material material)
         {
-            var s = "MATERIAL " + service.Wrap(material.Name) + " ";
+            var st = "MATERIAL " + s.Wrap(material.Name) + " ";
             float trans = 0;
             float shi = 0;
             string diff = " 0 0 0 ";
@@ -218,8 +182,8 @@ namespace Abstract3DConverters.Converters
                     }
                 }
             }
-            s += diff + " emis " + emis + " spec " + spec + " shi " + shi + " trans " + trans;
-            return s;
+            st += diff + " emis " + emis + " spec " + spec + " shi " + shi + " trans " + trans;
+            return st;
         }
 
         string GetMaterial(DiffuseMaterial material)
@@ -252,8 +216,9 @@ namespace Abstract3DConverters.Converters
             return material.Color.StringValue() + " ";
         }
 
+ 
         #endregion
 
- 
+
     }
 }
