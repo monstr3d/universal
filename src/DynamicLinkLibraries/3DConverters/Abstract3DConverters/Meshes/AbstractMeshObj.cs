@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+﻿
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
@@ -7,8 +7,78 @@ namespace Abstract3DConverters.Meshes
 {
     class AbstractMeshObj : AbstractMesh
     {
-        internal AbstractMeshObj(string name, Obj3DCrearor crearor, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, crearor)
+        internal int Shift
         {
+            get;
+            private set;
+        }
+
+        internal int ShiftTexture
+        {
+            get;
+            private set;
+        }
+
+        internal int ShiftNormal
+        {
+            get;
+            private set;
+        }
+
+        internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
+        {
+            Material = creator.MaterialList[number];
+            Name = creator.Names[number];
+            Points = new();
+            Polygons = new();
+            var indexes = creator.Indexes[number];
+            var direct = new Dictionary<int, int>();
+            foreach (var idx in indexes)
+            {
+                var pp = new List<PointTexture>();
+                foreach (var item in idx)
+                {
+                    float[] norm = null;
+                    int nv = -1;
+                    int nn = -1;
+                    int nt = -1;
+                    var iv = item[0] - 1;
+                    var it = item[1] - 1;
+                    var ino = -1;
+                    if (item.Length > 2)
+                    {
+                        ino = item[2] - 1;
+                    }
+                    if (direct.ContainsKey(iv))
+                    {
+                        nv = direct[iv];
+                    }
+                    else
+                    {
+                        nv = Points.Count;
+                        direct[iv] = nv;
+                        if (ino >= 0)
+                        {
+                            norm = creator.Normals[ino];
+                        }
+                        var point = new Point(creator.Vertices[iv], norm);
+                        Points.Add(point);
+                    }
+                    var txt = new PointTexture(nv, creator.Textures[it], norm);
+                    pp.Add(txt);
+                }
+                Polygons.Add(new Polygon(pp.ToArray(), Material));
+            }
+           
+        }
+
+
+
+        internal AbstractMeshObj(string name, Obj3DCreator crearor, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, crearor)
+        {
+            Shift = shift[0];
+            ShiftTexture = shift[1];
+            ShiftNormal = shift[2];
             end = 0;
             nextName = null;
             var vertices = new List<float[]>();
@@ -116,6 +186,7 @@ namespace Abstract3DConverters.Meshes
             shift[2] += normals.Count;
             var points = new Dictionary<int, Point>();
             var dic = new Dictionary<int, int[]>();
+            Normals = normals;
             foreach (var ind in indexes)
             {
                 foreach (var item in ind)
@@ -143,13 +214,18 @@ namespace Abstract3DConverters.Meshes
                             txt = textures[idt];
                         }
                     }
-                    var idn = item[2];
                     float[] norm = null;
-                    if (idn >= 0)
+                    var idn = -1;
+                    if (item.Length > 2)
                     {
-                        if (idn <= normals.Count)
+                        idn = item[2];
+                        norm = null;
+                        if (idn >= 0)
                         {
-                            norm = normals[idn];
+                            if (idn <= normals.Count)
+                            {
+                                norm = normals[idn];
+                            }
                         }
                     }
                     var point = new Point(vert, norm);
@@ -173,12 +249,23 @@ namespace Abstract3DConverters.Meshes
                 var li = new List<PointTexture>();
                 foreach (var item in ind)
                 {
+                    var idn = -1;
+                    if (Normals != null)
+                    {
+                        if (Normals.Count > 0)
+                        {
+                            if (item.Length > 2)
+                            {
+                                idn = item[2];
+                            }
+                        }
+                    }
                     var pt = new PointTexture(item[0], textures[item[1]]);
                     li.Add(pt);
 
                 }
                 // li.Add(dp[item[0]]);
-                var pl = new Polygon(li.ToArray(), material);
+                var pl = new Polygon(li.ToArray(), Material);
                 Polygons.Add(pl);
             }
         }

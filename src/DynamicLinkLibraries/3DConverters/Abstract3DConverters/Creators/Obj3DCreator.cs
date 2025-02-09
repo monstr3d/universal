@@ -1,13 +1,11 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using ErrorHandler;
-using System;
 
 namespace Abstract3DConverters.Creators
 {
     [Attributes.Extension([".obj"])]
-    public class Obj3DCrearor : LinesMeshCreator, IAdditionalInformation
+    public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
     {
         List<AbstractMesh> models = new();
 
@@ -23,13 +21,95 @@ namespace Abstract3DConverters.Creators
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
-/*
+
         internal List<float[]> Vertices { get; private set; } = new List<float[]>();
         internal List<float[]> Normals  { get; private set; } = new List<float[]>();
         internal List<float[]> Textures { get; private set; } = new List<float[]>();
-*/
 
-        public Obj3DCrearor(string filename, byte[] bytes) : base(filename, bytes)
+        internal List<List<int[][]>> Indexes { get; private set; } = new();
+
+        internal List<string> Names { get; private set; } = new();
+        internal List<int[]> Shifts { get; private set; } = new();
+
+        internal List<Material> MaterialList { get; private set; } = new();
+
+        void CreateGeometry()
+        {
+            List<int[][]> indexes = null;
+
+            foreach (var line in lines)
+            {
+                var objs = "# object ";
+                if (line.Contains(objs))
+                {
+                    var name = line.Substring(objs.Length).Trim();
+                    Names.Add(name);
+                    indexes = new();
+                    Indexes.Add(indexes);
+                    Shifts.Add([Vertices.Count, Textures.Count, Normals.Count]);
+                    continue;
+                }
+
+                if (line.IndexOf("v ") == 0)
+                {
+                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
+                    Vertices.Add(f);
+                    continue;
+                }
+                if (line.IndexOf("vt ") == 0)
+                {
+                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
+                    Textures.Add(f);
+                    continue;
+                }
+                if (line.IndexOf("vn ") == 0)
+                {
+                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
+                    Normals.Add(f);
+                    continue;
+                }
+                if (line.StartsWith("usemtl "))
+                {
+                    var mat = line.Substring("usemtl ".Length);
+                     var material = Materials[mat];
+                    MaterialList.Add(material);
+
+                    continue;
+                }
+                if (line.IndexOf("f ") == 0)
+                {
+                    var s = line.Substring("f ".Length).Trim();
+                    var ss = s.Split(" ".ToCharArray());
+                    var ind = new int[ss.Length][];
+                    for (int j = 0; j < ss.Length; j++)
+                    {
+                        var sss = ss[j].Split("/".ToCharArray());
+                        var i = new int[sss.Length];
+                        ind[j] = i;
+                        //var k =  new int[sss.Length];
+                        for (int m = 0; m < sss.Length; m++)
+                        {
+                            if (sss[m].Length == 0)
+                            {
+                                i[m] = -1;
+                            }
+                            else
+                            {
+                                i[m] = int.Parse(sss[m]);
+                            }
+                        }
+                    }
+                    indexes.Add(ind);
+                    continue;
+                }
+
+            }
+        }
+
+        //      internal Dictionary<int, Tuple<List<float[]>, List<float[]>, List<float[]>>> All = new();
+
+
+        public Obj3DCreator(string filename, byte[] bytes) : base(filename, bytes)
         {
 
         }
@@ -58,7 +138,8 @@ namespace Abstract3DConverters.Creators
                 dict = new Dictionary<string, Material>();
             }
 
-            public Dictionary<string, object> Create(Dictionary<string, Material> keyValuePairs, IMaterialCreator creator)
+            public Dictionary<string, object> Create(Dictionary<string, Material> keyValuePairs, 
+                IMaterialCreator creator)
             {
                 Dictionary<string, object> d = new Dictionary<string, object>();
                 foreach (var pair in keyValuePairs)
@@ -178,7 +259,6 @@ namespace Abstract3DConverters.Creators
                 }
             }
 
-            bool first = true;
 
             private MtlWrapper(string str, string directory, StreamReader reader, Dictionary<string, Material> materials)
             {
@@ -400,6 +480,11 @@ namespace Abstract3DConverters.Creators
 
         protected override IEnumerable<AbstractMesh> Get()
         {
+            for (var i = 0; i < MaterialList.Count; i++)
+            {
+                yield return new AbstractMeshObj(i, this);
+            }
+            yield break;
             var vertices = new List<float[]>();
             var textures = new List<float[]>();
             var normals = new List<float[]>();
@@ -647,11 +732,8 @@ namespace Abstract3DConverters.Creators
         protected override void CreateFromLines()
         {
             CreateMaterials();
+            CreateGeometry();
         }
-/*
-        public override void Load(byte[] bytes)
-        {
-            throw new NotImplementedException();
-        }*/
+
     }
 }

@@ -11888,8 +11888,6 @@ One needs check conditions (a)-(c) of the Definition \ref{smooth_el_defn}.
 \end{enumerate}
 
 
-\end{proof}	
-\begin{empt} !!! CHECK !!!
 	The space $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ of compactly supported is dense in $L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ so we should prove that a net 
 		\bean
 		\left\lbrace \left[D_\la, \sum_{	g \in G_\la}\widetilde a_\la \right]\widetilde\eta\right\rbrace_{\la\in\La}
@@ -11920,7 +11918,7 @@ One needs check conditions (a)-(c) of the Definition \ref{smooth_el_defn}.
 		\widetilde p^{-1}_{\la_{\supp \widetilde a}} : \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)\hookto\\\hookto \mathscr Hom\left( \Ga_c^\infty\left(\widetilde M, \widetilde S \right), \Ga_c^\infty\left(\widetilde M, \widetilde S \right)\right) 
 		\eean
 		is the  $\widetilde p_{\la_{\supp \widetilde a}}$-inverse image (cf. Definition \ref{top_smooth_inv_im_defn}).
-\end{empt}
+\end{proof}
 \begin{lemma}\label{top_smooth_lem}
 An element $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong C_c\left(\widetilde M\right)$  is smooth  (cf.  Definition \ref{smooth_el_defn})  if and only if $\widetilde a\in \Coo_c\left(\widetilde M\right)=C_c\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$.
 \end{lemma}
@@ -11934,7 +11932,7 @@ An element $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong
 	\end{itemize}
 From the condition (a) of the Definition \ref{smooth_el_defn} it follows that the series 
 $$
-a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{\sX}\right|\sX_\la \right)\to G\left(\left.\sX_\la\right|\sX \right)\right) } ~ g \widetilde{a} 
+a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{M}\right|M_\la \right)\to G\left(\left.M_\la\right|M \right)\right) } ~ g \widetilde{a} 
 $$
 is convergent with respect to strict topology of $C_b\left(\widetilde{\sX}\right)$ and $a_\la \in \Coo\left(M_\la \right)$. Using  the Lemmas \ref{strict_strong_lem} and \ref{comm_lift_desc_sum_lem} one can prove that 
 $$
@@ -11965,7 +11963,7 @@ Charge conjugation 	& $J$ and $\widetilde J$ & $C$ and $\widetilde C$  \\  & & \
 	\end{tabular}
 	\\
 	\\
-To complete it one should find an explicit formula for $\widetilde D$. From \eqref{top_llla_eqn} !!!
+To complete it one should find an explicit formula for $\widetilde D$. From \eqref{top_llla_eqn} 
 	it follows that 
 	\bean
 	\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right] = \left[\widetilde p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right].
@@ -12039,23 +12037,25 @@ If $A$ is $N$-algebra (cf. Definition \ref{N_defn}) then from \eqref{uct_eqn} it
 	\item If $A \cong C\left( \sX\right)$ then the homomorphism  \eqref{h_N_eqn} equals to \eqref{h_k1_om_ab_eqn} one.
 \end{enumerate}
 \section{Basic constructions}
+
 \paragraph*{}
 
 Let $A$ be an unital $C^*$-algebra with unitary element $u\in A$, and let
 \be\label{hurewicz_u_n_eqn}
 \left(   A , \widetilde A, \Z_n\cong G\left( \left.\widetilde A\right| A\right) ,  \lift \right) 
 \ee
-be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}) with an isometry $v \in \widetilde A$ such that
+be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).  Suppose that there are unital elements $u \in A$ and $v \in \widetilde A$ such that
 \bean
 v^n = u,\\
-\widetilde A\bydef \oplus_{j = 0}^{n-1} \pi\left(A\right)  v^j \in B\left(\H \right) 
+\widetilde A\bydef \oplus_{j = 0}^{n-1} \lift \left(A\right)  v^j
 \eean
-Suppose that 
+where $\oplus$ means a direct sum of left $A$-modules.
+Assume that 
 \bea\label{h_gr_eqn}
 	G\left( \left.\widetilde A\right| A\right) \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|\forall a \in \widetilde \lift\left( A\right)  \quad ga = a\right\} \cong \Z_n,
-	\\\label{h_gr_a_eqn}\forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  A\right)\quad \overline k \cdot \left(\sum_{j = 0}^n a_j  v^j \right) \bydef \sum_{j = 0}^n a_j  e^{\frac{2\pi i j k}{n}}v^j%.
+	\\\label{h_gr_a_eqn}\forall \overline m  \in \Z, \quad \forall \overline k \in \Z_n,\quad  \forall a \in  \lift\left(  A\right)\quad \overline k \cdot \left(a v^m \right) =  a v^m  e^{\frac{2\pi i m k}{n}}.
 \eea
-where $k$ is a representative of $\overline k$ and $a_j \in \lift\left( A\right)$ for all $j \in \left\{1,..., n\right\}$.
+where $k$ is a representative of $\overline k$.
 \begin{definition}\label{hurewicz_u_n_defn}
 	Under the above hypothesis   the given by \eqref{hurewicz_u_n_eqn} noncommutative finite-fold covering with unitization is a $\left(u, v, n\right)$-\textit{covering}.
 \end{definition}
@@ -12088,7 +12088,7 @@ $$
 \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}\cong G\left(\left.\widetilde A\right| A\right).
 $$
 If $\pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}}\bydef \pi_1^{\text{ab}}\left(A \right)/ \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}$ then 
-$\pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}}\cong \ker\left(\pi_1^{\text{ab}}\left(A \right) \right)\to  G\left( \left.\widetilde A\right| A\right)$ since $A$ {allows Hurewicz homomorphism} one has the following natural direct sum
+$\pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}}\cong \ker\left(\pi_1^{\text{ab}}\left(A \right) \right)\to  G\left( \left.\widetilde A\right| A\right)$. Since $A$ {admits Hurewicz homomorphism} one has the following natural direct sum
 \be\label{h_f_decomp_eqn} 
 \begin{split}
 	\pi_1^{\text{ab}}\left(A \right)\cong \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\oplus \pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}}
@@ -12105,26 +12105,34 @@ $\pi_1^{\text{ab}}\left(A \right)_{\mathrm{free}}\cong \ker\left(\pi_1^{\text{ab
 	\ee
 	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
 \end{empt}
-\paragraph{Free part}
+\paragraph{Free part of  Hurewicz homomorphism.} Let $A$  be an unital $C^*$-algebra, and let $\pi : A \to B\left(\H \right)$ be a faithful  nondegenerate representation   (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). 
 If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$.
 \begin{definition}\label{h_admissible_free_defn}
-	An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by  $u \in  M\left( A \otimes \K\right)$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus \pi\left( M\left(A \right) \right) $ of unital elements with
+	An element $x \in K_1\left( A\right)_{\mathrm{free}}$ is \textit{admissible} if it can be represented by an unitary element $u \in  A$  such that there is a set $\left\{v_{k}\right\}_{k \in \N}\subset B\left(\H \right)\setminus A$ of unital elements with
 	\be\label{h_vm_eqn}
 	\begin{split}
 		v_k^k =\pi\left(u\right),\\
 		\forall k, l \in \N \quad v_{kl}^l = v_k. 
 	\end{split}
 	\ee
-	and for any $k \in \N$ there is a $\left( u, v_k, k\right)$-covering.
+	and for any $k \in \N$ there is a $\left( u, v_k, k\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn})
+	$$
+	\left(   A , \widetilde A_k, \Z_k\cong G\left( \left.\widetilde A_k\right| A\right) ,  \lift_k \right) 
+	$$
+	such that
+	$$
+\widetilde A\bydef \oplus_{j = 0}^{n-1} \pi \left(A\right)  v^j.
+	$$
 \end{definition}
+!!! CONTINUE !!!
 If $V^{\mathrm{adm}}\subset K_1\left( A\right)_{\mathrm{free}}\otimes \Q$ is a generated by admissible elements subspace then $V^{\mathrm{adm}}$ is isomorphic to  the factor-space of   $K_1\left( A\right)_{\mathrm{free}}\otimes \Q$. Similarly if $K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\bydef V^{\mathrm{adm}} \cap  K_1\left( A\right)_{\mathrm{free}}$ then $K^{\mathrm{adm}}_1\left( A\right)$ is isomorphic to  a factor-group of a $K_1\left( A\right)_{\mathrm{free}}$. Indeed
 \be\label{h_dsi_eqn}
 K^{\mathrm{adm}}_1\left( A\right)_{\mathrm{free}}\cong \Z x_1 \oplus ...\oplus \Z x_n
 \ee
-where $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$ and there is a (non unique) surjective homomorphism $K_1\left( A\right)_{\mathrm{free}}\to \Z x_j$. Any $x \in \left\{x_1,...,  x_n\right\}$  can be represented by $u \in   M\left( A \otimes \K\right)$ satisfying to the conditions \eqref{h_vm_eqn}. For any $m \in \N$ let $
+where $x_j$ is admissible for any $j \in \left\{1,...,n\right\}$ and there is a (non unique) surjective homomorphism $K_1\left( A\right)_{\mathrm{free}}\to \Z x_j$. Any $x \in \left\{x_1,...,  x_n\right\}$  can be represented by $u \in  A$ satisfying to the conditions \eqref{h_vm_eqn}. For any $m \in \N$ let $
 \left(A, A_m, \Z_m, \lift_m \right) 
 $
-the  required by the Definition \ref{hurewicz_u_n_defn} noncommutative covering with unitization.  If $h_{m} : \pi_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then   any $g \in \pi_1\left(A\right)$ yields a character
+the  required by the Definition \ref{hurewicz_u_n_defn} unital finite-fold  noncommutative covering.  If $h_{m} : \pi_1\left(A\right)\to \Z_m$ be given by \eqref{fundamental_gr_hom_eqn} then   any $g \in \pi_1\left(A\right)$ yields a character
 \bean
 \chi^g_m : \Z  x \to \sU\left( 1\right),\\
 k   x \mapsto \frac{h_m\left( g\right) v^k_m}{v_m}= e^{\frac{2\pi i kl}{m}} 
@@ -12145,10 +12153,10 @@ g \mapsto  \chi^g_\Q
 \eean
 is a homomorphism of groups.
 The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$
-If we consider the  \textit{standard character}
+If we consider the  {standard character}
 \bean
 \chi_{\text{standard}}: \R \to \sU\left(1 \right) ,\\
-x \mapsto e^{-\frac{x}{2\pi}}
+x \mapsto e^{2\pi i x}
 \eean
 then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
 $f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$. Using the direct sum \eqref{h_dsi_eqn} and the surjective homomorphisms $K_1\left( A\right)_{\mathrm{free}}\to \Z x$  one can construct homomorphism 
@@ -12172,10 +12180,10 @@ is a homomorphism of groups.
 \begin{definition}
 	The homomorphism  $h^{\mathrm{free}}_{K^1}$ is the \textit{free part of Hurewicz homomorphism}.
 \end{definition}
-\paragraph{Torsion part}
+\paragraph{Torsion part of Hurewicz homomorphism.}
 \begin{definition}\label{hurewicz_maximal_defn}
 	A finite-fold noncommutative $\left(u, v, p^r\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn})  $$\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$$
-is  \textit{maximal}  $G\left( \left.\widetilde A\right| A\right)$ is not a direct sum of its nontrivial subgroups and  there is no finite-fold noncommutative covering $$
+is  \textit{maximal} if $G\left( \left.\widetilde A\right| A\right)$ is not a direct sum of its nontrivial subgroups and  there is no finite-fold noncommutative covering $$
 	\left(   A, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\right) ,  \lift^{\widetilde B} \right
 	)$$ with $r < q$ and subgroup $H \subset \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}$
 	$$
@@ -12221,7 +12229,7 @@ Any $g \in \pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ yields a character
 x \mapsto \chi_x\left(g \right) 
 \eean 
 On the other hand a   map $g \mapsto \chi_g$ is a homomorphism from $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to  the group of characters of $K^{\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)$. Taking into account the isomorphism \eqref{unital_cov_kk_eqn} one has a homomorphism from   $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters on $K_0\left( A\right)$. This homomorphism yields a  a homomorphism from   $\pi_1^{\text{ab}}\left(A\right)_{\mathrm{tors}}$ to the group of characters on 
- $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$. So there is a homomorphism 
+ $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$. So according to the Section \ref{ext_char_sec} there is a homomorphism 
  	\be\label{h_tors_eqn}
  h_{K^1}^{\mathrm{tors}} : \pi_1^{\text{ab}}\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)
  \ee 
@@ -12238,7 +12246,7 @@ On the other hand a   map $g \mapsto \chi_g$ is a homomorphism from $\pi_1^{\tex
 
 
 \begin{defn}\label{hurewicz_defn}
-IF !!!!	Taking into account the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
+If $A$ is $N$-algebra then from  the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
 	$$
 	h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}: 	\pi_1^{\mathrm{ab}}\left( A\right) \to K^1\left(A \right) 
 	$$
@@ -12284,7 +12292,7 @@ IF !!!!	Taking into account the decomposition \eqref{h_f_decomp_eqn} and the hom
 	\eea
 	\end{definition}
 \section{Comparison with topological Hurewicz homomorphism}
-
+!!! CONTINUE !!!
 \paragraph{} Let  $A\bydef C\left(\sX \right) $ be a  commutative  $C^*$-algebra with compact path connected,  and  semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn})  Hausdorff spectrum $\sX$.  Let $\pi_1\left(\sX, x_0 \right)$ be a   {fundamental group} of $\sX$ (cf. Definition \ref{top_weak_fundamental_group_defn}, and let $$\pi_1^{\mathrm{ab}}\left(\sX, x_0 \right) \bydef \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right].$$
 Here we prove that the given by the equation \eqref{h_k1_om_ab_eqn} homomorphism
 \bean

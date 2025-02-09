@@ -11,14 +11,14 @@ namespace ErrorHandler
         /// </summary>
         /// <param name="exception">Exception</param>
         /// <param name="obj">Attached object</param>
-        void ShowError(Exception exception, object obj);
+        void ShowError(Exception exception, object? obj);
 
         /// <summary>
         /// Shows message
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="obj">Attached object</param>
-        void ShowMessage(string message, object obj);
+        void ShowMessage(string message, object? obj);
     }
 }
 

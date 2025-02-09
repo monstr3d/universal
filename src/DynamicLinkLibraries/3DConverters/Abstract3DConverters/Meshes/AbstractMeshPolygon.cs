@@ -115,6 +115,10 @@ namespace Abstract3DConverters.Meshes
                 var idx = item.Points;
                 if (idx.Length <= 3)
                 {
+                    if (idx.Length == 2)
+                    {
+
+                    }
                     l.Add(item);
                     continue;
                 }
@@ -135,6 +139,7 @@ namespace Abstract3DConverters.Meshes
 
         Polygon[] GetEmpty(Polygon polygon)
         {
+            /*
             var p = new List<Polygon>();
             var pt = polygon.Points;
             int i = 0;
@@ -150,6 +155,30 @@ namespace Abstract3DConverters.Meshes
                 p.Add(new Polygon(l.ToArray(), polygon.Material));
             }
             while (i <= pt.Length);
+            return p.ToArray();*/
+            var p = new List<Polygon>();
+            var pt = polygon.Points;
+            for (var i = 1; i < pt.Length - 1; i++)
+            {
+                var l = new List<PointTexture>();
+                l.Add(pt[0]);
+                l.Add(pt[i]);
+                l.Add(pt[i + 1]);
+                p.Add(new Polygon(l.ToArray(), polygon.Material));
+            }
+            if (pt.Length < 3)
+            {
+                var l = new List<PointTexture>();
+                for (var i = 0; i < pt.Length; i++)
+                {
+                    for (var j = 0; i < 3; j++)
+                    {
+                        l.Add(pt[i]);
+                    }
+                    p.Add(new Polygon(l.ToArray(), polygon.Material));
+                }
+
+            }
             return p.ToArray();
         }
 

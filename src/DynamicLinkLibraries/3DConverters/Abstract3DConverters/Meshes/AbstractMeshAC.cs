@@ -85,7 +85,7 @@ namespace Abstract3DConverters.Meshes
                             }
                         }
                     }
-                    if (n > 0)
+                   if (n > 0)
                     {
                         if (parent != null)
                         {
@@ -107,9 +107,10 @@ namespace Abstract3DConverters.Meshes
                     {
                         m = parent;
                     }
+                    Zero();
                     for (var k = 0; k < n; k++)
                     {
-                        new AbstractMeshAC(m as AbstractMeshAC, materials, l, AcCreator);
+                        new AbstractMeshAC(this, materials, l, AcCreator);
                     }
                     return;
                 }
@@ -120,7 +121,7 @@ namespace Abstract3DConverters.Meshes
                     TransformationMatrix = [ 1, 0, 0, 0,
                                              0, 1, 0, 0,
                                              0, 0, 1, 0,
-                                            location[0], location[1], location[2], 0 ];
+                                            location[0], location[1], location[2], 1 ];
                 }
                 var texture = s.ToString(line, "texture ");
                 if (texture != null)
@@ -392,7 +393,6 @@ namespace Abstract3DConverters.Meshes
                             Points.Add(point);
                         }
                     }
-                    
                 }
                 for (var i = 0;  i < Points.Count; i++)
                 {
@@ -401,6 +401,8 @@ namespace Abstract3DConverters.Meshes
 
                     }
                 }
+
+                Zero();
                 if (mats.Count > 1)
                 {
                     Disintegrate();

@@ -1,10 +1,10 @@
-﻿using System.Drawing;
-using System.Runtime.CompilerServices;
+﻿using System.Reflection;
 using System.Text;
 using System.Xml;
+
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using RealMatrixProcessor;
+using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters
 {
@@ -16,11 +16,7 @@ namespace Abstract3DConverters
 
         protected static readonly char[] sep = "\r\n ".ToCharArray();
 
-        /// <summary>
-        /// Real matrix operation
-        /// </summary>
-        RealMatrix realMatrix = new();
-
+ 
         /// <summary>
         /// Constructor
         /// </summary>
@@ -102,6 +98,69 @@ namespace Abstract3DConverters
                 }
             }
         }
+
+        /// <summary>
+        /// Matrix product of a and b
+        /// </summary>
+        /// <param name="a">a</param>
+        /// <param name="b">b</param>
+        /// <returns>Product</returns>
+        public float[,] MatrixProduct(float[,] a, float[,] b)
+        {
+            var r = a.GetLength(0);
+            var c = b.GetLength(1);
+            var l = a.GetLength(1);
+            var res = new float[r, c];
+            for (var i = 0; i < r; i++)
+            {
+                for (var j = 0; j < c; j++)
+                {
+                    res[i, j] = 0f;
+                    for (var k = 0; k < l; k++)
+                    {
+                        res[i, j] += a[i, k] * b[k, j];
+                    }
+                }
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// Matrix point product
+        /// </summary>
+        /// <param name="a">Matrix</param>
+        /// <param name="point">Point</param>
+        /// <returns>Product</returns>
+        public Point Product(float[,] a, Point point)
+        {
+            var vert = new float[3] { 0f, 0f, 0f };
+            var v = point.Vertex;
+            for (var i = 0; i < 3; i++)
+            {
+                for (var j = 0; j < 3; j++)
+                {
+                    vert[i] += a[i, j] * v[j] + a[3, j];
+
+                }
+            }
+            var n = point.Normal;
+            if (n == null)
+            {
+              return  new Point(vert);
+            }
+            var norm = new float[3] { 0f, 0f, 0f };
+            for (var i = 0; i < 3; i++)
+            {
+                for (var j = 0; j < 3; j++)
+                {
+                    norm[i] += a[i, j] * n[j];
+
+                }
+            }
+            var p = new Point(vert, norm);
+            return p;
+        }
+
 
         /// <summary>
         ///  Sets parents for dictionary

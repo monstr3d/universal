@@ -34,6 +34,10 @@ namespace Collada.Converters.Meshes
 
         internal AbstractMeshCollada(InstanceGeomery geom, BindMaterial material, string name, float[] mm, ColladaMeshCreator creator) : base(name, null, mm, creator)
         {
+            if (geom == null)
+            {
+                return;
+            }
             meshCreator = creator;
             Material = material.Material;
             var g = geom.Geometry;

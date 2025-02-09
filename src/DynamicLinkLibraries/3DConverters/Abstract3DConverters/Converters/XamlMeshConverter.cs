@@ -26,7 +26,7 @@ namespace Abstract3DConverters.Converters
             mesh.CreateTriangles();
             var dt = new Dictionary<int, float[]>();
             var x = Create("ModelVisual3D", mesh.Name);
-           var y = Create("ModelVisual3D.Content");
+            var y = Create("ModelVisual3D.Content");
             x.AppendChild(y);
             var z = Create("GeometryModel3D");
             y.AppendChild(z);
@@ -40,7 +40,6 @@ namespace Abstract3DConverters.Converters
                 var max = materialCreator.Create(mat) as XmlElement;
                 mr.AppendChild(max);
             }
-
             var v = Create("MeshGeometry3D");
             w.AppendChild(v);
             var pts = mesh.Points;
@@ -90,11 +89,15 @@ namespace Abstract3DConverters.Converters
                     }
                     if (!dt.ContainsKey(ii))
                     {
-
+                        lt.Add(0f);
+                        lt.Add(0f);
                     }
-                    var tx = dt[ii];
-                    lt.Add(tx[0]);
-                    lt.Add(tx[1]);
+                    else
+                    {
+                        var tx = dt[ii];
+                        lt.Add(tx[0]);
+                        lt.Add(tx[1]);
+                    }
                 }
                 vt = point.Normal;
                 if (vt != null)

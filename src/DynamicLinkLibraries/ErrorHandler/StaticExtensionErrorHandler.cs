@@ -28,14 +28,14 @@
         /// <summary>
         /// Error handler
         /// </summary>
-        public static IErrorHandler ErrorHandler => errorHandler;
+        public static IErrorHandler? ErrorHandler => errorHandler;
        
         /// <summary>
         /// Shows exception (extension method)
         /// </summary>
         /// <param name="exception">Exception</param>
         /// <param name="obj">Attached object</param>
-        static public void ShowError(this Exception exception, object obj = null)
+        static public void ShowError(this Exception exception, object? obj = null)
         {
             errorHandler?.ShowError(exception, obj);
         }

@@ -1,6 +1,7 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
@@ -31,7 +32,22 @@ namespace Abstract3DConverters.Meshes
         /// The "triangles created@ sign
         /// </summary>
         protected bool trianglesCreated = false;
-    
+
+        protected float[,] relative;
+
+        protected float[,] absolute;
+
+        protected List<Point> absolutePoints;
+
+        Func<List<Point>> GetAbsolute;
+
+        Func<float[,]> GetRelativeMatrix;
+
+        Func<float[,]> GetAbsoluteMatrix;
+
+
+
+
         Material mat;
 
         #endregion
@@ -39,11 +55,18 @@ namespace Abstract3DConverters.Meshes
 
         #region Ctor
 
+        private AbstractMesh()
+        {
+            GetAbsolute = GetStart;
+            GetRelativeMatrix = GetRelativeMatrixStart;
+            GetAbsoluteMatrix = GetAbsoluteMatrixStart;
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="name">Name</param>
-        public AbstractMesh(string name, IMeshCreator creator)
+        public AbstractMesh(string name, IMeshCreator creator) : this()
         {
             if (creator == null)
             {
@@ -271,6 +294,130 @@ namespace Abstract3DConverters.Meshes
         {
         
         }
+
+        /// <summary>
+        /// Absolute points
+        /// </summary>
+        public List<Point> AbsolutePoints => GetAbsolute();
+
+        /// <summary>
+        /// Relative matrix
+        /// </summary>
+        public float[,] RelativeMatrix => GetRelativeMatrix();
+
+        /// <summary>
+        /// Absolute matrix
+        /// </summary>
+        public float[,] AbsoluteMatrix => GetAbsoluteMatrix();
+
+        /// <summary>
+        /// Zero
+        /// </summary>
+        protected void Zero()
+        {
+            if (Polygons == null)
+            {
+                Points = null;
+                return;
+            }
+            if (Polygons.Count == 0)
+            {
+                Points = null;
+                Polygons = null;
+                return;
+            }
+            if (Points == null)
+            {
+                Polygons = null;
+                return;
+            }
+            if (Polygons.Count == 0)
+            {
+                Points = null;
+                Polygons = null;
+                return;
+            }
+        }
+
+        #endregion
+
+        #region Private
+
+        void CalculateAbsolute()
+        {
+            if (Points != null)
+            {
+                if (Points.Count > 0)
+                {
+                    var m = AbsoluteMatrix;
+                    absolutePoints = new();
+                    foreach (var p in Points)
+                    {
+                        absolutePoints.Add(s.Product(m, p));
+                    }    
+                }
+            }
+        }
+
+        List<Point> GetStart()
+        {
+            CalculateAbsolute();
+            GetAbsolute = GetFinish;
+            return absolutePoints;
+
+        }
+        
+        List<Point> GetFinish()
+        {
+            return absolutePoints;
+        }
+
+        float[,] GetRelativeMatrixStart()
+        {
+            var tr = TransformationMatrix;
+            if (tr == null)
+            {
+                relative = new float[,] {
+                    { 1f, 0f, 0f, 0f },  { 0f, 1f, 0f, 0f },
+                  { 0f, 0f, 1f, 0f },  { 0f, 0f, 0f, 1f }
+                };
+            }
+            else
+            {
+                relative = new float[,] {
+                    { tr[0], tr[1],tr[2], tr[3] },  { tr[4], tr[5],tr[6], tr[7] },
+                  { tr[8], tr[9],tr[10], tr[11] },  { tr[12], tr[13],tr[14], tr[15] }
+                };
+            }
+
+            GetRelativeMatrix = GetRelativeMatrixFinish;
+            return relative;
+        }
+
+        float[,] GetRelativeMatrixFinish()
+        {
+             return relative;
+        }
+
+        float[,] GetAbsoluteMatrixStart()
+        {
+            if (parent == null)
+            {
+                absolute = RelativeMatrix;
+            }
+            else
+            {
+                absolute = s.MatrixProduct(parent.AbsoluteMatrix, RelativeMatrix);
+            }
+            GetAbsoluteMatrix = GetAbsoluteMatrixFinish;
+            return absolute;
+        }
+
+        float[,] GetAbsoluteMatrixFinish()
+        {
+            return absolute;
+        }
+
 
         #endregion
     }

@@ -1,4 +1,6 @@
-﻿namespace Abstract3DConverters.Points
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Abstract3DConverters.Points
 {
     /// <summary>
     /// Point of texture
@@ -13,10 +15,12 @@
         /// </summary>
         /// <param name="index">Index</param>
         /// <param name="texture">Texture</param>
-        public PointTexture(int index, float[] texture)
+        /// <param name="normal">Normal</param>
+        public PointTexture(int index, float[] texture, float[] normal = null)
         {
             Texture = texture;
             Index = index;
+            Normal = normal;
         }
 
         #endregion
@@ -31,7 +35,7 @@
         public float[] Texture
         {
             get;
-            private set;
+            protected set;
         }
 
         /// <summary>
@@ -40,7 +44,16 @@
         public int Index
         {
             get;
-            private set;
+            protected set;
+        }
+
+        /// <summary>
+        /// Normal index
+        /// </summary>
+        public float[] Normal
+        {
+            get;
+            protected set;
         }
 
 

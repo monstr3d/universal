@@ -38,8 +38,8 @@ namespace Collaada.Wpf.Test
             //  GenerateToAc();
             // GenerateAC();
             //     GenerateCollada();
-     //GenerateToDae();
-    GenerateXaml();
+  //   GenerateToDae();
+      GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
@@ -87,9 +87,13 @@ namespace Collaada.Wpf.Test
 
         void GenerateXaml()
         {
+
+                GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15C Eagle.obj");
+            //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154Bl1.5.0.dae");
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
-            //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
-                 GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado1.5.0.dae");
+          //        GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+            //GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado1.5.0.dae");
+            //          GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin1.5.0.dae");
 
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin2l03rkr0.nkf1.5.0.dae");
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.dae");
@@ -103,7 +107,7 @@ namespace Collaada.Wpf.Test
 
             //          GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
             //  GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
-            //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
+           // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
 
         }
 
@@ -170,19 +174,19 @@ namespace Collaada.Wpf.Test
         void GenerateToDae()
         {
 
-          // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
-            //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+            // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
+            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.xaml");
 
-            //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
+            //      GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
 
 
-          //    GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+            //     GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
 
             //         GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.obj");
             //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
             //   GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\1.dae");
             // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.ac");
-              GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+            //  GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
         }
 
         void GenerateToDae(string filen)

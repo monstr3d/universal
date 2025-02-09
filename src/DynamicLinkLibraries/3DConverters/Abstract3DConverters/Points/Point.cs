@@ -29,16 +29,16 @@
         public float[] Vertex
         {
             get;
-            private set;
+            protected set;
         }
 
         /// <summary>
         /// Vertex
         /// </summary>
-        public float[] Normal
+        public  float[] Normal
         {
             get;
-            private set;
+            protected set;
         }
 
   
