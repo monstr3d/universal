@@ -35,11 +35,11 @@ namespace Collaada.Wpf.Test
             // Compare();
             //  Generate();
             //   GenerateObj();
-            //  GenerateToAc();
-            // GenerateAC();
+             GenerateToAc();
+         //    GenerateAC();
             //     GenerateCollada();
-  //   GenerateToDae();
-      GenerateXaml();
+    //       GenerateToDae();
+   ///   GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
@@ -77,7 +77,7 @@ namespace Collaada.Wpf.Test
 
         };
 
-        string acdir = @"c:\AUsers\1MySoft\CSharp\03D\AC";
+        string acdir = @"c:\AUsers\1MySoft\CSharp\03D\AC\\";
 
         void GenerateCollada()
         {
@@ -158,7 +158,10 @@ namespace Collaada.Wpf.Test
 
         void GenerateToAc()
         {
-            GenerateToAC("1.dae");
+            GenerateToAC(@"c:\AUsers\1MySoft\CSharp\03D\AC\H-60.dae");
+            return;
+
+            GenerateToAC(acdir + "1.dae");
             return;
             GenerateToAC("dauphin.ac");
             return;
@@ -173,9 +176,10 @@ namespace Collaada.Wpf.Test
 
         void GenerateToDae()
         {
+            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\H-60.ac");
 
             // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.ac");
-            GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.xaml");
+            // GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15-lowpoly.xaml");
 
             //      GenerateToDae(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.xaml");
 
@@ -193,7 +197,6 @@ namespace Collaada.Wpf.Test
         {
             var filename = Path.Combine(acdir, filen);
 
-           // var creator = filename.ToMeshCreator();
 
             var fnt = Path.GetFileNameWithoutExtension(filename);
             var ext = Path.GetExtension(filename);
@@ -209,55 +212,56 @@ namespace Collaada.Wpf.Test
 
             }
 
-          // var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
+            // var ac = ".dae".ToMeshConvertor("1.5.0"); // new Collada150.Collada150Converter();
 
-         //   using var outs = File.OpenWrite(file);
+            //   using var outs = File.OpenWrite(file);
 
             var p = new Performer();
             p.CreateAndSave(filen, file, "1.5.0");
             return;
-        /*    using var stream = File.OpenRead(filen);
-            var bytes = new byte[stream.Length];
-            stream.Read(bytes);
-            p.CreateAndSave(filen, bytes, ".dae", "1.5.0", outs);
-            return;*/
+        }
 
-/*
-            if (ac is ISaveToStream ss)
+        void Generate(string filename, string ext)
+        {
+            var fnt = Path.GetFileNameWithoutExtension(filename);
+            var dir = Path.GetDirectoryName(filename);
+            var file = Path.Combine(dir, fnt + ext);
+            if (File.Exists(file))
             {
-                return;
+                file = Path.Combine(dir, fnt + Path.GetRandomFileName() + ext);
             }
-
-            var obj = Generate<object>(filename, ac);
-            using (var writer = new StreamWriter(file))
+            var p = new Performer();
+            try
             {
-                writer.Write(obj);
+                p.CreateAndSave(filename, file);
             }
-*/
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
         }
 
 
-        void GenerateToAC(string filen)
+        void GenerateToAC(string filename)
         {
- /*           var filename = Path.Combine(acdir, filen);
-
-            var creator = filename.ToMeshCreator();
-
+            Generate(filename, ".ac");
+            return;
             var fnt = Path.GetFileNameWithoutExtension(filename);
-            var ext = Path.GetExtension(filename);
-            if (ext == ".ac")
-            {
-                fnt += "1";
-            }
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ".ac");
-            var ac = new AcConverter();
-
-            var obj = Generate<object>(filename, ac);
-            using (var writer = new StreamWriter(file))
+            if (File.Exists(file))
             {
-                writer.Write(obj);
-            }*/
+                file = Path.Combine(dir, fnt + Path.GetRandomFileName() + ".ac");
+            }
+            var p = new Performer();
+            try
+            {
+                p.CreateAndSave(filename, file);
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
         }
 
 
@@ -286,6 +290,9 @@ namespace Collaada.Wpf.Test
 
         void GenerateAC()
         {
+
+            GenerateAC("H-60.dae");
+            return;
 
             GenerateAC("dauphin.ac");
             return;
@@ -320,6 +327,7 @@ namespace Collaada.Wpf.Test
         void GenerateAC(string filename)
         {
             var f = Path.Combine(acdir, filename);
+            Generate(f, ".ac");
          //   GenerateWpf(f);
             return;
             /*        var fn = filename;

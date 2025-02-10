@@ -1,6 +1,5 @@
 ﻿
 using Abstract3DConverters.Attributes;
-using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
@@ -12,11 +11,6 @@ namespace Abstract3DConverters.Converters
     public class AcConverter : LinesConverter
     {
         #region Fields
-
-
-   
-        Service s = new();
-
 
         List<string> materials = new();
 
@@ -34,111 +28,39 @@ namespace Abstract3DConverters.Converters
 
         #endregion
 
-        #region Interface implementation
-  
+        #region Overriden Members
 
-        protected override object Combine(IEnumerable<object> meshes)
+        protected override List<string> Combine(IEnumerable<object> meshes)
         {
-             lines.AddRange(materials);
-            return base.Combine(meshes);
+            lines.AddRange(materials);
+            var ms = meshes.ToList();
+            var count = ms.Count;
+            lines.Add("OBJECT world");
+            lines.Add("kids " + count);
+            lines = base.Combine(ms);
+            return lines;
         }
 
-        protected override object Create(AbstractMesh mesh)
+        protected override List<string> Create(AbstractMesh mesh)
         {
-            if (mesh is AbstractMeshPolygon meshPolygon)
+            /*if (mesh is AbstractMeshPolygon meshPolygon)
             {
                 return Get(meshPolygon);
             }
-            return null;
+            return null;*/
+            return Get(mesh);
         }
 
-        protected override void SetMaterial(object mesh, object material)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void SetTransformation(object mesh, float[] transformation)
-        {
-            throw new NotImplementedException();
-        }
-
-
- 
-
-
-        #endregion
-
-        #region Members
-
-        List<string> Get(AbstractMeshPolygon polygon)
-        {
-            var l = new List<string>();
-            var n = polygon.Name;
-            if (n.Length == 0)
-            {
-                l.Add("OBJECT word");
-                var kids = polygon.Children.Count;
-                l.Add("kids " + kids);
-                foreach (var im in polygon.Children)
-                {
-                    var lt = converter.Create(im) as List<string>;
-                    l.AddRange(lt);
-                }
-               return l;
-            }
-            l.Add("OBJECT poly");
-            l.Add("name " + s.Wrap(n));
-            l.Add(n);
-            var mat = polygon.Material;
-            if (mat != null)
-            {
-                var im = s.GetImage(mat);
-                if (im != null)
-                {
-                    l.Add("texture " + s.Wrap(im.Name));
-                }
-            }
-            if (polygon.Vertices == null)
-            {
-                l.Add("kids " + polygon.Children.Count);
-                return l;
-            }
-            if (polygon.Vertices.Count == 0)
-            {
-                l.Add("kids " + polygon.Children.Count);
-                return l;
-            }
-            l.Add("numvert " + polygon.Vertices.Count);
-            foreach (var v in polygon.Vertices)
-            {
-                l.Add(s.StrinValue(v));
-            }
-            l.Add("numsurf " + polygon.Polygons.Count);
-            foreach (var poly in polygon.Polygons)
-            {
-                var mt = poly.Material;
-                var i = dm[mt.Name];
-                l.Add("mat " + i);
-  /*              var points = poly.Indexes;
-                l.Add("refs " + points.Count);
-                foreach (var point in points)
-                {
-                    var s = "" + point.Vertex + " " + point.Data[0] + " " + point.Data[1];
-                    l.Add(s);
-                }*/
-            }
-            l.Add("kids " + polygon.Children.Count);
-            return l;
-        }
-
-        void Set(Dictionary<string, Image> images)
+   
+        protected override void Set(Dictionary<string, Image> images)
         {
 
         }
 
-  
-        void Set(Dictionary<string, Material> materials)
+
+        protected override void Set(Dictionary<string, Material> materials)
         {
+            base.Set(materials);
             var mat = this.materials;
             mat.Add("AC3Db");
             var i = 0;
@@ -146,9 +68,72 @@ namespace Abstract3DConverters.Converters
             {
                 dm[item.Key] = i;
                 ++i;
-                var st =  s.Shrink(GetMaterial(item.Value));
+                var st = s.Shrink(GetMaterial(item.Value));
                 mat.Add(st);
             }
+
+        }
+
+        #endregion
+
+        #region Members
+
+        private void AddName(AbstractMesh mesh, List<string> list)
+        {
+            var n = mesh.Name;
+            var nn = "name" + s.Wrap(n);
+            lines.Add(nn);
+            lines.Add("data " + n.Length);
+            lines.Add(n);
+        }
+
+        List<string> Get(AbstractMesh mesh)
+        {
+            var l = new List<string>();
+            var children = mesh.Children;
+            var kids = children.Count;
+            if (kids > 0)
+            {
+                l.Add("OBJECT group");
+                AddName(mesh, l);
+                foreach (var im in children)
+                {
+                    var lt = converter.Create(im) as List<string>;
+                    l.AddRange(lt);
+                }
+                return l;
+
+            }
+                l.Add("OBJECT poly");
+            AddName(mesh, l);
+            var image = s.GetImage(mesh.Material);
+            l.Add("texture " + image.Name);
+            l.Add("numvert " + mesh.Points.Count);
+            foreach (var point in mesh.AbsolutePoints)
+            {
+                l.Add(s.StrinValue(point.Vertex));
+            }
+            l.Add("numsurf " + mesh.AbsolutePolygons.Count);
+            foreach (var polygon in mesh.AbsolutePolygons)
+            {
+                var mate = polygon.Material.Name;
+                var i = materials.IndexOf(mate);
+                l.Add("mat" + i);
+                i = polygon.Points.Length;
+                l.Add("refs " + i);
+                foreach (var point in polygon.Points)
+                {
+                    l.Add(point.Index + " " + s.StrinValue(point.Texture));
+                }
+                
+            }
+            l.Add("kids 0");
+            return l;
+
+        }
+
+        protected override void Add(List<string> parent, List<string> child)
+        {
 
         }
 

@@ -8,6 +8,8 @@ namespace Abstract3DConverters.Converters
 {
     public abstract class LinesConverter : IMeshConverter, IStringRepresentation, ISaveToStream
     {
+        #region Fields
+
         protected string directory;
 
         protected Dictionary<string, Material> materials;
@@ -19,22 +21,32 @@ namespace Abstract3DConverters.Converters
         protected IMeshConverter converter;
 
         protected List<string> lines = new();
+
+        protected Service s = new();
         
 
         string IMeshConverter.Directory { get => directory; set => directory = value; }
-        Dictionary<string, Material> IMeshConverter.Materials { set => materials = value; }
-        Dictionary<string, Image> IMeshConverter.Images { set => images = value; }
+        Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
+        Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
+
+        #endregion
+
+        #region Ctor
 
         protected LinesConverter()
         {
             converter = this;
         }
 
+        #endregion
+
+        #region IMeshConverter Members
+
         IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
 
         void IMeshConverter.Add(object parent, object child)
         {
-            Add(parent, child);
+            Add(parent as List<string>, child as List<string>);
         }
 
         object IMeshConverter.Combine(IEnumerable<object> meshes)
@@ -59,6 +71,10 @@ namespace Abstract3DConverters.Converters
             SetTransformation(mesh, transformation);
         }
 
+        #endregion
+
+
+        #region IStringRepresentation Members
 
         string IStringRepresentation.ToString(object obj)
         {
@@ -71,6 +87,12 @@ namespace Abstract3DConverters.Converters
             return sb.ToString();
         }
 
+        #endregion
+
+
+        #region ISaveToStream Members
+
+
         void ISaveToStream.Save(object obj, Stream stream)
         {
             var lines = obj as List<string>;
@@ -82,18 +104,26 @@ namespace Abstract3DConverters.Converters
 
         }
 
+        #endregion
 
-        #region Abstract
 
+        #region Abstract and virtual membres
 
-        protected virtual void Add(object parent, object child)
+        protected abstract void Set(Dictionary<string, Image> images);
+
+        protected virtual void Set(Dictionary<string, Material> materials)
         {
-            var m = parent as List<string>;
-            var c = child as List<string>;
+            this.materials = materials;
+        }
+
+        protected virtual void Add(List<string> parent, List<string> child)
+        {
+            var m = parent;
+            var c = child;
             m.AddRange(c);
         }
 
-        protected virtual object Combine(IEnumerable<object> meshes)
+        protected virtual List<string> Combine(IEnumerable<object> meshes)
         {
             foreach (var mesh in meshes)
             {
@@ -103,11 +133,17 @@ namespace Abstract3DConverters.Converters
             return lines;
         }
 
-        protected abstract object Create(AbstractMesh mesh);
+        protected abstract List<string> Create(AbstractMesh mesh);
 
-        protected abstract void SetMaterial(object mesh, object material);
+        protected virtual void SetMaterial(object mesh, object material)
+        {
 
-        protected abstract void SetTransformation(object mesh, float[] transformation);
+        }
+
+        protected virtual void SetTransformation(object mesh, float[] transformation)
+        {
+
+        }
 
         #endregion
     }

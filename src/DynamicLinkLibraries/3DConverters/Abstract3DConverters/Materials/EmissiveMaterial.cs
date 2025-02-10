@@ -17,5 +17,5 @@
         {
             return new EmissiveMaterial(Color.Clone() as Color, null);
         }
-    }
+   }
 }

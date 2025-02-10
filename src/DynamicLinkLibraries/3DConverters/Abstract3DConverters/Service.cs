@@ -186,9 +186,6 @@ namespace Abstract3DConverters
             return new PointTexture(point.Index, point.Texture, norm);
         }
 
-
-
-
         /// <summary>
         ///  Sets parents for dictionary
         /// </summary>

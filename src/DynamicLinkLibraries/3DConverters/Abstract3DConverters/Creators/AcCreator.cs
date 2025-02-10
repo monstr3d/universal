@@ -176,6 +176,10 @@ namespace Abstract3DConverters.Creators
                 if (line.StartsWith("OBJECT"))
                 {
                     Position = i;
+                    if (line.Equals("OBJECT world"))
+                    {
+                        continue;
+                    }   
                     do
                     {
                         yield return new AbstractMeshAC(null, MaterialsP, lines, this);

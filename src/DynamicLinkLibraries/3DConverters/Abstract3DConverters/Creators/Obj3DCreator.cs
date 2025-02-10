@@ -377,107 +377,6 @@ namespace Abstract3DConverters.Creators
                 }
             }
         }
-        /*
-                protected  IEnumerable<AbstractMesh> Get1()
-                {
-                    try
-                    {
-
-                        foreach (var line in lines)
-                        {
-
-                            if (line.IndexOf("v ") == 0)
-                            {
-                                var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
-                                Vertices.Add(f);
-                                continue;
-                            }
-                            if (line.IndexOf("vn ") == 0)
-                            {
-                                var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
-                                Normals.Add(f);
-                                continue;
-                            }
-                            if (line.IndexOf("vt ") == 0)
-                            {
-                                var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
-                                Textures.Add(f);
-                                continue;
-                            }
-
-                        }
-                        List<AbstractMesh> meshes = new();
-
-                        var obj = new Tuple<List<float[]>, List<float[]>, List<float[]>>(Vertices, Textures, Normals);
-
-                        List<int[][]> indexes = null;
-                        string name = null;
-                        string mat = null;
-                        AbstractMesh mesh = null;
-                        foreach (var line in lines)
-                        {
-                            if (line == null)
-                            {
-                                break;
-                            }
-                            if (line.StartsWith("g "))
-                            {
-                                if (mat != null)
-                                {
-                                    mesh = new AbsractMeshObj(name, this, mat, indexes);
-                                    meshes.Add(mesh);
-                                }
-                                name = line.Substring("g ".Length);
-                                mat = null;
-                                indexes = new();
-                                continue;
-                            }
-                            if (line.StartsWith("usemtl "))
-                            {
-                                mat = line.Substring("usemtl ".Length);
-                                continue;
-                            }
-                            if (line.IndexOf("f ") == 0)
-                            {
-                                var s = line.Substring("f ".Length).Trim();
-                                var ss = s.Split(" ".ToCharArray());
-                                var ind = new int[ss.Length][];
-                                for (int j = 0; j < ss.Length; j++)
-                                {
-                                    var sss = ss[j].Split("/".ToCharArray());
-                                    var i = new int[sss.Length];
-                                    ind[j] = i;
-                                    //var k =  new int[sss.Length];
-                                    for (int m = 0; m < sss.Length; m++)
-                                    {
-                                        if (sss[m].Length == 0)
-                                        {
-                                            i[m] = -1;
-                                        }
-                                        else
-                                        {
-                                            i[m] = int.Parse(sss[m]) - 1;
-                                        }
-                                    }
-                                }
-                                indexes.Add(ind);
-                                continue;
-                            }
-
-                        }
-                        mesh = new AbstractMesh(name, this, mat, new List<float[]>(), new List<float[]>(),
-                            new List<float[]>(), indexes);
-                        meshes.Add(mesh);
-
-                        return meshes;
-                    }
-                    catch (Exception e)
-                    {
-                        e.ShowError("OBJ CREATOR Mesh");
-                    }
-                    return new AbstractMesh[] { };
-                }*/
-
         protected override IEnumerable<AbstractMesh> Get()
         {
             for (var i = 0; i < MaterialList.Count; i++)
@@ -485,100 +384,6 @@ namespace Abstract3DConverters.Creators
                 yield return new AbstractMeshObj(i, this);
             }
             yield break;
-            var vertices = new List<float[]>();
-            var textures = new List<float[]>();
-            var normals = new List<float[]>();
-            var indexes = new List<int[][]>();
-            Material material = null;
-            string name = null;
-            var shift = new int[] { 1, 1, 1 };
-            int ii = 0;
-            foreach (var line in lines)
-            {
-                ++ii;
-                var objName = s.ToString(line, "# object");
-                if (objName != null)
-                {
-                    var models =     CreateModels(objName, ii);
-                    foreach (var m in models)
-                    {
-                        yield return m;
-                    }
-                    yield break;
-                    if (name != null)
-                    {
-
-                        yield return new AbstractMesh(name, this, material, vertices, textures, normals, indexes);
-                        shift[0] += vertices.Count;
-                        shift[1] += textures.Count;
-                        shift[2] += normals.Count;
-                        vertices = new List<float[]>();
-                        textures = new List<float[]>();
-                        normals = new List<float[]>();
-                        indexes = new List<int[][]>();
-                        material = null;
-                    }
-                    name = objName.ToString();
-                }
-
-
-
-                if (line.IndexOf("v ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
-                    vertices.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vt ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
-                    textures.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vn ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
-                    normals.Add(f);
-                    continue;
-                }
-                if (line.StartsWith("usemtl "))
-                {
-                    var mat = line.Substring("usemtl ".Length);
-                    material = materials[mat];
-                    continue;
-                }
-                if (line.IndexOf("f ") == 0)
-                {
-                    var s = line.Substring("f ".Length).Trim();
-                    var ss = s.Split(" ".ToCharArray());
-                    var ind = new int[ss.Length][];
-                    for (int j = 0; j < ss.Length; j++)
-                    {
-                        var sss = ss[j].Split("/".ToCharArray());
-                        var i = new int[sss.Length];
-                        ind[j] = i;
-                        //var k =  new int[sss.Length];
-                        for (int m = 0; m < sss.Length; m++)
-                        {
-                            if (sss[m].Length == 0)
-                            {
-                                i[m] = -1;
-                            }
-                            else
-                            {
-                                i[m] = int.Parse(sss[m]) - shift[m];
-                            }
-                        }
-                    }
-                    indexes.Add(ind);
-                    continue;
-                }
-
-            }
-            if (vertices.Count > 0)
-            {
-              yield return  new AbstractMesh(name, this, material, vertices, textures, normals,  indexes);
-            }
         }
 
         void CreateMaterials()
@@ -595,25 +400,9 @@ namespace Abstract3DConverters.Creators
                     images = s.GetImages(materials.Values);
                     break;
                 }
-
             }
         }
 
-        IEnumerable<AbstractMesh> CreateModels(string name, int begin)
-        {
-            var n = name;
-            string nn = null;
-            int end = 0;
-            int[] shift = [1, 1, 1];
-            do
-            {
-                var m = new AbstractMeshObj(n, this, begin, out end, out nn, shift, lines);
-                yield return m;
-                begin = end;
-                n = nn;
-            }
-            while (n != null);
-        }
    
         void Create(string name = null)
         {
@@ -650,7 +439,6 @@ namespace Abstract3DConverters.Creators
                     mtlstr = file;
                     mtlfile = Path.Combine(directory, file);
 
-                    //       file = Path.Combine(directory, file);
                     var mtl = new MtlWrapper();
                     materials = mtl.Create(file, directory);
                 }
@@ -658,7 +446,6 @@ namespace Abstract3DConverters.Creators
                 if (line.Contains(objs))
                 {
                     var lt = line.Substring(objs.Length).Trim();
-               //    return CreateModels(lt, b);
                     if (name == null)
                     {
                         if (currName == null)

@@ -17,6 +17,7 @@ namespace Abstract3DConverters.Materials
             Name = name;
         }
 
+   
         protected override object CloneIfself()
         {
             var mat = new MaterialGroup(Name);
