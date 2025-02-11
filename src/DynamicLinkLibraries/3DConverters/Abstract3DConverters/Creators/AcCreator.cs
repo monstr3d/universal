@@ -6,7 +6,7 @@ namespace Abstract3DConverters.Creators
     [Attributes.Extension([".ac", ".ac3d"])]
     public class AcCreator : LinesMeshCreator
     {
-        List<Material> MaterialsP { get; } = new();
+        List<Material> MaterialsPP { get; } = new();
 
         Service s = new();
 
@@ -85,13 +85,15 @@ namespace Abstract3DConverters.Creators
                     }
                 }
                 var group = new MaterialGroup(l[0]);
-                MaterialsP.Add(group);
-                materials[l[0]] = group;
+                MaterialsPP.Add(group);
+                Materials[l[0]] = group;
                 var d = new Dictionary<int, string>();
                 for (int i = 0; i < l.Count; i++)
                 {
                     if (Colstr.Contains(l[i]))
+                    {
                         d[i] = l[i];
+                    }
                 }
                 var arr = d.Keys.ToArray();
                 DiffuseMaterial diff = null;
@@ -152,16 +154,28 @@ namespace Abstract3DConverters.Creators
                         image = images[imstr];
                     }
                 }
+                else
+                {
+
+                }
                 var st1 = s.ToString(line, "mat");
                 if (st1 != null)
                 {
                     var k = s.ToReal<int>(st1);
-                    mt = MaterialsP[k];
-                    var mat = mt.SetImage(image);
-                    var key = mat.Name;
-                    if (!materials.ContainsKey(key))
+                    mt = MaterialsPP[k];
+                    var mat = mt;
+                    if (image != null)
                     {
-                        materials[key] = mat;
+                       mat = mt.SetImage(image);
+                    }
+                    else
+                    {
+
+                    }
+                    var key = mat.Name;
+                    if (!Materials.ContainsKey(key))
+                    {
+                        Materials[key] = mat;
                     }
                 }
             }
@@ -182,7 +196,7 @@ namespace Abstract3DConverters.Creators
                     }   
                     do
                     {
-                        yield return new AbstractMeshAC(null, MaterialsP, lines, this);
+                        yield return new AbstractMeshAC(null, MaterialsPP, lines, this);
                     }
                     while (Position <= lines.Count - 1);
                     yield break;

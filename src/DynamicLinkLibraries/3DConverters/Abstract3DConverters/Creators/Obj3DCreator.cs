@@ -19,6 +19,7 @@ namespace Abstract3DConverters.Creators
 
         internal int n = 0;
 
+
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
 
 
@@ -396,8 +397,12 @@ namespace Abstract3DConverters.Creators
                     mtlfile = Path.Combine(directory, file);
                     mtlstr = file;
                     var mtl = new MtlWrapper();
-                    materials = mtl.Create(file, directory);
-                    images = s.GetImages(materials.Values);
+                    var mt = mtl.Create(file, directory);
+                    foreach (var mat in mt)
+                    {
+                        Materials[mat.Key] = mat.Value;
+                    }
+                    images = s.GetImages(Materials.Values);
                     break;
                 }
             }
@@ -440,7 +445,12 @@ namespace Abstract3DConverters.Creators
                     mtlfile = Path.Combine(directory, file);
 
                     var mtl = new MtlWrapper();
-                    materials = mtl.Create(file, directory);
+
+                    var mt = mtl.Create(file, directory);
+                    foreach (var mat in mt)
+                    {
+                        Materials[mat.Key] = mat.Value;
+                    }
                 }
                 var objs = "# object ";
                 if (line.Contains(objs))

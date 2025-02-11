@@ -28,10 +28,15 @@ namespace Abstract3DConverters.Interfaces
         /// Materials
         /// </summary>
         Dictionary<string, Material> Materials { get; }
- 
+
         /// <summary>
         /// Images
         /// </summary>
         Dictionary<string, Image> Images { get; }
+
+        /// <summary>
+        /// Effects
+        /// </summary>
+        Dictionary<string, Effect> Effects { get; }
     }
 }

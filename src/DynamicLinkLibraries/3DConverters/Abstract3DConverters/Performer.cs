@@ -131,14 +131,14 @@ namespace Abstract3DConverters
             object o = meshConverter.Create(mesh);
             var trans = mesh.TransformationMatrix;
             meshConverter.SetTransformation(o, trans);
-            var mt = mesh.Material;
+            object mt = mesh.Effect;
             if (mt == null)
             {
-                mt = mesh.GetMaterial(materialCreator) as Material;
+                mt = mesh.GetEffect(materialCreator);
             }
             if (mt != null)
             {
-                meshConverter.SetMaterial(o, mt);
+                meshConverter.SetEffect(o, mt);
             }
             foreach (var child in mesh.Children)
             {
@@ -187,6 +187,7 @@ namespace Abstract3DConverters
             var materialCreator = converter.MaterialCreator;
             converter.Images = creator.Images;
             converter.Materials = creator.Materials;
+            converter.Effects = creator.Effects;
             var res = Combine<T>(creator.Meshes, converter);
             action?.Invoke(res);
             return res;

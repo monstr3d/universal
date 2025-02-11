@@ -29,6 +29,16 @@ namespace Abstract3DConverters.Interfaces
             set;
         }
 
+
+        /// <summary>
+        /// The effects
+        /// </summary>
+        Dictionary<string, Effect> Effects
+        {
+            set;
+        }
+
+
         /// <summary>
         /// The material creator
         /// </summary>
@@ -43,11 +53,11 @@ namespace Abstract3DConverters.Interfaces
         object Create(AbstractMesh mesh);
 
         /// <summary>
-        /// Sets material to a mesh
+        /// Sets effect to a mesh
         /// </summary>
         /// <param name="mesh">The mesh</param>
-        /// <param name="material">The material</param>
-        void SetMaterial(object mesh, object material);
+        /// <param name="effect">The material</param>
+        void SetEffect(object mesh, object effect);
 
         /// <summary>
         /// Adds child mesh

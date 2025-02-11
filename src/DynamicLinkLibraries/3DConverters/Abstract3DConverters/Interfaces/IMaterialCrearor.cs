@@ -60,6 +60,13 @@ namespace Abstract3DConverters.Interfaces
         /// <returns>The  material  object</returns>
         object Create(Material material);
 
+        /// <summary>
+        /// Creates effect
+        /// </summary>
+        /// <param name="effect">The effect</param>
+        /// <returns>The effect objec</returns>
+        object Create(Effect effect);
+
 
         /// <summary>
         /// Adds a material to a group
@@ -71,9 +78,9 @@ namespace Abstract3DConverters.Interfaces
         /// <summary>
         /// Sets image to a material
         /// </summary>
-        /// <param name="material">The material</param>
+        /// <param name="effect">The material</param>
         /// <param name="image">The image</param>
-        void SetImage(object material, object image);
+        object SetImage(object effect, object image);
 
         /// <summary>
         /// Set opacity to a material

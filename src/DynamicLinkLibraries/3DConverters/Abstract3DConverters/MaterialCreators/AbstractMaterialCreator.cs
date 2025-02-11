@@ -43,6 +43,8 @@ namespace Abstract3DConverters.MaterialCreators
 
         public abstract object Create(Color color);
 
+        
+
         public virtual object Create(Material material)
         {
             object result = null;
@@ -51,7 +53,6 @@ namespace Abstract3DConverters.MaterialCreators
                 case DiffuseMaterial diffuseMaterial:
                     result = Create(diffuseMaterial);
                     Set(result, diffuseMaterial.Color);
-                    SetImage(result, diffuseMaterial.Image);
                     SetOpacity(result, diffuseMaterial.Opacity);
                     break;
                 case EmissiveMaterial emissiveMaterial:
@@ -74,7 +75,16 @@ namespace Abstract3DConverters.MaterialCreators
             return result;
         }
 
+        public virtual object Create(Effect effect)
+        {
+            var mat = Create(effect.Material);
+            var image = Create(effect.Image);
+            return SetImage(mat, image);
+        }
+
         public abstract object CreateGroup(MaterialGroup materialGroup);
+
+        protected abstract object SetImage(object effect, object image);
 
         public virtual object Create(MaterialGroup material)
         {
@@ -96,8 +106,7 @@ namespace Abstract3DConverters.MaterialCreators
 
         public abstract void Set(object material, object color);
 
-        public abstract void SetImage(object material, object image);
-
+  
         public abstract void SetOpacity(object material, float opacity);
 
         public abstract void SetPower(object material, float power);
@@ -126,6 +135,9 @@ namespace Abstract3DConverters.MaterialCreators
             SetImage(material, im);
         }
 
- 
+        object IMaterialCreator.SetImage(object effect, object image)
+        {
+            return SetImage(effect, image);
+        }
     }
 }

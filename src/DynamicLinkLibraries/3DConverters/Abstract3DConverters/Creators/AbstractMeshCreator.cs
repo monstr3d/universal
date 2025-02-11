@@ -13,11 +13,13 @@ namespace Abstract3DConverters.Creators
 
         protected string ext;
 
-        protected Dictionary<string, Material> materials = new();
+        private Dictionary<string, Material> materials = new();
 
         protected Dictionary<string, Image> images = new();
 
         protected Service s = new Service();
+
+        protected Dictionary<string, Effect> effects = new();
 
 
 
@@ -30,19 +32,32 @@ namespace Abstract3DConverters.Creators
 
         string IMeshCreator.Directory => directory;
 
-        public Dictionary<string, Material> Materials => materials;
+        public Dictionary<string, Material> Materials
+        {
+            get => materials;
+        }
+       
 
         public Dictionary<string, Image> Images => images;
+
+       
 
         public abstract void Load(byte[] bytes);
 
 
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Get();
 
+        Dictionary<string, Effect> IMeshCreator.Effects => GetEffects();
 
         protected abstract IEnumerable<AbstractMesh> Get();
 
+   
         protected abstract void CreateAll();
+
+        protected virtual Dictionary<string, Effect>  GetEffects()
+        {
+            return effects;
+        }
 
         protected virtual void Perform(AbstractMesh mesh, Action<AbstractMesh> action)
         {

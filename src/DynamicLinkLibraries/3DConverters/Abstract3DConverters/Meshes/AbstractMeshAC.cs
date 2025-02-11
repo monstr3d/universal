@@ -185,30 +185,38 @@ namespace Abstract3DConverters.Meshes
                         }
                         ++i;
                         var refs = s.ToReal<int>(l[i], "refs ");
-                        var lp = new List<PointTexture>();
-                        var rf = refs.Value;
-                        for (var rr = 0; rr < rf; rr++)
+                        if (refs != null)
                         {
-                            ++i;
-                            var il = l[i];
-                            var ss = s.Split(il);
-                            var key = s.ToReal<int>(ss[0].Trim());
-                            if (!ltex.Contains(key))
+                            var lp = new List<PointTexture>();
+
+                            var rf = refs.Value;
+                            for (var rr = 0; rr < rf; rr++)
                             {
-                                ltex.Add(key);
-                            }
-                            var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
+                                ++i;
+                                var il = l[i];
+                                var ss = s.Split(il);
+                                var key = s.ToReal<int>(ss[0].Trim());
+                                if (!ltex.Contains(key))
+                                {
+                                    ltex.Add(key);
+                                }
+                                var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal<float>(ss[2].Trim()) ]);
-                            lp.Add(pt);
+                                lp.Add(pt);
+                            }
+                            var polygon = new Polygon(lp.ToArray(), Material);
+                            if (Polygons == null)
+                            {
+                                Polygons = new();
+                            }
+                            Polygons.Add(polygon);
                         }
-                        var polygon = new Polygon(lp.ToArray(), Material);
-                        if (Polygons == null)
-                        {
-                            Polygons = new();
-                        }
-                        Polygons.Add(polygon);
                     }
                 }
+            }
+            if (mats.Count > 0)
+            {
+                Disintegrate();
             }
         }
 
