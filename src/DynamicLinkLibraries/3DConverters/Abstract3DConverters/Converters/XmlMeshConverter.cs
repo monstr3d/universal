@@ -33,6 +33,8 @@ namespace Abstract3DConverters.Converters
 
         protected Dictionary<AbstractMesh, XmlElement> nodesDic = new();
 
+        protected Dictionary<string, Effect> effects = new();
+
 
 
         #endregion
@@ -63,6 +65,7 @@ namespace Abstract3DConverters.Converters
         IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
 
         Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
+        Dictionary<string, Effect> IMeshConverter.Effects { set => throw new NotImplementedException(); }
 
         void IMeshConverter.Add(object mesh, object child)
         {
@@ -82,9 +85,9 @@ namespace Abstract3DConverters.Converters
             return Create(mesh);
         }
 
-        void IMeshConverter.SetMaterial(object mesh, object material)
+        void IMeshConverter.SetEffect(object mesh, object effect)
         {
-            SetMaterial(mesh, material);
+            SetEffect(mesh, effect);
         }
 
         void IMeshConverter.SetTransformation(object mesh, float[] transformation)
@@ -167,15 +170,15 @@ namespace Abstract3DConverters.Converters
 
         }
 
-        protected virtual void SetMaterial(object mesh, object material)
+        protected virtual void SetEffect(object mesh, object effect)
         {
             var m = mesh as XmlElement;
-            var mat = material as XmlElement;
-            SetMaterial(m, mat);
+            var mat = effect as XmlElement;
+            SetEffect(m, mat);
 
         }
 
-        protected virtual void SetMaterial(XmlElement mesh, XmlElement  material)
+        protected virtual void SetEffect(XmlElement mesh, XmlElement  material)
         {
 
         }
@@ -193,6 +196,7 @@ namespace Abstract3DConverters.Converters
             return x;
         }
 
+  
 
         #endregion
     }

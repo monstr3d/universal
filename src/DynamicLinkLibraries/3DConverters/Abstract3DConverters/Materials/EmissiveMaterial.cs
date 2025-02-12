@@ -4,7 +4,6 @@
     {
         public Image Image { get; private set; }
 
-        public override bool HasImage => false;
         public EmissiveMaterial(Color color, Image image = null) : base(color)
         {
             if (image != null)

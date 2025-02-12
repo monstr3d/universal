@@ -44,6 +44,8 @@ namespace Abstract3DConverters.Converters
 
         IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
 
+        Dictionary<string, Effect> IMeshConverter.Effects { set => throw new NotImplementedException(); }
+
         void IMeshConverter.Add(object parent, object child)
         {
             Add(parent as List<string>, child as List<string>);
@@ -59,9 +61,9 @@ namespace Abstract3DConverters.Converters
             return Create(mesh);
         }
 
-        void IMeshConverter.SetMaterial(object mesh, object material)
+        void IMeshConverter.SetEffect(object mesh, object effect)
         {
-            SetMaterial(mesh, material);
+            SetEffect(mesh, effect);
         }
 
 
@@ -135,7 +137,7 @@ namespace Abstract3DConverters.Converters
 
         protected abstract List<string> Create(AbstractMesh mesh);
 
-        protected virtual void SetMaterial(object mesh, object material)
+        protected virtual void SetEffect(object mesh, object material)
         {
 
         }
@@ -145,6 +147,7 @@ namespace Abstract3DConverters.Converters
 
         }
 
+ 
         #endregion
     }
 }

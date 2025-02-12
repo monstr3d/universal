@@ -249,7 +249,7 @@ namespace Abstract3DConverters
         {
             if (mat is DiffuseMaterial diffuse)
             {
-                return diffuse.Image;
+   //             return diffuse.Image;
             }
             if (mat is MaterialGroup group)
             {

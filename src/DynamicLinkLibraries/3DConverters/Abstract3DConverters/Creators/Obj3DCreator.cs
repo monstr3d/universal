@@ -4,6 +4,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
+    /*
     [Attributes.Extension([".obj"])]
     public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
     {
@@ -532,5 +533,5 @@ namespace Abstract3DConverters.Creators
             CreateGeometry();
         }
 
-    }
+    }*/
 }

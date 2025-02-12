@@ -67,7 +67,7 @@ namespace Abstract3DConverters.MaterialCreators
             base.Set(material, color);
         }
 
-        public override void SetImage(object material, object image)
+        protected override object SetImage(object material, object image)
         {
             throw new NotImplementedException();
         }

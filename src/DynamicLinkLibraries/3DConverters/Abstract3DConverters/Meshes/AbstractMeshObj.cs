@@ -5,6 +5,7 @@ using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Meshes
 {
+    /*
     class AbstractMeshObj : AbstractMesh
     {
         internal int Shift
@@ -270,4 +271,5 @@ namespace Abstract3DConverters.Meshes
             }
         }
     }
+    */
 }

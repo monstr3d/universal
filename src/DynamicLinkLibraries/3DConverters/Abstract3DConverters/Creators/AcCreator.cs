@@ -3,6 +3,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
+    
     [Attributes.Extension([".ac", ".ac3d"])]
     public class AcCreator : LinesMeshCreator
     {
@@ -49,7 +50,7 @@ namespace Abstract3DConverters.Creators
 
         #endregion
 
- 
+
         void CreateMaterials(List<string> lines)
         {
             foreach (var line in lines)
@@ -57,12 +58,12 @@ namespace Abstract3DConverters.Creators
                 var txt = s.ToString(line, "texture ");
                 if (txt != null)
                 {
-                    if (!images.ContainsKey(txt))
+                    if (!creator.Images.ContainsKey(txt))
                     {
                         var im = new Image(txt, directory);
                         if (im.Name != null)
                         {
-                            images[txt] = im;
+                            creator.Images[txt] = im;
                         }
                         else
                         {
@@ -86,7 +87,7 @@ namespace Abstract3DConverters.Creators
                 }
                 var group = new MaterialGroup(l[0]);
                 MaterialsPP.Add(group);
-                Materials[l[0]] = group;
+                creator.Materials[l[0]] = group;
                 var d = new Dictionary<int, string>();
                 for (int i = 0; i < l.Count; i++)
                 {
@@ -130,7 +131,7 @@ namespace Abstract3DConverters.Creators
                             break;
                         case "trans":
                             var tr = 1 - s.ToReal<float>(l[k + 1]);
-                            diff = new DiffuseMaterial(diffcolor, ambcolor, null, tr);
+                            diff = new DiffuseMaterial(diffcolor, ambcolor, tr);
                             break;
                         default: break;
                     }
@@ -149,9 +150,9 @@ namespace Abstract3DConverters.Creators
                 if (st != null)
                 {
                     imstr = s.Trim(st);
-                    if (images.ContainsKey(imstr))
+                    if (creator.Images.ContainsKey(imstr))
                     {
-                        image = images[imstr];
+                        image = creator.Images[imstr];
                     }
                 }
                 else
@@ -164,18 +165,20 @@ namespace Abstract3DConverters.Creators
                     var k = s.ToReal<int>(st1);
                     mt = MaterialsPP[k];
                     var mat = mt;
+                    var name = mat.Name;
+                    Effect effect = null;
                     if (image != null)
                     {
-                       mat = mt.SetImage(image);
+                        name += "-" + image.Name;
+                        effect = new Effect(name, mat, image);
                     }
                     else
                     {
-
+                        effect = new Effect(name, mat);
                     }
-                    var key = mat.Name;
-                    if (!Materials.ContainsKey(key))
+                    if (!creator.Effects.ContainsKey(name))
                     {
-                        Materials[key] = mat;
+                        creator.Effects[name] = effect;
                     }
                 }
             }
@@ -292,4 +295,5 @@ namespace Abstract3DConverters.Creators
             CreateMaterials(lines);
         }
     }
+    
 }

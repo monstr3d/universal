@@ -106,7 +106,7 @@ namespace Abstract3DConverters.Meshes
                             }
                         }
                     }
-                    mat = new DiffuseMaterial(color, amb, im, 1 - t);
+                    mat = new DiffuseMaterial(color, amb, 1 - t);
                     break;
 
                 case "EmissiveMaterial":

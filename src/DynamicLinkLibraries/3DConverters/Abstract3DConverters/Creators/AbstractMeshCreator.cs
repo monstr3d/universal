@@ -13,32 +13,34 @@ namespace Abstract3DConverters.Creators
 
         protected string ext;
 
-        private Dictionary<string, Material> materials = new();
+        Dictionary<string, Material> materials = new();
 
-        protected Dictionary<string, Image> images = new();
-
+        Dictionary<string, Image> images = new();
+  
         protected Service s = new Service();
 
-        protected Dictionary<string, Effect> effects = new();
+        Dictionary<string, Effect> effects = new();
 
+        protected IMeshCreator creator;
+  
 
 
         protected AbstractMeshCreator()
         {
-
+            creator = this;
         }
 
         //string IMeshCreator.Extension => ext;
 
         string IMeshCreator.Directory => directory;
 
-        public Dictionary<string, Material> Materials
+        Dictionary<string, Material> IMeshCreator.Materials
         {
             get => materials;
         }
        
 
-        public Dictionary<string, Image> Images => images;
+        Dictionary<string, Image> IMeshCreator.Images => images;
 
        
 

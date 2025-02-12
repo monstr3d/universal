@@ -32,7 +32,7 @@ namespace Abstract3DConverters.Converters
             y.AppendChild(z);
             var w = Create("GeometryModel3D.Geometry");
             z.AppendChild(w);
-            var mat = mesh.Material;
+            var mat = mesh.Effect;
             if (mat != null)
             {
                 var mr = Create("GeometryModel3D.Material");
@@ -253,7 +253,6 @@ namespace Abstract3DConverters.Converters
             var x = Create("DiffuseMaterial");
             SetColor(x, material.Color);
             s.SetColor(x, "AmbientColor", material.AmbientColor);
-            var im = material.Image;
             if (im != null)
             {
 

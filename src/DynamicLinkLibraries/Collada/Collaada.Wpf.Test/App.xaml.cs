@@ -38,8 +38,8 @@ namespace Collaada.Wpf.Test
        //      GenerateToAc();
          //    GenerateAC();
             //     GenerateCollada();
-           GenerateToDae();
-   ///   GenerateXaml();
+       //    GenerateToDae();
+      GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
@@ -88,7 +88,7 @@ namespace Collaada.Wpf.Test
         void GenerateXaml()
         {
 
-                GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15C Eagle.obj");
+            //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15C Eagle.obj");
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154Bl1.5.0.dae");
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
           //        GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");

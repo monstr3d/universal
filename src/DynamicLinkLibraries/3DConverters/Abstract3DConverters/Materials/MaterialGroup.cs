@@ -10,7 +10,6 @@ namespace Abstract3DConverters.Materials
     {
         public List<Material> Children { get; } = new();
 
-        public override bool HasImage => HasImageInt();
 
         public MaterialGroup(string name = null)
         {
@@ -33,18 +32,6 @@ namespace Abstract3DConverters.Materials
             return mat;
         }
 
-
-        bool HasImageInt()
-        {
-            foreach (var child in Children)
-            {
-                if (child.HasImage)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
 
     }
 }

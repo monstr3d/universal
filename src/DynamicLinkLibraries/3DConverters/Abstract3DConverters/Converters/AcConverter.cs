@@ -106,7 +106,7 @@ namespace Abstract3DConverters.Converters
             }
                 l.Add("OBJECT poly");
             AddName(mesh, l);
-            var image = s.GetImage(mesh.Material);
+            var image = mesh.Effect.Image;
             l.Add("texture " + image.Name);
             l.Add("numvert " + mesh.Points.Count);
             foreach (var point in mesh.AbsolutePoints)
