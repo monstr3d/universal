@@ -392,7 +392,7 @@ namespace Abstract3DConverters.Meshes
                         {
                             l.Add(s.Product(m, point));
                         }
-                        absolutePolygons.Add(new Polygon(l.ToArray(), polygon.Material));
+                        absolutePolygons.Add(new Polygon(l.ToArray(), polygon.Effect));
                     }
 
                 }

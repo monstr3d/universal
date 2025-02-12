@@ -34,10 +34,10 @@ namespace EarClipperSplitter
             var d1 = new Dictionary<float[], int>();
             var d2 = new Dictionary<float[], int>();
             var d3 = new Dictionary<float[], int>();
-            Material mat = null;
-            if (polygon.Material != null)
+            Effect effect = null;
+            if (polygon.Equals != null)
             {
-                mat = polygon.Material.Clone() as Material;
+                effect = polygon.Effect.Clone() as Effect;
             }
             if (polygon.Points.Length >= 3)
             {
@@ -107,7 +107,7 @@ namespace EarClipperSplitter
                         t.Add(point);
 
                     }
-                    pp.Add(new Polygon(t.ToArray(), mat));
+                    pp.Add(new Polygon(t.ToArray(), effect));
                 }
                 return pp.ToArray();
             }

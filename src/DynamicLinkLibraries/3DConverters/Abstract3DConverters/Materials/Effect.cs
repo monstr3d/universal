@@ -1,4 +1,6 @@
-﻿namespace Abstract3DConverters.Materials
+﻿using System.Reflection;
+
+namespace Abstract3DConverters.Materials
 {
     /// <summary>
     /// Effect
@@ -45,9 +47,23 @@
             Image = image;
         }
 
+        object ICloneable.Clone()
+        {
+            return Clone();
+        }
+
+        /// <summary>
+        /// Clones itself
+        /// </summary>
+        /// <returns>The clone</returns>
         public virtual object Clone()
         {
-            return new Effect(Name, Material.Clone() as Material, Image.Clone() as Image);
+            var mat = Material.Clone() as Material;
+            if (Image == null)
+            {
+                return new Effect(Name, mat);
+            }
+            return new Effect(Name, mat, Image.Clone() as Image);
         }
     }
 }

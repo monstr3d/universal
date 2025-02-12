@@ -116,7 +116,7 @@ namespace Abstract3DConverters.Converters
             l.Add("numsurf " + mesh.AbsolutePolygons.Count);
             foreach (var polygon in mesh.AbsolutePolygons)
             {
-                var mate = polygon.Material.Name;
+                var mate = polygon.Effect.Name;
                 var i = materials.IndexOf(mate);
                 l.Add("mat" + i);
                 i = polygon.Points.Length;

@@ -1,29 +1,16 @@
-﻿using System.Text;
-using System.Xml;
+﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.MaterialCreators;
-using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
-    public abstract class XmlMeshConverter : IMeshConverter, IStringRepresentation, ISaveToStream
+    public abstract class XmlMeshConverter : AbstractMeshConverter, IStringRepresentation, ISaveToStream
     {
 
         #region Fields
 
-        protected string directory;
-
-        protected Service s = new();
-
-        protected Dictionary<string, Material> materials;
-
-        protected IMeshConverter converter;
-
-        protected IMaterialCreator materialCreator;
-
-        protected  Dictionary<string, object> images = new();
-        
+            
         protected XmlDocument doc = new XmlDocument();
 
         protected XmlElement nodes;
@@ -33,16 +20,14 @@ namespace Abstract3DConverters.Converters
 
         protected Dictionary<AbstractMesh, XmlElement> nodesDic = new();
 
-        protected Dictionary<string, Effect> effects = new();
-
 
 
         #endregion
 
         #region Ctor
-        protected XmlMeshConverter(string xmlns)
+
+        protected XmlMeshConverter(string xmlns, IMaterialCreator materialCreator) : base(materialCreator)
         {
-            converter = this;
             this.xmlns = xmlns;
             nodes = doc.DocumentElement;
         }
@@ -51,49 +36,7 @@ namespace Abstract3DConverters.Converters
 
         #region Members
 
-
-        string IMeshConverter.Directory { get => directory; set => directory = value; }
-        Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
-
-   
-        protected virtual void Set(Dictionary<string, Material> materials)
-        {
-            this.materials = materials;
-        }
-
-  
-        IMaterialCreator IMeshConverter.MaterialCreator => materialCreator;
-
-        Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
-        Dictionary<string, Effect> IMeshConverter.Effects { set => throw new NotImplementedException(); }
-
-        void IMeshConverter.Add(object mesh, object child)
-        {
-            XmlElement m = mesh as XmlElement;
-            XmlElement c = child as XmlElement;
-            Add(m, c);
-        }
-
-
-        object IMeshConverter.Combine(IEnumerable<object> meshes)
-        {
-            return Combine(meshes);
-        }
-
-        object IMeshConverter.Create(AbstractMesh mesh)
-        {
-            return Create(mesh);
-        }
-
-        void IMeshConverter.SetEffect(object mesh, object effect)
-        {
-            SetEffect(mesh, effect);
-        }
-
-        void IMeshConverter.SetTransformation(object mesh, float[] transformation)
-        {
-            SetTransformation(mesh, transformation);
-        }
+     
 
         string IStringRepresentation.ToString(object obj)
         {
@@ -130,26 +73,34 @@ namespace Abstract3DConverters.Converters
         }
 
 
+
+
         #endregion
 
 
 
         #region Protected
 
+        protected override object Combine(IEnumerable<object> meshes)
+        {
+            return CombineXml(meshes);
+        }
 
-        protected abstract void Set(Dictionary<string, Image> images);
+        protected override object Create(AbstractMesh mesh)
+        {
+            return CreateXmlMesh(mesh);
+        }
 
 
-        protected abstract XmlElement Create(AbstractMesh mesh);
+        protected abstract XmlElement CreateXmlMesh(AbstractMesh mesh);
 
-        protected abstract void SetTransformation(object mesh, float[] transformation);
-
+  
         protected virtual void Add(XmlElement mesh, XmlElement child)
         {
             mesh.AppendChild(child);
         }
 
-        protected virtual XmlDocument Combine(IEnumerable<object> meshes)
+        protected virtual XmlDocument CombineXml(IEnumerable<object> meshes)
         {
             foreach (var r in meshes)
             {
@@ -167,10 +118,9 @@ namespace Abstract3DConverters.Converters
                 }
             }
             return doc;
-
         }
 
-        protected virtual void SetEffect(object mesh, object effect)
+        protected override void SetEffect(object mesh, object effect)
         {
             var m = mesh as XmlElement;
             var mat = effect as XmlElement;
@@ -178,11 +128,8 @@ namespace Abstract3DConverters.Converters
 
         }
 
-        protected virtual void SetEffect(XmlElement mesh, XmlElement  material)
-        {
-
-        }
-
+        protected abstract void SetEffect(XmlElement mesh, XmlElement material);
+ 
         protected XmlElement Create(string tag, string name = null)
         {
             var x = doc.CreateElement(tag, xmlns);
@@ -196,7 +143,20 @@ namespace Abstract3DConverters.Converters
             return x;
         }
 
-  
+
+
+        #endregion
+
+        #region Overriden
+
+
+        protected override void Add(object mesh, object child)
+        {
+            XmlElement m = mesh as XmlElement;
+            XmlElement c = child as XmlElement;
+            Add(m, c);
+        }
+
 
         #endregion
     }

@@ -34,13 +34,9 @@ namespace Abstract3DConverters.Creators
 
         string IMeshCreator.Directory => directory;
 
-        Dictionary<string, Material> IMeshCreator.Materials
-        {
-            get => materials;
-        }
-       
+        Dictionary<string, Material> IMeshCreator.Materials => GetMatetials();
 
-        Dictionary<string, Image> IMeshCreator.Images => images;
+        Dictionary<string, Image> IMeshCreator.Images => GetImages();
 
        
 
@@ -60,6 +56,19 @@ namespace Abstract3DConverters.Creators
         {
             return effects;
         }
+
+        protected virtual Dictionary<string, Material> GetMatetials()
+        {
+            return materials;
+        }
+
+
+        protected virtual Dictionary<string, Image> GetImages()
+        {
+            return images;
+        }
+
+
 
         protected virtual void Perform(AbstractMesh mesh, Action<AbstractMesh> action)
         {

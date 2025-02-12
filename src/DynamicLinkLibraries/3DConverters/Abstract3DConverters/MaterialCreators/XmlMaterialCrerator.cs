@@ -12,6 +12,8 @@ namespace Abstract3DConverters.MaterialCreators
 
         protected string xmlns;
 
+        protected Dictionary<object, MaterialGroup> materials = new();
+
         protected XmlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
             base(images)
         {
@@ -38,7 +40,9 @@ namespace Abstract3DConverters.MaterialCreators
                     return Create(spec);
                     break;
                 case MaterialGroup mg:
-                    return Create(mg);
+                    object o = Create(mg);
+                    materials[o] = mg;
+                    return o;
                 default:
                     return null;
             }

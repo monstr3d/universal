@@ -3,6 +3,7 @@ using System.Xml;
 
 namespace Abstract3DConverters.Creators
 {
+    /*
     [Attributes.Extension([".xaml"])]
     public class XamlMeshCreator : XmlMeshCreator
     {
@@ -64,4 +65,5 @@ namespace Abstract3DConverters.Creators
             return list;
         }
     }
+    */
 }

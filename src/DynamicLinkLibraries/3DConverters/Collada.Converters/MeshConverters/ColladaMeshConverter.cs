@@ -1,14 +1,14 @@
-﻿using System.Text;
-using System.Xml;
-
+﻿
 using Abstract3DConverters;
+using Abstract3DConverters.Converters;
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using Abstract3DConverters.Converters;
-using Abstract3DConverters.MaterialCreators;
-
 using ErrorHandler;
-using System.Linq.Expressions;
+using System.Text;
+using System.Xml;
+
 
 namespace Collada.Converters.MeshConverters
 {
@@ -23,6 +23,7 @@ namespace Collada.Converters.MeshConverters
         }
 
 
+  
         protected XmlDocument effect = new();
 
 
@@ -40,6 +41,12 @@ namespace Collada.Converters.MeshConverters
         protected XmlElement library_visual_scenes;
 
         private int geomName = 0;
+
+        EmptyXmlMaterialCreator emptyXmlMaterialCreator;
+
+        protected override IMaterialCreator MaterialCreator => emptyXmlMaterialCreator;
+
+        override 
 
         private string GeomName
         {
@@ -66,7 +73,7 @@ namespace Collada.Converters.MeshConverters
 
         #region Ctor
 
-        protected ColladaMeshConverter(string xmlns) : base(xmlns)
+        protected ColladaMeshConverter(string xmlns) : base(xmlns, null)
         {
             try
             {
@@ -82,13 +89,13 @@ namespace Collada.Converters.MeshConverters
                 effect.LoadXml(eff);
                 var r = doc.GetElementsByTagName("library_visual_scenes")[0];
                 library_visual_scenes = doc.GetElementsByTagName("library_visual_scenes")[0] as XmlElement;
-                materialCreator = new EmptyXmlMaterialCreator(doc, xmlns, images);
+                emptyXmlMaterialCreator = new EmptyXmlMaterialCreator(doc, xmlns, Images);
                 nodes = doc.GetElementsByTagName("instance_visual_scene")[0] as XmlElement;
 
             }
             catch (Exception e)
             {
-                e.ShowError("ColladaMeshConver constructor");
+                e.ShowError("Collada MeshConver constructor");
             }
         }
 
@@ -106,7 +113,7 @@ namespace Collada.Converters.MeshConverters
 
 
 
-        protected override void SetMaterial(object mesh, object material)
+        protected override void SetEffect(object mesh, object material)
         {
             var group = material as MaterialGroup;
             var n = group.Name;
@@ -118,7 +125,7 @@ namespace Collada.Converters.MeshConverters
 
         }
 
-        protected override void SetMaterial(XmlElement mesh, XmlElement material)
+        protected override void SetEffect(XmlElement mesh, XmlElement material)
         {
         }
 
@@ -287,10 +294,10 @@ namespace Collada.Converters.MeshConverters
                             me.AppendChild(polylist);
                             polylist.SetAttribute("count", "" + pol.Count);
                             var mat = "Default";
-                            var mt = pol[0].Material;
-                            if (mt != null)
+                            var effect = pol[0].Effect;
+                            if (effect != null)
                             {
-                                mat = mt.Name;
+                                mat = effect.Name;
                             }
                             polylist.SetAttribute("material", mat);
                             var sem = 0;
@@ -449,34 +456,55 @@ namespace Collada.Converters.MeshConverters
 
         protected Dictionary<Image, string> imAttr = new();
 
-        protected override void Set(Dictionary<string, Image> images)
+        protected override Dictionary<string, Image> Images
         {
-            int i = 1;
-            imagesdictionary = images;
-            var parent = doc.GetElementsByTagName("library_images")[0] as XmlElement;
-            foreach (var image in images)
+            set
             {
-                var im = image.Value;
-                var e = Create("image");
-                parent.AppendChild(e);
-                var attr = "object_" + i;
-                imAttr[im] = attr;
-                ++i;
-                e.SetAttribute("id", attr);
-                var el = Create("init_from");
-                e.AppendChild(el);
-                var f = im.Name;
-                if (directory != null)
+                base.Images = value;
+                int i = 1;
+                imagesdictionary = value;
+                var parent = doc.GetElementsByTagName("library_images")[0] as XmlElement;
+                foreach (var image in Images)
                 {
-                    f = Path.Combine(directory, f);
-                }
-                el.InnerText = f;
+                    var im = image.Value;
+                    var e = Create("image");
+                    parent.AppendChild(e);
+                    var attr = "object_" + i;
+                    imAttr[im] = attr;
+                    ++i;
+                    e.SetAttribute("id", attr);
+                    var el = Create("init_from");
+                    e.AppendChild(el);
+                    var f = im.Name;
+                    if (converter.Directory != null)
+                    {
+                        f = Path.Combine(converter.Directory, f);
+                    }
+                    el.InnerText = f;
 
+                }
             }
         }
 
 
-        protected override void Set(Dictionary<string, Material> materials)
+        protected override Dictionary<string, Material> Materials
+        {
+            set
+            {
+                int nm = 0;
+                base.Materials = value;
+                var pm = doc.GetElementsByTagName("library_materials")[0] as XmlElement;
+                var parent = doc.GetElementsByTagName("library_effects")[0] as XmlElement;
+                foreach (var m in value.Values)
+                {
+                    ++nm;
+                    CreateMaterial(parent, pm, m, nm);
+                }
+            }
+
+        }
+
+       protected override void Set(Dictionary<string, Material> materials)
         {
             int nm = 0;
             this.materials = materials;
@@ -502,6 +530,11 @@ namespace Collada.Converters.MeshConverters
         };
 
         Dictionary<string, string> mat_mat0 = new Dictionary<string, string>();
+
+        protected void CreateEffect(XmlElement parent, XmlElement pm, Effect effect, int nm)
+        {
+
+        }
 
         private void CreateMaterial(XmlElement parent, XmlElement pm, Material material, int nm)
         {

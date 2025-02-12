@@ -13,9 +13,9 @@ namespace Abstract3DConverters.Points
         }
 
         /// <summary>
-        /// Material
+        /// Effect
         /// </summary>
-        public Material Material 
+        public Effect Effect 
         { 
             get; 
             protected set; 
@@ -25,11 +25,11 @@ namespace Abstract3DConverters.Points
         /// Constructor
         /// </summary>
         /// <param name="points">Points</param>
-        /// <param name="material">Material</param>
-        public Polygon(PointTexture[] points, Material material)
+        /// <param name="effect">Effect</param>
+        public Polygon(PointTexture[] points, Effect effect)
         {
             Points = points;
-            Material = material;
+            Effect = effect;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Abstract3DConverters.Creators;
+﻿using System.Runtime.InteropServices.Marshalling;
+using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
@@ -161,16 +162,17 @@ namespace Abstract3DConverters.Meshes
                         var mp = s.ToReal<int>(l[i], "mat ");
                         mt = mp.Value;
                         var mtt = materials[mt].Clone() as Material;
+                        var mn = mtt.Name;
                         if (Image != null)
                         {
                             var im = Image.Clone() as Image;
-                            Material = mtt.SetImage(im);
+                            mn += "_" + im.Name;
+                            Effect = new Effect(mn, mtt, im);
                         }
                         else
                         {
-                            Material = mtt.Clone() as Material;
+                            Effect = new Effect(mn, mtt);
                         }
-                        var mn = Material.Name;
                         if (!mats.Contains(mn))
                         {
                             mats.Add(mn);
@@ -204,7 +206,7 @@ namespace Abstract3DConverters.Meshes
                                     s.ToReal<float>(ss[2].Trim()) ]);
                                 lp.Add(pt);
                             }
-                            var polygon = new Polygon(lp.ToArray(), Material);
+                            var polygon = new Polygon(lp.ToArray(), Effect);
                             if (Polygons == null)
                             {
                                 Polygons = new();
@@ -244,7 +246,7 @@ namespace Abstract3DConverters.Meshes
             Parent = parent;
             Polygons = new();
             Name = parent.Name + "_" + Path.GetRandomFileName();
-            Material = polygon.Material;
+            Effect = polygon.Effect;
             var pts = new Dictionary<int, Point>();
             var dd = new Dictionary<int, int>();
             var l = new List<int>();
@@ -336,16 +338,16 @@ namespace Abstract3DConverters.Meshes
                             var mp = s.ToReal<int>(l[i], "mat ");
                             mt = mp.Value;
                             var mtt = materials[mt].Clone() as Material;
+                            var mn = mtt.Name;
                             if (Image != null)
                             {
                                 var im = Image.Clone() as Image;
-                                Material = mtt.SetImage(im);
+                                Effect = new Effect(mn + "-" + im.Name, mtt, im);
                             }
                             else
                             {
-                                Material = mtt.Clone() as Material;
+                                Effect = new Effect(mn, mtt);
                             }
-                            var mn = Material.Name;
                             if (!mats.Contains(mn))
                             {
                                 mats.Add(mn);
@@ -376,7 +378,7 @@ namespace Abstract3DConverters.Meshes
                                     s.ToReal<float>(ss[2].Trim()) ]);
                                 lp.Add(pt);
                             }
-                            var polygon = new Polygon(lp.ToArray(), Material);
+                            var polygon = new Polygon(lp.ToArray(), Effect);
                             if (Polygons == null)
                             {
                                 Polygons = new();

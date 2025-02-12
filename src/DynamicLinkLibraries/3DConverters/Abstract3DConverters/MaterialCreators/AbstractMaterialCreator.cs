@@ -84,7 +84,6 @@ namespace Abstract3DConverters.MaterialCreators
 
         public abstract object CreateGroup(MaterialGroup materialGroup);
 
-        protected abstract object SetImage(object effect, object image);
 
         public virtual object Create(MaterialGroup material)
         {
@@ -121,23 +120,21 @@ namespace Abstract3DConverters.MaterialCreators
             }
         }
 
-        public virtual void SetImage(object material, Image image)
+        public virtual object SetImage(object material, object image)
         {
-            if (image == null)
-            {
-                return;
-            }
-            var im = Create(image);
-            if (im == null)
-            {
-                return;
-            }
-            SetImage(material, im);
+            /*  if (image == null)
+              {
+                  return;
+              }
+              var im = Create(image);
+              return SetImage(material,  im);*/
+            return null;
+
         }
 
-        object IMaterialCreator.SetImage(object effect, object image)
+        object IMaterialCreator.SetImage(object material, object image)
         {
-            return SetImage(effect, image);
+            return SetImage(material, image as Image);
         }
     }
 }

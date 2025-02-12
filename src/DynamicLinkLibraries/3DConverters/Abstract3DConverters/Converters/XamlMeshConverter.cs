@@ -1,10 +1,10 @@
-﻿using System.Text;
-using System.Xml;
-
-using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters.Attributes;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+using System.Text;
+using System.Xml;
 
 namespace Abstract3DConverters.Converters
 {
@@ -12,16 +12,24 @@ namespace Abstract3DConverters.Converters
     public class XamlMeshConverter : XmlMeshConverter
     {
 
+        XamlMaterialCreator xamlMaterial;
 
-        public XamlMeshConverter() : base("http://schemas.microsoft.com/winfx/2006/xaml/presentation")
+        protected override IMaterialCreator MaterialCreator => xamlMaterial;
+
+
+        public XamlMeshConverter() : base("http://schemas.microsoft.com/winfx/2006/xaml/presentation", null)
         {
             doc.LoadXml(Properties.Resources.xaml);
             nodes = doc.DocumentElement;
-            materialCreator = new XamlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
+            xamlMaterial  = new XamlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
         }
 
+        protected override void SetEffect(XmlElement mesh, XmlElement material)
+        {
 
-        protected override XmlElement Create(AbstractMesh mesh)
+        }
+
+        protected override XmlElement CreateXmlMesh(AbstractMesh mesh)
         {
             mesh.CreateTriangles();
             var dt = new Dictionary<int, float[]>();
@@ -37,7 +45,7 @@ namespace Abstract3DConverters.Converters
             {
                 var mr = Create("GeometryModel3D.Material");
                 z.AppendChild(mr);
-                var max = materialCreator.Create(mat) as XmlElement;
+                var max =  converter.MaterialCreator.Create(mat) as XmlElement;
                 mr.AppendChild(max);
             }
             var v = Create("MeshGeometry3D");
@@ -227,10 +235,7 @@ namespace Abstract3DConverters.Converters
             }
         }
 
-        protected override void Set(Dictionary<string, Image> images)
-        {
-
-        }
+     
 
         public static bool UseDirectory
         { get; set; }
@@ -253,18 +258,6 @@ namespace Abstract3DConverters.Converters
             var x = Create("DiffuseMaterial");
             SetColor(x, material.Color);
             s.SetColor(x, "AmbientColor", material.AmbientColor);
-            if (im != null)
-            {
-
-                var br = Create("DiffuseMaterial.Brush");
-                x.AppendChild(br);
-                var ibr = Create("ImageBrush");
-                br.AppendChild(ibr);
-                var st = XamlMeshConverter.UseDirectory ? im.FullPath : im.Name;
-                ibr.SetAttribute("ImageSource", st);
-                ibr.SetAttribute("ViewportUnits", "Absolute");
-                ibr.SetAttribute("Opacity", material.Opacity + "");
-            }
             return x;
         }
 
@@ -304,9 +297,38 @@ namespace Abstract3DConverters.Converters
             return x;
         }
 
+        public override object SetImage(object material, object image)
+        {
+            if (image == null)
+            {
+                return material;
+            }
+            XmlElement e = material as XmlElement;
+            var d = e.GetElementsByTagName("DiffuseMaterial")[0];
+            var mat = materials[material];
+           
+            
+            foreach (var item in mat.Children)
+            {
+                if (item is DiffuseMaterial diffuse)
+                {
+                    var im = image as Image;
+                    var br = Create("DiffuseMaterial.Brush");
+                    d.AppendChild(br);
+                    var ibr = Create("ImageBrush");
+                    br.AppendChild(ibr);
+                    var st = XamlMeshConverter.UseDirectory ? im.FullPath : im.Name;
+                    ibr.SetAttribute("ImageSource", st);
+                    ibr.SetAttribute("ViewportUnits", "Absolute");
+                    ibr.SetAttribute("Opacity", diffuse.Opacity + "");
+                    break;
+                }
+            }
+            return e;
+        }
 
 
-
+  
 
         private void SetColor(XmlElement e, Color c)
         {

@@ -13,7 +13,7 @@ namespace Abstract3DConverters.MaterialCreators
 
         public override object Create(Image image)
         {
-            return image.Clone();
+            return (image == null) ? null : image.Clone();
         }
 
         public override object Create(Color color)
@@ -67,16 +67,12 @@ namespace Abstract3DConverters.MaterialCreators
             base.Set(material, color);
         }
 
-        protected override object SetImage(object material, object image)
+        public override object SetImage(object material, object image)
         {
             throw new NotImplementedException();
         }
 
-        public override void SetImage(object material, Image image)
-        {
-            base.SetImage(material, image);
-        }
-
+   
         public override void SetOpacity(object material, float opacity)
         {
             throw new NotImplementedException();

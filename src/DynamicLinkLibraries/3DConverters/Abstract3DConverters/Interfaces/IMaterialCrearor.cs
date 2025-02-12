@@ -78,16 +78,16 @@ namespace Abstract3DConverters.Interfaces
         /// <summary>
         /// Sets image to a material
         /// </summary>
-        /// <param name="effect">The material</param>
+        /// <param name="effect">The effect</param>
         /// <param name="image">The image</param>
         object SetImage(object effect, object image);
 
         /// <summary>
         /// Set opacity to a material
         /// </summary>
-        /// <param name="material">The material</param>
+        /// <param name="effect">The effect</param>
         /// <param name="opacity">The opacity</param>
-        void SetOpacity(object material, float opacity);
+        void SetOpacity(object effect, float opacity);
 
     }
 }

@@ -164,7 +164,7 @@ namespace Abstract3DConverters.Meshes
                 l.Add(pt[0]);
                 l.Add(pt[i]);
                 l.Add(pt[i + 1]);
-                p.Add(new Polygon(l.ToArray(), polygon.Material));
+                p.Add(new Polygon(l.ToArray(), polygon.Effect));
             }
             if (pt.Length < 3)
             {
@@ -175,7 +175,7 @@ namespace Abstract3DConverters.Meshes
                     {
                         l.Add(pt[i]);
                     }
-                    p.Add(new Polygon(l.ToArray(), polygon.Material));
+                    p.Add(new Polygon(l.ToArray(), polygon.Effect));
                 }
 
             }

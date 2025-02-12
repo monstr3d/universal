@@ -8,8 +8,10 @@ using System.Xml;
 
 namespace Abstract3DConverters.Meshes
 {
+    /*
     class AbstractMeshXaml : AbstractMesh
     {
+
         XmlElement element;
         XamlMeshCreator meshCreator;
         Dictionary<string, Action<XmlElement>> actions;
@@ -126,12 +128,11 @@ namespace Abstract3DConverters.Meshes
         }
 
 
-        void ParseMaterial(XmlElement elemebt)
+        void ParseMaterial(XmlElement element)
         {
             var ch = element.GetElementsByTagName("MaterialGroup.Children")[0];
             var name = meshCreator.MaterialName;
             var mg = new MaterialGroup(name);
-            Material = mg;
             meshCreator.Materials[name] = mg;
             var mat = ch.ChildNodes;
             foreach (var n in mat)
@@ -144,6 +145,7 @@ namespace Abstract3DConverters.Meshes
                     }
                 }
             }
+            Effect = null;
         }
 
 
@@ -261,5 +263,5 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-    }
+    }*/
 }
