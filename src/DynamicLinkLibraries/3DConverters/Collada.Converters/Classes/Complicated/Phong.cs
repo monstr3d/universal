@@ -13,11 +13,24 @@ namespace Collada.Converters.Classes.Complicated
     {
         public static IClear Clear => StaticExtensionCollada.GetClear<Phong>();
 
-        internal List<Abstract3DConverters.Materials.Material> Materials { get; private set; }
+
+        internal Abstract3DConverters.Materials.Effect Effect { get; private set; }
+
+        // internal List<Abstract3DConverters.Materials.Material> Materials { get; private set; }
         private Phong(XmlElement xmlElement) : base(xmlElement)
         {
             try
             {
+                XmlElement parent = xmlElement.ParentNode as XmlElement;
+                while (true)
+                {
+                    if (parent.Name == "effect")
+                    {
+                        break;
+                    }
+                    parent = parent.ParentNode as XmlElement;
+                }
+                var name = parent.GetAttribute("id");
                 double transparency = 0;
                 var tr = xmlElement.Get<Transparency>();
                 if (tr != null)
@@ -64,13 +77,18 @@ namespace Collada.Converters.Classes.Complicated
                     im = su.Image;
                 }
                 var l = new List<Abstract3DConverters.Materials.Material>();
-                var diffuse = new DiffuseMaterial(transparent, ambient, im, 1f - (float)transparency);
+                var diffuse = new DiffuseMaterial(transparent, ambient,  1f - (float)transparency);
                 l.Add(diffuse);
                 var emis = new EmissiveMaterial(emission);
                 l.Add(emis);
                 var specu = new SpecularMaterial(specular, (float)shinines);
                 l.Add(specu);
-                Materials = l;
+                var mat = new MaterialGroup(name);
+                foreach (var mt in l)
+                {
+                    mat.Children.Add(mt);
+                }
+                Effect = new Abstract3DConverters.Materials.Effect(name, mat, im);
             }
             catch (Exception ex)
             {

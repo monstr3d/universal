@@ -97,7 +97,10 @@ namespace Abstract3DConverters.Converters
   
         protected virtual void Add(XmlElement mesh, XmlElement child)
         {
-            mesh.AppendChild(child);
+            if (child != null)
+            {
+                mesh.AppendChild(child);
+            }
         }
 
         protected virtual XmlDocument CombineXml(IEnumerable<object> meshes)

@@ -10,7 +10,7 @@ namespace Collada.Converters.Classes.Complicated
     public class Instance_Material : XmlHolder
     {
 
-        internal Abstract3DConverters.Materials.Material Material { get; private set; }
+        internal Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Instance_Material>();
@@ -20,7 +20,7 @@ namespace Collada.Converters.Classes.Complicated
         {
            var target = element.GetAttribute("target");
             target = target.Substring(1);
-            Material = meshCreator.Materials[target];
+            Effect = meshCreator.Effects[target];
         }
 
 

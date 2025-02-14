@@ -5,6 +5,7 @@ using Collada.Converters.MeshCreators;
 
 namespace Collada.Converters.Meshes
 {
+    
     class AbstractMeshCollada : AbstractMeshPolygon
     {
 
@@ -30,7 +31,7 @@ namespace Collada.Converters.Meshes
                 return;
             }
             meshCreator = creator;
-            Material = material.Material;
+            Effect = material.Effect;
             var g = geom.Geometry;
             var meshObject = g.Mesh;
             var tr = meshObject.Triangles;
@@ -154,7 +155,7 @@ namespace Collada.Converters.Meshes
             Polygons = new();
             foreach (var p in poly.Polygons)
             {
-                var pp = new Polygon(p.Points, Material);
+                var pp = new Polygon(p.Points, Effect);
                 Polygons.Add(p);
             }
    

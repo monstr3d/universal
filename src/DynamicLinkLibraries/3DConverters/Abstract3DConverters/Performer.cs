@@ -129,6 +129,10 @@ namespace Abstract3DConverters
         {
             IMaterialCreator materialCreator = meshConverter.MaterialCreator;
             object o = meshConverter.Create(mesh);
+            if (o == null)
+            {
+                return null;
+            }
             var trans = mesh.TransformationMatrix;
             meshConverter.SetTransformation(o, trans);
             object mt = mesh.Effect;
@@ -157,7 +161,7 @@ namespace Abstract3DConverters
         /// <returns>Peers of meshes</returns>
         public IEnumerable<T> Create<T>(IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
         {
-            return meshes.Select(e => Create<T>(e, converter)).ToList();
+            return meshes.Where(e => e != null).Select(e => Create<T>(e, converter)).ToList();
         }
 
         /// <summary>

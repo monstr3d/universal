@@ -10,7 +10,9 @@ namespace Collada.Converters.Classes.Complicated
     internal class Effect : Collada.XmlHolder
     {
 
-        internal List<Abstract3DConverters.Materials.Material> Materials { get; private set; }
+ 
+
+        internal Abstract3DConverters.Materials.Effect EffectP { get; private set; }
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Effect>();
 
@@ -20,8 +22,8 @@ namespace Collada.Converters.Classes.Complicated
         {
             ColladaMeshCreator creator = meshCreator as ColladaMeshCreator;
             var phong = element.Get<Phong>();
-            Materials = phong.Materials;
-            creator.Eff[element.GetAttribute("id")] = this;
+            EffectP = phong.Effect;
+            creator.Eff[EffectP.Name] = this;
         }
 
 

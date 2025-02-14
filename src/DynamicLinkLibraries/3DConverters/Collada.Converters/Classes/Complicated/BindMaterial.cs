@@ -11,7 +11,7 @@ namespace Collada.Converters.Classes.Complicated
         public static IClear Clear => StaticExtensionCollada.GetClear<BindMaterial>();
 
 
-        public Abstract3DConverters.Materials.Material Material 
+        public Abstract3DConverters.Materials.Effect Effect 
         { 
             get; 
             private set; 
@@ -23,7 +23,7 @@ namespace Collada.Converters.Classes.Complicated
             {
                 return;
             }
-            Material = inst.Material;
+            Effect = inst.Effect;
 
         }
 

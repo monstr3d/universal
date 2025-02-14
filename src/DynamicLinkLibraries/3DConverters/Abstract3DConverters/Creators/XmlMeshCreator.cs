@@ -1,4 +1,5 @@
 ﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
 
 namespace Abstract3DConverters.Creators
@@ -8,7 +9,7 @@ namespace Abstract3DConverters.Creators
         protected XmlDocument doc;
 
 
-        public Dictionary<XmlElement, IParent> Meshes 
+        public Dictionary<XmlElement, IParent> MeshesParent 
         { 
             get; 
             private set; 

@@ -32,10 +32,13 @@ namespace Abstract3DConverters.Creators
 
         #region AbstractMeshCreator Members
 
-        protected override IEnumerable<AbstractMesh> Get()
+        protected override IEnumerable<AbstractMesh> Meshes
         {
-            int last = 0;
-            return Create(null, lines).ToList();
+            get
+            {
+                int last = 0;
+                return Create(null, lines).ToList();
+            }
         }
      
        

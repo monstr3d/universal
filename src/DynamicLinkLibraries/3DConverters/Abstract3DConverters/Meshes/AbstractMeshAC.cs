@@ -166,7 +166,7 @@ namespace Abstract3DConverters.Meshes
                         if (Image != null)
                         {
                             var im = Image.Clone() as Image;
-                            mn += "_" + im.Name;
+                            mn += "-" + im.Name;
                             Effect = new Effect(mn, mtt, im);
                         }
                         else

@@ -1,11 +1,14 @@
-﻿using System.Reflection;
+﻿using System.Xml;
+using System.Reflection;
+
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
+
 using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
+
 using ErrorHandler;
-using System.Xml;
 
 namespace Collada.Converters.MeshCreators
 {
@@ -18,8 +21,7 @@ namespace Collada.Converters.MeshCreators
 
 
         internal Dictionary<string, Sampler2D> Samplers { get; private set; } = new();
-        public Dictionary<string, Abstract3DConverters.Materials.Material> Effects { get; private set; }
-
+   
 
         static Dictionary<string, MethodInfo> methods;
 
@@ -30,6 +32,11 @@ namespace Collada.Converters.MeshCreators
         } = new();
 
         Dictionary<string, XmlElement> urls = new();
+
+       internal Dictionary<string, string> EffectToMaterial
+        {
+            get;
+        } = new();
 
         internal Dictionary<string, Abstract3DConverters.Image> ImageIds { get; private set; } = new();
 
@@ -45,7 +52,10 @@ namespace Collada.Converters.MeshCreators
 
         static List<string> nonelementary;
 
-        internal Dictionary<string, Effect> Eff { get; private set; } = new Dictionary<string, Effect>();
+        internal Dictionary<string, Effect> Eff 
+        { 
+            get;  
+        } = new Dictionary<string, Effect>();
 
         internal Dictionary<string, GeometryObject> Geom { get; private set; } = new();
         /*
@@ -98,15 +108,15 @@ namespace Collada.Converters.MeshCreators
         }
 
 
+
         protected ColladaMeshCreator(string filename, XmlDocument doc) : base(filename, doc)
         {
             try
             {
-                images = new();
                 StaticExtensionCollada.Collada = this;
                 StaticExtensionCollada.Function = this;
                 CreateAll();
-                s.SetParents(Meshes);
+                s.SetParents(MeshesParent);
             }
             catch (Exception ex)
             {
@@ -171,10 +181,13 @@ namespace Collada.Converters.MeshCreators
             return d;
         }
 
-        protected override IEnumerable<AbstractMesh> Get()
+        protected override IEnumerable<AbstractMesh> Meshes
         {
-            s.SetParents(Meshes);
-            return s.GetRoots(Meshes.Values).Select(a => a as AbstractMesh).ToList();
+            get
+            {
+                s.SetParents(MeshesParent);
+                return s.GetRoots(MeshesParent.Values).Select(a => a as AbstractMesh).ToList();
+            }
         }
 
         #region ICollada Members

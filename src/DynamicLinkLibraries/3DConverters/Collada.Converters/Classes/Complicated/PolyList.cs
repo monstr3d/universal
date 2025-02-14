@@ -1,9 +1,11 @@
 ﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters;
 using Abstract3DConverters.Points;
 
 using Collada.Converters.Classes.Elementary;
+
 using ErrorHandler;
 
 
@@ -14,7 +16,7 @@ namespace Collada.Converters.Classes.Complicated
     {
         Service s = new();
 
-        public Abstract3DConverters.Materials.Material Material { get; private set; }
+        public Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
         public Dictionary<string, OffSet> Inputs { get; private set; } = new();
 
@@ -52,11 +54,10 @@ namespace Collada.Converters.Classes.Complicated
                 var vcount = vc.Value;
                 var arr = p.Value;
                 var c = element.GetAttribute("material");
-                if (meshCreator.Materials.ContainsKey(c))
+                if (meshCreator.Effects.ContainsKey(c))
                 {
-                    Material = meshCreator.Materials[c];
+                    Effect = meshCreator.Effects[c];
                 }
-     
                 float[] textures = null;
                 var children = element.GetAllChildren<Input>().ToArray();
                 int[] offs = new int[] { 0, 0, 0 };
@@ -109,12 +110,12 @@ namespace Collada.Converters.Classes.Complicated
                     var points = new List<PointTexture>();
                     for (var i = 0; i < item; i++)
                     {
-                         int idx = arr[tn];
-                         var point = new PointTexture(idx, txt[tn]);
+                        int idx = arr[tn];
+                        var point = new PointTexture(idx, txt[tn]);
                         ++tn;
                         points.Add(point);
                     }
-                    var polygon = new Polygon(points.ToArray(), Material);
+                    var polygon = new Polygon(points.ToArray(), Effect);
                     if (Polygons == null)
                     {
                         Polygons = new();

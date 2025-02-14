@@ -1,15 +1,14 @@
 ﻿
-using System.Collections.Generic;
 using System.Xml;
 
 using Abstract3DConverters;
-using Abstract3DConverters.Creators;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
 
 using Collada.Converters.Classes.Elementary;
 using Collada.Converters.MeshCreators;
 using Collada.Converters.Meshes;
+
 using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
@@ -47,7 +46,11 @@ namespace Collada.Converters.Classes.Complicated
                 mm = s.Convert(mt.Matrix3D);
             }
             var mesh = Create(geom, mat, name, mm);
-            Creator.Meshes[element] = mesh;
+            if (mesh == null)
+            {
+                throw new Exception("MESH_NULL");
+            }
+            Creator.MeshesParent[element] = mesh;
         }
 
 
@@ -66,11 +69,8 @@ namespace Collada.Converters.Classes.Complicated
         AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)
         {
             return new AbstractMeshCollada(geom, material, name, mm, Creator);
-            Abstract3DConverters.Materials.Material mt = null;
-            if (material != null)
-            {
-                mt = material.Material;
-            }
+            Abstract3DConverters.Materials.Effect effect = material.Effect;
+
             if (geom == null)
             {
                 return new AbstractMesh(name, Creator);
@@ -154,7 +154,7 @@ namespace Collada.Converters.Classes.Complicated
                     }
                 }
 
-                return new AbstractMesh(name, Creator, mt, vertices, normal, textures, t, mm);
+                return new AbstractMesh(name, Creator, effect, vertices, normal, textures, t, mm);
             }
 
 

@@ -863,14 +863,14 @@ Following table contains  special symbols.
 	\hline
 \end{tabular}
 \section{Ext-functor and characters}\label{ext_char_sec}
-\paragraph*{}
-Let $A \bydef \Z^n /\Gamma$ be a finite Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
+\paragraph*{} !!! USE WEIL !!!
+Let $A \bydef \Z^n /\Gamma$ be a  !!!! finitely generated  Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
 $$
 \Hom \left(\Z^n, \Z \right)\to \Hom \left(\Ga, \Z\right)
 $$
 and 
 $$
-\Ext\left( A, \Z\right) =  \Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right).
+\Ext^1_\Z\left( A, \Z\right) =  \Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right).
 $$
 Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^n, \Q\right)$. One has a character 
 \bean
@@ -885,7 +885,10 @@ Conversely a character $\chi : \Z^n/\Ga \to e^{\frac{i\Q}{2\pi}}$ naturally yiel
 \forall\left(a_1, ..., a_n\right)\in \Z^n\quad \varphi \left( a_1e_1 + ... + a_1e_n\right)  = a_1\xi_1 + ... + a_1\xi_n
 \eean 
 From $\chi\left(\Ga\right)= \{1\}$ it follows that $\varphi\left( \Ga\right) = \Z$ i.e. $\varphi|_\Ga\in \Hom\left(\Ga, \Z \right)$.
-The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext^1_\Z\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$. 
+The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext^1_\Z\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$. Taking into account that $\Ext^1_\Z\left(\Z^n, \Z \right)$ one has a following lemma.
+\begin{lemma}\label{ext_char_lem}
+For any finitely generated Abelian group $A$ there is the natural homomorphism between  $\Ext^1_\Z\left(A, \Z \right)$ and the group of characters of the torsion part of $A$. 
+\end{lemma}
 
 
 
@@ -3128,10 +3131,10 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
   a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*\quad \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
  \end{split}
  \end{equation}
- (cf. Equations \eqref{croosed_prod_eqn} and \eqref{discr_cr_prod_op_eqn})).  There are given by \eqref{morita_ta_act_eqn} left and right actions of $\widetilde{\La} \rtimes G$ on $\widetilde A$ 
+ (cf. Equations \eqref{croosed_prod_eqn} and \eqref{discr_cr_prod_op_eqn})).  There are given by \eqref{morita_ta_act_eqn} left and right actions of $\widetilde{A} \rtimes G$ on $\widetilde A$ 
  \begin{equation}\label{morita_m_ta_act_eqn}
  	\begin{split}
- 		\forall \widetilde{a}\in \widetilde{\La}\quad \forall a \in \widetilde{\La} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
+ 		\forall \widetilde{a}\in \widetilde{A}\quad \forall a \in \widetilde{A} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
  		\widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
  \end{equation}
  The left and right actions of $A$ on $\widetilde A$ come from the natural inclusion $A\subset \widetilde A$ of rings. Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Denote by $\varphi': \widetilde{A} \times  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi': \widetilde{A} \times \widetilde{A} \to A$ bilinear maps
@@ -12181,23 +12184,21 @@ is a homomorphism of groups.
 	The homomorphism  $h^{\mathrm{free}}_{K^1}$ is the \textit{free part of Hurewicz homomorphism}.
 \end{definition}
 \paragraph{Torsion part of Hurewicz homomorphism.}
-\begin{definition}\label{hurewicz_maximal_defn}
-	A finite-fold noncommutative $\left(u, v, p^r\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn})  $$\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$$
-is  \textit{maximal} if $G\left( \left.\widetilde A\right| A\right)$ if  there is no finite-fold noncommutative covering $$
-	\left(   A, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\right) ,  \lift^{\widetilde B} \right
-	)$$ with $r < q$ and subgroup $H \subset \pi_1\left(A \right)_{\mathrm{tors}}$
-	$$
-	\left(   A, \widetilde A, \Z_{p^r} , \lift^{\widetilde A} \right)= \left(   A, \widetilde B^H, \Z_{p^q}/H, \lift^{\widetilde B^H} \right)
-	$$
-	(cf. equation \eqref{fin_composition_uni_1_eqn}). 
-\end{definition}
-For any maximal covering  $\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$ there is a subgroup $G^{\widetilde{A}}\subset \pi_1\left(A \right)_{\mathrm{tors}}$ with the natural isomorphism $G^{\widetilde{A}} \cong G\left( \left.\widetilde A\right| A\right)$  where any $g \in G^{\widetilde{A}}$ is a representative of an element of $G\left( \left.\widetilde A\right| A\right)$.
-Since $A$ {allows Hurewicz homomorphism}  we obtain the following natural decomposition
-\be\label{hurewicz_tors_sum_eqn}
-\pi_1\left(A\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}
-\ee
-where every summand is matches to a  maximal covering (cf. Definition \ref{hurewicz_maximal_defn}).
-There is and unital finite-fold noncommutative covering 
+%\begin{definition}\label{hurewicz_maximal_defn}
+%	A finite-fold noncommutative $\left(u, v, p^r\right)$-covering (cf. Definition \ref{hurewicz_u_n_defn})  $$\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$$is  \textit{maximal} if $G\left( \left.\widetilde A\right| A\right)$ if  there is no finite-fold noncommutative covering $$
+%	\left(   A, \widetilde B, \Z_{p^q}\cong G\left( \left.\widetilde B\right| A\right) ,  \lift^{\widetilde B} \right	)$$ with $r < q$ and subgroup $H \subset \pi_1\left(A \right)_{\mathrm{tors}}$
+%	$$
+%	\left(   A, \widetilde A, \Z_{p^r} , \lift^{\widetilde A} \right)= \left(   A, \widetilde B^H, \Z_{p^q}/H, \lift^{\widetilde B^H} \right)
+%	$$
+%	(cf. equation \eqref{fin_composition_uni_1_eqn}). 
+%\end{definition}
+%For any maximal covering  $\left(   A, \widetilde A, \Z_{p^r}\cong G\left( \left.\widetilde A\right| A\right) ,  \lift^{\widetilde A} \right)$ there is a subgroup $G^{\widetilde{A}}\subset \pi_1\left(A \right)_{\mathrm{tors}}$ with the natural isomorphism $G^{\widetilde{A}} \cong G\left( \left.\widetilde A\right| A\right)$  where any $g \in G^{\widetilde{A}}$ is a representative of an element of $G\left( \left.\widetilde A\right| A\right)$.
+%Since $A$ {allows Hurewicz homomorphism}  we obtain the following natural decomposition
+%\be\label{hurewicz_tors_sum_eqn}
+%\pi_1\left(A\right)_{\mathrm{tors}} \cong \Z_{p_1^{r^1}}\oplus ... \oplus \Z_{p_N^{r^N}}
+%\ee
+%where every summand is matches to a  maximal covering (cf. Definition \ref{hurewicz_maximal_defn}).
+Since $A$ {allows Hurewicz homomorphism}  there is an unital finite-fold noncommutative covering 
 \be\label{hurewicz_torsion_covering_eqn}
 \left(   A, A_{\mathrm{tors}}, \pi_1\left(A\right)_{\mathrm{tors}} ,  \lift^{\mathrm{tors}} \right)
 \ee
@@ -12229,7 +12230,7 @@ Any $g \in \pi_1\left(A\right)_{\mathrm{tors}}$ yields a character
 x \mapsto \chi_x\left(g \right) 
 \eean 
 On the other hand a   map $g \mapsto \chi_g$ is a homomorphism from $\pi_1\left(A\right)_{\mathrm{tors}}$ to  the group of characters of $K^{\pi_1\left(A\right)_{\mathrm{tors}}}_0\left( A_{\mathrm{tors}}\right)$. Taking into account the isomorphism \eqref{unital_cov_kk_eqn} one has a homomorphism from   $\pi_1\left(A\right)_{\mathrm{tors}}$ to the group of characters on $K_0\left( A\right)$. This homomorphism yields a  a homomorphism from   $\pi_1\left(A\right)_{\mathrm{tors}}$ to the group of characters on 
- $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$. So according to the Section \ref{ext_char_sec} there is a homomorphism 
+ $K_0\left( A\right)_{\mathrm{tors}}$ where $K_0\left( A\right)_{\mathrm{tors}}$. So according to the Lemma \ref{ext_char_lem} there is a homomorphism 
  	\be\label{h_tors_eqn}
  h_{K^1}^{\mathrm{tors}} : \pi_1\left(A \right)_{\mathrm{tors}}\to   \Ext^1_\Z\left( K_0\left( A\right)_{\mathrm{tors}}, \Z \right)
  \ee 
@@ -24105,6 +24106,64 @@ If A is any $C^*$-algebra, $K_0\left(M\left(A \otimes \K \right)  \right) = K_1\
 
 %In the special case A = B(H), J = K(H), and K0(K) is identied with Z in thestandard way, the map @ is exactly the map which sends a unitary in the Calkinalgebra to its Fredholm index.Unitaries in a quotient do not lift to partial isometries in general, so thedenition of @ must be stated in the more complicated way given above.
 
+\subsection{Geometric resolutions of $C^*$-algebras}
+
+\begin{proposition}\cite{blackadar:ko}
+%Proposition 23.5.1. 
+Let $B$ be a separable $C^*$-algebra. Then there is a separable
+commutative $C^*$-algebra $F$, whose spectrum consists of a disjoint union of lines
+and planes, and a homomorphism $\phi: F \to SB \otimes \K$
+, such that $\phi_*: K_*\left(F \right)\to K_*\left(SB \right)$ 
+is surjective. If $K_*\left(SB \right)$  is finitely generated, we may require that $K_*\left(F \right)$
+be finitely generated.
+\end{proposition}
+\begin{proposition}\cite{blackadar:ko}
+%Proposition 23.5.2. 
+Let B be a separable $C^*$algebra. Then there exists a
+separable $C^*$-algebra $D$ whose K-groups are divisible, and a $*$-homomorphism
+$\psi: SB \to D$ such that  $\psi_*: K_*\left(SB \right)\to K_*\left(D \right)$ is injective.
+\end{proposition}
+We now finish the construction of the injective resolution by again using a mapping
+cone construction. The mapping cone sequence of $\psi$   is
+\be\label{k_ex_eqn}
+0 \to SD \to C_\psi \to SD \to 0
+\ee
+Since $\psi_*$ is injective, the associated K-theory sequence degenerates to two short
+exact sequences
+\be\label{k_t_inijective_eqn}
+0 \to K_j\left(SB \right) \to  \to K_{1-j}\left(SD \right)to K_{1-j}\left(C_\psi \right)\to 0
+\ee
+
+The groups $K_*\left(C_\psi\right)$  are quotients of divisible groups, hence divisible; so we have an injective resolution of $K_*\left( SB\right)$.
+\begin{proposition}
+%Proposition 23.8.1. 
+Let A be a separable $C^*$-algebra. Suppose that for all
+separable $B$ with divisible $K$-groups, $\ga\left(A, B\right)$ is an isomorphism. Then for all separable $B$, the exact sequence of the UCT holds for $A$ and $B$.
+\end{proposition}
+\begin{proof}
+Let $B$ be separable and stable. Form a geometric injective resolution
+$$
+0 \to SD \to C_\psi \to SD \to 0
+$$
+(cf. \eqref{}). The associated K-theory sequence degenerates to
+\bean
+0 \to K_j\left(B \right) \to  K_j\left(D \right)\xrightarrow{g_*}\left(C_\psi \right)\to 0
+\eean
+which is an injective resolution of $K_*\left(B \right)$. The six-term exact sequence of $KK$-theory is
+$$
+...\to KK^j\left( A, D\right) \xrightarrow{\om}KK^j\left( A, C\right)\to KK^{j-1}\left( A, B\right)\to ...
+$$
+which unsplices to two short exact sequences
+$$
+0 \to \mathrm{Coker}\left( \om \right) \to KK^j\left(A, B \right) \to \mathrm{Ker}\left( \om \right)\to 0
+$$
+By hypothesis we are allowed to replace $KK^*\left(A, D \right)$ by $\Hom\left(K_*\left( A\right) , K_*\left( C\right) \right)$ and $KK^*\left(A, C \right)$ by $\Hom\left(K_*\left( A\right) , K_*\left( C\right) \right)$ the map $\om$ is replaced by $\Hom\left(1, g_*\right)$ under this identification. Thus we have
+$$
+\mathrm{Ker}\left( \om \right) \cong \mathrm{Ker}\left(\Hom\left(1 , g_* \right)\right) \cong \Hom\left(K_*\left(A\right) , K_*\left( B\right)  \right)
+$$
+and $\mathrm{Coker}\left( \om \right) \cong \mathrm{Coker}\left(\Hom\left(1 , g_* \right)\right) \cong \Ext^1_\Z\left(K_*\left(A\right) , K_*\left( B\right)  \right)$. It is easy to check
+that the map from $KK^*\left(A, B \right)$ to $\Hom\left(K_*\left(A \right) ,K_*\left(B \right)  \right)$ is the map $\ga$. %And although it is not necessary for the proof, it is also easy to check that the map rom Ext1Z(K(A);K(B)) is the inverse of the map  dened in 23.1. 
+\end{proof}
 	\subsection{Universal coefficient theorem}
 	\paragraph*{}	The universal coefficient theorem \cite{blackadar:ko} establishes (in particular) a relationship between $K$ - theory and $K$- homology. 
 	\begin{theorem}
@@ -24376,7 +24435,7 @@ continuity).% oh [resp. c] is generated by unitary equivalence, norm-homotopy[
 $\left(E^{(0)}\oplus E^{(1)},\phi^{(0)}\oplus \phi^{(1)}  \right) $, where $T \in B\left(E^{(0)}, E^{(1)} \right)$ is an operator with the
 right algebraic and intertwining properties as above. Modules expressed in this
 way give the \textit{Fredholm picture} of $KK(A,B)$.
-\subsection{KK-equivalence}
+\subsection{$KK$-equivalence}
 \begin{definition}
 %Definition 19.1.1. 
 An element $x \in KK(A,B)$ is a $KK$-\textit{equivalence} if there is
@@ -24407,6 +24466,16 @@ binary operation on the set of projective $\left( A, G, \a\right)$ -modules, dir
 \begin{definition}\label{equiv_k_defn}
 $K^G_0\left( A\right) $ is the Grothendieck group of $\mathbb{V}^G\left( A\right)$.
 \end{definition}
+
+\begin{definition}\label{repr_ring_defn}
+	%Definition 11.1.3. 
+	The representation ring $R\left(G \right)$  of $G$ is the ring whose elements
+	are formal differences of equivalence classes of finite-dimensional representations
+	of $G$, with direct sum and tensor product as the ring operations. The
+	trivial one-dimensional representation is the multiplicative identity. If $G$ is a finite group then 
+	By decomposing a representation into a direct sum of irreducibles, the additive
+	group of $R\left(G \right)$  can be identified with $K_0\left(\Z\left[G\right] \right)$.
+\end{definition}
 \begin{theorem}\label{equiv_k_thm}
 Let $\left( A, G, \a\right)$ be a covariant system (with $G$ compact). There
 is a natural isomorphism $K^G_0\left( A\right) \cong K_0\left(A\rtimes  G\right)$.
@@ -24434,15 +24503,6 @@ pairing
 which is associative and functorial in all possible senses.
 \end{theorem}
 
-\begin{definition}
-%Definition 11.1.3. 
-The representation ring $R\left(G \right)$  of $G$ is the ring whose elements
-are formal differences of equivalence classes of finite-dimensional representations
-of $G$, with direct sum and tensor product as the ring operations. The
-trivial one-dimensional representation is the multiplicative identity.
-By decomposing a representation into a direct sum of irreducibles, the additive
-group of $R\left(G \right)$  can be identified with $K_0\left(G \right)$.
-\end{definition}
 \begin{theorem}
 %Theorem 20.4.5.
  For any $A$ and $B$, $KK_G\left(A, B \right)$  is an $R_0\left(G \right)$ -module via intersection product. Functoriality of $KK_G$ and the bilinearity of the product respect the module structure, i.e. $KK_G$ is a bifunctor from pairs of $G$-algebras

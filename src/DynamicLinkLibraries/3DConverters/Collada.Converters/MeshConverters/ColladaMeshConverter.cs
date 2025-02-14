@@ -1,20 +1,46 @@
 ﻿
+using System.Text;
+using System.Xml;
+
 using Abstract3DConverters;
 using Abstract3DConverters.Converters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-using ErrorHandler;
-using System.Text;
-using System.Xml;
 
+using ErrorHandler;
 
 namespace Collada.Converters.MeshConverters
 {
     public abstract class ColladaMeshConverter : XmlMeshConverter
     {
         #region Fields
+
+        Dictionary<string, int> nnat = new Dictionary<string, int>();
+
+        protected Dictionary<string, string> EffectMaterial
+        {
+            get;
+        }
+        = new();
+
+        string MaterialName
+        {
+            get
+            {
+                var s = "acmat" + matName;
+                nnat[s] = matName;
+                ++matName;
+                return s;
+            }
+        }
+
+        string EffectName(string matName)
+        {
+            return "Material" + nnat[matName] + "-effect";
+        }
+
 
         public static Contributor Contributor
         {
@@ -46,8 +72,7 @@ namespace Collada.Converters.MeshConverters
 
         protected override IMaterialCreator MaterialCreator => emptyXmlMaterialCreator;
 
-        override 
-
+ 
         private string GeomName
         {
             get
@@ -60,15 +85,7 @@ namespace Collada.Converters.MeshConverters
         int matName = 0;
 
 
-        string MaterialName
-        {
-            get
-            {
-                ++matName;
-                return "mat" + matName;
-            }
-        }
-
+  
         #endregion
 
         #region Ctor
@@ -89,13 +106,13 @@ namespace Collada.Converters.MeshConverters
                 effect.LoadXml(eff);
                 var r = doc.GetElementsByTagName("library_visual_scenes")[0];
                 library_visual_scenes = doc.GetElementsByTagName("library_visual_scenes")[0] as XmlElement;
-                emptyXmlMaterialCreator = new EmptyXmlMaterialCreator(doc, xmlns, Images);
+                emptyXmlMaterialCreator = new EmptyXmlMaterialCreator(doc, xmlns, new Dictionary<string, object>());
                 nodes = doc.GetElementsByTagName("instance_visual_scene")[0] as XmlElement;
 
             }
             catch (Exception e)
             {
-                e.ShowError("Collada MeshConver constructor");
+                e.ShowError("Collada MeshConverter constructor");
             }
         }
 
@@ -106,18 +123,20 @@ namespace Collada.Converters.MeshConverters
 
         protected virtual XmlElement Create(XmlElement parent, AbstractMesh mesh)
         {
-            var x = Create(mesh);
+            var x = CreateXmlMesh(mesh);
             parent.AppendChild(x);
             return x;
         }
 
 
 
-        protected override void SetEffect(object mesh, object material)
+        protected override void SetEffect(object mesh, object effect)
         {
-            var group = material as MaterialGroup;
-            var n = group.Name;
-            var eff = mat_mat0[n];
+            /*
+            var eff = effect as Effect;
+            var n = eff.Name;
+            var efff = Mat_mat0[n];
+            */
         }
 
         protected override void SetTransformation(object mesh, float[] transformation)
@@ -135,7 +154,9 @@ namespace Collada.Converters.MeshConverters
 
 
         protected abstract void Load();
-        protected override XmlElement Create(AbstractMesh mesh)
+
+    
+        protected override XmlElement CreateXmlMesh(AbstractMesh mesh)
         {
             var node = Create("node");
             var pmesh = Process(node, mesh);
@@ -146,8 +167,14 @@ namespace Collada.Converters.MeshConverters
                 {
                     var ig = Create("instance_geometry");
                     ig.SetAttribute("url", "#" + pmesh);
-                    var mt = mesh.Material;
-                    if (mt != null)
+                    var effect = mesh.Effect;
+                    if (effect.Image == null)
+                    {
+                        return null;
+                    }
+                    var ename = effect.Name;
+                    var matname = Mat_mat0[ename];
+                    if (effect != null)
                     {
                         var bm = Create("bind_material");
                         ig.AppendChild(bm);
@@ -155,15 +182,18 @@ namespace Collada.Converters.MeshConverters
                         bm.AppendChild(tc);
                         var im = Create("instance_material");
                         tc.AppendChild(im);
-                        im.SetAttribute("symbol", MaterialName);
-                        var nm = mt.Name;
-                        im.SetAttribute("target", "#" + nm);
+                        im.SetAttribute("symbol", matname);
+                        im.SetAttribute("target", "#" + matname);
                     }
                     node.AppendChild(ig);
                 }
             }
             return node;
         }
+
+
+        Dictionary<Effect, string> effectName = new Dictionary<Effect, string>();
+
 
 
 
@@ -487,23 +517,23 @@ namespace Collada.Converters.MeshConverters
         }
 
 
-        protected override Dictionary<string, Material> Materials
+        protected override Dictionary<string, Effect> Effects
         {
             set
             {
                 int nm = 0;
-                base.Materials = value;
+                base.Effects = value;
                 var pm = doc.GetElementsByTagName("library_materials")[0] as XmlElement;
                 var parent = doc.GetElementsByTagName("library_effects")[0] as XmlElement;
                 foreach (var m in value.Values)
                 {
                     ++nm;
-                    CreateMaterial(parent, pm, m, nm);
+                    CreateEffect(parent, pm, m, nm);
                 }
             }
 
         }
-
+/*
        protected override void Set(Dictionary<string, Material> materials)
         {
             int nm = 0;
@@ -516,7 +546,7 @@ namespace Collada.Converters.MeshConverters
                 CreateMaterial(parent, pm, m, nm);
             }
         }
-
+*/
 
         Dictionary<string, string> dWhap = new Dictionary<string, string>()
         {
@@ -529,19 +559,18 @@ namespace Collada.Converters.MeshConverters
 
         };
 
-        Dictionary<string, string> mat_mat0 = new Dictionary<string, string>();
-
-        protected void CreateEffect(XmlElement parent, XmlElement pm, Effect effect, int nm)
+        Dictionary<string, string> Mat_mat0
         {
+            get;
+        } = new();
 
-        }
 
-        private void CreateMaterial(XmlElement parent, XmlElement pm, Material material, int nm)
+        private void CreateEffect(XmlElement parent, XmlElement pm, Effect effect, int nm)
         {
             DiffuseMaterial diffuseMaterial = null;
             EmissiveMaterial emissiveMaterial = null;
             SpecularMaterial specularMaterial = null;
-            var group = material as MaterialGroup;
+            var group = effect.Material as MaterialGroup;
             foreach (var m in group.Children)
             {
                 switch (m)
@@ -559,7 +588,7 @@ namespace Collada.Converters.MeshConverters
             }
             var eff = Create("effect");
             parent.AppendChild(eff);
-            var effn = "effect-" + material.Name;
+            var effn = effect.Name;
             eff.SetAttribute("id", effn);
             var pc = Create("profile_COMMON");
             eff.AppendChild(pc);
@@ -567,7 +596,7 @@ namespace Collada.Converters.MeshConverters
             var np = Create("newparam");
             pc.AppendChild(np);
             np.SetAttribute("sid", dcf);
-            Image image = diffuseMaterial.Image;
+            Image image = effect.Image;
             var at = "";
             if (image != null)
             {
@@ -622,13 +651,13 @@ namespace Collada.Converters.MeshConverters
             CreateFloat(p, "transparency", 1f - diffuseMaterial.Opacity);
             var nmt = Create("material");
             pm.AppendChild(nmt);
-            var matn = material.Name;
+            var matn = "material-" + effn;
             nmt.SetAttribute("id", matn);
             nmt.SetAttribute("name", matn);
             var ieff = Create("instance_effect");
             nmt.AppendChild(ieff);
             ieff.SetAttribute("url", "#" + effn);
-            mat_mat0[matn] = effn;
+            Mat_mat0[effn] = matn;
         }
 
         protected void CreateColor(XmlElement p, string tag, Color color)

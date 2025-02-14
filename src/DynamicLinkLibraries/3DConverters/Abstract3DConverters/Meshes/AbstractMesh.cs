@@ -82,6 +82,8 @@ namespace Abstract3DConverters.Meshes
             Name = name;
         }
 
+
+
         /// <summary>
         /// Constructor
         /// </summary>

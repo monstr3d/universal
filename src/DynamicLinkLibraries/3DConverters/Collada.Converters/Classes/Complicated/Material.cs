@@ -16,9 +16,9 @@ namespace Collada.Converters.Classes.Complicated
     internal class Material : XmlHolder
     {
 
-        internal MaterialGroup MaterialGroup { get; private set; }
+        internal Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
-        internal List<Material> Materials { get; private set; }
+     //   internal List<Material> Materials { get; private set; }
 
         public static IClear Clear => StaticExtensionCollada.GetClear<Material>();
 
@@ -27,20 +27,12 @@ namespace Collada.Converters.Classes.Complicated
         private Material(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             var id = element.GetAttribute("id");
-            
-            MaterialGroup = new MaterialGroup(id);
             var url = element.Get<Elementary.InstanceEffect>().Url;
             url = url.Substring(1);
+            MeshCreator.EffectToMaterial[url] = id;
             var eff = MeshCreator.Eff[url];
-            var mats = eff.Materials;
-            MaterialGroup = new MaterialGroup(id);
-
-            foreach (var mt in mats)
-            {
-                MaterialGroup.Children.Add(mt);
-            }
-            meshCreator.Materials[id] = MaterialGroup;
-
+            meshCreator.Effects[id] = eff.EffectP;
+            Effect = eff.EffectP;
 
             return;
         }

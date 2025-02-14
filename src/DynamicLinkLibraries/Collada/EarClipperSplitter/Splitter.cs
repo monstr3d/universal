@@ -35,9 +35,12 @@ namespace EarClipperSplitter
             var d2 = new Dictionary<float[], int>();
             var d3 = new Dictionary<float[], int>();
             Effect effect = null;
-            if (polygon.Equals != null)
+            if (polygon != null)
             {
-                effect = polygon.Effect.Clone() as Effect;
+                if (polygon.Effect != null)
+                {
+                    effect = polygon.Effect.Clone() as Effect;
+                }
             }
             if (polygon.Points.Length >= 3)
             {

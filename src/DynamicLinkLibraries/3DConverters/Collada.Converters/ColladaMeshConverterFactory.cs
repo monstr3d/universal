@@ -1,14 +1,10 @@
 ﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Collada.Converters.MeshConverters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Collada.Converters
 {
+    
     [Converter(".dae")]
     public class ColladaMeshConverterFactory : IMeshConverterFactory
     {

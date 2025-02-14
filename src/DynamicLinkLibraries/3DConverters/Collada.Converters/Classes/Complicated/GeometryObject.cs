@@ -19,7 +19,7 @@ namespace Collada.Converters.Classes.Complicated
       
         internal MeshObject Mesh { get; private set; }
 
-        public Abstract3DConverters.Materials.Material Material { get; private set; }
+        public Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
 
         private GeometryObject(XmlElement element, IMeshCreator meshCreator) : base(element)
@@ -28,7 +28,7 @@ namespace Collada.Converters.Classes.Complicated
             var b = element.Get<BindMaterial>();
             if (b != null)
             {
-                Material = b.Material;
+                Effect = b.Effect;
             }
             var creator = meshCreator as ColladaMeshCreator;
             creator.Geom[element.GetAttribute("id")] = this;
