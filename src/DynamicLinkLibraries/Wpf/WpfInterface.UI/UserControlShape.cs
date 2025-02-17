@@ -2,16 +2,18 @@
 using System.Windows.Forms;
 using System.IO;
 
+using CutoutPro.Winforms;
 
-using Diagram.UI;
 
 using Motion6D.Interfaces;
 
 using WpfInterface.Objects3D;
 
 using Wpf.Loader;
-using CutoutPro.Winforms;
+
 using ErrorHandler;
+using Diagram.UI;
+using WpfInterface.UI.Labels;
 
 namespace WpfInterface.UI.UserControls
 {
@@ -38,14 +40,24 @@ namespace WpfInterface.UI.UserControls
 
         #region Specific Members
 
+        void Convert()
+        {
+            var label = this.FindParent<ShapeLabel>();
+        }
+
+        void Export()
+        {
+
+        }
+
         internal void SaveInverted()
         {
             shape.Visual.InvertZ();
             string s = System.Windows.Markup.XamlWriter.Save(shape.Visual);
-        /*    using (System.IO.TextWriter wr = new System.IO.StreamWriter(@"g:\2.xaml"))
-            {
-                wr.WriteLine(s);
-            }*/
+            /*    using (System.IO.TextWriter wr = new System.IO.StreamWriter(@"g:\2.xaml"))
+                {
+                    wr.WriteLine(s);
+                }*/
         }
 
         public WpfShape Shape
@@ -85,7 +97,7 @@ namespace WpfInterface.UI.UserControls
                 SetColorPanel();
                 return;
             }
-            var  dialog = new ArgbColorDialog();
+            var dialog = new ArgbColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 var c = dialog.Color;
@@ -150,6 +162,12 @@ namespace WpfInterface.UI.UserControls
 
         #region Event Handlers
 
+        private void toolStripButtonExport_Click(object sender, EventArgs e)
+        {
+            Export();
+        }
+
+
         private void openToolStripButton_Click(object sender, EventArgs e)
         {
             open();
@@ -180,6 +198,13 @@ namespace WpfInterface.UI.UserControls
             //!!!!! TEMPORARY USAGE ============
         }
 
+
+        private void toolStripConvert_Click(object sender, EventArgs e)
+        {
+            Convert();
+        }
+
         #endregion
+
     }
 }

@@ -4,7 +4,7 @@ using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Creators
 {
-    
+    /*
     [Attributes.Extension([".obj"])]
     public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
     {
@@ -15,6 +15,8 @@ namespace Abstract3DConverters.Creators
         private string mtlstr;
 
         Dictionary<string, byte[]> add;
+
+        protected Service s = new Service();
 
         internal int n = 0;
 
@@ -31,20 +33,7 @@ namespace Abstract3DConverters.Creators
         internal List<string> Names { get; private set; } = new();
         internal List<int[]> Shifts { get; private set; } = new();
 
-        internal List<Effect> EffectList { get; private set; } = new();
-
-        protected override IEnumerable<AbstractMesh> Meshes
-        {
-            get
-            {
-                for (var i = 0; i < EffectList.Count; i++)
-                {
-                    yield return new AbstractMeshObj(i, this);
-                }
-                yield break;
-
-            }
-        }
+        internal List<Material> MaterialList { get; private set; } = new();
 
         void CreateGeometry()
         {
@@ -84,8 +73,8 @@ namespace Abstract3DConverters.Creators
                 if (line.StartsWith("usemtl "))
                 {
                     var mat = line.Substring("usemtl ".Length);
-                     var effect = Effects[mat];
-                    EffectList.Add(effect);
+                     var material = Materials[mat];
+                    MaterialList.Add(material);
 
                     continue;
                 }
@@ -141,14 +130,14 @@ namespace Abstract3DConverters.Creators
             return add;
         }
 
-        public class MtlWrapper : IEffectDictionary
+        public class MtlWrapper : IMaterialDictionary
         {
-            Dictionary<string, Effect> dict;
+            Dictionary<string, Material> dict;
 
 
             public MtlWrapper()
             {
-                dict = new Dictionary<string, Effect>();
+                dict = new Dictionary<string, Material>();
             }
 
             public Dictionary<string, object> Create(Dictionary<string, Material> keyValuePairs, 
@@ -164,7 +153,7 @@ namespace Abstract3DConverters.Creators
                 return d;
             }
 
-            public Dictionary<string, Effect> Create(string filename, string directory)
+            public Dictionary<string, Material> Create(string filename, string directory)
             {
                 using (var reader = new StreamReader(Path.Combine(directory, filename)))
                 {
@@ -189,7 +178,7 @@ namespace Abstract3DConverters.Creators
 
             }
 
-            public Dictionary<string, Effect> Create(string filename)
+            public Dictionary<string, Material> Create(string filename)
             {
                 dict.Clear();
                 using (var reader = new StreamReader(filename))
@@ -229,21 +218,21 @@ namespace Abstract3DConverters.Creators
             public int illum { get; private set; }
 
 
-            private Effect effect;
-            public Effect Effect
+            private Material material;
+            public Material Material
             {
                 get
                 {
                     Create();
-                    return effect;
+                    return material;
                 }
             }
 
-            Dictionary<string, Effect> IEffectDictionary.Effects => throw new NotImplementedException();
+            Dictionary<string, Material> IMaterialDictionary.Materials => dict;
 
             void Create()
             {
-                if (effect != null)
+                if (material != null)
                 {
                     return;
                 }
@@ -253,9 +242,10 @@ namespace Abstract3DConverters.Creators
                 }
                 MaterialGroup mat = new MaterialGroup(Name);
                 var children = mat.Children;
+                material = mat;
                 if (Diffuse != null)
                 {
-                    var diffuse = new DiffuseMaterial(Diffuse, Ambient, d);
+                    var diffuse = new DiffuseMaterial(Diffuse, null, Kd, d);
                     //diffuse.Texture = Kd;
                     children.Add(diffuse);
                 }
@@ -269,11 +259,10 @@ namespace Abstract3DConverters.Creators
                     var specular = new SpecularMaterial(Specular, Ns);
                     children.Add(specular);
                 }
-                effect = new Effect(null, Name, mat, Kd);
             }
 
 
-            private MtlWrapper(string str, string directory, StreamReader reader, Dictionary<string, Effect> effects)
+            private MtlWrapper(string str, string directory, StreamReader reader, Dictionary<string, Material> materials)
             {
                 Name = str;
                 string newName = "";
@@ -302,15 +291,15 @@ namespace Abstract3DConverters.Creators
 
                 Finalize(list, directory);
                 Create();
-                var mat = Effect;
+                var mat = Material;
                 if (mat != null)
                 {
-                    effects[Name] = Effect;
+                    materials[Name] = Material;
                 }
 
                 if (!reader.EndOfStream)
                 {
-                    new MtlWrapper(newName, directory, reader, effects);
+                    new MtlWrapper(newName, directory, reader, materials);
                 }
 
             }
@@ -390,7 +379,15 @@ namespace Abstract3DConverters.Creators
                 }
             }
         }
- 
+        protected override IEnumerable<AbstractMesh> Get()
+        {
+            for (var i = 0; i < MaterialList.Count; i++)
+            {
+                yield return new AbstractMeshObj(i, this);
+            }
+            yield break;
+        }
+
         void CreateMaterials()
         {
             foreach (var line in lines)
@@ -404,9 +401,9 @@ namespace Abstract3DConverters.Creators
                     var mt = mtl.Create(file, directory);
                     foreach (var mat in mt)
                     {
-                        Effects[mat.Key] = mat.Value;
+                        Materials[mat.Key] = mat.Value;
                     }
-  //                  images = s.GetImages(Effects.Values);
+                    images = s.GetImages(Materials.Values);
                     break;
                 }
             }
@@ -453,7 +450,7 @@ namespace Abstract3DConverters.Creators
                     var mt = mtl.Create(file, directory);
                     foreach (var mat in mt)
                     {
-                        Effects[mat.Key] = mat.Value;
+                        Materials[mat.Key] = mat.Value;
                     }
                 }
                 var objs = "# object ";
@@ -536,5 +533,5 @@ namespace Abstract3DConverters.Creators
             CreateGeometry();
         }
 
-    }
+    }*/
 }

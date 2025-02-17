@@ -4,8 +4,7 @@ using System.Windows;
 
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
-
-
+using Abstract3DConverters.Materials;
 using ErrorHandler;
 
 namespace Collaada.Wpf.Test
@@ -18,6 +17,12 @@ namespace Collaada.Wpf.Test
 
         public App()
         {
+            /*
+            var l = new List<Material>();
+            var gq = new MaterialGroup("");
+            l.Add(gq);
+            var rr = l.Contains(gq);
+            int i = 0;
 /*
             var c = new Contributor("Ivankov", "USEF", "TESTING", "@Ivankov");
 
@@ -33,7 +38,7 @@ namespace Collaada.Wpf.Test
          //    GenerateAC();
             //     GenerateCollada();
            GenerateToDae();
-           GenerateXaml();
+    //       GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
@@ -87,7 +92,7 @@ namespace Collaada.Wpf.Test
 
 
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15C Eagle.obj");
-                GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B1.5.0.dae");
+         //       GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B1.5.0.dae");
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
             //        GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
             //GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado1.5.0.dae");
@@ -95,7 +100,7 @@ namespace Collaada.Wpf.Test
 
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin2l03rkr0.nkf1.5.0.dae");
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.dae");
-            //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.obj");
+                GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.obj");
             //            //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
             // GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");

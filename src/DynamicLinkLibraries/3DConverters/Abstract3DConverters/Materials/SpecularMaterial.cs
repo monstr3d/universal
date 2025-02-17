@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstract3DConverters.Materials
+﻿namespace Abstract3DConverters.Materials
 {
     public class SpecularMaterial : SimpleMaterial
     {
@@ -16,7 +10,36 @@ namespace Abstract3DConverters.Materials
             SpecularPower = power;
         }
 
- 
+        protected override bool Equals(Material other)
+        {
+            if (other is SpecularMaterial specular)
+            {
+                if (Name != specular.Name)
+                {
+                    return false;
+                }
+                if (SpecularPower != specular.SpecularPower)
+                {
+                    return false;
+                }
+                if (Color != null)
+                {
+                    if (!Color.Equals(specular.Color))
+                    {
+                        return false;
+                    }
+                }
+                else if (specular.Color != null)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
+
+
         protected override object CloneIfself()
         {
             return new SpecularMaterial(Color.Clone() as Color, SpecularPower);

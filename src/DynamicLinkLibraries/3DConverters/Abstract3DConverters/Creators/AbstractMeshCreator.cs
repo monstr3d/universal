@@ -28,15 +28,9 @@ namespace Abstract3DConverters.Creators
         //string IMeshCreator.Extension => ext;
 
         string IMeshCreator.Directory => directory;
-
-        Dictionary<string, Material> IMeshCreator.Materials => Materials;
-
-        Dictionary<string, Image> IMeshCreator.Images => Images;
        
 
         public abstract void Load(byte[] bytes);
-
-        
 
 
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Meshes;
@@ -53,16 +47,16 @@ namespace Abstract3DConverters.Creators
             get;
         } = new();
 
+        protected virtual Dictionary<string, Image> Images
+        {
+            get;
+        } = new();
+
         protected virtual Dictionary<string, Material> Materials
         {
             get;
         } = new();
 
-
-        protected virtual Dictionary<string, Image> Images
-        {
-            get;
-        } = new();
 
 
 

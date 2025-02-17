@@ -26,8 +26,6 @@ namespace Abstract3DConverters.Converters
         
 
         string IMeshConverter.Directory { get => directory; set => directory = value; }
-        Dictionary<string, Material> IMeshConverter.Materials { set => Set(value); }
-        Dictionary<string, Image> IMeshConverter.Images { set => Set(value); }
 
         #endregion
 

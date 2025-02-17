@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Linq;
+using System.Xml;
 
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
@@ -94,12 +95,23 @@ namespace Abstract3DConverters.Converters
 
         protected abstract XmlElement CreateXmlMesh(AbstractMesh mesh);
 
-  
+        protected virtual XmlElement Create(XmlElement parent, AbstractMesh mesh)
+        {
+            var x = CreateXmlMesh(mesh);
+            parent.AppendChild(x);
+            return x;
+        }
+
+
         protected virtual void Add(XmlElement mesh, XmlElement child)
         {
             if (child != null)
             {
-                mesh.AppendChild(child);
+                var nd = mesh.ChildNodes.Cast<object>().ToList();
+                if (!nd.Contains(child))
+                {
+                    mesh.AppendChild(child);
+                }
             }
         }
 

@@ -25,30 +25,18 @@ namespace Abstract3DConverters.Creators
 
         private Dictionary<string, MaterialGroup> matGroup = new();
 
+        private List<AbstractMesh> meshes;
+
         public AcCreator(string filename, byte[] bytes) : base(filename, bytes)
         {
-
+            meshes = Create(null, lines).ToList();
         }
 
         #region AbstractMeshCreator Members
 
-        protected override IEnumerable<AbstractMesh> Meshes
-        {
-            get
-            {
-                int last = 0;
-                return Create(null, lines).ToList();
-            }
-        }
-     
+        protected override IEnumerable<AbstractMesh> Meshes => meshes;
+      
        
-
-        public Tuple<object, List<AbstractMesh>> Create()
-        {
-            int last = 0;
-            var l = Create(null, lines).ToList();
-            return new Tuple<object, List<AbstractMesh>>(null, l);
-        }
 
 
         #endregion
@@ -59,14 +47,15 @@ namespace Abstract3DConverters.Creators
             foreach (var line in lines)
             {
                 var txt = s.ToString(line, "texture ");
+                
                 if (txt != null)
                 {
-                    if (!creator.Images.ContainsKey(txt))
+                    if (!Images.ContainsKey(txt))
                     {
                         var im = new Image(txt, directory);
                         if (im.Name != null)
                         {
-                            creator.Images[txt] = im;
+                            Images[txt] = im;
                         }
                         else
                         {
@@ -90,7 +79,7 @@ namespace Abstract3DConverters.Creators
                 }
                 var group = new MaterialGroup(l[0]);
                 MaterialsPP.Add(group);
-                creator.Materials[l[0]] = group;
+                Materials[l[0]] = group;
                 var d = new Dictionary<int, string>();
                 for (int i = 0; i < l.Count; i++)
                 {
@@ -153,9 +142,9 @@ namespace Abstract3DConverters.Creators
                 if (st != null)
                 {
                     imstr = s.Trim(st);
-                    if (creator.Images.ContainsKey(imstr))
+                    if (Images.ContainsKey(imstr))
                     {
-                        image = creator.Images[imstr];
+                        image = Images[imstr];
                     }
                 }
                 else
@@ -173,17 +162,13 @@ namespace Abstract3DConverters.Creators
                     if (image != null)
                     {
                         name += "-" + image.Name;
-                        effect = new Effect(name, mat, image);
+                        effect = new Effect(this, name, mat, image);
                     }
                     else
                     {
-                        effect = new Effect(name, mat);
+                        effect = new Effect(this, name, mat);
                     }
-                    if (!creator.Effects.ContainsKey(name))
-                    {
-                        creator.Effects[name] = effect;
-                    }
-                }
+                 }
             }
         }
 
@@ -294,9 +279,9 @@ namespace Abstract3DConverters.Creators
         }
 
         protected override void CreateFromLines()
-        {
+        { 
             CreateMaterials(lines);
         }
-    }
+     }
     
 }

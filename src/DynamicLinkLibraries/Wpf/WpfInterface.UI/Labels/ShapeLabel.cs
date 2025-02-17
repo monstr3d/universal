@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
-using System.Windows.Forms;
 using System.Drawing;
-
-
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Windows.Forms;
 using CategoryTheory;
-
-
+using DataWarehouse;
 using Diagram.UI.Labels;
-
+using ErrorHandler;
+using FormulaEditor.UI;
 using Motion6D;
-
-using WpfInterface.UI.UserControls;
 using WpfInterface.Objects3D;
+using WpfInterface.UI.UserControls;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WpfInterface.UI.Labels
 {
@@ -31,6 +29,12 @@ namespace WpfInterface.UI.Labels
         ICategoryObject obj;
 
         protected Form form = null;
+
+        internal Tuple<string, string, bool> ConversionData
+        {
+            get;
+            set;
+        } = new Tuple<string, string, bool>("", "", true);
         
         #endregion
 
@@ -49,7 +53,45 @@ namespace WpfInterface.UI.Labels
 
         #endregion
 
+
+
+        #region ISerializable Members
+
+        /// <summary>
+        /// ISerializable interface implementation
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("ConversionData", ConversionData, typeof(Tuple<string, string, bool>));
+        }
+
+        #endregion
+
+
         #region Overriden Members
+
+        /// <summary>
+        /// Load operation
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        protected override void Load(SerializationInfo info, StreamingContext context)
+        {
+            base.Load(info, context);
+            try
+            {
+                ConversionData =  info.GetValue("ConversionData",  typeof(Tuple<string, string, bool>)) 
+                    as Tuple<string, string, bool>;
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError(-1);
+            }
+        }
+
+
 
         protected override UserControl Control
         {

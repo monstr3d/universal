@@ -17,6 +17,18 @@ namespace Collada.Converters.MeshConverters
     {
         #region Fields
 
+        private string ImageName
+        {
+            get
+            {
+                var s = "object_" + imNum;
+                ++imNum;
+                return s;
+            }
+        }
+
+        private int imNum = 0;
+
         Dictionary<string, int> nnat = new Dictionary<string, int>();
 
         protected Dictionary<string, string> EffectMaterial
@@ -121,23 +133,10 @@ namespace Collada.Converters.MeshConverters
         #region IMeshConverter implemebtation
 
 
-        protected virtual XmlElement Create(XmlElement parent, AbstractMesh mesh)
-        {
-            var x = CreateXmlMesh(mesh);
-            parent.AppendChild(x);
-            return x;
-        }
+   
 
 
-
-        protected override void SetEffect(object mesh, object effect)
-        {
-            /*
-            var eff = effect as Effect;
-            var n = eff.Name;
-            var efff = Mat_mat0[n];
-            */
-        }
+ 
 
         protected override void SetTransformation(object mesh, float[] transformation)
         {
@@ -170,7 +169,7 @@ namespace Collada.Converters.MeshConverters
                     var effect = mesh.Effect;
                     if (effect.Image == null)
                     {
-                        return null;
+                        
                     }
                     var ename = effect.Name;
                     var matname = Mat_mat0[ename];
@@ -516,22 +515,45 @@ namespace Collada.Converters.MeshConverters
             }
         }
 
+  
 
-        protected override Dictionary<string, Effect> Effects
+
+protected override Dictionary<string, Effect> Effects
         {
             set
             {
-                int nm = 0;
+                var nm = 0;
+                var parentIm = doc.GetElementsByTagName("library_images")[0] as XmlElement;
                 base.Effects = value;
                 var pm = doc.GetElementsByTagName("library_materials")[0] as XmlElement;
                 var parent = doc.GetElementsByTagName("library_effects")[0] as XmlElement;
-                foreach (var m in value.Values)
+                foreach (var effect in value.Values)
                 {
+                    var image = effect.Image;
+                    if (image != null)
+                    {
+                        if (!Images.Values.Contains(image))
+                        {
+                            var attr = ImageName;
+                            Images[image.Name] = image;
+                            imAttr[image] = attr;
+                            var e = Create("image");
+                            parentIm.AppendChild(e);
+                            e.SetAttribute("id", attr);
+                            var el = Create("init_from");
+                            e.AppendChild(el);
+                            var f = image.Name;
+                            if (converter.Directory != null)
+                            {
+                                f = Path.Combine(converter.Directory, f);
+                            }
+                            el.InnerText = f;
+                        }
+                    }
                     ++nm;
-                    CreateEffect(parent, pm, m, nm);
+                    CreateEffect(parent, pm, effect, nm);
                 }
             }
-
         }
 /*
        protected override void Set(Dictionary<string, Material> materials)
@@ -567,6 +589,10 @@ namespace Collada.Converters.MeshConverters
 
         private void CreateEffect(XmlElement parent, XmlElement pm, Effect effect, int nm)
         {
+            if (effect.Image == null)
+            {
+
+            }
             DiffuseMaterial diffuseMaterial = null;
             EmissiveMaterial emissiveMaterial = null;
             SpecularMaterial specularMaterial = null;
@@ -601,6 +627,10 @@ namespace Collada.Converters.MeshConverters
             if (image != null)
             {
                 at = imAttr[image];
+            }
+            else
+            {
+
             }
             var sur = Create("surface");
             np.AppendChild(sur);

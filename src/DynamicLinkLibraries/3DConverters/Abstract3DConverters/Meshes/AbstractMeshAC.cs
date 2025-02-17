@@ -167,11 +167,11 @@ namespace Abstract3DConverters.Meshes
                         {
                             var im = Image.Clone() as Image;
                             mn += "-" + im.Name;
-                            Effect = new Effect(mn, mtt, im);
+                            Effect = new Effect(creator, mn, mtt, im);
                         }
                         else
                         {
-                            Effect = new Effect(mn, mtt);
+                            Effect = new Effect(creator, mn, mtt);
                         }
                         if (!mats.Contains(mn))
                         {
@@ -342,11 +342,11 @@ namespace Abstract3DConverters.Meshes
                             if (Image != null)
                             {
                                 var im = Image.Clone() as Image;
-                                Effect = new Effect(mn + "-" + im.Name, mtt, im);
+                                Effect = new Effect(creator, mn + "-" + im.Name, mtt, im);
                             }
                             else
                             {
-                                Effect = new Effect(mn, mtt);
+                                Effect = new Effect(creator, mn, mtt);
                             }
                             if (!mats.Contains(mn))
                             {

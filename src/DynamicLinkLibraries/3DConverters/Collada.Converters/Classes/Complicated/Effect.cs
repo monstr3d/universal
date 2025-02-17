@@ -26,8 +26,6 @@ namespace Collada.Converters.Classes.Complicated
             creator.Eff[EffectP.Name] = this;
         }
 
-
-
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
             var a = new Effect(element, meshCreator);

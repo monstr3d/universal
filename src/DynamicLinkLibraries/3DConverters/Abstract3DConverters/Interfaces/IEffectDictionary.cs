@@ -5,11 +5,11 @@ namespace Abstract3DConverters.Interfaces
     /// <summary>
     /// Dictionary of materials
     /// </summary>
-    public interface IMaterialDictionary
+    public interface IEffectDictionary
     {
         /// <summary>
-        /// Dictionary of materials
+        /// Dictionary of effects
         /// </summary>
-        Dictionary<string, Material> Materials { get; }
+        Dictionary<string, Effect> Effects { get; }
     }
 }

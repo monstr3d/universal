@@ -25,16 +25,6 @@ namespace Abstract3DConverters.Interfaces
         IEnumerable<AbstractMesh> Meshes { get; }
 
         /// <summary>
-        /// Materials
-        /// </summary>
-        Dictionary<string, Material> Materials { get; }
-
-        /// <summary>
-        /// Images
-        /// </summary>
-        Dictionary<string, Image> Images { get; }
-
-        /// <summary>
         /// Effects
         /// </summary>
         Dictionary<string, Effect> Effects { get; }

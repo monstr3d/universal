@@ -219,12 +219,12 @@ namespace Abstract3DConverters
         /// <param name="mat">The material</param>
         /// <returns>The images</returns>
         /// <exception cref="Exception">The exception</exception>
-        public Dictionary<string, Image> GetImages(IEnumerable<Material> mat)
+        public Dictionary<string, Image> GetImages(IEnumerable<Effect> effects)
         {
             var d = new Dictionary<string, Image>();
-            var f = (Material m) =>
+            var f = (Effect effect) =>
             {
-                var im = GetImage(m);
+               var im = effect.Image;
                 if (im != null)
                 {
                     var n = im.Name;
@@ -236,33 +236,8 @@ namespace Abstract3DConverters
                 }
                 return im;
             };
-            mat.Select(f).ToList();
+            effects.Select(f).ToList();
             return d;
-        }
-
-        /// <summary>
-        /// Gets image from the material
-        /// </summary>
-        /// <param name="mat">The material</param>
-        /// <returns>The image</returns>
-        public Image GetImage(Material mat)
-        {
-            if (mat is DiffuseMaterial diffuse)
-            {
-   //             return diffuse.Image;
-            }
-            if (mat is MaterialGroup group)
-            {
-                foreach (var m in group.Children)
-                {
-                    var im = GetImage(m);
-                    if (im != null)
-                    {
-                        return im;
-                    }
-                }
-            }
-            return null;
         }
 
         /// <summary>

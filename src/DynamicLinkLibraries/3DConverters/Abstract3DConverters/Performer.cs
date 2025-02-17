@@ -189,8 +189,6 @@ namespace Abstract3DConverters
         {
             converter.Directory = creator.Directory;
             var materialCreator = converter.MaterialCreator;
-            converter.Images = creator.Images;
-            converter.Materials = creator.Materials;
             converter.Effects = creator.Effects;
             var res = Combine<T>(creator.Meshes, converter);
             action?.Invoke(res);

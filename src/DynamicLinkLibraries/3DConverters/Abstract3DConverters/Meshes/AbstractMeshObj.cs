@@ -5,7 +5,7 @@ using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Meshes
 {
-    /*
+    
     class AbstractMeshObj : AbstractMesh
     {
         internal int Shift
@@ -28,7 +28,10 @@ namespace Abstract3DConverters.Meshes
 
         internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
         {
-            Material = creator.MaterialList[number];
+            Effect = null;
+            throw new Exception();
+
+           /// !!! Material = creator.MaterialList[number];
             Name = creator.Names[number];
             Points = new();
             Polygons = new();
@@ -68,14 +71,14 @@ namespace Abstract3DConverters.Meshes
                     var txt = new PointTexture(nv, creator.Textures[it], norm);
                     pp.Add(txt);
                 }
-                Polygons.Add(new Polygon(pp.ToArray(), Material));
+                Polygons.Add(new Polygon(pp.ToArray(), Effect));
             }
            
         }
 
 
 
-        internal AbstractMeshObj(string name, Obj3DCreator crearor, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, crearor)
+        internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
         {
             Shift = shift[0];
             ShiftTexture = shift[1];
@@ -121,7 +124,7 @@ namespace Abstract3DConverters.Meshes
                 if (line.StartsWith("usemtl "))
                 {
                     var mat = line.Substring("usemtl ".Length);
-                    Material = crearor.Materials[mat];
+                    Effect = creator.Effects[mat];
                     continue;
                 }
                 if (line.IndexOf("v ") == 0)
@@ -266,10 +269,10 @@ namespace Abstract3DConverters.Meshes
 
                 }
                 // li.Add(dp[item[0]]);
-                var pl = new Polygon(li.ToArray(), Material);
+                var pl = new Polygon(li.ToArray(), Effect);
                 Polygons.Add(pl);
             }
         }
     }
-    */
+    
 }

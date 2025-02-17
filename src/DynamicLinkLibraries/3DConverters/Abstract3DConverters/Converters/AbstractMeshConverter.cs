@@ -32,8 +32,6 @@ namespace Abstract3DConverters.Converters
 
 
         string IMeshConverter.Directory { get => directory; set => directory = value; }
-        Dictionary<string, Material> IMeshConverter.Materials { set => Materials = value; }
-        Dictionary<string, Image> IMeshConverter.Images { set => Images = value; }
         Dictionary<string, Effect> IMeshConverter.Effects { set => Effects = value; }
 
         IMaterialCreator IMeshConverter.MaterialCreator => MaterialCreator;
@@ -70,19 +68,19 @@ namespace Abstract3DConverters.Converters
         {
             get;
             set;
-        }
+        } = new();
 
         protected virtual Dictionary<string, Image> Images
         {
             get;
             set;
-        }
+        } = new();
 
         protected virtual Dictionary<string, Effect> Effects
         {
             get;
             set;
-        }
+        } = new();
 
         protected abstract void Add(object parent, object child);
 

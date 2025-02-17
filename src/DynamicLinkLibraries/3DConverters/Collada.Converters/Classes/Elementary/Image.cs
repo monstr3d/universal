@@ -24,10 +24,11 @@ namespace Collada.Converters.Classes.Elementary
             ImageSource = new Abstract3DConverters.Image(ifr, meshCreator.Directory);
             if (ImageSource.Name != null)
             {
-                if (!meshCreator.Images.ContainsKey(ImageSource.Name))
+                throw new Exception("YYYYYYYYYYYYYYYYYY");
+             /*   if (!meshCreator.Images.ContainsKey(ImageSource.Name))
                 {
                     meshCreator.Images[ImageSource.Name] = ImageSource;
-                }
+                }*/
                 MeshCreator.ImageIds[element.GetAttribute("id")] = ImageSource;
             }
             else

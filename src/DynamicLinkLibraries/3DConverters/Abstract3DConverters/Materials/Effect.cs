@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Abstract3DConverters.Interfaces;
 
 namespace Abstract3DConverters.Materials
 {
@@ -40,11 +41,32 @@ namespace Abstract3DConverters.Materials
         /// <param name="name">Name</param>
         /// <param name="material">Material</param>
         /// <param name="image">Image</param>
-        public Effect(string name, Material material, Image image = null)
+        protected  Effect(string name, Material material, Image image = null)
         {
             Name = name;
             Material = material;
             Image = image;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="creator">Creator of meshes</param>
+        /// <param name="name">Name</param>
+        /// <param name="material">Material</param>
+        /// <param name="image">Image</param>
+        public Effect(IMeshCreator creator, string name, Material material, Image image = null) : 
+            this(name, material, image)
+        {
+            if (creator == null)
+            {
+                return;
+            }
+            var eff = creator.Effects;
+            if (!eff.ContainsKey(name))
+            {
+                eff[name] = this;
+            }
         }
 
         object ICloneable.Clone()

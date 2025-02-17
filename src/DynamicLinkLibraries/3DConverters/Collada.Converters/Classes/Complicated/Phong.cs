@@ -13,12 +13,14 @@ namespace Collada.Converters.Classes.Complicated
     {
         public static IClear Clear => StaticExtensionCollada.GetClear<Phong>();
 
+        IMeshCreator meshCreator;
 
         internal Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
         // internal List<Abstract3DConverters.Materials.Material> Materials { get; private set; }
-        private Phong(XmlElement xmlElement) : base(xmlElement)
+        private Phong(XmlElement xmlElement, IMeshCreator meshCreator) : base(xmlElement)
         {
+            this.meshCreator = meshCreator;
             try
             {
                 XmlElement parent = xmlElement.ParentNode as XmlElement;
@@ -88,7 +90,7 @@ namespace Collada.Converters.Classes.Complicated
                 {
                     mat.Children.Add(mt);
                 }
-                Effect = new Abstract3DConverters.Materials.Effect(name, mat, im);
+                Effect = new Abstract3DConverters.Materials.Effect(meshCreator, name, mat, im);
             }
             catch (Exception ex)
             {
@@ -98,7 +100,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Phong(element);
+            var a = new Phong(element, meshCreator);
             return a; ;
         }
     }

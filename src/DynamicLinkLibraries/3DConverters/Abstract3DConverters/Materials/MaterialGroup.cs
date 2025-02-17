@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstract3DConverters.Materials
+﻿namespace Abstract3DConverters.Materials
 {
     public class MaterialGroup : Material
     {
@@ -30,6 +24,34 @@ namespace Abstract3DConverters.Materials
                 c.Add(child.Clone() as Material);
             }
             return mat;
+        }
+
+        protected override bool Equals(Material other)
+        {
+            if (Name != other.Name)
+            {
+                return false;
+            }
+            if (other is MaterialGroup group)
+            {
+                var ch = group.Children;
+                if (ch.Count != Children.Count)
+                {
+                    return false;
+                }
+                for (var i = 0; i < ch.Count; i++)
+                {
+                    if (!ch[i].Equals(Children[i]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 

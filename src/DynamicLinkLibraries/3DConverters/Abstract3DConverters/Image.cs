@@ -1,6 +1,6 @@
 ﻿namespace Abstract3DConverters
 {
-    public class Image : ICloneable
+    public class Image : ICloneable, IEquatable<Image>
     {
         static public string DefaultPath { get; set; } 
 
@@ -59,6 +59,15 @@
         public object Clone()
         {
             return new Image(Name, Directory);
+        }
+
+        bool IEquatable<Image>.Equals(Image? other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            return Name == other.Name;
         }
     }
 }

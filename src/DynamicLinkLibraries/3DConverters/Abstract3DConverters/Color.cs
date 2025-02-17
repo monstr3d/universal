@@ -3,7 +3,7 @@
     /// <summary>
     /// Color
     /// </summary>
-    public class Color : ICloneable
+    public class Color : ICloneable, IEquatable<Color>
     {
         /// <summary>
         /// The value
@@ -151,6 +151,25 @@
             }
             return b;
         }
-        
+
+        bool IEquatable<Color>.Equals(Color? other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (other.Value.Length != Value.Length)
+            {
+                return false;
+            }
+            for (var i = 0; i < Value.Length; i++)
+            {
+                if (Value[i] != other.Value[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

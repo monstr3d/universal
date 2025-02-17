@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
-using Collada;
-using System.Xml;
-using Abstract3DConverters.Materials;
-using System.ComponentModel.DataAnnotations;
-using Abstract3DConverters;
 
 namespace Collada.Converters.Classes.Complicated
 {

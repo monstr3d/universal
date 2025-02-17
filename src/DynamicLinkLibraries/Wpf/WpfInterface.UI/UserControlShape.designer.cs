@@ -53,6 +53,7 @@
             printPreviewToolStripButton = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             helpMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +91,7 @@
             toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             openFileDialogFigure = new System.Windows.Forms.OpenFileDialog();
             colorDialog = new System.Windows.Forms.ColorDialog();
+            toolStripConvert = new System.Windows.Forms.ToolStripButton();
             panelCenterTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSh).BeginInit();
             panelMain.SuspendLayout();
@@ -231,7 +233,7 @@
             // 
             // toolStrip
             // 
-            toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripButton, openToolStripButton, saveToolStripButton, toolStripSeparator1, printToolStripButton, printPreviewToolStripButton, toolStripSeparator2, helpToolStripButton });
+            toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripButton, openToolStripButton, saveToolStripButton, toolStripSeparator1, printToolStripButton, printPreviewToolStripButton, toolStripSeparator2, helpToolStripButton, toolStripConvert, toolStripButtonExport });
             toolStrip.Location = new System.Drawing.Point(0, 0);
             toolStrip.Name = "toolStrip";
             toolStrip.Size = new System.Drawing.Size(233, 25);
@@ -310,6 +312,14 @@
             helpToolStripButton.Size = new System.Drawing.Size(23, 22);
             helpToolStripButton.Text = "Help";
             helpToolStripButton.Visible = false;
+            // 
+            // toolStripButtonExport
+            // 
+            toolStripButtonExport.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonExport.Image");
+            toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonExport.Name = "toolStripButtonExport";
+            toolStripButtonExport.Size = new System.Drawing.Size(23, 22);
+            toolStripButtonExport.Click += toolStripButtonExport_Click;
             // 
             // aboutToolStripMenuItem
             // 
@@ -593,6 +603,16 @@
             // 
             openFileDialogFigure.Filter = "3D files |*.xaml";
             // 
+            // toolStripConvert
+            // 
+            toolStripConvert.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripConvert.Image = (System.Drawing.Image)resources.GetObject("toolStripConvert.Image");
+            toolStripConvert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripConvert.Name = "toolStripConvert";
+            toolStripConvert.Size = new System.Drawing.Size(23, 22);
+            toolStripConvert.ToolTipText = "Convert";
+            toolStripConvert.Click += toolStripConvert_Click;
+            // 
             // UserControlShape
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -684,5 +704,7 @@
         private System.Windows.Forms.CheckBox checkBoxLightColor;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Panel panelColor;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExport;
+        private System.Windows.Forms.ToolStripButton toolStripConvert;
     }
 }

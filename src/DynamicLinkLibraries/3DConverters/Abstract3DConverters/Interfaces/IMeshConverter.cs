@@ -13,22 +13,6 @@ namespace Abstract3DConverters.Interfaces
         /// </summary>
         string Directory { get; set;  }
 
-        /// <summary>
-        /// The materials
-        /// </summary>
-        Dictionary<string, Material> Materials
-        {
-            set;
-        }
-
-        /// <summary>
-        /// The images
-        /// </summary>
-        Dictionary<string, Image> Images
-        {
-            set;
-        }
-
 
         /// <summary>
         /// The effects
