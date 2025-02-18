@@ -12181,9 +12181,9 @@ x \mapsto e^{2\pi i x}
 \eean
 then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
 $f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$. Using the direct sum \eqref{h_dsi_eqn} and the surjective homomorphisms $K_1\left( A\right)_{\mathrm{free}}\to \Z x$  one can construct homomorphism 
-$$
-f^g_x: K_1\left( A\right)_{\mathrm{free}}\to\chi \left(  \Z x\right) .
-$$
+\be\label{h_g_eqn}
+f^g_x: K_1\left( A\right)_{\mathrm{free}}\to\Z
+\ee
 The formula
 $$
 f^g = f^g_{x_1} + ... + f^g_{x_n}
@@ -12198,8 +12198,8 @@ The map
 \end{split}
 \ee
 is a homomorphism of groups.
-\begin{definition}
-	The homomorphism  $h^{\mathrm{free}}_{K^1}$ is the \textit{free part of Hurewicz homomorphism}.
+\begin{definition}\label{hurewicz_free_defn}
+	The homomorphism  $h^{\mathrm{free}}_{K^1}$ is the \textit{free part of the noncommutative Hurewicz homomorphism}.
 \end{definition}
 \paragraph{Torsion part of Hurewicz homomorphism.}
 
@@ -12266,22 +12266,14 @@ On the other hand from \eqref{hurewicz_char_hom_eqn}  it turns out that   map $g
 
 \begin{definition}\label{h_tors_defn}
 	The given by \eqref{h_tors_eqn}
-	map is the \textit{torsion Hurewicz homomorphism}.  
+	map is the \textit{torsion part of noncommutative Hurewicz homomorphism}.  
 \end{definition}
 
 
 \begin{defn}\label{hurewicz_defn}
-If $A$ is $N$-algebra then from  the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{ Hurewicz homomorphism }
-	$$
-	h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}: 	\pi_1\left( A\right) \to K^1\left(A \right) 
-	$$
-	or equivalently
-	\be\label{hurewicz_ab_eqn}
-	h_{K^1}	\bydef h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}:\pi_1\left(A\right)\to  K^1\left(A \right). 
-	\ee
-	We also use the following notation
+If $A$ is $N$-algebra then from  the decomposition \eqref{h_f_decomp_eqn} and the homomorphism \eqref{h_tors_eqn} one has the  \textit{noncommutative  Hurewicz homomorphism }
 	\be\label{hurewicz_eqn}
-	h_{K^1}:\pi_1\left(A\right)\to  K^1\left(A \right). 
+	h_{K^1}	\bydef h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}:\pi_1\left(A\right)\to  K^1\left(A \right). 
 	\ee
 \end{defn}
 \begin{remark}\label{hurwics_rem}
@@ -12354,9 +12346,9 @@ If $B$ admits Hurewicz homomorphism  (cf. Definition \ref{hurewicz_admits_defn} 
 	\end{itemize}
 The  (classical) Hurewicz homomorphism $h^{\text{sing}} : \pi_1\left(\sX, x_0 \right)\to H_1\left(\sX \right)$ into singular homology  is an isomorphism. 
 If $\om : \left(S^1, s_0 \right)\to \left( \sX, x_0\right)$ represents an element    $\left[\om\right] \in \pi_1\left(\sX, x_0 \right)$ is  such that
-$$
+\be\label{h_top_free}
 \pi_1\left(\sX, x_0 \right) = \Z \left[\om\right] \oplus  \pi_1\left(\sX, x_0 \right)^\perp.
-$$
+\ee
 There is  a surjective homomorphism $\phi_H : H_1\left( \sX\right)\to \Z$ with $\phi_H\left(\Z y \right) = \Z$ and $\phi_H\left(H_1\left( \sX\right)^\perp\right) = \{0\}$. This homomorphism yields an element $z \in H^1\left( \sX, \Z\right)$ with $H^1\left( \sX, \Z\right)=\Z z\oplus  H^1\left( \sX, \Z\right)^\perp$. There is a representative $\varphi_z: \sX \to K\left(\Z, n \right) = S^1$ of $z$.     The composition $\varphi_z \circ \om : S^1 \to S^1$ yields an isomorphism of cohomology of $S^1$ so it is a homotopy equivalence. It follows that there is a surjective homomorphism
 $$
 \pi_1\left(\varphi_z \right) : \pi_1\left(\sX, x_0 \right)\to \pi_1\left(S^1, s_0 \right)\cong \Z.
@@ -12401,7 +12393,62 @@ and from the above equation it follows that the covering  $p'_n : \widetilde \sX
 \end{split}
 \ee 
 From the equation \eqref{h_n_x_char_eqn}
- Clearly a set $\left\{v_n\right\}_{n \in \N}$ satisfies to the conditions  of the Definition \ref{h_admissible_free_defn}, i.e. $u$ is admissible.
+ Clearly a set $\left\{v_n\right\}_{n \in \N}$ satisfies to the conditions  of the Definition \ref{h_admissible_free_defn}, i.e. $u$ is admissible.  Here we drop analogs manipulations below the equation \eqref{h_n_char_eqn} and   obtain a specialization 
+  \bean
+  f^{\left[\om\right]}_{\left[u\right]}: K_1\left( A\right)_{\mathrm{free}}\to\Z
+  \eean
+  of the given by the equation \eqref{h_g_eqn}. This homomorphism maps $\left[u\right]$ to $1\in \Z$. Oi the other hand if $w\in C\left( S^1\right)$ is an unitary which represents a generator of $K_1\left(C\left(S^1 \right)  \right)$ then  from $w = \om \circ u$ it follows what $\left[w\right]= K_1\left(\om \right)\left[u\right] \in K_1\left( S^1\right)$. On the other hand the surjective homomorphism
+  \bean
+  \Z\left[ w \right] \to\Z
+  \eean 
+  corresponds to a generator of   $\left[ 	K^1_{S^1}\right]\in K^1\left( S^1\right)$ (cf. Section \ref{h_prel}). According our construction the homomorphism   $f^{\left[\om\right]}_{\left[u\right]}$ corresponds to  $h^{\text{sing}}\left( \left[ 	K^1_{S^1}\right]\right)$. The above operation can be performed for any element satisfying to the equation \eqref{h_top_free}. In result one concludes that the free part of the  Hurewicz homomorphism (cf. Definition \ref{hurewicz_free_defn})
+\paragraph{title}
+
+\begin{defn}\label{mapping_cone_defn!!}!!!\cite{blackadar:ko}
+	%Definition 19.4.1. 
+	\begin{enumerate}
+		\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes A \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
+		\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
+		denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB= f(0)\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
+	\end{enumerate}
+	
+	The mapping cone construction is an important example of a pullback.
+	
+\end{defn}
+There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
+There is a standard short exact sequence 
+$$
+0 \xrightarrow{\iota} SB \to C_\phi \xrightarrow{p} A \to 0
+$$
+associated to $C_\phi$. The mapping cone construction is natural in $A$ and $B$, i.e. if
+we have a commutative diagram
+\newline
+\begin{tikzcd}
+	A_1 \arrow[r, "\phi"] \arrow[d, "f"]   & B_1 \arrow[d, "g"] \\
+	A_2  \arrow[r, "\psi"] & B_2
+\end{tikzcd}
+\\
+there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutative:
+\newline
+\begin{tikzcd}
+	0 \arrow[r] &SB_1 \arrow[r]\arrow[d, "Sg"]   & C_\phi \arrow[d, "\om"] \arrow[r] & A_1 \arrow[d, "f"]\arrow[r] & 0\\
+	0  \arrow[r] & SB_2 \arrow[r]& C_\psi \arrow[r] & A_2 \arrow[r]& 0
+\end{tikzcd}
+
+\begin{theorem}\label{puppe_sequence_thm!!!}!!!\cite{blackadar:ko}
+	%Theorem 19.4.3 
+	(Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
+	\bean
+	KK\left(D, SA  \right)\xrightarrow{S{\phi^*}} KK\left(D, SB  \right)\xrightarrow{\iota^*} KK\left(D, C_\phi \right)\xrightarrow{p^*} KK\left(D, A  \right)\xrightarrow{\phi^*}KK\left(D, B  \right),\\
+	KK\left(B,D  \right)\xrightarrow{\phi^*} KK\left(A, D \right)\xrightarrow{p^*} KK\left( C_\phi, D \right)\xrightarrow{\iota^*} KK\left(SB, D \right)\xrightarrow{S{\phi^*}}KK\left(SA,D  \right).
+	\eean
+	
+\end{theorem}
+
+\paragraph{title}
+Let $\phi_n : $.
+\paragraph{title}
+
 If 
 \be\label{hurewicz_htx_eqn}
 \widetilde \sX'_n \bydef \left\{\left(x, z \right)\in \sX \times U(1) \left| z^n = u\left(x \right) \right.\right\}
@@ -24136,6 +24183,23 @@ For any $C^*$-algebras $A$ and $B$, and for any $m$ and $n$, there are natural
 	\eean
 	
 \end{corollary}
+
+\begin{corollary}\label{bott_kk_cor}\cite{blackadar:ko}
+%Corollary 19.2.2 
+(Bott Periodicity). For any $A$ and $B$, we have
+$$
+KK^1\left(A, B \right) \cong KK\left( A, SB\right) \cong KK\left(SA, B \right) 
+$$
+and $KK\left( A, B\right)\cong KK^1\left(A, SB \right) \cong KK^1\left( SA, B\right)\cong KK\left( S^2A, B\right) \cong KK\left(SA, SB \right)$   . The isomorphisms are induced by intersection product with a fixed
+element, and are therefore natural in $A$ and $B$.
+\end{corollary}
+\begin{corollary}\label{bott_kk_e_cor}\cite{blackadar:ko}
+	%Corollary 19.2.3 
+	For any $A$, $A$ and $S2A$ are $KK$-equivalent. In particular ,
+	$\C$ and $C_0\left(\R^2 \right)$  are $KK$-equivalent.
+\end{corollary}
+
+
 \subsection{Grading of $C^*$-algebras}
 \paragraph{}
 If $A$ is any (ungraded) $C^*$-algebra, there is a grading on $M_2(A)$ with $M_2(A)^{(0)}$ the diagonal matrices and $M_2(A)^{(1)}$ the matrices with zero diagonal. This is an even grading with grading operator $\mathrm{diag}\left(1,-1 \right)$, called the \textit{standard even grading} on $M_2\left(A \right)$ . By identifying $A\otimes \K$ with $\mathbb{M}_2\left( A\otimes \K\right)$ , we obtain the \textit{standard even grading} of $A\otimes \K$ (this grading is actually only determined up to conjugation by an inner automorphism homotopic to the identity).\\
@@ -24489,12 +24553,58 @@ On the other hand  the equation \eqref{free_spec_eqn} comes from \eqref{uct_eqn}
 	\end{equation}
 	From (\ref{uct_c}) it follows that $K^1(A)$ depends on $K_0(A)_{tors}$ and $K_1(A)/K_1(A)_{tors}$. We say that dependence \eqref{uct_c} on $K_0(A)_{tors}$ is a {\it torsion special case} and dependence (\ref{free_spec_eqn}) of $K^1(A)$ on $K_1(A)/K_1(A)_{tors}$ is a {\it free special case}.
 	
+	\paragraph{tit!!!le}
+	
+	The $C^*$-algebra $C\left(S^1 \right)$ is an universal algebra generated by a single unitary $u \in C\left(S^1 \right)$ such that $K_1\left( S^1\right) \cong Z\left[u\right]$. If $\th_n: S^1\to S^1$ is an $n$-listed covering then it corresponds to following homomorphisms
+	\bean
+	C\left(S^1 \right)\xrightarrow{C\left(\th_n \right) }C\left(S^1 \right),\\
+	u \mapsto u^n;\\
+	K_1\left( C\left(S^1 \right)\right) \xrightarrow{K_1\left( C\left(\th_n \right)\right)  }	K_1\left( C\left(S^1 \right)\right),\\
+	\left[u\right] \mapsto n\left[u\right].
+	\eean 
+	If $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ is a representative of $\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ with $n\left[\om \right]= 0$, then a composition $\om \circ \th_n$ is contractible, so if $C_{\th_n}$ is a cone of $\th_n$ there is a following commutative diagram
+	\newline
+	\begin{tikzcd}
+	S^1 \arrow[rd, "\om"]\arrow[rr, "f"]&  &C_{\th_n}\arrow[ld, "C_\om"]\\
+	&\sX &
+	\end{tikzcd}
+	\\
+	which induces a diagram of $K_1$-homology
+	\newline
+	\begin{tikzcd}
+K^1\left( C\left( 	S^1\right) \right)  \arrow[rd, "K_1\left( C\left(\om\right) \right) "]\arrow[rr, "K_1\left( C\left(f\right) \right)"]&  &K^1\left( C\left( 	C_{\th_n}\right) \right) \arrow[ld, "K_1\left( C\left(\om\right) \right)"]\\
+	&K_1\left( C\left( \sX\right) \right)  &
+\end{tikzcd}
+\\
+Similarly to \eqref{cone_ip_eqn} thee are natural $*$-homomorphism 
+\bean
+SC\left(S^1 \right) \xrightarrow{\iota} C_{\th_n},
+C_{\th_n} \xrightarrow{\iota} C_{S^1}
+\eean 
+From the Theorem \ref{puppe_sequence_thm} it follows that there is the following Puppe sequence
+\bean
+KK\left(C\left(S^2 \right), SC\left(S^1 \right)  \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},SC\left(\th_n \right)  \right)} KK\left(C\left(S^2 \right), SC\left(S^1 \right)  \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},\iota  \right)}\\\to  KK\left(C\left(S^2 \right), C_\phi \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},p \right)} KK\left(C\left(S^2 \right), C\left(S^1 \right)  \right)\to \\ \xrightarrow{KK\left( \Id_{C\left(S^2 \right)},C\left(\th_n \right)  \right)} KK\left(C\left(S^2 \right), C\left(S^1 \right)  \right);\\
+KK\left(C\left(S^1 \right),C\left(S^1 \right)   \right)\xrightarrow{KK\left(C\left(\th_n \right),\Id_{C\left(S^1 \right) }   \right)} KK\left(C\left(S^1 \right),C\left(S^1 \right)   \right) \xrightarrow{KK\left(p,\Id_{C\left(S^1 \right) }   \right)}\\\to KK\left(C_\phi,C\left(S^1 \right)   \right) \xrightarrow{KK\left(\iota,\Id_{C\left(S^1 \right) }   \right)} KK\left(SC\left(S^1 \right), C\left(S^1 \right) \right)\to\\\xrightarrow{KK\left(SC\left(\th_n \right),\Id_{C\left(S^1 \right) }   \right)}KK\left(SC\left(S^1 \right),C\left(S^1 \right)  \right).
+\eean	
+where $\iota \bydef C\left(f \right)$. The above equations are equivalent to the following ones
+or equivalently
+\bean
+K_0\left(C\left( S^2\right)  \right) \xrightarrow{K_0\left(SC\left(\th_n\right) \right) 
+}K_0\left(C\left( S^2\right)  \right) \xrightarrow{K_0\left(p\right)}K_0\left(C_{\th_n} \right)\xrightarrow{K_0\left(\iota\right)} K_0\left(C\left( S^1\right)\right)\to\\ \xrightarrow{K_0\left(C\left(\th_n\right) \right) 
+}K_0\left(C\left( S^1\right)  \right);\\
+K_1\left(C\left( S^1\right)  \right) \xrightarrow{K_1\left(C\left(\th_n\right) \right) 
+}K_0\left(C\left( S^1\right)  \right) \xrightarrow{K_0\left(p\right)}K_1\left(C_{\th_n} \right)\xrightarrow{K_1\left(\iota\right)} K_1\left(C\left( S^2\right)\right)\to\\ \xrightarrow{K_1\left(C\left(\th_n\right) \right) 
+}K_1\left(C\left( S^2\right)  \right).
+\eean
+From 
+	\paragraph{titl!!!e}
+	
 	\subsection{Mapping cones and Puppe sequences}
-\begin{defn}\cite{blackadar:ko}
+\begin{defn}\label{mapping_cone_defn}\cite{blackadar:ko}
 %Definition 19.4.1. 
 \begin{enumerate}
-	\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $C_0\left(\left[0, 1\right); A \right)$ (with the obvious grading).
-	\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the mapping cone of $\phi$,
+	\item[(a)] If $A$ is a (graded) $C^*$-algebra, the \textit{cone} of $A$, denoted	$CA$, is the (graded) $C^*$-algebra $A \hat \otimes A \cong C_0\left(\left[0, 1\right), A \right)$ (with the obvious grading).
+	\item[(b)] If $\phi: A\to B$ is a (graded) $*$-homomorphism, then the \textit{mapping cone} of $\phi$,
 	denoted $C_\phi$, is the (graded) $C^*$-subalgebra $\left\{\left. \left(x, f \right) \in A\oplus CB= f(0)\right| \phi\left(x\right) = f\left(0 \right)  \right\}$ of $A\oplus CB$
 \end{enumerate}
 
@@ -24503,11 +24613,25 @@ The mapping cone construction is an important example of a pullback.
 \end{defn}
 There are maps $p: C_\phi\to A$ and $\iota : SB \to C_\phi$ given by $p(x, f) = x$, $\iota (f) =(0, f)$. (We identify $SB$ with $C_0((0, 1);B)$).
 There is a standard short exact sequence 
-$$
-0 \to SB \to C_\phi \to A \to 0
-$$
-associated to $C_\phi$.
-\begin{theorem}\cite{blackadar:ko}
+\be\label{cone_ip_eqn}
+0 \to SB \xrightarrow{\iota} C_\phi \xrightarrow{p} A \to 0
+\ee
+associated to $C_\phi$. The mapping cone construction is natural in $A$ and $B$, i.e. if
+we have a commutative diagram
+\newline
+\begin{tikzcd}
+A_1 \arrow[r, "\phi"] \arrow[d, "f"]   & B_1 \arrow[d, "g"] \\
+A_2  \arrow[r, "\psi"] & B_2
+\end{tikzcd}
+\\
+there is a map  $\om : C_\phi \to C_\psi$  making the following diagram commutative:
+\newline
+\begin{tikzcd}
+	0 \arrow[r] &SB_1 \arrow[r]\arrow[d, "Sg"]   & C_\phi \arrow[d, "\om"] \arrow[r] & A_1 \arrow[d, "f"]\arrow[r] & 0\\
+	0  \arrow[r] & SB_2 \arrow[r]& C_\psi \arrow[r] & A_2 \arrow[r]& 0
+\end{tikzcd}
+
+\begin{theorem}\label{puppe_sequence_thm}\cite{blackadar:ko}
 %Theorem 19.4.3 
 (Puppe Sequences). Let $A$, $B$, $D$ be graded $C^*$-algebras and  $\phi: A\to B$ a graded $*$-homomorphism. Then the following sequences are exact: 
 \bean
@@ -24620,6 +24744,7 @@ $R_*\left( G\right)$-algebra.
 \begin{proposition}\label{nt_khom_prop}\cite{had:ntk,sudo:ntk}
 %Proposition 5. 
 For $0\le \th \le 1$, the $K$-homology groups of the $C\left(\T^2_\th \right)$ are $K^j\left(C\left(\T^2_\th \right) \right)\bydef  KK^j\left( C\left(\T^2_\th \right), \C\right) \cong \Z^2$.
+
 
 \end{proposition}
 

@@ -111,7 +111,7 @@ namespace Abstract3DConverters.Converters
             l.Add("numvert " + mesh.Points.Count);
             foreach (var point in mesh.AbsolutePoints)
             {
-                l.Add(s.StrinValue(point.Vertex));
+                l.Add(s.StringValue(point.Vertex));
             }
             l.Add("numsurf " + mesh.AbsolutePolygons.Count);
             foreach (var polygon in mesh.AbsolutePolygons)
@@ -123,7 +123,7 @@ namespace Abstract3DConverters.Converters
                 l.Add("refs " + i);
                 foreach (var point in polygon.Points)
                 {
-                    l.Add(point.Index + " " + s.StrinValue(point.Texture));
+                    l.Add(point.Index + " " + s.StringValue(point.Texture));
                 }
                 
             }

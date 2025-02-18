@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
@@ -13,7 +14,6 @@ using FormulaEditor.UI;
 using Motion6D;
 using WpfInterface.Objects3D;
 using WpfInterface.UI.UserControls;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WpfInterface.UI.Labels
 {
@@ -30,11 +30,11 @@ namespace WpfInterface.UI.Labels
 
         protected Form form = null;
 
-        internal Tuple<string, string, bool> ConversionData
+        internal Tuple<string, string, string, bool, int, int> ConversionData
         {
             get;
             set;
-        } = new Tuple<string, string, bool>("", "", true);
+        } = new Tuple<string, string, string, bool, int, int>("", "", "", true, 0, 0);
         
         #endregion
 
@@ -64,7 +64,7 @@ namespace WpfInterface.UI.Labels
         /// <param name="context">Streaming context</param>
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("ConversionData", ConversionData, typeof(Tuple<string, string, bool>));
+            info.AddValue("ConversionData", ConversionData, typeof(Tuple<string, string, string, bool, int, int>));
         }
 
         #endregion
@@ -82,12 +82,28 @@ namespace WpfInterface.UI.Labels
             base.Load(info, context);
             try
             {
-                ConversionData =  info.GetValue("ConversionData",  typeof(Tuple<string, string, bool>)) 
-                    as Tuple<string, string, bool>;
+                ConversionData =  info.GetValue("ConversionData",  typeof(Tuple<string, string, string, bool, int, int>)) 
+                    as Tuple<string, string, string, bool, int, int>;
             }
             catch (Exception ex)
             {
                 ex.ShowError(-1);
+            }
+        }
+
+        internal void LoadFile(string filename)
+        {
+            if (shape == null)
+            {
+                return;
+            }
+            try
+            {
+                shape.Load(filename);
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
             }
         }
 

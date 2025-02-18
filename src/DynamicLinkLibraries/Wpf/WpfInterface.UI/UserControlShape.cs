@@ -14,6 +14,7 @@ using Wpf.Loader;
 using ErrorHandler;
 using Diagram.UI;
 using WpfInterface.UI.Labels;
+using WpfInterface.UI.Forms;
 
 namespace WpfInterface.UI.UserControls
 {
@@ -22,6 +23,8 @@ namespace WpfInterface.UI.UserControls
         #region Fields
 
         private WpfShape shape;
+
+        private FormConvert formConvert = null;
 
         //private Motion6D.UI.FormFieldShape form;
 
@@ -42,7 +45,17 @@ namespace WpfInterface.UI.UserControls
 
         void Convert()
         {
+            if (formConvert != null)
+            {
+                if (!formConvert.IsDisposed)
+                {
+                    formConvert.BringToFront();
+                    return;
+                }
+            }
             var label = this.FindParent<ShapeLabel>();
+            formConvert = new FormConvert(label);
+            formConvert.Show(this);
         }
 
         void Export()
@@ -105,6 +118,8 @@ namespace WpfInterface.UI.UserControls
             }
             SetColorPanel();
         }
+
+        
 
         private void open()
         {

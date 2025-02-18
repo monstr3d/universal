@@ -44,7 +44,7 @@
             panelCenter.Location = new System.Drawing.Point(5, 10);
             panelCenter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelCenter.Name = "panelCenter";
-            panelCenter.Size = new System.Drawing.Size(531, 26);
+            panelCenter.Size = new System.Drawing.Size(536, 39);
             panelCenter.TabIndex = 20;
             // 
             // labelT
@@ -53,16 +53,16 @@
             labelT.Location = new System.Drawing.Point(0, 0);
             labelT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             labelT.Name = "labelT";
-            labelT.Size = new System.Drawing.Size(531, 26);
+            labelT.Size = new System.Drawing.Size(536, 39);
             labelT.TabIndex = 0;
             // 
             // panelRight
             // 
             panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelRight.Location = new System.Drawing.Point(536, 10);
+            panelRight.Location = new System.Drawing.Point(541, 10);
             panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelRight.Name = "panelRight";
-            panelRight.Size = new System.Drawing.Size(5, 26);
+            panelRight.Size = new System.Drawing.Size(5, 39);
             panelRight.TabIndex = 18;
             // 
             // panelLeft
@@ -71,7 +71,7 @@
             panelLeft.Location = new System.Drawing.Point(0, 10);
             panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new System.Drawing.Size(5, 26);
+            panelLeft.Size = new System.Drawing.Size(5, 39);
             panelLeft.TabIndex = 17;
             // 
             // panelTop
@@ -80,23 +80,23 @@
             panelTop.Location = new System.Drawing.Point(0, 0);
             panelTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(541, 10);
+            panelTop.Size = new System.Drawing.Size(546, 10);
             panelTop.TabIndex = 16;
             // 
             // panelBottom
             // 
             panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 36);
+            panelBottom.Location = new System.Drawing.Point(0, 49);
             panelBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(541, 6);
+            panelBottom.Size = new System.Drawing.Size(546, 6);
             panelBottom.TabIndex = 19;
             // 
             // FormCenteredLabel
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(541, 42);
+            ClientSize = new System.Drawing.Size(546, 55);
             Controls.Add(panelCenter);
             Controls.Add(panelRight);
             Controls.Add(panelLeft);

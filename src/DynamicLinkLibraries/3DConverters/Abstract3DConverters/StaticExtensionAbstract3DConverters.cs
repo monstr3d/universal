@@ -19,7 +19,6 @@ namespace Abstract3DConverters
         static IMeshConverterFactory meshConverterFactory;
 
 
-        static  IErrorHandler ErrorHandler { get; set; }
 
         public static IPolygonSplitterFactory PolygonSplitterFactory { get; set; }
 
@@ -38,12 +37,22 @@ namespace Abstract3DConverters
 
         static List<IMeshConverterFactory> meshConverterFactories = new();
 
+        static public readonly Dictionary<string, Tuple<string[], string>> FileTypes = new Dictionary<string, Tuple<string[], string>>()
+            {
+            { "AC3D file format", new Tuple<string[], string>([".ac", "ac3d"], null) },
+           { "Obj file format",  new  Tuple<string[], string>([ ".obj" ], null)},
+             { "Collada 1.5 file format", new Tuple<string[], string>( [ ".dae" ], "1.5.0")},
+             { "Collada 1.4 file format", new Tuple<string[], string>([ ".dae" ], "1.4.1")},
+               { "WPF XAML file format", new Tuple<string[], string>([ ".xaml" ], null)}
+        };
+    
+
+        static bool useDirectory = false;
         static public bool UseDirectory
         {
-            get;
-            set;
-        } = false;
-
+            get => useDirectory;
+            set => useDirectory = value;
+        } 
         static public string GetDirectory(this string filename)
         {
             return UseDirectory ? Path.GetDirectoryName(filename) : null;
@@ -85,9 +94,8 @@ namespace Abstract3DConverters
             {
                 f.Add();
             }
-
+  
         }
-
 
         public static void Init()
         {

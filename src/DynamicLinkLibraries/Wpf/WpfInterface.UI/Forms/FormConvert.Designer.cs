@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConvert));
             panelCenter = new System.Windows.Forms.Panel();
+            userControlConvert = new WpfInterface.UI.UserControls.UserControlConvert();
             panelRight = new System.Windows.Forms.Panel();
             panelLeft = new System.Windows.Forms.Panel();
             panelTop = new System.Windows.Forms.Panel();
             panelBottom = new System.Windows.Forms.Panel();
-            userControlConvert = new WpfInterface.UI.UserControls.UserControlConvert();
             panelCenter.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +47,14 @@
             panelCenter.Name = "panelCenter";
             panelCenter.Size = new System.Drawing.Size(442, 305);
             panelCenter.TabIndex = 20;
+            // 
+            // userControlConvert
+            // 
+            userControlConvert.Dock = System.Windows.Forms.DockStyle.Fill;
+            userControlConvert.Location = new System.Drawing.Point(0, 0);
+            userControlConvert.Name = "userControlConvert";
+            userControlConvert.Size = new System.Drawing.Size(442, 305);
+            userControlConvert.TabIndex = 0;
             // 
             // panelRight
             // 
@@ -84,14 +92,6 @@
             panelBottom.Size = new System.Drawing.Size(442, 0);
             panelBottom.TabIndex = 19;
             // 
-            // userControlConvert
-            // 
-            userControlConvert.Dock = System.Windows.Forms.DockStyle.Fill;
-            userControlConvert.Location = new System.Drawing.Point(0, 0);
-            userControlConvert.Name = "userControlConvert";
-            userControlConvert.Size = new System.Drawing.Size(442, 305);
-            userControlConvert.TabIndex = 0;
-            // 
             // FormConvert
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -105,6 +105,7 @@
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "FormConvert";
             Text = "3D Conversion";
+            Resize += FormConvert_Resize;
             panelCenter.ResumeLayout(false);
             ResumeLayout(false);
         }

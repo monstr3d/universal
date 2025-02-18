@@ -9,6 +9,9 @@ namespace Abstract3DConverters
     /// </summary>
     public class Performer
     {
+
+        Service s = new ();
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -55,68 +58,6 @@ namespace Abstract3DConverters
             return r;
         }
 
-        /// <summary>
-        /// Converts and saves
-        /// </summary>
-        /// <param name="fileinput">The name of input file</param>
-        /// <param name="bytes">Input bytes</param>
-        /// <param name="converter">Converter</param>
-        /// <param name="outs">Stream of output</param>
-        /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, Stream outs, Action<object> act = null)
-        {
-            var creator = fileinput.ToMeshCreator(bytes);
-            var res = Create<object>(creator, converter, act);
-            if (converter is ISaveToStream save)
-            {
-                save.Save(res, outs);
-                return;
-            }
-            var sr = converter as IStringRepresentation;
-            var r = sr.ToString(res);
-            using var wr = new StreamWriter(outs);
-            wr.Write(r);
-        }
-
-        /// <summary>
-        /// Converts and saves
-        /// </summary>
-        /// <param name="fileinput">The name of input file</param>
-        /// <param name="bytes">Input bytes</param>
-        /// <param name="outs">Stream of output</param>
-        /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, byte[] bytes, string outExt, string outComment, Stream outs, Action<object> act = null)
-        {
-            var converter = outExt.ToMeshConvertor(outComment);
-            CreateAndSave(fileinput, bytes, converter, outs, act);
-        }
-
-        /// <summary>
-        /// Converts and saves
-        /// </summary>
-        /// <param name="fileinput">The name of input file</param>
-        /// <param name="outs">Stream of output</param>
-        /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, string outExt, string outComment, Stream outs, Action<object> act = null)
-        {
-            var converter = outExt.ToMeshConvertor(outComment);
-            using var stream = File.OpenRead(fileinput);
-            byte[] bytes = new byte[stream.Length];
-            stream.Read(bytes);
-            CreateAndSave(fileinput, bytes, converter, outs, act);
-        }
-
-
-        /// <summary>
-        /// Converts and saves
-        /// </summary>
-        /// <param name="fileinput">The name of input file</param>
-        /// <param name="act">The action</param>
-        public void CreateAndSave(string fileinput, string outExt, string outComment = null, Action<object> act = null)
-        {
-            using var stream = File.OpenWrite(outExt);
-            CreateAndSave(fileinput, outExt, outComment, stream, act);
-        }
 
         /// <summary>
         /// Creates a peer of mesh
@@ -177,6 +118,30 @@ namespace Abstract3DConverters
             return converter.Combine(enu) as T;
         }
 
+
+        /// <summary>
+        /// Creates peer object
+        /// </summary>
+        /// <typeparam name="T">The type of result</typeparam>
+        /// <param name="creator">The creator of meshes</param>
+        /// <param name="converter">The </param>
+        /// <param name="action"></param>
+        /// <returns>The peer object</returns>
+        public T Create<T>(IMeshCreator creator, IMeshConverter converter, string converterDirectory, Action<T> action = null) where T : class
+        {
+            converter.Directory = converterDirectory;
+            if (converterDirectory != creator.Directory)
+            {
+                s.CopyImages(creator, creator.Directory, converterDirectory);
+            }
+            var materialCreator = converter.MaterialCreator;
+            converter.Effects = creator.Effects;
+            var res = Combine<T>(creator.Meshes, converter);
+            action?.Invoke(res);
+            return res;
+        }
+
+
         /// <summary>
         /// Creates peer object
         /// </summary>
@@ -187,12 +152,128 @@ namespace Abstract3DConverters
         /// <returns>The peer object</returns>
         public T Create<T>(IMeshCreator creator, IMeshConverter converter, Action<T> action = null) where T : class
         {
-            converter.Directory = creator.Directory;
-            var materialCreator = converter.MaterialCreator;
-            converter.Effects = creator.Effects;
-            var res = Combine<T>(creator.Meshes, converter);
-            action?.Invoke(res);
-            return res;
+            return Create<T>(creator, converter, creator.Directory, action);
         }
+
+        #region Create & Save
+
+        /// <summary>
+        /// Converts and saves
+        /// </summary>
+        /// <param name="fileinput">The name of input file</param>
+        /// <param name="bytes">Input bytes</param>
+        /// <param name="converter">Converter</param>
+        /// <param name="converterDirectory">Converter directory</param>
+        /// <param name="outs">Stream of output</param>
+        /// <param name="act">The action</param>
+        public void CreateAndSave(string fileinput, byte[] bytes, IMeshConverter converter, string converterDirectory, Stream outs, Action<object> act = null)
+        {
+            var creator = fileinput.ToMeshCreator(bytes);
+            var res = Create<object>(creator, converter, converterDirectory, act);
+            if (converter is ISaveToStream save)
+            {
+                save.Save(res, outs);
+                return;
+            }
+            var sr = converter as IStringRepresentation;
+            var r = sr.ToString(res);
+            using var wr = new StreamWriter(outs);
+            wr.Write(r);
+        }
+
+        /// <summary>
+        /// Converts and saves
+        /// </summary>
+        /// <param name="fileinput">The name of input file</param>
+        /// <param name="bytes">Input bytes</param>
+        /// <param name="outExt">Output extension</param>
+        /// <param name="outComment">Output comment</param>
+        /// <param name="converterDirectory">Converter directory</param>
+        /// <param name="outs">Stream of output</param>
+        /// <param name="act">The action</param>
+        public void CreateAndSave(string fileinput, byte[] bytes, string outExt, string outComment, 
+             string converterDirectory, Stream outs, Action<object> act = null)
+        {
+            var converter = outExt.ToMeshConvertor(outComment);
+            CreateAndSave(fileinput, bytes, converter, converterDirectory, outs, act);
+        }
+
+        /// <summary>
+        /// Converts and saves
+        /// </summary>
+        /// <param name="fileinput">The name of input file</param>
+        /// <param name="outExt">Output extension</param>
+        /// <param name="outComment">Output comment</param>
+        /// <param name="converterDirectory">Converter directory</param>
+        /// <param name="outs">Stream of output</param>
+        /// <param name="act">The action</param>
+        public void CreateAndSave(string fileinput, string outExt, string outComment, string converterDirectory,
+            
+            Stream outs, Action<object> act = null)
+        {
+            var converter = outExt.ToMeshConvertor(outComment);
+            using var stream = File.OpenRead(fileinput);
+            byte[] bytes = new byte[stream.Length];
+            stream.Read(bytes);
+            CreateAndSave(fileinput, bytes, converter, converterDirectory, outs, act);
+        }
+
+        /// <summary>
+        /// Converts and saves
+        /// </summary>
+        /// <param name="fileinput">The name of input file</param>
+        /// <param name="outExt">Output extension by name</param>
+        /// <param name="converterDirectory">Converter directory</param>
+        /// <param name="outs">Stream of output</param>
+        /// <param name="act">The action</param>
+        public void CreateAndSaveByName(string fileinput, string outExt, string converterDirectory,  Stream outs, Action<object> act = null)
+        {
+            var t = StaticExtensionAbstract3DConverters.FileTypes[outExt];
+            var comm = t.Item2;
+            CreateAndSave(fileinput, t.Item1[0], comm, converterDirectory, outs, act);
+        }
+
+        /// <summary>
+        /// Converts and saves
+        /// </summary>
+        /// <param name="fileinput">The name of input file</param>
+        /// <param name="outExt">Output extension</param>
+        /// <param name="outComment">Output comment</param>
+        /// <param name="act">The action</param>
+        public void CreateAndSave(string fileinput, string outExt, string outComment = null, 
+            string converterDirectory=null, Action<object> act = null)
+        {
+            using var stream = File.OpenWrite(outExt);
+            CreateAndSave(fileinput, outExt, outComment, converterDirectory, stream, act);
+        }
+
+        /// <summary>
+        /// Creates
+        /// </summary>
+        /// <param name="fileinput">The input</param>
+        /// <param name="outExt">Output unique</param>
+        /// <param name="converterDirectory">CrateDirectory</param>
+        /// <param name="act">Action</param>
+        public string CreateAndSaveByUniqueName(string fileinput, string outExt, string converterDirectory, Action<object> act = null)
+        {
+            var t = StaticExtensionAbstract3DConverters.FileTypes[outExt];
+            var ext = t.Item1[0];
+            var comment = t.Item2;
+            var dir = Path.GetDirectoryName(fileinput);
+            var fn = Path.GetFileNameWithoutExtension(fileinput);
+            var file = fn + t.Item1[0];
+            var filename = Path.Combine(converterDirectory, file);
+            if (File.Exists(filename))
+            {
+                file = fn + Path.GetRandomFileName() + ext;
+                filename = Path.Combine(dir, file);
+            }
+            CreateAndSave(fileinput, filename, comment, converterDirectory);
+            return filename;
+        }
+
+
+
+        #endregion
     }
 }

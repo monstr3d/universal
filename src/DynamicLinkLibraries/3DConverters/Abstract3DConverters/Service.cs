@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml;
 
@@ -27,6 +29,57 @@ namespace Abstract3DConverters
 
 
         #region Service
+
+        /// <summary>
+        /// Copy of image
+        /// </summary>
+        /// <param name="image">Image</param>
+        /// <param name="source">Source directory</param>
+        /// <param name="target">Target directory</param>
+        public void CopyImage(Image image, string source, string target)
+        {
+            var name = image.Name;
+            var file = Path.Combine(source, name);
+            var fout = Path.Combine(target, name);
+            var dout = new DirectoryInfo(Path.GetDirectoryName(fout));
+            if (!dout.Exists)
+            {
+                dout.Create();
+            }
+            FileInfo fi = new FileInfo(file);
+
+            if (fi.Exists)
+            {
+                fi.CopyTo(fout, true);
+            }
+        }
+
+        /// <summary>
+        /// Copy of images
+        /// </summary>
+        /// <param name="images">Images</param>
+        /// <param name="source">Source directory</param>
+        /// <param name="target">Target directory</param>
+        public void CopyImages(IEnumerable<Image> images, string source, string target)
+        {
+            foreach (var image in images)
+            {
+                CopyImage(image, source, target);
+            }
+        }
+
+        /// <summary>
+        /// Copy of images
+        /// </summary>
+        /// <param name="creator">Creator of meshes</param>
+        /// <param name="source">Source directory</param>
+        /// <param name="target">Target directory</param>
+        public void CopyImages(IMeshCreator creator, string source, string target)
+        {
+            var images = GetImages(creator.Effects.Values);
+            CopyImages(images.Values, source, target);
+        }
+
 
         /// <summary>
         /// Color from XML element
@@ -230,15 +283,29 @@ namespace Abstract3DConverters
                     var n = im.Name;
                     if (d.ContainsKey(n))
                     {
-                        throw new Exception();
                     }
-                    d[n] = im;
+                    else
+                    {
+                        d[n] = im;
+                    }
                 }
                 return im;
             };
             effects.Select(f).ToList();
             return d;
         }
+
+
+        /// <summary>
+        /// Gets images of creator
+        /// </summary>
+        /// <param name="creator"></param>
+        /// <returns>Images</returns>
+        public Dictionary<string, Image> GetImages(IMeshCreator creator)
+        {
+            return GetImages(creator.Effects.Values);
+        }
+
 
         /// <summary>
         /// String value of the array
@@ -247,7 +314,7 @@ namespace Abstract3DConverters
         /// <param name="array">The array</param>
         /// <param name="sep">The separator</param>
         /// <returns>The string value</returns>
-        public string StrinValue<T>(T[] array, string sep = " ") where T : struct
+        public string StringValue<T>(T[] array, string sep = " ") where T : struct
         {
             var s = " ";
             foreach (var item in array)
@@ -257,7 +324,6 @@ namespace Abstract3DConverters
             s = s.Substring(0, s.Length - sep.Length);
             return s;
         }
-
 
         /// <summary>
         /// Parsing of the float enumerable
