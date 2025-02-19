@@ -1,6 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+using ErrorHandler;
 
 namespace Abstract3DConverters
 {
@@ -11,6 +11,15 @@ namespace Abstract3DConverters
     {
 
         Service s = new ();
+
+        /// <summary>
+        /// Mesh creator
+        /// </summary>
+        public IMeshCreator MeshCreator
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Constructor
@@ -129,16 +138,37 @@ namespace Abstract3DConverters
         /// <returns>The peer object</returns>
         public T Create<T>(IMeshCreator creator, IMeshConverter converter, string converterDirectory, Action<T> action = null) where T : class
         {
-            converter.Directory = converterDirectory;
-            if (converterDirectory != creator.Directory)
+            try
             {
-                s.CopyImages(creator, creator.Directory, converterDirectory);
+                var cd = converterDirectory;
+                if (cd == null)
+                {
+                    cd = creator.Directory;
+                }
+                converter.Directory = cd;
+                if (cd != creator.Directory)
+                {
+                    s.CopyImages(creator, creator.Directory, cd);
+                    if (creator is IAdditionalInformation add)
+                    {
+                        foreach (var dd in add.Information)
+                        {
+                            using var stream = File.OpenWrite(Path.Combine(cd, dd.Key));
+                            stream.Write(dd.Value);
+                        }
+                    }
+                }
+                var materialCreator = converter.MaterialCreator;
+                converter.Effects = creator.Effects;
+                var res = Combine<T>(creator.Meshes, converter);
+                action?.Invoke(res);
+                return res;
             }
-            var materialCreator = converter.MaterialCreator;
-            converter.Effects = creator.Effects;
-            var res = Combine<T>(creator.Meshes, converter);
-            action?.Invoke(res);
-            return res;
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+            return null; 
         }
 
 

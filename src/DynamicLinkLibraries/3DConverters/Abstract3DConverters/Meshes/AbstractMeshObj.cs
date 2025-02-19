@@ -28,10 +28,8 @@ namespace Abstract3DConverters.Meshes
 
         internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
         {
-            Effect = null;
-            throw new Exception();
-
-           /// !!! Material = creator.MaterialList[number];
+ 
+            Effect = creator.EffectList[number];
             Name = creator.Names[number];
             Points = new();
             Polygons = new();

@@ -1,6 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 
-namespace Abstract3DConverters
+namespace Abstract3DConverters.Fartories.Converters
 {
     internal class MeshConverterFactoryCollection : IMeshConverterFactory
     {

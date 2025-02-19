@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace Abstract3DConverters.Creators
 {
-    /*
+
     [Attributes.Extension([".xaml"])]
     public class XamlMeshCreator : XmlMeshCreator
     {
@@ -24,6 +24,7 @@ namespace Abstract3DConverters.Creators
 
         }
 
+   
         #endregion
 
         internal string MeshName
@@ -59,11 +60,8 @@ namespace Abstract3DConverters.Creators
             }
         }
 
-   
-        protected override IEnumerable<AbstractMesh> Get()
-        {
-            return list;
-        }
+
+        protected override IEnumerable<AbstractMesh> Meshes => list;
     }
-    */
+
 }

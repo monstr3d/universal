@@ -13,7 +13,6 @@ using System.Xml.Schema;
 using Wpf.Loader;
 using System.Xml.Linq;
 using System.Runtime.InteropServices;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Windows.Controls;
 
 namespace Collaada.Wpf.Test

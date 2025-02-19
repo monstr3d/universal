@@ -23,6 +23,7 @@
             Name = Find(n, Directory);
             if (Name == null)
             {
+                Name = name;
                 return;
             }
             Name = Name.Replace(Path.DirectorySeparatorChar, '/');

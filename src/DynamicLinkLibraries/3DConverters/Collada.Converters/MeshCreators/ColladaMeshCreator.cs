@@ -17,6 +17,8 @@ namespace Collada.Converters.MeshCreators
 
         Dictionary<string, List<XmlElement>> elementList = new();
 
+              
+
         internal Dictionary<string, List<Abstract3DConverters.Materials.Material>> MaterialList { get; private set; } = new();
 
 
@@ -56,6 +58,8 @@ namespace Collada.Converters.MeshCreators
         { 
             get;  
         } = new Dictionary<string, Effect>();
+
+        internal Dictionary<string, Abstract3DConverters.Image> ImagesIntrenal => Images;
 
         internal Dictionary<string, GeometryObject> Geom { get; private set; } = new();
         /*

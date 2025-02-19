@@ -8,7 +8,7 @@ namespace Abstract3DConverters.Converters
 {
     
     [Converter(".ac")]
-    public class AcConverter : LinesConverter
+    public class AcConverter : LinesMeshConverter
     {
         #region Fields
 
@@ -21,9 +21,8 @@ namespace Abstract3DConverters.Converters
 
         #region Ctor
 
-        public AcConverter() : base()
+        public AcConverter() : base(new ExeptionalMaterialCreator())
         {
-            materialCreator = new ExeptionalMaterialCreator();
         }
 
         #endregion
@@ -37,7 +36,8 @@ namespace Abstract3DConverters.Converters
             var count = ms.Count;
             lines.Add("OBJECT world");
             lines.Add("kids " + count);
-            lines = base.Combine(ms);
+            var lt =  base.Combine(ms) as List<string>;
+            lines.AddRange(lt);
             return lines;
         }
 
@@ -51,25 +51,22 @@ namespace Abstract3DConverters.Converters
             return Get(mesh);
         }
 
-   
-        protected override void Set(Dictionary<string, Image> images)
+  
+
+        protected override  Dictionary<string, Effect> Effects
         {
-
-        }
-
-
-        protected override void Set(Dictionary<string, Material> materials)
-        {
-            base.Set(materials);
-            var mat = this.materials;
-            mat.Add("AC3Db");
-            var i = 0;
-            foreach (var item in materials)
+            set
             {
-                dm[item.Key] = i;
-                ++i;
-                var st = s.Shrink(GetMaterial(item.Value));
-                mat.Add(st);
+                base.Effects = value;
+                lines.Add("AC3Db");
+                var i = 0;
+                foreach (var item in materials)
+                {
+                    dm[item.Key] = i;
+                    ++i;
+                    var st = s.Shrink(GetMaterial(item.Value));
+                    lines.Add(st);
+                }
             }
 
         }

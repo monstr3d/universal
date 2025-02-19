@@ -3,6 +3,7 @@ using System.Xml;
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 using Collada.Converters.Classes.Complicated;
+using Collada.Converters.MeshCreators;
 
 namespace Collada.Converters.Classes.Elementary
 {
@@ -20,15 +21,15 @@ namespace Collada.Converters.Classes.Elementary
 
         private Image(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
+            var creator = meshCreator as ColladaMeshCreator;
             var ifr = element.Get<Init_From>().Text;
             ImageSource = new Abstract3DConverters.Image(ifr, meshCreator.Directory);
             if (ImageSource.Name != null)
             {
-                throw new Exception("YYYYYYYYYYYYYYYYYY");
-             /*   if (!meshCreator.Images.ContainsKey(ImageSource.Name))
+                if (!creator.ImagesIntrenal.ContainsKey(ImageSource.Name))
                 {
-                    meshCreator.Images[ImageSource.Name] = ImageSource;
-                }*/
+                    creator.ImagesIntrenal[ImageSource.Name] = ImageSource;
+                }
                 MeshCreator.ImageIds[element.GetAttribute("id")] = ImageSource;
             }
             else

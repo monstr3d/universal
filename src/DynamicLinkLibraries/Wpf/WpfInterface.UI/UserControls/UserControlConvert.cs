@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Abstract3DConverters;
 using Diagram.UI.UserControls;
 using Microsoft.Win32;
+using WindowsExtensions;
 using WpfInterface.UI.Labels;
 
 namespace WpfInterface.UI.UserControls
@@ -74,7 +76,15 @@ namespace WpfInterface.UI.UserControls
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            Execute();
+            buttonOK.Enabled = false;
+            Task t = new Task(Execute);
+            t.GetAwaiter().OnCompleted(FinishExecute);
+            t.Start();
+        }
+
+        void FinishExecute()
+        {
+            this.InvokeIfNeeded(() => { buttonOK.Enabled = true; });
         }
 
         private void btnFile_Click(object sender, System.EventArgs e)

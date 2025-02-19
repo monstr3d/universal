@@ -1,0 +1,111 @@
+﻿using System.Text;
+
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
+using Abstract3DConverters.Meshes;
+
+namespace Abstract3DConverters.Converters
+{
+    public abstract class LinesMeshConverter : AbstractMeshConverter, IStringRepresentation, ISaveToStream
+    {
+        #region Fields
+
+        protected string directory;
+
+
+        protected List<string> lines = new();
+
+        protected Service s = new();
+
+
+
+        #endregion
+
+        #region Ctor
+
+        protected LinesMeshConverter(IMaterialCreator materialCreator) : base(materialCreator)
+        {
+        }
+
+
+        #endregion
+
+        #region Overriden Members
+
+        protected override void Add(object parent, object child)
+        {
+            Add(parent as List<string>, child as List<string>);
+        }
+
+        protected override object Combine(IEnumerable<object> meshes)
+        {
+            foreach (var mesh in meshes)
+            {
+                var lm = mesh as List<string>;
+                lines.AddRange(lm);
+            }
+            return lines;
+        }
+
+        #endregion
+
+        #region IMeshConverter Members
+
+
+
+        #endregion
+
+
+        #region IStringRepresentation Members
+
+        string IStringRepresentation.ToString(object obj)
+        {
+            var l = obj as List<string>;
+            var sb = new StringBuilder();
+            foreach (var str in l)
+            {
+                sb.Append(str + '\n');
+            }
+            return sb.ToString();
+        }
+
+        #endregion
+
+
+        #region ISaveToStream Members
+
+
+        void ISaveToStream.Save(object obj, Stream stream)
+        {
+            var lines = obj as List<string>;
+            using var writer = new StreamWriter(stream);
+            foreach (var line in lines)
+            {
+                writer.WriteLine(line);
+            }
+
+        }
+
+        #endregion
+
+
+        #region Abstract and virtual membres
+
+        protected abstract void Set(Dictionary<string, Image> images);
+
+        
+
+        protected virtual void Add(List<string> parent, List<string> child)
+        {
+            var m = parent;
+            var c = child;
+            m.AddRange(c);
+        }
+
+
+
+   
+ 
+        #endregion
+    }
+}

@@ -1,23 +1,21 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 using System.Xml;
 
 namespace Abstract3DConverters.Meshes
 {
-    /*
+    
     class AbstractMeshXaml : AbstractMesh
     {
 
         XmlElement element;
-        XamlMeshCreator meshCreator;
         Dictionary<string, Action<XmlElement>> actions;
         Dictionary<string, Action<XmlElement>> content;
         Dictionary<string, Action<XmlElement>> geometry;
         Dictionary<string, Action<XmlElement>> geometryGeometry;
+        XamlMeshCreator meshCreator;
+
+     
         internal AbstractMeshXaml(XamlMeshCreator creator, XmlElement element) : base(creator.MeshName, creator)
         {
             actions = new Dictionary<string, Action<XmlElement>>()
@@ -62,6 +60,7 @@ namespace Abstract3DConverters.Meshes
         private AbstractMeshXaml(AbstractMeshXaml parent, XamlMeshCreator creator, XmlElement element) : this(creator, element)
         {
             Parent = parent;
+            meshCreator = creator;
         }
 
         Color GetColor(XmlElement element, string attr)
@@ -96,7 +95,7 @@ namespace Abstract3DConverters.Meshes
                         var ims = txt.GetAttribute("ImageSource");
                         if (ims.Length > 0)
                         {
-                            var imgs = creator.Images;
+                            var imgs = meshCreator.InternalImages;
                             if (imgs.ContainsKey(ims))
                             {
                                 im = imgs[ims];
@@ -133,7 +132,7 @@ namespace Abstract3DConverters.Meshes
             var ch = element.GetElementsByTagName("MaterialGroup.Children")[0];
             var name = meshCreator.MaterialName;
             var mg = new MaterialGroup(name);
-            meshCreator.Materials[name] = mg;
+            meshCreator.InternalMaterials[name] = mg;
             var mat = ch.ChildNodes;
             foreach (var n in mat)
             {
@@ -263,5 +262,5 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-    }*/
+    }
 }

@@ -88,9 +88,15 @@ namespace Abstract3DConverters.Converters
 
         protected abstract object Create(AbstractMesh mesh);
 
-        protected abstract void SetEffect(object mesh, object effect);
+        protected virtual void SetEffect(object mesh, object effect)
+        {
 
-        protected abstract void SetTransformation(object mesh, float[] transformation);
+        }
+
+        protected virtual void SetTransformation(object mesh, float[] transformation)
+        {
+
+        }
   
 
         #endregion

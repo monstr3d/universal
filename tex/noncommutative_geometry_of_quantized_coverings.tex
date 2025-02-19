@@ -871,7 +871,7 @@ x \mapsto e^{2\pi i x}
 then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi^g_\R$ yields a functional such 
 $f^g_\R : \R x \to \R$ such that $\chi^g_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{h_integer_eqn} it turns out that $f^\R_g\left( \Z  x \right) \subset \Z$ so the functional $f_\R^g$ yields a homomorphism $\phi_g \in \Hom \left( \Z  x , \Z\right)$.\section{Ext-functor and characters}\label{ext_char_sec}
 \paragraph*{} 
-Let $A \bydef \Z^n /\Gamma$ be a  finitely generated  Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
+Let $A \bydef \Z^n /\Gamma$ be a  finite  Abelian group where $\Gamma\subset \Z^n \subset \Q^n$ is a subgroup such that $\Ga$ generates $\Q$-vector space $\Q^n$. The inclusion $\Gamma\subset \Z^n$ provides the natural homomorphism
 $$
 \Hom \left(\Z^n, \Z \right)\to \Hom \left(\Ga, \Z\right)
 $$
@@ -879,12 +879,12 @@ and
 $$
 \Ext^1_\Z\left( A, \Z\right) =  \Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right).
 $$
-Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^n, \Q\right)$. One has a character 
+Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^m, \Q\right)$. One has a character 
 \bean
-\varphi : \Q^n \to  e^{2\pi i \Q},\\
-x \mapsto e^{\frac{i\psi\left(x \right) }{2\pi}}.
+\varphi : \Q^m \to  e^{2\pi i \Q},\\
+x \mapsto e^{2\pi i x}.
 \eean
-The restriction $\varphi|_{\Z^n}: \Z^n \to e^{2\pi i \Q}$ is a character on $\Z^n$. From $\phi\left(\Ga \right) \subset  \Z$ it follows that $\varphi|_{\Z^n}\left( \Ga\right) = \{1\}$, i.e. $\varphi|_{\Z^n}$ is trivial on $\Ga$. So $\varphi|_{\Z^n}$ yields a homomorphism $\chi_\phi: \Z^n / \Ga \to e^{\frac{i\Q}{2\pi}}$, i.e. $\chi_\phi$ is a character.  If $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$ then $\phi\left( \Z^n \right) \subset \Z$ and $\varphi|_{\Z^n}$ yields  a trivial character. Otherwise if the character $\varphi|_{\Z^n}$ is trivial then $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$. So any element of   $\Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$ yield a character $\Z^n / \Ga\to e^{\frac{i\Q}{2\pi}}$.
+The restriction $\varphi|_{\Z^n}: \Z^n \to e^{2\pi i \Q}$ is a character on $\Z^n$. From $\phi\left(\Ga \right) \subset  \Z$ it follows that $\varphi|_{\Z^n}\left( \Ga\right) = \{1\}$, i.e. $\varphi|_{\Z^n}$ is trivial on $\Ga$. So $\varphi|_{\Z^n}$ yields a homomorphism $\chi_\phi: \Z^n / \Ga \to e^{2\pi i \Q}$, i.e. $\chi_\phi$ is a character.  If $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$ then $\phi\left( \Z^n \right) \subset \Z$ and $\varphi|_{\Z^n}$ yields  a trivial character. Otherwise if the character $\varphi|_{\Z^n}$ is trivial then $\phi \in \im ~ \Hom \left(\Z^n, \Z \right)$. So any element of   $\Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$ yield a character $\Z^n / \Ga\to e^{2\pi i \Q}$.
 
 Conversely a character $\chi : \Z^n/\Ga \to  e^{2\pi i \Q}$ naturally yields a continuous  character $\chi_\Q : \Q^n \to e^{2\pi i \Q}$ with $\chi_\Q\left( \Ga\right) = 1$. The character is $\chi_\Q$ is can uniquely extended up to a continuous character $\chi_\R : \R^n \to e^{2\pi i \R}$ with 
 \be\label{c_integer_eqn}
@@ -896,17 +896,10 @@ If we consider the  {standard character}
 x \mapsto e^{2\pi i x}
 \eean
 then since $\R$ is a locally compact field from the Theorem \ref{top_alg_thm} it follows that $\chi_\R$ yields a functional such 
-$f^g_\R : \R^n \to \R$ such that $\chi_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{c_integer_eqn} it turns out that $f^\R\left( \Ga\right) \subset \Z$ so the functional $f_\R$ yields a homomorphism $\phi \in \Hom \left( \Z^n , \Z\right)$.
-!!!!
-. Define 
-\bean 
-\varphi: \Z^n \to \Q;\\
-\forall\left(a_1, ..., a_n\right)\in \Z^n\quad \varphi \left( a_1e_1 + ... + a_1e_n\right)  = a_1\xi_1 + ... + a_1\xi_n
-\eean 
-From $\chi\left(\Ga\right)= \{1\}$ it follows that $\varphi\left( \Ga\right) = \Z$ i.e. $\varphi|_\Ga\in \Hom\left(\Ga, \Z \right)$.
-The reader can prove that the class  $\varphi|_\Ga + \Hom \left(\Ga, \Z \right)\in \Hom \left(\Z^n, \Z \right)/\Hom \left(\Ga, \Z\right)$ does not depend on  a choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext^1_\Z\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$. Taking into account that $\Ext^1_\Z\left(\Z^n, \Z \right)$ one has a following lemma.
+$f^g_\R : \R^n \to \R$ such that $\chi_\R = \chi_{\text{standard}}\circ f^g_\R$. From \eqref{c_integer_eqn} it turns out that $f^\R\left( \Ga\right) \subset \Z$ so the functional $f_\R$ yields a homomorphism $\phi \in \Hom \left( \Ga, \Z\right)$. This homomorphisms uniquely defines an element of $\Ext^1_\Z\left( A, \Z\right) =  \Hom \left(\Ga, \Z\right)/\Hom \left(\Z^n, \Z \right)$.
+So one has a following lemma.
 \begin{lemma}\label{ext_char_lem}
-For any finitely generated Abelian group $A$ there is the natural homomorphism between  $\Ext^1_\Z\left(A, \Z \right)$ and the group of characters of the torsion part of $A$. 
+For any finite Abelian group $A$ there is the natural homomorphism between  $\Ext^1_\Z\left(A, \Z \right)$ and the group of characters of $A$. 
 \end{lemma}
 
 
@@ -12276,6 +12269,18 @@ If $A$ is $N$-algebra then from  the decomposition \eqref{h_f_decomp_eqn} and th
 	h_{K^1}	\bydef h^{\mathrm{tors}}_{K^1} + h^{\mathrm{free}}_{K^1}:\pi_1\left(A\right)\to  K^1\left(A \right). 
 	\ee
 \end{defn}
+\begin{remark}\label{hurewicz_morita_rem_defn}
+Using the Remark \ref{inverse_galois_rem} one can proof that the given by the equation \eqref{unital_cov_kk_eqn} isomorphism 
+$K^{\pi_1\left(A\right)_{\mathrm{tors}}}_0 \left(A_{\mathrm{tors}} \right) \cong K_0\left(A \right) $ follows from the equivalence between category $\mathscr P_A$ of projective $A$-modules and the category $\mathscr P^{\pi_1\left(A\right)_{\mathrm{tors}}}_{\widetilde A}$ of the projective $\widetilde A$-$\pi_1\left(A\right)_{\mathrm{tors}}$ modules. This equivalence comes from the following mutually inverse functors
+\be\label{hurewicz_morita_rem_eqn}
+\begin{split}
+-\otimes_{ A} \widetilde A : \mathscr P_A \xrightarrow{\cong}\mathscr P^{\pi_1\left(A\right)_{\mathrm{tors}}}_{\widetilde A},\\
+P \mapsto P\otimes_{ A} \widetilde A;\\
+\left( -\right)^{\pi_1\left(A\right)_{\mathrm{tors}}}:  \mathscr P^{\pi_1\left(A\right)_{\mathrm{tors}}}_{\widetilde A}\xrightarrow{\cong }\mathscr P_A,\\
+\widetilde P \mapsto \widetilde P^{\pi_1\left(A\right)_{\mathrm{tors}}}\bydef \left\{\left.\widetilde p \in \widetilde P\right| \forall g \in \pi_1\left(A\right)_{\mathrm{tors}} \quad g \widetilde p = \widetilde p \right\}.
+\end{split}
+\ee
+\end{remark}
 \begin{remark}\label{hurwics_rem}
 	The given by \eqref{hurewicz_eqn} homomorphism uniquely depends on the \eqref{hurewicz_ab_eqn} one.
 \end{remark}
@@ -21691,7 +21696,8 @@ M^G \bydef \left\{m \in M | \forall g \in G \quad gm = m\right\}.
 As a consequence of the isomorphism $\End_{\widetilde{\La}\rtimes G}\left(\widetilde\La \right)^\circ \cong \widetilde \La^G$ we have from general Morita theory (cf. Remark \ref{morita_rem}) the following connection between the category $\mathscr{M}_{\widetilde{\La}\rtimes G}$ of left $\widetilde{\La}\rtimes G$ modules, and $\mathscr{M}_{\widetilde{\La}^G}$, the category of $\widetilde{\La}^G$-modules, when $\left( \widetilde{\La},G\right)$ is pregalois.
 \begin{proposition}\cite{auslander:galois}
 $\left( \widetilde{\La},G\right)$ is pregalois if and only if $\widetilde \La\otimes_{\widetilde \La^G}-:\mathscr{M}_{\widetilde{\La}^G}\to \mathscr{M}_{\widetilde{\La}\rtimes G}$ and $\Hom_{\widetilde{\La}\rtimes G}: \left( \widetilde{\La}, -\right)$ are inverse equivalence of categories.
-\end{proposition} 
+\end{proposition}
+\begin{remark}\label{inverse_galois_rem}
 There are left and right of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
 \begin{equation}\label{morita_ta_act_eqn}
 	\begin{split}
@@ -21700,8 +21706,8 @@ There are left and right of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is give
 \end{equation}
 The left  (resp. right) action of $\La$ on $\widetilde{\La}$ we define as left  (resp. right) multiplication by $\La$.
 
-
  Otherwise in \cite{auslander:galois} it is proven that if $\widetilde{\La}$ is a finitely generated, projective $\La$-module then there is an  equivalence between a category $\mathscr{M}_{\La}$ of $\La$-modules and the category $\mathscr{M}_{\widetilde{\La}\left[ G\right]}$ (cf. Definition \ref{category_equivalence_definition}). It turns out that the category $\mathscr{M}^G_{\widetilde{\La}}$ is equivalent to the category $\mathscr{M}_{\La}$. The equivalence is given by mutually inversed functors $\left( -\right) \otimes \widetilde{\La}: \mathscr{M}_{\La} \to \mathscr{M}^G_{\widetilde{\La}}$ and $\left( -\right) ^G: \mathscr{M}^G_{\widetilde{\La}}\to \mathscr{M}_{\La}$.
+\end{remark}
 	\section{Topological and algebraic dual}\label{top_alg_dual_sec}
 \paragraph{} For any locally compact group $G$  field one can define its \textit{topological dual} $G^*$ as a space of of characters. For any vector space $V$ there is \textit{algebraic dual} space of linear functionals (cf. \cite{weil:basic_number_theory})
 \begin{theorem}\label{top_alg_thm}\cite{weil:basic_number_theory}
@@ -24195,7 +24201,7 @@ element, and are therefore natural in $A$ and $B$.
 \end{corollary}
 \begin{corollary}\label{bott_kk_e_cor}\cite{blackadar:ko}
 	%Corollary 19.2.3 
-	For any $A$, $A$ and $S2A$ are $KK$-equivalent. In particular ,
+	For any $A$, $A$ and $S^2A$ are $KK$-equivalent. In particular ,
 	$\C$ and $C_0\left(\R^2 \right)$  are $KK$-equivalent.
 \end{corollary}
 
@@ -24552,10 +24558,8 @@ On the other hand  the equation \eqref{free_spec_eqn} comes from \eqref{uct_eqn}
 		\mathrm{Hom}(G, \mathbb{Z}) =  \mathrm{Hom}(G / G_{tors}, \mathbb{Z})).
 	\end{equation}
 	From (\ref{uct_c}) it follows that $K^1(A)$ depends on $K_0(A)_{tors}$ and $K_1(A)/K_1(A)_{tors}$. We say that dependence \eqref{uct_c} on $K_0(A)_{tors}$ is a {\it torsion special case} and dependence (\ref{free_spec_eqn}) of $K^1(A)$ on $K_1(A)/K_1(A)_{tors}$ is a {\it free special case}.
-	
-	\paragraph{tit!!!le}
-	
-	The $C^*$-algebra $C\left(S^1 \right)$ is an universal algebra generated by a single unitary $u \in C\left(S^1 \right)$ such that $K_1\left( S^1\right) \cong Z\left[u\right]$. If $\th_n: S^1\to S^1$ is an $n$-listed covering then it corresponds to following homomorphisms
+	\paragraph{title!!!}
+		The $C^*$-algebra $C\left(S^1 \right)$ is an universal algebra generated by a single unitary $u \in C\left(S^1 \right)$ such that $K_1\left( S^1\right) \cong Z\left[u\right]$. If $\th_n: S^1\to S^1$ is an $n$-listed covering then it corresponds to following homomorphisms
 	\bean
 	C\left(S^1 \right)\xrightarrow{C\left(\th_n \right) }C\left(S^1 \right),\\
 	u \mapsto u^n;\\
@@ -24565,40 +24569,36 @@ On the other hand  the equation \eqref{free_spec_eqn} comes from \eqref{uct_eqn}
 	If $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ is a representative of $\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ with $n\left[\om \right]= 0$, then a composition $\om \circ \th_n$ is contractible, so if $C_{\th_n}$ is a cone of $\th_n$ there is a following commutative diagram
 	\newline
 	\begin{tikzcd}
-	S^1 \arrow[rd, "\om"]\arrow[rr, "f"]&  &C_{\th_n}\arrow[ld, "C_\om"]\\
-	&\sX &
+		S^1 \arrow[rd, "\om"]\arrow[rr, "f"]&  &C_{\th_n}\arrow[ld, "C_\om"]\\
+		&\sX &
 	\end{tikzcd}
 	\\
 	which induces a diagram of $K_1$-homology
 	\newline
 	\begin{tikzcd}
-K^1\left( C\left( 	S^1\right) \right)  \arrow[rd, "K_1\left( C\left(\om\right) \right) "]\arrow[rr, "K_1\left( C\left(f\right) \right)"]&  &K^1\left( C\left( 	C_{\th_n}\right) \right) \arrow[ld, "K_1\left( C\left(\om\right) \right)"]\\
-	&K_1\left( C\left( \sX\right) \right)  &
-\end{tikzcd}
-\\
-Similarly to \eqref{cone_ip_eqn} thee are natural $*$-homomorphism 
-\bean
-SC\left(S^1 \right) \xrightarrow{\iota} C_{\th_n},
-C_{\th_n} \xrightarrow{\iota} C_{S^1}
-\eean 
-From the Theorem \ref{puppe_sequence_thm} it follows that there is the following Puppe sequence
-\bean
-KK\left(C\left(S^2 \right), SC\left(S^1 \right)  \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},SC\left(\th_n \right)  \right)} KK\left(C\left(S^2 \right), SC\left(S^1 \right)  \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},\iota  \right)}\\\to  KK\left(C\left(S^2 \right), C_\phi \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},p \right)} KK\left(C\left(S^2 \right), C\left(S^1 \right)  \right)\to \\ \xrightarrow{KK\left( \Id_{C\left(S^2 \right)},C\left(\th_n \right)  \right)} KK\left(C\left(S^2 \right), C\left(S^1 \right)  \right);\\
-KK\left(C\left(S^1 \right),C\left(S^1 \right)   \right)\xrightarrow{KK\left(C\left(\th_n \right),\Id_{C\left(S^1 \right) }   \right)} KK\left(C\left(S^1 \right),C\left(S^1 \right)   \right) \xrightarrow{KK\left(p,\Id_{C\left(S^1 \right) }   \right)}\\\to KK\left(C_\phi,C\left(S^1 \right)   \right) \xrightarrow{KK\left(\iota,\Id_{C\left(S^1 \right) }   \right)} KK\left(SC\left(S^1 \right), C\left(S^1 \right) \right)\to\\\xrightarrow{KK\left(SC\left(\th_n \right),\Id_{C\left(S^1 \right) }   \right)}KK\left(SC\left(S^1 \right),C\left(S^1 \right)  \right).
-\eean	
-where $\iota \bydef C\left(f \right)$. The above equations are equivalent to the following ones
-or equivalently
-\bean
-K_0\left(C\left( S^2\right)  \right) \xrightarrow{K_0\left(SC\left(\th_n\right) \right) 
-}K_0\left(C\left( S^2\right)  \right) \xrightarrow{K_0\left(p\right)}K_0\left(C_{\th_n} \right)\xrightarrow{K_0\left(\iota\right)} K_0\left(C\left( S^1\right)\right)\to\\ \xrightarrow{K_0\left(C\left(\th_n\right) \right) 
-}K_0\left(C\left( S^1\right)  \right);\\
-K_1\left(C\left( S^1\right)  \right) \xrightarrow{K_1\left(C\left(\th_n\right) \right) 
-}K_0\left(C\left( S^1\right)  \right) \xrightarrow{K_0\left(p\right)}K_1\left(C_{\th_n} \right)\xrightarrow{K_1\left(\iota\right)} K_1\left(C\left( S^2\right)\right)\to\\ \xrightarrow{K_1\left(C\left(\th_n\right) \right) 
-}K_1\left(C\left( S^2\right)  \right).
-\eean
-From 
-	\paragraph{titl!!!e}
+		K^1\left( C\left( 	S^1\right) \right)  \arrow[rd, "K_1\left( C\left(\om\right) \right) "]\arrow[rr, "K_1\left( C\left(f\right) \right)"]&  &K^1\left( C\left( 	C_{\th_n}\right) \right) \arrow[ld, "K_1\left( C\left(\om\right) \right)"]\\
+		&K_1\left( C\left( \sX\right) \right)  &
+	\end{tikzcd}
+	\\
+	\bean
+	SC\left(S^1 \right) \xrightarrow{\iota} C_{\th_n},
+	C_{\th_n} \xrightarrow{\iota} C_{S^1}
+	\eean 
+	From the Theorem \ref{puppe_sequence_thm} it follows that there is the following Puppe sequence
+	\bean
+	KK\left(C\left(S^2 \right), SC\left(S^1 \right)  \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},SC\left(\th_n \right)  \right)} KK\left(C\left(S^2 \right), SC\left(S^1 \right)  \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},\iota  \right)}\\\to  KK\left(C\left(S^2 \right), C_\phi \right)\xrightarrow{KK\left( \Id_{C\left(S^2 \right)},p \right)} KK\left(C\left(S^2 \right), C\left(S^1 \right)  \right)\to \\ \xrightarrow{KK\left( \Id_{C\left(S^2 \right)},C\left(\th_n \right)  \right)} KK\left(C\left(S^2 \right), C\left(S^1 \right)  \right);\\
+	KK\left(C\left(S^1 \right),C\left(S^1 \right)   \right)\xrightarrow{KK\left(C\left(\th_n \right),\Id_{C\left(S^1 \right) }   \right)} KK\left(C\left(S^1 \right),C\left(S^1 \right)   \right) \xrightarrow{KK\left(p,\Id_{C\left(S^1 \right) }   \right)}\\\to KK\left(C_\phi,C\left(S^1 \right)   \right) \xrightarrow{KK\left(\iota,\Id_{C\left(S^1 \right) }   \right)} KK\left(SC\left(S^1 \right), C\left(S^1 \right) \right)\to\\\xrightarrow{KK\left(SC\left(\th_n \right),\Id_{C\left(S^1 \right) }   \right)}KK\left(SC\left(S^1 \right),C\left(S^1 \right)  \right).
+	\eean	
+	where $\iota \bydef C\left(f \right)$. The above equations are equivalent to the following ones
+	or equivalently
+	\bean
+	K_0\left( SC\left(S^1 \right)  \right)\xrightarrow{K_0\left( SC\left(\th_n \right)  \right)} 	K_0\left( SC\left(S^1 \right) \right) \xrightarrow{K_0\left( \iota \right) }  K_0\left( C_\phi \right)\xrightarrow{K_0\left( p \right)}  	K_0\left( C\left(S^1 \right)  \right)\to \\ \xrightarrow{K_0\left( C\left(\th_n \right)  \right)} 	K_0\left( C\left(S^1 \right) \right) !!! K^1
+	\eean
+	We leave to the reader the elementary proof of that both homomorphisms, $K_1\left(C\left(\th_n\right)\right)  $ injective. Taking into account  $K_1\left(C\left(\th_n \right)\right)   \left( \left[u\right]\right) = n \left[u \right]$ we can deduce that
+		
 	
+	$K_0\left(C_{\th_n} \right)= \mathrm{Coker}~K_1\left(C\left(\th_n\right)\right] \cong \Z_n$
+	\paragraph{!!!}
 	\subsection{Mapping cones and Puppe sequences}
 \begin{defn}\label{mapping_cone_defn}\cite{blackadar:ko}
 %Definition 19.4.1. 

@@ -12,5 +12,10 @@
         /// <param name="bytes">The bytes</param>
         /// <returns>The creator</returns>
         IMeshCreator this[string extension, byte[] bytes] { get;  }
+
+        /// <summary>
+        /// Extensions
+        /// </summary>
+        List<string> Extensions { get; }
     }
 }

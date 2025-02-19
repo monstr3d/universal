@@ -1,6 +1,7 @@
 ﻿using System.Xml;
 
 using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters.Creators
 {
@@ -8,6 +9,11 @@ namespace Abstract3DConverters.Creators
     {
         protected XmlDocument doc;
 
+        internal Dictionary<string, Image> InternalImages => Images;
+
+
+        internal Dictionary<string, Material> InternalMaterials => Materials;
+   
 
         public Dictionary<XmlElement, IParent> MeshesParent 
         { 
