@@ -3,6 +3,8 @@ using System.Text;
 using System.Windows.Media.Media3D;
 using System.Xml;
 using System.Drawing;
+using ErrorHandler;
+using System.Windows.Media.Animation;
 
 namespace Wpf.Loader
 {
@@ -303,6 +305,7 @@ namespace Wpf.Loader
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(s);
             XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
+            var del = new List<XmlElement>();
             foreach (XmlElement e in nl)
             {
                 string iso = e.GetAttribute("ImageSource");
@@ -313,6 +316,7 @@ namespace Wpf.Loader
                         var isi = service.FindEnd(iso, textures.Keys);
                         if (isi == null)
                         {
+                            del.Add(e);
                             continue;
                         }
                         iso = isi;
@@ -369,6 +373,11 @@ namespace Wpf.Loader
                     }
                 }
             }
+            foreach (var e in del)
+            {
+                var p = e.ParentNode as XmlElement;
+                p.RemoveChild(e);
+            }
             var l = new List<string>(textures.Keys);
             foreach (string key in l)
             {
@@ -377,7 +386,20 @@ namespace Wpf.Loader
                     textures.Remove(key);
                 }
             }
-
+            del.Clear();
+            foreach (XmlElement n in doc.GetElementsByTagName("ImageBrush"))
+            {
+                var so = n.GetAttribute("ImageSource");
+                if (!File.Exists(so))
+                {
+                    del.Add(n.ParentNode as XmlElement);
+                }
+            }
+            foreach (var d in del)
+            {
+                XmlElement ec = d.ParentNode as XmlElement;
+                ec.RemoveChild(d);
+            }
             var ret = doc.OuterXml;
             ret = ret.Replace("Name=\"", "x:Name=\"");
             ret = ret.Replace("Key=\"", "x:Key=\"");
@@ -453,7 +475,17 @@ namespace Wpf.Loader
                 bp = null;
                 Visual3D v3d;
                 string s = ProcessXaml(xaml);
-                object ob = System.Windows.Markup.XamlReader.Parse(s);
+                var doc = new XmlDocument();
+                doc.LoadXml(s);
+                object ob = null;
+                try
+                {
+                  ob = System.Windows.Markup.XamlReader.Parse(s);
+                }
+                catch (Exception ex)
+                {
+                    ex.ShowError();
+                }
                 ModelVisual3D model = null;
                 if (ob is Visual3D)
                 {

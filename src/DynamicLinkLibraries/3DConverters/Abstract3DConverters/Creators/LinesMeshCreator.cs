@@ -1,4 +1,6 @@
 ﻿
+using ErrorHandler;
+
 namespace Abstract3DConverters.Creators
 {
     public abstract class LinesMeshCreator : StreamMeshCrearor
@@ -9,7 +11,14 @@ namespace Abstract3DConverters.Creators
 
         protected LinesMeshCreator(string filename, byte[] bytes) : base(filename, bytes)
         {
-            CreateAll();
+            try
+            {
+                CreateAll();
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
         }
 
         public override void Load(byte[] bytes)

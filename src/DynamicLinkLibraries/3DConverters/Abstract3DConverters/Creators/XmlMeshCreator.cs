@@ -27,20 +27,13 @@ namespace Abstract3DConverters.Creators
             private set;
         }
 
-        protected XmlMeshCreator(string filename, XmlDocument doc)
+        protected XmlMeshCreator(string filename, XmlDocument doc) : base(filename)
         {
             this.doc = doc;
             directory = filename.GetDirectory();
         }
 
-        protected XmlMeshCreator(string str)
-        {
-            String = str;
-            doc = new XmlDocument();
-            doc.LoadXml(str);
-        }
-
-        protected XmlMeshCreator(string filename, byte[] bytes)
+        protected XmlMeshCreator(string filename, byte[] bytes) : base(filename)
         {
             directory = filename.GetDirectory();
             Load(bytes);

@@ -28,5 +28,10 @@ namespace Abstract3DConverters.Interfaces
         /// Effects
         /// </summary>
         Dictionary<string, Effect> Effects { get; }
+
+        /// <summary>
+        /// Name of file
+        /// </summary>
+        string Filename { get; }
     }
 }

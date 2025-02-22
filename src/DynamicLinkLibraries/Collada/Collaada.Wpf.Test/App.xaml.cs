@@ -4,7 +4,7 @@ using System.Windows;
 
 using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Materials;
+
 using ErrorHandler;
 
 namespace Collaada.Wpf.Test
@@ -31,18 +31,33 @@ namespace Collaada.Wpf.Test
             //    Load();
             StaticExtensionAbstract3DConverters.UseDirectory = true;
             StaticExtensionAbstract3DConverters.Init();
+            StaticExtensionAbstract3DConverters.FileTypes = new Dictionary<string, Tuple<string[], string>>()
+            {
+            { "AC3D file format", new Tuple<string[], string>([".ac", "ac3d"], null) },
+           { "Obj file format",  new  Tuple<string[], string>([ ".obj" ], null)},
+             { "Collada 1.5 file format", new Tuple<string[], string>( [ ".dae" ], "1.5.0")},
+             { "Collada 1.4 file format", new Tuple<string[], string>([ ".dae" ], "1.4.1")},
+               { "WPF XAML file format", new Tuple<string[], string>([ ".xaml" ], null)}
+        };
+
             // Compare();
             //  Generate();
-            //   GenerateObj();
-       //      GenerateToAc();
-         //    GenerateAC();
+              GenerateObj();
+            //      GenerateToAc();
+            //    GenerateAC();
             //     GenerateCollada();
-      //      GenerateToDae();
+            //      GenerateToDae();
            GenerateXaml();
        //     GenerateWPF();
          //   GenerateWpf();
 
             //   GenerateNative();
+        }
+
+        void GenerateFormat(string format, string filename)
+        {
+            var p = new Performer();
+            p.CreateAndSaveByUniqueName(filename, format);
         }
 
  
@@ -86,8 +101,8 @@ namespace Collaada.Wpf.Test
 
         void GenerateXaml()
         {
-                 GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\New folder\dauphin.dae");
 
+              GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.obj");
             // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
             //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.dae");
 
@@ -101,7 +116,7 @@ namespace Collaada.Wpf.Test
 
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin2l03rkr0.nkf1.5.0.dae");
             //   GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.dae");
-    //        GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.obj");
+            //        GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-16C Fighting Falcon.obj");
             //            //  GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\Collada\1.dae");
 
             // GenerateWpf(@"c:\AUsers\1MySoft\CSharp\03D\XAML\SU\Sukhoi PAK FA.dae");
@@ -228,19 +243,19 @@ namespace Collaada.Wpf.Test
             return;
         }
 
-        void Generate(string filename, string ext)
+        void Generate(string ext, string filename)
         {
-            var fnt = Path.GetFileNameWithoutExtension(filename);
+ /*           var fnt = Path.GetFileNameWithoutExtension(filename);
             var dir = Path.GetDirectoryName(filename);
             var file = Path.Combine(dir, fnt + ext);
             if (File.Exists(file))
             {
                 file = Path.Combine(dir, fnt + Path.GetRandomFileName() + ext);
-            }
-            var p = new Performer();
-            try
+            }*/
+             try
             {
-                p.CreateAndSave(filename, file);
+                var p = new Performer();
+                p.CreateAndSaveByUniqueName(filename, ext);
             }
             catch (Exception ex)
             {
@@ -361,7 +376,7 @@ namespace Collaada.Wpf.Test
           //  GenerateObj("Tornado");
            //      GenerateObj("F15");
           //      GenerateObj("Mig29");
-            GenerateObj("Sukhoi");
+            GenerateObj(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
             //    GenerateObj("F16");
             //  GenerateObj("H6");
 
@@ -369,8 +384,7 @@ namespace Collaada.Wpf.Test
 
         void GenerateObj(string obj)
         {
-            //var fn = models[obj].ConvertExtension(".obj");
-          //  GenerateWpf(fn);
+            Generate("Obj file format", obj);
             return;
 
             /*      var converter = new Obj3DConverter();

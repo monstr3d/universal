@@ -1,6 +1,5 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
-using ErrorHandler;
 
 namespace Abstract3DConverters
 {
@@ -9,7 +8,9 @@ namespace Abstract3DConverters
     /// </summary>
     public class Performer
     {
-
+        /// <summary>
+        /// Service
+        /// </summary>
         Service s = new ();
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace Abstract3DConverters
             var res = p.Create<T>(creator, converter, act);
             return res;
         }
+
         /// <summary>
         /// Creates string
         /// </summary>
@@ -66,7 +68,6 @@ namespace Abstract3DConverters
             var r = sr.ToString(res);
             return r;
         }
-
 
         /// <summary>
         /// Creates a peer of mesh
@@ -127,7 +128,6 @@ namespace Abstract3DConverters
             return converter.Combine(enu) as T;
         }
 
-
         /// <summary>
         /// Creates peer object
         /// </summary>
@@ -138,39 +138,23 @@ namespace Abstract3DConverters
         /// <returns>The peer object</returns>
         public T Create<T>(IMeshCreator creator, IMeshConverter converter, string converterDirectory, Action<T> action = null) where T : class
         {
-            try
+            var cd = converterDirectory;
+            if (cd == null)
             {
-                var cd = converterDirectory;
-                if (cd == null)
-                {
-                    cd = creator.Directory;
-                }
-                converter.Directory = cd;
-                if (cd != creator.Directory)
-                {
-                    s.CopyImages(creator, creator.Directory, cd);
-                    if (creator is IAdditionalInformation add)
-                    {
-                        foreach (var dd in add.Information)
-                        {
-                            using var stream = File.OpenWrite(Path.Combine(cd, dd.Key));
-                            stream.Write(dd.Value);
-                        }
-                    }
-                }
-                var materialCreator = converter.MaterialCreator;
-                converter.Effects = creator.Effects;
-                var res = Combine<T>(creator.Meshes, converter);
-                action?.Invoke(res);
-                return res;
+                cd = creator.Directory;
             }
-            catch (Exception ex)
+            converter.Directory = cd;
+            if (cd != creator.Directory)
             {
-                ex.ShowError();
+                s.CopyImages(creator, creator.Directory, cd);
             }
-            return null; 
+            var materialCreator = converter.MaterialCreator;
+            converter.Filename = creator.Filename;
+            converter.Effects = creator.Effects;
+            var res = Combine<T>(creator.Meshes, converter);
+            action?.Invoke(res);
+            return res;
         }
-
 
         /// <summary>
         /// Creates peer object
@@ -246,6 +230,15 @@ namespace Abstract3DConverters
             byte[] bytes = new byte[stream.Length];
             stream.Read(bytes);
             CreateAndSave(fileinput, bytes, converter, converterDirectory, outs, act);
+            if (converter is IAdditionalInformation add)
+            {
+                foreach (var dd in add.Information)
+                {
+                    using var addStream = File.OpenWrite(Path.Combine(converterDirectory, dd.Key));
+                    addStream.Write(dd.Value);
+                }
+            }
+
         }
 
         /// <summary>
@@ -284,26 +277,30 @@ namespace Abstract3DConverters
         /// <param name="outExt">Output unique</param>
         /// <param name="converterDirectory">CrateDirectory</param>
         /// <param name="act">Action</param>
-        public string CreateAndSaveByUniqueName(string fileinput, string outExt, string converterDirectory, Action<object> act = null)
+        public string CreateAndSaveByUniqueName(string fileinput, string outExt, string converterDirectory = null, Action<object> act = null)
         {
             var t = StaticExtensionAbstract3DConverters.FileTypes[outExt];
+            var cd = converterDirectory;
+            if (cd == null)
+            {
+                cd = Path.GetDirectoryName(fileinput);
+            }
             var ext = t.Item1[0];
             var comment = t.Item2;
             var dir = Path.GetDirectoryName(fileinput);
             var fn = Path.GetFileNameWithoutExtension(fileinput);
             var file = fn + t.Item1[0];
-            var filename = Path.Combine(converterDirectory, file);
+            var filename = Path.Combine(cd, file);
             if (File.Exists(filename))
             {
                 file = fn + Path.GetRandomFileName() + ext;
                 filename = Path.Combine(dir, file);
             }
-            CreateAndSave(fileinput, filename, comment, converterDirectory);
+            CreateAndSave(fileinput, filename, comment, cd);
             return filename;
         }
 
-
-
         #endregion
+
     }
 }

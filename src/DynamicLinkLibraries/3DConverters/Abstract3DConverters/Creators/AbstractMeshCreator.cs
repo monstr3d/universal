@@ -9,8 +9,6 @@ namespace Abstract3DConverters.Creators
 
         protected string directory;
 
-        protected string filename;
-
         protected string ext;
 
         protected Service s = new Service();
@@ -20,16 +18,22 @@ namespace Abstract3DConverters.Creators
 
     
 
-
-        protected AbstractMeshCreator()
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="filename">File name</param>
+        protected AbstractMeshCreator(string filename)
         {
+            Filename = filename;
             creator = this;
         }
 
         //string IMeshCreator.Extension => ext;
 
         string IMeshCreator.Directory => directory;
-       
+
+
+
 
         public abstract void Load(byte[] bytes);
 
@@ -37,6 +41,9 @@ namespace Abstract3DConverters.Creators
         IEnumerable<AbstractMesh> IMeshCreator.Meshes => Meshes;
 
         Dictionary<string, Effect> IMeshCreator.Effects => Effects;
+
+        string IMeshCreator.Filename => Filename;
+
 
         protected abstract IEnumerable<AbstractMesh> Meshes { get;  }
 
@@ -59,8 +66,13 @@ namespace Abstract3DConverters.Creators
         } = new();
 
 
+        protected virtual string Filename
+        {
+            get;
+            set;
+        }
 
-
+  
         protected virtual void Perform(AbstractMesh mesh, Action<AbstractMesh> action)
         {
             var children = mesh.Children;

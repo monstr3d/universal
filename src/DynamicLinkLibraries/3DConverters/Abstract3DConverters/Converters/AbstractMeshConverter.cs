@@ -61,9 +61,18 @@ namespace Abstract3DConverters.Converters
             SetTransformation(mesh, transformation);
         }
 
+        string IMeshConverter.Filename { set => Filename = value; }
+
+
         #endregion
 
         #region Protected
+
+        protected virtual string Filename
+        {
+            get;
+            set;
+        }
         protected virtual Dictionary<string, Material> Materials
         {
             get;

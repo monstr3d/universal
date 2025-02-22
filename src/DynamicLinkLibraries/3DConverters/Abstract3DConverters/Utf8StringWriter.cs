@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abstract3DConverters
 {
-    public  class StringWriterWithEncoding : StringWriter
+ /*   public  class StringWriterWithEncoding : StringWriter
     {
         private readonly Encoding encoding;
 
@@ -32,5 +32,5 @@ namespace Abstract3DConverters
         }
     }
 
-
+    */
 }

@@ -63,5 +63,12 @@ namespace Abstract3DConverters.Interfaces
         /// <param name="mesh">The mesh</param>
         /// <param name="transformation">The transformation matrix</param>
         void SetTransformation(object mesh, float[] transformation);
+
+        /// <summary>
+        /// Name of file
+        /// </summary>
+        string Filename { set; }
+
+
     }
 }

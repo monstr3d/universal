@@ -1,5 +1,4 @@
-﻿
-using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
@@ -41,50 +40,7 @@ namespace Abstract3DConverters.Converters
             return lines;
         }
 
-        protected override List<string> Create(AbstractMesh mesh)
-        {
-            /*if (mesh is AbstractMeshPolygon meshPolygon)
-            {
-                return Get(meshPolygon);
-            }
-            return null;*/
-            return Get(mesh);
-        }
-
-  
-
-        protected override  Dictionary<string, Effect> Effects
-        {
-            set
-            {
-                base.Effects = value;
-                lines.Add("AC3Db");
-                var i = 0;
-                foreach (var item in materials)
-                {
-                    dm[item.Key] = i;
-                    ++i;
-                    var st = s.Shrink(GetMaterial(item.Value));
-                    lines.Add(st);
-                }
-            }
-
-        }
-
-        #endregion
-
-        #region Members
-
-        private void AddName(AbstractMesh mesh, List<string> list)
-        {
-            var n = mesh.Name;
-            var nn = "name" + s.Wrap(n);
-            lines.Add(nn);
-            lines.Add("data " + n.Length);
-            lines.Add(n);
-        }
-
-        List<string> Get(AbstractMesh mesh)
+        protected override List<string> CreateLines(AbstractMesh mesh)
         {
             var l = new List<string>();
             var children = mesh.Children;
@@ -101,7 +57,7 @@ namespace Abstract3DConverters.Converters
                 return l;
 
             }
-                l.Add("OBJECT poly");
+            l.Add("OBJECT poly");
             AddName(mesh, l);
             var image = mesh.Effect.Image;
             l.Add("texture " + image.Name);
@@ -122,13 +78,45 @@ namespace Abstract3DConverters.Converters
                 {
                     l.Add(point.Index + " " + s.StringValue(point.Texture));
                 }
-                
+
             }
             l.Add("kids 0");
             return l;
 
         }
 
+        protected override  Dictionary<string, Effect> Effects
+        {
+            set
+            {
+                base.Effects = value;
+                lines.Add("AC3Db");
+                var i = 0;
+                foreach (var item in value)
+                {
+                    dm[item.Key] = i;
+                    ++i;
+                    var st = s.Shrink(GetMaterial(item.Value.Material));
+                    lines.Add(st);
+                }
+            }
+
+        }
+
+        #endregion
+
+        #region Members
+
+        private void AddName(AbstractMesh mesh, List<string> list)
+        {
+            var n = mesh.Name;
+            var nn = "name" + s.Wrap(n);
+            lines.Add(nn);
+            lines.Add("data " + n.Length);
+            lines.Add(n);
+        }
+
+    
         protected override void Add(List<string> parent, List<string> child)
         {
 

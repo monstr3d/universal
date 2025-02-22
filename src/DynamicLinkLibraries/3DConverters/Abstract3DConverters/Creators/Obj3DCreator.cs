@@ -8,6 +8,8 @@ namespace Abstract3DConverters.Creators
     [Attributes.Extension([".obj"])]
     public class Obj3DCreator : LinesMeshCreator, IAdditionalInformation
     {
+        #region Fields
+
         List<AbstractMesh> models = new();
 
         private string mtlfile;
@@ -18,10 +20,19 @@ namespace Abstract3DConverters.Creators
 
         internal int n = 0;
 
+        #endregion
+
+        #region Ctor
+
+        public Obj3DCreator(string filename, byte[] bytes) : base(filename, bytes)
+        {
+
+        }
+
+
+        #endregion
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
-
-
         internal List<float[]> Vertices { get; private set; } = new List<float[]>();
         internal List<float[]> Normals  { get; private set; } = new List<float[]>();
         internal List<float[]> Textures { get; private set; } = new List<float[]>();
@@ -84,9 +95,8 @@ namespace Abstract3DConverters.Creators
                 if (line.StartsWith("usemtl "))
                 {
                     var mat = line.Substring("usemtl ".Length);
-                     var effect = Effects[mat];
+                    var effect = Effects[mat];
                     EffectList.Add(effect);
-
                     continue;
                 }
                 if (line.IndexOf("f ") == 0)
@@ -119,13 +129,7 @@ namespace Abstract3DConverters.Creators
             }
         }
 
-        //      internal Dictionary<int, Tuple<List<float[]>, List<float[]>, List<float[]>>> All = new();
 
-
-        public Obj3DCreator(string filename, byte[] bytes) : base(filename, bytes)
-        {
-
-        }
 
         Dictionary<string, byte[]> CreateAdd()
         {
@@ -282,6 +286,10 @@ namespace Abstract3DConverters.Creators
                 do
                 {
                     var line = reader.ReadLine();
+                    if (line == null)
+                    {
+                        break;
+                    }
                     if (line.Length == 0)
                     {
                         continue;
@@ -291,10 +299,6 @@ namespace Abstract3DConverters.Creators
                     {
                         var ss = line.Split(" ".ToCharArray());
                         newName = ss[ss.Length - 1];
-                        break;
-                    }
-                    if (reader.EndOfStream)
-                    {
                         break;
                     }
                 }
@@ -334,7 +338,7 @@ namespace Abstract3DConverters.Creators
                     var t = s.Trim();
                     int n = t.IndexOf(" ");
                     var name = t.Substring(0, n);
-                    var value = t.Substring(n);
+                    var value = t.Substring(n + 1);
                     switch (name)
                     {
                         /// The ambient color of the material is declared using Ka. Color definitions are in RGB where each channel's 
@@ -369,11 +373,11 @@ namespace Abstract3DConverters.Creators
                             Ns = ToFloat(value);
                             break;
                         case "Ni":
-                            // # optical density                    Values can range from 0.001 to 10
+                            // # optical density Values can range from 0.001 to 10
                             Ni = ToFloat(value);
                             break;
                         case "d":
-                            // some implementations use 'd'        d 0.9 # others use 'Tr' (inverted: Tr = 1 - d) Tr 0.1
+                            // some implementations use 'd' d 0.9 # others use 'Tr' (inverted: Tr = 1 - d) Tr 0.1
                             d = ToFloat(value);
                             break;
                         case "Tr":

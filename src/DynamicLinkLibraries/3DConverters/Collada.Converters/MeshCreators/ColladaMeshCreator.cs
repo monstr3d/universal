@@ -195,7 +195,7 @@ namespace Collada.Converters.MeshCreators
         }
 
         #region ICollada Members
-        string ICollada.Filename { get => filename; set { } }
+        string ICollada.Filename { get => Filename; set { } }
 
         void ICollada.Clear()
         {
@@ -330,7 +330,7 @@ namespace Collada.Converters.MeshCreators
 
         Func<XmlElement, object> IFunction.this[XmlElement xmlElement] => Get(xmlElement);
 
-        string IFunction.Filename { get => filename; set { } }
+        string IFunction.Filename { get => Filename; set { } }
 
         void IFunction.Clear()
         {

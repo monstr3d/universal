@@ -1,7 +1,6 @@
 ﻿using System.Text;
 
 using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
@@ -25,6 +24,7 @@ namespace Abstract3DConverters.Converters
 
         protected LinesMeshConverter(IMaterialCreator materialCreator) : base(materialCreator)
         {
+
         }
 
 
@@ -46,12 +46,6 @@ namespace Abstract3DConverters.Converters
             }
             return lines;
         }
-
-        #endregion
-
-        #region IMeshConverter Members
-
-
 
         #endregion
 
@@ -91,9 +85,12 @@ namespace Abstract3DConverters.Converters
 
         #region Abstract and virtual membres
 
-        protected abstract void Set(Dictionary<string, Image> images);
+        protected override object Create(AbstractMesh mesh)
+        {
+            return CreateLines(mesh);
+        }
 
-        
+
 
         protected virtual void Add(List<string> parent, List<string> child)
         {
@@ -102,10 +99,10 @@ namespace Abstract3DConverters.Converters
             m.AddRange(c);
         }
 
+        protected abstract List<string> CreateLines(AbstractMesh mesh);
 
 
-   
- 
+
         #endregion
     }
 }

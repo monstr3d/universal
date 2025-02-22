@@ -39,15 +39,12 @@ namespace Abstract3DConverters
 
         static List<IMeshConverterFactory> meshConverterFactories = new();
 
-        static public readonly Dictionary<string, Tuple<string[], string>> FileTypes = new Dictionary<string, Tuple<string[], string>>()
-            {
-            { "AC3D file format", new Tuple<string[], string>([".ac", "ac3d"], null) },
-           { "Obj file format",  new  Tuple<string[], string>([ ".obj" ], null)},
-             { "Collada 1.5 file format", new Tuple<string[], string>( [ ".dae" ], "1.5.0")},
-             { "Collada 1.4 file format", new Tuple<string[], string>([ ".dae" ], "1.4.1")},
-               { "WPF XAML file format", new Tuple<string[], string>([ ".xaml" ], null)}
-        };
-    
+        static public  Dictionary<string, Tuple<string[], string>> FileTypes
+        {
+            get;
+            set;
+        }
+
 
         static bool useDirectory = false;
         static public bool UseDirectory
@@ -55,6 +52,28 @@ namespace Abstract3DConverters
             get => useDirectory;
             set => useDirectory = value;
         } 
+
+        /// <summary>
+        /// Gets image file
+        /// </summary>
+        /// <param name="image">The image</param>
+        /// <returns>The file</returns>
+        public static string GetImageFile(this Image image)
+        {
+            if (image == null)
+            {
+                
+            }
+            if (UseDirectory)
+            {
+                var fullPath = image.FullPath;
+                if (fullPath != null)
+                {
+                   return fullPath;
+                }
+            }
+            return image.Name;
+        }
         static public string GetDirectory(this string filename)
         {
             return UseDirectory ? Path.GetDirectoryName(filename) : null;

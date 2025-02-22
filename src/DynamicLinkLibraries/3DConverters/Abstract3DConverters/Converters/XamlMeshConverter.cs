@@ -126,7 +126,7 @@ namespace Abstract3DConverters.Converters
             }
             if (ln.Count > 0)
             {
-                v.SetAttribute("Normals", s.Parse(ln));
+               // v.SetAttribute("Normals", s.Parse(ln));
             }
             var sb = new StringBuilder();
             foreach (var pl in mesh.Polygons)
@@ -235,11 +235,6 @@ namespace Abstract3DConverters.Converters
             }
         }
 
-     
-
-        public static bool UseDirectory
-        { get; set; }
-
 
     }
 
@@ -317,7 +312,7 @@ namespace Abstract3DConverters.Converters
                     d.AppendChild(br);
                     var ibr = Create("ImageBrush");
                     br.AppendChild(ibr);
-                    var st = XamlMeshConverter.UseDirectory ? im.FullPath : im.Name;
+                    var st = StaticExtensionAbstract3DConverters.UseDirectory ? im.FullPath : im.Name;
                     ibr.SetAttribute("ImageSource", st);
                     ibr.SetAttribute("ViewportUnits", "Absolute");
                     ibr.SetAttribute("Opacity", diffuse.Opacity + "");

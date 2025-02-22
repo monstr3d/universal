@@ -87,5 +87,36 @@ namespace Abstract3DConverters.Materials
             }
             return new Effect(Name, mat, Image.Clone() as Image);
         }
+
+        /// <summary>
+        /// Materias
+        /// </summary>
+        public Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial> Materials
+        {
+            get
+            {
+                DiffuseMaterial d = null;
+                EmissiveMaterial e = null;
+                SpecularMaterial s = null;
+                var m = Material as MaterialGroup;
+                foreach (var material in m.Children)
+                {
+                    switch (material)
+                    {
+                        case DiffuseMaterial dm:
+                            d = dm;
+                            break;
+                        case EmissiveMaterial em:
+                            e = em;
+                            break;
+                        case SpecularMaterial sm:
+                            s = sm;
+                            break;
+                    }
+                }
+                return new Tuple<DiffuseMaterial, EmissiveMaterial, SpecularMaterial>(d, e, s);
+
+            }
+        }
     }
 }

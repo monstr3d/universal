@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Net.Http.Headers;
 
 namespace Abstract3DConverters.Points
 {
@@ -22,12 +22,11 @@ namespace Abstract3DConverters.Points
             Index = index;
             Normal = normal;
         }
+       
 
         #endregion
 
         #region Properties
-
-
 
         /// <summary>
         /// Vertex
@@ -47,8 +46,9 @@ namespace Abstract3DConverters.Points
             protected set;
         }
 
+
         /// <summary>
-        /// Normal index
+        /// Normal
         /// </summary>
         public float[] Normal
         {

@@ -49,10 +49,6 @@ namespace Abstract3DConverters.Meshes
         protected List<Polygon> absolutePolygons;
 
         Func<List<Polygon>> GetAbsolutePolygons;
-
-
-
-
         
 
         #endregion
@@ -81,8 +77,6 @@ namespace Abstract3DConverters.Meshes
             this.creator = creator;
             Name = name;
         }
-
-
 
         /// <summary>
         /// Constructor
@@ -170,6 +164,21 @@ namespace Abstract3DConverters.Meshes
         #region Properties
 
         /// <summary>
+        /// The "has polygons" sign
+        /// </summary>
+        public bool HasPolygons
+        {
+            get
+            {
+                if (Polygons != null)
+                {
+                    return Polygons.Count > 0;
+                }
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Transformation matrix
         /// </summary>
         public float[] TransformationMatrix
@@ -221,6 +230,18 @@ namespace Abstract3DConverters.Meshes
         /// Vertices
         /// </summary>
         public List<float[]> Vertices { get; protected set; }
+
+        /// <summary>
+        /// Absolute Verices
+        /// </summary>
+        public List<float[]> AbsoluteVertices { get; protected set; }
+
+
+        /// <summary>
+        /// Absolute Normals
+        /// </summary>
+        public List<float[]> AbsoluteNormals { get; protected set; }
+
 
         /// <summary>
         /// Normals
@@ -408,11 +429,22 @@ namespace Abstract3DConverters.Meshes
             {
                 if (Points.Count > 0)
                 {
+                    if (AbsoluteVertices == null)
+                    {
+                        AbsoluteVertices = new();
+                    }
+                    if (AbsoluteNormals == null)
+                    {
+                        AbsoluteNormals = new();
+                    }
                     var m = AbsoluteMatrix;
                     absolutePoints = new();
                     foreach (var p in Points)
                     {
-                        absolutePoints.Add(s.Product(m, p));
+                        var abs = s.Product(m, p);
+                        absolutePoints.Add(abs);
+                        AbsoluteVertices.Add(abs.Vertex);
+                        AbsoluteNormals.Add(abs.Normal);
                     }    
                 }
             }

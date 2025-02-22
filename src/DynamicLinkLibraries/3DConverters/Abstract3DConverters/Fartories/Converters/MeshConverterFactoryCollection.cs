@@ -2,7 +2,7 @@
 
 namespace Abstract3DConverters.Fartories.Converters
 {
-    internal class MeshConverterFactoryCollection : IMeshConverterFactory
+    public class MeshConverterFactoryCollection : IMeshConverterFactory
     {
         IMeshConverter IMeshConverterFactory.this[string extension, string comment] => Get(extension, comment);
 

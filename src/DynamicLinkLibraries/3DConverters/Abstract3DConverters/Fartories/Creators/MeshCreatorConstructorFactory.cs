@@ -1,5 +1,6 @@
-﻿using Abstract3DConverters.Interfaces;
-using System.Reflection;
+﻿using System.Reflection;
+
+using Abstract3DConverters.Interfaces;
 
 namespace Abstract3DConverters.Fartories.Creators
 {
@@ -23,7 +24,6 @@ namespace Abstract3DConverters.Fartories.Creators
         {
             get
             {
-
                 var ext = Path.GetExtension(filename);
                 if (!dictionary.ContainsKey(ext))
                 {

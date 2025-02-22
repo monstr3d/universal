@@ -10,14 +10,13 @@ namespace Abstract3DConverters.Creators
     public abstract class StreamMeshCrearor : AbstractMeshCreator
     {
 
-        protected StreamMeshCrearor(string filename,  byte[] bytes)
+        protected StreamMeshCrearor(string filename,  byte[] bytes) : base(filename)
         {
             if (StaticExtensionAbstract3DConverters.UseDirectory)
             {
                 if (File.Exists(filename))
                 {
                     directory = Path.GetDirectoryName(filename);
-                    this.filename = filename;
                 }
             }
             ext = Path.GetExtension(filename);
