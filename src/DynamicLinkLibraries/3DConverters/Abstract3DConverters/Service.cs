@@ -35,6 +35,11 @@ namespace Abstract3DConverters
         /// <param name="target">Target directory</param>
         public void CopyImage(Image image, string source, string target)
         {
+            var f = image.GetImageFile();
+            if (!File.Exists(f))
+            {
+                return;
+            }
             var name = image.Name;
             var file = Path.Combine(source, name);
             var fout = Path.Combine(target, name);
@@ -187,9 +192,10 @@ namespace Abstract3DConverters
             var v = point.Vertex;
             for (var i = 0; i < 3; i++)
             {
+                vert[i] += a[3, i];
                 for (var j = 0; j < 3; j++)
                 {
-                    vert[i] += a[i, j] * v[j] + a[3, j];
+                    vert[i] += a[i, j] * v[j];
 
                 }
             }
@@ -517,10 +523,18 @@ namespace Abstract3DConverters
         /// <returns>Splitting result</returns>
         public string[] Split(string str)
         {
-            return str.Split(sep);
+            var ss = str.Split(sep);
+            var l = new List<string>();
+              foreach (var s in ss)
+            {
+                if (s.Length > 0)
+                {
+                    l.Add(s);
+                }
+            }
+            return l.ToArray();
         }
 
- //!!!
   
         public List<T[]> ToArray<T>(List<T> x, int n) where T : class
         {

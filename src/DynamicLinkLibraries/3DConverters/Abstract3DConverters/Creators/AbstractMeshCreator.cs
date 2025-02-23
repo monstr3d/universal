@@ -25,14 +25,13 @@ namespace Abstract3DConverters.Creators
         protected AbstractMeshCreator(string filename)
         {
             Filename = filename;
+            directory = filename.GetDirectory();
             creator = this;
         }
 
         //string IMeshCreator.Extension => ext;
 
         string IMeshCreator.Directory => directory;
-
-
 
 
         public abstract void Load(byte[] bytes);

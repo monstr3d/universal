@@ -12,6 +12,8 @@ namespace Abstract3DConverters
 {
     public static class StaticExtensionAbstract3DConverters
     {
+        #region Fields
+
         static MeshCreatorFactoryCollection meshCreators;
 
         static MeshConverterFactoryCollection meshConverters;
@@ -19,8 +21,6 @@ namespace Abstract3DConverters
         static IMeshCreatorFactory meshCreatorFactory;
 
         static IMeshConverterFactory meshConverterFactory;
-
-
 
         public static IPolygonSplitterFactory PolygonSplitterFactory { get; set; }
 
@@ -32,54 +32,16 @@ namespace Abstract3DConverters
 
         static Dictionary<string, Dictionary<string, ConstructorInfo>>  conveters = new();
 
-        
-
-
         static List<IMeshCreatorFactory> meshCreatorFactories = new();
 
         static List<IMeshConverterFactory> meshConverterFactories = new();
 
-        static public  Dictionary<string, Tuple<string[], string>> FileTypes
-        {
-            get;
-            set;
-        }
-
-
         static bool useDirectory = false;
-        static public bool UseDirectory
-        {
-            get => useDirectory;
-            set => useDirectory = value;
-        } 
-
-        /// <summary>
-        /// Gets image file
-        /// </summary>
-        /// <param name="image">The image</param>
-        /// <returns>The file</returns>
-        public static string GetImageFile(this Image image)
-        {
-            if (image == null)
-            {
-                
-            }
-            if (UseDirectory)
-            {
-                var fullPath = image.FullPath;
-                if (fullPath != null)
-                {
-                   return fullPath;
-                }
-            }
-            return image.Name;
-        }
-        static public string GetDirectory(this string filename)
-        {
-            return UseDirectory ? Path.GetDirectoryName(filename) : null;
-        }
 
 
+        #endregion
+
+        #region Ctor
         static StaticExtensionAbstract3DConverters()
         {
             meshCreators = new MeshCreatorFactoryCollection();
@@ -115,8 +77,112 @@ namespace Abstract3DConverters
             {
                 f.Add();
             }
-  
+
         }
+
+
+
+        #endregion
+
+        public static void TestDirectory(this string directory)
+        {
+            var l = new List<string>();
+            var ldir = new List<string>();
+            foreach(var t in FileTypes.Values)
+            {
+                foreach (var s in t.Item1)
+                {
+                    if (!l.Contains(s))
+                    {
+                        l.Add(s);
+                    }
+                }
+            }
+            TestDirectoryPrivate(directory, l, ldir);
+        }
+
+
+        static void TestDirectoryPrivate(string directory, List<string> ext, List<string> ld)
+        {
+            var drs = Directory.GetDirectories(directory);
+            foreach (var d in drs)
+            {
+                TestDirectoryPrivate(d, ext, ld);
+            }
+            var directoryInfo = new DirectoryInfo(directory);
+            var files = directoryInfo.GetFiles();
+            foreach (var file in files)
+            {
+                var e = file.Extension;
+                if (!ext.Contains(e))
+                {
+                    continue;
+                }
+                var filename = file.FullName;
+                ("File input: " + filename).ShowMessage();
+                foreach (var t in FileTypes)
+                {
+                    foreach (var s in t.Value.Item1)
+                    {
+                        if (s == e)
+                        {
+                            continue;
+                        }
+                        var d = Path.Combine(directory, s);
+                        var dirout = new DirectoryInfo(d);
+                        if (!dirout.Exists)
+                        {
+                            dirout.Create();
+                        }
+                        var p = new Performer();
+                        ("File output: " + Path.Combine(d, Path.GetFileNameWithoutExtension(filename)) + s).ShowMessage();
+                        p.CreateAndSaveByUniqueName(filename, t.Key, d);
+                    }
+                }
+            }
+        }
+
+        static public  Dictionary<string, Tuple<string[], string>> FileTypes
+        {
+            get;
+            set;
+        }
+
+
+        static public bool UseDirectory
+        {
+            get => useDirectory;
+            set => useDirectory = value;
+        } 
+
+        /// <summary>
+        /// Gets image file
+        /// </summary>
+        /// <param name="image">The image</param>
+        /// <returns>The file</returns>
+        public static string GetImageFile(this Image image)
+        {
+            if (image == null)
+            {
+                
+            }
+            if (UseDirectory)
+            {
+                var fullPath = image.FullPath;
+                if (fullPath != null)
+                {
+                   return fullPath;
+                }
+            }
+            return image.Name;
+        }
+
+
+        static public string GetDirectory(this string filename)
+        {
+            return UseDirectory ? Path.GetDirectoryName(filename) : null;
+        }
+
 
         public static void Init()
         {

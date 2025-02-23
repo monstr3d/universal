@@ -2,19 +2,21 @@
 using System.Windows.Forms;
 using System.IO;
 
-using CutoutPro.Winforms;
+using Diagram.UI;
 
 
 using Motion6D.Interfaces;
 
+using WpfInterface.UI.Labels;
+using WpfInterface.UI.Forms;
 using WpfInterface.Objects3D;
 
 using Wpf.Loader;
 
 using ErrorHandler;
-using Diagram.UI;
-using WpfInterface.UI.Labels;
-using WpfInterface.UI.Forms;
+
+using CutoutPro.Winforms;
+
 
 namespace WpfInterface.UI.UserControls
 {
@@ -125,6 +127,7 @@ namespace WpfInterface.UI.UserControls
         {
             try
             {
+                openFileDialogFigure.Set();
                 if (openFileDialogFigure.ShowDialog(this) != DialogResult.OK)
                 {
                     return;

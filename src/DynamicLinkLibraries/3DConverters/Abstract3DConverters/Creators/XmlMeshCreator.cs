@@ -30,12 +30,10 @@ namespace Abstract3DConverters.Creators
         protected XmlMeshCreator(string filename, XmlDocument doc) : base(filename)
         {
             this.doc = doc;
-            directory = filename.GetDirectory();
         }
 
         protected XmlMeshCreator(string filename, byte[] bytes) : base(filename)
         {
-            directory = filename.GetDirectory();
             Load(bytes);
         }
 

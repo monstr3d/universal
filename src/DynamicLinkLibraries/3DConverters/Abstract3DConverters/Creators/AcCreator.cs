@@ -155,18 +155,25 @@ namespace Abstract3DConverters.Creators
                 if (st1 != null)
                 {
                     var k = s.ToReal<int>(st1);
-                    mt = MaterialsPP[k];
-                    var mat = mt;
-                    var name = mat.Name;
-                    Effect effect = null;
-                    if (image != null)
+                    if (k < 0)
                     {
-                        name += "-" + image.Name;
-                        effect = new Effect(this, name, mat, image);
+
                     }
                     else
                     {
-                        effect = new Effect(this, name, mat);
+                        mt = MaterialsPP[k];
+                        var mat = mt;
+                        var name = mat.Name;
+                        Effect effect = null;
+                        if (image != null)
+                        {
+                            name += "-" + image.Name;
+                            effect = new Effect(this, name, mat, image);
+                        }
+                        else
+                        {
+                            effect = new Effect(this, name, mat);
+                        }
                     }
                  }
             }

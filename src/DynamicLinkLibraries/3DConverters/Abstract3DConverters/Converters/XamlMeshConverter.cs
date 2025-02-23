@@ -126,7 +126,7 @@ namespace Abstract3DConverters.Converters
             }
             if (ln.Count > 0)
             {
-               // v.SetAttribute("Normals", s.Parse(ln));
+                v.SetAttribute("Normals", s.Parse(ln));
             }
             var sb = new StringBuilder();
             foreach (var pl in mesh.Polygons)

@@ -119,11 +119,11 @@ namespace Abstract3DConverters.Converters
             l.Add("# object " + mesh.Name);
             l.Add("#");
             l.Add("");
-            var p = mesh.AbsolutePoints;
+            var points = mesh.AbsolutePoints;
             var vertices = mesh.AbsoluteVertices;
-            foreach (var vertex in vertices)
+            foreach (var point in points)
             {
-                l.Add("v  " + s.StringValue(vertex));
+                l.Add("v  " + s.StringValue(point.Vertex));
             }
             l.Add("# " + vertices.Count + " vertices");
             l.Add("");

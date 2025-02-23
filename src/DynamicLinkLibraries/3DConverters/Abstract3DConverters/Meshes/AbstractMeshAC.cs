@@ -160,32 +160,35 @@ namespace Abstract3DConverters.Meshes
                     {
                         i += 2;
                         var mp = s.ToReal<int>(l[i], "mat ");
-                        mt = mp.Value;
-                        var mtt = materials[mt].Clone() as Material;
-                        var mn = mtt.Name;
-                        if (Image != null)
+                        if (mp != null)
                         {
-                            var im = Image.Clone() as Image;
-                            mn += "-" + im.Name;
-                            Effect = new Effect(creator, mn, mtt, im);
-                        }
-                        else
-                        {
-                            Effect = new Effect(creator, mn, mtt);
-                        }
-                        if (!mats.Contains(mn))
-                        {
-                            mats.Add(mn);
-                        }
-                        else
-                        {
+                            mt = mp.Value;
+                            var mtt = materials[mt].Clone() as Material;
+                            var mn = mtt.Name;
+                            if (Image != null)
+                            {
+                                var im = Image.Clone() as Image;
+                                mn += "-" + im.Name;
+                                Effect = new Effect(creator, mn, mtt, im);
+                            }
+                            else
+                            {
+                                Effect = new Effect(creator, mn, mtt);
+                            }
+                            if (!mats.Contains(mn))
+                            {
+                                mats.Add(mn);
+                            }
+                            else
+                            {
 
-                        }
-                        if (mats.Count != 1)
-                        {
+                            }
+                            if (mats.Count != 1)
+                            {
 
+                            }
                         }
-                        ++i;
+                            ++i;
                         var refs = s.ToReal<int>(l[i], "refs ");
                         if (refs != null)
                         {

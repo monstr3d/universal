@@ -11,9 +11,9 @@ namespace Abstract3DConverters.Converters
     {
         #region Fields
 
-        List<string> materials = new();
+       List<string> materials = new();
 
-        Dictionary<string, int> dm = new();
+     //   Dictionary<string, int> dm = new();
 
 
         #endregion
@@ -22,6 +22,7 @@ namespace Abstract3DConverters.Converters
 
         public AcConverter() : base(new ExeptionalMaterialCreator())
         {
+
         }
 
         #endregion
@@ -55,12 +56,23 @@ namespace Abstract3DConverters.Converters
                     l.AddRange(lt);
                 }
                 return l;
+            }
+            if (mesh.Points == null)
+            {
+
+            }
+            var effect = mesh.Effect;
+            if (effect == null)
+            {
 
             }
             l.Add("OBJECT poly");
             AddName(mesh, l);
-            var image = mesh.Effect.Image;
-            l.Add("texture " + image.Name);
+            var image = effect.Image;
+            if (image != null)
+            {
+                l.Add("texture " + image.Name);
+            }
             l.Add("numvert " + mesh.Points.Count);
             foreach (var point in mesh.AbsolutePoints)
             {
@@ -71,7 +83,7 @@ namespace Abstract3DConverters.Converters
             {
                 var mate = polygon.Effect.Name;
                 var i = materials.IndexOf(mate);
-                l.Add("mat" + i);
+                l.Add("mat " + i);
                 i = polygon.Points.Length;
                 l.Add("refs " + i);
                 foreach (var point in polygon.Points)
@@ -94,8 +106,9 @@ namespace Abstract3DConverters.Converters
                 var i = 0;
                 foreach (var item in value)
                 {
-                    dm[item.Key] = i;
-                    ++i;
+                    //  dm[item.Key] = i;;
+                    // ++i;
+                    materials.Add(item.Value.Name);
                     var st = s.Shrink(GetMaterial(item.Value.Material));
                     lines.Add(st);
                 }

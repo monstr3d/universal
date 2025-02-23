@@ -78,29 +78,37 @@ namespace Abstract3DConverters
         /// <returns>The peer of mesh</returns>
         public T Create<T>(AbstractMesh mesh, IMeshConverter meshConverter) where T : class
         {
-            IMaterialCreator materialCreator = meshConverter.MaterialCreator;
-            object o = meshConverter.Create(mesh);
-            if (o == null)
+            try
             {
-                return null;
+                IMaterialCreator materialCreator = meshConverter.MaterialCreator;
+                object o = meshConverter.Create(mesh);
+                if (o == null)
+                {
+                    return null;
+                }
+                var trans = mesh.TransformationMatrix;
+                meshConverter.SetTransformation(o, trans);
+                object mt = mesh.Effect;
+                if (mt == null)
+                {
+                    mt = mesh.GetEffect(materialCreator);
+                }
+                if (mt != null)
+                {
+                    meshConverter.SetEffect(o, mt);
+                }
+                foreach (var child in mesh.Children)
+                {
+                    var ch = Create<T>(child, meshConverter);
+                    meshConverter.Add(o, ch);
+                }
+                return o as T;
             }
-            var trans = mesh.TransformationMatrix;
-            meshConverter.SetTransformation(o, trans);
-            object mt = mesh.Effect;
-            if (mt == null)
+            catch (Exception e)
             {
-                mt = mesh.GetEffect(materialCreator);
+
             }
-            if (mt != null)
-            {
-                meshConverter.SetEffect(o, mt);
-            }
-            foreach (var child in mesh.Children)
-            {
-                var ch = Create<T>(child, meshConverter);
-                meshConverter.Add(o, ch);
-            }
-            return o as T;
+            throw new Exception("PEFORMER CREATE");
         }
 
         /// <summary>

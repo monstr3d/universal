@@ -28,10 +28,10 @@
 
         protected override bool Equals(Material other)
         {
-            if (Name != other.Name)
+   /*         if (Name != other.Name)
             {
                 return false;
-            }
+            }*/
             if (other is MaterialGroup group)
             {
                 var ch = group.Children;
