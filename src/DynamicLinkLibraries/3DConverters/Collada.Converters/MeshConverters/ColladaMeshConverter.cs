@@ -483,7 +483,10 @@ namespace Collada.Converters.MeshConverters
 
         #region Membres
 
-        protected Dictionary<Image, string> imAttr = new();
+        protected Dictionary<string, string> imAttr
+        {
+            get;
+        } = new();
 
         protected override Dictionary<string, Image> Images
         {
@@ -493,13 +496,21 @@ namespace Collada.Converters.MeshConverters
                 int i = 1;
                 imagesdictionary = value;
                 var parent = doc.GetElementsByTagName("library_images")[0] as XmlElement;
+                var d = new Dictionary<string, string>();
                 foreach (var image in Images)
                 {
+                    var imn = image.Key;
                     var im = image.Value;
+                    if (d.ContainsKey(imn))
+                    {
+                        imAttr[imn] = d[imn];
+                        continue;
+                    }  
                     var e = Create("image");
                     parent.AppendChild(e);
                     var attr = "object_" + i;
-                    imAttr[im] = attr;
+                    imAttr[imn] = attr;
+                    d[imn] = attr;
                     ++i;
                     e.SetAttribute("id", attr);
                     var el = Create("init_from");
@@ -515,10 +526,7 @@ namespace Collada.Converters.MeshConverters
             }
         }
 
-  
-
-
-protected override Dictionary<string, Effect> Effects
+        protected override Dictionary<string, Effect> Effects
         {
             set
             {
@@ -536,7 +544,7 @@ protected override Dictionary<string, Effect> Effects
                         {
                             var attr = ImageName;
                             Images[image.Name] = image;
-                            imAttr[image] = attr;
+                            imAttr[image.Name] = attr;
                             var e = Create("image");
                             parentIm.AppendChild(e);
                             e.SetAttribute("id", attr);
@@ -589,105 +597,113 @@ protected override Dictionary<string, Effect> Effects
 
         private void CreateEffect(XmlElement parent, XmlElement pm, Effect effect, int nm)
         {
-            if (effect.Image == null)
+            try
             {
-
-            }
-            DiffuseMaterial diffuseMaterial = null;
-            EmissiveMaterial emissiveMaterial = null;
-            SpecularMaterial specularMaterial = null;
-            var group = effect.Material as MaterialGroup;
-            foreach (var m in group.Children)
-            {
-                switch (m)
+                if (effect.Image == null)
                 {
-                    case DiffuseMaterial diffuse:
-                        diffuseMaterial = diffuse;
-                        break;
-                    case EmissiveMaterial emissive:
-                        emissiveMaterial = emissive;
-                        break;
-                    case SpecularMaterial specular:
-                        specularMaterial = specular;
-                        break;
-                }
-            }
-            var eff = Create("effect");
-            parent.AppendChild(eff);
-            var effn = effect.Name;
-            eff.SetAttribute("id", effn);
-            var pc = Create("profile_COMMON");
-            eff.AppendChild(pc);
-            var dcf = "DiffuseColor-surface" + nm;
-            var np = Create("newparam");
-            pc.AppendChild(np);
-            np.SetAttribute("sid", dcf);
-            Image image = effect.Image;
-            var at = "";
-            if (image != null)
-            {
-                at = imAttr[image];
-            }
-            else
-            {
 
+                }
+                DiffuseMaterial diffuseMaterial = null;
+                EmissiveMaterial emissiveMaterial = null;
+                SpecularMaterial specularMaterial = null;
+                var group = effect.Material as MaterialGroup;
+                foreach (var m in group.Children)
+                {
+                    switch (m)
+                    {
+                        case DiffuseMaterial diffuse:
+                            diffuseMaterial = diffuse;
+                            break;
+                        case EmissiveMaterial emissive:
+                            emissiveMaterial = emissive;
+                            break;
+                        case SpecularMaterial specular:
+                            specularMaterial = specular;
+                            break;
+                    }
+                }
+                var eff = Create("effect");
+                parent.AppendChild(eff);
+                var effn = effect.Name;
+                eff.SetAttribute("id", effn);
+                var pc = Create("profile_COMMON");
+                eff.AppendChild(pc);
+                var dcf = "DiffuseColor-surface" + nm;
+                var np = Create("newparam");
+                pc.AppendChild(np);
+                np.SetAttribute("sid", dcf);
+                Image image = effect.Image;
+                var at = "";
+                if (image != null)
+                {
+                    at = imAttr[image.Name];
+                }
+                else
+                {
+                    
+                }
+                var sur = Create("surface");
+                np.AppendChild(sur);
+                sur.SetAttribute("type", "2D");
+                if (at.Length > 0)
+                {
+                    var ifr = Create("init_from");
+                    sur.AppendChild(ifr);
+                    ifr.InnerText = at;
+                }
+                np = Create("newparam");
+                pc.AppendChild(np);
+                var dcs = "DiffuseColor-sampler" + nm;
+                np.SetAttribute("sid", dcs);
+                var sam = Create("sampler2D");
+                np.AppendChild(sam);
+                var sou = Create("source");
+                sam.AppendChild(sou);
+                sou.InnerText = dcf;
+                foreach (var wr in dWhap)
+                {
+                    var er = Create(wr.Key);
+                    er.InnerText = wr.Value;
+                    sam.AppendChild(er);
+                }
+                var tn = Create("technique");
+                pc.AppendChild(tn);
+                tn.SetAttribute("sid", "COMMON");
+                var p = Create("phong");
+                tn.AppendChild(p);
+                CreateColor(p, "emission", emissiveMaterial.Color);
+                if (diffuseMaterial.AmbientColor != null)
+                {
+                    CreateColor(p, "ambient", diffuseMaterial.AmbientColor);
+                }
+                var df = Create("diffuse");
+                p.AppendChild(df);
+                var txt = Create("texture");
+                df.AppendChild(txt);
+                txt.SetAttribute("texcoord", "uv0");
+                txt.SetAttribute("texture", dcs);
+                if (specularMaterial != null)
+                {
+                    CreateColor(p, "specular", specularMaterial.Color);
+                    CreateFloat(p, "shininess", specularMaterial.SpecularPower);
+                }
+                CreateColor(p, "transparent", diffuseMaterial.Color);
+                CreateFloat(p, "transparency", 1f - diffuseMaterial.Opacity);
+                var nmt = Create("material");
+                pm.AppendChild(nmt);
+                var matn = "material-" + effn;
+                nmt.SetAttribute("id", matn);
+                nmt.SetAttribute("name", matn);
+                var ieff = Create("instance_effect");
+                nmt.AppendChild(ieff);
+                ieff.SetAttribute("url", "#" + effn);
+                Mat_mat0[effn] = matn;
             }
-            var sur = Create("surface");
-            np.AppendChild(sur);
-            sur.SetAttribute("type", "2D");
-            if (at.Length > 0)
+            catch (Exception ex)
             {
-                var ifr = Create("init_from");
-                sur.AppendChild(ifr);
-                ifr.InnerText = at;
+                ex.ShowError();
+                throw new Exception("CreateEffect Collada");
             }
-            np = Create("newparam");
-            pc.AppendChild(np);
-            var dcs = "DiffuseColor-sampler" + nm;
-            np.SetAttribute("sid", dcs);
-            var sam = Create("sampler2D");
-            np.AppendChild(sam);
-            var sou = Create("source");
-            sam.AppendChild(sou);
-            sou.InnerText = dcf;
-            foreach (var wr in dWhap)
-            {
-                var er = Create(wr.Key);
-                er.InnerText = wr.Value;
-                sam.AppendChild(er);
-            }
-            var tn = Create("technique");
-            pc.AppendChild(tn);
-            tn.SetAttribute("sid", "COMMON");
-            var p = Create("phong");
-            tn.AppendChild(p);
-            CreateColor(p, "emission", emissiveMaterial.Color);
-            if (diffuseMaterial.AmbientColor != null)
-            {
-                CreateColor(p, "ambient", diffuseMaterial.AmbientColor);
-            }
-            var df = Create("diffuse");
-            p.AppendChild(df);
-            var txt = Create("texture");
-            df.AppendChild(txt);
-            txt.SetAttribute("texcoord", "uv0");
-            txt.SetAttribute("texture", dcs);
-            if (specularMaterial != null)
-            {
-                CreateColor(p, "specular", specularMaterial.Color);
-                CreateFloat(p, "shininess", specularMaterial.SpecularPower);
-            }
-            CreateColor(p, "transparent", diffuseMaterial.Color);
-            CreateFloat(p, "transparency", 1f - diffuseMaterial.Opacity);
-            var nmt = Create("material");
-            pm.AppendChild(nmt);
-            var matn = "material-" + effn;
-            nmt.SetAttribute("id", matn);
-            nmt.SetAttribute("name", matn);
-            var ieff = Create("instance_effect");
-            nmt.AppendChild(ieff);
-            ieff.SetAttribute("url", "#" + effn);
-            Mat_mat0[effn] = matn;
         }
 
         protected void CreateColor(XmlElement p, string tag, Color color)

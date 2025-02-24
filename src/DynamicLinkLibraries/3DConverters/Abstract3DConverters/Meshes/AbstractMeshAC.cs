@@ -35,6 +35,8 @@ namespace Abstract3DConverters.Meshes
             private set;
         }
 
+        
+
         internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials, List<string> l, AcCreator creator) : base(null, null, null, creator)
         {
             var directory = base.creator.Directory;
@@ -163,21 +165,10 @@ namespace Abstract3DConverters.Meshes
                         if (mp != null)
                         {
                             mt = mp.Value;
-                            var mtt = materials[mt].Clone() as Material;
-                            var mn = mtt.Name;
-                            if (Image != null)
+                            Effect = AcCreator.GetEffect(mt, Image);
+                           if (!mats.Contains(Effect.Name))
                             {
-                                var im = Image.Clone() as Image;
-                                mn += "-" + im.Name;
-                                Effect = new Effect(creator, mn, mtt, im);
-                            }
-                            else
-                            {
-                                Effect = new Effect(creator, mn, mtt);
-                            }
-                            if (!mats.Contains(mn))
-                            {
-                                mats.Add(mn);
+                                mats.Add(Effect.Name);
                             }
                             else
                             {

@@ -23956,12 +23956,42 @@ Sometimes we consider operator algebras which are dense subalgebras of operator 
 	
 	
 	\paragraph*{} The notions of $K$-theory, $K$-homology and $KK$-theory are explained in \cite{blackadar:ko,wegge_olsen}.
-	\begin{definition}\label{stable_mult_defn}\cite{blackadar:ko}
-		%Definition 12.1.3. 
-		The \textit{stable multiplier algebra} $M^s\left( A\right)$  is the multiplier algebra
-		of $A\otimes\K$. The \textit{stable outer multiplier algebra} $Q^s\left( A\right)$ is the quotient
-		$M\left(A\otimes\K\right) /A\otimes\K$.
-	\end{definition}
+	
+	\begin{definition}\label{m_inf_defn}\cite{blackadar:ko}
+%Definition 5.1.1. 
+If $A$ is an algebra then $\mathbb{M}_\infty\left(A \right)$  is the algebraic direct limit of $\mathbb{M}_n\left( A\right)$  under the
+embeddings $a \mapsto \mathrm{diag}\left(a, 0 \right)$.
+\end{definition}
+	\begin{definition}\label{proj_v_defn}\cite{blackadar:ko}
+%Definition 5.1.2. 
+$\mathrm{Proj}(A)$ is the set of algebraic equivalence classes of idempotents
+in $A$. We set $V\left( A\right) \bydef \mathrm{Proj}(A)$.
+\end{definition}
+	\begin{definition}\label{k00_defn}\cite{blackadar:ko}
+%Definition 5.3.1. 
+$K_{00}(A)$ is the Grothendieck group of $V (A)$.
+\end{definition}
+\begin{empt}\cite{blackadar:ko}\label{k0_empt}
+Let $A$  be unital algebra, $J$ a closed two-sided ideal in $A$, and $\pi: A \to A/J$ the quotient map. A group $K_0\left(A, J \right)$  has generators $\left(e, f, z \right)$  , where $e, f$ are idempotents in $\mathbb{M}_n\left( A\right)\subset \mathbb{M}_\infty\left( A\right)$, and $z$ is an invertible element of $\mathbb{M}_n\left( A/J\right)$
+with $z \pi\left(e\right)z^{-1} = \pi\left(f\right)$ ; and relations
+\be\label{k0_1_eqn}
+\begin{split}
+(e_1, f_1, z_1 ) + (e_2, f_2, z_2 ) \bydef  \left(\mathrm{diag}\left( e_1, e_2\right), \mathrm{diag}\left( f_1, f_2\right), \mathrm{diag}\left( z_1, z_2\right) \right) \end{split}
+\ee
+and $(e_1, f_1, z_1 ) = (e_2, f_2, z_2 )$ if there are idempotents $g_1, g_2\in \mathbb{M}_n\left( A\right)$ and invertible
+elements $u, v \in \mathbb{M}_{n+k}\left( A\right)$ with
+\be\label{k0_2_eqn}
+\begin{split}
+u\mathrm{diag}\left( e_1, g_1\right)u^{-1}= \mathrm{diag}\left( e_2, g_2\right),\\
+v\mathrm{diag}\left( f_1, g_1\right)v^{-1}= \mathrm{diag}\left( f_2, g_2\right),\\
+\pi\left(v\right)\mathrm{diag}\left( z_1, 1\right)\pi\left(u\right)^{-1}= \mathrm{diag}\left( z_2, 1\right).
+\end{split}
+\ee
+\end{empt}
+	\begin{definition}\label{k0_defn}\cite{blackadar:ko}
+%Definition 5.5.1. 
+$K_0\left( A\right) \bydef K_0\left(A^+, A \right)$. 
+\end{definition}
 	\begin{corollary}\label{stable_k_cor}\cite{blackadar:ko}
 		%Corollary 12.2.3. 
 		If $A$ is any $C^*$-algebra, then $K_n\left(A \right) \cong K_{n-1}\left(Q^s\left(A \right)  \right)$  for

@@ -41,6 +41,26 @@ namespace Abstract3DConverters.Creators
 
         #endregion
 
+        internal Effect GetEffect(int i, Image image)
+        {
+            var mn = GetMaterialName(i);
+            if (image != null)
+            {
+                mn += "-" + image.Name;
+            }
+            if (Effects.ContainsKey(mn))
+            {
+                return Effects[mn];
+            }
+            return new Effect(this, mn, MaterialsPP[i], image);
+        }
+
+
+        internal string GetMaterialName(int k)
+        {
+            return "Material_" + k;
+
+        }
 
         void CreateMaterials(List<string> lines)
         {
@@ -163,16 +183,23 @@ namespace Abstract3DConverters.Creators
                     {
                         mt = MaterialsPP[k];
                         var mat = mt;
-                        var name = mat.Name;
+                        var name = GetMaterialName(k);
                         Effect effect = null;
                         if (image != null)
                         {
                             name += "-" + image.Name;
-                            effect = new Effect(this, name, mat, image);
                         }
                         else
                         {
                             effect = new Effect(this, name, mat);
+                        }
+                        if (Effects.ContainsKey(name))
+                        {
+                            effect = Effects[name];
+                        }
+                        else
+                        {
+
                         }
                     }
                  }
