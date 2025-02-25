@@ -25,7 +25,7 @@ namespace Collada.Converters.Classes.Complicated
             {
                 if (xml != x)
                 {
-                    throw new Exception();
+                    throw new Exception("Bind Vertex Input");
                 }
             }
         }

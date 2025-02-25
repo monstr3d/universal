@@ -93,7 +93,7 @@ namespace Event.Portable
         {
             if (runtime == null)
             {
-                throw new Exception();
+                throw new Exception("SetBase");
             }
             if (Runtime == null)
             {
@@ -261,7 +261,7 @@ namespace Event.Portable
         {
             if (runtime == null)
             {
-                throw new Exception();
+                throw new Exception("Set real time");
             }
             if (Runtime == null)
             {
@@ -323,7 +323,7 @@ namespace Event.Portable
                 }
                 if (currentRuntime != null)
                 {
-                    throw new Exception();
+                    throw new Exception("currentRuntime");
                 }
                 start(reason);
                 currentRuntime = Runtime.Start(collection, timeUnit, isAbsoluteTime, realtimeStep,

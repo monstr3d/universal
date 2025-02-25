@@ -63,7 +63,7 @@ namespace Collada.Converters.Classes.Complicated
                 case Vertices v:
                     return v.Array;
             }
-            throw new Exception();
+            throw new Exception("Node GetValue");
         }
 
         AbstractMesh Create(InstanceGeomery geom, BindMaterial material, string name, float[] mm)

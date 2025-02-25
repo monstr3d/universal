@@ -36,7 +36,7 @@ namespace FormulaEditor
             this.fieldInfo = fieldInfo;
             if (fieldInfo == null)
             {
-                throw new Exception();
+                throw new Exception("FieldOperation");
             }
             retType = fieldInfo.FieldType.ToObjectType();
         }

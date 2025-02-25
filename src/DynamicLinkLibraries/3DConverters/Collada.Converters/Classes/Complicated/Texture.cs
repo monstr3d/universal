@@ -26,7 +26,7 @@ namespace Collada.Converters.Classes.Complicated
                 Surface = Sampler2D.Surface;
                 return;
             }
-            throw new Exception();
+            throw new Exception("Collade Textute");
         }
 
 

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
@@ -155,7 +152,7 @@ namespace Event.Basic.Events
             {
                 if (value == null)
                 {
-                    throw new Exception();
+                    throw new Exception("TransientProcessEvent");
                 }
                 spans = value;
             }

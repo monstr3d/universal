@@ -3,6 +3,7 @@
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.MeshCreators;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -28,8 +29,16 @@ namespace Collada.Converters.Classes.Complicated
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
-            var a = new Effect(element, meshCreator);
-            return a;
+            try
+            {
+                var a = new Effect(element, meshCreator);
+                return a;
+            }
+            catch (Exception e)
+            {
+                e.ShowError("Collada Effect");
+                throw new IncludedException(e, "Collada Effect");
+            }
         }
     }
 }

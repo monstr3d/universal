@@ -75,7 +75,7 @@ namespace DataPerformer.UI.UserControls
             {
                 if (data != null)
                 {
-                    throw new Exception();
+                    throw new Exception("Measure Graph");
                 }
                 data = value;
                 foreach (UserControlMeasureGraph gr in list)

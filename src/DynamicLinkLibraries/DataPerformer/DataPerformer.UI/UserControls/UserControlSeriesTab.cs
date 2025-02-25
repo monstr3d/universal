@@ -252,7 +252,7 @@ namespace DataPerformer.UI.UserControls
             Double a = 0;
             if (!tree.ReturnType.Equals(a))
             {
-                throw new Exception();
+                throw new Exception("Measure series");
             }
             setFormula(userFormulaEditor.Formula);
         }

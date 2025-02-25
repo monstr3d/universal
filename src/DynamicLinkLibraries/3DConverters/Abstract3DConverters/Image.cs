@@ -34,7 +34,7 @@
             FullPath = Directory + "/" + Name;
             if (!File.Exists(FullPath))
             {
-                throw new Exception();
+                throw new Exception("Image exception");
             }
         }
 

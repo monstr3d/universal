@@ -362,7 +362,7 @@ namespace DataPerformer.Formula
             {
                 if (value == null)
                 {
-                    throw new Exception();
+                    throw new Exception("CheckValue = null");
                 }
                 checkValue = value;
             }

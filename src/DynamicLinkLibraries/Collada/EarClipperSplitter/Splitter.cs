@@ -89,7 +89,7 @@ namespace EarClipperSplitter
                 }
                 if (l.Count != res.Count)
                 {
-                    throw new Exception();
+                    throw new Exception("Splitter count");
                 }
                 var pp = new List<Polygon>();
 

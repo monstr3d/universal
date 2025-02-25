@@ -305,11 +305,11 @@ namespace Chart.Drawing
         {
             if (performer == this)
             {
-                throw new Exception();
+                throw new Exception("Add Chart drawing performer 1");
             }
             if (performer.parent != null)
             {
-                throw new Exception();
+                throw new Exception("Add Chart drawing performer 2");
             }
             children.Add(performer);
             performer.parent = this;

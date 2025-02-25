@@ -107,10 +107,10 @@ namespace Abstract3DConverters
             }
             catch (Exception e)
             {
-                e.ShowError();
+                e.ShowError("PERFORMER CREATE");
+                throw new IncludedException(e, "PERFORMER CREATE");
 
             }
-            throw new Exception("PEFORMER CREATE");
         }
 
         /// <summary>

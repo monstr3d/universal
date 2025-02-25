@@ -84,7 +84,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 if (func != null)
                 {
-                    throw new Exception();
+                    throw new Exception("Delay accumulator");
                 }
                 func = value;
             }

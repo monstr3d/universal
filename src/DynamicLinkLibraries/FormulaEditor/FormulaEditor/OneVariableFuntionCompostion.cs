@@ -55,7 +55,7 @@ namespace FormulaEditor
         {
             if (!f.ReturnType.Equals(g.VariableType))
             {
-                throw new Exception();
+                throw new Exception("OneVariableFuntionCompostion");
             }
             this.f = f;
             this.g = g;

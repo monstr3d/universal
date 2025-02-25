@@ -14,7 +14,8 @@
 
         protected override object CloneIfself()
         {
-            return new EmissiveMaterial(Color.Clone() as Color, null);
+            Color c = (this.Color == null) ? null : Color.Clone() as Color;
+            return new EmissiveMaterial(c, null);
         }
 
         protected override bool Equals(Material other)

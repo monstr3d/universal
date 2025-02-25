@@ -1752,7 +1752,7 @@ namespace Diagram.UI
             object o = ao.Object;
             if (!(o is INamedComponent))
             {
-                throw new Exception();
+                throw new Exception("Get object Name");
             }
             INamedComponent nc = o as INamedComponent;
             return nc.Name + "";
@@ -3481,7 +3481,7 @@ namespace Diagram.UI
                 }
                 if (t == null)
                 {
-                    throw new Exception();
+                    throw new Exception("Dependend objects");
                 }
                 if (!objectCondition(t))
                 {

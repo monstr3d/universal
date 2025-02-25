@@ -440,7 +440,7 @@ namespace Event.Portable.Events
             {
                 if (ownParameter != null)
                 {
-                    throw new Exception();
+                    throw new Exception("DataMeasurementReplace 1");
                 }
                 ownParameter = par;
                 par = parameter;
@@ -450,7 +450,7 @@ namespace Event.Portable.Events
             {
                 if (ownParameter == null)
                 {
-                    throw new Exception();
+                    throw new Exception("DataMeasurementReplace 2");
                 }
                 par = ownParameter;
                 ownParameter = null;

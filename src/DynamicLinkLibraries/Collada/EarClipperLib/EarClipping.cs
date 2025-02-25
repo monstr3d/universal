@@ -216,7 +216,7 @@ namespace EarClipperLib
                 ConnectionEdge M, P;
                 GetVisiblePoints(h + 1, polygons, out M, out P);
                 if (M.Origin.Equals(P.Origin))
-                    throw new Exception();
+                    throw new Exception("(M.Origin.Equals(P.Origin)");
 
                 var insertionEdge = P;
                 InsertNewEdges(insertionEdge, M);
@@ -273,7 +273,7 @@ namespace EarClipperLib
                     }
                 }
 
-                throw new Exception();
+                throw new Exception("GetVisiblePoints");
             }
             else
             {

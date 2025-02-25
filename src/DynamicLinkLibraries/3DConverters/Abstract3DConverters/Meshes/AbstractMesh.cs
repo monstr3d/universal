@@ -72,7 +72,7 @@ namespace Abstract3DConverters.Meshes
         {
             if (creator == null)
             {
-                throw new Exception();
+                throw new Exception("Abstract creator null");
             }
             this.creator = creator;
             Name = name;

@@ -135,7 +135,7 @@ namespace FormulaEditor
             {
                 if (!value.GetType().Equals(objectType))
                 {
-                    throw new Exception();
+                    throw new Exception("PropertyAcceptor");
                 }
                 obj = value;
             }

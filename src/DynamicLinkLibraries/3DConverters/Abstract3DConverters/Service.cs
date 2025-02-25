@@ -568,7 +568,7 @@ namespace Abstract3DConverters
                     var a = i + j;
                     if (a >= x.Length)
                     {
-
+                        throw new Exception("Service ToRealArray");
                     }
                     y[j] = x[a];
                 }

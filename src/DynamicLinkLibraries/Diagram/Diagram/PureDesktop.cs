@@ -505,11 +505,11 @@ namespace Diagram.UI
                 {
                     if (!(o is string))
                     {
-                        throw new Exception();
+                        throw new Exception("Resources exception 1");
                     }
                     if (!(value[o] is String))
                     {
-                        throw new Exception();
+                        throw new Exception("Resources exception 2");
                     }
                 }
                 resources = value;

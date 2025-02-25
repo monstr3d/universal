@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.IO;
 using System.Resources;
 using System.Windows.Forms;
 
 using CategoryTheory;
-using Diagram.UI;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+
 using ErrorHandler;
 
 namespace Diagram.UI.Utils
@@ -40,7 +40,7 @@ namespace Diagram.UI.Utils
             {
                 if (controlResources != null)
                 {
-                    throw new Exception();
+                    throw new Exception("ControlUtilites");
                 }
                 controlResources = value;
             }

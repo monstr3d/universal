@@ -28,7 +28,7 @@ namespace Collada.Converters.Classes.Complicated
                 Sampler2D = xmlElement.Get<Sampler2D>();
                 if (Sampler2D == null)
                 {
-                    throw new Exception();
+                    throw new Exception("NewParam Exception");
                 }
                 creator.Samples2D[sid] = this;
                 return;

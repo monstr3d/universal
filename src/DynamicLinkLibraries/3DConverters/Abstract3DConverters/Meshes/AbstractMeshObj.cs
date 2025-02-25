@@ -75,7 +75,7 @@ namespace Abstract3DConverters.Meshes
                     catch (Exception e)
                     {
                         e.ShowError();
-                        throw new Exception("OBJ TEXUTRE ERROR");
+                        throw new IncludedException(e, "OBJ TEXUTRE ERROR");
                     }
                 }
                 Polygons.Add(new Polygon(pp.ToArray(), Effect));

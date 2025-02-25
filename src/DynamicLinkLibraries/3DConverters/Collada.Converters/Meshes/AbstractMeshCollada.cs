@@ -20,7 +20,7 @@ namespace Collada.Converters.Meshes
                 case Vertices v:
                     return v.Array;
             }
-            throw new Exception();
+            throw new Exception("Collade GetValue");
         }
 
 
@@ -133,12 +133,12 @@ namespace Collada.Converters.Meshes
                 vertices = s.ToRealArray(poly.Vertices, 3);
                 if (poly.Normals != null)
                 {
-                    normal = s.ToRealArray(poly.Normals, 2);
+                    normal = s.ToRealArray(poly.Normals, 3);
                     if (normal.Count > 0)
                     {
                         for (int i = 0; i < vertices.Count; i++)
                         {
-                            var p = new Abstract3DConverters.Points.Point(vertices[i], normal[i]);
+                            var p = new Point(vertices[i], normal[i]);
                             Points.Add(p);
                         }
                         goto label;
@@ -146,7 +146,7 @@ namespace Collada.Converters.Meshes
                 }
                 for (int j = 0; j < vertices.Count; j++)
                 {
-                    var p = new Abstract3DConverters.Points.Point(vertices[j]);
+                    var p = new Point(vertices[j]);
                     Points.Add(p);
                 }
 

@@ -9,6 +9,7 @@ using Collada.Converters.Classes.Complicated;
 using Collada.Converters.Classes.Elementary;
 
 using ErrorHandler;
+using System.Linq.Expressions;
 
 namespace Collada.Converters.MeshCreators
 {
@@ -97,14 +98,13 @@ namespace Collada.Converters.MeshCreators
             {
                 if (type.IsUknown())
                 {
-                    throw new Exception();
+                    throw new Exception("Collada is unknown");
                 }
                 TagAttribute tag = type.GetTag();
                 var name = tag.Tag;
                 if (tag.IsElemenary)
                 {
-                    throw new Exception();
-
+                    throw new Exception("Collada is elementary");
                 }
                 nonelementary.Add(name);
             }
@@ -150,7 +150,7 @@ namespace Collada.Converters.MeshCreators
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new Exception("Collada CreateParams");
                 }
             }
         }
@@ -299,6 +299,8 @@ namespace Collada.Converters.MeshCreators
             catch (Exception e)
             {
                 e.ShowError();
+                throw new IncludedException(e, "Collada Get");
+                
             }
             return null;
         }

@@ -25,8 +25,11 @@ namespace DataPerformer.UI.UserControls
             set
             {
                 if (value == null) { return; }
-                if (filterWrapper != null) { throw new Exception(); }
-                if (!(value is Base.Filters.FilterWrapper)) { throw new Exception(); }
+                if (filterWrapper != null) 
+                { 
+                    throw new Exception("filterWrapper");
+                }
+                if (!(value is Base.Filters.FilterWrapper)) { throw new Exception("Base.Filters.FilterWrapper"); }
                 filterWrapper = value;
                 switch (filterWrapper.Kind)
                 {
@@ -39,7 +42,7 @@ namespace DataPerformer.UI.UserControls
                     case 2:
                         radioButtonDonchianMinimum.Checked = true;
                         break;
-                        default: throw new Exception();
+                        default: throw new Exception("Filter exception");
 
                           
                 }

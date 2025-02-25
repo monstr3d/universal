@@ -386,7 +386,7 @@ namespace Collada
                 }
                 if (!e.IsElementary())
                 {
-                    throw new Exception();
+                    throw new Exception("Collada is elementary exception");
                 }
             }
         }
@@ -471,7 +471,7 @@ namespace Collada
         {
             if (dictionary.ContainsKey(element))
             {
-                throw new Exception();
+                throw new Exception("Collada set element value exception");
             }
             dictionary[element] = value;
         }
@@ -577,9 +577,10 @@ namespace Collada
             {
                 case 0: return null;
                     case 1: return c[0];
-                    default: throw new Exception();
+                    default: throw new Exception("Collada GetProxy Object exception");
+
             }
-     
+
         }
 
 
@@ -660,7 +661,7 @@ namespace Collada
                 T t = el.Get() as T;
                 if (t == null)
                 {
-                    throw new Exception();
+                    throw new Exception("Collada ByTag T exception");
                 }
                 yield return t;
             }
@@ -692,7 +693,7 @@ namespace Collada
             var l = tag.ByTagAll(element).ToArray();
             if (l.Length != 1)
             {
-                throw new Exception();
+                throw new Exception("Collada ByTag Unique exception");
             }
             return l[0];
         }
@@ -763,7 +764,7 @@ namespace Collada
             }
             if (all.Contains(tag))
             {
-                throw new Exception();
+                throw new Exception("Collada Detect exception");
             }
             all.Add(tag);
             methods[tag] = mi;
@@ -784,7 +785,7 @@ namespace Collada
             }
             if (clear.Count > 0 | method.Count > 0)
             {
-                throw new Exception();
+                throw new Exception("Collada Detect 1 exception");
             }
         }
 
@@ -835,7 +836,7 @@ namespace Collada
                 var o = func(element);
                 if (o == null)
                 {
-                    throw new Exception();
+                    throw new Exception("Collada o == null exception");
                 }
                 element.Set(o);
                 if (o is ICombining c)
@@ -853,7 +854,7 @@ namespace Collada
                 }
                 return o.CloneItself();
             }
-            throw new Exception();
+            throw new Exception("Collada Get");
         }
 
         static public T GetParent<T>(this XmlNode element) where T : class
@@ -881,7 +882,8 @@ namespace Collada
             {
                 case 0: return null;
                 case 1: return o[0];
-                    default : throw new Exception();
+                    default: throw new Exception("Collada Get T exception");
+
             }
         }
 
@@ -892,7 +894,8 @@ namespace Collada
             {
                 case 0: return null;
                 case 1: return o[0];
-                default: throw new Exception();
+                default: throw  new Exception("Collada Get T S exception");
+
             }
         }
 
@@ -905,7 +908,8 @@ namespace Collada
             {
                 case 0: return null;
                 case 1: return o[0];
-                default: throw new Exception();
+                default: throw new Exception("Collada GetObject T exception");
+
             }
         }
 
@@ -961,7 +965,8 @@ namespace Collada
                 {
                     if (keyValuePairs.ContainsKey(id))
                     {
-                        throw new Exception();
+                        throw new Exception("Collada Preload exception");
+
                     }
                     keyValuePairs[id] = xmlElement;
                 }
@@ -1056,7 +1061,8 @@ namespace Collada
             }
             if (begins.Contains(xmlElement))
             {
-                throw new Exception();
+                throw new Exception("Collada Combine exception");
+
             }
             begins.Add(xmlElement);
             Func<XmlElement, object, object> f = function.Combine(xmlElement, o);
@@ -1175,7 +1181,7 @@ namespace Collada
             {
                 return (nl[0] as XmlElement).ToDouble();
             }
-            throw new Exception();
+            throw new Exception("Collada To Double exception");
         }
 
         public static double ToDouble(this XmlElement element, string tag)
@@ -1185,7 +1191,7 @@ namespace Collada
             {
                 return (nl[0] as XmlElement).ToDouble();
             }
-            throw new Exception();
+            throw new Exception("Collada to double exception");
         }
 
         public static int ToInt(this string str)

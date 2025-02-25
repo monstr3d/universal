@@ -68,7 +68,7 @@ namespace Event.Interfaces
         {
             if (creator == null)
             {
-                throw new Exception();
+                throw new Exception("SetBaseAction");
             }
             if (ActionFactoryCreator == null)
             {

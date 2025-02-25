@@ -136,7 +136,7 @@ namespace DataTableSelection
         {
             if (this.dataSet != null & dataSet != null)
             {
-                throw new Exception();
+                throw new Exception("Data set iterator");
             }
             this.dataSet = dataSet;
             table = dataSet.Tables[0];

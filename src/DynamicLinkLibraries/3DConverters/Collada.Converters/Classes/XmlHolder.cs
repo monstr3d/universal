@@ -24,7 +24,7 @@ namespace Collada.Converters.Classes
             var nl = element.GetAllElementsByTagName("source").Where(e => e != element).ToArray();
             if (nl.Length > 0)
             {
-                throw new Exception();
+                throw new Exception("XmlHolder");
             }
             return;
         }

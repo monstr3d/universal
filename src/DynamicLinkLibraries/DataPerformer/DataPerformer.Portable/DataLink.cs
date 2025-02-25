@@ -88,7 +88,7 @@ namespace DataPerformer.Portable
             {
                 if (source != null)
                 {
-                    throw new Exception();
+                    throw new Exception("Data link source null");
                 }
                 IDataLinkFactory f = this;
                 source = f.GetConsumer(value);
@@ -112,7 +112,7 @@ namespace DataPerformer.Portable
             {
                 if (target != null)
                 {
-                    throw new Exception();
+                    throw new Exception("Data link targret null");
                 }
                 IDataLinkFactory f = this;
                 IMeasurements t = f.GetMeasurements(value);

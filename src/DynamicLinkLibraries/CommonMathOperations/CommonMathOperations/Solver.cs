@@ -81,7 +81,7 @@ namespace CommonMathOperations
             {
                 if (u < 0)
                 {
-                    throw new Exception();
+                    throw new Exception("Bisection 1");
                 }
             }
             else
@@ -91,7 +91,7 @@ namespace CommonMathOperations
                 l = x;
                 if (l > 0 & u < 0)
                 {
-                    throw new Exception();
+                    throw new Exception("Bisection 2");
                 }
             }
             while (true)

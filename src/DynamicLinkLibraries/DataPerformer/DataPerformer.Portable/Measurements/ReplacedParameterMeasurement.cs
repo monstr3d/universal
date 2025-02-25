@@ -39,7 +39,7 @@ namespace DataPerformer.Portable.Measurements
         {
             if (ownParameter != null)
             {
-                throw new Exception();
+                throw new Exception("Replaced own null");
             }
             ownParameter = base.parameter;
             base.parameter = parameter;
