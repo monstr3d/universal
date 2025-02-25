@@ -1,5 +1,6 @@
 ﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
+using ErrorHandler;
 
 namespace Abstract3DConverters
 {
@@ -106,6 +107,7 @@ namespace Abstract3DConverters
             }
             catch (Exception e)
             {
+                e.ShowError();
 
             }
             throw new Exception("PEFORMER CREATE");
@@ -298,6 +300,10 @@ namespace Abstract3DConverters
             var dir = Path.GetDirectoryName(fileinput);
             var fn = Path.GetFileNameWithoutExtension(fileinput);
             var file = fn + t.Item1[0];
+            if (comment != null)
+            {
+                file = fn + '.' + comment + t.Item1[0];
+            }
             var filename = Path.Combine(cd, file);
             if (File.Exists(filename))
             {

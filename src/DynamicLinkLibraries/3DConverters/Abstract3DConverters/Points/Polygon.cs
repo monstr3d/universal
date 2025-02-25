@@ -120,27 +120,34 @@ namespace Abstract3DConverters.Points
         float[] CaclualateVertexNormalPre()
         {
             CaclualateVertexNormal = CaclualateVertexNormalFin;
-            var x = new float[3];
-            var y = new float[3];
-            for (int i = 0; i < 3; i++)
+            if (Vertices.Count < 3)
             {
-                var a = Vertices[1][i];
-                x[i] = a - Vertices[0][i];
-                y[i] = Vertices[2][i] - a;
+                vertexNormal = [0, 0, 1];
             }
-            vertexNormal = new float[3];
-            vertexNormal[0] = x[1] * y[2] - x[2] * y[1];
-            vertexNormal[1] = x[2] * y[0] - x[0] * y[2];
-            vertexNormal[2] = x[1] * y[0] - x[0] * y[1];
-            float m = 0;
-            foreach (var v in vertexNormal)
+            else
             {
-                m += v * v;
-            }
-            m = 1f / (float)Math.Sqrt(m);
-            for (int i = 0; i < 3; i++)
-            {
-                vertexNormal[i] *= m;
+                var x = new float[3];
+                var y = new float[3];
+                for (int i = 0; i < 3; i++)
+                {
+                    var a = Vertices[1][i];
+                    x[i] = a - Vertices[0][i];
+                    y[i] = Vertices[2][i] - a;
+                }
+                vertexNormal = new float[3];
+                vertexNormal[0] = x[1] * y[2] - x[2] * y[1];
+                vertexNormal[1] = x[2] * y[0] - x[0] * y[2];
+                vertexNormal[2] = x[1] * y[0] - x[0] * y[1];
+                float m = 0;
+                foreach (var v in vertexNormal)
+                {
+                    m += v * v;
+                }
+                m = 1f / (float)Math.Sqrt(m);
+                for (int i = 0; i < 3; i++)
+                {
+                    vertexNormal[i] *= m;
+                }
             }
             return vertexNormal;
         }

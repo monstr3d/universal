@@ -2,6 +2,7 @@
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
 {
@@ -66,8 +67,16 @@ namespace Abstract3DConverters.Meshes
                         var point = new Point(creator.Vertices[iv], norm);
                         Points.Add(point);
                     }
-                    var txt = new PointTexture(nv, creator.Textures[it], norm);
-                    pp.Add(txt);
+                    try
+                    {
+                        var txt = new PointTexture(nv, creator.Textures[it], norm);
+                        pp.Add(txt);
+                    }
+                    catch (Exception e)
+                    {
+                        e.ShowError();
+                        throw new Exception("OBJ TEXUTRE ERROR");
+                    }
                 }
                 Polygons.Add(new Polygon(pp.ToArray(), Effect));
             }

@@ -1,11 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Abstract3DConverters;
+﻿using Abstract3DConverters;
 using Abstract3DConverters.ErrorHandlers;
+
 using ErrorHandler;
 
 Console.WriteLine("Hello, World!");
 
-using var writer = new StreamWriter(@"c:\0\1.log");
+using var writer = new StreamWriter(@"c:\0\GOOD\1.log", false);
 
 var a = (Exception e, TextWriter t) =>
 {
@@ -19,7 +19,7 @@ eh.Set();
 
 StaticExtensionAbstract3DConverters.FileTypes = new Dictionary<string, Tuple<string[], string>>()
             {
-            { "AC3D file format", new Tuple<string[], string>([".ac", "ac3d"], null) },
+            { "AC3D file format", new Tuple<string[], string>([".ac"], null) },
            { "Obj file format",  new  Tuple<string[], string>([ ".obj" ], null)},
              { "Collada 1.5 file format", new Tuple<string[], string>( [ ".dae" ], "1.5.0")},
              { "Collada 1.4 file format", new Tuple<string[], string>([ ".dae" ], "1.4.1")},
@@ -31,9 +31,13 @@ StaticExtensionAbstract3DConverters.UseDirectory = true;
 try
 {
 
-    @"c:\0\03D".TestDirectory();
+    @"c:\0\GOOD".TestDirectory();
 }
 catch (Exception e)
 {
     e.ShowError();
 }
+
+writer.Flush();
+
+writer.Dispose();

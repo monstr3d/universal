@@ -119,7 +119,7 @@ namespace Abstract3DConverters
                     continue;
                 }
                 var filename = file.FullName;
-                ("File input: " + filename).ShowMessage();
+                ("\nFile input: " + filename + "\n").ShowMessage();
                 foreach (var t in FileTypes)
                 {
                     foreach (var s in t.Value.Item1)
@@ -135,7 +135,13 @@ namespace Abstract3DConverters
                             dirout.Create();
                         }
                         var p = new Performer();
-                        ("File output: " + Path.Combine(d, Path.GetFileNameWithoutExtension(filename)) + s).ShowMessage();
+                        var ff = Path.GetFileNameWithoutExtension(filename) + s;
+                        var comment = t.Value.Item2;
+                        if (comment != null)
+                        {
+                            ff = Path.GetFileNameWithoutExtension(filename) + "." + comment +  s;
+                        }
+                        ("File output: " + Path.Combine(d, ff)).ShowMessage();
                         p.CreateAndSaveByUniqueName(filename, t.Key, d);
                     }
                 }
