@@ -11,7 +11,7 @@ namespace Collada.Converters.Classes.Complicated
     internal class Effect : Collada.XmlHolder
     {
 
- 
+
 
         internal Abstract3DConverters.Materials.Effect EffectP { get; private set; }
 
@@ -21,18 +21,16 @@ namespace Collada.Converters.Classes.Complicated
 
         private Effect(XmlElement element, IMeshCreator meshCreator) : base(element)
         {
-            ColladaMeshCreator creator = meshCreator as ColladaMeshCreator;
-            var phong = element.Get<Phong>();
-            EffectP = phong.Effect;
-            creator.Eff[EffectP.Name] = this;
-        }
-
-        public static object Get(XmlElement element, IMeshCreator meshCreator)
-        {
             try
             {
-                var a = new Effect(element, meshCreator);
-                return a;
+                ColladaMeshCreator creator = meshCreator as ColladaMeshCreator;
+                var phong = element.Get<Phong>();
+                if (phong == null)
+                {
+                    throw new Exception("phong");
+                }
+                EffectP = phong.Effect;
+                creator.Eff[EffectP.Name] = this;
             }
             catch (Exception e)
             {
@@ -40,5 +38,11 @@ namespace Collada.Converters.Classes.Complicated
                 throw new IncludedException(e, "Collada Effect");
             }
         }
-    }
+
+        public static object Get(XmlElement element, IMeshCreator meshCreator)
+        {
+            var a = new Effect(element, meshCreator);
+            return a;
+        }
+    } 
 }

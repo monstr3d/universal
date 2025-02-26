@@ -75,8 +75,18 @@ namespace Collada.Converters.Classes.Complicated
                 if (texture != null)
                 {
                     var s2d = texture.Sampler2D;
-                    var su = s2d.Surface;
-                    im = su.Image;
+                    if (s2d != null)
+                    {
+                        var su = s2d.Surface;
+                        if (su != null)
+                        {
+                            im = su.Image;
+                        }
+                    }
+                }
+                if (im == null)
+                {
+                    im = texture.Image;
                 }
                 var l = new List<Abstract3DConverters.Materials.Material>();
                 var diffuse = new DiffuseMaterial(transparent, ambient,  1f - (float)transparency);
@@ -95,13 +105,14 @@ namespace Collada.Converters.Classes.Complicated
             catch (Exception ex)
             {
                 ex.ShowError();
+                throw new IncludedException(ex, "Phong");
             }
         }
 
         public static object Get(XmlElement element, IMeshCreator meshCreator)
         {
             var a = new Phong(element, meshCreator);
-            return a; ;
+            return a;
         }
     }
 }

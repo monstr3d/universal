@@ -31,7 +31,7 @@
             {
                 Name = Name.Substring(1);
             }
-            FullPath = Directory + "/" + Name;
+            FullPath = Path.Combine(Directory, Name);
             if (!File.Exists(FullPath))
             {
                 throw new Exception("Image exception");

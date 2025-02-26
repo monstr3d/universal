@@ -146,13 +146,7 @@ namespace WpfInterface.UI.UserControls
             {
                 return;
             }
-            var s = shape.Xaml;
-            using (var w = new StreamWriter(filename))
-            {
-                w.Write(s);
-            }
-            var path = Path.GetDirectoryName(filename);
-            shape.SaveTextures(path);
+            shape.Save(filename);
         }
 
         private void Save()

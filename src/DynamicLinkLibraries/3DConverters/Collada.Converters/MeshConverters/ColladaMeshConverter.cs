@@ -702,12 +702,16 @@ namespace Collada.Converters.MeshConverters
             catch (Exception ex)
             {
                 ex.ShowError();
-                throw new Exception("CreateEffect Collada");
+                throw new IncludedException(ex, "CreateEffect Collada");
             }
         }
 
         protected void CreateColor(XmlElement p, string tag, Color color)
         {
+            if (color == null)
+            {
+                return;
+            }
             var t = Create(tag);
             p.AppendChild(t);
             var c = Create("color");

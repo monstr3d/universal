@@ -1,10 +1,11 @@
-﻿using System.IO;
+﻿using System.Drawing;
 using System.Text;
 using System.Windows.Media.Media3D;
+using System.Windows.Shapes;
 using System.Xml;
-using System.Drawing;
+
 using ErrorHandler;
-using System.Windows.Media.Animation;
+
 
 namespace Wpf.Loader
 {
@@ -24,7 +25,7 @@ namespace Wpf.Loader
 
         protected double[,] size;
 
-        protected System.Drawing.Color[] colors = null;
+        protected Color[] colors = null;
 
         protected string xaml;
 
@@ -51,11 +52,22 @@ namespace Wpf.Loader
             }
         }
 
- 
+        public void Save(string filename)
+        {
+            using (var w = new System.IO.StreamWriter(filename))
+            {
+                w.Write(Xaml);
+            }
+            var path = System.IO.Path.GetDirectoryName(filename);
+            SaveTextures(path);
+        }
+
+
+
         public void  Load(string file)
         {
-            string dir = Path.GetDirectoryName(file);
-            var ext = Path.GetExtension(file).ToLower();
+            string dir = System.IO.Path.GetDirectoryName(file);
+            var ext = System.IO.Path.GetExtension(file).ToLower();
             if (!StaticExtensionWpfLoader.FileLoad.ContainsKey(ext))
             {
                 return;
@@ -76,7 +88,7 @@ namespace Wpf.Loader
             if (xaml is XmlDocument dc)
             {
                 doc = dc;
-                var stream = new StringWriter();
+                var stream = new System.IO.StringWriter();
                 using var w = XmlWriter.Create(stream, new XmlWriterSettings
                 {
                     //         NewLineChars = "\n",
@@ -89,7 +101,7 @@ namespace Wpf.Loader
                 var stt = stream.ToString();
                 this.xaml = stt;
                 var sb = new StringBuilder(stt);
-                TextReader sr = new StringReader(stt);
+                System.IO.TextReader sr = new System.IO.StringReader(stt);
                 using var reader = XmlReader.Create(sr);
                 var ddd = new XmlDocument();
                 ddd.Load(reader);
@@ -97,30 +109,37 @@ namespace Wpf.Loader
             Attachment = attach;
             textures.Clear();
             string d = dir;
-            var ds = d.Replace(Path.DirectorySeparatorChar, '/');
-            if (d[d.Length - 1] != Path.DirectorySeparatorChar)
+            var ds = d.Replace(System.IO.Path.DirectorySeparatorChar, '/');
+            if (d[d.Length - 1] != System.IO.Path.DirectorySeparatorChar)
             {
-                d += Path.DirectorySeparatorChar;
+                d += System.IO.Path.DirectorySeparatorChar;
             }
             XmlNodeList nl = doc.GetElementsByTagName("ImageBrush");
             foreach (XmlElement e in nl)
             {
                 string iso = e.GetAttribute("ImageSource");
                 string fn = ds + iso;
-                fn = fn.Replace('/', Path.DirectorySeparatorChar);
-                if (!File.Exists(fn))
+                fn = fn.Replace('/', System.IO.Path.DirectorySeparatorChar);
+                if (!System.IO.File.Exists(fn))
                 {
-                    fn = Path.Combine(ds, iso);
-                    if (!File.Exists(fn))
+                    fn = System.IO.Path.Combine(ds, iso);
+                    if (!System.IO.File.Exists(fn))
                     {
                         continue;
                     }
                 }
-                using (var stream = File.OpenRead(fn))
+                using (var stream = System.IO.File.OpenRead(fn))
                 {
                     byte[] b = new byte[stream.Length];
                     stream.Read(b);
-                    textures[iso] = b;
+                    if (iso.Contains(dir))
+                    {
+                        textures[iso.Substring(dir.Length + 1)] = b;
+                    }
+                    else
+                    {
+                        textures[iso] = b;
+                    }
                 }
             }
         }
@@ -219,25 +238,25 @@ namespace Wpf.Loader
             foreach (var key in textures.Keys)
             {
                 var b = textures[key];
-                var f = key.Replace('/', Path.DirectorySeparatorChar);
-                if (f[0]  == Path.DirectorySeparatorChar)
+                var f = key.Replace('/', System.IO.Path.DirectorySeparatorChar);
+                if (f[0]  == System.IO.Path.DirectorySeparatorChar)
                 {
                     f = f.Substring(1);
                 }
-                var file = Path.Combine(directory, f);
+                var file = System.IO.Path.Combine(directory, f);
                 if (!file.Contains(directory))
                 {
                     continue;
                 }
-                var ff = f.Replace('/', Path.DirectorySeparatorChar);
-                ff = Path.Combine(directory, ff);
-                var dd = Path.GetDirectoryName(ff);
-                var di = new DirectoryInfo(dd);
+                var ff = f.Replace('/', System.IO.Path.DirectorySeparatorChar);
+                ff = System.IO.Path.Combine(directory, ff);
+                var dd = System.IO.Path.GetDirectoryName(ff);
+                var di = new System.IO.DirectoryInfo(dd);
                 if (!di.Exists)
                 {
                     di.Create();
                 }
-                using (var stream = File.OpenWrite(ff))
+                using (var stream = System.IO.File.OpenWrite(ff))
                 {
                     stream.Write(b, 0, b.Length);
                 }
@@ -333,9 +352,9 @@ namespace Wpf.Loader
                             if (paths.ContainsKey(iso))
                             {
                                 path = paths[iso];
-                                if (!File.Exists(path))
+                                if (!System.IO.File.Exists(path))
                                 {
-                                    using (Stream stream = File.OpenWrite(path))
+                                    using (var stream = System.IO.File.OpenWrite(path))
                                     {
                                         byte[] b = textures[iso];
                                         stream.Write(b, 0, b.Length);
@@ -345,7 +364,7 @@ namespace Wpf.Loader
                             else
                             {
                                 string fn = GenerateFileName(ext, out path);
-                                using (Stream stream = File.OpenWrite(path))
+                                using (var stream = System.IO.File.OpenWrite(path))
                                 {
                                     byte[] b = textures[iso];
                                     stream.Write(b, 0, b.Length);
@@ -359,9 +378,9 @@ namespace Wpf.Loader
                             string path = AppDomain.CurrentDomain.BaseDirectory + iso;
                             e.SetAttribute("ImageSource", path);
                             paths[iso] = path;
-                            if (File.Exists(path))
+                            if (System.IO.File.Exists(path))
                             {
-                                using (Stream stream = File.OpenRead(path))
+                                using (var stream = System.IO.File.OpenRead(path))
                                 {
                                     byte[] b = new byte[stream.Length];
                                     stream.Read(b, 0, b.Length);
@@ -390,7 +409,7 @@ namespace Wpf.Loader
             foreach (XmlElement n in doc.GetElementsByTagName("ImageBrush"))
             {
                 var so = n.GetAttribute("ImageSource");
-                if (!File.Exists(so))
+                if (!System.IO.File.Exists(so))
                 {
                     del.Add(n.ParentNode as XmlElement);
                 }
