@@ -276,7 +276,7 @@ namespace Abstract3DConverters.Meshes
 
                 }
                 // li.Add(dp[item[0]]);
-                var pl = new Polygon(li.ToArray(), Effect);
+                var pl = new Polygon(this, li.ToArray(), Effect);
                 Polygons.Add(pl);
             }
         }

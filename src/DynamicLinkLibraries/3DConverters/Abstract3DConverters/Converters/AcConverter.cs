@@ -2,10 +2,10 @@
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-
+/*
 namespace Abstract3DConverters.Converters
 {
-    
+   
     [Converter(".ac")]
     public class AcConverter : LinesMeshConverter
     {
@@ -202,6 +202,6 @@ namespace Abstract3DConverters.Converters
  
         #endregion
 
-
     }
 }
+*/

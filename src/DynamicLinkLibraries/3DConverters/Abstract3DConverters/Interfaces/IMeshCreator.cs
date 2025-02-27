@@ -1,5 +1,4 @@
 ﻿using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Interfaces
 {
@@ -22,7 +21,7 @@ namespace Abstract3DConverters.Interfaces
         /// <summary>
         /// Meshes
         /// </summary>
-        IEnumerable<AbstractMesh> Meshes { get; }
+        IEnumerable<IMesh> Meshes { get; }
 
         /// <summary>
         /// Effects

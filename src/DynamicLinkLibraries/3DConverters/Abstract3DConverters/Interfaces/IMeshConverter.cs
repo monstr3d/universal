@@ -1,5 +1,4 @@
 ﻿using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Interfaces
 {
@@ -34,7 +33,7 @@ namespace Abstract3DConverters.Interfaces
         /// </summary>
         /// <param name="mesh">The mesh</param>
         /// <returns>The mesh object</returns>
-        object Create(AbstractMesh mesh);
+        object Create(IMesh mesh);
 
         /// <summary>
         /// Sets effect to a mesh

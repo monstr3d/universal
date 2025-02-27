@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
 namespace Abstract3DConverters.Points
@@ -16,6 +16,8 @@ namespace Abstract3DConverters.Points
 
         private float[] normal;
 
+        public IMesh Mesh { get; private set; }
+
         #endregion
 
         #region Ctor
@@ -23,12 +25,14 @@ namespace Abstract3DConverters.Points
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="mesh">Mesh</param>
         /// <param name="points">Points</param>
         /// <param name="effect">Effect</param>
-        public Polygon(PointTexture[] points, Effect effect, float[] normal = null)
+        public Polygon(IMesh mesh, PointTexture[] points, Effect effect)
         {
-            this.normal = normal;
-            CalcualateNormal = (normal == null) ? CalculateNormalPre : CalcNormalFull;
+            //  this.normal = normal;
+            //   CalcualateNormal = (normal == null) ? CalculateNormalPre : CalcNormalFull;
+            Mesh = mesh;
             Points = points;
             Effect = effect;
             CalcualateNormal = CalculateNormalPre;
@@ -46,8 +50,6 @@ namespace Abstract3DConverters.Points
         { 
             get; protected set; 
         }
-
-  
 
         public float[] VertexNormal => CaclualateVertexNormal();
 
@@ -81,6 +83,7 @@ namespace Abstract3DConverters.Points
         /// <returns>Vertices</returns>
         public List<float[]> GetVertices(List<float[]> vertices, Dictionary<float[], Polygon>? dictionary = null)
         {
+            /*
             Vertices = new List<float[]>();
             foreach (var p in Points)
             {
@@ -99,7 +102,8 @@ namespace Abstract3DConverters.Points
                 {
                     dictionary[v] = this;
                 }
-            }
+            }*/
+            
             return Vertices;
         }
 

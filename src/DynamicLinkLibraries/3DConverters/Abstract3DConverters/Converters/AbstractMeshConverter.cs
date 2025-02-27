@@ -46,7 +46,7 @@ namespace Abstract3DConverters.Converters
             return Combine(meshes);
         }
 
-        object IMeshConverter.Create(AbstractMesh mesh)
+        object IMeshConverter.Create(IMesh mesh)
         {
             return Create(mesh);
         }
@@ -95,7 +95,7 @@ namespace Abstract3DConverters.Converters
 
         protected abstract object Combine(IEnumerable<object> meshes);
 
-        protected abstract object Create(AbstractMesh mesh);
+        protected abstract object Create(IMesh mesh);
 
         protected virtual void SetEffect(object mesh, object effect)
         {

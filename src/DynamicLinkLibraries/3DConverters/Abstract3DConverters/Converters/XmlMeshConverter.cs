@@ -3,9 +3,10 @@ using System.Xml;
 
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
-
+/*
 namespace Abstract3DConverters.Converters
 {
+    
     public abstract class XmlMeshConverter : AbstractMeshConverter, IStringRepresentation, ISaveToStream
     {
 
@@ -61,15 +62,7 @@ namespace Abstract3DConverters.Converters
         void ISaveToStream.Save(object obj, Stream stream)
         {
             var d = obj as XmlDocument;
-            /*  using var w = XmlWriter.Create(stream, new XmlWriterSettings
-              {
-                  //         NewLineChars = "\n",
-                  Indent = true,
-             //     OmitXmlDeclaration = true,
-
-              });
-              d.WriteContentTo(w);*/
-            d.Save(stream);
+           d.Save(stream);
          
         }
 
@@ -176,3 +169,4 @@ namespace Abstract3DConverters.Converters
         #endregion
     }
 }
+*/

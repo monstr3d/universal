@@ -5,7 +5,12 @@ using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
 using System.Text;
 using System.Xml;
+[Converter("")]
+class A
+{
 
+}
+/*
 namespace Abstract3DConverters.Converters
 {
     [Converter(".xaml")]
@@ -74,16 +79,6 @@ namespace Abstract3DConverters.Converters
                     }
                 }
             }
-          /*  var lk = new List<int>(dt.Keys);
-            lk.Sort();
-            foreach (var key in lk)
-            {
-                var p = dt[key];
-                foreach (var pt in p)
-                {
-                    lt.Add(pt);
-                }
-            }*/
           for (var ii = 0; ii < mesh.Points.Count; ii++)
             {
                 var point = mesh.Points[ii];
@@ -126,7 +121,7 @@ namespace Abstract3DConverters.Converters
             }
             if (ln.Count > 0)
             {
-                v.SetAttribute("Normals", s.Parse(ln));
+               v.SetAttribute("Normals", s.Parse(ln));
             }
             var sb = new StringBuilder();
             foreach (var pl in mesh.Polygons)
@@ -332,3 +327,4 @@ namespace Abstract3DConverters.Converters
     }
 
 }
+*/

@@ -37,14 +37,14 @@ namespace Abstract3DConverters.Creators
         public abstract void Load(byte[] bytes);
 
 
-        IEnumerable<AbstractMesh> IMeshCreator.Meshes => Meshes;
+        IEnumerable<IMesh> IMeshCreator.Meshes => Meshes;
 
         Dictionary<string, Effect> IMeshCreator.Effects => Effects;
 
         string IMeshCreator.Filename => Filename;
 
 
-        protected abstract IEnumerable<AbstractMesh> Meshes { get;  }
+        protected abstract IEnumerable<IMesh> Meshes { get;  }
 
    
         protected abstract void CreateAll();
@@ -72,7 +72,7 @@ namespace Abstract3DConverters.Creators
         }
 
   
-        protected virtual void Perform(AbstractMesh mesh, Action<AbstractMesh> action)
+        protected virtual void Perform(IMesh mesh, Action<IMesh> action)
         {
             var children = mesh.Children;
             foreach (var child in children)

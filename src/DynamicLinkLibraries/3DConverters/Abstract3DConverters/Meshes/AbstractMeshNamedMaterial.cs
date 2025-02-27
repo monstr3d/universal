@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstract3DConverters.Interfaces;
 
+/*
 namespace Abstract3DConverters.Meshes
 {
     public class AbstractMeshNamedMaterial : AbstractMeshPolygon
@@ -26,3 +27,4 @@ namespace Abstract3DConverters.Meshes
 
     }
 }
+*/

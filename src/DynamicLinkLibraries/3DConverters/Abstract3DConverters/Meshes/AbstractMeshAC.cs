@@ -5,7 +5,7 @@ using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 using ErrorHandler;
-
+/*
 namespace Abstract3DConverters.Meshes
 {
     internal class AbstractMeshAC : AbstractMeshPolygon
@@ -216,24 +216,6 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
-/*            for (var i = 0; i < Points.Count; i++)
-            {
-                if (!ltex.Contains(i))
-                {
-
-                }
-            }
-            if (mats.Count > 1)
-            {
-                Disintegrate();
-            }
-        }
-            catch (Exception ex)
-            {
-                ex.ShowError();
-            }
-}
-        }*/
 
         private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(null, parent, null, creator)
         {
@@ -245,23 +227,7 @@ namespace Abstract3DConverters.Meshes
             var dd = new Dictionary<int, int>();
             var l = new List<int>();
             int k = 0;
-   /*         foreach (var i in polygon.Indexes)
-            {
-                if (!pts.ContainsKey(i))
-                {
-                    var c = Points.Count;
-                    l.Add(c);
-                    dd[i] = c;
-                    Points.Add(parent.Points[i]);
-                }
-                else
-                {
-                    l.Add(dd[i]);
-                }
-            }
-            var poly = new Polygon(l.ToArray(), Material);
-            Polygons.Add(poly);*/
-        }
+
 
 
         public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
@@ -440,3 +406,4 @@ namespace Abstract3DConverters.Meshes
         }
     }
 }
+*/

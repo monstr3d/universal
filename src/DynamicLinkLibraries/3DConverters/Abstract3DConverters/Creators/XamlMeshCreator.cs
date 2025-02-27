@@ -1,6 +1,7 @@
 ﻿using Abstract3DConverters.Meshes;
 using System.Xml;
 
+/*
 namespace Abstract3DConverters.Creators
 {
 
@@ -65,3 +66,4 @@ namespace Abstract3DConverters.Creators
     }
 
 }
+*/

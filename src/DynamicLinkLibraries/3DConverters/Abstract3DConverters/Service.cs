@@ -188,6 +188,8 @@ namespace Abstract3DConverters
         /// <returns>Product</returns>
         public Point Product(float[,] a, Point point)
         {
+            return null;
+            /*
             var vert = new float[3] { 0f, 0f, 0f };
             var v = point.Vertex;
             for (var i = 0; i < 3; i++)
@@ -214,7 +216,7 @@ namespace Abstract3DConverters
                 }
             }
             var p = new Point(vert, norm);
-            return p;
+            return p;*/
         }
 
         /// <summary>
@@ -225,6 +227,8 @@ namespace Abstract3DConverters
         /// <returns>Product</returns>
         public PointTexture Product(float[,] a, PointTexture point)
         {
+            return null;
+            /*
             var n = point.Normal;
             if (n == null)
             {
@@ -239,7 +243,7 @@ namespace Abstract3DConverters
 
                 }
             }
-            return new PointTexture(point.Index, point.Texture, norm);
+            return new PointTexture(point.Index, point.Texture, norm);*/
         }
 
         /// <summary>

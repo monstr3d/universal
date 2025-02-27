@@ -85,7 +85,7 @@ namespace Abstract3DConverters.Converters
 
         #region Abstract and virtual membres
 
-        protected override object Create(AbstractMesh mesh)
+        protected override object Create(IMesh mesh)
         {
             return CreateLines(mesh);
         }
@@ -99,7 +99,7 @@ namespace Abstract3DConverters.Converters
             m.AddRange(c);
         }
 
-        protected abstract List<string> CreateLines(AbstractMesh mesh);
+        protected abstract List<string> CreateLines(IMesh mesh);
 
 
 

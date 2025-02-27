@@ -1,9 +1,9 @@
 ﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-
+/*
 namespace Abstract3DConverters.Creators
 {
-    
+   
     [Attributes.Extension([".ac", ".ac3d"])]
     public class AcCreator : LinesMeshCreator
     {
@@ -319,3 +319,4 @@ namespace Abstract3DConverters.Creators
      }
     
 }
+*/

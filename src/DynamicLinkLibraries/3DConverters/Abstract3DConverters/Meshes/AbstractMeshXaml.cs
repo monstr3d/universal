@@ -1,7 +1,7 @@
 ﻿using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
 using System.Xml;
-
+/*
 namespace Abstract3DConverters.Meshes
 {
     
@@ -264,3 +264,4 @@ namespace Abstract3DConverters.Meshes
 
     }
 }
+*/

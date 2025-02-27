@@ -77,7 +77,7 @@ namespace Abstract3DConverters
         /// <param name="mesh">The mesh</param>
         /// <param name="meshConverter">The converter</param>
         /// <returns>The peer of mesh</returns>
-        public T Create<T>(AbstractMesh mesh, IMeshConverter meshConverter) where T : class
+        public T Create<T>(IMesh mesh, IMeshConverter meshConverter) where T : class
         {
             try
             {
@@ -120,7 +120,7 @@ namespace Abstract3DConverters
         /// <param name="meshes">Input meshes</param>
         /// <param name="converter">The converter</param>
         /// <returns>Peers of meshes</returns>
-        public IEnumerable<T> Create<T>(IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
+        public IEnumerable<T> Create<T>(IEnumerable<IMesh> meshes, IMeshConverter converter) where T : class
         {
             return meshes.Where(e => e != null).Select(e => Create<T>(e, converter)).ToList();
         }
@@ -132,7 +132,7 @@ namespace Abstract3DConverters
         /// <param name="meshes">Meshes</param>
         /// <param name="converter">Converter of meshes</param>
         /// <returns>The combination</returns>
-        public T Combine<T>(IEnumerable<AbstractMesh> meshes, IMeshConverter converter) where T : class
+        public T Combine<T>(IEnumerable<IMesh> meshes, IMeshConverter converter) where T : class
         {
             var enu = Create<T>(meshes, converter);
             return converter.Combine(enu) as T;

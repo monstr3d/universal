@@ -12061,8 +12061,10 @@ Let $A$ be an unital $C^*$-algebra with unitary element $u\in A$, and let
 \ee
 be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}).  Suppose that there are  $u \in A$ and $v \in \widetilde A$ such that
 \be\label{h_fin_sum_eqn}
+\begin{split}
 v^n = u,\\
 \widetilde A\bydef \oplus_{j = 0}^{n-1} \lift \left(A\right)  v^j
+\end{split}
 \ee
 where $\oplus$ means a direct sum of left $A$-modules.
 Assume that 
@@ -12085,7 +12087,30 @@ where $k$ is a representative of $\overline k$.
 	\ee
 	where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$.
 \end{empt}
-\paragraph{Free  Hurewicz homomorphism.} Let $A$  be an unital $C^*$-algebra, and let $\pi : A \to B\left(\H \right)$ be a faithful  nondegenerate representation   (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). Suppose that $\pi_1\left( A\right)\cong \Z^m$.
+\begin{defn}\label{ab_fg_defn}
+	Let $A$ be a $C^*$-algebra, and let be a property $P_{\mathrm{ab}}$ of noncommutative finite-fold coverings such that
+	\be\label{ab_fg_eqn}
+	\begin{split}
+		\left(A, \widetilde A, G, \lift \right) \in P_{\mathrm{ab}}\quad \Leftrightarrow  \Leftrightarrow G \text{ is an Abelian group}.
+	\end{split}
+	\ee
+	then the $P_{\mathrm{ab}}$-fundamental group (cf. \ref{fundamental_group_nc_p_defn}) of $A$ is the \textit{Abelian fundamental group}. denoted by
+	\be\label{pi_ab_eqn}
+\pi_1^{\text{ab}}\left(A \right). 
+	\ee
+\end{defn}
+\paragraph{Free  Hurewicz homomorphism.} Let $A$  be an unital $C^*$-algebra, and let $\pi : A \to B\left(\H \right)$ be a faithful  nondegenerate representation   (cf. Definitions \ref{faithful_representation_defn} and \ref{nondegenerate_repr_defn}). 
+Suppose that there is the Abelian fundamental group $\pi^{\mathrm{ab}}_1\left(A\right)$ (cf. Definition \ref{fundamental_group_nc_p_defn}).  If 
+$$
+\pi_1^{\text{ab}}\left(A \right)  \bydef \pi_1\left(A\right)/ \left[\pi_1\left(A\right), \pi_1\left(A\right)\right]	
+$$
+and  $\left( A, \widetilde{A},G\left( \left.\widetilde A\right| A\right) , \lift\right)$  is a unital  finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) such that the group $G\left( \left.\widetilde A\right| A\right)$ is Abelian then there is the natural surjective homomorphism
+\be\label{fundamental_gr_hom_eqn}
+\begin{split}
+	h_{\widetilde A} : \pi^{\mathrm{ab}}_1\left(A\right)\to G\left( \left.\widetilde A\right| A\right).
+\end{split}
+\ee
+Suppose that $\pi^{\mathrm{ab}}_1\left( A\right)\cong \Z^m$.
 If $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$ then $K_1\left( A\right)_{\mathrm{free}}\cong \Z^m$ and $K_1\left( A\right)_{\mathrm{free}}\otimes \Q\cong \Q^m$.
 \begin{definition}\label{h_admissible_free_defn}
 	An nontrivial element $x \in K_1\left( A\right)_{\mathrm{free}}\setminus\{0\}$ is \textit{admissible} if it can be represented by an unitary element $u \in  A$  such that there is a set $\left\{v_{n}\right\}_{n \in \N}\subset B\left(\H \right)\setminus A$ of unital elements with
@@ -12133,7 +12158,7 @@ The map
 g \mapsto  \chi^g_\Q
 \eean
 is a homomorphism of groups.
-The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$
+The character is $\chi^g_\Q$ is continuous so it can be uniquely extended up to a continuous character $\chi^g_\R:  \R x \to \sU\left( 1\right)$ of $\R x$ where  $\R x \bydef \R \otimes_\Z \Z  x$.
 If we consider the  {standard character}
 \bean
 \chi_{\text{standard}}: \R \to \sU\left(1 \right) ,\\
@@ -12146,7 +12171,7 @@ f^g_x: K_1\left( A\right)_{\mathrm{free}}\to\Z
 \ee
 and from \eqref{h_free_char_eqn} it follows that $f^g_x$ linearly depends on $g$, i.e.
 \be\label{h_free_hom_eqn}
-\forall g_, g_2\in \pi_1\left( A\right)\cong \Z^m\quad f^{g_1 + g_2}_x =  f^{g_1}_x+f^{g_2}_x.
+\forall g_, g_2\in \pi^{\mathrm{ab}}_1\left( A\right)\cong \Z^m\quad f^{g_1 + g_2}_x =  f^{g_1}_x+f^{g_2}_x.
 \ee 
 The formula
 $$
@@ -12174,36 +12199,68 @@ be an unital finite-fold covering. Consider a category of finitely generated pro
 \be\label{unital_cov_kk_eqn}
 K^{G}_0 \left(\widetilde A \right) \cong K_0\left(A \right) 
 \ee
-Where $K^{G}_0 \left(\widetilde A \right)\cong K_0 \left(\widetilde A\rtimes G  \right)$ is the Grothendieck group of the category  of finitely generated projective  $\widetilde A$ - $G$-modules.
-The group $K^{G}_0 \left(\widetilde A \right)$ is an $R\left( G\right)$-module (cf. Proposition \ref{k_repr_prop}). Any projective $\widetilde A$ - $G$ module $P$ can be represented by a direct sum 
+where $K^{G}_0 \left(\widetilde A \right)\cong K_0 \left(\widetilde A\rtimes G  \right)$ is the Grothendieck group of the category  of finitely generated projective  $\widetilde A$ - $G$-modules.
+The group $K^{G}_0 \left(\widetilde A \right)$ is an $R\left( G\right)$-module (cf. Proposition \ref{k_repr_prop}). 
+If $Q$ is a projective finitely generated  $\widetilde A$-$G$-module  and $Q^G \bydef \left\{q \in Q \left| \forall g \in G\quad gq \right.\right\}$ then there is a natural direct sum
 $$
-P = P_1 \oplus... \oplus P_m
+Q = Q^G \oplus Q^\perp
 $$
-of irreducible projective $\widetilde A$ - $G$ module. For any $j \in \left\{1,..., m\right\}$ there is an irreducible representation (or equivalently character) $\chi_{P_j} : G\to U\left( 1\right)$ such  that
-$$
-\forall s  \in P_j \quad \forall g \in \pi_1\left(A\right)_{\mathrm{tors}} \quad gs = \chi_{P_j}\left(g \right) s
-$$
-and
-\be\label{hurewicz_char_hom_eqn}
-\forall g', g'' \in G\quad \chi_{P_j}\left(g' \right)\chi_{P_j}\left(g'' \right)= \chi_{P_j}\left(g 'g''\right).
-\ee
-We define a character
-\bean 
-\chi_P: G\to U\left(1 \right), \\
-g \mapsto \prod_{j=1}^m \chi_{P_j}\left(g \right).
-\eean
-If $x \bydef  \left[P'\right] -  \left[P''\right] \in K^{\pi_1\left(A\right)_{\mathrm{tors}}}_0 \left(A_{\mathrm{tors}} \right)$ then we define a character
-\bean 
-\chi_x: \pi_1\left(A\right)_{\mathrm{tors}}\to U\left(1 \right) \\
-g \mapsto \chi_{P'}\left(g \right) \chi_{P''}\left(g \right)^*
-\eean
-Any $g \in G$ yields a character 
+since any $q\in Q$ equals to the sum $q^G + q^\perp$ where
 \bean
-\chi_g :K^{G}_0 \left(\widetilde A \right)\to U\left(1 \right) ,\\
-x \mapsto \chi_x\left(g \right) 
-\eean 
-On the other hand from \eqref{hurewicz_char_hom_eqn}  it turns out that   map $g \mapsto \chi_g$ is a homomorphism from $G$ to  the group of characters of $K^{G}_0 \left(\widetilde A \right)$. Taking into account the isomorphism \eqref{unital_cov_kk_eqn} one has a homomorphism from   $G$ to the group of characters on $K_0\left( A\right)$. This homomorphism yields a  a homomorphism from   $G$ to the group of characters on 
- $K_0\left( A\right)$. According to the Lemma \ref{ext_char_lem} there is a homomorphism 
+q^G \bydef \frac{1}{\left| G\right| }\sum _{g\in G}g q \in Q^G,\\
+q^\perp \bydef q - q^G \in P^\perp.
+\eean
+Similarly if $r: G \to U\left( 1\right)$ is an irreducible representation then $Q^\perp = Q_r \oplus Q_r^\perp$ since any $p\in P^\perp$ equals to the sum $q_r + q_r^\perp$ where
+\bean
+q_r\bydef \frac{1}{\left| \ker r\right| }\sum _{g\in \ker r}g q\\
+q_r^\perp \bydef q - q_r
+\eean
+It follows that any projective finitely generated  $\widetilde A$-$G$-module $Q$ is represented by direct sum 
+$$
+Q = Q^G \bigoplus \left(\bigoplus_{r \in R} Q_r\right) 
+$$
+where $R$ is a set of irreducible representations of $G$. It turns out that
+\bean
+K^{G}_0 \left(\widetilde A \right)= \left(K^{G}_0 \left(\widetilde A \right) \right) ^G \bigoplus \left(\bigoplus_{r \in R} K^{G}_0 \left(\widetilde A \right)_r\right)
+\eean
+For any $r\in R$ there is a prime number $p_r \in \N$ such that $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$. There is $g\in G$ with
+\bean
+r\left( g\right) =  e^{\frac{2\pi i}{p_r}},\\
+\forall r' \in R\setminus \{r\}\quad r'(g)= 1.
+\eean
+If $x_1, x_2 \in K^{G}_0 \left(\widetilde A \right)_r$ are such that $\chi_{x_1} \left(g \right) = \chi_{x_1} \left(g \right)= e^{\frac{2\pi i k}{p_r}}$  with $k\in \N$  then one has
+$$
+\forall g \in G \quad\chi_{x_1-x_2} \left(g \right)=\{1\}\quad x_1-x_2 \in  \left(K^{G}_0 \left(\widetilde A \right) \right) ^G
+$$ 
+it is possible if and only if $x_1 - x_2 = 0$. From our construction there is an isomorphism
+$$
+\phi_r : \Z_{p_r} \cong K^{G}_0 \left(\widetilde A \right)_r
+$$
+such that
+$$
+\forall \overline k \in \Z_{p_r} \quad \chi_{\phi_r\left( \overline k\right) }\left( g\right) = e^{\frac{2\pi i k}{p_r}}
+$$
+where $k \in \Z$ is a representative of $\overline{k}$. Moreover any $g \in G$  yield a character
+\be\label{chi_r_eqn}
+\chi_r : K^{G}_0 \left(\widetilde A \right)_r \to U(1).
+\ee
+Following Lemma is a consequence of the above construction and the isomorphism \eqref{unital_cov_kk_eqn} we can deduce the following lemma.
+\begin{lemma}\label{h_tors_lem}
+	If $R$ is a set of irreducible representations of $G$ then there is a decomposition
+	\be\label{h_tors_d_eqn}
+	K_0\left( A\right) = K_0\left(A \right)^\perp \bigoplus  \left(\bigoplus_{r \in R} K_0 \left( A \right)_r\right).
+	\ee 
+	If $\im ~r = e^{\frac{2\pi i \Z}{p_r}}$ then  $K_0 \left( A \right)_r$ is trivial, or there is an isomorphism $K_0 \left( A \right)_r\cong \Z_{p^r}$.
+\end{lemma}
+The decomposition \eqref{h_tors_d_eqn} yield a map from $G$ to the set of characters of  $K_0\left(A \right)$ 
+$$
+g \mapsto \left(x^\perp + \sum_{r \in \R} x_r \mapsto \prod_{r\in R}\chi_r\left(x_r \right)   \right) 
+$$
+From 
+\be\label{hurewicz_char_hom_eqn}
+\forall g', g'' \in G\quad \chi_{r}\left(g' \right)\chi_{r}\left(g'' \right)= \chi_{P_j}\left(g 'g''\right).
+\ee
+it turns out the map is a homomorphism of groups. According to the Lemma \ref{ext_char_lem} there is a homomorphism 
  	\be\label{h_tors_eqn}
  h_{K^1}^{\mathrm{tors}} : G \to   \Ext^1_\Z\left( K_0\left( A\right), \Z \right)
  \ee 
@@ -12218,8 +12275,7 @@ On the other hand from \eqref{hurewicz_char_hom_eqn}  it turns out that   map $g
 	map is the \textit{torsion  of noncommutative Hurewicz homomorphism}.  
 \end{definition}
 
-
-\begin{remark}\label{hurewicz_morita_rem_defn}
+\begin{remark}\label{hurewicz_morita_defn_rem}
 Using the Remark \ref{inverse_galois_rem} one can proof that the given by the equation \eqref{unital_cov_kk_eqn} isomorphism 
 $K^{G}_0 \left(\widetilde A \right) \cong K_0\left(A \right) $ follows from the equivalence between category $\mathscr P_A$ of projective $A$-modules and the category $\mathscr P^{G}_{\widetilde A}$ of the projective $\widetilde A$-$G$ modules. This equivalence comes from the following mutually inverse functors
 \be\label{hurewicz_morita_rem_eqn}
@@ -20925,7 +20981,13 @@ and where $j(y)$ is the class of $(y, 1)$.
 \be\label{top_cp_eqn}
 C'f \bydef M_f / j\left(\sY \right).
 \ee
-\begin{definition}\label{top_susp_defn}\cite{karoubi:k}
+\begin{definition}\label{top_cone_defn}\cite{hatcher:at}
+If $\sX$ is a topological  space then the \textit{cone} $C\sX$ is given by
+\be\label{top_cone_eqn}
+C\sX\bydef \left( \sX\times \left[0, 1\right]\right) /\left( \sX\times \{0\}\right).
+\ee
+\end{definition}
+\begin{definition}\label{top_susp_defn}\cite{hatcher:at,karoubi:k}
 If $\sX$ is a topological  space then  one considers the double cone over $\sX$: it is 
 defined as the quotient of $\sX \times\left[-1, 1\right]$ by the equivalence relation which identifies $\sX \times\{-1\}$ with a single point, and $\sX \times\{1\}$ with another single point. The double cone over $\sX$ called the \textit{suspension} of $\sX$ and denoted by $S'\left(\sX \right)$. It is known that for any $n \in \N$ there is a natural homeomorphism
 \be

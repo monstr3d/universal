@@ -2,8 +2,10 @@
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
+
 namespace Abstract3DConverters.Meshes
 {
+
     /// <summary>
     /// Mesh wih polygon
     /// </summary>
@@ -139,23 +141,6 @@ namespace Abstract3DConverters.Meshes
 
         Polygon[] GetEmpty(Polygon polygon)
         {
-            /*
-            var p = new List<Polygon>();
-            var pt = polygon.Points;
-            int i = 0;
-            do
-            {
-                var l = new List<PointTexture>();
-                for (var j = 0; j < 3; j++)
-                {
-                    var k = (i >= pt.Length) ? pt.Length - 1 : i;
-                    l.Add(pt[k]);
-                    ++i;
-                }
-                p.Add(new Polygon(l.ToArray(), polygon.Material));
-            }
-            while (i <= pt.Length);
-            return p.ToArray();*/
             var p = new List<Polygon>();
             var pt = polygon.Points;
             for (var i = 1; i < pt.Length - 1; i++)
@@ -164,7 +149,7 @@ namespace Abstract3DConverters.Meshes
                 l.Add(pt[0]);
                 l.Add(pt[i]);
                 l.Add(pt[i + 1]);
-                p.Add(new Polygon(l.ToArray(), polygon.Effect));
+                p.Add(new Polygon(this, l.ToArray(), polygon.Effect));
             }
             if (pt.Length < 3)
             {
@@ -175,7 +160,7 @@ namespace Abstract3DConverters.Meshes
                     {
                         l.Add(pt[i]);
                     }
-                    p.Add(new Polygon(l.ToArray(), polygon.Effect));
+                    p.Add(new Polygon(this, l.ToArray(), polygon.Effect));
                 }
 
             }

@@ -7,6 +7,7 @@ using ErrorHandler;
 
 namespace Abstract3DConverters.Converters
 {
+    /*
     [Converter(".obj")]
     public class Obj3DConverter : LinesMeshConverter, IAdditionalInformation
     {
@@ -103,7 +104,7 @@ namespace Abstract3DConverters.Converters
             yield return "map_Kd " + pth;
         }
 
-        protected override List<string> CreateLines(AbstractMesh mesh)
+        protected override List<string> CreateLines(IMesh mesh)
         {
             var l = new List<string>();
             if (!mesh.HasPolygons)
@@ -177,4 +178,5 @@ namespace Abstract3DConverters.Converters
             return l;
         }
     }
+    */
 }

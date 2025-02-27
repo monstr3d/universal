@@ -1,16 +1,95 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Runtime.InteropServices;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 using ErrorHandler;
 
+public abstract class Mesh : IMesh
+{
+    #region IMesh Implementation
+
+    List<float[]> IMesh.Vertices => Vertices;
+
+    List<float[]> IMesh.Normals => Normals;
+
+    List<float[]> IMesh.Textures => Textures;
+
+    Effect IMesh.Effect => Effect;
+
+    List<int[][]> IMesh.Indexes => Indexes;
+
+    bool IMesh.HasPolygons => HasPolygons;
+
+    List<Point> IMesh.AbsolutePoints => AbsolutePoints;
+
+    List<float[]> IMesh.AbsoluteVertices  => AbsoluteVertices;
+
+    float[] IMesh.TransformationMatrix => TransformationMatrix;
+
+    string IMesh.Name => Name;
+
+    List<Polygon> IMesh.Polygons => Polygons;
+
+    List<IMesh> IMesh.Children => Children;
+
+    Effect IMesh.GetEffect(IMaterialCreator creator)
+    {
+        return GetEffect(creator);
+    }
+
+    IMeshCreator IMesh.Creator => Creator;
+
+
+
+    #endregion
+
+    #region Abstract and vitrual members
+
+    protected abstract List<float[]> Vertices { get; set; }
+
+    protected abstract List<float[]> Normals { get; set; }
+
+    protected abstract List<float[]> Textures { get; set; }
+
+    protected abstract Effect Effect { get; set; }
+
+    protected  List<int[][]> Indexes { get; set; }
+
+    protected abstract bool HasPolygons { get; set; }
+
+    protected abstract List<Point> AbsolutePoints { get; set; }
+
+    protected abstract List<float[]> AbsoluteVertices { get; set; }
+
+
+    protected abstract float[] TransformationMatrix { get; set; }
+
+    protected abstract string Name { get; set; }
+
+    protected abstract List<Polygon> Polygons { get; set; }
+
+    protected abstract List<IMesh> Children { get; set; }
+
+    protected abstract Effect GetEffect(IMaterialCreator creator);
+
+    protected  IMeshCreator Creator { get; set; }
+
+    #endregion
+
+
+}
+
+
+
+
+
 namespace Abstract3DConverters.Meshes
 {
     /// <summary>
     /// Abstract mesh
     /// </summary>
-    public class AbstractMesh : IParent
+    public class AbstractMesh : IParent, IMesh
     {
         #region Fields
 
@@ -24,11 +103,7 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         protected Service s = new();
 
-        /// <summary>
-        /// Creator
-        /// </summary>
-        protected IMeshCreator creator;
-
+   
         /// <summary>
         /// The "triangles created@ sign
         /// </summary>
@@ -74,7 +149,7 @@ namespace Abstract3DConverters.Meshes
             {
                 throw new Exception("Abstract creator null");
             }
-            this.creator = creator;
+            Creator = creator;
             Name = name;
         }
 
@@ -166,7 +241,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// The "has polygons" sign
         /// </summary>
-        public bool HasPolygons
+        protected bool HasPolygons
         {
             get
             {
@@ -181,10 +256,10 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Transformation matrix
         /// </summary>
-        public float[] TransformationMatrix
+        protected float[] TransformationMatrix
         {
             get;
-            protected set;
+            set;
         }
 
         /// <summary>
@@ -224,12 +299,12 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Children
         /// </summary>
-        public List<AbstractMesh> Children { get; } = new();
+        public List<IMesh> Children { get; } = new();
 
         /// <summary>
         /// Vertices
         /// </summary>
-        public List<float[]> Vertices { get; protected set; }
+        protected List<float[]> Vertices { get;  set; }
 
         /// <summary>
         /// Absolute Verices
@@ -246,28 +321,28 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Normals
         /// </summary>
-        public List<float[]> Normals { get; protected set; }
+        protected List<float[]> Normals { get; set; }
 
         /// <summary>
         /// Textures
         /// </summary>
-        public List<float[]> Textures { get; protected set; }
+        protected List<float[]> Textures { get;  set; }
         
         /// <summary>
         /// Indexes
         /// </summary>
-        public List<int[][]> Indexes { get; protected set; }
+        protected List<int[][]> Indexes { get;  set; }
         
 
         /// <summary>
-        /// Indexes of triangles;
+        /// Polygons
         /// </summary>
-        public List<Polygon> Polygons { get; protected set; }
+        protected List<Polygon> Polygons { get; set; }
 
         /// <summary>
         /// Name
         /// </summary>
-        public string Name { get; protected set; }
+        protected string Name { get;  set; }
 
         /// <summary>
         /// String representation of material
@@ -277,13 +352,13 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Effect
         /// </summary>
-        public Effect Effect
+        protected virtual Effect Effect
         {
             get;
-            protected set;
+            set;
         }
 
-        public virtual object GetEffect(IMaterialCreator creator)
+        public object  GetEffect(IMaterialCreator creator)
         {
             try
             {
@@ -291,7 +366,7 @@ namespace Abstract3DConverters.Meshes
                 {
                     return creator.Create(Effect);
                 }
-                var mt = this.creator.Effects;
+                var mt = Creator.Effects;
                 if (EffectString != null)
                 {
                     if (mt.ContainsKey(EffectString))
@@ -322,7 +397,7 @@ namespace Abstract3DConverters.Meshes
                 {
                     return creator.Create(Effect.Material);
                 }
-                var mt = this.creator.Effects;
+                var mt = Creator.Effects;
                 if (EffectString != null)
                 {
                     if (mt.ContainsKey(EffectString))
@@ -367,6 +442,7 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         public float[,] AbsoluteMatrix => GetAbsoluteMatrix();
 
+  
         /// <summary>
         /// Zero
         /// </summary>
@@ -415,7 +491,7 @@ namespace Abstract3DConverters.Meshes
                         {
                             l.Add(s.Product(m, point));
                         }
-                        absolutePolygons.Add(new Polygon(l.ToArray(), polygon.Effect));
+                        absolutePolygons.Add(new Polygon(this, l.ToArray(), polygon.Effect));
                     }
 
                 }
@@ -524,5 +600,57 @@ namespace Abstract3DConverters.Meshes
 
 
         #endregion
+
+        #region IMesh Implementation
+
+        List<float[]> IMesh.Vertices => Vertices;
+
+        List<float[]> IMesh.Normals => Normals;
+
+        List<float[]> IMesh.Textures => Textures;
+
+        Effect IMesh.Effect => Effect;
+
+        List<int[][]> IMesh.Indexes => Indexes;
+
+        bool IMesh.HasPolygons => HasPolygons;
+
+        List<Point> IMesh.AbsolutePoints => AbsolutePoints;
+
+        List<float[]> IMesh.AbsoluteVertices => AbsoluteVertices;
+
+        float[] IMesh.TransformationMatrix => TransformationMatrix;
+
+        string IMesh.Name => Name;
+
+        List<Polygon> IMesh.Polygons => Polygons;
+
+        List<IMesh> IMesh.Children => Children;
+
+        Effect IMesh.GetEffect(IMaterialCreator creator)
+        {
+            return GetEffectEffect(creator);
+        }
+
+        IMeshCreator IMesh.Creator => Creator;
+
+
+
+        #endregion
+
+        #region Abstract and vitrual members
+
+        protected virtual Effect GetEffectEffect(IMaterialCreator creator)
+        {
+            return null;
+        }
+ 
+
+        protected virtual IMeshCreator Creator { get; set; }
+
+        #endregion
+
+
     }
 }
+

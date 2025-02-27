@@ -34,6 +34,8 @@ namespace EarClipperSplitter
             var d1 = new Dictionary<float[], int>();
             var d2 = new Dictionary<float[], int>();
             var d3 = new Dictionary<float[], int>();
+            var di = new Dictionary<int, int[]>();
+            var mesh = polygon.Mesh;
             Effect effect = null;
             if (polygon != null)
             {
@@ -47,7 +49,8 @@ namespace EarClipperSplitter
                 var points = new List<Vector3m>();
                 foreach (var point in polygon.Points)
                 {
-                    var p = point.Texture; ;
+                    var p = point.Texture;
+
                     var v = new Vector3m(p[0], p[1], 0);
                     foreach (var py in points)
                     {
@@ -56,9 +59,10 @@ namespace EarClipperSplitter
                             return [];
                         }
                     }
-                    var ind = point.Index;
+                    var ind = point.VertexIndex;
                     dic[v] = ind;
                     dd[ind] = p;
+                    di[ind] = [point.TextureIndex, point.NormalIndex];
                     points.Add(v);
                 }
                 clipping.SetPoints(points);
@@ -106,11 +110,12 @@ namespace EarClipperSplitter
 
                         }
                         var pt = dd[ind];
-                        var point = new PointTexture(ind, pt);
+                        var ii = di[ind];
+                        var point = new PointTexture(mesh, ind, ii[0], ii[1]);
                         t.Add(point);
 
                     }
-                    pp.Add(new Polygon(t.ToArray(), effect));
+                    pp.Add(new Polygon(mesh, t.ToArray(), effect));
                 }
                 return pp.ToArray();
             }
