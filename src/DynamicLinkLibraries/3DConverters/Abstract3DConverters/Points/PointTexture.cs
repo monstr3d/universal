@@ -1,5 +1,7 @@
-﻿using System.Net.Http.Headers;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
+using ErrorHandler;
+using System.Diagnostics.CodeAnalysis;
+using System.Formats.Tar;
 
 namespace Abstract3DConverters.Points
 {
@@ -8,36 +10,81 @@ namespace Abstract3DConverters.Points
     /// </summary>
     public class PointTexture
     {
- 
-
 
         #region Ctor
 
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="index">vertex</param>
+        /// <param name="mesh">mesh</param>
+        /// <param name="vertex">vertex</param>
         /// <param name="texture">Texture</param>
         /// <param name="normal">Normal</param>
-        public PointTexture(IMesh mesh,int vertex, int texture, int normal = -1)
+        [SetsRequiredMembers]
+        public PointTexture(IMesh mesh, int vertex, int texture, int normal = -1)
         {
-            Mesh = mesh;
-             VertexIndex = vertex;
-            TextureIndex = texture;
-            NormalIndex = normal;
-            Vertex = mesh.Vertices[vertex];
-            Texture = mesh.Textures[texture];
-            if (mesh.Normals == null)
+            try
             {
-                NormalIndex = -1;
+                Mesh = mesh;
+                VertexIndex = vertex;
+                TextureIndex = texture;
+                NormalIndex = normal;
+                Vertex = mesh.Vertices[vertex];
+                Texture = mesh.Textures[texture];
+                if (mesh.Normals == null)
+                {
+                    NormalIndex = -1;
+                }
+                else if (normal >= 0)
+                {
+                    Normal = mesh.Normals[normal];
+                }
             }
-            else if (normal >= 0)
+            catch (Exception exception)
             {
-                Normal = mesh.Normals[normal];
+                exception.ShowError();
+                throw new IncludedException(exception, "Point texture constructor");
             }
-            
         }
-       
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="vertices">Vertices</param>
+        /// <param name="textures">Textures</param>
+        /// <param name="vertex">Vertex index</param>
+        /// <param name="texture">Texture index</param>
+        /// <param name="normal">Normal index</param>
+        /// <param name="normals">Normals</param>
+        /// <exception cref="IncludedException"></exception>
+        [SetsRequiredMembers]
+        public PointTexture(List<float[]> vertices, List<float[]> textures,  int vertex, int texture, 
+            int normal = -1, List<float[]> normals = null)
+        {
+            try
+            {
+                Vertex = vertices[vertex];
+                Texture = textures[texture];
+
+                if (normals == null)
+                {
+                    NormalIndex = -1;
+                }
+                else if (normal >= 0)
+                {
+                    Normal = normals[normal];
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.ShowError();
+                throw new IncludedException(exception, "Point texture constructor");
+            }
+        }
+
+
+
+
 
         #endregion
 
@@ -75,7 +122,7 @@ namespace Abstract3DConverters.Points
         /// <summary>
         /// Normal
         /// </summary>
-        public float[] Normal
+        public float[] ? Normal
         {
             get;
             protected set;
@@ -102,17 +149,11 @@ namespace Abstract3DConverters.Points
         /// <summary>
         /// Mesh
         /// </summary>
-        public IMesh Mesh
+        public IMesh ? Mesh
         {
             get;
             protected set;
         }
-
-  
-
-
-
-
 
         #endregion
 

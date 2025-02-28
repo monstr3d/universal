@@ -42,8 +42,8 @@ namespace Collaada.Wpf.Test
 
             // Compare();
             //  Generate();
-              GenerateObj();
-            //      GenerateToAc();
+        //      GenerateObj();
+  //                GenerateToAc();
             //    GenerateAC();
             //     GenerateCollada();
             //      GenerateToDae();
@@ -102,15 +102,15 @@ namespace Collaada.Wpf.Test
         void GenerateXaml()
         {
 
-              GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.obj");
-            // GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+        //      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.obj");
+             GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
             //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.dae");
 
 
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15C Eagle.obj");
             //       GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B1.5.0.dae");
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
-            //        GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+             //       GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
             //GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado1.5.0.dae");
             //                  GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin1.5.0.dae");
 

@@ -1,85 +1,11 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Reflection;
+using System.Runtime.InteropServices;
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 using ErrorHandler;
-
-public abstract class Mesh : IMesh
-{
-    #region IMesh Implementation
-
-    List<float[]> IMesh.Vertices => Vertices;
-
-    List<float[]> IMesh.Normals => Normals;
-
-    List<float[]> IMesh.Textures => Textures;
-
-    Effect IMesh.Effect => Effect;
-
-    List<int[][]> IMesh.Indexes => Indexes;
-
-    bool IMesh.HasPolygons => HasPolygons;
-
-    List<Point> IMesh.AbsolutePoints => AbsolutePoints;
-
-    List<float[]> IMesh.AbsoluteVertices  => AbsoluteVertices;
-
-    float[] IMesh.TransformationMatrix => TransformationMatrix;
-
-    string IMesh.Name => Name;
-
-    List<Polygon> IMesh.Polygons => Polygons;
-
-    List<IMesh> IMesh.Children => Children;
-
-    Effect IMesh.GetEffect(IMaterialCreator creator)
-    {
-        return GetEffect(creator);
-    }
-
-    IMeshCreator IMesh.Creator => Creator;
-
-
-
-    #endregion
-
-    #region Abstract and vitrual members
-
-    protected abstract List<float[]> Vertices { get; set; }
-
-    protected abstract List<float[]> Normals { get; set; }
-
-    protected abstract List<float[]> Textures { get; set; }
-
-    protected abstract Effect Effect { get; set; }
-
-    protected  List<int[][]> Indexes { get; set; }
-
-    protected abstract bool HasPolygons { get; set; }
-
-    protected abstract List<Point> AbsolutePoints { get; set; }
-
-    protected abstract List<float[]> AbsoluteVertices { get; set; }
-
-
-    protected abstract float[] TransformationMatrix { get; set; }
-
-    protected abstract string Name { get; set; }
-
-    protected abstract List<Polygon> Polygons { get; set; }
-
-    protected abstract List<IMesh> Children { get; set; }
-
-    protected abstract Effect GetEffect(IMaterialCreator creator);
-
-    protected  IMeshCreator Creator { get; set; }
-
-    #endregion
-
-
-}
-
 
 
 
@@ -137,7 +63,7 @@ namespace Abstract3DConverters.Meshes
             GetRelativeMatrix = GetRelativeMatrixStart;
             GetAbsoluteMatrix = GetAbsoluteMatrixStart;
             GetAbsolutePolygons = GetPolygonStart;
-        }
+         }
 
         /// <summary>
         /// Constructor
@@ -414,13 +340,6 @@ namespace Abstract3DConverters.Meshes
             return null;
         }
 
-        /// <summary>
-        /// Creates triangles
-        /// </summary>
-        public virtual void CreateTriangles()
-        {
-        
-        }
 
         /// <summary>
         /// Absolute points

@@ -1,6 +1,6 @@
 ﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
-/*
+
 namespace Abstract3DConverters.Creators
 {
    
@@ -317,6 +317,4 @@ namespace Abstract3DConverters.Creators
             CreateMaterials(lines);
         }
      }
-    
 }
-*/

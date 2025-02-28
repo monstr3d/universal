@@ -1,6 +1,8 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System.Reflection;
+
+using Abstract3DConverters.Attributes;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
 
 namespace Abstract3DConverters.Converters
 {
@@ -8,13 +10,23 @@ namespace Abstract3DConverters.Converters
     {
         #region Fields
 
-        protected IMeshConverter converter;
+        protected IMeshConverter Converter
+        {
+            get;
+            private set;
+        }
 
         IMaterialCreator materialCreator;
 
         protected virtual IMaterialCreator MaterialCreator => materialCreator;
 
         protected Service s = new();
+
+        protected bool TrianglesOnly
+        {
+            get;
+            set;
+        }
 
 
         string directory;
@@ -24,8 +36,14 @@ namespace Abstract3DConverters.Converters
 
         protected AbstractMeshConverter(IMaterialCreator materialCreator)
         {
-            converter = this;
+            Converter = this;
             this.materialCreator = materialCreator;
+            var ca = s.GetAttribute<ConverterAttribute>(this);
+            if (ca != null)
+            {
+                TrianglesOnly = ca.TrianglesOnly;
+            }
+
         }
 
         #region 
@@ -95,7 +113,17 @@ namespace Abstract3DConverters.Converters
 
         protected abstract object Combine(IEnumerable<object> meshes);
 
-        protected abstract object Create(IMesh mesh);
+        protected virtual object Create(IMesh mesh)
+        {
+            if (TrianglesOnly)
+            {
+                if (mesh is ICreateTriangles ct)
+                {
+                    ct.CreateTriangles();
+                }
+            }
+            return null;
+        }
 
         protected virtual void SetEffect(object mesh, object effect)
         {

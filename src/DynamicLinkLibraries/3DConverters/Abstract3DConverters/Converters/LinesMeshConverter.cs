@@ -87,6 +87,7 @@ namespace Abstract3DConverters.Converters
 
         protected override object Create(IMesh mesh)
         {
+            base.Create(mesh);
             return CreateLines(mesh);
         }
 

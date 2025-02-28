@@ -24,13 +24,20 @@ namespace Abstract3DConverters.Creators
 
         #region Ctor
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
         public Obj3DCreator(string filename, byte[] bytes) : base(filename, bytes)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
         {
 
         }
 
 
         #endregion
+/*
+        internal List<List<float[]>> VerticesGlobal { get; } = new();
+        internal List<List<float[]>> TexturesGlobal { get; } = new();
+        internal List<List<float[]>> NormalsGlobal { get; } = new();
+*/
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
         internal List<float[]> Vertices { get; private set; } = new List<float[]>();
@@ -40,7 +47,7 @@ namespace Abstract3DConverters.Creators
         internal List<List<int[][]>> Indexes { get; private set; } = new();
 
         internal List<string> Names { get; private set; } = new();
-        internal List<int[]> Shifts { get; private set; } = new();
+        internal int[] Shifts { get; private set; } = [1, 1, 1];
 
         internal List<Effect> EffectList { get; private set; } = new();
 
@@ -59,18 +66,30 @@ namespace Abstract3DConverters.Creators
 
         void CreateGeometry()
         {
-            List<int[][]> indexes = null;
+             List<int[][]> indexes = null;
 
             foreach (var line in lines)
             {
                 var objs = "# object ";
                 if (line.Contains(objs))
                 {
+                  /*  if (indexes != null)
+                    {
+                        Shifts[0] += Vertices.Count;
+                        Shifts[1] += Textures.Count;
+                        Shifts[2] += Normals.Count;
+                    }
+                  */
                     var name = line.Substring(objs.Length).Trim();
                     Names.Add(name);
                     indexes = new();
                     Indexes.Add(indexes);
-                    Shifts.Add([Vertices.Count, Textures.Count, Normals.Count]);
+             /*       Vertices = new();
+                    VerticesGlobal.Add(Vertices);
+                    Normals = new();
+                    NormalsGlobal.Add(Normals);
+                    Textures = new();
+                    TexturesGlobal.Add(Textures);*/
                     continue;
                 }
 
@@ -118,7 +137,7 @@ namespace Abstract3DConverters.Creators
                             }
                             else
                             {
-                                i[m] = int.Parse(sss[m]);
+                                i[m] = int.Parse(sss[m]) - 1;// Shifts[m];
                             }
                         }
                     }

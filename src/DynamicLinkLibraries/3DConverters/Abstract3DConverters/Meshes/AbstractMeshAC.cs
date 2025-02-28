@@ -5,7 +5,7 @@ using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 using ErrorHandler;
-/*
+
 namespace Abstract3DConverters.Meshes
 {
     internal class AbstractMeshAC : AbstractMeshPolygon
@@ -39,8 +39,8 @@ namespace Abstract3DConverters.Meshes
 
         internal AbstractMeshAC(AbstractMeshAC parent, List<Material> materials, List<string> l, AcCreator creator) : base(null, null, null, creator)
         {
-            var directory = base.creator.Directory;
-            AcCreator = creator;
+            var directory = Creator.Directory;
+            AcCreator = Creator as AcCreator;
             var i = creator.Position + 1;
             var ltex = new List<int>();
             var dd = new Dictionary<int, float[]>();
@@ -158,6 +158,13 @@ namespace Abstract3DConverters.Meshes
                     ns = numsurf.Value;
                     int mt = -1;
                     var nc = numsurf.Value;
+                    if (nc > 0)
+                    {
+                        if (Textures == null)
+                        {
+                            Textures = new();
+                        }
+                    }
                     for (var surf = 0; surf < nc; surf++)
                     {
                         i += 2;
@@ -196,11 +203,13 @@ namespace Abstract3DConverters.Meshes
                                 {
                                     ltex.Add(key);
                                 }
-                                var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
+                                Textures.Add([s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal<float>(ss[2].Trim()) ]);
+                                var pt = new PointTexture(this, key, Textures.Count - 1);
                                 lp.Add(pt);
+                                
                             }
-                            var polygon = new Polygon(lp.ToArray(), Effect);
+                            var polygon = new Polygon(this, lp.ToArray(), Effect);
                             if (Polygons == null)
                             {
                                 Polygons = new();
@@ -216,18 +225,53 @@ namespace Abstract3DConverters.Meshes
             }
         }
 
+/*            for (var i = 0; i < Points.Count; i++)
+            {
+                if (!ltex.Contains(i))
+                {
+
+                }
+            }
+            if (mats.Count > 1)
+            {
+                Disintegrate();
+            }
+        }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+}
+        }*/
 
         private AbstractMeshAC(AbstractMesh parent, Polygon polygon, AcCreator creator) : base(null, parent, null, creator)
         {
             Parent = parent;
+            IMesh pmesh = parent;
             Polygons = new();
-            Name = parent.Name + "_" + Path.GetRandomFileName();
+            Name = pmesh.Name + "_" + Path.GetRandomFileName();
             Effect = polygon.Effect;
             var pts = new Dictionary<int, Point>();
             var dd = new Dictionary<int, int>();
             var l = new List<int>();
             int k = 0;
-
+   /*         foreach (var i in polygon.Indexes)
+            {
+                if (!pts.ContainsKey(i))
+                {
+                    var c = Points.Count;
+                    l.Add(c);
+                    dd[i] = c;
+                    Points.Add(parent.Points[i]);
+                }
+                else
+                {
+                    l.Add(dd[i]);
+                }
+            }
+            var poly = new Polygon(l.ToArray(), Material);
+            Polygons.Add(poly);*/
+        }
 
 
         public AbstractMeshAC(AbstractMesh parent, string name, AcCreator creator, int count, List<string> l, List<Material> materials, string directory) :
@@ -243,7 +287,7 @@ namespace Abstract3DConverters.Meshes
                 this.l = l;
                 int nv = -1;
                 int ns = -1;
-                this.creator = creator;
+                AcCreator = creator;
                 int txt = 0;
                 var ds = new Dictionary<int, float[]>();
                 var vrt = new List<float[]>();
@@ -334,11 +378,13 @@ namespace Abstract3DConverters.Meshes
                                 {
                                     ltex.Add(key);
                                 }
+                                throw new Exception("!!!!!!!!!!!!");
+                                /*
                                 var pt = new PointTexture(key, [s.ToReal<float>(ss[1].Trim()),
                                     s.ToReal<float>(ss[2].Trim()) ]);
-                                lp.Add(pt);
+                                lp.Add(pt);*/
                             }
-                            var polygon = new Polygon(lp.ToArray(), Effect);
+                            var polygon = new Polygon(this, lp.ToArray(), Effect);
                             if (Polygons == null)
                             {
                                 Polygons = new();
@@ -396,7 +442,7 @@ namespace Abstract3DConverters.Meshes
                         int h = 0;
                         h = dp[p];
                         var mat = materials[h];
-                        new AbstractMeshAC(this, p, creator as AcCreator);
+                        new AbstractMeshAC(this, p, AcCreator);
                     }
                 }
                 Points = null;
@@ -406,4 +452,3 @@ namespace Abstract3DConverters.Meshes
         }
     }
 }
-*/

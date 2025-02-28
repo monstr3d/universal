@@ -22,14 +22,21 @@ namespace Abstract3DConverters.Attributes
         public string Comment { get; private set; }
 
         /// <summary>
+        /// Comment
+        /// </summary>
+        public bool TrianglesOnly { get; private set; }
+
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="extension">Extension</param>
         /// <param name="comment">Comment</param>
-        public ConverterAttribute(string extension, string comment = null)
+        public ConverterAttribute(string extension, bool trianglesOnly = false, string comment = null)
         {
             Extension = extension;
             Comment = comment;
+            TrianglesOnly = trianglesOnly;
         }
     }
 }

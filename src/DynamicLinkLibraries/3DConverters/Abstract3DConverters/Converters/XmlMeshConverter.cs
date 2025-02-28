@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Xml;
+﻿using System.Xml;
 
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Meshes;
-/*
+
 namespace Abstract3DConverters.Converters
 {
     
@@ -72,7 +72,6 @@ namespace Abstract3DConverters.Converters
         #endregion
 
 
-
         #region Protected
 
         protected override object Combine(IEnumerable<object> meshes)
@@ -80,13 +79,26 @@ namespace Abstract3DConverters.Converters
             return CombineXml(meshes);
         }
 
-        protected override object Create(AbstractMesh mesh)
+        protected override object Create(IMesh mesh)
         {
+            base.Create(mesh);
             return CreateXmlMesh(mesh);
         }
 
+        protected abstract XmlElement CreateXmlMeshCV(IMesh mesh);
 
-        protected abstract XmlElement CreateXmlMesh(AbstractMesh mesh);
+        protected abstract XmlElement CreateXmlMeshOrdinary(IMesh mesh);
+
+
+        protected virtual XmlElement CreateXmlMesh(IMesh mesh)
+        {
+            var at = s.GetAttribute<CommonVetricesAttribute>(mesh);
+            if (at != null)
+            {
+                return CreateXmlMeshCV(mesh);
+            }
+            return CreateXmlMeshOrdinary(mesh);
+        }
 
         protected virtual XmlElement Create(XmlElement parent, AbstractMesh mesh)
         {
@@ -169,4 +181,3 @@ namespace Abstract3DConverters.Converters
         #endregion
     }
 }
-*/

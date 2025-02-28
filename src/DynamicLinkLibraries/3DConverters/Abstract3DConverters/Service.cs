@@ -1,9 +1,9 @@
-﻿using System.Text;
-using System.Xml;
-
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+using System.Reflection;
+using System.Text;
+using System.Xml;
 
 namespace Abstract3DConverters
 {
@@ -26,6 +26,18 @@ namespace Abstract3DConverters
 
 
         #region Service
+
+        /// <summary>
+        /// Gets attribute
+        /// </summary>
+        /// <param name="obj">the object</param>
+        /// <returns>The arribute</returns>
+        public T GetAttribute<T>(object obj) where T : Attribute
+        {
+            var t = obj.GetType();
+            return CustomAttributeExtensions
+                .GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(t));
+        }
 
         /// <summary>
         /// Copy of image
@@ -628,6 +640,23 @@ namespace Abstract3DConverters
             }
             return l;
 
+        }
+
+        /// <summary>
+        /// Conversion
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="en">Collection</param>
+        /// <returns>Conversion result</returns>
+        public IEnumerable<T> ToSigleArray<T>(IEnumerable<T[]> en) where T: struct
+        {
+            foreach (var item in en)
+            {
+                foreach (var i in item)
+                {
+                    yield return i;
+                }
+            }
         }
 
         #endregion

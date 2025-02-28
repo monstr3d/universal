@@ -12091,7 +12091,7 @@ where $k$ is a representative of $\overline k$.
 	Let $A$ be a $C^*$-algebra, and let be a property $P_{\mathrm{ab}}$ of noncommutative finite-fold coverings such that
 	\be\label{ab_fg_eqn}
 	\begin{split}
-		\left(A, \widetilde A, G, \lift \right) \in P_{\mathrm{ab}}\quad \Leftrightarrow  \Leftrightarrow G \text{ is an Abelian group}.
+		\left(A, \widetilde A, G, \lift \right) \in P_{\mathrm{ab}}\quad  \Leftrightarrow G \text{ is an Abelian group}.
 	\end{split}
 	\ee
 	then the $P_{\mathrm{ab}}$-fundamental group (cf. \ref{fundamental_group_nc_p_defn}) of $A$ is the \textit{Abelian fundamental group}. denoted by
@@ -12289,42 +12289,40 @@ P \mapsto P\otimes_{ A} \widetilde A;\\
 \end{remark}
 
 
-\paragraph{Hurewicz homomorphism for non Abelian fundamental group} 
+\paragraph{Hurewicz homomorphism for finitely generated Abelian fundamental group} 
 \begin{definition}\label{hurewicz_admits_defn}
-An unital $C^*$-algebra  $A$ \textit{admits  Hurewicz homomorphism} it there is a finite subgroup $G \subset \pi_1\left( A\right)$ such that with an unital finite-fold noncommutative covering $\left(   A, \widetilde A,  G\left(\left.\widetilde A \right| A \right)  ,  \lift \right)$ such that:
+An unital $C^*$-algebra  $A$ \textit{admits  Hurewicz homomorphism} if one has:
 \begin{enumerate}
-	\item [(a)] the composition $G \hookto  \pi_1\left( A\right) \to G\left(\left.\widetilde A \right| A \right)$ is isomorphism.
-	\item[(b)] $ \pi_1\left( A\right)/G \cong \Z^n$.
-\end{enumerate}
+	\item[(a)] All Abelian groups $\pi^{\mathrm{ab}}_1\left( A\right)$, $K_0\left( A\right)$ and $K_1\left( A\right)$ are finitely generated.
+	\item[(b)] If $\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\subset \pi^{\mathrm{ab}}_1\left( A\right)$ is the torsion subgroup then there  an unital finite-fold noncommutative covering $\left(   A, \widetilde A,  G\left(\left.\widetilde A \right| A \right)  ,  \lift \right)$ such that the composition $\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}} \hookto  \pi_1\left( A\right) \to G\left(\left.\widetilde A \right| A \right)$ is isomorphism.
+	\end{enumerate}
 \end{definition}
 \begin{empt}
 If an  unital $C^*$-algebra  $A$ {admits  Hurewicz homomorphism} then  $\pi_1\left(A\right)$ is a direct product of groups
 \be\label{h_dir_prod_eqn}
-\pi_1\left( A\right) \cong G \times \pi_1\left(\widetilde A \right). 
+\pi^{\mathrm{ab}}_1\left( A\right)\cong \pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\oplus
+\pi^{\mathrm{ab}}_1\left( A\right)/\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}} \cong G\left(\left.\widetilde A \right| A \right) \times \pi_1^{\mathrm{ab}}\left(\widetilde A \right). 
 \ee
-There are free Hurewicz homomorphism $h^1 : \pi_1\left(\widetilde A \right) \to K^1\left(\widetilde A \right)$. If $\left[G, G\right]$ is the commutant of $G$ then there is a noncommutative finite-fold covering 
-$$
-\left( \widetilde A^{\left[G, G\right]}, \widetilde A, G/\left[G, G\right], \Id_{\widetilde A}|_{ A^{\left[G, G\right]}} \right) 
-$$
-(cf. Lemma \ref{fin_unital_composition_lem}). There are the free  and the torsion  Hurewicz homomorphisms
+There are free Hurewicz homomorphism $h^1 : \pi_1\left(\widetilde A \right) \to K^1\left(\widetilde A \right)$.  There are the free  and the torsion  Hurewicz homomorphisms
 \bean
-h_{K^1}^{\mathrm{free}} : \pi_1\left( \widetilde A\right) \to \Hom\left( K_1\left( \widetilde A\right) , \Z\right),\\
-h_{K^1}^{\mathrm{tors}} : G/\left[G, G\right] \to   \Ext^1_\Z\left( K_0\left( \widetilde A^{\left[G, G\right]}, \Z\right)\right)
+h_{K^1}^{\mathrm{free}} : \pi^{\mathrm{ab}}_1\left( \widetilde A\right) \to \Hom\left( K_1\left( \widetilde A\right) , \Z\right),\\
+h_{K^1}^{\mathrm{tors}} : G\left(\left.\widetilde A \right| A \right)] \to   \Ext^1_\Z\left( K_0\left( \widetilde A, \Z\right)\right)
 \eean
 (cf. Definitions \ref{hurewicz_free_defn} and \ref{hurewicz_torsion_defn}).
-The inclusions $A \hookto  \widetilde A^{\left[G, G\right]}$ and $A \hookto  \widetilde A$ yield homomorphisms $p_1 :K_0\left( A\right) \to K_0\left(\widetilde A^{\left[G, G\right]}\right)$ and  $p_2 :K_0\left( A\right) \to K_0\left(\widetilde A\right)$ so there are homomorphisms 
+The inclusion  yields a homomorphism $\iota :K_0\left( A\right) \to K_0\left(\widetilde A\right)$ so there are homomorphisms 
 \bean
 r_1 : \Hom\left(K_1\left(\widetilde A\right), \Z \right) \to \Hom\left(K_1\left(A\right), \Z \right),\\
-r_2 : \Ext^1_\Z\left(K_0\left(\widetilde A^{\left[G, G\right]}\right), \Z \right) \to \Ext^1_\Z\left(K_0\left(A\right), \Z \right), \\
+r_2 : \Ext^1_\Z\left(K_0\left(\widetilde A\right), \Z \right) \to \Ext^1_\Z\left(K_0\left(A\right), \Z \right), \\
 \eean 
-On the other hand there are subjective homomorphism $s_1 : \pi_1\left(A \right) \to G$ and $s_2 : \pi_1\left(A \right) \to \pi_1\left(\widetilde A \right)$.
+On the other hand there are subjective homomorphism $s_1 : \pi^{\mathrm{ab}}_1\left(A \right) \to G$ and $s_2 : \pi^{\mathrm{ab}}_1\left(A \right) \to \pi^{\mathrm{ab}}_1\left(\widetilde A \right)$.
 \end{empt}
 \begin{definition}\label{hurewicz_pair_defn}
 If $A$ \textit{admits  Hurewicz homomorphism} (cf. Definition \ref{hurewicz_admits_defn}) then a pair of  homomorphisms
 \be
 \begin{split}
-h^1_{K^1}\bydef r_1 \circ s_1: \pi_1\left(A \right)\to  \Hom\left(K_1\left(A\right), \Z\right), \\
-h^2_{K^1}\bydef r_2 \circ s_2:\pi_1\left(A \right)\to  \Ext^1_\Z\left(K_0\left(A\right), \Z\right) \end{split}
+h^1_{K^1}\bydef r_1 \circ s_1: \pi^{\mathrm{ab}}_1\left(A \right)\to  \Hom\left(K_1\left(A\right), \Z\right), \\
+h^2_{K^1}\bydef r_2 \circ s_2:\pi^{\mathrm{ab}}_1\left(A \right)\to  \Ext^1_\Z\left(K_0\left(A\right), \Z\right) 
+\end{split}
 \ee
 is the \textit{Hurewicz pair}.
 \end{definition}
@@ -12332,33 +12330,39 @@ is the \textit{Hurewicz pair}.
 \begin{definition}\label{hurewicz_defn}
 If $A$ is an $N$-algebra  which {admits  Hurewicz homomorphism} (cf. Definition \ref{hurewicz_admits_defn}) then from the exact sequence  \eqref{uctt_c} and the decomposition \eqref{h_dir_prod_eqn} there is the  \textit{unital Hurewicz homomorphism} given by
 \be\label{hurewicz_eqn}
-h_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}:\pi_1\left(A\right)\to  K^1\left(A \right). 
+h_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}:\pi^{\mathrm{ab}}_1\left(A\right)\to  K^1\left(A \right). 
 \ee
 
 \end{definition}
 
 
 \paragraph{Hurewicz homomorphism for nonunital $C^*$-algebras} 
-Let $P_{\mathrm{untz}}$ be a given by the equation  \eqref{unitization_p_eqn} property of noncommutative finite-fold coverings.
+Let $P$ be a property of noncommutative finite-fold coverings such that
+
+\be\label{unitization_ab_p_eqn}
+\begin{split}
+	\left(A, \widetilde A, G, \lift \right) \in P\quad \Leftrightarrow G \text{ is an Abelian group  AND}\\ \text{AND } \Leftrightarrow \left(A, \widetilde A, G, \lift \right) \text{ is a covering with unitization (cf. Definition \ref{fin_unitization_defn})}.
+\end{split}
+\ee
 	Let $A$ be a $C^*$-algebra, and let $\iota : A\hookto B$ be a covering unitization  (cf.  Definition \ref{vecherovsky_defn}) then from the Corollary \ref{unitization_multiplier_cor} it follows that for any finite-fold noncommutative covering $\left(A, \widetilde{A}, G\left(\left. \widetilde A\right| A \right) , \lift^{\widetilde{A}} \right)$ with Abelian $G\left(\left. \widetilde A\right| A \right)$ with unitization  there is an 
 	unital  noncommutative finite-fold covering  $\left(B  , \widetilde{B} , G\left(\left. \widetilde A\right| A \right),\lift^{\widetilde{B}} \right)$ (cf. Definition \ref{fin_unital_defn}). with surjective homomorphisms
 	\bean
-	\pi^{P_{\mathrm{untz}}}_1\left(A \right)\to G\left(\left. \widetilde A\right| A \right),\\
+	\pi^{P}_1\left(A \right)\to G\left(\left. \widetilde A\right| A \right),\\
 	\eean
-	where $\pi^{P_{\mathrm{untz}}}_1\left(A \right)$ is the $P_{\mathrm{untz}}$-fundamental group (cf. Definition \ref{fundamental_group_nc_p_defn}).
+	where $\pi^{P}_1\left(A \right)$ is the $P$-fundamental group (cf. Definition \ref{fundamental_group_nc_p_defn}).
 	There is a following isomorphism
 	\bean
-	\pi^{P_{\mathrm{untz}}}_1\left(A \right)\cong \pi_1\left(B \right),\\
+	\pi^{P}_1\left(A \right)\cong \pi^{\mathrm{ab}}_1\left(B \right),\\
 	\eean 
 If $B$ admits Hurewicz homomorphism  (cf. Definition \ref{hurewicz_admits_defn} then the application of the construction of this section yield a following homomorphism
 	\bea\label{h_m_eqn}
-\widetilde h_{K^1}  : \pi^{P_{\mathrm{untz}}}_1\left(A \right)\to K^1\left(B \right)
+\widetilde h_{K^1}  : \pi^{P}_1\left(A \right)\to K^1\left(B \right)
 	\eea
 
 	\begin{definition}\label{hurewicz_nonunital_defn}
 		The composition of the homomorphism   \eqref{h_m_eqn} and the natural homomorphism $K^1\left( B \right)\xrightarrow{ K^1\left(  \iota\right)}	K^1\left( A \right)$ yields  the \textit{nonunital Hurewicz homomorphism}
 		\be\label{h_n_eqn}
-	 h_{K^1} \bydef K^1\left(  \iota\right)  \circ \widetilde  h_{K^1} : \pi^{P_{\mathrm{untz}}}_1\left(A \right)\to K^1\left(A \right).
+	 h_{K^1} \bydef K^1\left(  \iota\right)  \circ \widetilde  h_{K^1} : \pi^{P}_1\left(A \right)\to K^1\left(A \right).
 	\ee
 	\end{definition}
 	\section{Comparison with topological Hurewicz homomorphism}

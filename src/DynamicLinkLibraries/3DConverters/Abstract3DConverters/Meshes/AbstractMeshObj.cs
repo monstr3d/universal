@@ -1,14 +1,20 @@
-﻿
+﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Creators;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
+
 using ErrorHandler;
 
 namespace Abstract3DConverters.Meshes
 {
-    
+    [CommonVetrices]
     class AbstractMeshObj : AbstractMesh
     {
+        Dictionary<int, int[]> Global
+        {
+            get;
+        } = new();
+      
         internal int Shift
         {
             get;
@@ -29,13 +35,32 @@ namespace Abstract3DConverters.Meshes
 
         internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
         {
- 
+            /* Vertices = creator.VerticesGlobal[number];
+             Textures = creator.TexturesGlobal[number];
+             Normals = creator.NormalsGlobal[number];*/
             Effect = creator.EffectList[number];
-            Name = creator.Names[number];
-            Points = new();
+            Vertices = creator.Vertices;
+            Textures = creator.Textures;
+            Normals = creator.Normals;
             Polygons = new();
             var indexes = creator.Indexes[number];
+            Name = creator.Names[number];
+  //          Points = new();
+            Polygons = new();
+            foreach (var ind in indexes)
+            {
+                var l = new List<PointTexture>();
+                foreach (var i in ind)
+                {
+                    var point = new PointTexture(this, i[0], i[1], i[2]);
+                    l.Add(point);
+                }
+                var polygon = new Polygon(this, l.ToArray(), Effect);
+                Polygons.Add(polygon);
+            }
+            return;
             var direct = new Dictionary<int, int>();
+
             foreach (var idx in indexes)
             {
                 var pp = new List<PointTexture>();
@@ -69,7 +94,8 @@ namespace Abstract3DConverters.Meshes
                     }
                     try
                     {
-                        var txt = new PointTexture(nv, creator.Textures[it], norm);
+                        var k = Global[nv];
+                        var txt = new PointTexture(this, nv, k[0], k[1]);
                         pp.Add(txt);
                     }
                     catch (Exception e)
@@ -78,8 +104,9 @@ namespace Abstract3DConverters.Meshes
                         throw new IncludedException(e, "OBJ TEXUTRE ERROR");
                     }
                 }
-                Polygons.Add(new Polygon(pp.ToArray(), Effect));
+                Polygons.Add(new Polygon(this, pp.ToArray(), Effect));
             }
+ 
            
         }
 
@@ -131,7 +158,7 @@ namespace Abstract3DConverters.Meshes
                 if (line.StartsWith("usemtl "))
                 {
                     var mat = line.Substring("usemtl ".Length);
-                    Effect = creator.Effects[mat];
+                    Effect = Creator.Effects[mat];
                     continue;
                 }
                 if (line.IndexOf("v ") == 0)
@@ -154,6 +181,7 @@ namespace Abstract3DConverters.Meshes
                 }
                 if (line.IndexOf("f ") == 0)
                 {
+                    var tt = new int[2] { -1, -1 };
                     var s = line.Substring("f ".Length).Trim();
                     var ss = s.Split(" ".ToCharArray());
                     var ind = new int[ss.Length][];
@@ -185,6 +213,7 @@ namespace Abstract3DConverters.Meshes
                         vertexTexture[i[0]] = i[1];
                     }
                     indexes.Add(ind);
+                    throw new Exception();
                     continue;
                 }
             }
@@ -271,7 +300,9 @@ namespace Abstract3DConverters.Meshes
                             }
                         }
                     }
-                    var pt = new PointTexture(item[0], textures[item[1]]);
+                    var nv = item[0];
+                    var k = Global[nv];
+                    var pt = new PointTexture(this, nv, k[0], k[1]);
                     li.Add(pt);
 
                 }

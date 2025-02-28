@@ -1,19 +1,14 @@
-﻿using Abstract3DConverters.Attributes;
+﻿using System.Text;
+using System.Xml;
+
+using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
-using System.Text;
-using System.Xml;
-[Converter("")]
-class A
-{
 
-}
-/*
 namespace Abstract3DConverters.Converters
 {
-    [Converter(".xaml")]
+    [Converter(".xaml", true)]
     public class XamlMeshConverter : XmlMeshConverter
     {
 
@@ -34,9 +29,8 @@ namespace Abstract3DConverters.Converters
 
         }
 
-        protected override XmlElement CreateXmlMesh(AbstractMesh mesh)
+        private XmlElement Prepare(IMesh mesh)
         {
-            mesh.CreateTriangles();
             var dt = new Dictionary<int, float[]>();
             var x = Create("ModelVisual3D", mesh.Name);
             var y = Create("ModelVisual3D.Content");
@@ -50,12 +44,176 @@ namespace Abstract3DConverters.Converters
             {
                 var mr = Create("GeometryModel3D.Material");
                 z.AppendChild(mr);
-                var max =  converter.MaterialCreator.Create(mat) as XmlElement;
+                var max = Converter.MaterialCreator.Create(mat) as XmlElement;
+                mr.AppendChild(max);
+            }
+            return x;
+        }
+
+        protected override XmlElement CreateXmlMeshCV(IMesh mesh)
+        {
+            var dt = new Dictionary<int, float[]>();
+            var x = Create("ModelVisual3D", mesh.Name);
+            if (mesh.Polygons == null)
+            {
+                return x;
+            }
+            var y = Create("ModelVisual3D.Content");
+            x.AppendChild(y);
+            var z = Create("GeometryModel3D");
+            y.AppendChild(z);
+            var w = Create("GeometryModel3D.Geometry");
+            z.AppendChild(w);
+            var mat = mesh.Effect;
+            if (mat != null)
+            {
+                var mr = Create("GeometryModel3D.Material");
+                z.AppendChild(mr);
+                var max = Converter.MaterialCreator.Create(mat) as XmlElement;
                 mr.AppendChild(max);
             }
             var v = Create("MeshGeometry3D");
             w.AppendChild(v);
-            var pts = mesh.Points;
+            var lv = new List<float>();
+            var lt = new List<float>();
+            var ln = new List<float>();
+            foreach (var polygon in mesh.Polygons)
+            {
+                foreach (var point in polygon.Points)
+                {
+                    lv.AddRange(point.Vertex);
+                    var tx = point.Texture;
+                    lt.Add(tx[0]);
+                    lt.Add(1f - tx[1]);
+                    var n = point.Normal;
+                    if (n != null)
+                    {
+                        ln.AddRange(n);
+                    }
+                }
+            }
+            if (lv.Count > 0)
+            {
+                v.SetAttribute("Positions", s.Parse(lv));
+            }
+            if (lt.Count > 0)
+            {
+                v.SetAttribute("TextureCoordinates", s.Parse(lt));
+            }
+            if (ln.Count > 0)
+            {
+                v.SetAttribute("Normals", s.Parse(ln));
+            }
+            return x;
+            var sb = new StringBuilder();
+            foreach (var pl in mesh.Polygons)
+            {
+                foreach (var pll in pl.Points)
+                {
+                    sb.Append(" " + pll.VertexIndex);
+                }
+            }
+            var str = sb.ToString();
+            v.SetAttribute("TriangleIndices", str.Substring(1));
+            return x;
+            var vert = mesh.Vertices;
+            if (mesh.Indexes != null & vert != null)
+            {
+                var count = vert.Count;
+                if (count > 0)
+                {
+                    var points = new List<float>();
+                    var norm = new List<float>();
+                    var textcoord = new List<float>();
+
+                    foreach (var item in mesh.Indexes)
+                    {
+                        foreach (var idx in item)
+                        {
+                            var kp = idx[0];
+                            if (kp >= count)
+                            {
+
+                            }
+                            float[] vr = mesh.Vertices[kp];
+                            foreach (var vv in vr)
+                            {
+                                points.Add(vv);
+                            }
+                            if (mesh.Textures != null)
+                            {
+                                kp = idx[1];
+                                if (kp >= 0)
+                                {
+                                    if (kp >= mesh.Textures.Count)
+                                    {
+
+                                    }
+                                    var vt = mesh.Textures[kp];
+                                    textcoord.Add(vt[0]);
+                                    textcoord.Add(1 - vt[1]);
+                                }
+                            }
+                            if (mesh.Normals != null)
+                            {
+                                if (idx.Length > 2)
+                                {
+                                    kp = idx[2];
+                                    if (kp >= 0)
+                                    {
+                                        var vn = mesh.Normals[kp];
+                                        foreach (var vv in vn)
+                                        {
+                                            norm.Add(vv);
+                                        }
+                                    }
+                                }
+                            }
+                            if (points.Count > 0)
+                            {
+                                v.SetAttribute("Positions", s.Parse(points));
+                            }
+                            if (textcoord.Count > 0)
+                            {
+                                v.SetAttribute("TextureCoordinates", s.Parse(textcoord));
+                            }
+                            if (norm.Count > 0)
+                            {
+                                v.SetAttribute("Normals", s.Parse(norm));
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            return x;
+        }
+
+
+
+        protected override XmlElement CreateXmlMeshOrdinary(IMesh mesh)
+        {
+            return CreateXmlMeshCV(mesh);
+            var dt = new Dictionary<int, float[]>();
+            var x = Create("ModelVisual3D", mesh.Name);
+            var y = Create("ModelVisual3D.Content");
+            x.AppendChild(y);
+            var z = Create("GeometryModel3D");
+            y.AppendChild(z);
+            var w = Create("GeometryModel3D.Geometry");
+            z.AppendChild(w);
+            var mat = mesh.Effect;
+            if (mat != null)
+            {
+                var mr = Create("GeometryModel3D.Material");
+                z.AppendChild(mr);
+                var max = Converter.MaterialCreator.Create(mat) as XmlElement;
+                mr.AppendChild(max);
+            }
+            var v = Create("MeshGeometry3D");
+            w.AppendChild(v);
+            var pts = mesh.Vertices;
             if (pts == null)
             {
                 return x;
@@ -64,55 +222,46 @@ namespace Abstract3DConverters.Converters
             {
                 return x;
             }
-            var lv = new List<float>();
             var ln = new List<float>();
             var lt = new List<float>();
             var pp = mesh.Polygons;
+            var d = new Dictionary<int, float[][]>();
             if (pp != null)
             {
                 foreach (var polygon in pp)
                 {
                     foreach (var point in polygon.Points)
                     {
-                        var txt = point.Texture;
-                        dt[point.Index] = [txt[0],1f - txt[1]];
+                        var ind = point.VertexIndex;
+                        if (!d.ContainsKey(ind))
+                        {
+                            continue;
+                        }
+                        d[ind] = [point.Texture, point.Normal];
+                  }
+                }
+            }
+            var l = new List<int>(d.Keys);
+            l.Sort();
+            var ltx = new List<float>();
+            var lnx = new List<float>();
+            for (var ind = 0; ind < l.Count; ind++)
+            {
+                var t = d[ind];
+                ltx.Add(t[0][0]);
+                ltx.Add(1f - t[0][1]);
+                if (t[1] != null)
+                {
+                    foreach (var tt in t[1])
+                    {
+                        lnx.Add(tt);
                     }
                 }
             }
-          for (var ii = 0; ii < mesh.Points.Count; ii++)
+            if (pts.Count > 0)
             {
-                var point = mesh.Points[ii];
+                var lv = s.ToSigleArray(pts);
 
-                var vt = point.Vertex;
-                if (vt != null)
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        lv.Add(vt[i]);
-                    }
-                    if (!dt.ContainsKey(ii))
-                    {
-                        lt.Add(0f);
-                        lt.Add(0f);
-                    }
-                    else
-                    {
-                        var tx = dt[ii];
-                        lt.Add(tx[0]);
-                        lt.Add(tx[1]);
-                    }
-                }
-                vt = point.Normal;
-                if (vt != null)
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        ln.Add(vt[i]);
-                    }
-                }
-            }
-            if (lv.Count > 0)
-            {
                 v.SetAttribute("Positions", s.Parse(lv));
             }
             if (lt.Count > 0)
@@ -128,7 +277,7 @@ namespace Abstract3DConverters.Converters
             {
                 foreach (var pll in pl.Points)
                 {
-                    sb.Append(" " + pll.Index);
+                    sb.Append(" " + pll.VertexIndex);
                 }
             }
             var str = sb.ToString();
@@ -327,4 +476,3 @@ namespace Abstract3DConverters.Converters
     }
 
 }
-*/

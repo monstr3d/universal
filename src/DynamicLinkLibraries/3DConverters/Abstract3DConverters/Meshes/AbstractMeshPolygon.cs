@@ -7,9 +7,9 @@ namespace Abstract3DConverters.Meshes
 {
 
     /// <summary>
-    /// Mesh wih polygon
+    /// Mesh with polygon
     /// </summary>
-    public  class AbstractMeshPolygon : AbstractMesh
+    public  class AbstractMeshPolygon : AbstractMesh, ICreateTriangles
     {
   
         #region Fields
@@ -87,15 +87,19 @@ namespace Abstract3DConverters.Meshes
 
         #endregion
 
-        #region Members
 
-        /// <summary>
-        /// Creates triangles
-        /// </summary>
-        public override void CreateTriangles()
+        #region ICreateTriangles Members
+
+        void ICreateTriangles.CreateTriangles()
         {
             CreateFromPolygons();
         }
+
+        #endregion
+
+
+        #region Members
+
 
         /// <summary>
         /// Creates from polygons
