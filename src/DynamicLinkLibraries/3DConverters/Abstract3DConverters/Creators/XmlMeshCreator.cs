@@ -2,7 +2,7 @@
 
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-/*
+
 namespace Abstract3DConverters.Creators
 {
     public abstract class XmlMeshCreator : AbstractMeshCreator
@@ -51,4 +51,3 @@ namespace Abstract3DConverters.Creators
     }
 
 }
-*/

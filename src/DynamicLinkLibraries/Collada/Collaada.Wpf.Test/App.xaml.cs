@@ -101,16 +101,17 @@ namespace Collaada.Wpf.Test
 
         void GenerateXaml()
         {
+            GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\GOOD\DAE\Eagle\F-15C_Eagle.dae");
 
-        //      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.obj");
-             GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
+            //      GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.obj");
+            //GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin.ac");
             //     GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B.dae");
 
 
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\F-15C Eagle.obj");
             //       GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\tu154B1.5.0.dae");
             //    GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\1(2008).dae");
-             //       GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
+            //       GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado.obj");
             //GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\Tornado1.5.0.dae");
             //                  GenerateXaml(@"c:\AUsers\1MySoft\CSharp\03D\AC\dauphin1.5.0.dae");
 

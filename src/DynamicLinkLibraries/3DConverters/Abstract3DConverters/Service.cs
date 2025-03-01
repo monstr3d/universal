@@ -648,7 +648,7 @@ namespace Abstract3DConverters
         /// <typeparam name="T">Type</typeparam>
         /// <param name="en">Collection</param>
         /// <returns>Conversion result</returns>
-        public IEnumerable<T> ToSigleArray<T>(IEnumerable<T[]> en) where T: struct
+        public IEnumerable<T> ToSingleEnumerable<T>(IEnumerable<T[]> en) where T: struct
         {
             foreach (var item in en)
             {

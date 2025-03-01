@@ -20,7 +20,7 @@ namespace Abstract3DConverters.Converters
 
         protected string xmlns;
 
-        protected Dictionary<AbstractMesh, XmlElement> nodesDic = new();
+        protected Dictionary<IMesh, XmlElement> nodesDic = new();
 
 
 
@@ -85,21 +85,12 @@ namespace Abstract3DConverters.Converters
             return CreateXmlMesh(mesh);
         }
 
-        protected abstract XmlElement CreateXmlMeshCV(IMesh mesh);
+        protected abstract XmlElement CreateXmlMesh(IMesh mesh);
 
-        protected abstract XmlElement CreateXmlMeshOrdinary(IMesh mesh);
+      //  protected abstract XmlElement CreateXmlMeshOrdinary(IMesh mesh);
 
 
-        protected virtual XmlElement CreateXmlMesh(IMesh mesh)
-        {
-            var at = s.GetAttribute<CommonVetricesAttribute>(mesh);
-            if (at != null)
-            {
-                return CreateXmlMeshCV(mesh);
-            }
-            return CreateXmlMeshOrdinary(mesh);
-        }
-
+    
         protected virtual XmlElement Create(XmlElement parent, AbstractMesh mesh)
         {
             var x = CreateXmlMesh(mesh);

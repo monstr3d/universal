@@ -1,30 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Interfaces
 {
-    public interface IMesh
+    public interface IMesh : IGeometry
     {
-        /// <summary>
-        /// Vertices
-        /// </summary>
-        List<float[]> Vertices { get; }
-
-        /// <summary>
-        /// Normals
-        /// </summary>
-        List<float[]> Normals { get; }
-
-        /// <summary>
-        /// Textures
-        /// </summary>
-        List<float[]> Textures { get; }
-
         /// <summary>
         /// Effect
         /// </summary>
@@ -46,7 +29,7 @@ namespace Abstract3DConverters.Interfaces
         List<Point> AbsolutePoints { get; }
 
         /// <summary>
-        /// Absolute Verices
+        /// Absolute Vertices
         /// </summary>
         public List<float[]> AbsoluteVertices { get; }
 
@@ -86,6 +69,11 @@ namespace Abstract3DConverters.Interfaces
         /// Creator of meshes
         /// </summary>
         IMeshCreator Creator { get; }
+
+        /// <summary>
+        /// Points
+        /// </summary>
+        public List<Point> Points { get; }
 
     }
 }

@@ -12337,13 +12337,7 @@ h_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}:\pi^{\mathrm{ab}}_1\left(A\right)\to  K^1\l
 
 
 \paragraph{Hurewicz homomorphism for nonunital $C^*$-algebras} 
-Let $P$ be a property of noncommutative finite-fold coverings such that
-
-\be\label{unitization_ab_p_eqn}
-\begin{split}
-	\left(A, \widetilde A, G, \lift \right) \in P\quad \Leftrightarrow G \text{ is an Abelian group  AND}\\ \text{AND } \Leftrightarrow \left(A, \widetilde A, G, \lift \right) \text{ is a covering with unitization (cf. Definition \ref{fin_unitization_defn})}.
-\end{split}
-\ee
+Suppose that $A$ is a $C^*$-algebra such that any its finite-fold covering is a covering with unitization (cf. Definition \ref{fin_unitization_defn}), such that the homomorphisms $K^1\left( B \right)\xrightarrow{ K^1\left(  \iota\right)}	K^1\left( A \right)$ is surjective.
 	Let $A$ be a $C^*$-algebra, and let $\iota : A\hookto B$ be a covering unitization  (cf.  Definition \ref{vecherovsky_defn}) then from the Corollary \ref{unitization_multiplier_cor} it follows that for any finite-fold noncommutative covering $\left(A, \widetilde{A}, G\left(\left. \widetilde A\right| A \right) , \lift^{\widetilde{A}} \right)$ with Abelian $G\left(\left. \widetilde A\right| A \right)$ with unitization  there is an 
 	unital  noncommutative finite-fold covering  $\left(B  , \widetilde{B} , G\left(\left. \widetilde A\right| A \right),\lift^{\widetilde{B}} \right)$ (cf. Definition \ref{fin_unital_defn}). with surjective homomorphisms
 	\bean
@@ -12359,11 +12353,47 @@ If $B$ admits Hurewicz homomorphism  (cf. Definition \ref{hurewicz_admits_defn} 
 \widetilde h_{K^1}  : \pi^{P}_1\left(A \right)\to K^1\left(B \right)
 	\eea
 
-	\begin{definition}\label{hurewicz_nonunital_defn}
-		The composition of the homomorphism   \eqref{h_m_eqn} and the natural homomorphism $K^1\left( B \right)\xrightarrow{ K^1\left(  \iota\right)}	K^1\left( A \right)$ yields  the \textit{nonunital Hurewicz homomorphism}
+	\begin{definition}\label{hurewicz_nonunital_unitization_defn}
+		Under the above conditions if the composition $h_{K^1} \bydef K^1\left(  \iota\right)  \circ \widetilde  h_{K^1}$ does not depend on the choice of $\iota$ then we say that it is  the \textit{nonunital Hurewicz homomorphism with compactification} which is given by
 		\be\label{h_n_eqn}
-	 h_{K^1} \bydef K^1\left(  \iota\right)  \circ \widetilde  h_{K^1} : \pi^{P}_1\left(A \right)\to K^1\left(A \right).
+	 h_{K^1} \bydef K^1\left(  \iota\right)  \circ \widetilde  h_{K^1} : \pi_1\left(A \right)\to K^1\left(A \right).
 	\ee
+	We say that $A$ \textit{admits the nonunital Hurewicz homomorphism with compactification}
+	\end{definition}
+	\begin{empt}\label{hurewicz_nonunital_empt}
+	Let $A$ be a $C^*$-algebra. Suppose that there is a family  $\left\{A_\la\right\}_{\la \in \La}$ of $C^*$- algebras with inclusions of $\iota_\la: A_\la\hookto A$ such that the union $\cup\iota_\la\left(  A_\la\right) $ is dense in $A$. Assume that  for any $\la \in \La$ one has:
+	\begin{enumerate}
+		\item[(a)] $A_\la$ admits the nonunital Hurewicz homomorphism with compactification
+		\item [(b)] For any $\la\in \La$ and any noncommutative finite fold covering $\left( A, \widetilde A, G\left( \left.\widetilde A \right| A\right), \lift  \right) $ with Abelian $ G\left( \left.\widetilde A \right| A\right)$  there is a  noncommutative finite-fold covering $$\left( A_\la, \widetilde A_\la, G\left( \left.\widetilde A_\la \right| A_\la\right), \lift_\la \right) $$ and an inclusion $\widetilde \iota_\la: \widetilde A \to \widetilde A$ with the commutative diagram
+		\newline
+		\begin{tikzcd}
+		A_\la \arrow[r, "\widetilde \iota_\la"] \arrow[d, "\lift_\la"] & A \arrow[d, "\lift"]\\
+	\widetilde A_\la  \arrow[r, "\iota_\la"]	& \widetilde A
+		\end{tikzcd}
+		\\
+		and the natural isomorphism  $G\left( \left.\widetilde A_\la \right| A_\la\right)\cong G\left( \left.\widetilde A \right| A\right)$.
+	\item[(c)]	The inclusion $\iota_\la\left(  A_\la\right)$ yields an isomorphism $K^1\left( \iota_\la\right): K^1\left(A \right)\cong K^1\left(A_\la \right)$.
+	\item[(d)] There is the natural isomorphism $\pi_1\left(A_\la \right) \cong \pi_1\left( A\right)$ with the natural commutative diagram
+	\newline 
+		\begin{tikzcd}
+	\pi_1\left(A_\la \right) \arrow[r, "\cong"] \arrow[d, "\subset"] & \pi_1\left(A \right) \arrow[d, "\subset"]\\
+	\varprojlim_{\la\in \La}  G\left( \left.\widetilde A_\la \right| A_\la\right)\arrow[r, "\cong"]	& \varprojlim_{\la\in \La}  G\left( \left.\widetilde A \right| A\right)
+	\end{tikzcd}
+\\
+	
+	\end{enumerate} 
+	
+Under the above conditions there is the natural homomorphism $h^A_{K^1} : \pi_1\left(A \right)\to K^1\left( A\right)$ such that for any $\la\in \La$ there is a commutative diagram.  
+		\newline 
+	\begin{tikzcd}
+		\pi_1\left(A \right) \arrow[r, "\cong"] \arrow[d, "h^A_{K^1}"] & \pi_1\left(A_\la \right) \arrow[d, "h^{A_\la}_{K^1}"]\\
+		K^1\left(A \right) \arrow[r, "K^1\left(\iota_\la \right) "]	& 	K^1\left(A_\la \right)
+	\end{tikzcd}
+	\\
+	
+	\end{empt}
+	\begin{definition}\label{hurewicz_nonunital_defn}
+	Under the hypothesis \ref{hurewicz_nonunital_defn} $h^A_{K^1} : \pi_1\left(A \right)\to K^1\left( A\right)$ is the \textit{nonunital Hurewicz homomorphism}.
 	\end{definition}
 	\section{Comparison with topological Hurewicz homomorphism}
 

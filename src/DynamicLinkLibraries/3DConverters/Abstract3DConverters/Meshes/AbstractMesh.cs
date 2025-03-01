@@ -162,6 +162,46 @@ namespace Abstract3DConverters.Meshes
         #endregion
 
 
+        #region IMesh Implementation
+
+        List<float[]> IGeometry.Vertices => Vertices;
+
+        List<float[]> IGeometry.Normals => Normals;
+
+        List<float[]> IGeometry.Textures => Textures;
+
+        Effect IMesh.Effect => Effect;
+
+        List<int[][]> IMesh.Indexes => Indexes;
+
+        bool IMesh.HasPolygons => HasPolygons;
+
+        List<Point> IMesh.AbsolutePoints => AbsolutePoints;
+
+        List<float[]> IMesh.AbsoluteVertices => AbsoluteVertices;
+
+        float[] IMesh.TransformationMatrix => TransformationMatrix;
+
+        string IMesh.Name => Name;
+
+        List<Polygon> IMesh.Polygons => Polygons;
+
+        List<IMesh> IMesh.Children => Children;
+
+        Effect IMesh.GetEffect(IMaterialCreator creator)
+        {
+            return GetEffectEffect(creator);
+        }
+
+        IMeshCreator IMesh.Creator => Creator;
+
+
+        List<Point> IMesh.Points => Points;
+
+        #endregion
+
+
+
         #region Properties
 
         /// <summary>
@@ -216,10 +256,10 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Points
         /// </summary>
-        public List<Point> Points
+        protected virtual List<Point> Points
         {
             get;
-            protected set;
+            set;
         }
 
         /// <summary>
@@ -516,43 +556,6 @@ namespace Abstract3DConverters.Meshes
         {
             return absolute;
         }
-
-
-        #endregion
-
-        #region IMesh Implementation
-
-        List<float[]> IMesh.Vertices => Vertices;
-
-        List<float[]> IMesh.Normals => Normals;
-
-        List<float[]> IMesh.Textures => Textures;
-
-        Effect IMesh.Effect => Effect;
-
-        List<int[][]> IMesh.Indexes => Indexes;
-
-        bool IMesh.HasPolygons => HasPolygons;
-
-        List<Point> IMesh.AbsolutePoints => AbsolutePoints;
-
-        List<float[]> IMesh.AbsoluteVertices => AbsoluteVertices;
-
-        float[] IMesh.TransformationMatrix => TransformationMatrix;
-
-        string IMesh.Name => Name;
-
-        List<Polygon> IMesh.Polygons => Polygons;
-
-        List<IMesh> IMesh.Children => Children;
-
-        Effect IMesh.GetEffect(IMaterialCreator creator)
-        {
-            return GetEffectEffect(creator);
-        }
-
-        IMeshCreator IMesh.Creator => Creator;
-
 
 
         #endregion

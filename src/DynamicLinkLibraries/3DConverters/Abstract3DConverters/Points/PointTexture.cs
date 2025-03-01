@@ -21,28 +21,28 @@ namespace Abstract3DConverters.Points
         /// <param name="texture">Texture</param>
         /// <param name="normal">Normal</param>
         [SetsRequiredMembers]
-        public PointTexture(IMesh mesh, int vertex, int texture, int normal = -1)
+        public PointTexture(IGeometry geometry, int vertex, int texture, int normal = -1)
         {
             try
             {
-                Mesh = mesh;
+                Geometry = geometry;
                 VertexIndex = vertex;
                 TextureIndex = texture;
                 NormalIndex = normal;
-                Vertex = mesh.Vertices[vertex];
-                Texture = mesh.Textures[texture];
-                if (mesh.Normals == null)
+                Vertex = geometry.Vertices[vertex];
+                Texture = geometry.Textures[texture];
+                if (geometry.Normals == null)
                 {
                     NormalIndex = -1;
                 }
                 else if (normal >= 0)
                 {
-                    Normal = mesh.Normals[normal];
+                    Normal = geometry.Normals[normal];
                 }
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.ShowError("Point texture constructor");
                 throw new IncludedException(exception, "Point texture constructor");
             }
         }
@@ -149,7 +149,7 @@ namespace Abstract3DConverters.Points
         /// <summary>
         /// Mesh
         /// </summary>
-        public IMesh ? Mesh
+        public IGeometry ? Geometry
         {
             get;
             protected set;

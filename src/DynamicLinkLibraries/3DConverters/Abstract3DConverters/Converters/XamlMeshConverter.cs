@@ -50,7 +50,7 @@ namespace Abstract3DConverters.Converters
             return x;
         }
 
-        protected override XmlElement CreateXmlMeshCV(IMesh mesh)
+        protected override XmlElement CreateXmlMesh(IMesh mesh)
         {
             var dt = new Dictionary<int, float[]>();
             var x = Create("ModelVisual3D", mesh.Name);
@@ -192,9 +192,9 @@ namespace Abstract3DConverters.Converters
 
 
 
-        protected override XmlElement CreateXmlMeshOrdinary(IMesh mesh)
+        protected  XmlElement CreateXmlMeshOrdinary(IMesh mesh)
         {
-            return CreateXmlMeshCV(mesh);
+            return null;
             var dt = new Dictionary<int, float[]>();
             var x = Create("ModelVisual3D", mesh.Name);
             var y = Create("ModelVisual3D.Content");
@@ -260,7 +260,7 @@ namespace Abstract3DConverters.Converters
             }
             if (pts.Count > 0)
             {
-                var lv = s.ToSigleArray(pts);
+                var lv = s.ToSingleEnumerable(pts);
 
                 v.SetAttribute("Positions", s.Parse(lv));
             }
