@@ -179,7 +179,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception e)
             {
-                e.ShowError("Node polygon");
+                e.HandleException("Node polygon");
             }
             return null;
 

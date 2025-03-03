@@ -181,7 +181,7 @@ namespace Regression.Portable
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                     this.Throw(ex);
                 }
             }

@@ -145,7 +145,7 @@ namespace Diagram.UI.Labels
             }
             catch (Exception ex)
             {
-                ex.ShowError(-1);
+                ex.HandleException(-1);
             }
             captionEditor.KeyUp += KeyUp;
             Disposed += UserControlLabel_Disposed;
@@ -965,7 +965,7 @@ namespace Diagram.UI.Labels
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
         }

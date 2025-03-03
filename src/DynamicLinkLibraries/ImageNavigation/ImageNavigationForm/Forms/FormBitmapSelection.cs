@@ -93,7 +93,7 @@ namespace ImageNavigation.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 Diagram.UI.Utils.ControlUtilites.ShowError(this, ex, ImageNavigation.Utils.ControlUtilites.Resources);
             }
         }

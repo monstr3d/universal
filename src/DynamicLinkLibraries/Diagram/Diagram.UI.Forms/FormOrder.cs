@@ -159,7 +159,7 @@ namespace Diagram.UI
 			}
 			catch (Exception ex)
 			{
-                ex.ShowError(10);
+                ex.HandleException(10);
                 if (label is IObjectLabelUI)
                 {
                     IObjectLabelUI l = label as IObjectLabelUI;
@@ -170,7 +170,7 @@ namespace Diagram.UI
                     IArrowLabelUI l = label as IArrowLabelUI;
                     l.Ord = ord;
                 }
-                this.ShowError(ex, Diagram.UI.Utils.ControlUtilites.Resources);
+                this.ShowError(ex, ControlUtilites.Resources);
 			}
 		}
 	}

@@ -18,7 +18,7 @@ namespace DataWarehouse
         /// <param name="exception">Error exception</param>
         static internal void ShowError(this Control control, Exception exception)
         {
-            //control.ShowError(exception, FormulaEditor.UI.Utils.ControlUtilites.Resources);
+            //control.HandleException(exception, FormulaEditor.UI.Utils.ControlUtilites.Resources);
         }
 
         /// <summary>

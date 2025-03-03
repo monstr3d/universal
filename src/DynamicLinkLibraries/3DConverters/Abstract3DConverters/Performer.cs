@@ -1,5 +1,5 @@
 ﻿using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Meshes;
+
 using ErrorHandler;
 
 namespace Abstract3DConverters
@@ -107,7 +107,7 @@ namespace Abstract3DConverters
             }
             catch (Exception e)
             {
-                e.ShowError("PERFORMER CREATE");
+                e.HandleException("PERFORMER CREATE");
                 throw new IncludedException(e, "PERFORMER CREATE");
 
             }

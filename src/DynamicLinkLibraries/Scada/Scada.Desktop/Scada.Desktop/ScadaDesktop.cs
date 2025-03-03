@@ -77,7 +77,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Error handler
         /// </summary>
-        protected IErrorHandler errorHandler;
+        protected IExceptionHandler errorHandler;
 
         /// <summary>
         /// Create Xml documet
@@ -271,7 +271,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Error Handler
         /// </summary>
-        public override IErrorHandler ErrorHandler
+        public override IExceptionHandler ExceptionHandler
         {
             get
             {

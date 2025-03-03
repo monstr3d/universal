@@ -69,7 +69,7 @@ namespace DataPerformer.Event.Portable
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             return true;
         }
@@ -114,7 +114,7 @@ namespace DataPerformer.Event.Portable
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
             yield return null;

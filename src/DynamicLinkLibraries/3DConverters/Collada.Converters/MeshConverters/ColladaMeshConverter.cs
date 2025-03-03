@@ -7,8 +7,6 @@ using Abstract3DConverters.Converters;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
-
 using ErrorHandler;
 
 namespace Collada.Converters.MeshConverters
@@ -60,6 +58,7 @@ namespace Collada.Converters.MeshConverters
             set;
         }
 
+      
 
   
         protected XmlDocument effect = new();
@@ -124,7 +123,7 @@ namespace Collada.Converters.MeshConverters
             }
             catch (Exception e)
             {
-                e.ShowError("Collada MeshConverter constructor");
+                e.HandleException("Collada MeshConverter constructor");
             }
         }
 
@@ -159,9 +158,9 @@ namespace Collada.Converters.MeshConverters
             var node = Create("node");
             var pmesh = Process(node, mesh);
             nodesDic[mesh] = node;
-            if (mesh.Points != null)
+            if (mesh.Vertices != null)
             {
-                if (mesh.Points.Count > 0)
+                if (mesh.Vertices.Count > 0)
                 {
                     var ig = Create("instance_geometry");
                     ig.SetAttribute("url", "#" + pmesh);
@@ -190,7 +189,7 @@ namespace Collada.Converters.MeshConverters
         }
 
 
-        Dictionary<Effect, string> effectName = new Dictionary<Effect, string>();
+        Dictionary<Abstract3DConverters.Materials.Effect, string> effectName = new ();
 
 
 
@@ -231,38 +230,49 @@ namespace Collada.Converters.MeshConverters
         string CreateGeometry(IMesh mesh)
         {
             var name = GeomName;
-            var e = Create("geometry");
+            if (mesh.Vertices == null)
+            {
+                return name;
+            }
+            if (mesh.Vertices.Count == 0)
+            {
+                return name;
+            }
+             var e = Create("geometry");
             e.SetAttribute("id", name);
             var r = doc.GetElementsByTagName("library_geometries")[0];
             r.AppendChild(e);
             var me = Create("mesh");
             e.AppendChild(me);
             //         if (mesh is AbstractMeshPolygon poly)
-            if (false)
+            if (true)
             {
-                if (mesh.Points != null)
+                if (mesh.Points != null | true)
                 {
-                    if (mesh.Points.Count > 0)
+                    if (true)//(mesh.Points.Count > 0 | true)
                     {
                         var vv = new List<float[]>();
                         var vn = new List<float[]>();
-                        foreach (var pt in mesh.Points)
+                        if (false)
                         {
-                            if (pt.Vertex != null)
+                            foreach (var pt in mesh.Points)
                             {
-                                vv.Add(pt.Vertex);
-                            }
-                            if (pt.Normal != null)
-                            {
-                                vn.Add(pt.Normal);
+                                if (pt.Vertex != null)
+                                {
+                                    vv.Add(pt.Vertex);
+                                }
+                                if (pt.Normal != null)
+                                {
+                                    vn.Add(pt.Normal);
+                                }
                             }
                         }
-
+                       
                         var se = Create("source");
                         me.AppendChild(se);
                         se.SetAttribute("id", name + "-position");
                         se.SetAttribute("name", "position");
-                        var vvv = s.ToSingleArray(vv).ToArray();
+                        var vvv = s.ToSingleArray(mesh.Vertices).ToArray();
                         CreateFloatArray(se, name + "-position-array", vvv);
                         CreateTechnique_XYZ(se, name + "-position-array", vvv);
                         se = Create("source");
@@ -289,14 +299,18 @@ namespace Collada.Converters.MeshConverters
                             {
                                 vtxt.Add([point.Texture[0], point.Texture[1]]);
                                 ppp.Add(point.VertexIndex);
+                                ppp.Add(point.TextureIndex);
+                                if (point.NormalIndex >= 0)
+                                {
+                                    ppp.Add(point.NormalIndex);
+                                }
                             }
                         }
                         var txt = l;
-                        se = Create("source");
                         me.AppendChild(se);
                         se.SetAttribute("id", name + "-texcoord");
                         se.SetAttribute("name", "texcoord");
-                        var tex = s.ToSingleArray(vtxt).ToArray();
+                        var tex = s.ToSingleArray(mesh.Textures).ToArray();
                         if (tex != null)
                         {
                             CreateFloatArray(se, name + "-texcoord-array", tex);
@@ -306,15 +320,18 @@ namespace Collada.Converters.MeshConverters
                         me.AppendChild(vt);
                         vt.SetAttribute("id", name + "-vertices");
                         CreateSemantic(vt, "POSITION", name + "-position");
-                        if (vn.Count > 0)
+                        if (mesh.Normals != null)
                         {
-                            se = Create("source");
-                            me.AppendChild(se);
-                            se.SetAttribute("id", name + "-normal");
-                            se.SetAttribute("name", name + "-normal");
-                            var norm = s.ToSingleArray(vn).ToArray();
-                            CreateFloatArray(se, name + "-normal-array", norm);
-                            CreateTechnique_XYZ(se, name + "-normal-array", norm);
+                            if (mesh.Normals.Count > 0)
+                            {
+                                se = Create("source");
+                                me.AppendChild(se);
+                                se.SetAttribute("id", name + "-normal");
+                                se.SetAttribute("name", name + "-normal");
+                                var norm = s.ToSingleArray(mesh.Normals).ToArray();
+                                CreateFloatArray(se, name + "-normal-array", norm);
+                                CreateTechnique_XYZ(se, name + "-normal-array", norm);
+                            }
                         }
                         if (pol.Count > 0)
                         {
@@ -445,7 +462,7 @@ namespace Collada.Converters.MeshConverters
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError("ColladaMeshConverter CreateGeometry");
+                    exception.HandleException("ColladaMeshConverter CreateGeometry");
                     throw new IncludedException(exception, "ColladaMeshConverter CreateGeometry");
                 }
             }
@@ -536,7 +553,7 @@ namespace Collada.Converters.MeshConverters
             }
         }
 
-        protected override Dictionary<string, Effect> Effects
+        protected override Dictionary<string, Abstract3DConverters.Materials.Effect> Effects
         {
             set
             {
@@ -605,7 +622,7 @@ namespace Collada.Converters.MeshConverters
         } = new();
 
 
-        private void CreateEffect(XmlElement parent, XmlElement pm, Effect effect, int nm)
+        private void CreateEffect(XmlElement parent, XmlElement pm, Abstract3DConverters.Materials.Effect effect, int nm)
         {
             try
             {
@@ -711,7 +728,7 @@ namespace Collada.Converters.MeshConverters
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
                 throw new IncludedException(ex, "CreateEffect Collada");
             }
         }

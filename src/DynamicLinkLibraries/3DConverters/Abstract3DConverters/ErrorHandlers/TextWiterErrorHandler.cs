@@ -2,7 +2,7 @@
 
 namespace Abstract3DConverters.ErrorHandlers
 {
-    public class TextWiterErrorHandler :  IErrorHandler
+    public class TextWiterErrorHandler :  IExceptionHandler
     {
         TextWriter writer;
 
@@ -14,7 +14,7 @@ namespace Abstract3DConverters.ErrorHandlers
             this.stop = stop;
         }
 
-        void IErrorHandler.ShowError(Exception exception, object? obj)
+        void IExceptionHandler.HandleException<T>(T exception, object? obj)
         {
             if (Check(obj))
             {
@@ -24,7 +24,7 @@ namespace Abstract3DConverters.ErrorHandlers
             }
         }
 
-        void IErrorHandler.ShowMessage(string message, object? obj)
+        void IExceptionHandler.ShowMessage(string message, object? obj)
         {
             if (Check(obj))
             {

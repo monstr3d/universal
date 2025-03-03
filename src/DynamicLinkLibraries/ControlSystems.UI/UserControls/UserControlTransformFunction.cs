@@ -81,7 +81,7 @@ namespace ControlSystems.UI.UserControls
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
         }
@@ -210,7 +210,7 @@ namespace ControlSystems.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
         }
@@ -461,7 +461,7 @@ namespace ControlSystems.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 

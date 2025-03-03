@@ -11,7 +11,7 @@ namespace Diagram.UI
     /// <summary>
     /// Error handler of control
     /// </summary>
-    public class ControlErrorHandler : IErrorHandler
+    public class ControlErrorHandler : IExceptionHandler
     {
         #region Fields
 
@@ -34,19 +34,19 @@ namespace Diagram.UI
 
         #region IErrorHandler Members
 
-        void IErrorHandler.ShowError(Exception exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, object ?obj=null)
         {
             object o;
             Control c = GetControl(obj, out o);
             if (c != null)
             {
-                Diagram.UI.Utils.ControlUtilites.ShowError(c, exception, resources);
+                Utils.ControlUtilites.ShowError(c, exception, resources);
                 return;
             }
-            StaticExtensionErrorHandler.ShowError(exception, obj);
+            StaticExtensionErrorHandler.HandleException(exception, obj);
         }
 
-        void IErrorHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.ShowMessage(string message, object obj)
         {
             object o;
             Control c = GetControl(obj, out o);

@@ -156,7 +156,7 @@ namespace Database.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -203,7 +203,7 @@ namespace Database.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(this, ex.Message);
             }
         }

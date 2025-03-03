@@ -160,7 +160,7 @@ namespace DataPerformer
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
             }
         }
 

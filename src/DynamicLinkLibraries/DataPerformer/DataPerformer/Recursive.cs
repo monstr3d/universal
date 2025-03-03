@@ -89,7 +89,7 @@ namespace DataPerformer
 				}
 				catch (Exception eee)
 				{
-					eee.ShowError(-1);
+					eee.HandleException(-1);
 				}
 			}
 			catch (Exception ex)
@@ -99,7 +99,7 @@ namespace DataPerformer
 				{
 					level = -1;
 				}
-				ex.ShowError(level);
+				ex.HandleException(level);
 			}
 		}
 

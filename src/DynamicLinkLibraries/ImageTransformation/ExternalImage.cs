@@ -73,7 +73,7 @@ namespace ImageTransformations
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -189,7 +189,7 @@ namespace ImageTransformations
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
         }
@@ -213,7 +213,7 @@ namespace ImageTransformations
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
             }
         }
 

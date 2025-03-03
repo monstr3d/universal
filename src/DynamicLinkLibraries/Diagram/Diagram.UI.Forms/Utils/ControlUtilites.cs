@@ -146,7 +146,7 @@ namespace Diagram.UI.Utils
             /* IErrorHandler eh = PureDesktop.ErrorHandler;
              if (eh != null)
              {
-                 eh.ShowError(e);
+                 eh.HandleException(e);
                  return;
              }*/
             string message = ex.Message;
@@ -284,10 +284,10 @@ namespace Diagram.UI.Utils
         /// <param name="r">Resources</param>
         public static void ShowError(this Form form, Exception e, string helpstring, Dictionary<string, string> r)
         {
-            IErrorHandler eh = StaticExtensionErrorHandler.ErrorHandler;
+            var eh = StaticExtensionErrorHandler.ErrorHandler;
             if (eh != null)
             {
-                e.ShowError(0);
+                e.HandleException(0);
                 return;
             }
             string message = e.Message;
@@ -324,10 +324,10 @@ namespace Diagram.UI.Utils
         /// <param name="e">Error exception</param>
         public static void ShowError(Exception e)
         {
-            IErrorHandler eh = StaticExtensionErrorHandler.ErrorHandler;
+            var eh = StaticExtensionErrorHandler.ErrorHandler;
             if (eh != null)
             {
-                eh.ShowError(e, 1);
+                eh.HandleException(e, 1);
                 return;
             }
             string err = ResourceService.Resources.GetControlResource("Error", controlResources);
@@ -1150,7 +1150,7 @@ namespace Diagram.UI.Utils
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 

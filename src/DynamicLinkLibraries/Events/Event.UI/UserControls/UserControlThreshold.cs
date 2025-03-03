@@ -63,7 +63,7 @@ namespace Event.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

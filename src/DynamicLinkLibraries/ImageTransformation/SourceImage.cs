@@ -35,7 +35,7 @@ namespace ImageTransformations
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             comments = (ArrayList)info.GetValue("Comments", typeof(ArrayList));
         }

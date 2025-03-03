@@ -95,7 +95,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
             }
         }
 

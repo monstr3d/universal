@@ -207,7 +207,6 @@ namespace Abstract3DConverters.Meshes
                                     s.ToReal<float>(ss[2].Trim()) ]);
                                 var pt = new PointTexture(this, key, Textures.Count - 1);
                                 lp.Add(pt);
-                                
                             }
                             var polygon = new Polygon(this, lp.ToArray(), Effect);
                             if (Polygons == null)
@@ -239,7 +238,7 @@ namespace Abstract3DConverters.Meshes
         }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
 }
         }*/
@@ -426,7 +425,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

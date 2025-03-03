@@ -207,7 +207,7 @@ namespace Motion6D.Drawing.Indicators
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 

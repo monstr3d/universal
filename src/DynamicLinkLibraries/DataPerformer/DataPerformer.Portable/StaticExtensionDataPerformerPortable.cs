@@ -188,7 +188,7 @@ namespace DataPerformer.Portable
                 ITimeMeasurementProvider provider,
                   IDifferentialEquationProcessor processor, string reason,
                  int priority, Action action, string condition, Func<bool> stop, IAsynchronousCalculation asynchronousCalculation = null,
-                 IErrorHandler errorHandler = null)
+                 IExceptionHandler errorHandler = null)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
             wrapper.PerformFixed(start, step, count,
@@ -288,7 +288,7 @@ namespace DataPerformer.Portable
         /// <param name="errorHandler">The error handler</param>
         public static void PerformIterator(this IDataConsumer consumer, IIterator iterator,
            Action action, Func<bool> stop = null, Action preparation = null,
-           IErrorHandler errorHandler = null)
+           IExceptionHandler errorHandler = null)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
             wrapper.PerformIterator(iterator, action, stop, preparation, errorHandler);
@@ -516,7 +516,7 @@ namespace DataPerformer.Portable
             int count, Func<bool> stop,
             ITimeMeasurementProvider provider,
         IDifferentialEquationProcessor processor,
-        IErrorHandler errorHandler = null)
+        IExceptionHandler errorHandler = null)
         {
             var wrapper = new Wrappers.DataConsumerWrapper(consumer);
             return wrapper.CreateXmlDocument(output,

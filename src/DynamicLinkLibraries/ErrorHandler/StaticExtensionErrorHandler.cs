@@ -10,7 +10,7 @@
         /// <summary>
         /// Error handler
         /// </summary>
-        static IErrorHandler? errorHandler = null;
+        static IExceptionHandler? exceptionHandler = null;
 
         #endregion
 
@@ -20,24 +20,24 @@
         /// Sets error handler
         /// </summary>
         /// <param name="handler">The error handler</param>
-        public static void Set(this IErrorHandler handler)
+        public static void Set(this IExceptionHandler handler)
         {
-            errorHandler = handler;
+            exceptionHandler = handler;
         }
 
         /// <summary>
         /// Error handler
         /// </summary>
-        public static IErrorHandler? ErrorHandler => errorHandler;
+        public static IExceptionHandler? ErrorHandler => exceptionHandler;
        
         /// <summary>
         /// Shows exception (extension method)
         /// </summary>
         /// <param name="exception">Exception</param>
         /// <param name="obj">Attached object</param>
-        static public void ShowError(this Exception exception, object? obj = null)
+        static public void HandleException(this Exception exception, object obj = null)
         {
-            errorHandler?.ShowError(exception, obj);
+            exceptionHandler?.HandleException(exception, obj);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@
         /// <param name="obj">Attached object</param>
         static public void ShowMessage(this string message, object obj = null)
         {
-            errorHandler?.ShowMessage(message, obj);
+            exceptionHandler?.ShowMessage(message, obj);
         }
 
         #endregion

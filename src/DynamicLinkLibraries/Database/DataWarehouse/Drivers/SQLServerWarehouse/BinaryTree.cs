@@ -1,11 +1,11 @@
-﻿using DataWarehouse;
-using DataWarehouse.Interfaces;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using DataWarehouse;
+using DataWarehouse.Interfaces;
+
+using ErrorHandler;
 
 namespace SQLServerWarehouse.Models
 {
@@ -217,7 +217,7 @@ namespace SQLServerWarehouse.Models
         {
             if (names.Contains(name))
             {
-                ("Name \"" + name + "\" already exists").ShowError();
+                ("Name \"" + name + "\" already exists").ShowMessage();
                 return false;
             }
             return true;

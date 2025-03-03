@@ -1,16 +1,17 @@
-﻿using DataSetService;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using NUnit.Framework;
+
+
+using DataSetService;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using ErrorHandler;
 using FormulaEditor;
 using FormulaEditor.Compiler;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 
+using ErrorHandler;
 namespace TestCategory.Standard
 {
     public static class StaticExtensionTestCategoryStandard
@@ -139,14 +140,14 @@ namespace TestCategory.Standard
 
 
 
-    internal class ErrorHandler : IErrorHandler
+    internal class ErrorHandler : IExceptionHandler
     {
         internal ErrorHandler()
         {
             this.Set();
         }
 
-        void IErrorHandler.ShowError(Exception exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, object obj)
         {
             if (exception.Message == "Member \'Comments\' was not found.")
             {
@@ -175,7 +176,7 @@ namespace TestCategory.Standard
             }
         }
 
-        void IErrorHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.ShowMessage(string message, object obj)
         {
 
         }

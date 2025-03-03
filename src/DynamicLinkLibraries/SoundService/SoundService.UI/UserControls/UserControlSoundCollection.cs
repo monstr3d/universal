@@ -115,7 +115,7 @@ namespace SoundService.UI.UserControls
             }
             catch (Exception e)
             {
-                e.ShowError(1);
+                e.HandleException(1);
             }
         }
 

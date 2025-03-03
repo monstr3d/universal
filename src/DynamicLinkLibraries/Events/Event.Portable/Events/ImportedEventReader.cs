@@ -348,7 +348,7 @@ namespace Event.Portable.Events
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
         }
 

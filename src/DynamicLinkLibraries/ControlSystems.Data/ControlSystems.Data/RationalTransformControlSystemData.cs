@@ -109,7 +109,7 @@ namespace ControlSystems.Data
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -236,7 +236,7 @@ namespace ControlSystems.Data
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }
@@ -282,7 +282,7 @@ namespace ControlSystems.Data
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }

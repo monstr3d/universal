@@ -42,7 +42,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception e)
             {
-                e.ShowError();
+                e.HandleException();
             }
         }
 

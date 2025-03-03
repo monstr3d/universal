@@ -69,7 +69,7 @@ namespace DataPerformer
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             initialize();
         }
@@ -369,7 +369,7 @@ namespace DataPerformer
             {
                 if (!ex.IsFiction())
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
             series = null;
@@ -421,7 +421,7 @@ namespace DataPerformer
 
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 this.Throw(ex);
             }
             series = null;
@@ -497,38 +497,38 @@ namespace DataPerformer
            );
         }
 
-         private void PerformFixed(double start, double step, int count, string argument, string[] values, 
-     ParametrizedSeries[] series,
-    Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, string reason, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
+        private void PerformFixed(double start, double step, int count, string argument, string[] values,
+    ParametrizedSeries[] series,
+   Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, string reason, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
             Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> dis = new Dictionary<IMeasurement, MeasurementsDisassemblyWrapper>();
             if (disassembly != null)
             {
                 dis = disassembly;
             }
-             this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                DifferentialEquationProcessor.Processor, reason, 0, () =>
-                {
-                    foreach (var w in dis.Values)
-                    {
-                        w.Update();
-                    }
-                    if (stop())
-                    {
-                        StaticExtensionDataPerformerPortable.StopRun();
-                    }
-                    foreach (var s in series)
-                    {
-                        s.Step();
-                    }
-                    foreach (var f in functions.Keys)
-                    {
-                        IMeasurement[] mm = functions[f];
-                        double xx = (double)mm[0].Parameter();
-                        f[xx] = mm[1].Parameter();
-                    }
-                }, null, stop
-           );
+            this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+               DifferentialEquationProcessor.Processor, reason, 0, () =>
+               {
+                   foreach (var w in dis.Values)
+                   {
+                       w.Update();
+                   }
+                   if (stop())
+                   {
+                       StaticExtensionDataPerformerPortable.StopRun();
+                   }
+                   foreach (var s in series)
+                   {
+                       s.Step();
+                   }
+                   foreach (var f in functions.Keys)
+                   {
+                       IMeasurement[] mm = functions[f];
+                       double xx = (double)mm[0].Parameter();
+                       f[xx] = mm[1].Parameter();
+                   }
+               }, null, stop
+          );
         }
 
 

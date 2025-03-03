@@ -139,7 +139,7 @@ namespace ImageTransformations
 					}
 					catch (Exception ex)
 					{
-                        ex.ShowError(10);
+                        ex.HandleException(10);
                     }
 					try
 					{
@@ -147,7 +147,7 @@ namespace ImageTransformations
 					}
 					catch (Exception exc)
 					{
-                        exc.ShowError(10);
+                        exc.HandleException(10);
                     }
 					try
 					{
@@ -155,7 +155,7 @@ namespace ImageTransformations
 					}
 					catch (Exception exce)
 					{
-                        exce.ShowError(10);
+                        exce.HandleException(10);
                     }
 					try
 					{
@@ -163,7 +163,7 @@ namespace ImageTransformations
 					}
 					catch (Exception excep)
 					{
-                        excep.ShowError(10);
+                        excep.HandleException(10);
                     }
 					try
 					{
@@ -171,7 +171,7 @@ namespace ImageTransformations
 					}
                     catch (Exception except)
 					{
-                        except.ShowError(10);
+                        except.HandleException(10);
 					}
 					for (int k = 0; k < 3; k++)
 					{

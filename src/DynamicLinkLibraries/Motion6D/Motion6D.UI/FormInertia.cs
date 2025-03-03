@@ -139,7 +139,7 @@ namespace Motion6D.UI
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(e.Message);
             }
         }
@@ -208,7 +208,7 @@ namespace Motion6D.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
 
@@ -225,7 +225,7 @@ namespace Motion6D.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
         }

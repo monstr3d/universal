@@ -124,7 +124,7 @@ namespace DataSetService
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
                 c.Name = name;
                 table.Columns[name] = c;

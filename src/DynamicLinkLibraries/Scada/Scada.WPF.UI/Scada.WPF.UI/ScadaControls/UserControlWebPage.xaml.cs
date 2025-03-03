@@ -185,7 +185,7 @@ namespace Scada.WPF.UI.ScadaControls
                }
                catch (Exception exception)
                {
-                   exception.ShowError();
+                   exception.HandleException();
                }
                Url.Text = (consumer as IUrlProvider).Url;
            }

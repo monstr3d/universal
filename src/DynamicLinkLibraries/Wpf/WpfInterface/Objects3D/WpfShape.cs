@@ -104,7 +104,7 @@ namespace WpfInterface.Objects3D
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
             }
             try
             {

@@ -48,7 +48,7 @@ namespace Diagram.UI
                 }
                 catch (Exception e)
                 {
-                    e.ShowError();
+                    e.HandleException();
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace Diagram.UI
             }
             catch (Exception e)
             {
-                e.ShowError();
+                e.HandleException();
             }
         }
 

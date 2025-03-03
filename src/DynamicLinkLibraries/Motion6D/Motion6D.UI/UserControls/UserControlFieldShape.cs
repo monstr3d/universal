@@ -321,7 +321,7 @@ namespace Motion6D.UI.UserControls
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(e.Message, ResourceService.Resources.GetControlResource("Error", Motion6D.UI.Utils.ControlUtilites.Resources));
             }
@@ -427,7 +427,7 @@ namespace Motion6D.UI.UserControls
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(e.Message);
             }
 

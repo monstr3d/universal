@@ -66,7 +66,7 @@ namespace SoundService.UI.Labels
             }
             catch (Exception ex)
             {
-                ex.ShowError(1);
+                ex.HandleException(1);
             }
         }
 

@@ -274,7 +274,7 @@ namespace Abstract3DConverters.Creators
                 {
                     return;
                 }
-                MaterialGroup mat = new MaterialGroup(Name);
+                MaterialGroup mat = new PhongMaterial(Name, null);
                 var children = mat.Children;
                 if (Diffuse != null)
                 {

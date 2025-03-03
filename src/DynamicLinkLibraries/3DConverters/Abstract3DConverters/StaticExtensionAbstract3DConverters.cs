@@ -306,7 +306,7 @@ namespace Abstract3DConverters
             }
             catch (Exception e)
             {
-                e.ShowError();
+                e.HandleException();
             }
         }
 

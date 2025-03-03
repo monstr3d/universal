@@ -77,7 +77,7 @@ namespace DataSetService
             }
             catch (Exception ex)
             {
-                ex.ShowError(-1);
+                ex.HandleException(-1);
             }
             try
             {
@@ -85,7 +85,7 @@ namespace DataSetService
             }
             catch (Exception exc)
             {
-                exc.ShowError(10);
+                exc.HandleException(10);
             }
         }
 

@@ -87,7 +87,7 @@ namespace ControlSystems.Data.UI.Factory
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             form.SelectMeasure += delegate(object ob)
             {
@@ -103,7 +103,7 @@ namespace ControlSystems.Data.UI.Factory
             }
             catch (Exception exc)
             {
-                exc.ShowError(10);
+                exc.HandleException(10);
             }
             return form;
         }

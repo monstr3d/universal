@@ -275,7 +275,7 @@ namespace Event.Basic.Data.Events
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
         }
 

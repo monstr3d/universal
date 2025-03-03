@@ -50,7 +50,7 @@ namespace Zip.Service
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
             try
             {
@@ -92,7 +92,7 @@ namespace Zip.Service
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
             try
             {

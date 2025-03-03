@@ -349,7 +349,7 @@ namespace DataPerformer.UI.Labels
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
         }

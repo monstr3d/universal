@@ -8,7 +8,7 @@ using ErrorHandler;
 
 namespace Scada.Wpf.Common.ErrorHandlers
 {
-    class MessageBoxErrorHandler : IErrorHandler
+    class MessageBoxErrorHandler : IExceptionHandler
     {
         Window window;
 
@@ -17,12 +17,12 @@ namespace Scada.Wpf.Common.ErrorHandlers
             this.window = window;
         }
 
-        void IErrorHandler.ShowError(Exception exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, object obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, exception.Message); });
         }
 
-        void IErrorHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.ShowMessage(string message, object obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, message); });
         }

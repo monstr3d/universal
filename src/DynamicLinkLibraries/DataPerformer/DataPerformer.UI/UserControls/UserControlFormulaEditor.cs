@@ -125,7 +125,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -219,7 +219,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -331,7 +331,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                  }
                 return null;
             }
@@ -394,7 +394,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -469,7 +469,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
         }

@@ -39,14 +39,14 @@ namespace DataPerformer.UI.Utils
             );
 
 
-        static private IErrorHandler errorHandler;
+        static private IExceptionHandler errorHandler;
 
         internal static void ShowError(System.Windows.Forms.Control c, Exception exception)
         {
             lock (errorHandler)
             {
                 err[1] = c;
-                StaticExtensionErrorHandler.ShowError(exception, err);
+                StaticExtensionErrorHandler.HandleException(exception, err);
             }
         }
 
@@ -61,7 +61,7 @@ namespace DataPerformer.UI.Utils
 
         static ControlUtilites()
         {
-            errorHandler = new Diagram.UI.ControlErrorHandler(ControlUtilites.Resources);
+            errorHandler = new ControlErrorHandler(ControlUtilites.Resources);
             err[0] = errorHandler;
         }
 

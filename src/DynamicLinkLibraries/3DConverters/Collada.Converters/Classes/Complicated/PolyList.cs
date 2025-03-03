@@ -157,7 +157,7 @@ namespace Collada.Converters.Classes.Complicated
             }
             catch (Exception exception)
             {
-                exception.ShowError("PolyList");
+                exception.HandleException("PolyList");
                 throw new IncludedException(exception, "PolyList");
 
             }

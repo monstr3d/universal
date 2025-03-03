@@ -70,7 +70,7 @@ namespace BasicEngineering.UI.Factory
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 exglo = e;
             }
         }

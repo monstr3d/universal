@@ -569,7 +569,7 @@ namespace Event.Portable
                         }
                         catch (Exception exception)
                         {
-                            exception.ShowError(-1);
+                            exception.HandleException(-1);
                             continue;
                         }
                         try
@@ -589,7 +589,7 @@ namespace Event.Portable
                         }
                         catch (Exception exception)
                         {
-                            exception.ShowError(-1);
+                            exception.HandleException(-1);
                             continue;
                         }
                     }
@@ -780,7 +780,7 @@ namespace Event.Portable
                             }
                             catch (Exception exception)
                             {
-                                exception.ShowError(-1);
+                                exception.HandleException(-1);
                                 continue;
                             }
                             yield return obj;
@@ -802,7 +802,7 @@ namespace Event.Portable
                         }
                         catch (Exception exception)
                         {
-                            exception.ShowError(-1);
+                            exception.HandleException(-1);
                             continue;
                         }
                         yield return obj;
@@ -989,7 +989,7 @@ namespace Event.Portable
                     }
                     catch (Exception exception)
                     {
-                        exception.ShowError(-1);
+                        exception.HandleException(-1);
                         continue;
                     }
                     yield return obj;
@@ -1011,7 +1011,7 @@ namespace Event.Portable
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError(-1);
+                    exception.HandleException(-1);
                     continue;
                 }
                 yield return obj;

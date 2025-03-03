@@ -55,7 +55,7 @@ namespace Event.Log.Database
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError(); 
+                    exception.HandleException(); 
                 }
             }
         }
@@ -135,7 +135,7 @@ namespace Event.Log.Database
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError();
+                    exception.HandleException();
                     connectionString = "";
                 }
             }

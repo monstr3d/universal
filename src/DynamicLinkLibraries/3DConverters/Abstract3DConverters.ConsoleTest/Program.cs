@@ -35,7 +35,7 @@ try
 }
 catch (Exception e)
 {
-    e.ShowError();
+    e.HandleException();
 }
 
 writer.Flush();

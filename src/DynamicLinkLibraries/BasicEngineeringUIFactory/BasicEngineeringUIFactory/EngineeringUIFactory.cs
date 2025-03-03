@@ -226,7 +226,7 @@ namespace BasicEngineering.UI.Factory
         {
             if (errorHandler != null)
             {
-                errorHandler.ShowError(e);
+                errorHandler.HandleException(e);
             }
         }
 */
@@ -268,7 +268,7 @@ namespace BasicEngineering.UI.Factory
         /// <summary>
         /// Error handler
         /// </summary>
-        public IErrorHandler ErrorHandler
+        public IExceptionHandler ExceptionHandler
         {
             set
             {

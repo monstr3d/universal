@@ -69,7 +69,7 @@ namespace DataPerformer
             }
             catch (Exception exc)
             {
-                exc.ShowError(10);
+                exc.HandleException(10);
             }
         }
 

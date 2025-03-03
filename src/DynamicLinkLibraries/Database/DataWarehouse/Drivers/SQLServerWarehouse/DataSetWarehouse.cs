@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using ErrorHandler;
 
 using DataWarehouse;
 using DataWarehouse.Interfaces;
+
 using SQLServerWarehouse.DataSetWarehouseTableAdapters;
 
 
@@ -270,7 +269,7 @@ namespace SQLServerWarehouse
             {
                 if (names.Contains(name))
                 {
-                    ("Name \"" + name + "\" already exists").ShowError();
+                    ("Name \"" + name + "\" already exists").ShowMessage();
                     return false;
                 }
                 return true;

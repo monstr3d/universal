@@ -1379,7 +1379,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             BinaryFormatter bformatter = new BinaryFormatter();
             if (binder != null)
@@ -1392,7 +1392,7 @@ namespace Diagram.UI
                 }
                 catch (Exception exc)
                 {
-                    exc.ShowError(10);
+                    exc.HandleException(10);
                 }
             }
             return false;
@@ -1872,7 +1872,7 @@ namespace Diagram.UI
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError(1); ;
+                    exception.HandleException(1); ;
                 }
                 ControlPanel.LoadControls(this, stream, null, k);
             }
@@ -1918,7 +1918,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -1935,7 +1935,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -1996,7 +1996,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             if (stream != null)
             {
@@ -2070,7 +2070,7 @@ namespace Diagram.UI
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
             }
         }
 

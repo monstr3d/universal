@@ -8,17 +8,15 @@ using CommonService;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-using DataWarehouse;
 using DataWarehouse.Interfaces;
 
-using Motion6D;
 using Motion6D.UI.Factory;
-using Motion6D.Interfaces;
 
-using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Advanced;
 using BasicEngineering.UI.Factory.Advanced.Forms;
 using Motion6D.Portable.Interfaces;
+
+using ErrorHandler;
 
 namespace Motion6D.UI.Avanced.Initialization
 {

@@ -136,7 +136,7 @@ namespace WpfInterface.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(1);
+                ex.HandleException(1);
             }
         }
 

@@ -77,7 +77,7 @@ namespace TestCategory
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                     break;
                 }
             }
@@ -102,7 +102,7 @@ namespace TestCategory
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
                 return new Tuple<bool, object>(false, exception);
             }
         }

@@ -75,7 +75,7 @@ namespace EarClipperSplitter
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError();
+                    ex.HandleException();
                     return [];
                 }
                 var res = clipping.Result;

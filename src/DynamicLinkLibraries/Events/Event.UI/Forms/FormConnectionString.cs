@@ -37,7 +37,7 @@ namespace Event.UI.Forms
             catch (Exception exception)
             {
                 Log.Database.StaticExtensionEventLogDatabase.ConnectionString = "";
-                exception.ShowError();
+                exception.HandleException();
             }
         }
             

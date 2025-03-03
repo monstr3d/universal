@@ -334,7 +334,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
              }
         }
 
@@ -353,7 +353,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -372,7 +372,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
              }
         }
 
@@ -392,7 +392,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -419,7 +419,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -441,7 +441,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
  

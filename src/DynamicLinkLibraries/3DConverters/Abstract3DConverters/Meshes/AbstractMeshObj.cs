@@ -100,7 +100,7 @@ namespace Abstract3DConverters.Meshes
                     }
                     catch (Exception e)
                     {
-                        e.ShowError();
+                        e.HandleException();
                         throw new IncludedException(e, "OBJ TEXUTRE ERROR");
                     }
                 }

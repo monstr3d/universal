@@ -87,7 +87,7 @@ namespace WpfInterface.UI.Labels
             }
             catch (Exception ex)
             {
-                ex.ShowError(-1);
+                ex.HandleException(-1);
             }
         }
 
@@ -103,7 +103,7 @@ namespace WpfInterface.UI.Labels
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

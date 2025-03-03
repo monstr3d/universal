@@ -48,7 +48,7 @@ namespace DataPerformer
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 ArrayList p = info.GetValue("Points", typeof(ArrayList)) as ArrayList;
                 for (int i = 0; i < p.Count; i++)
                 {

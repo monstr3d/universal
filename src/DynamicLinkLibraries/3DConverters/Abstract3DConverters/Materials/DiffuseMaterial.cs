@@ -1,11 +1,17 @@
-﻿namespace Abstract3DConverters.Materials
+﻿using Abstract3DConverters.Interfaces;
+
+namespace Abstract3DConverters.Materials
 {
-    public class DiffuseMaterial : Material
+    public class DiffuseMaterial : Material, IImageHolder
     {
 
         #region Fields
 
-        Image im;
+        protected Image Image
+        {
+            get;
+            private set;
+        }
 
         #endregion
 
@@ -24,9 +30,7 @@
 
         #endregion
 
-
-
-  
+ 
 
         public Color Color { get; private set; }
 
@@ -38,6 +42,8 @@
             get; 
             private set; 
         }
+
+        Image[] IImageHolder.Images => Image == null ? null : [Image];
 
         #region Overriden
 

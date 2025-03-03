@@ -471,7 +471,7 @@ namespace Motion6D
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 IPosition p = this;
                 p.Parent = null;
                 throw e;

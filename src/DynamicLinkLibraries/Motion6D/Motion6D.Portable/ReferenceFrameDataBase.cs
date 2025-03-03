@@ -140,7 +140,7 @@ namespace Motion6D.Portable
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }
@@ -376,7 +376,7 @@ namespace Motion6D.Portable
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
            }
         }
 

@@ -8,7 +8,7 @@ namespace Diagram.UI.ErrorHandlers
     /// <summary>
     /// Error handler for text writer
     /// </summary>
-    public class TextWriterErrorHandler : IErrorHandler, IDisposable
+    public class TextWriterErrorHandler : IExceptionHandler, IDisposable
     {
         #region Fields
 
@@ -49,7 +49,7 @@ namespace Diagram.UI.ErrorHandlers
 
         #region IErrorHandler  Members
 
-        void IErrorHandler.ShowError(Exception e, object o)
+        void IExceptionHandler.HandleException<T>(T e, object o)
         {
            /* if (level == 0)
             {
@@ -68,7 +68,7 @@ namespace Diagram.UI.ErrorHandlers
             }*/
        }
 
-        void IErrorHandler.ShowMessage(string message, object o)
+        void IExceptionHandler.ShowMessage(string message, object o)
         {
             writer.WriteLine(message);
         }

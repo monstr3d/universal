@@ -174,7 +174,7 @@ namespace Event.Log.Database.UI.UserControls
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError();
+                    exception.HandleException();
                 }
                 return;
             }

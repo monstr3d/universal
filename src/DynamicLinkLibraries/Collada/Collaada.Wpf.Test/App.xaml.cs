@@ -156,7 +156,7 @@ namespace Collaada.Wpf.Test
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 /*
@@ -260,7 +260,7 @@ namespace Collaada.Wpf.Test
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 
@@ -283,7 +283,7 @@ namespace Collaada.Wpf.Test
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

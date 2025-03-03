@@ -375,7 +375,7 @@ namespace DataTableSelection
                         }
                         catch (Exception ex)
                         {
-                            ex.ShowError(10);
+                            ex.HandleException(10);
                             string s = o + "";
                             a = Double.Parse(s);
                         }

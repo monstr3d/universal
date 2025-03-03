@@ -81,7 +81,7 @@ namespace Diagram.UI.TaskProviders
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
             return null;
         }

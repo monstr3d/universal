@@ -308,7 +308,7 @@ namespace DataTableSelection
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError((int)-1);
+                    ex.HandleException((int)-1);
                 }
                 return type.GetDefaultValue();
 

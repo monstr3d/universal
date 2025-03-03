@@ -156,7 +156,7 @@ namespace DataPerformer.UI.BufferedData.UserControls
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
         }
 

@@ -98,7 +98,7 @@ namespace TestCategory.UI
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 return TestException.GetRoot(e);
             }
             return null;

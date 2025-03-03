@@ -17,7 +17,7 @@ namespace Abstract3DConverters.Creators
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

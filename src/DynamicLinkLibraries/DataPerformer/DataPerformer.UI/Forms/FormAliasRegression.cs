@@ -286,7 +286,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
         }
@@ -303,7 +303,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception exc)
             {
-                exc.ShowError();
+                exc.HandleException();
                 return;
             }
             try
@@ -322,7 +322,7 @@ namespace DataPerformer.UI.Forms
             }
             catch (Exception ex)
             {
-                ex.ShowError(1);
+                ex.HandleException(1);
             }
         }
 

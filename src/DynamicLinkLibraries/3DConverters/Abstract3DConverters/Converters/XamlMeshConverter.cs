@@ -12,6 +12,7 @@ namespace Abstract3DConverters.Converters
     public class XamlMeshConverter : XmlMeshConverter
     {
 
+   
         XamlMaterialCreator xamlMaterial;
 
         protected override IMaterialCreator MaterialCreator => xamlMaterial;
@@ -61,17 +62,20 @@ namespace Abstract3DConverters.Converters
             var y = Create("ModelVisual3D.Content");
             x.AppendChild(y);
             var z = Create("GeometryModel3D");
-            y.AppendChild(z);
-            var w = Create("GeometryModel3D.Geometry");
-            z.AppendChild(w);
             var mat = mesh.Effect;
             if (mat != null)
             {
                 var mr = Create("GeometryModel3D.Material");
                 z.AppendChild(mr);
                 var max = Converter.MaterialCreator.Create(mat) as XmlElement;
-                mr.AppendChild(max);
+                if (max != null)
+                { //!!!DELETE
+                    mr.AppendChild(max);
+                }
             }
+            y.AppendChild(z);
+            var w = Create("GeometryModel3D.Geometry");
+            z.AppendChild(w);
             var v = Create("MeshGeometry3D");
             w.AppendChild(v);
             var lv = new List<float>();
@@ -79,7 +83,12 @@ namespace Abstract3DConverters.Converters
             var ln = new List<float>();
             foreach (var polygon in mesh.Polygons)
             {
-                foreach (var point in polygon.Points)
+                var points = polygon.Points;
+                if (points.Length != 3)
+                {
+                    throw new Exception("Illegal Xaml Polygon");
+                }
+                foreach (var point in points)
                 {
                     lv.AddRange(point.Vertex);
                     var tx = point.Texture;
@@ -104,14 +113,18 @@ namespace Abstract3DConverters.Converters
             {
                 v.SetAttribute("Normals", s.Parse(ln));
             }
-            return x;
+
             var sb = new StringBuilder();
-            foreach (var pl in mesh.Polygons)
+            /*       foreach (var pl in mesh.Polygons)
+                   {
+                       foreach (var pll in pl.Points)
+                       {
+                           sb.Append(" " + pll.VertexIndex);
+                       }
+                   }*/
+            for (var i = 0; i < mesh.Polygons.Count * 3; i++)
             {
-                foreach (var pll in pl.Points)
-                {
-                    sb.Append(" " + pll.VertexIndex);
-                }
+                sb.Append(" " + i);
             }
             var str = sb.ToString();
             v.SetAttribute("TriangleIndices", str.Substring(1));
@@ -385,12 +398,31 @@ namespace Abstract3DConverters.Converters
     class XamlMaterialCreator : XmlMaterialCreator
     {
 
+        protected IProcessEffect ProcessEffect
+        {
+            get;
+
+            private set;
+        }
+
+
         internal XamlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
             base(doc, xmlns, images)
         {
+            ProcessEffect = new ProcessEffect();
         }
 
-       
+        public override object Create(Effect effect)
+        {
+            var mat = effect.Material;
+            if (mat.GetType() == typeof(PhongMaterial))
+            {
+                return base.Create(effect);
+            }
+            return ProcessEffect.Process(null, effect);
+        }
+
+
 
         public override object Create(DiffuseMaterial material)
         {
@@ -472,6 +504,58 @@ namespace Abstract3DConverters.Converters
         private void SetColor(XmlElement e, Color c)
         {
             s.SetColor(e, "Color",c);
+        }
+    }
+
+    class ProcessEffect : IProcessEffect
+    {
+        StreamWriter writer;
+
+        internal ProcessEffect()
+        {
+            if (File.Exists(@"c:\0\1.txt"))
+            {
+                File.Delete(@"c:\0\1.txt");
+            }
+           // writer  = new StreamWriter(@"c:\0\1.txt");
+
+        }
+
+        ~ProcessEffect()
+        {
+            if (writer != null)
+            {
+                writer.Flush();
+                writer.Close();
+            }
+        }
+
+        object IProcessEffect.Process(XmlElement element, Effect effect)
+        {
+            var mat = effect.Material;
+            if (writer == null)
+            {
+                return null;
+            }
+            if (mat is IAttachement attachement)
+            {
+                var att = attachement.Attachement;
+                if (att is XmlElement e)
+                {
+                    var x = e.GetElementsByTagName("blinn")[0];
+                    writer.Write(x.OuterXml);
+                    writer.WriteLine();
+                    writer.WriteLine("++++++++++++++++++++++++++++");
+                    writer.WriteLine();
+                }
+
+            }
+            return null;
+        }
+
+        protected void Process(XmlElement element, Effect effect)
+        {
+
         }
     }
 

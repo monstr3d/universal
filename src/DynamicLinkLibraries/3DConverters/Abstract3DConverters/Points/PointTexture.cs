@@ -42,7 +42,7 @@ namespace Abstract3DConverters.Points
             }
             catch (Exception exception)
             {
-                exception.ShowError("Point texture constructor");
+                exception.HandleException("Point texture constructor");
                 throw new IncludedException(exception, "Point texture constructor");
             }
         }
@@ -77,7 +77,7 @@ namespace Abstract3DConverters.Points
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
                 throw new IncludedException(exception, "Point texture constructor");
             }
         }

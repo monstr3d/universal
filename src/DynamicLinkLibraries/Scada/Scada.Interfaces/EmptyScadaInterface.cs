@@ -164,6 +164,6 @@ namespace Scada.Interfaces
             throw new NotImplementedException();
         }
 
-        public override IErrorHandler ErrorHandler { get; set; }
+        public override IExceptionHandler ExceptionHandler  { get; set; }
     }
 }

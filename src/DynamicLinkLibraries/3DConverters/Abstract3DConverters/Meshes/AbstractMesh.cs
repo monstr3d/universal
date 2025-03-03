@@ -344,7 +344,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
             return null;
 
@@ -375,7 +375,7 @@ namespace Abstract3DConverters.Meshes
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
             return null;
         }

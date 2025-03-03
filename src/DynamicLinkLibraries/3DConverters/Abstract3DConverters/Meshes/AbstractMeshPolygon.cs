@@ -107,11 +107,11 @@ namespace Abstract3DConverters.Meshes
         protected virtual void CreateFromPolygons()
         {
 
-            if (Polygons == null | trianglesCreated | Points == null)
+            if (Polygons == null | trianglesCreated)
             {
                 return;
             }
-            if (Polygons.Count == 0 | Points.Count == 0)
+            if (Polygons.Count == 0)
             {
                 return;
             }

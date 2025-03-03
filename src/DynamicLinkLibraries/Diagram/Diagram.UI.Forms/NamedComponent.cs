@@ -492,7 +492,7 @@ namespace Diagram.UI.Labels
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
 				form = null;
 				GC.Collect();
@@ -788,7 +788,7 @@ namespace Diagram.UI.Labels
             }
             catch (Exception e)
             {
-                e.ShowError(1); ;
+                e.HandleException(1); ;
                 form = null;
             }
         }

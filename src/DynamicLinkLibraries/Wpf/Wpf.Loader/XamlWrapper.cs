@@ -503,7 +503,8 @@ namespace Wpf.Loader
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError();
+                    ex.HandleException();
+                    throw new IncludedException(ex, "Xaml Wrapper Parse");
                 }
                 ModelVisual3D model = null;
                 if (ob is Visual3D)

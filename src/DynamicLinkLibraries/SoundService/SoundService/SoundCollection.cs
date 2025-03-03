@@ -64,7 +64,7 @@ namespace SoundService
         }
         catch (Exception ex)
         {
-            ex.ShowError(1);
+            ex.HandleException(1);
         }
     };
 
@@ -146,7 +146,7 @@ namespace SoundService
             }
             catch (Exception ex)
             {
-                ex.ShowError(1);
+                ex.HandleException(1);
             }
         }
 

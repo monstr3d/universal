@@ -70,7 +70,7 @@ namespace TestCategory
         /// <summary>
         /// Default constructor
         /// </summary>
-        public TestPerformer(IErrorHandler errorHandler, ITestInterface testInterface)
+        public TestPerformer(IExceptionHandler errorHandler, ITestInterface testInterface)
         {
             errorHandler.Set();
             this.testInterface = testInterface;
@@ -149,7 +149,7 @@ namespace TestCategory
                 {
                     foreach (Exception e in l)
                     {
-                        e.ShowError();
+                        e.HandleException();
                     }
                 }
                 PureDesktopPeer d = new PureDesktopPeer();
@@ -157,7 +157,7 @@ namespace TestCategory
                 test(d);
                 foreach (Exception e in le)
                 {
-                    e.ShowError();
+                    e.HandleException();
                 }
                 d.Dispose();
                 d = null;
@@ -168,7 +168,7 @@ namespace TestCategory
                 try
                 {
                     current = TestException.GetRoot(ex);
-                    ex.ShowError(0);
+                    ex.HandleException(0);
                 }
                 catch (Exception)
                 {
@@ -335,7 +335,7 @@ namespace TestCategory
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             MemoryStream mso = new MemoryStream();
             d.Save(mso);

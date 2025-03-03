@@ -262,7 +262,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception e)
             {
-                e.ShowError();
+                e.HandleException();
             }
         }
 
@@ -327,7 +327,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }
@@ -890,7 +890,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 
@@ -1409,7 +1409,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }
@@ -1581,7 +1581,7 @@ namespace DataPerformer.Formula
                     }
                     catch (Exception ex)
                     {
-                        ex.ShowError(10);
+                        ex.HandleException(10);
                         if (ex.Message.Equals("VariableMeasure.Derivation"))
                         {
                             throw ex;
@@ -1630,7 +1630,7 @@ namespace DataPerformer.Formula
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(-1);
+                    ex.HandleException(-1);
                 }
             }
         }

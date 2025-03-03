@@ -84,7 +84,7 @@ namespace Web.Interfaces.UI.UserControls
                 }
                 catch (Exception exception)
                 {
-                    exception.ShowError();
+                    exception.HandleException();
                 }
             }
         }

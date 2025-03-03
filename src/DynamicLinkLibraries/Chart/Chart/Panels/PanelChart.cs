@@ -168,7 +168,7 @@ namespace Chart.Panels
             }
             catch (Exception ex) 
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

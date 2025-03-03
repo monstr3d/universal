@@ -314,7 +314,7 @@ namespace Diagram.UI
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 if (exceptions != null)
                 {
                     exceptions.Add(e);
@@ -350,7 +350,7 @@ namespace Diagram.UI
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 if (exceptions != null)
                 {
                     exceptions.Add(e);
@@ -718,7 +718,7 @@ namespace Diagram.UI
             }
             catch (Exception ee)
             {
-                ee.ShowError(10);
+                ee.HandleException(10);
             }
             MemoryStream ms = new MemoryStream(bytes);
             BinaryFormatter bf = new BinaryFormatter();
@@ -731,7 +731,7 @@ namespace Diagram.UI
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                     return null;
                 }
             }
@@ -744,7 +744,7 @@ namespace Diagram.UI
                 }
                 catch (Exception exc)
                 {
-                    exc.ShowError(10);
+                    exc.HandleException(10);
                     return null;
                 }
             }
@@ -786,7 +786,7 @@ namespace Diagram.UI
                 {
                     stream.Write(bytes);
                 }
-                ex.ShowError();//*/
+                ex.HandleException();//*/
             }
             return null;
         }
@@ -805,7 +805,7 @@ namespace Diagram.UI
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 throw e;
             }
         }
@@ -987,7 +987,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 if (exceptions != null)
                 {
                     exceptions.Add(ex);
@@ -1020,7 +1020,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 stream.Position = streamPosition;
             }
         }

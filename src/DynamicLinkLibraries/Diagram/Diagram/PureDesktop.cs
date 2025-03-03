@@ -419,7 +419,7 @@ namespace Diagram.UI
             }
             catch (Exception exception)
             {
-                exception.ShowError(0);
+                exception.HandleException(0);
             }
         }
 
@@ -830,7 +830,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 if (exceptions != null)
                 {
                     exceptions.Add(ex);
@@ -910,7 +910,7 @@ namespace Diagram.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 if (exceptions != null)
                 {
                     exceptions.Add(ex);

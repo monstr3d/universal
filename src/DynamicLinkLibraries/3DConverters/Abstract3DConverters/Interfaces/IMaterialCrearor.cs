@@ -64,7 +64,7 @@ namespace Abstract3DConverters.Interfaces
         /// Creates effect
         /// </summary>
         /// <param name="effect">The effect</param>
-        /// <returns>The effect objec</returns>
+        /// <returns>The effect object</returns>
         object Create(Effect effect);
 
 

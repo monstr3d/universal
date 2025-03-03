@@ -49,7 +49,7 @@ namespace Motion6D.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }   
             source = link.SourceObject;
             target = link.TargetObject;

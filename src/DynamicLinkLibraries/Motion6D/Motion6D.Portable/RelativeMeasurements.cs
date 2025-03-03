@@ -138,7 +138,7 @@ namespace Motion6D.Portable
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }

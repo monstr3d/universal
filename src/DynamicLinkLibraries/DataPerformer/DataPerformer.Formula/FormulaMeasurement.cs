@@ -230,7 +230,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 object o = associated.Additional;
                 object ot = null;
                 if (o == null)
@@ -315,7 +315,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception ex)
             {
-                ex.ShowError(-1);
+                ex.HandleException(-1);
             }-/*/
             FormulaMeasurement fm;
             if (n == 0)
@@ -344,7 +344,7 @@ namespace DataPerformer.Formula
             }
             catch (Exception exc)
             {
-                exc.ShowError(10);
+                exc.HandleException(10);
             }
             return fm;
         }
@@ -462,7 +462,7 @@ namespace DataPerformer.Formula
                         }
                         catch (Exception ex)
                         {
-                            ex.ShowError(10);
+                            ex.HandleException(10);
                         }
                     }
                 }

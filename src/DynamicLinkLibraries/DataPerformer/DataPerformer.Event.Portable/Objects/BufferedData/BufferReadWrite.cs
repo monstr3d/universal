@@ -607,7 +607,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
             if (change != null)
             {

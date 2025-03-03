@@ -482,7 +482,7 @@ namespace Diagram.UI.Labels
 					}
 					catch (Exception ex)
 					{
-                        ex.ShowError(10);
+                        ex.HandleException(10);
  						return;
 					}
 				}
@@ -551,7 +551,7 @@ namespace Diagram.UI.Labels
 			}
 			catch (Exception ex)
 			{
-                ex.ShowError(10);
+                ex.HandleException(10);
                 if (arrow != null)
 				{
 					if (arrow is IDisposable d)
@@ -559,7 +559,7 @@ namespace Diagram.UI.Labels
 						d.Dispose();
 					}
 				}
-                ex.ShowError(1); ;
+                ex.HandleException(1); ;
             }
 			Desktop.ActiveArrow = null;
 			Desktop.Redraw();

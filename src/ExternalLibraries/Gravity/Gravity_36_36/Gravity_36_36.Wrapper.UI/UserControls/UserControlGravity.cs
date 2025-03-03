@@ -122,7 +122,7 @@ namespace Gravity_36_36.Wrapper.UI.UserControls
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
             }
         }
 

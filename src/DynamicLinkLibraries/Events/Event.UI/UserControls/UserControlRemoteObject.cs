@@ -74,7 +74,7 @@ namespace Event.UI.UserControls
             else
             {
                 labelResult.Text = exception.Message;
-                exception.ShowError();
+                exception.HandleException();
             }
         }
 

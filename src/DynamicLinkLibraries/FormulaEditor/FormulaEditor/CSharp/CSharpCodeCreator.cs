@@ -162,7 +162,7 @@ namespace FormulaEditor.CSharp
             }
             catch (Exception exception)
             {
-                //exception.ShowError(-1);
+                //exception.HandleException(-1);
             }
             if (ret.Length > 0)
             {

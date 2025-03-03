@@ -172,7 +172,7 @@ namespace Scada.Interfaces
         /// <summary>
         /// Error Handler
         /// </summary>
-        IErrorHandler ErrorHandler
+        IExceptionHandler ExceptionHandler
         {
             get;
             set;

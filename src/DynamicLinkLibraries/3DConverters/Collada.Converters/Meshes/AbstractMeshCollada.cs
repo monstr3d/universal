@@ -124,7 +124,7 @@ namespace Collada.Converters.Meshes
             }
             catch (Exception e)
             {
-                e.ShowError("AbstractMeshCollada constructor");
+                e.HandleException("AbstractMeshCollada constructor");
                 throw new IncludedException(e, "AbstractMeshCollada constructor");
             }
             

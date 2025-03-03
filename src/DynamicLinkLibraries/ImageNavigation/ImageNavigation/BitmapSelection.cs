@@ -160,7 +160,7 @@ namespace ImageNavigation
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -516,7 +516,7 @@ namespace ImageNavigation
                     }
                     catch (Exception ex)
                     {
-                        ex.ShowError(10);
+                        ex.HandleException(10);
                     }
                 }
                 return bmp;
@@ -556,7 +556,7 @@ namespace ImageNavigation
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
             return bmp;

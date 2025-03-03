@@ -229,7 +229,7 @@ namespace DataPerformer.Formula.Regression
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
                 return s;
             }
@@ -274,7 +274,7 @@ namespace DataPerformer.Formula.Regression
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
                 return "";
             }
@@ -387,7 +387,7 @@ namespace DataPerformer.Formula.Regression
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
 
         }

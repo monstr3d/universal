@@ -37,7 +37,7 @@ namespace DataPerformer.UI.Utils
 
         #region IErrorHandler Members
 
-        void IErrorHandler.ShowError(Exception e, object o)//int level)
+        void IErrorHandler.HandleException(Exception e, object o)//int level)
         {
             if (o.GetType().Equals(typeof(int)))
             {
@@ -49,7 +49,7 @@ namespace DataPerformer.UI.Utils
                         ShowException(e as AssociatedException);
                         return;
                     }
-                    Diagram.UI.Utils.ControlUtilites.ShowError(e);
+                    Diagram.UI.Utils.ControlUtilites.HandleException(e);
                 }
                 else
                 {

@@ -119,13 +119,13 @@ namespace Motion6D.Drawing.Factory
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
                 return p;
             }
             catch (Exception exc)
             {
-                exc.ShowError(10);
+                exc.HandleException(10);
             }
             return base.Create(o);
         }

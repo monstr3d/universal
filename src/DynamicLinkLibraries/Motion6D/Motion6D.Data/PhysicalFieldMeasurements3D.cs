@@ -152,7 +152,7 @@ namespace Motion6D
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                     o = GetFieldValue(field);
                 }
                /* if (updatedFields[field])

@@ -52,7 +52,7 @@ namespace Regression
             }
             catch (Exception ex)
             {
-                ex.ShowError(-1);
+                ex.HandleException(-1);
             }
             try
             {
@@ -60,7 +60,7 @@ namespace Regression
             }
             catch (Exception exc)
             {
-                exc.ShowError(-1);
+                exc.HandleException(-1);
             }
             try
             {
@@ -68,7 +68,7 @@ namespace Regression
             }
             catch (Exception exc)
             {
-                exc.ShowError(-1);
+                exc.HandleException(-1);
             }
         }
 

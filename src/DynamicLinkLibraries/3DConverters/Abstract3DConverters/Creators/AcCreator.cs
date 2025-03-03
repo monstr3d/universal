@@ -97,7 +97,7 @@ namespace Abstract3DConverters.Creators
                         l.Add(s.Trim(str));
                     }
                 }
-                var group = new MaterialGroup(l[0]);
+                var group = new PhongMaterial(l[0], null);
                 MaterialsPP.Add(group);
                 Materials[l[0]] = group;
                 var d = new Dictionary<int, string>();

@@ -80,7 +80,7 @@ namespace DataPerformer
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(-1);
+                    ex.HandleException(-1);
                 }
                 deriOrder = (int)info.GetValue("DerivationOrder", typeof(int));
                 try
@@ -89,7 +89,7 @@ namespace DataPerformer
                 }
                 catch (Exception exc)
                 {
-                    exc.ShowError(100); ;
+                    exc.HandleException(100); ;
                 }
                 try
                 {
@@ -97,7 +97,7 @@ namespace DataPerformer
                 }
                 catch (Exception exc)
                 {
-                    exc.ShowError(100); ;
+                    exc.HandleException(100); ;
                 }
                 try
                 {
@@ -105,13 +105,13 @@ namespace DataPerformer
                 }
                 catch (Exception exc)
                 {
-                    exc.ShowError(100); ;
+                    exc.HandleException(100); ;
                 }
 
             }
             catch (Exception ex)
             {
-                ex.ShowError(1);
+                ex.HandleException(1);
             }
             Init();
         }

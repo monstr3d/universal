@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
 
 using Xml.Parser.Library.Interfaces;
+
+using ErrorHandler;
 
 namespace Xml.Parser.Library.XmlElementCreators
 {
@@ -177,7 +177,7 @@ namespace Xml.Parser.Library.XmlElementCreators
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10); 
+                    ex.HandleException(10); 
                     break;
                 }
             }

@@ -190,7 +190,7 @@ namespace DataPerformer
 
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 consumer.Throw(ex);
             }
             series = null;

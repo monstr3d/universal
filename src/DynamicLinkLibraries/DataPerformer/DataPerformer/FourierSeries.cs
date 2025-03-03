@@ -89,7 +89,7 @@ namespace DataPerformer
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 seriesTable = new Hashtable();
                 seriesTable[0] = "";
                 seriesTable[1] = "";
@@ -217,7 +217,7 @@ namespace DataPerformer
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 this.Throw(e);
             }
         }

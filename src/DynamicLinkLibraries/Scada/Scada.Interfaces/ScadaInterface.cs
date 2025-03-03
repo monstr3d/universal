@@ -211,12 +211,14 @@ namespace Scada.Interfaces
         /// <summary>
         /// Error Handler
         /// </summary>
-        public abstract IErrorHandler ErrorHandler
+        public abstract IExceptionHandler ExceptionHandler
         {
             get;
             set;
         }
-        IErrorHandler IScadaInterface.ErrorHandler { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+
+        IExceptionHandler IScadaInterface.ExceptionHandler { get => ExceptionHandler; set => ExceptionHandler = value; }
 
         /// <summary>
         /// Refresh

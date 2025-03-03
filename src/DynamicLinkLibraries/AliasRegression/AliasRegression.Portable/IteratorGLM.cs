@@ -537,7 +537,7 @@ namespace Regression.Portable
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                     goto cycle;
                 }
                 for (int i = 0; i < y.Length; i++)
@@ -710,7 +710,7 @@ namespace Regression.Portable
                     }
                     catch (Exception ex)
                     {
-                        ex.ShowError(10);
+                        ex.HandleException(10);
                         goto cycle;
                     }
                     for (int i = 0; i < y.Length; i++)
@@ -884,7 +884,7 @@ namespace Regression.Portable
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
                 double[] yy = new double[y.Length];
                 for (int i = 0; i < y.Length; i++)

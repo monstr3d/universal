@@ -201,7 +201,7 @@ namespace DataPerformer
                     }
                     catch (Exception ex)
                     {
-                        ex.ShowError(10);
+                        ex.HandleException(10);
                     }
                 }
             });

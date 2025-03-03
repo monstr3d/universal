@@ -48,7 +48,7 @@ namespace DataPerformer.Portable.Wrappers
         /// <param name="errorHandler">The error handler</param>
         public void PerformIterator(IIterator iterator,
            Action action, Func<bool> stop = null, Action preparation = null,
-           IErrorHandler errorHandler = null)
+           IExceptionHandler errorHandler = null)
         {
             Func<bool> st = (stop == null) ? () => false : stop;
             var b = true;
@@ -88,11 +88,11 @@ namespace DataPerformer.Portable.Wrappers
             {
                 if (errorHandler != null)
                 {
-                    errorHandler.ShowError(e, null);
+                    errorHandler.HandleException(e, null);
                 }
                 else
                 {
-                    e.ShowError(null);
+                    e.HandleException(null);
                 }
             }
         }
@@ -161,11 +161,11 @@ namespace DataPerformer.Portable.Wrappers
               {
                   if (errorHandler != null)
                   {
-                      errorHandler.ShowError(ex, 10);
+                      errorHandler.HandleException(ex, 10);
                   }
                   else
                   {
-                      ex.ShowError(10);
+                      ex.HandleException(10);
                   }
               }
               processor.TimeProvider = old;
@@ -196,7 +196,7 @@ namespace DataPerformer.Portable.Wrappers
                 ITimeMeasurementProvider provider,
                   IDifferentialEquationProcessor processor, string reason,
                  int priority, Action action, IMeasurement condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-                 IErrorHandler errorHandler = null)
+                 IExceptionHandler errorHandler = null)
         {
             ITimeMeasurementProvider old = processor.TimeProvider;
             var stp = stop;
@@ -256,11 +256,13 @@ namespace DataPerformer.Portable.Wrappers
             {
                 if (errorHandler != null)
                 {
-                    errorHandler.ShowError(ex, 10);
+                    int i = 10;
+                    object o = i;
+                    errorHandler.HandleException<Exception>(ex, o);
                 }
                 else
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
             processor.TimeProvider = old;
@@ -270,7 +272,7 @@ namespace DataPerformer.Portable.Wrappers
             ITimeMeasurementProvider provider,
             IDifferentialEquationProcessor processor, string reason,
             int priority, Action action, string condition = null, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-            IErrorHandler errorHandler = null)
+            IExceptionHandler errorHandler = null)
         {
             IMeasurement cm = null;
             if (condition != null)
@@ -306,7 +308,7 @@ namespace DataPerformer.Portable.Wrappers
         ITimeMeasurementProvider provider,
         IDifferentialEquationProcessor processor, string reason,
         int priority, string condition, IEnumerable<string> paramerets, Func<bool> stop = null, IAsynchronousCalculation asynchronousCalculation = null,
-        IErrorHandler errorHandler = null)
+        IExceptionHandler errorHandler = null)
         {
             var list = new List<List<object>>();
             var m = new List<IMeasurement>();
@@ -402,11 +404,11 @@ namespace DataPerformer.Portable.Wrappers
             {
                 if (errorHandler != null)
                 {
-                    errorHandler.ShowError(ex, 10);
+                    errorHandler.HandleException(ex, 10);
                 }
                 else
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
             processor.TimeProvider = old;
@@ -518,7 +520,7 @@ namespace DataPerformer.Portable.Wrappers
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
             }
             return xpv.Document;
         }*/
@@ -537,7 +539,7 @@ namespace DataPerformer.Portable.Wrappers
         public XmlDocument CreateXmlDocument(Dictionary<string, string> output,
              double start, double step, int count, string condition,
          Func<bool> stop, ITimeMeasurementProvider provider,
-        IDifferentialEquationProcessor processor, IErrorHandler errorHandler = null)
+        IDifferentialEquationProcessor processor, IExceptionHandler errorHandler = null)
         {
             IMeasurement cond = null;
             if (condition != null)
@@ -570,7 +572,7 @@ namespace DataPerformer.Portable.Wrappers
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
             }
             return xpv.Document;
         }

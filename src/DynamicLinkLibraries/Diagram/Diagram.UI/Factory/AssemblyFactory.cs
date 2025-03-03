@@ -265,7 +265,7 @@ namespace Diagram.UI.Factory
             }
             catch (Exception exception)
             {
-                exception.ShowError();
+                exception.HandleException();
             }
             return null;
         }

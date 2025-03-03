@@ -199,7 +199,7 @@ namespace DataPerformer.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
         }
@@ -226,7 +226,7 @@ namespace DataPerformer.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -250,7 +250,7 @@ namespace DataPerformer.UI
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
 
         }

@@ -141,7 +141,7 @@ namespace ImageTransformations
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(e.Message);
             }
         }

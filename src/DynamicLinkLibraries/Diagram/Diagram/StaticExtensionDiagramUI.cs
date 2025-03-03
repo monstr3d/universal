@@ -1011,7 +1011,7 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="errorHandler">Error handler</param>
         /// <param name="onError">On error event</param>
-        static public void Add(this IErrorHandler errorHandler, Action<Exception, object> onError)
+        static public void Add(this IExceptionHandler errorHandler, Action<Exception, object> onError)
         {
             if (errorHandler == null)
             {
@@ -1019,15 +1019,18 @@ namespace Diagram.UI
             }
             if (onError != null)
             {
-                onError += errorHandler.ShowError;
+
+                onError += errorHandler.HandleException;
             }
         }
+
+        
 
         /// <summary>
         /// Removes Error hablder
         /// </summary>
         /// <param name="errorHandler">Error handler</param>
-        static public void Remove(this IErrorHandler errorHandler, Action<Exception, object> onError)
+        static public void Remove(this IExceptionHandler errorHandler, Action<Exception, object> onError)
         {
             if (errorHandler == null)
             {
@@ -1035,7 +1038,7 @@ namespace Diagram.UI
             }
             if (onError != null)
             {
-                onError -= errorHandler.ShowError;
+                onError -= errorHandler.HandleException;
             }
         }
 
@@ -3778,7 +3781,7 @@ namespace Diagram.UI
         }
 
 
-        private static IErrorHandler GetErrorHandler(object o, out object add)
+        private static IExceptionHandler GetErrorHandler(object o, out object add)
         {
             add = null;
             if (o == null)
@@ -3791,13 +3794,13 @@ namespace Diagram.UI
                 if (ob.Length >= 1)
                 {
                     object of = ob[0];
-                    if (of is IErrorHandler)
+                    if (of is IExceptionHandler)
                     {
                         if (ob.Length == 2)
                         {
                             add = ob[1];
                         }
-                        return of as IErrorHandler;
+                        return of as IExceptionHandler;
                     }
                 }
             }

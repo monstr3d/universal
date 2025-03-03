@@ -311,7 +311,7 @@ namespace Diagram.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             desktop.SetParents();
 
@@ -337,7 +337,7 @@ namespace Diagram.UI.UserControls
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(e.Message);
             }
         }

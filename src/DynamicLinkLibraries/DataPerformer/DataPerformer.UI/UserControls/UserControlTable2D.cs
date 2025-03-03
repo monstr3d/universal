@@ -81,7 +81,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             if (stream != null)
             {
@@ -103,7 +103,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             if (stream != null)
             {

@@ -162,7 +162,7 @@ namespace Gravity_36_36.Wrapper.Serializable
             }
             catch (Exception exception)
             {
-                exception.ShowError(10);
+                exception.HandleException(10);
             }
         }
 

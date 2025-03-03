@@ -91,7 +91,7 @@ namespace ControlSystemsWrapper
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             Initialize();
         }
@@ -308,7 +308,7 @@ namespace ControlSystemsWrapper
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 nom = new double[no.Length];
                 denom = new double[dn.Length];
                 Array.Copy(no, nom, nom.Length);

@@ -12298,15 +12298,18 @@ An unital $C^*$-algebra  $A$ \textit{admits  Hurewicz homomorphism} if one has:
 	\end{enumerate}
 \end{definition}
 \begin{empt}
-If an  unital $C^*$-algebra  $A$ {admits  Hurewicz homomorphism} then  $\pi_1\left(A\right)$ is a direct product of groups
+If an  unital $C^*$-algebra  $A$ {admits  Hurewicz homomorphism} then  $\pi^{\mathrm{ab}}_1\left(A\right)$ is the direct sum of groups
 \be\label{h_dir_prod_eqn}
+\begin{split}
 \pi^{\mathrm{ab}}_1\left( A\right)\cong \pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\oplus
-\pi^{\mathrm{ab}}_1\left( A\right)/\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}} \cong G\left(\left.\widetilde A \right| A \right) \times \pi_1^{\mathrm{ab}}\left(\widetilde A \right). 
+\pi^{\mathrm{ab}}_1\left( A\right)/\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}} \cong G\left(\left.\widetilde A \right| A \right) \oplus \pi_1^{\mathrm{ab}}\left(\widetilde A \right)\cong \\ \cong \pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\oplus
+\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{free}}. 
+\end{split}
 \ee
-There are free Hurewicz homomorphism $h^1 : \pi_1\left(\widetilde A \right) \to K^1\left(\widetilde A \right)$.  There are the free  and the torsion  Hurewicz homomorphisms
+There   are the free  and the torsion  Hurewicz homomorphisms
 \bean
 h_{K^1}^{\mathrm{free}} : \pi^{\mathrm{ab}}_1\left( \widetilde A\right) \to \Hom\left( K_1\left( \widetilde A\right) , \Z\right),\\
-h_{K^1}^{\mathrm{tors}} : G\left(\left.\widetilde A \right| A \right)] \to   \Ext^1_\Z\left( K_0\left( \widetilde A, \Z\right)\right)
+h_{K^1}^{\mathrm{tors}} : G\left(\left.\widetilde A \right| A \right)\cong \pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}} \to   \Ext^1_\Z\left( K_0\left( \widetilde A, \Z\right)\right)
 \eean
 (cf. Definitions \ref{hurewicz_free_defn} and \ref{hurewicz_torsion_defn}).
 The inclusion  yields a homomorphism $\iota :K_0\left( A\right) \to K_0\left(\widetilde A\right)$ so there are homomorphisms 
@@ -12314,7 +12317,7 @@ The inclusion  yields a homomorphism $\iota :K_0\left( A\right) \to K_0\left(\wi
 r_1 : \Hom\left(K_1\left(\widetilde A\right), \Z \right) \to \Hom\left(K_1\left(A\right), \Z \right),\\
 r_2 : \Ext^1_\Z\left(K_0\left(\widetilde A\right), \Z \right) \to \Ext^1_\Z\left(K_0\left(A\right), \Z \right), \\
 \eean 
-On the other hand there are subjective homomorphism $s_1 : \pi^{\mathrm{ab}}_1\left(A \right) \to G$ and $s_2 : \pi^{\mathrm{ab}}_1\left(A \right) \to \pi^{\mathrm{ab}}_1\left(\widetilde A \right)$.
+On the other hand there are subjective homomorphism $s_1 : \pi^{\mathrm{ab}}_1\left(A \right) \to  G\left(\left.\widetilde A \right| A \right)=\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}$ and $s_2 : \pi^{\mathrm{ab}}_1\left(A \right) \to \pi^{\mathrm{ab}}_1\left(\widetilde A \right)$.
 \end{empt}
 \begin{definition}\label{hurewicz_pair_defn}
 If $A$ \textit{admits  Hurewicz homomorphism} (cf. Definition \ref{hurewicz_admits_defn}) then a pair of  homomorphisms
@@ -12326,28 +12329,51 @@ h^2_{K^1}\bydef r_2 \circ s_2:\pi^{\mathrm{ab}}_1\left(A \right)\to  \Ext^1_\Z\l
 \ee
 is the \textit{Hurewicz pair}.
 \end{definition}
+If $A$ is an $N$-algebra then both direct sum \eqref{h_dir_prod_eqn} and  exact sequence \eqref{uctt_c} yield the following diagram
+\newline
+\begin{tikzcd}
+	\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\arrow[r]\arrow[d, "h^1_{K^1}"]& \pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\oplus
+	\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{free}}\arrow[r]\arrow[d, "h^A_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}"]& 
+	\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{free}}\arrow[d, "h^2_{K^1}"]\\
+		\mathrm{\Ext}^1\left( K_0(A), \mathbb{Z}\right)\arrow[r, "\psi"]  & K^1(A)\arrow[r, "\varphi"]  & \mathrm{Hom}(K_1(A), \mathbb{Z})).
+\end{tikzcd}
+\\
 
 \begin{definition}\label{hurewicz_defn}
-If $A$ is an $N$-algebra  which {admits  Hurewicz homomorphism} (cf. Definition \ref{hurewicz_admits_defn}) then from the exact sequence  \eqref{uctt_c} and the decomposition \eqref{h_dir_prod_eqn} there is the  \textit{unital Hurewicz homomorphism} given by
+	If $A$ is an $N$-algebra then both direct sum \eqref{h_dir_prod_eqn} and  exact sequence \eqref{uctt_c} yield the following diagram
+	\newline
+	\begin{tikzcd}
+		\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\arrow[r]\arrow[d, "h^1_{K^1}"]& \pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{tors}}\oplus
+		\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{free}}\arrow[r]\arrow[d, "h^A_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}"]& 
+		\pi^{\mathrm{ab}}_1\left( A\right)_{\mathrm{free}}\arrow[d, "h^2_{K^1}"]\\
+		\mathrm{\Ext}^1\left( K_0(A), \mathbb{Z}\right)\arrow[r, "\psi"]  & K^1(A)\arrow[r, "\varphi"]  & \mathrm{Hom}(K_1(A), \mathbb{Z})).
+	\end{tikzcd}
+	\\
+So there is the  \textit{unital Hurewicz homomorphism} given by
 \be\label{hurewicz_eqn}
-h_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}:\pi^{\mathrm{ab}}_1\left(A\right)\to  K^1\left(A \right). 
+h^A_{K^1}	\bydef h^1_{K^1} + h^2_{K^1}:\pi^{\mathrm{ab}}_1\left(A\right)\to  K^1\left(A \right). 
 \ee
-
 \end{definition}
 
 
 \paragraph{Hurewicz homomorphism for nonunital $C^*$-algebras} 
-Suppose that $A$ is a $C^*$-algebra such that any its finite-fold covering is a covering with unitization (cf. Definition \ref{fin_unitization_defn}), such that the homomorphisms $K^1\left( B \right)\xrightarrow{ K^1\left(  \iota\right)}	K^1\left( A \right)$ is surjective.
-	Let $A$ be a $C^*$-algebra, and let $\iota : A\hookto B$ be a covering unitization  (cf.  Definition \ref{vecherovsky_defn}) then from the Corollary \ref{unitization_multiplier_cor} it follows that for any finite-fold noncommutative covering $\left(A, \widetilde{A}, G\left(\left. \widetilde A\right| A \right) , \lift^{\widetilde{A}} \right)$ with Abelian $G\left(\left. \widetilde A\right| A \right)$ with unitization  there is an 
+	Let $A$ be a $C^*$-algebra, and let $\iota : A\hookto B$ be a covering unitization  (cf.  Definition \ref{vecherovsky_defn})  with surjective homomorphism $K^1\left( B \right)\xrightarrow{ K^1\left(  \iota\right)}	K^1\left( A \right)$. From the Corollary \ref{unitization_multiplier_cor} it follows that for any finite-fold noncommutative covering $\left(A, \widetilde{A}, G\left(\left. \widetilde A\right| A \right) , \lift^{\widetilde{A}} \right)$ with Abelian $G\left(\left. \widetilde A\right| A \right)$ with unitization  there is an 
 	unital  noncommutative finite-fold covering  $\left(B  , \widetilde{B} , G\left(\left. \widetilde A\right| A \right),\lift^{\widetilde{B}} \right)$ (cf. Definition \ref{fin_unital_defn}). with surjective homomorphisms
 	\bean
-	\pi^{P}_1\left(A \right)\to G\left(\left. \widetilde A\right| A \right),\\
+	\pi{^\mathrm{ab}}_1\left(A \right)\to G\left(\left. \widetilde A\right| A \right),\\
 	\eean
 	where $\pi^{P}_1\left(A \right)$ is the $P$-fundamental group (cf. Definition \ref{fundamental_group_nc_p_defn}).
-	There is a following isomorphism
+Suppose that there is the following isomorphism
 	\bean
-	\pi^{P}_1\left(A \right)\cong \pi^{\mathrm{ab}}_1\left(B \right),\\
+	\pi^{\mathrm{ab}}_1\left(A \right)\cong \pi^{\mathrm{ab}}_1\left(B \right),\\
 	\eean 
+	with the natural commutative diagram
+	\newline 
+	\begin{tikzcd}
+		\pi_1\left(A \right) \arrow[r, "\cong"] \arrow[d, "\subset"] & \pi_1\left(B \right) \arrow[d, "\subset"]\\
+		\varprojlim_{\la\in \La}  G\left( \left. A_\la \right| A\right)\arrow[r, "\cong"]	& \varprojlim_{\la\in  \La}  G\left( \left. B_\la \right| B\right)
+	\end{tikzcd}
+	\\
 If $B$ admits Hurewicz homomorphism  (cf. Definition \ref{hurewicz_admits_defn} then the application of the construction of this section yield a following homomorphism
 	\bea\label{h_m_eqn}
 \widetilde h_{K^1}  : \pi^{P}_1\left(A \right)\to K^1\left(B \right)
@@ -12361,33 +12387,33 @@ If $B$ admits Hurewicz homomorphism  (cf. Definition \ref{hurewicz_admits_defn} 
 	We say that $A$ \textit{admits the nonunital Hurewicz homomorphism with compactification}
 	\end{definition}
 	\begin{empt}\label{hurewicz_nonunital_empt}
-	Let $A$ be a $C^*$-algebra. Suppose that there is a family  $\left\{A_\la\right\}_{\la \in \La}$ of $C^*$- algebras with inclusions of $\iota_\la: A_\la\hookto A$ such that the union $\cup\iota_\la\left(  A_\la\right) $ is dense in $A$. Assume that  for any $\la \in \La$ one has:
+	Let $A$ be a $C^*$-algebra. Suppose that there is a family  $\left\{A_\a\right\}_{\a \in \mathscr A}$ of $C^*$- algebras with inclusions of $\iota_\a: A_\a\hookto A$ such that the union $\cup\iota_\a\left(  A_\a\right) $ is dense in $A$. Assume that  for any $\a \in \mathscr A$ one has:
 	\begin{enumerate}
-		\item[(a)] $A_\la$ admits the nonunital Hurewicz homomorphism with compactification
-		\item [(b)] For any $\la\in \La$ and any noncommutative finite fold covering $\left( A, \widetilde A, G\left( \left.\widetilde A \right| A\right), \lift  \right) $ with Abelian $ G\left( \left.\widetilde A \right| A\right)$  there is a  noncommutative finite-fold covering $$\left( A_\la, \widetilde A_\la, G\left( \left.\widetilde A_\la \right| A_\la\right), \lift_\la \right) $$ and an inclusion $\widetilde \iota_\la: \widetilde A \to \widetilde A$ with the commutative diagram
+		\item[(a)] $A_\a$ admits the nonunital Hurewicz homomorphism with compactification
+		\item [(b)] For any $\a\in \mathscr A$ and any noncommutative finite fold covering $\left( A, \widetilde A, G\left( \left.\widetilde A \right| A\right), \lift  \right) $ with Abelian $ G\left( \left.\widetilde A \right| A\right)$  there is a  noncommutative finite-fold covering $$\left( A_\a, \widetilde A_\a, G\left( \left.\widetilde A_\a \right| A_\a\right), \lift_\a \right) $$ and an inclusion $\widetilde \iota_\a: \widetilde A \to \widetilde A$ with the commutative diagram
 		\newline
 		\begin{tikzcd}
-		A_\la \arrow[r, "\widetilde \iota_\la"] \arrow[d, "\lift_\la"] & A \arrow[d, "\lift"]\\
-	\widetilde A_\la  \arrow[r, "\iota_\la"]	& \widetilde A
+		A_\a \arrow[r, "\widetilde \iota_\a"] \arrow[d, "\lift_\a"] & A \arrow[d, "\lift"]\\
+	\widetilde A_\a  \arrow[r, "\iota_\a"]	& \widetilde A
 		\end{tikzcd}
 		\\
-		and the natural isomorphism  $G\left( \left.\widetilde A_\la \right| A_\la\right)\cong G\left( \left.\widetilde A \right| A\right)$.
-	\item[(c)]	The inclusion $\iota_\la\left(  A_\la\right)$ yields an isomorphism $K^1\left( \iota_\la\right): K^1\left(A \right)\cong K^1\left(A_\la \right)$.
-	\item[(d)] There is the natural isomorphism $\pi_1\left(A_\la \right) \cong \pi_1\left( A\right)$ with the natural commutative diagram
+		and the natural isomorphism  $G\left( \left.\widetilde A_\a \right| A_\a\right)\cong G\left( \left.\widetilde A \right| A\right)$.
+	\item[(c)]	The inclusion $\iota_\a\left(  A_\a\right)$ yields an isomorphism $K^1\left( \iota_\a\right): K^1\left(A \right)\cong K^1\left(A_\a \right)$.
+	\item[(d)] There is the natural isomorphism $\pi_1\left(A_\a \right) \cong \pi_1\left( A\right)$ with the natural commutative diagram
 	\newline 
 		\begin{tikzcd}
-	\pi_1\left(A_\la \right) \arrow[r, "\cong"] \arrow[d, "\subset"] & \pi_1\left(A \right) \arrow[d, "\subset"]\\
-	\varprojlim_{\la\in \La}  G\left( \left.\widetilde A_\la \right| A_\la\right)\arrow[r, "\cong"]	& \varprojlim_{\la\in \La}  G\left( \left.\widetilde A \right| A\right)
+	\pi_1\left(A_\a \right) \arrow[r, "\cong"] \arrow[d, "\subset"] & \pi_1\left(A \right) \arrow[d, "\subset"]\\
+	\varprojlim_{\la\in \La}  G\left( \left. A^\la_\a \right| A_\a\right)\arrow[r, "\cong"]	& \varprojlim_{\la\in  \La}  G\left( \left. A_\la \right| A\right)
 	\end{tikzcd}
 \\
 	
 	\end{enumerate} 
 	
-Under the above conditions there is the natural homomorphism $h^A_{K^1} : \pi_1\left(A \right)\to K^1\left( A\right)$ such that for any $\la\in \La$ there is a commutative diagram.  
+Under the above conditions there is the natural homomorphism $h^A_{K^1} : \pi_1\left(A \right)\to K^1\left( A\right)$ such that for any $\a\in \mathscr A$ there is a commutative diagram.  
 		\newline 
 	\begin{tikzcd}
-		\pi_1\left(A \right) \arrow[r, "\cong"] \arrow[d, "h^A_{K^1}"] & \pi_1\left(A_\la \right) \arrow[d, "h^{A_\la}_{K^1}"]\\
-		K^1\left(A \right) \arrow[r, "K^1\left(\iota_\la \right) "]	& 	K^1\left(A_\la \right)
+		\pi_1\left(A \right) \arrow[r, "\cong"] \arrow[d, "h^A_{K^1}"] & \pi_1\left(A_\a \right) \arrow[d, "h^{A_\a}_{K^1}"]\\
+		K^1\left(A \right) \arrow[r, "K^1\left(\iota_\a \right) "]	& 	K^1\left(A_\a \right)
 	\end{tikzcd}
 	\\
 	
@@ -12469,13 +12495,27 @@ and from the above equation it follows that the covering  $p'_n : \widetilde \sX
 	\paragraph{Case $\pi_1\left(\sX \right)= \Z_p$}
 	 Let $p \in \N$ be a prime number and $\sX$ is a compact Hausdorff path connected space with $\pi_1\left(\sX, x_0 \right) \cong \Z_p$. If $\om : \left( S^1, s_0\right)  \to \left(\sX, x_0 \right)$ is a representative of a generator $\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ then  $p\left[\om \right]= 0$ and the composition $\om \circ \th_p$ represents a trivial element $\left[\om \circ \th_p\right]= p\left[\om \right]\in \pi_1\left(\sX, x_0 \right)$ There is a homotopy $\Phi : S^1 \times \left[0, 1\right]\to \sX$ with
 	\bean
-	\forall s \in S^1 \quad \Phi\left( s, 0\right) = \om \circ \th_p\left( s\right); \quad \Phi\left( s, 1\right) = x_0.
+	\forall s \in S^1 \quad \Phi\left( s, 0\right) = \om \circ \th_p\left( s\right); \\ \Phi\left( s, 1\right) = x_0, \\
+	\forall t\in  \left[0, 1\right]\quad   \Phi\left(x_0, t\right) = x_0
 	\eean 
-	which can can be regarded  as a continuous map $\Phi: C'\om \to \sX$ where $ C'\om$ is defined by the following way:
+	which can can be regarded  as a continuous map $\Phi: C\om \to \sX$ where
+	\bean
+C\om \bydef \left( S^1\times  \left[0, 1\right]\right) /\left(\{x_0\} \times  \left[0, 1\right]\cup S^1\times \{0\}\right)/\sim_{\th_p}
+	\eean
+	where the equivalence relation $\sim_{\th_p}$ is given by
+	\bean
+	\left(s', 0 \right) \sim_{\th_p} 	\left(s'', 0 \right)\quad \Leftrightarrow\quad \th_p\left( s'\right) = \th_p\left( s''\right). 
+	\eean
+ If	
+	$ C'\om$ is defined by the following way:
 	\begin{itemize}
-		\item there is a mapping cylinder $M_{\th_p}$ (cf. Definition \ref{mapping_cylinder_defn}),
+		\item there is a mapping cylinder $M_{\om}$ (cf. Definition \ref{mapping_cylinder_defn}),
 		\item similarly to \eqref{top_cp_eqn}  $C'\om\bydef M_{\th_p} / j\left(S^1 \right)$. 
 	\end{itemize}
+	If $m_0 \in C'\om$ corresponds to $j\left(S^1 \right)$ the $\om \circ \th_p$ can be represented by a composition
+	\be
+	S^1 \xrightarrow{} C'\om\setminus \{m_0\} \to C'\om\to C\om \to \sX.
+	\ee
 	It follows that $\om = \Phi \circ u$ where the continuous  map $u : S^1 \to C'\om$ comes from the commutative diagram of the Definition \ref{mapping_cylinder_defn}. 	Moreover   a point $m_0 \in M_{\th_p}$ which corresponds to $j\left(S^1 \right)$ then the map 	If  a point $m_0 \in M_{\th_p}$ which corresponds to $j\left(S^1 \right)$ then the map  $u : S^1 \to C'\om$  naturally yields a map $u' : S^1 \to C'\om\setminus \{m_0\}$. and one has
 	$$
 	\om = \Phi \circ u'.

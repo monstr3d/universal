@@ -8,12 +8,12 @@ namespace DataPerformer.TestInterface
     /// <summary>
     /// Test error handler for data performer
     /// </summary>
-    public class DataPerformerTestEventHandler : IErrorHandler
+    public class DataPerformerTestEventHandler : IExceptionHandler
     {
 
         #region Fields
 
-        public static readonly IErrorHandler Singleton = new DataPerformerTestEventHandler();
+        public static readonly IExceptionHandler Singleton = new DataPerformerTestEventHandler();
 
  
 
@@ -33,9 +33,9 @@ namespace DataPerformer.TestInterface
 
         #endregion
 
-        #region IErrorHandler Members
+        #region IExceptionHandler Members
 
-        void IErrorHandler.ShowError(Exception exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, object obj)
         {
             int level = -1;
             if (obj != null)
@@ -58,7 +58,7 @@ namespace DataPerformer.TestInterface
             throw exception;
         }
 
-        void IErrorHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.ShowMessage(string message, object obj)
         {
         }
 

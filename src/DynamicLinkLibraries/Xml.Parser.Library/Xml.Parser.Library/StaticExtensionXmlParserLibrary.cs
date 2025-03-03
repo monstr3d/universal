@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Xml.Linq;
+
+using ErrorHandler;
 
 namespace Xml.Parser.Library
 {
@@ -282,7 +282,7 @@ namespace Xml.Parser.Library
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
             return n;
@@ -311,7 +311,7 @@ namespace Xml.Parser.Library
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                 }
             }
             return d;

@@ -47,7 +47,7 @@ namespace Motion6D
             }
             catch (Exception ex)
             {
-                ex.ShowError();
+                ex.HandleException();
             }
         }
 

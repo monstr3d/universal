@@ -28,7 +28,6 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 using DataPerformer.Interfaces.BufferedData.Interfaces;
-using DataPerformer.UI;
 using DataPerformer.UI.Objects;
 using DataPerformer.UI.Interfaces;
 
@@ -284,7 +283,7 @@ namespace DataPerformer.UI.UserControls
                  }
                  catch (Exception ex)
                  {
-                     ex.ShowError(10);
+                     ex.HandleException(10);
                  }
                  */
             IPostSet ps = this;
@@ -316,7 +315,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
         }
 
@@ -1131,7 +1130,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
             }
             try
             {
@@ -1139,7 +1138,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception exc)
             {
-                exc.ShowError(10);
+                exc.HandleException(10);
             }
             try
             {
@@ -1147,7 +1146,7 @@ namespace DataPerformer.UI.UserControls
             }
             catch (Exception exce)
             {
-                exce.ShowError(10);
+                exce.HandleException(10);
             }
 
         }
@@ -1378,7 +1377,7 @@ Func<bool> stop)
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 ShowErrorLocal(ex);
             }
         }
@@ -1398,7 +1397,7 @@ Func<bool> stop)
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 ShowErrorLocal(ex);
             }
         }
@@ -1426,7 +1425,7 @@ Func<bool> stop)
             }
             catch (Exception e)
             {
-                e.ShowError(10);
+                e.HandleException(10);
                 exto = e;
             }
         }
@@ -1445,7 +1444,7 @@ Func<bool> stop)
             {
                 if (!e.IsFiction())
                 {
-                    e.ShowError(10);
+                    e.HandleException(10);
                     exto = e;
                 }
             }
@@ -1529,7 +1528,7 @@ Func<bool> stop)
             }
             else
             {
-                ex.ShowError(0);
+                ex.HandleException(0);
             }
             if (!toolStripButtonStart.Enabled)
             {
@@ -1735,7 +1734,7 @@ Func<bool> stop)
                     }
                     catch (Exception ex)
                     {
-                        ex.ShowError(10);
+                        ex.HandleException(10);
                         if (i == 9)
                         {
                             this.ShowErrorLocal(ex);
@@ -1776,7 +1775,7 @@ Func<bool> stop)
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 ControlExtensions.ShowMessageBoxModal("Refresh please");
                 ActParent(ActionType.Stop, null);
                 return;
@@ -1838,7 +1837,7 @@ Func<bool> stop)
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 exto = ex;
             }
         }
@@ -1852,7 +1851,7 @@ Func<bool> stop)
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 exto = ex;
             }
         }
@@ -2888,7 +2887,7 @@ Func<bool> stop)
                 }
                 catch (Exception ex)
                 {
-                    ex.ShowError(10);
+                    ex.HandleException(10);
                     ShowErrorLocal(ex);
                 }
             }
@@ -3036,7 +3035,7 @@ Func<bool> stop)
                 }
                 catch (Exception exx)
                 {
-                    exx.ShowError(10);
+                    exx.HandleException(10);
                     ShowErrorLocal(exx);
                     return;
                 }
@@ -3065,7 +3064,7 @@ Func<bool> stop)
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex.HandleException(10);
                 ControlExtensions.ShowMessageBoxModal("Refresh please");
                 ActParent(ActionType.Stop, null);
                 return;
@@ -3168,7 +3167,7 @@ Func<bool> stop)
                  {
                      return;
                  }*/
-                exception.ShowError();
+                exception.HandleException();
             }
             if (changeBufferItem != null)
             {

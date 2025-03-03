@@ -181,7 +181,7 @@ namespace Internet.Meteo.Wrapper
         /// <param name="exception">The exception</param>
         protected override void ShowError(Exception exception)
         {
-            exception.ShowError();
+            exception.HandleException();
         }
 
         /// <summary>
