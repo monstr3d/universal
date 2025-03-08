@@ -68,7 +68,7 @@ namespace Diagram.UI.ErrorHandlers
             }*/
        }
 
-        void IExceptionHandler.ShowMessage(string message, object o)
+        void IExceptionHandler.Log(string message, object? o)
         {
             writer.WriteLine(message);
         }

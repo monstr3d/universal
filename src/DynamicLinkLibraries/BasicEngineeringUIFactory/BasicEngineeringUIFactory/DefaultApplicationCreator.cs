@@ -21,6 +21,7 @@ using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Forms;
 using TestCategory.Interfaces;
 using DataWarehouse.Interfaces;
+using ErrorHandler;
 
 namespace BasicEngineering.UI.Factory
 {
@@ -49,7 +50,7 @@ namespace BasicEngineering.UI.Factory
 
         IDatabaseCoordinator coordinator;
 
-        TextWriter log = null;
+        IExceptionHandler log = null;
 
         ITestInterface testInterface;
 
@@ -63,7 +64,7 @@ namespace BasicEngineering.UI.Factory
         public DefaultApplicationCreator(IDatabaseCoordinator coordinator, LightDictionary<string, ButtonWrapper[]> buttons,
             Icon icon, EngineeringUIFactory factory, ByteHolder holder, string filename, Action<double, double, int, int, int, IDesktop> start, 
             Dictionary<string, object>[] resources, string text,
-            string ext, string fileFilter, IApplicationInitializer initializer, TextWriter log,
+            string ext, string fileFilter, IApplicationInitializer initializer, IExceptionHandler log,
             ITestInterface testInterface)
         {
             
@@ -166,7 +167,7 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
-        TextWriter IApplicationCreator.Log
+        IExceptionHandler IApplicationCreator.Log
         {
             get { return log; }
         }
@@ -189,7 +190,7 @@ namespace BasicEngineering.UI.Factory
      bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons, Dictionary<string, object>[]
             resources,
             Icon icon, string filename, Action<double, double, int, int, int, IDesktop> start, string text,
-            string ext, string fileFilter, TextWriter log, ITestInterface testInterface)
+            string ext, string fileFilter, IExceptionHandler log, ITestInterface testInterface)
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor, 
@@ -208,7 +209,7 @@ namespace BasicEngineering.UI.Factory
          IUIFactory[] factories,
       bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
              Icon icon, string filename, Dictionary<string, object>[] resources, string text,
-             string ext, string fileFilter, TextWriter logWriter, ITestInterface testInterface)
+             string ext, string fileFilter, IExceptionHandler logWriter, ITestInterface testInterface)
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor,

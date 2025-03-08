@@ -1,14 +1,8 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
-using Abstract3DConverters.Attributes;
-using Abstract3DConverters.Interfaces;
+﻿using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 using ErrorHandler;
-
-
-
 
 namespace Abstract3DConverters.Meshes
 {
@@ -47,7 +41,7 @@ namespace Abstract3DConverters.Meshes
 
         Func<float[,]> GetAbsoluteMatrix;
 
-        protected List<Polygon> absolutePolygons;
+     //   protected List<Polygon> absolutePolygons;
 
         Func<List<Polygon>> GetAbsolutePolygons;
         
@@ -59,10 +53,10 @@ namespace Abstract3DConverters.Meshes
 
         private AbstractMesh()
         {
-            GetAbsolute = GetStart;
+            //GetAbsolute = GetStart;
             GetRelativeMatrix = GetRelativeMatrixStart;
             GetAbsoluteMatrix = GetAbsoluteMatrixStart;
-            GetAbsolutePolygons = GetPolygonStart;
+         //   GetAbsolutePolygons = GetPolygonStart;
          }
 
         /// <summary>
@@ -164,6 +158,9 @@ namespace Abstract3DConverters.Meshes
 
         #region IMesh Implementation
 
+        float[] IGeometry.TransformationMatrix => TransformationMatrix;
+
+
         List<float[]> IGeometry.Vertices => Vertices;
 
         List<float[]> IGeometry.Normals => Normals;
@@ -173,15 +170,13 @@ namespace Abstract3DConverters.Meshes
         Effect IMesh.Effect => Effect;
 
         List<int[][]> IMesh.Indexes => Indexes;
-
-        bool IMesh.HasPolygons => HasPolygons;
-
-        List<Point> IMesh.AbsolutePoints => AbsolutePoints;
+  
+   
+    //    List<Point> IMesh.AbsolutePoints => AbsolutePoints;
 
         List<float[]> IMesh.AbsoluteVertices => AbsoluteVertices;
 
-        float[] IMesh.TransformationMatrix => TransformationMatrix;
-
+     
         string IMesh.Name => Name;
 
         List<Polygon> IMesh.Polygons => Polygons;
@@ -195,11 +190,13 @@ namespace Abstract3DConverters.Meshes
 
         IMeshCreator IMesh.Creator => Creator;
 
-
-        List<Point> IMesh.Points => Points;
+      
+        void IMesh.CalculateAbsolute()
+        {
+            CalculateAbsolute();
+        }
 
         #endregion
-
 
 
         #region Properties
@@ -245,21 +242,12 @@ namespace Abstract3DConverters.Meshes
                     parent = null;
                     return;
                 }
-                parent = value;
-                if (!parent.Children.Contains(this))
+                if (!value.Children.Contains(this))
                 {
-                    parent.Children.Add(this);
+                    parent = value;
+                    value.Children.Add(this);
                 }
             }
-        }
-
-        /// <summary>
-        /// Points
-        /// </summary>
-        protected virtual List<Point> Points
-        {
-            get;
-            set;
         }
 
         /// <summary>
@@ -389,7 +377,7 @@ namespace Abstract3DConverters.Meshes
         /// <summary>
         /// Absolute polygons
         /// </summary>
-        public List<Polygon> AbsolutePolygons => GetAbsolutePolygons();
+       // public List<Polygon> AbsolutePolygons => GetAbsolutePolygons();
 
         /// <summary>
         /// Relative matrix
@@ -401,7 +389,7 @@ namespace Abstract3DConverters.Meshes
         /// </summary>
         public float[,] AbsoluteMatrix => GetAbsoluteMatrix();
 
-  
+
         /// <summary>
         /// Zero
         /// </summary>
@@ -409,23 +397,10 @@ namespace Abstract3DConverters.Meshes
         {
             if (Polygons == null)
             {
-                Points = null;
                 return;
             }
             if (Polygons.Count == 0)
             {
-                Points = null;
-                Polygons = null;
-                return;
-            }
-            if (Points == null)
-            {
-                Polygons = null;
-                return;
-            }
-            if (Polygons.Count == 0)
-            {
-                Points = null;
                 Polygons = null;
                 return;
             }
@@ -435,6 +410,7 @@ namespace Abstract3DConverters.Meshes
 
         #region Private
 
+        /*
         void CalculateAbsolutePolygons()
         {
             if (Polygons != null)
@@ -457,35 +433,46 @@ namespace Abstract3DConverters.Meshes
             }
 
         }
-
-        void CalculateAbsolute()
+        */
+        protected virtual void CalculateAbsolute()
         {
-            if (Points != null)
+            try
             {
-                if (Points.Count > 0)
+                if (!s.HasVertices(this))
                 {
-                    if (AbsoluteVertices == null)
-                    {
-                        AbsoluteVertices = new();
-                    }
-                    if (AbsoluteNormals == null)
-                    {
-                        AbsoluteNormals = new();
-                    }
-                    var m = AbsoluteMatrix;
-                    absolutePoints = new();
-                    foreach (var p in Points)
-                    {
-                        var abs = s.Product(m, p);
-                        absolutePoints.Add(abs);
-                        AbsoluteVertices.Add(abs.Vertex);
-                        AbsoluteNormals.Add(abs.Normal);
-                    }    
+                    return;
                 }
+                var matrix = AbsoluteMatrix;
+                AbsoluteVertices = new();
+                foreach (var vertex in Vertices)
+                {
+                    var vt = s.ProductVertex(matrix, vertex);
+                    AbsoluteVertices.Add(vt);
+                }
+                AbsoluteNormals = new();
+                if (Polygons == null)
+                {
+                    return;
+                }
+                foreach (var polygon in Polygons)
+                {
+                    polygon.SetNormals();
+                    foreach (var point in polygon.Points)
+                    {
+                        var f = s.ProductNormal(matrix, point.Normal);
+                        AbsoluteNormals.Add(f);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleException("CalculateAbsolute Mesh");
+                throw new IncludedException(exception, "CalculateAbsolute Mesh");
             }
         }
 
 
+/*
         List<Polygon> GetPolygonStart()
         {
             CalculateAbsolutePolygons();
@@ -498,9 +485,12 @@ namespace Abstract3DConverters.Meshes
         {
             return absolutePolygons;
         }
+*/
 
         List<Point> GetStart()
         {
+            throw new Exception("Get Start");
+  
             CalculateAbsolute();
             GetAbsolute = GetFinish;
             return absolutePoints;
@@ -566,7 +556,6 @@ namespace Abstract3DConverters.Meshes
         {
             return null;
         }
- 
 
         protected virtual IMeshCreator Creator { get; set; }
 

@@ -9,7 +9,6 @@ namespace Collada.Converters.Classes.Elementary
     internal class ColorObject : XmlHolder
     {
     
-        Service s = new Service();
         public Color Color { get; private set; }
 
 

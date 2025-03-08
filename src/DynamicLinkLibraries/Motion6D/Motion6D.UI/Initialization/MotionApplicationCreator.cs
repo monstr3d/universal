@@ -22,6 +22,7 @@ using BasicEngineering.UI.Factory;
 using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Forms;
 using Motion6D.Portable.Interfaces;
+using ErrorHandler;
 
 namespace Motion6D.UI.Initialization
 {
@@ -63,7 +64,7 @@ namespace Motion6D.UI.Initialization
             Dictionary<string, object>[] resources,
             string text,
             string ext, 
-            string fileFilter,  TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+            string fileFilter,  IExceptionHandler logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             Motion6D.PositionFactory.Factory = Motion6D.Drawing.Factory.ColoredPositionFactory.Object;
             Motion6D.UI.UserControls.SimpleChooser.Chooser = Motion6D.UI.UserControls.ColoredChooser.Object;
@@ -126,7 +127,7 @@ bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
      string text,
      string ext, 
             string fileFilter, 
-            TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+            IExceptionHandler logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             return CreateForm(coordinator, holder,
                 ordSolver,

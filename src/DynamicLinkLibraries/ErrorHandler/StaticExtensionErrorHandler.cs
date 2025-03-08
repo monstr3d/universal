@@ -45,9 +45,9 @@
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="obj">Attached object</param>
-        static public void ShowMessage(this string message, object obj = null)
+        static public void Log(this string message, object obj = null)
         {
-            exceptionHandler?.ShowMessage(message, obj);
+            exceptionHandler?.Log(message, obj);
         }
 
         #endregion

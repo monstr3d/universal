@@ -1,5 +1,5 @@
 ﻿using System.Xml;
-
+using Abstract3DConverters;
 using Abstract3DConverters.Interfaces;
 
 using Collada.Converters.MeshCreators;
@@ -8,6 +8,8 @@ namespace Collada.Converters.Classes
 {
     public class XmlHolder : Collada.XmlHolder
     {
+
+        protected Service s = new();
 
         protected IMeshCreator meshCreator;
 

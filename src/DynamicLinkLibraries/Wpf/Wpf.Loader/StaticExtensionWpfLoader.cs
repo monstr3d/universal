@@ -1,6 +1,7 @@
 using System.IO;
 using System.Windows.Markup;
 using System.Windows.Media.Media3D;
+using ErrorHandler;
 
 namespace Wpf.Loader
 {
@@ -219,48 +220,57 @@ namespace Wpf.Loader
    
         static public double[,] GetSize(this Visual3D v3d)
         {
-            double[,] d = null;
-            if (v3d is ModelVisual3D)
+            try
             {
-                ModelVisual3D m3d = v3d as ModelVisual3D;
-                object ob = m3d.Content;
-                if (ob != null)
+                double[,] d = null;
+                if (v3d is ModelVisual3D)
                 {
-                    GeometryModel3D geom = null;
-                    if (ob is GeometryModel3D g)
+                    ModelVisual3D m3d = v3d as ModelVisual3D;
+                    object ob = m3d.Content;
+                    if (ob != null)
                     {
-                        geom = g;
-                    }
-                    else if (ob is Model3DGroup gr)
-                    {
-                        Model3DCollection ch = gr.Children;
-                        foreach (object o in ch)
+                        GeometryModel3D geom = null;
+                        if (ob is GeometryModel3D g)
                         {
-                            if (o is GeometryModel3D ge)
+                            geom = g;
+                        }
+                        else if (ob is Model3DGroup gr)
+                        {
+                            Model3DCollection ch = gr.Children;
+                            foreach (object o in ch)
                             {
-                                geom = ge;
-                                break;
+                                if (o is GeometryModel3D ge)
+                                {
+                                    geom = ge;
+                                    break;
+                                }
+                            }
+                        }
+                        if (geom != null)
+                        {
+                            Geometry3D g3d = geom.Geometry;
+                            if (g3d is MeshGeometry3D mesh)
+                            {
+                                d = d.GetSize(mesh.Positions.GetSize());
                             }
                         }
                     }
-                    if (geom != null)
+                    else
                     {
-                        Geometry3D g3d = geom.Geometry;
-                        if (g3d is MeshGeometry3D mesh)
+                        foreach (Visual3D vtd in m3d.Children)
                         {
-                            d = d.GetSize(mesh.Positions.GetSize());
+                            var dd = vtd.GetSize();
+                            d = (d == null) ? dd : d.GetSize(dd);
                         }
                     }
                 }
-                else
-                {
-                    foreach (Visual3D vtd in m3d.Children)
-                    {
-                        d = d.GetSize(vtd.GetSize());
-                    }
-                }
+                return d;
             }
-            return d;
+            catch (Exception exception)
+            {
+                exception.HandleException("Get size WPF");
+                throw new IncludedException(exception, "Get size WPF");
+            }
         }
 
         /// <summary>
@@ -278,6 +288,10 @@ namespace Wpf.Loader
                     return y;
                 }
                 return null;
+            }
+            else if (y == null)
+            {
+                return x;
             }
             var d = new double[2, x.GetLength(1)];
             for (var i = 0; i < d.GetLength(1); i++)

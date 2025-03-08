@@ -870,7 +870,7 @@ namespace Diagram.UI
         /// <param name="resources">Localization resources</param>
         public static void ShowLocalized(this string text, Dictionary<string, object>[] resources)
         {
-            text.GetControlResource(resources).ShowMessage();
+            text.GetControlResource(resources).Log();
         }
 
         /// <summary>

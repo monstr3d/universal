@@ -56,7 +56,7 @@ namespace Motion6D.UI.Avanced.Initialization
             string text,
             string ext, 
             string fileFilter,
-            TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+            IExceptionHandler logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             PositionFactory.Factory = Drawing.Factory.ColoredPositionFactory.Object;
             try
@@ -121,7 +121,7 @@ bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
      string filename,
             Dictionary<string, object>[] resources,
      string text,
-     string ext, string fileFilter, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+     string ext, string fileFilter, IExceptionHandler logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             return CreateForm(coordinator, holder,
                 ordSolver,

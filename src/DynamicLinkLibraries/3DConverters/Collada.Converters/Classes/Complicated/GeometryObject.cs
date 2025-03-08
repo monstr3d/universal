@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Collada;
 using Abstract3DConverters.Interfaces;
 using Collada.Converters.MeshCreators;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -24,14 +25,22 @@ namespace Collada.Converters.Classes.Complicated
 
         private GeometryObject(XmlElement element, IMeshCreator meshCreator) : base(element)
         {
-            Mesh = element.Get<MeshObject>();
-            var b = element.Get<BindMaterial>();
-            if (b != null)
+            try
             {
-                Effect = b.Effect;
+                Mesh = element.Get<MeshObject>();
+                var b = element.Get<BindMaterial>();
+                if (b != null)
+                {
+                    Effect = b.Effect;
+                }
+                var creator = meshCreator as ColladaMeshCreator;
+                creator.Geom[element.GetAttribute("id")] = this;
             }
-            var creator = meshCreator as ColladaMeshCreator;
-            creator.Geom[element.GetAttribute("id")] = this;
+            catch (Exception exception)
+            {
+                exception.HandleException("Collada geometry");
+                throw new IncludedException(exception, "Collada geometry");
+            }
             
         }
 

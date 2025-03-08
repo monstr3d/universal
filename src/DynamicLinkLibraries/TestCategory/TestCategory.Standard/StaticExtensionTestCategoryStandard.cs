@@ -176,7 +176,7 @@ namespace TestCategory.Standard
             }
         }
 
-        void IExceptionHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.Log(string message, object obj)
         {
 
         }

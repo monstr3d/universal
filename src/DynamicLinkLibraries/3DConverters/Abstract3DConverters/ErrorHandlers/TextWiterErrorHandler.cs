@@ -24,7 +24,7 @@ namespace Abstract3DConverters.ErrorHandlers
             }
         }
 
-        void IExceptionHandler.ShowMessage(string message, object? obj)
+        void IExceptionHandler.Log(string message, object? obj)
         {
             if (Check(obj))
             {

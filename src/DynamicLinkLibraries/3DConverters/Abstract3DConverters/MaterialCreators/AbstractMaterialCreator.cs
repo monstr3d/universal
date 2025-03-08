@@ -35,8 +35,6 @@ namespace Abstract3DConverters.MaterialCreators
 
         #endregion
 
-
-
         public abstract void Add(object group, object value);
 
         public abstract object Create(Image image);

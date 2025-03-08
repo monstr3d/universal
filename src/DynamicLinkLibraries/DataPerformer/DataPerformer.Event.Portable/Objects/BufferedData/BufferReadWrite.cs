@@ -443,7 +443,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
                 {
                     if (!d.ContainsKey(key))
                     {
-                        ("Illegal measurement: " + key).ShowMessage();
+                        ("Illegal measurement: " + key).Log();
                         return;
                     }
                 }
@@ -570,14 +570,14 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             WriteTypes();
             if (!(item is IBufferDirectory))
             {
-                "Select directory please".ShowMessage();
+                "Select directory please".Log();
                 return;
             }
             directory = item as IBufferDirectory;
             object log = Log;
             if (log == null)
             {
-                    "Select log please".ShowMessage();
+                    "Select log please".Log();
                 return;
             }
             change = GetItem(log);

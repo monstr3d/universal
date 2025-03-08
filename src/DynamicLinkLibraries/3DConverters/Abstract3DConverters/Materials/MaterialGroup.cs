@@ -17,7 +17,7 @@ namespace Abstract3DConverters.Materials
         /// <summary>
         /// Attachement
         /// </summary>
-        protected object Attachement { get;  set; }
+        public object Attachement { get; protected set; }
 
         public MaterialGroup(object attachement)
         {

@@ -15,7 +15,6 @@ namespace Collada.Converters.Classes.Complicated
     [Tag("polylist")]
     internal partial class PolyList : XmlHolder, IMesh
     {
-        Service s = new();
 
         public Abstract3DConverters.Materials.Effect Effect { get; private set; }
 
@@ -27,8 +26,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public float[] Vertices { get; private set; }
 
-        public List<Point> Points { get; private set; } = new();
-
+ 
         protected List<float[]> ProtectedVertices { get; set; } = new List<float[]>();
 
         protected List<float[]> ProtectedTextures { get; set; } = new List<float[]>();
@@ -53,7 +51,7 @@ namespace Collada.Converters.Classes.Complicated
 
         public static IClear Clear => StaticExtensionCollada.GetClear<PolyList>();
 
-     
+ 
         private PolyList(XmlElement element, IMeshCreator meshCreator) : base(element, meshCreator)
         {
             try
@@ -174,6 +172,9 @@ namespace Collada.Converters.Classes.Complicated
             return a.Get();
         }
 
-
+        void IMesh.CalculateAbsolute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

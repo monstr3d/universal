@@ -45,6 +45,14 @@
             {
                 return f.Substring(Directory.Length);
             }
+            if (f.Contains("%"))
+            {
+                f = f.Replace("%20", " ");
+                if (File.Exists(f))
+                {
+                    return f.Substring(Directory.Length);
+                }
+            }
             var dirs = System.IO.Directory.GetDirectories(directory);
             foreach (var d in dirs)
             {

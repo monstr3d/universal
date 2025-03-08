@@ -323,7 +323,9 @@ namespace Event.Portable
                 }
                 if (currentRuntime != null)
                 {
-                    throw new Exception("currentRuntime");
+                    var exception = new Exception("currentRuntime");
+                    exception.HandleException("currentRuntime");
+                    throw new  IncludedException(exception, "currentRuntime");
                 }
                 start(reason);
                 currentRuntime = Runtime.Start(collection, timeUnit, isAbsoluteTime, realtimeStep,

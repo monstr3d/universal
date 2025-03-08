@@ -7,7 +7,8 @@ using Abstract3DConverters.Meshes;
 namespace Abstract3DConverters.Converters
 {
     
-    public abstract class XmlMeshConverter : AbstractMeshConverter, IStringRepresentation, ISaveToStream
+    public abstract class XmlMeshConverter : AbstractMeshConverter, IStringRepresentation, 
+        ISaveToStream
     {
 
         #region Fields
@@ -136,7 +137,6 @@ namespace Abstract3DConverters.Converters
             var m = mesh as XmlElement;
             var mat = effect as XmlElement;
             SetEffect(m, mat);
-
         }
 
         protected abstract void SetEffect(XmlElement mesh, XmlElement material);
@@ -154,12 +154,9 @@ namespace Abstract3DConverters.Converters
             return x;
         }
 
-
-
         #endregion
 
         #region Overriden
-
 
         protected override void Add(object mesh, object child)
         {
@@ -167,7 +164,6 @@ namespace Abstract3DConverters.Converters
             XmlElement c = child as XmlElement;
             Add(m, c);
         }
-
 
         #endregion
     }

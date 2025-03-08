@@ -12,11 +12,8 @@ namespace Abstract3DConverters.Creators
         protected string ext;
 
         protected Service s = new Service();
-
    
         protected IMeshCreator creator;
-
-    
 
         /// <summary>
         /// Constructor

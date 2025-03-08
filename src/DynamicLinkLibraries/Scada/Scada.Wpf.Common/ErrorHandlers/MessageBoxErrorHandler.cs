@@ -22,7 +22,7 @@ namespace Scada.Wpf.Common.ErrorHandlers
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, exception.Message); });
         }
 
-        void IExceptionHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.Log(string message, object obj)
         {
             window.Dispatcher.InvokeAsync(() => { MessageBox.Show(window, message); });
         }

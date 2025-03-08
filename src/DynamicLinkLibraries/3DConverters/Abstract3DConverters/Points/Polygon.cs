@@ -18,6 +18,8 @@ namespace Abstract3DConverters.Points
 
         public IMesh Mesh { get; private set; }
 
+        private bool normCalc = false;
+
         #endregion
 
         #region Ctor
@@ -37,6 +39,21 @@ namespace Abstract3DConverters.Points
             Effect = effect;
             CalcualateNormal = CalculateNormalPre;
             CaclualateVertexNormal = CaclualateVertexNormalPre;
+        }
+
+        /// <summary>
+        /// Sets normals
+        /// </summary>
+        public void SetNormals()
+        {
+            if (normCalc)
+            {
+                return;
+            }
+            foreach (var p in Points)
+            {
+                p.Polygon = this;
+            }
         }
 
 
@@ -124,7 +141,8 @@ namespace Abstract3DConverters.Points
         float[] CaclualateVertexNormalPre()
         {
             CaclualateVertexNormal = CaclualateVertexNormalFin;
-            if (Vertices.Count < 3)
+            var p = Points;
+            if (p.Length < 3)
             {
                 vertexNormal = [0, 0, 1];
             }
@@ -134,9 +152,9 @@ namespace Abstract3DConverters.Points
                 var y = new float[3];
                 for (int i = 0; i < 3; i++)
                 {
-                    var a = Vertices[1][i];
-                    x[i] = a - Vertices[0][i];
-                    y[i] = Vertices[2][i] - a;
+                    var a = Points[1].Vertex[i];
+                    x[i] = a - Points[0].Vertex[i];
+                    y[i] = Points[2].Vertex[i] - a;
                 }
                 vertexNormal = new float[3];
                 vertexNormal[0] = x[1] * y[2] - x[2] * y[1];

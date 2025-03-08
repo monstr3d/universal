@@ -46,7 +46,7 @@ namespace Diagram.UI
             StaticExtensionErrorHandler.HandleException(exception, obj);
         }
 
-        void IExceptionHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.Log(string message, object ?obj = null)
         {
             object o;
             Control c = GetControl(obj, out o);
@@ -55,7 +55,7 @@ namespace Diagram.UI
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(c.FindForm(), message, ResourceService.Resources.GetControlResource("Error", resources));
                 return;
             }
-            StaticExtensionErrorHandler.ShowMessage(message, obj);
+            StaticExtensionErrorHandler.Log(message, obj);
         }
 
         #endregion

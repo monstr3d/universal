@@ -12,6 +12,7 @@ using DataWarehouse;
 using DataWarehouse.Interfaces;
 using System.IO;
 using TestCategory.Interfaces;
+using ErrorHandler;
 
 namespace BasicEngineering.UI.Factory.Interfaces
 {
@@ -122,7 +123,7 @@ namespace BasicEngineering.UI.Factory.Interfaces
             get;
         }
 
-        TextWriter Log
+        IExceptionHandler Log
         {
             get;
         }

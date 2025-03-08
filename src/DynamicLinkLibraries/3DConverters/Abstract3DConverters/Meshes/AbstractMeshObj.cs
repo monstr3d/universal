@@ -83,14 +83,6 @@ namespace Abstract3DConverters.Meshes
                     }
                     else
                     {
-                        nv = Points.Count;
-                        direct[iv] = nv;
-                        if (ino >= 0)
-                        {
-                            norm = creator.Normals[ino];
-                        }
-                        var point = new Point(creator.Vertices[iv], norm);
-                        Points.Add(point);
                     }
                     try
                     {
@@ -276,13 +268,7 @@ namespace Abstract3DConverters.Meshes
 
             var l = new List<int>(points.Keys);
             l.Sort();
-            Points = new List<Point>();
             var dp = new Dictionary<int, int>();
-            foreach (var x in l)
-            {
-                dp[x] = Points.Count;
-                Points.Add(points[x]);
-            }
             Polygons = new();
             foreach (var ind in indexes)
             {

@@ -1,10 +1,12 @@
-﻿using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
 using System.Xml;
 
 using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.MaterialCreators;
 using Abstract3DConverters.Materials;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Converters
 {
@@ -50,6 +52,7 @@ namespace Abstract3DConverters.Converters
             }
             return x;
         }
+
 
         protected override XmlElement CreateXmlMesh(IMesh mesh)
         {
@@ -127,7 +130,10 @@ namespace Abstract3DConverters.Converters
                 sb.Append(" " + i);
             }
             var str = sb.ToString();
-            v.SetAttribute("TriangleIndices", str.Substring(1));
+            if (str.Length > 0)
+            {
+                v.SetAttribute("TriangleIndices", str.Substring(1));
+            }
             return x;
             var vert = mesh.Vertices;
             if (mesh.Indexes != null & vert != null)
@@ -205,7 +211,8 @@ namespace Abstract3DConverters.Converters
 
 
 
-        protected  XmlElement CreateXmlMeshOrdinary(IMesh mesh)
+
+        protected XmlElement CreateXmlMeshOrdinary(IMesh mesh)
         {
             return null;
             var dt = new Dictionary<int, float[]>();
@@ -409,12 +416,20 @@ namespace Abstract3DConverters.Converters
         internal XamlMaterialCreator(XmlDocument doc, string xmlns, Dictionary<string, object> images) :
             base(doc, xmlns, images)
         {
-            ProcessEffect = new ProcessEffect();
+          //  ProcessEffect = new ProcessEffect();
         }
 
         public override object Create(Effect effect)
         {
+            var eff = base.Create(effect);
             var mat = effect.Material;
+            if (mat is LambertMaterial lamb)
+            {
+                var s = (lamb.Attachement as XmlElement).OuterXml;
+                int i = -1;
+                s.Log(i);
+            }
+            return eff;
             if (mat.GetType() == typeof(PhongMaterial))
             {
                 return base.Create(effect);

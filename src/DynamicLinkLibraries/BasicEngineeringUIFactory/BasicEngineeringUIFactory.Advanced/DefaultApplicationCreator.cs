@@ -20,6 +20,7 @@ using CommonService;
 
 using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Advanced.Forms;
+using ErrorHandler;
 
 
 
@@ -52,7 +53,7 @@ namespace BasicEngineering.UI.Factory.Advanced
 
         IDatabaseCoordinator coordinator;
 
-        TextWriter log = null;
+        IExceptionHandler log = null;
 
         TestCategory.Interfaces.ITestInterface testInterface;
 
@@ -61,10 +62,11 @@ namespace BasicEngineering.UI.Factory.Advanced
         #region Ctor
 
         public DefaultApplicationCreator(IDatabaseCoordinator coordinator, LightDictionary<string, ButtonWrapper[]> buttons,
-            Icon icon, EngineeringUIFactory factory, ByteHolder holder, string filename, Action<double, double, int, int, int, IDesktop> start, 
+            Icon icon, EngineeringUIFactory factory, ByteHolder holder, string filename, 
+            Action<double, double, int, int, int, IDesktop> start, 
             Dictionary<string, object>[] resources, string text,
             string ext,  string fileFilter,
-            IApplicationInitializer initializer, TextWriter log,
+            IApplicationInitializer initializer, IExceptionHandler log,
             TestCategory.Interfaces.ITestInterface testInterface)
         {
             this.coordinator = coordinator;
@@ -169,7 +171,7 @@ namespace BasicEngineering.UI.Factory.Advanced
             }
         }
 
-        TextWriter IApplicationCreator.Log
+        IExceptionHandler IApplicationCreator.Log
         {
             get { return log; }
         }
@@ -193,7 +195,7 @@ namespace BasicEngineering.UI.Factory.Advanced
      bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons, Dictionary<string, object>[]
             resources,
             Icon icon, string filename, Action<double, double, int, int, int, IDesktop> start, string text,
-            string ext, string fileFilter, TextWriter log, TestCategory.Interfaces.ITestInterface testInterface)
+            string ext, string fileFilter, IExceptionHandler log, TestCategory.Interfaces.ITestInterface testInterface)
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor, 
@@ -211,7 +213,7 @@ namespace BasicEngineering.UI.Factory.Advanced
          IUIFactory[] factories,
       bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
              Icon icon, string filename, Dictionary<string, object>[] resources, string text,
-             string ext, string fileFilter, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+             string ext, string fileFilter, IExceptionHandler logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             StaticExtensionDiagramUIFactory.UIFactory = factory;

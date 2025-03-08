@@ -90,8 +90,8 @@ namespace Collada.Converters.MeshCreators
                 ex.HandleException();
             }
             Type[] types = [typeof(Source), typeof(Surface), typeof(Sampler2D), typeof(NewParam), typeof(Texture), typeof(Transparency), typeof(Transparent),
-            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Blinn), typeof(Effect), typeof(Material),
-          typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(PolyList),
+            typeof(Emission), typeof(Ambient),typeof(Specular), typeof(Phong), typeof(Lambert), typeof(Blinn), typeof(Effect), typeof(Material),
+            typeof(Instance_Material), typeof(BindMaterial), typeof(Vertices), typeof(Input), typeof(Triangles), typeof(PolyList),
             typeof(GeometryObject), typeof(InstanceGeomery), typeof(Node) ];
             foreach (var type in types)
             {
@@ -110,8 +110,6 @@ namespace Collada.Converters.MeshCreators
 
         }
 
-
-
         protected ColladaMeshCreator(string filename, XmlDocument doc) : base(filename, doc)
         {
             try
@@ -126,14 +124,10 @@ namespace Collada.Converters.MeshCreators
                 ex.HandleException();
             }
         }
-
-
-
         protected override void CreateAll()
         {
             PrepareData();
         }
-
 
         void CreateParams()
         {

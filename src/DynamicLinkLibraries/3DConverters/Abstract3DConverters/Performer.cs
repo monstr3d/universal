@@ -109,7 +109,6 @@ namespace Abstract3DConverters
             {
                 e.HandleException("PERFORMER CREATE");
                 throw new IncludedException(e, "PERFORMER CREATE");
-
             }
         }
 

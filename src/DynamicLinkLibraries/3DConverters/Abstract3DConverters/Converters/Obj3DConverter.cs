@@ -1,14 +1,13 @@
 ﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
-using Abstract3DConverters.Meshes;
 
 using ErrorHandler;
 
 namespace Abstract3DConverters.Converters
 {
-    /*
-    [Converter(".obj")]
+    
+    [Converter(".obj", true, true)]
     public class Obj3DConverter : LinesMeshConverter, IAdditionalInformation
     {
         #region Fields
@@ -107,24 +106,20 @@ namespace Abstract3DConverters.Converters
         protected override List<string> CreateLines(IMesh mesh)
         {
             var l = new List<string>();
-            if (!mesh.HasPolygons)
+            if (!s.HasVertices(mesh))
             {
                 return l;
-            }
-            if (mesh is AbstractMeshPolygon amp)
-            {
-                amp.CreateTriangles();
             }
             l.Add("");
             l.Add("#");
             l.Add("# object " + mesh.Name);
             l.Add("#");
             l.Add("");
-            var points = mesh.AbsolutePoints;
+        //    var points = mesh.AbsolutePoints;
             var vertices = mesh.AbsoluteVertices;
-            foreach (var point in points)
+            foreach (var v in vertices)
             {
-                l.Add("v  " + s.StringValue(point.Vertex));
+                l.Add("v  " + s.StringValue(v));
             }
             l.Add("# " + vertices.Count + " vertices");
             l.Add("");
@@ -137,46 +132,56 @@ namespace Abstract3DConverters.Converters
             }
             l.Add("# " + polygons.Count + " vertex normals");
             l.Add("");
-            foreach (var polygon in polygons)
+            if (false)
             {
-                foreach (var point in polygon.Points)
+                foreach (var polygon in polygons)
                 {
-                    var pt = point.Texture;
-                    var str = "vt " + s.StringValue(pt);
-                    if (pt.Length == 2)
+                    foreach (var point in polygon.Points)
                     {
-                        str += " 0.0000";
-                    }
-                    l.Add(str);
+                        var pt = point.Texture;
+                        var str = "vt " + s.StringValue(pt);
+                        if (pt.Length == 2)
+                        {
+                            str += " 0.0000";
+                        }
+                        l.Add(str);
 
+                    }
                 }
             }
-            var tc = 3 * polygons.Count;
-            l.Add("# " + tc + " texture coords");
+            var txt = mesh.Textures;
+            foreach (var t in txt)
+            {
+                var str = "vt " + s.StringValue(t);
+                if (t.Length == 2)
+                {
+                    str += " 0.0000";
+                }
+                l.Add(str);
+            }
+            l.Add("# " + txt.Count + " texture coords");
             l.Add("");
             l.Add("g " + mesh.Name);
             l.Add("usemtl " + mesh.Effect.Name);
             l.Add("s 1");
-
             for (int i = 0; i < polygons.Count; i++)
             {
                 var str = "f";
                 var polygon = polygons[i];
-                var tt = 3 * i + numtext;
                 var tn = i + numnorm;
-                for (int j = 0; j < polygon.Vertices.Count; j++)
+                for (int j = 0; j < polygon.Points.Length; j++)
                 {
-                    var vt = polygon.Vertices[j];
-                    int k = vertices.IndexOf(vt);
-                    str += " " + (k + numvert) + "/" + (tt + j) + "/" + tn;
+                    var p = polygon.Points[j];
+                    str += " " + (p.VertexIndex + numvert) + "/" + +(p.TextureIndex + numtext) + "/" + tn;
                 }
                 l.Add(str);
             }
             l.Add("# 0 polygons - " + polygons.Count + " triangles");
             numvert += vertices.Count;
-            numtext += tc;
+            numtext += txt.Count;
+            numnorm += mesh.Polygons.Count;
             return l;
         }
     }
-    */
+    
 }

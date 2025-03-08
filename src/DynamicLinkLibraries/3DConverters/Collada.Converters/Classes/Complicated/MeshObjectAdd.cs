@@ -1,13 +1,17 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Points;
 
 namespace Collada.Converters.Classes.Complicated
 {
-    partial class PolyList
+    partial class MeshObject 
     {
 
-
-        #region 
+        #region IMesh implementation
 
         List<float[]> IGeometry.Vertices => ProtectedVertices;
 
@@ -22,11 +26,11 @@ namespace Collada.Converters.Classes.Complicated
 
         List<int[][]> IMesh.Indexes => throw new NotImplementedException();
 
-   
-   
+
+
         List<float[]> IMesh.AbsoluteVertices => throw new NotImplementedException();
 
-   
+
         string IMesh.Name => throw new NotImplementedException();
 
         List<Polygon> IMesh.Polygons => Polygons;
@@ -41,7 +45,29 @@ namespace Collada.Converters.Classes.Complicated
             throw new NotImplementedException();
         }
 
+        void IMesh.CalculateAbsolute()
+        {
+            throw new NotImplementedException();
+        }
+
+
         #endregion
 
+        #region Own
+        protected List<float[]> ProtectedVertices { get; set; } = new List<float[]>();
+
+        protected List<float[]> ProtectedTextures { get; set; } = new List<float[]>();
+
+        protected List<float[]> ProtectedNormals { get; set; } = new List<float[]>();
+
+        internal List<Polygon> Polygons
+        {
+            get;
+            private set;
+        } = new List<Polygon>();
+
+        protected Abstract3DConverters.Materials.Effect Effect { get; private set; }
+
+        #endregion
     }
 }

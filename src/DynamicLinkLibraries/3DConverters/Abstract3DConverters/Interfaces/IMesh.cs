@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Abstract3DConverters.Materials;
+﻿using Abstract3DConverters.Materials;
 using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters.Interfaces
@@ -18,27 +15,15 @@ namespace Abstract3DConverters.Interfaces
         /// </summary>
         List<int[][]> Indexes { get; }
 
-        /// <summary>
-        /// Has polygons sign
-        /// </summary>
-        bool HasPolygons { get; }
 
-        /// <summary>
-        /// Absolute points
-        /// </summary>
-        List<Point> AbsolutePoints { get; }
-
+ 
         /// <summary>
         /// Absolute Vertices
         /// </summary>
         public List<float[]> AbsoluteVertices { get; }
 
 
-        /// <summary>
-        /// Transformation matrix
-        /// </summary>
-        float[] TransformationMatrix { get; }
-
+ 
         /// <summary>
         /// Gets effect
         /// </summary>
@@ -70,10 +55,9 @@ namespace Abstract3DConverters.Interfaces
         /// </summary>
         IMeshCreator Creator { get; }
 
-        /// <summary>
-        /// Points
+        /// Calculates absolute points
         /// </summary>
-        public List<Point> Points { get; }
+        void CalculateAbsolute();
 
     }
 }

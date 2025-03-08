@@ -1,9 +1,11 @@
-﻿using Abstract3DConverters.Interfaces;
-using Abstract3DConverters.Materials;
-using Abstract3DConverters.Points;
+﻿using System.Collections;
 using System.Reflection;
 using System.Text;
 using System.Xml;
+
+using Abstract3DConverters.Interfaces;
+using Abstract3DConverters.Materials;
+using Abstract3DConverters.Points;
 
 namespace Abstract3DConverters
 {
@@ -26,6 +28,49 @@ namespace Abstract3DConverters
 
 
         #region Service
+
+        /// <summary>
+        /// Checks wherether an array is empty
+        /// </summary>
+        /// <param name="array">The array</param>
+        /// <returns>True is empty</returns>
+        public bool IsEmpty(Array array)
+        {
+            if (array == null)
+            {
+                return true;
+            }
+            return array.Length == 0;
+        }
+
+        /// <summary>
+        /// Checks wherether an list is empty
+        /// </summary>
+        /// <param name="list">The list</param>
+        /// <returns>True is empty</returns>
+        public bool IsEmpty(IList list)
+        {
+            if (list == null)
+            {
+                return true;
+            }
+            return list.Count == 0;
+        }
+
+
+        /// <summary>
+        /// Maximal color
+        /// </summary>
+        /// <param name="color">Prototype</param>
+        /// <returns>Maximal color</returns>
+        public Color Maximal(Color color)
+        {
+            if (color != null)
+            {
+                return color;
+            }
+            return new Color(new float[] { 1f, 1f, 1f, 1f });
+        }
 
         /// <summary>
         /// Gets attribute
@@ -193,6 +238,44 @@ namespace Abstract3DConverters
         }
 
         /// <summary>
+        /// Has normals 
+        /// </summary>
+        /// <param name="mesh">The mesh</param>
+        /// <returns>True if the mesh has normals</returns>
+        public bool HasNormals(IMesh mesh)
+        {
+            if (mesh.Normals == null)
+            {
+                return false;
+            }
+            if (mesh.Normals.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// Has vertices 
+        /// </summary>
+        /// <param name="mesh">The mesh</param>
+        /// <returns>True if the mesh has vertices</returns>
+        public bool HasVertices(IMesh mesh)
+        {
+            if (mesh.Vertices == null)
+            {
+                return false;
+            }
+            if (mesh.Vertices.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Matrix point product
         /// </summary>
         /// <param name="a">Matrix</param>
@@ -202,6 +285,7 @@ namespace Abstract3DConverters
         {
             return null;
             /*
+            
             var vert = new float[3] { 0f, 0f, 0f };
             var v = point.Vertex;
             for (var i = 0; i < 3; i++)
@@ -214,9 +298,9 @@ namespace Abstract3DConverters
                 }
             }
             var n = point.Normal;
-            if (n == null)
+            if (n != null)
             {
-              return  new Point(vert);
+              return  new Point(vert, null);
             }
             var norm = new float[3] { 0f, 0f, 0f };
             for (var i = 0; i < 3; i++)
@@ -229,6 +313,49 @@ namespace Abstract3DConverters
             }
             var p = new Point(vert, norm);
             return p;*/
+        }
+
+        /// <summary>
+        /// Product of vertex
+        /// </summary>
+        /// <param name="a">Matrix</param>
+        /// <param name="v">Input</param>
+        /// <returns>Product</returns>
+        public float[] ProductVertex(float[,] a, float[] v)
+        {
+            var res = new float[2][];
+            var vert = new float[3];
+            for (var i = 0; i < 3; i++)
+            {
+                vert[i] = a[3, i];
+                for (var j = 0; j < 3; j++)
+                {
+                    vert[i] += a[i, j] * v[j];
+
+                }
+            }
+            return vert;
+        }
+
+        /// <summary>
+        /// Product of normal
+        /// </summary>
+        /// <param name="a">Matrix</param>
+        /// <param name="n">Input</param>
+        /// <returns>Product</returns>
+        public float[] ProductNormal(float[,] a, float[] n)
+        {
+            var norm = new float[3] { 0f, 0f, 0f };
+            for (var i = 0; i < 3; i++)
+            {
+                for (var j = 0; j < 3; j++)
+                {
+                    norm[i] += a[i, j] * n[j];
+
+                }
+            }
+
+            return norm;
         }
 
         /// <summary>

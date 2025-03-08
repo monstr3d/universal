@@ -81,7 +81,7 @@ namespace Collada.Converters.Classes.Complicated
             List<int[][]> t = null;
             var g = geom.Geometry;
             meshObject = g.Mesh;
-            var tr = meshObject.Triangles;
+            var tr = meshObject.Triangles[0];
             if (tr != null)
             {
                 int[] offs = new int[tr.Inputs.Count];
@@ -160,8 +160,8 @@ namespace Collada.Converters.Classes.Complicated
 
             try
             {
-                
-                var poly = meshObject.Polygon;
+
+                var poly = meshObject.PolyList;
                 if (poly == null)
                 {
                     return new AbstractMesh(name, Creator);

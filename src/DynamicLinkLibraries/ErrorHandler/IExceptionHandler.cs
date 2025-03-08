@@ -18,7 +18,7 @@ namespace ErrorHandler
         /// </summary>
         /// <param name="message">The message to show</param>
         /// <param name="obj">Attached object</param>
-        void ShowMessage(string message, object? obj = null);
+        void Log(string message, object? obj = null);
 
     }
 
@@ -28,7 +28,7 @@ namespace ErrorHandler
     /// <typeparam name="T">Type of exception</typeparam>
     public interface IExceptionHandler<T> where T : Exception
     {
-        void Handle(T exception);
+        void Handle(T exception, object? obj = null);
     }
 }
     /// <summary>

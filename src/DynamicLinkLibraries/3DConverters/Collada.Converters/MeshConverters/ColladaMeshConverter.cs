@@ -230,15 +230,11 @@ namespace Collada.Converters.MeshConverters
         string CreateGeometry(IMesh mesh)
         {
             var name = GeomName;
-            if (mesh.Vertices == null)
+            if (!s.HasVertices(mesh))
             {
                 return name;
             }
-            if (mesh.Vertices.Count == 0)
-            {
-                return name;
-            }
-             var e = Create("geometry");
+            var e = Create("geometry");
             e.SetAttribute("id", name);
             var r = doc.GetElementsByTagName("library_geometries")[0];
             r.AppendChild(e);
@@ -247,27 +243,12 @@ namespace Collada.Converters.MeshConverters
             //         if (mesh is AbstractMeshPolygon poly)
             if (true)
             {
-                if (mesh.Points != null | true)
+                if ( true)
                 {
                     if (true)//(mesh.Points.Count > 0 | true)
                     {
                         var vv = new List<float[]>();
                         var vn = new List<float[]>();
-                        if (false)
-                        {
-                            foreach (var pt in mesh.Points)
-                            {
-                                if (pt.Vertex != null)
-                                {
-                                    vv.Add(pt.Vertex);
-                                }
-                                if (pt.Normal != null)
-                                {
-                                    vn.Add(pt.Normal);
-                                }
-                            }
-                        }
-                       
                         var se = Create("source");
                         me.AppendChild(se);
                         se.SetAttribute("id", name + "-position");

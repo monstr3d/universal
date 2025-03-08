@@ -175,7 +175,7 @@ namespace Scada.Wpf.Common
         /// <param name="scada">SCADA</param>
         public static void CreateMessageBoxEventHandler(this Window window, IScadaInterface scada)
         {
-            scada.ErrorHandler = new MessageBoxErrorHandler(window);
+            scada.ExceptionHandler = new MessageBoxErrorHandler(window);
         }
 
         #endregion

@@ -91,8 +91,6 @@ namespace Abstract3DConverters.Converters
             return CreateLines(mesh);
         }
 
-
-
         protected virtual void Add(List<string> parent, List<string> child)
         {
             var m = parent;
@@ -101,8 +99,6 @@ namespace Abstract3DConverters.Converters
         }
 
         protected abstract List<string> CreateLines(IMesh mesh);
-
-
 
         #endregion
     }

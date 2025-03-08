@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-using Abstract3DConverters.Attributes;
+﻿using Abstract3DConverters.Attributes;
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 
@@ -28,6 +26,13 @@ namespace Abstract3DConverters.Converters
             set;
         }
 
+        protected bool RequiresAbsolute
+        {
+            get;
+            set;
+        }
+
+
 
         string directory;
 
@@ -42,8 +47,8 @@ namespace Abstract3DConverters.Converters
             if (ca != null)
             {
                 TrianglesOnly = ca.TrianglesOnly;
+                RequiresAbsolute = ca.RequiresAbsolute;
             }
-
         }
 
         #region 
@@ -121,6 +126,10 @@ namespace Abstract3DConverters.Converters
                 {
                     ct.CreateTriangles();
                 }
+            }
+            if (RequiresAbsolute)
+            {
+                mesh.CalculateAbsolute();
             }
             return null;
         }

@@ -269,7 +269,7 @@ namespace SQLServerWarehouse
             {
                 if (names.Contains(name))
                 {
-                    ("Name \"" + name + "\" already exists").ShowMessage();
+                    ("Name \"" + name + "\" already exists").Log();
                     return false;
                 }
                 return true;

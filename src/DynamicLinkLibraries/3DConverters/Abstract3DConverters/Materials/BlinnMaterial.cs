@@ -2,13 +2,12 @@
 
 namespace Abstract3DConverters.Materials
 {
-    public class BlinnMaterial : MaterialGroup, IAttachement
+    public class BlinnMaterial : AttachementMaterial
     {
         public BlinnMaterial(string name, object attachement) : base(name, attachement)
         {
 
         }
 
-        object IAttachement.Attachement => Attachement;
     }
 }

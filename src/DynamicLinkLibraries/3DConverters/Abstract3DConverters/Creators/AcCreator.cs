@@ -36,9 +36,7 @@ namespace Abstract3DConverters.Creators
 
         protected override IEnumerable<AbstractMesh> Meshes => meshes;
       
-       
-
-
+     
         #endregion
 
         internal Effect GetEffect(int i, Image image)

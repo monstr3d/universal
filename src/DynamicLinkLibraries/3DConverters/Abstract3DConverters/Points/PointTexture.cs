@@ -1,7 +1,7 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System.Diagnostics.CodeAnalysis;
+
+using Abstract3DConverters.Interfaces;
 using ErrorHandler;
-using System.Diagnostics.CodeAnalysis;
-using System.Formats.Tar;
 
 namespace Abstract3DConverters.Points
 {
@@ -10,6 +10,11 @@ namespace Abstract3DConverters.Points
     /// </summary>
     public class PointTexture
     {
+        #region Fields
+
+        Polygon polygon;
+
+        #endregion
 
         #region Ctor
 
@@ -82,13 +87,27 @@ namespace Abstract3DConverters.Points
             }
         }
 
-
-
-
-
         #endregion
 
         #region Properties
+
+        public Polygon Polygon
+        {
+            get => polygon;
+            set
+            {
+                if (polygon != null)
+                {
+                    return;
+                }
+                polygon = value;
+                if (Normal != null)
+                {
+                    return;
+                }
+                Normal = polygon.VertexNormal;
+            }
+        }
 
         /// <summary>
         /// Vertex

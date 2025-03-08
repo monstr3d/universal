@@ -55,7 +55,7 @@ namespace DataPerformer.UI.Utils
             lock (errorHandler)
             {
                 err[1] = c;
-                StaticExtensionErrorHandler.ShowMessage(message, err);
+                StaticExtensionErrorHandler.Log(message, err);
             }
         }
 

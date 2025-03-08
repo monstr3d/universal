@@ -2,6 +2,7 @@
 using System;
 using Collada;
 using Abstract3DConverters.Interfaces;
+using ErrorHandler;
 
 namespace Collada.Converters.Classes.Complicated
 {
@@ -18,12 +19,24 @@ namespace Collada.Converters.Classes.Complicated
         }
         private BindMaterial(XmlElement element) : base(element, null)
         {
-            var inst = element.Get<Instance_Material>();
-            if (inst == null)
+            try
             {
-                return;
+                var inst = element.GetAllChildren<Instance_Material>();
+                if (inst == null)
+                {
+                    return;
+                }
+                foreach (var i in inst)
+                {
+                    Effect = i.Effect;
+                    break;
+                }
             }
-            Effect = inst.Effect;
+            catch (Exception ex)
+            {
+                ex.HandleException("Bind material");
+                throw new IncludedException(ex, "Bind material");
+            }
 
         }
 

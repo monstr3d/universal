@@ -1,10 +1,11 @@
-﻿
+﻿using System.Xml;
+
 using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
+
 using Collada.Converters.Classes.Abstract;
+
 using ErrorHandler;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace Collada.Converters.Classes.Complicated
 {

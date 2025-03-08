@@ -11,9 +11,6 @@ namespace Collada.Converters.Classes.Elementary
     internal class Image : XmlHolder
     {
 
-        Service s = new ();
-
-
         public static IClear Clear => StaticExtensionCollada.GetClear<Image>();
 
 

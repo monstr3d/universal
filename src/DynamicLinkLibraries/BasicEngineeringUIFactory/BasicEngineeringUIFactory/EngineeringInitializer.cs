@@ -12,6 +12,7 @@ using DataWarehouse;
 using DataWarehouse.Interfaces;
 
 using EngineeringInitializer;
+using ErrorHandler;
 
 
 namespace BasicEngineering.UI.Factory
@@ -38,7 +39,7 @@ namespace BasicEngineering.UI.Factory
 
 
             Dictionary<string, object>[] resources;
-            private TextWriter logWriter = null;
+            private IExceptionHandler logWriter = null;
 
         #endregion
 
@@ -47,7 +48,7 @@ namespace BasicEngineering.UI.Factory
         public EngineeringInitializer(IDatabaseCoordinator coordinator, OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
            DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor diffProcessor,
            IApplicationInitializer[] initializers,
-            bool throwsRepeatException, Dictionary<string, object>[] resources, TextWriter logWriter)
+            bool throwsRepeatException, Dictionary<string, object>[] resources, IExceptionHandler logWriter)
         {
             this.coordinator = coordinator;
             this.ordSolver = ordSolver;

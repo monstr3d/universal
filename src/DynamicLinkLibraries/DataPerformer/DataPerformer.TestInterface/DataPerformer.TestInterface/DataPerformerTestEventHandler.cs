@@ -35,7 +35,7 @@ namespace DataPerformer.TestInterface
 
         #region IExceptionHandler Members
 
-        void IExceptionHandler.HandleException<T>(T exception, object obj)
+        void IExceptionHandler.HandleException<T>(T exception, object ? obj = null)
         {
             int level = -1;
             if (obj != null)
@@ -58,8 +58,9 @@ namespace DataPerformer.TestInterface
             throw exception;
         }
 
-        void IExceptionHandler.ShowMessage(string message, object obj)
+        void IExceptionHandler.Log(string message, object ? obj = null)
         {
+
         }
 
         #endregion
