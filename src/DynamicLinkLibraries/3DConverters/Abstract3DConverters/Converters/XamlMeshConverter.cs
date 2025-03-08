@@ -485,32 +485,40 @@ namespace Abstract3DConverters.Converters
 
         public override object SetImage(object material, object image)
         {
-            if (image == null)
+            try
             {
-                return material;
-            }
-            XmlElement e = material as XmlElement;
-            var d = e.GetElementsByTagName("DiffuseMaterial")[0];
-            var mat = materials[material];
-           
-            
-            foreach (var item in mat.Children)
-            {
-                if (item is DiffuseMaterial diffuse)
+                if (image == null)
                 {
-                    var im = image as Image;
-                    var br = Create("DiffuseMaterial.Brush");
-                    d.AppendChild(br);
-                    var ibr = Create("ImageBrush");
-                    br.AppendChild(ibr);
-                    var st = StaticExtensionAbstract3DConverters.UseDirectory ? im.FullPath : im.Name;
-                    ibr.SetAttribute("ImageSource", st);
-                    ibr.SetAttribute("ViewportUnits", "Absolute");
-                    ibr.SetAttribute("Opacity", diffuse.Opacity + "");
-                    break;
+                    return material;
                 }
+                XmlElement e = material as XmlElement;
+                var d = e.GetElementsByTagName("DiffuseMaterial")[0];
+                var mat = materials[material];
+
+
+                foreach (var item in mat.Children)
+                {
+                    if (item is DiffuseMaterial diffuse)
+                    {
+                        var im = image as Image;
+                        var br = Create("DiffuseMaterial.Brush");
+                        d.AppendChild(br);
+                        var ibr = Create("ImageBrush");
+                        br.AppendChild(ibr);
+                        var st = StaticExtensionAbstract3DConverters.UseDirectory ? im.FullPath : im.Name;
+                        ibr.SetAttribute("ImageSource", st);
+                        ibr.SetAttribute("ViewportUnits", "Absolute");
+                        ibr.SetAttribute("Opacity", diffuse.Opacity + "");
+                        break;
+                    }
+                }
+                return e;
             }
-            return e;
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("XamlMaterialCreator Set Image");
+            }
+            return null;
         }
 
 

@@ -1,6 +1,9 @@
-﻿using Abstract3DConverters.Interfaces;
+﻿using System.Linq;
+using System.Linq.Expressions;
+using Abstract3DConverters.Interfaces;
 using Abstract3DConverters.Materials;
 using Abstract3DConverters.Meshes;
+using ErrorHandler;
 
 namespace Abstract3DConverters.Creators
 {
@@ -33,20 +36,20 @@ namespace Abstract3DConverters.Creators
 
 
         #endregion
-/*
-        internal List<List<float[]>> VerticesGlobal { get; } = new();
-        internal List<List<float[]>> TexturesGlobal { get; } = new();
-        internal List<List<float[]>> NormalsGlobal { get; } = new();
-*/
 
         Dictionary<string, byte[]> IAdditionalInformation.Information => CreateAdd();
+
         internal List<float[]> Vertices { get; private set; } = new List<float[]>();
         internal List<float[]> Normals  { get; private set; } = new List<float[]>();
         internal List<float[]> Textures { get; private set; } = new List<float[]>();
 
         internal List<List<int[][]>> Indexes { get; private set; } = new();
 
-        internal List<string> Names { get; private set; } = new();
+        internal List<string> Names 
+        {   
+            get; 
+            private set; 
+        } = new();
         internal int[] Shifts { get; private set; } = [1, 1, 1];
 
         internal List<Effect> EffectList { get; private set; } = new();
@@ -66,92 +69,94 @@ namespace Abstract3DConverters.Creators
 
         void CreateGeometry()
         {
-             List<int[][]> indexes = null;
-
-            foreach (var line in lines)
+            try
             {
-                var objs = "# object ";
-                if (line.Contains(objs))
-                {
-                  /*  if (indexes != null)
-                    {
-                        Shifts[0] += Vertices.Count;
-                        Shifts[1] += Textures.Count;
-                        Shifts[2] += Normals.Count;
-                    }
-                  */
-                    var name = line.Substring(objs.Length).Trim();
-                    Names.Add(name);
-                    indexes = new();
-                    Indexes.Add(indexes);
-             /*       Vertices = new();
-                    VerticesGlobal.Add(Vertices);
-                    Normals = new();
-                    NormalsGlobal.Add(Normals);
-                    Textures = new();
-                    TexturesGlobal.Add(Textures);*/
-                    continue;
-                }
+                List<int[][]> indexes = null;
 
-                if (line.IndexOf("v ") == 0)
+                foreach (var line in lines)
                 {
-                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
-                    Vertices.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vt ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
-                    Textures.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vn ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
-                    Normals.Add(f);
-                    continue;
-                }
-                if (line.StartsWith("usemtl "))
-                {
-                    var mat = line.Substring("usemtl ".Length);
-                    var effect = Effects[mat];
-                    EffectList.Add(effect);
-                    continue;
-                }
-                if (line.IndexOf("f ") == 0)
-                {
-                    var s = line.Substring("f ".Length).Trim();
-                    var ss = s.Split(" ".ToCharArray());
-                    var ind = new int[ss.Length][];
-                    for (int j = 0; j < ss.Length; j++)
+                    var objs = "# object ";
+                    
+                    if (line.Contains(objs)  | line.StartsWith("g "))
                     {
-                        var sss = ss[j].Split("/".ToCharArray());
-                        var i = new int[sss.Length];
-                        ind[j] = i;
-                        //var k =  new int[sss.Length];
-                        for (int m = 0; m < sss.Length; m++)
+                        var name = s.ToString(line, "g");
+                        if (name == null)
                         {
-                            if (sss[m].Length == 0)
+                            name = line.Substring(objs.Length).Trim();
+                        }
+                        Names.Add(name);
+                        indexes = new();
+                        Indexes.Add(indexes);
+                        continue;
+                    }
+
+                    if (line.IndexOf("v ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
+                        Vertices.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vt ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
+                        Textures.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vn ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
+                        Normals.Add(f);
+                        continue;
+                    }
+                    if (line.StartsWith("usemtl "))
+                    {
+                        var mat = line.Substring("usemtl ".Length);
+                        var effect = Effects[mat];
+                        EffectList.Add(effect);
+                        continue;
+                    }
+                    if (line.IndexOf("f ") == 0)
+                    {
+                        var s = line.Substring("f ".Length).Trim();
+                        var ss = s.Split(" ".ToCharArray());
+                        var ind = new int[ss.Length][];
+                        for (int j = 0; j < ss.Length; j++)
+                        {
+                            var sss = ss[j].Split("/".ToCharArray());
+                            var i = new int[3] { -1, -1, -1 };
+                            ind[j] = i;
+                            //var k =  new int[sss.Length];
+                            for (int m = 0; m < sss.Length; m++)
                             {
-                                i[m] = -1;
-                            }
-                            else
-                            {
-                                i[m] = int.Parse(sss[m]) - 1;// Shifts[m];
+                                if (sss[m].Length == 0)
+                                {
+                                    i[m] = -1;
+                                }
+                                else
+                                {
+                                    i[m] = int.Parse(sss[m]) - 1;// Shifts[m];
+                                }
                             }
                         }
+                        indexes.Add(ind);
+                        continue;
                     }
-                    indexes.Add(ind);
-                    continue;
-                }
 
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("Create geometry Obj creator");
             }
         }
 
-
-
         Dictionary<string, byte[]> CreateAdd()
         {
+            if (mtlfile == null)
+            {
+                add = null;
+                return null;
+            }
             if (add == null)
             {
                 using (Stream stream = File.OpenRead(mtlfile))
@@ -413,7 +418,7 @@ namespace Abstract3DConverters.Creators
                 }
             }
         }
- 
+
         void CreateMaterials()
         {
             foreach (var line in lines)
@@ -429,11 +434,71 @@ namespace Abstract3DConverters.Creators
                     {
                         Effects[mat.Key] = mat.Value;
                     }
-  //                  images = s.GetImages(Effects.Values);
                     break;
                 }
             }
+            if (Effects.Count == 0)
+            {
+                var l = (from line in lines
+                         where s.ToString(line, "usemtl") != null
+                         select
+                         CreateEffect(line)).ToArray();
+               //          var l = lines.Select(str => s.ToString(str)); ;
+            }
         }
+
+
+        string[] ext = [".png", ".jpg"];
+
+        string Exists(string file)
+        {
+            var d = creator.Directory;
+            var filename = Path.Combine(d, file);
+            if (File.Exists(filename))
+            {
+                return filename;
+            }
+            foreach (var e in ext)
+            {
+                var fn = filename + e;
+                if (File.Exists(fn))
+                {
+                    return fn;
+                }
+            }
+            var f = file.Replace("_", " ");
+            f = Path.Combine(d, f);
+            if (File.Exists(f))
+            {
+                return f;
+            }
+            foreach (var e in ext)
+            {
+                var fn = f + e;
+                if (File.Exists(fn))
+                {
+                    return fn;
+                }
+            }
+            return null;
+        }
+
+        Effect CreateEffect(string str)
+        {
+            var f = s.ToString(str, "usemtl");
+            var file = Exists(f);
+            Image image = null;
+            if (file != null)
+            {
+                var inm = Path.GetFileName(file);
+                image = new Image(inm, creator.Directory);
+            }
+            var ff = new float[] { 1f, 1f, 1f, 1f };
+            var d = new DiffuseMaterial(new Color(ff), new Color(ff), 1f);
+            var mat = new MaterialGroup(f);
+            mat.Children.Add(d);
+            return new Effect(this, f, mat, image);
+       }
 
    
         void Create(string name = null)

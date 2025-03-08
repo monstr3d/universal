@@ -64,14 +64,17 @@ namespace ExportToWpf
             var p = new Performer();
             var converter = new Abstract3DConverters.Converters.XamlMeshConverter();
             var res = p.Create<object>(creator, converter);
-            
+
             //    res.SetLight();
             if (creator is IAdditionalInformation add)
             {
                 var dic = add.Information;
-                foreach (var key in dic.Keys)
+                if (dic != null)
                 {
-                    d[key] = dic[key];
+                    foreach (var key in dic.Keys)
+                    {
+                        d[key] = dic[key];
+                    }
                 }
             }
             if (res is XmlDocument)
@@ -80,10 +83,10 @@ namespace ExportToWpf
             }
             IStringRepresentation stringRepresentation = converter;
             var r = stringRepresentation.ToString(res);
-            using var w = new StreamWriter(@"c:\0\1.txt");
-            w.AutoFlush = true;
-            w.Write(r);
-            w.Flush();
+     //       using var w = new StreamWriter(@"c:\0\1.txt");
+       //     w.AutoFlush = true;
+      // //     w.Write(r);
+        //    w.Flush();
             return new Tuple<object, Dictionary<string, byte[]>>(r, d);
         }
 

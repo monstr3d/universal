@@ -241,13 +241,15 @@ namespace Abstract3DConverters
             CreateAndSave(fileinput, bytes, converter, converterDirectory, outs, act);
             if (converter is IAdditionalInformation add)
             {
-                foreach (var dd in add.Information)
+                if (add.Information != null)
                 {
-                    using var addStream = File.OpenWrite(Path.Combine(converterDirectory, dd.Key));
-                    addStream.Write(dd.Value);
+                    foreach (var dd in add.Information)
+                    {
+                        using var addStream = File.OpenWrite(Path.Combine(converterDirectory, dd.Key));
+                        addStream.Write(dd.Value);
+                    }
                 }
             }
-
         }
 
         /// <summary>

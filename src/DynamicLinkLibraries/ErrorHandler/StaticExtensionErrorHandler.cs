@@ -41,6 +41,17 @@
         }
 
         /// <summary>
+        /// Shows exception double
+        /// </summary>
+        /// <param name="exception">Exception</param>
+        /// <param name="obj">Attached object</param>
+        static public void HandleExceptionDouble(this Exception exception, object obj = null)
+        {
+            exceptionHandler?.HandleException(exception, obj);
+            throw new IncludedException(exception, obj + "");
+        }
+
+        /// <summary>
         /// Shows message
         /// </summary>
         /// <param name="message">The message to show</param>

@@ -14,7 +14,7 @@ namespace Abstract3DConverters.Meshes
         {
             get;
         } = new();
-      
+
         internal int Shift
         {
             get;
@@ -35,268 +35,279 @@ namespace Abstract3DConverters.Meshes
 
         internal AbstractMeshObj(int number, Obj3DCreator creator) : base(null, creator)
         {
-            /* Vertices = creator.VerticesGlobal[number];
-             Textures = creator.TexturesGlobal[number];
-             Normals = creator.NormalsGlobal[number];*/
-            Effect = creator.EffectList[number];
-            Vertices = creator.Vertices;
-            Textures = creator.Textures;
-            Normals = creator.Normals;
-            Polygons = new();
-            var indexes = creator.Indexes[number];
-            Name = creator.Names[number];
-  //          Points = new();
-            Polygons = new();
-            foreach (var ind in indexes)
+            try
             {
-                var l = new List<PointTexture>();
-                foreach (var i in ind)
+                Effect = creator.EffectList[number];
+                Vertices = creator.Vertices;
+                Textures = creator.Textures;
+                Normals = creator.Normals;
+                Polygons = new();
+                var indexes = creator.Indexes[number];
+                Name = creator.Names[number];
+                Polygons = new();
+                foreach (var ind in indexes)
                 {
-                    var point = new PointTexture(this, i[0], i[1], i[2]);
-                    l.Add(point);
+                    var l = new List<PointTexture>();
+                    foreach (var i in ind)
+                    {
+                        var point = new PointTexture(this, i[0], i[1], i[2]);
+                        l.Add(point);
+                    }
+                    var polygon = new Polygon(this, l.ToArray(), Effect);
+                    Polygons.Add(polygon);
                 }
-                var polygon = new Polygon(this, l.ToArray(), Effect);
-                Polygons.Add(polygon);
-            }
-            return;
-            var direct = new Dictionary<int, int>();
+                return;
+                var direct = new Dictionary<int, int>();
 
-            foreach (var idx in indexes)
-            {
-                var pp = new List<PointTexture>();
-                foreach (var item in idx)
+                foreach (var idx in indexes)
                 {
-                    float[] norm = null;
-                    int nv = -1;
-                    int nn = -1;
-                    int nt = -1;
-                    var iv = item[0] - 1;
-                    var it = item[1] - 1;
-                    var ino = -1;
-                    if (item.Length > 2)
+                    var pp = new List<PointTexture>();
+                    foreach (var item in idx)
                     {
-                        ino = item[2] - 1;
+                        float[] norm = null;
+                        int nv = -1;
+                        int nn = -1;
+                        int nt = -1;
+                        var iv = item[0] - 1;
+                        var it = item[1] - 1;
+                        var ino = -1;
+                        if (item.Length > 2)
+                        {
+                            ino = item[2] - 1;
+                        }
+                        if (direct.ContainsKey(iv))
+                        {
+                            nv = direct[iv];
+                        }
+                        else
+                        {
+                        }
+                        try
+                        {
+                            var k = Global[nv];
+                            var txt = new PointTexture(this, nv, k[0], k[1]);
+                            pp.Add(txt);
+                        }
+                        catch (Exception e)
+                        {
+                            e.HandleException();
+                            throw new IncludedException(e, "OBJ TEXUTRE ERROR");
+                        }
                     }
-                    if (direct.ContainsKey(iv))
-                    {
-                        nv = direct[iv];
-                    }
-                    else
-                    {
-                    }
-                    try
-                    {
-                        var k = Global[nv];
-                        var txt = new PointTexture(this, nv, k[0], k[1]);
-                        pp.Add(txt);
-                    }
-                    catch (Exception e)
-                    {
-                        e.HandleException();
-                        throw new IncludedException(e, "OBJ TEXUTRE ERROR");
-                    }
+                    Polygons.Add(new Polygon(this, pp.ToArray(), Effect));
                 }
-                Polygons.Add(new Polygon(this, pp.ToArray(), Effect));
             }
- 
-           
+            catch (Exception exception)
+            {
+                exception.HandleExceptionDouble("AbstractMeshObj 1");
+            }
+
+
         }
 
 
 
         internal AbstractMeshObj(string name, Obj3DCreator objCreator, int begin, out int end, out string nextName, int[] shift, List<string> lines) : base(name, objCreator)
         {
-            Shift = shift[0];
-            ShiftTexture = shift[1];
-            ShiftNormal = shift[2];
+            nextName = "";
             end = 0;
-            nextName = null;
-            var vertices = new List<float[]>();
-            var textures = new List<float[]>();
-            var normals = new List<float[]>();
-            var indexes = new List<int[][]>();
-            Material material = null;
-            var textureVertex = new Dictionary<int, int>();
-            var vertexTexture = new Dictionary<int, int>();
-            for (var k = begin; k < lines.Count; k++)
+            try
             {
-                var line = lines[k];
-                var objs = "# object ";
-                if (line.Contains(objs))
+                Shift = shift[0];
+                ShiftTexture = shift[1];
+                ShiftNormal = shift[2];
+                end = 0;
+                nextName = null;
+                var vertices = new List<float[]>();
+                var textures = new List<float[]>();
+                var normals = new List<float[]>();
+                var indexes = new List<int[][]>();
+                Material material = null;
+                var textureVertex = new Dictionary<int, int>();
+                var vertexTexture = new Dictionary<int, int>();
+                for (var k = begin; k < lines.Count; k++)
                 {
-                    nextName = line.Substring(objs.Length).Trim();
-                    end = k + 1;
-                    break;
-                }
-
-                if (line.IndexOf("v ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
-                    vertices.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vt ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
-                    textures.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vn ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
-                    normals.Add(f);
-                    continue;
-                }
-                if (line.StartsWith("usemtl "))
-                {
-                    var mat = line.Substring("usemtl ".Length);
-                    Effect = Creator.Effects[mat];
-                    continue;
-                }
-                if (line.IndexOf("v ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
-                    vertices.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vt ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
-                    textures.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("vn ") == 0)
-                {
-                    var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
-                    normals.Add(f);
-                    continue;
-                }
-                if (line.IndexOf("f ") == 0)
-                {
-                    var tt = new int[2] { -1, -1 };
-                    var s = line.Substring("f ".Length).Trim();
-                    var ss = s.Split(" ".ToCharArray());
-                    var ind = new int[ss.Length][];
-                    for (int j = 0; j < ss.Length; j++)
+                    var line = lines[k];
+                    var objs = "# object ";
+                    if (line.Contains(objs))
                     {
-                        var sss = ss[j].Split("/".ToCharArray());
-                        var i = new int[sss.Length];
-                        ind[j] = i;
-                        //var k =  new int[sss.Length];
-                        for (int m = 0; m < sss.Length; m++)
+                        nextName = line.Substring(objs.Length).Trim();
+                        end = k + 1;
+                        break;
+                    }
+
+                    if (line.IndexOf("v ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
+                        vertices.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vt ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
+                        textures.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vn ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
+                        normals.Add(f);
+                        continue;
+                    }
+                    if (line.StartsWith("usemtl "))
+                    {
+                        var mat = line.Substring("usemtl ".Length);
+                        Effect = Creator.Effects[mat];
+                        continue;
+                    }
+                    if (line.IndexOf("v ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("v ".Length).Trim());
+                        vertices.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vt ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vt ".Length).Trim());
+                        textures.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("vn ") == 0)
+                    {
+                        var f = s.ToRealArray<float>(line.Substring("vn ".Length).Trim());
+                        normals.Add(f);
+                        continue;
+                    }
+                    if (line.IndexOf("f ") == 0)
+                    {
+                        var tt = new int[2] { -1, -1 };
+                        var s = line.Substring("f ".Length).Trim();
+                        var ss = s.Split(" ".ToCharArray());
+                        var ind = new int[ss.Length][];
+                        for (int j = 0; j < ss.Length; j++)
                         {
-                            if (sss[m].Length == 0)
+                            var sss = ss[j].Split("/".ToCharArray());
+                            var i = new int[sss.Length];
+                            ind[j] = i;
+                            //var k =  new int[sss.Length];
+                            for (int m = 0; m < sss.Length; m++)
                             {
-                                i[m] = -1;
+                                if (sss[m].Length == 0)
+                                {
+                                    i[m] = -1;
+                                }
+                                else
+                                {
+                                    i[m] = int.Parse(sss[m]) - shift[m];
+                                }
+                            }
+                            if (i.Length == 3)
+                            {
+                                textureVertex[i[1]] = i[0];
                             }
                             else
                             {
-                                i[m] = int.Parse(sss[m]) - shift[m];
+                                textureVertex[i[1]] = i[0];
                             }
+                            vertexTexture[i[0]] = i[1];
                         }
-                        if (i.Length == 3)
-                        {
-                            textureVertex[i[1]] = i[0];
-                        }
-                        else
-                        {
-                            textureVertex[i[1]] = i[0];
-                        }
-                        vertexTexture[i[0]] = i[1];
-                    }
-                    indexes.Add(ind);
-                    throw new Exception();
-                    continue;
-                }
-            }
-            if (end == 0)
-            {
-                end = lines.Count;
-            }
-            shift[0] += vertices.Count;
-            shift[1] += textures.Count;
-            shift[2] += normals.Count;
-            var points = new Dictionary<int, Point>();
-            var dic = new Dictionary<int, int[]>();
-            Normals = normals;
-            foreach (var ind in indexes)
-            {
-                foreach (var item in ind)
-                {
-                    int id = item[0];
-                    if (points.ContainsKey(id))
-                    {
+                        indexes.Add(ind);
+                        throw new Exception();
                         continue;
                     }
-                    float[] vert = null;
-                    if (id < 0)
+                }
+                if (end == 0)
+                {
+                    end = lines.Count;
+                }
+                shift[0] += vertices.Count;
+                shift[1] += textures.Count;
+                shift[2] += normals.Count;
+                var points = new Dictionary<int, Point>();
+                var dic = new Dictionary<int, int[]>();
+                Normals = normals;
+                foreach (var ind in indexes)
+                {
+                    foreach (var item in ind)
                     {
-                        if (id >= vertices.Count)
+                        int id = item[0];
+                        if (points.ContainsKey(id))
                         {
                             continue;
                         }
-                    }
-                    vert = vertices[id];
-                    float[] txt = null;
-                    var idt = item[1];
-                    if (idt >= 0)
-                    {
-                        if (idt <= textures.Count)
+                        float[] vert = null;
+                        if (id < 0)
                         {
-                            txt = textures[idt];
-                        }
-                    }
-                    float[] norm = null;
-                    var idn = -1;
-                    if (item.Length > 2)
-                    {
-                        idn = item[2];
-                        norm = null;
-                        if (idn >= 0)
-                        {
-                            if (idn <= normals.Count)
+                            if (id >= vertices.Count)
                             {
-                                norm = normals[idn];
+                                continue;
                             }
                         }
+                        vert = vertices[id];
+                        float[] txt = null;
+                        var idt = item[1];
+                        if (idt >= 0)
+                        {
+                            if (idt <= textures.Count)
+                            {
+                                txt = textures[idt];
+                            }
+                        }
+                        float[] norm = null;
+                        var idn = -1;
+                        if (item.Length > 2)
+                        {
+                            idn = item[2];
+                            norm = null;
+                            if (idn >= 0)
+                            {
+                                if (idn <= normals.Count)
+                                {
+                                    norm = normals[idn];
+                                }
+                            }
+                        }
+                        var point = new Point(vert, norm);
+                        points[id] = point;
+                        dic[id] = item;
                     }
-                    var point = new Point(vert, norm);
-                    points[id] = point;
-                    dic[id] = item;
+                }
+
+                var l = new List<int>(points.Keys);
+                l.Sort();
+                var dp = new Dictionary<int, int>();
+                Polygons = new();
+                foreach (var ind in indexes)
+                {
+                    var li = new List<PointTexture>();
+                    foreach (var item in ind)
+                    {
+                        var idn = -1;
+                        if (Normals != null)
+                        {
+                            if (Normals.Count > 0)
+                            {
+                                if (item.Length > 2)
+                                {
+                                    idn = item[2];
+                                }
+                            }
+                        }
+                        var nv = item[0];
+                        var k = Global[nv];
+                        var pt = new PointTexture(this, nv, k[0], k[1]);
+                        li.Add(pt);
+
+                    }
+                    // li.Add(dp[item[0]]);
+                    var pl = new Polygon(this, li.ToArray(), Effect);
+                    Polygons.Add(pl);
                 }
             }
-
-            var l = new List<int>(points.Keys);
-            l.Sort();
-            var dp = new Dictionary<int, int>();
-            Polygons = new();
-            foreach (var ind in indexes)
+            catch (Exception exception)
             {
-                var li = new List<PointTexture>();
-                foreach (var item in ind)
-                {
-                    var idn = -1;
-                    if (Normals != null)
-                    {
-                        if (Normals.Count > 0)
-                        {
-                            if (item.Length > 2)
-                            {
-                                idn = item[2];
-                            }
-                        }
-                    }
-                    var nv = item[0];
-                    var k = Global[nv];
-                    var pt = new PointTexture(this, nv, k[0], k[1]);
-                    li.Add(pt);
-
-                }
-                // li.Add(dp[item[0]]);
-                var pl = new Polygon(this, li.ToArray(), Effect);
-                Polygons.Add(pl);
+                exception.HandleExceptionDouble("AbstractMeshObj 2");
             }
         }
     }
-    
 }
