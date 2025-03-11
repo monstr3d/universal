@@ -2,11 +2,12 @@
 
 namespace Abstract3DConverters.ErrorHandlers
 {
-    public class TextWiterErrorHandler :  IExceptionHandler
+    public class TextWiterErrorHandler :  IExceptionHandler, IDisposable
     {
         TextWriter writer;
 
         Action<Exception, TextWriter> stop;
+        List<string> l = new List<string>();
 
         public TextWiterErrorHandler(TextWriter writer, Action<Exception, TextWriter> stop = null)
         {
@@ -18,7 +19,7 @@ namespace Abstract3DConverters.ErrorHandlers
         {
             if (Check(obj))
             {
-                writer.WriteLine(exception.Message);
+                l.Add(exception.Message);
                 stop?.Invoke(exception, writer);
                
             }
@@ -28,7 +29,7 @@ namespace Abstract3DConverters.ErrorHandlers
         {
             if (Check(obj))
             {
-                writer.WriteLine(message);
+                l.Add(message);
             }
         }
 
@@ -43,6 +44,16 @@ namespace Abstract3DConverters.ErrorHandlers
                 }
             }
             return true;
+        }
+
+        void IDisposable.Dispose()
+        {
+            foreach (var s in l)
+            {
+                writer.WriteLine(s);
+            }
+            writer.Flush();
+            writer.Dispose();
         }
     }
 }

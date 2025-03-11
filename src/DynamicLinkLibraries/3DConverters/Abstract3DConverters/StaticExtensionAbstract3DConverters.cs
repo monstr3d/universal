@@ -107,6 +107,13 @@ namespace Abstract3DConverters
             var drs = Directory.GetDirectories(directory);
             foreach (var d in drs)
             {
+                var dt = Path.GetFileName(d);
+                if (ext.Contains(dt))
+                {
+                    var di = new DirectoryInfo(d);
+                    di.Delete(true);
+                    continue;
+                }
                 TestDirectoryPrivate(d, ext, ld);
             }
             var directoryInfo = new DirectoryInfo(directory);
@@ -304,9 +311,9 @@ namespace Abstract3DConverters
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                e.HandleException();
+                exception.HandleException("Init assembly 3D convertes");
             }
         }
 

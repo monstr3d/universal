@@ -1,11 +1,14 @@
-﻿using Abstract3DConverters;
+﻿using System.Net.WebSockets;
+using Abstract3DConverters;
+using Abstract3DConverters.ConsoleTest;
 using Abstract3DConverters.ErrorHandlers;
 
 using ErrorHandler;
 
 Console.WriteLine("Hello, World!");
+var dir = @"c:\AUsers\1MySoft\CSharp\03D\GOOD";
 
-using var writer = new StreamWriter(@"c:\0\GOOD\1.log", false);
+var writer = new StreamWriter(Path.Combine(dir, "1.log"), false);
 
 var a = (Exception e, TextWriter t) =>
 {
@@ -13,9 +16,13 @@ var a = (Exception e, TextWriter t) =>
 };
 
 
-var eh = new TextWiterErrorHandler(writer, a);
 
-eh.Set();
+
+using var eh = new TextWiterErrorHandler(writer);
+
+var hand = new ExceptionHandlerCollection([eh, new ConsoleExceptionHandler()]);
+
+hand.Set();
 
 StaticExtensionAbstract3DConverters.FileTypes = new Dictionary<string, Tuple<string[], string>>()
             {
@@ -30,14 +37,13 @@ StaticExtensionAbstract3DConverters.UseDirectory = true;
 
 try
 {
-
-    @"c:\0\GOOD".TestDirectory();
+    dir.TestDirectory();
 }
 catch (Exception e)
 {
     e.HandleException();
 }
 
-writer.Flush();
+//writer.Flush();
 
-writer.Dispose();
+//writer.Dispose();
